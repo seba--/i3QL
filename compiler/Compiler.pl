@@ -55,29 +55,30 @@
 			"ast" and "on_entry" to show the program's ast after execution of the
 			phase and "on_entry" to signal that the phase is entered.
 */
+%%%% 1. LOADING AND CHECKING
 phase(pl_load,execute,[on_entry,reading_file,ast]). %Debug flags: ast, on_entry, reading_file
-phase(pl_normalize,execute,[on_entry,ast]) :- % Debug flags: ast, on_entry
-	phase(pl_load,execute,_).
-phase(pl_check,execute,[on_entry]) :- % Debug flags: on_entry
-	phase(pl_normalize,execute,_).
-phase(pl_determinacy_analysis,execute,[on_entry,ast]) :-
+phase(pl_normalize,execute,[on_entry,ast]) :- phase(pl_load,execute,_).
+phase(pl_check,execute,[on_entry]) :- phase(pl_normalize,execute,_).
+	
+%%%% 2. ANALYSES
+phase(pl_determinacy_analysis,execute,[on_entry,ast]) :- 
 	phase(pl_normalize,execute,_).
 %phase(pl_call_graph,omit,[on_entry,ast]) :- % Debug flags: on_entry,ast
 %	phase(pl_check,execute,_).
 %phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
-phase(pl_last_call_optimization_analysis,execute,[on_entry,ast]) :-
+phase(pl_last_call_optimization_analysis,omit,[on_entry,ast]) :-
 	phase(pl_determinacy_analysis,execute,_).
+	
+%%%% 3. TRANSFORMATION TO OO	
 phase(pl_name_variables,execute,[on_entry,ast]) :- % Debug flags: on_entry, ast
 	phase(pl_normalize,execute,_).
-
 phase(pl_to_oo,execute,[on_entry,processing_predicate]) :-
 	phase(pl_determinacy_analysis,execute,_),
-	% The code generation phase depends on the variable naming phase.
 	phase(pl_name_variables,execute,_).
 	
-phase(oo_to_scala,execute,[on_entry,processing_predicate]) :-
-	% The code generation phase depends on the variable naming phase.
-	phase(pl_name_variables,execute,_).
+%%%% 4. CODE GENERATION
+phase(oo_to_scala,omit,[on_entry,processing_predicate]) :-
+	phase(pl_to_oo,execute,_).
 
 
 

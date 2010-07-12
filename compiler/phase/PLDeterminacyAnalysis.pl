@@ -69,13 +69,12 @@ pl_determinacy_analysis(Debug,Program,_OutputFolder,NProgram) :-
 
 
 
-process_predicates([],[]).
+process_predicates([],[]) :- !.
 process_predicates([Predicate|Predicates],NProgram) :- 
-	(
-		Predicate = pred(_,[],_), % built-in predicate
+	Predicate = pred(ID,Clauses,PredicateProperties),
+	( 	Clauses = [] -> % built-in predicate
 		NPredicate = Predicate
 	;
-		Predicate = pred(ID,Clauses,PredicateProperties),
 		analyze_cut_behavior(Clauses,NClauses),
 		NPredicate = pred(ID,NClauses,PredicateProperties)
 	),
@@ -85,7 +84,7 @@ process_predicates([Predicate|Predicates],NProgram) :-
 
 
 
-analyze_cut_behavior([],[]).
+analyze_cut_behavior([],[]) :- !.
 analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 	analyze_cut_behavior(Clause,Properties,NProperties),
 	NClauses=[(Clause,NProperties)|OtherNClauses],
@@ -104,7 +103,7 @@ analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 	</p>
 */
 analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
-	cuts(B,R), % R is either always,sometimes (can happen if ";" is used),never
+	cuts(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
 	NProperties = [(cut=R)|Properties].
 
 /* <b>Semantics of "->"</b>
@@ -156,19 +155,19 @@ analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
 	either "always", "sometimes" or "never".
 */
 cuts(T,B) :-
-	T = ! -> B = always ;
-	T = (L,R) -> (
+	T = '!' -> B = always ;
+	(T = (L,R) -> (
 		cuts(L,LCB),
 		cuts(R,RCB),
 		(
-			(LCB = always ; RCB = always),!,B = always
+			(LCB = always ; RCB = always),!, B = always
 		;
 			(LCB = sometimes ; RCB = sometimes),!, B = sometimes 
 		;
 			B = never
 		)	
 	);
-	T = (L;R) -> (
+	(T = (L;R) -> (
 		cuts(L,LCB),
 		cuts(R,RCB),
 		(
@@ -185,7 +184,8 @@ cuts(T,B) :-
 			B = sometimes
 		)
 	);
-	B = never.
+	B = never
+	)).
 
 
 	
