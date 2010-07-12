@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+License (BSD Style License):
+Copyright (c) 2010
+Software Engineering
+Department of Computer Science
+Darmstadt University of Technology
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+- Neither the name of the Software Technology Group or Technische 
+  Universität Darmstadt nor the names of its contributors may be used to 
+  endorse or promote products derived from this software without specific 
+  prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.	
+
+Revision	$Date: 2010-05-07 09:58:45 +0200 (Fri, 07 May 2010) $ $Rev: 1533 $
+Author 		Michael Eichberg (mail@michael-eichberg.de)
+-->
+<project name="SAE" default="default" basedir=".">
+    <description>Builds the SAE.</description>
+
+    <!--
+		Read user properties from build.properties.
+ 		Use this mechanism to set your own "scala.home".
+	-->
+    <property file="../build.properties"  />
+
+	<!-- General properties -->
+	<property name="version" value="0.0.0" />
+
+
+	<!-- Directories which contain the project's source files. -->
+	<property name="src.main.dir" value="src"/>
+	<property name="src.demo.dir" value="demo"/>
+
+
+	<!-- Directories where the generated code is stored. -->
+	<property name="build.dir" value="build"/>
+	<property name="class.dir" value="${build.dir}/class"/>
+	<property name="generated.dir" value="${build.dir}/src"/>
+	<property name="scala.generated.dir" value="${generated.dir}/scala"/>
+	<property name="prolog.generated.dir" value="${generated.dir}/prolog"/>	
+	<property name="doc.dir" value="${build.dir}/doc"/>
+	<property name="scala.test.data.dir" value="../test"/>
+	
+	<!-- Libraries & tools used at compile- and or run-time. -->
+	<property name="lib.dir" value="lib"/>
+	
+	<!-- Sets "scala.home" to the default directory, if no "build.properties" file exists. --> 
+	<condition property="scala.home" value="/opt/local/share/scala-2.8/">
+		<not><isset property="scala.home" /></not>
+	</condition>
+	<!-- Sets "scala.lib" to the default directory, if no "build.properties" file exists. --> 
+	<condition property="scala.lib" value="${scala.home}/lib">
+		<not><isset property="scala.lib"/></not>
+	</condition>
+	
+	<property name="scala-compiler.jar" location="${scala.lib}/scala-compiler.jar"/>
+	<property name="scala-library.jar" value="${scala.lib}/scala-library.jar"/>
+		
+        
+	<!-- Configuration of the "path"s. -->    
+	<path id="scala.classpath">
+	  <pathelement location="${scala-compiler.jar}"/>
+	  <pathelement location="${scala-library.jar}"/>
+	</path>	
+	<path id="project.classpath">
+	  <path refid="scala.classpath"/>
+	  <pathelement location="${class.dir}"/>
+	</path>	
+	
+	<path id="scala.sourcepath">
+		<pathelement location="${src.main.dir}"/>
+		<pathelement location="${src.demo.dir}"/>
+		<pathelement location="${scala.generated.dir}"/>
+	</path>
+	
+    <taskdef resource="scala/tools/ant/antlib.xml">
+		<classpath refid="scala.classpath"/>
+	</taskdef>
+	
+	<!-- Definition of all targets. -->
+
+	<target 
+			name="init" 
+			description="Creates the initial directory structure where the generated / compiled files are stored.">
+		<tstamp/>
+		<mkdir dir="${scala.generated.dir}"/>
+		<mkdir dir="${prolog.generated.dir}"/>
+		<mkdir dir="${class.dir}"/>
+		<mkdir dir="${doc.dir}"/>	
+	</target>
+
+	<target name="clean" description="Cleans up all artifacts that can be regenerated." >
+		<delete dir="${build.dir}"/>
+	</target>
+	<target name="clean-generated-prolog-code" description="Clean up the generated prolog source files." >
+		<delete dir="${prolog.generated.dir}"/>
+	</target>
+	<target name="clean-generated-scala-code" description="Clean up the generated scala source files." >
+		<delete dir="${scala.generated.dir}"/>
+	</target>
+	<target name="clean-generated-code" depends="clean-generated-prolog-code,clean-generated-scala-code" />	
+	
+
+	<target name="compile" description="Compiles the SAE and the Demo code." depends="init"> 
+		<echo>
+		Note, if compilation fails due to a stack overflow error it is necessary 
+		to increase Java's heap and stack size. E.g. if you use Unix just set 
+		ANT_OPTS before calling "ant compile"; e.g.,
+			export ANT_OPTS="-Xmx1024m -Xss128m"
+		</echo>
+		
+    	<!-- The attributes optimise="on" and 	addparams="-Yclosure-elim  -Yinline" 
+			are not very useful during development 
+			 since it requires to basically recompile the complete project after 
+			 every single (minor) source code change.  
+		-->
+		<scalac 
+				target="jvm-1.5" 
+				destdir="${class.dir}" 
+				classpathref="project.classpath" 
+				deprecation="on" 
+				scalacdebugging="off"
+				unchecked="yes"
+				force="changed">
+			<!--	addparams="-Xelide-below 3000"> -->
+			<src path="${src.main.dir}"/>
+			<src path="${src.demo.dir}"/>
+		    <src path="${scala.generated.dir}"/>
+	    	<include name="**/*.scala"/>
+	    	<include name="**/*.java"/>
+	  	</scalac>
+	
+	<!--
+		<javac
+				srcdir="${src.main.dir}"
+				destdir="${class.dir}"
+	         	source="1.5"
+				classpathref="project.classpath" /> -->
+	</target>
+	
+	
+	<target name="api-doc" depends="init" description="Generates SAE's API documentation.">
+		<scaladoc
+				destdir="${doc.dir}"
+				deprecation="yes" unchecked="yes"
+				windowtitle="SAE Core Library"
+				doctitle="The Static Analysis Engines Core Library ${version}"
+				classpathref="project.classpath">
+			<src path="${src.main.dir}"/>
+			<src path="${src.demo.dir}"/>			
+		    <src path="${scala.generated.dir}"/>	
+	        <include name="**/*.scala"  />
+	    </scaladoc>
+	</target>
+
+		
+	<target name="demo" depends="compile" description="Demonstrates Opal.">
+		<echo>
+		</echo>
+		<!--
+		<java classname="scala.tools.nsc.MainGenericRunner" fork="true">
+			<classpath><path refid="project.classpath"/></classpath>
+			<arg line="sae.predicates.Demo$"/> 
+		</java>-->
+		<java classname="queens.Demo" fork="true">
+			<classpath><path refid="project.classpath"/></classpath>
+		<!--	<jvmarg value="-Xms64m"/>
+			<jvmarg value="-Xss8m"/>
+			<jvmarg value="-Xfuture"/>			
+			<jvmarg value="-XX:+DoEscapeAnalysis"/>	-->
+		</java>
+	</target>
+	
+	<target name="package" depends="compile" description="Packages the SAE.">
+		<jar destfile="${build.dir}/SAE-${version}.jar" basedir="${class.dir}"/>
+	</target>
+	
+	<target 
+		name="default" 
+		depends="demo" 
+		description="Compiles the SAE and runs a Demo."/>
+	
+</project>
