@@ -8,7 +8,6 @@
 	expected to fail and the compiler aborts.
 	</i></p>	
 
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Compiler',[phase/3,compile/2]).
@@ -16,7 +15,7 @@
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
 :- use_module('phase/PLNormalize.pl',[pl_normalize/4]).
-%:- use_module('phase/CallGraph.pl',[pl_call_graph/4]).
+:- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
 :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
 :- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
 :- use_module('phase/PLNameVariables.pl',[pl_name_variables/4]).
@@ -61,10 +60,9 @@ phase(pl_normalize,execute,[on_entry,ast]) :- phase(pl_load,execute,_).
 phase(pl_check,execute,[on_entry]) :- phase(pl_normalize,execute,_).
 	
 %%%% 2. ANALYSES
+phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
 phase(pl_determinacy_analysis,execute,[on_entry,ast]) :- 
 	phase(pl_normalize,execute,_).
-%phase(pl_call_graph,omit,[on_entry,ast]) :- % Debug flags: on_entry,ast
-%	phase(pl_check,execute,_).
 %phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
 phase(pl_last_call_optimization_analysis,omit,[on_entry,ast]) :-
 	phase(pl_determinacy_analysis,execute,_).

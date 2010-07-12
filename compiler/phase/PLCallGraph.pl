@@ -12,91 +12,137 @@
 
 
 
-
-pl_call_graph(Debug,Program,_OutputFolder,Program) :-
+/*
+	@param Program
+		<pre>
+		[	pred(
+				a/1, 							% The predicate (Functor/Arity)
+				[(C, [det, type=int])],	% A list of clauses defining the 
+												% predicate. C is one of these clauses.
+												% In case of built-in propeties, this list
+												% is empty.<br/>
+												% C is always of the form:
+												% <code> term(A1,...AN) :- Body. </code>
+												% where each Ai is a unique variable. 
+				[type=...]					% List of properties of the predicate
+			),...
+		]
+		</pre>
+*/
+pl_call_graph(Debug,Program,_OutputFolder,NProgram) :-
 	debug_message(
 		Debug,on_entry,
 		'\nPhase: Call Graph Construction______________________________________'),
 
-	call_graph(Program,State),
+	call_graph(Program,NProgram,State),
 	State = constructed,
 	
 	debug_message(Debug,ast,Program).
 
 
-call_graph(Program,State) :- process_predicates(Program,Program,State).
-	
-
-process_predicates([],_,_State) :- !. % green cut
-process_predicates([(_Predicate,[defined(sae)|_]-_)|Predicates],Program,State):- 
-	!, % green cut
-	process_predicates(Predicates,Program,State).
-process_predicates([(Predicate,[defined(user)|OtherProperties]-_)|Predicates],Program,State):-
-%write('Processing predicate: '),write(Predicate),write(OtherProperties),nl,
-	once(member(clauses(Clauses),OtherProperties)),
-	process_clauses(Clauses,Program,State),
-	process_predicates(Predicates,Program,State).
-	
-	
-process_clauses([],_,_).
-process_clauses([[NClause|_]|Clauses],Program,State):-
-%write('Processing clause: '),write(NClause),nl,
-	process_nclause(NClause,Program,State),
-	process_clauses(Clauses,Program,State).
 
 
-/*
-	Processes a normalized claused.
+call_graph(Program,NProgram,State) :- call_graph(Program,Program,NProgram,State).
+	
+	
+	
+	
+/* call_graph(Predicates,Program,NProgram,State) :- makes the called-by 
+	information readily available.
+	
+	@param Predicates the set of remaining predicates that has to be processed.
+	@param Program the current program information
+	@param NProgram the new program information (with the called by 
+		information.)
+	@param State the state of the call graph construction.
 */
-process_nclause(:-(_,B),Program,State) :-
-	process_term(B,Program,State).
-
-		
-process_term(V,_Program,_State) :- var(V),!.		
-
-process_term((L,R),Program,State) :- !,
-	process_term(L,Program,State),
-	process_term(R,Program,State).
-
-process_term((L;R),Program,State) :- !,
-	process_term(L,Program,State),
-	process_term(R,Program,State).
-
-/* If one of the predefined operators is used, no call is actually executed. */
-process_term(Operator,_Program,_State) :- 
-	functor(Operator,Functor,Arity),
-	Arity =:= 2,
-	predefined_operator(Functor),
-	!.
-	
-process_term(A,Program,State) :- 
-	atom(A),!,
-	( 	member((A/0,Properties),Program) -> 
-			write('call '),write(A),nl
-		;
-			atomic_list_concat(['[Error] the goal: ',A,'/0 is not defined.\n'],M),
-			write(M),
-			State = undefined_goal
-	).	
-	
-process_term(CT,Program,State) :- 
-	functor(CT,Functor,Arity),
-	(	member((Functor/Arity,Properties),Program) ->
-			write('call '),write(Functor),write('/'),write(Arity),nl
-		;
-			atomic_list_concat(['[Error] the goal: ',Functor,'/',Arity,' is not defined.\n'],M),
-			write(M),
-			State = undefined_goal
+call_graph([],Program,Program,_) :- !.
+call_graph([Predicate|Predicates],Program,NProgram,State) :- 
+	Predicate=pred(F/A,Clauses,_),
+	(	Clauses = [] -> % pred is a built-in predicate
+		call_graph(Predicates,Program,NProgram,State)
+	;
+		process_clauses(F/A,Clauses,Program,IProgram,State),
+		call_graph(Predicates,IProgram,NProgram,State)
 	).
 	
 	
-	
-	
+process_clauses(_CurrentPredicate,[],Program,Program,_State).
+process_clauses(CurrentPredicate,[(Clause,_ClauseProperties)|Clauses],Program,NProgram,State) :-
+	process_clause(CurrentPredicate,Clause,Program,IProgram,State),
+	process_clauses(CurrentPredicate,Clauses,IProgram,NProgram,State).
 
 
 
 
+/*
+	Analyzes a normalized claused.
+*/
+process_clause(CurrentPredicate,:-(_,B),Program,NProgram,State) :-
+write(CurrentPredicate),write(' - processing clause: '),write(B),nl,
+	process_term(CurrentPredicate,B,Program,NProgram,State).
+
+
+process_term(_CurrentPredicate,V,_Program,_NProgram,_State) :- var(V),!.		
 
 
 
 
+process_term(CurrentPredicate,Term,Program,NProgram,State) :- 
+	functor(Term,Functor,Arity),
+	partition(
+		'='(pred(Functor/Arity,_Clauses,_PredicateProperties)),
+		Program,
+		CalledPredicate,
+		OtherPredicates
+	),
+	( 	CalledPredicate = [] -> (
+			atomic_list_concat(['[Error] the goal: ',Functor,'/',Arity,' is not defined.\n'],M),
+			write(M),
+			State = undefined_goal,
+			IProgram = Program %... just to be able to report further errors
+		) ; (	
+			CalledPredicate = [pred(P,Clauses,PredicateProperties)],
+			add_called_by_information(
+				CurrentPredicate,
+				PredicateProperties,
+				NPredicateProperties
+			),
+			IProgram = [pred(P,Clauses,NPredicateProperties)|OtherPredicates]
+		)
+	),
+	( (Arity =:= 2, (Functor=';' ; Functor=',')) -> (
+			arg(1,Term,L),process_term(CurrentPredicate,L,IProgram,LProgram,State),
+			arg(2,Term,R),process_term(CurrentPredicate,R,LProgram,NProgram,State)	
+		);
+			NProgram = IProgram
+	).
+
+
+
+
+add_called_by_information(P,PredicateProperties,NPredicateProperties) :-
+	partition(
+		'='(called_by(_)),
+		PredicateProperties,
+		CalledByPredicateProperty,
+		OtherPredicateProperties
+	),
+	(	CalledByPredicateProperty = [] ->	
+			NPredicateProperties = [called_by([P])|PredicateProperties]
+		; 
+		(
+			CalledByPredicateProperty = [called_by(Ps)],
+			set_add(P,Ps,NPs),			
+			NPredicateProperties = [called_by(NPs)|OtherPredicateProperties]
+		)
+	).
+
+
+
+
+set_add(E,List,NewList) :-
+	member(E,List) ->
+		NewList = List
+	;
+		NewList = [E|List].

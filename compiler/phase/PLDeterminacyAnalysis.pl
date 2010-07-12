@@ -35,8 +35,8 @@
 	If the clause is tail recursive, i.e., the
 	last goal of the clause is a call of the clause's predicate, then 
 	this goal (the recursive call) is deterministic if always at most one clause 
-	succeeds. This is trivially the case if the clauses 1..(N-1) of a predicate
-	consisting of N clauses contain a cut.
+	succeeds. This is trivially the case if all clauses of a predicate
+	contain a cut.
 	
 	To determine the determinancy of predicates we do a bottom-up analysis of the
 	call graph.

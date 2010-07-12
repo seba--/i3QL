@@ -1,6 +1,5 @@
 /* Implementation of predicates related to debugging the compiler.
 
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module(
