@@ -4,7 +4,6 @@
 	recursive, and where we can statically decide that – when the tail recursive
 	goal is reached – there a no more choice points. 
 		
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module(
@@ -57,7 +56,8 @@ write(P),write(Clause),nl,write(Clauses),nl,nl,
 			( % test if the clause choice is fixed
 				Clauses = [] % <=> the current clause is the last clause
 			;	
-				memberchk(cut=always,Properties) % <=> a cut is used
+write(memberchk),write(Properties),nl,			
+				memberchk(cut(always),Properties) % <=> a cut is used
 			)
 		) -> 
 			NClauses=[(':-'(Head,Body),[tail_recursion_optimisation = possible|Properties])|RNClauses]
