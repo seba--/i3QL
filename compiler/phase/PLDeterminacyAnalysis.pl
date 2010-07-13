@@ -2,7 +2,6 @@
 	Implements a very simple analysis to determine if a predicate is 
 	guaranteed to be deterministic. 
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module(
@@ -26,7 +25,7 @@
 	A predicate's overall determinancy property is determined by its clauses.
 	A necessary precondition for a predicate to be deterministic is that 
 	all its defining clauses are deterministic. Additionally, always only at most 
-	one clause must succeed (i.e., the choice must be deterministic.)
+	one clause must succeed (currently we call this property: "clause_selection")
 	</p>
 	<p>
 	A clause is deterministic iff every goal of the clause that appears after a
@@ -37,11 +36,12 @@
 	this goal (the recursive call) is deterministic if always at most one clause 
 	succeeds. This is trivially the case if all clauses of a predicate
 	contain a cut.
-	
+	<p>
 	To determine the determinancy of predicates we do a bottom-up analysis of the
 	call graph.
+	</p>
 	
-	@param Program is the program's AST of a normalized program. 
+	@param Program is the AST of a normalized program {@link pl_normalize/4}. 
 		<pre>
 		[	pred(
 				a/1, 							% The predicate (Functor/Arity)
@@ -76,7 +76,8 @@ process_predicates([Predicate|Predicates],NProgram) :-
 		NPredicate = Predicate
 	;
 		analyze_cut_behavior(Clauses,NClauses),
-		NPredicate = pred(ID,NClauses,PredicateProperties)
+		analyze_clause_selection(NClauses,PredicateProperties,NPredicateProperties),		
+		NPredicate = pred(ID,NClauses,NPredicateProperties)
 	),
 	NProgram = [NPredicate|OtherNPredicates],
 	process_predicates(Predicates,OtherNPredicates).
@@ -91,6 +92,10 @@ analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 	analyze_cut_behavior(Clauses,OtherNClauses).
 
 
+/**
+	Analyze the behavior w.r.t. to clause selection...
+**/
+
 
 
 /*	analyze_cut_behavior(Clause,Properties,NProperties) :- analyzes a clause w.r.t.
@@ -104,7 +109,7 @@ analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 */
 analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
 	cuts(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
-	NProperties = [(cut=R)|Properties].
+	NProperties = [cut(R)|Properties].
 
 /* <b>Semantics of "->"</b>
 	<pre>
@@ -187,6 +192,20 @@ cuts(T,B) :-
 	B = never
 	)).
 
+
+
+analyze_clause_selection([_Clause],PredicateProperties,NPredicateProperties) :- 
+	!, % green cut
+	NPredicateProperties = [clause_selection(deterministic)|PredicateProperties].
+analyze_clause_selection([(_Clause,Properties)|Clauses],PredicateProperties,NPredicateProperties) :-
+	Clauses \= [], %... not strictly required
+	(	Properties=[cut(always)|_] ->
+		analyze_clause_selection(Clauses,PredicateProperties,NPredicateProperties)
+	;
+		NPredicateProperties = PredicateProperties
+	).
+	
+	
 
 	
 
