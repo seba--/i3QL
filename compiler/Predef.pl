@@ -48,7 +48,7 @@ predefined_predicates(UserDefinedProgram,CompleteProgram) :-
 		% "Other" Predicates
 		pred('='/2,[],[deterministic(yes)]), % unify
 		pred('\\='/2,[],[deterministic(yes)]), % does not unify
-		pred('\+'/1,[],[deterministic(yes)]), % not
+		pred('/'('\\+',1),[],[deterministic(yes)]), % not
 		pred('=='/2,[],[deterministic(yes)]), % term equality
 		pred('\\=='/2,[],[deterministic(yes)]), % term inequality
 
