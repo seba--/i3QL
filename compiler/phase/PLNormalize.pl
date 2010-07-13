@@ -1,8 +1,7 @@
 /*
-	This phase transforms the AST to make the AST of SAE Prolog programs more
-	regular.
+	This phase transforms the AST to make the representation of SAE Prolog
+	programs more regular.
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Compiler:Phase:Normalize',[pl_normalize/4]).
@@ -13,7 +12,9 @@
 
 
 
-/*	Transforms the AST of an SAE Prolog program to make it more regular.
+/*	Transforms the AST of an SAE Prolog program to make it more regular and 
+	to facilitate subsequent analyses.
+	
 	@param Debug is the list of debug information that should be printed out.
 		Possible values are: 'on_entry' and 'ast'.
 	@param Program is the program's AST. 
@@ -31,8 +32,10 @@
 	@param _OutputFolder
 	@param NProgram is the normalized AST of the program. 
 		<p>
+		<b>Property</b><br/>
 		In a normalized clause the header's arguments are all variables where no
 		variable occurs more than once. <br/>
+		<b>Process</b><br/>
 		If a header's argument is not a free variable then the argument is 
 		replaced with a new variable. Additionally, a statement that unifies 
 		the new variable (representing the argument) with the original argument 
@@ -44,7 +47,7 @@
 		unique last goal – then the last goal is the immediate right child of the
 		body's top-level and (',') node.		
 		</p>
-		<pre>
+		<code><pre>
 		[	pred(
 				a/1, 							% The predicate (Functor/Arity)
 				[(C, [det, type=int])],	% A list of clauses defining the 
@@ -57,7 +60,7 @@
 				[type=...]					% List of properties of the predicate
 			),...
 		]
-		</pre>
+		</pre></code>
 */
 pl_normalize(Debug,Program,_OutputFolder,NProgram) :-
 	debug_message(
@@ -108,7 +111,7 @@ normalize_clause((:-(H,B),ClauseProperties),NewClause) :-
 	functor(NewH,Functor,Arity),
 	normalize_arguments(H,NewH,B,NewB),
 	normalize_goal_sequence_order(NewB,NormalizedGoalOrderB),
-	remove_trailing_trues(NormalizedGoalOrderB,MinimizedB),
+	remove_trailing_true_calls(NormalizedGoalOrderB,MinimizedB),
 	NewClause = (:-(NewH,MinimizedB),ClauseProperties).
 	
 	
@@ -155,30 +158,42 @@ is_first_occurence_of_variable_as_term_argument(AID,T,Var) :-
 
 /* normalize_goal_sequence_order(Body,NewBody) :- performs a tree rotation to 
 	make sure that	a clause's last goal – if the last goal is unique – is the
-	immediate right child element of top-level "and" node.<br />
+	immediate right child element of top-level "and" node.
+	
+	<p>
+	<b>Example</b><br />
 	E.g., the goal sequence (A,B,C,D,E) <=>
-	(A,(B,(C,(D,E))) is transformed to ((((A, B), C), D), E). This reprsentation
-	is advantegeous because some analysis do need to analyze a goal sequence
-	except of the "last goal".
+	(A,(B,(C,(D,E))) is transformed to ((((A, B), C), D), E). This representation
+	is advantegeous because some analyses do need to analyze a goal sequence
+	except of the "last goal". Hence, after this transformation the goal
+	sequence G can be unified with G=(PreviousGoals,LastGoal) to get the sequence
+	of all goals except of the last goal. 
+	</p>
 */
 normalize_goal_sequence_order(B,NewB) :- 
 		var(B) -> NewB = B
 	;
-		(B = (L,R), nonvar(R), R=(RL,RR)) % we have to avoid accidental bindings
-			-> (normalize_goal_sequence_order((L,RL),NewL),IB = (NewL,RR),normalize_goal_sequence_order(IB,NewB))
+		(B = (L,R), nonvar(R), R=(RL,RR)) -> ( % we have to avoid accidental bindings
+			normalize_goal_sequence_order((L,RL),NewL),
+			IB = (NewL,RR),
+			normalize_goal_sequence_order(IB,NewB)
+		)
 	;
-		B = (L;R)
-			-> (normalize_goal_sequence_order(L,NewLB),normalize_goal_sequence_order(R,NewRB),NewB = (NewLB;NewRB))
+		B = (L;R) -> (
+			normalize_goal_sequence_order(L,NewLB),
+			normalize_goal_sequence_order(R,NewRB),
+			NewB = (NewLB;NewRB)
+		)
 	;
 		NewB = B.
 
 	
 
 
-remove_trailing_trues(Term,NewTerm) :-
+remove_trailing_true_calls(Term,NewTerm) :-
 		var(Term) -> NewTerm = Term 
 	;
-		Term = (T,true) -> (ITerm = T, remove_trailing_trues(ITerm,NewTerm))
+		Term = (T,true) -> (ITerm = T, remove_trailing_true_calls(ITerm,NewTerm))
 	;
 		NewTerm = Term.
 	

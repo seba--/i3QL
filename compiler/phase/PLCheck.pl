@@ -3,7 +3,6 @@
 	a built-in predicate or use a datastructure that is used by the Compiler
 	itself.
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Compiler:Phase:Check',[pl_check/4]).

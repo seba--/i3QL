@@ -1,7 +1,6 @@
 /*
 	Constructs call graph information for a given SAE Prolog program.
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Compiler:Phase:CallGraph',[pl_call_graph/4]).

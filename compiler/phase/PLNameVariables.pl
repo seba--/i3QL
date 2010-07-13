@@ -1,7 +1,6 @@
 /*
 	Iterates over all clauses and associates free variables with names. 
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Compiler:Phase:NameVariables',[pl_name_variables/4]).
