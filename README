@@ -1,13 +1,16 @@
 # Overview
-
-The Static Analysis Engine (SAE) is a Prolog compiler which is optimized for
-executing static analyses. 
+The Static Analysis Engine (SAE) is a Prolog compiler and runtime environment 
+which is optimized for executing static analyses written in a Prolog like 
+language. The SAE aims to be compatible with standard ISO Prolog programs, but
+provides additional constructs necessary to implement efficient static analyses.
 
 The SAE consists of two parts: a compiler to compile an SAE program into an 
 object-oriented program and a minimal runtime environment to execute the program. 
-The current target language is Scala. The SAE is implemented in (SWI) Prolog.
+The current object-oriented target language is Scala. The SAE compiler is 
+implemented in (SWI) Prolog.
 
 http://www.opal-project.de/sae/
+
 
 # License
 License (BSD Style License):
