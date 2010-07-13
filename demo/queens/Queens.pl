@@ -35,7 +35,6 @@ not_attack([Y|Ys],X,N) :-
 	not_attack(Ys,X,N1).
 
  
-% Michael Eichberg's MacBook Pro July 2009
 % Architecture:
 % 	Model Name:	MacBook Pro
 % 	Model Identifier:	MacBookPro5,2
