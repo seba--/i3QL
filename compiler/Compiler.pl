@@ -31,7 +31,7 @@
 	also specifies the debug information that will be shown by the respective
 	compiler phase.</br>
 	The order in which the phases are specified determines the order in which
-	the phases are executed.
+	the phases are executed; if a phase is to be executed at all.
 	</p>
 	The entry predicate of each phase has to have the following signature:
 	<pre>
@@ -47,12 +47,12 @@
 	@param Name is the name of the phase.
 	@param ExecutionFlag specifies if the phase should be executed or not. The
 			value is either: "execute" or "omit".
-	@param Debug is a value that identifies which debug information should be
+	@param Debug is a list that identifies which debug information should be
 			shown. If the execution flag is omit (i.e., not "execute"), than the
-			value of Debug is meaningless. The structure and legal values of the
-			debug argument are defined by the respective phase. Most phases define
-			"ast" and "on_entry" to show the program's ast after execution of the
-			phase and "on_entry" to signal that the phase is entered.
+			value of Debug is meaningless. 
+			Legal values of the debug argument are defined by the respective phase.
+			Most phases define "ast" and "on_entry" to show the program's ast after
+			execution of the phase and "on_entry" to signal that the phase is entered.
 */
 %%%% 1. LOADING AND CHECKING
 phase(pl_load,execute,[on_entry,reading_file,ast]). %Debug flags: ast, on_entry, reading_file
@@ -61,10 +61,10 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_normalize,execute,_).
 	
 %%%% 2. ANALYSES
 phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
-phase(pl_determinacy_analysis,execute,[on_entry,ast]) :- 
+phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
 	phase(pl_normalize,execute,_).
 %phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
-phase(pl_last_call_optimization_analysis,omit,[on_entry,ast]) :-
+phase(pl_last_call_optimization_analysis,execute,[on_entry,ast]) :-
 	phase(pl_determinacy_analysis,execute,_).
 	
 %%%% 3. TRANSFORMATION TO OO	
