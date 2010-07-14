@@ -29,12 +29,10 @@ pl_last_call_optimization_analysis(Debug,Program,_OutputFolder,NProgram) :-
 
 
 process_predicates([],_Program,[]).
-process_predicates([Predicate|Predicates],Program,NProgram) :- 
-	(
-		Predicate = pred(_,[],_), % built-in predicate
-		NPredicate = Predicate
+process_predicates([pred(P,Clauses,PredicateProperties)|Predicates],Program,NProgram) :- 
+	( 	Clauses = [] ->
+		NPredicate = pred(P,Clauses,PredicateProperties)
 	;
-		Predicate = pred(P,Clauses,PredicateProperties),
 		last_call_optimization_analysis(P,Clauses,NClauses,Program),
 		NPredicate = pred(P,NClauses,PredicateProperties)
 	),
@@ -60,7 +58,7 @@ write(memberchk),write(Properties),nl,
 				memberchk(cut(always),Properties) % <=> a cut is used
 			)
 		) -> 
-			NClauses=[(':-'(Head,Body),[tail_recursion_optimisation = possible|Properties])|RNClauses]
+			NClauses=[(':-'(Head,Body),[tail_recursion_optimisation(possible)|Properties])|RNClauses]
 		;
 			NClauses=[Clause|RNClauses]
 	),

@@ -8,7 +8,7 @@
 	'Compiler:Phase:Analysis:Determinacy',
 	[
 		pl_determinacy_analysis/4,
-		cuts/2
+		calls_cut/2
 	]).
 
 :- use_module('../Predef.pl').
@@ -108,7 +108,7 @@ analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 	</p>
 */
 analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
-	cuts(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
+	calls_cut(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
 	NProperties = [cut(R)|Properties].
 
 /* <b>Semantics of "->"</b>
@@ -156,14 +156,17 @@ analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
 	C = R.	
 	</p>
 */
-/* cuts(T,B) :- analyzes the goal term T w.r.t. its cut behavior B. B is 
-	either "always", "sometimes" or "never".
+
+
+/* calls_cut(G,C) :- analyzes if the goal G uses the cut operator ('!') on all
+	execution paths (C=always), on some execution paths (C=sometimes) or
+	never (C=never).
 */
-cuts(T,B) :-
-	T = '!' -> B = always ;
-	(T = (L,R) -> (
-		cuts(L,LCB),
-		cuts(R,RCB),
+calls_cut(G,B) :-
+	G = '!' -> B = always ;
+	(G = (L,R) -> (
+		calls_cut(L,LCB),
+		calls_cut(R,RCB),
 		(
 			(LCB = always ; RCB = always),!, B = always
 		;
@@ -172,9 +175,9 @@ cuts(T,B) :-
 			B = never
 		)	
 	);
-	(T = (L;R) -> (
-		cuts(L,LCB),
-		cuts(R,RCB),
+	(G = (L;R) -> (
+		calls_cut(L,LCB),
+		calls_cut(R,RCB),
 		(
 			LCB = always, 
 			RCB = always,
