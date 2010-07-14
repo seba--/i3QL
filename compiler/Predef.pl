@@ -1,4 +1,4 @@
-/*
+ /*
 	Definition of all operators and predicates that are either directly
 	understood by SAE Prolog - i.e., that are taken care of during compilation -
 	or which are pre-imlemented as part of SAE Prolog's library.
@@ -124,8 +124,55 @@ called_predicate(Term,Predicate):-
 
 
 
-/* Terms used internally by the SAE always start with the 'SAE' 
+/* Terms used internally by the SAE that could conflict with terms of SAE prolog
+	programs always start with the 'SAE' 
 	"namespace". 
 */
 built_in_term('SAE':_).
 
+
+
+/*
+We need to know the id of the goal (S) that is executed after a given goal (G)
+when the goal (G) fails or succeeds.
+
+goal(G,SID,FID)
+*/
+/* goals(Term,CurrentID,ID,goal(G),success(ID,goal(GS)),failure(ID,goal(GF))) :- ...*/
+
+%%%% goals(CurrT,PrevT,CurrID,NextID,Goals) :- 
+/*
+goals_f(V,PrevTs,CurrID,PrevGoals,Goals) :- 
+	var(V),!,
+	Gs = [goal(CurrID,V)|PrevGoals],
+	(	PrevTs = [] ->
+		Goals=Gs
+	;	
+		
+	).
+	
+	PrevTs = [PT|RPTs] 
+	goals_b(PT,RTs,)
+	*/
+	
+number_goals(A,CID,NID,goal(CID,A)) :- var(A),!,NID is CID +1.
+number_goals((L,R),CID,NID,Goal) :- 
+	!, 
+	number_goals(L,CID,IID,LGoal),
+	number_goals(R,IID,NID,RGoal),
+	Goal = and(CID,NID,(LGoal,RGoal)).
+number_goals((L;R),CID,NID,Goal) :- 
+	!, 
+	number_goals(L,CID,IID,LGoal),
+	number_goals(R,IID,NID,RGoal),
+	Goal = or(CID,NID,(LGoal;RGoal)).
+number_goals(T,CID,NID,goal(CID,T)) :- NID is CID +1.
+	
+
+/*
+goals(A,A) :- var(A),!.
+goals((L,R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).
+goals((L;R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).	
+goals(T,T).
+*/
+	
