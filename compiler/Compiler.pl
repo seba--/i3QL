@@ -64,11 +64,11 @@ phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
 phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
 	phase(pl_normalize,execute,_).
 %phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
-phase(pl_last_call_optimization_analysis,execute,[on_entry,ast]) :-
+phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :-
 	phase(pl_determinacy_analysis,execute,_).
 	
 %%%% 3. TRANSFORMATION TO OO	
-phase(pl_name_variables,execute,[on_entry,ast]) :- % Debug flags: on_entry, ast
+phase(pl_name_variables,execute,[on_entry,ast(user)]) :- % Debug flags: on_entry, ast
 	phase(pl_normalize,execute,_).
 phase(pl_to_oo,execute,[on_entry,processing_predicate]) :-
 	phase(pl_determinacy_analysis,execute,_),

@@ -35,15 +35,33 @@ debug_message(Debug,Type,MessageFragments) :-
 debug_message(Debug,ast,Program) :- 
 	!,
 	ignore( 
-		(member(ast,Debug),debug_message_ast(Program))
+		(
+			(
+				(member(ast,Debug),ShowPredicates = all)
+			;
+				member(ast(ShowPredicates),Debug)
+			),
+			debug_message_ast(ShowPredicates,Program)
+		)
 	).	
 
-debug_message_ast([]).	
-debug_message_ast([pred(Predicate,Clauses,PredicateProperties)|Predicates]) :-	
-	write('\nPREDICATE: '),write(Predicate),nl,
-	write('Properties: '),write(PredicateProperties),nl,
-	write_clauses(Clauses),
-	debug_message_ast(Predicates).
+debug_message_ast(_ShowPredicates,[]).	
+debug_message_ast(ShowPredicates,[pred(Predicate,Clauses,PredicateProperties)|Predicates]) :-	
+	(
+		(	ShowPredicates = all 
+		; 
+			(ShowPredicates = built_in, Clauses=[])
+		;
+			(ShowPredicates = user, Clauses=[_|_])
+		) -> (
+			write('\nPREDICATE: '),write(Predicate),nl,
+			write('Properties: '),write(PredicateProperties),nl,
+			write_clauses(Clauses)
+		) 
+	; 
+		true
+	),
+	debug_message_ast(ShowPredicates,Predicates).
 
 
 write_clauses(Clauses) :- 
