@@ -174,7 +174,7 @@ visualize_numbered_ast(ThisGoal,CurrentDotFile,DotFile) :-
 	visualize_numbered_ast(RGoal,IDF1,IDF2),numbered_ast_node_id(RGoal,RID),	
 	numbered_ast_node_id(ThisGoal,TID),
 	DotFile=[
-		TID,' [label=", (and)"];\n',
+		TID,' [label="⋀ (and)"];\n',
 		TID,' -> ',LID,';\n',
 		TID,' -> ',RID,';\n'
 		|IDF2].
@@ -184,7 +184,7 @@ visualize_numbered_ast(ThisGoal,CurrentDotFile,DotFile) :-
 	visualize_numbered_ast(RGoal,IDF1,IDF2),numbered_ast_node_id(RGoal,RID),	
 	numbered_ast_node_id(ThisGoal,TID),
 	DotFile=[
-		TID,' [label="; (or)"];\n',
+		TID,' [label="⋁ (or)"];\n',
 		TID,' -> ',LID,';\n',
 		TID,' -> ',RID,';\n'	
 		|IDF2].
