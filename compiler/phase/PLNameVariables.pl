@@ -59,10 +59,10 @@ write('Processing: '),write(:-(H,B)),nl,
 process_term(Term,Type,ID,NewID) :-
 	var(Term),
 	!,
-	Term = 'SAE':var(Type,ID,_Free),
+	Term = '$SAE':var(Type,ID,_Free),
 	NewID is ID + 1.
 process_term(Term,_Type,ID,ID) :- 
-	Term = 'SAE':var(_,_,'not_dead'),
+	Term = '$SAE':var(_,_,'not_dead'),
 	!.
 process_term([Term|Terms],Prefix,ID,NewID) :-
 	% This special case is required to not run in 
