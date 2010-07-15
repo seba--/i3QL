@@ -18,7 +18,7 @@
 		
 		built_in_term/1,
 		
-		called_predicate/2]
+		visualize_term_structure/2]
 ).
 
 
@@ -106,6 +106,7 @@ predefined_arithmetic_operator('>=').
 	This predicate takes care of supported meta-calls (e.g., call/1, findall/3...). 
 	</p>
 */	
+	/*
 called_predicate(Term,Predicate):- 
 	functor(Term,Functor,Arity),
 	(
@@ -118,17 +119,16 @@ called_predicate(Term,Predicate):-
 		Arity =:= 2,
 		(arg(1,Term,Arg);arg(2,Term,Arg)),
 		called_predicate(Arg,Predicate)
-	).
+	).*/
 
 
 
 
 
 /* Terms used internally by the SAE that could conflict with terms of SAE prolog
-	programs always start with the 'SAE' 
-	"namespace". 
+	programs always start with the '$SAE' "namespace". 
 */
-built_in_term('SAE':_).
+built_in_term('$SAE':_).
 
 
 
@@ -138,38 +138,70 @@ when the goal (G) fails or succeeds.
 
 goal(G,SID,FID)
 */
-/* goals(Term,CurrentID,ID,goal(G),success(ID,goal(GS)),failure(ID,goal(GF))) :- ...*/
 
-%%%% goals(CurrT,PrevT,CurrID,NextID,Goals) :- 
-/*
-goals_f(V,PrevTs,CurrID,PrevGoals,Goals) :- 
-	var(V),!,
-	Gs = [goal(CurrID,V)|PrevGoals],
-	(	PrevTs = [] ->
-		Goals=Gs
-	;	
-		
-	).
 	
-	PrevTs = [PT|RPTs] 
-	goals_b(PT,RTs,)
-	*/
-	
-number_goals(A,CID,NID,goal(CID,A)) :- var(A),!,NID is CID +1.
-number_goals((L,R),CID,NID,Goal) :- 
+number_ast_nodes(A,CID,NID,goal(CID,A)) :- var(A),!,NID is CID +1.
+number_ast_nodes((L,R),CID,NID,Goal) :- 
 	!, 
-	number_goals(L,CID,IID,LGoal),
-	number_goals(R,IID,NID,RGoal),
+	number_ast_nodes(L,CID,IID,LGoal),
+	number_ast_nodes(R,IID,NID,RGoal),
 	Goal = and(CID,NID,(LGoal,RGoal)).
-number_goals((L;R),CID,NID,Goal) :- 
+number_ast_nodes((L;R),CID,NID,Goal) :- 
 	!, 
-	number_goals(L,CID,IID,LGoal),
-	number_goals(R,IID,NID,RGoal),
+	number_ast_nodes(L,CID,IID,LGoal),
+	number_ast_nodes(R,IID,NID,RGoal),
 	Goal = or(CID,NID,(LGoal;RGoal)).
-number_goals(T,CID,NID,goal(CID,T)) :- NID is CID +1.
+number_ast_nodes(T,CID,NID,goal(CID,T)) :- NID is CID +1.
+	
+	
+	
+visualize_term_structure(Term,DotFile) :- 
+	number_ast_nodes(Term,1,_,NumberedAST),
+	visualize_numbered_ast(NumberedAST,[],DF),
+	atomic_list_concat(DF,T),
+	term_to_atom(Term,A),
+	DotFile=['digraph G {\nlabel="',A,'";\nnode [shape=none];\nedge [arrowhead=none];\n',T,'}'].
+	
+visualize_numbered_ast(ThisGoal,DotFile) :- 
+	visualize_numbered_ast(ThisGoal,[],DF),
+	atomic_list_concat(DF,T),
+	term_to_atom(ThisGoal,A),
+	DotFile=['digraph G {\nlabel="',A,'";\nnode [shape=none];\n',T,'}'].
+	 
+visualize_numbered_ast(ThisGoal,CurrentDotFile,DotFile) :- 
+	ThisGoal = and(_Min,_Max,(LGoal,RGoal)),!,
+	visualize_numbered_ast(LGoal,CurrentDotFile,IDF1),numbered_ast_node_id(LGoal,LID),
+	visualize_numbered_ast(RGoal,IDF1,IDF2),numbered_ast_node_id(RGoal,RID),	
+	numbered_ast_node_id(ThisGoal,TID),
+	DotFile=[
+		TID,' [label=", (and)"];\n',
+		TID,' -> ',LID,';\n',
+		TID,' -> ',RID,';\n'
+		|IDF2].
+visualize_numbered_ast(ThisGoal,CurrentDotFile,DotFile) :- 
+	ThisGoal = or(_Min,_Max,(LGoal;RGoal)),!,
+	visualize_numbered_ast(LGoal,CurrentDotFile,IDF1),numbered_ast_node_id(LGoal,LID),
+	visualize_numbered_ast(RGoal,IDF1,IDF2),numbered_ast_node_id(RGoal,RID),	
+	numbered_ast_node_id(ThisGoal,TID),
+	DotFile=[
+		TID,' [label="; (or)"];\n',
+		TID,' -> ',LID,';\n',
+		TID,' -> ',RID,';\n'	
+		|IDF2].
+visualize_numbered_ast(goal(V,G),CurrentDotFile,DotFile) :-
+	term_to_atom(G,A),
+	atomic_list_concat([V,' [label="',A,'"];\n'],ID),
+	DotFile=[ID|CurrentDotFile].
 	
 
+numbered_ast_node_id(and(Min,Max,_),ID) :- atomic_list_concat([and,'_',Min,'_',Max],ID).
+numbered_ast_node_id(or(Min,Max,_),ID) :- atomic_list_concat([or,'_',Min,'_',Max],ID).
+numbered_ast_node_id(goal(ID,_G),ID).
+
+
 /*
+normalize_goal_sequence_order((A=t2,X=1,(A = t1,!,B=t2 ; C = u2, B=u1),Z=e),G),goals(G,1,M,AA).
+
 goals(A,A) :- var(A),!.
 goals((L,R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).
 goals((L;R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).	
