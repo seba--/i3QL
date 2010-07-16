@@ -160,6 +160,7 @@ inc(ID,NID) :- NID is ID + 1.
 inc_if_less_than_else(LT,E,ID,NID) :- ID < LT -> NID is ID +1 ; NID = E.
 constant(NID,_ID,NID).
 
+% to match the root node..
 node_successors(Goal,NGoal) :- 
 	Goal = goal(_ID,_G),!,
 	node_successors(Goal,inc,inc,NGoal).
@@ -169,8 +170,7 @@ node_successors(Goal,NGoal) :-
 node_successors(Goal,NGoal) :- 
 	Goal = or(_Min,Max,(_LGoal;_RGoal)),!,
 	node_successors(Goal,inc,constant(Max),NGoal).	
-	
-
+% to traverse the graph
 node_successors(goal(ID,G),SuccIDFunc,FailIDFunc,NGoal) :- !,
 	call(SuccIDFunc,ID,SID),
 	call(FailIDFunc,ID,FID),
@@ -200,12 +200,12 @@ visualize_term_structure(Term,DotFile) :-
 	atomic_list_concat(DF,T),
 	term_to_atom(Term,A),
 	numbered_term_exit_node_id(NTwithSucc,EID),
-	DotFile=[
+	atomic_list_concat([
 		'digraph G {\n',
 		'label="',A,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
 		T,
 		EID,' [label="Exit",shape="Box"];\n',
-		'}'].
+		'}'],DotFile).
 	
 /*	
 visualize_numbered_term(ThisGoal,DotFile) :- 
