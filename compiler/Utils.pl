@@ -6,11 +6,13 @@
 :- module('Utils',
 	[	lookup/3,
 		lookup_first/2,
-		replace_first/4
+		replace_first/4,
+		max/3
 	]).
 
 
-
+max(V1,V2,R) :- V1 =< V2,!, R = V2.
+max(V1,V2,R) :- V1 > V2, R = V1.
 
 
 

@@ -21,6 +21,8 @@
 		visualize_term_structure/2]
 ).
 
+:- use_module('Utils.pl',[max/3]).
+
 
 /* @signature predefined_predicates(UserDefinedProgram,CompleteProgram)
 
@@ -158,32 +160,100 @@ number_term_nodes(T,CID,NID,goal(CID,T)) :- NID is CID +1.
 
 % to match the root node..
 node_successors(Goal,NGoal) :- 
-	Goal = goal(ID,_G),!,
-	ExitGoalID = ID + 1,
-	node_successors(Goal,ExitGoalID,ExitGoalID,NGoal).
+	Goal = goal(ID,G),!,
+	Exit is ID + 1,
+	is_cut(G,RelevantCutCall), % ... is not really required
+	node_successors(Goal,Exit,Exit,Exit,RelevantCutCall,_Cuts,NGoal).
 node_successors(Goal,NGoal) :- 
-	Goal = and(_MinL,_MinR,Max,(_LGoal,_RGoal)),!,
-	node_successors(Goal,Max,Max,NGoal).	
+	Goal = and(_MinL,_MinR,Exit,(_LGoal,_RGoal)),!,
+	node_successors(Goal,Exit,Exit,Exit,false,_Cuts,NGoal).	
 node_successors(Goal,NGoal) :- 
-	Goal = or(_MinL,_MinR,Max,(_LGoal;_RGoal)),!,
-	node_successors(Goal,Max,Max,NGoal).	
+	Goal = or(_MinL,_MinR,Exit,(_LGoal;_RGoal)),!,
+	node_successors(Goal,Exit,Exit,Exit,false,_Cuts,NGoal).	
 % to traverse the graph
-node_successors(goal(ID,G),BranchSucceedsNID,BranchFailsNID,NGoal) :- !,
-	NGoal = goal(ID,G,BranchSucceedsNID,BranchFailsNID).
-node_successors(Goal,BranchSucceedsNID,BranchFailsNID,NGoal) :-
+node_successors(
+		goal(ID,G),
+		BranchSucceedsNID,
+		BranchFailsNID,
+		CutBranchFailsNID,
+		RelevantCutCall,
+		Cuts,
+		NGoal) :- 
+	!,
+	(	is_cut(G) -> Cuts = true ; Cuts = RelevantCutCall ),
+	NGoal = goal(ID,G,RelevantCutCall,BranchSucceedsNID,BranchFailsNID,CutBranchFailsNID).
+node_successors(
+		Goal,
+		BranchSucceedsNID,
+		BranchFailsNID,
+		CutBranchFailsNID,
+		RelevantCutCall, % in variable
+		Cuts, % out variable
+		NGoal) :-
 	Goal = and(MinL,MinR,NID,(LGoal,RGoal)),!,
-	node_successors(LGoal,MinR,BranchFailsNID,NLGoal),
-	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,NRGoal),
+	node_successors(LGoal,MinR,BranchFailsNID,CutBranchFailsNID,RelevantCutCall,LCuts,NLGoal),
+	% if there are no (open) choicepoints when this goal is reached, then it
+	% is irrelevant if in the left branch a cut is encountered, as such a cut will never
+	% cut of any choice points created (later) in the right branch
+	( (BranchFailsNID =:= CutBranchFailsNID,!, RCC = false) ; RCC=LCuts ),
+	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,CutBranchFailsNID,RCC,Cuts,NRGoal),
 	NGoal = and(MinL,MinR,NID,(NLGoal,NRGoal)).
-node_successors(Goal,BranchSucceedsNID,BranchFailsNID,NGoal) :-
+node_successors(
+		Goal,
+		BranchSucceedsNID,
+		BranchFailsNID,
+		CutBranchFailsNID,
+		RelevantCutCall, % in variable
+		Cuts, % out variable
+		NGoal) :-
 	Goal = or(MinL,MinR,NID,(LGoal;RGoal)),!,
-	node_successors(LGoal,BranchSucceedsNID,MinR,NLGoal),
-	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,NRGoal),
+	% when we reach this node (this "or" goal), a choice point is created and 
+	% the right branch is the target if the 
+	% evaluation of the left branch fails (and unless another cut is encountered...)
+	% hence, "RelevantCutCall" is set to false because (at least) this choice point
+	% is not cut
+	node_successors(LGoal,BranchSucceedsNID,MinR,CutBranchFailsNID,false,LCuts,NLGoal),
+	% the right branch is only evaluated if not cut is called when
+	% the left branch is evaluated; however, previous choice points may be
+	% cut and hence, when evaluating the right branch we have to the previous
+	% information whether the cut was called or not into consideration
+	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,CutBranchFailsNID,RelevantCutCall,RCuts,NRGoal),
+	(
+			(LCuts = true, RCuts = true,!,Cuts = true)
+		;
+			(LCuts = false, RCuts = false,!,Cuts = false)
+		;
+			Cuts = maybe
+	),
 	NGoal = or(MinL,MinR,NID,(NLGoal;NRGoal)).
 
 
+is_cut(Term) :- nonvar(Term),Term = !.
+
+is_cut(Term,Cut) :- is_cut(Term),!,Cut=true.
+is_cut(_Term,false).
 
 
+
+generate_dot_visualization(Term,OutputFile) :-
+	visualize_term_structure(Term,DotFile),
+	open(OutputFile,write,Stream),
+	write(Stream,DotFile),
+	close(Stream).
+
+
+/*
+	Examples:
+	(G=(a,(b,(c,!,d,e;f);g),h)),normalize_goal_sequence_order(G,NG),visualize_term_structure(NG,VG),write(VG).
+
+	Does not contain any relevant cut calls...
+	generate_dot_visualization(call(a1,a2,a3),'/Users/Michael/Desktop/Forward.dot').
+	generate_dot_visualization((((ap,!,aa);(bp,!,ba);(cp,!,ca)),f),'/Users/Michael/Desktop/Switch.dot').
+	generate_dot_visualization((!,a,b,c,(d;e),f),'/Users/Michael/Desktop/Standard.dot').
+	generate_dot_visualization((!),'/Users/Michael/Desktop/JustCut.dot').
+	generate_dot_visualization((a,(b,!,c;d);f),'/Users/Michael/Desktop/TermWithCut.dot').
+	generate_dot_visualization((((a;(c,!)),b),VG),'/Users/Michael/Desktop/NoRelevantCutCalls.dot').
+*/
 visualize_term_structure(Term,DotFile) :- 
 	number_term_nodes(Term,NT),
 	node_successors(NT,NTwithSucc),
@@ -193,7 +263,7 @@ visualize_term_structure(Term,DotFile) :-
 	numbered_term_exit_node_id(NTwithSucc,EID),
 	atomic_list_concat([
 		'digraph G {\n',
-		'label="',A,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
+		'label="Term: ',A,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
 		T,
 		EID,' [label="Exit",shape="Box"];\n',
 		'}'],DotFile).
@@ -221,13 +291,37 @@ visualize_numbered_term(ThisGoal,CurrentDotFile,DotFile) :-
 		TID,' -> ',LID,' [penwidth=2.25];\n',
 		TID,' -> ',RID,' [penwidth=2.25];\n'	
 		|IDF2].
-visualize_numbered_term(goal(V,G,SID,FID),CurrentDotFile,DotFile) :-
+visualize_numbered_term(goal(V,G,RelevantCutCall,SID,FID,CFID),CurrentDotFile,DotFile) :-
 	term_to_atom(G,A),
-	atomic_list_concat([
-			V,' [label="',A,'"];\n',
-			V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
-			V,' -> ',FID,' [color=red,constraint=false,arrowhead=normal];\n'	
-		],ID),
+	(
+		( 
+			RelevantCutCall = true,!,
+			atomic_list_concat([
+					V,' [label="',A,'",fontcolor=maroon];\n',
+					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
+					V,' -> ',CFID,' [label="!",color=maroon,constraint=false,arrowhead=normal];\n'
+				],ID)
+		)
+		;
+		( 
+			RelevantCutCall = false,!,
+			atomic_list_concat([
+					V,' [label="',A,'"];\n',
+					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
+					V,' -> ',FID,' [color=red,constraint=false,arrowhead=normal];\n'
+				],ID)
+		)
+		;
+		(
+			RelevantCutCall = maybe,!,
+			atomic_list_concat([
+					V,' [label="',A,'",fontcolor=darksalmon];\n',
+					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
+					V,' -> ',FID,' [color=salmon,constraint=false,arrowhead=normal];\n',
+					V,' -> ',CFID,' [label="!",color=pink,constraint=false,arrowhead=normal];\n'	
+				],ID)		
+		)
+	),
 	DotFile=[ID|CurrentDotFile].
 
 
@@ -235,12 +329,12 @@ visualize_numbered_term(goal(V,G,SID,FID),CurrentDotFile,DotFile) :-
 
 numbered_term_node_idatom(and(MinL,MinR,Max,_),ID) :- atomic_list_concat([and,'_',MinL,'_',MinR,'_',Max],ID).
 numbered_term_node_idatom(or(MinL,MinR,Max,_),ID) :- atomic_list_concat([or,'_',MinL,'_',MinR,'_',Max],ID).
-numbered_term_node_idatom(goal(ID,_G,_SID,_FID),ID).
+numbered_term_node_idatom(goal(ID,_G,_RelevantCutCall,_SID,_FID,_CFID),ID).
 
 
 
 
-numbered_term_exit_node_id(goal(_ID,_G,EID,EID),EID) :- !.
+numbered_term_exit_node_id(goal(_ID,_G,_RelevantCutCall,EID,EID,EID),EID) :- !.
 numbered_term_exit_node_id(and(_MinL,_MinR,Max,_),Max) :- !.
 numbered_term_exit_node_id(or(_Min,_MinR,Max,_),Max) :- !.
 
