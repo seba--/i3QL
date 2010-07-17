@@ -142,53 +142,44 @@ goal(G,SID,FID)
 number_term_nodes(Term,NumberedTerm) :-
 	number_term_nodes(Term,1,_,NumberedTerm).
 
-number_term_nodes(A,CID,NID,goal(CID,A)) :- var(A),!,NID is CID +1.
+number_term_nodes(A,ID,NID,goal(ID,A)) :- var(A),!,NID is ID +1.
 number_term_nodes((L,R),CID,NID,Goal) :- 
 	!, 
 	number_term_nodes(L,CID,IID,LGoal),
 	number_term_nodes(R,IID,NID,RGoal),
-	Goal = and(CID,NID,(LGoal,RGoal)).
+	Goal = and(CID,IID,NID,(LGoal,RGoal)).
 number_term_nodes((L;R),CID,NID,Goal) :- 
 	!, 
 	number_term_nodes(L,CID,IID,LGoal),
 	number_term_nodes(R,IID,NID,RGoal),
-	Goal = or(CID,NID,(LGoal;RGoal)).
+	Goal = or(CID,IID,NID,(LGoal;RGoal)).
 number_term_nodes(T,CID,NID,goal(CID,T)) :- NID is CID +1.
 
 
-inc(ID,NID) :- NID is ID + 1.
-inc_if_less_than_else(LT,E,ID,NID) :- ID < LT -> NID is ID +1 ; NID = E.
-constant(NID,_ID,NID).
-
 % to match the root node..
 node_successors(Goal,NGoal) :- 
-	Goal = goal(_ID,_G),!,
-	node_successors(Goal,inc,inc,NGoal).
+	Goal = goal(ID,_G),!,
+	ExitGoalID = ID + 1,
+	node_successors(Goal,ExitGoalID,ExitGoalID,NGoal).
 node_successors(Goal,NGoal) :- 
-	Goal = and(_Min,Max,(_LGoal,_RGoal)),!,
-	node_successors(Goal,inc,constant(Max),NGoal).	
+	Goal = and(_MinL,_MinR,Max,(_LGoal,_RGoal)),!,
+	node_successors(Goal,Max,Max,NGoal).	
 node_successors(Goal,NGoal) :- 
-	Goal = or(_Min,Max,(_LGoal;_RGoal)),!,
-	node_successors(Goal,inc,constant(Max),NGoal).	
+	Goal = or(_MinL,_MinR,Max,(_LGoal;_RGoal)),!,
+	node_successors(Goal,Max,Max,NGoal).	
 % to traverse the graph
-node_successors(goal(ID,G),SuccIDFunc,FailIDFunc,NGoal) :- !,
-	call(SuccIDFunc,ID,SID),
-	call(FailIDFunc,ID,FID),
-	NGoal = goal(ID,G,SID,FID).
-node_successors(Goal,SuccIDFunc,FailIDFunc,NGoal) :-
-	Goal = and(Min,Max,(LGoal,RGoal)),!,
-	node_successors(LGoal,SuccIDFunc,FailIDFunc,NLGoal),
-	node_successors(RGoal,SuccIDFunc,FailIDFunc,NRGoal),
-	NGoal = and(Min,Max,(NLGoal,NRGoal)).
-node_successors(Goal,SuccIDFunc,FailIDFunc,NGoal) :-
-	Goal = or(Min,Max,(LGoal;RGoal)),!,
-	(RGoal = goal(RBLID,_),! ; RGoal = and(RBLID,_,_),! ; RGoal = or(RBLID,_,_),!),
-	Boundary is RBLID - 1,
-	node_successors(LGoal,inc_if_less_than_else(Boundary,Max),constant(RBLID),NLGoal),
-	node_successors(RGoal,SuccIDFunc,FailIDFunc,NRGoal),
-	NGoal = or(Min,Max,(NLGoal;NRGoal)).
-	
-	
+node_successors(goal(ID,G),BranchSucceedsNID,BranchFailsNID,NGoal) :- !,
+	NGoal = goal(ID,G,BranchSucceedsNID,BranchFailsNID).
+node_successors(Goal,BranchSucceedsNID,BranchFailsNID,NGoal) :-
+	Goal = and(MinL,MinR,NID,(LGoal,RGoal)),!,
+	node_successors(LGoal,MinR,BranchFailsNID,NLGoal),
+	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,NRGoal),
+	NGoal = and(MinL,MinR,NID,(NLGoal,NRGoal)).
+node_successors(Goal,BranchSucceedsNID,BranchFailsNID,NGoal) :-
+	Goal = or(MinL,MinR,NID,(LGoal;RGoal)),!,
+	node_successors(LGoal,BranchSucceedsNID,MinR,NLGoal),
+	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,NRGoal),
+	NGoal = or(MinL,MinR,NID,(NLGoal;NRGoal)).
 
 
 
@@ -206,31 +197,25 @@ visualize_term_structure(Term,DotFile) :-
 		T,
 		EID,' [label="Exit",shape="Box"];\n',
 		'}'],DotFile).
-	
-/*	
-visualize_numbered_term(ThisGoal,DotFile) :- 
-	visualize_numbered_term(ThisGoal,[],NT),
-	atomic_list_concat(NT,T),
-	term_to_atom(ThisGoal,A),
-	DF=['digraph G {\nlabel="',A,'";\nnode [shape=none];\n',T,'}'],
-	atomic_list_concat(DF,DotFile).
-*/
-	 
+
+
+
+
 visualize_numbered_term(ThisGoal,CurrentDotFile,DotFile) :- 
-	ThisGoal = and(_Min,_Max,(LGoal,RGoal)),!,
-	visualize_numbered_term(LGoal,CurrentDotFile,IDF1),numbered_term_node_id(LGoal,LID),
-	visualize_numbered_term(RGoal,IDF1,IDF2),numbered_term_node_id(RGoal,RID),	
-	numbered_term_node_id(ThisGoal,TID),
+	ThisGoal = and(_MinL,_MinR,_Max,(LGoal,RGoal)),!,
+	visualize_numbered_term(LGoal,CurrentDotFile,IDF1),numbered_term_node_idatom(LGoal,LID),
+	visualize_numbered_term(RGoal,IDF1,IDF2),numbered_term_node_idatom(RGoal,RID),	
+	numbered_term_node_idatom(ThisGoal,TID),
 	DotFile=[
 		TID,' [label="⋀ (and)"];\n',
 		TID,' -> ',LID,' [penwidth="2.25"];\n',
 		TID,' -> ',RID,' [penwidth="2.25"];\n'
 		|IDF2].
 visualize_numbered_term(ThisGoal,CurrentDotFile,DotFile) :- 
-	ThisGoal = or(_Min,_Max,(LGoal;RGoal)),!,
-	visualize_numbered_term(LGoal,CurrentDotFile,IDF1),numbered_term_node_id(LGoal,LID),
-	visualize_numbered_term(RGoal,IDF1,IDF2),numbered_term_node_id(RGoal,RID),	
-	numbered_term_node_id(ThisGoal,TID),
+	ThisGoal = or(_MinL,_MinR,_Max,(LGoal;RGoal)),!,
+	visualize_numbered_term(LGoal,CurrentDotFile,IDF1),numbered_term_node_idatom(LGoal,LID),
+	visualize_numbered_term(RGoal,IDF1,IDF2),numbered_term_node_idatom(RGoal,RID),	
+	numbered_term_node_idatom(ThisGoal,TID),
 	DotFile=[
 		TID,' [label="⋁ (or)"];\n',
 		TID,' -> ',LID,' [penwidth=2.25];\n',
@@ -244,25 +229,18 @@ visualize_numbered_term(goal(V,G,SID,FID),CurrentDotFile,DotFile) :-
 			V,' -> ',FID,' [color=red,constraint=false,arrowhead=normal];\n'	
 		],ID),
 	DotFile=[ID|CurrentDotFile].
-	
 
-numbered_term_node_id(and(Min,Max,_),ID) :- atomic_list_concat([and,'_',Min,'_',Max],ID).
-numbered_term_node_id(or(Min,Max,_),ID) :- atomic_list_concat([or,'_',Min,'_',Max],ID).
-numbered_term_node_id(goal(ID,_G,_SID,_FID),ID).
+
+
+
+numbered_term_node_idatom(and(MinL,MinR,Max,_),ID) :- atomic_list_concat([and,'_',MinL,'_',MinR,'_',Max],ID).
+numbered_term_node_idatom(or(MinL,MinR,Max,_),ID) :- atomic_list_concat([or,'_',MinL,'_',MinR,'_',Max],ID).
+numbered_term_node_idatom(goal(ID,_G,_SID,_FID),ID).
+
+
+
 
 numbered_term_exit_node_id(goal(_ID,_G,EID,EID),EID) :- !.
-numbered_term_exit_node_id(and(_Min,Max,_),Max) :- !.
-numbered_term_exit_node_id(or(_Min,Max,_),Max) :- !.
+numbered_term_exit_node_id(and(_MinL,_MinR,Max,_),Max) :- !.
+numbered_term_exit_node_id(or(_Min,_MinR,Max,_),Max) :- !.
 
-
-
-
-/*
-normalize_goal_sequence_order((A=t2,X=1,(A = t1,!,B=t2 ; C = u2, B=u1),Z=e),G),goals(G,1,M,AA).
-
-goals(A,A) :- var(A),!.
-goals((L,R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).
-goals((L;R),Goal) :- !, (goals(L,Goal);goals(R,Goal)).	
-goals(T,T).
-*/
-	
