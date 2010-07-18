@@ -120,12 +120,11 @@ count_predicate_definitions(_Predicate,[],Count,Count).
 
 
 
-
+% just iterates over all clauses
 check_clauses([],_State).
 check_clauses([(Clause,_Properties)|Clauses],State) :-
 	check_clause(Clause,State),
 	check_clauses(Clauses,State).
-
 
 
 
@@ -137,7 +136,6 @@ check_clause(Clause,State) :-
 		write(Clause),
 		write('" uses the reserved namespace \'$SAE\'.'),nl
 	)).
-
 
 
 
