@@ -132,7 +132,7 @@ add_called_by_information(P,PredicateProperties,NPredicateProperties) :-
 		; 
 		(
 			CalledByPredicateProperty = [called_by(Ps)],
-			set_add(P,Ps,NPs),			
+			list_set_prepend(P,Ps,NPs),			
 			NPredicateProperties = [called_by(NPs)|OtherPredicateProperties]
 		)
 	).
@@ -140,8 +140,8 @@ add_called_by_information(P,PredicateProperties,NPredicateProperties) :-
 
 
 
-set_add(E,List,NewList) :-
-	member(E,List) ->
-		NewList = List
+list_set_prepend(E,ListSet,NewListSet) :-
+	member(E,ListSet) ->
+		NewListSet = ListSet
 	;
-		NewList = [E|List].
+		NewListSet = [E|ListSet].
