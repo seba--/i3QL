@@ -1,11 +1,44 @@
-/*
-	Implementation of the compiler's infrastructure.
+/* License (BSD Style License):
+   Copyright (c) 2010
+   Department of Computer Science
+   Technische Universität Darmstadt
+   All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    - Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    - Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    - Neither the name of the Software Technology Group or Technische 
+      Universität Darmstadt nor the names of its contributors may be used to 
+      endorse or promote products derived from this software without specific 
+      prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+/*	Implementation of the compiler's infrastructure.
 
 	<p><i><b>General Implementation Notes</b><br /> 
-	We do not use exceptions to avoid that the compiler immediately terminates 
-	when we encounter an error. The compiler has to able to report multiple 
-	errors. However, if an error is detected, the corresponding predicate is
-	expected to fail and the compiler aborts.
+	The compiler does not make use of exceptions due to several reasons. First of 
+	all, we want to avoid that the compiler immediately terminates when we encounter 
+	an error. We want to be able to report multiple errors.<br /> However, if 
+	an error is detected, the corresponding predicate is expected to fail and the
+	compiler will automatically abort after calling the phase.
 	</i></p>	
 
 	@author Michael Eichberg
@@ -22,34 +55,34 @@
 :- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
 :- use_module('phase/OOToScala.pl',[oo_to_scala/4]).
 
-:- use_module('ast.pl').
 
 
 
-/*	<p>
-	The phase/3 predicate identifies the different phases of the compiler and
-	also specifies the debug information that will be shown by the respective
-	compiler phase.</br>
+/*	The phase/3 predicate identifies the different phases of the compiler and
+	also specifies the debug information that will be produced when the respective
+	compiler phase is executed.</br>
 	The order in which the phases are specified determines the order in which
 	the phases are executed; if a phase is to be executed at all.
-	</p>
+	<p>
 	The entry predicate of each phase has to have the following signature:
 	<pre>
 	&lt;name_of_the_phase&gt;(
 		&lt;debug_flag ()&gt;,
 		&lt;input (result of the previous phase; the input of the first phase is
 			a list of file names.)&gt;,
-		OutputFolder (the folder where to store the compiler's results),
+		&lt;OutputFolder&gt;(the folder where to store the generated artifacts),
 		Output (always a free variable, becomes the input of the next phase))
 	</pre>
+	</p>
 
 	@signature phase(Name,ExecutionFlag,Debug)
 	@param Name is the name of the phase.
 	@param ExecutionFlag specifies if the phase should be executed or not. The
 			value is either: "execute" or "omit".
 	@param Debug is a list that identifies which debug information should be
-			shown. If the execution flag is omit (i.e., not "execute"), than the
-			value of Debug is meaningless. 
+			produced. E.g., <code>[on_entry,ast]</code><br />
+			If the execution flag is not "execute", than the
+			value of Debug is meaningless. <br />
 			Legal values of the debug argument are defined by the respective phase.
 			Most phases define "ast" and "on_entry" to show the program's ast after
 			execution of the phase and "on_entry" to signal that the phase is entered.
@@ -112,36 +145,22 @@ compile(FilePatterns,OutputFolder) :-
 		AFS), % AFS is the list of all absolute file names.
 
 
-	% 2. Find all executable phases
+	% 2. find all executable phases
 	findall(
 		executable_phase(X,D),
 		phase(X,execute,D),
 		ExecutablePhases),
 
-	% 3. Do execute all phases
+	% 3. do execute all phases
 	execute_phases(ExecutablePhases,AFS,OutputFolder).
 
 
 
 
-/*	execute(Phases,Input,OutputFolder) :- executes all phases in order.
+/*	execute_phases(Phases,Input,OutputFolder) :- executes all phases unless 
+	a phase fails. <br />
 	A phase's Input is the Output of the previous phase. OutputFolder defines
-	the place where the generate code and other artifacts are stored.
-	
-	<p>
-	After the load phase the input / output is an AST with the following structure:
-	<pre>
-	[	pred(
-			a/1, 							% The identifier of the predicate
-			[(C, [det, type=int])],	% A list of clauses defining the 
-											% predicate. C is one of these clauses.
-											% In case of built-in propeties, this list
-											% is empty.
-			[type=...]					% List of properties of the predicate
-		),...
-	]
-	</pre>
-	</p>
+	the place where the generated artifacts have to be stored.
 */
 execute_phases([],_,_) :- !.
 execute_phases([executable_phase(Phase,Debug)|Phases],Input,OutputFolder) :-
