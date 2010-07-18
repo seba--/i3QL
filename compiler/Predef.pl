@@ -1,12 +1,43 @@
- /*
-	Definition of all operators and predicates that are either directly
+/* License (BSD Style License):
+   Copyright (c) 2010
+   Department of Computer Science
+   Technische Universität Darmstadt
+   All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    - Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    - Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    - Neither the name of the Software Technology Group or Technische 
+      Universität Darmstadt nor the names of its contributors may be used to 
+      endorse or promote products derived from this software without specific 
+      prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+/* Definition of all operators and predicates that are either directly
 	understood by SAE Prolog - i.e., that are taken care of during compilation -
 	or which are pre-imlemented as part of SAE Prolog's library.
 	
-	The redefinition of built-in predicates (operators) is not supported. The ISO
-	standard semantics of these predicates is implemented by the compiler.
+	The redefinition of built-in predicates (operators) is not supported. In 
+	general, these predicates have the standard ISO semantics.
 
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module(
@@ -21,14 +52,16 @@
 		visualize_term_structure/2]
 ).
 
-:- use_module('Utils.pl',[max/3]).
 
 
-/* @signature predefined_predicates(UserDefinedProgram,CompleteProgram)
 
-	@param UserDefinedProgram is the AST of the loaded SAE Prolog Program.
-	@param CompleteProgram is the AST of the loaded Program extended with
-		the built-in predicates.
+/* Definition of all predicates directly suppported by SAE Prolog including all
+	relevant properties.
+
+	@signature predefined_predicates(UserDefinedProgram,CompleteProgram)
+	@param UserDefinedProgram is the AST of the loaded SAE Prolog program.
+	@param CompleteProgram is the merge of the AST of the loaded program and the 
+		built-in predicates.
 */
 predefined_predicates(UserDefinedProgram,CompleteProgram) :-
 	CompleteProgram = [
@@ -67,15 +100,15 @@ predefined_predicates(UserDefinedProgram,CompleteProgram) :-
 		pred('=\\='/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
 		pred('>'/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
 		pred('>='/2,[],[deterministic(yes),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
-
-		% Recall, that the "other" arithmetic operators 
-		% (e.g., +, -, *,...) are not top-level
-		% predicates!)
+		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
+		
 		| UserDefinedProgram].
 
 
 
-
+/*	predefined_operator(Operator) :- succeeds if Operator is an Operator that is
+	defined by SAE prolog.
+*/
 predefined_operator(Operator) :-
 	predefined_term_operator(Operator);
 	predefined_arithmetic_operator(Operator).
@@ -101,45 +134,23 @@ predefined_arithmetic_operator('>=').
 
 
 
-/* called_predicate(Term,Predicate) :- the list of all Predicates called by the
-	given Term (in depth-first order). 
+/* built_in_term(Term) :- succeeds if Term is a term used internally by the
+	SAE Prolog compiler to store meta-information.
 	
 	<p>
-	This predicate takes care of supported meta-calls (e.g., call/1, findall/3...). 
+	Terms used internally by the SAE that could conflict with terms of SAE prolog
+	programs always start with the '$SAE' "namespace" to avoid conflicts.<br/>
+	The primary use case is to associate free variables of prolog clauses with
+	names during compilation.	
 	</p>
-*/	
-	/*
-called_predicate(Term,Predicate):- 
-	functor(Term,Functor,Arity),
-	(
-		Predicate = Functor/Arity
-	;
-		(
-			Functor = ',';
-			Functor = ';'
-		),
-		Arity =:= 2,
-		(arg(1,Term,Arg);arg(2,Term,Arg)),
-		called_predicate(Arg,Predicate)
-	).*/
-
-
-
-
-
-/* Terms used internally by the SAE that could conflict with terms of SAE prolog
-	programs always start with the '$SAE' "namespace". 
 */
 built_in_term('$SAE':_).
 
 
 
-/*
-We need to know the id of the goal (S) that is executed after a given goal (G)
-when the goal (G) fails or succeeds.
 
-goal(G,SID,FID)
-*/
+
+
 
 number_term_nodes(Term,NumberedTerm) :-
 	number_term_nodes(Term,1,_,NumberedTerm).
@@ -247,6 +258,7 @@ generate_dot_visualization(Term,OutputFile) :-
 	(G=(a,(b,(c,!,d,e;f);g),h)),normalize_goal_sequence_order(G,NG),visualize_term_structure(NG,VG),write(VG).
 
 	Does not contain any relevant cut calls...
+	generate_dot_visualization(((b;a,!),c;f),'/Users/Michael/Desktop/FlexibleGoalSequence.dot').
 	generate_dot_visualization(call(a1,a2,a3),'/Users/Michael/Desktop/Forward.dot').
 	generate_dot_visualization((((ap,!,aa);(bp,!,ba);(cp,!,ca)),f),'/Users/Michael/Desktop/Switch.dot').
 	generate_dot_visualization((!,a,b,c,(d;e),f),'/Users/Michael/Desktop/Standard.dot').
