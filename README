@@ -9,7 +9,7 @@ object-oriented program and a minimal runtime environment to execute the program
 The current object-oriented target language is Scala. The SAE compiler is 
 implemented in (SWI) Prolog.
 
-http://www.opal-project.de/sae/
+http://www.opal-project.de/sae_project/
 
 
 # License
