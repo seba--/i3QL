@@ -10,40 +10,92 @@ tokenize(Chars,Tokens) :-
 	v(V) - is a variable with the name V
 */
 
-stmt(S) --> term([S]),['.'].
+
+%%%% ______________________________ THE PARSER _____________________________%%%%
+
+
+program(P,Ts) :-
+	default_op_table(Ops),
+	program(Ops,P,Ts,[]).
+		
+
+program(Ops,[S|RS]) --> 
+	stmt(Ops,S),
+	program(Ops,RS). % ... add code to update operator table!		
+program(Ops,[S]) --> stmt(Ops,S).
+
+
+
+stmt(Ops,T) --> term(Ops,T),['.']. % ... add code to check that the term is valid... it is an atom, a compound term, a directive or a clause definition
+
+
+
+primitive_term(Ops,CT) --> compound_term(Ops,CT).
+primitive_term(_Ops,V) --> var(V).
+primitive_term(_Ops,A) --> atom(A).
+
+
+primary_term(Ops,PT) --> primitive_term(Ops,PT).
+primary_term(Ops,pre(Op,PT)) --> [Op],primitive_term(Ops,PT),{is_prefix(Op,Ops)}.
+primary_term(Ops,post(Op,PT)) --> primitive_term(Ops,PT),[Op],{is_postfix(Op,Ops)}.
+
+
+
+term(Ops,PT) --> primary_term(Ops,PT).
+term(Ops,infix(PT1,Op,T2)) --> primary_term(Ops,PT1),[Op],term(Ops,T2),{is_infix(Op,Ops)}.
+
+
+comma_delimited_term(Ops,PT) --> primary_term(Ops,PT).
+comma_delimited_term(Ops,infix(PT1,Op,T2)) --> primary_term(Ops,PT1),[Op],comma_delimited_term(Ops,T2),{Op \= ',',is_infix(Op,Ops)}.
+
+
+compound_term(Ops,ct(F,Args)) --> [s(F)],['('],term_list(Ops,Args),[')'].
+
+
+term_list(Ops,[T]) --> comma_delimited_term(Ops,T).
+term_list(Ops,[T|TRs]) --> comma_delimited_term(Ops,T),[','],term_list(Ops,TRs).
+term_list(Ops,[T]) --> ['('],term(Ops,T),[')'].
+term_list(Ops,[T|TRs]) --> ['('],term(Ops,T),[')'],[','],term_list(Ops,TRs).
+
+
+
+
+atom(s(A)) --> [s(A)]. % handles vars, string atoms and integer atoms
+atom(i(I)) --> [i(I)].
+
+
+var(v(V)) --> [v(V)].
+
+
 
 % In general, to parse prolog terms we would like to define a rule 
 % "term ::= term op term". But, such left-recursive rules are not supported by
 % DCGs and hence we had to transform the grammar to get rid of the left recursion.
 
-term([A]) --> atom(A). 
-term([A,Op1|T1]) --> atom(A), term1(Op1,T1).
-
-%term([T]) --> ['('],term(T),[')']. % nested terms
-%term([T,Op1|T1]) --> ['('],term(T),[')'],term1(Op1,T1).
-
-term([CT]) --> compound_term(CT).
-term([CT,Op1|T1]) --> compound_term(CT), term1(Op1,T1).
-
-%term([OpT]) --> term1(Op1,T1),{ OpT =.. [Op1,T1] }.
-term([OpT]) --> [s(Op)],term(T),{ OpT =.. [Op,T] }. % prefix operators
-term([OpT,Op1|T1]) --> [s(Op)],term(T),term1(Op1,T1),{ OpT =.. [Op,T] }.
 
 
-term1(op(Op1),T1) --> [s(Op1)],term(T1).
+is_infix(Op,Ops) :-
+	member(op(_,Mode,Op),Ops),
+	(	
+		Mode == xfx;
+		Mode == xfy;
+		Mode == yfx;
+		Mode == yfy
+	).
 
+is_postfix(Op,Ops) :-
+	member(op(_,Mode,Op),Ops),
+	(
+		Mode == xf;
+		Mode == yf
+	).
 
-
-atom(A) --> [s(A)]. % handles vars, string atoms and integer atoms
-atom(A) --> [i(A)].
-atom(A) --> [v(A)].
-
-
-
-compound_term(CT) --> [s(F)],args(As),{ CT =.. [F|As] }.
-args([T]) --> ['('],term(T),[')'].%,term_to_term_list(T,Ts).
-
-
+is_prefix(Op,Ops) :-
+	member(op(_,Mode,Op),Ops),
+	(
+		Mode == fx;
+		Mode == fy
+	).
 
 
 default_op_table([
@@ -56,9 +108,9 @@ default_op_table([
 
 		op(1050,xfy,'->'),
 
-%		op(1000,xfy,','), Redefining "and" is NOT supported!
+		op(1000,xfy,','), % Redefining "and" is NOT supported!
 
-		op(900,xfy,'\\+'),
+		op(900,fy,'\\+'),
 
 		op(700,xfx,'='),
 		op(700,xfx,'\\='),
@@ -79,9 +131,9 @@ default_op_table([
 		op(500,yfx,'+'),
 		op(500,yfx,'-'),
 	
-		op(400,yfx,*),
-		op(400,yfx,/),
-		op(400,yfx,mod),
+		op(400,yfx,'*'),
+		op(400,yfx,'/'),
+		op(400,yfx,'mod'),
 
 		op(200,fy,'-')		
 	]).
