@@ -62,7 +62,7 @@ abstract class CompoundTerm extends Term {
 	 * The state of the compound term's arguments is restored.
 	 * <p> 
 	 * This requires a traversal of the complete compound
-	 * terms structure.<br />
+	 * term's structure.<br />
 	 * Hence, if all instances of a compound term are always ground then 
 	 * it is highly encouraged to overwrite this method (and 
 	 * {@link #manifestState()}) to avoid traversing the state of a term.</p>
