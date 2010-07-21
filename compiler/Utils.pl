@@ -1,6 +1,5 @@
 /*	Definition of common helper predicates.
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
 :- module('Utils',
