@@ -11,7 +11,7 @@
 
 
 
-/* Encoding of the SAE Prolog program in the Abstract OO Language.
+/**Encoding of the SAE Prolog program in the Abstract OO Language.
 
 	@param Debug the list of debug information that should be printed.
 	@param PLProgram is the program in normalized form. The structure is:
