@@ -14,6 +14,11 @@ tokenize(Chars,Tokens) :-
 %%%% ______________________________ THE PARSER _____________________________%%%%
 
 
+% In general, to parse prolog terms we would like to define a rule 
+% "term ::= term op term". But, such left-recursive rules are not supported by
+% DCGs and, hence, we had to transform the grammar to get rid of the left recursion.
+
+
 program(P,Ts) :-
 	default_op_table(Ops),
 	program(Ops,P,Ts,[]).
@@ -21,7 +26,7 @@ program(P,Ts) :-
 
 program(Ops,[S|RS]) --> 
 	stmt(Ops,S),
-	program(Ops,RS). % ... add code to update operator table!		
+	program(Ops,RS). % ... add code to update the operator table!		
 program(Ops,[S]) --> stmt(Ops,S).
 
 
@@ -68,9 +73,6 @@ var(v(V)) --> [v(V)].
 
 
 
-% In general, to parse prolog terms we would like to define a rule 
-% "term ::= term op term". But, such left-recursive rules are not supported by
-% DCGs and hence we had to transform the grammar to get rid of the left recursion.
 
 
 
