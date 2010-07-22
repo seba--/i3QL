@@ -30,21 +30,67 @@
 	POSSIBILITY OF SUCH DAMAGE.
 */
 
-/** This library provides predicates to visualize a clause's call sequence.
+/** 
+	This library provides predicates to visualize a clause's goal execution order
+	using Graphviz' DOT tool (www.graphviz.org).<br />
+	The two main predicates are: {@link generate_dot_visualization/2} and
+	{@link visualize_term_structure/2}.
 
+	<p>
+	<b>Examples</b>
+	To generate the dot file in one step:
+	<pre>
+		generate_dot_visualization(
+			((b;a,!),c;f),
+			'WeiredControlFlow.dot'
+		).
+		generate_dot_visualization(
+			call(a1,a2,a3),
+			'DemoA.dot'
+		).
+		generate_dot_visualization(
+			(((ap,!,aa);(bp,!,ba);(cp,!,ca)),f),
+			'Switch.dot'
+		).
+		generate_dot_visualization(
+			(!,a,b,c,(d;e),f),
+			'Standard.dot'
+		).
+		generate_dot_visualization(
+			(a,(b,!,c;d);f),
+			'IfThenElse.dot'
+		).
+		generate_dot_visualization(
+			(((a;(c,!)),b),VG),
+			'IrrelevantCutCall.dot'
+		).
+	</pre>	
+	To print out the dot file to the terminal:
+	<pre>
+		visualize_term_structure((a,b;c),D),write(D).
+	</pre>
+	</p>
+	
+	<p>
+	<b>Version History</b>
+	<i>0.1 - July 21th, 2010</i><br />
+	First release. It can be used to visualize the goal execution order of 
+	clauses using "and (,)", "or (;)" and "cut (!)". Further predicates are
+	currently not supported.	
+	</p>
+		
 	@author Michael Eichberg
 */
+:- module(
+	'Compiler:Utils:VisualizeGoalExecutionOrder',
+	[	generate_dot_visualization/2,
+		visualize_term_structure/2]
+).
 
-/**Examples:
+:- use_module('../Utils.pl').
 
-	generate_dot_visualization(((b;a,!),c;f),'/Users/Michael/Desktop/FlexibleGoalSequence.dot').
-	generate_dot_visualization(call(a1,a2,a3),'/Users/Michael/Desktop/Forward.dot').
-	generate_dot_visualization((((ap,!,aa);(bp,!,ba);(cp,!,ca)),f),'/Users/Michael/Desktop/Switch.dot').
-	generate_dot_visualization((!,a,b,c,(d;e),f),'/Users/Michael/Desktop/Standard.dot').
-	generate_dot_visualization((!),'/Users/Michael/Desktop/JustCut.dot').
-	generate_dot_visualization((a,(b,!,c;d);f),'/Users/Michael/Desktop/TermWithCut.dot').
-	generate_dot_visualization((((a;(c,!)),b),VG),'/Users/Michael/Desktop/NoRelevantCutCalls.dot').
-*/
+
+
 generate_dot_visualization(Term,OutputFile) :-
 	visualize_term_structure(Term,DotFile),
 	open(OutputFile,write,Stream),
@@ -163,20 +209,39 @@ is_cut(_Term,false).
 
 
 
-
+visualize_term_structure(Clause,DotFile) :- 
+	Clause = ':-'(H,B),
+	!,
+	name_variables(H,'H',1,_AID),
+	name_variables(B,'B',1,_VID),
+	visualize_term_structure(B,GraphDescription,EID),
+	term_to_atom(Clause,A),
+	sanitize_atom(A,SA),
+	atomic_list_concat([
+		'digraph G {\n',
+		'label="Term: ',SA,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
+		GraphDescription,
+		EID,' [label="Exit",shape="Box"];\n',
+		'}'],DotFile).
 visualize_term_structure(Term,DotFile) :- 
+	name_variables(Term,'V',1,_VID),
+	visualize_term_structure(Term,GraphDescription,EID),
+	term_to_atom(Term,A),
+	sanitize_atom(A,SA),
+	atomic_list_concat([
+		'digraph G {\n',
+		'label="Term: ',SA,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
+		GraphDescription,
+		EID,' [label="Exit",shape="Box"];\n',
+		'}'],DotFile).
+
+
+visualize_term_structure(Term,GraphDescription,ExitID) :- 
 	number_term_nodes(Term,NT),
 	node_successors(NT,NTwithSucc),
 	visualize_numbered_term(NTwithSucc,[],DF),
-	atomic_list_concat(DF,T),
-	term_to_atom(Term,A),
-	numbered_term_exit_node_id(NTwithSucc,EID),
-	atomic_list_concat([
-		'digraph G {\n',
-		'label="Term: ',A,'";\nnode [shape=none];\nedge [arrowhead=none];\n',
-		T,
-		EID,' [label="Exit",shape="Box"];\n',
-		'}'],DotFile).
+	atomic_list_concat(DF,GraphDescription),
+	numbered_term_exit_node_id(NTwithSucc,ExitID).
 
 
 
@@ -202,11 +267,12 @@ visualize_numbered_term(ThisGoal,CurrentDotFile,DotFile) :-
 		|IDF2].
 visualize_numbered_term(goal(V,G,RelevantCutCall,SID,FID,CFID),CurrentDotFile,DotFile) :-
 	term_to_atom(G,A),
+	sanitize_atom(A,SA),
 	(
 		( 
 			RelevantCutCall = true,!,
 			atomic_list_concat([
-					V,' [label="',A,'",fontcolor=maroon];\n',
+					V,' [label="',SA,'",fontcolor=maroon];\n',
 					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
 					V,' -> ',CFID,' [label="!",color=maroon,constraint=false,arrowhead=normal];\n'
 				],ID)
@@ -215,7 +281,7 @@ visualize_numbered_term(goal(V,G,RelevantCutCall,SID,FID,CFID),CurrentDotFile,Do
 		( 
 			RelevantCutCall = false,!,
 			atomic_list_concat([
-					V,' [label="',A,'"];\n',
+					V,' [label="',SA,'"];\n',
 					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
 					V,' -> ',FID,' [color=red,constraint=false,arrowhead=normal];\n'
 				],ID)
@@ -224,7 +290,7 @@ visualize_numbered_term(goal(V,G,RelevantCutCall,SID,FID,CFID),CurrentDotFile,Do
 		(
 			RelevantCutCall = maybe,!,
 			atomic_list_concat([
-					V,' [label="',A,'",fontcolor=darksalmon];\n',
+					V,' [label="',SA,'",fontcolor=darksalmon];\n',
 					V,' -> ',SID,' [color=green,constraint=false,arrowhead=normal];\n',
 					V,' -> ',FID,' [color=salmon,constraint=false,arrowhead=normal];\n',
 					V,' -> ',CFID,' [label="!",color=pink,constraint=false,arrowhead=normal];\n'	
@@ -235,4 +301,37 @@ visualize_numbered_term(goal(V,G,RelevantCutCall,SID,FID,CFID),CurrentDotFile,Do
 
 
 
+sanitize_atom(A,NA) :-
+	string_to_atom(S,A),
+	string_to_list(S,SL),
+	sanitize_string(SL,SS),
+	string_to_atom(SS,NA).
 
+
+
+sanitize_string(S,NewS) :-
+	replace_char_with_string(S,"\\","\\\\",S1),
+	replace_char_with_string(S1,"\"","\\\"",S2),
+	replace_char_with_string(S2,"\n","\\\n",S3),
+	replace_char_with_string(S3,"\t","\\\t",NewS).
+
+
+
+name_variables(Term,Type,ID,NewID) :-
+	var(Term),
+	!,
+	atomic_list_concat([Type,ID],Term),
+	NewID is ID + 1.
+name_variables([Term|Terms],Prefix,ID,NewID) :-
+	% This special case is required to not run in 
+	% endless recursion (cf. next clause).
+	name_variables(Term,Prefix,ID,NID),
+	name_variables(Terms,Prefix,NID,NewID),
+	!.	
+name_variables(Term,Type,ID,NewID) :-
+	compound(Term),!,
+	Term =.. [_|Args],
+	name_variables(Args,Type,ID,NewID).
+% The base case (i.e., _Term is an atom):
+name_variables(_Term,_Type,ID,ID) :- 
+	true.
