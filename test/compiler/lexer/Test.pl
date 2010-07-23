@@ -12,23 +12,23 @@ do_tokenization(SimpleFileName,KeepWhiteSpace,Ts) :-
 
 test(	string_atoms,
 		[true( 
-			TS = [
+			Ts = [
 				sa('IllegalCharacters:()[]{},;.:|',1,1),
 				sa('a',2,1),
 				sa('aaaaaaaaaaaaaaaaaaaaaaaaVVVVVVVVVVEEEEEEERRRRRRRRRYYYYYY_LLLLLLLLLLLLLLOOOOOOOOOOOOOOOOGGGGGGGGGGGGnnnnnnnnnnnaaaaaaaaaaaammmmmmmmmmmeeeeeeee',3,1),
 				sa(abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,4,1)
 			]
 		)]
-	) :- do_tokenization('StringAtoms.pl',false,TS).
+	) :- do_tokenization('StringAtoms.pl',false,Ts).
 
 
 test(	empty_file, 
-		[true(TS=[])]
-	) :- do_tokenization('Empty.pl',false,TS).
+		[true(Ts=[])]
+	) :- do_tokenization('Empty.pl',false,Ts).
 
 
 test(	numbers, 
-		[true(TS=[
+		[true(Ts=[
 			n(0, 1, 1),
 			n(1, 3, 1),
 			n(123456789, 5, 1),
@@ -41,22 +41,22 @@ test(	numbers,
 			n(12.34e-2, 19, 1)
 			]
 		)]
-	) :- do_tokenization('Numbers.pl',false,TS).
+	) :- do_tokenization('Numbers.pl',false,Ts).
 
 
-test(	no_comments,
-		[true(TS=[
+test(	ignore_comments_while_parsing,
+		[true(Ts=[
 			sa(a, 3, 1),
 			'(',
 			sa(b, 3, 26),
 			')',
 			o('.', 3, 28)])
 		]
-	) :- do_tokenization('Comments.pl',false,TS).
+	) :- do_tokenization('Comments.pl',false,Ts).
 
 
-test(	with_comments,
-		[true(TS=[
+test(	report_comments,
+		[true(Ts=[
 			eolc(' an end of line comment', 1, 1), 
 			ws('\n'), 
 			sa(a, 3, 1),
@@ -70,7 +70,59 @@ test(	with_comments,
 			mlc('\na multi-line comment\n', 5, 1)
 			])
 		]
-	) :- do_tokenization('Comments.pl',true,TS).
+	) :- do_tokenization('Comments.pl',true,Ts).
+
+
+test(	operators,
+		[true(Ts=[
+			o(-->, 1, 1),
+			o(:-, 2, 1),
+			o(:-, 3, 1), 
+			o(?-, 4, 1),
+			o(;, 5, 1),
+			o(,, 6, 1),
+			o(|, 7, 1), 
+			o(->, 8, 1), 
+			o(\+, 9, 1), 
+			o(~, 10, 1), 
+			o(<, 11, 1), 
+			o(=, 12, 1), 
+			o(=.., 13, 1), 
+			o(=@=, 14, 1), 
+			o(=:=, 15, 1), 
+			o(=<, 16, 1), 
+			o(==, 17, 1), 
+			o(=\=, 18, 1), 
+			o(>, 19, 1), 
+			o(>=, 20, 1), 
+			o(@<, 21, 1), 
+			o(@=<, 22, 1), 
+			o(@>, 23, 1), 
+			o(@>=, 24, 1), 
+			o(\=, 25, 1), 
+			o(\==, 26, 1), 
+			sa(is, 27, 1), 
+			o(:, 28, 1),
+			o(+, 29, 1),
+			o(-, 30, 1), 
+			o(/\, 31, 1), 
+			o(\/, 32, 1), 
+			sa(xor, 33, 1), 
+			o(><, 34, 1), 
+			o(?, 35, 1), 
+			o(*, 36, 1), 
+			o(/, 37, 1), 
+			o(//, 38, 1), 
+			sa(rdiv, 39, 1),
+			o(<<, 40, 1), 
+			o(>>, 41, 1), 
+			sa(mod, 42, 1), 
+			sa(rem, 43, 1),
+			o(**, 44, 1), 
+			o(^, 45, 1), 
+			o(+, 46, 1)])
+		]
+	) :- do_tokenization('Operators.pl',false,Ts).
 
 
 :- end_tests(lexer).
