@@ -98,7 +98,16 @@
 	@author Michael Eichberg (mail@michael-eichberg.de)
 	@version 0.9 - July, 22th 2010 (The lexer works, but it is not fully tested.)
 */
-:- module('Lexer',[tokenize_file/2,tokenize/2]).
+:- module(
+	'Lexer',
+	[
+		tokenize_file/3,
+		tokenize/3,
+		white_space/1,
+		name_atom/1,
+		variable/1
+	]
+).
 
 
 
@@ -106,9 +115,9 @@
 /**
 	Tokenizes a file.
 */
-tokenize_file(File,Tokens) :-
+tokenize_file(File,KeepWhiteSpace,Tokens) :-
 	open(File,read,Stream),
-	tokenize(Stream,Tokens),
+	tokenize(Stream,KeepWhiteSpace,Tokens),
 	close(Stream).
 
 
@@ -120,18 +129,40 @@ tokenize_file(File,Tokens) :-
 	@arg(in) Stream a stream that supports reading characters
 	@arg(out) Tokens the list of recognized tokens
 */
-tokenize(Stream,[]) :- at_end_of_stream(Stream),!.
-tokenize(Stream,Tokens) :-
+tokenize(Stream,_KeepWhiteSpace,[]) :- at_end_of_stream(Stream),!.
+tokenize(Stream,KeepWhiteSpace,Tokens) :-
 	get_char(Stream,C),
 	read_token(C,Stream,Token),
 	(	% if...
-		Token = none,!,
+		(	
+			Token = none
+		;
+			\+ KeepWhiteSpace,white_space(Token)
+		),
+		!,
 		Tokens = Ts
 	;	% else...
 		Tokens = [Token|Ts]
 	),
-	tokenize(Stream,Ts).
+	tokenize(Stream,KeepWhiteSpace,Ts).
 
+
+
+
+white_space(sc(_,_,_)).
+white_space(eolc(_,_,_)).	
+white_space(mlc(_,_,_)).
+white_space(ws(_)).		
+
+
+
+name_atom(o(_,_,_)).
+name_atom(sa(_,_,_)).
+
+
+
+variable(v(_,_,_)).
+variable(av(_,_,_)).
 
 
 
@@ -363,20 +394,22 @@ read_fp_part1('.',Stream,S1,SZ) :-
 	!,
 	stream_property(Stream,position(BeforeDot)),
 	get_char(Stream,_),
-	read_int_part(Stream,S1,S2),
+	read_int_part(Stream,S2,S3),
 	(														% if ...
-		S1 = [], 										% no floating point segment
+		S2 = [],											% no floating point segment
 		!,													% is found
-		set_stream_position(Stream,BeforeDot)  % then the "." is an operator
+		set_stream_position(Stream,BeforeDot),  % then the "." is an operator
+		S1 = SZ, SZ = []
 	;	% succeeded reading floating point segment
+		S1 = ['.'|S2],
 		(
 			at_end_of_stream(Stream),
 			!,
-			S2 = [],
+			S3 = [],
 			SZ = []
 		;
 			peek_char(Stream,C),
-			read_fp_part2(C,Stream,S2,SZ)
+			read_fp_part2(C,Stream,S3,SZ)
 		)
 	).
 read_fp_part1(C,Stream,S1,SZ) :-  read_fp_part2(C,Stream,S1,SZ).
@@ -385,7 +418,8 @@ read_fp_part2(C,_Stream,[],[]) :- char_type(C,space),!.
 read_fp_part2('e',Stream,S1,SZ) :- 
 	!,
 	get_char(Stream,_),
-	read_exponent(Stream,S1,SZ).
+	S1 = ['e'|S2],
+	read_exponent(Stream,S2,SZ).
 read_fp_part2(C,Stream,[],[]) :-
 	char_type(C,alpha),
 	lexer_error(Stream,['unexpected symbol (',C,')']).
@@ -393,10 +427,11 @@ read_fp_part2(_C,_Stream,SZ,SZ).
 
 read_exponent(Stream,[],[]) :- at_end_of_stream(Stream,['exponent expected']),!.
 read_exponent(Stream,S1,SZ) :-
-	get_char(Stream,C),
+	peek_char(Stream,C),
 	(
-		C = '-',
+		( C = '-' ; C = '+' ),
 		!,
+		get_char(Stream,_),
 		S1 = [C|SX]
 	;
 		S1 = SX
@@ -425,12 +460,15 @@ read_ml_comment(Stream,Token) :-
 	(
 		C = '*',!,
 		get_char(Stream,_),
-		read_unstructured_ml_comment(Stream,Cs)
+		fail/*,
+		stream_position(Stream,LN,CN),
+		read_unstructured_ml_comment(Stream,Cs)*/
 	;
 		stream_position(Stream,LN,CN),
 		read_unstructured_ml_comment(Stream,Cs),
 		atom_chars(ACs,Cs),
-		Token=mlc(ACs,LN,CN)
+		ICN is CN - 1,
+		Token=mlc(ACs,LN,ICN)
 	).
 	
 
@@ -498,16 +536,19 @@ read_token_sc(C,Stream,tf(TF,LN,CN)) :-
 	*/
 
 
+
 at_end_of_stream(Stream,ErrorMessage) :-
 	at_end_of_stream(Stream),
 	!,
 	atomic_list_concat(ErrorMessage,EM),
 	lexer_error(Stream,['unexpected end of file (',EM,')']).
 
+
 	
 stream_position(Stream,LN,CN) :-
 	line_count(Stream,LN),
 	line_position(Stream,CN).
+
 
 
 lexer_error(Stream,ErrorMessage) :-
