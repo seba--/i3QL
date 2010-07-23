@@ -43,7 +43,8 @@
 	column where the token was found.
 	<ul>
 	<li>s(S,LN,CN) :- S is a list of char atoms; i.e., it is a "string".
-	<li>sa(S,LN,CN) :- S is a string atom; <i> the cut ("!") is also an atom.</i></li>
+	<li>sa(S,LN,CN) :- S is a string atom; recall that <i> the cut ("!") is also an
+	 	atom.</i></li>
 	<li>i(N,LN,CN) :- N is an integer value.</li>		
 	<li>f(N,LN,CN) :- N is a floating point value.</li>		
 	<li>o(Op,LN,CN) :- Op is a sequence of operator characters (e.g., ':-').</li>
@@ -51,11 +52,12 @@
 	 	sequence (';',',','|').</li>
 	<li>av(V,LN,CN) :- V is the name of an anonymous variable (av).</li>
 	<li>v(V,LN,CN) :- V is the name of a concrete variable (v).</li>
-	<li>&lt;Special Characters&gt; is every parantheses ("(,),{,},[,]"), special 
-		character is returned as is.</li>		
+	<li>&lt;Special Characters&gt; a paranthesis (e.g., one of "(,),{,},[,]"), 
+		special characters are included in the token list as is.</li>		
 	</ul>
 	The following tokens are only relevant for a pretty printer / java doc
-	generator.
+	generator. The lexer has a parameter to specify whether white space
+	information should be generated or not.
 	<ul>	
 	<li>sc(Tokens,LN,CN) :- Tokens of a structured comment (/ * * .. * /).</li>
 	<li>eolc(Token,LN,CN) :- Token is an end-of-line comment (% ...).</li>
@@ -71,7 +73,7 @@
 	<code><br />
 	then the result of running this lexer is:
 	<pre>
-		tokenize_file('Lexer.pl',Ts)
+		tokenize_file('Lexer.pl',false,Ts)
 		Ts = [
 			o(:-, 32, 1),
 			sa(module, 32, 4),
@@ -83,23 +85,22 @@
 			o(/, 32, 33),
 			n(..., ..., ...)|...].
 	</pre>
-	</p>
-	
+	</p>	
 	<p>
 	<b>Implementation Note</b>
 	This is a hand written lexer that delivers sufficient performance for
 	lexing real world (ISO) Prolog programs. The lexer provides information
 	about a token's position to enable subsequent phases to give precise error
-	messages. If the lexer does not recognize a special character / symbol, it 
-	prints an error or warning message, but otherwise just ignores it and 
-	continues with the next character.
+	messages. If the lexer does not recognize a special character / symbol it 
+	prints an error or warning message, but otherwise just ignores the character
+	and continues with the next character.
 	</p>
 	
 	@author Michael Eichberg (mail@michael-eichberg.de)
-	@version 0.9 - July, 22th 2010 (The lexer works, but it is not fully tested.)
+	@version 0.9 - July, 23th 2010 (The lexer works, but is not yet fully tested.)
 */
 :- module(
-	'Lexer',
+	'SAEProlog:Lexer',
 	[
 		tokenize_file/3,
 		tokenize/3,
@@ -127,21 +128,20 @@ tokenize_file(File,KeepWhiteSpace,Tokens) :-
 	
 	@signature tokenize(Stream,Tokens)
 	@arg(in) Stream a stream that supports reading characters
+	@arg(in) KeepWhiteSpace if <code>true</code> Tokens will include white space
+		information
 	@arg(out) Tokens the list of recognized tokens
 */
 tokenize(Stream,_KeepWhiteSpace,[]) :- at_end_of_stream(Stream),!.
 tokenize(Stream,KeepWhiteSpace,Tokens) :-
+% TODO Just peek..
 	get_char(Stream,C),
 	read_token(C,Stream,Token),
 	(	% if...
-		(	
-			Token = none
-		;
-			\+ KeepWhiteSpace,white_space(Token)
-		),
-		!,
+		( Token = none ; \+ KeepWhiteSpace,	white_space(Token) ), !,
 		Tokens = Ts
 	;	% else...
+% TODO add line number information here except for atoms or white_space
 		Tokens = [Token|Ts]
 	),
 	tokenize(Stream,KeepWhiteSpace,Ts).
@@ -215,14 +215,14 @@ read_token('_',Stream,av(AID,LN,CN)) :-
 read_token('\'',Stream,sa(AID,LN,CN)) :- 
 	!,
 	stream_position(Stream,LN,CN),
-	read_string(Stream,'\'',Cs),
+	read_string_with_quotations(Stream,'\'',Cs),
 	atom_chars(AID,Cs).
 	
 % a string	
 read_token('"',Stream,s(S,LN,CN)) :- 
 	!,
 	stream_position(Stream,LN,CN),
-	read_string(Stream,'"',S).
+	read_string_with_quotations(Stream,'"',S).
 
 % white space
 read_token(W,_Stream,ws(W)) :- char_type(W,space), !.
@@ -293,10 +293,10 @@ read_identifier(_Stream,[]).
 
 
 
-read_string(Stream,Delimiter,[]) :- 
+read_string_with_quotations(Stream,Delimiter,[]) :- 
 	at_end_of_stream(Stream,['missing delimiter: ',Delimiter]),
 	!.
-read_string(Stream,Delimiter,R) :-
+read_string_with_quotations(Stream,Delimiter,R) :-
 	get_char(Stream,C),!,
 	(	% C is the delimiter...
 		C = Delimiter,!,
@@ -325,11 +325,11 @@ read_string(Stream,Delimiter,R) :-
 				lexer_error(Stream,['unsupported escape sequence (\\',NC,')']),
 				R = [NC|Cs]
 			),
-			read_string(Stream,Delimiter,Cs)
+			read_string_with_quotations(Stream,Delimiter,Cs)
 		)
 	;	% C is an "ordinary" character...
 		R = [C|Cs],
-		read_string(Stream,Delimiter,Cs)
+		read_string_with_quotations(Stream,Delimiter,Cs)
 	).
 
 
@@ -537,17 +537,17 @@ read_token_sc(C,Stream,tf(TF,LN,CN)) :-
 
 
 
+stream_position(Stream,LN,CN) :-
+	line_count(Stream,LN),
+	line_position(Stream,CN).
+
+
+
 at_end_of_stream(Stream,ErrorMessage) :-
 	at_end_of_stream(Stream),
 	!,
 	atomic_list_concat(ErrorMessage,EM),
 	lexer_error(Stream,['unexpected end of file (',EM,')']).
-
-
-	
-stream_position(Stream,LN,CN) :-
-	line_count(Stream,LN),
-	line_position(Stream,CN).
 
 
 
