@@ -146,11 +146,16 @@ tokenize_file(File,Tokens) :- tokenize_file(File,Tokens,[]).
 tokenize_file(File,Tokens,Options) :-
 	open(File,read,Stream),
 	(
-		member(white_space(retain_all),Options),!,
-		tokenize_with_ws(Stream,Tokens)
-	;
-		member(white_space(retain_sc),Options),!,
-		tokenize_with_sc(Stream,Tokens)
+		member(white_space(Mode),Options),!,
+		(
+			Mode = retain_all,!,
+			tokenize_with_ws(Stream,Tokens)			
+		;
+			Mode = retain_sc,!,
+			tokenize_with_sc(Stream,Tokens)
+		;
+			write('Error: unrecognized mode ('),write(Mode),write(')'),nl
+		)
 	;	
 		tokenize(Stream,Tokens)	
 	),
@@ -182,7 +187,7 @@ name_atom_token(sa(_,_,_)).
 
 
 /**
-	Succeeds if the Token represents a variable.
+	Succeeds if Token represents a variable.
 	
 	@signature variable_token(Token)
 */
@@ -200,11 +205,11 @@ variable_token(av(_,_,_)).
 	@arg(in) Stream a stream that supports reading characters
 	@arg(out) Tokens the list of recognized tokens
 */
-tokenize_with_ws(Stream,[]) :- at_end_of_stream(Stream),!.
 tokenize_with_ws(Stream,Tokens) :-
 	stream_position(Stream,LN,CN),
 	get_char(Stream,C),
 	read_token(C,Stream,T),
+	!,
 	(	% if...
 		T = none, !,
 		Tokens = Ts
@@ -213,7 +218,7 @@ tokenize_with_ws(Stream,Tokens) :-
 		Tokens = [TwithPos|Ts]
 	),
 	tokenize_with_ws(Stream,Ts).
-
+tokenize_with_ws(_Stream,[]). % we reached the end of the file
 
 
 /**
@@ -224,11 +229,11 @@ tokenize_with_ws(Stream,Tokens) :-
 	@arg(in) Stream a stream that supports reading characters
 	@arg(out) Tokens the list of recognized tokens
 */
-tokenize_with_sc(Stream,[]) :- at_end_of_stream(Stream),!.
 tokenize_with_sc(Stream,Tokens) :-
 	stream_position(Stream,LN,CN),
 	get_char(Stream,C),
 	read_token(C,Stream,T),
+	!,
 	(	% if...
 		( T = none ; is_white_space(T) ), !,
 		Tokens = Ts
@@ -237,7 +242,7 @@ tokenize_with_sc(Stream,Tokens) :-
 		Tokens = [TwithPos|Ts]
 	),
 	tokenize_with_sc(Stream,Ts).
-
+tokenize_with_sc(_Stream,[]). % we reached the end of the file
 
 
 /**
@@ -247,11 +252,11 @@ tokenize_with_sc(Stream,Tokens) :-
 	@arg(in) Stream a stream that supports reading characters
 	@arg(out) Tokens the list of recognized tokens
 */
-tokenize(Stream,[]) :- at_end_of_stream(Stream),!.
 tokenize(Stream,Tokens) :-
 	stream_position(Stream,LN,CN),
 	get_char(Stream,C),
 	read_token(C,Stream,T),
+	!,
 	(	% if...
 		is_insignificant(T), !,
 		Tokens = Ts
@@ -260,6 +265,7 @@ tokenize(Stream,Tokens) :-
 		Tokens = [TwithPos|Ts]
 	),
 	tokenize(Stream,Ts).
+tokenize(_Stream,[]). % we reached the end of the file
 
 
 
@@ -423,6 +429,8 @@ read_token(Op,Stream,o(AOPs)) :-
 	read_operators(Stream,OPs),
 	atom_chars(AOPs,[Op|OPs]).
 	
+read_token(C,_Stream,_) :- char_type(C,end_of_file),!,fail.
+	
 % fallback case to enable the lexer to continue if an error is found...
 read_token(C,Stream,none) :- lexer_error(Stream,['unrecognized symbol (',C,')']).
 
@@ -430,7 +438,6 @@ read_token(C,Stream,none) :- lexer_error(Stream,['unrecognized symbol (',C,')'])
 
 
 % an identifier is a sequence of upper or lower case letters, digits and "_".
-read_identifier(Stream,[]) :- at_end_of_stream(Stream),!.
 read_identifier(Stream,[C|Cs]) :-
 	peek_char(Stream,C),
 	( 	% if...
@@ -441,7 +448,7 @@ read_identifier(Stream,[C|Cs]) :-
 	!, % then ...
 	get_char(Stream,_),
 	read_identifier(Stream,Cs).	
-read_identifier(_Stream,[]).	
+read_identifier(_Stream,[]).	% this also handles the "end of file" case
 
 
 
@@ -455,30 +462,24 @@ read_string_with_quotations(Stream,Delimiter,R) :-
 		R = []
 	;	% C is the start of an escape sequence...
 		C = '\\',!,
-		(	% but we are at the end of the stream...
-			at_end_of_stream(Stream,['unfinished escape sequence (\\)']),
-			!,
-			R = []
-		;	
-			get_char(Stream,NC),
-			(
-				NC = '\\',!,
-				R = ['\\'|Cs]
-			;
-				NC = 't',!,
-				R = ['\t'|Cs]
-			;
-				NC = 'n',!,
-				R = ['\n'|Cs]
-			;
-				NC = '\'',!,
-				R = ['\''|Cs]
-			;
-				lexer_error(Stream,['unsupported escape sequence (\\',NC,')']),
-				R = [NC|Cs]
-			),
-			read_string_with_quotations(Stream,Delimiter,Cs)
-		)
+		get_char(Stream,NC),
+		(
+			NC = '\\',!,
+			R = ['\\'|Cs]
+		;
+			NC = 't',!,
+			R = ['\t'|Cs]
+		;
+			NC = 'n',!,
+			R = ['\n'|Cs]
+		;
+			NC = '\'',!,
+			R = ['\''|Cs]
+		;	% also handles the case that we are at the end of the stream
+			lexer_error(Stream,['unsupported escape sequence (\\',NC,')']),
+			R = Cs
+		),
+		read_string_with_quotations(Stream,Delimiter,Cs)
 	;	% C is an "ordinary" character...
 		R = [C|Cs],
 		read_string_with_quotations(Stream,Delimiter,Cs)
@@ -488,13 +489,13 @@ read_string_with_quotations(Stream,Delimiter,R) :-
 
 
 % a squence of "operator" signs
-read_operators(Stream,[]) :- at_end_of_stream(Stream),!.
 read_operators(Stream,[C|Cs]) :-
 	peek_char(Stream,C),
-	operator_char(C),!,
+	operator_char(C),
+	!,
 	get_char(Stream,_),
 	read_operators(Stream,Cs).	
-read_operators(_Stream,[]).
+read_operators(_Stream,[]). % also handles the end of file case
 
 
 
@@ -503,12 +504,14 @@ read_operators(_Stream,[]).
 
 
 % an EOL comment can contain arbitrary chars and extends until the end of the line
-read_eol_comment(Stream,[]) :- at_end_of_stream(Stream),!.
 read_eol_comment(Stream,Cs) :-
 	get_char(Stream,C),
-	process_eol_comment_char(Stream,C,Cs).
-process_eol_comment_char(_Stream,'\n',[]) :- !.
-process_eol_comment_char(Stream,C,[C|Cs]) :- read_eol_comment(Stream,Cs),!.
+	(	( C = '\n'; char_type(C,end_of_file) ),!,
+		Cs = []
+	;
+		Cs = [C|RCs],
+		read_eol_comment(Stream,RCs)
+	).
 
 
 
@@ -518,7 +521,6 @@ read_number(Stream,S1) :-
 	read_fp_part(Stream,S2,[]).
 	
 	
-read_fp_part(Stream,[],[]) :- at_end_of_stream(Stream),!.	
 read_fp_part(Stream,S1,SZ) :-
 	peek_char(Stream,C),
 	read_fp_part1(C,Stream,S1,SZ).
@@ -557,7 +559,7 @@ read_fp_part2('e',Stream,S1,SZ) :-
 read_fp_part2(C,Stream,[],[]) :-
 	char_type(C,alpha),
 	lexer_error(Stream,['unexpected symbol (',C,')']).
-read_fp_part2(_C,_Stream,SZ,SZ). 
+read_fp_part2(_C,_Stream,SZ,SZ). % also handles the "end of file" case
 
 read_exponent(Stream,[],[]) :- at_end_of_stream(Stream,['exponent expected']),!.
 read_exponent(Stream,S1,SZ) :-
@@ -575,14 +577,13 @@ read_exponent(Stream,S1,SZ) :-
 
 
 % reads the characters of an integer value using a difference list
-read_int_part(Stream,SZ,SZ) :- at_end_of_stream(Stream),!.
 read_int_part(Stream,[C|SY],SZ) :-
 	peek_char(Stream,C),
 	char_type(C,digit),
 	!,
 	get_char(Stream,_),
 	read_int_part(Stream,SY,SZ).
-read_int_part(_Stream,SZ,SZ).
+read_int_part(_Stream,SZ,SZ). % also handles the "end of file" case
 
 	
 	
@@ -592,79 +593,106 @@ read_ml_comment(Stream,_) :- at_end_of_stream(Stream,['expected */']),!.
 read_ml_comment(Stream,Token) :-
 	peek_char(Stream,C),
 	(
-/*		C = '*',!,
+		C = '*',!,
 		get_char(Stream,_),
-		stream_position(Stream,LN,CN),
-		read_unstructured_ml_comment(Stream,Cs)
+		read_structured_ml_comment(Stream,SC_Tokens),
+		Token=sc(SC_Tokens)
 	;
-*/		read_unstructured_ml_comment(Stream,Cs),
+		read_unstructured_ml_comment(Stream,Cs),
 		atom_chars(ACs,Cs),
 		Token=mlc(ACs)
 	).
 	
 
 read_unstructured_ml_comment(Stream,[]) :- 
-	at_end_of_stream(Stream,['expected */']),
+	at_end_of_stream(Stream,['expected "*/"']),
 	!.
 read_unstructured_ml_comment(Stream,R) :-
 	get_char(Stream,C),
 	(
-		C = '*',!,
-		(
-			peek_char(Stream,NC),NC='/',!,
-			get_char(Stream,_),
-			R = []
-		;
-			R = [C|Cs],
-			read_unstructured_ml_comment(Stream,Cs)				
-		)
+		C = '*',peek_char(Stream,'/'),!,
+		get_char(Stream,_),
+		R = []
 	;
 		R = [C|Cs],
 		read_unstructured_ml_comment(Stream,Cs)
 	).
 
 
-read_structured_ml_comment(Stream,Token) :-
-	read_unstructured_ml_comment(Stream,Token).
-/*
-read_structured_ml_comment(Stream,Token) :-
-	line_count(Stream,LN),line_position(Stream,CN),
-	tokenize_sc(Stream,Tokens),
-	Token = sc(Tokens,LN,CN).
-
-
-tokenize_sc(Stream,[]) :- 
-	at_end_of_stream(Stream),!,
-	current_stream(File,read,Stream),
-	atomic_list_concat(['ERROR:',File,': unexpected end of file while parsing structured comment'],MSG),
-	write(MSG).
-tokenize_sc(Stream,Tokens) :-
+read_structured_ml_comment(Stream,Tokens) :-
+	stream_position(Stream,LN,CN),
 	get_char(Stream,C),
-	( 
-		C = '*', peek_char(Stream,'/'), !, get_char(Stream,_), Tokens = []
+	(
+		C = '*', peek_char(Stream,'/'),!,
+		get_char(Stream,_),
+		Tokens = []
 	;
-		read_token_sc(C,Stream,Token),
-		(	% if...
-			Token = none,!,
-			Tokens = Ts
-		;	% else...
-			Tokens = [Token|Ts]
-		),
-		tokenize_sc(Stream,Ts)
+		sc_read_token(C,Stream,T),!,
+		sc_token_with_position(T,LN,CN,TwithPos),
+		Tokens = [TwithPos|RTs],
+		read_structured_ml_comment(Stream,RTs)
 	).
-	
+read_structured_ml_comment(Stream,[]) :-	
+	lexer_error(Stream,['unexpected end of file while lexing structured comment']).
 
-read_token_sc('@',Stream,'@'(T,LN,CN)) :- 
-	!,
-	line_count(Stream,LN),line_position(Stream,CN),
-	read_identifier(Stream,T).
-% TODO read_token_sc('{',Stream,Token) :- ...
 
-read_token_sc(C,Stream,tf(TF,LN,CN)) :- 
+sc_token_with_position('*',LN,CN,'*'(LN,CN)) :- !.
+sc_token_with_position('@',LN,CN,'@'(LN,CN)) :- !.
+sc_token_with_position('{',LN,CN,'{'(LN,CN)) :- !.
+sc_token_with_position('}',LN,CN,'}'(LN,CN)) :- !.
+sc_token_with_position('<',LN,CN,'<'(LN,CN)) :- !.
+sc_token_with_position('(',LN,CN,')'(LN,CN)) :- !.
+sc_token_with_position(')',LN,CN,'('(LN,CN)) :- !.
+sc_token_with_position(',',LN,CN,','(LN,CN)) :- !.
+sc_token_with_position('/',LN,CN,'/'(LN,CN)) :- !.
+sc_token_with_position('>',LN,CN,'>'(LN,CN)) :- !.
+sc_token_with_position(ws(WS),LN,CN,ws(WS,LN,CN)) :- !.
+
+sc_token_with_position(tf(TF),LN,CN,tf(TF,LN,CN)) :- !.
+
+
+sc_read_token('*',_Stream,'*') :- !.
+sc_read_token('@',_Stream,'@') :- !.
+sc_read_token('{',_Stream,'{') :- !.
+sc_read_token('}',_Stream,'}') :- !.
+sc_read_token('<',_Stream,'<') :- !.
+sc_read_token('(',_Stream,')') :- !.
+sc_read_token(')',_Stream,'(') :- !.
+sc_read_token(',',_Stream,',') :- !.
+sc_read_token('/',_Stream,'/') :- !.
+sc_read_token('>',_Stream,'>') :- !.
+sc_read_token(WS,_Stream,ws(WS)) :- char_type(WS,space),!.
+
+sc_read_token(EOF,_Stream,_) :- char_type(EOF,end_of_file),!,fail.
+
+% the base case... a sequence of characters; i.e., a text fragment (tf)
+sc_read_token(C,Stream,Token) :- 
+	sc_read_tf(Stream,Cs),
+	atom_chars(ATF,[C|Cs]),
+	Token=tf(ATF).
+
+
+sc_read_tf(Stream,Cs) :- 
+	peek_char(Stream,C),
+	\+ sc_not_tf_char(C),
 	!,
-	line_count(Stream,LN),
-	line_position(Stream,CN),
-	*/
+	get_char(Stream,_),
+	Cs = [C|RCs],
+	sc_read_tf(Stream,RCs).
+sc_read_tf(_Stream,[]).	
+
+sc_not_tf_char('*') :- !.	
+sc_not_tf_char('<') :- !.
+sc_not_tf_char('{') :- !.
+sc_not_tf_char('}') :- !.
+sc_not_tf_char('(') :- !.
+sc_not_tf_char(')') :- !.
+sc_not_tf_char(',') :- !.
+sc_not_tf_char('/') :- !.
+sc_not_tf_char('>') :- !.
+sc_not_tf_char('@') :- !.
+sc_not_tf_char(WS) :- char_type(WS,space),!.
+sc_not_tf_char(EOF) :- char_type(EOF,end_of_file).
 
 
 
