@@ -121,7 +121,8 @@
       name_atom_token/1,
       variable_token/1,
       operator_char/1,
-      special_char/1
+      special_char/1,
+		echo/1
    ]
 ).
 
@@ -129,22 +130,27 @@
 
 echo(File) :-
    tokenize_file(File,Tokens,[white_space(retain_all)]),
-   member(Token,Tokens),
+   member(Token,Tokens),	
       write_token(Token),
    fail.
 echo(_).
 
 
 
-write_token(ws(WS,_,_)) :- write(WS),!.
-write_token(i(I,_,_)) :- write(I),!.
-write_token(f(F,_,_)) :- write(F),!.
-write_token(o(Op,_,_)) :- write(Op),!.
-write_token(v(V,_,_)) :- write(V),!.
-write_token(av(AV,_,_)) :- write(AV),!.
-write_token(sa(SA,_,_)) :- 
-	write_term(SA,[quoted(true),character_escapes(true),max_depth(0)]),!.
-write_token(SC) :- special_char(SC),write(SC),!.
+write_token(ws(WS,_,_)) :- !, write(WS).
+write_token(i(I,_,_)) :- !, write(I).
+write_token(f(F,_,_)) :- !, write(F).
+write_token(o(Op,_,_)) :- !, write(Op).
+write_token(v(V,_,_)) :- !, write(V).
+write_token(av(AV,_,_)) :- !, write(AV).
+write_token(SC) :- special_char(SC),! ,write(SC).
+write_token(sa(SA,_,_)) :- !,
+	write_term(SA,[quoted(true),character_escapes(true),max_depth(0)]).
+write_token(s(S,_,_)) :- !, 
+	write('"'),
+	write_escaped_atoms(S),
+	write('"').
+
 write_token(eolc(C,_,_)) :- write('%'),write(C),!.
 write_token(mlc(C,_,_)) :- write('/*'),write(C),write('*/'),!.
 write_token(sc(SC,_,_)) :-
@@ -152,8 +158,18 @@ write_token(sc(SC,_,_)) :-
 	write('/**'),
 	write_sc_tokens(SC),
 	write('*/').
-write_token(T):- write('>>>>>>>>>>>>>>>>>>>>>>>>>>UNKNOWN TOKEN: '),write(T),nl.
+	
+write_token(T):- write('ERROR: UNKNOWN TOKEN: '),write(T),nl.
 
+
+write_escaped_atoms([Atom|Atoms]) :-
+	(	Atom = '\n',!,write('\\n')
+	;	Atom = '\t',!,write('\\t')
+	;	Atom = '\\',!,write('\\\\')
+	;	write(Atom)
+	),
+	write_escaped_atoms(Atoms).
+write_escaped_atoms([]).
 
 
 write_sc_tokens([SC_Token|SC_Tokens]) :-
@@ -208,11 +224,11 @@ tokenize_file(File,Tokens,Options) :-
 
 
 /**
-   Succeeds if Token is a white space token. A structured comment is not
-   considered a white space token.
+   Succeeds if Token is a white space token. 
    
    @signature white_space_token(Token)
 */
+white_space_token(sc(_,_,_)).  
 white_space_token(eolc(_,_,_)).  
 white_space_token(mlc(_,_,_)).
 white_space_token(ws(_,_,_)).    
