@@ -42,7 +42,9 @@
 	<code>LN</code> and <code>CN</code> always identify the line and
 	column where the token was found.
 	<ul>
-	<li>s(S,LN,CN) :- S is a list of char atoms; i.e., it is a "string".
+	<li>s(S,LN,CN) :- S is a list of char atoms; i.e., it is a "string". For 
+		example, given the string <code>"A test"</code> then the result is the 
+		token <code>s([A,  , t, e, s, t], 1, 0)</code>.
 	<li>sa(S,LN,CN) :- S is a string atom; recall that <i> the cut ("!") is also an
 	 	atom.</i></li>
 	<li>i(N,LN,CN) :- N is an integer value.</li>		
@@ -50,19 +52,21 @@
 	<li>o(Op,LN,CN) :- Op is a sequence of operator characters (e.g., ':-').</li>
 	<li>o(Op,LN,CN) :- Op is an operator that cannot appear as part of an operator
 	 	sequence (';',',','|').</li>
-	<li>av(V,LN,CN) :- V is the name of an anonymous variable (av).</li>
-	<li>v(V,LN,CN) :- V is the name of a concrete variable (v).</li>
+	<li>av(V,LN,CN) :- V is the name of an anonymous variable (av); i.e., V
+		always starts with a under score ('_').</li>
+	<li>v(V,LN,CN) :- V is the name of a concrete variable (v); i.e., V 
+		always starts with an upper case letter.</li>
+	<li>sc(Tokens,LN,CN) :- Tokens of a structured comment (/ * * .. * /).</li>
 	<li>&lt;Special Characters&gt; a paranthesis (e.g., one of "(,),{,},[,]"), 
 		special characters are included in the token list as is.</li>		
 	</ul>
-	The following tokens are only relevant for a pretty printer / java doc
-	generator. The lexer has a parameter to specify whether white space
-	information should be generated or not.
+	The following tokens are only relevant when implementing, e.g., a pretty 
+	printer or a java doc generator. To include whitespace tokens in the list
+	of tokens use the option <code>white_space(retain)</code>. 
 	<ul>	
-	<li>sc(Tokens,LN,CN) :- Tokens of a structured comment (/ * * .. * /).</li>
 	<li>eolc(Token,LN,CN) :- Token is an end-of-line comment (% ...).</li>
-	<li>mlc(Token,LN,CN) :- Token is multi-line / inline comment (using / * .. * /)</li>	
-	<li>ws(Token,LN,CN) :- Token is a white space character</li>			
+	<li>mlc(Token,LN,CN) :- Token is multi-line / inline comment (using / * .. * /).</li>	
+	<li>ws(Token,LN,CN) :- Token is a white space character.</li>			
 	</ul>
 	</p>
 	<p>
@@ -71,30 +75,34 @@
 	<code><br />
 	:- module('Lexer',[tokenize_file/2]).<br />
 	<code><br />
-	then the result of running this lexer is:
+	then the result of running this lexer is the following token sequence:
 	<pre>
-		tokenize_file('Lexer.pl',false,Ts)
+		tokenize_file(&lt;THE_FILE&gt;,Ts)
 		Ts = [
-			o(:-, 32, 1),
-			sa(module, 32, 4),
-			'(', 
-			sa('Lexer', 32, 11), 
-			o(',', 32, 18),
-			'[', 
-			sa(tokenize_file, 32, 20),
-			o(/, 32, 33),
-			n(..., ..., ...)|...].
+			o(:-, 1, 0),
+			sa(module, 1, 3),
+			'(',
+			sa('Lexer', 1, 10),
+			o(',', 1, 17),
+			'[',
+			sa(tokenize_file, 1, 19),
+			o(/, 1, 32),
+			i(..., ..., ...)|...].
 	</pre>
 	</p>	
 	<p>
+	<blockquote>
 	<b>Implementation Note</b>
 	This is a hand written lexer that delivers sufficient performance for
 	lexing real world (ISO) Prolog programs. The lexer provides information
 	about a token's position to enable subsequent phases to give precise error
 	messages. If the lexer does not recognize a special character / symbol it 
 	prints an error or warning message, but otherwise just ignores the character
-	and continues with the next character.
+	and continues with the next character.<br />
+	Conceptually, the lexer is implemented following a state machine model, where
+	a character causes the lexer to transition to the next state.
 	</p>
+	</blockquote>
 	
 	@author Michael Eichberg (mail@michael-eichberg.de)
 	@version 0.9 - July, 23th 2010 (The lexer works, but is not yet fully tested.)
@@ -102,11 +110,14 @@
 :- module(
 	'SAEProlog:Lexer',
 	[
+		tokenize_file/2,
 		tokenize_file/3,
-		tokenize/3,
-		white_space/1,
-		name_atom/1,
-		variable/1
+		tokenize_with_ws/2,
+		tokenize_with_sc/2,
+		tokenize/2,
+		white_space_token/1,
+		name_atom_token/1,
+		variable_token/1
 	]
 ).
 
@@ -114,55 +125,200 @@
 
 
 /**
-	Tokenizes a file.
+	Tokenizes a file and returns the list of tokens. White space information is
+	stripped.<br />
+	For further details see {@link tokenize_file/3}.
 */
-tokenize_file(File,KeepWhiteSpace,Tokens) :-
+tokenize_file(File,Tokens) :- tokenize_file(File,Tokens,[]).
+
+/**
+	Tokenizes a file and returns the list of tokens.
+	
+	@signature tokenize_file(File,Tokens,Options)
+	@arg(in) File the file to tokenize.
+	@arg(out) Tokens the list of recognized tokens.
+	@arg(in) Options a list of options to parameterize the lexer. Currently, 
+		the only supported option is <code>white_space(Mode)</code>, where Mode
+		is either <code>retain_all</code>, <code>retain_sc</code> or <code>drop</code>
+		and which determines which white space tokens are included in the Tokens 
+		list.<br/>
+*/
+tokenize_file(File,Tokens,Options) :-
 	open(File,read,Stream),
-	tokenize(Stream,KeepWhiteSpace,Tokens),
+	(
+		member(white_space(retain_all),Options),!,
+		tokenize_with_ws(Stream,Tokens)
+	;
+		member(white_space(retain_sc),Options),!,
+		tokenize_with_sc(Stream,Tokens)
+	;	
+		tokenize(Stream,Tokens)	
+	),
 	close(Stream).
 
 
 
 /**
-	Tokenizes a stream of characters.
+	Succeeds if Token is a white space token. A structured comment is not
+	considered a white space token.
+	
+	@signature white_space_token(Token)
+*/
+white_space_token(eolc(_,_,_)).	
+white_space_token(mlc(_,_,_)).
+white_space_token(ws(_,_,_)).		
+
+
+
+/**
+	Succeeds if Token is a name token; i.e., a token that can be a "functor"
+	in a Prolog program.
+	
+	@signature name_atom_token(Token)
+*/
+name_atom_token(o(_,_,_)).
+name_atom_token(sa(_,_,_)).
+
+
+
+/**
+	Succeeds if the Token represents a variable.
+	
+	@signature variable_token(Token)
+*/
+variable_token(v(_,_,_)).
+variable_token(av(_,_,_)).
+
+
+
+/**
+	Tokenizes a stream of characters and retains all white space information.<br />
+	If no white space information is required consider using {@link tokenize_with_sc/2}
+	or {@link tokenize/2}.
 	
 	@signature tokenize(Stream,Tokens)
 	@arg(in) Stream a stream that supports reading characters
-	@arg(in) KeepWhiteSpace if <code>true</code> Tokens will include white space
-		information
 	@arg(out) Tokens the list of recognized tokens
 */
-tokenize(Stream,_KeepWhiteSpace,[]) :- at_end_of_stream(Stream),!.
-tokenize(Stream,KeepWhiteSpace,Tokens) :-
-% TODO Just peek..
+tokenize_with_ws(Stream,[]) :- at_end_of_stream(Stream),!.
+tokenize_with_ws(Stream,Tokens) :-
+	stream_position(Stream,LN,CN),
 	get_char(Stream,C),
-	read_token(C,Stream,Token),
+	read_token(C,Stream,T),
 	(	% if...
-		( Token = none ; \+ KeepWhiteSpace,	white_space(Token) ), !,
+		T = none, !,
 		Tokens = Ts
 	;	% else...
-% TODO add line number information here except for atoms or white_space
-		Tokens = [Token|Ts]
+		token_with_position(T,LN,CN,TwithPos),
+		Tokens = [TwithPos|Ts]
 	),
-	tokenize(Stream,KeepWhiteSpace,Ts).
+	tokenize_with_ws(Stream,Ts).
+
+
+
+/**
+	Tokenizes a stream of characters and drops all white space information, but
+	retains structured comments.
+	
+	@signature tokenize(Stream,Tokens)
+	@arg(in) Stream a stream that supports reading characters
+	@arg(out) Tokens the list of recognized tokens
+*/
+tokenize_with_sc(Stream,[]) :- at_end_of_stream(Stream),!.
+tokenize_with_sc(Stream,Tokens) :-
+	stream_position(Stream,LN,CN),
+	get_char(Stream,C),
+	read_token(C,Stream,T),
+	(	% if...
+		( T = none ; is_white_space(T) ), !,
+		Tokens = Ts
+	;	% else...
+		token_with_position(T,LN,CN,TwithPos),
+		Tokens = [TwithPos|Ts]
+	),
+	tokenize_with_sc(Stream,Ts).
+
+
+
+/**
+	Tokenizes a stream of characters and drops all white space information.
+
+	@signature tokenize(Stream,Tokens)
+	@arg(in) Stream a stream that supports reading characters
+	@arg(out) Tokens the list of recognized tokens
+*/
+tokenize(Stream,[]) :- at_end_of_stream(Stream),!.
+tokenize(Stream,Tokens) :-
+	stream_position(Stream,LN,CN),
+	get_char(Stream,C),
+	read_token(C,Stream,T),
+	(	% if...
+		is_insignificant(T), !,
+		Tokens = Ts
+	;	% else...
+		token_with_position(T,LN,CN,TwithPos),
+		Tokens = [TwithPos|Ts]
+	),
+	tokenize(Stream,Ts).
 
 
 
 
-white_space(sc(_,_,_)).
-white_space(eolc(_,_,_)).	
-white_space(mlc(_,_,_)).
-white_space(ws(_)).		
+/******************************************************************************\
+ *                                                                            *
+ *                P R I V A T E     I M P L E M E N T A T I O N               *
+ *                                                                            *
+\******************************************************************************/
 
 
 
-name_atom(o(_,_,_)).
-name_atom(sa(_,_,_)).
+
+is_white_space(eolc(_)) :- !.
+is_white_space(mlc(_)) :- !.
+is_white_space(ws(_)) :- !.
+
+
+is_insignificant(none) :- !.
+is_insignificant(sc(_)) :- !.
+is_insignificant(T) :- is_white_space(T).
 
 
 
-variable(v(_,_,_)).
-variable(av(_,_,_)).
+token_with_position(s(T),LN,CN,s(T,LN,CN)) :- !.
+token_with_position(sa(T),LN,CN,sa(T,LN,CN)) :- !.
+token_with_position(i(T),LN,CN,i(T,LN,CN)) :- !.
+token_with_position(f(T),LN,CN,f(T,LN,CN)) :- !.
+token_with_position(o(T),LN,CN,o(T,LN,CN)) :- !.
+token_with_position(v(T),LN,CN,v(T,LN,CN)) :- !.
+token_with_position(av(T),LN,CN,av(T,LN,CN)) :- !.
+token_with_position(sc(T),LN,CN,sc(T,LN,CN)) :- !.
+token_with_position(eolc(T),LN,CN,eolc(T,LN,CN)) :- !.
+token_with_position(mlc(T),LN,CN,mlc(T,LN,CN)) :- !.
+token_with_position(ws(T),LN,CN,ws(T,LN,CN)) :- !.
+% all other tokens do not get "position information"
+token_with_position(T,_,_,T).
+
+
+
+% the list of all operators that are allowed to be combined to form new
+% operator names, such as, ":-" or "=/="
+operator_char('='). % "=" is not mentioned in the ISO Prolog book
+operator_char('+').
+operator_char('-').
+operator_char('*').
+operator_char('/').
+operator_char('\\').
+operator_char('~').
+operator_char('^').
+operator_char('<').
+operator_char('>').
+operator_char(':').
+operator_char('.').
+operator_char('?').
+operator_char('@').
+operator_char('#').
+operator_char('$').
+operator_char('&').
 
 
 
@@ -178,22 +334,21 @@ variable(av(_,_,_)).
 		are interpreted.
 	@param Token the read token. An atom in case of a special character (e.g., all 
 		forms of parantheses); 'none' if an 
-		errror is detected; a compound term describing the token and its position
+		error is detected; a compound term describing the token and its position
 		in all other cases.)
 */
-read_token('%',Stream,eolc(Token,LN,CN)) :- 
+read_token('%',Stream,eolc(Token)) :- 
 	!,
-	stream_position(Stream,LN,CN),
 	read_eol_comment(Stream,Cs),
 	atom_chars(Token,Cs).
 
-read_token('!',Stream,sa('!',LN,CN)) :- !, stream_position(Stream,LN,CN).
+read_token('!',_Stream,sa('!')) :- !.
 
 % "and (,)", "or (;)", etc. are special operators because they cannot
-% contribute to an operator name (e.g. ':-')
-read_token(',',Stream,o(',',LN,CN)) :- !, stream_position(Stream,LN,CN).	
-read_token(';',Stream,o(';',LN,CN)) :- !, stream_position(Stream,LN,CN).	
-read_token('|',Stream,o('|',LN,CN)) :- !, stream_position(Stream,LN,CN).	
+% contribute to an operator name (e.g. ':-') they always stand for themselve.
+read_token(',',_Stream,o(',')) :- !.	
+read_token(';',_Stream,o(';')) :- !.	
+read_token('|',_Stream,o('|')) :- !.	
 
 % parantheses are "returned" as is 
 read_token('(',_Stream,'(') :- !.	
@@ -204,55 +359,54 @@ read_token('[',_Stream,'[') :- !.
 read_token(']',_Stream,']') :- !.	
 
 % an anonymous variable
-read_token('_',Stream,av(AID,LN,CN)) :- 
+read_token('_',Stream,av(AV)) :- 
 	!,
-	stream_position(Stream,LN,CN),
 	read_identifier(Stream,Cs),
-	ID = ['_'|Cs],
-	atom_chars(AID,ID).
+	atom_chars(AV,['_'|Cs]).
 
 % a quoted atom
-read_token('\'',Stream,sa(AID,LN,CN)) :- 
+read_token('\'',Stream,sa(QA)) :- 
 	!,
-	stream_position(Stream,LN,CN),
 	read_string_with_quotations(Stream,'\'',Cs),
-	atom_chars(AID,Cs).
+	atom_chars(QA,Cs).
 	
 % a string	
-read_token('"',Stream,s(S,LN,CN)) :- 
-	!,
-	stream_position(Stream,LN,CN),
+read_token('"',Stream,s(S)) :- 
+	!, 
 	read_string_with_quotations(Stream,'"',S).
 
 % white space
-read_token(W,_Stream,ws(W)) :- char_type(W,space), !.
+read_token(W,_Stream,ws(W)) :- 
+	char_type(W,space), 
+	!.
 
 % a string atom
-read_token(C,Stream,sa(AID,LN,CN)) :- 
+read_token(C,Stream,sa(SA)) :- 
 	char_type(C,lower),
 	!,
-	stream_position(Stream,LN,CN),
 	read_identifier(Stream,Cs),
-	ID = [C|Cs],
-	atom_chars(AID,ID).
+	atom_chars(SA,[C|Cs]).
 
 % a variable name
-read_token(C,Stream,v(AID,LN,CN)) :- 
+read_token(C,Stream,v(V)) :- 
 	char_type(C,upper),
 	!,
-	stream_position(Stream,LN,CN),
 	read_identifier(Stream,Cs),
-	ID = [C|Cs],
-	atom_chars(AID,ID).	
+	atom_chars(V,[C|Cs]).	
 
 % a number
-read_token(I,Stream,n(N,LN,CN)) :-
+read_token(I,Stream,R) :-
 	char_type(I,digit),
 	!,
-	stream_position(Stream,LN,CN),
 	read_number(Stream,Is),
-	NCs = [I|Is],
-	number_chars(N,NCs).
+	number_chars(N,[I|Is]),
+	(	
+		integer(N),!,
+		R = i(N)
+	;
+		R = f(N)
+	)
+	.
 
 % a multi-line comment; it is either a structured or an unstructured comment
 read_token('/',Stream,Token) :- 
@@ -263,13 +417,11 @@ read_token('/',Stream,Token) :-
 
 % a sequence of operator characters 
 % (This clause has to come AFTER handling of multi-line comments!)
-read_token(Op,Stream,o(AOPs,LN,CN)) :- 
+read_token(Op,Stream,o(AOPs)) :- 
 	operator_char(Op),
 	!,
-	stream_position(Stream,LN,CN),
 	read_operators(Stream,OPs),
-	O = [Op|OPs],
-	atom_chars(AOPs,O).
+	atom_chars(AOPs,[Op|OPs]).
 	
 % fallback case to enable the lexer to continue if an error is found...
 read_token(C,Stream,none) :- lexer_error(Stream,['unrecognized symbol (',C,')']).
@@ -345,25 +497,7 @@ read_operators(Stream,[C|Cs]) :-
 read_operators(_Stream,[]).
 
 
-% the list of all operators that are allowed to be combined to form new
-% operator names, such as, :-
-operator_char('='). % "=" is not mentioned in the ISO Prolog book
-operator_char('+').
-operator_char('-').
-operator_char('*').
-operator_char('/').
-operator_char('\\').
-operator_char('~').
-operator_char('^').
-operator_char('<').
-operator_char('>').
-operator_char(':').
-operator_char('.').
-operator_char('?').
-operator_char('@').
-operator_char('#').
-operator_char('$').
-operator_char('&').
+
 
 
 
@@ -458,17 +592,14 @@ read_ml_comment(Stream,_) :- at_end_of_stream(Stream,['expected */']),!.
 read_ml_comment(Stream,Token) :-
 	peek_char(Stream,C),
 	(
-		C = '*',!,
+/*		C = '*',!,
 		get_char(Stream,_),
-		fail/*,
 		stream_position(Stream,LN,CN),
-		read_unstructured_ml_comment(Stream,Cs)*/
+		read_unstructured_ml_comment(Stream,Cs)
 	;
-		stream_position(Stream,LN,CN),
-		read_unstructured_ml_comment(Stream,Cs),
+*/		read_unstructured_ml_comment(Stream,Cs),
 		atom_chars(ACs,Cs),
-		ICN is CN - 1,
-		Token=mlc(ACs,LN,ICN)
+		Token=mlc(ACs)
 	).
 	
 
@@ -557,5 +688,3 @@ lexer_error(Stream,ErrorMessage) :-
 	current_stream(File,read,Stream),
 	atomic_list_concat(['ERROR:',File,':',LN,':',CN,': ',EM,'\n'],MSG),
 	write(MSG).
-	
-	
