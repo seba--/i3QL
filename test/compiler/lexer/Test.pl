@@ -73,6 +73,33 @@ test(	report_comments,
 	) :- do_tokenization('Comments.pl',Ts,[white_space(retain_all)]).
 
 
+test(	report_sc_comments,
+		[true(Ts=[
+			sc([
+				ws('\n', 2, 3), ws('\t', 3, 0), tf('A', 3, 8), ws(' ', 3, 9), 
+				tf(structured, 3, 10), ws(' ', 3, 20), tf('comment.', 3, 21), 3<29,
+				tf(br, 3, 30), ws(' ', 3, 32), 3/33, 3>34, ws('\n', 3, 35),
+				ws('\t', 4, 0), tf('A', 4, 8), ws(' ', 4, 9), tf('link:', 4, 10), 
+				ws(' ', 4, 15), '{'(4, 16), @(4, 17), tf(link, 4, 18), 
+				ws(' ', 4, 22), tf(tokenize_with_sc, 4, 23), 4/39, tf('2', 4, 40), 
+				'}'(4, 41), ws('\n', 4, 42), ws('\t', 5, 0), ws('\n', 5, 8), 
+				ws('\t', 6, 0), @(6, 8), tf(signature, 6, 9), ws(' ', 6, 18), 
+				tf(tokenize, 6, 19), '('(6, 27), tf('Stream', 6, 28), (6, 34), 
+				tf('Tokens', 6, 35), (6, 41), tf('No', 6, 42), ')'(6, 44), 
+				ws('\n', 6, 45), ws('\t', 7, 0), @(7, 8), tf(arg, 7, 9), 
+				ws(' ', 7, 12), tf('No', 7, 13), ws(' ', 7, 15), tf(a, 7, 16), 
+				ws(' ', 7, 17), tf(number, 7, 18), ws('\n', 7, 24), ws('\t', 8, 0), 
+				@(8, 8), tf(arg, 8, 9), '('(8, 12), tf(in, 8, 13), ')'(8, 15), 
+				ws(' ', 8, 16), tf('Stream', 8, 17), ws(' ', 8, 23), tf(a, 8, 24), 
+				ws(' ', 8, 25), tf(stream, 8, 26), ws('\n', 8, 32), ws('\t', 9, 0), 
+				@(9, 8), tf(arg, 9, 9), '('(9, 12), tf(out, 9, 13), ')'(9, 16), 
+				ws(' ', 9, 17), tf('Tokens', 9, 18), ws(' ', 9, 24), tf(the, 9, 25), 
+				ws(' ', 9, 28), tf(tokens, 9, 29), ws('\n', 9, 35)], 2, 0)
+			])
+		]
+	) :- do_tokenization('StructuredComments.pl',Ts,[white_space(retain_sc)]).
+
+
 test(	operators,
 		[true(Ts=[
 			o(-->, 1, 0),
