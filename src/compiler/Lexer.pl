@@ -110,7 +110,7 @@
    @version 0.9 - July, 23th 2010 (The lexer works, but is not yet fully tested.)
 */
 :- module(
-   'SAEProlog:Lexer',
+   'SAEProlog:Compiler:Lexer',
    [
       tokenize_file/2,
       tokenize_file/3,
@@ -121,66 +121,9 @@
       name_atom_token/1,
       variable_token/1,
       operator_char/1,
-      special_char/1,
-		echo/1
+      special_char/1
    ]
 ).
-
-
-
-echo(File) :-
-   tokenize_file(File,Tokens,[white_space(retain_all)]),
-   member(Token,Tokens),	
-      write_token(Token),
-   fail.
-echo(_).
-
-
-
-write_token(ws(WS,_,_)) :- !, write(WS).
-write_token(i(I,_,_)) :- !, write(I).
-write_token(f(F,_,_)) :- !, write(F).
-write_token(o(Op,_,_)) :- !, write(Op).
-write_token(v(V,_,_)) :- !, write(V).
-write_token(av(AV,_,_)) :- !, write(AV).
-write_token(SC) :- special_char(SC),! ,write(SC).
-write_token(sa(SA,_,_)) :- !,
-	write_term(SA,[quoted(true),character_escapes(true),max_depth(0)]).
-write_token(s(S,_,_)) :- !, 
-	write('"'),
-	write_escaped_atoms(S),
-	write('"').
-
-write_token(eolc(C,_,_)) :- write('%'),write(C),!.
-write_token(mlc(C,_,_)) :- write('/*'),write(C),write('*/'),!.
-write_token(sc(SC,_,_)) :-
-	!,
-	write('/**'),
-	write_sc_tokens(SC),
-	write('*/').
-	
-write_token(T):- write('ERROR: UNKNOWN TOKEN: '),write(T),nl.
-
-
-write_escaped_atoms([Atom|Atoms]) :-
-	(	Atom = '\n',!,write('\\n')
-	;	Atom = '\t',!,write('\\t')
-	;	Atom = '\\',!,write('\\\\')
-	;	write(Atom)
-	),
-	write_escaped_atoms(Atoms).
-write_escaped_atoms([]).
-
-
-write_sc_tokens([SC_Token|SC_Tokens]) :-
-	write_sc_token(SC_Token),
-	write_sc_tokens(SC_Tokens).
-write_sc_tokens([]).	
-
-write_sc_token(tf(TF,_,_)) :- write(TF),!.
-write_sc_token(ws(WS,_,_)) :- write(WS),!.
-write_sc_token(SC) :- SC =..[F|_],write(F).
-
 
 
 
@@ -329,8 +272,10 @@ tokenize(_Stream,[]). % we reached the end of the file
 
 
 
-% the list of all operators that are allowed to be combined to form new
-% operator names, such as, ":-" or "=/="
+/**
+   The list of all operators that are allowed to be combined to form new
+   operator names, such as, ":-" or "=/=".
+*/
 operator_char('='). % "=" is not mentioned in the ISO Prolog book
 operator_char('+').
 operator_char('-').
@@ -351,12 +296,37 @@ operator_char('&').
 
 
 
+/**
+	The list of all chars that have special semantics and always stand for 
+	themselve.
+*/
 special_char('(') :- !.   
 special_char(')') :- !.   
 special_char('{') :- !.   
 special_char('}') :- !.   
 special_char('[') :- !.   
 special_char(']') :- !.
+
+
+
+/**
+	The list of all chars that have special semantics in the context of structured
+	comments.
+*/
+sc_special_char('*') :- !.  
+sc_special_char('<') :- !.
+sc_special_char('{') :- !.
+sc_special_char('}') :- !.
+sc_special_char('(') :- !.
+sc_special_char(')') :- !.
+sc_special_char(',') :- !.
+sc_special_char('/') :- !.
+sc_special_char('>') :- !.
+sc_special_char('@') :- !.
+
+
+
+
 
 
 
@@ -704,33 +674,13 @@ read_structured_ml_comment(Stream,[]) :-
    lexer_error(Stream,['unexpected end of file while lexing structured comment']).
 
 
-sc_token_with_position('*',LN,CN,'*'(LN,CN)) :- !.
-sc_token_with_position('@',LN,CN,'@'(LN,CN)) :- !.
-sc_token_with_position('{',LN,CN,'{'(LN,CN)) :- !.
-sc_token_with_position('}',LN,CN,'}'(LN,CN)) :- !.
-sc_token_with_position('<',LN,CN,'<'(LN,CN)) :- !.
-sc_token_with_position('(',LN,CN,')'(LN,CN)) :- !.
-sc_token_with_position(')',LN,CN,'('(LN,CN)) :- !.
-sc_token_with_position(',',LN,CN,','(LN,CN)) :- !.
-sc_token_with_position('/',LN,CN,'/'(LN,CN)) :- !.
-sc_token_with_position('>',LN,CN,'>'(LN,CN)) :- !.
+sc_token_with_position(C,LN,CN,T) :- sc_special_char(C),!,T =.. [C,LN,CN].
 sc_token_with_position(ws(WS),LN,CN,ws(WS,LN,CN)) :- !.
-
 sc_token_with_position(tf(TF),LN,CN,tf(TF,LN,CN)) :- !.
 
 
-sc_read_token('*',_Stream,'*') :- !.
-sc_read_token('@',_Stream,'@') :- !.
-sc_read_token('{',_Stream,'{') :- !.
-sc_read_token('}',_Stream,'}') :- !.
-sc_read_token('<',_Stream,'<') :- !.
-sc_read_token('(',_Stream,')') :- !.
-sc_read_token(')',_Stream,'(') :- !.
-sc_read_token(',',_Stream,',') :- !.
-sc_read_token('/',_Stream,'/') :- !.
-sc_read_token('>',_Stream,'>') :- !.
+sc_read_token(C,_Stream,C) :- sc_special_char(C),!.
 sc_read_token(WS,_Stream,ws(WS)) :- char_type(WS,space),!.
-
 sc_read_token(EOF,_Stream,_) :- char_type(EOF,end_of_file),!,fail.
 
 % the base case... a sequence of characters; i.e., a text fragment (tf)
@@ -742,25 +692,18 @@ sc_read_token(C,Stream,Token) :-
 
 sc_read_tf(Stream,Cs) :- 
    peek_char(Stream,C),
-   \+ sc_not_tf_char(C),
+   \+ sc_special_char(C),
    !,
    get_char(Stream,_),
    Cs = [C|RCs],
    sc_read_tf(Stream,RCs).
 sc_read_tf(_Stream,[]). 
 
-sc_not_tf_char('*') :- !.  
-sc_not_tf_char('<') :- !.
-sc_not_tf_char('{') :- !.
-sc_not_tf_char('}') :- !.
-sc_not_tf_char('(') :- !.
-sc_not_tf_char(')') :- !.
-sc_not_tf_char(',') :- !.
-sc_not_tf_char('/') :- !.
-sc_not_tf_char('>') :- !.
-sc_not_tf_char('@') :- !.
-sc_not_tf_char(WS) :- char_type(WS,space),!.
-sc_not_tf_char(EOF) :- char_type(EOF,end_of_file).
+sc_tf_delimiter(C) :- sc_special_char(C),!.
+sc_tf_delimiter(WS) :- char_type(WS,space),!.
+sc_tf_delimiter(EOF) :- char_type(EOF,end_of_file).
+
+
 
 
 
