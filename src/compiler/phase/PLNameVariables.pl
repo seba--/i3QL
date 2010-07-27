@@ -51,7 +51,6 @@ process_predicates([pred(_Predicate,Clauses,_PredicateProperties)|Predicates]) :
 */
 process_clauses([]) :- !. %green
 process_clauses([(:-(H,B),_ClauseProperties)|Clauses]) :- 
-write('Processing: '),write(:-(H,B)),nl,
 	process_term(H,arg,1,_AID),
 	process_term(B,local,1,_VID),
 	process_clauses(Clauses).	
