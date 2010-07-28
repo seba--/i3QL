@@ -29,53 +29,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
-
-import saere._
+package saere;
 
 
-object Is2  {
+/**
+ * Encapsulates the current state of a (free) variable. Basically, if 
+ * this variable shares with another variable then only the current head 
+ * variable is saved (the value of which has to be / is <code>null</code> ).
+ * 
+ * @author Michael Eichberg
+ */
+final class VariableState extends State {
 
-
-	/** 
-	 * Implements the "is" operator.
-	 * This method generates a choice point and – in general – should not be called.<br />
-	 * <i>It is only intended to be used to execute meta-level calls. </i>
-	 */
-	def apply (a1 : Term, a2 : Term) : Solutions = {
-
-		val a1State = a1.manifestState
+	private Variable head = null; 
+	
+	VariableState(Variable variable) {
 		
-		new Solutions {
-			
-			private var called = false
-
-			def next() : Boolean = {
-				if (called) {
-					a1 setState a1State
-					return false 
-				}
-				
-				called = true
-				val a2Value = a2.eval
-				is(a1,a2Value)
-			}
-		}
+		assert (!variable.isInstantiated());
+		
+		head = variable.headVariable();
+		
+		assert (variable.getValue() == null);
 	}
-	
-	
-	def is(a1 : Term, a2Value : Int) : Boolean = {
-		if (a1.isVariable) {
-			val v1 = a1.asVariable
-			if (v1.isInstantiated) {
-				return v1.eval == a2Value
-			} else {
-				v1.bind(IntegerAtom(a2Value))
-				return true
-			}
-		} else {
-			return a1.eval == a2Value
+
+ 
+	@Override 
+	VariableState asVariableState() { return this; } 
+
+	public void apply(Variable variable) {
+		Variable v = variable;
+		while (!(v == head)) {
+			v = v.getValue().asVariable();
 		}
+		v.clear();
 	}
 }
 

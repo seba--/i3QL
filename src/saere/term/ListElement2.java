@@ -29,23 +29,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term
+package saere.term;
 
-import saere._
+import saere.*;
+import static saere.IntegerAtom.IntegerAtom;
+import static saere.StringAtom.*;
 
-class Add2(val t1 : Term, val t2 : Term) extends CompoundTerm {
-	
-	def arity = 2
-	
-	def functor = Add2.functor 
-		
-	def arg(i: Int) = if (i == 0) t1 else t2
-	
-	override def eval() : Int = t1.eval + t2.eval
-	
-}
-private object Add2 {
-	
-	val functor = StringAtom("+")
-	
+public final class ListElement2 extends CompoundTerm {
+
+	public static final StringAtom functor = StringAtom(".");
+
+	private final Term value;
+
+	private final Term rest;
+
+	public ListElement2(Term value, Term rest) {
+		this.value = value;
+		this.rest = rest;
+
+	}
+
+	public int arity() {
+		return 2;
+	}
+
+	public StringAtom functor() {
+		return functor;
+	}
+
+	public Term arg(int i) {
+		return i == 0 ? value : rest;
+	}
+
+	@Override
+	public String toString() {
+		return toListRepresentation("[");
+		// ".("+value+", "+rest+")"
+	}
+
+	private String toListRepresentation(String head) {
+		String newHead = head + value;
+		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
+		if (r instanceof ListElement2) {
+			final ListElement2 le = (ListElement2) r;
+			return le.toListRepresentation(newHead + ", ");
+		} else if (r == emptyList) {
+			return newHead + "]";
+		} else {
+			return newHead + "|" + rest + "]";
+		}
+	}
+
 }

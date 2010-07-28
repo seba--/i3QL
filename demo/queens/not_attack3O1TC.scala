@@ -2,9 +2,11 @@ package queens
 
 import saere._
 
-import saere.op._
-import saere.op.arith._
+//import saere.op._
+//import saere.op.arith._
 import saere.term._
+import saere.IntegerAtom.IntegerAtom
+import saere.StringAtom._ 
 
 
 
@@ -83,7 +85,7 @@ private final class not_attack3O1TCp (
 			// 0 is the unification of the arguments and terms...
 			case 0 => {	
 				a1State = a1.manifestState
-				if (a1 unify StringAtom.emptyList) {
+				if (a1 unify emptyList) {
 					currentGoal += 1
 				} else {
 					a1 setState a1State

@@ -1,6 +1,8 @@
 package queens
 
 import saere._
+import saere.IntegerAtom.IntegerAtom
+import saere.StringAtom.StringAtom 
 
 
 object not_attack2 {

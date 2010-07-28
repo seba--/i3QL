@@ -3,9 +3,11 @@ package queens
 import saere._
 
 import saere.predicate._
-import saere.op.arith._
+//import saere.op.arith._
 import saere.term._
 import saere.meta._
+import saere.IntegerAtom.IntegerAtom
+import saere.StringAtom._ 
 
 object queens3O1TC {
 	
@@ -43,7 +45,7 @@ class queens3O1TCp (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 		def next() : Boolean =  {
 			if (!called) {
 				called = true
-				if(a1.unify(StringAtom.emptyList)) {	
+				if(a1.unify(emptyList)) {	
 					// delay the state manifestation as long as possible...
 					a2State = a2.manifestState
 					a3State = a3.manifestState
@@ -68,7 +70,7 @@ class queens3O1TCp (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 		val goalCount : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1,StringAtom.emptyList)
+			case 1 => Unify2(a1,emptyList)
 			case 2 => Unify2(a2,a3)
 		}
 	}

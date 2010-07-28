@@ -29,39 +29,78 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
-
+package saere;
 
 /**
- * Encapsulates the current state of a (free) variable. Basically, if 
- * this variable shares with another variable then only the current head 
- * variable is saved (the value of which has to be / is <code>null</code> ).
+ * A compound term is a term with at least one argument.
  * 
  * @author Michael Eichberg
  */
-private[saere] final class VariableState private() 
-extends State {
+public abstract class CompoundTerm extends Term {
 
-	private[this] var head : Variable = _ 
-	
-	def this(variable : Variable) {
-		this();
-		
-		assert (!variable.isInstantiated)
-		
-		head = variable.headVariable
-		
-		assert (variable.getValue eq null)
+	/**
+	 * @return <code>true</code> - always.
+	 */
+	@Override
+	final public boolean isCompoundTerm() {
+		return true;
 	}
 
-	private[saere] override def asVariableState() : VariableState = this 
+	/**
+	 * @return <code>this</code> - always.
+	 */
+	@Override
+	final public CompoundTerm asCompoundTerm() {
+		return this;
+	}
 
-	def apply(variable : Variable) {
-		var v = variable
-		while (!(v eq head)) {
-			v = v.getValue.asVariable
+	/**
+	 * The state of the compound term's arguments is saved for later recovery.
+	 * <p>
+	 * This requires a traversal of the complete compound terms structure.<br />
+	 * Hence, if all instances of a compound term are always ground then it is
+	 * highly encouraged to overwrite this method (and {@link #setState(State)})
+	 * to avoid traversing the state of a term.
+	 * </p>
+	 */
+	public State manifestState() {
+		return new CompoundTermState(this);
+	}
+
+	/**
+	 * The state of the compound term's arguments is restored.
+	 * <p>
+	 * This requires a traversal of the complete compound term's structure.<br />
+	 * Hence, if all instances of a compound term are always ground then it is
+	 * highly encouraged to overwrite this method (and {@link #manifestState()})
+	 * to avoid traversing the state of a term.
+	 * </p>
+	 */
+	public void setState(State state) {
+		state.asCompoundTermState().apply(this);
+	}
+
+	/**
+	 * Unifies this compound term with another compound term.
+	 * <p>
+	 * This method does not take care of state handling.
+	 * </p>
+	 */
+	public boolean unify(CompoundTerm other) {
+		if (this.arity() == other.arity()
+				&& this.functor().equals(other.functor())) {
+			int i = 0;
+			final int a = arity();
+			while (i < a) {
+				if ((this.arg(i)).unify(other.arg(i))) {
+					i += 1;
+				} else {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return false;
 		}
-		v.clear()
 	}
 }
-

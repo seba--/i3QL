@@ -29,27 +29,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere;
 
 /**
- * Enables to iterate over all solutions produced by a predicate call.
+ * Encapsulates the (remaining) mutable state of a term.
+ * <p>
+ * Note, that the SAE represents the state of an atom using the value
+ * <code>null</code>.
+ * </p>
+ * <p>
+ * State interface of the Memento Pattern.
+ * </p>
  * 
  * @author Michael Eichberg
  */
-trait Solutions {
+public abstract class State {
 
-	/**
-	 * If this method succeeds - i.e., <code>true</code> is returned - at least 
-	 * one solution exists. The solution
-	 * is returned by binding the variables passed to the predicate's unify method.
-	 * <p>
-	 * If <code>false</code> is returned, all Variables must have the same state 
-	 * as before the very first call (i.e., it is not the case that
-	 * some variables that were free before the call remain instantiated).
-	 * </p>
-	 * <b><u>After <code>false</code> is returned this method is not / must not be called
-	 * again.</u></b>
-	 */
-	def next() : Boolean
-    
+	CompoundTermState asCompoundTermState() {
+		throw new Error("[Internal Error] This state object (" + this
+				+ ") does not encapsulate a compound term's state.");
+	}
+
+	VariableState asVariableState() {
+		throw new Error("[Internal Error] This State object (" + this
+				+ ") does not encapsulate a variable's state.");
+	}
+
 }

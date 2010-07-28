@@ -5,6 +5,8 @@ import saere._
 import saere.predicate._
 import saere.term._
 import saere.meta._
+import saere.IntegerAtom.IntegerAtom
+import saere.StringAtom.StringAtom 
 
 
 /*
@@ -39,7 +41,7 @@ class range3p (private val a1 : Term,private val a2 : Term, val a3:Term) extends
 		
 		def goal(i : Int ) : Solutions = i match {
 			case 1 => Unify2(a2, a1)
-			case 2 => Unify2(a3, new ListElement2(a1,StringAtom.emptyList) )
+			case 2 => Unify2(a3, new ListElement2(a1,saere.StringAtom.emptyList) )
 		}
 	}
 	
@@ -62,7 +64,7 @@ class range3p (private val a1 : Term,private val a2 : Term, val a3:Term) extends
 				def eval() = 
 					Smaller2.isSmaller(a1, a2)
 			}
-			case 3 => Is2(M1,new Add2(a1,IntegerAtom(1)))
+			case 3 => Is2.call(M1,new Add2(a1,IntegerAtom(1)))
 			case 4 => range3(M1,a2,NS)
 		}	
 	}

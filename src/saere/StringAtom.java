@@ -29,80 +29,100 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere;
 
 import java.nio.charset.Charset;
-import java.util.WeakHashMap
-import java.lang.ref.WeakReference
-
+import java.util.WeakHashMap;
+import java.lang.ref.WeakReference;
 
 /**
  * Representation of a string atom.
- *  
+ * 
  * @author Michael Eichberg
  */
-final class StringAtom private(
-	private val title : Array[Byte]
-) extends Atom {
+public final class StringAtom extends Atom {
+ 
+	private final byte[] title;
 
-	override def isStringAtom = true
-
-	override def asStringAtom = this
-	
-	def functor : StringAtom = this
-	
-	def sameAs (other : StringAtom) : Boolean = {
-		// StringAtoms are always "interned"...
-		this eq other
+	private StringAtom(byte[] title) {
+		this.title = title;
 	}
-		
+
+	@Override
+	public boolean isStringAtom() {
+		return true;
+	}
+
+	@Override
+	public StringAtom asStringAtom() {
+		return this;
+	}
+
+	public StringAtom functor() {
+		return this;
+	}
+
+	public boolean sameAs(StringAtom other) {
+		// StringAtoms are always "interned"...
+		return this == other;
+	}
+
 	/**
-	 * Tests if this StringAtom and the other object
-	 * represent the same string atom.
+	 * Tests if this StringAtom and the other object represent the same string
+	 * atom.
 	 * <p>
-	 * This method is not intended to be called by clients
-	 * of StringAtom. Clients of StringAtom should use
-	 * {@link #sameAs(StringAtom)}.
+	 * This method is not intended to be called by clients of StringAtom.
+	 * Clients of StringAtom should use {@link #sameAs(StringAtom)}.
 	 * </p>
 	 */
-	override def equals(other : Any) : Boolean = other match {
-		case other_sa : StringAtom => java.util.Arrays.equals(this.title, other_sa.title) 
-		case _ => false
-	}
-	
-	/**
-	 * @return the hashcode value as calculated by java.util.Arrays.hashCode(title)
-	 */
-	override def hashCode() : Int =
-		// hashCode is only called once (when put in the cache)
-		java.util.Arrays.hashCode(title)
-	
-	override def toString = new String(title)
-	
-}
-object StringAtom {
-
-	private val cache = new WeakHashMap[StringAtom,WeakReference[StringAtom]]
-
-	val UTF8Charset : Charset  = Charset.forName("UTF-8")
-
-	def apply (s : String) : StringAtom = apply(s.getBytes(UTF8Charset))
-	
-	/**
-	 * @param title a UTF-8 encoded string.
-	 */
-	def apply (title : Array[Byte]) : StringAtom = {
-		val cand = new StringAtom(title)
-		cache.synchronized {
-			var interned = cache.get(cand)
-			if (interned == null) { 
-				interned = new WeakReference(cand)
-				cache.put(cand,interned)
-			}
-			
-			interned.get
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof StringAtom) {
+			StringAtom other_sa = (StringAtom) other;
+			return java.util.Arrays.equals(this.title, other_sa.title);
+		} else {
+			return false;
 		}
 	}
-	
-	val emptyList = StringAtom("[]")
+
+	/**
+	 * @return the hashcode value as calculated by
+	 *         java.util.Arrays.hashCode(title)
+	 */
+	public int hashCode() {
+		// hashCode is only called once (when put in the cache)
+		return java.util.Arrays.hashCode(title);
+	}
+
+	@Override
+	public String toString() {
+		return new String(title);
+	}
+
+	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
+
+	public final static Charset UTF8Charset = Charset.forName("UTF-8");
+
+	public static final StringAtom StringAtom(String s) {
+		return StringAtom(s.getBytes(UTF8Charset));
+	}
+
+	/**
+	 * @param title
+	 *            a UTF-8 encoded string.
+	 */
+	public final static StringAtom StringAtom(byte[] title) {
+		final StringAtom cand = new StringAtom(title);
+		synchronized (cache) {
+			WeakReference<StringAtom> interned = cache.get(cand);
+			if (interned == null) {
+				interned = new WeakReference<StringAtom>(cand);
+				cache.put(cand, interned);
+			}
+
+			return interned.get();
+		}
+	}
+
+	public static final StringAtom emptyList = StringAtom("[]");
 }

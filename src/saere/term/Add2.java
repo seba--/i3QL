@@ -29,38 +29,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term
+package saere.term;
 
-import saere._
+import saere.*;
+import static saere.StringAtom.StringAtom;;
 
-final class ListElement2(val value : Term, val rest : Term) extends CompoundTerm {
+public class Add2 extends CompoundTerm {
 	
-	def arity = 2
+	private final Term t1;
+	private final Term t2;
 	
-	def functor = ListElement2.functor 
+	public Add2(Term t1, Term t2){
+		this.t1 = t1;
+		this.t2 = t2;
+	}
+	
+	private static final StringAtom functor = StringAtom("+");
+	
+	public int arity() { return 2; }
+	
+	public StringAtom functor() { return functor; } 
 		
-	def arg(i: Int) = if (i == 0) value else rest
+	public Term arg(int i) { return i == 0 ? t1 : t2 ; }
 	
-	override def toString() = {
-		toListRepresentation("[")
-		// ".("+value+", "+rest+")"
-	}
-	
-	private def toListRepresentation(head : String) : String = {
-		var newHead = head + value 
-		val r = if (rest.isVariable) rest.asVariable.binding else rest
-		r match {
-			case le : ListElement2 => le.toListRepresentation(newHead+", ")
-			case StringAtom.emptyList => newHead + "]"
-			case _ => newHead + "|"+rest+"]"
-		}
-	}
-	
-}
-object ListElement2 {
-	
-	val functor = StringAtom(".")
-
-	def apply(value : Term,  rest : Term) = new ListElement2(value,rest)
+	@Override 
+	public int eval() { return t1.eval() + t2.eval(); }
 	
 }

@@ -29,64 +29,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere.predicate;
 
-/**
- * A compound term is a term with at least one argument.
- * 
- * @author Michael Eichberg
- */
-abstract class CompoundTerm extends Term {
+import saere.*;
+import static saere.IntegerAtom.IntegerAtom;
 
-	/**
-	 * @return <code>true</code> - always.
+
+public class Is2  {
+
+
+	/** 
+	 * Implements the "is" operator.
+	 * This method generates a choice point and – in general – should not be called.<br />
+	 * <i>It is only intended to be used to execute meta-level calls. </i>
 	 */
-	override def isCompoundTerm = true
+	public static Solutions call(final Term a1, final Term a2){
 
-	/**
-	 * @return <code>this</code> - always.
-	 */
-	override def asCompoundTerm = this
+		return new Solutions(){
+			
+			private final State a1State = a1.manifestState();
+			
+			private boolean called = false;
 
-	/**
-	 * The state of the compound term's arguments is saved for 
-	 * later recovery.<p> This requires a traversal of the complete compound
-	 * terms structure.<br />
-	 * Hence, if all instances of a compound term are always ground then 
-	 * it is highly encouraged to overwrite this method (and 
-	 * {@link #setState(State)}) to avoid traversing the state of a term.</p>  
-	 */
-	def manifestState () : State = new CompoundTermState(this)
-
-	/**
-	 * The state of the compound term's arguments is restored.
-	 * <p> 
-	 * This requires a traversal of the complete compound
-	 * term's structure.<br />
-	 * Hence, if all instances of a compound term are always ground then 
-	 * it is highly encouraged to overwrite this method (and 
-	 * {@link #manifestState()}) to avoid traversing the state of a term.</p>
-	 */
-	def setState(state : State) = state.asCompoundTermState()(this)
-
-	/**
-	 * Unifies this compound term with another compound term.
-	 * <p>
-	 * This method does not take care of state handling.
-	 * </p>
-	 */
-	def unify(other : CompoundTerm) : Boolean = {
-		this.arity == other.arity &&
-		this.functor.equals(other.functor) && {
-			var i = 0
-			while (i < arity) {
-				if ((this.arg(i)) unify (other.arg(i))) {
-					i += 1
-				} 	else {
-					return false	
+			@Override
+			public boolean next() {
+				if (called) {
+					a1.setState(a1State);
+					return false;
 				}
+				
+				called = true;
+				final int a2Value = a2.eval();
+				return is(a1,a2Value);
 			}
-			true
+		};
+	}
+	
+	
+	public static final boolean is(Term a1, int a2Value) {
+		if (a1.isVariable()) {
+			final Variable v1 = a1.asVariable();
+			if (v1.isInstantiated()) {
+				return v1.eval() == a2Value;
+			} else {
+				v1.bind(IntegerAtom(a2Value));
+				return true;
+			}
+		} else {
+			return a1.eval() == a2Value;
 		}
 	}
-} 
+}
+

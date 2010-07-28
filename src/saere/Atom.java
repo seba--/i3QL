@@ -29,42 +29,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
-
+package saere;
 
 /**
- * Encapsulate's the state of a compound term's arguments.
+ * Atoms are used to represent atomic informations.
  * 
  * @author Michael Eichberg
  */
-final private[saere] class CompoundTermState private(
-	private val states : Array[State]
-) extends State {
-	
-	// IMPROVE It should be more efficient to just save which variables are (still) free
+public abstract class Atom extends Term {
 
-	def this(compoundTerm : CompoundTerm){
-		this({
-			val states = new Array[State](compoundTerm.arity)
-			// Initializer / constructor
-			var i = 0
-			while (i < compoundTerm.arity) {
-				states(i) = compoundTerm.arg(i).manifestState
-				i += 1
-			}
-			states
-		})
+	/**
+	 * @return 0. By definition the arity of Atoms is always 0. 
+	 */
+	final public int arity() { return 0; }
+	
+	/**
+	 * @param i <i>"ignored"</i>.
+	 * @throws IndexOutOfBoundsException always. 
+	 */
+	final public Term arg(int i) {  
+		throw new IndexOutOfBoundsException("Atoms have no arguments.");
 	}
-		
-	
-	private[saere] override def asCompoundTermState() = this
-	
 
-	def apply(compoundTerm : CompoundTerm) {
-		var i = 0
-		while (i < compoundTerm.arity) {
-			compoundTerm.arg(i).setState(states(i))
-			i += 1
-		}
+	/**
+	 * @return <code>null</code>; an atom's state is immutable and, hence, no 
+	 * state information need to be preserved.<br/> 
+	 * In general, we try to avoid explicit manifestation of an Atom's state.
+	 * This – i.e., avoiding useless calls to manifestState – however, requires 
+	 * whole program analyses. 
+	 */
+	final public State manifestState(){ return null; } 
+
+	/**
+	 * This method does nothing.
+	 * 
+	 * @param state <i>"ignored"</i>.
+	 */
+	public final void setState(State state) {
+		assert (state == null); 
 	}
 }
+
+
+
