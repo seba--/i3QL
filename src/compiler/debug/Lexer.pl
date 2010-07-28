@@ -32,13 +32,12 @@
 
 
 
-/*
+/**
 	Definition of predicates that help to understand and debug the inner 
 	workings of the lexer.
+	
+	@author Michael Eichberg
 */
-
-
-
 :- module(
 		'SAEProlog:Compiler:Debug:Lexer',
 		[

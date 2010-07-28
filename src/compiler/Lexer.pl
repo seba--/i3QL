@@ -628,7 +628,7 @@ read_unstructured_ml_comment(Stream,R) :-
 read_structured_ml_comment(Stream,Tokens) :-
    stream_position(Stream,LN,CN),
    get_char(Stream,C),
-   (
+   (	
       C = '*', peek_char(Stream,'/'),!,
       get_char(Stream,_),
       Tokens = []
