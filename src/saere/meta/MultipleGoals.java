@@ -29,9 +29,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta
+package saere.meta;
 
-import saere._
+import saere.*;
 
 
 /**
@@ -78,39 +78,44 @@ import saere._
  * 
  * @author Michael Eichberg
  */
-trait MultipleGoals extends Solutions {
+public abstract class MultipleGoals implements Solutions {
 		
-	def goalCount() : Int
+	/**
+	 * Goal count must return a value that does not depend.
+	 * @return the number of goals.
+	 */
+	protected abstract int goalCount();
 		
-	def goal(i : Int ) : Solutions
+	protected abstract Solutions goal(int i);
 		
-	private var currentGoal = 1
+	private int currentGoal = 1;
 	
-	private lazy val goalStack = new Array[Solutions](goalCount)
+	// IMPROVE Implement lazy semantics?
+	private Solutions[] goalStack = new Solutions[goalCount()];
 		
-	final def next() : Boolean = {
+	public final boolean next() {
 		while (currentGoal > 0) {
-			var solutions = goalStack(currentGoal-1)
+			Solutions solutions = goalStack[currentGoal-1];
 			if (solutions == null) {
-				solutions = goal(currentGoal)
-				goalStack(currentGoal-1) = solutions
+				solutions = goal(currentGoal);
+				goalStack[currentGoal-1] = solutions;
 			}
 			
-			if (solutions.next) {
-				if (currentGoal == goalCount) {
-					return true
+			if (solutions.next()) {
+				if (currentGoal == goalCount()) {
+					return true;
 				} else {
-					currentGoal += 1
+					currentGoal += 1;
 				}		
 			} else {
 				// Abolishing failed "goal iterators" is strictly required
 				// to make sure that - when the goal is visited again - the
 				// correct state information is saved.
-				goalStack(currentGoal-1) = null
-				currentGoal -= 1
+				goalStack[currentGoal-1] = null;
+				currentGoal -= 1;
 			}
 			
 		}
-		false
+		return false;
 	}
 }

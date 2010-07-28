@@ -3,7 +3,7 @@ package ancestor
 import saere._
 import saere.term._
 import saere.meta._
-
+import saere.StringAtom.StringAtom
 
 object Demo {
 	

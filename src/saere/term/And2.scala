@@ -32,6 +32,7 @@
 package saere.term
 
 import saere._
+import saere.StringAtom.StringAtom
 
 final class And2(val l : Term, val r : Term) extends CompoundTerm {
 	

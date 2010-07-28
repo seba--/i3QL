@@ -29,23 +29,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term
+package saere.meta;
 
-import saere._
+import saere.*;
 
-class Add2(val t1 : Term, val t2 : Term) extends CompoundTerm {
-	
-	def arity = 2
-	
-	def functor = Add2.functor 
-		
-	def arg(i: Int) = if (i == 0) t1 else t2
-	
-	override def eval() : Int = t1.eval + t2.eval
-	
-}
-private object Add2 {
-	
-	val functor = StringAtom("+")
-	
+/**
+ * Simplified version of {@link MultipleGoals} if a clause's body only consists
+ * of one goal.
+ * 
+ * @author Michael Eichberg
+ */
+public abstract class OneGoal implements Solutions {
+
+	private Solutions solutions = null;
+
+	public final boolean next() {
+		if (solutions == null)
+			solutions = goal();
+		return solutions.next();
+	}
+
+	public abstract Solutions goal();
+
 }

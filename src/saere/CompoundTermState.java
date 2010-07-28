@@ -29,34 +29,40 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere;
 
 /**
- * Encapsulates the (remaining) mutable state of a term.
- * <p> 
- * Note, that the SAE represents the state of an atom using
- * the value <code>null</code>.
- * </p>
- * <p>
- * State interface of the Memento Pattern.
- * </p>
+ * Encapsulate's the state of a compound term's arguments.
  * 
  * @author Michael Eichberg
  */
-trait State {
-	
-	private[saere] def asCompoundTermState() : CompoundTermState = 
-		error(
-				"[Internal Error] This state object ("+
-				this+
-				") does not encapsulate a compound term's state."
-		)
-	
-	private[saere] def asVariableState() : VariableState = 
-		error(
-				"[Internal Error] This State object ("+
-				this+
-				") does not encapsulate a variable's state."
-		)
+final class CompoundTermState extends State {
 
+	private final State[] states;
+
+	// IMPROVE It should be more efficient to just save the free variables
+
+	CompoundTermState(CompoundTerm compoundTerm) {
+
+		states = new State[(compoundTerm.arity())];
+		// Initializer / constructor
+		int i = 0;
+		while (i < compoundTerm.arity()) {
+			states[i] = compoundTerm.arg(i).manifestState();
+			i += 1;
+		}
+	}
+
+	@Override
+	public CompoundTermState asCompoundTermState() {
+		return this;
+	}
+
+	public void apply(CompoundTerm compoundTerm) {
+		int i = 0;
+		while (i < compoundTerm.arity()) {
+			compoundTerm.arg(i).setState(states[i]);
+			i += 1;
+		}
+	}
 }

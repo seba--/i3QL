@@ -29,63 +29,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
-
+package saere;
 
 /**
- * Representation of an integer atom.
+ * Atoms are used to represent atomic informations.
  * 
  * @author Michael Eichberg
  */
-final class IntegerAtom private(
-	val value : Int
-) extends Atom {
+public abstract class Atom extends Term {
 
-	override def isIntegerAtom = true
-
-	override def asIntegerAtom = this
-
-	def functor : StringAtom = StringAtom(value.toString)
+	/**
+	 * @return 0. By definition the arity of Atoms is always 0. 
+	 */
+	final public int arity() { return 0; }
 	
-	def sameAs (other : IntegerAtom) : Boolean = this.value == other.value
-		
-	override def eval() = value
-	
-	override def toString = Integer.toString(value)
-
-}
-
-object IntegerAtom {
-
-	val IntegerAtom_M3 = new IntegerAtom(-3)
-	val IntegerAtom_M2 = new IntegerAtom(-2)	
-	val IntegerAtom_M1 = new IntegerAtom(-1)
-	val IntegerAtom_0 = new IntegerAtom(0)	
-	val IntegerAtom_1 = new IntegerAtom(1)
-	val IntegerAtom_2 = new IntegerAtom(2)
-	val IntegerAtom_3 = new IntegerAtom(3)
-	val IntegerAtom_4 = new IntegerAtom(4)
-	val IntegerAtom_5 = new IntegerAtom(5)
-	val IntegerAtom_6 = new IntegerAtom(6)
-	val IntegerAtom_7 = new IntegerAtom(7)
-	val IntegerAtom_8 = new IntegerAtom(8)
-	val IntegerAtom_9 = new IntegerAtom(9)
-
-	def apply (value : Int) = value match {
-		case -3 => IntegerAtom_M3
-		case -2 => IntegerAtom_M2
-		case -1 => IntegerAtom_M1
-		case 0 => IntegerAtom_0
-		case 1 => IntegerAtom_1
-		case 2 => IntegerAtom_2
-		case 3 => IntegerAtom_3
-		case 4 => IntegerAtom_4
-		case 5 => IntegerAtom_5
-		case 6 => IntegerAtom_6
-		case 7 => IntegerAtom_7
-		case 8 => IntegerAtom_8			
-		case 9 => IntegerAtom_9	
-		case _ => new IntegerAtom(value)
+	/**
+	 * @param i <i>"ignored"</i>.
+	 * @throws IndexOutOfBoundsException always. 
+	 */
+	final public Term arg(int i) {  
+		throw new IndexOutOfBoundsException("Atoms have no arguments.");
 	}
-	
+
+	/**
+	 * @return <code>null</code>; an atom's state is immutable and, hence, no 
+	 * state information need to be preserved.<br/> 
+	 * In general, we try to avoid explicit manifestation of an Atom's state.
+	 * This – i.e., avoiding useless calls to manifestState – however, requires 
+	 * whole program analyses. 
+	 */
+	final public State manifestState(){ return null; } 
+
+	/**
+	 * This method does nothing.
+	 * 
+	 * @param state <i>"ignored"</i>.
+	 */
+	public final void setState(State state) {
+		assert (state == null); 
+	}
 }
+
+
+

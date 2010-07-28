@@ -3,6 +3,9 @@ package queens
 import saere._
 import saere.term._
 import saere.meta._
+import saere.IntegerAtom.IntegerAtom
+//import saere.StringAtom.StringAtom 
+import saere.StringAtom._
 
 object Demo {
 
@@ -24,7 +27,7 @@ object Demo {
 
 			def goal(i : Int) = i match {
 				case 1 => range3(IntegerAtom(1),IntegerAtom(28),R)
-				case 2 => queens3O1TC(R,StringAtom.emptyList,Qs)
+				case 2 => queens3O1TC(R,emptyList,Qs)
 			}
 		}
 		val start = System.nanoTime
@@ -124,7 +127,7 @@ object Demo {
 
 					def goal(i : Int) = i match {
 						case 1 => range3(IntegerAtom(1),IntegerAtom(N),R)
-						case 2 => queens3O1TC(R,StringAtom.emptyList,Qs)
+						case 2 => queens3O1TC(R,emptyList,Qs)
 					}
 				}
 				val start = System.nanoTime
@@ -148,7 +151,7 @@ object Demo {
 
 					def goal(i : Int) = i match {
 						case 1 => range3(IntegerAtom(1),IntegerAtom(28),R)
-						case 2 => queens3O1TC(R,StringAtom.emptyList,Qs)
+						case 2 => queens3O1TC(R,emptyList,Qs)
 					}
 				}
 				val start = System.nanoTime

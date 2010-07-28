@@ -5,6 +5,8 @@ import saere.meta._
 
 import saere.predicate._
 import saere.term._
+import saere.IntegerAtom.IntegerAtom
+import saere.StringAtom._ 
 
 
 object not_attack3 {
@@ -44,7 +46,7 @@ class not_attack3p (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 				def eval() = 
 					NotSame2.isNotSame(a2,new Add2(Y,a3)) && NotSame2.isNotSame(a2,new Subtract2(Y,a3))
 			}
-			case 3 => N1 = new Variable; Is2(N1,new Add2(a3,IntegerAtom(1)))
+			case 3 => N1 = new Variable; Is2.call(N1,new Add2(a3,IntegerAtom(1)))
 			case 4 => not_attack3(Ys,a2,N1)
 		}	
 	}
@@ -52,7 +54,7 @@ class not_attack3p (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 	val ruleCount = 2
 	
 	def rule(i : Int ) = i match {
-		case 1 => Unify2(a1, StringAtom.emptyList) /*new not_attack3c1*/
+		case 1 => Unify2(a1, emptyList) /*new not_attack3c1*/
 		case 2 => new not_attack3c2 
 	}
 }

@@ -29,50 +29,78 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta
-
-import saere._
-
+package saere;
 
 /**
- * <p>
- * Implements the overall strategy how to evaluate a predicate that is 
- * defined using multiple clauses.<br />
- * Clauses with cut operators are not supported. We decided to keep the
- * {@link Solutions} interface as lightweight as possible.
- * </p>
- * <b>Please note, that this class is not used by the compiler as the 
- * resulting code would not be efficient enough.</b> The primary use 
- * case of this class is to help you understand the evaluation strategy employed
- * by SAE Prolog. 
+ * A compound term is a term with at least one argument.
  * 
  * @author Michael Eichberg
  */
-trait MultipleRules extends Solutions {
+public abstract class CompoundTerm extends Term {
 
-	def ruleCount : Int
-	
-	def rule(i : Int) : Solutions
-		
-	private var solutions : Solutions = rule(1)
+	/**
+	 * @return <code>true</code> - always.
+	 */
+	@Override
+	final public boolean isCompoundTerm() {
+		return true;
+	}
 
-	private var currentRule : Int = 1
-	
-	final def next() : Boolean = {
-		while (currentRule <= ruleCount) {
-			if (solutions.next) {
-				return true
-			}
-			else {
-				currentRule += 1
-				if (currentRule <= ruleCount) {
-					solutions = rule(currentRule)
+	/**
+	 * @return <code>this</code> - always.
+	 */
+	@Override
+	final public CompoundTerm asCompoundTerm() {
+		return this;
+	}
+
+	/**
+	 * The state of the compound term's arguments is saved for later recovery.
+	 * <p>
+	 * This requires a traversal of the complete compound terms structure.<br />
+	 * Hence, if all instances of a compound term are always ground then it is
+	 * highly encouraged to overwrite this method (and {@link #setState(State)})
+	 * to avoid traversing the state of a term.
+	 * </p>
+	 */
+	public State manifestState() {
+		return new CompoundTermState(this);
+	}
+
+	/**
+	 * The state of the compound term's arguments is restored.
+	 * <p>
+	 * This requires a traversal of the complete compound term's structure.<br />
+	 * Hence, if all instances of a compound term are always ground then it is
+	 * highly encouraged to overwrite this method (and {@link #manifestState()})
+	 * to avoid traversing the state of a term.
+	 * </p>
+	 */
+	public void setState(State state) {
+		state.asCompoundTermState().apply(this);
+	}
+
+	/**
+	 * Unifies this compound term with another compound term.
+	 * <p>
+	 * This method does not take care of state handling.
+	 * </p>
+	 */
+	public boolean unify(CompoundTerm other) {
+		if (this.arity() == other.arity()
+				&& this.functor().equals(other.functor())) {
+			int i = 0;
+			final int a = arity();
+			while (i < a) {
+				if ((this.arg(i)).unify(other.arg(i))) {
+					i += 1;
+				} else {
+					return false;
 				}
-				// else {
-				// 	solutions = null
-				// }
 			}
+			return true;
+		} else {
+			return false;
 		}
-		false
 	}
 }

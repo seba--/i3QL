@@ -32,6 +32,8 @@
 package saere.term
 
 import saere._
+import saere.StringAtom.StringAtom
+
 
 final class Subtract2(val t1 : Term, val t2 : Term) extends CompoundTerm {
 	

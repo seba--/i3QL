@@ -29,39 +29,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere.term;
 
+import saere.*;
+import static saere.IntegerAtom.IntegerAtom;
+import static saere.StringAtom.*;
 
-/**
- * Encapsulates the current state of a (free) variable. Basically, if 
- * this variable shares with another variable then only the current head 
- * variable is saved (the value of which has to be / is <code>null</code> ).
- * 
- * @author Michael Eichberg
- */
-private[saere] final class VariableState private() 
-extends State {
+public final class ListElement2 extends CompoundTerm {
 
-	private[this] var head : Variable = _ 
-	
-	def this(variable : Variable) {
-		this();
-		
-		assert (!variable.isInstantiated)
-		
-		head = variable.headVariable
-		
-		assert (variable.getValue eq null)
+	public static final StringAtom functor = StringAtom(".");
+
+	private final Term value;
+
+	private final Term rest;
+
+	public ListElement2(Term value, Term rest) {
+		this.value = value;
+		this.rest = rest;
+
 	}
 
-	private[saere] override def asVariableState() : VariableState = this 
+	public int arity() {
+		return 2;
+	}
 
-	def apply(variable : Variable) {
-		var v = variable
-		while (!(v eq head)) {
-			v = v.getValue.asVariable
+	public StringAtom functor() {
+		return functor;
+	}
+
+	public Term arg(int i) {
+		return i == 0 ? value : rest;
+	}
+
+	@Override
+	public String toString() {
+		return toListRepresentation("[");
+		// ".("+value+", "+rest+")"
+	}
+
+	private String toListRepresentation(String head) {
+		String newHead = head + value;
+		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
+		if (r instanceof ListElement2) {
+			final ListElement2 le = (ListElement2) r;
+			return le.toListRepresentation(newHead + ", ");
+		} else if (r == emptyList) {
+			return newHead + "]";
+		} else {
+			return newHead + "|" + rest + "]";
 		}
-		v.clear()
 	}
-}
 
+}

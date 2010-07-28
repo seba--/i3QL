@@ -29,42 +29,50 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere
+package saere.meta;
+
+import saere.*;
 
 
 /**
- * Encapsulate's the state of a compound term's arguments.
+ * <p>
+ * Implements the overall strategy how to evaluate a predicate that is 
+ * defined using multiple clauses.<br />
+ * Clauses with cut operators are not supported. We decided to keep the
+ * {@link Solutions} interface as lightweight as possible.
+ * </p>
+ * <b>Please note, that this class is not used by the compiler as the 
+ * resulting code would not be efficient enough.</b> The primary use 
+ * case of this class is to help you understand the evaluation strategy employed
+ * by SAE Prolog. 
  * 
  * @author Michael Eichberg
  */
-final private[saere] class CompoundTermState private(
-	private val states : Array[State]
-) extends State {
-	
-	// IMPROVE It should be more efficient to just save which variables are (still) free
+public abstract class MultipleRules implements Solutions {
 
-	def this(compoundTerm : CompoundTerm){
-		this({
-			val states = new Array[State](compoundTerm.arity)
-			// Initializer / constructor
-			var i = 0
-			while (i < compoundTerm.arity) {
-				states(i) = compoundTerm.arg(i).manifestState
-				i += 1
-			}
-			states
-		})
-	}
+	public abstract int ruleCount();
+	
+	public abstract Solutions rule(int i); 
 		
-	
-	private[saere] override def asCompoundTermState() = this
-	
+	private Solutions solutions = rule(1); 
 
-	def apply(compoundTerm : CompoundTerm) {
-		var i = 0
-		while (i < compoundTerm.arity) {
-			compoundTerm.arg(i).setState(states(i))
-			i += 1
+	private int currentRule = 1;
+	
+	public final boolean next()  {
+		while (currentRule <= ruleCount()) {
+			if (solutions.next()) {
+				return true;
+			}
+			else {
+				currentRule += 1;
+				if (currentRule <= ruleCount()) {
+					solutions = rule(currentRule);
+				}
+				// else {
+				// 	solutions = null
+				// }
+			}
 		}
+		return false;
 	}
 }

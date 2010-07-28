@@ -29,23 +29,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta
-
-import saere._
-
+package saere;
 
 /**
- * Simplified version of {@link MultipleGoals} if a clause's body only consists
- * of one goal.
+ * Enables to iterate over all solutions produced by a predicate call.
  * 
  * @author Michael Eichberg
  */
-trait OneGoal extends Solutions {
-	
-	private lazy val solutions : Solutions = goal
-	
-	final def next() : Boolean = solutions.next
-	
-	def goal : Solutions
-	
+public interface Solutions {
+
+	/**
+	 * If this method succeeds - i.e., <code>true</code> is returned - at least 
+	 * one solution exists. The solution
+	 * is returned by binding the variables passed to the predicate's unify method.
+	 * <p>
+	 * If <code>false</code> is returned, all Variables must have the same state 
+	 * as before the very first call (i.e., it is not the case that
+	 * some variables that were free before the call remain instantiated).
+	 * </p>
+	 * <b><u>After <code>false</code> is returned this method is not / must not be called
+	 * again.</u></b>
+	 */
+	boolean next();
+    
 }
