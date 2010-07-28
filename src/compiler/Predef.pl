@@ -113,12 +113,10 @@ predefined_operator(Operator) :-
 
 
 
-
 predefined_term_operator('=').
 predefined_term_operator('\\=').
 predefined_term_operator('==').
 predefined_term_operator('\\==').
-
 
 
 
@@ -128,18 +126,3 @@ predefined_arithmetic_operator('=<').
 predefined_arithmetic_operator('=\\=').
 predefined_arithmetic_operator('>').
 predefined_arithmetic_operator('>=').
-
-
-
-
-/* built_in_term(Term) :- succeeds if Term is a term used internally by the
-	SAE Prolog compiler to store meta-information.
-	
-	<p>
-	Terms used internally by the SAE that could conflict with terms of SAE prolog
-	programs always start with the '$SAE' "namespace" to avoid conflicts.<br/>
-	The primary use case is to associate free variables of prolog clauses with
-	names during compilation.	
-	</p>
-*/
-built_in_term('$SAE':_).

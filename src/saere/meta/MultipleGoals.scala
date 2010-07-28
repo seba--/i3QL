@@ -43,9 +43,10 @@ import saere._
  * Support for the cut operator is not provided.
  * </p>
  * <b>Please note, that this class is not used by the compiler as the 
- * resulting code would not be efficient enough.</b> The primary use 
+ * resulting code would not be efficient.</b> The primary use 
  * case of this class is to help you understand the evaluation strategy employed
- * by SAE Prolog. 
+ * by SAE Prolog and to use this class during testing or in semi-interpreted 
+ *	mode.
  * 
  * <p>
  * <b>Example</b><br/>

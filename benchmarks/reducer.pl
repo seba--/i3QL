@@ -112,7 +112,7 @@ t_redex([_y,_x|_op], _res) :-
 % Tests:
 t_redex([_y,_x|_test], _res) :-
 	atom(_test),
-	member(_test, ['<', '>', '=<', '>=', '=\=', '=:=']),
+	member(_test, ['<', '>', '=<', '>=', '=\\=', '=:=']),
 	t_reduce(_x, _xres),
 	t_reduce(_y, _yres),
 	number(_xres), number(_yres),
@@ -159,7 +159,7 @@ relop(  '<', A, B) :- A<B.
 relop(  '>', A, B) :- A>B.
 relop( '=<', A, B) :- A=<B.
 relop( '>=', A, B) :- A>=B.
-relop('=\=', A, B) :- A=\=B.
+relop('=\\=', A, B) :- A=\=B.
 relop('=:=', A, B) :- A=:=B.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

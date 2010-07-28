@@ -34,7 +34,7 @@ package saere.predicate
 import saere._
 
 /**
- * Implementation of SAE Prolog's <code>\=</code> operator (does not unify).
+ * Implementation of Prolog's <code>\=</code> operator (does not unify).
  * <p>
  * This implementation generates a choice point and – in general – should not be called.<br />
  * <i>It is only intended to be used to execute meta-level calls. </i><br />

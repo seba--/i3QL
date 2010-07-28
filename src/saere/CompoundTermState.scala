@@ -41,7 +41,7 @@ final private[saere] class CompoundTermState private(
 	private val states : Array[State]
 ) extends State {
 	
-	// IMPROVE Isn't it sufficient to save which variables are free? This should be much more effecient!
+	// IMPROVE It should be more efficient to just save which variables are (still) free
 
 	def this(compoundTerm : CompoundTerm){
 		this({

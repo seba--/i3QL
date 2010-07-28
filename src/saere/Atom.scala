@@ -48,7 +48,7 @@ abstract class Atom extends Term {
 	 * @throws IndexOutOfBoundsException always. 
 	 */
 	final def arg(i : Int) = 
-		throw new IndexOutOfBoundsException("Atoms do not have arguments (Index = "+i+").")
+		throw new IndexOutOfBoundsException("Atoms have no arguments.")
 
 	/**
 	 * @return <code>null</code>; an atom's state is immutable and, hence, no 

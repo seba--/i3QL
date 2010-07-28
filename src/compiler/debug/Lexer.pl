@@ -32,18 +32,16 @@
 
 
 
-/*
+/**
 	Definition of predicates that help to understand and debug the inner 
 	workings of the lexer.
+	
+	@author Michael Eichberg
 */
-
-
-
 :- module(
 		'SAEProlog:Compiler:Debug:Lexer',
 		[
 			tokenize_string/2,
-			echo/1,
 			echo_file/1,
 			write_token/1,
 			write_escaped_atoms/1,
@@ -67,11 +65,9 @@
 	<p>
 	<b>Example</b>
 	<pre>
-	?- tokenize_string("'+-'(a,b)",Ts).
-	Ts = [sa(+-, 1, 0), '(', sa(a, 1, 5), o(',', 1, 6), sa(b, 1, 7), ')'].
-
-	?- tokenize_string("+-(a,b)",Ts).
-	Ts = [o(+-, 1, 0), '(', sa(a, 1, 3), o(',', 1, 4), sa(b, 1, 5), ')'].
+	?- tokenize_string("a(b,C is b + 1)",Ts),write(Ts).
+	[t(a, 1, 0), ((1, 1), t(b, 1, 2), t(,, 1, 3), v(C, 1, 4), t(is, 1, 6), t(b, 1, 9), t(+, 1, 11), i(1, 1, 13), )(1, 14)]
+	
 	</pre>
 	</p>
 */
@@ -84,15 +80,15 @@ tokenize_string(S,Ts) :-
 
 
 echo_file(File) :-
-   tokenize_file(File,Tokens,[white_space(retain_all)]),
+   tokenize_file(File,Tokens,[comments(retain_all)]),
    member(Token,Tokens),	
       write_token(Token),
    fail.
 echo_file(_).
 
 
-/* Using the following two predicates may lead to false conclusions, because
-	when passing in a term, the term is already parsed by SWIProlog normalized
+/* Using the following two predicates may lead to false conclusions. 
+	The given term is already parsed by (SWI)Prolog and normalized
 	before the term is actually passed to the lexer...
 	
 tokenize_term(T,Ts) :- 
@@ -107,21 +103,22 @@ echo_term(Term) :-
 */
 
 
-echo([Token|Tokens]) :- write_token(Token), echo(Tokens).
-echo([]).
 
-
-
-write_token(ws(WS,_,_)) :- !, write(WS).
+write_token(a(T,_,_)) :- !,
+	write_term(T,[quoted(true),character_escapes(true),max_depth(0)]).
+write_token(f(T,_,_)) :- !,
+	write_term(T,[quoted(true),character_escapes(true),max_depth(0)]).
 write_token(i(I,_,_)) :- !, write(I).
-write_token(f(F,_,_)) :- !, write(F).
-write_token(o(Op,_,_)) :- !, write(Op).
+write_token(r(F,_,_)) :- !, write(F).
 write_token(v(V,_,_)) :- !, write(V).
 write_token(av(AV,_,_)) :- !, write(AV).
-write_token(SC) :- special_char(SC),! ,write(SC).
-write_token(sa(SA,_,_)) :- !,
-	write_term(SA,[quoted(true),character_escapes(true),max_depth(0)]).
-write_token(s(S,_,_)) :- !, 
+write_token('('(_,_)) :- !, write('(').
+write_token(')'(_,_)) :- !, write(')').
+write_token('{'(_,_)) :- !, write('{').
+write_token('}'(_,_)) :- !, write('}').
+write_token('['(_,_)) :- !, write('[').
+write_token(']'(_,_)) :- !, write(']').
+write_token(chars(S,_,_)) :- !, 
 	write('"'),
 	write_escaped_atoms(S),
 	write('"').
