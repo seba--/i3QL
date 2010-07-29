@@ -47,7 +47,7 @@
 
 /*
 	In general, to parse prolog terms we would like to define a rule 
-	"term ::= term op term". But, such left-recursive rules are not supported by
+	"term ::= term | term op term". But, such left-recursive rules are not supported by
 	DCGs and, hence, we had to transform the grammar to get rid of the left 
 	recursion. Furthermore, to make the parser efficient, we tried to avoid
 	any backtracking; the first – naive – version was ~1000 times slower than
@@ -61,26 +61,32 @@
 */
 program(Ts,P) :-
 	default_op_table(Ops),
-	program(Ops,P,Ts,[]).
+	program(Ops,P,Ts,X),
+	(	
+		X=[],! % we could parse all input
+	;
+		X=[T|_], % rest of the ...
+		write('ERROR: could not parse clause starting with '),write(T),nl,
+		fail 
+	).
 		
 
 program(Ops,[S|SRs]) --> % this is actually a program/4 predicate...
 	stmt(Ops,S),
-	program(Ops,SRs),{!}. % ... add code to update the operator table!		
+	program(Ops,SRs),{!}. % ... add code to update the operator table!		 	
 program(_Ops,[]) --> {true}.
 
 
 
 % ... add code to check that the term is valid top-level term.... i.e., 
 % it is an atom, a compound term, a directive or a clause definition
-stmt(Ops,T) --> term(Ops,T),[a('.',_LN,_CN)],{write(T),nl,!}. 
+stmt(Ops,T) --> term(Ops,T),[a('.',_LN,_CN)],{/*write(T),nl,*/!}. 
 
 
 
 atom(a(A,LN,CN)) --> [a(A,LN,CN)],{!}. % 
 atom(i(I,LN,CN)) --> [i(I,LN,CN)],{!}.
-atom(f(F,LN,CN)) --> [i(F,LN,CN)],{!}.
-
+atom(r(F,LN,CN)) --> [r(F,LN,CN)],{!}.
 
 
 var(v(V,LN,CN)) --> [v(V,LN,CN)],{!}.
@@ -101,10 +107,12 @@ primary_term(Ops,pre(Op,LN,CN,PT)) -->
 	[a(Op,LN,CN)],
 	{once(is_prefix(Op,Ops))},
 	primary_term(Ops,PT).
+/* FIXME Support postfix operators
 primary_term(Ops,post(Op,LN,CN,PT)) --> 
 	primitive_term(Ops,PT),
 	{once(is_postfix(Op,Ops))},
 	[a(Op,LN,CN)].
+*/
 
 
 /*
@@ -114,8 +122,8 @@ term(Ops,PT) --> primary_term(Ops,PT).
 */
 term(Ops,T) --> primary_term(Ops,PT),term_2(Ops,PT,T).
 term_2(Ops,LT,infix(Op,LN,CN,LT,RT)) --> 
-	[a(Op,LN,CN)],
-	{is_infix(Op,Ops),!}, % TODO add error handling
+	[T],
+	{(T = a(Op,LN,CN);T = f(Op,LN,CN)),is_infix(Op,Ops),!}, % TODO add error handling
 	primary_term(Ops,IRT),
 	term_2(Ops,IRT,RT).
 term_2(_Ops,T,T) --> {!}.

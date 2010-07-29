@@ -9,8 +9,24 @@
 
 :- begin_tests(parser).
 
+
+
 test(
 	stress_test_1,
+	[	true(P=[infix(=, 1, 1, v('X', 1, 0), infix(*, 1, 3, i(1, 1, 2), infix(/, 1, 6, i(2, 1, 5), infix(-, 1, 9, i(3, 1, 8), i(4, 1, 10)))))])
+	]
+) :- tokenize_string("X=1*(2/(3-4)).",Ts),program(Ts,P).
+
+
+test(
+	stress_test_2,
+	[	true(P=[infix(=, 1, 1, v('X', 1, 0), infix(',', 1, 4, a(a, 1, 3), ct(b, [infix(;, 1, 8, a(c, 1, 7), a(d, 1, 9)), a(',', 1, 11)], 1, 5)))])
+	]
+) :- tokenize_string("X=(a,b(c;d,,)).",Ts),program(Ts,P).
+
+
+test(
+	stress_test_3,
 	[	true(P=[pre(\+, 1, 0, ct(\+, [a(a, 1, 6), ct(b, [infix(;, 1, 11, a(c, 1, 10), a(d, 1, 12)), a(',', 1, 14)], 1, 8)], 1, 3))])
 	]
 ) :- tokenize_string("\\+ \\+(a,b(c;d,,)).",Ts),program(Ts,P).
@@ -53,49 +69,65 @@ test(
 test('rg_test:benchmarks/arithmetic.pl') :-
 	tokenize_file('benchmarks/arithmetic.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/boyer.pl') :-
 	tokenize_file('benchmarks/boyer.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/chat_parser.pl') :-
 	tokenize_file('benchmarks/chat_parser.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/crypt.pl') :-
 	tokenize_file('benchmarks/crypt.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/deriv.pl') :-
 	tokenize_file('benchmarks/deriv.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/meta_nrev.pl') :-
 	tokenize_file('benchmarks/meta_nrev.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/mu.pl') :-
 	tokenize_file('benchmarks/mu.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/nrev.pl') :-
 	tokenize_file('benchmarks/nrev.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/poly.pl') :-
 	tokenize_file('benchmarks/poly.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/primes.pl') :-
 	tokenize_file('benchmarks/primes.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/qsort.pl') :-
 	tokenize_file('benchmarks/qsort.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/queens.pl') :-
 	tokenize_file('benchmarks/queens.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/reducer.pl') :-
 	tokenize_file('benchmarks/reducer.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/sum.pl') :-
 	tokenize_file('benchmarks/sum.pl',Ts),program(Ts,_P).
+
 
 test('rg_test:benchmarks/tak.pl') :-
 	tokenize_file('benchmarks/tak.pl',Ts),program(Ts,_P).
 
+
 test('rg_test:benchmarks/zebra.pl') :-
 	tokenize_file('benchmarks/zebra.pl',Ts),program(Ts,_P).
+
 		
 :- end_tests(parser).
