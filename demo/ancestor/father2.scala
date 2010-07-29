@@ -29,11 +29,11 @@ class father2pSolutions(private val a1 : Term, val a2 : Term) extends MultipleRu
 		val g1a2 : Term = StringAtom("Reinhard")
 		val g2a2 : Term = StringAtom("Alice")
 			
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2) 
+			case 2 => Unify2.apply(a2, g2a2)
 		}	
 	}
 	
@@ -44,11 +44,11 @@ class father2pSolutions(private val a1 : Term, val a2 : Term) extends MultipleRu
 		val g1a2 : Term = StringAtom("Reinhard")
 		val g2a2 : Term = StringAtom("Thilo")
 	
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2,g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2,g2a2)
 		}		
 	}
 	
@@ -60,7 +60,7 @@ class father2pSolutions(private val a1 : Term, val a2 : Term) extends MultipleRu
 	
 		var activeGoal = 1
 		
-		var solutionsG1 = Unify2(a1, g1)
+		var solutionsG1 = Unify2.apply(a1, g1)
 		var solutionsG2 : Solutions = null
 		
 		def next() : Boolean = {
@@ -69,7 +69,7 @@ class father2pSolutions(private val a1 : Term, val a2 : Term) extends MultipleRu
 					case 1 =>
 						if (solutionsG1.next){
 							activeGoal += 1
-							solutionsG2 = Unify2(a2,g2)
+							solutionsG2 = Unify2.apply(a2,g2)
 						} else {
 							solutionsG1 = null
 							activeGoal -= 1
@@ -88,7 +88,7 @@ class father2pSolutions(private val a1 : Term, val a2 : Term) extends MultipleRu
 		}		
 	}	
 	
-	def ruleCount = 3
+	def ruleCount() = 3
 	
 	def rule(i : Int) = i match {
 		case 1 => new father2c1

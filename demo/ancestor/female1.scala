@@ -31,37 +31,37 @@ class female1pSolutions(private val a1 : Term) extends MultipleRules {
 	
 		val t : Term = StringAtom("Leonie")
 		
-		def goal = Unify2(a1, t)	
+		def goal = Unify2.apply(a1, t)	
 	}
 	private class female1c2 extends OneGoal {
 	
 		val t : Term = StringAtom("Valerie")
 	
-		def goal = Unify2(a1, t)		
+		def goal = Unify2.apply(a1, t)		
 	}
 	private class female1c3 extends OneGoal {
 	
 		val t : Term = StringAtom("Alice")
 	
-		def goal = Unify2(a1, t)		
+		def goal = Unify2.apply(a1, t)		
 	}	
 	private class female1c4 extends OneGoal {
 	
 		val t : Term = StringAtom("Christel")
 	
-		def goal = Unify2(a1, t)		
+		def goal = Unify2.apply(a1, t)		
 	}	
 	private class female1c5 extends OneGoal {
 	
 		val t : Term = StringAtom("Heidi")
 	
-		def goal = Unify2(a1, t)		
+		def goal = Unify2.apply(a1, t)		
 	}
 	private class female1c6 extends OneGoal {
 	
 		val t : Term = StringAtom("Magdalena")
 	
-		def goal = Unify2(a1, t)		
+		def goal = Unify2.apply(a1, t)		
 	}
 
 	val ruleCount: Int = 6

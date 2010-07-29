@@ -32,21 +32,21 @@ class male1pSolutions(private val a1 : Term) extends MultipleRules {
 	
 		val t : Term = StringAtom("Thilo")
 	
-		def goal = Unify2(a1, t)
+		def goal = Unify2.apply(a1, t)
 
 	}
 	private class male1c2 extends OneGoal {
 	
 		val t : Term = StringAtom("Michael")
 	
-		def goal = Unify2(a1, t)
+		def goal = Unify2.apply(a1, t)
 	
 	}
 	private class male1c3 extends OneGoal {
 	
 		val t : Term = StringAtom("Werner")
 	
-		def goal = Unify2(a1, t)
+		def goal = Unify2.apply(a1, t)
 
 	}	
 	private class male1c4 extends OneGoal {
@@ -54,7 +54,7 @@ class male1pSolutions(private val a1 : Term) extends MultipleRules {
 		// male(X) :- X = 'Reinhard' % unification with the argument
 		val t : Term = StringAtom("Reinhard")
 	
-		def goal = Unify2(a1,t)
+		def goal = Unify2.apply(a1,t)
 	
 	}
 	/*

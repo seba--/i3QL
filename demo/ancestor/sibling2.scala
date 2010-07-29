@@ -28,12 +28,12 @@ class sibling2p(private val a1 : Term, val a2 : Term) extends Solutions {
 		val g1v1 = new Variable // M
 		val g4v1 = new Variable // F
 			
-		val goalCount : Int = 5
+		def goalCount() : Int = 5
 		
 		def goal(i : Int ) : Solutions = i match {
 			case 1 => mother2.unify(g1v1, a1)
 			case 2 => mother2.unify(g1v1, a2)
-			case 3 => NotUnify2(a1, a2)
+			case 3 => NotUnify2.apply(a1, a2)
 			case 4 => father2.unify(g4v1, a1)
 			case 5 => father2.unify(g4v1, a2)
 		}	

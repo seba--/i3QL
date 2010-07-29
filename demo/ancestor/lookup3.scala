@@ -37,7 +37,7 @@ class lookup3p (private val a1 : Term,private val a2 : Term, val a3:Term) extend
 	
 		val g1t = new ListElement2(new And2(a1,a3),new Variable) 
 		
-		def goal = Unify2(a2, g1t)
+		def goal = Unify2.apply(a2, g1t)
 		
 	}
 	//  lookup(A1,A2,A3) :-
@@ -51,11 +51,11 @@ class lookup3p (private val a1 : Term,private val a2 : Term, val a3:Term) extend
 		val g1v2 = new Variable // Dict
 		val g1t1 = new ListElement2(new And2(g1v1,new Variable),g1v2)
 		
-		val goalCount : Int = 3
+		def goalCount() : Int = 3
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a2, g1t1)
-			case 2 => NotUnify2(a1, g1v1)
+			case 1 => Unify2.apply(a2, g1t1)
+			case 2 => NotUnify2.apply(a1, g1v1)
 			case 3 => lookup3(a1,g1v2,a3)
 		}	
 	}

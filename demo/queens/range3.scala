@@ -37,11 +37,11 @@ class range3p (private val a1 : Term,private val a2 : Term, val a3:Term) extends
 	// range(A1,A2,A3) :- A2 = A1, A3 = [A1] // TODO Completely support cuts ("!").
 	private class range3c1 extends MultipleGoals {
 		
-		def goalCount = 2
+		def goalCount() = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a2, a1)
-			case 2 => Unify2(a3, new ListElement2(a1,saere.StringAtom.emptyList) )
+			case 1 => Unify2.apply(a2, a1)
+			case 2 => Unify2.apply(a3, new ListElement2(a1,saere.StringAtom.emptyList) )
 		}
 	}
 	
@@ -56,10 +56,10 @@ class range3p (private val a1 : Term,private val a2 : Term, val a3:Term) extends
 		val NS = new Variable 
 		val M1 = new Variable 
 		
-		val goalCount : Int = 4
+		def goalCount() : Int = 4
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a3, new ListElement2(a1,NS))
+			case 1 => Unify2.apply(a3, new ListElement2(a1,NS))
 			case 2 => new Once{
 				def eval() = 
 					Smaller2.isSmaller(a1, a2)
@@ -69,7 +69,7 @@ class range3p (private val a1 : Term,private val a2 : Term, val a3:Term) extends
 		}	
 	}
 		
-	val ruleCount = 2
+	def ruleCount() = 2
 	
 	def rule(i : Int ) = i match {
 		case 1 => new range3c1

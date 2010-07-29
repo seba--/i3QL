@@ -2,7 +2,7 @@ package queens
 
 import saere._
 
-import saere.op._
+import saere.predicate._
 import saere.term._
 
 

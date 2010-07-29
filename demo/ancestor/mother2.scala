@@ -26,11 +26,11 @@ class mother2p(private val a1 : Term, val a2 : Term) extends MultipleRules {
 		val g1a2 : Term = StringAtom("Christel")
 		val g2a2 : Term = StringAtom("Michael")
 			
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2, g2a2)
 		}	
 	}
 
@@ -39,11 +39,11 @@ class mother2p(private val a1 : Term, val a2 : Term) extends MultipleRules {
 		val g1a2 : Term = StringAtom("Heidi")
 		val g2a2 : Term = StringAtom("Valerie")
 	
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2, g2a2)
 		}		
 	}
 	
@@ -52,11 +52,11 @@ class mother2p(private val a1 : Term, val a2 : Term) extends MultipleRules {
 		val g1a2 : Term = StringAtom("Heidi")
 		val g2a2 : Term = StringAtom("Leonie")
 	
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2, g2a2)
 		}		
 	}
 	private class mother2c4 extends MultipleGoals {
@@ -64,11 +64,11 @@ class mother2p(private val a1 : Term, val a2 : Term) extends MultipleRules {
 		val g1a2 : Term = StringAtom("Magdalena")
 		val g2a2 : Term = StringAtom("Alice")
 	
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2, g2a2)
 		}		
 	}
 	private class mother2c5 extends MultipleGoals {
@@ -76,11 +76,11 @@ class mother2p(private val a1 : Term, val a2 : Term) extends MultipleRules {
 		val g1a2 : Term = StringAtom("Magdalena")
 		val g2a2 : Term = StringAtom("Thilo")
 	
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1, g1a2)
-			case 2 => Unify2(a2, g2a2)
+			case 1 => Unify2.apply(a1, g1a2)
+			case 2 => Unify2.apply(a2, g2a2)
 		}		
 	}
 	

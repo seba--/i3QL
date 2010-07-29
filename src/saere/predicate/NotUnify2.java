@@ -29,18 +29,55 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
+package saere.predicate;
 
-import saere._
+import saere.*;
 
-
-/** 
- * Prolog's arithmetic not-equals operator: "=\=". 
+/**
+ * Implementation of Prolog's <code>\=</code> operator (does not unify).
+ * <p>
+ * This implementation generates a choice point and – in general – should not be called.<br />
+ * <i>It is only intended to be used to execute meta-level calls. </i><br />
+ * The compiler has specific support for this operator and does not make 
+ * use of this class.
+ * </p>
+ *  
+ * @author Michael Eichberg
  */
-object NotSame2  {
+public class NotUnify2  {
+
+
+	public static Solutions apply(Term[] as) {
+		return apply(as[0],as[1]);
+	}
+
+
+	/**
+	 * Implements the "does not unify (\=)" operator.
+	 */	
+	public static Solutions apply(final Term a1, final Term a2) {
 	
-	def isNotSame (a1 : Term, a2 : Term) : Boolean = {
-		a1.eval != a2.eval
+		return new Solutions() {
+			
+			private final State a1State = a1.manifestState();
+			private final State a2State = a2.manifestState();
+			
+			private boolean called = false;
+			
+			public boolean next() {
+				if (!called) {
+					called = true;
+					
+					final boolean success = a1.unify(a2);
+					// Reset (partial) bindings
+					a1.setState(a1State);
+					a2.setState(a2State);
+
+					return !success;
+				} else {
+					return false;
+				}
+			}
+		};
 	}
 }
-

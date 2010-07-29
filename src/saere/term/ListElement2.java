@@ -32,7 +32,6 @@
 package saere.term;
 
 import saere.*;
-import static saere.IntegerAtom.IntegerAtom;
 import static saere.StringAtom.*;
 
 public final class ListElement2 extends CompoundTerm {

@@ -29,16 +29,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
+package saere.predicate;
 
-import saere._
+import saere.*;
 
 
-/** Prolog's arithmetic equals operator: "=:=". */
-object Same2  {
+/** 
+ * Prolog's arithmetic not-equals operator: "=\=". 
+ */
+public class NotSame2  {
 	
-	def isSame (a1 : Term, a2 : Term) : Boolean = {
-		a1.eval == a2.eval
+	public static boolean isNotSame (Term a1, Term a2) {
+		return a1.eval() != a2.eval();
 	}
 }
 

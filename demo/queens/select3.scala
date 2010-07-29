@@ -115,10 +115,10 @@ final class select3p (
 	}
 
 		
-	val ruleCount = 2
+	def ruleCount() = 2
 	
 	def rule(i : Int ) = i match {
-		case 1 => /*println("select3c1: "+a1+", "+a2+", "+a3);*/ Unify2(a1,new ListElement2(a3,a2) ) /* new select3c1 */
+		case 1 => /*println("select3c1: "+a1+", "+a2+", "+a3);*/ Unify2.apply(a1,new ListElement2(a3,a2) ) /* new select3c1 */
 		case 2 => /*println("select3c2: "+a1+", "+a2+", "+a3);*/ new select3c2 
 	}
 }

@@ -29,50 +29,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
+package saere.predicate;
 
-import saere._
+import saere.*;
 
-
-/**
- * Implementation of SAE Prolog's <code>=</code> operator (unify).
- * <p>
- * This implementation generates a choice point and – in general – should not be called.<br />
- * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make 
- * use of this class.
- * </p>
- *  
- * @author Michael Eichberg
- */
-object Unify2  {
-
+/** Prolog's arithmetic smaller than operator: "<". */
+public class Smaller2  {
 		
-	/**
-	 * Implementation of the unify (=) operator. 
-	 */
-	def apply(a1 : Term, a2 : Term) : Solutions = {
-	
-
-		new Solutions() {
-			
-			private val a1State = a1.manifestState
-			private val a2State = a2.manifestState
-			
-			private var called = false
-
-			def next : Boolean = {
-				if (!called) {
-					called = true
-					if (a1 unify a2) {
-						return true
-					}
-				}
-				a1 setState a1State
-				a2 setState a2State
-				false
-			}
-		}
+	public static boolean isSmaller (Term a1, Term a2){
+		return a1.eval() < a2.eval();
 	}
 }
 

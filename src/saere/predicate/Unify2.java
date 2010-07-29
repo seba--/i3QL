@@ -29,12 +29,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
+package saere.predicate;
 
-import saere._
+import saere.*;
+
 
 /**
- * Implementation of Prolog's <code>\=</code> operator (does not unify).
+ * Implementation of SAE Prolog's <code>=</code> operator (unify).
  * <p>
  * This implementation generates a choice point and – in general – should not be called.<br />
  * <i>It is only intended to be used to execute meta-level calls. </i><br />
@@ -44,40 +45,34 @@ import saere._
  *  
  * @author Michael Eichberg
  */
-object NotUnify2  {
+public class Unify2  {
 
-
-	def apply(as : Array[Term]) : Solutions = {
-		apply(as(0),as(1))
-	}
-
-
+		
 	/**
-	 * Implements the "does not unify (\=)" operator.
-	 */	
-	def apply(a1 : Term, a2 : Term) : Solutions = {
+	 * Implementation of the unify (=) operator. 
+	 */
+	public static Solutions apply(final Term a1, final Term a2) {
 	
-		new Solutions() {
-			
-			private val a1State = a1.manifestState
-			private val a2State = a2.manifestState
-			
-			private var called = false
-			
-			def next() : Boolean = {
-				if (!called) {
-					called = true
-					
-					val success = a1 unify a2
-					// Reset (partial) bindings
-					a1 setState a1State
-					a2 setState a2State
 
-					return !success
-				} else {
-					return false
+		return new Solutions() {
+			
+			private final State a1State = a1.manifestState();
+			private final State a2State = a2.manifestState();
+			
+			private boolean called = false;
+
+			public boolean next() {
+				if (!called) {
+					called = true;
+					if (a1.unify(a2)) {
+						return true;
+					}
 				}
+				a1.setState(a1State);
+				a2.setState(a2State);
+				return false;
 			}
-		}
+		};
 	}
 }
+

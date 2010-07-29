@@ -38,10 +38,10 @@ class not_attack3p (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 
 		private var N1 : Variable = null
 		
-		def goalCount : Int = 4
+		def goalCount() : Int = 4
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Y = new Variable; Ys = new Variable; Unify2(a1,new ListElement2(Y,Ys))
+			case 1 => Y = new Variable; Ys = new Variable; Unify2.apply(a1,new ListElement2(Y,Ys))
 			case 2 => new Once{
 				def eval() = 
 					NotSame2.isNotSame(a2,new Add2(Y,a3)) && NotSame2.isNotSame(a2,new Subtract2(Y,a3))
@@ -51,10 +51,10 @@ class not_attack3p (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 		}	
 	}
 		
-	val ruleCount = 2
+	def ruleCount() = 2
 	
 	def rule(i : Int ) = i match {
-		case 1 => Unify2(a1, emptyList) /*new not_attack3c1*/
+		case 1 => Unify2.apply(a1, emptyList) /*new not_attack3c1*/
 		case 2 => new not_attack3c2 
 	}
 }

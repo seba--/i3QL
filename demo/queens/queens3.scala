@@ -19,11 +19,11 @@ class queens3p (private val a1 : Term,private val a2 : Term, val a3:Term) extend
 	// queens([],Qs,Qs).
 	private class queens3c1 extends MultipleGoals {
 			
-		def goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1,StringAtom.emptyList)
-			case 2 => Unify2(a2,a3)
+			case 1 => Unify2.apply(a1,StringAtom.emptyList)
+			case 2 => Unify2.apply(a2,a3)
 		}
 	}
 	
@@ -36,7 +36,7 @@ class queens3p (private val a1 : Term,private val a2 : Term, val a3:Term) extend
 		val UnplacedQs1 = new Variable 
 		val Q = new Variable 
 		
-		def goalCount : Int = 3
+		def goalCount() : Int = 3
 				
 		def goal(i : Int ) : Solutions = i match {
 			case 1 => select3(a1,UnplacedQs1,Q)
@@ -45,7 +45,7 @@ class queens3p (private val a1 : Term,private val a2 : Term, val a3:Term) extend
 		}	
 	}
 		
-	val ruleCount = 2
+	def ruleCount() = 2
 	
 	def rule(i : Int ) = i match {
 		case 1 => new queens3c1

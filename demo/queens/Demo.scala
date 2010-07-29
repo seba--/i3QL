@@ -22,8 +22,8 @@ object Demo {
 		val Qs = new Variable
 		val R = new Variable
 		val solutions = new MultipleGoals{
-
-			def goalCount = 2
+			
+			def goalCount() = 2
 
 			def goal(i : Int) = i match {
 				case 1 => range3(IntegerAtom(1),IntegerAtom(28),R)
@@ -123,7 +123,7 @@ object Demo {
 				val R = new Variable
 				val solutions = new MultipleGoals{
 
-					def goalCount = 2
+					def goalCount() = 2
 
 					def goal(i : Int) = i match {
 						case 1 => range3(IntegerAtom(1),IntegerAtom(N),R)
@@ -147,7 +147,7 @@ object Demo {
 				val R = new Variable
 				val solutions = new MultipleGoals{
 
-					def goalCount = 2
+					def goalCount() = 2
 
 					def goal(i : Int) = i match {
 						case 1 => range3(IntegerAtom(1),IntegerAtom(28),R)

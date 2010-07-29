@@ -63,15 +63,15 @@ class queens3O1TCp (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 			}
 			a1 setState a1State
 			if (a2State != null) a2 setState a2State
-			if (a3State != null)	a3 setState a3State
+			if (a3State != null) a3 setState a3State
 			false
 		}
 					
-		val goalCount : Int = 2
+		def goalCount() : Int = 2
 		
 		def goal(i : Int ) : Solutions = i match {
-			case 1 => Unify2(a1,emptyList)
-			case 2 => Unify2(a2,a3)
+			case 1 => Unify2.apply(a1,emptyList)
+			case 2 => Unify2.apply(a2,a3)
 		}
 	}
 	
@@ -85,7 +85,7 @@ class queens3O1TCp (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 		val UnplacedQs1 = new Variable 
 		val Q = new Variable 
 		
-		val goalCount : Int = 3
+		def goalCount() : Int = 3
 				
 		def goal(i : Int ) : Solutions = i match {
 			case 1 => select3O1TC(a1,UnplacedQs1,Q)
@@ -95,7 +95,7 @@ class queens3O1TCp (private val a1 : Term,private val a2 : Term, val a3:Term) ex
 		}	
 	}
 		
-	val ruleCount = 2
+	def ruleCount() = 2
 	
 	def rule(i : Int ) = i match {
 		case 1 => new queens3O1TCc1

@@ -29,15 +29,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate
+package saere.predicate;
 
-import saere._
+import saere.*;
 
-/** Prolog's arithmetic smaller than operator: "<". */
-object Smaller2  {
-		
-	def isSmaller (a1 : Term, a2 : Term) : Boolean = {
-		a1.eval < a2.eval
+
+/** Prolog's arithmetic equals operator: "=:=". */
+public class Same2  {
+	
+	public static boolean isSame (Term a1, Term a2) {
+		return a1.eval() == a2.eval();
 	}
 }
 
