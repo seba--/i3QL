@@ -45,12 +45,9 @@
 	[	predefined_predicates/2,
 		predefined_operator/1,
 		predefined_term_operator/1,
-		predefined_arithmetic_operator/1,
-		
-		built_in_term/1]
+		predefined_arithmetic_operator/1]
 ).
 
-built_in_term(_) :- fail.
 
 
 /* Definition of all predicates directly suppported by SAE Prolog including all
