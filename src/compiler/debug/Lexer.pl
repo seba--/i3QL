@@ -45,7 +45,6 @@
 			echo_file/1,
 			write_token/1,
 			write_escaped_atoms/1,
-			write_sc_tokens/1,
 			write_sc_token/1
 		]
 	).
@@ -104,31 +103,31 @@ echo_term(Term) :-
 
 
 
-write_token(a(T,_,_)) :- !,
+write_token(a(T,_)) :- !,
 	write_term(T,[quoted(true),character_escapes(true),max_depth(0)]).
-write_token(f(T,_,_)) :- !,
+write_token(f(T,_)) :- !,
 	write_term(T,[quoted(true),character_escapes(true),max_depth(0)]).
-write_token(i(I,_,_)) :- !, write(I).
-write_token(r(F,_,_)) :- !, write(F).
-write_token(v(V,_,_)) :- !, write(V).
-write_token(av(AV,_,_)) :- !, write(AV).
-write_token('('(_,_)) :- !, write('(').
-write_token(')'(_,_)) :- !, write(')').
-write_token('{'(_,_)) :- !, write('{').
-write_token('}'(_,_)) :- !, write('}').
-write_token('['(_,_)) :- !, write('[').
-write_token(']'(_,_)) :- !, write(']').
-write_token(chars(S,_,_)) :- !, 
+write_token(i(I,_)) :- !, write(I).
+write_token(r(F,_)) :- !, write(F).
+write_token(v(V,_)) :- !, write(V).
+write_token(av(AV,_)) :- !, write(AV).
+write_token('('(_)) :- !, write('(').
+write_token(')'(_)) :- !, write(')').
+write_token('{'(_)) :- !, write('{').
+write_token('}'(_)) :- !, write('}').
+write_token('['(_)) :- !, write('[').
+write_token(']'(_)) :- !, write(']').
+write_token(chars(S,_)) :- !, 
 	write('"'),
 	write_escaped_atoms(S),
 	write('"').
 
-write_token(eolc(C,_,_)) :- write('%'),write(C),!.
-write_token(mlc(C,_,_)) :- write('/*'),write(C),write('*/'),!.
-write_token(sc(SC,_,_)) :-
+write_token(eolc(C,_)) :- write('%'),write(C),!.
+write_token(mlc(C,_)) :- write('/*'),write(C),write('*/'),!.
+write_token(sc(SC,_)) :- % TODO Should we fail of reconstruct the structured comment? 
 	!,
 	write('/**'),
-	write_sc_tokens(SC),
+	write(SC),
 	write('*/').
 	
 write_token(T):- write('ERROR: UNKNOWN TOKEN: '),write(T),nl.
@@ -146,11 +145,5 @@ write_escaped_atoms([]).
 
 
 
-write_sc_tokens([SC_Token|SC_Tokens]) :-
-	write_sc_token(SC_Token),
-	write_sc_tokens(SC_Tokens).
-write_sc_tokens([]).	
-
-write_sc_token(tf(TF,_,_)) :- write(TF),!.
-write_sc_token(ws(WS,_,_)) :- write(WS),!.
+write_sc_token(tf(TF,_)) :- write(TF),!.
 write_sc_token(SC) :- SC =..[F|_],write(F).

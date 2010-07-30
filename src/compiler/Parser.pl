@@ -80,103 +80,101 @@ program(_Ops,[]) --> {true}.
 
 % ... add code to check that the term is valid top-level term.... i.e., 
 % it is an atom, a compound term, a directive or a clause definition
-stmt(Ops,T) --> term(Ops,T),[a('.',_LN,_CN)],{/*write(T),nl,*/!}. 
+stmt(Ops,T) --> term(Ops,T),[a('.',_Pos)],{/*write(T),nl,*/!}. 
 
 
 
-atom(a(A,LN,CN)) --> [a(A,LN,CN)],{!}. % 
-atom(i(I,LN,CN)) --> [i(I,LN,CN)],{!}.
-atom(r(F,LN,CN)) --> [r(F,LN,CN)],{!}.
+atom(a(A,Pos)) --> [a(A,Pos)],{!}. % 
+atom(i(I,Pos)) --> [i(I,Pos)],{!}.
+atom(r(F,Pos)) --> [r(F,Pos)],{!}.
 
 
-var(v(V,LN,CN)) --> [v(V,LN,CN)],{!}.
-var(av(V,LN,CN)) --> [av(V,LN,CN)],{!}.
+var(v(V,Pos)) --> [v(V,Pos)],{!}.
+var(av(V,Pos)) --> [av(V,Pos)],{!}.
 
 
 primitive_term(_Ops,V) --> var(V),{!}.
 primitive_term(_Ops,A) --> atom(A),{!}.
-primitive_term(Ops,T) --> ['('(_,_)],term(Ops,T),[')'(_,_)],{!}.
+primitive_term(Ops,T) --> ['('(_OPos)],term(Ops,T),[')'(_CPos)],{!}.
 primitive_term(Ops,CT) --> compound_term(Ops,CT),{!}.
 primitive_term(Ops,LT) --> list(Ops,LT),{!}.
-primitive_term(Ops,te(T)) --> ['{'(_,_)],term(Ops,T),['}'(_,_)],{!}. % a term expression
+primitive_term(Ops,te(T)) --> ['{'(_OPos)],term(Ops,T),['}'(_CPos)],{!}. % a term expression
 
 
-
-primary_term(Ops,PT) --> primitive_term(Ops,PT).
-primary_term(Ops,pre(Op,LN,CN,PT)) --> 
-	[a(Op,LN,CN)],
+primary_term(Ops,pre(Op,Pos,PT)) --> 
+	[a(Op,Pos)], % a prefix operator in a funtor position is not a prefix operator....
 	{once(is_prefix(Op,Ops))},
 	primary_term(Ops,PT).
-/* FIXME Support postfix operators
-primary_term(Ops,post(Op,LN,CN,PT)) --> 
+primary_term(Ops,PT) --> primitive_term(Ops,PT).
+primary_term(Ops,post(Op,Pos,PT)) --> 
 	primitive_term(Ops,PT),
 	{once(is_postfix(Op,Ops))},
-	[a(Op,LN,CN)].
-*/
+	[a(Op,Pos)].
+
 
 
 /*
-term(Ops,infix(Op,LN,CN,PT1,T2)) -->
-	primary_term(Ops,PT1),[a(Op,LN,CN)],{is_infix(Op,Ops)},term(Ops,T2).
+term(Ops,infix(Op,Pos,PT1,T2)) -->
+	primary_term(Ops,PT1),[a(Op,Pos)],{is_infix(Op,Ops)},term(Ops,T2).
 term(Ops,PT) --> primary_term(Ops,PT).
 */
 term(Ops,T) --> primary_term(Ops,PT),term_2(Ops,PT,T).
-term_2(Ops,LT,infix(Op,LN,CN,LT,RT)) --> 
+term_2(Ops,LT,infix(Op,Pos,LT,RT)) --> 
 	[T],
-	{(T = a(Op,LN,CN);T = f(Op,LN,CN)),is_infix(Op,Ops),!}, % TODO add error handling
+	{( T = a(Op,Pos) ; T = f(Op,Pos) ),is_infix(Op,Ops),!}, % TODO add error handling
 	primary_term(Ops,IRT),
 	term_2(Ops,IRT,RT).
 term_2(_Ops,T,T) --> {!}.
 
 
 
-list(Ops,T) --> ['['(LN,CN)],list_2(Ops,LN,CN,T).
-list_2(_Ops,LN,CN,a('[]',LN,CN))--> [']'(_,_)],{!}.
-list_2(Ops,_LN,_CN,Es)--> elements(Ops,Es),[']'(_,_)].
+list(Ops,T) --> ['['(Pos)],list_2(Ops,Pos,T).
+list_2(_Ops,Pos,a('[]',Pos))--> [']'(_Pos)],{!}.
+list_2(Ops,_FEPos,Es)--> elements(Ops,Es),[']'(_CPos)].
 
 elements(Ops,.(E,Es)) --> element(Ops,E),elements_2(Ops,Es).
-elements_2(Ops,.(E,Es)) --> [a(',',_,_)],{!},element(Ops,E),elements_2(Ops,Es).
-elements_2(Ops,E) --> [a('|',_,_)],{!},term(Ops,E).
+elements_2(Ops,.(E,Es)) --> [a(',',_)],{!},element(Ops,E),elements_2(Ops,Es).
+elements_2(Ops,E) --> [a('|',_)],{!},term(Ops,E).
 elements_2(_Ops,[]) --> {!}.
 
 /*
-element(Ops,infix(Op,LN,CN,PT1,T2)) -->
-	primary_term(Ops,PT1),[a(Op,LN,CN)],element(Ops,T2),
+element(Ops,infix(Op,Pos,PT1,T2)) -->
+	primary_term(Ops,PT1),[a(Op,Pos)],element(Ops,T2),
 	{Op \= ',',Op \= '|',is_infix(Op,Ops),!}.
 element(Ops,PT) --> primary_term(Ops,PT).
 */
 element(Ops,T) --> primary_term(Ops,PT),element_2(Ops,PT,T).
-element_2(Ops,LT,infix(Op,LN,CN,LT,RT)) --> 
-	[a(Op,LN,CN)],
-	{Op \= ',',Op \= '|',is_infix(Op,Ops),!}, % TODO add error handling
+element_2(Ops,LT,infix(Op,Pos,LT,RT)) --> 
+	[T],
+	{( T = a(Op,Pos) ; T = f(Op,Pos) ),Op \= ',',Op \= '|',is_infix(Op,Ops),!}, % TODO add error handling
 	primary_term(Ops,IRT),
 	element_2(Ops,IRT,RT).
 element_2(_Ops,T,T) --> {!}.
 
 
 
-compound_term(Ops,ct(F,Args,LN,CN)) --> 
-	[f(F,LN,CN)],
-	['('(_,_)],
+compound_term(Ops,ct(F,Args,Pos)) --> 
+	[f(F,Pos)],
+	['('(_)],
 	arguments(Ops,Args),
-	[')'(_,_)].
+	[')'(_)].
 
 
 arguments(Ops,[T|TRs]) --> argument(Ops,T),arguments_2(Ops,TRs).
-arguments_2(Ops,[T|TRs]) --> [a(',',_LN,_CN)],{!},argument(Ops,T),arguments_2(Ops,TRs).
+arguments_2(Ops,[T|TRs]) --> [a(',',_Pos)],{!},argument(Ops,T),arguments_2(Ops,TRs).
 arguments_2(_Ops,[]) --> {true}.
 
 
 /*
-argument(Ops,infix(PT1,Op,T2,LN,CN)) -->
-	primary_term(Ops,PT1),[a(Op,LN,CN)],argument(Ops,T2),
+argument(Ops,infix(PT1,Op,T2,Pos)) -->
+	primary_term(Ops,PT1),[a(Op,Pos)],argument(Ops,T2),
 	{Op \= ',',is_infix(Op,Ops),!}.
 argument(Ops,PT) --> primary_term(Ops,PT).
 */
 argument(Ops,T) --> primary_term(Ops,PT),argument_2(Ops,PT,T).
-argument_2(Ops,LT,infix(Op,LN,CN,LT,RT)) --> 
-	[a(Op,LN,CN)],
-	{Op \= ',', is_infix(Op,Ops),!}, % TODO add error handling
+argument_2(Ops,LT,infix(Op,Pos,LT,RT)) --> 
+	[T],
+	{( T = a(Op,Pos) ; T = f(Op,Pos) ),Op \= ',', is_infix(Op,Ops),!}, % TODO add error handling
 	primary_term(Ops,IRT),
 	argument_2(Ops,IRT,RT).
 argument_2(_Ops,T,T) --> {!}.

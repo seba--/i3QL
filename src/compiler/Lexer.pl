@@ -52,7 +52,7 @@
    <li>f(F,LN,CN) :- F is a functor, i.e., an atom that was immediately 
 		followed by '('. However, ',' and '|' are never directly the functor
 		of a compound term, they always need to be put between two apostrophs to 
-		be used as a functor. This special treatment is necessary to avoid 
+		be used as a functor. This special treatment is necessary to enable 
 		"natural" definitions of complex terms and lists.
 		</i></li>		
    <li>i(N,LN,CN) :- N is an integer value.</li>      
@@ -185,6 +185,7 @@ tokenize_file(File,Tokens,Options) :-
 */
 tokenize_with_c(Stream,Tokens) :-
    stream_position(Stream,LN,CN),
+   current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
@@ -192,7 +193,7 @@ tokenize_with_c(Stream,Tokens) :-
       T = ws, !,
       Tokens = Ts
    ;  % else...
-      token_with_position(T,LN,CN,TwithPos),
+      token_with_position(T,File,LN,CN,TwithPos),
       Tokens = [TwithPos|Ts]
    ),
    tokenize_with_c(Stream,Ts).
@@ -209,6 +210,7 @@ tokenize_with_c(_Stream,[]). % we reached the end of the file
 */
 tokenize_with_sc(Stream,Tokens) :-
    stream_position(Stream,LN,CN),
+   current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
@@ -216,7 +218,7 @@ tokenize_with_sc(Stream,Tokens) :-
       ( is_unstructured_comment(T) ; T=ws ), !,
       Tokens = Ts
    ;  % else...
-      token_with_position(T,LN,CN,TwithPos),
+      token_with_position(T,File,LN,CN,TwithPos),
       Tokens = [TwithPos|Ts]
    ),
    tokenize_with_sc(Stream,Ts).
@@ -232,6 +234,7 @@ tokenize_with_sc(_Stream,[]). % we reached the end of the file
 */
 tokenize(Stream,Tokens) :-
    stream_position(Stream,LN,CN),
+   current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
@@ -239,7 +242,7 @@ tokenize(Stream,Tokens) :-
       is_insignificant(T), !,
       Tokens = Ts
    ;  % else...
-      token_with_position(T,LN,CN,TwithPos),
+      token_with_position(T,File,LN,CN,TwithPos),
       Tokens = [TwithPos|Ts]
    ),
    tokenize(Stream,Ts).
@@ -302,24 +305,24 @@ is_insignificant(T) :- is_comment(T),!.
 
 
 % standard tokens (relevant when compiling a program)
-token_with_position(a(T),LN,CN,a(T,LN,CN)) :- !.
-token_with_position(f(T),LN,CN,f(T,LN,CN)) :- !.
-token_with_position(i(T),LN,CN,i(T,LN,CN)) :- !.
-token_with_position(r(T),LN,CN,r(T,LN,CN)) :- !.
-token_with_position(v(T),LN,CN,v(T,LN,CN)) :- !.
-token_with_position(av(T),LN,CN,av(T,LN,CN)) :- !.
-token_with_position(P,LN,CN,PwithPos) :- parenthesis(P),!,PwithPos =.. [P,LN,CN].
-token_with_position(chars(T),LN,CN,chars(T,LN,CN)) :- !.
+token_with_position(a(T),File,LN,CN,a(T,pos(File,LN,CN))) :- !.
+token_with_position(f(T),File,LN,CN,f(T,pos(File,LN,CN))) :- !.
+token_with_position(i(T),File,LN,CN,i(T,pos(File,LN,CN))) :- !.
+token_with_position(r(T),File,LN,CN,r(T,pos(File,LN,CN))) :- !.
+token_with_position(v(T),File,LN,CN,v(T,pos(File,LN,CN))) :- !.
+token_with_position(av(T),File,LN,CN,av(T,pos(File,LN,CN))) :- !.
+token_with_position(P,File,LN,CN,PwithPos) :- parenthesis(P),!,PwithPos =.. [P,pos(File,LN,CN)].
+token_with_position(chars(T),File,LN,CN,chars(T,pos(File,LN,CN))) :- !.
 
 % comments
-token_with_position(sc(T),LN,CN,sc(T,LN,CN)) :- !.
-token_with_position(eolc(T),LN,CN,eolc(T,LN,CN)) :- !.
-token_with_position(mlc(T),LN,CN,mlc(T,LN,CN)) :- !.
+token_with_position(sc(T),File,LN,CN,sc(T,pos(File,LN,CN))) :- !.
+token_with_position(eolc(T),File,LN,CN,eolc(T,pos(File,LN,CN))) :- !.
+token_with_position(mlc(T),File,LN,CN,mlc(T,pos(File,LN,CN))) :- !.
 
 % to help debugging the lexer
-token_with_position(T,LN,CN,T) :- 
+token_with_position(T,File,LN,CN,T) :- 
 	atomic_list_concat(
-		['INTERNAL LEXER ERROR: unknown token (\'',T,'\':',LN,':',CN,') [FATAL]'],MSG),
+		['INTERNAL LEXER ERROR:',File,':',LN,':',CN,' unknown token (\'',T,'\' [FATAL]'],MSG),
 	write(MSG), 
 	fail.
 
@@ -627,6 +630,7 @@ read_unstructured_ml_comment(Stream,R) :-
 
 read_structured_ml_comment(Stream,Tokens) :-
    stream_position(Stream,LN,CN),
+ 	current_stream(File,read,Stream),
    get_char(Stream,C),
    (	
       C = '*', peek_char(Stream,'/'),!,
@@ -634,21 +638,26 @@ read_structured_ml_comment(Stream,Tokens) :-
       Tokens = []
    ;
       sc_read_token(C,Stream,T),!,
-      sc_token_with_position(T,LN,CN,TwithPos),
-      Tokens = [TwithPos|RTs],
+		(
+			T = none,!,
+			Tokens = RTs
+		;
+      	sc_token_with_position(T,File,LN,CN,TwithPos),
+      	Tokens = [TwithPos|RTs]
+		),
       read_structured_ml_comment(Stream,RTs)
    ).
 read_structured_ml_comment(Stream,[]) :-  
    lexer_error(Stream,['unexpected end of file while lexing structured comment']).
 
 
-sc_token_with_position(C,LN,CN,T) :- sc_special_char(C),!,T =.. [C,LN,CN].
-sc_token_with_position(ws(WS),LN,CN,ws(WS,LN,CN)) :- !.
-sc_token_with_position(tf(TF),LN,CN,tf(TF,LN,CN)) :- !.
+sc_token_with_position(C,File,LN,CN,T) :- sc_special_char(C),!,T =.. [C,pos(File,LN,CN)].
+sc_token_with_position(ws(WS),File,LN,CN,ws(WS,pos(File,LN,CN))) :- !.
+sc_token_with_position(tf(TF),File,LN,CN,tf(TF,pos(File,LN,CN))) :- !.
 
 
 sc_read_token(C,_Stream,C) :- sc_special_char(C),!.
-sc_read_token(WS,_Stream,ws(WS)) :- char_type(WS,space),!.
+sc_read_token(WS,_Stream,none) :- char_type(WS,space),!.
 sc_read_token(EOF,_Stream,_) :- char_type(EOF,end_of_file),!,fail.
 
 % the base case... a sequence of characters; i.e., a text fragment (tf)

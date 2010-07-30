@@ -13,54 +13,54 @@
 
 test(
 	stress_test_1,
-	[	true(P=[infix(=, 1, 1, v('X', 1, 0), infix(*, 1, 3, i(1, 1, 2), infix(/, 1, 6, i(2, 1, 5), infix(-, 1, 9, i(3, 1, 8), i(4, 1, 10)))))])
+	[	true(P=[infix(=, pos(_,1,1), v('X', pos(_,1,0)), infix(*, pos(_,1,3), i(1, pos(_,1,2)), infix(/, pos(_,1,6), i(2, pos(_,1,5)), infix(-, pos(_,1,9), i(3, pos(_,1,8)), i(4, pos(_,1,10))))))])
 	]
 ) :- tokenize_string("X=1*(2/(3-4)).",Ts),program(Ts,P).
 
 
 test(
 	stress_test_2,
-	[	true(P=[infix(=, 1, 1, v('X', 1, 0), infix(',', 1, 4, a(a, 1, 3), ct(b, [infix(;, 1, 8, a(c, 1, 7), a(d, 1, 9)), a(',', 1, 11)], 1, 5)))])
+	[	true(P=[infix(=, pos(_,1,1), v('X', pos(_,1,0)), infix(',', pos(_,1,4), a(a, pos(_,1,3)), ct(b, [infix(;, pos(_,1,8), a(c, pos(_,1,7)), a(d, pos(_,1,9))), a(',', pos(_,1,11))], pos(_,1,5))))])
 	]
 ) :- tokenize_string("X=(a,b(c;d,,)).",Ts),program(Ts,P).
 
 
 test(
 	stress_test_3,
-	[	true(P=[pre(\+, 1, 0, ct(\+, [a(a, 1, 6), ct(b, [infix(;, 1, 11, a(c, 1, 10), a(d, 1, 12)), a(',', 1, 14)], 1, 8)], 1, 3))])
+	[	true(P=[pre(\+, pos(_,1,0), ct(\+, [a(a, pos(_,1,6)), ct(b, [infix(;, pos(_,1,11), a(c, pos(_,1,10)), a(d, pos(_,1,12))), a(',', pos(_,1,14))], pos(_,1,8))], pos(_,1,3)))])
 	]
 ) :- tokenize_string("\\+ \\+(a,b(c;d,,)).",Ts),program(Ts,P).
 
 
 test(
 	lists_1,
-	[	true(P=[a([], 1, 0)])
+	[	true(P=[a([], pos(_,1,0))])
 	]
 ) :- tokenize_string("[].",Ts),program(Ts,P).
 
 
 test(
 	lists_2,
-	[	true(P=[[av('_', 1, 1)]])
+	[	true(P=[[av('_', pos(_,1,1))]])
 	]
 ) :- tokenize_string("[_].",Ts),program(Ts,P).
 
 
 test(
 	lists_3,
-	[	true(P=[[a(a, 1, 1), a(b, 1, 3), a(c, 1, 5), infix(;, 1, 8, a(d, 1, 7), a(e, 1, 9))]]) ]
+	[	true(P=[[a(a, pos(_,1,1)), a(b, pos(_,1,3)), a(c, pos(_,1,5)), infix(;, pos(_,1,8), a(d, pos(_,1,7)), a(e, pos(_,1,9)))]]) ]
 ) :- tokenize_string("[a,b,c,d;e].",Ts),program(Ts,P).
 
 
 test(
 	lists_4,
-	[	true(P=[[infix(;, 1, 2, a(a, 1, 1), a(e, 1, 3))|av('_', 1, 5)]]) ]
+	[	true(P=[[infix(;, pos(_,1,2), a(a, pos(_,1,1)), a(e, pos(_,1,3)))|av('_', pos(_,1,5))]]) ]
 ) :- tokenize_string("[a;e|_].",Ts),program(Ts,P).
 
 
 test(
 	lists_5,
-	[	true(P=[[infix(;, 1, 2, a(a, 1, 1), a(e, 1, 3)), a(b, 1, 5)|infix(;, 1, 8, a(a, 1, 7), infix(',', 1, 10, a(e, 1, 9), a(b, 1, 11)))]])
+	[	true(P=[[infix(;, pos(_,1,2), a(a, pos(_,1,1)), a(e, pos(_,1,3))), a(b, pos(_,1,5))|infix(;, pos(_,1,8), a(a, pos(_,1,7)), infix(',', pos(_,1,10), a(e, pos(_,1,9)), a(b, pos(_,1,11))))]])
 	]
 ) :- tokenize_string("[a;e,b|a;e,b].",Ts),program(Ts,P).
 
