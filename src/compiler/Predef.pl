@@ -50,7 +50,7 @@
 		built_in_term/1]
 ).
 
-
+built_in_term(_) :- fail.
 
 
 /* Definition of all predicates directly suppported by SAE Prolog including all
