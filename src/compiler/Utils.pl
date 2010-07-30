@@ -72,9 +72,9 @@
 	
 	
 	@signature max(V1,V2,R)
-	@param V1 an integer atom.
-	@param V2 an integer atom.
-	@param R the maximum of V1 and V2.
+	@arg(in) V1 an integer atom.
+	@arg(in) V2 an integer atom.
+	@arg(out) R the maximum of V1 and V2.
 	
 	@category math
 */
@@ -202,8 +202,8 @@ replace([H|Tail],E,Rs,[H|NewTail]):- % nothing to do
 	</p>
 	
 	@signature replace_char(OldString,OldChar,NewChar,ResultString)
-	@param OldChar a single char value
-	@param NewChar a single char value
+	@arg(in) OldChar a single char value
+	@arg(in) NewChar a single char value
 	@category strings        
 */
 replace_char(OldString,[OC],[NC],ResultString) :-

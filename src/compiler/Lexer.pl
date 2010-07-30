@@ -335,10 +335,10 @@ token_with_position(T,File,LN,CN,T) :-
    of the token's chars is delegated to the corresponding "read_*" predicates.
    
    @signature read_token(Char,Stream,Token)
-   @param Char the last read token. This character is used to identify the 
+   @arg(in) Char the last read token. This character is used to identify the 
       type of the current token and determines how the following characters
       are interpreted.
-   @param Token is the read token represented using a compound term describing 
+   @arg(out) Token is the read token represented using a compound term describing 
 		the token and its position.
 */
 read_token('%',Stream,eolc(Token)) :- 

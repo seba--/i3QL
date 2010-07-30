@@ -32,6 +32,44 @@ test(
 ) :- tokenize_string("\\+ \\+(a,b(c;d,,)).",Ts),program(Ts,P).
 
 
+/* Stress Test Example 
+?- op(300,yf,$).
+true.
+
+?- X = (a $ $ $ + b ).
+X = $ ($ ($a))+b.
+
+?- X = (+ a = 1 ),X = '='('+'(a),1).
+X = (+a=1).
+
+?- X = (\+ a = 1 ),X = '\\+'('='(a,1)).
+X = (\+a=1).
+
+?- X = [a,b;c| a,b;c], X = [a,(b;c)|(a,b);c].
+X = [a, (b;c)| (a, b;c)].
+
+
+?- X = (\+ - 3*1+2 =.. L).
+X = (\+ -(3)*1+2=..L).
+
+?- X = (a+b+c+d), X = ((a+b)+c)+d.
+X = a+b+c+d.
+
+A prefix operator that is used as a functor does not affect the compound term's
+priority (a compound term's priority is 0)
+?- X = (- \+ a).
+ERROR: Syntax error: Operator priority clash
+ERROR: X = (-
+ERROR: ** here **
+ERROR:  \+ a) . 
+?- X = (- \+(a)).
+X = - (\+a).
+
+
+*/
+
+
+
 test(
 	lists_1,
 	[	true(P=[a([], pos(_,1,0))])
