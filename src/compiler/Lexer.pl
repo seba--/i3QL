@@ -184,7 +184,7 @@ tokenize_file(File,Tokens,Options) :-
    @arg(out) Tokens the list of recognized tokens
 */
 tokenize_with_c(Stream,Tokens) :-
-   stream_position(Stream,LN,CN),
+   current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
@@ -209,7 +209,7 @@ tokenize_with_c(_Stream,[]). % we reached the end of the file
    @arg(out) Tokens the list of recognized tokens
 */
 tokenize_with_sc(Stream,Tokens) :-
-   stream_position(Stream,LN,CN),
+   current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
@@ -233,7 +233,7 @@ tokenize_with_sc(_Stream,[]). % we reached the end of the file
    @arg(out) Tokens the list of recognized tokens
 */
 tokenize(Stream,Tokens) :-
-   stream_position(Stream,LN,CN),
+   current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    get_char(Stream,C),
    read_token(C,Stream,T),
@@ -432,7 +432,7 @@ read_token(Op,Stream,T) :-
    atom_chars(AOPs,[Op|OPs]), 
 	qualify_as_functor_or_atom(AOPs,Stream,T).
    
-read_token(C,_Stream,_) :- char_type(C,end_of_file),!,fail.
+read_token(end_of_file,_Stream,_) :- !,fail.
 
 read_token(C,Stream,_) :- 
 	lexer_error(Stream,['unrecognized symbol (',C,') [FATAL]']),!,fail.
@@ -629,7 +629,7 @@ read_unstructured_ml_comment(Stream,R) :-
 
 
 read_structured_ml_comment(Stream,Tokens) :-
-   stream_position(Stream,LN,CN),
+   current_stream_position(Stream,LN,CN),
  	current_stream(File,read,Stream),
    get_char(Stream,C),
    (	
@@ -699,7 +699,7 @@ sc_special_char('@') :- !.
 
 
 
-stream_position(Stream,LN,CN) :-
+current_stream_position(Stream,LN,CN) :-
    line_count(Stream,LN),
    line_position(Stream,CN).
 
@@ -713,7 +713,7 @@ at_end_of_stream(Stream,MessageFragments) :-
 
 
 lexer_error(Stream,MessageFragments) :-
-   stream_position(Stream,LN,CN),
+   current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    atomic_list_concat(MessageFragments,EM),
    atomic_list_concat(['ERROR:',File,':',LN,':',CN,': ',EM,'\n'],MSG),

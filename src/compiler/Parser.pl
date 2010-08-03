@@ -41,18 +41,19 @@
    	'SAEProlog:Compiler:Parser',
    	[
       	program/2,
-			default_op_table/1,
+			default_op_table/1
    	]
 	).
 
 
 /*
 	EBNF:
+	clause ::= term '.'
 	term ::= prefix_op* primitive_term postfix_op* (infix_op term)?
 	primitive_term ::= atom | float | integer | variable | compound_term | list | bracketed_term | term_expr
 	compound_term ::= functor'(' arg (',' arg)* ')'	% NOTE arguments are terms that are additionally delimited by ","
-	list ::= '[' list_elems? ('|' term)? ']'
-	list_elems ::= list_elem (',' list_elem)* % NOTE list elements are terms that are also delimited by "," and "|"
+	list ::= '[' list_elems? ']'
+	list_elems ::= list_elem (',' list_elem)*  ('|' term)? % NOTE list elements are terms that are also delimited by "," and "|"
 	bracketed_term ::= '(' term ')'
 	term_expr ::= '{' term '}'
 	prefix_op ::= atom
@@ -111,43 +112,43 @@ is_prefix(Op,Ops) :-
 
 
 /**
-op(Priority, Op_Specifier, Operator) is true, with the side effect that
-<ul>
-<li>if Priority is 0 then Operator is removed from the operator table, else</li>
-<li>Operator is added to the Operator table, with priority (lower binds tighter) Priority and associativity determined by Op_Specifier according to the rules:
-<pre>
-Specifier	Type	Associativity
-fx	prefix	no
-fy	prefix	yes
-xf	postfix	no
-yf	postfix	yes
-xfx	infix	no
-yfx	infix	left
-xfy	infix	right
-</pre></li>
-</ul>
-It is forbidden to alter the priority or type of ','. It is forbidden to have an infix and a postfix operator with the same name, or two operators with the same class and name.</br>
-<br />
-The initial operator table is given by:
-<pre>
-Priority	Specifier	 Operator(s)
-1200	 xfx	 :- -->
-1200	fx	 :- ?-
-1100	 xfy	 ;
-1050	 xfy	 ->
-1000	 xfy	 ','
-900	 fy	 \+
-700	 xfx	 = \=
-700	 xfx	 == \== @< @=< @> @>=
-700	 xfx	 =..
-700	 xfx	 is =:= =\= < =< > >=
-500	 yfx	 + - /\ \/
-400	 yfx	 * / // rem mod << >>
-200	 xfx	 **
-200	 xfy	 ^
-200	 fy	 - \
-</pre>
-Parts of this text are taken from: <a href="http://pauillac.inria.fr/~deransar/prolog/bips.html">http://pauillac.inria.fr/~deransar/prolog/bips.html</a>.
+	op(Priority, Op_Specifier, Operator) is true, with the side effect that
+	<ul>
+	<li>if Priority is 0 then Operator is removed from the operator table, else</li>
+	<li>Operator is added to the Operator table, with priority (lower binds tighter) Priority and associativity determined by Op_Specifier according to the rules:
+	<pre>
+	Specifier	Type	Associativity
+	fx	prefix	no
+	fy	prefix	yes
+	xf	postfix	no
+	yf	postfix	yes
+	xfx	infix	no
+	yfx	infix	left
+	xfy	infix	right
+	</pre></li>
+	</ul>
+	It is forbidden to alter the priority or type of ','. It is forbidden to have an infix and a postfix operator with the same name, or two operators with the same class and name.</br>
+	<br />
+	The initial operator table is given by:
+	<pre>
+	Priority	Specifier	 Operator(s)
+	1200	 xfx	 :- -->
+	1200	fx	 :- ?-
+	1100	 xfy	 ;
+	1050	 xfy	 ->
+	1000	 xfy	 ','
+	900	 fy	 \+
+	700	 xfx	 = \=
+	700	 xfx	 == \== @< @=< @> @>=
+	700	 xfx	 =..
+	700	 xfx	 is =:= =\= < =< > >=
+	500	 yfx	 + - /\ \/
+	400	 yfx	 * / // rem mod << >>
+	200	 xfx	 **
+	200	 xfy	 ^
+	200	 fy	 - \
+	</pre>
+	Parts of this text are taken from: <a href="http://pauillac.inria.fr/~deransar/prolog/bips.html">http://pauillac.inria.fr/~deransar/prolog/bips.html</a>.
 */
 default_op_table([
 		op(1200,xfx,':-'),
@@ -210,7 +211,7 @@ default_op_table([
 		
 
 program(Ops,[S|SRs]) --> % this is actually a program/4 predicate...
-	stmt(Ops,S),
+	clause(Ops,S),
 	program(Ops,SRs),{!}. % ... add code to update the operator table!		 	
 program(_Ops,[]) --> {true}.
 
@@ -218,7 +219,7 @@ program(_Ops,[]) --> {true}.
 
 % ... add code to check that the term is valid top-level term.... i.e., 
 % it is an atom, a compound term, a directive or a clause definition
-stmt(Ops,T) --> term(Ops,T),[a('.',_Pos)],{/*write(T),nl,*/!}. 
+clause(Ops,T) --> term(Ops,T),[a('.',_Pos)],{/*write(T),nl,*/!}. 
 
 
 

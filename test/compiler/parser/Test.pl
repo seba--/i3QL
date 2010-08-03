@@ -55,6 +55,13 @@ X = (\+ -(3)*1+2=..L).
 ?- X = (a+b+c+d), X = ((a+b)+c)+d.
 X = a+b+c+d.
 
+?- X = (a,b,c), X = (a,(b,c)).
+X = (a, b, c).
+
+?- X = (0+a+b*c), X = ((0+a)+(b*c)).
+X = 0+a+b*c.
+
+
 A prefix operator that is used as a functor does not affect the compound term's
 priority (a compound term's priority is 0)
 ?- X = (- \+ a).
