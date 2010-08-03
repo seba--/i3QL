@@ -151,12 +151,12 @@ Author 		Michael Eichberg (mail@michael-eichberg.de)
 	    	<include name="**/*.java"/>
 	  	</scalac>
 	
-	<!--
+	
 		<javac
 				srcdir="${src.main.dir}"
 				destdir="${class.dir}"
 	         	source="1.5"
-				classpathref="project.classpath" /> -->
+				classpathref="project.classpath" /> 
 	</target>
 	
 	
