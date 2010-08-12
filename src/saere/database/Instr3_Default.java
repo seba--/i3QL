@@ -31,8 +31,8 @@ public class Instr3_Default extends DatabasePredicate {
 		}
 	}
 
-	public Solutions unify(Term arg0, Term arg1, Term arg2) {
-		return new Instr3Solutions(arg0, arg1, arg2);
+	public Solutions unify(Term t0, Term t1, Term t2) {
+		return new Instr3Solutions(t0, t1, t2);
 	}
 
 	private class Instr3Solutions implements Solutions {
@@ -75,11 +75,9 @@ public class Instr3_Default extends DatabasePredicate {
 					return true;
 				} else {
 					reset();
-					return false;
 				}
 			}
-
-			reset();
+			
 			return false;
 		}
 		

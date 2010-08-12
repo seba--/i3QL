@@ -107,11 +107,9 @@ public class ClassFile10_Default extends DatabasePredicate {
 					return true;
 				} else {
 					reset();
-					return false;
 				}
 			}
 			
-			reset();
 			return false;
 		}
 		

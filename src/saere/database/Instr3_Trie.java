@@ -14,7 +14,7 @@ import saere.Term;
  */
 public class Instr3_Trie extends DatabasePredicate {
 	
-	private final TermTrie facts;
+	private final Trie facts;
 
 	public Instr3_Trie() {
 		super("instr", 3);
@@ -23,7 +23,7 @@ public class Instr3_Trie extends DatabasePredicate {
 
 	@Override
 	public Solutions unify(Term... terms) {
-		if (terms.length == 3) {
+		if (terms.length == arity) {
 			return unify(terms[0], terms[1], terms[2]);
 		} else {
 			return new EmptySolutions();

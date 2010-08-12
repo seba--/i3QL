@@ -24,7 +24,7 @@ public class Lab {
 		SDB.fill();
 		
 		Instr3_Trie instr3p_Trie = new Instr3_Trie(); // with trie
-		DatabasePredicate instr3p_List = new DatabasePredicate("instr", 3); // with list
+		Instr3_Default instr3p_Default = new Instr3_Default(); // with list
 		
 		Variable x = new Variable();
 		Variable y = new Variable();
@@ -35,21 +35,21 @@ public class Lab {
 		q(instr3p_Trie, x, y, z);
 
 		System.out.print("Without Tries: ");
-		q(instr3p_List, x, y, z);
+		q(instr3p_Default, x, y, z);
 		
 		// instr(X, 1, Z).
 		System.out.print("With Tries: ");
 		q(instr3p_Trie, x, DatabaseTermFactory.makeIntegerAtom(1), z);
 		
 		System.out.print("Without Tries: ");
-		q(instr3p_List, x, DatabaseTermFactory.makeIntegerAtom(1), z);
+		q(instr3p_Default, x, DatabaseTermFactory.makeIntegerAtom(1), z);
 		
 		// instr(m_1, Y, Z).
 		System.out.print("With Tries: ");
 		q(instr3p_Trie, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
 		
 		System.out.print("Without Tries: ");
-		q(instr3p_List, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
+		q(instr3p_Default, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
 	}
 	
 	private static void q(DatabasePredicate p, Term ... terms) {

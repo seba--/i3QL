@@ -14,7 +14,7 @@ import saere.Term;
  */
 public class ClassFile10_Trie extends DatabasePredicate {
 	
-	private final TermTrie facts;
+	private final Trie facts;
 	
 	public ClassFile10_Trie() {
 		super("class_file", 10);
