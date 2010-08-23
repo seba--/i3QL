@@ -29,23 +29,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term
+package saere.term;
 
-import saere._
-import saere.StringAtom.StringAtom
+import saere.*;
+import static saere.StringAtom.StringAtom;
 
-final class And2(val l : Term, val r : Term) extends CompoundTerm {
+public final class And2 extends CompoundTerm{
 	
-	def arity = 2
+	private final Term l;
+	private final Term r; 
 	
-	def functor = And2.functor 
+	
+	public And2(Term l, Term r) {
+		this.r = r;
+		this.l = l;
+	}
+	
+	public final StringAtom FUNCTOR = StringAtom("");
+	
+	
+	
+	public int arity() { return 2; }
+	
+	public StringAtom functor() {return FUNCTOR; } 
 		
-	def arg(i: Int) = if (i == 0) l else r
+	public Term arg(int i) {return i == 0 ? l : r; }
 	
-	override def toString() = "("+l+", "+r+")"
-}
-private object And2 {
-	
-	val functor = StringAtom("")
-			
+	@Override 
+	public String toString(){return "("+l+", "+r+")";}
 }

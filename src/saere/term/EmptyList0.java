@@ -29,25 +29,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term
+package saere.term;
 
-import saere._
-import saere.StringAtom.StringAtom
+import saere.*;
 
-
-final class Subtract2(val t1 : Term, val t2 : Term) extends CompoundTerm {
-	
-	def arity = 2
-	
-	def functor = Subtract2.functor 
+public class EmptyList0 extends Atom {
 		
-	def arg(i: Int) = if (i == 0) t1 else t2
-	
-	override def eval() : Int = t1.eval - t2.eval
-	
-}
-private object Subtract2 {
-	
-	val functor = StringAtom("-")
+	public StringAtom functor(){
+		return StringAtom.emptyList;
+	}
 	
 }
