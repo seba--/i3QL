@@ -39,6 +39,7 @@ public class Factbase {
 	 * @param filename The filename.
 	 */
 	public static void read(String filename) {
+		Stopwatch sw = new Stopwatch(); // XXX Do with AspectJ
 		FactbaseBytecodeReader reader = new FactbaseBytecodeReader();
 		if (filename.endsWith(".zip") || filename.endsWith(".jar")) {
 			reader.processFile(filename);
@@ -47,5 +48,6 @@ public class Factbase {
 		} else {
 			throw new UnsupportedOperationException("Can only read .zip, .jar or .class files");
 		}
+		sw.printElapsed("Reading the facts");
 	}
 }

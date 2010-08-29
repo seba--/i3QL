@@ -250,7 +250,11 @@ public class Trie {
 	
 	@Override
 	public String toString() {
-		return label.toString();
+		String lStr = label != null ? label.toString() : "null";
+		String pStr = parent != null && parent.label != null ? parent.label.toString() : "null";
+		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
+		String nStr = nextSibling != null && nextSibling.label != null ? nextSibling.label.toString() : "null";
+		return "[Trie " + lStr + ", parent = " + pStr + ", firstChild = " + fStr + ", nextSibling = " + nStr + "]";
 	}
 	
 	public Trie getPredicateSubtrie(StringAtom functor) {
@@ -269,13 +273,14 @@ public class Trie {
 		return child;
 	}
 	
-	public Iterator<Term> iterator(Term terms) {
+	public Iterator<Term> iterator(Term ... terms) {
 		return new TrieIterator(this, terms);
 	}
 	
 	private class TrieIterator implements Iterator<Term> {
 		
 		private Trie current;
+		private Trie hook;
 		private Term next;
 		private TermStack stack;
 		
@@ -292,7 +297,7 @@ public class Trie {
 		}
 		
 		public boolean hasNext() {
-			findNext(current);
+			findNext();
 			return next != null;
 		}
 
@@ -300,37 +305,50 @@ public class Trie {
 			return next;
 		}
 		
-		private void findNext(Trie start) {
-			if (start == null)
-				return;
-			
-			while (next == null) { // or break!
+		private void findNext() {			
+			next = null;
+			while (next == null && current != null) { // or break!
+				System.out.println("current = " + current);
+				
 				Term first = stack.peek();
-				if (same(current.label, first) || isFreeVar(first)) {
-					
+				if (stack.size() == 0 || same(current.label, first) || isFreeVar(first)) { // match
 					if (stack.size() == 1) {
-						if (term != null) {
+						if (current.term != null) {
+							
+							// continue search
 							current = (parent != null) ? parent.nextSibling : null;
-							next = term;
+							stack.back();
+							
+							// next found
+							next = current.term;
 							break; // or return
 						} else {
-							// or add all terms of this trie to result
-							//collectLeafTerms(this, result);
-							//throw new UnsupportedOperationException("Not yet implemented");
-							System.out.println("Collecting leaves...");
-							break;
+							hook = current;
+							current = current.firstChild;
+							stack.pop();
 						}
 					} else if (current.firstChild != null) {
 						stack.pop();
 						current = current.firstChild;
 					}
 					
-				} else if (nextSibling != null) {
+				} else if (nextSibling != null) { // no match
 					current = nextSibling;
-				} else {
+				} else { // no more solutions can be found
 					break; // or return
 				}
 			}
+		}
+		
+		private Term nextLeaf(Trie start) {
+			Trie trie = start;
+			Term leaf = null;
+			while (leaf == null) { // or break
+				leaf = trie.term;
+				
+			}
+			
+			return leaf;
 		}
 
 		public void remove() {

@@ -74,6 +74,11 @@ public class TermStack {
 		}
 	}
 	
+	// XXX Time travel...
+	public void back() {
+		position = position > 0 ? position - 1 : 0;
+	}
+	
 	/**
 	 * The size of the <tt>TermStack</tt>.
 	 * 

@@ -79,14 +79,14 @@ public class Utils {
 		printTermTrie(tdb.getRoot(), 0);
 	}
 	
-	private static void printTermTrie(TermTrie trie, int level) {
+	private static void printTermTrie(Trie trie, int level) {
 		for (int i = 0; i < level; i++) {
 			System.out.print(" ");
 		}
 		String key = trie.isRoot() ? "<root>" : Utils.termToString(trie.getLabel());
 		Term value = trie.getTerm();
 		System.out.println(key + ":" + (value == null ? "null" : Utils.termToString(value)));
-		TermTrie child = trie.getFirstChild();
+		Trie child = trie.getFirstChild();
 		while (child != null) {
 			printTermTrie(child, level + key.length());
 			child = child.getNextSibling();

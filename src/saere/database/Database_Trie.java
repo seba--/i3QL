@@ -9,10 +9,10 @@ public class Database_Trie extends Database {
 	
 	private static final Database_Trie INSTANCE = new Database_Trie();
 
-	private TermTrie trie;
+	private Trie trie;
 
 	private Database_Trie() {
-		trie = new TermTrie(TermTrie.ROOT_ATOM);
+		trie = new Trie();
 	}
 
 	public static Database_Trie getInstance() {
@@ -32,7 +32,7 @@ public class Database_Trie extends Database {
 		return trie.query(functor);
 	}
 	
-	public TermTrie getPredicateSubtrie(StringAtom functor) {
+	public Trie getPredicateSubtrie(StringAtom functor) {
 		return trie.getPredicateSubtrie(functor);
 	}
 	
@@ -47,7 +47,7 @@ public class Database_Trie extends Database {
 	}
 	
 	// XXX Remove later...
-	public TermTrie getRoot() {
+	public Trie getRoot() {
 		return trie;
 	}
 }

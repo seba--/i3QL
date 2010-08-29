@@ -2,6 +2,10 @@ package saere.database;
 
 import static saere.database.Utils.queryNoPrint;
 import static saere.database.Utils.query;
+import static saere.database.Utils.termToString;
+
+import java.util.Iterator;
+
 import saere.Term;
 import saere.Variable;
 
@@ -19,10 +23,15 @@ public class Lab {
 		// Small:		"../test/classfiles/shiftone-jrat.jar"
 		// Very small:	"../test/classfiles/MMC.jar"
 		// Tiny:		"../test/classfiles/HelloWorld.class"
-		Factbase.read("../bat/build/opal-0.5.0.jar");
+		Factbase.read("../test/classfiles/HelloWorld.class");
 		TDB.fill();
 		SDB.fill();
 		
+		//demo1();
+		demo2();
+	}
+	
+	private static void demo1() {
 		Instr3_Trie instr3p_Trie = new Instr3_Trie(); // with trie
 		Instr3_Default instr3p_Default = new Instr3_Default(); // with list
 		
@@ -50,6 +59,17 @@ public class Lab {
 		
 		System.out.print("Without Tries: ");
 		q(instr3p_Default, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
+	}
+	
+	private static void demo2() {
+		Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
+		Variable var1 = new Variable();
+		Variable var2 = new Variable();
+		Variable var3 = new Variable();
+		Iterator<Term> iterator = instr.iterator(var1, var2, var3);
+		while (iterator.hasNext()) {
+			termToString(iterator.next());
+		}
 	}
 	
 	private static void q(DatabasePredicate p, Term ... terms) {
