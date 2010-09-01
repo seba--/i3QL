@@ -4,7 +4,7 @@ License (BSD Style License):
 Copyright (c) 2010
 Software Engineering
 Department of Computer Science
-Darmstadt University of Technology
+Technische Universität Darmstadt
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -32,7 +32,6 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.	
 
-Revision	$Date: 2010-05-07 09:58:45 +0200 (Fri, 07 May 2010) $ $Rev: 1533 $
 Author 		Michael Eichberg (mail@michael-eichberg.de)
 -->
 <project name="SAE" default="default" basedir=".">
@@ -123,12 +122,14 @@ Author 		Michael Eichberg (mail@michael-eichberg.de)
 	
 
 	<target name="compile" description="Compiles the SAE and the Demo code." depends="init"> 
+		<!--
 		<echo>
 		Note, if compilation fails due to a stack overflow error it is necessary 
 		to increase Java's heap and stack size. E.g. if you use Unix just set 
 		ANT_OPTS before calling "ant compile"; e.g.,
 			export ANT_OPTS="-Xmx1024m -Xss128m"
 		</echo>
+		-->
 		
     	<!-- The attributes optimise="on" and 	addparams="-Yclosure-elim  -Yinline" 
 			are not very useful during development 
@@ -161,17 +162,16 @@ Author 		Michael Eichberg (mail@michael-eichberg.de)
 	
 	
 	<target name="api-doc" depends="init" description="Generates SAE's API documentation.">
-		<scaladoc
-				destdir="${doc.dir}"
-				deprecation="yes" unchecked="yes"
+		<javadoc
 				windowtitle="SAE Core Library"
-				doctitle="The Static Analysis Engines Core Library ${version}"
-				classpathref="project.classpath">
-			<src path="${src.main.dir}"/>
-			<src path="${src.demo.dir}"/>			
-		    <src path="${scala.generated.dir}"/>	
-	        <include name="**/*.scala"  />
-	    </scaladoc>
+				sourcepath="${src.main.dir}"
+				classpathref="project.classpath"		
+				destdir="${doc.dir}"
+				locale="en_US"
+				encoding="UTF-8"
+				author="yes"
+				doctitle="The Static Analysis Engine - Core Library ${version}"
+			/>
 	</target>
 
 		
@@ -185,10 +185,12 @@ Author 		Michael Eichberg (mail@michael-eichberg.de)
 		</java>-->
 		<java classname="queens.Demo" fork="true">
 			<classpath><path refid="project.classpath"/></classpath>
-		<!--	<jvmarg value="-Xms64m"/>
+			<!--
+			<jvmarg value="-Xms64m"/>
 			<jvmarg value="-Xss8m"/>
 			<jvmarg value="-Xfuture"/>			
-			<jvmarg value="-XX:+DoEscapeAnalysis"/>	-->
+			<jvmarg value="-XX:+DoEscapeAnalysis"/>	
+		-->
 		</java>
 	</target>
 	
