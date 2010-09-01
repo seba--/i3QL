@@ -5,3 +5,7 @@ Icon?
 *.tmproj
 delete-me.txt
 delete_me.txt
+.classpath
+.project
+.scala_dependencies
+.settings
