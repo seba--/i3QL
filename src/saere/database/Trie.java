@@ -318,7 +318,7 @@ public class Trie {
 		/**
 		 * Finds the next term, i.e., sets {@link TrieIterator#next}.
 		 */
-		private void findNext() {			
+		private void findNext() {
 			next = null;
 			
 			// as long as we haven't found a new next and are not at an end point, i.e., current is null
