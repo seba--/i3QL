@@ -101,8 +101,12 @@ public class TermStack {
 	// XXX Only for debugging!
 	@Override
 	public String toString() {
-		Term[] ts = new Term[size()];
-		System.arraycopy(terms, position, ts, 0, size());
-		return Arrays.toString(ts);
+		if (size() > 0) {
+			Term[] ts = new Term[size()];
+			System.arraycopy(terms, position, ts, 0, size());
+			return Arrays.toString(ts);
+		} else {
+			return "[]";
+		}
 	}
 }

@@ -254,7 +254,7 @@ public class Trie {
 		String pStr = parent != null && parent.label != null ? parent.label.toString() : "null";
 		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
 		String nStr = nextSibling != null && nextSibling.label != null ? nextSibling.label.toString() : "null";
-		return "[Trie " + lStr + ", parent = " + pStr + ", firstChild = " + fStr + ", nextSibling = " + nStr + "]";
+		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + "]";
 	}
 	
 	public Trie getPredicateSubtrie(StringAtom functor) {
@@ -273,6 +273,9 @@ public class Trie {
 		return child;
 	}
 	
+	/**
+	 * @see TrieIterator#TrieIterator(Trie, Term...)
+	 */
 	public Iterator<Term> iterator(Term ... terms) {
 		return new TrieIterator(this, terms);
 	}
@@ -284,6 +287,13 @@ public class Trie {
 		private Term next;
 		private TermStack stack;
 		
+		/**
+		 * Creates a new trie iterator that starts from <tt>start</tt> and 
+		 * returns only terms that match the term represented by <tt>terms</tt>.
+		 * 
+		 * @param start The start trie, e.g., a functor.
+		 * @param terms A query represented by an array of terms.
+		 */
 		public TrieIterator(Trie start, Term ... terms) {
 			
 			// break down terms to atoms/variables
@@ -300,42 +310,76 @@ public class Trie {
 			findNext();
 			return next != null;
 		}
-
+		
 		public Term next() {
 			return next;
 		}
 		
+		/**
+		 * Finds the next term, i.e., sets {@link TrieIterator#next}.
+		 */
 		private void findNext() {			
 			next = null;
+			
+			// as long as we haven't found a new next and are not at an end point, i.e., current is null
 			while (next == null && current != null) { // or break!
-				System.out.println("current = " + current);
 				
+				// sophisticated debugging
+				System.out.println("current=" + current);
+				System.out.println("stack=" + stack);
+				
+				// get next atom/variable
 				Term first = stack.peek();
+				
+				// stack size may be 0 if we are in leaf retrieval
 				if (stack.size() == 0 || same(current.label, first) || isFreeVar(first)) { // match
-					if (stack.size() == 1) {
-						if (current.term != null) {
+					
+					if (stack.size() == 1 || stack.size() == 0) { // we have the last element or are in leaf retrieval mode
+						if (current.term != null) { // if current is a leaf
 							
-							// continue search
-							current = (parent != null) ? parent.nextSibling : null;
-							stack.back();
-							
-							// next found
+							// set found next
 							next = current.term;
-							break; // or return
-						} else {
-							hook = current;
+							
+							// set variables to continue search (parent's sibling or null)...
+							if (stack.size() > 0) { // normal mode
+								System.out.println("Going back to parent's next sibling");
+								current = (current.parent != null) ? current.parent.nextSibling : null;
+								stack.back();
+							} else { // leaf retrieval mode
+								System.out.println("Going back to parent");
+								current = current.parent; // parent cannot be null
+							}
+							
+							// a next was found, break
+							break;
+							
+						} else { // current is NOT a leaf
+							hook = current; // hook we can jump back to if the leaf term (or all leaf terms!) was retrieved
+							
+							System.out.println("Entering leaf retrieval mode and continuing with first child");
+							
+							// advance one step
 							current = current.firstChild;
 							stack.pop();
 						}
 					} else if (current.firstChild != null) {
+						System.out.println("Continuing with first child");
 						stack.pop();
-						current = current.firstChild;
+						current = current.firstChild; // continue with first child
 					}
 					
-				} else if (nextSibling != null) { // no match
-					current = nextSibling;
-				} else { // no more solutions can be found
-					break; // or return
+				} else if (current.nextSibling != null) { // no match
+					System.out.println("Continuing with next sibling");
+					current = current.nextSibling; // continue with next sibling
+				} else { // end point reached
+					if (hook != null) {
+						System.out.println("Jumping back to hook");
+						current = hook; // jump back to hook
+						hook = null;
+					} else { // no more solutions can be found
+						System.out.println("The End.");
+						break; // terminate
+					}
 				}
 			}
 		}

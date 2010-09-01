@@ -68,7 +68,7 @@ public class Lab {
 		Variable var3 = new Variable();
 		Iterator<Term> iterator = instr.iterator(var1, var2, var3);
 		while (iterator.hasNext()) {
-			termToString(iterator.next());
+			System.out.println(termToString(iterator.next()));
 		}
 	}
 	
