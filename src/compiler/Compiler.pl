@@ -77,8 +77,9 @@
 
 	@signature phase(Name,ExecutionFlag,Debug)
 	@param Name is the name of the phase.
-	@param ExecutionFlag specifies if the phase should be executed or not. The
-			value is either: "execute" or "omit".
+	@param ExecutionFlag specifies if the phase should be executed. The phase
+			is executed if the value is: "execute". (The value "omit" is expected
+			to be used to define that the phase should not be executed.)
 	@param Debug is a list that identifies which debug information should be
 			produced. E.g., <code>[on_entry,ast]</code><br />
 			If the execution flag is not "execute", than the

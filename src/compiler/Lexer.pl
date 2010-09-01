@@ -35,48 +35,48 @@
 
 /**
    A lexer to tokenize standard (ISO/SAE) Prolog files.<br />
-	We use the terminology as described in the Book "Learn Prolog Now!" which
-	is freely available (www.learnprolognow.org).
+	To identify / describe Prolog terms, we use the terminology as used in 
+	the book "Learn Prolog Now!" which is freely available (www.learnprolognow.org).
    <p>
    The result of tokenizing a file is a list of elementary tokens of Prolog
 	programs.<br/>
    The types of tokens recognized by this lexer is shown in the following. 
    <code>LN</code> and <code>CN</code> always identify the line and
-   column where the token was found.
+   column where the token was found and <code>F</code> the underlying source file.
    <ul>
-   <li>a(S,LN,CN) :- S is an atom; basically a string of chars or a sequence of
+   <li>a(S,pos(F,LN,CN)) :- S is an atom; basically a string of chars or a sequence of
 		operators (e.g., ':-').<br />
 		<i>The cut ("!") is also treated as an
       atom as well as the operators that cannot appear as part 
 		of an operator sequence (',','|').</i></li>
-   <li>f(F,LN,CN) :- F is a functor, i.e., an atom that was immediately 
+   <li>f(F,pos(F,LN,CN)) :- F is a functor, i.e., an atom that was immediately 
 		followed by '('. However, ',' and '|' are never directly the functor
 		of a compound term, they always need to be put between two apostrophs to 
 		be used as a functor. This special treatment is necessary to enable 
 		"natural" definitions of complex terms and lists.
 		</i></li>		
-   <li>i(N,LN,CN) :- N is an integer value.</li>      
-   <li>r(N,LN,CN) :- N is a real value / a floating point value.</li>      
-   <li>v(V,LN,CN) :- V is the name of a concrete variable (v); i.e., V 
+   <li>i(N,pos(F,LN,CN)) :- N is an integer value.</li>      
+   <li>r(N,pos(F,LN,CN)) :- N is a real value / a floating point value.</li>      
+   <li>v(V,pos(F,LN,CN)) :- V is the name of a concrete variable (v); i.e., V 
       always starts with an upper case letter.</li>
-   <li>av(V,LN,CN) :- V is the name of an anonymous variable (av); i.e., V
-      always starts with a under score ('_').</li>
-   <li>P(LN,CN); P is a paranthesis (e.g., one of "(,),{,},[,]").</li>     
-   <li>chars(S,LN,CN) :- S is a list of char atoms. For 
+   <li>av(V,pos(F,LN,CN)) :- V is the name of an anonymous variable (av); i.e., V
+      always starts with an underscore ('_').</li>
+   <li>P(pos(F,LN,CN)); P is a paranthesis (e.g., one of "(,),{,},[,]").</li>     
+   <li>chars(S,pos(F,LN,CN)) :- S is a list of char atoms. For 
       example, given the string <code>"A test"</code> then the result is the 
       token <code>chars([A,  , t, e, s, t], 1, 0)</code>.
    </ul>
 	To include structured comments in the list
    of tokens use the option <code>comments(retain_sc)</code>.
  	<ul>
-  	<li>sc(Tokens,LN,CN) :- Tokens of a structured comment (/ * * .. * /).</li>
+  	<li>sc(Tokens,pos(F,LN,CN)) :- Tokens of a structured comment (/ * * .. * /).</li>
 	</ul>
    The following tokens are only relevant when implementing, e.g., a pretty 
    printer. To include comments in the list
    of tokens use the option <code>comments(retain_all)</code>. 
    <ul>  
-   <li>eolc(Token,LN,CN) :- Token is an end-of-line comment (% ...).</li>
-   <li>mlc(Token,LN,CN) :- Token is multi-line / inline comment (using / * .. * /).</li>  
+   <li>eolc(Token,pos(F,LN,CN)) :- Token is an end-of-line comment (% ...).</li>
+   <li>mlc(Token,pos(F,LN,CN)) :- Token is multi-line / inline comment (using / * .. * /).</li>  
    </ul>
    </p>
    <p>
@@ -89,15 +89,19 @@
    <pre>
       tokenize_file(&lt;THE_FILE&gt;,Ts)
       Ts = [
-         a(:-, 1, 0),
-         f(module, 1, 3),
-         '('(1,8),
-         a('Lexer', 1, 10),
-         a(',', 1, 17),
-         '['(1,18),
-         a(tokenize_file, 1, 19),
-         a(/, 1, 32),
-         i(..., ..., ...)|...].
+			a(:-, pos(&lt;THE_FILE&gt, 1, 0)), 
+			f(module, pos(&lt;THE_FILE&gt, 1, 3)), 
+			'('(pos(&lt;THE_FILE&gt, 1, 9)),
+			a(Lexer, pos(&lt;THE_FILE&gt, 1, 10)),
+			a(',', pos(&lt;THE_FILE&gt, 1, 17)), 
+			'['(pos(&lt;THE_FILE&gt, 1, 18)),
+			a(tokenize_file, pos(&lt;THE_FILE&gt, 1, 19)),
+			a(/, pos(&lt;THE_FILE&gt, 1, 32)), 
+			i(2, pos(&lt;THE_FILE&gt, 1, 33)), 
+			']'(pos(&lt;THE_FILE&gt, 1, 34)), 
+			')'(pos(&lt;THE_FILE&gt, 1, 35)),
+			a(., pos(&lt;THE_FILE&gt, 1, 36))
+		]
    </pre>
    </p>  
    <p>
@@ -123,6 +127,7 @@
 :- module(
    'SAEProlog:Compiler:Lexer',
    [
+		tokenize_string/2,
       tokenize_file/2,
       tokenize_file/3,
       tokenize/2,
@@ -133,6 +138,23 @@
    ]
 ).
 
+
+/**
+	Tokenizes a given string (S) and returns the list of tokens (Ts).
+	<p>
+	<b>Example</b>
+	<pre>
+	?- tokenize_string("a(b,C is b + 1)",Ts),write(Ts).
+	[t(a, 1, 0), ((1, 1), t(b, 1, 2), t(,, 1, 3), v(C, 1, 4), t(is, 1, 6), t(b, 1, 9), t(+, 1, 11), i(1, 1, 13), )(1, 14)]
+	
+	</pre>
+	</p>
+*/
+tokenize_string(S,Ts) :- 
+	string_to_list(S,Cs),
+	open_chars_stream(Cs,Stream),
+	tokenize(Stream,Ts),
+	close(Stream).
 
 
 /**
@@ -176,12 +198,12 @@ tokenize_file(File,Tokens,Options) :-
 
 /**
    Tokenizes a stream of characters and retains all comments.<br />
-   If no (structured) comments are required consider using {@link tokenize_with_c/2}
+   If no (structured) comments are required consider using {@link tokenize_with_sc/2}
    or {@link tokenize/2}.
    
    @signature tokenize(Stream,Tokens)
-   @arg(in) Stream a stream that supports reading characters
-   @arg(out) Tokens the list of recognized tokens
+   @arg(in) Stream a stream that supports reading characters.
+   @arg(out) Tokens the list of recognized tokens.
 */
 tokenize_with_c(Stream,Tokens) :-
    current_stream_position(Stream,LN,CN),
@@ -254,7 +276,8 @@ tokenize(_Stream,[]). % we reached the end of the file
    The list of all operators that are allowed to be combined to form new
    operator names, such as, ":-" or "=/=".
 */
-operator_char('='). % "=" is not mentioned in the "ISO Prolog" book, but in "Learn Prolog Now"
+operator_char('='). 	% "=" is not mentioned in the "ISO Prolog" book, but in 
+							% "Learn Prolog Now"
 operator_char('+').
 operator_char('-').
 operator_char('*').
@@ -359,7 +382,7 @@ read_token(']',_Stream,']') :- !.
 read_token(',',_Stream,a(',')) :- !.
 read_token('|',_Stream,a('|')) :- !.
 
-% the ';' and the '!' can be functors, but the never contribute to an atom 
+% the ';' and the '!' can be functors, but they never contribute to an atom 
 % consisting of operator chars
 read_token(';',Stream,T) :- !, qualify_as_functor_or_atom(';',Stream,T).
 read_token('!',Stream,T) :- !, qualify_as_functor_or_atom('!',Stream,T).
