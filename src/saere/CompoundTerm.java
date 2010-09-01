@@ -57,10 +57,11 @@ public abstract class CompoundTerm extends Term {
 	/**
 	 * The state of the compound term's arguments is saved for later recovery.
 	 * <p>
-	 * This requires a traversal of the complete compound terms structure.<br />
+	 * This requires a traversal of the complete compound term's structure.<br />
 	 * Hence, if all instances of a compound term are always ground then it is
-	 * highly encouraged to overwrite this method (and {@link #setState(State)})
-	 * to avoid traversing the state of a term.
+	 * highly encouraged to overwrite this method and {@link #setState(State)} 
+	 * and to just return / accept <code>null</code> as a value. This avoids 
+	 * traversing the state of a term.
 	 * </p>
 	 */
 	public State manifestState() {
@@ -72,9 +73,10 @@ public abstract class CompoundTerm extends Term {
 	 * <p>
 	 * This requires a traversal of the complete compound term's structure.<br />
 	 * Hence, if all instances of a compound term are always ground then it is
-	 * highly encouraged to overwrite this method (and {@link #manifestState()})
-	 * to avoid traversing the state of a term.
+	 * highly encouraged to overwrite this method and {@link #manifestState()}.
 	 * </p>
+    *	
+	 * @see #manifestState()
 	 */
 	public void setState(State state) {
 		state.asCompoundTermState().apply(this);
@@ -83,7 +85,8 @@ public abstract class CompoundTerm extends Term {
 	/**
 	 * Unifies this compound term with another compound term.
 	 * <p>
-	 * This method does not take care of state handling.
+	 * This method does not take care of state handling; i.e, <font color="ref">both compound
+	 * terms may be partially bound after return.</font>
 	 * </p>
 	 */
 	public boolean unify(CompoundTerm other) {

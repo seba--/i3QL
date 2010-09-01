@@ -41,8 +41,12 @@ public abstract class Term {
 	
 	/**
 	 * Unification of this term with the given term. If the unification succeeds
-	 * true is returned. However, in both cases this or the other term's initially
-	 * free variable may be bound. This method does not take of state handling!
+	 * <code>true</code> is returned. 
+	 * <p>
+	 * After return this or the other term's initially
+	 * free variable may be (partially) bound. This method does not take care of
+	 * state handling!
+	 * </p>
 	 */
 	public final boolean unify(Term other) { return Unification.unify(this,other); }
 
@@ -54,6 +58,7 @@ public abstract class Term {
 	 * <p>
 	 * This method in conjunction with {@link #setState(State)} implements the Memento Pattern.
 	 * </p>
+	 * 
 	 * @return The created state object; can be <code>null</code> if this term's corresponding
 	 *  {@link #setState(State)} method accepts <code>null</code> as a legal parameter value.
 	 */
@@ -124,11 +129,11 @@ public abstract class Term {
 	/**
 	 * @return The i<i>th</i> argument of this term (zero based). If this 
 	 * term does not have
-	 * any arguments (<code>arity() == 0</code>) an {@throws IndexOutOfBoundsException}
+	 * any arguments (<code>arity() == 0</code>) an  <code>IndexOutOfBoundsException</code>
 	 * is always thrown. If this term has at least one argument and <i>i</i> is
 	 * larger than or equal to the aritry of the term, then the method is free to
 	 * return the last argument
-	 * or to throw an {@throw IndexOutOfBoundsException}.
+	 * or to throw an <code>IndexOutOfBoundsException</code>.
 	 */
 	public abstract Term arg(int i) throws IndexOutOfBoundsException;
 
