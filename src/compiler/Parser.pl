@@ -46,34 +46,41 @@
 	).
 
 
-/* <b>Grammar Specification</b><br/>
+/* <b>Prolog Grammar Specification</b><br/>
+	<i>Notes</i><br/>
 	As the argument of a compound term only operators with priority less than 1000
-	are allowed.
+	are allowed.<br/>
+	We have to be able to distinguish: "\+ (a,b)" and "\+(a,b)"; the first term
+	is actually equivalent to: "'\+'(','(a,b))"
 	<blockquote>
-	<code>
+	<code><pre>
 	clause ::= term{<=1200} '.'
 	
-	term{PRIORITY} ::= prefix_op{PRIORITY}, term.
-	term{PRIORITY} ::= primitive_term{PRIORITY=0}
-	term{PRIORITY} ::= term, infix_op{PRIORITY}, term.
-	term{PRIORITY} ::= term, postfix_op{PRIORITY}.
+	term{PRIORITY} ::= prefix_op{PRIORITY}, term
+	term{PRIORITY} ::= primitive_term
+	term{PRIORITY} ::= term, infix_op{PRIORITY}, term
+	term{PRIORITY} ::= term, postfix_op{PRIORITY}
 	
-	primitive_term ::= atom | float | integer | variable | compound_term | list | nested_term | term_expr
+	primitive_term ::= 
+		stringatom | floatatom | integeratom | 
+		variable | 
+		compound_term | 
+		list | nested_term | term_expr
 	compound_term ::= functor'(' term{<=999} (',' term{<=999})* ')'	% NOTE no whitespace is allowed between the functor and the opening bracket 
 	list ::= '[' list_elems? ']'
 	list_elems ::= term{<=999} (',' term{<=999})*  ('|' term{<=999})? 
 	nested_term ::= '(' term{<=1200} ')'
 	term_expr ::= '{' term{<=1200} '}'
 	
-	prefix_op ::= atom
-	postfix_op ::= atom
-	infix_op ::= atom | functor % EXAMPLE "V=(A,B)"; here "=" is indeed an infix operator in functor postion
+	prefix_op ::= stringatom
+	postfix_op ::= stringatom
+	infix_op ::= stringatom | functor % EXAMPLE "V=(A,B)"; here "=" is indeed an infix operator in functor postion
 	
-	integer ::= <an integer value>
-	float ::= <a floating point value>
-	atom ::= <either a string atom, an operator sequence or a "plain" name starting with a lower-case letter>
+	integeratom ::= <an integer value>
+	floatatom ::= <a floating point value>
+	stringatom ::= <either a string atom, an operator sequence or a "plain" name starting with a lower-case letter>
 	variable ::= <a "plain" name starting with an upper-case letter or "_">
-	</code>
+	</pre></code>
 	</blockquote>
 */
 
@@ -115,7 +122,7 @@ program(Ts,P) :-
 	</ul>
 	It is forbidden to alter the priority or type of ','. It is forbidden to have
 	an infix and a postfix operator with the same name, or two operators with the 
-	same associativity and name.</br>
+	same type and name.</br>
 	<br />
 	The initial operator table is given by:
 	<pre>
@@ -141,58 +148,66 @@ program(Ts,P) :-
 	http://pauillac.inria.fr/~deransar/prolog/bips.html
 	</a>.
 */
-default_op_table([
-		op(1200,xfx,':-'),
-		op(1200,xfx,'-->'),
-		op(1200,fx,':-'),
-		op(1200,fx,'?-'),		
+default_op_table(
+	ops(
+		[  % PREFIX...
+			op(1200,fx,':-'),
+			op(1200,fx,'?-'),		
 
-		op(1100,xfy,';'),
-		op(1100,xfy,'|'), % also defined by SWI Prolog
+			op(900,fy,'\\+'),
 
-		op(1050,xfy,'->'),
+			op(200,fy,'-'),	
+			op(200,fy,'\\') % bitwise complement
+		],
+		[	% INFIX...
+			op(1200,xfx,':-'),
+			op(1200,xfx,'-->'),
 
-		op(1000,xfy,','), % Redefining "and" is NOT supported!
+			op(1100,xfy,';'),
+			op(1100,xfy,'|'), % also defined by SWI Prolog
 
-		op(950,yf,'yDEL'),	%%%%% JUST FOR TESTING PURPOSES!!!!!		
+			op(1050,xfy,'->'),
 
-		op(900,fy,'\\+'),
+			op(1000,xfy,','), % Redefining "and" is NOT supported!
 
-		op(700,xfx,'='),
-		op(700,xfx,'\\='),
-		op(700,xfx,'is'),
-		op(700,xfx,'<'),
-		op(700,xfx,'>'),
-		op(700,xfx,'=<'),
-		op(700,xfx,'>='),
-		op(700,xfx,'=:='),
-		op(700,xfx,'=\\='),	
-		op(700,xfx,'=..'),
-		op(700,xfx,'=='),
-		op(700,xfx,'\\=='),
-		op(700,xfx,'@<'),
-		op(700,xfx,'@=<'),
-		op(700,xfx,'@>'),
-		op(700,xfx,'@>='),		
+			op(700,xfx,'='),
+			op(700,xfx,'\\='),
+			op(700,xfx,'is'),
+			op(700,xfx,'<'),
+			op(700,xfx,'>'),
+			op(700,xfx,'=<'),
+			op(700,xfx,'>='),
+			op(700,xfx,'=:='),
+			op(700,xfx,'=\\='),	
+			op(700,xfx,'=..'),
+			op(700,xfx,'=='),
+			op(700,xfx,'\\=='),
+			op(700,xfx,'@<'),
+			op(700,xfx,'@=<'),
+			op(700,xfx,'@>'),
+			op(700,xfx,'@>='),		
 
-		op(500,yfx,'\\/'),
-		op(500,yfx,'/\\'),	
-		op(500,yfx,'+'),
-		op(500,yfx,'-'),
+			op(500,yfx,'\\/'),
+			op(500,yfx,'/\\'),	
+			op(500,yfx,'+'),
+			op(500,yfx,'-'),
 
-		op(400,yfx,'*'),
-		op(400,yfx,'/'),
-		op(400,yfx,'//'), % X // Y Division mit Ganzzahlergebnis
-		op(400,yfx,'mod'),
-		op(400,yfx,'<<'),
-		op(400,yfx,'>>'),			
+			op(400,yfx,'*'),
+			op(400,yfx,'/'),
+			op(400,yfx,'//'), % X // Y Division mit Ganzzahlergebnis
+			op(400,yfx,'mod'),
+			op(400,yfx,'<<'),
+			op(400,yfx,'>>'),
 
-		op(200,xfx,'**'),		
-		op(200,xfy,'^'),				
-		op(200,fy,'-'),	
-		op(200,fy,'\\') % bitwise complement	
+			op(200,xfx,'**'),		
+			op(200,xfy,'^')				
 
-	]).
+		],
+		[	% POSTFIX...
+			op(950,yf,'yDEL')	%%%%% JUST FOR TESTING PURPOSES!!!!!		
+		]		
+	)
+).
 
 
 
@@ -211,7 +226,7 @@ program(_Ops,[]) --> {true}.
 
 
 
-% TODO Add code to check that the term is valid top-level term....
+% TODO Add code to check that the term is a valid top-level term....
 clause(Ops,Term) --> 
 	% Check that term is valid top-level term; i.e., it is an atom, a compound 
 	% term, a directive or a clause definition
@@ -236,13 +251,9 @@ clause(Ops,Term) -->
 	@arg(out) TermPriority the priority of the accepted term	
 */
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
-%{write('Testing infix...\n')},
 	infix_op(Ops,op(Priority,Associativity,Op)),
-%{write('succeed(1)...\n')},	
 	{ MaxPriority >= Priority },  
-%{write('succeed(2)...\n')},		
 	term(Ops,MaxPriority,RightTerm,RightTermPriority),
-%{write('succeed(3)...\n')},		
 	{
 		(
 			(Associativity = xfx, Priority > LeftTermPriority, Priority > RightTermPriority) 
@@ -253,7 +264,6 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		),
 		IntermediateTerm =.. [Op,LeftTerm,RightTerm]
 	},
-%{write('succeed(4)...'),write([MaxPriority,IntermediateTerm,Priority,Term,TermPriority]),nl},			
 	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
 	postfix_op(Ops,op(Priority,Associativity,Op)), 
@@ -286,18 +296,39 @@ term(Ops,MaxPriority,Term,TermPriority) -->
 	primitive_term(Ops,IntermediateTerm), 
 	term_r(Ops,MaxPriority,IntermediateTerm,0,Term,TermPriority).
 
-prefix_op(Ops,Op) --> [a(X,Pos)],{Op=op(_,C,X),member(Op,Ops),(C=fx;C=fy)}.
-postfix_op(Ops,Op) --> [a(X,Pos)],{Op=op(_,C,X),member(Op,Ops),(C=xf;C=yf)}.
-infix_op(Ops,Op) --> [a(X,Pos)],{Op=op(_,C,X),member(Op,Ops),(C=xfx;C=yfx;C=xfy)}.
+prefix_op(ops(PrefixOps,_,_),Op) --> 
+	[a(X,Pos)],
+	{ Op=op(_,C,X), memberchk(Op,PrefixOps) }.
+
+infix_op(ops(_,InfixOps,_),Op) --> 
+	(
+		[a(X,Pos)]%,{!}
+	;
+		[f(X,Pos)]
+	),
+	{ Op=op(_,C,X), memberchk(Op,InfixOps) }.
+
+postfix_op(ops(_,_,PostfixOps),Op) --> 
+	[a(X,Pos)],
+	{ Op=op(_,C,X), memberchk(Op,PostfixOps) }.
 
 
 
 primitive_term(_Ops,V) --> var(V),{!}.
 primitive_term(_Ops,A) --> atom(A),{!}.
-primitive_term(Ops,T) --> ['('(_OPos)],term(Ops,1200,T,_TermPriority),[')'(_CPos)],{!}.
 primitive_term(Ops,CT) --> compound_term(Ops,CT),{!}.
 primitive_term(Ops,LT) --> list(Ops,LT),{!}.
-primitive_term(Ops,te(T)) --> ['{'(_OPos)],term(Ops,1200,T,_TermPriority),['}'(_CPos)],{!}. % a term expression
+primitive_term(Ops,T) --> 
+	['('(_OPos)],
+	term(Ops,1200,T,_TermPriority),
+	[')'(_CPos)],
+	{!}.
+primitive_term(Ops,chars(C,Pos)) --> [chars(C,Pos)],{!}.
+primitive_term(Ops,te(T)) --> 
+	['{'(_OPos)],
+	term(Ops,1200,T,_TermPriority),
+	['}'(_CPos)],
+	{!}. % a term expression (used in combination with DCGs)
 
 
 atom(a(A,Pos)) --> [a(A,Pos)],{!}. % 
@@ -321,6 +352,7 @@ var(av(V,Pos)) --> [av(V,Pos)],{!}.
 list(Ops,T) --> 
 	['['(Pos)],
 	list_2(Ops,Pos,T).
+
 list_2(_Ops,Pos,a('[]',Pos)) --> 
 	[']'(_Pos)],{!}.
 list_2(Ops,_FEPos,Es)--> 
@@ -329,6 +361,7 @@ list_2(Ops,_FEPos,Es)-->
 list_elements(Ops,.(E,Es)) --> 
 	term(Ops,999,E,_TermPriority),
 	list_elements_2(Ops,Es).
+	
 list_elements_2(Ops,.(E,Es)) --> 
 	[a(',',_)],{!},
 	term(Ops,999,E,_TermPriority),
@@ -336,7 +369,7 @@ list_elements_2(Ops,.(E,Es)) -->
 list_elements_2(Ops,E) --> 
 	[a('|',_)],{!},
 	term(Ops,999,E,_TermPriority).
-list_elements_2(_Ops,[]) --> {!}.
+list_elements_2(_Ops,[]) --> [].% {!}.
 
 
 
@@ -354,13 +387,13 @@ compound_term(Ops,ct(F,Args,Pos)) -->
 	arguments(Ops,Args),
 	[')'(_)].
 
-
 arguments(Ops,[T|TRs]) --> 
 	term(Ops,999,T,_TermPriority),
 	arguments_2(Ops,TRs).
+
 arguments_2(Ops,[T|TRs]) --> 
 	[a(',',_Pos)],{!},
 	term(Ops,999,T,_TermPriority),
 	arguments_2(Ops,TRs).
-arguments_2(_Ops,[]) --> {!}.
+arguments_2(_Ops,[]) --> [].% {!}.
 
