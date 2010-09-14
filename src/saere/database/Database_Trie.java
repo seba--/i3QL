@@ -50,4 +50,9 @@ public class Database_Trie extends Database {
 	public Trie getRoot() {
 		return trie;
 	}
+	
+	@Override
+	public void drop() {
+		trie = new Trie(); // and let the GC do the rest...
+	}
 }

@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 
+/*
+ * TODO Remove code overlaps with inheritance...
+ */
 public class Trie {
 
 	private final Term label; // will be an atom or a variable
@@ -250,11 +254,12 @@ public class Trie {
 	
 	@Override
 	public String toString() {
+		String tStr = term != null ? Utils.termToString(term) : "null";
 		String lStr = label != null ? label.toString() : "null";
 		String pStr = parent != null && parent.label != null ? parent.label.toString() : "null";
 		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
 		String nStr = nextSibling != null && nextSibling.label != null ? nextSibling.label.toString() : "null";
-		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + "]";
+		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + ", term=" + tStr + "]";
 	}
 	
 	public Trie getPredicateSubtrie(StringAtom functor) {
@@ -280,12 +285,18 @@ public class Trie {
 		return new TrieIterator(this, terms);
 	}
 	
+	public Iterator<Term> iterator() {
+		return new SimpleTrieIterator(this);
+	}
+	
 	private class TrieIterator implements Iterator<Term> {
 		
-		private Trie current;
-		private Trie hook;
+		private Trie start; // start is our (temporary) root
+		private Trie currTrie;
+		private int currLevel;
 		private Term next;
 		private TermStack stack;
+		private Iterator<Term> subiterator;
 		
 		/**
 		 * Creates a new trie iterator that starts from <tt>start</tt> and 
@@ -298,21 +309,32 @@ public class Trie {
 			
 			// break down terms to atoms/variables
 			List<Term> list = new LinkedList<Term>();
+			list.add(label);
 			for (Term term : terms)
 				list.addAll(breakDown(term));
 			stack = new TermStack(list.toArray(new Term[0]));
 			
-			current = start;
+			this.start = start;
+			currTrie = start;
+			currLevel = 0; // the start level is the 'relative' level 0
 			next = null;
+			findNext(); // find first next
 		}
 		
+		@Override
 		public boolean hasNext() {
-			findNext();
 			return next != null;
 		}
 		
+		@Override
 		public Term next() {
-			return next;
+			if (hasNext()) {
+				Term ret = next;
+				findNext();
+				return ret;
+			} else {
+				throw new NoSuchElementException();
+			}
 		}
 		
 		/**
@@ -322,81 +344,212 @@ public class Trie {
 			next = null;
 			
 			// as long as we haven't found a new next and are not at an end point, i.e., current is null
-			while (next == null && current != null) { // or break!
+			while (next == null && currTrie != null) { // (or break)
 				
-				// sophisticated debugging
-				System.out.println("current=" + current);
-				System.out.println("stack=" + stack);
-				
-				// get next atom/variable
+				boolean subiter = false;
 				Term first = stack.peek();
+				if (stack.size() == 0 || (stack.size() == 1 && match(first))) {
+					subiter = true;
+				}
 				
-				// stack size may be 0 if we are in leaf retrieval
-				if (stack.size() == 0 || same(current.label, first) || isFreeVar(first)) { // match
-					
-					if (stack.size() == 1 || stack.size() == 0) { // we have the last element or are in leaf retrieval mode
-						if (current.term != null) { // if current is a leaf
-							
-							// set found next
-							next = current.term;
-							
-							// set variables to continue search (parent's sibling or null)...
-							if (stack.size() > 0) { // normal mode
-								System.out.println("Going back to parent's next sibling");
-								current = (current.parent != null) ? current.parent.nextSibling : null;
-								stack.back();
-							} else { // leaf retrieval mode
-								System.out.println("Going back to parent");
-								current = current.parent; // parent cannot be null
-							}
-							
-							// a next was found, break
-							break;
-							
-						} else { // current is NOT a leaf
-							hook = current; // hook we can jump back to if the leaf term (or all leaf terms!) was retrieved
-							
-							System.out.println("Entering leaf retrieval mode and continuing with first child");
-							
-							// advance one step
-							current = current.firstChild;
-							stack.pop();
-						}
-					} else if (current.firstChild != null) {
-						System.out.println("Continuing with first child");
-						stack.pop();
-						current = current.firstChild; // continue with first child
+				// subiteration mode
+				if (/*stack.size() == 0*/subiter) {
+					if (subiterator == null) {
+						subiterator = new SimpleTrieIterator(currTrie);
 					}
 					
-				} else if (current.nextSibling != null) { // no match
-					System.out.println("Continuing with next sibling");
-					current = current.nextSibling; // continue with next sibling
-				} else { // end point reached
-					if (hook != null) {
-						System.out.println("Jumping back to hook");
-						current = hook; // jump back to hook
-						hook = null;
-					} else { // no more solutions can be found
-						System.out.println("The End.");
-						break; // terminate
+					if (subiterator.hasNext()) {
+						next = subiterator.next();
+						break;
+					} else {
+						subiterator = null;
+						goRight();
+					}
+				} else { // normal mode (non-subiteration mode)
+					// get next atom/variable
+					/*Term*/ first = stack.peek();
+					
+					if (match(first)) {
+						
+						// try to "return" the current trie's term (and advance!)
+						if (currTrie.term != null) {
+							next = currTrie.term;
+							nextNode();
+							break; // break while ("return")
+						}
+						
+						nextNode();
+					} else {
+						
+						 // no match, go right
+						goRight();
 					}
 				}
 			}
 		}
 		
-		private Term nextLeaf(Trie start) {
-			Trie trie = start;
-			Term leaf = null;
-			while (leaf == null) { // or break
-				leaf = trie.term;
-				
+		private Trie nextNode() {
+			if (currTrie.firstChild != null) { // if we can go deeper, we do this
+				goDown();
+			} else {
+				goRight();
+			}
+			return currTrie;
+		}
+		
+		/**
+		 * Goes to the current node's child.
+		 */
+		private void goDown() {
+			currTrie = currTrie.firstChild;
+			currLevel++;
+			stack.pop();
+		}
+		
+		private void goUp() {
+			currTrie = currTrie.parent;
+			currLevel--;
+			stack.back();
+		}
+		
+		private void goRight() {
+			while (currTrie.nextSibling == null && currTrie != start) {
+				goUp();
 			}
 			
-			return leaf;
+			// treat start as root (a root has no siblings)
+			if (currTrie != start) { 
+				currTrie = currTrie.nextSibling;
+			} else {
+				currTrie = null; // to terminate
+			}
 		}
-
+		
+		private boolean match(Term term) {
+			return isFreeVar(term) || same(currTrie.label, term);
+		}
+		
+		@Override
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}	
+	}
+	
+	/**
+	 * A simple trie iterator that iterates over all terms in a (sub-)trie. The 
+	 * iteration is done is a lazy way. That is, a new element is only 
+	 * searched for after a call to {@link Iterator#next()}. (Actually one step
+	 * ahead.)
+	 * 
+	 * @author David Sullivan
+	 * @version $Id$
+	 */
+	private class SimpleTrieIterator implements Iterator<Term> {
+		Trie start; // start is our root
+		Trie current; // saves the current state, i.e., the current node in the iterated trie
+		Term next; // the next term, is set by findNext()
+		
+		/**
+		 * Creates a new simple trie iterater that treats the specified 
+		 * <tt>start</tt> as root.
+		 * 
+		 * @param start The start, i.e., the root for the iteration.
+		 */
+		private SimpleTrieIterator(Trie start) {
+			this.start = start;
+			current = start;
+			next = null;
+			findNext();
+		}
+
+		@Override
+		public boolean hasNext() {
+			return next != null;
+		}
+
+		@Override
+		public Term next() {
+			if (hasNext()) {
+				Term ret = next;
+				findNext(); // set the new next (may be null at the end) ...
+				return ret; // but return the old next
+			} else {
+				throw new NoSuchElementException();
+			}
+		}
+		
+		private void findNext() {
+			next = null;
+			Trie node = nextNode();
+			
+			// we arrived at the start/root again --> terminate
+			if (node == start) {
+				return;
+			}
+			
+			// the usual case
+			while (node.term == null) {
+				
+				node = nextNode();
+				//System.out.println("node = " + node);
+				
+				// we arrived at the start/root again --> terminate
+				if (node == start) {
+					return;
+				}
+			}
+			next = node.term;
+		}
+		
+		/**
+		 * Returns the 'next' node of the trie (regardless if this node stores a
+		 * term or not). A trie is iterated depth-first and from the left to 
+		 * the right.
+		 * 
+		 * @return The next trie node.
+		 */
+		private Trie nextNode() {
+			if (current.firstChild != null) { // if we can go deeper, we do this
+				goDown();
+			} else {
+				goRight();
+			}
+			return current;
+		}
+		
+		/**
+		 * Moves the current position one level deeper into the trie. (That is, 
+		 * from the root to the leafs direction the tree gets 'deeper'.)
+		 */
+		private void goDown() {
+			current = current.firstChild;
+		}
+		
+		/**
+		 * Goes to the parent.
+		 */
+		private void goUp() {
+			current = current.parent;
+		}
+		
+		/**
+		 * Moves the current position to the next right trie node. Depending on 
+		 * the current position this could be the direct right sibling or the 
+		 * root of the subtrie to the right (if the current position has no 
+		 * right sibling).
+		 */
+		private void goRight() {			
+			while (current != start && current.nextSibling == null) {
+				goUp();
+			}
+			
+			if (current != start) // treat start as root (and a root has no siblings)
+				current = current.nextSibling;
+		}
+
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 	}
 }

@@ -98,6 +98,10 @@ public class TermStack {
 		return new TermStack(terms, position);
 	}
 	
+	public int length() {
+		return terms.length;
+	}
+	
 	// XXX Only for debugging!
 	@Override
 	public String toString() {

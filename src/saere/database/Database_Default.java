@@ -44,4 +44,9 @@ public class Database_Default extends Database {
 	public List<Term> getFacts(StringAtom functor) {
 		return predicates.get(functor);
 	}
+	
+	@Override
+	public void drop() {
+		predicates.clear();
+	}
 }

@@ -56,4 +56,9 @@ public abstract class Database {
 			add(term);
 		}
 	}
+	
+	/**
+	 * Empties the whole database.
+	 */
+	public abstract void drop();
 }
