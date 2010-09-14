@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 
 import saere.Term;
 
+// FIXME A node can store more than one terms. As of now, only the first is accounted for.
 public class TrieInspector {
 	
 	private static final MathContext MC = new MathContext(10, RoundingMode.HALF_UP);

@@ -35,6 +35,7 @@ public class Lab {
 		//demo2b();
 		//demo3();
 		//demo4();
+		//trieNodeIteratorTest();
 	}
 	
 	private static void fillDBs(String filename) {
@@ -88,7 +89,7 @@ public class Lab {
 	
 	// trie iterator test
 	private static void demo2() {
-		fillDBs(files[3]);
+		fillDBs(files[4]);
 		
 		List<Term> facts = Factbase.getInstance().getFacts();
 		StringAtom instrFunct = DatabaseTermFactory.makeStringAtom("instr");
@@ -220,5 +221,26 @@ public class Lab {
 		} else {
 			queryNoPrint(p, terms);
 		}	
+	}
+	
+	// we test only the nodes with terms
+	private static void trieNodeIteratorTest() {
+		fillDBs(files[4]);
+		
+		List<Term> facts = Factbase.getInstance().getFacts();
+		for (Term fact : facts) {
+			System.out.println(termToString(fact));
+		}
+		
+		System.out.println();
+		
+		Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
+		Iterator<Trie> iterator = instr.nodeIterator();
+		while (iterator.hasNext()) {
+			Trie next = iterator.next();
+			if (next.getTerm() != null) { // XXX only the first term!
+				System.out.println(termToString(next.getTerm()));
+			}
+		}
 	}
 }

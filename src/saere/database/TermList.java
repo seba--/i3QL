@@ -11,7 +11,7 @@ import saere.Term;
 public class TermList {
 	
 	private Term term;
-	private Term next;
+	private TermList next;
 	
 	public TermList(Term term) {
 		this.term = term;
@@ -22,11 +22,11 @@ public class TermList {
 		return term;
 	}
 	
-	public Term getNext() {
+	public TermList getNext() {
 		return next;
 	}
 	
-	public void setNext(Term next) {
+	public void setNext(TermList next) {
 		this.next = next;
 	}
 }
