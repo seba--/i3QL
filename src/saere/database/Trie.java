@@ -6,32 +6,46 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import de.tud.cs.st.prolog.Atom;
+
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 
 /*
- * TODO Remove code overlaps with inheritance...
+ * TODO Check if eager (with temporary list) query/iterator is faster than lazy query/iterator, if not, kick it...
  */
 public class Trie {
+	
+	private static TermFlattener termFlattener = new ShallowTermFlattener(); // default
+	private static boolean instances = false;
 
-	private final Term label; // will be an atom or a variable
-	private final Trie parent; // required for trie iterator
+	/** The label of this node. Either a {@link Variable} or an {@link Atom}. */
+	// XXX 1) We don't handle variables as of now(? -- untested) 2) Need to store variables?
+	private final Term label;
+	
+	/** The parent of this node (<tt>null</tt> iff this is the root). */
+	private final Trie parent;
+	
+	/** The head of the list of terms that this node stores. */
 	private TermList termList;
+	
+	/** The first child of this node. */
 	private Trie firstChild;
+	
+	/** The next (i.e., <i>right</i>) sibling of this node. */
 	private Trie nextSibling;
 
 	/**
 	 * Creates a root trie (label is <tt>null</tt>, parent is <tt>null</tt>).
-	 * 
-	 * @param label
 	 */
 	public Trie() {	
 		this(null, null);
 	}
 	
 	private Trie(Term label, Trie parent) {
-		assert label != null && (label.isIntegerAtom() || label.isStringAtom()) : "Invalid label";
+		assert label != null && (label.isIntegerAtom() || label.isStringAtom()) : "Label must be a StringAtom or an IntegerAtom";
+		instances = true; // actually much overhead
 		
 		this.label = label;
 		this.parent = parent;
@@ -79,27 +93,39 @@ public class Trie {
 	public Trie add(Term term) {
 		assert isRoot() : "Can add to root only";
 		
-		return add(new TermStack(breakDown(term).toArray(new Term[0])), term);
+		return add(new TermStack(breakDown(term)), term);
 	}
-
+	
 	private Trie add(TermStack ts, Term t) {
 		Term first = ts.peek();
 		
 		assert first != null && (first.isIntegerAtom() || first.isStringAtom() || first.isVariable()) : "Invalid first";
 		
 		if (isRoot()) {
+			
 			// add to own subtrie
 			if (firstChild == null) {
 				firstChild = new Trie(first, this);
 			}
 			return firstChild.add(ts, t);
 		} else if (same(first, label)) {
+			
 			// the labels match
 			ts.pop();
 
-			// anything left to process?
+			// this must be the insertion node
 			if (ts.size() == 0) {
-				termList = new TermList(t);
+				if (termList == null) { // no list so far?
+					termList = new TermList(t); // create new term list
+				} else { // add to tail...
+					TermList last = termList;
+					while (termList.getNext() != null) {
+						last = termList;
+						termList = termList.getNext();
+					}
+					last.setNext(new TermList(t));
+				}
+				
 				return this;
 			}
 
@@ -108,21 +134,21 @@ public class Trie {
 				firstChild = new Trie(ts.peek(), this);
 			}
 			return firstChild.add(ts, t);
-		} else {
-			// add to sibling subtrie
+		} else { // !root && !same
+			
+			// add to (a) sibling subtrie
 			if (nextSibling == null) {
 				nextSibling = new Trie(first, parent);
 			}
 			return nextSibling.add(ts, t);
 		}
 	}
-
-	// or unify(Term ... term)
+	
 	/**
 	 * This method should get relevant subtries wie "queries", e.g. query(m_1, new Variable(), return)...
 	 */
 	// store queries and answer to queries?
-	// FIXME Rather than store them, return results immediately
+	@Deprecated
 	public List<Term> query(Term... terms) {
 		//assert root : "Can query root only";
 
@@ -132,7 +158,7 @@ public class Trie {
 		if (startTrie != null) {
 			List<Term> dq = new LinkedList<Term>();
 			for (Term term : terms) {
-				dq.addAll(breakDown(term)); // break down to atoms
+				//dq.addAll(breakDown(term)); // break down to atoms // FIXME
 			}
 			startTrie.query(new TermStack(dq.toArray(new Term[0])), result);
 			return result;
@@ -141,6 +167,7 @@ public class Trie {
 		}
 	}
 	
+	@Deprecated
 	private void query(TermStack ts, List<Term> result) {
 		assert ts.size() > 0 : "Term stack size is 0";
 		
@@ -193,27 +220,8 @@ public class Trie {
 	}
 	
 	// breaks a term down to atoms and variables
-	// TODO Maybe a way without lists
-	private List<Term> breakDown(Term term) {
-		assert term != null : "Term is null";
-		
-		List<Term> terms = new LinkedList<Term>();
-		
-		// add functor as first term (or self if variable)
-		if (term.isVariable()) {
-			terms.add(term);
-		} else {
-			terms.add(term.functor());
-		}
-
-		// add other terms (recursively)
-		if (term.isCompoundTerm()) {
-			for (int i = 0; i < term.arity(); i++) {
-				terms.addAll(breakDown(term.arg(i)));
-			}
-		}
-
-		return terms;
+	private Term[] breakDown(Term term) {
+		return termFlattener.flatten(term);
 	}
 	
 	/**
@@ -306,6 +314,18 @@ public class Trie {
 		return new TrieNodeIterator(this);
 	}
 	
+	
+	public static void setTermFlattener(TermFlattener termFlattener) {
+		assert !instances : "term flattener can be set before any instances exist only";
+		Trie.termFlattener = termFlattener;
+	}
+	
+	/**
+	 * Trie term iterator that supports queries...
+	 * 
+	 * @author David Sullivan
+	 * @version $Id$
+	 */
 	private class TrieTermIterator extends SimpleTrieTermIterator {
 		
 		private TermStack stack;
@@ -316,7 +336,7 @@ public class Trie {
 		 * returns only terms that match the term represented by <tt>terms</tt>.
 		 * 
 		 * @param start The start trie, e.g., a functor.
-		 * @param terms A query represented by an array of terms.
+		 * @param terms A query represented by an array of terms (atoms/variables).
 		 */
 		public TrieTermIterator(Trie start, Term ... terms) {
 			super();
@@ -326,8 +346,13 @@ public class Trie {
 			// break down terms to atoms/variables
 			List<Term> list = new LinkedList<Term>();
 			list.add(label);
-			for (Term term : terms)
-				list.addAll(breakDown(term));
+			for (Term term : terms) {
+				Term[] termTerms = breakDown(term);
+				for (Term termTerm : termTerms) {
+					list.add(termTerm);
+				}
+			}
+				
 			stack = new TermStack(list.toArray(new Term[0]));
 			
 			// find first next
@@ -349,7 +374,7 @@ public class Trie {
 					
 					boolean subiter = false;
 					Term first = stack.peek(); // get next atom/variable
-					if (stack.size() == 0 || (stack.size() == 1 && match(first))) {
+					if ((stack.size() == 0 || (stack.size() == 1 && match(first))) && true /*current.termList == null*/) {
 						subiter = true;
 					}
 					
@@ -368,19 +393,18 @@ public class Trie {
 						}
 					} else { // normal mode (non-subiteration mode)
 						if (match(first)) {
+							
 							// try to "return" the current trie's term list
 							if (current.termList != null) {
 								list = current.termList;
 								next = list.getTerm();
 								list = list.getNext();
-								break; // break while ("return")
+								break; // = return
 							}
 							
 							nextNode();
 						} else {
-							
-							 // no match, go right
-							goRight();
+							goRight();  // no match, go right
 						}
 					}
 				}
@@ -418,7 +442,7 @@ public class Trie {
 		/** The term list of the current position. */
 		protected TermList list;
 		
-		/** The next term. */
+		/** The next term. It is set by {@link SimpleTrieTermIterator#findNext()} (only). */
 		protected Term next;
 		
 		/**
@@ -467,22 +491,33 @@ public class Trie {
 				list = list.getNext();
 			} else { // normal mode
 				
-				// as long as we have nodes left and have no term list
-				while (current != null && list == null) {
-					nextNode();
-					if (current != null) {
+				
+				// FIXME Review (like a do-while)
+				if (current != null) {
+					list = current.termList; // XXX ...!!!
+					if (current.termList != null) {
 						list = current.termList;
-					} else { // current == null
-						
-						// terminate
-						next = null; 
+						next = list.getTerm();
+						list = list.getNext(); // --> loop of doom
+						nextNode();
 						return;
 					}
-				}
+				}	
 				
-				list = current.getTerms();
-				next = list.getTerm();
-				list = list.getNext();	
+				// as long as we have nodes left and have no term list
+				while (current != null && list == null) {
+					nextNode(); // with this we skip the first!
+					if (current != null) {
+						if (current.termList != null) {
+							list = current.termList;
+							next = list.getTerm();
+							list = list.getNext();
+							break;
+						}
+					} else { // current == null
+						break; // terminate
+					}
+				}				
 			}
 		}
 
@@ -612,6 +647,7 @@ public class Trie {
 		 * Moves the current position one step down, i.e., to its first child.
 		 */
 		protected void goDown() {
+			assert current != null : "current is null";
 			current = current.firstChild;
 		}
 		
@@ -619,6 +655,7 @@ public class Trie {
 		 * Moves the current position one step up, i.e., to its parent.
 		 */
 		protected void goUp() {
+			assert current != null : "current is null";
 			current = current.parent;
 		}
 	}
