@@ -56,6 +56,19 @@ public class TermStack {
 		return term;
 	}
 	
+	public Term pop(int number) {
+		assert number > 0 && position + number < terms.length : "illegal number";
+		
+		Term term = pop();
+		if (number > 1) {
+			if (number > 2)
+				position += (number - 2); // jump
+			term = pop();
+		}
+		
+		return term;
+	}
+	
 	/**
 	 * Retrieves the first element but does not move the position forward. That 
 	 * is, multiple calls will always return the same first element.<br/>
@@ -74,9 +87,24 @@ public class TermStack {
 		}
 	}
 	
+	public Term peek(int number) {
+		assert number > 0 && position + number < terms.length : "illegal number";
+		
+		if (number == 1) {
+			return peek();
+		} else {
+			int peekPosition = position + number;
+			return terms[peekPosition];
+		}
+	}
+	
 	// XXX Time travel...
 	public void back() {
-		position = position > 0 ? position - 1 : 0;
+		position = (position > 0) ? (position - 1) : 0;
+	}
+	
+	public void back(int number) {
+		position = (position > 0) ? (position - number) : 0;
 	}
 	
 	/**

@@ -1,31 +1,32 @@
 package saere.database;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import de.tud.cs.st.prolog.Atom;
-
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
+import de.tud.cs.st.prolog.Atom;
 
 /*
  * TODO Check if eager (with temporary list) query/iterator is faster than lazy query/iterator, if not, kick it...
  */
 public class Trie {
 	
-	private static TermFlattener termFlattener = new ShallowTermFlattener(); // default
+	private static TermFlattener termFlattener = new RecursiveTermFlattener(); // default
 	private static boolean instances = false;
-
-	/** The label of this node. Either a {@link Variable} or an {@link Atom}. */
-	// XXX 1) We don't handle variables as of now(? -- untested) 2) Need to store variables?
-	private final Term label;
 	
 	/** The parent of this node (<tt>null</tt> iff this is the root). */
 	private final Trie parent;
+	
+	/** The label of this node. Either a {@link Variable} or an {@link Atom}. */
+	// XXX 1) We don't handle variables as of now(? -- untested) 2) Need to store variables?
+	// XXX Even more: Use Label class now, but we assume atom labels as of now --> slows down everything
+	// instead of "boolean same(x,y)" use sth like "int same(x,y)"
+	// --> requires already more memory
+	private Label label;
 	
 	/** The head of the list of terms that this node stores. */
 	private TermList termList;
@@ -37,16 +38,15 @@ public class Trie {
 	private Trie nextSibling;
 
 	/**
-	 * Creates a root trie (label is <tt>null</tt>, parent is <tt>null</tt>).
+	 * Creates a root {@link Trie} (label is <tt>null</tt>, parent is <tt>null</tt>).
 	 */
-	public Trie() {	
+	public Trie() {
 		this(null, null);
+		instances = true; // assuming the root is (always) the first node
 	}
 	
-	private Trie(Term label, Trie parent) {
-		assert label != null && (label.isIntegerAtom() || label.isStringAtom()) : "Label must be a StringAtom or an IntegerAtom";
-		instances = true; // actually much overhead
-		
+	// public now, as the TermInserter creates these...
+	public Trie(Label label, Trie parent) {
 		this.label = label;
 		this.parent = parent;
 		termList = null;
@@ -57,25 +57,16 @@ public class Trie {
 		return parent == null;
 	}
 
-	public Term getLabel() {
+	public Label getLabel() {
 		return label;
 	}
-
-	/**
-	 * Gets the <b>first</b> term of this {@link Trie} node.
-	 * 
-	 * @return The first term.
-	 */
-	public Term getTerm() {
-		if (termList != null) {
-			return termList.getTerm();
-		} else {
-			return null;
-		}	
+	
+	public TermList getTermList() {
+		return termList;
 	}
 	
-	public TermList getTerms() {
-		return termList;
+	public void setTermList(TermList termList) {
+		this.termList = termList;
 	}
 	
 	public Trie getParent() {
@@ -85,18 +76,29 @@ public class Trie {
 	public Trie getFirstChild() {
 		return firstChild;
 	}
+	
+	// new
+	public void setFirstChild(Trie firstChild) {
+		this.firstChild = firstChild;
+	}
 
 	public Trie getNextSibling() {
 		return nextSibling;
 	}
+	
+	// new
+	public void setNextSibling(Trie nextSibling) {
+		this.nextSibling = nextSibling;
+	}
 
-	public Trie add(Term term) {
+	public Trie insert(Term term) {
 		assert isRoot() : "Can add to root only";
 		
-		return add(new TermStack(breakDown(term)), term);
+		return insert(new TermStack(flatten(term)), term);
 	}
 	
-	private Trie add(TermStack ts, Term t) {
+	// the last created node is returned --> maybe use for bulk insertions?
+	private Trie insert(TermStack ts, Term t) {
 		Term first = ts.peek();
 		
 		assert first != null && (first.isIntegerAtom() || first.isStringAtom() || first.isVariable()) : "Invalid first";
@@ -105,10 +107,11 @@ public class Trie {
 			
 			// add to own subtrie
 			if (firstChild == null) {
-				firstChild = new Trie(first, this);
+				firstChild = new Trie(Label.makeLabel(first), this);
 			}
-			return firstChild.add(ts, t);
-		} else if (same(first, label)) {
+			return firstChild.insert(ts, t);
+			
+		} else if (label.match(first)) {
 			
 			// the labels match
 			ts.pop();
@@ -131,151 +134,30 @@ public class Trie {
 
 			// add to own subtrie
 			if (firstChild == null) {
-				firstChild = new Trie(ts.peek(), this);
+				firstChild = new Trie(Label.makeLabel(ts.peek()), this);
 			}
-			return firstChild.add(ts, t);
+			return firstChild.insert(ts, t);
 		} else { // !root && !same
 			
 			// add to (a) sibling subtrie
 			if (nextSibling == null) {
-				nextSibling = new Trie(first, parent);
+				nextSibling = new Trie(Label.makeLabel(first), parent);
 			}
-			return nextSibling.add(ts, t);
+			return nextSibling.insert(ts, t);
 		}
 	}
 	
-	/**
-	 * This method should get relevant subtries wie "queries", e.g. query(m_1, new Variable(), return)...
-	 */
-	// store queries and answer to queries?
-	@Deprecated
-	public List<Term> query(Term... terms) {
-		//assert root : "Can query root only";
-
-		List<Term> result = new LinkedList<Term>();
-		Trie startTrie = firstChild;
-		
-		if (startTrie != null) {
-			List<Term> dq = new LinkedList<Term>();
-			for (Term term : terms) {
-				//dq.addAll(breakDown(term)); // break down to atoms // FIXME
-			}
-			startTrie.query(new TermStack(dq.toArray(new Term[0])), result);
-			return result;
-		} else {
-			return result; // nothing can be found
-		}
-	}
-	
-	@Deprecated
-	private void query(TermStack ts, List<Term> result) {
-		assert ts.size() > 0 : "Term stack size is 0";
-		
-		Term first = ts.peek();
-		if (same(first, label) || isFreeVar(first)) {
-			
-			// the last element matched...
-			if (ts.size() == 1) {
-				if (termList != null) {
-					// add this term to result...
-					result.add(getTerm());
-				} else {
-					// or add all terms of this trie to result
-					collectLeafTerms(this, result);
-				}
-				// nothing more to process
-				return;
-			}
-			
-			// search in subtrie...
-			if (firstChild != null) {
-				
-				// the original term stack may be needed if first is a variable
-				TermStack tsMinusOne;
-				if (first.isVariable()) {
-					tsMinusOne = ts.copy();
-				} else {
-					tsMinusOne = ts;
-				}
-				tsMinusOne.pop();
-				firstChild.query(tsMinusOne, result);
-			}
-			
-			// and (start) search also in sibling tries if variable
-			if (first.isVariable() && nextSibling != null) {
-				nextSibling.query(ts.copy(), result);
-			}
-			
-		} else if (nextSibling != null) {
-			nextSibling.query(ts, result);
-		}
-	}
-
-	public List<Term> getAllTerms() {
-		assert isRoot() : "Only call to root allowed";
-		
-		List<Term> result = new ArrayList<Term>();
-		collectLeafTerms(this, result);
-		return result;
-	}
-	
-	// breaks a term down to atoms and variables
-	private Term[] breakDown(Term term) {
+	private Term[] flatten(Term term) {
 		return termFlattener.flatten(term);
-	}
-	
-	/**
-	 * Should yield the same results as {@link Term#unify(Term)} but <b>without 
-	 * unification</b> and <b>only if the specified terms are either atoms or 
-	 * variables</b>.
-	 *  
-	 * @param t0 The first term.
-	 * @param t1 The second term.
-	 * @return <tt>true</tt> if so.
-	 */
-	private boolean same(Term t0, Term t1) {
-		if (t0 == null) {
-			return t1 == null; // null == null
-		} else if (t1 == null) {
-			return false; // a1 != null
-		} else if (t0.isStringAtom() && t1.isStringAtom()) {
-			return t0.asStringAtom().sameAs(t1.asStringAtom());
-		} else if (t0.isIntegerAtom() && t1.isIntegerAtom()) {
-			return t0.asIntegerAtom().sameAs(t1.asIntegerAtom());
-		} else if (t0.isVariable() && t1.isVariable()) {
-			// variables...
-			Variable v0 = t0.asVariable();
-			Variable v1 = t1.asVariable();
-			if (!v0.isInstantiated() && !v1.isInstantiated()) {
-				// for this purpose two variables are the same, if they are not instantiated (XXX ?)
-				return true;
-			} else if (v0.isInstantiated() && v1.isInstantiated()) {
-				return same(v0.binding(), v1.binding()); // loop of doom with cyclic bindinds?
-			}
-		}
-		
-		return false;
 	}
 	
 	private boolean isFreeVar(Term term) {
 		return term.isVariable() && !term.asVariable().isInstantiated();
 	}
-
-	private void collectLeafTerms(Trie trie, List<Term> result) {
-		if (trie.termList != null) {
-			result.add(trie.getTerm());
-		} else {
-			Trie child = trie.firstChild;
-			while (child != null) {
-				collectLeafTerms(child, result);
-				child = child.nextSibling;
-			}
-		}
-	}
 	
 	@Override
 	public String toString() {
-		String tStr = termList != null ? Utils.termToString(getTerm()) : "null";
+		String tStr = termList != null ? Utils.termToString(getTermList().getTerm()) : "null";
 		String lStr = label != null ? label.toString() : "null";
 		String pStr = parent != null && parent.label != null ? parent.label.toString() : "null";
 		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
@@ -289,7 +171,7 @@ public class Trie {
 		// precidate functors are direct root children
 		Trie child = firstChild;
 		while (child != null) {
-			if (same(child.label, functor)) {
+			if (child.label.match(functor)) {
 				break;
 			}
 			child = child.nextSibling;
@@ -316,7 +198,7 @@ public class Trie {
 	
 	
 	public static void setTermFlattener(TermFlattener termFlattener) {
-		assert !instances : "term flattener can be set before any instances exist only";
+		assert !instances : "term flattener can only be set before any instances exist";
 		Trie.termFlattener = termFlattener;
 	}
 	
@@ -345,9 +227,9 @@ public class Trie {
 			
 			// break down terms to atoms/variables
 			List<Term> list = new LinkedList<Term>();
-			list.add(label);
+			list.add(label.getLabel(0));
 			for (Term term : terms) {
-				Term[] termTerms = breakDown(term);
+				Term[] termTerms = flatten(term);
 				for (Term termTerm : termTerms) {
 					list.add(termTerm);
 				}
@@ -424,7 +306,7 @@ public class Trie {
 		}
 		
 		protected boolean match(Term term) {
-			return isFreeVar(term) || same(current.label, term);
+			return isFreeVar(term) || current.label.match(term);
 		}
 	}
 	
@@ -504,9 +386,10 @@ public class Trie {
 					}
 				}	
 				
+				// FIXME Do we actually get here anymore?
 				// as long as we have nodes left and have no term list
 				while (current != null && list == null) {
-					nextNode(); // with this we skip the first!
+					nextNode(); // with this we skip the first! 
 					if (current != null) {
 						if (current.termList != null) {
 							list = current.termList;

@@ -21,7 +21,7 @@ public class Database_Trie extends Database {
 	
 	@Override
 	public void add(Term fact) {
-		trie.add(fact);
+		trie.insert(fact);
 	}
 
 	public List<Term> getFacts() {

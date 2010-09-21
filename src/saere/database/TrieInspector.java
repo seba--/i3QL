@@ -10,6 +10,16 @@ import java.util.Iterator;
 
 import saere.Term;
 
+/**
+ * This class gathers some information about a {@link Trie}.
+ * 
+ * @author David Sullivan
+ * @version 0.2, 9/21/2010
+ */
+/*
+ * TODO Add average leaf/term depths
+ * TODO Absoulte collision number
+ */
 public class TrieInspector {
 	
 	private static final MathContext MC = new MathContext(10, RoundingMode.HALF_UP);
@@ -56,7 +66,7 @@ public class TrieInspector {
 				}
 				
 				// edges to terms
-				TermList list = trie.getTerms();
+				TermList list = trie.getTermList();
 				while (list != null) {
 					out.write((trieName + " -> \"" + escape(Utils.termToString(list.getTerm())) + "\";\n").getBytes(charset));
 					list = list.getNext();
@@ -71,7 +81,7 @@ public class TrieInspector {
 	}
 	
 	private String makeTrieName(Trie trie) {
-		Term label = trie.getLabel();
+		Term label = trie.getLabel().getLabel(0);
 		String labelStr = "";
 		if (label != null) {
 			labelStr = label.toString();
@@ -93,7 +103,7 @@ public class TrieInspector {
 		numTries++;
 		
 		// count terms...
-		TermList list = trie.getTerms();
+		TermList list = trie.getTermList();
 		if (list != null) {
 			numLists++;
 			while (list != null) {

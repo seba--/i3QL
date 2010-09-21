@@ -66,29 +66,25 @@ public class Instr3_Trie extends DatabasePredicate {
 			t1FreeVar = t1.isVariable() && !t1.asVariable().isInstantiated();
 			t2FreeVar = t2.isVariable() && !t2.asVariable().isInstantiated();
 			
-			iterator = facts.query(t0, t1, t2).iterator();
+			iterator = facts.iterator(t0, t1, t2);
 		}
 		
 		public boolean next() {
 
-			// clear states of previous successful unification
-			// (actually one time too much -- for the first next() call)
+			// restore old states
 			reset();
 
-			if (iterator.hasNext()) {
+			while (iterator.hasNext()) {
 				Term fact = iterator.next();
 				
-				if (t0FreeVar)
-					t0.asVariable().bind(fact.arg(0));
-				if (t1FreeVar)
-					t1.asVariable().bind(fact.arg(1));
-				if (t2FreeVar)
-					t2.asVariable().bind(fact.arg(2));
-				
-				return true;
+				// attempt unification...
+				if (arity == fact.arity() && t0.unify(fact.arg(0)) && t1.unify(fact.arg(1)) && t2.unify(fact.arg(2))) {
+					return true;
+				} else {
+					reset();
+				}
 			}
-
-			reset();
+			
 			return false;
 		}
 		

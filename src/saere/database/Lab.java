@@ -37,6 +37,7 @@ public class Lab {
 		//trieNodeIteratorTest();
 		//smallFlatteningTests();
 		//bigFlatteningTests();
+		//labelTests();
 	}
 	
 	private static void fillDBs(String filename) {
@@ -57,7 +58,7 @@ public class Lab {
 	}
 	
 	private static void demo1() {
-		fillDBs("?");
+		fillDBs(files[0]);
 		
 		Instr3_Trie instr3p_Trie = new Instr3_Trie(); // with trie
 		Instr3_Default instr3p_Default = new Instr3_Default(); // with list
@@ -66,6 +67,8 @@ public class Lab {
 		Variable y = new Variable();
 		Variable z = new Variable();
 		
+		System.out.println("-----------------------");
+		
 		// instr(X, Y, Z).
 		System.out.print("With Tries: ");
 		q(instr3p_Trie, x, y, z);
@@ -73,12 +76,16 @@ public class Lab {
 		System.out.print("Without Tries: ");
 		q(instr3p_Default, x, y, z);
 		
+		System.out.println("-----------------------");
+		
 		// instr(X, 1, Z).
 		System.out.print("With Tries: ");
 		q(instr3p_Trie, x, DatabaseTermFactory.makeIntegerAtom(1), z);
 		
 		System.out.print("Without Tries: ");
 		q(instr3p_Default, x, DatabaseTermFactory.makeIntegerAtom(1), z);
+		
+		System.out.println("-----------------------");
 		
 		// instr(m_1, Y, Z).
 		System.out.print("With Tries: ");
@@ -137,12 +144,9 @@ public class Lab {
 	
 	// print statistics
 	private static void printStatistics() {
-		Trie.setTermFlattener(new ShallowTermFlattener());
+		//Trie.setTermFlattener(new ShallowTermFlattener()); // must be set earlier
 		for (String file : files) {
 			dropDBs();
-			AbstractTermFlattener shallow = new ShallowTermFlattener();
-			shallow.setMaxLength(5);
-			((Database_Trie) TDB).getRoot().setTermFlattener(shallow);
 			fillDBs(file);
 			List<Term> facts = Factbase.getInstance().getFacts();
 			List<Term> instrs = new LinkedList<Term>();
@@ -206,8 +210,8 @@ public class Lab {
 		Iterator<Trie> iterator = instr.nodeIterator();
 		while (iterator.hasNext()) {
 			Trie next = iterator.next();
-			if (next.getTerm() != null) { // XXX only the first term!
-				System.out.println(termToString(next.getTerm()));
+			if (next.getTermList().getTerm() != null) { // XXX only the first term!
+				System.out.println(termToString(next.getTermList().getTerm()));
 			}
 		}
 	}
@@ -267,14 +271,14 @@ public class Lab {
 		
 		Trie.setTermFlattener(shallow);
 		Trie root = new Trie();
-		root.add(fabc0);
-		root.add(fabc1);
+		root.insert(fabc0);
+		root.insert(fabc1);
 		inspector.print(root, "c:/users/leaf/desktop/shallow_trie.gv", false);
 		
 		Trie.setTermFlattener(recursive);
 		root = new Trie();
-		root.add(fabc0);
-		root.add(fabc1);
+		root.insert(fabc0);
+		root.insert(fabc1);
 		inspector.print(root, "c:/users/leaf/desktop/recursive_trie.gv", false);
 	}
 	
@@ -295,5 +299,30 @@ public class Lab {
 		fillDBs(files[4]);
 		root = ((Database_Trie) TDB).getRoot();
 		inspector.print(root, "c:/users/leaf/desktop/recursive_trie.gv", false);
+	}
+	
+	private static void labelTests() {
+		
+		// f, a, b, c
+		Term f = DatabaseTermFactory.makeStringAtom("f");
+		Term a = DatabaseTermFactory.makeStringAtom("a");
+		Term b = DatabaseTermFactory.makeStringAtom("b");
+		Term c = DatabaseTermFactory.makeStringAtom("c");
+		
+		Label fabc = Label.makeLabel(new Term[] { f, a, b, c });
+		Label[] labels = fabc.split(1);
+		Label fa = labels[0];
+		Label bc = labels[1];
+		
+		System.out.println("Label fabc = " + fabc);
+		System.out.println("Label fa = " + fa);
+		System.out.println("Label bc = " + bc);
+		
+		System.out.println("Match fabc/fa = " + fabc.match(fa));
+		System.out.println("Match fabc/bc = " + fabc.match(bc));
+		System.out.println("Match fabc/f = " + fabc.match(Label.makeLabel(f)));
+		
+		System.out.println("f, a, b, c -> " + termToString(fabc.getLabel(0)) + " " + termToString(fabc.getLabel(1)) + " " + termToString(fabc.getLabel(2)) + " " + termToString(fabc.getLabel(3)));
+		System.out.println("a -> " + termToString(Label.makeLabel(a).getLabel(0)));
 	}
 }
