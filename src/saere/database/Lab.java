@@ -11,33 +11,35 @@ import java.util.List;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
+import saere.database.predicate.ClassFile10;
+import saere.database.predicate.DatabasePredicate;
+import saere.database.predicate.Instr3;
 
 public class Lab {
 	
-	private static final boolean PRINT = false;
+	private static boolean print = false;
 	
-	private static final Database TDB = Database_Trie.getInstance();
-	private static final Database SDB = Database_Default.getInstance();
+	private static final Database TRIE_DB = TrieDatabase.getInstance();
+	private static final Database LIST_DB = ListDatabase.getInstance();
 	
-	private static final String[] files = {
-		/* 0 Large:			*/	//"../test/classfiles/org.eclipse.jdt.ui_3.5.0.v20090604.zip",
-		/* 1 Medium:		*/	"../test/classfiles/Tomcat-6.0.20.zip",
-		/* 2 Small:			*/	"../bat/build/opal-0.5.0.jar",
-		/* 3 Small:			*/	"../test/classfiles/shiftone-jrat.jar",
-		/* 4 Very small:	*/	"../test/classfiles/MMC.jar",
-		/* 5 Tiny:			*/	"../test/classfiles/HelloWorld.class"
+	private static final String[] files = {		
+		/* 0 Tiny:			*/	"../test/classfiles/HelloWorld.class",
+		/* 1 Very small:	*/	"../test/classfiles/MMC.jar",
+		/* 2 Small:			*/	"../test/classfiles/shiftone-jrat.jar",
+		/* 3 Small:			*/	"../bat/build/opal-0.5.0.jar",
+		/* 4 Medium:		*/	"../test/classfiles/Tomcat-6.0.20.zip"//,
+		/* 5 (Too) Large:	*/	//"../test/classfiles/org.eclipse.jdt.ui_3.5.0.v20090604.zip"
 	};
 	
 	public static void main(String[] args) {		
-		//demo1();
-		//demo2();
-		//demo2b();
-		printStatistics();
-		//demo4();
+		compareTriesAndLists();
+		//printStatistics();
+		//createGvFile();
 		//trieNodeIteratorTest();
 		//smallFlatteningTests();
 		//bigFlatteningTests();
 		//labelTests();
+		//complexInserterTest();
 	}
 	
 	private static void fillDBs(String filename) {
@@ -45,192 +47,147 @@ public class Lab {
 		Stopwatch sw = new Stopwatch();
 		Factbase.getInstance().read(filename);
 		sw.printElapsedAndReset("Creating the facts");
-		TDB.fill();
+		TRIE_DB.fill();
 		sw.printElapsedAndReset("Filling the trie database");
-		SDB.fill();
+		LIST_DB.fill();
 		sw.printElapsedAndReset("Filling the default database");
 	}
 	
 	private static void dropDBs() {
 		Factbase.getInstance().drop();
-		TDB.drop();
-		SDB.drop();
+		TRIE_DB.drop();
+		LIST_DB.drop();
 	}
 	
-	private static void demo1() {
-		fillDBs(files[0]);
+	private static void compareTriesAndLists() {
+		fillDBs(files[3]);
 		
-		Instr3_Trie instr3p_Trie = new Instr3_Trie(); // with trie
-		Instr3_Default instr3p_Default = new Instr3_Default(); // with list
-		
-		Variable x = new Variable();
-		Variable y = new Variable();
-		Variable z = new Variable();
+		Variable v0 = new Variable();
+		Variable v1 = new Variable();
+		Variable v2 = new Variable();
+		Variable v3 = new Variable();
+		Variable v4 = new Variable();
+		Variable v5 = new Variable();
+		Variable v6 = new Variable();
+		Variable v7 = new Variable();
+		Variable v8 = new Variable();
+		Variable v9 = new Variable();
 		
 		System.out.println("-----------------------");
 		
+		DatabasePredicate instr3 = new Instr3();
+		DatabasePredicate classFile10 = new ClassFile10();
+		
 		// instr(X, Y, Z).
 		System.out.print("With Tries: ");
-		q(instr3p_Trie, x, y, z);
+		instr3.useTries();
+		q(instr3, v0, v1, v2);
 
 		System.out.print("Without Tries: ");
-		q(instr3p_Default, x, y, z);
+		instr3.useLists();
+		q(instr3, v0, v1, v2);
 		
 		System.out.println("-----------------------");
 		
 		// instr(X, 1, Z).
 		System.out.print("With Tries: ");
-		q(instr3p_Trie, x, DatabaseTermFactory.makeIntegerAtom(1), z);
+		instr3.useTries();
+		q(instr3, v0, DatabaseTermFactory.makeIntegerAtom(1), v2);
 		
 		System.out.print("Without Tries: ");
-		q(instr3p_Default, x, DatabaseTermFactory.makeIntegerAtom(1), z);
+		instr3.useLists();
+		q(instr3, v0, DatabaseTermFactory.makeIntegerAtom(1), v2);
 		
 		System.out.println("-----------------------");
 		
+		print = true;
 		// instr(m_1, Y, Z).
 		System.out.print("With Tries: ");
-		q(instr3p_Trie, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
+		instr3.useTries();
+		q(instr3, DatabaseTermFactory.makeStringAtom("m_20"), v1, v2);
 		
 		System.out.print("Without Tries: ");
-		q(instr3p_Default, DatabaseTermFactory.makeStringAtom("m_20"), y, z);
+		instr3.useLists();
+		q(instr3, DatabaseTermFactory.makeStringAtom("m_20"), v1, v2);
+		
+		print = false;
+		// class_file(?, ? , ?, ?, ?, ?, final(yes), ?, ?, ?);
+		System.out.print("With Tries: ");
+		classFile10.useTries();
+		q(classFile10, DatabaseTermFactory.makeStringAtom("cf_20"), v1, v2, v3, v4, v5, v6, v7, v8, v9/*...*/);
+		
+		System.out.print("Without Tries: ");
+		classFile10.useLists();
+		q(classFile10, DatabaseTermFactory.makeStringAtom("cf_20"), v1, v2, v3, v4, v5, v6, v7, v8, v9/*...*/);
 	}
 	
-	// trie iterator test
-	private static void demo2() {
-		fillDBs(files[3]);
-		
-		/*
-		List<Term> facts = Factbase.getInstance().getFacts();
-		StringAtom instrFunct = DatabaseTermFactory.makeStringAtom("instr");
-		for (Term fact : facts) {
-			if (fact.functor().sameAs(instrFunct))
-				System.out.println(termToString(fact));
-		}
-		System.out.println();
-		*/
-		
-		Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
-		Term t0 = new Variable();
-		//t0 = StringAtom.StringAtom("m_2");
-		Term t1 = new Variable();
-		//t1 = IntegerAtom.IntegerAtom(0);
-		Term t2 = new Variable();
-		t2 = StringAtom.StringAtom("return");
-		Term t3 = StringAtom.StringAtom("reference");
-		Iterator<Term> iterator = instr.iterator(t0, t1, t2, t3);
-		while (iterator.hasNext()) {
-			System.out.println(termToString(iterator.next()));
-		}
-	}
-	
-	// simple trie iterator test
-	private static void demo2b() {
-		fillDBs(files[4]);
-		
-		List<Term> facts = Factbase.getInstance().getFacts();
-		StringAtom instrFunct = DatabaseTermFactory.makeStringAtom("instr");
-		for (Term fact : facts) {
-			if (fact.functor().sameAs(instrFunct))
-				System.out.println(termToString(fact));
-		}
-		System.out.println();
-		
-		Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
-		Iterator<Term> iter = instr.iterator();
-		while (iter.hasNext()) {
-			System.out.println(termToString(iter.next()));
-		}
-	}
-	
-	// print statistics
+	// print statistics XXX why is TRie filled twice???
 	private static void printStatistics() {
 		//Trie.setTermFlattener(new ShallowTermFlattener()); // must be set earlier
 		for (String file : files) {
 			dropDBs();
 			fillDBs(file);
-			List<Term> facts = Factbase.getInstance().getFacts();
-			List<Term> instrs = new LinkedList<Term>();
-			StringAtom instrFunctor = DatabaseTermFactory.makeStringAtom("instr");
-			for (Term fact : facts) {
-				if (fact.functor().sameAs(instrFunctor)) {
-					instrs.add(fact);
-				}
-			}
-
-			Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
-			Iterator<Term> iterator = instr.iterator();
+			StringAtom instr = DatabaseTermFactory.makeStringAtom("instr");
+			Iterator<Term> listFacts = ListDatabase.getInstance().getFacts(instr);
+			Iterator<Term> trieFacts = TrieDatabase.getInstance().getFacts(instr);
 
 			int counter = 0;
 			Stopwatch sw = new Stopwatch();
-			while (iterator.hasNext()) {
-				iterator.next();
+			while (trieFacts.hasNext()) {
+				trieFacts.next();
 				counter++;
 			}
 			sw.printElapsedAndReset("Iteration over the trie with " + counter + " terms");
 			counter = 0;
-			for (Term term : instrs) {
-				counter++; // not necessary, but iterator requires this
+			while (listFacts.hasNext()) {
+				listFacts.next();
+				counter++;
 			}
 			sw.printElapsedAndReset("Iteration over the list with " + counter + " terms");
 			
 			TrieInspector inspector = new TrieInspector();
-			inspector.inspect(((Database_Trie) TDB).getRoot());
+			inspector.inspect(((TrieDatabase) TRIE_DB).getRoot());
 			inspector.printStats();
 			System.out.println();
 		}
 	}
 	
 	// create trie gv
-	private static void demo4() {
-		fillDBs(files[4]);
+	private static void createGvFile() {
+		fillDBs(files[0]);
 		TrieInspector inspector = new TrieInspector();
-		inspector.print(((Database_Trie) TDB).getRoot(), "C:/Users/Leaf/Desktop/trie.gv", true);
+		inspector.print(((TrieDatabase) TRIE_DB).getRoot(), "C:/Users/Leaf/Desktop/trie.gv", true);
 	}
 	
 	private static void q(DatabasePredicate p, Term ... terms) {
-		if (PRINT) {
+		if (print) {
 			query(p, terms);
 		} else {
 			queryNoPrint(p, terms);
 		}	
 	}
 	
-	// we test only the nodes with terms
-	private static void trieNodeIteratorTest() {
-		fillDBs(files[4]);
-		
-		List<Term> facts = Factbase.getInstance().getFacts();
-		for (Term fact : facts) {
-			System.out.println(termToString(fact));
-		}
-		
-		System.out.println();
-		
-		Trie instr = ((Database_Trie) TDB).getPredicateSubtrie(DatabaseTermFactory.makeStringAtom("instr"));
-		Iterator<Trie> iterator = instr.nodeIterator();
-		while (iterator.hasNext()) {
-			Trie next = iterator.next();
-			if (next.getTermList().getTerm() != null) { // XXX only the first term!
-				System.out.println(termToString(next.getTermList().getTerm()));
-			}
-		}
-	}
-	
 	private static void smallFlatteningTests() {
 		
 		// f(a, b, c)
-		Term fabc0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+		Term fabc_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
 				DatabaseTermFactory.makeStringAtom("a"),
 				DatabaseTermFactory.makeStringAtom("b"),
 				DatabaseTermFactory.makeStringAtom("c"),
 		});
 		
 		// f(a, b(c))
-		Term fabc1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+		Term fabc_1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
 				DatabaseTermFactory.makeStringAtom("a"),
 				DatabaseTermFactory.makeCompoundTerm("b", new Term[] {
 						DatabaseTermFactory.makeStringAtom("c")	
 				})
+		});
+		
+		// f(a, 1)
+		Term fa1_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeIntegerAtom(1)
 		});
 		
 		TermFlattener shallow = new ShallowTermFlattener();
@@ -238,15 +195,21 @@ public class Lab {
 		
 		// shallow flattening
 		System.out.println("Shallow Flattening");
-		Term[] terms0 = shallow.flatten(fabc0);
-		System.out.print(termToString(fabc0) + " - > ");
+		Term[] terms0 = shallow.flatten(fabc_0);
+		System.out.print(termToString(fabc_0) + " - > ");
 		for (Term term : terms0) {
 			System.out.print(termToString(term) + " ");
 		}
 		System.out.println();
-		Term[] terms1 = shallow.flatten(fabc1);
-		System.out.print(termToString(fabc1) + " - > ");
+		Term[] terms1 = shallow.flatten(fabc_1);
+		System.out.print(termToString(fabc_1) + " - > ");
 		for (Term term : terms1) {
+			System.out.print(termToString(term) + " ");
+		}
+		System.out.println();
+		Term[] terms2 = shallow.flatten(fa1_0);
+		System.out.print(termToString(fa1_0) + " - > ");
+		for (Term term : terms2) {
 			System.out.print(termToString(term) + " ");
 		}
 		
@@ -254,16 +217,22 @@ public class Lab {
 		
 		// recursive flattening
 		System.out.println("Recursive Flattening");
-		terms0 = recursive.flatten(fabc0);
-		System.out.print(termToString(fabc0) + " - > ");
+		terms0 = recursive.flatten(fabc_0);
+		System.out.print(termToString(fabc_0) + " - > ");
 		for (Term term : terms0) {
-			System.out.print(termToString(term) + " ");
+			System.out.print(term + " ");
 		}
 		System.out.println();
-		terms1 = recursive.flatten(fabc1);
-		System.out.print(termToString(fabc1) + " - > ");
+		terms1 = recursive.flatten(fabc_1);
+		System.out.print(termToString(fabc_1) + " - > ");
 		for (Term term : terms1) {
-			System.out.print(termToString(term) + " ");
+			System.out.print(term + " ");
+		}
+		System.out.println();
+		terms2 = recursive.flatten(fa1_0);
+		System.out.print(termToString(fa1_0) + " - > ");
+		for (Term term : terms2) {
+			System.out.print(term + " ");
 		}
 		
 		// generate some output for graphviz
@@ -271,14 +240,14 @@ public class Lab {
 		
 		Trie.setTermFlattener(shallow);
 		Trie root = new Trie();
-		root.insert(fabc0);
-		root.insert(fabc1);
+		root.insert(fabc_0);
+		root.insert(fabc_1);
 		inspector.print(root, "c:/users/leaf/desktop/shallow_trie.gv", false);
 		
 		Trie.setTermFlattener(recursive);
 		root = new Trie();
-		root.insert(fabc0);
-		root.insert(fabc1);
+		root.insert(fabc_0);
+		root.insert(fabc_1);
 		inspector.print(root, "c:/users/leaf/desktop/recursive_trie.gv", false);
 	}
 	
@@ -290,14 +259,14 @@ public class Lab {
 		shallow.setMaxLength(5);
 		Trie.setTermFlattener(shallow);
 		fillDBs(files[4]);
-		Trie root = ((Database_Trie) TDB).getRoot();
+		Trie root = ((TrieDatabase) TRIE_DB).getRoot();
 		inspector.print(root, "c:/users/leaf/desktop/shallow_trie.gv", false);
 		
 		dropDBs();
 		recursive.setMaxLength(5);
 		Trie.setTermFlattener(recursive);
 		fillDBs(files[4]);
-		root = ((Database_Trie) TDB).getRoot();
+		root = ((TrieDatabase) TRIE_DB).getRoot();
 		inspector.print(root, "c:/users/leaf/desktop/recursive_trie.gv", false);
 	}
 	
@@ -324,5 +293,44 @@ public class Lab {
 		
 		System.out.println("f, a, b, c -> " + termToString(fabc.getLabel(0)) + " " + termToString(fabc.getLabel(1)) + " " + termToString(fabc.getLabel(2)) + " " + termToString(fabc.getLabel(3)));
 		System.out.println("a -> " + termToString(Label.makeLabel(a).getLabel(0)));
+	}
+	
+	private static void complexInserterTest() {
+		
+		// f(a, b, c)
+		Term fabc_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeStringAtom("b"),
+				DatabaseTermFactory.makeStringAtom("c"),
+		});
+		
+		// f(a, b(c))
+		Term fabc_1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeCompoundTerm("b", new Term[] {
+						DatabaseTermFactory.makeStringAtom("c")	
+				})
+		});
+		
+		// f(d, 1)
+		Term fd1_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("d"),
+				DatabaseTermFactory.makeIntegerAtom(1)
+		});
+		
+		Trie root = new Trie();
+		TrieInspector inspector = new TrieInspector();
+		
+		root.insert(fabc_0);
+		System.out.println("Inserted f(a, b, c)");
+		inspector.print(root, "c:/users/leaf/desktop/complex-trie_0.gv", false);
+		
+		root.insert(fabc_1);
+		System.out.println("Inserted f(a, b(c))");
+		inspector.print(root, "c:/users/leaf/desktop/complex-trie_1.gv", false);
+		
+		root.insert(fd1_0);
+		System.out.println("Inserted f(d, 1)");
+		inspector.print(root, "c:/users/leaf/desktop/complex-trie_2.gv", false);
 	}
 }

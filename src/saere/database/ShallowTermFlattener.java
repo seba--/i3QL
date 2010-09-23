@@ -3,9 +3,26 @@ package saere.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import saere.CompoundTerm;
 import saere.Term;
 import saere.Variable;
 
+/**
+ * The {@link ShallowTermFlattener} flattens terms using their functor and 
+ * arguments. If the argument is a {@link CompoundTerm} its functor is 
+ * used.<br/>
+ * <br/>
+ * For example the terms <code>f(a, b, c)</code> and <code>f(a, b(c))</code> 
+ * are flattend to the arrays <code>[f, a, b, c]</code> and 
+ * <code>[f, a, b]</code>, respectively.<br/>
+ * <br/>
+ * Flattened term representations created by the {@link ShallowTermFlattener} 
+ * tend to be shorter than the ones created with the 
+ * {@link RecursiveTermFlattener}.
+ * 
+ * @author David Sullivan
+ * @version 0.1, 9/22/2010
+ */
 public class ShallowTermFlattener extends AbstractTermFlattener {
 
 	@Override
@@ -21,6 +38,10 @@ public class ShallowTermFlattener extends AbstractTermFlattener {
 			} else {
 				return new Term[] { var };
 			}	
+		}
+		
+		if (term.isIntegerAtom()) {
+			return new Term[] { term }; // don't make StringAtoms out of IntegerAtoms with functor()!
 		}
 		
 		// term is not a variable ...

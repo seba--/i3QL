@@ -21,7 +21,7 @@ import de.tud.cs.st.bat.reader.Java6Framework;
  * bytecode to Prolog is done with BAT.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.1, 9/22/2010
  */
 public class FactbaseBytecodeReader {
 	

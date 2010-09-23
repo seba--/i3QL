@@ -2,6 +2,14 @@ package saere.database;
 
 import saere.Term;
 
+/**
+ * Abstract base class that implements {@link TermFlattener}. It allows an 
+ * additional constraint of maximal length for flattened term representations. 
+ * Any extending classes must comply this constraint in their implementations.
+ * 
+ * @author David Sullivan
+ * @version 0.1, 9/22/2010
+ */
 public abstract class AbstractTermFlattener implements TermFlattener {
 
 	/**

@@ -17,6 +17,38 @@ public class TermStack {
 	private final Term[] terms;
 	
 	private int position;
+	
+	public static void main(String[] args) {
+		Term a = DatabaseTermFactory.makeStringAtom("a");
+		Term b = DatabaseTermFactory.makeStringAtom("b");
+		Term c = DatabaseTermFactory.makeStringAtom("c");
+		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
+		Term i2 = DatabaseTermFactory.makeIntegerAtom(2);
+		Term i3 = DatabaseTermFactory.makeIntegerAtom(3);
+		
+		TermStack ts = new TermStack(new Term[] { a, b, c, i1, i2, i3 });
+		System.out.println(ts);
+		System.out.println("pop 2");
+		ts.pop(2);
+		System.out.println(ts);
+		System.out.println("peek 2: " + ts.peek(2));
+		System.out.println("pop 2");
+		ts.pop(2);
+		System.out.println(ts);
+		System.out.println("back 3");
+		ts.back(3);
+		System.out.println(ts);
+		System.out.println("back 10");
+		ts.back(10);
+		System.out.println(ts);
+		System.out.println("pop 10");
+		ts.pop(10);
+		System.out.println(ts);
+		System.out.println("back 6");
+		ts.back(10);
+		System.out.println(ts);
+		System.out.println("peek 7: " + ts.peek(7));
+	}
 		
 	/**
 	 * Creates a new <tt>TermDeque</tt> with its first element at the first 
@@ -94,7 +126,11 @@ public class TermStack {
 			return peek();
 		} else {
 			int peekPosition = position + number;
-			return terms[peekPosition];
+			if (peekPosition < terms.length) {
+				return terms[peekPosition - 1];
+			} else {
+				return null;
+			}
 		}
 	}
 	
@@ -104,7 +140,7 @@ public class TermStack {
 	}
 	
 	public void back(int number) {
-		position = (position > 0) ? (position - number) : 0;
+		position = (position > (number - 1)) ? (position - number) : 0;
 	}
 	
 	/**
@@ -128,6 +164,19 @@ public class TermStack {
 	
 	public int length() {
 		return terms.length;
+	}
+	
+	/**
+	 * Returns the stack in its <b>current state</b> as array.
+	 * 
+	 * @return The stack in its current state as array.
+	 */
+	public Term[] asArray() {
+		Term[] array = new Term[size()];
+		if (array.length > 0) {
+			System.arraycopy(terms, position, array, 0, array.length);
+		}
+		return array;
 	}
 	
 	// XXX Only for debugging!

@@ -2,14 +2,27 @@ package saere.database;
 
 import saere.Term;
 
-// TODO Finish...
+/**
+ * The {@link SimpleTermInserter} uses for each element of a flattend term 
+ * representation exactly one {@link Trie} node. That is, if the length of a 
+ * flattened term repesenation is seven, the term will be found at node level 
+ * seven (not counting the root).<br/>
+ * <br/>
+ * For example, the representation <code>[f, along, b, c]</code> will be 
+ * stored/retrieved with four nodes with the labels <tt>f</tt>, <tt>along</tt>, 
+ * <tt>b</tt> and <tt>c</tt> whereas the last node with label <tt>c</tt> at 
+ * level four stores the term.
+ * 
+ * @author David Sullivan
+ * @version 0.1, 9/22/2010
+ */
 public class SimpleTermInserter extends TermInserter {
 	
 	@Override
-	public Trie insert(TermStack ts, Term t) {
+	public Trie insert(TermStack stack, Term term) {
 		assert root != null : "root is null";
 		
-		Term first = ts.peek();
+		Term first = stack.peek();
 		
 		assert first != null && (first.isIntegerAtom() || first.isStringAtom() || first.isVariable()) : "Invalid first";
 		
@@ -21,38 +34,29 @@ public class SimpleTermInserter extends TermInserter {
 			}
 			
 			current = current.getFirstChild(); // set current for next insert()
-			return insert(ts, t);
+			return insert(stack, term);
 
 		} else if (current.getLabel().match(first)) { // the labels match
 			
 			// remove the first atom/variable from stack
-			ts.pop();
+			stack.pop();
 			
 			// this must be the insertion node
-			if (ts.size() == 0) {
-				if (current.getTermList() == null) { // no list so far?
-					current.setTermList(new TermList(t)); // create new term list
-				} else { // add to tail...
-					TermList last = current.getTermList();
-					TermList termList = last;
-					while (termList.getNext() != null) {
-						last = termList;
-						termList = termList.getNext();
-					}
-					last.setNext(new TermList(t));
+			if (stack.size() == 0) {
+				current.addTerm(term);
+				return current;
+			
+			} else { // more to process
+				
+				// add to own subtrie
+				if (current.getFirstChild() == null) {
+					current.setFirstChild(new Trie(Label.makeLabel(stack.peek()), current));
 				}
 				
-				return current;
+				current = current.getFirstChild(); // set current for next insert()
+				return insert(stack, term);		
 			}
 
-			// add to own subtrie
-			if (current.getFirstChild() == null) {
-				current.setFirstChild(new Trie(Label.makeLabel(ts.peek()), current));
-			}
-			
-			current = current.getFirstChild(); // set current for next insert()
-			return insert(ts, t);
-			
 		} else { // !root && !same
 			
 			// add to (a) sibling subtrie
@@ -61,8 +65,7 @@ public class SimpleTermInserter extends TermInserter {
 			}
 			
 			current = current.getNextSibling(); // move right for next insert()
-			return insert(ts, t);
+			return insert(stack, term);
 		}
 	}
-
 }

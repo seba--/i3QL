@@ -63,6 +63,8 @@ public abstract class Label {
 	 */
 	public abstract boolean match(Term other);
 	
+	public abstract int match(Term[] others);
+	
 	/**
 	 * Checks wether <tt>this</tt> {@link Label} is the <i>same</i> as the <tt>other</tt>.
 	 * Two {@link Label}s are the same if they match completely and if they have the same length.
@@ -137,6 +139,8 @@ public abstract class Label {
 	 * @return A new {@link Label}.
 	 */
 	public static Label makeLabel(Term[] terms) {
+		assert terms.length > 0 : "Specified terms length is 0";
+		
 		if (terms.length > 1) {
 			return new CompoundLabel(terms);
 		} else {

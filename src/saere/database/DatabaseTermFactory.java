@@ -21,7 +21,7 @@ import de.tud.cs.st.bat.PrologTermFactory;
  * The Database Term Factory.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.1, 9/22/2010
  */
 public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, Atom> {
 	

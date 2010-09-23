@@ -46,6 +46,22 @@ public class CompoundLabel extends Label {
 		
 		return matches;
 	}
+	
+	@Override
+	public int match(Term[] others) {
+		int min = Math.min(terms.length, others.length);
+		int matches = 0;
+		
+		for (int i = 0; i < min; i++) {
+			if (same(terms[i], others[i])) {
+				matches++;
+			} else {
+				break;
+			}
+		}
+		
+		return matches;
+	}
 
 	@Override
 	public boolean same(Label other) {
@@ -63,7 +79,7 @@ public class CompoundLabel extends Label {
 	
 	@Override
 	public Label[] split(int index) {
-		assert index > 0 && index < terms.length - 1 : "Illegal split index";
+		assert index >= 0 && index < terms.length - 1 : "Illegal split index " + index + "(length " + terms.length + ")";
 		
 		Label[] result = new Label[2];
 		Term[] prefix = new Term[index + 1];

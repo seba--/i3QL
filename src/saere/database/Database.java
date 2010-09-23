@@ -1,15 +1,18 @@
 package saere.database;
 
+import java.util.Iterator;
 import java.util.List;
 
+import saere.Atom;
 import saere.StringAtom;
 import saere.Term;
+import saere.Variable;
 
 /**
- * Abstract base class for databases.
+ * Abstract base class for the {@link ListDatabase} and {@link TrieDatabase}.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.2, 9/21/2010
  */
 public abstract class Database {
 	
@@ -21,33 +24,6 @@ public abstract class Database {
 	public abstract void add(Term fact);
 	
 	/**
-	 * Only to be used if one desires to iterate over all facts for debugging 
-	 * or the like.
-	 * 
-	 * @return A list of all facts.
-	 */
-	public abstract List<Term> getFacts();
-	
-	/**
-	 * Gets all facts of a predicate that has the specified functor.
-	 * 
-	 * @param functor The functor of the predicate.
-	 * @return A list of facts of a predicate.
-	 */
-	/*
-	 * XXX What about predicates with same functor and different arity?
-	 */
-	public abstract List<Term> getFacts(StringAtom functor);
-	
-	public void serialize() {
-		throw new UnsupportedOperationException();
-	}
-	
-	public void deserialize() {
-		throw new UnsupportedOperationException();
-	}
-	
-	/**
 	 * Fills the database with the facts of the {@link Factbase}.
 	 */
 	public void fill() {
@@ -55,10 +31,43 @@ public abstract class Database {
 		for (Term term : terms) {
 			add(term);
 		}
+		fillProcessComplete();
 	}
 	
+	/**
+	 * This method is called at the end of {@link #fill()} and may be used to 
+	 * do some data reorganization after all facts of the {@link Factbase} are 
+	 * inserted.
+	 */
+	protected abstract void fillProcessComplete();
+
 	/**
 	 * Empties the whole database.
 	 */
 	public abstract void drop();
+
+	/**
+	 * Gets an iterator for all facts.
+	 * 
+	 * @return An iterator for all facts.
+	 */
+	public abstract Iterator<Term> getFacts();
+	
+	/**
+	 * Gets an iterator for facts of a predicate with the specified functor.
+	 * 
+	 * @param functor The functor of the predicate.
+	 * @return An iterator for the predicate facts.
+	 */
+	public abstract Iterator<Term> getFacts(StringAtom functor);
+	
+	/**
+	 * Gets an iterator for the candidate set that was composed by the 
+	 * {@link Database} with regards to the query expressed by the specified 
+	 * {@link Term}<tt>[]</tt> parameter.
+	 * 
+	 * @param terms An array of {@link Term}s ({@link Atom}s and free {@link Variable}s) that expresses a query.
+	 * @return An iterator for the candidates.
+	 */
+	public abstract Iterator<Term> getCandidates(Term[] terms);
 }

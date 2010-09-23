@@ -35,6 +35,20 @@ public class AtomLabel extends Label {
 	}
 
 	@Override
+	public boolean match(Term other) {
+		return same(term, other);
+	}
+	
+	@Override
+	public int match(Term[] others) {
+		if (others.length == 1 && match(others[0])) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
 	public boolean same(Label other) {
 		if (other.isAtomLabel() && same(term, other.getLabel(0))) {
 			return true;
@@ -62,10 +76,5 @@ public class AtomLabel extends Label {
 	@Override
 	public String toString() {
 		return Utils.termToString(term); // XXX better no dependency on Utils
-	}
-
-	@Override
-	public boolean match(Term other) {
-		return same(term, other);
 	}
 }

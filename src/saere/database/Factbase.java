@@ -6,10 +6,12 @@ import java.util.List;
 import saere.Term;
 
 /**
- * Class to read and store all facts in a linked list.
+ * Class to read and store facts ({@link Term}s) in a linked list. The 
+ * {@link Factbase} singleton is used as data source by the 
+ * {@link ListDatabase} and {@link TrieDatabase}.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.1, 9/22/2010
  */
 public class Factbase {
 	
@@ -29,6 +31,11 @@ public class Factbase {
 		facts.add(fact);
 	}
 	
+	/**
+	 * Gets all facts.
+	 * 
+	 * @return All facts.
+	 */
 	public List<Term> getFacts() {
 		return facts;
 	}
@@ -49,6 +56,9 @@ public class Factbase {
 		}
 	}
 	
+	/**
+	 * Drops all facts.
+	 */
 	public void drop() {
 		facts.clear();
 	}

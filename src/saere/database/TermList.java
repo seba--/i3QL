@@ -6,7 +6,7 @@ import saere.Term;
  * A slim implementation of a term list that is kept very simple.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.1, 9/22/2010
  */
 public class TermList {
 	

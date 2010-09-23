@@ -1,13 +1,18 @@
 package saere.database;
 
-import java.util.List;
 import java.util.Set;
 
 import saere.Solutions;
 import saere.Term;
 import saere.Variable;
+import saere.database.predicate.DatabasePredicate;
 import saere.meta.GenericCompoundTerm;
 
+/**
+ * The waste dump...
+ * 
+ * @author Anonymous
+ */
 public class Utils {
 
 	public static String termToString(Term t) {
@@ -44,7 +49,7 @@ public class Utils {
 		int counter = 0;
 		while (solutions.next()) {
 			for (int i = 0; i < terms.length; i++) {
-				System.out.println("arg" + (i + 1) + " = " + termToString(terms[i]));
+				System.out.println("arg" + i + " = " + termToString(terms[i]));
 			}
 			System.out.println();
 			counter++;
@@ -67,31 +72,6 @@ public class Utils {
 		System.out.print(counter + " Solutions found, ");
 		sw.printElapsed("query");
 		System.out.println();
-	}
-	
-	public static void printDB(Database db) {
-		List<Term> terms = db.getFacts();
-		for (Term term : terms) {
-			System.out.println(termToString(term));
-		}
-	}
-	
-	public static void printTrieDB(Database_Trie tdb) {
-		printTermTrie(tdb.getRoot(), 0);
-	}
-	
-	private static void printTermTrie(Trie trie, int level) {
-		for (int i = 0; i < level; i++) {
-			System.out.print(" ");
-		}
-		String key = trie.isRoot() ? "<root>" : Utils.termToString(trie.getLabel());
-		Term value = trie.getTerm();
-		System.out.println(key + ":" + (value == null ? "null" : Utils.termToString(value)));
-		Trie child = trie.getFirstChild();
-		while (child != null) {
-			printTermTrie(child, level + key.length());
-			child = child.getNextSibling();
-		}
 	}
 	
 	public static boolean same(Set<Term> s1, Set<Term> s2) {

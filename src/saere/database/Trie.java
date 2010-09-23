@@ -11,21 +11,21 @@ import saere.Variable;
 import de.tud.cs.st.prolog.Atom;
 
 /*
- * TODO Check if eager (with temporary list) query/iterator is faster than lazy query/iterator, if not, kick it...
+ * Iterators do not work with ComplexTermInserter...
  */
 public class Trie {
 	
-	private static TermFlattener termFlattener = new RecursiveTermFlattener(); // default
+	private static TermFlattener flattener = new ShallowTermFlattener();
+	private static TermInserter inserter = new ComplexTermInserter();
 	private static boolean instances = false;
 	
 	/** The parent of this node (<tt>null</tt> iff this is the root). */
-	private final Trie parent;
+	private Trie parent;
 	
 	/** The label of this node. Either a {@link Variable} or an {@link Atom}. */
-	// XXX 1) We don't handle variables as of now(? -- untested) 2) Need to store variables?
-	// XXX Even more: Use Label class now, but we assume atom labels as of now --> slows down everything
-	// instead of "boolean same(x,y)" use sth like "int same(x,y)"
-	// --> requires already more memory
+	// XXX We don't handle variables as of now(? -- untested)
+	// XXX Need to store variables?
+	// We use the Label class now (more flexibility but slower and memory consuming)
 	private Label label;
 	
 	/** The head of the list of terms that this node stores. */
@@ -40,9 +40,11 @@ public class Trie {
 	/**
 	 * Creates a root {@link Trie} (label is <tt>null</tt>, parent is <tt>null</tt>).
 	 */
+	// XXX We assume only one root, code this!
 	public Trie() {
 		this(null, null);
 		instances = true; // assuming the root is (always) the first node
+		inserter.setRoot(this);
 	}
 	
 	// public now, as the TermInserter creates these...
@@ -53,8 +55,26 @@ public class Trie {
 		firstChild = nextSibling = null;
 	}
 
+	/**
+	 * Checks wether this is a root node.
+	 * 
+	 * @return <tt>true</tt> if so.
+	 */
 	public boolean isRoot() {
 		return parent == null;
+	}
+	
+	/**
+	 * Sets a new label.<br/>
+	 * <br/>
+	 * <b>Unless the old label is not the same as the new label 
+	 * this method forces a trie restructuring. Otherwise this may 
+	 * lead to an invalid trie structure with unexpected retrieval behavior.</b>
+	 * 
+	 * @param label The new label.
+	 */
+	public void setLabel(Label label) {
+		this.label = label;
 	}
 
 	public Label getLabel() {
@@ -69,6 +89,24 @@ public class Trie {
 		this.termList = termList;
 	}
 	
+	/**
+	 * Adds a term to this {@link Trie}.
+	 * 
+	 * @param term The {@link Term} to add.
+	 */
+	public void addTerm(Term term) {
+		if (termList == null) {
+			termList = new TermList(term);
+		} else {
+			TermList last = termList;
+			while (termList.getNext() != null) {
+				last = termList;
+				termList = termList.getNext();
+			}
+			last.setNext(new TermList(term));
+		}
+	}
+	
 	public Trie getParent() {
 		return parent;
 	}
@@ -77,7 +115,6 @@ public class Trie {
 		return firstChild;
 	}
 	
-	// new
 	public void setFirstChild(Trie firstChild) {
 		this.firstChild = firstChild;
 	}
@@ -86,17 +123,17 @@ public class Trie {
 		return nextSibling;
 	}
 	
-	// new
 	public void setNextSibling(Trie nextSibling) {
 		this.nextSibling = nextSibling;
 	}
 
 	public Trie insert(Term term) {
 		assert isRoot() : "Can add to root only";
-		
-		return insert(new TermStack(flatten(term)), term);
+		inserter.setCurrent(this);
+		return inserter.insert(new TermStack(flatten(term)), term);
 	}
 	
+/*	
 	// the last created node is returned --> maybe use for bulk insertions?
 	private Trie insert(TermStack ts, Term t) {
 		Term first = ts.peek();
@@ -118,17 +155,7 @@ public class Trie {
 
 			// this must be the insertion node
 			if (ts.size() == 0) {
-				if (termList == null) { // no list so far?
-					termList = new TermList(t); // create new term list
-				} else { // add to tail...
-					TermList last = termList;
-					while (termList.getNext() != null) {
-						last = termList;
-						termList = termList.getNext();
-					}
-					last.setNext(new TermList(t));
-				}
-				
+				addTerm(t);
 				return this;
 			}
 
@@ -146,15 +173,17 @@ public class Trie {
 			return nextSibling.insert(ts, t);
 		}
 	}
+*/
 	
 	private Term[] flatten(Term term) {
-		return termFlattener.flatten(term);
+		return flattener.flatten(term);
 	}
 	
 	private boolean isFreeVar(Term term) {
 		return term.isVariable() && !term.asVariable().isInstantiated();
 	}
 	
+	// XXX Remove this later...
 	@Override
 	public String toString() {
 		String tStr = termList != null ? Utils.termToString(getTermList().getTerm()) : "null";
@@ -165,26 +194,10 @@ public class Trie {
 		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + ", term=" + tStr + "]";
 	}
 	
-	public Trie getPredicateSubtrie(StringAtom functor) {
-		assert isRoot() : "Can get predicate subtries only from root";
-
-		// precidate functors are direct root children
-		Trie child = firstChild;
-		while (child != null) {
-			if (child.label.match(functor)) {
-				break;
-			}
-			child = child.nextSibling;
-		}
-		
-		assert child != null : "No predicate for specified functor";
-		return child;
-	}
-	
 	/**
 	 * @see TrieTermIterator#TrieIterator(Trie, Term...)
 	 */
-	public Iterator<Term> iterator(Term ... terms) {
+	public Iterator<Term> iterator(Term[] terms) {
 		return new TrieTermIterator(this, terms);
 	}
 	
@@ -197,9 +210,47 @@ public class Trie {
 	}
 	
 	
-	public static void setTermFlattener(TermFlattener termFlattener) {
-		assert !instances : "term flattener can only be set before any instances exist";
-		Trie.termFlattener = termFlattener;
+	public static void setTermFlattener(TermFlattener flattener) {
+		assert !instances : "Term flattener can only be set before any instances exist";
+		Trie.flattener = flattener;
+	}
+	
+	public Trie getPredicateSubtrie(StringAtom functor) {
+		assert isRoot() : "Can get predicate subtries from root only";
+		Trie child = firstChild;
+		while (child != null) {
+			if (labelMatches(functor)) {
+				return child;
+			}
+			child = child.nextSibling;
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Checks if this {@link Label} matches the specified {@link saere.Atom} or 
+	 * free {@link Variable}.<br/>
+	 * <br/>
+	 * Convenience method that behaves (wraps) exactly the same as 
+	 * {@link Label#match(Term)}.
+	 * 
+	 * @param term An {@link saere.Atom} or free {@link Variable}.
+	 * @return <tt>true</tt> if so.
+	 * @see Label#match(Term)
+	 */
+	// to abstract from the horrible Label implementations...
+	public boolean labelMatches(Term term) {
+		assert term.isIntegerAtom() || term.isStringAtom() || (term.isVariable() && !term.asVariable().isInstantiated()) : "Invalid term paremeter";
+		return label != null && label.match(term);
+	}
+	
+	public int labelLength() {
+		if (label == null) {
+			return 1; // XXX Hmm, actually ONLY the root should have no label, and we don't pop sth for the root...
+		} else {
+			return label.length();
+		}
 	}
 	
 	/**
@@ -227,7 +278,7 @@ public class Trie {
 			
 			// break down terms to atoms/variables
 			List<Term> list = new LinkedList<Term>();
-			list.add(label.getLabel(0));
+			//list.add(label.getLabel(0)); // functor label
 			for (Term term : terms) {
 				Term[] termTerms = flatten(term);
 				for (Term termTerm : termTerms) {
@@ -238,6 +289,7 @@ public class Trie {
 			stack = new TermStack(list.toArray(new Term[0]));
 			
 			// find first next
+			// FIXME don't skip the first node!
 			findNext(); 
 		}
 		
@@ -296,17 +348,17 @@ public class Trie {
 		@Override
 		protected void goUp() {
 			super.goUp();
-			stack.back();
+			stack.back(current.labelLength()); // new: labelLength()
 		}
 		
 		@Override
 		protected void goDown() {
 			super.goDown();
-			stack.pop();
+			stack.pop(current.labelLength()); // new: labelLength()
 		}
 		
 		protected boolean match(Term term) {
-			return isFreeVar(term) || current.label.match(term);
+			return isFreeVar(term) || current.labelMatches(term);
 		}
 	}
 	
@@ -317,7 +369,7 @@ public class Trie {
 	 * ahead.)
 	 * 
 	 * @author David Sullivan
-	 * @version $Id$
+	 * @version 0.2, 9/22/2010
 	 */
 	private class SimpleTrieTermIterator extends TrieIteratorBase implements Iterator<Term> {
 		
@@ -409,7 +461,9 @@ public class Trie {
 			throw new UnsupportedOperationException();
 		}
 	}
-	
+	/*
+	 * FIXME Issue that sometimes the last node is not part of the iteration (e.g., [d, 1]).
+	 */
 	private class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie> {
 
 		/**
@@ -424,7 +478,7 @@ public class Trie {
 		 */
 		protected TrieNodeIterator(Trie start) {
 			super(start);
-			findNext(); // find first next
+			next = current;
 		}
 		
 		@Override

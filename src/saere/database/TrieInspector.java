@@ -57,6 +57,7 @@ public class TrieInspector {
 			while (iterator.hasNext()) {
 				trie = iterator.next();
 				String trieName = makeTrieName(trie);
+				System.out.println(trieName);
 				
 				// edges to children (of which actually only the one to the first children exists)
 				Trie child = trie.getFirstChild();
@@ -81,8 +82,11 @@ public class TrieInspector {
 	}
 	
 	private String makeTrieName(Trie trie) {
-		Term label = trie.getLabel().getLabel(0);
-		String labelStr = "";
+		Label label = null;
+		if (trie.getLabel() != null) {
+			label = trie.getLabel();
+		}
+		String labelStr = "root"; // only the root is allowed to have no label
 		if (label != null) {
 			labelStr = label.toString();
 			labelStr = escape(labelStr);
