@@ -47,6 +47,8 @@ public class ComplexTermInserter extends TermInserter {
 					current.setLabel(newLabels[0]);
 					Trie mediator = new Trie(newLabels[1], current);
 					mediator.setFirstChild(current.getFirstChild());
+					if (mediator.getFirstChild() != null)
+						mediator.getFirstChild().setParent(mediator);
 					mediator.setTermList(current.getTermList());
 					current.setTermList(null);
 					current.setFirstChild(mediator);
@@ -62,14 +64,14 @@ public class ComplexTermInserter extends TermInserter {
 					 * Set (4) as next sibling of (3).
 					 */
 					
-					// FIXME f(d, 1) (the term itself) is missing...
-					
 					Label[] newLabels = current.getLabel().split(match - 1); // label should never ever (!root) be null, right?
 					current.setLabel(newLabels[0]);
 					
 					// mediator
 					Trie mediator = new Trie(newLabels[1], current);
 					mediator.setFirstChild(current.getFirstChild());
+					if (mediator.getFirstChild() != null)
+						mediator.getFirstChild().setParent(mediator);
 					mediator.setTermList(current.getTermList());
 					current.setTermList(null);
 					current.setFirstChild(mediator);

@@ -110,6 +110,10 @@ public class Trie {
 	public Trie getParent() {
 		return parent;
 	}
+	
+	public void setParent(Trie parent) {
+		this.parent = parent;
+	}
 
 	public Trie getFirstChild() {
 		return firstChild;
@@ -211,8 +215,12 @@ public class Trie {
 	
 	
 	public static void setTermFlattener(TermFlattener flattener) {
-		assert !instances : "Term flattener can only be set before any instances exist";
+		//assert !instances : "Term flattener can only be set before any instances exist";
 		Trie.flattener = flattener;
+	}
+	
+	public static void setTermInserter(TermInserter inserter) {
+		Trie.inserter = inserter;
 	}
 	
 	public Trie getPredicateSubtrie(StringAtom functor) {

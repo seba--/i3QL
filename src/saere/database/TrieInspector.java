@@ -57,7 +57,6 @@ public class TrieInspector {
 			while (iterator.hasNext()) {
 				trie = iterator.next();
 				String trieName = makeTrieName(trie);
-				System.out.println(trieName);
 				
 				// edges to children (of which actually only the one to the first children exists)
 				Trie child = trie.getFirstChild();

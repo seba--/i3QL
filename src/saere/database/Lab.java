@@ -32,7 +32,7 @@ public class Lab {
 	};
 	
 	public static void main(String[] args) {		
-		compareTriesAndLists();
+		//compareTriesAndLists();
 		//printStatistics();
 		//createGvFile();
 		//trieNodeIteratorTest();
@@ -40,6 +40,9 @@ public class Lab {
 		//bigFlatteningTests();
 		//labelTests();
 		//complexInserterTest();
+		//trieNodeIterator_Test();
+		//trieTermIterator_Test();
+		trieTermIterator_Test2();
 	}
 	
 	private static void fillDBs(String filename) {
@@ -332,5 +335,112 @@ public class Lab {
 		root.insert(fd1_0);
 		System.out.println("Inserted f(d, 1)");
 		inspector.print(root, "c:/users/leaf/desktop/complex-trie_2.gv", false);
+		
 	}
+	
+	private static void trieNodeIterator_Test() {
+		
+		// f(a, b, c)
+		Term fabc_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeStringAtom("b"),
+				DatabaseTermFactory.makeStringAtom("c"),
+		});
+		
+		// f(a, b(c))
+		Term fabc_1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeCompoundTerm("b", new Term[] {
+						DatabaseTermFactory.makeStringAtom("c")	
+				})
+		});
+		
+		// f(d, 1)
+		Term fd1_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("d"),
+				DatabaseTermFactory.makeIntegerAtom(1)
+		});
+		
+		Trie root = new Trie();
+		root.insert(fabc_0);
+		root.insert(fabc_1);
+		root.insert(fd1_0);
+		
+		Iterator<Trie> iter = root.nodeIterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+	}
+	
+	private static void trieTermIterator_Test() {
+		
+		// f(a, b, c)
+		Term fabc_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeStringAtom("b"),
+				DatabaseTermFactory.makeStringAtom("c"),
+		});
+		
+		// f(a, b(c))
+		Term fabc_1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeCompoundTerm("b", new Term[] {
+						DatabaseTermFactory.makeStringAtom("c")	
+				})
+		});
+		
+		// f(d, 1)
+		Term fd1_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("d"),
+				DatabaseTermFactory.makeIntegerAtom(1)
+		});
+		
+		Trie root = new Trie();
+		root.insert(fabc_0);
+		root.insert(fabc_1);
+		root.insert(fd1_0);
+		
+		Iterator<Term> iter = root.iterator();
+		while (iter.hasNext()) {
+			System.out.println(termToString(iter.next()));
+		}
+	}
+	
+	private static void trieTermIterator_Test2() {
+		
+		// f(a, b, c)
+		Term fabc_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeStringAtom("b"),
+				DatabaseTermFactory.makeStringAtom("c"),
+		});
+		
+		// f(a, b(c))
+		Term fabc_1 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("a"),
+				DatabaseTermFactory.makeCompoundTerm("b", new Term[] {
+						DatabaseTermFactory.makeStringAtom("c")	
+				})
+		});
+		
+		// f(d, 1)
+		Term fd1_0 = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
+				DatabaseTermFactory.makeStringAtom("d"),
+				DatabaseTermFactory.makeIntegerAtom(1)
+		});
+		
+		Trie root = new Trie();
+		root.insert(fabc_0);
+		root.insert(fabc_1);
+		root.insert(fd1_0);
+		
+		Term[] query;
+		//query = new Term[] { DatabaseTermFactory.makeStringAtom("f"), DatabaseTermFactory.makeStringAtom("a") };
+		query = new Term[] { DatabaseTermFactory.makeStringAtom("f") };
+		Iterator<Term> iter = root.iterator(query);
+		while (iter.hasNext()) {
+			System.out.println(termToString(iter.next()));
+		}
+	}
+	
 }
