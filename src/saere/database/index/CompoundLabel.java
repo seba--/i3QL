@@ -1,8 +1,9 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Atom;
 import saere.Term;
 import saere.Variable;
+import saere.database.Utils;
 
 /**
  * A {@link CompoundLabel} represents a label that stores an ordered array of {@link Atom}s / free {@link Variable}s.

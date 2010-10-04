@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import saere.StringAtom;
 import saere.Term;
+import saere.database.index.EmptyTermIterator;
+import saere.database.index.Trie;
 
 public class TrieDatabase extends Database {
 	
@@ -63,6 +65,8 @@ public class TrieDatabase extends Database {
 	public Iterator<Term> getCandidates(Term[] terms) {
 		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
 		
+		return root.iterator(terms);
+		/*
 		// simply iterate through children list (which should be okay if we have a small set of predicates)
 		Trie predicate = root.getFirstChild();
 		while (predicate != null) {
@@ -73,5 +77,6 @@ public class TrieDatabase extends Database {
 		}
 		
 		return EmptyTermIterator.getInstance();
+		*/
 	}
 }

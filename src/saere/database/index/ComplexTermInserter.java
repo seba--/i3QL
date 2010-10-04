@@ -1,7 +1,8 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Term;
 
+// FIXME Seems to be buggy (iterators won't work correctly with it).
 public class ComplexTermInserter extends TermInserter {
 	
 	@Override
@@ -26,21 +27,36 @@ public class ComplexTermInserter extends TermInserter {
 			
 			assert labelLength >= match : "label length is smaller than match";
 			
-			if (match == labelLength) { // complete match
+			if (match == labelLength) { // complete match --> insert here or as child
 				
-				// insert here
-				current.addTerm(term);
-				return current;
+				if (match < stack.size()) {
+					
+					// insert as child
+					stack.pop(match);
+					if (current.getFirstChild() == null) {
+						current.setFirstChild(new Trie(Label.makeLabel(stack.asArray()), current));
+					}
+					current = current.getFirstChild();
+					return insert(stack, term);
+					
+				} else {
+					
+					// insert here
+					current.addTerm(term);
+					return current;
+				}
 				
 			} else if (match > 0) { // partial match
+				
+				
 				
 				if (stack.size() < labelLength) { 
 				
 					/*
-					 * E.g., insert [a, b](1) into [a, b, c](2): Split into 
-					 * [a, b](3) and [c](4). Set the first child of (2) as 
-					 * first child to (4) and add (4) as first child to (3). 
-					 * Add the term from (1) to (3).
+					 * E.g., insert [a, b](1) into [a, b, c](2):
+					 * Set label of (2) to [a, b].
+					 * Create mediator(3) with label [c] and parent (2).
+					 * XXX and so on...
 					 */
 					
 					Label[] newLabels = current.getLabel().split(match - 1);
@@ -50,18 +66,31 @@ public class ComplexTermInserter extends TermInserter {
 					if (mediator.getFirstChild() != null)
 						mediator.getFirstChild().setParent(mediator);
 					mediator.setTermList(current.getTermList());
+					mediator.setNextSibling(current.getNextSibling()); 
+					current.setNextSibling(null);
+					Trie sibling = mediator.getNextSibling();
+					while (sibling != null) { // and set new parent for all of them!
+						sibling.setParent(current);
+						sibling = sibling.getNextSibling();
+					}
 					current.setTermList(null);
 					current.setFirstChild(mediator);
 					current.addTerm(term);
 					return current;
 						
-				} else {
+				} else { // stack.size() > labelLength && match != labelLength
 					
 					/*
-					 * E.g., insert [f, a, x](1) into [f, a, b, c](2): Split 
-					 * (2) into [f, a](3) and [b, c](4). Set the first child of 
-					 * (2) as first child of (3). Set (3) as first child of (2).
+					 * E.g., insert [f, a, b, c](1) into [f, a, x](2):
+					 * Set label of (2) to [f, a].
+					 * Create mediator(3) with label [x] and parent (2).
+					 * Set first child of (1) as first child of (3).
+					 * Make (3) the first child of (1).
+					 * Set (1) as the parent of (3).
 					 * Set (4) as next sibling of (3).
+					 * Set the next sibling of (1) as the next silbing of (3) (and set new parent (1) for all).
+					 * Set the next sibling of (1) to null.
+					 * Continue insertion with popped stack at mediator...
 					 */
 					
 					Label[] newLabels = current.getLabel().split(match - 1); // label should never ever (!root) be null, right?
@@ -75,6 +104,13 @@ public class ComplexTermInserter extends TermInserter {
 					mediator.setTermList(current.getTermList());
 					current.setTermList(null);
 					current.setFirstChild(mediator);
+					mediator.setNextSibling(current.getNextSibling()); 
+					current.setNextSibling(null);
+					Trie sibling = mediator.getNextSibling();
+					while (sibling != null) { // and set new parent for all of them!
+						sibling.setParent(current);
+						sibling = sibling.getNextSibling();
+					}
 					
 					// continue insertion with mediator (which should get a new sibling)
 					stack.pop(match);

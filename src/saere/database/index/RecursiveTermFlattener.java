@@ -1,6 +1,7 @@
-package saere.database;
+package saere.database.index;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import saere.CompoundTerm;
@@ -61,6 +62,21 @@ public class RecursiveTermFlattener extends AbstractTermFlattener {
 		}
 		
 		return terms.toArray(new Term[0]);
+	}
+
+	@Override
+	public Term[] flattenQuery(Term... terms) {
+		assert terms.length > 0 : "Invalid query length 0";
+		
+		List<Term> flattened = new LinkedList<Term>();
+		for (int i = 0; i < terms.length; i++) {
+			Term[] argTerms = flatten(terms[i]);
+			for (Term argTerm : argTerms) {
+				flattened.add(argTerm);
+			}
+		}
+		
+		return flattened.toArray(new Term[0]);
 	}
 
 }

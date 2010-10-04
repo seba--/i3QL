@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Term;
 
@@ -20,7 +20,7 @@ public class SimpleTermInserter extends TermInserter {
 	
 	@Override
 	public Trie insert(TermStack stack, Term term) {
-		assert root != null : "root is null";
+		//assert root != null : "root is null";
 		
 		Term first = stack.peek();
 		

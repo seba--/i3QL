@@ -37,7 +37,7 @@ public abstract class Database {
 	/**
 	 * This method is called at the end of {@link #fill()} and may be used to 
 	 * do some data reorganization after all facts of the {@link Factbase} are 
-	 * inserted.
+	 * inserted. This method does nothing by default.
 	 */
 	protected abstract void fillProcessComplete();
 

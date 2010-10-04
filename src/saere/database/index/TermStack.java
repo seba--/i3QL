@@ -1,6 +1,7 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Term;
+import saere.database.DatabaseTermFactory;
 import scala.actors.threadpool.Arrays;
 
 /**
@@ -89,7 +90,7 @@ public class TermStack {
 	}
 	
 	public Term pop(int number) {
-		assert number > 0 && position + number < terms.length : "illegal number";
+		assert number > 0 && position + number < terms.length : "Illegal number " + number;
 		
 		Term term = pop();
 		if (number > 1) {

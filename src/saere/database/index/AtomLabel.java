@@ -1,8 +1,9 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Atom;
 import saere.Term;
 import saere.Variable;
+import saere.database.Utils;
 
 /**
  * An {@link AtomLabel} represents a label that has only one {@link Atom} / free {@link Variable}.
@@ -41,7 +42,7 @@ public class AtomLabel extends Label {
 	
 	@Override
 	public int match(Term[] others) {
-		if (others.length == 1 && match(others[0])) {
+		if (match(others[0])) {
 			return 1;
 		} else {
 			return 0;

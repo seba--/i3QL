@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.index;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +83,18 @@ public class ShallowTermFlattener extends AbstractTermFlattener {
 				return atomize(term);
 			}
 		}
+	}
+
+	@Override
+	public Term[] flattenQuery(Term... terms) {
+		assert terms.length > 0 : "Invalid query length 0";
+		
+		Term[] flattened = new Term[terms.length];
+		for (int i = 0; i < flattened.length; i++) {
+			flattened[i] = atomize(terms[i]);
+		}
+		
+		return flattened;
 	}
 
 }

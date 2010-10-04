@@ -5,7 +5,6 @@ import java.util.Iterator;
 import saere.Solutions;
 import saere.State;
 import saere.Term;
-import saere.database.EmptySolutions;
 
 /**
  * Example for a rather short predicate with a low frequency. Uses lists.

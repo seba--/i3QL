@@ -60,6 +60,7 @@ public class Factbase {
 	 * Drops all facts.
 	 */
 	public void drop() {
+		DatabaseTermFactory.getInstance().resetIdCounter();
 		facts.clear();
 	}
 }

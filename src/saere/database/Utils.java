@@ -15,6 +15,8 @@ import saere.meta.GenericCompoundTerm;
  */
 public class Utils {
 
+	public static final String DEBUG_DUMP = "c:/users/leaf/desktop/debug_dump/";
+	
 	public static String termToString(Term t) {
 		String s = "";
 		if (!t.isVariable()) {

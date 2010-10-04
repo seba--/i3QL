@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Atom;
 import saere.Term;
@@ -21,4 +21,16 @@ public interface TermFlattener {
 	 * @return The flattened term representation.
 	 */
 	public Term[] flatten(Term term);
+	
+	/**
+	 * Flattens a query that is represented by an array terms. The first 
+	 * element of the array is the functor while additional elements of the 
+	 * query are arguments. Usually, one cannot flatten a query by flatten each 
+	 * argument for itself. This method takes care of creating a correct 
+	 * flattened representation of a query.
+	 * 
+	 * @param terms The terms that represent a query (a term).
+	 * @return The flattened version of the query.
+	 */
+	public Term[] flattenQuery(Term ... terms);
 }

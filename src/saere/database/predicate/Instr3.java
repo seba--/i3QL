@@ -5,9 +5,6 @@ import java.util.Iterator;
 import saere.Solutions;
 import saere.State;
 import saere.Term;
-import saere.database.EmptySolutions;
-import saere.database.Trie;
-import saere.database.TrieDatabase;
 
 /**
  * Example for a rather short predicate with a very high frequency. Uses tries.

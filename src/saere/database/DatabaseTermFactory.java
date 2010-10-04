@@ -10,6 +10,7 @@ import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
+import saere.database.index.TermStack;
 import saere.meta.GenericCompoundTerm;
 import saere.term.ListElement2;
 import scala.Function1;
@@ -186,5 +187,9 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		} else {
 			return makeCompoundTerm(".", new Term[] {}); // XXX EmptyList0.apply();
 		}
+	}
+	
+	public void resetIdCounter() {
+		counter.set(0);
 	}
 }

@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.index;
 
 import saere.Atom;
 import saere.Term;
@@ -7,7 +7,7 @@ import saere.Variable;
 /**
  * Abstract base class for {@link AtomLabel} and {@link CompoundLabel}. 
  * The {@link Label} class serves as sophisticated container for label(s) which 
- * can be atoms or variables. Every trie node has a label and determines what 
+ * can be atoms or variables. Every trie node has a label that determines what 
  * the node <i>represents</i>.
  * 
  * @author David Sullivan
@@ -98,6 +98,7 @@ public abstract class Label {
 	 * @return <tt>true</tt> if so.
 	 */
 	// Move to a better place...
+	// FIXME Doesn't work if only one is a variable!
 	protected boolean same(Term t0, Term t1) {
 		if (t0 == null) {
 			return t1 == null; // null == null
@@ -107,7 +108,7 @@ public abstract class Label {
 			return t0.asStringAtom().sameAs(t1.asStringAtom());
 		} else if (t0.isIntegerAtom() && t1.isIntegerAtom()) {
 			return t0.asIntegerAtom().sameAs(t1.asIntegerAtom());
-		} else if (t0.isVariable() && t1.isVariable()) {
+		} else if (t0.isVariable() && t1.isVariable()) { // both terms are variables
 			
 			// variables...
 			Variable v0 = t0.asVariable();

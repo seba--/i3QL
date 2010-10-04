@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.predicate;
 
 import saere.Solutions;
 

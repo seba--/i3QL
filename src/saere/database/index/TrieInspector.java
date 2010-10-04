@@ -1,4 +1,4 @@
-package saere.database;
+package saere.database.index;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 import java.nio.charset.Charset;
 import java.util.Iterator;
 
-import saere.Term;
+import saere.database.Utils;
 
 /**
  * This class gathers some information about a {@link Trie}.
@@ -68,7 +68,7 @@ public class TrieInspector {
 				// edges to terms
 				TermList list = trie.getTermList();
 				while (list != null) {
-					out.write((trieName + " -> \"" + escape(Utils.termToString(list.getTerm())) + "\";\n").getBytes(charset));
+					out.write((trieName + " -> \"" + /*shorten(*/escape(Utils.termToString(list.getTerm()))/*, 16)*/ + "\";\n").getBytes(charset));
 					list = list.getNext();
 				}
 			}
@@ -90,7 +90,15 @@ public class TrieInspector {
 			labelStr = label.toString();
 			labelStr = escape(labelStr);
 		}
+		
 		return "\"" + trie.hashCode() + "/" + labelStr + "\"";
+	}
+	
+	private String shorten(String s, int length) {
+		if (s.length() > length) {
+			s = s.substring(0, length) + "...";
+		}
+		return s;
 	}
 	
 	private String escape(String s) {
