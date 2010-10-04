@@ -6,7 +6,7 @@ provides additional constructs necessary to implement efficient static analyses.
 
 The SAE consists of two parts: a compiler to compile an SAE program into an 
 object-oriented program and a minimal runtime environment to execute the program. 
-The current object-oriented target language is Java. The SAE compiler is 
+The current target language is Java. The SAE compiler is 
 implemented in (SWI) Prolog.
 
 http://www.opal-project.de/sae_project/

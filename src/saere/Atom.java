@@ -56,14 +56,15 @@ public abstract class Atom extends Term {
 	 * state information need to be preserved.<br/> 
 	 * In general, we try to avoid explicit manifestation of an Atom's state.
 	 * This – i.e., avoiding useless calls to manifestState – however, requires 
-	 * whole program analyses. 
+	 * whole program analyses in general. 
 	 */
 	final public State manifestState(){ return null; } 
 
 	/**
-	 * This method does nothing.
+	 * Since an Atom's state is immutable, this method does nothing. 
 	 * 
-	 * @param state <i>"ignored"</i>.
+	 * @param state the value is <i>"ignored"</i>, but we actually test that
+	 * 	the value is <code>null</code> to catch programming errors early on.
 	 */
 	public final void setState(State state) {
 		assert (state == null); 

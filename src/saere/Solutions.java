@@ -32,7 +32,7 @@
 package saere;
 
 /**
- * Enables to iterate over all solutions produced by a predicate call.
+ * Enables to enumerate over all solutions produced by a predicate call.
  * 
  * @author Michael Eichberg
  */

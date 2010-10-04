@@ -59,22 +59,7 @@
 
 
 
-/**
-	Tokenizes a given string (S) and returns the list of tokens (Ts).
-	<p>
-	<b>Example</b>
-	<pre>
-	?- tokenize_string("a(b,C is b + 1)",Ts),write(Ts).
-	[t(a, 1, 0), ((1, 1), t(b, 1, 2), t(,, 1, 3), v(C, 1, 4), t(is, 1, 6), t(b, 1, 9), t(+, 1, 11), i(1, 1, 13), )(1, 14)]
-	
-	</pre>
-	</p>
-*/
-tokenize_string(S,Ts) :- 
-	string_to_list(S,Cs),
-	open_chars_stream(Cs,Stream),
-	tokenize(Stream,Ts),
-	close(Stream).
+
 
 
 
