@@ -1,4 +1,4 @@
-package saere.database.index;
+package saere.database.profiling;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -9,16 +9,15 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 
 import saere.database.Utils;
+import saere.database.index.Label;
+import saere.database.index.TermList;
+import saere.database.index.Trie;
 
 /**
  * This class gathers some information about a {@link Trie}.
  * 
  * @author David Sullivan
  * @version 0.2, 9/21/2010
- */
-/*
- * TODO Add average leaf/term depths
- * TODO Absoulte collision number
  */
 public class TrieInspector {
 	
@@ -94,13 +93,6 @@ public class TrieInspector {
 		return "\"" + trie.hashCode() + "/" + labelStr + "\"";
 	}
 	
-	private String shorten(String s, int length) {
-		if (s.length() > length) {
-			s = s.substring(0, length) + "...";
-		}
-		return s;
-	}
-	
 	private String escape(String s) {
 		String r = new String(s);
 		r = r.replace('\n', ' ');
@@ -135,12 +127,13 @@ public class TrieInspector {
 	
 	public void printStats() {
 		System.out.println();
-		System.out.println("Number of tries:\t\t\t" + numTries);
-		System.out.println("Number of term lists:\t\t\t" + numLists);
-		System.out.println("Number of terms:\t\t\t" + numTerms);
-		System.out.println("Average term list length (collision):\t" + (numTerms / numLists));
-		System.out.println("Fraction of terms:\t\t\t" + fracTerms + "%");
-		System.out.println("Average number of childs:\t\t" + avgNumChild);
+		System.out.println("Number of tries:\t\t" + numTries);
+		System.out.println("Number of term lists:\t\t" + numLists);
+		System.out.println("Number of terms:\t\t" + numTerms);
+		System.out.println("Average term list length:\t" + (numTerms / numLists));
+		System.out.println("Number of collisions:\t\t" + (numTerms - numLists));
+		System.out.println("Fraction of terms:\t\t" + fracTerms + "%");
+		System.out.println("Average number of childs:\t" + avgNumChild);
 		System.out.println();
 	}
 }

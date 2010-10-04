@@ -10,16 +10,17 @@ import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 import saere.database.index.AbstractTermFlattener;
+import saere.database.index.ComplexTermInserter;
 import saere.database.index.Label;
 import saere.database.index.RecursiveTermFlattener;
 import saere.database.index.ShallowTermFlattener;
 import saere.database.index.SimpleTermInserter;
 import saere.database.index.TermFlattener;
 import saere.database.index.Trie;
-import saere.database.index.TrieInspector;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.Instr3;
+import saere.database.profiling.TrieInspector;
 
 public class Lab {
 	
@@ -38,8 +39,8 @@ public class Lab {
 	};
 	
 	public static void main(String[] args) {		
-		compareTriesAndLists();
-		//printStatistics();
+		//compareTriesAndLists();
+		printStatistics();
 		//createGvFile();
 		//listTerms();
 		//smallFlatteningTests();
@@ -137,12 +138,14 @@ public class Lab {
 	// print statistics XXX why is TRie filled twice???
 	private static void printStatistics() {
 		//Trie.setTermFlattener(new ShallowTermFlattener()); // must be set earlier
+		Trie.setTermFlattener(new ShallowTermFlattener());
+		Trie.setTermInserter(new SimpleTermInserter());
 		for (String file : files) {
 			dropDBs();
 			fillDBs(file);
 			StringAtom instr = DatabaseTermFactory.makeStringAtom("instr");
-			Iterator<Term> listFacts = ListDatabase.getInstance().getFacts(instr);
-			Iterator<Term> trieFacts = TrieDatabase.getInstance().getFacts(instr);
+			Iterator<Term> listFacts = ListDatabase.getInstance().getFacts(); // they have to be assembled!
+			Iterator<Term> trieFacts = TrieDatabase.getInstance().getFacts();
 
 			int counter = 0;
 			Stopwatch sw = new Stopwatch();

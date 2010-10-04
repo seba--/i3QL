@@ -11,13 +11,14 @@ public class ComplexTermInserter extends TermInserter {
 		
 		if (current.isRoot()) { 
 			
-			// create the very first node
-			if (current.getFirstChild() == null) { 
+			if (current.getFirstChild() == null) { // create the very first node and add term directly
 				current.setFirstChild(new Trie(Label.makeLabel(stack.asArray()), current));
+				current.getFirstChild().addTerm(term);
+				return current.getFirstChild();
+			} else { // move to child
+				current = current.getFirstChild(); // set current for next insert()
+				return insert(stack, term);
 			}
-			
-			current = current.getFirstChild(); // set current for next insert()
-			return insert(stack, term);
 
 		} else { // !root
 			
@@ -33,13 +34,16 @@ public class ComplexTermInserter extends TermInserter {
 					
 					// insert as child
 					stack.pop(match);
-					if (current.getFirstChild() == null) {
+					if (current.getFirstChild() == null) { // create first child and add term directly
 						current.setFirstChild(new Trie(Label.makeLabel(stack.asArray()), current));
+						current.getFirstChild().addTerm(term);
+						return current.getFirstChild();
+					} else { // move to child
+						current = current.getFirstChild();
+						return insert(stack, term);
 					}
-					current = current.getFirstChild();
-					return insert(stack, term);
 					
-				} else {
+				} else { // match == stack.size()
 					
 					// insert here
 					current.addTerm(term);
@@ -48,7 +52,28 @@ public class ComplexTermInserter extends TermInserter {
 				
 			} else if (match > 0) { // partial match
 				
+				// split...
+				Label[] newLabels = current.getLabel().split(match - 1);
+				current.setLabel(newLabels[0]);
+				Trie mediator = new Trie(newLabels[1], current);
 				
+				// insert mediator
+				if (current.getFirstChild() != null) {
+					mediator.setFirstChild(current.getFirstChild());
+					mediator.getFirstChild().setParent(mediator);
+					
+					// set mediator as parent for all childs
+					Trie child = mediator.getFirstChild();
+					while (child != null) {
+						child.setParent(mediator);
+						child = child.getNextSibling();
+					}
+				}
+				current.setFirstChild(mediator);
+				
+				// send term list to mediator
+				mediator.setTermList(current.getTermList());
+				current.setTermList(null);
 				
 				if (stack.size() < labelLength) { 
 				
@@ -59,22 +84,6 @@ public class ComplexTermInserter extends TermInserter {
 					 * XXX and so on...
 					 */
 					
-					Label[] newLabels = current.getLabel().split(match - 1);
-					current.setLabel(newLabels[0]);
-					Trie mediator = new Trie(newLabels[1], current);
-					mediator.setFirstChild(current.getFirstChild());
-					if (mediator.getFirstChild() != null)
-						mediator.getFirstChild().setParent(mediator);
-					mediator.setTermList(current.getTermList());
-					mediator.setNextSibling(current.getNextSibling()); 
-					current.setNextSibling(null);
-					Trie sibling = mediator.getNextSibling();
-					while (sibling != null) { // and set new parent for all of them!
-						sibling.setParent(current);
-						sibling = sibling.getNextSibling();
-					}
-					current.setTermList(null);
-					current.setFirstChild(mediator);
 					current.addTerm(term);
 					return current;
 						
@@ -93,25 +102,6 @@ public class ComplexTermInserter extends TermInserter {
 					 * Continue insertion with popped stack at mediator...
 					 */
 					
-					Label[] newLabels = current.getLabel().split(match - 1); // label should never ever (!root) be null, right?
-					current.setLabel(newLabels[0]);
-					
-					// mediator
-					Trie mediator = new Trie(newLabels[1], current);
-					mediator.setFirstChild(current.getFirstChild());
-					if (mediator.getFirstChild() != null)
-						mediator.getFirstChild().setParent(mediator);
-					mediator.setTermList(current.getTermList());
-					current.setTermList(null);
-					current.setFirstChild(mediator);
-					mediator.setNextSibling(current.getNextSibling()); 
-					current.setNextSibling(null);
-					Trie sibling = mediator.getNextSibling();
-					while (sibling != null) { // and set new parent for all of them!
-						sibling.setParent(current);
-						sibling = sibling.getNextSibling();
-					}
-					
 					// continue insertion with mediator (which should get a new sibling)
 					stack.pop(match);
 					current = mediator;
@@ -120,14 +110,14 @@ public class ComplexTermInserter extends TermInserter {
 				
 			} else { // no match
 				
-				if (current.getNextSibling() == null) {
-					
-					// make trie with the rest of the stack as label
+				if (current.getNextSibling() == null) { // create first next sibling and add term directly
 					current.setNextSibling(new Trie(Label.makeLabel(stack.asArray()), current.getParent()));
+					current.getNextSibling().addTerm(term);
+					return current.getNextSibling();
+				} else { // move to next sibling
+					current = current.getNextSibling();
+					return insert(stack, term);
 				}
-				
-				current = current.getNextSibling();
-				return insert(stack, term);
 			}
 		}
 	}

@@ -180,7 +180,7 @@ public class Trie {
 	public String toString() {
 		String tStr = termList != null ? Utils.termToString(getTermList().getTerm()) : "null";
 		String lStr = label != null ? label.toString() : "root"; // only the root has no label
-		String pStr = parent != null && parent.label != null ? parent.label.toString() : (parent != null && parent.label == null ? "root" : "null");
+		String pStr = parent != null && parent.label != null ? parent.label.toString() : (parent != null && parent.label == null ? "<root>" : "null");
 		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
 		String nStr = nextSibling != null && nextSibling.label != null ? nextSibling.label.toString() : "null";
 		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + ", term=" + tStr + "]";
