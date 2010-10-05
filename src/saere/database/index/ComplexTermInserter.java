@@ -62,7 +62,7 @@ public class ComplexTermInserter extends TermInserter {
 					mediator.setFirstChild(current.getFirstChild());
 					mediator.getFirstChild().setParent(mediator);
 					
-					// set mediator as parent for all childs
+					// set mediator as parent for all children
 					Trie child = mediator.getFirstChild();
 					while (child != null) {
 						child.setParent(mediator);

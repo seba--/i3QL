@@ -193,10 +193,9 @@ public class Trie {
 		if (inserter instanceof SimpleTermInserter) {
 			return new SimpleTrieTermIterator(this, terms);
 		} else if (inserter instanceof ComplexTermInserter) {
-			return null;
-			//return ComplexTrieTermIterator(this, terms);
+			return new ComplexTrieTermIterator(this, terms);
 		} else {
-			return null;
+			return EmptyTermIterator.getInstance();
 		}
 	}
 	
@@ -268,7 +267,8 @@ public class Trie {
 	
 	public int labelLength() {
 		if (label == null) {
-			return 1; // XXX Hmm, actually ONLY the root should have no label, and we don't pop sth for the root...
+			// this was 1 before! 10/5/2010 3:45 PM
+			return 0; // XXX Hmm, actually ONLY the root should have no label, and we don't pop sth for the root...
 		} else {
 			return label.length();
 		}
