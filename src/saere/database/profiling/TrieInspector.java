@@ -55,12 +55,12 @@ public class TrieInspector {
 			Iterator<Trie> iterator = trie.nodeIterator();
 			while (iterator.hasNext()) {
 				trie = iterator.next();
-				String trieName = makeTrieName(trie);
+				String trieName = makeTrieName(trie, true);
 				
 				// edges to children (of which actually only the one to the first children exists)
 				Trie child = trie.getFirstChild();
 				while (child != null) {
-					out.write((trieName + " -> " + makeTrieName(child) + ";\n").getBytes(charset));
+					out.write((trieName + " -> " + makeTrieName(child, true) + ";\n").getBytes(charset));
 					child = child.getNextSibling();
 				}
 				
@@ -79,18 +79,25 @@ public class TrieInspector {
 		}
 	}
 	
-	private String makeTrieName(Trie trie) {
-		Label label = null;
-		if (trie.getLabel() != null) {
-			label = trie.getLabel();
-		}
-		String labelStr = "root"; // only the root is allowed to have no label
-		if (label != null) {
-			labelStr = label.toString();
-			labelStr = escape(labelStr);
+	private String makeTrieName(Trie trie, boolean longName) {
+		String name = null;
+		
+		if (longName) {
+			return "\"" + trie.hashCode() + "/" + trie.toString() + "\"";
+		} else {
+			Label label = null;
+			if (trie.getLabel() != null) {
+				label = trie.getLabel();
+			}
+			String labelStr = "root"; // only the root is allowed to have no label
+			if (label != null) {
+				labelStr = label.toString();
+				labelStr = escape(labelStr);
+			}
+			name = labelStr;
 		}
 		
-		return "\"" + trie.hashCode() + "/" + labelStr + "\"";
+		return "\"" + trie.hashCode() + "/" + name + "\"";
 	}
 	
 	private String escape(String s) {

@@ -36,7 +36,7 @@ public class SimpleTermInserter extends TermInserter {
 			current = current.getFirstChild(); // set current for next insert()
 			return insert(stack, term);
 
-		} else if (current.getLabel().match(first)) { // the labels match
+		} else if (Matcher.match(current.getLabel(), first)) { // the labels match
 			
 			// remove the first atom/variable from stack
 			stack.pop();

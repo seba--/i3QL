@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import saere.StringAtom;
 import saere.Term;
-import saere.database.index.EmptyTermIterator;
 import saere.database.index.Trie;
 
 public class TrieDatabase extends Database {
@@ -45,42 +44,15 @@ public class TrieDatabase extends Database {
 	public Iterator<Term> getFacts() {
 		return root.iterator();
 	}
-
-	// FIXME This method may not work properly with Complex Tries ... or at all
+	
 	@Override
 	public Iterator<Term> getFacts(StringAtom functor) {
-		
-		/*
-		// simply iterate through children list (which should be okay if we have a small set of predicates)
-		Trie predicate = root.getFirstChild();
-		while (predicate != null) {
-			if (predicate.labelMatches(functor)) {
-				return predicate.iterator();
-			}
-			predicate = predicate.getNextSibling();
-		}
-		
-		return EmptyTermIterator.getInstance();
-		*/
 		return root.iterator(new Term[] { functor });
 	}
 
 	@Override
 	public Iterator<Term> getCandidates(Term[] terms) {
 		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
-		
 		return root.iterator(terms);
-		/*
-		// simply iterate through children list (which should be okay if we have a small set of predicates)
-		Trie predicate = root.getFirstChild();
-		while (predicate != null) {
-			if (predicate.labelMatches(terms[0])) {
-				return predicate.iterator(terms);
-			}
-			predicate = predicate.getNextSibling();
-		}
-		
-		return EmptyTermIterator.getInstance();
-		*/
 	}
 }

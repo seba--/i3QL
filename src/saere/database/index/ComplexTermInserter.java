@@ -2,12 +2,20 @@ package saere.database.index;
 
 import saere.Term;
 
-// FIXME Seems to be buggy (iterators won't work correctly with it).
+/**
+ * A {@link TermInserter} for <i>Complex Term Insertion</i> (CTI). 
+ * {@link Trie}s created with this {@link TermInserter} have as much 
+ * {@link Trie} nodes as required, but not more. However, the insertion process 
+ * is a bit more <i>complex</i> (and may take more time).
+ * 
+ * @author David Sullivan
+ * @version 0.3, 10/6/2010
+ */
 public class ComplexTermInserter extends TermInserter {
 	
 	@Override
 	public Trie insert(TermStack stack, Term term) {
-		assert root != null : "root is null"; // why was that again?
+		//assert root != null : "root is null"; // why was that again?
 		
 		if (current.isRoot()) { 
 			
@@ -23,12 +31,11 @@ public class ComplexTermInserter extends TermInserter {
 		} else { // !root
 			
 			// how "much" does the current label matches with the current stack (state)
-			int match = match(current.getLabel(), stack);
-			int labelLength = current.labelLength();
+			int match = Matcher.match(current.getLabel(), stack);
 			
-			assert labelLength >= match : "label length is smaller than match";
+			assert current.labelLength() >= match : "label length is smaller than match";
 			
-			if (match == labelLength) { // complete match --> insert here or as child
+			if (match == current.labelLength()) { // complete match -> insert here or as child
 				
 				if (match < stack.size()) {
 					
@@ -75,41 +82,12 @@ public class ComplexTermInserter extends TermInserter {
 				mediator.setTermList(current.getTermList());
 				current.setTermList(null);
 				
-				if (stack.size() < labelLength) { 
-				
-					/*
-					 * E.g., insert [a, b](1) into [a, b, c](2):
-					 * Set label of (2) to [a, b].
-					 * Create mediator(3) with label [c] and parent (2).
-					 * XXX and so on...
-					 */
-					
-					current.addTerm(term);
-					return current;
-						
-				} else { // stack.size() > labelLength && match != labelLength
-					
-					/*
-					 * E.g., insert [f, a, b, c](1) into [f, a, x](2):
-					 * Set label of (2) to [f, a].
-					 * Create mediator(3) with label [x] and parent (2).
-					 * Set first child of (1) as first child of (3).
-					 * Make (3) the first child of (1).
-					 * Set (1) as the parent of (3).
-					 * Set (4) as next sibling of (3).
-					 * Set the next sibling of (1) as the next silbing of (3) (and set new parent (1) for all).
-					 * Set the next sibling of (1) to null.
-					 * Continue insertion with popped stack at mediator...
-					 */
-					
-					// continue insertion with mediator (which should get a new sibling)
-					stack.pop(match);
-					current = mediator;
-					return insert(stack, term);
-				}
+				// and go on...
+				stack.pop(match);
+				current = mediator;
+				return insert(stack, term);
 				
 			} else { // no match
-				
 				if (current.getNextSibling() == null) { // create first next sibling and add term directly
 					current.setNextSibling(new Trie(Label.makeLabel(stack.asArray()), current.getParent()));
 					current.getNextSibling().addTerm(term);
@@ -121,9 +99,4 @@ public class ComplexTermInserter extends TermInserter {
 			}
 		}
 	}
-	
-	private int match(Label label, TermStack stack) {
-		return label.match(stack.asArray());
-	}
-
 }

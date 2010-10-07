@@ -4,6 +4,13 @@ import java.util.Iterator;
 
 import saere.Term;
 
+/**
+ * A {@link TrieTermIterator} that supports queries on complex {@link Trie}s 
+ * (which have been created by a {@link ComplexTermInserter}).
+ * 
+ * @author David Sullivan
+ * @version 0.2, 10/6/2010
+ */
 public class ComplexTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
 	
 	private TermStack stack;
@@ -31,7 +38,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 		stack = new TermStack(Trie.getTermFlattener().flattenQuery(terms));
 		
 		// don't skip the first node
-		if (!current.isRoot() && stack.size() == 1 && match(current.getLabel(), stack) <= stack.size()) {
+		if (!current.isRoot() && stack.size() == 1 && Matcher.match(current.getLabel(), stack) <= stack.size()) {
 			useSubiterator = true;
 			if (subiterator.hasNext()) {
 				next = subiterator.next();
@@ -62,7 +69,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 			
 			// Compute match now, as we'll need it anyway.
 			// How "much" does the current label matches with the current stack (state)?
-			int match = match(current.getLabel(), stack);
+			int match = Matcher.match(current.getLabel(), stack);
 			
 			// Check if we need a subiterator (if it isn't already active).
 			// We'll need one if an end point is reached, i.e., if the only 
@@ -84,22 +91,13 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 				}
 			} else { // normal mode	
 				
-				int labelLength = current.labelLength();
-				
-				if (match > 0) {
+				if (match > 0) { // any match
 					
-					// FIXME Problem with inner node subiterators (how to go on after iteration?)
-					
-					if (match == stack.size()) { // 1. end point reached? --> subiterator
-						
+					if (match == stack.size()) { // end point reached, create subiterator
 						useSubiterator = true;
 						subiterator.resetTo(current);
-						
-					} else if (match == labelLength) { // match < stack.size()
-						
-						//stack.pop(labelLength);
-						nextNode(); // XXX or directly go down?
-						
+					} else if (match == current.labelLength()) { // match < stack.size()
+						nextNode(); // XXX or goDown() directly?
 					} else { // match < labelLength
 						goRight(); // no full match, go right
 					}
@@ -113,7 +111,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 	
 	@Override
 	protected void goUp() {
-		stack.back(current.getParent().labelLength()); // new: labelLength() // FIXME! CANNOT WORK THAT WAY! The 'new' current's label has nothing to do with the label we used to go down!
+		stack.back(current.getParent().labelLength()); // new: getParent().labelLength()
 		super.goUp();
 	}
 	
@@ -121,33 +119,5 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 	protected void goDown() {
 		stack.pop(current.labelLength()); // new: labelLength() 
 		super.goDown();
-	}
-	
-	// doesn't work with the root (since its label is null)
-	protected int match(Label label, TermStack stack) {
-		assert label != null : "Cannot match with null label";
-		
-		if (stack.size() == 0)
-			return 0;
-		
-		// handle variables
-		Term peeked = stack.peek();
-		if (peeked.isVariable() && !peeked.asVariable().isInstantiated()) { // free variable
-			
-			if (stack.size() > 1) {
-				Term[] array = stack.asArray();
-				int i = 1;
-				peeked = array[i];
-				while (peeked.isVariable() && !peeked.asVariable().isInstantiated() && i < array.length) {
-					peeked = array[i++];
-				}
-				return i > label.length() ? label.length() : i;
-			} else {
-				return 1;
-			}
-			
-		} else { // normal case, no variable(s)
-			return label.match(stack.asArray());
-		}
 	}
 }

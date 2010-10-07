@@ -27,38 +27,6 @@ public class AtomLabel extends Label {
 	}
 
 	@Override
-	public int match(Label other) {
-		if (same(term, other.getLabel(0))) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
-
-	@Override
-	public boolean match(Term other) {
-		return same(term, other);
-	}
-	
-	@Override
-	public int match(Term[] others) {
-		if (match(others[0])) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
-
-	@Override
-	public boolean same(Label other) {
-		if (other.isAtomLabel() && same(term, other.getLabel(0))) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
 	public Term getLabel(int index) {
 		assert index == 0 : "Index out of bounds";
 		return term;
@@ -77,5 +45,10 @@ public class AtomLabel extends Label {
 	@Override
 	public String toString() {
 		return Utils.termToString(term); // XXX better no dependency on Utils
+	}
+	
+	@Override
+	public Term[] asArray() {
+		return new Term[] { term };
 	}
 }

@@ -120,12 +120,6 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	 */
 	protected boolean match(TermStack stack) {
 		assert current.getLabel() != null : "Cannot match a root";
-		
-		Term peeked = stack.peek();
-		if (peeked.isVariable() && !peeked.asVariable().isInstantiated()) {
-			return true; // an unbound variable always matches, XXX Why check here? Shouldn't Label.same() do this?
-		} else {
-			return current.getLabel().match(stack.peek());
-		}
+		return Matcher.match(current.getLabel(), stack.peek());
 	}
 }

@@ -239,30 +239,13 @@ public class Trie {
 		assert isRoot() : "Can get predicate subtries from root only";
 		Trie child = firstChild;
 		while (child != null) {
-			if (labelMatches(functor)) {
+			if (Matcher.match(label, functor)) {
 				return child;
 			}
 			child = child.nextSibling;
 		}
 		
 		return null;
-	}
-	
-	/**
-	 * Checks if this {@link Label} matches the specified {@link saere.Atom} or 
-	 * free {@link Variable}.<br/>
-	 * <br/>
-	 * Convenience method that behaves (wraps) exactly the same as 
-	 * {@link Label#match(Term)}.
-	 * 
-	 * @param term An {@link saere.Atom} or free {@link Variable}.
-	 * @return <tt>true</tt> if so.
-	 * @see Label#match(Term)
-	 */
-	// to abstract from the horrible Label implementations...
-	public boolean labelMatches(Term term) {
-		assert term.isIntegerAtom() || term.isStringAtom() || (term.isVariable() && !term.asVariable().isInstantiated()) : "Invalid term paremeter";
-		return label != null && label.match(term);
 	}
 	
 	public int labelLength() {

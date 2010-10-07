@@ -31,47 +31,6 @@ public class CompoundLabel extends Label {
 	public int length() {
 		return terms.length;
 	}
-
-	@Override
-	public int match(Label other) {
-		int min = Math.min(terms.length, other.length());
-		int matches = 0;
-		
-		for (int i = 0; i < min; i++) {
-			if (same(terms[i], other.getLabel(i))) {
-				matches++;
-			} else {
-				break;
-			}
-		}
-		
-		return matches;
-	}
-	
-	@Override
-	public int match(Term[] others) {
-		int min = Math.min(terms.length, others.length);
-		int matches = 0;
-		
-		for (int i = 0; i < min; i++) {
-			if (same(terms[i], others[i])) {
-				matches++;
-			} else {
-				break;
-			}
-		}
-		
-		return matches;
-	}
-
-	@Override
-	public boolean same(Label other) {
-		if (terms.length == other.length() && match(other) == terms.length) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
 	@Override
 	public boolean isCompoundLabel() {
@@ -103,9 +62,9 @@ public class CompoundLabel extends Label {
 		
 		return s; 
 	}
-
+	
 	@Override
-	public boolean match(Term other) {
-		return false;
+	public Term[] asArray() {
+		return terms;
 	}
 }
