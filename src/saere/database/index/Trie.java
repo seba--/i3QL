@@ -40,7 +40,6 @@ public class Trie {
 	// XXX We assume only one root, code this!
 	public Trie() {
 		this(null, null);
-		inserter.setRoot(this);
 	}
 	
 	// public now, as the TermInserter creates these...

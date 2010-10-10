@@ -1,7 +1,5 @@
 package saere.database;
 
-import java.util.Set;
-
 import saere.Solutions;
 import saere.Term;
 import saere.Variable;
@@ -74,18 +72,5 @@ public class Utils {
 		System.out.print(counter + " Solutions found, ");
 		sw.printElapsed("query");
 		System.out.println();
-	}
-	
-	public static boolean same(Set<Term> s1, Set<Term> s2) {
-		if (s1.size() != s2.size())
-			return false;
-		
-		for (Term term : s1) {
-			if (!s2.contains(term)) {
-				return false;
-			}
-		}
-		
-		return true;
 	}
 }
