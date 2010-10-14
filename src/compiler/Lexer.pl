@@ -45,8 +45,8 @@
 	programs.<br/>
    The types of tokens recognized by this lexer is shown in the following. 
    <code>LN</code> and <code>CN</code> always identify the line and
-   column where the token was found and <code>F</code> the underlying source 
-	file. IF you lex an in-memory string, then F will be the empty list "[]".
+   column where the token was found and <code>F</code> identifies the underlying source 
+	file. IF you lex an in-memory string, F will be the empty list "[]".
    <ul>
    <li>a(S,pos(F,LN,CN)) :- S is an atom; basically a string of chars or a sequence of
 		operators (e.g., ':-').<br />
@@ -297,8 +297,8 @@ tokenize(_Stream,[]). % we reached the end of the file
 
 
 /**
-   The list of all operator characeters that are allowed to be combined to form new
-   operator names, such as, ":-" or "=/=".
+   The list of all operator characeters that are allowed to be combined to form 
+	new operator names, such as, ":-" or "=/=".
 */
 operator_char('='). 	% "=" is not mentioned in the "ISO Prolog" book, but in 
 							% "Learn Prolog Now"
@@ -338,7 +338,7 @@ parenthesis('}').
 /******************************************************************************\
  *                                                                            *
  *                    -------------------------------------                   *   
- *                    P A R S I N G   P R O L O G   C O D E                   *   
+ *                     L E X I N G   P R O L O G   C O D E                    *   
  *                    -------------------------------------                   *   
  *                                                                            *
 \******************************************************************************/
