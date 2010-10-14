@@ -38,7 +38,8 @@
 	<i>Notes</i><br/>
 	As the argument of a compound term only operators with priority less than 1000
 	are allowed.<br/>
-	Special cases that are not reflected by the grammar are:
+	Special cases that are not reflected by the grammar, but which are handled by 
+	the parser, are:
 	<ul>
 	<li> "\+ (a,b)" and "\+(a,b)" are different statements; the first term
 	is actually equivalent to: "'\+'(','(a,b))"</li>
@@ -81,8 +82,13 @@
 	</p>
    
    @author Michael Eichberg (mail@michael-eichberg.de)
+   @version 0.9.1 - Oct., 14th 2010 
+		New: 		new operators can now be defined using the ":- op(...)" directive
+		Fixes: 	we now restrict a subterm's allowed max. priority while parsing
+					(This cuts of a large number of choice points and significantly
+					improves the performance.)
    @version 0.9 - Sep., 1st 2010 
-		The parser works reasonably well for the tested examples.
+		The parser works reasonably well for the tested examples.		
 */
 :- module(
    	'SAEProlog:Compiler:Parser',
@@ -97,7 +103,8 @@
 
 /**
    Parses a list of tokens (<code>Ts</code>) and generates the AST of the 
-   program (<code>P</code>). At the top-level the AST is a list of statements.
+   program (<code>P</code>). P is a list of terms (Facts, Directives and Rule 
+	definitions).
 */
 program(Ts,P) :-
 	default_op_table(Ops),
@@ -179,13 +186,13 @@ default_op_table(
 		],
 		[	% INFIX...
 			op(1200,xfx,':-'),
-			op(700,xfx,'='),
+			op(1200,xfx,'-->'),
 			op(1100,xfy,';'),
 			op(1000,xfy,','), % Redefining "and" is NOT supported!
+			op(700,xfx,'='),
 			op(500,yfx,'-'),
 			op(500,yfx,'+'),
 			op(1050,xfy,'->'),
-			op(1200,xfx,'-->'),
 			op(400,yfx,'*'),
 			op(400,yfx,'/'),
 			op(700,xfx,'\\='),
@@ -212,74 +219,13 @@ default_op_table(
 			op(400,yfx,'>>'),
 			op(200,xfx,'**'),		
 			op(200,xfy,'^')				
-
 		],
 		[	% POSTFIX...		
 		]		
 	)
 ).
-/*
-default_op_table(ops(PrefixOps,InfixOps,PostfixOps)) :-
-	list_to_assoc(
-		[
-			-(':-',op(1200,fx,':-')),
-			-('?-',op(1200,fx,'?-')),		
 
-			-('\\+',op(900,fy,'\\+')),
 
-			-('-',op(200,fy,'-')),	
-			-('\\',op(200,fy,'\\')) % bitwise complement
-		],
-		PrefixOps
-	),
-	list_to_assoc(
-		[
-			-(':-',op(1200,xfx,':-')),
-			-('-->',op(1200,xfx,'-->')),
-
-			-(';',op(1100,xfy,';')),
-			-('|',op(1100,xfy,'|')), % also defined by SWI Prolog
-
-			-('->',op(1050,xfy,'->')),
-
-			-(',',op(1000,xfy,',')), % Redefining "and" is NOT supported!
-
-			-('=',op(700,xfx,'=')),
-			-('\\=',op(700,xfx,'\\=')),
-			-('is',op(700,xfx,'is')),
-			-('<',op(700,xfx,'<')),
-			-('>',op(700,xfx,'>')),
-			-('=<',op(700,xfx,'=<')),
-			-('>=',op(700,xfx,'>=')),
-			-('=:=',op(700,xfx,'=:=')),
-			-('=\\=',op(700,xfx,'=\\=')),	
-			-('=..',op(700,xfx,'=..')),
-			-('==',op(700,xfx,'==')),
-			-('\\==',op(700,xfx,'\\==')),
-			-('@<',op(700,xfx,'@<')),
-			-('@=<',op(700,xfx,'@=<')),
-			-('@>',op(700,xfx,'@>')),
-			-('@>=',op(700,xfx,'@>=')),		
-
-			-('\\/',op(500,yfx,'\\/')),
-			-('/\\',op(500,yfx,'/\\')),	
-			-('+',op(500,yfx,'+')),
-			-('-',op(500,yfx,'-')),
-
-			-('*',op(400,yfx,'*')),
-			-('/',op(400,yfx,'/')),
-			-('//',op(400,yfx,'//')), % X // Y Division mit Ganzzahlergebnis
-			-('mod',op(400,yfx,'mod')),
-			-('<<',op(400,yfx,'<<')),
-			-('>>',op(400,yfx,'>>')),
-
-			-('**',op(200,xfx,'**')),		
-			-('^',op(200,xfy,'^'))				
-		],
-		InfixOps
-	),
-	empty_assoc(PostfixOps).
-*/	
 
 
 
@@ -290,57 +236,110 @@ default_op_table(ops(PrefixOps,InfixOps,PostfixOps)) :-
 \******************************************************************************/
 
 /*
-The following pseudocode shows the underlying approach to parse Prolog terms using 
-Definite Clause Grammars (DCGs). The operator table is an argument of 
-each rule and the default operator table is defined by default_op_table.
+	The following pseudocode shows the underlying approach to parse Prolog terms 
+	using Definite Clause Grammars (DCGs). 
 
----- 1. Step - NAIVE GRAMMAR - NOT WORKING... (left recursive)
-term --> prefix_op, term.
-term --> [a(_)]
-term --> term, infix_op, term.
-term --> term, postfix_op.
-prefix_op --> [...].
-postfix_op --> [...].
-infix_op --> [...].
+	---- 1. Step - NAIVE GRAMMAR - NOT WORKING... (left recursive)
+	term --> prefix_op, term.
+	term --> [a(_)]
+	term --> term, infix_op, term.
+	term --> term, postfix_op.
+	prefix_op --> [...].
+	postfix_op --> [...].
+	infix_op --> [...].
 
----- 2. Step - AFTER LEFT RECURSION REMOVAL...
-term_r --> infix_op, term, term_r.
-term_r --> postfix_op, term_r.
-term_r --> [].
+	---- 2. Step - AFTER LEFT RECURSION REMOVAL...
+	term --> prefix_op, term, term_r.
+	term --> [a(_)], term_r.
 
-term --> prefix_op, term, term_r.
-term --> [a(_)], term_r.
+	term_r --> infix_op, term, term_r.
+	term_r --> postfix_op, term_r.
+	term_r --> [].
 
-prefix_op --> [...].
-postfix_op --> [...].
-infix_op --> [...].
+	prefix_op --> [...].
+	postfix_op --> [...].
+	infix_op --> [...].
+	
+	----- Remarks
+	The operator table is made an argument of each rule and the default operator 
+	table is defined by default_op_table.
 */
 		
 
-program(Ops,[S|SRs]) --> 
+program(Ops,R) --> 
 	clause(Ops,S),
-	program(Ops,SRs),{!}. % TODO Add code to update the operator table...		 	
+	{	!,
+		(	
+			S = ct(_DPos, ':-',[_Directive]),!, % a directive always has one argument
+			R = SRs,
+			process_directive(Ops,S,NewOps)
+		;	
+			\+ validate_clause(S),!,
+			R = SRs,
+			Ops = NewOps
+		;
+			R = [S|SRs],
+			Ops = NewOps
+		)
+	},
+	program(NewOps,SRs).
 program(_Ops,[]) --> {true}.
 
 
+% TODO add code to check that the operator definition is valid 
+% TODO support the removal / redefinition of operators
+process_directive(
+		ops(PrefixOps,InfixOps,PostfixOps),
+		ct(Pos,':-',[ct(_,op,[i(_,Priority), a(_, Specifier), a(_, Op)])]),
+		ops(NewPrefixOps,NewInfixOps,NewPostfixOps)
+) :- !,
+	write('Operator definition: '),write(Op),nl,
+	(  (Specifier = fx ; Specifier = fy),!,
+		NewPrefixOps = [op(Priority,Specifier,Op)|PrefixOps],
+		NewInfixOps = InfixOps,
+		NewPostfixOps = PostfixOps
+	;	(Specifier = xfx ; Specifier = xfy ; Specifier = yfx),!,
+		NewPrefixOps = PrefixOps,
+		NewInfixOps = [op(Priority,Specifier,Op)|InfixOps],
+		NewPostfixOps = PostfixOps
+	;	(Specifier = xf ; Specifier = yf),!,
+		NewPrefixOps = PrefixOps,
+		NewInfixOps = InfixOps,
+		NewPostfixOps = [op(Priority,Specifier,Op)|PostfixOps]
+	;
+		% IMPROVE error message
+		write('Illegal specifier: '),write(Pos),write(Specifier),nl,
+		NewPrefixOps = PrefixOps,
+		NewInfixOps = InfixOps,
+		NewPostfixOps = PostfixOps
+	).
+process_directive(Ops,ct(Pos,':-',[Directive]),Ops) :- !,
+	% IMPROVE error message
+	write('Unknown/unsupported directive: '),write(Pos),write(Directive),nl.
 
-% TODO Add code to check that the term is a valid top-level term....
+
+
+validate_clause(_S). % TODO check that a clause definition is valid (e.g. that it is not a simple variable.)
+
+
+
+
+/******************************************************************************\
+ *                                                                            *
+ *                       T H E   C O R E   P A R S E R                        *
+ *                                                                            *
+\******************************************************************************/
+
+
+
+
 clause(Ops,Term) --> 
-	% Check that term is valid top-level term; i.e., it is an atom, a compound 
-	% term, a directive or a clause definition.
 	term(Ops,1200,Term,_TermPriority),
 	[a('.',_Pos)],
-	{
-		/*write(T),nl,*/
-		!
-	}. 
+	{!}. 
 
 
-
-/* Example usage: 
- 	default_op_table(Ops), term(Ops,T,TP,['-','-',a(x),'yDEL','*',a(y)],[]),write(T).
-
-	@signature (x_)term(Ops,T,TP)
+/* @signature term{_r}(Ops,MaxPriority{,LeftTerm,LeftTermPriority},Term,TermPriority)
  	@arg(in) Ops table of operators
 	@arg(in) MaxPriority the maximum allowed priority of a term
 	@arg(in) LeftTerm the left term
@@ -348,87 +347,75 @@ clause(Ops,Term) -->
 	@arg(out) Term the accepted term
 	@arg(out) TermPriority the priority of the accepted term	
 */
+term(Ops,MaxPriority,Term,TermPriority) --> 
+	elementary_term(Ops,IntermediateTerm), 
+	term_r(Ops,MaxPriority,IntermediateTerm,0,Term,TermPriority).
+term(Ops,MaxPriority,Term,TermPriority) --> 
+	prefix_op(Ops,op(Priority,Associativity,Op),Pos),
+	{ 	MaxPriority >= Priority,
+		(	Associativity = fx -> 
+			MaxSubTermPriority is Priority - 1
+		; %Associativity = fy 
+			MaxSubTermPriority = Priority
+		)
+	}, 
+	term(Ops,MaxSubTermPriority,SubTerm,_SubTermPriority), 
+	term_r(Ops,MaxPriority,ct(Pos,Op,[SubTerm]),Priority,Term,TermPriority).
+	
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
 	infix_op(Ops,op(Priority,Associativity,Op),Pos),
-	{ MaxPriority >= Priority },  
-	term(Ops,MaxPriority,RightTerm,RightTermPriority),
+	{	MaxPriority >= Priority,
+		(	Associativity = yfx -> 
+			Priority >= LeftTermPriority
+		; %(Associativity = xfx, Associativity = xfy),
+			Priority > LeftTermPriority
+		)		
+	},  
+	term(Ops,Priority,RightTerm,RightTermPriority),
 	{
-		(
-			(Associativity = xfx, Priority > LeftTermPriority, Priority > RightTermPriority) 
-		; 
-			(Associativity = yfx, Priority >= LeftTermPriority, Priority > RightTermPriority)
-		; 
-			(Associativity = xfy, Priority > LeftTermPriority, Priority >= RightTermPriority)
-		), 
+		(	Associativity = xfy ->
+			Priority >= RightTermPriority
+		;% (Associativity = xfx; Associativity = yfx),
+			Priority > RightTermPriority
+		),
 		IntermediateTerm = ct(Pos,Op,[LeftTerm,RightTerm])
 	},
 	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
 	postfix_op(Ops,op(Priority,Associativity,Op),Pos), 
-	{ MaxPriority >= Priority }, 
-	{
+	{	MaxPriority >= Priority, 
 		(	Associativity = xf -> 
 			Priority > LeftTermPriority 
-		; 
+		; %Associativity = yf 
  			Priority >= LeftTermPriority 
-		),
-		/*(
-			( Associativity = xf, Priority > LeftTermPriority ) 
-		; 
- 			( Associativity = yf, Priority >= LeftTermPriority )
-		),
-		*/
-		IntermediateTerm = ct(Pos,Op,[LeftTerm])
+		)
 	},
-	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
+	term_r(Ops,MaxPriority,ct(Pos,Op,[LeftTerm]),Priority,Term,TermPriority).
 term_r(_Ops,_MaxPriority,T,TP,T,TP) --> [].
 
-term(Ops,MaxPriority,Term,TermPriority) --> 
-	prefix_op(Ops,op(Priority,Associativity,Op),Pos),
-	{ MaxPriority >= Priority }, 
-	term(Ops,MaxPriority,RightTerm,RightTermPriority), 
-	{
-		(	Associativity = fx -> 
-			Priority > RightTermPriority 
-		; 
-			Priority >= RightTermPriority
-		),
-		/*
-		(
-			(Associativity = fx, Priority > RightTermPriority) 
-		; 
-			(Associativity = fy, Priority >= RightTermPriority)
-		),
-		*/
-		IntermediateTerm = ct(Pos,Op,[RightTerm])
-	},
-	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
-term(Ops,MaxPriority,Term,TermPriority) --> 
-	elementary_term(Ops,IntermediateTerm), 
-	term_r(Ops,MaxPriority,IntermediateTerm,0,Term,TermPriority).
+
 
 prefix_op(ops(PrefixOps,_,_),Op,Pos) --> 
 	[a(X,Pos)],
 	{ Op=op(_,_,X), memberchk(Op,PrefixOps) }.
-	% { get_assoc(X,PrefixOps,Op) }.
+	
 	
 infix_op(ops(_,InfixOps,_),Op,Pos) --> 
 	(
 		[a(X,Pos)]
 	;
-		[f(X,Pos)]
+		[f(X,Pos)] % ... an infix operator in functor postion; e.g., V=(A,B)
 	),
 	{ !, Op=op(_,_,X), memberchk(Op,InfixOps) }.
-	% { get_assoc(X,InfixOps,Op) }.
+
 
 postfix_op(ops(_,_,PostfixOps),Op,Pos) --> 
 	[a(X,Pos)],
 	{ Op=op(_,_,X), memberchk(Op,PostfixOps) }.
-	% { get_assoc(X,PostfixOps,Op) }.
+
 
 
 elementary_term(_Ops,V) --> var(V),{!}.
-elementary_term(_Ops,A) --> atom(A),{!}.
 elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}.
 elementary_term(Ops,LT) --> list(Ops,LT),{!}.
 elementary_term(Ops,T) --> 
@@ -442,6 +429,7 @@ elementary_term(Ops,te(OPos,T)) -->
 	term(Ops,1200,T,_TermPriority),
 	['}'(_CPos)],
 	{!}. % a term expression (used in combination with DCGs)
+elementary_term(_Ops,A) --> atom(A),{!}.
 
 
 atom(a(Pos,A)) --> [a(A,Pos)],{!}. 
@@ -455,11 +443,11 @@ var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
 
 
 /*
- *  
  *			HANDLING LISTS
  *
- *			Lists are always represented using their canonic form: ".(H,T)" where
- *			T(ail) is either again a list element or the empty list atom "[]".
+ *			Lists are represented using their canonic form: ".(Head,Tail)" where
+ *			the Tail is typically either again a list element or the empty list 
+ *			atom "[]".
  *			
  *			Examples:
  *			?- [a,b|[]] = .(a,b).
@@ -471,71 +459,45 @@ var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
  *			?- [a,b,c|d] = .(a,.(b,.(c,d))).
  *			true.
  */
-list(Ops,T) --> 
-	['['(Pos)],
-	(
-		[']'(_Pos)],{!,T=a(Pos,'[]')}
-	;
-		list_elements(Ops,Pos,T)		
-	).
+list(Ops,T) --> ['['(Pos)], list_2(Ops,Pos,T), {!}.
 
-list_elements(Ops,Pos,ct(Pos,'.',[E,Es])) --> 
-	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es).
-	
-list_elements_2(Ops,ct(Pos,'.',[E,Es])) --> 
-	[a(',',Pos)],{!},
-	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es).
-list_elements_2(Ops,E) --> 
-	[a('|',_)],{!},
-	term(Ops,1200,E,_TermPriority),
-	[']'(_Pos)].
-list_elements_2(_Ops,a(Pos,'[]')) --> [']'(Pos)].% {!}.
-/* OLD (uses the term "list" to represent lists)
-list(Ops,list(Pos,T)) --> 
-	['['(Pos)],
-	list_2(Ops,T).
 
-list_2(_Ops,[]) --> 
-	[']'(_Pos)],{!}.
-list_2(Ops,Es)--> 
-	list_elements(Ops,Es),[']'(_CPos)].
-list_elements(Ops,.(E,Es)) --> 
+list_2(_Ops,Pos,a(Pos,'[]')) --> [']'(_Pos)], {!}.
+list_2(Ops,Pos,ct(Pos,'.',[E,Es])) --> 
 	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es).
+	list_elements_2(Ops,Es),
+	{!}. % we can commit to the current term (E)
 
-list_elements_2(Ops,.(E,Es)) --> 
-	[a(',',_)],{!},
+
+list_elements_2(_Ops,LE) --> [']'(Pos)], {!,LE=a(Pos,'[]')}.	
+list_elements_2(Ops,LE) --> 
+	[a('|',_)], {!},
+	term(Ops,1200,LE,_TermPriority),
+	[']'(_Pos)],
+	{!}. % we can commit to the current term (LE)
+list_elements_2(Ops,LE) --> 
+	[a(',',Pos)], {!},
 	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es).
-list_elements_2(Ops,E) --> 
-	[a('|',_)],{!},
-	term(Ops,1200,E,_TermPriority).
-list_elements_2(_Ops,[]) --> [].% {!}.	
-*/
+	list_elements_2(Ops,Es),
+	{!,LE=ct(Pos,'.',[E,Es])}. % we can commit to the current term (E)
+
 
 
 
 /*
- *  
  *			HANDLING OF COMPOUND TERMS
- *
  */
-
-compound_term(Ops,ct(Pos,F,Args)) --> 
+compound_term(Ops,ct(Pos,F,[T|TRs])) --> 
 	[f(F,Pos)],
 	['('(_)],
-	arguments(Ops,Args),
-	[')'(_)].
+	term(Ops,999,T,_TermPriority), % a compound term has at least one argument
+	arguments_2(Ops,TRs),
+	{!}. % we can commit to the current term (T) and the other arguments (TRs)
 
-arguments(Ops,[T|TRs]) --> 
-	term(Ops,999,T,_TermPriority),
-	arguments_2(Ops,TRs).
 
+arguments_2(_Ops,[]) --> [')'(_)],{!}.
 arguments_2(Ops,[T|TRs]) --> 
-	[a(',',_Pos)],{!},
-	term(Ops,999,T,_TermPriority),
-	arguments_2(Ops,TRs).
-arguments_2(_Ops,[]) --> [].% {!}.
-
+	[a(',',_Pos)],
+	term(Ops,999,T,_TermPriority), 
+	arguments_2(Ops,TRs),{!}. % we can commit to the term (T) and the arguments (TRs)
+	
