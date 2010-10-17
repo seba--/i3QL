@@ -35,20 +35,23 @@
 
 /**
    A lexer to tokenize standard (ISO/SAE) Prolog files.<br />
+
+	<p>
 	To identify / describe Prolog terms, we use the terminology as used in 
 	the book "Learn Prolog Now!" which is freely available (www.learnprolognow.org).
+	</p>
    <p>
    The result of tokenizing a file is a list of elementary tokens of Prolog
 	programs.<br/>
    The types of tokens recognized by this lexer is shown in the following. 
    <code>LN</code> and <code>CN</code> always identify the line and
-   column where the token was found and <code>F</code> the underlying source file.
+   column where the token was found and <code>F</code> identifies the underlying source 
+	file. IF you lex an in-memory string, F will be the empty list "[]".
    <ul>
    <li>a(S,pos(F,LN,CN)) :- S is an atom; basically a string of chars or a sequence of
 		operators (e.g., ':-').<br />
-		<i>The cut ("!") is also treated as an
-      atom as well as the operators that cannot appear as part 
-		of an operator sequence (',','|').</i></li>
+		<i>The cut ("!") and all other operators that cannot appear as part 
+		of an operator sequence (',','|') are treated as atoms.</i></li>
    <li>f(F,pos(F,LN,CN)) :- F is a functor, i.e., an atom that was immediately 
 		followed by '('. However, ',' and '|' are never directly the functor
 		of a compound term, they always need to be put between two apostrophs to 
@@ -56,7 +59,7 @@
 		"natural" definitions of complex terms and lists.
 		</i></li>		
    <li>i(N,pos(F,LN,CN)) :- N is an integer value.</li>      
-   <li>r(N,pos(F,LN,CN)) :- N is a real value / a floating point value.</li>      
+   <li>r(R,pos(F,LN,CN)) :- R is a real value / a floating point value.</li>      
    <li>v(V,pos(F,LN,CN)) :- V is the name of a concrete variable (v); i.e., V 
       always starts with an upper case letter.</li>
    <li>av(V,pos(F,LN,CN)) :- V is the name of an anonymous variable (av); i.e., V
@@ -64,7 +67,7 @@
    <li>P(pos(F,LN,CN)); P is a paranthesis (e.g., one of "(,),{,},[,]").</li>     
    <li>chars(S,pos(F,LN,CN)) :- S is a list of char atoms. For 
       example, given the string <code>"A test"</code> then the result is the 
-      token <code>chars([A,  , t, e, s, t], 1, 0)</code>.
+      token <code>chars([A,  , t, e, s, t],pos(&lt;FILE&gt;,&lt;LN&gt;,&lt;CN&gt;)</code>.
    </ul>
 	To include structured comments in the list
    of tokens use the option <code>comments(retain_sc)</code>.
@@ -119,10 +122,8 @@
    </blockquote>
    
    @author Michael Eichberg (mail@michael-eichberg.de)
-   @version 0.9.1 - July, 28th 2010 
-		Changed the representation of parantheses, comments and operators.
-   @version 0.9 - July, 23th 2010 
-		The lexer works, but is not yet fully tested.
+   @version 0.9.1 - July, 28th 2010
+		We can lex Prolog code, but not yet structured comments.
 */
 :- module(
    'SAEProlog:Compiler:Lexer',
@@ -144,16 +145,39 @@
 	<p>
 	<b>Example</b>
 	<pre>
-	?- tokenize_string("a(b,C is b + 1)",Ts),write(Ts).
-	[t(a, 1, 0), ((1, 1), t(b, 1, 2), t(,, 1, 3), v(C, 1, 4), t(is, 1, 6), t(b, 1, 9), t(+, 1, 11), i(1, 1, 13), )(1, 14)]
-	
+	tokenize_string("a(_,C is 2.0 + 1,[d,e,f|-1],\"test\")",Ts),write_term(Ts,[character_escapes(true),quoted(true)]).
+	[
+		f(a, pos([], 1, 0)),
+		'('(pos([], 1, 1)),
+		av('_', pos([], 1, 2)),
+		a(',', pos([], 1, 3)),
+		v('C', pos([], 1, 4)),
+		a(is, pos([], 1, 6)),
+		r(2.0, pos([], 1, 9)),
+		a(+, pos([], 1, 13)),
+		i(1, pos([], 1, 15)),
+		a(',', pos([], 1, 16)),
+		'['(pos([], 1, 17)),
+		a(d, pos([], 1, 18)),
+		a(',', pos([], 1, 19)),
+		a(e, pos([], 1, 20)),
+		a(',', pos([], 1, 21)),
+		a(f, pos([], 1, 22)),
+		a('|', pos([], 1, 23)),
+		a(-, pos([], 1, 24)),
+		i(1, pos([], 1, 25)),
+		']'(pos([], 1, 26)),
+		a(',', pos([], 1, 27)),
+		chars([t, e, s, t], pos([], 1, 28)),
+		')'(pos([], 1, 34))]
+
 	</pre>
 	</p>
 */
 tokenize_string(S,Ts) :- 
 	string_to_list(S,Cs),
 	open_chars_stream(Cs,Stream),
-	tokenize(Stream,Ts),
+	tokenize_with_sc(Stream,Ts),
 	close(Stream).
 
 
@@ -223,7 +247,7 @@ tokenize_with_c(_Stream,[]). % we reached the end of the file
 
 
 /**
-   Tokenizes a stream of characters comments (except of structured comments) are
+   Tokenizes a stream of characters. Comments (except of structured comments) are
 	dropped.
    
    @signature tokenize(Stream,Tokens)
@@ -273,8 +297,8 @@ tokenize(_Stream,[]). % we reached the end of the file
 
 
 /**
-   The list of all operators that are allowed to be combined to form new
-   operator names, such as, ":-" or "=/=".
+   The list of all operator characeters that are allowed to be combined to form 
+	new operator names, such as, ":-" or "=/=".
 */
 operator_char('='). 	% "=" is not mentioned in the "ISO Prolog" book, but in 
 							% "Learn Prolog Now"
@@ -307,8 +331,15 @@ parenthesis('}').
 
 
 /******************************************************************************\
- *                                                                            *
  *                P R I V A T E     I M P L E M E N T A T I O N               *
+\******************************************************************************/
+
+
+/******************************************************************************\
+ *                                                                            *
+ *                    -------------------------------------                   *   
+ *                     L E X I N G   P R O L O G   C O D E                    *   
+ *                    -------------------------------------                   *   
  *                                                                            *
 \******************************************************************************/
 
@@ -317,10 +348,16 @@ parenthesis('}').
 is_unstructured_comment(eolc(_)) :- !.
 is_unstructured_comment(mlc(_)) :- !.
 
+
+
 is_structured_comment(sc(_)) :- !.
+
+
 
 is_comment(T) :- is_unstructured_comment(T).
 is_comment(T) :- is_structured_comment(T).
+
+
 
 is_insignificant(ws) :- !.
 is_insignificant(T) :- is_comment(T),!.
@@ -345,9 +382,36 @@ token_with_position(mlc(T),File,LN,CN,mlc(T,pos(File,LN,CN))) :- !.
 % to help debugging the lexer
 token_with_position(T,File,LN,CN,T) :- 
 	atomic_list_concat(
-		['INTERNAL LEXER ERROR:',File,':',LN,':',CN,' unknown token (\'',T,'\' [FATAL]'],MSG),
+		[	
+			'INTERNAL LEXER ERROR:',File,':',LN,':',CN,
+			' unknown token type (\'',T,'\' [FATAL]\n'
+		],
+		MSG
+	),
 	write(MSG), 
 	fail.
+
+
+
+current_stream_position(Stream,LN,CN) :-
+   line_count(Stream,LN),
+   line_position(Stream,CN).
+
+
+
+at_end_of_stream(Stream,MessageFragments) :-
+   at_end_of_stream(Stream),
+   atomic_list_concat(MessageFragments,EM),
+   lexer_error(Stream,['unexpected end of file (',EM,')']).
+
+
+
+lexer_error(Stream,MessageFragments) :-
+   current_stream_position(Stream,LN,CN),
+   current_stream(File,read,Stream),
+   atomic_list_concat(MessageFragments,EM),
+   atomic_list_concat(['ERROR:',File,':',LN,':',CN,': ',EM,'\n'],MSG),
+   write(MSG).
 
 
 
@@ -544,12 +608,13 @@ read_eol_comment(Stream,Cs) :-
 read_number(Stream,S1) :-
    read_int_part(Stream,S1,S2),
    read_fp_part(Stream,S2,[]).
-   
-   
+
+      
 read_fp_part(Stream,S1,SZ) :-
    peek_char(Stream,C),
    read_fp_part1(C,Stream,S1,SZ).
    
+
 read_fp_part1(C,_Stream,[],[]) :- char_type(C,space),!.  
 read_fp_part1('.',Stream,S1,SZ) :-
    !,
@@ -575,6 +640,7 @@ read_fp_part1('.',Stream,S1,SZ) :-
    ).
 read_fp_part1(C,Stream,S1,SZ) :-  read_fp_part2(C,Stream,S1,SZ).
 
+
 read_fp_part2(C,_Stream,[],[]) :- char_type(C,space),!.
 read_fp_part2('e',Stream,S1,SZ) :- 
    !,
@@ -585,6 +651,7 @@ read_fp_part2(C,Stream,[],[]) :-
    char_type(C,alpha),
    lexer_error(Stream,['unexpected symbol (',C,')']).
 read_fp_part2(_C,_Stream,SZ,SZ). % also handles the "end of file" case
+
 
 read_exponent(Stream,[],[]) :- at_end_of_stream(Stream,['exponent expected']),!.
 read_exponent(Stream,S1,SZ) :-
@@ -598,7 +665,6 @@ read_exponent(Stream,S1,SZ) :-
       S1 = SX
    ),
    read_int_part(Stream,SX,SZ).
-   
 
 
 % reads the characters of an integer value using a difference list
@@ -645,9 +711,13 @@ read_unstructured_ml_comment(Stream,R) :-
 
 
 
-/*                                                                            *\
- *                           Structured Comments                              *
-\*                                                                            */
+
+/******************************************************************************\
+ *                                                                            *
+ *          P A R S I N G   S T R U C T U R E D   C O M M E N T S             *   
+ *          -----------------------------------------------------             *   
+ *                                                                            *
+\******************************************************************************/
 
 
 
@@ -722,22 +792,4 @@ sc_special_char('@') :- !.
 
 
 
-current_stream_position(Stream,LN,CN) :-
-   line_count(Stream,LN),
-   line_position(Stream,CN).
 
-
-
-at_end_of_stream(Stream,MessageFragments) :-
-   at_end_of_stream(Stream),
-   atomic_list_concat(MessageFragments,EM),
-   lexer_error(Stream,['unexpected end of file (',EM,')']).
-
-
-
-lexer_error(Stream,MessageFragments) :-
-   current_stream_position(Stream,LN,CN),
-   current_stream(File,read,Stream),
-   atomic_list_concat(MessageFragments,EM),
-   atomic_list_concat(['ERROR:',File,':',LN,':',CN,': ',EM,'\n'],MSG),
-   write(MSG).
