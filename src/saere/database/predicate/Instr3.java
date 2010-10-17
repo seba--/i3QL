@@ -10,9 +10,9 @@ import saere.Term;
  * Example for a rather short predicate with a very high frequency. Uses tries.
  * 
  * @author David Sullivan
- * @version $Id$
+ * @version 0.4, 10/12/2010
  */
-public class Instr3 extends DatabasePredicate {
+public final class Instr3 extends DatabasePredicate {
 	
 	public Instr3() {
 		super("instr", 3);
@@ -21,7 +21,7 @@ public class Instr3 extends DatabasePredicate {
 	@Override
 	public Solutions unify(Term... terms) {
 		if (terms.length == arity) {
-			return unify(terms[0], terms[1], terms[2]);
+			return new Instr3Solutions(terms[0], terms[1], terms[2]);
 		} else {
 			return EmptySolutions.getInstance();
 		}
@@ -40,7 +40,7 @@ public class Instr3 extends DatabasePredicate {
 		private State s0;
 		private State s1;
 		private State s2;
-
+		
 		private Iterator<Term> iterator;
 
 		public Instr3Solutions(Term t0, Term t1, Term t2) {

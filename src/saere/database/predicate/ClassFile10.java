@@ -12,7 +12,7 @@ import saere.Term;
  * @author David Sullivan
  * @version 0.2, 9/22/2010
  */
-public class ClassFile10 extends DatabasePredicate {
+public final class ClassFile10 extends DatabasePredicate {
 	
 	public ClassFile10() {
 		super("class_file", 10);
@@ -21,7 +21,7 @@ public class ClassFile10 extends DatabasePredicate {
 	@Override
 	public Solutions unify(Term... terms) {
 		if (terms.length == arity) {
-			return unify(terms[0], terms[1], terms[2], terms[3], terms[4], terms[5], terms[6], terms[7], terms[8], terms[9]);
+			return new ClassFile10Solutions(terms[0], terms[1], terms[2], terms[3], terms[4], terms[5], terms[6], terms[7], terms[8], terms[9]);
 		} else {
 			return EmptySolutions.getInstance();
 		}

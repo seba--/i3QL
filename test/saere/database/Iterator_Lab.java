@@ -15,16 +15,17 @@ import saere.database.index.RecursiveTermFlattener;
 import saere.database.index.ShallowTermFlattener;
 import saere.database.index.SimpleTermInserter;
 import saere.database.index.TermFlattener;
-import saere.database.index.TermInserter;
+import saere.database.index.TrieBuilder;
 import saere.database.index.Trie;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.Instr3;
 import saere.database.profiling.TrieInspector;
 
+// DO NOT USE!
 public class Iterator_Lab {
 	
-	private static final TermInserter SIMPLE = new SimpleTermInserter();
-	private static final TermInserter COMPLEX = new ComplexTermInserter();
+	private static final TrieBuilder SIMPLE = new SimpleTermInserter();
+	private static final TrieBuilder COMPLEX = new ComplexTermInserter();
 	
 	private static final TermFlattener SHALLOW = new ShallowTermFlattener();
 	private static final TermFlattener RECURSIVE = new RecursiveTermFlattener();
@@ -36,8 +37,8 @@ public class Iterator_Lab {
 		//experimentIterator();
 		//experimentSimpleIterator();
 		//experimentPredicate();
-		experimentComplexInserter();
-		//experimentComplexIterator();
+		//experimentComplexInserter();
+		experimentComplexIterator();
 	}
 	
 	// seeeems to work
@@ -88,12 +89,12 @@ public class Iterator_Lab {
 			root.insert(fact);
 		}
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_2 = DatabaseTermFactory.makeStringAtom("m_2");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_2 = StringAtom.StringAtom("m_2");
 		Term X = new Variable();
-		Term i0 = DatabaseTermFactory.makeIntegerAtom(0);
-		Term returnInstr = DatabaseTermFactory.makeStringAtom("return");
-		Term invokeInstr = DatabaseTermFactory.makeStringAtom("invoke");
+		Term i0 = IntegerAtom.IntegerAtom(0);
+		Term returnInstr = StringAtom.StringAtom("return");
+		Term invokeInstr = StringAtom.StringAtom("invoke");
 		Iterator<Term> iter = root.iterator(new Term[] { instr, X, i0, X });
 		while (iter.hasNext()) {
 			System.out.println(Utils.termToString(iter.next()));
@@ -165,15 +166,15 @@ public class Iterator_Lab {
 			root.insert(fact);
 		}
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_1 = DatabaseTermFactory.makeStringAtom("m_1");
-		Term i0 = DatabaseTermFactory.makeIntegerAtom(0);
-		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		Term _return = DatabaseTermFactory.makeStringAtom("return");
-		Term invoke = DatabaseTermFactory.makeStringAtom("invoke");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_1 = StringAtom.StringAtom("m_1");
+		Term i0 = IntegerAtom.IntegerAtom(0);
+		Term i1 = IntegerAtom.IntegerAtom(1);
+		Term _return = StringAtom.StringAtom("return");
+		Term invoke = StringAtom.StringAtom("invoke");
 		Term X = new Variable();
 		
-		Iterator<Term> iter = root.iterator(new Term [] { instr, X, i1 });
+		Iterator<Term> iter = root.iterator(new Term [] { instr, X, X, _return });
 		while (iter.hasNext()) {
 			System.out.println(Utils.termToString(iter.next()));
 		}

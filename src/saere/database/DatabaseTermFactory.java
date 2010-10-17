@@ -10,8 +10,9 @@ import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.database.index.TermStack;
+import saere.database.index.QueryStack;
 import saere.meta.GenericCompoundTerm;
+import saere.term.EmptyList0;
 import saere.term.ListElement2;
 import scala.Function1;
 import scala.collection.Seq;
@@ -22,7 +23,7 @@ import de.tud.cs.st.bat.PrologTermFactory;
  * The Database Term Factory.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.2, 10/14/2010
  */
 public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, Atom> {
 	
@@ -36,9 +37,9 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 
 	private DatabaseTermFactory() {
 		counter = new AtomicInteger(0);
-		noneAtom = makeStringAtom("none");
-		yesAtom = makeStringAtom("yes");
-		noAtom = makeStringAtom("no");
+		noneAtom = StringAtom.StringAtom("none");
+		yesAtom = StringAtom.StringAtom("yes");
+		noAtom = StringAtom.StringAtom("no");
 	}
 	
 	/**
@@ -56,6 +57,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 * @param value The value for the integer atom.
 	 * @return An integer atom.
 	 */
+	@Deprecated
 	public static IntegerAtom makeIntegerAtom(int value) {
 		return IntegerAtom.IntegerAtom(value);
 	}
@@ -66,6 +68,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 * @param value The value for the string atom.
 	 * @return A string atom.
 	 */
+	@Deprecated
 	public static StringAtom makeStringAtom(String value) {
 		return StringAtom.StringAtom(value);
 	}
@@ -77,38 +80,48 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 * @param args The array of arguments for the compound term.
 	 * @return A compound term.
 	 */
+	@Deprecated
 	public static CompoundTerm makeCompoundTerm(String functor, Term[] args) {
 		return new GenericCompoundTerm(makeStringAtom(functor), args);
 	}
 
+	@Override
 	public CompoundTerm Fact(String functor, Seq<Term> args) {
-		return makeCompoundTerm(functor, array(args));
+		return new GenericCompoundTerm(StringAtom.StringAtom(functor), array(args));
 	}
 
+	@Override
 	public Atom FloatAtom(double value) {
-		return makeIntegerAtom((int) value); // FIXME Real float atoms required
+		return IntegerAtom.IntegerAtom((int) value); // FIXME Real float atoms required
 	}
 
+	@Override
 	public Atom IntegerAtom(long value) {
 		// XXX Is cast to integer okay?
-		return makeIntegerAtom((int) value);
+		return IntegerAtom.IntegerAtom((int) value);
 	}
 
+	@Override
 	public Atom StringAtom(String value) {
-		return makeStringAtom(value);
+		return StringAtom.StringAtom(value);
 	}
 
+	@Override
 	public Term Term(String functor, Seq<Term> args) {
-		return makeCompoundTerm(functor, array(args));
+		return new GenericCompoundTerm(StringAtom.StringAtom(functor), array(args));
 	}
 
+	// XXX Add quotation marks?
+	@Override
 	public Atom TextAtom(String value) {
-		return makeStringAtom(value);
+		return StringAtom.StringAtom(value);
 	}
 
 	@Override
 	public Atom KeyAtom(String value) {
-		return makeStringAtom(value + counter.getAndIncrement());
+		//StringAtom sa = StringAtom.StringAtom(value + counter.getAndIncrement());
+		//KeyWriter.getInstance().write(sa.toString() + "\n"); // XXX Remove later!
+		return StringAtom.StringAtom(value + counter.getAndIncrement());
 	}
 
 	@Override
@@ -126,19 +139,21 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		return noAtom;
 	}
 	
+	@Override
 	public <T> Term Terms(Seq<T> ts, Function1<T, Term> func1) {
 		Term[] terms = new Term[ts.size()];
 		for (int i = 0; i < ts.size(); i++) {
 			terms[i] = func1.apply(ts.apply(i));
 		}
-		return list(new TermStack(terms));
+		return list(new QueryStack(terms));
 	}
 
 	/*
-	 * FIXME Use for TermTrie?
+	 * FIXME Use for Trie?
 	 * (non-Javadoc)
 	 * @see de.tud.cs.st.prolog.PrologTermFactory#Univ(java.lang.Object)
 	 */
+	@Override
 	public Seq<Term> Univ(Term term) {
 		if (term.isVariable() && ((Variable) term).isInstantiated()) {
 			// term is a variable and bound
@@ -161,6 +176,13 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		}
 	}
 
+	/**
+	 * Turns the specified Scala {@link Seq} for {@link Term}s into a Java 
+	 * array for {@link Term}s.
+	 * 
+	 * @param seq The Scala {@link Seq}.
+	 * @return An appropriate Java array.
+	 */
 	// XXX Workaround for ClassManifest
 	private Term[] array(Seq<Term> seq) {
 		Term[] array = new Term[seq.size()];
@@ -170,6 +192,13 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		return array;
 	}
 	
+	/**
+	 * Turns the specified Java array for {@link Term}s into a Scala 
+	 * {@link Seq} for {@link Term}s.
+	 * 
+	 * @param array The Java array.
+	 * @return An appropriate Scala {@link Seq}.
+	 */
 	// XXX Workaround...
 	private Seq<Term> seq(Term[] array) {
 		Seq<Term> seq = new ArraySeq<Term>(array.length);
@@ -179,16 +208,20 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		return seq;
 	}
 	
-	private Term list(TermStack ts) {
+	private Term list(QueryStack ts) {
 		if (ts.size() > 1) {
 			return new ListElement2(ts.pop(), list(ts));
 		} else if (ts.size() > 0) {
 			return ts.pop();
 		} else {
-			return makeCompoundTerm(".", new Term[] {}); // XXX EmptyList0.apply();
+			return new EmptyList0();
+			//return new GenericCompoundTerm(StringAtom.StringAtom("."), new Term[] {}); // XXX EmptyList0.apply();
 		}
 	}
 	
+	/**
+	 * Resets the ID counter to its original state zero.
+	 */
 	public void resetIdCounter() {
 		counter.set(0);
 	}

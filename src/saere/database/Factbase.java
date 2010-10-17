@@ -1,5 +1,6 @@
 package saere.database;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,24 +12,29 @@ import saere.Term;
  * {@link ListDatabase} and {@link TrieDatabase}.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.21, 10/14/2010
  */
-public class Factbase {
+public final class Factbase {
 	
 	private static final Factbase INSTANCE = new Factbase();
 	
-	private final List<Term> facts;
+	private final Deque<Term> facts;
 	
 	private Factbase() {
-		facts = new LinkedList<Term>();
+		facts = new LinkedList<Term>(); // must also support list interface
 	}
 	
 	public static Factbase getInstance() {
 		return INSTANCE;
 	}
 	
+	/**
+	 * Adds a fact to the {@link Factbase}.
+	 * 
+	 * @param fact The fact to add.
+	 */
 	public void add(Term fact) {
-		facts.add(fact);
+		facts.push(fact); // reverses the original order
 	}
 	
 	/**
@@ -36,8 +42,9 @@ public class Factbase {
 	 * 
 	 * @return All facts.
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Term> getFacts() {
-		return facts;
+		return (List<Term>) facts;
 	}
 	
 	/**

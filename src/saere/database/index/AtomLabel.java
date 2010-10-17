@@ -1,24 +1,20 @@
 package saere.database.index;
 
 import saere.Atom;
-import saere.Term;
-import saere.Variable;
 import saere.database.Utils;
 
 /**
- * An {@link AtomLabel} represents a label that has only one {@link Atom} / free {@link Variable}.
+ * An {@link AtomLabel} represents a label that has only one {@link Atom}.
  * 
  * @author David Sullivan
- * @version 0.1, 9/21/2010
+ * @version 0.2, 10/14/2010
  */
-public class AtomLabel extends Label {
+public final class AtomLabel extends Label {
 
-	private Term term;
+	private Atom atom;
 	
-	// should only be called by Label.makeLabel(..)
-	protected AtomLabel(Term term) {
-		assert term.isStringAtom() || term.isIntegerAtom() || (term.isVariable() && !term.asVariable().isInstantiated()) : "Invalid parameter";
-		this.term = term; // "wrap" only
+	public AtomLabel(Atom atom) {
+		this.atom = atom; // "wrap" only
 	}
 	
 	@Override
@@ -27,9 +23,9 @@ public class AtomLabel extends Label {
 	}
 
 	@Override
-	public Term getLabel(int index) {
+	public Atom getLabel(int index) {
 		assert index == 0 : "Index out of bounds";
-		return term;
+		return atom;
 	}
 
 	@Override
@@ -38,17 +34,17 @@ public class AtomLabel extends Label {
 	}
 	
 	@Override
-	public Label[] split(int index) {
+	public Label split(int index) {
 		throw new UnsupportedOperationException("Cannot split an AtomLabel");
 	}
 	
 	@Override
 	public String toString() {
-		return Utils.termToString(term); // XXX better no dependency on Utils
+		return atom != null ? "Label=[" + Utils.termToString(atom) + "]" : "Label=[]";
 	}
 	
 	@Override
-	public Term[] asArray() {
-		return new Term[] { term };
+	public Atom[] asArray() {
+		return new Atom[] { atom };
 	}
 }

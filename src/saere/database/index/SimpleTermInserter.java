@@ -1,5 +1,8 @@
 package saere.database.index;
 
+import java.util.Iterator;
+
+import saere.Atom;
 import saere.Term;
 
 /**
@@ -14,58 +17,54 @@ import saere.Term;
  * level four stores the term.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.31, 10/17/2010
  */
-public class SimpleTermInserter extends TermInserter {
+public class SimpleTermInserter extends TrieBuilder {
 	
 	@Override
-	public Trie insert(TermStack stack, Term term) {
-		//assert root != null : "root is null";
+	public Trie insert(InsertStack stack, Term term) {
 		
-		Term first = stack.peek();
-		
-		assert first != null && (first.isIntegerAtom() || first.isStringAtom() || first.isVariable()) : "Invalid first";
-		
-		if (current.isRoot()) { 
+		Trie insertionNode = null; // the trie node where the specified term will be added
+		while (insertionNode == null) {
+			Atom first = stack.peek();
 			
-			// create the very first node
-			if (current.getFirstChild() == null) { 
-				current.setFirstChild(new Trie(Label.makeLabel(first), current));
-			}
-			
-			current = current.getFirstChild(); // set current for next insert()
-			return insert(stack, term);
-
-		} else if (Matcher.match(current.getLabel(), first)) { // the labels match
-			
-			// remove the first atom/variable from stack
-			stack.pop();
-			
-			// this must be the insertion node
-			if (stack.size() == 0) {
-				current.addTerm(term);
-				return current;
-			
-			} else { // more to process
+			if (current.isRoot()) { 
 				
-				// add to own subtrie
-				if (current.getFirstChild() == null) {
-					current.setFirstChild(new Trie(Label.makeLabel(stack.peek()), current));
+				if (current.getFirstChild() == null) // create the very first node
+					current.setFirstChild(new Trie(new AtomLabel(first), current));
+				current = current.getFirstChild();
+				
+			} else if (Matcher.match(current.getLabel(), first)) { // the labels match
+				
+				// remove the first atom/variable from stack
+				stack.pop();
+				
+				// this must be the insertion node (and it already existed)
+				if (stack.size() == 0) {
+					
+					current.addTerm(term);
+					insertionNode = current;
+				
+				} else { // more to process
+					
+					if (current.getFirstChild() == null) // add to own subtrie
+						current.setFirstChild(new Trie(new AtomLabel(stack.peek()), current));
+					current = current.getFirstChild();
 				}
-				
-				current = current.getFirstChild(); // set current for next insert()
-				return insert(stack, term);		
-			}
 
-		} else { // !root && !same
-			
-			// add to (a) sibling subtrie
-			if (current.getNextSibling() == null) {
-				current.setNextSibling(new Trie(Label.makeLabel(first), current.getParent()));
+			} else { // !root && !same
+				
+				if (current.getNextSibling() == null) // add to (a) sibling subtrie
+					current.setNextSibling(new Trie(new AtomLabel(stack.peek()), current.getParent()));
+				current = current.getNextSibling();
 			}
-			
-			current = current.getNextSibling(); // move right for next insert()
-			return insert(stack, term);
 		}
+		
+		return insertionNode;
+	}
+
+	@Override
+	public Iterator<Term> iterator(Trie start, Term[] query) {
+		return new SimpleTrieTermIterator(start, query);
 	}
 }

@@ -4,9 +4,10 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import saere.IntegerAtom;
+import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.database.DatabaseTermFactory;
 
 /**
  * Tests for the {@link Matcher} class.
@@ -25,13 +26,13 @@ public class MatcherTest extends TestCase {
 		super.setUp();
 		
 		X = new Variable();
-		invoke = DatabaseTermFactory.makeStringAtom("invoke");
-		instr = DatabaseTermFactory.makeStringAtom("instr");
-		i0 = DatabaseTermFactory.makeIntegerAtom(0);
-		i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		m_1 = DatabaseTermFactory.makeStringAtom("m_1");
-		m_2 = DatabaseTermFactory.makeStringAtom("m_2");
-		anything = DatabaseTermFactory.makeStringAtom("__anything__"); // = ?
+		invoke = StringAtom.StringAtom("invoke");
+		instr = StringAtom.StringAtom("instr");
+		i0 = IntegerAtom.IntegerAtom(0);
+		i1 = IntegerAtom.IntegerAtom(1);
+		m_1 = StringAtom.StringAtom("m_1");
+		m_2 = StringAtom.StringAtom("m_2");
+		anything = StringAtom.StringAtom("__anything__"); // = ?
 		
 		term0 = new Term[] { instr, m_1, i0, anything };
 		term1 = new Term[] { instr, m_2, i1, invoke };

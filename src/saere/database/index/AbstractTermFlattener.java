@@ -1,14 +1,13 @@
 package saere.database.index;
 
-import saere.Term;
 
 /**
- * Abstract base class that implements {@link TermFlattener}. It allows an 
+ * Abstract base class that based on {@link TermFlattener}. It allows an 
  * additional constraint of maximal length for flattened term representations. 
  * Any extending classes must comply this constraint in their implementations.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.11, 10/14/2010
  */
 public abstract class AbstractTermFlattener implements TermFlattener {
 
@@ -25,6 +24,7 @@ public abstract class AbstractTermFlattener implements TermFlattener {
 	 * Sets the maximum length for flattened terms.
 	 * 
 	 * @param maxLength The new maximum length.
+	 * @see #maxLength
 	 */
 	public void setMaxLength(int maxLength) {
 		this.maxLength = maxLength;
@@ -34,11 +34,9 @@ public abstract class AbstractTermFlattener implements TermFlattener {
 	 * Gets the maximum length for flattened terms.
 	 * 
 	 * @return The maximum length.
+	 * @see #maxLength
 	 */
 	public int getMaxLength() {
 		return maxLength;
 	}
-	
-	@Override
-	public abstract Term[] flatten(Term term);
 }

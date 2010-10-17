@@ -13,7 +13,7 @@ import saere.Term;
  */
 public class ComplexTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
 	
-	private TermStack stack;
+	private QueryStack stack;
 	private final TrieTermIterator subiterator;
 	private boolean useSubiterator = false;
 	
@@ -35,7 +35,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 		subiterator = new TrieTermIterator(start);
 		
 		// break down terms to atoms/variables
-		stack = new TermStack(Trie.getTermFlattener().flattenQuery(terms));
+		stack = new QueryStack(start.flattenForQuery(terms));
 		
 		// don't skip the first node
 		if (!current.isRoot() && stack.size() == 1 && Matcher.match(current.getLabel(), stack) <= stack.size()) {
@@ -96,7 +96,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 					if (match == stack.size()) { // end point reached, create subiterator
 						useSubiterator = true;
 						subiterator.resetTo(current);
-					} else if (match == current.labelLength()) { // match < stack.size()
+					} else if (match == current.getLabelLength()) { // match < stack.size()
 						nextNode(); // XXX or goDown() directly?
 					} else { // match < labelLength
 						goRight(); // no full match, go right
@@ -111,13 +111,13 @@ public class ComplexTrieTermIterator extends TrieTermIterator implements Iterato
 	
 	@Override
 	protected void goUp() {
-		stack.back(current.getParent().labelLength()); // new: getParent().labelLength()
+		stack.back(current.getParent().getLabelLength()); // new: getParent().labelLength()
 		super.goUp();
 	}
 	
 	@Override
 	protected void goDown() {
-		stack.pop(current.labelLength()); // new: labelLength() 
+		stack.pop(current.getLabelLength()); // new: labelLength() 
 		super.goDown();
 	}
 }

@@ -17,8 +17,8 @@ import de.tud.cs.st.bat.reader.Java6Framework;
 
 /**
  * Reads Java class files or JAR and ZIP files containing them and stores their 
- * Prolog representatiosn in the {@link Factbase}. The transformation of the 
- * bytecode to Prolog is done with BAT.
+ * Prolog representations in the {@link Factbase}. The transformation of the 
+ * bytecode to Prolog is done with the Bytecode Analysis Toolkit (BAT).
  * 
  * @author David Sullivan
  * @version 0.1, 9/22/2010

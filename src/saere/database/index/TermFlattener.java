@@ -20,7 +20,7 @@ public interface TermFlattener {
 	 * @param term The term to flatten.
 	 * @return The flattened term representation.
 	 */
-	public Term[] flatten(Term term);
+	public Atom[] flattenInsertion(Term term);
 	
 	/**
 	 * Flattens a query that is represented by an array terms. The first 
