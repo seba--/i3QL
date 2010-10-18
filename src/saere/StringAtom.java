@@ -104,7 +104,7 @@ public final class StringAtom extends Atom {
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	public static final StringAtom StringAtom(String s) {
-		return StringAtom(s.getBytes()); // XXX Java 5 fix
+		return StringAtom(s.getBytes(UTF8Charset));
 	}
 
 	/**
