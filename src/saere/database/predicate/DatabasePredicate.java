@@ -8,7 +8,6 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
 import saere.database.ListDatabase;
-import saere.database.TrieDatabase;
 
 /**
  * Represents a database procedure and provides an array-based (i.e., <b>rather 
@@ -56,12 +55,8 @@ public class DatabasePredicate {
 		return arity;
 	}
 	
-	public static void useTries() {
-		database = TrieDatabase.getInstance();
-	}
-	
-	public static void useLists() {
-		database = ListDatabase.getInstance();
+	public static void useDatabase(Database database) {
+		DatabasePredicate.database = database;
 	}
 	
 	/**

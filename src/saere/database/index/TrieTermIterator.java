@@ -12,9 +12,9 @@ import saere.Term;
  * ahead.)
  * 
  * @author David Sullivan
- * @version 0.3, 9/22/2010
+ * @version 0.4, 10/19/2010
  */
-public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term> {
+public class TrieTermIterator<T> extends TrieIteratorBase<T> implements Iterator<Term> {
 
 	/** The term list of the current position. If it's not null, we iterate over this first... */
 	protected TermList list;
@@ -23,9 +23,9 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	protected Term next;
 	
 	/**
-	 * Creates a new simple trie iterator <b>without intialization</b> (the first element is not found).
-	 * @see TrieIteratorBase#BaseTrieIterator()
+	 * Creates a new simple trie iterator <b>without intialization</b>.
 	 */
+	// For subclasses...
 	protected TrieTermIterator() {
 		
 	}
@@ -36,7 +36,7 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	 * 
 	 * @param start The start, i.e., the root for the iteration.
 	 */
-	protected TrieTermIterator(Trie start) {
+	protected TrieTermIterator(Trie<T> start) {
 		super(start);
 		init();
 	}
@@ -46,9 +46,16 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	 */
 	private void init() {
 		list = null;
-		if (current != null && current.getTermList() != null) { // start already has term(s)
-			next = current.getTermList().getTerm();
-			list = current.getTermList().getNext();
+		if (current != null) { // start already has term(s)
+			if (current.hasTermList()) { // Rare case
+				next = current.getTermList().getTerm();
+				list = current.getTermList().getNext();
+			} else { // Normal case
+				next = current.getTerm(); // ... and list stays null
+				if (next == null)
+					findNext();
+			}
+			
 		} else { // start has no term(s)
 			findNext();
 		}
@@ -80,13 +87,17 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 		} else { // normal mode
 			
 			// as long as we have nodes left and have no term list FIXME list == null should be unnecessary
-			while (current != null && list == null) {
+			while (current != null && list == null) { // XXX while (true) basically the same here?
 				nextNode();
 				if (current != null) {
-					if (current.getTermList() != null) {
+					if (current.hasTermList()) {
 						next = current.getTermList().getTerm();
 						list = current.getTermList().getNext();
 						break;
+					} else {
+						next = current.getTerm();
+						if (next != null)
+							break;
 					} // else continue
 				} else { // current == null
 					break; // terminate
@@ -101,7 +112,7 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	protected void resetTo(Trie<T> newStart) {
 		super.resetTo(newStart);
 		init();
 	}

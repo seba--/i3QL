@@ -28,7 +28,7 @@ import saere.Variable;
 public final class RecursiveTermFlattener extends AbstractTermFlattener {
 
 	@Override
-	public Atom[] flattenInsertion(Term term) {
+	public Atom[] flattenForInsertion(Term term) {
 		assert term != null : "term is null";
 		
 		// We assume that we get mostly compound terms (actually only(?)).
@@ -37,7 +37,7 @@ public final class RecursiveTermFlattener extends AbstractTermFlattener {
 			terms.add(term.functor()); // Add functor as first term
 			int min = maxLength > 0 ? Math.min(term.arity(), maxLength - 1) : term.arity();
 			for (int i = 0; i < min; i++) {
-				Atom[] argTerms = flattenInsertion(term.arg(i));
+				Atom[] argTerms = flattenForInsertion(term.arg(i));
 				for (Atom argTerm : argTerms) {
 					terms.add(argTerm); // Add arguments as terms
 				}
@@ -53,7 +53,7 @@ public final class RecursiveTermFlattener extends AbstractTermFlattener {
 	}
 
 	@Override
-	public Term[] flattenQuery(Term... terms) {
+	public Term[] flattenForQuery(Term... terms) {
 		assert terms.length > 0 : "Invalid query length 0";
 		
 		List<Term> flattened = new LinkedList<Term>();
@@ -104,4 +104,8 @@ public final class RecursiveTermFlattener extends AbstractTermFlattener {
 		return terms.toArray(new Term[0]);
 	}
 
+	@Override
+	public String toString() {
+		return "recursive";
+	}
 }

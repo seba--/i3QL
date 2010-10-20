@@ -2,9 +2,9 @@ package saere.database;
 
 import java.util.Iterator;
 
-import saere.StringAtom;
 import saere.Term;
 import saere.database.index.Trie;
+import saere.database.index.TrieBuilder;
 import saere.database.predicate.DatabasePredicate;
 
 /**
@@ -12,56 +12,37 @@ import saere.database.predicate.DatabasePredicate;
  * unifications.
  * 
  * @author David Sullivan
- * @version 0.3, 10/14/2010
+ * @version 0.4, 10/19/2010
  * @see DatabasePredicate#useTries()
  */
-public class TrieDatabase extends Database {
-	
-	private static final TrieDatabase INSTANCE = new TrieDatabase();
+public class TrieDatabase<T> extends Database {
 
-	private Trie root;
+	private Trie<T> root;
+	private TrieBuilder<T> builder;
 
-	private TrieDatabase() {
-		root = new Trie();
-	}
-
-	public static TrieDatabase getInstance() {
-		return INSTANCE;
-	}
-	
-	// XXX Remove later...
-	public Trie getRoot() {
-		return root;
+	protected TrieDatabase() {
+		root = new Trie<T>();
 	}
 	
 	@Override
 	public void add(Term fact) {
-		root.insert(fact);
-	}
-
-	@Override
-	protected void fillProcessComplete() {
-		// root.prune();
+		builder.insert(fact, root);
 	}
 
 	@Override
 	public void drop() {
-		root = new Trie(); // and let the GC do the rest...
+		root = new Trie<T>();
+		System.gc();
 	}
 
 	@Override
 	public Iterator<Term> getFacts() {
-		return root.iterator();
-	}
-	
-	@Override
-	public Iterator<Term> getFacts(StringAtom functor) {
-		return root.iterator(new Term[] { functor });
+		return builder.iterator(root);
 	}
 
 	@Override
 	public Iterator<Term> getCandidates(Term[] terms) {
 		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
-		return root.iterator(terms);
+		return builder.iterator(root, terms);
 	}
 }

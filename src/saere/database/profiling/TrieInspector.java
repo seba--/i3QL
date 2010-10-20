@@ -9,9 +9,9 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 
 import saere.database.Utils;
-import saere.database.index.Label;
 import saere.database.index.TermList;
 import saere.database.index.Trie;
+import saere.database.index.TrieBuilder;
 
 /**
  * This class gathers some information about a {@link Trie}.
@@ -30,12 +30,12 @@ public class TrieInspector {
 	private double numTries;
 	private double numTerms;
 	
-	public void inspect(Trie trie) {
+	public <T> void inspect(Trie<T> trie, TrieBuilder<T> builder) {
 		avgNumChild = new BigDecimal(0, MC);
 		fracTerms = new BigDecimal(0, MC);
 		numTries = numTerms = numLists = 0;
 		
-		Iterator<Trie> iterator = trie.nodeIterator();
+		Iterator<Trie<T>> iterator = builder.nodeIterator(trie);
 		while (iterator.hasNext()) {
 			collectNodeStats(iterator.next());
 		}
@@ -45,20 +45,20 @@ public class TrieInspector {
 		fracTerms = new BigDecimal(numTerms, MC).divide(bigNumTries, MC).multiply(new BigDecimal(100, MC));
 	}
 	
-	public void print(Trie trie, String filename, boolean small) {
+	public <T> void print(Trie<T> trie, TrieBuilder<T> builder, String filename, boolean small) {
 		try {
 			Charset charset = Charset.forName("ISO-8859-1");
 			OutputStream out = new FileOutputStream(filename);
 			String shape = small ? "point" : "box";
 			out.write(("digraph \"trie\" {\nnode [ shape = " + shape + ", fontname = \"Verdana\" ];\n").getBytes());
 			
-			Iterator<Trie> iterator = trie.nodeIterator();
+			Iterator<Trie<T>> iterator = builder.nodeIterator(trie);
 			while (iterator.hasNext()) {
 				trie = iterator.next();
 				String trieName = makeTrieName(trie, true);
 				
 				// edges to children (of which actually only the one to the first children exists)
-				Trie child = trie.getFirstChild();
+				Trie<T> child = trie.getFirstChild();
 				while (child != null) {
 					out.write((trieName + " -> " + makeTrieName(child, true) + ";\n").getBytes(charset));
 					child = child.getNextSibling();
@@ -79,22 +79,13 @@ public class TrieInspector {
 		}
 	}
 	
-	private String makeTrieName(Trie trie, boolean longName) {
+	private <T> String makeTrieName(Trie<T> trie, boolean longName) {
 		String name = null;
 		
 		if (longName) {
 			return "\"" + trie.hashCode() + "/" + trie.toString() + "\"";
 		} else {
-			Label label = null;
-			if (trie.getLabel() != null) {
-				label = trie.getLabel();
-			}
-			String labelStr = "root"; // only the root is allowed to have no label
-			if (label != null) {
-				labelStr = label.toString();
-				labelStr = escape(labelStr);
-			}
-			name = labelStr;
+			name = trie.toString();
 		}
 		
 		return "\"" + trie.hashCode() + "/" + name + "\"";
@@ -109,7 +100,7 @@ public class TrieInspector {
 		return r;
 	}
 	
-	private void collectNodeStats(Trie trie) {
+	private <T> void collectNodeStats(Trie<T> trie) {
 		numTries++;
 		
 		// count terms...
@@ -124,7 +115,7 @@ public class TrieInspector {
 		
 		// count children...
 		int numChildren = 0;
-		Trie child = trie.getFirstChild();
+		Trie<T> child = trie.getFirstChild();
 		if (child != null) {
 			numChildren++;
 			child = child.getNextSibling();

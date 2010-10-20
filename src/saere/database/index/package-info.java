@@ -3,3 +3,4 @@
  * way required or associated by the {@link Trie} class.
  */
 package saere.database.index;
+

@@ -9,7 +9,7 @@ import saere.Variable;
  * {@link Term} is flattend (&quot;hashed&quot;) for storage and retrieval.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.2, 10/19/2010
  */
 public interface TermFlattener {
 	
@@ -20,7 +20,7 @@ public interface TermFlattener {
 	 * @param term The term to flatten.
 	 * @return The flattened term representation.
 	 */
-	public Atom[] flattenInsertion(Term term);
+	public Atom[] flattenForInsertion(Term term);
 	
 	/**
 	 * Flattens a query that is represented by an array terms. The first 
@@ -32,5 +32,5 @@ public interface TermFlattener {
 	 * @param terms The terms that represent a query (a term).
 	 * @return The flattened version of the query.
 	 */
-	public Term[] flattenQuery(Term ... terms);
+	public Term[] flattenForQuery(Term ... terms);
 }

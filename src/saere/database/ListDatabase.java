@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 import saere.StringAtom;
 import saere.Term;
+import saere.database.index.EmptyTermIterator;
 import saere.database.predicate.DatabasePredicate;
 
 /**
@@ -20,7 +21,7 @@ import saere.database.predicate.DatabasePredicate;
  * @version 0.22, 10/14/2010
  * @see DatabasePredicate#useLists()
  */
-public class ListDatabase extends Database {
+public final class ListDatabase extends Database {
 
 	private final static ListDatabase INSTANCE = new ListDatabase();
 	
@@ -41,20 +42,16 @@ public class ListDatabase extends Database {
 	
 	@Override
 	public void add(Term fact) {
-		if (!predicates.containsKey(fact.functor())) {
-			predicates.put(fact.functor(), new LinkedList<Term>());
-		}
-		predicates.get(fact.functor()).push(fact); // this reverses order (and actually restores the original order)
-	}
-
-	@Override
-	protected void fillProcessComplete() {
-		
+		Deque<Term> predicateList = predicates.get(fact.functor());
+		if (predicateList == null)
+			predicateList = predicates.put(fact.functor(), new LinkedList<Term>());
+		predicateList.push(fact); // This reverses order (and actually restores the original order)
 	}
 
 	@Override
 	public void drop() {
 		predicates.clear();
+		System.gc();
 	}
 
 	@Override
@@ -65,17 +62,19 @@ public class ListDatabase extends Database {
 		}
 		return facts.iterator();
 	}
-
-	@Override
-	public Iterator<Term> getFacts(StringAtom functor) {
-		return predicates.get(functor).iterator();
-	}
 	
 	@Override
 	public Iterator<Term> getCandidates(Term[] terms) {
 		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
 		
-		// get the first term (functor) and ignore the rest
-		return getFacts(terms[0].asStringAtom());
+		// Get the first term (functor) and ignore the rest, i.e., the 
+		// candidate lists are generally much larger than those composed with 
+		// tries.
+		Deque<Term> predicateList = predicates.get(terms[0].asStringAtom());
+		if (predicateList != null) {
+			return predicateList.iterator();
+		} else {
+			return EmptyTermIterator.getInstance();
+		}
 	}
 }

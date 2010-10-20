@@ -43,70 +43,70 @@ public class TermFlattenerTest {
 	@Test
 	public void testShallow0a() {
 		Term[] expecteds = new Term[] { F };
-		Term[] actuals = SHALLOW.flattenInsertion(F);
+		Term[] actuals = SHALLOW.flattenForInsertion(F);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testShallow0b() {
 		Term[] expecteds = new Term[] { I1 };
-		Term[] actuals = SHALLOW.flattenInsertion(I1);
+		Term[] actuals = SHALLOW.flattenForInsertion(I1);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testShallow0c() {
 		Term[] expecteds = new Term[] { A, I1 };
-		Term[] actuals = SHALLOW.flattenInsertion(A1);
+		Term[] actuals = SHALLOW.flattenForInsertion(A1);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testRecursive0a() {
 		Term[] expecteds = new Term[] { F };
-		Term[] actuals = SHALLOW.flattenInsertion(F);
+		Term[] actuals = SHALLOW.flattenForInsertion(F);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testRecursive0b() {
 		Term[] expecteds = new Term[] { I1 };
-		Term[] actuals = SHALLOW.flattenInsertion(I1);
+		Term[] actuals = SHALLOW.flattenForInsertion(I1);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testRecursive0c() {
 		Term[] expecteds = new Term[] { A, I1 };
-		Term[] actuals = SHALLOW.flattenInsertion(A1);
+		Term[] actuals = SHALLOW.flattenForInsertion(A1);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testShallow1() {
 		Term[] expecteds = new Term[] { F, A, I1, C};
-		Term[] actuals = SHALLOW.flattenInsertion(FA1C_FLAT);
+		Term[] actuals = SHALLOW.flattenForInsertion(FA1C_FLAT);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testShallow2() {
 		Term[] expecteds = new Term[] { F, A, C};
-		Term[] actuals = SHALLOW.flattenInsertion(FA1C_COMP);
+		Term[] actuals = SHALLOW.flattenForInsertion(FA1C_COMP);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testRecursive1() {
 		Term[] expecteds = new Term[] { F, A, I1, C};
-		Term[] actuals = RECURSIVE.flattenInsertion(FA1C_FLAT);
+		Term[] actuals = RECURSIVE.flattenForInsertion(FA1C_FLAT);
 		assertArrayEquals(expecteds, actuals);
 	}
 	
 	@Test
 	public void testRecursive2() {
 		Term[] expecteds = new Term[] { F, A, I1, C};
-		Term[] actuals = RECURSIVE.flattenInsertion(FA1C_COMP);
+		Term[] actuals = RECURSIVE.flattenForInsertion(FA1C_COMP);
 		assertArrayEquals(expecteds, actuals);
 	}
 }

@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import saere.Atom;
 import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
@@ -13,13 +14,15 @@ import saere.Variable;
  * Tests for the {@link Matcher} class.
  * 
  * @author David Sullivan
- * @version 0.1, 10/6/2010
+ * @version 0.2, 10/28/2010
  */
 public class MatcherTest extends TestCase {
 	
 	int expected, actual;
-	Term X, invoke, instr, i0, i1, m_1, m_2, anything;
-	Term[] term0, term1, query0, query1, query2, query3;
+	Atom invoke, instr, i0, i1, m_1, m_2, anything;
+	Variable X;
+	Atom[] term0, term1;
+	Term[] query0, query1, query2, query3;
 	
 	@Override
 	protected void setUp() throws Exception {
@@ -34,8 +37,8 @@ public class MatcherTest extends TestCase {
 		m_2 = StringAtom.StringAtom("m_2");
 		anything = StringAtom.StringAtom("__anything__"); // = ?
 		
-		term0 = new Term[] { instr, m_1, i0, anything };
-		term1 = new Term[] { instr, m_2, i1, invoke };
+		term0 = new Atom[] { instr, m_1, i0, anything };
+		term1 = new Atom[] { instr, m_2, i1, invoke };
 		
 		query0 = new Term[] { instr };
 		query1 = new Term[] { instr, X, X, X };
@@ -44,23 +47,8 @@ public class MatcherTest extends TestCase {
 	}
 	
 	@Test
-	public void testMatch1() {
-		assertTrue(Matcher.match(X, X)); // test takes rather long if both are variables!
-	}
-	
-	@Test
-	public void testMatch2a() {
-		assertTrue(Matcher.match(X, invoke));
-	}
-	
-	@Test
 	public void testMatch2b() {
 		assertTrue(Matcher.match(invoke, X));
-	}
-	
-	@Test
-	public void testMatch3a() {
-		assertTrue(Matcher.match(X, i0));
 	}
 	
 	@Test

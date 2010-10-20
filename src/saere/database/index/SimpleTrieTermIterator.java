@@ -2,6 +2,7 @@ package saere.database.index;
 
 import java.util.Iterator;
 
+import saere.Atom;
 import saere.Term;
 
 /**
@@ -10,15 +11,15 @@ import saere.Term;
  * {@link Trie} class is used.<br/>
  * <br/>
  * <b>This iterator works only with {@link Trie}s that have been built with 
- * a {@link SimpleTermInserter}.</b>
+ * a {@link SimpleTrieBuilder}.</b>
  * 
  * @author David Sullivan
- * @version 0.2, 9/30/2010
+ * @version 0.3, 10/19/2010
  */
-public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
+public class SimpleTrieTermIterator extends TrieTermIterator<Atom> implements Iterator<Term> {
 
 	private QueryStack stack;
-	private final TrieTermIterator subiterator;
+	private final TrieTermIterator<Atom> subiterator;
 	private boolean useSubiterator = false;
 	
 	/**
@@ -28,17 +29,12 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	 * @param start The start trie, e.g., a functor.
 	 * @param terms A query represented by an array of terms (atoms/variables).
 	 */
-	public SimpleTrieTermIterator(Trie start, Term ... terms) {
-		this.start = start;
-		current = start;
-		
-		assert terms.length > 0 : "No query specified";
+	public SimpleTrieTermIterator(Trie<Atom> start, QueryStack stack) {
+		this.start = current = start;
+		this.stack = stack;
 		
 		// create the one and only instance of the subiterator that'll be used
-		subiterator = new TrieTermIterator(start);
-		
-		// break down terms to atoms/variables
-		stack = new QueryStack(start.flattenForQuery(terms));
+		subiterator = new TrieTermIterator<Atom>(start);
 		
 		// don't skip the first node
 		if (stack.size() == 1 && match(stack)) {
@@ -65,7 +61,7 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 			
 			// Even if the begin the search with root's first child, we may still arrive here with goRight().
 			// Also, if we begin the search with root's first child, this child is seen as 'root', i.e., is looked at if it had no siblings (this is how subiterators work).
-			if (current.isRoot()) {
+			if (current.getParent() == null) { // root
 				current = current.getFirstChild();
 				continue;
 			}
@@ -111,7 +107,7 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	}
 	
 	/**
-	 * We assume only {@link AtomLabel}s as the {@link SimpleTermInserter} 
+	 * We assume only {@link AtomLabel}s as the {@link SimpleTrieBuilder} 
 	 * creates {@link Trie}s with {@link AtomLabel}s only. So the first element 
 	 * of a {@link QueryStack} (completely) matches or it doesn't.
 	 * 

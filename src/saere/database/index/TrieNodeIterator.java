@@ -3,26 +3,27 @@ package saere.database.index;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+
 /**
  * An iterator for a {@link Trie} that iterates over the {@link Trie} and all 
  * its descendants in a depth-first, from the left to the right manner.
  * 
  * @author David Sullivan
- * @version 0.1, 9/30/2010
+ * @version 0.2, 10/18/2010
  */
-public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie> {
+public class TrieNodeIterator<T> extends TrieIteratorBase<T> implements Iterator<Trie<T>> {
 
 	/**
 	 * The next {@link Trie} node. It is set by {@link TrieNodeIterator#findNext()} (only).
 	 */
-	private Trie next;
+	private Trie<T> next;
 	
 	/**
 	 * Creates a new {@link TrieNodeIterator} and finds the first <tt>next</tt>.
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected TrieNodeIterator(Trie start) {
+	protected TrieNodeIterator(Trie<T> start) {
 		super(start);
 		next = current;
 	}
@@ -33,9 +34,9 @@ public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie>
 	}
 
 	@Override
-	public Trie next() {
+	public Trie<T> next() {
 		if (hasNext()) {
-			Trie oldNext = next;
+			Trie<T> oldNext = next;
 			findNext();
 			return oldNext;
 		} else {

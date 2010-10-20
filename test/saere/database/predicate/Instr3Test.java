@@ -25,14 +25,14 @@ import saere.database.ListDatabase;
 import saere.database.Stopwatch;
 import saere.database.TrieDatabase;
 import saere.database.Utils;
-import saere.database.index.ComplexTermInserter;
+import saere.database.index.ComplexTrieBuilder;
 import saere.database.index.IteratorsTest;
 import saere.database.index.RecursiveTermFlattener;
 import saere.database.index.ShallowTermFlattener;
-import saere.database.index.SimpleTermInserter;
+import saere.database.index.SimpleTrieBuilder;
 import saere.database.index.TermFlattener;
-import saere.database.index.TrieBuilder;
 import saere.database.index.Trie;
+import saere.database.index.TrieBuilder;
 import saere.database.profiling.KeyWriter;
 import saere.meta.GenericCompoundTerm;
 
@@ -41,8 +41,8 @@ public class Instr3Test {
 	
 	private static final TermFlattener SHALLOW = new ShallowTermFlattener();
 	private static final TermFlattener RECURSIVE = new RecursiveTermFlattener();
-	private static final TrieBuilder SIMPLE = new SimpleTermInserter();
-	private static final TrieBuilder COMPLEX = new ComplexTermInserter();
+	private static final TrieBuilder SIMPLE = new SimpleTrieBuilder();
+	private static final TrieBuilder COMPLEX = new ComplexTrieBuilder();
 	
 	private static final Factbase FACTS = Factbase.getInstance();
 	private static final Database LIST_DB = ListDatabase.getInstance();
@@ -136,7 +136,7 @@ public class Instr3Test {
 		TRIE_DB.drop();
 		TRIE_DB.fill();
 		String flattener = (Trie.getTermFlattener() instanceof ShallowTermFlattener) ? "shallow" : "recursive";
-		String inserter = (Trie.getTermInserter() instanceof SimpleTermInserter) ? "simple" : "complex";
+		String inserter = (Trie.getTermInserter() instanceof SimpleTrieBuilder) ? "simple" : "complex";
 		sw.printElapsed("Filling the trie-based database (" + flattener + ", " + inserter + ") with " + FACTS.getFacts().size() + " facts");
 	}
 	

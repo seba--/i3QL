@@ -27,7 +27,7 @@ import saere.Variable;
 public final class ShallowTermFlattener extends AbstractTermFlattener {
 
 	@Override
-	public Atom[] flattenInsertion(Term term) {
+	public Atom[] flattenForInsertion(Term term) {
 		assert term != null : "term is null";
 		
 		// We assume that we get mostly compound terms (actually only(?)).
@@ -82,7 +82,7 @@ public final class ShallowTermFlattener extends AbstractTermFlattener {
 	}
 
 	@Override
-	public Term[] flattenQuery(Term... terms) {
+	public Term[] flattenForQuery(Term... terms) {
 		assert terms.length > 0 : "Invalid query length 0";
 		
 		Term[] flattened = new Term[terms.length];
@@ -93,4 +93,8 @@ public final class ShallowTermFlattener extends AbstractTermFlattener {
 		return flattened;
 	}
 
+	@Override
+	public String toString() {
+		return "shallow";
+	}
 }

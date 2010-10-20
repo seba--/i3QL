@@ -10,13 +10,13 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.database.index.ComplexTermInserter;
+import saere.database.index.ComplexTrieBuilder;
 import saere.database.index.RecursiveTermFlattener;
 import saere.database.index.ShallowTermFlattener;
-import saere.database.index.SimpleTermInserter;
+import saere.database.index.SimpleTrieBuilder;
 import saere.database.index.TermFlattener;
-import saere.database.index.TrieBuilder;
 import saere.database.index.Trie;
+import saere.database.index.TrieBuilder;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.Instr3;
 import saere.database.profiling.TrieInspector;
@@ -24,8 +24,8 @@ import saere.database.profiling.TrieInspector;
 // DO NOT USE!
 public class Iterator_Lab {
 	
-	private static final TrieBuilder SIMPLE = new SimpleTermInserter();
-	private static final TrieBuilder COMPLEX = new ComplexTermInserter();
+	private static final TrieBuilder SIMPLE = new SimpleTrieBuilder();
+	private static final TrieBuilder COMPLEX = new ComplexTrieBuilder();
 	
 	private static final TermFlattener SHALLOW = new ShallowTermFlattener();
 	private static final TermFlattener RECURSIVE = new RecursiveTermFlattener();
