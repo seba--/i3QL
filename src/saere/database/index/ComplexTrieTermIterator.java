@@ -104,7 +104,8 @@ public class ComplexTrieTermIterator extends TrieTermIterator<Atom[]> implements
 	
 	@Override
 	protected void goUp() {
-		stack.back(current.getParent().getLabel().length);
+		if (current.getParent().getLabel() != null)
+			stack.back(current.getParent().getLabel().length);
 		super.goUp();
 	}
 	

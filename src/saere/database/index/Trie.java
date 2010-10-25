@@ -122,9 +122,6 @@ public class Trie<T> {
 		if (label == null)
 			return "<root>";
 		
-		if (label instanceof Atom)
-			return label.toString();
-		
 		if (label instanceof Atom[]) {
 			Atom[] atoms = (Atom[]) label;
 			String s = "[";
@@ -139,6 +136,9 @@ public class Trie<T> {
 				return s + "]";
 			}
 		}
+		
+		if (label instanceof Atom)
+			return label.toString();
 		
 		return "?";
 	}

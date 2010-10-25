@@ -37,7 +37,7 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 			} else { // !root
 				
 				// how "much" does the current label matches with the current stack (state)
-				match = Matcher.match(current.getLabel(), stack.asArray());
+				match = Matcher.match(current.getLabel(), stack.getArray(), stack.getPosition());
 				
 				if (match == current.getLabel().length) { // complete match -> insert here or as child
 					
@@ -93,7 +93,7 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 						current.setTerm(null);
 					} */else {
 						mediator = new Trie<Atom[]>(current, newLabel);
-						mediator.setTerm(term);
+						mediator.setTerm(current.getTerm());
 						current.setTerm(null);
 					}
 					

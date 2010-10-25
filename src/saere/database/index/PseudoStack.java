@@ -123,7 +123,16 @@ public abstract class PseudoStack<T> {
 	 * @return The stack in its current state as array.
 	 */
 	// As we cannot create generic arrays...
+	@Deprecated
 	public abstract T[] asArray();
+	
+	public T[] getArray() {
+		return values;
+	}
+	
+	public int getPosition() {
+		return position;
+	}
 	
 	// XXX Only for debugging!
 	@Override

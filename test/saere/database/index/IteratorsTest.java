@@ -22,7 +22,6 @@ import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
 import saere.database.Utils;
-import saere.database.profiling.TrieInspector;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -58,7 +57,8 @@ public class IteratorsTest {
 	 * file. The larger the file, the longer will the tests of this 
 	 * {@link IteratorsTest} take.
 	 */
-	private static String testFile = DatabaseTest.DATA_PATH + File.separator + "HelloWorld.class";
+	//private static String testFile = DatabaseTest.DATA_PATH + File.separator + "HelloWorld.class";
+	private static String testFile = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
 	
 	/**
 	 * Sets the {@link #testFile}.
@@ -258,15 +258,15 @@ public class IteratorsTest {
 		Iterator<Term> iter = builder.iterator(root);
 		while (iter.hasNext()) {
 			Term term = iter.next();
-			if (builder == COMPLEX) {
-				System.out.println("-->" + Utils.termToString(term));
-			}
+			//if (builder == COMPLEX) {
+				//System.out.println("-->" + Utils.termToString(term));
+			//}
 			actuals.push(term);
 		}
 		
 		if (!same(expecteds, actuals)) {
-			printTermCollections(expecteds, actuals);
-			new TrieInspector().print(root, builder, "c:/users/leaf/desktop/" + System.currentTimeMillis() + "-" + builder.toString() + ".test-failed.gv", true);
+			//printTermCollections(expecteds, actuals);
+			//new TrieInspector().print(root, builder, "c:/users/leaf/desktop/" + System.currentTimeMillis() + "-" + builder.toString() + ".test-failed.gv", true);
 			return false;
 		} else {
 			return true;
@@ -354,7 +354,7 @@ public class IteratorsTest {
 		
 		boolean error = false;
 		for (Term[] query : queries) {
-			if (!testQueryTermIterator(simpleTrie, query, SIMPLE, SHALLOW)) {
+			if (!testQueryTermIterator(complexTrie, query, COMPLEX, SHALLOW)) {
 				error = true;
 				System.err.println("Query " + Arrays.toString(query) + " failed (shallow, complex)");
 			}
@@ -414,7 +414,7 @@ public class IteratorsTest {
 		}
 		
 		if (!same(expecteds, actuals)) {
-			//printTermCollections(expecteds, actuals);
+			printTermCollections(expecteds, actuals);
 			//new TrieInspector().print(root, "c:/users/leaf/desktop/" + System.currentTimeMillis() + ".test-failed.gv", true);
 			return false;
 		} else {
@@ -425,25 +425,25 @@ public class IteratorsTest {
 	/**
 	 * Prints the to specified {@link Term} sets to the console.
 	 * 
-	 * @param s0 The first set.
-	 * @param s1 The second set.
+	 * @param expected The expected set.
+	 * @param actuals The actual set.
 	 */
 	@SuppressWarnings("all")
-	private void printTermCollections(Collection<Term> s0, Collection<Term> s1) {
-		System.out.println("\n\nSet 1 (" + s0.size() + " elements)");
-		for (Term term : s0) {
+	private void printTermCollections(Collection<Term> expected, Collection<Term> actuals) {
+		System.out.println("\n\nExpected set 1 (" + expected.size() + " elements)");
+		for (Term term : expected) {
 			System.out.println(Utils.termToString(term));
 		}
 
-		System.out.println("\nSet 2 (" + s1.size() + " elements)");
-		for (Term term : s1) {
+		System.out.println("\nActual set 2 (" + actuals.size() + " elements)");
+		for (Term term : actuals) {
 			System.out.println(Utils.termToString(term));
 		}
 		
-		if (s0.size() != s1.size()) {
-			System.out.println("\nElements not in both sets:"); // actually not always correct...
-			Collection<Term> bigger = (s0.size() > s1.size() ? s0 : s1);
-			Collection<Term> smaller = (bigger == s0 ? s1 : s0);
+		if (expected.size() != actuals.size()) {
+			System.out.println("\nElements not in the smaller set:"); // actually not always correct...
+			Collection<Term> bigger = (expected.size() > actuals.size() ? expected : actuals);
+			Collection<Term> smaller = (bigger == expected ? actuals : expected);
 			for (Term term : bigger) {
 				if (!smaller.contains(term)) {
 					System.out.println(Utils.termToString(term));

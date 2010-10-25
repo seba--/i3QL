@@ -8,13 +8,12 @@ import saere.database.index.IteratorsTest;
 import saere.database.index.MatcherTest;
 import saere.database.index.TermFlattenerTest;
 import saere.database.index.TermStackTest;
-import saere.database.predicate.Instr3Test;
 
 /**
  * Starter for JUnit tests concering the {@link saere.database} package.
  * 
  * @author David Sullivan
- * @version 0.102, 10/14/2010
+ * @version 0.103, 10/23/2010
  */
 public class DatabaseTest {
 	
@@ -25,7 +24,6 @@ public class DatabaseTest {
 			IteratorsTest.class,
 			MatcherTest.class,
 			TermStackTest.class,
-			Instr3Test.class,
 			TermFlattenerTest.class
 		);
 	}

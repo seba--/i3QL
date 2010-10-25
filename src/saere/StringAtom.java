@@ -43,9 +43,11 @@ import java.lang.ref.WeakReference;
 public final class StringAtom extends Atom {
  
 	private final byte[] title;
+	//private final int hashCode;
 
 	private StringAtom(byte[] title) {
 		this.title = title;
+		//hashCode = java.util.Arrays.hashCode(title);
 	}
 
 	@Override
@@ -77,7 +79,9 @@ public final class StringAtom extends Atom {
 	 */
 	@Override
 	public boolean equals(Object other) {
-		if (other instanceof StringAtom) {
+		/*if (other.hashCode() == hashCode) {
+			return true;
+		} else*/ if (other instanceof StringAtom) {
 			StringAtom other_sa = (StringAtom) other;
 			return java.util.Arrays.equals(this.title, other_sa.title);
 		} else {
@@ -92,6 +96,7 @@ public final class StringAtom extends Atom {
 	public int hashCode() {
 		// hashCode is only called once (when put in the cache)
 		return java.util.Arrays.hashCode(title);
+		//return hashCode;
 	}
 
 	@Override

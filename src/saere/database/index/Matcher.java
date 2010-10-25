@@ -77,4 +77,28 @@ public final class Matcher {
 		
 		return i;
 	}
+	
+	public static int match(Atom[] labelAtoms, Atom[] insertStack, int stackPosition) {
+		int min = Math.min(labelAtoms.length, insertStack.length - stackPosition - 1);
+		int i;
+		for (i = 0; i < min; i++) {
+			if (!match(labelAtoms[i], insertStack[i + stackPosition])) {
+				break;
+			}
+		}
+		
+		return i;
+	}
+	 
+	public static int match(Atom[] labelAtoms, Term[] queryStack, int stackPosition) {
+		int min = Math.min(labelAtoms.length, queryStack.length - stackPosition - 1);
+		int i;
+		for (i = 0; i < min; i++) {
+			if (!match(labelAtoms[i], queryStack[i + stackPosition])) {
+				break;
+			}
+		}
+			
+		return i;
+	}
 }
