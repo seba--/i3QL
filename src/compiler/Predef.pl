@@ -102,7 +102,7 @@ predefined_predicates(UserDefinedProgram,CompleteProgram) :-
 
 
 /*	predefined_operator(Operator) :- succeeds if Operator is an Operator that is
-	defined by SAE prolog.
+	directly supported by SAE prolog.
 */
 predefined_operator(Operator) :-
 	predefined_term_operator(Operator);

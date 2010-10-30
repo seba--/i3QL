@@ -31,15 +31,15 @@
 */
 
 /**
-	A parser to parse (ISO) Prolog.</br>
+	A parser for (ISO) Prolog.</br>
 	
 	<p>
 	<b>Prolog Grammar Specification</b><br/>
 	<i>Notes</i><br/>
-	As the argument of a compound term only operators with priority less than 1000
-	are allowed.<br/>
-	Special cases that are not reflected by the grammar, but which are handled by 
-	the parser, are:
+	The operators of a term used as an argument of a compound term must have a 
+	priority less than 1000.<br/>
+	Special cases that are not directly reflected by the grammar, but which are
+	handled by the parser, are:
 	<ul>
 	<li> "\+ (a,b)" and "\+(a,b)" are different statements; the first term
 	is actually equivalent to: "'\+'(','(a,b))"</li>
@@ -81,14 +81,7 @@
 	</blockquote>
 	</p>
    
-   @author Michael Eichberg (mail@michael-eichberg.de)
-   @version 0.9.1 - Oct., 14th 2010 
-		New: 		new operators can now be defined using the ":- op(...)" directive
-		Fixes: 	we now restrict a subterm's allowed max. priority while parsing
-					(This cuts of a large number of choice points and significantly
-					improves the performance.)
-   @version 0.9 - Sep., 1st 2010 
-		The parser works reasonably well for the tested examples.		
+   @author Michael Eichberg (mail@michael-eichberg.de)	
 */
 :- module(
    	'SAEProlog:Compiler:Parser',
@@ -447,7 +440,7 @@ var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
  *
  *			Lists are represented using their canonic form: ".(Head,Tail)" where
  *			the Tail is typically either again a list element or the empty list 
- *			atom "[]".
+ *			(atom) "[]".
  *			
  *			Examples:
  *			?- [a,b|[]] = .(a,b).

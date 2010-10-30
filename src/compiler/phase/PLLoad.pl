@@ -1,16 +1,18 @@
 /*
 	Loads and creates the AST of an SAE Prolog program.
 	
-	@version $Date$ $Rev$
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:Load',[pl_load/4]).
+:- module('SAEProlog:Compiler:Phase:Load',[pl_load/4]).
 
+:- use_module('../Lexer.pl').
+:- use_module('../Parser.pl').
 :- use_module('../Predef.pl').
 :- use_module('../Debug.pl').
 
 
 /*	Loads and creates the AST of a SAE Prolog program. 
+	
 	@param Debug is the list of debug information that should be printed out.
 		Possible values are: 'on_entry', 'ast' and 'reading_file'.
 	@param Files is the list of files that contain the SAE Prolog program. All 

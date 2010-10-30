@@ -37,8 +37,11 @@
 	The compiler does not make use of exceptions due to several reasons. First of 
 	all, we want to avoid that the compiler immediately terminates when we encounter 
 	an error. We want to be able to report multiple errors.<br /> However, if 
-	an error is detected, the corresponding predicate is expected to fail and the
-	compiler will automatically abort after calling the phase.
+	an error is detected, the phase as a whole is expected to fail. The
+	compiler will automatically abort after calling the phase.<br />
+	Error messages are to be formatted as described here:
+	<a href="http://www.gnu.org/prep/standards/html_node/Errors.html">
+	http://www.gnu.org/prep/standards/html_node/Errors.html</a>
 	</i></p>	
 
 	@author Michael Eichberg

@@ -33,7 +33,7 @@
 
 
 /**
-	Definition of predicates that help to understand and debug the lexer.
+	Predicates that help to understand and debug the lexer.
 	
 	@author Michael Eichberg
 */

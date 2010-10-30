@@ -1,16 +1,16 @@
-/* Implementation of predicates related to debugging the compiler.
+/* Predicates to debugg the compiler.
 
 	@author Michael Eichberg
 */
 :- module(
-	'Compiler:Debug',
+	'SAEProlog:Compiler:Debug',
 	[debug_message/3]
 ).
 
 
 
 
-/* debug_message(Debug,Type,Message) :- prints a debug Message to standard
+/* debug_message(Debug,Type,Message) :- prints the debug Message to standard
 	out if the developer is interested in the message.<br/>
 	This predicate will always succeed.
 	

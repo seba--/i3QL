@@ -32,7 +32,8 @@
 
 
 
-/*	Definition of common helper predicates.
+/*	Definition of helper predicates that are not specifically related to the 
+	SAE Prolog compiler.
 	
 	@author Michael Eichberg
 */
