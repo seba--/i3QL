@@ -17,7 +17,7 @@ import saere.Term;
  */
 public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
 
-	private TermStack stack;
+	private QueryStack stack;
 	private final TrieTermIterator subiterator;
 	private boolean useSubiterator = false;
 	
@@ -38,7 +38,7 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 		subiterator = new TrieTermIterator(start);
 		
 		// break down terms to atoms/variables
-		stack = new TermStack(Trie.getTermFlattener().flattenQuery(terms));
+		stack = new QueryStack(start.flattenForQuery(terms));
 		
 		// don't skip the first node
 		if (stack.size() == 1 && match(stack)) {
@@ -113,12 +113,12 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	/**
 	 * We assume only {@link AtomLabel}s as the {@link SimpleTermInserter} 
 	 * creates {@link Trie}s with {@link AtomLabel}s only. So the first element 
-	 * of a {@link TermStack} (completely) matches or it doesn't.
+	 * of a {@link QueryStack} (completely) matches or it doesn't.
 	 * 
-	 * @param stack The {@link TermStack} containing the query.
-	 * @return <tt>true</tt> if the first element of the {@link TermStack} matches.
+	 * @param stack The {@link QueryStack} containing the query.
+	 * @return <tt>true</tt> if the first element of the {@link QueryStack} matches.
 	 */
-	protected boolean match(TermStack stack) {
+	protected boolean match(QueryStack stack) {
 		assert current.getLabel() != null : "Cannot match a root";
 		return Matcher.match(current.getLabel(), stack.peek());
 	}

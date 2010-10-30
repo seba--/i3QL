@@ -2,27 +2,39 @@ package saere.database.index;
 
 import java.util.Iterator;
 
+import saere.Atom;
 import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
 import saere.database.Utils;
-import de.tud.cs.st.prolog.Atom;
 
-/*
- * Iterators do not work with ComplexTermInserter...
+
+/**
+ * Class that is used to create {@link Term} indices based on tries (prefix 
+ * trees). Normal tries are string-based while this implementation uses string 
+ * and integer atoms (Prolog terms).<br />
+ * <br />
+ * The structure of an {@link Trie} is determined by an insertion policy, 
+ * either <i>simple</i> or <i>complex</i> which is implemented by a 
+ * {@link TrieBuilder} (i.e., {@link SimpleTermInserter} or 
+ * {@link ComplexTermInserter}).<br />
+ * <br />
+ * Every {@link Trie} (node) has a {@link Label} that determines what this node 
+ * represents.
+ * 
+ * @author David Sullivan
+ * @version 0.7, 10/14/2010
  */
-public class Trie {
+// XXX How much difference is there between strings and string/integer atoms in the end?
+public final class Trie {
 	
 	private static TermFlattener flattener = new ShallowTermFlattener();
-	private static TermInserter inserter = new SimpleTermInserter();
+	private static TrieBuilder inserter = new SimpleTermInserter();
 	
 	/** The parent of this node (<tt>null</tt> iff this is the root). */
 	private Trie parent;
 	
-	/** The label of this node. Either a {@link Variable} or an {@link Atom}. */
-	// XXX We don't handle variables as of now(? -- untested)
-	// XXX Need to store variables?
-	// We use the Label class now (more flexibility but slower and memory consuming)
+	/** The label of this node, an {@link Atom}. */
+	// We use the Label class now (more flexibility but more abstraction)
 	private Label label;
 	
 	/** The head of the list of terms that this node stores. */
@@ -37,12 +49,16 @@ public class Trie {
 	/**
 	 * Creates a root {@link Trie} (label is <tt>null</tt>, parent is <tt>null</tt>).
 	 */
-	// XXX We assume only one root, code this!
 	public Trie() {
-		this(null, null);
+		this(new AtomLabel(null), null);
 	}
 	
-	// public now, as the TermInserter creates these...
+	/**
+	 * Creates a trie node with the specified {@link Label} and parent.
+	 * 
+	 * @param label The label of this node.
+	 * @param parent The parent of this node.
+	 */
 	public Trie(Label label, Trie parent) {
 		this.label = label;
 		this.parent = parent;
@@ -129,50 +145,8 @@ public class Trie {
 	public Trie insert(Term term) {
 		assert isRoot() : "Can add to root only";
 		inserter.setCurrent(this);
-		return inserter.insert(new TermStack(flattener.flatten(term)), term);
+		return inserter.insert(new InsertStack(flattener.flattenInsertion(term)), term);
 	}
-	
-/*	
-	// the last created node is returned --> maybe use for bulk insertions?
-	private Trie insert(TermStack ts, Term t) {
-		Term first = ts.peek();
-		
-		assert first != null && (first.isIntegerAtom() || first.isStringAtom() || first.isVariable()) : "Invalid first";
-		
-		if (isRoot()) {
-			
-			// add to own subtrie
-			if (firstChild == null) {
-				firstChild = new Trie(Label.makeLabel(first), this);
-			}
-			return firstChild.insert(ts, t);
-			
-		} else if (label.match(first)) {
-			
-			// the labels match
-			ts.pop();
-
-			// this must be the insertion node
-			if (ts.size() == 0) {
-				addTerm(t);
-				return this;
-			}
-
-			// add to own subtrie
-			if (firstChild == null) {
-				firstChild = new Trie(Label.makeLabel(ts.peek()), this);
-			}
-			return firstChild.insert(ts, t);
-		} else { // !root && !same
-			
-			// add to (a) sibling subtrie
-			if (nextSibling == null) {
-				nextSibling = new Trie(Label.makeLabel(first), parent);
-			}
-			return nextSibling.insert(ts, t);
-		}
-	}
-*/
 	
 	// XXX Remove this later...
 	@Override
@@ -182,20 +156,14 @@ public class Trie {
 		String pStr = parent != null && parent.label != null ? parent.label.toString() : (parent != null && parent.label == null ? "<root>" : "null");
 		String fStr = firstChild != null && firstChild.label != null ? firstChild.label.toString() : "null";
 		String nStr = nextSibling != null && nextSibling.label != null ? nextSibling.label.toString() : "null";
-		return "[Trie " + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + ", term=" + tStr + "]";
+		return "Trie={label=" + lStr + ", parent=" + pStr + ", firstChild=" + fStr + ", nextSibling=" + nStr + ", term=" + tStr + "}";
 	}
 	
 	/**
 	 * @see TrieTermIterator#TrieIterator(Trie, Term...)
 	 */
 	public Iterator<Term> iterator(Term[] terms) {
-		if (inserter instanceof SimpleTermInserter) {
-			return new SimpleTrieTermIterator(this, terms);
-		} else if (inserter instanceof ComplexTermInserter) {
-			return new ComplexTrieTermIterator(this, terms);
-		} else {
-			return EmptyTermIterator.getInstance();
-		}
+		return inserter.iterator(this, terms);
 	}
 	
 	public Iterator<Term> iterator() {
@@ -213,27 +181,34 @@ public class Trie {
 		*/
 	}
 	
+	// XXX Actually not needed here...
 	public Iterator<Trie> nodeIterator() {
 		return new TrieNodeIterator(this);
 	}
-	
-	
+
 	public static void setTermFlattener(TermFlattener flattener) {
 		Trie.flattener = flattener;
 	}
 	
+	// Actually only for screening purposes...
 	public static TermFlattener getTermFlattener() {
 		return Trie.flattener;
 	}
 	
-	public static void setTermInserter(TermInserter inserter) {
+	// Instead of returning the TermFlattener and flatten then, we provide the service directly.
+	public Term[] flattenForQuery(Term[] terms) {
+		return flattener.flattenQuery(terms);
+	}
+	
+	public static void setTermInserter(TrieBuilder inserter) {
 		Trie.inserter = inserter;
 	}
 	
-	public static TermInserter getTermInserter() {
+	public static TrieBuilder getTermInserter() {
 		return Trie.inserter;
 	}
 	
+	// XXX Also not needed...
 	public Trie getPredicateSubtrie(StringAtom functor) {
 		assert isRoot() : "Can get predicate subtries from root only";
 		Trie child = firstChild;
@@ -247,12 +222,15 @@ public class Trie {
 		return null;
 	}
 	
-	public int labelLength() {
+	public int getLabelLength() {
+		return label.length();
+		
+		/*
 		if (label == null) {
-			// this was 1 before! 10/5/2010 3:45 PM
-			return 0; // XXX Hmm, actually ONLY the root should have no label, and we don't pop sth for the root...
+			throw new UnsupportedOperationException("The root trie has no label");
 		} else {
 			return label.length();
 		}
+		*/
 	}
 }

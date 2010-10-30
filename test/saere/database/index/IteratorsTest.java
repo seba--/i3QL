@@ -1,52 +1,56 @@
 package saere.database.index;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import junit.framework.TestCase;
-
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import saere.IntegerAtom;
+import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.database.DatabaseTermFactory;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
+import saere.database.Stopwatch;
 import saere.database.Utils;
+import saere.meta.GenericCompoundTerm;
 
 /**
  * Test class for the various iterator classes. Note that these tests assume 
- * that associated classes like {@link TermFlattener} or {@link TermInserter} 
- * implementations work properly.<br />
- * <br />
- * If tests fail because of an {@link StackOverflowError}, try raising the 
- * thread stack size (e.g., pass <tt>-Xss256M</tt> as JVM argument).
+ * that associated classes like {@link TermFlattener} or {@link TrieBuilder} 
+ * implementations work properly.
  * 
  * @author David Sullivan
- * @version 0.2, 10/4/2010
+ * @version 0.3, 10/11/2010
  */
 /*
  * This class also contains some methods/code that are helpful for debbuging...
  */
-public class IteratorsTest extends TestCase {
+public class IteratorsTest {
 	
 	private static final TermFlattener SHALLOW = new ShallowTermFlattener();
 	private static final TermFlattener RECURSIVE = new RecursiveTermFlattener();
-	private static final TermInserter SIMPLE = new SimpleTermInserter();
-	private static final TermInserter COMPLEX = new ComplexTermInserter();
+	private static final TrieBuilder SIMPLE = new SimpleTermInserter();
+	private static final TrieBuilder COMPLEX = new ComplexTermInserter();
 	
 	private static final Factbase FACTS = Factbase.getInstance();
 	
+	private Trie trie;
+	
 	/**
-	 * The test file for this {@link TestCase}. It must be a JAR, ZIP or CLASS 
+	 * The test file for this {@link IteratorsTest}. It must be a JAR, ZIP or CLASS 
 	 * file. The larger the file, the longer will the tests of this 
-	 * {@link TestCase} take.
+	 * {@link IteratorsTest} take.
 	 */
-	private String testFile = DatabaseTest.DATA_PATH + File.separator + "HelloWorld.class";
+	private static String testFile = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
 	
 	/**
 	 * Sets the {@link #testFile}.
@@ -54,8 +58,8 @@ public class IteratorsTest extends TestCase {
 	 * @param testFile
 	 * @see #testFile
 	 */
-	public void testFile(String testFile) {
-		this.testFile = testFile;
+	public static void testFile(String testFile) {
+		IteratorsTest.testFile = testFile;
 	}
 	
 	/**
@@ -64,18 +68,16 @@ public class IteratorsTest extends TestCase {
 	 * @return The test file for this instance.
 	 * @see #testFile
 	 */
-	public String testFile() {
+	public static String testFile() {
 		return testFile;
 	}
 	
-	// XXX This is run before every test!
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
-		System.out.print("Reading test file " + testFile + "... ");
+	@BeforeClass
+	public static void readFactsOnce() {
+		Stopwatch sw = new Stopwatch();
 		FACTS.drop();
 		FACTS.read(testFile);
-		System.out.println("DONE");
+		sw.printElapsed("Reading the facts from " + testFile);
 	}
 	
 	/**
@@ -87,23 +89,23 @@ public class IteratorsTest extends TestCase {
 		Trie.setTermFlattener(SHALLOW);
 		Trie.setTermInserter(SIMPLE);
 		
-		Term f = DatabaseTermFactory.makeStringAtom("f");
-		Term fa = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
-				DatabaseTermFactory.makeStringAtom("a")
+		Term f = StringAtom.StringAtom("f");
+		Term fa = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
+				StringAtom.StringAtom("a")
 		});
-		Term fab = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
-				DatabaseTermFactory.makeStringAtom("a"),
-				DatabaseTermFactory.makeStringAtom("b")
+		Term fab = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
+				StringAtom.StringAtom("a"),
+				StringAtom.StringAtom("b")
 		});
-		Term fabc = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
-				DatabaseTermFactory.makeStringAtom("a"),
-				DatabaseTermFactory.makeStringAtom("b"),
-				DatabaseTermFactory.makeStringAtom("c")
+		Term fabc = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
+				StringAtom.StringAtom("a"),
+				StringAtom.StringAtom("b"),
+				StringAtom.StringAtom("c")
 		});
-		Term fabd = DatabaseTermFactory.makeCompoundTerm("f", new Term[] {
-				DatabaseTermFactory.makeStringAtom("a"),
-				DatabaseTermFactory.makeStringAtom("b"),
-				DatabaseTermFactory.makeStringAtom("d")
+		Term fabd = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
+				StringAtom.StringAtom("a"),
+				StringAtom.StringAtom("b"),
+				StringAtom.StringAtom("d")
 		});
 		
 		List<Trie> expecteds = new LinkedList<Trie>();
@@ -128,7 +130,7 @@ public class IteratorsTest extends TestCase {
 			actuals.add(iter.next());
 		}
 		
-		assertTrue(expecteds.equals(actuals));
+		assertTrue(same(expecteds, actuals));
 	}
 	
 	/**
@@ -180,10 +182,10 @@ public class IteratorsTest extends TestCase {
 		Trie.setTermFlattener(SHALLOW);
 		Trie.setTermInserter(SIMPLE);
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_2 = DatabaseTermFactory.makeStringAtom("m_2");
-		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		Term invoke = DatabaseTermFactory.makeStringAtom("invoke");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_2 = StringAtom.StringAtom("m_2");
+		Term i1 = IntegerAtom.IntegerAtom(1);
+		Term invoke = StringAtom.StringAtom("invoke");
 		Term X = new Variable();
 		
 		Term[][] queries = {
@@ -191,6 +193,9 @@ public class IteratorsTest extends TestCase {
 				new Term[] { X, X, invoke },
 				new Term[] { instr, m_2 }
 		};
+		
+		trie = new Trie();
+		fill(trie);
 		
 		boolean error = false;
 		for (Term[] query : queries) {
@@ -208,10 +213,10 @@ public class IteratorsTest extends TestCase {
 		Trie.setTermFlattener(RECURSIVE);
 		Trie.setTermInserter(SIMPLE);
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_2 = DatabaseTermFactory.makeStringAtom("m_2");
-		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		Term invoke = DatabaseTermFactory.makeStringAtom("invoke");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_2 = StringAtom.StringAtom("m_2");
+		Term i1 = IntegerAtom.IntegerAtom(1);
+		Term invoke = StringAtom.StringAtom("invoke");
 		Term X = new Variable();
 		
 		Term[][] queries = {
@@ -219,6 +224,9 @@ public class IteratorsTest extends TestCase {
 				new Term[] { X, X, invoke },
 				new Term[] { instr, m_2 }
 		};
+		
+		trie = new Trie();
+		fill(trie);
 		
 		boolean error = false;
 		for (Term[] query : queries) {
@@ -236,10 +244,10 @@ public class IteratorsTest extends TestCase {
 		Trie.setTermFlattener(SHALLOW);
 		Trie.setTermInserter(COMPLEX);
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_2 = DatabaseTermFactory.makeStringAtom("m_2");
-		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		Term invoke = DatabaseTermFactory.makeStringAtom("invoke");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_2 = StringAtom.StringAtom("m_2");
+		Term i1 = IntegerAtom.IntegerAtom(1);
+		Term invoke = StringAtom.StringAtom("invoke");
 		Term X = new Variable();
 		
 		Term[][] queries = {
@@ -247,6 +255,9 @@ public class IteratorsTest extends TestCase {
 				new Term[] { X, X, X, invoke },
 				new Term[] { instr, m_2 }
 		};
+		
+		trie = new Trie();
+		fill(trie);
 		
 		boolean error = false;
 		for (Term[] query : queries) {
@@ -264,10 +275,10 @@ public class IteratorsTest extends TestCase {
 		Trie.setTermFlattener(RECURSIVE);
 		Trie.setTermInserter(COMPLEX);
 		
-		Term instr = DatabaseTermFactory.makeStringAtom("instr");
-		Term m_2 = DatabaseTermFactory.makeStringAtom("m_2");
-		Term i1 = DatabaseTermFactory.makeIntegerAtom(1);
-		Term invoke = DatabaseTermFactory.makeStringAtom("invoke");
+		Term instr = StringAtom.StringAtom("instr");
+		Term m_2 = StringAtom.StringAtom("m_2");
+		Term i1 = IntegerAtom.IntegerAtom(1);
+		Term invoke = StringAtom.StringAtom("invoke");
 		Term X = new Variable();
 		
 		Term[][] queries = {
@@ -275,6 +286,9 @@ public class IteratorsTest extends TestCase {
 				new Term[] { X, X, X, invoke },
 				new Term[] { instr, m_2 }
 		};
+		
+		trie = new Trie();
+		fill(trie);
 		
 		boolean error = false;
 		for (Term[] query : queries) {
@@ -295,20 +309,18 @@ public class IteratorsTest extends TestCase {
 	 */
 	private boolean testTrieTermIterator() {
 		
-		List<Term> expecteds = new LinkedList<Term>();
+		Deque<Term> expecteds = new LinkedList<Term>();
 		for (Term fact : FACTS.getFacts()) {
-			expecteds.add(fact);
+			expecteds.push(fact);
 		}
 		
 		Trie root = new Trie();
-		for (Term fact : FACTS.getFacts()) {
-			root.insert(fact);
-		}
+		fill(root);
 		
-		List<Term> actuals = new LinkedList<Term>();
+		Deque<Term> actuals = new LinkedList<Term>();
 		Iterator<Term> iter = root.iterator();
 		while (iter.hasNext()) {
-			actuals.add(iter.next());
+			actuals.push(iter.next());
 		}
 		
 		if (!same(expecteds, actuals)) {
@@ -324,25 +336,20 @@ public class IteratorsTest extends TestCase {
 		
 		TermFilter filter = new TermFilter(query, flattener);
 		
-		List<Term> expecteds = new LinkedList<Term>();
+		Deque<Term> expecteds = new LinkedList<Term>();
 		for (Term fact : FACTS.getFacts()) {
 			//boolean allow = false;
 			if (filter.allow(fact)) {
-				expecteds.add(fact);
+				expecteds.push(fact);
 				//allow = true;
 			}
 			//System.out.println("Query " + Arrays.toString(query) + "," + (allow ? "" : " NOT") + " allowing " + Utils.termToString(fact));
 		}
 		
-		Trie root = new Trie();
-		for (Term fact : FACTS.getFacts()) {
-			root.insert(fact);
-		}
-		
-		List<Term> actuals = new LinkedList<Term>();
-		Iterator<Term> iter = root.iterator(query);
+		Deque<Term> actuals = new LinkedList<Term>();
+		Iterator<Term> iter = trie.iterator(query);
 		while (iter.hasNext()) {
-			actuals.add(iter.next());
+			actuals.push(iter.next());
 		}
 		
 		if (!same(expecteds, actuals)) {
@@ -385,21 +392,33 @@ public class IteratorsTest extends TestCase {
 	}
 	
 	/**
-	 * Checks wether the two specified lists are the <i>same</i>. Two lists 
-	 * are the same if they have the same size and if one list contains all 
-	 * elements of the other (but possibly in different order).
+	 * Checks wether the two specified collections are the <i>same</i>. Two 
+	 * collections are the same if they have the same size and if one 
+	 * collection contains all elements of the other (but possibly in different 
+	 * order).
 	 * 
-	 * @param list0 The first list.
-	 * @param list1 The second list.
-	 * @return <tt>true</tt> if the two lists are the same.
+	 * @param coll0 The first collection.
+	 * @param coll1 The second collection.
+	 * @return <tt>true</tt> if the two collections are the same.
 	 */
 	@SuppressWarnings("all")
-	private boolean same(List<Term> list0, List<Term> list1) {
-		if (list0.size() == list1.size() && list0.containsAll(list1)) {
+	private boolean same(Collection<?> coll0, Collection<?> coll1) {
+		if (coll0.size() == coll1.size() && coll0.containsAll(coll1)) { // may take very long
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	private void fill(Trie root) {
+		Stopwatch sw = new Stopwatch();
+		List<Term> facts = FACTS.getFacts();
+		for (Term fact : facts) {
+			root.insert(fact);
+		}
+		String flattener = (Trie.getTermFlattener() instanceof ShallowTermFlattener) ? "shallow" : "recursive";
+		String inserter = (Trie.getTermInserter() instanceof SimpleTermInserter) ? "simple" : "complex";
+		sw.printElapsed("Filling a " + flattener + ", " + inserter + " trie with " + facts.size() + " facts");
 	}
 	
 	/**
@@ -435,7 +454,7 @@ public class IteratorsTest extends TestCase {
 		 * @return <tt>true</tt> if the terms matches the query of this instance.
 		 */
 		public boolean allow(Term term) {
-			Term[] flattened = flattener.flatten(term);
+			Term[] flattened = flattener.flattenInsertion(term);
 			return query.length == Matcher.match(query, flattened);
 		}
 	}

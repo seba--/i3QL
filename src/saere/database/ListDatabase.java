@@ -1,5 +1,6 @@
 package saere.database;
 
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -16,17 +17,17 @@ import saere.database.predicate.DatabasePredicate;
  * default (list-based) unification.
  *
  * @author David Sullivan
- * @version 0.2, 9/22/2010
+ * @version 0.22, 10/14/2010
  * @see DatabasePredicate#useLists()
  */
 public class ListDatabase extends Database {
 
-	private final static Database INSTANCE = new ListDatabase();
+	private final static ListDatabase INSTANCE = new ListDatabase();
 	
-	private final Map<StringAtom, List<Term>> predicates;
+	private final Map<StringAtom, Deque<Term>> predicates;
 	
 	private ListDatabase() {
-		predicates = new HashMap<StringAtom, List<Term>>();
+		predicates = new HashMap<StringAtom, Deque<Term>>();
 	}
 	
 	/**
@@ -34,7 +35,7 @@ public class ListDatabase extends Database {
 	 * 
 	 * @return The {@link ListDatabase} singleton.
 	 */
-	public static Database getInstance() {
+	public static ListDatabase getInstance() {
 		return INSTANCE;
 	}
 	
@@ -43,7 +44,7 @@ public class ListDatabase extends Database {
 		if (!predicates.containsKey(fact.functor())) {
 			predicates.put(fact.functor(), new LinkedList<Term>());
 		}
-		predicates.get(fact.functor()).add(fact);
+		predicates.get(fact.functor()).push(fact); // this reverses order (and actually restores the original order)
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class ListDatabase extends Database {
 	@Override
 	public Iterator<Term> getFacts() {
 		List<Term> facts = new LinkedList<Term>(); // XXX Maybe not the best way to get an iterator for all sub-lists together...
-		for (Entry<StringAtom, List<Term>> entry : predicates.entrySet()) {
+		for (Entry<StringAtom, Deque<Term>> entry : predicates.entrySet()) {
 			facts.addAll(entry.getValue());
 		}
 		return facts.iterator();

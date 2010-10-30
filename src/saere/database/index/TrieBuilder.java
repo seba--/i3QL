@@ -1,5 +1,7 @@
 package saere.database.index;
 
+import java.util.Iterator;
+
 import saere.Term;
 
 /**
@@ -11,7 +13,7 @@ import saere.Term;
  * @author David Sullivan
  * @version 0.1, 9/22/2010
  */
-public abstract class TermInserter {
+public abstract class TrieBuilder {
 	
 	/** The current {@link Trie} (not the inserted {@link Term}) during the insertion process. */
 	protected Trie current = null;
@@ -26,12 +28,14 @@ public abstract class TermInserter {
 	
 	/**
 	 * Inserts the specified {@link Term} using the flattend term 
-	 * representation in the specified {@link TermStack} and starts the 
+	 * representation in the specified {@link QueryStack} and starts the 
 	 * insertion process at the momentary {@link #current}.
 	 *  
 	 * @param stack The flattened term representation in a stack.
 	 * @param term The term to insert.
 	 * @return The insertion {@link Trie} node.
 	 */
-	public abstract Trie insert(TermStack stack, Term term);
+	public abstract Trie insert(InsertStack stack, Term term);
+	
+	public abstract Iterator<Term> iterator(Trie start, Term[] query);
 }

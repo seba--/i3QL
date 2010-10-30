@@ -7,16 +7,15 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
-import saere.database.DatabaseTermFactory;
 import saere.database.ListDatabase;
 import saere.database.TrieDatabase;
 
 /**
- * Represents a database procedure and provides an array-based (i.e., <b>slow</b>) 
- * <i>default implementation</i>.
+ * Represents a database procedure and provides an array-based (i.e., <b>rather 
+ * slow</b>) <i>default implementation</i>.
  * 
  * @author David Sullivan
- * @version 0.2, 9/21/2010
+ * @version 0.3, 10/14/2010
  */
 public class DatabasePredicate {
 	
@@ -26,7 +25,7 @@ public class DatabasePredicate {
 	protected final int arity;
 	
 	protected DatabasePredicate(String functor, int arity) {
-		this.functor = DatabaseTermFactory.makeStringAtom(functor);
+		this.functor = StringAtom.StringAtom(functor);
 		this.arity = arity;
 		database = ListDatabase.getInstance(); // use lists by default
 	}
@@ -57,11 +56,11 @@ public class DatabasePredicate {
 		return arity;
 	}
 	
-	public void useTries() {
+	public static void useTries() {
 		database = TrieDatabase.getInstance();
 	}
 	
-	public void useLists() {
+	public static void useLists() {
 		database = ListDatabase.getInstance();
 	}
 	
@@ -72,7 +71,6 @@ public class DatabasePredicate {
 	 * @author David Sullivan
 	 * @version 0.2, 9/21/2010
 	 */
-	// TODO Actually test this stuff!
 	protected class DatabaseSolutions implements Solutions {
 		
 		private Term[] args;
@@ -131,7 +129,7 @@ public class DatabasePredicate {
 		}
 		
 		/**
-		 * Save the states of the goal.
+		 * Saves the states of the goal.
 		 */
 		private void save() {
 			states = new State[args.length];
@@ -141,7 +139,7 @@ public class DatabasePredicate {
 		}
 		
 		/**
-		 * Restore the states of the goal.
+		 * Restores the states of the goal.
 		 */
 		private void load() {
 			for (int i = 0; i < args.length; i++) {

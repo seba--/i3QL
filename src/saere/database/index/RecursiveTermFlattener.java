@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import saere.Atom;
 import saere.CompoundTerm;
 import saere.Term;
 import saere.Variable;
@@ -24,10 +25,49 @@ import saere.Variable;
  * @version 0.1, 9/22/2010
  * @see ShallowTermFlattener
  */
-public class RecursiveTermFlattener extends AbstractTermFlattener {
+public final class RecursiveTermFlattener extends AbstractTermFlattener {
 
 	@Override
-	public Term[] flatten(Term term) {
+	public Atom[] flattenInsertion(Term term) {
+		assert term != null : "term is null";
+		
+		// We assume that we get mostly compound terms (actually only(?)).
+		if (term.isCompoundTerm()) {
+			List<Atom> terms = new ArrayList<Atom>();
+			terms.add(term.functor()); // Add functor as first term
+			int min = maxLength > 0 ? Math.min(term.arity(), maxLength - 1) : term.arity();
+			for (int i = 0; i < min; i++) {
+				Atom[] argTerms = flattenInsertion(term.arg(i));
+				for (Atom argTerm : argTerms) {
+					terms.add(argTerm); // Add arguments as terms
+				}
+			}
+			return terms.toArray(new Atom[0]);
+		} else if (term.isIntegerAtom()) {
+			return new Atom[] { term.asIntegerAtom() };
+		} else if (term.isStringAtom()) {
+			return new Atom[] { term.asStringAtom() };
+		} else {
+			return new Atom[] { term.functor() }; // XXX Must suffice for lists
+		}
+	}
+
+	@Override
+	public Term[] flattenQuery(Term... terms) {
+		assert terms.length > 0 : "Invalid query length 0";
+		
+		List<Term> flattened = new LinkedList<Term>();
+		for (int i = 0; i < terms.length; i++) {
+			Term[] argTerms = flattenForQuery(terms[i]);
+			for (Term argTerm : argTerms) {
+				flattened.add(argTerm);
+			}
+		}
+		
+		return flattened.toArray(new Term[0]);
+	}
+	
+	public Term[] flattenForQuery(Term term) {
 		assert term != null : "term is null";
 		
 		// term is a variable
@@ -35,7 +75,7 @@ public class RecursiveTermFlattener extends AbstractTermFlattener {
 			Variable var = term.asVariable();
 			
 			if (var.isInstantiated()) {
-				return flatten(term.asVariable().binding());
+				return flattenForQuery(term.asVariable().binding());
 			} else {
 				return new Term[] { var };
 			}	
@@ -50,7 +90,7 @@ public class RecursiveTermFlattener extends AbstractTermFlattener {
 		terms.add(term.functor()); // add functor as first term
 		if (term.isCompoundTerm()) {
 			for (int i = 0; i < term.arity(); i++) {
-				Term[] argTerms = flatten(term.arg(i));  // recursive term flattening
+				Term[] argTerms = flattenForQuery(term.arg(i));  // recursive term flattening
 				for (Term argTerm : argTerms) {
 					terms.add(argTerm);
 				}
@@ -58,25 +98,10 @@ public class RecursiveTermFlattener extends AbstractTermFlattener {
 		}
 		
 		if (maxLength > 0 && terms.size() > maxLength) {
-			terms = terms.subList(0, maxLength + 1); // it may actually a little late and costly to prune now...
+			terms = terms.subList(0, maxLength + 1);
 		}
 		
 		return terms.toArray(new Term[0]);
-	}
-
-	@Override
-	public Term[] flattenQuery(Term... terms) {
-		assert terms.length > 0 : "Invalid query length 0";
-		
-		List<Term> flattened = new LinkedList<Term>();
-		for (int i = 0; i < terms.length; i++) {
-			Term[] argTerms = flatten(terms[i]);
-			for (Term argTerm : argTerms) {
-				flattened.add(argTerm);
-			}
-		}
-		
-		return flattened.toArray(new Term[0]);
 	}
 
 }

@@ -2,34 +2,31 @@ package saere.database.index;
 
 import saere.Atom;
 import saere.Term;
-import saere.Variable;
 import saere.database.Utils;
 
 /**
- * A {@link CompoundLabel} represents a label that stores an ordered array of {@link Atom}s / free {@link Variable}s.
+ * A {@link CompoundLabel} represents a label that stores an ordered array of {@link Atom}s.
  * 
  * @author David Sullivan
- * @version 0.1, 9/21/2010
+ * @version 0.2, 10/14/2010
  */
-public class CompoundLabel extends Label {
+public final class CompoundLabel extends Label {
 
-	private Term[] terms; // XXX Maybe a list would be easier to split?
+	private Atom[] atoms; // XXX Maybe a list would be easier to split? On the other hand this speeds up #asArray()
 	
-	// should only be called by Label.makeLabel(..)
-	protected CompoundLabel(Term[] terms) {
-		assert terms.length > 1 : "length of terms is only 1"; // actually, also check if the array contains only atoms / free variables
-		this.terms = terms; // "wrap" only
+	public CompoundLabel(Atom[] atoms) {
+		assert atoms.length > 1 : "length of terms is only 1";
+		this.atoms = atoms; // "wrap" only
 	}
-	
+
 	@Override
-	public Term getLabel(int index) {
-		//assert index >= 0 && index < length() - 1 : "Index out of bounds"; // exception suffices
-		return terms[index];
+	public Atom getLabel(int index) {
+		return atoms[index];
 	}
 
 	@Override
 	public int length() {
-		return terms.length;
+		return atoms.length;
 	}
 	
 	@Override
@@ -38,33 +35,30 @@ public class CompoundLabel extends Label {
 	}
 	
 	@Override
-	public Label[] split(int index) {
-		assert index >= 0 && index < terms.length - 1 : "Illegal split index " + index + "(length " + terms.length + ")";
+	public Label split(int index) {
+		assert index >= 0 && index < atoms.length - 1 : "Illegal split index " + index + "(length " + atoms.length + ")";
 		
-		Label[] result = new Label[2];
-		Term[] prefix = new Term[index + 1];
-		Term[] suffix = new Term[terms.length - (index + 1)];
+		Atom[] prefix = new Atom[index + 1];
+		Atom[] suffix = new Atom[atoms.length - (index + 1)];
 		
-		System.arraycopy(terms, 0, prefix, 0, prefix.length);
-		System.arraycopy(terms, index + 1, suffix, 0, suffix.length);
+		System.arraycopy(atoms, 0, prefix, 0, prefix.length);
+		System.arraycopy(atoms, index + 1, suffix, 0, suffix.length);
 		
-		result[0] = Label.makeLabel(prefix);
-		result[1] = Label.makeLabel(suffix);
-		return result;
+		atoms = prefix;
+		return new CompoundLabel(suffix);
 	}
 	
 	@Override
 	public String toString() {
-		String s = "";
-		for (Term term : terms) {
-			s += Utils.termToString(term) + " "; // XXX better no dependency on Utils
+		String s = "Label=[";
+		for (Term term : atoms) {
+			s += Utils.termToString(term) + " ";
 		}
-		
-		return s; 
+		return s + "]"; 
 	}
 	
 	@Override
-	public Term[] asArray() {
-		return terms;
+	public Atom[] asArray() {
+		return atoms;
 	}
 }

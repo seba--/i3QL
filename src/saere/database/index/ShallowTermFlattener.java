@@ -3,6 +3,7 @@ package saere.database.index;
 import java.util.ArrayList;
 import java.util.List;
 
+import saere.Atom;
 import saere.CompoundTerm;
 import saere.Term;
 import saere.Variable;
@@ -21,43 +22,38 @@ import saere.Variable;
  * {@link RecursiveTermFlattener}.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.2, 10/14/2010
  */
-public class ShallowTermFlattener extends AbstractTermFlattener {
+public final class ShallowTermFlattener extends AbstractTermFlattener {
 
 	@Override
-	public Term[] flatten(Term term) {
+	public Atom[] flattenInsertion(Term term) {
 		assert term != null : "term is null";
 		
-		// term is a variable
-		if (term.isVariable()) {
-			Variable var = term.asVariable();
-			
-			if (var.isInstantiated()) {
-				return flatten(term.asVariable().binding());
-			} else {
-				return new Term[] { var };
-			}	
-		}
-		
-		if (term.isIntegerAtom()) {
-			return new Term[] { term }; // don't make StringAtoms out of IntegerAtoms with functor()!
-		}
-		
-		// term is not a variable ...
-		List<Term> terms = new ArrayList<Term>();
-		terms.add(term.functor()); // add functor as first term
+		// We assume that we get mostly compound terms (actually only(?)).
 		if (term.isCompoundTerm()) {
-			for (int i = 0; i < term.arity(); i++) {
-				terms.add(atomize(term.arg(i))); // add arguments as terms
+			List<Atom> terms = new ArrayList<Atom>();
+			terms.add(term.functor()); // Add functor as first term
+			int min = maxLength > 0 ? Math.min(term.arity(), maxLength - 1) : term.arity();
+			for (int i = 0; i < min; i++) {
+				terms.add(atomizeForInsertion(term.arg(i))); // Add arguments as terms
 			}
+			return terms.toArray(new Atom[0]);
+		} else if (term.isIntegerAtom()) {
+			return new Atom[] { term.asIntegerAtom() };
+		} else if (term.isStringAtom()) {
+			return new Atom[] { term.asStringAtom() };
+		} else {
+			return new Atom[] { term.functor() }; // Should suffice for lists
 		}
-		
-		if (maxLength > 0 && terms.size() > maxLength) {
-			terms = terms.subList(0, maxLength + 1); // it may actually a little late and costly to prune now...
+	}
+	
+	private Atom atomizeForInsertion(Term term) {
+		if (term.isIntegerAtom()) {
+			return term.asIntegerAtom();
+		} else { // string atom, compound term
+			return term.functor();
 		}
-		
-		return terms.toArray(new Term[0]);
 	}
 	
 	/**
@@ -69,19 +65,19 @@ public class ShallowTermFlattener extends AbstractTermFlattener {
 	 * @param term The term to atomize.
 	 * @return An atom/variable representation of the specified term.
 	 */
-	private Term atomize(Term term) {
+	private Term atomizeForQuery(Term term) {
 		if (term.isIntegerAtom() || term.isStringAtom()) {
 			return term;
-		} else if (term.isCompoundTerm()) {
-			return term.functor();
-		} else {
+		} else if (term.isVariable()) { 
 			Variable var = term.asVariable();
 			if (!var.isInstantiated()) {
 				return term;
 			} else {
 				term = var.asVariable().binding();
-				return atomize(term);
+				return atomizeForQuery(term);
 			}
+		} else { // CompoundTerm or EmptyList
+			return term.functor();		
 		}
 	}
 
@@ -91,7 +87,7 @@ public class ShallowTermFlattener extends AbstractTermFlattener {
 		
 		Term[] flattened = new Term[terms.length];
 		for (int i = 0; i < flattened.length; i++) {
-			flattened[i] = atomize(terms[i]);
+			flattened[i] = atomizeForQuery(terms[i]);
 		}
 		
 		return flattened;

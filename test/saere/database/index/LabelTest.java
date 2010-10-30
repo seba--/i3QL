@@ -4,8 +4,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import saere.Atom;
+import saere.StringAtom;
 import saere.Term;
-import saere.database.DatabaseTermFactory;
 
 /**
  * Tests for the abstract {@link Label} class and the two implementing classes 
@@ -16,10 +17,10 @@ import saere.database.DatabaseTermFactory;
  */
 public class LabelTest extends TestCase {
 
-	private static final Term F = DatabaseTermFactory.makeStringAtom("f");
-	private static final Term A = DatabaseTermFactory.makeStringAtom("a");
-	private static final Term B = DatabaseTermFactory.makeStringAtom("b");
-	private static final Term C = DatabaseTermFactory.makeStringAtom("c");
+	private static final Atom F = StringAtom.StringAtom("f");
+	private static final Atom A = StringAtom.StringAtom("a");
+	private static final Atom B = StringAtom.StringAtom("b");
+	private static final Atom C = StringAtom.StringAtom("c");
 	
 	private Label fabc;
 	private Label fa;
@@ -35,15 +36,18 @@ public class LabelTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		fabc = Label.makeLabel(new Term[] { F, A, B, C });
-		Label[] labels = fabc.split(1);
-		fa = labels[0];
-		bc = labels[1];
-		labels = fabc.split(0);
-		f = labels[0];
-		abc = labels[1];
-		labels = fabc.split(2);
-		c = labels[1];
+		fabc = new CompoundLabel(new Atom[] { F, A, B, C });
+		bc = fabc.split(1);
+		fa = fabc;
+		
+		fabc = new CompoundLabel(new Atom[] { F, A, B, C });
+		abc = fabc.split(0);
+		f = fabc;
+
+		fabc = new CompoundLabel(new Atom[] { F, A, B, C });
+		c = fabc.split(2);
+	
+		fabc = new CompoundLabel(new Atom[] { F, A, B, C });
 	}
 	
 	@Test

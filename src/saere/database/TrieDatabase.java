@@ -5,7 +5,16 @@ import java.util.Iterator;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.index.Trie;
+import saere.database.predicate.DatabasePredicate;
 
+/**
+ * A {@link Trie}-based database that can be used by {@link DatabasePredicate}s 
+ * unifications.
+ * 
+ * @author David Sullivan
+ * @version 0.3, 10/14/2010
+ * @see DatabasePredicate#useTries()
+ */
 public class TrieDatabase extends Database {
 	
 	private static final TrieDatabase INSTANCE = new TrieDatabase();
