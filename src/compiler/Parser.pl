@@ -222,11 +222,11 @@ default_op_table(
 
 
 
-/******************************************************************************\
+/* ************************************************************************** *\
  *                                                                            *
  *                         I M P L E M E N T A T I O N                        *
  *                                                                            *
-\******************************************************************************/
+\* ************************************************************************** */
 
 /*
 	The following pseudocode shows the underlying approach to parse Prolog terms 
@@ -262,15 +262,15 @@ default_op_table(
 program(Ops,R) --> 
 	clause(Ops,S),
 	{	!,
-		(	
+		(	% the clause is a directice and immediately evaluated
 			S = ct(_DPos, ':-',[_Directive]),!, % a directive always has one argument
 			R = SRs,
 			process_directive(Ops,S,NewOps)
-		;	
+		;	% the clause is not valid (and just ignored)
 			\+ validate_clause(S),!,
 			R = SRs,
 			Ops = NewOps
-		;
+		;	% ... it is either a fact or a clause and added to 
 			R = [S|SRs],
 			Ops = NewOps
 		)
@@ -279,8 +279,10 @@ program(Ops,R) -->
 program(_Ops,[]) --> {true}.
 
 
-% TODO add code to check that the operator definition is valid 
+% TODO check that the operator definition is valid 
+% TODO check that no standard SAE Prolog Operator is redefined
 % TODO support the removal / redefinition of operators
+% TODO check for discontiguous predicate definitions
 process_directive(
 		ops(PrefixOps,InfixOps,PostfixOps),
 		ct(Pos,':-',[ct(_,op,[i(_,Priority), a(_, Specifier), a(_, Op)])]),
@@ -317,11 +319,11 @@ validate_clause(_S). % TODO check that a clause definition is valid (e.g. that i
 
 
 
-/******************************************************************************\
+/* ************************************************************************** *\
  *                                                                            *
  *                       T H E   C O R E   P A R S E R                        *
  *                                                                            *
-\******************************************************************************/
+\* ************************************************************************** */
 
 
 
@@ -436,22 +438,22 @@ var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
 
 
 /*
- *			HANDLING LISTS
- *
- *			Lists are represented using their canonic form: ".(Head,Tail)" where
- *			the Tail is typically either again a list element or the empty list 
- *			(atom) "[]".
- *			
- *			Examples:
- *			?- [a,b|[]] = .(a,b).
- *			false.
- *			
- *			?- [a,b,c] = .(a,.(b,.(c,[]))).
- *			true.
- *			
- *			?- [a,b,c|d] = .(a,.(b,.(c,d))).
- *			true.
- */
+	HANDLING LISTS
+
+	Lists are represented using their canonic form: ".(Head,Tail)" where
+	the Tail is typically either again a list element or the empty list 
+	(atom) "[]".
+		
+	Examples:
+	?- [a,b|[]] = .(a,b).
+	false.
+		
+	?- [a,b,c] = .(a,.(b,.(c,[]))).
+	true.
+
+	?- [a,b,c|d] = .(a,.(b,.(c,d))).
+	true.
+*/
 list(Ops,T) --> ['['(Pos)], list_2(Ops,Pos,T), {!}.
 
 
@@ -478,8 +480,8 @@ list_elements_2(Ops,LE) -->
 
 
 /*
- *			HANDLING OF COMPOUND TERMS
- */
+	HANDLING OF COMPOUND TERMS
+*/
 compound_term(Ops,ct(Pos,F,[T|TRs])) --> 
 	[f(F,Pos)],
 	['('(_)],

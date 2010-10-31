@@ -44,7 +44,8 @@
 		lookup/3,
 		replace/4,
 		replace_char/4,
-		replace_char_with_string/4
+		replace_char_with_string/4,
+		append_ol/2
 	]).
 
 
@@ -103,7 +104,7 @@ max(V1,V2,R) :- V1 > V2, R = V1.
 	</pre>
 	<b>Remark</b>
 	If the first argument is a free variable, membercheck will succeed and the
-	the free variable will be bound to the difference's first argument.
+	the free variable will be bound to the difference's list first argument.
 	<pre>
 		?- membercheck_dl(Z,[a,b|X]-Y).
 		Z = a.
@@ -246,3 +247,12 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 	!,
 	replace_char_with_string(RCs,OldC,NewString,R).
 	
+
+	 
+/**
+	Appends a given term to an open list. An open list is a list, where
+	the last element is always an unbound variable. An empty open list is 
+	represented by an unbound variable.
+*/
+append_ol(OL,E) :- var(OL),!,OL=[E|_].
+append_ol([_|T],E) :- append_ol(T,E).	

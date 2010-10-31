@@ -107,7 +107,7 @@ analyze_cut_behavior([(Clause,Properties)|Clauses],NClauses) :-
 	is deterministic; i.e., if always at most one clause succeeds. 
 	</p>
 */
-analyze_cut_behavior(':-'(_H,B),Properties,NProperties) :-
+analyze_cut_behavior((_H :- B),Properties,NProperties) :-
 	calls_cut(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
 	NProperties = [cut(R)|Properties].
 

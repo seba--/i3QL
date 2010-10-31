@@ -31,7 +31,7 @@
 */
 
 
-/* Definition of all operators and predicates that are either directly
+/* Definition of the operators and predicates that are either directly
 	understood by SAE Prolog - i.e., that are taken care of during compilation -
 	or which are pre-imlemented as part of SAE Prolog's library.
 	
@@ -41,63 +41,68 @@
 	@author Michael Eichberg
 */
 :- module(
-	'Compiler:Predef',
-	[	predefined_predicates/2,
+	'SAEProlog:Compiler:Predef',
+	[	add_predefined_predicates_to_ast/2,
+	
 		predefined_operator/1,
 		predefined_term_operator/1,
 		predefined_arithmetic_operator/1]
 ).
 
+:- use_module('AST.pl').
 
 
 /* Definition of all predicates directly suppported by SAE Prolog including all
 	relevant properties.
 
-	@signature predefined_predicates(UserDefinedProgram,CompleteProgram)
-	@param UserDefinedProgram is the AST of the loaded SAE Prolog program.
+	@signature append_predefined_predicates(UserDefinedProgram,CompleteProgram)
+	@param UserDefinedProgram is the AST of the SAE Prolog program.
 	@param CompleteProgram is the merge of the AST of the loaded program and the 
 		built-in predicates.
 */
-predefined_predicates(UserDefinedProgram,CompleteProgram) :-
-	CompleteProgram = [
+add_predefined_predicates_to_ast(AST,Program) :-
+	add_predicates_to_ast( 
+		AST,
+		[
 	
 		% Primary Predicates - we need to analyze the sub
-		pred(';'/2,[],[deterministic(no)]), % or
-		%(not yet supported:) ('->'/2,[],[deterministic(dependent)]), % If->Then(;Else)
-		%(not yet supported:) ('*->'/2,[],[deterministic(dependent)]), % Soft Cut
-		pred(','/2,[],[deterministic(dependent)]), % and
+		pred(';'/2,[deterministic(no)]), % or
+		%(not yet supported:) ('->'/2,[deterministic(dependent)]), % If->Then(;Else)
+		%(not yet supported:) ('*->'/2,[deterministic(dependent)]), % Soft Cut
+		pred(','/2,[deterministic(dependent)]), % and
 	
 		% Extra-logical Predicates
-		pred(nonvar/1,[],[deterministic(yes)]),
-		pred(var/1,[],[deterministic(yes)]),
-		pred(integer/1,[],[deterministic(yes)]),
-		pred(atom/1,[],[deterministic(yes)]),
-		pred(compound/1,[],[deterministic(yes)]),
-		pred(functor/3,[],[deterministic(yes)]),
+		pred(nonvar/1,[deterministic(yes)]),
+		pred(var/1,[deterministic(yes)]),
+		pred(integer/1,[deterministic(yes)]),
+		pred(atom/1,[deterministic(yes)]),
+		pred(compound/1,[deterministic(yes)]),
+		pred(functor/3,[deterministic(yes)]),
 
 		% "Other" Predicates
-		pred('='/2,[],[deterministic(yes)]), % unify
-		pred('\\='/2,[],[deterministic(yes)]), % does not unify
-		pred('/'('\\+',1),[],[deterministic(yes)]), % not
-		pred('=='/2,[],[deterministic(yes)]), % term equality
-		pred('\\=='/2,[],[deterministic(yes)]), % term inequality
+		pred('='/2,[deterministic(yes)]), % unify
+		pred('\\='/2,[deterministic(yes)]), % does not unify
+		pred('/'('\\+',1),[deterministic(yes)]), % not
+		pred('=='/2,[deterministic(yes)]), % term equality
+		pred('\\=='/2,[deterministic(yes)]), % term inequality
 
-		pred('is'/2,[],[deterministic(yes),mode(-,+)]), % "arithmetic" assignment (comparison)
+		pred('is'/2,[deterministic(yes),mode(-,+)]), % "arithmetic" assignment (comparison)
 
-		pred(true/0,[],[deterministic(yes)]), % always succeeds
-		pred(false/0,[],[deterministic(yes)]), % always fails
-		pred(fail/0,[],[deterministic(yes)]), % always fails
-		pred('!'/0,[],[deterministic(yes)]), % cut
+		pred(true/0,[deterministic(yes)]), % always succeeds
+		pred(false/0,[deterministic(yes)]), % always fails
+		pred(fail/0,[deterministic(yes)]), % always fails
+		pred('!'/0,[deterministic(yes)]), % cut
 
-		pred('<'/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=:='/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=<'/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=\\='/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>'/2,[],[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>='/2,[],[deterministic(yes),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
+		pred('<'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=:='/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=<'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=\\='/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>='/2,[deterministic(yes),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
 		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
-		
-		| UserDefinedProgram].
+		],
+		Program
+	).
 
 
 

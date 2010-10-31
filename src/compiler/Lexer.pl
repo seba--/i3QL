@@ -122,8 +122,6 @@
    </blockquote>
    
    @author Michael Eichberg (mail@michael-eichberg.de)
-   @version 0.9.1 - July, 28th 2010
-		We can lex Prolog code, but not yet structured comments.
 */
 :- module(
    'SAEProlog:Compiler:Lexer',
@@ -196,7 +194,7 @@ tokenize_file(File,Tokens) :- tokenize_file(File,Tokens,[]).
    @arg(out) Tokens the list of recognized tokens.
    @arg(in) Options a list of options to parameterize the lexer. Currently, 
       the only supported option is <code>comments(Mode)</code>, where Mode
-      is either <code>retain_all</code>, <code>retain_sc</code> or <code>drop</code>
+      is either <code>retain_all</code> or <code>retain_sc</code> 
       and which determines which type of commens are included in the Tokens 
       list.<br/>
 */
@@ -297,7 +295,7 @@ tokenize(_Stream,[]). % we reached the end of the file
 
 
 /**
-   The list of all operator characeters that are allowed to be combined to form 
+   The list of all operator characters that are allowed to be combined to form 
 	new operator names, such as, ":-" or "=/=".
 */
 operator_char('='). 	% "=" is not mentioned in the "ISO Prolog" book, but in 
@@ -330,18 +328,18 @@ parenthesis('}').
 
 
 
-/******************************************************************************\
+/* ************************************************************************** *\
  *                P R I V A T E     I M P L E M E N T A T I O N               *
-\******************************************************************************/
+\* ************************************************************************** */
 
 
-/******************************************************************************\
+/* ************************************************************************** *\
  *                                                                            *
  *                    -------------------------------------                   *   
  *                     L E X I N G   P R O L O G   C O D E                    *   
  *                    -------------------------------------                   *   
  *                                                                            *
-\******************************************************************************/
+\* ************************************************************************** */
 
 
 
@@ -415,7 +413,7 @@ lexer_error(Stream,MessageFragments) :-
 
 
 
-/**
+/*
    Reads in a token of a specific type.</br >
    Based on the previously read character Char and at most one further character 
    (using peek_char), the type of the token is determined and reading the rest 
@@ -712,12 +710,12 @@ read_unstructured_ml_comment(Stream,R) :-
 
 
 
-/******************************************************************************\
+/* ************************************************************************** *\
  *                                                                            *
  *          P A R S I N G   S T R U C T U R E D   C O M M E N T S             *   
  *          -----------------------------------------------------             *   
  *                                                                            *
-\******************************************************************************/
+\* ************************************************************************** */
 
 
 
@@ -775,7 +773,7 @@ sc_tf_delimiter(EOF) :- char_type(EOF,end_of_file),!.
 
 
 
-/**
+/*
 	The list of all chars that have special semantics in the context of structured
 	comments.
 */
