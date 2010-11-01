@@ -164,7 +164,7 @@ replace_first_dl([SomeE|OldDLR]-OldDLZ,OldE,NewE,[SomeE|NewDLR]-NewDLZ) :-
 	<b>The complexity of looking up a value is O(N); N is the size of the 
 	dictionary.</b>
 	
-	@category maps
+	@category dictionary, dictionaries, map, maps
 */
 lookup(Key,[(Key,Value)|_Dict],Value).
 lookup(Key,[(Key1,_)|Dict],Value) :- Key \= Key1, lookup(Key,Dict,Value).
@@ -253,6 +253,28 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 	Appends a given term to an open list. An open list is a list, where
 	the last element is always an unbound variable. An empty open list is 
 	represented by an unbound variable.
+	
+	@signature append_ol(OpenList,Element) 
+	@args(in) OpenList The open list (an unbound variable, if the list is empty.)
+	@args(in) Element An Element.
+	@behavior semi-deterministic
+	@category open lists
 */
 append_ol(OL,E) :- var(OL),!,OL=[E|_].
 append_ol([_|T],E) :- append_ol(T,E).	
+
+
+/**
+	Checks if a given element is a member of an open list.
+	
+	@signature memberchk_ol(Element,OpenList)
+	@args(in) Element An element.
+	@args(in) OpenList The open list which is checked for occurrences of the 
+		given Element. If the Element is a variable, then the Element is unified
+		with the first element of the list.
+	@behavior semi-deterministic
+	@category open lists
+*/
+memberchk_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
+memberchk_ol(E,[E|_]) :- !. % we found a element
+memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
