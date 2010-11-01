@@ -35,10 +35,10 @@
 
 /**
    A lexer to tokenize standard (ISO/SAE) Prolog files.<br />
-
 	<p>
-	To identify / describe Prolog terms, we use the terminology as used in 
+	To identify/describe Prolog terms, we use the terminology as used in 
 	the book "Learn Prolog Now!" which is freely available (www.learnprolognow.org).
+	{@link AST#:-(module/1)}
 	</p>
    <p>
    The result of tokenizing a file is a list of elementary tokens of Prolog
@@ -46,7 +46,7 @@
    The types of tokens recognized by this lexer is shown in the following. 
    <code>LN</code> and <code>CN</code> always identify the line and
    column where the token was found and <code>F</code> identifies the underlying source 
-	file. IF you lex an in-memory string, F will be the empty list "[]".
+	file. (IF you lex an in-memory string, F will be the empty list "[]".)
    <ul>
    <li>a(S,pos(F,LN,CN)) :- S is an atom; basically a string of chars or a sequence of
 		operators (e.g., ':-').<br />
@@ -67,10 +67,11 @@
    <li>P(pos(F,LN,CN)); P is a paranthesis (e.g., one of "(,),{,},[,]").</li>     
    <li>chars(S,pos(F,LN,CN)) :- S is a list of char atoms. For 
       example, given the string <code>"A test"</code> then the result is the 
-      token <code>chars([A,  , t, e, s, t],pos(&lt;FILE&gt;,&lt;LN&gt;,&lt;CN&gt;)</code>.
+      token <code>chars(['A',' ','t','e','s','t'],pos(&lt;FILE&gt;,&lt;LN&gt;
+		,&lt;CN&gt;)</code>.
    </ul>
-	To include structured comments in the list
-   of tokens use the option <code>comments(retain_sc)</code>.
+	To include structured comments in the list of tokens use the option <code>
+	comments(retain_sc)</code>.
  	<ul>
   	<li>sc(Tokens,pos(F,LN,CN)) :- Tokens of a structured comment (/ * * .. * /).</li>
 	</ul>
@@ -79,7 +80,8 @@
    of tokens use the option <code>comments(retain_all)</code>. 
    <ul>  
    <li>eolc(Token,pos(F,LN,CN)) :- Token is an end-of-line comment (% ...).</li>
-   <li>mlc(Token,pos(F,LN,CN)) :- Token is multi-line / inline comment (using / * .. * /).</li>  
+   <li>mlc(Token,pos(F,LN,CN)) :- Token is a multi-line/inline comment (using 
+		/ * .. * /).</li>  
    </ul>
    </p>
    <p>
@@ -113,7 +115,7 @@
    This is a hand written lexer that delivers sufficient performance for
    lexing real world (ISO) Prolog programs. The lexer provides information
    about a token's position to enable subsequent phases to give precise error
-   messages. If the lexer does not recognize a special character / symbol it 
+   messages. If the lexer does not recognize a special character/symbol it 
    prints an error or warning message, but otherwise just ignores the character
    and continues with the next character.<br />
    Conceptually, the lexer is implemented following a state machine model, where
@@ -209,6 +211,7 @@ tokenize_file(File,Tokens,Options) :-
          Mode = retain_sc,!,
          tokenize_with_sc(Stream,Tokens)
       ;
+			% IMPROVE error message
          write('Error: unrecognized mode ('),write(Mode),write(')'),nl
       )
    ;  
@@ -248,7 +251,7 @@ tokenize_with_c(_Stream,[]). % we reached the end of the file
    Tokenizes a stream of characters. Comments (except of structured comments) are
 	dropped.
    
-   @signature tokenize(Stream,Tokens)
+   @signature tokenize_with_sc(Stream,Tokens)
    @arg(in) Stream a stream that supports reading characters
    @arg(out) Tokens the list of recognized tokens
 */
@@ -362,7 +365,7 @@ is_insignificant(T) :- is_comment(T),!.
 
 
 
-% standard tokens (relevant when compiling a program)
+% The following clauses handle standard tokens (relevant when compiling a program)
 token_with_position(a(T),File,LN,CN,a(T,pos(File,LN,CN))) :- !.
 token_with_position(f(T),File,LN,CN,f(T,pos(File,LN,CN))) :- !.
 token_with_position(i(T),File,LN,CN,i(T,pos(File,LN,CN))) :- !.
@@ -371,16 +374,14 @@ token_with_position(v(T),File,LN,CN,v(T,pos(File,LN,CN))) :- !.
 token_with_position(av(T),File,LN,CN,av(T,pos(File,LN,CN))) :- !.
 token_with_position(P,File,LN,CN,PwithPos) :- parenthesis(P),!,PwithPos =.. [P,pos(File,LN,CN)].
 token_with_position(chars(T),File,LN,CN,chars(T,pos(File,LN,CN))) :- !.
-
-% comments
+% The following clauses handle comments
 token_with_position(sc(T),File,LN,CN,sc(T,pos(File,LN,CN))) :- !.
 token_with_position(eolc(T),File,LN,CN,eolc(T,pos(File,LN,CN))) :- !.
 token_with_position(mlc(T),File,LN,CN,mlc(T,pos(File,LN,CN))) :- !.
-
-% to help debugging the lexer
+% The following clause should never be reached!
 token_with_position(T,File,LN,CN,T) :- 
 	atomic_list_concat(
-		[	
+		[	% IMPROVE Make the error message "GNU error messages compliant"
 			'INTERNAL LEXER ERROR:',File,':',LN,':',CN,
 			' unknown token type (\'',T,'\' [FATAL]\n'
 		],
@@ -408,12 +409,13 @@ lexer_error(Stream,MessageFragments) :-
    current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    atomic_list_concat(MessageFragments,EM),
-   atomic_list_concat(['ERROR:',File,':',LN,':',CN,': ',EM,'\n'],MSG),
+	% TODO check that this error message is compliant with standard tools
+   atomic_list_concat([File,':',LN,':',CN,':error:',EM,'\n'],MSG),
    write(MSG).
 
 
 
-/*
+/** (PRIVATE)
    Reads in a token of a specific type.</br >
    Based on the previously read character Char and at most one further character 
    (using peek_char), the type of the token is determined and reading the rest 
@@ -712,8 +714,8 @@ read_unstructured_ml_comment(Stream,R) :-
 
 /* ************************************************************************** *\
  *                                                                            *
- *          P A R S I N G   S T R U C T U R E D   C O M M E N T S             *   
- *          -----------------------------------------------------             *   
+ *            L E X I N G   S T R U C T U R E D   C O M M E N T S             *   
+ *            ---------------------------------------------------             *   
  *                                                                            *
 \* ************************************************************************** */
 

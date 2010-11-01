@@ -118,17 +118,17 @@ phase(pl_load,execute,[on_entry,reading_file,ast(user)]). %Debug flags: ast(user
 
 
 
-/* The predicate compile/2 (compile(FilePattern(s),OutputFolder)) compiles all
-	files matching the given FilePattern(s). The result of the compilation is
-	stored in the OutputFolder. OutputFolder has to end with a "/" otherwise the
+/**
+ 	Compiles all files matching the given FilePattern(s) and stores the result in
+ 	the OutputFolder. OutputFolder has to end with a "/" otherwise the
 	last segment of outputfolder is prepended to the generated files. E.g., if
 	OutputFolder is "/User/Michael/SAE" then all files will be stored in the
 	folder "/User/Michael" and the names of all generated files will begin with
 	SAE.
 
 	@signature compile(FilePatterns,OutputFolder)
-	@param FilePatterns is a list of filename patterns.
-	@param OutputFolder is the folder where the compiled code will be stored.
+	@param FilePatterns A list of filename patterns.
+	@param OutputFolder The folder where the compiled code will be stored.
 */
 compile(FilePattern,OutputFolder) :-
 	atom(FilePattern),!,% green cut
@@ -164,8 +164,10 @@ compile(FilePatterns,OutputFolder) :-
 
 
 
-/*	execute_phases(Phases,Input,OutputFolder) :- executes all phases unless 
-	a phase fails. <br />
+/** (PRIVATE)
+
+	Executes the compiler phases in the given order until. If a compiler phase
+	fails, the compilation is aborted. <br />
 	A phase's Input is the Output of the previous phase. OutputFolder defines
 	the place where the generated artifacts have to be stored.
 */

@@ -32,22 +32,28 @@
 
 
 /**
-	Predicates to create, traverse and manipulate a program's AST.
+	Predicates to create, traverse and manipulate an SAE Prolog program's AST.
 	<p><b>The AST</b><br/>
 	Conceptually, the AST has the following structure:
 	<pre><code>
 	[										% The list of all predicates
 		pred(								% A predicate
 			a/1, 							% The identifier of the predicate
-			[(C, [det, type=I])],	% The clauses defining the predicate 
-											% Built-in predicates do not have clauses
+			[								% The clauses defining the predicate 
+											% (built-in predicates do not have clauses)
+				(	C, 					% The clause
+					[det, type=I]		% The properties of this clause
+				)
+			],												
 			[type=...]					% The properties of this predicate (e.g.,
 											% whether this predicate as a whole is
 											% deterministic)
 		),...
 	]
 	</code></pre>
-	However, this module provides all abstractions that are necessary to process
+	<b>However, code that wants to add, remove, manipluate or traverse the AST
+	is not allowed to access the AST on its own.</b><br />
+	This module provides all abstractions that are necessary to process
 	the AST and the precise data structures that are used to store the AST
 	are an implementation detail of this module. This enables us to easily 
 	exchange the underlying data structure(s) whenever necessary. <br />
@@ -63,11 +69,11 @@
 	<li><u>Atom</u> - An (integer/string) atom.</li>
 	<li><u>Variable</u> - A prolog variable.</li>	
 	<li><u>Anonymous Variable</u> - A variable starting with an underscore. 
-		All anonymous variables of a clause are unique, even if they share the
-		same name.</li>	
+		(Recall, all anonymous variables of a clause are unique, even if they 
+		share the same name.)</li>	
 	<li><u>Term</u> - A prolog term; i.e., some atom or complex term.</li>
-	<li><u>Top-level Term</u> - A term that is defined at the top-level in the 
-		source code.</li>	
+	<li><u>Top-level Term</u> - A term that is defined at the top-level in a 
+		source file.</li>	
 	<li><u>Complex Term</u> - A term with a functor and at least one argument 
 		(arity > 0). </li>
 	<li><u>Directive</u> - A top-level complex term where the identifier is 
