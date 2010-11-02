@@ -43,8 +43,10 @@ public final class ListDatabase extends Database {
 	@Override
 	public void add(Term fact) {
 		Deque<Term> predicateList = predicates.get(fact.functor());
-		if (predicateList == null)
-			predicateList = predicates.put(fact.functor(), new LinkedList<Term>());
+		if (predicateList == null) {
+			predicateList = new LinkedList<Term>();
+			predicates.put(fact.functor(), predicateList);
+		}
 		predicateList.push(fact); // This reverses order (and actually restores the original order)
 	}
 

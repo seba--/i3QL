@@ -1,7 +1,8 @@
-package saere.database.index.simple;
+package saere.database.index.unique;
 
 import java.util.Iterator;
 
+import saere.Atom;
 import saere.Term;
 import saere.database.index.Matcher;
 import saere.database.index.QueryStack;
@@ -10,17 +11,17 @@ import saere.database.index.TermFlattener;
 /**
  * Trie term iterator that supports queries. A query is expressed by an array of
  * {@link Term}s. For term flattening the same {@link TermFlattener} as in the 
- * {@link Trie} class is used.<br/>
+ * {@link UniqueTrie} class is used.<br/>
  * <br/>
- * <b>This iterator works only with {@link Trie}s that have been built with 
+ * <b>This iterator works only with {@link UniqueTrie}s that have been built with 
  * a {@link SimpleTermInserter}.</b>
  * 
  * @author David Sullivan
- * @version 0.2, 9/30/2010
+ * @version 0.1, 10/26/2010
  */
-public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
+public class UniqueQueryTrieIterator extends UniqueTermIterator implements Iterator<Term> {
 	
-	private final TrieTermIterator subiterator;
+	private final UniqueTermIterator subiterator;
 	
 	private QueryStack stack;
 	private boolean useSubiterator = false;
@@ -32,18 +33,18 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	 * @param start The start trie, e.g., a functor.
 	 * @param terms A query represented by an array of terms (atoms/variables).
 	 */
-	public SimpleTrieTermIterator(Trie start, QueryStack stack) {
+	public UniqueQueryTrieIterator(UniqueTrie start, QueryStack stack) {
 		this.start = start;
 		current = start;
 		
 		// create the one and only instance of the subiterator that'll be used
-		subiterator = new TrieTermIterator(start);
+		subiterator = new UniqueTermIterator(start);
 		
 		// break down terms to atoms/variables
 		this.stack = stack;
 		
 		// don't skip the first node
-		if (stack.size() == 1 && Matcher.match(current.label, stack.peek())) {
+		if (current.label != null && stack.size() == 1 && Matcher.match(current.label, stack.peek())) {
 			useSubiterator = true;
 			if (subiterator.hasNext()) {
 				next = subiterator.next();
@@ -109,16 +110,29 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 					stack.pop();
 				} else {
 					
-					// no match, go right...
-					while (current.nextSibling == null && current != start) { // don't go higher up than start
-						current = current.parent; // go up
+					// NEW: No match, check if there can be a match at all...
+					Term peeked = stack.peek();
+					Atom label = (peeked.isStringAtom()) ? peeked.asStringAtom() : peeked.asIntegerAtom();
+					UniqueTrie searched = current.parent.getChild(label);
+					if (searched != null && searched.siblingIndex > current.siblingIndex) { // XXX better not be a previous child! <-- can this happen?
+						// jump directly (but we check match again!)
+						current = searched; 
+					} else {
+						// NEW go up first!
+						current = current.parent;
 						stack.back();
-					}
-					
-					if (current != start) {
-						current = current.nextSibling; // go (directly) right
-					} else { // current == start
-						current = null; // we treat start as root (and a root has no siblings), me march into the void
+						
+						// no match, go right...
+						while (current.nextSibling == null && current != start) { // don't go higher up than start
+							current = current.parent; // go up
+							stack.back();
+						}
+						
+						if (current != start) {
+							current = current.nextSibling; // go (directly) right
+						} else { // current == start
+							current = null; // we treat start as root (and a root has no siblings), me march into the void
+						}
 					}
 				}
 			}

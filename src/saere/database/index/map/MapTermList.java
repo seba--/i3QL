@@ -8,12 +8,12 @@ import saere.Term;
  * @author David Sullivan
  * @version 0.1, 9/22/2010
  */
-public final class TermList {
+public final class MapTermList {
 	
 	protected final Term term;
-	protected TermList next;
+	protected MapTermList next;
 	
-	public TermList(Term term) {
+	public MapTermList(Term term) {
 		this.term = term;
 		next = null;
 	}

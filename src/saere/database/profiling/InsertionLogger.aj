@@ -1,12 +1,6 @@
 package saere.database.profiling;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Deque;
 import java.util.IdentityHashMap;
-import java.util.LinkedList;
 
 import saere.Atom;
 import saere.Term;
@@ -14,134 +8,150 @@ import saere.database.Utils;
 import saere.database.index.ComplexTrieBuilder;
 import saere.database.index.SimpleTrieBuilder;
 import saere.database.index.Trie;
-import saere.database.index.TrieBuilder;
-import saere.database.profiling.Insertion.InsertionMode;
+import saere.database.index.map.MapTrie;
+import saere.database.index.map.MapTrieBuilder;
+import saere.database.index.simple.SimpleTrie;
 
 /**
- * Very simple logger for insertions (can't actually distinguish between 
- * differenct tries etc.).
+ * Logger for insertions that writes to a PostgreSQL database.
  * 
  * @author David Sullivan
- * @version 0.1, 10/23/2010
+ * @version 0.3, 11/1/2010
  */
-public aspect InsertionLogger {
+public aspect InsertionLogger  {
 	
-	private static final LinkedList<Insertion> INSERTIONS = new LinkedList<Insertion>();
+	// To (de-)activate the whole aspect (w.r.t. pointcuts/weaving)
+	private static final boolean ACTIVE = false;
 	
-	private final Stopwatch sw = new Stopwatch();
+	// To (de-)activate the whole aspect while runtime (w.r.t. to advice)
+	private static boolean active;
 	
-	private static PostgreSQL database;
+	private PostgreSQL database;
+	private Stopwatch sw;
+	private IdentityHashMap<Object, Integer> builderCounter;
 	
-	private OutputStream out = System.out;
-	private int number = 0;
-	private IdentityHashMap<TrieBuilder<?>, InsertionMode> builderModeCache = new IdentityHashMap<TrieBuilder<?>, InsertionMode>();
-	
+	// Constructor
 	public InsertionLogger() {
-		
+		database = new PostgreSQL();
+		database.connect();
+		sw = new Stopwatch();
+		builderCounter = new IdentityHashMap<Object, Integer>();
+		active = false;
 	}
 	
-	// For insertions in the 'seare.database.simple' package
-	private pointcut verySimpleInsertion(Term term, saere.database.index.simple.Trie start, saere.database.index.simple.SimpleTrieBuilder builder) :
-		execution(public saere.database.index.simple.Trie saere.database.index.simple.SimpleTrieBuilder.insert(Term, saere.database.index.simple.Trie)) &&
-		args(term, start) && target(builder);
+	/**
+	 * Activates or deactivates the logging into the PostgreSQL DB. The aspect 
+	 * is inactive by default.<br>
+	 * <br>(Note that this aspect is still active and weaved into the 
+	 * application.)
+	 * 
+	 * @param active Set to <tt>true</tt> to activate.
+	 */
+	public static void setActive(boolean active) {
+		InsertionLogger.active = active;
+	}
 	
-	// For simple insertions
-	Object around(Term term, saere.database.index.simple.Trie start, saere.database.index.simple.SimpleTrieBuilder builder) : verySimpleInsertion(term, start, builder) {
+	// Pointcut for insertions by the 'seare.database.index.simple' package
+	private pointcut verySimpleInsertion(Term term, SimpleTrie start, SimpleTrieBuilder builder) :
+		execution(public SimpleTrie SimpleTrieBuilder.insert(Term, SimpleTrie)) &&
+		args(term, start) && target(builder) && if(ACTIVE);
+	
+	// Advice for insertions by the 'seare.database.index.simple' package
+	Object around(Term term, SimpleTrie start, SimpleTrieBuilder builder) : verySimpleInsertion(term, start, builder) {
 		sw.start();
 		Object obj = proceed(term, start, builder);
 		long time = sw.stop();
 		
-		String ins_number = String.valueOf(number++);
+		insertIntoDatabase(term, builder, time);
+		
+		return obj;
+	}
+	
+	// Pointcut for insertions by the 'seare.database.index.map' package
+	private pointcut mapInsertion(Term term, MapTrie start, MapTrieBuilder builder) :
+		execution(public MapTrie MapTrieBuilder.insert(Term, MapTrie)) &&
+		args(term, start) && target(builder) && if(ACTIVE);
+	
+	// Advice for insertions by the 'seare.database.index.map' package
+	Object around(Term term, MapTrie start, MapTrieBuilder builder) : mapInsertion(term, start, builder) {
+		sw.start();
+		Object obj = proceed(term, start, builder);
+		long time = sw.stop();
+		
+		insertIntoDatabase(term, builder, time);
+		
+		return obj;
+	}
+	
+	// Pointcut for simple insertions by the 'saere.database.index' package
+	private pointcut simpleInsertion(Term term, Trie<Atom> start, SimpleTrieBuilder builder) :
+		execution(public Trie<Atom> TrieBuilder.insert(Term, Trie<Atom>)) &&
+		args(term, start) && target(builder) && if(ACTIVE);
+	
+	// Pointcut for complex insertions by the 'saere.database.index' package
+	private pointcut complexInsertion(Term term, Trie<Atom[]> start, ComplexTrieBuilder builder) :
+		execution(public Trie<Atom[]> TrieBuilder.insert(Term, Trie<Atom[]>)) &&
+		args(term, start) && target(builder) && if(ACTIVE);
+	
+	// Advice for simple insertions by the 'saere.database.index' package
+	Object around(Term term, Trie<Atom> start, SimpleTrieBuilder builder) : simpleInsertion(term, start, builder) {
+		sw.start();
+		Object obj = proceed(term, start, builder);
+		long time = sw.stop();
+		
+		insertIntoDatabase(term, builder, time);
+		
+		return obj;
+	}
+	
+	// Advice for simple insertions by the 'saere.database.index' package
+	Object around(Term term, Trie<Atom[]> start, ComplexTrieBuilder builder) : complexInsertion(term, start, builder) {
+		sw.start();
+		Object obj = proceed(term, start, builder);
+		long time = sw.stop();
+		
+		insertIntoDatabase(term, builder, time);
+		
+		return obj;
+	}
+	
+	private void insertIntoDatabase(Term term, Object builder, long time) {
+		if (!active)
+			return;
+		
+		// Compose values
+		String ins_number = String.valueOf(getAndIncrement(builder));
 		String ins_time = String.valueOf(time);
 		String term_functor = term.functor().toString();
 		String term_arg0 = term.arity() > 0 ? Utils.termToString(term.arg(0)) : "";
 		String term_arg1 = term.arity() > 1 ? Utils.termToString(term.arg(1)) : "";
-		String term_full = "<the-term>"; //Utils.termToString(term);
-		String ins_mode = "shallow-simple";
+		String term_full = ""; // FIXME Use actual string representation of term (encoding issues as of now).
+		String ins_mode = builder.toString();
+		String triebuilder_oid = String.valueOf(builder.hashCode());
 		
-		// XXX Actually better create one large query...
-		
-		// Escape...
+		// Escape values
 		term_functor = term_functor.replace('\'', '"');
 		term_arg0 = term_arg0.replace('\'', '"');
 		term_arg1 = term_arg1.replace('\'', '"');
 		term_full = term_full.replace('\'', '"');
 		
-		// Also remove string values
-		//term_full = term_full.replaceAll("string\\(.*\\)", "string()");
-		
-		database.modify("INSERT INTO insertions(ins_number, ins_time, term_functor, term_arg0, term_arg1, term_full, ins_mode) " +
-				"VALUES (" + ins_number + ", " + ins_time +  ", '" + term_functor + "', '" + term_arg0 + "', '" + term_arg1 + "', '" + term_full + "', '" + ins_mode + "')");
-		
-		return obj;
+		database.modify("INSERT INTO insertions(ins_number, ins_time, term_functor, term_arg0, term_arg1, term_full, ins_mode, triebuilder_oid) " +
+			"VALUES (" + ins_number + ", " + ins_time +  ", '" + term_functor + "', '" + term_arg0 + "', '" + term_arg1 + "', '" + term_full + "', '" + ins_mode + "', " + triebuilder_oid + ")");
 	}
 	
-	private pointcut simpleInsertion(Term term, Trie<Atom> start, SimpleTrieBuilder builder) :
-		execution(public Trie<Atom> saere.database.index.TrieBuilder.insert(Term, Trie<Atom>)) &&
-		args(term, start) && target(builder);
-	
-	private pointcut complexInsertion(Term term, Trie<Atom[]> start, ComplexTrieBuilder builder) :
-		execution(public Trie<Atom[]> saere.database.index.TrieBuilder.insert(Term, Trie<Atom[]>)) &&
-		args(term, start) && target(builder);
-	
-	// For simple insertions
-	Object around(Term term, Trie<Atom> start, SimpleTrieBuilder builder) : simpleInsertion(term, start, builder) {
-		sw.start();
-		Object obj = proceed(term, start, builder);
-		long time = sw.stop();
-		InsertionMode mode = getInsertionMode(builder);
-		
-		Insertion insertion = new Insertion(number++, time, term, mode);
-		//INSERTIONS.push(insertion);
-		try {
-			out.write(insertion.toString().getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private int getAndIncrement(Object obj) {
+		Integer counter = builderCounter.get(obj);
+		if (counter == null) {
+			counter = 1;
 		}
-		
-		return obj;
+		builderCounter.put(obj, counter + 1);
+		return counter;
 	}
 	
-	// For complex insertions
-	Object around(Term term, Trie<Atom[]> start, ComplexTrieBuilder builder) : complexInsertion(term, start, builder) {
-		sw.start();
-		Object obj = proceed(term, start, builder);
-		long time = sw.stop();
-		InsertionMode mode = getInsertionMode(builder);
-		
-		Insertion insertion = new Insertion(number++, time, term, mode);
-		//INSERTIONS.push(insertion);
-		try {
-			out.write(insertion.toString().getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@Override
+	protected void finalize() throws Throwable {
+		if (database != null) {
+			database.disconnect();
 		}
-		
-		return obj;
-	}
-	
-	private InsertionMode getInsertionMode(TrieBuilder<?> builder) {
-		InsertionMode mode = builderModeCache.get(builder);
-		if (mode == null) {
-			// Awkward checking the string representation, but well...
-			String builderAsString = builder.toString();
-			if (builderAsString.equals("shallow-simple")) {
-				mode = builderModeCache.put(builder, InsertionMode.SHALLOW_SIMPLE);
-			} else if (builderAsString.equals("recursive-simple")) {
-				mode = builderModeCache.put(builder, InsertionMode.RECURSIVE_SIMPLE);
-			} else if (builderAsString.equals("shallow-complex")) {
-				mode = builderModeCache.put(builder, InsertionMode.SHALLOW_COMPLEX);
-			} else if (builderAsString.equals("recursive-complex")) {
-				mode = builderModeCache.put(builder, InsertionMode.RECURSIVE_COMPLEX);
-			}
-		}
-		return mode;	
-	}
-	
-	public static void setDatabase(PostgreSQL database) {
-		InsertionLogger.database = database;
-	}
-
+	};
 }

@@ -1,10 +1,13 @@
-package saere.database.predicate;
+package saere.database.index.unique;
 
 import java.util.Iterator;
 
 import saere.Solutions;
 import saere.State;
 import saere.Term;
+import saere.Variable;
+import saere.database.predicate.DatabasePredicate;
+import saere.database.predicate.EmptySolutions;
 
 /**
  * Example for a rather short predicate with a very high frequency. Uses tries.
@@ -12,7 +15,7 @@ import saere.Term;
  * @author David Sullivan
  * @version 0.4, 10/12/2010
  */
-public final class Instr3 extends DatabasePredicate {
+public final class Instr3 extends DatabasePredicate implements NoCollision {
 	
 	public Instr3() {
 		super("instr", 3);
@@ -41,6 +44,11 @@ public final class Instr3 extends DatabasePredicate {
 		private final State s1;
 		private final State s2;
 		
+		// Free variables
+		private final Variable var0;
+		private final Variable var1;
+		private final Variable var2;
+		
 		private Iterator<Term> iterator;
 
 		public Instr3Solutions(Term t0, Term t1, Term t2) {
@@ -55,6 +63,22 @@ public final class Instr3 extends DatabasePredicate {
 			s1 = t1.manifestState();
 			s2 = t2.manifestState();
 			
+			if (t0.isVariable() && !t0.asVariable().isInstantiated()) {
+				var0 = t0.asVariable();
+			} else {
+				var0 = null;
+			}
+			if (t1.isVariable() && !t1.asVariable().isInstantiated()) {
+				var1 = t1.asVariable();
+			} else {
+				var1 = null;
+			}
+			if (t2.isVariable() && !t2.asVariable().isInstantiated()) {
+				var2 = t2.asVariable();
+			} else {
+				var2 = null;
+			}
+			
 			iterator = database.getCandidates(new Term[] { functor, t0, t1, t2 });
 		}
 		
@@ -63,24 +87,29 @@ public final class Instr3 extends DatabasePredicate {
 			// restore old states
 			reset();
 
-			while (iterator.hasNext()) {
+			if (iterator.hasNext()) {
 				Term fact = iterator.next();
 				
-				// attempt unification...
-				if (arity == fact.arity() && t0.unify(fact.arg(0)) && t1.unify(fact.arg(1)) && t2.unify(fact.arg(2))) {
-					return true;
-				} else {
-					reset();
-				}
+				// We get only terms that'll unify (no set of 'maybe' candidates)
+				if (var0 != null)
+					var0.bind(fact.arg(0));
+				if (var1 != null)
+					var1.bind(fact.arg(1));
+				if (var2 != null)
+					var2.bind(fact.arg(2));
+				return true;
+			} else {
+				return false;
 			}
-			
-			return false;
 		}
 		
 		private void reset() {
-			t0.setState(s0);
-			t1.setState(s1);
-			t2.setState(s2);
+			if (var0 != null)
+				t0.setState(s0);
+			if (var1 != null)
+				t1.setState(s1);
+			if (var2 != null)
+				t2.setState(s2);
 		}
 	}
 }

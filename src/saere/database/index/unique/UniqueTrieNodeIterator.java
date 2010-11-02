@@ -1,29 +1,29 @@
-package saere.database.index.simple;
+package saere.database.index.unique;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
 /**
- * An iterator for a {@link Trie} that iterates over the {@link Trie} and all 
+ * An iterator for a {@link UniqueTrie} that iterates over the {@link UniqueTrie} and all 
  * its descendants in a depth-first, from the left to the right manner.
  * 
  * @author David Sullivan
  * @version 0.2, 10/18/2010
  */
-public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie> {
+public class UniqueTrieNodeIterator extends UniqueIteratorBase implements Iterator<UniqueTrie> {
 
 	/**
-	 * The next {@link Trie} node. It is set by {@link TrieNodeIterator#findNext()} (only).
+	 * The next {@link UniqueTrie} node. It is set by {@link UniqueTrieNodeIterator#findNext()} (only).
 	 */
-	private Trie next;
+	private UniqueTrie next;
 	
 	/**
-	 * Creates a new {@link TrieNodeIterator} and finds the first <tt>next</tt>.
+	 * Creates a new {@link UniqueTrieNodeIterator} and finds the first <tt>next</tt>.
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected TrieNodeIterator(Trie start) {
+	protected UniqueTrieNodeIterator(UniqueTrie start) {
 		super(start);
 		next = current;
 	}
@@ -34,9 +34,9 @@ public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie>
 	}
 
 	@Override
-	public Trie next() {
+	public UniqueTrie next() {
 		if (hasNext()) {
-			Trie oldNext = next;
+			UniqueTrie oldNext = next;
 			findNext();
 			return oldNext;
 		} else {

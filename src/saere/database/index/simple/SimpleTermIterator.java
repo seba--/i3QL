@@ -1,4 +1,4 @@
-package saere.database.index.map;
+package saere.database.index.simple;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -14,19 +14,19 @@ import saere.Term;
  * @author David Sullivan
  * @version 0.3, 9/22/2010
  */
-public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term> {
+public class SimpleTermIterator extends SimpleIteratorBase implements Iterator<Term> {
 
 	/** The term list of the current position. If it's not null, we iterate over this first... */
-	protected TermList list;
+	protected SimpleTermList list;
 	
-	/** The next term. It is set by {@link SimpleTrieTermIterator#findNext()} (only). */
+	/** The next term. It is set by {@link SimpleQueryIterator#findNext()} (only). */
 	protected Term next;
 	
 	/**
 	 * Creates a new simple trie iterator <b>without intialization</b> (the first element is not found).
-	 * @see TrieIteratorBase#BaseTrieIterator()
+	 * @see SimpleIteratorBase#BaseTrieIterator()
 	 */
-	protected TrieTermIterator() { /* empty */ }
+	protected SimpleTermIterator() { /* empty */ }
 	
 	/**
 	 * Creates a new simple trie iterater that treats the specified 
@@ -34,13 +34,13 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	 * 
 	 * @param start The start, i.e., the root for the iteration.
 	 */
-	protected TrieTermIterator(Trie start) {
+	protected SimpleTermIterator(SimpleTrie start) {
 		super(start);
 		init();
 	}
 	
 	/**
-	 * Initializes this iterator (used in the constructor and {@link #resetTo(Trie)}).
+	 * Initializes this iterator (used in the constructor and {@link #resetTo(SimpleTrie)}).
 	 */
 	private void init() {
 		list = null;
@@ -99,7 +99,7 @@ public class TrieTermIterator extends TrieIteratorBase implements Iterator<Term>
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	protected void resetTo(SimpleTrie newStart) {
 		super.resetTo(newStart);
 		init();
 	}

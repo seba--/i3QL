@@ -1,29 +1,29 @@
-package saere.database.index.map;
+package saere.database.index.simple;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
 /**
- * An iterator for a {@link Trie} that iterates over the {@link Trie} and all 
+ * An iterator for a {@link SimpleTrie} that iterates over the {@link SimpleTrie} and all 
  * its descendants in a depth-first, from the left to the right manner.
  * 
  * @author David Sullivan
  * @version 0.2, 10/18/2010
  */
-public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie> {
+public class SimpleNodeIterator extends SimpleIteratorBase implements Iterator<SimpleTrie> {
 
 	/**
-	 * The next {@link Trie} node. It is set by {@link TrieNodeIterator#findNext()} (only).
+	 * The next {@link SimpleTrie} node. It is set by {@link SimpleNodeIterator#findNext()} (only).
 	 */
-	private Trie next;
+	private SimpleTrie next;
 	
 	/**
-	 * Creates a new {@link TrieNodeIterator} and finds the first <tt>next</tt>.
+	 * Creates a new {@link SimpleNodeIterator} and finds the first <tt>next</tt>.
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected TrieNodeIterator(Trie start) {
+	protected SimpleNodeIterator(SimpleTrie start) {
 		super(start);
 		next = current;
 	}
@@ -34,9 +34,9 @@ public class TrieNodeIterator extends TrieIteratorBase implements Iterator<Trie>
 	}
 
 	@Override
-	public Trie next() {
+	public SimpleTrie next() {
 		if (hasNext()) {
-			Trie oldNext = next;
+			SimpleTrie oldNext = next;
 			findNext();
 			return oldNext;
 		} else {

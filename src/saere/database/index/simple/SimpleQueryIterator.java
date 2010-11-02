@@ -1,4 +1,4 @@
-package saere.database.index.map;
+package saere.database.index.simple;
 
 import java.util.Iterator;
 
@@ -10,17 +10,17 @@ import saere.database.index.TermFlattener;
 /**
  * Trie term iterator that supports queries. A query is expressed by an array of
  * {@link Term}s. For term flattening the same {@link TermFlattener} as in the 
- * {@link Trie} class is used.<br/>
+ * {@link SimpleTrie} class is used.<br/>
  * <br/>
- * <b>This iterator works only with {@link Trie}s that have been built with 
+ * <b>This iterator works only with {@link SimpleTrie}s that have been built with 
  * a {@link SimpleTermInserter}.</b>
  * 
  * @author David Sullivan
  * @version 0.2, 9/30/2010
  */
-public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator<Term> {
+public class SimpleQueryIterator extends SimpleTermIterator implements Iterator<Term> {
 	
-	private final TrieTermIterator subiterator;
+	private final SimpleTermIterator subiterator;
 	
 	private QueryStack stack;
 	private boolean useSubiterator = false;
@@ -32,18 +32,18 @@ public class SimpleTrieTermIterator extends TrieTermIterator implements Iterator
 	 * @param start The start trie, e.g., a functor.
 	 * @param terms A query represented by an array of terms (atoms/variables).
 	 */
-	public SimpleTrieTermIterator(Trie start, QueryStack stack) {
+	public SimpleQueryIterator(SimpleTrie start, QueryStack stack) {
 		this.start = start;
 		current = start;
 		
 		// create the one and only instance of the subiterator that'll be used
-		subiterator = new TrieTermIterator(start);
+		subiterator = new SimpleTermIterator(start);
 		
 		// break down terms to atoms/variables
 		this.stack = stack;
 		
 		// don't skip the first node
-		if (stack.size() == 1 && Matcher.match(current.label, stack.peek())) {
+		if (current.label != null && stack.size() == 1 && Matcher.match(current.label, stack.peek())) {
 			useSubiterator = true;
 			if (subiterator.hasNext()) {
 				next = subiterator.next();

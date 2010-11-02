@@ -21,6 +21,7 @@ import saere.Variable;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
+import saere.database.TermFilter;
 import saere.database.Utils;
 import saere.meta.GenericCompoundTerm;
 
@@ -147,7 +148,7 @@ public class IteratorsTest {
 			actuals.add(iter.next());
 		}
 		
-		assertTrue(same(expecteds, actuals));
+		assertTrue(DatabaseTest.same(expecteds, actuals));
 	}
 	
 	@Test
@@ -195,7 +196,7 @@ public class IteratorsTest {
 			actuals.add(iter.next());
 		}
 		
-		assertTrue(same(expecteds, actuals));
+		assertTrue(DatabaseTest.same(expecteds, actuals));
 	}
 	
 	/**
@@ -239,7 +240,7 @@ public class IteratorsTest {
 	}
 	
 	/**
-	 * Tests the {@link Trie.SimpleTermIterator} with the current configuration and 
+	 * Tests the {@link MapTrie.SimpleTermIterator} with the current configuration and 
 	 * the specified <tt>filename</tt>.
 	 * 
 	 * @return <tt>true</tt> if the iterator works correct.
@@ -264,7 +265,7 @@ public class IteratorsTest {
 			actuals.push(term);
 		}
 		
-		if (!same(expecteds, actuals)) {
+		if (!DatabaseTest.same(expecteds, actuals)) {
 			//printTermCollections(expecteds, actuals);
 			//new TrieInspector().print(root, builder, "c:/users/leaf/desktop/" + System.currentTimeMillis() + "-" + builder.toString() + ".test-failed.gv", true);
 			return false;
@@ -413,7 +414,7 @@ public class IteratorsTest {
 			actuals.push(iter.next());
 		}
 		
-		if (!same(expecteds, actuals)) {
+		if (!DatabaseTest.same(expecteds, actuals)) {
 			printTermCollections(expecteds, actuals);
 			//new TrieInspector().print(root, "c:/users/leaf/desktop/" + System.currentTimeMillis() + ".test-failed.gv", true);
 			return false;
@@ -449,63 +450,6 @@ public class IteratorsTest {
 					System.out.println(Utils.termToString(term));
 				}
 			}
-		}
-	}
-	
-	/**
-	 * Checks wether the two specified collections are the <i>same</i>. Two 
-	 * collections are the same if they have the same size and if one 
-	 * collection contains all elements of the other (but possibly in different 
-	 * order).
-	 * 
-	 * @param coll0 The first collection.
-	 * @param coll1 The second collection.
-	 * @return <tt>true</tt> if the two collections are the same.
-	 */
-	@SuppressWarnings("all")
-	private boolean same(Collection<?> coll0, Collection<?> coll1) {
-		if (coll0.size() == coll1.size() && coll0.containsAll(coll1)) { // may take very long
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	/**
-	 * A class for filtering terms that match a query. (As for use with plain 
-	 * lists, for example.)
-	 * 
-	 * @author David Sullivan
-	 * @version 0.1, 10/6/2010
-	 */
-	private class TermFilter {
-		
-		private final Term[] query;
-		private final TermFlattener flattener;
-		
-		/**
-		 * Creates a new {@link TermFilter} with the specified query and a 
-		 * {@link TermFlattener}. The latter must be the same as the one that 
-		 * was used by creating the query.
-		 * 
-		 * @param query The query.
-		 * @param flattener The term flattener.
-		 */
-		public TermFilter(Term[] query, TermFlattener flattener) {
-			this.query = query;
-			this.flattener = flattener;
-		}
-		
-		/**
-		 * Checks wether the specified {@link Term} is <i>allowed</i>, i.e., it
-		 * satisfies the query.
-		 * 
-		 * @param term The term to check.
-		 * @return <tt>true</tt> if the terms matches the query of this instance.
-		 */
-		public boolean allow(Term term) {
-			Atom[] flattened = flattener.flattenForInsertion(term);
-			return query.length == Matcher.match(flattened, query);
 		}
 	}
 }

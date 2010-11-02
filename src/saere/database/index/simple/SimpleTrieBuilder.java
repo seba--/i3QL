@@ -11,7 +11,7 @@ import saere.database.index.ShallowTermFlattener;
 
 /**
  * The {@link SimpleTrieBuilder} uses for each element of a flattend term 
- * representation exactly one {@link Trie} node. That is, if the length of a 
+ * representation exactly one {@link SimpleTrie} node. That is, if the length of a 
  * flattened term repesenation is seven, the term will be found at node level 
  * seven (not counting the root).<br/>
  * <br/>
@@ -27,20 +27,20 @@ public final class SimpleTrieBuilder {
 	
 	private static final ShallowTermFlattener flattener = new ShallowTermFlattener();
 	
-	private Trie current;
+	private SimpleTrie current;
 		
-	public Trie insert(Term term, Trie start) {
+	public SimpleTrie insert(Term term, SimpleTrie start) {
 		InsertStack stack = new InsertStack(flattener.flattenForInsertion(term));
 		current = start;
 		
-		Trie insertionNode = null; // the trie node where the specified term will be added
+		SimpleTrie insertionNode = null; // the trie node where the specified term will be added
 		while (insertionNode == null) {
 			Atom first = stack.peek();
 			
 			if (current.parent == null) { 
 				
 				if (current.firstChild == null) // create the very first node
-					current.firstChild = new Trie(first, current);
+					current.firstChild = new SimpleTrie(first, current);
 				current = current.firstChild;
 				
 			} else if (Matcher.match(current.label, first)) { // the labels match
@@ -57,14 +57,14 @@ public final class SimpleTrieBuilder {
 				} else { // more to process
 					
 					if (current.firstChild == null) // add to own subtrie
-						current.firstChild = new Trie(stack.peek(), current);
+						current.firstChild = new SimpleTrie(stack.peek(), current);
 					current = current.firstChild;
 				}
 
 			} else { // !root && !same
 				
 				if (current.nextSibling == null) // add to (a) sibling subtrie
-					current.nextSibling = new Trie(stack.peek(), current.parent);
+					current.nextSibling = new SimpleTrie(stack.peek(), current.parent);
 				current = current.nextSibling;
 			}
 		}
@@ -72,17 +72,17 @@ public final class SimpleTrieBuilder {
 		return insertionNode;
 	}
 
-	public boolean remove(Term term, Trie start) {
+	public boolean remove(Term term, SimpleTrie start) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	
-	public Iterator<Term> iterator(Trie start) {
-		return new TrieTermIterator(start);
+	public Iterator<Term> iterator(SimpleTrie start) {
+		return new SimpleTermIterator(start);
 	}
 	
-	public Iterator<Term> iterator(Trie start, Term[] query) {
-		return new SimpleTrieTermIterator(start, new QueryStack(flattener.flattenForQuery(query)));
+	public Iterator<Term> iterator(SimpleTrie start, Term[] query) {
+		return new SimpleQueryIterator(start, new QueryStack(flattener.flattenForQuery(query)));
 	}
 	
 	@Override
