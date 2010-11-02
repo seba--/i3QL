@@ -33,8 +33,7 @@
 
 
 /**
-	Definition of predicates that help to understand and debug the inner 
-	workings of the lexer.
+	Predicates that help to understand and debug the lexer.
 	
 	@author Michael Eichberg
 */
@@ -53,13 +52,6 @@
 
 :- use_module('../Lexer.pl').
 :- use_module(library(charsio)). 
-
-
-
-
-
-
-
 
 
 

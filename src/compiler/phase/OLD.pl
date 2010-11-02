@@ -1,6 +1,3 @@
-:- module(ast,
- [
- ]).
 
 
 empty_ast([]).
