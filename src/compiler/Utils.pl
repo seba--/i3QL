@@ -32,8 +32,8 @@
 
 
 
-/*	Definition of helper predicates that are not specifically related to the 
-	SAE Prolog compiler.
+/**
+	Definition of general purpose helper predicates.
 	
 	@author Michael Eichberg
 */
@@ -80,8 +80,8 @@
 	
 	@category math
 */
-max(V1,V2,R) :- V1 =< V2,!, R = V2.
-max(V1,V2,R) :- V1 > V2, R = V1.
+max(V1,V2,V2) :- V1 =< V2,!.
+max(V1,V2,V1) :- V1 > V2.
 
 
 
@@ -164,7 +164,7 @@ replace_first_dl([SomeE|OldDLR]-OldDLZ,OldE,NewE,[SomeE|NewDLR]-NewDLZ) :-
 	<b>The complexity of looking up a value is O(N); N is the size of the 
 	dictionary.</b>
 	
-	@category dictionary, dictionaries, map, maps
+	@category dictionaries, maps
 */
 lookup(Key,[(Key,Value)|_Dict],Value).
 lookup(Key,[(Key1,_)|Dict],Value) :- Key \= Key1, lookup(Key,Dict,Value).
