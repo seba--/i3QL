@@ -31,118 +31,31 @@
 */
 
 
-/*	Checks that the SAE Prolog program is valid. I.e., that the program does not 
-	redefine a built-in predicate or uses a datastructure that is used by the 
-	compiler	itself.
+/**
+	Checks that the SAE Prolog program is valid.
 	
 	@author Michael Eichberg
 */
 :- module('Compiler:Phase:Check',[pl_check/4]).
 
 :- use_module('../Debug.pl').
-:- use_module('../Predef.pl',[built_in_term/1]).
+:- use_module('../Predef.pl').
 
 
 
-pl_check(Debug,Program,_OutputFolder,Program) :-
-	debug_message(
-		Debug,on_entry,
-		'\nPhase: Check Program________________________________________________'),
-
-	check_predicates(Program,Program,State),
-	% The following unification (and subsequently the check predicate) 
-	% fails if an error was found:
+pl_check(DebugConfig,Program,_OutputFolder,Program) :-
+	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Check Program________________________________________________\n')),
+	check_predicates(Program,State),
+	% The following unification (and subsequently the pl_check predicate as a whole) 
+	% fails if an error was found.
 	State = no_errors. 
 
 
 
-/* check_predicates(PredicatesToCheck,Program,State) :- checks that the 
-	SAE Prolog progam does not (try to) redefine built-in predicates and 
-	that no (sub)terms conflict with terms used by SAE prolog.
-
-	@param PredicatesToCheck is the list of all predicates of the SAE Prolog 
-		program. Initially, PredicatesToCheck and Program are considered to 
-		identical.
-	@param Program is a SAE Prolog program in normalized form. 
-		<p>
-		The expected structure is:
-		<pre>
-		[	pred(
-				a/1, 							% The identifier of the predicate
-				[(C, [det, type=int])],	% A list of clauses defining the 
-												% predicate. C is one of these clauses.
-												% In case of built-in propeties, this list
-												% is empty.
-				[type=...]					% List of properties of the predicate
-			),...
-		]
-		</pre>
-		<p/>
-	@param State is the output variable. State is free unless an error is 
-		detected, in this case State is unified with 'error_found'.
+/**
+	Validates the SAE program.
 */
-check_predicates([],_,_) :- !.
-check_predicates([pred(Predicate,Clauses,_Properties)|Predicates],Program,State) :-
-	ignore((
-		%	IMPROVE For each predicate we iterates over all predicates (O(n^2)).
-		\+ is_predicate_unique(Predicate,Program),
-		State = error_found,
-		write('[Error] Multiple definitions of the predicate: '),
-		write(Predicate),
-		write(' exists.'),nl
-	)),
-	check_clauses(Clauses,State),
-	check_predicates(Predicates,Program,State).
+check_predicates(_,_) :- !.
+% TODO implement the validation of the SAE prolog program
 
 
-
-/*	is_predicate_unique(Predicate,Program)	:- tests that a predicate does not
-	have multiple definitions. 
-	
-	@param Program a complete SAE Prolog program consisting of the user and 
-		built in predicates.
-*/
-is_predicate_unique(Predicate,Program)	:-
-	count_predicate_definitions(Predicate,Program,0,Count),
-	Count =:= 1.
-
-
-
-% Helper predicate; see {@link is_predicate_unique/2}.
-count_predicate_definitions(Predicate,[pred(Predicate,_,_)|Predicates],Count,Result) :-
-	!,
-	NewCount is Count + 1,
-	count_predicate_definitions(Predicate,Predicates,NewCount,Result).
-count_predicate_definitions(Predicate,[pred(APredicate,_,_)|Predicates],Count,Result) :-
-	Predicate \= APredicate,!,
-	count_predicate_definitions(Predicate,Predicates,Count,Result).
-count_predicate_definitions(_Predicate,[],Count,Count).
-
-
-
-% just iterates over all clauses
-check_clauses([],_State).
-check_clauses([(Clause,_Properties)|Clauses],State) :-
-	check_clause(Clause,State),
-	check_clauses(Clauses,State).
-
-
-
-check_clause(Clause,State) :-
-	ignore((
-		\+ does_not_use_sae_namespace(Clause),
-		State=error_found,
-		write('[Error] The clause: "'),
-		write(Clause),
-		write('" uses the reserved namespace \'$SAE\'.'),nl
-	)).
-
-
-
-does_not_use_sae_namespace(V) :- var(V),!.
-does_not_use_sae_namespace(T) :-
-	\+ built_in_term(T),
-	T =.. [_Functor|Args],
-	forall(member(Arg,Args),does_not_use_sae_namespace(Arg)).
-
-	

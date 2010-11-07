@@ -98,7 +98,9 @@
 :- module(
 	'SAEProlog:Compiler:AST',
 	[	
-		new_ast/1,
+		empty_ast/1,
+		variable_node/4,
+		term_pos/2,
 		add_term_to_ast/3,
 		add_predicates_to_ast/3,
 		
@@ -136,12 +138,12 @@
 
 
 /**
-	Creates a new (empty) AST.
+	Unifies a given AST with the empty AST.
 	
-	@signature new_ast(AST)
-	@arg(out) AST A new empty AST.
+	@signature empty_ast(AST)
+	@arg AST An empty AST.
 */
-new_ast([]).
+empty_ast([]).
 
 
 
@@ -203,6 +205,32 @@ add_predicates_to_ast(AST,[pred(ID,Properties)|Preds],NewAST) :- !,
 add_predicates_to_ast(AST,[],AST).
 
 
+
+/**
+	VariableNode is a term that represents a variable definition <code>v(Pos,VariableName)</code>. 
+	The name of the variable is determined by concatenating the BaseQualifier and 
+	the ID. The associated source code position is determined by Pos.<br />
+	This predicate is typically used to create new variable nodes.
+	
+	@signature variable_node(Pos,BaseQualifier,Id,VariableNode)
+	@arg Pos A position object.
+	@arg(atom) BaseQualifier Some atom.
+	@arg(atom) Id Some atom.
+	@arg VariableNode A variable node.
+*/
+variable_node(Pos,BaseQualifier,Id,v(Pos,VariableName)) :-
+	atom_concat(BaseQualifier,Id,VariableName).	
+
+
+
+/**
+	Pos is the position of a term in the source file.
+	
+	@arg(in) ASTNode An AST node representing a term in a source file.
+	@arg Pos The position object {@file SAEProlog:Compiler:Parser} identifying
+		the position of the term in the source file.
+*/
+term_pos(ASTNode,Pos) :- ASTNode =.. [_,Pos|_].
 
 
 
@@ -299,9 +327,8 @@ write_clause(a(_Pos,Atom)) :- !,	write('\''),write(Atom),write('\'').
 write_clause(i(_Pos,Atom)) :- !,	write(Atom).	
 write_clause(r(_Pos,Atom)) :- !,	write(Atom).	
 write_clause(ct(_Pos,Functor,ClauseList)) :- !,
-	write('ct(\''),write(Functor),write('\','),write(' ['),
-	write_term_list(ClauseList),
-	write(']) ').
+	write(' \''),write(Functor),write('\''),
+	write('[ '),write_term_list(ClauseList),write(' ]').
 write_clause(X) :- throw(internal_error('the given term has an unexpected type',X)).
 	
 	
