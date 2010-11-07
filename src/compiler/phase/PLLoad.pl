@@ -32,7 +32,7 @@
 
  
 /**
-	Loads and creates the AST of an SAE Prolog program.
+	Loads an SAE Prolog program's source files and creates the overall AST.
 	
 	@author Michael Eichberg
 */
@@ -48,8 +48,8 @@
 
 
 /**
-	Loads and creates the AST of an SAE Prolog program. The AST consists only
-	of normalized top-level terms.
+	Loads an SAE Prolog program's source files and creates the overall AST. 
+	The AST consists only of normalized top-level terms.
 	
 	@arg(in) Debug is the list of debug information that should be emitted.
 		Possible values are: 'on_entry', 'ast(user)','ast(built_in)' and 'reading_file'.
