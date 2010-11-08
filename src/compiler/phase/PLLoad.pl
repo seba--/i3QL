@@ -127,16 +127,16 @@ process_terms([],AST,AST).
 	@arg Term The old term.
 	@arg NormalizedTerm The normalized variant of term.
 */
-normalize_term(Term0,ct(Pos,':-',[Head,OptimizedBody])) :-
+normalize_term(Term0,ct(Meta,':-',[Head,OptimizedBody])) :-
 	as_clause(Term0,Term1),
-	remove_head_unification(Term1,ct(Pos,':-',[Head,Body])),
+	remove_head_unification(Term1,ct(Meta,':-',[Head,Body])),
 	left_descending_goal_sequence(Body,LeftDescendingBody),
 	no_trailing_true_goals(LeftDescendingBody,OptimizedBody).
 
 
 
 /**
-	If the term is not an implication, it is transformed into one where the right
+	If the term is not a clause, it is transformed into one where the right
 	side (the body) is <code>true</code>.
 
 	@signature as_clause(Term,Clause)
@@ -144,20 +144,21 @@ normalize_term(Term0,ct(Pos,':-',[Head,OptimizedBody])) :-
 	@arg(out) Clause A valid top-level clause.
 */
 as_clause(
-		ct(Pos,Functor,Args),
-		ct(Pos,':-',[ct(Pos,Functor,Args),a(Pos,'true')])
+		ct(Meta,Functor,Args),
+		ct(Meta,':-',[ct(Meta,Functor,Args),a(Meta,'true')])
 ) :- Functor \= (':-'),!.
 as_clause(
-		a(Pos,Functor),
-		ct(Pos,':-',[a(Pos,Functor),a(Pos,'true')])
+		a(Meta,Functor),
+		ct(Meta,':-',[a(Meta,Functor),a(Meta,'true')])
 ) :- !.
-as_clause(Term,Term).
+as_clause(Directive,Directive) :- Directive=ct(_Meta,':-',[_]).
+as_clause(_,_) :- throw(internal_error('the given term has an unexpected type',X)).
 
 
 
 remove_head_unification(
-		ct(IPos,':-',[ct(HPos,Functor,HeadArgs),Body]),
-		ct(IPos,':-',[ct(HPos,Functor,NewHeadArgs),NewBody])
+		ct(IMeta,':-',[ct(HMeta,Functor,HeadArgs),Body]),
+		ct(IMeta,':-',[ct(HMeta,Functor,NewHeadArgs),NewBody])
 ) :- 	
 	/* not_empty(HeadArgs), */ !,
 	normalize_arguments(HeadArgs,1,HeadArgs,NewHeadArgs,Body,NewBody).	
@@ -172,15 +173,15 @@ normalize_arguments(_,_,[],[],Body,Body) :- !.
 normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	(
 		(	
-			HArg \= v(_Pos,_)
+			HArg \= v(_Meta,_)
 		;
-			HArg = v(_VPos,VariableName),
-			\+ is_first_occurence_of_variable(VariableName,AllHeadArgs,1,Id)
+			HArg = v(_VMeta,VariableName),
+			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
-			term_pos(HArg,Pos),
-			variable_node(Pos,'&H',Id,NewVariableNode),
+			term_pos(HArg,Meta),
+			variable_node(Meta,'&H',Id,NewVariableNode),
 			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
-			NewBody = ct(Pos,',',[ct(Pos,'=',[NewVariableNode,HArg]),RestOfBody])
+			NewBody = ct(Meta,',',[ct(Meta,'=',[NewVariableNode,HArg]),RestOfBody])
 		;	
 			NewHeadArgs=[HArg|FurtherNewHeadArgs],
 			NewBody = RestOfBody
@@ -206,26 +207,26 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	@arg(int) MaxID The id of the last argument which is checked for the 
 		definition of a variable.
 */
-is_first_occurence_of_variable(_,_,ID,MaxID) :- ID >= MaxID,!.
-is_first_occurence_of_variable(VariableName,[Arg|Args],ID,MaxID) :- 
+is_first_occurence_of_variable_in_head(_,_,ID,MaxID) :- ID >= MaxID,!.
+is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :- 
 	Arg \= v(_,VariableName),
 	NewID is ID + 1,
-	is_first_occurence_of_variable(VariableName,Args,NewID,MaxID).
+	is_first_occurence_of_variable_in_head(VariableName,Args,NewID,MaxID).
 
 
 
 % IMPROVE document... we are preforming a tree rotation to facilitate several analyses
 % TODO also make all or paths left_descending and remove trailing true goals
-left_descending_goal_sequence(ct(TPos,',',[LNode,ct(RPos,',',[RLNode,RRNode])]),NewNode) :- !,
-	left_descending_goal_sequence(ct(RPos,',',[ct(TPos,',',[LNode,RLNode]),RRNode]),NewNode).
+left_descending_goal_sequence(ct(TMeta,',',[LNode,ct(RMeta,',',[RLNode,RRNode])]),NewNode) :- !,
+	left_descending_goal_sequence(ct(RMeta,',',[ct(TMeta,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).
 
 
 
 /**
-	Removes all trailing true goals. Requires that the goal node is left descending.
+	Removes all trailing true goals. Requires that the goal sequence is left descending.
 */
-no_trailing_true_goals(ct(_Pos,',',[Goal,a(_APos,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
+no_trailing_true_goals(ct(_Meta,',',[Goal,a(_AMeta,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
 	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
 no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
 	

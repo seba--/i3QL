@@ -63,34 +63,8 @@
 	code must use the appropriate abstractions</i>.<br />
 	</p>
 	<p><b>Used Terminology</b><br/>
-	We use the following terminology to refer to the different parts of Prolog
-	programs.
-	<ul>
-	<li><u>Atom</u> - An (integer/string) atom.</li>
-	<li><u>Variable</u> - A prolog variable.</li>	
-	<li><u>Anonymous Variable</u> - A variable starting with an underscore. 
-		(Recall, all anonymous variables of a clause are unique, even if they 
-		share the same name.)</li>	
-	<li><u>Term</u> - A prolog term; i.e., some atom or complex term.</li>
-	<li><u>Top-level Term</u> - A term that is defined at the top-level in a 
-		source file.</li>	
-	<li><u>Complex Term</u> - A term with a functor and at least one argument 
-		(arity > 0). </li>
-	<li><u>Directive</u> - A top-level complex term where the identifier is 
-		':-'/1.</li>
-	<li><u>Clause</u> - A top-level complex term where the identifier is 
-		':-'/2.</li>
-	<li><u>Functor</u> - The name of a term.</li>
-	<li><u>Arity</u> - The number of arguments of a term. An integer atom equal 
-		or larger than 0.</li>
-	<li><u>Predicate</u> - A predicate is defined by the clauses that have the 
-		same identifier.</li>
-	<li><u>Fact</u> - A top-level complex term where the identifier is not
-		':-'/2.</li>
-	<li><u>Identifier</u> - Identifies each predicate uniquely. It is a term
-		with the structure: <code>&lt;Functor&gt;/&lt;Arity&gt;</code>
-	</li>	
-	</ul>
+	To refer to the different parts of a prolog program, we use the terminology
+	described in the document "Structure of Prolog Programs."
 	</p>
 
 	@author Michael Eichberg
