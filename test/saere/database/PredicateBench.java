@@ -74,28 +74,25 @@ public class PredicateBench {
 	public void test1() {
 		for (int i = 0; i < TEST_RUNS; i++) {
 			System.out.println("Test run " + (i + 1) + "...");
+			DatabasePredicate.useDatabase(LIST_DB);
+			for (int j = 0; j < instr3Queries.length; j++) {
+				System.out.print("List: ");
+				Utils.queryNoPrint(INSTR3_NORMAL, instr3Queries[j]);
+			}
+			System.out.println();
 			DatabasePredicate.useDatabase(MAP_DB);
 			for (int j = 0; j < instr3Queries.length; j++) {
-				System.out.print("Normal: ");
-				queryAndPrintResult(INSTR3_NORMAL, instr3Queries[j]);
+				System.out.print("Map: ");
+				Utils.queryNoPrint(INSTR3_NORMAL, instr3Queries[j]);
 			}
 			System.out.println();
 			DatabasePredicate.useDatabase(UNIQUE_DB);
 			for (int j = 0; j < instr3Queries.length; j++) {
 				System.out.print("Unique: ");
-				queryAndPrintResult(INSTR3_UNIQUE, instr3Queries[j]);
+				Utils.queryNoPrint(INSTR3_UNIQUE, instr3Queries[j]);
 			}
+			System.out.println();
 		}
-	}
-	
-	private static void queryAndPrintResult(DatabasePredicate predicate, Term[] query) {
-		Stopwatch sw = new Stopwatch();
-		int c = 0;
-		Solutions s = predicate.unify(query);
-		while (s.next()) {
-			c++;
-		}
-		sw.printElapsed("Finding " + c + " solutions for query " + Arrays.toString(query) + " for predicate " + predicate.toString());
 	}
 	
 	private static StringAtom sa(String s) {

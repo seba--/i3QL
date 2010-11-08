@@ -1,4 +1,4 @@
-package saere.database.index.unique;
+package saere.database.index.full;
 
 import java.util.Iterator;
 
@@ -79,7 +79,7 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 				var2 = null;
 			}
 			
-			iterator = database.getCandidates(new Term[] { functor, UniqueTermFlattener.SEPARATOR, t0, t1, t2 });
+			iterator = database.getCandidates(new Term[] { functor, t0, t1, t2 });
 		}
 		
 		public boolean next() {

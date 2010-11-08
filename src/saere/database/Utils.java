@@ -59,7 +59,7 @@ public final class Utils {
 	 */
 	public static void query(DatabasePredicate p, Term... terms) {
 		
-		System.out.println("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ":\n");
+		System.out.print("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ": ");
 		Stopwatch sw = new Stopwatch();
 
 		Solutions solutions = p.unify(terms);
@@ -73,7 +73,6 @@ public final class Utils {
 		}
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
-		System.out.println();
 	}
 	
 	/**
@@ -84,7 +83,7 @@ public final class Utils {
 	 */
 	public static void queryNoPrint(DatabasePredicate p, Term ... terms) {
 
-		System.out.println("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ":");
+		System.out.print("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ": ");
 		Stopwatch sw = new Stopwatch();
 		
 		Solutions solutions = p.unify(terms);
@@ -94,6 +93,5 @@ public final class Utils {
 		}
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
-		System.out.println();
 	}
 }

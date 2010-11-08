@@ -35,7 +35,6 @@ public class Keys {
 			addKey(split[0], Integer.parseInt(split[1]));
 		} catch (Exception e) {
 			System.err.println("Invalid key: " + key);
-			e.printStackTrace();
 		}
 	}
 	
