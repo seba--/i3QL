@@ -32,8 +32,8 @@
 
 
 
-/*	Definition of helper predicates that are not specifically related to the 
-	SAE Prolog compiler.
+/**
+	Definition of general purpose helper predicates.
 	
 	@author Michael Eichberg
 */
@@ -45,7 +45,8 @@
 		replace/4,
 		replace_char/4,
 		replace_char_with_string/4,
-		append_ol/2
+		append_ol/2,
+		not_empty/1
 	]).
 
 
@@ -80,8 +81,8 @@
 	
 	@category math
 */
-max(V1,V2,R) :- V1 =< V2,!, R = V2.
-max(V1,V2,R) :- V1 > V2, R = V1.
+max(V1,V2,V2) :- V1 =< V2,!.
+max(V1,V2,V1) :- V1 > V2.
 
 
 
@@ -164,7 +165,7 @@ replace_first_dl([SomeE|OldDLR]-OldDLZ,OldE,NewE,[SomeE|NewDLR]-NewDLZ) :-
 	<b>The complexity of looking up a value is O(N); N is the size of the 
 	dictionary.</b>
 	
-	@category dictionary, dictionaries, map, maps
+	@category dictionaries, maps
 */
 lookup(Key,[(Key,Value)|_Dict],Value).
 lookup(Key,[(Key1,_)|Dict],Value) :- Key \= Key1, lookup(Key,Dict,Value).
@@ -187,6 +188,18 @@ replace([H|Tail],E,Rs,[H|NewTail]):- % nothing to do
    H \= E,
 	!, % green cut
    replace(Tail,E,Rs,NewTail).
+
+
+
+/**
+	Tests if the given list is not empty. Fails if the given list is empty (or
+	if the given list ist not a list at all.)
+
+	@signature not_empty(List)
+	@arg(in) List A list.
+	@category lists
+*/
+not_empty([_|_]).
 
 
 
@@ -246,9 +259,9 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 	OC \= C,
 	!,
 	replace_char_with_string(RCs,OldC,NewString,R).
-	
 
-	 
+
+
 /**
 	Appends a given term to an open list. An open list is a list, where
 	the last element is always an unbound variable. An empty open list is 
@@ -262,6 +275,7 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 */
 append_ol(OL,E) :- var(OL),!,OL=[E|_].
 append_ol([_|T],E) :- append_ol(T,E).	
+
 
 
 /**
@@ -278,3 +292,7 @@ append_ol([_|T],E) :- append_ol(T,E).
 memberchk_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
 memberchk_ol(E,[E|_]) :- !. % we found a element
 memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
+
+
+
+

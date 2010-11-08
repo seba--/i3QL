@@ -31,15 +31,16 @@
 */
 
  
-/*
-	Loads and creates the AST of an SAE Prolog program.
+/**
+	Loads an SAE Prolog program's source files and creates the overall AST.
 	
 	@author Michael Eichberg
 */
 :- module('SAEProlog:Compiler:Phase:Load',[pl_load/4]).
 
 :- use_module('../Debug.pl').
-:- use_module('../AST.pl',[new_ast/1,add_term_to_ast/3,write_ast/2]).
+:- use_module('../Utils.pl').
+:- use_module('../AST.pl').
 :- use_module('../Lexer.pl',[tokenize_file/2]).
 :- use_module('../Parser.pl',[program/2]).
 :- use_module('../Predef.pl',[add_predefined_predicates_to_ast/2]).
@@ -47,7 +48,8 @@
 
 
 /**
-	Loads and creates the AST of a SAE Prolog program. 
+	Loads an SAE Prolog program's source files and creates the overall AST. 
+	The AST consists only of normalized top-level terms.
 	
 	@arg(in) Debug is the list of debug information that should be emitted.
 		Possible values are: 'on_entry', 'ast(user)','ast(built_in)' and 'reading_file'.
@@ -69,8 +71,8 @@ pl_load(DebugConfig,Files,_OutputFolders,Program) :-
 		),
 		ASTs
 	),
-	% iterate over all terms of all asts and create a global ast
-	create_ast(ASTs,GlobalAST),
+	% iterate over all terms of all ASTs and create a global ast
+	global_ast(ASTs,GlobalAST),
 	add_predefined_predicates_to_ast(GlobalAST,Program),
 	debug_message(DebugConfig,ast(user),write_ast(user,Program)),
 	debug_message(DebugConfig,ast(built_in),write_ast(built_in,Program)).
@@ -83,15 +85,17 @@ pl_load(DebugConfig,Files,_OutputFolders,Program) :-
 
 
 
-create_ast(ASTs,TheAST) :-
-	new_ast(EmptyAST),
+global_ast(ASTs,TheAST) :-
+	empty_ast(EmptyAST),
 	process_asts(ASTs,EmptyAST,TheAST).
+
 
 
 process_asts([AnAST|ASTs],CurrentAST,FinalAST) :- !,
 	process_terms(AnAST,CurrentAST,IntermediateAST),
 	process_asts(ASTs,IntermediateAST,FinalAST).
 process_asts([],AST,AST).	
+
 
 
 process_terms([Term|Terms],CurrentAST,FinalAST) :- !,
@@ -111,12 +115,29 @@ process_terms([],AST,AST).
 \* ************************************************************************** */
 
 
-normalize_term(Term0,NormalizedTerm) :-
-	as_clause(Term0,NormalizedTerm).
+
+/**
+	Normalizes a (top-level) term. <br />
+	In a normalized term the header's arguments are all variables where no
+	variable occurs more than once. Further, every term is transformed into
+	"clausal form"; i.e., it is always an implication with a left and a right 
+	side.
+	
+	@signature normalize_term(Term,NormalizedTerm)
+	@arg Term The old term.
+	@arg NormalizedTerm The normalized variant of term.
+*/
+normalize_term(Term0,ct(Pos,':-',[Head,OptimizedBody])) :-
+	as_clause(Term0,Term1),
+	remove_head_unification(Term1,ct(Pos,':-',[Head,Body])),
+	left_descending_goal_sequence(Body,LeftDescendingBody),
+	no_trailing_true_goals(LeftDescendingBody,OptimizedBody).
 
 
-/** Private
-	If it is a fact, make it a clause, where the right side is just 'true'.
+
+/**
+	If the term is not an implication, it is transformed into one where the right
+	side (the body) is <code>true</code>.
 
 	@signature as_clause(Term,Clause)
 	@arg(in) Term A valid top-level term.
@@ -132,106 +153,81 @@ as_clause(
 ) :- !.
 as_clause(Term,Term).
 
-	
+
+
+remove_head_unification(
+		ct(IPos,':-',[ct(HPos,Functor,HeadArgs),Body]),
+		ct(IPos,':-',[ct(HPos,Functor,NewHeadArgs),NewBody])
+) :- 	
+	/* not_empty(HeadArgs), */ !,
+	normalize_arguments(HeadArgs,1,HeadArgs,NewHeadArgs,Body,NewBody).	
+remove_head_unification(TermNode,TermNode).
 
 
 
-/* normalize_clause(OldClause,NewClause) :- normalizes the representation of a
- 	clause. <br />
-	In a normalized clause the header's arguments are all variables where no
-	variable occurs more than once. 
-	
-	@param OldClause the old clause.
-	@param NewClause is the normalized representation of OldClause.
-* /
-normalize_clause(((H :- B),ClauseProperties),NewClause) :- 
-	functor(H,Functor,Arity),
-	functor(NewH,Functor,Arity),
-	normalize_arguments(H,NewH,B,NewB),
-	normalize_goal_sequence_order(NewB,NormalizedGoalOrderB),
-	remove_trailing_true_calls(NormalizedGoalOrderB,MinimizedB),
-	NewClause = ':-'(NewH  MinimizedB),ClauseProperties).
-	
-	
-	
-
-normalize_arguments(H,NewH,B,NewB) :- 
-	functor(H,_,AID),
-	normalize_arguments(AID,H,NewH,B,NewB).
-
-normalize_arguments(0,_,_,B,B) :- !.
-normalize_arguments(AID,H,NewH,B,FinalB) :-
-	AID > 0,	NewAID is AID - 1,
-	arg(AID,H,Arg),
-	(	(var(Arg),is_first_occurence_of_variable_as_term_argument(NewAID,H,Arg)) ->
-		(
-			arg(AID,NewH,Arg),
-			NewB=B
-		);(
-			arg(AID,NewH,X),
-			NewB = ((X = Arg),B)
-		)
-	),
-	normalize_arguments(NewAID,H,NewH,NewB,FinalB).
-
-
-
-
-/ * is_first_occurence_of_variable_as_term_argument(+AID,+T,+Var) :- tests if no 
-	argument of a given term T in the range [1..AID] is the variable Var.
-	
- 	@param AID is the upper bound of the argument index.
-	@param T a term.
-	@param Var an (unbound) variable.
-* /
-is_first_occurence_of_variable_as_term_argument(0,_,_) :- !.
-is_first_occurence_of_variable_as_term_argument(AID,T,Var) :-
-	arg(AID,T,Arg),
-	Arg \== Var,
-	NewAID is AID - 1,
-	is_first_occurence_of_variable_as_term_argument(NewAID,T,Var).	
-
-
-
-
-/ * normalize_goal_sequence_order(Body,NewBody) :- performs a tree rotation to 
-	make sure that	a clause's last goal – if the last goal is unique – is the
-	immediate right child element of top-level "and" node.
-	
-	<p>
-	<b>Example</b><br />
-	E.g., the goal sequence (A,B,C,D,E) <=>
-	(A,(B,(C,(D,E))) is transformed to ((((A, B), C), D), E). This representation
-	is advantegeous because some analyses do need to analyze a goal sequence
-	except of the "last goal". Hence, after this transformation the goal
-	sequence G can be unified with G=(PreviousGoals,LastGoal) to get the sequence
-	of all goals except of the last goal. 
-	</p>
-* /
-normalize_goal_sequence_order(B,NewB) :- 
-		var(B) -> NewB = B
-	;
-		(B = (L,R), nonvar(R), R=(RL,RR)) -> ( % we have to avoid accidental bindings
-			normalize_goal_sequence_order((L,RL),NewL),
-			IB = (NewL,RR),
-			normalize_goal_sequence_order(IB,NewB)
-		)
-	;
-		B = (L;R) -> (
-			normalize_goal_sequence_order(L,NewLB),
-			normalize_goal_sequence_order(R,NewRB),
-			NewB = (NewLB;NewRB)
-		)
-	;
-		NewB = B.
-
-	
-
-
-remove_trailing_true_calls(Term,NewTerm) :-
-		var(Term) -> NewTerm = Term 
-	;
-		Term = (T,true) -> (ITerm = T, remove_trailing_true_calls(ITerm,NewTerm))
-	;
-		NewTerm = Term.
+/**
+ 	@signature normalize_arguments(HeadArgs,HeadArgId,RemainingHeadArgs,NewHeadArgs,Body,NewBody) 
 */
+normalize_arguments(_,_,[],[],Body,Body) :- !.
+normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
+	(
+		(	
+			HArg \= v(_Pos,_)
+		;
+			HArg = v(_VPos,VariableName),
+			\+ is_first_occurence_of_variable(VariableName,AllHeadArgs,1,Id)
+		)	->  
+			term_pos(HArg,Pos),
+			variable_node(Pos,'&H',Id,NewVariableNode),
+			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
+			NewBody = ct(Pos,',',[ct(Pos,'=',[NewVariableNode,HArg]),RestOfBody])
+		;	
+			NewHeadArgs=[HArg|FurtherNewHeadArgs],
+			NewBody = RestOfBody
+	),
+	NewId is Id + 1,
+	normalize_arguments(AllHeadArgs,NewId,HArgs,FurtherNewHeadArgs,Body,RestOfBody).
+
+
+
+/**
+	Succeeds if a variable is not used by an argument with index [1..MaxId).
+	<p>
+	Requires that all arguments with index [1..MaxId) are variables. The behavior
+	of this predicate is not defined if a previous argument
+	is a complex term where the variable is used as an argument.
+	</p>
+
+	@signature is_first_occurence_of_variable(VariableName,Args,Id,MaxID)
+	@arg VariableName The name of a variable for which it is checked if it is
+		already used by a previous argument.
+	@arg(in) Args the list of (all) arguments. 
+	@arg(int) ID The id (1-based) of the argument which is checked.
+	@arg(int) MaxID The id of the last argument which is checked for the 
+		definition of a variable.
+*/
+is_first_occurence_of_variable(_,_,ID,MaxID) :- ID >= MaxID,!.
+is_first_occurence_of_variable(VariableName,[Arg|Args],ID,MaxID) :- 
+	Arg \= v(_,VariableName),
+	NewID is ID + 1,
+	is_first_occurence_of_variable(VariableName,Args,NewID,MaxID).
+
+
+
+% IMPROVE document... we are preforming a tree rotation to facilitate several analyses
+% TODO also make all or paths left_descending and remove trailing true goals
+left_descending_goal_sequence(ct(TPos,',',[LNode,ct(RPos,',',[RLNode,RRNode])]),NewNode) :- !,
+	left_descending_goal_sequence(ct(RPos,',',[ct(TPos,',',[LNode,RLNode]),RRNode]),NewNode).
+left_descending_goal_sequence(Node,Node).
+
+
+
+/**
+	Removes all trailing true goals. Requires that the goal node is left descending.
+*/
+no_trailing_true_goals(ct(_Pos,',',[Goal,a(_APos,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
+	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
+no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
+	
+	
+	

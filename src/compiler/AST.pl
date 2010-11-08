@@ -98,12 +98,15 @@
 :- module(
 	'SAEProlog:Compiler:AST',
 	[	
-		new_ast/1,
+		empty_ast/1,
+		variable_node/4,
+		term_pos/2,
 		add_term_to_ast/3,
 		add_predicates_to_ast/3,
 		
 		write_ast/2,
-		write_clauses/1
+		write_clauses/1,
+		write_clause/1
 	]
 ).
 
@@ -135,17 +138,17 @@
 
 
 /**
-	Creates a new (empty) AST.
+	Unifies a given AST with the empty AST.
 	
-	@signature new_ast(AST)
-	@arg(out) AST A new empty AST.
+	@signature empty_ast(AST)
+	@arg AST An empty AST.
 */
-new_ast([]).
+empty_ast([]).
 
 
 
 /**
-	Adds a top-level term, which is a valid, normalized clause, to the ast.
+	Adds a top-level term – which is a valid, normalized clause – to the ast.
 
 	@signature add_term_to_ast(AST,Term,NewAST)
 	@arg(in) AST The AST to which this term should be added.
@@ -203,6 +206,32 @@ add_predicates_to_ast(AST,[],AST).
 
 
 
+/**
+	VariableNode is a term that represents a variable definition <code>v(Pos,VariableName)</code>. 
+	The name of the variable is determined by concatenating the BaseQualifier and 
+	the ID. The associated source code position is determined by Pos.<br />
+	This predicate is typically used to create new variable nodes.
+	
+	@signature variable_node(Pos,BaseQualifier,Id,VariableNode)
+	@arg Pos A position object.
+	@arg(atom) BaseQualifier Some atom.
+	@arg(atom) Id Some atom.
+	@arg VariableNode A variable node.
+*/
+variable_node(Pos,BaseQualifier,Id,v(Pos,VariableName)) :-
+	atom_concat(BaseQualifier,Id,VariableName).	
+
+
+
+/**
+	Pos is the position of a term in the source file.
+	
+	@arg(in) ASTNode An AST node representing a term in a source file.
+	@arg Pos The position object {@file SAEProlog:Compiler:Parser} identifying
+		the position of the term in the source file.
+*/
+term_pos(ASTNode,Pos) :- ASTNode =.. [_,Pos|_].
+
 
 
 /* ************************************************************************** *\
@@ -213,11 +242,11 @@ add_predicates_to_ast(AST,[],AST).
 	
 
 /**
-	Writes the AST to standard out.
+	Writes the complete AST - including all meta-information - to standard out.
 
 	@signature write_ast(ShowPredicates,AST) 
 	@arg(in) ShowPredicates The kind of predicates that should be printed out.
-		ShowPredicates has to be built_in or user.
+		ShowPredicates has to be <code>built_in</code> or <code>user</code>.
 	@arg(in) AST the ast.
 */	
 write_ast(_ShowPredicates,[]) :- !. % green cut	
@@ -242,6 +271,7 @@ write_ast(ShowPredicates,[pred(Identifier,Clauses,PredicateProperties)|Predicate
 	),
 	write_ast(ShowPredicates,Predicates).	
 write_ast(_ShowPredicates,AST) :- 
+	% IMRPOVE throw exception in case of internal programming errors
 	write('[Internal Error:AST:write_ast/2] The AST: '),
 	write(AST),
 	write(' is invalid.\nl').
@@ -251,7 +281,7 @@ write_ast(_ShowPredicates,AST) :-
 	Writes all information about the clauses of a predicate to standard out.
 
 	@signature write_clauses(Clauses) 
-	@arg(in) Clauses The list of clauses of a predicate.
+	@arg(in) Clauses The (open) list of clauses defining a predicate.
 */	
 write_clauses(Clauses) :- 
 	ignore(
@@ -261,20 +291,61 @@ write_clauses(Clauses) :-
 		write_clauses(1,Clauses)
 		)
 	).
-% PRIVATE (Implementation of write_clauses/1)
+	
+% Implementation of write_clauses/1
 write_clauses(_,Clauses) :- 
 	var(Clauses)/* Clauses is an open list and a test such as Clauses = [] would
 						lead to accidental unification. */,
 	!.
 write_clauses(Id,[(Clause,ClauseProperties)|Clauses]) :-
-	write('[Debug]   '),write(Id),write(':\t'),	write_term(Clause,[quoted(true)]),nl,
-	write('[Debug]   '),write(Id),write(':\tProperties: '),
+	write('[Debug]   '), write(Id), write(':\t'), write_clause(Clause),nl,
+	write('[Debug]   '), write(Id), write(':\tProperties: '),
 	( 	var(ClauseProperties) ->
 		write('None')
 	;
 		write(ClauseProperties)
-	),nl,
+	), nl,
 	NewId is Id + 1,
 	write_clauses(NewId, Clauses).	
 	
 	
+
+/**
+	Writes a text representation of a given clause (term) to standard out.<br />
+	The generated representation is meant to facilitate debugging the compiler
+	and not as a representation of the AST.
+	
+	@signature write_clause(Term)
+	@arg(in) Term A node in the AST representing a term in the source file.
+		{@link Parser#:-(module)}
+*/
+%write_clause(v(_Pos,Name)) :- !, write('v('),write(Name),write(')').
+write_clause(v(_Pos,Name)) :- !, write(Name).
+%write_clause(av(_Pos,Name)) :- !, write('av('),write(Name),write(')').	
+write_clause(av(_Pos,Name)) :- !,write(Name).	
+write_clause(a(_Pos,Atom)) :- !,	write('\''),write(Atom),write('\'').	
+write_clause(i(_Pos,Atom)) :- !,	write(Atom).	
+write_clause(r(_Pos,Atom)) :- !,	write(Atom).	
+write_clause(ct(_Pos,Functor,ClauseList)) :- !,
+	write(' \''),write(Functor),write('\''),
+	write('[ '),write_term_list(ClauseList),write(' ]').
+write_clause(X) :- throw(internal_error('the given term has an unexpected type',X)).
+	
+	
+/**
+	Writes a text representation of each AST Node, which represents a term in 
+	the source file, to standard out.<br />
+	Position information are dropped to make the output easier to read.
+
+	@signature write_term_list(TermList)
+	@arg(in) TermList A non-empty list of AST nodes representing source-level
+		terms.
+*/	
+write_term_list([Arg|Args]) :-
+	write_clause(Arg),
+	write_term_list_rest(Args).	
+	
+write_term_list_rest([]) :- !.
+write_term_list_rest([Clause|Clauses]) :-
+	write(','),write_clause(Clause),
+	write_term_list_rest(Clauses).

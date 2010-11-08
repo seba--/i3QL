@@ -273,7 +273,7 @@ program(Ops,R) -->
 	{	!,	
 		(	% if the clause is a directive ... process it
 			S = ct(_DPos, ':-',[_Directive]),!, % a directive always has one argument, ':-' is a prefix argument
-			R = SRs,
+			R = SRs, % FIXME currently a directive is always directly swalloed by the parser and not reported
 			process_directive(Ops,S,NewOps)
 		;	% if the clause is not valid ... ignore it
 			\+ validate_clause(S),!,

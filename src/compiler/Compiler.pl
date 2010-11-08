@@ -49,7 +49,7 @@
 :- module('SAEProlog:Compiler',[phase/3,compile/2]).
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
-%XXX :- use_module('phase/PLCheck.pl',[pl_check/4]).
+:- use_module('phase/PLCheck.pl',[pl_check/4]).
 %XXX :- use_module('phase/PLNormalize.pl',[pl_normalize/4]).
 %XXX :- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
 %XXX :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
@@ -93,7 +93,7 @@
 */
 %%%% 1. LOADING AND CHECKING
 phase(pl_load,execute,[on_entry,reading_file,ast(user)]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
-%XXX phase(pl_check,execute,[on_entry]) :- phase(pl_normalize,execute,_).
+phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES
 %XXX phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
@@ -164,16 +164,16 @@ compile(FilePatterns,OutputFolder) :-
 
 
 
-/** (PRIVATE)
-
-	Executes the compiler phases in the given order until. If a compiler phase
+/**
+	Executes the compiler phases in the given order. If a compiler phase
 	fails, the compilation is aborted. <br />
 	A phase's Input is the Output of the previous phase. OutputFolder defines
-	the place where the generated artifacts have to be stored.
+	the place where the generated artifacts will be stored.
+	
+	@signature execute_phases(ExecutablePhases,Input,OutputFolder)
 */
 execute_phases([],_,_) :- !.
 execute_phases([executable_phase(Phase,Debug)|Phases],Input,OutputFolder) :-
-	% apply(length([a,b,c]), [L]).
 	apply(Phase, [Debug,Input,OutputFolder,Output]),
 	execute_phases(Phases,Output,OutputFolder).
 
