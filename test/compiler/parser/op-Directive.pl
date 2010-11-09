@@ -44,7 +44,7 @@
 		
 test(yf_successful) :- 
 	tokenize_string(":- op(300,yf,$).X = (a $ $ + b ).",Ts),
-	program(
+	clauses(
 		Ts,
 		[ct(pos([], 1, 18), =, [
 			v(pos([], 1, 16), 'X'), 
@@ -56,7 +56,7 @@ test(yf_successful) :-
 	
 test(xf_successful) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
-	program(
+	clauses(
 		Ts,
 		[ct(pos([], 1, 18), =, [
 			v(pos([], 1, 16), 'X'), 
@@ -66,7 +66,7 @@ test(xf_successful) :-
 
 test(xf_fail,[fail]) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ $ + b ).",Ts),
-	program(Ts,_).
+	clauses(Ts,_).
 
 			
 :- end_tests(parser_op_directive).
