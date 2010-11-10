@@ -28,8 +28,8 @@ public class FullTermFlattenerTest {
 	
 	@Test
 	public void test1() {
-		System.out.println(flattenedToString(FLATTENER.flattenForInsertion(FA1C_FLAT)));
-		System.out.println(flattenedToString(FLATTENER.flattenForInsertion(FA1C_COMP)));
+		System.out.println(flattenedToString(FLATTENER.flatten(FA1C_FLAT)));
+		System.out.println(flattenedToString(FLATTENER.flatten(FA1C_COMP)));
 		
 		System.out.println(flattenedToString(FLATTENER.flattenForQuery(FA1C_FLAT)));
 		System.out.println(flattenedToString(FLATTENER.flattenForQuery(FA1C_COMP)));

@@ -7,7 +7,7 @@ import saere.Term;
 import saere.database.index.InsertStack;
 import saere.database.index.Matcher;
 import saere.database.index.QueryStack;
-import saere.database.index.ShallowTermFlattener;
+import saere.database.index.ShallowFlattener;
 
 /**
  * The {@link SimpleTrieBuilder} uses for each element of a flattend term 
@@ -25,12 +25,12 @@ import saere.database.index.ShallowTermFlattener;
  */
 public final class SimpleTrieBuilder {
 	
-	private static final ShallowTermFlattener flattener = new ShallowTermFlattener();
+	private static final ShallowFlattener flattener = new ShallowFlattener();
 	
 	private SimpleTrie current;
 		
 	public SimpleTrie insert(Term term, SimpleTrie start) {
-		InsertStack stack = new InsertStack(flattener.flattenForInsertion(term));
+		InsertStack stack = new InsertStack(flattener.flatten(term));
 		current = start;
 		
 		SimpleTrie insertionNode = null; // the trie node where the specified term will be added

@@ -38,8 +38,8 @@ import saere.meta.GenericCompoundTerm;
  */
 public class IteratorsTest {
 	
-	private static final TermFlattener SHALLOW = new ShallowTermFlattener();
-	private static final TermFlattener RECURSIVE = new RecursiveTermFlattener();
+	private static final TermFlattener SHALLOW = new ShallowFlattener();
+	private static final TermFlattener RECURSIVE = new FullFlattener();
 	private static final TrieBuilder<Atom> SIMPLE = new SimpleTrieBuilder();
 	private static final TrieBuilder<Atom[]> COMPLEX = new ComplexTrieBuilder();
 	private static final Factbase FACTS = Factbase.getInstance();
@@ -100,7 +100,7 @@ public class IteratorsTest {
 	}
 
 	/**
-	 * Test for the {@link TrieNodeIterator}. (It's relatively small since all 
+	 * Test for the {@link NodeIterator}. (It's relatively small since all 
 	 * nodes of a {@link Trie} have to be known.)
 	 */
 	@Test
@@ -200,8 +200,8 @@ public class IteratorsTest {
 	}
 	
 	/**
-	 * Test for the {@link TrieTermIterator} with a 
-	 * {@link ShallowTermFlattener} and a {@link SimpleTrieBuilder}.
+	 * Test for the {@link TermIterator} with a 
+	 * {@link ShallowFlattener} and a {@link SimpleTrieBuilder}.
 	 */
 	@Test
 	public void testTrieTermIterator_ShallowSimple() {
@@ -210,8 +210,8 @@ public class IteratorsTest {
 	}
 	
 	/**
-	 * Test for the {@link TrieTermIterator} with a 
-	 * {@link RecursiveTermFlattener} and a {@link SimpleTrieBuilder}.
+	 * Test for the {@link TermIterator} with a 
+	 * {@link FullFlattener} and a {@link SimpleTrieBuilder}.
 	 */
 	@Test
 	public void testTrieTermIterator_RecursiveSimple() {
@@ -220,8 +220,8 @@ public class IteratorsTest {
 	}
 	
 	/**
-	 * Test for the {@link TrieTermIterator} with a 
-	 * {@link ShallowTermFlattener} and a {@link ComplexTrieBuilder}.
+	 * Test for the {@link TermIterator} with a 
+	 * {@link ShallowFlattener} and a {@link ComplexTrieBuilder}.
 	 */
 	@Test
 	public void testTrieTermIterator_ShallowComplex() {
@@ -230,8 +230,8 @@ public class IteratorsTest {
 	}
 	
 	/**
-	 * Test for the {@link TrieTermIterator} with a 
-	 * {@link RecursiveTermFlattener} and a {@link ComplexTrieBuilder}.
+	 * Test for the {@link TermIterator} with a 
+	 * {@link FullFlattener} and a {@link ComplexTrieBuilder}.
 	 */
 	@Test
 	public void testTrieTermIterator_RecursiveComplex() {

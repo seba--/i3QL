@@ -31,6 +31,8 @@
  */
 package saere;
 
+import saere.database.Utils;
+
 /**
  * Representation of a term.
  * 
@@ -143,4 +145,9 @@ public abstract class Term {
 	 */
 	public int eval() { throw new IllegalStateException("This term is not an arithmetic term: "+this.toString()); }
 
+	// XXX Remove later, only for debugging!
+	@Override
+	public String toString() {
+		return Utils.termToString(this);
+	}
 }

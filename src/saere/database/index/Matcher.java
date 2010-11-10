@@ -14,6 +14,7 @@ import saere.Unification;
  * @author David Sullivan
  * @version 0.3, 10/18/2010
  */
+@Deprecated
 public final class Matcher {
 	
 	private Matcher() { /* empty */ }
@@ -22,8 +23,6 @@ public final class Matcher {
 	// factbase (which cannot be a variable anymore).
 	
 	public static boolean match(Atom atom, Term term) {
-		assert atom != null && term != null : "Parameter(s) is/are null";
-		
 		if (atom.isStringAtom() && term.isStringAtom()) { // Assuming we get string atoms more often...
 			return atom.asStringAtom().sameAs(term.asStringAtom());
 		} else if (atom.isIntegerAtom() && term.isIntegerAtom()) {
@@ -33,6 +32,7 @@ public final class Matcher {
 			if (binding == null) {
 				return true;
 			} else {
+				// No binding.asAtom(), so do it manually
 				if (atom.isIntegerAtom() && binding.isIntegerAtom()) {
 					return atom.asIntegerAtom().sameAs(binding.asIntegerAtom());
 				} else if (atom.isStringAtom() && binding.isStringAtom()) {
@@ -54,51 +54,37 @@ public final class Matcher {
 		return false;
 	}
 	
-	public static int match(Atom[] atoms, Term[] terms) {
-		int min = Math.min(atoms.length, terms.length);
+	/*
+	public static boolean match(AtomLabel label0, AtomLabel label1) {
+		return match(label0.atom(), label1.atom());
+	}
+	
+	public static boolean match(SimpleLabel label0, SimpleLabel label1) {
+		return label0.arity() == label1.arity() && match(label0.atom(), label1.atom());
+	}
+	
+	public static int match(ComplexLabel label0, ComplexLabel label1) {
+		int min = Math.min(label0.length(), label1.length());
+		SimpleLabel[] labels0 = label0.labels();
+		SimpleLabel[] labels1 = label0.labels();
 		int i;
 		for (i = 0; i < min; i++) {
-			if (!match(atoms[i], terms[i])) {
+			if (!match(labels0[i], labels1[i]))
 				break;
-			}
 		}
-		
 		return i;
 	}
 	
-	public static int match(Atom[] atoms0, Atom[] atoms1) {
-		int min = Math.min(atoms0.length, atoms1.length);
-		int i;
-		for (i = 0; i < min; i++) {
-			if (!match(atoms0[i], atoms1[i])) {
-				break;
-			}
+	public static boolean match(Label label0, Label label1) {
+		if (label0.length() != label1.length()) {
+			return false;
 		}
 		
-		return i;
-	}
-	
-	public static int match(Atom[] labelAtoms, Atom[] insertStack, int stackPosition) {
-		int min = Math.min(labelAtoms.length, insertStack.length - stackPosition - 1);
-		int i;
-		for (i = 0; i < min; i++) {
-			if (!match(labelAtoms[i], insertStack[i + stackPosition])) {
-				break;
-			}
+		if (label0.length() == 1) { // && label1.length() == 1
+			return match(label0.asSimpleLabel(), label1.asSimpleLabel());
+		} else { // length() > 1
+			return label0.length() == match(label0.asComplexLabel(), label0.asComplexLabel());
 		}
-		
-		return i;
 	}
-	 
-	public static int match(Atom[] labelAtoms, Term[] queryStack, int stackPosition) {
-		int min = Math.min(labelAtoms.length, queryStack.length - stackPosition - 1);
-		int i;
-		for (i = 0; i < min; i++) {
-			if (!match(labelAtoms[i], queryStack[i + stackPosition])) {
-				break;
-			}
-		}
-			
-		return i;
-	}
+	*/
 }

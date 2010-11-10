@@ -1,145 +1,187 @@
 package saere.database.index;
 
-import saere.Atom;
+import java.util.IdentityHashMap;
+
 import saere.Term;
 
+
 /**
- * A simple representation of a trie node.
+ * A simple representation of a trie node. (One that cannot store any terms or 
+ * use a hash map for many children.)
  * 
  * @author David Sullivan
- * @version 0.8, 10/18/2010
+ * @version 0.9, 11/9/2010
  */
-public class Trie<T> {
-
+public class Trie {
+	
 	/** The label of this trie node. */
-	private T label;
+	private Label label;
 	
 	/** The parent of this node (<tt>null</tt> iff this is the root). */
-	private Trie<T> parent;
+	private Trie parent;
 
 	/** The first child of this node. */
-	private Trie<T> firstChild;
+	private Trie firstChild;
 
 	/** The next (i.e., <i>right</i>) sibling of this node. */
-	private Trie<T> nextSibling;
-
-	/** The term stored at this trie. Maybe null for an inner trie node (or a node that stores more than one term). */
-	// Depending on the trie structure, the majority of trie nodes may have a null value.
-	// However, the 4/8 bytes of memory enable a more easy insertion.
-	// Must be null if a term list exists.
-	private Term term;
+	private Trie nextSibling;
+	
+	/** The number of children this trie node has. */
+	private int childrenNumber;
 	
 	/**
-	 * Creates a new root.
+	 * Creates a trie without a label or parent (e.g., a root).
 	 */
-	public Trie() {
-		this.parent = null;
-		this.label = null; // XXX Label null or is an 'empty' label better?
-	}
+	public Trie() { /* empty */ }
 	
 	/**
-	 * Creates a trie node with the specified parent.
+	 * Creates a trie node with the specified parent. Only {@link TrieBuilder} 
+	 * should use this constructor.
 	 * 
 	 * @param parent The parent of this node.
 	 */
-	// Should not be called by any t client, only by subclasses.
-	protected Trie(Trie<T> parent, T label) {
+	protected Trie(Trie parent, Label label) {
 		this.parent = parent;
 		this.label = label;
-		firstChild = nextSibling = null;
-	}
-	
-	public final Trie<T> getParent() {
-		return parent;
-	}
-
-	public final void setParent(Trie<T> parent) {
-		this.parent = parent;
-	}
-
-	public final Trie<T> getFirstChild() {
-		return firstChild;
-	}
-
-	public final void setFirstChild(Trie<T> firstChild) {
-		this.firstChild = firstChild;
-	}
-
-	public final Trie<T> getNextSibling() {
-		return nextSibling;
-	}
-
-	public final void setNextSibling(Trie<T> nextSibling) {
-		this.nextSibling = nextSibling;
-	}
-	
-	public final T getLabel() {
-		return label;
-	}
-	
-	public final void setLabel(T label) {
-		this.label = label;
-	}
-	
-	public final Term getTerm() {
-		return term;
-	}
-	
-	public final void setTerm(Term term) {
-		this.term = term;
-	}
-	
-	// For trie nodes that store multiple terms (collision).
-	
-	// To avoid any kind of casting...
-	public TermList getTermList() {
-		throw new UnsupportedOperationException();
 	}
 	
 	/**
-	 * Prepends the specified term list (with a term) to the current term list.
+	 * Checks wether this {@link Trie} stores at least one term.
 	 * 
-	 * @param termList The new head term list.
+	 * @return <tt>true</tt> if this {@link Trie} stores at least one term.
 	 */
-	// To avoid any kind of casting...
-	public void setTermList(TermList termList) {
-		throw new UnsupportedOperationException();
-	}
-	
-	/**
-	 * Checks wether this trie node has a term list, i.e., stores more than one 
-	 * term (collision).
-	 * 
-	 * @return <tt>true</tt> if this node stores more than one term.s
-	 */
-	// To avoid any kind of casting...
-	public boolean hasTermList() {
+	protected boolean stores() {
 		return false;
 	}
 	
-	@Override
-	public String toString() {
-		if (label == null)
-			return "<root>";
+	/**
+	 * Checks wether this {@link Trie} uses hash maps.
+	 * 
+	 * @return <tt>true</tt> if this {@link Trie} uses hash maps.
+	 */
+	protected boolean hashes() {
+		return false;
+	}
+	
+	/**
+	 * Adds the specified trie as child to this trie.
+	 * 
+	 * @param child The trie to add as child.
+	 */
+	@Deprecated
+	protected void addChild(Trie child) {
+		childrenNumber++;
 		
-		if (label instanceof Atom[]) {
-			Atom[] atoms = (Atom[]) label;
-			String s = "[";
-			boolean first = true;
-			for (Atom atom : atoms) {
-				if (first) {
-					first = false;
-					s += atom.toString();
-				} else {
-					s += ", " + atom.toString();
-				}
-				return s + "]";
+		// Move to the last added child, this shouldn't take terribly long 
+		// as we do this only if we have not many children.
+		if (firstChild == null) {
+			firstChild = child;
+		} else {
+			Trie lastChild = firstChild;
+			while (lastChild.nextSibling != null) {
+				lastChild = lastChild.nextSibling;
 			}
+			lastChild.nextSibling = child;
 		}
 		
-		if (label instanceof Atom)
-			return label.toString();
-		
-		return "?";
+		if (childrenNumber == TrieBuilder.mapThreshold) {
+			throw new Error("I hadn't thougth of that. -Unkown, from Popular Last Words");
+		}
+	}
+	
+	/**
+	 * Gets the child with the specified label. If none such child exists 
+	 * <tt>null</tt> is returned.
+	 * 
+	 * @param label The label of the child.
+	 * @return The child with the label or <tt>null</tt>.
+	 */
+	@Deprecated
+	protected Trie getChild(Label label) {
+		Trie child = firstChild;
+		while (child != null) {
+			if (child.label.sameAs(label)) {
+				return child;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Add the specified term to this {@link Trie}.
+	 * 
+	 * @param term The term to add.
+	 */
+	protected void addTerm(Term term) {
+		throw new UnsupportedOperationException("This trie node cannot store terms");
+	}
+	
+	protected TermList getTerms() {
+		throw new UnsupportedOperationException("This trie node cannot store terms");
+	}
+	
+	protected void setTerms(TermList terms) {
+		throw new UnsupportedOperationException("This trie node cannot store terms");
+	}
+	
+	protected IdentityHashMap<Label, Trie> getMap() {
+		throw new UnsupportedOperationException("This trie node does not hash");
+	}
+	
+	protected void setMap(IdentityHashMap<Label, Trie> map) {
+		throw new UnsupportedOperationException("This trie node does not hash");
+	}
+	
+	protected Trie getParent() {
+		return parent;
+	}
+	
+	protected void setParent(Trie parent) {
+		this.parent = parent;
+	}
+	
+	protected Trie getFirstChild() {
+		return firstChild;
+	}
+	
+	protected void setFirstChild(Trie firstChild) {
+		this.firstChild = firstChild;
+	}
+	
+	protected Trie getNextSibling() {
+		return nextSibling;
+	}
+	
+	protected void setNextSibling(Trie nextSibling) {
+		this.nextSibling = nextSibling;
+	}
+	
+	protected Label getLabel() {
+		return label;
+	}
+	
+	protected void setLabel(Label label) {
+		this.label = label;
+	}
+	
+	protected int getChildrenNumber() {
+		return childrenNumber;
+	}
+	
+	protected void setChildrenNumber(int childrenNumber) {
+		this.childrenNumber = childrenNumber;
+	}
+
+	protected Trie getLastChild() {
+		throw new UnsupportedOperationException("This trie node cannot remember the last child");
+	}
+
+	protected void setLastChild(Trie lastChild) {
+		throw new UnsupportedOperationException("This trie node cannot remember the last child");
+	}
+
+	@Override
+	public String toString() {
+		return "Trie-" + this.hashCode() + "/" + (label == null ? "<root>" : label.toString());
 	}
 }

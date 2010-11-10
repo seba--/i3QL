@@ -8,38 +8,29 @@ import java.util.Iterator;
  * Abstract base class for {@link Trie} iterators that contains common methods.
  * 
  * @author David Sullivan
- * @version 0.2, 9/30/2010
+ * @version 0.3, 11/9/2010
  */
-public abstract class TrieIteratorBase<T> {
+public abstract class IteratorBase {
 	
 	/**
 	 * The node from where the iteration begins. From the point of view of the
-	 * iterator it works as root. Only the <tt>start</tt> node and its descendants
-	 * are considered to be iterated.
+	 * iterator it works as a root. Only the <tt>start</tt> node and its 
+	 * descendants are considered to be iterated.
 	 */
-	protected Trie<T> start;
+	protected Trie start;
 	
 	/**
 	 * The current position.
 	 */
-	protected Trie<T> current;
+	protected Trie current;
 	
 	/**
-	 * Creates a new {@link TrieIteratorBase} and <b>does not</b> set the <tt>current</tt> 
-	 * and <tt>start</tt> fields. This constructor is to be used if an extending 
-	 * class wants to initialize the {@link #start} and {@link #current} fields itself.
-	 */
-	protected TrieIteratorBase() {
-		start = current = null;
-	}
-	
-	/**
-	 * Creates a new {@link TrieIteratorBase} and sets the <tt>current</tt> 
+	 * Creates a new {@link IteratorBase} and sets the <tt>current</tt> 
 	 * and <tt>start</tt> fields.
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected TrieIteratorBase(Trie<T> start) {
+	protected IteratorBase(Trie start) {
 		this.start = start;
 		current = start;
 	}
@@ -71,14 +62,14 @@ public abstract class TrieIteratorBase<T> {
 	protected void goRight() {
 		assert current != null && start != null : "current or start is/are null";
 		
-		while (current.getNextSibling() == null && current != start) { // don't go higher up than start
+		while (current.getNextSibling() == null && current != start) { // Don't go higher up than start
 			goUp();
 		}
 		
 		if (current != start) {
-			current = current.getNextSibling(); // go (directly) right
-		} else { // current == start
-			current = null; // we treat start as root (and a root has no siblings), me march into the void
+			current = current.getNextSibling(); // Go (directly) right
+		} else {
+			current = null; // We treat start as root (and a root has no siblings)
 		}
 	}
 	
@@ -100,7 +91,7 @@ public abstract class TrieIteratorBase<T> {
 	
 	/**
 	 * Resets this iterator with the specified {@link Trie} as new start node. 
-	 * This method can be used to avoid creating a new {@link TrieIteratorBase} 
+	 * This method can be used to avoid creating a new {@link IteratorBase} 
 	 * object.<br/>
 	 * <br/>
 	 * Obviously, this method should only be used if the iterator has finished, 
@@ -108,8 +99,8 @@ public abstract class TrieIteratorBase<T> {
 	 * 
 	 * @param newStart The new start node from where the iteration begins.
 	 */
-	protected void resetTo(Trie<T> newStart) {
-		//assert current == null : "Try to reset iterator in unfinished state"; // disable as it starts in an unfinished state
+	protected void resetTo(Trie newStart) {
+		assert current == null : "Tried to reset iterator in unfinished state";
 		start = newStart;
 		current = start;
 	}

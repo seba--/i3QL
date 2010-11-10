@@ -9,21 +9,21 @@ import java.util.NoSuchElementException;
  * its descendants in a depth-first, from the left to the right manner.
  * 
  * @author David Sullivan
- * @version 0.2, 10/18/2010
+ * @version 0.3, 11/9/2010
  */
-public class TrieNodeIterator<T> extends TrieIteratorBase<T> implements Iterator<Trie<T>> {
+public class NodeIterator extends IteratorBase implements Iterator<Trie> {
 
 	/**
-	 * The next {@link Trie} node. It is set by {@link TrieNodeIterator#findNext()} (only).
+	 * The next {@link Trie} node. It is set by {@link NodeIterator#findNext()} (only).
 	 */
-	private Trie<T> next;
+	private Trie next;
 	
 	/**
-	 * Creates a new {@link TrieNodeIterator} and finds the first <tt>next</tt>.
+	 * Creates a new {@link NodeIterator} and finds the first <tt>next</tt>.
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected TrieNodeIterator(Trie<T> start) {
+	protected NodeIterator(Trie start) {
 		super(start);
 		next = current;
 	}
@@ -34,9 +34,9 @@ public class TrieNodeIterator<T> extends TrieIteratorBase<T> implements Iterator
 	}
 
 	@Override
-	public Trie<T> next() {
+	public Trie next() {
 		if (hasNext()) {
-			Trie<T> oldNext = next;
+			Trie oldNext = next;
 			findNext();
 			return oldNext;
 		} else {

@@ -17,14 +17,14 @@ import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
 import saere.database.TermFilter;
-import saere.database.index.ShallowTermFlattener;
+import saere.database.index.ShallowFlattener;
 import saere.database.profiling.InsertionLogger;
 
 public class SimpleTest {
 	
 	private static final String TEST_FILE = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
 	private static final Factbase FACTS = Factbase.getInstance();
-	private static final ShallowTermFlattener FLATTENER = new ShallowTermFlattener();
+	private static final ShallowFlattener FLATTENER = new ShallowFlattener();
 	private static final int TEST_RUNS = 5;
 	
 	private static Term[][] queries;

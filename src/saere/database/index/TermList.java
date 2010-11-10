@@ -3,30 +3,26 @@ package saere.database.index;
 import saere.Term;
 
 /**
- * A slim implementation of a term list that is kept very simple.
+ * A slim implementation of a term list.
  * 
  * @author David Sullivan
- * @version 0.1, 9/22/2010
+ * @version 0.2, 11/9/2010
  */
-public class TermList {
+public final class TermList {
 	
-	private Term term;
-	private TermList next;
+	private final Term term;
+	private final TermList next;
 	
-	public TermList(Term term) {
+	public TermList(Term term, TermList next) {
 		this.term = term;
-		next = null;
+		this.next = next;
 	}
 	
-	public Term getTerm() {
+	public Term term() {
 		return term;
 	}
 	
-	public TermList getNext() {
+	public TermList next() {
 		return next;
-	}
-	
-	public void setNext(TermList next) {
-		this.next = next;
 	}
 }

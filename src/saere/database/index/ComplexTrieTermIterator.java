@@ -6,16 +6,16 @@ import saere.Atom;
 import saere.Term;
 
 /**
- * A {@link TrieTermIterator} that supports queries on complex {@link Trie}s 
+ * A {@link TermIterator} that supports queries on complex {@link Trie}s 
  * (which have been created by a {@link ComplexTrieBuilder}).
  * 
  * @author David Sullivan
  * @version 0.3, 10/19/2010
  */
-public class ComplexTrieTermIterator extends TrieTermIterator<Atom[]> implements Iterator<Term> {
+public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Iterator<Term> {
 	
 	private QueryStack stack;
-	private final TrieTermIterator<Atom[]> subiterator;
+	private final TermIterator<Atom[]> subiterator;
 	private boolean useSubiterator = false;
 	
 	/**
@@ -30,7 +30,7 @@ public class ComplexTrieTermIterator extends TrieTermIterator<Atom[]> implements
 		this.stack = stack;
 		
 		// create the one and only instance of the subiterator that'll be used
-		subiterator = new TrieTermIterator<Atom[]>(start);
+		subiterator = new TermIterator<Atom[]>(start);
 		
 		// don't skip the first node
 		if (current.getParent() != null && stack.size() == 1 && Matcher.match(current.getLabel(), stack.asArray()) == 1) {

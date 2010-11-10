@@ -17,7 +17,7 @@ public class FullTermFlattener implements TermFlattener {
 	//public static final StringAtom COMMA = StringAtom.StringAtom("__;");
 
 	@Override
-	public Atom[] flattenForInsertion(Term term) {
+	public Atom[] flatten(Term term) {
 		return flattenNoVars(term).toArray(new Atom[0]);
 	}
 	

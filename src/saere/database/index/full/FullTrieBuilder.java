@@ -29,7 +29,7 @@ public final class FullTrieBuilder {
 	private FullTrie current;
 		
 	public FullTrie insert(Term term, FullTrie start) {
-		InsertStack stack = new InsertStack(flattener.flattenForInsertion(term));
+		InsertStack stack = new InsertStack(flattener.flatten(term));
 		current = start;
 		
 		FullTrie insertionNode = null; // the trie node where the specified term will be added

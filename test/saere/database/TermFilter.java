@@ -38,7 +38,7 @@ public class TermFilter {
 	 * @return <tt>true</tt> if the terms matches the query of this instance.
 	 */
 	public boolean allow(Term term) {
-		Atom[] flattened = flattener.flattenForInsertion(term);
+		Atom[] flattened = flattener.flatten(term);
 		return query.length == Matcher.match(flattened, query);
 	}
 }

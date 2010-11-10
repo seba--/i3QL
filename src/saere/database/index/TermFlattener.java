@@ -1,36 +1,52 @@
 package saere.database.index;
 
-import saere.Atom;
 import saere.Term;
-import saere.Variable;
 
 /**
- * Common interface for term flatteners. A {@link TermFlattener} defines how a 
- * {@link Term} is flattend (&quot;hashed&quot;) for storage and retrieval.
+ * Common abstract base class for term flatteners. A {@link TermFlattener} 
+ * defines how a {@link Term} is flattend (&quot;hashed&quot;) for storage and 
+ * retrieval.
  * 
  * @author David Sullivan
- * @version 0.2, 10/19/2010
+ * @version 0.4, 11/9/2010
  */
-public interface TermFlattener {
+public abstract class TermFlattener {
 	
 	/**
-	 * Flattens a term. That is, creates a non-nested, array-like representation 
-	 * of the specified term that consists only of {@link Atom}s and free {@link Variable}s.
+	 * Flattens a term. That is, creates a non-nested (no compound terms), 
+	 * array-like representation of the specified term.
 	 * 
 	 * @param term The term to flatten.
 	 * @return The flattened term representation.
 	 */
-	public Atom[] flattenForInsertion(Term term);
+	public abstract LabelStack flatten(Term term);
 	
 	/**
-	 * Flattens a query that is represented by an array terms. The first 
-	 * element of the array is the functor while additional elements of the 
-	 * query are arguments. Usually, one cannot flatten a query by flatten each 
-	 * argument for itself. This method takes care of creating a correct 
-	 * flattened representation of a query.
-	 * 
-	 * @param terms The terms that represent a query (a term).
-	 * @return The flattened version of the query.
+	 * The maximum length for flattened terms. A value smaller than 1 will turn 
+	 * this behavior off.<br/>
+	 * <br/>
+	 * <b>Note that the maximum length for inserted terms and queries must be 
+	 * the same. Otherwise some terms might not be found by a query.</b>
 	 */
-	public Term[] flattenForQuery(Term ... terms);
+	protected int maxLength = 0;
+	
+	/**
+	 * Sets the maximum length for flattened terms.
+	 * 
+	 * @param maxLength The new maximum length.
+	 * @see #maxLength
+	 */
+	public void setMaxLength(int maxLength) {
+		this.maxLength = maxLength;
+	}
+	
+	/**
+	 * Gets the maximum length for flattened terms.
+	 * 
+	 * @return The maximum length.
+	 * @see #maxLength
+	 */
+	public int getMaxLength() {
+		return maxLength;
+	}
 }

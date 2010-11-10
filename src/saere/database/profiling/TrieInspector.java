@@ -65,7 +65,7 @@ public class TrieInspector {
 				}
 				
 				// edges to terms
-				TermList list = trie.getTermList();
+				TermList list = trie.getTerms();
 				while (list != null) {
 					out.write((trieName + " -> \"" + /*shorten(*/escape(Utils.termToString(list.getTerm()))/*, 16)*/ + "\";\n").getBytes(charset));
 					list = list.getNext();
@@ -104,7 +104,7 @@ public class TrieInspector {
 		numTries++;
 		
 		// count terms...
-		TermList list = trie.getTermList();
+		TermList list = trie.getTerms();
 		if (list != null) {
 			numLists++;
 			while (list != null) {

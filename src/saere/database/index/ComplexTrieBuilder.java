@@ -19,7 +19,7 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 	@Override
 	public Trie<Atom[]> insert(Term term, Trie<Atom[]> start) {
 		current = start;
-		InsertStack stack = new InsertStack(flattener.flattenForInsertion(term));
+		InsertStack stack = new InsertStack(flattener.flatten(term));
 		Trie<Atom[]> insertionNode = null; // the trie node where the specified term will be added
 		int match;
 		while (insertionNode == null) {
@@ -37,7 +37,7 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 			} else { // !root
 				
 				// how "much" does the current label matches with the current stack (state)
-				match = Matcher.match(current.getLabel(), stack.getArray(), stack.getPosition());
+				match = Matcher.match(current.getLabel(), stack.array(), stack.position());
 				
 				if (match == current.getLabel().length) { // complete match -> insert here or as child
 					
@@ -58,12 +58,12 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 					} else { // match == stack.size(), insert here...
 						
 						if (current.hasTermList()) { // Already a node with collision
-							current.setTermList(new TermList(term));
+							current.setTerms(new TermList(term));
 						} else if (current.getTerm() != null) { // Normal node, transform...
 							Trie<Atom[]> trie = new TrieWithCollision<Atom[]>(current.getParent(), current.getLabel());
 							replace(current, trie);
 							if (current.hasTermList()) {
-								current.setTermList(null); // FIXME And transform current 'back'!
+								current.setTerms(null); // FIXME And transform current 'back'!
 							} else {
 								current.setTerm(null);
 							}
@@ -83,9 +83,9 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 					
 					if (current.hasTermList()) { // Collision
 						mediator = new TrieWithCollision<Atom[]>(current, newLabel);
-						mediator.setTermList(current.getTermList());
-						mediator.setTermList(new TermList(term));
-						current.setTermList(null); // FIXME And transform node 'back'!
+						mediator.setTerms(current.getTerms());
+						mediator.setTerms(new TermList(term));
+						current.setTerms(null); // FIXME And transform node 'back'!
 					} /*else if (current.getTerm() != null) { // Normal case
 						mediator = new TrieWithCollision<Atom[]>(current, newLabel);
 						mediator.setTermList(new TermList(current.getTerm()));
@@ -128,19 +128,6 @@ public class ComplexTrieBuilder extends TrieBuilder<Atom[]> {
 		}
 		
 		return insertionNode;
-	}
-
-	private Atom[] split(Atom[] label, int index) {
-		assert index >= 0 && index < label.length - 1 : "Illegal split index " + index + "(length " + label.length + ")";
-		
-		Atom[] prefix = new Atom[index + 1];
-		Atom[] suffix = new Atom[label.length - (index + 1)];
-		
-		System.arraycopy(label, 0, prefix, 0, prefix.length);
-		System.arraycopy(label, index + 1, suffix, 0, suffix.length);
-		
-		current.setLabel(prefix);
-		return suffix;
 	}
 
 	@Override
