@@ -30,7 +30,7 @@
    POSSIBILITY OF SUCH DAMAGE.
 */
 
- 
+
 /**
 	Loads an SAE Prolog program's source files and creates the overall AST.
 	
@@ -42,14 +42,15 @@
 :- use_module('../Utils.pl').
 :- use_module('../AST.pl').
 :- use_module('../Lexer.pl',[tokenize_file/2]).
-:- use_module('../Parser.pl',[program/2]).
+:- use_module('../Parser.pl',[clauses/2]).
 :- use_module('../Predef.pl',[add_predefined_predicates_to_ast/2]).
 
 
 
 /**
 	Loads an SAE Prolog program's source files and creates the overall AST. 
-	The AST consists only of normalized top-level terms.
+	The AST consists only of directives and rule definitions, facts are transformed
+	to rule defintions.
 	
 	@arg(in) Debug is the list of debug information that should be emitted.
 		Possible values are: 'on_entry', 'ast(user)','ast(built_in)' and 'reading_file'.
@@ -62,17 +63,17 @@
 pl_load(DebugConfig,Files,_OutputFolders,Program) :-
 	debug_message(DebugConfig,on_entry,write('[Debug] Phase: Loading source files___________________________________\n')),
 	findall(
-		AST,
+		Clauses,
 		(
 			member(File,Files),
 			debug_message(DebugConfig,memberchk(reading_file),write_atomic_list(['[Debug] Reading file: ',File,'\n'])),
 			tokenize_file(File,Tokens),
-			program(Tokens,AST)
+			clauses(Tokens,Clauses)
 		),
-		ASTs
+		ListOfClauses
 	),
 	% iterate over all terms of all ASTs and create a global ast
-	global_ast(ASTs,GlobalAST),
+	global_ast(ListOfClauses,GlobalAST),
 	add_predefined_predicates_to_ast(GlobalAST,Program),
 	debug_message(DebugConfig,ast(user),write_ast(user,Program)),
 	debug_message(DebugConfig,ast(built_in),write_ast(built_in,Program)).
@@ -118,18 +119,18 @@ process_terms([],AST,AST).
 
 /**
 	Normalizes a (top-level) term. <br />
-	In a normalized term the header's arguments are all variables where no
+	In a normalized term the head's arguments are all variables where no
 	variable occurs more than once. Further, every term is transformed into
 	"clausal form"; i.e., it is always an implication with a left and a right 
-	side.
+	side. In case of a fact the right side is just <code>true</code>.
 	
 	@signature normalize_term(Term,NormalizedTerm)
 	@arg Term The old term.
 	@arg NormalizedTerm The normalized variant of term.
 */
-normalize_term(Term0,ct(Meta,':-',[Head,OptimizedBody])) :-
+normalize_term(Term0,ct(MI,':-',[Head,OptimizedBody])) :-
 	as_clause(Term0,Term1),
-	remove_head_unification(Term1,ct(Meta,':-',[Head,Body])),
+	remove_head_unification(Term1,ct(MI,':-',[Head,Body])),
 	left_descending_goal_sequence(Body,LeftDescendingBody),
 	no_trailing_true_goals(LeftDescendingBody,OptimizedBody).
 
@@ -144,21 +145,21 @@ normalize_term(Term0,ct(Meta,':-',[Head,OptimizedBody])) :-
 	@arg(out) Clause A valid top-level clause.
 */
 as_clause(
-		ct(Meta,Functor,Args),
-		ct(Meta,':-',[ct(Meta,Functor,Args),a(Meta,'true')])
+		ct(MI,Functor,Args), % a fact
+		ct(MI,':-',[ct(MI,Functor,Args),a(MI,'true')])
 ) :- Functor \= (':-'),!.
 as_clause(
-		a(Meta,Functor),
-		ct(Meta,':-',[a(Meta,Functor),a(Meta,'true')])
+		a(MI,Functor),
+		ct(MI,':-',[a(MI,Functor),a(MI,'true')])
 ) :- !.
-as_clause(Directive,Directive) :- Directive=ct(_Meta,':-',[_]).
-as_clause(_,_) :- throw(internal_error('the given term has an unexpected type',X)).
+as_clause(Directive,Directive) :- Directive=ct(_MI,':-',[_]),!.
+as_clause(X,_X) :- throw(internal_error('the given term has an unexpected type',X)).
 
 
 
 remove_head_unification(
-		ct(IMeta,':-',[ct(HMeta,Functor,HeadArgs),Body]),
-		ct(IMeta,':-',[ct(HMeta,Functor,NewHeadArgs),NewBody])
+		ct(IMI,':-',[ct(HMI,Functor,HeadArgs),Body]),
+		ct(IMI,':-',[ct(HMI,Functor,NewHeadArgs),NewBody])
 ) :- 	
 	/* not_empty(HeadArgs), */ !,
 	normalize_arguments(HeadArgs,1,HeadArgs,NewHeadArgs,Body,NewBody).	
@@ -173,15 +174,15 @@ normalize_arguments(_,_,[],[],Body,Body) :- !.
 normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	(
 		(	
-			HArg \= v(_Meta,_)
+			HArg \= v(_MI,_)
 		;
-			HArg = v(_VMeta,VariableName),
+			HArg = v(_VMI,VariableName),
 			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
-			term_pos(HArg,Meta),
-			variable_node(Meta,'&H',Id,NewVariableNode),
+			term_pos(HArg,MI),
+			variable_node(MI,'&H',Id,NewVariableNode),
 			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
-			NewBody = ct(Meta,',',[ct(Meta,'=',[NewVariableNode,HArg]),RestOfBody])
+			NewBody = ct(MI,',',[ct(MI,'=',[NewVariableNode,HArg]),RestOfBody])
 		;	
 			NewHeadArgs=[HArg|FurtherNewHeadArgs],
 			NewBody = RestOfBody
@@ -215,10 +216,10 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 
 
 
-% IMPROVE document... we are preforming a tree rotation to facilitate several analyses
+% IMPROVE documentations... we are performing a tree rotation to facilitate several analyses
 % TODO also make all or paths left_descending and remove trailing true goals
-left_descending_goal_sequence(ct(TMeta,',',[LNode,ct(RMeta,',',[RLNode,RRNode])]),NewNode) :- !,
-	left_descending_goal_sequence(ct(RMeta,',',[ct(TMeta,',',[LNode,RLNode]),RRNode]),NewNode).
+left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
+	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).
 
 
@@ -226,7 +227,7 @@ left_descending_goal_sequence(Node,Node).
 /**
 	Removes all trailing true goals. Requires that the goal sequence is left descending.
 */
-no_trailing_true_goals(ct(_Meta,',',[Goal,a(_AMeta,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
+no_trailing_true_goals(ct(_MI,',',[Goal,a(_AMI,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
 	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
 no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
 	

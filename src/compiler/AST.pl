@@ -32,39 +32,43 @@
 
 
 /**
-	Predicates to create, traverse and manipulate an SAE Prolog program's AST.
+	This module provides predicates to create, traverse and manipulate a 
+	program's AST.
+	
 	<p><b>The AST</b><br/>
 	Conceptually, the AST has the following structure:
 	<pre><code>
-	[										% The list of all predicates
-		pred(								% A predicate
-			a/1, 							% The identifier of the predicate
-			[								% The clauses defining the predicate 
+	[										% The list of all predicates...
+		pred(								% A predicate.
+			a/1, 							% The identifier of the predicate.
+			[								% The clauses defining the predicate... 
 											% (built-in predicates do not have clauses)
-				(	C, 					% The clause
-					[det, type=I]		% The properties of this clause
+				(	C, 					% A clause.
+					[det, type=I]		% The properties of this clause.
 				)
 			],												
 			[type=...]					% The properties of this predicate (e.g.,
-											% whether this predicate as a whole is
-											% deterministic)
+											% whether this predicate – as a whole – is
+											% deterministic).
 		),...
 	]
 	</code></pre>
-	<b>However, code that wants to add, remove, manipluate or traverse the AST
-	is not allowed to access the AST on its own.</b><br />
 	This module provides all abstractions that are necessary to process
-	the AST and the precise data structures that are used to store the AST
-	are an implementation detail of this module. This enables us to easily 
-	exchange the underlying data structure(s) whenever necessary. <br />
+	the AST. <i>Code that wants to add, remove, manipulate or traverse the AST
+	is not allowed to access the AST on its own.</i><br/> 
+	<br/>
+	The precise data structures that are used to store the AST
+	are an implementation detail of this module. This enables the
+	exchange of the underlying data structure(s) whenever necessary.
 	In particular, code that uses the AST must not make assumptions about
 	the order and the way the predicates are stored, how clauses are stored, and
 	in which way the properties of a clause or predicate are handled. <i>The 
-	code must use the appropriate abstractions</i>.<br />
+	code must use the appropriate abstractions</i>.
 	</p>
+	
 	<p><b>Used Terminology</b><br/>
 	To refer to the different parts of a prolog program, we use the terminology
-	described in the document "Structure of Prolog Programs."
+	as defined in the document "Structure of Prolog Programs."
 	</p>
 
 	@author Michael Eichberg
@@ -93,17 +97,17 @@
 
 	<pre><code>
 	[										% The list of all predicates
-		pred(								% A predicate
-			a/1, 							% The identifier of the predicate
-			[								% Open list of ...
+		pred(								% A predicate.
+			a/1, 							% The identifier of the predicate.
+			[								% An open list of ...
 				(							% ... the clauses defining the predicate 
 					C, 
-					[det,_]				% Open list of this clauses properties
+					[det,_]				% An open list of this clause's properties.
 				),
 				_
 			],			
 											
-			[type=...,_]				% Open list of the properties of this predicate
+			[type=...,_]				% An open list of this predicate's properties.
 		),...
 	]
 	</code></pre>
@@ -122,10 +126,11 @@ empty_ast([]).
 
 
 /**
-	Adds a top-level term – which is a valid, normalized clause – to the ast.
+	Adds a top-level term – which has to be a valid, normalized clause – to the 
+	given AST.
 
 	@signature add_term_to_ast(AST,Term,NewAST)
-	@arg(in) AST The AST to which this term should be added.
+	@arg(in) AST The AST to which the given term is added.
 	@arg(in) TLTerm TLTerm has to be a valid normalized, top-level complex term; i.e.,
 		no variable, no integer atom, no syntactically invalid complex term such as
 		"X(a,b)" etc.
@@ -147,10 +152,8 @@ add_term_to_ast(AST,TLTerm,NewAST) :-
 	;
 		NewAST=[pred(ID,[(TLTerm,_ClauseProps2)|_],_PredProps2)|AST]
 	).
-add_term_to_ast(AST,Term,AST) :- 
-	write('[Internal Error:AST:add_term_to_ast/3] The term does not seem to be a normalized top-level term: '),
-	write(Term),
-	nl.
+add_term_to_ast(_AST,Term,_NewAST) :- 
+	throw(internal_error('the term is not a normalized top-level term',Term)).
 
 
 /**
