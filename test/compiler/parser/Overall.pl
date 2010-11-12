@@ -48,67 +48,67 @@
 
 
 test('benchmarks/arithmetic.pl') :-
-	tokenize_file('benchmarks/arithmetic.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/arithmetic.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/boyer.pl') :-
-	tokenize_file('benchmarks/boyer.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/boyer.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/chat_parser.pl') :-
-	tokenize_file('benchmarks/chat_parser.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/chat_parser.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/crypt.pl') :-
-	tokenize_file('benchmarks/crypt.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/crypt.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/deriv.pl') :-
-	tokenize_file('benchmarks/deriv.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/deriv.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/meta_nrev.pl') :-
-	tokenize_file('benchmarks/meta_nrev.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/meta_nrev.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/mu.pl') :-
-	tokenize_file('benchmarks/mu.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/mu.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/nrev.pl') :-
-	tokenize_file('benchmarks/nrev.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/nrev.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/poly.pl') :-
-	tokenize_file('benchmarks/poly.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/poly.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/primes.pl') :-
-	tokenize_file('benchmarks/primes.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/primes.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/qsort.pl') :-
-	tokenize_file('benchmarks/qsort.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/qsort.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/queens.pl') :-
-	tokenize_file('benchmarks/queens.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/queens.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/reducer.pl') :-
-	tokenize_file('benchmarks/reducer.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/reducer.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/sum.pl') :-
-	tokenize_file('benchmarks/sum.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/sum.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/tak.pl') :-
-	tokenize_file('benchmarks/tak.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/tak.pl',Ts),clauses(Ts,_P).
 
 
 test('benchmarks/zebra.pl') :-
-	tokenize_file('benchmarks/zebra.pl',Ts),program(Ts,_P).
+	tokenize_file('benchmarks/zebra.pl',Ts),clauses(Ts,_P).
 
 		
 :- end_tests(parser_overall).

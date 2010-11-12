@@ -45,25 +45,25 @@
 test(
 	empty_list,
 	[	true(P=[a(pos(_,1,0),[])])	]
-) :- tokenize_string("[].",Ts),program(Ts,P).
+) :- tokenize_string("[].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_one_element,
 	[	true(P=[ct(_,'.',[av(pos(_,1,1),'_'),a(_,[])])]) ]
-) :- tokenize_string("[_].",Ts),program(Ts,P).
+) :- tokenize_string("[_].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_multiple_elements,
 	[	true(P=[ct(pos([], 1, 0), ., [a(pos([], 1, 1), a), ct(pos([], 1, 2), ., [a(pos([], 1, 3), b), ct(pos([], 1, 4), ., [a(pos([], 1, 5), c), ct(pos([], 1, 6), ., [ct(pos([], 1, 9), ;, [a(pos([], 1, 8), d), a(pos([], 1, 10), e)]), a(pos([], 1, 12), [])])])])])])]
-) :- tokenize_string("[a,b,c,(d;e)].",Ts),program(Ts,P).
+) :- tokenize_string("[a,b,c,(d;e)].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_a_open_tail,
 	[	true(P = [ct(pos([], 1, 0), '.', [ct(pos([], 1, 3), ;, [a(pos([], 1, 2), a), a(pos([], 1, 4), e)]), v(pos([], 1, 7), 'T')])])]
-) :- tokenize_string("[(a;e)|T].",Ts),program(Ts,P).
+) :- tokenize_string("[(a;e)|T].",Ts),clauses(Ts,P).
 
 
 test(
@@ -80,26 +80,26 @@ test(
 							a(pos([], 1, 11), e), 
 							a(pos([], 1, 13), b)])])])])])
 	]
-) :- tokenize_string("[(a;e),b|a;e,b].",Ts),program(Ts,P).
+) :- tokenize_string("[(a;e),b|a;e,b].",Ts),clauses(Ts,P).
 	
 	
 test(empty_list_as_an_argument) :- 
 	tokenize_string("f([]).",Ts),
-	program(Ts,[ct(pos([], 1, 0), f, [a(pos([], 1, 2), [])])]).		
+	clauses(Ts,[ct(pos([], 1, 0), f, [a(pos([], 1, 2), [])])]).		
 
 
 test(normalization_of_lists) :- 
 		tokenize_string("[a,b].",T1s),
 		tokenize_string(".(a,.(b,[])).",T2s),
-		program(T1s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), a(_, [])])])]),
-		program(T2s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), a(_, [])])])]).
+		clauses(T1s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), a(_, [])])])]),
+		clauses(T2s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), a(_, [])])])]).
 
 
 test(normalization_of_lists_with_tail) :- 
 		tokenize_string("[a,b|T].",T1s),
 		tokenize_string(".(a,.(b,T)).",T2s),
-		program(T1s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), v(_, 'T')])])]),
-		program(T2s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), v(_, 'T')])])]).
+		clauses(T1s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), v(_, 'T')])])]),
+		clauses(T2s,[ct(_, '.', [a(_, a), ct(_, '.', [a(_, b), v(_, 'T')])])]).
 		
 		
 :- end_tests(parser_lists).
