@@ -34,6 +34,8 @@ public final class VariableLabel extends Label {
 		throw new UnsupportedOperationException();
 	}
 
+	//@SuppressWarnings("constructorName")
+	@SuppressWarnings("all")
 	public static VariableLabel VariableLabel() {
 		// This is a singleton, no need to put in the label cache
 		return INSTANCE;

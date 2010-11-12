@@ -1,5 +1,8 @@
 package saere.database;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,7 +13,6 @@ import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.database.index.QueryStack;
 import saere.meta.GenericCompoundTerm;
 import saere.term.EmptyList0;
 import saere.term.ListElement2;
@@ -23,20 +25,20 @@ import de.tud.cs.st.bat.PrologTermFactory;
  * The Database Term Factory.
  * 
  * @author David Sullivan
- * @version 0.2, 10/14/2010
+ * @version 0.3, 11/11/2010
  */
 public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, Atom> {
 	
 	// Singleton, because there should be only one factory that assigns unique IDs.
 	private static final DatabaseTermFactory INSTANCE = new DatabaseTermFactory();
 	
-	private final AtomicInteger counter; // well...
+	private final HashMap<String, AtomicInteger> keyCounters;
 	private final StringAtom noneAtom;
 	private final StringAtom yesAtom;
 	private final StringAtom noAtom;
 
 	private DatabaseTermFactory() {
-		counter = new AtomicInteger(0);
+		keyCounters = new HashMap<String, AtomicInteger>();
 		noneAtom = StringAtom.StringAtom("none");
 		yesAtom = StringAtom.StringAtom("yes");
 		noAtom = StringAtom.StringAtom("no");
@@ -49,40 +51,6 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 */
 	public static DatabaseTermFactory getInstance() {
 		return INSTANCE;
-	}
-
-	/**
-	 * Makes an integer atom.
-	 * 
-	 * @param value The value for the integer atom.
-	 * @return An integer atom.
-	 */
-	@Deprecated
-	public static IntegerAtom makeIntegerAtom(int value) {
-		return IntegerAtom.IntegerAtom(value);
-	}
-
-	/**
-	 * Makes a string atom.
-	 * 
-	 * @param value The value for the string atom.
-	 * @return A string atom.
-	 */
-	@Deprecated
-	public static StringAtom makeStringAtom(String value) {
-		return StringAtom.StringAtom(value);
-	}
-
-	/**
-	 * Makes a compound term.
-	 * 
-	 * @param functor The functor for the compound term.
-	 * @param args The array of arguments for the compound term.
-	 * @return A compound term.
-	 */
-	@Deprecated
-	public static CompoundTerm makeCompoundTerm(String functor, Term[] args) {
-		return new GenericCompoundTerm(makeStringAtom(functor), args);
 	}
 
 	@Override
@@ -118,10 +86,14 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	}
 
 	@Override
-	public Atom KeyAtom(String value) {
-		//StringAtom sa = StringAtom.StringAtom(value + counter.getAndIncrement());
-		//KeyWriter.getInstance().write(sa.toString() + "\n"); // XXX Remove later!
-		return StringAtom.StringAtom(value + counter.getAndIncrement());
+	public Atom KeyAtom(String prefix) {
+		AtomicInteger counter = keyCounters.get(prefix);
+		if (counter == null) {
+			counter = new AtomicInteger(1);
+			keyCounters.put(prefix, counter);
+		}
+		
+		return StringAtom.StringAtom(prefix + counter.getAndIncrement());
 	}
 
 	@Override
@@ -141,18 +113,13 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	
 	@Override
 	public <T> Term Terms(Seq<T> ts, Function1<T, Term> func1) {
-		Term[] terms = new Term[ts.size()];
+		Deque<Term> terms = new ArrayDeque<Term>();
 		for (int i = 0; i < ts.size(); i++) {
-			terms[i] = func1.apply(ts.apply(i));
+			terms.add(func1.apply(ts.apply(i)));
 		}
-		return list(new QueryStack(terms));
+		return list(terms);
 	}
-
-	/*
-	 * FIXME Use for Trie?
-	 * (non-Javadoc)
-	 * @see de.tud.cs.st.prolog.PrologTermFactory#Univ(java.lang.Object)
-	 */
+	
 	@Override
 	public Seq<Term> Univ(Term term) {
 		if (term.isVariable() && ((Variable) term).isInstantiated()) {
@@ -208,21 +175,61 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		return seq;
 	}
 	
-	private Term list(QueryStack ts) {
+	/**
+	 * Creates a Prolog list from the specified stack of terms.
+	 * 
+	 * @param ts The stack of terms.
+	 * @return A Prolog list with the terms.
+	 */
+	private Term list(Deque<Term> ts) {		
 		if (ts.size() > 1) {
 			return new ListElement2(ts.pop(), list(ts));
-		} else if (ts.size() > 0) {
-			return ts.pop();
 		} else {
 			return new EmptyList0();
-			//return new GenericCompoundTerm(StringAtom.StringAtom("."), new Term[] {}); // XXX EmptyList0.apply();
 		}
 	}
 	
 	/**
-	 * Resets the ID counter to its original state zero.
+	 * Resets the ID cache.
 	 */
-	public void resetIdCounter() {
-		counter.set(0);
+	public void reset() {
+		keyCounters.clear();
+	}
+	
+	// Convenience methods...
+	
+	/**
+	 * Makes an integer atom.
+	 * 
+	 * @param value The value for the integer atom.
+	 * @return An integer atom.
+	 */
+	public static IntegerAtom ia(int value) {
+		return IntegerAtom.IntegerAtom(value);
+	}
+
+	/**
+	 * Makes a string atom.
+	 * 
+	 * @param value The value for the string atom.
+	 * @return A string atom.
+	 */
+	public static StringAtom sa(String value) {
+		return StringAtom.StringAtom(value);
+	}
+
+	/**
+	 * Makes a compound term.
+	 * 
+	 * @param functor The functor for the compound term.
+	 * @param args The array of arguments for the compound term.
+	 * @return A compound term.
+	 */
+	public static CompoundTerm ct(String functor, Term ... args) {
+		return new GenericCompoundTerm(sa(functor), args);
+	}
+	
+	public static Variable v() {
+		return new Variable();
 	}
 }

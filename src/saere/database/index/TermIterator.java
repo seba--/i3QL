@@ -21,6 +21,12 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 	/** The next term. It is set by {@link ShallowSimpleQueryIterator#findNext()} (only). */
 	protected Term next;
 	
+	// Only for subclasses with have additional fields which require 
+	// initialization before a call to findNext().
+	protected TermIterator() {
+		super(null);
+	}
+	
 	/**
 	 * Creates a new simple trie iterater that treats the specified 
 	 * <tt>start</tt> as root. Also, the first <tt>next</tt> is found.
@@ -29,7 +35,6 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 	 */
 	protected TermIterator(Trie start) {
 		super(start);
-		list = start.getTerms();
 		findNext();
 	}
 
@@ -78,7 +83,6 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 	@Override
 	protected void resetTo(Trie newStart) {
 		super.resetTo(newStart);
-		list = newStart.getTerms();
 		findNext();
 	}
 

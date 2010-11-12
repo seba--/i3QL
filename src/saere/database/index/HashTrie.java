@@ -20,21 +20,6 @@ public class HashTrie extends Trie {
 	}
 	
 	@Override
-	@Deprecated
-	public void addChild(Trie child) {
-		setChildrenNumber(getChildrenNumber() + 1);
-		lastChild.setNextSibling(child);
-		lastChild = child;
-		map.put(child.getLabel(), child);
-	}
-	
-	@Override
-	@Deprecated
-	public Trie getChild(Label label) {
-		return map.get(label);
-	}
-	
-	@Override
 	public boolean hashes() {
 		return true;
 	}
@@ -42,6 +27,11 @@ public class HashTrie extends Trie {
 	@Override
 	public Trie getLastChild() {
 		return lastChild;
+	}
+	
+	@Override
+	protected void setLastChild(Trie lastChild) {
+		this.lastChild = lastChild;
 	}
 	
 	@Override

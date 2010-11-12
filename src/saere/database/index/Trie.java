@@ -30,9 +30,14 @@ public class Trie {
 	private int childrenNumber;
 	
 	/**
-	 * Creates a trie without a label or parent (e.g., a root).
+	 * Creates a new root. The root must be a hash trie from the beginning. 
+	 * Otherwise, if it is replaced later when it has enough children for a 
+	 * hash map, references outside the trie structure (i.e., clients) point 
+	 * to an old root.
 	 */
-	public Trie() { /* empty */ }
+	public static Trie root() {
+		return new HashTrie(null, null, null);
+	}
 	
 	/**
 	 * Creates a trie node with the specified parent. Only {@link TrieBuilder} 
@@ -50,7 +55,7 @@ public class Trie {
 	 * 
 	 * @return <tt>true</tt> if this {@link Trie} stores at least one term.
 	 */
-	protected boolean stores() {
+	public boolean stores() {
 		return false;
 	}
 	
@@ -64,50 +69,6 @@ public class Trie {
 	}
 	
 	/**
-	 * Adds the specified trie as child to this trie.
-	 * 
-	 * @param child The trie to add as child.
-	 */
-	@Deprecated
-	protected void addChild(Trie child) {
-		childrenNumber++;
-		
-		// Move to the last added child, this shouldn't take terribly long 
-		// as we do this only if we have not many children.
-		if (firstChild == null) {
-			firstChild = child;
-		} else {
-			Trie lastChild = firstChild;
-			while (lastChild.nextSibling != null) {
-				lastChild = lastChild.nextSibling;
-			}
-			lastChild.nextSibling = child;
-		}
-		
-		if (childrenNumber == TrieBuilder.mapThreshold) {
-			throw new Error("I hadn't thougth of that. -Unkown, from Popular Last Words");
-		}
-	}
-	
-	/**
-	 * Gets the child with the specified label. If none such child exists 
-	 * <tt>null</tt> is returned.
-	 * 
-	 * @param label The label of the child.
-	 * @return The child with the label or <tt>null</tt>.
-	 */
-	@Deprecated
-	protected Trie getChild(Label label) {
-		Trie child = firstChild;
-		while (child != null) {
-			if (child.label.sameAs(label)) {
-				return child;
-			}
-		}
-		return null;
-	}
-	
-	/**
 	 * Add the specified term to this {@link Trie}.
 	 * 
 	 * @param term The term to add.
@@ -116,7 +77,7 @@ public class Trie {
 		throw new UnsupportedOperationException("This trie node cannot store terms");
 	}
 	
-	protected TermList getTerms() {
+	public TermList getTerms() {
 		throw new UnsupportedOperationException("This trie node cannot store terms");
 	}
 	
@@ -140,7 +101,7 @@ public class Trie {
 		this.parent = parent;
 	}
 	
-	protected Trie getFirstChild() {
+	public Trie getFirstChild() {
 		return firstChild;
 	}
 	
@@ -148,7 +109,7 @@ public class Trie {
 		this.firstChild = firstChild;
 	}
 	
-	protected Trie getNextSibling() {
+	public Trie getNextSibling() {
 		return nextSibling;
 	}
 	
@@ -182,6 +143,6 @@ public class Trie {
 
 	@Override
 	public String toString() {
-		return "Trie-" + this.hashCode() + "/" + (label == null ? "<root>" : label.toString());
+		return hashCode() + "/" + (label == null ? "<root>" : label.toString());
 	}
 }

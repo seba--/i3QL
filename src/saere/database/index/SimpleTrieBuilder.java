@@ -33,7 +33,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 			Label peeked = stack.peek();
 			
 			/*
-			 * We search for the child we need by label. There are mainy four cases:
+			 * We search for the child we need by label. There are mainly four cases:
 			 * 1) No such child exists and we want to add the term here.
 			 * -- We create a new storage trie with the desired label, add the term and return.
 			 * 

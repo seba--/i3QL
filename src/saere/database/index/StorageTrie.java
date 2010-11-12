@@ -12,8 +12,6 @@ public final class StorageTrie extends Trie {
 	
 	private TermList terms;
 	
-	public StorageTrie() { /* empty */ }
-	
 	/**
 	 * Creates a new storage trie.
 	 * 

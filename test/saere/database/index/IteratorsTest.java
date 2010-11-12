@@ -1,10 +1,11 @@
 package saere.database.index;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+import static saere.database.BATTestQueries.*;
+import static saere.database.DatabaseTest.*;
+import static saere.database.Utils.*;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -13,16 +14,14 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import saere.Atom;
-import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
-import saere.database.TermFilter;
-import saere.database.Utils;
+import saere.database.index.map.MapTrie;
+import saere.database.profiling.TriePrinter;
+import saere.database.profiling.TriePrinter.Mode;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -31,27 +30,24 @@ import saere.meta.GenericCompoundTerm;
  * implementations work properly.
  * 
  * @author David Sullivan
- * @version 0.3, 10/11/2010
+ * @version 0.3, 11/11/2010
  */
 /*
  * This class also contains some methods/code that are helpful for debbuging...
  */
 public class IteratorsTest {
 	
+	private static final boolean PRINT_QUERY_RESULTS = false;
+	
 	private static final TermFlattener SHALLOW = new ShallowFlattener();
-	private static final TermFlattener RECURSIVE = new FullFlattener();
-	private static final TrieBuilder<Atom> SIMPLE = new SimpleTrieBuilder();
-	private static final TrieBuilder<Atom[]> COMPLEX = new ComplexTrieBuilder();
+	private static final TermFlattener FULL = new FullFlattener();
+	
+	private static final TrieBuilder SHALLOW_SIMPLE = new SimpleTrieBuilder(SHALLOW, 10); // 50 seems good
+	private static final TrieBuilder FULL_SIMPLE = null;
+	private static final TrieBuilder SHALLOW_COMPLEX = null;
+	private static final TrieBuilder FULL_COMPLEX = null;
+	
 	private static final Factbase FACTS = Factbase.getInstance();
-	
-	private Trie<Atom> simpleTrie;
-	private Trie<Atom[]> complexTrie;
-	
-	public static void main(String[] args) {
-		IteratorsTest test = new IteratorsTest();
-		IteratorsTest.readFactsOnce();
-		test.testComplexTrieTermIterator_Shallow();
-	}
 	
 	/**
 	 * The test file for this {@link IteratorsTest}. It must be a JAR, ZIP or CLASS 
@@ -88,115 +84,57 @@ public class IteratorsTest {
 		FACTS.read(testFile);
 		sw.printElapsed("Reading the facts from " + testFile);
 	}
-	
-	private <T> void fill(TrieBuilder<T> builder, Trie<T> root) {
-		Stopwatch sw = new Stopwatch();
-		List<Term> facts = FACTS.getFacts();
-		for (Term fact : facts) {
-			builder.insert(fact, root);
-		}
-		
-		sw.printElapsed("Filling a " + builder.toString() + " trie with " + facts.size() + " facts");
-	}
 
 	/**
-	 * Test for the {@link NodeIterator}. (It's relatively small since all 
+	 * Test for the {@link NodeIterator}. (It's very small since all 
 	 * nodes of a {@link Trie} have to be known.)
 	 */
 	@Test
-	public void testTrieNodeIterator_Simple() {
-		SIMPLE.setTermFlattener(SHALLOW);
-		Trie<Atom> root = new Trie<Atom>();
+	public void testNodeIterator() {
+		Trie root = Trie.root();
 		
 		Term f = StringAtom.StringAtom("f");
 		Term fa = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a")
+			StringAtom.StringAtom("a")
 		});
 		Term fab = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b")
+			StringAtom.StringAtom("a"),
+			StringAtom.StringAtom("b")
 		});
 		Term fabc = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b"),
-				StringAtom.StringAtom("c")
+			StringAtom.StringAtom("a"),
+			StringAtom.StringAtom("b"),
+			StringAtom.StringAtom("c")
 		});
 		Term fabd = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b"),
-				StringAtom.StringAtom("d")
+			StringAtom.StringAtom("a"),
+			StringAtom.StringAtom("b"),
+			StringAtom.StringAtom("d")
 		});
 		
-		List<Trie<Atom>> expecteds = new LinkedList<Trie<Atom>>();
+		List<Trie> expecteds = new LinkedList<Trie>();
 		expecteds.add(root);
-		expecteds.add(SIMPLE.insert(f, root));
-		expecteds.add(SIMPLE.insert(fa, root));
-		expecteds.add(SIMPLE.insert(fab, root));
-		expecteds.add(SIMPLE.insert(fabc, root));
-		expecteds.add(SIMPLE.insert(fabd, root));
+		expecteds.add(SHALLOW_SIMPLE.insert(f, root));
+		expecteds.add(SHALLOW_SIMPLE.insert(fa, root));
+		expecteds.add(SHALLOW_SIMPLE.insert(fab, root));
+		expecteds.add(SHALLOW_SIMPLE.insert(fabc, root));
+		expecteds.add(SHALLOW_SIMPLE.insert(fabd, root));
+		// TODO Also add intermediate nodes to 'expecteds'...
 		
-		/*
-		 * The trie should now look like this (and each node stores one term):
-		 * 
-		 * 			   ,--d
-		 * root--f--a--b--c
-		 */
-		
-		List<Trie<Atom>> actuals = new LinkedList<Trie<Atom>>();
-		Iterator<Trie<Atom>> iter = SIMPLE.nodeIterator(root);
+		List<Trie> actuals = new LinkedList<Trie>();
+		Iterator<Trie> iter = SHALLOW_SIMPLE.nodeIterator(root);
 		while (iter.hasNext()) {
 			actuals.add(iter.next());
 		}
 		
-		assertTrue(DatabaseTest.same(expecteds, actuals));
-	}
-	
-	@Test
-	public void testTrieNodeIterator_Complex() {
-		COMPLEX.setTermFlattener(SHALLOW);
-		Trie<Atom[]> root = new Trie<Atom[]>();
-		
-		Term f = StringAtom.StringAtom("f");
-		Term fa = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a")
-		});
-		Term fab = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b")
-		});
-		Term fabc = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b"),
-				StringAtom.StringAtom("c")
-		});
-		Term fabd = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-				StringAtom.StringAtom("a"),
-				StringAtom.StringAtom("b"),
-				StringAtom.StringAtom("d")
-		});
-		
-		List<Trie<Atom[]>> expecteds = new LinkedList<Trie<Atom[]>>();
-		expecteds.add(root);
-		expecteds.add(COMPLEX.insert(f, root));
-		expecteds.add(COMPLEX.insert(fa, root));
-		expecteds.add(COMPLEX.insert(fab, root));
-		expecteds.add(COMPLEX.insert(fabc, root));
-		expecteds.add(COMPLEX.insert(fabd, root));
-		
-		/*
-		 * The trie should now look like this (and each node stores one term):
-		 * 
-		 * 			   ,--d
-		 * root--f--a--b--c
-		 */
-		
-		List<Trie<Atom[]>> actuals = new LinkedList<Trie<Atom[]>>();
-		Iterator<Trie<Atom[]>> iter = COMPLEX.nodeIterator(root);
-		while (iter.hasNext()) {
-			actuals.add(iter.next());
+		// Since we don't really test, print the trie nodes so we could check the result manually
+		int number = 0;
+		for (Trie trie : actuals) {
+			System.out.println("Trie " + (number++) + ": " + trie);
 		}
 		
-		assertTrue(DatabaseTest.same(expecteds, actuals));
+		//TriePrinter.print(root, SHALLOW_SIMPLE, "c:/users/leaf/desktop/mini-trie.gv", Mode.BOX);
+		//assertTrue(DatabaseTest.same(expecteds, actuals));
 	}
 	
 	/**
@@ -204,9 +142,8 @@ public class IteratorsTest {
 	 * {@link ShallowFlattener} and a {@link SimpleTrieBuilder}.
 	 */
 	@Test
-	public void testTrieTermIterator_ShallowSimple() {
-		SIMPLE.setTermFlattener(SHALLOW);
-		assertTrue(testTrieTermIterator(SIMPLE));
+	public void testTermIterator_ShallowSimple() {
+		assertTrue(testTermIterator(SHALLOW_SIMPLE));
 	}
 	
 	/**
@@ -214,9 +151,8 @@ public class IteratorsTest {
 	 * {@link FullFlattener} and a {@link SimpleTrieBuilder}.
 	 */
 	@Test
-	public void testTrieTermIterator_RecursiveSimple() {
-		SIMPLE.setTermFlattener(RECURSIVE);
-		assertTrue(testTrieTermIterator(SIMPLE));
+	public void testTermIterator_FullSimple() {
+		assertTrue(testTermIterator(FULL_SIMPLE));
 	}
 	
 	/**
@@ -224,9 +160,8 @@ public class IteratorsTest {
 	 * {@link ShallowFlattener} and a {@link ComplexTrieBuilder}.
 	 */
 	@Test
-	public void testTrieTermIterator_ShallowComplex() {
-		COMPLEX.setTermFlattener(SHALLOW);
-		assertTrue(testTrieTermIterator(COMPLEX));
+	public void testTermIterator_ShallowComplex() {
+		assertTrue(testTermIterator(SHALLOW_COMPLEX));
 	}
 	
 	/**
@@ -234,9 +169,8 @@ public class IteratorsTest {
 	 * {@link FullFlattener} and a {@link ComplexTrieBuilder}.
 	 */
 	@Test
-	public void testTrieTermIterator_RecursiveComplex() {
-		COMPLEX.setTermFlattener(RECURSIVE);
-		assertTrue(testTrieTermIterator(COMPLEX));
+	public void testTermIterator_FullComplex() {
+		assertTrue(testTermIterator(FULL_COMPLEX));
 	}
 	
 	/**
@@ -245,211 +179,90 @@ public class IteratorsTest {
 	 * 
 	 * @return <tt>true</tt> if the iterator works correct.
 	 */
-	private <T> boolean testTrieTermIterator(TrieBuilder<T> builder) {
+	private boolean testTermIterator(TrieBuilder builder) {
+		if (builder == null) {
+			System.out.println("Trie builder is null");
+			return false;
+		}
 		
 		Deque<Term> expecteds = new LinkedList<Term>();
 		for (Term fact : FACTS.getFacts()) {
 			expecteds.push(fact);
 		}
 		
-		Trie<T> root = new Trie<T>();
+		Trie root = Trie.root();
 		fill(builder, root);
 		
 		Deque<Term> actuals = new LinkedList<Term>();
 		Iterator<Term> iter = builder.iterator(root);
 		while (iter.hasNext()) {
-			Term term = iter.next();
-			//if (builder == COMPLEX) {
-				//System.out.println("-->" + Utils.termToString(term));
-			//}
-			actuals.push(term);
-		}
-		
-		if (!DatabaseTest.same(expecteds, actuals)) {
-			//printTermCollections(expecteds, actuals);
-			//new TrieInspector().print(root, builder, "c:/users/leaf/desktop/" + System.currentTimeMillis() + "-" + builder.toString() + ".test-failed.gv", true);
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	@Test
-	public void testSimpleTrieTermIterator_Shallow() {
-		SIMPLE.setTermFlattener(SHALLOW);
-		
-		Term instr = StringAtom.StringAtom("instr");
-		Term m_2 = StringAtom.StringAtom("m_2");
-		Term i1 = IntegerAtom.IntegerAtom(1);
-		Term invoke = StringAtom.StringAtom("invoke");
-		Term X = new Variable();
-		
-		Term[][] queries = {
-				new Term[] { instr, X, i1 },
-				new Term[] { X, X, invoke },
-				new Term[] { instr, m_2 }
-		};
-		
-		simpleTrie = new Trie<Atom>();
-		fill(SIMPLE, simpleTrie);
-		
-		boolean error = false;
-		for (Term[] query : queries) {
-			if (!testQueryTermIterator(simpleTrie, query, SIMPLE, SHALLOW)) {
-				error = true;
-				System.err.println("Query " + Arrays.toString(query) + " failed (shallow, simple)");
-			}
-		}
-		
-		assertTrue(!error); // yes, ANY of the three queries may be wrong...
-	}
-	
-	@Test
-	public void testSimpleTrieTermIterator_Recursive() {
-		SIMPLE.setTermFlattener(RECURSIVE);
-		
-		Term instr = StringAtom.StringAtom("instr");
-		Term m_2 = StringAtom.StringAtom("m_2");
-		Term i1 = IntegerAtom.IntegerAtom(1);
-		Term invoke = StringAtom.StringAtom("invoke");
-		Term X = new Variable();
-		
-		Term[][] queries = {
-				new Term[] { instr, X, i1 },
-				new Term[] { X, X, invoke },
-				new Term[] { instr, m_2 }
-		};
-		
-		simpleTrie = new Trie<Atom>();
-		fill(SIMPLE, simpleTrie);
-		
-		boolean error = false;
-		for (Term[] query : queries) {
-			if (!testQueryTermIterator(simpleTrie, query, SIMPLE, SHALLOW)) {
-				error = true;
-				System.err.println("Query " + Arrays.toString(query) + " failed (recursive, simple)");
-			}
-		}
-		
-		assertTrue(!error); // yes, ANY of the three queries may be wrong...
-	}
-	
-	@Test
-	public void testComplexTrieTermIterator_Shallow() {
-		COMPLEX.setTermFlattener(SHALLOW);
-		
-		Term instr = StringAtom.StringAtom("instr");
-		Term m_2 = StringAtom.StringAtom("m_2");
-		Term i1 = IntegerAtom.IntegerAtom(1);
-		Term invoke = StringAtom.StringAtom("invoke");
-		Term X = new Variable();
-		
-		Term[][] queries = {
-				new Term[] { instr, X, i1 },
-				new Term[] { X, X, X, invoke },
-				new Term[] { instr, m_2 }
-		};
-		
-		complexTrie = new Trie<Atom[]>();
-		fill(COMPLEX, complexTrie);
-		
-		boolean error = false;
-		for (Term[] query : queries) {
-			if (!testQueryTermIterator(complexTrie, query, COMPLEX, SHALLOW)) {
-				error = true;
-				System.err.println("Query " + Arrays.toString(query) + " failed (shallow, complex)");
-			}
-		}
-		
-		assertTrue(!error); // yes, ANY of the three queries may be wrong...
-	}
-	
-	@Test
-	public void testComplexTrieTermIterator_Recursive() {
-		COMPLEX.setTermFlattener(RECURSIVE);
-		
-		Term instr = StringAtom.StringAtom("instr");
-		Term m_2 = StringAtom.StringAtom("m_2");
-		Term i1 = IntegerAtom.IntegerAtom(1);
-		Term invoke = StringAtom.StringAtom("invoke");
-		Term X = new Variable();
-		
-		Term[][] queries = {
-				new Term[] { instr, X, i1 },
-				new Term[] { X, X, X, invoke },
-				new Term[] { instr, m_2 }
-		};
-		
-		complexTrie = new Trie<Atom[]>();
-		fill(COMPLEX, complexTrie);
-		
-		boolean error = false;
-		for (Term[] query : queries) {
-			if (!testQueryTermIterator(complexTrie, query, COMPLEX, RECURSIVE)) {
-				error = true;
-				System.err.println("Query " + Arrays.toString(query) + " failed (recursive, complex)");
-			}
-		}
-		
-		assertTrue(!error); // yes, ANY of the three queries may be wrong...
-	}
-	
-	private <T> boolean testQueryTermIterator(Trie<T> trie, Term[] query, TrieBuilder<T> builder, TermFlattener flattener) {
-		
-		TermFilter filter = new TermFilter(query, flattener);
-		
-		Deque<Term> expecteds = new LinkedList<Term>();
-		for (Term fact : FACTS.getFacts()) {
-			//boolean allow = false;
-			if (filter.allow(fact)) {
-				expecteds.push(fact);
-				//allow = true;
-			}
-			//System.out.println("Query " + Arrays.toString(query) + "," + (allow ? "" : " NOT") + " allowing " + Utils.termToString(fact));
-		}
-		
-		Deque<Term> actuals = new LinkedList<Term>();
-		Iterator<Term> iter = builder.iterator(trie, query);
-		while (iter.hasNext()) {
 			actuals.push(iter.next());
 		}
 		
+		//TriePrinter.print(root, builder, "c:/users/leaf/desktop/trie.gv", Mode.BOX);
+		
 		if (!DatabaseTest.same(expecteds, actuals)) {
-			printTermCollections(expecteds, actuals);
-			//new TrieInspector().print(root, "c:/users/leaf/desktop/" + System.currentTimeMillis() + ".test-failed.gv", true);
 			return false;
 		} else {
 			return true;
 		}
 	}
-	
-	/**
-	 * Prints the to specified {@link Term} sets to the console.
-	 * 
-	 * @param expected The expected set.
-	 * @param actuals The actual set.
-	 */
-	@SuppressWarnings("all")
-	private void printTermCollections(Collection<Term> expected, Collection<Term> actuals) {
-		System.out.println("\n\nExpected set 1 (" + expected.size() + " elements)");
-		for (Term term : expected) {
-			System.out.println(Utils.termToString(term));
-		}
 
-		System.out.println("\nActual set 2 (" + actuals.size() + " elements)");
-		for (Term term : actuals) {
-			System.out.println(Utils.termToString(term));
-		}
-		
-		if (expected.size() != actuals.size()) {
-			System.out.println("\nElements not in the smaller set:"); // actually not always correct...
-			Collection<Term> bigger = (expected.size() > actuals.size() ? expected : actuals);
-			Collection<Term> smaller = (bigger == expected ? actuals : expected);
-			for (Term term : bigger) {
-				if (!smaller.contains(term)) {
-					System.out.println(Utils.termToString(term));
+	@Test
+	public void testQueryIterator_ShallowSimple() {	
+		Trie root = Trie.root();
+		fill(SHALLOW_SIMPLE, root);
+		assertTrue(testQueryIterator(root, SHALLOW_SIMPLE));
+	}
+	
+	private boolean testQueryIterator(Trie trie, TrieBuilder builder) {
+		boolean error = false;
+		for (Term query : ALL_QUERIES) {
+			System.out.print("\nQuerying for " + termToString(query) + "... ");
+			
+			// Compose the list of expected facts by real unification.
+			Deque<Term> expecteds = new LinkedList<Term>();
+			for (Term fact : FACTS.getFacts()) {
+				if (match(fact, query)) {
+					expecteds.push(fact);
+				}
+			}
+			
+			// Compose the list of actual facts with a trie. This set can be 
+			// larger than the expected set if we use shallow term flattening. 
+			// However, every element in the expected set must be in the actual 
+			// set.
+			Deque<Term> actuals = new LinkedList<Term>();
+			Iterator<Term> iter = builder.iterator(trie, query);
+			while (iter.hasNext()) {
+				actuals.push(iter.next());
+			}
+			
+			if (builder == SHALLOW_SIMPLE || builder == SHALLOW_COMPLEX) {
+				if (!contains(actuals, expecteds)) {
+					System.out.println("FAILED");
+					error = true;
+				} else {
+					System.out.println("SUCCEEDED");
+				}
+				System.out.println("Shallow simple query iterator result size " + actuals.size() + ", real result size " + expecteds.size());
+			} else {
+				if (!same(expecteds, actuals)) {
+					System.out.println("FAILED");
+					error = true;
+				} else {
+					System.out.println("SUCCEEDED");
+				}
+			}
+			
+			if (PRINT_QUERY_RESULTS) {
+				System.out.println("Query results:");
+				for (Term result : actuals) {
+					System.out.println(termToString(result));
 				}
 			}
 		}
+		
+		return !error;
 	}
 }

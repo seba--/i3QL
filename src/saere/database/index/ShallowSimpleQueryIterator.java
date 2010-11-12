@@ -18,14 +18,14 @@ public final class ShallowSimpleQueryIterator extends TermIterator {
 	private final LabelStack stack;
 	
 	/**
-	 * Creates a new trie iterator that starts from <tt>start</tt> and 
-	 * returns only terms that match the term represented by <tt>terms</tt>.
+	 * Creates a new query iterator for simple shallow tries.
 	 * 
-	 * @param start The start trie, e.g., a functor.
-	 * @param terms A query represented by an array of terms (atoms/variables).
+	 * @param builder The associated trie builder.
+	 * @param start The start node.
+	 * @param stack The query as stack.
 	 */
 	public ShallowSimpleQueryIterator(TrieBuilder builder, Trie start, LabelStack stack) {
-		super(start);
+		this.start = current = start;
 		this.builder = builder;
 		this.stack = stack;
 		findNext();
@@ -42,6 +42,12 @@ public final class ShallowSimpleQueryIterator extends TermIterator {
 		} else {
 			// Normal mode, as long as we have nodes left and have no next term (list)
 			while (current != null && next == null) {
+				
+				if (current.getParent() == null) {
+					current = current.getFirstChild();
+					continue;
+				}
+				
 				if (match()) {
 					if (stack.size() == 1 && current.stores()) {
 						list = current.getTerms();
@@ -50,11 +56,28 @@ public final class ShallowSimpleQueryIterator extends TermIterator {
 					}
 					nextNode();
 				} else {
-					// No match, check if there can be a match at all.
-					// If so, jump directly to the matching sibling.
-					Trie searched = builder.getChild(current.getParent(), stack.peek()); // ONLY ONCE!
-					if (searched != null) {
-						current = searched;
+					/*
+					 * No match, check if there can be a match at all.
+					 * If so, jump directly to the matching sibling.
+					 * 
+					 * However, we must also check if the searched node is a 
+					 * right sibling of the current. Otherwise we might jump 
+					 * back to a node that was already processed by the 
+					 * iterator.
+					 * 
+					 * As a first child is always checked first, it can never 
+					 * be the node we'll want to jump back.
+					 */
+					
+					// Only if current is the first child! That is, we check only when we go down in the trie.
+					if (current.getParent().getFirstChild() == current) {
+						Trie searched = builder.getChild(current.getParent(), stack.peek());
+						if (searched != null) {
+							current = searched;
+						} else {
+							goUp();
+							goRight();
+						}
 					} else {
 						goUp();
 						goRight();

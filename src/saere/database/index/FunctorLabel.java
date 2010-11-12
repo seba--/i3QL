@@ -40,6 +40,8 @@ public final class FunctorLabel extends SimpleLabel {
 		}
 	}
 	
+	//@SuppressWarnings("constructorName")
+	@SuppressWarnings("all")
 	public static FunctorLabel FunctorLabel(Atom atom, int arity) {
 		final Label candidate = new FunctorLabel(atom, arity);
 		synchronized (CACHE) {

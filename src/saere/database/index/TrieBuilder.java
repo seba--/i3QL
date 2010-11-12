@@ -13,7 +13,10 @@ import saere.Term;
 public abstract class TrieBuilder {
 	
 	/** Threshold for using hash maps. */
+	// Must be > 1, using hash tries for all nodes is not supported.
 	protected final int mapThreshold;
+	
+	public static int replaceCounter = 0;
 	
 	protected final TermFlattener flattener;
 	
@@ -88,48 +91,63 @@ public abstract class TrieBuilder {
 	 * references of the first to the second and by setting references to the 
 	 * first to the second.<br>
 	 * <br>
-	 * <b>Does not copy any stored terms or hash maps.</b>
+	 * <b>Does not copy any stored terms or cares for hash maps.</b>
 	 * 
 	 * @param trie The trie to replace.
 	 * @param replacement The replacement.
 	 */
 	// TODO Track with AspectJ how often does this occur!
-	// Replacement is ofcourse very expensive for hash tries. (Worst case: A hash trie turns into a storage trie.)
-	protected static void replace(Trie trie, Trie replacement) {	
+	// Replacement is of course very expensive for hash tries. (Worst case: A hash trie turns into a storage hash trie.)
+	protected static void replace(Trie trie, Trie replacement) {
 		
-		// First, simply copy all references OF the old trie
-		//replacement.setLabel(trie.getLabel());
-		//replacement.setParent(trie.getParent());
+		// Copy all references OF the old trie to the replacement
+		replacement.setLabel(trie.getLabel()); // actually not necessary
+		replacement.setParent(trie.getParent()); // actually not necessary
 		replacement.setFirstChild(trie.getFirstChild());
 		replacement.setNextSibling(trie.getNextSibling());
 		replacement.setChildrenNumber(trie.getChildrenNumber());
 		
-		// Now, replace all references TO the old trie
+		// Switch all references TO the old trie to the replacement
+		
+		// Set replacement as new parent for all children
 		Trie child = replacement.getFirstChild();
 		while (child != null) {
-			// Set replacement as new parent for all children
 			child.setParent(replacement);
 			child = child.getNextSibling();
 		}
-		if (replacement.getParent() != null) {
-			// Set the first child / next sibling relation to the replacement
-			if (replacement.getParent().getFirstChild() == trie) {
+		
+		// Set the first child / next sibling relation to the replacement
+		if (trie.getParent() != null) {
+			Trie parent = trie.getParent();
+			
+			if (parent.getFirstChild() == trie) {
 				// Replacement is first child
-				replacement.getParent().setFirstChild(replacement);
+				parent.setFirstChild(replacement);
 			} else {
 				// Replacement is a(ny) sibling, iterate through all children (maybe expensive)
-				Trie sibling = replacement.getParent().getFirstChild();
-				while (sibling != null && sibling.getNextSibling() != trie) {
-					sibling = sibling.getNextSibling();
+				Trie sibling = parent.getFirstChild();
+				boolean set = false;
+				while (sibling != null) {
+					if (sibling.getNextSibling() == trie) {
+						sibling.setNextSibling(replacement);
+						set = true;
+						break;
+					} else {
+						sibling = sibling.getNextSibling();
+					}
 				}
-				if (sibling != null) {
-					sibling.setNextSibling(replacement);
-				}
+				assert set : "Unable to replace as next sibling: " + trie;
 			}
 			
-			// Replace in parent's hash map if necessary
-			if (replacement.getParent().hashes()) {
-				replacement.getParent().getMap().put(replacement.getLabel(), replacement);
+			// Care of additional fields if parent is a hash trie
+			if (parent.hashes()) {
+				// Replace in parent's hash map if necessary
+				parent.getMap().put(replacement.getLabel(), replacement);
+				
+				// Update parent's last child field if necessary
+				if (parent.getLastChild() == trie) {
+					parent.setLastChild(replacement);
+				}
 			}
 		}
 	}
@@ -172,12 +190,15 @@ public abstract class TrieBuilder {
 	 * @param child The child to add.
 	 */
 	protected void addChild(Trie parent, Trie child) {
-		assert lastChild != null : "The last child field is not set";
-		
+		replaceCounter++;
 		parent.setChildrenNumber(parent.getChildrenNumber() + 1);
-		
 		if (parent.hashes()) {
-			parent.getLastChild().setNextSibling(child);
+			if (parent.getLastChild() != null) {
+				parent.getLastChild().setNextSibling(child);
+			} else {
+				// Parent is root and this must be the very first real trie node
+				parent.setFirstChild(child);
+			}
 			parent.setLastChild(child);
 			parent.getMap().put(child.getLabel(), child);
 		} else {
@@ -188,18 +209,29 @@ public abstract class TrieBuilder {
 				// Actually an error (see assertion above)
 				lastChild = parent.getFirstChild();
 				if (lastChild != null) {
-					while (lastChild != null && lastChild.getNextSibling() != null) {
+					while (lastChild.getNextSibling() != null) {
 						lastChild = lastChild.getNextSibling();
 					}
 					lastChild.setNextSibling(child);
 				} else {
 					parent.setFirstChild(child);
 				}
+				lastChild = child;
 			}
 			
 			if (parent.getChildrenNumber() == mapThreshold) {
-				HashTrie hashTrie = new HashTrie(parent, current.getLabel(), lastChild);
-				replace(current, hashTrie);
+				HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), lastChild);
+				replace(parent, hashTrie);
+				
+				// Fill the hash map as replace() doesn't care for this
+				Trie trie = hashTrie.getFirstChild();
+				while (trie != null) {
+					hashTrie.getMap().put(trie.getLabel(), trie);
+					trie = trie.getNextSibling();
+				}
+				
+				// ... and set last child
+				hashTrie.setLastChild(child);
 			}
 		}
 		

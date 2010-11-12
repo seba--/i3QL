@@ -9,3 +9,4 @@ delete_me.txt
 .project
 .scala_dependencies
 .settings
+lib/postgresql-9.0-801.jdbc4.jar

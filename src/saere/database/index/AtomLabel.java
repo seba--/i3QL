@@ -18,18 +18,32 @@ public final class AtomLabel extends SimpleLabel {
 	
 	@Override
 	public int hashCode() {
-		return atom.hashCode();
+		if (atom.isIntegerAtom()) {
+			return atom.eval();
+		} else {
+			return atom.hashCode();
+		}
+		
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof AtomLabel) {
-			return this.hashCode() == obj.hashCode();
+			Atom a = ((AtomLabel) obj).atom;
+			if (atom.isIntegerAtom() && a.isIntegerAtom()) {
+				return this.hashCode() == obj.hashCode();
+			} else if (atom.isStringAtom() && a.isStringAtom()) {
+				return this.hashCode() == obj.hashCode();
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
 	}
 	
+	//@SuppressWarnings("constructorName")
+	@SuppressWarnings("all")
 	public static AtomLabel AtomLabel(Atom atom) {
 		final Label candidate = new AtomLabel(atom);
 		synchronized (CACHE) {

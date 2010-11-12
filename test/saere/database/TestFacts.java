@@ -1,15 +1,12 @@
 package saere.database;
 
+import static saere.database.DatabaseTermFactory.*;
 import saere.CompoundTerm;
-import saere.IntegerAtom;
-import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
-import saere.meta.GenericCompoundTerm;
 
 /**
- * A class for certain terms (or rather term patterns) that are not covered by 
- * the BAT-generated terms.
+ * A class for certain terms (or rather term patterns) and matching queries 
+ * that are not covered by the BAT-generated terms.
  * 
  * @author David Sullivan
  * @version 0.1, 11/4/2010
@@ -54,21 +51,5 @@ public final class TestFacts {
 	
 	private static CompoundTerm f(Term ... args) {
 		return ct(TEST_FUNCTOR, args);
-	}
-	
-	private static CompoundTerm ct(String functor, Term ... args) {
-		return new GenericCompoundTerm(sa(functor), args);
-	}
-	
-	private static StringAtom sa(String value) {
-		return StringAtom.StringAtom(value);
-	}
-	
-	private static IntegerAtom ia(int value) {
-		return IntegerAtom.IntegerAtom(value);
-	}
-	
-	private static Variable v() {
-		return new Variable();
 	}
 }

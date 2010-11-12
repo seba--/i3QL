@@ -55,7 +55,7 @@ public final class ComplexLabel extends Label {
 	@Override
 	public boolean equals(Object obj) {
 		// ... and an expensive equals too
-		if (!(obj instanceof FunctorLabel)) {
+		if (!(obj instanceof ComplexLabel)) {
 			return false;
 		}
 		
@@ -73,6 +73,8 @@ public final class ComplexLabel extends Label {
 		return true;
 	}
 	
+	//@SuppressWarnings("constructorName")
+	@SuppressWarnings("all")
 	public static ComplexLabel ComplexLabel(SimpleLabel[] labels) {
 		final Label candidate = new ComplexLabel(labels);
 		synchronized (CACHE) {

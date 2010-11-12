@@ -5,6 +5,7 @@ import java.util.List;
 
 import saere.CompoundTerm;
 import saere.Term;
+import saere.database.Utils;
 
 /**
  * The {@link ShallowFlattener} flattens terms using their functor and 
@@ -71,7 +72,11 @@ public final class ShallowFlattener extends TermFlattener {
 				return VariableLabel.VariableLabel();
 			}
 		} else { // term.isList()
-			return FunctorLabel.FunctorLabel(term.functor(), term.arity());
+			if (term.arity() == 0) {
+				return AtomLabel.AtomLabel(term.functor()); // Empty list
+			} else {
+				return FunctorLabel.FunctorLabel(term.functor(), term.arity());
+			}
 		}
 	}
 
