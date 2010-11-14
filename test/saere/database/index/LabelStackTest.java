@@ -35,7 +35,7 @@ public class LabelStackTest {
 	 * @return The stack as array.
 	 */
 	// Ironically this method assumes that the stack works right...
-	private Label[] asArray(LabelStack stack) {
+	public Label[] asArray(LabelStack stack) {
 		int size = stack.size();
 		Label[] array = new Label[size];
 		int i = 0;

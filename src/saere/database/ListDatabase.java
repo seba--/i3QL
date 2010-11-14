@@ -21,6 +21,7 @@ import saere.database.predicate.DatabasePredicate;
  * @version 0.22, 10/14/2010
  * @see DatabasePredicate#useLists()
  */
+// TODO Add hash maps for IDs...
 public final class ListDatabase extends Database {
 
 	private final static ListDatabase INSTANCE = new ListDatabase();
@@ -66,13 +67,12 @@ public final class ListDatabase extends Database {
 	}
 	
 	@Override
-	public Iterator<Term> getCandidates(Term[] terms) {
-		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
+	public Iterator<Term> query(Term query) {
 		
 		// Get the first term (functor) and ignore the rest, i.e., the 
 		// candidate lists are generally much larger than those composed with 
 		// tries.
-		Deque<Term> predicateList = predicates.get(terms[0].asStringAtom());
+		Deque<Term> predicateList = predicates.get(query.functor());
 		if (predicateList != null) {
 			return predicateList.iterator();
 		} else {

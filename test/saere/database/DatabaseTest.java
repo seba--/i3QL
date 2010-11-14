@@ -9,9 +9,8 @@ import org.junit.runner.JUnitCore;
 import saere.State;
 import saere.Term;
 import saere.database.index.IteratorsTest;
-import saere.database.index.LabelTest;
-import saere.database.index.TermFlattenerTest;
 import saere.database.index.LabelStackTest;
+import saere.database.index.LabelTest;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
 
@@ -31,8 +30,7 @@ public class DatabaseTest {
 		JUnitCore.runClasses(
 			IteratorsTest.class,
 			LabelTest.class,
-			LabelStackTest.class,
-			TermFlattenerTest.class
+			LabelStackTest.class
 		);
 	}
 	

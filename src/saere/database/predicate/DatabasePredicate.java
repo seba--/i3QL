@@ -8,6 +8,7 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
 import saere.database.ListDatabase;
+import saere.meta.GenericCompoundTerm;
 
 /**
  * Represents a database procedure and provides an array-based (i.e., <b>rather 
@@ -38,8 +39,16 @@ public class DatabasePredicate {
 	 * @param terms The predicate arguments.
 	 * @return The {@link Solutions} of this unification.
 	 */
-	public Solutions unify(Term... terms) {
-		return new DatabaseSolutions(terms);
+	public Solutions unify(Term term) {
+		if (arity == term.arity() && functor.sameAs(term.functor())) {
+			Term[] args = new Term[arity];
+			for (int i = 0; i < arity; i++) {
+				args[i] = term.arg(i);
+			}
+			return new DatabaseSolutions(args);
+		} else {
+			return EmptySolutions.getInstance();
+		}
 	}
 
 	@Override
@@ -75,10 +84,7 @@ public class DatabasePredicate {
 		protected DatabaseSolutions(Term[] args) {
 			this.args = args;
 			save();
-			Term[] argsWithFunctor = new Term[args.length + 1];
-			argsWithFunctor[0] = functor;
-			System.arraycopy(args, 0, argsWithFunctor, 1, args.length);
-			iterator = database.getCandidates(argsWithFunctor);
+			iterator = database.query(new GenericCompoundTerm(functor, args));
 		}
 
 		public boolean next() {			

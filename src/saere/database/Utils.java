@@ -1,7 +1,5 @@
 package saere.database;
 
-import java.util.Arrays;
-
 import saere.CompoundTerm;
 import saere.Solutions;
 import saere.Term;
@@ -50,43 +48,60 @@ public final class Utils {
 		
 		return s;
 	}
-
+	
 	/**
-	 * Convenience method that prints out queries.
+	 * Checks wether the specified term is or has at least one variable.
 	 * 
-	 * @param p A database predicate (e.g., <tt>instr/3</tt>)
-	 * @param terms The query as {@link Term}<tt>[]</tt> array.
+	 * @param term The term to check.
+	 * @return <tt>true</tt> if so.
 	 */
-	public static void query(DatabasePredicate p, Term... terms) {
-		
-		System.out.print("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ": ");
-		Stopwatch sw = new Stopwatch();
-
-		Solutions solutions = p.unify(terms);
-		int counter = 0;
-		while (solutions.next()) {
-			for (int i = 0; i < terms.length; i++) {
-				System.out.println(terms[i] + " = " + termToString(terms[i]));
+	public static boolean hasVariable(Term term) {
+		if (term.isVariable()) {
+			return true;
+		} else if (term.isCompoundTerm()) {
+			CompoundTerm ct = term.asCompoundTerm();
+			for (int i = 0; i < ct.arity(); i++) {
+				if (hasVariable(ct.arg(i))) {
+					return true;
+				}
 			}
-			System.out.println();
-			counter++;
 		}
-		System.out.print(counter + " solutions found, ");
-		sw.printElapsed("query");
+		
+		return false;
 	}
 	
+	/**
+	 * Checks wether the specified term is or has at least one free (unbound) 
+	 * variable.
+	 * 
+	 * @param term The term to check.
+	 * @return <tt>true</tt> if so.
+	 */
+	public static boolean hasFreeVariable(Term term) {
+		if (term.isVariable() && !term.asVariable().isInstantiated()) {
+			return true;
+		} else if (term.isCompoundTerm()) {
+			CompoundTerm ct = term.asCompoundTerm();
+			for (int i = 0; i < ct.arity(); i++) {
+				if (hasFreeVariable(ct.arg(i))) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+
 	/**
 	 * Convenience method that summarizes queries.
 	 * 
 	 * @param p A database predicate (e.g., <tt>instr/3</tt>)
-	 * @param terms The query as {@link Term}<tt>[]</tt> array.
+	 * @param query The query.
 	 */
-	public static void queryNoPrint(DatabasePredicate p, Term ... terms) {
-
-		System.out.print("Unification of " + p.toString() + " and " + Arrays.toString(terms) + ": ");
+	public static void query(DatabasePredicate p, Term query) {
+		System.out.print("Query " + termToString(query) + ": ");
 		Stopwatch sw = new Stopwatch();
-		
-		Solutions solutions = p.unify(terms);
+		Solutions solutions = p.unify(query);
 		int counter = 0;
 		while (solutions.next()) {
 			counter++;

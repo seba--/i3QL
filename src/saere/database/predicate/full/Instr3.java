@@ -1,13 +1,15 @@
-package saere.database.index.full;
+package saere.database.predicate.full;
+
+import static saere.database.Utils.hasFreeVariable;
 
 import java.util.Iterator;
 
 import saere.Solutions;
 import saere.State;
 import saere.Term;
-import saere.Variable;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.EmptySolutions;
+import saere.meta.GenericCompoundTerm;
 
 /**
  * Example for a rather short predicate with a very high frequency. Uses tries.
@@ -22,13 +24,14 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 	}
 
 	@Override
-	public Solutions unify(Term... terms) {
-		if (terms.length == arity) {
-			return new Instr3Solutions(terms[0], terms[1], terms[2]);
+	public Solutions unify(Term query) {
+		if (arity == query.arity() && functor.sameAs(query.functor())) {
+			return new Instr3Solutions(query.arg(0), query.arg(1), query.arg(2));
 		} else {
 			return EmptySolutions.getInstance();
 		}
 	}
+
 
 	public Solutions unify(Term arg0, Term arg1, Term arg2) {
 		return new Instr3Solutions(arg0, arg1, arg2);
@@ -45,9 +48,9 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 		private final State s2;
 		
 		// Free variables
-		private final Variable var0;
-		private final Variable var1;
-		private final Variable var2;
+		private final boolean var0;
+		private final boolean var1;
+		private final boolean var2;
 		
 		private Iterator<Term> iterator;
 
@@ -63,23 +66,16 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 			s1 = t1.manifestState();
 			s2 = t2.manifestState();
 			
-			if (t0.isVariable() && !t0.asVariable().isInstantiated()) {
-				var0 = t0.asVariable();
-			} else {
-				var0 = null;
-			}
-			if (t1.isVariable() && !t1.asVariable().isInstantiated()) {
-				var1 = t1.asVariable();
-			} else {
-				var1 = null;
-			}
-			if (t2.isVariable() && !t2.asVariable().isInstantiated()) {
-				var2 = t2.asVariable();
-			} else {
-				var2 = null;
-			}
+			if (hasFreeVariable(t0)) var0 = true;
+			else var0 = false;
 			
-			iterator = database.getCandidates(new Term[] { functor, t0, t1, t2 });
+			if (hasFreeVariable(t1)) var1 = true;
+			else var1 = false;
+			
+			if (hasFreeVariable(t2)) var2 = true;
+			else var2 = false;
+			
+			iterator = database.query(new GenericCompoundTerm(functor, new Term[] { t0, t1, t2 }));
 		}
 		
 		public boolean next() {
@@ -88,15 +84,14 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 			reset();
 
 			if (iterator.hasNext()) {
+				reset();
 				Term fact = iterator.next();
 				
 				// We get only terms that'll unify (no set of 'maybe' candidates)
-				if (var0 != null)
-					var0.bind(fact.arg(0));
-				if (var1 != null)
-					var1.bind(fact.arg(1));
-				if (var2 != null)
-					var2.bind(fact.arg(2));
+				if (var0) t0.unify(fact.arg(0));
+				if (var1) t1.unify(fact.arg(1));
+				if (var2) t2.unify(fact.arg(2));
+				
 				return true;
 			} else {
 				return false;
@@ -104,12 +99,9 @@ public final class Instr3 extends DatabasePredicate implements NoCollision {
 		}
 		
 		private void reset() {
-			if (var0 != null)
-				t0.setState(s0);
-			if (var1 != null)
-				t1.setState(s1);
-			if (var2 != null)
-				t2.setState(s2);
+			if (var0) t0.setState(s0);
+			if (var1) t1.setState(s1);
+			if (var2) t2.setState(s2);
 		}
 	}
 }

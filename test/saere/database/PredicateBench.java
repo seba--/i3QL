@@ -1,32 +1,27 @@
 package saere.database;
 
-import java.util.Arrays;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import saere.IntegerAtom;
-import saere.Solutions;
-import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
-import saere.database.index.map.MapDatabase;
-import saere.database.index.unique.UniqueDatabase;
+import saere.State;
+import saere.database.index.FullFlattener;
+import saere.database.index.ShallowFlattener;
+import saere.database.index.SimpleTrieBuilder;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.Instr3;
 import saere.database.predicate.Method15;
-import saere.database.profiling.Keys;
 
 public class PredicateBench {
 	
+	private static final int MAP_THRESHOLD = 50;
+	
 	private static final Factbase FACTS = Factbase.getInstance();
 	private static final Database LIST_DB = ListDatabase.getInstance();
-	private static final Database MAP_DB = MapDatabase.getInstance();
-	private static final Database UNIQUE_DB = UniqueDatabase.getInstance();
-	
-	private static final Keys KEYS = Keys.getInstance();
+	private static final Database SHALLOW_DB = new TrieDatabase(new SimpleTrieBuilder(new ShallowFlattener(), 50));
+	private static final Database FULL_DB = new TrieDatabase(new SimpleTrieBuilder(new FullFlattener(), 50));
 	
 	// 'Normal' predicates which get sets of candidates (because of collisions)
 	private static final Instr3 INSTR3_NORMAL = new Instr3();
@@ -34,76 +29,51 @@ public class PredicateBench {
 	private static final Method15 METHOD15_NORMAL = new Method15();
 	
 	// Predicates that rely on exact result sets (no collision)
-	private static final saere.database.index.unique.Instr3 INSTR3_UNIQUE = new saere.database.index.unique.Instr3();
-	private static final saere.database.index.unique.ClassFile10 CLASSFILE10_UNIQUE = new saere.database.index.unique.ClassFile10();
-	private static final saere.database.index.unique.Method15 METHOD15_UNIQUE = new saere.database.index.unique.Method15();
+	private static final saere.database.predicate.full.Instr3 INSTR3_NOCOL = new saere.database.predicate.full.Instr3();
+	private static final saere.database.predicate.full.ClassFile10 CLASSFILE10_NOCOL = new saere.database.predicate.full.ClassFile10();
+	private static final saere.database.predicate.full.Method15 METHOD15_NOCOL = new saere.database.predicate.full.Method15();
 	
 	private static final int TEST_RUNS = 3;
-	
-	private static Term[][] instr3Queries;
-	private static Term[][] classfile10Queries;
-	private static Term[][] method15Queries;
 	
 	@BeforeClass
 	public static void initialize() {
 		FACTS.read(DatabaseTest.GLOBAL_TEST_FILE);
 		LIST_DB.fill();
-		MAP_DB.fill();
-		UNIQUE_DB.fill();
-		
-		// Actually a horrible way to build queries...
-		instr3Queries = new Term[][] {
-			new Term[] { v(), v(), v() },
-			new Term[] { sa("m_" + KEYS.getLowestKey("m")), v(), v() },
-			new Term[] { sa("m_" + KEYS.getHighestKey("m")), v(), v() },
-			new Term[] { v(), ia(0), v() }
-		};
+		SHALLOW_DB.fill();
+		FULL_DB.fill();
 	}
 
 	@AfterClass
 	public static void finish() {
 		FACTS.drop();
 		LIST_DB.drop();
-		MAP_DB.drop();
-		UNIQUE_DB.drop();
-		
-		// XXX FIXME flattenForQuery seems buggy
+		SHALLOW_DB.drop();
+		FULL_DB.drop();
 	}
 	
 	@Test
 	public void test1() {
 		for (int i = 0; i < TEST_RUNS; i++) {
 			System.out.println("Test run " + (i + 1) + "...");
-			DatabasePredicate.useDatabase(LIST_DB);
-			for (int j = 0; j < instr3Queries.length; j++) {
-				System.out.print("List: ");
-				Utils.queryNoPrint(INSTR3_NORMAL, instr3Queries[j]);
+			for (int j = 0; j < BATTestQueries.ALL_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_QUERIES[j];
+				State state = query.manifestState();
+				
+				System.out.print("\nList: ");
+				DatabasePredicate.useDatabase(LIST_DB);
+				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Shallow: ");
+				DatabasePredicate.useDatabase(SHALLOW_DB);
+				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Full: ");
+				DatabasePredicate.useDatabase(FULL_DB);
+				Utils.query(INSTR3_NOCOL, BATTestQueries.ALL_QUERIES[j]);
+				query.setState(state);
 			}
-			System.out.println();
-			DatabasePredicate.useDatabase(MAP_DB);
-			for (int j = 0; j < instr3Queries.length; j++) {
-				System.out.print("Map: ");
-				Utils.queryNoPrint(INSTR3_NORMAL, instr3Queries[j]);
-			}
-			System.out.println();
-			DatabasePredicate.useDatabase(UNIQUE_DB);
-			for (int j = 0; j < instr3Queries.length; j++) {
-				System.out.print("Unique: ");
-				Utils.queryNoPrint(INSTR3_UNIQUE, instr3Queries[j]);
-			}
-			System.out.println();
 		}
-	}
-	
-	private static StringAtom sa(String s) {
-		return StringAtom.StringAtom(s);
-	}
-	
-	private static IntegerAtom ia(int i) {
-		return IntegerAtom.IntegerAtom(i);
-	}
-	
-	private static Variable v() {
-		return new Variable();
 	}
 }

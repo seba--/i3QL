@@ -19,6 +19,7 @@ import saere.database.index.TrieBuilder;
  * @author David Sullivan
  * @version 0.2, 9/21/2010
  */
+@Deprecated
 public class TrieInspector {
 	
 	private static final MathContext MC = new MathContext(10, RoundingMode.HALF_UP);
@@ -30,12 +31,12 @@ public class TrieInspector {
 	private double numTries;
 	private double numTerms;
 	
-	public <T> void inspect(Trie<T> trie, TrieBuilder<T> builder) {
+	public  void inspect(Trie trie, TrieBuilder builder) {
 		avgNumChild = new BigDecimal(0, MC);
 		fracTerms = new BigDecimal(0, MC);
 		numTries = numTerms = numLists = 0;
 		
-		Iterator<Trie<T>> iterator = builder.nodeIterator(trie);
+		Iterator<Trie> iterator = builder.nodeIterator(trie);
 		while (iterator.hasNext()) {
 			collectNodeStats(iterator.next());
 		}
@@ -45,20 +46,20 @@ public class TrieInspector {
 		fracTerms = new BigDecimal(numTerms, MC).divide(bigNumTries, MC).multiply(new BigDecimal(100, MC));
 	}
 	
-	public <T> void print(Trie<T> trie, TrieBuilder<T> builder, String filename, boolean small) {
+	public  void print(Trie trie, TrieBuilder builder, String filename, boolean small) {
 		try {
 			Charset charset = Charset.forName("ISO-8859-1");
 			OutputStream out = new FileOutputStream(filename);
 			String shape = small ? "point" : "box";
 			out.write(("digraph \"trie\" {\nnode [ shape = " + shape + ", fontname = \"Verdana\" ];\n").getBytes());
 			
-			Iterator<Trie<T>> iterator = builder.nodeIterator(trie);
+			Iterator<Trie> iterator = builder.nodeIterator(trie);
 			while (iterator.hasNext()) {
 				trie = iterator.next();
 				String trieName = makeTrieName(trie, true);
 				
 				// edges to children (of which actually only the one to the first children exists)
-				Trie<T> child = trie.getFirstChild();
+				Trie child = trie.getFirstChild();
 				while (child != null) {
 					out.write((trieName + " -> " + makeTrieName(child, true) + ";\n").getBytes(charset));
 					child = child.getNextSibling();
@@ -67,8 +68,8 @@ public class TrieInspector {
 				// edges to terms
 				TermList list = trie.getTerms();
 				while (list != null) {
-					out.write((trieName + " -> \"" + /*shorten(*/escape(Utils.termToString(list.getTerm()))/*, 16)*/ + "\";\n").getBytes(charset));
-					list = list.getNext();
+					out.write((trieName + " -> \"" + /*shorten(*/escape(Utils.termToString(list.term()))/*, 16)*/ + "\";\n").getBytes(charset));
+					list = list.next();
 				}
 			}
 		
@@ -79,7 +80,7 @@ public class TrieInspector {
 		}
 	}
 	
-	private <T> String makeTrieName(Trie<T> trie, boolean longName) {
+	private  String makeTrieName(Trie trie, boolean longName) {
 		String name = null;
 		
 		if (longName) {
@@ -100,7 +101,7 @@ public class TrieInspector {
 		return r;
 	}
 	
-	private <T> void collectNodeStats(Trie<T> trie) {
+	private  void collectNodeStats(Trie trie) {
 		numTries++;
 		
 		// count terms...
@@ -109,13 +110,13 @@ public class TrieInspector {
 			numLists++;
 			while (list != null) {
 				numTerms++;
-				list = list.getNext();
+				list = list.next();
 			}
 		}
 		
 		// count children...
 		int numChildren = 0;
-		Trie<T> child = trie.getFirstChild();
+		Trie child = trie.getFirstChild();
 		if (child != null) {
 			numChildren++;
 			child = child.getNextSibling();

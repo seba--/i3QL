@@ -1,7 +1,6 @@
 package saere.database.index;
 
 import static org.junit.Assert.assertTrue;
-import static saere.database.BATTestQueries.ALL_QUERIES;
 import static saere.database.DatabaseTest.contains;
 import static saere.database.DatabaseTest.fill;
 import static saere.database.DatabaseTest.match;
@@ -24,7 +23,6 @@ import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
 import saere.database.TestFacts;
-import saere.database.index.map.MapTrie;
 import saere.database.profiling.TriePrinter;
 import saere.database.profiling.TriePrinter.Mode;
 import saere.meta.GenericCompoundTerm;
@@ -238,24 +236,7 @@ public class IteratorsTest {
 	
 	@Test
 	public void testQueryIterator_FullSimple() {
-		Trie root = Trie.root();
-		
-		/*
-		for (Term fact : TestFacts.ALL_TERMS) {
-			FULL_SIMPLE.insert(fact, root);
-		}
-		*/
-		
-		/*
-		for (Term query : TestFacts.ALL_QUERIES) {
-			System.out.println("\nQuery " + termToString(query) + ":");
-			Iterator<Term> iter = FULL_SIMPLE.iterator(root, query);
-			while (iter.hasNext()) {
-				System.out.println(termToString(iter.next()));
-			}
-		}
-		*/
-		
+		Trie root = Trie.root();		
 		fill(FULL_SIMPLE, root);
 		assertTrue(testQueryIterator(root, FULL_SIMPLE));
 	}

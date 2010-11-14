@@ -5,9 +5,10 @@ import java.util.Iterator;
 import saere.Solutions;
 import saere.State;
 import saere.Term;
+import saere.meta.GenericCompoundTerm;
 
 /**
- * Example for a rather short predicate with a very high frequency. Uses tries.
+ * Example for a rather short predicate with a very high frequency.
  * 
  * @author David Sullivan
  * @version 0.4, 10/12/2010
@@ -19,9 +20,9 @@ public final class Instr3 extends DatabasePredicate {
 	}
 
 	@Override
-	public Solutions unify(Term... terms) {
-		if (terms.length == arity) {
-			return new Instr3Solutions(terms[0], terms[1], terms[2]);
+	public Solutions unify(Term query) {
+		if (arity == query.arity() && functor.sameAs(query.functor())) {
+			return new Instr3Solutions(query.arg(0), query.arg(1), query.arg(2));
 		} else {
 			return EmptySolutions.getInstance();
 		}
@@ -42,6 +43,7 @@ public final class Instr3 extends DatabasePredicate {
 		private final State s2;
 		
 		private Iterator<Term> iterator;
+		private int progress;
 
 		public Instr3Solutions(Term t0, Term t1, Term t2) {
 			assert t0 != null && t1 != null && t2 != null : "A term is null";
@@ -55,32 +57,43 @@ public final class Instr3 extends DatabasePredicate {
 			s1 = t1.manifestState();
 			s2 = t2.manifestState();
 			
-			iterator = database.getCandidates(new Term[] { functor, t0, t1, t2 });
+			iterator = database.query(new GenericCompoundTerm(functor, new Term[] { t0, t1, t2 }));
 		}
 		
 		public boolean next() {
 
 			// restore old states
 			reset();
+			progress = 0;
 
 			while (iterator.hasNext()) {
 				Term fact = iterator.next();
 				
 				// attempt unification...
-				if (arity == fact.arity() && t0.unify(fact.arg(0)) && t1.unify(fact.arg(1)) && t2.unify(fact.arg(2))) {
-					return true;
-				} else {
-					reset();
+				if (arity == fact.arity()) {
+					if (t0.unify(fact.arg(0))) {
+						progress++;
+						if (t1.unify(fact.arg(1))) {
+							progress++;
+							if (t2.unify(fact.arg(2))) {
+								progress++;
+								return true;
+							}
+						}
+					}
 				}
+
+				reset();
+				progress = 0;
 			}
 			
 			return false;
 		}
 		
 		private void reset() {
-			t0.setState(s0);
-			t1.setState(s1);
-			t2.setState(s2);
+			if (progress > 0) t0.setState(s0);
+			if (progress > 1) t1.setState(s1);
+			if (progress > 2) t2.setState(s2);
 		}
 	}
 }

@@ -15,13 +15,14 @@ import saere.database.predicate.DatabasePredicate;
  * @version 0.4, 10/19/2010
  * @see DatabasePredicate#useTries()
  */
-public class TrieDatabase<T> extends Database {
+public class TrieDatabase extends Database {
 
-	private Trie<T> root;
-	private TrieBuilder<T> builder;
+	private Trie root;
+	private TrieBuilder builder;
 
-	protected TrieDatabase() {
-		root = new Trie<T>();
+	public TrieDatabase(TrieBuilder builder) {
+		this.builder = builder;
+		root = Trie.root();
 	}
 	
 	@Override
@@ -31,7 +32,7 @@ public class TrieDatabase<T> extends Database {
 
 	@Override
 	public void drop() {
-		root = new Trie<T>();
+		root = Trie.root();
 		System.gc();
 	}
 
@@ -41,8 +42,7 @@ public class TrieDatabase<T> extends Database {
 	}
 
 	@Override
-	public Iterator<Term> getCandidates(Term[] terms) {
-		assert terms != null && terms.length > 1 && terms[0].isStringAtom() : "Invalid terms specified";
-		return builder.iterator(root, terms);
+	public Iterator<Term> query(Term query) {
+		return builder.iterator(root, query);
 	}
 }

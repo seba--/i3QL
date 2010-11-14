@@ -3,9 +3,7 @@ package saere.database;
 import java.util.Iterator;
 import java.util.List;
 
-import saere.Atom;
 import saere.Term;
-import saere.Variable;
 
 /**
  * Abstract base class for the {@link ListDatabase} and {@link TrieDatabase}.
@@ -54,11 +52,10 @@ public abstract class Database {
 	
 	/**
 	 * Gets an iterator for the candidate set that was composed by the 
-	 * {@link Database} with regards to the query expressed by the specified 
-	 * {@link Term}<tt>[]</tt> parameter.
+	 * {@link Database} with regards to the specified query.
 	 * 
-	 * @param terms An array of {@link Term}s ({@link Atom}s and free {@link Variable}s) that expresses a query.
+	 * @param query The query.
 	 * @return An iterator for the candidates.
 	 */
-	public abstract Iterator<Term> getCandidates(Term[] terms);
+	public abstract Iterator<Term> query(Term query);
 }
