@@ -143,6 +143,6 @@ public class Trie {
 
 	@Override
 	public String toString() {
-		return hashCode() + "/" + (label == null ? "<root>" : label.toString());
+		return hashCode() + ":" + (label == null ? "<root>" : label.toString());
 	}
 }

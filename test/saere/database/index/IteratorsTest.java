@@ -1,9 +1,12 @@
 package saere.database.index;
 
-import static org.junit.Assert.*;
-import static saere.database.BATTestQueries.*;
-import static saere.database.DatabaseTest.*;
-import static saere.database.Utils.*;
+import static org.junit.Assert.assertTrue;
+import static saere.database.BATTestQueries.ALL_QUERIES;
+import static saere.database.DatabaseTest.contains;
+import static saere.database.DatabaseTest.fill;
+import static saere.database.DatabaseTest.match;
+import static saere.database.DatabaseTest.same;
+import static saere.database.Utils.termToString;
 
 import java.io.File;
 import java.util.Deque;
@@ -16,9 +19,11 @@ import org.junit.Test;
 
 import saere.StringAtom;
 import saere.Term;
+import saere.database.BATTestQueries;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
+import saere.database.TestFacts;
 import saere.database.index.map.MapTrie;
 import saere.database.profiling.TriePrinter;
 import saere.database.profiling.TriePrinter.Mode;
@@ -37,17 +42,20 @@ import saere.meta.GenericCompoundTerm;
  */
 public class IteratorsTest {
 	
-	private static final boolean PRINT_QUERY_RESULTS = false;
+	private static final boolean PRINT_QUERY_RESULTS = true;
 	
 	private static final TermFlattener SHALLOW = new ShallowFlattener();
 	private static final TermFlattener FULL = new FullFlattener();
 	
-	private static final TrieBuilder SHALLOW_SIMPLE = new SimpleTrieBuilder(SHALLOW, 10); // 50 seems good
-	private static final TrieBuilder FULL_SIMPLE = null;
+	private static final TrieBuilder SHALLOW_SIMPLE = new SimpleTrieBuilder(SHALLOW, 50); // 50 seems good
+	private static final TrieBuilder FULL_SIMPLE = new SimpleTrieBuilder(FULL, 50);
 	private static final TrieBuilder SHALLOW_COMPLEX = null;
 	private static final TrieBuilder FULL_COMPLEX = null;
 	
 	private static final Factbase FACTS = Factbase.getInstance();
+	
+	/** The BAT and TestFacts queries together. */
+	private static Term[] allQueries;
 	
 	/**
 	 * The test file for this {@link IteratorsTest}. It must be a JAR, ZIP or CLASS 
@@ -78,11 +86,24 @@ public class IteratorsTest {
 	}
 	
 	@BeforeClass
-	public static void readFactsOnce() {
+	public static void initialize() {
 		Stopwatch sw = new Stopwatch();
 		FACTS.drop();
 		FACTS.read(testFile);
 		sw.printElapsed("Reading the facts from " + testFile);
+		
+		for (Term fact : TestFacts.ALL_TERMS) {
+			FACTS.add(fact);
+		}
+		
+		allQueries = new Term[BATTestQueries.ALL_QUERIES.length + TestFacts.ALL_QUERIES.length];
+		int i;
+		for (i = 0; i < BATTestQueries.ALL_QUERIES.length; i++) {
+			allQueries[i] = BATTestQueries.ALL_QUERIES[i];
+		}
+		for (int j = 0; j < TestFacts.ALL_QUERIES.length; j++) {
+			allQueries[j + i] = TestFacts.ALL_QUERIES[j];
+		}
 	}
 
 	/**
@@ -215,9 +236,33 @@ public class IteratorsTest {
 		assertTrue(testQueryIterator(root, SHALLOW_SIMPLE));
 	}
 	
+	@Test
+	public void testQueryIterator_FullSimple() {
+		Trie root = Trie.root();
+		
+		/*
+		for (Term fact : TestFacts.ALL_TERMS) {
+			FULL_SIMPLE.insert(fact, root);
+		}
+		*/
+		
+		/*
+		for (Term query : TestFacts.ALL_QUERIES) {
+			System.out.println("\nQuery " + termToString(query) + ":");
+			Iterator<Term> iter = FULL_SIMPLE.iterator(root, query);
+			while (iter.hasNext()) {
+				System.out.println(termToString(iter.next()));
+			}
+		}
+		*/
+		
+		fill(FULL_SIMPLE, root);
+		assertTrue(testQueryIterator(root, FULL_SIMPLE));
+	}
+	
 	private boolean testQueryIterator(Trie trie, TrieBuilder builder) {
 		boolean error = false;
-		for (Term query : ALL_QUERIES) {
+		for (Term query : allQueries) {
 			System.out.print("\nQuerying for " + termToString(query) + "... ");
 			
 			// Compose the list of expected facts by real unification.
@@ -238,31 +283,71 @@ public class IteratorsTest {
 				actuals.push(iter.next());
 			}
 			
+			boolean success = false;
 			if (builder == SHALLOW_SIMPLE || builder == SHALLOW_COMPLEX) {
 				if (!contains(actuals, expecteds)) {
 					System.out.println("FAILED");
 					error = true;
 				} else {
+					success = true;
 					System.out.println("SUCCEEDED");
 				}
-				System.out.println("Shallow simple query iterator result size " + actuals.size() + ", real result size " + expecteds.size());
 			} else {
 				if (!same(expecteds, actuals)) {
 					System.out.println("FAILED");
 					error = true;
 				} else {
+					success = true;
 					System.out.println("SUCCEEDED");
 				}
 			}
+			System.out.println(builder + " query iterator result size " + actuals.size() + ", real result size " + expecteds.size());
 			
-			if (PRINT_QUERY_RESULTS) {
+			if (PRINT_QUERY_RESULTS && !success) {
 				System.out.println("Query results:");
 				for (Term result : actuals) {
+					System.out.println(termToString(result));
+				}
+				System.out.println("Expected results:");
+				for (Term result : expecteds) {
 					System.out.println(termToString(result));
 				}
 			}
 		}
 		
 		return !error;
+	}
+	
+	@Test
+	public void testVariableIterator() {
+		TrieBuilder builder = FULL_SIMPLE;
+		Trie root = Trie.root();
+		for (Term fact : TestFacts.ALL_TERMS) {
+			builder.insert(fact, root);
+		}
+		
+		TriePrinter.print(root, builder, "c:/users/leaf/desktop/var-trie.gv", Mode.BOX);
+		
+		Trie a2 = root.getFirstChild().getFirstChild();
+		VariableIterator iter = new VariableIterator(a2);
+		List<Trie> actuals = new LinkedList<Trie>();
+		while (iter.hasNext()) {
+			actuals.add(iter.next());
+		}
+		
+		// Manually compose the set of expected nodes w.r.t. TestFacts
+		Trie faxY = root.getFirstChild().getFirstChild().getFirstChild().getFirstChild();
+		Trie faX = root.getFirstChild().getFirstChild().getNextSibling().getFirstChild();
+		Trie faxyZ = root.getFirstChild().getFirstChild().getNextSibling().getNextSibling().getFirstChild().getFirstChild().getFirstChild();
+		Trie fA = root.getFirstChild().getFirstChild().getNextSibling().getNextSibling().getNextSibling();
+		Trie fdxY = root.getFirstChild().getFirstChild().getNextSibling().getNextSibling().getNextSibling().getNextSibling().getFirstChild().getFirstChild();
+		List<Trie> expecteds = new LinkedList<Trie>();
+		expecteds.add(faxY);
+		expecteds.add(faX);
+		expecteds.add(faxyZ);
+		expecteds.add(fA);
+		expecteds.add(fdxY);
+		
+		assertTrue(same(expecteds, actuals));
 	}
 }

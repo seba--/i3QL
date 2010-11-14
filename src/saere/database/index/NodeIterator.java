@@ -16,7 +16,7 @@ public class NodeIterator extends IteratorBase implements Iterator<Trie> {
 	/**
 	 * The next {@link Trie} node. It is set by {@link NodeIterator#findNext()} (only).
 	 */
-	private Trie next;
+	protected Trie next;
 	
 	/**
 	 * Creates a new {@link NodeIterator} and finds the first <tt>next</tt>.

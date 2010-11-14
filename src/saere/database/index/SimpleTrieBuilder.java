@@ -105,8 +105,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 		if (flattener instanceof ShallowFlattener) {
 			return new ShallowSimpleQueryIterator(this, start, flattener.flatten(query));
 		} else if (flattener instanceof FullFlattener) {
-			throw new UnsupportedOperationException("Not yet implemented");
-			//return new FullSimpleQueryIterator(this, start, flattener.flatten(query));
+			return new FullSimpleQueryIterator(this, start, flattener.flatten(query));
 		} else {
 			throw new UnsupportedOperationException("Unexpected term flattener");
 		}

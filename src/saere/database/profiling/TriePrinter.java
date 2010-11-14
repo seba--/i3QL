@@ -80,12 +80,14 @@ public final class TriePrinter {
 	}
 	
 	private static int getId(Trie trie, IdentityHashMap<Trie, Integer> cache, int number) {
+		return trie.hashCode();
+		/*
 		if (cache.containsKey(trie)) {
 			return cache.get(trie);
 		} else {
 			cache.put(trie, number + 1);
 			return number + 1;
-		}
+		}*/
 	}
 	
 	private static String escape(String s) {

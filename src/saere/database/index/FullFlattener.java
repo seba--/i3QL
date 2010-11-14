@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import saere.CompoundTerm;
+import saere.StringAtom;
 import saere.Term;
 
 /**
@@ -50,8 +51,10 @@ public final class FullFlattener extends TermFlattener {
 			}
 		} else { // 'term.isList()'
 			flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
-			flattened.addAll(flattenTerm(term.arg(0)));
-			flattened.addAll(flattenTerm(term.arg(1)));
+			if (!term.functor().sameAs(StringAtom.emptyList)) {
+				flattened.addAll(flattenTerm(term.arg(0)));
+				flattened.addAll(flattenTerm(term.arg(1)));
+			}
 		}
 		
 		return flattened;

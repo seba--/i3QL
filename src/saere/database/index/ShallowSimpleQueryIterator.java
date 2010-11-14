@@ -10,7 +10,7 @@ package saere.database.index;
  * @author David Sullivan
  * @version 0.4, 11/9/2010
  */
-public final class ShallowSimpleQueryIterator extends TermIterator {
+public class ShallowSimpleQueryIterator extends TermIterator {
 	
 	private static final VariableLabel FREE_VARIABLE = VariableLabel.VariableLabel();
 	

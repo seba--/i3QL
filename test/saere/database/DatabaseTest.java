@@ -103,18 +103,20 @@ public class DatabaseTest {
 	}
 	
 	/**
-	 * Fills the root with the builder by using the {@link Factbase}.
+	 * Fills the root with the builder by using the {@link Factbase} and 
+	 * {@link TestFacts}.
 	 * 
 	 * @param builder The builder that inserts.
 	 * @param root The root that gets inserts.
 	 */
 	public static void fill(TrieBuilder builder, Trie root) {
-		Stopwatch sw = new Stopwatch();
+		TrieBuilder.replaceCounter = 0;
 		List<Term> facts = Factbase.getInstance().getFacts();
+		Stopwatch sw = new Stopwatch();
 		for (Term fact : facts) {
 			builder.insert(fact, root);
 		}
-		sw.printElapsed("Filling a " + builder.toString() + " trie with " + facts.size() + " facts");
+		sw.printElapsed("\nFilling a " + builder.toString() + " trie with " + facts.size() + " facts");
 		System.out.println(TrieBuilder.replaceCounter + " replacements");
 	}
 }
