@@ -2,7 +2,10 @@ package saere.database;
 
 import java.util.Iterator;
 
+import saere.StringAtom;
 import saere.Term;
+import saere.database.index.FunctorLabel;
+import saere.database.index.Label;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
 import saere.database.predicate.DatabasePredicate;
@@ -23,6 +26,11 @@ public class TrieDatabase extends Database {
 	public TrieDatabase(TrieBuilder builder) {
 		this.builder = builder;
 		root = Trie.root();
+	}
+	
+	public Iterator<Term> termIterator(StringAtom functor, int arity)  {
+		Label functorLabel = FunctorLabel.FunctorLabel(functor, arity);
+		return builder.iterator(TrieBuilder.getChildByLabel(root, functorLabel));
 	}
 	
 	@Override

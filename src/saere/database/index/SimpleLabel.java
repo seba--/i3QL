@@ -33,7 +33,18 @@ public abstract class SimpleLabel extends Label {
 	}
 	
 	@Override
-	public SimpleLabel[] labels() {
-		throw new UnsupportedOperationException();
+	public Label[] labels() {
+		throw new UnsupportedOperationException("A simple label has only one atom");
+	}
+	
+	@Override
+	public Label split(int index) {
+		throw new UnsupportedOperationException("Cannot split a simple label");
+	}
+	
+	@Override
+	public int match(Label other) {
+		if (this == other) return 1;
+		else return 0;
 	}
 }

@@ -76,7 +76,7 @@ public final class TriePrinter {
 	
 	private static String nodeName(Trie trie, int trieId) {
 		String s = trie.toString();
-		return "\"" + trieId + ":" + s.substring(s.indexOf('/') + 1) + "\"";
+		return "\"" + trieId + ":" + s.substring(s.indexOf(':') + 1) + "\"";
 	}
 	
 	private static int getId(Trie trie, IdentityHashMap<Trie, Integer> cache, int number) {

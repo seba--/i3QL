@@ -44,14 +44,36 @@ public abstract class Label {
 	 */
 	public abstract Atom atom();
 	
+	/**
+	 * Checks wether the tow labels are the same.
+	 * 
+	 * @param other The other label.
+	 * @return <tt>true</tt> if so.
+	 */
 	public boolean sameAs(Label other) {
 		return this == other;
 	}
+	
+	/**
+	 * Checks <i>how much</i> this labels matches the specified other.
+	 * 
+	 * @param other The other complex label.
+	 * @return
+	 */
+	public abstract int match(Label other);
+	
+	/**
+	 * Splits this complex label.
+	 * 
+	 * @param index The split index (index of the element that'll be the first of the second part of the split).
+	 * @return The second part of the split.
+	 */
+	public abstract Label split(int index);
 	
 	/**
 	 * Gets the underlying labels of a complex label.
 	 * 
 	 * @return The underlying labels.
 	 */
-	public abstract SimpleLabel[] labels();
+	public abstract Label[] labels();
 }

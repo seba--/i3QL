@@ -30,14 +30,13 @@ import saere.meta.GenericCompoundTerm;
 /**
  * Test class for the various iterator classes. Note that these tests assume 
  * that associated classes like {@link TermFlattener} or {@link TrieBuilder} 
- * implementations work properly.
+ * implementations work properly. The test may take also relatively long as the 
+ * results have to be validated with real unification.
  * 
  * @author David Sullivan
- * @version 0.3, 11/11/2010
+ * @version 0.4, 11/15/2010
  */
-/*
- * This class also contains some methods/code that are helpful for debbuging...
- */
+
 public class IteratorsTest {
 	
 	private static final boolean PRINT_QUERY_RESULTS = true;
@@ -47,7 +46,7 @@ public class IteratorsTest {
 	
 	private static final TrieBuilder SHALLOW_SIMPLE = new SimpleTrieBuilder(SHALLOW, 50); // 50 seems good
 	private static final TrieBuilder FULL_SIMPLE = new SimpleTrieBuilder(FULL, 50);
-	private static final TrieBuilder SHALLOW_COMPLEX = null;
+	private static final TrieBuilder SHALLOW_COMPLEX = new ComplexTrieBuilder(SHALLOW, 50);
 	private static final TrieBuilder FULL_COMPLEX = null;
 	
 	private static final Factbase FACTS = Factbase.getInstance();
@@ -200,7 +199,7 @@ public class IteratorsTest {
 	 */
 	private boolean testTermIterator(TrieBuilder builder) {
 		if (builder == null) {
-			System.out.println("Trie builder is null");
+			System.out.println("\nTrie builder is null");
 			return false;
 		}
 		
@@ -218,9 +217,8 @@ public class IteratorsTest {
 			actuals.push(iter.next());
 		}
 		
-		//TriePrinter.print(root, builder, "c:/users/leaf/desktop/trie.gv", Mode.BOX);
-		
 		if (!DatabaseTest.same(expecteds, actuals)) {
+			//TriePrinter.print(root, builder, "c:/users/leaf/desktop/trie.gv", Mode.BOX);
 			return false;
 		} else {
 			return true;

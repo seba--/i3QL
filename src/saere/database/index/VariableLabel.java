@@ -45,4 +45,15 @@ public final class VariableLabel extends Label {
 	public String toString() {
 		return "_";
 	}
+
+	@Override
+	public int match(Label other) {
+		if (this == other) return 1;
+		else return 0;
+	}
+
+	@Override
+	public Label split(int index) {
+		throw new UnsupportedOperationException("Cannot split a variable label");
+	}
 }

@@ -5,6 +5,9 @@ import java.util.Iterator;
 import saere.Solutions;
 import saere.State;
 import saere.Term;
+import saere.database.TrieDatabase;
+import saere.database.index.Trie;
+import saere.database.index.TrieBuilder;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -56,6 +59,16 @@ public final class Instr3 extends DatabasePredicate {
 			s0 = t0.manifestState();
 			s1 = t1.manifestState();
 			s2 = t2.manifestState();
+			
+			
+			/*
+			// Check wether we've only unbound variable, in this case we'll take a term iterator (not a term query iterator)
+			if (database instanceof TrieDatabase && t0.isVariable() && !t0.asVariable().isInstantiated() && t1.isVariable() && !t1.asVariable().isInstantiated() && t2.isVariable() && !t2.asVariable().isInstantiated()) {
+				iterator = ((TrieDatabase) database).termIterator(functor, arity);
+			} else {
+				iterator = database.query(new GenericCompoundTerm(functor, new Term[] { t0, t1, t2 }));
+			}
+			*/
 			
 			iterator = database.query(new GenericCompoundTerm(functor, new Term[] { t0, t1, t2 }));
 		}

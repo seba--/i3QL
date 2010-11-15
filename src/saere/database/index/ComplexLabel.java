@@ -3,12 +3,13 @@ package saere.database.index;
 import java.lang.ref.WeakReference;
 
 import saere.Atom;
+import scala.actors.threadpool.Arrays;
 
 public final class ComplexLabel extends Label {
 
-	private SimpleLabel[] labels;
+	private Label[] labels;
 	
-	private ComplexLabel(SimpleLabel[] labels) {
+	private ComplexLabel(Label[] labels) {
 		this.labels = labels;
 	}
 	
@@ -28,10 +29,11 @@ public final class ComplexLabel extends Label {
 	}
 
 	@Override
-	public SimpleLabel[] labels() {
+	public Label[] labels() {
 		return labels;
 	}
 	
+	@Override
 	public ComplexLabel split(int index) {
 		assert index >= 0 && index < labels.length - 1 : "Illegal split index " + index + "(length " + labels.length + ")";
 		
@@ -75,7 +77,7 @@ public final class ComplexLabel extends Label {
 	
 	//@SuppressWarnings("constructorName")
 	@SuppressWarnings("all")
-	public static ComplexLabel ComplexLabel(SimpleLabel[] labels) {
+	public static ComplexLabel ComplexLabel(Label[] labels) {
 		final Label candidate = new ComplexLabel(labels);
 		synchronized (CACHE) {
 			WeakReference<Label> cached = CACHE.get(candidate);
@@ -85,5 +87,29 @@ public final class ComplexLabel extends Label {
 			}
 			return (ComplexLabel) cached.get();
 		}
+	}
+
+	@Override
+	public int match(Label other) {
+		assert other instanceof ComplexLabel : "The specified other label is not a complex label";
+		
+		if (this == other) {
+			return labels.length;
+		} else {
+			int min = Math.min(labels.length, other.length());
+			Label[] others = other.labels();
+			int i;
+			for (i = 0; i < min; i++) {
+				if (!labels[i].sameAs(others[i]))
+					break;
+			}
+			
+			return i;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return Arrays.toString(labels);
 	}
 }

@@ -78,7 +78,8 @@ public class Trie {
 	}
 	
 	public TermList getTerms() {
-		throw new UnsupportedOperationException("This trie node cannot store terms");
+		//throw new UnsupportedOperationException("This trie node cannot store terms");
+		return null;
 	}
 	
 	protected void setTerms(TermList terms) {
@@ -86,7 +87,8 @@ public class Trie {
 	}
 	
 	protected IdentityHashMap<Label, Trie> getMap() {
-		throw new UnsupportedOperationException("This trie node does not hash");
+		// throw new UnsupportedOperationException("This trie node does not hash");
+		return null;
 	}
 	
 	protected void setMap(IdentityHashMap<Label, Trie> map) {

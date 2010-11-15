@@ -29,9 +29,9 @@ public class PredicateBench {
 	private static final Method15 METHOD15_NORMAL = new Method15();
 	
 	// Predicates that rely on exact result sets (no collision)
-	private static final saere.database.predicate.full.Instr3 INSTR3_NOCOL = new saere.database.predicate.full.Instr3();
-	private static final saere.database.predicate.full.ClassFile10 CLASSFILE10_NOCOL = new saere.database.predicate.full.ClassFile10();
-	private static final saere.database.predicate.full.Method15 METHOD15_NOCOL = new saere.database.predicate.full.Method15();
+	private static final saere.database.predicate.full.Instr3 INSTR3_NOCOLL = new saere.database.predicate.full.Instr3();
+	private static final saere.database.predicate.full.ClassFile10 CLASSFILE10_NOCOLL = new saere.database.predicate.full.ClassFile10();
+	private static final saere.database.predicate.full.Method15 METHOD15_NOCOLL = new saere.database.predicate.full.Method15();
 	
 	private static final int TEST_RUNS = 3;
 	
@@ -52,26 +52,66 @@ public class PredicateBench {
 	}
 	
 	@Test
-	public void test1() {
+	public void go() {
 		for (int i = 0; i < TEST_RUNS; i++) {
-			System.out.println("Test run " + (i + 1) + "...");
-			for (int j = 0; j < BATTestQueries.ALL_QUERIES.length; j++) {
-				Term query = BATTestQueries.ALL_QUERIES[j];
+			System.out.println("\nTest run " + (i + 1) + "...");
+			for (int j = 0; j < BATTestQueries.ALL_INSTR_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_INSTR_QUERIES[j];
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
 				DatabasePredicate.useDatabase(LIST_DB);
-				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_QUERIES[j]);
+				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_INSTR_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Shallow: ");
 				DatabasePredicate.useDatabase(SHALLOW_DB);
-				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_QUERIES[j]);
+				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_INSTR_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Full: ");
 				DatabasePredicate.useDatabase(FULL_DB);
-				Utils.query(INSTR3_NOCOL, BATTestQueries.ALL_QUERIES[j]);
+				Utils.query(INSTR3_NOCOLL, BATTestQueries.ALL_INSTR_QUERIES[j]);
+				query.setState(state);
+			}
+			
+			for (int j = 0; j < BATTestQueries.ALL_CLASSFILE_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_CLASSFILE_QUERIES[j];
+				State state = query.manifestState();
+				
+				System.out.print("\nList: ");
+				DatabasePredicate.useDatabase(LIST_DB);
+				Utils.query(CLASSFILE10_NORMAL, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Shallow: ");
+				DatabasePredicate.useDatabase(SHALLOW_DB);
+				Utils.query(CLASSFILE10_NORMAL, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Full: ");
+				DatabasePredicate.useDatabase(FULL_DB);
+				Utils.query(CLASSFILE10_NOCOLL, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				query.setState(state);
+			}
+			
+			for (int j = 0; j < BATTestQueries.ALL_METHOD_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_METHOD_QUERIES[j];
+				State state = query.manifestState();
+				
+				System.out.print("\nList: ");
+				DatabasePredicate.useDatabase(LIST_DB);
+				Utils.query(METHOD15_NORMAL, BATTestQueries.ALL_METHOD_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Shallow: ");
+				DatabasePredicate.useDatabase(SHALLOW_DB);
+				Utils.query(METHOD15_NORMAL, BATTestQueries.ALL_METHOD_QUERIES[j]);
+				query.setState(state);
+				
+				System.out.print("Full: ");
+				DatabasePredicate.useDatabase(FULL_DB);
+				Utils.query(METHOD15_NOCOLL, BATTestQueries.ALL_METHOD_QUERIES[j]);
 				query.setState(state);
 			}
 		}

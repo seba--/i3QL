@@ -99,6 +99,7 @@ public abstract class TrieBuilder {
 	// TODO Track with AspectJ how often does this occur!
 	// Replacement is of course very expensive for hash tries. (Worst case: A hash trie turns into a storage hash trie.)
 	protected static void replace(Trie trie, Trie replacement) {
+		replaceCounter++;
 		
 		// Copy all references OF the old trie to the replacement
 		replacement.setLabel(trie.getLabel()); // actually not necessary
@@ -181,6 +182,23 @@ public abstract class TrieBuilder {
 		return null;
 	}
 	
+	public static Trie getChildByLabel(Trie parent, Label label) {
+		if (parent.hashes()) {
+			return parent.getMap().get(label);
+		} else {
+			Trie child = parent.getFirstChild();
+			while (child != null) {
+				if (child.getLabel().sameAs(label)) {
+					return child;
+				} else {
+					child = child.getNextSibling();
+				}
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Adds the child to parent. Tries to use the {@link #lastChild} field to 
 	 * enable fast adding even for parents without a hash map (and no field for 
@@ -190,7 +208,6 @@ public abstract class TrieBuilder {
 	 * @param child The child to add.
 	 */
 	protected void addChild(Trie parent, Trie child) {
-		replaceCounter++;
 		parent.setChildrenNumber(parent.getChildrenNumber() + 1);
 		if (parent.hashes()) {
 			if (parent.getLastChild() != null) {

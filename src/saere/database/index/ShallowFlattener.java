@@ -5,7 +5,6 @@ import java.util.List;
 
 import saere.CompoundTerm;
 import saere.Term;
-import saere.database.Utils;
 
 /**
  * The {@link ShallowFlattener} flattens terms using their functor and 
