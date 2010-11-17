@@ -11,6 +11,7 @@ import scala.actors.threadpool.Arrays;
  * @author David Sullivan
  * @version 0.7, 10/17/2010
  */
+// XXX Stack can go 'negative'...
 public final class LabelStack {
 	
 	private Label[] labels;
@@ -53,6 +54,13 @@ public final class LabelStack {
 		return value;
 	}
 	
+	/**
+	 * Pops the element more than one positions ahead if the specified number 
+	 * is greater-than 1. <tt>pop(1)</tt> has the same effect as <tt>pop()</tt>.
+	 * 
+	 * @param number The number of elements to pop.
+	 * @return 
+	 */
 	public Label pop(int number) {
 		assert number > 0 && position + number < labels.length : "Illegal number " + number;
 		
@@ -70,8 +78,8 @@ public final class LabelStack {
 	 * Retrieves the first element but does not move the position forward. That 
 	 * is, multiple calls will always return the same first element.<br/>
 	 * <br/>
-	 * <b>Warning: Doesn't differ between an out of bound call and a null 
-	 * element.</b>
+	 * <b>Warning: Doesn't differenciate between an out of bound call and a 
+	 * null element.</b>
 	 * 
 	 * @return The first element.
 	 */
@@ -84,6 +92,13 @@ public final class LabelStack {
 		}
 	}
 	
+	/**
+	 * Peeks more than one positions into the stack if the specified number is 
+	 * greather-than 1. <tt>peek(1)</tt> has the same effect as <tt>peek()</tt>.
+	 * 
+	 * @param number The number of positions to look ahead.
+	 * @return The element at the peeked position.
+	 */
 	public Label peek(int number) {
 		assert number > 0 && position + number < labels.length : "illegal number";
 		
@@ -107,6 +122,13 @@ public final class LabelStack {
 		position = (position > 0) ? (position - 1) : 0;
 	}
 	
+	/**
+	 * Goes more than one positions back with the stack if the specified number 
+	 * is greather-than 1. <tt>back(1)</tt> has the same effect as 
+	 * <tt>back()</tt>.
+	 * 
+	 * @param number The number of steps to go back.
+	 */
 	public void back(int number) {
 		position = (position > (number - 1)) ? (position - number) : 0;
 	}
@@ -132,15 +154,24 @@ public final class LabelStack {
 		return labels.length;
 	}
 	
+	/**
+	 * The underlying array.
+	 * 
+	 * @return The underlying array.
+	 */
 	public Label[] array() {
 		return labels;
 	}
 	
+	/**
+	 * The position pointer of this stack.
+	 * 
+	 * @return The position pointer.
+	 */
 	public int position() {
 		return position;
 	}
 	
-	// XXX Only for debugging!
 	@Override
 	public String toString() {
 		if (size() > 0) {

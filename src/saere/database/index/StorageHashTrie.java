@@ -10,7 +10,7 @@ import saere.Term;
  * @version 0.1, 11/9/2010
  */
 // Multiple inheritance would be nice here...
-public final class StorageHashTrie extends HashTrie {
+public class StorageHashTrie extends HashTrie {
 
 	private TermList terms;
 	
@@ -31,7 +31,7 @@ public final class StorageHashTrie extends HashTrie {
 	}
 	
 	@Override
-	protected void setTerms(TermList terms) {
+	public void setTerms(TermList terms) {
 		this.terms = terms;
 	}
 	

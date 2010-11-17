@@ -7,7 +7,6 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
-import saere.database.ListDatabase;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -27,7 +26,6 @@ public class DatabasePredicate {
 	protected DatabasePredicate(String functor, int arity) {
 		this.functor = StringAtom.StringAtom(functor);
 		this.arity = arity;
-		database = ListDatabase.getInstance(); // use lists by default
 	}
 
 	/**

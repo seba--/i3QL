@@ -45,7 +45,7 @@ public class Trie {
 	 * 
 	 * @param parent The parent of this node.
 	 */
-	protected Trie(Trie parent, Label label) {
+	public Trie(Trie parent, Label label) {
 		this.parent = parent;
 		this.label = label;
 	}
@@ -64,7 +64,7 @@ public class Trie {
 	 * 
 	 * @return <tt>true</tt> if this {@link Trie} uses hash maps.
 	 */
-	protected boolean hashes() {
+	public boolean hashes() {
 		return false;
 	}
 	
@@ -73,8 +73,8 @@ public class Trie {
 	 * 
 	 * @param term The term to add.
 	 */
-	protected void addTerm(Term term) {
-		throw new UnsupportedOperationException("This trie node cannot store terms");
+	public void addTerm(Term term) {
+		throw new UnsupportedOperationException("This trie node cannot store terms: " + term);
 	}
 	
 	public TermList getTerms() {
@@ -82,24 +82,24 @@ public class Trie {
 		return null;
 	}
 	
-	protected void setTerms(TermList terms) {
-		throw new UnsupportedOperationException("This trie node cannot store terms");
+	public void setTerms(TermList terms) {
+		throw new UnsupportedOperationException("This trie node cannot store terms: [" + terms.next() + ",...]");
 	}
 	
-	protected IdentityHashMap<Label, Trie> getMap() {
+	public IdentityHashMap<Label, Trie> getMap() {
 		// throw new UnsupportedOperationException("This trie node does not hash");
 		return null;
 	}
 	
-	protected void setMap(IdentityHashMap<Label, Trie> map) {
+	public void setMap(IdentityHashMap<Label, Trie> map) {
 		throw new UnsupportedOperationException("This trie node does not hash");
 	}
 	
-	protected Trie getParent() {
+	public Trie getParent() {
 		return parent;
 	}
 	
-	protected void setParent(Trie parent) {
+	public void setParent(Trie parent) {
 		this.parent = parent;
 	}
 	
@@ -107,7 +107,7 @@ public class Trie {
 		return firstChild;
 	}
 	
-	protected void setFirstChild(Trie firstChild) {
+	public void setFirstChild(Trie firstChild) {
 		this.firstChild = firstChild;
 	}
 	
@@ -115,36 +115,48 @@ public class Trie {
 		return nextSibling;
 	}
 	
-	protected void setNextSibling(Trie nextSibling) {
+	public void setNextSibling(Trie nextSibling) {
 		this.nextSibling = nextSibling;
 	}
 	
-	protected Label getLabel() {
+	public Label getLabel() {
 		return label;
 	}
 	
-	protected void setLabel(Label label) {
+	public void setLabel(Label label) {
 		this.label = label;
 	}
 	
-	protected int getChildrenNumber() {
+	public int getChildrenNumber() {
 		return childrenNumber;
 	}
 	
-	protected void setChildrenNumber(int childrenNumber) {
+	public void setChildrenNumber(int childrenNumber) {
 		this.childrenNumber = childrenNumber;
 	}
 
-	protected Trie getLastChild() {
+	public Trie getLastChild() {
 		throw new UnsupportedOperationException("This trie node cannot remember the last child");
 	}
 
-	protected void setLastChild(Trie lastChild) {
+	public void setLastChild(Trie lastChild) {
 		throw new UnsupportedOperationException("This trie node cannot remember the last child");
 	}
 
 	@Override
 	public String toString() {
 		return hashCode() + ":" + (label == null ? "<root>" : label.toString());
+	}
+	
+	public boolean multi() {
+		return true;
+	}
+	
+	public Trie getSubtrie() {
+		return null;
+	}
+	
+	public void setSubtrie(Trie subtrie) {
+		throw new UnsupportedOperationException("This trie node cannot have a subtrie");
 	}
 }

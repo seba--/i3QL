@@ -10,7 +10,6 @@ import saere.Atom;
  * @author David Sullivan
  * @version 0.1, 11/9/2010
  */
-// DON'T make this a sublcass of SimpleLabel to (slightly) speedup Matcher.match().
 public final class FunctorLabel extends SimpleLabel {
 	
 	private final int arity;

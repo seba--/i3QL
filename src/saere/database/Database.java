@@ -48,7 +48,7 @@ public abstract class Database {
 	 * 
 	 * @return An iterator for all facts.
 	 */
-	public abstract Iterator<Term> getFacts();
+	public abstract Iterator<Term> terms();
 	
 	/**
 	 * Gets an iterator for the candidate set that was composed by the 

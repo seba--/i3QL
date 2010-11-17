@@ -4,11 +4,12 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import saere.Term;
 import saere.State;
+import saere.Term;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
 import saere.database.index.SimpleTrieBuilder;
+import saere.database.index.reference.ReferenceDatabase;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.DatabasePredicate;
 import saere.database.predicate.Instr3;
@@ -19,9 +20,9 @@ public class PredicateBench {
 	private static final int MAP_THRESHOLD = 50;
 	
 	private static final Factbase FACTS = Factbase.getInstance();
-	private static final Database LIST_DB = ListDatabase.getInstance();
-	private static final Database SHALLOW_DB = new TrieDatabase(new SimpleTrieBuilder(new ShallowFlattener(), 50));
-	private static final Database FULL_DB = new TrieDatabase(new SimpleTrieBuilder(new FullFlattener(), 50));
+	private static final Database REFERENCE_DB = new ReferenceDatabase();
+	private static final Database SHALLOW_DB = new TrieDatabase(new SimpleTrieBuilder(new ShallowFlattener(), MAP_THRESHOLD));
+	private static final Database FULL_DB = new TrieDatabase(new SimpleTrieBuilder(new FullFlattener(), MAP_THRESHOLD));
 	
 	// 'Normal' predicates which get sets of candidates (because of collisions)
 	private static final Instr3 INSTR3_NORMAL = new Instr3();
@@ -38,15 +39,20 @@ public class PredicateBench {
 	@BeforeClass
 	public static void initialize() {
 		FACTS.read(DatabaseTest.GLOBAL_TEST_FILE);
-		LIST_DB.fill();
+		Stopwatch sw = new Stopwatch();
+		REFERENCE_DB.fill();
+		sw.printElapsedAndReset("Filling the reference database");
 		SHALLOW_DB.fill();
+		sw.printElapsedAndReset("Filling the (shallow) trie database");
 		FULL_DB.fill();
+		sw.printElapsedAndReset("Filling the (full) trie database");
+		//FactsPrinter.print("c:/users/leaf/desktop/facts.txt");
 	}
 
 	@AfterClass
 	public static void finish() {
 		FACTS.drop();
-		LIST_DB.drop();
+		REFERENCE_DB.drop();
 		SHALLOW_DB.drop();
 		FULL_DB.drop();
 	}
@@ -60,7 +66,7 @@ public class PredicateBench {
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				DatabasePredicate.useDatabase(LIST_DB);
+				DatabasePredicate.useDatabase(REFERENCE_DB);
 				Utils.query(INSTR3_NORMAL, BATTestQueries.ALL_INSTR_QUERIES[j]);
 				query.setState(state);
 				
@@ -80,7 +86,7 @@ public class PredicateBench {
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				DatabasePredicate.useDatabase(LIST_DB);
+				DatabasePredicate.useDatabase(REFERENCE_DB);
 				Utils.query(CLASSFILE10_NORMAL, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
 				query.setState(state);
 				
@@ -100,7 +106,7 @@ public class PredicateBench {
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				DatabasePredicate.useDatabase(LIST_DB);
+				DatabasePredicate.useDatabase(REFERENCE_DB);
 				Utils.query(METHOD15_NORMAL, BATTestQueries.ALL_METHOD_QUERIES[j]);
 				query.setState(state);
 				

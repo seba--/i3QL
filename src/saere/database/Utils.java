@@ -109,4 +109,13 @@ public final class Utils {
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
 	}
+	
+	private static String escape(String s) {
+		String r = new String(s);
+		r = r.replace('\n', ' ');
+		r = r.replace('\r', ' ');
+		r = r.replace('"', '\'');
+		r = r.replace('\\', '/');
+		return r;
+	}
 }
