@@ -44,21 +44,21 @@
 		
 test(yf_successful) :- 
 	tokenize_string(":- op(300,yf,$).X = (a $ $ + b ).",Ts),
-	clauses(
-		Ts,
-		[ct(pos([], 1, 18), =, [
-			v(pos([], 1, 16), 'X'), 
-			ct(pos([], 1, 27), +, [
-				ct(pos([], 1, 25), $, [
-					ct(pos([], 1, 23), $, [
-						a(pos([], 1, 21), a)])]), 
-				a(pos([], 1, 29), b)])])]).
+	clauses(Ts,Clauses),
+	Clauses =	
+		[ct(_, ':-', [ct(_, op, [i(_, 300), a(_, yf), a(_, $)])]),
+		 ct(_, '=', [
+			v(_, 'X'),ct(_, +, [ct(_, $, [ct(_, $, [a(_, a)])]),a(_, b)])
+			]
+		 )
+	   ].
 	
 test(xf_successful) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
 	clauses(
 		Ts,
-		[ct(pos([], 1, 18), =, [
+		[ct(_, ':-', [ct(_, op, [i(_, 300), a(_, xf), a(_, $)])]),
+		 ct(pos([], 1, 18), =, [
 			v(pos([], 1, 16), 'X'), 
 			ct(pos([], 1, 25), +, [
 				ct(pos([], 1, 23), $, [a(pos([], 1, 21), a)]), 

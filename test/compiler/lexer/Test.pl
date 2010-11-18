@@ -1,5 +1,38 @@
-/* Tests the lexer. */
+/* License (BSD Style License):
+   Copyright (c) 2010
+   Department of Computer Science
+   Technische Universität Darmstadt
+   All rights reserved.
 
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+
+    - Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    - Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    - Neither the name of the Software Technology Group or Technische 
+      Universität Darmstadt nor the names of its contributors may be used to 
+      endorse or promote products derived from this software without specific 
+      prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGE.
+*/
+
+/**
+	Tests the lexer. 
+*/
 :- ensure_loaded('src/compiler/Lexer.pl').
 
 
@@ -72,14 +105,7 @@ test(	report_comments,
 
 test(	report_sc_comments,
 		[true(Ts=[
-			sc([
-					tf('A', pos(_, 3, 8)),tf(structured, pos(_, 3, 10)),  tf('comment.', pos(_, 3, 21)), '<'(pos(_,3,29)),tf(br, pos(_, 3, 30)), '/'(pos(_,3,33)), '>'(pos(_,3,34)), 
-					 tf('A', pos(_, 4, 8)),  tf('link:', pos(_, 4, 10)),'{'(pos(_, 4, 16)), @(pos(_, 4, 17)), tf(link, pos(_, 4, 18)), tf(tokenize_with_sc, pos(_, 4, 23)), '/'(pos(_,4,39)), tf('2', pos(_, 4, 40)), '}'(pos(_, 4, 41)), 
-					@(pos(_, 6, 8)), tf(signature, pos(_, 6, 9)), tf(tokenize, pos(_, 6, 19)), '('(pos(_, 6, 27)), tf('Stream', pos(_, 6, 28)), ','(pos(_, 6, 34)), tf('Tokens', pos(_, 6, 35)),','(pos(_, 6, 41)), tf('No', pos(_, 6, 42)), ')'(pos(_, 6, 44)), 
-					@(pos(_, 7, 8)), tf(arg, pos(_, 7, 9)), tf('No', pos(_, 7, 13)), tf(a, pos(_, 7, 16)), tf(number, pos(_, 7, 18)), 
-					@(pos(_, 8, 8)), tf(arg, pos(_, 8, 9)), '('(pos(_, 8, 12)), tf(in, pos(_, 8, 13)), ')'(pos(_, 8, 15)), tf('Stream', pos(_, 8, 17)), tf(a, pos(_, 8, 24)), tf(stream, pos(_, 8, 26)), 
-					@(pos(_, 9, 8)), tf(arg, pos(_, 9, 9)), '('(pos(_, 9, 12)), tf(out, pos(_, 9, 13)), ')'(pos(_, 9, 16)), tf('Tokens', pos(_, 9, 18)), tf(the, pos(_, 9, 25)), tf(tokens, pos(_, 9, 29))
-				], 
+			sc(['\n', '\t', 'A', ' ', s, t, r|_], 
 				pos(_, 2, 0))
 			])
 		]

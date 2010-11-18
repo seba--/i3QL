@@ -59,7 +59,7 @@
 	<br/>
 	The precise data structures that are used to store the AST
 	are an implementation detail of this module. This enables the
-	exchange of the underlying data structure(s) whenever necessary.
+	exchange/evolution of the underlying data structure(s) whenever necessary.
 	In particular, code that uses the AST must not make assumptions about
 	the order and the way the predicates are stored, how clauses are stored, and
 	in which way the properties of a clause or predicate are handled. <i>The 
@@ -81,6 +81,19 @@
 		term_pos/2,
 		add_term_to_ast/3,
 		add_predicates_to_ast/3,
+		is_directive/1,
+		is_variable/1,
+		is_anonymous_variable/1,
+		is_integer_atom/1,
+		is_float_atom/1,
+		is_numeric_atom/1,
+		variable_node/3,
+		anonymous_variable_node/3,
+		integer_atom_node/3,
+		float_atom_node/3,
+		string_atom_node/3,
+		complex_term_node/4,
+		
 		
 		write_ast/2,
 		write_clauses/1,
@@ -123,6 +136,55 @@
 */
 empty_ast([]).
 
+
+/**
+	Succeeds if ASTNode represents a directive. (A complex term, with the functor 
+	":-" and one argument.)
+	
+	@signature is_anonymous_variable(ASTNode)
+*/
+is_directive(ct(_Meta, ':-',[_Directive])).
+
+
+/**
+	Succeeds if ASTNode represents the declaration of a named variable; i.e.,
+	a variable that is not anonymous.
+	
+	@signature is_variable(ASTNode)
+*/
+is_variable(v(_Meta,_Name)).
+
+
+/**
+	Succeeds if ASTNode represents the declaration of an anonymous variable.
+	
+	@signature is_anonymous_variable(ASTNode)
+*/
+is_anonymous_variable(av(_Meta,_Name)).
+
+
+/**
+	Succeeds if ASTNode represents a numeric value/atom.
+	
+	@signature is_numeric_atom(ASTNode)
+*/
+is_numeric_atom(ASTNode) :- once((is_integer_atom(ASTNode) ; is_float_atom(ASTNode))).
+
+
+/**
+	Succeeds if ASTNode represents an integer value/atom.
+	
+	@signature is_integer_atom(ASTNode)
+*/
+is_integer_atom(i(_Meta,_Value)).
+
+
+/**
+	Succeeds if ASTNode represents a floating point value/atom.
+	
+	@signature is_float_atom(ASTNode)
+*/
+is_float_atom(r(_Meta,_Value)).
 
 
 /**
@@ -184,20 +246,34 @@ add_predicates_to_ast(AST,[],AST).
 
 
 /**
-	VariableNode is a term that represents a variable definition <code>v(Pos,VariableName)</code>. 
+	VariableNode is a term that represents a variable definition 
+	<code>v(Meta,VariableName)</code>. 
 	The name of the variable is determined by concatenating the BaseQualifier and 
-	the ID. The associated source code position is determined by Pos.<br />
+	the ID. The associated meta information (e.g., the position of the variable
+	in the source code is determined by Meta.<br />
 	This predicate is typically used to create new variable nodes.
 	
 	@signature variable_node(Pos,BaseQualifier,Id,VariableNode)
-	@arg Pos A position object.
+	@arg Meta Meta-information associated with the variable.
 	@arg(atom) BaseQualifier Some atom.
 	@arg(atom) Id Some atom.
-	@arg VariableNode A variable node.
+	@arg VariableNode A AST node representing the definition of a non-anonymous 
+		variable.
 */
-variable_node(Pos,BaseQualifier,Id,v(Pos,VariableName)) :-
+variable_node(Meta,BaseQualifier,Id,v(Meta,VariableName)) :-
 	atom_concat(BaseQualifier,Id,VariableName).	
 
+variable_node(Pos,Name,v([Pos|_],Name)).
+
+anonymous_variable_node(Pos,Name,av([Pos|_],Name)).
+
+integer_atom_node(Pos,Value,i([Pos|_],Value)).
+
+float_atom_node(Pos,Value,r([Pos|_],Value)).
+
+string_atom_node(Pos,Value,a([Pos|_],Value)).
+
+complex_term_node(Pos,Functor,ASTNodes,ct([Pos|_],Functor,ASTNodes)).
 
 
 /**
