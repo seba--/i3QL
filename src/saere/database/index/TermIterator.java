@@ -85,7 +85,7 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		super.resetTo(newStart);
 		findNext();
 	}

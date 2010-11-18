@@ -46,8 +46,8 @@ public class Trie {
 	 * @param parent The parent of this node.
 	 */
 	public Trie(Trie parent, Label label) {
-		this.parent = parent;
-		this.label = label;
+		setParent(parent);
+		setLabel(label);
 	}
 	
 	/**
@@ -100,6 +100,7 @@ public class Trie {
 	}
 	
 	public void setParent(Trie parent) {
+		assert this != parent : "Parent is the same as this";
 		this.parent = parent;
 	}
 	
@@ -108,6 +109,7 @@ public class Trie {
 	}
 	
 	public void setFirstChild(Trie firstChild) {
+		assert this != firstChild : "First child is the same as this";
 		this.firstChild = firstChild;
 	}
 	
@@ -116,6 +118,7 @@ public class Trie {
 	}
 	
 	public void setNextSibling(Trie nextSibling) {
+		assert this != nextSibling : "Next sibling is the same as this";
 		this.nextSibling = nextSibling;
 	}
 	

@@ -99,7 +99,7 @@ public abstract class IteratorBase {
 	 * 
 	 * @param newStart The new start node from where the iteration begins.
 	 */
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		assert current == null : "Tried to reset iterator in unfinished state";
 		start = newStart;
 		current = start;

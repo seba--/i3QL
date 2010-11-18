@@ -50,6 +50,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 					Term arg = term.arg(i);
 					if (arg.isCompoundTerm()) {
 						// Can never store a term because at least on atom node follows
+						// FIXME BUT IT CAN BE THE LAST ARGUMENT!
 						MultiTrie multi = new MultiTrie(parent, FunctorLabel.FunctorLabel(arg.functor(), arg.arity()));
 						insert(arg, multi.getSubtrie()); // Recursion: We open another dimension. Watch out for lists!
 						addChild(parent, multi);
@@ -81,8 +82,6 @@ public final class MultiTrieBuilder extends TrieBuilder {
 				for (int i = 0; i < term.arity(); i++) {
 					Term arg = term.arg(i);
 					if (arg.isCompoundTerm()) {
-						// Can never store a term because at least on atom node follows
-						insert(arg, parent.getSubtrie()); // Recursion: We open another dimension. Watch out for lists!
 						
 						if (parent.getFirstChild() == null) {
 							MultiTrie multiTrie = new MultiTrie(parent, FunctorLabel.FunctorLabel(arg.functor(), arg.arity()));
@@ -93,10 +92,12 @@ public final class MultiTrieBuilder extends TrieBuilder {
 							Trie searchedChild = getChild(parent, argLabel);
 							if (searchedChild == null) {
 								searchedChild = new MultiTrie(parent, argLabel);
-								addChild(parent, searched);
+								addChild(parent, searchedChild);
 							}
 							parent = searchedChild;
 						}
+						// Can never store a term because at least on atom node follows
+						insert(arg, parent.getSubtrie()); // Recursion: We open another dimension. Watch out for lists!
 					} else {
 						// Term is integer or string atom
 						if (i == term.arity() - 1) {
@@ -144,6 +145,11 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		
 		return parent; // XXX ???
 	}
+	
+	@Override
+	public Iterator<Term> iterator(Trie start) {
+		return new MultiTrieTermIterator(start);
+	}
 
 	@Override
 	public Iterator<Term> iterator(Trie start, Term query) {
@@ -181,7 +187,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 				trie = trie.getNextSibling();
 			}
 			
-		} else if (parent.getMap() != null) {
+		} else if (parent.getMap() != null) { // XXX Was parent.getChildrenNumber() > mapThreshold
 			parent.getMap().put(child.getLabel(), child);
 		}
 	}

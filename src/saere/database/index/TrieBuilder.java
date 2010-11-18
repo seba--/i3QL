@@ -71,7 +71,7 @@ public abstract class TrieBuilder {
 	 * @param start The start node (usually the root).
 	 * @return A term iterator for the (sub-)trie.
 	 */
-	public final Iterator<Term> iterator(Trie start) {
+	public Iterator<Term> iterator(Trie start) {
 		return new TermIterator(start);
 	}
 	
@@ -82,7 +82,7 @@ public abstract class TrieBuilder {
 	 * @param start The trie node where the iteration starts.
 	 * @return A trie node iterator for the (sub-)trie.
 	 */
-	public final Iterator<Trie> nodeIterator(Trie start) {
+	public Iterator<Trie> nodeIterator(Trie start) {
 		return new NodeIterator(start);
 	}
 	
