@@ -152,7 +152,7 @@ public class Trie {
 	}
 	
 	public boolean multi() {
-		return true;
+		return false;
 	}
 	
 	public Trie getSubtrie() {

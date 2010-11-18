@@ -11,9 +11,10 @@ import saere.database.index.Label;
 import saere.database.index.StorageTrie;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
-import scala.serializable;
+import saere.term.EmptyList0;
 
 // XXX Many code fragments that are almost the same...
+// Storing is only
 public final class MultiTrieBuilder extends TrieBuilder {
 
 	public MultiTrieBuilder(int mapThreshold) {
@@ -24,126 +25,134 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	public Trie insert(Term term, Trie start) {
 		current = start;
 		
-		Label label;
-		if (term.arity() == 0) {
-			label = AtomLabel.AtomLabel(term.functor());
-		} else {
-			label = FunctorLabel.FunctorLabel(term.functor(), term.arity());
-		}
+		//return insert(term, start, 0);
 		
-		// The previous argument (on the same level/dimension)
-		Trie parent;
+		Label label = label(term);
+		
+		// The previous argument (on the same level/dimension), i.e., the parent
+		Trie prevArg;
 		
 		Trie searched = getChild(start, label);
 		if (searched == null) {
 			if (term.arity() == 0) {
-				// Term is integer or string atom
-				searched = new StorageTrie(start, label, term); // Store term at leaf
+				// Term is integer or string atom, simply create a storage trie to store atom
+				searched = new StorageTrie(start, label, term); // Store term(s) at leaf node
 				addChild(start, searched);
 				return searched;
 			} else {
-				// We have a compound term
-				searched = new MultiTrie(start, label);
+				
+				// We need nodes for a compound term (no nodes at all exist), create functor and argument nodes
+				searched = new MultiTrie(start, label, term); // Store term(s) at functor node (e.g., f/2 stores everything that satisfies f(X,Y))
 				addChild(start, searched);
-				parent = searched;
+				prevArg = searched;
 				for (int i = 0; i < term.arity(); i++) {
 					Term arg = term.arg(i);
+					
 					if (arg.isCompoundTerm()) {
-						// Can never store a term because at least on atom node follows
-						// FIXME BUT IT CAN BE THE LAST ARGUMENT!
-						MultiTrie multi = new MultiTrie(parent, FunctorLabel.FunctorLabel(arg.functor(), arg.arity()));
-						insert(arg, multi.getSubtrie()); // Recursion: We open another dimension. Watch out for lists!
-						addChild(parent, multi);
-						parent = multi;
+						
+						MultiTrie multi = new MultiTrie(prevArg, label(arg), arg);
+						addChild(prevArg, multi);
+						
+						 // Recursion: We open another dimension. Watch out for lists!
+						insert(arg, multi.getSubtrie());
+						
+						// If this is the last argument we store the term here, otherwise proceed
+						if (i == term.arity() - 1) {
+							multi.addTerm(term);
+							return multi;
+						} else {
+							prevArg = multi;
+						}
+						
 					} else {
+						
 						// Term is integer or string atom
 						if (i == term.arity() - 1) {
-							// We must store a term (and the loop ends here)
-							StorageTrie storageTrie = new StorageTrie(parent, AtomLabel.AtomLabel(atom(arg)), term);
-							addChild(parent, storageTrie);
+							// We must store a term here at the last argument
+							StorageTrie storageTrie = new StorageTrie(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
+							addChild(prevArg, storageTrie);
 							return storageTrie;
 						} else {
-							Trie trie = new Trie(parent, AtomLabel.AtomLabel(atom(arg)));
-							addChild(parent, trie);
-							parent = trie;
+							Trie trie = new Trie(prevArg, AtomLabel.AtomLabel(atom(arg)));
+							addChild(prevArg, trie);
+							prevArg = trie;
 						}
 					}
 				}
 			}
+			
 		} else {
+			
 			// The searched child exists
 			if (term.arity() == 0) {
 				// Term is integer or string atom (and here MUST be a storage trie)
 				searched.addTerm(term);
 				return searched;
 			} else {
-				// We have a compound term
-				parent = searched;
+				
+				// We have a compound term, at least the functor node exists and some argument nodes, but not necessarily the appropriate for this term
+				prevArg = searched;
+				searched.addTerm(term);
 				for (int i = 0; i < term.arity(); i++) {
 					Term arg = term.arg(i);
+					
 					if (arg.isCompoundTerm()) {
 						
-						if (parent.getFirstChild() == null) {
-							MultiTrie multiTrie = new MultiTrie(parent, FunctorLabel.FunctorLabel(arg.functor(), arg.arity()));
-							addChild(parent, multiTrie);
-							parent = parent.getFirstChild();
-						} else {
-							Label argLabel = FunctorLabel.FunctorLabel(arg.functor(), arg.arity());
-							Trie searchedChild = getChild(parent, argLabel);
-							if (searchedChild == null) {
-								searchedChild = new MultiTrie(parent, argLabel);
-								addChild(parent, searchedChild);
-							}
-							parent = searchedChild;
+						// Argument is compound term, search for an appropiate child
+						Label argLabel = label(arg);
+						Trie searchedChild = getChild(prevArg, argLabel);
+						if (searchedChild == null) {
+							// We don't have an appropriate child, create and add one
+							searchedChild = new MultiTrie(prevArg, argLabel, arg);
+							addChild(prevArg, searchedChild);
 						}
-						// Can never store a term because at least on atom node follows
-						insert(arg, parent.getSubtrie()); // Recursion: We open another dimension. Watch out for lists!
-					} else {
-						// Term is integer or string atom
+						
+						// Recursion: We open another dimension to store the term part. Watch out for lists!
+						insert(arg, prevArg.getSubtrie());
+						
+						// If this is the last argument we store the term here
 						if (i == term.arity() - 1) {
-							if (parent.getFirstChild() == null) {
-								Trie trie = new StorageTrie(parent, AtomLabel.AtomLabel(atom(arg)), term);
-								addChild(parent, trie);
-								return trie;
+							searchedChild.addTerm(term);
+							return searchedChild;
+						} else {
+							prevArg = searchedChild;
+						}
+						
+					} else {
+						
+						// Argument is an integer or string atom, search for an appropiate child
+						Label argLabel = label(arg);
+						Trie searchedChild = getChild(prevArg, argLabel);
+						
+						if (i == term.arity() - 1) {
+							
+							// This is the last argument, we store the term here, otherwise proceed
+							if (searchedChild == null) {
+								// We don't have an appropriate child, create and add one
+								searchedChild = new StorageTrie(prevArg, argLabel, term);
+								addChild(prevArg, searchedChild);
 							} else {
-								Label argLabel = AtomLabel.AtomLabel(atom(arg));
-								Trie searchedChild = getChild(parent, argLabel);
-								if (searchedChild == null) {
-									searchedChild = new StorageTrie(parent, argLabel, term);
-									addChild(parent, searchedChild);
-									return searchedChild;
-								} else {
-									searchedChild.addTerm(term);
-									return searchedChild;
-								}
+								assert searchedChild instanceof StorageTrie : "Storage trie expected";
+								searchedChild.addTerm(term);
 							}
-						} else {							
-							if (parent.getFirstChild() == null) {
-								Trie trie = new Trie(parent, AtomLabel.AtomLabel(atom(arg)));
-								addChild(parent, trie);
-								parent = parent.getFirstChild();
-							} else {
-								Label argLabel = AtomLabel.AtomLabel(atom(arg));
-								Trie searchedChild = getChild(parent, argLabel);
-								if (searchedChild == null) {
-									if (i == term.arity() - 1) {
-										searchedChild = new StorageTrie(parent, argLabel, term);
-										addChild(parent, searchedChild);
-										return searchedChild;
-									} else {
-										searchedChild = new Trie(parent, argLabel);
-										addChild(parent, searchedChild);
-									}
-								}
-								parent = searchedChild;
+							
+							return searchedChild;
+						} else {
+							// Some inner argument
+							if (searchedChild == null) {
+								searchedChild = new Trie(prevArg, argLabel);
+								addChild(prevArg, searchedChild);
 							}
+							
+							prevArg = searchedChild;
 						}
 					}
 				}
 			}
 		}
 		
-		return parent; // XXX ???
+		assert false : "We shouldn't be here, Sam.";
+		return null;
 	}
 	
 	@Override
@@ -175,7 +184,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		
 		// Transform to hash trie node?
 		parent.setChildrenNumber(parent.getChildrenNumber() + 1);
-		if (parent.getChildrenNumber() == mapThreshold) {
+		if (parent.getChildrenNumber() == mapThreshold && parent.getParent() != null) {
 			
 			HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), null);
 			replace(parent, hashTrie);
@@ -187,7 +196,8 @@ public final class MultiTrieBuilder extends TrieBuilder {
 				trie = trie.getNextSibling();
 			}
 			
-		} else if (parent.getMap() != null) { // XXX Was parent.getChildrenNumber() > mapThreshold
+		} else if (parent.getChildrenNumber() > mapThreshold && parent.getParent() != null) { // XXX Was parent.getMap() != null // NOT this way we use maps from the start, which is bad!
+			assert parent.getChildrenNumber() > mapThreshold : "Attempt to using map before threshold is reached: " + parent + " with " + parent.getChildrenNumber() + " children";
 			parent.getMap().put(child.getLabel(), child);
 		}
 	}
@@ -209,9 +219,160 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		
 		return null;
 	}
+	
+	private Trie insert(Term term, Trie start, int dimension) {
+		current = start;
+		System.out.println("dimension=" + dimension);
+		
+		Label label = label(term);
+		
+		// The previous argument (on the same level/dimension), i.e., the parent
+		Trie prevArg;
+		
+		Trie searched = getChild(start, label);
+		if (searched == null) {
+			if (term.arity() == 0) {
+				// Term is integer or string atom, simply create a storage trie to store atom
+				searched = new StorageTrie(start, label, term); // Store term(s) at leaf node
+				addChild(start, searched);
+				return searched;
+			} else {
+				
+				// We need nodes for a compound term (no nodes at all exist), create functor and argument nodes
+				searched = new MultiTrie(start, label, term); // Store term(s) at functor node (e.g., f/2 stores everything that satisfies f(X,Y))
+				addChild(start, searched);
+				prevArg = searched;
+				for (int i = 0; i < term.arity(); i++) {
+					Term arg = term.arg(i);
+					
+					if (arg.isCompoundTerm()) {
+						
+						MultiTrie multi = new MultiTrie(prevArg, label(arg), arg);
+						addChild(prevArg, multi);
+						
+						 // Recursion: We open another dimension. Watch out for lists!
+						insert(arg, multi.getSubtrie(), dimension + 1);
+						
+						// If this is the last argument we store the term here, otherwise proceed
+						if (i == term.arity() - 1) {
+							multi.addTerm(term);
+							return multi;
+						} else {
+							prevArg = multi;
+						}
+						
+					} else {
+						
+						// Term is integer or string atom
+						if (i == term.arity() - 1) {
+							// We must store a term here at the last argument
+							StorageTrie storageTrie = new StorageTrie(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
+							addChild(prevArg, storageTrie);
+							return storageTrie;
+						} else {
+							Trie trie = new Trie(prevArg, AtomLabel.AtomLabel(atom(arg)));
+							addChild(prevArg, trie);
+							prevArg = trie;
+						}
+					}
+				}
+			}
+			
+		} else {
+			
+			// The searched child exists
+			if (term.arity() == 0) {
+				// Term is integer or string atom (and here MUST be a storage trie)
+				searched.addTerm(term);
+				return searched;
+			} else {
+				
+				// We have a compound term, at least the functor node exists and some argument nodes, but not necessarily the appropriate for this term
+				prevArg = searched;
+				searched.addTerm(term);
+				for (int i = 0; i < term.arity(); i++) {
+					Term arg = term.arg(i);
+					
+					if (arg.isCompoundTerm()) {
+						
+						// Argument is compound term, search for an appropiate child
+						Label argLabel = label(arg);
+						Trie searchedChild = getChild(prevArg, argLabel);
+						if (searchedChild == null) {
+							// We don't have an appropriate child, create and add one
+							searchedChild = new MultiTrie(prevArg, argLabel, arg);
+							addChild(prevArg, searchedChild);
+						}
+						
+						// Recursion: We open another dimension to store the term part. Watch out for lists!
+						insert(arg, prevArg.getSubtrie(), dimension + 1);
+						
+						// If this is the last argument we store the term here
+						if (i == term.arity() - 1) {
+							searchedChild.addTerm(term);
+							return searchedChild;
+						} else {
+							prevArg = searchedChild;
+						}
+						
+					} else {
+						
+						// Argument is an integer or string atom, search for an appropiate child
+						Label argLabel = label(arg);
+						Trie searchedChild = getChild(prevArg, argLabel);
+						
+						if (i == term.arity() - 1) {
+							
+							// This is the last argument, we store the term here, otherwise proceed
+							if (searchedChild == null) {
+								// We don't have an appropriate child, create and add one
+								searchedChild = new StorageTrie(prevArg, argLabel, term);
+								addChild(prevArg, searchedChild);
+							} else {
+								assert searchedChild instanceof StorageTrie : "Storage trie expected";
+								searchedChild.addTerm(term);
+							}
+							
+							return searchedChild;
+						} else {
+							// Some inner argument
+							if (searchedChild == null) {
+								searchedChild = new Trie(prevArg, argLabel);
+								addChild(prevArg, searchedChild);
+							}
+							
+							prevArg = searchedChild;
+						}
+					}
+				}
+			}
+		}
+		
+		assert false : "We shouldn't be here, Sam.";
+		return null;
+	}
 		
 	private Atom atom(Term term) {
-		assert term.isIntegerAtom() || term.isStringAtom() : "Term is not an atom: " + term;
-		return term.isIntegerAtom() ? term.asIntegerAtom() : term.asStringAtom();
+		assert term.isIntegerAtom() || term.isStringAtom() || term instanceof EmptyList0 : "Term is not an atom or empty list: " + term;
+		
+		if (term.isIntegerAtom()) {
+			return term.asIntegerAtom();
+		} else {
+			return term.functor();
+		}
+	}
+	
+	/**
+	 * Creates the appropriate label (functor label or atom label) for the specified term.
+	 * 
+	 * @param term The term for which a label is wanted.
+	 * @return The label for the term.
+	 */
+	private Label label(Term term) {
+		if (term.isCompoundTerm()) {
+			return FunctorLabel.FunctorLabel(term.functor(), term.arity());
+		} else {
+			return AtomLabel.AtomLabel(atom(term.functor()));
+		}
 	}
 }

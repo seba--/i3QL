@@ -38,7 +38,7 @@ public final class Stopwatch {
      */
     public void printElapsed(String taskName) {
         long elapsed = System.nanoTime() - start;
-        System.out.println(taskName + " took " + (elapsed / 1000) + " microseconds");
+        System.out.println(taskName + " took " + (elapsed / 1000) + " microseconds"); // changed from milliseconds to microseconds
     }
 
     /**
