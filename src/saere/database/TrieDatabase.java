@@ -45,7 +45,7 @@ public class TrieDatabase extends Database {
 	}
 
 	@Override
-	public Iterator<Term> getFacts() {
+	public Iterator<Term> terms() {
 		return builder.iterator(root);
 	}
 

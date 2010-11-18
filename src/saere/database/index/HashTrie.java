@@ -30,17 +30,17 @@ public class HashTrie extends Trie {
 	}
 	
 	@Override
-	protected void setLastChild(Trie lastChild) {
+	public void setLastChild(Trie lastChild) {
 		this.lastChild = lastChild;
 	}
 	
 	@Override
-	protected IdentityHashMap<Label, Trie> getMap() {
+	public IdentityHashMap<Label, Trie> getMap() {
 		return map;
 	}
 	
 	@Override
-	protected void setMap(IdentityHashMap<Label, Trie> map) {
+	public void setMap(IdentityHashMap<Label, Trie> map) {
 		this.map = map;
 	}
 }

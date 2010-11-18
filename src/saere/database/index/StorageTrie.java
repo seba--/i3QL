@@ -36,7 +36,7 @@ public final class StorageTrie extends Trie {
 	}
 	
 	@Override
-	protected void setTerms(TermList terms) {
+	public void setTerms(TermList terms) {
 		this.terms = terms;
 	}
 	

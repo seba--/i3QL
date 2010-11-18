@@ -24,13 +24,19 @@ import saere.database.index.TrieBuilder;
 public class DatabaseTest {
 	
 	public static final String DATA_PATH = "test" + File.separator + "data";
-	public static final String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "opal-0.5.0.jar";
+	public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "opal-0.5.0.jar";
+	//public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "HelloWorld.class";
 	
 	public static void main(String[] args) {
+		if (args.length == 1) {
+			GLOBAL_TEST_FILE = args[0];
+		}
+		
 		JUnitCore.runClasses(
 			IteratorsTest.class,
 			LabelTest.class,
-			LabelStackTest.class
+			LabelStackTest.class,
+			PredicateBench.class
 		);
 	}
 	

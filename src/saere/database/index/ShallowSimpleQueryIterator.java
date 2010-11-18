@@ -12,10 +12,12 @@ package saere.database.index;
  */
 public class ShallowSimpleQueryIterator extends TermIterator {
 	
-	private static final VariableLabel FREE_VARIABLE = VariableLabel.VariableLabel();
+	/** Reference to the label singleton for free variables. */
+	protected static final VariableLabel FREE_VARIABLE = VariableLabel.VariableLabel();
 	
 	private final TrieBuilder builder;
-	private final LabelStack stack;
+	
+	protected final LabelStack stack;
 	
 	/**
 	 * Creates a new query iterator for simple shallow tries.
@@ -56,6 +58,7 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 					}
 					nextNode();
 				} else {
+					
 					/*
 					 * No match, check if there can be a match at all.
 					 * If so, jump directly to the matching sibling.

@@ -305,7 +305,7 @@ public class IteratorsTest {
 			builder.insert(fact, root);
 		}
 		
-		TriePrinter.print(root, builder, "c:/users/leaf/desktop/var-trie.gv", Mode.BOX);
+		//TriePrinter.print(root, builder, "c:/users/leaf/desktop/var-trie.gv", Mode.BOX);
 		
 		Trie a2 = root.getFirstChild().getFirstChild();
 		VariableIterator iter = new VariableIterator(a2);
