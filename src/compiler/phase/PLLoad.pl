@@ -145,7 +145,7 @@ normalize_term(Term0,ct(MI,':-',[Head,OptimizedBody])) :-
 	@arg(out) Clause A valid top-level clause.
 */
 as_clause(
-		ct(MI,Functor,Args), % a fact
+		ct(MI,Functor,Args), % FIXME... a rule without a body
 		ct(MI,':-',[ct(MI,Functor,Args),a(MI,'true')])
 ) :- Functor \= (':-'),!.
 as_clause(
@@ -174,13 +174,13 @@ normalize_arguments(_,_,[],[],Body,Body) :- !.
 normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	(
 		(	
-			HArg \= v(_MI,_)
+			\+ is_variable(HArg)
 		;
-			HArg = v(_VMI,VariableName),
+			is_variable(HArg),
 			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
-			term_pos(HArg,MI),
-			variable_node(MI,'&H',Id,NewVariableNode),
+			term_meta(HArg,MI), 
+			variable_node('&H',Id,MI,NewVariableNode),
 			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
 			NewBody = ct(MI,',',[ct(MI,'=',[NewVariableNode,HArg]),RestOfBody])
 		;	

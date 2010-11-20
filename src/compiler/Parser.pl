@@ -112,7 +112,7 @@ clauses(Ts,Cs) :-
 		X=[],! % the parser succeeded (all tokens were accepted).
 	;
 		X=[T|_], % the parser failed while parsing the statement beginnig with T
-		token_position(T,pos(File,LN,CN)),
+		token_position(T,File,LN,CN),
 		atomic_list_concat([File,':',LN,':',CN,': error: syntax error\n'],MSG), % GCC compliant
 	   write(MSG),
 		fail 
@@ -242,6 +242,14 @@ default_op_table(
  *                                                                            *
 \* ************************************************************************** */
 
+
+parser_error(ASTNode,MessageFragments) :-
+	term_pos(ASTNode,File,LN,CN),
+   atomic_list_concat(MessageFragments,EM),	
+   atomic_list_concat([File,':',LN,':',CN,': error: ',EM,'\n'],MSG), % GCC compliant
+   write(MSG).
+
+
 /*
 	The following pseudocode shows the underlying approach to parse Prolog terms 
 	using Definite Clause Grammars (DCGs). 
@@ -283,7 +291,7 @@ clauses(Ops,Clauses) -->
 				Ops = NewOps
 			),
 			Clauses = [Clause|OtherClauses]
-		;	% the clause is not valid
+		;	% the clause is not valid; let's ignore it
 			Clauses = OtherClauses,
 			Ops = NewOps
 	},
@@ -296,34 +304,57 @@ clauses(_Ops,[]) --> {true}.
 % TODO check that no standard SAE Prolog operator is redefined
 % TODO support the removal / redefinition of operators
 % TODO check for discontiguous predicate definitions
-process_directive(
-		ops(PrefixOps,InfixOps,PostfixOps),
-		ct(Pos,':-',[ct(_,op,[i(_,Priority), a(_, Specifier), a(_, Op)])]),
-		ops(NewPrefixOps,NewInfixOps,NewPostfixOps)
-) :- !,
-	write('Operator definition: '),write(Op),nl,
+process_directive(Ops,Directive,NewOps) :- 
+	directive(Directive,GoalNode),	
+	complex_term(GoalNode,Goal,Args),
+	% IMPROVE (error) messages	
+	(
+		(
+			Goal = op,
+			process_op_directive(Args,Ops,NewOps)
+		;
+			Goal = module,
+			Ops = NewOps,
+			parser_error(Goal,['modules are not (yet) supported and module declarations are ignored'])
+		;
+			Goal = use_module,
+			Ops = NewOps,
+			parser_error(Goal,['modules are not (yet) supported and module declarations are ignored'])
+		;
+			Goal = ('discontiguous'),
+			Ops = NewOps,
+			parser_error(Goal,['the discontiguous directive is not yet supported'])
+		),
+		!
+	;
+		Ops = NewOps,	
+		parser_error(GoalNode,['unknown directive: ',Goal])
+	).
+	
+	
+process_op_directive([PriorityNode,SpecifierNode,OperatorNode],ops(PrefixOps,InfixOps,PostfixOps),ops(NewPrefixOps,NewInfixOps,NewPostfixOps)) :- 
+	integer_atom(PriorityNode,Priority),
+	string_atom(SpecifierNode,Specifier),
+	string_atom(OperatorNode,Operator),
 	(  (Specifier = fx ; Specifier = fy),!,
-		NewPrefixOps = [op(Priority,Specifier,Op)|PrefixOps],
+		NewPrefixOps = [op(Priority,Specifier,Operator)|PrefixOps],
 		NewInfixOps = InfixOps,
 		NewPostfixOps = PostfixOps
 	;	(Specifier = xfx ; Specifier = xfy ; Specifier = yfx),!,
 		NewPrefixOps = PrefixOps,
-		NewInfixOps = [op(Priority,Specifier,Op)|InfixOps],
+		NewInfixOps = [op(Priority,Specifier,Operator)|InfixOps],
 		NewPostfixOps = PostfixOps
 	;	(Specifier = xf ; Specifier = yf),!,
 		NewPrefixOps = PrefixOps,
 		NewInfixOps = InfixOps,
-		NewPostfixOps = [op(Priority,Specifier,Op)|PostfixOps]
+		NewPostfixOps = [op(Priority,Specifier,Operator)|PostfixOps]
 	;
-		% IMPROVE error message
-		write('Illegal specifier: '),write(Pos),write(Specifier),nl,
+		parser_error(SpecifierNode,['unknown specifier: ',Specifier]),
 		NewPrefixOps = PrefixOps,
 		NewInfixOps = InfixOps,
 		NewPostfixOps = PostfixOps
 	).
-process_directive(Ops,ct(Pos,':-',[Directive]),Ops) :- !,
-	% IMPROVE error message
-	write('Unknown/unsupported directive: '),write(Pos),write(Directive),nl.
+
 
 
 /**
@@ -387,7 +418,8 @@ term(Ops,MaxPriority,Term,TermPriority) -->
 		)
 	}, 
 	term(Ops,MaxSubTermPriority,SubTerm,_SubTermPriority), 
-	term_r(Ops,MaxPriority,ct(Pos,Op,[SubTerm]),Priority,Term,TermPriority).
+	{ complex_term(Op,[SubTerm],Pos,LeftTerm) },
+	term_r(Ops,MaxPriority,LeftTerm,Priority,Term,TermPriority).
 
 /**
 	@signature term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority)
@@ -414,7 +446,7 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		;	% (Associativity = xfx; Associativity = yfx),
 			Priority > RightTermPriority
 		),
-		IntermediateTerm = ct(Pos,Op,[LeftTerm,RightTerm])
+		complex_term(Op,[LeftTerm,RightTerm],Pos,IntermediateTerm)
 	},
 	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
@@ -424,9 +456,10 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 			Priority > LeftTermPriority 
 		; 	% Associativity = yf 
  			Priority >= LeftTermPriority 
-		)
+		),
+		complex_term(Op,[LeftTerm],Pos,InnerLeftTerm)
 	},
-	term_r(Ops,MaxPriority,ct(Pos,Op,[LeftTerm]),Priority,Term,TermPriority).
+	term_r(Ops,MaxPriority,InnerLeftTerm,Priority,Term,TermPriority).
 term_r(_Ops,_MaxPriority,T,TP,T,TP) --> [].
 
 
@@ -452,7 +485,7 @@ postfix_op(ops(_,_,PostfixOps),Op,Pos) -->
 
 
 elementary_term(_Ops,V) --> var(V),{!}.
-elementary_term(Ops,CT) --> complex_term(Ops,CT),{!}.
+elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}.
 elementary_term(Ops,LT) --> list(Ops,LT),{!}.
 elementary_term(Ops,T) --> 
 	['('(_OPos)],
@@ -469,14 +502,14 @@ elementary_term(_Ops,A) --> atom(A),{!}.
 
 
 
-atom(a(Pos,A)) --> [a(A,Pos)],{!}. 
-atom(i(Pos,I)) --> [i(I,Pos)],{!}.
-atom(r(Pos,F)) --> [r(F,Pos)].%,{!}.
+atom(ASTNode) --> [a(A,Pos)],{!,string_atom(A,Pos,ASTNode)}. 
+atom(ASTNode) --> [i(I,Pos)],{!,integer_atom(I,Pos,ASTNode)}.
+atom(ASTNode) --> [r(F,Pos)],{float_atom(F,Pos,ASTNode)}.
 
 
 
-var(v(Pos,V)) --> [v(V,Pos)],{!}.
-var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
+var(ASTNode) --> [v(V,Pos)],{!,variable(V,Pos,ASTNode)}.
+var(ASTNode) --> [av(V,Pos)],{anonymous_variable(V,Pos,ASTNode)}.
 
 
 
@@ -497,40 +530,40 @@ var(av(Pos,V)) --> [av(V,Pos)].%,{!}.
 	?- [a,b,c|d] = .(a,.(b,.(c,d))).
 	true.
 */
-list(Ops,T) --> ['['(Pos)], list_2(Ops,Pos,T), {!}.
+list(Ops,ASTNode) --> ['['(Pos)], list_2(Ops,Pos,ASTNode), {!}.
 
 
-list_2(_Ops,Pos,a(Pos,'[]')) --> [']'(_Pos)], {!}.
-list_2(Ops,Pos,ct(Pos,'.',[E,Es])) --> 
+list_2(_Ops,Pos,ASTNode) --> [']'(_Pos)], {!,string_atom([],Pos,ASTNode)}.
+list_2(Ops,Pos,ASTNode) --> 
 	term(Ops,999,E,_TermPriority),
 	list_elements_2(Ops,Es),
-	{!}. % we can commit to the current term (E)
+	{!,complex_term('.',[E,Es],Pos,ASTNode)}. % we can commit to the current term (E)
 
 
-list_elements_2(_Ops,LE) --> [']'(Pos)], {!,LE=a(Pos,'[]')}.	
-list_elements_2(Ops,LE) --> 
+list_elements_2(_Ops,ASTNode) --> [']'(Pos)], {!,string_atom([],Pos,ASTNode)}.	
+list_elements_2(Ops,ASTNode) --> 
 	[a('|',_)], {!},
-	term(Ops,1200,LE,_TermPriority),
+	term(Ops,1200,ASTNode,_TermPriority),
 	[']'(_Pos)],
 	{!}. % we can commit to the current term (LE)
-list_elements_2(Ops,LE) --> 
+list_elements_2(Ops,ASTNode) --> 
 	[a(',',Pos)], {!},
 	term(Ops,999,E,_TermPriority),
 	list_elements_2(Ops,Es),
-	{!,LE=ct(Pos,'.',[E,Es])}. % we can commit to the current term (E)
+	{!,complex_term('.',[E,Es],Pos,ASTNode)}. % we can commit to the current term (E)
 
 
 
 
 /*
-	HANDLING OF COMPLEX TERMS
+	HANDLING OF COMPOUND/COMPLEX TERMS
 */
-complex_term(Ops,ct(Pos,F,[T|TRs])) --> 
+compound_term(Ops,ASTNode) --> 
 	[f(F,Pos)],
 	['('(_)],
 	term(Ops,999,T,_TermPriority), % a complex term has at least one argument
 	arguments_2(Ops,TRs),
-	{!}. % we can commit to the current term (T) and the other arguments (TRs)
+	{!,complex_term(F,[T|TRs],Pos,ASTNode)}. % we can commit to the current term (T) and the other arguments (TRs)
 
 
 arguments_2(_Ops,[]) --> [')'(_)],{!}.

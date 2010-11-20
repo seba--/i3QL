@@ -110,5 +110,17 @@ test('benchmarks/tak.pl') :-
 test('benchmarks/zebra.pl') :-
 	tokenize_file('benchmarks/zebra.pl',Ts),clauses(Ts,_P).
 
+
+% Let's test if we can parse our own code
+
+test('src/compiler/Lexer.pl') :-
+	tokenize_file('src/compiler/Lexer.pl',Ts),clauses(Ts,_P).
+
+test('src/compiler/Parser.pl') :-
+	tokenize_file('src/compiler/Parser.pl',Ts),clauses(Ts,_P).
+
+test('src/compiler/AST.pl') :-
+	tokenize_file('src/compiler/AST.pl',Ts),clauses(Ts,_P).
+
 		
 :- end_tests(parser_overall).

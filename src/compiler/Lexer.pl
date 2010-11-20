@@ -136,18 +136,9 @@
       tokenize_with_c/2,
       operator_char/1,
 		parenthesis/1,
-		token_position/2
+		token_position/4
    ]
 ).
-
-
-
-/**
-	Pos is the position of a token. Token is a token as produced by the lexer.
-*/
-token_position(Token,Pos) :- Token =.. [_TokenType,_TokenInstance,Pos],!.
-token_position(Token,Pos) :- Token =.. [_Parenthesis,Pos],!.
-token_position(Token,_Pos) :- throw(internal_error('unsupported token type',Token)).
 
 
 
@@ -338,6 +329,14 @@ parenthesis('{').
 parenthesis('}').
 
 
+/**
+	Token is a token as produced by the lexer.
+*/
+token_position(Token,File,LN,CN) :- Token =.. [_TokenType,_TokenInstance,pos(File,LN,CN)],!.
+token_position(Token,File,LN,CN) :- Token =.. [_Parenthesis,pos(File,LN,CN)],!.
+token_position(Token,_File,_LN,_CN) :- throw(internal_error('unsupported token type',Token)).
+
+
 
 /* ************************************************************************** *\
  *                P R I V A T E     I M P L E M E N T A T I O N               *
@@ -387,7 +386,7 @@ token_with_position(sc(T),File,LN,CN,sc(T,pos(File,LN,CN))) :- !.
 token_with_position(eolc(T),File,LN,CN,eolc(T,pos(File,LN,CN))) :- !.
 token_with_position(mlc(T),File,LN,CN,mlc(T,pos(File,LN,CN))) :- !.
 % The following clause should never be reached!
-token_with_position(T,File,LN,CN,T) :- 
+token_with_position(T,_File,_LN,_CN,T) :- 
 	throw(internal_error('unknown token type',T)).
 
 

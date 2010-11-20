@@ -43,24 +43,24 @@
 
 test('V=(a,b)') :- % (a,b) is an anonymous tuple
 	tokenize_string("V=(a,b).",Ts),
-	clauses(Ts,[ct(pos([], 1, 1), =, [v(pos([], 1, 0), 'V'), ct(pos([], 1, 4), ',', [a(pos([], 1, 3), a), a(pos([], 1, 5), b)])])]).
+	clauses(Ts,[ct([pos([], 1, 1)|_], =, [v([pos([], 1, 0)|_], 'V'), ct([pos([], 1, 4)|_], ',', [a([pos([], 1, 3)|_], a), a([pos([], 1, 5)|_], b)])])]).
 
 test(', as an atom') :- 
 	tokenize_string("X=a(,,,).",Ts),
 	clauses(
 		Ts,
-		[ct(pos([], 1, 1), =, [
-			v(pos([], 1, 0), 'X'),
-			ct(pos([], 1, 2), a, [
-				a(pos([], 1, 4), ','), 
-				a(pos([], 1, 6), ',')])])]).
+		[ct([pos([], 1, 1)|_], =, [
+			v([pos([], 1, 0)|_], 'X'),
+			ct([pos([], 1, 2)|_], a, [
+				a([pos([], 1, 4)|_], ','), 
+				a([pos([], 1, 6)|_], ',')])])]).
 
 test('operator as functor') :- 
 	tokenize_string("\\+ \\+(a,b).",Ts),
-	clauses(Ts,[ct(pos([], 1, 0), \+, [ct(pos([], 1, 3), \+, [a(pos([], 1, 6), a), a(pos([], 1, 8), b)])])]).
+	clauses(Ts,[ct([pos([], 1, 0)|_], \+, [ct([pos([], 1, 3)|_], \+, [a([pos([], 1, 6)|_], a), a([pos([], 1, 8)|_], b)])])]).
 
 test('escaped operators') :- 
 	tokenize_string("'-' \\+(a,b).",Ts),
-	clauses(Ts,[ct(pos([], 1, 0), -, [ct(pos([], 1, 4), \+, [a(pos([], 1, 7), a), a(pos([], 1, 9), b)])])]).
+	clauses(Ts,[ct([pos([], 1, 0)|_], -, [ct([pos([], 1, 4)|_], \+, [a([pos([], 1, 7)|_], a), a([pos([], 1, 9)|_], b)])])]).
 		
 :- end_tests(parser_corner_cases).

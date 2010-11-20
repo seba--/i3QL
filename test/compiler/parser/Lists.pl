@@ -44,25 +44,25 @@
 
 test(
 	empty_list,
-	[	true(P=[a(pos(_,1,0),[])])	]
+	[	true(P=[a([pos(_,1,0)|_],[])])	]
 ) :- tokenize_string("[].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_one_element,
-	[	true(P=[ct(_,'.',[av(pos(_,1,1),'_'),a(_,[])])]) ]
+	[	true(P=[ct(_,'.',[av([pos(_,1,1)|_],'_'),a(_,[])])]) ]
 ) :- tokenize_string("[_].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_multiple_elements,
-	[	true(P=[ct(pos([], 1, 0), ., [a(pos([], 1, 1), a), ct(pos([], 1, 2), ., [a(pos([], 1, 3), b), ct(pos([], 1, 4), ., [a(pos([], 1, 5), c), ct(pos([], 1, 6), ., [ct(pos([], 1, 9), ;, [a(pos([], 1, 8), d), a(pos([], 1, 10), e)]), a(pos([], 1, 12), [])])])])])])]
+	[	true(P=[ct([pos([], 1, 0)|_], ., [a([pos([], 1, 1)|_], a), ct([pos([], 1, 2)|_], ., [a([pos([], 1, 3)|_], b), ct([pos([], 1, 4)|_], ., [a([pos([], 1, 5)|_], c), ct([pos([], 1, 6)|_], ., [ct([pos([], 1, 9)|_], ;, [a([pos([], 1, 8)|_], d), a([pos([], 1, 10)|_], e)]), a([pos([], 1, 12)|_], [])])])])])])]
 ) :- tokenize_string("[a,b,c,(d;e)].",Ts),clauses(Ts,P).
 
 
 test(
 	list_with_a_open_tail,
-	[	true(P = [ct(pos([], 1, 0), '.', [ct(pos([], 1, 3), ;, [a(pos([], 1, 2), a), a(pos([], 1, 4), e)]), v(pos([], 1, 7), 'T')])])]
+	[	true(P = [ct([pos([], 1, 0)|_], '.', [ct([pos([], 1, 3)|_], ;, [a([pos([], 1, 2)|_], a), a([pos([], 1, 4)|_], e)]), v([pos([], 1, 7)|_], 'T')])])]
 ) :- tokenize_string("[(a;e)|T].",Ts),clauses(Ts,P).
 
 
@@ -70,22 +70,22 @@ test(
 	list_with_a_complex_term_as_a_tail,
 	[	
 		true(P=[
-			ct(pos([], 1, 0), ., [
-				ct(pos([], 1, 3), ;, [a(pos([], 1, 2), a), a(pos([], 1, 4), e)]),
-				ct(pos([], 1, 6), ., [
-					a(pos([], 1, 7), b), 
-					ct(pos([], 1, 10), ;, [
-						a(pos([], 1, 9), a), 
-						ct(pos([], 1, 12), ,, [
-							a(pos([], 1, 11), e), 
-							a(pos([], 1, 13), b)])])])])])
+			ct([pos([], 1, 0)|_], ., [
+				ct([pos([], 1, 3)|_], ;, [a([pos([], 1, 2)|_], a), a([pos([], 1, 4)|_], e)]),
+				ct([pos([], 1, 6)|_], ., [
+					a([pos([], 1, 7)|_], b), 
+					ct([pos([], 1, 10)|_], ;, [
+						a([pos([], 1, 9)|_], a), 
+						ct([pos([], 1, 12)|_], ,, [
+							a([pos([], 1, 11)|_], e), 
+							a([pos([], 1, 13)|_], b)])])])])])
 	]
 ) :- tokenize_string("[(a;e),b|a;e,b].",Ts),clauses(Ts,P).
 	
 	
 test(empty_list_as_an_argument) :- 
 	tokenize_string("f([]).",Ts),
-	clauses(Ts,[ct(pos([], 1, 0), f, [a(pos([], 1, 2), [])])]).		
+	clauses(Ts,[ct([pos([], 1, 0)|_], f, [a([pos([], 1, 2)|_], [])])]).		
 
 
 test(normalization_of_lists) :- 

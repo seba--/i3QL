@@ -77,8 +77,24 @@
 	'SAEProlog:Compiler:AST',
 	[	
 		empty_ast/1,
-		variable_node/4,
+		variable/2,
+		variable/3,
+		variable/4,
+		anonymous_variable/2,
+		anonymous_variable/3,
+		integer_atom/2,	
+		integer_atom/3,
+		float_atom/2,		
+		float_atom/3,
+		string_atom/2,
+		string_atom/3,
+		complex_term/3,		
+		complex_term/4,
+		directive/2,
+
+		term_meta/2,
 		term_pos/2,
+		term_pos/4,
 		add_term_to_ast/3,
 		add_predicates_to_ast/3,
 		is_directive/1,
@@ -87,13 +103,6 @@
 		is_integer_atom/1,
 		is_float_atom/1,
 		is_numeric_atom/1,
-		variable_node/3,
-		anonymous_variable_node/3,
-		integer_atom_node/3,
-		float_atom_node/3,
-		string_atom_node/3,
-		complex_term_node/4,
-		
 		
 		write_ast/2,
 		write_clauses/1,
@@ -140,10 +149,29 @@ empty_ast([]).
 /**
 	Succeeds if ASTNode represents a directive. (A complex term, with the functor 
 	":-" and one argument.)
+	<p>
+	A directive is never a rule and vice versa.
+	</p>
 	
-	@signature is_anonymous_variable(ASTNode)
+	@signature is_directive(ASTNode)
 */
 is_directive(ct(_Meta, ':-',[_Directive])).
+
+/**
+	@signature directive(Directive_ASTNode,Goal)
+*/
+directive(ct(_Meta,':-',[Goal]),Goal).
+
+
+
+is_rule(Clause) :- is_rule_with_body(Clause),!.
+is_rule(Clause) :- is_rule_without_body(Clause),!.
+
+
+is_rule_with_body(ct(_Meta,':-',[_Head,_Body])).
+is_rule_without_body(Clause) :- 
+	\+ is_directive(Clause),
+	Clause = ct(_Meta,_Functor,[_Arg]).
 
 
 /**
@@ -219,7 +247,7 @@ add_term_to_ast(_AST,Term,_NewAST) :-
 
 
 /**
-	Adds information about built-in predicates to the AST.
+	Adds the information about the built-in predicates to the AST.
 
 	@signature add_predicates_to_ast(AST,Predicates,NewAST)
 	@arg(in) AST The current AST.
@@ -244,36 +272,104 @@ add_predicates_to_ast(AST,[pred(ID,Properties)|Preds],NewAST) :- !,
 add_predicates_to_ast(AST,[],AST).
 
 
+/**
+	@signature variable(Variable_ASTNode,Name)
+*/
+variable(v(_Meta,Name),Name).
 
 /**
-	VariableNode is a term that represents a variable definition 
+	This predicate is intended to be used for creating new AST nodes representing
+	variable declarations.<br />
+	To extract the position information later on, use {@link #term_pos/2}.
+*/
+variable(Name,Pos,v([Pos|_],Name)).
+
+/**
+	ASTNode is a term that represents a variable definition 
 	<code>v(Meta,VariableName)</code>. 
 	The name of the variable is determined by concatenating the BaseQualifier and 
 	the ID. The associated meta information (e.g., the position of the variable
 	in the source code is determined by Meta.<br />
 	This predicate is typically used to create new variable nodes.
 	
-	@signature variable_node(Pos,BaseQualifier,Id,VariableNode)
+	@signature variable_node(Pos,BaseQualifier,Id,ASTNode)
 	@arg Meta Meta-information associated with the variable.
 	@arg(atom) BaseQualifier Some atom.
 	@arg(atom) Id Some atom.
-	@arg VariableNode A AST node representing the definition of a non-anonymous 
+	@arg ASTNode An AST node representing the definition of a non-anonymous 
 		variable.
 */
-variable_node(Meta,BaseQualifier,Id,v(Meta,VariableName)) :-
+variable(BaseQualifier,Id,Meta,v(Meta,VariableName)) :-
 	atom_concat(BaseQualifier,Id,VariableName).	
 
-variable_node(Pos,Name,v([Pos|_],Name)).
 
-anonymous_variable_node(Pos,Name,av([Pos|_],Name)).
+/**
+	@signature anonymous_variable(AnonymousVariable_ASTNode,Name)
+*/
+anonymous_variable(av(_Meta,Name),Name).
 
-integer_atom_node(Pos,Value,i([Pos|_],Value)).
+/**
+	@signature anonymous_variable(Name,Pos,AnonymousVariable_ASTNode)
+*/
+anonymous_variable(Name,Pos,av([Pos|_],Name)).
 
-float_atom_node(Pos,Value,r([Pos|_],Value)).
 
-string_atom_node(Pos,Value,a([Pos|_],Value)).
+/**
+	@signature integer_atom(IntegerAtom_ASTNode,Value)
+*/
+integer_atom(i(_Meta,Value),Value).
 
-complex_term_node(Pos,Functor,ASTNodes,ct([Pos|_],Functor,ASTNodes)).
+/**
+	@signature integer_atom(Value,Pos,IntegerAtom_ASTNode)
+*/
+integer_atom(Value,Pos,i([Pos|_],Value)).
+
+
+/**
+	@signature float_atom(FloatAtom_ASTNode,Value)
+*/
+float_atom(r(_Meta,Value),Value).
+
+/**
+	@signature float_atom(Value,Pos,FloatAtom_ASTNode)
+*/
+float_atom(Value,Pos,r([Pos|_],Value)).
+
+
+/**
+	@signature string_atom(StringAtom_ASTNode,Value)
+*/
+string_atom(a(_Meta,Value),Value).
+
+/**
+	@signature string_atom(Value,Pos,StringAtom_ASTNode)
+*/
+string_atom(Value,Pos,a([Pos|_],Value)).
+
+
+/**
+	@arg Args the arguments of a complex term. They are AST nodes.
+*/
+complex_term(ct(_Meta,Functor,Args),Functor,Args).
+
+/**
+	@arg Args the arguments of a complex term. They are AST nodes.
+*/
+complex_term(Functor,Args,Pos,ct([Pos|_],Functor,Args)).
+
+/**
+	@signature complex_term_args(ComplexTermASTNode,Args)
+	@arg ComplexTermASTNode An AST node that represents a complex term.
+	@arg Args the arguments of a complex term. They are AST nodes.
+*/
+complex_term_args(ct(_Meta,_Functor,Args),Args).
+
+
+/**
+	Meta is a term that represents the term's meta information. For example, the
+	source code position, the current operator table, associated comments.
+*/
+term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 
 
 /**
@@ -283,7 +379,8 @@ complex_term_node(Pos,Functor,ASTNodes,ct([Pos|_],Functor,ASTNodes)).
 	@arg Pos The position object {@file SAEProlog:Compiler:Parser} identifying
 		the position of the term in the source file.
 */
-term_pos(ASTNode,Pos) :- ASTNode =.. [_,Pos|_].
+term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
+term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
 
 
