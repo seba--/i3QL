@@ -39,14 +39,16 @@
 */
 :- module('Utils',
 	[	max/3,
-		membercheck_dl/2,
+		memberchk_dl/2,
 		replace_first_dl/4,
 		lookup/3,
 		replace/4,
 		replace_char/4,
 		replace_char_with_string/4,
+		not_empty/1,
+
 		append_ol/2,
-		not_empty/1
+		memberchk_ol/2
 	]).
 
 
@@ -87,41 +89,41 @@ max(V1,V2,V1) :- V1 > V2.
 
 
 /**
-	membercheck_dl(E,DL) :- succeeds if E is an element (more precisely: can be
+	memberchk_dl(E,DL) :- succeeds if E is an element (more precisely: can be
 	unified with an element) of the difference list DL.<br />
 	The operator used by the difference list is the "-".
 	
 	<p>
 	<b>Example</b>
 	<pre>
-		?- membercheck_dl(a,[b,a|X]-X).
+		?- memberchk_dl(a,[b,a|X]-X).
 		true.
 
-		?- membercheck_dl(a,[b|X]-X).
+		?- memberchk_dl(a,[b|X]-X).
 		false.
 	
-		?- membercheck_dl(a,[a,b|X]-Y).
+		?- memberchk_dl(a,[a,b|X]-Y).
 		true.
 	</pre>
 	<b>Remark</b>
 	If the first argument is a free variable, membercheck will succeed and the
 	the free variable will be bound to the difference's list first argument.
 	<pre>
-		?- membercheck_dl(Z,[a,b|X]-Y).
+		?- memberchk_dl(Z,[a,b|X]-Y).
 		Z = a.
 	</pre>
 	</p>
 	
 	@category difference lists
 */
-membercheck_dl(_E,[]-[]) :- 
+memberchk_dl(_E,[]-[]) :- 
 	!, % green cut
 	fail.	
-membercheck_dl(E,[E|_]-_) :-
+memberchk_dl(E,[E|_]-_) :-
 	!. % green cut
-membercheck_dl(OtherE,[E|Rest]-Last) :- 
+memberchk_dl(OtherE,[E|Rest]-Last) :- 
 	E \= OtherE,
-	membercheck_dl(OtherE,Rest-Last).
+	memberchk_dl(OtherE,Rest-Last).
 
 	
 
@@ -268,7 +270,8 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 	represented by an unbound variable.
 	
 	@signature append_ol(OpenList,Element) 
-	@args(in) OpenList The open list (an unbound variable, if the list is empty.)
+	@args(in) OpenList The open list (just an unbound variable, if the list is 
+		empty.)
 	@args(in) Element An Element.
 	@behavior semi-deterministic
 	@category open lists
@@ -284,8 +287,8 @@ append_ol([_|T],E) :- append_ol(T,E).
 	@signature memberchk_ol(Element,OpenList)
 	@args(in) Element An element.
 	@args(in) OpenList The open list which is checked for occurrences of the 
-		given Element. If the Element is a variable, then the Element is unified
-		with the first element of the list.
+		given Element. If the Element is an unbound variable, then the Element is
+		unified with the first element of the list, if any.
 	@behavior semi-deterministic
 	@category open lists
 */

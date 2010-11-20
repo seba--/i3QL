@@ -37,7 +37,8 @@
 */
 :- ensure_loaded('src/compiler/Lexer.pl').
 :- ensure_loaded('src/compiler/Parser.pl').
-
+:- ensure_loaded('src/compiler/AST.pl').
+%:- ensure_loaded('src/compiler/Utils.pl').
 
 :- begin_tests(parser_op_directive).
 
@@ -51,7 +52,7 @@ test(yf_successful) :-
 			v(_, 'X'),ct(_, +, [ct(_, $, [ct(_, $, [a(_, a)])]),a(_, b)])
 			]
 		 )
-	   ].
+	   ]. 
 	
 test(xf_successful) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
@@ -63,6 +64,25 @@ test(xf_successful) :-
 			ct([pos([], 1, 25)|_], +, [
 				ct([pos([], 1, 23)|_], $, [a([pos([], 1, 21)|_], a)]), 
 				a([pos([], 1, 27)|_], b)])])]).
+
+
+test(meta_information) :- 
+	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
+	clauses(Ts,[FirstClause,SecondClause]),
+	term_meta(FirstClause,FirstMeta),
+	lookup_in_meta(ops(_FirstPrefixOps,_FirstInfixOps,FirstPostfixOps),FirstMeta),
+	\+ memberchk(op(300,xf,$),FirstPostfixOps),
+	term_meta(SecondClause,SecondMeta),
+	lookup_in_meta(ops(_SecondPrefixOps,_SecondInfixOps,SecondPostfixOps),SecondMeta),
+	memberchk(op(300,xf,$),SecondPostfixOps).
+
+
+test(no_meta_information) :- 
+	tokenize_string("foo(a,b).",Ts),
+	clauses(Ts,[Clause]),
+	term_meta(Clause,Meta),
+	\+ lookup_in_meta(ops(_FirstPrefixOps,_FirstInfixOps,_FirstPostfixOps),Meta).
+	
 
 test(xf_fail,[fail]) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ $ + b ).",Ts),

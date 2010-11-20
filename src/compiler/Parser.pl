@@ -30,6 +30,7 @@
    POSSIBILITY OF SUCH DAMAGE.
 */
 
+
 /**
 	A parser for (ISO) Prolog programs.</br>
 	<p>
@@ -361,23 +362,29 @@ process_op_directive([PriorityNode,SpecifierNode,OperatorNode],ops(PrefixOps,Inf
 	Validates a clause. If the clause is not valid an error 
 	message is printed out to the console and this predicate fails. 
 	
-	@signature validate_clause(Term) 
+	@signature validate_clause(Clause) 
 	@behavior semdet
-	@arg(in) Term A top-level term.
+	@arg(in) Clause A Clause.
 */
-% TODO improve error message
 validate_clause(Clause) :- 
 	is_variable(Clause),!,
-	write("Invalid: "),write(Clause),nl,
+	parser_error(Clause,['clause expected, but variable definition found']),
 	fail.
 validate_clause(Clause) :- 
 	is_anonymous_variable(Clause),!,
-	write("Invalid: "),write(Clause),nl,
-	fail.
+	parser_error(Clause,['clause expected, but anonymous variable definition found']),
+	fail. 
 validate_clause(Clause) :- 
 	is_numeric_atom(Clause),!,
-	write("Invalid: "),write(Clause),nl,
+	parser_error(Clause,['clause expected, but numeric value found']),
 	fail.
+validate_clause(Clause) :- 
+	rule_head(Clause,Head),
+	( is_variable(Head) ; is_anonymous_variable(Head) ; is_numeric_atom(Head) ),
+	!,
+	parser_error(Clause,['a clauses\'s head has to be a complex term or a string atom']),
+	fail.
+	
 validate_clause(_Clause). % base case, the Clause is considered to be valid
 
 
@@ -418,7 +425,7 @@ term(Ops,MaxPriority,Term,TermPriority) -->
 		)
 	}, 
 	term(Ops,MaxSubTermPriority,SubTerm,_SubTermPriority), 
-	{ complex_term(Op,[SubTerm],Pos,LeftTerm) },
+	{ complex_term(Op,[SubTerm],Pos,Ops,LeftTerm) },
 	term_r(Ops,MaxPriority,LeftTerm,Priority,Term,TermPriority).
 
 /**
@@ -446,7 +453,7 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		;	% (Associativity = xfx; Associativity = yfx),
 			Priority > RightTermPriority
 		),
-		complex_term(Op,[LeftTerm,RightTerm],Pos,IntermediateTerm)
+		complex_term(Op,[LeftTerm,RightTerm],Pos,Ops,IntermediateTerm)
 	},
 	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
@@ -457,7 +464,7 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		; 	% Associativity = yf 
  			Priority >= LeftTermPriority 
 		),
-		complex_term(Op,[LeftTerm],Pos,InnerLeftTerm)
+		complex_term(Op,[LeftTerm],Pos,Ops,InnerLeftTerm)
 	},
 	term_r(Ops,MaxPriority,InnerLeftTerm,Priority,Term,TermPriority).
 term_r(_Ops,_MaxPriority,T,TP,T,TP) --> [].
