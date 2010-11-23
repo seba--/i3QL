@@ -23,12 +23,6 @@ public final class StorageTrie extends Trie {
 		super(parent, label);
 		terms = new TermList(term, null);
 	}
-	
-	@Override
-	public void addTerm(Term term) {
-		TermList head = new TermList(term, terms);
-		terms = head;
-	}
 
 	@Override
 	public TermList getTerms() {
@@ -41,7 +35,7 @@ public final class StorageTrie extends Trie {
 	}
 	
 	@Override
-	public boolean stores() {
+	public boolean isStorageTrie() {
 		return true;
 	}
 }

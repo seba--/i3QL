@@ -7,6 +7,7 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
+import saere.database.DatabaseAdapter;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -14,18 +15,20 @@ import saere.meta.GenericCompoundTerm;
  * slow</b>) <i>default implementation</i>.
  * 
  * @author David Sullivan
- * @version 0.3, 10/14/2010
+ * @version 0.4, 11/20/2010
  */
 public class DatabasePredicate {
 	
-	protected static Database database;
-	
+	protected final boolean noCollision;
 	protected final StringAtom functor;
 	protected final int arity;
+	protected final DatabaseAdapter adapter;
 	
-	protected DatabasePredicate(String functor, int arity) {
+	public DatabasePredicate(String functor, int arity, Database database) {
 		this.functor = StringAtom.StringAtom(functor);
 		this.arity = arity;
+		this.adapter = database.getAdapter(this.functor, arity); // XXX Assumes that entries already exist
+		this.noCollision = database.noCollision();
 	}
 
 	/**
@@ -34,16 +37,16 @@ public class DatabasePredicate {
 	 * class should offer a unify method with a fixed number (arity) of term
 	 * arguments.
 	 * 
-	 * @param terms The predicate arguments.
+	 * @param query The query.
 	 * @return The {@link Solutions} of this unification.
 	 */
-	public Solutions unify(Term term) {
-		if (arity == term.arity() && functor.sameAs(term.functor())) {
-			Term[] args = new Term[arity];
-			for (int i = 0; i < arity; i++) {
-				args[i] = term.arg(i);
+	public Solutions unify(Term query) {		
+		if (arity == query.arity() && functor.sameAs(query.functor())) {
+			if (!noCollision) {
+				return GenericSolutions.forArity(arity, adapter, query);
+			} else {
+				return GenericSolutions.forArityNoCollision(arity, adapter, query);
 			}
-			return new DatabaseSolutions(args);
 		} else {
 			return EmptySolutions.getInstance();
 		}
@@ -62,12 +65,8 @@ public class DatabasePredicate {
 		return arity;
 	}
 	
-	public static void useDatabase(Database database) {
-		DatabasePredicate.database = database;
-	}
-	
 	/**
-	 * A generic solution class for database. Only for demonstration purposes 
+	 * A generic solution class for database. Only for illustrational purposes 
 	 * and not actual use.
 	 * 
 	 * @author David Sullivan
@@ -82,7 +81,7 @@ public class DatabasePredicate {
 		protected DatabaseSolutions(Term[] args) {
 			this.args = args;
 			save();
-			iterator = database.query(new GenericCompoundTerm(functor, args));
+			iterator = adapter.query(new GenericCompoundTerm(functor, args));
 		}
 
 		public boolean next() {			

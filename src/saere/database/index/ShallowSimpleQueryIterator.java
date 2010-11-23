@@ -51,7 +51,7 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 				}
 				
 				if (match()) {
-					if (stack.size() == 1 && current.stores()) {
+					if (stack.size() == 1 && current.isStorageTrie()) {
 						list = current.getTerms();
 						next = list.term();
 						list = list.next();
@@ -103,7 +103,7 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		throw new UnsupportedOperationException();
 	}
 	

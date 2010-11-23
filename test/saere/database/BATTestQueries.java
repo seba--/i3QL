@@ -30,14 +30,25 @@ public final class BATTestQueries {
 	/** Every 20th instruction of all methods: <tt>instr(X,19,Z).</tt> */
 	public static final Term IQ6 = ct("instr", v(), ia(19), v());
 	
-	/** Every invoke instruction: <tt>instr(X,Y,invoke(Z,A)).</tt> */
-	public static final Term IQ7 = ct("instr", v(), v(), ct("invoke", v(), v()));
+	/** Every invoke instruction: <tt>instr(X,Y,invoke(interface,A,B,C)).</tt> */
+	public static final Term IQ7 = ct("instr", v(), v(), ct("invoke", sa("interface"), v(),v(),v()));
+	
+	public static final Term IQ8 = ct("instr", v(), v(), ct("invoke", v(), v(),v(),v()));
 	
 	/** Every return instruction: <tt>instr(X,Y,return(Z)).</tt> */
-	public static final Term IQ8 = ct("instr", v(), v(), ct("return", v()));
+	public static final Term IQ9 = ct("instr", v(), v(), ct("return", v()));
+						  	//FIXME instr(m_4641,13,invoke(static,class(scala/runtime,BoxesRunTime), boxToInteger, signature([int], class(java/lang, Integer))))
+	/** A specific instruction: <tt>instr(m_4641,13,invoke(static,class('scala/runtime','BoxesRunTime'),'boxToInteger',signature([int],class('java/lang','Integer')))).</tt> */
+	public static final Term IQ10 = ct("instr", v(), v(), ct("invoke", sa("static"), ct("class", sa("scala/runtime"), sa("BoxesRunTime")), sa("boxToInteger"), ct("signature", sa("[int]"), ct("class", sa("java/lang"), sa("Integer")))));
+	
+	public static final Term IQ11 = ct("instr", v(), v(), ct("load", v(), v()));
+	
+	public static final Term IQ12 = ct("instr", v(), v(), ct("load", sa("reference"), v()));
+	
+	public static final Term IQ13 = ct("instr", v(), v(), ct("load", sa("int"),v()));
 	
 	/** All queries for <tt>instr/3</tt> facts. */
-	public static final Term[] ALL_INSTR_QUERIES = new Term[] { IQ0, IQ1, IQ2, IQ3, IQ4, IQ5, IQ6, IQ7, IQ8 };
+	public static final Term[] ALL_INSTR_QUERIES = new Term[] { IQ0, IQ1, IQ2, IQ3, IQ4, IQ5, IQ6, IQ7, IQ8, IQ9, IQ10, IQ11, IQ12, IQ13 };
 	
 	// class_file/10
 	
@@ -59,8 +70,12 @@ public final class BATTestQueries {
 	/** All abstract class file: <tt>class_files(A,B,C,D,E,final(yes),G,H,I,J)</tt>. */
 	public static final Term CQ6 = ct("class_file", v(), v(), v(), v(), v(), v(), v(), ct("abstract", sa("yes")), v(), v());
 	
+	public static final Term CQ7 = ct("class_file", v(), sa("interface_declaration"), v(), v(), v(), v(), v(), v(), v(), v());
+	
+	public static final Term CQ8 = ct("class_file", v(), sa("class_declaration"), v(), v(), v(), v(), v(), ct("abstract", sa("yes")), v(), v());
+	
 	/** All queries for <tt>class_file/10</tt> facts. */
-	public static final Term[] ALL_CLASSFILE_QUERIES = new Term[] { CQ1, CQ2, CQ3, CQ4, CQ5, CQ6 };
+	public static final Term[] ALL_CLASSFILE_QUERIES = new Term[] { CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8 };
 	
 	// method/15
 	
@@ -88,8 +103,8 @@ public final class BATTestQueries {
 	/** The 100th method: <tt>method(A,m_100,C,D,E,F,G,H,I,J,K,L,M,N,O)</tt>. */
 	public static final Term MQ8 = ct("method", v(), sa("m_100"), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v());
 	
-	/** All public methods: <tt>method(A,B,C,D,E,public,G,H,I,J,K,L,M,N,O)</tt>. */
-	public static final Term MQ9 = ct("method", v(), v(), v(), v(), v(), sa("public"), v(), v(), v(), v(), v(), v(), v(), v(), v());
+	/** All public methods: <tt>method(A,B,C,D,public,E,G,H,I,J,K,L,M,N,O)</tt>. */
+	public static final Term MQ9 = ct("method", v(), v(), v(), v(), sa("public"), v(), v(), v(), v(), v(), v(), v(), v(), v(), v());
 	
 	/** All deprecated methods: <tt>method(A,B,C,D,E,F,G,H,I,J,K,L,M,N,deprecated(yes)</tt>. */
 	public static final Term MQ10 = ct("method", v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), v(), ct("deprecated", sa("yes")));
@@ -101,8 +116,8 @@ public final class BATTestQueries {
 	
 	/** All queries. */
 	public static final Term[] ALL_QUERIES = new Term[] {
-		IQ0, IQ1, IQ2, IQ3, IQ4, IQ5, IQ6, IQ7,
-		CQ1, CQ2, CQ3, CQ4, CQ5, CQ6,
+		IQ0, IQ1, IQ2, IQ3, IQ4, IQ5, IQ6, IQ7, IQ8, IQ9, IQ10,
+		CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8,
 		MQ1, MQ2, MQ3, MQ4, MQ5, MQ6, MQ7, MQ8, MQ9, MQ10
 	};
 }

@@ -71,6 +71,16 @@ public final class Utils {
 	}
 	
 	/**
+	 * Checks wether the specified term is a fact.
+	 * 
+	 * @param term The term to check.
+	 * @return <tt>true</tt> if so.
+	 */
+	public static boolean isFact(Term term) {
+		return !hasVariable(term);
+	}
+	
+	/**
 	 * Checks wether the specified term is or has at least one free (unbound) 
 	 * variable.
 	 * 
@@ -91,9 +101,19 @@ public final class Utils {
 		
 		return false;
 	}
+	
+	/**
+	 * Checks wether the specified term is a free variable.
+	 * 
+	 * @param term The term to check.
+	 * @return <tt>true</tt> if so.
+	 */
+	public static boolean isFreeVariable(Term term) {
+		return term.isVariable() && !term.asVariable().isInstantiated();
+	}
 
 	/**
-	 * Convenience method that summarizes queries.
+	 * Convenience method that summarizes query results.
 	 * 
 	 * @param p A database predicate (e.g., <tt>instr/3</tt>)
 	 * @param query The query.
@@ -105,17 +125,32 @@ public final class Utils {
 		int counter = 0;
 		while (solutions.next()) {
 			counter++;
+			/*
+			if (counter == 1) {
+				sw.printElapsed("Finding first solution");
+			}
+			*/
 		}
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
 	}
 	
-	private static String escape(String s) {
-		String r = new String(s);
-		r = r.replace('\n', ' ');
-		r = r.replace('\r', ' ');
-		r = r.replace('"', '\'');
-		r = r.replace('\\', '/');
-		return r;
+	/**
+	 * Convenience method that prints out query results.
+	 * 
+	 * @param p A database predicate (e.g., <tt>instr/3</tt>)
+	 * @param query The query.
+	 */
+	public static void queryAndPrint(DatabasePredicate p, Term query) {
+		System.out.print("Query " + termToString(query) + ": ");
+		Stopwatch sw = new Stopwatch();
+		Solutions solutions = p.unify(query);
+		int counter = 0;
+		while (solutions.next()) {
+			System.out.println(termToString(query));
+			counter++;
+		}
+		System.out.print(counter + " solutions found, ");
+		sw.printElapsed("query");
 	}
 }

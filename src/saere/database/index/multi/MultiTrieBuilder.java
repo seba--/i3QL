@@ -42,7 +42,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 			} else {
 				
 				// We need nodes for a compound term (no nodes at all exist), create functor and argument nodes
-				searched = new MultiTrie(start, label, term); // Store term(s) at functor node (e.g., f/2 stores everything that satisfies f(X,Y))
+				searched = new MultiTrie(start, label, null); // DON'T store terms also at functor node
 				addChild(start, searched);
 				prevArg = searched;
 				for (int i = 0; i < term.arity(); i++) {
@@ -50,7 +50,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 					
 					if (arg.isCompoundTerm()) {
 						
-						MultiTrie multi = new MultiTrie(prevArg, label(arg), arg);
+						MultiTrie multi = new MultiTrie(prevArg, label(arg), null);
 						addChild(prevArg, multi);
 						
 						 // Recursion: We open another dimension. Watch out for lists!
@@ -58,7 +58,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						
 						// If this is the last argument we store the term here, otherwise proceed
 						if (i == term.arity() - 1) {
-							multi.addTerm(term);
+							addTerm(multi, term);
 							return multi;
 						} else {
 							prevArg = multi;
@@ -86,13 +86,13 @@ public final class MultiTrieBuilder extends TrieBuilder {
 			// The searched child exists
 			if (term.arity() == 0) {
 				// Term is integer or string atom (and here MUST be a storage trie)
-				searched.addTerm(term);
+				addTerm(searched, term);
 				return searched;
 			} else {
 				
 				// We have a compound term, at least the functor node exists and some argument nodes, but not necessarily the appropriate for this term
 				prevArg = searched;
-				searched.addTerm(term);
+				//searched.addTerm(term); // DON'T store all possible queries unless we want to run out of memory
 				for (int i = 0; i < term.arity(); i++) {
 					Term arg = term.arg(i);
 					
@@ -103,16 +103,16 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						Trie searchedChild = getChild(prevArg, argLabel);
 						if (searchedChild == null) {
 							// We don't have an appropriate child, create and add one
-							searchedChild = new MultiTrie(prevArg, argLabel, arg);
+							searchedChild = new MultiTrie(prevArg, argLabel, null);
 							addChild(prevArg, searchedChild);
 						}
 						
 						// Recursion: We open another dimension to store the term part. Watch out for lists!
-						insert(arg, prevArg.getSubtrie());
+						insert(arg, searchedChild.getSubtrie());
 						
 						// If this is the last argument we store the term here
 						if (i == term.arity() - 1) {
-							searchedChild.addTerm(term);
+							addTerm(searchedChild, term);
 							return searchedChild;
 						} else {
 							prevArg = searchedChild;
@@ -133,7 +133,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 								addChild(prevArg, searchedChild);
 							} else {
 								assert searchedChild instanceof StorageTrie : "Storage trie expected";
-								searchedChild.addTerm(term);
+								addTerm(searchedChild, term);
 							}
 							
 							return searchedChild;
@@ -167,7 +167,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 
 	@Override
-	public boolean remove(Term term, Trie start) {
+	public void remove(Term term, Trie start) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 	
@@ -177,33 +177,41 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 	
 	@Override
-	protected void addChild(Trie parent, Trie child) {
+	public void addChild(Trie parent, Trie child) {
 		// Append to the head of the children list
 		child.setNextSibling(parent.getFirstChild());
 		parent.setFirstChild(child);
 		
-		// Transform to hash trie node?
-		parent.setChildrenNumber(parent.getChildrenNumber() + 1);
-		if (parent.getChildrenNumber() == mapThreshold && parent.getParent() != null) {
-			
-			HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), null);
-			replace(parent, hashTrie);
-			
-			// Fill the hash map as replace() doesn't care for this
-			Trie trie = hashTrie.getFirstChild();
-			while (trie != null) {
-				hashTrie.getMap().put(trie.getLabel(), trie);
-				trie = trie.getNextSibling();
-			}
-			
-		} else if (parent.getChildrenNumber() > mapThreshold && parent.getParent() != null) { // XXX Was parent.getMap() != null // NOT this way we use maps from the start, which is bad!
-			assert parent.getChildrenNumber() > mapThreshold : "Attempt to using map before threshold is reached: " + parent + " with " + parent.getChildrenNumber() + " children";
+		// Root (which uses maps anyway) or another node which may use a map (or not)?
+		if (parent.getParent() == null) {
 			parent.getMap().put(child.getLabel(), child);
+		} else {
+			// Transform to hash trie node?
+			//parent.setChildrenNumber(parent.getChildrenNumber() + 1);
+			int childrenNumber = countChildren(parent);
+			if (childrenNumber == mapThreshold) {
+				
+				HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), null);
+				replace(parent, hashTrie);
+				
+				// Fill the hash map as replace() doesn't care for this
+				Trie trie = hashTrie.getFirstChild();
+				while (trie != null) {
+					hashTrie.getMap().put(trie.getLabel(), trie);
+					trie = trie.getNextSibling();
+				}
+				
+			} else if (childrenNumber > mapThreshold) {
+				assert childrenNumber > mapThreshold : "Attempt to using map before threshold is reached: " + parent + " with " + childrenNumber + " children";
+				parent.getMap().put(child.getLabel(), child);
+			}
 		}
+		
+		
 	}
 	
 	@Override
-	protected Trie getChild(Trie parent, Label label) {
+	public Trie getChild(Trie parent, Label label) {
 		if (parent.getMap() != null) {
 			return parent.getMap().get(label);
 		} else {
@@ -255,7 +263,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						
 						// If this is the last argument we store the term here, otherwise proceed
 						if (i == term.arity() - 1) {
-							multi.addTerm(term);
+							addTerm(multi, term);
 							return multi;
 						} else {
 							prevArg = multi;
@@ -283,13 +291,13 @@ public final class MultiTrieBuilder extends TrieBuilder {
 			// The searched child exists
 			if (term.arity() == 0) {
 				// Term is integer or string atom (and here MUST be a storage trie)
-				searched.addTerm(term);
+				addTerm(searched, term);
 				return searched;
 			} else {
 				
 				// We have a compound term, at least the functor node exists and some argument nodes, but not necessarily the appropriate for this term
 				prevArg = searched;
-				searched.addTerm(term);
+				addTerm(searched, term);
 				for (int i = 0; i < term.arity(); i++) {
 					Term arg = term.arg(i);
 					
@@ -309,7 +317,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						
 						// If this is the last argument we store the term here
 						if (i == term.arity() - 1) {
-							searchedChild.addTerm(term);
+							addTerm(searchedChild, term);
 							return searchedChild;
 						} else {
 							prevArg = searchedChild;
@@ -330,7 +338,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 								addChild(prevArg, searchedChild);
 							} else {
 								assert searchedChild instanceof StorageTrie : "Storage trie expected";
-								searchedChild.addTerm(term);
+								addTerm(searchedChild, term);
 							}
 							
 							return searchedChild;
@@ -374,5 +382,16 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		} else {
 			return AtomLabel.AtomLabel(atom(term.functor()));
 		}
+	}
+	
+	private int countChildren(Trie parent) {
+		int num = 0;
+		Trie child = parent.getFirstChild();
+		while (child != null) {
+			num++;
+			child = child.getNextSibling();
+		}
+		
+		return num;
 	}
 }

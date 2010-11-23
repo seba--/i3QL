@@ -25,7 +25,10 @@ public class DatabaseTest {
 	
 	public static final String DATA_PATH = "test" + File.separator + "data";
 	public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "opal-0.5.0.jar";
+	//public static String GLOBAL_TEST_FILE = "../test/classfiles/Tomcat-6.0.20.zip";
 	//public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "HelloWorld.class";
+	//c  "C:/Users/Leaf/master-thesis/test/classfiles/Java 1.6.0 (Mac OS X) - essential classes.zip";
+	//public static String GLOBAL_TEST_FILE = "C:/Users/Leaf/master-thesis/test/classfiles/org.eclipse.jdt.ui_3.5.0.v20090604.zip";
 	
 	public static void main(String[] args) {
 		if (args.length == 1) {

@@ -18,15 +18,19 @@ public final class FactsPrinter {
 	private static final String NEWLINE = System.getProperty("line.separator");
 	
 	/**
-	 * Prints the facts to the specified file.
+	 * Prints the facts of the {@link Factbase} to the specified file.
 	 * 
 	 * @param filename The name of the file.
 	 */
 	public static void print(String filename) {
+		print(Factbase.getInstance().getFacts(), filename);
+	}
+	
+	public static void print(Iterable<Term> facts, String filename) {
 		FileOutputStream file = null;
 		try {
 			file = new FileOutputStream(filename);
-			for (Term fact : Factbase.getInstance().getFacts()) {
+			for (Term fact : facts) {
 				file.write(toBytes(fact));
 			}
 		} catch (IOException e) {

@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import saere.StringAtom;
 import saere.Term;
+import saere.database.index.FullFlattener;
 import saere.database.index.FunctorLabel;
 import saere.database.index.Label;
 import saere.database.index.Trie;
@@ -20,12 +21,20 @@ import saere.database.predicate.DatabasePredicate;
  */
 public class TrieDatabase extends Database {
 
-	private Trie root;
-	private TrieBuilder builder;
+	private final boolean noCollision;
+	private final TrieBuilder builder;
 
+	private Trie root;
+	
 	public TrieDatabase(TrieBuilder builder) {
 		this.builder = builder;
-		root = Trie.root();
+		root = Trie.newRoot();
+		
+		if (builder.flattener() instanceof FullFlattener) {
+			noCollision = true;
+		} else {
+			noCollision = false;
+		}
 	}
 	
 	public Iterator<Term> termIterator(StringAtom functor, int arity)  {
@@ -40,7 +49,7 @@ public class TrieDatabase extends Database {
 
 	@Override
 	public void drop() {
-		root = Trie.root();
+		root = Trie.newRoot();
 		System.gc();
 	}
 
@@ -52,5 +61,23 @@ public class TrieDatabase extends Database {
 	@Override
 	public Iterator<Term> query(Term query) {
 		return builder.iterator(root, query);
+	}
+	
+	public Trie getPredicateSubtrie(StringAtom functor, int arity) {
+		return TrieBuilder.getChildByLabel(root, FunctorLabel.FunctorLabel(functor, arity));
+	}
+	
+	public TrieBuilder trieBuilder() {
+		return builder;
+	}
+	
+	@Override
+	public boolean noCollision() {
+		return noCollision;
+	}
+
+	@Override
+	public DatabaseAdapter getAdapter(StringAtom functor, int arity) {
+		return new TrieAdapter(this, functor, arity);
 	}
 }

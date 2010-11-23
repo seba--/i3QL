@@ -21,9 +21,6 @@ public class FullSimpleQueryIterator extends TermIterator {
 	// The variable iterators (one for each free variable). The index stands for the position of a variable in the stack.
 	private final VariableIterator[] varIters;
 	
-	// To remember the trie nodes which were last iterated (if they are and have also functor labels we go down)
-	private final Trie[] lastIterateds; 
-	
 	public FullSimpleQueryIterator(TrieBuilder builder, Trie start, LabelStack stack) {
 		this.builder = builder;
 		this.start = current = start;
@@ -31,7 +28,6 @@ public class FullSimpleQueryIterator extends TermIterator {
 		
 		// + 1 because if the stack is empty, the position is the array length
 		varIters = new VariableIterator[stack.length() + 1];
-		lastIterateds = new Trie[stack.length() + 1];
 		
 		// Assign variable iterators to the index positions of free variables.
 		// Hence, we create the objects for variable iterators only once.
@@ -63,7 +59,7 @@ public class FullSimpleQueryIterator extends TermIterator {
 				}
 				
 				if (match()) {
-					if (stack.size() == 1 && current.stores()) {
+					if (stack.size() == 1 && current.isStorageTrie()) {
 						list = current.getTerms();
 						next = list.term();
 						list = list.next();
@@ -105,16 +101,11 @@ public class FullSimpleQueryIterator extends TermIterator {
 	@Override
 	protected void goUp() {
 		
-		// We have to check wether the current node
-		
-		// Checks wether we have a variable iterator for the current stack pop 
+		// Checks wether we have a variable iterator for the current stack top 
 		// (i.e., if the stack top is a free variable).
 		VariableIterator varIter = varIters[stack.position()];
-		//boolean check = lastIterateds[stack.position()] != null && lastIterateds[stack.position()].getNextSibling() != current;
-		boolean check = true;
-		if (varIter != null && check) { // XXX Find a way to check that this is really our variable iterator
+		if (stack.peek() == FREE_VARIABLE && varIters[stack.position()].last() == current) { // XXX Find a way to check that this is really our variable iterator
 			current = varIter.start();
-			lastIterateds[stack.position()] = null;
 			stack.back();
 		} else {
 			stack.back();
@@ -129,12 +120,11 @@ public class FullSimpleQueryIterator extends TermIterator {
 		// Also check if the current trie's label is not a functor.
 		// If all this applies we require a variable iterator...
 		
-		Trie lastIterated = lastIterateds[stack.position()];
-		if (stack.peek() == FREE_VARIABLE && lastIterated != current/* && current.getLabel().arity() > 0*/) {
-			VariableIterator varIter = varIters[stack.position()];
+		VariableIterator varIter = varIters[stack.position()];
+		if (stack.peek() == FREE_VARIABLE && varIters[stack.position()].last() != current) {
+			varIter = varIters[stack.position()];
 			varIter.resetTo(current);
 			current = varIter.next();
-			lastIterateds[stack.position()] = current;
 		} else {
 			stack.pop();
 			super.goDown();
@@ -173,7 +163,7 @@ public class FullSimpleQueryIterator extends TermIterator {
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		throw new UnsupportedOperationException("Cannot reset a full simple query iterator");
 	}
 	

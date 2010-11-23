@@ -23,8 +23,6 @@ import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
 import saere.database.TestFacts;
-import saere.database.profiling.TriePrinter;
-import saere.database.profiling.TriePrinter.Mode;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -109,7 +107,7 @@ public class IteratorsTest {
 	 */
 	@Test
 	public void testNodeIterator() {
-		Trie root = Trie.root();
+		Trie root = Trie.newRoot();
 		
 		Term f = StringAtom.StringAtom("f");
 		Term fa = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
@@ -208,7 +206,7 @@ public class IteratorsTest {
 			expecteds.push(fact);
 		}
 		
-		Trie root = Trie.root();
+		Trie root = Trie.newRoot();
 		fill(builder, root);
 		
 		Deque<Term> actuals = new LinkedList<Term>();
@@ -227,14 +225,14 @@ public class IteratorsTest {
 
 	@Test
 	public void testQueryIterator_ShallowSimple() {	
-		Trie root = Trie.root();
+		Trie root = Trie.newRoot();
 		fill(SHALLOW_SIMPLE, root);
 		assertTrue(testQueryIterator(root, SHALLOW_SIMPLE));
 	}
 	
 	@Test
 	public void testQueryIterator_FullSimple() {
-		Trie root = Trie.root();		
+		Trie root = Trie.newRoot();		
 		fill(FULL_SIMPLE, root);
 		assertTrue(testQueryIterator(root, FULL_SIMPLE));
 	}
@@ -300,7 +298,7 @@ public class IteratorsTest {
 	@Test
 	public void testVariableIterator() {
 		TrieBuilder builder = FULL_SIMPLE;
-		Trie root = Trie.root();
+		Trie root = Trie.newHashRoot();
 		for (Term fact : TestFacts.ALL_TERMS) {
 			builder.insert(fact, root);
 		}

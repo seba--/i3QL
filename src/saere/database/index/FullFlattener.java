@@ -24,7 +24,7 @@ import saere.Term;
  * @see ShallowFlattener
  */
 public final class FullFlattener extends TermFlattener {
-
+	
 	@Override
 	public LabelStack flatten(Term term) {
 		return new LabelStack(flattenTerm(term).toArray(new Label[0]));
@@ -37,7 +37,7 @@ public final class FullFlattener extends TermFlattener {
 			flattened.add(AtomLabel.AtomLabel(term.functor()));
 		} else if (term.isCompoundTerm()) {
 			flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
-			for (int i = 0; i < term.arity(); i++) {
+			for (int i = 0; i < term.arity(); i++) {		
 				flattened.addAll(flattenTerm(term.arg(i)));
 			}
 		} else if (term.isIntegerAtom()) {

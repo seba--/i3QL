@@ -20,12 +20,6 @@ public class StorageHashTrie extends HashTrie {
 	}
 
 	@Override
-	public void addTerm(Term term) {
-		TermList head = new TermList(term, terms);
-		terms = head;
-	}
-
-	@Override
 	public TermList getTerms() {
 		return terms;
 	}
@@ -36,7 +30,7 @@ public class StorageHashTrie extends HashTrie {
 	}
 	
 	@Override
-	public boolean stores() {
+	public boolean isStorageTrie() {
 		return true;
 	}
 }

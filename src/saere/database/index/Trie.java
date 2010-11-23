@@ -2,8 +2,6 @@ package saere.database.index;
 
 import java.util.IdentityHashMap;
 
-import saere.Term;
-
 
 /**
  * A simple representation of a trie node. (One that cannot store any terms or 
@@ -26,16 +24,21 @@ public class Trie {
 	/** The next (i.e., <i>right</i>) sibling of this node. */
 	private Trie nextSibling;
 	
-	/** The number of children this trie node has. */
-	private int childrenNumber;
+	/**
+	 * Creates a new root that can never turn into a hash trie node.
+	 * 
+	 * @return A new root.
+	 */
+	public static Trie newRoot() {
+		return new Trie(null, null);
+	}
 	
 	/**
-	 * Creates a new root. The root must be a hash trie from the beginning. 
-	 * Otherwise, if it is replaced later when it has enough children for a 
-	 * hash map, references outside the trie structure (i.e., clients) point 
-	 * to an old root.
+	 * Creates a new root that is a hash trie node from the start.
+	 * 
+	 * @return A new root.
 	 */
-	public static Trie root() {
+	public static Trie newHashRoot() {
 		return new HashTrie(null, null, null);
 	}
 	
@@ -55,7 +58,7 @@ public class Trie {
 	 * 
 	 * @return <tt>true</tt> if this {@link Trie} stores at least one term.
 	 */
-	public boolean stores() {
+	public boolean isStorageTrie() {
 		return false;
 	}
 	
@@ -64,17 +67,8 @@ public class Trie {
 	 * 
 	 * @return <tt>true</tt> if this {@link Trie} uses hash maps.
 	 */
-	public boolean hashes() {
+	public boolean isHashTrie() {
 		return false;
-	}
-	
-	/**
-	 * Add the specified term to this {@link Trie}.
-	 * 
-	 * @param term The term to add.
-	 */
-	public void addTerm(Term term) {
-		throw new UnsupportedOperationException("This trie node cannot store terms: " + term);
 	}
 	
 	public TermList getTerms() {
@@ -129,14 +123,6 @@ public class Trie {
 	public void setLabel(Label label) {
 		this.label = label;
 	}
-	
-	public int getChildrenNumber() {
-		return childrenNumber;
-	}
-	
-	public void setChildrenNumber(int childrenNumber) {
-		this.childrenNumber = childrenNumber;
-	}
 
 	public Trie getLastChild() {
 		throw new UnsupportedOperationException("This trie node cannot remember the last child");
@@ -151,7 +137,7 @@ public class Trie {
 		return hashCode() + ":" + (label == null ? "<root>" : label.toString());
 	}
 	
-	public boolean multi() {
+	public boolean isMultiTrie() {
 		return false;
 	}
 	

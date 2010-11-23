@@ -3,6 +3,7 @@ package saere.database;
 import java.util.Iterator;
 import java.util.List;
 
+import saere.StringAtom;
 import saere.Term;
 
 /**
@@ -58,4 +59,16 @@ public abstract class Database {
 	 * @return An iterator for the candidates.
 	 */
 	public abstract Iterator<Term> query(Term query);
+	
+	public abstract DatabaseAdapter getAdapter(StringAtom functor, int arity);
+	
+	/** 
+	 * True if the database can guarantee the abscence of term collision (if it 
+	 * will return only terms that will unify).
+	 * 
+	 * @return <tt>true</tt> if so.
+	 */
+	public boolean noCollision() {
+		return false;
+	}
 }

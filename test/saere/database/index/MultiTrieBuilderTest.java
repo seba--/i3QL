@@ -2,8 +2,9 @@ package saere.database.index;
 
 import static saere.database.DatabaseTermFactory.ct;
 import static saere.database.DatabaseTermFactory.sa;
-import static saere.database.DatabaseTest.fill;
+import static saere.database.DatabaseTest.*;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -24,7 +25,7 @@ public final class MultiTrieBuilderTest {
 	@Test
 	public void test1() {
 		TrieBuilder builder = new MultiTrieBuilder(50);
-		Trie multiRoot = Trie.root();
+		Trie multiRoot = Trie.newRoot();
 		
 		for (Term fact : Facts.ALL) {
 			builder.insert(fact, multiRoot);
@@ -41,17 +42,17 @@ public final class MultiTrieBuilderTest {
 	@Test
 	public void test2() {
 		
+		TrieBuilder builder = new MultiTrieBuilder(50);
+		
+		//String filename = DATA_PATH + File.separator + "HelloWorld.class";
+		String filename = DATA_PATH + File.separator + "opal-0.5.0.jar";
+		//String filename = "../test/classfiles/MMC.jar";
+		Factbase.getInstance().read(filename);
+		
 		for (int i = 0; i < 5; i++) {
 			System.out.println("\nRun " + (i + 1));
 			
-			TrieBuilder builder = new MultiTrieBuilder(50);
-			Trie multiRoot = Trie.root();
-			
-			//String filename = DATA_PATH + File.separator + "HelloWorld.class";
-			//String filename = DATA_PATH + File.separator + "opal-0.5.0.jar";
-			String filename = "../test/classfiles/MMC.jar";
-			Factbase.getInstance().read(filename);
-			
+			Trie multiRoot = Trie.newRoot();
 			fill(builder, multiRoot);
 			
 			Stopwatch sw = new Stopwatch();

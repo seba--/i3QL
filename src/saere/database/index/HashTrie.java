@@ -20,7 +20,7 @@ public class HashTrie extends Trie {
 	}
 	
 	@Override
-	public boolean hashes() {
+	public boolean isHashTrie() {
 		return true;
 	}
 	

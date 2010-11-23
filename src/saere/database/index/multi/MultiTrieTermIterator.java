@@ -23,10 +23,12 @@ public final class MultiTrieTermIterator extends TermIterator {
 			while (current != null && next == null) { 
 				
 				// Only the first functor nodes of the first dimension...
-				if (current.multi()) {
+				if (current.getFirstChild() == null) {
 					list = current.getTerms();
 					next = list.term();
-					list = list.next();
+					//list = list.next();
+					list = null;
+					
 					goRight();
 				} else {
 					nextNode(); // Move to next node anyway

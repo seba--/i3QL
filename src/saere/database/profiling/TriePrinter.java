@@ -46,7 +46,7 @@ public final class TriePrinter {
 				}
 				
 				// Edge(s) to term(s)
-				if (node.stores()) {
+				if (node.isStorageTrie()) {
 					TermList terms = node.getTerms();
 					while (terms != null) {
 						number = getId(node, cache, number);

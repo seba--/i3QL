@@ -38,15 +38,13 @@ public class ComplexTrieBuilder extends TrieBuilder {
 
 			} else { // !root
 				
-				// how "much" does the current label matches with the current stack (state)
-				match = match();
-				
-				if (match == current.getLabel().length()) { // complete match -> insert here or as child
-					
-					if (match < stack.size()) {
+				// Check wether we can have full match
+				Trie fullMatch = getChild(current, stack.peek());
+				if (fullMatch != null) {
+					if (fullMatch.getLabel().length() < stack.size()) {
 						
 						// insert as child
-						stack.pop(match);
+						stack.pop(fullMatch.getLabel().length());
 						if (current.getFirstChild() == null) { // create first child and add term directly
 							current.setFirstChild(new StorageTrie(current, makeComplexLabel(), term));
 							insertionNode = current.getFirstChild();
@@ -56,8 +54,8 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						
 					} else { // match == stack.size(), insert here...
 						
-						if (current.stores()) { // Already a storing node
-							current.addTerm(term);
+						if (current.isStorageTrie()) { // Already a storing node
+							addTerm(current, term);
 						} else {
 							StorageTrie storageTrie = new StorageTrie(current.getParent(), makeComplexLabel(), term);
 							replace(current, storageTrie);
@@ -66,64 +64,68 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						
 						insertionNode = current;
 					}
-					
-				} else if (match > 0) { // partial match
-					
-					// split...
-					Label newLabel = current.getLabel().split(match - 1);
-					Trie mediator;
-					TermList termList = current.getTerms();
-					current.setTerms(null);
-					
-					if (current.hashes()) {
-						mediator = new StorageHashTrie(current, newLabel, current.getLastChild(), null);
-					} else {
-						mediator = new StorageTrie(current, newLabel, null);
-					}
-					mediator.setTerms(termList);
-					
-					// insert mediator
-					if (current.getFirstChild() != null) {
-						mediator.setFirstChild(current.getFirstChild());
+				} else {
+					// Check wether we have a partial match or none at all
+					match = match();
+					if (match > 0) {
 						
-						if (current.hashes()) {
-							mediator.setMap(current.getMap());
-						}
+						// split...
+						Label newLabel = current.getLabel().split(match - 1);
+						Trie mediator;
+						TermList termList = current.getTerms();
+						current.setTerms(null);
 						
-						// set mediator as parent for all children
-						Trie child = mediator.getFirstChild();
-						while (child != null) {
-							child.setParent(mediator);
-							child = child.getNextSibling();
+						if (current.isHashTrie()) {
+							mediator = new StorageHashTrie(current, newLabel, current.getLastChild(), null);
+						} else {
+							mediator = new StorageTrie(current, newLabel, null);
 						}
-					}
-					current.setFirstChild(mediator);
-					if (current.hashes()) {
-						StorageTrie newCurrent = new StorageTrie(current.getParent(), current.getLabel(), null);
-						replace(current, newCurrent);
-						current = newCurrent;
-					}
-					
-					// and go on...
-					stack.pop(match);
-					current = mediator;
-					
-				} else { // no match
-					
-					// Check wether we can have a full match
-					if (current.getParent().getFirstChild() == current) {
-						Trie searched = getChild(current, stack.peek());
-						if (searched != null) {
+						mediator.setTerms(termList);
+						
+						// insert mediator
+						if (current.getFirstChild() != null) {
+							mediator.setFirstChild(current.getFirstChild());
 							
+							if (current.isHashTrie()) {
+								mediator.setMap(current.getMap());
+							}
+							
+							// set mediator as parent for all children
+							Trie child = mediator.getFirstChild();
+							while (child != null) {
+								child.setParent(mediator);
+								child = child.getNextSibling();
+							}
+						}
+						current.setFirstChild(mediator);
+						if (current.isHashTrie()) {
+							StorageTrie newCurrent = new StorageTrie(current.getParent(), current.getLabel(), null);
+							replace(current, newCurrent);
+							current = newCurrent;
+						}
+						
+						// and go on...
+						stack.pop(match);
+						current = mediator;
+						
+					} else { // no match
+						
+						// Check wether we can have a full match
+						if (current.getParent().getFirstChild() == current) {
+							Trie searched = getChild(current, stack.peek());
+							if (searched != null) {
+								
+							}
+						}
+						
+						if (current.getNextSibling() == null) { // create first next sibling and add term directly
+							current.setNextSibling(new StorageTrie(current.getParent(),makeComplexLabel(), term));
+							insertionNode = current.getNextSibling();
+						} else { // move to next sibling
+							current = current.getNextSibling();
 						}
 					}
 					
-					if (current.getNextSibling() == null) { // create first next sibling and add term directly
-						current.setNextSibling(new StorageTrie(current.getParent(),makeComplexLabel(), term));
-						insertionNode = current.getNextSibling();
-					} else { // move to next sibling
-						current = current.getNextSibling();
-					}
 				}
 			}
 			
@@ -133,7 +135,7 @@ public class ComplexTrieBuilder extends TrieBuilder {
 	}
 
 	@Override
-	public boolean remove(Term term, Trie start) {
+	public void remove(Term term, Trie start) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 

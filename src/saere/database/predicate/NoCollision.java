@@ -1,6 +1,5 @@
-package saere.database.predicate.full;
+package saere.database.predicate;
 
-import saere.database.predicate.DatabasePredicate;
 
 /**
  * Marker interface to signal that the implementing {@link DatabasePredicate} 
@@ -10,6 +9,4 @@ import saere.database.predicate.DatabasePredicate;
  * @author David Sullivan
  * @version 0.1, 11/1/2010
  */
-public interface NoCollision {
-
-}
+public interface NoCollision { /* empty */ }

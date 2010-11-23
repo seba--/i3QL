@@ -68,10 +68,10 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				// A child with the label already exists
 				if (stack.size() == 1) {
 					// We need a storage trie
-					if (!searched.stores()) {
+					if (!searched.isStorageTrie()) {
 						// We want to add to a trie that already exists but doesn't store terms (inner trie node)
 						Trie storageTrie;
-						if (searched.hashes()) {
+						if (searched.isHashTrie()) {
 							storageTrie = new StorageHashTrie(current, current.getLabel(), current.getLastChild(), term);
 							replace(current, storageTrie);
 							storageTrie.setMap(current.getMap());
@@ -83,7 +83,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 						}
 					} else {
 						// We want to add to a trie that already exists and stores (a) term(s) (collision)
-						searched.addTerm(term);
+						addTerm(searched, term);
 						return searched;
 					}
 				} else {
@@ -93,11 +93,6 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				}
 			}
 		}
-	}
-
-	@Override
-	public boolean remove(Term term, Trie start) {
-		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@Override
@@ -114,5 +109,51 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 	@Override
 	public String toString() {
 		return flattener.toString() + "-simple";
-	}	
+	}
+
+	@Override
+	public void remove(Term term, Trie root) {
+		stack = flattener.flatten(term);
+		current = root;
+		
+		while (true) {
+			Label peeked = stack.peek();
+			Trie searched = getChild(current, peeked);
+			if (searched == null) {
+				return;
+			}
+				
+			if (stack.size() == 1) {
+				if (searched.isStorageTrie()) {
+					removeTerm(searched, term);
+					trim(searched);
+				}
+				return;
+			} else {
+				current = searched;
+				stack.pop();
+			}
+		}
+	}
+	
+	private void trim(Trie start) {
+		current = start;
+		
+		if (start.getTerms() == null) {
+			current = start.getParent();
+			removeChild(current, start);
+			
+			// As long as the current node has no child
+			while (current.getParent().getFirstChild() == null && !current.isHashTrie()) {
+				
+				removeChild(current.getParent(), current);
+				current = current.getParent();
+				
+				// Don't remove the root
+				if (current.getParent() == null) {
+					return;
+				}
+			}
+		}
+	}
 }

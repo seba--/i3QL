@@ -16,10 +16,10 @@ public final class MultiTrie extends StorageHashTrie {
 		assert label instanceof FunctorLabel : "Functor label expected";
 		
 		// XXX Temporary solution, more easy to implement
-		subtrie = Trie.root();
+		subtrie = Trie.newRoot();
 	}
 	
-	public boolean multi() {
+	public boolean isMultiTrie() {
 		return true;
 	}
 	

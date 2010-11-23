@@ -70,4 +70,13 @@ public final class Factbase {
 		DatabaseTermFactory.getInstance().reset();
 		facts.clear();
 	}
+	
+	/**
+	 * The size of the {@link Factbase}.
+	 * 
+	 * @return The size of the {@link Factbase}.
+	 */
+	public int size() {
+		return facts.size();
+	}
 }
