@@ -38,7 +38,7 @@
 	<p>
 	To identify/describe Prolog terms, we use the terminology as used in 
 	the book "Learn Prolog Now!" which is freely available (www.learnprolognow.org).
-	{@link AST#:-(module/1)}
+	{@link_prolog_file AST.pl#:-(module/1)}
 	</p>
    <p>
    The result of tokenizing a file is a list of elementary tokens of Prolog
@@ -56,7 +56,7 @@
 		followed by '('. However, ',' and '|' are never directly the functor
 		of a compound term, they always need to be put between two apostrophs to 
 		be used as a functor. This special treatment is necessary to enable 
-		"natural" definitions of complex terms and lists.
+		"natural" definitions of the arguments of complex terms and lists.
 		</i></li>		
    <li>i(N,pos(F,LN,CN)) :- N is an integer value.</li>      
    <li>r(R,pos(F,LN,CN)) :- R is a real value / a floating point value.</li>      
@@ -135,9 +135,11 @@
       tokenize_with_sc/2,
       tokenize_with_c/2,
       operator_char/1,
-		parenthesis/1
+		parenthesis/1,
+		token_position/4
    ]
 ).
+
 
 
 /**
@@ -181,6 +183,7 @@ tokenize_string(S,Ts) :-
 	close(Stream).
 
 
+
 /**
    Tokenizes a file and returns the list of tokens. White space information is
    stripped.<br />
@@ -192,9 +195,9 @@ tokenize_file(File,Tokens) :- tokenize_file(File,Tokens,[]).
    Tokenizes a file and returns the list of tokens.
    
    @signature tokenize_file(File,Tokens,Options)
-   @arg(in) File the file to tokenize.
-   @arg(out) Tokens the list of recognized tokens.
-   @arg(in) Options a list of options to parameterize the lexer. Currently, 
+   @arg(in) File The file to tokenize.
+   @arg(out) Tokens The list of recognized tokens.
+   @arg(in) Options A list of options to parameterize the lexer. Currently, 
       the only supported option is <code>comments(Mode)</code>, where Mode
       is either <code>retain_all</code> or <code>retain_sc</code> 
       and which determines which type of commens are included in the Tokens 
@@ -211,8 +214,7 @@ tokenize_file(File,Tokens,Options) :-
          Mode = retain_sc,!,
          tokenize_with_sc(Stream,Tokens)
       ;
-			% IMPROVE error message
-         write('Error: unrecognized mode ('),write(Mode),write(')'),nl
+			throw(internal_error('unsupported mode',Mode))
       )
    ;  
       tokenize(Stream,Tokens) 
@@ -223,7 +225,7 @@ tokenize_file(File,Tokens,Options) :-
 
 /**
    Tokenizes a stream of characters and retains all comments.<br />
-   If no (structured) comments are required consider using {@link tokenize_with_sc/2}
+   If no unstructured comments are required consider using {@link tokenize_with_sc/2}
    or {@link tokenize/2}.
    
    @signature tokenize(Stream,Tokens)
@@ -236,8 +238,7 @@ tokenize_with_c(Stream,Tokens) :-
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
-   (  % if...
-      T = ws, !,
+   (  T = ws ->
       Tokens = Ts
    ;  % else...
       token_with_position(T,File,LN,CN,TwithPos),
@@ -261,8 +262,7 @@ tokenize_with_sc(Stream,Tokens) :-
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
-   (  % if...
-      ( is_unstructured_comment(T) ; T=ws ), !,
+   (  ( is_unstructured_comment(T) ; T = ws ) ->
       Tokens = Ts
    ;  % else...
       token_with_position(T,File,LN,CN,TwithPos),
@@ -285,8 +285,7 @@ tokenize(Stream,Tokens) :-
    get_char(Stream,C),
    read_token(C,Stream,T),
    !,
-   (  % if...
-      is_insignificant(T), !,
+   (  is_insignificant(T) ->
       Tokens = Ts
    ;  % else...
       token_with_position(T,File,LN,CN,TwithPos),
@@ -328,6 +327,14 @@ parenthesis('[').
 parenthesis(']').
 parenthesis('{').
 parenthesis('}').
+
+
+/**
+	Token is a token as produced by the lexer.
+*/
+token_position(Token,File,LN,CN) :- Token =.. [_TokenType,_TokenInstance,pos(File,LN,CN)],!.
+token_position(Token,File,LN,CN) :- Token =.. [_Parenthesis,pos(File,LN,CN)],!.
+token_position(Token,_File,_LN,_CN) :- throw(internal_error('unsupported token type',Token)).
 
 
 
@@ -379,16 +386,9 @@ token_with_position(sc(T),File,LN,CN,sc(T,pos(File,LN,CN))) :- !.
 token_with_position(eolc(T),File,LN,CN,eolc(T,pos(File,LN,CN))) :- !.
 token_with_position(mlc(T),File,LN,CN,mlc(T,pos(File,LN,CN))) :- !.
 % The following clause should never be reached!
-token_with_position(T,File,LN,CN,T) :- 
-	atomic_list_concat(
-		[	% IMPROVE Make the error message "GNU error messages compliant"
-			'INTERNAL LEXER ERROR:',File,':',LN,':',CN,
-			' unknown token type (\'',T,'\' [FATAL]\n'
-		],
-		MSG
-	),
-	write(MSG), 
-	fail.
+token_with_position(T,_File,_LN,_CN,T) :- 
+	throw(internal_error('unknown token type',T)).
+
 
 
 
@@ -409,13 +409,12 @@ lexer_error(Stream,MessageFragments) :-
    current_stream_position(Stream,LN,CN),
    current_stream(File,read,Stream),
    atomic_list_concat(MessageFragments,EM),
-	% TODO check that this error message is compliant with standard tools
-   atomic_list_concat([File,':',LN,':',CN,':error:',EM,'\n'],MSG),
+   atomic_list_concat([File,':',LN,':',CN,': error: ',EM,'\n'],MSG), % GCC compliant
    write(MSG).
 
 
 
-/** (PRIVATE)
+/** 
    Reads in a token of a specific type.</br >
    Based on the previously read character Char and at most one further character 
    (using peek_char), the type of the token is determined and reading the rest 
@@ -499,7 +498,7 @@ read_token(I,Stream,R) :-
 read_token('/',Stream,Token) :- 
    peek_char(Stream,'*'),
    !, 
-   get_char(Stream,_), % /*/ is not considered to be a valid comment...
+   get_char(Stream,_), % "/*/" is not a valid comment...
    read_ml_comment(Stream,Token).
 
 % a string atom
@@ -522,7 +521,7 @@ read_token(Op,Stream,T) :-
 read_token(end_of_file,_Stream,_) :- !,fail.
 
 read_token(C,Stream,_) :- 
-	lexer_error(Stream,['unrecognized symbol (',C,') [FATAL]']),!,fail.
+	lexer_error(Stream,['ignoring unrecognized symbol (',C,')']),!.
 
 
 
@@ -719,76 +718,8 @@ read_unstructured_ml_comment(Stream,R) :-
  *                                                                            *
 \* ************************************************************************** */
 
-
-
-read_structured_ml_comment(Stream,Tokens) :-
-   current_stream_position(Stream,LN,CN),
- 	current_stream(File,read,Stream),
-   get_char(Stream,C),
-   (	
-      C = '*', peek_char(Stream,'/'),!,
-      get_char(Stream,_),
-      Tokens = []
-   ;
-      sc_read_token(C,Stream,T),!,
-		(
-			T = none,!,
-			Tokens = RTs
-		;
-      	sc_token_with_position(T,File,LN,CN,TwithPos),
-      	Tokens = [TwithPos|RTs]
-		),
-      read_structured_ml_comment(Stream,RTs)
-   ).
-read_structured_ml_comment(Stream,[]) :-  
-   lexer_error(Stream,['unexpected end of file while lexing structured comment']).
-
-
-sc_token_with_position(C,File,LN,CN,T) :- sc_special_char(C),!,T =.. [C,pos(File,LN,CN)].
-sc_token_with_position(ws(WS),File,LN,CN,ws(WS,pos(File,LN,CN))) :- !.
-sc_token_with_position(tf(TF),File,LN,CN,tf(TF,pos(File,LN,CN))) :- !.
-
-
-sc_read_token(C,_Stream,C) :- sc_special_char(C),!.
-sc_read_token(WS,_Stream,none) :- char_type(WS,space),!.
-sc_read_token(EOF,_Stream,_) :- char_type(EOF,end_of_file),!,fail.
-
-% the base case... a sequence of characters; i.e., a text fragment (tf)
-sc_read_token(C,Stream,Token) :- 
-   sc_read_tf(Stream,Cs),
-   atom_chars(ATF,[C|Cs]),
-   Token=tf(ATF).
-
-
-sc_read_tf(Stream,Cs) :- 
-   peek_char(Stream,C),
-   \+ sc_tf_delimiter(C),
-   !,
-   get_char(Stream,_),
-   Cs = [C|RCs],
-   sc_read_tf(Stream,RCs).
-sc_read_tf(_Stream,[]). 
-
-sc_tf_delimiter(C) :- sc_special_char(C),!.
-sc_tf_delimiter(WS) :- char_type(WS,space),!.
-sc_tf_delimiter(EOF) :- char_type(EOF,end_of_file),!.
-
-
-
-/*
-	The list of all chars that have special semantics in the context of structured
-	comments.
-*/
-sc_special_char('*') :- !.  
-sc_special_char('<') :- !.
-sc_special_char('{') :- !.
-sc_special_char('}') :- !.
-sc_special_char('(') :- !.
-sc_special_char(')') :- !.
-sc_special_char(',') :- !.
-sc_special_char('/') :- !.
-sc_special_char('>') :- !.
-sc_special_char('@') :- !.
+% TODO implement lexing of structured comments
+read_structured_ml_comment(Stream,Tokens) :- read_unstructured_ml_comment(Stream,Tokens).
 
 
 

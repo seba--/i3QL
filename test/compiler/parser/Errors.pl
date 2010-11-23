@@ -31,36 +31,27 @@
 */
 
 /**
-	Tests related to corner cases.
+	Tests related to parsing lists.
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
 :- ensure_loaded('src/compiler/Lexer.pl').
 :- ensure_loaded('src/compiler/Parser.pl').
+:- ensure_loaded('src/compiler/AST.pl').
+:- ensure_loaded('src/compiler/Utils.pl').
 
-
-:- begin_tests(parser_corner_cases).
-
-test('V=(a,b)') :- % (a,b) is an anonymous tuple
-	tokenize_string("V=(a,b).",Ts),
-	clauses(Ts,[ct([pos([], 1, 1)|_], =, [v([pos([], 1, 0)|_], 'V'), ct([pos([], 1, 4)|_], ',', [a([pos([], 1, 3)|_], a), a([pos([], 1, 5)|_], b)])])]).
-
-test(', as an atom') :- 
-	tokenize_string("X=a(,,,).",Ts),
-	clauses(
-		Ts,
-		[ct([pos([], 1, 1)|_], =, [
-			v([pos([], 1, 0)|_], 'X'),
-			ct([pos([], 1, 2)|_], a, [
-				a([pos([], 1, 4)|_], ','), 
-				a([pos([], 1, 6)|_], ',')])])]).
-
-test('operator as functor') :- 
-	tokenize_string("\\+ \\+(a,b).",Ts),
-	clauses(Ts,[ct([pos([], 1, 0)|_], \+, [ct([pos([], 1, 3)|_], \+, [a([pos([], 1, 6)|_], a), a([pos([], 1, 8)|_], b)])])]).
-
-test('escaped operators') :- 
-	tokenize_string("'-' \\+(a,b).",Ts),
-	clauses(Ts,[ct([pos([], 1, 0)|_], -, [ct([pos([], 1, 4)|_], \+, [a([pos([], 1, 7)|_], a), a([pos([], 1, 9)|_], b)])])]).
+:- begin_tests(parser_error_handling).
 		
-:- end_tests(parser_corner_cases).
+
+test(	errors_identification,
+		[	
+			setup(redirect_stdout_to_null((StdOut,NullOut))),
+			cleanup(reset_stdout_redirect((StdOut,NullOut)))
+		]
+) :- 
+	tokenize_file('test/compiler/parser/data/Errors.pl',Ts),
+	clauses(Ts,_),
+	line_count(NullOut,9). % eight error message + 1 newline.
+
+			
+:- end_tests(parser_error_handling).
