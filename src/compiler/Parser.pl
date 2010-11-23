@@ -112,7 +112,7 @@ clauses(Ts,Cs) :-
 	(	
 		X=[],! % the parser succeeded (all tokens were accepted).
 	;
-		X=[T|_], % the parser failed while parsing the statement beginnig with T
+		X=[T|_], % the parser failed while parsing the term beginnig with the token T
 		token_position(T,File,LN,CN),
 		atomic_list_concat([File,':',LN,':',CN,': error: syntax error\n'],MSG), % GCC compliant
 	   write(MSG),
@@ -243,11 +243,16 @@ default_op_table(
  *                                                                            *
 \* ************************************************************************** */
 
+/*
+parser_errors_stream(Stream) :- current_stream(parser_errors,_Mode,Stream),!.
+parser_errors_stream(Stream) :- current_stream(1,_Mode,Stream).
+*/
 
 parser_error(ASTNode,MessageFragments) :-
 	term_pos(ASTNode,File,LN,CN),
    atomic_list_concat(MessageFragments,EM),	
-   atomic_list_concat([File,':',LN,':',CN,': error: ',EM,'\n'],MSG), % GCC compliant
+   atomic_list_concat([File,':',LN,':',CN,': error: ',EM,'\n'],MSG),% GCC compliant
+ 	%parser_errors_stream(Stream),
    write(MSG).
 
 
@@ -292,7 +297,7 @@ clauses(Ops,Clauses) -->
 				Ops = NewOps
 			),
 			Clauses = [Clause|OtherClauses]
-		;	% the clause is not valid; let's ignore it
+		;	% the term is not a clause; let's ignore it
 			Clauses = OtherClauses,
 			Ops = NewOps
 	},
@@ -308,7 +313,6 @@ clauses(_Ops,[]) --> {true}.
 process_directive(Ops,Directive,NewOps) :- 
 	directive(Directive,GoalNode),	
 	complex_term(GoalNode,Goal,Args),
-	% IMPROVE (error) messages	
 	(
 		(
 			Goal = op,
@@ -316,24 +320,28 @@ process_directive(Ops,Directive,NewOps) :-
 		;
 			Goal = module,
 			Ops = NewOps,
-			parser_error(Goal,['modules are not (yet) supported and module declarations are ignored'])
+			parser_error(GoalNode,['modules are not (yet) supported and module declarations are ignored'])
 		;
 			Goal = use_module,
 			Ops = NewOps,
-			parser_error(Goal,['modules are not (yet) supported and module declarations are ignored'])
+			parser_error(GoalNode,['modules are not (yet) supported and module declarations are ignored'])
 		;
 			Goal = ('discontiguous'),
 			Ops = NewOps,
-			parser_error(Goal,['the discontiguous directive is not yet supported'])
+			parser_error(GoalNode,['the discontiguous directive is not yet supported'])
 		),
 		!
 	;
 		Ops = NewOps,	
-		parser_error(GoalNode,['unknown directive: ',Goal])
+		parser_error(GoalNode,['the directive: ',Goal,' is unknown and ignored'])
 	).
 	
 	
-process_op_directive([PriorityNode,SpecifierNode,OperatorNode],ops(PrefixOps,InfixOps,PostfixOps),ops(NewPrefixOps,NewInfixOps,NewPostfixOps)) :- 
+process_op_directive(
+		[PriorityNode,SpecifierNode,OperatorNode],
+		ops(PrefixOps,InfixOps,PostfixOps),
+		ops(NewPrefixOps,NewInfixOps,NewPostfixOps)
+) :- 
 	integer_atom(PriorityNode,Priority),
 	string_atom(SpecifierNode,Specifier),
 	string_atom(OperatorNode,Operator),

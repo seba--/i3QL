@@ -38,55 +38,20 @@
 :- ensure_loaded('src/compiler/Lexer.pl').
 :- ensure_loaded('src/compiler/Parser.pl').
 :- ensure_loaded('src/compiler/AST.pl').
-%:- ensure_loaded('src/compiler/Utils.pl').
+:- ensure_loaded('src/compiler/Utils.pl').
 
-:- begin_tests(parser_op_directive).
-
+:- begin_tests(parser_error_handling).
 		
-test(yf_successful) :- 
-	tokenize_string(":- op(300,yf,$).X = (a $ $ + b ).",Ts),
-	clauses(Ts,Clauses),
-	Clauses =	
-		[ct(_, ':-', [ct(_, op, [i(_, 300), a(_, yf), a(_, $)])]),
-		 ct(_, '=', [
-			v(_, 'X'),ct(_, +, [ct(_, $, [ct(_, $, [a(_, a)])]),a(_, b)])
-			]
-		 )
-	   ]. 
-	
-test(xf_successful) :- 
-	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
-	clauses(
-		Ts,
-		[ct(_, ':-', [ct(_, op, [i(_, 300), a(_, xf), a(_, $)])]),
-		 ct([pos([], 1, 18)|_], =, [
-			v([pos([], 1, 16)|_], 'X'), 
-			ct([pos([], 1, 25)|_], +, [
-				ct([pos([], 1, 23)|_], $, [a([pos([], 1, 21)|_], a)]), 
-				a([pos([], 1, 27)|_], b)])])]).
 
-
-test(meta_information) :- 
-	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
-	clauses(Ts,[FirstClause,SecondClause]),
-	term_meta(FirstClause,FirstMeta),
-	lookup_in_meta(ops(_FirstPrefixOps,_FirstInfixOps,FirstPostfixOps),FirstMeta),
-	\+ memberchk(op(300,xf,$),FirstPostfixOps),
-	term_meta(SecondClause,SecondMeta),
-	lookup_in_meta(ops(_SecondPrefixOps,_SecondInfixOps,SecondPostfixOps),SecondMeta),
-	memberchk(op(300,xf,$),SecondPostfixOps).
-
-
-test(no_meta_information) :- 
-	tokenize_string("foo(a,b).",Ts),
-	clauses(Ts,[Clause]),
-	term_meta(Clause,Meta),
-	\+ lookup_in_meta(ops(_FirstPrefixOps,_FirstInfixOps,_FirstPostfixOps),Meta).
-	
-
-test(xf_fail,[fail,setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :- 
-	tokenize_string(":- op(300,xf,$).X = (a $ $ + b ).",Ts),
-	clauses(Ts,_).
+test(	errors_identification,
+		[	
+			setup(redirect_stdout_to_null((StdOut,NullOut))),
+			cleanup(reset_stdout_redirect((StdOut,NullOut)))
+		]
+) :- 
+	tokenize_file('test/compiler/parser/data/Errors.pl',Ts),
+	clauses(Ts,_),
+	line_count(NullOut,9). % eight error message + 1 newline.
 
 			
-:- end_tests(parser_op_directive).
+:- end_tests(parser_error_handling).

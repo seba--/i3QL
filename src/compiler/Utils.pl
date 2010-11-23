@@ -48,7 +48,10 @@
 		not_empty/1,
 
 		append_ol/2,
-		memberchk_ol/2
+		memberchk_ol/2,
+		
+		redirect_stdout_to_null/1,
+		reset_stdout_redirect/1
 	]).
 
 
@@ -298,4 +301,13 @@ memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
 
 
 
-
+redirect_stdout_to_null((StdOutStream,NullStream)) :- 
+	current_stream(1,_,StdOutStream),
+	open_null_stream(NullStream),
+	set_output(NullStream).
+	
+	
+	
+reset_stdout_redirect((StdOutStream,NullStream)) :- 
+	set_output(StdOutStream),
+	close(NullStream).

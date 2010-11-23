@@ -34,14 +34,14 @@
 
 /**
 	The following tests just load a large number of different prolog files
-	to make sure that the parser can handle reasonable, real-world Prolog 
+	to make sure that the parser does not crash for reasonable, real-world Prolog 
 	programs.
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
 :- ensure_loaded('src/compiler/Lexer.pl').
 :- ensure_loaded('src/compiler/Parser.pl').
-
+:- ensure_loaded('src/compiler/Utils.pl').
 
 
 :- begin_tests(parser_overall).
@@ -113,14 +113,22 @@ test('benchmarks/zebra.pl') :-
 
 % Let's test if we can parse our own code
 
-test('src/compiler/Lexer.pl') :-
+test('src/compiler/Lexer.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
 	tokenize_file('src/compiler/Lexer.pl',Ts),clauses(Ts,_P).
 
-test('src/compiler/Parser.pl') :-
+test('src/compiler/Parser.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
 	tokenize_file('src/compiler/Parser.pl',Ts),clauses(Ts,_P).
 
-test('src/compiler/AST.pl') :-
+
+test('src/compiler/AST.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
 	tokenize_file('src/compiler/AST.pl',Ts),clauses(Ts,_P).
 
+
+test('src/compiler/Utils.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/compiler/Utils.pl',Ts),clauses(Ts,_P).
+
+
+test('src/compiler/Predef.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/compiler/Predef.pl',Ts),clauses(Ts,_P).
 		
 :- end_tests(parser_overall).
