@@ -49,18 +49,17 @@
 
 /**
 	Loads an SAE Prolog program's source files and creates the overall AST. 
-	The AST consists only of directives and rule definitions, facts are transformed
-	to rule defintions.
+	The AST consists only of directives and rule definitions.
 	
-	@arg(in) Debug is the list of debug information that should be emitted.
+	@arg(in) DebugConfig is the list of debug information that should be emitted.
 		Possible values are: 'on_entry', 'ast(user)','ast(built_in)' and 'reading_file'.
 	@arg(in) Files is the list of (all) files of the SAE Prolog program. All 
 		files will be loaded. The file names have to be expanded and absolute.
 	@arg(unused) _OutputFolders 
-	@arg(out) Program is the AST of the program including all
+	@arg(out) AST is the AST of the program including all
 		predefined predicates.
 */
-pl_load(DebugConfig,Files,_OutputFolders,Program) :-
+pl_load(DebugConfig,Files,_OutputFolders,AST) :-
 	debug_message(DebugConfig,on_entry,write('[Debug] Phase: Loading source files___________________________________\n')),
 	findall(
 		Clauses,
@@ -70,13 +69,13 @@ pl_load(DebugConfig,Files,_OutputFolders,Program) :-
 			tokenize_file(File,Tokens),
 			clauses(Tokens,Clauses)
 		),
-		ListOfClauses
+		ListOfListOfClauses
 	),
 	% iterate over all terms of all ASTs and create a global ast
-	global_ast(ListOfClauses,GlobalAST),
-	add_predefined_predicates_to_ast(GlobalAST,Program),
-	debug_message(DebugConfig,ast(user),write_ast(user,Program)),
-	debug_message(DebugConfig,ast(built_in),write_ast(built_in,Program)).
+	build_ast(ListOfListOfClauses,AST0),
+	add_predefined_predicates_to_ast(AST0,AST),
+	debug_message(DebugConfig,ast(user),write_ast(user,AST)),
+	debug_message(DebugConfig,ast(built_in),write_ast(built_in,AST)).
 
 
 
@@ -86,24 +85,36 @@ pl_load(DebugConfig,Files,_OutputFolders,Program) :-
 
 
 
-global_ast(ASTs,TheAST) :-
+build_ast(ListOfListOfClauses,TheAST) :-
 	empty_ast(EmptyAST),
-	process_asts(ASTs,EmptyAST,TheAST).
+	process_list_of_list_of_clauses(ListOfListOfClauses,EmptyAST,TheAST).
 
 
 
-process_asts([AnAST|ASTs],CurrentAST,FinalAST) :- !,
-	process_terms(AnAST,CurrentAST,IntermediateAST),
-	process_asts(ASTs,IntermediateAST,FinalAST).
-process_asts([],AST,AST).	
+process_list_of_list_of_clauses(
+		[ListOfClauses|FurtherListsOfListsOfClauses],
+		CurrentAST,
+		FinalAST
+) :- 
+	!,
+	process_clauses(ListOfClauses,CurrentAST,IntermediateAST),
+	process_list_of_list_of_clauses(
+		FurtherListsOfListsOfClauses,IntermediateAST,FinalAST
+	).
+process_list_of_list_of_clauses([],AST,AST).	
 
 
 
-process_terms([Term|Terms],CurrentAST,FinalAST) :- !,
-	normalize_term(Term,NormalizedTerm),
-	add_term_to_ast(CurrentAST,NormalizedTerm,IntermediateAST),
-	process_terms(Terms,IntermediateAST,FinalAST).
-process_terms([],AST,AST).
+process_clauses([Clause|Clauses],CurrentAST,FinalAST) :- 
+	is_directive(Clause),!, 
+	add_clause_to_ast(CurrentAST,Clause,IntermediateAST),
+	process_clauses(Clauses,IntermediateAST,FinalAST).
+process_clauses([Clause|Clauses],CurrentAST,FinalAST) :- 
+	/* assert is_rule(Clause) */ !,
+	normalize_rule(Clause,NormalizedClause),
+	add_clause_to_ast(CurrentAST,NormalizedClause,IntermediateAST),
+	process_clauses(Clauses,IntermediateAST,FinalAST).
+process_clauses([],AST,AST).
 
 
 
@@ -118,21 +129,25 @@ process_terms([],AST,AST).
 
 
 /**
-	Normalizes a (top-level) term. <br />
-	In a normalized term the head's arguments are all variables where no
+	Normalizes a rule. <br />
+	In a normalized rule the head's arguments are all variables where no
 	variable occurs more than once. Further, every term is transformed into
 	"clausal form"; i.e., it is always an implication with a left and a right 
 	side. In case of a fact the right side is just <code>true</code>.
 	
-	@signature normalize_term(Term,NormalizedTerm)
-	@arg Term The old term.
-	@arg NormalizedTerm The normalized variant of term.
+	@signature normalize_rule(Rule,NormalizedRule)
+	@arg Rule The old rule.
+	@arg NormalizedRule The normalized variant of the rule.
 */
-normalize_term(Term0,ct(MI,':-',[Head,OptimizedBody])) :-
-	as_clause(Term0,Term1),
-	remove_head_unification(Term1,ct(MI,':-',[Head,Body])),
-	left_descending_goal_sequence(Body,LeftDescendingBody),
-	no_trailing_true_goals(LeftDescendingBody,OptimizedBody).
+normalize_rule(Rule0,NormalizedRule) :-
+	term_meta(Rule0,Meta0),
+	rule_with_head_and_body(Rule0,Rule1),
+	remove_head_unification(Rule1,Rule2),
+	rule_head(Rule2,Head2),
+	rule_body(Rule2,Body2),
+	left_descending_goal_sequence(Body2,LeftDescendingBody),
+	no_trailing_true_goals(LeftDescendingBody,OptimizedBody),
+	rule(Head2,OptimizedBody,Meta0,NormalizedRule).
 
 
 
@@ -140,20 +155,20 @@ normalize_term(Term0,ct(MI,':-',[Head,OptimizedBody])) :-
 	If the term is not a clause, it is transformed into one where the right
 	side (the body) is <code>true</code>.
 
-	@signature as_clause(Term,Clause)
-	@arg(in) Term A valid top-level term.
-	@arg(out) Clause A valid top-level clause.
+	@signature rule_with_head_and_body(Term,Rule)
+	@arg(in) Term A valid clause.
+	@arg(out) Rule A rule with a head and a body.
 */
-as_clause(
-		ct(MI,Functor,Args), % FIXME... a rule without a body
-		ct(MI,':-',[ct(MI,Functor,Args),a(MI,'true')])
-) :- Functor \= (':-'),!.
-as_clause(
-		a(MI,Functor),
-		ct(MI,':-',[a(MI,Functor),a(MI,'true')])
-) :- !.
-as_clause(Directive,Directive) :- Directive=ct(_MI,':-',[_]),!.
-as_clause(X,_X) :- throw(internal_error('the given term has an unexpected type',X)).
+rule_with_head_and_body(Rule,Rule) :-
+	is_rule_with_body(Rule),!.
+rule_with_head_and_body(Clause,RuleHB) :-
+	is_rule_without_body(Clause),!,
+	term_pos(Clause,Pos),
+	string_atom('true',Pos,Body),
+	pos_meta(Pos,Meta),
+	rule(Clause,Body,Meta,RuleHB).
+rule_with_head_and_body(Clause,_) :- 
+	throw(internal_error('the clause is not a rule',Clause)).
 
 
 
@@ -176,11 +191,11 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 		(	
 			\+ is_variable(HArg)
 		;
-			is_variable(HArg),
+			variable(HArg,VariableName),
 			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
 			term_meta(HArg,MI), 
-			variable_node('&H',Id,MI,NewVariableNode),
+			variable('&H',Id,MI,NewVariableNode),
 			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
 			NewBody = ct(MI,',',[ct(MI,'=',[NewVariableNode,HArg]),RestOfBody])
 		;	
@@ -216,8 +231,8 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 
 
 
-% IMPROVE documentations... we are performing a tree rotation to facilitate several analyses
-% TODO also make all or paths left_descending and remove trailing true goals
+% IMPROVE documentation... we are performing a tree rotation to facilitate several analyses
+% TODO also make all "or paths" left_descending and remove trailing true goals
 left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
 	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).

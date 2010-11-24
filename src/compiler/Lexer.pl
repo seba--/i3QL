@@ -719,7 +719,8 @@ read_unstructured_ml_comment(Stream,R) :-
 \* ************************************************************************** */
 
 % TODO implement lexing of structured comments
-read_structured_ml_comment(Stream,Tokens) :- read_unstructured_ml_comment(Stream,Tokens).
+read_structured_ml_comment(Stream,Tokens) :- 
+	read_unstructured_ml_comment(Stream,Tokens).
 
 
 

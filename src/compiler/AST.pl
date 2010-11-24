@@ -51,6 +51,9 @@
 											% whether this predicate – as a whole – is
 											% deterministic).
 		),...
+	],
+	[
+											% The list of directives
 	]
 	</code></pre>
 	This module provides all predicates that are necessary to process (parts of)
@@ -91,16 +94,21 @@
 		complex_term/3,		
 		complex_term/4,
 		complex_term/5,		
-		directive/2,
+		directive_goal/2,
+		rule/4,
 		rule_head/2,
 		rule_body/2,
-
+		
+		pos_meta/2,
 		lookup_in_meta/2,
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
-		add_term_to_ast/3,
+		add_clause_to_ast/3,
 		add_predicates_to_ast/3,
+		is_rule/1,
+		is_rule_with_body/1,
+		is_rule_without_body/1,
 		is_directive/1,
 		is_variable/1,
 		is_anonymous_variable/1,
@@ -111,7 +119,7 @@
 		
 		write_ast/2,
 		write_clauses/1,
-		write_clause/1
+		write_ast_node/1
 	]
 ).
 
@@ -136,6 +144,9 @@
 											
 			[type=...,_]				% An open list of this predicate's properties.
 		),...
+	],
+	[
+		Directives (as is)
 	]
 
 */
@@ -148,7 +159,7 @@
 	@signature empty_ast(AST)
 	@arg AST An empty AST.
 */
-empty_ast([]).
+empty_ast(([]/*Rules*/,[]/*Directives*/)).
 
 
 /**
@@ -179,7 +190,13 @@ is_directive(ct(_Meta, ':-',[_Directive])).
 	@signature directive(Directive_ASTNode,Goal)
 	@arg Directive_ASTNode An AST node that represents a directive definition.
 */
-directive(ct(_Meta,':-',[Goal]),Goal).
+directive_goal(ct(_Meta,':-',[Goal]),Goal).
+
+
+/**
+	Constructs a new rule.
+*/
+rule(Head,Body,Meta,ct(Meta,':-',[Head,Body])).
 
 
 rule_head(ct(_Meta,':-',[Head,_]),Head) :- !.
@@ -217,7 +234,12 @@ is_rule_with_body(ct(_Meta,':-',[_Head,_Body])).
 */
 is_rule_without_body(Clause) :- 
 	\+ is_directive(Clause),
-	Clause = ct(_Meta,_Functor,[_Arg]).
+	(
+		Clause = ct(_CTMeta,Functor,_Args),
+		Functor \= (':-')
+	;
+		Clause = a(_AMeta,_Value) % e.g., "true."
+	).
 
 
 /**
@@ -271,18 +293,16 @@ is_float_atom(r(_Meta,_Value)).
 
 
 /**
-	Adds a top-level term – which has to be a valid, normalized clause – to the 
-	given AST.
+	Adds a clause – which has to be a valid, normalized rule or a directive – to
+	the given AST.
 
-	@signature add_term_to_ast(AST,Term,NewAST)
+	@signature add_clause_to_ast(AST,Clause,NewAST)
 	@arg(in) AST The AST to which the given term is added.
-	@arg(in) TLTerm TLTerm has to be a valid normalized, top-level complex term; i.e.,
-		no variable, no integer atom, no syntactically invalid complex term such as
-		"X(a,b)" etc.
+	@arg(in) Clause Clause has to be a valid, normalized clause or a directive.
 	@arg(out) NewAST The new AST which contains the new term (predicate).
 */
-add_term_to_ast(AST,TLTerm,NewAST) :- 
-	TLTerm = ct(_Meta,':-',[LeftTerm,_RightTerm]),
+add_clause_to_ast(AST,Rule,NewAST) :- 
+	Rule = ct(_Meta,':-',[LeftTerm,_RightTerm]),
 	(	% e.g., terms such as "do :- write(...)".
 		LeftTerm = a(_,Functor),
 		Arity = 0
@@ -291,13 +311,17 @@ add_term_to_ast(AST,TLTerm,NewAST) :-
 		length(Args,Arity)
 	),!,
 	ID = Functor/Arity,
-	(	memberchk(pred(ID,Clauses,_PredProps1),AST) ->
-		append_ol(Clauses,(TLTerm,_ClauseProps1)),
+	AST=(Rules,Directives),
+	(	memberchk(pred(ID,Clauses,_PredProps1),Rules) ->
+		append_ol(Clauses,(Rule,_ClauseProps1)),
 		NewAST=AST
 	;
-		NewAST=[pred(ID,[(TLTerm,_ClauseProps2)|_],_PredProps2)|AST]
+		NewAST=([pred(ID,[(Rule,_ClauseProps2)|_],_PredProps2)|Rules],Directives)
 	).
-add_term_to_ast(_AST,Term,_NewAST) :- 
+add_clause_to_ast((Rules,Directives),Directive,NewAST) :-
+	Directive = ct(_Meta,':-',[_TheDirective]),!,
+	NewAST=(Rules,[Directive|Directives]).
+add_clause_to_ast(_AST,Term,_NewAST) :- 
 	throw(internal_error('the term is not a normalized top-level term',Term)).
 
 
@@ -321,8 +345,8 @@ add_term_to_ast(_AST,Term,_NewAST) :-
 		
 	@arg(out) NewAST The extended NewAST.
 */
-add_predicates_to_ast(AST,[pred(ID,Properties)|Preds],NewAST) :- !,
-	IntermediateAST = [pred(ID,[],Properties)|AST],
+add_predicates_to_ast((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
+	IntermediateAST = ([pred(ID,[],Properties)|Rules],Directives),
 	add_predicates_to_ast(IntermediateAST,Preds,NewAST).
 add_predicates_to_ast(AST,[],AST).
 
@@ -475,6 +499,12 @@ lookup_in_meta(Type,Meta) :- memberchk_ol(Type,Meta).
 
 
 /**
+	@signature meta_pos(Position,ASTNodeMetaInformation)
+*/
+pos_meta(Pos,[Pos|_]).
+
+
+/**
 	Pos is the position of a term in the source file.
 	
 	@arg(in) ASTNode An AST node representing a term in a source file.
@@ -501,18 +531,28 @@ term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
  *            P R E D I C A T E S   T O   D E B U G   T H E   A S T           *
  *                                                                            *
 \* ************************************************************************** */
+
+write_ast(ShowPredicates,(Rules,Directives)) :- 
+	write_rules(ShowPredicates,Rules),
+	write_directives(Directives).	
+
 	
+write_directives([Directive|Directives])	:-
+	write_ast_node(Directive),nl,
+	write_directives(Directives).
+write_directives([]).
+
 
 /**
 	Writes the complete AST - including all meta-information - to standard out.
 
-	@signature write_ast(ShowPredicates,AST) 
+	@signature write_rules(ShowPredicates,AST) 
 	@arg(in) ShowPredicates The kind of predicates that should be printed out.
 		ShowPredicates has to be <code>built_in</code> or <code>user</code>.
 	@arg(in) AST the ast.
 */	
-write_ast(_ShowPredicates,[]) :- !. % green cut	
-write_ast(ShowPredicates,[pred(Identifier,Clauses,PredicateProperties)|Predicates]) :-	
+write_rules(_ShowPredicates,[]) :- !. % green cut	
+write_rules(ShowPredicates,[pred(Identifier,Clauses,PredicateProperties)|Predicates]) :-	
 	(
 		(	(ShowPredicates = built_in, Clauses = [])
 		;
@@ -531,10 +571,10 @@ write_ast(ShowPredicates,[pred(Identifier,Clauses,PredicateProperties)|Predicate
 	; 
 		true
 	),
-	write_ast(ShowPredicates,Predicates).	
-write_ast(_ShowPredicates,AST) :- 
+	write_rules(ShowPredicates,Predicates).	
+write_rules(_ShowPredicates,AST) :- 
 	% IMRPOVE throw exception in case of internal programming errors
-	write('[Internal Error:AST:write_ast/2] The AST: '),
+	write('[Internal Error:AST:write_rules/2] The AST: '),
 	write(AST),
 	write(' is invalid.\nl').
 	
@@ -560,7 +600,7 @@ write_clauses(_,Clauses) :-
 						lead to accidental unification. */,
 	!.
 write_clauses(Id,[(Clause,ClauseProperties)|Clauses]) :-
-	write('[Debug]   '), write(Id), write(':\t'), write_clause(Clause),nl,
+	write('[Debug]   '), write(Id), write(':\t'), write_ast_node(Clause),nl,
 	write('[Debug]   '), write(Id), write(':\tProperties: '),
 	( 	var(ClauseProperties) ->
 		write('None')
@@ -573,25 +613,25 @@ write_clauses(Id,[(Clause,ClauseProperties)|Clauses]) :-
 	
 
 /**
-	Writes a text representation of a given clause (term) to standard out.<br />
+	Writes a text representation of a given AST node to standard out.<br />
 	The generated representation is meant to facilitate debugging the compiler
 	and not as a representation of the AST.
 	
-	@signature write_clause(Term)
+	@signature write_ast_node(Term)
 	@arg(in) Term A node in the AST representing a term in the source file.
 		{@link Parser#:-(module)}
 */
-%write_clause(v(_Meta,Name)) :- !, write('v('),write(Name),write(')').
-write_clause(v(_Meta,Name)) :- !, write(Name).
-%write_clause(av(_Meta,Name)) :- !, write('av('),write(Name),write(')').	
-write_clause(av(_Meta,Name)) :- !,write(Name).	
-write_clause(a(_Meta,Atom)) :- !,	write('\''),write(Atom),write('\'').	
-write_clause(i(_Meta,Atom)) :- !,	write(Atom).	
-write_clause(r(_Meta,Atom)) :- !,	write(Atom).	
-write_clause(ct(_Meta,Functor,ClauseList)) :- !,
+%write_ast_node(v(_Meta,Name)) :- !, write('v('),write(Name),write(')').
+write_ast_node(v(_Meta,Name)) :- !, write(Name).
+%write_ast_node(av(_Meta,Name)) :- !, write('av('),write(Name),write(')').	
+write_ast_node(av(_Meta,Name)) :- !,write(Name).	
+write_ast_node(a(_Meta,Atom)) :- !,	write('\''),write(Atom),write('\'').	
+write_ast_node(i(_Meta,Atom)) :- !,	write(Atom).	
+write_ast_node(r(_Meta,Atom)) :- !,	write(Atom).	
+write_ast_node(ct(_Meta,Functor,ClauseList)) :- !,
 	write(' \''),write(Functor),write('\''),
 	write('[ '),write_term_list(ClauseList),write(' ]').
-write_clause(X) :- throw(internal_error('the given term has an unexpected type',X)).
+write_ast_node(X) :- throw(internal_error('the given term has an unexpected type',X)).
 	
 	
 /**
@@ -603,11 +643,11 @@ write_clause(X) :- throw(internal_error('the given term has an unexpected type',
 	@arg(in) TermList A non-empty list of AST nodes representing source-level
 		terms.
 */	
-write_term_list([Arg|Args]) :-
-	write_clause(Arg),
-	write_term_list_rest(Args).	
+write_term_list([ASTNode|ASTNodes]) :-
+	write_ast_node(ASTNode),
+	write_term_list_rest(ASTNodes).	
 	
 write_term_list_rest([]) :- !.
-write_term_list_rest([Clause|Clauses]) :-
-	write(','),write_clause(Clause),
-	write_term_list_rest(Clauses).
+write_term_list_rest([ASTNode|ASTNodes]) :-
+	write(','),write_ast_node(ASTNode),
+	write_term_list_rest(ASTNodes).

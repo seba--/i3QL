@@ -37,7 +37,7 @@
 	<b>Prolog Grammar Specification</b><br/>
 	<i>Notes</i><br/>
 	Special cases that are not directly reflected by the following grammar, but
-	which are handled by the parser, are:
+	which are handled by the lexer/parser, are:
 	<ul>
 	<li> "\+ (a,b)" and "\+(a,b)" are different statements; the first term
 	is equivalent to "'\+'(','(a,b))" and the second statemet is just a 
@@ -311,7 +311,7 @@ clauses(_Ops,[]) --> {true}.
 % TODO support the removal / redefinition of operators
 % TODO check for discontiguous predicate definitions
 process_directive(Ops,Directive,NewOps) :- 
-	directive(Directive,GoalNode),	
+	directive_goal(Directive,GoalNode),	
 	complex_term(GoalNode,Goal,Args),
 	(
 		(

@@ -56,6 +56,8 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	Validates the SAE program.
 */
 check_predicates(_,_) :- !.
-% TODO implement the validation of the SAE prolog program
+% TODO implement a check for singleton variables
+% TODO implement a check for multiple occurences of the same "named" anonymous variable
+% TODO implement a check that all gooals exist (unresolved references)
 
 
