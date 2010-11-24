@@ -6,9 +6,10 @@ import saere.Atom;
 import saere.Term;
 import saere.database.index.AtomLabel;
 import saere.database.index.FunctorLabel;
-import saere.database.index.HashTrie;
+import saere.database.index.InnerHashNode;
+import saere.database.index.InnerNode;
 import saere.database.index.Label;
-import saere.database.index.StorageTrie;
+import saere.database.index.SingleStorageLeaf;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
 import saere.term.EmptyList0;
@@ -22,7 +23,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 
 	@Override
-	public Trie insert(Term term, Trie start) {
+	public InnerNode insert(Term term, Trie start) {
 		current = start;
 		
 		//return insert(term, start, 0);
@@ -36,7 +37,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		if (searched == null) {
 			if (term.arity() == 0) {
 				// Term is integer or string atom, simply create a storage trie to store atom
-				searched = new StorageTrie(start, label, term); // Store term(s) at leaf node
+				searched = new SingleStorageLeaf(start, label, term); // Store term(s) at leaf node
 				addChild(start, searched);
 				return searched;
 			} else {
@@ -69,11 +70,11 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						// Term is integer or string atom
 						if (i == term.arity() - 1) {
 							// We must store a term here at the last argument
-							StorageTrie storageTrie = new StorageTrie(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
+							SingleStorageLeaf storageTrie = new SingleStorageLeaf(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
 							addChild(prevArg, storageTrie);
 							return storageTrie;
 						} else {
-							Trie trie = new Trie(prevArg, AtomLabel.AtomLabel(atom(arg)));
+							InnerNode trie = new InnerNode(prevArg, AtomLabel.AtomLabel(atom(arg)));
 							addChild(prevArg, trie);
 							prevArg = trie;
 						}
@@ -129,10 +130,10 @@ public final class MultiTrieBuilder extends TrieBuilder {
 							// This is the last argument, we store the term here, otherwise proceed
 							if (searchedChild == null) {
 								// We don't have an appropriate child, create and add one
-								searchedChild = new StorageTrie(prevArg, argLabel, term);
+								searchedChild = new SingleStorageLeaf(prevArg, argLabel, term);
 								addChild(prevArg, searchedChild);
 							} else {
-								assert searchedChild instanceof StorageTrie : "Storage trie expected";
+								assert searchedChild instanceof SingleStorageLeaf : "Storage trie expected";
 								addTerm(searchedChild, term);
 							}
 							
@@ -140,7 +141,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						} else {
 							// Some inner argument
 							if (searchedChild == null) {
-								searchedChild = new Trie(prevArg, argLabel);
+								searchedChild = new InnerNode(prevArg, argLabel);
 								addChild(prevArg, searchedChild);
 							}
 							
@@ -156,18 +157,18 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 	
 	@Override
-	public Iterator<Term> iterator(Trie start) {
+	public Iterator<Term> iterator(InnerNode start) {
 		return new MultiTrieTermIterator(start);
 	}
 
 	@Override
-	public Iterator<Term> iterator(Trie start, Term query) {
+	public Iterator<Term> iterator(InnerNode start, Term query) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove(Term term, Trie start) {
+	public void remove(Term term, InnerNode start) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 	
@@ -177,7 +178,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 	
 	@Override
-	public void addChild(Trie parent, Trie child) {
+	public void addChild(InnerNode parent, InnerNode child) {
 		// Append to the head of the children list
 		child.setNextSibling(parent.getFirstChild());
 		parent.setFirstChild(child);
@@ -191,11 +192,11 @@ public final class MultiTrieBuilder extends TrieBuilder {
 			int childrenNumber = countChildren(parent);
 			if (childrenNumber == mapThreshold) {
 				
-				HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), null);
+				InnerHashNode hashTrie = new InnerHashNode(parent.getParent(), parent.getLabel(), null);
 				replace(parent, hashTrie);
 				
 				// Fill the hash map as replace() doesn't care for this
-				Trie trie = hashTrie.getFirstChild();
+				InnerNode trie = hashTrie.getFirstChild();
 				while (trie != null) {
 					hashTrie.getMap().put(trie.getLabel(), trie);
 					trie = trie.getNextSibling();
@@ -211,11 +212,11 @@ public final class MultiTrieBuilder extends TrieBuilder {
 	}
 	
 	@Override
-	public Trie getChild(Trie parent, Label label) {
+	public InnerNode getChild(InnerNode parent, Label label) {
 		if (parent.getMap() != null) {
 			return parent.getMap().get(label);
 		} else {
-			Trie child = parent.getFirstChild();
+			InnerNode child = parent.getFirstChild();
 			while (child != null) {
 				if (child.getLabel().sameAs(label)) {
 					return child;
@@ -228,20 +229,20 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		return null;
 	}
 	
-	private Trie insert(Term term, Trie start, int dimension) {
+	private InnerNode insert(Term term, InnerNode start, int dimension) {
 		current = start;
 		System.out.println("dimension=" + dimension);
 		
 		Label label = label(term);
 		
 		// The previous argument (on the same level/dimension), i.e., the parent
-		Trie prevArg;
+		InnerNode prevArg;
 		
-		Trie searched = getChild(start, label);
+		InnerNode searched = getChild(start, label);
 		if (searched == null) {
 			if (term.arity() == 0) {
 				// Term is integer or string atom, simply create a storage trie to store atom
-				searched = new StorageTrie(start, label, term); // Store term(s) at leaf node
+				searched = new SingleStorageLeaf(start, label, term); // Store term(s) at leaf node
 				addChild(start, searched);
 				return searched;
 			} else {
@@ -274,11 +275,11 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						// Term is integer or string atom
 						if (i == term.arity() - 1) {
 							// We must store a term here at the last argument
-							StorageTrie storageTrie = new StorageTrie(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
+							SingleStorageLeaf storageTrie = new SingleStorageLeaf(prevArg, AtomLabel.AtomLabel(atom(arg)), term);
 							addChild(prevArg, storageTrie);
 							return storageTrie;
 						} else {
-							Trie trie = new Trie(prevArg, AtomLabel.AtomLabel(atom(arg)));
+							InnerNode trie = new InnerNode(prevArg, AtomLabel.AtomLabel(atom(arg)));
 							addChild(prevArg, trie);
 							prevArg = trie;
 						}
@@ -305,7 +306,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						
 						// Argument is compound term, search for an appropiate child
 						Label argLabel = label(arg);
-						Trie searchedChild = getChild(prevArg, argLabel);
+						InnerNode searchedChild = getChild(prevArg, argLabel);
 						if (searchedChild == null) {
 							// We don't have an appropriate child, create and add one
 							searchedChild = new MultiTrie(prevArg, argLabel, arg);
@@ -327,17 +328,17 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						
 						// Argument is an integer or string atom, search for an appropiate child
 						Label argLabel = label(arg);
-						Trie searchedChild = getChild(prevArg, argLabel);
+						InnerNode searchedChild = getChild(prevArg, argLabel);
 						
 						if (i == term.arity() - 1) {
 							
 							// This is the last argument, we store the term here, otherwise proceed
 							if (searchedChild == null) {
 								// We don't have an appropriate child, create and add one
-								searchedChild = new StorageTrie(prevArg, argLabel, term);
+								searchedChild = new SingleStorageLeaf(prevArg, argLabel, term);
 								addChild(prevArg, searchedChild);
 							} else {
-								assert searchedChild instanceof StorageTrie : "Storage trie expected";
+								assert searchedChild instanceof SingleStorageLeaf : "Storage trie expected";
 								addTerm(searchedChild, term);
 							}
 							
@@ -345,7 +346,7 @@ public final class MultiTrieBuilder extends TrieBuilder {
 						} else {
 							// Some inner argument
 							if (searchedChild == null) {
-								searchedChild = new Trie(prevArg, argLabel);
+								searchedChild = new InnerNode(prevArg, argLabel);
 								addChild(prevArg, searchedChild);
 							}
 							
@@ -384,14 +385,26 @@ public final class MultiTrieBuilder extends TrieBuilder {
 		}
 	}
 	
-	private int countChildren(Trie parent) {
+	private int countChildren(InnerNode parent) {
 		int num = 0;
-		Trie child = parent.getFirstChild();
+		InnerNode child = parent.getFirstChild();
 		while (child != null) {
 			num++;
 			child = child.getNextSibling();
 		}
 		
 		return num;
+	}
+
+	@Override
+	public Iterator<Term> iterator(Trie start, Term query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Term term, Trie root) {
+		// TODO Auto-generated method stub
+		
 	}
 }

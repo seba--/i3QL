@@ -30,7 +30,7 @@ public class ComplexTrieBuilder extends TrieBuilder {
 			if (current.getParent() == null) { // root 
 				
 				if (current.getFirstChild() == null) { // create the very first node and add term directly
-					current.setFirstChild(new StorageTrie(current, makeComplexLabel(), term));
+					current.setFirstChild(new MultiStorageLeaf(current, makeComplexLabel(), term));
 					insertionNode = current.getFirstChild();
 				} else { // move to child
 					current = current.getFirstChild(); // set current for next insert()
@@ -46,7 +46,7 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						// insert as child
 						stack.pop(fullMatch.getLabel().length());
 						if (current.getFirstChild() == null) { // create first child and add term directly
-							current.setFirstChild(new StorageTrie(current, makeComplexLabel(), term));
+							current.setFirstChild(new MultiStorageLeaf(current, makeComplexLabel(), term));
 							insertionNode = current.getFirstChild();
 						} else { // move to child
 							current = current.getFirstChild();
@@ -54,10 +54,10 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						
 					} else { // match == stack.size(), insert here...
 						
-						if (current.isStorageTrie()) { // Already a storing node
+						if (current.isSingleStorageLeaf()) { // Already a storing node
 							addTerm(current, term);
 						} else {
-							StorageTrie storageTrie = new StorageTrie(current.getParent(), makeComplexLabel(), term);
+							MultiStorageLeaf storageTrie = new MultiStorageLeaf(current.getParent(), makeComplexLabel(), term);
 							replace(current, storageTrie);
 							current = storageTrie;
 						}
@@ -75,10 +75,10 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						TermList termList = current.getTerms();
 						current.setTerms(null);
 						
-						if (current.isHashTrie()) {
-							mediator = new StorageHashTrie(current, newLabel, current.getLastChild(), null);
+						if (current.isHashNode()) {
+							mediator = new InnerHashNode(current, newLabel, current.getLastChild());
 						} else {
-							mediator = new StorageTrie(current, newLabel, null);
+							mediator = new MultiStorageLeaf(current, newLabel, null);
 						}
 						mediator.setTerms(termList);
 						
@@ -86,7 +86,7 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						if (current.getFirstChild() != null) {
 							mediator.setFirstChild(current.getFirstChild());
 							
-							if (current.isHashTrie()) {
+							if (current.isHashNode()) {
 								mediator.setMap(current.getMap());
 							}
 							
@@ -97,11 +97,13 @@ public class ComplexTrieBuilder extends TrieBuilder {
 								child = child.getNextSibling();
 							}
 						}
-						current.setFirstChild(mediator);
-						if (current.isHashTrie()) {
-							StorageTrie newCurrent = new StorageTrie(current.getParent(), current.getLabel(), null);
+						
+						//current.setFirstChild(mediator);
+						if (current.isHashNode()) {
+							MultiStorageLeaf newCurrent = new MultiStorageLeaf(current.getParent(), current.getLabel(), null);
 							replace(current, newCurrent);
 							current = newCurrent;
+							newCurrent.setFirstChild(mediator);
 						}
 						
 						// and go on...
@@ -119,7 +121,7 @@ public class ComplexTrieBuilder extends TrieBuilder {
 						}
 						
 						if (current.getNextSibling() == null) { // create first next sibling and add term directly
-							current.setNextSibling(new StorageTrie(current.getParent(),makeComplexLabel(), term));
+							current.setNextSibling(new MultiStorageLeaf(current.getParent(),makeComplexLabel(), term));
 							insertionNode = current.getNextSibling();
 						} else { // move to next sibling
 							current = current.getNextSibling();

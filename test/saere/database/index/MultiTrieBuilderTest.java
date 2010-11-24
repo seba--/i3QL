@@ -25,7 +25,7 @@ public final class MultiTrieBuilderTest {
 	@Test
 	public void test1() {
 		TrieBuilder builder = new MultiTrieBuilder(50);
-		Trie multiRoot = Trie.newRoot();
+		InnerNode multiRoot = InnerNode.newRoot();
 		
 		for (Term fact : Facts.ALL) {
 			builder.insert(fact, multiRoot);
@@ -52,7 +52,7 @@ public final class MultiTrieBuilderTest {
 		for (int i = 0; i < 5; i++) {
 			System.out.println("\nRun " + (i + 1));
 			
-			Trie multiRoot = Trie.newRoot();
+			InnerNode multiRoot = InnerNode.newRoot();
 			fill(builder, multiRoot);
 			
 			Stopwatch sw = new Stopwatch();

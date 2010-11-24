@@ -2,150 +2,112 @@ package saere.database.index;
 
 import java.util.IdentityHashMap;
 
+import saere.Term;
 
 /**
- * A simple representation of a trie node. (One that cannot store any terms or 
- * use a hash map for many children.)
+ * Common abstract base class for tries.
  * 
  * @author David Sullivan
- * @version 0.9, 11/9/2010
+ * @version 0.1, 11/24/2010
  */
-public class Trie {
+public abstract class Trie {
 	
-	/** The label of this trie node. */
-	private Label label;
-	
-	/** The parent of this node (<tt>null</tt> iff this is the root). */
-	private Trie parent;
-
-	/** The first child of this node. */
-	private Trie firstChild;
-
-	/** The next (i.e., <i>right</i>) sibling of this node. */
-	private Trie nextSibling;
-	
-	/**
-	 * Creates a new root that can never turn into a hash trie node.
-	 * 
-	 * @return A new root.
-	 */
-	public static Trie newRoot() {
-		return new Trie(null, null);
-	}
-	
-	/**
-	 * Creates a new root that is a hash trie node from the start.
-	 * 
-	 * @return A new root.
-	 */
-	public static Trie newHashRoot() {
-		return new HashTrie(null, null, null);
-	}
-	
-	/**
-	 * Creates a trie node with the specified parent. Only {@link TrieBuilder} 
-	 * should use this constructor.
-	 * 
-	 * @param parent The parent of this node.
-	 */
-	public Trie(Trie parent, Label label) {
-		setParent(parent);
-		setLabel(label);
-	}
-	
-	/**
-	 * Checks wether this {@link Trie} stores at least one term.
-	 * 
-	 * @return <tt>true</tt> if this {@link Trie} stores at least one term.
-	 */
-	public boolean isStorageTrie() {
+	public boolean isRoot() {
 		return false;
 	}
 	
-	/**
-	 * Checks wether this {@link Trie} uses hash maps.
-	 * 
-	 * @return <tt>true</tt> if this {@link Trie} uses hash maps.
-	 */
-	public boolean isHashTrie() {
+	public boolean isInnerNode() {
 		return false;
 	}
 	
-	public TermList getTerms() {
-		//throw new UnsupportedOperationException("This trie node cannot store terms");
+	public Label getLabel() {
 		return null;
 	}
 	
-	public void setTerms(TermList terms) {
-		throw new UnsupportedOperationException("This trie node cannot store terms: [" + terms.next() + ",...]");
+	public void setLabel(Label label) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no label");
 	}
 	
+	public Trie getParent() {
+		return null;
+	}
+	
+	public void setParent(Trie parent) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no parent");
+	}
+	
+	public Trie getFirstChild() {
+		return null;
+	}
+	
+	public void setFirstChild(Trie firstChild) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no first child");
+	}
+	
+	public Trie getNextSibling() {
+		return null;
+	}
+	
+	public void setNextSibling(Trie nextSibling) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no first child");
+	}
+	
+	public boolean isHashNode() {
+		return false;
+	}
 	public IdentityHashMap<Label, Trie> getMap() {
-		// throw new UnsupportedOperationException("This trie node does not hash");
 		return null;
 	}
 	
 	public void setMap(IdentityHashMap<Label, Trie> map) {
-		throw new UnsupportedOperationException("This trie node does not hash");
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no map");
 	}
 	
-	public Trie getParent() {
-		return parent;
-	}
-	
-	public void setParent(Trie parent) {
-		assert this != parent : "Parent is the same as this";
-		this.parent = parent;
-	}
-	
-	public Trie getFirstChild() {
-		return firstChild;
-	}
-	
-	public void setFirstChild(Trie firstChild) {
-		assert this != firstChild : "First child is the same as this";
-		this.firstChild = firstChild;
-	}
-	
-	public Trie getNextSibling() {
-		return nextSibling;
-	}
-	
-	public void setNextSibling(Trie nextSibling) {
-		assert this != nextSibling : "Next sibling is the same as this";
-		this.nextSibling = nextSibling;
-	}
-	
-	public Label getLabel() {
-		return label;
-	}
-	
-	public void setLabel(Label label) {
-		this.label = label;
-	}
-
 	public Trie getLastChild() {
-		throw new UnsupportedOperationException("This trie node cannot remember the last child");
+		return null;
 	}
-
+	
 	public void setLastChild(Trie lastChild) {
-		throw new UnsupportedOperationException("This trie node cannot remember the last child");
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no last child");
 	}
-
+	
+	public boolean isSingleStorageLeaf() {
+		return false;
+	}
+	
+	public Term getTerm() {
+		return null;
+	}
+	public void setTerm(Term term) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no term");
+	}
+	
+	public boolean isMultiStorageLeaf() {
+		return false;
+	}
+	
+	public TermList getTerms() {
+		return null;
+	}
+	
+	public void setTerms(TermList termList) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no term list");
+	}
+	
 	@Override
 	public String toString() {
-		return hashCode() + ":" + (label == null ? "<root>" : label.toString());
+		return hashCode() + ":" + (getLabel() == null ? "<root>" : getLabel().toString());
 	}
+	
+	// Experimental only...
 	
 	public boolean isMultiTrie() {
 		return false;
 	}
-	
 	public Trie getSubtrie() {
 		return null;
 	}
-	
-	public void setSubtrie(Trie subtrie) {
-		throw new UnsupportedOperationException("This trie node cannot have a subtrie");
+	public void setSubtrie(Trie trie) {
+		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no subtrie");
 	}
 }

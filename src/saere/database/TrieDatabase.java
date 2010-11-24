@@ -6,13 +6,15 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.index.FullFlattener;
 import saere.database.index.FunctorLabel;
+import saere.database.index.InnerNode;
 import saere.database.index.Label;
+import saere.database.index.Root;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
 import saere.database.predicate.DatabasePredicate;
 
 /**
- * A {@link Trie}-based database that can be used by {@link DatabasePredicate}s 
+ * A {@link InnerNode}-based database that can be used by {@link DatabasePredicate}s 
  * unifications.
  * 
  * @author David Sullivan
@@ -28,7 +30,7 @@ public class TrieDatabase extends Database {
 	
 	public TrieDatabase(TrieBuilder builder) {
 		this.builder = builder;
-		root = Trie.newRoot();
+		root = new Root();
 		
 		if (builder.flattener() instanceof FullFlattener) {
 			noCollision = true;
@@ -49,7 +51,7 @@ public class TrieDatabase extends Database {
 
 	@Override
 	public void drop() {
-		root = Trie.newRoot();
+		root = new Root();
 		System.gc();
 	}
 

@@ -6,7 +6,7 @@ import saere.Term;
 
 /**
  * The {@link SimpleTrieBuilder} uses for each element of a flattend term 
- * representation exactly one {@link Trie} node. That is, if the length of a 
+ * representation exactly one {@link InnerNode} node. That is, if the length of a 
  * flattened term repesenation is seven, the term will be found at node level 
  * seven (not counting the root).<br/>
  * <br/>
@@ -52,12 +52,16 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				// No such node with the label we require exists
 				if (stack.size() == 1) {
 					// We need a storage trie (leaf)
-					searched = new StorageTrie(current, peeked, term);
+					if (noCollision) {
+						searched = new SingleStorageLeaf(current, peeked, term);
+					} else {
+						searched = new MultiStorageLeaf(current, peeked, term);
+					}
 					addChild(current, searched);
 					return searched;
 				} else {
 					// We need a normal (inner) trie
-					searched = new Trie(current, peeked);
+					searched = new InnerNode(current, peeked);
 					addChild(current, searched);
 					
 					// Go down
@@ -66,26 +70,11 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				}
 			} else {
 				// A child with the label already exists
+				
+				// Example: 2x "load(reference,0)
 				if (stack.size() == 1) {
-					// We need a storage trie
-					if (!searched.isStorageTrie()) {
-						// We want to add to a trie that already exists but doesn't store terms (inner trie node)
-						Trie storageTrie;
-						if (searched.isHashTrie()) {
-							storageTrie = new StorageHashTrie(current, current.getLabel(), current.getLastChild(), term);
-							replace(current, storageTrie);
-							storageTrie.setMap(current.getMap());
-							return storageTrie;
-						} else {
-							storageTrie = new StorageTrie(current, current.getLabel(), term);
-							replace(current, storageTrie);
-							return storageTrie;
-						}
-					} else {
-						// We want to add to a trie that already exists and stores (a) term(s) (collision)
-						addTerm(searched, term);
-						return searched;
-					}
+					addTerm(searched, term);
+					return searched;
 				} else {
 					// We have a normal (inner) trie, go down
 					current = searched;
@@ -124,7 +113,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 			}
 				
 			if (stack.size() == 1) {
-				if (searched.isStorageTrie()) {
+				if (searched.isSingleStorageLeaf()) {
 					removeTerm(searched, term);
 					trim(searched);
 				}
@@ -144,7 +133,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 			removeChild(current, start);
 			
 			// As long as the current node has no child
-			while (current.getParent().getFirstChild() == null && !current.isHashTrie()) {
+			while (current.getParent().getFirstChild() == null && !current.isHashNode()) {
 				
 				removeChild(current.getParent(), current);
 				current = current.getParent();

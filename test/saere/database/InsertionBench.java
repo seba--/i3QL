@@ -36,6 +36,7 @@ public class InsertionBench {
 				System.out.println("\nInserting for threshold " + thresholds[j]);
 				
 				referenceDB = new ReferenceDatabase();
+				((ReferenceDatabase) referenceDB).allowDuplicates(true);
 				shallowDB = new TrieDatabase(new SimpleTrieBuilder(new ShallowFlattener(), thresholds[j]));
 				fullDB = new TrieDatabase(new SimpleTrieBuilder(new FullFlattener(), thresholds[j]));
 				

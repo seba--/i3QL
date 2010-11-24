@@ -68,8 +68,10 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 			// Normal mode, as long as we have nodes left and have no next term (list)
 			while (current != null && next == null) { 
 				
-				// XXX The check if the term list is not null is necessary for complex tries where every node is storage trie from the beginning.
-				if (current.isStorageTrie() && current.getTerms() != null) {
+				if (current.isSingleStorageLeaf()) {
+					next = current.getTerm();
+					
+				} else if (current.isMultiStorageLeaf() && current.getTerms() != null) {
 					list = current.getTerms();
 					next = list.term();
 					list = list.next();

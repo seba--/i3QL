@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import saere.Term;
 import saere.database.index.FullFlattener;
+import saere.database.index.Root;
 import saere.database.index.ShallowFlattener;
 import saere.database.index.SimpleTrieBuilder;
 import saere.database.index.Trie;
@@ -23,7 +24,7 @@ public final class TermRemovalTest {
 	@Test
 	public void testShallowRemoval() {
 		TrieBuilder builder = new SimpleTrieBuilder(new ShallowFlattener(), MAP_THRESHOLD);
-		Trie root = Trie.newRoot();
+		Trie root = new Root();
 		
 		Term[] facts = new Term[TestFacts.ALL_TERMS.length];
 		System.arraycopy(TestFacts.ALL_TERMS, 0, facts, 0, facts.length);
@@ -44,7 +45,7 @@ public final class TermRemovalTest {
 	@Test
 	public void testFullRemoval() {
 		TrieBuilder builder = new SimpleTrieBuilder(new FullFlattener(), MAP_THRESHOLD);
-		Trie root = Trie.newRoot();
+		Trie root = new Root();
 		
 		Term[] facts = new Term[TestFacts.ALL_TERMS.length];
 		System.arraycopy(TestFacts.ALL_TERMS, 0, facts, 0, facts.length);

@@ -30,6 +30,7 @@ public final class MemoryBench {
 		printMemoryConsumption(estimateMemoryConsumption());
 		
 		Database reference = new ReferenceDatabase();
+		((ReferenceDatabase) reference).allowDuplicates(true);
 		sw = new Stopwatch();
 		reference.fill();
 		sw.printElapsed("Filling the reference database");

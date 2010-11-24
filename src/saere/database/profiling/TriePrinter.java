@@ -7,11 +7,11 @@ import java.util.Iterator;
 
 import saere.database.Utils;
 import saere.database.index.TermList;
-import saere.database.index.Trie;
+import saere.database.index.InnerNode;
 import saere.database.index.TrieBuilder;
 
 /**
- * A printer for creating Graphviz files for {@link Trie}s.
+ * A printer for creating Graphviz files for {@link InnerNode}s.
  * 
  * @author David Sullivan
  * @version 0.1, 11/11/2010
@@ -23,22 +23,22 @@ public final class TriePrinter {
 	
 	private TriePrinter() { /* empty */ }
 	
-	public static void print(Trie root, TrieBuilder builder, String filename, Mode mode) {
+	public static void print(InnerNode root, TrieBuilder builder, String filename, Mode mode) {
 		FileOutputStream out = null;
 		try {
 			out = new FileOutputStream(filename);
 			out.write(("digraph \"trie\" {\nnode [ shape = " + shape(mode) + ", fontname = \"Verdana\" ];" + NEW_LINE).getBytes(ENCODING));
 			
-			Iterator<Trie> nodeIter = builder.nodeIterator(root);
-			IdentityHashMap<Trie, Integer> cache = new IdentityHashMap<Trie, Integer>();
+			Iterator<InnerNode> nodeIter = builder.nodeIterator(root);
+			IdentityHashMap<InnerNode, Integer> cache = new IdentityHashMap<InnerNode, Integer>();
 			int number = 0;
 			while (nodeIter.hasNext()) {
-				Trie node = nodeIter.next();
+				InnerNode node = nodeIter.next();
 				number = getId(node, cache, number);
 				String nodeName = nodeName(node, number);
 				
 				// Edges to children
-				Trie child = node.getFirstChild();
+				InnerNode child = node.getFirstChild();
 				while (child != null) {
 					number = getId(child, cache, number);
 					out.write((nodeName + " -> " + nodeName(child, number) + ";" + NEW_LINE).getBytes(ENCODING));
@@ -46,7 +46,7 @@ public final class TriePrinter {
 				}
 				
 				// Edge(s) to term(s)
-				if (node.isStorageTrie()) {
+				if (node.isSingleStorageLeaf()) {
 					TermList terms = node.getTerms();
 					while (terms != null) {
 						number = getId(node, cache, number);
@@ -74,12 +74,12 @@ public final class TriePrinter {
 		}
 	}
 	
-	private static String nodeName(Trie trie, int trieId) {
+	private static String nodeName(InnerNode trie, int trieId) {
 		String s = trie.toString();
 		return "\"" + trieId + ":" + s.substring(s.indexOf(':') + 1) + "\"";
 	}
 	
-	private static int getId(Trie trie, IdentityHashMap<Trie, Integer> cache, int number) {
+	private static int getId(InnerNode trie, IdentityHashMap<InnerNode, Integer> cache, int number) {
 		return trie.hashCode();
 		/*
 		if (cache.containsKey(trie)) {

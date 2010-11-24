@@ -1,11 +1,11 @@
 package saere.database.index.multi;
 
 import saere.database.index.TermIterator;
-import saere.database.index.Trie;
+import saere.database.index.InnerNode;
 
 public final class MultiTrieTermIterator extends TermIterator {
 	
-	public MultiTrieTermIterator(Trie start) {
+	public MultiTrieTermIterator(InnerNode start) {
 		super(start);
 	}
 	

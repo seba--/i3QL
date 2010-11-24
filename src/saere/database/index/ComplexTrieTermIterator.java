@@ -6,7 +6,7 @@ import saere.Atom;
 import saere.Term;
 
 /**
- * A {@link TermIterator} that supports queries on complex {@link Trie}s 
+ * A {@link TermIterator} that supports queries on complex {@link InnerNode}s 
  * (which have been created by a {@link ComplexTrieBuilder}).
  * 
  * @author David Sullivan
@@ -25,7 +25,7 @@ public class ComplexTrieTermIterator extends TermIterator implements Iterator<Te
 	 * @param start The start trie, e.g., a functor.
 	 * @param terms A query represented by an array of terms (atoms/variables).
 	 */
-	public ComplexTrieTermIterator(Trie start, LabelStack stack) {	
+	public ComplexTrieTermIterator(InnerNode start, LabelStack stack) {	
 		this.start = current = start;
 		this.stack = stack;
 		

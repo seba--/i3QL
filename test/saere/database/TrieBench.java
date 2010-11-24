@@ -15,6 +15,7 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.index.FullFlattener;
+import saere.database.index.Root;
 import saere.database.index.ShallowFlattener;
 import saere.database.index.SimpleTrieBuilder;
 import saere.database.index.Trie;
@@ -40,10 +41,10 @@ public final class TrieBench {
 			System.out.println("\nRun " + (i + 1));
 			
 			TrieBuilder shallowBuilder = new SimpleTrieBuilder(new ShallowFlattener(), MAP_THRESHOLD);
-			Trie shallowRoot = Trie.newRoot();
+			Trie shallowRoot = new Root();
 			
 			TrieBuilder fullBuilder = new SimpleTrieBuilder(new FullFlattener(), MAP_THRESHOLD);
-			Trie fullRoot = Trie.newRoot();
+			Trie fullRoot = new Root();
 			
 			HashMap<Term, Term> functorIndex = new HashMap<Term, Term>();
 			HashMap<Term, Term> completeIndex = new HashMap<Term, Term>();
