@@ -8,6 +8,7 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
 import saere.database.DatabaseAdapter;
+import saere.database.profiling.QueryProfiler;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -18,6 +19,8 @@ import saere.meta.GenericCompoundTerm;
  * @version 0.4, 11/20/2010
  */
 public class DatabasePredicate {
+	
+	private static boolean enableProfiling;
 	
 	protected final boolean noCollision;
 	protected final StringAtom functor;
@@ -30,6 +33,11 @@ public class DatabasePredicate {
 		this.adapter = database.getAdapter(this.functor, arity); // XXX Assumes that entries already exist
 		this.noCollision = database.noCollision();
 	}
+	
+	public static void enableProfiling(boolean enableProfiling) {
+		System.out.println("Database predicate profiling " + (enableProfiling ? "enabled" : "disabled"));
+		DatabasePredicate.enableProfiling = enableProfiling;
+	}
 
 	/**
 	 * Attemps to unify with this predicate. To be used only if the number of
@@ -40,7 +48,11 @@ public class DatabasePredicate {
 	 * @param query The query.
 	 * @return The {@link Solutions} of this unification.
 	 */
-	public Solutions unify(Term query) {		
+	public Solutions unify(Term query) {
+		if (enableProfiling) {
+			QueryProfiler.getInstance().profile(query);
+		}
+		
 		if (arity == query.arity() && functor.sameAs(query.functor())) {
 			if (!noCollision) {
 				return GenericSolutions.forArity(arity, adapter, query);

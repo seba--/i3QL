@@ -26,7 +26,7 @@ public final class SolutionsWithArity3NoCollision implements Solutions, NoCollis
 	
 	private Iterator<Term> iterator;
 	
-	private int counter = 0;
+	//private int counter = 0;
 
 	public SolutionsWithArity3NoCollision(DatabaseAdapter adapter, Term query) {
 		assert query.arity() == 3 : "Invalid query arity " + query.arity();
@@ -54,7 +54,7 @@ public final class SolutionsWithArity3NoCollision implements Solutions, NoCollis
 	
 	public boolean next() {
 		if (iterator.hasNext()) {
-			counter++;
+			//counter++;
 			if (var0) arg0.setState(s0);
 			if (var1) arg1.setState(s1);
 			if (var2) arg2.setState(s2);
@@ -68,7 +68,7 @@ public final class SolutionsWithArity3NoCollision implements Solutions, NoCollis
 			
 			return true;
 		} else {
-			System.out.println("[" + counter + " solutions iterated]");
+			//System.out.print("[" + counter + " candidates iterated]");
 			return false;
 		}
 	}

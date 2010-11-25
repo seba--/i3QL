@@ -69,6 +69,7 @@ public final class ReferenceDatabase extends Database {
 	@Override
 	public void drop() {
 		indexes.clear();
+		lists.clear();
 		System.gc();
 	}
 
