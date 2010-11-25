@@ -4,7 +4,7 @@ package saere.database.index;
 /**
  * Trie term iterator for shallow simple tries that supports queries.<br/>
  * <br/>
- * <b>This iterator works only with {@link Trie}s that have been built with 
+ * <b>This iterator works only with {@link InnerNode}s that have been built with 
  * a {@link SimpleTrieBuilder}.</b>
  * 
  * @author David Sullivan
@@ -51,7 +51,7 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 				}
 				
 				if (match()) {
-					if (stack.size() == 1 && current.stores()) {
+					if (stack.size() == 1 && current.isMultiStorageLeaf()) {
 						list = current.getTerms();
 						next = list.term();
 						list = list.next();
@@ -103,8 +103,8 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
-		throw new UnsupportedOperationException();
+	public void resetTo(Trie newStart) {
+		throw new UnsupportedOperationException("Cannot reset a shallow simple query iterator");
 	}
 	
 	private boolean match() {

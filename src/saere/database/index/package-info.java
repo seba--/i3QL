@@ -1,6 +1,6 @@
 /**
- * This package contains the {@link Trie} class and classes which are in some 
- * way required or associated by the {@link Trie} class.
+ * This package contains the {@link InnerNode} class and classes which are in some 
+ * way required or associated by the {@link InnerNode} class.
  */
 package saere.database.index;
 

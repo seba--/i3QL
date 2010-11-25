@@ -6,16 +6,16 @@ import saere.Atom;
 import saere.Term;
 
 /**
- * A {@link TermIterator} that supports queries on complex {@link Trie}s 
+ * A {@link TermIterator} that supports queries on complex {@link InnerNode}s 
  * (which have been created by a {@link ComplexTrieBuilder}).
  * 
  * @author David Sullivan
  * @version 0.3, 10/19/2010
  */
-public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Iterator<Term> {
+public class ComplexTrieTermIterator extends TermIterator implements Iterator<Term> {
 	
-	private QueryStack stack;
-	private final TermIterator<Atom[]> subiterator;
+	private LabelStack stack;
+	private final TermIterator subiterator;
 	private boolean useSubiterator = false;
 	
 	/**
@@ -25,15 +25,15 @@ public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Ite
 	 * @param start The start trie, e.g., a functor.
 	 * @param terms A query represented by an array of terms (atoms/variables).
 	 */
-	public ComplexTrieTermIterator(Trie<Atom[]> start, QueryStack stack) {	
+	public ComplexTrieTermIterator(InnerNode start, LabelStack stack) {	
 		this.start = current = start;
 		this.stack = stack;
 		
 		// create the one and only instance of the subiterator that'll be used
-		subiterator = new TermIterator<Atom[]>(start);
+		subiterator = new TermIterator(start);
 		
 		// don't skip the first node
-		if (current.getParent() != null && stack.size() == 1 && Matcher.match(current.getLabel(), stack.asArray()) == 1) {
+		if (current.getParent() != null && stack.size() == 1 && 0 == 1) {
 			if (subiterator.hasNext()) {
 				useSubiterator = true;
 				next = subiterator.next();
@@ -62,7 +62,8 @@ public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Ite
 			
 			// Compute match now, as we'll need it anyway.
 			// How "much" does the current label matches with the current stack (state)?
-			int match = Matcher.match(current.getLabel(), stack.asArray());
+			//int match = Matcher.match(current.getLabel(), stack.array());
+			int match = -1;
 			
 			// Check if we need a subiterator (if it isn't already active).
 			// We'll need one if an end point is reached, i.e., if the only 
@@ -89,7 +90,7 @@ public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Ite
 					if (match == stack.size()) { // end point reached, create subiterator
 						useSubiterator = true;
 						subiterator.resetTo(current);
-					} else if (match == current.getLabel().length) { // match < stack.size()
+					} else if (match == current.getLabel().length()) { // match < stack.size()
 						nextNode(); // XXX or goDown() directly?
 					} else { // match < labelLength
 						goRight(); // no full match, go right
@@ -105,13 +106,13 @@ public class ComplexTrieTermIterator extends TermIterator<Atom[]> implements Ite
 	@Override
 	protected void goUp() {
 		if (current.getParent().getLabel() != null)
-			stack.back(current.getParent().getLabel().length);
+			stack.back(current.getParent().getLabel().length());
 		super.goUp();
 	}
 	
 	@Override
 	protected void goDown() {
-		stack.pop(current.getLabel().length);
+		stack.pop(current.getLabel().length());
 		super.goDown();
 	}
 }

@@ -7,7 +7,7 @@ import saere.Term;
 import saere.database.Utils;
 import saere.database.index.ComplexTrieBuilder;
 import saere.database.index.SimpleTrieBuilder;
-import saere.database.index.Trie;
+import saere.database.index.InnerNode;
 import saere.database.index.TrieBuilder;
 
 /**
@@ -50,17 +50,17 @@ public aspect InsertionLogger  {
 	}
 	
 	// Pointcut for simple insertions by the 'saere.database.index' package
-	private pointcut simpleInsertion(Term term, Trie start, SimpleTrieBuilder builder) :
-		execution(public Trie TrieBuilder.insert(Term, Trie)) &&
+	private pointcut simpleInsertion(Term term, InnerNode start, SimpleTrieBuilder builder) :
+		execution(public InnerNode TrieBuilder.insert(Term, InnerNode)) &&
 		args(term, start) && target(builder) && if(ACTIVE);
 	
 	// Pointcut for complex insertions by the 'saere.database.index' package
-	private pointcut complexInsertion(Term term, Trie start, ComplexTrieBuilder builder) :
-		execution(public Trie TrieBuilder.insert(Term, Trie)) &&
+	private pointcut complexInsertion(Term term, InnerNode start, ComplexTrieBuilder builder) :
+		execution(public InnerNode TrieBuilder.insert(Term, InnerNode)) &&
 		args(term, start) && target(builder) && if(ACTIVE);
 	
 	// Advice for simple insertions by the 'saere.database.index' package
-	Object around(Term term, Trie start, SimpleTrieBuilder builder) : simpleInsertion(term, start, builder) {
+	Object around(Term term, InnerNode start, SimpleTrieBuilder builder) : simpleInsertion(term, start, builder) {
 		sw.start();
 		Object obj = proceed(term, start, builder);
 		long time = sw.stop();
@@ -71,7 +71,7 @@ public aspect InsertionLogger  {
 	}
 	
 	// Advice for simple insertions by the 'saere.database.index' package
-	Object around(Term term, Trie start, ComplexTrieBuilder builder) : complexInsertion(term, start, builder) {
+	Object around(Term term, InnerNode start, ComplexTrieBuilder builder) : complexInsertion(term, start, builder) {
 		sw.start();
 		Object obj = proceed(term, start, builder);
 		long time = sw.stop();

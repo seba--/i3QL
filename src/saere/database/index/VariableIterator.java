@@ -92,7 +92,7 @@ public final class VariableIterator extends NodeIterator {
 	}
 
 	@Override
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		super.resetTo(null);
 		assert newStart.getParent().getFirstChild() == newStart : "Start trie node is not a first child";
 		

@@ -34,6 +34,6 @@ public final class Stopwatch {
 	public long stop() {
 		long stop = System.nanoTime() - start;
 		start();
-		return stop;
+		return stop / 1000;
 	}
 }

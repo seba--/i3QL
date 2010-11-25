@@ -21,9 +21,6 @@ public class FullSimpleQueryIterator extends TermIterator {
 	// The variable iterators (one for each free variable). The index stands for the position of a variable in the stack.
 	private final VariableIterator[] varIters;
 	
-	// To remember the trie nodes which were last iterated (if they are and have also functor labels we go down)
-	private final Trie[] lastIterateds; 
-	
 	public FullSimpleQueryIterator(TrieBuilder builder, Trie start, LabelStack stack) {
 		this.builder = builder;
 		this.start = current = start;
@@ -31,7 +28,6 @@ public class FullSimpleQueryIterator extends TermIterator {
 		
 		// + 1 because if the stack is empty, the position is the array length
 		varIters = new VariableIterator[stack.length() + 1];
-		lastIterateds = new Trie[stack.length() + 1];
 		
 		// Assign variable iterators to the index positions of free variables.
 		// Hence, we create the objects for variable iterators only once.
@@ -49,72 +45,59 @@ public class FullSimpleQueryIterator extends TermIterator {
 	protected void findNext() {
 		next = null;
 		
-		if (list != null) {
-			// List processing mode
-			next = list.term();
-			list = list.next();
-		} else {
-			// Normal mode, as long as we have nodes left and have no next term (list)
-			while (current != null && next == null) {
-				
-				if (current.getParent() == null) {
-					current = current.getFirstChild();
-					continue;
+		// Normal mode, as long as we have nodes left and have no next term (list)
+		while (current != null && next == null) {
+			
+			if (current.getParent() == null) {
+				current = current.getFirstChild();
+				continue;
+			}
+			
+			if (match()) {
+				if (stack.size() == 1 && current.isSingleStorageLeaf()) {
+					next = current.getTerm();
 				}
+				nextNode();		
+			} else {
 				
-				if (match()) {
-					if (stack.size() == 1 && current.stores()) {
-						list = current.getTerms();
-						next = list.term();
-						list = list.next();
-					}
-					nextNode();		
-				} else {
-					
-					/*
-					 * No match, check if there can be a match at all.
-					 * If so, jump directly to the matching sibling.
-					 * 
-					 * However, we must also check if the searched node is a 
-					 * right sibling of the current. Otherwise we might jump 
-					 * back to a node that was already processed by the 
-					 * iterator.
-					 * 
-					 * As a first child is always checked first, it can never 
-					 * be the node we'll want to jump back.
-					 */
-					
-					// Only if current is the first child! That is, we check only when we go down in the trie.
-					if (current.getParent().getFirstChild() == current) {
-						Trie searched = builder.getChild(current.getParent(), stack.peek());
-						if (searched != null) {
-							current = searched;
-						} else {
-							goUp();
-							goRight();
-						}
+				/*
+				 * No match, check if there can be a match at all.
+				 * If so, jump directly to the matching sibling.
+				 * 
+				 * However, we must also check if the searched node is a 
+				 * right sibling of the current. Otherwise we might jump 
+				 * back to a node that was already processed by the 
+				 * iterator.
+				 * 
+				 * As a first child is always checked first, it can never 
+				 * be the node we'll want to jump back.
+				 */
+				
+				// Only if current is the first child! That is, we check only when we go down in the trie.
+				if (current.getParent().getFirstChild() == current) {
+					Trie searched = builder.getChild(current.getParent(), stack.peek());
+					if (searched != null) {
+						current = searched;
 					} else {
 						goUp();
 						goRight();
 					}
+				} else {
+					goUp();
+					goRight();
 				}
 			}
-		}		
+		}
 	}
 	
 	@Override
 	protected void goUp() {
 		
-		// We have to check wether the current node
-		
-		// Checks wether we have a variable iterator for the current stack pop 
+		// Checks wether we have a variable iterator for the current stack top 
 		// (i.e., if the stack top is a free variable).
 		VariableIterator varIter = varIters[stack.position()];
-		//boolean check = lastIterateds[stack.position()] != null && lastIterateds[stack.position()].getNextSibling() != current;
-		boolean check = true;
-		if (varIter != null && check) { // XXX Find a way to check that this is really our variable iterator
+		if (stack.peek() == FREE_VARIABLE && varIters[stack.position()].last() == current) { // XXX Find a way to check that this is really our variable iterator
 			current = varIter.start();
-			lastIterateds[stack.position()] = null;
 			stack.back();
 		} else {
 			stack.back();
@@ -129,12 +112,11 @@ public class FullSimpleQueryIterator extends TermIterator {
 		// Also check if the current trie's label is not a functor.
 		// If all this applies we require a variable iterator...
 		
-		Trie lastIterated = lastIterateds[stack.position()];
-		if (stack.peek() == FREE_VARIABLE && lastIterated != current/* && current.getLabel().arity() > 0*/) {
-			VariableIterator varIter = varIters[stack.position()];
+		VariableIterator varIter = varIters[stack.position()];
+		if (stack.peek() == FREE_VARIABLE && varIters[stack.position()].last() != current) {
+			varIter = varIters[stack.position()];
 			varIter.resetTo(current);
 			current = varIter.next();
-			lastIterateds[stack.position()] = current;
 		} else {
 			stack.pop();
 			super.goDown();
@@ -173,7 +155,7 @@ public class FullSimpleQueryIterator extends TermIterator {
 	}
 	
 	@Override
-	protected void resetTo(Trie newStart) {
+	public void resetTo(Trie newStart) {
 		throw new UnsupportedOperationException("Cannot reset a full simple query iterator");
 	}
 	

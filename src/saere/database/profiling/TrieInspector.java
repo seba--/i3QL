@@ -10,11 +10,11 @@ import java.util.Iterator;
 
 import saere.database.Utils;
 import saere.database.index.TermList;
-import saere.database.index.Trie;
+import saere.database.index.InnerNode;
 import saere.database.index.TrieBuilder;
 
 /**
- * This class gathers some information about a {@link Trie}.
+ * This class gathers some information about a {@link InnerNode}.
  * 
  * @author David Sullivan
  * @version 0.2, 9/21/2010
@@ -31,12 +31,12 @@ public class TrieInspector {
 	private double numTries;
 	private double numTerms;
 	
-	public  void inspect(Trie trie, TrieBuilder builder) {
+	public  void inspect(InnerNode trie, TrieBuilder builder) {
 		avgNumChild = new BigDecimal(0, MC);
 		fracTerms = new BigDecimal(0, MC);
 		numTries = numTerms = numLists = 0;
 		
-		Iterator<Trie> iterator = builder.nodeIterator(trie);
+		Iterator<InnerNode> iterator = builder.nodeIterator(trie);
 		while (iterator.hasNext()) {
 			collectNodeStats(iterator.next());
 		}
@@ -46,20 +46,20 @@ public class TrieInspector {
 		fracTerms = new BigDecimal(numTerms, MC).divide(bigNumTries, MC).multiply(new BigDecimal(100, MC));
 	}
 	
-	public  void print(Trie trie, TrieBuilder builder, String filename, boolean small) {
+	public  void print(InnerNode trie, TrieBuilder builder, String filename, boolean small) {
 		try {
 			Charset charset = Charset.forName("ISO-8859-1");
 			OutputStream out = new FileOutputStream(filename);
 			String shape = small ? "point" : "box";
 			out.write(("digraph \"trie\" {\nnode [ shape = " + shape + ", fontname = \"Verdana\" ];\n").getBytes());
 			
-			Iterator<Trie> iterator = builder.nodeIterator(trie);
+			Iterator<InnerNode> iterator = builder.nodeIterator(trie);
 			while (iterator.hasNext()) {
 				trie = iterator.next();
 				String trieName = makeTrieName(trie, true);
 				
 				// edges to children (of which actually only the one to the first children exists)
-				Trie child = trie.getFirstChild();
+				InnerNode child = trie.getFirstChild();
 				while (child != null) {
 					out.write((trieName + " -> " + makeTrieName(child, true) + ";\n").getBytes(charset));
 					child = child.getNextSibling();
@@ -80,7 +80,7 @@ public class TrieInspector {
 		}
 	}
 	
-	private  String makeTrieName(Trie trie, boolean longName) {
+	private  String makeTrieName(InnerNode trie, boolean longName) {
 		String name = null;
 		
 		if (longName) {
@@ -101,7 +101,7 @@ public class TrieInspector {
 		return r;
 	}
 	
-	private  void collectNodeStats(Trie trie) {
+	private  void collectNodeStats(InnerNode trie) {
 		numTries++;
 		
 		// count terms...
@@ -116,7 +116,7 @@ public class TrieInspector {
 		
 		// count children...
 		int numChildren = 0;
-		Trie child = trie.getFirstChild();
+		InnerNode child = trie.getFirstChild();
 		if (child != null) {
 			numChildren++;
 			child = child.getNextSibling();

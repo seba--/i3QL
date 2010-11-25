@@ -3,24 +3,24 @@ package saere.database.index;
 import java.util.IdentityHashMap;
 
 /**
- * An extension of a {@link Trie} that also uses hash maps.
+ * An extension of an {@link InnerNode} that also uses hash maps.
  * 
  * @author David Sullivan
  * @version 0.1, 11/9/2010
  */
-public class HashTrie extends Trie {
+public class InnerHashNode extends InnerNode {
 	
 	private IdentityHashMap<Label, Trie> map;
 	private Trie lastChild;	
 	
-	public HashTrie(Trie parent, Label label, Trie lastChild) {
+	public InnerHashNode(Trie parent, Label label, Trie lastChild) {
 		super(parent, label);
 		this.lastChild = lastChild;
 		map = new IdentityHashMap<Label, Trie>();
 	}
 	
 	@Override
-	public boolean hashes() {
+	public boolean isHashNode() {
 		return true;
 	}
 	

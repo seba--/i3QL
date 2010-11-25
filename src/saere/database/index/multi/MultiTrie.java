@@ -1,32 +1,34 @@
 package saere.database.index.multi;
 
+import saere.Term;
 import saere.database.index.FunctorLabel;
-import saere.database.index.HashTrie;
 import saere.database.index.Label;
-import saere.database.index.Trie;
+import saere.database.index.Root;
+import saere.database.index.StorageHashTrie;
+import saere.database.index.InnerNode;
 
 // Extends StorageHashTrie because we are lazy... (cases like instr(id,...) and f(a(b))/f(a,b) may both occur)
-public final class MultiTrie extends HashTrie {
+public final class MultiTrie extends StorageHashTrie {
 	
-	private Trie subtrie;
+	private Root subtrie;
 	
-	public MultiTrie(Trie parent, Label label) {
-		super(parent, label, null);
+	public MultiTrie(InnerNode parent, Label label, Term term) {
+		super(parent, label, null, term);
 		assert label instanceof FunctorLabel : "Functor label expected";
 		
 		// XXX Temporary solution, more easy to implement
-		subtrie = Trie.root();
+		subtrie = new Root();
 	}
 	
-	public boolean multi() {
+	public boolean isMultiTrie() {
 		return true;
 	}
 	
-	public Trie getSubtrie() {
+	public Root getSubtrie() {
 		return subtrie;
 	}
 	
-	public void setSubtrie(Trie subtrie) {
+	public void setSubtrie(Root subtrie) {
 		this.subtrie = subtrie;
 	}
 }

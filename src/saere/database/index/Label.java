@@ -6,7 +6,7 @@ import java.util.WeakHashMap;
 import saere.Atom;
 
 /**
- * Represents labels of {@link Trie}s.
+ * Represents labels of {@link InnerNode}s.
  * 
  * @author David Sullivan
  * @version 0.1, 11/9/2010

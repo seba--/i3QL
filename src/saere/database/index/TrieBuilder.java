@@ -1,7 +1,11 @@
 package saere.database.index;
 
+import static saere.database.Utils.isFact;
+
 import java.util.Iterator;
 
+import saere.Atom;
+import saere.StringAtom;
 import saere.Term;
 
 /**
@@ -16,36 +20,45 @@ public abstract class TrieBuilder {
 	// Must be > 1, using hash tries for all nodes is not supported.
 	protected final int mapThreshold;
 	
-	public static int replaceCounter = 0;
+	public static int replaceCounter = 0; // XXX Remove
 	
 	protected final TermFlattener flattener;
+	protected final boolean noCollision;
 	
 	protected LabelStack stack;
-	protected Trie lastChild;
 	protected Trie current;
+	
+	// To remember...
+	protected Trie lastChild;
+	protected int childrenNumber;
 	
 	public TrieBuilder(TermFlattener flattener, int mapThreshold) {
 		this.flattener = flattener;
 		this.mapThreshold = mapThreshold;
+		
+		if (flattener instanceof FullFlattener) {
+			noCollision = true;
+		} else {
+			noCollision = false;
+		}
 	}
 	
 	/**
 	 * Inserts the specified {@link Term}.
 	 * 
 	 * @param term The term to insert.
-	 * @param start The node where the insertion process starts (the root in most cases).
+	 * @param root The root node..
 	 * @return The insertion {@link Trie} node.
 	 */
-	public abstract Trie insert(Term term, Trie start);
+	public abstract Trie insert(Term term, Trie root);
 	
 	/**
 	 * Removes the specified {@link Term} if it can be found.
 	 * 
 	 * @param term The term to remove.
-	 * @param start The node where the removal process starts (the root in most cases).
-	 * @return <tt>true</tt> if the term was found and removed.
+	 * @param root The root node.
 	 */
-	public abstract boolean remove(Term term, Trie start);
+	public abstract void remove(Term term, Trie root);
 	
 	/**
 	 * Creates a term iterator that starts the iteration process at the 
@@ -71,7 +84,7 @@ public abstract class TrieBuilder {
 	 * @param start The start node (usually the root).
 	 * @return A term iterator for the (sub-)trie.
 	 */
-	public final Iterator<Term> iterator(Trie start) {
+	public Iterator<Term> iterator(Trie start) {
 		return new TermIterator(start);
 	}
 	
@@ -82,7 +95,7 @@ public abstract class TrieBuilder {
 	 * @param start The trie node where the iteration starts.
 	 * @return A trie node iterator for the (sub-)trie.
 	 */
-	public final Iterator<Trie> nodeIterator(Trie start) {
+	public Iterator<Trie> nodeIterator(Trie start) {
 		return new NodeIterator(start);
 	}
 	
@@ -93,20 +106,22 @@ public abstract class TrieBuilder {
 	 * <br>
 	 * <b>Does not copy any stored terms or cares for hash maps.</b>
 	 * 
-	 * @param trie The trie to replace.
+	 * @param original The trie to replace.
 	 * @param replacement The replacement.
 	 */
 	// TODO Track with AspectJ how often does this occur!
 	// Replacement is of course very expensive for hash tries. (Worst case: A hash trie turns into a storage hash trie.)
-	protected static void replace(Trie trie, Trie replacement) {
+	protected static void replace(Trie original, Trie replacement) {
+		assert !original.isRoot() : "Cannote replace root";
+		
 		replaceCounter++;
 		
 		// Copy all references OF the old trie to the replacement
-		replacement.setLabel(trie.getLabel()); // actually not necessary
-		replacement.setParent(trie.getParent()); // actually not necessary
-		replacement.setFirstChild(trie.getFirstChild());
-		replacement.setNextSibling(trie.getNextSibling());
-		replacement.setChildrenNumber(trie.getChildrenNumber());
+		replacement.setLabel(original.getLabel()); // actually not necessary
+		replacement.setParent(original.getParent()); // actually not necessary
+		replacement.setFirstChild(original.getFirstChild());
+		replacement.setNextSibling(original.getNextSibling());
+		//replacement.setChildrenNumber(trie.getChildrenNumber());
 		
 		// Switch all references TO the old trie to the replacement
 		
@@ -118,10 +133,10 @@ public abstract class TrieBuilder {
 		}
 		
 		// Set the first child / next sibling relation to the replacement
-		if (trie.getParent() != null) {
-			Trie parent = trie.getParent();
+		if (original.getParent() != null) {
+			Trie parent = original.getParent();
 			
-			if (parent.getFirstChild() == trie) {
+			if (parent.getFirstChild() == original) {
 				// Replacement is first child
 				parent.setFirstChild(replacement);
 			} else {
@@ -129,7 +144,7 @@ public abstract class TrieBuilder {
 				Trie sibling = parent.getFirstChild();
 				boolean set = false;
 				while (sibling != null) {
-					if (sibling.getNextSibling() == trie) {
+					if (sibling.getNextSibling() == original) {
 						sibling.setNextSibling(replacement);
 						set = true;
 						break;
@@ -137,16 +152,16 @@ public abstract class TrieBuilder {
 						sibling = sibling.getNextSibling();
 					}
 				}
-				assert set : "Unable to replace as next sibling: " + trie;
+				assert set : "Unable to replace " + original + " with " + replacement + " as next sibling";
 			}
 			
 			// Care of additional fields if parent is a hash trie
-			if (parent.hashes()) {
+			if (parent.isHashNode()) {
 				// Replace in parent's hash map if necessary
 				parent.getMap().put(replacement.getLabel(), replacement);
 				
 				// Update parent's last child field if necessary
-				if (parent.getLastChild() == trie) {
+				if (parent.getLastChild() == original) {
 					parent.setLastChild(replacement);
 				}
 			}
@@ -163,13 +178,17 @@ public abstract class TrieBuilder {
 	 * @param label The label of the child.
 	 * @return The child or <tt>null</tt>.
 	 */
-	protected Trie getChild(Trie parent, Label label) {
-		if (parent.hashes()) {
+	// XXX protected
+	public Trie getChild(Trie parent, Label label) {
+		childrenNumber = 0;
+		
+		if (parent.isHashNode()) {
 			lastChild = parent.getLastChild();
 			return parent.getMap().get(label);
 		} else {
 			Trie child = parent.getFirstChild();
 			while (child != null) {
+				childrenNumber++;
 				if (child.getLabel().sameAs(label)) {
 					return child;
 				} else {
@@ -182,8 +201,38 @@ public abstract class TrieBuilder {
 		return null;
 	}
 	
+	public void removeChild(Trie parent, Trie child) {		
+		removeChildFromList(parent, child);
+		if (parent.isHashNode()) {
+			parent.getMap().remove(child.getLabel());
+			
+			if (parent.getMap().size() < mapThreshold) {
+				replace(parent, new InnerNode(parent.getParent(), parent.getLabel()));
+			}
+		}
+	}
+	
+	private static void removeChildFromList(Trie parent, Trie child) {
+		if (child == parent.getFirstChild()) {
+			child.getParent().setFirstChild(child.getNextSibling());
+		} else {
+			Trie lastSomeChild = parent.getFirstChild(); 
+			Trie someChild = parent.getFirstChild().getNextSibling();
+			while (someChild != null) {
+				if (child == someChild) {
+					lastSomeChild.setNextSibling(child.getNextSibling());
+				} else {
+					lastSomeChild = someChild;
+					someChild = someChild.getNextSibling();
+				}
+			}
+			
+			assert false : "Unable to remove child " + child + " from parent " + parent;
+		}
+	}
+	
 	public static Trie getChildByLabel(Trie parent, Label label) {
-		if (parent.hashes()) {
+		if (parent.isHashNode()) {
 			return parent.getMap().get(label);
 		} else {
 			Trie child = parent.getFirstChild();
@@ -207,15 +256,22 @@ public abstract class TrieBuilder {
 	 * @param parent The parent trie.
 	 * @param child The child to add.
 	 */
-	protected void addChild(Trie parent, Trie child) {
-		parent.setChildrenNumber(parent.getChildrenNumber() + 1);
-		if (parent.hashes()) {
+	// XXX protected
+	public void addChild(Trie parent, Trie child) {
+		assert parent.isRoot() || parent.isInnerNode() || parent.isHashNode() : "Cannot add a child to trie type " + parent.getClass().getName();
+		
+		if (parent.isRoot()) {
 			if (parent.getLastChild() != null) {
 				parent.getLastChild().setNextSibling(child);
 			} else {
-				// Parent is root and this must be the very first real trie node
 				parent.setFirstChild(child);
 			}
+			parent.setLastChild(child);
+			
+			// TODO Activate hash map if necessary
+			
+		} else if (parent.isHashNode()) {
+			parent.getLastChild().setNextSibling(child);
 			parent.setLastChild(child);
 			parent.getMap().put(child.getLabel(), child);
 		} else {
@@ -236,8 +292,8 @@ public abstract class TrieBuilder {
 				lastChild = child;
 			}
 			
-			if (parent.getChildrenNumber() == mapThreshold) {
-				HashTrie hashTrie = new HashTrie(parent.getParent(), parent.getLabel(), lastChild);
+			if (childrenNumber == mapThreshold && !parent.isRoot()) { // Don't create hash trie node for a root
+				InnerHashNode hashTrie = new InnerHashNode(parent.getParent(), parent.getLabel(), lastChild);
 				replace(parent, hashTrie);
 				
 				// Fill the hash map as replace() doesn't care for this
@@ -253,5 +309,64 @@ public abstract class TrieBuilder {
 		}
 		
 		lastChild = null;
+	}
+	
+	public TermFlattener flattener() {
+		return flattener;
+	}
+	
+	protected void addTerm(Trie trie, Term term) {
+		assert trie.isSingleStorageLeaf() || trie.isMultiStorageLeaf() : "Trie is not a storage trie: " + trie;
+		assert isFact(term) : "Term is not a fact: " + term;
+		
+		if (noCollision) {
+			trie.setTerm(term);
+		} else if (trie.getTerms() == null) {
+			trie.setTerms(new TermList(term, null));
+		} else {
+			TermList last = null;
+			TermList list = trie.getTerms();
+			while (list != null) {
+				// Store facts only, i.e., unification changes nothing
+				if (list.term().unify(term)) {
+					return;
+				} else {
+					last = list;
+					list = list.next();
+				}
+			}
+			last.setNext(new TermList(term, null));
+		}
+	}
+	
+	protected void removeTerm(Trie trie, Term term) {
+		assert trie.isSingleStorageLeaf() : "Trie is not a storage trie: " + trie;
+		assert isFact(term) : "Term is not a fact: " + term;
+		
+		if (noCollision) {
+			trie.setTerm(null);
+		} else {
+			// Removal in a shallow trie requires a check the the stored term is really the term we want to remove because of collision
+			TermList list = trie.getTerms();
+			TermList last = null;
+			Term stored = list.term();
+			while (stored != null) {
+				if (stored.unify(term)) {
+					// The term we want to remove (no need to manage states with facts only)
+					if (last == null) {
+						// Term was first
+						trie.setTerms(list.next());
+						return;
+					} else {
+						// Term was somewhere in list
+						last.setNext(list.next());
+						return;
+					}
+				} else {
+					last = list;
+					list = list.next();
+				}
+			}
+		}
 	}
 }

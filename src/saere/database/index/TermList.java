@@ -11,7 +11,7 @@ import saere.Term;
 public final class TermList {
 	
 	private final Term term;
-	private final TermList next;
+	private TermList next;
 	
 	public TermList(Term term, TermList next) {
 		this.term = term;
@@ -22,7 +22,12 @@ public final class TermList {
 		return term;
 	}
 	
+	// XXX Eclipse won't rename this one
 	public TermList next() {
 		return next;
+	}
+	
+	public void setNext(TermList next) {
+		this.next = next;
 	}
 }
