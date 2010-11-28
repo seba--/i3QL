@@ -14,9 +14,9 @@ do_formating(FileName,Solution,Options) :-
         clauses(Ts,Cs),
         %load_solution(FileSolution,Lines),
         %Console output
-        format_file(Cs,[],Out),
-        flatten(Out,FlatOut),nl,
-        create_output(FlatOut).
+        format_file(Cs,'',Out),nl,write(Out).
+        %flatten(Out,FlatOut),nl,
+        %create_output(Out).
         %create_output(Lines).
         %format_file(Lines).
 

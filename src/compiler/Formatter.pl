@@ -7,83 +7,66 @@
         'SAEProlog:Compiler:Formatter',
         [format_file/3,write_clause/2]
         ).
+:- use_module('AST.pl').
 
-
-operator('=',infix).
-operator(':-',infix).
-operator(',',infix).
-operator('-->',infix).
-operator(';',infix).
-operator('=',infix).
-operator('-',infix).
-operator('+',infix).
-operator('->',infix).
-operator('*',infix).
-operator('/',infix).
-operator('\\=',infix).
-operator('is',infix).
-operator('<',infix).
-operator('>',infix).
-operator('=<',infix).
-operator('>=',infix).
-operator('=:=',infix).
-operator('=\\=',infix).
-operator('=..',infix).
-operator('==',infix).
-operator('\\==',infix).
-operator('@<',infix).
-operator('@=<',infix).
-operator('@>',infix).
-operator('@>=',infix).
-operator('\\/',infix).
-operator('/\\',infix).
-operator('|',infix). % also defined by SWI Prolog
-operator('//',infix). % X // Y Division mit Ganzzahlergebnis
-operator('mod',infix).
-operator('<<',infix).
-operator('>>',infix).
-operator('**',infix).
-operator('^',infix).
 
 
 format_file([],L,L).
-format_file([H|T],In,OutputList) :- write_clause(H,Out),format_file(T,[In,Out,'\n'],OutputList).%nl,write_clause(H),write('.'),format_file(T).
+format_file([H|T],In,OutputList) :- write_clause(H,Out),atomic_list_concat([In,Out,'.\n'],Concated_List),format_file(T,Concated_List,OutputList).%nl,write_clause(H),write('.'),format_file(T).
 
-write_clause(v(_Pos,Name),Name) :- !.%, write(Name).
-write_clause(av(_Pos,Name),Name) :- !.%,write(Name).
-write_clause(a(_Pos,Atom),Atom) :- !.%,        write('\''),write(Atom),write('\'').
-write_clause(i(_Pos,Atom),Atom) :- !.%,        write(Atom).
-write_clause(r(_Pos,Atom),Atom) :- !.%,        write(Atom).
-%write_clause(ct(_Pos,Functor,ClauseList),[Functor,'(',Out,')']) :- write_functor(ClauseList,Out),!.%,write_term_list(ClauseList,T).
-%write_clause(ct(_Pos,'.',ClauseList),Out) :- write_List(ClauseList,Out),!.%,write_term_list(ClauseList,T).
-write_clause(ct(_Pos,Functor,ClauseList),Out) :- write_functors(Functor,ClauseList,Out),!.%,write_term_list(ClauseList,T).
+write_clause(X,Value) :- variable(X,Value);
+  anonymous_variable(X,Value);
+  string_atom(X,Value);
+  integer_atom(X,Value);
+  float_atom(X,Value).
+
+
+%    [  % PREFIX...
+%     op(900,fy,'\\+'),
+
+write_clause(X,Out) :-complex_term(X,Functor,Args),
+        (
+        term_meta(X,Meta),
+        lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
+           (
+           memberchk(op(_,_,Functor),FirstPrefixOps),is_prefix(Args),write_functors(Functor,Args,Out)
+           ;
+           memberchk(op(_,_,Functor),FirstInfixOps),is_infix(Args),write_functor_infix(Functor,Args,Out)
+           ;
+           memberchk(op(_,_,Functor),FirstPostfixOps),write_functors(Functor,Args,Out)
+           )
+        ;
+        write_functors(Functor,Args,Out)
+        ).
         
 write_clause(X,_) :- throw(internal_error('the given term has an unexpected type',X)).
-write_clause(X) :- throw(internal_error('the given term has an unexpected type',X)).
 
+is_prefix([_|[]]).
+is_infix([_,_|[]]).
 
-write_functors('.',ClauseList,Out) :- write_List(ClauseList,Out).
-write_functors(Functor,ClauseList,Out) :- is_infix(Functor,ClauseList), write_functor_infix(Functor,ClauseList,Out).
+%write_functors('.',ClauseList,Out) :- write_List(ClauseList,Out).
+%write_functors(Functor,ClauseList,Out) :- is_infix(Functor,ClauseList), write_functor_infix(Functor,ClauseList,Out).
 
-write_functors(Functor,ClauseList,[Functor,'(',Out,')']) :- write_term_list(ClauseList,Out).
+write_functors(Functor,ClauseList,Out) :- write_term_list(ClauseList,RestList),atomic_list_concat([Functor,'(',RestList,')'],Out).
 
-write_functor_infix(Functor,[H|T],[First,Functor,Rest]) :-  write_clause(H,First),write_rest_clause(T,Rest).
+write_functor_infix(Functor,[H|T],Out) :-  write_clause(H,First),write_rest_clause(T,Rest),atomic_list_concat([First,' ',Functor,' ',Rest],Out).
 
-write_rest_clause([],[]):-!.
-write_rest_clause([H|T],[Out,Rest]):-write_clause(H,Out),write_rest_clause(T,Rest).
-
-is_infix(Functor,[_,_|_]) :- operator(Functor,infix).
-
-
-write_List([H|T],['[',First,Rest,']']) :- write_clause(H,First),write_rest_clause(T,Rest).
+write_rest_clause([],''):-!.
+write_rest_clause([H|T],Out):-write_clause(H,First),write_rest_clause(T,Rest),atomic_list_concat([First,Rest],Out).
 
 
 
-write_term_list([Arg|Args],[H|T]) :-
+write_List([H|T],Out) :- write_clause(H,First),write_rest_clause(T,Rest),atomic_list_concat(['[',First,Rest,']'],Out).
+
+
+
+write_term_list([Arg|Args],Out) :-
         write_clause(Arg,H),
-        write_term_list_rest(Args,T).
+        write_term_list_rest(Args,T),
+        atomic_list_concat([H,T],Out).
 
-write_term_list_rest([],[]) :- !.
-write_term_list_rest([Clause|Clauses],[',',H|T]) :-
+write_term_list_rest([],'') :- !.
+write_term_list_rest([Clause|Clauses],Out) :-
         write_clause(Clause,H),
-        write_term_list_rest(Clauses,T).
+        write_term_list_rest(Clauses,T),
+        atomic_list_concat([',',H,T],Out).
