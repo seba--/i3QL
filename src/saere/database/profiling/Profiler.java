@@ -1,11 +1,12 @@
 package saere.database.profiling;
 
+import static saere.database.Utils.timestamp;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map.Entry;
@@ -14,32 +15,32 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.index.FunctorLabel;
 
-public class QueryProfiler {
+public class Profiler {
 	
-	private static final QueryProfiler INSTANCE = new QueryProfiler();
+	private static final Profiler INSTANCE = new Profiler();
+	private static final String DEFAULT_STORAGE_PATH = "src" + File.separator + "saere" + File.separator + "database" + File.separator + "profiling";
 	
-	private IdentityHashMap<FunctorLabel, PredicateProfiler> profiledPredicates;
-	private IdentityHashMap<FunctorLabel, int[]> orders;
+	private final IdentityHashMap<FunctorLabel, PredicateProfiler> profiledPredicates;
+	private final IdentityHashMap<FunctorLabel, int[]> orders;
+	private final QueryRater rater;
 	
 	private HashMap<FunctorKey, int[]> serializableOrders;
+	private Mode mode;
 	
-	public static void main(String[] args) {
-		Date time = Calendar.getInstance().getTime();
-		System.out.println(time);
-	}
-	
-	private QueryProfiler() {
+	private Profiler() {
 		profiledPredicates = new IdentityHashMap<FunctorLabel, PredicateProfiler>();
 		orders = new IdentityHashMap<FunctorLabel, int[]>();
 		serializableOrders = new HashMap<FunctorKey, int[]>();
+		rater = new QueryRater(orders);
+		mode = Mode.OFF;
 	}
 	
-	public static QueryProfiler getInstance() {
+	public static Profiler getInstance() {
 		return INSTANCE;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void loadOrders(String filename) {
+	public void loadProfiles(String filename) {
 		orders.clear();
 		
 		FileInputStream fis = null;
@@ -59,12 +60,11 @@ public class QueryProfiler {
 		}
 	}
 	
-	public void saveOrders() {
-		// XXX Should work for Unix and Windows systems in practice
-		saveOrders("src/saere/database/profiling/Profiling-" + timestamp() + ".ser");
+	public void saveProfiles() {
+		saveProfiles(DEFAULT_STORAGE_PATH + File.separator + "Profiling-" + timestamp() + ".ser");
 	}
 	
-	public void saveOrders(String filename) {
+	public void saveProfiles(String filename) {
 		fillOrdersMapBeforeSerialization();
 		
 		FileOutputStream fos = null;
@@ -84,6 +84,8 @@ public class QueryProfiler {
 	
 	// Delegate the query to the responsible predicate profiler
 	public void profile(Term query) {
+		assert mode == Mode.PROFILE : "Clients should call this method only if the mode is " + Mode.PROFILE;
+		
 		FunctorLabel functorLabel = FunctorLabel.FunctorLabel(query.functor(), query.arity());
 		PredicateProfiler predicateProfiler = profiledPredicates.get(functorLabel);
 		if (predicateProfiler == null) {
@@ -119,6 +121,8 @@ public class QueryProfiler {
 	 * @return An array that contains the arguments of the specified term in a new order.
 	 */
 	public Term[] getOrderedArgs(Term term) {
+		assert mode == Mode.USE : "Clients should call this method only if the mode is " + Mode.USE;
+		
 		FunctorLabel functorLabel = FunctorLabel.FunctorLabel(term.functor(), term.arity());
 		
 		// Check wether an order is already cached in orders
@@ -126,6 +130,7 @@ public class QueryProfiler {
 		if (order != null) {
 			return getOrder(term, order);
 		} else {
+			// Should not happen...
 			
 			// Check wether we have a order profiled in this run or not
 			PredicateProfiler predicateProfiler = profiledPredicates.get(functorLabel);
@@ -151,22 +156,38 @@ public class QueryProfiler {
 		return args;
 	}
 	
-	private String timestamp() {
-		Calendar c = Calendar.getInstance();
-		StringBuilder sb = new StringBuilder();
+	/**
+	 * Rates how &quot;good&quot; a trie will be for answering the query based 
+	 * on a simple heuristic.
+	 * 
+	 * @param query The query to rate.
+	 * @return A value between 0.0 (worst) and 1.0 (best).
+	 */
+	public float rate(Term query) {
+		assert mode == Mode.USE : "Clients should call this method only if the mode is " + Mode.USE;
+		return rater.rate(query);
+	}
+	
+	public Mode mode() {
+		return mode;
+	}
+	
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
+	
+	/**
+	 * The profiling mode of the query profiler.
+	 */
+	public enum Mode {
 		
-		sb.append(c.get(Calendar.YEAR));
-		sb.append("-");
-		sb.append(c.get(Calendar.MONTH) + 1);
-		sb.append("-");
-		sb.append(c.get(Calendar.DATE));
-		sb.append("_");
-		sb.append(c.get(Calendar.HOUR_OF_DAY));
-		sb.append("-");
-		sb.append(c.get(Calendar.MINUTE));
-		sb.append("-");
-		sb.append(c.get(Calendar.SECOND));
+		/** Do the profiling (slows down the system). */
+		PROFILE,
 		
-		return sb.toString();
+		/** Make use of profilings (may enhance queries). */
+		USE,
+		
+		/** Completely disable profiling. */
+		OFF
 	}
 }

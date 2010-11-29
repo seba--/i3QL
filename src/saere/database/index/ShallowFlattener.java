@@ -1,8 +1,5 @@
 package saere.database.index;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import saere.CompoundTerm;
 import saere.Term;
 
@@ -30,13 +27,15 @@ public final class ShallowFlattener extends TermFlattener {
 		
 		// We assume that we get mostly compound terms
 		if (term.isCompoundTerm()) {
-			List<Label> terms = new ArrayList<Label>();
-			terms.add(FunctorLabel.FunctorLabel(term.functor(), term.arity())); // Add functor as first term
-			int min = maxLength > 0 ? Math.min(term.arity(), maxLength - 1) : term.arity();
-			for (int i = 0; i < min; i++) {
-				terms.add(flattenArg(term.arg(i))); // Add arguments as terms
+			labels = new Label[term.arity() + 1];
+			labels[0] = FunctorLabel.FunctorLabel(term.functor(), term.arity());
+			
+			// Reorder according to profilings here (if we use profilings)!
+			Term[] args = getArgs(term);
+			
+			for (int i = 0; i < args.length; i++) {
+				labels[i + 1] = flattenArg(args[i]);
 			}
-			labels = terms.toArray(new Label[0]);
 		} else if (term.isIntegerAtom()) {
 			labels = new Label[] { AtomLabel.AtomLabel(term.asIntegerAtom()) };
 		} else if (term.isStringAtom()) {

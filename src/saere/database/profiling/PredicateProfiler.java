@@ -14,20 +14,8 @@ import scala.actors.threadpool.Arrays;
  */
 public class PredicateProfiler {
 	
-	private final QueryProfiler profiler;
+	private final Profiler profiler;
 	private final FunctorLabel functorLabel;
-	
-	public static void main(String[] args) {
-		int iargs[] = { 7, 3, 11 };
-		
-		OrderTuple[] newOrder = new OrderTuple[iargs.length];
-		for (int i = 0; i < iargs.length; i++) {
-			newOrder[i] = new OrderTuple(i, iargs[i]);
-		}
-		Arrays.sort(newOrder);
-		
-		System.out.println(Arrays.deepToString(newOrder));
-	}
 	
 	// The number of queries for this predicate
 	private int queryNum;
@@ -35,10 +23,13 @@ public class PredicateProfiler {
 	// Counts the 
 	private int[] instantiatedArgs;
 	
-	public PredicateProfiler(QueryProfiler profiler, FunctorLabel functorLabel) {
+	public PredicateProfiler(Profiler profiler, FunctorLabel functorLabel) {
 		this.profiler = profiler;
 		this.functorLabel = functorLabel;
 		instantiatedArgs = new int[functorLabel.arity()];
+		
+		// XXX To ignore first argument IDs
+		//instantiatedArgs[0] = Integer.MIN_VALUE;
 	}
 	
 	public void profile(Term query) {

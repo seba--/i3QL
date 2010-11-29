@@ -6,7 +6,6 @@ import java.util.List;
 import saere.CompoundTerm;
 import saere.StringAtom;
 import saere.Term;
-import saere.database.profiling.QueryProfiler;
 
 /**
  * The {@link FullFlattener} recursively flattens terms. That is, 
@@ -26,8 +25,6 @@ import saere.database.profiling.QueryProfiler;
  */
 public final class FullFlattener extends TermFlattener {
 	
-	private QueryProfiler profiler = QueryProfiler.getInstance();
-	
 	@Override
 	public LabelStack flatten(Term term) {
 		return new LabelStack(flattenTerm(term).toArray(new Label[0]));
@@ -41,8 +38,8 @@ public final class FullFlattener extends TermFlattener {
 		} else if (term.isCompoundTerm()) {
 			flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
 			
-			// XXX Reorder here!
-			Term[] args = profiler.getOrderedArgs(term);
+			// Reorder according to profilings here (if we use profilings)!
+			Term[] args = getArgs(term);
 			
 			for (int i = 0; i < args.length; i++) {		
 				flattened.addAll(flattenTerm(args[i]));

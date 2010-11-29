@@ -68,54 +68,54 @@ public class PredicateBench {
 		
 		for (int i = 0; i < TEST_RUNS; i++) {
 			System.out.println("\nTest run " + (i + 1) + "...");
-			for (int j = 0; j < BATTestQueries.ALL_INSTR_QUERIES.length; j++) {
-				Term query = BATTestQueries.ALL_INSTR_QUERIES[j];
+			for (int j = 0; j < BATTestQueries.ALL_INSTR3_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_INSTR3_QUERIES[j];
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				Utils.query(instr3Reference, BATTestQueries.ALL_INSTR_QUERIES[j]);
+				Utils.query(instr3Reference, BATTestQueries.ALL_INSTR3_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Shallow: ");
-				Utils.query(instr3Shallow, BATTestQueries.ALL_INSTR_QUERIES[j]);
+				Utils.query(instr3Shallow, BATTestQueries.ALL_INSTR3_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Full: ");
-				Utils.query(instr3Full, BATTestQueries.ALL_INSTR_QUERIES[j]);
+				Utils.query(instr3Full, BATTestQueries.ALL_INSTR3_QUERIES[j]);
 				query.setState(state);
 			}
 			
-			for (int j = 0; j < BATTestQueries.ALL_CLASSFILE_QUERIES.length; j++) {
-				Term query = BATTestQueries.ALL_CLASSFILE_QUERIES[j];
+			for (int j = 0; j < BATTestQueries.ALL_CLASSFILE10_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_CLASSFILE10_QUERIES[j];
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				Utils.query(classFile10Reference, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				Utils.query(classFile10Reference, BATTestQueries.ALL_CLASSFILE10_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Shallow: ");
-				Utils.query(classFile10Shallow, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				Utils.query(classFile10Shallow, BATTestQueries.ALL_CLASSFILE10_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Full: ");
-				Utils.query(classFile10Full, BATTestQueries.ALL_CLASSFILE_QUERIES[j]);
+				Utils.query(classFile10Full, BATTestQueries.ALL_CLASSFILE10_QUERIES[j]);
 				query.setState(state);
 			}
 			
-			for (int j = 0; j < BATTestQueries.ALL_METHOD_QUERIES.length; j++) {
-				Term query = BATTestQueries.ALL_METHOD_QUERIES[j];
+			for (int j = 0; j < BATTestQueries.ALL_METHOD15_QUERIES.length; j++) {
+				Term query = BATTestQueries.ALL_METHOD15_QUERIES[j];
 				State state = query.manifestState();
 				
 				System.out.print("\nList: ");
-				Utils.query(method15Reference, BATTestQueries.ALL_METHOD_QUERIES[j]);
+				Utils.query(method15Reference, BATTestQueries.ALL_METHOD15_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Shallow: ");
-				Utils.query(method15Shallow, BATTestQueries.ALL_METHOD_QUERIES[j]);
+				Utils.query(method15Shallow, BATTestQueries.ALL_METHOD15_QUERIES[j]);
 				query.setState(state);
 				
 				System.out.print("Full: ");
-				Utils.query(method15Full, BATTestQueries.ALL_METHOD_QUERIES[j]);
+				Utils.query(method15Full, BATTestQueries.ALL_METHOD15_QUERIES[j]);
 				query.setState(state);
 			}
 		}
