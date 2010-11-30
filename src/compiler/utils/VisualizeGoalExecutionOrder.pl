@@ -32,7 +32,7 @@
 
 /** 
 	This library provides predicates to visualize a clause's goal execution order
-	using Graphviz' DOT tool (www.graphviz.org).<br />
+	using the DOT tool (www.graphviz.org).<br />
 	The two main predicates are: {@link generate_dot_visualization/2} and
 	{@link visualize_term_structure/2}.
 
@@ -75,19 +75,12 @@
 	<b>Version History</b>
 	<i>0.1 - July 21th, 2010</i><br />
 	First release. It can be used to visualize the goal execution order of 
-	clauses using "and (,)", "or (;)" and "cut (!)". Further predicates are
-	currently not supported.	
+	clauses using "and (,)", "or (;)" and "cut (!)". Further (control-flow
+	related) predicates are currently not supported.	
 	</p>
 		
 	@author Michael Eichberg
 */
-:- module(
-	'Compiler:Utils:VisualizeGoalExecutionOrder',
-	[	generate_dot_visualization/2,
-		visualize_term_structure/2]
-).
-
-:- use_module('../Utils.pl').
 
 
 
@@ -174,7 +167,7 @@ node_successors(
 	node_successors(LGoal,BranchSucceedsNID,MinR,CutBranchFailsNID,false,LCuts,NLGoal),
 	% The right branch is only evaluated if cut is not called during the 
 	% evaluation of the left branch; however, previous choice points may be
-	% cut and, hence, when evaluating the right branch we have to the previous
+	% cut and, hence, when evaluating the right branch we have to take the previous
 	% information whether the cut was called or not into consideration
 	node_successors(RGoal,BranchSucceedsNID,BranchFailsNID,CutBranchFailsNID,RelevantCutCall,RCuts,NRGoal),
 	(
@@ -335,3 +328,16 @@ name_variables(Term,Type,ID,NewID) :-
 % The base case (i.e., _Term is an atom):
 name_variables(_Term,_Type,ID,ID) :- 
 	true.
+	
+	
+replace_char_with_string([],_OC,_NewString,[]) :- !.
+replace_char_with_string([OC|RCs],OldC,NewString,ResultString) :- 
+	OldC = [OC],
+	!,
+	replace_char_with_string(RCs,OldC,NewString,R),
+	append(NewString,R,ResultString).
+replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :- 
+	OldC = [OC],
+	OC \= C,
+	!,
+	replace_char_with_string(RCs,OldC,NewString,R).	
