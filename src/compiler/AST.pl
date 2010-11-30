@@ -93,7 +93,9 @@
 		string_atom/3,
 		complex_term/3,		
 		complex_term/4,
-		complex_term/5,		
+		complex_term/5,
+		complex_term_args/2,
+		complex_term_functor/2,		
 		directive_goal/2,
 		rule/4,
 		rule_head/2,
@@ -104,8 +106,8 @@
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
-		add_clause_to_ast/3,
-		add_predicates_to_ast/3,
+		add_clause/3,
+		add_predicates/3,
 		is_rule/1,
 		is_rule_with_body/1,
 		is_rule_without_body/1,
@@ -162,135 +164,6 @@
 empty_ast(([]/*Rules*/,[]/*Directives*/)).
 
 
-/**
-	Succeeds if the given ASTNode represents a directive.<br /> 
-	(A directive is a complex term, with the functor 
-	":-" and exactly one argument.)
-	<p>
-	A directive is never a rule(/fact) and vice versa.
-	</p>
-	
-	@signature is_directive(ASTNode)
-*/
-is_directive(ct(_Meta, ':-',[_Directive])).
-
-
-/**
-	Goal is a directive's goal. For example, given the directive:
-	<code><pre>
-	:- use_module('Utils.pl').
-	</pre></code>
-	then Goal is the AST node that represents the term <code>use_module</code>.
-	<p>
-	This predicate can either be used to extract a directive's goal or
-	to construct a new directive AST node which is not associated with any meta
-	information.
-	</p>
-	
-	@signature directive(Directive_ASTNode,Goal)
-	@arg Directive_ASTNode An AST node that represents a directive definition.
-*/
-directive_goal(ct(_Meta,':-',[Goal]),Goal).
-
-
-/**
-	Constructs a new rule.
-*/
-rule(Head,Body,Meta,ct(Meta,':-',[Head,Body])).
-
-
-rule_head(ct(_Meta,':-',[Head,_]),Head) :- !.
-rule_head(Head,Head) :- \+ is_directive(Head).
-
-
-/**
-	@signature rule_body(Rule_ASTNode,Body_ASTNode)
-*/
-rule_body(ct(_Meta,':-',[_Head,Body]),Body).
-
-
-/**
-	Succeeds if the given clause is a rule definition; i.e., if the clause is not
-	a directive.
-
-	@signature is_rule(Clause_ASTNode) 
-*/
-is_rule(Clause) :- is_rule_with_body(Clause),!.
-is_rule(Clause) :- is_rule_without_body(Clause),!.
-
-
-/**
-	Succeeds if the given AST node represents a rule with a head and a body.
-	
-	@signature is_rule_with_body(ASTNode)
-*/
-is_rule_with_body(ct(_Meta,':-',[_Head,_Body])).
-
-
-/**
-	Succeeds if the given AST node represents a rule definition without a body.
-	
-	@signature is_rule_without_body(ASTNode)
-*/
-is_rule_without_body(Clause) :- 
-	\+ is_directive(Clause),
-	(
-		Clause = ct(_CTMeta,Functor,_Args),
-		Functor \= (':-')
-	;
-		Clause = a(_AMeta,_Value) % e.g., "true."
-	).
-
-
-/**
-	Succeeds if ASTNode represents the declaration of a named variable; i.e.,
-	a variable that is not anonymous.
-	
-	@signature is_variable(ASTNode)
-*/
-is_variable(v(_Meta,_Name)).
-
-
-/**
-	Succeeds if ASTNode represents the declaration of an anonymous variable.
-	
-	@signature is_anonymous_variable(ASTNode)
-*/
-is_anonymous_variable(av(_Meta,_Name)).
-
-
-/**
-	Succeeds if ASTNode represents an integer value/atom.
-	
-	@signature is_integer_atom(ASTNode)
-*/
-is_string_atom(a(_Meta,_Value)).
-
-
-/**
-	Succeeds if ASTNode represents a numeric value/atom.
-	
-	@signature is_numeric_atom(ASTNode)
-*/
-is_numeric_atom(ASTNode) :- 
-	once((is_integer_atom(ASTNode) ; is_float_atom(ASTNode))).
-
-
-/**
-	Succeeds if ASTNode represents an integer value/atom.
-	
-	@signature is_integer_atom(ASTNode)
-*/
-is_integer_atom(i(_Meta,_Value)).
-
-
-/**
-	Succeeds if ASTNode represents a floating point value/atom.
-	
-	@signature is_float_atom(ASTNode)
-*/
-is_float_atom(r(_Meta,_Value)).
-
 
 /**
 	Adds a clause – which has to be a valid, normalized rule or a directive – to
@@ -298,10 +171,10 @@ is_float_atom(r(_Meta,_Value)).
 
 	@signature add_clause_to_ast(AST,Clause,NewAST)
 	@arg(in) AST The AST to which the given term is added.
-	@arg(in) Clause Clause has to be a valid, normalized clause or a directive.
+	@arg(in) Clause Clause has to be a valid, normalized rule or a directive.
 	@arg(out) NewAST The new AST which contains the new term (predicate).
 */
-add_clause_to_ast(AST,Rule,NewAST) :- 
+add_clause(AST,Rule,NewAST) :- 
 	Rule = ct(_Meta,':-',[LeftTerm,_RightTerm]),
 	(	% e.g., terms such as "do :- write(...)".
 		LeftTerm = a(_,Functor),
@@ -318,11 +191,12 @@ add_clause_to_ast(AST,Rule,NewAST) :-
 	;
 		NewAST=([pred(ID,[(Rule,_ClauseProps2)|_],_PredProps2)|Rules],Directives)
 	).
-add_clause_to_ast((Rules,Directives),Directive,NewAST) :-
+add_clause((Rules,Directives),Directive,NewAST) :-
 	Directive = ct(_Meta,':-',[_TheDirective]),!,
 	NewAST=(Rules,[Directive|Directives]).
-add_clause_to_ast(_AST,Term,_NewAST) :- 
-	throw(internal_error('the term is not a normalized top-level term',Term)).
+add_clause(_AST,Term,_NewAST) :- 
+	throw(internal_error('the term is not a rule or directive',Term)).
+
 
 
 /**
@@ -343,37 +217,213 @@ add_clause_to_ast(_AST,Term,_NewAST) :-
 		]
 		</code></pre>
 		
-	@arg(out) NewAST The extended NewAST.
+	@arg(out) NewAST The extended AST.
 */
-add_predicates_to_ast((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
+add_predicates((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
 	IntermediateAST = ([pred(ID,[],Properties)|Rules],Directives),
-	add_predicates_to_ast(IntermediateAST,Preds,NewAST).
-add_predicates_to_ast(AST,[],AST).
+	add_predicates(IntermediateAST,Preds,NewAST).
+add_predicates(AST,[],AST).
+
+
 
 
 
 /**
-	@signature variable(Variable_ASTNode,Name)
-*/
-variable(v(_Meta,Name),Name).
-
-/**
-	This predicate is intended to be used for creating new AST nodes representing
-	variable declarations.<br />
+	Succeeds if the given ASTNode represents a directive.<br /> 
+	(A directive is a complex term, with the functor 
+	":-" and exactly one argument.)
+	<p>
+	A directive is never a rule(/fact) and vice versa.
+	</p>
 	
-	To extract the position information later on, use {@link #term_pos/2}.
+	@signature is_directive(ASTNode)
+*/
+is_directive(ct(_Meta,':-',[_Directive])) :- true. 
+
+
+/**
+	Goal is a directive's goal. For example, given the directive:
+	<code><pre>
+	:- use_module('Utils.pl').
+	</pre></code>
+	then Goal is the AST node that represents the complex term <code>use_module</code>.
+	<p>
+	This predicate can either be used to extract a directive's goal or
+	to construct a new AST node that represents a directive and which is not
+	associated with any meta information.
+	</p>
+	
+	@signature directive(Directive_ASTNode,Goal_ASTNode)
+	@arg Directive_ASTNode An AST node that represents a directive definition.
+	@arg Goal_ASTNode The directive's goal
+*/
+directive_goal(ct(_Meta,':-',[Goal]),Goal) :- true.
+
+
+/**
+	(De-)constructs a rule.
+	
+	@signature rule(Head_ASTNode,Body_ASTNode,Meta,Rule_ASTNode)
+	@arg Head_ASTNode The rule's head.
+	@arg Body_ASTNode The rule's body.
+	@arg Meta Meta-information about the rule.
+	@arg(out) Rule_ASTNode
+*/
+rule(Head,Body,Meta,ct(Meta,':-',[Head,Body])) :- true.
+
+
+/**
+	Extracts a rule's head.
+	<p>
+	This predicate must not/can not be used to create a partial rule. The ASTNode
+	will be invalid.
+	</p>
+	
+	@signature rule_head(ASTNode,Head_ASTNode)
+	@arg(in) ASTNode 
+	@arg(out) Head_ASTNode A rule's head. 
+*/
+rule_head(ct(_Meta,':-',[Head,_]),Head) :- !.
+rule_head(Head,Head) :- \+ is_directive(Head).
+
+
+/**
+	Extracts a rule's body.
+	<p>
+	This predicate must not/can not be used to create a partial rule. The ASTNode
+	will be invalid.
+	</p>
+
+	@signature rule_body(Rule_ASTNode,RuleBody_ASTNode)
+*/
+rule_body(ct(_Meta,':-',[_Head,Body]),Body) :- true.
+
+
+/**
+	Succeeds if the given clause is a rule definition; i.e., if the clause is not
+	a directive.
+
+	@signature is_rule(Clause_ASTNode) 
+*/
+is_rule(Clause) :- is_rule_with_body(Clause),!.
+is_rule(Clause) :- is_rule_without_body(Clause),!.
+
+
+/**
+	Succeeds if the given AST node represents a rule with a head and a body.
+	
+	@signature is_rule_with_body(ASTNode)
+	@arg(in) ASTNode
+*/
+is_rule_with_body(ct(_Meta,':-',[_Head,_Body])) :- true.
+
+
+/**
+	Succeeds if the given AST node represents a rule definition without a body;
+	e.g.,
+	<code><pre>
+	a_string_atom.
+	a_term(X,Y).
+	</pre></code>
+	
+	@signature is_rule_without_body(ASTNode)
+	@arg(in) ASTNode
+*/
+is_rule_without_body(Clause) :- 
+	\+ is_directive(Clause),
+	(
+		Clause = ct(_CTMeta,Functor,_Args),
+		Functor \= (':-')
+	;
+		Clause = a(_AMeta,_Value) % e.g., "true."
+	).
+
+
+/**
+	Succeeds if ASTNode represents the declaration of a named variable; i.e.,
+	a variable that is not anonymous.
+	
+	@signature is_variable(ASTNode)
+	@arg(in) ASTNode
+*/
+is_variable(v(_Meta,_Name)).
+
+
+/**
+	Succeeds if ASTNode represents the declaration of an anonymous variable.
+	
+	@signature is_anonymous_variable(ASTNode)
+	@arg(in) ASTNode	
+*/
+is_anonymous_variable(av(_Meta,_Name)).
+
+
+/**
+	Succeeds if ASTNode represents an integer value/atom.
+	
+	@signature is_integer_atom(ASTNode)
+	@arg(in) ASTNode	
+*/
+is_string_atom(a(_Meta,_Value)).
+
+
+/**
+	Succeeds if ASTNode represents a numeric value/atom.
+	
+	@signature is_numeric_atom(ASTNode)
+	@arg(in) ASTNode	
+*/
+is_numeric_atom(ASTNode) :- 
+	once((is_integer_atom(ASTNode) ; is_float_atom(ASTNode))).
+
+
+/**
+	Succeeds if ASTNode represents an integer value/atom.
+	
+	@signature is_integer_atom(ASTNode)
+	@arg(in) ASTNode	
+*/
+is_integer_atom(i(_Meta,_Value)).
+
+
+/**
+	Succeeds if ASTNode represents a floating point value/atom.
+	
+	@signature is_float_atom(ASTNode)
+	@arg(in) ASTNode	
+*/
+is_float_atom(r(_Meta,_Value)).
+
+
+
+/**
+	(De)constructs an AST node that represents a variable definition. If this 
+	predicate is used to construct an AST node, the node will not be associated
+	with any meta information.
+	
+	@signature variable(Variable_ASTNode,VariableName)
+*/
+variable(v(_Meta,VariableName),VariableName).
+
+/**
+	(De)constructs an AST node that represents a variable definition. If this 
+	predicate is used to construct an AST node, the only meta information will
+	be the position information.
+	
+	@signature variable(VariableName,Pos,Variable_ASTNode)
 */
 variable(Name,Pos,v([Pos|_],Name)).
 
 
 
 /**
-	ASTNode is a term that represents a variable definition 
-	<code>v(Meta,VariableName)</code>. 
+	ASTNode is a term that represents a variable definition. 
+	<p>
 	The name of the variable is determined by concatenating the BaseQualifier and 
 	the ID. The associated meta information (e.g., the position of the variable
-	in the source code is determined by Meta.<br />
-	This predicate is typically used to create new variable nodes.
+	in the source code) is determined by Meta.<br />
+	This predicate can only be used to create new variable nodes.
+	</p>
 	
 	@signature variable_node(BaseQualifier,Id,Meta,ASTNode)
 	@arg(atom) BaseQualifier Some atom.
@@ -387,15 +437,23 @@ variable(BaseQualifier,Id,Meta,v(Meta,VariableName)) :-
 
 
 /**
-	Extracts the name of an anonymous variable.
+	(De)constructs an AST node that represents the definition of an anonymous 
+	variable.<br/>
+	If this 
+	predicate is used to construct an AST node, the node will not be associated
+	with any meta information.
 
 	@signature anonymous_variable(AnonymousVariable_ASTNode,Name)
 */
 anonymous_variable(av(_Meta,Name),Name).
 
+
 /**
-	Constructs a new AST node that represents the definition of an anonymous 
-	variable.
+	(De)constructs an AST node that represents the definition of an anonymous 
+	variable.<br />
+	If this 
+	predicate is used to construct an AST node, the only meta information will
+	be the position information.
 	
 	@signature anonymous_variable(Name,Pos,AnonymousVariable_ASTNode)
 */
@@ -404,14 +462,21 @@ anonymous_variable(Name,Pos,av([Pos|_],Name)).
 
 
 /**
-	Extracts the value of an integer atom.
+	(De)constructs an AST node that represents the definition of an integer 
+	atom.<br/>
+	If this predicate is used to construct an AST node, the node will not be
+	associated with any meta information.
 	
 	@signature integer_atom(IntegerAtom_ASTNode,Value)
 */
 integer_atom(i(_Meta,Value),Value).
 
+
 /**
-	Constructs a new AST node representing the definition of an integer atom.
+	(De)constructs an AST node that represents the definition of an integer atom.<br />
+	If this 
+	predicate is used to construct an AST node, the only meta information will
+	be the position information.
 	
 	@signature integer_atom(Value,Pos,IntegerAtom_ASTNode)
 */
@@ -419,14 +484,20 @@ integer_atom(Value,Pos,i([Pos|_],Value)).
 
 
 /**
-	Extracts a float atom's value.
+	(De)constructs an AST node that represents the definition of a float 
+	atom.<br/>
+	If this predicate is used to construct an AST node, the node will not be
+	associated with any meta information.
 	
 	@signature float_atom(FloatAtom_ASTNode,Value)
 */
 float_atom(r(_Meta,Value),Value).
 
 /**
-	Constructs a new AST node representing the definition of a float atom.
+	(De)constructs an AST node that represents the definition of a float atom.<br />
+	If this 
+	predicate is used to construct an AST node, the only meta information will
+	be the position information.
 	
 	@signature float_atom(Value,Pos,FloatAtom_ASTNode)
 */
@@ -434,7 +505,10 @@ float_atom(Value,Pos,r([Pos|_],Value)).
 
 
 /**
-	Extracts a string atom's value.
+	(De)constructs an AST node that represents the definition of a string 
+	atom.<br/>
+	If this predicate is used to construct an AST node, the node will not be
+	associated with any meta information.
 	
 	@signature string_atom(StringAtom_ASTNode,Value)
 */
@@ -442,7 +516,10 @@ string_atom(a(_Meta,Value),Value).
 
 
 /**
-	Constructs a new AST node representing the definition of a string atom.
+	(De)constructs an AST node that represents the definition of a string atom.<br />
+	If this 
+	predicate is used to construct an AST node, the only meta information will
+	be the position information.
 
 	@signature string_atom(Value,Pos,StringAtom_ASTNode)
 */
@@ -450,12 +527,14 @@ string_atom(Value,Pos,a([Pos|_],Value)).
 
 
 /**
-	Extracts a complex term's functor and arguments.
+	(De)constructs an AST node that represents the definition of a complex term.<br/>
+	If this predicate is used to construct an AST node, the node will not be
+	associated with any meta information.
 	
 	@signature complex_term(ComplexTerm_ASTNode,Functor,Args)
-	@arg(in) ComplexTerm_ASTNode
-	@arg(out) Functor
-	@arg(out) Args the arguments of a complex term. Each argument is an AST node.
+	@arg ComplexTerm_ASTNode
+	@arg Functor A string atom representing the complex term's functor.
+	@arg Args the arguments of a complex term. Each argument is an AST node.
 */
 complex_term(ct(_Meta,Functor,Args),Functor,Args).
 
@@ -484,6 +563,7 @@ complex_term(Functor,Args,Pos,OperatorTable,ct([Pos,OperatorTable|_],Functor,Arg
 	@arg(out) Args the arguments of a complex term. They are AST nodes.
 */
 complex_term_args(ct(_Meta,_Functor,Args),Args).
+complex_term_functor(ct(_Meta,Functor,_Args),Functor).
 
 
 /**
@@ -501,7 +581,7 @@ lookup_in_meta(Type,Meta) :- memberchk_ol(Type,Meta).
 /**
 	@signature meta_pos(Position,ASTNodeMetaInformation)
 */
-pos_meta(Pos,[Pos|_]).
+pos_meta(Pos,[Pos|_]) :- Pos = pos(_,_,_).
 
 
 /**

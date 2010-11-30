@@ -243,16 +243,12 @@ default_op_table(
  *                                                                            *
 \* ************************************************************************** */
 
-/*
-parser_errors_stream(Stream) :- current_stream(parser_errors,_Mode,Stream),!.
-parser_errors_stream(Stream) :- current_stream(1,_Mode,Stream).
-*/
+
 
 parser_error(ASTNode,MessageFragments) :-
 	term_pos(ASTNode,File,LN,CN),
    atomic_list_concat(MessageFragments,EM),	
    atomic_list_concat([File,':',LN,':',CN,': error: ',EM,'\n'],MSG),% GCC compliant
- 	%parser_errors_stream(Stream),
    write(MSG).
 
 
@@ -262,7 +258,7 @@ parser_error(ASTNode,MessageFragments) :-
 
 	---- 1. Step - NAIVE GRAMMAR - NOT WORKING... (left recursive)
 	term --> prefix_op, term.
-	term --> [a(_)]
+	term --> primitive_term 
 	term --> term, infix_op, term.
 	term --> term, postfix_op.
 	prefix_op --> [...].
@@ -271,7 +267,7 @@ parser_error(ASTNode,MessageFragments) :-
 
 	---- 2. Step - AFTER LEFT RECURSION REMOVAL...
 	term --> prefix_op, term, term_r.
-	term --> [a(_)], term_r.
+	term --> primitive_term, term_r.
 
 	term_r --> infix_op, term, term_r.
 	term_r --> postfix_op, term_r.
@@ -500,7 +496,7 @@ postfix_op(ops(_,_,PostfixOps),Op,Pos) -->
 
 
 elementary_term(_Ops,V) --> var(V),{!}.
-elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}.
+elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}. % FIXIME store op table
 elementary_term(Ops,LT) --> list(Ops,LT),{!}.
 elementary_term(Ops,T) --> 
 	['('(_OPos)],
@@ -578,8 +574,8 @@ compound_term(Ops,ASTNode) -->
 	['('(_)],
 	term(Ops,999,T,_TermPriority), % a complex term has at least one argument
 	arguments_2(Ops,TRs),
-	{!,complex_term(F,[T|TRs],Pos,ASTNode)}. % we can commit to the current term (T) and the other arguments (TRs)
-
+	{!,complex_term(F,[T|TRs],Pos,Ops,ASTNode)}. % we can commit to the current term (T) and the other arguments (TRs)
+ 
 
 arguments_2(_Ops,[]) --> [')'(_)],{!}.
 arguments_2(Ops,[T|TRs]) --> 

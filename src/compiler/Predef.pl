@@ -61,7 +61,7 @@
 		built-in predicates.
 */
 add_predefined_predicates_to_ast(AST,Program) :-
-	add_predicates_to_ast( 
+	add_predicates( 
 		AST,
 		[
 	

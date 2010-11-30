@@ -92,9 +92,7 @@ build_ast(ListOfListOfClauses,TheAST) :-
 
 
 process_list_of_list_of_clauses(
-		[ListOfClauses|FurtherListsOfListsOfClauses],
-		CurrentAST,
-		FinalAST
+		[ListOfClauses|FurtherListsOfListsOfClauses],CurrentAST,FinalAST
 ) :- 
 	!,
 	process_clauses(ListOfClauses,CurrentAST,IntermediateAST),
@@ -107,12 +105,12 @@ process_list_of_list_of_clauses([],AST,AST).
 
 process_clauses([Clause|Clauses],CurrentAST,FinalAST) :- 
 	is_directive(Clause),!, 
-	add_clause_to_ast(CurrentAST,Clause,IntermediateAST),
+	add_clause(CurrentAST,Clause,IntermediateAST),
 	process_clauses(Clauses,IntermediateAST,FinalAST).
 process_clauses([Clause|Clauses],CurrentAST,FinalAST) :- 
 	/* assert is_rule(Clause) */ !,
 	normalize_rule(Clause,NormalizedClause),
-	add_clause_to_ast(CurrentAST,NormalizedClause,IntermediateAST),
+	add_clause(CurrentAST,NormalizedClause,IntermediateAST),
 	process_clauses(Clauses,IntermediateAST,FinalAST).
 process_clauses([],AST,AST).
 
@@ -131,9 +129,8 @@ process_clauses([],AST,AST).
 /**
 	Normalizes a rule. <br />
 	In a normalized rule the head's arguments are all variables where no
-	variable occurs more than once. Further, every term is transformed into
-	"clausal form"; i.e., it is always an implication with a left and a right 
-	side. In case of a fact the right side is just <code>true</code>.
+	variable occurs more than once. Further, every rule is transformed into
+	"clausal form"; i.e., it is always a right side which may just be <code>true</code>.
 	
 	@signature normalize_rule(Rule,NormalizedRule)
 	@arg Rule The old rule.
@@ -152,12 +149,11 @@ normalize_rule(Rule0,NormalizedRule) :-
 
 
 /**
-	If the term is not a clause, it is transformed into one where the right
-	side (the body) is <code>true</code>.
+	If the rule does not (yet) have a body, a body is created.
 
-	@signature rule_with_head_and_body(Term,Rule)
-	@arg(in) Term A valid clause.
-	@arg(out) Rule A rule with a head and a body.
+	@signature rule_with_head_and_body(Rule,RuleWithHeadAndBody)
+	@arg(in) Rule A valid rule.
+	@arg(out) RuleWithHeadAndBody A rule with a head and a body.
 */
 rule_with_head_and_body(Rule,Rule) :-
 	is_rule_with_body(Rule),!.
@@ -167,7 +163,7 @@ rule_with_head_and_body(Clause,RuleHB) :-
 	string_atom('true',Pos,Body),
 	pos_meta(Pos,Meta),
 	rule(Clause,Body,Meta,RuleHB).
-rule_with_head_and_body(Clause,_) :- 
+rule_with_head_and_body(Clause,_) :- % to catch errors early on...
 	throw(internal_error('the clause is not a rule',Clause)).
 
 
@@ -178,7 +174,7 @@ remove_head_unification(
 ) :- 	
 	/* not_empty(HeadArgs), */ !,
 	normalize_arguments(HeadArgs,1,HeadArgs,NewHeadArgs,Body,NewBody).	
-remove_head_unification(TermNode,TermNode).
+remove_head_unification(ASTNode,ASTNode).
 
 
 

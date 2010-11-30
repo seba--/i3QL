@@ -46,8 +46,8 @@
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Check Program________________________________________________\n')),
 	check_predicates(Program,State),
-	% The following unification (and subsequently the pl_check predicate as a whole) 
-	% fails if an error was found.
+	% The following unification (and subsequently the pl_check predicate as a 
+	% whole) fails if an error was found.
 	State = no_errors. 
 
 
@@ -55,7 +55,7 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 /**
 	Validates the SAE program.
 */
-check_predicates(_,_) :- !.
+check_predicates(_,_State). % :- !.
 % TODO implement a check for singleton variables
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
