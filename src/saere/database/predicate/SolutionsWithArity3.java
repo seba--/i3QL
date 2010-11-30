@@ -19,7 +19,7 @@ public final class SolutionsWithArity3 implements Solutions {
 	
 	private int progress;
 	
-	private int counter = 0;
+	//private int counter = 0;
 	
 	public SolutionsWithArity3(DatabaseAdapter adapter, Term query) {
 		assert query.arity() == 3 : "Invalid query arity " + query.arity();
@@ -42,7 +42,7 @@ public final class SolutionsWithArity3 implements Solutions {
 		reset();
 		
 		while (iterator.hasNext()) {
-			counter++;
+			//counter++;
 			Term fact = iterator.next();
 			
 			// attempt unification...
@@ -60,7 +60,7 @@ public final class SolutionsWithArity3 implements Solutions {
 			reset();
 		}
 		
-		System.out.println("[" + counter + " solutions iterated]");
+		//System.out.print("[" + counter + " candidates iterated]");
 		return false;
 	}
 	

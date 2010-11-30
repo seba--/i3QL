@@ -21,7 +21,7 @@ import saere.database.index.TrieBuilder;
  * @author David Sullivan
  * @version 0.105, 11/11/2010
  */
-public class DatabaseTest {
+public final class DatabaseTest {
 	
 	public static final String DATA_PATH = "test" + File.separator + "data";
 	public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "opal-0.5.0.jar";
@@ -36,9 +36,6 @@ public class DatabaseTest {
 		}
 		
 		JUnitCore.runClasses(
-			IteratorsTest.class,
-			LabelTest.class,
-			LabelStackTest.class,
 			PredicateBench.class
 		);
 	}

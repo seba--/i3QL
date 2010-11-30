@@ -37,8 +37,12 @@ public final class FullFlattener extends TermFlattener {
 			flattened.add(AtomLabel.AtomLabel(term.functor()));
 		} else if (term.isCompoundTerm()) {
 			flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
-			for (int i = 0; i < term.arity(); i++) {		
-				flattened.addAll(flattenTerm(term.arg(i)));
+			
+			// Reorder according to profilings here (if we use profilings)!
+			Term[] args = getArgs(term);
+			
+			for (int i = 0; i < args.length; i++) {		
+				flattened.addAll(flattenTerm(args[i]));
 			}
 		} else if (term.isIntegerAtom()) {
 			flattened.add(AtomLabel.AtomLabel(term.asIntegerAtom()));

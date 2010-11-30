@@ -1,5 +1,7 @@
 package saere.database;
 
+import java.util.Calendar;
+
 import saere.CompoundTerm;
 import saere.Solutions;
 import saere.Term;
@@ -111,6 +113,17 @@ public final class Utils {
 	public static boolean isFreeVariable(Term term) {
 		return term.isVariable() && !term.asVariable().isInstantiated();
 	}
+	
+	/**
+	 * Convenience method for queries that creates no output.
+	 * 
+	 * @param p A database predicate (e.g., <tt>instr/3</tt>)
+	 * @param query The query.
+	 */
+	public static void queryNoPrint(DatabasePredicate p, Term query) {
+		Solutions solutions = p.unify(query);
+		while (solutions.next()) {}
+	}
 
 	/**
 	 * Convenience method that summarizes query results.
@@ -125,11 +138,6 @@ public final class Utils {
 		int counter = 0;
 		while (solutions.next()) {
 			counter++;
-			/*
-			if (counter == 1) {
-				sw.printElapsed("Finding first solution");
-			}
-			*/
 		}
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
@@ -152,5 +160,29 @@ public final class Utils {
 		}
 		System.out.print(counter + " solutions found, ");
 		sw.printElapsed("query");
+	}
+	
+	/**
+	 * Current timestamp as string.
+	 * 
+	 * @return A timestamp.
+	 */
+	public static String timestamp() {
+		Calendar c = Calendar.getInstance();
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(c.get(Calendar.YEAR));
+		sb.append("-");
+		sb.append((c.get(Calendar.MONTH) + 1));
+		sb.append("-");
+		sb.append(c.get(Calendar.DATE));
+		sb.append("_");
+		sb.append(c.get(Calendar.HOUR_OF_DAY));
+		sb.append("-");
+		sb.append(c.get(Calendar.MINUTE));
+		sb.append("-");
+		sb.append(c.get(Calendar.SECOND));
+		
+		return sb.toString();
 	}
 }

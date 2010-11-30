@@ -1,16 +1,20 @@
 package saere.database.index;
 
 import saere.Term;
+import saere.database.profiling.Profiler;
+import saere.database.profiling.Profiler.Mode;
 
 /**
  * Common abstract base class for term flatteners. A {@link TermFlattener} 
  * defines how a {@link Term} is flattend (&quot;hashed&quot;) for storage and 
- * retrieval.
+ * a query for retrieval.
  * 
  * @author David Sullivan
- * @version 0.4, 11/9/2010
+ * @version 0.5, 11/29/2010
  */
 public abstract class TermFlattener {
+	
+	private static final Profiler PROFILER = Profiler.getInstance();
 	
 	/**
 	 * Flattens a term. That is, creates a non-nested (no compound terms), 
@@ -22,31 +26,23 @@ public abstract class TermFlattener {
 	public abstract LabelStack flatten(Term term);
 	
 	/**
-	 * The maximum length for flattened terms. A value smaller than 1 will turn 
-	 * this behavior off.<br/>
-	 * <br/>
-	 * <b>Note that the maximum length for inserted terms and queries must be 
-	 * the same. Otherwise some terms might not be found by a query.</b>
-	 */
-	protected int maxLength = 0;
-	
-	/**
-	 * Sets the maximum length for flattened terms.
+	 * Gets the arguments of the term as array of terms. If profiles should be 
+	 * use the arguments are ordered accordingly.
 	 * 
-	 * @param maxLength The new maximum length.
-	 * @see #maxLength
+	 * @param term The term with arguments.
+	 * @return The (eventually ordered) arguments of the term as array.
 	 */
-	public void setMaxLength(int maxLength) {
-		this.maxLength = maxLength;
-	}
-	
-	/**
-	 * Gets the maximum length for flattened terms.
-	 * 
-	 * @return The maximum length.
-	 * @see #maxLength
-	 */
-	public int getMaxLength() {
-		return maxLength;
+	protected Term[] getArgs(Term term) {
+		assert term.isCompoundTerm() : "Specified term is not a compound term";
+		
+		if (PROFILER.mode() == Mode.USE) {
+			return PROFILER.getOrderedArgs(term);
+		} else {
+			Term[] args = new Term[term.arity()];
+			for (int i = 0; i < args.length; i++) {
+				args[i] = term.arg(i);
+			}
+			return args;
+ 		}
 	}
 }

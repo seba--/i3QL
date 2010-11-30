@@ -73,6 +73,10 @@ public class TrieDatabase extends Database {
 		return builder;
 	}
 	
+	public Trie root() {
+		return root;
+	}
+	
 	@Override
 	public boolean noCollision() {
 		return noCollision;

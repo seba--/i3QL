@@ -8,6 +8,8 @@ import saere.StringAtom;
 import saere.Term;
 import saere.database.Database;
 import saere.database.DatabaseAdapter;
+import saere.database.profiling.Profiler;
+import saere.database.profiling.Profiler.Mode;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -18,6 +20,8 @@ import saere.meta.GenericCompoundTerm;
  * @version 0.4, 11/20/2010
  */
 public class DatabasePredicate {
+	
+	private static final Profiler PROFILER = Profiler.getInstance();
 	
 	protected final boolean noCollision;
 	protected final StringAtom functor;
@@ -42,6 +46,12 @@ public class DatabasePredicate {
 	 */
 	public Solutions unify(Term query) {		
 		if (arity == query.arity() && functor.sameAs(query.functor())) {
+			
+			// Profile only if this query is for this predicate
+			if (PROFILER.mode() == Mode.PROFILE) {
+				PROFILER.profile(query);
+			}
+			
 			if (!noCollision) {
 				return GenericSolutions.forArity(arity, adapter, query);
 			} else {
