@@ -7,7 +7,7 @@ public final class Unification {
 	/**
 	 * Unifies two terms.
 	 * <p> 
-	 * <b> This method does not take care* of state handling.
+	 * <b> This method does not take care of state handling.
 	 * It is the responsibility of the caller to manifest the state of the given
 	 * terms before calling this method and to restore the state after calling.
 	 * </b> 

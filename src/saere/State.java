@@ -47,7 +47,7 @@ public abstract class State {
 
 	CompoundTermState asCompoundTermState() {
 		throw new Error("[Internal Error] This state object (" + this
-				+ ") does not encapsulate a compound term's state.");
+				+ ") does not encapsulate a complex term's state.");
 	}
 
 	VariableState asVariableState() {

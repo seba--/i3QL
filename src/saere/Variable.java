@@ -125,8 +125,7 @@ public final class Variable extends Term {
 	}
 
 	/**
-	 * Resets the state of this variable to the state when the object was newly
-	 * created.
+	 * Clears all bindings of this variable.
 	 */
 	public void clear() {
 		value = null;

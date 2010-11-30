@@ -43,11 +43,11 @@ public interface Solutions {
 	 * one solution exists. The solution
 	 * is returned by binding the variables passed to the predicate's unify method.
 	 * <p>
-	 * If <code>false</code> is returned, all Variables must have the same state 
+	 * If <code>false</code> is returned, all {@link Variable}s must have the same state 
 	 * as before the very first call (i.e., it is not the case that
 	 * some variables that were free before the call remain instantiated).
 	 * </p>
-	 * <b><u>After <code>false</code> is returned this method is not / must not be called
+	 * <b><u>After <code>false</code> is returned this method must not be called
 	 * again.</u></b>
 	 */
 	boolean next();
