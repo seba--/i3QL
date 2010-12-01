@@ -25,7 +25,8 @@ public final class ProfilerBench {
 	private static final String PROFILES_PATH = "src/saere/database/profiling";
 	private static final int TEST_RUNS = 2;
 	//private static final String TEST_FILE = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
-	private static final String TEST_FILE = "../test/classfiles/Tomcat-6.0.20.zip";
+	//private static final String TEST_FILE = "../test/classfiles/Tomcat-6.0.20.zip";
+	private static final String TEST_FILE = DatabaseTest.GLOBAL_TEST_FILE;
 	
 	private static final Profiler PROFILER = Profiler.getInstance();
 	private static final Factbase FACTS = Factbase.getInstance();
@@ -106,6 +107,7 @@ public final class ProfilerBench {
 				query.setState(state);
 			}
 			
+			/*
 			// class_file/10
 			for (Term query : CLASSFILE10_QUERIES) {
 				State state = query.manifestState();
@@ -122,7 +124,9 @@ public final class ProfilerBench {
 				Utils.query(classFile10Full, query);
 				query.setState(state);
 			}
+			*/
 			
+			// method/15
 			for (Term query : METHOD15_QUERIES) {
 				State state = query.manifestState();
 				
@@ -172,6 +176,7 @@ public final class ProfilerBench {
 				query.setState(state);
 			}
 			
+			/*
 			// class_file/10
 			for (Term query : BATTestQueries.ALL_CLASSFILE10_FREQ_QUERIES) {
 				State state = query.manifestState();
@@ -185,6 +190,7 @@ public final class ProfilerBench {
 				Utils.queryNoPrint(classFile10Full, query);
 				query.setState(state);
 			}
+			*/
 			
 			for (Term query : BATTestQueries.ALL_METHOD15_FREQ_QUERIES) {
 				State state = query.manifestState();
@@ -239,6 +245,7 @@ public final class ProfilerBench {
 				query.setState(state);
 			}
 			
+			/*
 			// class_file/10
 			for (Term query : CLASSFILE10_QUERIES) {
 				State state = query.manifestState();
@@ -255,6 +262,7 @@ public final class ProfilerBench {
 				Utils.query(classFile10Full, query);
 				query.setState(state);
 			}
+			*/
 			
 			// method/15
 			for (Term query : METHOD15_QUERIES) {
@@ -275,10 +283,12 @@ public final class ProfilerBench {
 		}
 	}
 	
+	/*
 	@Test
 	public void testRatings() {
 		for (Term query : BATInstr3Queries.QUERIES) {
 			System.out.println("Query " + query + " has rating " + Profiler.getInstance().rate(query));
 		}
 	}
+	*/
 }

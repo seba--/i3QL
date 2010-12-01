@@ -36,7 +36,7 @@ public final class DatabaseTest {
 		}
 		
 		JUnitCore.runClasses(
-			PredicateBench.class
+			ProfilerBench.class
 		);
 	}
 	
