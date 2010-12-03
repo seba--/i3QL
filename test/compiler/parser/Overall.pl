@@ -34,7 +34,7 @@
 
 /**
 	The following tests just load a large number of different prolog files
-	to make sure that the parser does not crash for reasonable, real-world Prolog 
+	to make sure that the parser does not crash for a wide variety of Prolog 
 	programs.
 
    @author Michael Eichberg (mail@michael-eichberg.de)
@@ -46,6 +46,7 @@
 
 :- begin_tests(parser_overall).
 
+% Let's test if we can load / parse some standard Prolog programs
 
 test('benchmarks/arithmetic.pl') :-
 	tokenize_file('benchmarks/arithmetic.pl',Ts),clauses(Ts,_P).
@@ -130,5 +131,11 @@ test('src/compiler/Utils.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_st
 
 test('src/compiler/Predef.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
 	tokenize_file('src/compiler/Predef.pl',Ts),clauses(Ts,_P).
+		
+		
+% Let's test if we can load a (very) large fact database
+
+test('test/compiler/parser/data/Flashcards0.6.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('test/compiler/parser/data/Flashcards0.6.pl',Ts),clauses(Ts,_P).
 		
 :- end_tests(parser_overall).
