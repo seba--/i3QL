@@ -31,7 +31,7 @@
 */
 
 /** 
-	This library provides predicates to visualize a clause's goal execution order
+	This library provides predicates to visualize a clause's body
 	using the DOT tool (www.graphviz.org).<br />
 	The two main predicates are: {@link generate_dot_visualization/2} and
 	{@link visualize_term_structure/2}.
