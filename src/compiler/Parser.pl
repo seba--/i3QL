@@ -90,12 +90,14 @@
 :- module(
    	'SAEProlog:Compiler:Parser',
    	[
-      	clauses/2,
-			default_op_table/1
+      	clauses/2
    	]
 	).
 
 :- use_module('AST.pl').
+:- use_module('Lexer.pl',[token_position/4]).
+:- use_module('Predef.pl',[default_op_table/1]).
+
 
 
 /**
@@ -118,122 +120,6 @@ clauses(Ts,Cs) :-
 	   write(MSG),
 		fail 
 	).
-		
-		
-
-/**
-	The list of the default operators. 
-	<p>
-	This list is maintained using.
-	<code>:- op(Priority, Op_Specifier, Operator) </code> directives which is
-	always immediately evaluated by the parser.
-	<code>op(Priority, Op_Specifier, Operator)</code> succeeds, with the side 
-	effect that...
-	<ul>
-	<li>if Priority is 0 then Operator is removed from the operator table, else</li>
-	<li>Operator is added to the Operator table, with the specified Priority (lower binds 
-		tighter) and Associativity (determined by Op_Specifier according 
-		to the rules):
-		<pre>
-			Specifier	Type		Associativity
-			fx				prefix	no
-			fy				prefix	yes
-			xf				postfix	no
-			yf				postfix	yes
-			xfx			infix		no
-			yfx			infix		left
-			xfy			infix		right
-		</pre>
-	</li>
-	</ul>
-	It is forbidden to alter the priority or type of ','. It is forbidden to have
-	an infix and a postfix operator with the same name, or two operators with the 
-	same type and name.</br>
-	<br />
-	The initial operator table is given by:
-	<pre>
-	Priority	Specifier	Operator(s)
-	1200		xfx			:- -->
-	1200		fx				:- ?-
-	1100		xfy			;
-	1050		xfy			->
-	1000		xfy			,
-	900		fy				\+
-	700		xfx			= \=
-	700		xfx			== \== @< @=< @> @>=
-	700		xfx			=..
-	700		xfx			is =:= =\= < =< > >=
-	500		yfx			+ - /\ \/
-	400		yfx			* / // rem mod << >>
-	200		xfx			**
-	200		xfy			^
-	200		fy				- \
-	</pre>
-	Parts of this text are taken from: 
-	<a href="http://pauillac.inria.fr/~deransar/prolog/bips.html">
-	http://pauillac.inria.fr/~deransar/prolog/bips.html
-	</a>.
-	</p>
-
-	@signature default_op_table(Ops)
-	@mode det()
-	@arg(out) Ops Ops has the following structure:<br/>
-		<code>ops(PrefixOperators,InfixOperators,PostfixOperators)</code> where
-		PrefixOperators is the list of all predefined prefix operators, 
-		InfixOperators is the list of all predefined infix Operators, and
-		PostfixOperators is the list of all predefined postfix operators.
-*/
-default_op_table(
-	ops(
-		[  % PREFIX...
-			op(900,fy,'\\+'),
-			op(200,fy,'-'),	
-			op(200,fy,'\\'), % bitwise complement
-			op(1200,fx,':-'),
-			op(1200,fx,'?-')			
-		],
-		[	% INFIX...
-			op(1200,xfx,':-'),
-			op(1200,xfx,'-->'),
-			op(1100,xfy,';'),
-			op(1000,xfy,','), % Redefining "and" is NOT supported!
-			op(700,xfx,'='),
-			op(500,yfx,'-'),
-			op(500,yfx,'+'),
-			op(1050,xfy,'->'),
-			op(400,yfx,'*'),
-			op(400,yfx,'/'),
-			op(700,xfx,'\\='),
-			op(700,xfx,'is'),
-			op(700,xfx,'<'),
-			op(700,xfx,'>'),
-			op(700,xfx,'=<'),
-			op(700,xfx,'>='),
-			op(700,xfx,'=:='),
-			op(700,xfx,'=\\='),	
-			op(700,xfx,'=..'),
-			op(700,xfx,'=='),
-			op(700,xfx,'\\=='),
-			op(700,xfx,'@<'),
-			op(700,xfx,'@=<'),
-			op(700,xfx,'@>'),
-			op(700,xfx,'@>='),		
-			op(500,yfx,'\\/'),
-			op(500,yfx,'/\\'),	
-			op(1100,xfy,'|'), % also defined by SWI Prolog
-			op(400,yfx,'//'), % X // Y Division mit Ganzzahlergebnis
-			op(400,yfx,'mod'),
-			op(400,yfx,'<<'),
-			op(400,yfx,'>>'),
-			op(200,xfx,'**'),		
-			op(200,xfy,'^')				
-		],
-		[	% POSTFIX...		
-		]		
-	)
-).
-
-
 
 
 
@@ -386,7 +272,7 @@ validate_clause(Clause) :-
 	rule_head(Clause,Head),
 	( is_variable(Head) ; is_anonymous_variable(Head) ; is_numeric_atom(Head) ),
 	!,
-	parser_error(Clause,['a clauses\'s head has to be a complex term or a string atom']),
+	parser_error(Clause,['a clause\'s head has to be a complex term or a string atom']),
 	fail.
 	
 validate_clause(_Clause). % base case, the Clause is considered to be valid

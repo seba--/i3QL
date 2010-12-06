@@ -711,7 +711,7 @@ write_ast_node(r(_Meta,Atom)) :- !,	write(Atom).
 write_ast_node(ct(_Meta,Functor,ClauseList)) :- !,
 	write(' \''),write(Functor),write('\''),
 	write('[ '),write_term_list(ClauseList),write(' ]').
-write_ast_node(X) :- throw(internal_error('the given term has an unexpected type',X)).
+write_ast_node(X) :- throw(internal_error('[AST] the given term has an unexpected type',X)).
 	
 	
 /**

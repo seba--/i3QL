@@ -301,13 +301,30 @@ memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
 
 
 
+/**
+	Redirects the standard out stream to null. The null stream can be queried 
+	to get the number of chars (lines) that are sent to it. 
+	
+	@see reset_stdout_redirect/1
+*/
 redirect_stdout_to_null((StdOutStream,NullStream)) :- 
 	current_stream(1,_,StdOutStream),
 	open_null_stream(NullStream),
 	set_output(NullStream).
 	
 	
-	
+/**
+	Resets the redirection of the standard out stream. <br />
+	This predicate is intended to be used in conjunction with the {@link 
+	redirect_stdout_to_null/1} predicate.
+
+	@signature reset_stdout_redirect(StreamPair)
+	@arg(in) StreamPair An anonymous pair consisting of the stream to which 
+		the standard output stream should be redirected and the "current" standard 
+		output stream.<code>(NewStdOutStream,CurrentStdOutStream)</code>. The
+		<code>CurrentStdOutStream</code> is closed.
+	@see redirect_stdout_to_null/1
+*/	
 reset_stdout_redirect((StdOutStream,NullStream)) :- 
 	set_output(StdOutStream),
 	close(NullStream).

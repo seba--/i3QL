@@ -59,5 +59,7 @@ check_predicates(_,_State). % :- !.
 % TODO implement a check for singleton variables
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
+% TODO check that no "default" operators are overridden
+
 
 
