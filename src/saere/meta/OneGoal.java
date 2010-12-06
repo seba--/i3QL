@@ -39,6 +39,7 @@ import saere.*;
  * 
  * @author Michael Eichberg
  */
+@Deprecated
 public abstract class OneGoal implements Solutions {
 
 	private Solutions solutions = null;

@@ -29,51 +29,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta;
+package saere.predicate;
 
-import saere.*;
+import saere.Solutions;
+import saere.Term;
 
+public interface PredicateInstance extends Solutions{
 
-/**
- * <p>
- * Implements the overall strategy how to evaluate a predicate that is 
- * defined using multiple clauses.<br />
- * Clauses with cut operators are not supported. We decided to keep the
- * {@link Solutions} interface as lightweight as possible.
- * </p>
- * <b>Please note, that this class is not used by the compiler as the 
- * resulting code would not be efficient enough.</b> The primary use 
- * case of this class is to help you understand the evaluation strategy employed
- * by SAE Prolog. 
- * 
- * @author Michael Eichberg
- */
-@Deprecated
-public abstract class MultipleRules implements Solutions {
-
-	public abstract int ruleCount();
+	public void setArg(int position,Term value);
 	
-	public abstract Solutions rule(int i); 
-		
-	private Solutions solutions = rule(1); 
-
-	private int currentRule = 1;
-	
-	public final boolean next()  {
-		while (currentRule <= ruleCount()) {
-			if (solutions.next()) {
-				return true;
-			}
-			else {
-				currentRule += 1;
-				if (currentRule <= ruleCount()) {
-					solutions = rule(currentRule);
-				}
-				// else {
-				// 	solutions = null
-				// }
-			}
-		}
-		return false;
-	}
 }

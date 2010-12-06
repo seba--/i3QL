@@ -45,34 +45,45 @@ import saere.*;
  *  
  * @author Michael Eichberg
  */
-public class Unify2  {
-
+public class Unify2 implements Solutions { 
 		
-	/**
-	 * Implementation of the unify (=) operator. 
-	 */
-	public static Solutions apply(final Term a1, final Term a2) {
 	
-
-		return new Solutions() {
+	static void registerWithPredicateRegistry(PredicateRegistry predicateRegistry){
+		
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("="), 2, new PredicateInstanceFactory() {
 			
-			private final State a1State = a1.manifestState();
-			private final State a2State = a2.manifestState();
-			
-			private boolean called = false;
-
-			public boolean next() {
-				if (!called) {
-					called = true;
-					if (a1.unify(a2)) {
-						return true;
-					}
-				}
-				a1.setState(a1State);
-				a2.setState(a2State);
-				return false;
+			@Override
+			public Solutions createPredicateInstance(Term[] args) {
+				return new Unify2(args[0],args[1]);
 			}
-		};
+		});
+		
+	}
+	
+	private final Term l;
+	private final Term r;
+	private final State lState;
+	private final State rState;
+	
+	private boolean called = false;
+	
+	public Unify2(final Term l, final Term r){
+		this.l = l;
+		this.r = r;
+		this.lState = l.manifestState();
+		this.rState = r.manifestState();
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+			if (l.unify(r)) {
+				return true;
+			}
+		}
+		l.setState(lState);
+		r.setState(rState);
+		return false;
 	}
 }
 

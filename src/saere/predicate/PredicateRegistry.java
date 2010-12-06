@@ -29,51 +29,72 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta;
+package saere.predicate;
 
-import saere.*;
+import java.util.HashMap;
+import java.util.Map;
 
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-/**
- * <p>
- * Implements the overall strategy how to evaluate a predicate that is 
- * defined using multiple clauses.<br />
- * Clauses with cut operators are not supported. We decided to keep the
- * {@link Solutions} interface as lightweight as possible.
- * </p>
- * <b>Please note, that this class is not used by the compiler as the 
- * resulting code would not be efficient enough.</b> The primary use 
- * case of this class is to help you understand the evaluation strategy employed
- * by SAE Prolog. 
- * 
- * @author Michael Eichberg
- */
-@Deprecated
-public abstract class MultipleRules implements Solutions {
+public class PredicateRegistry {
 
-	public abstract int ruleCount();
-	
-	public abstract Solutions rule(int i); 
-		
-	private Solutions solutions = rule(1); 
+	private final static class Predicate {
+		private final StringAtom functor;
+		private final int arity;
 
-	private int currentRule = 1;
-	
-	public final boolean next()  {
-		while (currentRule <= ruleCount()) {
-			if (solutions.next()) {
-				return true;
-			}
-			else {
-				currentRule += 1;
-				if (currentRule <= ruleCount()) {
-					solutions = rule(currentRule);
-				}
-				// else {
-				// 	solutions = null
-				// }
-			}
+		Predicate(StringAtom functor, int arity) {
+			this.functor = functor;
+			this.arity = arity;
 		}
-		return false;
+
+		@Override
+		public int hashCode() {
+			return functor.hashCode() + arity;
+		}
+
+		@Override
+		public boolean equals(Object other) {
+			if (other instanceof Predicate) {
+				Predicate otherPredicate = (Predicate) other;
+				return this.arity == otherPredicate.arity
+						&& this.functor == otherPredicate.functor;
+			}
+			return false;
+		}
+
+		@Override
+		public String toString() {
+			return functor.toString() + "/" + arity;
+		}
 	}
+	
+	private static final PredicateRegistry PREDICATE_REGISTRY = new PredicateRegistry();
+	
+	public static PredicateRegistry instance(){
+		return PREDICATE_REGISTRY;
+	}
+	
+
+	private Map<Predicate, PredicateInstanceFactory> predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
+
+	private PredicateRegistry(){/*nothing to do*/}
+	
+	
+	public void registerPredicate(StringAtom functor, int arity,
+			PredicateInstanceFactory factory) {
+		Predicate p = new Predicate(functor, arity);
+		if (predicates.put(p, factory) != null)
+			throw new IllegalStateException("a predicate instance factory for "
+					+ p + " was already registered");
+	}
+
+	public Solutions createPredicateInstance(StringAtom functor, Term[] args) {
+		Predicate p = new Predicate(functor, args.length);
+		PredicateInstanceFactory pif = predicates.get(p);
+		return pif.createPredicateInstance(args);
+
+	}
+
 }

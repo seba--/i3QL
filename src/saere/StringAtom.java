@@ -35,6 +35,8 @@ import java.nio.charset.Charset;
 import java.util.WeakHashMap;
 import java.lang.ref.WeakReference;
 
+import saere.predicate.PredicateRegistry;
+
 /**
  * Representation of a string atom.
  * 
@@ -95,6 +97,7 @@ public final class StringAtom extends Atom {
 	 */
 	public int hashCode() {
 		// hashCode is only called once (when put in the cache)
+		// TODO check if it is worth to calcultate the hashcode once 
 		return java.util.Arrays.hashCode(title);
 		//return hashCode;
 	}
@@ -104,10 +107,19 @@ public final class StringAtom extends Atom {
 		return new String(title);
 	}
 
+
+	public Solutions call(){
+		
+		return PredicateRegistry.instance().createPredicateInstance(this, Term.NO_TERMS);
+		
+	}
+	
+	
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
 
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
+	@SuppressWarnings("all")
 	public static final StringAtom StringAtom(String s) {
 		return StringAtom(s.getBytes(UTF8Charset));
 	}
@@ -116,6 +128,7 @@ public final class StringAtom extends Atom {
 	 * @param title
 	 *            a UTF-8 encoded string.
 	 */
+	@SuppressWarnings("all")
 	public final static StringAtom StringAtom(byte[] title) {
 		final StringAtom cand = new StringAtom(title);
 		synchronized (cache) {

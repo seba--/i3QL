@@ -1,8 +1,6 @@
-package saere.meta;
+package saere;
 
-import saere.CompoundTerm;
-import saere.StringAtom;
-import saere.Term;
+import saere.predicate.PredicateRegistry;
 
 public class GenericCompoundTerm extends CompoundTerm {
 
@@ -29,4 +27,10 @@ public class GenericCompoundTerm extends CompoundTerm {
 		return functor;
 	}
 
+	
+	public Solutions call(){
+		
+		return PredicateRegistry.instance().createPredicateInstance(functor, args);
+		
+	}
 }

@@ -31,7 +31,7 @@
  */
 package saere;
 
-import saere.database.Utils;
+
 
 /**
  * Representation of a term.
@@ -40,6 +40,8 @@ import saere.database.Utils;
  */
 public abstract class Term {
 
+	public final static Term[] NO_TERMS = new Term[0];
+	
 	
 	/**
 	 * Unification of this term with the given term. If the unification succeeds
@@ -134,20 +136,18 @@ public abstract class Term {
 	 * any arguments (<code>arity() == 0</code>) an  <code>IndexOutOfBoundsException</code>
 	 * is always thrown. If this term has at least one argument and <i>i</i> is
 	 * larger than or equal to the aritry of the term, then the method is free to
-	 * return the last argument
-	 * or to throw an <code>IndexOutOfBoundsException</code>.
+	 * return the last argument or to throw an <code>IndexOutOfBoundsException</code>.
 	 */
 	public abstract Term arg(int i) throws IndexOutOfBoundsException;
 
+	
 	/**
 	 * @return Evaluates the arithmetic expression represented by this term, if possible.
 	 * @throws IllegalStateException if this term does not model an arithmetic expression.
 	 */
-	public int eval() { throw new IllegalStateException("This term is not an arithmetic term: "+this.toString()); }
+	public int eval() { throw new IllegalStateException("this term ("+this.toString()+") is not an arithmetic term"); }
 
-	// XXX Remove later, only for debugging!
-	@Override
-	public String toString() {
-		return Utils.termToString(this);
-	}
+
+	public Solutions call() { throw new IllegalStateException("this term ("+this.toString()+") cannot be called");}
+	
 }

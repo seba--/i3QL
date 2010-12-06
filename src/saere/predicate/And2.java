@@ -29,51 +29,75 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta;
+package saere.predicate;
 
 import saere.*;
 
-
 /**
+ * Implementation of SAE Prolog's <code>,</code>(and) operator.
  * <p>
- * Implements the overall strategy how to evaluate a predicate that is 
- * defined using multiple clauses.<br />
- * Clauses with cut operators are not supported. We decided to keep the
- * {@link Solutions} interface as lightweight as possible.
+ * This implementation generates a choice point and – in general – should not be
+ * called.<br />
+ * <i>It is only intended to be used to execute meta-level calls. </i><br />
+ * The compiler has specific support for this operator and does not make use of
+ * this class.
  * </p>
- * <b>Please note, that this class is not used by the compiler as the 
- * resulting code would not be efficient enough.</b> The primary use 
- * case of this class is to help you understand the evaluation strategy employed
- * by SAE Prolog. 
  * 
  * @author Michael Eichberg
  */
-@Deprecated
-public abstract class MultipleRules implements Solutions {
+public class And2 implements Solutions {
 
-	public abstract int ruleCount();
-	
-	public abstract Solutions rule(int i); 
-		
-	private Solutions solutions = rule(1); 
 
-	private int currentRule = 1;
-	
-	public final boolean next()  {
-		while (currentRule <= ruleCount()) {
-			if (solutions.next()) {
-				return true;
-			}
-			else {
-				currentRule += 1;
-				if (currentRule <= ruleCount()) {
-					solutions = rule(currentRule);
+	static void registerWithPredicateRegistry(PredicateRegistry predicateRegistry){
+		predicateRegistry.registerPredicate(StringAtom.StringAtom(","), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new And2(args[0], args[1]);
+					}
+				});
+
+	}
+
+	private final Term l;
+	private final Term r;
+	private State lState;
+	private State rState;
+
+	private int currentGoal = 0;
+	private GoalStack goalStack = GoalStack.emptyStack();
+
+	public And2(final Term l, final Term r) {
+		this.l = l;
+		this.r = r;
+	}
+
+	public boolean next() {
+		while (true) {
+			switch (currentGoal) {
+			case 0:
+				lState = l.manifestState();
+				goalStack = goalStack.put(l.call());
+				currentGoal = 1;
+			case 1:
+				if (!goalStack.peek().next()) {
+					l.setState(lState);
+					return false;
 				}
-				// else {
-				// 	solutions = null
-				// }
+				if (rState == null)
+					rState = r.manifestState();
+				goalStack = goalStack.put(r.call());
+				currentGoal = 2;
+			case 2:
+				if (!goalStack.peek().next()) {
+					goalStack = goalStack.reduce();
+					currentGoal = 1;
+				}
+				else {
+					return true;
+				}
 			}
 		}
-		return false;
 	}
 }
