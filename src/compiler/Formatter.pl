@@ -12,36 +12,36 @@
 
 
 format_file([],L,L).
-format_file([H|T],In,OutputList) :- write_clause(H,Out),atomic_list_concat([In,Out,'.\n'],Concated_List),format_file(T,Concated_List,OutputList).%nl,write_clause(H),write('.'),format_file(T).
+format_file([H|T],In,OutputList) :- 
+	write_clause(H,Out),
+	atomic_list_concat([In,Out,'.\n'],Concated_List),
+	format_file(T,Concated_List,OutputList).%nl,write_clause(H),write('.'),format_file(T).
 
 
-write_clause(X,Value) :- variable(X,Value);
-  anonymous_variable(X,Value);
-  string_atom(X,Value);
-  integer_atom(X,Value);
-  float_atom(X,Value).
-
-
-%    [  % PREFIX...
+write_clause(ASTNode,Value) :- (variable(ASTNode,Value);
+  anonymous_variable(ASTNode,Value);
+  string_atom(ASTNode,Value);
+  integer_atom(ASTNode,Value);
+  float_atom(ASTNode,Value)),!.
+%    [  % PREFIASTNode...
 %     op(900,fy,'\\+'),
-write_clause(X,Out) :-complex_term(X,'.',Args),write_List(Args,Out).
-write_clause(X,Out) :-complex_term(X,Functor,Args),
+write_clause(ASTNode,Out) :-complex_term(ASTNode,'.',Args),write_List(Args,Out),!.
+write_clause(ASTNode,Out) :-complex_term(ASTNode,Functor,Args),!,
         (
-        term_meta(X,Meta),
-        lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
-           (
-           memberchk(op(_,_,Functor),FirstPrefixOps),is_prefix(Args),write_functors(Functor,Args,Out)
+        	term_meta(ASTNode,Meta),
+        	lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
+         (
+          memberchk(op(_,_,Functor),FirstPrefixOps),Args = [_],write_functors(Functor,Args,Out)
            ;
-           memberchk(op(_,_,Functor),FirstInfixOps),is_infix(Args),write_functor_infix(Functor,Args,Out)
+           memberchk(op(_,_,Functor),FirstInfixOps),Args = [_,_],write_functor_infix(Functor,Args,Out)
            ;
-           memberchk(op(_,_,Functor),FirstPostfixOps),write_functors(Functor,Args,Out)
-           )
+           memberchk(op(_,_,Functor),FirstPostfixOps),Args=[_],write_functors(Functor,Args,Out)
+         )
         ;
-        write_functors(Functor,Args,Out)
-        ).
+        	write_functors(Functor,Args,Out)
+        ),!.
+write_clause(ASTNode,_) :- throw(internal_error('[Formatter] the given term has an unexpected type',ASTNode)).
 
-
-write_clause(X,_) :- throw(internal_error('the given term has an unexpected type',X)).
 
 is_prefix([_|[]]).
 is_infix([_,_|[]]).
