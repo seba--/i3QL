@@ -35,6 +35,8 @@ public final class DatabaseTest {
 			GLOBAL_TEST_FILE = args[0];
 		}
 		
+		
+		
 		JUnitCore.runClasses(
 			ProfilerBench.class
 		);

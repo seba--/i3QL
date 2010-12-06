@@ -43,7 +43,7 @@ public final class VariableLabel extends Label {
 	
 	@Override
 	public String toString() {
-		return "_";
+		return "?";
 	}
 
 	@Override

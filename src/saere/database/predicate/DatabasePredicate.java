@@ -1,5 +1,7 @@
 package saere.database.predicate;
 
+import static saere.database.Utils.hasFreeVariable;
+
 import java.util.Iterator;
 
 import saere.Solutions;
@@ -10,7 +12,6 @@ import saere.database.Database;
 import saere.database.DatabaseAdapter;
 import saere.database.profiling.Profiler;
 import saere.database.profiling.Profiler.Mode;
-import saere.meta.GenericCompoundTerm;
 
 /**
  * Represents a database procedure and provides an array-based (i.e., <b>rather 
@@ -53,9 +54,11 @@ public class DatabasePredicate {
 			}
 			
 			if (!noCollision) {
-				return GenericSolutions.forArity(arity, adapter, query);
+				return new DatabaseSolutionsNoCollision(query);
+				//return GenericSolutions.forArity(arity, adapter, query);
 			} else {
-				return GenericSolutions.forArityNoCollision(arity, adapter, query);
+				return new DatabaseSolutions(query);
+				//return GenericSolutions.forArityNoCollision(arity, adapter, query);
 			}
 		} else {
 			return EmptySolutions.getInstance();
@@ -76,82 +79,141 @@ public class DatabasePredicate {
 	}
 	
 	/**
-	 * A generic solution class for database. Only for illustrational purposes 
-	 * and not actual use.
+	 * A generic solutions implementation for database predicates. It expects 
+	 * candidate sets.
 	 * 
 	 * @author David Sullivan
-	 * @version 0.2, 9/21/2010
+	 * @version 0.1, 12/5/2010
 	 */
-	protected class DatabaseSolutions implements Solutions {
+	private class DatabaseSolutions implements Solutions {
 		
-		private Term[] args;
-		private State[] states;
-		private Iterator<Term> iterator;
+		private final Term[] args;
+		private final State[] states;
+		private final Iterator<Term> iterator;
 		
-		protected DatabaseSolutions(Term[] args) {
-			this.args = args;
-			save();
-			iterator = adapter.query(new GenericCompoundTerm(functor, args));
+		private int progress;
+		private boolean first;
+		
+		private DatabaseSolutions(Term query) {
+			first = true;
+			
+			// Get arguments
+			args = new Term[query.arity()]; // arity() should be inlined...
+			for (int i = 0; i < query.arity(); i++) {
+				args[i] = query.arg(i);
+			}
+			
+			// Save states
+			states = new State[query.arity()];
+			for (int i = 0; i < query.arity(); i++) {
+				states[i] = args[i].manifestState();
+			}
+			
+			iterator = adapter.query(query);
 		}
-
+		
+		@Override
 		public boolean next() {			
 			
-			// reset to original states (not necessary for first call)
-			load();
+			// Reset to original states (not necessary for first call)
+			if (!first) resetStates();
+			else first = false;
 			
-			// as long as we have potentially matching facts...
+			// As long as we have potentially matching facts...
 			while (iterator.hasNext()) {
 				Term fact = iterator.next();
 				
-				if (unifies(fact)) {
-					return true; // unification succeded
-				} else {
-					load(); // unifiation failed, reset states
+				progress = 0;
+				for (int i = 0; i < args.length; i++) {
+					if (args[i].unify(fact.arg(i))) progress++;
+					else break;
 				}
+				
+				if (progress == args.length) return true;
+				else resetStates();
 			}
 			
 			return false;
 		}
 		
 		/**
-		 * Checks wether the specified fact unifies with the goal.
-		 * 
-		 * @param fact The fact.
-		 * @return <tt>true</tt> if so.
+		 * Restores the states of the goal with regard to progress.
 		 */
-		private boolean unifies(Term fact) {
-			assert fact.functor().sameAs(functor) : "Cannot unify";
-			
-			if (fact.arity() != arity)
-				return false;
-			
-			boolean unifies = true;
-			for (int i = 0; i < args.length; i++) {
-				if (!args[i].unify(fact.arg(i))) {
-					unifies = false;
-					break;
-				}	
-			}
-			
-			return unifies;
-		}
-		
-		/**
-		 * Saves the states of the goal.
-		 */
-		private void save() {
-			states = new State[args.length];
-			for (int i = 0; i < args.length; i++) {
-				states[i] = args[i].manifestState();
-			}
-		}
-		
-		/**
-		 * Restores the states of the goal.
-		 */
-		private void load() {
-			for (int i = 0; i < args.length; i++) {
+		private void resetStates() {
+			for (int i = 0; i < progress; i++) {
 				args[i].setState(states[i]);
+			}
+		}
+	}
+	
+	/**
+	 * A generic solutions implementation for database predicates. It expects 
+	 * exact result sets.
+	 * 
+	 * @author David Sullivan
+	 * @version 0.1, 12/5/2010
+	 */
+	private class DatabaseSolutionsNoCollision implements Solutions {
+		
+		private final Term[] args;
+		private final State[] states;
+		private final boolean[] vars;
+		private final Iterator<Term> iterator;
+		
+		private boolean first;
+		
+		private DatabaseSolutionsNoCollision(Term query) {	
+			assert noCollision : "No collisions expected";
+			first = true;
+		
+			// Save positions of arguments with free variables
+			vars = new boolean[query.arity()];
+			for (int i = 0; i < query.arity(); i++) {
+				vars[i] = hasFreeVariable(query.arg(i));
+			}
+			
+			// Get arguments (only for arguments with free variables)
+			args = new Term[query.arity()]; // arity() should be inlined...
+			for (int i = 0; i < query.arity(); i++) {
+				if (vars[i]) args[i] = query.arg(i);
+			}
+			
+			// Save states (only for arguments with free variables)
+			states = new State[query.arity()];
+			for (int i = 0; i < query.arity(); i++) {
+				if (vars[i]) states[i] = args[i].manifestState();
+			}
+			
+			iterator = adapter.query(query);
+		}
+
+		@Override
+		public boolean next() {
+			
+			// We get only terms that'll unify (no set of 'maybe' candidates)
+			if (iterator.hasNext()) {
+				if (!first) resetStates();
+				else first = false;
+				
+				Term fact = iterator.next();
+				for (int i = 0; i < args.length; i++) {
+					if (vars[i]) args[i].unify(fact.arg(i));
+				}
+				
+				return true;
+			} else {
+				//System.out.print("[" + counter + " candidates iterated]");
+				return false;
+			}
+		}
+		
+		/**
+		 * Restores the states of the goal with regard to free variable 
+		 * arguments in the query.
+		 */
+		private void resetStates() {
+			for (int i = 0; i < args.length; i++) {
+				if (vars[i]) args[i].setState(states[i]);
 			}
 		}
 	}

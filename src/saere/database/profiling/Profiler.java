@@ -20,7 +20,7 @@ public class Profiler {
 	private static final Profiler INSTANCE = new Profiler();
 	private static final String DEFAULT_STORAGE_PATH = "src" + File.separator + "saere" + File.separator + "database" + File.separator + "profiling";
 	
-	private final IdentityHashMap<FunctorLabel, PredicateProfiler> profiledPredicates;
+	private final IdentityHashMap<FunctorLabel, PredicateProfiler> predicates;
 	private final IdentityHashMap<FunctorLabel, int[]> orders;
 	private final QueryRater rater;
 	
@@ -28,7 +28,7 @@ public class Profiler {
 	private Mode mode;
 	
 	private Profiler() {
-		profiledPredicates = new IdentityHashMap<FunctorLabel, PredicateProfiler>();
+		predicates = new IdentityHashMap<FunctorLabel, PredicateProfiler>();
 		orders = new IdentityHashMap<FunctorLabel, int[]>();
 		serializableOrders = new HashMap<FunctorKey, int[]>();
 		rater = new QueryRater(orders);
@@ -87,17 +87,17 @@ public class Profiler {
 		assert mode == Mode.PROFILE : "Clients should call this method only if the mode is " + Mode.PROFILE;
 		
 		FunctorLabel functorLabel = FunctorLabel.FunctorLabel(query.functor(), query.arity());
-		PredicateProfiler predicateProfiler = profiledPredicates.get(functorLabel);
+		PredicateProfiler predicateProfiler = predicates.get(functorLabel);
 		if (predicateProfiler == null) {
 			predicateProfiler = new PredicateProfiler(this, functorLabel);
-			profiledPredicates.put(functorLabel, predicateProfiler);
+			predicates.put(functorLabel, predicateProfiler);
 		}
 		predicateProfiler.profile(query);
 	}
 	
 	// Fills the serializable orders map will all profiled orders
 	private void fillOrdersMapBeforeSerialization() {
-		for (Entry<FunctorLabel, PredicateProfiler> entry : profiledPredicates.entrySet()) {
+		for (Entry<FunctorLabel, PredicateProfiler> entry : predicates.entrySet()) {
 			FunctorLabel functorLabel = entry.getKey();
 			serializableOrders.put(new FunctorKey(functorLabel.atom().toString(), functorLabel.arity()), entry.getValue().order());
 		}
@@ -133,7 +133,7 @@ public class Profiler {
 			// Should not happen...
 			
 			// Check wether we have a order profiled in this run or not
-			PredicateProfiler predicateProfiler = profiledPredicates.get(functorLabel);
+			PredicateProfiler predicateProfiler = predicates.get(functorLabel);
 			if (predicateProfiler != null) {
 				order = predicateProfiler.order();
 				orders.put(functorLabel, order);

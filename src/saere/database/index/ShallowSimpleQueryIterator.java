@@ -13,11 +13,10 @@ package saere.database.index;
 public class ShallowSimpleQueryIterator extends TermIterator {
 	
 	/** Reference to the label singleton for free variables. */
-	protected static final VariableLabel FREE_VARIABLE = VariableLabel.VariableLabel();
+	private static final VariableLabel FREE_VARIABLE = VariableLabel.VariableLabel();
 	
 	private final TrieBuilder builder;
-	
-	protected final LabelStack stack;
+	private final LabelStack stack;
 	
 	/**
 	 * Creates a new query iterator for simple shallow tries.
@@ -45,13 +44,14 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 			// Normal mode, as long as we have nodes left and have no next term (list)
 			while (current != null && next == null) {
 				
+				// Just skip the root
 				if (current.getParent() == null) {
 					current = current.getFirstChild();
 					continue;
 				}
 				
 				if (match()) {
-					if (stack.size() == 1 && current.isMultiStorageLeaf()) {
+					if (stack.size() == 1/* && current.isMultiStorageLeaf()*/) { // is MultiStorageLeaf is unncessary!
 						list = current.getTerms();
 						next = list.term();
 						list = list.next();
@@ -72,7 +72,7 @@ public class ShallowSimpleQueryIterator extends TermIterator {
 					 * be the node we'll want to jump back.
 					 */
 					
-					// Only if current is the first child! That is, we check only when we go down in the trie.
+					// Only if current is the first child! That is, we check only once.
 					if (current.getParent().getFirstChild() == current) {
 						Trie searched = builder.getChild(current.getParent(), stack.peek());
 						if (searched != null) {

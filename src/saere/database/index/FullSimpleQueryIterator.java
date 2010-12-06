@@ -54,7 +54,7 @@ public class FullSimpleQueryIterator extends TermIterator {
 			}
 			
 			if (match()) {
-				if (stack.size() == 1 && current.isSingleStorageLeaf()) {
+				if (stack.size() == 1/* && current.isSingleStorageLeaf()*/) {
 					next = current.getTerm();
 				}
 				nextNode();		

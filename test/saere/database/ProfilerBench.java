@@ -22,7 +22,8 @@ import saere.database.profiling.Profiler;
 public final class ProfilerBench {
 
 	private static final int MAP_THRESHOLD = 120;
-	private static final String PROFILES_PATH = "src/saere/database/profiling";
+	//private static final String PROFILES_PATH = "src/saere/database/profiling";
+	private static final String PROFILES_PATH = System.getProperty("user.dir");
 	private static final int TEST_RUNS = 2;
 	//private static final String TEST_FILE = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
 	//private static final String TEST_FILE = "../test/classfiles/Tomcat-6.0.20.zip";

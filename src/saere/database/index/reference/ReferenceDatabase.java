@@ -33,7 +33,7 @@ public final class ReferenceDatabase extends Database {
 	
 	@Override
 	public void add(Term fact) {
-		assert isFact(fact) : "The specified term is not a fact";
+		assert isGround(fact) : "The specified term is not a fact";
 		
 		// Add to list (redundant but this list is build only once)
 		LinkedList<Term> list = lists.get(fact.functor());

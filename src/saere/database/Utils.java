@@ -73,12 +73,12 @@ public final class Utils {
 	}
 	
 	/**
-	 * Checks wether the specified term is a fact.
+	 * Checks wether the specified term is ground.
 	 * 
 	 * @param term The term to check.
 	 * @return <tt>true</tt> if so.
 	 */
-	public static boolean isFact(Term term) {
+	public static boolean isGround(Term term) {
 		return !hasVariable(term);
 	}
 	

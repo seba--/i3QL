@@ -21,7 +21,7 @@ public final class VariableIterator extends NodeIterator {
 	/**
 	 * Simply creates the object. No initialization.
 	 */
-	protected VariableIterator() {
+	public VariableIterator() {
 		super(null);
 	}
 	
@@ -30,7 +30,7 @@ public final class VariableIterator extends NodeIterator {
 	 * 
 	 * @param start The first trie that is covered by a variable.
 	 */
-	protected VariableIterator(Trie start) {
+	public VariableIterator(Trie start) {
 		super(null);
 		resetTo(start);
 	}
@@ -107,7 +107,7 @@ public final class VariableIterator extends NodeIterator {
 	 * 
 	 * @return The start trie node.
 	 */
-	protected Trie start() {
+	public Trie start() {
 		return start;
 	}
 	
@@ -116,7 +116,7 @@ public final class VariableIterator extends NodeIterator {
 	 * 
 	 * @return The last trie node.
 	 */
-	protected Trie last() {
+	public Trie last() {
 		return last;
 	}
 }

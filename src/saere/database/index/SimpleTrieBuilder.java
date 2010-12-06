@@ -29,7 +29,8 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 		stack = flattener.flatten(term);
 		current = start;
 		
-		while (true) { // XXX Hmm...
+		Trie insertionNode = null;
+		while (insertionNode == null) {
 			Label peeked = stack.peek();
 			
 			/*
@@ -58,7 +59,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 						searched = new MultiStorageLeaf(current, peeked, term);
 					}
 					addChild(current, searched);
-					return searched;
+					insertionNode = searched;
 				} else {
 					// We need a normal (inner) trie
 					searched = new InnerNode(current, peeked);
@@ -74,7 +75,7 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				// Example: 2x "load(reference,0)
 				if (stack.size() == 1) {
 					addTerm(searched, term);
-					return searched;
+					insertionNode = searched;
 				} else {
 					// We have a normal (inner) trie, go down
 					current = searched;
@@ -82,6 +83,8 @@ public final class SimpleTrieBuilder extends TrieBuilder {
 				}
 			}
 		}
+		
+		return insertionNode;
 	}
 
 	@Override

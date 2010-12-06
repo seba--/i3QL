@@ -55,6 +55,6 @@ public final class FunctorLabel extends SimpleLabel {
 	
 	@Override
 	public String toString() {
-		return atom.toString() + "/" + arity;
+		return atom.toString() + ":" + arity;
 	}
 }
