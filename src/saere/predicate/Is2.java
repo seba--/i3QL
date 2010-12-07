@@ -31,15 +31,18 @@
  */
 package saere.predicate;
 
-import saere.*;
+
 import static saere.IntegerAtom.IntegerAtom;
+import saere.Solutions;
+import saere.State;
+import saere.Term;
+import saere.Variable;
 
 public class Is2 {
 
 	/**
-	 * Implements the "is" operator. This method generates a choice point and –
-	 * in general – should not be called.<br />
-	 * <i>It is only intended to be used to execute meta-level calls. </i>
+	 * Implements the "is" operator. This method generates a choice point and
+	 * is only intended to be used to execute meta-level calls. 
 	 */
 	public static Solutions call(final Term a1, final Term a2) {
 

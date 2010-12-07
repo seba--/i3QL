@@ -35,7 +35,6 @@ import java.nio.charset.Charset;
 import java.util.WeakHashMap;
 import java.lang.ref.WeakReference;
 
-import saere.predicate.PredicateRegistry;
 
 /**
  * Representation of a string atom.
@@ -81,9 +80,7 @@ public final class StringAtom extends Atom {
 	 */
 	@Override
 	public boolean equals(Object other) {
-		/*if (other.hashCode() == hashCode) {
-			return true;
-		} else*/ if (other instanceof StringAtom) {
+		if (other instanceof StringAtom) {
 			StringAtom other_sa = (StringAtom) other;
 			return java.util.Arrays.equals(this.title, other_sa.title);
 		} else {

@@ -31,11 +31,70 @@
  */
 package saere.predicate;
 
-import saere.Solutions;
-import saere.Term;
+import saere.*;
 
-public interface PredicateInstance extends Solutions {
+/**
+ * Implementation of SAE Prolog's not (<code>\+</code>) operator.
+ * <pre><code>
+ * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
+ * 4
+ * X = 4.
+ * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
+ * false.
+ * ?- not( (member(X,[1,2,3]),false) ).
+ * true.
+ * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
+ * true ;
+ * true ;
+ * ...
+ * true .
+ * ?- not( (member(X,[1,2,3]),false) ),write(X).
+ * _G248
+ * true.
+ * </code></pre>
+ * 
+ * @author Michael Eichberg
+ */
+public final class Not1 implements Solutions {
 
-	public void setArg(int position, Term value);
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+		
+		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
 
+			@Override
+			public Solutions createPredicateInstance(Term[] args) {
+				return new Not1(args[0]);
+			}
+		};
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("\\+"), 1,pif);
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("not"), 1,pif);
+
+	}
+
+	private final Term t;
+
+	private boolean called = false;
+
+	public Not1(final Term t) {
+
+		this.t = t; 
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+			State tState = t.manifestState();
+			boolean success = t.call().next();
+			t.setState(tState); // to reset partial bindings
+			return !success;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
 }

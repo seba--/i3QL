@@ -31,7 +31,9 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.Term;
+
+
 
 /** Prolog's arithmetic smaller than operator: "<". */
 public class Smaller2 {

@@ -32,7 +32,7 @@
 package saere;
 
 /**
- * Enables to enumerate over all solutions produced by a predicate call.
+ * Enables to enumerate over all solutions produced by a predicate.
  * 
  * @author Michael Eichberg
  */
@@ -52,6 +52,12 @@ public interface Solutions {
 	 */
 	boolean next();
 	
+	/**
+	 * <b>It is not allowed to cache the return value of this method after the first 
+	 * time next has returned true.</b>
+	 *  
+	 * @return  
+	 */
 	boolean choiceCommitted();
     
 }

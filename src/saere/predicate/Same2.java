@@ -31,7 +31,7 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.Term;
 
 /** Prolog's arithmetic equals operator: "=:=". */
 public class Same2 {

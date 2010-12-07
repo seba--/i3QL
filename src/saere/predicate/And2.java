@@ -35,19 +35,12 @@ import saere.*;
 
 /**
  * Implementation of SAE Prolog's <code>,</code>(and) operator.
- * <p>
- * This implementation generates a choice point and – in general – should not be
- * called.<br />
- * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make use of
- * this class.
- * </p>
  * 
  * @author Michael Eichberg
  */
 public final class And2 implements Solutions {
 
-	static void registerWithPredicateRegistry(
+	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 		predicateRegistry.registerPredicate(StringAtom.StringAtom(","), 2,
 				new PredicateInstanceFactory() {
@@ -110,11 +103,11 @@ public final class And2 implements Solutions {
 					choiceCommitted = rs.choiceCommitted();
 					if (choiceCommitted) {
 						currentGoal = Commons.FAILED;
-						continue;
 					} else {
 						goalStack = goalStack.reduce();
 						currentGoal = 1;
 					}
+					continue;
 				} else {
 					return true;
 				}

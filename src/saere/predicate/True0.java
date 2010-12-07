@@ -31,13 +31,15 @@
  */
 package saere.predicate;
 
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
 public final class True0 implements Solutions {
 
-	static void registerWithPredicateRegistry(
+	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
 		predicateRegistry.registerPredicate(StringAtom.StringAtom("true"), 0,

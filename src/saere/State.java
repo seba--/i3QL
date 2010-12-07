@@ -46,12 +46,12 @@ package saere;
 public abstract class State {
 
 	CompoundTermState asCompoundTermState() {
-		throw new Error("[Internal Error] This state object (" + this
+		throw new Error("this state object (" + this
 				+ ") does not encapsulate a complex term's state.");
 	}
 
 	VariableState asVariableState() {
-		throw new Error("[Internal Error] This State object (" + this
+		throw new Error("this state object (" + this
 				+ ") does not encapsulate a variable's state.");
 	}
 

@@ -47,7 +47,7 @@ import saere.*;
  */
 public final class Unify2 implements Solutions {
 
-	static void registerWithPredicateRegistry(
+	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
 		predicateRegistry.registerPredicate(StringAtom.StringAtom("="), 2,

@@ -32,18 +32,21 @@
 package saere;
 
 /**
- * Atoms are used to represent atomic informations.
+ * Atoms represent atomic information.
  * 
  * @author Michael Eichberg
  */
 public abstract class Atom extends Term {
 
 	/**
-	 * @return 0. By definition the arity of Atoms is always 0. 
+	 * @return 0. By definition the arity of atoms is always 0. 
 	 */
 	final public int arity() { return 0; }
 	
 	/**
+	 * Will always throw an <code>IndexOutOfBoundsException</code>, because
+	 * atoms do not have arguments.
+	 * 
 	 * @param i <i>"ignored"</i>.
 	 * @throws IndexOutOfBoundsException always. 
 	 */
@@ -53,10 +56,11 @@ public abstract class Atom extends Term {
 
 	/**
 	 * @return <code>null</code>; an atom's state is immutable and, hence, no 
-	 * state information need to be preserved.<br/> 
-	 * In general, we try to avoid explicit manifestation of an Atom's state.
+	 * state information needs to be preserved.<br/>
+	 */ 
+	 /* In general, the compiler tries to avoid explicit manifestation of an Atom's state.
 	 * This – i.e., avoiding useless calls to manifestState – however, requires 
-	 * whole program analyses in general. 
+	 * whole program analyses. 
 	 */
 	final public State manifestState(){ return null; } 
 

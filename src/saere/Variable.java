@@ -201,6 +201,7 @@ public final class Variable extends Term {
 		return h;
 	}
 
+	@Override
 	public int eval() {
 		if (value == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
@@ -209,6 +210,15 @@ public final class Variable extends Term {
 		}
 	}
 
+	@Override
+	public Solutions call() {
+		if (value == null) {
+			throw new Error("This variable is not sufficiently instantiated.");
+		} else {
+			return value.call();
+		}
+	}
+	
 	public String toString() {
 		final Term term = binding();
 		if (term == null) {

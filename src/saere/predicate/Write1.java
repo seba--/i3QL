@@ -31,14 +31,22 @@
  */
 package saere.predicate;
 
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-// TODO implement the "real" Prolog semantics of write/1
+/**
+ * Writes out a term to standard out.
+ * 
+ * TODO implement the "real" Prolog semantics of write/1
+ * 
+ * @author Michael Eichberg
+ */
 public class Write1 implements Solutions {
 
-	static void registerWithPredicateRegistry(
+	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
 		predicateRegistry.registerPredicate(StringAtom.StringAtom("write"), 1,
@@ -68,7 +76,6 @@ public class Write1 implements Solutions {
 		} else {
 			return false;
 		}
-
 	}
 
 	@Override
