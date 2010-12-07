@@ -139,5 +139,10 @@ public final class StringAtom extends Atom {
 		}
 	}
 
-	public static final StringAtom emptyList = StringAtom("[]");
+	public static final StringAtom EMPTY_LIST_FUNCTOR = StringAtom("[]");
+	public static final StringAtom AND_FUNCTOR = StringAtom(",");
+	public static final StringAtom OR_FUNCTOR = StringAtom(";");
+	public static final StringAtom CUT_FUNCTOR = StringAtom("!");
+	public static final StringAtom SOFT_CUT_FUNCTOR = StringAtom("*->");
+	public static final StringAtom IF_THEN_FUNCTOR = StringAtom("->");
 }

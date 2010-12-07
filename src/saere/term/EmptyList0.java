@@ -36,7 +36,7 @@ import saere.*;
 public class EmptyList0 extends Atom {
 		
 	public StringAtom functor(){
-		return StringAtom.emptyList;
+		return StringAtom.EMPTY_LIST_FUNCTOR;
 	}
 	
 }

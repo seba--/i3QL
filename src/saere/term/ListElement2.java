@@ -72,7 +72,7 @@ public final class ListElement2 extends CompoundTerm {
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
 			return le.toListRepresentation(newHead + ", ");
-		} else if (r == emptyList) {
+		} else if (r == EMPTY_LIST_FUNCTOR) {
 			return newHead + "]";
 		} else {
 			return newHead + "|" + rest + "]";
