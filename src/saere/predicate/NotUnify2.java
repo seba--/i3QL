@@ -46,7 +46,7 @@ import saere.Term;
  * 
  * @author Michael Eichberg
  */
-public class NotUnify2 implements Solutions {
+public final class NotUnify2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {

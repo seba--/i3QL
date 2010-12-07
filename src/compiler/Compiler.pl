@@ -50,13 +50,11 @@
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
-%XXX :- use_module('phase/PLNormalize.pl',[pl_normalize/4]).
 %XXX :- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
 %XXX :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
 %XXX :- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
-%XXX :- use_module('phase/PLNameVariables.pl',[pl_name_variables/4]).
-%XXX :- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
-%XXX :- use_module('phase/OOToScala.pl',[oo_to_scala/4]).
+:- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
+
 
 
 
@@ -98,21 +96,12 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 %%%% 2. ANALYSES
 %XXX phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
 %XXX phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
-%XXX 	phase(pl_normalize,execute,_).
 %XXX phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
 %XXX phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :-
-%XXX 	phase(pl_determinacy_analysis,execute,_).
-	
-%%%% 3. TRANSFORMATION TO OO	
-%XXX phase(pl_name_variables,execute,[on_entry,ast(user)]) :- % Debug flags: on_entry, ast
-%XXX 	phase(pl_normalize,execute,_).
-%XXX phase(pl_to_oo,execute,[on_entry,processing_predicate]) :-
-%XXX 	phase(pl_determinacy_analysis,execute,_),
-%XXX 	phase(pl_name_variables,execute,_).
-	
+%XXX phase(pl_determinacy_analysis,execute,_).
+
 %%%% 4. CODE GENERATION
-%XXX phase(oo_to_scala,omit,[on_entry,processing_predicate]) :-
-%XXX 	phase(pl_to_oo,execute,_).
+phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
 
 
 

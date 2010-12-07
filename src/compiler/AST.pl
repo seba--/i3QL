@@ -119,6 +119,10 @@
 		is_float_atom/1,
 		is_numeric_atom/1,
 		
+		user_predicate/2,
+		predicate_identifier/2,
+		predicate_clauses/2,
+		
 		write_ast/2,
 		write_clauses/1,
 		write_ast_node/1
@@ -225,6 +229,27 @@ add_predicates((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
 add_predicates(AST,[],AST).
 
 
+/**
+	@signature user_defined_predicates(AST,UserPredicateASTNode)
+*/
+user_predicate((Predicates,_Directives),UserPredicate) :-
+	user_predicate_impl(Predicates,UserPredicate).
+user_predicate_impl([Predicate|Predicates],UserPredicate) :-
+	(
+		Predicate = pred(_Identifier,[_|_],_PredicateProperties),
+		UserPredicate = Predicate
+	;
+		user_predicate_impl(Predicates,UserPredicate)
+	).
+
+
+predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
+
+
+/**
+ @signature predicate_identifier(Predicate_ASTNode,Functor/Arity)
+*/
+predicate_identifier(pred(ID,_Clauses,_Properties),ID).
 
 
 

@@ -34,7 +34,7 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's <code>,</code>(and) operator.
+ * Implementation of SAE Prolog's and (<code>,</code>) operator.
  * 
  * @author Michael Eichberg
  */

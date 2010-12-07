@@ -36,9 +36,14 @@ import java.util.Map;
 
 import saere.predicate.And2;
 import saere.predicate.Cut0;
+import saere.predicate.Is2;
 import saere.predicate.Not1;
+import saere.predicate.NotSame2;
 import saere.predicate.NotUnify2;
+import saere.predicate.Or2;
 import saere.predicate.Repeat0;
+import saere.predicate.Same2;
+import saere.predicate.Smaller2;
 import saere.predicate.True0;
 import saere.predicate.Unify2;
 import saere.predicate.Write1;
@@ -86,14 +91,20 @@ public class PredicateRegistry {
 	private PredicateRegistry() {
 		predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
 		
+		// register all default predicate implementations (in alphabetical order)
 		And2.registerWithPredicateRegistry(this);
-		Write1.registerWithPredicateRegistry(this);
-		Unify2.registerWithPredicateRegistry(this);
-		NotUnify2.registerWithPredicateRegistry(this);
-		Repeat0.registerWithPredicateRegistry(this);
 		Cut0.registerWithPredicateRegistry(this);
-		True0.registerWithPredicateRegistry(this);
+		Is2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
+		NotSame2.registerWithPredicateRegistry(this);
+		NotUnify2.registerWithPredicateRegistry(this);
+		Or2.registerWithPredicateRegistry(this);
+		Repeat0.registerWithPredicateRegistry(this);
+		Same2.registerWithPredicateRegistry(this);
+		Smaller2.registerWithPredicateRegistry(this);
+		True0.registerWithPredicateRegistry(this);
+		Unify2.registerWithPredicateRegistry(this);
+		Write1.registerWithPredicateRegistry(this);
 	}
 
 	public void registerPredicate(StringAtom functor, int arity,

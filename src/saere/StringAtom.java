@@ -140,9 +140,14 @@ public final class StringAtom extends Atom {
 	}
 
 	public static final StringAtom EMPTY_LIST_FUNCTOR = StringAtom("[]");
+	
 	public static final StringAtom AND_FUNCTOR = StringAtom(",");
 	public static final StringAtom OR_FUNCTOR = StringAtom(";");
 	public static final StringAtom CUT_FUNCTOR = StringAtom("!");
 	public static final StringAtom SOFT_CUT_FUNCTOR = StringAtom("*->");
 	public static final StringAtom IF_THEN_FUNCTOR = StringAtom("->");
+	
+	public static final StringAtom MULT_FUNCTOR = StringAtom("*");
+	public static final StringAtom MINUS_FUNCTOR = StringAtom("-");
+	public static final StringAtom PLUS_FUNCTOR = StringAtom("+");
 }

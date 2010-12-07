@@ -1,218 +1,143 @@
+/* License (BSD Style License):
+   Copyright (c) 2010
+   Department of Computer Science
+   Technische Universität Darmstadt
+   All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    - Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    - Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    - Neither the name of the Software Technology Group or Technische 
+      Universität Darmstadt nor the names of its contributors may be used to 
+      endorse or promote products derived from this software without specific 
+      prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
+*/
+
 /*
 	Generates the code for the SAE program.
 
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:PLtoOO',[pl_to_oo/4]).
+:- module('SAEProlog:Compiler:Phase:PLtoOO',[pl_to_oo/4]).
 
+:- use_module('../AST.pl').
 :- use_module('../Predef.pl').
 :- use_module('../Utils.pl').
 :- use_module('../Debug.pl').
 
 
 
-/**Encoding of the SAE Prolog program in the Abstract OO Language.
+/**
+	Encoding of the SAE Prolog program in Java.
 
-	@param Debug the list of debug information that should be printed.
-	@param PLProgram is the program in normalized form. The structure is:
-		<pre>
-		[	pred(
-				a/1, 							% The identifier of the predicate
-				[(C, [det, type=int])],	% A list of clauses defining the 
-												% predicate. C is one of these clauses.
-												% In case of built-in propeties, this list
-												% is empty.
-				[type=...]					% List of properties of the predicate
-			),...
-		]
-		</pre>
-	@param OOProgram is the result of transforming the Prolog Program to an 
-		Abstract OO Language (AOOL) Program.
-		
+	@param Debug the list of debug information that should be printed.	
 */
-pl_to_oo(Debug,PLProgram,_OutputFolder,OOProgram) :-
-	debug_message(
-		Debug,on_entry,
-		'\nPhase: Transforming to an Abstract Object-oriented Program___________'),
-
-	encode_predicates(Debug,PLProgram,OOProgram).
-
-
-
-
-encode_predicates(Debug,PLProgram,OOProgram) :-
-	encode_predicates(Debug,PLProgram,PLProgram,OOProgram).
-
-
-
-encode_predicates(_Debug,[],_PLProgram,[]).
-encode_predicates(
-	Debug,
-	[pred(Functor/Arity,Clauses,PredicateProperties)|Predicates],
-	PLProgram,
-	OOProgram
-) :-
-	(
-		Clauses = [_|_], % we only need to encode user-defined predicates...
-		debug_message(Debug,processing_predicate,['Processing: ',Functor,'/',Arity]),
-		OOProgram = [P|Rest],
-		encode_predicate(Functor/Arity,PredicateProperties,Clauses,PLProgram,P)
-	;
-		Clauses = [], % it is a built-in predicate
-		OOProgram = Rest
+pl_to_oo(DebugConfig,Program,OutputFolder,Program) :-
+	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Generate the Java Program________________________________________________\n')),
+	( exists_directory(OutputFolder) ; make_directory(OutputFolder) ),
+	working_directory(Old,OutputFolder),
+	( exists_directory(predicates) ; make_directory(predicates) ),
+	working_directory(_,predicates),
+	(	/* 
+			Loop over all user defined predicates and generate the code for each 
+		 	predicate; user_predicate is the loop anchor, it succeeds for each 
+		 	user_predicate.
+		*/
+		user_predicate(Program,Predicate),
+		predicate_identifier(Predicate,PredicateIdentifier),
+		term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
+		debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),		
+		process_predicate(Predicate),
+		fail % i.e., continue with the next predicate
+	;	
+		true
 	),
-	encode_predicates(Debug,Predicates,PLProgram,Rest).
+	working_directory(_,Old).
+
+
+
+process_predicate(Predicate) :-
+	predicate_identifier(Predicate,Functor/Arity),
+	predicate_clauses(Predicate,Clauses),
+	main_template(Functor,Arity,Template,Methods),
+	Methods = 'public boolean next(){return false;}\n',
+	
+	% concatenate all parts and write out the Java file
+	atomic_list_concat(Template,TheCode),
+	atomic_list_concat([Functor,Arity,'.java'],FileName),
+	open(FileName,write,Stream),
+	write(Stream,TheCode),
+	close(Stream).
+
+
+
+main_template(Functor,Arity,Template,Methods) :-
+	call_foreach_i_in_0_to_u(Arity,variable_for_term_i,TermVariables),
+	atomic_list_concat(TermVariables,';\n\t',ConcatenatedTermVariables),
+	
+	call_foreach_i_in_0_to_u(Arity,variable_initialization_for_term_i,TermVariablesInitializations),
+	atomic_list_concat(TermVariablesInitializations,';\n\t\t',ConcatenatedTermVariablesInitializations),	
+	
+	call_foreach_i_in_0_to_u(Arity,args_i_access,Args),
+	atomic_list_concat(Args,',',ConcatenatedArgs),
+	
+	call_foreach_i_in_0_to_u(Arity,constructor_arg_for_term_i,ConstructorArgs),
+	atomic_list_concat(ConstructorArgs,',',ConcatenatedConstructorArgs),
+	
+	% IMPROVE split up the template: Header, Class (PredicateRegistration,MethodBody)
+	Template = [
+		'package predicates;\n\n',
+		'import saere.*;\n',
+		'import saere.term.*;\n\n',
+		'public final class ',Functor,Arity,' implements Solutions {\n',
+		'\n',
+		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
+		'		registry.registerPredicate(\n',
+		'			StringAtom.StringAtom("',Functor , '"),\n',
+		'			',Arity,',\n',
+		'			new PredicateInstanceFactory() {\n',
+		'				@Override\n',
+		'				public Solutions createPredicateInstance(Term[] args) {\n',
+		'					return new ',Functor,Arity,'(',ConcatenatedArgs,');\n',
+		'				}\n',
+		'			}\n',
+		'		);\n',
+		'	}\n\n\n',
+		'	',ConcatenatedTermVariables,';\n\n',
+		'	public ',Functor,Arity,'(',ConcatenatedConstructorArgs,'){\n',
+		'		',ConcatenatedTermVariablesInitializations,';\n',
+		'	}\n\n',
+		Methods,'\n',	
+		'	@Override\n',
+		'	public boolean choiceCommitted() {\n',
+		'		return false;\n',
+		'	}\n',
+		'}\n'
+	].
 	
 	
-
-
-predicate_implementation_class(PredicateName,ClassName) :-
-	atomic_list_concat([PredicateName,'P'],ClassName).
-
-
-
-predicate_meta_information_singleton(PredicateName,SingletonName) :-
-	atomic_list_concat([PredicateName,'M'],SingletonName).
 	
+args_i_access(N,Args)	 :- atomic_list_concat(['args[',N,']'],Args).
 
-	
-multi_line_comment(AtomicList,comment(Text)) :-	
-	atomic_list_concat(AtomicList,Text).
+variable_for_term_i(N,TermVariable)	 :- atomic_list_concat(['private final Term t',N],TermVariable).
 
-	
+variable_initialization_for_term_i(N,TermVariableInitialization)	 :- atomic_list_concat(['this.t',N,' = t',N],TermVariableInitialization).
 
-encode_predicate(Functor/Arity,PredicateProperties,Clauses,PLProgram,E) :-
-	atomic_list_concat([Functor,Arity],PredicateName),
-	predicate_implementation_class(PredicateName,PredicateImplementation),
-	predicate_meta_information_singleton(PredicateName,PredicateMetaInformation),
-	term_to_atom(PredicateProperties,PredicatePropertiesAtom),
-	multi_line_comment(
-		[
-			'Generated by SAE Prolog\n\n',
-			'Predicate:\n',
-			'\t',Functor,'/',Arity,'\n',
-			'Properties:\n',
-			'\t',PredicatePropertiesAtom
-		],
-		PredicateComment
-	),
-	E = pred(
-		Functor/Arity,
-		[
-			PredicateComment,
-			namespace(
-				'sae',
-				[	% members of the namespace
-					singleton(
-						final(yes),
-						PredicateMetaInformation,
-						none, % extends..
-						[
-							field_declaration(final(yes),'theFunctor',btype(stringAtom),string_atom(Functor)), % btype <=> built_in type
-							method_declaration(
-								public, % visibility: private or public
-								'functor', % name of the method
-								signature([],btype(stringAtom)), 
-								[return(get_field(this,'theFunctor'))] % list of statements
-							),
-							method_declaration(
-								public, % visibility: private or public
-								'arity', % name of the method
-								signature([],ptype(int)), 
-								[return(constant_int(Arity))] % list of statements
-							),
-							META_CALL_SUPPORT_METHOD
-						]
-					),
-					class( % a class declaration
-						final(yes),
-						PredicateImplementation,
-						btype(solutions), % extends
-						[	
-							field_declaration(final(no),'commit',ptype(boolean),constant_boolean(false)), % ptype <=> primitive type
-							field_declaration(final(no),'currentClause',ptype(int),constant_int(1)),
-							field_declaration(final(no),'currentGoal',ptype(int),constant_int(0)),
-							field_declaration(final(no),'goalStack',btype(goalStack),empty_goal_stack),
-							
-							constructor_declaration( % DUMMY
-								[parameter('a1',btype(term)),parameter('a2',btype(term))],
-								[
-									set_field(this,'a1',get_lv('a1'))
-								]
-							),
-							NEXT_SOLUTION_METHOD
-						]
-					)
-				]
-			)
-		]),
-	encode_meta_call_support(Arity,PredicateImplementation,META_CALL_SUPPORT_METHOD),
-	encode_next_solution_method(Clauses,NEXT_SOLUTION_METHOD)
-	.
-
-
-encode_meta_call_support(Arity,PredicateImplementation,META_CALL_SUPPORT_METHOD) :-
-	META_CALL_SUPPORT_METHOD = method_declaration(
-		public, % visibility: private or public
-		'apply', % name of the method
-		signature([parameter('as',btype(array(btype(term))))],btype(solutions)), 
-		Statements 
-	),
-	Statements=[
-		return(new(utype(PredicateImplementation),Arguments))
-	],
-	from_0_to_X(Arity,load_from_array(get_lv(as)),Arguments).
-
-
-/*
-	@param Array a simple expression with type "array(_)".
-*/
-load_from_array(Array,Index,Instr) :-
-	Instr = load_from_array(Array,constant_int(Index)).
-
-
-
-
-%%%%%% TODO
-encode_next_solution_method(Clauses,NEXT_SOLUTION_METHOD) :-
-	NEXT_SOLUTION_METHOD = method_declaration( % DUMMY
-		public, % visibility: private or public
-		'next', % name of the method
-		signature([],ptype(boolean)), 
-		[return(constant_boolean(false))] % list of statements
-	).
-
-
-
-
-/*
-	For each integer value J in the range [I..X) F is called with J and O (for storing the output)
-	as additional arguments. The values bound to the "O"s are collected and
-	"returned" as a list.
-*/
-from_0_to_X(X,F,R) :- from_i_to_X(0,X,F,R).
-from_i_to_X(X,X,_F,[]) :- !.
-from_i_to_X(I,X,F,[O|R]) :- 
-	I < X,!,
-	call(F,I,O),
-	NewI is I + 1,
-	from_i_to_X(NewI,X,F,R).
-	
-
-
-	
-/* COMPILING CUT IN THE PRESENCE OF OR...	
-
-?- (write(0);write(1)),(write(a),!) ; write(b).
-0a
-true.
-
-?- A=f,(write(0);write(1)),((A=t,write(a),!) ; write(b)).
-0b
-A = f ;
-1b
-A = f.
-
-*/
-
-	
+constructor_arg_for_term_i(I,ConstructorArg) :- atom_concat('final Term t',I,ConstructorArg).

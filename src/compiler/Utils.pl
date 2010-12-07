@@ -51,9 +51,14 @@
 		memberchk_ol/2,
 		
 		redirect_stdout_to_null/1,
-		reset_stdout_redirect/1
+		reset_stdout_redirect/1,
+		
+		call_foreach_i_in_0_to_u/3,
+		call_foreach_i_in_l_to_u/4
 	]).
 
+:- meta_predicate call_foreach_i_in_0_to_u(+,2,-).
+:- meta_predicate call_foreach_i_in_l_to_u(+,+,2,-).
 
 
 /**
@@ -328,3 +333,19 @@ redirect_stdout_to_null((StdOutStream,NullStream)) :-
 reset_stdout_redirect((StdOutStream,NullStream)) :- 
 	set_output(StdOutStream),
 	close(NullStream).
+	
+	
+/*
+	For each integer value I in the range [L..U) F is called with I and O (for 
+	storing the output) as additional arguments. The values bound to the "O"s 
+	are collected and	"returned" as a list (Os).
+	
+	@signature call_foreach_i_in_l_to_u(L,U,F,Os) 
+*/
+call_foreach_i_in_0_to_u(X,F,R) :- call_foreach_i_in_l_to_u(0,X,F,R).
+call_foreach_i_in_l_to_u(X,X,_F,[]) :- !.
+call_foreach_i_in_l_to_u(I,X,F,[O|R]) :- 
+	I < X,!,
+	call(F,I,O),
+	NewI is I + 1,
+	call_foreach_i_in_l_to_u(NewI,X,F,R).

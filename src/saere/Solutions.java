@@ -53,8 +53,8 @@ public interface Solutions {
 	boolean next();
 	
 	/**
-	 * <b>It is not allowed to cache the return value of this method after the first 
-	 * time next has returned true.</b>
+	 * <b>It is not allowed to cache the return value of this method after a successful
+	 * call to next.</b>
 	 *  
 	 * @return  
 	 */

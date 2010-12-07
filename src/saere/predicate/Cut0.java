@@ -37,6 +37,12 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
+
+/**
+ * Implementation of SAE Prolog's cut (<code>!</code>) operator.
+ * 
+ * @author Michael Eichberg
+ */
 public final class Cut0 implements Solutions {
 
 	// ?- repeat,write(x),fail.

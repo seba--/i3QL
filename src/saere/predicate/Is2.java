@@ -31,45 +31,62 @@
  */
 package saere.predicate;
 
-
 import static saere.IntegerAtom.IntegerAtom;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
+import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 
-public class Is2 {
+/**
+ * Implements the "is/2" operator.
+ * 
+ * @author Michael Eichberg
+ */
+public final class Is2 implements Solutions {
 
-	/**
-	 * Implements the "is" operator. This method generates a choice point and
-	 * is only intended to be used to execute meta-level calls. 
-	 */
-	public static Solutions call(final Term a1, final Term a2) {
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("is"), 2,
+				new PredicateInstanceFactory() {
 
-		return new Solutions() {
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Is2(args[0], args[1]);
+					}
+				});
 
-			private final State a1State = a1.manifestState();
+	}
 
-			private boolean called = false;
+	private final Term l;
+	private final Term r;
+	private final State lState;
 
-			@Override
-			public boolean next() {
-				if (called) {
-					a1.setState(a1State);
-					return false;
-				}
+	private boolean called = false;
 
-				called = true;
-				final int a2Value = a2.eval();
-				return is(a1, a2Value);
-			}
+	public Is2(final Term l, final Term r) {
+		this.l = l;
+		this.r = r;
+		lState = l.manifestState();
+	}
 
-			@Override
-			public boolean choiceCommitted() {
-				return false;
-			}
+	@Override
+	public boolean next() {
+		if (called) {
+			l.setState(lState);
+			return false;
+		}
 
-		};
+		called = true;
+		final int rValue = r.eval();
+		return is(l, rValue);
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
 	}
 
 	public static final boolean is(Term a1, int a2Value) {
