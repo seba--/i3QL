@@ -1,4 +1,4 @@
-/* License (BSD Style License):
+﻿/* License (BSD Style License):
    Copyright (c) 2010
    Department of Computer Science
    Technische Universität Darmstadt
@@ -44,15 +44,16 @@
 do_formatting(FileName,Solution,Options) :-
    atomic_list_concat(['test/compiler/formatter/data/',FileName],File),
    atomic_list_concat(['test/compiler/formatter/data/',Solution],FileSolution),
-        
-	load_solution(FileSolution,Formatted),
-	tokenize_file(File,Ts,Options), clauses(Ts,Cs), format_file(Cs,'',Formatted), nl,write('###FORMATTED###\n'),write(Formatted).
 
+   tokenize_file(File,Ts,Options), clauses(Ts,Cs), format_file(Cs,'',Formatted),
+   %nl,write('###FORMATTED###\n'),write(Formatted),
+   load_solution(FileSolution,Formatted).
 
 load_solution(Solution,Lines) :-
    open(Solution,read,Stream),
    readLines(Stream,Out),
    atomic_list_concat(Out,Lines),
+   %nl,write('###SOLUTION###\n'),write(Lines),
    close(Stream).
 
 
@@ -63,15 +64,21 @@ readLines(Stream,[X|T]):-
 readLines(_Stream,[]).
 
 
-
-
-
 :- begin_tests(formatter).
 
 test(emptyFormatter) :- do_formatting('EmptyTest.pl','EmptyTest_formatted.pl',[]),!.
 
-test(whitespaces1) :- do_formatting('Whitespace1.pl','Whitespace1_formatted.pl',[]),!.
+test(whitespaces_surrounding_operators) :- do_formatting('OperatorsWhitespace.pl','OperatorsWhitespace_formatted.pl',[]),!.
 
-test(whitespaces2) :- do_formatting('Whitespace2.pl','Whitespace2_formatted.pl',[]),!.
+test(whitespace_in_complex_terms) :- do_formatting('Whitespace_in_complex_terms.pl','Whitespace_in_complex_terms_formatted.pl',[]),!.
 
+test(lists) :- do_formatting('Lists.pl','Lists_formatted.pl',[]),!.
+
+test(whitespace_in_lists) :- do_formatting('Whitespace_in_lists.pl','Whitespace_in_lists_formatted.pl',[]),!.
+
+test(comma_as_functor) :- do_formatting('Comma_as_functor.pl','Comma_as_functor_formatted.pl',[]),!.
+
+%test(comments) :- do_formatting('Comments.pl','Comments_formatted.pl',[]),!.
+
+test('no_empty_line_between_same_clauses\\arity') :- do_formatting('NoEmptyLines.pl','NoEmptyLines_formatted.pl',[]),!.
 :- end_tests(formatter).
