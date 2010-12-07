@@ -91,8 +91,7 @@ public abstract class IteratorBase {
 	
 	/**
 	 * Resets this iterator with the specified {@link Trie} as new start node. 
-	 * This method can be used to avoid creating a new {@link IteratorBase} 
-	 * object.<br/>
+	 * This method can be used to avoid creating a new object.<br/>
 	 * <br/>
 	 * Obviously, this method should only be used if the iterator has finished, 
 	 * i.e., if a call to {@link Iterator#hasNext()} will return <tt>false</tt>.

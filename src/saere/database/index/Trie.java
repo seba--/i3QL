@@ -98,16 +98,4 @@ public abstract class Trie {
 	public String toString() {
 		return hashCode() + ":" + (getLabel() == null ? "<root>" : getLabel().toString());
 	}
-	
-	// Experimental only...
-	
-	public boolean isMultiTrie() {
-		return false;
-	}
-	public Trie getSubtrie() {
-		return null;
-	}
-	public void setSubtrie(Trie trie) {
-		throw new UnsupportedOperationException("Trie type " + this.getClass().getName() + " has no subtrie");
-	}
 }

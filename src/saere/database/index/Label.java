@@ -23,13 +23,6 @@ public abstract class Label {
 	protected static final WeakHashMap<Label, WeakReference<Label>> CACHE = new WeakHashMap<Label, WeakReference<Label>>();
 	
 	/**
-	 * Gets the length of the label (number of atoms).
-	 * 
-	 * @return The length of this label.
-	 */
-	public abstract int length();
-	
-	/**
 	 * Gets the arity of the label. The arity is only greater-than <tt>0</tt> 
 	 * if this label represents a functor of a compound term.
 	 * 
@@ -53,27 +46,4 @@ public abstract class Label {
 	public boolean sameAs(Label other) {
 		return this == other;
 	}
-	
-	/**
-	 * Checks <i>how much</i> this labels matches the specified other.
-	 * 
-	 * @param other The other complex label.
-	 * @return
-	 */
-	public abstract int match(Label other);
-	
-	/**
-	 * Splits this complex label.
-	 * 
-	 * @param index The split index (index of the element that'll be the first of the second part of the split).
-	 * @return The second part of the split.
-	 */
-	public abstract Label split(int index);
-	
-	/**
-	 * Gets the underlying labels of a complex label.
-	 * 
-	 * @return The underlying labels.
-	 */
-	public abstract Label[] labels();
 }

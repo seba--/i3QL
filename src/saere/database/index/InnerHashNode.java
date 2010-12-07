@@ -3,7 +3,7 @@ package saere.database.index;
 import java.util.IdentityHashMap;
 
 /**
- * An extension of an {@link InnerNode} that also uses hash maps.
+ * An extension of an {@link InnerNode} that uses a hash map in addition.
  * 
  * @author David Sullivan
  * @version 0.1, 11/9/2010

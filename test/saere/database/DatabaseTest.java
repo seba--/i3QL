@@ -11,6 +11,7 @@ import saere.Term;
 import saere.database.index.IteratorsTest;
 import saere.database.index.LabelStackTest;
 import saere.database.index.LabelTest;
+import saere.database.index.TermRemovalTest;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
 
@@ -19,26 +20,31 @@ import saere.database.index.TrieBuilder;
  * Contains also some useful utility methods for testing.
  * 
  * @author David Sullivan
- * @version 0.105, 11/11/2010
+ * @version 0.11, 12/6/2010
  */
 public final class DatabaseTest {
 	
 	public static final String DATA_PATH = "test" + File.separator + "data";
-	public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "opal-0.5.0.jar";
-	//public static String GLOBAL_TEST_FILE = "../test/classfiles/Tomcat-6.0.20.zip";
-	//public static String GLOBAL_TEST_FILE = DATA_PATH + File.separator + "HelloWorld.class";
-	//c  "C:/Users/Leaf/master-thesis/test/classfiles/Java 1.6.0 (Mac OS X) - essential classes.zip";
-	//public static String GLOBAL_TEST_FILE = "C:/Users/Leaf/master-thesis/test/classfiles/org.eclipse.jdt.ui_3.5.0.v20090604.zip";
+	
+	private static final String[] TEST_FILES = {
+		 DATA_PATH + File.separator + "HelloWorld.class",
+		 DATA_PATH + File.separator + "MMC.jar",
+		 DATA_PATH + File.separator + "opal-0.5.0.jar",
+		 DATA_PATH + File.separator + "apache-tomcat-6.0.29.zip",
+	};
+	
+	public static String GLOBAL_TEST_FILE = TEST_FILES[2];
 	
 	public static void main(String[] args) {
 		if (args.length == 1) {
 			GLOBAL_TEST_FILE = args[0];
 		}
 		
-		
-		
 		JUnitCore.runClasses(
-			ProfilerBench.class
+			IteratorsTest.class,
+			LabelStackTest.class,
+			LabelTest.class,
+			TermRemovalTest.class
 		);
 	}
 	
@@ -110,7 +116,7 @@ public final class DatabaseTest {
 	
 	/**
 	 * Fills the root with the builder by using the {@link Factbase} and 
-	 * {@link TestFacts}.
+	 * {@link OtherTestFacts}.
 	 * 
 	 * @param builder The builder that inserts.
 	 * @param root The root that gets inserts.

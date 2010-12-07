@@ -54,10 +54,11 @@ public class DatabasePredicate {
 			}
 			
 			if (!noCollision) {
-				return new DatabaseSolutionsNoCollision(query);
+				return new DatabaseSolutions(query);
 				//return GenericSolutions.forArity(arity, adapter, query);
 			} else {
-				return new DatabaseSolutions(query);
+				
+				return new DatabaseSolutionsNoCollision(query);
 				//return GenericSolutions.forArityNoCollision(arity, adapter, query);
 			}
 		} else {
@@ -92,10 +93,8 @@ public class DatabasePredicate {
 		private final Iterator<Term> iterator;
 		
 		private int progress;
-		private boolean first;
 		
 		private DatabaseSolutions(Term query) {
-			first = true;
 			
 			// Get arguments
 			args = new Term[query.arity()]; // arity() should be inlined...
@@ -115,24 +114,22 @@ public class DatabasePredicate {
 		@Override
 		public boolean next() {			
 			
-			// Reset to original states (not necessary for first call)
-			if (!first) resetStates();
-			else first = false;
-			
 			// As long as we have potentially matching facts...
 			while (iterator.hasNext()) {
-				Term fact = iterator.next();
+				resetStates();
 				
+				Term fact = iterator.next();
 				progress = 0;
 				for (int i = 0; i < args.length; i++) {
 					if (args[i].unify(fact.arg(i))) progress++;
 					else break;
 				}
 				
-				if (progress == args.length) return true;
-				else resetStates();
+				if (progress == args.length)
+					return true;
 			}
 			
+			resetStates();
 			return false;
 		}
 		
@@ -160,11 +157,8 @@ public class DatabasePredicate {
 		private final boolean[] vars;
 		private final Iterator<Term> iterator;
 		
-		private boolean first;
-		
 		private DatabaseSolutionsNoCollision(Term query) {	
 			assert noCollision : "No collisions expected";
-			first = true;
 		
 			// Save positions of arguments with free variables
 			vars = new boolean[query.arity()];
@@ -192,8 +186,7 @@ public class DatabasePredicate {
 			
 			// We get only terms that'll unify (no set of 'maybe' candidates)
 			if (iterator.hasNext()) {
-				if (!first) resetStates();
-				else first = false;
+				resetStates();
 				
 				Term fact = iterator.next();
 				for (int i = 0; i < args.length; i++) {
@@ -203,6 +196,7 @@ public class DatabasePredicate {
 				return true;
 			} else {
 				//System.out.print("[" + counter + " candidates iterated]");
+				resetStates();
 				return false;
 			}
 		}
