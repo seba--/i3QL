@@ -34,21 +34,19 @@ package saere.predicate;
 import saere.*;
 import static saere.IntegerAtom.IntegerAtom;
 
+public class Is2 {
 
-public class Is2  {
-
-
-	/** 
-	 * Implements the "is" operator.
-	 * This method generates a choice point and – in general – should not be called.<br />
+	/**
+	 * Implements the "is" operator. This method generates a choice point and –
+	 * in general – should not be called.<br />
 	 * <i>It is only intended to be used to execute meta-level calls. </i>
 	 */
-	public static Solutions call(final Term a1, final Term a2){
+	public static Solutions call(final Term a1, final Term a2) {
 
-		return new Solutions(){
-			
+		return new Solutions() {
+
 			private final State a1State = a1.manifestState();
-			
+
 			private boolean called = false;
 
 			@Override
@@ -57,15 +55,20 @@ public class Is2  {
 					a1.setState(a1State);
 					return false;
 				}
-				
+
 				called = true;
 				final int a2Value = a2.eval();
-				return is(a1,a2Value);
+				return is(a1, a2Value);
 			}
+
+			@Override
+			public boolean choiceCommitted() {
+				return false;
+			}
+
 		};
 	}
-	
-	
+
 	public static final boolean is(Term a1, int a2Value) {
 		if (a1.isVariable()) {
 			final Variable v1 = a1.asVariable();
@@ -80,4 +83,3 @@ public class Is2  {
 		}
 	}
 }
-

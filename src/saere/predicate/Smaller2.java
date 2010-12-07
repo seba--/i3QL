@@ -34,10 +34,9 @@ package saere.predicate;
 import saere.*;
 
 /** Prolog's arithmetic smaller than operator: "<". */
-public class Smaller2  {
-		
-	public static boolean isSmaller (Term a1, Term a2){
+public class Smaller2 {
+
+	public static boolean isSmaller(Term a1, Term a2) {
 		return a1.eval() < a2.eval();
 	}
 }
-

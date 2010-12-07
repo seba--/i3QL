@@ -36,38 +36,37 @@ import saere.*;
 /**
  * Implementation of Prolog's <code>\=</code> operator (does not unify).
  * <p>
- * This implementation generates a choice point and – in general – should not be called.<br />
+ * This implementation generates a choice point and – in general – should not be
+ * called.<br />
  * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make 
- * use of this class.
+ * The compiler has specific support for this operator and does not make use of
+ * this class.
  * </p>
- *  
+ * 
  * @author Michael Eichberg
  */
-public class NotUnify2  {
-
+public class NotUnify2 {
 
 	public static Solutions apply(Term[] as) {
-		return apply(as[0],as[1]);
+		return apply(as[0], as[1]);
 	}
-
 
 	/**
 	 * Implements the "does not unify (\=)" operator.
-	 */	
+	 */
 	public static Solutions apply(final Term a1, final Term a2) {
-	
+
 		return new Solutions() {
-			
+
 			private final State a1State = a1.manifestState();
 			private final State a2State = a2.manifestState();
-			
+
 			private boolean called = false;
-			
+
 			public boolean next() {
 				if (!called) {
 					called = true;
-					
+
 					final boolean success = a1.unify(a2);
 					// Reset (partial) bindings
 					a1.setState(a1State);
@@ -77,6 +76,11 @@ public class NotUnify2  {
 				} else {
 					return false;
 				}
+			}
+
+			@Override
+			public boolean choiceCommitted() {
+				return false;
 			}
 		};
 	}

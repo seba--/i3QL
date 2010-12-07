@@ -36,9 +36,6 @@ import saere.Term;
 
 public interface PredicateInstanceFactory {
 
-	
 	Solutions createPredicateInstance(Term[] args);
 
-	
-	
 }

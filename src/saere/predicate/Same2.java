@@ -33,12 +33,10 @@ package saere.predicate;
 
 import saere.*;
 
-
 /** Prolog's arithmetic equals operator: "=:=". */
-public class Same2  {
-	
-	public static boolean isSame (Term a1, Term a2) {
+public class Same2 {
+
+	public static boolean isSame(Term a1, Term a2) {
 		return a1.eval() == a2.eval();
 	}
 }
-

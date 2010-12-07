@@ -11,4 +11,4 @@
 % Formatter
 :- ensure_loaded('test/compiler/formatter/Test.pl').
 
-%:- run_tests.
+

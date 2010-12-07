@@ -69,19 +69,26 @@ public class PredicateRegistry {
 			return functor.toString() + "/" + arity;
 		}
 	}
-	
+
 	private static final PredicateRegistry PREDICATE_REGISTRY = new PredicateRegistry();
-	
-	public static PredicateRegistry instance(){
+
+	public static PredicateRegistry instance() {
 		return PREDICATE_REGISTRY;
 	}
-	
 
-	private Map<Predicate, PredicateInstanceFactory> predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
+	private final Map<Predicate, PredicateInstanceFactory> predicates;
 
-	private PredicateRegistry(){/*nothing to do*/}
-	
-	
+	private PredicateRegistry() {
+		predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
+
+		And2.registerWithPredicateRegistry(this);
+		Write1.registerWithPredicateRegistry(this);
+		Unify2.registerWithPredicateRegistry(this);
+		Repeat0.registerWithPredicateRegistry(this);
+		Cut0.registerWithPredicateRegistry(this);
+		True0.registerWithPredicateRegistry(this);
+	}
+
 	public void registerPredicate(StringAtom functor, int arity,
 			PredicateInstanceFactory factory) {
 		Predicate p = new Predicate(functor, arity);

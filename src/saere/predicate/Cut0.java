@@ -29,29 +29,53 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.predicate;
 
-/**
- * Enables to enumerate over all solutions produced by a predicate call.
- * 
- * @author Michael Eichberg
- */
-public interface Solutions {
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-	/**
-	 * If this method succeeds - i.e., <code>true</code> is returned - at least 
-	 * one solution exists. The solution
-	 * is returned by binding the variables passed to the predicate's unify method.
-	 * <p>
-	 * If <code>false</code> is returned, all {@link Variable}s must have the same state 
-	 * as before the very first call (i.e., it is not the case that
-	 * some variables that were free before the call remain instantiated).
-	 * </p>
-	 * <b><u>After <code>false</code> is returned this method must not be called
-	 * again.</u></b>
-	 */
-	boolean next();
-	
-	boolean choiceCommitted();
-    
+public final class Cut0 implements Solutions {
+
+	// ?- repeat,write(x),fail.
+	// xxxxxxxx.....xxxxxx
+
+	// ?- repeat,write(x),!,fail.
+	// x
+	// false.
+
+	static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("!"), 0,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Cut0();
+					}
+				});
+
+	}
+
+	private boolean called = false;
+
+	public Cut0() {
+		// nothing to do
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return true;
+	}
+
 }

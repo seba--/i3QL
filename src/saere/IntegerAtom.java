@@ -88,6 +88,7 @@ public final class IntegerAtom extends Atom {
 	public static final IntegerAtom IntegerAtom_8 = new IntegerAtom(8);
 	public static final IntegerAtom IntegerAtom_9 = new IntegerAtom(9);
 
+	@SuppressWarnings("all")
 	public final static IntegerAtom IntegerAtom(final int value) {
 		switch (value) {
 

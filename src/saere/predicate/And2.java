@@ -45,10 +45,10 @@ import saere.*;
  * 
  * @author Michael Eichberg
  */
-public class And2 implements Solutions {
+public final class And2 implements Solutions {
 
-
-	static void registerWithPredicateRegistry(PredicateRegistry predicateRegistry){
+	static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
 		predicateRegistry.registerPredicate(StringAtom.StringAtom(","), 2,
 				new PredicateInstanceFactory() {
 
@@ -65,6 +65,8 @@ public class And2 implements Solutions {
 	private State lState;
 	private State rState;
 
+	private boolean choiceCommitted = false;
+
 	private int currentGoal = 0;
 	private GoalStack goalStack = GoalStack.emptyStack();
 
@@ -76,28 +78,52 @@ public class And2 implements Solutions {
 	public boolean next() {
 		while (true) {
 			switch (currentGoal) {
-			case 0:
+			case Commons.FAILED:
+				// reset all bindings
+				l.setState(lState);
+				if (rState != null)
+					r.setState(rState);
+				// clear "everything"
+				goalStack = null;
+				lState = rState = null;
+				return false;
+			case 0: // Initialization
 				lState = l.manifestState();
 				goalStack = goalStack.put(l.call());
 				currentGoal = 1;
 			case 1:
-				if (!goalStack.peek().next()) {
-					l.setState(lState);
-					return false;
+				// call (or redo) the first goal
+				Solutions ls = goalStack.peek();
+				if (!ls.next()) {
+					choiceCommitted = choiceCommitted | ls.choiceCommitted();
+					currentGoal = Commons.FAILED;
+					continue;
 				}
+				// prepare call of the second goal
 				if (rState == null)
 					rState = r.manifestState();
 				goalStack = goalStack.put(r.call());
 				currentGoal = 2;
 			case 2:
-				if (!goalStack.peek().next()) {
-					goalStack = goalStack.reduce();
-					currentGoal = 1;
-				}
-				else {
+				Solutions rs = goalStack.peek();
+				if (!rs.next()) {
+					choiceCommitted = rs.choiceCommitted();
+					if (choiceCommitted) {
+						currentGoal = Commons.FAILED;
+						continue;
+					} else {
+						goalStack = goalStack.reduce();
+						currentGoal = 1;
+					}
+				} else {
 					return true;
 				}
 			}
 		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return choiceCommitted;
 	}
 }

@@ -34,8 +34,8 @@ package saere.predicate;
 import saere.Solutions;
 import saere.Term;
 
-public interface PredicateInstance extends Solutions{
+public interface PredicateInstance extends Solutions {
 
-	public void setArg(int position,Term value);
-	
+	public void setArg(int position, Term value);
+
 }

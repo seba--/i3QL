@@ -33,14 +33,12 @@ package saere.predicate;
 
 import saere.*;
 
-
-/** 
- * Prolog's arithmetic not-equals operator: "=\=". 
+/**
+ * Prolog's arithmetic not-equals operator: "=\=".
  */
-public class NotSame2  {
-	
-	public static boolean isNotSame (Term a1, Term a2) {
+public class NotSame2 {
+
+	public static boolean isNotSame(Term a1, Term a2) {
 		return a1.eval() != a2.eval();
 	}
 }
-

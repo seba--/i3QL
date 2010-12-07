@@ -33,41 +33,42 @@ package saere.predicate;
 
 import saere.*;
 
-
 /**
  * Implementation of SAE Prolog's <code>=</code> operator (unify).
  * <p>
- * This implementation generates a choice point and – in general – should not be called.<br />
+ * This implementation generates a choice point and – in general – should not be
+ * called.<br />
  * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make 
- * use of this class.
+ * The compiler has specific support for this operator and does not make use of
+ * this class.
  * </p>
- *  
+ * 
  * @author Michael Eichberg
  */
-public class Unify2 implements Solutions { 
-		
-	
-	static void registerWithPredicateRegistry(PredicateRegistry predicateRegistry){
-		
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("="), 2, new PredicateInstanceFactory() {
-			
-			@Override
-			public Solutions createPredicateInstance(Term[] args) {
-				return new Unify2(args[0],args[1]);
-			}
-		});
-		
+public final class Unify2 implements Solutions {
+
+	static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("="), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Unify2(args[0], args[1]);
+					}
+				});
+
 	}
-	
+
 	private final Term l;
 	private final Term r;
 	private final State lState;
 	private final State rState;
-	
+
 	private boolean called = false;
-	
-	public Unify2(final Term l, final Term r){
+
+	public Unify2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
 		this.lState = l.manifestState();
@@ -81,9 +82,14 @@ public class Unify2 implements Solutions {
 				return true;
 			}
 		}
+		// unification failed...
 		l.setState(lState);
 		r.setState(rState);
 		return false;
 	}
-}
 
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+}
