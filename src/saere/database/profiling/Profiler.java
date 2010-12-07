@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.index.FunctorLabel;
+import scala.actors.threadpool.Arrays;
 
 public class Profiler {
 	
@@ -131,6 +132,7 @@ public class Profiler {
 			return getOrder(term, order);
 		} else {
 			// Should not happen...
+			assert false : "No";
 			
 			// Check wether we have a order profiled in this run or not
 			PredicateProfiler predicateProfiler = predicates.get(functorLabel);
@@ -151,7 +153,7 @@ public class Profiler {
 	private Term[] getOrder(Term term, int[] order) {
 		Term[] args = new Term[order.length];
 		for (int i = 0; i < order.length; i++) {
-			args[order[i]] = term.arg(i);
+			args[i] = term.arg(order[i]);
 		}
 		return args;
 	}
@@ -174,6 +176,15 @@ public class Profiler {
 	
 	public void setMode(Mode mode) {
 		this.mode = mode;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Entry<FunctorLabel, int[]> order : orders.entrySet()) {
+			sb.append(order.getKey() + " " + Arrays.toString(order.getValue()) + "\n");
+		}
+		return sb.toString();
 	}
 	
 	/**

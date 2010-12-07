@@ -123,11 +123,14 @@ public final class BATTestQueries {
 	/** A query with no expected result (invalid second argument): <tt>class_file(A,metaclazz_declaration,C,D,E,F,G,H,I,J)</tt>. */
 	public static final Term CQ13 = ct("class_file", v(), sa("metaclazz_declaration"), v(), v(), v(), v(), v(), v(), v(), v());
 	
+	/** A query with very few free variables. */
+	public static final Term CQ14 = ct("class_file", v(), sa("class_declaration"), v(), ct("class", sa("java/lang"), sa("Object")), v(), sa("public"), ct("final", sa("no")), ct("abstract", sa("no")), ct("synthetic", sa("no")), ct("deprecated", sa("no")));
+	
 	/** All queries for <tt>class_file/10</tt> facts. */
-	public static final Term[] ALL_CLASSFILE10_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8, CQ9, CQ10, CQ11, CQ12, CQ13 };
+	public static final Term[] ALL_CLASSFILE10_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8, CQ9, CQ10, CQ11, CQ12, CQ13, CQ14 };
 	
 	/** All queries for <tt>class_file/10</tt> with approximated frequencies. */
-	public static final Term[] ALL_CLASSFILE10_FREQ_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ4, CQ4, CQ4, CQ7, CQ7, CQ7, CQ8, CQ8, CQ8, CQ8, CQ9, CQ9, CQ10, CQ11, CQ11, CQ11 };
+	public static final Term[] ALL_CLASSFILE10_FREQ_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ4, CQ4, CQ4, CQ7, CQ7, CQ7, CQ8, CQ8, CQ8, CQ8, CQ9, CQ9, CQ10, CQ11, CQ11, CQ11, CQ14, CQ14, CQ14, CQ14, CQ14 };
 	
 	
 	
@@ -193,7 +196,7 @@ public final class BATTestQueries {
 	/** All queries. */
 	public static final Term[] ALL_QUERIES = new Term[] {
 		IQ0, IQ1, IQ2, IQ3, IQ4, IQ5, IQ6, IQ7, IQ8, IQ9, IQ10, IQ11, IQ12, IQ13, IQ14, IQ15, IQ16, IQ17,
-		CQ0, CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8, CQ9, CQ10, CQ11, CQ12, CQ13,
+		CQ0, CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8, CQ9, CQ10, CQ11, CQ12, CQ13, CQ14,
 		MQ0, MQ1, MQ2, MQ3, MQ4, MQ5, MQ6, MQ7, MQ8, MQ9, MQ10, MQ11, MQ12, MQ13, MQ14, MQ15
 	};
 }

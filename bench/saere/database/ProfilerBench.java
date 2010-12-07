@@ -8,21 +8,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import saere.State;
 import saere.Term;
-import saere.database.BATTestQueries;
-import saere.database.Database;
-import saere.database.DatabaseTest;
-import saere.database.Factbase;
-import saere.database.Stopwatch;
-import saere.database.TrieDatabase;
-import saere.database.Utils;
+import saere.database.index.DefaultTrieBuilder;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
-import saere.database.index.DefaultTrieBuilder;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.Instr3;
-//import saere.database.predicate.Method15;
 import saere.database.profiling.Profiler;
 
 /**
@@ -65,6 +56,7 @@ public final class ProfilerBench {
 	@AfterClass
 	public static void finish() {
 		FACTS.drop();
+		// XXX aaaand remove profiles
 	}
 	
 	@Before
@@ -103,54 +95,33 @@ public final class ProfilerBench {
 			
 			// instr/3
 			for (Term query : INSTR3_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(instr3Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(instr3Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(instr3Full, query);
-				query.setState(state);
 			}
 			
 			// class_file/10
 			for (Term query : CLASSFILE10_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(classFile10Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(classFile10Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(classFile10Full, query);
-				query.setState(state);
 			}
 			
 			/*
 			// method/15
 			for (Term query : METHOD15_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(method15Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(method15Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(method15Full, query);
-				query.setState(state);
 			}
 			*/
 		}
@@ -175,51 +146,31 @@ public final class ProfilerBench {
 			
 			// instr/3
 			for (Term query : BATTestQueries.ALL_INSTR3_FREQ_QUERIES) {
-				State state = query.manifestState();
-				
 				Utils.queryNoPrint(instr3Reference, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(instr3Shallow, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(instr3Full, query);
-				query.setState(state);
 			}
 			
 			// class_file/10
 			for (Term query : BATTestQueries.ALL_CLASSFILE10_FREQ_QUERIES) {
-				State state = query.manifestState();
-				
 				Utils.queryNoPrint(classFile10Reference, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(classFile10Shallow, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(classFile10Full, query);
-				query.setState(state);
 			}
 			
 			/*
 			// method/15
 			for (Term query : BATTestQueries.ALL_METHOD15_FREQ_QUERIES) {
-				State state = query.manifestState();
-				
 				Utils.queryNoPrint(method15Reference, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(method15Shallow, query);
-				query.setState(state);
-				
 				Utils.queryNoPrint(method15Full, query);
-				query.setState(state);
 			}
 			*/
 		}
 		
 		PROFILER.saveProfiles(PROFILES_PATH + File.separator + profileName);
 		PROFILER.loadProfiles(PROFILES_PATH + File.separator + profileName);
+		System.out.println("Profiles:\n" + PROFILER.toString());
 		PROFILER.setMode(Profiler.Mode.USE);
 	}
 	
@@ -240,65 +191,42 @@ public final class ProfilerBench {
 			
 			// instr/3
 			for (Term query : INSTR3_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(instr3Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(instr3Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(instr3Full, query);
-				query.setState(state);
 			}
 			
 			// class_file/10
 			for (Term query : CLASSFILE10_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(classFile10Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(classFile10Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(classFile10Full, query);
-				query.setState(state);
 			}
 			
 			/*
 			// method/15
 			for (Term query : METHOD15_QUERIES) {
-				State state = query.manifestState();
-				
 				System.out.print("\nReference: ");
 				Utils.query(method15Reference, query);
-				query.setState(state);
-				
 				System.out.print("Shallow: ");
 				Utils.query(method15Shallow, query);
-				query.setState(state);
-				
 				System.out.print("Full: ");
 				Utils.query(method15Full, query);
-				query.setState(state);
 			}
 			*/
 		}
 	}
 	
-	/*
 	@Test
 	public void testRatings() {
-		for (Term query : BATInstr3Queries.QUERIES) {
-			System.out.println("Query " + query + " has rating " + Profiler.getInstance().rate(query));
+		for (Term query : BATTestQueries.ALL_QUERIES) {
+			System.out.println("Query " + query + " has rating " + PROFILER.rate(query));
 		}
 	}
-	*/
 }

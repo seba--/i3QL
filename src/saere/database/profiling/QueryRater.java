@@ -25,6 +25,9 @@ import saere.database.index.FunctorLabel;
  */
 public class QueryRater {
 	
+	// Default rating (0.5 seems to 'good')
+	private static final float DEFAULT_RATING = 0F;
+	
 	// Only read access...
 	private final IdentityHashMap<FunctorLabel, int[]> orders;
 	
@@ -32,14 +35,14 @@ public class QueryRater {
 		this.orders = orders;
 	}
 	
-	public float rate(Term term) {
-		float termRatings = termRatings(term) * term.arity();
-		int divisor = term.arity();
+	public float rate(Term query) {
+		float termRatings = termRatings(query) * query.arity();
+		int divisor = query.arity();
 		
 		// Check for nested compound terms (arguments)
-		for (int i = 0; i < term.arity(); i++) {
-			if (term.arg(i).isCompoundTerm()) {
-				Term compoundTermArg = term.arg(i);
+		for (int i = 0; i < query.arity(); i++) {
+			if (query.arg(i).isCompoundTerm()) {
+				Term compoundTermArg = query.arg(i);
 				termRatings += (termRatings(compoundTermArg) * compoundTermArg.arity());
 				divisor += compoundTermArg.arity();
 			}
@@ -49,18 +52,19 @@ public class QueryRater {
 		return termRatings / divisor;
 	}
 	
-	private float termRatings(Term term) {
-		final int[] order = orders.get(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
-		assert order != null : "No order for " + term;
+	private float termRatings(Term query) {
+		final int[] order = orders.get(FunctorLabel.FunctorLabel(query.functor(), query.arity()));
+		if (order == null)
+			return DEFAULT_RATING; // this should actually never happen because this default rating may be basis for subcomputations
 		
 		float argRatings = 0F;
 		float maxRatings = 0F; // or cache?
 		
-		for (int i = 0; i < term.arity(); i++) {
+		for (int i = 0; i < query.arity(); i++) {
 			final float argRating = 1F / (order[i] + 1F);
 			maxRatings += argRating;
 			
-			if (!isFreeVariable(term.arg(i)))
+			if (!isFreeVariable(query.arg(i)))
 				argRatings += argRating;
 		}
 		
