@@ -107,7 +107,7 @@ public final class VariableIterator extends NodeIterator {
 	 * 
 	 * @return The start trie node.
 	 */
-	public Trie start() {
+	public Trie root() {
 		return start;
 	}
 	

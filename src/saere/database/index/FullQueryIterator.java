@@ -97,7 +97,7 @@ public class FullQueryIterator extends TermIterator {
 		// (i.e., if the stack top is a free variable).
 		VariableIterator varIter = varIters[stack.position()];
 		if (stack.peek() == FREE_VARIABLE && varIters[stack.position()].last() == current) { // XXX Find a way to check that this is really our variable iterator
-			current = varIter.start();
+			current = varIter.root();
 			stack.back();
 		} else {
 			stack.back();
