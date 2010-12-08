@@ -22,7 +22,7 @@ import saere.database.BATTestQueries;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
 import saere.database.Stopwatch;
-import saere.database.TestFacts;
+import saere.database.OtherTestFacts;
 import saere.meta.GenericCompoundTerm;
 
 /**
@@ -32,20 +32,19 @@ import saere.meta.GenericCompoundTerm;
  * results have to be validated with real unification.
  * 
  * @author David Sullivan
- * @version 0.4, 11/15/2010
+ * @version 0.5, 12/6/2010
  */
 
 public class IteratorsTest {
 	
 	private static final boolean PRINT_QUERY_RESULTS = true;
+	private static final int MAP_THRESHOLD = 160;
 	
 	private static final TermFlattener SHALLOW = new ShallowFlattener();
 	private static final TermFlattener FULL = new FullFlattener();
 	
-	private static final TrieBuilder SHALLOW_SIMPLE = new SimpleTrieBuilder(SHALLOW, 50); // 50 seems good
-	private static final TrieBuilder FULL_SIMPLE = new SimpleTrieBuilder(FULL, 50);
-	private static final TrieBuilder SHALLOW_COMPLEX = new ComplexTrieBuilder(SHALLOW, 50);
-	private static final TrieBuilder FULL_COMPLEX = null;
+	private static final TrieBuilder SHALLOW_SIMPLE = new DefaultTrieBuilder(SHALLOW, MAP_THRESHOLD);
+	private static final TrieBuilder FULL_SIMPLE = new DefaultTrieBuilder(FULL, MAP_THRESHOLD);
 	
 	private static final Factbase FACTS = Factbase.getInstance();
 	
@@ -87,17 +86,17 @@ public class IteratorsTest {
 		FACTS.read(testFile);
 		sw.printElapsed("Reading the facts from " + testFile);
 		
-		for (Term fact : TestFacts.ALL_TERMS) {
+		for (Term fact : OtherTestFacts.ALL_TERMS) {
 			FACTS.add(fact);
 		}
 		
-		allQueries = new Term[BATTestQueries.ALL_QUERIES.length + TestFacts.ALL_QUERIES.length];
+		allQueries = new Term[BATTestQueries.ALL_QUERIES.length + OtherTestFacts.ALL_QUERIES.length];
 		int i;
 		for (i = 0; i < BATTestQueries.ALL_QUERIES.length; i++) {
 			allQueries[i] = BATTestQueries.ALL_QUERIES[i];
 		}
-		for (int j = 0; j < TestFacts.ALL_QUERIES.length; j++) {
-			allQueries[j + i] = TestFacts.ALL_QUERIES[j];
+		for (int j = 0; j < OtherTestFacts.ALL_QUERIES.length; j++) {
+			allQueries[j + i] = OtherTestFacts.ALL_QUERIES[j];
 		}
 	}
 
@@ -155,7 +154,7 @@ public class IteratorsTest {
 	
 	/**
 	 * Test for the {@link TermIterator} with a 
-	 * {@link ShallowFlattener} and a {@link SimpleTrieBuilder}.
+	 * {@link ShallowFlattener} and a {@link DefaultTrieBuilder}.
 	 */
 	@Test
 	public void testTermIterator_ShallowSimple() {
@@ -164,7 +163,7 @@ public class IteratorsTest {
 	
 	/**
 	 * Test for the {@link TermIterator} with a 
-	 * {@link FullFlattener} and a {@link SimpleTrieBuilder}.
+	 * {@link FullFlattener} and a {@link DefaultTrieBuilder}.
 	 */
 	@Test
 	public void testTermIterator_FullSimple() {
@@ -265,7 +264,7 @@ public class IteratorsTest {
 			}
 			
 			boolean success = false;
-			if (builder == SHALLOW_SIMPLE || builder == SHALLOW_COMPLEX) {
+			if (builder == SHALLOW_SIMPLE) {
 				if (!contains(actuals, expecteds)) {
 					System.out.println("FAILED");
 					error = true;
@@ -303,7 +302,7 @@ public class IteratorsTest {
 	public void testVariableIterator() {
 		TrieBuilder builder = FULL_SIMPLE;
 		Trie root = new Root();
-		for (Term fact : TestFacts.ALL_TERMS) {
+		for (Term fact : OtherTestFacts.ALL_TERMS) {
 			builder.insert(fact, root);
 		}
 		

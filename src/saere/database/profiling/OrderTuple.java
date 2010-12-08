@@ -17,7 +17,7 @@ public class OrderTuple implements Comparable<OrderTuple> {
 	@Override
 	public int compareTo(OrderTuple o) {
 		
-		// This enablse reverse ordering as the largest element will be the first
+		// This enables reverse ordering as the largest element will be the first
 		if (frequency > o.frequency) {
 			return -1;
 		} else if (frequency < o.frequency) {

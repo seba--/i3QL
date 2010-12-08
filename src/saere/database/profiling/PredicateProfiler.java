@@ -21,12 +21,12 @@ public class PredicateProfiler {
 	private int queryNum;
 	
 	// Counts the 
-	private int[] instantiatedArgs;
+	private int[] groundArgs;
 	
 	public PredicateProfiler(Profiler profiler, FunctorLabel functorLabel) {
 		this.profiler = profiler;
 		this.functorLabel = functorLabel;
-		instantiatedArgs = new int[functorLabel.arity()];
+		groundArgs = new int[functorLabel.arity()];
 		
 		// XXX To ignore first argument IDs
 		//instantiatedArgs[0] = Integer.MIN_VALUE;
@@ -43,7 +43,7 @@ public class PredicateProfiler {
 			
 			// Check wether the argument is not a free variable, if not increase the respective counter
 			if (!isFreeVariable(arg)) {
-				instantiatedArgs[i]++;
+				groundArgs[i]++;
 				
 				// Recursively profile if the argument is a compound term but not a free variable
 				if (arg.isCompoundTerm()) {
@@ -63,13 +63,13 @@ public class PredicateProfiler {
 		}
 		*/
 		
-		OrderTuple[] orderTuples = new OrderTuple[instantiatedArgs.length];
-		for (int i = 0; i < instantiatedArgs.length; i++) {
-			orderTuples[i] = new OrderTuple(i, instantiatedArgs[i]);
+		OrderTuple[] orderTuples = new OrderTuple[groundArgs.length];
+		for (int i = 0; i < groundArgs.length; i++) {
+			orderTuples[i] = new OrderTuple(i, groundArgs[i]);
 		}
 		Arrays.sort(orderTuples);
-		int order[] = new int[instantiatedArgs.length];
-		for (int i = 0; i < instantiatedArgs.length; i++) {
+		int order[] = new int[groundArgs.length];
+		for (int i = 0; i < groundArgs.length; i++) {
 			order[i] = orderTuples[i].oldIndex();
 		}
 		
@@ -78,6 +78,6 @@ public class PredicateProfiler {
 	
 	@Override
 	public String toString() {
-		return functorLabel + "(" + queryNum + ")" + Arrays.toString(instantiatedArgs);
+		return functorLabel + "(" + queryNum + ")" + Arrays.toString(groundArgs);
 	}
 }

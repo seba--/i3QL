@@ -1,11 +1,9 @@
 package saere.database.index;
 
-import static saere.database.Utils.isFact;
+import static saere.database.Utils.isGround;
 
 import java.util.Iterator;
 
-import saere.Atom;
-import saere.StringAtom;
 import saere.Term;
 
 /**
@@ -99,6 +97,27 @@ public abstract class TrieBuilder {
 		return new NodeIterator(start);
 	}
 	
+	public static Trie getPredicateSubtrie(Trie root, Label label) {
+		if (root.isHashNode()) {
+			return root.getMap().get(label);
+		} else {
+			Trie child = root.getFirstChild();
+			while (child != null) {
+				if (child.getLabel().sameAs(label)) {
+					return child;
+				} else {
+					child = child.getNextSibling();
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	public TermFlattener flattener() {
+		return flattener;
+	}
+
 	/**
 	 * Replaces the first specified trie with the second by copying all 
 	 * references of the first to the second and by setting references to the 
@@ -178,8 +197,7 @@ public abstract class TrieBuilder {
 	 * @param label The label of the child.
 	 * @return The child or <tt>null</tt>.
 	 */
-	// XXX protected
-	public Trie getChild(Trie parent, Label label) {
+	protected Trie getChild(Trie parent, Label label) {
 		childrenNumber = 0;
 		
 		if (parent.isHashNode()) {
@@ -201,7 +219,7 @@ public abstract class TrieBuilder {
 		return null;
 	}
 	
-	public void removeChild(Trie parent, Trie child) {		
+	protected void removeChild(Trie parent, Trie child) {		
 		removeChildFromList(parent, child);
 		if (parent.isHashNode()) {
 			parent.getMap().remove(child.getLabel());
@@ -212,7 +230,7 @@ public abstract class TrieBuilder {
 		}
 	}
 	
-	private static void removeChildFromList(Trie parent, Trie child) {
+	protected static void removeChildFromList(Trie parent, Trie child) {
 		if (child == parent.getFirstChild()) {
 			child.getParent().setFirstChild(child.getNextSibling());
 		} else {
@@ -231,23 +249,6 @@ public abstract class TrieBuilder {
 		}
 	}
 	
-	public static Trie getChildByLabel(Trie parent, Label label) {
-		if (parent.isHashNode()) {
-			return parent.getMap().get(label);
-		} else {
-			Trie child = parent.getFirstChild();
-			while (child != null) {
-				if (child.getLabel().sameAs(label)) {
-					return child;
-				} else {
-					child = child.getNextSibling();
-				}
-			}
-		}
-		
-		return null;
-	}
-	
 	/**
 	 * Adds the child to parent. Tries to use the {@link #lastChild} field to 
 	 * enable fast adding even for parents without a hash map (and no field for 
@@ -256,8 +257,7 @@ public abstract class TrieBuilder {
 	 * @param parent The parent trie.
 	 * @param child The child to add.
 	 */
-	// XXX protected
-	public void addChild(Trie parent, Trie child) {
+	protected void addChild(Trie parent, Trie child) {
 		assert parent.isRoot() || parent.isInnerNode() || parent.isHashNode() : "Cannot add a child to trie type " + parent.getClass().getName();
 		
 		if (parent.isRoot()) {
@@ -311,13 +311,9 @@ public abstract class TrieBuilder {
 		lastChild = null;
 	}
 	
-	public TermFlattener flattener() {
-		return flattener;
-	}
-	
 	protected void addTerm(Trie trie, Term term) {
 		assert trie.isSingleStorageLeaf() || trie.isMultiStorageLeaf() : "Trie is not a storage trie: " + trie;
-		assert isFact(term) : "Term is not a fact: " + term;
+		assert isGround(term) : "Term is not a fact: " + term;
 		
 		if (noCollision) {
 			trie.setTerm(term);
@@ -341,7 +337,7 @@ public abstract class TrieBuilder {
 	
 	protected void removeTerm(Trie trie, Term term) {
 		assert trie.isSingleStorageLeaf() : "Trie is not a storage trie: " + trie;
-		assert isFact(term) : "Term is not a fact: " + term;
+		assert isGround(term) : "Term is not a fact: " + term;
 		
 		if (noCollision) {
 			trie.setTerm(null);

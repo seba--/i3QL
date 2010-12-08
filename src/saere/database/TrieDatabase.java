@@ -41,7 +41,7 @@ public class TrieDatabase extends Database {
 	
 	public Iterator<Term> termIterator(StringAtom functor, int arity)  {
 		Label functorLabel = FunctorLabel.FunctorLabel(functor, arity);
-		return builder.iterator(TrieBuilder.getChildByLabel(root, functorLabel));
+		return builder.iterator(TrieBuilder.getPredicateSubtrie(root, functorLabel));
 	}
 	
 	@Override
@@ -66,7 +66,7 @@ public class TrieDatabase extends Database {
 	}
 	
 	public Trie getPredicateSubtrie(StringAtom functor, int arity) {
-		return TrieBuilder.getChildByLabel(root, FunctorLabel.FunctorLabel(functor, arity));
+		return TrieBuilder.getPredicateSubtrie(root, FunctorLabel.FunctorLabel(functor, arity));
 	}
 	
 	public TrieBuilder trieBuilder() {

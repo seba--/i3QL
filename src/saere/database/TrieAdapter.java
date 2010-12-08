@@ -1,5 +1,7 @@
 package saere.database;
 
+import static saere.database.Utils.isFreeVariable;
+
 import java.util.Iterator;
 
 import saere.StringAtom;
@@ -19,6 +21,21 @@ public final class TrieAdapter implements DatabaseAdapter {
 	
 	@Override
 	public Iterator<Term> query(Term query) {
-		return builder.iterator(predicateSubtrie, query);
+		if (allArgumentsAreFreeVariables(query)) {
+			return builder.iterator(predicateSubtrie);
+		} else {
+			return builder.iterator(predicateSubtrie, query);
+		}
+	}
+	
+	// TODO Check how long this takes!
+	private boolean allArgumentsAreFreeVariables(Term query) {
+		for (int i = 0; i < query.arity(); i++) {
+			if (!isFreeVariable(query.arg(i))) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

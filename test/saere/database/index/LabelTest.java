@@ -10,11 +10,16 @@ import org.junit.Test;
 
 import saere.StringAtom;
 
+/**
+ * To test {@link AtomLabel}s and {@link FunctorLabel}s.
+ * 
+ * @author David Sullivan
+ * @version 0.2, 12/6/2010
+ */
 public class LabelTest {
 	
 	private static SimpleLabel a;
 	private static SimpleLabel a2;
-	private static ComplexLabel a2a;
 	private static SimpleLabel i2;
 	private static SimpleLabel i127;
 	
@@ -22,7 +27,6 @@ public class LabelTest {
 	public static void initialize() {
 		a = AtomLabel.AtomLabel(sa("a"));
 		a2 = FunctorLabel.FunctorLabel(sa("a"), 2);
-		a2a = ComplexLabel.ComplexLabel(new SimpleLabel[] { a2, a });
 		i2 = AtomLabel.AtomLabel(ia(2));
 		i127 = AtomLabel.AtomLabel(ia(127));
 	}
@@ -51,23 +55,7 @@ public class LabelTest {
 		assertFalse(l == a2);
 	}
 	
-	@Test
-	public void test5() {
-		Label l = ComplexLabel.ComplexLabel(new SimpleLabel[] {
-			FunctorLabel.FunctorLabel(StringAtom.StringAtom("a"), 2),
-			AtomLabel.AtomLabel(StringAtom.StringAtom("a"))
-		});
-		assertTrue(l == a2a);
-	}
-	
-	@Test
-	public void test6() {
-		Label l = ComplexLabel.ComplexLabel(new SimpleLabel[] {
-			FunctorLabel.FunctorLabel(StringAtom.StringAtom("a"), 2),
-			AtomLabel.AtomLabel(StringAtom.StringAtom("n"))
-		});
-		assertFalse(l == a2a);
-	}
+	// ...
 	
 	@Test
 	public void test7() {

@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.index.EmptyTermIterator;
-import saere.database.index.reference.ReferenceDatabase;
 
 public final class ReferenceAdapter implements DatabaseAdapter {
 

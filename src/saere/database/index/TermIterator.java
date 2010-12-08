@@ -18,7 +18,7 @@ public class TermIterator extends IteratorBase implements Iterator<Term> {
 	/** The term list of the current position. If it's not null, we iterate over this first... */
 	protected TermList list;
 	
-	/** The next term. It is set by {@link ShallowSimpleQueryIterator#findNext()} (only). */
+	/** The next term. It is set by {@link ShallowQueryIterator#findNext()} (only). */
 	protected Term next;
 	
 	/*

@@ -23,7 +23,7 @@ public class NodeIterator extends IteratorBase implements Iterator<Trie> {
 	 * 
 	 * @param start The start node for the iteration.
 	 */
-	protected NodeIterator(Trie start) {
+	public NodeIterator(Trie start) {
 		super(start);
 		next = current;
 	}
