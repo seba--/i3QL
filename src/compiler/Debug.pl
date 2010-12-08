@@ -38,9 +38,12 @@
 	'SAEProlog:Compiler:Debug',
 	[
 		debug_message/3,
+		
+		processing_predicate/1,
 		on_entry/1,
 		on_exit/1,
 		ast/2,
+		
 		write_atomic_list/1
 	]
 ).
@@ -75,6 +78,8 @@ on_exit(DebugConfig) :- memberchk(on_exit,DebugConfig).
 
 ast(Type,DebugConfig) :- memberchk(ast(Type),DebugConfig).
 
+
+processing_predicate(DebugConfig) :- memberchk(processing_predicate,DebugConfig).	
 
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),

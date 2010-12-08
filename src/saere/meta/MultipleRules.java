@@ -38,8 +38,7 @@ import saere.*;
  * <p>
  * Implements the overall strategy how to evaluate a predicate that is 
  * defined using multiple clauses.<br />
- * Clauses with cut operators are not supported. We decided to keep the
- * {@link Solutions} interface as lightweight as possible.
+ * Clauses with cut operators are not supported. 
  * </p>
  * <b>Please note, that this class is not used by the compiler as the 
  * resulting code would not be efficient enough.</b> The primary use 
@@ -48,6 +47,7 @@ import saere.*;
  * 
  * @author Michael Eichberg
  */
+@Deprecated
 public abstract class MultipleRules implements Solutions {
 
 	public abstract int ruleCount();

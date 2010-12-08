@@ -31,16 +31,57 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-
-/** 
- * Prolog's arithmetic not-equals operator: "=\=". 
+/**
+ * Prolog's arithmetic not-equals operator: "=\=".
+ * 
+ * @author Michael Eichberg
  */
-public class NotSame2  {
-	
-	public static boolean isNotSame (Term a1, Term a2) {
-		return a1.eval() != a2.eval();
+public final class NotSame2 implements Solutions {
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.registerPredicate(StringAtom.StringAtom("=\\="), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new NotSame2(args[0], args[1]);
+					}
+				});
+
+	}
+
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
+
+	public NotSame2(Term l, Term r) {
+		super();
+		this.l = l;
+		this.r = r;
+	}
+
+	@Override
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isNotSame(l, r);
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
+	public static boolean isNotSame(Term l, Term r) {
+		return l.eval() != r.eval();
 	}
 }
-

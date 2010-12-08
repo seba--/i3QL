@@ -31,13 +31,60 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-/** Prolog's arithmetic smaller than operator: "<". */
-public class Smaller2  {
-		
-	public static boolean isSmaller (Term a1, Term a2){
-		return a1.eval() < a2.eval();
+
+
+/** 
+ * Prolog's arithmetic smaller than operator: "<". 
+ *
+ * @author Michael Eichberg
+ */
+public class Smaller2  implements Solutions {
+
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("<"), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Smaller2(args[0], args[1]);
+					}
+				});
+
+	}
+
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
+
+	public Smaller2(Term l, Term r) {
+		super();
+		this.l = l;
+		this.r = r;
+	}
+
+	@Override
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isSmaller(l, r);
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
+	public static boolean isSmaller(Term l, Term r) {
+		return l.eval() < r.eval();
 	}
 }
-

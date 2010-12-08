@@ -51,9 +51,14 @@
 		memberchk_ol/2,
 		
 		redirect_stdout_to_null/1,
-		reset_stdout_redirect/1
+		reset_stdout_redirect/1,
+		
+		call_foreach_i_in_0_to_u/3,
+		call_foreach_i_in_l_to_u/4
 	]).
 
+:- meta_predicate call_foreach_i_in_0_to_u(+,2,-).
+:- meta_predicate call_foreach_i_in_l_to_u(+,+,2,-).
 
 
 /**
@@ -301,13 +306,46 @@ memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
 
 
 
+/**
+	Redirects the standard out stream to null. The null stream can be queried 
+	to get the number of chars (lines) that are sent to it. 
+	
+	@see reset_stdout_redirect/1
+*/
 redirect_stdout_to_null((StdOutStream,NullStream)) :- 
 	current_stream(1,_,StdOutStream),
 	open_null_stream(NullStream),
 	set_output(NullStream).
 	
 	
-	
+/**
+	Resets the redirection of the standard out stream. <br />
+	This predicate is intended to be used in conjunction with the {@link 
+	redirect_stdout_to_null/1} predicate.
+
+	@signature reset_stdout_redirect(StreamPair)
+	@arg(in) StreamPair An anonymous pair consisting of the stream to which 
+		the standard output stream should be redirected and the "current" standard 
+		output stream.<code>(NewStdOutStream,CurrentStdOutStream)</code>. The
+		<code>CurrentStdOutStream</code> is closed.
+	@see redirect_stdout_to_null/1
+*/	
 reset_stdout_redirect((StdOutStream,NullStream)) :- 
 	set_output(StdOutStream),
 	close(NullStream).
+	
+	
+/*
+	For each integer value I in the range [L..U) F is called with I and O (for 
+	storing the output) as additional arguments. The values bound to the "O"s 
+	are collected and	"returned" as a list (Os).
+	
+	@signature call_foreach_i_in_l_to_u(L,U,F,Os) 
+*/
+call_foreach_i_in_0_to_u(X,F,R) :- call_foreach_i_in_l_to_u(0,X,F,R).
+call_foreach_i_in_l_to_u(X,X,_F,[]) :- !.
+call_foreach_i_in_l_to_u(I,X,F,[O|R]) :- 
+	I < X,!,
+	call(F,I,O),
+	NewI is I + 1,
+	call_foreach_i_in_l_to_u(NewI,X,F,R).

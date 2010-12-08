@@ -78,6 +78,7 @@ import saere.*;
  * 
  * @author Michael Eichberg
  */
+@Deprecated
 public abstract class MultipleGoals implements Solutions {
 		
 	/**

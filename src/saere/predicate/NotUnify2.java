@@ -31,53 +31,70 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.State;
+import saere.StringAtom;
+import saere.Term;
 
 /**
- * Implementation of Prolog's <code>\=</code> operator (does not unify).
+ * Implementation of Prolog's <code>\=</code> (does not unify) operator.
  * <p>
- * This implementation generates a choice point and – in general – should not be called.<br />
- * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make 
- * use of this class.
- * </p>
- *  
+ * This implementation generates a choice point.
+ * <p/>
+ * 
  * @author Michael Eichberg
  */
-public class NotUnify2  {
+public final class NotUnify2 implements Solutions {
 
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
 
-	public static Solutions apply(Term[] as) {
-		return apply(as[0],as[1]);
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("\\="), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new NotUnify2(args[0], args[1]);
+					}
+				});
+
 	}
 
+	private final Term l;
+	private final Term r;
 
-	/**
-	 * Implements the "does not unify (\=)" operator.
-	 */	
-	public static Solutions apply(final Term a1, final Term a2) {
-	
-		return new Solutions() {
-			
-			private final State a1State = a1.manifestState();
-			private final State a2State = a2.manifestState();
-			
-			private boolean called = false;
-			
-			public boolean next() {
-				if (!called) {
-					called = true;
-					
-					final boolean success = a1.unify(a2);
-					// Reset (partial) bindings
-					a1.setState(a1State);
-					a2.setState(a2State);
+	private final State lState;
+	private final State rState;
 
-					return !success;
-				} else {
-					return false;
-				}
-			}
-		};
+	private boolean called = false;
+
+	public NotUnify2(Term l, Term r) {
+		this.l = l;
+		this.r = r;
+		this.lState = l.manifestState();
+		this.rState = r.manifestState();
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+
+			final boolean success = l.unify(r);
+			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
+			// will not be bound!
+			l.setState(lState);
+			r.setState(rState);
+
+			return !success;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
 	}
 }

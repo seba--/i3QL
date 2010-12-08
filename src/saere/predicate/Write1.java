@@ -29,14 +29,58 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term;
+package saere.predicate;
 
-import saere.*;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-public class EmptyList0 extends Atom {
-		
-	public StringAtom functor(){
-		return StringAtom.emptyList;
+/**
+ * Writes out a term to standard out.
+ * 
+ * TODO implement the "real" Prolog semantics of write/1
+ * 
+ * @author Michael Eichberg
+ */
+public class Write1 implements Solutions {
+
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("write"), 1,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Write1(args[0]);
+					}
+				});
+
 	}
-	
+
+	private final Term t;
+
+	private boolean called = false;
+
+	public Write1(final Term t) {
+		this.t = t;
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+			System.out.print(t.toString());
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
 }

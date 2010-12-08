@@ -31,41 +31,64 @@
  */
 package saere.predicate;
 
-import saere.*;
 import static saere.IntegerAtom.IntegerAtom;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.State;
+import saere.StringAtom;
+import saere.Term;
+import saere.Variable;
 
+/**
+ * Implements the "is/2" operator.
+ * 
+ * @author Michael Eichberg
+ */
+public final class Is2 implements Solutions {
 
-public class Is2  {
+	public static void registerWithPredicateRegistry(
+			PredicateRegistry predicateRegistry) {
+		predicateRegistry.registerPredicate(StringAtom.StringAtom("is"), 2,
+				new PredicateInstanceFactory() {
 
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Is2(args[0], args[1]);
+					}
+				});
 
-	/** 
-	 * Implements the "is" operator.
-	 * This method generates a choice point and – in general – should not be called.<br />
-	 * <i>It is only intended to be used to execute meta-level calls. </i>
-	 */
-	public static Solutions call(final Term a1, final Term a2){
-
-		return new Solutions(){
-			
-			private final State a1State = a1.manifestState();
-			
-			private boolean called = false;
-
-			@Override
-			public boolean next() {
-				if (called) {
-					a1.setState(a1State);
-					return false;
-				}
-				
-				called = true;
-				final int a2Value = a2.eval();
-				return is(a1,a2Value);
-			}
-		};
 	}
-	
-	
+
+	private final Term l;
+	private final Term r;
+	private final State lState;
+
+	private boolean called = false;
+
+	public Is2(final Term l, final Term r) {
+		this.l = l;
+		this.r = r;
+		lState = l.manifestState();
+	}
+
+	@Override
+	public boolean next() {
+		if (called) {
+			l.setState(lState);
+			return false;
+		}
+
+		called = true;
+		final int rValue = r.eval();
+		return is(l, rValue);
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
 	public static final boolean is(Term a1, int a2Value) {
 		if (a1.isVariable()) {
 			final Variable v1 = a1.asVariable();
@@ -80,4 +103,3 @@ public class Is2  {
 		}
 	}
 }
-

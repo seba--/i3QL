@@ -31,8 +31,11 @@
  */
 package saere.term;
 
-import saere.*;
-import static saere.StringAtom.StringAtom;
+
+import static saere.StringAtom.*;
+import saere.CompoundTerm;
+import saere.StringAtom;
+import saere.Term;
 
 public final class And2 extends CompoundTerm{
 	
@@ -44,14 +47,10 @@ public final class And2 extends CompoundTerm{
 		this.r = r;
 		this.l = l;
 	}
-	
-	public final StringAtom FUNCTOR = StringAtom("");
-	
-	
-	
+			
 	public int arity() { return 2; }
 	
-	public StringAtom functor() {return FUNCTOR; } 
+	public StringAtom functor() {return AND_FUNCTOR; } 
 		
 	public Term arg(int i) {return i == 0 ? l : r; }
 	

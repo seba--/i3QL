@@ -32,7 +32,7 @@
 package saere.term;
 
 import saere.*;
-import static saere.StringAtom.StringAtom;;
+import static saere.StringAtom.StringAtom;
 
 public class Add2 extends CompoundTerm {
 	

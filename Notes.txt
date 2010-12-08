@@ -1,0 +1,3 @@
+Some examples how to use the compiler:
+
+compile('benchmarks/queens.pl','build/src/java/').
