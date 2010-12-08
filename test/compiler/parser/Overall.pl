@@ -113,8 +113,7 @@ test('benchmarks/zebra.pl') :-
 
 
 test('test/compiler/parser/data/NumberAtEnd.pl') :-
-	tokenize_file('test/compiler/parser/data/NumberAtEnd.pl',Ts),
-	clauses(Ts,_).
+	tokenize_file('test/compiler/parser/data/NumberAtEnd.pl',Ts),clauses(Ts,_).
 
 % Let's test if we can parse our own code
 

@@ -35,7 +35,7 @@
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLtoOO',[pl_to_oo/4]).
+:- module('SAEProlog:Compiler:Phase:PLtoOO',[pl_to_java/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
@@ -49,12 +49,12 @@
 
 	@param Debug the list of debug information that should be printed.	
 */
-pl_to_oo(DebugConfig,Program,OutputFolder,Program) :-
+pl_to_java(DebugConfig,Program,OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Generate the Java Program________________________________________________\n')),
 	( exists_directory(OutputFolder) ; make_directory(OutputFolder) ),
 	working_directory(Old,OutputFolder),
 	( exists_directory(predicates) ; make_directory(predicates) ),
-	working_directory(_,predicates),
+	working_directory(_,predicates),!,
 	(	/* 
 			Loop over all user defined predicates and generate the code for each 
 		 	predicate; user_predicate is the loop anchor, it succeeds for each 
@@ -114,7 +114,7 @@ main_template(Functor,Arity,Template,ClauseBodies,Methods) :-
 		'\n',
 		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
 		'		registry.registerPredicate(\n',
-		'			StringAtom.StringAtom("',Functor , '"),\n',
+		'			StringAtom.instance("',Functor , '"),\n',
 		'			',Arity,',\n',
 		'			new PredicateInstanceFactory() {\n',
 		'				@Override\n',
