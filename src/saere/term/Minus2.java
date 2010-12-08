@@ -34,25 +34,25 @@ package saere.term;
 import saere.*;
 import static saere.StringAtom.StringAtom;
 
-public class Add2 extends CompoundTerm {
-	
+
+public final class Minus2 extends CompoundTerm{
 	private final Term t1;
 	private final Term t2;
 	
-	public Add2(Term t1, Term t2){
+	public Minus2(Term t1, Term t2) {
 		this.t1 = t1;
 		this.t2 = t2;
 	}
 	
-	private static final StringAtom functor = StringAtom("+");
+	public final static StringAtom FUNCTOR = StringAtom("-");
 	
-	public int arity() { return 2; }
+	public int arity () {return 2; }
 	
-	public StringAtom functor() { return functor; } 
+	public StringAtom functor() { return FUNCTOR; } 
 		
-	public Term arg(int i) { return i == 0 ? t1 : t2 ; }
+	public Term arg(int i){ return i == 0 ? t1 : t2;}
 	
 	@Override 
-	public int eval() { return t1.eval() + t2.eval(); }
+	public int eval() {return t1.eval() - t2.eval(); }
 	
 }

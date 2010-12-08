@@ -122,15 +122,19 @@
 		user_predicate/2,
 		predicate_identifier/2,
 		predicate_clauses/2,
+		clause_n/2,
+		foreach_clause/3,
 		
 		write_ast/2,
 		write_clauses/1,
 		write_ast_node/1
 	]
 ).
-
+:- meta_predicate(foreach_clause(+,3,-)).
+:- meta_predicate(foreach_clause_impl(+,+,4,-)).
 
 :- use_module('Utils.pl').
+
 
 
 
@@ -244,6 +248,25 @@ user_predicate_impl([Predicate|Predicates],UserPredicate) :-
 
 
 predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
+
+
+clause_n(Clauses,Clauses_N) :- clause_n_impl(Clauses,1,Clauses_N).
+clause_n_impl([Clause|Clauses],N,[(N,Clause)|OtherClauses]):- !,
+	NewN is N + 1,
+	clause_n_impl(Clauses,NewN,OtherClauses).
+clause_n_impl([],_,[]).
+
+
+
+foreach_clause(Clauses,F,Os) :- 
+	foreach_clause_impl(Clauses,1,F,Os).
+foreach_clause_impl(Var,_,_,[]) :- var(Var),!. % Clauses is an open list...
+foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
+	call(F,N,Clause,O),
+	NewN is N + 1,
+	foreach_clause_impl(Clauses,NewN,F,Os).
+
+
 
 
 /**

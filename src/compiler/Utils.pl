@@ -57,8 +57,8 @@
 		call_foreach_i_in_l_to_u/4
 	]).
 
-:- meta_predicate call_foreach_i_in_0_to_u(+,2,-).
-:- meta_predicate call_foreach_i_in_l_to_u(+,+,2,-).
+:- meta_predicate(call_foreach_i_in_0_to_u(+,2,-)).
+:- meta_predicate(call_foreach_i_in_l_to_u(+,+,2,-)).
 
 
 /**

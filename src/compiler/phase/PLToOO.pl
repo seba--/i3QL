@@ -75,8 +75,11 @@ pl_to_oo(DebugConfig,Program,OutputFolder,Program) :-
 
 process_predicate(Predicate) :-
 	predicate_identifier(Predicate,Functor/Arity),
+	main_template(Functor,Arity,Template,ClauseBodies,Methods), %IMPROVE ClauseBodies and Methods don't quite describe it...
+
 	predicate_clauses(Predicate,Clauses),
-	main_template(Functor,Arity,Template,Methods),
+
+	create_terms_for_clause_bodies(Clauses,ClauseBodies),
 	Methods = 'public boolean next(){return false;}\n',
 	
 	% concatenate all parts and write out the Java file
@@ -88,7 +91,7 @@ process_predicate(Predicate) :-
 
 
 
-main_template(Functor,Arity,Template,Methods) :-
+main_template(Functor,Arity,Template,ClauseBodies,Methods) :-
 	call_foreach_i_in_0_to_u(Arity,variable_for_term_i,TermVariables),
 	atomic_list_concat(TermVariables,';\n\t',ConcatenatedTermVariables),
 	
@@ -106,7 +109,8 @@ main_template(Functor,Arity,Template,Methods) :-
 		'package predicates;\n\n',
 		'import saere.*;\n',
 		'import saere.term.*;\n\n',
-		'public final class ',Functor,Arity,' implements Solutions {\n',
+		'public final class ',Functor,Arity,' implements Solutions {\n\n',
+		'\n\t',ClauseBodies,'\n',
 		'\n',
 		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
 		'		registry.registerPredicate(\n',
@@ -141,3 +145,25 @@ variable_for_term_i(N,TermVariable)	 :- atomic_list_concat(['private final Term 
 variable_initialization_for_term_i(N,TermVariableInitialization)	 :- atomic_list_concat(['this.t',N,' = t',N],TermVariableInitialization).
 
 constructor_arg_for_term_i(I,ConstructorArg) :- atom_concat('final Term t',I,ConstructorArg).
+
+
+create_terms_for_clause_bodies(Clauses,ClauseBodies) :- 
+	foreach_clause(Clauses,'SAEProlog:Compiler:Phase:PLtoOO':variable_for_clause_body,ClauseVariables),
+	atomic_list_concat(ClauseVariables,';\n\t',ConcatenatedClauseVariables),
+	
+	foreach_clause(Clauses,'SAEProlog:Compiler:Phase:PLtoOO':variable_initialization_for_clause_body,ClauseVariablesInitialization),
+	atomic_list_concat(ClauseVariablesInitialization,'\n\t',ConcatenatedClauseVariablesInitialization),
+	
+	atomic_list_concat([ConcatenatedClauseVariables,';\n\t',ConcatenatedClauseVariablesInitialization],ClauseBodies).
+
+
+variable_for_clause_body(N,_Clause,ClauseVariable) :-
+	atomic_list_concat(['private static final Term CLAUSE_',N,' = createClause',N,'()'],ClauseVariable).
+
+
+variable_initialization_for_clause_body(N,_Clause,ClauseVariableInitialization) :-
+	atomic_list_concat(['private static Term createClause',N,'(){','}'],ClauseVariableInitialization).
+
+%create_term(ASTNode,TermCreation) :-
+	
+	

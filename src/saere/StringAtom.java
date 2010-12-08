@@ -43,6 +43,7 @@ import java.lang.ref.WeakReference;
  */
 public final class StringAtom extends Atom {
  
+	
 	private final byte[] title;
 	//private final int hashCode;
 
