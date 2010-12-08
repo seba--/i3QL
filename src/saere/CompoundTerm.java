@@ -106,4 +106,5 @@ public abstract class CompoundTerm extends Term {
 			return false;
 		}
 	}
+	
 }

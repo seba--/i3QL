@@ -31,28 +31,22 @@
  */
 package saere.term;
 
-import saere.*;
-import static saere.StringAtom.StringAtom;
+import saere.StringAtom;
+import saere.Term;
 
-public class Plus2 extends CompoundTerm {
-	
-	private final Term t1;
-	private final Term t2;
-	
-	public Plus2(Term t1, Term t2){
-		this.t1 = t1;
-		this.t2 = t2;
+final class Plus2 extends TwoArgsCompoundTerm {
+
+	public Plus2(Term t1, Term t2) {
+		super(t1, t2);
 	}
-	
-	private static final StringAtom functor = StringAtom("+");
-	
-	public int arity() { return 2; }
-	
-	public StringAtom functor() { return functor; } 
-		
-	public Term arg(int i) { return i == 0 ? t1 : t2 ; }
-	
-	@Override 
-	public int eval() { return t1.eval() + t2.eval(); }
-	
+
+	public StringAtom functor() {
+		return StringAtom.PLUS_FUNCTOR;
+	}
+
+	@Override
+	public int eval() {
+		return t1.eval() + t2.eval();
+	}
+
 }

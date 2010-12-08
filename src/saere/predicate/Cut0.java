@@ -55,7 +55,7 @@ public final class Cut0 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("!"), 0,
+		predicateRegistry.registerPredicate(StringAtom.instance("!"), 0,
 				new PredicateInstanceFactory() {
 
 					@Override

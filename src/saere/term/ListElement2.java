@@ -31,33 +31,19 @@
  */
 package saere.term;
 
-import saere.*;
-import static saere.StringAtom.*;
+import static saere.StringAtom.EMPTY_LIST_FUNCTOR;
+import saere.StringAtom;
+import saere.Term;
 
-public final class ListElement2 extends CompoundTerm {
-
-	public static final StringAtom functor = StringAtom(".");
-
-	private final Term value;
-
-	private final Term rest;
+final class ListElement2 extends TwoArgsCompoundTerm {
 
 	public ListElement2(Term value, Term rest) {
-		this.value = value;
-		this.rest = rest;
+		super(value, rest);
 
-	}
-
-	public int arity() {
-		return 2;
 	}
 
 	public StringAtom functor() {
-		return functor;
-	}
-
-	public Term arg(int i) {
-		return i == 0 ? value : rest;
+		return StringAtom.LIST_FUNCTOR;
 	}
 
 	@Override
@@ -67,16 +53,15 @@ public final class ListElement2 extends CompoundTerm {
 	}
 
 	private String toListRepresentation(String head) {
-		String newHead = head + value;
-		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
+		String newHead = head + t1;
+		final Term r = t2.isVariable() ? t2.asVariable().binding() : t2;
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
 			return le.toListRepresentation(newHead + ", ");
 		} else if (r == EMPTY_LIST_FUNCTOR) {
 			return newHead + "]";
 		} else {
-			return newHead + "|" + rest + "]";
+			return newHead + "|" + t2 + "]";
 		}
 	}
-
 }

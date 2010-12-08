@@ -41,7 +41,7 @@ import saere.*;
 public final class Or2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.StringAtom(";"), 2,
+		registry.registerPredicate(StringAtom.instance(";"), 2,
 				new PredicateInstanceFactory() {
 
 					@Override

@@ -42,7 +42,7 @@ public final class And2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.StringAtom(","), 2,
+		predicateRegistry.registerPredicate(StringAtom.instance(","), 2,
 				new PredicateInstanceFactory() {
 
 					@Override

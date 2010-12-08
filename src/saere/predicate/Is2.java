@@ -49,7 +49,7 @@ public final class Is2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("is"), 2,
+		predicateRegistry.registerPredicate(StringAtom.instance("is"), 2,
 				new PredicateInstanceFactory() {
 
 					@Override

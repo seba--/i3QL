@@ -67,8 +67,8 @@ public final class Not1 implements Solutions {
 				return new Not1(args[0]);
 			}
 		};
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("\\+"), 1,pif);
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("not"), 1,pif);
+		predicateRegistry.registerPredicate(StringAtom.instance("\\+"), 1,pif);
+		predicateRegistry.registerPredicate(StringAtom.instance("not"), 1,pif);
 
 	}
 

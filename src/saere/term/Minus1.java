@@ -29,38 +29,47 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.term;
 
+import saere.CompoundTerm;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-public class GenericCompoundTerm extends CompoundTerm {
+final class Minus1 extends CompoundTerm {
 
-	private final StringAtom functor;
-	private final Term[] args;
+	private final Term t1;
 
-	public GenericCompoundTerm(StringAtom functor, Term[] args) {
-		this.functor = functor;
-		this.args = args;
+	public Minus1(Term t1) {
+		this.t1 = t1;
+	}
+
+	public StringAtom functor() {
+		return StringAtom.MINUS_FUNCTOR;
 	}
 
 	@Override
 	public Term arg(int i) throws IndexOutOfBoundsException {
-		return args[i];
+		return t1;
 	}
 
 	@Override
 	public int arity() {
-		return args.length;
+		return 1;
 	}
 
 	@Override
-	public StringAtom functor() {
-		return functor;
+	public int eval() {
+		return -t1.eval();
 	}
 
-	
-	public Solutions call(){
-		
-		return PredicateRegistry.instance().createPredicateInstance(functor, args);
-		
+	@Override
+	public Solutions call() {
+
+		return PredicateRegistry.instance().createPredicateInstance(functor(),
+				new Term[] { t1 });
+
 	}
+
 }

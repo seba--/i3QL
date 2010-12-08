@@ -31,38 +31,47 @@
  */
 package saere.term;
 
-
-import static saere.StringAtom.AND_FUNCTOR;
 import saere.CompoundTerm;
+import saere.PredicateRegistry;
 import saere.Solutions;
-import saere.StringAtom;
 import saere.Term;
 
-final class And2 extends CompoundTerm{
-	
-	private final Term l;
-	private final Term r; 
-	
-	
-	public And2(Term l, Term r) {
-		this.r = r;
-		this.l = l;
-	}
-			
-	public int arity() { return 2; }
-	
-	public StringAtom functor() {return AND_FUNCTOR; } 
+abstract class TwoArgsCompoundTerm extends CompoundTerm {
+
+	protected final Term t1;
+	protected final Term t2;
+
+	TwoArgsCompoundTerm(Term t1, Term t2) {
+		assert(t1 != null && t2 != null);
 		
-	public Term arg(int i) {return i == 0 ? l : r; }
+		this.t1 = t1;
+		this.t2 = t2;
+	}
+
+	@Override
+	public final Term arg(int i) {
+		assert (i >= 0 && i <= 2);
+		
+		return i == 0 ? t1 : t2;
+	}
+
+	@Override
+	public final int arity() {
+		return 2;
+	}
+
+	@Override
+	public Solutions call() {
+
+		return PredicateRegistry.instance().createPredicateInstance(functor(),
+				new Term[] { t1, t2 });
+
+	}
 	
 	@Override
 	public String toString() {
-		return "(" + l + ", " + r + ")";
+		return functor()+"(" + t1 + ", " + t2 + ")";
 	}
-
 	
-	@Override
-	public Solutions call() {
-		return new saere.predicate.And2(l,r);
-	}
+
 }

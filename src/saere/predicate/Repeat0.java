@@ -49,7 +49,7 @@ public final class Repeat0 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("repeat"), 0,
+		predicateRegistry.registerPredicate(StringAtom.instance("repeat"), 0,
 				new PredicateInstanceFactory() {
 
 					@Override

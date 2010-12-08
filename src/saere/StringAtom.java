@@ -106,6 +106,7 @@ public final class StringAtom extends Atom {
 	}
 
 
+	@Override
 	public Solutions call(){
 		
 		return PredicateRegistry.instance().createPredicateInstance(this, Term.NO_TERMS);
@@ -118,8 +119,8 @@ public final class StringAtom extends Atom {
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	@SuppressWarnings("all")
-	public static final StringAtom StringAtom(String s) {
-		return StringAtom(s.getBytes(UTF8Charset));
+	public static final StringAtom instance(String s) {
+		return instance(s.getBytes(UTF8Charset));
 	}
 
 	/**
@@ -127,7 +128,7 @@ public final class StringAtom extends Atom {
 	 *            a UTF-8 encoded string.
 	 */
 	@SuppressWarnings("all")
-	public final static StringAtom StringAtom(byte[] title) {
+	public final static StringAtom instance(byte[] title) {
 		final StringAtom cand = new StringAtom(title);
 		synchronized (cache) {
 			WeakReference<StringAtom> interned = cache.get(cand);
@@ -140,15 +141,16 @@ public final class StringAtom extends Atom {
 		}
 	}
 
-	public static final StringAtom EMPTY_LIST_FUNCTOR = StringAtom("[]");
+	public static final StringAtom EMPTY_LIST_FUNCTOR = instance("[]");
+	public static final StringAtom LIST_FUNCTOR = instance(".");
 	
-	public static final StringAtom AND_FUNCTOR = StringAtom(",");
-	public static final StringAtom OR_FUNCTOR = StringAtom(";");
-	public static final StringAtom CUT_FUNCTOR = StringAtom("!");
-	public static final StringAtom SOFT_CUT_FUNCTOR = StringAtom("*->");
-	public static final StringAtom IF_THEN_FUNCTOR = StringAtom("->");
+	public static final StringAtom AND_FUNCTOR = instance(",");
+	public static final StringAtom OR_FUNCTOR = instance(";");
+	public static final StringAtom CUT_FUNCTOR = instance("!");
+	public static final StringAtom SOFT_CUT_FUNCTOR = instance("*->");
+	public static final StringAtom IF_THEN_FUNCTOR = instance("->");
 	
-	public static final StringAtom MULT_FUNCTOR = StringAtom("*");
-	public static final StringAtom MINUS_FUNCTOR = StringAtom("-");
-	public static final StringAtom PLUS_FUNCTOR = StringAtom("+");
+	public static final StringAtom MULT_FUNCTOR = instance("*");
+	public static final StringAtom MINUS_FUNCTOR = instance("-");
+	public static final StringAtom PLUS_FUNCTOR = instance("+");
 }

@@ -31,7 +31,6 @@
  */
 package saere;
 
-import static saere.StringAtom.StringAtom;
 
 /**
  * Representation of an integer atom.
@@ -57,7 +56,7 @@ public final class IntegerAtom extends Atom {
 	}
 
 	public StringAtom functor() {
-		return StringAtom(Integer.toString(value));
+		return StringAtom.instance(Integer.toString(value));
 	}
 
 	public boolean sameAs(IntegerAtom other) {

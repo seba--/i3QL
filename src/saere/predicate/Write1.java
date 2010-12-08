@@ -49,7 +49,7 @@ public class Write1 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("write"), 1,
+		predicateRegistry.registerPredicate(StringAtom.instance("write"), 1,
 				new PredicateInstanceFactory() {
 
 					@Override

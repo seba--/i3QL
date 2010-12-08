@@ -1,14 +1,14 @@
 package saere.predicate;
 
+import static saere.term.TermFactory.atom;
+import static saere.term.TermFactory.compoundTerm;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import saere.GenericCompoundTerm;
 import saere.Solutions;
 import saere.Term;
 import saere.Variable;
-import static saere.StringAtom.StringAtom;
-import static saere.IntegerAtom.IntegerAtom;
 
 public class And2Test {
 
@@ -19,9 +19,9 @@ public class And2Test {
 		// v = 1, true.
 		
 		Variable v = new Variable();
-		Term t1 = new GenericCompoundTerm(StringAtom("="), new Term[]{v,IntegerAtom(1)});
-		Term t2 = new GenericCompoundTerm(StringAtom("true"),Term.NO_TERMS );
-		Solutions solutions = new GenericCompoundTerm(StringAtom(","), new Term[]{t1,t2}).call();
+		Term t1 = compoundTerm("=", v,atom(1));
+		Term t2 = atom("true");
+		Solutions solutions = compoundTerm(",", t1,t2).call();
 		int solutionsCount = 0;
 		while (solutions.next()) {
 			solutionsCount ++;
@@ -35,9 +35,9 @@ public class And2Test {
 
 		// repeat,true.
 		
-		Term t1 = new GenericCompoundTerm(StringAtom("repeat"), Term.NO_TERMS);
-		Term t2 = new GenericCompoundTerm(StringAtom("true"),Term.NO_TERMS );
-		Solutions solutions = new GenericCompoundTerm(StringAtom(","), new Term[]{t1,t2}).call();
+		Term t1 = atom("repeat");
+		Term t2 = atom("true");
+		Solutions solutions = compoundTerm(",", new Term[]{t1,t2}).call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 1000) {
 			solutionsCount ++;
@@ -50,11 +50,11 @@ public class And2Test {
 	public void testCutREvaluation(){
 		// (repeat,true),!.
 		
-		Term t1 = new GenericCompoundTerm(StringAtom("repeat"), Term.NO_TERMS);
-		Term t2 = new GenericCompoundTerm(StringAtom("true"),Term.NO_TERMS);
-		Term t3 = new GenericCompoundTerm(StringAtom("!"),Term.NO_TERMS );
-		Term t4 = new GenericCompoundTerm(StringAtom(","), new Term[]{t1,t2});
-		Term t5 = new GenericCompoundTerm(StringAtom(","), new Term[]{t4,t3});
+		Term t1 = atom("repeat");
+		Term t2 = atom("true");
+		Term t3 = atom("!");
+		Term t4 = compoundTerm(",", new Term[]{t1,t2});
+		Term t5 = compoundTerm(",", new Term[]{t4,t3});
 		Solutions solutions = t5.call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 1000) {
@@ -68,11 +68,11 @@ public class And2Test {
 	public void testCutLEvaluation(){
 			
 		// (repeat,!),true.
-		Term t1 = new GenericCompoundTerm(StringAtom("repeat"), Term.NO_TERMS);
-		Term t2 = new GenericCompoundTerm(StringAtom("true"),Term.NO_TERMS );
-		Term t3 = new GenericCompoundTerm(StringAtom("!"),Term.NO_TERMS );
-		Term t4 = new GenericCompoundTerm(StringAtom(","), new Term[]{t1,t3});
-		Term t5 = new GenericCompoundTerm(StringAtom(","), new Term[]{t4,t2});
+		Term t1 = atom("repeat");
+		Term t2 = atom("true");
+		Term t3 = atom("!");
+		Term t4 = compoundTerm(",", new Term[]{t1,t3});
+		Term t5 = compoundTerm(",", new Term[]{t4,t2});
 		Solutions solutions = t5.call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 1000) {

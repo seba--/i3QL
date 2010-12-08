@@ -42,7 +42,7 @@ public final class True0 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("true"), 0,
+		predicateRegistry.registerPredicate(StringAtom.instance("true"), 0,
 				new PredicateInstanceFactory() {
 
 					@Override
