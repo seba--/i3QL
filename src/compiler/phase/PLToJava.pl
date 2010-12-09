@@ -114,7 +114,7 @@ main_template(Functor,Arity,Template,ClauseBodies,Methods) :-
 		'\n',
 		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
 		'		registry.registerPredicate(\n',
-		'			StringAtom.instance("',Functor , '"),\n',
+		'			StringAtom.instancepublic("',Functor , '"),\n',
 		'			',Arity,',\n',
 		'			new PredicateInstanceFactory() {\n',
 		'				@Override\n',
@@ -164,6 +164,8 @@ variable_for_clause_body(N,_Clause,ClauseVariable) :-
 variable_initialization_for_clause_body(N,_Clause,ClauseVariableInitialization) :-
 	atomic_list_concat(['private static Term createClause',N,'(){','}'],ClauseVariableInitialization).
 
-%create_term(ASTNode,TermCreation) :-
+
+%create_term(ASTNode,TermConstructor) :-
+	
 	
 	

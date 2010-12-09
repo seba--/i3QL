@@ -191,7 +191,7 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
 			term_meta(HArg,MI), 
-			variable('&H',Id,MI,NewVariableNode),
+			variable('$H',Id,MI,NewVariableNode),
 			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
 			NewBody = ct(MI,',',[ct(MI,'=',[NewVariableNode,HArg]),RestOfBody])
 		;	
