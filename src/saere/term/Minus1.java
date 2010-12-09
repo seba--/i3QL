@@ -61,8 +61,8 @@ final class Minus1 extends CompoundTerm {
 	}
 
 	@Override
-	public int eval() {
-		return -t1.eval();
+	public long intEval() {
+		return -t1.intEval();
 	}
 
 	@Override

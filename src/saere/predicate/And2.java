@@ -34,14 +34,14 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's and (<code>,</code>) operator.
+ * Implementation of ISO Prolog's and (<code>,/2</code>) operator.
  * 
  * @author Michael Eichberg
  */
 public final class And2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.instance(","), 2,
+		registry.register(StringAtom.instance(","), 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -54,8 +54,8 @@ public final class And2 implements Solutions {
 
 	private Term l;
 	private Term r;
-	private State lState;
-	private State rState;
+//	private State lState;
+//	private State rState;
 
 	private boolean choiceCommitted = false;
 
@@ -74,7 +74,7 @@ public final class And2 implements Solutions {
 				undo();
 				return false;
 			case 0: // Initialization
-				lState = l.manifestState();
+//				lState = l.manifestState();
 				goalStack = goalStack.put(l.call());
 			case 1: {
 				// call (or redo) the first/the left goal
@@ -87,11 +87,11 @@ public final class And2 implements Solutions {
 					continue;
 				}
 				if (choiceCommitted)
-					goalStack = goalStack.reduce();
+					goalStack = goalStack.drop();
 				
 				// prepare call of the second goal
-				if (rState == null)
-					rState = r.manifestState();
+//				if (rState == null)
+//					rState = r.manifestState();
 				goalStack = goalStack.put(r.call());
 				goalToExecute = 2;
 			}
@@ -105,7 +105,7 @@ public final class And2 implements Solutions {
 						choiceCommitted = true;
 						goalToExecute = Commons.FAILED;
 					} else {
-						goalStack = goalStack.reduce();
+						goalStack = goalStack.drop();
 						goalToExecute = 1;
 					}
 					continue;
@@ -123,13 +123,13 @@ public final class And2 implements Solutions {
 	
 	private void undo() {
 		// reset all bindings
-		l.setState(lState);
-		if (rState != null)
-			r.setState(rState);
+//		l.setState(lState);
+//		if (rState != null)
+//			r.setState(rState);
 		// clear "everything"; help the GC (there may be
 		// long-living references to this goal!)
 		l = r = null;
-		lState = rState = null;
+//		lState = rState = null;
 		goalStack = null;
 	}
 

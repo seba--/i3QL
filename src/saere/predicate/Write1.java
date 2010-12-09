@@ -46,10 +46,9 @@ import saere.Term;
  */
 public class Write1 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-		predicateRegistry.registerPredicate(StringAtom.instance("write"), 1,
+		registry.register(StringAtom.instance("write"), 1,
 				new PredicateInstanceFactory() {
 
 					@Override

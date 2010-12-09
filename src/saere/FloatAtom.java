@@ -29,48 +29,61 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.PredicateInstanceFactory;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
- * Implementation of ISO Prolog's false/0 resp. fail/0 predicate.
+ * Representation of an integer atom.
  * 
  * @author Michael Eichberg
  */
-public final class False0 implements Solutions {
+public final class FloatAtom extends Atom {
 
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	private final double value;
 
-		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
-
-			@Override
-			public Solutions createPredicateInstance(Term[] args) {
-				return FALSE0;
-			}
-		};
-		
-		registry.register(StringAtom.FAIL_FUNCTOR, 0,pif);
-		registry.register(StringAtom.FALSE_FUNCTOR, 0,pif);			
-	}
-
-	public static final False0 FALSE0 = new False0();
-	
-	public False0() {
-		// nothing to do
-	}
-
-	public boolean next() {
-		return false;
+	private FloatAtom(double value) {
+		this.value = value;
 	}
 
 	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public boolean isFloatAtom() {
+		return true;
+	}
+
+	@Override
+	public FloatAtom asFloatAtom() {
+		return this;
+	}
+
+	public StringAtom functor() {
+		return StringAtom.instance(Double.toString(value));
+	}
+
+	public boolean sameAs(FloatAtom other) {
+		return this.value == other.value;
+	}
+
+	@Override
+	public double floatEval() {
+		return value;
+	}
+
+	@Override
+	public String toString() {
+		return Double.toString(value);
+	}
+
+	public static final FloatAtom FLOAT_ATOM_M1 = new FloatAtom(-1.0);
+	public static final FloatAtom FLOAT_ATOM_0 = new FloatAtom(0.0);
+	public static final FloatAtom FLOAT_ATOM_1 = new FloatAtom(1.0);
+
+	public static FloatAtom instance(double value) {
+		if (value == -1.0)
+			return FLOAT_ATOM_M1;
+		if (value == 0.0)
+			return FLOAT_ATOM_0;
+		if (value == 1.0)
+			return FLOAT_ATOM_1;
+		return new FloatAtom(value);
 	}
 
 }

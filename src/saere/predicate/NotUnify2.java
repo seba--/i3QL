@@ -40,9 +40,6 @@ import saere.Term;
 
 /**
  * Implementation of Prolog's <code>\=</code> (does not unify) operator.
- * <p>
- * This implementation generates a choice point.
- * <p/>
  * 
  * @author Michael Eichberg
  */
@@ -51,7 +48,7 @@ public final class NotUnify2 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.instance("\\="), 2,
+		predicateRegistry.register(StringAtom.instance("\\="), 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -65,27 +62,27 @@ public final class NotUnify2 implements Solutions {
 	private final Term l;
 	private final Term r;
 
-	private final State lState;
-	private final State rState;
-
 	private boolean called = false;
 
 	public NotUnify2(Term l, Term r) {
 		this.l = l;
 		this.r = r;
-		this.lState = l.manifestState();
-		this.rState = r.manifestState();
 	}
 
 	public boolean next() {
 		if (!called) {
 			called = true;
 
+			State lState = l.manifestState();
+			State rState = r.manifestState();
+
 			final boolean success = l.unify(r);
 			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
 			// will not be bound!
 			l.setState(lState);
 			r.setState(rState);
+			lState = null;
+			rState = null;
 
 			return !success;
 		} else {

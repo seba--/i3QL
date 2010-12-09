@@ -37,32 +37,24 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-
 /**
- * Implementation of SAE Prolog's cut (<code>!</code>) operator.
+ * Implementation of ISO Prolog's cut (<code>!/0</code>) operator.
  * 
  * @author Michael Eichberg
  */
 public final class Cut0 implements Solutions {
 
-	// ?- repeat,write(x),fail.
-	// xxxxxxxx.....xxxxxx
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-	// ?- repeat,write(x),!,fail.
-	// x
-	// false.
+		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+			@Override
+			public Solutions createPredicateInstance(Term[] args) {
+				return new Cut0();
+			}
+		};
 
-		predicateRegistry.registerPredicate(StringAtom.instance("!"), 0,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Cut0();
-					}
-				});
+		registry.register(StringAtom.CUT_FUNCTOR, 0, pif);
 
 	}
 

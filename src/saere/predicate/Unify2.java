@@ -34,23 +34,15 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's <code>=</code> operator (unify).
- * <p>
- * This implementation generates a choice point and – in general – should not be
- * called.<br />
- * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make use of
- * this class.
- * </p>
+ * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
  * 
  * @author Michael Eichberg
  */
 public final class Unify2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-		predicateRegistry.registerPredicate(StringAtom.instance("="), 2,
+		registry.register(StringAtom.UNIFY_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override

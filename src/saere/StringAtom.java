@@ -140,6 +140,8 @@ public final class StringAtom extends Atom {
 			return interned.get();
 		}
 	}
+	
+	public static final StringAtom UNIFY_FUNCTOR = instance("=");
 
 	public static final StringAtom EMPTY_LIST_FUNCTOR = instance("[]");
 	public static final StringAtom LIST_FUNCTOR = instance(".");

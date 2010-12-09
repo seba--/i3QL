@@ -37,11 +37,15 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-/** Prolog's arithmetic equals operator: "=:=". */
+/** 
+ * Prolog's arithmetic equals operator: "=:=".
+ *  
+ * @author Michael Eichberg 
+ */
 public class Same2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.instance("=:="), 2,
+		registry.register(StringAtom.instance("=:="), 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -57,7 +61,6 @@ public class Same2 implements Solutions {
 	private boolean called = false;
 
 	public Same2(Term l, Term r) {
-		super();
 		this.l = l;
 		this.r = r;
 	}
@@ -78,6 +81,6 @@ public class Same2 implements Solutions {
 	}
 
 	public static boolean isSame(Term l, Term r) {
-		return l.eval() == r.eval();
+		return l.intEval() == r.intEval();
 	}
 }

@@ -49,6 +49,11 @@ import saere.predicate.True0;
 import saere.predicate.Unify2;
 import saere.predicate.Write1;
 
+/**
+ * Registry of all predicates.
+ * 
+ * @author Michael Eichberg
+ */
 public class PredicateRegistry {
 
 	private final static class Predicate {
@@ -91,8 +96,9 @@ public class PredicateRegistry {
 
 	private PredicateRegistry() {
 		predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
-		
-		// register all default predicate implementations (in alphabetical order)
+
+		// Register all default predicate implementations...
+		// Alphabetical Order
 		And2.registerWithPredicateRegistry(this);
 		Cut0.registerWithPredicateRegistry(this);
 		False0.registerWithPredicateRegistry(this);
@@ -109,12 +115,12 @@ public class PredicateRegistry {
 		Write1.registerWithPredicateRegistry(this);
 	}
 
-	public void registerPredicate(StringAtom functor, int arity,
+	public void register(StringAtom functor, int arity,
 			PredicateInstanceFactory factory) {
 		Predicate p = new Predicate(functor, arity);
 		if (predicates.put(p, factory) != null)
 			throw new IllegalStateException("a predicate instance factory for "
-					+ p + " was already registered");
+					+ p + " was previously registered");
 	}
 
 	public Solutions createPredicateInstance(StringAtom functor, Term[] args) {

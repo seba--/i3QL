@@ -33,8 +33,24 @@ package saere;
 
 import java.util.WeakHashMap;
 
-// Variables that "share"; example, X = Y,A = B, Y = A, Y = a. => X = a, Y = a, A = a, B = y
-
+/**
+ * Representation of a Prolog variable.
+ * 
+ * <p>
+ * Variables that "share"; example:
+ * 
+ * <pre>
+ * <code>
+ * 	X = Y,A = B, Y = A, Y = a. 
+ * =>
+ *  X = a, Y = a, A = a, B = a
+ * </code>
+ * </pre>
+ * 
+ * </p>
+ * 
+ * @author Michael Eichberg
+ */
 public final class Variable extends Term {
 
 	/**
@@ -70,6 +86,7 @@ public final class Variable extends Term {
 		return this;
 	}
 
+	@Override
 	public State manifestState() {
 		if (isInstantiated()) {
 			return null;
@@ -78,6 +95,7 @@ public final class Variable extends Term {
 		}
 	}
 
+	@Override
 	public void setState(State state) {
 		// "state == null" means that the variable was already instantiated when
 		// manifest state was called the last time
@@ -86,6 +104,7 @@ public final class Variable extends Term {
 		}
 	}
 
+	@Override
 	public int arity() {
 		if (value == null)
 			throw new Error("The variable is not sufficiently instantiated.");
@@ -93,6 +112,7 @@ public final class Variable extends Term {
 			return value.arity();
 	}
 
+	@Override
 	public Term arg(int i) {
 		if (value == null)
 			throw new Error("The variable is not sufficiently instantiated.");
@@ -100,6 +120,7 @@ public final class Variable extends Term {
 			return value.arg(i);
 	}
 
+	@Override
 	public StringAtom functor() {
 		if (value == null)
 			throw new Error("The variable is not sufficiently instantiated.");
@@ -109,8 +130,8 @@ public final class Variable extends Term {
 
 	public boolean isInstantiated() {
 		return (value != null) && (!value.isVariable() || // it is either an
-															// atom or a
-															// compound term
+				// atom or a
+				// compound term
 				value.asVariable().isInstantiated());
 	}
 
@@ -202,11 +223,11 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public int eval() {
+	public long intEval() {
 		if (value == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
-			return value.eval();
+			return value.intEval();
 		}
 	}
 
@@ -218,7 +239,8 @@ public final class Variable extends Term {
 			return value.call();
 		}
 	}
-	
+
+	@Override
 	public String toString() {
 		final Term term = binding();
 		if (term == null) {

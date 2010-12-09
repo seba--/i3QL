@@ -37,11 +37,17 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
+
+/**
+ * Implementation of ISO Prolog's <code>true/0</code> predicate.
+ * 
+ * @author Michael Eichberg
+ */
 public final class True0 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-		registry.registerPredicate(StringAtom.TRUE_FUNCTOR, 0,
+		registry.register(StringAtom.TRUE_FUNCTOR, 0,
 				new PredicateInstanceFactory() {
 
 					@Override

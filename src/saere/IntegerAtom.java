@@ -31,7 +31,6 @@
  */
 package saere;
 
-
 /**
  * Representation of an integer atom.
  * 
@@ -39,9 +38,9 @@ package saere;
  */
 public final class IntegerAtom extends Atom {
 
-	private final int value;
+	private final long value;
 
-	private IntegerAtom(int value) {
+	private IntegerAtom(long value) {
 		this.value = value;
 	}
 
@@ -56,7 +55,7 @@ public final class IntegerAtom extends Atom {
 	}
 
 	public StringAtom functor() {
-		return StringAtom.instance(Integer.toString(value));
+		return StringAtom.instance(Long.toString(value));
 	}
 
 	public boolean sameAs(IntegerAtom other) {
@@ -64,60 +63,65 @@ public final class IntegerAtom extends Atom {
 	}
 
 	@Override
-	public int eval() {
+	public long intEval() {
 		return value;
 	}
 
 	@Override
 	public String toString() {
-		return Integer.toString(value);
+		return Long.toString(value);
 	}
 
-	public static final IntegerAtom IntegerAtom_M3 = new IntegerAtom(-3);
-	public static final IntegerAtom IntegerAtom_M2 = new IntegerAtom(-2);
-	public static final IntegerAtom IntegerAtom_M1 = new IntegerAtom(-1);
-	public static final IntegerAtom IntegerAtom_0 = new IntegerAtom(0);
-	public static final IntegerAtom IntegerAtom_1 = new IntegerAtom(1);
-	public static final IntegerAtom IntegerAtom_2 = new IntegerAtom(2);
-	public static final IntegerAtom IntegerAtom_3 = new IntegerAtom(3);
-	public static final IntegerAtom IntegerAtom_4 = new IntegerAtom(4);
-	public static final IntegerAtom IntegerAtom_5 = new IntegerAtom(5);
-	public static final IntegerAtom IntegerAtom_6 = new IntegerAtom(6);
-	public static final IntegerAtom IntegerAtom_7 = new IntegerAtom(7);
-	public static final IntegerAtom IntegerAtom_8 = new IntegerAtom(8);
-	public static final IntegerAtom IntegerAtom_9 = new IntegerAtom(9);
+	public static final IntegerAtom IntegerAtom_M3 = new IntegerAtom(-3l);
+	public static final IntegerAtom IntegerAtom_M2 = new IntegerAtom(-2l);
+	public static final IntegerAtom IntegerAtom_M1 = new IntegerAtom(-1l);
+	public static final IntegerAtom IntegerAtom_0 = new IntegerAtom(0l);
+	public static final IntegerAtom IntegerAtom_1 = new IntegerAtom(1l);
+	public static final IntegerAtom IntegerAtom_2 = new IntegerAtom(2l);
+	public static final IntegerAtom IntegerAtom_3 = new IntegerAtom(3l);
+	public static final IntegerAtom IntegerAtom_4 = new IntegerAtom(4l);
+	public static final IntegerAtom IntegerAtom_5 = new IntegerAtom(5l);
+	public static final IntegerAtom IntegerAtom_6 = new IntegerAtom(6l);
+	public static final IntegerAtom IntegerAtom_7 = new IntegerAtom(7l);
+	public static final IntegerAtom IntegerAtom_8 = new IntegerAtom(8l);
+	public static final IntegerAtom IntegerAtom_9 = new IntegerAtom(9l);
 
 	@SuppressWarnings("all")
-	public final static IntegerAtom IntegerAtom(final int value) {
-		switch (value) {
+	public final static IntegerAtom IntegerAtom(final long value) {
+		if (value > Integer.MIN_VALUE && value < Integer.MAX_VALUE) {
+			int intValue = (int) value;
+			switch (intValue) {
 
-		case -3:
-			return IntegerAtom_M3;
-		case -2:
-			return IntegerAtom_M2;
-		case -1:
-			return IntegerAtom_M1;
-		case 0:
-			return IntegerAtom_0;
-		case 1:
-			return IntegerAtom_1;
-		case 2:
-			return IntegerAtom_2;
-		case 3:
-			return IntegerAtom_3;
-		case 4:
-			return IntegerAtom_4;
-		case 5:
-			return IntegerAtom_5;
-		case 6:
-			return IntegerAtom_6;
-		case 7:
-			return IntegerAtom_7;
-		case 8:
-			return IntegerAtom_8;
-		case 9:
-			return IntegerAtom_9;
-		default:
+			case -3:
+				return IntegerAtom_M3;
+			case -2:
+				return IntegerAtom_M2;
+			case -1:
+				return IntegerAtom_M1;
+			case 0:
+				return IntegerAtom_0;
+			case 1:
+				return IntegerAtom_1;
+			case 2:
+				return IntegerAtom_2;
+			case 3:
+				return IntegerAtom_3;
+			case 4:
+				return IntegerAtom_4;
+			case 5:
+				return IntegerAtom_5;
+			case 6:
+				return IntegerAtom_6;
+			case 7:
+				return IntegerAtom_7;
+			case 8:
+				return IntegerAtom_8;
+			case 9:
+				return IntegerAtom_9;
+			default:
+				return new IntegerAtom(value);
+			}
+		} else {
 			return new IntegerAtom(value);
 		}
 	}

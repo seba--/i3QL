@@ -38,14 +38,14 @@ import saere.StringAtom;
 import saere.Term;
 
 /**
- * Prolog's arithmetic not-equals operator: "=\=".
+ * ISO Prolog's arithmetic not-equals operator: "=\=".
  * 
  * @author Michael Eichberg
  */
 public final class NotSame2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.instance("=\\="), 2,
+		registry.register(StringAtom.instance("=\\="), 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -82,6 +82,6 @@ public final class NotSame2 implements Solutions {
 	}
 
 	public static boolean isNotSame(Term l, Term r) {
-		return l.eval() != r.eval();
+		return l.intEval() != r.intEval();
 	}
 }

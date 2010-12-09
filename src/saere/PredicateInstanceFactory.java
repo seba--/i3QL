@@ -32,6 +32,11 @@
 package saere;
 
 
+/**
+ * TODO document
+ * 
+ * @author Michael Eichberg
+ */
 public interface PredicateInstanceFactory {
 
 	Solutions createPredicateInstance(Term[] args);

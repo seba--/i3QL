@@ -46,8 +46,8 @@ final class Plus2 extends TwoArgsCompoundTerm {
 	}
 
 	@Override
-	public int eval() {
-		return args[0].eval() + args[1].eval();
+	public long intEval() {
+		return args[0].intEval() + args[1].intEval();
 	}
 
 }

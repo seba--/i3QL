@@ -34,7 +34,7 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's not (<code>\+</code>) operator.
+ * Implementation of ISO Prolog's not (<code>\+</code>) operator.
  * 
  * <pre>
  * <code>
@@ -69,8 +69,8 @@ public final class Not1 implements Solutions {
 				return new Not1(args[0]);
 			}
 		};
-		registry.registerPredicate(StringAtom.instance("\\+"), 1, pif);
-		registry.registerPredicate(StringAtom.instance("not"), 1, pif);
+		registry.register(StringAtom.instance("\\+"), 1, pif);
+		registry.register(StringAtom.instance("not"), 1, pif);
 
 	}
 

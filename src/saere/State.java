@@ -31,11 +31,22 @@
  */
 package saere;
 
+import saere.predicate.Unify2;
+
 /**
  * Encapsulates the (remaining) mutable state of a term.
  * <p>
- * Note, that the SAE represents the state of an atom using the value
- * <code>null</code>.
+ * Note, that the SAE represents the state of an atom or a ground complex term
+ * using the value <code>null</code>.
+ * </p>
+ * <p>
+ * Note, that state manifestation is only necessary, if a term is subject to
+ * unification. If a term is just passed to another predicate, manifestation of
+ * its state is useless. If the subsequent predicate fails, it guarantees that
+ * the term's state is the same as before the call. I.e., only if you directly
+ * use the {@link Unification#unify(Term, Term)} method, you have to manifest
+ * the state and reset it afterwards. If you use the predicate {@link Unify2},
+ * you do not have to manifest the state.
  * </p>
  * <p>
  * State interface of the Memento Pattern.

@@ -41,14 +41,14 @@ import saere.Term;
 import saere.Variable;
 
 /**
- * Implements the "is/2" operator.
+ * Implements the <code>is/2</code> operator.
  * 
  * @author Michael Eichberg
  */
 public final class Is2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.instance("is"), 2,
+		registry.register(StringAtom.instance("is"), 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -61,26 +61,28 @@ public final class Is2 implements Solutions {
 
 	private final Term l;
 	private final Term r;
-	private final State lState;
+	private State lState;
 
 	private boolean called = false;
 
 	public Is2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-		lState = l.manifestState();
+
 	}
 
 	@Override
 	public boolean next() {
-		if (called) {
-			l.setState(lState);
-			return false;
+		if (!called) {
+			called = true;
+			lState = l.manifestState();
+			final long rValue = r.intEval();
+			if (is(l, rValue))
+				return true;
 		}
 
-		called = true;
-		final int rValue = r.eval();
-		return is(l, rValue);
+		l.setState(lState);
+		return false;
 	}
 
 	@Override
@@ -88,17 +90,17 @@ public final class Is2 implements Solutions {
 		return false;
 	}
 
-	public static final boolean is(Term a1, int a2Value) {
+	public static final boolean is(Term a1, long a2Value) {
 		if (a1.isVariable()) {
 			final Variable v1 = a1.asVariable();
 			if (v1.isInstantiated()) {
-				return v1.eval() == a2Value;
+				return v1.intEval() == a2Value;
 			} else {
 				v1.bind(IntegerAtom(a2Value));
 				return true;
 			}
 		} else {
-			return a1.eval() == a2Value;
+			return a1.intEval() == a2Value;
 		}
 	}
 }

@@ -37,6 +37,11 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
+/**
+ * Implementation of ISO Prolog's <code>repeat/0</code> predicate.
+ * 
+ * @author Michael Eichberg
+ */
 public final class Repeat0 implements Solutions {
 
 	// ?- repeat,write(x),fail.
@@ -46,19 +51,20 @@ public final class Repeat0 implements Solutions {
 	// x
 	// false.
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-		predicateRegistry.registerPredicate(StringAtom.instance("repeat"), 0,
+		registry.register(StringAtom.instance("repeat"), 0,
 				new PredicateInstanceFactory() {
 
 					@Override
 					public Solutions createPredicateInstance(Term[] args) {
-						return new Repeat0();
+						return REPEAT0;
 					}
 				});
 
 	}
+
+	public final static Repeat0 REPEAT0 = new Repeat0();
 
 	public Repeat0() {
 		// nothing to do

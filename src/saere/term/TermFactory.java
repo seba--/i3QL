@@ -2,6 +2,7 @@ package saere.term;
 
 import saere.Atom;
 import saere.CompoundTerm;
+import saere.FloatAtom;
 import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
@@ -27,10 +28,15 @@ public class TermFactory {
 		return new Variable();
 	}
 
-	public Atom newAtom(int value) {
+	public Atom newAtom(long value) {
 		return IntegerAtom.IntegerAtom(value);
 	}
 
+	public Atom newAtom(double value) {
+		return FloatAtom.instance(value);
+	}
+
+	
 	public Atom newAtom(String string) {
 		return StringAtom.instance(string);
 	}
@@ -84,10 +90,15 @@ public class TermFactory {
 		return getInstance().newAtom(value);
 	}
 
-	public static Term atom(int value) {
+	public static Term atom(long value) {
 		return getInstance().newAtom(value);
 	}
 
+	public static Term atom(double value) {
+		return getInstance().newAtom(value);
+	}
+
+	
 	public static Variable variable() {
 		return getInstance().newVariable();
 	}
