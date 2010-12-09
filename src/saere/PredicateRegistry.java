@@ -36,6 +36,7 @@ import java.util.Map;
 
 import saere.predicate.And2;
 import saere.predicate.Cut0;
+import saere.predicate.False0;
 import saere.predicate.Is2;
 import saere.predicate.Not1;
 import saere.predicate.NotSame2;
@@ -94,6 +95,7 @@ public class PredicateRegistry {
 		// register all default predicate implementations (in alphabetical order)
 		And2.registerWithPredicateRegistry(this);
 		Cut0.registerWithPredicateRegistry(this);
+		False0.registerWithPredicateRegistry(this);
 		Is2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
 		NotSame2.registerWithPredicateRegistry(this);

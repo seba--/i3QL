@@ -35,7 +35,9 @@ import saere.*;
 
 /**
  * Implementation of SAE Prolog's not (<code>\+</code>) operator.
- * <pre><code>
+ * 
+ * <pre>
+ * <code>
  * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
  * 4
  * X = 4.
@@ -51,15 +53,15 @@ import saere.*;
  * ?- not( (member(X,[1,2,3]),false) ),write(X).
  * _G248
  * true.
- * </code></pre>
+ * </code>
+ * </pre>
  * 
  * @author Michael Eichberg
  */
 public final class Not1 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+
 		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
 
 			@Override
@@ -67,8 +69,8 @@ public final class Not1 implements Solutions {
 				return new Not1(args[0]);
 			}
 		};
-		predicateRegistry.registerPredicate(StringAtom.instance("\\+"), 1,pif);
-		predicateRegistry.registerPredicate(StringAtom.instance("not"), 1,pif);
+		registry.registerPredicate(StringAtom.instance("\\+"), 1, pif);
+		registry.registerPredicate(StringAtom.instance("not"), 1, pif);
 
 	}
 
@@ -78,7 +80,7 @@ public final class Not1 implements Solutions {
 
 	public Not1(final Term t) {
 
-		this.t = t; 
+		this.t = t;
 	}
 
 	public boolean next() {

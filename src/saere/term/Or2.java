@@ -47,14 +47,17 @@ final class Or2 extends CompoundTerm {
 		this.l = l;
 	}
 
+	@Override
 	public int arity() {
 		return 2;
 	}
 
+	@Override
 	public StringAtom functor() {
 		return OR_FUNCTOR;
 	}
 
+	@Override
 	public Term arg(int i) {
 		return i == 0 ? l : r;
 	}

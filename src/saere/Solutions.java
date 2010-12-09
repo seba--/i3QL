@@ -32,32 +32,56 @@
 package saere;
 
 /**
- * Enables to enumerate over all solutions produced by a predicate.
+ * FIXME wording of this comment Enables to enumerate over all solutions
+ * produced by a predicate. Encoding of the execution semantics of a predicate.
  * 
  * @author Michael Eichberg
  */
 public interface Solutions {
 
 	/**
-	 * If this method succeeds - i.e., <code>true</code> is returned - at least 
-	 * one solution exists. The solution
-	 * is returned by binding the variables passed to the predicate's unify method.
-	 * <p>
-	 * If <code>false</code> is returned, all {@link Variable}s must have the same state 
-	 * as before the very first call (i.e., it is not the case that
-	 * some variables that were free before the call remain instantiated).
-	 * </p>
-	 * <b><u>After <code>false</code> is returned this method must not be called
-	 * again.</u></b>
+	 * If this method succeeds - i.e., <code>true</code> is returned - at least
+	 * one solution exists. The solution is implicitly stored in the variables
+	 * of the terms passed to this predicate instance.<br/>
+	 * If <code>false</code> is returned, all {@link Variable}s must have the
+	 * same state as before the very first call (i.e., it must not be the case
+	 * that some variables that were free before the call remain instantiated).
+	 * </p> <b><u>After <code>false</code> is returned this method must not be
+	 * called again.</u></b>
 	 */
 	boolean next();
-	
+
 	/**
-	 * <b>It is not allowed to cache the return value of this method after a successful
-	 * call to next.</b>
-	 *  
-	 * @return  
+	 * This method returns <code>true</code>, if - as part of the evaluation of
+	 * this predicate - a cut was performed. This can only be the case if this
+	 * implementation of this interface is actually the cut operator itself or
+	 * if this implementation of this interface models one of the standard
+	 * control-flow predicates ("," or ";"). Recall, cuts appearing in the
+	 * condition part of ->/2 (if-then(-else)) and *->/2 (soft-cut) or in \+/1
+	 * (not) are local to the condition.<br />
+	 * If a subtype of this interface models any other then <code>false</code>
+	 * has to be returned.
+	 * <p>
+	 * <b>Control-flow predicates are not allowed to cache the return value of
+	 * this method after a successful call to next.</b> For example, given the
+	 * following term <code>repeat , ((true;!),true).</code> and imagine that
+	 * this is the instance of the first conjunction (and). In this case, we
+	 * would first try to prove the left goal (repeat), which will succeed.
+	 * After that, we would try to prove the right goal (
+	 * <code>(true;!),true</code>). The right goal will also succeed and, hence,
+	 * this goal as a whole will succeed. So far, no cut has been performed.
+	 * This means, it is possible that there are further solutions. If the user
+	 * asks for further solutions (a second solution), we would again try to
+	 * prove the left goal, which will succeed again. After that, we will also
+	 * try to prove the right goal, which will also succeed. But, in this case,
+	 * we a cut operation is performed. Hence, if the user asks for a third
+	 * solution, we now know that this predicate (modeling and) cannot 
+	 * produce further solutions.
+	 * </p>
+	 * 
+	 * @return <code>true</code>, if a cut was performed while proving this
+	 *         goal.
 	 */
 	boolean choiceCommitted();
-    
+
 }

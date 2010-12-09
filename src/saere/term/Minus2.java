@@ -40,13 +40,14 @@ final class Minus2 extends TwoArgsCompoundTerm {
 		super(t1, t2);
 	}
 
+	@Override
 	public StringAtom functor() {
 		return StringAtom.MINUS_FUNCTOR;
 	}
 
 	@Override
 	public int eval() {
-		return t1.eval() - t2.eval();
+		return args[0].eval() - args[1].eval();
 	}
 
 }

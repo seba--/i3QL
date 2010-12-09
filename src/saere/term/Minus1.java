@@ -32,7 +32,7 @@
 package saere.term;
 
 import saere.CompoundTerm;
-import saere.PredicateRegistry;
+import static saere.PredicateRegistry.instance;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
@@ -45,6 +45,7 @@ final class Minus1 extends CompoundTerm {
 		this.t1 = t1;
 	}
 
+	@Override
 	public StringAtom functor() {
 		return StringAtom.MINUS_FUNCTOR;
 	}
@@ -66,10 +67,7 @@ final class Minus1 extends CompoundTerm {
 
 	@Override
 	public Solutions call() {
-
-		return PredicateRegistry.instance().createPredicateInstance(functor(),
-				new Term[] { t1 });
-
+		return instance().createPredicateInstance(functor(), new Term[] { t1 });
 	}
 
 }

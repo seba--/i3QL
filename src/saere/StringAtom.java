@@ -149,6 +149,9 @@ public final class StringAtom extends Atom {
 	public static final StringAtom CUT_FUNCTOR = instance("!");
 	public static final StringAtom SOFT_CUT_FUNCTOR = instance("*->");
 	public static final StringAtom IF_THEN_FUNCTOR = instance("->");
+	public static final StringAtom TRUE_FUNCTOR = instance("true");
+	public static final StringAtom FALSE_FUNCTOR = instance("false");
+	public static final StringAtom FAIL_FUNCTOR = instance("fail");
 	
 	public static final StringAtom MULT_FUNCTOR = instance("*");
 	public static final StringAtom MINUS_FUNCTOR = instance("-");

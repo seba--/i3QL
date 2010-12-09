@@ -1,5 +1,6 @@
 package saere.term;
 
+import saere.Atom;
 import saere.CompoundTerm;
 import saere.IntegerAtom;
 import saere.StringAtom;
@@ -26,11 +27,11 @@ public class TermFactory {
 		return new Variable();
 	}
 
-	public Term newAtom(int value) {
+	public Atom newAtom(int value) {
 		return IntegerAtom.IntegerAtom(value);
 	}
 
-	public Term newAtom(String string) {
+	public Atom newAtom(String string) {
 		return StringAtom.instance(string);
 	}
 
@@ -97,6 +98,18 @@ public class TermFactory {
 
 	public static CompoundTerm compoundTerm(String functor, Term... args) {
 		return getInstance().newCompoundTerm(functor, args);
+	}
+
+	public static Atom cut() {
+		return getInstance().newAtom("!");
+	}
+	
+	public static CompoundTerm and(Term t1, Term t2) {
+		return getInstance().newCompoundTerm(",", new Term[]{t1,t2});
+	}
+	
+	public static CompoundTerm or(Term t1, Term t2) {
+		return getInstance().newCompoundTerm(";", new Term[]{t1,t2});
 	}
 
 }

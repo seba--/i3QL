@@ -42,6 +42,7 @@ final class ListElement2 extends TwoArgsCompoundTerm {
 
 	}
 
+	@Override
 	public StringAtom functor() {
 		return StringAtom.LIST_FUNCTOR;
 	}
@@ -53,15 +54,16 @@ final class ListElement2 extends TwoArgsCompoundTerm {
 	}
 
 	private String toListRepresentation(String head) {
-		String newHead = head + t1;
-		final Term r = t2.isVariable() ? t2.asVariable().binding() : t2;
+		String newHead = head + args[0];
+		final Term r = args[1].isVariable() ? args[1].asVariable().binding()
+				: args[1];
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
 			return le.toListRepresentation(newHead + ", ");
 		} else if (r == EMPTY_LIST_FUNCTOR) {
 			return newHead + "]";
 		} else {
-			return newHead + "|" + t2 + "]";
+			return newHead + "|" + args[1] + "]";
 		}
 	}
 }

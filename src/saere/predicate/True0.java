@@ -39,10 +39,9 @@ import saere.Term;
 
 public final class True0 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 
-		predicateRegistry.registerPredicate(StringAtom.instance("true"), 0,
+		registry.registerPredicate(StringAtom.TRUE_FUNCTOR, 0,
 				new PredicateInstanceFactory() {
 
 					@Override

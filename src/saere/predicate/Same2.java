@@ -40,9 +40,8 @@ import saere.Term;
 /** Prolog's arithmetic equals operator: "=:=". */
 public class Same2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.instance("=:="), 2,
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.registerPredicate(StringAtom.instance("=:="), 2,
 				new PredicateInstanceFactory() {
 
 					@Override

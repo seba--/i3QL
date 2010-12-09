@@ -47,9 +47,8 @@ import saere.Variable;
  */
 public final class Is2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.instance("is"), 2,
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.registerPredicate(StringAtom.instance("is"), 2,
 				new PredicateInstanceFactory() {
 
 					@Override

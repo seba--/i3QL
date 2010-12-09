@@ -52,13 +52,14 @@ public final class Or2 implements Solutions {
 
 	}
 
-	private final Term l;
-	private final Term r;
-	private State state;
+	private Term l;
+	private Term r;
+	private State lState;
+	private State rState;
 
 	private boolean choiceCommitted = false;
 
-	private int currentGoal = 0;
+	private int goalToExecute = 0;
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public Or2(final Term l, final Term r) {
@@ -68,44 +69,78 @@ public final class Or2 implements Solutions {
 
 	public boolean next() {
 		while (true) {
-			switch (currentGoal) {
+			switch (goalToExecute) {
+			case Commons.FAILED :
+				undo();
+				return false;			
 			case 0: // Initialization
-				state = l.manifestState();
+				lState = l.manifestState();
 				goalStack = goalStack.put(l.call());
-				currentGoal = 1;
-			case 1:
-				if (goalStack.peek().next()) {
+				goalToExecute = 1;
+			case 1: {
+				Solutions s = goalStack.peek();
+				boolean goalSucceeded = s.next();
+				choiceCommitted |= s.choiceCommitted();
+				
+				if (goalSucceeded) {
+					if (choiceCommitted) {
+						goalToExecute = Commons.FAILED;
+					}
 					return true;
 				} else {
-					choiceCommitted = goalStack.peek().choiceCommitted();
-					l.setState(state);
-					state = null;
-					goalStack = GoalStack.emptyStack();
-
-					if (choiceCommitted)
-						return false;
-					else
-						currentGoal = 2;
+					if (choiceCommitted) {
+						goalToExecute = Commons.FAILED;
+						continue;
+					}
+					
+					// before we try the alternative, we
+					// have to make sure, that we do not
+					// forget to reset all (partial)
+					// bindings.
+					l.setState(lState);
+					l = null;
+					lState = null;
+					goalStack = goalStack.reduce();
 				}
+				// fall through...
+			}
 			case 2:
-				state = r.manifestState();
+				rState = r.manifestState();
 				goalStack = goalStack.put(r.call());
-				currentGoal = 3;
-
-			case 3:
-				if (goalStack.peek().next()) {
+				goalToExecute = 3;
+			case 3: {
+				Solutions s = goalStack.peek();
+				boolean goalSucceeded = s.next();
+				choiceCommitted |= s.choiceCommitted();
+				
+				if (goalSucceeded) {
+					if (choiceCommitted) {
+						goalToExecute = Commons.FAILED;
+					}
 					return true;
 				} else {
-					choiceCommitted = goalStack.peek().choiceCommitted();
-					l.setState(state);
-					state = null;
-					goalStack = GoalStack.emptyStack();
-					return false;
+					goalToExecute = Commons.FAILED;
+					continue;
 				}
+			}
 			}
 		}
 	}
 
+	
+	private void undo() {
+		// reset all bindings
+		if (lState != null)
+			l.setState(lState);
+		if (rState != null)
+			r.setState(rState);
+		// clear "everything"; help the GC (there may be
+		// long-living references to this goal!)
+		l = r = null;
+		lState = rState = null;
+		goalStack = null;
+	}
+	
 	@Override
 	public boolean choiceCommitted() {
 		return choiceCommitted;
