@@ -165,7 +165,59 @@ variable_initialization_for_clause_body(N,_Clause,ClauseVariableInitialization) 
 	atomic_list_concat(['private static Term createClause',N,'(){','}'],ClauseVariableInitialization).
 
 
-%create_term(ASTNode,TermConstructor) :-
-	
+
+create_term(ASTNode,TermConstructor,Variables) :-
+	create_term(ASTNode,TermConstructor,[],Variables).
+/**
+	@signature create_term(ASTNode,TermConstructor,OldVariables,NewVariables)
+*/
+create_term(ASTNode,TermConstructor,Vs,Vs) :-	
+	integer_atom(ASTNode,Value),!,
+%	write(ASTNode),write(' '),write(integer_atom),write(' '),write(Value),	
+	atomic_list_concat(['atom(',Value,')'],TermConstructor).
+create_term(ASTNode,TermConstructor,Vs,Vs) :-
+	float_atom(ASTNode,Value),!,
+%write(float_atom),write(' '),write(value),
+	atomic_list_concat(['atom(',Value,')'],TermConstructor).
+create_term(ASTNode,TermConstructor,Vs,Vs) :-	
+	string_atom(ASTNode,Value),!,
+%	write(string_atom),write(' '),write(value),
+	(
+		Value = '!', TermConstructor = 'cut()'
+	;
+		atomic_list_concat(['atom("',Value,'")'],TermConstructor)
+	),!.
+create_term(ASTNode,VariableName,OldVs,NewVs) :- 
+	variable(ASTNode,VariableName),!,
+	add_to_set(VariableName,OldVs,NewVs).	
+create_term(ASTNode,'variable()',Vs,Vs) :- anonymous_variable(ASTNode,_VariableName),!.	
+create_term(ASTNode,TermConstructor,OldVs,NewVs) :-
+	complex_term(ASTNode,Functor,Args),
+	(	
+		Args = [ArgASTNode],create_term(ArgASTNode,ArgTermConstructor,OldVs,NewVs),
+		atomic_list_concat(['compoundTerm("',Functor,'",',ArgTermConstructor,')'],TermConstructor)
+	;
+		Args = [LASTNode,RASTNode],
+		create_term(LASTNode,LTermConstructor,OldVs,IVs),
+		create_term(RASTNode,RTermConstructor,IVs,NewVs),
+		(
+			Functor = ',',
+			atomic_list_concat(['and(',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+		;	
+			Functor = ';',
+			atomic_list_concat(['or(',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+		;
+			atomic_list_concat(['compoundTerm("',Functor,'",',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+		)
+	;
+		create_terms(Args,TermConstructors,OldVs,NewVs),
+		atomic_list_concat(TermConstructors,',',TermConstructorArgs),
+		atomic_list_concat(['compoundTerm("',Functor,'",',TermConstructorArgs,')'],TermConstructor)		
+	),!.
+
+create_terms([Arg|Args],[TermConstructor|TermConstructors],OldVs,NewVs) :- !,
+	create_term(Arg,TermConstructor,OldVs,IVs),
+	create_terms(Args,TermConstructors,IVs,NewVs).
+create_terms([],[],Vs,Vs).
 	
 	
