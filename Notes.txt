@@ -1,3 +1,32 @@
 Some examples how to use the compiler:
 
 compile('benchmarks/queens.pl','build/src/java/').
+
+
+
+package predicates;
+
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.Variable;
+import saere.term.TermFactory;
+
+public class Main {
+
+	public static void main(String[] args) {
+		PredicateRegistry registry = PredicateRegistry.instance();
+		attack2.registerWithPredicateRegistry(registry);
+		attack3.registerWithPredicateRegistry(registry);
+		queens2.registerWithPredicateRegistry(registry);
+		queens3.registerWithPredicateRegistry(registry);
+		rangeList3.registerWithPredicateRegistry(registry);
+		selectq3.registerWithPredicateRegistry(registry);
+		
+		Variable solution = new Variable();
+		Solutions s = TermFactory.compoundTerm("time", TermFactory.compoundTerm("queens",TermFactory.atom(16), solution)).call();
+		if (s.next()) {
+			System.out.println(solution);
+		}
+	}
+
+}
