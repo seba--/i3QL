@@ -100,6 +100,7 @@
 		rule/4,
 		rule_head/2,
 		rule_body/2,
+		variables_of_term/2,
 		
 		pos_meta/2,
 		lookup_in_meta/2,
@@ -122,8 +123,10 @@
 		user_predicate/2,
 		predicate_identifier/2,
 		predicate_clauses/2,
-		clause_n/2,
+		%clause_n/2,
 		foreach_clause/3,
+		clause_definition/2,
+		clause_meta/2,
 		
 		write_ast/2,
 		write_clauses/1,
@@ -249,13 +252,13 @@ user_predicate_impl([Predicate|Predicates],UserPredicate) :-
 
 predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
 
-
+/*
 clause_n(Clauses,Clauses_N) :- clause_n_impl(Clauses,1,Clauses_N).
 clause_n_impl([Clause|Clauses],N,[(N,Clause)|OtherClauses]):- !,
 	NewN is N + 1,
 	clause_n_impl(Clauses,NewN,OtherClauses).
 clause_n_impl([],_,[]).
-
+*/
 
 
 foreach_clause(Clauses,F,Os) :- 
@@ -266,6 +269,11 @@ foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
 	NewN is N + 1,
 	foreach_clause_impl(Clauses,NewN,F,Os).
 
+
+clause_definition((Clause,_Meta),Clause).
+
+
+clause_meta((_Clause,Meta),Meta).
 
 
 
@@ -333,6 +341,7 @@ rule(Head,Body,Meta,ct(Meta,':-',[Head,Body])) :- true.
 */
 rule_head(ct(_Meta,':-',[Head,_]),Head) :- !.
 rule_head(Head,Head) :- \+ is_directive(Head).
+
 
 
 /**
@@ -652,6 +661,25 @@ term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
 */ % TODO deep documentation: make sure that the in annotation is enforced (=.. requires AST to be a complex term or an atom)
 term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
+
+
+variables_of_term(ASTNode,Vs) :- 
+	variables_of_term(ASTNode,[],Vs).
+/**
+	@signature term_variables(ASTNode,Variables)
+*/
+variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
+	add_to_set(VariableName,Vs,NewVs).
+variables_of_term(ct(_,_,Args),Vs,NewVs):-!,
+	variables_of_terms(Args,Vs,NewVs).
+variables_of_term(_,Vs,Vs).	
+
+
+variables_of_terms([Term|Terms],Vs,NewVs) :-
+	variables_of_term(Term,Vs,IVs),
+	variables_of_terms(Terms,IVs,NewVs).
+variables_of_terms([],Vs,Vs).
+	
 
 
 /* ************************************************************************** *\
