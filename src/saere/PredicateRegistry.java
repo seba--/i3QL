@@ -45,6 +45,7 @@ import saere.predicate.Or2;
 import saere.predicate.Repeat0;
 import saere.predicate.Same2;
 import saere.predicate.Smaller2;
+import saere.predicate.Time1;
 import saere.predicate.True0;
 import saere.predicate.Unify2;
 import saere.predicate.Write1;
@@ -110,6 +111,7 @@ public class PredicateRegistry {
 		Repeat0.registerWithPredicateRegistry(this);
 		Same2.registerWithPredicateRegistry(this);
 		Smaller2.registerWithPredicateRegistry(this);
+		Time1.registerWithPredicateRegistry(this);
 		True0.registerWithPredicateRegistry(this);
 		Unify2.registerWithPredicateRegistry(this);
 		Write1.registerWithPredicateRegistry(this);
