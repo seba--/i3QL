@@ -72,6 +72,11 @@ public final class True0 implements Solutions {
 			return false;
 		}
 	}
+	
+	@Override
+	public void abort() {
+		// nothing to do
+	}
 
 	@Override
 	public boolean choiceCommitted() {

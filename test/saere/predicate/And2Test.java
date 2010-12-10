@@ -4,6 +4,7 @@ import static saere.term.TermFactory.atom;
 import static saere.term.TermFactory.cut;
 import static saere.term.TermFactory.and;
 import static saere.term.TermFactory.or;
+import static saere.term.TermFactory.unify;
 import static saere.term.TermFactory.compoundTerm;
 
 import org.junit.Assert;
@@ -22,9 +23,9 @@ public class And2Test {
 		// v = 1, true.
 		
 		Variable v = new Variable();
-		Term t1 = compoundTerm("=", v,atom(1));
+		Term t1 = unify(v,atom(1));
 		Term t2 = atom("true");
-		Solutions solutions = compoundTerm(",", t1,t2).call();
+		Solutions solutions = and(t1,t2).call();
 		int solutionsCount = 0;
 		while (solutions.next()  && solutionsCount < 2) {
 			solutionsCount ++;
@@ -40,7 +41,7 @@ public class And2Test {
 		
 		Term t1 = atom("repeat");
 		Term t2 = atom("true");
-		Solutions solutions = compoundTerm(",", new Term[]{t1,t2}).call();
+		Solutions solutions = and(t1,t2).call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 1000) {
 			solutionsCount ++;
@@ -56,8 +57,8 @@ public class And2Test {
 		Term t1 = atom("repeat");
 		Term t2 = atom("true");
 		Term t3 = atom("!");
-		Term t4 = compoundTerm(",", new Term[]{t1,t2});
-		Term t5 = compoundTerm(",", new Term[]{t4,t3});
+		Term t4 = and(t1,t2);
+		Term t5 = and(t4,t3);
 		Solutions solutions = t5.call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 2) {
@@ -74,8 +75,8 @@ public class And2Test {
 		Term t1 = atom("repeat");
 		Term t2 = atom("true");
 		Term t3 = atom("!");
-		Term t4 = compoundTerm(",", new Term[]{t1,t3});
-		Term t5 = compoundTerm(",", new Term[]{t4,t2});
+		Term t4 = and(t1,t3);
+		Term t5 = and(t4,t2);
 		Solutions solutions = t5.call();
 		int solutionsCount = 0;
 		while (solutions.next() && solutionsCount < 2) {

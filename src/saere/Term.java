@@ -143,7 +143,7 @@ public abstract class Term {
 	public IntegerAtom asIntegerAtom() {
 		throw new ClassCastException();
 	}
-	
+
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
 	 *         {@link FloatAtom}.
@@ -194,7 +194,6 @@ public abstract class Term {
 				+ ") is not an arithmetic term");
 	}
 
-	
 	/**
 	 * @return Evaluates the arithmetic expression represented by this term, if
 	 *         possible.
@@ -204,9 +203,8 @@ public abstract class Term {
 	public double floatEval() {
 		throw new IllegalStateException("this term (" + this.toString()
 				+ ") is not an arithmetic term");
-	}	
-	
-	
+	}
+
 	public Solutions call() {
 		throw new IllegalStateException("this term (" + this.toString()
 				+ ") cannot be called");

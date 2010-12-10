@@ -37,20 +37,20 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-/** 
- * Prolog's arithmetic equals operator: "=:=".
- *  
- * @author Michael Eichberg 
+/**
+ * ISO Prolog's arithmetic not-equals operator: "=\=".
+ * 
+ * @author Michael Eichberg
  */
-public class Same2 implements Solutions {
+public final class ArithNotEqual2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance("=:="), 2,
+		registry.register(StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
 					public Solutions createPredicateInstance(Term[] args) {
-						return new Same2(args[0], args[1]);
+						return new ArithNotEqual2(args[0], args[1]);
 					}
 				});
 
@@ -60,7 +60,8 @@ public class Same2 implements Solutions {
 	private final Term r;
 	private boolean called = false;
 
-	public Same2(Term l, Term r) {
+	public ArithNotEqual2(Term l, Term r) {
+		super();
 		this.l = l;
 		this.r = r;
 	}
@@ -69,10 +70,15 @@ public class Same2 implements Solutions {
 	public boolean next() {
 		if (!called) {
 			called = true;
-			return isSame(l, r);
+			return isNotSame(l, r);
 		} else {
 			return false;
 		}
+	}
+	
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override
@@ -80,7 +86,7 @@ public class Same2 implements Solutions {
 		return false;
 	}
 
-	public static boolean isSame(Term l, Term r) {
-		return l.intEval() == r.intEval();
+	public static boolean isNotSame(Term l, Term r) {
+		return l.intEval() != r.intEval();
 	}
 }

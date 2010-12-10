@@ -48,7 +48,7 @@ import saere.Variable;
 public final class Is2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance("is"), 2,
+		registry.register(StringAtom.IS_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -82,7 +82,16 @@ public final class Is2 implements Solutions {
 		}
 
 		l.setState(lState);
+		lState = null;
 		return false;
+	}
+
+	@Override
+	public void abort() {
+		if (lState != null) {
+			l.setState(lState);
+			lState = null;
+		}
 	}
 
 	@Override
@@ -103,4 +112,5 @@ public final class Is2 implements Solutions {
 			return a1.intEval() == a2Value;
 		}
 	}
+
 }

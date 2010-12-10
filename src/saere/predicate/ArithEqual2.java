@@ -37,52 +37,55 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-/**
- * Implementation of ISO Prolog's <code>repeat/0</code> predicate.
- * 
- * @author Michael Eichberg
+/** 
+ * Prolog's arithmetic equals operator: "=:=".
+ *  
+ * @author Michael Eichberg 
  */
-public final class Repeat0 implements Solutions {
-
-	// ?- repeat,write(x),fail.
-	// xxxxxxxx.....xxxxxx
-
-	// ?- repeat,write(x),!,fail.
-	// x
-	// false.
+public class ArithEqual2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-
-		registry.register(StringAtom.instance("repeat"), 0,
+		registry.register(StringAtom.ARITH_IS_EQUAL_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
 					public Solutions createPredicateInstance(Term[] args) {
-						return REPEAT0;
+						return new ArithEqual2(args[0], args[1]);
 					}
 				});
 
 	}
 
-	public final static Repeat0 REPEAT0 = new Repeat0();
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
 
-	public Repeat0() {
-		// nothing to do
+	public ArithEqual2(Term l, Term r) {
+		this.l = l;
+		this.r = r;
 	}
 
 	@Override
 	public boolean next() {
-		return true;
+		if (!called) {
+			called = true;
+			return isSame(l, r);
+		} else {
+			return false;
+		}
 	}
-	
+
 	@Override
 	public void abort() {
 		// nothing to do
 	}
-
+	
 	@Override
 	public boolean choiceCommitted() {
 		return false;
 	}
 
+	public static boolean isSame(Term l, Term r) {
+		return l.intEval() == r.intEval();
+	}
 }

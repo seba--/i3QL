@@ -16,70 +16,89 @@ public class TermFactory {
 		return instance;
 	}
 
-	private TermFactory() {
+	protected TermFactory() {
 	}
 
-	public Variable newVariable() {
+	protected Variable newVariable() {
 		return new Variable();
 	}
 
-	public Variable newNamedVariable(String name) {
+	protected Variable newNamedVariable(String name) {
 		// TODO support named variables
 		return new Variable();
 	}
 
-	public Atom newAtom(long value) {
+	protected Atom newAtom(long value) {
 		return IntegerAtom.IntegerAtom(value);
 	}
 
-	public Atom newAtom(double value) {
+	protected Atom newAtom(double value) {
 		return FloatAtom.instance(value);
 	}
 
-	
-	public Atom newAtom(String string) {
+	protected Atom newAtom(String string) {
 		return StringAtom.instance(string);
 	}
 
-	private CompoundTerm newCompoundTerm(String functor, Term[] args) {
-	
-		assert(args.length > 0);
-		
+	protected Atom newCut() {
+		return StringAtom.CUT_FUNCTOR;
+	}
+
+	protected Atom newEmptyList() {
+		return StringAtom.EMPTY_LIST_FUNCTOR;
+	}
+
+	protected CompoundTerm newAnd(Term t1, Term t2) {
+		return new And2(t1, t2);
+	}
+
+	protected CompoundTerm newOr(Term t1, Term t2) {
+		return new Or2(t1, t2);
+	}
+
+	protected CompoundTerm newUnify(Term t1, Term t2) {
+		return new Equals2(t1, t2);
+	}
+
+	private CompoundTerm newCompoundTerm(StringAtom functor, Term[] args) {
+
+		assert (args.length > 0);
+
 		// arithmetic expression require special support
 		switch (args.length) {
 		case 1:
 			// Terms with one argument
-			switch (functor.charAt(0)) {
-			case '-' :
+			switch (functor.rawValue()[0]) {
+			case '-':
 				return new Minus1(args[0]);
 			default:
-				return new GenericCompoundTerm(StringAtom.instance(functor), args);
+				return new GenericCompoundTerm(functor, args);
 			}
 		case 2:
 			// Terms with two arguments
-			switch (functor.charAt(0)) {
-			
-			// control-flow related terms
-			case ',' :
-				return new And2(args[0],args[1]);
-			case ';' :
-				return new Or2(args[0],args[1]);
+			switch (functor.rawValue()[0]) {
 
-			// arithmetic terms
-			case '-' :
-				return new Minus2(args[0],args[1]);
-			case '+' :
-				return new Plus2(args[0],args[1]);
-				
-			// other commonly used terms
-			case '.' :
-				return new ListElement2(args[0],args[1]);
+			// control-flow related terms
+			case ',':
+				return new And2(args[0], args[1]);
+			case ';':
+				return new Or2(args[0], args[1]);
+
+				// arithmetic terms
+			case '-':
+				return new Minus2(args[0], args[1]);
+			case '+':
+				return new Plus2(args[0], args[1]);
+
+				// other commonly used terms
+			case '.':
+				return new ListElement2(args[0], args[1]);
 			default:
-				return new GenericCompoundTerm(StringAtom.instance(functor), args);
+				return new GenericCompoundTerm(functor, args);
 			}
 
 		default:
-			return new GenericCompoundTerm(StringAtom.instance(functor), args);
+			return new GenericCompoundTerm(functor, args);
 		}
 	}
 
@@ -98,7 +117,6 @@ public class TermFactory {
 		return getInstance().newAtom(value);
 	}
 
-	
 	public static Variable variable() {
 		return getInstance().newVariable();
 	}
@@ -107,20 +125,30 @@ public class TermFactory {
 		return getInstance().newNamedVariable(name);
 	}
 
-	public static CompoundTerm compoundTerm(String functor, Term... args) {
+	public static CompoundTerm compoundTerm(StringAtom functor, Term... args) {
 		return getInstance().newCompoundTerm(functor, args);
 	}
 
+	// Special methods for the most standard Prolog terms
+
 	public static Atom cut() {
-		return getInstance().newAtom("!");
+		return getInstance().newCut();
 	}
-	
+
+	public static Atom emptyList() {
+		return getInstance().newEmptyList();
+	}
+
 	public static CompoundTerm and(Term t1, Term t2) {
-		return getInstance().newCompoundTerm(",", new Term[]{t1,t2});
+		return getInstance().newAnd(t1, t2);
 	}
-	
+
 	public static CompoundTerm or(Term t1, Term t2) {
-		return getInstance().newCompoundTerm(";", new Term[]{t1,t2});
+		return getInstance().newOr(t1, t2);
+	}
+
+	public static CompoundTerm unify(Term t1, Term t2) {
+		return getInstance().newUnify(t1, t2);
 	}
 
 }

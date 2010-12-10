@@ -54,8 +54,6 @@ public final class And2 implements Solutions {
 
 	private Term l;
 	private Term r;
-//	private State lState;
-//	private State rState;
 
 	private boolean choiceCommitted = false;
 
@@ -70,67 +68,49 @@ public final class And2 implements Solutions {
 	public boolean next() {
 		while (true) {
 			switch (goalToExecute) {
-			case Commons.FAILED :
-				undo();
-				return false;
-			case 0: // Initialization
-//				lState = l.manifestState();
+
+			case 0:
 				goalStack = goalStack.put(l.call());
 			case 1: {
-				// call (or redo) the first/the left goal
-				Solutions s = goalStack.peek();
-				boolean goalSucceeded = s.next();
-				choiceCommitted = choiceCommitted | s.choiceCommitted();
-
-				if (!goalSucceeded) {
-					goalToExecute = Commons.FAILED;
-					continue;
+				final Solutions s = goalStack.peek();
+				final boolean succeeded = s.next();
+				if (!succeeded) {
+					choiceCommitted = s.choiceCommitted();
+					return false;
 				}
-				if (choiceCommitted)
-					goalStack = goalStack.drop();
-				
-				// prepare call of the second goal
-//				if (rState == null)
-//					rState = r.manifestState();
+
+				// preparation for calling the second goal
 				goalStack = goalStack.put(r.call());
 				goalToExecute = 2;
 			}
 			case 2: {
-				// call (or redo) the second/the right goal
-				Solutions s = goalStack.peek();
-				boolean goalSucceeded = s.next();
-		
-				if (!goalSucceeded) {
-					if (s.choiceCommitted() || choiceCommitted) {
-						choiceCommitted = true;
-						goalToExecute = Commons.FAILED;
-					} else {
-						goalStack = goalStack.drop();
-						goalToExecute = 1;
-					}
-					continue;
-				} else {
+				final Solutions s = goalStack.peek();
+				final boolean succeeded = s.next();
+				if (!succeeded) {
+					goalStack = goalStack.drop();
+
 					if (s.choiceCommitted()) {
+						goalStack.peek().abort();
 						choiceCommitted = true;
-						goalToExecute = Commons.FAILED;
-					} 
-					return true;
+						return false;
+					} else {
+						goalToExecute = 1;
+						continue;
+					}
 				}
+
+				return true;
 			}
 			}
 		}
 	}
-	
-	private void undo() {
-		// reset all bindings
-//		l.setState(lState);
-//		if (rState != null)
-//			r.setState(rState);
-		// clear "everything"; help the GC (there may be
-		// long-living references to this goal!)
-		l = r = null;
-//		lState = rState = null;
-		goalStack = null;
+
+	@Override
+	public void abort() {
+		while (goalStack.isNotEmpty()) {
+			goalStack.peek().abort();
+			goalStack = goalStack.drop();
+		}
 	}
 
 	@Override

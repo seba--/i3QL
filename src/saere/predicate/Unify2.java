@@ -53,23 +53,24 @@ public final class Unify2 implements Solutions {
 
 	}
 
-	private final Term l;
-	private final Term r;
-	private final State lState;
-	private final State rState;
+	private Term l;
+	private Term r;
+	private State lState;
+	private State rState;
 
 	private boolean called = false;
 
 	public Unify2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-		this.lState = l.manifestState();
-		this.rState = r.manifestState();
 	}
 
 	public boolean next() {
 		if (!called) {
 			called = true;
+			
+			this.lState = l.manifestState();
+			this.rState = r.manifestState();
 			if (l.unify(r)) {
 				return true;
 			}
@@ -80,6 +81,12 @@ public final class Unify2 implements Solutions {
 		return false;
 	}
 
+	@Override
+	public void abort() {
+		l.setState(lState);
+		r.setState(rState);
+	}
+	
 	@Override
 	public boolean choiceCommitted() {
 		return false;

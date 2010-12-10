@@ -35,21 +35,19 @@ import java.nio.charset.Charset;
 import java.util.WeakHashMap;
 import java.lang.ref.WeakReference;
 
-
 /**
  * Representation of a string atom.
  * 
  * @author Michael Eichberg
  */
 public final class StringAtom extends Atom {
- 
-	
-	private final byte[] title;
-	//private final int hashCode;
+
+	private final byte[] value;
+	private final int hashCode;
 
 	private StringAtom(byte[] title) {
-		this.title = title;
-		//hashCode = java.util.Arrays.hashCode(title);
+		this.value = title;
+		this.hashCode = java.util.Arrays.hashCode(title);
 	}
 
 	@Override
@@ -62,6 +60,7 @@ public final class StringAtom extends Atom {
 		return this;
 	}
 
+	@Override
 	public StringAtom functor() {
 		return this;
 	}
@@ -83,7 +82,7 @@ public final class StringAtom extends Atom {
 	public boolean equals(Object other) {
 		if (other instanceof StringAtom) {
 			StringAtom other_sa = (StringAtom) other;
-			return java.util.Arrays.equals(this.title, other_sa.title);
+			return java.util.Arrays.equals(this.value, other_sa.value);
 		} else {
 			return false;
 		}
@@ -93,26 +92,25 @@ public final class StringAtom extends Atom {
 	 * @return the hashcode value as calculated by
 	 *         java.util.Arrays.hashCode(title)
 	 */
+	@Override
 	public int hashCode() {
-		// hashCode is only called once (when put in the cache)
-		// TODO check if it is worth to calcultate the hashcode once 
-		return java.util.Arrays.hashCode(title);
-		//return hashCode;
+		return hashCode;
 	}
 
 	@Override
 	public String toString() {
-		return new String(title);
+		return new String(value);
 	}
-
 
 	@Override
-	public Solutions call(){
-		
-		return PredicateRegistry.instance().createPredicateInstance(this, Term.NO_TERMS);
-		
+	public Solutions call() {
+		return PredicateRegistry.instance().createPredicateInstance(this,
+				Term.NO_TERMS);
 	}
-	
+
+	public byte[] rawValue() {
+		return value;
+	}
 	
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
 
@@ -140,12 +138,13 @@ public final class StringAtom extends Atom {
 			return interned.get();
 		}
 	}
-	
+
 	public static final StringAtom UNIFY_FUNCTOR = instance("=");
+	public static final StringAtom DOES_NOT_UNIFY_FUNCTOR = instance("\\=");
 
 	public static final StringAtom EMPTY_LIST_FUNCTOR = instance("[]");
 	public static final StringAtom LIST_FUNCTOR = instance(".");
-	
+
 	public static final StringAtom AND_FUNCTOR = instance(",");
 	public static final StringAtom OR_FUNCTOR = instance(";");
 	public static final StringAtom CUT_FUNCTOR = instance("!");
@@ -154,8 +153,14 @@ public final class StringAtom extends Atom {
 	public static final StringAtom TRUE_FUNCTOR = instance("true");
 	public static final StringAtom FALSE_FUNCTOR = instance("false");
 	public static final StringAtom FAIL_FUNCTOR = instance("fail");
-	
+	public static final StringAtom NOT_FUNCTOR = instance("not");
+	public static final StringAtom NOT_OPERATOR_FUNCTOR = instance("\\+");
+
+	public static final StringAtom IS_FUNCTOR = instance("is");
 	public static final StringAtom MULT_FUNCTOR = instance("*");
 	public static final StringAtom MINUS_FUNCTOR = instance("-");
 	public static final StringAtom PLUS_FUNCTOR = instance("+");
+	public static final StringAtom ARITH_SMALLER_THAN_FUNCTOR = instance("<");
+	public static final StringAtom ARITH_IS_EQUAL_FUNCTOR = instance("=:=");
+	public static final StringAtom ARITH_IS_NOT_EQUAL_FUNCTOR = instance("=\\=");
 }

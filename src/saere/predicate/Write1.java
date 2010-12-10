@@ -59,7 +59,7 @@ public class Write1 implements Solutions {
 
 	}
 
-	private final Term t;
+	private Term t;
 
 	private boolean called = false;
 
@@ -67,14 +67,21 @@ public class Write1 implements Solutions {
 		this.t = t;
 	}
 
+	@Override
 	public boolean next() {
 		if (!called) {
 			called = true;
 			System.out.print(t.toString());
+			t = null;
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

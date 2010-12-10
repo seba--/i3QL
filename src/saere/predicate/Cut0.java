@@ -78,4 +78,9 @@ public final class Cut0 implements Solutions {
 		return true;
 	}
 
+	@Override
+	public void abort() {
+		// nothing to do		
+	}
+
 }

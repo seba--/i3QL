@@ -69,8 +69,8 @@ public final class Not1 implements Solutions {
 				return new Not1(args[0]);
 			}
 		};
-		registry.register(StringAtom.instance("\\+"), 1, pif);
-		registry.register(StringAtom.instance("not"), 1, pif);
+		registry.register(StringAtom.NOT_FUNCTOR, 1, pif);
+		registry.register(StringAtom.NOT_OPERATOR_FUNCTOR, 1, pif);
 
 	}
 
@@ -83,16 +83,27 @@ public final class Not1 implements Solutions {
 		this.t = t;
 	}
 
+	@Override
 	public boolean next() {
 		if (!called) {
 			called = true;
-			State tState = t.manifestState();
-			boolean success = t.call().next();
-			t.setState(tState); // to reset partial bindings
-			return !success;
+			final Solutions s = t.call();
+			final boolean succeeded = s.next();
+			if (succeeded) {
+				s.abort();
+				return false;
+			}
+			else {
+				return true;
+			}
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

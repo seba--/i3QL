@@ -29,59 +29,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
+package saere.term;
 
-import saere.PredicateInstanceFactory;
-import saere.PredicateRegistry;
+
+import saere.CompoundTerm;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-/**
- * ISO Prolog's arithmetic not-equals operator: "=\=".
- * 
- * @author Michael Eichberg
- */
-public final class NotSame2 implements Solutions {
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance("=\\="), 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new NotSame2(args[0], args[1]);
-					}
-				});
-
-	}
+final class Equals2 extends CompoundTerm {
 
 	private final Term l;
 	private final Term r;
-	private boolean called = false;
 
-	public NotSame2(Term l, Term r) {
-		super();
-		this.l = l;
+	public Equals2(Term l, Term r) {
 		this.r = r;
+		this.l = l;
 	}
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return isNotSame(l, r);
-		} else {
-			return false;
-		}
+	public int arity() {
+		return 2;
 	}
 
 	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public StringAtom functor() {
+		return StringAtom.UNIFY_FUNCTOR;
 	}
 
-	public static boolean isNotSame(Term l, Term r) {
-		return l.intEval() != r.intEval();
+	@Override
+	public Term arg(int i) {
+		return i == 0 ? l : r;
+	}
+
+	@Override
+	public String toString() {
+		return "(" + l + " = " + r + ")";
+	}
+
+	@Override
+	public Solutions call() {
+		return new saere.predicate.Unify2(l, r);
 	}
 }

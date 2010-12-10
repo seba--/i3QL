@@ -48,7 +48,7 @@ public final class NotUnify2 implements Solutions {
 	public static void registerWithPredicateRegistry(
 			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.register(StringAtom.instance("\\="), 2,
+		predicateRegistry.register(StringAtom.DOES_NOT_UNIFY_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -59,8 +59,8 @@ public final class NotUnify2 implements Solutions {
 
 	}
 
-	private final Term l;
-	private final Term r;
+	private Term l;
+	private Term r;
 
 	private boolean called = false;
 
@@ -81,13 +81,18 @@ public final class NotUnify2 implements Solutions {
 			// will not be bound!
 			l.setState(lState);
 			r.setState(rState);
-			lState = null;
-			rState = null;
+			l = r = null;
+			lState = rState = null;
 
 			return !success;
 		} else {
 			return false;
 		}
+	}
+	
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

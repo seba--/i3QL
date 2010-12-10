@@ -60,6 +60,11 @@ public abstract class GoalStack {
 		public GoalStack drop() {
 			throw new IllegalStateException("the goal stack is empty");
 		}
+		
+		@Override
+		public boolean isNotEmpty() {
+			return false;
+		}
 	}
 
 	private final static class SomeGoalStack extends GoalStack {
@@ -87,6 +92,11 @@ public abstract class GoalStack {
 			return goalStack;
 		}
 
+		@Override
+		public boolean isNotEmpty() {
+			return true;
+		}
+
 	}
 
 	private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
@@ -97,6 +107,8 @@ public abstract class GoalStack {
 
 	public abstract GoalStack drop();
 
+	public abstract boolean isNotEmpty();
+	
 	public static GoalStack emptyStack() {
 		return EMPTY_GOAL_STACK;
 	}

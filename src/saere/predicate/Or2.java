@@ -41,7 +41,7 @@ import saere.*;
 public final class Or2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance(";"), 2,
+		registry.register(StringAtom.OR_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -54,8 +54,6 @@ public final class Or2 implements Solutions {
 
 	private Term l;
 	private Term r;
-//	private State lState;
-//	private State rState;
 
 	private boolean choiceCommitted = false;
 
@@ -70,75 +68,52 @@ public final class Or2 implements Solutions {
 	public boolean next() {
 		while (true) {
 			switch (goalToExecute) {
-			case Commons.FAILED :
-				undo();
-				return false;			
-			case 0: // Initialization
-//				lState = l.manifestState();
+			case 0:
+				// prepare left goal...
 				goalStack = goalStack.put(l.call());
 				goalToExecute = 1;
-			case 1: {
+			case 1:{
+				// evaluate left goal...
 				Solutions s = goalStack.peek();
-				boolean goalSucceeded = s.next();
-				choiceCommitted |= s.choiceCommitted();
-				
-				if (goalSucceeded) {
-					if (choiceCommitted) {
-						goalToExecute = Commons.FAILED;
-					}
-					return true;
-				} else {
-					if (choiceCommitted) {
-						goalToExecute = Commons.FAILED;
-						continue;
-					}
-					
-					// before we try the alternative, we
-					// have to make sure, that we do not
-					// forget to reset all (partial)
-					// bindings.
-//					l.setState(lState);
-					l = null;
-//					lState = null;
-					goalStack = goalStack.drop();
+				if(s.next()) {
+					return true;	
 				}
-				// fall through...
-			}
-			case 2:
-//				rState = r.manifestState();
+				
+				// the left goal failed... 
+				if (s.choiceCommitted()) {
+					choiceCommitted = true;
+					return false;
+				}
+				
+				// prepare right goal...
+				l = null;
+				goalStack = GoalStack.emptyStack();
 				goalStack = goalStack.put(r.call());
-				goalToExecute = 3;
-			case 3: {
-				Solutions s = goalStack.peek();
-				boolean goalSucceeded = s.next();
-				choiceCommitted |= s.choiceCommitted();
+				goalToExecute = 2;
 				
-				if (goalSucceeded) {
-					if (choiceCommitted) {
-						goalToExecute = Commons.FAILED;
-					}
-					return true;
-				} else {
-					goalToExecute = Commons.FAILED;
-					continue;
+			}
+			case 2: {
+				// evaluate right goal...
+				Solutions s = goalStack.peek();
+				if(s.next()) {
+					return true;	
 				}
+				
+				// the right goal (also) failed...
+				choiceCommitted = s.choiceCommitted();
+				return false;
 			}
 			}
 		}
 	}
 
 	
-	private void undo() {
-		// reset all bindings
-//		if (lState != null)
-//			l.setState(lState);
-//		if (rState != null)
-//			r.setState(rState);
-		// clear "everything"; help the GC (there may be
-		// long-living references to this goal!)
-		l = r = null;
-//		lState = rState = null;
-		goalStack = null;
+	@Override
+	public void abort() {
+		while (goalStack.isNotEmpty()) {
+			goalStack.peek().abort();
+			goalStack = goalStack.drop();
+		}
 	}
 	
 	@Override

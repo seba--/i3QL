@@ -39,11 +39,11 @@ import saere.predicate.Cut0;
 import saere.predicate.False0;
 import saere.predicate.Is2;
 import saere.predicate.Not1;
-import saere.predicate.NotSame2;
+import saere.predicate.ArithNotEqual2;
 import saere.predicate.NotUnify2;
 import saere.predicate.Or2;
 import saere.predicate.Repeat0;
-import saere.predicate.Same2;
+import saere.predicate.ArithEqual2;
 import saere.predicate.Smaller2;
 import saere.predicate.Time1;
 import saere.predicate.True0;
@@ -76,7 +76,7 @@ public class PredicateRegistry {
 			if (other instanceof Predicate) {
 				Predicate otherPredicate = (Predicate) other;
 				return this.arity == otherPredicate.arity
-						&& this.functor == otherPredicate.functor;
+						&& this.functor.sameAs(otherPredicate.functor);
 			}
 			return false;
 		}
@@ -105,11 +105,11 @@ public class PredicateRegistry {
 		False0.registerWithPredicateRegistry(this);
 		Is2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
-		NotSame2.registerWithPredicateRegistry(this);
+		ArithNotEqual2.registerWithPredicateRegistry(this);
 		NotUnify2.registerWithPredicateRegistry(this);
 		Or2.registerWithPredicateRegistry(this);
 		Repeat0.registerWithPredicateRegistry(this);
-		Same2.registerWithPredicateRegistry(this);
+		ArithEqual2.registerWithPredicateRegistry(this);
 		Smaller2.registerWithPredicateRegistry(this);
 		Time1.registerWithPredicateRegistry(this);
 		True0.registerWithPredicateRegistry(this);
@@ -129,7 +129,6 @@ public class PredicateRegistry {
 		Predicate p = new Predicate(functor, args.length);
 		PredicateInstanceFactory pif = predicates.get(p);
 		return pif.createPredicateInstance(args);
-
 	}
 
 }

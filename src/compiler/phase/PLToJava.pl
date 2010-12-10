@@ -138,7 +138,13 @@ main_template(Functor,Arity,Template,Core) :-
 		'	public ',Functor,Arity,'(',ConcatenatedConstructorArgs,'){\n',
 		'		',ConcatenatedTermVariablesInitializations,';\n',
 		'	}\n\n',
-		Core,'\n',	
+		Core,'\n',
+		'	@Override\n',
+		'	public void abort() {\n',
+		'		clauseSolutions.abort();\n',
+		'		clauseSolutions = null;\n',
+		'		clauseImplementation = null;\n',				
+		'	}\n\n',			
 		'	@Override\n',
 		'	public boolean choiceCommitted() {\n',
 		'		return false;\n',
@@ -190,11 +196,13 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 	'\t\t}\n',
 	'\t\tcase ',SolutionBranch,':{\n',
 	'\t\t\tboolean succeeded = clauseSolutions.next();\n',
-	'\t\t\tif (clauseSolutions.choiceCommitted()){\n',
-	'\t\t\t\tclauseToExecute = -1;\n', 
-	'\t\t\t\treturn succeeded;\n',
-	'\t\t\t}\n',
 	'\t\t\tif (succeeded) return true;\n',
+	'\t\t\tif (clauseSolutions.choiceCommitted()){\n',
+	'\t\t\t\tclauseImplementation = null;\n', 
+	'\t\t\t\tclauseSolutions = null;\n', 	
+	'\t\t\t\treturn false;\n',
+	'\t\t\t}\n',
+
 	'\t\t}\n'
 	],
 	atomic_list_concat(ClauseBranch,ConcatenatedClauseBranch),
@@ -213,9 +221,9 @@ create_clause_variables(Head,BodyVariables,ClauseVariablesDefinitions) :-
 	atomic_list_concat(ClauseVariables,'\n\t\t\t',ConcatenatedClauseVariables),
 	create_arg_head_variables_mapping(0,HeadVariables,HeadVariablesMapping),
 	atomic_list_concat(HeadVariablesMapping,'\n\t\t\t',ConcatenatedHeadVariablesMapping),
-	atom_concat(
-		ConcatenatedHeadVariablesMapping,
-		ConcatenatedClauseVariables,
+	atomic_list_concat([
+		ConcatenatedHeadVariablesMapping,'\n\t\t\t',
+		ConcatenatedClauseVariables],
 		ClauseVariablesDefinitions).
 
 
@@ -280,13 +288,17 @@ create_term(ASTNode,TermConstructor,OldVs,NewVs) :-
 		;	
 			Functor = ';',
 			atomic_list_concat(['or(',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+		;	
+			Functor = '=',
+			atomic_list_concat(['unify(',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+
 		;
-			atomic_list_concat(['compoundTerm("',Functor,'",',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+			atomic_list_concat(['compoundTerm(StringAtom.instance("',Functor,'"),',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
 		)
 	;
 		create_terms(Args,TermConstructors,OldVs,NewVs),
 		atomic_list_concat(TermConstructors,',',TermConstructorArgs),
-		atomic_list_concat(['compoundTerm("',Functor,'",',TermConstructorArgs,')'],TermConstructor)		
+		atomic_list_concat(['compoundTerm(StringAtom.instance("',Functor,'"),',TermConstructorArgs,')'],TermConstructor)		
 	),!.
 
 create_terms([Arg|Args],[TermConstructor|TermConstructors],OldVs,NewVs) :- !,

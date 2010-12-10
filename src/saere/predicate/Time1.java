@@ -61,6 +61,8 @@ public final class Time1 implements Solutions {
 
 	private long duration;
 	
+	private Solutions solutions;
+	
 	public Time1(final Term t) {
 
 		this.t = t;
@@ -69,14 +71,23 @@ public final class Time1 implements Solutions {
 	public boolean next() {
 		if (!called) {
 			called = true;
-			long startTime = System.nanoTime();
-			t.call().next();
+			final long startTime = System.nanoTime();
+			solutions = t.call();
+			if (!solutions.next()) {
+				solutions = null;
+			}
 			duration = ((System.nanoTime()-startTime));
 			System.out.println(duration/1000.0/1000.0/1000.0);
 			return true;
 		} else {
+			if (solutions != null) solutions.abort();
 			return false;
 		}
+	}
+	
+	@Override
+	public void abort() {
+		if (solutions != null) solutions.abort();
 	}
 
 	@Override

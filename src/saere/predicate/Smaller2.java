@@ -45,7 +45,7 @@ import saere.Term;
 public class Smaller2 implements Solutions {
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance("<"), 2,
+		registry.register(StringAtom.ARITH_SMALLER_THAN_FUNCTOR, 2,
 				new PredicateInstanceFactory() {
 
 					@Override
@@ -74,6 +74,11 @@ public class Smaller2 implements Solutions {
 		} else {
 			return false;
 		}
+	}
+	
+	@Override
+	public void abort() {
+		// nothing to do...
 	}
 
 	@Override

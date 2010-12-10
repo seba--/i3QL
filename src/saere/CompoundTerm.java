@@ -94,7 +94,7 @@ public abstract class CompoundTerm extends Term {
 	 */
 	public boolean unify(CompoundTerm other) {
 		if (this.arity() == other.arity()
-				&& this.functor().equals(other.functor())) {
+				&& this.functor().sameAs(other.functor())) {
 			int i = 0;
 			final int a = arity();
 			while (i < a) {
