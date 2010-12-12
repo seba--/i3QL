@@ -31,38 +31,117 @@
  */
 package saere;
 
+import java.util.Arrays;
+
 /**
  * Encapsulate's the state of a compound term's arguments.
  * 
  * @author Michael Eichberg
  */
 final class CompoundTermState extends State {
+	//
+	// IMPROVE Is it more efficient to just save the state of the variables?
+	// final static class ListOfStates {
+	//
+	// private final VariableState state;
+	// private ListOfStates tail;
+	//
+	// ListOfStates(VariableState state) {
+	// this.state = state;
+	// }
+	//
+	// @SuppressWarnings("hiding")
+	// ListOfStates append(VariableState state) {
+	// ListOfStates tail = new ListOfStates(state);
+	// this.tail = tail;
+	// return tail;
+	// }
+	//
+	// ListOfStates apply(Variable variable) {
+	// variable.setState(state);
+	// return tail;
+	// }
+	//
+	// }
+	//
+	// private ListOfStates first = null;
+	// private ListOfStates temp = null;
+	//
+	// CompoundTermState(CompoundTerm compoundTerm) {
+	// doManifest(compoundTerm);
+	// }
+	//
+	// // we only manifest the state of the variables...
+	// private void doManifest(CompoundTerm compoundTerm) {
+	// for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+	// Term arg_i = compoundTerm.arg(i);
+	// if (arg_i.isVariable()) {
+	// VariableState vs = arg_i.asVariable().manifestState();
+	// if (first == null)
+	// temp = first = new ListOfStates(vs);
+	// else
+	// temp = temp.append(vs);
+	// } else if (arg_i.isCompoundTerm()) {
+	// doManifest(arg_i.asCompoundTerm());
+	// }
+	// }
+	// }
+	//
+	// void apply(CompoundTerm compoundTerm) {
+	// temp = first;
+	// doApply(compoundTerm);
+	//
+	// }
+	//
+	// void doApply(CompoundTerm compoundTerm) {
+	// for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+	// Term arg_i = compoundTerm.arg(i);
+	// if (arg_i.isVariable()) {
+	// temp = temp.apply(arg_i.asVariable());
+	// } else if (arg_i.isCompoundTerm()) {
+	// doApply(arg_i.asCompoundTerm());
+	// }
+	// }
+	// }
+	//
+	// @Override
+	// CompoundTermState asCompoundTermState() {
+	// return this;
+	// }
 
 	private final State[] states;
 
-	// IMPROVE It should be more efficient to just save the free variables
+	
 
 	CompoundTermState(CompoundTerm compoundTerm) {
-
-		states = new State[(compoundTerm.arity())];
+		final int arity = compoundTerm.arity();
+		states = new State[arity];
 		// Initializer / constructor
 		int i = 0;
-		while (i < compoundTerm.arity()) {
+		while (i < arity) {
 			states[i] = compoundTerm.arg(i).manifestState();
 			i += 1;
 		}
 	}
 
 	@Override
-	public CompoundTermState asCompoundTermState() {
+	CompoundTermState asCompoundTermState() {
 		return this;
 	}
 
-	public void apply(CompoundTerm compoundTerm) {
+	void apply(CompoundTerm compoundTerm) {
+		final int arity = compoundTerm.arity();
 		int i = 0;
-		while (i < compoundTerm.arity()) {
+		while (i < arity) {
 			compoundTerm.arg(i).setState(states[i]);
 			i += 1;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "CompoundTermState[id=" + hashCode() + "; states="
+				+ Arrays.toString(states) + "]";
+	}
+
 }

@@ -17,6 +17,7 @@ public class TermFactory {
 	}
 
 	protected TermFactory() {
+		// nothing to do...
 	}
 
 	protected Variable newVariable() {

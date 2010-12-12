@@ -31,7 +31,12 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.State;
+import saere.StringAtom;
+import saere.Term;
 
 /**
  * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
@@ -65,10 +70,10 @@ public final class Unify2 implements Solutions {
 		this.r = r;
 	}
 
+	@Override
 	public boolean next() {
 		if (!called) {
 			called = true;
-			
 			this.lState = l.manifestState();
 			this.rState = r.manifestState();
 			if (l.unify(r)) {
@@ -86,7 +91,7 @@ public final class Unify2 implements Solutions {
 		l.setState(lState);
 		r.setState(rState);
 	}
-	
+
 	@Override
 	public boolean choiceCommitted() {
 		return false;

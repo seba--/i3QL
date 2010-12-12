@@ -1,10 +1,3 @@
-Some examples how to use the compiler:
-
-
-compile('demo/queens/Queens.pl','build/src/java').
-
-
-
 package predicates;
 
 import saere.PredicateRegistry;
@@ -13,7 +6,7 @@ import saere.StringAtom;
 import saere.Variable;
 import static saere.term.TermFactory.*;
 
-public class Main {
+public class MainQueens {
 
 	public static void main(String[] args) {
 		PredicateRegistry registry = PredicateRegistry.instance();
@@ -25,13 +18,19 @@ public class Main {
 		range3.registerWithPredicateRegistry(registry);
 		select3.registerWithPredicateRegistry(registry);
 
-		Variable solution = new Variable();
-		StringAtom time = StringAtom.instance("time");
-		StringAtom queens = StringAtom.instance("queens");
-		Solutions s = compoundTerm(time, compoundTerm(queens,atom(20), solution)).call();
-		if (s.next()) {
-			System.out.println(solution);
+		long startTime = System.nanoTime();
+		for (int i = 1; i <= 25; i++) {
+			Variable solution = new Variable();
+			StringAtom time = StringAtom.instance("time");
+			StringAtom queens = StringAtom.instance("queens");
+			Solutions s = compoundTerm(time,
+					compoundTerm(queens, atom(i), solution)).call();
+			if (s.next()) {
+				System.out.println(" ; "+i+" => "+solution.toProlog());
+			}
 		}
+		long duration = System.nanoTime() - startTime;
+		System.out.printf("%10.4f",new Double(duration/1000.0/1000.0/1000.0));
 	}
 
 }

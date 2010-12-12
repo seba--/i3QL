@@ -38,6 +38,11 @@ package saere;
  */
 public abstract class CompoundTerm extends Term {
 
+	@Override
+	final public boolean isAtom() {
+		return false;
+	}
+
 	/**
 	 * @return <code>true</code> - always.
 	 */
@@ -55,33 +60,70 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	/**
-	 * The state of the compound term's arguments is saved for later recovery.
+	 * Returns <code>true</code> if this term is ground.
 	 * <p>
-	 * This requires a traversal of the complete compound term's structure.<br />
-	 * Hence, if all instances of a compound term are always ground then it is
-	 * highly encouraged to overwrite this method and {@link #setState(State)}
-	 * and to just return / accept <code>null</code> as a value. This avoids
-	 * traversing the state of a term.
+	 * <b>Performance Guideline</b><br/>
+	 * This method (re)calculates the answer whenever this method is called. If
+	 * you know that the answer is <code>true</code> you should override this
+	 * method and return true.
 	 * </p>
 	 */
 	@Override
-	public State manifestState() {
-		return new CompoundTermState(this);
+	public boolean isGround() {
+		final int arity = arity();
+		for (int i = 0; i < arity; i++) {
+			if (!arg(i).isGround())
+				return false;
+		}
+
+		return true;
+	}
+
+	// Caches the information if a compound term is ground.
+	private boolean ground = false;
+
+	/**
+	 * The state of the compound term's arguments is saved for later recovery.
+	 * <p>
+	 * <b>Performance Guideline</b><br/>
+	 * In general, state manifestation requires a traversal of the complete
+	 * compound term's structure. Hence, if all instances of a compound term are
+	 * always ground then it is highly recommended to override the
+	 * {@link #isGround()} method and to always return <code>true</code>.
+	 * Overwriting {@link #isGround()} is more benefical than overwriting this
+	 * method.
+	 * </p>
+	 */
+	@Override
+	public CompoundTermState manifestState() {
+		if (ground)
+			return null;
+		if (isGround()) {
+			ground = true;
+			return null;
+		} else
+			return new CompoundTermState(this);
 	}
 
 	/**
 	 * The state of the compound term's arguments is restored.
 	 * <p>
+	 * <b>Performance Guideline</b><br/>
 	 * This requires a traversal of the complete compound term's structure.<br />
 	 * Hence, if all instances of a compound term are always ground then it is
-	 * highly encouraged to overwrite this method and {@link #manifestState()}.
+	 * highly encouraged to overwrite this method and the
+	 * {@link #manifestState()} method and to use <code>null</code> to declare
+	 * that no immutable state exists.
 	 * </p>
 	 * 
 	 * @see #manifestState()
 	 */
 	@Override
 	public void setState(State state) {
-		state.asCompoundTermState().apply(this);
+		if (state != null) {
+			state.asCompoundTermState().apply(this);
+			ground = false;
+		}
 	}
 
 	/**
@@ -93,11 +135,11 @@ public abstract class CompoundTerm extends Term {
 	 * </p>
 	 */
 	public boolean unify(CompoundTerm other) {
-		if (this.arity() == other.arity()
-				&& this.functor().sameAs(other.functor())) {
+		final int arity = arity();
+		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
-			final int a = arity();
-			while (i < a) {
+
+			while (i < arity) {
 				if ((this.arg(i)).unify(other.arg(i))) {
 					i += 1;
 				} else {
@@ -108,6 +150,19 @@ public abstract class CompoundTerm extends Term {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public String toProlog() {
+
+		String s = "";
+		for (int i = 0; i < arity(); i++) {
+			if (i > 0)
+				s += ", ";
+			s += arg(i).toProlog();
+		}
+
+		return functor().toProlog() + "(" + s + ")";
 	}
 
 }

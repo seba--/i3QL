@@ -33,7 +33,7 @@ package saere;
 
 
 /**
- * TODO document
+ * Enables the creation of a new instance of a predicate.
  * 
  * @author Michael Eichberg
  */

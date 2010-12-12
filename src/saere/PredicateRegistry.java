@@ -38,6 +38,7 @@ import saere.predicate.And2;
 import saere.predicate.Cut0;
 import saere.predicate.False0;
 import saere.predicate.Is2;
+import saere.predicate.Member2;
 import saere.predicate.Not1;
 import saere.predicate.ArithNotEqual2;
 import saere.predicate.NotUnify2;
@@ -57,46 +58,16 @@ import saere.predicate.Write1;
  */
 public class PredicateRegistry {
 
-	private final static class Predicate {
-		private final StringAtom functor;
-		private final int arity;
-
-		Predicate(StringAtom functor, int arity) {
-			this.functor = functor;
-			this.arity = arity;
-		}
-
-		@Override
-		public int hashCode() {
-			return functor.hashCode() + arity;
-		}
-
-		@Override
-		public boolean equals(Object other) {
-			if (other instanceof Predicate) {
-				Predicate otherPredicate = (Predicate) other;
-				return this.arity == otherPredicate.arity
-						&& this.functor.sameAs(otherPredicate.functor);
-			}
-			return false;
-		}
-
-		@Override
-		public String toString() {
-			return functor.toString() + "/" + arity;
-		}
-	}
-
 	private static final PredicateRegistry PREDICATE_REGISTRY = new PredicateRegistry();
 
 	public static PredicateRegistry instance() {
 		return PREDICATE_REGISTRY;
 	}
 
-	private final Map<Predicate, PredicateInstanceFactory> predicates;
+	private final Map<PredicateIdentifier, PredicateInstanceFactory> predicates;
 
 	private PredicateRegistry() {
-		predicates = new HashMap<PredicateRegistry.Predicate, PredicateInstanceFactory>();
+		predicates = new HashMap<PredicateIdentifier, PredicateInstanceFactory>();
 
 		// Register all default predicate implementations...
 		// Alphabetical Order
@@ -104,6 +75,7 @@ public class PredicateRegistry {
 		Cut0.registerWithPredicateRegistry(this);
 		False0.registerWithPredicateRegistry(this);
 		Is2.registerWithPredicateRegistry(this);
+		Member2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
 		ArithNotEqual2.registerWithPredicateRegistry(this);
 		NotUnify2.registerWithPredicateRegistry(this);
@@ -119,15 +91,16 @@ public class PredicateRegistry {
 
 	public void register(StringAtom functor, int arity,
 			PredicateInstanceFactory factory) {
-		Predicate p = new Predicate(functor, arity);
+		PredicateIdentifier p = new PredicateIdentifier(functor, arity);
 		if (predicates.put(p, factory) != null)
 			throw new IllegalStateException("a predicate instance factory for "
 					+ p + " was previously registered");
 	}
 
 	public Solutions createPredicateInstance(StringAtom functor, Term[] args) {
-		Predicate p = new Predicate(functor, args.length);
+		PredicateIdentifier p = new PredicateIdentifier(functor, args.length);
 		PredicateInstanceFactory pif = predicates.get(p);
+		assert (pif != null) : functor;
 		return pif.createPredicateInstance(args);
 	}
 

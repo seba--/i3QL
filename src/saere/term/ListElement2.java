@@ -32,14 +32,38 @@
 package saere.term;
 
 import static saere.StringAtom.EMPTY_LIST_FUNCTOR;
+import saere.CompoundTerm;
 import saere.StringAtom;
 import saere.Term;
 
-final class ListElement2 extends TwoArgsCompoundTerm {
+public final class ListElement2 extends CompoundTerm {
+
+	private Term value;
+
+	private Term rest;
 
 	public ListElement2(Term value, Term rest) {
-		super(value, rest);
+		this.value = value;
+		this.rest = rest;
 
+	}
+
+	@Override
+	public int arity() {
+		return 2;
+	}
+
+	@Override
+	public Term arg(int i) throws IndexOutOfBoundsException {
+		return i == 0 ? value : rest;
+	}
+
+	public Term getValue() {
+		return value;
+	}
+
+	public Term getRest() {
+		return rest;
 	}
 
 	@Override
@@ -48,22 +72,22 @@ final class ListElement2 extends TwoArgsCompoundTerm {
 	}
 
 	@Override
-	public String toString() {
+	public String toProlog() {
 		return toListRepresentation("[");
-		// ".("+value+", "+rest+")"
+
 	}
 
 	private String toListRepresentation(String head) {
-		String newHead = head + args[0];
-		final Term r = args[1].isVariable() ? args[1].asVariable().binding()
-				: args[1];
+		String newHead = head + value.toProlog();
+		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
 			return le.toListRepresentation(newHead + ", ");
 		} else if (r == EMPTY_LIST_FUNCTOR) {
 			return newHead + "]";
 		} else {
-			return newHead + "|" + args[1] + "]";
+			return newHead + "|" + rest.toProlog() + "]";
 		}
 	}
+
 }

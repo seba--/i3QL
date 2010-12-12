@@ -29,67 +29,88 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.predicate;
+
+import saere.PredicateInstanceFactory;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.State;
+import saere.StringAtom;
+import saere.Term;
 
 /**
- * Atoms represent atomic information.
+ * Implementation of ISO Prolog's member/2 predicate.
+ * 
+ * <pre>
+ * <code>
+ * member(X,Y) :- Y = [X|_].
+ * member(X,[_|Ys]) :- member(X,Ys).
+ * </code>
+ * </pre>
  * 
  * @author Michael Eichberg
  */
-public abstract class Atom extends Term {
+public final class Member2 implements Solutions {
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(StringAtom.instance("member"), 2,
+				new PredicateInstanceFactory() {
+
+					@Override
+					public Solutions createPredicateInstance(Term[] args) {
+						return new Member2(args[0], args[1]);
+					}
+				});
+
+	}
+
+
+	private final Term element;
+	private final State elementState;
+	private Term list;
+	private Term listElement;
+	private State listElementState;
+	private boolean doTest = true;
+
+	public Member2(final Term element, final Term list) {
+		this.element = element;
+		this.elementState = element.manifestState();
+		this.list = list;
+	}
+
+	public boolean next() {
+		while (true) {
+			if (doTest) {
+				if (list.isVariable()) {
+					list = list.asVariable().binding();
+				}
+
+				if (list.arity() == 2 && list.functor().sameAs(StringAtom.LIST_FUNCTOR)) {
+					listElement = list.arg(0);
+					listElementState = listElement.manifestState();
+					doTest = false;
+					if (element.unify(listElement)) {
+						return true;
+					}
+				} else {
+					return false;
+				}
+			} else {
+				element.setState(elementState);
+				listElement.setState(listElementState);
+				list = list.arg(1);
+				doTest = true;
+			}
+		}
+	}
 
 	@Override
-	public boolean isGround() {
-		return true;
+	public void abort() {
+		// nothing to do
 	}
 
-	/**
-	 * @return 0. By definition the arity of atoms is always 0.
-	 */
 	@Override
-	final public int arity() {
-		return 0;
-	}
-
-	/**
-	 * Will always throw an <code>IndexOutOfBoundsException</code>, because
-	 * atoms do not have arguments.
-	 * 
-	 * @param i
-	 *            <i>"ignored"</i>.
-	 * @throws IndexOutOfBoundsException
-	 *             always.
-	 */
-	@Override
-	final public Term arg(int i) {
-		throw new IndexOutOfBoundsException("Atoms have no arguments.");
-	}
-
-	/**
-	 * @return <code>null</code>; an atom's state is immutable and, hence, no
-	 *         state information needs to be preserved.<br/>
-	 */
-	/*
-	 * In general, the compiler tries to avoid explicit manifestation of an
-	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
-	 * however, requires whole program analyses.
-	 */
-	final public State manifestState() {
-		return null;
-	}
-
-	/**
-	 * Since an Atom's state is immutable, this method does nothing.
-	 * 
-	 * <p>
-	 * <b>Debugging Hint</b> If assertions are enabled we check that state is
-	 * <code>null</code>.
-	 * </p>
-	 * 
-	 * @param state
-	 *            The parameter is <i>"ignored"</i>.
-	 */
-	public final void setState(State state) {
-		assert (state == null);
+	public boolean choiceCommitted() {
+		return false;
 	}
 }

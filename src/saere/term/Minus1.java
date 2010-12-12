@@ -52,6 +52,8 @@ final class Minus1 extends CompoundTerm {
 
 	@Override
 	public Term arg(int i) throws IndexOutOfBoundsException {
+		assert (i == 0);
+		
 		return t1;
 	}
 

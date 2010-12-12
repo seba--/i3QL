@@ -32,7 +32,7 @@
 package saere;
 
 /**
- * Representation of an integer atom.
+ * Representation of a float atom. The SAE uses double values as the basis.
  * 
  * @author Michael Eichberg
  */
@@ -67,10 +67,17 @@ public final class FloatAtom extends Atom {
 		return value;
 	}
 
+	
 	@Override
 	public String toString() {
+		return "FloatAtom["+Double.toString(value)+"]";
+	}
+	
+	@Override 
+	public String toProlog(){
 		return Double.toString(value);
 	}
+	
 
 	public static final FloatAtom FLOAT_ATOM_M1 = new FloatAtom(-1.0);
 	public static final FloatAtom FLOAT_ATOM_0 = new FloatAtom(0.0);

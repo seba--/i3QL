@@ -72,13 +72,19 @@ public final class Variable extends Term {
 		bind(t);
 	}
 
-	// IMPROVE If more than two variables share, don't create a chain, but
-	// instead attach each new Variable with the head variable. This way the
-	// maximum depth is two and manifestation etc. becomes much cheaper!
+	@Override
+	public boolean isAtom() {
+		return false;
+	}
 
 	@Override
 	public boolean isVariable() {
 		return true;
+	}
+
+	@Override
+	public boolean isNotVariable() {
+		return false;
 	}
 
 	@Override
@@ -87,21 +93,36 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public State manifestState() {
-		if (isInstantiated()) {
-			return null;
+	public VariableState manifestState() {
+		// Remember that a variable may be bound to a compound term that
+		// contains free variables...
+		if (value != null) {
+			Variable hv = headVariable();
+			if (hv.value == null) {
+				return VariableState.share(hv);
+			} else if (hv.value.isAtom())
+				return VariableState.immutable;
+			else
+				return VariableState.instantiated(hv);
 		} else {
-			return new VariableState(this);
+			return null;
 		}
 	}
 
 	@Override
 	public void setState(State state) {
-		// "state == null" means that the variable was already instantiated when
-		// manifest state was called the last time
-		if (!(state == null)) {
+		if (state == null)
+			value = null;
+		else
 			state.asVariableState().apply(this);
-		}
+	}
+	
+	
+	void setState(VariableState state) {
+		if (state == null)
+			value = null;
+		else
+			state.apply(this);
 	}
 
 	@Override
@@ -129,10 +150,9 @@ public final class Variable extends Term {
 	}
 
 	public boolean isInstantiated() {
-		return (value != null) && (!value.isVariable() || // it is either an
-				// atom or a
-				// compound term
-				value.asVariable().isInstantiated());
+		return value != null
+				&& (value.isNotVariable() || value.asVariable()
+						.isInstantiated());
 	}
 
 	public Term binding() {
@@ -145,10 +165,17 @@ public final class Variable extends Term {
 		}
 	}
 
+	@Override
+	public boolean isGround() {
+		Variable hv = headVariable();
+		Term hvValue = hv.value;
+		return hvValue != null && hvValue.isGround();
+	}
+
 	/**
 	 * Clears all bindings of this variable.
 	 */
-	public void clear() {
+	void clear() {
 		value = null;
 	}
 
@@ -169,7 +196,8 @@ public final class Variable extends Term {
 	 * </p>
 	 */
 	void setValue(Term value) {
-		assert ((this.value == null && value != null) || (this.value != null && value == null));
+		assert (this.value == null && value != null)
+				|| (this.value != null && value == null) : "precondition of variable.setValue(term) not met";
 		this.value = value;
 	}
 
@@ -181,6 +209,10 @@ public final class Variable extends Term {
 	 * </p>
 	 */
 	public void bind(Term term) {
+
+		assert (!this.isInstantiated()) : "binding of an instantiated variable";
+		assert (term != null) : "binding to null";
+
 		/*
 		 * if (value == null) { value = term; } else {
 		 * value.asVariable().bind(term); }
@@ -197,26 +229,40 @@ public final class Variable extends Term {
 	 */
 	void share(Variable other) {
 
+		assert !isInstantiated() && !other.isInstantiated() : "two variables can only share if both are not bound";
+
 		/*
 		 * The general idea behind this implementation of sharing is that a
-		 * value is always only bound with the head variable. Problems can arise
-		 * if we have a cyclic unification of variables. E.g., A = X, X = Y,Y =
-		 * A,..., X = 1 In this case we have to make sure that at least one
-		 * variable remains free.
+		 * value is always only bound with the head variable. Problems that
+		 * arise if we have a cyclic unification of variables, e.g., A = X, X =
+		 * Y,Y = A,..., X = 1 are mitigated. We do make sure that at least one
+		 * variable remains free. If more than two variables share, don't create
+		 * a chain, but instead attach each new Variable with the head variable.
+		 * This way the maximum depth of the chain is more limited and
+		 * manifestation etc. becomes cheaper.
 		 */
-		final Variable ohv = other.headVariable();
-		if (!(this.headVariable() == ohv)) {
-			ohv.value = this;
+		if (value == null) {
+			value = other.headVariable();
+		} else if (other.value == null) {
+			other.value = this;
+		} else {
+			final Variable otherHeadVariable = other.headVariable();
+
+			if (this.headVariable() != otherHeadVariable) {
+				otherHeadVariable.value = this;
+			}
 		}
 	}
 
 	/**
-	 * <b>Only to be used if this variable is "conceptually" free.<br />
+	 * If this variable shares with another variable, it is possible
+	 * that this variable points to another variable which is then
+	 * responsible
 	 * This is a companion method of {@link #share(Variable)}</b>
 	 */
 	Variable headVariable() {
 		Variable h = this;
-		while (!(h.value == null)) {
+		while (h.value != null && h.value.isVariable()) {
 			h = h.value.asVariable();
 		}
 		return h;
@@ -232,6 +278,15 @@ public final class Variable extends Term {
 	}
 
 	@Override
+	public double floatEval() {
+		if (value == null) {
+			throw new Error("This variable is not sufficiently instantiated.");
+		} else {
+			return value.floatEval();
+		}
+	}
+
+	@Override
 	public Solutions call() {
 		if (value == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
@@ -241,28 +296,33 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public String toString() {
+	public String toProlog() {
 		final Term term = binding();
 		if (term == null) {
 			return variableToName(this);
 		} else {
-			return term.toString();
+			return term.toProlog();
 		}
 	}
 
 	private static int variableCount = 0;
 	private final static WeakHashMap<Variable, String> variableNames = new WeakHashMap<Variable, String>();
 
-	private static String variableToName(Variable variable) {
+	static String variableToName(Variable variable) {
 		synchronized (variableNames) {
 			String name = variableNames.get(variable);
 			if (name == null) {
 				variableCount += 1;
-				name = "_V" + variableCount;
+				name = "V" + variableCount;
 				variableNames.put(variable, name);
 			}
 			return name;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
 	}
 
 }

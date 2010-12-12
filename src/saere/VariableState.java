@@ -31,37 +31,81 @@
  */
 package saere;
 
-
 /**
- * Encapsulates the current state of a (free) variable. Basically, if 
- * this variable shares with another variable then only the current head 
- * variable is saved (the value of which has to be / is <code>null</code> ).
+ * Encapsulates the current state of a variable.
  * 
  * @author Michael Eichberg
  */
-final class VariableState extends State {
+abstract class VariableState extends State {
 
-	private Variable head = null; 
-	
-	VariableState(Variable variable) {
-		
-		assert (!variable.isInstantiated());
-		
-		head = variable.headVariable();
-		
-		assert (variable.getValue() == null);
-	}
+	static final VariableState immutable = new VariableState() {
 
- 
-	@Override 
-	VariableState asVariableState() { return this; } 
-
-	public void apply(Variable variable) {
-		Variable v = variable;
-		while (!(v == head)) {
-			v = v.getValue().asVariable();
+		@Override
+		void apply(Variable variable) {
+			// nothing to do
 		}
-		v.clear();
-	}
-}
 
+		@Override
+		public String toString() {
+			return "VariableStateImmutable";
+		}
+	};
+
+	static final VariableState share(final Variable headVariable) {
+		return new VariableState() {
+
+			{
+				assert headVariable.getValue() == null : "head variable is bound";
+			}
+
+			@Override
+			void apply(Variable variable) {
+				Variable v = variable;
+				while (v != headVariable) {
+					v = v.getValue().asVariable();
+				}
+				v.clear();
+			}
+
+			@Override
+			public String toString() {
+				return "VariableStateShare[" + headVariable + "]";
+			}
+		};
+	}
+
+	static final VariableState instantiated(final Variable headVariable) {
+		return new VariableState() {
+			
+			private final State headVariableBindingState;
+			
+			{
+				assert headVariable.getValue() != null : "the head variable is free; use VariableState.share(Variable) to encapsulate the state";
+
+				headVariableBindingState = headVariable.getValue().manifestState();
+			}
+
+			@Override
+			void apply(Variable variable) {
+				Variable v = variable;
+				while (v != headVariable) {
+					v = v.getValue().asVariable();
+				}
+				v.getValue().setState(headVariableBindingState);
+			}
+
+			@Override
+			public String toString() {
+				return "VariableStateInstantiated[headVariableId="
+						+ Variable.variableToName(headVariable) + "]";
+			}
+		};
+	}
+
+	@Override
+	VariableState asVariableState() {
+		return this;
+	}
+
+	abstract void apply(Variable variable);
+}

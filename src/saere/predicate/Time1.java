@@ -77,7 +77,7 @@ public final class Time1 implements Solutions {
 				solutions = null;
 			}
 			duration = ((System.nanoTime()-startTime));
-			System.out.println(duration/1000.0/1000.0/1000.0);
+			System.out.printf("%8.4f",new Double(duration/1000.0/1000.0/1000.0));
 			return true;
 		} else {
 			if (solutions != null) solutions.abort();

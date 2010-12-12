@@ -173,7 +173,6 @@ create_clause_branches(Clauses,ConcatenatedClauseBranches) :-
 create_clause_branches(NoMoreClauses,Id,[FailCase]) :- 
 	var(NoMoreClauses),!, % Clauses is an open list...
 	atomic_list_concat([
-	%'\t\tcase ',Id,':\n',
 	'\t\tdefault :\n',
 	'\t\t\tclauseImplementation = null;\n',
 	'\t\t\tclauseSolutions = null;\n',
@@ -187,6 +186,21 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 	create_term(Body,BodyConstructor,Variables),
 	rule_head(ClauseDefinition,Head),
 	create_clause_variables(Head,Variables,ClauseVariables),
+	(
+		nonvar(Clauses), % Clauses is an open list...
+		atomic_list_concat(
+			[
+			'\t\t\tif (clauseSolutions.choiceCommitted()){\n',
+			'\t\t\t\tclauseImplementation = null;\n', 
+			'\t\t\t\tclauseSolutions = null;\n', 	
+			'\t\t\t\treturn false;\n',
+			'\t\t\t}\n'
+			],
+			NotSucceeded
+		)
+	;
+		NotSucceeded = '\t\t\t// fall through...\n'
+	),!,
 	ClauseBranch = [
 	'\t\tcase ',Id,': {\n',
 	'\t\t\t',ClauseVariables,'\n',
@@ -197,12 +211,7 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 	'\t\tcase ',SolutionBranch,':{\n',
 	'\t\t\tboolean succeeded = clauseSolutions.next();\n',
 	'\t\t\tif (succeeded) return true;\n',
-	'\t\t\tif (clauseSolutions.choiceCommitted()){\n',
-	'\t\t\t\tclauseImplementation = null;\n', 
-	'\t\t\t\tclauseSolutions = null;\n', 	
-	'\t\t\t\treturn false;\n',
-	'\t\t\t}\n',
-
+	NotSucceeded,
 	'\t\t}\n'
 	],
 	atomic_list_concat(ClauseBranch,ConcatenatedClauseBranch),
@@ -265,7 +274,8 @@ create_term(ASTNode,TermConstructor,Vs,Vs) :-
 	string_atom(ASTNode,Value),!,
 %	write(string_atom),write(' '),write(value),
 	(
-		Value = '!', TermConstructor = 'cut()'
+		predefined_string_atom_constructors(Value,TermConstructor)
+%		Value = '!', TermConstructor = 'cut()'
 	;
 		atomic_list_concat(['atom("',Value,'")'],TermConstructor)
 	),!.
@@ -293,7 +303,12 @@ create_term(ASTNode,TermConstructor,OldVs,NewVs) :-
 			atomic_list_concat(['unify(',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
 
 		;
-			atomic_list_concat(['compoundTerm(StringAtom.instance("',Functor,'"),',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
+			(
+				predefined_string_atom_constructors(Functor,CompoundTermFunctorConstructor)
+			;
+				atomic_list_concat(['StringAtom.instance("',Functor,'")'],CompoundTermFunctorConstructor)
+			),
+			atomic_list_concat(['compoundTerm(',CompoundTermFunctorConstructor,',',LTermConstructor,',',RTermConstructor,')'],TermConstructor)
 		)
 	;
 		create_terms(Args,TermConstructors,OldVs,NewVs),
@@ -307,4 +322,18 @@ create_terms([Arg|Args],[TermConstructor|TermConstructors],OldVs,NewVs) :- !,
 create_terms([],[],Vs,Vs).
 	
 
+
+predefined_string_atom_constructors('\\=','StringAtom.DOES_NOT_UNIFY_FUNCTOR').
+predefined_string_atom_constructors('!','StringAtom.CUT_FUNCTOR').
+predefined_string_atom_constructors('\\+','StringAtom.NOT_OPERATOR_FUNCTOR').
+predefined_string_atom_constructors('not','StringAtom.NOT_FUNCTOR').
+predefined_string_atom_constructors('.','StringAtom.LIST_FUNCTOR').
+predefined_string_atom_constructors('[]','StringAtom.EMPTY_LIST_FUNCTOR').
+predefined_string_atom_constructors('+','StringAtom.PLUS_FUNCTOR').
+predefined_string_atom_constructors('-','StringAtom.MINUS_FUNCTOR').
+predefined_string_atom_constructors('-','StringAtom.MULT_FUNCTOR').
+predefined_string_atom_constructors('is','StringAtom.IS_FUNCTOR').
+predefined_string_atom_constructors('<','StringAtom.ARITH_SMALLER_THAN_FUNCTOR').
+predefined_string_atom_constructors('=:=','StringAtom.ARITH_IS_EQUAL_FUNCTOR').
+predefined_string_atom_constructors('=\\=','StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR').
 	
