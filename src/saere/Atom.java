@@ -39,7 +39,7 @@ package saere;
 public abstract class Atom extends Term {
 
 	@Override
-	public boolean isGround() {
+	public final boolean isGround() {
 		return true;
 	}
 
@@ -47,7 +47,7 @@ public abstract class Atom extends Term {
 	 * @return 0. By definition the arity of atoms is always 0.
 	 */
 	@Override
-	final public int arity() {
+	public final int arity() {
 		return 0;
 	}
 
@@ -61,7 +61,7 @@ public abstract class Atom extends Term {
 	 *             always.
 	 */
 	@Override
-	final public Term arg(int i) {
+	public final Term arg(int i) {
 		throw new IndexOutOfBoundsException("Atoms have no arguments.");
 	}
 
