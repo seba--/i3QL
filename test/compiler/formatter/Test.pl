@@ -46,7 +46,7 @@ do_formatting(FileName,Solution,Options) :-
    atomic_list_concat(['test/compiler/formatter/data/',Solution],FileSolution),
 
    tokenize_file(File,Ts,Options), clauses(Ts,Cs), format_file(Cs,'',Formatted),
-   %nl,write('###FORMATTED###\n'),write(Formatted),
+   nl,write('###FORMATTED###\n'),write(Formatted),
    load_solution(FileSolution,Formatted).
 
 load_solution(Solution,Lines) :-
@@ -81,4 +81,7 @@ test(comma_as_functor) :- do_formatting('Comma_as_functor.pl','Comma_as_functor_
 %test(comments) :- do_formatting('Comments.pl','Comments_formatted.pl',[]),!.
 
 test('no_empty_line_between_same_clauses\\arity') :- do_formatting('NoEmptyLines.pl','NoEmptyLines_formatted.pl',[]),!.
+
+test(correct_functor_brackets) :- do_formatting('OperatorBrackets.pl','OperatorBrackets_formatted.pl',[]),!.
+
 :- end_tests(formatter).

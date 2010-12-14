@@ -44,12 +44,12 @@
 
 format_file([],L,L).
 format_file([H|T],In,OutputList) :- 
-   write_clause(H,Out),
+   write_clause(H,1200,Out),
    atomic_list_concat([In,Out,'.\n'],Concated_List),
    format_file(T,Concated_List,OutputList).
    
    
-write_clause(ASTNode,Value) :-
+write_clause(ASTNode,_,Value) :-
    (
       variable(ASTNode,Value);
       anonymous_variable(ASTNode,Value);
@@ -58,89 +58,98 @@ write_clause(ASTNode,Value) :-
       float_atom(ASTNode,Value)
    ),!.
    
-write_clause(ASTNode,Out) :-
+write_clause(ASTNode,Priority,Out) :-
    complex_term(ASTNode,'.',Args),
-   write_List(Args,Out),!.
+   write_List(Args,Priority,Out),!.
    
-write_clause(ASTNode,Out) :-
+write_clause(ASTNode,Priority,Out) :-
    complex_term(ASTNode,Functor,Args),
    (
       term_meta(ASTNode,Meta),
       lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
       (
-         memberchk(op(_,_,Functor),FirstPrefixOps),Args = [_],write_functors(Functor,Args,Out)
+         memberchk(op(_,_,Functor),FirstPrefixOps),Args = [_],write_functors(Functor,Args,Priority,Out)
+      ;
+         memberchk(op(Func_Priority,_,Functor),FirstInfixOps),Args = [_,_],
+         (
+            Func_Priority > Priority,
+            write_functor_infix(Functor,Args,Func_Priority,Output),
+            atomic_list_concat(['(',Output,')'],Out)
          ;
-         memberchk(op(_,_,Functor),FirstInfixOps),Args = [_,_],write_functor_infix(Functor,Args,Out)
-         ;
-         memberchk(op(_,_,Functor),FirstPostfixOps),Args=[_],write_functors(Functor,Args,Out)
+            write_functor_infix(Functor,Args,Func_Priority,Output),
+            atomic_list_concat([Output],Out)
+         )
+      ;
+         memberchk(op(_,_,Functor),FirstPostfixOps),Args=[_],write_functors(Functor,Args,Priority,Out)
       )
       ;
-      write_functors(Functor,Args,Out)
+      write_functors(Functor,Args,Priority,Out)
    ),!.
    
-write_clause(ASTNode,_) :- throw(internal_error('[Formatter] the given term has an unexpected type',ASTNode)).
+write_clause(ASTNode,_,_) :- throw(internal_error('[Formatter] the given term has an unexpected type',ASTNode)).
 
 
-write_functors(Functor,ClauseList,Concated_List) :-
-   write_term_list(ClauseList,RestList),
+write_functors(Functor,ClauseList,Priority,Concated_List) :-
+   write_term_list(ClauseList,Priority,RestList),
    atomic_list_concat([Functor,'(',RestList,')'],Concated_List).
 
 
-write_functor_infix(',',[H|T],Concated_List) :-
-   write_clause(H,First),
-   write_rest_clause(T,Rest),
+write_functor_infix(',',[H|T],Priority,Concated_List) :-
+   write_clause(H,Priority,First),
+   write_rest_clause(T,Priority,Rest),
    atomic_list_concat([First,',',' ',Rest],Concated_List).
 
-write_functor_infix(Functor,[H|T],Concated_List) :-
-   write_clause(H,First),
-   write_rest_clause(T,Rest),
-   atomic_list_concat([First,' ',Functor,' ',Rest],Concated_List).
+write_functor_infix(Functor,[H|T],Priority,Concated_List) :-
+      write_clause(H,Priority,First),
+      write_rest_clause(T,Priority,Rest),
+      atomic_list_concat([First,' ',Functor,' ',Rest],Concated_List).
 
 
-write_rest_clause([],'').
 
-write_rest_clause([H|T],Concated_List) :-
-   write_clause(H,First),
-   write_rest_clause(T,Rest),
+write_rest_clause([],_,'').
+
+write_rest_clause([H|T],Priority,Concated_List) :-
+   write_clause(H,Priority,First),
+   write_rest_clause(T,Priority,Rest),
    atomic_list_concat([First,Rest],Concated_List).
 
 
-write_List([],'').
+write_List([],_,'').
 
-write_List([H|T],Concated_List) :-
+write_List([H|T],Priority,Concated_List) :-
    (
-      complex_term(H,'.',Args),write_List(Args,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
+      complex_term(H,'.',Args),write_List(Args,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([First,Rest],Output)
       ;
-      write_clause(H,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
+      write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([First,Rest],Output)
    ),!
    ,atomic_list_concat(['[',Output,']'],Concated_List).
 
 
-write_In_List([],_,'').
+write_In_List([],_,_,'').
 
-write_In_List([H|T],Dotted,Output) :-
+write_In_List([H|T],Dotted,Priority,Output) :-
    (
-      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Output)
+      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Priority,Output)
       ;
-      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Out),atomic_list_concat([',',Out],Output)
+      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Priority,Out),atomic_list_concat([',',Out],Output)
       ;
-      string_atom(H,'[]'),write_In_List(T,'false',Rest),atomic_list_concat([Rest],Output)
+      string_atom(H,'[]'),write_In_List(T,'false',Priority,Rest),atomic_list_concat([Rest],Output)
       ;
-      T = [],write_clause(H,First),write_In_List(T,'false',Rest),atomic_list_concat(['|',First,Rest],Output)
+      T = [],write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat(['|',First,Rest],Output)
       ;
-      write_clause(H,First),write_In_List(T,'false',Rest),atomic_list_concat([',',First,Rest],Output)
+      write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([',',First,Rest],Output)
    ),!.
 
 
-write_term_list([Arg|Args],Concated_List) :-
-   write_clause(Arg,H),
-   write_term_list_rest(Args,T),
+write_term_list([Arg|Args],Priority,Concated_List) :-
+   write_clause(Arg,Priority,H),
+   write_term_list_rest(Args,Priority,T),
    atomic_list_concat([H,T],Concated_List).
 
 
-write_term_list_rest([],'').
+write_term_list_rest([],_,'').
 
-write_term_list_rest([Clause|Clauses],Concated_List) :-
-   write_clause(Clause,H),
-   write_term_list_rest(Clauses,T),
+write_term_list_rest([Clause|Clauses],Priority,Concated_List) :-
+   write_clause(Clause,Priority,H),
+   write_term_list_rest(Clauses,Priority,T),
    atomic_list_concat([',',H,T],Concated_List).
