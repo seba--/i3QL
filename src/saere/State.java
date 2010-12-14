@@ -36,23 +36,24 @@ import saere.predicate.Unify2;
 /**
  * Encapsulates the (remaining) mutable state of a term.
  * <p>
- * Note, that the SAE represents the state of an atom or a ground complex term
- * using the value <code>null</code>.
+ * State manifestation is only necessary if a term is subject to unification. If
+ * a term is just passed to another predicate, manifestation of its state is
+ * useless. If the subsequent predicate fails, it guarantees that the term's
+ * state is the same as before the call. I.e., only if you directly call
+ * {@link Unification#unify(Term, Term)}, you have to manifest the state and
+ * reset it afterwards. If you use the predicate {@link Unify2}, you do not have
+ * to take care of state manifestation, but directly calling
+ * {@link Unification#unify(Term, Term)} is generally more efficient.
  * </p>
  * <p>
- * Note, that state manifestation is only necessary, if a term is subject to
- * unification. If a term is just passed to another predicate, manifestation of
- * its state is useless. If the subsequent predicate fails, it guarantees that
- * the term's state is the same as before the call. I.e., only if you directly
- * use the {@link Unification#unify(Term, Term)} method, you have to manifest
- * the state and reset it afterwards. If you use the predicate {@link Unify2},
- * you do not have to manifest the state.
- * </p>
+ * <b>Implementation Notes</b><br />
  * <p>
- * State interface of the Memento Pattern.
+ * The SAE represents the state of ground terms using the value
+ * <code>null</code>.
  * </p>
+ * This is the state interface of the Memento Pattern. </p>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class State {
 

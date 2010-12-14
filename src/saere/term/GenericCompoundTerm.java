@@ -1,7 +1,9 @@
 package saere.term;
 
+import static saere.PredicateRegistry.predicateRegistry;
 import saere.CompoundTerm;
-import static saere.PredicateRegistry.instance;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
@@ -33,7 +35,9 @@ final class GenericCompoundTerm extends CompoundTerm {
 
 	@Override
 	public Solutions call() {
-		return instance().createPredicateInstance(functor, args);
+		PredicateIdentifier pi = new PredicateIdentifier(this.functor, args.length);
+		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
+		return pf.createInstance(args);
 	}
 
 }

@@ -31,12 +31,15 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
+import static saere.StringAtom.LIST_FUNCTOR;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * Implementation of ISO Prolog's member/2 predicate.
@@ -48,58 +51,67 @@ import saere.Term;
  * </code>
  * </pre>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Member2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("member"), 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Member2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance("member"), 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Member2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
+	private final static int SETUP = 0;
+	private final static int TEST = 1;
+	private final static int ADVANCE = 2;
 
 	private final Term element;
-	private final State elementState;
+	private State elementState;
 	private Term list;
 	private Term listElement;
 	private State listElementState;
-	private boolean doTest = true;
+	private int state = SETUP;
 
 	public Member2(final Term element, final Term list) {
 		this.element = element;
-		this.elementState = element.manifestState();
 		this.list = list;
 	}
 
 	public boolean next() {
 		while (true) {
-			if (doTest) {
+			switch (state) {
+			case SETUP:
+				elementState = element.manifestState();
+				state = TEST;
+			case TEST:
 				if (list.isVariable()) {
 					list = list.asVariable().binding();
 				}
-
-				if (list.arity() == 2 && list.functor().sameAs(StringAtom.LIST_FUNCTOR)) {
+				if (list.arity() == 2 && list.functor().sameAs(LIST_FUNCTOR)) {
 					listElement = list.arg(0);
 					listElementState = listElement.manifestState();
-					doTest = false;
+					state = ADVANCE;
 					if (element.unify(listElement)) {
 						return true;
 					}
 				} else {
 					return false;
 				}
-			} else {
+			case ADVANCE:
 				element.setState(elementState);
 				listElement.setState(listElementState);
 				list = list.arg(1);
-				doTest = true;
+				state = TEST;
 			}
 		}
 	}

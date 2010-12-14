@@ -34,7 +34,7 @@ package saere;
 /**
  * Encapsulates the current state of a variable.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 abstract class VariableState extends State {
 

@@ -32,19 +32,25 @@
 package saere;
 
 /**
- * Atoms represent atomic information.
+ * Representation of some atomic information; i.e., string atoms, float values
+ * and integer values.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class Atom extends Term {
+public abstract class Atomic extends Term {
 
+	/**
+	 * @return <code>true</code>, because atomic information are by definition
+	 *         always ground.
+	 */
 	@Override
 	public final boolean isGround() {
 		return true;
 	}
 
 	/**
-	 * @return 0. By definition the arity of atoms is always 0.
+	 * @return 0. By definition the arity of some atomic information is always
+	 *         0.
 	 */
 	@Override
 	public final int arity() {

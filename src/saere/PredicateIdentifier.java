@@ -6,7 +6,7 @@ public final class PredicateIdentifier {
 	private final int arity;
 	private final int hashCode;
 
-	PredicateIdentifier(StringAtom functor, int arity) {
+	public PredicateIdentifier(StringAtom functor, int arity) {
 		this.functor = functor;
 		this.arity = arity;
 		this.hashCode = functor.hashCode() + arity;
@@ -23,6 +23,14 @@ public final class PredicateIdentifier {
 	public boolean sameAs(PredicateIdentifier other) {
 		return this.arity == other.arity
 				&& this.functor.sameAs(other.functor);
+	}
+	
+	public StringAtom getFunctor() {
+		return functor;
+	}
+	
+	public int getArity() {
+		return arity;
 	}
 
 	@Override

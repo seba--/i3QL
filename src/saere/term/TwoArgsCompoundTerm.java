@@ -32,23 +32,22 @@
 package saere.term;
 
 import saere.CompoundTerm;
-import static saere.PredicateRegistry.instance;
-import saere.Solutions;
 import saere.Term;
 
 abstract class TwoArgsCompoundTerm extends CompoundTerm {
 
-	protected final Term[] args = new Term[2];
+	protected final Term t1;
+	protected final Term t2;
 	
 	TwoArgsCompoundTerm(Term t1, Term t2) {
 		assert (t1 != null && t2 != null);
-		args[0] = t1;
-		args[1] = t2;
+		this.t1 = t1;
+		this.t2 = t2;
 	}
 
 	@Override
 	public final Term arg(int i) {
-		return args[i];
+		return i == 0 ? t1 : t2;
 	}
 
 	@Override
@@ -56,14 +55,10 @@ abstract class TwoArgsCompoundTerm extends CompoundTerm {
 		return 2;
 	}
 
-	@Override
-	public Solutions call() {
-		return instance().createPredicateInstance(functor(),args);
-	}
 
 	@Override
 	public String toString() {
-		return functor() + "(" + args[0] + ", " + args[1] + ")";
+		return functor() + "(" + t1 + ", " + t2 + ")";
 	}
 
 }

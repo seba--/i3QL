@@ -35,9 +35,9 @@ package saere;
  * Representation of an integer atom. The SAE uses long values as the basis for
  * integer arithmetic.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class IntegerAtom extends Atom {
+public final class IntegerAtom extends Atomic {
 
 	private final long value;
 
@@ -70,13 +70,19 @@ public final class IntegerAtom extends Atom {
 	}
 
 	@Override
-	public String toString() {
-		return "IntegerAtom["+Long.toString(value)+"]";
+	public Solutions call() {
+		throw new IllegalStateException(
+				"calling integer values is not possible");
 	}
-	
-	@Override 
-	public String toProlog(){
+
+	@Override
+	public String toProlog() {
 		return Long.toString(value);
+	}
+
+	@Override
+	public String toString() {
+		return "IntegerAtom[" + Long.toString(value) + "]";
 	}
 
 	public static final IntegerAtom IntegerAtom_M3 = new IntegerAtom(-3l);

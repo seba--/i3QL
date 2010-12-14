@@ -32,31 +32,37 @@
 package saere.predicate;
 
 import static saere.IntegerAtom.IntegerAtom;
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 import saere.Variable;
 
 /**
  * Implements the <code>is/2</code> operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Is2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.IS_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Is2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.IS_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Is2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
@@ -74,11 +80,12 @@ public final class Is2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			called = true;
 			lState = l.manifestState();
 			final long rValue = r.intEval();
-			if (is(l, rValue))
+			if (is(l, rValue)){
+				called = true;
 				return true;
+			}
 		}
 
 		l.setState(lState);

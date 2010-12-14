@@ -35,20 +35,21 @@ import saere.predicate.And2;
 import saere.predicate.Cut0;
 
 /**
- * Interface implemented by all predicates. The methods of this interface enable
- * to iterate over all solutions for a given predicate.
+ * Main interface of all predicate implementations. The primary purpose of this
+ * interface is to enable to iterate over all solutions for a given predicate.
  * <p>
  * The programming model is as follows:
  * <ol>
- * <li>Tthe first method that has to be called is the {@link #next()} method.
- * <li>{@link #next()} has to be called until {@link #next()} fails; i.e., it
- * returns false. After that, neither {@link #next()} nor {@link #abort()} are
- * allowed to be called.</li>
- * <li>if {@link #next()} has failed, {@link #choiceCommitted()} can be called
+ * <li>After instantiation, the first method that has to be called is the
+ * {@link #next()} method.
+ * <li>{@link #next()} has to be called until {@link #next()} fails; i.e., until
+ * <code>false</code> is returned. After that, neither {@link #next()} nor
+ * {@link #abort()} are allowed to be called.</li>
+ * <li>If {@link #next()} has failed, {@link #choiceCommitted()} can be called
  * to determine if a cut was performed while evaluating this predicate.
- * <li>if next has not yet failed, but the computation needs to be aborted (due
+ * <li>If next has not yet failed, but the computation needs to be aborted (due
  * to some cut), then {@link #abort()} has to be called. After that, neither
- * {@link #next()} nor {@link #abort()} are allowed to be called.<br/>
+ * {@link #next()} nor {@link #abort()} are allowed to be called (again).<br/>
  * Note, calling {@link #choiceCommitted()} is meaningless since a cut was the
  * reason for calling {@link #abort()} in the first place. The result of
  * {@link #choiceCommitted()} is undefined if it is called after
@@ -56,7 +57,7 @@ import saere.predicate.Cut0;
  * </ol>
  * </p>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public interface Solutions {
 
@@ -96,13 +97,16 @@ public interface Solutions {
 
 	/**
 	 * This method returns <code>true</code>, if - as part of the evaluation of
-	 * this predicate - a cut was performed. Initially, this can only be the
-	 * case if this implementation of this interface is actually the cut
-	 * operator itself (@link {@link Cut0}) or if this implementation of this
-	 * interface models one of the standard control-flow predicates (","
-	 * {@link And2}) or ";" {@link Or2}). Recall, cuts appearing in the
-	 * condition part of ->/2 (if-then(-else)) and *->/2 (soft-cut) or in \+/1
-	 * (not) are local to the condition.<br />
+	 * this predicate - a cut was performed.
+	 * <p>
+	 * Initially, this can only be the case if this implementation of this
+	 * interface is actually the cut operator itself (@link {@link Cut0}).<br />
+	 * If this implementation of this interface models one of the standard
+	 * control-flow predicates ("," {@link And2}) or ";" {@link Or2}) the
+	 * information is passed on the parent goal (and or or).<br/>
+	 * Recall, cuts appearing in the condition part of ->/2 (if-then(-else)) and
+	 * *->/2 (soft-cut) or in \+/1 (not) are local to the condition.
+	 * </p>
 	 * <p>
 	 * <b>Control-flow predicates are only allowed to call this method after a
 	 * call to {@link #next()} has failed.</b> For example, given the following

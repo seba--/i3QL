@@ -31,36 +31,41 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * Implementation of Prolog's <code>\=</code> (does not unify) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class NotUnify2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.register(StringAtom.DOES_NOT_UNIFY_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.DOES_NOT_UNIFY_FUNCTOR, 2);
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new NotUnify2(args[0], args[1]);
-					}
-				});
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new NotUnify2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private Term l;
-	private Term r;
+	private final Term l;
+	private final Term r;
 
 	private boolean called = false;
 
@@ -81,7 +86,6 @@ public final class NotUnify2 implements Solutions {
 			// will not be bound!
 			l.setState(lState);
 			r.setState(rState);
-			l = r = null;
 			lState = rState = null;
 
 			return !success;

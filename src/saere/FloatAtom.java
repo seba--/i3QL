@@ -34,9 +34,9 @@ package saere;
 /**
  * Representation of a float atom. The SAE uses double values as the basis.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class FloatAtom extends Atom {
+public final class FloatAtom extends Atomic {
 
 	private final double value;
 
@@ -67,17 +67,20 @@ public final class FloatAtom extends Atom {
 		return value;
 	}
 
-	
 	@Override
-	public String toString() {
-		return "FloatAtom["+Double.toString(value)+"]";
+	public Solutions call() {
+		throw new IllegalStateException("calling float values is not possible");
 	}
-	
-	@Override 
-	public String toProlog(){
+
+	@Override
+	public String toProlog() {
 		return Double.toString(value);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "FloatAtom[" + Double.toString(value) + "]";
+	}
 
 	public static final FloatAtom FLOAT_ATOM_M1 = new FloatAtom(-1.0);
 	public static final FloatAtom FLOAT_ATOM_0 = new FloatAtom(0.0);
