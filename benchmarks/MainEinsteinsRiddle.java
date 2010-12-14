@@ -1,5 +1,8 @@
-package predicates;
+//package predicates;
 
+import predicates.einstein2;
+import predicates.nextTo3;
+import predicates.rightTo3;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;

@@ -32,7 +32,7 @@
 package saere;
 
 /**
- * Representation of a term.
+ * Representation of a Prolog term.
  * 
  * @author Michael Eichberg
  */
@@ -52,10 +52,8 @@ public abstract class Term {
 		return Unification.unify(this, other);
 	}
 
-	
-	public abstract boolean isGround() ;
-	
-	
+	public abstract boolean isGround();
+
 	/**
 	 * Creates a {@link State} object that encapsulates the complete variable
 	 * state information of this term. The {@link State} object is later on used
@@ -92,11 +90,10 @@ public abstract class Term {
 		return false;
 	}
 
-	
 	public boolean isNotVariable() {
 		return true;
 	}
-	
+
 	/**
 	 * @return <code>this</code> if this term object is an instance of a
 	 *         {@link Variable} object.
@@ -121,11 +118,10 @@ public abstract class Term {
 		throw new ClassCastException();
 	}
 
-	
 	public boolean isAtom() {
 		return true;
 	}
-	
+
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
 	 *         {@link StringAtom}.
@@ -224,6 +220,5 @@ public abstract class Term {
 				+ ") cannot be called");
 	}
 
-	
 	public abstract String toProlog();
 }

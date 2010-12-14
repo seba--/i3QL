@@ -47,7 +47,7 @@ abstract class VariableState extends State {
 
 		@Override
 		public String toString() {
-			return "VariableStateImmutable";
+			return "VariableState[immutable]";
 		}
 	};
 
@@ -69,20 +69,22 @@ abstract class VariableState extends State {
 
 			@Override
 			public String toString() {
-				return "VariableStateShare[" + headVariable + "]";
+				return "VariableState[shares; headVariableId=" + headVariable
+						+ "]";
 			}
 		};
 	}
 
 	static final VariableState instantiated(final Variable headVariable) {
 		return new VariableState() {
-			
+
 			private final State headVariableBindingState;
-			
+
 			{
 				assert headVariable.getValue() != null : "the head variable is free; use VariableState.share(Variable) to encapsulate the state";
 
-				headVariableBindingState = headVariable.getValue().manifestState();
+				headVariableBindingState = headVariable.getValue()
+						.manifestState();
 			}
 
 			@Override
@@ -96,7 +98,7 @@ abstract class VariableState extends State {
 
 			@Override
 			public String toString() {
-				return "VariableStateInstantiated[headVariableId="
+				return "VariableState[instantiated; headVariableId="
 						+ Variable.variableToName(headVariable) + "]";
 			}
 		};

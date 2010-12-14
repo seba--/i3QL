@@ -1,5 +1,11 @@
-package predicates;
+//package predicates;
 
+import predicates.not_attack2;
+import predicates.not_attack3;
+import predicates.queens2;
+import predicates.queens3;
+import predicates.range3;
+import predicates.select3;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
@@ -32,5 +38,5 @@ public class MainQueens {
 		long duration = System.nanoTime() - startTime;
 		System.out.printf("%10.4f",new Double(duration/1000.0/1000.0/1000.0));
 	}
-
+	
 }
