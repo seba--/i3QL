@@ -31,10 +31,18 @@
  */
 package saere.term;
 
+import static saere.PredicateRegistry.predicateRegistry;
+import saere.PredicateIdentifier;
+import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 final class Plus2 extends TwoArgsCompoundTerm {
+
+	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.PLUS_FUNCTOR, 2));
 
 	public Plus2(Term t1, Term t2) {
 		super(t1, t2);
@@ -47,7 +55,12 @@ final class Plus2 extends TwoArgsCompoundTerm {
 
 	@Override
 	public long intEval() {
-		return args[0].intEval() + args[1].intEval();
+		return t1.intEval() + t2.intEval();
+	}
+
+	@Override
+	public Solutions call() {
+		return FACTORY.createInstance(t1, t2);
 	}
 
 }

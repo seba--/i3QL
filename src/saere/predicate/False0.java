@@ -31,35 +31,40 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.NoArgsPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
 
 /**
  * Implementation of ISO Prolog's false/0 resp. fail/0 predicate.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class False0 implements Solutions {
 
+	public final static PredicateIdentifier FAIL_IDENTIFIER = new PredicateIdentifier(
+			StringAtom.FAIL_FUNCTOR, 0);
+	public final static PredicateIdentifier FALSE_IDENTIFIER = new PredicateIdentifier(
+			StringAtom.FALSE_FUNCTOR, 0);
+
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance() {
+			return FALSE0;
+		}
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-
-		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
-
-			@Override
-			public Solutions createPredicateInstance(Term[] args) {
-				return FALSE0;
-			}
-		};
-		
-		registry.register(StringAtom.FAIL_FUNCTOR, 0,pif);
-		registry.register(StringAtom.FALSE_FUNCTOR, 0,pif);			
+		registry.register(FAIL_IDENTIFIER, FACTORY);
+		registry.register(FALSE_IDENTIFIER, FACTORY);
 	}
 
 	public static final False0 FALSE0 = new False0();
-	
+
 	public False0() {
 		// nothing to do
 	}
@@ -72,10 +77,10 @@ public final class False0 implements Solutions {
 	public boolean choiceCommitted() {
 		return false;
 	}
-	
+
 	@Override
 	public void abort() {
-		// nothing to do		
+		// nothing to do
 	}
 
 }

@@ -36,7 +36,7 @@ import java.util.Arrays;
 /**
  * Encapsulate's the state of a compound term's arguments.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 final class CompoundTermState extends State {
 	//

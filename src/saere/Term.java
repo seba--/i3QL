@@ -34,7 +34,7 @@ package saere;
 /**
  * Representation of a Prolog term.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class Term {
 
@@ -49,7 +49,7 @@ public abstract class Term {
 	 * </p>
 	 */
 	public final boolean unify(Term other) {
-		return Unification.unify(this, other);
+		return Term.unify(this, other);
 	}
 
 	public abstract boolean isGround();
@@ -118,7 +118,11 @@ public abstract class Term {
 		throw new ClassCastException();
 	}
 
-	public boolean isAtom() {
+	/**
+	 * 
+	 * @return <code>true</code> if this term is a subtype of {@link Atomic}.
+	 */
+	public boolean isAtomic() {
 		return true;
 	}
 
@@ -171,9 +175,9 @@ public abstract class Term {
 	}
 
 	/**
-	 * @return The functor of this term. If this term is an atom, then the atom
-	 *         is converted to a {@link StringAtom} and this {@link StringAtom}
-	 *         object is returned.
+	 * @return The functor of this term. If this term is subtype of atomic, then
+	 *         - if necessary - a {@link StringAtom} is created and this
+	 *         {@link StringAtom} object is returned.
 	 */
 	public abstract StringAtom functor();
 
@@ -183,13 +187,17 @@ public abstract class Term {
 	public abstract int arity();
 
 	/**
-	 * @return The i<i>th</i> argument of this term (zero based). If this term
-	 *         does not have any arguments (<code>arity() == 0</code>) an
-	 *         <code>IndexOutOfBoundsException</code> is always thrown. If this
-	 *         term has at least one argument and <i>i</i> is larger than or
-	 *         equal to the aritry of the term, then the method is free to
-	 *         return the last argument or to throw an
+	 * @return The i<i>th</i> argument of this term (zero based).<br/>
+	 *         If this term does not have any arguments (
+	 *         <code>arity() == 0</code>) an
+	 *         <code>IndexOutOfBoundsException</code> is always thrown.
+	 *         <p>
+	 *         <b>Implementation Note</b><br />
+	 *         If this term has at least one argument and <i>i</i> is larger
+	 *         than or equal to the arity of the term, then the method is free
+	 *         to return the last argument or to throw an
 	 *         <code>IndexOutOfBoundsException</code>.
+	 *         </p>
 	 */
 	public abstract Term arg(int i) throws IndexOutOfBoundsException;
 
@@ -215,10 +223,94 @@ public abstract class Term {
 				+ ") is not an arithmetic term");
 	}
 
-	public Solutions call() {
-		throw new IllegalStateException("this term (" + this.toString()
-				+ ") cannot be called");
-	}
+	/**
+	 * Calls the predicate that corresponds to this term.
+	 * 
+	 * @return A new instance of the predicate initialized using this term's
+	 *         current arguments.
+	 */
+	public abstract Solutions call();
+//	{
+//		throw new IllegalStateException("the predicate " + this.functor() + "/"
+//				+ this.arity() + " does not exist");
+//	}
 
+	/**
+	 * @return A textual representation of the term that uses the Prolog syntax.
+	 *         I.e., a Prolog compiler should be able to immediately parse the
+	 *         resulting string.
+	 */
 	public abstract String toProlog();
+
+	
+	/**
+	 * Unifies two terms.
+	 * <p>
+	 * <font color="red><b> This method does not take care of state handling. It
+	 * is the responsibility of the caller to manifest the state of the given
+	 * terms before calling this method and to restore the state at the
+	 * appropriate point in time. </b></font><br />
+	 * By moving the responsibility for state handling to the caller various
+	 * optimizations of how and when the state is saved / restored are possible
+	 * </p>
+	 * 
+	 * @param t1
+	 *            The first term.
+	 * @param t2
+	 *            The second term.
+	 * @return <code>true</code> if both terms were successfully unified;
+	 *         <code>false</code> otherwise.
+	 */
+	static boolean unify(Term t1, Term t2) {
+		if (t1 == t2) {
+			return true;
+		}
+
+		// Basically, the Robinson Algorithm
+		if (t1.isVariable()) {
+			final Variable v1 = t1.asVariable();
+			if (v1.isInstantiated()) {
+				return unify(v1.binding(), t2);
+			} else {
+				if (t2.isVariable()) {
+					// PERFORMANCE Evaluate if it is more efficient to always
+					// just share a free variable with another variable or to
+					// bind it.
+					final Variable v2 = t2.asVariable();
+					if (v2.isInstantiated()) {
+						v1.bind(v2.binding());
+						return true;
+					} else {
+						/*
+						 * Both variables are not instantiated. We now have to
+						 * "link" both variables; because these two variables
+						 * are said to share.
+						 */
+						v1.share(v2);
+						return true;
+					}
+				} else {
+					v1.bind(t2);
+					return true;
+				}
+			}
+		} else if (t2.isVariable()) { // t1 is not a variable...
+			final Variable v2 = t2.asVariable();
+			if (v2.isInstantiated()) {
+				return unify(v2.binding(), t1);
+			} else {
+				v2.bind(t1);
+				return true;
+			}
+		} else {
+			return (t1.isStringAtom() && t2.isStringAtom() && t1.asStringAtom()
+					.sameAs(t2.asStringAtom()))
+					|| (t1.isIntegerAtom() && t2.isIntegerAtom() && t1
+							.asIntegerAtom().sameAs(t2.asIntegerAtom()))
+					|| (t1.isCompoundTerm() && t2.isCompoundTerm() && t1
+							.asCompoundTerm().unify(t2.asCompoundTerm()))
+					|| (t1.isFloatAtom() && t2.isFloatAtom() && t1
+							.asFloatAtom().sameAs(t2.asFloatAtom()));
+		}
+	}
 }

@@ -31,14 +31,13 @@
  */
 package saere;
 
-
 /**
  * Enables the creation of a new instance of a predicate.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public interface PredicateInstanceFactory {
-
-	Solutions createPredicateInstance(Term[] args);
+public abstract class NArgsPredicateFactory implements PredicateFactory {
+	
+	// empty
 
 }

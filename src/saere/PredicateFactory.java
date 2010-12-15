@@ -29,78 +29,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.State;
-import saere.StringAtom;
-import saere.Term;
-import saere.TwoArgsPredicateFactory;
+package saere;
 
 /**
- * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
+ * Enables the creation of a new instance of a predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Unify2 implements Solutions {
+public interface PredicateFactory {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.UNIFY_FUNCTOR, 2);
+	Solutions createInstance(Term[] args);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t1, Term t2) {
-			return new Unify2(t1, t2);
-		}
-
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term l;
-	private final Term r;
-	private State lState;
-	private State rState;
-
-	private boolean called = false;
-
-	public Unify2(final Term l, final Term r) {
-		this.l = l;
-		this.r = r;
-	}
-
-	@Override
-	public boolean next() {
-		if (!called) {
-			this.lState = l.manifestState();
-			this.rState = r.manifestState();
-			if (l.unify(r)) {
-				called = true;
-				return true;
-			}
-		}
-		// unification failed...
-		l.setState(lState);
-		r.setState(rState);
-		return false;
-	}
-
-	@Override
-	public void abort() {
-		l.setState(lState);
-		r.setState(rState);
-		lState = null;
-		rState = null;
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
 }

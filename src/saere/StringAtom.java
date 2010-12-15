@@ -31,16 +31,17 @@
  */
 package saere;
 
+import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 import java.util.WeakHashMap;
-import java.lang.ref.WeakReference;
+import static saere.PredicateRegistry.predicateRegistry;
 
 /**
  * Representation of a string atom.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class StringAtom extends Atom {
+public final class StringAtom extends Atomic {
 
 	private final byte[] value;
 	private final int hashCode;
@@ -116,20 +117,19 @@ public final class StringAtom extends Atom {
 		return "StringAtom[" + new String(value) + "]";
 	}
 
-	
 	@Override
 	public String toProlog() {
 		String s = (new String(value)).replace("\\", "\\\\");
 		if (Character.isUpperCase(s.charAt(0)) || s.charAt(0) == '_')
-			s = "'"+s+"'";
+			s = "'" + s + "'";
 		return s;
 	}
-	
-	
+
 	@Override
 	public Solutions call() {
-		return PredicateRegistry.instance().createPredicateInstance(this,
-				Term.NO_TERMS);
+		PredicateIdentifier pi = new PredicateIdentifier(this, 0);
+		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
+		return ((NoArgsPredicateFactory) pf).createInstance();
 	}
 
 	/**

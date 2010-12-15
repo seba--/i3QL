@@ -32,40 +32,46 @@
 package saere;
 
 /**
- * A compound term is a term with at least one argument.
+ * A compound term is a term with a functor and at least one argument.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class CompoundTerm extends Term {
 
 	@Override
-	final public boolean isAtom() {
+	/**
+	 * @return Always returns <code>false</code>.
+	 */
+	public final boolean isAtomic() {
 		return false;
 	}
 
 	/**
-	 * @return <code>true</code> - always.
+	 * @return Always returns <code>true</code>.
 	 */
 	@Override
-	final public boolean isCompoundTerm() {
+	public final boolean isCompoundTerm() {
 		return true;
 	}
 
 	/**
-	 * @return <code>this</code> - always.
+	 * @return Always returns "<code>this</code>"
 	 */
 	@Override
-	final public CompoundTerm asCompoundTerm() {
+	public final CompoundTerm asCompoundTerm() {
 		return this;
 	}
 
 	/**
-	 * Returns <code>true</code> if this term is ground.
+	 * Returns <code>true</code> if this term is ground; i.e. if all arguments
+	 * are ground.
+	 * 
 	 * <p>
 	 * <b>Performance Guideline</b><br/>
 	 * This method (re)calculates the answer whenever this method is called. If
-	 * you know that the answer is <code>true</code> you should override this
-	 * method and return true.
+	 * you know that for your specific kind of compound term the answer is
+	 * always <code>true</code> you should override this method and return
+	 * <code>true</code> (see also {@link #manifestState()}).
 	 * </p>
 	 */
 	@Override
@@ -79,7 +85,10 @@ public abstract class CompoundTerm extends Term {
 		return true;
 	}
 
-	// Caches the information if a compound term is ground.
+	/*
+	 * Caches the information if a compound term is ground. This value is only
+	 * intended to be used by manifestState() and setState(...).
+	 */
 	private boolean ground = false;
 
 	/**
@@ -91,7 +100,7 @@ public abstract class CompoundTerm extends Term {
 	 * always ground then it is highly recommended to override the
 	 * {@link #isGround()} method and to always return <code>true</code>.
 	 * Overwriting {@link #isGround()} is more benefical than overwriting this
-	 * method.
+	 * method, because this method directly uses the method {@link #isGround()}.
 	 * </p>
 	 */
 	@Override
@@ -111,9 +120,8 @@ public abstract class CompoundTerm extends Term {
 	 * <b>Performance Guideline</b><br/>
 	 * This requires a traversal of the complete compound term's structure.<br />
 	 * Hence, if all instances of a compound term are always ground then it is
-	 * highly encouraged to overwrite this method and the
-	 * {@link #manifestState()} method and to use <code>null</code> to declare
-	 * that no immutable state exists.
+	 * possible to overwrite this method and the {@link #manifestState()} method
+	 * and to use <code>null</code> to declare that no immutable state exists.
 	 * </p>
 	 * 
 	 * @see #manifestState()
@@ -131,7 +139,8 @@ public abstract class CompoundTerm extends Term {
 	 * <p>
 	 * This method does not take care of state handling; i.e, <font
 	 * color="ref">both compound terms may be partially bound after
-	 * return.</font>
+	 * return.</font> The caller must take care to reset the state of both
+	 * compound terms.
 	 * </p>
 	 */
 	public boolean unify(CompoundTerm other) {

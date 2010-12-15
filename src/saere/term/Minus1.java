@@ -31,13 +31,19 @@
  */
 package saere.term;
 
+import static saere.PredicateRegistry.predicateRegistry;
 import saere.CompoundTerm;
-import static saere.PredicateRegistry.instance;
+import saere.OneArgPredicateFactory;
+import saere.PredicateIdentifier;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
 final class Minus1 extends CompoundTerm {
+
+	public static final OneArgPredicateFactory FACTORY = (OneArgPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.MINUS_FUNCTOR, 1));
 
 	private final Term t1;
 
@@ -53,7 +59,7 @@ final class Minus1 extends CompoundTerm {
 	@Override
 	public Term arg(int i) throws IndexOutOfBoundsException {
 		assert (i == 0);
-		
+
 		return t1;
 	}
 
@@ -69,7 +75,7 @@ final class Minus1 extends CompoundTerm {
 
 	@Override
 	public Solutions call() {
-		return instance().createPredicateInstance(functor(), new Term[] { t1 });
+		return FACTORY.createInstance(t1);
 	}
 
 }

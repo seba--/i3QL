@@ -36,7 +36,7 @@ package saere;
  * stack's standard operations (put, peek and drop) to manage a list of
  * {@link Solutions} iterators.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class GoalStack {
 

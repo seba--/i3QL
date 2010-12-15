@@ -49,7 +49,7 @@ import java.util.WeakHashMap;
  * 
  * </p>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Variable extends Term {
 
@@ -73,7 +73,7 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public boolean isAtom() {
+	public boolean isAtomic() {
 		return false;
 	}
 
@@ -100,7 +100,7 @@ public final class Variable extends Term {
 			Variable hv = headVariable();
 			if (hv.value == null) {
 				return VariableState.share(hv);
-			} else if (hv.value.isAtom())
+			} else if (hv.value.isAtomic())
 				return VariableState.immutable;
 			else
 				return VariableState.instantiated(hv);

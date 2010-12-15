@@ -15,7 +15,7 @@ import static saere.term.TermFactory.*;
 public class MainQueens {
 
 	public static void main(String[] args) {
-		PredicateRegistry registry = PredicateRegistry.instance();
+		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 
 		not_attack2.registerWithPredicateRegistry(registry);
 		not_attack3.registerWithPredicateRegistry(registry);
@@ -30,7 +30,7 @@ public class MainQueens {
 			StringAtom time = StringAtom.instance("time");
 			StringAtom queens = StringAtom.instance("queens");
 			Solutions s = compoundTerm(time,
-					compoundTerm(queens, atom(i), solution)).call();
+					compoundTerm(queens, atomic(i), solution)).call();
 			if (s.next()) {
 				System.out.println(" ; "+i+" => "+solution.toProlog());
 			}

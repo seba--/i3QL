@@ -12,7 +12,7 @@ import static saere.term.TermFactory.*;
 public class MainEinsteinsRiddle {
 
 	public static void main(String[] args) throws Throwable {
-		PredicateRegistry registry = PredicateRegistry.instance();
+		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 
 		einstein2.registerWithPredicateRegistry(registry);
 		nextTo3.registerWithPredicateRegistry(registry);

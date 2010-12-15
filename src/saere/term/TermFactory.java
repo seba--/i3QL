@@ -1,6 +1,6 @@
 package saere.term;
 
-import saere.Atom;
+import saere.Atomic;
 import saere.CompoundTerm;
 import saere.FloatAtom;
 import saere.IntegerAtom;
@@ -29,23 +29,23 @@ public class TermFactory {
 		return new Variable();
 	}
 
-	protected Atom newAtom(long value) {
+	protected Atomic newAtom(long value) {
 		return IntegerAtom.IntegerAtom(value);
 	}
 
-	protected Atom newAtom(double value) {
+	protected Atomic newAtom(double value) {
 		return FloatAtom.instance(value);
 	}
 
-	protected Atom newAtom(String string) {
+	protected Atomic newAtom(String string) {
 		return StringAtom.instance(string);
 	}
 
-	protected Atom newCut() {
+	protected Atomic newCut() {
 		return StringAtom.CUT_FUNCTOR;
 	}
 
-	protected Atom newEmptyList() {
+	protected Atomic newEmptyList() {
 		return StringAtom.EMPTY_LIST_FUNCTOR;
 	}
 
@@ -106,15 +106,15 @@ public class TermFactory {
 	// The static methods are just convenience methods that always use
 	// the default instance of the TermFactory.
 
-	public static Term atom(String value) {
+	public static Term atomic(String value) {
 		return getInstance().newAtom(value);
 	}
 
-	public static Term atom(long value) {
+	public static Term atomic(long value) {
 		return getInstance().newAtom(value);
 	}
 
-	public static Term atom(double value) {
+	public static Term atomic(double value) {
 		return getInstance().newAtom(value);
 	}
 
@@ -132,11 +132,11 @@ public class TermFactory {
 
 	// Special methods for the most standard Prolog terms
 
-	public static Atom cut() {
+	public static Atomic cut() {
 		return getInstance().newCut();
 	}
 
-	public static Atom emptyList() {
+	public static Atomic emptyList() {
 		return getInstance().newEmptyList();
 	}
 
