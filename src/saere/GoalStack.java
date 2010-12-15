@@ -103,9 +103,9 @@ public abstract class GoalStack {
 
 	public abstract GoalStack put(Solutions solutions);
 
-	public abstract Solutions peek();
+	public abstract Solutions peek() throws IllegalStateException;
 
-	public abstract GoalStack drop();
+	public abstract GoalStack drop() throws IllegalStateException;
 
 	public abstract boolean isNotEmpty();
 
