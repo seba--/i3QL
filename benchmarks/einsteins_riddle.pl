@@ -29,4 +29,6 @@ einstein(Houses, FishOwner) :-
    nextTo([house,norwegian,_,_,_,_], [house,_,_,_,_,blue], Houses),
    member([house,FishOwner,fish,_,_,_], Houses).
 
+member(X,[X|_]).
+member(X,[_|Ys]) :- member(X,Ys).
 

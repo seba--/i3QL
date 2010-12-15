@@ -52,6 +52,14 @@ public abstract class Term {
 		return Term.unify(this, other);
 	}
 
+	/**
+	 * Returns <code>true</code> if this term is ground. String atome, float
+	 * values and integer values are always ground. A complex term is ground if
+	 * all arguments are ground. A variable is ground if the variable is bound
+	 * to a ground term.
+	 * 
+	 * @return <code>true</code> if this term is ground.
+	 */
 	public abstract boolean isGround();
 
 	/**
@@ -59,15 +67,24 @@ public abstract class Term {
 	 * state information of this term. The {@link State} object is later on used
 	 * to reset the state of this term to the time when this method was called
 	 * (to undo all changes that were done in between).
+	 * 
 	 * <p>
+	 * <b>Implementation Note</b><br />
 	 * This method implements – in conjunction with {@link #setState(State)} –
 	 * the Memento Pattern.
 	 * </p>
 	 * 
-	 * @return The created state object; can be <code>null</code> if this term's
-	 *         corresponding {@link #setState(State)} method accepts
-	 *         <code>null</code> as a legal parameter value and no state
-	 *         information needs to be preserved.
+	 * @return An object that encapsulates this term's state. The object's
+	 *         precise type is always private to the term object that created
+	 *         it. The caller must not make any assumptions about the object's
+	 *         structure.
+	 *         <p>
+	 *         <b>Performance Guideline</b><br />
+	 *         It is legal and highly encouraged to return <code>null</code> if
+	 *         this term's state is immutable. In this case the corresponding
+	 *         {@link #setState(State)} method has to be able to accept
+	 *         <code>null</code> as a legal parameter value.
+	 *         </p>
 	 */
 	public abstract State manifestState();
 
@@ -83,13 +100,21 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link Variable} object (Note, this is unrelated to the question
-	 *         whether the variable is instantiated / free or not.)
+	 *         {@link Variable} object.
+	 *         <p>
+	 *         <b>Prolog Semantics</b><br />
+	 *         (Note, this is unrelated to the question whether the variable is
+	 *         instantiated / free or not.)
+	 *         </p>
 	 */
 	public boolean isVariable() {
 		return false;
 	}
 
+	/**
+	 * @return <code>true</code> if the type of this term is not a subtype of
+	 *         {@link Variable}.
+	 */
 	public boolean isNotVariable() {
 		return true;
 	}
@@ -230,10 +255,6 @@ public abstract class Term {
 	 *         current arguments.
 	 */
 	public abstract Solutions call();
-//	{
-//		throw new IllegalStateException("the predicate " + this.functor() + "/"
-//				+ this.arity() + " does not exist");
-//	}
 
 	/**
 	 * @return A textual representation of the term that uses the Prolog syntax.
@@ -242,7 +263,6 @@ public abstract class Term {
 	 */
 	public abstract String toProlog();
 
-	
 	/**
 	 * Unifies two terms.
 	 * <p>
