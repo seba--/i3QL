@@ -141,6 +141,12 @@ public class DatabasePredicate {
 				args[i].setState(states[i]);
 			}
 		}
+
+		@Override
+		public boolean choiceCommitted() {
+			// TODO Auto-generated method stub
+			return false;
+		}
 	}
 	
 	/**
@@ -209,6 +215,12 @@ public class DatabasePredicate {
 			for (int i = 0; i < args.length; i++) {
 				if (vars[i]) args[i].setState(states[i]);
 			}
+		}
+
+		@Override
+		public boolean choiceCommitted() {
+			// TODO Auto-generated method stub
+			return false;
 		}
 	}
 }

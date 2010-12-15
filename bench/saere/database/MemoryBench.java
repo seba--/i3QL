@@ -1,98 +1,99 @@
 package saere.database;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import saere.database.Database;
-import saere.database.DatabaseTest;
-import saere.database.Factbase;
-import saere.database.Stopwatch;
-import saere.database.TrieDatabase;
+import saere.database.index.DefaultTrieBuilder;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
-import saere.database.index.DefaultTrieBuilder;
+import saere.database.profiling.Profiler;
+import saere.database.profiling.Profiler.Mode;
 
 /**
- * Estimates memory consumption of {@link Database}s.
+ * Estimates memory consumption of {@link Database}s. Each 'test' should be run alone.
  * 
  * @author David Sullivan
  * @version 0.1, 12/6/2010
  */
 public final class MemoryBench {
 	
-	private static final String TEST_FILE = DatabaseTest.GLOBAL_TEST_FILE;
+	private static final int MAP_THRESHOLD = DatabaseTest.GLOBAL_MAP_THRESHOLD;
 	private static final Factbase FACTS = Factbase.getInstance();
 	
-	@BeforeClass
-	public static void info() {
-		System.out.println("Test file " + TEST_FILE);
+	private static String testFile = DatabaseTest.TEST_FILES[2];
+	private static String profilesFile;
+	private static boolean useProfiles;
+	
+	public static void main(String[] args) {
+		
+		String mode = null;
+		if (args.length == 2) {
+			testFile = args[0];
+			mode = args[1];
+		} else if (args.length == 3) {
+			testFile = args[0];
+			mode = args[1];
+			useProfiles = true;
+			profilesFile = args[2];
+		} else {
+			System.err.println("Invalid parameters");
+			System.exit(1);
+		}
+		
+		MemoryBench bench = new MemoryBench();
+		if (mode.equals("n")) {
+			bench.memoryWithoutFacts();
+		} else if (mode.equals("m")) {
+			bench.memoryWithFactsOnly();
+		} else if (mode.equals("r")) {
+			bench.reference();
+		}  else if (mode.equals("s")) {
+			bench.simpleShallow();
+		}  else if (mode.equals("f")) {
+			bench.simpleFull();
+		}
 	}
 	
-	@Test
-	public void reference() {
-		System.out.println("\nReference database");
-		Stopwatch sw = new Stopwatch();
-		FACTS.read(TEST_FILE);
-		sw.printElapsed("Reading " + FACTS.size() + " facts");
+	public void memoryWithoutFacts() {
+		System.out.println("Memory consumption w/o factbase");
 		printMemoryConsumption(estimateMemoryConsumption());
-		
+	}
+	
+	public void memoryWithFactsOnly() {
+		FACTS.read(testFile);
+		System.out.println("Memory consumption with factbase only");
+		printMemoryConsumption(estimateMemoryConsumption());
+		FACTS.drop();
+	}
+	
+	public void reference() {
 		Database reference = new ReferenceDatabase();
 		((ReferenceDatabase) reference).allowDuplicates(true);
-		sw = new Stopwatch();
-		reference.fill();
-		sw.printElapsed("Filling the reference database");
-		
-		double size = FACTS.size();
-		FACTS.drop();
-		System.out.println("Dropping the factbase");
-		long memory = estimateMemoryConsumption();
-		printMemoryConsumption(memory);
-		System.out.println("Ratio of number of terms to memory consumption: " + (size / (memory / 1024)));
-		reference.drop();
+		System.out.println("\nReference database");
+		estimateDatabaseSize(reference);
 	}
 	
-	@Test
 	public void simpleShallow() {
 		System.out.println("\nSimple shallow trie database");
-		Stopwatch sw = new Stopwatch();
-		FACTS.read(TEST_FILE);
-		sw.printElapsed("Reading " + FACTS.size() + " facts");
-		printMemoryConsumption(estimateMemoryConsumption());
-		
-		Database simpleShallow = new TrieDatabase(new DefaultTrieBuilder(new ShallowFlattener(), 120));
-		sw = new Stopwatch();
-		simpleShallow.fill();
-		sw.printElapsed("Filling the simple shallow trie database");
-		
-		double size = FACTS.size();
-		FACTS.drop();
-		System.out.println("Dropping the factbase");
-		long memory = estimateMemoryConsumption();
-		printMemoryConsumption(memory);
-		System.out.println("Ratio of number of terms to memory consumption: " + (size / (memory / 1024)));
-		simpleShallow.drop();
+		Database simpleShallow = new TrieDatabase(new DefaultTrieBuilder(new ShallowFlattener(), MAP_THRESHOLD));
+		estimateDatabaseSize(simpleShallow);
 	}
 	
-	@Test
 	public void simpleFull() {
 		System.out.println("\nSimple full trie database");
-		Stopwatch sw = new Stopwatch();
-		FACTS.read(TEST_FILE);
-		sw.printElapsed("Reading " + FACTS.size() + " facts");
-		printMemoryConsumption(estimateMemoryConsumption());
+		Database simpleFull = new TrieDatabase(new DefaultTrieBuilder(new FullFlattener(), MAP_THRESHOLD));
+		estimateDatabaseSize(simpleFull);
+	}
+	
+	private static void estimateDatabaseSize(Database database) {		
+		// Profiles?
+		if (useProfiles) {
+			Profiler.getInstance().loadProfiles(profilesFile);
+			Profiler.getInstance().setMode(Mode.USE);
+		}
 		
-		Database simpleFull = new TrieDatabase(new DefaultTrieBuilder(new FullFlattener(), 120));
-		sw = new Stopwatch();
-		simpleFull.fill();
-		sw.printElapsed("Filling the simple full database");
-		
-		double size = FACTS.size();
+		FACTS.read(testFile);
+		database.fill();
 		FACTS.drop();
-		System.out.println("Dropping the factbase");
-		long memory = estimateMemoryConsumption();
-		printMemoryConsumption(memory);
-		System.out.println("Ratio of number of terms to memory consumption: " + (size / (memory / 1024)));
-		simpleFull.drop();
+		printMemoryConsumption(estimateMemoryConsumption());
+		database.drop();
 	}
 	
 	private static long estimateMemoryConsumption() {
@@ -105,7 +106,7 @@ public final class MemoryBench {
 	private static void printMemoryConsumption(long memory) {
 		if (memory < 1024) {
 			System.out.println("Estimated memory consumption: " + memory + "B");
-		} else if (memory < 1048576) {
+		} else if (true || memory < 1048576) {
 			memory /= 1024;
 			System.out.println("Estimated memory consumption: " + memory + "KB");
 		} else {

@@ -6,7 +6,6 @@ import saere.Term;
 import saere.database.Utils;
 import saere.database.index.DefaultTrieBuilder;
 import saere.database.index.Trie;
-import saere.database.index.TrieBuilder;
 
 /**
  * Logger for insertions that writes to a PostgreSQL database.
@@ -22,8 +21,9 @@ public aspect InsertionLogger  {
 	// To (de-)activate the whole aspect while runtime (w.r.t. to advice)
 	private static boolean active;
 	
-	private PostgreSQL database;
-	private Stopwatch sw;
+	private final PostgreSQL database;
+	private final Stopwatch sw;
+	
 	private IdentityHashMap<Object, Integer> builderCounter;
 	
 	// Constructor
@@ -47,16 +47,14 @@ public aspect InsertionLogger  {
 		InsertionLogger.active = active;
 	}
 	
-	// Pointcut for simple insertions by the 'saere.database.index' package
 	private pointcut insertion(Term term, Trie start, DefaultTrieBuilder builder) :
 		execution(public Trie DefaultTrieBuilder.insert(Term, Trie)) &&
 		args(term, start) && target(builder) && if(ACTIVE);	
 	
-	// Advice for simple insertions by the 'saere.database.index' package
 	Object around(Term term, Trie start, DefaultTrieBuilder builder) : insertion(term, start, builder) {
-		sw.start();
+		sw.reset();
 		Object obj = proceed(term, start, builder);
-		long time = sw.stop();
+		long time = sw.reset();
 		
 		insertIntoDatabase(term, builder, time);
 		

@@ -13,8 +13,7 @@ import saere.IntegerAtom;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.meta.GenericCompoundTerm;
-import saere.term.EmptyList0;
+import saere.GenericCompoundTerm;
 import saere.term.ListElement2;
 import scala.Function1;
 import scala.collection.Seq;
@@ -185,7 +184,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		if (ts.size() > 1) {
 			return new ListElement2(ts.pop(), list(ts));
 		} else {
-			return new EmptyList0();
+			return StringAtom.EMPTY_LIST_FUNCTOR;
 		}
 	}
 	

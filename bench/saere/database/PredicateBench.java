@@ -10,7 +10,6 @@ import saere.database.BATTestQueries;
 import saere.database.Database;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
-import saere.database.Stopwatch;
 import saere.database.TrieDatabase;
 import saere.database.Utils;
 import saere.database.index.FullFlattener;
@@ -19,6 +18,7 @@ import saere.database.index.DefaultTrieBuilder;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.Instr3;
 //import saere.database.predicate.Method15;
+import saere.database.util.Stopwatch;
 
 /**
  * Measures query times (with actual unification) for the <tt>instr/3</tt> and 

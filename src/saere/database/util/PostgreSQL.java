@@ -26,7 +26,7 @@ public final class PostgreSQL {
 		// Default values
 		url = "jdbc:postgresql://localhost:5432/sae";
 		user = "postgres";
-		pass = "5gks"; // XXX Well...
+		pass = "5gks5"; // XXX Well...
 		
 		// Load PostgreSQL driver
 		try {

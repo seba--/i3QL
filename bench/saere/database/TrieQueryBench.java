@@ -11,11 +11,11 @@ import saere.database.BATTestQueries;
 import saere.database.Database;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
-import saere.database.Stopwatch;
 import saere.database.TrieDatabase;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
 import saere.database.index.DefaultTrieBuilder;
+import saere.database.util.Stopwatch;
 
 /**
  * Class to measure queries directly to tries.

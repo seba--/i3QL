@@ -14,6 +14,7 @@ import saere.database.index.LabelTest;
 import saere.database.index.TermRemovalTest;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
+import saere.database.util.Stopwatch;
 
 /**
  * Starter for JUnit tests concering the {@link saere.database} package. 
@@ -25,15 +26,15 @@ import saere.database.index.TrieBuilder;
 public final class DatabaseTest {
 	
 	public static final String DATA_PATH = "test" + File.separator + "data";
-	
-	private static final String[] TEST_FILES = {
+	public static final String[] TEST_FILES = {
 		 DATA_PATH + File.separator + "HelloWorld.class",
 		 DATA_PATH + File.separator + "MMC.jar",
 		 DATA_PATH + File.separator + "opal-0.5.0.jar",
-		 DATA_PATH + File.separator + "apache-tomcat-6.0.29.zip",
+		 DATA_PATH + File.separator + "Tomcat-6.0.20.zip",
+		 DATA_PATH + File.separator + "Vuze_4510.jar"
 	};
-	
-	public static String GLOBAL_TEST_FILE = TEST_FILES[2];
+	public static String GLOBAL_TEST_FILE = TEST_FILES[3]; // not final
+	public static final int GLOBAL_MAP_THRESHOLD = 112;
 	
 	public static void main(String[] args) {
 		if (args.length == 1) {
@@ -99,18 +100,28 @@ public final class DatabaseTest {
 	/**
 	 * Prints the specified {@link Term} sets to the console.
 	 * 
-	 * @param expected The expected set.
+	 * @param expecteds The expected set.
 	 * @param actuals The actual set.
 	 */
-	public static void printTermCollections(Collection<Term> expected, Collection<Term> actuals) {
-		System.out.println("\n\nExpected set 1 (" + expected.size() + " elements)");
-		for (Term term : expected) {
+	public static void printTermCollections(Collection<Term> expecteds, Collection<Term> actuals) {
+		System.out.println("\n\nExpected set 1 (" + expecteds.size() + " elements)");
+		for (Term term : expecteds) {
 			System.out.println(Utils.termToString(term));
 		}
 
 		System.out.println("\nActual set 2 (" + actuals.size() + " elements)");
 		for (Term term : actuals) {
 			System.out.println(Utils.termToString(term));
+		}
+	}
+	
+	public static void printMissingActuals(Collection<Term> expecteds, Collection<Term> actuals) {
+		if (actuals.size() < expecteds.size()) {
+			System.out.println("expecteds size is " + expecteds.size() + ", actuals size is " + actuals.size() + ", missing actuals:");
+			for (Term actual : actuals) {
+				if (!expecteds.contains(actual))
+					System.out.println(Utils.termToString(actual));
+			}
 		}
 	}
 	

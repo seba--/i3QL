@@ -54,7 +54,7 @@ public final class FullFlattener extends TermFlattener {
 				flattened.add(VariableLabel.VariableLabel());
 			}
 		} else { // 'term.isList()'
-			if (!term.functor().sameAs(StringAtom.emptyList)) {
+			if (!term.functor().sameAs(StringAtom.EMPTY_LIST_FUNCTOR)) {
 				flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
 				flattened.addAll(flattenTerm(term.arg(0)));
 				flattened.addAll(flattenTerm(term.arg(1)));

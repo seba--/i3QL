@@ -26,7 +26,7 @@ public class Profiler {
 	private final QueryRater rater;
 	
 	private HashMap<FunctorKey, int[]> serializableOrders;
-	private Mode mode;
+	private Mode mode;	
 	
 	private Profiler() {
 		predicates = new IdentityHashMap<FunctorLabel, PredicateProfiler>();
@@ -132,7 +132,7 @@ public class Profiler {
 			return getOrder(term, order);
 		} else {
 			// Should not happen...
-			assert false : "No";
+			//assert false : "No";
 			
 			// Check wether we have a order profiled in this run or not
 			PredicateProfiler predicateProfiler = predicates.get(functorLabel);

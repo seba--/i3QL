@@ -18,7 +18,7 @@ public final class Factbase {
 	
 	private static final Factbase INSTANCE = new Factbase();
 	
-	private final Deque<Term> facts;
+	private final LinkedList<Term> facts;
 	
 	private Factbase() {
 		facts = new LinkedList<Term>(); // must also support list interface
@@ -78,5 +78,15 @@ public final class Factbase {
 	 */
 	public int size() {
 		return facts.size();
+	}
+	
+	/**
+	 * Gets the fact at the specified index.
+	 * 
+	 * @param index The index of the fact.
+	 * @return The requested fact.
+	 */
+	public Term get(int index) {
+		return facts.get(index); // XXX Slow with linked list, but doesn't matter
 	}
 }

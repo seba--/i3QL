@@ -24,4 +24,10 @@ public class EmptySolutions implements Solutions {
 	public boolean next() {
 		return false;
 	}
+
+	@Override
+	public boolean choiceCommitted() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

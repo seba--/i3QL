@@ -2,6 +2,7 @@ package saere.database.index;
 
 import static saere.database.Utils.isGround;
 
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 
 import saere.Term;
@@ -128,10 +129,9 @@ public abstract class TrieBuilder {
 	 * @param original The trie to replace.
 	 * @param replacement The replacement.
 	 */
-	// TODO Track with AspectJ how often does this occur!
-	// Replacement is of course very expensive for hash tries. (Worst case: A hash trie turns into a storage hash trie.)
 	protected static void replace(Trie original, Trie replacement) {
-		assert !original.isRoot() : "Cannote replace root";
+		assert !original.isRoot() : "Cannot replace root";
+		assert !original.isHashNode() : "Cannot replace inner hash node";
 		
 		replaceCounter++;
 		
@@ -140,12 +140,11 @@ public abstract class TrieBuilder {
 		replacement.setParent(original.getParent()); // actually not necessary
 		replacement.setFirstChild(original.getFirstChild());
 		replacement.setNextSibling(original.getNextSibling());
-		//replacement.setChildrenNumber(trie.getChildrenNumber());
 		
 		// Switch all references TO the old trie to the replacement
 		
 		// Set replacement as new parent for all children
-		Trie child = replacement.getFirstChild();
+		Trie child = original.getFirstChild();
 		while (child != null) {
 			child.setParent(replacement);
 			child = child.getNextSibling();
@@ -153,14 +152,14 @@ public abstract class TrieBuilder {
 		
 		// Set the first child / next sibling relation to the replacement
 		if (original.getParent() != null) {
-			Trie parent = original.getParent();
+			Trie origParent = original.getParent();
 			
-			if (parent.getFirstChild() == original) {
+			if (origParent.getFirstChild() == original) {
 				// Replacement is first child
-				parent.setFirstChild(replacement);
+				origParent.setFirstChild(replacement);
 			} else {
 				// Replacement is a(ny) sibling, iterate through all children (maybe expensive)
-				Trie sibling = parent.getFirstChild();
+				Trie sibling = origParent.getFirstChild();
 				boolean set = false;
 				while (sibling != null) {
 					if (sibling.getNextSibling() == original) {
@@ -175,13 +174,14 @@ public abstract class TrieBuilder {
 			}
 			
 			// Care of additional fields if parent is a hash trie
-			if (parent.isHashNode()) {
+			if (origParent.isHashNode()) {
+				
 				// Replace in parent's hash map if necessary
-				parent.getMap().put(replacement.getLabel(), replacement);
+				origParent.getMap().put(original.getLabel(), replacement);
 				
 				// Update parent's last child field if necessary
-				if (parent.getLastChild() == original) {
-					parent.setLastChild(replacement);
+				if (origParent.getLastChild() == original) {
+					origParent.setLastChild(replacement);
 				}
 			}
 		}
@@ -201,6 +201,7 @@ public abstract class TrieBuilder {
 		childrenNumber = 0;
 		
 		if (parent.isHashNode()) {
+			// Setting children number is not necessary
 			lastChild = parent.getLastChild();
 			return parent.getMap().get(label);
 		} else {
@@ -239,13 +240,14 @@ public abstract class TrieBuilder {
 			while (someChild != null) {
 				if (child == someChild) {
 					lastSomeChild.setNextSibling(child.getNextSibling());
+					return;
 				} else {
 					lastSomeChild = someChild;
 					someChild = someChild.getNextSibling();
 				}
 			}
 			
-			assert false : "Unable to remove child " + child + " from parent " + parent;
+			//assert false : "Unable to remove child " + child + " from parent " + parent;
 		}
 	}
 	
@@ -260,6 +262,8 @@ public abstract class TrieBuilder {
 	protected void addChild(Trie parent, Trie child) {
 		assert parent.isRoot() || parent.isInnerNode() || parent.isHashNode() : "Cannot add a child to trie type " + parent.getClass().getName();
 		
+		childrenNumber++;
+		
 		if (parent.isRoot()) {
 			if (parent.getLastChild() != null) {
 				parent.getLastChild().setNextSibling(child);
@@ -268,43 +272,50 @@ public abstract class TrieBuilder {
 			}
 			parent.setLastChild(child);
 			
-			// TODO Activate hash map if necessary
+			// Activate or use hash map if necessary (won't happen in BAT because only 15 different predicates)
+			if (childrenNumber == mapThreshold) { // Don't create hash trie node for a root
+				IdentityHashMap<Label, Trie> rootMap = new IdentityHashMap<Label, Trie>();
+				parent.setMap(rootMap);
+				
+				// Fill the hash map as replace() doesn't care for this
+				Trie trie = parent.getFirstChild();
+				while (trie != null) {
+					parent.getMap().put(trie.getLabel(), trie);
+					trie = trie.getNextSibling();
+				}
+			} else if (childrenNumber > mapThreshold) {
+				parent.getMap().put(child.getLabel(), child);
+			}
 			
 		} else if (parent.isHashNode()) {
 			parent.getLastChild().setNextSibling(child);
 			parent.setLastChild(child);
 			parent.getMap().put(child.getLabel(), child);
 		} else {
+			
+			// Normal inner node...
 			if (lastChild != null) {
 				// This is the planned case
 				lastChild.setNextSibling(child);
+				lastChild = child;
 			} else {
-				// Actually an error (see assertion above)
-				lastChild = parent.getFirstChild();
-				if (lastChild != null) {
-					while (lastChild.getNextSibling() != null) {
-						lastChild = lastChild.getNextSibling();
-					}
-					lastChild.setNextSibling(child);
-				} else {
-					parent.setFirstChild(child);
-				}
+				assert parent.getFirstChild() == null : "Illegal state";
+				
+				parent.setFirstChild(child);
 				lastChild = child;
 			}
 			
-			if (childrenNumber == mapThreshold && !parent.isRoot()) { // Don't create hash trie node for a root
-				InnerHashNode hashTrie = new InnerHashNode(parent.getParent(), parent.getLabel(), lastChild);
-				replace(parent, hashTrie);
+			// Transform parent to hash node?
+			if (childrenNumber == mapThreshold) {
+				InnerHashNode hashParent = new InnerHashNode(parent.getParent(), parent.getLabel(), lastChild);
+				replace(parent, hashParent);
 				
 				// Fill the hash map as replace() doesn't care for this
-				Trie trie = hashTrie.getFirstChild();
+				Trie trie = hashParent.getFirstChild();
 				while (trie != null) {
-					hashTrie.getMap().put(trie.getLabel(), trie);
+					hashParent.getMap().put(trie.getLabel(), trie);
 					trie = trie.getNextSibling();
 				}
-				
-				// ... and set last child
-				hashTrie.setLastChild(child);
 			}
 		}
 		
@@ -313,7 +324,7 @@ public abstract class TrieBuilder {
 	
 	protected void addTerm(Trie trie, Term term) {
 		assert trie.isSingleStorageLeaf() || trie.isMultiStorageLeaf() : "Trie is not a storage trie: " + trie;
-		assert isGround(term) : "Term is not a fact: " + term;
+		assert isGround(term) : "Term is not ground: " + term;
 		
 		if (noCollision) {
 			trie.setTerm(term);
@@ -337,17 +348,17 @@ public abstract class TrieBuilder {
 	
 	protected void removeTerm(Trie trie, Term term) {
 		assert trie.isSingleStorageLeaf() : "Trie is not a storage trie: " + trie;
-		assert isGround(term) : "Term is not a fact: " + term;
+		assert isGround(term) : "Term is not ground: " + term;
 		
 		if (noCollision) {
 			trie.setTerm(null);
 		} else {
+			
 			// Removal in a shallow trie requires a check the the stored term is really the term we want to remove because of collision
 			TermList list = trie.getTerms();
 			TermList last = null;
-			Term stored = list.term();
-			while (stored != null) {
-				if (stored.unify(term)) {
+			while (list != null) {
+				if (list.term().unify(term)) {
 					// The term we want to remove (no need to manage states with facts only)
 					if (last == null) {
 						// Term was first

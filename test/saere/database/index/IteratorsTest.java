@@ -7,7 +7,6 @@ import static saere.database.DatabaseTest.match;
 import static saere.database.DatabaseTest.same;
 import static saere.database.Utils.termToString;
 
-import java.io.File;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -16,14 +15,14 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import saere.GenericCompoundTerm;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.BATTestQueries;
 import saere.database.DatabaseTest;
 import saere.database.Factbase;
-import saere.database.Stopwatch;
 import saere.database.OtherTestFacts;
-import saere.meta.GenericCompoundTerm;
+import saere.database.util.Stopwatch;
 
 /**
  * Test class for the various iterator classes. Note that these tests assume 
@@ -38,7 +37,7 @@ import saere.meta.GenericCompoundTerm;
 public class IteratorsTest {
 	
 	private static final boolean PRINT_QUERY_RESULTS = true;
-	private static final int MAP_THRESHOLD = 160;
+	private static final int MAP_THRESHOLD = 112; //160;
 	
 	private static final TermFlattener SHALLOW = new ShallowFlattener();
 	private static final TermFlattener FULL = new FullFlattener();
@@ -57,7 +56,7 @@ public class IteratorsTest {
 	 * {@link IteratorsTest} take.
 	 */
 	//private static String testFile = DatabaseTest.DATA_PATH + File.separator + "HelloWorld.class";
-	private static String testFile = DatabaseTest.DATA_PATH + File.separator + "opal-0.5.0.jar";
+	private static String testFile = DatabaseTest.GLOBAL_TEST_FILE;
 	
 	/**
 	 * Sets the {@link #testFile}.
@@ -199,10 +198,6 @@ public class IteratorsTest {
 	 * @return <tt>true</tt> if the iterator works correct.
 	 */
 	private boolean testTermIterator(TrieBuilder builder) {
-		if (builder == null) {
-			System.out.println("\nTrie builder is null");
-			return false;
-		}
 		
 		Deque<Term> expecteds = new LinkedList<Term>();
 		for (Term fact : FACTS.getFacts()) {
@@ -220,6 +215,7 @@ public class IteratorsTest {
 		
 		if (!DatabaseTest.same(expecteds, actuals)) {
 			//TriePrinter.print(root, builder, "c:/users/leaf/desktop/trie.gv", Mode.BOX);
+			DatabaseTest.printMissingActuals(expecteds, actuals);
 			return false;
 		} else {
 			return true;

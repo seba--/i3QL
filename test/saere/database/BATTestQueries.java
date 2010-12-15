@@ -130,7 +130,7 @@ public final class BATTestQueries {
 	public static final Term[] ALL_CLASSFILE10_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ3, CQ4, CQ5, CQ6, CQ7, CQ8, CQ9, CQ10, CQ11, CQ12, CQ13, CQ14 };
 	
 	/** All queries for <tt>class_file/10</tt> with approximated frequencies. */
-	public static final Term[] ALL_CLASSFILE10_FREQ_QUERIES = new Term[] { CQ0, CQ1, CQ2, CQ4, CQ4, CQ4, CQ7, CQ7, CQ7, CQ8, CQ8, CQ8, CQ8, CQ9, CQ9, CQ10, CQ11, CQ11, CQ11, CQ14, CQ14, CQ14, CQ14, CQ14 };
+	public static final Term[] ALL_CLASSFILE10_FREQ_QUERIES = new Term[] { CQ0, /*CQ1, CQ2,*/ CQ4, CQ4, CQ4, CQ7, CQ7, CQ7, CQ8, CQ8, CQ8, CQ8, CQ9, CQ9, CQ10, CQ11, CQ11, CQ11, CQ14, CQ14, CQ14, CQ14, CQ14 };
 	
 	
 	
