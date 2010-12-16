@@ -13,7 +13,7 @@ import saere.Solutions;
 import saere.Term;
 import saere.Variable;
 
-public class And2Test {
+public class TestAnd2 {
 
 	@Test
 	public void testDeterministicEvaluation() {

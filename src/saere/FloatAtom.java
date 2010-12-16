@@ -63,6 +63,17 @@ public final class FloatAtom extends Atomic {
 	}
 
 	@Override
+	public boolean equals(Object other) {
+		return other instanceof FloatAtom
+				&& ((FloatAtom) other).value == this.value;
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
+	@Override
 	public double floatEval() {
 		return value;
 	}

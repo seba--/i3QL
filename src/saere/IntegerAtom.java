@@ -60,6 +60,17 @@ public final class IntegerAtom extends Atomic {
 		return StringAtom.instance(Long.toString(value));
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof IntegerAtom
+				&& ((IntegerAtom) other).value == this.value;
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
 	public boolean sameAs(IntegerAtom other) {
 		return this.value == other.value;
 	}

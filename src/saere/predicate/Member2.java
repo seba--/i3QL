@@ -31,13 +31,13 @@
  */
 package saere.predicate;
 
+import static saere.StringAtom.LIST_FUNCTOR;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
-import static saere.StringAtom.LIST_FUNCTOR;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
 
@@ -82,15 +82,21 @@ public final class Member2 implements Solutions {
 	private State listElementState;
 	private int state = SETUP;
 
+
+//static int goalCounter;
+//private int thisGoalId;
+	
 	public Member2(final Term element, final Term list) {
 		this.element = element;
 		this.list = list;
+//		thisGoalId = goalCounter++;
 	}
 
 	public boolean next() {
 		while (true) {
 			switch (state) {
 			case SETUP:
+//				System.out.println(thisGoalId+"=>"+element.toProlog());		
 				elementState = element.manifestState();
 				state = TEST;
 			case TEST:
@@ -99,6 +105,7 @@ public final class Member2 implements Solutions {
 				}
 				if (list.arity() == 2 && list.functor().sameAs(LIST_FUNCTOR)) {
 					listElement = list.arg(0);
+	//		System.out.println(thisGoalId+"[=>]"+listElement.toProlog());				
 					listElementState = listElement.manifestState();
 					state = ADVANCE;
 					if (element.unify(listElement)) {
@@ -108,8 +115,13 @@ public final class Member2 implements Solutions {
 					return false;
 				}
 			case ADVANCE:
-				element.setState(elementState);
 				listElement.setState(listElementState);
+//		System.out.println(thisGoalId+"[()]"+listElement.toProlog());	
+				
+				element.setState(elementState);
+////			System.out.println(thisGoalId+"()"+element.toProlog());
+				
+				
 				list = list.arg(1);
 				state = TEST;
 			}

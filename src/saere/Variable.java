@@ -212,6 +212,7 @@ public final class Variable extends Term {
 
 		assert (!this.isInstantiated()) : "binding of an instantiated variable";
 		assert (term != null) : "binding to null";
+		assert (term.isNotVariable()) : "variables cannot be bound together, they can only share";
 
 		/*
 		 * if (value == null) { value = term; } else {

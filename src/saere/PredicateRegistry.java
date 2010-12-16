@@ -113,8 +113,8 @@ public class PredicateRegistry {
 
 	public PredicateFactory getPredicateFactory(PredicateIdentifier identifier) {
 		PredicateFactory pf = predicates.get(identifier);
-		assert (pf != null) : identifier.getFunctor().toProlog() + "/"
-				+ identifier.getArity();
+//		assert (pf != null) : identifier.getFunctor().toProlog() + "/"
+//				+ identifier.getArity();
 		return pf;
 	}
 

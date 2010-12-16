@@ -106,15 +106,15 @@ public class TermFactory {
 	// The static methods are just convenience methods that always use
 	// the default instance of the TermFactory.
 
-	public static Term atomic(String value) {
+	public static Atomic atomic(String value) {
 		return getInstance().newAtom(value);
 	}
 
-	public static Term atomic(long value) {
+	public static Atomic atomic(long value) {
 		return getInstance().newAtom(value);
 	}
 
-	public static Term atomic(double value) {
+	public static Atomic atomic(double value) {
 		return getInstance().newAtom(value);
 	}
 

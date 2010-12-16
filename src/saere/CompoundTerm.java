@@ -90,7 +90,7 @@ public abstract class CompoundTerm extends Term {
 	 * intended to be used by manifestState() and setState(...).
 	 */
 	private boolean ground = false;
-
+	
 	/**
 	 * The state of the compound term's arguments is saved for later recovery.
 	 * <p>
@@ -99,19 +99,27 @@ public abstract class CompoundTerm extends Term {
 	 * compound term's structure. Hence, if all instances of a compound term are
 	 * always ground then it is highly recommended to override the
 	 * {@link #isGround()} method and to always return <code>true</code>.
-	 * Overwriting {@link #isGround()} is more benefical than overwriting this
+	 * Overwriting {@link #isGround()} is more beneficial than overwriting this
 	 * method, because this method directly uses the method {@link #isGround()}.
 	 * </p>
 	 */
 	@Override
 	public CompoundTermState manifestState() {
-		if (ground)
-			return null;
+		
+		// even if a term is ground, it may be the case that a variable is shared..
+		
+//		if (ground) {
+//			assert(isGround()) : this.toProlog();
+//			return null;
+//		}
 		if (isGround()) {
 			ground = true;
 			return null;
-		} else
-			return new CompoundTermState(this);
+		} else {
+			CompoundTermState cts =  new CompoundTermState(this);
+		//	assert !isGround();
+			return cts;
+		}
 	}
 
 	/**
@@ -127,10 +135,11 @@ public abstract class CompoundTerm extends Term {
 	 * @see #manifestState()
 	 */
 	@Override
-	public void setState(State state) {
+	public void setState(State state) {	
 		if (state != null) {
 			state.asCompoundTermState().apply(this);
 			ground = false;
+//			assert(!isGround());
 		}
 	}
 
@@ -174,4 +183,26 @@ public abstract class CompoundTerm extends Term {
 		return functor().toProlog() + "(" + s + ")";
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof CompoundTerm) {
+			CompoundTerm otherCompoundTerm = (CompoundTerm) other;
+			int arity = arity();
+			if (arity == otherCompoundTerm.arity()
+					&& functor() == otherCompoundTerm.functor()) {
+				for (int i = 0; i < arity; i++) {
+					if (this.arg(i) != otherCompoundTerm.arg(i))
+						return false;
+				}
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return functor().hashCode() + arity();
+	}
 }
