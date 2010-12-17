@@ -83,11 +83,19 @@ public abstract class CompoundTerm extends Term {
 		final int arity = arity();
 		for (int i = 0; i < arity; i++) {
 			if (!arg(i).isGround()) {
+				// return ground = false;
 				return false;
 			}
 		}
+		// return ground = true;
 		return true;
 	}
+
+	/*
+	 * Caches the information if a compound term is ground. This value is only
+	 * intended to be used by manifestState() and setState(...).
+	 */
+	// private boolean ground = false;
 
 	/**
 	 * The state of the compound term's arguments is saved for later recovery.
@@ -103,10 +111,23 @@ public abstract class CompoundTerm extends Term {
 	 */
 	@Override
 	public CompoundTermState manifestState() {
+
+		// even if a term is ground, it may be the case that a variable is
+		// shared..
+		//		
+		// if (ground) {
+		// assert isGround() : this.toProlog();
+		// return null;
+		// }
+
 		if (isGround()) {
+			// assert !this.toProlog().contains("V");
+			// assert ground == true;
 			return null;
 		} else {
 			CompoundTermState cts = new CompoundTermState(this);
+			// assert !isGround();
+			// assert ground == false;
 			return cts;
 		}
 	}
@@ -127,7 +148,13 @@ public abstract class CompoundTerm extends Term {
 	public void setState(State state) {
 		if (state != null) {
 			state.asCompoundTermState().apply(this);
+			// ground = false;
+			// assert(!isGround());
 		}
+		// else {
+		// assert ground == true;
+		// assert isGround();
+		// }
 	}
 
 	/**
@@ -141,6 +168,13 @@ public abstract class CompoundTerm extends Term {
 	 */
 	public boolean unify(CompoundTerm other) {
 
+		// IMPROVE EXPENSIVE TODO ... REMOVE DEBUGGING CODE
+		// String stemp =null;
+		// if (isGround()) {
+		// assert !this.toProlog().contains("V");
+		// stemp = this.toProlog();
+		// }
+
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
@@ -149,11 +183,16 @@ public abstract class CompoundTerm extends Term {
 				if (this.arg(i).unify(other.arg(i))) {
 					i += 1;
 				} else {
+					// assert stemp == null || (stemp.equals(this.toProlog()) &&
+					// isGround());
 					return false;
 				}
 			}
+			// assert stemp == null || stemp.equals(this.toProlog()): stemp+
+			// "<old new>"+this.toProlog();
 			return true;
 		} else {
+			// assert stemp == null || stemp.equals(this.toProlog());
 			return false;
 		}
 	}

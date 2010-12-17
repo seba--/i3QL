@@ -39,6 +39,7 @@ package saere;
  */
 final class CompoundTermState extends State {
 
+	// IMPROVE Is it more efficient to just save the state of the variables?
 	final static class ListOfStates {
 
 		private final VariableState state;
@@ -123,37 +124,4 @@ final class CompoundTermState extends State {
 	CompoundTermState asCompoundTermState() {
 		return this;
 	}
-
-	// private final State[] states;
-	//
-	// CompoundTermState(CompoundTerm compoundTerm) {
-	// final int arity = compoundTerm.arity();
-	// states = new State[arity];
-	// int i = 0;
-	// while (i < arity) {
-	// states[i] = compoundTerm.arg(i).manifestState();
-	// i += 1;
-	// }
-	// }
-	//
-	// @Override
-	// CompoundTermState asCompoundTermState() {
-	// return this;
-	// }
-	//
-	// void apply(CompoundTerm compoundTerm) {
-	// final int arity = compoundTerm.arity();
-	// int i = 0;
-	// while (i < arity) {
-	// compoundTerm.arg(i).setState(states[i]);
-	// i += 1;
-	// }
-	// }
-	//
-	// @Override
-	// public String toString() {
-	// return "CompoundTermState[id=" + hashCode() + "; states="
-	// + Arrays.toString(states) + "]";
-	// }
-
 }
