@@ -12,18 +12,15 @@ import static saere.term.TermFactory.*;
 public class MainEinsteinsRiddle {
 
 	public static void main(String[] args) throws Throwable {
-		PredicateRegistry registry = PredicateRegistry.instance();
+		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 
 		einstein2.registerWithPredicateRegistry(registry);
 		nextTo3.registerWithPredicateRegistry(registry);
 		rightTo3.registerWithPredicateRegistry(registry);
 	//	member2.registerWithPredicateRegistry(registry);
 
-		System.out.println("Sleeping for five seconds, to enable the attachement of profilers.");
-		Thread.sleep(5000);
-		
 		System.out.println("Starting warm up...");
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 1; i++) {
 
 			StringAtom time = StringAtom.instance("time");
 			Variable houses = new Variable();
@@ -37,6 +34,9 @@ public class MainEinsteinsRiddle {
 				System.out.println(fishOwner.toProlog());
 			}
 		}
+		
+		System.out.println("Sleeping for five seconds, to enable the attachement of profilers.");
+		Thread.sleep(5000);
 		
 		System.out.println("Evaluating...");
 		long startTime = System.nanoTime();

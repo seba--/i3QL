@@ -36,7 +36,7 @@ package saere;
  * stack's standard operations (put, peek and drop) to manage a list of
  * {@link Solutions} iterators.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class GoalStack {
 
@@ -103,9 +103,9 @@ public abstract class GoalStack {
 
 	public abstract GoalStack put(Solutions solutions);
 
-	public abstract Solutions peek();
+	public abstract Solutions peek() throws IllegalStateException;
 
-	public abstract GoalStack drop();
+	public abstract GoalStack drop() throws IllegalStateException;
 
 	public abstract boolean isNotEmpty();
 

@@ -31,12 +31,20 @@
  */
 package saere.term;
 
+import static saere.PredicateRegistry.predicateRegistry;
 import static saere.StringAtom.EMPTY_LIST_FUNCTOR;
 import saere.CompoundTerm;
+import saere.PredicateIdentifier;
+import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 public final class ListElement2 extends CompoundTerm {
+
+	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.LIST_FUNCTOR, 2));
 
 	private Term value;
 
@@ -72,6 +80,11 @@ public final class ListElement2 extends CompoundTerm {
 	}
 
 	@Override
+	public Solutions call() {
+		return FACTORY.createInstance(value, rest);
+	}
+
+	@Override
 	public String toProlog() {
 		return toListRepresentation("[");
 
@@ -90,4 +103,7 @@ public final class ListElement2 extends CompoundTerm {
 		}
 	}
 
+	public String toString() {
+		return "ListElement2[head=" + value + "; rest=" + rest + "]";
+	}
 }

@@ -36,92 +36,89 @@ import java.util.Arrays;
 /**
  * Encapsulate's the state of a compound term's arguments.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 final class CompoundTermState extends State {
-	//
+
 	// IMPROVE Is it more efficient to just save the state of the variables?
-	// final static class ListOfStates {
-	//
-	// private final VariableState state;
-	// private ListOfStates tail;
-	//
-	// ListOfStates(VariableState state) {
-	// this.state = state;
-	// }
-	//
-	// @SuppressWarnings("hiding")
-	// ListOfStates append(VariableState state) {
-	// ListOfStates tail = new ListOfStates(state);
-	// this.tail = tail;
-	// return tail;
-	// }
-	//
-	// ListOfStates apply(Variable variable) {
-	// variable.setState(state);
-	// return tail;
-	// }
-	//
-	// }
-	//
-	// private ListOfStates first = null;
-	// private ListOfStates temp = null;
-	//
-	// CompoundTermState(CompoundTerm compoundTerm) {
-	// doManifest(compoundTerm);
-	// }
-	//
-	// // we only manifest the state of the variables...
-	// private void doManifest(CompoundTerm compoundTerm) {
-	// for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
-	// Term arg_i = compoundTerm.arg(i);
-	// if (arg_i.isVariable()) {
-	// VariableState vs = arg_i.asVariable().manifestState();
-	// if (first == null)
-	// temp = first = new ListOfStates(vs);
-	// else
-	// temp = temp.append(vs);
-	// } else if (arg_i.isCompoundTerm()) {
-	// doManifest(arg_i.asCompoundTerm());
-	// }
-	// }
-	// }
-	//
-	// void apply(CompoundTerm compoundTerm) {
-	// temp = first;
-	// doApply(compoundTerm);
-	//
-	// }
-	//
-	// void doApply(CompoundTerm compoundTerm) {
-	// for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
-	// Term arg_i = compoundTerm.arg(i);
-	// if (arg_i.isVariable()) {
-	// temp = temp.apply(arg_i.asVariable());
-	// } else if (arg_i.isCompoundTerm()) {
-	// doApply(arg_i.asCompoundTerm());
-	// }
-	// }
-	// }
-	//
-	// @Override
-	// CompoundTermState asCompoundTermState() {
-	// return this;
-	// }
+	final static class ListOfStates {
 
-	private final State[] states;
+		private final VariableState state;
+		private ListOfStates tail;
 
-	
+		ListOfStates(VariableState state) {
+			this.state = state;
+		}
+
+		@SuppressWarnings("hiding")
+		ListOfStates append(VariableState state) {
+			ListOfStates tail = new ListOfStates(state);
+			this.tail = tail;
+			return tail;
+		}
+
+		ListOfStates apply(Variable variable) {
+			variable.setState(state);
+			return tail;
+		}
+
+		@Override
+		public String toString() {
+			ListOfStates los = tail;
+			String s = "[" + state;
+			while (los != null) {
+				s += "," + los.toString();
+				los = los.tail;
+			}
+			return s += "]";
+		}
+
+	}
+
+	private ListOfStates first = null;
+	private ListOfStates temp = null;
 
 	CompoundTermState(CompoundTerm compoundTerm) {
-		final int arity = compoundTerm.arity();
-		states = new State[arity];
-		// Initializer / constructor
-		int i = 0;
-		while (i < arity) {
-			states[i] = compoundTerm.arg(i).manifestState();
-			i += 1;
+		doManifest(compoundTerm);
+	}
+
+	// we only manifest the state of the variables...
+	private void doManifest(CompoundTerm compoundTerm) {
+		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+			Term arg_i = compoundTerm.arg(i);
+			if (arg_i.isVariable()) {
+				VariableState vs = arg_i.asVariable().manifestState();
+				if (first == null)
+					temp = first = new ListOfStates(vs);
+				else
+					temp = temp.append(vs);
+			} else if (arg_i.isCompoundTerm()) {
+				doManifest(arg_i.asCompoundTerm());
+			}
 		}
+	}
+
+	void apply(CompoundTerm compoundTerm) {
+		temp = first;
+		doApply(compoundTerm);
+
+		assert (temp == null);
+	}
+
+	private void doApply(CompoundTerm compoundTerm) {
+		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+			Term arg_i = compoundTerm.arg(i);
+			if (arg_i.isVariable()) {
+				temp = temp.apply(arg_i.asVariable());
+			} else if (arg_i.isCompoundTerm()) {
+				doApply(arg_i.asCompoundTerm());
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "CompoundTermState[" + first + "]";
 	}
 
 	@Override
@@ -129,19 +126,23 @@ final class CompoundTermState extends State {
 		return this;
 	}
 
-	void apply(CompoundTerm compoundTerm) {
-		final int arity = compoundTerm.arity();
-		int i = 0;
-		while (i < arity) {
-			compoundTerm.arg(i).setState(states[i]);
-			i += 1;
-		}
-	}
-
-	@Override
-	public String toString() {
-		return "CompoundTermState[id=" + hashCode() + "; states="
-				+ Arrays.toString(states) + "]";
-	}
-
+	/*
+	 * private final State[] states;
+	 * 
+	 * 
+	 * 
+	 * CompoundTermState(CompoundTerm compoundTerm) { final int arity =
+	 * compoundTerm.arity(); states = new State[arity]; // Initializer /
+	 * constructor int i = 0; while (i < arity) { states[i] =
+	 * compoundTerm.arg(i).manifestState(); i += 1; } }
+	 * 
+	 * @Override CompoundTermState asCompoundTermState() { return this; }
+	 * 
+	 * void apply(CompoundTerm compoundTerm) { final int arity =
+	 * compoundTerm.arity(); int i = 0; while (i < arity) {
+	 * compoundTerm.arg(i).setState(states[i]); i += 1; } }
+	 * 
+	 * @Override public String toString() { return "CompoundTermState[id=" +
+	 * hashCode() + "; states=" + Arrays.toString(states) + "]"; }
+	 */
 }

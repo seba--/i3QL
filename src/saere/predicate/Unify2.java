@@ -31,35 +31,40 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Unify2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.UNIFY_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Unify2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-
-		registry.register(StringAtom.UNIFY_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Unify2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private Term l;
-	private Term r;
+	private final Term l;
+	private final Term r;
 	private State lState;
 	private State rState;
 
@@ -73,23 +78,29 @@ public final class Unify2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			called = true;
 			this.lState = l.manifestState();
 			this.rState = r.manifestState();
 			if (l.unify(r)) {
+				called = true;
 				return true;
 			}
 		}
 		// unification failed...
-		l.setState(lState);
 		r.setState(rState);
+		l.setState(lState);
+		lState = null;
+		rState = null;
 		return false;
 	}
 
 	@Override
 	public void abort() {
-		l.setState(lState);
+		// the method protocol prescribes that you must have called next()
+		// before (at least once) and next has never returned false.
 		r.setState(rState);
+		l.setState(lState);
+		lState = null;
+		rState = null;
 	}
 
 	@Override

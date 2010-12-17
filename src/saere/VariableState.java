@@ -34,7 +34,7 @@ package saere;
 /**
  * Encapsulates the current state of a variable.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 abstract class VariableState extends State {
 
@@ -42,6 +42,7 @@ abstract class VariableState extends State {
 
 		@Override
 		void apply(Variable variable) {
+			assert variable.binding().isAtomic();
 			// nothing to do
 		}
 
@@ -60,11 +61,7 @@ abstract class VariableState extends State {
 
 			@Override
 			void apply(Variable variable) {
-				Variable v = variable;
-				while (v != headVariable) {
-					v = v.getValue().asVariable();
-				}
-				v.clear();
+				headVariable.clear();
 			}
 
 			@Override
@@ -82,18 +79,14 @@ abstract class VariableState extends State {
 
 			{
 				assert headVariable.getValue() != null : "the head variable is free; use VariableState.share(Variable) to encapsulate the state";
-
+				
 				headVariableBindingState = headVariable.getValue()
 						.manifestState();
 			}
 
 			@Override
 			void apply(Variable variable) {
-				Variable v = variable;
-				while (v != headVariable) {
-					v = v.getValue().asVariable();
-				}
-				v.getValue().setState(headVariableBindingState);
+				headVariable.getValue().setState(headVariableBindingState);
 			}
 
 			@Override
@@ -105,7 +98,7 @@ abstract class VariableState extends State {
 	}
 
 	@Override
-	VariableState asVariableState() {
+	final VariableState asVariableState() {
 		return this;
 	}
 

@@ -31,30 +31,37 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * ISO Prolog's arithmetic not-equals operator: "=\=".
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class ArithNotEqual2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new ArithNotEqual2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new ArithNotEqual2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
+
 
 	private final Term l;
 	private final Term r;

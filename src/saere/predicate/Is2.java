@@ -31,32 +31,36 @@
  */
 package saere.predicate;
 
-import static saere.IntegerAtom.IntegerAtom;
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * Implements the <code>is/2</code> operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Is2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.IS_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Is2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.IS_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Is2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
@@ -74,11 +78,12 @@ public final class Is2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			called = true;
-			lState = l.manifestState();
 			final long rValue = r.intEval();
-			if (is(l, rValue))
+			lState = l.manifestState();
+			if (Term.is(l, rValue)) {
+				called = true;
 				return true;
+			}
 		}
 
 		l.setState(lState);
@@ -88,29 +93,13 @@ public final class Is2 implements Solutions {
 
 	@Override
 	public void abort() {
-		if (lState != null) {
-			l.setState(lState);
-			lState = null;
-		}
+		l.setState(lState);
+		lState = null;
 	}
 
 	@Override
 	public boolean choiceCommitted() {
 		return false;
-	}
-
-	public static final boolean is(Term a1, long a2Value) {
-		if (a1.isVariable()) {
-			final Variable v1 = a1.asVariable();
-			if (v1.isInstantiated()) {
-				return v1.intEval() == a2Value;
-			} else {
-				v1.bind(IntegerAtom(a2Value));
-				return true;
-			}
-		} else {
-			return a1.intEval() == a2Value;
-		}
 	}
 
 }

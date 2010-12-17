@@ -29,94 +29,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
- * 
- * <pre>
- * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
- * </code>
- * </pre>
+ * Enables the creation of a new instance of a predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public interface PredicateFactory {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	Solutions createInstance(Term[] args);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
-	}
-
-	private final Term t;
-
-	private boolean called = false;
-
-	public Not1(final Term t) {
-
-		this.t = t;
-	}
-
-	@Override
-	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
-		} else {
-			return false;
-		}
-	}
-
-	@Override
-	public void abort() {
-		// nothing to do
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
 }

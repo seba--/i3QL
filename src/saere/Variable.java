@@ -49,7 +49,7 @@ import java.util.WeakHashMap;
  * 
  * </p>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Variable extends Term {
 
@@ -57,7 +57,8 @@ public final class Variable extends Term {
 	 * <code>value</code> is:
 	 * <ul>
 	 * <li><code>null</code> if this variable is free (new)</li>
-	 * <li>a value of type {@link Term}</li>
+	 * <li>a value of type {@link Term} that is not a subtype of Variable</li>
+	 * if this variable is instantiated.
 	 * <li>another {@link Variable} if this variable and another variable share.
 	 * </li>
 	 * </ul>
@@ -68,12 +69,12 @@ public final class Variable extends Term {
 		value = null;
 	}
 
-	public Variable(Term t) {
-		bind(t);
+	public Variable(Term term) {
+		this.value = term;
 	}
 
 	@Override
-	public boolean isAtom() {
+	public boolean isAtomic() {
 		return false;
 	}
 
@@ -96,14 +97,16 @@ public final class Variable extends Term {
 	public VariableState manifestState() {
 		// Remember that a variable may be bound to a compound term that
 		// contains free variables...
-		if (value != null) {
+		if (this.value != null) {
 			Variable hv = headVariable();
-			if (hv.value == null) {
+			Term hvv = hv.value;
+			if (hvv == null) {
 				return VariableState.share(hv);
-			} else if (hv.value.isAtom())
+			} else if (hvv.isAtomic()) {
 				return VariableState.immutable;
-			else
+			} else {
 				return VariableState.instantiated(hv);
+			}
 		} else {
 			return null;
 		}
@@ -111,65 +114,60 @@ public final class Variable extends Term {
 
 	@Override
 	public void setState(State state) {
-		if (state == null)
-			value = null;
-		else
-			state.asVariableState().apply(this);
-	}
-	
-	
-	void setState(VariableState state) {
-		if (state == null)
-			value = null;
-		else
-			state.apply(this);
-	}
-
-	@Override
-	public int arity() {
-		if (value == null)
-			throw new Error("The variable is not sufficiently instantiated.");
-		else
-			return value.arity();
-	}
-
-	@Override
-	public Term arg(int i) {
-		if (value == null)
-			throw new Error("The variable is not sufficiently instantiated.");
-		else
-			return value.arg(i);
-	}
-
-	@Override
-	public StringAtom functor() {
-		if (value == null)
-			throw new Error("The variable is not sufficiently instantiated.");
-		else
-			return value.functor();
-	}
-
-	public boolean isInstantiated() {
-		return value != null
-				&& (value.isNotVariable() || value.asVariable()
-						.isInstantiated());
-	}
-
-	public Term binding() {
-		if (value == null) {
-			return null;
-		} else if (value.isVariable()) {
-			return value.asVariable().binding();
+		if (state == null) {
+			this.value = null;
 		} else {
-			return value;
+			state.asVariableState().apply(this);
+		}
+	}
+
+	void setState(VariableState state) {
+		if (state == null) {
+			this.value = null;
+		} else {
+			state.apply(this);
 		}
 	}
 
 	@Override
+	public int arity() {
+		Term hvv = headVariable().value;
+		if (hvv == null)
+			throw new Error("The variable is not sufficiently instantiated.");
+		else
+			return hvv.arity();
+	}
+
+	@Override
+	public Term arg(int i) {
+		Term hvv = headVariable().value;
+		if (hvv == null)
+			throw new Error("The variable is not sufficiently instantiated.");
+		else
+			return hvv.arg(i);
+	}
+
+	@Override
+	public StringAtom functor() {
+		Term hvv = headVariable().value;
+		if (hvv == null)
+			throw new Error("The variable is not sufficiently instantiated.");
+		else
+			return hvv.functor();
+	}
+
+	public boolean isInstantiated() {
+		return headVariable().value != null;
+	}
+
+	public Term binding() {
+		return headVariable().value;
+	}
+
+	@Override
 	public boolean isGround() {
-		Variable hv = headVariable();
-		Term hvValue = hv.value;
-		return hvValue != null && hvValue.isGround();
+		Term hvv = headVariable().value;
+		return hvv != null && hvv.isGround();
 	}
 
 	/**
@@ -181,9 +179,6 @@ public final class Variable extends Term {
 
 	/**
 	 * Returns this variable's value.
-	 * <p>
-	 * Intended to be used by {@link VariableState} only.
-	 * </p>
 	 */
 	Term getValue() {
 		return value;
@@ -191,13 +186,10 @@ public final class Variable extends Term {
 
 	/**
 	 * Sets this variable's value.
-	 * <p>
-	 * Intended to be used by {@link VariableState} only.
-	 * </p>
 	 */
 	void setValue(Term value) {
-		assert (this.value == null && value != null)
-				|| (this.value != null && value == null) : "precondition of variable.setValue(term) not met";
+//		assert (this.value == null && value != null)
+//				|| (this.value != null && value == null) : "precondition of variable.setValue(term) not met";
 		this.value = value;
 	}
 
@@ -207,17 +199,21 @@ public final class Variable extends Term {
 	 * It is illegal to call this method if this variable is already
 	 * instantiated.
 	 * </p>
+	 * <p>
+	 * <b>Performance Guideline</b><br />
+	 * If you know that this variable is also a headVariable, then it is more
+	 * efficient to just call {@link #setValue(Term)}. If in doubt, call this
+	 * method.
+	 * </p>
 	 */
+	@Deprecated
 	public void bind(Term term) {
 
-		assert (!this.isInstantiated()) : "binding of an instantiated variable";
-		assert (term != null) : "binding to null";
+		assert !this.isInstantiated() : "binding of an instantiated variable";
+		assert term != null : "binding to null";
+		assert term.isNotVariable() : "variables cannot be bound together, they can only share";
 
-		/*
-		 * if (value == null) { value = term; } else {
-		 * value.asVariable().bind(term); }
-		 */
-		headVariable().setValue(term);
+		headVariable().value = term;
 	}
 
 	/**
@@ -227,6 +223,7 @@ public final class Variable extends Term {
 	 * @param other
 	 *            a Variable with which this variable shares.
 	 */
+	@Deprecated
 	void share(Variable other) {
 
 		assert !isInstantiated() && !other.isInstantiated() : "two variables can only share if both are not bound";
@@ -255,40 +252,54 @@ public final class Variable extends Term {
 	}
 
 	/**
-	 * If this variable shares with another variable, it is possible
-	 * that this variable points to another variable which is then
-	 * responsible
-	 * This is a companion method of {@link #share(Variable)}</b>
+	 * If this variable shares with another variable, it is possible that this
+	 * variable points to another variable.
+	 * <p>
+	 * This is a companion method of {@link #share(Variable)}.
+	 * </p>
 	 */
-	Variable headVariable() {
-		Variable h = this;
-		while (h.value != null && h.value.isVariable()) {
-			h = h.value.asVariable();
+	final Variable headVariable() {
+		Variable hv = this;
+		Term hvv = hv.value;
+		while (hvv != null) {
+			if (hvv.isVariable()) {
+				hv = hvv.asVariable();
+				hvv = hv.value;
+			} else {
+				return hv;
+			}
 		}
-		return h;
+		return hv;
 	}
 
 	@Override
 	public long intEval() {
-		if (value == null) {
+		final Term hvv = headVariable().value;
+		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
-			return value.intEval();
+			return headVariable().value.intEval();
 		}
 	}
 
 	@Override
 	public double floatEval() {
-		if (value == null) {
+		final Term hvv = headVariable().value;
+		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
 			return value.floatEval();
 		}
 	}
 
+	public int termTypeID() {
+		return Term.VARIABLE;
+	}
+
 	@Override
 	public Solutions call() {
-		if (value == null) {
+		final Term hvv = headVariable().value;
+		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
 			return value.call();
@@ -297,11 +308,11 @@ public final class Variable extends Term {
 
 	@Override
 	public String toProlog() {
-		final Term term = binding();
-		if (term == null) {
+		final Term hvv = headVariable().value;
+		if (hvv == null) {
 			return variableToName(this);
 		} else {
-			return term.toProlog();
+			return hvv.toProlog();
 		}
 	}
 

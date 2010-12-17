@@ -54,34 +54,34 @@ import saere.predicate.Write1;
 /**
  * Registry of all predicates.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public class PredicateRegistry {
 
 	private static final PredicateRegistry PREDICATE_REGISTRY = new PredicateRegistry();
 
-	public static PredicateRegistry instance() {
+	public static PredicateRegistry predicateRegistry() {
 		return PREDICATE_REGISTRY;
 	}
 
-	private final Map<PredicateIdentifier, PredicateInstanceFactory> predicates;
+	private final Map<PredicateIdentifier, PredicateFactory> predicates;
 
 	private PredicateRegistry() {
-		predicates = new HashMap<PredicateIdentifier, PredicateInstanceFactory>();
+		predicates = new HashMap<PredicateIdentifier, PredicateFactory>();
 
 		// Register all default predicate implementations...
 		// Alphabetical Order
 		And2.registerWithPredicateRegistry(this);
+		ArithEqual2.registerWithPredicateRegistry(this);
+		ArithNotEqual2.registerWithPredicateRegistry(this);
 		Cut0.registerWithPredicateRegistry(this);
 		False0.registerWithPredicateRegistry(this);
 		Is2.registerWithPredicateRegistry(this);
 		Member2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
-		ArithNotEqual2.registerWithPredicateRegistry(this);
 		NotUnify2.registerWithPredicateRegistry(this);
 		Or2.registerWithPredicateRegistry(this);
 		Repeat0.registerWithPredicateRegistry(this);
-		ArithEqual2.registerWithPredicateRegistry(this);
 		Smaller2.registerWithPredicateRegistry(this);
 		Time1.registerWithPredicateRegistry(this);
 		True0.registerWithPredicateRegistry(this);
@@ -89,19 +89,33 @@ public class PredicateRegistry {
 		Write1.registerWithPredicateRegistry(this);
 	}
 
-	public void register(StringAtom functor, int arity,
-			PredicateInstanceFactory factory) {
-		PredicateIdentifier p = new PredicateIdentifier(functor, arity);
-		if (predicates.put(p, factory) != null)
+	// public void register(StringAtom functor, int arity,
+	// PredicateInstanceFactory factory) {
+	// PredicateIdentifier p = new PredicateIdentifier(functor, arity);
+	// if (predicates.put(p, factory) != null)
+	// throw new IllegalStateException("a predicate instance factory for "
+	// + p + " was previously registered");
+	// }
+	public void register(PredicateIdentifier identifier,
+			PredicateFactory factory) {
+		if (predicates.put(identifier, factory) != null)
 			throw new IllegalStateException("a predicate instance factory for "
-					+ p + " was previously registered");
+					+ identifier + " was previously registered");
 	}
 
-	public Solutions createPredicateInstance(StringAtom functor, Term[] args) {
-		PredicateIdentifier p = new PredicateIdentifier(functor, args.length);
-		PredicateInstanceFactory pif = predicates.get(p);
-		assert (pif != null) : functor;
-		return pif.createPredicateInstance(args);
+	// public Solutions createPredicateInstance(StringAtom functor, Term[] args)
+	// {
+	// PredicateIdentifier p = new PredicateIdentifier(functor, args.length);
+	// PredicateInstanceFactory pif = predicates.get(p);
+	// assert (pif != null) : functor;
+	// return pif.createPredicateInstance(args);
+	// }
+
+	public PredicateFactory getPredicateFactory(PredicateIdentifier identifier) {
+		PredicateFactory pf = predicates.get(identifier);
+//		assert (pf != null) : identifier.getFunctor().toProlog() + "/"
+//				+ identifier.getArity();
+		return pf;
 	}
 
 }

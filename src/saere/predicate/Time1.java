@@ -31,63 +31,52 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.OneArgPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
 /**
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Time1 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("time"), 1);
+
+	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t) {
+			return new Time1(t);
+		}
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-
-		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
-
-			@Override
-			public Solutions createPredicateInstance(Term[] args) {
-				return new Time1(args[0]);
-			}
-		};
-		registry.register(StringAtom.instance("time"), 1, pif);
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private final Term t;
-
-	private boolean called = false;
-
-	private long duration;
-	
 	private Solutions solutions;
-	
+
 	public Time1(final Term t) {
 
-		this.t = t;
+		this.solutions = t.call();
 	}
 
 	public boolean next() {
-		if (!called) {
-			called = true;
-			final long startTime = System.nanoTime();
-			solutions = t.call();
-			if (!solutions.next()) {
-				solutions = null;
-			}
-			duration = ((System.nanoTime()-startTime));
-			System.out.printf("%8.4f",new Double(duration/1000.0/1000.0/1000.0));
-			return true;
-		} else {
-			if (solutions != null) solutions.abort();
-			return false;
-		}
+		final long startTime = System.nanoTime();
+		final boolean succeeded = solutions.next();
+		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
+		System.out.printf("%8.4f", new Double(duration));
+		return succeeded;
 	}
-	
+
 	@Override
 	public void abort() {
-		if (solutions != null) solutions.abort();
+		solutions.abort();
 	}
 
 	@Override
@@ -95,8 +84,4 @@ public final class Time1 implements Solutions {
 		return false;
 	}
 
-
-	public long getDuration() {
-		return duration;
-	}
 }

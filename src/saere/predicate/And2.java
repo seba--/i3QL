@@ -36,28 +36,33 @@ import saere.*;
 /**
  * Implementation of ISO Prolog's and (<code>,/2</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class And2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.AND_FUNCTOR, 2);
+
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new And2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.instance(","), 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new And2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private Term l;
-	private Term r;
+	private final Term l;
+	private final Term r;
 
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... the goal stack has at most two elements...aren't two elements "cheaper" in particular if we replace Term t1 with Solutions s1 (Goal g1)... and Solutions s2 (Goal g2)
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public And2(final Term l, final Term r) {

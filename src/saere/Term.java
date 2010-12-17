@@ -31,14 +31,26 @@
  */
 package saere;
 
+import static saere.IntValue.IntegerAtom;
+
 /**
  * Representation of a Prolog term.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class Term {
 
 	public final static Term[] NO_TERMS = new Term[0];
+
+	public static final int VARIABLE = -1;
+	public static final int COMPUND_TERM = 0;
+	// It the value is equal or larger than ATOMIC, then the term is atomic
+	public static final int ATOMIC = 1;
+	public static final int STRING_ATOM = 1;
+	public static final int FLOAT_VALUE = 2;
+	public static final int INT_VALUE = 3;
+
+	public abstract int termTypeID();
 
 	/**
 	 * Unification of this term with the given term. If the unification succeeds
@@ -49,9 +61,17 @@ public abstract class Term {
 	 * </p>
 	 */
 	public final boolean unify(Term other) {
-		return Unification.unify(this, other);
+		return Term.unify(this, other);
 	}
 
+	/**
+	 * Returns <code>true</code> if this term is ground. String atome, float
+	 * values and integer values are always ground. A complex term is ground if
+	 * all arguments are ground. A variable is ground if the variable is bound
+	 * to a ground term.
+	 * 
+	 * @return <code>true</code> if this term is ground.
+	 */
 	public abstract boolean isGround();
 
 	/**
@@ -59,15 +79,24 @@ public abstract class Term {
 	 * state information of this term. The {@link State} object is later on used
 	 * to reset the state of this term to the time when this method was called
 	 * (to undo all changes that were done in between).
+	 * 
 	 * <p>
+	 * <b>Implementation Note</b><br />
 	 * This method implements – in conjunction with {@link #setState(State)} –
 	 * the Memento Pattern.
 	 * </p>
 	 * 
-	 * @return The created state object; can be <code>null</code> if this term's
-	 *         corresponding {@link #setState(State)} method accepts
-	 *         <code>null</code> as a legal parameter value and no state
-	 *         information needs to be preserved.
+	 * @return An object that encapsulates this term's state. The object's
+	 *         precise type is always private to the term object that created
+	 *         it. The caller must not make any assumptions about the object's
+	 *         structure.
+	 *         <p>
+	 *         <b>Performance Guideline</b><br />
+	 *         It is legal and highly encouraged to return <code>null</code> if
+	 *         this term's state is immutable. In this case the corresponding
+	 *         {@link #setState(State)} method has to be able to accept
+	 *         <code>null</code> as a legal parameter value.
+	 *         </p>
 	 */
 	public abstract State manifestState();
 
@@ -83,13 +112,21 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link Variable} object (Note, this is unrelated to the question
-	 *         whether the variable is instantiated / free or not.)
+	 *         {@link Variable} object.
+	 *         <p>
+	 *         <b>Prolog Semantics</b><br />
+	 *         (Note, this is unrelated to the question whether the variable is
+	 *         instantiated / free or not.)
+	 *         </p>
 	 */
 	public boolean isVariable() {
 		return false;
 	}
 
+	/**
+	 * @return <code>true</code> if the type of this term is not a subtype of
+	 *         {@link Variable}.
+	 */
 	public boolean isNotVariable() {
 		return true;
 	}
@@ -118,7 +155,11 @@ public abstract class Term {
 		throw new ClassCastException();
 	}
 
-	public boolean isAtom() {
+	/**
+	 * 
+	 * @return <code>true</code> if this term is a subtype of {@link Atomic}.
+	 */
+	public boolean isAtomic() {
 		return true;
 	}
 
@@ -140,40 +181,40 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of an
-	 *         {@link IntegerAtom}.
+	 *         {@link IntValue}.
 	 */
-	public boolean isIntegerAtom() {
+	public boolean isIntValue() {
 		return false;
 	}
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of an
-	 *         {@link IntegerAtom}.
+	 *         {@link IntValue}.
 	 */
-	public IntegerAtom asIntegerAtom() {
+	public IntValue asIntValue() {
 		throw new ClassCastException();
 	}
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link FloatAtom}.
+	 *         {@link FloatValue}.
 	 */
-	public boolean isFloatAtom() {
+	public boolean isFloatValue() {
 		return false;
 	}
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of a
-	 *         {@link FloatAtom}.
+	 *         {@link FloatValue}.
 	 */
-	public FloatAtom asFloatAtom() {
+	public FloatValue asFloatValue() {
 		throw new ClassCastException();
 	}
 
 	/**
-	 * @return The functor of this term. If this term is an atom, then the atom
-	 *         is converted to a {@link StringAtom} and this {@link StringAtom}
-	 *         object is returned.
+	 * @return The functor of this term. If this term is subtype of atomic, then
+	 *         - if necessary - a {@link StringAtom} is created and this
+	 *         {@link StringAtom} object is returned.
 	 */
 	public abstract StringAtom functor();
 
@@ -183,13 +224,17 @@ public abstract class Term {
 	public abstract int arity();
 
 	/**
-	 * @return The i<i>th</i> argument of this term (zero based). If this term
-	 *         does not have any arguments (<code>arity() == 0</code>) an
-	 *         <code>IndexOutOfBoundsException</code> is always thrown. If this
-	 *         term has at least one argument and <i>i</i> is larger than or
-	 *         equal to the aritry of the term, then the method is free to
-	 *         return the last argument or to throw an
+	 * @return The i<i>th</i> argument of this term (zero based).<br/>
+	 *         If this term does not have any arguments (
+	 *         <code>arity() == 0</code>) an
+	 *         <code>IndexOutOfBoundsException</code> is always thrown.
+	 *         <p>
+	 *         <b>Implementation Note</b><br />
+	 *         If this term has at least one argument and <i>i</i> is larger
+	 *         than or equal to the arity of the term, then the method is free
+	 *         to return the last argument or to throw an
 	 *         <code>IndexOutOfBoundsException</code>.
+	 *         </p>
 	 */
 	public abstract Term arg(int i) throws IndexOutOfBoundsException;
 
@@ -215,10 +260,109 @@ public abstract class Term {
 				+ ") is not an arithmetic term");
 	}
 
-	public Solutions call() {
-		throw new IllegalStateException("this term (" + this.toString()
-				+ ") cannot be called");
-	}
+	/**
+	 * Calls the predicate that corresponds to this term.
+	 * 
+	 * @return A new instance of the predicate initialized using this term's
+	 *         current arguments.
+	 */
+	public abstract Solutions call();
 
+	/**
+	 * @return A textual representation of the term that uses the Prolog syntax.
+	 *         I.e., a Prolog compiler should be able to immediately parse the
+	 *         resulting string.
+	 */
 	public abstract String toProlog();
+
+	/**
+	 * Unifies two terms.
+	 * <p>
+	 * <font color="red><b> This method does not take care of state handling. It
+	 * is the responsibility of the caller to manifest the state of the given
+	 * terms before calling this method and to restore the state at the
+	 * appropriate point in time. </b></font><br />
+	 * By moving the responsibility for state handling to the caller various
+	 * optimizations of how and when the state is saved / restored are possible
+	 * </p>
+	 * 
+	 * @param t1
+	 *            The first term.
+	 * @param t2
+	 *            The second term.
+	 * @return <code>true</code> if both terms were successfully unified;
+	 *         <code>false</code> otherwise.
+	 */
+	@SuppressWarnings("all")
+	public final static boolean unify(Term t1, Term t2) {
+		if (t1.isVariable()) {
+			Variable t1hv = t1.asVariable().headVariable();
+			Term t1hvv = t1hv.getValue();
+			if (t1hvv == null) {
+				t1 = t1hv; // t1 is now a free head variable
+			} else {
+				t1 = t1hvv; // t1 is now a term that is not a variable
+			}
+		}
+
+		if (t2.isVariable()) {
+			Variable t2v = t2.asVariable();
+			Variable t2hv = t2v.headVariable();
+			Term t2hvv = t2hv.getValue();
+			if (t2hvv == null) {
+				if (t2hv != t1) { // this checks that t1 and t2 not already share
+					// now t2 and t1 either share or t2 is bound to some term
+					t2hv.setValue(t1);
+				}
+				return true;
+			} else {
+				// ... t2 is an instantiated variable
+				t2 = t2hvv;
+			}
+		}
+
+		// minor performance improvement
+		if (t1 == t2) {
+			return true;
+		}
+
+		switch (t1.termTypeID()) {
+		case VARIABLE:
+			// We know that:
+			// 1) t1 is actually a free variable and it is a head variable
+			// 2) t2 is not a (free/instantiated) variable
+			t1.asVariable().setValue(t2);
+			return true;
+		case COMPUND_TERM:
+			return t2.isCompoundTerm()
+					&& t1.asCompoundTerm().unify(t2.asCompoundTerm());
+		case STRING_ATOM:
+			return t2.isStringAtom()
+					&& t1.asStringAtom().sameAs(t2.asStringAtom());
+		case FLOAT_VALUE:
+			return t2.isFloatValue()
+					&& t1.asFloatValue().sameAs(t2.asFloatValue());
+		case INT_VALUE:
+			return t2.isIntValue() && t1.asIntValue().sameAs(t2.asIntValue());
+		default:
+			throw new Error("encountered a term with an unknown type");
+		}
+	}
+	
+	
+	
+	public static final boolean is(Term term, long value) {
+		if (term.isVariable()) {
+			final Variable hv = term.asVariable().headVariable();
+			final Term hvv = hv.getValue();
+			if (hvv != null) {
+				return hvv.intEval() == value;
+			} else {
+				hv.setValue(IntegerAtom(value));
+				return true;
+			}
+		} else {
+			return term.intEval() == value;
+		}
+	}
 }

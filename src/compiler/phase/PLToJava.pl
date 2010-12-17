@@ -50,7 +50,7 @@
 	@param Debug the list of debug information that should be printed.	
 */
 pl_to_java(DebugConfig,Program,OutputFolder,Program) :-
-	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Generate the Java Program________________________________________________\n')),
+	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Generate the Java Program____________________________________\n')),
 	( exists_directory(OutputFolder) ; make_directory(OutputFolder) ),
 	working_directory(Old,OutputFolder),
 	( exists_directory(predicates) ; make_directory(predicates) ),
@@ -118,6 +118,7 @@ main_template(Functor,Arity,Template,Core) :-
 		'import static saere.term.TermFactory.*;\n\n',
 		'public final class ',Functor,Arity,' implements Solutions {\n',
 		'\n',
+		/*
 		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
 		'		registry.register(\n',
 		'			StringAtom.instance("',Functor , '"),\n',
@@ -130,8 +131,19 @@ main_template(Functor,Arity,Template,Core) :-
 		'			}\n',
 		'		);\n',
 		'	}\n\n',
+		*/
+		'	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.instance("',Functor,'"), ',Arity,');\n\n',
+		'	public final static PredicateFactory FACTORY = new NArgsPredicateFactory() {\n',
+		'		@Override\n',
+		'		public Solutions createInstance(Term[] args) {\n',
+		'			return new ',Functor,Arity,'(',ConcatenatedArgs,');\n',
+		'		}\n',
+		'	};\n\n',
+		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
+		'		registry.register(IDENTIFIER, FACTORY);\n',
+		'	}\n\n',		
 		'	private int clauseToExecute = 0;\n',
-		'	private Term clauseImplementation;\n',
+%		'	private Term clauseImplementation;\n',
 		'	private Solutions clauseSolutions;\n',
 		'\n',
 		'	',ConcatenatedTermVariables,';\n\n',
@@ -143,7 +155,7 @@ main_template(Functor,Arity,Template,Core) :-
 		'	public void abort() {\n',
 		'		clauseSolutions.abort();\n',
 		'		clauseSolutions = null;\n',
-		'		clauseImplementation = null;\n',				
+%		'		clauseImplementation = null;\n',				
 		'	}\n\n',			
 		'	@Override\n',
 		'	public boolean choiceCommitted() {\n',
@@ -174,7 +186,7 @@ create_clause_branches(NoMoreClauses,Id,[FailCase]) :-
 	var(NoMoreClauses),!, % Clauses is an open list...
 	atomic_list_concat([
 	'\t\tdefault :\n',
-	'\t\t\tclauseImplementation = null;\n',
+%	'\t\t\tclauseImplementation = null;\n',
 	'\t\t\tclauseSolutions = null;\n',
 	'\t\t\treturn false;\n'
 	],FailCase).
@@ -191,7 +203,7 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 		atomic_list_concat(
 			[
 			'\t\t\tif (clauseSolutions.choiceCommitted()){\n',
-			'\t\t\t\tclauseImplementation = null;\n', 
+%			'\t\t\t\tclauseImplementation = null;\n', 
 			'\t\t\t\tclauseSolutions = null;\n', 	
 			'\t\t\t\treturn false;\n',
 			'\t\t\t}\n'
@@ -204,8 +216,9 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 	ClauseBranch = [
 	'\t\tcase ',Id,': {\n',
 	'\t\t\t',ClauseVariables,'\n',
-	'\t\t\tclauseImplementation = ',BodyConstructor,';\n',
-	'\t\t\tclauseSolutions = clauseImplementation.call();\n',
+%	'\t\t\tclauseImplementation = ',BodyConstructor,';\n',
+	'\t\t\tclauseSolutions = ',BodyConstructor,'.call();\n',
+%	'\t\t\tclauseSolutions = clauseImplementation.call();\n',
 	'\t\t\tclauseToExecute = ',SolutionBranch,';\n',
 	'\t\t}\n',
 	'\t\tcase ',SolutionBranch,':{\n',
@@ -265,11 +278,11 @@ create_term(ASTNode,TermConstructor,Variables) :-
 create_term(ASTNode,TermConstructor,Vs,Vs) :-	
 	integer_atom(ASTNode,Value),!,
 %	write(ASTNode),write(' '),write(integer_atom),write(' '),write(Value),	
-	atomic_list_concat(['atom(',Value,')'],TermConstructor).
+	atomic_list_concat(['atomic(',Value,')'],TermConstructor).
 create_term(ASTNode,TermConstructor,Vs,Vs) :-
 	float_atom(ASTNode,Value),!,
 %write(float_atom),write(' '),write(value),
-	atomic_list_concat(['atom(',Value,')'],TermConstructor).
+	atomic_list_concat(['atomic(',Value,')'],TermConstructor).
 create_term(ASTNode,TermConstructor,Vs,Vs) :-	
 	string_atom(ASTNode,Value),!,
 %	write(string_atom),write(' '),write(value),
@@ -277,7 +290,7 @@ create_term(ASTNode,TermConstructor,Vs,Vs) :-
 		predefined_string_atom_constructors(Value,TermConstructor)
 %		Value = '!', TermConstructor = 'cut()'
 	;
-		atomic_list_concat(['atom("',Value,'")'],TermConstructor)
+		atomic_list_concat(['atomic("',Value,'")'],TermConstructor)
 	),!.
 create_term(ASTNode,VariableName,OldVs,NewVs) :- 
 	variable(ASTNode,VariableName),!,

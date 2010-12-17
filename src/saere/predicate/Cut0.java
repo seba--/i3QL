@@ -31,32 +31,36 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.NoArgsPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
 
 /**
  * Implementation of ISO Prolog's cut (<code>!/0</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Cut0 implements Solutions {
 
+	
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.CUT_FUNCTOR, 0);
+
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+		
+		@Override
+		public Solutions createInstance() {
+			return new Cut0();
+		}
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-
-		PredicateInstanceFactory pif = new PredicateInstanceFactory() {
-
-			@Override
-			public Solutions createPredicateInstance(Term[] args) {
-				return new Cut0();
-			}
-		};
-
-		registry.register(StringAtom.CUT_FUNCTOR, 0, pif);
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
+
 
 	private boolean called = false;
 

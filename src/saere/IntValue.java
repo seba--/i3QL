@@ -32,26 +32,26 @@
 package saere;
 
 /**
- * Representation of an integer atom. The SAE uses long values as the basis for
+ * Representation of an integer value. The SAE uses long values as the basis for
  * integer arithmetic.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class IntegerAtom extends Atom {
+public final class IntValue extends Atomic {
 
 	private final long value;
 
-	private IntegerAtom(long value) {
+	private IntValue(long value) {
 		this.value = value;
 	}
 
 	@Override
-	public boolean isIntegerAtom() {
+	public boolean isIntValue() {
 		return true;
 	}
 
 	@Override
-	public IntegerAtom asIntegerAtom() {
+	public IntValue asIntValue() {
 		return this;
 	}
 
@@ -59,8 +59,22 @@ public final class IntegerAtom extends Atom {
 	public StringAtom functor() {
 		return StringAtom.instance(Long.toString(value));
 	}
+	
+	public final int termTypeID() {
+		return Term.INT_VALUE;
+	}
 
-	public boolean sameAs(IntegerAtom other) {
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof IntValue && this.sameAs((IntValue) other);
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
+	public boolean sameAs(IntValue other) {
 		return this.value == other.value;
 	}
 
@@ -70,66 +84,72 @@ public final class IntegerAtom extends Atom {
 	}
 
 	@Override
-	public String toString() {
-		return "IntegerAtom["+Long.toString(value)+"]";
+	public Solutions call() {
+		throw new IllegalStateException(
+				"calling integer values is not possible");
 	}
-	
-	@Override 
-	public String toProlog(){
+
+	@Override
+	public String toProlog() {
 		return Long.toString(value);
 	}
 
-	public static final IntegerAtom IntegerAtom_M3 = new IntegerAtom(-3l);
-	public static final IntegerAtom IntegerAtom_M2 = new IntegerAtom(-2l);
-	public static final IntegerAtom IntegerAtom_M1 = new IntegerAtom(-1l);
-	public static final IntegerAtom IntegerAtom_0 = new IntegerAtom(0l);
-	public static final IntegerAtom IntegerAtom_1 = new IntegerAtom(1l);
-	public static final IntegerAtom IntegerAtom_2 = new IntegerAtom(2l);
-	public static final IntegerAtom IntegerAtom_3 = new IntegerAtom(3l);
-	public static final IntegerAtom IntegerAtom_4 = new IntegerAtom(4l);
-	public static final IntegerAtom IntegerAtom_5 = new IntegerAtom(5l);
-	public static final IntegerAtom IntegerAtom_6 = new IntegerAtom(6l);
-	public static final IntegerAtom IntegerAtom_7 = new IntegerAtom(7l);
-	public static final IntegerAtom IntegerAtom_8 = new IntegerAtom(8l);
-	public static final IntegerAtom IntegerAtom_9 = new IntegerAtom(9l);
+	@Override
+	public String toString() {
+		return "IntegerValue[" + Long.toString(value) + "]";
+	}
+
+	public static final IntValue IntValue_M3 = new IntValue(-3l);
+	public static final IntValue IntValue_M2 = new IntValue(-2l);
+	public static final IntValue IntValue_M1 = new IntValue(-1l);
+	public static final IntValue IntValue_0 = new IntValue(0l);
+	public static final IntValue IntValue_1 = new IntValue(1l);
+	public static final IntValue IntValue_2 = new IntValue(2l);
+	public static final IntValue IntValue_3 = new IntValue(3l);
+	public static final IntValue IntValue_4 = new IntValue(4l);
+	public static final IntValue IntValue_5 = new IntValue(5l);
+	public static final IntValue IntValue_6 = new IntValue(6l);
+	public static final IntValue IntValue_7 = new IntValue(7l);
+	public static final IntValue IntValue_8 = new IntValue(8l);
+	public static final IntValue IntValue_9 = new IntValue(9l);
 
 	@SuppressWarnings("all")
-	public final static IntegerAtom IntegerAtom(final long value) {
+	public final static IntValue IntegerAtom(final long value) {
 		if (value > Integer.MIN_VALUE && value < Integer.MAX_VALUE) {
 			int intValue = (int) value;
 			switch (intValue) {
 
 			case -3:
-				return IntegerAtom_M3;
+				return IntValue_M3;
 			case -2:
-				return IntegerAtom_M2;
+				return IntValue_M2;
 			case -1:
-				return IntegerAtom_M1;
+				return IntValue_M1;
 			case 0:
-				return IntegerAtom_0;
+				return IntValue_0;
 			case 1:
-				return IntegerAtom_1;
+				return IntValue_1;
 			case 2:
-				return IntegerAtom_2;
+				return IntValue_2;
 			case 3:
-				return IntegerAtom_3;
+				return IntValue_3;
 			case 4:
-				return IntegerAtom_4;
+				return IntValue_4;
 			case 5:
-				return IntegerAtom_5;
+				return IntValue_5;
 			case 6:
-				return IntegerAtom_6;
+				return IntValue_6;
 			case 7:
-				return IntegerAtom_7;
+				return IntValue_7;
 			case 8:
-				return IntegerAtom_8;
+				return IntValue_8;
 			case 9:
-				return IntegerAtom_9;
+				return IntValue_9;
 			default:
-				return new IntegerAtom(value);
+				return new IntValue(value);
 			}
 		} else {
-			return new IntegerAtom(value);
+			return new IntValue(value);
 		}
 	}
 

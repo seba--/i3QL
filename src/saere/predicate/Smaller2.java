@@ -31,29 +31,35 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /** 
  * Prolog's arithmetic smaller than operator: "<". 
  *
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public class Smaller2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_SMALLER_THAN_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Smaller2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.ARITH_SMALLER_THAN_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Smaller2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
@@ -61,7 +67,6 @@ public class Smaller2 implements Solutions {
 	private boolean called = false;
 
 	public Smaller2(Term l, Term r) {
-		super();
 		this.l = l;
 		this.r = r;
 	}
@@ -75,7 +80,7 @@ public class Smaller2 implements Solutions {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void abort() {
 		// nothing to do...

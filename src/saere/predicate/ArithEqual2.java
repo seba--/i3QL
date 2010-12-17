@@ -31,29 +31,35 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
-/** 
+/**
  * Prolog's arithmetic equals operator: "=:=".
- *  
- * @author Michael Eichberg 
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public class ArithEqual2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_IS_EQUAL_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new ArithEqual2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(StringAtom.ARITH_IS_EQUAL_FUNCTOR, 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new ArithEqual2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
@@ -79,7 +85,7 @@ public class ArithEqual2 implements Solutions {
 	public void abort() {
 		// nothing to do
 	}
-	
+
 	@Override
 	public boolean choiceCommitted() {
 		return false;

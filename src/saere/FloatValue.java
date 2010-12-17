@@ -29,94 +29,86 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
- * 
- * <pre>
- * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
- * </code>
- * </pre>
+ * Representation of a floating point value. The SAE uses double values as the basis.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public final class FloatValue extends Atomic {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	private final double value;
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
-	}
-
-	private final Term t;
-
-	private boolean called = false;
-
-	public Not1(final Term t) {
-
-		this.t = t;
+	private FloatValue(double value) {
+		this.value = value;
 	}
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
-		} else {
-			return false;
-		}
+	public boolean isFloatValue() {
+		return true;
 	}
 
 	@Override
-	public void abort() {
-		// nothing to do
+	public FloatValue asFloatValue() {
+		return this;
+	}
+	
+	public final int termTypeID() {
+		return Term.FLOAT_VALUE;
+	}
+
+	public StringAtom functor() {
+		return StringAtom.instance(Double.toString(value));
+	}
+
+	public boolean sameAs(FloatValue other) {
+		return this.value == other.value;
 	}
 
 	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public boolean equals(Object other) {
+		return other instanceof FloatValue && this.sameAs((FloatValue) other);
 	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
+	@Override
+	public double floatEval() {
+		return value;
+	}
+
+	@Override
+	public Solutions call() {
+		throw new IllegalStateException("calling float values is not possible");
+	}
+
+	@Override
+	public String toProlog() {
+		return Double.toString(value);
+	}
+
+	@Override
+	public String toString() {
+		return "FloatValue[" + Double.toString(value) + "]";
+	}
+
+	public static final FloatValue FLOAT_VALUE_M1 = new FloatValue(-1.0);
+	public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
+	public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
+
+	public static FloatValue instance(double value) {
+		if (value == -1.0)
+			return FLOAT_VALUE_M1;
+		if (value == 0.0)
+			return FLOAT_VALUE_0;
+		if (value == 1.0)
+			return FLOAT_VALUE_1;
+
+		return new FloatValue(value);
+	}
+
 }

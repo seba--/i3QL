@@ -31,16 +31,17 @@
  */
 package saere;
 
+import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 import java.util.WeakHashMap;
-import java.lang.ref.WeakReference;
+import static saere.PredicateRegistry.predicateRegistry;
 
 /**
  * Representation of a string atom.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class StringAtom extends Atom {
+public final class StringAtom extends Atomic {
 
 	private final byte[] value;
 	private final int hashCode;
@@ -89,10 +90,10 @@ public final class StringAtom extends Atom {
 	 * </p>
 	 */
 	@Override
-	public boolean equals(Object other) {
-		if (other instanceof StringAtom) {
-			StringAtom other_sa = (StringAtom) other;
-			return java.util.Arrays.equals(this.value, other_sa.value);
+	public boolean equals(Object object) {
+		if (object instanceof StringAtom) {
+			StringAtom other = (StringAtom) object;
+			return java.util.Arrays.equals(this.value, other.value);
 		} else {
 			return false;
 		}
@@ -116,20 +117,19 @@ public final class StringAtom extends Atom {
 		return "StringAtom[" + new String(value) + "]";
 	}
 
-	
 	@Override
 	public String toProlog() {
 		String s = (new String(value)).replace("\\", "\\\\");
 		if (Character.isUpperCase(s.charAt(0)) || s.charAt(0) == '_')
-			s = "'"+s+"'";
+			s = "'" + s + "'";
 		return s;
 	}
-	
-	
+
 	@Override
 	public Solutions call() {
-		return PredicateRegistry.instance().createPredicateInstance(this,
-				Term.NO_TERMS);
+		PredicateIdentifier pi = new PredicateIdentifier(this, 0);
+		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
+		return ((NoArgsPredicateFactory) pf).createInstance();
 	}
 
 	/**
@@ -141,12 +141,16 @@ public final class StringAtom extends Atom {
 		return value;
 	}
 
+	public int termTypeID() {
+		return Term.STRING_ATOM;
+	}
+
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
 
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	@SuppressWarnings("all")
-	public static final StringAtom instance(String s) {
+	public final static StringAtom instance(String s) {
 		return instance(s.getBytes(UTF8Charset));
 	}
 
