@@ -31,6 +31,8 @@
  */
 package saere;
 
+import static saere.IntValue.IntegerAtom;
+
 /**
  * Representation of a Prolog term.
  * 
@@ -291,6 +293,7 @@ public abstract class Term {
 	 * @return <code>true</code> if both terms were successfully unified;
 	 *         <code>false</code> otherwise.
 	 */
+	@SuppressWarnings("all")
 	public final static boolean unify(Term t1, Term t2) {
 		if (t1.isVariable()) {
 			Variable t1hv = t1.asVariable().headVariable();
@@ -341,6 +344,23 @@ public abstract class Term {
 			return t2.isIntValue() && t1.asIntValue().sameAs(t2.asIntValue());
 		default:
 			throw new Error("internal programming error - everything is lost.");
+		}
+	}
+	
+	
+	
+	public static final boolean is(Term term, long value) {
+		if (term.isVariable()) {
+			final Variable hv = term.asVariable().headVariable();
+			final Term hvv = hv.getValue();
+			if (hvv != null) {
+				return hvv.intEval() == value;
+			} else {
+				hv.setValue(IntegerAtom(value));
+				return true;
+			}
+		} else {
+			return term.intEval() == value;
 		}
 	}
 }

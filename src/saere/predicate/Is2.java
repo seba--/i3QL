@@ -31,7 +31,6 @@
  */
 package saere.predicate;
 
-import static saere.IntValue.IntegerAtom;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
@@ -40,7 +39,6 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
-import saere.Variable;
 
 /**
  * Implements the <code>is/2</code> operator.
@@ -80,9 +78,9 @@ public final class Is2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			lState = l.manifestState();
 			final long rValue = r.intEval();
-			if (is(l, rValue)) {
+			lState = l.manifestState();
+			if (Term.is(l, rValue)) {
 				called = true;
 				return true;
 			}
@@ -102,21 +100,6 @@ public final class Is2 implements Solutions {
 	@Override
 	public boolean choiceCommitted() {
 		return false;
-	}
-
-	public static final boolean is(Term a1, long a2Value) {
-		if (a1.isVariable()) {
-			final Variable v1 = a1.asVariable();
-			final Term a1Value = v1.binding();
-			if (a1Value != null) {
-				return a1Value.intEval() == a2Value;
-			} else {
-				v1.bind(IntegerAtom(a2Value));
-				return true;
-			}
-		} else {
-			return a1.intEval() == a2Value;
-		}
 	}
 
 }
