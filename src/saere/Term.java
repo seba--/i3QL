@@ -307,8 +307,10 @@ public abstract class Term {
 			Variable t2hv = t2v.headVariable();
 			Term t2hvv = t2hv.getValue();
 			if (t2hvv == null) {
-				// now t2 and t1 either share or t2 is bound to some term
-				t2v.setValue(t1);
+				if (t2hv != t1) { // this checks that t1 and t2 not already share
+					// now t2 and t1 either share or t2 is bound to some term
+					t2hv.setValue(t1);
+				}
 				return true;
 			} else {
 				// ... t2 is an instantiated variable
@@ -340,7 +342,7 @@ public abstract class Term {
 		case INT_VALUE:
 			return t2.isIntValue() && t1.asIntValue().sameAs(t2.asIntValue());
 		default:
-			throw new Error("internal programming error - everything is lost.");
+			throw new Error("encountered a term with an unknown type");
 		}
 	}
 }
