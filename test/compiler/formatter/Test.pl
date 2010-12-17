@@ -84,4 +84,6 @@ test('no_empty_line_between_same_clauses\\arity') :- do_formatting('NoEmptyLines
 
 test(correct_functor_brackets) :- do_formatting('OperatorBrackets.pl','OperatorBrackets_formatted.pl',[]),!.
 
+test(if_then_else) :- do_formatting('If_then_else.pl','If_then_else_formatted.pl',[]),!.
+
 :- end_tests(formatter).

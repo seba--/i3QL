@@ -74,7 +74,12 @@ write_clause(ASTNode,Priority,Out) :-
          (
             Func_Priority > Priority,
             write_functor_infix(Functor,Args,Func_Priority,Output),
-            atomic_list_concat(['(',Output,')'],Out)
+            (
+               Functor = ';',
+               atomic_list_concat(['(\n',Output,'\n)'],Out)
+            ;
+               atomic_list_concat(['(',Output,')'],Out)
+            )
          ;
             write_functor_infix(Functor,Args,Func_Priority,Output),
             atomic_list_concat([Output],Out)
@@ -99,11 +104,17 @@ write_functor_infix(',',[H|T],Priority,Concated_List) :-
    write_rest_clause(T,Priority,Rest),
    atomic_list_concat([First,',',' ',Rest],Concated_List).
 
+
+write_functor_infix(';',[H|T],Priority,Concated_List) :-
+   write_clause(H,Priority,First),
+   write_rest_clause(T,Priority,Rest),
+   atomic_list_concat([First,'\n;\n',Rest],Concated_List).
+
+
 write_functor_infix(Functor,[H|T],Priority,Concated_List) :-
       write_clause(H,Priority,First),
       write_rest_clause(T,Priority,Rest),
       atomic_list_concat([First,' ',Functor,' ',Rest],Concated_List).
-
 
 
 write_rest_clause([],_,'').
