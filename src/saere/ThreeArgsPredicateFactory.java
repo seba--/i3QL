@@ -32,79 +32,17 @@
 package saere;
 
 /**
- * Representation of a float atom. The SAE uses double values as the basis.
+ * Enables the creation of a new instance of a predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class FloatAtom extends Atomic {
+public abstract class ThreeArgsPredicateFactory implements PredicateFactory {
 
-	private final double value;
-
-	private FloatAtom(double value) {
-		this.value = value;
-	}
+	public abstract Solutions createInstance(Term t1, Term t2, Term t3);
 
 	@Override
-	public boolean isFloatAtom() {
-		return true;
-	}
-
-	@Override
-	public FloatAtom asFloatAtom() {
-		return this;
-	}
-
-	public StringAtom functor() {
-		return StringAtom.instance(Double.toString(value));
-	}
-
-	public boolean sameAs(FloatAtom other) {
-		return this.value == other.value;
-	}
-
-	@Override
-	public boolean equals(Object other) {
-		return other instanceof FloatAtom
-				&& ((FloatAtom) other).value == this.value;
-	}
-
-	@Override
-	public int hashCode() {
-		return (int) (value % Integer.MAX_VALUE);
-	}
-
-	@Override
-	public double floatEval() {
-		return value;
-	}
-
-	@Override
-	public Solutions call() {
-		throw new IllegalStateException("calling float values is not possible");
-	}
-
-	@Override
-	public String toProlog() {
-		return Double.toString(value);
-	}
-
-	@Override
-	public String toString() {
-		return "FloatAtom[" + Double.toString(value) + "]";
-	}
-
-	public static final FloatAtom FLOAT_ATOM_M1 = new FloatAtom(-1.0);
-	public static final FloatAtom FLOAT_ATOM_0 = new FloatAtom(0.0);
-	public static final FloatAtom FLOAT_ATOM_1 = new FloatAtom(1.0);
-
-	public static FloatAtom instance(double value) {
-		if (value == -1.0)
-			return FLOAT_ATOM_M1;
-		if (value == 0.0)
-			return FLOAT_ATOM_0;
-		if (value == 1.0)
-			return FLOAT_ATOM_1;
-		return new FloatAtom(value);
+	public final Solutions createInstance(Term[] args) {
+		return createInstance(args[0], args[1], args[3]);
 	}
 
 }

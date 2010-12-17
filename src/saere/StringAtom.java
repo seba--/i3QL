@@ -90,10 +90,10 @@ public final class StringAtom extends Atomic {
 	 * </p>
 	 */
 	@Override
-	public boolean equals(Object other) {
-		if (other instanceof StringAtom) {
-			StringAtom other_sa = (StringAtom) other;
-			return java.util.Arrays.equals(this.value, other_sa.value);
+	public boolean equals(Object object) {
+		if (object instanceof StringAtom) {
+			StringAtom other = (StringAtom) object;
+			return java.util.Arrays.equals(this.value, other.value);
 		} else {
 			return false;
 		}
@@ -141,12 +141,16 @@ public final class StringAtom extends Atomic {
 		return value;
 	}
 
+	public int termTypeID() {
+		return Term.STRING_ATOM;
+	}
+
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
 
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	@SuppressWarnings("all")
-	public static final StringAtom instance(String s) {
+	public final static StringAtom instance(String s) {
 		return instance(s.getBytes(UTF8Charset));
 	}
 

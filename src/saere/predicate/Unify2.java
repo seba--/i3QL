@@ -86,15 +86,19 @@ public final class Unify2 implements Solutions {
 			}
 		}
 		// unification failed...
-		l.setState(lState);
 		r.setState(rState);
+		l.setState(lState);
+		lState = null;
+		rState = null;
 		return false;
 	}
 
 	@Override
 	public void abort() {
-		l.setState(lState);
+		// the method protocol prescribes that you must have called next()
+		// before (at least once) and next has never returned false.
 		r.setState(rState);
+		l.setState(lState);
 		lState = null;
 		rState = null;
 	}

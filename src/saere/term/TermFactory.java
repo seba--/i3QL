@@ -2,8 +2,8 @@ package saere.term;
 
 import saere.Atomic;
 import saere.CompoundTerm;
-import saere.FloatAtom;
-import saere.IntegerAtom;
+import saere.FloatValue;
+import saere.IntValue;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
@@ -30,11 +30,11 @@ public class TermFactory {
 	}
 
 	protected Atomic newAtom(long value) {
-		return IntegerAtom.IntegerAtom(value);
+		return IntValue.IntegerAtom(value);
 	}
 
 	protected Atomic newAtom(double value) {
-		return FloatAtom.instance(value);
+		return FloatValue.instance(value);
 	}
 
 	protected Atomic newAtom(String string) {

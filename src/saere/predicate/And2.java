@@ -62,6 +62,7 @@ public final class And2 implements Solutions {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... the goal stack has at most two elements...aren't two elements "cheaper" in particular if we replace Term t1 with Solutions s1 (Goal g1)... and Solutions s2 (Goal g2)
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public And2(final Term l, final Term r) {

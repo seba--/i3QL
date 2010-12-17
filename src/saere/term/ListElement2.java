@@ -84,10 +84,6 @@ public final class ListElement2 extends CompoundTerm {
 		return FACTORY.createInstance(value, rest);
 	}
 
-	public String toString() {
-		return "ListElement2[head=" + value + "; rest=" + rest + "]";
-	}
-
 	@Override
 	public String toProlog() {
 		return toListRepresentation("[");
@@ -107,4 +103,7 @@ public final class ListElement2 extends CompoundTerm {
 		}
 	}
 
+	public String toString() {
+		return "ListElement2[head=" + value + "; rest=" + rest + "]";
+	}
 }

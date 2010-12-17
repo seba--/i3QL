@@ -75,29 +75,28 @@ public final class Member2 implements Solutions {
 	private final static int TEST = 1;
 	private final static int ADVANCE = 2;
 
-	private final Term element;
-	private State elementState;
+	private final Term testElement;
+	private State testElementState;
 	private Term list;
 	private Term listElement;
 	private State listElementState;
 	private int state = SETUP;
 
+	// static int goalCounter;
+	// private int thisGoalId;
 
-//static int goalCounter;
-//private int thisGoalId;
-	
-	public Member2(final Term element, final Term list) {
-		this.element = element;
+	public Member2(final Term testElement, final Term list) {
+		this.testElement = testElement;
 		this.list = list;
-//		thisGoalId = goalCounter++;
+		// thisGoalId = goalCounter++;
 	}
 
 	public boolean next() {
 		while (true) {
 			switch (state) {
 			case SETUP:
-//				System.out.println(thisGoalId+"=>"+element.toProlog());		
-				elementState = element.manifestState();
+				// System.out.println(thisGoalId+"=>"+element.toProlog());
+				testElementState = testElement.manifestState();
 				state = TEST;
 			case TEST:
 				if (list.isVariable()) {
@@ -105,10 +104,10 @@ public final class Member2 implements Solutions {
 				}
 				if (list.arity() == 2 && list.functor().sameAs(LIST_FUNCTOR)) {
 					listElement = list.arg(0);
-	//		System.out.println(thisGoalId+"[=>]"+listElement.toProlog());				
+					// System.out.println(thisGoalId+"[=>]"+listElement.toProlog());
 					listElementState = listElement.manifestState();
 					state = ADVANCE;
-					if (element.unify(listElement)) {
+					if (testElement.unify(listElement)) {
 						return true;
 					}
 				} else {
@@ -116,12 +115,11 @@ public final class Member2 implements Solutions {
 				}
 			case ADVANCE:
 				listElement.setState(listElementState);
-//		System.out.println(thisGoalId+"[()]"+listElement.toProlog());	
-				
-				element.setState(elementState);
-////			System.out.println(thisGoalId+"()"+element.toProlog());
-				
-				
+				// System.out.println(thisGoalId+"[()]"+listElement.toProlog());
+
+				testElement.setState(testElementState);
+				// // System.out.println(thisGoalId+"()"+element.toProlog());
+
 				list = list.arg(1);
 				state = TEST;
 			}
@@ -130,7 +128,8 @@ public final class Member2 implements Solutions {
 
 	@Override
 	public void abort() {
-		// nothing to do
+		listElement.setState(listElementState);
+		testElement.setState(testElementState);
 	}
 
 	@Override

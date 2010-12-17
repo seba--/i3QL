@@ -29,59 +29,86 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
+ * Representation of a floating point value. The SAE uses double values as the basis.
+ * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Time1 implements Solutions {
+public final class FloatValue extends Atomic {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("time"), 1);
+	private final double value;
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Time1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private Solutions solutions;
-
-	public Time1(final Term t) {
-
-		this.solutions = t.call();
-	}
-
-	public boolean next() {
-		final long startTime = System.nanoTime();
-		final boolean succeeded = solutions.next();
-		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
-		System.out.printf("%8.4f", new Double(duration));
-		return succeeded;
+	private FloatValue(double value) {
+		this.value = value;
 	}
 
 	@Override
-	public void abort() {
-		solutions.abort();
+	public boolean isFloatValue() {
+		return true;
 	}
 
 	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public FloatValue asFloatValue() {
+		return this;
+	}
+	
+	public final int termTypeID() {
+		return Term.FLOAT_VALUE;
+	}
+
+	public StringAtom functor() {
+		return StringAtom.instance(Double.toString(value));
+	}
+
+	public boolean sameAs(FloatValue other) {
+		return this.value == other.value;
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof FloatValue && this.sameAs((FloatValue) other);
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
+	@Override
+	public double floatEval() {
+		return value;
+	}
+
+	@Override
+	public Solutions call() {
+		throw new IllegalStateException("calling float values is not possible");
+	}
+
+	@Override
+	public String toProlog() {
+		return Double.toString(value);
+	}
+
+	@Override
+	public String toString() {
+		return "FloatValue[" + Double.toString(value) + "]";
+	}
+
+	public static final FloatValue FLOAT_VALUE_M1 = new FloatValue(-1.0);
+	public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
+	public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
+
+	public static FloatValue instance(double value) {
+		if (value == -1.0)
+			return FLOAT_VALUE_M1;
+		if (value == 0.0)
+			return FLOAT_VALUE_0;
+		if (value == 1.0)
+			return FLOAT_VALUE_1;
+
+		return new FloatValue(value);
 	}
 
 }

@@ -31,6 +31,7 @@
  */
 package saere;
 
+import java.util.Arrays;
 
 /**
  * Encapsulate's the state of a compound term's arguments.
@@ -64,14 +65,14 @@ final class CompoundTermState extends State {
 		@Override
 		public String toString() {
 			ListOfStates los = tail;
-			String s = "["+state;
-			while (los != null) {				
-				s += ","+los.toString();
+			String s = "[" + state;
+			while (los != null) {
+				s += "," + los.toString();
 				los = los.tail;
 			}
-			return s+="]";
+			return s += "]";
 		}
-		
+
 	}
 
 	private ListOfStates first = null;
@@ -101,6 +102,7 @@ final class CompoundTermState extends State {
 		temp = first;
 		doApply(compoundTerm);
 
+		assert (temp == null);
 	}
 
 	private void doApply(CompoundTerm compoundTerm) {
@@ -113,11 +115,10 @@ final class CompoundTermState extends State {
 			}
 		}
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "CompoundTermState["+first+"]";
+		return "CompoundTermState[" + first + "]";
 	}
 
 	@Override
@@ -125,41 +126,23 @@ final class CompoundTermState extends State {
 		return this;
 	}
 
-	
-	
-//	 private final State[] states;
-//	
-//	
-//	
-//	 CompoundTermState(CompoundTerm compoundTerm) {
-//	 final int arity = compoundTerm.arity();
-//	 states = new State[arity];
-//	 // Initializer / constructor
-//	 int i = 0;
-//	 while (i < arity) {
-//	 states[i] = compoundTerm.arg(i).manifestState();
-//	 i += 1;
-//	 }
-//	 }
-//	
-//	 @Override
-//	 CompoundTermState asCompoundTermState() {
-//	 return this;
-//	 }
-//	
-//	 void apply(CompoundTerm compoundTerm) {
-//	 final int arity = compoundTerm.arity();
-//	 int i = 0;
-//	 while (i < arity) {
-//	 compoundTerm.arg(i).setState(states[i]);
-//	 i += 1;
-//	 }
-//	 }
-//	
-//	 @Override
-//	 public String toString() {
-//	 return "CompoundTermState[id=" + hashCode() + "; states="
-//	 + Arrays.toString(states) + "]";
-//	 }
-
+	/*
+	 * private final State[] states;
+	 * 
+	 * 
+	 * 
+	 * CompoundTermState(CompoundTerm compoundTerm) { final int arity =
+	 * compoundTerm.arity(); states = new State[arity]; // Initializer /
+	 * constructor int i = 0; while (i < arity) { states[i] =
+	 * compoundTerm.arg(i).manifestState(); i += 1; } }
+	 * 
+	 * @Override CompoundTermState asCompoundTermState() { return this; }
+	 * 
+	 * void apply(CompoundTerm compoundTerm) { final int arity =
+	 * compoundTerm.arity(); int i = 0; while (i < arity) {
+	 * compoundTerm.arg(i).setState(states[i]); i += 1; } }
+	 * 
+	 * @Override public String toString() { return "CompoundTermState[id=" +
+	 * hashCode() + "; states=" + Arrays.toString(states) + "]"; }
+	 */
 }

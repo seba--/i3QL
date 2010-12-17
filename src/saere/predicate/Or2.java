@@ -62,12 +62,13 @@ public final class Or2 implements Solutions {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... it should at most contain one value...
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public Or2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-	}
+	} 
 
 	public boolean next() {
 		while (true) {

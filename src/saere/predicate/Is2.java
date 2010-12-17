@@ -31,7 +31,7 @@
  */
 package saere.predicate;
 
-import static saere.IntegerAtom.IntegerAtom;
+import static saere.IntValue.IntegerAtom;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
@@ -82,7 +82,7 @@ public final class Is2 implements Solutions {
 		if (!called) {
 			lState = l.manifestState();
 			final long rValue = r.intEval();
-			if (is(l, rValue)){
+			if (is(l, rValue)) {
 				called = true;
 				return true;
 			}
@@ -95,10 +95,8 @@ public final class Is2 implements Solutions {
 
 	@Override
 	public void abort() {
-		if (lState != null) {
-			l.setState(lState);
-			lState = null;
-		}
+		l.setState(lState);
+		lState = null;
 	}
 
 	@Override
@@ -109,8 +107,9 @@ public final class Is2 implements Solutions {
 	public static final boolean is(Term a1, long a2Value) {
 		if (a1.isVariable()) {
 			final Variable v1 = a1.asVariable();
-			if (v1.isInstantiated()) {
-				return v1.intEval() == a2Value;
+			final Term a1Value = v1.binding();
+			if (a1Value != null) {
+				return a1Value.intEval() == a2Value;
 			} else {
 				v1.bind(IntegerAtom(a2Value));
 				return true;

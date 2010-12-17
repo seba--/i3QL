@@ -40,6 +40,16 @@ public abstract class Term {
 
 	public final static Term[] NO_TERMS = new Term[0];
 
+	public static final int VARIABLE = -1;
+	public static final int COMPUND_TERM = 0;
+	// It the value is equal or larger than ATOMIC, then the term is atomic
+	public static final int ATOMIC = 1;
+	public static final int STRING_ATOM = 1;
+	public static final int FLOAT_VALUE = 2;
+	public static final int INT_VALUE = 3;
+
+	public abstract int termTypeID();
+
 	/**
 	 * Unification of this term with the given term. If the unification succeeds
 	 * <code>true</code> is returned.
@@ -169,33 +179,33 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of an
-	 *         {@link IntegerAtom}.
+	 *         {@link IntValue}.
 	 */
-	public boolean isIntegerAtom() {
+	public boolean isIntValue() {
 		return false;
 	}
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of an
-	 *         {@link IntegerAtom}.
+	 *         {@link IntValue}.
 	 */
-	public IntegerAtom asIntegerAtom() {
+	public IntValue asIntValue() {
 		throw new ClassCastException();
 	}
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link FloatAtom}.
+	 *         {@link FloatValue}.
 	 */
-	public boolean isFloatAtom() {
+	public boolean isFloatValue() {
 		return false;
 	}
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of a
-	 *         {@link FloatAtom}.
+	 *         {@link FloatValue}.
 	 */
-	public FloatAtom asFloatAtom() {
+	public FloatValue asFloatValue() {
 		throw new ClassCastException();
 	}
 
@@ -281,56 +291,56 @@ public abstract class Term {
 	 * @return <code>true</code> if both terms were successfully unified;
 	 *         <code>false</code> otherwise.
 	 */
-	static boolean unify(Term t1, Term t2) {
+	public final static boolean unify(Term t1, Term t2) {
+		if (t1.isVariable()) {
+			Variable t1hv = t1.asVariable().headVariable();
+			Term t1hvv = t1hv.getValue();
+			if (t1hvv == null) {
+				t1 = t1hv; // t1 is now a free head variable
+			} else {
+				t1 = t1hvv; // t1 is now a term that is not a variable
+			}
+		}
+
+		if (t2.isVariable()) {
+			Variable t2v = t2.asVariable();
+			Variable t2hv = t2v.headVariable();
+			Term t2hvv = t2hv.getValue();
+			if (t2hvv == null) {
+				// now t2 and t1 either share or t2 is bound to some term
+				t2v.setValue(t1);
+				return true;
+			} else {
+				// ... t2 is an instantiated variable
+				t2 = t2hvv;
+			}
+		}
+
+		// minor performance improvement
 		if (t1 == t2) {
 			return true;
 		}
 
-		// Basically, the Robinson Algorithm
-		if (t1.isVariable()) {
-			final Variable v1 = t1.asVariable();
-			if (v1.isInstantiated()) {
-				return unify(v1.binding(), t2);
-			} else {
-				if (t2.isVariable()) {
-					// PERFORMANCE Evaluate if it is more efficient to always
-					// just share a free variable with another variable or to
-					// bind it.
-					final Variable v2 = t2.asVariable();
-					if (v2.isInstantiated()) {
-						v1.bind(v2.binding());
-						return true;
-					} else {
-						/*
-						 * Both variables are not instantiated. We now have to
-						 * "link" both variables; because these two variables
-						 * are said to share.
-						 */
-						v1.share(v2);
-						return true;
-					}
-				} else {
-					v1.bind(t2);
-					return true;
-				}
-			}
-		} else if (t2.isVariable()) { // t1 is not a variable...
-			final Variable v2 = t2.asVariable();
-			if (v2.isInstantiated()) {
-				return unify(v2.binding(), t1);
-			} else {
-				v2.bind(t1);
-				return true;
-			}
-		} else {
-			return (t1.isStringAtom() && t2.isStringAtom() && t1.asStringAtom()
-					.sameAs(t2.asStringAtom()))
-					|| (t1.isIntegerAtom() && t2.isIntegerAtom() && t1
-							.asIntegerAtom().sameAs(t2.asIntegerAtom()))
-					|| (t1.isCompoundTerm() && t2.isCompoundTerm() && t1
-							.asCompoundTerm().unify(t2.asCompoundTerm()))
-					|| (t1.isFloatAtom() && t2.isFloatAtom() && t1
-							.asFloatAtom().sameAs(t2.asFloatAtom()));
+		switch (t1.termTypeID()) {
+		case VARIABLE:
+			// We know that:
+			// 1) t1 is actually a free variable and it is a head variable
+			// 2) t2 is not a (free/instantiated) variable
+			t1.asVariable().setValue(t2);
+			return true;
+		case COMPUND_TERM:
+			return t2.isCompoundTerm()
+					&& t1.asCompoundTerm().unify(t2.asCompoundTerm());
+		case STRING_ATOM:
+			return t2.isStringAtom()
+					&& t1.asStringAtom().sameAs(t2.asStringAtom());
+		case FLOAT_VALUE:
+			return t2.isFloatValue()
+					&& t1.asFloatValue().sameAs(t2.asFloatValue());
+		case INT_VALUE:
+			return t2.isIntValue() && t1.asIntValue().sameAs(t2.asIntValue());
+		default:
+			throw new Error("internal programming error - everything is lost.");
 		}
 	}
 }

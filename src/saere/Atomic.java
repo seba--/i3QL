@@ -68,7 +68,7 @@ public abstract class Atomic extends Term {
 	 */
 	@Override
 	public final Term arg(int i) {
-		throw new IndexOutOfBoundsException("Atoms have no arguments.");
+		throw new IndexOutOfBoundsException("atoms have no arguments");
 	}
 
 	/**
@@ -80,7 +80,7 @@ public abstract class Atomic extends Term {
 	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
 	 * however, requires whole program analyses.
 	 */
-	final public State manifestState() {
+	public final State manifestState() {
 		return null;
 	}
 
