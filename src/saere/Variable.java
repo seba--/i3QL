@@ -188,8 +188,6 @@ public final class Variable extends Term {
 	 * Sets this variable's value.
 	 */
 	void setValue(Term value) {
-//		assert (this.value == null && value != null)
-//				|| (this.value != null && value == null) : "precondition of variable.setValue(term) not met";
 		this.value = value;
 	}
 

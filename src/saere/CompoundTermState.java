@@ -39,8 +39,7 @@ package saere;
  */
 final class CompoundTermState extends State {
 
-	// IMPROVE Is it more efficient to just save the state of the variables?
-	final static class ListOfStates {
+	private final static class ListOfStates {
 
 		private final VariableState state;
 		private ListOfStates tail;
@@ -83,7 +82,8 @@ final class CompoundTermState extends State {
 
 	// we only manifest the state of the variables...
 	private void doManifest(CompoundTerm compoundTerm) {
-		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+		final int arity = compoundTerm.arity(); 
+		for (int i =  0; i < arity; i++) {
 			Term arg_i = compoundTerm.arg(i);
 			if (arg_i.isVariable()) {
 				VariableState vs = arg_i.asVariable().manifestState();
@@ -105,7 +105,8 @@ final class CompoundTermState extends State {
 	}
 
 	private void doApply(CompoundTerm compoundTerm) {
-		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
+		final int arity = compoundTerm.arity(); 
+		for (int i =  0; i < arity; i++) {
 			Term arg_i = compoundTerm.arg(i);
 			if (arg_i.isVariable()) {
 				temp = temp.apply(arg_i.asVariable());
