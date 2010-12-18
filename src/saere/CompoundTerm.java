@@ -126,7 +126,7 @@ public abstract class CompoundTerm extends Term {
 	@Override
 	public void setState(State state) {
 		if (state != null) {
-			state.asCompoundTermState().apply(this);
+			state.asCompoundTermState().reset();
 		}
 	}
 

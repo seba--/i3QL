@@ -39,30 +39,30 @@ package saere;
  */
 final class CompoundTermState extends State {
 
-	private final static class ListOfStates {
+	private final static class ListOfVariableStates {
 
 		private final VariableState state;
-		private ListOfStates tail;
+		private ListOfVariableStates tail;
 
-		ListOfStates(VariableState state) {
+		ListOfVariableStates(VariableState state) {
 			this.state = state;
 		}
 
 		@SuppressWarnings("hiding")
-		ListOfStates append(VariableState state) {
-			ListOfStates tail = new ListOfStates(state);
+		ListOfVariableStates append(VariableState state) {
+			ListOfVariableStates tail = new ListOfVariableStates(state);
 			this.tail = tail;
 			return tail;
 		}
 
-		ListOfStates apply(Variable variable) {
-			variable.setState(state);
+		ListOfVariableStates apply() {
+			state.reset();
 			return tail;
 		}
 
 		@Override
 		public String toString() {
-			ListOfStates los = tail;
+			ListOfVariableStates los = tail;
 			String s = "[" + state;
 			while (los != null) {
 				s += "," + los.toString();
@@ -73,22 +73,32 @@ final class CompoundTermState extends State {
 
 	}
 
-	private ListOfStates first = null;
-	private ListOfStates temp = null;
+	private ListOfVariableStates first = null;
+	private ListOfVariableStates temp = null;
 
 	CompoundTermState(CompoundTerm compoundTerm) {
 		doManifest(compoundTerm);
 	}
-
+	
+	
 	// we only manifest the state of the variables...
 	private void doManifest(CompoundTerm compoundTerm) {
 		final int arity = compoundTerm.arity(); 
 		for (int i =  0; i < arity; i++) {
 			Term arg_i = compoundTerm.arg(i);
 			if (arg_i.isVariable()) {
-				VariableState vs = arg_i.asVariable().manifestState();
+				VariableState vs;
+				Variable hv = arg_i.asVariable().headVariable();
+				Term hvv = hv.getValue();
+				if (hvv == null) {
+					vs = VariableState.share(hv);
+				} else if (hvv.isAtomic()) {
+					continue;
+				} else {
+					vs = VariableState.instantiated(hv);
+				}
 				if (first == null)
-					temp = first = new ListOfStates(vs);
+					temp = first = new ListOfVariableStates(vs);
 				else
 					temp = temp.append(vs);
 			} else if (arg_i.isCompoundTerm()) {
@@ -97,22 +107,10 @@ final class CompoundTermState extends State {
 		}
 	}
 
-	void apply(CompoundTerm compoundTerm) {
+	void reset() {
 		temp = first;
-		doApply(compoundTerm);
-
-		assert (temp == null);
-	}
-
-	private void doApply(CompoundTerm compoundTerm) {
-		final int arity = compoundTerm.arity(); 
-		for (int i =  0; i < arity; i++) {
-			Term arg_i = compoundTerm.arg(i);
-			if (arg_i.isVariable()) {
-				temp = temp.apply(arg_i.asVariable());
-			} else if (arg_i.isCompoundTerm()) {
-				doApply(arg_i.asCompoundTerm());
-			}
+		while (temp != null) {
+			temp = temp.apply();
 		}
 	}
 
