@@ -41,8 +41,7 @@ abstract class VariableState extends State {
 	static final VariableState immutable = new VariableState() {
 
 		@Override
-		void apply(Variable variable) {
-			assert variable.binding().isAtomic();
+		void apply() {
 			// nothing to do
 		}
 
@@ -60,7 +59,7 @@ abstract class VariableState extends State {
 			}
 
 			@Override
-			void apply(Variable variable) {
+			void apply() {
 				headVariable.clear();
 			}
 
@@ -85,7 +84,7 @@ abstract class VariableState extends State {
 			}
 
 			@Override
-			void apply(Variable variable) {
+			void apply() {
 				headVariable.getValue().setState(headVariableBindingState);
 			}
 
@@ -102,5 +101,5 @@ abstract class VariableState extends State {
 		return this;
 	}
 
-	abstract void apply(Variable variable);
+	abstract void apply();
 }

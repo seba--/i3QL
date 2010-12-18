@@ -117,15 +117,15 @@ public final class Variable extends Term {
 		if (state == null) {
 			this.value = null;
 		} else {
-			state.asVariableState().apply(this);
+			state.asVariableState().apply();
 		}
 	}
 
-	void setState(VariableState state) {
+	public void setState(VariableState state) {
 		if (state == null) {
 			this.value = null;
 		} else {
-			state.apply(this);
+			state.apply();
 		}
 	}
 
