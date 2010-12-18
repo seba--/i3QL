@@ -107,28 +107,10 @@ public abstract class CompoundTerm extends Term {
 		if (isGround()) {
 			return null;
 		} else {
-			return new CompoundTermState(this);
+			return CompoundTermState.manifest(this);
 		}
 	}
 
-	/**
-	 * The state of the compound term's arguments is restored.
-	 * <p>
-	 * <b>Performance Guideline</b><br/>
-	 * This requires a traversal of the complete compound term's structure.<br />
-	 * Hence, if all instances of a compound term are always ground then it is
-	 * possible to overwrite this method and the {@link #manifestState()} method
-	 * and to use <code>null</code> to declare that no immutable state exists.
-	 * </p>
-	 * 
-	 * @see #manifestState()
-	 */
-	@Override
-	public void setState(State state) {
-		if (state != null) {
-			state.asCompoundTermState().reset();
-		}
-	}
 
 	/**
 	 * Unifies this compound term with another compound term.

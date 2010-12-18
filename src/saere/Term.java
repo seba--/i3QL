@@ -77,38 +77,26 @@ public abstract class Term {
 	/**
 	 * Creates a {@link State} object that encapsulates the complete variable
 	 * state information of this term. The {@link State} object is later on used
-	 * to reset the state of this term to the time when this method was called
-	 * (to undo all changes that were done in between).
+	 * to reset (cf. {@link State#reset()})the state of this term to the time
+	 * when this method was called (to undo all changes that were done in
+	 * between).
 	 * 
 	 * <p>
 	 * <b>Implementation Note</b><br />
-	 * This method implements – in conjunction with {@link #setState(State)} –
-	 * the Memento Pattern.
+	 * This method implements the Memento Pattern.
 	 * </p>
 	 * 
-	 * @return An object that encapsulates this term's state. The object's
+	 * @return An object that encapsulates this term's state. The state object's
 	 *         precise type is always private to the term object that created
 	 *         it. The caller must not make any assumptions about the object's
 	 *         structure.
 	 *         <p>
 	 *         <b>Performance Guideline</b><br />
 	 *         It is legal and highly encouraged to return <code>null</code> if
-	 *         this term's state is immutable. In this case the corresponding
-	 *         {@link #setState(State)} method has to be able to accept
-	 *         <code>null</code> as a legal parameter value.
+	 *         this term's state is immutable. 
 	 *         </p>
 	 */
 	public abstract State manifestState();
-
-	/**
-	 * Resets this term's state to the state encapsulated by the given
-	 * <code>State</code> object.
-	 * <p>
-	 * The given <code>State</code> must be a <code>State</code> object
-	 * previously created by this term using {@link #manifestState()}.
-	 * </p>
-	 */
-	public abstract void setState(State state);
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
@@ -310,7 +298,8 @@ public abstract class Term {
 			Variable t2hv = t2v.headVariable();
 			Term t2hvv = t2hv.getValue();
 			if (t2hvv == null) {
-				if (t2hv != t1) { // this checks that t1 and t2 not already share
+				if (t2hv != t1) { // this checks that t1 and t2 not already
+									// share
 					// now t2 and t1 either share or t2 is bound to some term
 					t2hv.setValue(t1);
 				}
@@ -348,9 +337,7 @@ public abstract class Term {
 			throw new Error("encountered a term with an unknown type");
 		}
 	}
-	
-	
-	
+
 	public static final boolean is(Term term, long value) {
 		if (term.isVariable()) {
 			final Variable hv = term.asVariable().headVariable();

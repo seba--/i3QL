@@ -75,7 +75,7 @@ public class TestVariableBinding {
 				.instance("demo"), tail)).unify(v.binding()));
 		assertEquals(new ListElement2(l2, StringAtom.EMPTY_LIST_FUNCTOR), tail
 				.binding());
-		v.setState(s1);
+		s1.reset();
 
 		v.clear();
 		assertFalse(v.isInstantiated());

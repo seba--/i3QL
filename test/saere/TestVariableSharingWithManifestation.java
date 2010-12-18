@@ -18,7 +18,7 @@ public class TestVariableSharingWithManifestation {
 			assertNull(v.binding());
 
 			State s = v.manifestState();
-			v.setState(s);
+			s.reset();
 
 			assertNull(v.getValue());
 			assertNull(v.binding());
@@ -36,9 +36,10 @@ public class TestVariableSharingWithManifestation {
 				State s2 = v.manifestState();
 				assertTrue(v.isInstantiated());
 				assertTrue(v.isGround());
-				v.setState(s2);
+				if (s2 != null)
+					s2.reset();
 			}
-			v.setState(s1);
+			s1.reset();
 
 			assertNull(v.getValue());
 			assertNull(v.binding());
@@ -66,8 +67,8 @@ public class TestVariableSharingWithManifestation {
 			State s1 = v11.manifestState();
 			State s2 = v21.manifestState();
 			v11.share(v21);
-			v11.setState(s1);
-			v21.setState(s2);
+			s1.reset();
+			s2.reset();
 			v11.bind(atomic);
 
 			assertEquals(atomic, v11.binding());
@@ -103,8 +104,8 @@ public class TestVariableSharingWithManifestation {
 			State s1 = v12.manifestState();
 			State s2 = v21.manifestState();
 			v12.share(v21);
-			v12.setState(s1);
-			v21.setState(s2);
+			s1.reset();
+			s2.reset();
 			v12.bind(atomic);
 
 			assertEquals(atomic, v11.binding());
@@ -141,8 +142,8 @@ public class TestVariableSharingWithManifestation {
 			State s1 = v13.manifestState();
 			State s2 = v21.manifestState();
 			v13.share(v21);
-			v13.setState(s1);
-			v21.setState(s2);
+			s1.reset();
+			s2.reset();
 			v13.bind(atomic);
 
 			assertEquals(atomic, v11.binding());
@@ -179,8 +180,8 @@ public class TestVariableSharingWithManifestation {
 			State s1 = v13.manifestState();
 			State s2 = v21.manifestState();
 			v13.share(v21);
-			v13.setState(s1);
-			v21.setState(s2);
+			s1.reset();
+			s2.reset();
 			v13.bind(atomic);
 
 			assertEquals(atomic, v11.binding());
@@ -218,8 +219,8 @@ public class TestVariableSharingWithManifestation {
 			State s2 = v21.manifestState();
 			v11.share(v21);
 			v11.bind(atomic);
-			v11.setState(s1);
-			v21.setState(s2);
+			s1.reset();
+			s2.reset();
 
 			assertNull(v11.binding());
 			assertNull(v12.binding());
@@ -254,9 +255,10 @@ public class TestVariableSharingWithManifestation {
 				State sx = v.manifestState();
 				assertTrue(v.isInstantiated());
 				assertTrue(v.isGround());
-				v.setState(sx);
+				if (sx != null) // sx may be null, because sx is bound to an atomic value.
+					sx.reset();
 			}
-			v.setState(s);
+			s.reset();
 
 			assertNull(v.getValue());
 			assertNull(v.binding());
@@ -272,7 +274,7 @@ public class TestVariableSharingWithManifestation {
 			v.share(new Variable());
 			v.share(new Variable());
 			v.share(new Variable());
-			v.setState(s);
+			s.reset();
 
 			assertNull(v.getValue());
 			assertNull(v.binding());
@@ -289,7 +291,7 @@ public class TestVariableSharingWithManifestation {
 
 			State s = v2.manifestState();
 			v2.share(v1); // V2 = V1
-			v2.setState(s);
+			s.reset();
 
 			// V1 and V2 do no longer share
 			v1.bind(atomic);
@@ -304,8 +306,8 @@ public class TestVariableSharingWithManifestation {
 			State s1 = v1.manifestState();
 			State s2 = v2.manifestState();
 			v2.share(v1); // V2 = V1
-			v1.setState(s1);
-			v2.setState(s2);
+			s1.reset();
+			s2.reset();
 
 			// V1 and V2 still share
 			v1.bind(atomic);
@@ -322,7 +324,7 @@ public class TestVariableSharingWithManifestation {
 
 			State s = v2.manifestState();
 			v1.share(v3);
-			v2.setState(s);
+			s.reset();
 
 			// V1, V2 and V3 still share
 			v1.bind(atomic);
@@ -341,9 +343,9 @@ public class TestVariableSharingWithManifestation {
 			v1.share(v2); // V1 = V2
 			v2.share(v3); // V2 = V1
 			v1.share(v3);
-			v1.setState(s1);
-			v2.setState(s2);
-			v3.setState(s3);
+			s1.reset();
+			s2.reset();
+			s3.reset();
 
 			// V1, V2 and V3 still share
 			v1.bind(atomic);
@@ -369,7 +371,7 @@ public class TestVariableSharingWithManifestation {
 						assertEquals(atomic, v1.binding());
 						assertEquals(atomic, v2.binding());
 						assertNull(v3.binding());
-						v1.setState(is);
+						is.reset();
 						assertNull(v1.binding());
 						assertNull(v2.binding());
 						assertNull(v3.binding());
@@ -385,7 +387,7 @@ public class TestVariableSharingWithManifestation {
 							assertEquals(atomic, v1.binding());
 							assertEquals(atomic, v2.binding());
 							assertEquals(atomic, v3.binding());
-							v2.setState(is);
+							is.reset();
 						}
 						{
 							State is = v3.manifestState();
@@ -393,17 +395,17 @@ public class TestVariableSharingWithManifestation {
 							assertEquals(atomic, v1.binding());
 							assertEquals(atomic, v2.binding());
 							assertEquals(atomic, v3.binding());
-							v3.setState(is);
+							is.reset();
 						}
 						{
 							State s12 = v1.manifestState();
 							State s32 = v3.manifestState();
 							v1.share(v3);
-							v3.setState(s32);
-							v1.setState(s12);
+							s32.reset();
+							s12.reset();
 						}
-						v2.setState(s22);
-						v3.setState(s31);
+						s22.reset();
+						s31.reset();
 
 					}
 					{
@@ -412,12 +414,12 @@ public class TestVariableSharingWithManifestation {
 						assertEquals(atomic, v1.binding());
 						assertEquals(atomic, v2.binding());
 						assertNull(v3.binding());
-						v1.setState(is);
+						is.reset();
 					}
 				}
 
-				v1.setState(s11);
-				v2.setState(s21);
+				s11.reset();
+				s21.reset();
 
 				assertNull(v1.binding());
 				assertNull(v2.binding());

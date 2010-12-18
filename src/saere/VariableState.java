@@ -36,70 +36,25 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-abstract class VariableState extends State {
+final class VariableState implements State {
 
-	final static VariableState immutable = new VariableState() {
+	private final Variable headVariable;
 
-		@Override
-		void reset() {
-			// nothing to do
-		}
+	VariableState(final Variable headVariable) {
+		assert headVariable.getValue() == null : "the variable is bound; did you pass in the headVariable?";
 
-		@Override
-		public String toString() {
-			return "VariableState[immutable]";
-		}
-	};
-
-	final static VariableState share(final Variable headVariable) {
-		return new VariableState() {
-
-			{
-				assert headVariable.getValue() == null : "head variable is bound";
-			}
-
-			@Override
-			void reset() {
-				headVariable.clear();
-			}
-
-			@Override
-			public String toString() {
-				return "VariableState[shares; headVariableId=" + headVariable
-						+ "]";
-			}
-		};
-	}
-
-	final static VariableState instantiated(final Variable headVariable) {
-		return new VariableState() {
-
-			private final State headVariableBindingState;
-
-			{
-				assert headVariable.getValue() != null : "the head variable is free; use VariableState.share(Variable) to encapsulate the state";
-				
-				headVariableBindingState = headVariable.getValue()
-						.manifestState();
-			}
-
-			@Override
-			void reset() {
-				headVariable.getValue().setState(headVariableBindingState);
-			}
-
-			@Override
-			public String toString() {
-				return "VariableState[instantiated; headVariableId="
-						+ Variable.variableToName(headVariable) + "]";
-			}
-		};
+		this.headVariable = headVariable;
 	}
 
 	@Override
-	final VariableState asVariableState() {
-		return this;
+	public void reset() {
+		headVariable.clear();
 	}
 
-	abstract void reset();
+	@Override
+	public String toString() {
+		return "VariableState[headVariableId="
+				+ Variable.variableToName(headVariable) + "]";
+	}
+
 }

@@ -86,15 +86,19 @@ public final class Is2 implements Solutions {
 			}
 		}
 
-		l.setState(lState);
-		lState = null;
+		if (lState != null) {
+			lState.reset();
+			lState = null;
+		}
 		return false;
 	}
 
 	@Override
 	public void abort() {
-		l.setState(lState);
-		lState = null;
+		if (lState != null) {
+			lState.reset();
+			lState = null;
+		}
 	}
 
 	@Override

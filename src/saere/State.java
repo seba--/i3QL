@@ -49,22 +49,15 @@ import saere.predicate.Unify2;
  * <b>Implementation Notes</b><br />
  * <p>
  * The SAE represents the state of ground terms using the value
- * <code>null</code>.
+ * <code>null</code>. Hence, before calling {@link #reset()} you have
+ * to check that the state object is not null.
  * </p>
  * This is the state interface of the Memento Pattern. </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class State {
+public interface State {
 
-	CompoundTermState asCompoundTermState() {
-		throw new Error("this state object (" + this
-				+ ") does not encapsulate a complex term's state.");
-	}
-
-	VariableState asVariableState() {
-		throw new Error("this state object (" + this
-				+ ") does not encapsulate a variable's state.");
-	}
+	void reset();
 
 }

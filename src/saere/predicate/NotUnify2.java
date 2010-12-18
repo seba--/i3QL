@@ -84,10 +84,14 @@ public final class NotUnify2 implements Solutions {
 			final boolean success = l.unify(r);
 			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
 			// will not be bound!
-			r.setState(rState);
-			l.setState(lState);
-			lState = rState = null;
-
+			if (lState != null) {
+				lState.reset();
+				lState = null;
+			}
+			if (rState != null){
+				rState.reset();
+				rState = null;				
+			}
 			return !success;
 		} else {
 			return false;

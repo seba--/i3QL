@@ -114,11 +114,12 @@ public final class Member2 implements Solutions {
 					return false;
 				}
 			case ADVANCE:
-				listElement.setState(listElementState);
-				// System.out.println(thisGoalId+"[()]"+listElement.toProlog());
-
-				testElement.setState(testElementState);
-				// // System.out.println(thisGoalId+"()"+element.toProlog());
+				if (listElementState != null) {
+					listElementState.reset();
+				}
+				if (testElementState != null) {
+					testElementState.reset();
+				}
 
 				list = list.arg(1);
 				state = TEST;
@@ -128,8 +129,12 @@ public final class Member2 implements Solutions {
 
 	@Override
 	public void abort() {
-		listElement.setState(listElementState);
-		testElement.setState(testElementState);
+		if (listElementState != null) {
+			listElementState.reset();
+		}
+		if (testElementState != null) {
+			testElementState.reset();
+		}
 	}
 
 	@Override

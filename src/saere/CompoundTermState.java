@@ -31,96 +31,75 @@
  */
 package saere;
 
-
 /**
  * Encapsulate's the state of a compound term's arguments.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class CompoundTermState extends State {
+final class CompoundTermState implements State {
 
-	private final static class ListOfVariableStates {
-
-		private final VariableState state;
-		private ListOfVariableStates tail;
-
-		ListOfVariableStates(VariableState state) {
-			this.state = state;
-		}
-
-		@SuppressWarnings("hiding")
-		ListOfVariableStates append(VariableState state) {
-			ListOfVariableStates tail = new ListOfVariableStates(state);
-			this.tail = tail;
-			return tail;
-		}
-
-		ListOfVariableStates apply() {
-			state.reset();
-			return tail;
-		}
-
-		@Override
-		public String toString() {
-			ListOfVariableStates los = tail;
-			String s = "[" + state;
-			while (los != null) {
-				s += "," + los.toString();
-				los = los.tail;
-			}
-			return s += "]";
-		}
-
-	}
-
-	private ListOfVariableStates first = null;
-	private ListOfVariableStates temp = null;
-
-	CompoundTermState(CompoundTerm compoundTerm) {
-		doManifest(compoundTerm);
-	}
+	private final State state;
 	
-	
-	// we only manifest the state of the variables...
-	private void doManifest(CompoundTerm compoundTerm) {
-		final int arity = compoundTerm.arity(); 
-		for (int i =  0; i < arity; i++) {
-			Term arg_i = compoundTerm.arg(i);
-			if (arg_i.isVariable()) {
-				VariableState vs;
-				Variable hv = arg_i.asVariable().headVariable();
-				Term hvv = hv.getValue();
-				if (hvv == null) {
-					vs = VariableState.share(hv);
-				} else if (hvv.isAtomic()) {
-					continue;
-				} else {
-					vs = VariableState.instantiated(hv);
-				}
-				if (first == null)
-					temp = first = new ListOfVariableStates(vs);
-				else
-					temp = temp.append(vs);
-			} else if (arg_i.isCompoundTerm()) {
-				doManifest(arg_i.asCompoundTerm());
-			}
-		}
+	private CompoundTermState next;
+
+	private CompoundTermState(State state) {
+		this.state = state;
 	}
 
-	void reset() {
-		temp = first;
-		while (temp != null) {
-			temp = temp.apply();
-		}
+	@SuppressWarnings("hiding")
+	CompoundTermState append(State state) {
+		CompoundTermState tail = new CompoundTermState(state);
+		this.next = tail;
+		return tail;
 	}
 
 	@Override
 	public String toString() {
-		return "CompoundTermState[" + first + "]";
+		CompoundTermState los = next;
+		String s = "[" + state;
+		while (los != null) {
+			s += "," + los.toString();
+			los = los.next;
+		}
+		return s += "]";
 	}
 
-	@Override
-	CompoundTermState asCompoundTermState() {
-		return this;
+	public void reset() {
+		CompoundTermState cts = this;
+		while (cts != null) {
+			cts.state.reset();
+			cts = cts.next;
+		}
+	}
+
+	final static class CompoundTermStatePointers {
+		CompoundTermState first;
+		CompoundTermState last;
+	}
+
+	static CompoundTermState manifest(CompoundTerm compoundTerm) {
+		CompoundTermStatePointers pointers = new CompoundTermStatePointers();
+		doManifest(compoundTerm, pointers);
+		return pointers.first;
+	}
+
+	// we only manifest the state of the variables...
+	private static void doManifest(CompoundTerm compoundTerm,
+			CompoundTermStatePointers pointers) {
+		final int arity = compoundTerm.arity();
+		for (int i = 0; i < arity; i++) {
+			Term arg_i = compoundTerm.arg(i);
+			if (arg_i.isVariable()) {
+				State vs = arg_i.asVariable().manifestState();
+				if (vs == null)
+					continue;
+				if (pointers.first == null)
+					pointers.last = pointers.first = new CompoundTermState(vs);
+				else
+					pointers.last = pointers.last.append(vs);
+			} else if (arg_i.isCompoundTerm()) {
+				doManifest(arg_i.asCompoundTerm(), pointers);
+			}
+		}
 	}
 }

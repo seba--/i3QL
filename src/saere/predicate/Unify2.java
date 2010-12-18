@@ -78,16 +78,16 @@ public final class Unify2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			this.lState = l.manifestState();
-			this.rState = r.manifestState();
+			lState = l.manifestState();
+			rState = r.manifestState();
 			if (l.unify(r)) {
 				called = true;
 				return true;
 			}
 		}
 		// unification failed...
-		r.setState(rState);
-		l.setState(lState);
+		if (lState != null) lState.reset();
+		if (rState != null) rState.reset();
 		lState = null;
 		rState = null;
 		return false;
@@ -97,8 +97,8 @@ public final class Unify2 implements Solutions {
 	public void abort() {
 		// the method protocol prescribes that you must have called next()
 		// before (at least once) and next has never returned false.
-		r.setState(rState);
-		l.setState(lState);
+		if (lState != null) lState.reset();
+		if (rState != null) rState.reset();
 		lState = null;
 		rState = null;
 	}

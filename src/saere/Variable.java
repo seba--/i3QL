@@ -94,38 +94,21 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public VariableState manifestState() {
+	public State manifestState() {
 		// Remember that a variable may be bound to a compound term that
 		// contains free variables...
-		if (this.value != null) {
+		if (this.value == null) {
+			return new VariableState(this);
+		} else {
 			Variable hv = headVariable();
 			Term hvv = hv.value;
 			if (hvv == null) {
-				return VariableState.share(hv);
+				return new VariableState(hv);
 			} else if (hvv.isAtomic()) {
-				return VariableState.immutable;
+				return null;
 			} else {
-				return VariableState.instantiated(hv);
+				return hvv.manifestState();
 			}
-		} else {
-			return null;
-		}
-	}
-
-	@Override
-	public void setState(State state) {
-		if (state == null) {
-			this.value = null;
-		} else {
-			state.asVariableState().reset();
-		}
-	}
-
-	public void setState(VariableState state) {
-		if (state == null) {
-			this.value = null;
-		} else {
-			state.reset();
 		}
 	}
 
