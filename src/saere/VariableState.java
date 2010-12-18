@@ -38,10 +38,10 @@ package saere;
  */
 abstract class VariableState extends State {
 
-	static final VariableState immutable = new VariableState() {
+	final static VariableState immutable = new VariableState() {
 
 		@Override
-		void apply() {
+		void reset() {
 			// nothing to do
 		}
 
@@ -51,7 +51,7 @@ abstract class VariableState extends State {
 		}
 	};
 
-	static final VariableState share(final Variable headVariable) {
+	final static VariableState share(final Variable headVariable) {
 		return new VariableState() {
 
 			{
@@ -59,7 +59,7 @@ abstract class VariableState extends State {
 			}
 
 			@Override
-			void apply() {
+			void reset() {
 				headVariable.clear();
 			}
 
@@ -71,7 +71,7 @@ abstract class VariableState extends State {
 		};
 	}
 
-	static final VariableState instantiated(final Variable headVariable) {
+	final static VariableState instantiated(final Variable headVariable) {
 		return new VariableState() {
 
 			private final State headVariableBindingState;
@@ -84,7 +84,7 @@ abstract class VariableState extends State {
 			}
 
 			@Override
-			void apply() {
+			void reset() {
 				headVariable.getValue().setState(headVariableBindingState);
 			}
 
@@ -101,5 +101,5 @@ abstract class VariableState extends State {
 		return this;
 	}
 
-	abstract void apply();
+	abstract void reset();
 }

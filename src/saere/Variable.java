@@ -117,7 +117,7 @@ public final class Variable extends Term {
 		if (state == null) {
 			this.value = null;
 		} else {
-			state.asVariableState().apply();
+			state.asVariableState().reset();
 		}
 	}
 
@@ -125,7 +125,7 @@ public final class Variable extends Term {
 		if (state == null) {
 			this.value = null;
 		} else {
-			state.apply();
+			state.reset();
 		}
 	}
 
