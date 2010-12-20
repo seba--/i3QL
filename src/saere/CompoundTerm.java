@@ -38,140 +38,133 @@ package saere;
  */
 public abstract class CompoundTerm extends Term {
 
-	@Override
-	/**
-	 * @return Always returns <code>false</code>.
-	 */
-	public final boolean isAtomic() {
+    /**
+     * @return <code>false</code>; always.
+     */
+    @Override
+    public final boolean isAtomic() {
+	return false;
+    }
+
+    /**
+     * @return <code>true</code>; always.
+     */
+    @Override
+    public final boolean isCompoundTerm() {
+	return true;
+    }
+
+    /**
+     * @return Always returns "<code>this</code>"
+     */
+    @Override
+    public final CompoundTerm asCompoundTerm() {
+	return this;
+    }
+
+    @Override
+    public final int termTypeID() {
+	return Term.COMPUND_TERM;
+    }
+
+    /**
+     * Returns <code>true</code> if this term is ground; i.e. if all arguments are ground.
+     * 
+     * <p>
+     * <b>Performance Guideline</b><br/>
+     * This method (re)calculates the answer whenever this method is called. If you know that for
+     * your specific kind of compound term the answer is always <code>true</code> you should
+     * override this method and return <code>true</code> (see also {@link #manifestState()}).
+     * </p>
+     */
+    @Override
+    public boolean isGround() {
+	final int arity = arity();
+	for (int i = 0; i < arity; i++) {
+	    if (!arg(i).isGround()) {
 		return false;
+	    }
 	}
+	return true;
+    }
 
-	/**
-	 * @return Always returns <code>true</code>.
-	 */
-	@Override
-	public final boolean isCompoundTerm() {
-		return true;
+    /**
+     * The state of the compound term's arguments is saved for later recovery.
+     * <p>
+     * <b>Performance Guideline</b><br/>
+     * In general, state manifestation requires a traversal of the complete compound term's
+     * structure. Hence, if all instances of a compound term are always ground then it is highly
+     * recommended to override the corresponding {@link #isGround()} method and to always return
+     * <code>true</code>. Overwriting {@link #isGround()} is more beneficial than overwriting this
+     * method, because this method directly uses the method {@link #isGround()} and returns
+     * <code>null</code> if this compound term is ground.
+     * </p>
+     */
+    @Override
+    public CompoundTermState manifestState() {
+	if (isGround()) {
+	    return null;
+	} else {
+	    return CompoundTermState.manifest(this);
 	}
+    }
 
-	/**
-	 * @return Always returns "<code>this</code>"
-	 */
-	@Override
-	public final CompoundTerm asCompoundTerm() {
-		return this;
+    /**
+     * Unifies this compound term with another compound term.
+     * <p>
+     * This method does not take care of state handling; i.e, <font color="ref">both compound terms
+     * may be partially bound after return.</font> The caller must take care to reset the state of
+     * this compound term as well as the passed in compound term.
+     * </p>
+     */
+    public boolean unify(CompoundTerm other) {
+	final int arity = arity();
+	if (arity == other.arity() && functor().sameAs(other.functor())) {
+	    int i = 0;
+	    while (i < arity) {
+		if (this.arg(i).unify(other.arg(i))) {
+		    i += 1;
+		} else {
+		    return false;
+		}
+	    }
+	    return true;
+	} else {
+	    return false;
 	}
+    }
 
-	public final int termTypeID() {
-		return Term.COMPUND_TERM;
+    @Override
+    public String toProlog() {
+	// a compound term always has at least one argument
+	String s = arg(0).toProlog();
+	for (int i = 1; i < arity(); i++) {
+	    if (i > 0)
+		s += ", ";
+	    s += arg(i).toProlog();
 	}
+	return functor().toProlog() + "(" + s + ")";
+    }
 
-	/**
-	 * Returns <code>true</code> if this term is ground; i.e. if all arguments
-	 * are ground.
-	 * 
-	 * <p>
-	 * <b>Performance Guideline</b><br/>
-	 * This method (re)calculates the answer whenever this method is called. If
-	 * you know that for your specific kind of compound term the answer is
-	 * always <code>true</code> you should override this method and return
-	 * <code>true</code> (see also {@link #manifestState()}).
-	 * </p>
-	 */
-	@Override
-	public boolean isGround() {
-		final int arity = arity();
+    @Override
+    public boolean equals(Object otherObject) {
+	if (otherObject instanceof CompoundTerm) {
+	    CompoundTerm other = (CompoundTerm) otherObject;
+	    int arity = arity();
+	    if (arity == other.arity() && functor().sameAs(other.functor())) {
 		for (int i = 0; i < arity; i++) {
-			if (!arg(i).isGround()) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-
-	/**
-	 * The state of the compound term's arguments is saved for later recovery.
-	 * <p>
-	 * <b>Performance Guideline</b><br/>
-	 * In general, state manifestation requires a traversal of the complete
-	 * compound term's structure. Hence, if all instances of a compound term are
-	 * always ground then it is highly recommended to override the
-	 * {@link #isGround()} method and to always return <code>true</code>.
-	 * Overwriting {@link #isGround()} is more beneficial than overwriting this
-	 * method, because this method directly uses the method {@link #isGround()}.
-	 * </p>
-	 */
-	@Override
-	public CompoundTermState manifestState() {
-		if (isGround()) {
-			return null;
-		} else {
-			return CompoundTermState.manifest(this);
-		}
-	}
-
-
-	/**
-	 * Unifies this compound term with another compound term.
-	 * <p>
-	 * This method does not take care of state handling; i.e, <font
-	 * color="ref">both compound terms may be partially bound after
-	 * return.</font> The caller must take care to reset the state of both
-	 * compound terms.
-	 * </p>
-	 */
-	public boolean unify(CompoundTerm other) {
-
-		final int arity = arity();
-		if (arity == other.arity() && functor().sameAs(other.functor())) {
-			int i = 0;
-
-			while (i < arity) {
-				if (this.arg(i).unify(other.arg(i))) {
-					i += 1;
-				} else {
-					return false;
-				}
-			}
-			return true;
-		} else {
+		    if (!this.arg(i).equals(other.arg(i)))
 			return false;
 		}
+		return true;
+	    }
 	}
 
-	@Override
-	public String toProlog() {
+	return false;
+    }
 
-		String s = "";
-		for (int i = 0; i < arity(); i++) {
-			if (i > 0)
-				s += ", ";
-			s += arg(i).toProlog();
-		}
-
-		return functor().toProlog() + "(" + s + ")";
-	}
-
-	@Override
-	public boolean equals(Object otherObject) {
-		if (otherObject instanceof CompoundTerm) {
-			CompoundTerm other = (CompoundTerm) otherObject;
-			int arity = arity();
-			if (arity == other.arity() && functor().sameAs(other.functor())) {
-				for (int i = 0; i < arity; i++) {
-					if (!this.arg(i).equals(other.arg(i)))
-						return false;
-				}
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	@Override
-	public int hashCode() {
-		return functor().hashCode() + arity();
-	}
+    @Override
+    public int hashCode() {
+	return functor().hashCode() + arity();
+    }
 }

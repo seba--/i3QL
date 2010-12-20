@@ -38,23 +38,22 @@ package saere;
  */
 final class VariableState implements State {
 
-	private final Variable headVariable;
+    private final Variable headVariable;
 
-	VariableState(final Variable headVariable) {
-		assert headVariable.getValue() == null : "the variable is bound; did you pass in the headVariable?";
+    VariableState(final Variable headVariable) {
+	assert headVariable.getValue() == null : "only free head variable can be manifested";
 
-		this.headVariable = headVariable;
-	}
+	this.headVariable = headVariable;
+    }
 
-	@Override
-	public void reset() {
-		headVariable.clear();
-	}
+    @Override
+    public void reset() {
+	headVariable.clear();
+    }
 
-	@Override
-	public String toString() {
-		return "VariableState[headVariableId="
-				+ Variable.variableToName(headVariable) + "]";
-	}
+    @Override
+    public String toString() {
+	return "VariableState[headVariableId=" + Variable.variableToName(headVariable) + "]";
+    }
 
 }
