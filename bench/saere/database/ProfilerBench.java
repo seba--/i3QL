@@ -49,8 +49,6 @@ public final class ProfilerBench {
 		FACTS.read(TEST_FILE);
 		sw.printElapsedAndReset("Filling the factbase with " + FACTS.size() + " terms");
 		
-		//FactsPrinter.print("c:/users/leaf/desktop/facts.txt");
-		
 		profileName = System.currentTimeMillis() + ".ser";
 	}
 

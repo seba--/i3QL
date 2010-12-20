@@ -27,7 +27,11 @@ public class EmptySolutions implements Solutions {
 
 	@Override
 	public boolean choiceCommitted() {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void abort() {
+		throw new UnsupportedOperationException();
 	}
 }

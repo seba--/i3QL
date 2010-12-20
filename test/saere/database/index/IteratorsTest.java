@@ -15,7 +15,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import saere.GenericCompoundTerm;
+import saere.term.GenericCompoundTerm;
 import saere.StringAtom;
 import saere.Term;
 import saere.database.BATTestQueries;
@@ -31,7 +31,7 @@ import saere.database.util.Stopwatch;
  * results have to be validated with real unification.
  * 
  * @author David Sullivan
- * @version 0.5, 12/6/2010
+ * @version 0.6, 12/20/2010
  */
 
 public class IteratorsTest {
@@ -107,23 +107,23 @@ public class IteratorsTest {
 	public void testNodeIterator() {
 		Trie root = new Root();
 		
-		Term f = StringAtom.StringAtom("f");
-		Term fa = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-			StringAtom.StringAtom("a")
+		Term f = StringAtom.instance("f");
+		Term fa = new GenericCompoundTerm(StringAtom.instance("f"), new Term[] {
+			StringAtom.instance("a")
 		});
-		Term fab = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-			StringAtom.StringAtom("a"),
-			StringAtom.StringAtom("b")
+		Term fab = new GenericCompoundTerm(StringAtom.instance("f"), new Term[] {
+			StringAtom.instance("a"),
+			StringAtom.instance("b")
 		});
-		Term fabc = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-			StringAtom.StringAtom("a"),
-			StringAtom.StringAtom("b"),
-			StringAtom.StringAtom("c")
+		Term fabc = new GenericCompoundTerm(StringAtom.instance("f"), new Term[] {
+			StringAtom.instance("a"),
+			StringAtom.instance("b"),
+			StringAtom.instance("c")
 		});
-		Term fabd = new GenericCompoundTerm(StringAtom.StringAtom("f"), new Term[] {
-			StringAtom.StringAtom("a"),
-			StringAtom.StringAtom("b"),
-			StringAtom.StringAtom("d")
+		Term fabd = new GenericCompoundTerm(StringAtom.instance("f"), new Term[] {
+			StringAtom.instance("a"),
+			StringAtom.instance("b"),
+			StringAtom.instance("d")
 		});
 		
 		List<Trie> expecteds = new LinkedList<Trie>();

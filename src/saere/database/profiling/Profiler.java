@@ -108,7 +108,7 @@ public class Profiler {
 	private void fillOrdersMapAfterDeserialization() {
 		for (Entry<FunctorKey, int[]> entry : serializableOrders.entrySet()) {
 			FunctorKey functorKey = entry.getKey();
-			orders.put(FunctorLabel.FunctorLabel(StringAtom.StringAtom(functorKey.functor()), functorKey.arity()), entry.getValue());
+			orders.put(FunctorLabel.FunctorLabel(StringAtom.instance(functorKey.functor()), functorKey.arity()), entry.getValue());
 		}
 	}
 	

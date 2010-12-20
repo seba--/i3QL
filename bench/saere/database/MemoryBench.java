@@ -21,6 +21,22 @@ public final class MemoryBench {
 	private static String profilesFile;
 	private static boolean useProfiles;
 	
+	/**
+	 * Call JAR with parameters<br>
+	 * <br>
+	 * <tt><i>test-file</i> (m|r|s|f) [<i>profiles-file</i>]</tt><br>
+	 * <br>
+	 * whereas memory consumption is measured depending on the second parameter:
+	 * <ul>
+	 * <li><tt>n</tt> without any facts</li>
+	 * <li><tt>m</tt> only with a filled factbase</li>
+	 * <li><tt>r</tt> reference database</li>
+	 * <li><tt>s</tt> STF database</li>
+	 * <li><tt>s</tt> FTF trie database</li>
+	 * </ul>
+	 * 
+	 * @param args The arguments.
+	 */
 	public static void main(String[] args) {
 		
 		String mode = null;
@@ -106,7 +122,7 @@ public final class MemoryBench {
 	private static void printMemoryConsumption(long memory) {
 		if (memory < 1024) {
 			System.out.println("Estimated memory consumption: " + memory + "B");
-		} else if (true || memory < 1048576) {
+		} else if (memory < 1048576) {
 			memory /= 1024;
 			System.out.println("Estimated memory consumption: " + memory + "KB");
 		} else {

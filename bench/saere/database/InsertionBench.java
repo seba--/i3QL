@@ -7,7 +7,6 @@ import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
 import saere.database.profiling.Profiler;
 import saere.database.profiling.Profiler.Mode;
-import saere.database.util.InsertionStats;
 import saere.database.util.Stopwatch;
 import saere.database.util.Stopwatch.Unit;
 
@@ -170,94 +169,6 @@ public class InsertionBench {
 			System.out.println("Filling reference DB took " + results[0] + " ms in average");
 			System.out.println("Filling STF DB took " + results[1] + " ms in average");
 			System.out.println("Filling FTF DB took " + results[2] + " ms in average");
-		}
-	}
-	
-	// Numbers seem to be somewhat odd, even considering AspectJ
-	public void benchmarkInsertionMinMaxAvgTimes() {
-		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
-		
-		if (useProfiles) {
-			Profiler.getInstance().loadProfiles("profiles.ser");
-			Profiler.getInstance().setMode(Mode.USE);
-		}
-		
-		InsertionStats stats = InsertionStats.getInstance();
-		
-		// Sophisticated result table
-		double[][] results = new double[3][5]; // 0=min,1=minnum,2=avg,3=max,4=maxnum
-		
-		for (String testFile : testFiles) {
-			FACTS.drop();
-			FACTS.read(testFile);
-			
-			for (int i = 0; i < RUNS; i++) {
-				System.gc();
-				
-				referenceDB = new ReferenceDatabase();
-				((ReferenceDatabase) referenceDB).allowDuplicates(true);
-				shallowDB = new TrieDatabase(new DefaultTrieBuilder(new ShallowFlattener(), DatabaseTest.GLOBAL_MAP_THRESHOLD));
-				fullDB = new TrieDatabase(new DefaultTrieBuilder(new FullFlattener(), DatabaseTest.GLOBAL_MAP_THRESHOLD));
-				
-				stats.reset();
-				referenceDB.fill();
-				results[0][0] += stats.getMinInsTime();
-				results[0][1] += stats.getMinNum();
-				results[0][2] += (stats.getTotalInsTime() / stats.getTermNum());
-				results[0][3] += stats.getMaxInsTime();
-				results[0][4] += stats.getMaxNum();
-				//stats.print();
-				
-				stats.reset();
-				shallowDB.fill();
-				results[1][0] += stats.getMinInsTime();
-				results[1][1] += stats.getMinNum();
-				results[1][2] += (stats.getTotalInsTime() / stats.getTermNum());
-				results[1][3] += stats.getMaxInsTime();
-				results[1][4] += stats.getMaxNum();
-				//stats.print();
-				
-				stats.reset();
-				fullDB.fill();
-				results[2][0] += stats.getMinInsTime();
-				results[2][1] += stats.getMinNum();
-				results[2][2] += (stats.getTotalInsTime() / stats.getTermNum());
-				results[2][3] += stats.getMaxInsTime();
-				results[2][4] += stats.getMaxNum();
-				//stats.print();
-				
-				referenceDB.drop();
-				shallowDB.drop();
-				fullDB.drop();
-				
-			}
-			
-			// Print results for reach file
-			System.out.println("\n\n" + testFile);
-			System.out.println("Ref DB");
-			System.out.println("Min: " + (results[0][0] / RUNS));
-			System.out.println("MinNum: " + (results[0][1] / RUNS));
-			System.out.println("Avg: " + (results[0][2] / RUNS));
-			System.out.println("Max: " + (results[0][3] / RUNS));
-			System.out.println("MaxNum: " + (results[0][4] / RUNS));
-			
-			System.out.println();
-			
-			System.out.println("STF DB");
-			System.out.println("Min: " + (results[1][0] / RUNS));
-			System.out.println("MinNum: " + (results[1][1] / RUNS));
-			System.out.println("Avg: " + (results[1][2] / RUNS));
-			System.out.println("Max: " + (results[1][3] / RUNS));
-			System.out.println("MaxNum: " + (results[1][4] / RUNS));
-			
-			System.out.println();
-			
-			System.out.println("FTF DB");
-			System.out.println("Min: " + (results[2][0] / RUNS));
-			System.out.println("MinNum: " + (results[2][1] / RUNS));
-			System.out.println("Avg: " + (results[2][2] / RUNS));
-			System.out.println("Max: " + (results[2][3] / RUNS));
-			System.out.println("MaxNum: " + (results[2][4] / RUNS));
 		}
 	}
 }

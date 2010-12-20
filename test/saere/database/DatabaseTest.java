@@ -30,8 +30,7 @@ public final class DatabaseTest {
 		 DATA_PATH + File.separator + "HelloWorld.class",
 		 DATA_PATH + File.separator + "MMC.jar",
 		 DATA_PATH + File.separator + "opal-0.5.0.jar",
-		 DATA_PATH + File.separator + "Tomcat-6.0.20.zip",
-		 DATA_PATH + File.separator + "Vuze_4510.jar"
+		 DATA_PATH + File.separator + "Tomcat-6.0.20.zip"
 	};
 	public static String GLOBAL_TEST_FILE = TEST_FILES[2]; // not final
 	public static final int GLOBAL_MAP_THRESHOLD = 100;
@@ -91,8 +90,9 @@ public final class DatabaseTest {
 		State termState = term.manifestState();
 		State queryState = query.manifestState();
 		boolean unifies = term.unify(query);
-		term.setState(termState);
-		query.setState(queryState);
+		
+		if (termState != null) termState.reset();
+		if (termState != null) queryState.reset();
 		
 		return unifies;
 	}

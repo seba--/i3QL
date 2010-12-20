@@ -33,25 +33,25 @@ public class LabelTest {
 	
 	@Test
 	public void test1() {
-		Label l = AtomLabel.AtomLabel(StringAtom.StringAtom("a"));
+		Label l = AtomLabel.AtomLabel(StringAtom.instance("a"));
 		assertTrue(l == a);
 	}
 	
 	@Test
 	public void test2() {
-		Label l = AtomLabel.AtomLabel(StringAtom.StringAtom("b"));
+		Label l = AtomLabel.AtomLabel(StringAtom.instance("b"));
 		assertFalse(l == a);
 	}
 	
 	@Test
 	public void test3() {
-		Label l = FunctorLabel.FunctorLabel(StringAtom.StringAtom("a"), 2);
+		Label l = FunctorLabel.FunctorLabel(StringAtom.instance("a"), 2);
 		assertTrue(l == a2);
 	}
 	
 	@Test
 	public void test4() {
-		Label l = FunctorLabel.FunctorLabel(StringAtom.StringAtom("b"), 2);
+		Label l = FunctorLabel.FunctorLabel(StringAtom.instance("b"), 2);
 		assertFalse(l == a2);
 	}
 	
