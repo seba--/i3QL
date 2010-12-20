@@ -62,9 +62,9 @@ public final class And2 implements Solutions {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
-	// IMPROVE do we need a goalstack here... the goal stack has at most two elements...aren't two elements "cheaper" in particular if we replace Term t1 with Solutions s1 (Goal g1)... and Solutions s2 (Goal g2)
-	private GoalStack goalStack = GoalStack.emptyStack();
-
+	private Solutions lSolutions;
+	private Solutions rSolutions;
+	
 	public And2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
@@ -75,9 +75,9 @@ public final class And2 implements Solutions {
 			switch (goalToExecute) {
 
 			case 0:
-				goalStack = goalStack.put(l.call());
+				lSolutions = l.call();
 			case 1: {
-				final Solutions s = goalStack.peek();
+				final Solutions s = lSolutions;
 				final boolean succeeded = s.next();
 				if (!succeeded) {
 					choiceCommitted = s.choiceCommitted();
@@ -85,17 +85,17 @@ public final class And2 implements Solutions {
 				}
 
 				// preparation for calling the second goal
-				goalStack = goalStack.put(r.call());
+				rSolutions = r.call();
 				goalToExecute = 2;
 			}
 			case 2: {
-				final Solutions s = goalStack.peek();
+				final Solutions s =  rSolutions;
 				final boolean succeeded = s.next();
 				if (!succeeded) {
-					goalStack = goalStack.drop();
+					rSolutions = null;
 
 					if (s.choiceCommitted()) {
-						goalStack.peek().abort();
+						lSolutions.abort();
 						choiceCommitted = true;
 						return false;
 					} else {
@@ -112,9 +112,9 @@ public final class And2 implements Solutions {
 
 	@Override
 	public void abort() {
-		while (goalStack.isNotEmpty()) {
-			goalStack.peek().abort();
-			goalStack = goalStack.drop();
+		if (rSolutions != null) {
+			rSolutions.abort();
+			lSolutions.abort();
 		}
 	}
 

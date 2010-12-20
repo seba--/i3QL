@@ -352,4 +352,6 @@ public abstract class Term {
 			return term.intEval() == value;
 		}
 	}
+
+	public abstract Term unwrapped();
 }

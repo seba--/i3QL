@@ -86,8 +86,8 @@ public final class Member2 implements Solutions {
 	// private int thisGoalId;
 
 	public Member2(final Term testElement, final Term list) {
-		this.testElement = testElement;
-		this.list = list;
+		this.testElement = testElement.unwrapped();
+		this.list = list.unwrapped();
 		// thisGoalId = goalCounter++;
 	}
 

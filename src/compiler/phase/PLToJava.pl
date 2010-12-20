@@ -170,7 +170,7 @@ args_i_access(N,Args)	 :- atomic_list_concat(['args[',N,']'],Args).
 
 variable_for_term_i(N,TermVariable)	 :- atomic_list_concat(['private final Term arg',N],TermVariable).
 
-variable_initialization_for_term_i(N,TermVariableInitialization)	 :- atomic_list_concat(['this.arg',N,' = arg',N],TermVariableInitialization).
+variable_initialization_for_term_i(N,TermVariableInitialization)	 :- atomic_list_concat(['this.arg',N,' = arg',N,'.unwrapped()'],TermVariableInitialization).
 
 constructor_arg_for_term_i(I,ConstructorArg) :- atom_concat('final Term arg',I,ConstructorArg).
 

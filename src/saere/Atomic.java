@@ -32,54 +32,62 @@
 package saere;
 
 /**
- * Common interface implemented by {@link Term}s that represent atomic information. I.e., string
- * atoms, float values and integer values.
+ * Common interface implemented by {@link Term}s that represent atomic
+ * information. I.e., string atoms, float values and integer values.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class Atomic extends Term {
 
-    /**
-     * @return <code>true</code>; atomic information are by definition always ground.
-     */
-    @Override
-    public final boolean isGround() {
-	return true;
-    }
+	/**
+	 * @return <code>true</code>; atomic information are by definition always
+	 *         ground.
+	 */
+	@Override
+	public final boolean isGround() {
+		return true;
+	}
 
-    /**
-     * @return 0. By definition the arity of some atomic information is always 0.
-     */
-    @Override
-    public final int arity() {
-	return 0;
-    }
+	/**
+	 * @return 0. By definition the arity of some atomic information is always
+	 *         0.
+	 */
+	@Override
+	public final int arity() {
+		return 0;
+	}
 
-    /**
-     * Will always throw an <code>IndexOutOfBoundsException</code>, because atoms do not have
-     * arguments.
-     * 
-     * @param i
-     *            <i>"ignored"</i>.
-     * @throws IndexOutOfBoundsException
-     *             always.
-     */
-    @Override
-    public final Term arg(int i) {
-	throw new IndexOutOfBoundsException("atoms have no arguments");
-    }
+	/**
+	 * Will always throw an <code>IndexOutOfBoundsException</code>, because
+	 * atoms do not have arguments.
+	 * 
+	 * @param i
+	 *            <i>"ignored"</i>.
+	 * @throws IndexOutOfBoundsException
+	 *             always.
+	 */
+	@Override
+	public final Term arg(int i) {
+		throw new IndexOutOfBoundsException("atoms have no arguments");
+	}
 
-    /**
-     * @return <code>null</code>; an atomic information's state is immutable and, hence, no state
-     *         information needs to be preserved.<br/>
-     */
-    /*
-     * In general, the compiler tries to avoid explicit manifestation of an Atom's state. This –
-     * i.e., avoiding useless calls to manifestState – however, requires whole program analyses.
-     */
-    @Override
-    public final State manifestState() {
-	return null;
-    }
+	/**
+	 * @return <code>null</code>; an atomic information's state is immutable
+	 *         and, hence, no state information needs to be preserved.<br/>
+	 */
+	/*
+	 * In general, the compiler tries to avoid explicit manifestation of an
+	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
+	 * however, requires whole program analyses.
+	 */
+	@Override
+	public final State manifestState() {
+		return null;
+	}
+
+	@Override
+	public Term unwrapped() {
+		return this;
+	}
 
 }
