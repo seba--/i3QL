@@ -173,11 +173,22 @@ public abstract class TrieBuilder {
 				assert set : "Unable to replace " + original + " with " + replacement + " as next sibling";
 			}
 			
-			// Care of additional fields if parent is a hash trie
+			// Care of additional fields if parent is a hash trie or root (don't forget those, was '111 bug')
 			if (origParent.isHashNode()) {
 				
 				// Replace in parent's hash map if necessary
 				origParent.getMap().put(original.getLabel(), replacement);
+				
+				// Update parent's last child field if necessary
+				if (origParent.getLastChild() == original) {
+					origParent.setLastChild(replacement);
+				}
+			} else if (origParent.isRoot()) {
+				
+				// Replace in parent's hash map if necessary
+				if (origParent.getMap() != null) {
+					origParent.getMap().put(original.getLabel(), replacement);
+				}
 				
 				// Update parent's last child field if necessary
 				if (origParent.getLastChild() == original) {

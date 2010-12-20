@@ -23,6 +23,7 @@ import saere.database.util.Stopwatch;
  * @author David Sullivan
  * @version 0.1, 12/6/2010
  */
+@Deprecated
 public final class TrieQueryBench {
 	
 private static final int MAP_THRESHOLD = 120;

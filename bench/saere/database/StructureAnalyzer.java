@@ -2,8 +2,6 @@ package saere.database;
 
 import java.io.File;
 
-import org.junit.Test;
-
 import saere.database.index.DefaultTrieBuilder;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
@@ -20,11 +18,13 @@ public class StructureAnalyzer {
 	
 	private static final Factbase FACTS = Factbase.getInstance();
 	private static final Profiler PROFILER = Profiler.getInstance();
-	private static final int MAP_THRESHOLD = 112; // Integer.MAX_VALUE; // 112 succeeds, 111 fails
-	private static final TrieDatabase STF_TRIE_DB = new TrieDatabase(new DefaultTrieBuilder(new ShallowFlattener(), MAP_THRESHOLD));
-	private static final TrieDatabase FTF_TRIE_DB = new TrieDatabase(new DefaultTrieBuilder(new FullFlattener(), MAP_THRESHOLD));
+	private static final TrieDatabase STF_TRIE_DB = new TrieDatabase(new DefaultTrieBuilder(new ShallowFlattener(), DatabaseTest.GLOBAL_MAP_THRESHOLD));
+	private static final TrieDatabase FTF_TRIE_DB = new TrieDatabase(new DefaultTrieBuilder(new FullFlattener(), DatabaseTest.GLOBAL_MAP_THRESHOLD));
 	
-	@Test
+	public static void main(String[] args) {
+		new StructureAnalyzer().analyze();
+	}
+	
 	public void analyze() {
 		String[] files = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
 		PROFILER.loadProfiles(DatabaseTest.DATA_PATH + File.separator + "profiles.ser");
@@ -35,8 +35,6 @@ public class StructureAnalyzer {
 			FACTS.drop();
 			FACTS.read(file);
 			System.out.println(" DONE (" + FACTS.size() + " facts)");
-			
-			
 			
 			System.out.println("\nWithout profiles:");
 			PROFILER.setMode(Profiler.Mode.OFF);

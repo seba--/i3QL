@@ -37,7 +37,7 @@ import saere.database.util.Stopwatch;
 public class IteratorsTest {
 	
 	private static final boolean PRINT_QUERY_RESULTS = true;
-	private static final int MAP_THRESHOLD = 112; //160;
+	private static final int MAP_THRESHOLD = 100; //160;
 	
 	private static final TermFlattener SHALLOW = new ShallowFlattener();
 	private static final TermFlattener FULL = new FullFlattener();

@@ -1,38 +1,26 @@
 package saere.database;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import java.io.File;
 
-import saere.database.Database;
-import saere.database.DatabaseTest;
-import saere.database.Factbase;
-import saere.database.TrieDatabase;
+import saere.database.index.DefaultTrieBuilder;
 import saere.database.index.FullFlattener;
 import saere.database.index.ShallowFlattener;
-import saere.database.index.DefaultTrieBuilder;
 import saere.database.profiling.Profiler;
 import saere.database.profiling.Profiler.Mode;
-import saere.database.util.InsertionLogger;
 import saere.database.util.InsertionStats;
 import saere.database.util.Stopwatch;
 import saere.database.util.Stopwatch.Unit;
 
 /**
- * Checks overall insertion times. The benchmark may take very long for larger 
- * files (greater than approx. 6 MB) although the insertions &quot;only&quot; 
- * take seconds (each). The GC seems to have some trouble here. Also, files 
- * with more than ~100,000 facts require hash maps or will take several minutes 
- * for insertion (without profiling).
+ * Benchmarks insertion times.
  * 
  * @author David Sullivan
- * @version 0.1, 12/6/2010
+ * @version 0.2, 12/18/2010
  */
 public class InsertionBench {
 	
 	private static final int DEACTIVATED = Integer.MAX_VALUE; // A node should never have this much children
-	private static final int RUNS = 10; // 10
-	private static final boolean USE_PROFILES = true;
+	private static final int RUNS = 20;
 	private static final String TBL_SEP = "\t";
 	private static final Factbase FACTS = Factbase.getInstance();
 	
@@ -40,23 +28,41 @@ public class InsertionBench {
 	private static Database shallowDB;
 	private static Database fullDB;
 	
+	private static boolean useProfiles = false;
+	
 	public static void main(String[] args) {
 		InsertionBench bench = new InsertionBench();
-		//bench.benchmarkMapThresholds();
+		bench.benchmarkMapThresholds();
+		useProfiles = true;
+		bench.benchmarkMapThresholds();
 		//bench.benchmarkInsertionOverallTimes();
-		bench.benchmarkInsertionMinMaxAvgTimes();
+		//bench.benchmarkInsertionMinMaxAvgTimes();
 	}
 	
-	@Test
 	public void benchmarkMapThresholds() {
+		if (!useProfiles) {
+			System.out.println("Not using profiles");
+		} else {
+			System.out.println("Using profiles");
+		}
+		
+		// Stabilize JVM with MMC.jar
+		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
+		
+		for (String testFile : testFiles) {
+			benchmarkMapThresholdsForFile(testFile);
+		}
+	}
+	
+	private void benchmarkMapThresholdsForFile(String testFile) {
 		Stopwatch sw = new Stopwatch(Unit.MILLISECONDS);
-		FACTS.read(DatabaseTest.TEST_FILES[2]);
-		sw.printElapsed("Reading with BAT and filling the factbase with " + DatabaseTest.TEST_FILES[2]);
+		FACTS.read(testFile);
+		sw.printElapsed("\nReading with BAT and filling the factbase with " + testFile);
 		
-		int[] thresholds = { DEACTIVATED, 20, 50, 100, 125, 150, 200, 300, 500, 750, 1000 };
+		int[] thresholds = { 20, 50, 100, 125, 150, 200, 300, 500, 750, 1000, DEACTIVATED };
 		
-		if (USE_PROFILES) {
-			Profiler.getInstance().loadProfiles("profiles.ser");
+		if (useProfiles) {
+			Profiler.getInstance().loadProfiles(DatabaseTest.DATA_PATH + File.separator + "profiles.ser");
 			Profiler.getInstance().setMode(Mode.USE);
 		}
 		
@@ -90,32 +96,40 @@ public class InsertionBench {
 			}
 		}
 		
-		System.out.print("\nThreshold" + TBL_SEP);
+		System.out.print("Thr." + TBL_SEP);
 		for (int threshold : thresholds)
-			System.out.print(threshold + TBL_SEP);
-		System.out.print("\nReference" + TBL_SEP);
+			if (threshold == DEACTIVATED) {
+				System.out.print("t=dis." + TBL_SEP);
+			} else {
+				System.out.print("t=" + threshold + TBL_SEP);
+			}
+		System.out.print("\nRef." + TBL_SEP);
 		for (double result : results[0]) {
 			System.out.print(result + TBL_SEP);
 		}
-		System.out.print("\nShallow" + TBL_SEP);
+		System.out.print("\nSTF" + TBL_SEP);
 		for (double result : results[1]) {
 			System.out.print(result + TBL_SEP);
 		}
-		System.out.print("\nFull" + TBL_SEP);
+		System.out.print("\nFTF" + TBL_SEP);
 		for (double result : results[2]) {
 			System.out.print(result + TBL_SEP);
 		}
+		System.out.println();
 		
 		FACTS.drop();
 	}
 	
-	@Test
 	public void benchmarkInsertionOverallTimes() {
-		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
+		// Stabilize JVM with MMC.jar
+		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
 		
-		if (USE_PROFILES) {
+		if (useProfiles) {
 			Profiler.getInstance().loadProfiles("profiles.ser");
 			Profiler.getInstance().setMode(Mode.USE);
+			System.out.println("Using profiles");
+		} else {
+			System.out.println("Not using profiles");
 		}
 		
 		// Sophisticated result table
@@ -159,12 +173,11 @@ public class InsertionBench {
 		}
 	}
 	
-	// Numers seem to be somewhat odd, even considering AspectJ
-	@Test
+	// Numbers seem to be somewhat odd, even considering AspectJ
 	public void benchmarkInsertionMinMaxAvgTimes() {
 		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
 		
-		if (USE_PROFILES) {
+		if (useProfiles) {
 			Profiler.getInstance().loadProfiles("profiles.ser");
 			Profiler.getInstance().setMode(Mode.USE);
 		}
@@ -246,7 +259,5 @@ public class InsertionBench {
 			System.out.println("Max: " + (results[2][3] / RUNS));
 			System.out.println("MaxNum: " + (results[2][4] / RUNS));
 		}
-		
-		
 	}
 }

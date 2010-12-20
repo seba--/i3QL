@@ -1,5 +1,7 @@
 package saere.database;
 
+import java.io.File;
+
 import org.junit.Test;
 
 import saere.Solutions;
@@ -34,11 +36,11 @@ public final class QueryBench {
 	
 	@Test
 	public void benchmarkQueries() {
-		// one warm-up run with MMC.jar
+		// Stabilize JVM with MMC.jar
 		String[] testFiles = { DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[1], DatabaseTest.TEST_FILES[2], DatabaseTest.TEST_FILES[3] };
 		
 		if (USE_PROFILES) {
-			Profiler.getInstance().loadProfiles("profiles-new.ser");
+			Profiler.getInstance().loadProfiles(DatabaseTest.DATA_PATH + File.separator + "profiles.ser");
 			Profiler.getInstance().setMode(Mode.USE);
 			System.out.println("Using profiles");
 		} else {

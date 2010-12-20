@@ -33,8 +33,8 @@ public final class DatabaseTest {
 		 DATA_PATH + File.separator + "Tomcat-6.0.20.zip",
 		 DATA_PATH + File.separator + "Vuze_4510.jar"
 	};
-	public static String GLOBAL_TEST_FILE = TEST_FILES[3]; // not final
-	public static final int GLOBAL_MAP_THRESHOLD = 112;
+	public static String GLOBAL_TEST_FILE = TEST_FILES[2]; // not final
+	public static final int GLOBAL_MAP_THRESHOLD = 100;
 	
 	public static void main(String[] args) {
 		if (args.length == 1) {

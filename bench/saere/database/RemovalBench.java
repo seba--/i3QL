@@ -18,7 +18,7 @@ public final class RemovalBench {
 	
 	private static final String TBL_SEP = "\t";
 	private static final int RUNS = 5; // 10
-	private static final boolean USE_PROFILES = false;
+	private static final boolean USE_PROFILES = true;
 	private static final Factbase FACTS = Factbase.getInstance();
 	
 	private static Database referenceDB;
@@ -119,7 +119,7 @@ public final class RemovalBench {
 		HashSet<Integer> removalSet = new HashSet<Integer>();
 		
 		int counter = 0;
-		while (counter < numberToRemove) { // XXX Infinite loop in theory
+		while (counter < numberToRemove) { // XXX Infinite loop possible in theory
 			int rndNum = r.nextInt(FACTS.size());
 			if (!removalSet.contains(rndNum)) {
 				counter++;

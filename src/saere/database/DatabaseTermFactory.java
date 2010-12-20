@@ -31,13 +31,19 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	// Singleton, because there should be only one factory that assigns unique IDs.
 	private static final DatabaseTermFactory INSTANCE = new DatabaseTermFactory();
 	
+	// Use a separate counter for each ID prefix? (BAT's default Prolog writer doesn't do this.)
+	private static final boolean USE_PREFIX_COUNTER = false;
+	
 	private final HashMap<String, AtomicInteger> keyCounters;
 	private final StringAtom noneAtom;
 	private final StringAtom yesAtom;
 	private final StringAtom noAtom;
+	
+	private int keyCounter;
 
 	private DatabaseTermFactory() {
 		keyCounters = new HashMap<String, AtomicInteger>();
+		keyCounter = 1;
 		noneAtom = StringAtom.StringAtom("none");
 		yesAtom = StringAtom.StringAtom("yes");
 		noAtom = StringAtom.StringAtom("no");
@@ -83,16 +89,21 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	public Atom TextAtom(String value) {
 		return StringAtom.StringAtom(value);
 	}
-
+	
 	@Override
 	public Atom KeyAtom(String prefix) {
-		AtomicInteger counter = keyCounters.get(prefix);
-		if (counter == null) {
-			counter = new AtomicInteger(1);
-			keyCounters.put(prefix, counter);
-		}
 		
-		return StringAtom.StringAtom(prefix + counter.getAndIncrement());
+		if (USE_PREFIX_COUNTER) {
+			AtomicInteger counter = keyCounters.get(prefix);
+			if (counter == null) {
+				counter = new AtomicInteger(1);
+				keyCounters.put(prefix, counter);
+			}
+			
+			return StringAtom.StringAtom(prefix + counter.getAndIncrement());
+		} else {
+			return StringAtom.StringAtom(prefix + (keyCounter++));
+		}
 	}
 
 	@Override
@@ -193,6 +204,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 */
 	public void reset() {
 		keyCounters.clear();
+		keyCounter = 1;
 	}
 	
 	// Convenience methods...
