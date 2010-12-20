@@ -29,30 +29,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.term;
+package saere.predicate;
 
-import saere.*;
-import static saere.StringAtom.StringAtom;
+import saere.OneArgPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-public class Add2 extends CompoundTerm {
-	
-	private final Term t1;
-	private final Term t2;
-	
-	public Add2(Term t1, Term t2){
-		this.t1 = t1;
-		this.t2 = t2;
+/**
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
+public final class Time1 implements Solutions {
+
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("time"), 1);
+
+	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t) {
+			return new Time1(t);
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
-	
-	private static final StringAtom functor = StringAtom("+");
-	
-	public int arity() { return 2; }
-	
-	public StringAtom functor() { return functor; } 
-		
-	public Term arg(int i) { return i == 0 ? t1 : t2 ; }
-	
-	@Override 
-	public int eval() { return t1.eval() + t2.eval(); }
-	
+
+	private Solutions solutions;
+
+	public Time1(final Term t) {
+
+		this.solutions = t.call();
+	}
+
+	public boolean next() {
+		final long startTime = System.nanoTime();
+		final boolean succeeded = solutions.next();
+		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
+		System.out.printf("%8.4f", new Double(duration));
+		return succeeded;
+	}
+
+	@Override
+	public void abort() {
+		solutions.abort();
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
 }

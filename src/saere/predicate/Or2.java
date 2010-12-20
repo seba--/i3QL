@@ -34,75 +34,88 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's or (<code>;</code>) operator.
+ * Implementation of ISO Prolog's or (<code>;</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Or2 implements Solutions {
 
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.OR_FUNCTOR, 2);
+
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Or2(t1, t2);
+		}
+
+	};
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.registerPredicate(StringAtom.StringAtom(";"), 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Or2(args[0], args[1]);
-					}
-				});
-
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
 	private final Term r;
-	private State state;
 
 	private boolean choiceCommitted = false;
 
-	private int currentGoal = 0;
+	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... it should at most contain one value...
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public Or2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-	}
+	} 
 
 	public boolean next() {
 		while (true) {
-			switch (currentGoal) {
-			case 0: // Initialization
-				state = l.manifestState();
+			switch (goalToExecute) {
+			case 0:
+				// prepare left goal...
 				goalStack = goalStack.put(l.call());
-				currentGoal = 1;
-			case 1:
-				if (goalStack.peek().next()) {
+				goalToExecute = 1;
+			case 1: {
+				// evaluate left goal...
+				Solutions s = goalStack.peek();
+				if (s.next()) {
 					return true;
-				} else {
-					choiceCommitted = goalStack.peek().choiceCommitted();
-					l.setState(state);
-					state = null;
-					goalStack = GoalStack.emptyStack();
-
-					if (choiceCommitted)
-						return false;
-					else
-						currentGoal = 2;
 				}
-			case 2:
-				state = r.manifestState();
-				goalStack = goalStack.put(r.call());
-				currentGoal = 3;
 
-			case 3:
-				if (goalStack.peek().next()) {
-					return true;
-				} else {
-					choiceCommitted = goalStack.peek().choiceCommitted();
-					l.setState(state);
-					state = null;
-					goalStack = GoalStack.emptyStack();
+				// the left goal failed...
+				if (s.choiceCommitted()) {
+					choiceCommitted = true;
 					return false;
 				}
+
+				// prepare right goal...
+				goalStack = GoalStack.emptyStack();
+				goalStack = goalStack.put(r.call());
+				goalToExecute = 2;
+
 			}
+			case 2: {
+				// evaluate right goal...
+				Solutions s = goalStack.peek();
+				if (s.next()) {
+					return true;
+				}
+
+				// the right goal (also) failed...
+				choiceCommitted = s.choiceCommitted();
+				return false;
+			}
+			}
+		}
+	}
+
+	@Override
+	public void abort() {
+		while (goalStack.isNotEmpty()) {
+			goalStack.peek().abort();
+			goalStack = goalStack.drop();
 		}
 	}
 

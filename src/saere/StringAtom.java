@@ -31,24 +31,24 @@
  */
 package saere;
 
+import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 import java.util.WeakHashMap;
-import java.lang.ref.WeakReference;
-
+import static saere.PredicateRegistry.predicateRegistry;
 
 /**
  * Representation of a string atom.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class StringAtom extends Atom {
- 
-	private final byte[] title;
-	//private final int hashCode;
+public final class StringAtom extends Atomic {
+
+	private final byte[] value;
+	private final int hashCode;
 
 	private StringAtom(byte[] title) {
-		this.title = title;
-		//hashCode = java.util.Arrays.hashCode(title);
+		this.value = title;
+		this.hashCode = java.util.Arrays.hashCode(title);
 	}
 
 	@Override
@@ -61,10 +61,20 @@ public final class StringAtom extends Atom {
 		return this;
 	}
 
+	@Override
 	public StringAtom functor() {
 		return this;
 	}
 
+	/**
+	 * Compares this StringAtom object with the given one and returns true if
+	 * this one and the other one represent the same string.
+	 * 
+	 * @param other
+	 *            Some StringAtom.
+	 * @return true if this and the other <code>StringAtom</code> represent the
+	 *         same atom (basically, the same String).
+	 */
 	public boolean sameAs(StringAtom other) {
 		// StringAtoms are always "interned"...
 		return this == other;
@@ -74,51 +84,74 @@ public final class StringAtom extends Atom {
 	 * Tests if this StringAtom and the other object represent the same string
 	 * atom.
 	 * <p>
+	 * <b>Performance Guidelines</b><br/>
 	 * This method is not intended to be called by clients of StringAtom.
 	 * Clients of StringAtom should use {@link #sameAs(StringAtom)}.
 	 * </p>
 	 */
 	@Override
-	public boolean equals(Object other) {
-		if (other instanceof StringAtom) {
-			StringAtom other_sa = (StringAtom) other;
-			return java.util.Arrays.equals(this.title, other_sa.title);
+	public boolean equals(Object object) {
+		if (object instanceof StringAtom) {
+			StringAtom other = (StringAtom) object;
+			return java.util.Arrays.equals(this.value, other.value);
 		} else {
 			return false;
 		}
 	}
 
 	/**
-	 * @return the hashcode value as calculated by
-	 *         java.util.Arrays.hashCode(title)
+	 * @return This StringAtom's hash value.
+	 *         <p>
+	 *         <b>Performance Guidelines</b><br/>
+	 *         Since the hashCode is calculated at instantiation time caching
+	 *         this value is meaningless.
+	 *         </p>
 	 */
+	@Override
 	public int hashCode() {
-		// hashCode is only called once (when put in the cache)
-		// TODO check if it is worth to calcultate the hashcode once 
-		return java.util.Arrays.hashCode(title);
-		//return hashCode;
+		return hashCode;
 	}
 
 	@Override
 	public String toString() {
-		return new String(title);
+		return "StringAtom[" + new String(value) + "]";
 	}
 
-
-	public Solutions call(){
-		
-		return PredicateRegistry.instance().createPredicateInstance(this, Term.NO_TERMS);
-		
+	@Override
+	public String toProlog() {
+		String s = (new String(value)).replace("\\", "\\\\");
+		if (Character.isUpperCase(s.charAt(0)) || s.charAt(0) == '_')
+			s = "'" + s + "'";
+		return s;
 	}
-	
-	
+
+	@Override
+	public Solutions call() {
+		PredicateIdentifier pi = new PredicateIdentifier(this, 0);
+		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
+		return ((NoArgsPredicateFactory) pf).createInstance();
+	}
+
+	/**
+	 * @return This StringAtom's raw value. The byte array must not be changed. <br />
+	 *         This is a private method of this framework which is public only
+	 *         for technical reasons.
+	 */
+	public byte[] rawValue() {
+		return value;
+	}
+
+	public int termTypeID() {
+		return Term.STRING_ATOM;
+	}
+
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();
 
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	@SuppressWarnings("all")
-	public static final StringAtom StringAtom(String s) {
-		return StringAtom(s.getBytes(UTF8Charset));
+	public final static StringAtom instance(String s) {
+		return instance(s.getBytes(UTF8Charset));
 	}
 
 	/**
@@ -126,7 +159,7 @@ public final class StringAtom extends Atom {
 	 *            a UTF-8 encoded string.
 	 */
 	@SuppressWarnings("all")
-	public final static StringAtom StringAtom(byte[] title) {
+	public final static StringAtom instance(byte[] title) {
 		final StringAtom cand = new StringAtom(title);
 		synchronized (cache) {
 			WeakReference<StringAtom> interned = cache.get(cand);
@@ -139,15 +172,29 @@ public final class StringAtom extends Atom {
 		}
 	}
 
-	public static final StringAtom EMPTY_LIST_FUNCTOR = StringAtom("[]");
-	
-	public static final StringAtom AND_FUNCTOR = StringAtom(",");
-	public static final StringAtom OR_FUNCTOR = StringAtom(";");
-	public static final StringAtom CUT_FUNCTOR = StringAtom("!");
-	public static final StringAtom SOFT_CUT_FUNCTOR = StringAtom("*->");
-	public static final StringAtom IF_THEN_FUNCTOR = StringAtom("->");
-	
-	public static final StringAtom MULT_FUNCTOR = StringAtom("*");
-	public static final StringAtom MINUS_FUNCTOR = StringAtom("-");
-	public static final StringAtom PLUS_FUNCTOR = StringAtom("+");
+	public static final StringAtom UNIFY_FUNCTOR = instance("=");
+	public static final StringAtom DOES_NOT_UNIFY_FUNCTOR = instance("\\=");
+
+	public static final StringAtom AND_FUNCTOR = instance(",");
+	public static final StringAtom OR_FUNCTOR = instance(";");
+	public static final StringAtom CUT_FUNCTOR = instance("!");
+	public static final StringAtom SOFT_CUT_FUNCTOR = instance("*->");
+	public static final StringAtom IF_THEN_FUNCTOR = instance("->");
+	public static final StringAtom TRUE_FUNCTOR = instance("true");
+	public static final StringAtom FALSE_FUNCTOR = instance("false");
+	public static final StringAtom FAIL_FUNCTOR = instance("fail");
+	public static final StringAtom NOT_FUNCTOR = instance("not");
+	public static final StringAtom NOT_OPERATOR_FUNCTOR = instance("\\+");
+
+	public static final StringAtom IS_FUNCTOR = instance("is");
+	public static final StringAtom MULT_FUNCTOR = instance("*");
+	public static final StringAtom MINUS_FUNCTOR = instance("-");
+	public static final StringAtom PLUS_FUNCTOR = instance("+");
+	public static final StringAtom ARITH_SMALLER_THAN_FUNCTOR = instance("<");
+	public static final StringAtom ARITH_IS_EQUAL_FUNCTOR = instance("=:=");
+	public static final StringAtom ARITH_IS_NOT_EQUAL_FUNCTOR = instance("=\\=");
+
+	public static final StringAtom EMPTY_LIST_FUNCTOR = instance("[]");
+	public static final StringAtom LIST_FUNCTOR = instance(".");
+
 }

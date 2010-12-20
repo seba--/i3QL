@@ -31,96 +31,84 @@
  */
 package saere;
 
-import static saere.StringAtom.StringAtom;
-
 /**
- * Representation of an integer atom.
+ * Representation of a floating point value. The SAE uses double values as the basis.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class IntegerAtom extends Atom {
+public final class FloatValue extends Atomic {
 
-	private final int value;
+	private final double value;
 
-	private IntegerAtom(int value) {
+	private FloatValue(double value) {
 		this.value = value;
 	}
 
 	@Override
-	public boolean isIntegerAtom() {
+	public boolean isFloatValue() {
 		return true;
 	}
 
 	@Override
-	public IntegerAtom asIntegerAtom() {
+	public FloatValue asFloatValue() {
 		return this;
+	}
+	
+	public final int termTypeID() {
+		return Term.FLOAT_VALUE;
 	}
 
 	public StringAtom functor() {
-		return StringAtom(Integer.toString(value));
+		return StringAtom.instance(Double.toString(value));
 	}
 
-	public boolean sameAs(IntegerAtom other) {
+	public boolean sameAs(FloatValue other) {
 		return this.value == other.value;
 	}
 
 	@Override
-	public int eval() {
+	public boolean equals(Object other) {
+		return other instanceof FloatValue && this.sameAs((FloatValue) other);
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
+	}
+
+	@Override
+	public double floatEval() {
 		return value;
 	}
 
 	@Override
-	public String toString() {
-		return Integer.toString(value);
+	public Solutions call() {
+		throw new IllegalStateException("calling float values is not possible");
 	}
 
-	public static final IntegerAtom IntegerAtom_M3 = new IntegerAtom(-3);
-	public static final IntegerAtom IntegerAtom_M2 = new IntegerAtom(-2);
-	public static final IntegerAtom IntegerAtom_M1 = new IntegerAtom(-1);
-	public static final IntegerAtom IntegerAtom_0 = new IntegerAtom(0);
-	public static final IntegerAtom IntegerAtom_1 = new IntegerAtom(1);
-	public static final IntegerAtom IntegerAtom_2 = new IntegerAtom(2);
-	public static final IntegerAtom IntegerAtom_3 = new IntegerAtom(3);
-	public static final IntegerAtom IntegerAtom_4 = new IntegerAtom(4);
-	public static final IntegerAtom IntegerAtom_5 = new IntegerAtom(5);
-	public static final IntegerAtom IntegerAtom_6 = new IntegerAtom(6);
-	public static final IntegerAtom IntegerAtom_7 = new IntegerAtom(7);
-	public static final IntegerAtom IntegerAtom_8 = new IntegerAtom(8);
-	public static final IntegerAtom IntegerAtom_9 = new IntegerAtom(9);
+	@Override
+	public String toProlog() {
+		return Double.toString(value);
+	}
 
-	@SuppressWarnings("all")
-	public final static IntegerAtom IntegerAtom(final int value) {
-		switch (value) {
+	@Override
+	public String toString() {
+		return "FloatValue[" + Double.toString(value) + "]";
+	}
 
-		case -3:
-			return IntegerAtom_M3;
-		case -2:
-			return IntegerAtom_M2;
-		case -1:
-			return IntegerAtom_M1;
-		case 0:
-			return IntegerAtom_0;
-		case 1:
-			return IntegerAtom_1;
-		case 2:
-			return IntegerAtom_2;
-		case 3:
-			return IntegerAtom_3;
-		case 4:
-			return IntegerAtom_4;
-		case 5:
-			return IntegerAtom_5;
-		case 6:
-			return IntegerAtom_6;
-		case 7:
-			return IntegerAtom_7;
-		case 8:
-			return IntegerAtom_8;
-		case 9:
-			return IntegerAtom_9;
-		default:
-			return new IntegerAtom(value);
-		}
+	public static final FloatValue FLOAT_VALUE_M1 = new FloatValue(-1.0);
+	public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
+	public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
+
+	public static FloatValue instance(double value) {
+		if (value == -1.0)
+			return FLOAT_VALUE_M1;
+		if (value == 0.0)
+			return FLOAT_VALUE_0;
+		if (value == 1.0)
+			return FLOAT_VALUE_1;
+
+		return new FloatValue(value);
 	}
 
 }

@@ -112,6 +112,9 @@ test('benchmarks/zebra.pl') :-
 	tokenize_file('benchmarks/zebra.pl',Ts),clauses(Ts,_P).
 
 
+test('test/compiler/parser/data/NumberAtEnd.pl') :-
+	tokenize_file('test/compiler/parser/data/NumberAtEnd.pl',Ts),clauses(Ts,_).
+
 % Let's test if we can parse our own code
 
 test('src/compiler/Lexer.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-

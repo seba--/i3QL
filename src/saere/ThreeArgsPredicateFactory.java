@@ -29,56 +29,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
+package saere;
 
-import saere.PredicateInstanceFactory;
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Term;
+/**
+ * Enables the creation of a new instance of a predicate.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
+public abstract class ThreeArgsPredicateFactory implements PredicateFactory {
 
-/** Prolog's arithmetic equals operator: "=:=". */
-public class Same2 implements Solutions {
-
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("=:="), 2,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Same2(args[0], args[1]);
-					}
-				});
-
-	}
-
-	private final Term l;
-	private final Term r;
-	private boolean called = false;
-
-	public Same2(Term l, Term r) {
-		super();
-		this.l = l;
-		this.r = r;
-	}
+	public abstract Solutions createInstance(Term t1, Term t2, Term t3);
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return isSame(l, r);
-		} else {
-			return false;
-		}
+	public final Solutions createInstance(Term[] args) {
+		return createInstance(args[0], args[1], args[3]);
 	}
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
-
-	public static boolean isSame(Term l, Term r) {
-		return l.eval() == r.eval();
-	}
 }

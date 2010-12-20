@@ -34,33 +34,35 @@ package saere.predicate;
 import saere.*;
 
 /**
- * Implementation of SAE Prolog's and (<code>,</code>) operator.
+ * Implementation of ISO Prolog's and (<code>,/2</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class And2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.StringAtom(","), 2,
-				new PredicateInstanceFactory() {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.AND_FUNCTOR, 2);
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new And2(args[0], args[1]);
-					}
-				});
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new And2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
 	private final Term r;
-	private State lState;
-	private State rState;
 
 	private boolean choiceCommitted = false;
 
-	private int currentGoal = 0;
+	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... the goal stack has at most two elements...aren't two elements "cheaper" in particular if we replace Term t1 with Solutions s1 (Goal g1)... and Solutions s2 (Goal g2)
 	private GoalStack goalStack = GoalStack.emptyStack();
 
 	public And2(final Term l, final Term r) {
@@ -70,48 +72,49 @@ public final class And2 implements Solutions {
 
 	public boolean next() {
 		while (true) {
-			switch (currentGoal) {
-			case Commons.FAILED:
-				// reset all bindings
-				l.setState(lState);
-				if (rState != null)
-					r.setState(rState);
-				// clear "everything"
-				goalStack = null;
-				lState = rState = null;
-				return false;
-			case 0: // Initialization
-				lState = l.manifestState();
+			switch (goalToExecute) {
+
+			case 0:
 				goalStack = goalStack.put(l.call());
-				currentGoal = 1;
-			case 1:
-				// call (or redo) the first goal
-				Solutions ls = goalStack.peek();
-				if (!ls.next()) {
-					choiceCommitted = choiceCommitted | ls.choiceCommitted();
-					currentGoal = Commons.FAILED;
-					continue;
+			case 1: {
+				final Solutions s = goalStack.peek();
+				final boolean succeeded = s.next();
+				if (!succeeded) {
+					choiceCommitted = s.choiceCommitted();
+					return false;
 				}
-				// prepare call of the second goal
-				if (rState == null)
-					rState = r.manifestState();
+
+				// preparation for calling the second goal
 				goalStack = goalStack.put(r.call());
-				currentGoal = 2;
-			case 2:
-				Solutions rs = goalStack.peek();
-				if (!rs.next()) {
-					choiceCommitted = rs.choiceCommitted();
-					if (choiceCommitted) {
-						currentGoal = Commons.FAILED;
-					} else {
-						goalStack = goalStack.reduce();
-						currentGoal = 1;
-					}
-					continue;
-				} else {
-					return true;
-				}
+				goalToExecute = 2;
 			}
+			case 2: {
+				final Solutions s = goalStack.peek();
+				final boolean succeeded = s.next();
+				if (!succeeded) {
+					goalStack = goalStack.drop();
+
+					if (s.choiceCommitted()) {
+						goalStack.peek().abort();
+						choiceCommitted = true;
+						return false;
+					} else {
+						goalToExecute = 1;
+						continue;
+					}
+				}
+
+				return true;
+			}
+			}
+		}
+	}
+
+	@Override
+	public void abort() {
+		while (goalStack.isNotEmpty()) {
+			goalStack.peek().abort();
+			goalStack = goalStack.drop();
 		}
 	}
 

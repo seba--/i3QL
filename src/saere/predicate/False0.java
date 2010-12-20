@@ -31,83 +31,51 @@
  */
 package saere.predicate;
 
-import saere.OneArgPredicateFactory;
+import saere.NoArgsPredicateFactory;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
 
 /**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
- * 
- * <pre>
- * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
- * </code>
- * </pre>
+ * Implementation of ISO Prolog's false/0 resp. fail/0 predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public final class False0 implements Solutions {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	public final static PredicateIdentifier FAIL_IDENTIFIER = new PredicateIdentifier(
+			StringAtom.FAIL_FUNCTOR, 0);
+	public final static PredicateIdentifier FALSE_IDENTIFIER = new PredicateIdentifier(
+			StringAtom.FALSE_FUNCTOR, 0);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
+		public Solutions createInstance() {
+			return FALSE0;
 		}
 	};
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
+		registry.register(FAIL_IDENTIFIER, FACTORY);
+		registry.register(FALSE_IDENTIFIER, FACTORY);
 	}
 
-	private final Term t;
+	public static final False0 FALSE0 = new False0();
 
-	private boolean called = false;
+	public False0() {
+		// nothing to do
+	}
 
-	public Not1(final Term t) {
-
-		this.t = t;
+	public boolean next() {
+		return false;
 	}
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
-		} else {
-			return false;
-		}
+	public boolean choiceCommitted() {
+		return false;
 	}
 
 	@Override
@@ -115,8 +83,4 @@ public final class Not1 implements Solutions {
 		// nothing to do
 	}
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
 }

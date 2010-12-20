@@ -31,7 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.OneArgPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
@@ -42,24 +44,25 @@ import saere.Term;
  * 
  * TODO implement the "real" Prolog semantics of write/1
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public class Write1 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("write"), 1);
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("write"), 1,
-				new PredicateInstanceFactory() {
+	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Write1(args[0]);
-					}
-				});
+		@Override
+		public Solutions createInstance(Term t) {
+			return new Write1(t);
+		}
+	};
 
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
-
+	
 	private final Term t;
 
 	private boolean called = false;
@@ -68,14 +71,20 @@ public class Write1 implements Solutions {
 		this.t = t;
 	}
 
+	@Override
 	public boolean next() {
 		if (!called) {
 			called = true;
-			System.out.print(t.toString());
+			System.out.print(t.toProlog());
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

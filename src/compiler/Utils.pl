@@ -54,11 +54,14 @@
 		reset_stdout_redirect/1,
 		
 		call_foreach_i_in_0_to_u/3,
-		call_foreach_i_in_l_to_u/4
+		call_foreach_i_in_l_to_u/4,
+		
+		empty_set/1,
+		add_to_set/3
 	]).
 
-:- meta_predicate call_foreach_i_in_0_to_u(+,2,-).
-:- meta_predicate call_foreach_i_in_l_to_u(+,+,2,-).
+:- meta_predicate(call_foreach_i_in_0_to_u(+,2,-)).
+:- meta_predicate(call_foreach_i_in_l_to_u(+,+,2,-)).
 
 
 /**
@@ -349,3 +352,17 @@ call_foreach_i_in_l_to_u(I,X,F,[O|R]) :-
 	call(F,I,O),
 	NewI is I + 1,
 	call_foreach_i_in_l_to_u(NewI,X,F,R).
+
+
+
+/**
+	@signature empty_set(Set)
+*/
+empty_set([]).
+/**
+	@signature add_to_set(Element,OldSet,NewSet).
+*/
+add_to_set(X,[],[X]) :- !.
+add_to_set(X,[X|R],[X|R]) :- !.
+add_to_set(X,[Y|R],[Y|NewR]) :- add_to_set(X,R,NewR).
+

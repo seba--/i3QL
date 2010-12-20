@@ -31,26 +31,33 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.NoArgsPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
 
+/**
+ * Implementation of ISO Prolog's <code>true/0</code> predicate.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
 public final class True0 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.TRUE_FUNCTOR, 0);
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("true"), 0,
-				new PredicateInstanceFactory() {
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new True0();
-					}
-				});
+		@Override
+		public Solutions createInstance() {
+			return new True0();
+		}
+	};
 
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private boolean called = false;
@@ -66,6 +73,11 @@ public final class True0 implements Solutions {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

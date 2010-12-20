@@ -31,61 +31,76 @@
  */
 package saere.predicate;
 
-import saere.*;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.State;
+import saere.StringAtom;
+import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
- * Implementation of SAE Prolog's <code>=</code> operator (unify).
- * <p>
- * This implementation generates a choice point and – in general – should not be
- * called.<br />
- * <i>It is only intended to be used to execute meta-level calls. </i><br />
- * The compiler has specific support for this operator and does not make use of
- * this class.
- * </p>
+ * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Unify2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.UNIFY_FUNCTOR, 2);
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("="), 2,
-				new PredicateInstanceFactory() {
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Unify2(args[0], args[1]);
-					}
-				});
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Unify2(t1, t2);
+		}
 
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
 	private final Term r;
-	private final State lState;
-	private final State rState;
+	private State lState;
+	private State rState;
 
 	private boolean called = false;
 
 	public Unify2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-		this.lState = l.manifestState();
-		this.rState = r.manifestState();
 	}
 
+	@Override
 	public boolean next() {
 		if (!called) {
-			called = true;
+			lState = l.manifestState();
+			rState = r.manifestState();
 			if (l.unify(r)) {
+				called = true;
 				return true;
 			}
 		}
 		// unification failed...
-		l.setState(lState);
-		r.setState(rState);
+		if (lState != null) lState.reset();
+		if (rState != null) rState.reset();
+		lState = null;
+		rState = null;
 		return false;
+	}
+
+	@Override
+	public void abort() {
+		// the method protocol prescribes that you must have called next()
+		// before (at least once) and next has never returned false.
+		if (lState != null) lState.reset();
+		if (rState != null) rState.reset();
+		lState = null;
+		rState = null;
 	}
 
 	@Override

@@ -29,51 +29,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.term;
 
-/**
- * Atoms represent atomic information.
- * 
- * @author Michael Eichberg
- */
-public abstract class Atom extends Term {
+import static saere.StringAtom.OR_FUNCTOR;
+import saere.CompoundTerm;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-	/**
-	 * @return 0. By definition the arity of atoms is always 0. 
-	 */
-	final public int arity() { return 0; }
-	
-	/**
-	 * Will always throw an <code>IndexOutOfBoundsException</code>, because
-	 * atoms do not have arguments.
-	 * 
-	 * @param i <i>"ignored"</i>.
-	 * @throws IndexOutOfBoundsException always. 
-	 */
-	final public Term arg(int i) {  
-		throw new IndexOutOfBoundsException("Atoms have no arguments.");
+final class Or2 extends CompoundTerm {
+
+	private final Term l;
+	private final Term r;
+
+	public Or2(Term l, Term r) {
+		this.r = r;
+		this.l = l;
 	}
 
-	/**
-	 * @return <code>null</code>; an atom's state is immutable and, hence, no 
-	 * state information needs to be preserved.<br/>
-	 */ 
-	 /* In general, the compiler tries to avoid explicit manifestation of an Atom's state.
-	 * This – i.e., avoiding useless calls to manifestState – however, requires 
-	 * whole program analyses. 
-	 */
-	final public State manifestState(){ return null; } 
+	@Override
+	public int arity() {
+		return 2;
+	}
 
-	/**
-	 * Since an Atom's state is immutable, this method does nothing. 
-	 * 
-	 * @param state the value is <i>"ignored"</i>, but we actually test that
-	 * 	the value is <code>null</code> to catch programming errors early on.
-	 */
-	public final void setState(State state) {
-		assert (state == null); 
+	@Override
+	public StringAtom functor() {
+		return OR_FUNCTOR;
+	}
+
+	@Override
+	public Term arg(int i) {
+		return i == 0 ? l : r;
+	}
+
+	@Override
+	public String toString() {
+		return "(" + l + "; " + r + ")";
+	}
+
+	@Override
+	public Solutions call() {
+		return new saere.predicate.Or2(l, r);
 	}
 }
-
-
-

@@ -31,41 +31,57 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.NoArgsPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
 
+/**
+ * Implementation of ISO Prolog's <code>repeat/0</code> predicate.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
 public final class Repeat0 implements Solutions {
 
 	// ?- repeat,write(x),fail.
-	// xxxxxxxx.....xxxxxx
+	// xxxxxxx....x
 
 	// ?- repeat,write(x),!,fail.
 	// x
 	// false.
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("repeat"), 0);
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("repeat"), 0,
-				new PredicateInstanceFactory() {
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Repeat0();
-					}
-				});
+		@Override
+		public Solutions createInstance() {
+			return REPEAT0;
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 
 	}
+
+	public final static Repeat0 REPEAT0 = new Repeat0();
 
 	public Repeat0() {
 		// nothing to do
 	}
 
+	@Override
 	public boolean next() {
 		return true;
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

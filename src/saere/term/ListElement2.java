@@ -31,16 +31,24 @@
  */
 package saere.term;
 
-import saere.*;
-import static saere.StringAtom.*;
+import static saere.PredicateRegistry.predicateRegistry;
+import static saere.StringAtom.EMPTY_LIST_FUNCTOR;
+import saere.CompoundTerm;
+import saere.PredicateIdentifier;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 public final class ListElement2 extends CompoundTerm {
 
-	public static final StringAtom functor = StringAtom(".");
+	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.LIST_FUNCTOR, 2));
 
-	private final Term value;
+	private Term value;
 
-	private final Term rest;
+	private Term rest;
 
 	public ListElement2(Term value, Term rest) {
 		this.value = value;
@@ -48,26 +56,42 @@ public final class ListElement2 extends CompoundTerm {
 
 	}
 
+	@Override
 	public int arity() {
 		return 2;
 	}
 
-	public StringAtom functor() {
-		return functor;
-	}
-
-	public Term arg(int i) {
+	@Override
+	public Term arg(int i) throws IndexOutOfBoundsException {
 		return i == 0 ? value : rest;
 	}
 
+	public Term getValue() {
+		return value;
+	}
+
+	public Term getRest() {
+		return rest;
+	}
+
 	@Override
-	public String toString() {
+	public StringAtom functor() {
+		return StringAtom.LIST_FUNCTOR;
+	}
+
+	@Override
+	public Solutions call() {
+		return FACTORY.createInstance(value, rest);
+	}
+
+	@Override
+	public String toProlog() {
 		return toListRepresentation("[");
-		// ".("+value+", "+rest+")"
+
 	}
 
 	private String toListRepresentation(String head) {
-		String newHead = head + value;
+		String newHead = head + value.toProlog();
 		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
@@ -75,8 +99,11 @@ public final class ListElement2 extends CompoundTerm {
 		} else if (r == EMPTY_LIST_FUNCTOR) {
 			return newHead + "]";
 		} else {
-			return newHead + "|" + rest + "]";
+			return newHead + "|" + rest.toProlog() + "]";
 		}
 	}
 
+	public String toString() {
+		return "ListElement2[head=" + value + "; rest=" + rest + "]";
+	}
 }

@@ -29,94 +29,38 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
+package saere.term;
 
-import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
+import static saere.PredicateRegistry.predicateRegistry;
 import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
-/**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
- * 
- * <pre>
- * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
- * </code>
- * </pre>
- * 
- * @author Michael Eichberg (mail@michael-eichberg.de)
- */
-public final class Not1 implements Solutions {
+final class Plus2 extends TwoArgsCompoundTerm {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.PLUS_FUNCTOR, 2));
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
-	}
-
-	private final Term t;
-
-	private boolean called = false;
-
-	public Not1(final Term t) {
-
-		this.t = t;
+	public Plus2(Term t1, Term t2) {
+		super(t1, t2);
 	}
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
-		} else {
-			return false;
-		}
+	public StringAtom functor() {
+		return StringAtom.PLUS_FUNCTOR;
 	}
 
 	@Override
-	public void abort() {
-		// nothing to do
+	public long intEval() {
+		return t1.intEval() + t2.intEval();
 	}
 
 	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public Solutions call() {
+		return FACTORY.createInstance(t1, t2);
 	}
+
 }

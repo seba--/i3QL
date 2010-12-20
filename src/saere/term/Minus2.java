@@ -29,12 +29,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.term;
 
-public interface Commons {
+import static saere.PredicateRegistry.predicateRegistry;
+import saere.PredicateIdentifier;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
+final class Minus2 extends TwoArgsCompoundTerm {
+
+
+	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+			.getPredicateFactory(
+					new PredicateIdentifier(StringAtom.MINUS_FUNCTOR, 2));
 	
-	public static final int FAILED = -1;
-	
-	
+	public Minus2(Term t1, Term t2) {
+		super(t1, t2);
+	}
+
+	@Override
+	public StringAtom functor() {
+		return StringAtom.MINUS_FUNCTOR;
+	}
+
+	@Override
+	public long intEval() {
+		return t1.intEval() - t2.intEval();
+	}
+
+	@Override
+	public Solutions call() {
+		return FACTORY.createInstance(t1, t2);
+	}
+
 }

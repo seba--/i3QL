@@ -31,36 +31,71 @@
  */
 package saere;
 
+/**
+ * Representation of some atomic information; i.e., string atoms, float values
+ * and integer values.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
+public abstract class Atomic extends Term {
 
-public class GenericCompoundTerm extends CompoundTerm {
-
-	private final StringAtom functor;
-	private final Term[] args;
-
-	public GenericCompoundTerm(StringAtom functor, Term[] args) {
-		this.functor = functor;
-		this.args = args;
-	}
-
+	/**
+	 * @return <code>true</code>, because atomic information are by definition
+	 *         always ground.
+	 */
 	@Override
-	public Term arg(int i) throws IndexOutOfBoundsException {
-		return args[i];
+	public final boolean isGround() {
+		return true;
 	}
 
+	/**
+	 * @return 0. By definition the arity of some atomic information is always
+	 *         0.
+	 */
 	@Override
-	public int arity() {
-		return args.length;
+	public final int arity() {
+		return 0;
 	}
 
+	/**
+	 * Will always throw an <code>IndexOutOfBoundsException</code>, because
+	 * atoms do not have arguments.
+	 * 
+	 * @param i
+	 *            <i>"ignored"</i>.
+	 * @throws IndexOutOfBoundsException
+	 *             always.
+	 */
 	@Override
-	public StringAtom functor() {
-		return functor;
+	public final Term arg(int i) {
+		throw new IndexOutOfBoundsException("atoms have no arguments");
 	}
 
-	
-	public Solutions call(){
-		
-		return PredicateRegistry.instance().createPredicateInstance(functor, args);
-		
+	/**
+	 * @return <code>null</code>; an atom's state is immutable and, hence, no
+	 *         state information needs to be preserved.<br/>
+	 */
+	/*
+	 * In general, the compiler tries to avoid explicit manifestation of an
+	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
+	 * however, requires whole program analyses.
+	 */
+	public final State manifestState() {
+		return null;
+	}
+
+	/**
+	 * Since an Atom's state is immutable, this method does nothing.
+	 * 
+	 * <p>
+	 * <b>Debugging Hint</b> If assertions are enabled we check that state is
+	 * <code>null</code>.
+	 * </p>
+	 * 
+	 * @param state
+	 *            The parameter is <i>"ignored"</i>.
+	 */
+	public final void setState(State state) {
+		assert (state == null);
 	}
 }

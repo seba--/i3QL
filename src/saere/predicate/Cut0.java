@@ -31,40 +31,36 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.NoArgsPredicateFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
-import saere.Term;
-
 
 /**
- * Implementation of SAE Prolog's cut (<code>!</code>) operator.
+ * Implementation of ISO Prolog's cut (<code>!/0</code>) operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Cut0 implements Solutions {
 
-	// ?- repeat,write(x),fail.
-	// xxxxxxxx.....xxxxxx
+	
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.CUT_FUNCTOR, 0);
 
-	// ?- repeat,write(x),!,fail.
-	// x
-	// false.
+	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+		
+		@Override
+		public Solutions createInstance() {
+			return new Cut0();
+		}
+	};
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("!"), 0,
-				new PredicateInstanceFactory() {
-
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Cut0();
-					}
-				});
-
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
+
 
 	private boolean called = false;
 
@@ -84,6 +80,11 @@ public final class Cut0 implements Solutions {
 	@Override
 	public boolean choiceCommitted() {
 		return true;
+	}
+
+	@Override
+	public void abort() {
+		// nothing to do		
 	}
 
 }

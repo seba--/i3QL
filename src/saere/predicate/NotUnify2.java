@@ -31,66 +31,76 @@
  */
 package saere.predicate;
 
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
  * Implementation of Prolog's <code>\=</code> (does not unify) operator.
- * <p>
- * This implementation generates a choice point.
- * <p/>
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class NotUnify2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
 
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("\\="), 2,
-				new PredicateInstanceFactory() {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.DOES_NOT_UNIFY_FUNCTOR, 2);
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new NotUnify2(args[0], args[1]);
-					}
-				});
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new NotUnify2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
 	private final Term r;
-
-	private final State lState;
-	private final State rState;
 
 	private boolean called = false;
 
 	public NotUnify2(Term l, Term r) {
 		this.l = l;
 		this.r = r;
-		this.lState = l.manifestState();
-		this.rState = r.manifestState();
 	}
 
 	public boolean next() {
 		if (!called) {
 			called = true;
 
+			State lState = l.manifestState();
+			State rState = r.manifestState();
+
 			final boolean success = l.unify(r);
 			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
 			// will not be bound!
-			l.setState(lState);
-			r.setState(rState);
-
+			if (lState != null) {
+				lState.reset();
+				lState = null;
+			}
+			if (rState != null){
+				rState.reset();
+				rState = null;				
+			}
 			return !success;
 		} else {
 			return false;
 		}
+	}
+	
+	@Override
+	public void abort() {
+		// nothing to do
 	}
 
 	@Override

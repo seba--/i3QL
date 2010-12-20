@@ -29,11 +29,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.term;
 
 
-public interface PredicateInstanceFactory {
+import saere.CompoundTerm;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
 
-	Solutions createPredicateInstance(Term[] args);
+final class Equals2 extends CompoundTerm {
 
+	private final Term l;
+	private final Term r;
+
+	public Equals2(Term l, Term r) {
+		this.r = r;
+		this.l = l;
+	}
+
+	@Override
+	public int arity() {
+		return 2;
+	}
+
+	@Override
+	public StringAtom functor() {
+		return StringAtom.UNIFY_FUNCTOR;
+	}
+
+	@Override
+	public Term arg(int i) {
+		return i == 0 ? l : r;
+	}
+
+	@Override
+	public String toString() {
+		return "(" + l + " = " + r + ")";
+	}
+
+	@Override
+	public Solutions call() {
+		return new saere.predicate.Unify2(l, r);
+	}
 }

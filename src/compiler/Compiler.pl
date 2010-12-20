@@ -53,7 +53,7 @@
 %XXX :- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
 %XXX :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
 %XXX :- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
-:- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
+:- use_module('phase/PLToJava.pl',[pl_to_java/4]).
 
 
 
@@ -101,7 +101,7 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 %XXX phase(pl_determinacy_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
-phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(pl_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
 
 
 

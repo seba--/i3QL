@@ -31,80 +31,51 @@
  */
 package saere.predicate;
 
-import saere.OneArgPredicateFactory;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
- * 
- * <pre>
- * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
- * </code>
- * </pre>
+ * Prolog's arithmetic equals operator: "=:=".
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public class ArithEqual2 implements Solutions {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_IS_EQUAL_FUNCTOR, 2);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
+		public Solutions createInstance(Term t1, Term t2) {
+			return new ArithEqual2(t1, t2);
 		}
+
 	};
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private final Term t;
-
+	private final Term l;
+	private final Term r;
 	private boolean called = false;
 
-	public Not1(final Term t) {
-
-		this.t = t;
+	public ArithEqual2(Term l, Term r) {
+		this.l = l;
+		this.r = r;
 	}
 
 	@Override
 	public boolean next() {
 		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
+			called = true;
+			return isSame(l, r);
 		} else {
 			return false;
 		}
@@ -118,5 +89,9 @@ public final class Not1 implements Solutions {
 	@Override
 	public boolean choiceCommitted() {
 		return false;
+	}
+
+	public static boolean isSame(Term l, Term r) {
+		return l.intEval() == r.intEval();
 	}
 }

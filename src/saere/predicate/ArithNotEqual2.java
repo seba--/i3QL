@@ -29,27 +29,71 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.meta;
+package saere.predicate;
 
-import saere.*;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
- * Simplified version of {@link MultipleGoals} if a clause's body only consists
- * of one goal.
+ * ISO Prolog's arithmetic not-equals operator: "=\=".
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-@Deprecated
-public abstract class OneGoal implements Solutions {
+public final class ArithNotEqual2 implements Solutions {
 
-	private Solutions solutions = null;
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR, 2);
 
-	public final boolean next() {
-		if (solutions == null)
-			solutions = goal();
-		return solutions.next();
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new ArithNotEqual2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	public abstract Solutions goal();
 
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
+
+	public ArithNotEqual2(Term l, Term r) {
+		super();
+		this.l = l;
+		this.r = r;
+	}
+
+	@Override
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isNotSame(l, r);
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public void abort() {
+		// nothing to do
+	}
+
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
+	public static boolean isNotSame(Term l, Term r) {
+		return l.intEval() != r.intEval();
+	}
 }

@@ -31,37 +31,30 @@
  */
 package saere;
 
-
 /**
- * Encapsulates the current state of a (free) variable. Basically, if 
- * this variable shares with another variable then only the current head 
- * variable is saved (the value of which has to be / is <code>null</code> ).
+ * Encapsulates the current state of a variable.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class VariableState extends State {
+final class VariableState implements State {
 
-	private Variable head = null; 
-	
-	VariableState(Variable variable) {
-		
-		assert (!variable.isInstantiated());
-		
-		head = variable.headVariable();
-		
-		assert (variable.getValue() == null);
+	private final Variable headVariable;
+
+	VariableState(final Variable headVariable) {
+		assert headVariable.getValue() == null : "the variable is bound; did you pass in the headVariable?";
+
+		this.headVariable = headVariable;
 	}
 
- 
-	@Override 
-	VariableState asVariableState() { return this; } 
-
-	public void apply(Variable variable) {
-		Variable v = variable;
-		while (!(v == head)) {
-			v = v.getValue().asVariable();
-		}
-		v.clear();
+	@Override
+	public void reset() {
+		headVariable.clear();
 	}
+
+	@Override
+	public String toString() {
+		return "VariableState[headVariableId="
+				+ Variable.variableToName(headVariable) + "]";
+	}
+
 }
-

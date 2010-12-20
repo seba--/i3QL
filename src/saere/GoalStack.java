@@ -31,6 +31,13 @@
  */
 package saere;
 
+/**
+ * The goal stack is a very simple, <i>immutable</i> linked list, that offers a
+ * stack's standard operations (put, peek and drop) to manage a list of
+ * {@link Solutions} iterators.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
 public abstract class GoalStack {
 
 	private final static class EmptyGoalStack extends GoalStack {
@@ -50,8 +57,13 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack reduce() {
+		public GoalStack drop() {
 			throw new IllegalStateException("the goal stack is empty");
+		}
+
+		@Override
+		public boolean isNotEmpty() {
+			return false;
 		}
 	}
 
@@ -76,8 +88,13 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack reduce() {
+		public GoalStack drop() {
 			return goalStack;
+		}
+
+		@Override
+		public boolean isNotEmpty() {
+			return true;
 		}
 
 	}
@@ -86,9 +103,11 @@ public abstract class GoalStack {
 
 	public abstract GoalStack put(Solutions solutions);
 
-	public abstract Solutions peek();
+	public abstract Solutions peek() throws IllegalStateException;
 
-	public abstract GoalStack reduce();
+	public abstract GoalStack drop() throws IllegalStateException;
+
+	public abstract boolean isNotEmpty();
 
 	public static GoalStack emptyStack() {
 		return EMPTY_GOAL_STACK;

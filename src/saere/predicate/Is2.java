@@ -31,57 +31,74 @@
  */
 package saere.predicate;
 
-import static saere.IntegerAtom.IntegerAtom;
-import saere.PredicateInstanceFactory;
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.Variable;
+import saere.TwoArgsPredicateFactory;
 
 /**
- * Implements the "is/2" operator.
+ * Implements the <code>is/2</code> operator.
  * 
- * @author Michael Eichberg
+ * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Is2 implements Solutions {
 
-	public static void registerWithPredicateRegistry(
-			PredicateRegistry predicateRegistry) {
-		predicateRegistry.registerPredicate(StringAtom.StringAtom("is"), 2,
-				new PredicateInstanceFactory() {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.IS_FUNCTOR, 2);
 
-					@Override
-					public Solutions createPredicateInstance(Term[] args) {
-						return new Is2(args[0], args[1]);
-					}
-				});
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Is2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
 	private final Term l;
 	private final Term r;
-	private final State lState;
+	private State lState;
 
 	private boolean called = false;
 
 	public Is2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-		lState = l.manifestState();
+
 	}
 
 	@Override
 	public boolean next() {
-		if (called) {
-			l.setState(lState);
-			return false;
+		if (!called) {
+			final long rValue = r.intEval();
+			lState = l.manifestState();
+			if (Term.is(l, rValue)) {
+				called = true;
+				return true;
+			}
 		}
 
-		called = true;
-		final int rValue = r.eval();
-		return is(l, rValue);
+		if (lState != null) {
+			lState.reset();
+			lState = null;
+		}
+		return false;
+	}
+
+	@Override
+	public void abort() {
+		if (lState != null) {
+			lState.reset();
+			lState = null;
+		}
 	}
 
 	@Override
@@ -89,17 +106,4 @@ public final class Is2 implements Solutions {
 		return false;
 	}
 
-	public static final boolean is(Term a1, int a2Value) {
-		if (a1.isVariable()) {
-			final Variable v1 = a1.asVariable();
-			if (v1.isInstantiated()) {
-				return v1.eval() == a2Value;
-			} else {
-				v1.bind(IntegerAtom(a2Value));
-				return true;
-			}
-		} else {
-			return a1.eval() == a2Value;
-		}
-	}
 }

@@ -31,88 +31,110 @@
  */
 package saere.predicate;
 
-import saere.OneArgPredicateFactory;
+import static saere.StringAtom.LIST_FUNCTOR;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
+import saere.State;
 import saere.StringAtom;
 import saere.Term;
+import saere.TwoArgsPredicateFactory;
 
 /**
- * Implementation of ISO Prolog's not (<code>\+</code>) operator.
+ * Implementation of ISO Prolog's member/2 predicate.
  * 
  * <pre>
  * <code>
- * ?- X=4,\+ ( (member(X,[1,2,3])) ),write(X).
- * 4
- * X = 4.
- * ?- X=3,\+ ( (member(X,[1,2,3])) ),write(X).
- * false.
- * ?- not( (member(X,[1,2,3]),false) ).
- * true.
- * ?- repeat,not( (member(X,[1,2,3]),false,!) ).
- * true ;
- * true ;
- * ...
- * true .
- * ?- not( (member(X,[1,2,3]),false) ),write(X).
- * _G248
- * true.
+ * member(X,Y) :- Y = [X|_].
+ * member(X,[_|Ys]) :- member(X,Ys).
  * </code>
  * </pre>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public final class Member2 implements Solutions {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.instance("member"), 2);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
+		public Solutions createInstance(Term t1, Term t2) {
+			return new Member2(t1, t2);
 		}
+
 	};
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private final Term t;
+	private final static int SETUP = 0;
+	private final static int TEST = 1;
+	private final static int ADVANCE = 2;
 
-	private boolean called = false;
+	private final Term testElement;
+	private State testElementState;
+	private Term list;
+	private Term listElement;
+	private State listElementState;
+	private int state = SETUP;
 
-	public Not1(final Term t) {
+	// static int goalCounter;
+	// private int thisGoalId;
 
-		this.t = t;
+	public Member2(final Term testElement, final Term list) {
+		this.testElement = testElement;
+		this.list = list;
+		// thisGoalId = goalCounter++;
 	}
 
-	@Override
 	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
+		while (true) {
+			switch (state) {
+			case SETUP:
+				// System.out.println(thisGoalId+"=>"+element.toProlog());
+				testElementState = testElement.manifestState();
+				state = TEST;
+			case TEST:
+				if (list.isVariable()) {
+					list = list.asVariable().binding();
+				}
+				if (list.arity() == 2 && list.functor().sameAs(LIST_FUNCTOR)) {
+					listElement = list.arg(0);
+					// System.out.println(thisGoalId+"[=>]"+listElement.toProlog());
+					listElementState = listElement.manifestState();
+					state = ADVANCE;
+					if (testElement.unify(listElement)) {
+						return true;
+					}
+				} else {
+					return false;
+				}
+			case ADVANCE:
+				if (listElementState != null) {
+					listElementState.reset();
+				}
+				if (testElementState != null) {
+					testElementState.reset();
+				}
+
+				list = list.arg(1);
+				state = TEST;
 			}
-		} else {
-			return false;
 		}
 	}
 
 	@Override
 	public void abort() {
-		// nothing to do
+		if (listElementState != null) {
+			listElementState.reset();
+		}
+		if (testElementState != null) {
+			testElementState.reset();
+		}
 	}
 
 	@Override
