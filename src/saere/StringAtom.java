@@ -191,6 +191,7 @@ public final class StringAtom extends Atomic {
 	public static final StringAtom MINUS_FUNCTOR = instance("-");
 	public static final StringAtom PLUS_FUNCTOR = instance("+");
 	public static final StringAtom ARITH_SMALLER_THAN_FUNCTOR = instance("<");
+	public static final StringAtom ARITH_SMALLER_OR_EQUAL_THAN_FUNCTOR = instance("=<");
 	public static final StringAtom ARITH_IS_EQUAL_FUNCTOR = instance("=:=");
 	public static final StringAtom ARITH_IS_NOT_EQUAL_FUNCTOR = instance("=\\=");
 

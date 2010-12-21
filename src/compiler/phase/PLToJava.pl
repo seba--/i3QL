@@ -238,10 +238,11 @@ create_clause_branches([Clause|Clauses],Id,[ConcatenatedClauseBranch|ClausesBran
 	@signature create_clause_variables(Head,BodyVariables,ClauseVariables).
 */
 create_clause_variables(Head,BodyVariables,ClauseVariablesDefinitions) :-
-	variables_of_term(Head,HeadVariables),
-	create_clause_variable(HeadVariables,BodyVariables,ClauseVariables),
+	named_variables_of_term(Head,NamedHeadVariables),
+	create_clause_variable(NamedHeadVariables,BodyVariables,ClauseVariables),
 	atomic_list_concat(ClauseVariables,'\n\t\t\t',ConcatenatedClauseVariables),
-	create_arg_head_variables_mapping(0,HeadVariables,HeadVariablesMapping),
+	complex_term_args(Head,AllHeadVariables),
+	create_arg_head_variables_mapping(0,AllHeadVariables,HeadVariablesMapping),
 	atomic_list_concat(HeadVariablesMapping,'\n\t\t\t',ConcatenatedHeadVariablesMapping),
 	atomic_list_concat([
 		ConcatenatedHeadVariablesMapping,'\n\t\t\t',
@@ -263,7 +264,11 @@ create_clause_variable(_,[],[]).
 
 
 create_arg_head_variables_mapping(Id,[HeadVariable|HeadVariables],[HeadVariablesMapping|HeadVariablesMappings]) :- !,
-	atomic_list_concat(['Term ',HeadVariable,' = ','arg',Id,';'],HeadVariablesMapping),
+	(	variable(HeadVariable,HeadVariableName),
+		atomic_list_concat(['Term ',HeadVariableName,' = ','arg',Id,';'],HeadVariablesMapping)
+	;
+		atomic_list_concat(['// arg',Id,' is not used'],HeadVariablesMapping)
+	),!,
 	NewId is Id + 1,
 	create_arg_head_variables_mapping(NewId,HeadVariables,HeadVariablesMappings).
 create_arg_head_variables_mapping(_Id,[],[]).	
