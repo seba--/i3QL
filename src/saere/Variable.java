@@ -49,6 +49,28 @@ import java.util.WeakHashMap;
  */
 public final class Variable extends Term {
 
+    private final static class VariableState implements State {
+
+	    private final Variable headVariable;
+
+	    VariableState(final Variable headVariable) {
+		assert headVariable.getValue() == null : "only free head variable can be manifested";
+
+		this.headVariable = headVariable;
+	    }
+
+	    @Override
+	    public void reset() {
+		headVariable.clear();
+	    }
+
+	    @Override
+	    public String toString() {
+		return "VariableState[headVariableId=" + Variable.variableToName(headVariable) + "]";
+	    }
+
+	}
+    
 	/**
 	 * <code>value</code> is:
 	 * <ul>
