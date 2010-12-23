@@ -1,5 +1,6 @@
 package saere.database;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -40,7 +41,7 @@ public final class RemovalBench {
 		int[] removeNumbers = { 1, 20, 100, 500, 1000, 3000 };
 		
 		if (USE_PROFILES) {
-			Profiler.getInstance().loadProfiles("profiles.ser");
+			Profiler.getInstance().loadProfiles(DatabaseTest.DATA_PATH + File.separator + "profiles.ser");
 			Profiler.getInstance().setMode(Mode.USE);
 			System.out.println("Using profiles");
 		} else {
