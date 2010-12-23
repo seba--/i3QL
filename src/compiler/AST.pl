@@ -100,7 +100,7 @@
 		rule/4,
 		rule_head/2,
 		rule_body/2,
-		variables_of_term/2,
+		named_variables_of_term/2,
 		
 		pos_meta/2,
 		lookup_in_meta/2,
@@ -663,22 +663,22 @@ term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
 
 
-variables_of_term(ASTNode,Vs) :- 
-	variables_of_term(ASTNode,[],Vs).
+named_variables_of_term(ASTNode,Vs) :- 
+	named_variables_of_term(ASTNode,[],Vs).
 /**
 	@signature term_variables(ASTNode,Variables)
 */
-variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
+named_variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
 	add_to_set(VariableName,Vs,NewVs).
-variables_of_term(ct(_,_,Args),Vs,NewVs):-!,
-	variables_of_terms(Args,Vs,NewVs).
-variables_of_term(_,Vs,Vs).	
+named_variables_of_term(ct(_,_,Args),Vs,NewVs) :- !,
+	named_variables_of_terms(Args,Vs,NewVs).
+named_variables_of_term(_,Vs,Vs).	
 
 
-variables_of_terms([Term|Terms],Vs,NewVs) :-
-	variables_of_term(Term,Vs,IVs),
-	variables_of_terms(Terms,IVs,NewVs).
-variables_of_terms([],Vs,Vs).
+named_variables_of_terms([Term|Terms],Vs,NewVs) :-
+	named_variables_of_term(Term,Vs,IVs),
+	named_variables_of_terms(Terms,IVs,NewVs).
+named_variables_of_terms([],Vs,Vs).
 	
 
 

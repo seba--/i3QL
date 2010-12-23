@@ -37,26 +37,45 @@ import java.util.WeakHashMap;
  * Representation of a Prolog variable.
  * 
  * <p>
- * Variables that "share"; example:
- * 
- * <pre>
- * <code>
- * 	X = Y,A = B, Y = A, Y = a. 
+ * Variables that "share":<br/>
+ * <code><pre>
+ * X = Y,A = B, Y = A, Y = a. 
  * =>
- *  X = a, Y = a, A = a, B = a
- * </code>
- * </pre>
- * 
+ * X = a, Y = a, A = a, B = a
+ * </pre></code>
  * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class Variable extends Term {
 
+    private final static class VariableState implements State {
+
+	    private final Variable headVariable;
+
+	    VariableState(final Variable headVariable) {
+		assert headVariable.getValue() == null : "only free head variable can be manifested";
+
+		this.headVariable = headVariable;
+	    }
+
+	    @Override
+	    public void reset() {
+		headVariable.clear();
+	    }
+
+	    @Override
+	    public String toString() {
+		return "VariableState[headVariableId=" + Variable.variableToName(headVariable) + "]";
+	    }
+
+	}
+    
 	/**
 	 * <code>value</code> is:
 	 * <ul>
-	 * <li><code>null</code> if this variable is free (new)</li>
+	 * <li><code>null</code> if this variable is free (new); i.e., the variable
+	 * is not instantiated and does not share.</li>
 	 * <li>a value of type {@link Term} that is not a subtype of Variable</li>
 	 * if this variable is instantiated.
 	 * <li>another {@link Variable} if this variable and another variable share.
@@ -116,7 +135,8 @@ public final class Variable extends Term {
 	public int arity() {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.arity();
 	}
@@ -125,7 +145,8 @@ public final class Variable extends Term {
 	public Term arg(int i) {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.arg(i);
 	}
@@ -134,7 +155,8 @@ public final class Variable extends Term {
 	public StringAtom functor() {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.functor();
 	}
@@ -156,21 +178,21 @@ public final class Variable extends Term {
 	/**
 	 * Clears all bindings of this variable.
 	 */
-	void clear() {
+	public void clear() {
 		value = null;
 	}
 
 	/**
 	 * Returns this variable's value.
 	 */
-	Term getValue() {
+	public Term getValue() {
 		return value;
 	}
 
 	/**
 	 * Sets this variable's value.
 	 */
-	void setValue(Term value) {
+	public void setValue(Term value) {
 		this.value = value;
 	}
 
@@ -187,7 +209,6 @@ public final class Variable extends Term {
 	 * method.
 	 * </p>
 	 */
-	@Deprecated
 	public void bind(Term term) {
 
 		assert !this.isInstantiated() : "binding of an instantiated variable";
@@ -214,9 +235,9 @@ public final class Variable extends Term {
 		 * value is always only bound with the head variable. Problems that
 		 * arise if we have a cyclic unification of variables, e.g., A = X, X =
 		 * Y,Y = A,..., X = 1 are mitigated. We do make sure that at least one
-		 * variable remains free. If more than two variables share, don't create
-		 * a chain, but instead attach each new Variable with the head variable.
-		 * This way the maximum depth of the chain is more limited and
+		 * variable remains free. If more than two variables share, we don't
+		 * create a chain, but instead attach each new Variable with the head
+		 * variable. This way the maximum depth of the chain is more limited and
 		 * manifestation etc. becomes cheaper.
 		 */
 		if (value == null) {
@@ -235,11 +256,10 @@ public final class Variable extends Term {
 	/**
 	 * If this variable shares with another variable, it is possible that this
 	 * variable points to another variable.
-	 * <p>
-	 * This is a companion method of {@link #share(Variable)}.
-	 * </p>
+	 * 
+	 * @see #share(Variable)
 	 */
-	final Variable headVariable() {
+	public final Variable headVariable() {
 		Variable hv = this;
 		Term hvv = hv.value;
 		while (hvv != null) {
@@ -267,12 +287,14 @@ public final class Variable extends Term {
 	public double floatEval() {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
-			throw new Error("This variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"This variable is not sufficiently instantiated.");
 		} else {
 			return value.floatEval();
 		}
 	}
 
+	@Override
 	public int termTypeID() {
 		return Term.VARIABLE;
 	}
@@ -281,7 +303,8 @@ public final class Variable extends Term {
 	public Solutions call() {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
-			throw new Error("This variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"This variable is not sufficiently instantiated.");
 		} else {
 			return value.call();
 		}
@@ -317,4 +340,16 @@ public final class Variable extends Term {
 		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
 	}
 
+	
+	@Override
+	public Term unwrapped() {
+		Variable hv = headVariable();
+		Term hvv = hv.value;
+		if (hvv == null) {
+			return hv;
+		}
+		else
+			return hvv;
+	}
+	
 }

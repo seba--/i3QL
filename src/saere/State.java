@@ -36,28 +36,29 @@ import saere.predicate.Unify2;
 /**
  * Encapsulates the (remaining) mutable state of a term.
  * <p>
- * State manifestation is only necessary if a term is subject to unification. If
- * a term is just passed to another predicate, manifestation of its state is
- * useless. If the subsequent predicate fails, it guarantees that the term's
- * state is the same as before the call. I.e., only if you directly call
- * {@link Unification#unify(Term, Term)}, you have to manifest the state and
- * reset it afterwards. If you use the predicate {@link Unify2}, you do not have
- * to take care of state manifestation, but directly calling
- * {@link Unification#unify(Term, Term)} is generally more efficient.
+ * State manifestation is only necessary if a term is subject to unification. If a term is just
+ * passed to another predicate, manifestation of its state is useless. If the subsequent predicate
+ * fails, it guarantees that the term's state is the same as before the call. I.e., only if you
+ * directly call {@link Term#unify(Term, Term)}, you have to manifest the state and reset it
+ * afterwards. If you use the predicate {@link Unify2}, you do not have to take care of state
+ * manifestation, but directly calling {@link Unification#unify(Term, Term)} is generally more
+ * efficient.
  * </p>
  * <p>
  * <b>Implementation Notes</b><br />
  * <p>
- * The SAE represents the state of ground terms using the value
- * <code>null</code>. Hence, before calling {@link #reset()} you have
- * to check that the state object is not null.
+ * The SAE represents the state of ground terms using the value <code>null</code>. Hence, before
+ * calling {@link #reset()} you have to check that the state object returned by a call to
+ * {@link Term#manifestState()} is not null.
  * </p>
- * This is the state interface of the Memento Pattern. </p>
+ * <p>
+ * This is the state interface of the Memento Pattern.
+ * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public interface State {
 
-	void reset();
+    void reset();
 
 }

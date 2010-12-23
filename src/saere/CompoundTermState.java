@@ -39,15 +39,14 @@ package saere;
 final class CompoundTermState implements State {
 
 	private final State state;
-	
+
 	private CompoundTermState next;
 
 	private CompoundTermState(State state) {
 		this.state = state;
 	}
 
-	@SuppressWarnings("hiding")
-	CompoundTermState append(State state) {
+	CompoundTermState append(@SuppressWarnings("hiding") State state) {
 		CompoundTermState tail = new CompoundTermState(state);
 		this.next = tail;
 		return tail;

@@ -1,13 +1,11 @@
-/* BENCHMARK HARNESS
-initialize(triple(18, 12, 6)).
-slow_initialize(triple(18, 5, 5)).
+/* 
+	"tak" is an artificial benchmark, originally written in Lisp; it is heavily 
+	recursive and does lots of simple integer arithmetic.
 
-benchmark(triple(X, Y, Z), Out) :-
-	tak(X, Y, Z, _),
-	tak(X, Y, Z, _),
-	tak(X, Y, Z, _),
-	tak(X, Y, Z, _),
-	tak(X, Y, Z, Out).
+	Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.2)
+	?- time(tak(32,14,6,R)).
+	% 182,748,891 inferences, 20.010 CPU in 20.190 seconds (99% CPU, 9132878 Lips)
+	R = 7.
 */
 
 tak(X,Y,Z,A) :-

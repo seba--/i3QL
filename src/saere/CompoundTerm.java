@@ -38,16 +38,16 @@ package saere;
  */
 public abstract class CompoundTerm extends Term {
 
-	@Override
 	/**
-	 * @return Always returns <code>false</code>.
+	 * @return <code>false</code>; always.
 	 */
+	@Override
 	public final boolean isAtomic() {
 		return false;
 	}
 
 	/**
-	 * @return Always returns <code>true</code>.
+	 * @return <code>true</code>; always.
 	 */
 	@Override
 	public final boolean isCompoundTerm() {
@@ -62,6 +62,7 @@ public abstract class CompoundTerm extends Term {
 		return this;
 	}
 
+	@Override
 	public final int termTypeID() {
 		return Term.COMPUND_TERM;
 	}
@@ -89,17 +90,17 @@ public abstract class CompoundTerm extends Term {
 		return true;
 	}
 
-
 	/**
 	 * The state of the compound term's arguments is saved for later recovery.
 	 * <p>
 	 * <b>Performance Guideline</b><br/>
 	 * In general, state manifestation requires a traversal of the complete
 	 * compound term's structure. Hence, if all instances of a compound term are
-	 * always ground then it is highly recommended to override the
+	 * always ground then it is highly recommended to override the corresponding
 	 * {@link #isGround()} method and to always return <code>true</code>.
 	 * Overwriting {@link #isGround()} is more beneficial than overwriting this
-	 * method, because this method directly uses the method {@link #isGround()}.
+	 * method, because this method directly uses the method {@link #isGround()}
+	 * and returns <code>null</code> if this compound term is ground.
 	 * </p>
 	 */
 	@Override
@@ -111,22 +112,19 @@ public abstract class CompoundTerm extends Term {
 		}
 	}
 
-
 	/**
 	 * Unifies this compound term with another compound term.
 	 * <p>
 	 * This method does not take care of state handling; i.e, <font
 	 * color="ref">both compound terms may be partially bound after
-	 * return.</font> The caller must take care to reset the state of both
-	 * compound terms.
+	 * return.</font> The caller must take care to reset the state of this
+	 * compound term as well as the passed in compound term.
 	 * </p>
 	 */
 	public boolean unify(CompoundTerm other) {
-
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
-
 			while (i < arity) {
 				if (this.arg(i).unify(other.arg(i))) {
 					i += 1;
@@ -142,14 +140,13 @@ public abstract class CompoundTerm extends Term {
 
 	@Override
 	public String toProlog() {
-
-		String s = "";
-		for (int i = 0; i < arity(); i++) {
+		// a compound term always has at least one argument
+		String s = arg(0).toProlog();
+		for (int i = 1; i < arity(); i++) {
 			if (i > 0)
 				s += ", ";
 			s += arg(i).toProlog();
 		}
-
 		return functor().toProlog() + "(" + s + ")";
 	}
 
@@ -173,5 +170,10 @@ public abstract class CompoundTerm extends Term {
 	@Override
 	public int hashCode() {
 		return functor().hashCode() + arity();
+	}
+
+	@Override
+	public Term unwrapped() {
+		return this;
 	}
 }

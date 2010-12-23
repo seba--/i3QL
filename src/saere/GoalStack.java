@@ -32,84 +32,83 @@
 package saere;
 
 /**
- * The goal stack is a very simple, <i>immutable</i> linked list, that offers a
- * stack's standard operations (put, peek and drop) to manage a list of
- * {@link Solutions} iterators.
+ * The goal stack is a very simple, <i>immutable</i> linked list, that offers a stack's standard
+ * operations (put, peek and drop) to manage a list of {@link Solutions} iterators.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class GoalStack {
 
-	private final static class EmptyGoalStack extends GoalStack {
+    private final static class EmptyGoalStack extends GoalStack {
 
-		public EmptyGoalStack() {
-			// nothing to do
-		}
-
-		@Override
-		public GoalStack put(Solutions solutions) {
-			return new SomeGoalStack(this, solutions);
-		}
-
-		@Override
-		public Solutions peek() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
-
-		@Override
-		public GoalStack drop() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
-
-		@Override
-		public boolean isNotEmpty() {
-			return false;
-		}
+	public EmptyGoalStack() {
+	    // nothing to do
 	}
 
-	private final static class SomeGoalStack extends GoalStack {
-
-		private final GoalStack goalStack;
-		private final Solutions solutions;
-
-		public SomeGoalStack(GoalStack goalStack, Solutions solutions) {
-			this.goalStack = goalStack;
-			this.solutions = solutions;
-		}
-
-		@Override
-		public GoalStack put(Solutions furtherSolutions) {
-			return new SomeGoalStack(this, furtherSolutions);
-		}
-
-		@Override
-		public Solutions peek() {
-			return solutions;
-		}
-
-		@Override
-		public GoalStack drop() {
-			return goalStack;
-		}
-
-		@Override
-		public boolean isNotEmpty() {
-			return true;
-		}
-
+	@Override
+	public GoalStack put(Solutions solutions) {
+	    return new SomeGoalStack(this, solutions);
 	}
 
-	private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
-
-	public abstract GoalStack put(Solutions solutions);
-
-	public abstract Solutions peek() throws IllegalStateException;
-
-	public abstract GoalStack drop() throws IllegalStateException;
-
-	public abstract boolean isNotEmpty();
-
-	public static GoalStack emptyStack() {
-		return EMPTY_GOAL_STACK;
+	@Override
+	public Solutions peek() {
+	    throw new IllegalStateException("the goal stack is empty");
 	}
+
+	@Override
+	public GoalStack drop() {
+	    throw new IllegalStateException("the goal stack is empty");
+	}
+
+	@Override
+	public boolean isNotEmpty() {
+	    return false;
+	}
+    }
+
+    private final static class SomeGoalStack extends GoalStack {
+
+	private final GoalStack rest;
+	private final Solutions solutions;
+
+	public SomeGoalStack(GoalStack rest, Solutions solutions) {
+	    this.rest = rest;
+	    this.solutions = solutions;
+	}
+
+	@Override
+	public GoalStack put(Solutions furtherSolutions) {
+	    return new SomeGoalStack(this, furtherSolutions);
+	}
+
+	@Override
+	public Solutions peek() {
+	    return solutions;
+	}
+
+	@Override
+	public GoalStack drop() {
+	    return rest;
+	}
+
+	@Override
+	public boolean isNotEmpty() {
+	    return true;
+	}
+
+    }
+
+    private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
+
+    public abstract GoalStack put(Solutions solutions);
+
+    public abstract Solutions peek() throws IllegalStateException;
+
+    public abstract GoalStack drop() throws IllegalStateException;
+
+    public abstract boolean isNotEmpty();
+
+    public static GoalStack emptyStack() {
+	return EMPTY_GOAL_STACK;
+    }
 }

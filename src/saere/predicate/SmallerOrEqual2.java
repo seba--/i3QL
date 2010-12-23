@@ -29,32 +29,69 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.predicate;
 
-/**
- * Encapsulates the current state of a variable.
- * 
+import saere.PredicateFactory;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.Solutions;
+import saere.StringAtom;
+import saere.Term;
+import saere.TwoArgsPredicateFactory;
+
+/** 
+ * Prolog's arithmetic smaller than operator: "<". 
+ *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class VariableState implements State {
+public class SmallerOrEqual2 implements Solutions {
 
-	private final Variable headVariable;
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_SMALLER_OR_EQUAL_THAN_FUNCTOR, 2);
 
-	VariableState(final Variable headVariable) {
-		assert headVariable.getValue() == null : "the variable is bound; did you pass in the headVariable?";
+	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
-		this.headVariable = headVariable;
+		@Override
+		public Solutions createInstance(Term t1, Term t2) {
+			return new SmallerOrEqual2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
+
+	public SmallerOrEqual2(Term l, Term r) {
+		this.l = l;
+		this.r = r;
 	}
 
 	@Override
-	public void reset() {
-		headVariable.clear();
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isSmallerOrEqual(l, r);
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public String toString() {
-		return "VariableState[headVariableId="
-				+ Variable.variableToName(headVariable) + "]";
+	public void abort() {
+		// nothing to do...
 	}
 
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
+
+	public static boolean isSmallerOrEqual(Term l, Term r) {
+		return l.intEval() <= r.intEval();
+	}
 }

@@ -32,16 +32,16 @@
 package saere;
 
 /**
- * Representation of some atomic information; i.e., string atoms, float values
- * and integer values.
+ * Common interface implemented by {@link Term}s that represent atomic
+ * information. I.e., string atoms, float values and integer values.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class Atomic extends Term {
 
 	/**
-	 * @return <code>true</code>, because atomic information are by definition
-	 *         always ground.
+	 * @return <code>true</code>; atomic information are by definition always
+	 *         ground.
 	 */
 	@Override
 	public final boolean isGround() {
@@ -72,30 +72,22 @@ public abstract class Atomic extends Term {
 	}
 
 	/**
-	 * @return <code>null</code>; an atom's state is immutable and, hence, no
-	 *         state information needs to be preserved.<br/>
+	 * @return <code>null</code>; an atomic information's state is immutable
+	 *         and, hence, no state information needs to be preserved.<br/>
 	 */
 	/*
 	 * In general, the compiler tries to avoid explicit manifestation of an
 	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
 	 * however, requires whole program analyses.
 	 */
+	@Override
 	public final State manifestState() {
 		return null;
 	}
 
-	/**
-	 * Since an Atom's state is immutable, this method does nothing.
-	 * 
-	 * <p>
-	 * <b>Debugging Hint</b> If assertions are enabled we check that state is
-	 * <code>null</code>.
-	 * </p>
-	 * 
-	 * @param state
-	 *            The parameter is <i>"ignored"</i>.
-	 */
-	public final void setState(State state) {
-		assert (state == null);
+	@Override
+	public Term unwrapped() {
+		return this;
 	}
+
 }
