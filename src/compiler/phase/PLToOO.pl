@@ -35,7 +35,7 @@
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLtoOO',[pl_to_oo/4]).
+:- module('SAEProlog:Compiler:Phase:PhaseLtoOO',[pl_to_oo/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
@@ -120,9 +120,11 @@ process_predicate(DebugConfig,Program,Predicate) :-
 	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
 	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
 	% build the OO AST
+	% FIELDS
 	gen_fields_to_encapsulte_the_control_flow_state(Program,Predicate,S1,S2),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
 	S3 = [SConstructor,SClauseSelectorMethod,SAbortMethod,SChoiceCommittedMethod|S4],
+	% METHODS
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_choice_committed_method(Program,Predicate,SChoiceCommittedMethod),
@@ -134,6 +136,7 @@ process_predicate(DebugConfig,Program,Predicate) :-
 		]),
 	predicate_meta(Predicate,Meta),
 	add_to_meta(OOAST,Meta).	
+
 
 
 /*

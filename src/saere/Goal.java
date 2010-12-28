@@ -36,7 +36,7 @@ import saere.predicate.Cut0;
 
 /**
  * Main interface of all predicate implementations. The primary purpose of this
- * interface is to enable to iterate over all solutions for a given predicate.
+ * interface is to enable to iterate over all solutions for a given goal.
  * <p>
  * The programming model is as follows:
  * <ol>
@@ -59,7 +59,7 @@ import saere.predicate.Cut0;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public interface Solutions {
+public interface Goal {
 
 	/**
 	 * If this method succeeds - i.e., <code>true</code> is returned - at least

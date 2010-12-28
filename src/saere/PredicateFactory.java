@@ -38,6 +38,6 @@ package saere;
  */
 public interface PredicateFactory {
 
-	Solutions createInstance(Term[] args);
+	Goal createInstance(Term[] args);
 
 }

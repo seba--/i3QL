@@ -32,14 +32,14 @@
 package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
-import saere.CompoundTerm;
+import saere.ComplexTerm;
 import saere.OneArgPredicateFactory;
 import saere.PredicateIdentifier;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-public final class Minus1 extends CompoundTerm {
+public final class Minus1 extends ComplexTerm {
 
 	public static final OneArgPredicateFactory FACTORY = (OneArgPredicateFactory) predicateRegistry()
 			.getPredicateFactory(
@@ -74,7 +74,7 @@ public final class Minus1 extends CompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		return FACTORY.createInstance(t1);
 	}
 

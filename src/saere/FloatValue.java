@@ -84,7 +84,7 @@ public final class FloatValue extends Atomic {
     }
 
     @Override
-    public Solutions call() {
+    public Goal call() {
 	throw new IllegalStateException("calling float values is not possible");
     }
 

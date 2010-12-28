@@ -31,10 +31,10 @@
  */
 package saere.term;
 
-import saere.CompoundTerm;
+import saere.ComplexTerm;
 import saere.Term;
 
-public abstract class TwoArgsCompoundTerm extends CompoundTerm {
+public abstract class TwoArgsCompoundTerm extends ComplexTerm {
 
 	protected final Term t1;
 	protected final Term t2;

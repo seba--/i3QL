@@ -455,7 +455,7 @@ list_elements_2(Ops,ASTNode) -->
 /*
 	HANDLING OF COMPOUND/COMPLEX TERMS
 */
-compound_term(Ops,ASTNode) --> 
+compound_term(Ops,ASTNode) --> % TODO use "appropriate" imports to be able to use "complex term" here
 	[f(F,Pos)],
 	['('(_)],
 	term(Ops,999,T,_TermPriority), % a complex term has at least one argument

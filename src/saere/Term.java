@@ -129,7 +129,7 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link CompoundTerm}.
+	 *         {@link ComplexTerm}.
 	 */
 	public boolean isCompoundTerm() {
 		return false;
@@ -137,9 +137,9 @@ public abstract class Term {
 
 	/**
 	 * @return <code>this</code> if this term object is an instance of a
-	 *         {@link CompoundTerm}.
+	 *         {@link ComplexTerm}.
 	 */
-	public CompoundTerm asCompoundTerm() {
+	public ComplexTerm asCompoundTerm() {
 		throw new ClassCastException();
 	}
 
@@ -254,7 +254,7 @@ public abstract class Term {
 	 * @return A new instance of the predicate initialized using this term's
 	 *         current arguments.
 	 */
-	public abstract Solutions call();
+	public abstract Goal call();
 
 	/**
 	 * @return A textual representation of the term that uses the Prolog syntax.

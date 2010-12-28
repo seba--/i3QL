@@ -216,7 +216,7 @@ write_param_decl(Stream,param_decl(Type,Name)) :-
 write_type(Stream,type(int)) :- write(Stream,'int').
 write_type(Stream,type(boolean)) :- write(Stream,'boolean').
 write_type(Stream,type(void)) :- write(Stream,'void').
-write_type(Stream,type(goal)) :- write(Stream,'Solutions').
+write_type(Stream,type(goal)) :- write(Stream,'Goal').
 write_type(Stream,type(term)) :- write(Stream,'Term').
 write_type(Stream,type(variable)) :- write(Stream,'Variable').
 write_type(Stream,type(complex_term)) :- write(Stream,'ComplexTerm').
@@ -395,7 +395,7 @@ write_expr(Stream,complex_term(string_atom(';'),[LT,RT])) :- !,
 	write_expr(Stream,RT),
 	write(Stream,')').	
 write_expr(Stream,complex_term(Functor,Args)) :- !,
-	write(Stream,'compoundTerm('),
+	write(Stream,'complexTerm('),
 	write_expr(Stream,Functor),
 	write_complex_term_args(Stream,Args),
 	write(Stream,')').	
@@ -436,7 +436,7 @@ write_predicate_registration(Stream,Functor/Arity) :-
 		'	}\n',
 		'	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.get("',Functor,'"), ',Arity,');\n\n',
 		'	public final static PredicateFactory INSTANCE = new ',Functor,Arity,'Factory();\n\n',
-		'	public Solutions createInstance(Term[] args) {\n',
+		'	public Goal createInstance(Term[] args) {\n',
 		'		return new ',Functor,Arity,'(',ConstructorArgs,');\n',
 		'	}\n',
 		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',

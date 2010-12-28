@@ -36,25 +36,25 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class CompoundTermState implements State {
+final class ComplexTermState implements State {
 
     private final State state;
 
-    private CompoundTermState next;
+    private ComplexTermState next;
 
-    private CompoundTermState(State state) {
+    private ComplexTermState(State state) {
 	this.state = state;
     }
 
-    CompoundTermState append(@SuppressWarnings("hiding") State state) {
-	CompoundTermState tail = new CompoundTermState(state);
+    ComplexTermState append(@SuppressWarnings("hiding") State state) {
+	ComplexTermState tail = new ComplexTermState(state);
 	this.next = tail;
 	return tail;
     }
 
     @Override
     public String toString() {
-	CompoundTermState los = next;
+	ComplexTermState los = next;
 	String s = "[" + state;
 	while (los != null) {
 	    s += "," + los.toString();
@@ -64,7 +64,7 @@ final class CompoundTermState implements State {
     }
 
     public void reset() {
-	CompoundTermState cts = this;
+	ComplexTermState cts = this;
 	while (cts != null) {
 	    cts.state.reset();
 	    cts = cts.next;
@@ -72,18 +72,18 @@ final class CompoundTermState implements State {
     }
 
     final static class CompoundTermStatePointers {
-	CompoundTermState first;
-	CompoundTermState last;
+	ComplexTermState first;
+	ComplexTermState last;
     }
 
-    static CompoundTermState manifest(CompoundTerm compoundTerm) {
+    static ComplexTermState manifest(ComplexTerm compoundTerm) {
 	CompoundTermStatePointers pointers = new CompoundTermStatePointers();
 	doManifest(compoundTerm, pointers);
 	return pointers.first;
     }
 
     // we only manifest the state of the variables...
-    private static void doManifest(CompoundTerm compoundTerm, CompoundTermStatePointers pointers) {
+    private static void doManifest(ComplexTerm compoundTerm, CompoundTermStatePointers pointers) {
 	final int arity = compoundTerm.arity();
 	for (int i = 0; i < arity; i++) {
 	    Term arg_i = compoundTerm.arg(i);
@@ -92,7 +92,7 @@ final class CompoundTermState implements State {
 		if (vs == null)
 		    continue;
 		if (pointers.first == null)
-		    pointers.last = pointers.first = new CompoundTermState(vs);
+		    pointers.last = pointers.first = new ComplexTermState(vs);
 		else
 		    pointers.last = pointers.last.append(vs);
 	    } else if (arg_i.isCompoundTerm()) {

@@ -35,7 +35,7 @@ import saere.OneArgPredicateFactory;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
@@ -46,50 +46,50 @@ import saere.Term;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Write1 implements Solutions {
+public class Write1 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-	    StringAtom.get("write"), 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.get("write"), 1);
 
-    public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+
+		@Override
+		public Goal createInstance(Term t) {
+			return new Write1(t);
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private final Term t;
+
+	private boolean called = false;
+
+	public Write1(final Term t) {
+		this.t = t;
+	}
 
 	@Override
-	public Solutions createInstance(Term t) {
-	    return new Write1(t);
+	public boolean next() {
+		if (!called) {
+			called = true;
+			System.out.print(t.toProlog());
+			return true;
+		} else {
+			return false;
+		}
 	}
-    };
 
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private final Term t;
-
-    private boolean called = false;
-
-    public Write1(final Term t) {
-	this.t = t;
-    }
-
-    @Override
-    public boolean next() {
-	if (!called) {
-	    called = true;
-	    System.out.print(t.toProlog());
-	    return true;
-	} else {
-	    return false;
+	@Override
+	public void abort() {
+		// nothing to do
 	}
-    }
 
-    @Override
-    public void abort() {
-	// nothing to do
-    }
-
-    @Override
-    public boolean choiceCommitted() {
-	return false;
-    }
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
 
 }

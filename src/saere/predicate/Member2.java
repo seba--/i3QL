@@ -32,10 +32,9 @@
 package saere.predicate;
 
 import static saere.StringAtom.LIST;
-import saere.PredicateFactory;
+import saere.Goal;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
@@ -53,92 +52,88 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Member2 implements Solutions {
+public final class Member2 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-	    StringAtom.get("member"), 2);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.get("member"), 2);
 
-    public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Goal createInstance(Term t1, Term t2) {
+			return new Member2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private final static int SETUP = 0;
+	private final static int TEST = 1;
+	private final static int ADVANCE = 2;
+
+	private final Term testElement;
+	private State testElementState;
+	private Term list;
+	private Term listElement;
+	private State listElementState;
+	private int state = SETUP;
+
+
+	public Member2(final Term testElement, final Term list) {
+		// TODO is "unwrapping" of passed in terms meaningfull?
+		this.testElement = testElement.unwrapped();
+		this.list = list.unwrapped();
+	}
+
+	public boolean next() {
+		while (true) {
+			switch (state) {
+			case SETUP:
+				testElementState = testElement.manifestState();
+				state = TEST;
+			case TEST:
+				if (list.isVariable()) {
+					list = list.asVariable().binding();
+				}
+				if (list.arity() == 2 && list.functor().sameAs(LIST)) {
+					listElement = list.arg(0);
+					listElementState = listElement.manifestState();
+					state = ADVANCE;
+					if (testElement.unify(listElement)) {
+						return true;
+					}
+				} else {
+					return false;
+				}
+			case ADVANCE:
+				if (listElementState != null) {
+					listElementState.reset();
+				}
+				if (testElementState != null) {
+					testElementState.reset();
+				}
+
+				list = list.arg(1);
+				state = TEST;
+			}
+		}
+	}
 
 	@Override
-	public Solutions createInstance(Term t1, Term t2) {
-	    return new Member2(t1, t2);
-	}
-
-    };
-
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private final static int SETUP = 0;
-    private final static int TEST = 1;
-    private final static int ADVANCE = 2;
-
-    private final Term testElement;
-    private State testElementState;
-    private Term list;
-    private Term listElement;
-    private State listElementState;
-    private int state = SETUP;
-
-    // static int goalCounter;
-    // private int thisGoalId;
-
-    public Member2(final Term testElement, final Term list) {
-	this.testElement = testElement.unwrapped();
-	this.list = list.unwrapped();
-	// thisGoalId = goalCounter++;
-    }
-
-    public boolean next() {
-	while (true) {
-	    switch (state) {
-	    case SETUP:
-		// System.out.println(thisGoalId+"=>"+element.toProlog());
-		testElementState = testElement.manifestState();
-		state = TEST;
-	    case TEST:
-		if (list.isVariable()) {
-		    list = list.asVariable().binding();
-		}
-		if (list.arity() == 2 && list.functor().sameAs(LIST)) {
-		    listElement = list.arg(0);
-		    // System.out.println(thisGoalId+"[=>]"+listElement.toProlog());
-		    listElementState = listElement.manifestState();
-		    state = ADVANCE;
-		    if (testElement.unify(listElement)) {
-			return true;
-		    }
-		} else {
-		    return false;
-		}
-	    case ADVANCE:
+	public void abort() {
 		if (listElementState != null) {
-		    listElementState.reset();
+			listElementState.reset();
 		}
 		if (testElementState != null) {
-		    testElementState.reset();
+			testElementState.reset();
 		}
-
-		list = list.arg(1);
-		state = TEST;
-	    }
 	}
-    }
 
-    @Override
-    public void abort() {
-	if (listElementState != null) {
-	    listElementState.reset();
+	@Override
+	public boolean choiceCommitted() {
+		return false;
 	}
-	if (testElementState != null) {
-	    testElementState.reset();
-	}
-    }
-
-    @Override
-    public boolean choiceCommitted() {
-	return false;
-    }
 }

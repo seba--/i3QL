@@ -300,7 +300,7 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
 			throw new PrologException(

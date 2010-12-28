@@ -1,15 +1,15 @@
 package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
-import saere.CompoundTerm;
+import saere.ComplexTerm;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
 // TODO rethink how you create terms and the like...
-public final class GenericCompoundTerm extends CompoundTerm {
+public final class GenericCompoundTerm extends ComplexTerm {
 
 	private final StringAtom functor;
 	private final Term[] args;
@@ -35,7 +35,7 @@ public final class GenericCompoundTerm extends CompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		PredicateIdentifier pi = new PredicateIdentifier(this.functor, args.length);
 		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
 		return pf.createInstance(args);

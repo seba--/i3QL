@@ -1,12 +1,12 @@
 //package predicates;
 
 import static saere.term.Terms.and;
-import static saere.term.Terms.compoundTerm;
+import static saere.term.Terms.complexTerm;
 import predicates.list1Factory;
 import predicates.partition4Factory;
 import predicates.qsort3Factory;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
@@ -27,10 +27,10 @@ public class MainQSort {
 	    Variable list = new Variable();
 	    Variable result = new Variable();
 	    Term t = and(
-		    compoundTerm(StringAtom.get("list"), list),
-		    compoundTerm(StringAtom.get("qsort"), list, result,
+		    complexTerm(StringAtom.get("list"), list),
+		    complexTerm(StringAtom.get("qsort"), list, result,
 			    StringAtom.EMPTY_LIST));
-	    Solutions s = t.call();
+	    Goal s = t.call();
 	    if (!s.next()) {
 		throw new Error("internal programming error");
 	    }
@@ -49,10 +49,10 @@ public class MainQSort {
 		    Variable list = new Variable();
 		    Variable result = new Variable();
 		    Term t = and(
-			    compoundTerm(StringAtom.get("list"), list),
-			    compoundTerm(StringAtom.get("qsort"), list, result,
+			    complexTerm(StringAtom.get("list"), list),
+			    complexTerm(StringAtom.get("qsort"), list, result,
 				    StringAtom.EMPTY_LIST));
-		    Solutions s = t.call();
+		    Goal s = t.call();
 		    if (!s.next()) {			
 			throw new Error("internal programming error");
 		    }

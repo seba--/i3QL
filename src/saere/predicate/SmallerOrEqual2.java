@@ -31,10 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
+import saere.Goal;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
@@ -44,54 +43,54 @@ import saere.TwoArgsPredicateFactory;
  *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class SmallerOrEqual2 implements Solutions {
+public class SmallerOrEqual2 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-	    StringAtom.ARITH_SMALLER_OR_EQUAL_THAN, 2);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.ARITH_SMALLER_OR_EQUAL_THAN, 2);
 
-    public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Goal createInstance(Term t1, Term t2) {
+			return new SmallerOrEqual2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private final Term l;
+	private final Term r;
+	private boolean called = false;
+
+	public SmallerOrEqual2(Term l, Term r) {
+		this.l = l;
+		this.r = r;
+	}
 
 	@Override
-	public Solutions createInstance(Term t1, Term t2) {
-	    return new SmallerOrEqual2(t1, t2);
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isSmallerOrEqual(l, r);
+		} else {
+			return false;
+		}
 	}
 
-    };
-
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private final Term l;
-    private final Term r;
-    private boolean called = false;
-
-    public SmallerOrEqual2(Term l, Term r) {
-	this.l = l;
-	this.r = r;
-    }
-
-    @Override
-    public boolean next() {
-	if (!called) {
-	    called = true;
-	    return isSmallerOrEqual(l, r);
-	} else {
-	    return false;
+	@Override
+	public void abort() {
+		// nothing to do...
 	}
-    }
 
-    @Override
-    public void abort() {
-	// nothing to do...
-    }
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
 
-    @Override
-    public boolean choiceCommitted() {
-	return false;
-    }
-
-    public static boolean isSmallerOrEqual(Term l, Term r) {
-	return l.intEval() <= r.intEval();
-    }
+	public static boolean isSmallerOrEqual(Term l, Term r) {
+		return l.intEval() <= r.intEval();
+	}
 }

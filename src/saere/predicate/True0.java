@@ -31,11 +31,10 @@
  */
 package saere.predicate;
 
+import saere.Goal;
 import saere.NoArgsPredicateFactory;
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 
 /**
@@ -43,45 +42,46 @@ import saere.StringAtom;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class True0 implements Solutions {
+public final class True0 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.TRUE, 0);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.TRUE, 0);
 
-    public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+	public final static NoArgsPredicateFactory FACTORY = new NoArgsPredicateFactory() {
+
+		@Override
+		public Goal createInstance() {
+			return new True0();
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private boolean called = false;
+
+	public True0() {
+		// nothing to do
+	}
+
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	@Override
-	public Solutions createInstance() {
-	    return new True0();
+	public void abort() {
+		// nothing to do
 	}
-    };
 
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private boolean called = false;
-
-    public True0() {
-	// nothing to do
-    }
-
-    public boolean next() {
-	if (!called) {
-	    called = true;
-	    return true;
-	} else {
-	    return false;
+	@Override
+	public boolean choiceCommitted() {
+		return false;
 	}
-    }
-
-    @Override
-    public void abort() {
-	// nothing to do
-    }
-
-    @Override
-    public boolean choiceCommitted() {
-	return false;
-    }
 
 }

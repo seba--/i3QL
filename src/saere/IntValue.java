@@ -84,7 +84,7 @@ public final class IntValue extends Atomic {
     }
 
     @Override
-    public Solutions call() {
+    public Goal call() {
 	throw new IllegalStateException("calling integer values is not possible");
     }
 

@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class CompoundTerm extends Term {
+public abstract class ComplexTerm extends Term {
 
 	/**
 	 * @return <code>false</code>; always.
@@ -58,7 +58,7 @@ public abstract class CompoundTerm extends Term {
 	 * @return Always returns "<code>this</code>"
 	 */
 	@Override
-	public final CompoundTerm asCompoundTerm() {
+	public final ComplexTerm asCompoundTerm() {
 		return this;
 	}
 
@@ -104,11 +104,11 @@ public abstract class CompoundTerm extends Term {
 	 * </p>
 	 */
 	@Override
-	public CompoundTermState manifestState() {
+	public ComplexTermState manifestState() {
 		if (isGround()) {
 			return null;
 		} else {
-			return CompoundTermState.manifest(this);
+			return ComplexTermState.manifest(this);
 		}
 	}
 
@@ -121,7 +121,7 @@ public abstract class CompoundTerm extends Term {
 	 * compound term as well as the passed in compound term.
 	 * </p>
 	 */
-	public boolean unify(CompoundTerm other) {
+	public boolean unify(ComplexTerm other) {
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
@@ -152,8 +152,8 @@ public abstract class CompoundTerm extends Term {
 
 	@Override
 	public boolean equals(Object otherObject) {
-		if (otherObject instanceof CompoundTerm) {
-			CompoundTerm other = (CompoundTerm) otherObject;
+		if (otherObject instanceof ComplexTerm) {
+			ComplexTerm other = (ComplexTerm) otherObject;
 			int arity = arity();
 			if (arity == other.arity() && functor().sameAs(other.functor())) {
 				for (int i = 0; i < arity; i++) {

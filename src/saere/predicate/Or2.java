@@ -38,88 +38,87 @@ import saere.*;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Or2 implements Solutions {
+public final class Or2 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.OR, 2);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.OR, 2);
 
-    public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+
+		@Override
+		public Goal createInstance(Term t1, Term t2) {
+			return new Or2(t1, t2);
+		}
+
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private final Term l;
+	private final Term r;
+
+	private boolean choiceCommitted = false;
+
+	private int goalToExecute = 0;
+	// IMPROVE do we need a goalstack here... it should at most contain one
+	// value...
+	private GoalStack goalStack = GoalStack.emptyStack();
+
+	public Or2(final Term l, final Term r) {
+		this.l = l;
+		this.r = r;
+	}
+
+	public boolean next() {
+		while (true) {
+			switch (goalToExecute) {
+			case 0:
+				// prepare left goal...
+				goalStack = goalStack.put(l.call());
+				goalToExecute = 1;
+			case 1: {
+				// evaluate left goal...
+				Goal s = goalStack.peek();
+				if (s.next()) {
+					return true;
+				}
+
+				// the left goal failed...
+				if (s.choiceCommitted()) {
+					choiceCommitted = true;
+					return false;
+				}
+
+				// prepare right goal...
+				goalStack = GoalStack.emptyStack();
+				goalStack = goalStack.put(r.call());
+				goalToExecute = 2;
+
+			}
+			case 2: {
+				// evaluate right goal...
+				Goal s = goalStack.peek();
+				if (s.next()) {
+					return true;
+				}
+
+				// the right goal (also) failed...
+				choiceCommitted = s.choiceCommitted();
+				return false;
+			}
+			}
+		}
+	}
 
 	@Override
-	public Solutions createInstance(Term t1, Term t2) {
-	    return new Or2(t1, t2);
+	public void abort() {
+		goalStack = goalStack.abortPendingGoals();
 	}
 
-    };
-
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private final Term l;
-    private final Term r;
-
-    private boolean choiceCommitted = false;
-
-    private int goalToExecute = 0;
-    // IMPROVE do we need a goalstack here... it should at most contain one value...
-    private GoalStack goalStack = GoalStack.emptyStack();
-
-    public Or2(final Term l, final Term r) {
-	this.l = l;
-	this.r = r;
-    }
-
-    public boolean next() {
-	while (true) {
-	    switch (goalToExecute) {
-	    case 0:
-		// prepare left goal...
-		goalStack = goalStack.put(l.call());
-		goalToExecute = 1;
-	    case 1: {
-		// evaluate left goal...
-		Solutions s = goalStack.peek();
-		if (s.next()) {
-		    return true;
-		}
-
-		// the left goal failed...
-		if (s.choiceCommitted()) {
-		    choiceCommitted = true;
-		    return false;
-		}
-
-		// prepare right goal...
-		goalStack = GoalStack.emptyStack();
-		goalStack = goalStack.put(r.call());
-		goalToExecute = 2;
-
-	    }
-	    case 2: {
-		// evaluate right goal...
-		Solutions s = goalStack.peek();
-		if (s.next()) {
-		    return true;
-		}
-
-		// the right goal (also) failed...
-		choiceCommitted = s.choiceCommitted();
-		return false;
-	    }
-	    }
+	@Override
+	public boolean choiceCommitted() {
+		return choiceCommitted;
 	}
-    }
-
-    @Override
-    public void abort() {
-	while (goalStack.isNotEmpty()) {
-	    goalStack.peek().abort();
-	    goalStack = goalStack.drop();
-	}
-    }
-
-    @Override
-    public boolean choiceCommitted() {
-	return choiceCommitted;
-    }
 }

@@ -33,7 +33,7 @@ package saere;
 
 /**
  * The goal stack is a very simple, <i>immutable</i> linked list, that offers a stack's standard
- * operations (put, peek and drop) to manage a list of {@link Solutions} iterators.
+ * operations (put, peek and drop) to manage a list of {@link Goal} iterators.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
@@ -46,12 +46,12 @@ public abstract class GoalStack {
 	}
 
 	@Override
-	public GoalStack put(Solutions solutions) {
+	public GoalStack put(Goal solutions) {
 	    return new SomeGoalStack(this, solutions);
 	}
 
 	@Override
-	public Solutions peek() {
+	public Goal peek() {
 	    throw new IllegalStateException("the goal stack is empty");
 	}
 
@@ -74,20 +74,20 @@ public abstract class GoalStack {
     private final static class SomeGoalStack extends GoalStack {
 
 	private final GoalStack rest;
-	private final Solutions solutions;
+	private final Goal solutions;
 
-	public SomeGoalStack(GoalStack rest, Solutions solutions) {
+	public SomeGoalStack(GoalStack rest, Goal solutions) {
 	    this.rest = rest;
 	    this.solutions = solutions;
 	}
 
 	@Override
-	public GoalStack put(Solutions furtherSolutions) {
+	public GoalStack put(Goal furtherSolutions) {
 	    return new SomeGoalStack(this, furtherSolutions);
 	}
 
 	@Override
-	public Solutions peek() {
+	public Goal peek() {
 	    return solutions;
 	}
 
@@ -110,9 +110,9 @@ public abstract class GoalStack {
 
     private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
 
-    public abstract GoalStack put(Solutions solutions);
+    public abstract GoalStack put(Goal solutions);
 
-    public abstract Solutions peek() throws IllegalStateException;
+    public abstract Goal peek() throws IllegalStateException;
 
     public abstract GoalStack drop() throws IllegalStateException;
 

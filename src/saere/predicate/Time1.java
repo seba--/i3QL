@@ -31,57 +31,56 @@
  */
 package saere.predicate;
 
+import saere.Goal;
 import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
 /**
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Time1 implements Solutions {
+public final class Time1 implements Goal {
 
-    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-	    StringAtom.get("time"), 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.get("time"), 1);
 
-    public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
+
+		@Override
+		public Goal createInstance(Term t) {
+			return new Time1(t);
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
+
+	private Goal goal;
+
+	public Time1(final Term t) {
+
+		this.goal = t.call();
+	}
+
+	public boolean next() {
+		final long startTime = System.nanoTime();
+		final boolean succeeded = goal.next();
+		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
+		System.out.printf("%8.4f", new Double(duration));
+		return succeeded;
+	}
 
 	@Override
-	public Solutions createInstance(Term t) {
-	    return new Time1(t);
+	public void abort() {
+		goal.abort();
 	}
-    };
 
-    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-	registry.register(IDENTIFIER, FACTORY);
-    }
-
-    private Solutions solutions;
-
-    public Time1(final Term t) {
-
-	this.solutions = t.call();
-    }
-
-    public boolean next() {
-	final long startTime = System.nanoTime();
-	final boolean succeeded = solutions.next();
-	final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
-	System.out.printf("%8.4f", new Double(duration));
-	return succeeded;
-    }
-
-    @Override
-    public void abort() {
-	solutions.abort();
-    }
-
-    @Override
-    public boolean choiceCommitted() {
-	return false;
-    }
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
 
 }

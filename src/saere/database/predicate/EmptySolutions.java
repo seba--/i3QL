@@ -9,7 +9,7 @@ import saere.Solutions;
  * @author David Sullivan
  * @version 0.1, 9/22/2010
  */
-public class EmptySolutions implements Solutions {
+public class EmptySolutions implements Goal {
 	
 	private static final EmptySolutions INSTANCE = new EmptySolutions();
 	

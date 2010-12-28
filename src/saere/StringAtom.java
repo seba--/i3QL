@@ -126,7 +126,7 @@ public final class StringAtom extends Atomic {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		PredicateIdentifier pi = new PredicateIdentifier(this, 0);
 		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
 		return ((NoArgsPredicateFactory) pf).createInstance();

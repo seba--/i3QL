@@ -32,12 +32,12 @@
 package saere.term;
 
 
-import saere.CompoundTerm;
-import saere.Solutions;
+import saere.ComplexTerm;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-public final class Equals2 extends CompoundTerm {
+public final class Equals2 extends ComplexTerm {
 
 	private final Term l;
 	private final Term r;
@@ -68,7 +68,7 @@ public final class Equals2 extends CompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		return new saere.predicate.Unify2(l, r);
 	}
 }

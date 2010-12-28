@@ -1,7 +1,7 @@
 //package predicates;
 
 import static saere.term.Terms.atomic;
-import static saere.term.Terms.compoundTerm;
+import static saere.term.Terms.complexTerm;
 import predicates.not_attack2Factory;
 import predicates.not_attack3Factory;
 import predicates.queens2Factory;
@@ -9,7 +9,7 @@ import predicates.queens3Factory;
 import predicates.range3Factory;
 import predicates.select3Factory;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Variable;
 
@@ -30,8 +30,8 @@ public class MainQueens {
 			Variable solution = new Variable();
 			StringAtom time = StringAtom.get("time");
 			StringAtom queens = StringAtom.get("queens");
-			Solutions s = compoundTerm(time,
-					compoundTerm(queens, atomic(i), solution)).call();
+			Goal s = complexTerm(time,
+					complexTerm(queens, atomic(i), solution)).call();
 			if (s.next()) {
 				System.out.println(" ; " + i + " => " + solution.toProlog());
 			} else {
@@ -52,8 +52,8 @@ public class MainQueens {
 					Variable solution = new Variable();
 					StringAtom time = StringAtom.get("time");
 					StringAtom queens = StringAtom.get("queens");
-					Solutions s = compoundTerm(time,
-							compoundTerm(queens, atomic(i), solution)).call();
+					Goal s = complexTerm(time,
+							complexTerm(queens, atomic(i), solution)).call();
 					if (s.next()) {
 						System.out.println(" ; " + i + " => "
 								+ solution.toProlog());

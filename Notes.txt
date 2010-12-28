@@ -1,37 +1,4 @@
 Some examples how to use the compiler:
 
+compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
 
-compile('demo/queens/Queens.pl','build/src/java').
-
-
-
-package predicates;
-
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Variable;
-import static saere.term.TermFactory.*;
-
-public class Main {
-
-	public static void main(String[] args) {
-		PredicateRegistry registry = PredicateRegistry.instance();
-
-		not_attack2.registerWithPredicateRegistry(registry);
-		not_attack3.registerWithPredicateRegistry(registry);
-		queens2.registerWithPredicateRegistry(registry);
-		queens3.registerWithPredicateRegistry(registry);
-		range3.registerWithPredicateRegistry(registry);
-		select3.registerWithPredicateRegistry(registry);
-
-		Variable solution = new Variable();
-		StringAtom time = StringAtom.instance("time");
-		StringAtom queens = StringAtom.instance("queens");
-		Solutions s = compoundTerm(time, compoundTerm(queens,atom(20), solution)).call();
-		if (s.next()) {
-			System.out.println(solution);
-		}
-	}
-
-}

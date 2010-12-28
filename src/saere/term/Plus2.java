@@ -33,7 +33,7 @@ package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
 import saere.PredicateIdentifier;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
@@ -59,7 +59,7 @@ public final class Plus2 extends TwoArgsCompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		return FACTORY.createInstance(t1, t2);
 	}
 

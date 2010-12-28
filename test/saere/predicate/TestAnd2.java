@@ -39,7 +39,7 @@ import static saere.term.Terms.unify;
 import org.junit.Assert;
 import org.junit.Test;
 
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
@@ -54,7 +54,7 @@ public class TestAnd2 {
 	Variable v = new Variable();
 	Term t1 = unify(v, atomic(1));
 	Term t2 = atomic("true");
-	Solutions solutions = and(t1, t2).call();
+	Goal solutions = and(t1, t2).call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 2) {
 	    solutionsCount++;
@@ -69,7 +69,7 @@ public class TestAnd2 {
 
 	Term t1 = atomic("repeat");
 	Term t2 = atomic("true");
-	Solutions solutions = and(t1, t2).call();
+	Goal solutions = and(t1, t2).call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 1000) {
 	    solutionsCount++;
@@ -86,7 +86,7 @@ public class TestAnd2 {
 	Term t3 = atomic("!");
 	Term t4 = and(t1, t2);
 	Term t5 = and(t4, t3);
-	Solutions solutions = t5.call();
+	Goal solutions = t5.call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 2) {
 	    solutionsCount++;
@@ -103,7 +103,7 @@ public class TestAnd2 {
 	Term t3 = atomic("!");
 	Term t4 = and(t1, t3);
 	Term t5 = and(t4, t2);
-	Solutions solutions = t5.call();
+	Goal solutions = t5.call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 2) {
 	    solutionsCount++;
@@ -122,7 +122,7 @@ public class TestAnd2 {
 	Term t5 = and(t1, t2);
 	Term t6 = and(t5, t3);
 	Term t7 = or(t6, t4);
-	Solutions solutions = t7.call();
+	Goal solutions = t7.call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 2) {
 	    solutionsCount++;
@@ -140,7 +140,7 @@ public class TestAnd2 {
 	Term t4 = or(t2, t3);
 	Term t5 = and(t1, t4);
 	Term t6 = and(t5, t2);
-	Solutions solutions = t6.call();
+	Goal solutions = t6.call();
 	int solutionsCount = 0;
 	while (solutions.next() && solutionsCount < 10) {
 	    solutionsCount++;
