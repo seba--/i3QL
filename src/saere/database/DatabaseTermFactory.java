@@ -7,41 +7,47 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import saere.Atom;
+import saere.Atomic;
 import saere.CompoundTerm;
-import saere.IntegerAtom;
+import saere.IntValue;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
-import saere.meta.GenericCompoundTerm;
-import saere.term.EmptyList0;
+import saere.term.GenericCompoundTerm;
 import saere.term.ListElement2;
 import scala.Function1;
 import scala.collection.Seq;
 import scala.collection.mutable.ArraySeq;
+import saere.FloatValue;
 import de.tud.cs.st.bat.PrologTermFactory;
 
 /**
  * The Database Term Factory.
  * 
  * @author David Sullivan
- * @version 0.3, 11/11/2010
+ * @version 0.5, 12/20/2010
  */
-public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, Atom> {
+public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, Atomic> {
 	
 	// Singleton, because there should be only one factory that assigns unique IDs.
 	private static final DatabaseTermFactory INSTANCE = new DatabaseTermFactory();
+	
+	// Use a separate counter for each ID prefix? (BAT's default Prolog writer doesn't do this.)
+	private static final boolean USE_PREFIX_COUNTER = false;
 	
 	private final HashMap<String, AtomicInteger> keyCounters;
 	private final StringAtom noneAtom;
 	private final StringAtom yesAtom;
 	private final StringAtom noAtom;
+	
+	private int keyCounter;
 
 	private DatabaseTermFactory() {
 		keyCounters = new HashMap<String, AtomicInteger>();
-		noneAtom = StringAtom.StringAtom("none");
-		yesAtom = StringAtom.StringAtom("yes");
-		noAtom = StringAtom.StringAtom("no");
+		keyCounter = 1;
+		noneAtom = StringAtom.instance("none");
+		yesAtom = StringAtom.instance("yes");
+		noAtom = StringAtom.instance("no");
 	}
 	
 	/**
@@ -55,59 +61,64 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 
 	@Override
 	public CompoundTerm Fact(String functor, Seq<Term> args) {
-		return new GenericCompoundTerm(StringAtom.StringAtom(functor), array(args));
+		return new GenericCompoundTerm(StringAtom.instance(functor), array(args));
 	}
 
 	@Override
-	public Atom FloatAtom(double value) {
-		return IntegerAtom.IntegerAtom((int) value); // FIXME Real float atoms required
+	public Atomic FloatAtom(double value) {
+		return FloatValue.instance(value);
 	}
 
 	@Override
-	public Atom IntegerAtom(long value) {
+	public Atomic IntegerAtom(long value) {
 		// XXX Is cast to integer okay?
-		return IntegerAtom.IntegerAtom((int) value);
+		return IntValue.IntegerAtom((int) value);
 	}
 
 	@Override
-	public Atom StringAtom(String value) {
-		return StringAtom.StringAtom(value);
+	public Atomic StringAtom(String value) {
+		return StringAtom.instance(value);
 	}
 
 	@Override
 	public Term Term(String functor, Seq<Term> args) {
-		return new GenericCompoundTerm(StringAtom.StringAtom(functor), array(args));
+		return new GenericCompoundTerm(StringAtom.instance(functor), array(args));
 	}
 
 	// XXX Add quotation marks?
 	@Override
-	public Atom TextAtom(String value) {
-		return StringAtom.StringAtom(value);
+	public Atomic TextAtom(String value) {
+		return StringAtom.instance(value);
 	}
-
+	
 	@Override
-	public Atom KeyAtom(String prefix) {
-		AtomicInteger counter = keyCounters.get(prefix);
-		if (counter == null) {
-			counter = new AtomicInteger(1);
-			keyCounters.put(prefix, counter);
-		}
+	public Atomic KeyAtom(String prefix) {
 		
-		return StringAtom.StringAtom(prefix + counter.getAndIncrement());
+		if (USE_PREFIX_COUNTER) {
+			AtomicInteger counter = keyCounters.get(prefix);
+			if (counter == null) {
+				counter = new AtomicInteger(1);
+				keyCounters.put(prefix, counter);
+			}
+			
+			return StringAtom.instance(prefix + counter.getAndIncrement());
+		} else {
+			return StringAtom.instance(prefix + (keyCounter++));
+		}
 	}
 
 	@Override
-	public Atom NoneAtom() {
+	public Atomic NoneAtom() {
 		return noneAtom;
 	}
 	
 	@Override
-	public Atom YesAtom() {
+	public Atomic YesAtom() {
 		return yesAtom;
 	}
 	
 	@Override
-	public Atom NoAtom() {
+	public Atomic NoAtom() {
 		return noAtom;
 	}
 	
@@ -185,7 +196,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 		if (ts.size() > 1) {
 			return new ListElement2(ts.pop(), list(ts));
 		} else {
-			return new EmptyList0();
+			return StringAtom.EMPTY_LIST_FUNCTOR;
 		}
 	}
 	
@@ -194,6 +205,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 */
 	public void reset() {
 		keyCounters.clear();
+		keyCounter = 1;
 	}
 	
 	// Convenience methods...
@@ -204,8 +216,8 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 * @param value The value for the integer atom.
 	 * @return An integer atom.
 	 */
-	public static IntegerAtom ia(int value) {
-		return IntegerAtom.IntegerAtom(value);
+	public static IntValue ia(int value) {
+		return IntValue.IntegerAtom(value);
 	}
 
 	/**
@@ -215,7 +227,7 @@ public class DatabaseTermFactory extends PrologTermFactory<CompoundTerm, Term, A
 	 * @return A string atom.
 	 */
 	public static StringAtom sa(String value) {
-		return StringAtom.StringAtom(value);
+		return StringAtom.instance(value);
 	}
 
 	/**

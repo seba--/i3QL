@@ -3,13 +3,13 @@ package saere.database.index;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
-import saere.Atom;
+import saere.Atomic;
 
 /**
  * Represents labels of {@link InnerNode}s.
  * 
  * @author David Sullivan
- * @version 0.1, 11/9/2010
+ * @version 0.2, 12/20/2010
  */
 public abstract class Label {
 	
@@ -35,7 +35,7 @@ public abstract class Label {
 	 * 
 	 * @return The underlying atom.
 	 */
-	public abstract Atom atom();
+	public abstract Atomic atom();
 	
 	/**
 	 * Checks wether the tow labels are the same.

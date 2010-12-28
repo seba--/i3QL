@@ -1,5 +1,7 @@
 package saere.database;
 
+import static saere.database.Utils.isGround;
+
 import java.util.Iterator;
 
 import saere.StringAtom;
@@ -46,7 +48,14 @@ public class TrieDatabase extends Database {
 	
 	@Override
 	public void add(Term fact) {
+		assert isGround(fact) : "The specified fact is not ground";
 		builder.insert(fact, root);
+	}
+	
+	@Override
+	public void remove(Term fact) {
+		assert isGround(fact) : "The specified fact is not ground";
+		builder.remove(fact, root);
 	}
 
 	@Override
@@ -85,5 +94,10 @@ public class TrieDatabase extends Database {
 	@Override
 	public DatabaseAdapter getAdapter(StringAtom functor, int arity) {
 		return new TrieAdapter(this, functor, arity);
+	}
+	
+	@Override
+	public String toString() {
+		return builder.flattener().getClass().getSimpleName() + " " + this.getClass().getSimpleName();
 	}
 }

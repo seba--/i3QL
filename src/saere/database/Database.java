@@ -22,6 +22,13 @@ public abstract class Database {
 	public abstract void add(Term fact);
 	
 	/**
+	 * Removes a term (fact) from the database.
+	 * 
+	 * @param fact
+	 */
+	public abstract void remove(Term fact);
+	
+	/**
 	 * Fills the database with the facts of the {@link Factbase}.
 	 */
 	public void fill() {
@@ -58,6 +65,7 @@ public abstract class Database {
 	 * @param query The query.
 	 * @return An iterator for the candidates.
 	 */
+	@Deprecated
 	public abstract Iterator<Term> query(Term query);
 	
 	public abstract DatabaseAdapter getAdapter(StringAtom functor, int arity);

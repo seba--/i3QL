@@ -44,8 +44,10 @@ public final class FullFlattener extends TermFlattener {
 			for (int i = 0; i < args.length; i++) {		
 				flattened.addAll(flattenTerm(args[i]));
 			}
-		} else if (term.isIntegerAtom()) {
-			flattened.add(AtomLabel.AtomLabel(term.asIntegerAtom()));
+		} else if (term.isIntValue()) {
+			flattened.add(AtomLabel.AtomLabel(term.asIntValue()));
+		} else if (term.isFloatValue()) {
+			flattened.add(AtomLabel.AtomLabel(term.asFloatValue()));
 		} else if (term.isVariable()) {
 			Term binding = term.asVariable().binding();
 			if (binding != null) {
@@ -54,12 +56,12 @@ public final class FullFlattener extends TermFlattener {
 				flattened.add(VariableLabel.VariableLabel());
 			}
 		} else { // 'term.isList()'
-			if (!term.functor().sameAs(StringAtom.emptyList)) {
+			if (term.functor().sameAs(StringAtom.EMPTY_LIST_FUNCTOR)) {
+				flattened.add(AtomLabel.AtomLabel(term.functor()));
+			} else {
 				flattened.add(FunctorLabel.FunctorLabel(term.functor(), term.arity()));
 				flattened.addAll(flattenTerm(term.arg(0)));
 				flattened.addAll(flattenTerm(term.arg(1)));
-			} else {
-				flattened.add(AtomLabel.AtomLabel(term.functor()));
 			}
 		}
 		

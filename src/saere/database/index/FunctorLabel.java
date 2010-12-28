@@ -2,19 +2,19 @@ package saere.database.index;
 
 import java.lang.ref.WeakReference;
 
-import saere.Atom;
+import saere.Atomic;
 
 /**
  * Represents a simple functor label (a single atom with an associated arity).
  * 
  * @author David Sullivan
- * @version 0.1, 11/9/2010
+ * @version 0.2, 12/20/2010
  */
 public final class FunctorLabel extends SimpleLabel {
 	
 	private final int arity;
 	
-	private FunctorLabel(Atom atom, int arity) {
+	private FunctorLabel(Atomic atom, int arity) {
 		super(atom);
 		assert arity > 0 : "arity must be greater-than 0"; // If zero, we should use an AtomLabel
 		this.arity = arity;
@@ -41,7 +41,7 @@ public final class FunctorLabel extends SimpleLabel {
 	
 	//@SuppressWarnings("constructorName")
 	@SuppressWarnings("all")
-	public static FunctorLabel FunctorLabel(Atom atom, int arity) {
+	public static FunctorLabel FunctorLabel(Atomic atom, int arity) {
 		final Label candidate = new FunctorLabel(atom, arity);
 		synchronized (CACHE) {
 			WeakReference<Label> cached = CACHE.get(candidate);
@@ -55,6 +55,6 @@ public final class FunctorLabel extends SimpleLabel {
 	
 	@Override
 	public String toString() {
-		return atom.toString() + ":" + arity;
+		return atom.toString() + "/" + arity;
 	}
 }

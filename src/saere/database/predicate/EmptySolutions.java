@@ -24,4 +24,14 @@ public class EmptySolutions implements Solutions {
 	public boolean next() {
 		return false;
 	}
+
+	@Override
+	public boolean choiceCommitted() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void abort() {
+		throw new UnsupportedOperationException();
+	}
 }

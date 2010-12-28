@@ -8,12 +8,13 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
+// TODO rethink how you create terms and the like...
 public final class GenericCompoundTerm extends CompoundTerm {
 
 	private final StringAtom functor;
 	private final Term[] args;
 
-	GenericCompoundTerm(StringAtom functor, Term[] args) {
+	public GenericCompoundTerm(StringAtom functor, Term[] args) {
 		this.functor = functor;
 		this.args = args;
 	}
