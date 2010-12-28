@@ -45,44 +45,43 @@ import saere.StringAtom;
  */
 public final class True0 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.TRUE_FUNCTOR, 0);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.TRUE, 0);
 
-	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance() {
-			return new True0();
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private boolean called = false;
-
-	public True0() {
-		// nothing to do
-	}
-
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return true;
-		} else {
-			return false;
-		}
-	}
+    public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
 	@Override
-	public void abort() {
-		// nothing to do
+	public Solutions createInstance() {
+	    return new True0();
 	}
+    };
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
+
+    private boolean called = false;
+
+    public True0() {
+	// nothing to do
+    }
+
+    public boolean next() {
+	if (!called) {
+	    called = true;
+	    return true;
+	} else {
+	    return false;
 	}
+    }
+
+    @Override
+    public void abort() {
+	// nothing to do
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 
 }

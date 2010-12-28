@@ -44,44 +44,44 @@ import saere.Term;
  */
 public final class Time1 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("time"), 1);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.get("time"), 1);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Time1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private Solutions solutions;
-
-	public Time1(final Term t) {
-
-		this.solutions = t.call();
-	}
-
-	public boolean next() {
-		final long startTime = System.nanoTime();
-		final boolean succeeded = solutions.next();
-		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
-		System.out.printf("%8.4f", new Double(duration));
-		return succeeded;
-	}
+    public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 	@Override
-	public void abort() {
-		solutions.abort();
+	public Solutions createInstance(Term t) {
+	    return new Time1(t);
 	}
+    };
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
+
+    private Solutions solutions;
+
+    public Time1(final Term t) {
+
+	this.solutions = t.call();
+    }
+
+    public boolean next() {
+	final long startTime = System.nanoTime();
+	final boolean succeeded = solutions.next();
+	final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
+	System.out.printf("%8.4f", new Double(duration));
+	return succeeded;
+    }
+
+    @Override
+    public void abort() {
+	solutions.abort();
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 
 }

@@ -38,67 +38,66 @@ package saere;
  */
 final class CompoundTermState implements State {
 
-	private final State state;
+    private final State state;
 
-	private CompoundTermState next;
+    private CompoundTermState next;
 
-	private CompoundTermState(State state) {
-		this.state = state;
+    private CompoundTermState(State state) {
+	this.state = state;
+    }
+
+    CompoundTermState append(@SuppressWarnings("hiding") State state) {
+	CompoundTermState tail = new CompoundTermState(state);
+	this.next = tail;
+	return tail;
+    }
+
+    @Override
+    public String toString() {
+	CompoundTermState los = next;
+	String s = "[" + state;
+	while (los != null) {
+	    s += "," + los.toString();
+	    los = los.next;
 	}
+	return s += "]";
+    }
 
-	CompoundTermState append(@SuppressWarnings("hiding") State state) {
-		CompoundTermState tail = new CompoundTermState(state);
-		this.next = tail;
-		return tail;
+    public void reset() {
+	CompoundTermState cts = this;
+	while (cts != null) {
+	    cts.state.reset();
+	    cts = cts.next;
 	}
+    }
 
-	@Override
-	public String toString() {
-		CompoundTermState los = next;
-		String s = "[" + state;
-		while (los != null) {
-			s += "," + los.toString();
-			los = los.next;
-		}
-		return s += "]";
-	}
+    final static class CompoundTermStatePointers {
+	CompoundTermState first;
+	CompoundTermState last;
+    }
 
-	public void reset() {
-		CompoundTermState cts = this;
-		while (cts != null) {
-			cts.state.reset();
-			cts = cts.next;
-		}
-	}
+    static CompoundTermState manifest(CompoundTerm compoundTerm) {
+	CompoundTermStatePointers pointers = new CompoundTermStatePointers();
+	doManifest(compoundTerm, pointers);
+	return pointers.first;
+    }
 
-	final static class CompoundTermStatePointers {
-		CompoundTermState first;
-		CompoundTermState last;
+    // we only manifest the state of the variables...
+    private static void doManifest(CompoundTerm compoundTerm, CompoundTermStatePointers pointers) {
+	final int arity = compoundTerm.arity();
+	for (int i = 0; i < arity; i++) {
+	    Term arg_i = compoundTerm.arg(i);
+	    if (arg_i.isVariable()) {
+		State vs = arg_i.asVariable().manifestState();
+		if (vs == null)
+		    continue;
+		if (pointers.first == null)
+		    pointers.last = pointers.first = new CompoundTermState(vs);
+		else
+		    pointers.last = pointers.last.append(vs);
+	    } else if (arg_i.isCompoundTerm()) {
+		doManifest(arg_i.asCompoundTerm(), pointers);
+	    }
 	}
-
-	static CompoundTermState manifest(CompoundTerm compoundTerm) {
-		CompoundTermStatePointers pointers = new CompoundTermStatePointers();
-		doManifest(compoundTerm, pointers);
-		return pointers.first;
-	}
-
-	// we only manifest the state of the variables...
-	private static void doManifest(CompoundTerm compoundTerm,
-			CompoundTermStatePointers pointers) {
-		final int arity = compoundTerm.arity();
-		for (int i = 0; i < arity; i++) {
-			Term arg_i = compoundTerm.arg(i);
-			if (arg_i.isVariable()) {
-				State vs = arg_i.asVariable().manifestState();
-				if (vs == null)
-					continue;
-				if (pointers.first == null)
-					pointers.last = pointers.first = new CompoundTermState(vs);
-				else
-					pointers.last = pointers.last.append(vs);
-			} else if (arg_i.isCompoundTerm()) {
-				doManifest(arg_i.asCompoundTerm(), pointers);
-			}
-		}
-	}
+    }
 }

@@ -47,7 +47,7 @@ public final class Cut0 implements Solutions {
 
 	
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.CUT_FUNCTOR, 0);
+			StringAtom.CUT, 0);
 
 	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 		

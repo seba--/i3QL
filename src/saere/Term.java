@@ -31,7 +31,7 @@
  */
 package saere;
 
-import static saere.IntValue.IntegerAtom;
+import static saere.IntValue.get;
 
 /**
  * Representation of a Prolog term.
@@ -345,7 +345,7 @@ public abstract class Term {
 			if (hvv != null) {
 				return hvv.intEval() == value;
 			} else {
-				hv.setValue(IntegerAtom(value));
+				hv.setValue(get(value));
 				return true;
 			}
 		} else {

@@ -31,13 +31,13 @@
  */
 package saere.term;
 
-import static saere.StringAtom.OR_FUNCTOR;
+import static saere.StringAtom.OR;
 import saere.CompoundTerm;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-final class Or2 extends CompoundTerm {
+public final class Or2 extends CompoundTerm {
 
 	private final Term l;
 	private final Term r;
@@ -54,7 +54,7 @@ final class Or2 extends CompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return OR_FUNCTOR;
+		return OR;
 	}
 
 	@Override

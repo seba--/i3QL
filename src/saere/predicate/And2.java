@@ -41,7 +41,7 @@ import saere.*;
 public final class And2 implements Solutions {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.AND_FUNCTOR, 2);
+			StringAtom.AND, 2);
 
 	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 

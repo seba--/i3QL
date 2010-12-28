@@ -66,57 +66,57 @@ import saere.Term;
  */
 public final class Not1 implements Solutions {
 
-	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
-	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+    public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.NOT, 1);
+    public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.NOT_OPERATOR, 1);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Not1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(NOT_IDENTIFIER, FACTORY);
-		registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
-	}
-
-	private final Term t;
-
-	private boolean called = false;
-
-	public Not1(final Term t) {
-
-		this.t = t;
-	}
+    public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
-		} else {
-			return false;
-		}
+	public Solutions createInstance(Term t) {
+	    return new Not1(t);
 	}
+    };
 
-	@Override
-	public void abort() {
-		// nothing to do
-	}
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(NOT_IDENTIFIER, FACTORY);
+	registry.register(NOT_OPERATOR_IDENTIFIER, FACTORY);
+    }
 
-	@Override
-	public boolean choiceCommitted() {
+    private final Term t;
+
+    private boolean called = false;
+
+    public Not1(final Term t) {
+
+	this.t = t;
+    }
+
+    @Override
+    public boolean next() {
+	if (!called) {
+	    final Solutions s = t.call();
+	    final boolean succeeded = s.next();
+	    if (succeeded) {
+		s.abort();
 		return false;
+	    } else {
+		called = true;
+		return true;
+	    }
+	} else {
+	    return false;
 	}
+    }
+
+    @Override
+    public void abort() {
+	// nothing to do
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 }

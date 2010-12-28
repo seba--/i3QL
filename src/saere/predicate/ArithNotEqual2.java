@@ -47,7 +47,7 @@ import saere.TwoArgsPredicateFactory;
 public final class ArithNotEqual2 implements Solutions {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.ARITH_IS_NOT_EQUAL_FUNCTOR, 2);
+			StringAtom.ARITH_IS_NOT_EQUAL, 2);
 
 	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 

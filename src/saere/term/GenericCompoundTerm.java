@@ -8,7 +8,7 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-final class GenericCompoundTerm extends CompoundTerm {
+public final class GenericCompoundTerm extends CompoundTerm {
 
 	private final StringAtom functor;
 	private final Term[] args;

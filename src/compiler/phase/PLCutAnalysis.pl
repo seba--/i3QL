@@ -32,34 +32,33 @@
 
 
 /**
-	Checks that the SAE Prolog program is valid.
+	Analysis a clause to check if the clause performs a cut.
 	
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:PLCheck',[pl_check/4]).
+:- module('Compiler:Phase:PLCutAnalysis',[pl_cut_analysis/4]).
 
+:- use_module('../AST.pl').
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
 
 
 
-pl_check(DebugConfig,Program,_OutputFolder,Program) :-
-	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Check Program________________________________________________\n')),
-	check_predicates(Program,State),
-	% The following unification (and subsequently the pl_check predicate as a 
-	% whole) fails if an error was found.
-	State = no_errors. 
+pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
+	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Cut Analysis_________________________________________________\n')),
+	foreach_user_predicate(Program,process_predicate(Program)).
 
 
 
-/**
-	Validates the SAE program.
-*/
-check_predicates(_,_State). % :- !.
-% TODO implement a check for singleton variables
-% TODO implement a check for multiple occurences of the same "named" anonymous variable
-% TODO implement a check that all gooals exist (unresolved references)
-% TODO check that no "default" operators are overridden
+process_predicate(Program,Predicate) :-
+	predicate_clauses(Predicate,Clauses),
+	foreach_clause(Clauses,analyze_cut).
 
 
 
+analyze_cut(Clause) :-
+	clause_implementation(Clause,Implementation),
+	rule_body(Implementation,BodyASTNode),
+	cut_analysis(BodyASTNode,Cut),
+	clause_meta(Clause,Meta),	
+	add_to_meta(cut(Cut),Meta).

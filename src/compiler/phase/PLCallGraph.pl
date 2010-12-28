@@ -3,7 +3,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:CallGraph',[pl_call_graph/4]).
+:- module('Compiler:Phase:PLCallGraph',[pl_call_graph/4]).
 
 :- use_module('../Predef.pl').
 :- use_module('../Utils.pl').

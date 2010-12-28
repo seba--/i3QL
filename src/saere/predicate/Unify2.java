@@ -31,7 +31,6 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.Solutions;
@@ -47,64 +46,68 @@ import saere.TwoArgsPredicateFactory;
  */
 public final class Unify2 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.UNIFY_FUNCTOR, 2);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.UNIFY,
+	    2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t1, Term t2) {
-			return new Unify2(t1, t2);
-		}
-
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term l;
-	private final Term r;
-	private State lState;
-	private State rState;
-
-	private boolean called = false;
-
-	public Unify2(final Term l, final Term r) {
-		this.l = l;
-		this.r = r;
-	}
+    public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			lState = l.manifestState();
-			rState = r.manifestState();
-			if (l.unify(r)) {
-				called = true;
-				return true;
-			}
-		}
-		// unification failed...
-		if (lState != null) lState.reset();
-		if (rState != null) rState.reset();
-		lState = null;
-		rState = null;
-		return false;
+	public Solutions createInstance(Term t1, Term t2) {
+	    return new Unify2(t1, t2);
 	}
 
-	@Override
-	public void abort() {
-		// the method protocol prescribes that you must have called next()
-		// before (at least once) and next has never returned false.
-		if (lState != null) lState.reset();
-		if (rState != null) rState.reset();
-		lState = null;
-		rState = null;
-	}
+    };
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
+
+    private final Term l;
+    private final Term r;
+    private State lState;
+    private State rState;
+
+    private boolean called = false;
+
+    public Unify2(final Term l, final Term r) {
+	this.l = l;
+	this.r = r;
+    }
+
+    @Override
+    public boolean next() {
+	if (!called) {
+	    lState = l.manifestState();
+	    rState = r.manifestState();
+	    if (l.unify(r)) {
+		called = true;
+		return true;
+	    }
 	}
+	// unification failed...
+	if (lState != null)
+	    lState.reset();
+	if (rState != null)
+	    rState.reset();
+	lState = null;
+	rState = null;
+	return false;
+    }
+
+    @Override
+    public void abort() {
+	// the method protocol prescribes that you must have called next()
+	// before (at least once) and next has never returned false.
+	if (lState != null)
+	    lState.reset();
+	if (rState != null)
+	    rState.reset();
+	lState = null;
+	rState = null;
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 }

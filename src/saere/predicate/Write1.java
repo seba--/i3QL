@@ -48,48 +48,48 @@ import saere.Term;
  */
 public class Write1 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("write"), 1);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.get("write"), 1);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t) {
-			return new Write1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-	
-	private final Term t;
-
-	private boolean called = false;
-
-	public Write1(final Term t) {
-		this.t = t;
-	}
+    public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			System.out.print(t.toProlog());
-			return true;
-		} else {
-			return false;
-		}
+	public Solutions createInstance(Term t) {
+	    return new Write1(t);
 	}
+    };
 
-	@Override
-	public void abort() {
-		// nothing to do
-	}
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+    private final Term t;
+
+    private boolean called = false;
+
+    public Write1(final Term t) {
+	this.t = t;
+    }
+
+    @Override
+    public boolean next() {
+	if (!called) {
+	    called = true;
+	    System.out.print(t.toProlog());
+	    return true;
+	} else {
+	    return false;
 	}
+    }
+
+    @Override
+    public void abort() {
+	// nothing to do
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 
 }

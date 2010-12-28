@@ -150,8 +150,8 @@ public final class StringAtom extends Atomic {
 	public final static Charset UTF8Charset = Charset.forName("UTF-8");
 
 	@SuppressWarnings("all")
-	public final static StringAtom instance(String s) {
-		return instance(s.getBytes(UTF8Charset));
+	public final static StringAtom get(String s) {
+		return get(s.getBytes(UTF8Charset));
 	}
 
 	/**
@@ -159,7 +159,7 @@ public final class StringAtom extends Atomic {
 	 *            a UTF-8 encoded string.
 	 */
 	@SuppressWarnings("all")
-	public final static StringAtom instance(byte[] title) {
+	public final static StringAtom get(byte[] title) {
 		final StringAtom cand = new StringAtom(title);
 		synchronized (cache) {
 			WeakReference<StringAtom> interned = cache.get(cand);
@@ -172,30 +172,32 @@ public final class StringAtom extends Atomic {
 		}
 	}
 
-	public static final StringAtom UNIFY_FUNCTOR = instance("=");
-	public static final StringAtom DOES_NOT_UNIFY_FUNCTOR = instance("\\=");
+	public static final StringAtom UNIFY = get("=");
+	public static final StringAtom DOES_NOT_UNIFY = get("\\=");
 
-	public static final StringAtom AND_FUNCTOR = instance(",");
-	public static final StringAtom OR_FUNCTOR = instance(";");
-	public static final StringAtom CUT_FUNCTOR = instance("!");
-	public static final StringAtom SOFT_CUT_FUNCTOR = instance("*->");
-	public static final StringAtom IF_THEN_FUNCTOR = instance("->");
-	public static final StringAtom TRUE_FUNCTOR = instance("true");
-	public static final StringAtom FALSE_FUNCTOR = instance("false");
-	public static final StringAtom FAIL_FUNCTOR = instance("fail");
-	public static final StringAtom NOT_FUNCTOR = instance("not");
-	public static final StringAtom NOT_OPERATOR_FUNCTOR = instance("\\+");
+	public static final StringAtom AND = get(",");
+	public static final StringAtom OR = get(";");
+	public static final StringAtom CUT = get("!");
+	public static final StringAtom SOFT_CUT = get("*->");
+	public static final StringAtom IF_THEN = get("->");
+	public static final StringAtom TRUE = get("true");
+	public static final StringAtom FALSE = get("false");
+	public static final StringAtom FAIL = get("fail");
+	public static final StringAtom NOT = get("not");
+	public static final StringAtom NOT_OPERATOR = get("\\+");
 
-	public static final StringAtom IS_FUNCTOR = instance("is");
-	public static final StringAtom MULT_FUNCTOR = instance("*");
-	public static final StringAtom MINUS_FUNCTOR = instance("-");
-	public static final StringAtom PLUS_FUNCTOR = instance("+");
-	public static final StringAtom ARITH_SMALLER_THAN_FUNCTOR = instance("<");
-	public static final StringAtom ARITH_SMALLER_OR_EQUAL_THAN_FUNCTOR = instance("=<");
-	public static final StringAtom ARITH_IS_EQUAL_FUNCTOR = instance("=:=");
-	public static final StringAtom ARITH_IS_NOT_EQUAL_FUNCTOR = instance("=\\=");
+	public static final StringAtom IS = get("is");
+	public static final StringAtom MULT = get("*");
+	public static final StringAtom MINUS = get("-");
+	public static final StringAtom PLUS = get("+");
+	public static final StringAtom ARITH_SMALLER_THAN = get("<");
+	public static final StringAtom ARITH_SMALLER_OR_EQUAL_THAN = get("=<");
+	public static final StringAtom ARITH_LARGER_THAN = get(">");
+	public static final StringAtom ARITH_LARGER_OR_EQUAL_THAN = get(">=");
+	public static final StringAtom ARITH_IS_EQUAL = get("=:=");
+	public static final StringAtom ARITH_IS_NOT_EQUAL = get("=\\=");
 
-	public static final StringAtom EMPTY_LIST_FUNCTOR = instance("[]");
-	public static final StringAtom LIST_FUNCTOR = instance(".");
+	public static final StringAtom EMPTY_LIST = get("[]");
+	public static final StringAtom LIST = get(".");
 
 }

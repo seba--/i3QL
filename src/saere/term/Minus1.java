@@ -39,11 +39,11 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-final class Minus1 extends CompoundTerm {
+public final class Minus1 extends CompoundTerm {
 
 	public static final OneArgPredicateFactory FACTORY = (OneArgPredicateFactory) predicateRegistry()
 			.getPredicateFactory(
-					new PredicateIdentifier(StringAtom.MINUS_FUNCTOR, 1));
+					new PredicateIdentifier(StringAtom.MINUS, 1));
 
 	private final Term t1;
 
@@ -53,7 +53,7 @@ final class Minus1 extends CompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.MINUS_FUNCTOR;
+		return StringAtom.MINUS;
 	}
 
 	@Override

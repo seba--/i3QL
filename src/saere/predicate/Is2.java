@@ -47,63 +47,62 @@ import saere.TwoArgsPredicateFactory;
  */
 public final class Is2 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.IS_FUNCTOR, 2);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.IS, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t1, Term t2) {
-			return new Is2(t1, t2);
-		}
-
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term l;
-	private final Term r;
-	private State lState;
-
-	private boolean called = false;
-
-	public Is2(final Term l, final Term r) {
-		this.l = l;
-		this.r = r;
-
-	}
+    public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			final long rValue = r.intEval();
-			lState = l.manifestState();
-			if (Term.is(l, rValue)) {
-				called = true;
-				return true;
-			}
-		}
-
-		if (lState != null) {
-			lState.reset();
-			lState = null;
-		}
-		return false;
+	public Solutions createInstance(Term t1, Term t2) {
+	    return new Is2(t1, t2);
 	}
 
-	@Override
-	public void abort() {
-		if (lState != null) {
-			lState.reset();
-			lState = null;
-		}
+    };
+
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
+
+    private final Term l;
+    private final Term r;
+    private State lState;
+
+    private boolean called = false;
+
+    public Is2(final Term l, final Term r) {
+	this.l = l;
+	this.r = r;
+
+    }
+
+    @Override
+    public boolean next() {
+	if (!called) {
+	    final long rValue = r.intEval();
+	    lState = l.manifestState();
+	    if (Term.is(l, rValue)) {
+		called = true;
+		return true;
+	    }
 	}
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+	if (lState != null) {
+	    lState.reset();
+	    lState = null;
 	}
+	return false;
+    }
+
+    @Override
+    public void abort() {
+	if (lState != null) {
+	    lState.reset();
+	    lState = null;
+	}
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 
 }

@@ -1,34 +1,35 @@
 //package predicates;
 
-import predicates.not_attack2;
-import predicates.not_attack3;
-import predicates.queens2;
-import predicates.queens3;
-import predicates.range3;
-import predicates.select3;
+import static saere.term.Terms.atomic;
+import static saere.term.Terms.compoundTerm;
+import predicates.not_attack2Factory;
+import predicates.not_attack3Factory;
+import predicates.queens2Factory;
+import predicates.queens3Factory;
+import predicates.range3Factory;
+import predicates.select3Factory;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Variable;
-import static saere.term.TermFactory.*;
 
 public class MainQueens {
 
 	public static void main(String[] args) throws Exception {
 
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
-		not_attack2.registerWithPredicateRegistry(registry);
-		not_attack3.registerWithPredicateRegistry(registry);
-		queens2.registerWithPredicateRegistry(registry);
-		queens3.registerWithPredicateRegistry(registry);
-		range3.registerWithPredicateRegistry(registry);
-		select3.registerWithPredicateRegistry(registry);
+		not_attack2Factory.registerWithPredicateRegistry(registry);
+		not_attack3Factory.registerWithPredicateRegistry(registry);
+		queens2Factory.registerWithPredicateRegistry(registry);
+		queens3Factory.registerWithPredicateRegistry(registry);
+		range3Factory.registerWithPredicateRegistry(registry);
+		select3Factory.registerWithPredicateRegistry(registry);
 
 		System.out.println("Warm up...");
 		for (int i = 1; i <= 18; i++) {
 			Variable solution = new Variable();
-			StringAtom time = StringAtom.instance("time");
-			StringAtom queens = StringAtom.instance("queens");
+			StringAtom time = StringAtom.get("time");
+			StringAtom queens = StringAtom.get("queens");
 			Solutions s = compoundTerm(time,
 					compoundTerm(queens, atomic(i), solution)).call();
 			if (s.next()) {
@@ -49,8 +50,8 @@ public class MainQueens {
 				long startTime = System.nanoTime();
 				for (int i = 1; i <= 25; i++) {
 					Variable solution = new Variable();
-					StringAtom time = StringAtom.instance("time");
-					StringAtom queens = StringAtom.instance("queens");
+					StringAtom time = StringAtom.get("time");
+					StringAtom queens = StringAtom.get("queens");
 					Solutions s = compoundTerm(time,
 							compoundTerm(queens, atomic(i), solution)).call();
 					if (s.next()) {

@@ -1,8 +1,8 @@
 //package predicates;
 
-import static saere.term.TermFactory.atomic;
-import static saere.term.TermFactory.compoundTerm;
-import predicates.tak4;
+import static saere.term.Terms.atomic;
+import static saere.term.Terms.compoundTerm;
+import predicates.tak4Factory;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
@@ -14,7 +14,7 @@ public class MainTak {
     public static void main(String[] args) throws Throwable {
 
 	PredicateRegistry registry = PredicateRegistry.predicateRegistry();
-	tak4.registerWithPredicateRegistry(registry);
+	tak4Factory.registerWithPredicateRegistry(registry);
 
 	// Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.2)
 	// 3.06Ghz Core2Duo
@@ -32,7 +32,7 @@ public class MainTak {
 	{
 
 	    Variable result = new Variable();
-	    Term t = compoundTerm(StringAtom.instance("time"),
+	    Term t = compoundTerm(StringAtom.get("time"),
 		    compoundTerm(atomic("tak"), atomic(18), atomic(12), atomic(6), result));
 	    Solutions s = t.call();
 	    if (!s.next()) {
@@ -47,7 +47,7 @@ public class MainTak {
 	Thread t = new Thread(new Runnable() {
 	    public void run() {
 		Variable result = new Variable();
-		Term t = compoundTerm(StringAtom.instance("time"),
+		Term t = compoundTerm(StringAtom.get("time"),
 			compoundTerm(atomic("tak"), atomic(32), atomic(14), atomic(6), result));
 		Solutions s = t.call();
 		if (!s.next()) {

@@ -36,7 +36,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:Load',[pl_load/4]).
+:- module('SAEProlog:Compiler:Phase:PLLoad',[pl_load/4]).
 
 :- use_module('../Debug.pl').
 :- use_module('../Utils.pl').

@@ -1,9 +1,10 @@
 //package predicates;
 
-import static saere.term.TermFactory.*;
-import predicates.list1;
-import predicates.partition4;
-import predicates.qsort3;
+import static saere.term.Terms.and;
+import static saere.term.Terms.compoundTerm;
+import predicates.list1Factory;
+import predicates.partition4Factory;
+import predicates.qsort3Factory;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
@@ -15,9 +16,9 @@ public class MainQSort {
     public static void main(String[] args) throws Throwable {
 
 	PredicateRegistry registry = PredicateRegistry.predicateRegistry();
-	qsort3.registerWithPredicateRegistry(registry);
-	partition4.registerWithPredicateRegistry(registry);
-	list1.registerWithPredicateRegistry(registry);
+	qsort3Factory.registerWithPredicateRegistry(registry);
+	partition4Factory.registerWithPredicateRegistry(registry);
+	list1Factory.registerWithPredicateRegistry(registry);
 
 	System.out.println("Warm up...");
 	long startTime = System.nanoTime();
@@ -26,9 +27,9 @@ public class MainQSort {
 	    Variable list = new Variable();
 	    Variable result = new Variable();
 	    Term t = and(
-		    compoundTerm(StringAtom.instance("list"), list),
-		    compoundTerm(StringAtom.instance("qsort"), list, result,
-			    StringAtom.EMPTY_LIST_FUNCTOR));
+		    compoundTerm(StringAtom.get("list"), list),
+		    compoundTerm(StringAtom.get("qsort"), list, result,
+			    StringAtom.EMPTY_LIST));
 	    Solutions s = t.call();
 	    if (!s.next()) {
 		throw new Error("internal programming error");
@@ -48,13 +49,14 @@ public class MainQSort {
 		    Variable list = new Variable();
 		    Variable result = new Variable();
 		    Term t = and(
-			    compoundTerm(StringAtom.instance("list"), list),
-			    compoundTerm(StringAtom.instance("qsort"), list, result,
-				    StringAtom.EMPTY_LIST_FUNCTOR));
+			    compoundTerm(StringAtom.get("list"), list),
+			    compoundTerm(StringAtom.get("qsort"), list, result,
+				    StringAtom.EMPTY_LIST));
 		    Solutions s = t.call();
-		    if (!s.next()) {
+		    if (!s.next()) {			
 			throw new Error("internal programming error");
 		    }
+		    System.out.println(result.toProlog());
 		}
 		long duration = System.nanoTime() - startTime;
 		System.out

@@ -46,9 +46,9 @@ import saere.StringAtom;
 public final class False0 implements Solutions {
 
 	public final static PredicateIdentifier FAIL_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.FAIL_FUNCTOR, 0);
+			StringAtom.FAIL, 0);
 	public final static PredicateIdentifier FALSE_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.FALSE_FUNCTOR, 0);
+			StringAtom.FALSE, 0);
 
 	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 

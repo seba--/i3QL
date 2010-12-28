@@ -56,7 +56,7 @@ public final class IntValue extends Atomic {
 
     @Override
     public StringAtom functor() {
-	return StringAtom.instance(Long.toString(value));
+	return StringAtom.get(Long.toString(value));
     }
 
     @Override
@@ -113,7 +113,7 @@ public final class IntValue extends Atomic {
     public static final IntValue IntValue_9 = new IntValue(9l);
 
     @SuppressWarnings("all")
-    public final static IntValue IntegerAtom(final long value) {
+    public final static IntValue get(final long value) {
 	if (value > Integer.MIN_VALUE && value < Integer.MAX_VALUE) {
 	    int intValue = (int) value;
 	    switch (intValue) {

@@ -100,10 +100,14 @@
 		rule/4,
 		rule_head/2,
 		rule_body/2,
+		
+		cut_analysis/2,
 		named_variables_of_term/2,
 		
 		pos_meta/2,
+		predicate_meta/2,
 		lookup_in_meta/2,
+		add_to_meta/2,
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
@@ -123,9 +127,12 @@
 		user_predicate/2,
 		predicate_identifier/2,
 		predicate_clauses/2,
-		%clause_n/2,
+		foreach_user_predicate/2,
 		foreach_clause/3,
+		foreach_clause/2,
+		single_clause/1,
 		clause_definition/2,
+		clause_implementation/2,
 		clause_meta/2,
 		
 		write_ast/2,
@@ -133,7 +140,10 @@
 		write_ast_node/1
 	]
 ).
-:- meta_predicate(foreach_clause(+,3,-)).
+:- meta_predicate(foreach_user_predicate(+,1)).
+:- meta_predicate(foreach_user_predicate_impl(+,1)).
+:- meta_predicate(foreach_clause(+,1)).
+:- meta_predicate(foreach_clause(+,4,-)).
 :- meta_predicate(foreach_clause_impl(+,+,4,-)).
 
 :- use_module('Utils.pl').
@@ -197,7 +207,7 @@ add_clause(AST,Rule,NewAST) :-
 	ID = Functor/Arity,
 	AST=(Rules,Directives),
 	(	memberchk(pred(ID,Clauses,_PredProps1),Rules) ->
-		append_ol(Clauses,(Rule,_ClauseProps1)),
+		append_ol((Rule,_ClauseProps1),Clauses),
 		NewAST=AST
 	;
 		NewAST=([pred(ID,[(Rule,_ClauseProps2)|_],_PredProps2)|Rules],Directives)
@@ -252,28 +262,63 @@ user_predicate_impl([Predicate|Predicates],UserPredicate) :-
 
 predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
 
-/*
-clause_n(Clauses,Clauses_N) :- clause_n_impl(Clauses,1,Clauses_N).
-clause_n_impl([Clause|Clauses],N,[(N,Clause)|OtherClauses]):- !,
-	NewN is N + 1,
-	clause_n_impl(Clauses,NewN,OtherClauses).
-clause_n_impl([],_,[]).
-*/
+
+foreach_user_predicate((Predicates,_Directives),Goal) :-
+	foreach_user_predicate_impl(Predicates,Goal).
+foreach_user_predicate_impl([Predicate|Predicates],Goal) :-
+	Predicate = pred(_Identifier,[_|_],_PredicateProperties), !,
+	call(Goal,Predicate),
+	foreach_user_predicate_impl(Predicates,Goal).
+foreach_user_predicate_impl([_Predicate|Predicates],Goal) :- !,
+	foreach_user_predicate_impl(Predicates,Goal).
+foreach_user_predicate_impl([],_Goal).
+
+
+
+foreach_clause(Var,_Goal) :- var(Var),!. % Clauses is an open list...
+foreach_clause([Clause|Clauses],Goal) :- !,
+	call(Goal,Clause),
+	foreach_clause(Clauses,Goal).
+
 
 
 foreach_clause(Clauses,F,Os) :- 
 	foreach_clause_impl(Clauses,1,F,Os).
 foreach_clause_impl(Var,_,_,[]) :- var(Var),!. % Clauses is an open list...
 foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
-	call(F,N,Clause,O),
+	(	var(Clauses) -> Last = last ; Last = not_last ),
+	call(F,N,Clause,Last,O),
 	NewN is N + 1,
 	foreach_clause_impl(Clauses,NewN,F,Os).
 
 
+
+/**
+	Succeeds if a predicate is defined by a single clause.
+ */
+single_clause(Clauses) :- % Clauses is an open list...
+	nonvar(Clauses),Clauses=[_|T],var(T).
+
+
+
+/**
+	@deprecated Use {@link clause_implementation/2} instead.
+ */
 clause_definition((Clause,_Meta),Clause).
 
 
+/**
+	@signature clause_implementation(Clause,Implementation)
+ */
+clause_implementation((Implementation,_Meta),Implementation).
+
+
+
 clause_meta((_Clause,Meta),Meta).
+
+
+
+predicate_meta(pred(_ID,_Clauses,Meta),Meta).
 
 
 
@@ -635,6 +680,9 @@ term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 lookup_in_meta(Type,Meta) :- memberchk_ol(Type,Meta).
 
 
+add_to_meta(Information,Meta) :- append_ol(Information,Meta).
+
+
 /**
 	@signature meta_pos(Position,ASTNodeMetaInformation)
 */
@@ -662,12 +710,12 @@ term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
 term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
 
-
+/**
+	@signature named_variables_of_term(ASTNode,VariableNames)
+*/
 named_variables_of_term(ASTNode,Vs) :- 
 	named_variables_of_term(ASTNode,[],Vs).
-/**
-	@signature term_variables(ASTNode,Variables)
-*/
+
 named_variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
 	add_to_set(VariableName,Vs,NewVs).
 named_variables_of_term(ct(_,_,Args),Vs,NewVs) :- !,
@@ -679,7 +727,88 @@ named_variables_of_terms([Term|Terms],Vs,NewVs) :-
 	named_variables_of_term(Term,Vs,IVs),
 	named_variables_of_terms(Terms,IVs,NewVs).
 named_variables_of_terms([],Vs,Vs).
+
+
+/**	
+	@signature cut_analysis(ASTNode,CutBehavior)
+*/
+% TODO check that the semantics of the cut analysis is correct for "->" and "*->"
+cut_analysis(a(_,'!'),always):- !.
+
+cut_analysis(ct(_Meta,',',[LASTNode,RASTNode]),CutBehavior) :- !,
+	cut_analysis_of_and_goal(LASTNode,RASTNode,CutBehavior).
+
+cut_analysis(ct(_Meta,';',[LASTNode,RASTNode]),CutBehavior) :- !,
+	(
+		(	LASTNode = ct(_,'->',[ConditionASTNode,ThenASTNode]) ;
+	 		LASTNode = ct(_,'*->',[ConditionASTNode,ThenASTNode]) ) ->
+		cut_analysis_of_or_goal(ThenASTNode,RASTNode,BodyCutBehavior),
+		cut_analysis(ConditionASTNode,ConditionCutBehavior),
+		conjunction_of_cut_behaviors(ConditionCutBehavior,BodyCutBehavior,CutBehavior)
+	;
+		cut_analysis_of_or_goal(LASTNode,RASTNode,CutBehavior)
+	).
+		
+cut_analysis(ct(_Meta,'->',[ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
+	cut_analysis(ConditionASTNode,ConditionCutBehavior),
+	cut_analysis(BodyASTNode,BodyCutBehavior),
+	(	( ConditionCutBehavior == always ),
+		CutBehavior = always
+	;	( ConditionCutBehavior == never , BodyCutBehavior == never),
+		CutBehavior = never
+	;
+		CutBehavior = maybe
+	),!.	
 	
+cut_analysis(ct(_Meta,'*->',[ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
+	cut_analysis(ConditionASTNode,ConditionCutBehavior),
+	cut_analysis(BodyASTNode,BodyCutBehavior),
+	(	( ConditionCutBehavior == always ),
+		CutBehavior = always
+	;	( ConditionCutBehavior == never , BodyCutBehavior == never),
+		CutBehavior = never
+	;
+		CutBehavior = maybe
+	),!.	
+		
+cut_analysis(_,never).
+
+
+
+cut_analysis_of_or_goal(LASTNode,RASTNode,CutBehavior) :- 
+	cut_analysis(LASTNode,LCutBehavior),
+	cut_analysis(RASTNode,RCutBehavior),
+	disjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior).
+
+
+
+disjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-	
+	(	( LCutBehavior == always , RCutBehavior == always ),
+		CutBehavior = always
+	;	( LCutBehavior == never , RCutBehavior == never ),
+		CutBehavior = never
+	;
+		CutBehavior = maybe
+	),!.
+
+
+
+cut_analysis_of_and_goal(LASTNode,RASTNode,CutBehavior) :-
+	cut_analysis(LASTNode,LCutBehavior),
+	cut_analysis(RASTNode,RCutBehavior),
+	conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior).
+
+
+
+conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-	
+	(	( LCutBehavior == always ; RCutBehavior == always ),
+		CutBehavior = always
+	;	( LCutBehavior == maybe ; RCutBehavior == maybe ),
+		CutBehavior = maybe
+	;
+		CutBehavior = never
+	),!.
+
 
 
 /* ************************************************************************** *\

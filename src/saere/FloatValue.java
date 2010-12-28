@@ -61,7 +61,7 @@ public final class FloatValue extends Atomic {
 
     @Override
     public StringAtom functor() {
-	return StringAtom.instance(Double.toString(value));
+	return StringAtom.get(Double.toString(value));
     }
 
     public boolean sameAs(FloatValue other) {
@@ -102,7 +102,7 @@ public final class FloatValue extends Atomic {
     public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
     public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
 
-    public static FloatValue instance(double value) {
+    public static FloatValue get(double value) {
 	if (value == -1.0)
 	    return FLOAT_VALUE_M1;
 	if (value == 0.0)

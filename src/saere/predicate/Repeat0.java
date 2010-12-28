@@ -45,48 +45,48 @@ import saere.StringAtom;
  */
 public final class Repeat0 implements Solutions {
 
-	// ?- repeat,write(x),fail.
-	// xxxxxxx....x
+    // ?- repeat,write(x),fail.
+    // xxxxxxx....x
 
-	// ?- repeat,write(x),!,fail.
-	// x
-	// false.
+    // ?- repeat,write(x),!,fail.
+    // x
+    // false.
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("repeat"), 0);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.get("repeat"), 0);
 
-	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance() {
-			return REPEAT0;
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-
-	}
-
-	public final static Repeat0 REPEAT0 = new Repeat0();
-
-	public Repeat0() {
-		// nothing to do
-	}
+    public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		return true;
+	public Solutions createInstance() {
+	    return REPEAT0;
 	}
+    };
 
-	@Override
-	public void abort() {
-		// nothing to do
-	}
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
+    }
+
+    public final static Repeat0 REPEAT0 = new Repeat0();
+
+    public Repeat0() {
+	// nothing to do
+    }
+
+    @Override
+    public boolean next() {
+	return true;
+    }
+
+    @Override
+    public void abort() {
+	// nothing to do
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
 
 }

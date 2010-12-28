@@ -31,44 +31,44 @@
  */
 package saere.term;
 
-import static saere.StringAtom.AND_FUNCTOR;
+import static saere.StringAtom.AND;
 import saere.CompoundTerm;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-final class And2 extends CompoundTerm {
+public final class And2 extends CompoundTerm {
 
-	private final Term l;
-	private final Term r;
+    private final Term l;
+    private final Term r;
 
-	public And2(Term l, Term r) {
-		this.r = r;
-		this.l = l;
-	}
+    public And2(Term l, Term r) {
+	this.r = r;
+	this.l = l;
+    }
 
-	@Override
-	public int arity() {
-		return 2;
-	}
+    @Override
+    public int arity() {
+	return 2;
+    }
 
-	@Override
-	public StringAtom functor() {
-		return AND_FUNCTOR;
-	}
+    @Override
+    public StringAtom functor() {
+	return AND;
+    }
 
-	@Override
-	public Term arg(int i) {
-		return i == 0 ? l : r;
-	}
+    @Override
+    public Term arg(int i) {
+	return i == 0 ? l : r;
+    }
 
-	@Override
-	public String toString() {
-		return "(" + l + ", " + r + ")";
-	}
+    @Override
+    public String toString() {
+	return "(" + l + ", " + r + ")";
+    }
 
-	@Override
-	public Solutions call() {
-		return new saere.predicate.And2(l, r);
-	}
+    @Override
+    public Solutions call() {
+	return new saere.predicate.And2(l, r);
+    }
 }

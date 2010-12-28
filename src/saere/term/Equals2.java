@@ -37,7 +37,7 @@ import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
-final class Equals2 extends CompoundTerm {
+public final class Equals2 extends CompoundTerm {
 
 	private final Term l;
 	private final Term r;
@@ -54,7 +54,7 @@ final class Equals2 extends CompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.UNIFY_FUNCTOR;
+		return StringAtom.UNIFY;
 	}
 
 	@Override

@@ -1,30 +1,30 @@
 //package predicates;
 
-import predicates.einstein2;
-import predicates.nextTo3;
-import predicates.rightTo3;
+import static saere.term.Terms.compoundTerm;
+import predicates.einstein2Factory;
+import predicates.nextTo3Factory;
+import predicates.rightTo3Factory;
 import saere.PredicateRegistry;
 import saere.Solutions;
 import saere.StringAtom;
 import saere.Variable;
-import static saere.term.TermFactory.*;
 
 public class MainEinsteinsRiddle {
 
 	public static void main(String[] args) throws Throwable {
 
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
-		einstein2.registerWithPredicateRegistry(registry);
-		nextTo3.registerWithPredicateRegistry(registry);
-		rightTo3.registerWithPredicateRegistry(registry);
+		einstein2Factory.registerWithPredicateRegistry(registry);
+		nextTo3Factory.registerWithPredicateRegistry(registry);
+		rightTo3Factory.registerWithPredicateRegistry(registry);
 
 		System.out.println("Warm up...");
 		for (int i = 0; i < 3; i++) {
-			StringAtom time = StringAtom.instance("time");
+			StringAtom time = StringAtom.get("time");
 			Variable houses = new Variable();
 			Variable fishOwner = new Variable();
 
-			StringAtom einstein = StringAtom.instance("einstein");
+			StringAtom einstein = StringAtom.get("einstein");
 			Solutions s = compoundTerm(time,
 					compoundTerm(einstein, houses, fishOwner)).call();
 			if (s.next()) {
@@ -43,11 +43,11 @@ public class MainEinsteinsRiddle {
 				long startTime = System.nanoTime();
 				for (int i = 0; i < 20; i++) {
 
-					StringAtom time = StringAtom.instance("time");
+					StringAtom time = StringAtom.get("time");
 					Variable houses = new Variable();
 					Variable fishOwner = new Variable();
 
-					StringAtom einstein = StringAtom.instance("einstein");
+					StringAtom einstein = StringAtom.get("einstein");
 					Solutions s = compoundTerm(time,
 							compoundTerm(einstein, houses, fishOwner)).call();
 					if (s.next()) {

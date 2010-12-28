@@ -66,8 +66,7 @@ add_predefined_predicates_to_ast(AST,Program) :-
 	
 		% Primary Predicates - we need to analyze the sub
 		pred(';'/2,[deterministic(no)]), % or
-		%(not yet supported:) ('->'/2,[deterministic(dependent)]), % If->Then(;Else)
-		%(not yet supported:) ('*->'/2,[deterministic(dependent)]), % Soft Cut
+		%'->'/2, and '*->'/2 are sub-predicates of "or"
 		pred(','/2,[deterministic(dependent)]), % and
 	
 		% Extra-logical Predicates
@@ -185,6 +184,7 @@ default_op_table(
 			op(500,yfx,'-'),
 			op(500,yfx,'+'),
 			op(1050,xfy,'->'),
+			op(1050,xfy,'*->'),			
 			op(400,yfx,'*'),
 			op(400,yfx,'/'),
 			op(700,xfx,'\\='),

@@ -50,10 +50,12 @@
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
+:- use_module('phase/PLCutAnalysis.pl',[pl_cut_analysis/4]).
 %XXX :- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
 %XXX :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
 %XXX :- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
-:- use_module('phase/PLToJava.pl',[pl_to_java/4]).
+:- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
+:- use_module('phase/OOToJava.pl',[oo_to_java/4]).
 
 
 
@@ -94,6 +96,8 @@ phase(pl_load,execute,[on_entry,reading_file,ast(user)]). %Debug flags: ast(user
 phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES
+phase(pl_cut_analysis,execute,[on_entry]) :- phase(pl_check,execute,_).
+
 %XXX phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
 %XXX phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
 %XXX phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
@@ -101,7 +105,8 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 %XXX phase(pl_determinacy_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
-phase(pl_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(oo_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_to_oo,execute,_).
 
 
 

@@ -46,52 +46,52 @@ import saere.TwoArgsPredicateFactory;
  */
 public class SmallerOrEqual2 implements Solutions {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.ARITH_SMALLER_OR_EQUAL_THAN_FUNCTOR, 2);
+    public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+	    StringAtom.ARITH_SMALLER_OR_EQUAL_THAN, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
-
-		@Override
-		public Solutions createInstance(Term t1, Term t2) {
-			return new SmallerOrEqual2(t1, t2);
-		}
-
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term l;
-	private final Term r;
-	private boolean called = false;
-
-	public SmallerOrEqual2(Term l, Term r) {
-		this.l = l;
-		this.r = r;
-	}
+    public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return isSmallerOrEqual(l, r);
-		} else {
-			return false;
-		}
+	public Solutions createInstance(Term t1, Term t2) {
+	    return new SmallerOrEqual2(t1, t2);
 	}
 
-	@Override
-	public void abort() {
-		// nothing to do...
-	}
+    };
 
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
+    public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+	registry.register(IDENTIFIER, FACTORY);
+    }
 
-	public static boolean isSmallerOrEqual(Term l, Term r) {
-		return l.intEval() <= r.intEval();
+    private final Term l;
+    private final Term r;
+    private boolean called = false;
+
+    public SmallerOrEqual2(Term l, Term r) {
+	this.l = l;
+	this.r = r;
+    }
+
+    @Override
+    public boolean next() {
+	if (!called) {
+	    called = true;
+	    return isSmallerOrEqual(l, r);
+	} else {
+	    return false;
 	}
+    }
+
+    @Override
+    public void abort() {
+	// nothing to do...
+    }
+
+    @Override
+    public boolean choiceCommitted() {
+	return false;
+    }
+
+    public static boolean isSmallerOrEqual(Term l, Term r) {
+	return l.intEval() <= r.intEval();
+    }
 }

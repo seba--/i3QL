@@ -32,7 +32,6 @@
 package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
-import static saere.StringAtom.EMPTY_LIST_FUNCTOR;
 import saere.CompoundTerm;
 import saere.PredicateIdentifier;
 import saere.Solutions;
@@ -42,68 +41,67 @@ import saere.TwoArgsPredicateFactory;
 
 public final class ListElement2 extends CompoundTerm {
 
-	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
-			.getPredicateFactory(
-					new PredicateIdentifier(StringAtom.LIST_FUNCTOR, 2));
+    public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+	    .getPredicateFactory(new PredicateIdentifier(StringAtom.LIST, 2));
 
-	private Term value;
+    private Term value;
 
-	private Term rest;
+    private Term rest;
 
-	public ListElement2(Term value, Term rest) {
-		this.value = value;
-		this.rest = rest;
+    public ListElement2(Term value, Term rest) {
+	this.value = value;
+	this.rest = rest;
 
+    }
+
+    @Override
+    public int arity() {
+	return 2;
+    }
+
+    @Override
+    public Term arg(int i) throws IndexOutOfBoundsException {
+	return i == 0 ? value : rest;
+    }
+
+    public Term getValue() {
+	return value;
+    }
+
+    public Term getRest() {
+	return rest;
+    }
+
+    @Override
+    public StringAtom functor() {
+	return StringAtom.LIST;
+    }
+
+    @Override
+    public Solutions call() {
+	return FACTORY.createInstance(value, rest);
+    }
+
+    @Override
+    public String toProlog() {
+	return toListRepresentation("[");
+
+    }
+
+    private String toListRepresentation(String head) {
+	String newHead = head + value.toProlog();
+	final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
+	if (r instanceof ListElement2) {
+	    final ListElement2 le = (ListElement2) r;
+	    return le.toListRepresentation(newHead + ", ");
+	} else if (r == StringAtom.EMPTY_LIST) {
+	    return newHead + "]";
+	} else {
+	    return newHead + "|" + rest.toProlog() + "]";
 	}
+    }
 
-	@Override
-	public int arity() {
-		return 2;
-	}
-
-	@Override
-	public Term arg(int i) throws IndexOutOfBoundsException {
-		return i == 0 ? value : rest;
-	}
-
-	public Term getValue() {
-		return value;
-	}
-
-	public Term getRest() {
-		return rest;
-	}
-
-	@Override
-	public StringAtom functor() {
-		return StringAtom.LIST_FUNCTOR;
-	}
-
-	@Override
-	public Solutions call() {
-		return FACTORY.createInstance(value, rest);
-	}
-
-	@Override
-	public String toProlog() {
-		return toListRepresentation("[");
-
-	}
-
-	private String toListRepresentation(String head) {
-		String newHead = head + value.toProlog();
-		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
-		if (r instanceof ListElement2) {
-			final ListElement2 le = (ListElement2) r;
-			return le.toListRepresentation(newHead + ", ");
-		} else if (r == EMPTY_LIST_FUNCTOR) {
-			return newHead + "]";
-		} else {
-			return newHead + "|" + rest.toProlog() + "]";
-		}
-	}
-
-	public String toString() {
-		return "ListElement2[head=" + value + "; rest=" + rest + "]";
-	}
+    public String toString() {
+	return "ListElement2[head=" + value + "; rest=" + rest + "]";
+    }
 }

@@ -38,11 +38,11 @@ import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
 
-final class Plus2 extends TwoArgsCompoundTerm {
+public final class Plus2 extends TwoArgsCompoundTerm {
 
 	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
 			.getPredicateFactory(
-					new PredicateIdentifier(StringAtom.PLUS_FUNCTOR, 2));
+					new PredicateIdentifier(StringAtom.PLUS, 2));
 
 	public Plus2(Term t1, Term t2) {
 		super(t1, t2);
@@ -50,7 +50,7 @@ final class Plus2 extends TwoArgsCompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.PLUS_FUNCTOR;
+		return StringAtom.PLUS;
 	}
 
 	@Override
