@@ -86,7 +86,7 @@ public final class Is2 implements Goal {
 		}
 
 		if (lState != null) {
-			lState.reset();
+			lState.reincarnate();
 			lState = null;
 		}
 		return false;
@@ -95,7 +95,7 @@ public final class Is2 implements Goal {
 	@Override
 	public void abort() {
 		if (lState != null) {
-			lState.reset();
+			lState.reincarnate();
 			lState = null;
 		}
 	}

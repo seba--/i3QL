@@ -63,10 +63,10 @@ final class ComplexTermState implements State {
 	return s += "]";
     }
 
-    public void reset() {
+    public void reincarnate() {
 	ComplexTermState cts = this;
 	while (cts != null) {
-	    cts.state.reset();
+	    cts.state.reincarnate();
 	    cts = cts.next;
 	}
     }

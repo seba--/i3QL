@@ -104,7 +104,7 @@ public class TestVariableBinding {
 	assertTrue(new ListElement2(new Variable(), new ListElement2(StringAtom.get("demo"),
 		tail)).unify(v.binding()));
 	assertEquals(new ListElement2(l2, StringAtom.EMPTY_LIST), tail.binding());
-	s1.reset();
+	s1.reincarnate();
 
 	v.clear();
 	assertFalse(v.isInstantiated());

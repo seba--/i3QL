@@ -60,7 +60,7 @@ public final class Variable extends Term {
 	    }
 
 	    @Override
-	    public void reset() {
+	    public void reincarnate() {
 		headVariable.clear();
 	    }
 

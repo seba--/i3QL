@@ -111,8 +111,8 @@ public class TestIsGround {
 	    assertTrue(v1.isGround());
 	    assertTrue(v2.isGround());
 	    assertTrue(v3.isGround());
-	    s3.reset();
-	    s2.reset();
+	    s3.reincarnate();
+	    s2.reincarnate();
 	    assertFalse(v1.isGround());
 	    assertFalse(v2.isGround());
 	    assertFalse(v3.isGround());
@@ -168,7 +168,7 @@ public class TestIsGround {
 	assertTrue(new ListElement2(new Variable(), new ListElement2(StringAtom.get("demo"),
 		tail)).unify(v.binding()));
 	assertEquals(new ListElement2(l2, StringAtom.EMPTY_LIST), tail.binding());
-	s1.reset();
+	s1.reincarnate();
 
 	v.clear();
 	assertFalse(v.isInstantiated());

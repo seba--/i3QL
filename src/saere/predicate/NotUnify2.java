@@ -83,11 +83,11 @@ public final class NotUnify2 implements Goal {
 			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
 			// will not be bound!
 			if (lState != null) {
-				lState.reset();
+				lState.reincarnate();
 				lState = null;
 			}
 			if (rState != null) {
-				rState.reset();
+				rState.reincarnate();
 				rState = null;
 			}
 			return !success;

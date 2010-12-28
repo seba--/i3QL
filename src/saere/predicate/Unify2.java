@@ -96,11 +96,11 @@ public final class Unify2 implements Goal {
 
 	private void resetTerms() {
 		if (lState != null) {
-			lState.reset();
+			lState.reincarnate();
 			lState = null;
 		}
 		if (rState != null) {
-			rState.reset();
+			rState.reincarnate();
 			rState = null;
 		}
 	}

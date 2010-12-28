@@ -110,10 +110,10 @@ public final class Member2 implements Goal {
 				}
 			case ADVANCE:
 				if (listElementState != null) {
-					listElementState.reset();
+					listElementState.reincarnate();
 				}
 				if (testElementState != null) {
-					testElementState.reset();
+					testElementState.reincarnate();
 				}
 
 				list = list.arg(1);
@@ -125,10 +125,10 @@ public final class Member2 implements Goal {
 	@Override
 	public void abort() {
 		if (listElementState != null) {
-			listElementState.reset();
+			listElementState.reincarnate();
 		}
 		if (testElementState != null) {
-			testElementState.reset();
+			testElementState.reincarnate();
 		}
 	}
 

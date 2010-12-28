@@ -48,7 +48,7 @@ public class TestCompoundTermStateManifestation {
 			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST);
 			State state = ct.manifestState();
 			if (state != null)
-				state.reset();
+				state.reincarnate();
 
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 		}
@@ -58,7 +58,7 @@ public class TestCompoundTermStateManifestation {
 					atomic(2), atomic(3.0));
 			State state = ct.manifestState();
 			if (state != null)
-				state.reset();
+				state.reincarnate();
 
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertEquals(atomic(2), ct.arg(1));
@@ -76,7 +76,7 @@ public class TestCompoundTermStateManifestation {
 			State state = ct.manifestState();
 			if (state != null) {
 				fail("unexpected result; the term is ground");
-				state.reset();
+				state.reincarnate();
 			}
 
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
@@ -94,7 +94,7 @@ public class TestCompoundTermStateManifestation {
 
 			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
-			state.reset();
+			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertNull(v1.binding());
@@ -106,7 +106,7 @@ public class TestCompoundTermStateManifestation {
 			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
 					v1, v1);
 			State state = ct.manifestState();
-			state.reset();
+			state.reincarnate();
 
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertSame(v1, ct.arg(1));
@@ -122,7 +122,7 @@ public class TestCompoundTermStateManifestation {
 					StringAtom.EMPTY_LIST, atomic(2),
 					complexTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
-			state.reset();
+			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertNull(v1.binding());
@@ -143,7 +143,7 @@ public class TestCompoundTermStateManifestation {
 			State state = ct.manifestState();
 			if (state != null) // state may be null.... v1 is bound to an atomic
 				// value
-				state.reset();
+				state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertEquals(complexTerm(StringAtom.OR, atomic(1), atomic(2)),
@@ -158,7 +158,7 @@ public class TestCompoundTermStateManifestation {
 					v1, v1);
 			State state = ct.manifestState();
 			if (state != null)
-				state.reset();
+				state.reincarnate();
 
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertSame(v1, ct.arg(1));
@@ -177,7 +177,7 @@ public class TestCompoundTermStateManifestation {
 					complexTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
 			if (state != null)
-				state.reset();
+				state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertEquals(StringAtom.get("demo"), v1.binding());
@@ -195,7 +195,7 @@ public class TestCompoundTermStateManifestation {
 			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
 			v1.bind(atomic(2.0));
-			state.reset();
+			state.reincarnate();
 			assertSame(v1, ct.arg(0));
 			assertNull(v1.binding());
 		}
@@ -206,7 +206,7 @@ public class TestCompoundTermStateManifestation {
 					v1, v1);
 			State state = ct.manifestState();
 			v1.bind(complexTerm(StringAtom.CUT, atomic(0)));
-			state.reset();
+			state.reincarnate();
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertSame(v1, ct.arg(1));
 			assertSame(v1, ct.arg(2));
@@ -222,7 +222,7 @@ public class TestCompoundTermStateManifestation {
 			State state = ct.manifestState();
 			v1.bind(atomic(1));
 			v2.bind(complexTerm(StringAtom.get("test"), atomic(1)));
-			state.reset();
+			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertNull(v1.binding());
@@ -243,7 +243,7 @@ public class TestCompoundTermStateManifestation {
 
 			State state = ct.manifestState();
 			v2.bind(atomic(2.0));
-			state.reset();
+			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
 			assertEquals(complexTerm(StringAtom.OR, v2, atomic(2)),

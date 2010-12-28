@@ -77,7 +77,7 @@ public abstract class Term {
 	/**
 	 * Creates a {@link State} object that encapsulates the complete variable
 	 * state information of this term. The {@link State} object is later on used
-	 * to reset (cf. {@link State#reset()})the state of this term to the time
+	 * to reset (cf. {@link State#reincarnate()})the state of this term to the time
 	 * when this method was called (to undo all changes that were done in
 	 * between).
 	 * 
