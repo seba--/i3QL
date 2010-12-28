@@ -64,6 +64,11 @@ public abstract class GoalStack {
 	public boolean isNotEmpty() {
 	    return false;
 	}
+
+	@Override
+	public GoalStack abortPendingGoals() throws IllegalStateException {
+	    return this;
+	}
     }
 
     private final static class SomeGoalStack extends GoalStack {
@@ -92,10 +97,15 @@ public abstract class GoalStack {
 	}
 
 	@Override
+	public GoalStack abortPendingGoals() {
+	    solutions.abort();
+	    return rest.abortPendingGoals();
+	}
+	
+	@Override
 	public boolean isNotEmpty() {
 	    return true;
 	}
-
     }
 
     private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
@@ -106,6 +116,8 @@ public abstract class GoalStack {
 
     public abstract GoalStack drop() throws IllegalStateException;
 
+    public abstract GoalStack abortPendingGoals();
+    
     public abstract boolean isNotEmpty();
 
     public static GoalStack emptyStack() {
