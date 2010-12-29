@@ -36,24 +36,25 @@
 	program's AST.
 	
 	<p><b>The AST</b><br/>
-	Conceptually, the AST has the following structure:
+	<i>Conceptually</i>, the AST has the following structure:
 	<pre><code>
-	[										% The list of all predicates...
-		pred(								% A predicate.
-			a/1, 							% The identifier of the predicate.
-			[								% The clauses defining the predicate... 
+	[										% the list of all predicates...
+		pred(								% a predicate
+			a/1, 							% the identifier of the predicate
+			[								% the clauses defining the predicate... 
 											% (built-in predicates do not have clauses)
-				(	C, 					% A clause.
-					[det, type=I]		% The properties of this clause.
+				(	C, 					% a clause
+					[det, type=I]		% the properties of this clause
 				)
 			],												
-			[type=...]					% The properties of this predicate (e.g.,
+			[type=...]					% the properties of this predicate (e.g.,
 											% whether this predicate – as a whole – is
-											% deterministic).
+											% (semi-)deterministic, uses the cut operator,
+											% ...).
 		),...
 	],
 	[
-											% The list of directives
+											% the list of directives...
 	]
 	</code></pre>
 	This module provides all predicates that are necessary to process (parts of)
@@ -66,7 +67,7 @@
 	In particular, code that uses the AST must not make assumptions about
 	the order and the way the predicates are stored, how clauses are stored, and
 	in which way the properties of a clause or predicate are handled. <i>The 
-	code must use the appropriate abstractions</i>.
+	code must use the appropriate abstractions provided by this module</i>.
 	</p>
 	
 	<p><b>Used Terminology</b><br/>
@@ -151,26 +152,27 @@
 
 
 
-/**DEVELOPER
+/* DEVELOPER
 	Internal Structure of the AST:
-
-	[										% The list of all predicates
-		pred(								% A predicate.
-			a/1, 							% The identifier of the predicate.
-			[								% An open list of ...
-				(							% ... the clauses defining the predicate 
-					C, 
-					[det,_]				% An open list of this clause's properties.
-				),
-				_
-			],			
+	(
+		[										% The list of all predicates
+			pred(								% A predicate.
+				a/1, 							% The identifier of the predicate.
+				[								% An open list of ...
+					(							% ... the clauses defining the predicate 
+						C, 
+						[det,_]				% An open list of this clause's properties.
+					),
+					_
+				],			
 											
-			[type=...,_]				% An open list of this predicate's properties.
-		),...
-	],
-	[
-		Directives (as is)
-	]
+				[type=...,_]				% An open list of this predicate's properties.
+			),...
+		],
+		[
+			Directives (as is)
+		]
+	)
 
 */
 
@@ -190,7 +192,7 @@ empty_ast(([]/*Rules*/,[]/*Directives*/)).
 	Adds a clause – which has to be a valid, normalized rule or a directive – to
 	the given AST.
 
-	@signature add_clause_to_ast(AST,Clause,NewAST)
+	@signature add_clause(AST,Clause,NewAST)
 	@arg(in) AST The AST to which the given term is added.
 	@arg(in) Clause Clause has to be a valid, normalized rule or a directive.
 	@arg(out) NewAST The new AST which contains the new term (predicate).
@@ -221,12 +223,12 @@ add_clause(_AST,Term,_NewAST) :-
 
 
 /**
-	Adds the information about the built-in predicates to the AST.
+	Adds the information about (built-in) predicates to the AST.
 
-	@signature add_predicates_to_ast(AST,Predicates,NewAST)
-	@arg(in) AST The current AST.
-	@arg(in) Predicates The list of all built-in predicates. The structure is
-		as follows:<br/>
+	@signature add_predicates(AST,Predicates,NewAST)
+	@arg(in) AST is the current AST.
+	@arg(in) Predicates is the list of all built-in predicates. The information 
+		about the predicates has to be structured as follows:<br/>
 		<pre><code>
 		[									% List of predicates
 			pred(							% A predicate
@@ -238,12 +240,13 @@ add_clause(_AST,Term,_NewAST) :-
 		]
 		</code></pre>
 		
-	@arg(out) NewAST The extended AST.
+	@arg(out) NewAST is the extended AST.
 */
 add_predicates((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
 	IntermediateAST = ([pred(ID,[],Properties)|Rules],Directives),
 	add_predicates(IntermediateAST,Preds,NewAST).
 add_predicates(AST,[],AST).
+
 
 
 /**
@@ -260,12 +263,11 @@ user_predicate_impl([Predicate|Predicates],UserPredicate) :-
 	).
 
 
-predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
-
 
 foreach_user_predicate((Predicates,_Directives),Goal) :-
 	foreach_user_predicate_impl(Predicates,Goal).
 foreach_user_predicate_impl([Predicate|Predicates],Goal) :-
+	% user defined predicates are those predicates with at least one clause: [_|_]
 	Predicate = pred(_Identifier,[_|_],_PredicateProperties), !,
 	call(Goal,Predicate),
 	foreach_user_predicate_impl(Predicates,Goal).
@@ -275,6 +277,45 @@ foreach_user_predicate_impl([],_Goal).
 
 
 
+/**
+	@signature predicate_clauses(Predicate_ASTNode,Clauses)
+	@arg Clauses the clauses of the predicate.
+*/
+predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
+
+
+
+/**
+	@deprecated Use {@link clause_implementation/2} instead.
+ */
+clause_definition((Clause,_Meta),Clause).
+
+
+
+/**
+	@signature clause_implementation(Clause,Implementation)
+ */
+clause_implementation((Implementation,_Meta),Implementation).
+
+
+
+/**
+	Succeeds if the given clauses AST contains a single clause; i.e., if a
+	predicate is defined by a single clause.
+	
+	@signature single_clause(Clauses_ASTNode)
+ */
+single_clause(Clauses) :- % Clauses is an open list...
+	nonvar(Clauses),Clauses=[_|T],var(T).
+
+
+
+/**
+	Calls the given goal for each clause with the respective clause as the last
+	parameter.
+	
+	@signature foreach_clause(Clauses_ASTNode,Goal)
+*/
 foreach_clause(Var,_Goal) :- var(Var),!. % Clauses is an open list...
 foreach_clause([Clause|Clauses],Goal) :- !,
 	call(Goal,Clause),
@@ -282,8 +323,20 @@ foreach_clause([Clause|Clauses],Goal) :- !,
 
 
 
-foreach_clause(Clauses,F,Os) :- 
-	foreach_clause_impl(Clauses,1,F,Os).
+/**
+	For each clause the given goal is called with the following information:<br/>
+	<ol>
+	<li>N - the number of the clause</li>
+	<li>Clause - the clause</li>
+	<li>Last - indicates if the given clause is the last clause. The value is either: 
+		<code>last</code> or <code>not_last</code>.
+	<li>Result - a free variable where the called goal can store its result.
+	</ol>
+
+	@signature foreach_clause(Clauses_ASTNode,Goal,ListOfResults)
+*/
+foreach_clause(Clauses,Goal,Os) :- 
+	foreach_clause_impl(Clauses,1,Goal,Os).
 foreach_clause_impl(Var,_,_,[]) :- var(Var),!. % Clauses is an open list...
 foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
 	(	var(Clauses) -> Last = last ; Last = not_last ),
@@ -294,30 +347,16 @@ foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
 
 
 /**
-	Succeeds if a predicate is defined by a single clause.
- */
-single_clause(Clauses) :- % Clauses is an open list...
-	nonvar(Clauses),Clauses=[_|T],var(T).
-
-
-
-/**
-	@deprecated Use {@link clause_implementation/2} instead.
- */
-clause_definition((Clause,_Meta),Clause).
-
-
-/**
-	@signature clause_implementation(Clause,Implementation)
- */
-clause_implementation((Implementation,_Meta),Implementation).
-
-
-
+	@signature clause_meta(Clause_ASTNode,MetaInformation)
+*/
 clause_meta((_Clause,Meta),Meta).
 
 
 
+/**
+	@signature predicate_meta(Predicate_ASTNode,MetaInformation)
+	@arg MetaInformation is the information about the predicate as a whole.
+*/
 predicate_meta(pred(_ID,_Clauses,Meta),Meta).
 
 
@@ -342,23 +381,26 @@ predicate_identifier(pred(ID,_Clauses,_Properties),ID).
 is_directive(ct(_Meta,':-',[_Directive])) :- true. 
 
 
+
 /**
 	Goal is a directive's goal. For example, given the directive:
 	<code><pre>
 	:- use_module('Utils.pl').
 	</pre></code>
-	then Goal is the AST node that represents the complex term <code>use_module</code>.
+	then Goal is the AST node that represents the complex term 
+	<code>use_module</code>.
 	<p>
 	This predicate can either be used to extract a directive's goal or
 	to construct a new AST node that represents a directive and which is not
 	associated with any meta information.
 	</p>
 	
-	@signature directive(Directive_ASTNode,Goal_ASTNode)
+	@signature directive_goal(Directive_ASTNode,Goal_ASTNode)
 	@arg Directive_ASTNode An AST node that represents a directive definition.
 	@arg Goal_ASTNode The directive's goal
 */
 directive_goal(ct(_Meta,':-',[Goal]),Goal) :- true.
+
 
 
 /**
@@ -376,8 +418,10 @@ rule(Head,Body,Meta,ct(Meta,':-',[Head,Body])) :- true.
 /**
 	Extracts a rule's head.
 	<p>
+	<font color="red">
 	This predicate must not/can not be used to create a partial rule. The ASTNode
 	will be invalid.
+	</font>
 	</p>
 	
 	@signature rule_head(ASTNode,Head_ASTNode)
@@ -391,14 +435,15 @@ rule_head(Head,Head) :- \+ is_directive(Head).
 
 /**
 	Extracts a rule's body.
-	<p>
+	<p><font color="red">
 	This predicate must not/can not be used to create a partial rule. The ASTNode
 	will be invalid.
-	</p>
+	</font></p>
 
 	@signature rule_body(Rule_ASTNode,RuleBody_ASTNode)
 */
 rule_body(ct(_Meta,':-',[_Head,Body]),Body) :- true.
+
 
 
 /**
@@ -411,6 +456,7 @@ is_rule(Clause) :- is_rule_with_body(Clause),!.
 is_rule(Clause) :- is_rule_without_body(Clause),!.
 
 
+
 /**
 	Succeeds if the given AST node represents a rule with a head and a body.
 	
@@ -420,12 +466,13 @@ is_rule(Clause) :- is_rule_without_body(Clause),!.
 is_rule_with_body(ct(_Meta,':-',[_Head,_Body])) :- true.
 
 
+
 /**
 	Succeeds if the given AST node represents a rule definition without a body;
-	e.g.,
+	e.g., rules such as:
 	<code><pre>
-	a_string_atom.
-	a_term(X,Y).
+	true.
+	loves(X,Y).
 	</pre></code>
 	
 	@signature is_rule_without_body(ASTNode)
@@ -441,6 +488,7 @@ is_rule_without_body(Clause) :-
 	).
 
 
+
 /**
 	Succeeds if ASTNode represents the declaration of a named variable; i.e.,
 	a variable that is not anonymous.
@@ -449,6 +497,7 @@ is_rule_without_body(Clause) :-
 	@arg(in) ASTNode
 */
 is_variable(v(_Meta,_Name)).
+
 
 
 /**
@@ -460,8 +509,9 @@ is_variable(v(_Meta,_Name)).
 is_anonymous_variable(av(_Meta,_Name)).
 
 
+
 /**
-	Succeeds if ASTNode represents an integer value/atom.
+	Succeeds if ASTNode represents a string atom.
 	
 	@signature is_integer_atom(ASTNode)
 	@arg(in) ASTNode	
@@ -469,8 +519,9 @@ is_anonymous_variable(av(_Meta,_Name)).
 is_string_atom(a(_Meta,_Value)).
 
 
+
 /**
-	Succeeds if ASTNode represents a numeric value/atom.
+	Succeeds if ASTNode represents a numeric value.
 	
 	@signature is_numeric_atom(ASTNode)
 	@arg(in) ASTNode	
@@ -479,8 +530,9 @@ is_numeric_atom(ASTNode) :-
 	once((is_integer_atom(ASTNode) ; is_float_atom(ASTNode))).
 
 
+
 /**
-	Succeeds if ASTNode represents an integer value/atom.
+	Succeeds if ASTNode represents an integer value.
 	
 	@signature is_integer_atom(ASTNode)
 	@arg(in) ASTNode	
@@ -488,8 +540,9 @@ is_numeric_atom(ASTNode) :-
 is_integer_atom(i(_Meta,_Value)).
 
 
+
 /**
-	Succeeds if ASTNode represents a floating point value/atom.
+	Succeeds if ASTNode represents a floating point value.
 	
 	@signature is_float_atom(ASTNode)
 	@arg(in) ASTNode	
@@ -499,18 +552,20 @@ is_float_atom(r(_Meta,_Value)).
 
 
 /**
-	(De)constructs an AST node that represents a variable definition. If this 
-	predicate is used to construct an AST node, the node will not be associated
-	with any meta information.
+	(De)constructs an AST node that represents a variable definition.<br /> 
+	If this predicate is used to construct an AST node, the node will not be 
+	associated with any meta information.
 	
 	@signature variable(Variable_ASTNode,VariableName)
 */
 variable(v(_Meta,VariableName),VariableName).
 
+
+
 /**
-	(De)constructs an AST node that represents a variable definition. If this 
-	predicate is used to construct an AST node, the only meta information will
-	be the position information.
+	(De)constructs an AST node that represents a variable definition.<br />
+	If this predicate is used to construct an AST node, the only meta information 
+	will be the position information.
 	
 	@signature variable(VariableName,Pos,Variable_ASTNode)
 */
@@ -538,6 +593,7 @@ variable(BaseQualifier,Id,Meta,v(Meta,VariableName)) :-
 	atom_concat(BaseQualifier,Id,VariableName).	
 
 
+
 /**
 	(De)constructs an AST node that represents the definition of an anonymous 
 	variable.<br/>
@@ -548,6 +604,7 @@ variable(BaseQualifier,Id,Meta,v(Meta,VariableName)) :-
 	@signature anonymous_variable(AnonymousVariable_ASTNode,Name)
 */
 anonymous_variable(av(_Meta,Name),Name).
+
 
 
 /**
@@ -565,35 +622,35 @@ anonymous_variable(Name,Pos,av([Pos|_],Name)).
 
 /**
 	(De)constructs an AST node that represents the definition of an integer 
-	atom.<br/>
+	value.<br/>
 	If this predicate is used to construct an AST node, the node will not be
 	associated with any meta information.
 	
 	@signature integer_atom(IntegerAtom_ASTNode,Value)
 */
-integer_atom(i(_Meta,Value),Value).
+integer_atom(i(_Meta,Value),Value). % TODO rename to integer_value
 
 
 /**
-	(De)constructs an AST node that represents the definition of an integer atom.<br />
-	If this 
-	predicate is used to construct an AST node, the only meta information will
-	be the position information.
+	(De)constructs an AST node that represents the definition of an integer 
+	value.<br />
+	If this predicate is used to construct an AST node, the only meta information
+	will be the position information.
 	
 	@signature integer_atom(Value,Pos,IntegerAtom_ASTNode)
 */
-integer_atom(Value,Pos,i([Pos|_],Value)).
+integer_atom(Value,Pos,i([Pos|_],Value)). % TODO rename to integer_value
 
 
 /**
 	(De)constructs an AST node that represents the definition of a float 
-	atom.<br/>
+	value.<br/>
 	If this predicate is used to construct an AST node, the node will not be
 	associated with any meta information.
 	
 	@signature float_atom(FloatAtom_ASTNode,Value)
 */
-float_atom(r(_Meta,Value),Value).
+float_atom(r(_Meta,Value),Value). % TODO rename to float_value
 
 /**
 	(De)constructs an AST node that represents the definition of a float atom.<br />
@@ -603,7 +660,7 @@ float_atom(r(_Meta,Value),Value).
 	
 	@signature float_atom(Value,Pos,FloatAtom_ASTNode)
 */
-float_atom(Value,Pos,r([Pos|_],Value)).
+float_atom(Value,Pos,r([Pos|_],Value)). % TODO rename to float_value
 
 
 /**
@@ -617,6 +674,7 @@ float_atom(Value,Pos,r([Pos|_],Value)).
 string_atom(a(_Meta,Value),Value).
 
 
+
 /**
 	(De)constructs an AST node that represents the definition of a string atom.<br />
 	If this 
@@ -626,6 +684,7 @@ string_atom(a(_Meta,Value),Value).
 	@signature string_atom(Value,Pos,StringAtom_ASTNode)
 */
 string_atom(Value,Pos,a([Pos|_],Value)).
+
 
 
 /**
@@ -641,31 +700,41 @@ string_atom(Value,Pos,a([Pos|_],Value)).
 complex_term(ct(_Meta,Functor,Args),Functor,Args).
 
 
+
 /**
 	Constructs a new complex term.
 	
 	@signature complex_term(Functor,Args,Pos,ASTNode)
-	@arg Args the arguments of a complex term. They are AST nodes.
+	@arg Args are the arguments of a complex term. They are AST nodes.
 */
 complex_term(Functor,Args,Pos,ct([Pos|_],Functor,Args)).
+
 
 
 /**
 	Constructs a new complex term.
 	
 	@signature complex_term(Functor,Args,Pos,OperatorTable,ASTNode)
-	@arg Args the arguments of a complex term. They are AST nodes.
+	@arg Args are the arguments of a complex term. They are AST nodes.
 */
 complex_term(Functor,Args,Pos,OperatorTable,ct([Pos,OperatorTable|_],Functor,Args)).
 
 
+
 /**
-	@signature complex_term_args(ComplexTermASTNode,Args)
-	@arg(in) ComplexTermASTNode An AST node that represents a complex term.
-	@arg(out) Args the arguments of a complex term. They are AST nodes.
+	@signature complex_term_args(ComplexTerm_ASTNode,Args)
+	@arg(in) ComplexTerm_ASTNode is an AST node that represents a complex term.
+	@arg(out) Args are the arguments of a complex term. They are AST nodes.
 */
 complex_term_args(ct(_Meta,_Functor,Args),Args).
+
+
+
+/**
+	@signature complex_term_functor(ComplexTerm_ASTNode,Functor)
+*/
 complex_term_functor(ct(_Meta,Functor,_Args),Functor).
+
 
 
 /**
@@ -677,10 +746,13 @@ complex_term_functor(ct(_Meta,Functor,_Args),Functor).
 term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 
 
+
 lookup_in_meta(Type,Meta) :- memberchk_ol(Type,Meta).
 
 
+
 add_to_meta(Information,Meta) :- append_ol(Information,Meta).
+
 
 
 /**
@@ -689,14 +761,16 @@ add_to_meta(Information,Meta) :- append_ol(Information,Meta).
 pos_meta(Pos,[Pos|_]) :- Pos = pos(_,_,_).
 
 
+
 /**
-	Pos is the position of a term in the source file.
+	Pos is the position of a term in the original source file.
 	
-	@arg(in) ASTNode An AST node representing a term in a source file.
-	@arg(out) Pos The position object {@file SAEProlog:Compiler:Parser} identifying
-		the position of the term in the source file.
+	@arg(in) ASTNode is an AST node representing a term in a source file.
+	@arg(out) Pos is the position object {@file SAEProlog:Compiler:Parser} 
+		identifying the position of the term in the source file.
 */
 term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
+
 
 
 /**
@@ -708,6 +782,7 @@ term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
 	@arg(out) CN 	 
 */ % TODO deep documentation: make sure that the in annotation is enforced (=.. requires AST to be a complex term or an atom)
 term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
+
 
 
 /**
@@ -727,6 +802,7 @@ named_variables_of_terms([Term|Terms],Vs,NewVs) :-
 	named_variables_of_term(Term,Vs,IVs),
 	named_variables_of_terms(Terms,IVs,NewVs).
 named_variables_of_terms([],Vs,Vs).
+
 
 
 /**	

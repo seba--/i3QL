@@ -67,7 +67,7 @@
 	local_variable_decl(Type,Name,Expression)
 	if(Condition,Statements)
 	if(Condition,TrueStatements,FalseStatements)
-	throw(Expression)
+	error(ErrorDescription) - to signal an programmer's error (e.g., if the developer tries to evaluate a non-arithmetic term.)
 	
 	<h2>EXPRESSIONS</h2>
 	assignment(LValue,Expression)
@@ -103,10 +103,17 @@
 	
 	<h1>TYPES</h1>
 	type(void)
-	type(int),
-	type(boolean),
-	type(goal),type(goal(PredicateIdentifier))
-	type(term),type(atomic(string_atom)),type(atomic(int_value)),type(atomic(float_value)),type(variable),type(complex_term(TermIdentifier)) - TermIdentifier = Functor,Arity
+	type(int)
+	type(boolean)
+	type(goal)
+	type(goal(PredicateIdentifier))
+	type(term)
+	type(complex_term)
+	type(complex_term(TermIdentifier)) - TermIdentifier = Functor,Arity
+	type(atomic(string_atom))
+	type(atomic(int_value))
+	type(atomic(float_value))
+	type(variable) - the type used by Prolog variables
 	@param Debug the list of debug information that should be printed.	
 */
 pl_to_oo(DebugConfig,Program,_OutputFolder,Program) :-
