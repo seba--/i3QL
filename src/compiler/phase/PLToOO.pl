@@ -54,12 +54,17 @@
 
 	<h2>CLASS MEMBERS</h2>
 	eol_comment(Comment)
+	field_decl(goal_stack) - create a field to manage the clause local goal stack(s) (a goal stack is not always required...)
 	field_decl(Modifiers,Type,Name)
 	field_decl(Modifiers,Type,Name,Expression) - Modifiers is a list of modifiers. Currently, the only allowed/supported modifier is final.)
 	constructor_decl(PredicateIdentifier,ParameterDecls,Statements) 
 	method_decl(Visibility,ReturnType,Identifier,ParameterDecls,Statements) - Visibility is either public or private
 
 	<h2>STATEMENTS</h2>
+	abort_pending_goals_and_clear_goal_stack
+	push_onto_goal_stack(GoalExpression)
+	remove_top_element_from_goal_stack
+	forever(Statements)
 	eol_comment(Comment)
 	switch(Expression,CaseStatements) 
 	expression_statement(Expression)
@@ -70,6 +75,7 @@
 	error(ErrorDescription) - to signal an programmer's error (e.g., if the developer tries to evaluate a non-arithmetic term.)
 	
 	<h2>EXPRESSIONS</h2>
+	get_top_element_from_goal_stack 
 	assignment(LValue,Expression)
 	method_call(ReceiverExpression,Identifier,Expressions)
 	new_object(Type,Expressions) - Expressions is a list of expressions; for each constructor argument an expression has to be given.
@@ -128,10 +134,10 @@ process_predicate(DebugConfig,Program,Predicate) :-
 	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
 	% build the OO AST
 	% FIELDS
-	gen_fields_to_encapsulte_the_control_flow_state(Program,Predicate,S1,S2),
+	gen_fields_for_the_control_flow_and_evaluation_state(Program,Predicate,S1,S2),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
-	S3 = [SConstructor,SClauseSelectorMethod,SAbortMethod,SChoiceCommittedMethod|S4],
 	% METHODS
+	S3 = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_choice_committed_method(Program,Predicate,SChoiceCommittedMethod),
@@ -152,7 +158,7 @@ process_predicate(DebugConfig,Program,Predicate) :-
 
 */
 
-gen_fields_to_encapsulte_the_control_flow_state(_Program,Predicate,SFieldDecls,SR) :-
+gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDecls,SR) :-
 	predicate_clauses(Predicate,Clauses),
 	(	single_clause(Clauses) ->
 		ClauseToExecute = eol_comment('this predicate is implemented by a single clause')
@@ -161,7 +167,7 @@ gen_fields_to_encapsulte_the_control_flow_state(_Program,Predicate,SFieldDecls,S
 	),	
 	SFieldDecls = [
 		ClauseToExecute,
-		field_decl([],type(goal),'clauseSolutions'),
+		field_decl(goal_stack),
 		field_decl([],type(int),'goalToExecute',int(1)),
 		field_decl([],type(boolean),'cutEvaluation',boolean('false')) |
 		SR
@@ -218,12 +224,7 @@ gen_abort_method(_Program,_Predicate,AbortMethod) :-
 			'abort',
 			[],
 			[
-				expression_statement(
-					method_call(field_ref(self,'clauseSolutions'),'abort',[])
-				),
-				expression_statement(
-					assignment(field_ref(self,'clauseSolutions'),null)
-				)
+				abort_pending_goals_and_clear_goal_stack
 			]).
 
 
@@ -311,7 +312,7 @@ selector_for_clause_i(I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 	"boolean clauseX()" M E T H O D S      ( T H E   C L A U S E  I M P L E M E N T A T I O N S )
 
 */
-gen_clause_impl_methods(Program,Predicate,ClauseImpls) :-
+gen_clause_impl_methods(_Program,Predicate,ClauseImpls) :-
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(Clauses,implementation_for_clause_i,ClauseImpls).
 	
@@ -323,9 +324,7 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 			type(boolean),
 			ClauseIdentifier,
 			[],
-			[
-			switch(field_ref(self,'goalToExecute'),Cases)
-			]),
+			[ forever([switch(field_ref(self,'goalToExecute'),Cases)]) ]),
 			
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,Body),		
@@ -334,21 +333,17 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 	create_clause_variables(Head,Variables,ClauseVariableDecls,SR),	
 	SR =
 	[
-		expression_statement(
-			assignment(
-				field_ref(self,'clauseSolutions'),
-				call_term(TermConstructor))),
+		push_onto_goal_stack(call_term(TermConstructor)),
 		expression_statement(
 			assignment(field_ref(self,'goalToExecute'),int(2)))
 	],
-	
 	(	ClausePosition = last -> 
 		CutAnalysis = empty
 	;
 		CutAnalysis = expression_statement(
 			assignment(
 				field_ref(self,'cutEvaluation'),
-				method_call(field_ref(self,'clauseSolutions'),'choiceCommitted',[])))
+				method_call(get_top_element_from_goal_stack,'choiceCommitted',[])))
 	),
 	Cases=[
 		case(
@@ -361,10 +356,10 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 				local_variable_decl(
 					type(boolean),
 					'succeeded',
-					method_call(field_ref(self,'clauseSolutions'),'next',[])),
+					method_call(get_top_element_from_goal_stack,'next',[])),
 				if(local_variable_ref('succeeded'),[return(boolean(true))]),
 				CutAnalysis,
-				expression_statement(assignment(field_ref(self,'clauseSolutions'),null)),
+				remove_top_element_from_goal_stack,
 				return(boolean(false))
 			]
 		)
@@ -379,7 +374,7 @@ create_clause_variables(Head,BodyVariables,SClauseVariables,SR) :-
 	complex_term_args(Head,AllHeadVariables),
 	predicate_args_variables_mapping(0,AllHeadVariables,SClauseVariables,SClauseLocalVariables),
 
-	named_variables_of_term(Head,NamedHeadVariables),
+	names_of_variables_of_term(Head,NamedHeadVariables),
 	clause_local_variables(NamedHeadVariables,BodyVariables,SClauseLocalVariables,SR).
 
 
@@ -398,7 +393,7 @@ clause_local_variables(_,[],SR,SR).
 
 
 predicate_args_variables_mapping(Id,[HeadVariable|HeadVariables],[SHeadVariableMapping|SX],SR) :- !,
-	(	variable(HeadVariable,HeadVariableName),
+	(	variable(HeadVariable,HeadVariableName), % fails if a head variable is anonymous
 		atom_concat('arg',Id,ArgName),
 		SHeadVariableMapping=local_variable_decl(type(term),HeadVariableName,field_ref(self,ArgName))
 	;

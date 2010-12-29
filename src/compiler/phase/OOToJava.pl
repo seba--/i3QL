@@ -162,6 +162,9 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n').
 
+write_class_member(Stream,field_decl(goal_stack)) :-
+	write(Stream,'private GoalStack goalStack = GoalStack.emptyStack();\n').
+
 write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :-
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
@@ -233,38 +236,50 @@ write_stmts(Stream,[Stmt|Stmts]) :-
 
 
 
-write_stmt(_Stream,empty).
-write_stmt(Stream,eol_comment(Comment)) :-
+write_stmt(_Stream,empty) :- !.
+write_stmt(Stream,eol_comment(Comment)) :- !,
 	write(Stream,'// '),write(Stream,Comment),nl(Stream).
-write_stmt(Stream,expression_statement(Expression)) :-
+write_stmt(Stream,expression_statement(Expression)) :- !,
 	write_expr(Stream,Expression),
 	write(Stream,';\n').
-write_stmt(Stream,return(Expression)) :-
+write_stmt(Stream,forever(Stmts)) :- !,
+	write(Stream,'do{\n'),
+	write_stmts(Stream,Stmts),
+	write(Stream,'} while(true);\n').	
+write_stmt(Stream,return(Expression)) :- !,
 	write(Stream,'return '),
 	write_expr(Stream,Expression),
 	write(Stream,';\n').
-write_stmt(Stream,if(ConditionExpression,TrueStmts)) :-
+write_stmt(Stream,if(ConditionExpression,TrueStmts)) :- !,
 	write(Stream,'if('),write_expr(Stream,ConditionExpression),write(Stream,'){\n'),
 	write_stmts(Stream,TrueStmts),
 	write(Stream,'}\n').	
-write_stmt(Stream,if(ConditionExpression,TrueStmts,FalseStmts)) :-
+write_stmt(Stream,if(ConditionExpression,TrueStmts,FalseStmts)) :- !,
 	write(Stream,'if('),write_expr(Stream,ConditionExpression),write(Stream,'){\n'),
 	write_stmts(Stream,TrueStmts),
 	write(Stream,'} else {\n'),
 	write_stmts(Stream,FalseStmts),
 	write(Stream,'}\n').
-write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :-
+write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
 	write(Stream,' = '),
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
-write_stmt(Stream,switch(Expression,Cases)) :-
+write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
+	write(Stream,'this.goalStack = goalStack.abortPendingGoals();\n').
+write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
+	write(Stream,'this.goalStack = goalStack.put('),
+	write_expr(Stream,GoalExpression),
+	write(Stream,');\n').
+write_stmt(Stream,remove_top_element_from_goal_stack) :- !,
+	write(Stream,'this.goalStack = goalStack.drop();\n').
+write_stmt(Stream,switch(Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
 	write_cases(Stream,Cases),
 	write(Stream,'default:\n'),
 	write(Stream,'// should never be reached\n'),
 	write(Stream,'throw new Error("internal compiler error");\n'),
-	write(Stream,'}\n').	
+	write(Stream,'}\n').
 
 
 
@@ -336,6 +351,8 @@ write_expr(Stream,local_variable_ref(Identifier)):-
 write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,'.call()').	
+write_expr(Stream,get_top_element_from_goal_stack) :- !,
+	write(Stream,'this.goalStack.peek()').
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
 write_expr(Stream,variable) :- 
 	write(Stream,'variable()').

@@ -103,7 +103,8 @@
 		rule_body/2,
 		
 		cut_analysis/2,
-		named_variables_of_term/2,
+		names_of_variables_of_term/2,
+		named_variables_of_term/3,
 		
 		pos_meta/2,
 		predicate_meta/2,
@@ -786,22 +787,39 @@ term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
 
 /**
-	@signature named_variables_of_term(ASTNode,VariableNames)
+	@signature names_of_variables_of_term(ASTNode,SetOfVariableNames)
 */
-named_variables_of_term(ASTNode,Vs) :- 
-	named_variables_of_term(ASTNode,[],Vs).
+names_of_variables_of_term(ASTNode,Vs) :- 
+	names_of_variables_of_term(ASTNode,[],Vs).
 
-named_variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
+
+names_of_variables_of_term(v(_,VariableName),Vs,NewVs) :- !,
 	add_to_set(VariableName,Vs,NewVs).
-named_variables_of_term(ct(_,_,Args),Vs,NewVs) :- !,
-	named_variables_of_terms(Args,Vs,NewVs).
-named_variables_of_term(_,Vs,Vs).	
+names_of_variables_of_term(ct(_,_,Args),Vs,NewVs) :- !,
+	names_of_variables_of_terms(Args,Vs,NewVs).
+names_of_variables_of_term(_,Vs,Vs).	
 
 
-named_variables_of_terms([Term|Terms],Vs,NewVs) :-
-	named_variables_of_term(Term,Vs,IVs),
-	named_variables_of_terms(Terms,IVs,NewVs).
-named_variables_of_terms([],Vs,Vs).
+names_of_variables_of_terms([Term|Terms],Vs,NewVs) :-
+	names_of_variables_of_term(Term,Vs,IVs),
+	names_of_variables_of_terms(Terms,IVs,NewVs).
+names_of_variables_of_terms([],Vs,Vs).
+
+
+
+/**
+	@signature named_variables_of_term(BodyASTNode,[AllBodyVariables_ASTNodes|T],T)
+*/
+named_variables_of_term(v(Meta,Name),[v(Meta,Name)|SZ],SZ) :- !.
+named_variables_of_term(ct(_,_,Args),S1,SZ) :- !,
+	named_variables_of_terms(Args,S1,SZ).
+named_variables_of_term(_,SZ,SZ).	
+
+
+named_variables_of_terms([Term|Terms],S1,SZ) :-
+	named_variables_of_term(Term,S1,S2),
+	named_variables_of_terms(Terms,S2,SZ).
+named_variables_of_terms([],SZ,SZ).
 
 
 

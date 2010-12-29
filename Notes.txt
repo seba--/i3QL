@@ -1,4 +1,15 @@
-Some examples how to use the compiler:
+TODOs:
+
+completely support all standard control-flow predicates: 
+	C -> T ; E
+	C *-> T ; E
+	C -> B
+	C *-> B
+are not yet supported.
+
+
+
+How to use the compiler:
 
 compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
 

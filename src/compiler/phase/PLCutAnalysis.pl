@@ -32,7 +32,7 @@
 
 
 /**
-	Analysis a clause to check if the clause performs a cut.
+	Analyzes a clause to check if the clause performs a cut.
 	
 	@author Michael Eichberg
 */
@@ -46,11 +46,11 @@
 
 pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Cut Analysis_________________________________________________\n')),
-	foreach_user_predicate(Program,process_predicate(Program)).
+	foreach_user_predicate(Program,process_predicate).
 
 
 
-process_predicate(Program,Predicate) :-
+process_predicate(Predicate) :-
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(Clauses,analyze_cut).
 
