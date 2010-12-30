@@ -67,9 +67,11 @@ analyze_variable_usage(Clause) :-
 	rule_head(Implementation,HeadASTNode),
 	complex_term_args(HeadASTNode,AllHeadVariables), % since the clause is normalized, the head only contains (anonymous) variable declarations
 	map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCount,VariableNamesMapping),
+write('AllHeadVariables: '),write(AllHeadVariables),nl,
 
 	rule_body(Implementation,BodyASTNode),
 	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
+write('ALL BODY VARIABLES:    '),write(AllBodyVariables),nl,	
 	map_names_of_body_variables(0,AllBodyVariables,BodyVariablesCount,VariableNamesMapping),
 	
 	clause_meta(Clause,Meta),	
@@ -80,7 +82,7 @@ analyze_variable_usage(Clause) :-
 /**
 	@arg FinalHeadVariablesCount is a (complex) term that can be evaluated
 */
-map_names_of_head_variables(Id,[],0,_VariableNamesMapping).
+map_names_of_head_variables(_Id,[],0,_VariableNamesMapping).
 map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCount,VariableNamesMapping) :-
 	( 	variable(HeadVariable,HeadVariableName) ->
 		MappedVariableName = mapped_variable_name(arg(Id)),

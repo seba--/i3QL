@@ -328,9 +328,12 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 			
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,Body),		
-	create_term(Body,TermConstructor,Variables),
-	rule_head(ClauseDefinition,Head),
-	create_clause_variables(Head,Variables,ClauseVariableDecls,SR),	
+(ClauseIdentifier = 'clause1' -> write(Body),nl ; true),	
+	create_term(Body,TermConstructor,MappedVariableNames),
+(ClauseIdentifier = 'clause1' -> write(TermConstructor),nl ; true),
+write(MappedVariableNames),	nl,
+	create_clause_variables(MappedVariableNames,ClauseVariableDecls,SR),	
+write(SR),write('  ~  '),write(ClauseVariableDecls),nl,
 	SR =
 	[
 		push_onto_goal_stack(call_term(TermConstructor)),
@@ -368,16 +371,22 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 
 
 /**
-	@signature create_clause_variables(Head,BodyVariables,ClauseVariables).
+	@signature create_clause_variables(MappedBodyVariableNames,SClauseLocalVariables,SZ).
 */
-create_clause_variables(Head,BodyVariables,SClauseVariables,SR) :-
-	complex_term_args(Head,AllHeadVariables),
-	predicate_args_variables_mapping(0,AllHeadVariables,SClauseVariables,SClauseLocalVariables),
+create_clause_variables([MappedBodyVariableName|MappedBodyVariableNames],SClauseLocalVariables,SZ) :-
+	(	MappedBodyVariableName = clv(_I),
+		mapped_variable_name_to_variable_identifier(MappedBodyVariableName,VI),
+		SClauseLocalVariables = [local_variable_decl(type(variable),VI,variable)|SI]
+	;
+		SClauseLocalVariables = SI
+	),!,
+	create_clause_variables(MappedBodyVariableNames,SI,SZ).
+create_clause_variables([],SZ,SZ).
 
-	names_of_variables_of_term(Head,NamedHeadVariables),
-	clause_local_variables(NamedHeadVariables,BodyVariables,SClauseLocalVariables,SR).
 
+%	clause_local_variables(NamedHeadVariables,BodyVariables,SClauseLocalVariables,SR).
 
+/*
 
 clause_local_variables(HeadVariables,[BodyVariable|BodyVariables],SClauseVariables,SR) :-
 	(
@@ -389,9 +398,10 @@ clause_local_variables(HeadVariables,[BodyVariable|BodyVariables],SClauseVariabl
 		clause_local_variables(HeadVariables,BodyVariables,SClauseVariables,SR)
 	),!.
 clause_local_variables(_,[],SR,SR).
+*/
 
 
-
+/*
 predicate_args_variables_mapping(Id,[HeadVariable|HeadVariables],[SHeadVariableMapping|SX],SR) :- !,
 	(	variable(HeadVariable,HeadVariableName), % fails if a head variable is anonymous
 		atom_concat('arg',Id,ArgName),
@@ -403,33 +413,45 @@ predicate_args_variables_mapping(Id,[HeadVariable|HeadVariables],[SHeadVariableM
 	NewId is Id + 1,
 	predicate_args_variables_mapping(NewId,HeadVariables,SX,SR).
 predicate_args_variables_mapping(_Id,[],SR,SR).
+*/
 
 
-	
-	
-	
-create_term(ASTNode,TermConstructor,Variables) :-
-	create_term(ASTNode,TermConstructor,[],Variables).
+
+create_term(ASTNode,TermConstructor,MappedVariableNames) :-
+	create_term(ASTNode,TermConstructor,[],MappedVariableNames).
 /**
 	@signature create_term(ASTNode,TermConstructor,OldVariables,NewVariables)
 */
-create_term(ASTNode,int_value(Value),Vs,Vs) :-	
+create_term(ASTNode,int_value(Value),MVNs,MVNs) :-	
 	integer_atom(ASTNode,Value),!.
-create_term(ASTNode,float_value(Value),Vs,Vs) :-
+create_term(ASTNode,float_value(Value),MVNs,MVNs) :-
 	float_atom(ASTNode,Value),!.
-create_term(ASTNode,string_atom(Value),Vs,Vs) :-	
+create_term(ASTNode,string_atom(Value),MVNs,MVNs) :-	
 	string_atom(ASTNode,Value),!.
-create_term(ASTNode,local_variable_ref(VariableName),OldVs,NewVs) :- 
-	variable(ASTNode,VariableName),!,
-	add_to_set(VariableName,OldVs,NewVs).	
-create_term(ASTNode,anonymous_variable,Vs,Vs) :- 
+create_term(ASTNode,anonymous_variable,MVNs,MVNs) :- 
 	anonymous_variable(ASTNode,_VariableName),!.	
-create_term(ASTNode,complex_term(string_atom(Functor),ArgsConstructors),OldVs,NewVs) :-
+create_term(ASTNode,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs) :-
 	complex_term(ASTNode,Functor,Args),
-	create_terms(Args,ArgsConstructors,OldVs,NewVs),!.
+	create_terms(Args,ArgsConstructors,OldMVNs,NewMVNs),!.
+create_term(ASTNode,local_variable_ref(VariableIdentifier),OldMVNs,NewMVNs) :- 
+	is_variable(ASTNode),!,
+	term_meta(ASTNode,Meta),
+	lookup_in_meta(mapped_variable_name(MVN),Meta),
+	mapped_variable_name_to_variable_identifier(MVN,VariableIdentifier),
+	add_to_set(MVN,OldMVNs,NewMVNs).	
 
-create_terms([Arg|Args],[TermConstructor|TermConstructors],OldVs,NewVs) :- !,
-	create_term(Arg,TermConstructor,OldVs,IVs),
-	create_terms(Args,TermConstructors,IVs,NewVs).
-	create_terms([],[],Vs,Vs).
+
+
+create_terms([Arg|Args],[TermConstructor|TermConstructors],OldMVNs,NewMVNs) :- !,
+	create_term(Arg,TermConstructor,OldMVNs,IMVNs),
+	create_terms(Args,TermConstructors,IMVNs,NewMVNs).
+create_terms([],[],MVNs,MVNs).
 	
+	
+	
+mapped_variable_name_to_variable_identifier(arg(I),VariableName) :- !,
+	atom_concat(arg,I,VariableName).
+mapped_variable_name_to_variable_identifier(clv(I),VariableName) :- !,
+	atom_concat(clv,I,VariableName).
+mapped_variable_name_to_variable_identifier(X,_) :-
+	throw(internal_error(['unsupported mapped variable name: ',X])).

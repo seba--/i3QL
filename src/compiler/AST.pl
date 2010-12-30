@@ -106,6 +106,7 @@
 		names_of_variables_of_term/2,
 		named_variables_of_term/3,
 		
+		clone_meta/2,
 		pos_meta/2,
 		predicate_meta/2,
 		lookup_in_meta/2,
@@ -756,8 +757,13 @@ add_to_meta(Information,Meta) :- append_ol(Information,Meta).
 
 
 
+clone_meta(Meta,NewMeta) :-
+	clone_ol(Meta,NewMeta).
+
+
+
 /**
-	@signature meta_pos(Position,ASTNodeMetaInformation)
+	@signature pos_meta(Position,MetaInformation_ASTNode)
 */
 pos_meta(Pos,[Pos|_]) :- Pos = pos(_,_,_).
 

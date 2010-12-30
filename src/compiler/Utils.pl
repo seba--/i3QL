@@ -49,6 +49,7 @@
 
 		append_ol/2,
 		memberchk_ol/2,
+		clone_ol/2,
 		
 		redirect_stdout_to_null/1,
 		reset_stdout_redirect/1,
@@ -280,6 +281,12 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 	OC \= C,
 	!,
 	replace_char_with_string(RCs,OldC,NewString,R).
+
+
+
+
+clone_ol(E,_NewE) :- var(E),!.
+clone_ol([E|T],[E|NewT]) :- clone_ol(T,NewT).
 
 
 

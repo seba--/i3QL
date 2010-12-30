@@ -382,7 +382,7 @@ postfix_op(ops(_,_,PostfixOps),Op,Pos) -->
 
 
 elementary_term(_Ops,V) --> var(V),{!}.
-elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}. % FIXIME store op table
+elementary_term(Ops,CT) --> compound_term(Ops,CT),{!}. % FIXME store op table
 elementary_term(Ops,LT) --> list(Ops,LT),{!}.
 elementary_term(Ops,T) --> 
 	['('(_OPos)],
