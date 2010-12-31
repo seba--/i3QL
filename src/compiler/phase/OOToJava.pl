@@ -114,6 +114,7 @@ write_class_decl(Stream,Functor/Arity,InheritedInterface,ClassMembers) :-
 		' */\n',
 		'package predicates;\n',
 		'import saere.*;\n',
+		'import saere.predicate.*;\n',		
 		'import saere.term.*;\n\n',
 		'import static saere.term.Terms.*;\n',
 		'import static saere.IntValue.*;\n',
@@ -356,7 +357,14 @@ write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :-
 	write(Stream,')').
 write_expr(Stream,local_variable_ref(Identifier)):-
 	write(Stream,Identifier).
-%write_expr(Stream,call_term(complex_term(string_atom(Functor),Terms))):-	
+write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):-
+	length(ArgsExpressions,ArgsCount),
+	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
+	map_functor_to_class_name(Functor,ClassName),
+	write(Stream,'new '),write(Stream,ClassName),write(Stream,ArgsCount),write(Stream,'('),
+	write_expr(Stream,FirstArgExpression),
+	write_complex_term_args(Stream,MoreArgsExpressions),
+	write(Stream,')').
 write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,'.call()').	
@@ -476,3 +484,43 @@ write_predicate_registration(Stream,Functor/Arity) :-
 
 array_acces(ArrayName,N,ArrayAccess) :- 
 	atomic_list_concat([ArrayName,'[',N,']'],ArrayAccess).
+	
+	
+
+/* ************************************************************************** *\
+ *                                                                            *
+ *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
+ *                                                                            *
+\* ************************************************************************** */
+map_functor_to_class_name('=','Unify') :- !.
+map_functor_to_class_name('\\=','NotUnify') :- !.
+map_functor_to_class_name(',','And') :- !.
+map_functor_to_class_name(';','Or') :- !.
+map_functor_to_class_name('!','Cut') :- !.
+map_functor_to_class_name('*->','SoftCut') :- !.
+map_functor_to_class_name('->','If_Then') :- !.
+map_functor_to_class_name('true','True') :- !.
+map_functor_to_class_name('false','False') :- !.
+map_functor_to_class_name('fail','False') :- !.
+map_functor_to_class_name('not','Not') :- !.
+map_functor_to_class_name('\\+','Not') :- !.
+map_functor_to_class_name('is','Is') :- !.
+map_functor_to_class_name('<','Smaller') :- !.
+map_functor_to_class_name('=<','SmallerOrEqual') :- !.
+%map_functor_to_class_name('>',) :- !.
+%map_functor_to_class_name('>=',) :- !.
+map_functor_to_class_name('=:=','ArithEqual') :- !.
+map_functor_to_class_name('=\\=','ArithNotEqual') :- !.
+% FURTHER BUILT-IN PREDICATES:
+map_functor_to_class_name('member','Member') :- !.
+map_functor_to_class_name('time','Time') :- !.
+map_functor_to_class_name('repeat','Repeat') :- !.
+map_functor_to_class_name(Functor,Functor).
+
+
+
+%map_functor_to_class_name('*').
+%map_functor_to_class_name('-').
+%map_functor_to_class_name('+').
+%map_functor_to_class_name('[]').
+%map_functor_to_class_name('.').	

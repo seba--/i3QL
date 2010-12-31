@@ -89,6 +89,7 @@
 	int(Value) - an int value in the target language (not a Prolog int value)
 	boolean(Value) - a boolean value in the target language (not a Prolog boolean value)
 	call_term(TermExpression)
+	static_predicate_call(complex_term(Functor,Terms))
 	predicate_lookup(Functor,Arity,TermExpressions)
 	
 	<h2>TERM EXPRESSION</H2>
@@ -478,7 +479,7 @@ translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :
 	init_clause_local_variables(
 		MappedVariableNames,
 		SInitCLVs,
-		[ push_onto_goal_stack(call_term(TermConstructor)) ]),	
+		[ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]),	
 	SGoalPreparation = case(
 		int(GoalPreparationId),
 		SInitCLVs
