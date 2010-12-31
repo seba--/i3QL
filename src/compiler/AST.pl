@@ -781,8 +781,6 @@ term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
 
 
 /**
-	Pos is the position of a term in the source file.
-	
 	@arg(in) ASTNode An AST node representing a term in a source file.
 	@arg(out) File 
 	@arg(out) LN
@@ -830,7 +828,14 @@ named_variables_of_terms([],SZ,SZ).
 
 
 /**	
+	Determines the behavior of the given term(goal) w.r.t. calling the cut.
+	<p>
+	The cut analysis supports all standard control-flow constructs:<br/>
+	 ",",";","!","->","*->","-> ; ","*-> ; ".
+	</p>
+	
 	@signature cut_analysis(ASTNode,CutBehavior)
+	@arg(out) CutBehavior is either always,maybe, or never.
 */
 % TODO check that the semantics of the cut analysis is correct for "->" and "*->"
 cut_analysis(a(_,'!'),always):- !.

@@ -50,32 +50,39 @@
 
 pl_variable_usage_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Variable Usage Analysis______________________________________\n')),
-	foreach_user_predicate(Program,process_predicate),
+	foreach_user_predicate(Program,process_predicate(DebugConfig)),
 	!/* we are finished... */.
 
 
 
-process_predicate(Predicate) :-
-	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,analyze_variable_usage).
+process_predicate(DebugConfig,Predicate) :-
+	predicate_identifier(Predicate,PredicateIdentifier),
+	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
+	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	
+	predicate_clauses(Predicate,Clauses),	
+	foreach_clause(Clauses,analyze_variable_usage,NumberOfLocalVariablesOfClauses),
+	max_list(NumberOfLocalVariablesOfClauses,Max),
+	predicate_meta(Predicate,Meta),
+	add_to_meta(maximum_number_of_clause_local_variables(Max),Meta).
 
 
 
-analyze_variable_usage(Clause) :-
+analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariablesCount) :-
 	clause_implementation(Clause,Implementation),
+	clause_meta(Clause,Meta),	
 	
 	rule_head(Implementation,HeadASTNode),
 	complex_term_args(HeadASTNode,AllHeadVariables), % since the clause is normalized, the head only contains (anonymous) variable declarations
-	map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCount,VariableNamesMapping),
-write('AllHeadVariables: '),write(AllHeadVariables),nl,
-
+	map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCountExpr,VariableNamesMapping),
+	HeadVariablesCount is HeadVariablesCountExpr,
+	add_to_meta(used_head_variables_count(HeadVariablesCount),Meta),
+	
 	rule_body(Implementation,BodyASTNode),
 	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
-write('ALL BODY VARIABLES:    '),write(AllBodyVariables),nl,	
-	map_names_of_body_variables(0,AllBodyVariables,BodyVariablesCount,VariableNamesMapping),
-	
-	clause_meta(Clause,Meta),	
-	add_to_meta(body_variables_count(BodyVariablesCount),Meta).
+	map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping),
+
+	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),Meta).
 
 
 
@@ -99,10 +106,10 @@ map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCo
 
 
 /** 
-	@signature map_names_of_body_variables(0,AllBodyVariables,VariableNamesMapping)
+	@signature map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping)
 */
 map_names_of_body_variables(Id,[],Id,_VariableNamesMapping).	
-map_names_of_body_variables(Id,[Variable|Variables],BodyVariablesCount,VariableNamesMapping) :-
+map_names_of_body_variables(Id,[Variable|Variables],ClauseLocalVariablesCount,VariableNamesMapping) :-
 	variable(Variable,VariableName),
 	lookup(VariableName,VariableNamesMapping,MappedVariableName),
 	(	var(MappedVariableName) ->
@@ -113,4 +120,4 @@ map_names_of_body_variables(Id,[Variable|Variables],BodyVariablesCount,VariableN
 	),
 	term_meta(Variable,Meta),
 	add_to_meta(MappedVariableName,Meta),
-	map_names_of_body_variables(NewId,Variables,BodyVariablesCount,VariableNamesMapping).
+	map_names_of_body_variables(NewId,Variables,ClauseLocalVariablesCount,VariableNamesMapping).

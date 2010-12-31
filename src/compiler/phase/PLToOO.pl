@@ -64,14 +64,15 @@
 	abort_pending_goals_and_clear_goal_stack
 	push_onto_goal_stack(GoalExpression)
 	remove_top_element_from_goal_stack
-	forever(Statements)
+	forever(Label,Statements)
+	continue(Label)
 	eol_comment(Comment)
 	switch(Expression,CaseStatements) 
 	expression_statement(Expression)
 	return(Expression)
 	local_variable_decl(Type,Name,Expression)
 	if(Condition,Statements)
-	if(Condition,TrueStatements,FalseStatements)
+	if(Condition,ThenStatements,ElseStatements)
 	error(ErrorDescription) - to signal an programmer's error (e.g., if the developer tries to evaluate a non-arithmetic term.)
 	
 	<h2>EXPRESSIONS</h2>
@@ -81,6 +82,7 @@
 	new_object(Type,Expressions) - Expressions is a list of expressions; for each constructor argument an expression has to be given.
 	field_ref(Receiver,Identifier)
 	local_variable_ref(Identifier)
+	reference_comparison(Expression,Expression)
 	null
 	self - the self reference ("this" in Java)
 	string(Value) - a string value in the target language (not a string atom)
@@ -136,8 +138,9 @@ process_predicate(DebugConfig,Program,Predicate) :-
 	% FIELDS
 	gen_fields_for_the_control_flow_and_evaluation_state(Program,Predicate,S1,S2),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
+	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
 	% METHODS
-	S3 = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
+	SMethods = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_choice_committed_method(Program,Predicate,SChoiceCommittedMethod),
@@ -166,6 +169,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDe
 		ClauseToExecute = field_decl([],type(int),'clauseToExecute',int(1))
 	),	
 	SFieldDecls = [
+		eol_comment('variables to control/manage the execution this predicate'),
 		ClauseToExecute,
 		field_decl(goal_stack),
 		field_decl([],type(int),'goalToExecute',int(1)),
@@ -174,14 +178,37 @@ gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDe
 	].
 
 
-gen_fields_for_predicate_arguments(_Program,Predicate,SFieldDecls,SR) :-
+
+gen_fields_for_predicate_arguments(
+		_Program,
+		Predicate,
+		[eol_comment('variables related to the predicate\'s state')|SFieldDecls],
+		SR
+	) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = _Functor/Arity,
 	call_foreach_i_in_0_to_u(Arity,field_decl_for_pred_arg_i,SFieldDecls,SR).
 
 
+
 field_decl_for_pred_arg_i(I,field_decl([final],type(term),FieldName)) :-
 	atom_concat(arg,I,FieldName).
+
+
+
+gen_fields_for_clause_local_variables(
+		Predicate,
+		[eol_comment('variables to store clause local information')|SFieldDecls],
+		SR
+	) :- 
+	predicate_meta(Predicate,Meta),
+	lookup_in_meta(maximum_number_of_clause_local_variables(Max),Meta),
+	call_foreach_i_in_0_to_u(Max,field_decl_for_clause_local_variable,SFieldDecls,SR).
+
+
+
+field_decl_for_clause_local_variable(I,field_decl([],type(term),FieldName)) :-
+	atom_concat(clv,I,FieldName).
 
 
 
@@ -272,7 +299,7 @@ gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 				]),
 		foreach_clause(Clauses,selector_for_clause_i,CaseStmts)
 	).
-	
+
 
 
 selector_for_clause_i(I,_Clause,last,case(int(I),Stmts)) :- !,
@@ -282,18 +309,21 @@ selector_for_clause_i(I,_Clause,last,case(int(I),Stmts)) :- !,
 selector_for_clause_i(I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 	atom_concat('clause',I,ClauseIdentifier),
 	NextClauseId is I + 1,
-	PrepareForNextClause = [
-		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId))),
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(1)))
+	
+	reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
+	SPrepareForNextClause = [
+		eol_comment('prepare the execution of the next clause'),
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(1))),
+		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
 	],
 	(
-		clause_meta(Clause,Meta) , lookup_in_meta(cut(never),Meta) ->
-		ClauseFailed = [eol_comment('this clause contains no "cut"') |PrepareForNextClause]
+		clause_meta(Clause,Meta), lookup_in_meta(cut(never),Meta) ->
+		ClauseFailed = [eol_comment('this clause contains no "cut"') |SCleanup]
 	;
 		ClauseFailed = [
 			if(field_ref(self,'cutEvaluation'),
 				[return(boolean(false))],
-				PrepareForNextClause
+				SCleanup
 			)
 		]
 	),
@@ -304,6 +334,24 @@ selector_for_clause_i(I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 		)
 	].
 
+
+
+reset_clause_local_variables(
+		Clause,
+		SCLVReset,
+		SR
+	) :- 
+	clause_meta(Clause,Meta),
+	lookup_in_meta(clause_local_variables_count(CLVCount),Meta),
+	call_foreach_i_in_0_to_u(CLVCount,reset_clause_local_variable,SCLVReset,SR).
+
+
+
+reset_clause_local_variable(
+		I,
+		expression_statement(assignment(field_ref(self,FieldName),null))
+	) :-
+	atom_concat(clv,I,FieldName).
 
 
 
@@ -324,16 +372,28 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 			type(boolean),
 			ClauseIdentifier,
 			[],
-			[ forever([switch(field_ref(self,'goalToExecute'),Cases)]) ]),
-			
+			[ forever('eval_goals',[switch(field_ref(self,'goalToExecute'),Cases)]) ]),
+	clause_definition(Clause,ClauseDefinition),
+	rule_body(ClauseDefinition,Body),
+	number_primitive_goals(Body,1,_LastId),
+	set_primitive_goals_successors(Body),
+	primitive_goals_list(Body,PrimitiveGoalsList,[]),
+	translate_goals(PrimitiveGoalsList,Cases,[]).
+	/*Cases=[
+		case(
+			int(0),
+			[
+				eol_comment('... proving this clause (finally) failed.'),
+				eol_comment('(There are no more solutions.)'),
+				return(boolean(false))
+			]
+		)
+		|SFirstGoalCase]*/			
+	/*		
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,Body),		
-(ClauseIdentifier = 'clause1' -> write(Body),nl ; true),	
 	create_term(Body,TermConstructor,MappedVariableNames),
-(ClauseIdentifier = 'clause1' -> write(TermConstructor),nl ; true),
-write(MappedVariableNames),	nl,
 	create_clause_variables(MappedVariableNames,ClauseVariableDecls,SR),	
-write(SR),write('  ~  '),write(ClauseVariableDecls),nl,
 	SR =
 	[
 		push_onto_goal_stack(call_term(TermConstructor)),
@@ -366,57 +426,165 @@ write(SR),write('  ~  '),write(ClauseVariableDecls),nl,
 				return(boolean(false))
 			]
 		)
-	].
+	]
+	*/
+
+
+
+translate_goals([PrimitiveGoal|PrimitiveGoals],SGoalCases,SRest) :-
+	translate_goal(PrimitiveGoal,SGoalCases,SOtherGoalCases),
+	translate_goals(PrimitiveGoals,SOtherGoalCases,SRest).
+translate_goals([],SCases,SCases).
+
+
+
+% To translate a goal, we use the following meta information:
+% next_goal_if_fails(GoalNumber)
+% next_goal_if_fails(multiple)
+% not_unique_predecessor_goal
+% next_goal_if_succeeds(GoalNumber)
+translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+	string_atom(PrimitiveGoal,'!'),!,
+	term_meta(PrimitiveGoal,Meta),
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	% Handle the case if the cut is called the first time
+	CallCaseId is GoalNumber * 2 - 1,
+	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
+	SCall = case(
+		int(CallCaseId),
+		[
+			eol_comment('cut...'),
+			expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(true))) |
+			JumpToNextGoalAfterSucceed
+		]
+	),
+	% Handle the case if the cut is called the second time (redo-case)
+	RedoCaseId is GoalNumber * 2,
+	SRedo = case(
+		int(RedoCaseId),
+		[
+			abort_pending_goals_and_clear_goal_stack,
+			return(boolean(false))
+		]
+	).
 	
+translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :-
+	term_meta(PrimitiveGoal,Meta),
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	
+	% GOAL preparation
+	GoalPreparationId is GoalNumber * 2 - 1,
+	create_term(PrimitiveGoal,TermConstructor,MappedVariableNames),
+	init_clause_local_variables(
+		MappedVariableNames,
+		SInitCLVs,
+		[ push_onto_goal_stack(call_term(TermConstructor)) ]),	
+	SGoalPreparation = case(
+		int(GoalPreparationId),
+		SInitCLVs
+	),
+	
+	% GOAL evaluation
+	CallGoal = [
+		local_variable_decl(type(boolean),'succeeded',
+			method_call(get_top_element_from_goal_stack,'next',[])
+		),
+		if(not(local_variable_ref('succeeded')),[
+			remove_top_element_from_goal_stack |
+			JumpToNextGoalAfterFail
+		])|
+		JumpToNextGoalAfterSucceed
+	],
+	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
+	select_and_jump_to_next_goal_after_succeed(Meta,may_fall_through,JumpToNextGoalAfterSucceed),
+	GoalEvaluationId is GoalNumber * 2,
+	SGoalEvaluation = case(
+		int(GoalEvaluationId),
+		CallGoal
+	).
+
 
 
 /**
-	@signature create_clause_variables(MappedBodyVariableNames,SClauseLocalVariables,SZ).
+	Generates the code that selects and executes the next goal if this goal
+	has failed.
 */
-create_clause_variables([MappedBodyVariableName|MappedBodyVariableNames],SClauseLocalVariables,SZ) :-
+select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
+	lookup_in_meta(next_goal_if_fails(multiple),Meta),!,
+	throw(to_be_implemented).
+select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
+	lookup_in_meta(next_goal_if_fails(TargetGoalNumber),Meta),!,
+	TargetGoalCaseId is TargetGoalNumber * 2,
+	SStmts = [
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+		continue('eval_goals')
+		|SRest
+	].
+% ... if this goal fails, the goal as a whole fails	
+select_and_jump_to_next_goal_after_fail(_Meta,[return(boolean(false))|SRest],SRest).
+
+
+
+select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSucceed) :-
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	(	lookup_in_meta(next_goal_if_succeeds(TargetGoalNumber),Meta) ->
+		(
+			lookup_in_meta(not_unique_predecessor_goal,Meta) ->
+			throw(needs_to_be_implemented)
+		;
+			true
+		),
+		TargetGoalCaseId is TargetGoalNumber * 2 - 1,
+		(	TargetGoalNumber =:= GoalNumber + 1, ForceJump \= force_jump  ->
+			atom_concat('fall through ... ',TargetGoalCaseId,NextGoalIfSucceedComment),
+			JumpToNextGoalAfterSucceed = [eol_comment(NextGoalIfSucceedComment)]
+		;
+			JumpToNextGoalAfterSucceed = [
+				expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+				continue('eval_goals')
+			]
+		)
+	;
+		% this is (a) last goal of the clause
+		TargetGoalCaseId is GoalNumber * 2,
+		JumpToNextGoalAfterSucceed = [
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+			return(boolean(true))
+		]
+	).
+
+
+
+/**
+	@signature init_clause_local_variables(MappedBodyVariableNames,SInitClauseLocalVariables,SZ).
+*/
+init_clause_local_variables([MappedBodyVariableName|MappedBodyVariableNames],SInitCLV,SZ) :-
 	(	MappedBodyVariableName = clv(_I),
 		mapped_variable_name_to_variable_identifier(MappedBodyVariableName,VI),
-		SClauseLocalVariables = [local_variable_decl(type(variable),VI,variable)|SI]
+		SInitCLV = [
+			eol_comment('to get rid of the following "if-statement" we need to implement a data-flow analysis...'),
+			if(
+				reference_comparison(field_ref(self,VI),null),
+				[
+					expression_statement(assignment(field_ref(self,VI),variable))
+				]
+			)
+			|SI
+		]
 	;
-		SClauseLocalVariables = SI
+		SInitCLV = SI
 	),!,
-	create_clause_variables(MappedBodyVariableNames,SI,SZ).
-create_clause_variables([],SZ,SZ).
+	init_clause_local_variables(MappedBodyVariableNames,SI,SZ).
+init_clause_local_variables([],SZ,SZ).
 
 
-%	clause_local_variables(NamedHeadVariables,BodyVariables,SClauseLocalVariables,SR).
 
-/*
-
-clause_local_variables(HeadVariables,[BodyVariable|BodyVariables],SClauseVariables,SR) :-
-	(
-		\+ memberchk(BodyVariable,HeadVariables),
-		ClauseVariable = local_variable_decl(type(variable),BodyVariable,variable),
-		SClauseVariables = [ClauseVariable|SX],
-		clause_local_variables(HeadVariables,BodyVariables,SX,SR)
-	;
-		clause_local_variables(HeadVariables,BodyVariables,SClauseVariables,SR)
-	),!.
-clause_local_variables(_,[],SR,SR).
+/**
+	@signature create_term(ASTNode,TermConstructor,MappedVariableNames)
+	@arg(out) MappedVariableNames - the names of the variables used by this term
 */
-
-
-/*
-predicate_args_variables_mapping(Id,[HeadVariable|HeadVariables],[SHeadVariableMapping|SX],SR) :- !,
-	(	variable(HeadVariable,HeadVariableName), % fails if a head variable is anonymous
-		atom_concat('arg',Id,ArgName),
-		SHeadVariableMapping=local_variable_decl(type(term),HeadVariableName,field_ref(self,ArgName))
-	;
-		atomic_list_concat(['arg',Id,' is not used'],Comment),
-		SHeadVariableMapping = eol_comment(Comment)
-	),!,
-	NewId is Id + 1,
-	predicate_args_variables_mapping(NewId,HeadVariables,SX,SR).
-predicate_args_variables_mapping(_Id,[],SR,SR).
-*/
-
-
-
+create_term(ASTNode,_TermConstructor,_MappedVariableNames) :- % let's catch some programming errors early on...
+	var(ASTNode),!,throw(internal_error('cannot create term for nothing')).
 create_term(ASTNode,TermConstructor,MappedVariableNames) :-
 	create_term(ASTNode,TermConstructor,[],MappedVariableNames).
 /**
@@ -455,3 +623,169 @@ mapped_variable_name_to_variable_identifier(clv(I),VariableName) :- !,
 	atom_concat(clv,I,VariableName).
 mapped_variable_name_to_variable_identifier(X,_) :-
 	throw(internal_error(['unsupported mapped variable name: ',X])).
+
+
+
+/* *************************************************************************** *\
+
+	HELPER METHODS TO DETERMINE THE CONTROL FLOW
+
+\* *************************************************************************** */
+
+
+
+/**
+	Returns the list of all primitive goals of the given term.<br />
+	The first element of the list is always the primitive goal that would be 
+	executed first, if we would call the term as a whole.
+
+	@signature primitive_goals_list(ASTNode,SGoals_HeadOfListOfASTNodes,SRest_TailOfThePreviousList)
+*/
+primitive_goals_list(ASTNode,SGoal,SGoals) :- 
+	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	(	
+		Functor = ',' 
+	; 
+		Functor = ';' 
+	),
+	!,
+	primitive_goals_list(LASTNode,SGoal,SFurtherGoals),
+	primitive_goals_list(RASTNode,SFurtherGoals,SGoals).
+primitive_goals_list(ASTNode,[ASTNode|SGoals],SGoals).
+
+
+
+/**
+	Associates each primitive goal with a unique number
+
+	Typical usage: <code>number_primitive_goals(ASTNode,1,L)</code>
+*/
+number_primitive_goals(ASTNode,First,Last) :-
+	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	(	
+		Functor = ','
+	; 
+		Functor = ';' 
+	),
+	!,
+	number_primitive_goals(LASTNode,First,Intermediate),
+	number_primitive_goals(RASTNode,Intermediate,Last).
+number_primitive_goals(ASTNode,First,Last) :-
+	term_meta(ASTNode,Meta),
+	add_to_meta(goal_number(First),Meta),
+	Last is First + 1.
+
+
+
+/**
+	Adds the following meta-information to each (primitive) goal:
+	<ul>
+	<li>next_goal_if_fails(GoalNumber)</li>
+	<li>next_goal_if_fails(multiple)</li>
+	<li>not_unique_predecessor_goal</li>
+	<li>next_goal_if_succeeds(GoalNumber)</li>
+	</ul>
+	Prerequisite: all primitive goals must be numbered.<br />
+*/
+set_primitive_goals_successors(ASTNode) :-
+	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	first_primitive_goal(RASTNode,FR),
+	last_primitive_goals_if_true(LASTNode,LeftLPGTs,[]),
+	last_primitive_goal_if_false(RASTNode,RightLPGF),
+	set_successors(LeftLPGTs,succeeds,[FR]),
+	set_successors([RightLPGF],fails,LeftLPGTs),
+	set_primitive_goals_successors(LASTNode),
+	set_primitive_goals_successors(RASTNode).
+set_primitive_goals_successors(ASTNode) :-
+	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	throw(to_be_implemented).
+set_primitive_goals_successors(_ASTNode).
+
+
+
+set_successors([ASTNode|ASTNodes],Type,SuccessorASTNodes) :-
+	set_successor(ASTNode,Type,SuccessorASTNodes),
+	set_successors(ASTNodes,Type,SuccessorASTNodes).
+set_successors([],_Type,_SuccessorASTNodes).
+
+
+
+set_successor(ASTNode,succeeds,[SuccessorASTNode|SuccessorASTNodes]) :-
+	set_succeeds_successor(ASTNode,SuccessorASTNode),
+	set_successor(ASTNode,succeeds,SuccessorASTNodes).
+set_successor(_ASTNode,succeeds,[]).
+
+set_successor(ASTNode,fails,SuccessorASTNodes) :-
+	term_meta(ASTNode,Meta),
+	(
+		SuccessorASTNodes = [SuccessorASTNode],
+		term_meta(SuccessorASTNode,SuccessorMeta),
+		lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
+%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(fails(SrcGoalNumber,GoalNumber)),nl,	
+		add_to_meta(next_goal_if_fails(GoalNumber),Meta)
+	;
+%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(fails(SrcGoalNumber,multiple)),nl,	
+		add_to_meta(next_goal_if_fails(multiple),Meta),
+		set_flag(SuccessorASTNodes,not_unique_predecessor_goal)
+	),!.
+
+
+
+set_succeeds_successor(ASTNode,SuccessorASTNode) :-
+	term_meta(ASTNode,Meta),
+	term_meta(SuccessorASTNode,SuccessorMeta),
+	lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
+%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(succ(SrcGoalNumber,GoalNumber)),nl,	
+	add_to_meta(next_goal_if_succeeds(GoalNumber),Meta).
+
+
+
+set_flag([],_).
+set_flag([ASTNode|ASTNodes],Flag) :-
+	term_meta(ASTNode,Meta),
+	add_to_meta(Flag,Meta),
+	set_flag(ASTNodes,Flag).
+
+
+
+/**
+	Given some (complex) goal, the first primitive goal that would be called,
+	if this (complex) goal as a whole is evaluated is returned.
+	
+	@signature first_primitive_goal(ASTNode,FirstGoal_ASTNode)
+*/	
+first_primitive_goal(ASTNode,FirstGoal) :-
+	complex_term(ASTNode,Functor,[LASTNode,_RASTNode]),
+	(	
+		Functor = ','
+	; 
+		Functor = ';' 
+	),
+	!,
+	first_primitive_goal(LASTNode,FirstGoal).
+first_primitive_goal(ASTNode,ASTNode).
+
+
+
+last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
+	complex_term(ASTNode,',',[_LASTNode,RASTNode]),!,
+	last_primitive_goals_if_true(RASTNode,SGoals,SRest).
+last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
+	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	last_primitive_goals_if_true(LASTNode,SGoals,SFurtherGoals),
+	last_primitive_goals_if_true(RASTNode,SFurtherGoals,SRest).	
+last_primitive_goals_if_true(ASTNode,[ASTNode|SRest],SRest).
+
+
+
+last_primitive_goal_if_false(ASTNode,LastGoal) :-
+	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	(	
+		Functor = ',',
+		last_primitive_goal_if_false(LASTNode,LastGoal)
+	; 
+		Functor = ';',
+		last_primitive_goal_if_false(RASTNode,LastGoal)
+	),
+	!.
+last_primitive_goal_if_false(ASTNode,ASTNode).

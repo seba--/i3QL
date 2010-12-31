@@ -95,7 +95,7 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES
 phase(pl_cut_analysis,execute,[on_entry]) :- phase(pl_check,execute,_).
-phase(pl_variable_usage_analysis,execute,[on_entry]) :- phase(pl_check,execute,_).
+phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
 %XXX phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
 %XXX phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
 %XXX phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).

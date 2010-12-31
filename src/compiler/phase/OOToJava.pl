@@ -242,10 +242,12 @@ write_stmt(Stream,eol_comment(Comment)) :- !,
 write_stmt(Stream,expression_statement(Expression)) :- !,
 	write_expr(Stream,Expression),
 	write(Stream,';\n').
-write_stmt(Stream,forever(Stmts)) :- !,
-	write(Stream,'do{\n'),
+write_stmt(Stream,forever(LoopName,Stmts)) :- !,
+	write(Stream,LoopName),write(Stream,': do{\n'),
 	write_stmts(Stream,Stmts),
 	write(Stream,'} while(true);\n').	
+write_stmt(Stream,continue(LoopName)) :- !,
+	write(Stream,'continue '),write(Stream,LoopName),write(Stream,';\n').
 write_stmt(Stream,return(Expression)) :- !,
 	write(Stream,'return '),
 	write_expr(Stream,Expression),
@@ -316,10 +318,14 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 		
 
 
-write_expr(Stream,assignment(LValue,Expression)) :-
+write_expr(Stream,assignment(LValue,Expression)) :- !,
 	write_lvalue(Stream,LValue),
 	write(Stream,' = '),
 	write_expr(Stream,Expression).
+write_expr(Stream,reference_comparison(LExpression,RExpression)) :- !,
+	write_lvalue(Stream,LExpression),
+	write(Stream,' == '),
+	write_expr(Stream,RExpression).	
 write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :-
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
@@ -338,6 +344,9 @@ write_expr(Stream,string(Value)) :-
 	write(Stream,'"'),
 	write(Stream,Value),
 	write(Stream,'"').
+write_expr(Stream,not(BooleanExpression)) :-
+	write(Stream,'!'),
+	write_expr(Stream,BooleanExpression).
 write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :-
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
