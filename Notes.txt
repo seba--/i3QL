@@ -1,11 +1,30 @@
 TODOs:
 
+0)
+Complete the support for "or"
+
+1)
 completely support all standard control-flow predicates: 
 	C -> T ; E
 	C *-> T ; E
 	C -> B
-	C *-> B
+	C *-> B (this is the same as "and")
 are not yet supported.
+Idea: implement these control-flow predicates by using "artificial goals" to
+implement the condition-local cut.
+
+2)
+Implement functionality to test and extract values from terms if possible (instead of unifying)
+
+3)
+Implement last call optimization
+
+4) 
+Type specialization
+
+
+5)
+Optimize the support for arithmetic ...
 
 
 

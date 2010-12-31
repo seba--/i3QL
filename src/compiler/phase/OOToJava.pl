@@ -319,6 +319,13 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 		
 
 
+write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
+	map_prolog_operator_to_java_operator(Operator,JavaOperator),
+	write_expr(Stream,eval_term(LArithTerm)),
+	write(Stream,' '),write(Stream,JavaOperator),write(Stream,' '),
+	write_expr(Stream,eval_term(RArithTerm)).
+write_expr(Stream,eval_term(ArithTerm)) :-
+	write_arith_term(Stream,ArithTerm).
 write_expr(Stream,assignment(LValue,Expression)) :- !,
 	write_lvalue(Stream,LValue),
 	write(Stream,' = '),
@@ -444,6 +451,23 @@ write_complex_term_args(Stream,[Arg|Args]) :-
 
 
 
+write_arith_term(Stream,int_value(X)) :- !,
+	write(Stream,X),write(Stream,'l ').
+write_arith_term(Stream,local_variable_ref(Id)) :- !,
+	write_expr(Stream,local_variable_ref(Id)),write(Stream,'.intEval() ').
+write_arith_term(Stream,field_ref(Receiver,Id)) :- !,
+	write_expr(Stream,field_ref(Receiver,Id)),write(Stream,'.intEval() ').
+write_arith_term(Stream,complex_term(string_atom(Op),[LArithTerm,RArithTerm])) :- !,
+	map_arith_prolog_operator_to_java_operator(Op,JavaOperator),
+	write(Stream,'('),
+	write_arith_term(Stream,LArithTerm),
+	write(Stream,JavaOperator),
+	write_arith_term(Stream,RArithTerm),
+	write(Stream,')').
+write_arith_term(Stream,X) :- throw(programming_error(['illegal arithmetic term: ',X])).
+
+
+
 /* ************************************************************************** *\
  *                                                                            *
  *      P R E D I C A T E   R E G I S T R A T I O N  (INFRASTRUCTURE)         *
@@ -507,8 +531,8 @@ map_functor_to_class_name('\\+','Not') :- !.
 map_functor_to_class_name('is','Is') :- !.
 map_functor_to_class_name('<','Smaller') :- !.
 map_functor_to_class_name('=<','SmallerOrEqual') :- !.
-%map_functor_to_class_name('>',) :- !.
-%map_functor_to_class_name('>=',) :- !.
+map_functor_to_class_name('>','Larger') :- !.
+map_functor_to_class_name('>=','LargerOrEqual') :- !.
 map_functor_to_class_name('=:=','ArithEqual') :- !.
 map_functor_to_class_name('=\\=','ArithNotEqual') :- !.
 % FURTHER BUILT-IN PREDICATES:
@@ -516,6 +540,23 @@ map_functor_to_class_name('member','Member') :- !.
 map_functor_to_class_name('time','Time') :- !.
 map_functor_to_class_name('repeat','Repeat') :- !.
 map_functor_to_class_name(Functor,Functor).
+
+
+
+map_prolog_operator_to_java_operator('<','<') :- !.
+map_prolog_operator_to_java_operator('=<','<=') :- !.
+map_prolog_operator_to_java_operator('>','>') :- !.
+map_prolog_operator_to_java_operator('>=','>=') :- !.
+map_prolog_operator_to_java_operator('=:=','==') :- !.
+map_prolog_operator_to_java_operator('=\\=','!=') :- !.
+map_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
+
+
+
+map_arith_prolog_operator_to_java_operator('+','+') :- !.
+map_arith_prolog_operator_to_java_operator('-','-') :- !.
+map_arith_prolog_operator_to_java_operator('*','*') :- !.
+map_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
 
 
 

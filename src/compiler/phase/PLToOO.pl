@@ -91,6 +91,7 @@
 	call_term(TermExpression)
 	static_predicate_call(complex_term(Functor,Terms))
 	predicate_lookup(Functor,Arity,TermExpressions)
+	arithmetic_comparison(Operator,LeftArithmeticTerm,RightArithmeticTerm)
 	
 	<h2>TERM EXPRESSION</H2>
 	string_atom(Value)
@@ -380,55 +381,6 @@ implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
 	set_primitive_goals_successors(Body),
 	primitive_goals_list(Body,PrimitiveGoalsList,[]),
 	translate_goals(PrimitiveGoalsList,Cases,[]).
-	/*Cases=[
-		case(
-			int(0),
-			[
-				eol_comment('... proving this clause (finally) failed.'),
-				eol_comment('(There are no more solutions.)'),
-				return(boolean(false))
-			]
-		)
-		|SFirstGoalCase]*/			
-	/*		
-	clause_definition(Clause,ClauseDefinition),
-	rule_body(ClauseDefinition,Body),		
-	create_term(Body,TermConstructor,MappedVariableNames),
-	create_clause_variables(MappedVariableNames,ClauseVariableDecls,SR),	
-	SR =
-	[
-		push_onto_goal_stack(call_term(TermConstructor)),
-		expression_statement(
-			assignment(field_ref(self,'goalToExecute'),int(2)))
-	],
-	(	ClausePosition = last -> 
-		CutAnalysis = empty
-	;
-		CutAnalysis = expression_statement(
-			assignment(
-				field_ref(self,'cutEvaluation'),
-				method_call(get_top_element_from_goal_stack,'choiceCommitted',[])))
-	),
-	Cases=[
-		case(
-			int(1), % GOAL PREPARATION
-			ClauseVariableDecls
-		),
-		case(
-			int(2), % GOAL EXECUTION
-			[
-				local_variable_decl(
-					type(boolean),
-					'succeeded',
-					method_call(get_top_element_from_goal_stack,'next',[])),
-				if(local_variable_ref('succeeded'),[return(boolean(true))]),
-				CutAnalysis,
-				remove_top_element_from_goal_stack,
-				return(boolean(false))
-			]
-		)
-	]
-	*/
 
 
 
@@ -468,7 +420,36 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 			return(boolean(false))
 		]
 	).
+
+translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
+	is_arithmetic_comparison_operator(Operator),
+	!,
+	term_meta(PrimitiveGoal,Meta),
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	% Handle the case if the comparison is called the first time
+	CallCaseId is GoalNumber * 2 - 1,
+	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
+	create_term(LASTNode,LTermConstructor,_LMappedVariableNames),
+	create_term(RASTNode,RTermConstructor,_RMappedVariableNames),
+	SCall = case(
+		int(CallCaseId),
+		[
+			if(arithmetic_comparison(Operator,LTermConstructor,RTermConstructor),
+				JumpToNextGoalAfterSucceed
+			)
+		]
+	),
+	% (redo-case)
+	RedoCaseId is GoalNumber * 2,
+	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
+	SRedo = case(
+		int(RedoCaseId),
+		JumpToNextGoalAfterFail
+	).
 	
+	
+% This implements the base case... if no special support is provided by the compiler
 translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -790,3 +771,12 @@ last_primitive_goal_if_false(ASTNode,LastGoal) :-
 	),
 	!.
 last_primitive_goal_if_false(ASTNode,ASTNode).
+
+
+
+is_arithmetic_comparison_operator('=:=').
+is_arithmetic_comparison_operator('=\\=').
+is_arithmetic_comparison_operator('<').
+is_arithmetic_comparison_operator('=<').
+is_arithmetic_comparison_operator('>').
+is_arithmetic_comparison_operator('>=').
