@@ -32,9 +32,8 @@
 package saere.predicate;
 
 import static saere.StringAtom.EMPTY_LIST;
-import static saere.StringAtom.LIST;
-import static saere.term.Terms.complexTerm;
 import static saere.term.Terms.variable;
+import saere.ComplexTerm;
 import saere.Goal;
 import saere.GoalStack;
 import saere.PredicateIdentifier;
@@ -43,6 +42,8 @@ import saere.State;
 import saere.StringAtom;
 import saere.Term;
 import saere.ThreeArgsPredicateFactory;
+import saere.Variable;
+import saere.term.ListElement2;
 
 /**
  * Implementation of ISO Prolog's append/3 predicate.
@@ -64,8 +65,8 @@ public final class Append3 implements Goal {
 	public final static ThreeArgsPredicateFactory FACTORY = new ThreeArgsPredicateFactory() {
 
 		@Override
-		public Goal createInstance(Term t1, Term t2, Term t3) {
-			return new Append3(t1, t2, t3);
+		public Goal createInstance(Term Xs, Term Ys, Term Zs) {
+			return new Append3(Xs, Ys, Zs);
 		}
 
 	};
@@ -75,30 +76,31 @@ public final class Append3 implements Goal {
 	}
 
 	// variables to control/manage the execution this predicate
-	private int clauseToExecute = 1;
 	private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;
 	private int goalToExecute = 1;
 	// variables related to the predicate's state
-	private Term arg0;
-	private Term arg1;
-	private Term arg2;
-	final private State arg0State; // REQUIRED BY TAIL-CALL OPTIMIZATION ...
-	final private State arg1State;
-	final private State arg2State;
+	private Term Xs;
+	private Term Ys;
+	private Term Zs;
+	final private State XsState; // REQUIRED BY TAIL-CALL OPTIMIZATION ...
+	final private State YsState;
+	final private State ZsState;
 	// variables to store clause local information
 	private Term clv0;
 	private Term clv1;
 	private Term clv2;
 
-	public Append3(final Term arg0, final Term arg1, final Term arg2) {
-		this.arg0 = arg0.unwrapped();
-		this.arg1 = arg1.unwrapped();
-		this.arg2 = arg2.unwrapped();
+	public Append3(final Term Xs, final Term Ys, final Term Zs) {
+		// the implementation depends on the property of Xs...Zs being
+		// "unwrapped"
+		this.Xs = Xs.unwrapped();
+		this.Ys = Ys.unwrapped();
+		this.Zs = Zs.unwrapped();
 
-		this.arg0State = arg0.manifestState(); // REQUIRED BY TAIL-CALL
-												// OPTIMIZATION ...
-		this.arg1State = arg1.manifestState();
-		this.arg2State = arg2.manifestState();
+		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
+		this.XsState = Xs.manifestState();
+		this.YsState = Ys.manifestState();
+		this.ZsState = Zs.manifestState();
 	}
 
 	public void abort() {
@@ -110,36 +112,22 @@ public final class Append3 implements Goal {
 	}
 
 	public boolean next() {
-		do { // REQUIRED BY TAIL-CALL OPTIMIZATION ...
-			switch (this.clauseToExecute) {
-			case 1: {
-				if (this.clause1()) {
-					return true;
-				} else {
-					// this clause contains no "cut"
-					// prepare the execution of the next clause
-					this.goalToExecute = 1;
-					this.clauseToExecute = 2;
-				}
+		do {
+			if (this.clause1()) {
+				return true;
 			}
-			case 2: {
-				// REQUIRED BY TAIL-CALL OPTIMIZATION ...
-				if (this.clause2()) {
-					continue;
-				} else {
-					if (arg0State != null)
-						arg0State.reincarnate();
-					if (arg1State != null)
-						arg1State.reincarnate();
-					if (arg2State != null)
-						arg2State.reincarnate();
-					return false;
-				}
+
+			this.goalToExecute = 1;
+			if (!this.clause2()) {
+				if (XsState != null)
+					XsState.reincarnate();
+				if (YsState != null)
+					YsState.reincarnate();
+				if (ZsState != null)
+					ZsState.reincarnate();
+				return false;
 			}
-			default:
-				// should never be reached
-				throw new Error("internal compiler error");
-			}
+			// continue;
 		} while (true);
 	}
 
@@ -148,7 +136,7 @@ public final class Append3 implements Goal {
 		eval_goals: do {
 			switch (this.goalToExecute) {
 			case 1: {
-				this.goalStack = goalStack.put(new Unify2(arg0, EMPTY_LIST));
+				this.goalStack = goalStack.put(new Unify2(Xs, EMPTY_LIST));
 			}
 			case 2: {
 				boolean succeeded = this.goalStack.peek().next();
@@ -158,7 +146,7 @@ public final class Append3 implements Goal {
 				} // fall through ... 3
 			}
 			case 3: {
-				this.goalStack = goalStack.put(new Unify2(arg2, arg1));
+				this.goalStack = goalStack.put(new Unify2(Zs, Ys));
 			}
 			case 4: {
 				boolean succeeded = this.goalStack.peek().next();
@@ -180,24 +168,32 @@ public final class Append3 implements Goal {
 	private boolean clause2() {
 		eval_goals: do {
 			switch (this.goalToExecute) {
-			case 1: {
-				this.clv0 = variable();
-				this.clv1 = variable();
-				this.goalStack = goalStack.put(new Unify2(arg0, complexTerm(
-						LIST, clv0, clv1)));
+			case 1: { // test (and extract)...
+				if (Xs.isVariable()) {
+					// Xs has to be free..., because Xs was explicitly
+					// "unwrapped"
+					this.clv0 = new Variable();
+					this.clv1 = new Variable();
+					Xs.asVariable().bind(new ListElement2(clv0, clv1));
+				} else if (!(Xs.arity() == 2 && Xs.functor().sameAs(
+						StringAtom.LIST))) {
+					return false;
+				} else {
+					ComplexTerm ctXs = Xs.asCompoundTerm();
+					this.clv0 = ctXs.arg(0);
+					this.clv1 = ctXs.arg(1);
+				}
+				this.goalToExecute = 3;
+				continue;
 			}
 			case 2: {
-				boolean succeeded = this.goalStack.peek().next();
-				if (!succeeded) {
-					this.goalStack = goalStack.drop();
-					return false;
-				}
-				// fall through ... 3
+				// FIXME restore state of variable
+				return false;
 			}
 			case 3: {
 				this.clv2 = variable();
-				this.goalStack = goalStack.put(new Unify2(arg2, complexTerm(
-						LIST, clv0, clv2)));
+				this.goalStack = goalStack.put(new Unify2(Zs, new ListElement2(
+						clv0, clv2)));
 			}
 			case 4: {
 				boolean succeeded = this.goalStack.peek().next();
@@ -210,27 +206,13 @@ public final class Append3 implements Goal {
 			}
 			case 5: {
 				// update "input" variables
-				arg0 = clv1.unwrapped();
-				arg1 = arg1.unwrapped();
-				arg2 = clv2.unwrapped();
+				Xs = clv1.unwrapped();
+				// Ys = Ys.unwrapped();
+				Zs = clv2.unwrapped();
 				// prepare next round...
-				this.clauseToExecute = 1;
 				this.goalToExecute = 1;
 				this.goalStack = GoalStack.EMPTY_GOAL_STACK;
 				return true;
-				//
-				// this.goalStack = goalStack.put(new append3(clv1, arg1,
-				// clv2));
-				// }
-				// case 6: {
-				// boolean succeeded = this.goalStack.peek().next();
-				// if (!succeeded) {
-				// this.goalStack = goalStack.drop();
-				// this.goalToExecute = 4;
-				// continue eval_goals;
-				// }
-				// this.goalToExecute = 6;
-				// return true;
 			}
 			default:
 				// should never be reached

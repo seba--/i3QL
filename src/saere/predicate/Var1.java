@@ -35,7 +35,7 @@ import saere.Goal;
 import saere.OneArgPredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.StringAtom;
+import static saere.StringAtom.*;
 import saere.Term;
 
 /** 
@@ -43,19 +43,19 @@ import saere.Term;
  *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Var1 implements Goal {
+public class Var1 extends TestGoal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.VAR, 1);
+			VAR, 1);
 
 	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
-		
+
 		@Override
 		public Goal createInstance(Term t) {
 			return new Var1(t);
 		}
 	};
-	
+
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 		registry.register(IDENTIFIER, FACTORY);
 	}
@@ -71,19 +71,13 @@ public class Var1 implements Goal {
 	public boolean next() {
 		if (!called) {
 			called = true;
-			return t.isVariable() && !t.asVariable().isInstantiated();
+			return isVar(t);
 		} else {
 			return false;
 		}
 	}
 
-	@Override
-	public void abort() {
-		// nothing to do...
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public static final boolean isVar(Term t) {
+		return t.isVariable() && !t.asVariable().isInstantiated();
 	}
 }

@@ -84,8 +84,12 @@ public class Terms {
 	public static ComplexTerm unify(Term t1, Term t2) {
 		return new Equals2(t1, t2);
 	}
+	
+	public static ListElement2 list(Term head,Term tail){
+		return new ListElement2(head, tail);
+	}
 
-	public static Term list(Term... terms) {
+	public static Term delimitedList(Term... terms) {
 		Term rest = StringAtom.EMPTY_LIST;
 
 		for (int i = terms.length - 1; i >= 0; i--) {

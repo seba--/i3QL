@@ -43,7 +43,7 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class ArithNotEqual2 implements Goal {
+public final class ArithNotEqual2 extends TestGoal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.ARITH_IS_NOT_EQUAL, 2);
@@ -79,16 +79,6 @@ public final class ArithNotEqual2 implements Goal {
 		} else {
 			return false;
 		}
-	}
-
-	@Override
-	public void abort() {
-		// nothing to do
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
 	}
 
 	public static boolean isNotSame(Term l, Term r) {

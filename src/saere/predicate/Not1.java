@@ -63,7 +63,7 @@ import saere.Term;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Goal {
+public final class Not1 extends TestGoal {
 
 	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
 			StringAtom.NOT, 1);
@@ -94,28 +94,22 @@ public final class Not1 implements Goal {
 
 	@Override
 	public boolean next() {
-		if (!called) {
-			final Goal s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
+		if (!called && not(t)) {
+			called = true;
+			return true;
 		} else {
 			return false;
 		}
 	}
 
-	@Override
-	public void abort() {
-		// nothing to do
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public static final boolean not(Term t) {
+		final Goal s = t.call();
+		final boolean succeeded = s.next();
+		if (succeeded) {
+			s.abort();
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

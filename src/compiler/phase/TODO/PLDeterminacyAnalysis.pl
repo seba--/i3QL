@@ -111,7 +111,7 @@ analyze_cut_behavior((_H :- B),Properties,NProperties) :-
 	calls_cut(B,R), % R is either "always","sometimes" (can happen if ";" is used), or "never"
 	NProperties = [cut(R)|Properties].
 
-/* <b>Semantics of "->"</b>
+/* <b>Semantics of "-> (;)"</b>
 	<pre>
 	If -&gt; Then; _Else :- If, !, Then.                                 
 	If -&gt; _Then; Else :- !, Else.                                      
@@ -133,7 +133,7 @@ analyze_cut_behavior((_H :- B),Properties,NProperties) :-
 
 
 	<p>
-	<b>Semantics of "*->"</b>
+	<b>Semantics of "*-> (;)"</b>
 	?- (write(s1);write(s2)),A=true,B=true,C=true,((A;B;C) *-> write('R') ; write('No R')).
 	s1R
 	A = true,B = true,C = true ;

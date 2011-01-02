@@ -67,8 +67,7 @@ public final class Cut0 implements Goal {
 
 	public boolean next() {
 		if (!called) {
-			called = true;
-			return true;
+			return called = true;
 		} else {
 			return false;
 		}

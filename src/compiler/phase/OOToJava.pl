@@ -446,7 +446,13 @@ write_expr(Stream,complex_term(string_atom(';'),[LT,RT])) :- !,
 	write_expr(Stream,LT),
 	write(Stream,','),
 	write_expr(Stream,RT),
-	write(Stream,')').	
+	write(Stream,')').
+write_expr(Stream,complex_term(string_atom('.'),[LT,RT])) :- !,
+	write(Stream,'list('),
+	write_expr(Stream,LT),
+	write(Stream,','),
+	write_expr(Stream,RT),
+	write(Stream,')').		
 write_expr(Stream,complex_term(Functor,Args)) :- !,
 	write(Stream,'complexTerm('),
 	write_expr(Stream,Functor),

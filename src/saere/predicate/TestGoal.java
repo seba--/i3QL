@@ -32,55 +32,25 @@
 package saere.predicate;
 
 import saere.Goal;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.StringAtom;
-import saere.Term;
-import saere.TwoArgsPredicateFactory;
 
 /**
- * Prolog's arithmetic equals operator: "=:=".
+ * Common interface of goal that just perform some kind of test and does not
+ * generate a choice point. I.e., a test goal never changes the state of any
+ * variable that is passed to it. I.e., the return value of the next function is
+ * the only observable effect.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class ArithEqual2 extends TestGoal {
+public abstract class TestGoal implements Goal {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.ARITH_IS_EQUAL, 2);
-
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
-
-		@Override
-		public Goal createInstance(Term t1, Term t2) {
-			return new ArithEqual2(t1, t2);
-		}
-
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term l;
-	private final Term r;
-	private boolean called = false;
-
-	public ArithEqual2(Term l, Term r) {
-		this.l = l;
-		this.r = r;
+	@Override
+	public final void abort() {
+		// nothing to do
 	}
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return isSame(l, r);
-		} else {
-			return false;
-		}
+	public final boolean choiceCommitted() {
+		return false;
 	}
 
-	public static boolean isSame(Term l, Term r) {
-		return l.intEval() == r.intEval();
-	}
 }

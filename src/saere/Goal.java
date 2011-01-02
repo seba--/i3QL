@@ -45,16 +45,24 @@ import saere.predicate.Cut0;
  * <li>{@link #next()} has to be called until {@link #next()} fails; i.e., until
  * <code>false</code> is returned. After that, neither {@link #next()} nor
  * {@link #abort()} are allowed to be called.</li>
- * <li>If {@link #next()} has failed, {@link #choiceCommitted()} can be called
- * to determine if a cut was performed while evaluating this predicate.
+ * <li>After {@link #next()} has failed, {@link #choiceCommitted()} can be
+ * called to determine if a cut was performed while evaluating this predicate.
  * <li>If next has not yet failed, but the computation needs to be aborted (due
  * to some cut), then {@link #abort()} has to be called. After that, neither
  * {@link #next()} nor {@link #abort()} are allowed to be called (again).<br/>
- * Note, calling {@link #choiceCommitted()} is meaningless since a cut was the
- * reason for calling {@link #abort()} in the first place. The result of
- * {@link #choiceCommitted()} is undefined if it is called after
+ * Note, calling {@link #choiceCommitted()} after {@link #abort()}is meaningless
+ * since a cut was the reason for calling {@link #abort()} in the first place.
+ * The result of {@link #choiceCommitted()} is undefined if it is called after
  * {@link #abort()}.</li>
  * </ol>
+ * </p>
+ * <p>
+ * <b>Performance Guideline</b> It is the responsibility of the creator of a new
+ * goal instance to pass in "minimal" datastructures. I.e., if a an argument is
+ * a bound argument the bound value should be passed to the goal and not the
+ * variable (cf. {@link Term#unwrapped()}). Further, if a (free) variable is
+ * passed to a goal, the so-called head variable should be passed to the goal's
+ * constructor.
  * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)

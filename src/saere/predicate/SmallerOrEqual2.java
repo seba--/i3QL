@@ -43,7 +43,7 @@ import saere.TwoArgsPredicateFactory;
  *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class SmallerOrEqual2 implements Goal {
+public class SmallerOrEqual2 extends TestGoal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.ARITH_SMALLER_OR_EQUAL_THAN, 2);
@@ -78,16 +78,6 @@ public class SmallerOrEqual2 implements Goal {
 		} else {
 			return false;
 		}
-	}
-
-	@Override
-	public void abort() {
-		// nothing to do...
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
 	}
 
 	public static boolean isSmallerOrEqual(Term l, Term r) {
