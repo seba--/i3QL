@@ -51,14 +51,30 @@ pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 
 
 process_predicate(Predicate) :-
+	predicate_identifier(Predicate,PredicateIdentifier),
 	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,analyze_cut).
+	foreach_clause(Clauses,analyze_cut,[CutBehavior|CutBehaviors]),
+	disjunction_of_list_of_cut_behaviors(CutBehaviors,CutBehavior,OverallCutBehavior),
+	write(PredicateIdentifier),write(OverallCutBehavior),nl,
+	predicate_meta(Predicate,Meta),
+	add_to_meta(cut(OverallCutBehavior),Meta).
 
 
 
-analyze_cut(Clause) :-
+analyze_cut(_ClauseId,Clause,_RelativeClausePosition,CutBehavior) :-
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
-	cut_analysis(BodyASTNode,Cut),
+	cut_analysis(BodyASTNode,CutBehavior),
 	clause_meta(Clause,Meta),	
-	add_to_meta(cut(Cut),Meta).
+	add_to_meta(cut(CutBehavior),Meta).
+
+
+
+disjunction_of_list_of_cut_behaviors([],CutBehavior,CutBehavior).
+disjunction_of_list_of_cut_behaviors(
+		[CutBehavior|CutBehaviors],
+		CurrentCutBhavior,
+		OverallCutBehavior
+	) :-
+	disjunction_of_cut_behaviors(CutBehavior,CurrentCutBhavior,IntermediateCutBehavior),
+	disjunction_of_list_of_cut_behaviors(CutBehaviors,IntermediateCutBehavior,OverallCutBehavior).

@@ -103,6 +103,8 @@
 		rule_body/2,
 		
 		cut_analysis/2,
+		disjunction_of_cut_behaviors/3,
+		conjunction_of_cut_behaviors/3,
 		names_of_variables_of_term/2,
 		named_variables_of_term/3,
 		
@@ -828,7 +830,8 @@ named_variables_of_terms([],SZ,SZ).
 
 
 /**	
-	Determines the behavior of the given term(goal) w.r.t. calling the cut.
+	Determines the behavior of the given term(goal) w.r.t. the usage of the cut
+	operator.
 	<p>
 	The cut analysis supports all standard control-flow constructs:<br/>
 	 ",",";","!","->","*->","-> ; ","*-> ; ".

@@ -90,7 +90,7 @@
 			execution of the phase and "on_entry" to signal that the phase is entered.
 */
 %%%% 1. LOADING AND CHECKING
-phase(pl_load,execute,[on_entry,reading_file,ast(user)]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
+phase(pl_load,execute,[on_entry,reading_file/*,ast(user)*/]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
 phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES

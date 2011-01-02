@@ -164,18 +164,25 @@ process_predicate(DebugConfig,Program,Predicate) :-
 */
 
 gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDecls,SR) :-
+	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
-	(	single_clause(Clauses) ->
-		ClauseToExecute = eol_comment('this predicate is implemented by a single clause')
-	;
-		ClauseToExecute = field_decl([],type(int),'clauseToExecute',int(1))
-	),	
 	SFieldDecls = [
-		eol_comment('variables to control/manage the execution this predicate'),
-		ClauseToExecute,
+		eol_comment('variables to control/manage the execution this predicate')|
+		SClauseToExecute
+	],
+	(	single_clause(Clauses) ->
+		SClauseToExecute = SCutEvaluation
+	;
+		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(1))|SCutEvaluation]
+	),	
+	(	lookup_in_meta(cut(never),PrediateMeta) ->
+		SCutEvaluation = SGoalsEvaluation
+	;
+		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
+	),
+	SGoalsEvaluation = [
 		field_decl(goal_stack),
-		field_decl([],type(int),'goalToExecute',int(1)),
-		field_decl([],type(boolean),'cutEvaluation',boolean('false')) |
+		field_decl([],type(int),'goalToExecute',int(1)) |
 		SR
 	].
 

@@ -29,96 +29,61 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.predicate;
 
-/**
- * The goal stack is a very simple, <i>immutable</i> linked list, that offers a
- * stack's standard operations (put, peek and drop) to manage a list of
- * {@link Goal}s.
- * 
+import saere.Goal;
+import saere.OneArgPredicateFactory;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.StringAtom;
+import saere.Term;
+
+/** 
+ * Prolog's arithmetic smaller than operator: "<". 
+ *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class GoalStack {
+public class Var1 implements Goal {
 
-	private final static class EmptyGoalStack extends GoalStack {
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
+			StringAtom.VAR, 1);
 
-		public EmptyGoalStack() {
-			// nothing to do
-		}
-
+	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
+		
 		@Override
-		public GoalStack put(Goal solutions) {
-			return new SomeGoalStack(this, solutions);
+		public Goal createInstance(Term t) {
+			return new Var1(t);
 		}
+	};
+	
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
+	}
 
-		@Override
-		public Goal peek() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
+	private final Term t;
+	private boolean called = false;
 
-		@Override
-		public GoalStack drop() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
+	public Var1(Term t) {
+		this.t = t;
+	}
 
-		@Override
-		public boolean isNotEmpty() {
+	@Override
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return t.isVariable() && !t.asVariable().isInstantiated();
+		} else {
 			return false;
 		}
-
-		@Override
-		public GoalStack abortPendingGoals() throws IllegalStateException {
-			return this;
-		}
 	}
 
-	private final static class SomeGoalStack extends GoalStack {
-
-		private final GoalStack rest;
-		private final Goal goal;
-
-		public SomeGoalStack(GoalStack rest, Goal goal) {
-			this.rest = rest;
-			this.goal = goal;
-		}
-
-		@Override
-		public GoalStack put(@SuppressWarnings("hiding") Goal goal) {
-			return new SomeGoalStack(this, goal);
-		}
-
-		@Override
-		public Goal peek() {
-			return goal;
-		}
-
-		@Override
-		public GoalStack drop() {
-			return rest;
-		}
-
-		@Override
-		public GoalStack abortPendingGoals() {
-			goal.abort();
-			return rest.abortPendingGoals();
-		}
-
-		@Override
-		public boolean isNotEmpty() {
-			return true;
-		}
+	@Override
+	public void abort() {
+		// nothing to do...
 	}
 
-	public final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
-
-	public abstract GoalStack put(Goal goal);
-
-	public abstract Goal peek() throws IllegalStateException;
-
-	public abstract GoalStack drop() throws IllegalStateException;
-
-	public abstract GoalStack abortPendingGoals();
-
-	public abstract boolean isNotEmpty();
-
+	@Override
+	public boolean choiceCommitted() {
+		return false;
+	}
 }

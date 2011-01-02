@@ -62,9 +62,8 @@ public final class Or2 implements Goal {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
-	// IMPROVE do we need a goalstack here... it should at most contain one
-	// value...
-	private GoalStack goalStack = GoalStack.emptyStack();
+	// IMPROVE We don't need a goal stack here.
+	private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;
 
 	public Or2(final Term l, final Term r) {
 		this.l = l;
@@ -92,7 +91,7 @@ public final class Or2 implements Goal {
 				}
 
 				// prepare right goal...
-				goalStack = GoalStack.emptyStack();
+				goalStack = GoalStack.EMPTY_GOAL_STACK;
 				goalStack = goalStack.put(r.call());
 				goalToExecute = 2;
 

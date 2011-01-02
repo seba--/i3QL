@@ -57,7 +57,10 @@ oo_to_java(DebugConfig,Program,OutputFolder,Program) :-
 	working_directory(Old,OutputFolder),
 	( exists_directory(predicates) ; make_directory(predicates) ),
 	working_directory(_,predicates),!,
-	foreach_user_predicate(Program,process_predicate(DebugConfig,Program)),
+	% the code generation phase does not affect the AST whatsoever; but, if an
+	% error is encountered, we want to make sure that the output directory is 
+	% still reset correctly.
+	ignore(foreach_user_predicate(Program,process_predicate(DebugConfig,Program))),
 	working_directory(_,Old),!.
 
 
@@ -164,7 +167,7 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write(Stream,'}\n').
 
 write_class_member(Stream,field_decl(goal_stack)) :-
-	write(Stream,'private GoalStack goalStack = GoalStack.emptyStack();\n').
+	write(Stream,'private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;\n').
 
 write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :-
 	write_field_decl_modifiers(Stream,Modifiers),
@@ -320,7 +323,7 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 
 
 write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
-	map_prolog_operator_to_java_operator(Operator,JavaOperator),
+	map_arith_comp_operator_to_java_operator(Operator,JavaOperator),
 	write_expr(Stream,eval_term(LArithTerm)),
 	write(Stream,' '),write(Stream,JavaOperator),write(Stream,' '),
 	write_expr(Stream,eval_term(RArithTerm)).
@@ -457,6 +460,12 @@ write_arith_term(Stream,local_variable_ref(Id)) :- !,
 	write_expr(Stream,local_variable_ref(Id)),write(Stream,'.intEval() ').
 write_arith_term(Stream,field_ref(Receiver,Id)) :- !,
 	write_expr(Stream,field_ref(Receiver,Id)),write(Stream,'.intEval() ').
+write_arith_term(Stream,complex_term(string_atom('-'),[ArithTerm])) :- !,
+	map_arith_prolog_operator_to_java_operator('-',JavaOperator),
+	write(Stream,JavaOperator),
+	write(Stream,'('),
+	write_arith_term(Stream,ArithTerm),
+	write(Stream,')').
 write_arith_term(Stream,complex_term(string_atom(Op),[LArithTerm,RArithTerm])) :- !,
 	map_arith_prolog_operator_to_java_operator(Op,JavaOperator),
 	write(Stream,'('),
@@ -464,7 +473,8 @@ write_arith_term(Stream,complex_term(string_atom(Op),[LArithTerm,RArithTerm])) :
 	write(Stream,JavaOperator),
 	write_arith_term(Stream,RArithTerm),
 	write(Stream,')').
-write_arith_term(Stream,X) :- throw(programming_error(['illegal arithmetic term: ',X])).
+write_arith_term(_Stream,X) :- 
+	throw(programming_error(['illegal arithmetic term: ',X])).
 
 
 
@@ -536,6 +546,7 @@ map_functor_to_class_name('>=','LargerOrEqual') :- !.
 map_functor_to_class_name('=:=','ArithEqual') :- !.
 map_functor_to_class_name('=\\=','ArithNotEqual') :- !.
 % FURTHER BUILT-IN PREDICATES:
+map_functor_to_class_name('append','Append') :- !.
 map_functor_to_class_name('member','Member') :- !.
 map_functor_to_class_name('time','Time') :- !.
 map_functor_to_class_name('repeat','Repeat') :- !.
@@ -543,20 +554,22 @@ map_functor_to_class_name(Functor,Functor).
 
 
 
-map_prolog_operator_to_java_operator('<','<') :- !.
-map_prolog_operator_to_java_operator('=<','<=') :- !.
-map_prolog_operator_to_java_operator('>','>') :- !.
-map_prolog_operator_to_java_operator('>=','>=') :- !.
-map_prolog_operator_to_java_operator('=:=','==') :- !.
-map_prolog_operator_to_java_operator('=\\=','!=') :- !.
-map_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
+map_arith_comp_operator_to_java_operator('<','<') :- !.
+map_arith_comp_operator_to_java_operator('=<','<=') :- !.
+map_arith_comp_operator_to_java_operator('>','>') :- !.
+map_arith_comp_operator_to_java_operator('>=','>=') :- !.
+map_arith_comp_operator_to_java_operator('=:=','==') :- !.
+map_arith_comp_operator_to_java_operator('=\\=','!=') :- !.
+map_arith_comp_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
 
 
 
 map_arith_prolog_operator_to_java_operator('+','+') :- !.
-map_arith_prolog_operator_to_java_operator('-','-') :- !.
+map_arith_prolog_operator_to_java_operator('-','-') :- !. % unary and binary minus
 map_arith_prolog_operator_to_java_operator('*','*') :- !.
-map_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
+map_arith_prolog_operator_to_java_operator('//','/') :- !.
+map_arith_prolog_operator_to_java_operator('mod','%') :- !.
+map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
 
 
 

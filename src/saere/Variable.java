@@ -49,28 +49,29 @@ import java.util.WeakHashMap;
  */
 public final class Variable extends Term {
 
-    private final static class VariableState implements State {
+	private final static class VariableState implements State {
 
-	    private final Variable headVariable;
+		private final Variable headVariable;
 
-	    VariableState(final Variable headVariable) {
-		assert headVariable.getValue() == null : "only free head variable can be manifested";
+		VariableState(final Variable headVariable) {
+			assert headVariable.getValue() == null : "only free head variable can be manifested";
 
-		this.headVariable = headVariable;
-	    }
+			this.headVariable = headVariable;
+		}
 
-	    @Override
-	    public void reincarnate() {
-		headVariable.clear();
-	    }
+		@Override
+		public void reincarnate() {
+			headVariable.clear();
+		}
 
-	    @Override
-	    public String toString() {
-		return "VariableState[headVariableId=" + Variable.variableToName(headVariable) + "]";
-	    }
+		@Override
+		public String toString() {
+			return "VariableState[headVariableId="
+					+ Variable.variableToName(headVariable) + "]";
+		}
 
 	}
-    
+
 	/**
 	 * <code>value</code> is:
 	 * <ul>
@@ -279,7 +280,7 @@ public final class Variable extends Term {
 		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
-			return headVariable().value.intEval();
+			return hvv.intEval();
 		}
 	}
 
@@ -290,7 +291,7 @@ public final class Variable extends Term {
 			throw new PrologException(
 					"This variable is not sufficiently instantiated.");
 		} else {
-			return value.floatEval();
+			return hvv.floatEval();
 		}
 	}
 
@@ -304,9 +305,10 @@ public final class Variable extends Term {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
 			throw new PrologException(
-					"This variable is not sufficiently instantiated.");
+					"This variable is not sufficiently instantiated: "
+							+ headVariable().value.toProlog());
 		} else {
-			return value.call();
+			return hvv.call();
 		}
 	}
 
@@ -320,11 +322,29 @@ public final class Variable extends Term {
 		}
 	}
 
+	@Override
+	public Term unwrapped() {
+		Variable hv = headVariable();
+		Term hvv = hv.value;
+		if (hvv == null) {
+			return hv;
+		} else
+			return hvv;
+	}
+
+	@Override
+	public String toString() {
+		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
+	}
+
 	private static int variableCount = 0;
 	private final static WeakHashMap<Variable, String> variableNames = new WeakHashMap<Variable, String>();
 
 	static String variableToName(Variable variable) {
 		synchronized (variableNames) {
+			// if (variableNames.isEmpty()) {
+			// variableCount = 0;
+			// }
 			String name = variableNames.get(variable);
 			if (name == null) {
 				variableCount += 1;
@@ -335,21 +355,4 @@ public final class Variable extends Term {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
-	}
-
-	
-	@Override
-	public Term unwrapped() {
-		Variable hv = headVariable();
-		Term hvv = hv.value;
-		if (hvv == null) {
-			return hv;
-		}
-		else
-			return hvv;
-	}
-	
 }

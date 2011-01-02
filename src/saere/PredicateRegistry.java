@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import saere.predicate.And2;
+import saere.predicate.Append3;
 import saere.predicate.Cut0;
 import saere.predicate.False0;
 import saere.predicate.Is2;
@@ -50,6 +51,7 @@ import saere.predicate.SmallerOrEqual2;
 import saere.predicate.Time1;
 import saere.predicate.True0;
 import saere.predicate.Unify2;
+import saere.predicate.Var1;
 import saere.predicate.Write1;
 
 /**
@@ -73,6 +75,7 @@ public class PredicateRegistry {
 		// Register all default predicate implementations...
 		// Alphabetical Order
 		And2.registerWithPredicateRegistry(this);
+		Append3.registerWithPredicateRegistry(this);
 		ArithEqual2.registerWithPredicateRegistry(this);
 		ArithNotEqual2.registerWithPredicateRegistry(this);
 		Cut0.registerWithPredicateRegistry(this);
@@ -88,6 +91,7 @@ public class PredicateRegistry {
 		Time1.registerWithPredicateRegistry(this);
 		True0.registerWithPredicateRegistry(this);
 		Unify2.registerWithPredicateRegistry(this);
+		Var1.registerWithPredicateRegistry(this);
 		Write1.registerWithPredicateRegistry(this);
 	}
 

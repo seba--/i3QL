@@ -45,7 +45,7 @@ public abstract class Term {
 	public static final int VARIABLE = -1;
 	public static final int COMPUND_TERM = 0;
 	// It the value is equal or larger than ATOMIC, then the term is atomic
-	public static final int ATOMIC = 1;
+	public static final int ATOMIC_TERM = 1;
 	public static final int STRING_ATOM = 1;
 	public static final int FLOAT_VALUE = 2;
 	public static final int INT_VALUE = 3;
@@ -233,7 +233,7 @@ public abstract class Term {
 	 *             if this term does not model an arithmetic expression.
 	 */
 	public long intEval() {
-		throw new IllegalStateException("this term (" + this.toString()
+		throw new PrologException("this term (" + this.toProlog()
 				+ ") is not an arithmetic term");
 	}
 
@@ -244,7 +244,7 @@ public abstract class Term {
 	 *             if this term does not model an arithmetic expression.
 	 */
 	public double floatEval() {
-		throw new IllegalStateException("this term (" + this.toString()
+		throw new PrologException("this term (" + this.toProlog()
 				+ ") is not an arithmetic term");
 	}
 

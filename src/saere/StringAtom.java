@@ -173,6 +173,7 @@ public final class StringAtom extends Atomic {
 	}
 
 	public static final StringAtom UNIFY = get("=");
+	public static final StringAtom TERM_EQUALITY = get("==");
 	public static final StringAtom DOES_NOT_UNIFY = get("\\=");
 
 	public static final StringAtom AND = get(",");
@@ -190,6 +191,8 @@ public final class StringAtom extends Atomic {
 	public static final StringAtom MULT = get("*");
 	public static final StringAtom MINUS = get("-");
 	public static final StringAtom PLUS = get("+");
+	public static final StringAtom INT_DIV = get("//");
+	public static final StringAtom MOD = get("mod");
 	public static final StringAtom ARITH_SMALLER_THAN = get("<");
 	public static final StringAtom ARITH_SMALLER_OR_EQUAL_THAN = get("=<");
 	public static final StringAtom ARITH_LARGER_THAN = get(">");
@@ -199,5 +202,16 @@ public final class StringAtom extends Atomic {
 
 	public static final StringAtom EMPTY_LIST = get("[]");
 	public static final StringAtom LIST = get(".");
-
+	
+	public static final StringAtom VAR = get("var");
+	public static final StringAtom NONVAR = get("nonvar");
+	public static final StringAtom ATOM = get("atom");
+	public static final StringAtom ATOMIC = get("atomic");
+	public static final StringAtom NUMBER = get("number");
+	public static final StringAtom INTEGER = get("integer");
+	public static final StringAtom FUNCTOR = get("functor");
+	public static final StringAtom ARG = get("arg");
+	public static final StringAtom CALL = get("call");
+	public static final StringAtom UNIV = get("=..");
+	
 }

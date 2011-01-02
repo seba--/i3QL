@@ -38,66 +38,108 @@ package saere;
  */
 final class ComplexTermState implements State {
 
-    private final State state;
+	/**
+	 * The state of a complex term's argument.
+	 */
+	private final State state;
 
-    private ComplexTermState next;
+	private ComplexTermState next;
 
-    private ComplexTermState(State state) {
-	this.state = state;
-    }
-
-    ComplexTermState append(@SuppressWarnings("hiding") State state) {
-	ComplexTermState tail = new ComplexTermState(state);
-	this.next = tail;
-	return tail;
-    }
-
-    @Override
-    public String toString() {
-	ComplexTermState los = next;
-	String s = "[" + state;
-	while (los != null) {
-	    s += "," + los.toString();
-	    los = los.next;
+	private ComplexTermState(State state) {
+		this.state = state;
 	}
-	return s += "]";
-    }
 
-    public void reincarnate() {
-	ComplexTermState cts = this;
-	while (cts != null) {
-	    cts.state.reincarnate();
-	    cts = cts.next;
+	ComplexTermState append(@SuppressWarnings("hiding") State state) {
+		ComplexTermState tail = new ComplexTermState(state);
+		this.next = tail;
+		return tail;
 	}
-    }
 
-    final static class CompoundTermStatePointers {
-	ComplexTermState first;
-	ComplexTermState last;
-    }
-
-    static ComplexTermState manifest(ComplexTerm compoundTerm) {
-	CompoundTermStatePointers pointers = new CompoundTermStatePointers();
-	doManifest(compoundTerm, pointers);
-	return pointers.first;
-    }
-
-    // we only manifest the state of the variables...
-    private static void doManifest(ComplexTerm compoundTerm, CompoundTermStatePointers pointers) {
-	final int arity = compoundTerm.arity();
-	for (int i = 0; i < arity; i++) {
-	    Term arg_i = compoundTerm.arg(i);
-	    if (arg_i.isVariable()) {
-		State vs = arg_i.asVariable().manifestState();
-		if (vs == null)
-		    continue;
-		if (pointers.first == null)
-		    pointers.last = pointers.first = new ComplexTermState(vs);
-		else
-		    pointers.last = pointers.last.append(vs);
-	    } else if (arg_i.isCompoundTerm()) {
-		doManifest(arg_i.asCompoundTerm(), pointers);
-	    }
+	public void reincarnate() {
+		ComplexTermState cts = this;
+		while (cts != null) {
+			cts.state.reincarnate();
+			cts = cts.next;
+		}
 	}
-    }
+
+	@Override
+	public String toString() {
+		ComplexTermState los = next;
+		String s = "[" + state;
+		while (los != null) {
+			s += "," + los.toString();
+			los = los.next;
+		}
+		return s += "]";
+	}
+
+	private final static class ComplexTermsStack {
+
+		private final ComplexTermsStack rest;
+		private final ComplexTerm term;
+
+		ComplexTermsStack(ComplexTerm term) {
+			this.rest = null;
+			this.term = term;
+		}
+
+		private ComplexTermsStack(ComplexTerm term, ComplexTermsStack next) {
+			this.term = term;
+			this.rest = next;
+		}
+
+		ComplexTerm first() {
+			return term;
+		}
+
+		ComplexTermsStack rest() {
+			return rest;
+		}
+
+		ComplexTermsStack append(@SuppressWarnings("hiding") ComplexTerm term) {
+			return new ComplexTermsStack(term, this);
+		}
+
+	}
+
+	@SuppressWarnings("all")
+	// REMARK ... we just wanted to suppress the "hiding" related warning...
+	static ComplexTermState manifest(ComplexTerm complexTerm) {
+		// Compared to the recursive implementation, this implementation
+		// is approximately 5-8% faster.
+		ComplexTermsStack workList = null;
+
+		ComplexTermState first = null;
+		ComplexTermState last = null;
+
+		do {
+			final int arity = complexTerm.arity();
+			for (int i = 0; i < arity; i++) {
+				Term arg_i = complexTerm.arg(i);
+				if (arg_i.isVariable()) {
+					State vs = arg_i.asVariable().manifestState();
+					if (vs == null)
+						continue;
+					if (first == null)
+						last = first = new ComplexTermState(vs);
+					else
+						last = last.append(vs);
+				} else if (arg_i.isCompoundTerm()) {
+					if (workList == null)
+						workList = new ComplexTermsStack(arg_i.asCompoundTerm());
+					else
+						workList = workList.append(arg_i.asCompoundTerm());
+				}
+			}
+			if (workList != null) {
+				complexTerm = workList.first();
+				workList = workList.rest();
+			} else {
+				complexTerm = null;
+			}
+		} while (complexTerm != null);
+
+		return first;
+	}
 }
