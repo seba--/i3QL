@@ -272,9 +272,14 @@ foreach_user_predicate((Predicates,_Directives),Goal) :-
 	foreach_user_predicate_impl(Predicates,Goal).
 foreach_user_predicate_impl([Predicate|Predicates],Goal) :-
 	% user defined predicates are those predicates with at least one clause: [_|_]
-	Predicate = pred(_Identifier,[_|_],_PredicateProperties), !,
-	call(Goal,Predicate),
-	foreach_user_predicate_impl(Predicates,Goal).
+	Predicate = pred(PredFunctor/PredArity,[_|_],_PredicateProperties), !,
+	(	call(Goal,Predicate) ->
+		foreach_user_predicate_impl(Predicates,Goal)
+	;
+		functor(Goal,Functor,Arity),
+		atomic_list_concat(['calling the goal (',Functor,'/',Arity,') for the predicate (',PredFunctor,'/',PredArity,') failed'],Message),
+		throw(internal_error(foreach_user_predicate/2,Message))
+	).
 foreach_user_predicate_impl([_Predicate|Predicates],Goal) :- !,
 	foreach_user_predicate_impl(Predicates,Goal).
 foreach_user_predicate_impl([],_Goal).

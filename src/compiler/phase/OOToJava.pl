@@ -60,7 +60,14 @@ oo_to_java(DebugConfig,Program,OutputFolder,Program) :-
 	% the code generation phase does not affect the AST whatsoever; but, if an
 	% error is encountered, we want to make sure that the output directory is 
 	% still reset correctly.
-	ignore(foreach_user_predicate(Program,process_predicate(DebugConfig,Program))),
+	catch(
+		foreach_user_predicate(Program,process_predicate(DebugConfig,Program)),
+		E,
+		(
+			working_directory(_,Old),
+			throw(E)
+		)
+	),
 	working_directory(_,Old),!.
 
 
@@ -69,6 +76,7 @@ process_predicate(DebugConfig,_Program,Predicate) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
 	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	% implementation ...
 	predicate_meta(Predicate,Meta),
 	lookup_in_meta(oo_ast(AST),Meta),
 	serialize_ast_nodes_to_java(AST).
@@ -96,7 +104,7 @@ gen_code(predicate_registration(PredicateIdentifier)) :- !,
 	write_predicate_registration(Stream,PredicateIdentifier),
 	close(Stream).
 
-gen_code(X) :- throw(internal_error(['[pl_to_java] unknown OO AST Node',X])).
+gen_code(X) :- throw(internal_error(['[oo_to_java:gen_code/1] unknown OO AST Node',X])).
 
 
 
@@ -135,7 +143,7 @@ write_inherited_interface(_Stream,none) :- !.
 write_inherited_interface(Stream,Type) :- !,
 	write(Stream,'implements '),write_type(Stream,Type).
 write_inherited_interface(_Stream,X) :-  
-	throw(internal_error(['[pl_to_java] inheritance of an unknown type:',X])).	
+	throw(internal_error(write_inherited_interface/2,['inheritance of an unknown type:',X])).	
 
 
 
@@ -145,18 +153,17 @@ write_class_members(Stream,[ClassMember|ClassMembers]) :-
 	write_class_members(Stream,ClassMembers).
 
 
-write_class_member(Stream,eol_comment(Comment)) :-
-	write(Stream,'// '),write(Stream,Comment),nl(Stream).
 
-write_class_member(Stream,constructor_decl(Functor/Arity,ParamDecls,Stmts)) :-
+write_class_member(Stream,eol_comment(Comment)) :- !,
+	write(Stream,'// '),write(Stream,Comment),nl(Stream).
+write_class_member(Stream,constructor_decl(Functor/Arity,ParamDecls,Stmts)) :- !,
 	write(Stream,'public '),write(Stream,Functor),write(Stream,Arity),
 	write(Stream,'('),
 	write_param_decls(Stream,ParamDecls),
 	write(Stream,'){\n'),
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n').
-
-write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecls,Stmts)) :-
+write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecls,Stmts)) :- !,
 	write(Stream,Visibility),write(Stream,' '),
 	write_type(Stream,ReturnType),write(Stream,' '),
 	write(Stream,Identifier),
@@ -165,22 +172,20 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write(Stream,'){\n'),
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n').
-
-write_class_member(Stream,field_decl(goal_stack)) :-
+write_class_member(Stream,field_decl(goal_stack)) :- !,
 	write(Stream,'private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;\n').
-
-write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :-
+write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),write(Stream,' = '),
 	write_expr(Stream,Expression),
-	write(Stream,';\n').
-		
-write_class_member(Stream,field_decl(Modifiers,Type,Name)) :-
+	write(Stream,';\n').		
+write_class_member(Stream,field_decl(Modifiers,Type,Name)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
 	write(Stream,';\n').
+write_class_member(_Stream,Member) :- throw(internal_error(write_class_member/2,['unknown member:',Member])).
 
 
 
@@ -220,16 +225,17 @@ write_param_decl(Stream,param_decl(Type,Name)) :-
 
 
 
-write_type(Stream,type(int)) :- write(Stream,'int').
-write_type(Stream,type(boolean)) :- write(Stream,'boolean').
-write_type(Stream,type(void)) :- write(Stream,'void').
-write_type(Stream,type(goal)) :- write(Stream,'Goal').
-write_type(Stream,type(term)) :- write(Stream,'Term').
-write_type(Stream,type(variable)) :- write(Stream,'Variable').
-write_type(Stream,type(complex_term)) :- write(Stream,'ComplexTerm').
-write_type(Stream,type(atomic(string_atom))) :- write(Stream,'StringAtom').
-write_type(Stream,type(atomic(int_value))) :- write(Stream,'IntValue').
-write_type(Stream,type(atomic(float_value))) :- write(Stream,'FloatValue').
+write_type(Stream,type(int)) :- !,write(Stream,'int').
+write_type(Stream,type(boolean)) :- !,write(Stream,'boolean').
+write_type(Stream,type(void)) :- !,write(Stream,'void').
+write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
+write_type(Stream,type(term)) :- !,write(Stream,'Term').
+write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
+write_type(Stream,type(complex_term)) :- !,write(Stream,'ComplexTerm').
+write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
+write_type(Stream,type(atomic(int_value))) :- !,write(Stream,'IntValue').
+write_type(Stream,type(atomic(float_value))) :- !,write(Stream,'FloatValue').
+write_type(_Stream,Type) :- throw(internal_error(write_type/2,['unknown type:',Type])).
 
 
 
@@ -286,7 +292,7 @@ write_stmt(Stream,switch(Expression,Cases)) :- !,
 	write(Stream,'// should never be reached\n'),
 	write(Stream,'throw new Error("internal compiler error");\n'),
 	write(Stream,'}\n').
-
+write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
 write_cases(_Stream,[]).
@@ -327,7 +333,7 @@ write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
 	write_expr(Stream,eval_term(LArithTerm)),
 	write(Stream,' '),write(Stream,JavaOperator),write(Stream,' '),
 	write_expr(Stream,eval_term(RArithTerm)).
-write_expr(Stream,eval_term(ArithTerm)) :-
+write_expr(Stream,eval_term(ArithTerm)) :- !,
 	write_arith_term(Stream,ArithTerm).
 write_expr(Stream,assignment(LValue,Expression)) :- !,
 	write_lvalue(Stream,LValue),
@@ -337,37 +343,40 @@ write_expr(Stream,reference_comparison(LExpression,RExpression)) :- !,
 	write_lvalue(Stream,LExpression),
 	write(Stream,' == '),
 	write_expr(Stream,RExpression).	
-write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :-
+write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :- !, 
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
 	write(Stream,Identifer).
-write_expr(Stream,local_variable_ref(Identifer)) :-
+write_expr(Stream,local_variable_ref(Identifer)) :- !,
 	write(Stream,Identifer).
-write_expr(Stream,boolean(Value)) :-
+write_expr(Stream,boolean(Value)) :- !,
 	write(Stream,Value).
-write_expr(Stream,int(Value)) :-
+write_expr(Stream,int(Value)) :- !,
 	write(Stream,Value).
-write_expr(Stream,null) :-
+write_expr(Stream,null) :- !,
 	write(Stream,'null').
-write_expr(Stream,self) :-
+write_expr(Stream,self) :- !,
 	write(Stream,'this').	
-write_expr(Stream,string(Value)) :-
+write_expr(Stream,string(Value)) :- !,
 	write(Stream,'"'),
 	write(Stream,Value),
 	write(Stream,'"').
-write_expr(Stream,not(BooleanExpression)) :-
+write_expr(Stream,not(BooleanExpression)) :- !,
 	write(Stream,'!'),
 	write_expr(Stream,BooleanExpression).
-write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :-
+write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :- !,
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
 	write(Stream,Identifier),
 	write(Stream,'('),
 	write_exprs(Stream,Expressions),
 	write(Stream,')').
-write_expr(Stream,local_variable_ref(Identifier)):-
+write_expr(Stream,local_variable_ref(Identifier)):- !,
 	write(Stream,Identifier).
-write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):-
+write_expr(Stream,static_predicate_call(string_atom(Functor))):- !,
+	map_functor_to_class_name(Functor,ClassName),
+	write(Stream,'new '),write(Stream,ClassName),write(Stream,'0()').
+write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):- !,
 	length(ArgsExpressions,ArgsCount),
 	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
 	map_functor_to_class_name(Functor,ClassName),
@@ -381,9 +390,9 @@ write_expr(Stream,call_term(TermExpression)):- !,
 write_expr(Stream,get_top_element_from_goal_stack) :- !,
 	write(Stream,'this.goalStack.peek()').
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
-write_expr(Stream,variable) :- 
+write_expr(Stream,variable) :- !,
 	write(Stream,'variable()').
-write_expr(Stream,anonymous_variable) :- % TODO do we need to distinguish between "named" and anonymous variables?
+write_expr(Stream,anonymous_variable) :- !, % TODO do we need to distinguish between "named" and anonymous variables?
 	write(Stream,'variable()').
 write_expr(Stream,int_value(-1)) :- !,
 	write(Stream,'IntValue_M1').	
@@ -443,6 +452,9 @@ write_expr(Stream,complex_term(Functor,Args)) :- !,
 	write_expr(Stream,Functor),
 	write_complex_term_args(Stream,Args),
 	write(Stream,')').	
+write_expr(_Stream,Expr) :- % the last case... 
+	throw(internal_error(write_expr/2,['unknown expression ',Expr])).
+
 
 
 

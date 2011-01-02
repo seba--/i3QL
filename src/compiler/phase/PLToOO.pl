@@ -35,7 +35,7 @@
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PhaseLtoOO',[pl_to_oo/4]).
+:- module('SAEProlog:Compiler:Phase:PhasePLtoOO',[pl_to_oo/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
@@ -175,7 +175,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDe
 	;
 		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(1))|SCutEvaluation]
 	),	
-	(	lookup_in_meta(cut(never),PrediateMeta) ->
+	(	lookup_in_meta(cut(never),PredicateMeta) ->
 		SCutEvaluation = SGoalsEvaluation
 	;
 		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
@@ -373,15 +373,20 @@ gen_clause_impl_methods(_Program,Predicate,ClauseImpls) :-
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(Clauses,implementation_for_clause_i,ClauseImpls).
 	
-implementation_for_clause_i(I,Clause,ClausePosition,ClauseMethod) :-
+implementation_for_clause_i(I,Clause,_ClausePosition,ClauseMethod) :-
 	atom_concat('clause',I,ClauseIdentifier),
-	ClauseMethod = 
-		method_decl(
+	ClauseMethod = method_decl(
 			private,
 			type(boolean),
 			ClauseIdentifier,
 			[],
-			[ forever('eval_goals',[switch(field_ref(self,'goalToExecute'),Cases)]) ]),
+			[ 
+				forever(
+					'eval_goals',
+					[switch(field_ref(self,'goalToExecute'),Cases)]
+				) 
+			]
+		),
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,Body),
 	number_primitive_goals(Body,1,_LastId),
@@ -645,7 +650,8 @@ primitive_goals_list(ASTNode,[ASTNode|SGoals],SGoals).
 
 
 /**
-	Associates each primitive goal with a unique number
+	Associates each primitive goal with a unique number; the information
+	is added to a goal's meta information.
 
 	Typical usage: <code>number_primitive_goals(ASTNode,1,L)</code>
 */
@@ -781,9 +787,3 @@ last_primitive_goal_if_false(ASTNode,ASTNode).
 
 
 
-is_arithmetic_comparison_operator('=:=').
-is_arithmetic_comparison_operator('=\\=').
-is_arithmetic_comparison_operator('<').
-is_arithmetic_comparison_operator('=<').
-is_arithmetic_comparison_operator('>').
-is_arithmetic_comparison_operator('>=').

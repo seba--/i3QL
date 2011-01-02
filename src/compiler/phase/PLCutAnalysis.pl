@@ -41,6 +41,7 @@
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
+:- use_module('../Utils.pl').
 
 
 
@@ -52,10 +53,12 @@ pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 
 process_predicate(Predicate) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
+	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
+	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	% implementation...
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(Clauses,analyze_cut,[CutBehavior|CutBehaviors]),
 	disjunction_of_list_of_cut_behaviors(CutBehaviors,CutBehavior,OverallCutBehavior),
-	write(PredicateIdentifier),write(OverallCutBehavior),nl,
 	predicate_meta(Predicate,Meta),
 	add_to_meta(cut(OverallCutBehavior),Meta).
 

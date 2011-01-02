@@ -44,7 +44,9 @@
 	'SAEProlog:Compiler:Predef',
 	[	add_predefined_predicates_to_ast/2,
 	
-		default_op_table/1
+		default_op_table/1,
+		
+		is_arithmetic_comparison_operator/1
 	]
 ).
 
@@ -105,7 +107,7 @@ add_predefined_predicates_to_ast(AST,Program) :-
 
 
 /**
-	The list of the default operators. 
+	The list of (SAE) Prolog's default operators. 
 	<p>
 	This list is maintained using.
 	<code>:- op(Priority, Op_Specifier, Operator) </code> directives which is
@@ -216,3 +218,12 @@ default_op_table(
 		]		
 	)
 ).
+
+
+
+is_arithmetic_comparison_operator('=:=').
+is_arithmetic_comparison_operator('=\\=').
+is_arithmetic_comparison_operator('<').
+is_arithmetic_comparison_operator('=<').
+is_arithmetic_comparison_operator('>').
+is_arithmetic_comparison_operator('>=').

@@ -36,7 +36,7 @@ public class MainTak {
 			Variable result = new Variable();
 			Term t = complexTerm(
 					StringAtom.get("time"),
-					complexTerm(atomic("tak"), atomic(18), atomic(12),
+					complexTerm(atomic("tak"), atomic(18), atomic(14),
 							atomic(6), result));
 			Goal s = t.call();
 			if (!s.next()) {
@@ -47,16 +47,16 @@ public class MainTak {
 		}
 
 		System.out
-				.println("Sleeping for five seconds, to enable the attachement of profilers.");
+				.println("Sleeping for five seconds...");
 		Thread.sleep(5000);
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 				Variable result = new Variable();
-				Term t = complexTerm(
+				Term term = complexTerm(
 						atomic("time"),
-						complexTerm(atomic("tak"), atomic(32), atomic(14),
+						complexTerm(atomic("tak"), atomic(32), atomic(12),
 								atomic(6), result));
-				Goal s = t.call();
+				Goal s = term.call();
 				if (!s.next()) {
 					throw new Error("internal programming error");
 				} else {

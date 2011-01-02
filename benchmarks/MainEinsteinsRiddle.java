@@ -34,7 +34,7 @@ public class MainEinsteinsRiddle {
 		}
 
 		System.out
-				.println("Sleeping for five seconds, to enable the attachement of profilers.");
+				.println("Sleeping for five seconds...");
 		Thread.sleep(5000);
 		Thread t = new Thread(new Runnable() {
 			public void run() {

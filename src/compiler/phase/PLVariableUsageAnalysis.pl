@@ -70,19 +70,24 @@ process_predicate(DebugConfig,Predicate) :-
 
 analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariablesCount) :-
 	clause_implementation(Clause,Implementation),
-	clause_meta(Clause,Meta),	
+	clause_meta(Clause,ClauseMeta),	
 	
 	rule_head(Implementation,HeadASTNode),
-	complex_term_args(HeadASTNode,AllHeadVariables), % since the clause is normalized, the head only contains (anonymous) variable declarations
-	map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCountExpr,VariableNamesMapping),
-	HeadVariablesCount is HeadVariablesCountExpr,
-	add_to_meta(used_head_variables_count(HeadVariablesCount),Meta),
+	(	is_string_atom(HeadASTNode) ->
+		HeadVariablesCount = 0
+		% VariableNamesMapping remains free...
+	;
+		complex_term_args(HeadASTNode,AllHeadVariables), % since the clause is normalized, the head only contains (anonymous) variable declarations
+		map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCountExpr,VariableNamesMapping),
+		HeadVariablesCount is HeadVariablesCountExpr
+	),
+	add_to_meta(used_head_variables_count(HeadVariablesCount),ClauseMeta),
 	
 	rule_body(Implementation,BodyASTNode),
 	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
 	map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping),
 
-	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),Meta).
+	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),ClauseMeta).
 
 
 

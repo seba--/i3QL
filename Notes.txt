@@ -30,5 +30,5 @@ Optimize the support for arithmetic ...
 
 How to use the compiler:
 
-compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
+compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/Hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
 

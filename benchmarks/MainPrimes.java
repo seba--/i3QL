@@ -30,7 +30,7 @@ public class MainPrimes {
 		}
 
 		System.out
-				.println("Waiting for five seconds to enable the attachement of a profiler");
+				.println("Waiting for five seconds...");
 		Thread.sleep(5000);
 
 		Thread t = new Thread(new Runnable() {
