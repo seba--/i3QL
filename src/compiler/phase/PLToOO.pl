@@ -41,6 +41,7 @@
 :- use_module('../Predef.pl').
 :- use_module('../Utils.pl').
 :- use_module('../Debug.pl').
+:- use_module('../Analyses.pl').
 
 
 /**
@@ -773,47 +774,7 @@ set_flag([ASTNode|ASTNodes],Flag) :-
 
 
 
-/**
-	Given some (compound) goal, the first primitive goal that would be called,
-	if this (compound) goal as a whole is evaluated is returned.
-	
-	@signature first_primitive_goal(ASTNode,FirstGoal_ASTNode)
-*/	
-first_primitive_goal(ASTNode,FirstGoal) :-
-	complex_term(ASTNode,Functor,[LASTNode,_RASTNode]),
-	(	
-		Functor = ','
-	; 
-		Functor = ';' 
-	),
-	!,
-	first_primitive_goal(LASTNode,FirstGoal).
-first_primitive_goal(ASTNode,ASTNode).
 
-
-
-last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
-	complex_term(ASTNode,',',[_LASTNode,RASTNode]),!,
-	last_primitive_goals_if_true(RASTNode,SGoals,SRest).
-last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
-	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
-	last_primitive_goals_if_true(LASTNode,SGoals,SFurtherGoals),
-	last_primitive_goals_if_true(RASTNode,SFurtherGoals,SRest).	
-last_primitive_goals_if_true(ASTNode,[ASTNode|SRest],SRest).
-
-
-
-last_primitive_goal_if_false(ASTNode,LastGoal) :-
-	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
-	(	
-		Functor = ',',
-		last_primitive_goal_if_false(LASTNode,LastGoal)
-	; 
-		Functor = ';',
-		last_primitive_goal_if_false(RASTNode,LastGoal)
-	),
-	!.
-last_primitive_goal_if_false(ASTNode,ASTNode).
 
 
 

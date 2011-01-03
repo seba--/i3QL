@@ -843,7 +843,7 @@ named_variables_of_terms([],SZ,SZ).
 	</p>
 	
 	@signature cut_analysis(ASTNode,CutBehavior)
-	@arg(out) CutBehavior is either always,maybe, or never.
+	@arg(out) CutBehavior is either "always", "maybe", or "never".
 */
 % TODO check that the semantics of the cut analysis is correct for "->" and "*->"
 cut_analysis(a(_,'!'),always):- !.

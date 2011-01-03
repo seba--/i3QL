@@ -39,7 +39,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:PLVariableUsageAnalysis',[pl_variable_usage_analysis/4]).
+:- module('SAEProlog:Compiler:Phase:PLVariableUsageAnalysis',[pl_variable_usage_analysis/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').

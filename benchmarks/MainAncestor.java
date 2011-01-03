@@ -13,6 +13,14 @@ public class MainAncestor {
 		System.out.print(o);
 	}
 
+	public static void print(boolean b) {
+		System.out.print(b);
+	}
+	
+	public static void println(boolean b) {
+		System.out.println(b);
+	}
+	
 	public static void println(Object o) {
 		System.out.println(o);
 	}

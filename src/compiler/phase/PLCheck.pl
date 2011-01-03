@@ -36,7 +36,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('Compiler:Phase:PLCheck',[pl_check/4]).
+:- module('SAEProlog:Compiler:Phase:PLCheck',[pl_check/4]).
 
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
