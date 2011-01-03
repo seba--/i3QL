@@ -203,6 +203,7 @@ public final class StringAtom extends Atomic {
 	public static final StringAtom EMPTY_LIST = get("[]");
 	public static final StringAtom LIST = get(".");
 	
+	public static final StringAtom GROUND = get("ground");
 	public static final StringAtom VAR = get("var");
 	public static final StringAtom NONVAR = get("nonvar");
 	public static final StringAtom ATOM = get("atom");

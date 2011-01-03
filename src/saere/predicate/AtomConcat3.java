@@ -32,52 +32,74 @@
 package saere.predicate;
 
 import saere.Goal;
-import saere.OneArgPredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import static saere.StringAtom.*;
+import saere.PrologException;
+import saere.State;
+import saere.StringAtom;
 import saere.Term;
+import saere.ThreeArgsPredicateFactory;
 
-/** 
- * Prolog's "var/1" predicate. 
- *
+/**
+ * Implementation of ISO Prolog's atom_concat/3 predicate.
+ * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Var1 extends TestGoal {
+public final class AtomConcat3 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			VAR, 1);
+			StringAtom.get("atom_concat"), 3);
 
-	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static ThreeArgsPredicateFactory FACTORY = new ThreeArgsPredicateFactory() {
 
 		@Override
-		public Goal createInstance(Term t) {
-			return new Var1(t);
+		public Goal createInstance(Term l, Term r, Term o) {
+			return new AtomConcat3(l, r, o);
 		}
+
 	};
 
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 		registry.register(IDENTIFIER, FACTORY);
 	}
 
-	private final Term t;
-	private boolean called = false;
+	private boolean call = true;
 
-	public Var1(Term t) {
-		this.t = t;
-	}
+	private Term l;
+	private Term r;
+	private Term o;
 
-	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			return isVar(t);
-		} else {
-			return false;
+	private State oState;
+
+	public AtomConcat3(final Term l, final Term r, final Term o) {
+		if (!l.isAtomic() || !r.isAtomic()) {
+			throw new PrologException("The terms are not sufficiently instantiated.");
 		}
+
+		this.l = l.unwrap();
+		this.r = r.unwrap();
+		this.o = o.unwrap();
+		this.oState = o.manifestState();
 	}
 
-	public static final boolean isVar(Term t) {
-		return t.isVariable() && !t.asVariable().isInstantiated();
+	public void abort() {
+		if (oState != null)
+			oState.reincarnate();
+	}
+
+	public boolean choiceCommitted() {
+		return false;
+	}
+
+	public boolean next() {
+		if (call) {
+			StringAtom a = StringAtom.get(l.toProlog() + r.toProlog());
+			if (o.unify(a))
+				return true;
+		}
+
+		if (oState != null)
+			oState.reincarnate();
+		return false;
 	}
 }

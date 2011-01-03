@@ -581,7 +581,10 @@ map_arith_comp_operator_to_java_operator('=\\=','!=') :- !.
 map_arith_comp_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
 
 
-
+map_arith_prolog_operator_to_java_operator('/\\','&') :- !.
+map_arith_prolog_operator_to_java_operator('\\/','|') :- !.
+map_arith_prolog_operator_to_java_operator('>>','>>') :- !.
+map_arith_prolog_operator_to_java_operator('<<','<<') :- !.
 map_arith_prolog_operator_to_java_operator('+','+') :- !.
 map_arith_prolog_operator_to_java_operator('-','-') :- !. % unary and binary minus
 map_arith_prolog_operator_to_java_operator('*','*') :- !.

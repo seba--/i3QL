@@ -39,20 +39,20 @@ import static saere.StringAtom.*;
 import saere.Term;
 
 /** 
- * Prolog's "var/1" predicate. 
+ * Prolog's arithmetic smaller than operator: "<". 
  *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Var1 extends TestGoal {
+public class Ground1 extends TestGoal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			VAR, 1);
+			GROUND, 1);
 
 	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 		@Override
 		public Goal createInstance(Term t) {
-			return new Var1(t);
+			return new Ground1(t);
 		}
 	};
 
@@ -63,7 +63,7 @@ public class Var1 extends TestGoal {
 	private final Term t;
 	private boolean called = false;
 
-	public Var1(Term t) {
+	public Ground1(Term t) {
 		this.t = t;
 	}
 
@@ -71,13 +71,13 @@ public class Var1 extends TestGoal {
 	public boolean next() {
 		if (!called) {
 			called = true;
-			return isVar(t);
+			return isGround(t);
 		} else {
 			return false;
 		}
 	}
 
-	public static final boolean isVar(Term t) {
-		return t.isVariable() && !t.asVariable().isInstantiated();
+	public static final boolean isGround(Term t) {
+		return t.isGround();
 	}
 }
