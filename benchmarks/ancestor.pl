@@ -38,13 +38,20 @@ sister(X,Y) :- sibling(X,Y), female(X).
 % half_sister :- a sister with whom one has only one parent in common.
 % Two definitions (the first one (using two rules) is more efficient!)
 % [1]
-half_sister(X,Y) :- female(X), mother(M,X), mother(M,Y), X \= Y, father(F1,X), father(F2,Y), F1 \= F2.
-half_sister(X,Y) :- female(X), father(F,X), father(F,Y), X \= Y, mother(M1,X) , mother(M2,Y),  M1 \= M2.
+% half_sister(X,Y) :- female(X), mother(M,X), mother(M,Y), X \= Y, father(F1,X), father(F2,Y), F1 \= F2.
+% half_sister(X,Y) :- female(X), father(F,X), father(F,Y), X \= Y, mother(M1,X) , mother(M2,Y),  M1 \= M2.
 % [2]
-% half_sister(X,Y) :- female(X), mother(M1,X), mother(M2,Y), father(F1,X), father(F2,Y), X \= Y, ((M1 = M2, F1 \= F2) ; (M1 \= M2, F1 = F2)).
-
-lookup(Key,[(Key,Value)|Dict],Value).
-lookup(Key,[(Key1,Value1)|Dict],Value) :-
-	Key \= Key1, lookup(Key,Dict,Value).
-
-
+half_sister(X,Y) :- 
+	female(X), 		%1
+	mother(M1,X),	%2
+	mother(M2,Y),	%3
+	father(F1,X),	%1
+	father(F2,Y),	%5
+	X \= Y, 			%6
+	(
+		M1 = M2,		%7
+		F1 \= F2 	%8
+	; 
+		M1 \= M2,	%9
+		F1 = F2		%10
+	).

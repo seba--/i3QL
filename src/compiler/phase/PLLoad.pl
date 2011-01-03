@@ -232,8 +232,9 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 
 
 
-% IMPROVE documentation... we are performing a tree rotation to facilitate several analyses
-% TODO also make all "or paths" left_descending and remove trailing true goals
+/**
+	We are performing a tree rotation for "and-goals" to facilitate some analyses.
+*/
 left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
 	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).

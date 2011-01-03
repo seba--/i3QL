@@ -50,6 +50,8 @@
 		append_ol/2,
 		memberchk_ol/2,
 		clone_ol/2,
+		add_to_set_ol/2,
+		member_ol/2,
 		
 		redirect_stdout_to_null/1,
 		reset_stdout_redirect/1,
@@ -321,6 +323,22 @@ append_ol(E,[_|T]) :- append_ol(E,T).
 memberchk_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
 memberchk_ol(E,[E|_]) :- !. % we found a element
 memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
+
+
+
+add_to_set_ol(E,OL) :-
+	( 
+		memberchk_ol(E,OL)
+	;
+		append_ol(E,OL)
+	),!.
+
+
+
+member_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
+member_ol(E,[E|_]). % we found a element
+member_ol(E,[_|RestOL]) :- member_ol(E,RestOL).
+
 
 
 

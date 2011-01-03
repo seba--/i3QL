@@ -137,17 +137,17 @@ process_predicate(DebugConfig,Program,Predicate) :-
 	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
 	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
 	% build the OO AST
-	% FIELDS
-	gen_fields_for_the_control_flow_and_evaluation_state(Program,Predicate,S1,S2),
-	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
-	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
 	% METHODS
 	SMethods = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_choice_committed_method(Program,Predicate,SChoiceCommittedMethod),
 	gen_clause_selector_method(Program,Predicate,SClauseSelectorMethod),
-	gen_clause_impl_methods(Program,Predicate,S4),
+	gen_clause_impl_methods(DeferredActions,Program,Predicate,S4),
+	% FIELDS
+	gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,Program,Predicate,S1,S2),
+	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
+	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
 	OOAST = oo_ast([
 		class_decl(PredicateIdentifier,type(goal),S1),
 		predicate_registration(PredicateIdentifier)
@@ -163,7 +163,7 @@ process_predicate(DebugConfig,Program,Predicate) :-
 
 */
 
-gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDecls,SR) :-
+gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Predicate,SFieldDecls,SR) :-
 	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
 	SFieldDecls = [
@@ -183,8 +183,19 @@ gen_fields_for_the_control_flow_and_evaluation_state(_Program,Predicate,SFieldDe
 	SGoalsEvaluation = [
 		field_decl(goal_stack),
 		field_decl([],type(int),'goalToExecute',int(1)) |
+		SGoalPredescessors
+	],
+	findall(
+		SGoalPredescessor,
+		(
+			member_ol(create_field_to_store_predecessor_goal(GoalNumber),DeferredActions),
+			GoalCaseId is GoalNumber * 2 - 1,
+			atomic_list_concat(['goal',GoalCaseId,'PredecessorGoal'],PredecessorGoalFieldIdentifier),
+			SGoalPredescessor = field_decl([],type(int),PredecessorGoalFieldIdentifier,int(0))
+		),
+		SGoalPredescessors,
 		SR
-	].
+	).
 
 
 
@@ -369,11 +380,11 @@ reset_clause_local_variable(
 	"boolean clauseX()" M E T H O D S      ( T H E   C L A U S E  I M P L E M E N T A T I O N S )
 
 */
-gen_clause_impl_methods(_Program,Predicate,ClauseImpls) :-
+gen_clause_impl_methods(DeferredActions,_Program,Predicate,ClauseImpls) :-
 	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,implementation_for_clause_i,ClauseImpls).
+	foreach_clause(Clauses,implementation_for_clause_i(DeferredActions),ClauseImpls).
 	
-implementation_for_clause_i(I,Clause,_ClausePosition,ClauseMethod) :-
+implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMethod) :-
 	atom_concat('clause',I,ClauseIdentifier),
 	ClauseMethod = method_decl(
 			private,
@@ -390,7 +401,7 @@ implementation_for_clause_i(I,Clause,_ClausePosition,ClauseMethod) :-
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,Body),
 	number_primitive_goals(Body,1,_LastId),
-	set_primitive_goals_successors(Body),
+	set_primitive_goals_successors(DeferredActions,Body),
 	primitive_goals_list(Body,PrimitiveGoalsList,[]),
 	translate_goals(PrimitiveGoalsList,Cases,[]).
 
@@ -404,8 +415,8 @@ translate_goals([],SCases,SCases).
 
 
 % To translate a goal, we use the following meta information:
-% next_goal_if_fails(GoalNumber)
-% next_goal_if_fails(multiple)
+% next_goal_if_fails(Action,GoalNumber) - Action is either "redo" (in case of backtracking) or "call" (if we try an new alternative)
+% next_goal_if_fails(Action,multiple) - Action must be "redo"
 % not_unique_predecessor_goal
 % next_goal_if_succeeds(GoalNumber)
 translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
@@ -504,11 +515,22 @@ translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :
 	has failed.
 */
 select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
-	lookup_in_meta(next_goal_if_fails(multiple),Meta),!,
-	throw(to_be_implemented).
+	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),!,
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	GoalCaseId is GoalNumber * 2 -1,
+	atomic_list_concat(['goal',GoalCaseId,'PredecessorGoal'],PredecessorGoal),
+	SStmts = [
+		expression_statement(assignment(field_ref(self,'goalToExecute'),field_ref(self,PredecessorGoal))),
+		continue('eval_goals')
+		|SRest
+	].
 select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
-	lookup_in_meta(next_goal_if_fails(TargetGoalNumber),Meta),!,
-	TargetGoalCaseId is TargetGoalNumber * 2,
+	lookup_in_meta(next_goal_if_fails(Action,TargetGoalNumber),Meta),!,
+	(	Action == redo ->
+		TargetGoalCaseId is TargetGoalNumber * 2
+	;	% Action == call
+		TargetGoalCaseId is TargetGoalNumber * 2 -1
+	),
 	SStmts = [
 		expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
 		continue('eval_goals')
@@ -522,18 +544,23 @@ select_and_jump_to_next_goal_after_fail(_Meta,[return(boolean(false))|SRest],SRe
 select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSucceed) :-
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	(	lookup_in_meta(next_goal_if_succeeds(TargetGoalNumber),Meta) ->
+		TargetGoalCaseId is TargetGoalNumber * 2 - 1,
 		(
 			lookup_in_meta(not_unique_predecessor_goal,Meta) ->
-			throw(needs_to_be_implemented)
+			ThisRedoGoalCaseId is GoalNumber * 2,
+			atomic_list_concat(['goal',TargetGoalCaseId,'PredecessorGoal'],PredecessorGoal),
+			JumpToNextGoalAfterSucceed = [
+				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisRedoGoalCaseId))) | 
+				SelectAndJump
+			]
 		;
-			true
+			JumpToNextGoalAfterSucceed = SelectAndJump
 		),
-		TargetGoalCaseId is TargetGoalNumber * 2 - 1,
 		(	TargetGoalNumber =:= GoalNumber + 1, ForceJump \= force_jump  ->
 			atom_concat('fall through ... ',TargetGoalCaseId,NextGoalIfSucceedComment),
-			JumpToNextGoalAfterSucceed = [eol_comment(NextGoalIfSucceedComment)]
+			SelectAndJump = [eol_comment(NextGoalIfSucceedComment)]
 		;
-			JumpToNextGoalAfterSucceed = [
+			SelectAndJump = [
 				expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
 				continue('eval_goals')
 			]
@@ -682,45 +709,49 @@ number_primitive_goals(ASTNode,First,Last) :-
 	</ul>
 	Prerequisite: all primitive goals must be numbered.<br />
 */
-set_primitive_goals_successors(ASTNode) :-
+set_primitive_goals_successors(DeferredActions,ASTNode) :-
 	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
 	first_primitive_goal(RASTNode,FR),
 	last_primitive_goals_if_true(LASTNode,LeftLPGTs,[]),
 	last_primitive_goal_if_false(RASTNode,RightLPGF),
-	set_successors(LeftLPGTs,succeeds,[FR]),
-	set_successors([RightLPGF],fails,LeftLPGTs),
-	set_primitive_goals_successors(LASTNode),
-	set_primitive_goals_successors(RASTNode).
-set_primitive_goals_successors(ASTNode) :-
+	set_successors(DeferredActions,LeftLPGTs,succeeds,[FR]),
+	set_successors(DeferredActions,[RightLPGF],fails(redo),LeftLPGTs),
+	set_primitive_goals_successors(DeferredActions,LASTNode),
+	set_primitive_goals_successors(DeferredActions,RASTNode).
+set_primitive_goals_successors(DeferredActions,ASTNode) :-
 	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
-	throw(to_be_implemented).
-set_primitive_goals_successors(_ASTNode).
+	first_primitive_goal(RASTNode,FR),
+	first_primitive_goal(LASTNode,FL),
+	set_successors(DeferredActions,[FL],fails(call),[FR]),
+	set_primitive_goals_successors(DeferredActions,LASTNode),
+	set_primitive_goals_successors(DeferredActions,RASTNode).	
+set_primitive_goals_successors(_DeferredActions,_ASTNode).
 
 
 
-set_successors([ASTNode|ASTNodes],Type,SuccessorASTNodes) :-
-	set_successor(ASTNode,Type,SuccessorASTNodes),
-	set_successors(ASTNodes,Type,SuccessorASTNodes).
-set_successors([],_Type,_SuccessorASTNodes).
+set_successors(DeferredActions,[ASTNode|ASTNodes],Type,SuccessorASTNodes) :-
+	set_successor(DeferredActions,ASTNode,Type,SuccessorASTNodes),
+	set_successors(DeferredActions,ASTNodes,Type,SuccessorASTNodes).
+set_successors(_DeferredActions,[],_Type,_SuccessorASTNodes).
 
 
 
-set_successor(ASTNode,succeeds,[SuccessorASTNode|SuccessorASTNodes]) :-
+set_successor(DeferredActions,ASTNode,succeeds,[SuccessorASTNode|SuccessorASTNodes]) :-
 	set_succeeds_successor(ASTNode,SuccessorASTNode),
-	set_successor(ASTNode,succeeds,SuccessorASTNodes).
-set_successor(_ASTNode,succeeds,[]).
-
-set_successor(ASTNode,fails,SuccessorASTNodes) :-
+	set_successor(DeferredActions,ASTNode,succeeds,SuccessorASTNodes).
+set_successor(_DeferredActions,_ASTNode,succeeds,[]).
+% Action is either "call" or "redo"
+set_successor(DeferredActions,ASTNode,fails(Action),SuccessorASTNodes) :-
 	term_meta(ASTNode,Meta),
 	(
-		SuccessorASTNodes = [SuccessorASTNode],
+		SuccessorASTNodes = [SuccessorASTNode], % ... may fail
 		term_meta(SuccessorASTNode,SuccessorMeta),
 		lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
-%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(fails(SrcGoalNumber,GoalNumber)),nl,	
-		add_to_meta(next_goal_if_fails(GoalNumber),Meta)
+		add_to_meta(next_goal_if_fails(Action,GoalNumber),Meta)
 	;
-%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(fails(SrcGoalNumber,multiple)),nl,	
-		add_to_meta(next_goal_if_fails(multiple),Meta),
+		lookup_in_meta(goal_number(GoalNumber),Meta),
+		add_to_set_ol(create_field_to_store_predecessor_goal(GoalNumber),DeferredActions),
+		add_to_meta(next_goal_if_fails(Action,multiple),Meta),
 		set_flag(SuccessorASTNodes,not_unique_predecessor_goal)
 	),!.
 
@@ -730,7 +761,6 @@ set_succeeds_successor(ASTNode,SuccessorASTNode) :-
 	term_meta(ASTNode,Meta),
 	term_meta(SuccessorASTNode,SuccessorMeta),
 	lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
-%/*DEBUG*/lookup_in_meta(goal_number(SrcGoalNumber),Meta),write(succ(SrcGoalNumber,GoalNumber)),nl,	
 	add_to_meta(next_goal_if_succeeds(GoalNumber),Meta).
 
 
@@ -744,8 +774,8 @@ set_flag([ASTNode|ASTNodes],Flag) :-
 
 
 /**
-	Given some (complex) goal, the first primitive goal that would be called,
-	if this (complex) goal as a whole is evaluated is returned.
+	Given some (compound) goal, the first primitive goal that would be called,
+	if this (compound) goal as a whole is evaluated is returned.
 	
 	@signature first_primitive_goal(ASTNode,FirstGoal_ASTNode)
 */	
