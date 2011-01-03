@@ -32,43 +32,28 @@
 package saere.term;
 
 import static saere.StringAtom.AND;
-import saere.ComplexTerm;
 import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-public final class And2 extends ComplexTerm {
+public final class And2 extends TwoArgsCompoundTerm {
 
-    private final Term l;
-    private final Term r;
+	public And2(Term l, Term r) {
+		super(l, r);
+	}
 
-    public And2(Term l, Term r) {
-	this.r = r;
-	this.l = l;
-    }
+	@Override
+	public StringAtom functor() {
+		return AND;
+	}
 
-    @Override
-    public int arity() {
-	return 2;
-    }
+	@Override
+	public String toString() {
+		return "(" + t1 + ", " + t2 + ")";
+	}
 
-    @Override
-    public StringAtom functor() {
-	return AND;
-    }
-
-    @Override
-    public Term arg(int i) {
-	return i == 0 ? l : r;
-    }
-
-    @Override
-    public String toString() {
-	return "(" + l + ", " + r + ")";
-    }
-
-    @Override
-    public Goal call() {
-	return new saere.predicate.And2(l, r);
-    }
+	@Override
+	public Goal call() {
+		return new saere.predicate.And2(t1, t2);
+	}
 }

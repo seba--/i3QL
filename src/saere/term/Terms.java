@@ -1,6 +1,6 @@
 package saere.term;
 
-import saere.ComplexTerm;
+import saere.CompoundTerm;
 import saere.FloatValue;
 import saere.IntValue;
 import saere.StringAtom;
@@ -29,7 +29,7 @@ public class Terms {
 		return new Variable();
 	}
 
-	public static ComplexTerm complexTerm(StringAtom functor, Term... args) {
+	public static CompoundTerm compoundTerm(StringAtom functor, Term... args) {
 		assert (args.length > 0);
 
 		// arithmetic expression require special support
@@ -81,7 +81,7 @@ public class Terms {
 		return new Or2(t1, t2);
 	}
 
-	public static ComplexTerm unify(Term t1, Term t2) {
+	public static CompoundTerm unify(Term t1, Term t2) {
 		return new Equals2(t1, t2);
 	}
 	

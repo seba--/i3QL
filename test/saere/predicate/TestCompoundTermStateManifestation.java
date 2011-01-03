@@ -34,7 +34,7 @@ package saere.predicate;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import saere.ComplexTerm;
+import saere.CompoundTerm;
 import saere.State;
 import saere.StringAtom;
 import saere.Variable;
@@ -45,7 +45,7 @@ public class TestCompoundTermStateManifestation {
 	@Test
 	public void testStateManifestationOfGroundCompoundTerm() {
 		{
-			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST);
+			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST);
 			State state = ct.manifestState();
 			if (state != null)
 				state.reincarnate();
@@ -54,7 +54,7 @@ public class TestCompoundTermStateManifestation {
 		}
 
 		{
-			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
 					atomic(2), atomic(3.0));
 			State state = ct.manifestState();
 			if (state != null)
@@ -66,12 +66,12 @@ public class TestCompoundTermStateManifestation {
 		}
 
 		{
-			ComplexTerm ct = complexTerm(
+			CompoundTerm ct = compoundTerm(
 					StringAtom.AND,
 					StringAtom.EMPTY_LIST,
 					atomic(2),
 					atomic(3.0),
-					complexTerm(StringAtom.AND, StringAtom.get("demo"),
+					compoundTerm(StringAtom.AND, StringAtom.get("demo"),
 							atomic(1)));
 			State state = ct.manifestState();
 			if (state != null) {
@@ -92,7 +92,7 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
 			state.reincarnate();
 
@@ -103,7 +103,7 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
 					v1, v1);
 			State state = ct.manifestState();
 			state.reincarnate();
@@ -118,9 +118,9 @@ public class TestCompoundTermStateManifestation {
 			Variable v1 = new Variable();
 			Variable v2 = new Variable();
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1,
 					StringAtom.EMPTY_LIST, atomic(2),
-					complexTerm(StringAtom.AND, v1, v2));
+					compoundTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
 			state.reincarnate();
 
@@ -137,16 +137,16 @@ public class TestCompoundTermStateManifestation {
 	public void testStateManifestationOfNonGroundInstantiatedCompoundTermNoChanges() {
 		{
 			Variable v1 = new Variable();
-			v1.bind(complexTerm(StringAtom.OR, atomic(1), atomic(2)));
+			v1.bind(compoundTerm(StringAtom.OR, atomic(1), atomic(2)));
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
 			if (state != null) // state may be null.... v1 is bound to an atomic
 				// value
 				state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
-			assertEquals(complexTerm(StringAtom.OR, atomic(1), atomic(2)),
+			assertEquals(compoundTerm(StringAtom.OR, atomic(1), atomic(2)),
 					v1.binding());
 		}
 
@@ -154,7 +154,7 @@ public class TestCompoundTermStateManifestation {
 			Variable v1 = new Variable();
 			v1.bind(atomic(2));
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
 					v1, v1);
 			State state = ct.manifestState();
 			if (state != null)
@@ -172,9 +172,9 @@ public class TestCompoundTermStateManifestation {
 			v1.bind(StringAtom.get("demo"));
 			v2.bind(atomic(3.0));
 
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1,
 					StringAtom.EMPTY_LIST, atomic(2),
-					complexTerm(StringAtom.AND, v1, v2));
+					compoundTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
 			if (state != null)
 				state.reincarnate();
@@ -192,7 +192,7 @@ public class TestCompoundTermStateManifestation {
 	public void testStateManifestationOfNonGroundUninstantiatedCompoundTermWithIntermediateBinding() {
 		{
 			Variable v1 = new Variable();
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
 			v1.bind(atomic(2.0));
 			state.reincarnate();
@@ -202,10 +202,10 @@ public class TestCompoundTermStateManifestation {
 
 		{
 			Variable v1 = new Variable();
-			ComplexTerm ct = complexTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
 					v1, v1);
 			State state = ct.manifestState();
-			v1.bind(complexTerm(StringAtom.CUT, atomic(0)));
+			v1.bind(compoundTerm(StringAtom.CUT, atomic(0)));
 			state.reincarnate();
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertSame(v1, ct.arg(1));
@@ -216,12 +216,12 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 			Variable v2 = new Variable();
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1,
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1,
 					StringAtom.EMPTY_LIST, atomic(2),
-					complexTerm(StringAtom.AND, v1, v2));
+					compoundTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
 			v1.bind(atomic(1));
-			v2.bind(complexTerm(StringAtom.get("test"), atomic(1)));
+			v2.bind(compoundTerm(StringAtom.get("test"), atomic(1)));
 			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
@@ -238,15 +238,15 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 			Variable v2 = new Variable();
-			v1.bind(complexTerm(StringAtom.OR, v2, atomic(2)));
-			ComplexTerm ct = complexTerm(StringAtom.AND, v1);
+			v1.bind(compoundTerm(StringAtom.OR, v2, atomic(2)));
+			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 
 			State state = ct.manifestState();
 			v2.bind(atomic(2.0));
 			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
-			assertEquals(complexTerm(StringAtom.OR, v2, atomic(2)),
+			assertEquals(compoundTerm(StringAtom.OR, v2, atomic(2)),
 					v1.binding());
 			assertNull(v2.binding());
 		}

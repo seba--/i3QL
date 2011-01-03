@@ -1,7 +1,7 @@
 package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
-import saere.ComplexTerm;
+import saere.CompoundTerm;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.Goal;
@@ -9,7 +9,7 @@ import saere.StringAtom;
 import saere.Term;
 
 // TODO rethink how you create terms and the like...
-public final class GenericCompoundTerm extends ComplexTerm {
+public final class GenericCompoundTerm extends CompoundTerm {
 
 	private final StringAtom functor;
 	private final Term[] args;
@@ -22,6 +22,16 @@ public final class GenericCompoundTerm extends ComplexTerm {
 	@Override
 	public Term arg(int i) throws IndexOutOfBoundsException {
 		return args[i];
+	}
+
+	@Override
+	public Term firstArg() {
+		return args[0];
+	}
+
+	@Override
+	public Term secondArg() throws IndexOutOfBoundsException {
+		return args[1];
 	}
 
 	@Override

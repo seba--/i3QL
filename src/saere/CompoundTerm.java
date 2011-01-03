@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class ComplexTerm extends Term {
+public abstract class CompoundTerm extends Term {
 
 	/**
 	 * @return <code>false</code>; always.
@@ -54,11 +54,17 @@ public abstract class ComplexTerm extends Term {
 		return true;
 	}
 
+	public abstract Term firstArg();
+
+	public Term secondArg() {
+		throw new IndexOutOfBoundsException();
+	}
+
 	/**
 	 * @return Always returns "<code>this</code>"
 	 */
 	@Override
-	public final ComplexTerm asCompoundTerm() {
+	public final CompoundTerm asCompoundTerm() {
 		return this;
 	}
 
@@ -68,15 +74,13 @@ public abstract class ComplexTerm extends Term {
 	}
 
 	/**
-	 * Returns <code>true</code> if this term is ground; i.e. if all arguments
-	 * are ground.
+	 * Returns <code>true</code> if this term is ground; i.e. if all arguments are ground.
 	 * 
 	 * <p>
 	 * <b>Performance Guideline</b><br/>
-	 * This method (re)calculates the answer whenever this method is called. If
-	 * you know that for your specific kind of compound term the answer is
-	 * always <code>true</code> you should override this method and return
-	 * <code>true</code> (see also {@link #manifestState()}).
+	 * This method (re)calculates the answer whenever this method is called. If you know that for
+	 * your specific kind of compound term the answer is always <code>true</code> you should
+	 * override this method and return <code>true</code> (see also {@link #manifestState()}).
 	 * </p>
 	 */
 	@Override
@@ -94,34 +98,32 @@ public abstract class ComplexTerm extends Term {
 	 * The state of the compound term's arguments is saved for later recovery.
 	 * <p>
 	 * <b>Performance Guideline</b><br/>
-	 * In general, state manifestation requires a traversal of the complete
-	 * compound term's structure. Hence, if all instances of a compound term are
-	 * always ground then it is highly recommended to override the corresponding
-	 * {@link #isGround()} method and to always return <code>true</code>.
-	 * Overwriting {@link #isGround()} is more beneficial than overwriting this
-	 * method, because this method directly uses the method {@link #isGround()}
-	 * and returns <code>null</code> if this compound term is ground.
+	 * In general, state manifestation requires a traversal of the complete compound term's
+	 * structure. Hence, if all instances of a compound term are always ground then it is highly
+	 * recommended to override the corresponding {@link #isGround()} method and to always return
+	 * <code>true</code>. Overwriting {@link #isGround()} is more beneficial than overwriting this
+	 * method, because this method directly uses the method {@link #isGround()} and returns
+	 * <code>null</code> if this compound term is ground.
 	 * </p>
 	 */
 	@Override
-	public ComplexTermState manifestState() {
+	public CompoundTermState manifestState() {
 		if (isGround()) {
 			return null;
 		} else {
-			return ComplexTermState.manifest(this);
+			return CompoundTermState.manifest(this);
 		}
 	}
 
 	/**
 	 * Unifies this compound term with another compound term.
 	 * <p>
-	 * This method does not take care of state handling; i.e, <font
-	 * color="ref">both compound terms may be partially bound after
-	 * return.</font> The caller must take care to reset the state of this
-	 * compound term as well as the passed in compound term.
+	 * This method does not take care of state handling; i.e, <font color="ref">both compound terms
+	 * may be partially bound after return.</font> The caller must take care to reset the state of
+	 * this compound term as well as the passed in compound term.
 	 * </p>
 	 */
-	public boolean unify(ComplexTerm other) {
+	public boolean unify(CompoundTerm other) {
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
@@ -139,21 +141,9 @@ public abstract class ComplexTerm extends Term {
 	}
 
 	@Override
-	public String toProlog() {
-		// a compound term always has at least one argument
-		String s = arg(0).toProlog();
-		for (int i = 1; i < arity(); i++) {
-			if (i > 0)
-				s += ", ";
-			s += arg(i).toProlog();
-		}
-		return functor().toProlog() + "(" + s + ")";
-	}
-
-	@Override
 	public boolean equals(Object otherObject) {
-		if (otherObject instanceof ComplexTerm) {
-			ComplexTerm other = (ComplexTerm) otherObject;
+		if (otherObject instanceof CompoundTerm) {
+			CompoundTerm other = (CompoundTerm) otherObject;
 			int arity = arity();
 			if (arity == other.arity() && functor().sameAs(other.functor())) {
 				for (int i = 0; i < arity; i++) {
@@ -173,7 +163,19 @@ public abstract class ComplexTerm extends Term {
 	}
 
 	@Override
-	public Term unwrapped() {
+	public final Term unwrap() {
 		return this;
+	}
+
+	@Override
+	public String toProlog() {
+		// a compound term always has at least one argument
+		String s = arg(0).toProlog();
+		for (int i = 1; i < arity(); i++) {
+			if (i > 0)
+				s += ", ";
+			s += arg(i).toProlog();
+		}
+		return functor().toProlog() + "(" + s + ")";
 	}
 }

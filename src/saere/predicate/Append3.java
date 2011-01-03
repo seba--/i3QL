@@ -33,9 +33,8 @@ package saere.predicate;
 
 import static saere.StringAtom.EMPTY_LIST;
 import static saere.term.Terms.variable;
-import saere.ComplexTerm;
+import saere.CompoundTerm;
 import saere.Goal;
-import saere.GoalStack;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.State;
@@ -76,15 +75,17 @@ public final class Append3 implements Goal {
 	}
 
 	// variables to control/manage the execution this predicate
-	private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;
 	private int goalToExecute = 1;
 	// variables related to the predicate's state
 	private Term Xs;
 	private Term Ys;
 	private Term Zs;
-	final private State XsState; // REQUIRED BY TAIL-CALL OPTIMIZATION ...
-	final private State YsState;
-	final private State ZsState;
+	private State XsState;
+	private State YsState;
+	private State ZsState;
+	final private State rootXsState; // REQUIRED BY TAIL-CALL OPTIMIZATION ...
+	final private State rootYsState;
+	final private State rootZsState;
 	// variables to store clause local information
 	private Term clv0;
 	private Term clv1;
@@ -93,18 +94,27 @@ public final class Append3 implements Goal {
 	public Append3(final Term Xs, final Term Ys, final Term Zs) {
 		// the implementation depends on the property of Xs...Zs being
 		// "unwrapped"
-		this.Xs = Xs.unwrapped();
-		this.Ys = Ys.unwrapped();
-		this.Zs = Zs.unwrapped();
+		this.Xs = Xs.unwrap();
+		this.Ys = Ys.unwrap();
+		this.Zs = Zs.unwrap();
 
 		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
-		this.XsState = Xs.manifestState();
-		this.YsState = Ys.manifestState();
-		this.ZsState = Zs.manifestState();
+		this.rootXsState = Xs.manifestState();
+		this.rootYsState = Ys.manifestState();
+		this.rootZsState = Zs.manifestState();
 	}
 
 	public void abort() {
-		this.goalStack = goalStack.abortPendingGoals();
+		reset();
+	}
+
+	private void reset() {
+		if (rootXsState != null)
+			rootXsState.reincarnate();
+		if (rootZsState != null)
+			rootZsState.reincarnate();
+		if (rootYsState != null)
+			rootYsState.reincarnate();
 	}
 
 	public boolean choiceCommitted() {
@@ -119,12 +129,7 @@ public final class Append3 implements Goal {
 
 			this.goalToExecute = 1;
 			if (!this.clause2()) {
-				if (XsState != null)
-					XsState.reincarnate();
-				if (YsState != null)
-					YsState.reincarnate();
-				if (ZsState != null)
-					ZsState.reincarnate();
+				reset();
 				return false;
 			}
 			// continue;
@@ -132,92 +137,68 @@ public final class Append3 implements Goal {
 	}
 
 	private boolean clause1() {
-
-		eval_goals: do {
-			switch (this.goalToExecute) {
-			case 1: {
-				this.goalStack = goalStack.put(new Unify2(Xs, EMPTY_LIST));
-			}
-			case 2: {
-				boolean succeeded = this.goalStack.peek().next();
-				if (!succeeded) {
-					this.goalStack = goalStack.drop();
-					return false;
-				} // fall through ... 3
-			}
-			case 3: {
-				this.goalStack = goalStack.put(new Unify2(Zs, Ys));
-			}
-			case 4: {
-				boolean succeeded = this.goalStack.peek().next();
-				if (!succeeded) {
-					this.goalStack = goalStack.drop();
-					this.goalToExecute = 2;
-					continue eval_goals;
-				}
-				this.goalToExecute = 4;
-				return true;
-			}
-			default:
-				// should never be reached
-				throw new Error("internal compiler error");
-			}
-		} while (true);
-	}
-
-	private boolean clause2() {
-		eval_goals: do {
-			switch (this.goalToExecute) {
-			case 1: { // test (and extract)...
-				if (Xs.isVariable()) {
-					// Xs has to be free..., because Xs was explicitly
-					// "unwrapped"
-					this.clv0 = new Variable();
-					this.clv1 = new Variable();
-					Xs.asVariable().bind(new ListElement2(clv0, clv1));
-				} else if (!(Xs.arity() == 2 && Xs.functor().sameAs(
-						StringAtom.LIST))) {
-					return false;
-				} else {
-					ComplexTerm ctXs = Xs.asCompoundTerm();
-					this.clv0 = ctXs.arg(0);
-					this.clv1 = ctXs.arg(1);
-				}
-				this.goalToExecute = 3;
-				continue;
-			}
-			case 2: {
-				// FIXME restore state of variable
+		if (goalToExecute == 1) {
+			XsState = Xs.manifestState();
+			if (!Xs.unify(EMPTY_LIST)) {
+				if (XsState != null)
+					XsState.reincarnate();
 				return false;
 			}
-			case 3: {
-				this.clv2 = variable();
-				this.goalStack = goalStack.put(new Unify2(Zs, new ListElement2(
-						clv0, clv2)));
-			}
-			case 4: {
-				boolean succeeded = this.goalStack.peek().next();
-				if (!succeeded) {
-					this.goalStack = goalStack.drop();
-					this.goalToExecute = 2;
-					continue eval_goals;
-				}
-				// fall through ... 5
-			}
-			case 5: {
-				// update "input" variables
-				Xs = clv1.unwrapped();
-				// Ys = Ys.unwrapped();
-				Zs = clv2.unwrapped();
-				// prepare next round...
-				this.goalToExecute = 1;
-				this.goalStack = GoalStack.EMPTY_GOAL_STACK;
+
+			ZsState = Zs.manifestState();
+			YsState = Ys.manifestState();
+			if (Zs.unify(Ys)) {
+				goalToExecute = 2;
 				return true;
 			}
-			default:
-				// should never be reached
-				throw new Error("internal compiler error");
+		}
+
+		if (XsState != null)
+			XsState.reincarnate();
+		if (ZsState != null)
+			ZsState.reincarnate();
+		if (YsState != null)
+			YsState.reincarnate();
+		return false;
+	}
+
+	// append([X|Xs],Ys,[X|Zs]) :- append(Xs,Ys,Zs).
+	private boolean clause2() {
+		if (goalToExecute == 1) {
+			// Xs's state is already manifested... (as part of the first goal of the first clause)
+			if (Xs.isVariable()) {
+				// Xs has to be free..., because Xs was explicitly
+				// "unwrapped"
+				this.clv0 = new Variable();
+				this.clv1 = new Variable();
+				Xs.asVariable().setValue(new ListElement2(clv0, clv1));
+			} else if (!(Xs.arity() == 2 && Xs.functor().sameAs(StringAtom.LIST))) {
+				return false;
+			} else {
+				CompoundTerm ctXs = Xs.asCompoundTerm();
+				this.clv0 = ctXs.firstArg();
+				this.clv1 = ctXs.secondArg();
 			}
-		} while (true);
+
+			// this.ZsState = Zs.manifestState(); (not required...)
+			this.clv2 = variable();
+			if (Zs.unify(new ListElement2(clv0, clv2))) {
+				this.Xs = clv1.unwrap();
+				// this.Ys = Ys.unwrapped();
+				this.Zs = clv2.unwrap();
+				goalToExecute = 1;
+				return true;
+			}
+		}
+
+		// The following is not required, because this claus is tail recursive (and subject to last
+		// call optimization):
+		// if (XsState != null)
+		// XsState.reincarnate();
+		// // if (YsState != null)
+		// // YsState.reincarnate();
+		// if (ZsState != null)
+		// ZsState.reincarnate();
+		return false;
 	}
 }

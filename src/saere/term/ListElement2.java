@@ -32,44 +32,28 @@
 package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
-import saere.ComplexTerm;
-import saere.PredicateIdentifier;
 import saere.Goal;
+import saere.PredicateIdentifier;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
 
-public final class ListElement2 extends ComplexTerm {
+public final class ListElement2 extends TwoArgsCompoundTerm {
 
 	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
 			.getPredicateFactory(new PredicateIdentifier(StringAtom.LIST, 2));
 
-	private Term value;
-
-	private Term rest;
-
 	public ListElement2(Term value, Term rest) {
-		this.value = value;
-		this.rest = rest;
+		super(value, rest);
 
-	}
-
-	@Override
-	public int arity() {
-		return 2;
-	}
-
-	@Override
-	public Term arg(int i) throws IndexOutOfBoundsException {
-		return i == 0 ? value : rest;
 	}
 
 	public Term getHead() {
-		return value;
+		return t1;
 	}
 
 	public Term getRest() {
-		return rest;
+		return t2;
 	}
 
 	@Override
@@ -79,7 +63,7 @@ public final class ListElement2 extends ComplexTerm {
 
 	@Override
 	public Goal call() {
-		return FACTORY.createInstance(value, rest);
+		return FACTORY.createInstance(t1, t2);
 	}
 
 	@Override
@@ -89,19 +73,20 @@ public final class ListElement2 extends ComplexTerm {
 	}
 
 	private String toListRepresentation(String head) {
-		String newHead = head + value.toProlog();
-		final Term r = rest.isVariable() ? rest.asVariable().binding() : rest;
+		// FIXME We need to implement this using a while loop to prevent stack overflow errors....
+		String newHead = head + getHead().toProlog();
+		final Term r = getRest().isVariable() ? getRest().asVariable().binding() : getRest();
 		if (r instanceof ListElement2) {
 			final ListElement2 le = (ListElement2) r;
 			return le.toListRepresentation(newHead + ", ");
 		} else if (r == StringAtom.EMPTY_LIST) {
 			return newHead + "]";
 		} else {
-			return newHead + "|" + rest.toProlog() + "]";
+			return newHead + "|" + getRest().toProlog() + "]";
 		}
 	}
 
 	public String toString() {
-		return "ListElement2[head=" + value + "; rest=" + rest + "]";
+		return "ListElement2[head=" + getHead() + "; rest=" + getRest() + "]";
 	}
 }

@@ -2,7 +2,7 @@
 
 import static saere.term.Terms.and;
 import static saere.term.Terms.atomic;
-import static saere.term.Terms.complexTerm;
+import static saere.term.Terms.compoundTerm;
 import predicates.determinate_say2Factory;
 import predicates.input1Factory;
 import saere.Goal;
@@ -25,8 +25,8 @@ public class MainChatParser {
 				Goal g;
 				Variable Input = new Variable();
 				Variable Answer = new Variable();
-				Term term = and(complexTerm(atomic("input"), Input),
-						complexTerm(atomic("determinate_say"), Input, Answer));
+				Term term = and(compoundTerm(atomic("input"), Input),
+						compoundTerm(atomic("determinate_say"), Input, Answer));
 				g = term.call();
 				int count = 0;
 				while (g.next()) {
@@ -48,10 +48,10 @@ public class MainChatParser {
 				Goal g;
 				Variable Input = new Variable();
 				Variable Answer = new Variable();
-				Term term = complexTerm(
+				Term term = compoundTerm(
 						atomic("time"),
-						and(complexTerm(atomic("input"), Input),
-								complexTerm(atomic("determinate_say"), Input,
+						and(compoundTerm(atomic("input"), Input),
+								compoundTerm(atomic("determinate_say"), Input,
 										Answer)));
 				g = term.call();
 				int count = 0;

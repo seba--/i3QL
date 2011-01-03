@@ -31,25 +31,14 @@
  */
 package saere.term;
 
-
-import saere.ComplexTerm;
 import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-public final class Equals2 extends ComplexTerm {
-
-	private final Term l;
-	private final Term r;
+public final class Equals2 extends TwoArgsCompoundTerm {
 
 	public Equals2(Term l, Term r) {
-		this.r = r;
-		this.l = l;
-	}
-
-	@Override
-	public int arity() {
-		return 2;
+		super(l, r);
 	}
 
 	@Override
@@ -58,17 +47,12 @@ public final class Equals2 extends ComplexTerm {
 	}
 
 	@Override
-	public Term arg(int i) {
-		return i == 0 ? l : r;
-	}
-
-	@Override
 	public String toString() {
-		return "(" + l + " = " + r + ")";
+		return "(" + t1 + " = " + t2 + ")";
 	}
 
 	@Override
 	public Goal call() {
-		return new saere.predicate.Unify2(l, r);
+		return new saere.predicate.Unify2(t1, t2);
 	}
 }

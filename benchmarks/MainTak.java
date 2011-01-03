@@ -1,7 +1,7 @@
 //package predicates;
 
 import static saere.term.Terms.atomic;
-import static saere.term.Terms.complexTerm;
+import static saere.term.Terms.compoundTerm;
 import predicates.tak4Factory;
 import saere.PredicateRegistry;
 import saere.Goal;
@@ -34,9 +34,9 @@ public class MainTak {
 		{
 
 			Variable result = new Variable();
-			Term t = complexTerm(
+			Term t = compoundTerm(
 					StringAtom.get("time"),
-					complexTerm(atomic("tak"), atomic(18), atomic(14),
+					compoundTerm(atomic("tak"), atomic(18), atomic(14),
 							atomic(6), result));
 			Goal s = t.call();
 			if (!s.next()) {
@@ -52,9 +52,9 @@ public class MainTak {
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 				Variable result = new Variable();
-				Term term = complexTerm(
+				Term term = compoundTerm(
 						atomic("time"),
-						complexTerm(atomic("tak"), atomic(32), atomic(12),
+						compoundTerm(atomic("tak"), atomic(32), atomic(12),
 								atomic(6), result));
 				Goal s = term.call();
 				if (!s.next()) {

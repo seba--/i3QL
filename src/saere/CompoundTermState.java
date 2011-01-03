@@ -31,32 +31,34 @@
  */
 package saere;
 
+
 /**
- * Encapsulate's the state of a compound term's arguments.
+ * Encapsulate's the state of a compound term's arguments; i.e., the state of the arguments which
+ * are (free) variables.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class ComplexTermState implements State {
+final class CompoundTermState implements State {
 
 	/**
 	 * The state of a complex term's argument.
 	 */
 	private final State state;
 
-	private ComplexTermState next;
+	private CompoundTermState next;
 
-	private ComplexTermState(State state) {
+	private CompoundTermState(State state) {
 		this.state = state;
 	}
 
-	ComplexTermState append(@SuppressWarnings("hiding") State state) {
-		ComplexTermState tail = new ComplexTermState(state);
+	CompoundTermState append(@SuppressWarnings("hiding") State state) {
+		CompoundTermState tail = new CompoundTermState(state);
 		this.next = tail;
 		return tail;
 	}
 
 	public void reincarnate() {
-		ComplexTermState cts = this;
+		CompoundTermState cts = this;
 		while (cts != null) {
 			cts.state.reincarnate();
 			cts = cts.next;
@@ -65,7 +67,7 @@ final class ComplexTermState implements State {
 
 	@Override
 	public String toString() {
-		ComplexTermState los = next;
+		CompoundTermState los = next;
 		String s = "[" + state;
 		while (los != null) {
 			s += "," + los.toString();
@@ -74,62 +76,46 @@ final class ComplexTermState implements State {
 		return s += "]";
 	}
 
-	private final static class ComplexTermsStack {
-
-		private final ComplexTermsStack rest;
-		private final ComplexTerm term;
-
-		ComplexTermsStack(ComplexTerm term) {
-			this.rest = null;
-			this.term = term;
-		}
-
-		private ComplexTermsStack(ComplexTerm term, ComplexTermsStack next) {
-			this.term = term;
-			this.rest = next;
-		}
-
-		ComplexTerm first() {
-			return term;
-		}
-
-		ComplexTermsStack rest() {
-			return rest;
-		}
-
-		ComplexTermsStack append(@SuppressWarnings("hiding") ComplexTerm term) {
-			return new ComplexTermsStack(term, this);
-		}
-
-	}
-
 	@SuppressWarnings("all")
 	// REMARK ... we just wanted to suppress the "hiding" related warning...
-	static ComplexTermState manifest(ComplexTerm complexTerm) {
-		// Compared to the recursive implementation, this implementation
-		// is approximately 5-8% faster.
-		ComplexTermsStack workList = null;
+	static CompoundTermState manifest(CompoundTerm complexTerm) {
+		// Compared to the recursive implementation,
+		// this implementation is ~5-10% faster (overall!).
+		CompoundTermsList workList = null;
 
-		ComplexTermState first = null;
-		ComplexTermState last = null;
+		CompoundTermState first = null;
+		CompoundTermState last = null;
 
 		do {
 			final int arity = complexTerm.arity();
-			for (int i = 0; i < arity; i++) {
-				Term arg_i = complexTerm.arg(i);
-				if (arg_i.isVariable()) {
-					State vs = arg_i.asVariable().manifestState();
-					if (vs == null)
-						continue;
-					if (first == null)
-						last = first = new ComplexTermState(vs);
-					else
-						last = last.append(vs);
-				} else if (arg_i.isCompoundTerm()) {
+			for_each_argument: for (int i = 0; i < arity; i++) {
+				// We needed to integrate the state handling of 
+				// variables here, to avoid stack overflow errors.
+				// E.g., if a complex term is bound to a variable 
+				// the manifestation of the variable would lead to 
+				// another call of the manifest method. If we now 
+				// manifest a large datastructure (e.g., a long list)
+				// which contains a large number of (bound) variables
+				// this easily leads to a stack overflow error.
+				Term arg_i = complexTerm.arg(i).unwrap();
+				switch (arg_i.termTypeID()) {
+				case Term.VARIABLE:
+					Variable variable = arg_i.asVariable();
+					Term value = variable.getValue();
+					if (value == null) {
+						if (first == null)
+							last = first = new CompoundTermState(variable);
+						else
+							last = last.append(variable);
+					}
+					break;
+
+				case Term.COMPUND_TERM:
 					if (workList == null)
-						workList = new ComplexTermsStack(arg_i.asCompoundTerm());
+						workList = new CompoundTermsList(arg_i.asCompoundTerm());
 					else
-						workList = workList.append(arg_i.asCompoundTerm());
+						workList = workList.prepend(arg_i.asCompoundTerm());
+					break;
 				}
 			}
 			if (workList != null) {

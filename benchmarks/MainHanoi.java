@@ -1,7 +1,7 @@
 //package predicates;
 
 import static saere.term.Terms.atomic;
-import static saere.term.Terms.complexTerm;
+import static saere.term.Terms.compoundTerm;
 import predicates.hanoi5Factory;
 import saere.Goal;
 import saere.PredicateRegistry;
@@ -23,8 +23,8 @@ public class MainHanoi {
 			Variable b = new Variable();
 			Variable c = new Variable();
 			Variable solution = new Variable();
-			Goal s = complexTerm(time,
-					complexTerm(atomic("hanoi"),atomic(i),a,b,c, solution)).call();
+			Goal s = compoundTerm(time,
+					compoundTerm(atomic("hanoi"),atomic(i),a,b,c, solution)).call();
 			if (s.next()) {
 				System.out.println(" ; " + i + " => " + solution.toProlog());
 			} else {
@@ -46,8 +46,8 @@ public class MainHanoi {
 					Variable b = new Variable();
 					Variable c = new Variable();
 					Variable solution = new Variable();
-					Goal s = complexTerm(time,
-							complexTerm(atomic("hanoi"),atomic(i),a,b,c, solution)).call();
+					Goal s = compoundTerm(time,
+							compoundTerm(atomic("hanoi"),atomic(i),a,b,c, solution)).call();
 					if (s.next()) {
 						System.out.println(" ; " + i + " => " + solution.toProlog());
 					} else {

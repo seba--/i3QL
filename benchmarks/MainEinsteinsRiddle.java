@@ -1,6 +1,6 @@
 //package predicates;
 
-import static saere.term.Terms.complexTerm;
+import static saere.term.Terms.compoundTerm;
 import predicates.einstein2Factory;
 import predicates.nextTo3Factory;
 import predicates.rightTo3Factory;
@@ -25,8 +25,8 @@ public class MainEinsteinsRiddle {
 			Variable fishOwner = new Variable();
 
 			StringAtom einstein = StringAtom.get("einstein");
-			Goal s = complexTerm(time,
-					complexTerm(einstein, houses, fishOwner)).call();
+			Goal s = compoundTerm(time,
+					compoundTerm(einstein, houses, fishOwner)).call();
 			if (s.next()) {
 				System.out.println(" houses=" + houses.toProlog()
 						+ "fishOwner=" + fishOwner.toProlog());
@@ -48,8 +48,8 @@ public class MainEinsteinsRiddle {
 					Variable fishOwner = new Variable();
 
 					StringAtom einstein = StringAtom.get("einstein");
-					Goal s = complexTerm(time,
-							complexTerm(einstein, houses, fishOwner)).call();
+					Goal s = compoundTerm(time,
+							compoundTerm(einstein, houses, fishOwner)).call();
 					if (s.next()) {
 						System.out.println(" houses=" + houses.toProlog()
 								+ "fishOwner=" + fishOwner.toProlog());

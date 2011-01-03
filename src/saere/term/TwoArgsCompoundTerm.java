@@ -31,14 +31,14 @@
  */
 package saere.term;
 
-import saere.ComplexTerm;
+import saere.CompoundTerm;
 import saere.Term;
 
-public abstract class TwoArgsCompoundTerm extends ComplexTerm {
+public abstract class TwoArgsCompoundTerm extends CompoundTerm {
 
 	protected final Term t1;
 	protected final Term t2;
-	
+
 	TwoArgsCompoundTerm(Term t1, Term t2) {
 		assert (t1 != null && t2 != null);
 		this.t1 = t1;
@@ -55,6 +55,15 @@ public abstract class TwoArgsCompoundTerm extends ComplexTerm {
 		return 2;
 	}
 
+	//@Override
+	public final Term firstArg() {
+		return t1;
+	}
+
+	//@Override
+	public final Term secondArg() {
+		return t2;
+	}
 
 	@Override
 	public String toProlog() {

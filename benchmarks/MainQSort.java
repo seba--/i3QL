@@ -1,7 +1,7 @@
 //package predicates;
 
 import static saere.term.Terms.and;
-import static saere.term.Terms.complexTerm;
+import static saere.term.Terms.compoundTerm;
 import predicates.list1Factory;
 import predicates.partition4Factory;
 import predicates.qsort3Factory;
@@ -28,8 +28,8 @@ public class MainQSort {
 				Variable list = new Variable();
 				Variable result = new Variable();
 				Term t = and(
-						complexTerm(StringAtom.get("list"), list),
-						complexTerm(StringAtom.get("qsort"), list, result,
+						compoundTerm(StringAtom.get("list"), list),
+						compoundTerm(StringAtom.get("qsort"), list, result,
 								StringAtom.EMPTY_LIST));
 				Goal s = t.call();
 				if (!s.next()) {
@@ -53,8 +53,8 @@ public class MainQSort {
 					Variable list = new Variable();
 					Variable result = new Variable();
 					Term term = and(
-							complexTerm(StringAtom.get("list"), list),
-							complexTerm(StringAtom.get("qsort"), list, result,
+							compoundTerm(StringAtom.get("list"), list),
+							compoundTerm(StringAtom.get("qsort"), list, result,
 									StringAtom.EMPTY_LIST));
 					Goal s = term.call();
 					if (!s.next()) {

@@ -129,7 +129,7 @@ public abstract class Term {
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
-	 *         {@link ComplexTerm}.
+	 *         {@link CompoundTerm}.
 	 */
 	public boolean isCompoundTerm() {
 		return false;
@@ -137,9 +137,9 @@ public abstract class Term {
 
 	/**
 	 * @return <code>this</code> if this term object is an instance of a
-	 *         {@link ComplexTerm}.
+	 *         {@link CompoundTerm}.
 	 */
-	public ComplexTerm asCompoundTerm() {
+	public CompoundTerm asCompoundTerm() {
 		throw new ClassCastException();
 	}
 
@@ -287,9 +287,9 @@ public abstract class Term {
 			Variable t1hv = t1.asVariable().headVariable();
 			Term t1hvv = t1hv.getValue();
 			if (t1hvv == null) {
-				t1 = t1hv; // t1 is now a free head variable
+				t1 = t1hv; // t1 is a free head variable
 			} else {
-				t1 = t1hvv; // t1 is now a term that is not a variable
+				t1 = t1hvv; // t1 is a term that is not a variable
 			}
 		}
 
@@ -353,5 +353,5 @@ public abstract class Term {
 		}
 	}
 
-	public abstract Term unwrapped();
+	public abstract Term unwrap();
 }

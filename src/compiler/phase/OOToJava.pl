@@ -104,7 +104,7 @@ gen_code(predicate_registration(PredicateIdentifier)) :- !,
 	write_predicate_registration(Stream,PredicateIdentifier),
 	close(Stream).
 
-gen_code(X) :- throw(internal_error(['[oo_to_java:gen_code/1] unknown OO AST Node',X])).
+gen_code(X) :- throw(internal_error(gen_code/1,['unknown OO AST node:',X])).
 
 
 
@@ -231,7 +231,7 @@ write_type(Stream,type(void)) :- !,write(Stream,'void').
 write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
 write_type(Stream,type(term)) :- !,write(Stream,'Term').
 write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
-write_type(Stream,type(complex_term)) :- !,write(Stream,'ComplexTerm').
+write_type(Stream,type(complex_term)) :- !,write(Stream,'CompoundTerm').
 write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
 write_type(Stream,type(atomic(int_value))) :- !,write(Stream,'IntValue').
 write_type(Stream,type(atomic(float_value))) :- !,write(Stream,'FloatValue').
@@ -454,7 +454,7 @@ write_expr(Stream,complex_term(string_atom('.'),[LT,RT])) :- !,
 	write_expr(Stream,RT),
 	write(Stream,')').		
 write_expr(Stream,complex_term(Functor,Args)) :- !,
-	write(Stream,'complexTerm('),
+	write(Stream,'compoundTerm('),
 	write_expr(Stream,Functor),
 	write_complex_term_args(Stream,Args),
 	write(Stream,')').	
