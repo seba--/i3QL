@@ -44,11 +44,82 @@
 	'SAEProlog:Compiler:Predef',
 	[	add_predefined_predicates_to_ast/2,
 	
-		default_op_table/1
+		default_op_table/1,
+		
+		is_arithmetic_comparison_operator/1
 	]
 ).
 
 :- use_module('AST.pl').
+
+
+/* 
+(
+	Excerpts of the following text are taken 
+	from the online documentation of LogTalk
+)
+<h1>Mode directive</h1>
+Many predicates cannot be called with arbitrary arguments with arbitrary
+instantiation status. The valid arguments and instantiation modes can be
+documented by using the mode/2 directive. For instance:
+<code><pre>
+    :- mode(member(?term, +list), zero_or_more).
+</pre></code>
+The first argument describes a valid calling mode. The minimum information will
+be the instantiation mode of each argument. There are four possible values: 
+<ul>
+<li>"+" Argument must be instantiated.</li>
+<li>"-" Argument must be a free (non-instantiated) variable.</li>
+<li>"?" Argument can either be instantiated or free.</li>
+<li>"@" Argument will not be modified.</li>
+</ul>
+These four mode atoms are also declared as prefix operators.This makes it
+possible to include type information for each argument like in the example
+above. Some of the possible type values are: callable, term, nonvar, var,
+atomic, atom, number, integer, float, compound, and list. It is also possible to
+use your own types. They can be either atoms or compound terms.
+
+The second argument documents the number of proofs (or solutions) for the specified mode. The possible values are:
+
+<ul>
+<li>"zero" Predicate always fails.</li>
+<li>"one" Predicate always succeeds once.</li>
+<li>"zero_or_one" Predicate either fails or succeeds.</li>
+<li>"zero_or_more" Predicate has zero or more solutions.</li>
+<li>"one_or_more" Predicate has one or more solutions.</li>
+<li>"error" Predicate will throw an error (see below).</li>
+</ul>
+
+Note that most predicates have more than one valid mode implying several mode
+directives. For example, to document the possible use modes of the atom_concat/3
+ISO built-in predicate we would write:
+
+    :- mode(atom_concat(?atom, ?atom, +atom), one_or_more).
+    :- mode(atom_concat(+atom, +atom, -atom), zero_or_one).
+
+<h1>Metapredicate directive</h1>
+Some predicates may have arguments that will be called as goals. To ensure that
+these calls will be executed in the correct scope we need to use the
+metapredicate/1 directive. For example:
+
+    :- metapredicate(findall(*, :, *)).
+The predicate arguments in this directive have the following meaning:
+
+":" Meta-argument that will be called as a goal.
+"*" Normal argument.
+
+<h1>Dynamic directive</h1>
+A predicate can be static or dynamic. By default, all predicates are static. To
+declare a dynamic predicate we use the dynamic/1 directive:
+<code><pre>
+    :- dynamic(foo/1).
+</pre></code>
+Because each SAE Prolog file is compiled independently from other files, this
+directive must be included in every file that uses or defines the described
+predicate. If the dynamic declaration is omitted then the predicate definition
+will be compiled to static code and predicate calls will statically be resolved.
+Note that any static object may declare and define dynamic predicates.
+*/
 
 
 /* Definition of all predicates directly suppported by SAE Prolog including all
@@ -62,42 +133,37 @@
 add_predefined_predicates_to_ast(AST,Program) :-
 	add_predicates( 
 		AST,
-		[
-	
-		% Primary Predicates - we need to analyze the sub
-		pred(';'/2,[deterministic(no)]), % or
-		%(not yet supported:) ('->'/2,[deterministic(dependent)]), % If->Then(;Else)
-		%(not yet supported:) ('*->'/2,[deterministic(dependent)]), % Soft Cut
-		pred(','/2,[deterministic(dependent)]), % and
-	
+		[	
 		% Extra-logical Predicates
-		pred(nonvar/1,[deterministic(yes)]),
-		pred(var/1,[deterministic(yes)]),
-		pred(integer/1,[deterministic(yes)]),
-		pred(atom/1,[deterministic(yes)]),
-		pred(compound/1,[deterministic(yes)]),
-		pred(functor/3,[deterministic(yes)]),
+		pred(nonvar/1,[solutions(zero_or_one)]),
+		pred(var/1,[solutions(zero_or_one)]),
+		pred(atomic/1,[solutions(zero_or_one)]),
+		pred(integer/1,[solutions(zero_or_one)]),
+		pred(float/1,[solutions(zero_or_one)]),
+		pred(atom/1,[solutions(zero_or_one)]),
+		pred(compound/1,[solutions(zero_or_one)]),
+		pred(functor/3,[solutions(zero_or_one)]),
 
 		% "Other" Predicates
-		pred('='/2,[deterministic(yes)]), % unify
-		pred('\\='/2,[deterministic(yes)]), % does not unify
-		pred('/'('\\+',1),[deterministic(yes)]), % not
-		pred('=='/2,[deterministic(yes)]), % term equality
-		pred('\\=='/2,[deterministic(yes)]), % term inequality
+		pred('='/2,[solutions(zero_or_one)]), % unify
+		pred('\\='/2,[solutions(zero_or_one)]), % does not unify
+		pred('/'('\\+',1),[solutions(zero_or_one)]), % not
+		pred('=='/2,[solutions(zero_or_one)]), % term equality
+		pred('\\=='/2,[solutions(zero_or_one)]), % term inequality
 
-		pred('is'/2,[deterministic(yes),mode(-,+)]), % "arithmetic" assignment (comparison)
+		pred('is'/2,[solutions(zero_or_one)]), % "arithmetic" evaluation
 
-		pred(true/0,[deterministic(yes)]), % always succeeds
-		pred(false/0,[deterministic(yes)]), % always fails
-		pred(fail/0,[deterministic(yes)]), % always fails
-		pred('!'/0,[deterministic(yes)]), % cut
+		pred(true/0,[solutions(one)]), % always succeeds
+		pred(false/0,[solutions(zero)]), % always fails
+		pred(fail/0,[solutions(zero)]), % always fails
+		pred('!'/0,[solutions(one)]), % cut
 
-		pred('<'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=:='/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=<'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=\\='/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>'/2,[deterministic(yes),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>='/2,[deterministic(yes),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
+		pred('=:='/2,[solutions(zero_or_one),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=\\='/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('<'/2,[solutions(zero_or_one),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=<'/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>'/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>='/2,[solutions(zero_or_one),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
 		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
 		],
 		Program
@@ -106,7 +172,7 @@ add_predefined_predicates_to_ast(AST,Program) :-
 
 
 /**
-	The list of the default operators. 
+	The list of (SAE) Prolog's default operators. 
 	<p>
 	This list is maintained using.
 	<code>:- op(Priority, Op_Specifier, Operator) </code> directives which is
@@ -185,6 +251,7 @@ default_op_table(
 			op(500,yfx,'-'),
 			op(500,yfx,'+'),
 			op(1050,xfy,'->'),
+			op(1050,xfy,'*->'),			
 			op(400,yfx,'*'),
 			op(400,yfx,'/'),
 			op(700,xfx,'\\='),
@@ -216,3 +283,12 @@ default_op_table(
 		]		
 	)
 ).
+
+
+
+is_arithmetic_comparison_operator('=:=').
+is_arithmetic_comparison_operator('=\\=').
+is_arithmetic_comparison_operator('<').
+is_arithmetic_comparison_operator('=<').
+is_arithmetic_comparison_operator('>').
+is_arithmetic_comparison_operator('>=').

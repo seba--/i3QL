@@ -108,7 +108,7 @@ public final class DefaultTrieBuilder extends TrieBuilder {
 		stack = flattener.flatten(term);
 		current = root;
 		
-		while (true) {
+		while (true) { // XXX
 			Label peeked = stack.peek();
 			Trie searched = getChild(current, peeked);
 			if (searched == null) {
@@ -116,7 +116,7 @@ public final class DefaultTrieBuilder extends TrieBuilder {
 			}
 				
 			if (stack.size() == 1) {
-				if (searched.isSingleStorageLeaf()) {
+				if (searched.isSingleStorageLeaf() || searched.isMultiStorageLeaf()) {
 					removeTerm(searched, term);
 					trim(searched);
 				}
@@ -131,7 +131,7 @@ public final class DefaultTrieBuilder extends TrieBuilder {
 	private void trim(Trie start) {
 		current = start;
 		
-		if (start.getTerms() == null) {
+		if (start.getTerms() == null && start.getTerm() == null) {
 			current = start.getParent();
 			removeChild(current, start);
 			
@@ -142,7 +142,7 @@ public final class DefaultTrieBuilder extends TrieBuilder {
 				current = current.getParent();
 				
 				// Don't remove the root
-				if (current.getParent() == null) {
+				if (current.isRoot()) {
 					return;
 				}
 			}

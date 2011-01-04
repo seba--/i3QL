@@ -30,7 +30,7 @@ public class DatabasePredicate {
 	protected final DatabaseAdapter adapter;
 	
 	public DatabasePredicate(String functor, int arity, Database database) {
-		this.functor = StringAtom.StringAtom(functor);
+		this.functor = StringAtom.instance(functor);
 		this.arity = arity;
 		this.adapter = database.getAdapter(this.functor, arity); // XXX Assumes that entries already exist
 		this.noCollision = database.noCollision();
@@ -138,8 +138,18 @@ public class DatabasePredicate {
 		 */
 		private void resetStates() {
 			for (int i = 0; i < progress; i++) {
-				args[i].setState(states[i]);
+				if (states[i] != null) states[i].reset();
 			}
+		}
+
+		@Override
+		public boolean choiceCommitted() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void abort() {
+			throw new UnsupportedOperationException();
 		}
 	}
 	
@@ -207,8 +217,18 @@ public class DatabasePredicate {
 		 */
 		private void resetStates() {
 			for (int i = 0; i < args.length; i++) {
-				if (vars[i]) args[i].setState(states[i]);
+				if (vars[i] && states[i] != null) states[i].reset();
 			}
+		}
+
+		@Override
+		public boolean choiceCommitted() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void abort() {
+			throw new UnsupportedOperationException();
 		}
 	}
 }

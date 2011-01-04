@@ -4,6 +4,7 @@ queens(N,Qs) :-
 	range(1,N,Ns),
 	queens(Ns,[],Qs).
 
+
 queens([],Qs,Qs).
 queens(UnplacedQs,SafeQs,Qs) :-
 	select(UnplacedQs,UnplacedQs1,Q),
@@ -17,12 +18,14 @@ range(M,N,[M|Ns]) :-
 	is(M1,M+1),
 	range(M1,N,Ns).
 
+
 select([X|Xs],Xs,X). %select is predefined by gprolog...
 % In case of the following clause, we can do last-call
 % optimization, because	the following select clause is 
 % the last clause, and "unifications with the head" never
 % generates choice points. 
 select([Y|Ys],[Y|Zs],X) :- select(Ys,Zs,X).
+
 
 not_attack(Xs,X) :-
 	not_attack(Xs,X,1).
@@ -34,7 +37,7 @@ not_attack([Y|Ys],X,N) :-
 	N1 is N+1,
 	not_attack(Ys,X,N1).
 
- 
+
 % Architecture:
 % 	Model Name:	MacBook Pro
 % 	Model Identifier:	MacBookPro5,2

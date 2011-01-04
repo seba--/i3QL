@@ -32,125 +32,124 @@
 package saere;
 
 /**
- * Representation of an integer value. The SAE uses long values as the basis for
- * integer arithmetic.
+ * Representation of an integer value. The SAE uses long values as the basis for integer arithmetic.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public final class IntValue extends Atomic {
 
-	private final long value;
+    private final long value;
 
-	private IntValue(long value) {
-		this.value = value;
+    private IntValue(long value) {
+	this.value = value;
+    }
+
+    @Override
+    public boolean isIntValue() {
+	return true;
+    }
+
+    @Override
+    public IntValue asIntValue() {
+	return this;
+    }
+
+    @Override
+    public StringAtom functor() {
+	return StringAtom.get(Long.toString(value));
+    }
+
+    @Override
+    public final int termTypeID() {
+	return Term.INT_VALUE;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+	return other instanceof IntValue && this.sameAs((IntValue) other);
+    }
+
+    @Override
+    public int hashCode() {
+	return (int) (value % Integer.MAX_VALUE);
+    }
+
+    public boolean sameAs(IntValue other) {
+	return this.value == other.value;
+    }
+
+    @Override
+    public long intEval() {
+	return value;
+    }
+
+    @Override
+    public Goal call() {
+	throw new IllegalStateException("calling integer values is not possible");
+    }
+
+    @Override
+    public String toProlog() {
+	return Long.toString(value);
+    }
+
+    @Override
+    public String toString() {
+	return "IntegerValue[" + Long.toString(value) + "]";
+    }
+
+    public static final IntValue IntValue_M3 = new IntValue(-3l);
+    public static final IntValue IntValue_M2 = new IntValue(-2l);
+    public static final IntValue IntValue_M1 = new IntValue(-1l);
+    public static final IntValue IntValue_0 = new IntValue(0l);
+    public static final IntValue IntValue_1 = new IntValue(1l);
+    public static final IntValue IntValue_2 = new IntValue(2l);
+    public static final IntValue IntValue_3 = new IntValue(3l);
+    public static final IntValue IntValue_4 = new IntValue(4l);
+    public static final IntValue IntValue_5 = new IntValue(5l);
+    public static final IntValue IntValue_6 = new IntValue(6l);
+    public static final IntValue IntValue_7 = new IntValue(7l);
+    public static final IntValue IntValue_8 = new IntValue(8l);
+    public static final IntValue IntValue_9 = new IntValue(9l);
+
+    @SuppressWarnings("all")
+    public final static IntValue get(final long value) {
+	if (value > Integer.MIN_VALUE && value < Integer.MAX_VALUE) {
+	    int intValue = (int) value;
+	    switch (intValue) {
+
+	    case -3:
+		return IntValue_M3;
+	    case -2:
+		return IntValue_M2;
+	    case -1:
+		return IntValue_M1;
+	    case 0:
+		return IntValue_0;
+	    case 1:
+		return IntValue_1;
+	    case 2:
+		return IntValue_2;
+	    case 3:
+		return IntValue_3;
+	    case 4:
+		return IntValue_4;
+	    case 5:
+		return IntValue_5;
+	    case 6:
+		return IntValue_6;
+	    case 7:
+		return IntValue_7;
+	    case 8:
+		return IntValue_8;
+	    case 9:
+		return IntValue_9;
+	    default:
+		return new IntValue(value);
+	    }
+	} else {
+	    return new IntValue(value);
 	}
-
-	@Override
-	public boolean isIntValue() {
-		return true;
-	}
-
-	@Override
-	public IntValue asIntValue() {
-		return this;
-	}
-
-	@Override
-	public StringAtom functor() {
-		return StringAtom.instance(Long.toString(value));
-	}
-	
-	public final int termTypeID() {
-		return Term.INT_VALUE;
-	}
-
-	@Override
-	public boolean equals(Object other) {
-		return other instanceof IntValue && this.sameAs((IntValue) other);
-	}
-
-	@Override
-	public int hashCode() {
-		return (int) (value % Integer.MAX_VALUE);
-	}
-
-	public boolean sameAs(IntValue other) {
-		return this.value == other.value;
-	}
-
-	@Override
-	public long intEval() {
-		return value;
-	}
-
-	@Override
-	public Solutions call() {
-		throw new IllegalStateException(
-				"calling integer values is not possible");
-	}
-
-	@Override
-	public String toProlog() {
-		return Long.toString(value);
-	}
-
-	@Override
-	public String toString() {
-		return "IntegerValue[" + Long.toString(value) + "]";
-	}
-
-	public static final IntValue IntValue_M3 = new IntValue(-3l);
-	public static final IntValue IntValue_M2 = new IntValue(-2l);
-	public static final IntValue IntValue_M1 = new IntValue(-1l);
-	public static final IntValue IntValue_0 = new IntValue(0l);
-	public static final IntValue IntValue_1 = new IntValue(1l);
-	public static final IntValue IntValue_2 = new IntValue(2l);
-	public static final IntValue IntValue_3 = new IntValue(3l);
-	public static final IntValue IntValue_4 = new IntValue(4l);
-	public static final IntValue IntValue_5 = new IntValue(5l);
-	public static final IntValue IntValue_6 = new IntValue(6l);
-	public static final IntValue IntValue_7 = new IntValue(7l);
-	public static final IntValue IntValue_8 = new IntValue(8l);
-	public static final IntValue IntValue_9 = new IntValue(9l);
-
-	@SuppressWarnings("all")
-	public final static IntValue IntegerAtom(final long value) {
-		if (value > Integer.MIN_VALUE && value < Integer.MAX_VALUE) {
-			int intValue = (int) value;
-			switch (intValue) {
-
-			case -3:
-				return IntValue_M3;
-			case -2:
-				return IntValue_M2;
-			case -1:
-				return IntValue_M1;
-			case 0:
-				return IntValue_0;
-			case 1:
-				return IntValue_1;
-			case 2:
-				return IntValue_2;
-			case 3:
-				return IntValue_3;
-			case 4:
-				return IntValue_4;
-			case 5:
-				return IntValue_5;
-			case 6:
-				return IntValue_6;
-			case 7:
-				return IntValue_7;
-			case 8:
-				return IntValue_8;
-			case 9:
-				return IntValue_9;
-			default:
-				return new IntValue(value);
-			}
-		} else {
-			return new IntValue(value);
-		}
-	}
+    }
 
 }

@@ -31,44 +31,29 @@
  */
 package saere.term;
 
-import static saere.StringAtom.OR_FUNCTOR;
-import saere.CompoundTerm;
-import saere.Solutions;
+import static saere.StringAtom.OR;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-final class Or2 extends CompoundTerm {
-
-	private final Term l;
-	private final Term r;
+public final class Or2 extends TwoArgsCompoundTerm {
 
 	public Or2(Term l, Term r) {
-		this.r = r;
-		this.l = l;
-	}
-
-	@Override
-	public int arity() {
-		return 2;
+		super(l, r);
 	}
 
 	@Override
 	public StringAtom functor() {
-		return OR_FUNCTOR;
-	}
-
-	@Override
-	public Term arg(int i) {
-		return i == 0 ? l : r;
+		return OR;
 	}
 
 	@Override
 	public String toString() {
-		return "(" + l + "; " + r + ")";
+		return "(" + t1 + "; " + t2 + ")";
 	}
 
 	@Override
-	public Solutions call() {
-		return new saere.predicate.Or2(l, r);
+	public Goal call() {
+		return new saere.predicate.Or2(t1, t2);
 	}
 }

@@ -2,39 +2,36 @@ package saere.database.index;
 
 import java.lang.ref.WeakReference;
 
-import saere.Atom;
+import saere.Atomic;
 
 /**
  * Represents a label for an atom (integer atom or string atom). For example 'a'.
  * 
  * @author David Sullivan
- * @version 0.1, 11/9/2010
+ * @version 0.3, 12/20/2010
  */
 public final class AtomLabel extends SimpleLabel {
 	
-	private AtomLabel(Atom atom) {
+	private AtomLabel(Atomic atom) {
 		super(atom);
 	}
 	
 	@Override
 	public int hashCode() {
-		if (atom.isIntegerAtom()) {
-			return atom.eval();
-		} else {
-			return atom.hashCode();
-		}
-		
+		return atom.hashCode();
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof AtomLabel) {
-			Atom a = ((AtomLabel) obj).atom;
-			if (atom.isIntegerAtom() && a.isIntegerAtom()) {
-				return this.hashCode() == obj.hashCode();
-			} else if (atom.isStringAtom() && a.isStringAtom()) {
-				return this.hashCode() == obj.hashCode();
-			} else {
+			Atomic a = ((AtomLabel) obj).atom;
+			
+			// Return true if the Prolog type is the same and the hash code
+			if ((atom.isIntValue() && a.isIntValue())
+					|| (atom.isStringAtom() && a.isStringAtom())
+					|| (atom.isFloatValue() && a.isFloatValue())) {
+				return this.hashCode() == a.hashCode();
+			} else  {
 				return false;
 			}
 		} else {
@@ -44,7 +41,7 @@ public final class AtomLabel extends SimpleLabel {
 	
 	//@SuppressWarnings("constructorName")
 	@SuppressWarnings("all")
-	public static AtomLabel AtomLabel(Atom atom) {
+	public static AtomLabel AtomLabel(Atomic atom) {
 		final Label candidate = new AtomLabel(atom);
 		synchronized (CACHE) {
 			WeakReference<Label> cached = CACHE.get(candidate);

@@ -31,7 +31,7 @@
  */
 package saere;
 
-import static saere.IntValue.IntegerAtom;
+import static saere.IntValue.get;
 
 /**
  * Representation of a Prolog term.
@@ -45,7 +45,7 @@ public abstract class Term {
 	public static final int VARIABLE = -1;
 	public static final int COMPUND_TERM = 0;
 	// It the value is equal or larger than ATOMIC, then the term is atomic
-	public static final int ATOMIC = 1;
+	public static final int ATOMIC_TERM = 1;
 	public static final int STRING_ATOM = 1;
 	public static final int FLOAT_VALUE = 2;
 	public static final int INT_VALUE = 3;
@@ -77,38 +77,26 @@ public abstract class Term {
 	/**
 	 * Creates a {@link State} object that encapsulates the complete variable
 	 * state information of this term. The {@link State} object is later on used
-	 * to reset the state of this term to the time when this method was called
-	 * (to undo all changes that were done in between).
+	 * to reset (cf. {@link State#reincarnate()})the state of this term to the time
+	 * when this method was called (to undo all changes that were done in
+	 * between).
 	 * 
 	 * <p>
 	 * <b>Implementation Note</b><br />
-	 * This method implements – in conjunction with {@link #setState(State)} –
-	 * the Memento Pattern.
+	 * This method implements the Memento Pattern.
 	 * </p>
 	 * 
-	 * @return An object that encapsulates this term's state. The object's
+	 * @return An object that encapsulates this term's state. The state object's
 	 *         precise type is always private to the term object that created
 	 *         it. The caller must not make any assumptions about the object's
 	 *         structure.
 	 *         <p>
 	 *         <b>Performance Guideline</b><br />
 	 *         It is legal and highly encouraged to return <code>null</code> if
-	 *         this term's state is immutable. In this case the corresponding
-	 *         {@link #setState(State)} method has to be able to accept
-	 *         <code>null</code> as a legal parameter value.
+	 *         this term's state is immutable. 
 	 *         </p>
 	 */
 	public abstract State manifestState();
-
-	/**
-	 * Resets this term's state to the state encapsulated by the given
-	 * <code>State</code> object.
-	 * <p>
-	 * The given <code>State</code> must be a <code>State</code> object
-	 * previously created by this term using {@link #manifestState()}.
-	 * </p>
-	 */
-	public abstract void setState(State state);
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a
@@ -245,7 +233,7 @@ public abstract class Term {
 	 *             if this term does not model an arithmetic expression.
 	 */
 	public long intEval() {
-		throw new IllegalStateException("this term (" + this.toString()
+		throw new PrologException("this term (" + this.toProlog()
 				+ ") is not an arithmetic term");
 	}
 
@@ -256,7 +244,7 @@ public abstract class Term {
 	 *             if this term does not model an arithmetic expression.
 	 */
 	public double floatEval() {
-		throw new IllegalStateException("this term (" + this.toString()
+		throw new PrologException("this term (" + this.toProlog()
 				+ ") is not an arithmetic term");
 	}
 
@@ -266,7 +254,7 @@ public abstract class Term {
 	 * @return A new instance of the predicate initialized using this term's
 	 *         current arguments.
 	 */
-	public abstract Solutions call();
+	public abstract Goal call();
 
 	/**
 	 * @return A textual representation of the term that uses the Prolog syntax.
@@ -299,9 +287,9 @@ public abstract class Term {
 			Variable t1hv = t1.asVariable().headVariable();
 			Term t1hvv = t1hv.getValue();
 			if (t1hvv == null) {
-				t1 = t1hv; // t1 is now a free head variable
+				t1 = t1hv; // t1 is a free head variable
 			} else {
-				t1 = t1hvv; // t1 is now a term that is not a variable
+				t1 = t1hvv; // t1 is a term that is not a variable
 			}
 		}
 
@@ -310,7 +298,8 @@ public abstract class Term {
 			Variable t2hv = t2v.headVariable();
 			Term t2hvv = t2hv.getValue();
 			if (t2hvv == null) {
-				if (t2hv != t1) { // this checks that t1 and t2 not already share
+				if (t2hv != t1) { // this checks that t1 and t2 not already
+									// share
 					// now t2 and t1 either share or t2 is bound to some term
 					t2hv.setValue(t1);
 				}
@@ -348,9 +337,7 @@ public abstract class Term {
 			throw new Error("encountered a term with an unknown type");
 		}
 	}
-	
-	
-	
+
 	public static final boolean is(Term term, long value) {
 		if (term.isVariable()) {
 			final Variable hv = term.asVariable().headVariable();
@@ -358,11 +345,13 @@ public abstract class Term {
 			if (hvv != null) {
 				return hvv.intEval() == value;
 			} else {
-				hv.setValue(IntegerAtom(value));
+				hv.setValue(get(value));
 				return true;
 			}
 		} else {
 			return term.intEval() == value;
 		}
 	}
+
+	public abstract Term unwrap();
 }

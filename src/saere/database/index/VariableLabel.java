@@ -1,6 +1,6 @@
 package saere.database.index;
 
-import saere.Atom;
+import saere.Atomic;
 
 /**
  * This is {@link Label} representation for an <b>free</b> variable.
@@ -20,7 +20,7 @@ public final class VariableLabel extends Label {
 	}
 
 	@Override
-	public Atom atom() {
+	public Atomic atom() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -33,6 +33,6 @@ public final class VariableLabel extends Label {
 	
 	@Override
 	public String toString() {
-		return "?";
+		return "_";
 	}
 }

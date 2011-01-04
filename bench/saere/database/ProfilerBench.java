@@ -15,6 +15,7 @@ import saere.database.index.ShallowFlattener;
 import saere.database.predicate.ClassFile10;
 import saere.database.predicate.Instr3;
 import saere.database.profiling.Profiler;
+import saere.database.util.Stopwatch;
 
 /**
  * This class measures the impact of profiling. A serialization of orders is 
@@ -25,7 +26,7 @@ import saere.database.profiling.Profiler;
  */
 public final class ProfilerBench {
 
-	private static final int MAP_THRESHOLD = 120;
+	private static final int MAP_THRESHOLD = 100;
 	private static final String PROFILES_PATH = System.getProperty("user.dir");
 	private static final int TEST_RUNS = 2;
 	private static final String TEST_FILE = DatabaseTest.GLOBAL_TEST_FILE;
@@ -47,8 +48,6 @@ public final class ProfilerBench {
 		Stopwatch sw = new Stopwatch();
 		FACTS.read(TEST_FILE);
 		sw.printElapsedAndReset("Filling the factbase with " + FACTS.size() + " terms");
-		
-		//FactsPrinter.print("c:/users/leaf/desktop/facts.txt");
 		
 		profileName = System.currentTimeMillis() + ".ser";
 	}

@@ -31,11 +31,10 @@
  */
 package saere.predicate;
 
+import saere.Goal;
 import saere.OneArgPredicateFactory;
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 
@@ -64,17 +63,17 @@ import saere.Term;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Not1 implements Solutions {
+public final class Not1 extends TestGoal {
 
 	public final static PredicateIdentifier NOT_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_FUNCTOR, 1);
+			StringAtom.NOT, 1);
 	public final static PredicateIdentifier NOT_OPERATOR_IDENTIFIER = new PredicateIdentifier(
-			StringAtom.NOT_OPERATOR_FUNCTOR, 1);
+			StringAtom.NOT_OPERATOR, 1);
 
-	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t) {
+		public Goal createInstance(Term t) {
 			return new Not1(t);
 		}
 	};
@@ -95,28 +94,22 @@ public final class Not1 implements Solutions {
 
 	@Override
 	public boolean next() {
-		if (!called) {
-			final Solutions s = t.call();
-			final boolean succeeded = s.next();
-			if (succeeded) {
-				s.abort();
-				return false;
-			} else {
-				called = true;
-				return true;
-			}
+		if (!called && not(t)) {
+			called = true;
+			return true;
 		} else {
 			return false;
 		}
 	}
 
-	@Override
-	public void abort() {
-		// nothing to do
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
+	public static final boolean not(Term t) {
+		final Goal s = t.call();
+		final boolean succeeded = s.next();
+		if (succeeded) {
+			s.abort();
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

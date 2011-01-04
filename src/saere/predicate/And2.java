@@ -32,21 +32,22 @@
 package saere.predicate;
 
 import saere.*;
+import static saere.StringAtom.AND;
 
 /**
  * Implementation of ISO Prolog's and (<code>,/2</code>) operator.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class And2 implements Solutions {
+public final class And2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.AND_FUNCTOR, 2);
+			AND, 2);
 
 	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new And2(t1, t2);
 		}
 
@@ -62,8 +63,8 @@ public final class And2 implements Solutions {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
-	// IMPROVE do we need a goalstack here... the goal stack has at most two elements...aren't two elements "cheaper" in particular if we replace Term t1 with Solutions s1 (Goal g1)... and Solutions s2 (Goal g2)
-	private GoalStack goalStack = GoalStack.emptyStack();
+	private Goal lGoal;
+	private Goal rGoal;
 
 	public And2(final Term l, final Term r) {
 		this.l = l;
@@ -75,27 +76,27 @@ public final class And2 implements Solutions {
 			switch (goalToExecute) {
 
 			case 0:
-				goalStack = goalStack.put(l.call());
+				lGoal = l.call();
 			case 1: {
-				final Solutions s = goalStack.peek();
+				final Goal s = lGoal;
 				final boolean succeeded = s.next();
 				if (!succeeded) {
 					choiceCommitted = s.choiceCommitted();
 					return false;
 				}
 
-				// preparation for calling the second goal
-				goalStack = goalStack.put(r.call());
+				// prepare to call the second goal
+				rGoal = r.call();
 				goalToExecute = 2;
 			}
 			case 2: {
-				final Solutions s = goalStack.peek();
+				final Goal s = rGoal;
 				final boolean succeeded = s.next();
 				if (!succeeded) {
-					goalStack = goalStack.drop();
+					rGoal = null;
 
 					if (s.choiceCommitted()) {
-						goalStack.peek().abort();
+						lGoal.abort();
 						choiceCommitted = true;
 						return false;
 					} else {
@@ -112,9 +113,9 @@ public final class And2 implements Solutions {
 
 	@Override
 	public void abort() {
-		while (goalStack.isNotEmpty()) {
-			goalStack.peek().abort();
-			goalStack = goalStack.drop();
+		if (rGoal != null) {
+			rGoal.abort();
+			lGoal.abort();
 		}
 	}
 

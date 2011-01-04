@@ -37,30 +37,26 @@ import java.util.WeakHashMap;
  * Representation of a Prolog variable.
  * 
  * <p>
- * Variables that "share"; example:
- * 
- * <pre>
- * <code>
- * 	X = Y,A = B, Y = A, Y = a. 
+ * Variables that "share":<br/>
+ * <code><pre>
+ * X = Y,A = B, Y = A, Y = a. 
  * =>
- *  X = a, Y = a, A = a, B = a
- * </code>
- * </pre>
- * 
+ * X = a, Y = a, A = a, B = a
+ * </pre></code>
  * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Variable extends Term {
+public final class Variable extends Term implements State {
 
 	/**
 	 * <code>value</code> is:
 	 * <ul>
-	 * <li><code>null</code> if this variable is free (new)</li>
+	 * <li><code>null</code> if this variable is free (new); i.e., the variable is not instantiated
+	 * and does not share.</li>
 	 * <li>a value of type {@link Term} that is not a subtype of Variable</li>
 	 * if this variable is instantiated.
-	 * <li>another {@link Variable} if this variable and another variable share.
-	 * </li>
+	 * <li>another {@link Variable} if this variable and another variable share.</li>
 	 * </ul>
 	 */
 	private Term value;
@@ -94,38 +90,21 @@ public final class Variable extends Term {
 	}
 
 	@Override
-	public VariableState manifestState() {
+	public State manifestState() {
 		// Remember that a variable may be bound to a compound term that
 		// contains free variables...
-		if (this.value != null) {
+		if (this.value == null) {
+			return this;
+		} else {
 			Variable hv = headVariable();
 			Term hvv = hv.value;
 			if (hvv == null) {
-				return VariableState.share(hv);
+				return hv;
 			} else if (hvv.isAtomic()) {
-				return VariableState.immutable;
+				return null;
 			} else {
-				return VariableState.instantiated(hv);
+				return hvv.manifestState();
 			}
-		} else {
-			return null;
-		}
-	}
-
-	@Override
-	public void setState(State state) {
-		if (state == null) {
-			this.value = null;
-		} else {
-			state.asVariableState().apply(this);
-		}
-	}
-
-	void setState(VariableState state) {
-		if (state == null) {
-			this.value = null;
-		} else {
-			state.apply(this);
 		}
 	}
 
@@ -133,7 +112,7 @@ public final class Variable extends Term {
 	public int arity() {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException("The variable is not sufficiently instantiated.");
 		else
 			return hvv.arity();
 	}
@@ -142,7 +121,7 @@ public final class Variable extends Term {
 	public Term arg(int i) {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException("The variable is not sufficiently instantiated.");
 		else
 			return hvv.arg(i);
 	}
@@ -151,7 +130,7 @@ public final class Variable extends Term {
 	public StringAtom functor() {
 		Term hvv = headVariable().value;
 		if (hvv == null)
-			throw new Error("The variable is not sufficiently instantiated.");
+			throw new PrologException("The variable is not sufficiently instantiated.");
 		else
 			return hvv.functor();
 	}
@@ -173,40 +152,35 @@ public final class Variable extends Term {
 	/**
 	 * Clears all bindings of this variable.
 	 */
-	void clear() {
+	public void clear() {
 		value = null;
 	}
 
 	/**
 	 * Returns this variable's value.
 	 */
-	Term getValue() {
+	public Term getValue() {
 		return value;
 	}
 
 	/**
 	 * Sets this variable's value.
 	 */
-	void setValue(Term value) {
-//		assert (this.value == null && value != null)
-//				|| (this.value != null && value == null) : "precondition of variable.setValue(term) not met";
+	public void setValue(Term value) {
 		this.value = value;
 	}
 
 	/**
 	 * Instantiates this variable.
 	 * <p>
-	 * It is illegal to call this method if this variable is already
-	 * instantiated.
+	 * It is illegal to call this method if this variable is already instantiated.
 	 * </p>
 	 * <p>
 	 * <b>Performance Guideline</b><br />
-	 * If you know that this variable is also a headVariable, then it is more
-	 * efficient to just call {@link #setValue(Term)}. If in doubt, call this
-	 * method.
+	 * If you know that this variable is also a headVariable, then it is more efficient to just call
+	 * {@link #setValue(Term)}. If in doubt, call this method.
 	 * </p>
 	 */
-	@Deprecated
 	public void bind(Term term) {
 
 		assert !this.isInstantiated() : "binding of an instantiated variable";
@@ -217,8 +191,8 @@ public final class Variable extends Term {
 	}
 
 	/**
-	 * Unification of this <b>free</b> variable with another free variable.
-	 * These two variables are said to share.
+	 * Unification of this <b>free</b> variable with another free variable. These two variables are
+	 * said to share.
 	 * 
 	 * @param other
 	 *            a Variable with which this variable shares.
@@ -229,14 +203,12 @@ public final class Variable extends Term {
 		assert !isInstantiated() && !other.isInstantiated() : "two variables can only share if both are not bound";
 
 		/*
-		 * The general idea behind this implementation of sharing is that a
-		 * value is always only bound with the head variable. Problems that
-		 * arise if we have a cyclic unification of variables, e.g., A = X, X =
-		 * Y,Y = A,..., X = 1 are mitigated. We do make sure that at least one
-		 * variable remains free. If more than two variables share, don't create
-		 * a chain, but instead attach each new Variable with the head variable.
-		 * This way the maximum depth of the chain is more limited and
-		 * manifestation etc. becomes cheaper.
+		 * The general idea behind this implementation of sharing is that a value is always only
+		 * bound with the head variable. Problems that arise if we have a cyclic unification of
+		 * variables, e.g., A = X, X = Y,Y = A,..., X = 1 are mitigated. We do make sure that at
+		 * least one variable remains free. If more than two variables share, we don't create a
+		 * chain, but instead attach each new Variable with the head variable. This way the maximum
+		 * depth of the chain is more limited and manifestation etc. becomes cheaper.
 		 */
 		if (value == null) {
 			value = other.headVariable();
@@ -252,13 +224,12 @@ public final class Variable extends Term {
 	}
 
 	/**
-	 * If this variable shares with another variable, it is possible that this
-	 * variable points to another variable.
-	 * <p>
-	 * This is a companion method of {@link #share(Variable)}.
-	 * </p>
+	 * If this variable shares with another variable, it is possible that this variable points to
+	 * another variable.
+	 * 
+	 * @see #share(Variable)
 	 */
-	final Variable headVariable() {
+	public final Variable headVariable() {
 		Variable hv = this;
 		Term hvv = hv.value;
 		while (hvv != null) {
@@ -278,7 +249,7 @@ public final class Variable extends Term {
 		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
-			return headVariable().value.intEval();
+			return hvv.intEval();
 		}
 	}
 
@@ -286,24 +257,41 @@ public final class Variable extends Term {
 	public double floatEval() {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
-			throw new Error("This variable is not sufficiently instantiated.");
+			throw new PrologException("This variable is not sufficiently instantiated.");
 		} else {
-			return value.floatEval();
+			return hvv.floatEval();
 		}
 	}
 
+	@Override
 	public int termTypeID() {
 		return Term.VARIABLE;
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		final Term hvv = headVariable().value;
 		if (hvv == null) {
-			throw new Error("This variable is not sufficiently instantiated.");
+			throw new PrologException("This variable is not sufficiently instantiated: "
+					+ headVariable().value.toProlog());
 		} else {
-			return value.call();
+			return hvv.call();
 		}
+	}
+
+	@Override
+	public void reincarnate() {
+		this.clear();
+	}
+
+	@Override
+	public Term unwrap() {
+		Variable hv = headVariable();
+		Term hvv = hv.value;
+		if (hvv == null) {
+			return hv;
+		} else
+			return hvv;
 	}
 
 	@Override
@@ -316,11 +304,25 @@ public final class Variable extends Term {
 		}
 	}
 
+	//
+	//
+	// D E B U G G I N G   R E L A T E D   F U N C T I O N A L I T Y 
+	//
+	//
+	
+	@Override
+	public String toString() {
+		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
+	}
+
 	private static int variableCount = 0;
 	private final static WeakHashMap<Variable, String> variableNames = new WeakHashMap<Variable, String>();
 
 	static String variableToName(Variable variable) {
 		synchronized (variableNames) {
+			// if (variableNames.isEmpty()) {
+			// variableCount = 0;
+			// }
 			String name = variableNames.get(variable);
 			if (name == null) {
 				variableCount += 1;
@@ -329,11 +331,6 @@ public final class Variable extends Term {
 			}
 			return name;
 		}
-	}
-
-	@Override
-	public String toString() {
-		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
 	}
 
 }

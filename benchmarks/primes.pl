@@ -1,8 +1,5 @@
-/* BENCHMARK HARNESS
-benchmark(Data, Out) :-
-	primes(Data, Out).
-
-initialize(10000).
+/* USE:
+	?- primes(1000,Solutions).
 */
 
 primes(Limit, Ps) :-

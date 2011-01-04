@@ -1,61 +1,67 @@
 //package predicates;
 
-import predicates.einstein2;
-import predicates.nextTo3;
-import predicates.rightTo3;
+import static saere.term.Terms.compoundTerm;
+import predicates.einstein2Factory;
+import predicates.nextTo3Factory;
+import predicates.rightTo3Factory;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Variable;
-import static saere.term.TermFactory.*;
 
 public class MainEinsteinsRiddle {
 
 	public static void main(String[] args) throws Throwable {
+
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
+		einstein2Factory.registerWithPredicateRegistry(registry);
+		nextTo3Factory.registerWithPredicateRegistry(registry);
+		rightTo3Factory.registerWithPredicateRegistry(registry);
 
-		einstein2.registerWithPredicateRegistry(registry);
-		nextTo3.registerWithPredicateRegistry(registry);
-		rightTo3.registerWithPredicateRegistry(registry);
-	//	member2.registerWithPredicateRegistry(registry);
-
-		System.out.println("Starting warm up...");
-		for (int i = 0; i < 1; i++) {
-
-			StringAtom time = StringAtom.instance("time");
+		System.out.println("Warm up...");
+		for (int i = 0; i < 3; i++) {
+			StringAtom time = StringAtom.get("time");
 			Variable houses = new Variable();
 			Variable fishOwner = new Variable();
 
-			StringAtom einstein = StringAtom.instance("einstein");
-			Solutions s = compoundTerm(time,
+			StringAtom einstein = StringAtom.get("einstein");
+			Goal s = compoundTerm(time,
 					compoundTerm(einstein, houses, fishOwner)).call();
-			while (s.next()) {
-				System.out.println(houses.toProlog());
-				System.out.println(fishOwner.toProlog());
+			if (s.next()) {
+				System.out.println(" houses=" + houses.toProlog()
+						+ "fishOwner=" + fishOwner.toProlog());
 			}
 		}
-		
-		System.out.println("Sleeping for five seconds, to enable the attachement of profilers.");
+
+		System.out
+				.println("Sleeping for five seconds...");
 		Thread.sleep(5000);
-		
-		System.out.println("Evaluating...");
-		long startTime = System.nanoTime();
-		for (int i = 0; i < 20; i++) {
+		Thread t = new Thread(new Runnable() {
+			public void run() {
 
-			StringAtom time = StringAtom.instance("time");
-			Variable houses = new Variable();
-			Variable fishOwner = new Variable();
+				System.out.println("Evaluating...");
+				long startTime = System.nanoTime();
+				for (int i = 0; i < 20; i++) {
 
-			StringAtom einstein = StringAtom.instance("einstein");
-			Solutions s = compoundTerm(time,
-					compoundTerm(einstein, houses, fishOwner)).call();
-			while (s.next()) {
-				System.out.println(houses.toProlog());
-				System.out.println(fishOwner.toProlog());
+					StringAtom time = StringAtom.get("time");
+					Variable houses = new Variable();
+					Variable fishOwner = new Variable();
+
+					StringAtom einstein = StringAtom.get("einstein");
+					Goal s = compoundTerm(time,
+							compoundTerm(einstein, houses, fishOwner)).call();
+					if (s.next()) {
+						System.out.println(" houses=" + houses.toProlog()
+								+ "fishOwner=" + fishOwner.toProlog());
+					}
+				}
+				long duration = System.nanoTime() - startTime;
+				System.out.println("Finished in " + duration / 1000.0 / 1000.0
+						/ 1000.0 + "seconds");
 			}
-		}		
-		long duration = System.nanoTime() - startTime;
-		System.out.println("Finished in "+duration/1000.0/1000.0/1000.0+"seconds");
+		});
+		t.start();
+		t.join();
 	}
 
 }

@@ -35,7 +35,7 @@ import saere.NoArgsPredicateFactory;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 
 /**
@@ -43,7 +43,7 @@ import saere.StringAtom;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Repeat0 implements Solutions {
+public final class Repeat0 implements Goal {
 
 	// ?- repeat,write(x),fail.
 	// xxxxxxx....x
@@ -53,12 +53,12 @@ public final class Repeat0 implements Solutions {
 	// false.
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("repeat"), 0);
+			StringAtom.get("repeat"), 0);
 
 	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance() {
+		public Goal createInstance() {
 			return REPEAT0;
 		}
 	};

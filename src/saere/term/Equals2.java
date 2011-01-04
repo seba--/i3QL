@@ -31,44 +31,28 @@
  */
 package saere.term;
 
-
-import saere.CompoundTerm;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-final class Equals2 extends CompoundTerm {
-
-	private final Term l;
-	private final Term r;
+public final class Equals2 extends TwoArgsCompoundTerm {
 
 	public Equals2(Term l, Term r) {
-		this.r = r;
-		this.l = l;
-	}
-
-	@Override
-	public int arity() {
-		return 2;
+		super(l, r);
 	}
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.UNIFY_FUNCTOR;
-	}
-
-	@Override
-	public Term arg(int i) {
-		return i == 0 ? l : r;
+		return StringAtom.UNIFY;
 	}
 
 	@Override
 	public String toString() {
-		return "(" + l + " = " + r + ")";
+		return "(" + t1 + " = " + t2 + ")";
 	}
 
 	@Override
-	public Solutions call() {
-		return new saere.predicate.Unify2(l, r);
+	public Goal call() {
+		return new saere.predicate.Unify2(t1, t2);
 	}
 }

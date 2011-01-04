@@ -35,15 +35,14 @@ import static saere.PredicateRegistry.predicateRegistry;
 import saere.CompoundTerm;
 import saere.OneArgPredicateFactory;
 import saere.PredicateIdentifier;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
-final class Minus1 extends CompoundTerm {
+public final class Minus1 extends CompoundTerm {
 
 	public static final OneArgPredicateFactory FACTORY = (OneArgPredicateFactory) predicateRegistry()
-			.getPredicateFactory(
-					new PredicateIdentifier(StringAtom.MINUS_FUNCTOR, 1));
+			.getPredicateFactory(new PredicateIdentifier(StringAtom.MINUS, 1));
 
 	private final Term t1;
 
@@ -53,7 +52,12 @@ final class Minus1 extends CompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.MINUS_FUNCTOR;
+		return StringAtom.MINUS;
+	}
+
+	@Override
+	public Term firstArg() {
+		return t1;
 	}
 
 	@Override
@@ -74,7 +78,7 @@ final class Minus1 extends CompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		return FACTORY.createInstance(t1);
 	}
 

@@ -38,10 +38,10 @@ package saere;
  */
 public abstract class TwoArgsPredicateFactory implements PredicateFactory {
 
-	public abstract Solutions createInstance(Term t1, Term t2);
+	public abstract Goal createInstance(Term t1, Term t2);
 
 	@Override
-	public final Solutions createInstance(Term[] args) {
+	public final Goal createInstance(Term[] args) {
 		return createInstance(args[0], args[1]);
 	}
 

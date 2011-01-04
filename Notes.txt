@@ -1,37 +1,34 @@
-Some examples how to use the compiler:
+TODOs:
+
+0)
+Complete the support for "or"
+
+1)
+completely support all standard control-flow predicates: 
+	C -> T ; E
+	C *-> T ; E
+	C -> B
+	C *-> B (this is the same as "and")
+are not yet supported.
+Idea: implement these control-flow predicates by using "artificial goals" to
+implement the condition-local cut.
+
+2)
+Implement functionality to test and extract values from terms if possible (instead of unifying)
+
+3)
+Implement last call optimization
+
+4) 
+Type specialization
 
 
-compile('demo/queens/Queens.pl','build/src/java').
+5)
+Optimize the support for arithmetic ...
 
 
 
-package predicates;
+How to use the compiler:
 
-import saere.PredicateRegistry;
-import saere.Solutions;
-import saere.StringAtom;
-import saere.Variable;
-import static saere.term.TermFactory.*;
+compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/Hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
 
-public class Main {
-
-	public static void main(String[] args) {
-		PredicateRegistry registry = PredicateRegistry.instance();
-
-		not_attack2.registerWithPredicateRegistry(registry);
-		not_attack3.registerWithPredicateRegistry(registry);
-		queens2.registerWithPredicateRegistry(registry);
-		queens3.registerWithPredicateRegistry(registry);
-		range3.registerWithPredicateRegistry(registry);
-		select3.registerWithPredicateRegistry(registry);
-
-		Variable solution = new Variable();
-		StringAtom time = StringAtom.instance("time");
-		StringAtom queens = StringAtom.instance("queens");
-		Solutions s = compoundTerm(time, compoundTerm(queens,atom(20), solution)).call();
-		if (s.next()) {
-			System.out.println(solution);
-		}
-	}
-
-}

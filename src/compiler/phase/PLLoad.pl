@@ -36,7 +36,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:Load',[pl_load/4]).
+:- module('SAEProlog:Compiler:Phase:PLLoad',[pl_load/4]).
 
 :- use_module('../Debug.pl').
 :- use_module('../Utils.pl').
@@ -190,10 +190,15 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 			variable(HArg,VariableName),
 			\+ is_first_occurence_of_variable_in_head(VariableName,AllHeadArgs,1,Id)
 		)	->  
-			term_meta(HArg,MI), 
-			variable('$H',Id,MI,NewVariableNode),
-			NewHeadArgs = [NewVariableNode|FurtherNewHeadArgs],
-			NewBody = ct(MI,',',[ct(MI,'=',[NewVariableNode,HArg]),RestOfBody])
+			term_meta(HArg,Meta),
+			clone_meta(Meta,HeadVariableMeta), 
+			clone_meta(Meta,BodyVariableMeta), 
+			variable('$H',Id,HeadVariableMeta,NewHeadVariableNode),
+			variable('$H',Id,BodyVariableMeta,NewBodyVariableNode),
+			NewHeadArgs = [NewHeadVariableNode|FurtherNewHeadArgs],
+			clone_meta(Meta,UnifyMeta),
+			clone_meta(Meta,AndMeta),
+			NewBody = ct(AndMeta,',',[ct(UnifyMeta,'=',[NewBodyVariableNode,HArg]),RestOfBody])
 		;	
 			NewHeadArgs=[HArg|FurtherNewHeadArgs],
 			NewBody = RestOfBody
@@ -227,8 +232,9 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 
 
 
-% IMPROVE documentation... we are performing a tree rotation to facilitate several analyses
-% TODO also make all "or paths" left_descending and remove trailing true goals
+/**
+	We are performing a tree rotation for "and-goals" to facilitate some analyses.
+*/
 left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
 	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).

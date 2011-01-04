@@ -31,10 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
@@ -45,16 +44,15 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class NotUnify2 implements Solutions {
-
+public final class NotUnify2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.DOES_NOT_UNIFY_FUNCTOR, 2);
+			StringAtom.DOES_NOT_UNIFY, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new NotUnify2(t1, t2);
 		}
 
@@ -84,16 +82,20 @@ public final class NotUnify2 implements Solutions {
 			final boolean success = l.unify(r);
 			// reset (partial) bindings; in case of "a(X,b(c)) \= a(1,c)." X
 			// will not be bound!
-			r.setState(rState);
-			l.setState(lState);
-			lState = rState = null;
-
+			if (lState != null) {
+				lState.reincarnate();
+				lState = null;
+			}
+			if (rState != null) {
+				rState.reincarnate();
+				rState = null;
+			}
 			return !success;
 		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public void abort() {
 		// nothing to do

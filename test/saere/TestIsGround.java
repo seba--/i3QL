@@ -1,11 +1,42 @@
+/* License (BSD Style License):
+ * Copyright (c) 2010
+ * Department of Computer Science
+ * Technische Universität Darmstadt
+ * All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *
+ *  - Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *  - Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *  - Neither the name of the Software Technology Group or Technische 
+ *    Universität Darmstadt nor the names of its contributors may be used to 
+ *    endorse or promote products derived from this software without specific 
+ *    prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
 package saere;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertSame;
-import static saere.term.TermFactory.atomic;
+import static org.junit.Assert.assertTrue;
+import static saere.term.Terms.atomic;
 
 import org.junit.Test;
 
@@ -22,7 +53,7 @@ public class TestIsGround {
 
 	@Test
 	public void testGroundCompoundTermIsGround() {
-		assertTrue(new ListElement2(atomic(0), StringAtom.EMPTY_LIST_FUNCTOR)
+		assertTrue(new ListElement2(atomic(0), StringAtom.EMPTY_LIST)
 				.isGround());
 	}
 
@@ -36,25 +67,25 @@ public class TestIsGround {
 			new Variable().share(v1);
 			assertFalse(v1.isGround());
 		}
-		
+
 		{
 			Variable v1 = new Variable();
 			v1.setValue(atomic(1));
 			assertTrue(v1.isGround());
 		}
-		
+
 		{
 			Variable v1 = new Variable();
 			v1.setValue(atomic(1.0));
 			assertTrue(v1.isGround());
 		}
-		
+
 		{
 			Variable v1 = new Variable();
 			v1.setValue(atomic("demo"));
 			assertTrue(v1.isGround());
 		}
-		
+
 		{
 			Variable v1 = new Variable();
 			v1.share(new Variable());
@@ -62,13 +93,12 @@ public class TestIsGround {
 			v2.share(v1);
 			Variable v3 = new Variable();
 			v3.share(v2);
-			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST_FUNCTOR));
+			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
 			assertTrue(v1.isGround());
 			assertTrue(v2.isGround());
 			assertTrue(v3.isGround());
 		}
-		
-		
+
 		{
 			Variable v1 = new Variable();
 			v1.share(new Variable());
@@ -78,20 +108,17 @@ public class TestIsGround {
 			State s2 = v2.manifestState();
 			State s3 = v3.manifestState();
 			v3.share(v2);
-			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST_FUNCTOR));
+			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
 			assertTrue(v1.isGround());
 			assertTrue(v2.isGround());
 			assertTrue(v3.isGround());
-			v3.setState(s3);
-			v2.setState(s2);
+			s3.reincarnate();
+			s2.reincarnate();
 			assertFalse(v1.isGround());
 			assertFalse(v2.isGround());
 			assertFalse(v3.isGround());
 		}
 	}
-	
-	
-	
 
 	@Test
 	public void testBindingToNumber() {
@@ -126,24 +153,24 @@ public class TestIsGround {
 		Variable v = new Variable();
 		Variable l1 = new Variable();
 		Variable l2 = new Variable();
-		Term innerList = new ListElement2(StringAtom.instance("demo"),
-				new ListElement2(l2, StringAtom.EMPTY_LIST_FUNCTOR));
+		Term innerList = new ListElement2(StringAtom.get("demo"),
+				new ListElement2(l2, StringAtom.EMPTY_LIST));
 		// [_,demo,_]
 		v.bind(new ListElement2(l1, innerList));
 		assertTrue(v.isInstantiated());
 		assertEquals(2, v.arity());
-		assertEquals(StringAtom.LIST_FUNCTOR, v.functor());
+		assertEquals(StringAtom.LIST, v.functor());
 		assertSame(l1, v.arg(0));
 		assertSame(innerList, v.arg(1));
 		// [_,demo|_]
 		State s1 = v.manifestState();
 		Variable tail = new Variable();
 
-		assertTrue(new ListElement2(new Variable(), new ListElement2(StringAtom
-				.instance("demo"), tail)).unify(v.binding()));
-		assertEquals(new ListElement2(l2, StringAtom.EMPTY_LIST_FUNCTOR), tail
-				.binding());
-		v.setState(s1);
+		assertTrue(new ListElement2(new Variable(), new ListElement2(
+				StringAtom.get("demo"), tail)).unify(v.binding()));
+		assertEquals(new ListElement2(l2, StringAtom.EMPTY_LIST),
+				tail.binding());
+		s1.reincarnate();
 
 		v.clear();
 		assertFalse(v.isInstantiated());

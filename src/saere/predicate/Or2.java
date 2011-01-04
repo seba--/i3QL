@@ -38,15 +38,15 @@ import saere.*;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Or2 implements Solutions {
+public final class Or2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.OR_FUNCTOR, 2);
+			StringAtom.OR, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new Or2(t1, t2);
 		}
 
@@ -62,13 +62,13 @@ public final class Or2 implements Solutions {
 	private boolean choiceCommitted = false;
 
 	private int goalToExecute = 0;
-	// IMPROVE do we need a goalstack here... it should at most contain one value...
-	private GoalStack goalStack = GoalStack.emptyStack();
+	// IMPROVE We don't need a goal stack here.
+	private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;
 
 	public Or2(final Term l, final Term r) {
 		this.l = l;
 		this.r = r;
-	} 
+	}
 
 	public boolean next() {
 		while (true) {
@@ -79,7 +79,7 @@ public final class Or2 implements Solutions {
 				goalToExecute = 1;
 			case 1: {
 				// evaluate left goal...
-				Solutions s = goalStack.peek();
+				Goal s = goalStack.peek();
 				if (s.next()) {
 					return true;
 				}
@@ -91,14 +91,14 @@ public final class Or2 implements Solutions {
 				}
 
 				// prepare right goal...
-				goalStack = GoalStack.emptyStack();
+				goalStack = GoalStack.EMPTY_GOAL_STACK;
 				goalStack = goalStack.put(r.call());
 				goalToExecute = 2;
 
 			}
 			case 2: {
 				// evaluate right goal...
-				Solutions s = goalStack.peek();
+				Goal s = goalStack.peek();
 				if (s.next()) {
 					return true;
 				}
@@ -113,10 +113,7 @@ public final class Or2 implements Solutions {
 
 	@Override
 	public void abort() {
-		while (goalStack.isNotEmpty()) {
-			goalStack.peek().abort();
-			goalStack = goalStack.drop();
-		}
+		goalStack = goalStack.abortPendingGoals();
 	}
 
 	@Override

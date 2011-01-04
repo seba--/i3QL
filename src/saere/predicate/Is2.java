@@ -31,10 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
+import saere.Goal;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
@@ -45,15 +44,15 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Is2 implements Solutions {
+public final class Is2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.IS_FUNCTOR, 2);
+			StringAtom.IS, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new Is2(t1, t2);
 		}
 
@@ -86,15 +85,19 @@ public final class Is2 implements Solutions {
 			}
 		}
 
-		l.setState(lState);
-		lState = null;
+		if (lState != null) {
+			lState.reincarnate();
+			lState = null;
+		}
 		return false;
 	}
 
 	@Override
 	public void abort() {
-		l.setState(lState);
-		lState = null;
+		if (lState != null) {
+			lState.reincarnate();
+			lState = null;
+		}
 	}
 
 	@Override

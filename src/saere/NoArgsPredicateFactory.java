@@ -39,10 +39,10 @@ package saere;
  */
 public abstract class NoArgsPredicateFactory implements PredicateFactory {
 
-	public abstract Solutions createInstance();
+	public abstract Goal createInstance();
 	
 	@Override
-	public final Solutions createInstance(Term[] args) {
+	public final Goal createInstance(Term[] args) {
 		return createInstance();
 	}
 

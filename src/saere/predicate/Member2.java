@@ -31,11 +31,10 @@
  */
 package saere.predicate;
 
-import static saere.StringAtom.LIST_FUNCTOR;
-import saere.PredicateFactory;
+import static saere.StringAtom.LIST;
+import saere.Goal;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
@@ -53,15 +52,15 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Member2 implements Solutions {
+public final class Member2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("member"), 2);
+			StringAtom.get("member"), 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new Member2(t1, t2);
 		}
 
@@ -82,29 +81,25 @@ public final class Member2 implements Solutions {
 	private State listElementState;
 	private int state = SETUP;
 
-	// static int goalCounter;
-	// private int thisGoalId;
 
 	public Member2(final Term testElement, final Term list) {
-		this.testElement = testElement;
-		this.list = list;
-		// thisGoalId = goalCounter++;
+		// TODO is "unwrapping" of passed in terms meaningfull?
+		this.testElement = testElement.unwrap();
+		this.list = list.unwrap();
 	}
 
 	public boolean next() {
 		while (true) {
 			switch (state) {
 			case SETUP:
-				// System.out.println(thisGoalId+"=>"+element.toProlog());
 				testElementState = testElement.manifestState();
 				state = TEST;
 			case TEST:
 				if (list.isVariable()) {
 					list = list.asVariable().binding();
 				}
-				if (list.arity() == 2 && list.functor().sameAs(LIST_FUNCTOR)) {
+				if (list.arity() == 2 && list.functor().sameAs(LIST)) {
 					listElement = list.arg(0);
-					// System.out.println(thisGoalId+"[=>]"+listElement.toProlog());
 					listElementState = listElement.manifestState();
 					state = ADVANCE;
 					if (testElement.unify(listElement)) {
@@ -114,11 +109,12 @@ public final class Member2 implements Solutions {
 					return false;
 				}
 			case ADVANCE:
-				listElement.setState(listElementState);
-				// System.out.println(thisGoalId+"[()]"+listElement.toProlog());
-
-				testElement.setState(testElementState);
-				// // System.out.println(thisGoalId+"()"+element.toProlog());
+				if (listElementState != null) {
+					listElementState.reincarnate();
+				}
+				if (testElementState != null) {
+					testElementState.reincarnate();
+				}
 
 				list = list.arg(1);
 				state = TEST;
@@ -128,8 +124,12 @@ public final class Member2 implements Solutions {
 
 	@Override
 	public void abort() {
-		listElement.setState(listElementState);
-		testElement.setState(testElementState);
+		if (listElementState != null) {
+			listElementState.reincarnate();
+		}
+		if (testElementState != null) {
+			testElementState.reincarnate();
+		}
 	}
 
 	@Override

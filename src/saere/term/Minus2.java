@@ -33,17 +33,17 @@ package saere.term;
 
 import static saere.PredicateRegistry.predicateRegistry;
 import saere.PredicateIdentifier;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
 
-final class Minus2 extends TwoArgsCompoundTerm {
+public final class Minus2 extends TwoArgsCompoundTerm {
 
 
 	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
 			.getPredicateFactory(
-					new PredicateIdentifier(StringAtom.MINUS_FUNCTOR, 2));
+					new PredicateIdentifier(StringAtom.MINUS, 2));
 	
 	public Minus2(Term t1, Term t2) {
 		super(t1, t2);
@@ -51,7 +51,7 @@ final class Minus2 extends TwoArgsCompoundTerm {
 
 	@Override
 	public StringAtom functor() {
-		return StringAtom.MINUS_FUNCTOR;
+		return StringAtom.MINUS;
 	}
 
 	@Override
@@ -60,7 +60,7 @@ final class Minus2 extends TwoArgsCompoundTerm {
 	}
 
 	@Override
-	public Solutions call() {
+	public Goal call() {
 		return FACTORY.createInstance(t1, t2);
 	}
 

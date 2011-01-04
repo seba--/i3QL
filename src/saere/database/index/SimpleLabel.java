@@ -1,19 +1,19 @@
 package saere.database.index;
 
-import saere.Atom;
+import saere.Atomic;
 
 
 /**
  * Represents a simple label (a single atom/functor).
  * 
  * @author David Sullivan
- * @version 0.1, 11/9/2010
+ * @version 0.2, 12/20/2010
  */
 public abstract class SimpleLabel extends Label {
 	
-	protected final Atom atom;
+	protected final Atomic atom;
 	
-	protected SimpleLabel(Atom atom) {
+	protected SimpleLabel(Atomic atom) {
 		this.atom = atom;
 	}
 	
@@ -23,7 +23,7 @@ public abstract class SimpleLabel extends Label {
 	}
 
 	@Override
-	public Atom atom() {
+	public Atomic atom() {
 		return atom;
 	}
 }

@@ -40,31 +40,28 @@ import saere.predicate.Unify2;
  * a term is just passed to another predicate, manifestation of its state is
  * useless. If the subsequent predicate fails, it guarantees that the term's
  * state is the same as before the call. I.e., only if you directly call
- * {@link Unification#unify(Term, Term)}, you have to manifest the state and
- * reset it afterwards. If you use the predicate {@link Unify2}, you do not have
- * to take care of state manifestation, but directly calling
- * {@link Unification#unify(Term, Term)} is generally more efficient.
+ * {@link Term#unify(Term, Term)}, you have to manifest the state and reset it
+ * afterwards. If you use the predicate {@link Unify2}, you do not have to take
+ * care of state manifestation, but directly calling
+ * {@link Unification#unify(Term, Term)} and manually taking case of the state
+ * handling is generally more efficient.
  * </p>
  * <p>
  * <b>Implementation Notes</b><br />
  * <p>
- * The SAE represents the state of ground terms using the value
- * <code>null</code>.
+ * The SAE represents the state of ground terms/atomic values using the value
+ * <code>null</code>. Hence, before calling {@link #reincarnate()} you have to check
+ * that the state object returned by a call to {@link Term#manifestState()} is
+ * not <code>null</code>.
  * </p>
- * This is the state interface of the Memento Pattern. </p>
+ * <p>
+ * This is the state interface of the Memento Pattern.
+ * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class State {
+public interface State {
 
-	CompoundTermState asCompoundTermState() {
-		throw new Error("this state object (" + this
-				+ ") does not encapsulate a complex term's state.");
-	}
-
-	VariableState asVariableState() {
-		throw new Error("this state object (" + this
-				+ ") does not encapsulate a variable's state.");
-	}
+	void reincarnate();
 
 }

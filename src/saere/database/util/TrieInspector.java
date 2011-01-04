@@ -1,14 +1,7 @@
 package saere.database.util;
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.nio.charset.Charset;
 import java.util.Iterator;
 
-import saere.database.Utils;
 import saere.database.index.TermList;
 import saere.database.index.Trie;
 import saere.database.index.TrieBuilder;
@@ -17,122 +10,103 @@ import saere.database.index.TrieBuilder;
  * This class gathers some information about a {@link Trie}.
  * 
  * @author David Sullivan
- * @version 0.2, 9/21/2010
+ * @version 0.3, 12/10/2010
  */
-@Deprecated
 public class TrieInspector {
 	
-	private static final MathContext MC = new MathContext(10, RoundingMode.HALF_UP);
+	// Average and total children number(NOT counting leafs) as well as nodes with only a single child
+	private double avgChildNum;
+	private double totalChildNum;
+	private double nodeNumOneChild;
 	
-	// we actually don't need BigDecimals...
-	private BigDecimal avgNumChild;
-	private BigDecimal fracTerms;
-	private double numLists;
-	private double numTries;
-	private double numTerms;
+	// Average and total term number (only for leafs)
+	private double avgTermNum;
+	private double totalTermNum;
 	
-	public  void inspect(Trie trie, TrieBuilder builder) {
-		avgNumChild = new BigDecimal(0, MC);
-		fracTerms = new BigDecimal(0, MC);
-		numTries = numTerms = numLists = 0;
+	// Total number of (all) nodes, inner nodes, inner hash nodes, and leafs
+	private double totalNodes;
+	private double totalInnerNodes;
+	private double totalHashNodes;
+	private double totalLeafs;
+	
+	public void inspect(Trie trie, TrieBuilder builder) {
 		
+		// Reset all
+		avgChildNum = totalChildNum = avgTermNum = totalTermNum = totalNodes = totalInnerNodes = totalHashNodes = totalLeafs = nodeNumOneChild = 0;
 		Iterator<Trie> iterator = builder.nodeIterator(trie);
 		while (iterator.hasNext()) {
 			collectNodeStats(iterator.next());
 		}
 		
-		BigDecimal bigNumTries = new BigDecimal(numTries, MC);
-		avgNumChild = bigNumTries.divide(avgNumChild, MC);
-		fracTerms = new BigDecimal(numTerms, MC).divide(bigNumTries, MC).multiply(new BigDecimal(100, MC));
+		Iterator<saere.Term> termIter = builder.iterator(trie);
+		int termNum = 0;
+		while (termIter.hasNext()) {
+			termIter.next();
+			termNum++;
+		}
+		
+		System.out.println(termNum);
+		
+		printStats();
 	}
 	
-	public  void print(Trie trie, TrieBuilder builder, String filename, boolean small) {
-		try {
-			Charset charset = Charset.forName("ISO-8859-1");
-			OutputStream out = new FileOutputStream(filename);
-			String shape = small ? "point" : "box";
-			out.write(("digraph \"trie\" {\nnode [ shape = " + shape + ", fontname = \"Verdana\" ];\n").getBytes());
+	private void collectNodeStats(Trie trie) {
+		totalNodes++;
+		
+		// Count terms...
+		if (trie.isSingleStorageLeaf()) {
+			totalLeafs++;
+			totalTermNum++;
+		} else if (trie.isMultiStorageLeaf()) {
+			totalLeafs++;
 			
-			Iterator<Trie> iterator = builder.nodeIterator(trie);
-			while (iterator.hasNext()) {
-				trie = iterator.next();
-				String trieName = makeTrieName(trie, true);
-				
-				// edges to children (of which actually only the one to the first children exists)
-				Trie child = trie.getFirstChild();
-				while (child != null) {
-					out.write((trieName + " -> " + makeTrieName(child, true) + ";\n").getBytes(charset));
-					child = child.getNextSibling();
-				}
-				
-				// edges to terms
-				TermList list = trie.getTerms();
-				while (list != null) {
-					out.write((trieName + " -> \"" + /*shorten(*/escape(Utils.termToString(list.term()))/*, 16)*/ + "\";\n").getBytes(charset));
-					list = list.next();
-				}
-			}
-		
-			out.write("}".getBytes());
-			out.close();
-		} catch (Exception e) {
-			System.err.println(e);
-		}
-	}
-	
-	private  String makeTrieName(Trie trie, boolean longName) {
-		String name = null;
-		
-		if (longName) {
-			return "\"" + trie.hashCode() + "/" + trie.toString() + "\"";
-		} else {
-			name = trie.toString();
-		}
-		
-		return "\"" + trie.hashCode() + "/" + name + "\"";
-	}
-	
-	private String escape(String s) {
-		String r = new String(s);
-		r = r.replace('\n', ' ');
-		r = r.replace('\r', ' ');
-		r = r.replace('"', '\'');
-		r = r.replace('\\', '/');
-		return r;
-	}
-	
-	private  void collectNodeStats(Trie trie) {
-		numTries++;
-		
-		// count terms...
-		TermList list = trie.getTerms();
-		if (list != null) {
-			numLists++;
+			int listLength = 0;
+			TermList list = trie.getTerms();
 			while (list != null) {
-				numTerms++;
+				listLength++;
 				list = list.next();
 			}
+			
+			totalTermNum += listLength;
+		} else {
+			// Inner node or inner hash node (or root which is counted either as inner node or inner hash node)
+			
+			// Count children
+			int childNum = 0;
+			if (trie.getMap() != null) {
+				totalHashNodes++;
+				childNum = trie.getMap().size();
+			} else {
+				totalInnerNodes++;
+				Trie child = trie.getFirstChild();
+				while (child != null) {
+					childNum++;
+					child = child.getNextSibling();
+				}
+			}
+			
+			if (childNum == 1)
+				nodeNumOneChild++;
+			
+			totalChildNum += childNum;
 		}
-		
-		// count children...
-		int numChildren = 0;
-		Trie child = trie.getFirstChild();
-		if (child != null) {
-			numChildren++;
-			child = child.getNextSibling();
-		}
-		avgNumChild = avgNumChild.add(new BigDecimal(numChildren, MC), MC);
 	}
 	
-	public void printStats() {
-		System.out.println();
-		System.out.println("Number of tries:\t\t" + numTries);
-		System.out.println("Number of term lists:\t\t" + numLists);
-		System.out.println("Number of terms:\t\t" + numTerms);
-		System.out.println("Average term list length:\t" + (numTerms / numLists));
-		System.out.println("Number of collisions:\t\t" + (numTerms - numLists));
-		System.out.println("Fraction of terms:\t\t" + fracTerms + "%");
-		System.out.println("Average number of childs:\t" + avgNumChild);
-		System.out.println();
+	private void printStats() {
+		
+		// Compute averages now
+		avgChildNum = totalChildNum / (totalInnerNodes + totalHashNodes);
+		avgTermNum = totalTermNum / totalLeafs;
+		
+		// Some numbers are rendundant but nice to check...
+		System.out.println("Average children number for non-leafs: " + avgChildNum);
+		System.out.println("Total children number for non-leafs: " + totalChildNum);
+		System.out.println("Number of non-leaf nodes with a single child: " + nodeNumOneChild);
+		System.out.println("Average number of terms stored at leafs: " + avgTermNum);
+		System.out.println("Total number of terms stored at leafs:" + totalTermNum);
+		System.out.println("Total number of nodes: " + totalNodes);
+		System.out.println("Total number of inner nodes: " + totalInnerNodes);
+		System.out.println("Total number of inner hash nodes: " + totalHashNodes);
+		System.out.println("Total number of leafs: " + totalLeafs);
 	}
 }

@@ -34,11 +34,13 @@
 /*	Implementation of the compiler's infrastructure.
 
 	<p><i><b>General Implementation Notes</b><br /> 
-	The compiler does not make use of exceptions due to several reasons. First of 
-	all, we want to avoid that the compiler immediately terminates when we encounter 
-	an error. We want to be able to report multiple errors.<br /> However, if 
-	an error is detected, the phase as a whole is expected to fail. The
-	compiler will automatically abort after calling the phase.<br />
+	The compiler does not make use of exceptions to report developer errors.<br/>
+	First of all, we want to avoid that the compiler immediately terminates when 
+	we encounter an error. We want to be able to report multiple errors.<br /> 
+	However, if an error is detected, the phase as a whole is expected to fail. 
+	The compiler will automatically abort after calling the phase.<br />
+	</p>
+	<p>
 	Error messages are to be formatted as described here:
 	<a href="http://www.gnu.org/prep/standards/html_node/Errors.html">
 	http://www.gnu.org/prep/standards/html_node/Errors.html</a>
@@ -50,17 +52,19 @@
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
-%XXX :- use_module('phase/PLCallGraph.pl',[pl_call_graph/4]).
-%XXX :- use_module('phase/PLDeterminacyAnalysis.pl',[pl_determinacy_analysis/4]).
-%XXX :- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
-:- use_module('phase/PLToJava.pl',[pl_to_java/4]).
+:- use_module('phase/PLCutAnalysis.pl',[pl_cut_analysis/4]).
+:- use_module('phase/PLVariableUsageAnalysis.pl',[pl_variable_usage_analysis/4]).
+:- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
+:- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
+:- use_module('phase/OOToJava.pl',[oo_to_java/4]).
 
 
 
 
 
-/*	The phase/3 predicate identifies the different phases of the compiler and
-	also specifies the debug information that will be produced when the respective
+/**
+	The phase/3 predicate identifies the different phases of the compiler and
+	specifies the debug information that will be produced when the respective
 	compiler phase is executed.</br>
 	The order in which the phases are specified determines the order in which
 	the phases are executed; if a phase is to be executed at all.
@@ -90,18 +94,17 @@
 			execution of the phase and "on_entry" to signal that the phase is entered.
 */
 %%%% 1. LOADING AND CHECKING
-phase(pl_load,execute,[on_entry,reading_file,ast(user)]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
+phase(pl_load,execute,[on_entry,reading_file/*,ast(user)*/]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
 phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES
-%XXX phase(pl_call_graph,execute,[on_entry,ast]) :- phase(pl_check,execute,_).
-%XXX phase(pl_determinacy_analysis,execute,[on_entry,result]) :- 
-%XXX phase(inline,omit,ast) :- phase(pl_normalize_ast,execute,_).
-%XXX phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :-
-%XXX phase(pl_determinacy_analysis,execute,_).
+phase(pl_cut_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :- phase(pl_cut_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
-phase(pl_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
+phase(pl_to_oo,execute,[on_entry/*,processing_predicate*/]) :- phase(pl_variable_usage_analysis,execute,_).
+phase(oo_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_to_oo,execute,_).
 
 
 
@@ -136,7 +139,7 @@ compile(FilePatterns,OutputFolder) :-
 				member(EF,EFs),
 				absolute_file_name(EF,AF)
 			),
-			AFS), % AFS is the list of all absolute file names.
+			AFS), % AFS is the list of all Absolute File Names.
 
 
 		% 2. find all executable phases

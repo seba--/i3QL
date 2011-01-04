@@ -31,118 +31,101 @@
  */
 package saere;
 
-import java.util.Arrays;
 
 /**
- * Encapsulate's the state of a compound term's arguments.
+ * Encapsulate's the state of a compound term's arguments; i.e., the state of the arguments which
+ * are (free) variables.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class CompoundTermState extends State {
+final class CompoundTermState implements State {
 
-	// IMPROVE Is it more efficient to just save the state of the variables?
-	final static class ListOfStates {
+	/**
+	 * The state of a complex term's argument.
+	 */
+	private final State state;
 
-		private final VariableState state;
-		private ListOfStates tail;
+	private CompoundTermState next;
 
-		ListOfStates(VariableState state) {
-			this.state = state;
-		}
-
-		@SuppressWarnings("hiding")
-		ListOfStates append(VariableState state) {
-			ListOfStates tail = new ListOfStates(state);
-			this.tail = tail;
-			return tail;
-		}
-
-		ListOfStates apply(Variable variable) {
-			variable.setState(state);
-			return tail;
-		}
-
-		@Override
-		public String toString() {
-			ListOfStates los = tail;
-			String s = "[" + state;
-			while (los != null) {
-				s += "," + los.toString();
-				los = los.tail;
-			}
-			return s += "]";
-		}
-
+	private CompoundTermState(State state) {
+		this.state = state;
 	}
 
-	private ListOfStates first = null;
-	private ListOfStates temp = null;
-
-	CompoundTermState(CompoundTerm compoundTerm) {
-		doManifest(compoundTerm);
+	CompoundTermState append(@SuppressWarnings("hiding") State state) {
+		CompoundTermState tail = new CompoundTermState(state);
+		this.next = tail;
+		return tail;
 	}
 
-	// we only manifest the state of the variables...
-	private void doManifest(CompoundTerm compoundTerm) {
-		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
-			Term arg_i = compoundTerm.arg(i);
-			if (arg_i.isVariable()) {
-				VariableState vs = arg_i.asVariable().manifestState();
-				if (first == null)
-					temp = first = new ListOfStates(vs);
-				else
-					temp = temp.append(vs);
-			} else if (arg_i.isCompoundTerm()) {
-				doManifest(arg_i.asCompoundTerm());
-			}
-		}
-	}
-
-	void apply(CompoundTerm compoundTerm) {
-		temp = first;
-		doApply(compoundTerm);
-
-		assert (temp == null);
-	}
-
-	private void doApply(CompoundTerm compoundTerm) {
-		for (int i = compoundTerm.arity() - 1; i >= 0; i--) {
-			Term arg_i = compoundTerm.arg(i);
-			if (arg_i.isVariable()) {
-				temp = temp.apply(arg_i.asVariable());
-			} else if (arg_i.isCompoundTerm()) {
-				doApply(arg_i.asCompoundTerm());
-			}
+	public void reincarnate() {
+		CompoundTermState cts = this;
+		while (cts != null) {
+			cts.state.reincarnate();
+			cts = cts.next;
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "CompoundTermState[" + first + "]";
+		CompoundTermState los = next;
+		String s = "[" + state;
+		while (los != null) {
+			s += "," + los.toString();
+			los = los.next;
+		}
+		return s += "]";
 	}
 
-	@Override
-	CompoundTermState asCompoundTermState() {
-		return this;
-	}
+	@SuppressWarnings("all")
+	// REMARK ... we just wanted to suppress the "hiding" related warning...
+	static CompoundTermState manifest(CompoundTerm complexTerm) {
+		// Compared to the recursive implementation,
+		// this implementation is ~5-10% faster (overall!).
+		CompoundTermsList workList = null;
 
-	/*
-	 * private final State[] states;
-	 * 
-	 * 
-	 * 
-	 * CompoundTermState(CompoundTerm compoundTerm) { final int arity =
-	 * compoundTerm.arity(); states = new State[arity]; // Initializer /
-	 * constructor int i = 0; while (i < arity) { states[i] =
-	 * compoundTerm.arg(i).manifestState(); i += 1; } }
-	 * 
-	 * @Override CompoundTermState asCompoundTermState() { return this; }
-	 * 
-	 * void apply(CompoundTerm compoundTerm) { final int arity =
-	 * compoundTerm.arity(); int i = 0; while (i < arity) {
-	 * compoundTerm.arg(i).setState(states[i]); i += 1; } }
-	 * 
-	 * @Override public String toString() { return "CompoundTermState[id=" +
-	 * hashCode() + "; states=" + Arrays.toString(states) + "]"; }
-	 */
+		CompoundTermState first = null;
+		CompoundTermState last = null;
+
+		do {
+			final int arity = complexTerm.arity();
+			for_each_argument: for (int i = 0; i < arity; i++) {
+				// We needed to integrate the state handling of 
+				// variables here, to avoid stack overflow errors.
+				// E.g., if a complex term is bound to a variable 
+				// the manifestation of the variable would lead to 
+				// another call of the manifest method. If we now 
+				// manifest a large datastructure (e.g., a long list)
+				// which contains a large number of (bound) variables
+				// this easily leads to a stack overflow error.
+				Term arg_i = complexTerm.arg(i).unwrap();
+				switch (arg_i.termTypeID()) {
+				case Term.VARIABLE:
+					Variable variable = arg_i.asVariable();
+					Term value = variable.getValue();
+					if (value == null) {
+						if (first == null)
+							last = first = new CompoundTermState(variable);
+						else
+							last = last.append(variable);
+					}
+					break;
+
+				case Term.COMPUND_TERM:
+					if (workList == null)
+						workList = new CompoundTermsList(arg_i.asCompoundTerm());
+					else
+						workList = workList.prepend(arg_i.asCompoundTerm());
+					break;
+				}
+			}
+			if (workList != null) {
+				complexTerm = workList.first();
+				workList = workList.rest();
+			} else {
+				complexTerm = null;
+			}
+		} while (complexTerm != null);
+
+		return first;
+	}
 }

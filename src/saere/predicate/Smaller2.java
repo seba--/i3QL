@@ -31,10 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
+import saere.Goal;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 import saere.Term;
 import saere.TwoArgsPredicateFactory;
@@ -44,15 +43,15 @@ import saere.TwoArgsPredicateFactory;
  *
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Smaller2 implements Solutions {
+public class Smaller2 extends TestGoal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.ARITH_SMALLER_THAN_FUNCTOR, 2);
+			StringAtom.ARITH_SMALLER_THAN, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new Smaller2(t1, t2);
 		}
 
@@ -79,16 +78,6 @@ public class Smaller2 implements Solutions {
 		} else {
 			return false;
 		}
-	}
-
-	@Override
-	public void abort() {
-		// nothing to do...
-	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
 	}
 
 	public static boolean isSmaller(Term l, Term r) {

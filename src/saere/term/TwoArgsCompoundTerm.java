@@ -34,11 +34,11 @@ package saere.term;
 import saere.CompoundTerm;
 import saere.Term;
 
-abstract class TwoArgsCompoundTerm extends CompoundTerm {
+public abstract class TwoArgsCompoundTerm extends CompoundTerm {
 
 	protected final Term t1;
 	protected final Term t2;
-	
+
 	TwoArgsCompoundTerm(Term t1, Term t2) {
 		assert (t1 != null && t2 != null);
 		this.t1 = t1;
@@ -55,10 +55,19 @@ abstract class TwoArgsCompoundTerm extends CompoundTerm {
 		return 2;
 	}
 
+	//@Override
+	public final Term firstArg() {
+		return t1;
+	}
+
+	//@Override
+	public final Term secondArg() {
+		return t2;
+	}
 
 	@Override
-	public String toString() {
-		return functor() + "(" + t1 + ", " + t2 + ")";
+	public String toProlog() {
+		return functor().toProlog() + "(" + t1.toProlog() + ", " + t2.toProlog() + ")";
 	}
 
 }

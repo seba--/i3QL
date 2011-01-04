@@ -34,7 +34,7 @@ package saere;
 /**
  * The goal stack is a very simple, <i>immutable</i> linked list, that offers a
  * stack's standard operations (put, peek and drop) to manage a list of
- * {@link Solutions} iterators.
+ * {@link Goal}s.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
@@ -47,12 +47,12 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack put(Solutions solutions) {
+		public GoalStack put(Goal solutions) {
 			return new SomeGoalStack(this, solutions);
 		}
 
 		@Override
-		public Solutions peek() {
+		public Goal peek() {
 			throw new IllegalStateException("the goal stack is empty");
 		}
 
@@ -65,51 +65,60 @@ public abstract class GoalStack {
 		public boolean isNotEmpty() {
 			return false;
 		}
+
+		@Override
+		public GoalStack abortPendingGoals() throws IllegalStateException {
+			return this;
+		}
 	}
 
 	private final static class SomeGoalStack extends GoalStack {
 
-		private final GoalStack goalStack;
-		private final Solutions solutions;
+		private final GoalStack rest;
+		private final Goal goal;
 
-		public SomeGoalStack(GoalStack goalStack, Solutions solutions) {
-			this.goalStack = goalStack;
-			this.solutions = solutions;
+		public SomeGoalStack(GoalStack rest, Goal goal) {
+			this.rest = rest;
+			this.goal = goal;
 		}
 
 		@Override
-		public GoalStack put(Solutions furtherSolutions) {
-			return new SomeGoalStack(this, furtherSolutions);
+		public GoalStack put(@SuppressWarnings("hiding") Goal goal) {
+			return new SomeGoalStack(this, goal);
 		}
 
 		@Override
-		public Solutions peek() {
-			return solutions;
+		public Goal peek() {
+			return goal;
 		}
 
 		@Override
 		public GoalStack drop() {
-			return goalStack;
+			return rest;
+		}
+
+		@Override
+		public GoalStack abortPendingGoals() {
+			goal.abort();
+			return rest.abortPendingGoals();
 		}
 
 		@Override
 		public boolean isNotEmpty() {
 			return true;
 		}
-
 	}
 
-	private final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
+	public final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
 
-	public abstract GoalStack put(Solutions solutions);
+	public abstract GoalStack put(Goal goal);
 
-	public abstract Solutions peek() throws IllegalStateException;
+	public abstract Goal peek() throws IllegalStateException;
 
 	public abstract GoalStack drop() throws IllegalStateException;
 
+	public abstract GoalStack abortPendingGoals();
+
 	public abstract boolean isNotEmpty();
 
-	public static GoalStack emptyStack() {
-		return EMPTY_GOAL_STACK;
-	}
 }

@@ -49,19 +49,30 @@
 
 		append_ol/2,
 		memberchk_ol/2,
+		clone_ol/2,
+		add_to_set_ol/2,
+		member_ol/2,
 		
 		redirect_stdout_to_null/1,
 		reset_stdout_redirect/1,
 		
 		call_foreach_i_in_0_to_u/3,
 		call_foreach_i_in_l_to_u/4,
+		call_foreach_i_in_0_to_u/4,
+		call_foreach_i_in_l_to_u/5,
 		
 		empty_set/1,
-		add_to_set/3
+		add_to_set/3,
+		
+		write_atomic_list/1,
+		write_atomic_list/2
 	]).
 
 :- meta_predicate(call_foreach_i_in_0_to_u(+,2,-)).
 :- meta_predicate(call_foreach_i_in_l_to_u(+,+,2,-)).
+:- meta_predicate(call_foreach_i_in_0_to_u(+,2,-,-)).
+:- meta_predicate(call_foreach_i_in_l_to_u(+,+,2,-,-)).
+
 
 
 /**
@@ -136,7 +147,7 @@ memberchk_dl(OtherE,[E|Rest]-Last) :-
 	E \= OtherE,
 	memberchk_dl(OtherE,Rest-Last).
 
-	
+
 
 /**
  	replace_first_dl(OldDL,OldE,NewE,NewDL) :- NewDL is a difference list where
@@ -275,20 +286,26 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 
 
 
+
+clone_ol(E,_NewE) :- var(E),!.
+clone_ol([E|T],[E|NewT]) :- clone_ol(T,NewT).
+
+
+
 /**
 	Appends a given term to an open list. An open list is a list, where
 	the last element is always an unbound variable. An empty open list is 
 	represented by an unbound variable.
 	
-	@signature append_ol(OpenList,Element) 
+	@signature append_ol(Element,OpenList) 
 	@args(in) OpenList The open list (just an unbound variable, if the list is 
 		empty.)
 	@args(in) Element An Element.
 	@behavior semi-deterministic
 	@category open lists
 */
-append_ol(OL,E) :- var(OL),!,OL=[E|_].
-append_ol([_|T],E) :- append_ol(T,E).	
+append_ol(E,OL) :- var(OL),!,OL=[E|_].
+append_ol(E,[_|T]) :- append_ol(E,T).	
 
 
 
@@ -309,6 +326,22 @@ memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
 
 
 
+add_to_set_ol(E,OL) :-
+	( 
+		memberchk_ol(E,OL)
+	;
+		append_ol(E,OL)
+	),!.
+
+
+
+member_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
+member_ol(E,[E|_]). % we found a element
+member_ol(E,[_|RestOL]) :- member_ol(E,RestOL).
+
+
+
+
 /**
 	Redirects the standard out stream to null. The null stream can be queried 
 	to get the number of chars (lines) that are sent to it. 
@@ -319,8 +352,9 @@ redirect_stdout_to_null((StdOutStream,NullStream)) :-
 	current_stream(1,_,StdOutStream),
 	open_null_stream(NullStream),
 	set_output(NullStream).
-	
-	
+
+
+
 /**
 	Resets the redirection of the standard out stream. <br />
 	This predicate is intended to be used in conjunction with the {@link 
@@ -336,8 +370,9 @@ redirect_stdout_to_null((StdOutStream,NullStream)) :-
 reset_stdout_redirect((StdOutStream,NullStream)) :- 
 	set_output(StdOutStream),
 	close(NullStream).
-	
-	
+
+
+
 /*
 	For each integer value I in the range [L..U) F is called with I and O (for 
 	storing the output) as additional arguments. The values bound to the "O"s 
@@ -355,10 +390,24 @@ call_foreach_i_in_l_to_u(I,X,F,[O|R]) :-
 
 
 
+% Difference list based version of the previous predicate
+call_foreach_i_in_0_to_u(X,F,H,T) :- call_foreach_i_in_l_to_u(0,X,F,H,T).
+call_foreach_i_in_l_to_u(X,X,_F,L,L) :- !. % green cut(?)
+call_foreach_i_in_l_to_u(I,X,F,[O|R],T) :- 
+	I < X,!,
+	call(F,I,O),
+	NewI is I + 1,
+	call_foreach_i_in_l_to_u(NewI,X,F,R,T).
+
+
+
 /**
 	@signature empty_set(Set)
 */
 empty_set([]).
+
+
+
 /**
 	@signature add_to_set(Element,OldSet,NewSet).
 */
@@ -366,3 +415,15 @@ add_to_set(X,[],[X]) :- !.
 add_to_set(X,[X|R],[X|R]) :- !.
 add_to_set(X,[Y|R],[Y|NewR]) :- add_to_set(X,R,NewR).
 
+
+
+write_atomic_list(AtomicList) :-
+	atomic_list_concat(AtomicList,Atom),
+	write(Atom).
+
+
+
+write_atomic_list(_Stream,[]).
+write_atomic_list(Stream,[E|Es]) :-
+	write(Stream,E),
+	write_atomic_list(Stream,Es).	

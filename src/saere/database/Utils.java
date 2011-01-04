@@ -1,12 +1,14 @@
 package saere.database;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 import saere.CompoundTerm;
 import saere.Solutions;
 import saere.Term;
 import saere.Variable;
 import saere.database.predicate.DatabasePredicate;
+import saere.database.util.Stopwatch;
 
 /**
  * The waste dump...
@@ -29,6 +31,7 @@ public final class Utils {
 		if (!t.isVariable()) {
 			s = t.functor().toString();
 			if (t.isCompoundTerm()) {
+				s = t.functor().toString();
 				CompoundTerm ct = t.asCompoundTerm();
 				s += "(";
 				boolean first = true;
@@ -38,6 +41,8 @@ public final class Utils {
 					s += termToString(ct.arg(i));
 				}
 				s += ")";
+			} else {
+				s = "'" + t.functor() + "'";
 			}
 		} else {
 			Variable v = t.asVariable();
@@ -184,5 +189,14 @@ public final class Utils {
 		sb.append(c.get(Calendar.SECOND));
 		
 		return sb.toString();
+	}
+	
+	public static void waitUntilEnter() {
+		System.out.println("Program on hold, press enter to resume...");
+		Scanner scan = new Scanner(System.in);
+		while (!scan.hasNextLine()) {
+			scan.nextLine();
+		}
+		System.out.println("Resuming...");
 	}
 }

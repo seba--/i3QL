@@ -31,11 +31,10 @@
  */
 package saere.predicate;
 
+import saere.Goal;
 import saere.NoArgsPredicateFactory;
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
 import saere.StringAtom;
 
 /**
@@ -43,15 +42,15 @@ import saere.StringAtom;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class True0 implements Solutions {
+public final class True0 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.TRUE_FUNCTOR, 0);
+			StringAtom.TRUE, 0);
 
-	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+	public final static NoArgsPredicateFactory FACTORY = new NoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance() {
+		public Goal createInstance() {
 			return new True0();
 		}
 	};

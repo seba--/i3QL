@@ -31,10 +31,9 @@
  */
 package saere.predicate;
 
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
@@ -45,15 +44,15 @@ import saere.TwoArgsPredicateFactory;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public final class Unify2 implements Solutions {
+public final class Unify2 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.UNIFY_FUNCTOR, 2);
+			StringAtom.UNIFY, 2);
 
-	public final static PredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t1, Term t2) {
+		public Goal createInstance(Term t1, Term t2) {
 			return new Unify2(t1, t2);
 		}
 
@@ -78,29 +77,32 @@ public final class Unify2 implements Solutions {
 	@Override
 	public boolean next() {
 		if (!called) {
-			this.lState = l.manifestState();
-			this.rState = r.manifestState();
+			lState = l.manifestState();
+			rState = r.manifestState();
 			if (l.unify(r)) {
 				called = true;
 				return true;
 			}
 		}
 		// unification failed...
-		r.setState(rState);
-		l.setState(lState);
-		lState = null;
-		rState = null;
+		resetTerms();
 		return false;
 	}
 
 	@Override
 	public void abort() {
-		// the method protocol prescribes that you must have called next()
-		// before (at least once) and next has never returned false.
-		r.setState(rState);
-		l.setState(lState);
-		lState = null;
-		rState = null;
+		resetTerms();
+	}
+
+	private void resetTerms() {
+		if (lState != null) {
+			lState.reincarnate();
+			lState = null;
+		}
+		if (rState != null) {
+			rState.reincarnate();
+			rState = null;
+		}
 	}
 
 	@Override

@@ -35,7 +35,7 @@ import saere.OneArgPredicateFactory;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Solutions;
+import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
 
@@ -46,15 +46,15 @@ import saere.Term;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Write1 implements Solutions {
+public class Write1 implements Goal {
 
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.instance("write"), 1);
+			StringAtom.get("write"), 1);
 
 	public final static PredicateFactory FACTORY = new OneArgPredicateFactory() {
 
 		@Override
-		public Solutions createInstance(Term t) {
+		public Goal createInstance(Term t) {
 			return new Write1(t);
 		}
 	};
@@ -62,7 +62,7 @@ public class Write1 implements Solutions {
 	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
 		registry.register(IDENTIFIER, FACTORY);
 	}
-	
+
 	private final Term t;
 
 	private boolean called = false;

@@ -30,7 +30,7 @@ public final class ReferenceDatabase extends Database {
 	
 	@Override
 	public void add(Term fact) {
-		assert isGround(fact) : "The specified term is not a fact";
+		assert isGround(fact) : "The specified fact is not ground";
 		
 		// Add to list (redundant but this list is build only once)
 		LinkedList<Term> list = lists.get(fact.functor());
@@ -61,6 +61,42 @@ public final class ReferenceDatabase extends Database {
 			index.put(key, bucket);
 		}
 		addFactToList(bucket, fact);
+	}
+	
+	@Override
+	public void remove(Term fact) {
+		assert isGround(fact) : "The specified fact is not ground";
+		
+		// Remove from hash index
+		HashMap<StringAtom, LinkedList<Term>> index = indexes.get(fact.functor());
+		if (index != null) {
+			LinkedList<Term> bucket = index.get(fact.arg(0).functor());
+			if (bucket != null) {
+				removeGroundFactFromList(fact, bucket);
+			}
+		}
+		
+		// XXX DON'T remove from list?!
+		
+		// Remove from list
+		LinkedList<Term> list = lists.get(fact.functor());
+		if (list != null) {
+			removeGroundFactFromList(fact, list);
+		}
+	}
+	
+	private void removeGroundFactFromList(Term fact, LinkedList<Term> list) {
+		assert isGround(fact) : "The specified fact is not ground";
+		
+		// Checking reference equality would be cheating, so we've to attempt unification.
+		// However, as both facts are ground no state management is required.
+		Iterator<Term> iter = list.iterator();
+		while (iter.hasNext()) {
+			if (fact.unify(iter.next())) {
+				iter.remove();
+				break;
+			}
+		}
 	}
 
 	@Override
@@ -165,5 +201,10 @@ public final class ReferenceDatabase extends Database {
 		}
 		
 		return new ReferenceAdapter(this, functor);
+	}
+	
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName();
 	}
 }
