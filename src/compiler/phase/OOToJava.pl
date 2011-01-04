@@ -230,6 +230,7 @@ write_type(Stream,type(boolean)) :- !,write(Stream,'boolean').
 write_type(Stream,type(void)) :- !,write(Stream,'void').
 write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
 write_type(Stream,type(term)) :- !,write(Stream,'Term').
+write_type(Stream,type(state)) :- !,write(Stream,'State').
 write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
 write_type(Stream,type(complex_term)) :- !,write(Stream,'CompoundTerm').
 write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
@@ -277,6 +278,8 @@ write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write(Stream,' = '),
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
+write_stmt(Stream,clear_goal_stack) :- !,
+	write(Stream,'this.goalStack = GoalStack.EMPTY_GOAL_STACK;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.abortPendingGoals();\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
@@ -292,6 +295,17 @@ write_stmt(Stream,switch(Expression,Cases)) :- !,
 	write(Stream,'// should never be reached\n'),
 	write(Stream,'throw new Error("internal compiler error");\n'),
 	write(Stream,'}\n').
+write_stmt(Stream,manifest_state(ReceiverExpr,Assignee)) :- !,
+	write_lvalue(Stream,Assignee),
+	write(Stream,' = ('),
+	write_expr(Stream,ReceiverExpr),
+	write(Stream,').manifestState();\n').
+write_stmt(Stream,reincarnate_state(ReceiverExpr)) :- !,
+	write(Stream,'if ('),
+	write_expr(Stream,ReceiverExpr),
+	write(Stream,' != null)'),
+	write_expr(Stream,ReceiverExpr),
+	write(Stream,'.reincarnate();\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 

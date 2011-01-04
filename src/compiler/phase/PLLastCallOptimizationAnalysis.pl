@@ -61,25 +61,33 @@ pl_last_call_optimization_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 
 process_predicate(Program,Predicate) :-
 	predicate_clauses(Predicate,Clauses),
+	foreach_clause(Clauses,check_clause_for_tail_recursion(Program,Predicate),_).
+	
+	
+% Currently, we only identify very simple cases where we have a unique last
+% goal and which is a conjunction with its previous goals (we rely on the
+% property that the goal sequence is left descending (done during loading)!) 
+% x(...) :- a,b,c,x(...)
+check_clause_for_tail_recursion(Program,Predicate,_ClauseId,Clause,RelativePosition,_) :-	
 	predicate_identifier(Predicate,PredicateIdentifier),
-	foreach_clause(Clauses,check_for_tail_recursion(Program,Predicate),_).
-	
-	
-	
-check_for_tail_recursion(Program,Predicate,Id,Clause,RelativePosition,_) :-	
-	predicate_identifier(Predicate,Functor/Arity),
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
 	(
-		last_primitive_goals_if_true(BodyASTNode,[LastGoal],[]),
-		complex_term(LastGoal,Functor,Args),
-		length(Args,Arity), % ... we have found a recursive call
-		(	% is it a candidate for a last call optimization?
+		% TODO support last call optimization for cases such as: 
+		% x(...) :- a,!,x(...);b,x(...)... 
+		% [this is the way to go for a more decent analysis:] 
+		% last_primitive_goals_if_true(BodyASTNode,[LastGoal],[]),...
+		complex_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
+		complex_term_identifier(LastGoal,PredicateIdentifier), % ... we have found a recursive call
+		(	% ... is it a candidate for a last call optimization?
 			RelativePosition == last ; 
-			clause_meta(Clause,Meta), lookup_in_meta(cut(always),Meta)
-		)
+			lookup_in_meta(cut(always),Clause)
+		),
+		number_of_solutions_of_goal(Program,PreviousGoal,[_LB,1])
 		->
-		write_atomic_list(['the ',Id,'. clause of ',Functor,'/',Arity,' is tail recursive\n'])
+		add_to_clause_meta(last_call_optimization_is_possible,Clause),
+		add_flag_to_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate),
+		add_to_term_meta(last_call_optimization_is_possible,LastGoal)
 	;
 		% the clause does not have a unique last goal or 
 		% the unique last goal is not a recursive call or
@@ -89,5 +97,68 @@ check_for_tail_recursion(Program,Predicate,Id,Clause,RelativePosition,_) :-
 
 
 
-number_of_potential_choice_points_of_clause(ASTNode,ChoicePoints) :-
-	complex_term(ASTNode,Functor,[]).
+number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
+	
+number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	(
+		complex_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
+		disjunction_of_number_of_solutions_of_goals(Program,ThenASTNode,RASTNode,Solutions)
+	;
+		% the case: "complex_term(LASTNode,'*->',[IFASTNode,ThenASTNode]),!," 
+		% is appropriately handled by disjunction_of_number_of_solutions_of_goals...
+		disjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions)
+	).
+		
+number_of_solutions_of_goal(Program,ASTNode,[0,UB]) :-
+	complex_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
+	number_of_solutions_of_goal(Program,RASTNode,[_LB,UB]).
+	
+number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
+	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
+
+number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
+	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
+
+number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+	(
+		complex_term_identifier(ASTNode,Functor/Arity),!
+	;
+		string_atom(ASTNode,Functor),Arity = 0
+	),
+	(
+		lookup_predicate(Functor/Arity,Program,Predicate), % lookup may fail
+		lookup_in_predicate_meta(solutions(Solutions),Predicate),! % lookup may fail
+	;
+		Solutions = [0,'*']
+	).
+
+
+
+conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,[LB,UB]) :-	
+	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB]), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB]),
+	LB is min(LLB,RLB),
+	(	
+		(RUB == 0 ; LUB == 0),!,UB = 0
+	;
+		(LUB == '*' ; RUB == '*'),!,UB = '*'
+	;
+		UB = 1
+	).
+
+
+
+disjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,[LB,UB]) :-	
+	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB]), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB]),
+	LB is max(LLB,RLB),
+	(	(LUB == '*' ; RUB == '*') ->
+		UB = '*'
+	;
+		UB is max(LUB,RUB)
+	).

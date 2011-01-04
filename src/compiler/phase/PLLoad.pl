@@ -233,7 +233,8 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 
 
 /**
-	We are performing a tree rotation for "and-goals" to facilitate some analyses.
+	We are performing a tree rotation of "and-goals" to facilitate some analyses
+	(e.g., tail call related analyses).
 */
 left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
 	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).

@@ -96,7 +96,8 @@
 		complex_term/4,
 		complex_term/5,
 		complex_term_args/2,
-		complex_term_functor/2,		
+		complex_term_functor/2,	
+		complex_term_identifier/2,	
 		directive_goal/2,
 		rule/4,
 		rule_head/2,
@@ -112,7 +113,9 @@
 		pos_meta/2,
 		predicate_meta/2,
 		lookup_in_meta/2,
+		lookup_in_term_meta/2,
 		add_to_meta/2,
+		add_to_term_meta/2,
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
@@ -129,6 +132,9 @@
 		is_float_atom/1,
 		is_numeric_atom/1,
 		
+		lookup_predicate/3,
+		lookup_in_predicate_meta/2,
+		add_flag_to_predicate_meta/2,
 		user_predicate/2,
 		predicate_identifier/2,
 		predicate_clauses/2,
@@ -139,6 +145,8 @@
 		clause_definition/2,
 		clause_implementation/2,
 		clause_meta/2,
+		lookup_in_clause_meta/2,
+		add_to_clause_meta/2,
 		
 		write_ast/2,
 		write_clauses/1,
@@ -294,6 +302,43 @@ predicate_clauses(pred(_ID,Clauses,_Properties),Clauses).
 
 
 
+lookup_in_predicate_meta(Property,pred(_ID,_Clauses,Properties)) :-
+	memberchk_ol(Property,Properties).
+
+
+
+add_flag_to_predicate_meta(Flag,pred(_ID,_Clauses,Properties)) :-
+	\+ memberchk_ol(Flag,Properties) ->
+		add_to_meta(Flag,Properties)
+	;
+		true.
+
+
+
+/**
+	@signature lookup_predicate(PredicateIdentifier,Program,Predicate)
+*/
+lookup_predicate(PredicateIdentifier,(Predicates,_Directives),Predicate) :-
+	lookup_predicate_in_predicates(PredicateIdentifier,Predicates,Predicate).
+
+
+
+%INTERNAL
+lookup_predicate_in_predicates(
+		PredicateIdentifier,
+		[Predicate|_Predicates],
+		Predicate
+	) :-
+	Predicate = pred(PredicateIdentifier,_,_),!.
+lookup_predicate_in_predicates(
+		PredicateIdentifier,
+		[_Predicate|Predicates],
+		Predicate
+	) :-
+	lookup_predicate_in_predicates(PredicateIdentifier,Predicates,Predicate).
+
+
+
 /**
 	@deprecated Use {@link clause_implementation/2} instead.
  */
@@ -359,6 +404,16 @@ foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
 	@signature clause_meta(Clause_ASTNode,MetaInformation)
 */
 clause_meta((_Clause,Meta),Meta).
+
+
+
+add_to_clause_meta(Information,Clause) :-
+	clause_meta(Clause,Meta),add_to_meta(Information,Meta).
+
+
+
+lookup_in_clause_meta(Information,Clause) :-
+	clause_meta(Clause,Meta),lookup_in_meta(Information,Meta).
 
 
 
@@ -747,6 +802,14 @@ complex_term_functor(ct(_Meta,Functor,_Args),Functor).
 
 
 /**
+	@signature complex_term_identifier(ComplexTerm_ASTNode,Functor/Arity)
+*/
+complex_term_identifier(ct(_Meta,Functor,Args),Functor/Arity) :-
+	length(Args,Arity).
+
+
+
+/**
 	Meta is a term that represents the term's meta information. For example, the
 	source code position, the current operator table, associated comments.
 	@arg(in) ASTNode
@@ -756,7 +819,17 @@ term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 
 
 
-lookup_in_meta(Type,Meta) :- memberchk_ol(Type,Meta).
+add_to_term_meta(Information,ASTNode) :-
+	term_meta(ASTNode,Meta),add_to_meta(Information,Meta).
+
+
+
+lookup_in_term_meta(Information,ASTNode) :-
+	term_meta(ASTNode,Meta),lookup_in_meta(Information,Meta).
+
+
+
+lookup_in_meta(Information,Meta) :- memberchk_ol(Information,Meta).
 
 
 
