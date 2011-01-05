@@ -87,7 +87,9 @@ analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVaria
 	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
 	map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping),
 
-	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),ClauseMeta).
+	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),ClauseMeta),
+	
+	intra_clause_variable_usage(BodyASTNode,[],[],_UsedVariables,_PotentiallyUsedVariables).
 
 
 
@@ -126,3 +128,58 @@ map_names_of_body_variables(Id,[Variable|Variables],ClauseLocalVariablesCount,Va
 	term_meta(Variable,Meta),
 	add_to_meta(MappedVariableName,Meta),
 	map_names_of_body_variables(NewId,Variables,ClauseLocalVariablesCount,VariableNamesMapping).
+
+
+
+intra_clause_variable_usage(
+		ASTNode,
+		UsedVariables,
+		PotentiallyUsedVariables,
+		NewUsedVariables,
+		NewPotentiallyUsedVariables
+	) :-
+	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	intra_clause_variable_usage(LASTNode,UsedVariables,PotentiallyUsedVariables,UV1,PUV1),
+	intra_clause_variable_usage(RASTNode,UV1,PUV1,NewUsedVariables,NewPotentiallyUsedVariables).
+
+intra_clause_variable_usage(
+		ASTNode,
+		UsedVariables,
+		PotentiallyUsedVariables,
+		NewUsedVariables,
+		NewPotentiallyUsedVariables
+	) :-
+	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	throw('yet again... something to implement').
+
+intra_clause_variable_usage(
+		ASTNode,
+		UsedVariables,
+		PotentiallyUsedVariables,
+		NewUsedVariables,
+		PotentiallyUsedVariables
+	) :-
+	is_compound_term(ASTNode),!,
+	named_variables_of_term(ASTNode,Variables,[]),
+	mapped_variable_names(Variables,[],MappedVariableNames),
+	set_subtract(MappedVariableNames,UsedVariables,IVariables),
+	set_subtract(IVariables,PotentiallyUsedVariables,NewVariables),
+	add_to_term_meta(new_variables(NewVariables),ASTNode),
+	add_to_term_meta(potentially_used_variables(PotentiallyUsedVariables),ASTNode),
+	merge_sets(UsedVariables,MappedVariableNames,NewUsedVariables).	
+
+intra_clause_variable_usage(
+		_ASTNode, % is an atomic ..
+		UsedVariables,
+		PotentiallyUsedVariables,
+		UsedVariables,
+		PotentiallyUsedVariables
+	).
+
+
+
+mapped_variable_names([],MappedVariableNames,MappedVariableNames).
+mapped_variable_names([Variable|Variables],MappedVariableNames,NewMappedVariableNames) :-
+	lookup_in_term_meta(mapped_variable_name(Name),Variable),
+	add_to_set(Name,MappedVariableNames,IMappedVariableNames),
+	mapped_variable_names(Variables,IMappedVariableNames,NewMappedVariableNames).

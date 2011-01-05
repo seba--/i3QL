@@ -63,6 +63,9 @@
 		
 		empty_set/1,
 		add_to_set/3,
+		remove_from_set/3,
+		merge_sets/3,
+		set_subtract/3,
 		
 		write_atomic_list/1,
 		write_atomic_list/2
@@ -414,6 +417,31 @@ empty_set([]).
 add_to_set(X,[],[X]) :- !.
 add_to_set(X,[X|R],[X|R]) :- !.
 add_to_set(X,[Y|R],[Y|NewR]) :- add_to_set(X,R,NewR).
+
+
+
+/**
+	@signature merge_sets(ASet,BSet,NewSet)
+*/
+merge_sets([],Bs,Bs).
+merge_sets([A|As],Bs,Cs) :- add_to_set(A,Bs,ICs),merge_sets(As,ICs,Cs).
+
+
+
+remove_from_set(_X,[],[]) :- !.
+remove_from_set(X,[X|Ys],NewYs) :- !,remove_from_set(X,Ys,NewYs).
+remove_from_set(X,[Y|Ys],[Y|NewYs]) :- X \= Y, remove_from_set(X,Ys,NewYs).
+
+
+
+/**
+	@signature set_subtract(BaseSet,SubtractSet,NewSet) 
+*/
+set_subtract([],_,[]) :- !.
+set_subtract(BaseSet,[],BaseSet) :- !.
+set_subtract(BaseSet,[X|Xs],NewBaseSet) :-
+	remove_from_set(X,BaseSet,IBaseSet),
+	set_subtract(IBaseSet,Xs,NewBaseSet).
 
 
 

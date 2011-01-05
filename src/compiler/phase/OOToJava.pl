@@ -177,8 +177,13 @@ write_class_member(Stream,field_decl(goal_stack)) :- !,
 write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
-	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),write(Stream,' = '),
-	write_expr(Stream,Expression),
+	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
+	( 	Expression == int(0) ->
+		write(Stream,'/* = 0; */')
+	;	
+		write(Stream,' = '),
+		write_expr(Stream,Expression)
+	),
 	write(Stream,';\n').		
 write_class_member(Stream,field_decl(Modifiers,Type,Name)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
@@ -288,12 +293,16 @@ write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
 	write(Stream,');\n').
 write_stmt(Stream,remove_top_element_from_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.drop();\n').
-write_stmt(Stream,switch(Expression,Cases)) :- !,
+write_stmt(Stream,switch(top_level,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
 	write_cases(Stream,Cases),
 	write(Stream,'default:\n'),
 	write(Stream,'// should never be reached\n'),
 	write(Stream,'throw new Error("internal compiler error");\n'),
+	write(Stream,'}\n').
+write_stmt(Stream,switch(inside_forever,Expression,Cases)) :- !,
+	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
+	write_cases(Stream,Cases),
 	write(Stream,'}\n').
 write_stmt(Stream,manifest_state(ReceiverExpr,Assignee)) :- !,
 	write_lvalue(Stream,Assignee),
@@ -339,9 +348,11 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 	write(Stream,', '),
 	write_expr(Stream,Expression),
 	write_further_exprs(Stream,Expressions).
-		
+	
 
 
+write_expr(Stream,arithmetic_evluation(ArithTerm)) :- !,
+	write_expr(Stream,eval_term(ArithTerm)).
 write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
 	map_arith_comp_operator_to_java_operator(Operator,JavaOperator),
 	write_expr(Stream,eval_term(LArithTerm)),
@@ -420,6 +431,8 @@ write_expr(Stream,int_value(3)) :- !,
 	write(Stream,'IntValue_3').				
 write_expr(Stream,int_value(Value)) :- !,
 	write(Stream,'IntValue.get('),write(Stream,Value),write(Stream,')').
+write_expr(Stream,int_value_expr(Expr)) :- !,
+	write(Stream,'IntValue.get('),write_expr(Stream,Expr),write(Stream,')').
 write_expr(Stream,float_value(Value)) :- !,
 	write(Stream,'FloatValue.get('),write(Stream,Value),write(Stream,')').
 write_expr(Stream,string_atom('=')) :- !,write(Stream,'UNIFY').

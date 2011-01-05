@@ -125,6 +125,7 @@
 		is_rule_with_body/1,
 		is_rule_without_body/1,
 		is_directive/1,
+		is_compound_term/1,
 		is_variable/1,
 		is_anonymous_variable/1,
 		is_string_atom/1,
@@ -390,7 +391,7 @@ foreach_clause([Clause|Clauses],Goal) :- !,
 	@signature foreach_clause(Clauses_ASTNode,Goal,ListOfResults)
 */
 foreach_clause(Clauses,Goal,Os) :- 
-	foreach_clause_impl(Clauses,1,Goal,Os).
+	foreach_clause_impl(Clauses,0,Goal,Os).
 foreach_clause_impl(Var,_,_,[]) :- var(Var),!. % Clauses is an open list...
 foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
 	(	var(Clauses) -> Last = last ; Last = not_last ),
@@ -550,6 +551,10 @@ is_rule_without_body(Clause) :-
 	;
 		Clause = a(_AMeta,_Value) % e.g., "true."
 	).
+
+
+
+is_compound_term(ct(_,_,_)).
 
 
 

@@ -69,7 +69,7 @@
 	forever(Label,Statements)
 	continue(Label)
 	eol_comment(Comment)
-	switch(Expression,CaseStatements) 
+	switch(SwitchContext,Expression,CaseStatements) - SwitchContext is either "top_level" or "inside_forever"
 	expression_statement(Expression)
 	manifest_state(ReceiverExpression,Assignee) - ReceiverExpression must be of type "term"
 	reincarnate_state(ReceiverExpression) - ReceiverExpression must be of type "state"
@@ -96,6 +96,7 @@
 	static_predicate_call(complex_term(Functor,Terms))
 	predicate_lookup(Functor,Arity,TermExpressions)
 	arithmetic_comparison(Operator,LeftArithmeticTerm,RightArithmeticTerm)
+	arithmetic_evaluation(ArithmeticTerm)
 	
 	<h2>TERM EXPRESSION</H2>
 	string_atom(Value)
@@ -177,7 +178,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	(	single_clause(Clauses) ->
 		SClauseToExecute = SCutEvaluation
 	;
-		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(1))|SCutEvaluation]
+		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(0))|SCutEvaluation]
 	),	
 	(	lookup_in_meta(cut(never),PredicateMeta) ->
 		SCutEvaluation = SGoalsEvaluation
@@ -185,8 +186,8 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
 	),
 	SGoalsEvaluation = [
-		field_decl(goal_stack),
-		field_decl([],type(int),'goalToExecute',int(1)) |
+		field_decl([],type(int),'goalToExecute',int(0)),
+		field_decl(goal_stack) |
 		SGoalPredescessors
 	],
 	% For each goal, that is the successor of some or goal, we have to create a 
@@ -344,12 +345,14 @@ gen_choice_committed_method(_Program,_Predicate,ChoiceCommittedMethod) :-
 gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 	predicate_clauses(Predicate,Clauses),
 	(	lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
-		SMain = [forever('eval_clauses',SEvalGoals)]
+		SMain = [forever('eval_clauses',SEvalGoals)],
+		SwitchContext = inside_forever
 	;
-		SMain = SEvalGoals
+		SMain = SEvalGoals,
+		SwitchContext = top_level
 	),
 	(	single_clause(Clauses) ->
-		SEvalGoals = [return(method_call(self,'clause1',[]))],
+		SEvalGoals = [return(method_call(self,'clause0',[]))],
 		ClauseSelectorMethod = 
 			method_decl(
 				public,
@@ -358,7 +361,7 @@ gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 				[],
 				SMain)
 	;
-		SEvalGoals = [switch(field_ref(self,'clauseToExecute'),CaseStmts)],
+		SEvalGoals = [switch(SwitchContext,field_ref(self,'clauseToExecute'),CaseStmts)],
 		foreach_clause(Clauses,selector_for_clause_i(Predicate),CaseStmts),
 		ClauseSelectorMethod = 
 			method_decl(
@@ -376,8 +379,8 @@ selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :- !,
 	(	lookup_in_clause_meta(last_call_optimization_is_possible,Clause) ->
 		reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
 		SPrepareForNextClause = [
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(1))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(1))),
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
+			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
 			continue('eval_clauses')
 		],
 		Stmts = [
@@ -404,7 +407,7 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 		ClauseFailed = [eol_comment('this clause contains no "cut"') |SCleanup],
 		SPrepareForNextClause = [
 			eol_comment('prepare the execution of the next clause'),
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(1))),
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
 			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
 		]
 	;
@@ -418,20 +421,20 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 		),
 		SPrepareForNextClause = [
 			eol_comment('prepare the execution of the next clause'),
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(1))),
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
 			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
 		],
 		ClauseFailed = [
 			if(field_ref(self,'cutEvaluation'),
-				Return,
-				SCleanup
-			)
+				Return
+			) | 
+			SCleanup
 		]
 	),
 	(	lookup_in_clause_meta(last_call_optimization_is_possible,Clause) ->
 		SPrepareForNextClause = [
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(1))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(1))),
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
+			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
 			continue('eval_clauses')
 		],
 		Stmts = [
@@ -445,9 +448,9 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 	;	
 		Stmts = [
 			if(method_call(self,ClauseIdentifier,[]),
-				[return(boolean(true))],
-				ClauseFailed
-			)
+				[return(boolean(true))]
+			) |
+			ClauseFailed
 		]
 	).
 
@@ -483,24 +486,29 @@ gen_clause_impl_methods(DeferredActions,_Program,Predicate,ClauseImpls) :-
 	
 implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMethod) :-
 	atom_concat('clause',I,ClauseIdentifier),
+	clause_definition(Clause,ClauseDefinition),
+	rule_body(ClauseDefinition,Body),
+	number_primitive_goals(Body,0,LastId),
+	set_primitive_goals_successors(DeferredActions,Body),
+	primitive_goals_list(Body,PrimitiveGoalsList,[]),
+	translate_goals(PrimitiveGoalsList,Cases,[]),
+	(	LastId == 1 ->
+		MethodBody = [switch(top_level,field_ref(self,'goalToExecute'),Cases)]
+	;
+		MethodBody = [ 
+			forever(
+				'eval_goals',
+				[switch(inside_forever,field_ref(self,'goalToExecute'),Cases)]
+			) 
+		]
+	),
 	ClauseMethod = method_decl(
 			private,
 			type(boolean),
 			ClauseIdentifier,
 			[],
-			[ 
-				forever(
-					'eval_goals',
-					[switch(field_ref(self,'goalToExecute'),Cases)]
-				) 
-			]
-		),
-	clause_definition(Clause,ClauseDefinition),
-	rule_body(ClauseDefinition,Body),
-	number_primitive_goals(Body,1,_LastId),
-	set_primitive_goals_successors(DeferredActions,Body),
-	primitive_goals_list(Body,PrimitiveGoalsList,[]),
-	translate_goals(PrimitiveGoalsList,Cases,[]).
+			MethodBody
+		).
 
 
 
@@ -521,7 +529,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	% Handle the case if the cut is called the first time
-	CallCaseId is GoalNumber * 2 - 1,
+	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
 	SCall = case(
 		int(CallCaseId),
@@ -532,7 +540,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		]
 	),
 	% Handle the case if the cut is called the second time (redo-case)
-	RedoCaseId is GoalNumber * 2,
+	goal_redo_case_id(GoalNumber,RedoCaseId),
 	SRedo = case(
 		int(RedoCaseId),
 		[
@@ -548,7 +556,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	% Handle the case if the comparison is called the first time
-	CallCaseId is GoalNumber * 2 - 1,
+	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
 	create_term(LASTNode,LTermConstructor,_LMappedVariableNames),
 	create_term(RASTNode,RTermConstructor,_RMappedVariableNames),
@@ -561,19 +569,52 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		]
 	),
 	% (redo-case)
-	RedoCaseId is GoalNumber * 2,
+	goal_redo_case_id(GoalNumber,RedoCaseId),
 	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
 	SRedo = case(
 		int(RedoCaseId),
 		JumpToNextGoalAfterFail
 	).
-	
+
+
+translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+	% implement the case that the result of is is assigned to a new variable..
+	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
+	term_meta(PrimitiveGoal,Meta),
+	lookup_in_meta(new_variables(NewVariables),Meta),
+	lookup_in_term_meta(mapped_variable_name(Name),LASTNode),
+	memberchk(Name,NewVariables),!,
+	% Handle the case if "is" is called the first time
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	mapped_variable_name_to_variable_identifier(Name,VariableIdentifier),
+%write(VariableIdentifier),nl,	
+	goal_call_case_id(GoalNumber,CallCaseId),
+	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
+	create_term(RASTNode,RTermConstructor,_RMappedVariableNames),
+	SCall = case(
+		int(CallCaseId),
+		[
+			expression_statement(
+				assignment(
+					local_variable_ref(VariableIdentifier),
+					int_value_expr(arithmetic_evluation(RTermConstructor)))) |
+			JumpToNextGoalAfterSucceed
+		]
+	),
+	% (redo-case)
+	goal_redo_case_id(GoalNumber,RedoCaseId),
+	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
+	SRedo = case(
+		int(RedoCaseId),
+		JumpToNextGoalAfterFail
+	).	
+
 % tail recursive call
 translate_goal(PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(last_call_optimization_is_possible,Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
-	GoalCallId is GoalNumber * 2 - 1,
+	goal_call_case_id(GoalNumber,CallCaseId),
 	SCaseHead = [eol_comment('tail call with last call optimization')|SUpdatePredArgs],
 	(	complex_term_args(PrimitiveGoal,Args) ->
 		update_predicate_arguments(0,Args,SUpdatePredArgs,SRecursiveCall)
@@ -585,28 +626,37 @@ translate_goal(PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 		return(boolean(true))
 	],
 	SGoalCall = case(
-		int(GoalCallId),
+		int(CallCaseId),
 		SCaseHead
 	).
 
 % This implements the base case... if no special support is provided by the compiler
-translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :-
+translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	
-	% GOAL preparation
-	GoalPreparationId is GoalNumber * 2 - 1,
+	% GOAL "call-case"
+	goal_call_case_id(GoalNumber,CallCaseId),
 	create_term(PrimitiveGoal,TermConstructor,MappedVariableNames),
-	init_clause_local_variables(
-		MappedVariableNames,
-		SInitCLVs,
-		[ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]),	
-	SGoalPreparation = case(
-		int(GoalPreparationId),
+	(
+		lookup_in_meta(new_variables(NewVariables),Meta),
+		lookup_in_meta(potentially_used_variables(PotentiallyUsedVariables),Meta) ->
+		init_clause_local_variables(
+			NewVariables,
+			PotentiallyUsedVariables,
+			MappedVariableNames,
+			SInitCLVs,
+			[ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
+		)
+	;
+		SInitCLVs = [ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
+	),
+	SCallCase = case(
+		int(CallCaseId),
 		SInitCLVs
 	),
 	
-	% GOAL evaluation
+	% GOAL "redo-case"
 	CallGoal = [
 		local_variable_decl(type(boolean),'succeeded',
 			method_call(get_top_element_from_goal_stack,'next',[])
@@ -619,9 +669,9 @@ translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :
 	],
 	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
 	select_and_jump_to_next_goal_after_succeed(Meta,may_fall_through,JumpToNextGoalAfterSucceed),
-	GoalEvaluationId is GoalNumber * 2,
-	SGoalEvaluation = case(
-		int(GoalEvaluationId),
+	goal_redo_case_id(GoalNumber,RedoCaseId),
+	SRedoCase = case(
+		int(RedoCaseId),
 		CallGoal
 	).
 
@@ -634,8 +684,8 @@ translate_goal(PrimitiveGoal,[SGoalPreparation,SGoalEvaluation|SCases],SCases) :
 select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
 	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
-	GoalCaseId is GoalNumber * 2 -1,
-	atomic_list_concat(['goal',GoalCaseId,'PredecessorGoal'],PredecessorGoal),
+	goal_call_case_id(GoalNumber,CallCaseId),
+	atomic_list_concat(['goal',CallCaseId,'PredecessorGoal'],PredecessorGoal),
 	SStmts = [
 		expression_statement(assignment(field_ref(self,'goalToExecute'),field_ref(self,PredecessorGoal))),
 		continue('eval_goals')
@@ -644,12 +694,12 @@ select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
 select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
 	lookup_in_meta(next_goal_if_fails(Action,TargetGoalNumber),Meta),!,
 	(	Action == redo ->
-		TargetGoalCaseId is TargetGoalNumber * 2
+		goal_redo_case_id(TargetGoalNumber,TargetCaseId)
 	;	% Action == call
-		TargetGoalCaseId is TargetGoalNumber * 2 -1
+		goal_call_case_id(TargetGoalNumber,TargetCaseId)
 	),
 	SStmts = [
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetCaseId))),
 		continue('eval_goals')
 		|SRest
 	].
@@ -661,32 +711,32 @@ select_and_jump_to_next_goal_after_fail(_Meta,[return(boolean(false))|SRest],SRe
 select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSucceed) :-
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	(	lookup_in_meta(next_goal_if_succeeds(TargetGoalNumber),Meta) ->
-		TargetGoalCaseId is TargetGoalNumber * 2 - 1,
+		goal_call_case_id(TargetGoalNumber,TargetCallCaseId),
 		(
 			lookup_in_meta(not_unique_predecessor_goal,Meta) ->
-			ThisRedoGoalCaseId is GoalNumber * 2,
-			atomic_list_concat(['goal',TargetGoalCaseId,'PredecessorGoal'],PredecessorGoal),
+			goal_redo_case_id(GoalNumber,ThisGoalRedoCaseId),
+			atomic_list_concat(['goal',TargetCallCaseId,'PredecessorGoal'],PredecessorGoal),
 			JumpToNextGoalAfterSucceed = [
-				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisRedoGoalCaseId))) | 
+				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisGoalRedoCaseId))) | 
 				SelectAndJump
 			]
 		;
 			JumpToNextGoalAfterSucceed = SelectAndJump
 		),
 		(	TargetGoalNumber =:= GoalNumber + 1, ForceJump \= force_jump  ->
-			atom_concat('fall through ... ',TargetGoalCaseId,NextGoalIfSucceedComment),
+			atom_concat('fall through ... ',TargetCallCaseId,NextGoalIfSucceedComment),
 			SelectAndJump = [eol_comment(NextGoalIfSucceedComment)]
 		;
 			SelectAndJump = [
-				expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+				expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetCallCaseId))),
 				continue('eval_goals')
 			]
 		)
 	;
 		% this is (a) last goal of the clause
-		TargetGoalCaseId is GoalNumber * 2,
+		goal_redo_case_id(GoalNumber,ThisGoalRedoCaseId),
 		JumpToNextGoalAfterSucceed = [
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetGoalCaseId))),
+			expression_statement(assignment(field_ref(self,'goalToExecute'),int(ThisGoalRedoCaseId))),
 			return(boolean(true))
 		]
 	).
@@ -696,24 +746,40 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 /**
 	@signature init_clause_local_variables(MappedBodyVariableNames,SInitClauseLocalVariables,SZ).
 */
-init_clause_local_variables([MappedBodyVariableName|MappedBodyVariableNames],SInitCLV,SZ) :-
-	(	MappedBodyVariableName = clv(_I),
+init_clause_local_variables(
+		NewVariables,
+		PotentiallyUsedVariables,
+		[MappedBodyVariableName|MappedBodyVariableNames],
+		SInitCLV,
+		SZ
+	) :-
+	(	MappedBodyVariableName = clv(_I), % may fail
 		mapped_variable_name_to_variable_identifier(MappedBodyVariableName,VI),
-		SInitCLV = [
-			eol_comment('to get rid of the following "if-statement" we need to implement a data-flow analysis...'),
-			if(
-				reference_comparison(field_ref(self,VI),null),
-				[
-					expression_statement(assignment(field_ref(self,VI),variable))
-				]
-			)
-			|SI
-		]
+		(
+			memberchk(MappedBodyVariableName,NewVariables),
+			term_to_atom(NewVariables,NewVariablesAtom),
+			SInitCLV = [
+				eol_comment(NewVariablesAtom),
+				expression_statement(assignment(field_ref(self,VI),variable))
+				|SI
+			]
+		;	
+			memberchk(MappedBodyVariableName,PotentiallyUsedVariables),
+			SInitCLV = [
+				if(
+					reference_comparison(field_ref(self,VI),null),
+					[
+						expression_statement(assignment(field_ref(self,VI),variable))
+					]
+				)
+				|SI
+			]	
+		)
 	;
 		SInitCLV = SI
 	),!,
-	init_clause_local_variables(MappedBodyVariableNames,SI,SZ).
-init_clause_local_variables([],SZ,SZ).
+	init_clause_local_variables(NewVariables,PotentiallyUsedVariables,MappedBodyVariableNames,SI,SZ).
+init_clause_local_variables(_NewVariables,_PotentiallyUsedVariables,[],SZ,SZ).
 
 
 
@@ -811,7 +877,7 @@ primitive_goals_list(ASTNode,[ASTNode|SGoals],SGoals).
 	Associates each primitive goal with a unique number; the information
 	is added to a goal's meta information.
 
-	Typical usage: <code>number_primitive_goals(ASTNode,1,L)</code>
+	Typical usage: <code>number_primitive_goals(ASTNode,0,L)</code>
 */
 number_primitive_goals(ASTNode,First,Last) :-
 	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
@@ -904,7 +970,13 @@ set_flag([ASTNode|ASTNodes],Flag) :-
 
 
 
+goal_call_case_id(GoalNumber,CallCaseId) :-
+	CallCaseId is GoalNumber * 2.
 
+
+
+goal_redo_case_id(GoalNumber,RedoCaseId) :-
+	RedoCaseId is GoalNumber * 2 + 1.
 
 
 

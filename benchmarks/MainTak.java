@@ -54,7 +54,7 @@ public class MainTak {
 				Variable result = new Variable();
 				Term term = compoundTerm(
 						atomic("time"),
-						compoundTerm(atomic("tak"), atomic(32), atomic(12),
+						compoundTerm(atomic("tak"), atomic(18), atomic(16),
 								atomic(6), result));
 				Goal s = term.call();
 				if (!s.next()) {

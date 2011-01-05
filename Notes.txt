@@ -1,7 +1,18 @@
 TODOs:
 
 0)
-Complete the support for "or"
+- Complete the support for "or"
+- ground, atom, number (in the compiler)
+- length
+- is_list
+- memberchk
+- arg
+- functor
+- =..
+- atom_codes
+- call
+- findall
+
 
 1)
 completely support all standard control-flow predicates: 
@@ -17,15 +28,19 @@ implement the condition-local cut.
 Implement functionality to test and extract values from terms if possible (instead of unifying)
 
 3)
-Implement last call optimization
+Implement more complete support for last call optimization (e.g., to support the integers predicate of primes)
 
 4) 
 Type specialization
 
-
 5)
-Optimize the support for arithmetic ...
+Analyze predicates to determine how many solutions will be generated at runtime
+(can help to scale the "tak" benchmark)
 
+6)
+(If necessary) Add a method to the goal interface that enables the caller of a
+predicate to identify the number of further solutions (e.g. a method hasMore() 
+where the answers are: No, Maybe, Yes)
 
 
 How to use the compiler:
