@@ -36,7 +36,7 @@ import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.StringAtom;
 import saere.Term;
-import saere.TwoArgsPredicateFactory;
+import saere.PredicateFactoryTwoArgs;
 
 /** 
  * Prolog's arithmetic smaller than operator: "<". 
@@ -48,7 +48,7 @@ public class SmallerOrEqual2 extends TestGoal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.ARITH_SMALLER_OR_EQUAL_THAN, 2);
 
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static PredicateFactoryTwoArgs FACTORY = new PredicateFactoryTwoArgs() {
 
 		@Override
 		public Goal createInstance(Term t1, Term t2) {

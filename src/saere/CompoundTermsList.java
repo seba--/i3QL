@@ -32,7 +32,10 @@
 package saere;
 
 /**
- * An immutable list of complex terms.
+ * An immutable list of compound terms.
+ * <p>
+ * We use <code>null<code> to represent the empty list.
+ * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */

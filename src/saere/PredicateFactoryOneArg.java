@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class OneArgPredicateFactory implements PredicateFactory {
+public abstract class PredicateFactoryOneArg implements PredicateFactory {
 
 	public abstract Goal createInstance(Term t);
 

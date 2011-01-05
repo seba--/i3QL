@@ -103,7 +103,7 @@ phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- pha
 phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :- phase(pl_cut_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
-phase(pl_to_oo,execute,[on_entry/*,processing_predicate*/]) :- phase(pl_variable_usage_analysis,execute,_).
+phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_variable_usage_analysis,execute,_).
 phase(oo_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_to_oo,execute,_).
 
 

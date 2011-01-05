@@ -36,7 +36,7 @@ import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.StringAtom;
 import saere.Term;
-import saere.TwoArgsPredicateFactory;
+import saere.PredicateFactoryTwoArgs;
 
 /**
  * ISO Prolog's arithmetic not-equals operator: "=\=".
@@ -48,7 +48,7 @@ public final class ArithNotEqual2 extends TestGoal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.ARITH_IS_NOT_EQUAL, 2);
 
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static PredicateFactoryTwoArgs FACTORY = new PredicateFactoryTwoArgs() {
 
 		@Override
 		public Goal createInstance(Term t1, Term t2) {

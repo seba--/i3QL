@@ -31,31 +31,27 @@
  */
 package saere.predicate;
 
+import static saere.StringAtom.NUMBER;
+import saere.Goal;
 import saere.PredicateFactoryOneArg;
-import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
-import saere.Goal;
-import saere.StringAtom;
 import saere.Term;
 
 /**
- * Writes out a term to standard out.
- * 
- * TODO implement the "real" Prolog semantics of write/1
+ * Prolog's "number/1" predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Write1 implements Goal {
+public class Number1 extends TestGoal {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.get("write"), 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(NUMBER, 1);
 
-	public final static PredicateFactory FACTORY = new PredicateFactoryOneArg() {
+	public final static PredicateFactoryOneArg FACTORY = new PredicateFactoryOneArg() {
 
 		@Override
 		public Goal createInstance(Term t) {
-			return new Write1(t);
+			return new Number1(t);
 		}
 	};
 
@@ -64,10 +60,9 @@ public class Write1 implements Goal {
 	}
 
 	private final Term t;
-
 	private boolean called = false;
 
-	public Write1(final Term t) {
+	public Number1(Term t) {
 		this.t = t;
 	}
 
@@ -75,21 +70,13 @@ public class Write1 implements Goal {
 	public boolean next() {
 		if (!called) {
 			called = true;
-			System.out.print(t.toProlog());
-			return true;
+			return isNumber(t);
 		} else {
 			return false;
 		}
 	}
 
-	@Override
-	public void abort() {
-		// nothing to do
+	public static final boolean isNumber(Term t) {
+		return t.unwrap().termTypeID() >= Term.NUMBER_TYPE_ID;
 	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
-
 }

@@ -129,7 +129,7 @@ public final class StringAtom extends Atomic {
 	public Goal call() {
 		PredicateIdentifier pi = new PredicateIdentifier(this, 0);
 		PredicateFactory pf = predicateRegistry().getPredicateFactory(pi);
-		return ((NoArgsPredicateFactory) pf).createInstance();
+		return ((PredicateFactoryNoArgs) pf).createInstance();
 	}
 
 	/**
@@ -142,7 +142,7 @@ public final class StringAtom extends Atomic {
 	}
 
 	public int termTypeID() {
-		return Term.STRING_ATOM;
+		return Term.STRING_ATOM_TYPE_ID;
 	}
 
 	private final static WeakHashMap<StringAtom, WeakReference<StringAtom>> cache = new WeakHashMap<StringAtom, WeakReference<StringAtom>>();

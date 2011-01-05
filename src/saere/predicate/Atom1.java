@@ -32,7 +32,7 @@
 package saere.predicate;
 
 import saere.Goal;
-import saere.OneArgPredicateFactory;
+import saere.PredicateFactoryOneArg;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import static saere.StringAtom.*;
@@ -48,7 +48,7 @@ public class Atom1 extends TestGoal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			ATOM, 1);
 
-	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactoryOneArg FACTORY = new PredicateFactoryOneArg() {
 
 		@Override
 		public Goal createInstance(Term t) {

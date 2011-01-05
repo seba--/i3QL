@@ -40,7 +40,7 @@ import saere.PredicateRegistry;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.ThreeArgsPredicateFactory;
+import saere.PredicateFactoryThreeArgs;
 import saere.Variable;
 import saere.term.ListElement2;
 
@@ -61,7 +61,7 @@ public final class Append3 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("append"), 3);
 
-	public final static ThreeArgsPredicateFactory FACTORY = new ThreeArgsPredicateFactory() {
+	public final static PredicateFactoryThreeArgs FACTORY = new PredicateFactoryThreeArgs() {
 
 		@Override
 		public Goal createInstance(Term Xs, Term Ys, Term Zs) {

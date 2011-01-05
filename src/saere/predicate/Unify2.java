@@ -37,7 +37,7 @@ import saere.Goal;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.TwoArgsPredicateFactory;
+import saere.PredicateFactoryTwoArgs;
 
 /**
  * Implementation of ISO Prolog's unify (<code>=/2</code>) operator.
@@ -49,7 +49,7 @@ public final class Unify2 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.UNIFY, 2);
 
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static PredicateFactoryTwoArgs FACTORY = new PredicateFactoryTwoArgs() {
 
 		@Override
 		public Goal createInstance(Term t1, Term t2) {

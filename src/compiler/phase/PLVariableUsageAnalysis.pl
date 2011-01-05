@@ -150,23 +150,44 @@ intra_clause_variable_usage(
 		NewPotentiallyUsedVariables
 	) :-
 	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
-	throw('yet again... something to implement').
+	(
+		(complex_term(LASTNode,Functor,[_,_]) ;
+		complex_term(RASTNode,Functor,[_,_]) ) ,
+		(Functor == '->' ; Functor == '*->') ->
+		throw(to_be_implemented)
+	;
+		true
+	),
+	intra_clause_variable_usage(LASTNode,UsedVariables,PotentiallyUsedVariables,UV1,PUV1),
+	intra_clause_variable_usage(RASTNode,UsedVariables,PotentiallyUsedVariables,UV2,PUV2),
+	intersect_sets(UV1,UV2,NewUsedVariables),
+	merge_sets(PUV1,PUV2,MPUV_1_2),
+	% add those variables that are only used on one branch
+	set_subtract(UV1,NewUsedVariables,LPUV),
+	set_subtract(UV2,NewUsedVariables,RPUV),
+	merge_sets(LPUV,RPUV,LRPUV),
+	merge_sets(MPUV_1_2,LRPUV,NewPotentiallyUsedVariables).
 
 intra_clause_variable_usage(
 		ASTNode,
 		UsedVariables,
 		PotentiallyUsedVariables,
 		NewUsedVariables,
-		PotentiallyUsedVariables
+		NewPotentiallyUsedVariables
 	) :-
-	is_compound_term(ASTNode),!,
+	is_compound_term(ASTNode),!, 
 	named_variables_of_term(ASTNode,Variables,[]),
 	mapped_variable_names(Variables,[],MappedVariableNames),
+	% let's determine the variables that are definitely used for the first time
+	% by this goal...
 	set_subtract(MappedVariableNames,UsedVariables,IVariables),
-	set_subtract(IVariables,PotentiallyUsedVariables,NewVariables),
-	add_to_term_meta(new_variables(NewVariables),ASTNode),
+	set_subtract(IVariables,PotentiallyUsedVariables,FirstTimeUsedVariables),
+	add_to_term_meta(variables_used_for_the_first_time(FirstTimeUsedVariables),ASTNode),
 	add_to_term_meta(potentially_used_variables(PotentiallyUsedVariables),ASTNode),
-	merge_sets(UsedVariables,MappedVariableNames,NewUsedVariables).	
+	% update the set of definitively used variables
+	merge_sets(UsedVariables,MappedVariableNames,NewUsedVariables),
+	% remove from the set of "potentially used" variables those that are "used"
+	set_subtract(PotentiallyUsedVariables,MappedVariableNames,NewPotentiallyUsedVariables).	
 
 intra_clause_variable_usage(
 		_ASTNode, % is an atomic ..

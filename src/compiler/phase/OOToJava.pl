@@ -291,7 +291,9 @@ write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
 	write(Stream,'this.goalStack = goalStack.put('),
 	write_expr(Stream,GoalExpression),
 	write(Stream,');\n').
-write_stmt(Stream,remove_top_element_from_goal_stack) :- !,
+write_stmt(Stream,abort_and_remove_top_level_goal_from_goal_stack) :- !,
+	write(Stream,'this.goalStack = goalStack.abortTopLevelGoal();\n').	
+write_stmt(Stream,remove_top_level_goal_from_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.drop();\n').
 write_stmt(Stream,switch(top_level,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
@@ -304,8 +306,8 @@ write_stmt(Stream,switch(inside_forever,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
 	write_cases(Stream,Cases),
 	write(Stream,'}\n').
-write_stmt(Stream,manifest_state(ReceiverExpr,Assignee)) :- !,
-	write_lvalue(Stream,Assignee),
+write_stmt(Stream,manifest_state(ReceiverExpr,LValue)) :- !,
+	write_lvalue(Stream,LValue),
 	write(Stream,' = ('),
 	write_expr(Stream,ReceiverExpr),
 	write(Stream,').manifestState();\n').
@@ -315,6 +317,11 @@ write_stmt(Stream,reincarnate_state(ReceiverExpr)) :- !,
 	write(Stream,' != null)'),
 	write_expr(Stream,ReceiverExpr),
 	write(Stream,'.reincarnate();\n').
+write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
+	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create ('),
+	write_expr(Stream,TermExpression),
+	write_complex_term_args(Stream,TermExpressions),
+	write(Stream,'));\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -348,9 +355,15 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 	write(Stream,', '),
 	write_expr(Stream,Expression),
 	write_further_exprs(Stream,Expressions).
-	
 
 
+
+write_expr(Stream,unify(ATermExpression,BTermExpression)) :- !,
+	write(Stream,'('),
+	write_expr(Stream,ATermExpression),
+	write(Stream,').unify('),
+	write_expr(Stream,BTermExpression),
+	write(Stream,')').
 write_expr(Stream,arithmetic_evluation(ArithTerm)) :- !,
 	write_expr(Stream,eval_term(ArithTerm)).
 write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
@@ -399,12 +412,13 @@ write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :- !,
 write_expr(Stream,local_variable_ref(Identifier)):- !,
 	write(Stream,Identifier).
 write_expr(Stream,static_predicate_call(string_atom(Functor))):- !,
-	map_functor_to_class_name(Functor,ClassName),
+	map_functor_to_class_name(Functor/0,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,'0()').
 write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):- !,
 	length(ArgsExpressions,ArgsCount),
 	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
-	map_functor_to_class_name(Functor,ClassName),
+	length(ArgsExpressions,Arity),
+	map_functor_to_class_name(Functor/Arity,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,ArgsCount),write(Stream,'('),
 	write_expr(Stream,FirstArgExpression),
 	write_complex_term_args(Stream,MoreArgsExpressions),
@@ -415,6 +429,10 @@ write_expr(Stream,call_term(TermExpression)):- !,
 write_expr(Stream,get_top_element_from_goal_stack) :- !,
 	write(Stream,'this.goalStack.peek()').
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
+write_expr(Stream,clv(I)) :- !,
+	write(Stream,'this.clv'),write(Stream,I).
+write_expr(Stream,arg(I)) :- !,
+	write(Stream,'this.arg'),write(Stream,I).	
 write_expr(Stream,variable) :- !,
 	write(Stream,'variable()').
 write_expr(Stream,anonymous_variable) :- !, % TODO do we need to distinguish between "named" and anonymous variables?
@@ -491,6 +509,7 @@ write_expr(_Stream,Expr) :- % the last case...
 
 
 
+% TODO rename to "write_expr_list_1_to_n"
 write_complex_term_args(_Stream,[]).
 write_complex_term_args(Stream,[Arg|Args]) :-
 	write(Stream,', '),
@@ -543,7 +562,7 @@ write_predicate_registration(Stream,Functor/Arity) :-
 		' */\n',
 		'package predicates;\n',
 		'import saere.*;\n\n',
-		'public class ',Functor,Arity,'Factory extends NArgsPredicateFactory{\n',
+		'public class ',Functor,Arity,'Factory extends PredicateFactoryNArgs{\n',
 		'	private ',Functor,Arity,'Factory(){\n',
 		'		/*NOTHING TO DO*/\n',
 		'	}\n',
@@ -571,31 +590,34 @@ array_acces(ArrayName,N,ArrayAccess) :-
  *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
  *                                                                            *
 \* ************************************************************************** */
-map_functor_to_class_name('=','Unify') :- !.
-map_functor_to_class_name('\\=','NotUnify') :- !.
-map_functor_to_class_name(',','And') :- !.
-map_functor_to_class_name(';','Or') :- !.
-map_functor_to_class_name('!','Cut') :- !.
-map_functor_to_class_name('*->','SoftCut') :- !.
-map_functor_to_class_name('->','If_Then') :- !.
-map_functor_to_class_name('true','True') :- !.
-map_functor_to_class_name('false','False') :- !.
-map_functor_to_class_name('fail','False') :- !.
-map_functor_to_class_name('not','Not') :- !.
-map_functor_to_class_name('\\+','Not') :- !.
-map_functor_to_class_name('is','Is') :- !.
-map_functor_to_class_name('<','Smaller') :- !.
-map_functor_to_class_name('=<','SmallerOrEqual') :- !.
-map_functor_to_class_name('>','Larger') :- !.
-map_functor_to_class_name('>=','LargerOrEqual') :- !.
-map_functor_to_class_name('=:=','ArithEqual') :- !.
-map_functor_to_class_name('=\\=','ArithNotEqual') :- !.
+map_functor_to_class_name('='/2,'Unify') :- !.
+map_functor_to_class_name('\\='/2,'NotUnify') :- !.
+map_functor_to_class_name(','/2,'And') :- !.
+map_functor_to_class_name(';'/2,'Or') :- !.
+map_functor_to_class_name('!'/0,'Cut') :- !.
+map_functor_to_class_name('*->'/2,'SoftCut') :- !.
+map_functor_to_class_name('->'/2,'If_Then') :- !.
+map_functor_to_class_name('true'/0,'True') :- !.
+map_functor_to_class_name('false'/0,'False') :- !.
+map_functor_to_class_name('fail'/0,'False') :- !.
+map_functor_to_class_name('not'/1,'Not') :- !.
+map_functor_to_class_name('/'('\\+',1),'Not') :- !.
+map_functor_to_class_name('is'/2,'Is') :- !.
+map_functor_to_class_name('<'/2,'Smaller') :- !.
+map_functor_to_class_name('=<'/2,'SmallerOrEqual') :- !.
+map_functor_to_class_name('>'/2,'Larger') :- !.
+map_functor_to_class_name('>='/2,'LargerOrEqual') :- !.
+map_functor_to_class_name('=:='/2,'ArithEqual') :- !.
+map_functor_to_class_name('=\\='/2,'ArithNotEqual') :- !.
 % FURTHER BUILT-IN PREDICATES:
-map_functor_to_class_name('append','Append') :- !.
-map_functor_to_class_name('member','Member') :- !.
-map_functor_to_class_name('time','Time') :- !.
-map_functor_to_class_name('repeat','Repeat') :- !.
-map_functor_to_class_name(Functor,Functor).
+map_functor_to_class_name('atom'/1,'Atom') :- !.
+map_functor_to_class_name('number'/1,'Number') :- !.
+map_functor_to_class_name('append'/3,'Append') :- !.
+map_functor_to_class_name('member'/2,'Member') :- !.
+map_functor_to_class_name('time'/1,'Time') :- !.
+map_functor_to_class_name('repeat'/0,'Repeat') :- !.
+map_functor_to_class_name('ground'/1,'Ground') :- !.
+map_functor_to_class_name(Functor/_Arity,Functor).
 
 
 

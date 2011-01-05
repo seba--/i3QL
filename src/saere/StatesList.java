@@ -29,67 +29,47 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.PredicateFactoryOneArg;
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Goal;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
- * Writes out a term to standard out.
- * 
- * TODO implement the "real" Prolog semantics of write/1
+ * A list of state objects that represent a state on its own.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public class Write1 implements Goal {
+final class StatesList implements State {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.get("write"), 1);
+	/**
+	 * The state of a complex term's argument.
+	 */
+	private final State state;
 
-	public final static PredicateFactory FACTORY = new PredicateFactoryOneArg() {
+	private StatesList next;
 
-		@Override
-		public Goal createInstance(Term t) {
-			return new Write1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
+	public StatesList(State state) {
+		this.state = state;
 	}
 
-	private final Term t;
-
-	private boolean called = false;
-
-	public Write1(final Term t) {
-		this.t = t;
+	public StatesList(State state, StatesList next) {
+		this.state = state;
+		this.next = next;
 	}
 
-	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			System.out.print(t.toProlog());
-			return true;
-		} else {
-			return false;
+	public void reincarnate() {
+		StatesList cts = this;
+		while (cts != null) {
+			cts.state.reincarnate();
+			cts = cts.next;
 		}
 	}
 
 	@Override
-	public void abort() {
-		// nothing to do
+	public String toString() {
+		StatesList los = next;
+		String s = "[" + state.toString();
+		while (los != null) {		
+			s += "," + los.state.toString();
+			los = los.next;
+		}
+		return s += "]";
 	}
-
-	@Override
-	public boolean choiceCommitted() {
-		return false;
-	}
-
 }

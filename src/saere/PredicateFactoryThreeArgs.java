@@ -36,13 +36,13 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class TwoArgsPredicateFactory implements PredicateFactory {
+public abstract class PredicateFactoryThreeArgs implements PredicateFactory {
 
-	public abstract Goal createInstance(Term t1, Term t2);
+	public abstract Goal createInstance(Term t1, Term t2, Term t3);
 
 	@Override
 	public final Goal createInstance(Term[] args) {
-		return createInstance(args[0], args[1]);
+		return createInstance(args[0], args[1], args[3]);
 	}
 
 }

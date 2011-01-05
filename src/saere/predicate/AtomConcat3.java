@@ -38,7 +38,7 @@ import saere.PrologException;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.ThreeArgsPredicateFactory;
+import saere.PredicateFactoryThreeArgs;
 
 /**
  * Implementation of ISO Prolog's atom_concat/3 predicate.
@@ -50,7 +50,7 @@ public final class AtomConcat3 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("atom_concat"), 3);
 
-	public final static ThreeArgsPredicateFactory FACTORY = new ThreeArgsPredicateFactory() {
+	public final static PredicateFactoryThreeArgs FACTORY = new PredicateFactoryThreeArgs() {
 
 		@Override
 		public Goal createInstance(Term l, Term r, Term o) {

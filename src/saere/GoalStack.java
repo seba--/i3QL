@@ -32,9 +32,8 @@
 package saere;
 
 /**
- * The goal stack is a very simple, <i>immutable</i> linked list, that offers a
- * stack's standard operations (put, peek and drop) to manage a list of
- * {@link Goal}s.
+ * The goal stack is a very simple, <i>immutable</i> linked list, that offers a stack's standard
+ * operations (put, peek and drop) to manage a list of {@link Goal}s.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
@@ -67,7 +66,18 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack abortPendingGoals() throws IllegalStateException {
+		public GoalStack abortPendingGoals() {
+			return this;
+		}
+
+		@Override
+		public GoalStack abortTopLevelGoal() throws IllegalStateException {
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public GoalStack abortPendingGoals(int i) {
+			assert i == 0 : "there are no more pending goals, the goal stack is empty";
 			return this;
 		}
 	}
@@ -98,15 +108,31 @@ public abstract class GoalStack {
 		}
 
 		@Override
+		public boolean isNotEmpty() {
+			return true;
+		}
+
+		@Override
 		public GoalStack abortPendingGoals() {
 			goal.abort();
 			return rest.abortPendingGoals();
 		}
 
 		@Override
-		public boolean isNotEmpty() {
-			return true;
+		public GoalStack abortTopLevelGoal() {
+			goal.abort();
+			return rest;
 		}
+
+		@Override
+		public GoalStack abortPendingGoals(int i) {
+			if (i > 0) {
+				goal.abort();
+				return rest.abortPendingGoals(i - 1);
+			}
+			return this;
+		}
+
 	}
 
 	public final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
@@ -118,6 +144,10 @@ public abstract class GoalStack {
 	public abstract GoalStack drop() throws IllegalStateException;
 
 	public abstract GoalStack abortPendingGoals();
+
+	public abstract GoalStack abortTopLevelGoal();
+
+	public abstract GoalStack abortPendingGoals(int i);
 
 	public abstract boolean isNotEmpty();
 

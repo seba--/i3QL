@@ -56,7 +56,7 @@ public final class FloatValue extends Atomic {
 
     @Override
     public final int termTypeID() {
-	return Term.FLOAT_VALUE;
+	return Term.FLOAT_VALUE_TYPE_ID;
     }
 
     @Override

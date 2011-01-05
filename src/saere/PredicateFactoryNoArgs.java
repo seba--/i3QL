@@ -31,18 +31,19 @@
  */
 package saere;
 
+
 /**
  * Enables the creation of a new instance of a predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class ThreeArgsPredicateFactory implements PredicateFactory {
+public abstract class PredicateFactoryNoArgs implements PredicateFactory {
 
-	public abstract Goal createInstance(Term t1, Term t2, Term t3);
-
+	public abstract Goal createInstance();
+	
 	@Override
 	public final Goal createInstance(Term[] args) {
-		return createInstance(args[0], args[1], args[3]);
+		return createInstance();
 	}
 
 }

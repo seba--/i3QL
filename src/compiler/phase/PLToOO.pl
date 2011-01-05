@@ -62,10 +62,12 @@
 	method_decl(Visibility,ReturnType,Identifier,ParameterDecls,Statements) - Visibility is either public or private
 
 	<h2>STATEMENTS</h2>
+	create_undo_goal_and_put_on_goal_stack(TermExpressions) - TermExpressions is a list of expressions where each expression has type term
 	clear_goal_stack
 	abort_pending_goals_and_clear_goal_stack
 	push_onto_goal_stack(GoalExpression)
-	remove_top_element_from_goal_stack
+	remove_top_level_goal_from_goal_stack
+	abort_and_remove_top_level_goal_from_goal_stack
 	forever(Label,Statements)
 	continue(Label)
 	eol_comment(Comment)
@@ -92,6 +94,7 @@
 	string(Value) - a string value in the target language (not a string atom)
 	int(Value) - an int value in the target language (not a Prolog int value)
 	boolean(Value) - a boolean value in the target language (not a Prolog boolean value)
+	unify(Term1Expression,Term2Expression) - base unification without state manifestation
 	call_term(TermExpression)
 	static_predicate_call(complex_term(Functor,Terms))
 	predicate_lookup(Functor,Arity,TermExpressions)
@@ -549,6 +552,64 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		]
 	).
 
+translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
+	term_meta(PrimitiveGoal,Meta),
+	lookup_in_meta(goal_number(GoalNumber),Meta),
+	% Handle the case if the comparison is called the first time
+	%%%%%%%%%%% akjdfkjasdföklajsdfölkasdjfölkasdjfölkasdjfölkasdjfölkasdjfölkasdjfölksdjfölksdjfaölksdfjöalskdjf
+	goal_call_case_id(GoalNumber,CallCaseId),
+	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
+	create_term(LASTNode,LTermConstructor,LMappedVariableNames),
+	create_term(RASTNode,RTermConstructor,RMappedVariableNames),
+	merge_sets(LMappedVariableNames,RMappedVariableNames,MappedVariableNames),
+	SEval = [
+		if(unify(LTermConstructor,RTermConstructor),
+			JumpToNextGoalAfterSucceed
+		)
+	],
+	(
+		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),Meta),
+		lookup_in_meta(potentially_used_variables(VariablesPotentiallyPreviouslyUsed),Meta) ->
+		init_clause_local_variables(
+			VariablesUsedForTheFirstTime,
+			VariablesPotentiallyPreviouslyUsed,
+			MappedVariableNames,
+			SInitCLVs,
+			SSaveState
+		),
+% write(used),write(MappedVariableNames),nl,
+% write(used_for_the_first_time),write(VariablesUsedForTheFirstTime),nl,
+% write(potentially_used_variables),write(VariablesPotentiallyPreviouslyUsed),nl,
+		(	remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
+			set_subtract(MappedVariableNames,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
+			not_empty(VariablesThatNeedToBeSaved) ->
+			save_state_in_undo_goal(VariablesThatNeedToBeSaved,SSaveState,SEval),
+			RedoAction = [
+				abort_and_remove_top_level_goal_from_goal_stack |
+				JumpToNextGoalAfterFail
+			]
+		;
+			SSaveState = SEval,
+			RedoAction = JumpToNextGoalAfterFail
+		)
+	;
+		%SInitCLVs = SEval
+		throw(internal_error(translate_goal/3))
+	),
+	SCallCase = case(
+		int(CallCaseId),
+		SInitCLVs
+	),
+	% (redo-case)
+	goal_redo_case_id(GoalNumber,RedoCaseId),
+	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
+	SRedoCase = case(
+		int(RedoCaseId),
+		RedoAction
+	).
+
+
 translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
 	is_arithmetic_comparison_operator(Operator),
@@ -576,12 +637,11 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		JumpToNextGoalAfterFail
 	).
 
-
 translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	% implement the case that the result of is is assigned to a new variable..
 	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
-	lookup_in_meta(new_variables(NewVariables),Meta),
+	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 	lookup_in_term_meta(mapped_variable_name(Name),LASTNode),
 	memberchk(Name,NewVariables),!,
 	% Handle the case if "is" is called the first time
@@ -630,7 +690,8 @@ translate_goal(PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 		SCaseHead
 	).
 
-% This implements the base case... if no special support is provided by the compiler
+% This implements the base case... if no special support for a given predicate
+% is provided by the compiler
 translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -639,7 +700,7 @@ translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	goal_call_case_id(GoalNumber,CallCaseId),
 	create_term(PrimitiveGoal,TermConstructor,MappedVariableNames),
 	(
-		lookup_in_meta(new_variables(NewVariables),Meta),
+		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 		lookup_in_meta(potentially_used_variables(PotentiallyUsedVariables),Meta) ->
 		init_clause_local_variables(
 			NewVariables,
@@ -662,7 +723,7 @@ translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 			method_call(get_top_element_from_goal_stack,'next',[])
 		),
 		if(not(local_variable_ref('succeeded')),[
-			remove_top_element_from_goal_stack |
+			remove_top_level_goal_from_goal_stack |
 			JumpToNextGoalAfterFail
 		])|
 		JumpToNextGoalAfterSucceed
@@ -744,7 +805,7 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 
 
 /**
-	@signature init_clause_local_variables(MappedBodyVariableNames,SInitClauseLocalVariables,SZ).
+	@signature init_clause_local_variables(VariablesUsedForTheFirstTime,VariablesPotentiallyUsedBefore,BodyVariableNames,SInitClauseLocalVariables,SZ).
 */
 init_clause_local_variables(
 		NewVariables,
@@ -780,6 +841,15 @@ init_clause_local_variables(
 	),!,
 	init_clause_local_variables(NewVariables,PotentiallyUsedVariables,MappedBodyVariableNames,SI,SZ).
 init_clause_local_variables(_NewVariables,_PotentiallyUsedVariables,[],SZ,SZ).
+
+
+
+save_state_in_undo_goal(MappedVariableNames,SSaveState,SEval) :- 
+	SSaveState =[
+		create_undo_goal_and_put_on_goal_stack(MappedVariableNames)
+		|SEval
+	].
+	
 
 
 
@@ -832,9 +902,16 @@ create_terms([Arg|Args],[TermConstructor|TermConstructors],OldMVNs,NewMVNs) :- !
 	create_term(Arg,TermConstructor,OldMVNs,IMVNs),
 	create_terms(Args,TermConstructors,IMVNs,NewMVNs).
 create_terms([],[],MVNs,MVNs).
-	
-	
-	
+
+
+
+%mapped_variable_names_to_variable_identifiers([],[]) :- !.
+%mapped_variable_names_to_variable_identifiers([VariableName|VariableNames],[VariableIdentifier|VariableIdentifiers]) :- !,
+%	mapped_variable_name_to_variable_identifier(VariableName,VariableIdentifier),
+%	mapped_variable_names_to_variable_identifiers(VariableNames,VariableIdentifiers).
+
+
+
 mapped_variable_name_to_variable_identifier(arg(I),VariableName) :- !,
 	atom_concat(arg,I,VariableName).
 mapped_variable_name_to_variable_identifier(clv(I),VariableName) :- !,

@@ -62,7 +62,7 @@ public final class IntValue extends Atomic {
 
 	@Override
 	public final int termTypeID() {
-		return Term.INT_VALUE;
+		return Term.INT_VALUE_TYPE_ID;
 	}
 
 	@Override

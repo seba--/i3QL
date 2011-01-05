@@ -31,7 +31,7 @@
  */
 package saere.predicate;
 
-import saere.NoArgsPredicateFactory;
+import saere.PredicateFactoryNoArgs;
 import saere.PredicateFactory;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
@@ -55,7 +55,7 @@ public final class Repeat0 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("repeat"), 0);
 
-	public final static PredicateFactory FACTORY = new NoArgsPredicateFactory() {
+	public final static PredicateFactory FACTORY = new PredicateFactoryNoArgs() {
 
 		@Override
 		public Goal createInstance() {

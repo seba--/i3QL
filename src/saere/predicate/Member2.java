@@ -38,7 +38,7 @@ import saere.PredicateRegistry;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.TwoArgsPredicateFactory;
+import saere.PredicateFactoryTwoArgs;
 
 /**
  * Implementation of ISO Prolog's member/2 predicate.
@@ -57,7 +57,7 @@ public final class Member2 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("member"), 2);
 
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static PredicateFactoryTwoArgs FACTORY = new PredicateFactoryTwoArgs() {
 
 		@Override
 		public Goal createInstance(Term t1, Term t2) {

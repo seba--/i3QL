@@ -32,7 +32,7 @@
 package saere.predicate;
 
 import saere.Goal;
-import saere.NoArgsPredicateFactory;
+import saere.PredicateFactoryNoArgs;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.StringAtom;
@@ -47,7 +47,7 @@ public final class True0 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.TRUE, 0);
 
-	public final static NoArgsPredicateFactory FACTORY = new NoArgsPredicateFactory() {
+	public final static PredicateFactoryNoArgs FACTORY = new PredicateFactoryNoArgs() {
 
 		@Override
 		public Goal createInstance() {

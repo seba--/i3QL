@@ -19,19 +19,26 @@ public class MainEinsteinsRiddle {
 		rightTo3Factory.registerWithPredicateRegistry(registry);
 
 		System.out.println("Warm up...");
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 50; i++) {
 			StringAtom time = StringAtom.get("time");
 			Variable houses = new Variable();
 			Variable fishOwner = new Variable();
 
 			StringAtom einstein = StringAtom.get("einstein");
-			Goal s = compoundTerm(time,
-					compoundTerm(einstein, houses, fishOwner)).call();
-			if (s.next()) {
-				System.out.println(" houses=" + houses.toProlog()
-						+ "fishOwner=" + fishOwner.toProlog());
+			Goal s = //compoundTerm(time,
+					compoundTerm(einstein, houses, fishOwner)
+					//)
+					.call();
+			if (!s.next()) {
+				throw new Error();
 			}
+//			else {
+//				System.out.println(" houses=" + houses.toProlog()
+//						+ "fishOwner=" + fishOwner.toProlog());
+//			}
+			System.out.print(".");
 		}
+		System.out.println();
 
 		System.out
 				.println("Sleeping for five seconds...");

@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class NArgsPredicateFactory implements PredicateFactory {
+public abstract class PredicateFactoryNArgs implements PredicateFactory {
 	
 	// empty
 
