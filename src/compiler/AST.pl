@@ -121,6 +121,7 @@
 		term_pos/4,
 		add_clause/3,
 		add_predicates/3,
+		is_ground_term/1,
 		is_rule/1,
 		is_rule_with_body/1,
 		is_rule_without_body/1,
@@ -143,6 +144,7 @@
 		foreach_clause/3,
 		foreach_clause/2,
 		single_clause/1,
+		two_clauses/1,
 		clause_definition/2,
 		clause_implementation/2,
 		clause_meta/2,
@@ -362,6 +364,11 @@ clause_implementation((Implementation,_Meta),Implementation).
  */
 single_clause(Clauses) :- % Clauses is an open list...
 	nonvar(Clauses),Clauses=[_|T],var(T).
+
+
+
+two_clauses(Clauses):-
+	nonvar(Clauses),Clauses=[_|FCs],nonvar(FCs),FCs=[_|R],var(R).
 
 
 
@@ -999,6 +1006,16 @@ conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-
 	;
 		CutBehavior = never
 	),!.
+
+
+
+is_ground_term(ct(_Meta,_Functor,ASTNodes)) :- !,
+	forall(member(ASTNode,ASTNodes),is_ground_term(ASTNode)).
+is_ground_term(r(_,_)) :- !.
+is_ground_term(i(_,_)) :- !.
+is_ground_term(a(_,_)) :- !.
+is_ground_term(av(_Meta,_Name)) :- !,false.	 
+is_ground_term(v(_Meta,_Name)) :- !,false.
 
 
 

@@ -42,7 +42,9 @@
 		processing_predicate/1,
 		on_entry/1,
 		on_exit/1,
-		ast/2
+		ast/2,
+		
+		write_list/1
 	]
 ).
 :- meta_predicate debug_message(+,1,0).
@@ -81,6 +83,9 @@ processing_predicate(DebugConfig) :- memberchk(processing_predicate,DebugConfig)
 
 
 
+write_list(X) :- var(X),!.
+write_list([]).
+write_list([X|Xs]) :- write(X),nl,write_list(Xs).
 
 
 

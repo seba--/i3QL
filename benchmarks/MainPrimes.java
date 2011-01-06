@@ -12,26 +12,28 @@ import saere.Variable;
 
 public class MainPrimes {
 
-	public static void main(String[] args) throws Exception {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		primes2Factory.registerWithPredicateRegistry(registry);
 		integers3Factory.registerWithPredicateRegistry(registry);
 		sift2Factory.registerWithPredicateRegistry(registry);
 		remove3Factory.registerWithPredicateRegistry(registry);
+	}
+
+	public static void main(String[] args) throws Exception {
 
 		System.out.println("Warm up...(~ 1 Minute)");
 		{
-		long startTime = System.nanoTime();
-		do {
-			Variable solution = new Variable();
-			Goal s = compoundTerm(atomic("primes"), atomic(1000), solution).call();
-			if (!s.next()) {
-				throw new Error("Evaluation failed.");
-			}
-		} while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
-		long duration = System.nanoTime() - startTime;
-		System.out.printf("%7.4f\n", new Double(duration / 1000.0 / 1000.0 / 1000.0));
+			long startTime = System.nanoTime();
+			do {
+				Variable solution = new Variable();
+				Goal s = compoundTerm(atomic("primes"), atomic(1000), solution).call();
+				if (!s.next()) {
+					throw new Error("Evaluation failed.");
+				}
+			} while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
+			long duration = System.nanoTime() - startTime;
+			System.out.printf("%7.4f\n", new Double(duration / 1000.0 / 1000.0 / 1000.0));
 		}
 
 		// System.out.println("Waiting for five seconds...");
@@ -54,7 +56,7 @@ public class MainPrimes {
 				long duration = System.nanoTime() - startTime;
 				Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 				System.out.printf("%7.4f", time);
-				Utils.writeToPerformanceLog("primes finished in: " + time + "\n");
+				All.writeToPerformanceLog("primes finished in: " + time + "\n");
 			}
 		});
 		t.start();

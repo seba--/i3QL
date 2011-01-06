@@ -51,6 +51,7 @@
 		memberchk_ol/2,
 		clone_ol/2,
 		add_to_set_ol/2,
+		add_to_set_ol_identity/2,
 		member_ol/2,
 		
 		redirect_stdout_to_null/1,
@@ -326,7 +327,13 @@ append_ol(E,[_|T]) :- append_ol(E,T).
 */
 memberchk_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
 memberchk_ol(E,[E|_]) :- !. % we found a element
-memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
+memberchk_ol(E,[_NotE|RestOL]) :- memberchk_ol(E,RestOL).
+
+
+
+memberchk_ol_identity(_T,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
+memberchk_ol_identity(T,[E|_]) :- T==E,!. % we found a element
+memberchk_ol_identity(T,[_NotE|RestOL]) :- memberchk_ol_identity(T,RestOL).
 
 
 
@@ -337,6 +344,14 @@ add_to_set_ol(E,OL) :-
 		append_ol(E,OL)
 	),!.
 
+
+
+add_to_set_ol_identity(E,OL) :-
+	( 
+		memberchk_ol_identity(E,OL)
+	;
+		append_ol(E,OL)
+	),!.
 
 
 member_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list

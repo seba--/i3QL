@@ -13,12 +13,15 @@ import saere.Variable;
 
 public class MainQSort {
 
-	public static void main(String[] args) throws Throwable {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		qsort3Factory.registerWithPredicateRegistry(registry);
 		partition4Factory.registerWithPredicateRegistry(registry);
 		list1Factory.registerWithPredicateRegistry(registry);
+
+	}
+
+	public static void main(String[] args) throws Throwable {
 
 		System.out.println("Warm up...");
 		{
@@ -61,7 +64,7 @@ public class MainQSort {
 				long duration = System.nanoTime() - startTime;
 				double time = duration / 1000.0d / 1000.0d / 1000.0d;
 				System.out.println("Finished in " + time + "seconds");
-				Utils.writeToPerformanceLog("qsort finished in: " + time + "\n");
+				All.writeToPerformanceLog("qsort finished in: " + time + "\n");
 			}
 		});
 		t.start();

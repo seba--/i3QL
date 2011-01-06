@@ -45,8 +45,9 @@
 
 
 /**
-	Encodes an SAE Prolog program using a small object-oriented language. The 
-	AST of the target language is created.
+	Encodes an SAE Prolog program using a small object-oriented language (SAEOOL).
+	
+	This step creates the AST of SAEOOL.
 	
 	<h1>AST NODES</h1>
 	<h2>TOP LEVEL NODES</h2>
@@ -89,6 +90,7 @@
 	field_ref(Receiver,Identifier)
 	local_variable_ref(Identifier)
 	reference_comparison(Expression,Expression)
+	value_comparison(Operator,LeftExpression,RightExpression) - Comparison of values in the target language
 	null
 	self - the self reference ("this" in Java)
 	string(Value) - a string value in the target language (not a string atom)
@@ -98,8 +100,8 @@
 	call_term(TermExpression)
 	static_predicate_call(complex_term(Functor,Terms))
 	predicate_lookup(Functor,Arity,TermExpressions)
-	arithmetic_comparison(Operator,LeftArithmeticTerm,RightArithmeticTerm)
-	arithmetic_evaluation(ArithmeticTerm)
+	arithmetic_comparison(Operator,LeftArithmeticTerm,RightArithmeticTerm) - for Prolog terms
+	arithmetic_evaluation(ArithmeticTerm) - for Prolog terms
 	
 	<h2>TERM EXPRESSION</H2>
 	string_atom(Value)
@@ -174,7 +176,13 @@ process_predicate(DebugConfig,Program,Predicate) :-
 gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Predicate,SFieldDecls,SR) :-
 	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
-	SFieldDecls = [
+	% Code to create fields for pre created terms.
+write_list(DeferredActions),nl,nl,
+	assign_ids_to_pre_created_terms(1,DeferredActions),
+write_list(DeferredActions),	
+	field_decls_for_pre_created_terms(DeferredActions,SFieldDecls,SControlFlow),
+	% Standard (instance-related) variables
+	SControlFlow = [
 		eol_comment('variables to control/manage the execution this predicate')|
 		SClauseToExecute
 	],
@@ -193,7 +201,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 		field_decl(goal_stack) |
 		SGoalPredescessors
 	],
-	% For each goal, that is the successor of some or goal, we have to create a 
+	% For each goal, that is the successor of some "or" goal, we have to create a 
 	% a variable that stores which goal was executed previously.
 	findall(
 		SGoalPredescessor,
@@ -228,12 +236,12 @@ gen_fields_for_predicate_arguments(
 
 
 field_decl_for_pred_arg_i(Modifiers,I,field_decl(Modifiers,type(term),FieldName)) :-
-	atom_concat('arg',I,FieldName).
+	atom_concat('arg',I,FieldName). % TODO remove the string concatenation here......just pass the field to the next phase
 
 
 
 field_decl_for_initial_pred_arg_state_i(I,field_decl([final],type(state),FieldName)) :-
-	atomic_list_concat(['initialArg',I,'state'],FieldName).
+	atomic_list_concat(['initialArg',I,'state'],FieldName). % TODO remove the string concatenation here...just pass the field to the next phase
 
 
 
@@ -251,6 +259,35 @@ gen_fields_for_clause_local_variables(
 field_decl_for_clause_local_variable(I,field_decl([],type(term),FieldName)) :-
 	atom_concat(clv,I,FieldName).
 
+
+
+field_decls_for_pre_created_terms(Tail,SR,SR) :- var(Tail),!.
+field_decls_for_pre_created_terms(
+		[create_field_for_pre_created_term(PCTId,Expr)|Actions],
+		SFieldDecl,
+		SRest
+	) :- !,
+	SFieldDecl = [field_decl_for_pre_created_term(PCTId,Expr) | SNextFieldDecl],
+	field_decls_for_pre_created_terms(Actions,SNextFieldDecl,SRest).
+field_decls_for_pre_created_terms([_Action|Actions],SFieldDecl,SRest) :- 
+	field_decls_for_pre_created_terms(Actions,SFieldDecl,SRest).
+
+
+
+assign_ids_to_pre_created_terms(_Id,Tail) :- var(Tail),!.
+assign_ids_to_pre_created_terms(
+		Id,
+		[create_field_for_pre_created_term(PCTId,_)|Actions]
+	) :-
+	(	var(PCTId) ->
+		PCTId = Id
+	;
+		true
+	),
+	NextId is Id + 1,
+	assign_ids_to_pre_created_terms(NextId,Actions).
+assign_ids_to_pre_created_terms(Id,[_|Actions]) :-
+	assign_ids_to_pre_created_terms(Id,Actions).
 
 
 /*
@@ -354,7 +391,7 @@ gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 		SMain = SEvalGoals,
 		SwitchContext = top_level
 	),
-	(	single_clause(Clauses) ->
+	(	single_clause(Clauses),!,
 		SEvalGoals = [return(method_call(self,'clause0',[]))],
 		ClauseSelectorMethod = 
 			method_decl(
@@ -363,7 +400,36 @@ gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 				'next',
 				[],
 				SMain)
-	;
+	;	/*
+		If we have only two cases it is sufficient to use an "if" statement to 
+		branch between these two statements.
+		*/
+		two_clauses(Clauses),!,
+		foreach_clause(
+			Clauses,
+			selector_for_clause_i(Predicate),
+			[
+				case(int(0),FirstClauseStmts),
+				case(int(1),SecondClauseStmts)
+			]
+		),
+		SEvalGoals = [
+			if(
+				value_comparison('==',field_ref(self,'clauseToExecute'),int(0)),
+				FirstClauseStmts
+			)|
+			SecondClauseStmts
+		],
+		ClauseSelectorMethod = 
+			method_decl(
+				public,
+				type(boolean),
+				'next',
+				[],
+				SMain)
+	;	/*
+		This is the base case to handle arbitrary numbers of clauses.
+		*/
 		SEvalGoals = [switch(SwitchContext,field_ref(self,'clauseToExecute'),CaseStmts)],
 		foreach_clause(Clauses,selector_for_clause_i(Predicate),CaseStmts),
 		ClauseSelectorMethod = 
@@ -480,7 +546,9 @@ reset_clause_local_variable(
 
 /*
 
-	"boolean clauseX()" M E T H O D S      ( T H E   C L A U S E  I M P L E M E N T A T I O N S )
+	T H E   C L A U S E  I M P L E M E N T A T I O N S
+	
+	"boolean clauseX()" M E T H O D S      
 
 */
 gen_clause_impl_methods(DeferredActions,_Program,Predicate,ClauseImpls) :-
@@ -494,7 +562,7 @@ implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMetho
 	number_primitive_goals(Body,0,LastId),
 	set_primitive_goals_successors(DeferredActions,Body),
 	primitive_goals_list(Body,PrimitiveGoalsList,[]),
-	translate_goals(PrimitiveGoalsList,Cases,[]),
+	translate_goals(DeferredActions,PrimitiveGoalsList,Cases,[]),
 	(	LastId == 1 ->
 		MethodBody = [switch(top_level,field_ref(self,'goalToExecute'),Cases)]
 	;
@@ -515,10 +583,10 @@ implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMetho
 
 
 
-translate_goals([PrimitiveGoal|PrimitiveGoals],SGoalCases,SRest) :-
-	translate_goal(PrimitiveGoal,SGoalCases,SOtherGoalCases),
-	translate_goals(PrimitiveGoals,SOtherGoalCases,SRest).
-translate_goals([],SCases,SCases).
+translate_goals(DeferredActions,[PrimitiveGoal|PrimitiveGoals],SGoalCases,SRest) :-
+	translate_goal(DeferredActions,PrimitiveGoal,SGoalCases,SOtherGoalCases),
+	translate_goals(DeferredActions,PrimitiveGoals,SOtherGoalCases,SRest).
+translate_goals(_DeferredActions,[],SCases,SCases).
 
 
 
@@ -527,7 +595,7 @@ translate_goals([],SCases,SCases).
 % next_goal_if_fails(Action,multiple) - Action must be "redo"
 % not_unique_predecessor_goal
 % next_goal_if_succeeds(GoalNumber)
-translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	string_atom(PrimitiveGoal,'!'),!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -552,16 +620,15 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		]
 	).
 
-translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	% Handle the case if the comparison is called the first time
-	%%%%%%%%%%% akjdfkjasdföklajsdfölkasdjfölkasdjfölkasdjfölkasdjfölkasdjfölkasdjfölksdjfölksdjfaölksdfjöalskdjf
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(LASTNode,LTermConstructor,LMappedVariableNames),
-	create_term(RASTNode,RTermConstructor,RMappedVariableNames),
+	create_term(LASTNode,cache,LTermConstructor,LMappedVariableNames,DeferredActions),
+	create_term(RASTNode,cache,RTermConstructor,RMappedVariableNames,DeferredActions),
 	merge_sets(LMappedVariableNames,RMappedVariableNames,MappedVariableNames),
 	SEval = [
 		if(unify(LTermConstructor,RTermConstructor),
@@ -578,9 +645,6 @@ translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 			SInitCLVs,
 			SSaveState
 		),
-% write(used),write(MappedVariableNames),nl,
-% write(used_for_the_first_time),write(VariablesUsedForTheFirstTime),nl,
-% write(potentially_used_variables),write(VariablesPotentiallyPreviouslyUsed),nl,
 		(	remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
 			set_subtract(MappedVariableNames,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
 			not_empty(VariablesThatNeedToBeSaved) ->
@@ -609,8 +673,7 @@ translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 		RedoAction
 	).
 
-
-translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
 	is_arithmetic_comparison_operator(Operator),
 	!,
@@ -619,8 +682,8 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	% Handle the case if the comparison is called the first time
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(LASTNode,LTermConstructor,_LMappedVariableNames),
-	create_term(RASTNode,RTermConstructor,_RMappedVariableNames),
+	create_term(LASTNode,do_not_cache,LTermConstructor,_LMappedVariableNames,DeferredActions),
+	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVariableNames,DeferredActions),
 	SCall = case(
 		int(CallCaseId),
 		[
@@ -637,7 +700,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		JumpToNextGoalAfterFail
 	).
 
-translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	% implement the case that the result of is is assigned to a new variable..
 	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
@@ -650,7 +713,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 %write(VariableIdentifier),nl,	
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(RASTNode,RTermConstructor,_RMappedVariableNames),
+	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVariableNames,DeferredActions),
 	SCall = case(
 		int(CallCaseId),
 		[
@@ -670,7 +733,7 @@ translate_goal(PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	).	
 
 % tail recursive call
-translate_goal(PrimitiveGoal,[SGoalCall|SCases],SCases) :-
+translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(last_call_optimization_is_possible,Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -689,16 +752,17 @@ translate_goal(PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 		int(CallCaseId),
 		SCaseHead
 	).
-
-% This implements the base case... if no special support for a given predicate
-% is provided by the compiler
-translate_goal(PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+/*
+This implements the base case... if no special support for a given predicate
+is provided by the compiler.
+*/
+translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	
 	% GOAL "call-case"
 	goal_call_case_id(GoalNumber,CallCaseId),
-	create_term(PrimitiveGoal,TermConstructor,MappedVariableNames),
+	create_term(PrimitiveGoal,do_not_cache_root,TermConstructor,MappedVariableNames,DeferredActions),
 	(
 		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 		lookup_in_meta(potentially_used_variables(PotentiallyUsedVariables),Meta) ->
@@ -856,7 +920,7 @@ save_state_in_undo_goal(MappedVariableNames,SSaveState,SEval) :-
 update_predicate_arguments(_,[],SR,SR).
 update_predicate_arguments(ArgId,[Arg|Args],SUpdatePredArg,SRest) :-
 	atom_concat('arg',ArgId,ArgName),
-	create_term(Arg,TermConstructor,_),
+	create_term(Arg,cache,TermConstructor,_,_DeferredActions),
 	SUpdatePredArg = [
 		expression_statement(assignment(
 			field_ref(self,ArgName),TermConstructor)) | 
@@ -868,40 +932,71 @@ update_predicate_arguments(ArgId,[Arg|Args],SUpdatePredArg,SRest) :-
 
 
 /**
-	@signature create_term(ASTNode,TermConstructor,MappedVariableNames)
+	@signature create_term(ASTNode,Type,TermConstructor,MappedVariableNames,DeferredActions)
+	@arg(in) Type is either "cache", "do_not_cache_root" or "do_not_cache"
 	@arg(out) MappedVariableNames - the names of the variables used by this term
 */
-create_term(ASTNode,_TermConstructor,_MappedVariableNames) :- % let's catch some programming errors early on...
-	var(ASTNode),!,throw(internal_error('cannot create term for nothing')).
-create_term(ASTNode,TermConstructor,MappedVariableNames) :-
-	create_term(ASTNode,TermConstructor,[],MappedVariableNames).
+create_term(
+		ASTNode,
+		_Type,_TermConstructor,_MappedVariableNames,_DeferredActions
+	) :- % let's catch some programming errors early on...
+	var(ASTNode),!,throw(internal_error(create_term/5,'ASTNode needs to be instantiated')).
+create_term(ASTNode,Type,TermConstructor,MappedVariableNames,DeferredActions) :-
+	create_term(ASTNode,Type,TermConstructor,[],MappedVariableNames,DeferredActions).
+
 /**
-	@signature create_term(ASTNode,TermConstructor,OldVariables,NewVariables)
+	@signature create_term(ASTNode,Type,TermConstructor,OldVariables,NewVariables,DeferredActions)
 */
-create_term(ASTNode,int_value(Value),MVNs,MVNs) :-	
+create_term(ASTNode,_Type,int_value(Value),MVNs,MVNs,_DeferredActions) :-	
 	integer_atom(ASTNode,Value),!.
-create_term(ASTNode,float_value(Value),MVNs,MVNs) :-
+create_term(ASTNode,_Type,float_value(Value),MVNs,MVNs,_DeferredActions) :-
 	float_atom(ASTNode,Value),!.
-create_term(ASTNode,string_atom(Value),MVNs,MVNs) :-	
+
+create_term(ASTNode,do_not_cache,string_atom(Value),MVNs,MVNs,_DeferredActions) :- 	
 	string_atom(ASTNode,Value),!.
-create_term(ASTNode,anonymous_variable,MVNs,MVNs) :- 
-	anonymous_variable(ASTNode,_VariableName),!.	
-create_term(ASTNode,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs) :-
+create_term(ASTNode,do_not_cache_root,string_atom(Value),MVNs,MVNs,_DeferredActions) :- 	
+	string_atom(ASTNode,Value),!.	
+create_term(ASTNode,cache,TermConstructor,MVNs,MVNs,DeferredActions) :- 	
+	string_atom(ASTNode,Value),!,
+	TermConstructor = pre_created_term(Id),
+	add_to_set_ol(create_field_for_pre_created_term(Id,string_atom(Value)),DeferredActions).
+
+create_term(ASTNode,do_not_cache,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs,DeferredActions) :-
 	complex_term(ASTNode,Functor,Args),
-	create_terms(Args,ArgsConstructors,OldMVNs,NewMVNs),!.
-create_term(ASTNode,local_variable_ref(VariableIdentifier),OldMVNs,NewMVNs) :- 
+	create_terms(Args,do_not_cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),!.
+create_term(ASTNode,do_not_cache_root,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs,DeferredActions) :-
+	complex_term(ASTNode,Functor,Args),
+	create_terms(Args,cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),!.
+create_term(ASTNode,cache,TermConstructor,OldMVNs,NewMVNs,DeferredActions) :-
+	complex_term(ASTNode,Functor,Args),
+	add_to_set_ol(create_field_for_pre_created_term(FId,string_atom(Functor)),DeferredActions),
+	TC = complex_term(pre_created_term(FId),ArgsConstructors),
+	(	is_ground_term(ASTNode) ->
+		create_terms(Args,do_not_cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),
+		TermConstructor = pre_created_term(CTId),
+		add_to_set_ol(create_field_for_pre_created_term(CTId,TC),DeferredActions)
+	;
+		create_terms(Args,cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),
+		TermConstructor = TC
+	),!.
+
+create_term(ASTNode,_,anonymous_variable,MVNs,MVNs,_DeferredActions) :- 
+	anonymous_variable(ASTNode,_VariableName),!.	
+
+create_term(ASTNode,_Type,local_variable_ref(VariableIdentifier),OldMVNs,NewMVNs,_DeferredActions) :- 
 	is_variable(ASTNode),!,
 	term_meta(ASTNode,Meta),
 	lookup_in_meta(mapped_variable_name(MVN),Meta),
 	mapped_variable_name_to_variable_identifier(MVN,VariableIdentifier),
 	add_to_set(MVN,OldMVNs,NewMVNs).	
+create_term(ASTNode,Type,_,_,_,_) :-
+	throw(internal_error(create_term/6,['the ASTNode (',ASTNode,') has an unknown type(',Type,')'])).
 
 
-
-create_terms([Arg|Args],[TermConstructor|TermConstructors],OldMVNs,NewMVNs) :- !,
-	create_term(Arg,TermConstructor,OldMVNs,IMVNs),
-	create_terms(Args,TermConstructors,IMVNs,NewMVNs).
-create_terms([],[],MVNs,MVNs).
+create_terms([Arg|Args],Type,[TermConstructor|TermConstructors],OldMVNs,NewMVNs,DeferredActions) :- !,
+	create_term(Arg,Type,TermConstructor,OldMVNs,IMVNs,DeferredActions),
+	create_terms(Args,Type,TermConstructors,IMVNs,NewMVNs,DeferredActions).
+create_terms([],_Type,[],MVNs,MVNs,_DeferredActions).
 
 
 

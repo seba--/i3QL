@@ -41,6 +41,55 @@ public abstract class UndoGoal implements Goal {
 		// to prevent other classes (outside of the core of the SAE) to extend this one...
 	}
 
+	@Override
+	public final boolean next() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public final boolean choiceCommitted() {
+		throw new UnsupportedOperationException();
+	}
+
+	//
+	//
+	// F A C T O R Y M E T H O D S
+	//
+	//
+
+	public final static UndoGoal create(State state) {
+		if (state != null)
+			return new UndoGoalOneNonTrivialState(state);
+		else
+			return DO_NOTHING_UNDO_GOAL;
+	}
+
+	public final static UndoGoal create(Term term) {
+		State state = term.manifestState();
+		if (state != null)
+			return new UndoGoalOneNonTrivialState(state);
+		else
+			return DO_NOTHING_UNDO_GOAL;
+	}
+
+	public final static UndoGoal create(Term s0, Term s1) {
+		return new UndoGoalTwoStates(s0, s1);
+	}
+
+	public final static UndoGoal create(Term s0, Term s1, Term s2) {
+		return new UndoGoalThreeStates(s0, s1, s2);
+	}
+
+	public final static UndoGoal create(Term s0, Term s1, Term s2, Term s3) {
+		return new UndoGoalFourStates(s0, s1, s2, s3);
+	}
+
+	//
+	//
+	// S P E C I A L I Z E D   C L A S S E S 
+	//
+	//
+
 	private static final UndoGoal DO_NOTHING_UNDO_GOAL = new UndoGoal() {
 
 		@Override
@@ -136,48 +185,4 @@ public abstract class UndoGoal implements Goal {
 		}
 
 	}
-
-	@Override
-	public final boolean next() {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public final boolean choiceCommitted() {
-		throw new UnsupportedOperationException();
-	}
-
-	//
-	//
-	// F A C T O R Y M E T H O D S
-	//
-	//
-
-	public final static UndoGoal create(State state) {
-		if (state != null)
-			return new UndoGoalOneNonTrivialState(state);
-		else
-			return DO_NOTHING_UNDO_GOAL;
-	}
-
-	public final static UndoGoal create(Term term) {
-		State state = term.manifestState();
-		if (state != null)
-			return new UndoGoalOneNonTrivialState(state);
-		else
-			return DO_NOTHING_UNDO_GOAL;
-	}
-
-	public final static UndoGoal create(Term s0, Term s1) {
-		return new UndoGoalTwoStates(s0, s1);
-	}
-
-	public final static UndoGoal create(Term s0, Term s1, Term s2) {
-		return new UndoGoalThreeStates(s0, s1, s2);
-	}
-
-	public final static UndoGoal create(Term s0, Term s1, Term s2, Term s3) {
-		return new UndoGoalFourStates(s0, s1, s2, s3);
-	}
-
 }

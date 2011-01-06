@@ -11,12 +11,16 @@ import saere.Variable;
 
 public class MainEinsteinsRiddle {
 
-	public static void main(String[] args) throws Throwable {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		einstein2Factory.registerWithPredicateRegistry(registry);
 		nextTo3Factory.registerWithPredicateRegistry(registry);
 		rightTo3Factory.registerWithPredicateRegistry(registry);
+	}
+	
+	public static void main(String[] args) throws Throwable {
+
+	
 
 		{
 			System.out.println("Warm up...");
@@ -65,7 +69,7 @@ public class MainEinsteinsRiddle {
 				long duration = System.nanoTime() - startTime;
 				double time = duration / 1000.0d / 1000.0d / 1000.0d;
 				System.out.println("Finished in " + time + "seconds");
-				Utils.writeToPerformanceLog("einsteins riddle finished in: " + time + "\n");
+				All.writeToPerformanceLog("einsteins riddle finished in: " + time + "\n");
 			}
 		});
 		t.start();

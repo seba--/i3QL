@@ -174,6 +174,14 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write(Stream,'}\n').
 write_class_member(Stream,field_decl(goal_stack)) :- !,
 	write(Stream,'private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;\n').
+write_class_member(Stream,field_decl_for_pre_created_term(Id,Expr)) :- !,	
+	type_of_term_expression(Expr,Type),
+	write(Stream,'private static final '),
+	write(Stream,Type),
+	write(Stream,' PCT'),write(Stream,Id),
+	write(Stream,' = '),
+	write_expr(Stream,Expr),
+	write(Stream,';\n').
 write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
@@ -380,7 +388,11 @@ write_expr(Stream,assignment(LValue,Expression)) :- !,
 write_expr(Stream,reference_comparison(LExpression,RExpression)) :- !,
 	write_lvalue(Stream,LExpression),
 	write(Stream,' == '),
-	write_expr(Stream,RExpression).	
+	write_expr(Stream,RExpression).
+write_expr(Stream,value_comparison(Operator,LExpression,RExpression)) :- !,
+	write_expr(Stream,LExpression),
+	write(Stream,' '),	write(Stream,Operator),	write(Stream,' '),
+	write_expr(Stream,RExpression).
 write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :- !, 
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
@@ -427,8 +439,10 @@ write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,'.call()').	
 write_expr(Stream,get_top_element_from_goal_stack) :- !,
-	write(Stream,'this.goalStack.peek()').
+	write(Stream,'this.goalStack.peek()').	
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
+write_expr(Stream,pre_created_term(I)):-
+	write(Stream,'PCT'),write(Stream,I).
 write_expr(Stream,clv(I)) :- !,
 	write(Stream,'this.clv'),write(Stream,I).
 write_expr(Stream,arg(I)) :- !,
@@ -590,6 +604,15 @@ array_acces(ArrayName,N,ArrayAccess) :-
  *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
  *                                                                            *
 \* ************************************************************************** */
+
+type_of_term_expression(string_atom(_),'StringAtom') :- !.
+type_of_term_expression(complex_term(_,_),'CompoundTerm') :- !.
+type_of_term_expression(int_value(_),'IntValue') :-!.
+type_of_term_expression(float_value(_),'FloatValue') :-!.
+type_of_term_expression(variable,'Variable') :-!.
+type_of_term_expression(anonymous_variable,'Variable') :-!.
+type_of_term_expression(_,'Term').
+
 map_functor_to_class_name('='/2,'Unify') :- !.
 map_functor_to_class_name('\\='/2,'NotUnify') :- !.
 map_functor_to_class_name(','/2,'And') :- !.

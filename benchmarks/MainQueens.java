@@ -15,8 +15,7 @@ import saere.Variable;
 
 public class MainQueens {
 
-	public static void main(String[] args) throws Exception {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		not_attack2Factory.registerWithPredicateRegistry(registry);
 		not_attack3Factory.registerWithPredicateRegistry(registry);
@@ -24,6 +23,9 @@ public class MainQueens {
 		queens3Factory.registerWithPredicateRegistry(registry);
 		range3Factory.registerWithPredicateRegistry(registry);
 		select3Factory.registerWithPredicateRegistry(registry);
+	}
+
+	public static void main(String[] args) throws Exception {
 
 		System.out.println("Warm up...");
 		for (int i = 1; i <= 18; i++) {
@@ -60,7 +62,7 @@ public class MainQueens {
 				long duration = System.nanoTime() - startTime;
 				Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 				System.out.printf("%10.4f", time);
-				Utils.writeToPerformanceLog("queens finished in: " + time+"\n");
+				All.writeToPerformanceLog("queens finished in: " + time + "\n");
 			}
 		});
 		t.start();

@@ -12,11 +12,15 @@ import saere.Variable;
 
 public class MainChatParser {
 
-	public static void main(String[] args) throws Throwable {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		input1Factory.registerWithPredicateRegistry(registry);
 		determinate_say2Factory.registerWithPredicateRegistry(registry);
+	}
+	
+	public static void main(String[] args) throws Throwable {
+
+		
 
 		System.out.println("Warm up...(will take ~1 Minute)");
 		{
@@ -64,7 +68,7 @@ public class MainChatParser {
 				double time = duration / 1000.0d / 1000.0d / 1000.0d;
 				System.out.println("Finished in " + time + "seconds");
 
-				Utils.writeToPerformanceLog("chat_parser finished in: " + time + "\n");
+				All.writeToPerformanceLog("chat_parser finished in: " + time + "\n");
 			}
 		};
 		Thread t1 = new Thread(r);

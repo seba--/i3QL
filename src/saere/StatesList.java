@@ -32,15 +32,12 @@
 package saere;
 
 /**
- * A list of state objects that represent a state on its own.
+ * A list of state objects that represents a state on its own.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 final class StatesList implements State {
 
-	/**
-	 * The state of a complex term's argument.
-	 */
 	private final State state;
 
 	private StatesList next;
@@ -66,7 +63,7 @@ final class StatesList implements State {
 	public String toString() {
 		StatesList los = next;
 		String s = "[" + state.toString();
-		while (los != null) {		
+		while (los != null) {
 			s += "," + los.state.toString();
 			los = los.next;
 		}

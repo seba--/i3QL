@@ -11,10 +11,12 @@ import saere.Variable;
 
 public class MainTak {
 
-	public static void main(String[] args) throws Throwable {
-
+	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
 		tak4Factory.registerWithPredicateRegistry(registry);
+	}
+
+	public static void main(String[] args) throws Throwable {
 
 		// Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.2)
 		// 3.06Ghz Core2Duo
@@ -44,7 +46,7 @@ public class MainTak {
 			}
 			long duration = System.nanoTime() - startTime;
 			Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
-			Utils.writeToPerformanceLog("tak warmup finished in: " + time);
+			All.writeToPerformanceLog("tak warmup finished in: " + time + "\n");
 		}
 
 		// System.out

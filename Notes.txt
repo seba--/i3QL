@@ -45,5 +45,5 @@ where the answers are: No, Maybe, Yes)
 
 How to use the compiler:
 
-compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/Hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
+make,compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/'),compile('benchmarks/ancestor.pl','build/src/java/'),compile('benchmarks/chat_parser.pl','build/src/java/').
 
