@@ -108,6 +108,7 @@ public abstract class CompoundTerm extends Term {
 	 */
 	@Override
 	public State manifestState() {
+		// TODO reevaluate if the "isGround" test is still meaningful if we have completed the compiler support for variable dereferencing
 		if (isGround()) {
 			return null;
 		} 
@@ -130,7 +131,7 @@ public abstract class CompoundTerm extends Term {
 				// manifest a large datastructure (e.g., a long list)
 				// which contains a large number of (bound) variables
 				// this easily leads to a stack overflow error.
-				Term arg_i = complexTerm.arg(i).unwrap();
+				Term arg_i = complexTerm.arg(i).dereference();
 				switch (arg_i.termTypeID()) {
 				case Term.VARIABLE_TYPE_ID:
 					Variable variable = arg_i.asVariable();
@@ -207,7 +208,7 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public final Term unwrap() {
+	public final Term dereference() {
 		return this;
 	}
 

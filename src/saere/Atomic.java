@@ -86,7 +86,7 @@ public abstract class Atomic extends Term {
 	}
 
 	@Override
-	public final Term unwrap() {
+	public final Term dereference() {
 		return this;
 	}
 

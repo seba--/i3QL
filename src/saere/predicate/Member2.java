@@ -84,8 +84,8 @@ public final class Member2 implements Goal {
 
 	public Member2(final Term testElement, final Term list) {
 		// TODO is "unwrapping" of passed in terms meaningfull?
-		this.testElement = testElement.unwrap();
-		this.list = list.unwrap();
+		this.testElement = testElement.dereference();
+		this.list = list.dereference();
 	}
 
 	public boolean next() {

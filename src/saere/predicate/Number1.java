@@ -77,6 +77,6 @@ public class Number1 extends TestGoal {
 	}
 
 	public static final boolean isNumber(Term t) {
-		return t.unwrap().termTypeID() >= Term.NUMBER_TYPE_ID;
+		return t.dereference().termTypeID() >= Term.NUMBER_TYPE_ID;
 	}
 }
