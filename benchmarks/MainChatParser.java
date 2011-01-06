@@ -21,7 +21,7 @@ public class MainChatParser {
 		System.out.println("Warm up...(will take ~1 Minute)");
 		{
 			long startTime = System.nanoTime();
-			do{
+			do {
 				Goal g;
 				Variable Input = new Variable();
 				Variable Answer = new Variable();
@@ -34,14 +34,13 @@ public class MainChatParser {
 				}
 				if (count < 10)
 					throw new Error("internal programming error");
-			} while ((System.nanoTime() - startTime) < 60l*1000l*1000l*1000l);
+			} while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
 			long duration = System.nanoTime() - startTime;
-			System.out.println("Finished in " + duration / 1000.0 / 1000.0
-					/ 1000.0 + "seconds");
+			System.out.println("Finished in " + duration / 1000.0 / 1000.0 / 1000.0 + "seconds");
 		}
 
-		System.out.println("Sleeping for five seconds...");
-		Thread.sleep(5000);
+		// System.out.println("Sleeping for five seconds...");
+		// Thread.sleep(5000);
 		Runnable r = new Runnable() {
 			public void run() {
 				long startTime = System.nanoTime();
@@ -51,21 +50,21 @@ public class MainChatParser {
 				Term term = compoundTerm(
 						atomic("time"),
 						and(compoundTerm(atomic("input"), Input),
-								compoundTerm(atomic("determinate_say"), Input,
-										Answer)));
+								compoundTerm(atomic("determinate_say"), Input, Answer)));
 				g = term.call();
 				int count = 0;
 				while (g.next()) {
 					count++;
-					System.out.println(" ; " + Input.toProlog() + " => "
-							+ Answer.toProlog());
+					System.out.println(" ; " + Input.toProlog() + " => " + Answer.toProlog());
 				}
 				System.out.println(" ; no more solutions.");
 				if (count < 10)
 					throw new Error("internal programming error");
 				long duration = System.nanoTime() - startTime;
-				System.out.println("Finished in " + duration / 1000.0 / 1000.0
-						/ 1000.0 + "seconds");
+				double time = duration / 1000.0d / 1000.0d / 1000.0d;
+				System.out.println("Finished in " + time + "seconds");
+
+				Utils.writeToPerformanceLog("chat_parser finished in: " + time + "\n");
 			}
 		};
 		Thread t1 = new Thread(r);

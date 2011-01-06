@@ -32,30 +32,30 @@ public class MainTak {
 
 		System.out.println("Warm up...");
 		{
-
+			long startTime = System.nanoTime();
 			Variable result = new Variable();
-			Term t = compoundTerm(
-					StringAtom.get("time"),
-					compoundTerm(atomic("tak"), atomic(18), atomic(14),
-							atomic(6), result));
+			Term t = compoundTerm(StringAtom.get("time"),
+					compoundTerm(atomic("tak"), atomic(18), atomic(14), atomic(6), result));
 			Goal s = t.call();
 			if (!s.next()) {
 				throw new Error("internal programming error");
 			} else {
 				System.out.println("\nResult=" + result.toProlog());
 			}
+			long duration = System.nanoTime() - startTime;
+			Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
+			Utils.writeToPerformanceLog("tak warmup finished in: " + time);
 		}
 
-		System.out
-				.println("Sleeping for five seconds...");
-		Thread.sleep(5000);
+		// System.out
+		// .println("Sleeping for five seconds...");
+		// Thread.sleep(5000);
+
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 				Variable result = new Variable();
-				Term term = compoundTerm(
-						atomic("time"),
-						compoundTerm(atomic("tak"), atomic(18), atomic(16),
-								atomic(6), result));
+				Term term = compoundTerm(atomic("time"),
+						compoundTerm(atomic("tak"), atomic(18), atomic(16), atomic(6), result));
 				Goal s = term.call();
 				if (!s.next()) {
 					throw new Error("internal programming error");

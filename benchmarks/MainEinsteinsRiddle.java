@@ -18,31 +18,32 @@ public class MainEinsteinsRiddle {
 		nextTo3Factory.registerWithPredicateRegistry(registry);
 		rightTo3Factory.registerWithPredicateRegistry(registry);
 
-		System.out.println("Warm up...");
-		for (int i = 0; i < 50; i++) {
-			StringAtom time = StringAtom.get("time");
-			Variable houses = new Variable();
-			Variable fishOwner = new Variable();
+		{
+			System.out.println("Warm up...");
+			for (int i = 0; i < 50; i++) {
+				// StringAtom time = StringAtom.get("time");
+				Variable houses = new Variable();
+				Variable fishOwner = new Variable();
 
-			StringAtom einstein = StringAtom.get("einstein");
-			Goal s = //compoundTerm(time,
-					compoundTerm(einstein, houses, fishOwner)
-					//)
-					.call();
-			if (!s.next()) {
-				throw new Error();
+				StringAtom einstein = StringAtom.get("einstein");
+				Goal s = // compoundTerm(time,
+				compoundTerm(einstein, houses, fishOwner)
+				// )
+						.call();
+				if (!s.next()) {
+					throw new Error();
+				}
+				// else {
+				// System.out.println(" houses=" + houses.toProlog()
+				// + "fishOwner=" + fishOwner.toProlog());
+				// }
+				System.out.print(".");
 			}
-//			else {
-//				System.out.println(" houses=" + houses.toProlog()
-//						+ "fishOwner=" + fishOwner.toProlog());
-//			}
-			System.out.print(".");
+			System.out.println();
 		}
-		System.out.println();
 
-		System.out
-				.println("Sleeping for five seconds...");
-		Thread.sleep(5000);
+		// System.out.println("Sleeping for five seconds...");
+		// Thread.sleep(5000);
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 
@@ -55,16 +56,16 @@ public class MainEinsteinsRiddle {
 					Variable fishOwner = new Variable();
 
 					StringAtom einstein = StringAtom.get("einstein");
-					Goal s = compoundTerm(time,
-							compoundTerm(einstein, houses, fishOwner)).call();
+					Goal s = compoundTerm(time, compoundTerm(einstein, houses, fishOwner)).call();
 					if (s.next()) {
-						System.out.println(" houses=" + houses.toProlog()
-								+ "fishOwner=" + fishOwner.toProlog());
+						System.out.println(" houses=" + houses.toProlog() + "fishOwner="
+								+ fishOwner.toProlog());
 					}
 				}
 				long duration = System.nanoTime() - startTime;
-				System.out.println("Finished in " + duration / 1000.0 / 1000.0
-						/ 1000.0 + "seconds");
+				double time = duration / 1000.0d / 1000.0d / 1000.0d;
+				System.out.println("Finished in " + time + "seconds");
+				Utils.writeToPerformanceLog("einsteins riddle finished in: " + time + "\n");
 			}
 		});
 		t.start();

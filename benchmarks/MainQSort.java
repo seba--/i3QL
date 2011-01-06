@@ -27,27 +27,23 @@ public class MainQSort {
 
 				Variable list = new Variable();
 				Variable result = new Variable();
-				Term t = and(
-						compoundTerm(StringAtom.get("list"), list),
-						compoundTerm(StringAtom.get("qsort"), list, result,
-								StringAtom.EMPTY_LIST));
+				Term t = and(compoundTerm(StringAtom.get("list"), list),
+						compoundTerm(StringAtom.get("qsort"), list, result, StringAtom.EMPTY_LIST));
 				Goal s = t.call();
 				if (!s.next()) {
 					throw new Error("internal programming error");
 				}
 			}
 			long duration = System.nanoTime() - startTime;
-			System.out.println("Finished in " + duration / 1000.0 / 1000.0
-					/ 1000.0 + "seconds");
+			System.out.println("Finished in " + duration / 1000.0 / 1000.0 / 1000.0 + "seconds");
 		}
 
-		System.out.println("Sleeping for five seconds...");
-		Thread.sleep(5000);
+		// System.out.println("Sleeping for five seconds...");
+		// Thread.sleep(5000);
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 
-				System.out
-						.println("Evaluating... (sorting 50 values, 1000 times)");
+				System.out.println("Evaluating... (sorting 50 values, 1000 times)");
 				long startTime = System.nanoTime();
 				for (int i = 0; i < 1000; i++) {
 					Variable list = new Variable();
@@ -63,8 +59,9 @@ public class MainQSort {
 					System.out.println(result.toProlog());
 				}
 				long duration = System.nanoTime() - startTime;
-				System.out.println("Finished in " + duration / 1000.0 / 1000.0
-						/ 1000.0 + "seconds");
+				double time = duration / 1000.0d / 1000.0d / 1000.0d;
+				System.out.println("Finished in " + time + "seconds");
+				Utils.writeToPerformanceLog("qsort finished in: " + time + "\n");
 			}
 		});
 		t.start();
