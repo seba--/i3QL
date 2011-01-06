@@ -958,8 +958,7 @@ create_term(ASTNode,do_not_cache_root,string_atom(Value),MVNs,MVNs,_DeferredActi
 	string_atom(ASTNode,Value),!.	
 create_term(ASTNode,cache,TermConstructor,MVNs,MVNs,DeferredActions) :- 	
 	string_atom(ASTNode,Value),!,
-	TermConstructor = pre_created_term(Id),
-	add_to_set_ol(create_field_for_pre_created_term(Id,string_atom(Value)),DeferredActions).
+	create_term_for_cacheable_string_atom(Value,TermConstructor,DeferredActions).
 
 create_term(ASTNode,do_not_cache,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs,DeferredActions) :-
 	complex_term(ASTNode,Functor,Args),
@@ -969,8 +968,8 @@ create_term(ASTNode,do_not_cache_root,complex_term(string_atom(Functor),ArgsCons
 	create_terms(Args,cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),!.
 create_term(ASTNode,cache,TermConstructor,OldMVNs,NewMVNs,DeferredActions) :-
 	complex_term(ASTNode,Functor,Args),
-	add_to_set_ol(create_field_for_pre_created_term(FId,string_atom(Functor)),DeferredActions),
-	TC = complex_term(pre_created_term(FId),ArgsConstructors),
+	create_term_for_cacheable_string_atom(Functor,FunctorConstructor,DeferredActions),
+	TC = complex_term(FunctorConstructor,ArgsConstructors),
 	(	is_ground_term(ASTNode) ->
 		create_terms(Args,do_not_cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),
 		TermConstructor = pre_created_term(CTId),
@@ -997,6 +996,16 @@ create_terms([Arg|Args],Type,[TermConstructor|TermConstructors],OldMVNs,NewMVNs,
 	create_term(Arg,Type,TermConstructor,OldMVNs,IMVNs,DeferredActions),
 	create_terms(Args,Type,TermConstructors,IMVNs,NewMVNs,DeferredActions).
 create_terms([],_Type,[],MVNs,MVNs,_DeferredActions).
+
+
+create_term_for_cacheable_string_atom(Value,TermConstructor,DeferredActions) :- 
+	(
+		predefined_functor(Value) ->
+		TermConstructor = string_atom(Value)
+	;	
+		TermConstructor = pre_created_term(Id),
+		add_to_set_ol(create_field_for_pre_created_term(Id,string_atom(Value)),DeferredActions)
+	).
 
 
 

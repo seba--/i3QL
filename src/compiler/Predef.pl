@@ -46,6 +46,8 @@
 	
 		default_op_table/1,
 		
+		predefined_functor/1,
+		
 		is_arithmetic_comparison_operator/1
 	]
 ).
@@ -286,6 +288,33 @@ default_op_table(
 		]		
 	)
 ).
+
+
+
+predefined_functor('=').
+predefined_functor('\\=').
+predefined_functor(',').
+predefined_functor(';').
+predefined_functor('!').
+predefined_functor('*->').
+predefined_functor('->').
+predefined_functor('true').
+predefined_functor('false').
+predefined_functor('fail').
+predefined_functor('not').
+predefined_functor('\\+').
+predefined_functor('is').
+predefined_functor('*').
+predefined_functor('-').
+predefined_functor('+').
+predefined_functor('<').
+predefined_functor('=<').
+predefined_functor('>').
+predefined_functor('>=').
+predefined_functor('=:=').
+predefined_functor('=\\=').
+predefined_functor('[]').
+predefined_functor('.').
 
 
 

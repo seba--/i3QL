@@ -604,7 +604,6 @@ array_acces(ArrayName,N,ArrayAccess) :-
  *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
  *                                                                            *
 \* ************************************************************************** */
-
 type_of_term_expression(string_atom(_),'StringAtom') :- !.
 type_of_term_expression(complex_term(_,_),'CompoundTerm') :- !.
 type_of_term_expression(int_value(_),'IntValue') :-!.
@@ -643,6 +642,11 @@ map_functor_to_class_name('ground'/1,'Ground') :- !.
 map_functor_to_class_name(Functor/_Arity,Functor).
 
 
+map_term_functor_to_class_name('*'/2,'Mult2').
+map_term_functor_to_class_name('-'/1,'Minus1').
+map_term_functor_to_class_name('+'/2,'Plus2').
+map_term_functor_to_class_name('.'/2,'ListElement2').
+
 
 map_arith_comp_operator_to_java_operator('<','<') :- !.
 map_arith_comp_operator_to_java_operator('=<','<=') :- !.
@@ -666,8 +670,3 @@ map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['un
 
 
 
-%map_functor_to_class_name('*').
-%map_functor_to_class_name('-').
-%map_functor_to_class_name('+').
-%map_functor_to_class_name('[]').
-%map_functor_to_class_name('.').	
