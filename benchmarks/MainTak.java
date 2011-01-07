@@ -32,42 +32,30 @@ public class MainTak {
 		// 9132878 Lips)
 		// R = 7.
 
-		System.out.println("Warm up...");
+		final Variable result = new Variable();
+		final long x = 32;
+		final long y = 12;
+		final long z = 6;
+		final Term t = compoundTerm(StringAtom.get("time"),
+				compoundTerm(atomic("tak"), atomic(x), atomic(y), atomic(z), result));
 		{
+			Goal g = t.call();
+			while (g.next()) {
+				System.out.println("Result=" + result.toProlog());
+			}
+		}
+
+		for (int i = 2; i <= 10; i++) {
 			long startTime = System.nanoTime();
-			Variable result = new Variable();
-			Term t = compoundTerm(StringAtom.get("time"),
-					compoundTerm(atomic("tak"), atomic(18), atomic(14), atomic(6), result));
-			Goal s = t.call();
-			if (!s.next()) {
+			Goal g = t.call();
+			if (!(g.next() && !g.next())) {
 				throw new Error("internal programming error");
-			} else {
-				System.out.println("\nResult=" + result.toProlog());
 			}
 			long duration = System.nanoTime() - startTime;
 			Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
-			All.writeToPerformanceLog("tak warmup finished in: " + time + "\n");
+			All.writeToPerformanceLog("tak("+x+","+y+","+z+") run " + i + " (find all solutions) finished in: " + time
+					+ "\n");
 		}
-
-		// System.out
-		// .println("Sleeping for five seconds...");
-		// Thread.sleep(5000);
-
-		Thread t = new Thread(new Runnable() {
-			public void run() {
-				Variable result = new Variable();
-				Term term = compoundTerm(atomic("time"),
-						compoundTerm(atomic("tak"), atomic(18), atomic(16), atomic(6), result));
-				Goal s = term.call();
-				if (!s.next()) {
-					throw new Error("internal programming error");
-				} else {
-					System.out.println("\nResult=" + result.toProlog());
-				}
-			}
-		});
-		t.start();
-		t.join();
 	}
 
 }

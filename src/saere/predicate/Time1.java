@@ -69,7 +69,7 @@ public final class Time1 implements Goal {
 		final long startTime = System.nanoTime();
 		final boolean succeeded = goal.next();
 		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
-		System.out.printf("%8.4f", new Double(duration));
+		System.out.printf("finished in %8.4f secs.\n", new Double(duration));
 		return succeeded;
 	}
 
