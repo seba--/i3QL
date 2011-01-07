@@ -32,7 +32,8 @@
 package saere;
 
 /**
- * PrologExceptions are used for programming errors done by the Prolog developer.
+ * PrologExceptions are used for programming errors done by the Prolog developer. (E.g., using "is"
+ * where a variable on the right side is not instantiated.)
  * <p>
  * <code>PrologExceptions</code> must not be used for SAE internal errors.
  * </p>

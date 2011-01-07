@@ -140,7 +140,7 @@ public final class IntValue extends Atomic {
 
 	@SuppressWarnings("all")
 	public final static IntValue get(final long value) {
-		if (value >= -1000 && value < 1000) {
+		if (value >= -1000l && value < 1000l) {
 			return INT_VALUES[((int) value)+1000];
 		} else {
 			return new IntValue(value);
