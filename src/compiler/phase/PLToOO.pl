@@ -177,9 +177,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
 	% Code to create fields for pre created terms.
-write_list(DeferredActions),nl,nl,
 	assign_ids_to_pre_created_terms(1,DeferredActions),
-write_list(DeferredActions),	
 	field_decls_for_pre_created_terms(DeferredActions,SFieldDecls,SControlFlow),
 	% Standard (instance-related) variables
 	SControlFlow = [
@@ -441,44 +439,103 @@ gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
 				SMain)
 	).
 
-
-
-selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :- !,
+selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :- 
 	atom_concat('clause',I,ClauseIdentifier),
-	(	lookup_in_clause_meta(last_call_optimization_is_possible,Clause) ->
-		reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
-		SPrepareForNextClause = [
+	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),!,
+	reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
+	(	lookup_in_clause_meta(cut(never),Clause) ->
+		SCutReset = eol_comment('no cut...')
+	;
+		SCutReset = expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(false)))
+	),
+	SPrepareForNextClause = [
+		SCutReset,
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
+		continue('eval_clauses')
+	],
+	Stmts = [
+		eol_comment('tail recursive clause with last call optimization'),
+		if(
+			method_call(self,ClauseIdentifier,[]),
+			SCleanup
+		),
+		expression_statement(method_call(self,'abort',[])),
+		return(boolean(false))
+	].
+
+selector_for_clause_i(_Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
+	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),!,
+	atom_concat('clause',I,ClauseIdentifier),
+	NextClauseId is I + 1,
+	(	lookup_in_clause_meta(cut(never),Clause) ->
+		SCutReset = eol_comment('no cut...')
+	;
+		SCutReset = expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(false)))
+	),
+	reset_clause_local_variables(
+		Clause,
+		SResetCLVs,
+		[  % after reseting the CLVs...
+			SCutReset,		
 			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
+			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))), % unless this is the first clause....
 			continue('eval_clauses')
-		],
+		] 
+	),
+	(	lookup_in_clause_meta(cut(never),Clause) ->
+		SCut = eol_comment('this clause contains no "cut"')
+	;
+		SCut = if(field_ref(self,'cutEvaluation'),
+			[
+				expression_statement(method_call(self,'abort',[])),
+				return(boolean(false))
+			]
+		)
+	),
+	Stmts = [
+		if(
+			method_call(self,ClauseIdentifier,[]),
+			[	eol_comment('tail recursive clause with last call optimization')|
+				SResetCLVs
+			]
+		),		
+		SCut,
+		eol_comment('prepare the execution of the next clause'),
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
+	].
+	
+
+selector_for_clause_i(Predicate,I,_Clause,last,case(int(I),Stmts)) :- !,
+	atom_concat('clause',I,ClauseIdentifier),
+	% if this is the last clause, we don't care if the evaluation was "cutted" or not
+	( lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
 		Stmts = [
-			eol_comment('tail recursive clause with last call optimization'),
-			if(
-				method_call(self,ClauseIdentifier,[]),
-				SCleanup
+			if(method_call(self,ClauseIdentifier,[]),
+				[return(boolean(true))]
 			),
 			expression_statement(method_call(self,'abort',[])),
 			return(boolean(false))
 		]
 	;
-		% if this is the last clause, we don't care if the evaluation was "cutted" or not
 		Stmts = [return(method_call(self,ClauseIdentifier,[]))]
 	).
+		
 	
 selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 	atom_concat('clause',I,ClauseIdentifier),
 	NextClauseId is I + 1,
 	
 	reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
+	SPrepareForNextClause = [
+		eol_comment('prepare the execution of the next clause'),
+		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
+	],
 	(
 		lookup_in_clause_meta(cut(never),Clause) ->
-		ClauseFailed = [eol_comment('this clause contains no "cut"') |SCleanup],
-		SPrepareForNextClause = [
-			eol_comment('prepare the execution of the next clause'),
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
-		]
+		ClauseFailed = [eol_comment('this clause contains no "cut"') |SCleanup]
 	;
 		(	lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
 			Return = [ 
@@ -488,11 +545,6 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 		;
 			Return = [return(boolean(false))]
 		),
-		SPrepareForNextClause = [
-			eol_comment('prepare the execution of the next clause'),
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
-		],
 		ClauseFailed = [
 			if(field_ref(self,'cutEvaluation'),
 				Return
@@ -500,28 +552,12 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 			SCleanup
 		]
 	),
-	(	lookup_in_clause_meta(last_call_optimization_is_possible,Clause) ->
-		SPrepareForNextClause = [
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
-			continue('eval_clauses')
-		],
-		Stmts = [
-			eol_comment('tail recursive clause with last call optimization'),
-			if(
-				method_call(self,ClauseIdentifier,[]),
-				SCleanup
-			),
-			ClauseFailed
-		]
-	;	
-		Stmts = [
-			if(method_call(self,ClauseIdentifier,[]),
-				[return(boolean(true))]
-			) |
-			ClauseFailed
-		]
-	).
+	Stmts = [
+		if(method_call(self,ClauseIdentifier,[]),
+			[return(boolean(true))]
+		) |
+		ClauseFailed
+	].
 
 
 
@@ -530,8 +566,7 @@ reset_clause_local_variables(
 		SCLVReset,
 		SR
 	) :- 
-	clause_meta(Clause,Meta),
-	lookup_in_meta(clause_local_variables_count(CLVCount),Meta),
+	lookup_in_clause_meta(clause_local_variables_count(CLVCount),Clause),
 	call_foreach_i_in_0_to_u(CLVCount,reset_clause_local_variable,SCLVReset,SR).
 
 
@@ -540,7 +575,7 @@ reset_clause_local_variable(
 		I,
 		expression_statement(assignment(field_ref(self,FieldName),null))
 	) :-
-	atom_concat(clv,I,FieldName).
+	atom_concat(clv,I,FieldName). % TODO let the OOto... layer rewrite the names..
 
 
 

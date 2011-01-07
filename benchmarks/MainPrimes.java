@@ -24,16 +24,24 @@ public class MainPrimes {
 
 		System.out.println("Warm up...(~ 1 Minute)");
 		{
+			boolean showSolution = true;
 			long startTime = System.nanoTime();
 			do {
 				Variable solution = new Variable();
-				Goal s = compoundTerm(atomic("primes"), atomic(1000), solution).call();
-				if (!s.next()) {
+				Goal s = compoundTerm(atomic("primes"), atomic(1000), solution)
+						.call();
+				if (s.next()) {
+					if (showSolution) {
+						showSolution = false;
+						System.out.println(solution.toProlog());
+					}
+				} else {
 					throw new Error("Evaluation failed.");
 				}
 			} while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
 			long duration = System.nanoTime() - startTime;
-			System.out.printf("%7.4f\n", new Double(duration / 1000.0 / 1000.0 / 1000.0));
+			System.out.printf("%7.4f\n", new Double(
+					duration / 1000.0 / 1000.0 / 1000.0));
 		}
 
 		// System.out.println("Waiting for five seconds...");
@@ -45,10 +53,13 @@ public class MainPrimes {
 				long startTime = System.nanoTime();
 				for (int i = 1; i <= 10; i++) {
 					Variable solution = new Variable();
-					Goal s = compoundTerm(atomic("time"),
-							compoundTerm(atomic("primes"), atomic(1000), solution)).call();
+					Goal s = compoundTerm(
+							atomic("time"),
+							compoundTerm(atomic("primes"), atomic(1000),
+									solution)).call();
 					if (s.next()) {
-						System.out.println(" ; " + i + " => " + solution.toProlog());
+						System.out.println(" ; " + i + " => "
+								+ solution.toProlog());
 					} else {
 						throw new Error("Evaluation failed.");
 					}

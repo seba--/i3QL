@@ -100,7 +100,7 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 %%%% 2. ANALYSES
 phase(pl_cut_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
 phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
-phase(pl_last_call_optimization_analysis,execute,[on_entry,ast(user)]) :- phase(pl_cut_analysis,execute,_).
+phase(pl_last_call_optimization_analysis,execute,[on_entry,report_clauses_where_lco_is_possible]) :- phase(pl_cut_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
 phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_variable_usage_analysis,execute,_).

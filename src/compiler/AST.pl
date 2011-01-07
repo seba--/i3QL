@@ -379,9 +379,14 @@ two_clauses(Clauses):-
 	@signature foreach_clause(Clauses_ASTNode,Goal)
 */
 foreach_clause(Var,_Goal) :- var(Var),!. % Clauses is an open list...
-foreach_clause([Clause|Clauses],Goal) :- !,
-	call(Goal,Clause),
+foreach_clause([Clause|Clauses],Goal) :- 
+	call(Goal,Clause), !,
 	foreach_clause(Clauses,Goal).
+foreach_clause([Clause|_Clauses],Goal) :-
+ 	throw(
+		internal_error(
+			foreach_clause/2,
+			['calling the goal: ',Goal,' with ',Clause,'failed'])).
 
 
 
@@ -400,11 +405,16 @@ foreach_clause([Clause|Clauses],Goal) :- !,
 foreach_clause(Clauses,Goal,Os) :- 
 	foreach_clause_impl(Clauses,0,Goal,Os).
 foreach_clause_impl(Var,_,_,[]) :- var(Var),!. % Clauses is an open list...
-foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- !,
+foreach_clause_impl([Clause|Clauses],N,F,[O|Os]) :- 
 	(	var(Clauses) -> Last = last ; Last = not_last ),
-	call(F,N,Clause,Last,O),
+	call(F,N,Clause,Last,O),!,
 	NewN is N + 1,
 	foreach_clause_impl(Clauses,NewN,F,Os).
+foreach_clause_impl([Clause|_Clauses],_N,F,_) :- 
+ 	throw(
+		internal_error(
+			foreach_clause/2,
+			['calling the goal: ',F,' with ',Clause,'failed'])).
 
 
 

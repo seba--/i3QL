@@ -55,21 +55,21 @@
 pl_last_call_optimization_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,
 	write('\n[Debug] Phase: Last Call Optimization Analysis______________________________\n')),
-	foreach_user_predicate(Program,process_predicate(Program)).
+	foreach_user_predicate(Program,process_predicate(DebugConfig,Program)).
 
 
 
-process_predicate(Program,Predicate) :-
+process_predicate(DebugConfig,Program,Predicate) :-
 	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,check_clause_for_tail_recursion(Program,Predicate),_).
+	foreach_clause(Clauses,check_clause_for_tail_recursion(DebugConfig,Program,Predicate),_).
 	
 	
 % Currently, we only identify very simple cases where we have a unique last
 % goal and which is a conjunction with its previous goals (we rely on the
 % property that the goal sequence is left descending (done during loading)!) 
 % x(...) :- a,b,c,x(...)
-check_clause_for_tail_recursion(Program,Predicate,_ClauseId,Clause,RelativePosition,_) :-	
-	predicate_identifier(Predicate,PredicateIdentifier),
+check_clause_for_tail_recursion(DebugConfig,Program,Predicate,ClauseId,Clause,RelativePosition,_) :-	
+	predicate_identifier(Predicate,Functor/Arity),
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
 	(
@@ -78,13 +78,14 @@ check_clause_for_tail_recursion(Program,Predicate,_ClauseId,Clause,RelativePosit
 		% [this is the way to go for a more decent analysis:] 
 		% last_primitive_goals_if_true(BodyASTNode,[LastGoal],[]),...
 		complex_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
-		complex_term_identifier(LastGoal,PredicateIdentifier), % ... we have found a recursive call
+		complex_term_identifier(LastGoal,Functor/Arity), % ... we have found a recursive call
 		(	% ... is it a candidate for a last call optimization?
 			RelativePosition == last ; 
-			lookup_in_meta(cut(always),Clause)
+			lookup_in_clause_meta(cut(always),Clause)
 		),
-		number_of_solutions_of_goal(Program,PreviousGoal,[_LB,1])
+		number_of_solutions_of_goal(Program,PreviousGoal,[_LB,1],_)
 		->
+		debug_message(DebugConfig,memberchk(report_clauses_where_lco_is_possible),write_atomic_list(['[Debug] Last call optimization possible: ',Functor,'/',Arity,' - Clause: ',ClauseId,' (zero based)\n'])),
 		add_to_clause_meta(last_call_optimization_is_possible,Clause),
 		add_flag_to_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate),
 		add_to_term_meta(last_call_optimization_is_possible,LastGoal)
@@ -97,11 +98,11 @@ check_clause_for_tail_recursion(Program,Predicate,_ClauseId,Clause,RelativePosit
 
 
 
-number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+number_of_solutions_of_goal(Program,ASTNode,Solutions,_DidCut) :-
 	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
 	
-number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+number_of_solutions_of_goal(Program,ASTNode,Solutions,_DidCut) :-
 	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
 	(
 		complex_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
@@ -112,27 +113,34 @@ number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
 		disjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions)
 	).
 		
-number_of_solutions_of_goal(Program,ASTNode,[0,UB]) :-
+number_of_solutions_of_goal(Program,ASTNode,[0,UB],_DidCut) :-
 	complex_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
-	number_of_solutions_of_goal(Program,RASTNode,[_LB,UB]).
+	number_of_solutions_of_goal(Program,RASTNode,[_LB,UB],_).
 	
-number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+number_of_solutions_of_goal(Program,ASTNode,Solutions,_DidCut) :-
 	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
 
-number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+number_of_solutions_of_goal(Program,ASTNode,Solutions,_DidCut) :-
 	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,Solutions).
 
-number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
+number_of_solutions_of_goal(Program,ASTNode,Solutions,DidCut) :-
 	(
 		complex_term_identifier(ASTNode,Functor/Arity),!
 	;
 		string_atom(ASTNode,Functor),Arity = 0
 	),
 	(
+		Functor = '!',
+		Arity == 0, 
+		Solutions = [1,1],
+		DidCut = yes,
+		!
+	;	
 		lookup_predicate(Functor/Arity,Program,Predicate), % lookup may fail
-		lookup_in_predicate_meta(solutions(Solutions),Predicate),! % lookup may fail
+		lookup_in_predicate_meta(solutions(Solutions),Predicate), % lookup may fail
+		!
 	;
 		Solutions = [0,'*']
 	).
@@ -140,22 +148,28 @@ number_of_solutions_of_goal(Program,ASTNode,Solutions) :-
 
 
 conjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,[LB,UB]) :-	
-	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB]), % [Left Lower Bound, Left Upper Bound]
-	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB]),
-	LB is min(LLB,RLB),
-	(	
-		(RUB == 0 ; LUB == 0),!,UB = 0
-	;
-		(LUB == '*' ; RUB == '*'),!,UB = '*'
-	;
+	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB],_DidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB],RDidCut),
+	(
+		RDidCut == yes ->
+		LB is min(LLB,RLB),
 		UB = 1
+	;	
+		LB is min(LLB,RLB),
+		(	
+			(RUB == 0 ; LUB == 0),!,UB = 0
+		;
+			(LUB == '*' ; RUB == '*'),!,UB = '*'
+		;
+			UB = 1
+		)
 	).
 
 
 
 disjunction_of_number_of_solutions_of_goals(Program,LASTNode,RASTNode,[LB,UB]) :-	
-	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB]), % [Left Lower Bound, Left Upper Bound]
-	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB]),
+	number_of_solutions_of_goal(Program,LASTNode,[LLB,LUB],_LDidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,RASTNode,[RLB,RUB],_RDidCut),
 	LB is max(LLB,RLB),
 	(	(LUB == '*' ; RUB == '*') ->
 		UB = '*'
