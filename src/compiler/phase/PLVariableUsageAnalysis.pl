@@ -39,12 +39,19 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLVariableUsageAnalysis',[pl_variable_usage_analysis/4]).
+:- module(
+		'SAEProlog:Compiler:Phase:PLVariableUsageAnalysis',
+		[
+			pl_variable_usage_analysis/4,
+			mapped_variable_ids/2
+		]
+	).
 
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
 :- use_module('../Utils.pl').
+
 
 
 
@@ -54,23 +61,22 @@ pl_variable_usage_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	!/* we are finished... */.
 
 
+% REFACTOR rename "mapped_variable_name" to "variable_id"
+
 
 process_predicate(DebugConfig,Predicate) :-
-	predicate_identifier(Predicate,PredicateIdentifier),
-	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	predicate_identifier(Predicate,Functor/Arity),
+	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	
 	predicate_clauses(Predicate,Clauses),	
 	foreach_clause(Clauses,analyze_variable_usage,NumberOfLocalVariablesOfClauses),
 	max_list(NumberOfLocalVariablesOfClauses,Max),
-	predicate_meta(Predicate,Meta),
-	add_to_meta(maximum_number_of_clause_local_variables(Max),Meta).
+	add_to_predicate_meta(maximum_number_of_clause_local_variables(Max),Predicate).
 
 
 
 analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariablesCount) :-
 	clause_implementation(Clause,Implementation),
-	clause_meta(Clause,ClauseMeta),	
 	
 	rule_head(Implementation,HeadASTNode),
 	(	is_string_atom(HeadASTNode) ->
@@ -81,13 +87,13 @@ analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVaria
 		map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCountExpr,VariableNamesMapping),
 		HeadVariablesCount is HeadVariablesCountExpr
 	),
-	add_to_meta(used_head_variables_count(HeadVariablesCount),ClauseMeta),
+	add_to_clause_meta(used_head_variables_count(HeadVariablesCount),Clause),
 	
 	rule_body(Implementation,BodyASTNode),
 	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
 	map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping),
 
-	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),ClauseMeta),
+	add_to_clause_meta(clause_local_variables_count(ClauseLocalVariablesCount),Clause),
 	
 	intra_clause_variable_usage(BodyASTNode,[],[],_UsedVariables,_PotentiallyUsedVariables).
 
@@ -99,10 +105,9 @@ analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVaria
 map_names_of_head_variables(_Id,[],0,_VariableNamesMapping).
 map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCount,VariableNamesMapping) :-
 	( 	variable(HeadVariable,HeadVariableName) ->
-		MappedVariableName = mapped_variable_name(arg(Id)),
-		lookup(HeadVariableName,VariableNamesMapping,MappedVariableName),
-		term_meta(HeadVariable,Meta),
-		add_to_meta(MappedVariableName,Meta),
+		MappedVariableId = mapped_variable_name(arg(Id)),
+		lookup(HeadVariableName,VariableNamesMapping,MappedVariableId),
+		add_to_term_meta(MappedVariableId,HeadVariable),
 		FinalHeadVariablesCount = HeadVariablesCount + 1
 	;
 		FinalHeadVariablesCount = HeadVariablesCount
@@ -118,15 +123,15 @@ map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCo
 map_names_of_body_variables(Id,[],Id,_VariableNamesMapping).	
 map_names_of_body_variables(Id,[Variable|Variables],ClauseLocalVariablesCount,VariableNamesMapping) :-
 	variable(Variable,VariableName),
-	lookup(VariableName,VariableNamesMapping,MappedVariableName),
-	(	var(MappedVariableName) ->
-		MappedVariableName = mapped_variable_name(clv(Id)),
+	lookup(VariableName,VariableNamesMapping,MappedVariableId),
+	(	var(MappedVariableId) ->
+		MappedVariableId = mapped_variable_name(clv(Id)),
 		NewId is Id + 1
 	;
 		NewId = Id
 	),
 	term_meta(Variable,Meta),
-	add_to_meta(MappedVariableName,Meta),
+	add_to_meta(MappedVariableId,Meta),
 	map_names_of_body_variables(NewId,Variables,ClauseLocalVariablesCount,VariableNamesMapping).
 
 
@@ -177,17 +182,17 @@ intra_clause_variable_usage(
 	) :-
 	is_compound_term(ASTNode),!, 
 	named_variables_of_term(ASTNode,Variables,[]),
-	mapped_variable_names(Variables,[],MappedVariableNames),
+	mapped_variable_ids(Variables,MappedVariableIds),
 	% let's determine the variables that are definitely used for the first time
 	% by this goal...
-	set_subtract(MappedVariableNames,UsedVariables,IVariables),
+	set_subtract(MappedVariableIds,UsedVariables,IVariables),
 	set_subtract(IVariables,PotentiallyUsedVariables,FirstTimeUsedVariables),
 	add_to_term_meta(variables_used_for_the_first_time(FirstTimeUsedVariables),ASTNode),
 	add_to_term_meta(potentially_used_variables(PotentiallyUsedVariables),ASTNode),
 	% update the set of definitively used variables
-	merge_sets(UsedVariables,MappedVariableNames,NewUsedVariables),
+	merge_sets(UsedVariables,MappedVariableIds,NewUsedVariables),
 	% remove from the set of "potentially used" variables those that are "used"
-	set_subtract(PotentiallyUsedVariables,MappedVariableNames,NewPotentiallyUsedVariables).	
+	set_subtract(PotentiallyUsedVariables,MappedVariableIds,NewPotentiallyUsedVariables).	
 
 intra_clause_variable_usage(
 		_ASTNode, % is an atomic ..
@@ -199,8 +204,13 @@ intra_clause_variable_usage(
 
 
 
-mapped_variable_names([],MappedVariableNames,MappedVariableNames).
-mapped_variable_names([Variable|Variables],MappedVariableNames,NewMappedVariableNames) :-
+mapped_variable_ids(Variables,MappedVariableIds) :-
+	mapped_variable_ids(Variables,[],MappedVariableIds).
+
+
+
+mapped_variable_ids([],MappedVariableIds,MappedVariableIds).
+mapped_variable_ids([Variable|Variables],MappedVariableIds,NewMappedVariableIds) :-
 	lookup_in_term_meta(mapped_variable_name(Name),Variable),
-	add_to_set(Name,MappedVariableNames,IMappedVariableNames),
-	mapped_variable_names(Variables,IMappedVariableNames,NewMappedVariableNames).
+	add_to_set(Name,MappedVariableIds,IMappedVariableIds),
+	mapped_variable_ids(Variables,IMappedVariableIds,NewMappedVariableIds).

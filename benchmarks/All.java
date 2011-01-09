@@ -47,6 +47,7 @@ public class All {
 		runMain(MainPrimes.class);
 		runMain(MainHanoi.class);
 		runMain(MainTak.class);
+		runMain(MainZebra.class);
 		long duration = System.nanoTime() - startTime;
 		Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 		All.writeToPerformanceLog("EXECUTING ALL TESTS FINISHED IN: " + time + "\n");

@@ -94,9 +94,9 @@ public final class Append3 implements Goal {
 	public Append3(final Term Xs, final Term Ys, final Term Zs) {
 		// the implementation depends on the property of Xs...Zs being
 		// "unwrapped"
-		this.Xs = Xs.dereference();
-		this.Ys = Ys.dereference();
-		this.Zs = Zs.dereference();
+		this.Xs = Xs.expose();
+		this.Ys = Ys.expose();
+		this.Zs = Zs.expose();
 
 		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
 		this.rootXsState = Xs.manifestState();
@@ -136,12 +136,12 @@ public final class Append3 implements Goal {
 		} while (true);
 	}
 
-	private boolean clause1() {
+	private boolean clause1() { // append([],Ys,Ys).
 		if (goalToExecute == 1) {
-			XsState = Xs.manifestState();
-			if (!Xs.unify(EMPTY_LIST)) {
-				if (XsState != null)
-					XsState.reincarnate();
+			if (Xs.isVariable()) {
+				XsState = Xs.manifestState();
+				Xs.asVariable().setValue(EMPTY_LIST);
+			} else if (Xs != EMPTY_LIST) {
 				return false;
 			}
 
@@ -183,22 +183,13 @@ public final class Append3 implements Goal {
 			// this.ZsState = Zs.manifestState(); (not required...)
 			this.clv2 = variable();
 			if (Zs.unify(new ListElement2(clv0, clv2))) {
-				this.Xs = clv1.dereference();
+				this.Xs = clv1.expose();
 				// this.Ys = Ys.unwrapped();
-				this.Zs = clv2.dereference();
+				this.Zs = clv2.expose();
 				goalToExecute = 1;
 				return true;
 			}
 		}
-
-		// The following is not required, because this claus is tail recursive (and subject to last
-		// call optimization):
-		// if (XsState != null)
-		// XsState.reincarnate();
-		// // if (YsState != null)
-		// // YsState.reincarnate();
-		// if (ZsState != null)
-		// ZsState.reincarnate();
 		return false;
 	}
 }

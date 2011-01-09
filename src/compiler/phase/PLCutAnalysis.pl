@@ -32,7 +32,12 @@
 
 
 /**
-	Analyzes a clause to check if the clause performs a cut.
+	Analyzes each clause w.r.t. its usage of the cut.
+	<p>
+	After that, the overall behavior of the predicate is determined. I.e., if all
+	clauses 1..n-1 (the last one doesn't have to) always perform a cut operation 
+	then always at most one clause will succeed (deterministic clause selection).
+	</p>
 	
 	@author Michael Eichberg
 */
@@ -56,15 +61,23 @@ pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 
 
 process_predicate(DebugConfig,Predicate) :-
-	predicate_identifier(Predicate,PredicateIdentifier),
-	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	% logging...
+	predicate_identifier(Predicate,Functor/Arity),
+	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
+	
 	% implementation...
 	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,analyze_cut,[CutBehavior|CutBehaviors]),
-	disjunction_of_list_of_cut_behaviors(CutBehaviors,CutBehavior,OverallCutBehavior),
-	predicate_meta(Predicate,Meta),
-	add_to_meta(cut(OverallCutBehavior),Meta).
+	foreach_clause(
+		Clauses,
+		analyze_cut,
+		CutBehaviors),
+	deterministic_clause_selection(CutBehaviors,DeterministicClauseSelection),
+	add_to_predicate_meta(
+		deterministic_clause_selection(DeterministicClauseSelection),
+		Predicate),
+		
+	% logging...
+	debug_message(DebugConfig,memberchk(results),write_atomic_list(['[Debug] Deterministic clause selection: ',Functor,'/',Arity,' - ',DeterministicClauseSelection,'\n'])).
 
 
 
@@ -72,16 +85,32 @@ analyze_cut(_ClauseId,Clause,_RelativeClausePosition,CutBehavior) :-
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
 	cut_analysis(BodyASTNode,CutBehavior),
-	clause_meta(Clause,Meta),	
-	add_to_meta(cut(CutBehavior),Meta).
+	add_to_clause_meta(cut(CutBehavior),Clause).
 
 
 
-disjunction_of_list_of_cut_behaviors([],CutBehavior,CutBehavior).
-disjunction_of_list_of_cut_behaviors(
+% IMPROVE It is imaginable to check that a set of clauses is exclusiv (given a specific calling pattern) to deduce that the clause selection is deterministic even if the developer uses no cuts.
+deterministic_clause_selection(CutBehaviors,DeterministicClauseSelection) :-
+	deterministic_clause_selection(
+		CutBehaviors,
+		yes, % initial value... if we have just one clause..
+		DeterministicClauseSelection
+	).
+
+
+
+deterministic_clause_selection(
+		[_CutBehavior], % We have reached the last clause
+		DeterministicClauseSelection,
+		DeterministicClauseSelection
+	) :- !.
+deterministic_clause_selection(
 		[CutBehavior|CutBehaviors],
-		CurrentCutBhavior,
-		OverallCutBehavior
+		yes,
+		DeterministicClauseSelection
 	) :-
-	disjunction_of_cut_behaviors(CutBehavior,CurrentCutBhavior,IntermediateCutBehavior),
-	disjunction_of_list_of_cut_behaviors(CutBehaviors,IntermediateCutBehavior,OverallCutBehavior).
+	(	CutBehavior == always ->
+		deterministic_clause_selection(CutBehaviors,yes,DeterministicClauseSelection)
+	;
+		DeterministicClauseSelection = no
+	).

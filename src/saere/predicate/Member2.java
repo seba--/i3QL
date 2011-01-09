@@ -42,6 +42,7 @@ import saere.PredicateFactoryTwoArgs;
 
 /**
  * Implementation of ISO Prolog's member/2 predicate.
+ * FIXME this implementation currently does not work reliably
  * 
  * <pre>
  * <code>
@@ -84,10 +85,11 @@ public final class Member2 implements Goal {
 
 	public Member2(final Term testElement, final Term list) {
 		// TODO is "unwrapping" of passed in terms meaningfull?
-		this.testElement = testElement.dereference();
-		this.list = list.dereference();
+		this.testElement = testElement.expose();
+		this.list = list.expose();
 	}
 
+	// FIXME this implementation does NOT implement the standard "member" predicate - it is more the implementation of memberchk...
 	public boolean next() {
 		while (true) {
 			switch (state) {

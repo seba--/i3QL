@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final class StatesList implements State {
+final public class StatesList implements State {
 
 	private final State state;
 
@@ -54,7 +54,9 @@ final class StatesList implements State {
 	public void reincarnate() {
 		StatesList cts = this;
 		while (cts != null) {
-			cts.state.reincarnate();
+			State s = cts.state;
+			if (s != null)
+				s.reincarnate();
 			cts = cts.next;
 		}
 	}
@@ -68,5 +70,24 @@ final class StatesList implements State {
 			los = los.next;
 		}
 		return s += "]";
+	}
+
+	public static StatesList prepend(State s, StatesList sl) {
+		return new StatesList(s, sl);
+	}
+
+	// TODO improve the following implementations..
+	public static StatesList prepend(State s1, State s2, StatesList sl) {
+		return new StatesList(s2, new StatesList(s1, sl));
+	}
+
+	public static StatesList prepend(State s1, State s2, State s3, StatesList sl) {
+		return new StatesList(s3, new StatesList(s2, new StatesList(s1, sl)));
+	}
+
+	public static StatesList prepend(State s1, State s2, State s3, State s4,
+			StatesList sl) {
+		return new StatesList(s4, new StatesList(s3, new StatesList(s2,
+				new StatesList(s1, sl))));
 	}
 }

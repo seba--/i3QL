@@ -1,11 +1,9 @@
 /* BENCHMARK HARNESS
-initialize(500).
-benchmark(X, _) :- call_num(X).
-call_num(0).
-call_num(X) :- X > 0, \+(\+ main), write(X), write(' '), X0 is X - 1, call_num(X0).
+	Usage: 
+	?- zebra(Houses).
 */
 
-main :-
+zebra(Houses) :-
     houses(Houses),
     member(house(red, english, _, _, _), Houses),
     member(house(_, spanish, dog, _, _), Houses),
@@ -22,9 +20,7 @@ main :-
     member(house(_, japanese, _, _, parliaments), Houses),
     next_to(house(_,norwegian,_,_,_), house(blue,_,_,_,_), Houses),
     member(house(_, _, zebra, _, _), Houses),
-    member(house(_, _, _, water, _), Houses),
-    true.
-    %print_houses(Houses).
+    member(house(_, _, _, water, _), Houses).
 
 houses([
     house(_, _, _, _, _),
@@ -41,10 +37,9 @@ next_to(A, B, [A, B | _]).
 next_to(A, B, [B, A | _]).
 next_to(A, B, [_ | Y]) :- next_to(A, B, Y).
 
-member(X, [X|_]).
-member(X, [_|Y]) :- member(X, Y).
 
-print_houses([A|B]) :- !,
-    write_term(A, []), nl,
-    print_houses(B).
-print_houses([]).
+% ISO Prolog definition of member
+/*
+member(X, [X|_]).
+member(X, [_|Ys]) :- member(X, Ys).
+*/

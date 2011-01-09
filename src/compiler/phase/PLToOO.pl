@@ -43,6 +43,8 @@
 :- use_module('../Debug.pl').
 :- use_module('../Analyses.pl').
 
+:- use_module('PLVariableUsageAnalysis.pl',[mapped_variable_ids/2]).
+
 
 /**
 	Encodes an SAE Prolog program using a small object-oriented language (SAEOOL).
@@ -81,6 +83,7 @@
 	if(Condition,Statements)
 	if(Condition,ThenStatements,ElseStatements)
 	error(ErrorDescription) - to signal an programmer's error (e.g., if the developer tries to evaluate a non-arithmetic term.)
+	locally_scoped_term_variable(Id,TermExpression)
 	
 	<h2>EXPRESSIONS</h2>
 	get_top_element_from_goal_stack 
@@ -306,15 +309,15 @@ gen_predicate_constructor(_Program,Predicate,constructor_decl(PredicateIdentifie
 	
 
 constructor_param_decl_for_arg_i(I,param_decl(type(term),ParamName)) :- 
-	atom_concat('arg',I,ParamName).
+	atom_concat('arg',I,ParamName). % REFACTOR use "arg(I)"
 	
 	
 init_field_of_arg_i(
 		I,
 		expression_statement(
 			assignment(
-				field_ref(self,ArgName),
-				local_variable_ref(ArgName)))) :-
+				field_ref(self,ArgName),expose(
+				local_variable_ref(ArgName))))) :-
 	atom_concat('arg',I,ArgName).
 
 
@@ -625,11 +628,18 @@ translate_goals(_DeferredActions,[],SCases,SCases).
 
 
 
-% To translate a goal, we use the following meta information:
-% next_goal_if_fails(Action,GoalNumber) - Action is either "redo" (in case of backtracking) or "call" (if we try an new alternative)
-% next_goal_if_fails(Action,multiple) - Action must be "redo"
-% not_unique_predecessor_goal
-% next_goal_if_succeeds(GoalNumber)
+/**
+	To translate a goal, the following information have to be available:
+	<ul>
+	<li>next_goal_if_fails(Action,GoalNumber)<br />
+		Action is either "redo" (in case of backtracking) or "call" (if we try an 
+		new alternative)</li>
+	<li>next_goal_if_fails(Action,multiple)<br />
+		Action must be "redo"</li>
+	<li>not_unique_predecessor_goal</li>
+	<li>next_goal_if_succeeds(GoalNumber)</li>
+	</ul>
+*/
 translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	string_atom(PrimitiveGoal,'!'),!,
 	term_meta(PrimitiveGoal,Meta),
@@ -655,11 +665,68 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		]
 	).
 
+/*
+	Translates the "unification"
+*/
+translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
+	(	is_variable(LASTNode), 
+		\+ is_variable(RASTNode),
+		VarNode = LASTNode,
+		TermNode = RASTNode
+	;
+		is_variable(RASTNode), 
+		\+ is_variable(LASTNode),
+		VarNode = RASTNode,
+		TermNode = LASTNode
+	),!,
+	term_meta(PrimitiveGoal,UnifyMeta),
+	lookup_in_meta(goal_number(GoalNumber),UnifyMeta),
+	select_and_jump_to_next_goal_after_succeed(UnifyMeta,force_jump,JumpToNextGoalAfterSucceed),
+	select_and_jump_to_next_goal_after_fail(UnifyMeta,JumpToNextGoalAfterFail,[]),
+	% call-case
+	SHead = [
+		locally_scoped_states_list,
+		local_variable_decl(type(boolean),'succeeded',boolean(false))
+		|
+		SUnification
+	],
+	unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail),	
+	STail = [
+		if(local_variable_ref('succeeded'),
+			[
+				create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack |
+				JumpToNextGoalAfterSucceed
+			],
+			[
+				locally_scoped_states_list_reincarnate_states |
+				JumpToNextGoalAfterFail
+			]
+		)
+	],
+	goal_call_case_id(GoalNumber,CallCaseId),
+	SCallCase = case(
+		int(CallCaseId),
+		SHead
+	),	
+	% redo-case
+	goal_redo_case_id(GoalNumber,RedoCaseId),
+	SRedoCase = case(
+		int(RedoCaseId),
+		[
+			abort_and_remove_top_level_goal_from_goal_stack |
+			JumpToNextGoalAfterFail
+		]
+	).
+	
+
+% Handles all other cases of unification 
+% IMPROVE unfold the unification of things such as "a(b,X) = a(_,Y)"...
 translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
-	% Handle the case if the comparison is called the first time
+	% call-case
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
 	create_term(LASTNode,cache,LTermConstructor,LMappedVariableNames,DeferredActions),
@@ -700,7 +767,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 		int(CallCaseId),
 		SInitCLVs
 	),
-	% (redo-case)
+	% redo-case
 	goal_redo_case_id(GoalNumber,RedoCaseId),
 	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
 	SRedoCase = case(
@@ -708,18 +775,24 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 		RedoAction
 	).
 
-translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+/*
+	Translates arithmetic comparisons. (e.g., =:=, =<, <, >, ... )
+*/
+translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
 	is_arithmetic_comparison_operator(Operator),
 	!,
-	term_meta(PrimitiveGoal,Meta),
+	term_meta(PrimitiveGoal,Meta),% REFACTOR Meta -> PrimitiveGoalMeta
 	lookup_in_meta(goal_number(GoalNumber),Meta),
-	% Handle the case if the comparison is called the first time
+	% call-case...
 	goal_call_case_id(GoalNumber,CallCaseId),
-	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(LASTNode,do_not_cache,LTermConstructor,_LMappedVariableNames,DeferredActions),
-	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVariableNames,DeferredActions),
-	SCall = case(
+	select_and_jump_to_next_goal_after_succeed(
+		Meta,
+		force_jump,
+		JumpToNextGoalAfterSucceed),
+	create_term(LASTNode,do_not_cache,LTermConstructor,_LMappedVarIds,DeferredActions),
+	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVarIds,DeferredActions),
+	SCallCase = case(
 		int(CallCaseId),
 		[
 			if(arithmetic_comparison(Operator,LTermConstructor,RTermConstructor),
@@ -727,25 +800,27 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 			)
 		]
 	),
-	% (redo-case)
+	% redo-case...
 	goal_redo_case_id(GoalNumber,RedoCaseId),
 	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
-	SRedo = case(
+	SRedoCase = case(
 		int(RedoCaseId),
 		JumpToNextGoalAfterFail
 	).
 
+/*
+	Translates the arithmetic evaluation operator "is".
+*/
 translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
-	% implement the case that the result of is is assigned to a new variable..
+	% implements the case that the result of "is" is assigned to a new variable..
+	% IMPROVE If the left side of "is" is an int_value or a variable(containing) an int_value, we currently just create an instance of the "is" Predicate, which ist grossly inefficient
 	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
-	lookup_in_term_meta(mapped_variable_name(Name),LASTNode),
-	memberchk(Name,NewVariables),!,
+	lookup_in_term_meta(mapped_variable_name(MVN),LASTNode),
+	memberchk_ol(MVN,NewVariables),!,
 	% Handle the case if "is" is called the first time
 	lookup_in_meta(goal_number(GoalNumber),Meta),
-	mapped_variable_name_to_variable_identifier(Name,VariableIdentifier),
-%write(VariableIdentifier),nl,	
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
 	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVariableNames,DeferredActions),
@@ -754,7 +829,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		[
 			expression_statement(
 				assignment(
-					local_variable_ref(VariableIdentifier),
+					MVN,
 					int_value_expr(arithmetic_evluation(RTermConstructor)))) |
 			JumpToNextGoalAfterSucceed
 		]
@@ -767,17 +842,27 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 		JumpToNextGoalAfterFail
 	).	
 
-% tail recursive call
+/*
+	Translates tail recursive calls. (None of the previous goals can be tail-recursive!)
+*/
 translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(last_call_optimization_is_possible,Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
-	SCaseHead = [eol_comment('tail call with last call optimization')|SUpdatePredArgs],
+	SCaseHead = [eol_comment('tail call with last call optimization')|SLSTVs],
 	(	complex_term_args(PrimitiveGoal,Args) ->
-		update_predicate_arguments(0,Args,SUpdatePredArgs,SRecursiveCall)
+		% IMPROVE Identify those variables that were not yet subject to unification..., because for these variables, we can omit calling "expose" (which is nice for all variables that just deal with numbers...)
+		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
+		update_predicate_arguments(NewVariables,0,Args,SUpdatePredArgs,SRecursiveCall,IdsOfArgsThatNeedToBeTemporarilySaved),
+		findall(
+			locally_scoped_term_variable(Id,expose(arg(Id))),
+			member_ol(Id,IdsOfArgsThatNeedToBeTemporarilySaved),
+			SLSTVs,
+			SUpdatePredArgs
+		)
 	;	% if the predicate does not have arguments... (e.g., repeat)	
-		SUpdatePredArgs = SRecursiveCall
+		SLSTVs = SRecursiveCall
 	),
 	SRecursiveCall = [
 		clear_goal_stack,
@@ -787,15 +872,16 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 		int(CallCaseId),
 		SCaseHead
 	).
+	
 /*
-This implements the base case... if no special support for a given predicate
-is provided by the compiler.
+	Translates goals that are neither tail-recursive and subject to last-call
+	optimization nor built-ins of the SAE Prolog compiler.
 */
 translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	
-	% GOAL "call-case"
+	% "call-case"
 	goal_call_case_id(GoalNumber,CallCaseId),
 	create_term(PrimitiveGoal,do_not_cache_root,TermConstructor,MappedVariableNames,DeferredActions),
 	(
@@ -816,7 +902,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 		SInitCLVs
 	),
 	
-	% GOAL "redo-case"
+	% "redo-case"
 	CallGoal = [
 		local_variable_decl(type(boolean),'succeeded',
 			method_call(get_top_element_from_goal_stack,'next',[])
@@ -841,7 +927,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	Generates the code that selects and executes the next goal if this goal
 	has failed.
 */
-select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
+select_and_jump_to_next_goal_after_fail(Meta/*REFACTOR GoalMeta*/,SStmts,SRest) :-
 	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
@@ -907,29 +993,28 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 	@signature init_clause_local_variables(VariablesUsedForTheFirstTime,VariablesPotentiallyUsedBefore,BodyVariableNames,SInitClauseLocalVariables,SZ).
 */
 init_clause_local_variables(
-		NewVariables,
+		NewVariables, % REFACTOR these are the VariablesUsedForTheFirstTime
 		PotentiallyUsedVariables,
 		[MappedBodyVariableName|MappedBodyVariableNames],
 		SInitCLV,
 		SZ
 	) :-
 	(	MappedBodyVariableName = clv(_I), % may fail
-		mapped_variable_name_to_variable_identifier(MappedBodyVariableName,VI),
 		(
 			memberchk(MappedBodyVariableName,NewVariables),
 			term_to_atom(NewVariables,NewVariablesAtom),
 			SInitCLV = [
 				eol_comment(NewVariablesAtom),
-				expression_statement(assignment(field_ref(self,VI),variable))
+				expression_statement(assignment(MappedBodyVariableName,variable))
 				|SI
 			]
 		;	
 			memberchk(MappedBodyVariableName,PotentiallyUsedVariables),
 			SInitCLV = [
 				if(
-					reference_comparison(field_ref(self,VI),null),
+					reference_comparison(MappedBodyVariableName,null),
 					[
-						expression_statement(assignment(field_ref(self,VI),variable))
+						expression_statement(assignment(MappedBodyVariableName,variable))
 					]
 				)
 				|SI
@@ -948,21 +1033,292 @@ save_state_in_undo_goal(MappedVariableNames,SSaveState,SEval) :-
 		create_undo_goal_and_put_on_goal_stack(MappedVariableNames)
 		|SEval
 	].
-	
 
 
 
-update_predicate_arguments(_,[],SR,SR).
-update_predicate_arguments(ArgId,[Arg|Args],SUpdatePredArg,SRest) :-
-	atom_concat('arg',ArgId,ArgName),
+
+/*
+	Updates the predicate arguments before the next round (tail recursive)...
+	A predicate such as swap(X,Y) :- swap(Y,X) requires that we do store the 
+	values of the args.
+*/
+update_predicate_arguments(_NewVariables,_,[],SR,SR,_) :- !.
+update_predicate_arguments(
+		NewVariables,
+		ArgId,
+		[Arg|Args],
+		SUpdatePredArg,
+		SRest,
+		IdsOfArgsThatNeedToBeTemprarilySaved
+	) :- % LSTVs are local scoped term variables...
 	create_term(Arg,cache,TermConstructor,_,_DeferredActions),
-	SUpdatePredArg = [
-		expression_statement(assignment(
-			field_ref(self,ArgName),TermConstructor)) | 
-		SNextUpdatePredArg
-	],
+	replace_ids_of_args_lower_than(ArgId,TermConstructor,NewTermConstructor,IdsOfArgsThatNeedToBeTemprarilySaved),
+	(	
+		NewTermConstructor = expose(arg(ArgId)), memberchk_ol(arg(ArgId),NewVariables),
+		!,
+		atomic_list_concat(['arg',ArgId,' is not used in the body...'],Comment),
+		SUpdatePredArg = [
+			eol_comment(Comment)  | 
+			SNextUpdatePredArg
+		]
+	;	
+		( NewTermConstructor = arg(_ArgId) ; NewTermConstructor = clv(_CLVId) ),
+		!,
+		SUpdatePredArg = [
+			expression_statement(assignment(arg(ArgId),expose(NewTermConstructor)))  | 
+			SNextUpdatePredArg
+		]
+	;
+		SUpdatePredArg = [
+			expression_statement(assignment(arg(ArgId),NewTermConstructor)) | 
+			SNextUpdatePredArg
+		]
+	),
 	NextArgId is ArgId + 1,
-	update_predicate_arguments(NextArgId,Args,SNextUpdatePredArg,SRest).	
+	update_predicate_arguments(NewVariables,NextArgId,Args,SNextUpdatePredArg,SRest,IdsOfArgsThatNeedToBeTemprarilySaved).	
+
+
+
+replace_ids_of_args_lower_than(Id,arg(ArgId),NewTermConstructor,Ids) :- 
+	!,
+	(	ArgId < Id ->
+		add_to_set_ol(ArgId,Ids),
+		NewTermConstructor = lstv(ArgId)
+	;
+		NewTermConstructor = expose(arg(ArgId))
+	).
+replace_ids_of_args_lower_than(_Id,clv(CLVId),NewTermConstructor,_Ids) :- 
+	!,
+	NewTermConstructor = expose(clv(CLVId)).	
+replace_ids_of_args_lower_than(
+		Id,
+		complex_term(Functor,ArgsConstructors),
+		complex_term(Functor,NewArgsConstructors),
+		Ids
+	) :- !,
+	replace_ids_of_args_of_list_lower_than(Id,ArgsConstructors,NewArgsConstructors,Ids).
+replace_ids_of_args_lower_than(_Id,TermConstructor,TermConstructor,_).
+
+
+
+replace_ids_of_args_of_list_lower_than(_,[],[],_Ids).
+replace_ids_of_args_of_list_lower_than(
+		Id,
+		[ArgConstructor|ArgsConstructors],
+		[NewArgConstructor|NewArgsConstructors],
+		Ids) :-
+	replace_ids_of_args_lower_than(Id,ArgConstructor,NewArgConstructor,Ids),
+	replace_ids_of_args_of_list_lower_than(Id,ArgsConstructors,NewArgsConstructors,Ids).
+
+
+
+% REFACTOR potentially_used_variables => variables_that_previously_may_have_been_used
+unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail) :-
+	create_term(VarNode,do_not_cache,VarNodeTermConstructor,[MVN],DeferredActions),
+	create_term(TermNode,cache,CachedTermNodeTermConstructor,_,DeferredActions),
+	lookup_in_meta(variables_used_for_the_first_time(FTUVars),UnifyMeta), % FTUVars = Firt time used variables
+	lookup_in_meta(potentially_used_variables(PPUVars),UnifyMeta), % PPUVars = potentially previously used variables 
+	named_variables_of_term(TermNode,NamedVariables,[]),
+	mapped_variable_ids(NamedVariables,MappedVariableIds),
+	% if the variable is free...
+	(	MVN=arg(_), memberchk_ol(MVN,FTUVars) ->
+		IsExposed = exposed
+	;
+		IsExposed = unknown
+	),
+	init_clause_local_variables(FTUVars,PPUVars,MappedVariableIds,SInitCLVs,SSaveStates),
+	SSaveStates = [
+		manifest_state_and_add_to_locally_scoped_states_list([MVN]) |
+		SSucceeded
+	],		
+	SSucceeded = [
+		bind_variable(MVN,CachedTermNodeTermConstructor),
+		expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
+	],
+	% if we can "unfold"...
+	create_term(TermNode,do_not_cache_root,TermNodeTermConstructor,_,DeferredActions),
+	(
+		TermNodeTermConstructor = int_value(_IntValue),!,
+		SMatchTerm = [
+			if(
+				boolean_and(
+					test_term_is_integer_value(VarNodeTermConstructor),
+					arithmetic_comparison('=:=',VarNodeTermConstructor,TermNodeTermConstructor)
+				),
+				[
+					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
+				]
+			)
+		]
+	;
+		TermNodeTermConstructor = float_value(_FloatValue),!,
+		SMatchTerm = [
+			if(
+				boolean_and(
+					test_term_is_float_value(VarNodeTermConstructor),
+					arithmetic_comparison('=:=',VarNodeTermConstructor,TermNodeTermConstructor)
+				),
+				[
+					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
+				]
+			)
+		]
+	;
+		TermNodeTermConstructor = string_atom(_StringAtom),!,
+		SMatchTerm = [
+			if(
+				boolean_and(
+					test_term_is_string_atom(VarNodeTermConstructor),
+					string_atom_comparison(VarNodeTermConstructor,TermNodeTermConstructor)
+				),
+				[
+					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
+				]
+			)
+		]
+	;
+		TermNodeTermConstructor = complex_term(FunctorConstructor,ArgsConstructors),!,
+		length(ArgsConstructors,ArgsConstructorsCount),
+		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),UnifyMeta),
+		remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
+		test_and_unify_args(
+			ArgsConstructors,
+			MVN,
+			0,
+			[],CLVariablesUsedForTheFirstTime,
+			STest,
+			[ expression_statement(assignment(local_variable_ref('succeeded'),boolean(true))) ],
+			DeferredActions),
+		SMatchTerm = [
+			if(
+				boolean_and(
+					value_comparison('==',term_arity(VarNodeTermConstructor),int(ArgsConstructorsCount)),					
+					functor_comparison(term_functor(VarNodeTermConstructor),FunctorConstructor)
+				),
+				STest
+			)		
+		]
+	),
+	SUnification = [
+		if(test_rttype_of_term_is_free_variable(IsExposed,VarNodeTermConstructor),
+			SInitCLVs,
+			SMatchTerm
+		) |
+		STail
+	].
+
+
+% GOAL Locally used variables..
+test_and_unify_args(
+		[],
+		_BaseVariable,_ArgId,_VarsWithSavedState,_VarsThatAreFree,
+		SRest,SRest,
+		_DeferredActions).
+test_and_unify_args(
+		[ArgsConstructor|ArgsConstructors],
+		BaseVariable,
+		ArgId,
+		VarsWithSavedState,VarsThatAreFree,
+		STaU,SRest,
+		DeferredActions
+	) :- 
+	ArgsConstructor = clv(_),
+	memberchk(ArgsConstructor,VarsThatAreFree),!,
+	STaU = [
+		expression_statement(assignment(ArgsConstructor,term_arg(BaseVariable,int(ArgId))))
+		| SFurtherTaU
+	],	
+	remove_from_set(ArgId,VarsThatAreFree,NewVarsThatAreFree),
+	NewArgId is ArgId + 1,
+	test_and_unify_args(
+		ArgsConstructors,
+		BaseVariable,
+		NewArgId,
+		VarsWithSavedState,NewVarsThatAreFree,
+		SFurtherTaU,SRest,
+		DeferredActions). 
+test_and_unify_args(
+		[ArgsConstructor|ArgsConstructors],
+		BaseVariable,
+		ArgId,
+		VarsWithSavedState,VarsThatAreFree,
+		STaU,SRest,
+		DeferredActions	
+	) :- 
+	ArgsConstructor = anonymous_variable,!,
+	NewArgId is ArgId + 1,
+	test_and_unify_args(
+		ArgsConstructors,
+		BaseVariable,
+		NewArgId,
+		VarsWithSavedState,VarsThatAreFree,
+		STaU,SRest,
+		DeferredActions).
+% the base case... 
+test_and_unify_args(
+		[ArgsConstructor|ArgsConstructors],
+		BaseVariable,
+		ArgId,
+		VarsWithSavedState,
+		VarsThatAreFree,
+		STaU,SRest,
+		DeferredActions) :- 
+	term_constructor_variables(ArgsConstructor,UsedVariables,[]),	
+	set_subtract(UsedVariables,VarsWithSavedState,UsedVarsWithNoSavedState),
+	set_subtract(UsedVarsWithNoSavedState,VarsThatAreFree,VarsThatNeedToBeSaved),
+	% init goal local variables that are not yet initialized
+	intersect_sets(VarsThatAreFree,UsedVariables,VarsThatNeedToBeInitialized),
+	findall(
+		InitStmt,
+		(
+			member(Var,VarsThatNeedToBeInitialized),
+			InitStmt = if(
+				reference_comparison(Var,null),
+				[
+					expression_statement(assignment(Var,variable))
+				]
+			)
+		),
+		STaU,
+		SSaveStatesAndUnify
+	),
+	SSaveStatesAndUnify = [
+		% save the state of the nth argument of the base variable and the vars that need to be saved
+		manifest_state_and_add_to_locally_scoped_states_list(
+			[term_arg(BaseVariable,int(ArgId))|VarsThatNeedToBeSaved]
+		),
+		if(unify(term_arg(BaseVariable,int(ArgId)),ArgsConstructor),
+		 	SFurtherTaU
+		)
+	],
+	merge_sets(VarsWithSavedState,VarsThatNeedToBeSaved,NewVarsWithSavedState),
+	set_subtract(VarsThatAreFree,VarsThatNeedToBeInitialized,NewVarsThatAreFree),
+	NewArgId is ArgId + 1,
+	test_and_unify_args(
+		ArgsConstructors,
+		BaseVariable,
+		NewArgId,
+		NewVarsWithSavedState,
+		NewVarsThatAreFree,
+		SFurtherTaU,SRest,
+		DeferredActions).
+
+
+
+term_constructor_variables(int_value(_),SRest,SRest) :- !.
+term_constructor_variables(float_value(_),SRest,SRest) :- !.
+term_constructor_variables(string_atom(_),SRest,SRest) :- !.
+term_constructor_variables(pre_created_term(_),SRest,SRest) :- !.
+term_constructor_variables(anonymous_variable,SRest,SRest) :- !.
+term_constructor_variables(complex_term(_,Args),SMappedVariables,SRest) :- !,
+	term_constructors_mapped_variables(Args,SMappedVariables,SRest).
+term_constructor_variables(Variable,[Variable|SRest],SRest) :- !.
+
+
+term_constructors_mapped_variables([],SRest,SRest).
+term_constructors_mapped_variables([Arg|Args],SMappedVariables,SRest) :-
+	term_constructor_variables(Arg,SMappedVariables,SIMappedVariables),
+	term_constructors_mapped_variables(Args,SIMappedVariables,SRest).
 
 
 
@@ -1017,14 +1373,15 @@ create_term(ASTNode,cache,TermConstructor,OldMVNs,NewMVNs,DeferredActions) :-
 create_term(ASTNode,_,anonymous_variable,MVNs,MVNs,_DeferredActions) :- 
 	anonymous_variable(ASTNode,_VariableName),!.	
 
-create_term(ASTNode,_Type,local_variable_ref(VariableIdentifier),OldMVNs,NewMVNs,_DeferredActions) :- 
+create_term(ASTNode,_Type,MappedVariableName,OldMVNs,NewMVNs,_DeferredActions) :- 
 	is_variable(ASTNode),!,
 	term_meta(ASTNode,Meta),
-	lookup_in_meta(mapped_variable_name(MVN),Meta),
-	mapped_variable_name_to_variable_identifier(MVN,VariableIdentifier),
-	add_to_set(MVN,OldMVNs,NewMVNs).	
+	lookup_in_meta(mapped_variable_name(MappedVariableName),Meta),
+	add_to_set(MappedVariableName,OldMVNs,NewMVNs).	
+
 create_term(ASTNode,Type,_,_,_,_) :-
 	throw(internal_error(create_term/6,['the ASTNode (',ASTNode,') has an unknown type(',Type,')'])).
+
 
 
 create_terms([Arg|Args],Type,[TermConstructor|TermConstructors],OldMVNs,NewMVNs,DeferredActions) :- !,
@@ -1033,30 +1390,21 @@ create_terms([Arg|Args],Type,[TermConstructor|TermConstructors],OldMVNs,NewMVNs,
 create_terms([],_Type,[],MVNs,MVNs,_DeferredActions).
 
 
-create_term_for_cacheable_string_atom(Value,TermConstructor,DeferredActions) :- 
+
+create_term_for_cacheable_string_atom(
+		StringValue,
+		TermConstructor,
+		DeferredActions
+	) :- 
 	(
-		predefined_functor(Value) ->
-		TermConstructor = string_atom(Value)
+		predefined_functor(StringValue) ->
+		TermConstructor = string_atom(StringValue)
 	;	
 		TermConstructor = pre_created_term(Id),
-		add_to_set_ol(create_field_for_pre_created_term(Id,string_atom(Value)),DeferredActions)
+		add_to_set_ol(
+			create_field_for_pre_created_term(Id,string_atom(StringValue)),
+			DeferredActions)
 	).
-
-
-
-%mapped_variable_names_to_variable_identifiers([],[]) :- !.
-%mapped_variable_names_to_variable_identifiers([VariableName|VariableNames],[VariableIdentifier|VariableIdentifiers]) :- !,
-%	mapped_variable_name_to_variable_identifier(VariableName,VariableIdentifier),
-%	mapped_variable_names_to_variable_identifiers(VariableNames,VariableIdentifiers).
-
-
-
-mapped_variable_name_to_variable_identifier(arg(I),VariableName) :- !,
-	atom_concat(arg,I,VariableName).
-mapped_variable_name_to_variable_identifier(clv(I),VariableName) :- !,
-	atom_concat(clv,I,VariableName).
-mapped_variable_name_to_variable_identifier(X,_) :-
-	throw(internal_error(['unsupported mapped variable name: ',X])).
 
 
 
@@ -1165,7 +1513,7 @@ set_successor(DeferredActions,ASTNode,fails(Action),SuccessorASTNodes) :-
 		lookup_in_meta(goal_number(GoalNumber),Meta),
 		add_to_set_ol(create_field_to_store_predecessor_goal(GoalNumber),DeferredActions),
 		add_to_meta(next_goal_if_fails(Action,multiple),Meta),
-		set_flag(SuccessorASTNodes,not_unique_predecessor_goal)
+		add_to_each_term_meta(not_unique_predecessor_goal,SuccessorASTNodes)
 	),!.
 
 
@@ -1175,14 +1523,6 @@ set_succeeds_successor(ASTNode,SuccessorASTNode) :-
 	term_meta(SuccessorASTNode,SuccessorMeta),
 	lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
 	add_to_meta(next_goal_if_succeeds(GoalNumber),Meta).
-
-
-
-set_flag([],_).
-set_flag([ASTNode|ASTNodes],Flag) :-
-	term_meta(ASTNode,Meta),
-	add_to_meta(Flag,Meta),
-	set_flag(ASTNodes,Flag).
 
 
 

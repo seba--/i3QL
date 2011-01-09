@@ -112,10 +112,12 @@
 		clone_meta/2,
 		pos_meta/2,
 		predicate_meta/2,
+		add_to_predicate_meta/2,
 		lookup_in_meta/2,
 		lookup_in_term_meta/2,
 		add_to_meta/2,
 		add_to_term_meta/2,
+		add_to_each_term_meta/2,
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
@@ -315,6 +317,11 @@ add_flag_to_predicate_meta(Flag,pred(_ID,_Clauses,Properties)) :-
 		add_to_meta(Flag,Properties)
 	;
 		true.
+
+
+
+add_to_predicate_meta(Property,Predicate) :-
+	predicate_meta(Predicate,Meta),add_to_meta(Property,Meta).
 
 
 
@@ -841,6 +848,14 @@ term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 
 
 
+add_to_each_term_meta([],_).
+add_to_each_term_meta(Flag,[ASTNode|ASTNodes]) :-
+	term_meta(ASTNode,Meta),
+	add_to_meta(Flag,Meta),
+	add_to_each_term_meta(Flag,ASTNodes).
+
+
+
 add_to_term_meta(Information,ASTNode) :-
 	term_meta(ASTNode,Meta),add_to_meta(Information,Meta).
 
@@ -914,7 +929,7 @@ names_of_variables_of_terms([],Vs,Vs).
 
 
 /**
-	@signature named_variables_of_term(BodyASTNode,[AllBodyVariables_ASTNodes|T],T)
+	@signature named_variables_of_term(ASTNode,[Variables_ASTNodes|T],T)
 */
 named_variables_of_term(v(Meta,Name),[v(Meta,Name)|SZ],SZ) :- !.
 named_variables_of_term(ct(_,_,Args),S1,SZ) :- !,
@@ -936,12 +951,53 @@ named_variables_of_terms([],SZ,SZ).
 	The cut analysis supports all standard control-flow constructs:<br/>
 	 ",",";","!","->","*->","-> ; ","*-> ; ".
 	</p>
+	Recall, a cut in the condition part of a soft-cut or if-then-else is local
+	to the condition part.<br />
+	Example, for if-then-else:<br />
+	<code><pre>
+	?- member(X,[a,b,a,c]),
+		(	(	write(try_a_),X == a ; 
+				write(try_b_),!, X == b; % this cut prevents that try_c_ will ever be evaluated
+				write(try_c_),X == c) 
+		->	write(yes),nl 
+		; 	write(fail),nl
+		).
+	try_a_yes
+	X = a ;
+	try_a_try_b_yes
+	X = b ;
+	try_a_yes
+	X = a ;
+	try_a_try_b_fail
+	X = c ;
+	false.
+
+	</pre></code>
+	<pre><code>
+	?- member(X,[a,b,a,c]),
+		(	(write(try_),X == a ; write(try_), X == b),
+			! 
+		*-> 
+			write(yes),nl 
+		; 
+			write(fail),nl
+		).
+	try_a_yes
+	X = a ;
+	try_b_try_a_try_b_yes
+	X = b ;
+	try_a_yes
+	X = a ;
+	try_b_try_a_try_b_fail
+	X = c ;
+	false.
+	</pre></code>
 	
 	@signature cut_analysis(ASTNode,CutBehavior)
 	@arg(out) CutBehavior is either "always", "maybe", or "never".
 */
-% TODO check that the semantics of the cut analysis is correct for "->" and "*->"
-cut_analysis(a(_,'!'),always):- !.
+% TODO write test to check that the cut behavior analysis is correct for "->" and "*->"
+cut_analysis(a(_,'!'),always):- !. % TODO rename cut_analysis to cut_behavior
 
 cut_analysis(ct(_Meta,',',[LASTNode,RASTNode]),CutBehavior) :- !,
 	cut_analysis_of_and_goal(LASTNode,RASTNode,CutBehavior).
@@ -950,34 +1006,16 @@ cut_analysis(ct(_Meta,';',[LASTNode,RASTNode]),CutBehavior) :- !,
 	(
 		(	LASTNode = ct(_,'->',[ConditionASTNode,ThenASTNode]) ;
 	 		LASTNode = ct(_,'*->',[ConditionASTNode,ThenASTNode]) ) ->
-		cut_analysis_of_or_goal(ThenASTNode,RASTNode,BodyCutBehavior),
-		cut_analysis(ConditionASTNode,ConditionCutBehavior),
-		conjunction_of_cut_behaviors(ConditionCutBehavior,BodyCutBehavior,CutBehavior)
+		cut_analysis_of_or_goal(ThenASTNode,RASTNode,CutBehavior)
 	;
 		cut_analysis_of_or_goal(LASTNode,RASTNode,CutBehavior)
 	).
 		
-cut_analysis(ct(_Meta,'->',[ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
-	cut_analysis(ConditionASTNode,ConditionCutBehavior),
-	cut_analysis(BodyASTNode,BodyCutBehavior),
-	(	( ConditionCutBehavior == always ),
-		CutBehavior = always
-	;	( ConditionCutBehavior == never , BodyCutBehavior == never),
-		CutBehavior = never
-	;
-		CutBehavior = maybe
-	),!.	
+cut_analysis(ct(_Meta,'->',[_ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
+	cut_analysis(BodyASTNode,CutBehavior).	
 	
-cut_analysis(ct(_Meta,'*->',[ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
-	cut_analysis(ConditionASTNode,ConditionCutBehavior),
-	cut_analysis(BodyASTNode,BodyCutBehavior),
-	(	( ConditionCutBehavior == always ),
-		CutBehavior = always
-	;	( ConditionCutBehavior == never , BodyCutBehavior == never),
-		CutBehavior = never
-	;
-		CutBehavior = maybe
-	),!.	
+cut_analysis(ct(_Meta,'*->',[_ConditionASTNode,BodyASTNode]),CutBehavior) :- !,
+	cut_analysis(BodyASTNode,CutBehavior).	
 		
 cut_analysis(_,never).
 
@@ -1019,6 +1057,7 @@ conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-
 
 
 
+% TODO rename: "is_ground"
 is_ground_term(ct(_Meta,_Functor,ASTNodes)) :- !,
 	forall(member(ASTNode,ASTNodes),is_ground_term(ASTNode)).
 is_ground_term(r(_,_)) :- !.

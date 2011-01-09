@@ -132,10 +132,6 @@ number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCu
 	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
 
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
-	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
-	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
-
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,DidCut) :-
 	(
 		complex_term_identifier(ASTNode,Functor/Arity),!

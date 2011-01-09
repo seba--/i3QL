@@ -35,7 +35,9 @@
 	This analysis identifies clauses for which we can apply last call 
 	optimizations. I.e., this analysis identifies predicates that are tail 
 	recursive, and where we can statically decide that – when the tail recursive
-	goal is reached – there a no more choice points. 
+	goal is reached – that there a no more choice points. Additionally, this
+	analysis makes a sound approximation of the number of solutions of each 
+	predicate.
 		
 	@author Michael Eichberg
 */
@@ -52,23 +54,82 @@
 
 
 
+% TODO rename to analyze_tail_calls
 pl_last_call_optimization_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,
 	write('\n[Debug] Phase: Last Call Optimization Analysis______________________________\n')),
-	foreach_user_predicate(Program,process_predicate(DebugConfig,Program)).
+	% IMPROVE Implement a true fixed-point analysis for estimating the number of solutions and identifying tail calls etc.
+	foreach_user_predicate(
+		Program,
+		analyze_number_of_potential_solutions_of_predicate(DebugConfig,Program)),
+	foreach_user_predicate(
+		Program,
+		analyze_tail_calls(DebugConfig,Program)),
+	foreach_user_predicate(
+		Program,
+		analyze_number_of_potential_solutions_of_predicate(DebugConfig,Program)).
 
 
 
-process_predicate(DebugConfig,Program,Predicate) :-
+analyze_number_of_potential_solutions_of_predicate(_DebugConfig,_Program,Predicate) :-
+	lookup_in_predicate_meta(solutions(_),Predicate),!. % we have already analyzed the predicate
+analyze_number_of_potential_solutions_of_predicate(DebugConfig,Program,Predicate) :-
+	predicate_identifier(Predicate,Functor/Arity),
+	(	lookup_in_predicate_meta(deterministic_clause_selection(yes),Predicate)
+	->	
+		predicate_clauses(Predicate,Clauses),
+		foreach_clause(
+			Clauses,
+			analyze_number_of_potential_solutions_of_clause(Program),
+			SolutionsList),
+		(	forall(member(Solution,SolutionsList),Solution = [_,1]) 
+		->
+			add_flag_to_predicate_meta(solutions([0,1]),Predicate),
+			% logging...
+			debug_message(DebugConfig,memberchk(solutions),write_atomic_list(['[Debug] Potential number of solutions of: ',Functor,'/',Arity,' - [0,1]\n']))
+		;	% We know nothing...
+			true
+		)	
+	;	% IMPROVE We could improve the lower bound estimation, by checking that all clauses have at least one solution.
+		add_flag_to_predicate_meta(solutions([0,*]),Predicate),
+		% logging...
+		debug_message(DebugConfig,memberchk(solutions),write_atomic_list(['[Debug] Potential number of solutions of: ',Functor,'/',Arity,' - [0,*]\n']))
+	).
+
+
+
+analyze_number_of_potential_solutions_of_clause(
+		Program,
+		_ClauseId,
+		Clause,
+		_RelativePosition,
+		Solutions
+	) :-
+	clause_implementation(Clause,Implementation),
+	rule_body(Implementation,BodyASTNode),
+	number_of_solutions_of_goal(Program,BodyASTNode,Solutions,_),
+	(	Solutions = [_,1] ->
+		add_to_clause_meta(solutions(Solutions),Clause)
+	;
+		% we know nothing... 
+		% IMPROVE Store the clause for later (re-analysis).
+		true
+	).
+
+
+
+analyze_tail_calls(DebugConfig,Program,Predicate) :-
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(
 		Clauses,
 		check_clause_for_tail_recursion(DebugConfig,Program,Predicate,HasTailCalls,NaiveLastCallOptimizationIsPossible),
 		_
 	),
-	% So far we have identified all "trivially" tail recursive calls. However, 
-	% predicates (clauses) that call themselve - before the tail-recursive call -
-	% are not yet detected. For example, given the following predicate:
+	% So far we have identified all "trivially" tail recursive calls where we
+	% can apply our last call optimization.
+	% However, predicates (clauses) that call themselve - before the 
+	% tail-recursive call - are not yet detected. For example, given the 
+	% following predicate:
 	% 	tak(X,Y,Z,A) :-
 	%		X =< Y, !,
 	%		Z = A.
@@ -81,14 +142,15 @@ process_predicate(DebugConfig,Program,Predicate) :-
 	%		Z1 is Z - 1,
 	%		tak(Z1,X,Y,A3),
 	%		tak(A1,A2,A3,A).
-	% it is possible to perform the last call optimization.
-	% The number of solutions of this predicate is always at most one.
+	% doing a last call optimization is possible.
+	% The number of solutions of this predicate is always at most one (and if
+	% it succeeds, no other clauses will be evaluated).
 	% The number of solutions of the first clause is at most one and the second 
 	% clause is tail recursive; i.e., it does not produce solutions on its own.
 	%
 	% To detect such cases, we check that all non-recursive clauses have at
-	% most one solution and are always cut and that the tail-recursive clauses 
-	% (if there are multiple ones) are also cut or the last clause and that the number
+	% most one solution and are always cut and that a tail-recursive clause
+	% is either always cut or that it is the last clause and that the number
 	% of solutions is at most one under the assumption that the number of solutions
 	% of a recursive call is at most one.
 	(	NaiveLastCallOptimizationIsPossible = false,
@@ -104,12 +166,12 @@ process_predicate(DebugConfig,Program,Predicate) :-
 		PredicateSupportsLastCallOptimization = true, % the hypothesis was not rejected
 		!,
 		predicate_identifier(Predicate,Functor/Arity),
-		debug_message(DebugConfig,memberchk(report_clauses_where_lco_is_possible),write_atomic_list(['[Debug] Last call optimization possible for all tail-recursive clauses: ',Functor,'/',Arity,'\n'])),
+		debug_message(DebugConfig,memberchk(report_clauses_where_lco_is_possible),write_atomic_list(['[Debug] Last call optimization is possible for all tail-recursive clauses of: ',Functor,'/',Arity,'\n'])),
 		add_flag_to_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate),
 		add_flag_to_predicate_meta(solutions([0,1]),Predicate),
 		foreach_clause(
 			Clauses,
-			add_information_that_last_call_optimization_is_possible(Functor/Arity)
+			add_information_that_last_call_optimization_is_possible_for_tail_calls_with(Functor/Arity)
 		)
 	;
 		true % no further analysis is necessary
@@ -202,7 +264,7 @@ check_predicate_for_tail_recursion(
 
 
 
-add_information_that_last_call_optimization_is_possible(PredicateIdentifier,Clause) :-
+add_information_that_last_call_optimization_is_possible_for_tail_calls_with(PredicateIdentifier,Clause) :-
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
 	complex_term(BodyASTNode,',',[_PreviousGoal,LastGoal]),
@@ -210,7 +272,7 @@ add_information_that_last_call_optimization_is_possible(PredicateIdentifier,Clau
 	!,
 	add_to_clause_meta(last_call_optimization_is_possible,Clause),
 	add_to_term_meta(last_call_optimization_is_possible,LastGoal).
-add_information_that_last_call_optimization_is_possible(_PredicateIdentifier,_Clause).
+add_information_that_last_call_optimization_is_possible_for_tail_calls_with(_PredicateIdentifier,_Clause).
 		
 	
 

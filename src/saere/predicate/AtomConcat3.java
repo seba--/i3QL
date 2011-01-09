@@ -76,9 +76,9 @@ public final class AtomConcat3 implements Goal {
 			throw new PrologException("The terms are not sufficiently instantiated.");
 		}
 
-		this.l = l.dereference();
-		this.r = r.dereference();
-		this.o = o.dereference();
+		this.l = l.expose();
+		this.r = r.expose();
+		this.o = o.expose();
 		this.oState = o.manifestState();
 	}
 

@@ -285,7 +285,7 @@ public final class Variable extends Term implements State {
 	}
 
 	@Override
-	public Term dereference() {
+	public Term expose() {
 		Variable hv = headVariable();
 		Term hvv = hv.value;
 		if (hvv == null) {

@@ -1,4 +1,4 @@
-//package predicates;
+
 
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;

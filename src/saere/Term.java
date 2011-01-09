@@ -328,5 +328,5 @@ public abstract class Term {
 		}
 	}
 
-	public abstract Term dereference();
+	public abstract Term expose();
 }

@@ -34,7 +34,7 @@ public class MainQueens {
 			StringAtom queens = StringAtom.get("queens");
 			Goal s = compoundTerm(time, compoundTerm(queens, atomic(i), solution)).call();
 			if (s.next()) {
-				System.out.println(" ; " + i + " => " + solution.toProlog());
+				System.out.println(i + " => " + solution.toProlog());
 			} else {
 				System.out.println();
 			}
@@ -47,21 +47,23 @@ public class MainQueens {
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 
-				long startTime = System.nanoTime();
+				long duration = 0l;
 				for (int i = 1; i <= 22; i++) {
 					Variable solution = new Variable();
 					StringAtom time = StringAtom.get("time");
 					StringAtom queens = StringAtom.get("queens");
 					Goal s = compoundTerm(time, compoundTerm(queens, atomic(i), solution)).call();
-					if (s.next()) {
-						System.out.println(" ; " + i + " => " + solution.toProlog());
+					long startTime = System.nanoTime();
+					boolean succeeded = s.next();
+					duration += System.nanoTime() - startTime;
+					if (succeeded) {
+						System.out.println(i + " => " + solution.toProlog()+"\n");
 					} else {
 						System.out.println();
 					}
 				}
-				long duration = System.nanoTime() - startTime;
 				Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
-				System.out.printf("%10.4f", time);
+				System.out.printf("Finished in %10.4f secs.\n", time);
 				All.writeToPerformanceLog("queens finished in: " + time + "\n");
 			}
 		});

@@ -2,6 +2,7 @@
 
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
+import static saere.term.Terms.delimitedList;
 import predicates.integers3Factory;
 import predicates.primes2Factory;
 import predicates.remove3Factory;
@@ -21,6 +22,16 @@ public class MainPrimes {
 	}
 
 	public static void main(String[] args) throws Exception {
+
+//		{
+//			Variable r = new Variable();
+//			Goal g = compoundTerm(
+//					atomic("remove"),
+//					atomic(2),
+//					delimitedList(atomic(1), atomic(2), atomic(3), atomic(4),
+//							atomic(5)),r).call();
+//			System.out.print(r.toProlog());
+//		}
 
 		System.out.println("Warm up...(~ 1 Minute)");
 		{
@@ -73,5 +84,4 @@ public class MainPrimes {
 		t.start();
 		t.join();
 	}
-
 }

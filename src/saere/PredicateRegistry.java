@@ -41,7 +41,6 @@ import saere.predicate.Cut0;
 import saere.predicate.False0;
 import saere.predicate.Ground1;
 import saere.predicate.Is2;
-import saere.predicate.Member2;
 import saere.predicate.Not1;
 import saere.predicate.ArithNotEqual2;
 import saere.predicate.NotUnify2;
@@ -85,7 +84,7 @@ public class PredicateRegistry {
 		False0.registerWithPredicateRegistry(this);
 		Ground1.registerWithPredicateRegistry(this);
 		Is2.registerWithPredicateRegistry(this);
-		Member2.registerWithPredicateRegistry(this);
+		//Member2.registerWithPredicateRegistry(this);
 		Not1.registerWithPredicateRegistry(this);
 		NotUnify2.registerWithPredicateRegistry(this);
 		Or2.registerWithPredicateRegistry(this);
