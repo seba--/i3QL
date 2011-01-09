@@ -2,6 +2,9 @@
 
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
+
+import javax.swing.text.NumberFormatter;
+
 import predicates.not_attack2Factory;
 import predicates.not_attack3Factory;
 import predicates.queens2Factory;
@@ -41,21 +44,21 @@ public class MainQueens {
 
 		}
 
-		// System.out.println("Waiting for five seconds...");
-		// Thread.sleep(5000);
-
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 
 				long duration = 0l;
-				for (int i = 1; i <= 22; i++) {
+				for (int i = 1; i <= 28; i++) {
 					Variable solution = new Variable();
 					StringAtom time = StringAtom.get("time");
 					StringAtom queens = StringAtom.get("queens");
 					Goal s = compoundTerm(time, compoundTerm(queens, atomic(i), solution)).call();
 					long startTime = System.nanoTime();
 					boolean succeeded = s.next();
-					duration += System.nanoTime() - startTime;
+					long last_duration = System.nanoTime() - startTime;
+					
+					All.writeToPerformanceLog("queens "+i+" finished in: " + new Double(last_duration / 1000.0 / 1000.0 / 1000.0) + "\n");
+					duration += last_duration;
 					if (succeeded) {
 						System.out.println(i + " => " + solution.toProlog()+"\n");
 					} else {
@@ -64,7 +67,7 @@ public class MainQueens {
 				}
 				Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 				System.out.printf("Finished in %10.4f secs.\n", time);
-				All.writeToPerformanceLog("queens finished in: " + time + "\n");
+				All.writeToPerformanceLog("queens (1..28) finished in: " + time + "\n");
 			}
 		});
 		t.start();
