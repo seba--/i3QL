@@ -1,17 +1,14 @@
 TODOs:
 
 0)
-- Complete the support for "or"
-- ground, atom, number (in the compiler)
-- length
-- is_list
-- memberchk
-- arg
-- functor
-- =..
+- ground, atom, atomic,var,functor,arg, =.. number (in the compiler)
 - atom_codes
 - call
+
+- memberchk
 - findall
+- length
+- is_list
 
 
 1)
@@ -34,13 +31,13 @@ Implement more complete support for last call optimization (e.g., to support the
 Type specialization
 
 5)
-Analyze predicates to determine how many solutions will be generated at runtime
-(can help to scale the "tak" benchmark)
+Improve the analysis of predicates to determine how many solutions will be generated at runtime
 
 6)
-(If necessary) Add a method to the goal interface that enables the caller of a
-predicate to identify the number of further solutions (e.g. a method hasMore() 
+(If necessary) Add a method to the goal interface that enables the caller of a predicate to identify the number of further solutions (e.g. a method hasMore() 
 where the answers are: No, Maybe, Yes)
+
+7) Generate a "test" method (additionally to the next method)?
 
 
 How to use the compiler:
