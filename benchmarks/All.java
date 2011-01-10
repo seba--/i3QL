@@ -48,6 +48,10 @@ public class All {
 		runMain(MainHanoi.class);
 		runMain(MainTak.class);
 		runMain(MainZebra.class);
+		runMain(MainArithmetic.class);
+		runMain(MainNRev.class);
+		
+		
 		long duration = System.nanoTime() - startTime;
 		Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 		All.writeToPerformanceLog("EXECUTING ALL TESTS FINISHED IN: " + time + "\n");

@@ -20,20 +20,6 @@ public class MainZebra {
 
 	public static void main(String[] args) throws Throwable {
 
-		{
-			Variable h = new Variable();
-			Goal g1 = compoundTerm(atomic("houses"), h).call();
-			g1.next();
-			System.out.println(h.toProlog());
-	
-			Variable r = new Variable();
-			Goal g2 = compoundTerm(atomic("right_of"),atomic(1) ,atomic(2) , h).call();
-			//for ( int i = 0 ; i < 10; i++)
-			while (g2.next()) {
-				System.out.println(r.toProlog());
-			}
-		}
-
 		final Variable result = new Variable();
 		final Term t = compoundTerm(StringAtom.get("time"),
 				compoundTerm(atomic("zebra"), result));

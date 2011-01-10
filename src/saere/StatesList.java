@@ -90,4 +90,10 @@ final public class StatesList implements State {
 		return new StatesList(s4, new StatesList(s3, new StatesList(s2,
 				new StatesList(s1, sl))));
 	}
+	
+	public static StatesList prepend(State s1, State s2, State s3, State s4, State s5,
+			StatesList sl) {
+		return new StatesList(s5,new StatesList(s4, new StatesList(s3, new StatesList(s2,
+				new StatesList(s1, sl)))));
+	}
 }

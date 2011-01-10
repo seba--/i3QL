@@ -668,6 +668,7 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 /*
 	Translates the "unification"
 */
+
 translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
 	(	is_variable(LASTNode), 
@@ -818,7 +819,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 	lookup_in_term_meta(mapped_variable_name(MVN),LASTNode),
-	memberchk_ol(MVN,NewVariables),!,
+	memberchk_ol(MVN,NewVariables),MVN \= arg(_),!,
 	% Handle the case if "is" is called the first time
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
@@ -1178,6 +1179,11 @@ unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail
 		]
 	;
 		TermNodeTermConstructor = complex_term(FunctorConstructor,ArgsConstructors),!,
+		FunctorConstructor = string_atom(StringValue),
+		create_term_for_cacheable_string_atom(
+				StringValue,
+				CachedFunctorConstructor,
+				DeferredActions),
 		length(ArgsConstructors,ArgsConstructorsCount),
 		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),UnifyMeta),
 		remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
@@ -1193,7 +1199,7 @@ unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail
 			if(
 				boolean_and(
 					value_comparison('==',term_arity(VarNodeTermConstructor),int(ArgsConstructorsCount)),					
-					functor_comparison(term_functor(VarNodeTermConstructor),FunctorConstructor)
+					functor_comparison(term_functor(VarNodeTermConstructor),CachedFunctorConstructor)
 				),
 				STest
 			)		

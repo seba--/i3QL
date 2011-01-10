@@ -1,3 +1,6 @@
+/* TYPICAL USAGE
+	?- num_to_binary(14, D),factorial(D, O).
+*/
 bit_xor(0, 0, 0).
 bit_xor(0, 1, 1).
 bit_xor(1, 0, 1).
@@ -19,7 +22,7 @@ full_adder(B, X, Y, R, C) :-
 
 num_to_binary(0, []).
 num_to_binary(Num, Result) :-
-    Num \= 0,
+    Num =\= 0,
     Parity is Num mod 2,
     num_to_binary(Num, Parity, Result).
 
@@ -143,8 +146,4 @@ factorial(X, Y) :-
     bin_st(X, Y),
     bin_mul(X, R, Y).
 
-/* BENCHMARK HARNESS
-initialize(D) :- num_to_binary(14, D).
-benchmark(D, O) :- factorial(D, O).
-slow_initialize(D) :- num_to_binary(6, D).
-*/
+
