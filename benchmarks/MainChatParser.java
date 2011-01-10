@@ -18,7 +18,7 @@ public class MainChatParser {
 		determinate_say2Factory.registerWithPredicateRegistry(registry);
 	}
 
-	public static void main(String[] args) throws Throwable {
+	public static void main(String[] args) {
 
 		{
 			for (int i = 0; i < 20; i++) {

@@ -33,8 +33,8 @@ public class MainTak {
 		// R = 7.
 
 		final Variable result = new Variable();
-		final long x = 32;
-		final long y = 12;
+		final long x = 34;
+		final long y = 13;
 		final long z = 6;
 		final Term t = compoundTerm(StringAtom.get("time"),
 				compoundTerm(atomic("tak"), atomic(x), atomic(y), atomic(z), result));

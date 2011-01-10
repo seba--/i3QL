@@ -15,7 +15,7 @@ public class MainNRev {
 		nrev_range2Factory.registerWithPredicateRegistry(registry);
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		for (long i = 1; i <= 5; i++) {
 			Variable solution = new Variable();

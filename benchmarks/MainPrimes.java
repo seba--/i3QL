@@ -2,7 +2,6 @@
 
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
-import static saere.term.Terms.delimitedList;
 import predicates.integers3Factory;
 import predicates.primes2Factory;
 import predicates.remove3Factory;
@@ -33,11 +32,11 @@ public class MainPrimes {
 //			System.out.print(r.toProlog());
 //		}
 
-		System.out.println("Warm up...(~ 1 Minute)");
+		System.out.println("Warm up...");
 		{
 			boolean showSolution = true;
 			long startTime = System.nanoTime();
-			do {
+			for(int i = 0 ; i < 1000; i++) {
 				Variable solution = new Variable();
 				Goal s = compoundTerm(atomic("primes"), atomic(1000), solution)
 						.call();
@@ -49,7 +48,7 @@ public class MainPrimes {
 				} else {
 					throw new Error("Evaluation failed.");
 				}
-			} while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
+			} //while ((System.nanoTime() - startTime) < 60l * 1000l * 1000l * 1000l);
 			long duration = System.nanoTime() - startTime;
 			System.out.printf("%7.4f\n", new Double(
 					duration / 1000.0 / 1000.0 / 1000.0));
@@ -61,21 +60,19 @@ public class MainPrimes {
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 
-				long startTime = System.nanoTime();
+				long duration = 0l;
 				for (int i = 1; i <= 10; i++) {
 					Variable solution = new Variable();
 					Goal s = compoundTerm(
 							atomic("time"),
 							compoundTerm(atomic("primes"), atomic(1000),
 									solution)).call();
-					if (s.next()) {
-						System.out.println(" ; " + i + " => "
-								+ solution.toProlog());
-					} else {
+					long startTime = System.nanoTime();
+					if (!s.next()) {
 						throw new Error("Evaluation failed.");
 					}
-				}
-				long duration = System.nanoTime() - startTime;
+					duration += System.nanoTime() - startTime;
+				}				
 				Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
 				System.out.printf("%7.4f", time);
 				All.writeToPerformanceLog("primes finished in: " + time + "\n");
