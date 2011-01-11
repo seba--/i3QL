@@ -40,13 +40,18 @@ final public class StatesList implements State {
 
 	private final State state;
 
-	private StatesList next;
+	private final StatesList next;
 
-	public StatesList(State state) {
+	StatesList(State state) {
+		assert state != null;
+
 		this.state = state;
+		this.next = null;
 	}
 
-	public StatesList(State state, StatesList next) {
+	StatesList(State state, StatesList next) {
+		assert state != null;
+
 		this.state = state;
 		this.next = next;
 	}
@@ -54,9 +59,7 @@ final public class StatesList implements State {
 	public void reincarnate() {
 		StatesList cts = this;
 		while (cts != null) {
-			State s = cts.state;
-			if (s != null)
-				s.reincarnate();
+			cts.state.reincarnate();
 			cts = cts.next;
 		}
 	}
@@ -73,27 +76,43 @@ final public class StatesList implements State {
 	}
 
 	public static StatesList prepend(State s, StatesList sl) {
-		return new StatesList(s, sl);
+		if (s == null)
+			return null;
+		else
+			return new StatesList(s, sl);
 	}
 
-	// TODO improve the following implementations..
 	public static StatesList prepend(State s1, State s2, StatesList sl) {
-		return new StatesList(s2, new StatesList(s1, sl));
+		StatesList rest = prepend(s2, sl);
+		if (s1 != null)
+			return new StatesList(s1, rest);
+		else
+			return rest;
 	}
 
 	public static StatesList prepend(State s1, State s2, State s3, StatesList sl) {
-		return new StatesList(s3, new StatesList(s2, new StatesList(s1, sl)));
+		StatesList rest = prepend(s2, s3, sl);
+		if (s1 != null)
+			return new StatesList(s1, rest);
+		else
+			return rest;
 	}
 
 	public static StatesList prepend(State s1, State s2, State s3, State s4,
 			StatesList sl) {
-		return new StatesList(s4, new StatesList(s3, new StatesList(s2,
-				new StatesList(s1, sl))));
+		StatesList rest = prepend(s2, s3, s4, sl);
+		if (s1 != null)
+			return new StatesList(s1, rest);
+		else
+			return rest;
 	}
-	
-	public static StatesList prepend(State s1, State s2, State s3, State s4, State s5,
-			StatesList sl) {
-		return new StatesList(s5,new StatesList(s4, new StatesList(s3, new StatesList(s2,
-				new StatesList(s1, sl)))));
+
+	public static StatesList prepend(State s1, State s2, State s3, State s4,
+			State s5, StatesList sl) {
+		StatesList rest = prepend(s2, s3, s4, s5, sl);
+		if (s1 != null)
+			return new StatesList(s1, rest);
+		else
+			return rest;
 	}
 }

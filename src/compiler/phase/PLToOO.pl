@@ -147,8 +147,8 @@ pl_to_oo(DebugConfig,Program,_OutputFolder,Program) :-
 
 process_predicate(DebugConfig,Program,Predicate) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
-	term_to_atom(PredicateIdentifier,PredicateIdentifierAtom),
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',PredicateIdentifierAtom,'\n'])),
+	PredicateIdentifier = Functor/Arity,
+	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	% build the OO AST
 	% METHODS
 	SMethods = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
@@ -165,8 +165,7 @@ process_predicate(DebugConfig,Program,Predicate) :-
 		class_decl(PredicateIdentifier,type(goal),S1),
 		predicate_registration(PredicateIdentifier)
 		]),
-	predicate_meta(Predicate,Meta),
-	add_to_meta(OOAST,Meta).	
+	add_to_predicate_meta(OOAST,Predicate).	
 
 
 
@@ -673,13 +672,13 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
 	(	is_variable(LASTNode), 
 		\+ is_variable(RASTNode),
-		VarNode = LASTNode,
-		TermNode = RASTNode
+		VarASTNode = LASTNode,
+		TermASTNode = RASTNode
 	;
 		is_variable(RASTNode), 
 		\+ is_variable(LASTNode),
-		VarNode = RASTNode,
-		TermNode = LASTNode
+		VarASTNode = RASTNode,
+		TermASTNode = LASTNode
 	),!,
 	term_meta(PrimitiveGoal,UnifyMeta),
 	lookup_in_meta(goal_number(GoalNumber),UnifyMeta),
@@ -692,7 +691,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 		|
 		SUnification
 	],
-	unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail),	
+	unfold_unification(DeferredActions,UnifyMeta,VarASTNode,TermASTNode,SUnification,STail),	
 	STail = [
 		if(local_variable_ref('succeeded'),
 			[
@@ -719,7 +718,8 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 			JumpToNextGoalAfterFail
 		]
 	).
-	
+
+
 
 % Handles all other cases of unification 
 % IMPROVE unfold the unification of things such as "a(b,X) = a(_,Y)"...
@@ -730,9 +730,9 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	% call-case
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(LASTNode,cache,LTermConstructor,LMappedVariableNames,DeferredActions),
-	create_term(RASTNode,cache,RTermConstructor,RMappedVariableNames,DeferredActions),
-	merge_sets(LMappedVariableNames,RMappedVariableNames,MappedVariableNames),
+	create_term(LASTNode,cache,LTermConstructor,LVariableIds,DeferredActions),
+	create_term(RASTNode,cache,RTermConstructor,RVariableIds,DeferredActions),
+	merge_sets(LVariableIds,RVariableIds,VariableIds),
 	SEval = [
 		if(unify(LTermConstructor,RTermConstructor),
 			JumpToNextGoalAfterSucceed
@@ -740,16 +740,16 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	],
 	(
 		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),Meta),
-		lookup_in_meta(potentially_used_variables(VariablesPotentiallyPreviouslyUsed),Meta) ->
+		lookup_in_meta(variables_that_may_have_been_used(VariablesPotentiallyPreviouslyUsed),Meta) ->
 		init_clause_local_variables(
 			VariablesUsedForTheFirstTime,
 			VariablesPotentiallyPreviouslyUsed,
-			MappedVariableNames,
+			VariableIds,
 			SInitCLVs,
 			SSaveState
 		),
 		(	remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
-			set_subtract(MappedVariableNames,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
+			set_subtract(VariableIds,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
 			not_empty(VariablesThatNeedToBeSaved) ->
 			save_state_in_undo_goal(VariablesThatNeedToBeSaved,SSaveState,SEval),
 			RedoAction = [
@@ -818,19 +818,19 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
-	lookup_in_term_meta(mapped_variable_name(MVN),LASTNode),
-	memberchk_ol(MVN,NewVariables),MVN \= arg(_),!,
+	lookup_in_term_meta(mapped_variable_name(VarId),LASTNode),
+	memberchk_ol(VarId,NewVariables),VarId \= arg(_),!,
 	% Handle the case if "is" is called the first time
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	create_term(RASTNode,do_not_cache,RTermConstructor,_RMappedVariableNames,DeferredActions),
+	create_term(RASTNode,do_not_cache,RTermConstructor,_RVariableIds,DeferredActions),
 	SCall = case(
 		int(CallCaseId),
 		[
 			expression_statement(
 				assignment(
-					MVN,
+					VarId,
 					int_value_expr(arithmetic_evluation(RTermConstructor)))) |
 			JumpToNextGoalAfterSucceed
 		]
@@ -884,14 +884,14 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	
 	% "call-case"
 	goal_call_case_id(GoalNumber,CallCaseId),
-	create_term(PrimitiveGoal,do_not_cache_root,TermConstructor,MappedVariableNames,DeferredActions),
+	create_term(PrimitiveGoal,do_not_cache_root,TermConstructor,VariableIds,DeferredActions),
 	(
 		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
-		lookup_in_meta(potentially_used_variables(PotentiallyUsedVariables),Meta) ->
+		lookup_in_meta(variables_that_may_have_been_used(PotentiallyUsedVariables),Meta) ->
 		init_clause_local_variables(
 			NewVariables,
 			PotentiallyUsedVariables,
-			MappedVariableNames,
+			VariableIds,
 			SInitCLVs,
 			[ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
 		)
@@ -1029,9 +1029,9 @@ init_clause_local_variables(_NewVariables,_PotentiallyUsedVariables,[],SZ,SZ).
 
 
 
-save_state_in_undo_goal(MappedVariableNames,SSaveState,SEval) :- 
+save_state_in_undo_goal(VariableIds,SSaveState,SEval) :- 
 	SSaveState =[
-		create_undo_goal_and_put_on_goal_stack(MappedVariableNames)
+		create_undo_goal_and_put_on_goal_stack(VariableIds)
 		|SEval
 	].
 
@@ -1040,8 +1040,8 @@ save_state_in_undo_goal(MappedVariableNames,SSaveState,SEval) :-
 
 /*
 	Updates the predicate arguments before the next round (tail recursive)...
-	A predicate such as swap(X,Y) :- swap(Y,X) requires that we do store the 
-	values of the args.
+	A predicate such as swap(X,Y) :- swap(Y,X) requires that we sometime have to 
+	store the values of the args into temporary variables.
 */
 update_predicate_arguments(_NewVariables,_,[],SR,SR,_) :- !.
 update_predicate_arguments(
@@ -1113,38 +1113,47 @@ replace_ids_of_args_of_list_lower_than(
 
 
 
-% REFACTOR potentially_used_variables => variables_that_previously_may_have_been_used
-unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail) :-
-	create_term(VarNode,do_not_cache,VarNodeTermConstructor,[MVN],DeferredActions),
-	create_term(TermNode,cache,CachedTermNodeTermConstructor,_,DeferredActions),
-	lookup_in_meta(variables_used_for_the_first_time(FTUVars),UnifyMeta), % FTUVars = Firt time used variables
-	lookup_in_meta(potentially_used_variables(PPUVars),UnifyMeta), % PPUVars = potentially previously used variables 
-	named_variables_of_term(TermNode,NamedVariables,[]),
-	mapped_variable_ids(NamedVariables,MappedVariableIds),
-	% if the variable is free...
-	(	MVN=arg(_), memberchk_ol(MVN,FTUVars) ->
+unfold_unification(
+		DeferredActions,
+		UnifyMeta,
+		VarASTNode,
+		TermASTNode,
+		SUnification,STail
+	) :-
+	create_term(VarASTNode,do_not_cache,VarNodeTermConstructor,[VarId],DeferredActions),
+	create_term(TermASTNode,cache,CachedTermNodeTermConstructor,_,DeferredActions),
+	lookup_in_meta(variables_used_for_the_first_time(FTUVarsIds),UnifyMeta), % FTUVar.. = First Time Used Variables
+	lookup_in_meta(variables_that_may_have_been_used(MUVarsIds),UnifyMeta), % MUVar.. = May have been Used Variables
+	named_variables_of_term(TermASTNode,NamedVariablesASTNodes,[]),
+	mapped_variable_ids(NamedVariablesASTNodes,VariablesIds),
+	% if the variable is free... and guaranteed to be exposed 
+	% (currently, only args are guaranteed to be exposed)
+	(	VarId = arg(_), memberchk_ol(VarId,FTUVarsIds) ->
 		IsExposed = exposed
 	;
 		IsExposed = unknown
 	),
-	init_clause_local_variables(FTUVars,PPUVars,MappedVariableIds,SInitCLVs,SSaveStates),
+	init_clause_local_variables(FTUVarsIds,MUVarsIds,VariablesIds,SInitCLVs,SSaveStates),
 	SSaveStates = [
-		manifest_state_and_add_to_locally_scoped_states_list([MVN]) |
+		manifest_state_and_add_to_locally_scoped_states_list([VarId]) |
 		SSucceeded
 	],		
 	SSucceeded = [
-		bind_variable(MVN,CachedTermNodeTermConstructor),
+		bind_variable(VarId,CachedTermNodeTermConstructor),
 		expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
 	],
 	% if we can "unfold"...
-	create_term(TermNode,do_not_cache_root,TermNodeTermConstructor,_,DeferredActions),
+	create_term(TermASTNode,do_not_cache_root,TermNodeTermConstructor,_,DeferredActions),
 	(
 		TermNodeTermConstructor = int_value(_IntValue),!,
 		SMatchTerm = [
 			if(
 				boolean_and(
 					test_term_is_integer_value(VarNodeTermConstructor),
-					arithmetic_comparison('=:=',VarNodeTermConstructor,TermNodeTermConstructor)
+					arithmetic_comparison(
+						'=:=',
+						VarNodeTermConstructor,
+						TermNodeTermConstructor)
 				),
 				[
 					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
@@ -1157,7 +1166,10 @@ unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail
 			if(
 				boolean_and(
 					test_term_is_float_value(VarNodeTermConstructor),
-					arithmetic_comparison('=:=',VarNodeTermConstructor,TermNodeTermConstructor)
+					arithmetic_comparison(
+						'=:=',
+						VarNodeTermConstructor,
+						TermNodeTermConstructor)
 				),
 				[
 					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
@@ -1185,19 +1197,21 @@ unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail
 				CachedFunctorConstructor,
 				DeferredActions),
 		length(ArgsConstructors,ArgsConstructorsCount),
-		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),UnifyMeta),
-		remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
+		remove_from_set(arg(_),FTUVarsIds,FTUCLVarsIds),
 		test_and_unify_args(
 			ArgsConstructors,
-			MVN,
+			VarId,
 			0,
-			[],CLVariablesUsedForTheFirstTime,
+			[],FTUCLVarsIds,
 			STest,
-			[ expression_statement(assignment(local_variable_ref('succeeded'),boolean(true))) ],
+			[	% if all tests succeed, we set the "succeeded" variable to true 
+				expression_statement(assignment(local_variable_ref('succeeded'),boolean(true))) 
+			],
 			DeferredActions),
 		SMatchTerm = [
 			if(
 				boolean_and(
+					% TODO Refactor use as the operator the standard prolog operators
 					value_comparison('==',term_arity(VarNodeTermConstructor),int(ArgsConstructorsCount)),					
 					functor_comparison(term_functor(VarNodeTermConstructor),CachedFunctorConstructor)
 				),
@@ -1216,25 +1230,25 @@ unfold_unification(DeferredActions,UnifyMeta,VarNode,TermNode,SUnification,STail
 
 % GOAL Locally used variables..
 test_and_unify_args(
-		[],
+		[], % We are finished; there are no more arguments.
 		_BaseVariable,_ArgId,_VarsWithSavedState,_VarsThatAreFree,
 		SRest,SRest,
-		_DeferredActions).
+		_DeferredActions) :- !.
 test_and_unify_args(
-		[ArgsConstructor|ArgsConstructors],
+		[CLV|ArgsConstructors],
 		BaseVariable,
 		ArgId,
 		VarsWithSavedState,VarsThatAreFree,
 		STaU,SRest,
 		DeferredActions
 	) :- 
-	ArgsConstructor = clv(_),
-	memberchk(ArgsConstructor,VarsThatAreFree),!,
+	CLV = clv(_),
+	memberchk(CLV,VarsThatAreFree),!,
 	STaU = [
-		expression_statement(assignment(ArgsConstructor,term_arg(BaseVariable,int(ArgId))))
+		expression_statement(assignment(CLV,term_arg(BaseVariable,int(ArgId))))
 		| SFurtherTaU
 	],	
-	remove_from_set(ArgId,VarsThatAreFree,NewVarsThatAreFree),
+	remove_from_set(CLV,VarsThatAreFree,NewVarsThatAreFree),
 	NewArgId is ArgId + 1,
 	test_and_unify_args(
 		ArgsConstructors,
@@ -1317,83 +1331,117 @@ term_constructor_variables(string_atom(_),SRest,SRest) :- !.
 term_constructor_variables(pre_created_term(_),SRest,SRest) :- !.
 term_constructor_variables(anonymous_variable,SRest,SRest) :- !.
 term_constructor_variables(complex_term(_,Args),SMappedVariables,SRest) :- !,
-	term_constructors_mapped_variables(Args,SMappedVariables,SRest).
+	term_constructors_variables(Args,SMappedVariables,SRest).
 term_constructor_variables(Variable,[Variable|SRest],SRest) :- !.
 
 
-term_constructors_mapped_variables([],SRest,SRest).
-term_constructors_mapped_variables([Arg|Args],SMappedVariables,SRest) :-
+
+term_constructors_variables([],SRest,SRest).
+term_constructors_variables([Arg|Args],SMappedVariables,SRest) :-
 	term_constructor_variables(Arg,SMappedVariables,SIMappedVariables),
-	term_constructors_mapped_variables(Args,SIMappedVariables,SRest).
+	term_constructors_variables(Args,SIMappedVariables,SRest).
 
 
 
 /**
-	@signature create_term(ASTNode,Type,TermConstructor,MappedVariableNames,DeferredActions)
+	@signature create_term(ASTNode,Type,TermConstructor,VariableIds,DeferredActions)
 	@arg(in) Type is either "cache", "do_not_cache_root" or "do_not_cache"
-	@arg(out) MappedVariableNames - the names of the variables used by this term
+	@arg(out) VariableIds - the names of the variables used by this term
 */
 create_term(
 		ASTNode,
-		_Type,_TermConstructor,_MappedVariableNames,_DeferredActions
+		_Type,_TermConstructor,_VariableIds,_DeferredActions
 	) :- % let's catch some programming errors early on...
-	var(ASTNode),!,throw(internal_error(create_term/5,'ASTNode needs to be instantiated')).
-create_term(ASTNode,Type,TermConstructor,MappedVariableNames,DeferredActions) :-
-	create_term(ASTNode,Type,TermConstructor,[],MappedVariableNames,DeferredActions).
+	var(ASTNode),!,
+	throw(internal_error(
+		create_term/5,'ASTNode needs to be instantiated')).
+create_term(ASTNode,Type,TermConstructor,VariableIds,DeferredActions) :-
+	create_term(ASTNode,Type,TermConstructor,[],VariableIds,DeferredActions).
 
 /**
 	@signature create_term(ASTNode,Type,TermConstructor,OldVariables,NewVariables,DeferredActions)
 */
-create_term(ASTNode,_Type,int_value(Value),MVNs,MVNs,_DeferredActions) :-	
+create_term(ASTNode,_Type,int_value(Value),VarIds,VarIds,_DeferredActions) :-	
 	integer_atom(ASTNode,Value),!.
-create_term(ASTNode,_Type,float_value(Value),MVNs,MVNs,_DeferredActions) :-
+create_term(ASTNode,_Type,float_value(Value),VarIds,VarIds,_DeferredActions) :-
 	float_atom(ASTNode,Value),!.
 
-create_term(ASTNode,do_not_cache,string_atom(Value),MVNs,MVNs,_DeferredActions) :- 	
+create_term(ASTNode,do_not_cache,string_atom(Value),VarIds,VarIds,_DeferredActions) :- 	
 	string_atom(ASTNode,Value),!.
-create_term(ASTNode,do_not_cache_root,string_atom(Value),MVNs,MVNs,_DeferredActions) :- 	
+create_term(ASTNode,do_not_cache_root,string_atom(Value),VarIds,VarIds,_DeferredActions) :- 	
 	string_atom(ASTNode,Value),!.	
-create_term(ASTNode,cache,TermConstructor,MVNs,MVNs,DeferredActions) :- 	
+create_term(ASTNode,cache,TermConstructor,VarIds,VarIds,DeferredActions) :- 	
 	string_atom(ASTNode,Value),!,
 	create_term_for_cacheable_string_atom(Value,TermConstructor,DeferredActions).
 
-create_term(ASTNode,do_not_cache,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs,DeferredActions) :-
+create_term(
+		ASTNode,
+		do_not_cache,
+		complex_term(string_atom(Functor),ArgsConstructors),
+		OldVarIds,NewVarIds,
+		DeferredActions
+	) :-
 	complex_term(ASTNode,Functor,Args),
-	create_terms(Args,do_not_cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),!.
-create_term(ASTNode,do_not_cache_root,complex_term(string_atom(Functor),ArgsConstructors),OldMVNs,NewMVNs,DeferredActions) :-
+	create_terms(Args,do_not_cache,ArgsConstructors,OldVarIds,NewVarIds,DeferredActions),!.
+create_term(
+		ASTNode,
+		do_not_cache_root,
+		complex_term(string_atom(Functor),ArgsConstructors),
+		OldVarIds,NewVarIds,
+		DeferredActions) :-
 	complex_term(ASTNode,Functor,Args),
-	create_terms(Args,cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),!.
-create_term(ASTNode,cache,TermConstructor,OldMVNs,NewMVNs,DeferredActions) :-
+	create_terms(Args,cache,ArgsConstructors,OldVarIds,NewVarIds,DeferredActions),!.
+create_term(ASTNode,cache,TermConstructor,OldVarIds,NewVarIds,DeferredActions) :-
 	complex_term(ASTNode,Functor,Args),
-	create_term_for_cacheable_string_atom(Functor,FunctorConstructor,DeferredActions),
+	create_term_for_cacheable_string_atom(
+		Functor,
+		FunctorConstructor,
+		DeferredActions),
 	TC = complex_term(FunctorConstructor,ArgsConstructors),
 	(	is_ground_term(ASTNode) ->
-		create_terms(Args,do_not_cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),
+		create_terms(
+			Args,
+			do_not_cache,
+			ArgsConstructors,
+			OldVarIds,NewVarIds,
+			DeferredActions),
 		TermConstructor = pre_created_term(CTId),
 		add_to_set_ol(create_field_for_pre_created_term(CTId,TC),DeferredActions)
 	;
-		create_terms(Args,cache,ArgsConstructors,OldMVNs,NewMVNs,DeferredActions),
+		create_terms(
+			Args,
+			cache,
+			ArgsConstructors,
+			OldVarIds,NewVarIds,
+			DeferredActions),
 		TermConstructor = TC
 	),!.
 
-create_term(ASTNode,_,anonymous_variable,MVNs,MVNs,_DeferredActions) :- 
+create_term(ASTNode,_,anonymous_variable,VarIds,VarIds,_DeferredActions) :- 
 	anonymous_variable(ASTNode,_VariableName),!.	
 
-create_term(ASTNode,_Type,MappedVariableName,OldMVNs,NewMVNs,_DeferredActions) :- 
+create_term(ASTNode,_Type,VariableId,OldVarIds,NewVarIds,_DeferredActions) :- 
 	is_variable(ASTNode),!,
-	term_meta(ASTNode,Meta),
-	lookup_in_meta(mapped_variable_name(MappedVariableName),Meta),
-	add_to_set(MappedVariableName,OldMVNs,NewMVNs).	
+	lookup_in_term_meta(mapped_variable_name(VariableId),ASTNode),
+	add_to_set(VariableId,OldVarIds,NewVarIds).	
 
 create_term(ASTNode,Type,_,_,_,_) :-
-	throw(internal_error(create_term/6,['the ASTNode (',ASTNode,') has an unknown type(',Type,')'])).
+	throw(internal_error(
+		create_term/6,
+		['the type (',Type,') of the ASTNode (',ASTNode,') is unknown'])).
 
 
 
-create_terms([Arg|Args],Type,[TermConstructor|TermConstructors],OldMVNs,NewMVNs,DeferredActions) :- !,
-	create_term(Arg,Type,TermConstructor,OldMVNs,IMVNs,DeferredActions),
-	create_terms(Args,Type,TermConstructors,IMVNs,NewMVNs,DeferredActions).
-create_terms([],_Type,[],MVNs,MVNs,_DeferredActions).
+create_terms(
+		[Arg|Args],
+		Type,
+		[TermConstructor|TermConstructors],
+		OldVarIds,NewVarIds,
+		DeferredActions
+	) :- !,
+	create_term(Arg,Type,TermConstructor,OldVarIds,IVarIds,DeferredActions),
+	create_terms(Args,Type,TermConstructors,IVarIds,NewVarIds,DeferredActions).
+create_terms([],_Type,[],VarIds,VarIds,_DeferredActions).
 
 
 
@@ -1422,8 +1470,16 @@ create_term_for_cacheable_string_atom(
 
 
 
+goal_call_case_id(GoalNumber,CallCaseId) :- CallCaseId is GoalNumber * 2.
+
+
+
+goal_redo_case_id(GoalNumber,RedoCaseId) :- RedoCaseId is GoalNumber * 2 + 1.
+
+
+
 /**
-	Returns the list of all primitive goals of the given term.<br />
+	Returns the list of all (primitive) goals of the given term.<br />
 	The first element of the list is always the primitive goal that would be 
 	executed first, if we would call the term as a whole.
 
@@ -1530,15 +1586,6 @@ set_succeeds_successor(ASTNode,SuccessorASTNode) :-
 	lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
 	add_to_meta(next_goal_if_succeeds(GoalNumber),Meta).
 
-
-
-goal_call_case_id(GoalNumber,CallCaseId) :-
-	CallCaseId is GoalNumber * 2.
-
-
-
-goal_redo_case_id(GoalNumber,RedoCaseId) :-
-	RedoCaseId is GoalNumber * 2 + 1.
 
 
 

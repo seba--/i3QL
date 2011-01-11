@@ -30,6 +30,19 @@ public class MainQueens {
 		{
 			int counter = 0;
 			Variable solution = new Variable();
+			Goal s = compoundTerm(atomic("range"), atomic(1),atomic(8), solution).call();
+			while (s.next()) {
+				counter++;
+				System.out.println( solution.toProlog());
+			} 
+
+			System.out.println("Solutions: "+counter);
+		}
+		
+		
+		{
+			int counter = 0;
+			Variable solution = new Variable();
 			StringAtom time = StringAtom.get("time");
 			StringAtom queens = StringAtom.get("queens");
 			Goal s = compoundTerm(time, compoundTerm(queens, atomic(8), solution)).call();

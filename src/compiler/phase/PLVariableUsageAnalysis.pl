@@ -188,7 +188,7 @@ intra_clause_variable_usage(
 	set_subtract(MappedVariableIds,UsedVariables,IVariables),
 	set_subtract(IVariables,PotentiallyUsedVariables,FirstTimeUsedVariables),
 	add_to_term_meta(variables_used_for_the_first_time(FirstTimeUsedVariables),ASTNode),
-	add_to_term_meta(potentially_used_variables(PotentiallyUsedVariables),ASTNode),
+	add_to_term_meta(variables_that_may_have_been_used(PotentiallyUsedVariables),ASTNode),
 	% update the set of definitively used variables
 	merge_sets(UsedVariables,MappedVariableIds,NewUsedVariables),
 	% remove from the set of "potentially used" variables those that are "used"
