@@ -50,7 +50,7 @@ public class All {
 		runMain(MainZebra.class);
 		runMain(MainArithmetic.class);
 		runMain(MainNRev.class);
-		
+		runMain(MainCrypt.class);
 		
 		long duration = System.nanoTime() - startTime;
 		Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);

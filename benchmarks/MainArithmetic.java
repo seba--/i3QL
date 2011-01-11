@@ -17,21 +17,20 @@ public class MainArithmetic {
 		factorial2Factory.registerWithPredicateRegistry(registry);
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		long duration = 0l;
 		for (int i = 1; i <= 20; i++) {
 			Variable binary = new Variable();
 			Variable solution = new Variable();
-			Goal s = and(compoundTerm(atomic("num_to_binary"),atomic(14),binary),
+			Goal s = and(compoundTerm(atomic("num_to_binary"), atomic(14), binary),
 					compoundTerm(atomic("factorial"), binary, solution)).call();
 			long startTime = System.nanoTime();
 			boolean succeeded = s.next();
 			long last_duration = System.nanoTime() - startTime;
 
 			All.writeToPerformanceLog("arithmetic finished in: "
-					+ new Double(last_duration / 1000.0 / 1000.0 / 1000.0)
-					+ "\n");
+					+ new Double(last_duration / 1000.0 / 1000.0 / 1000.0) + "\n");
 			duration += last_duration;
 			if (succeeded) {
 				System.out.println(i + " => " + solution.toProlog() + "\n");

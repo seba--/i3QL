@@ -92,10 +92,18 @@ public class Terms {
 		case '+':
 			return new Plus2(t1, t2);
 
-			// other commonly used terms
+		// other commonly used terms
 		case '.':
 			return new ListElement2(t1, t2);
 
+		// special symbols
+		case 'm':
+			if (functor == StringAtom.MOD)
+				return new Mod2(t1, t2);
+		case '/' :
+			if (functor == StringAtom.INT_DIV)
+				return new SlashSlash2(t1,t2);
+			
 		default:
 			return new CompoundTermWithTwoArgs(functor, t1, t2);
 		}

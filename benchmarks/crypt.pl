@@ -13,16 +13,16 @@
 % where E=even, O=odd.
 % This program generalizes easily
 % to any such problem.
+%
 % Written by Peter Van Roy
 
 
-/* BENCHMARK HARNESS
-initialize(500).
-benchmark(X, _) :- call_num(X).
-
-call_num(0).
-call_num(X) :- X > 0, \+(\+ crypt(_)), X0 is X - 1, call_num(X0).
+/* 
+	run_crypt(X) executes "crypt" X times.
 */
+run_crypt(0).
+run_crypt(X) :- X > 0, \+(\+ crypt(_)), X0 is X - 1, run_crypt(X0).
+
 
 
 crypt([A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P]) :-

@@ -157,7 +157,6 @@ add_predefined_predicates_to_ast(AST,Program) :-
 		pred('\\=='/2,[solutions([0,1])]), % term inequality
 
 		pred('is'/2,[solutions([0,1])]), % "arithmetic" evaluation
-
 		pred(true/0,[solutions([1,1])]), % always succeeds
 		pred(false/0,[solutions([0,0])]), % always fails
 		pred(fail/0,[solutions([0,0])]), % always fails

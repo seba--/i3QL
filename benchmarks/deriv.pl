@@ -1,12 +1,10 @@
-main :-
+run_deriv(0).
+run_deriv(X) :- X > 0, \+(\+ main), X0 is X - 1, run_deriv(X0).
+
+
+deriv :-
 	ops8(E1), divide10(E2), log10(E3), times10(E4).
 
-/* BENCHMARK HARNESS
-initialize(500).
-benchmark(X, _) :- call_num(X).
-call_num(0).
-call_num(X) :- X > 0, \+(\+ main), X0 is X - 1, call_num(X0).
-*/
 
 ops8(E) :-
 	d((x + 1) * ((^(x, 2) + 2) * (^(x, 3) + 3)), x, E0), d(E0, x, E1), d(E1, x, E).

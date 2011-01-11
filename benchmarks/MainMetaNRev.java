@@ -1,6 +1,5 @@
 //package predicates;
 
-import static saere.term.Terms.and;
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
 import static saere.term.Terms.delimitedList;

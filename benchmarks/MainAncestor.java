@@ -16,11 +16,11 @@ public class MainAncestor {
 	public static void print(boolean b) {
 		System.out.print(b);
 	}
-	
+
 	public static void println(boolean b) {
 		System.out.println(b);
 	}
-	
+
 	public static void println(Object o) {
 		System.out.println(o);
 	}
@@ -29,7 +29,6 @@ public class MainAncestor {
 		System.out.println();
 	}
 
-	@SuppressWarnings("boxing")
 	public static void main(String[] args) {
 
 		// MALE/1
@@ -107,7 +106,7 @@ public class MainAncestor {
 			}
 			println();
 		}
-		
+
 		// SIBLING/2
 		{
 			Variable X = new Variable();
@@ -118,7 +117,7 @@ public class MainAncestor {
 			}
 			println();
 		}
-		
+
 		// HALF_SISTER/2
 		{
 			Variable X = new Variable();

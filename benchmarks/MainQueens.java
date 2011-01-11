@@ -2,17 +2,14 @@
 
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
-
-import javax.swing.text.NumberFormatter;
-
 import predicates.not_attack2Factory;
 import predicates.not_attack3Factory;
 import predicates.queens2Factory;
 import predicates.queens3Factory;
 import predicates.range3Factory;
 import predicates.select3Factory;
-import saere.PredicateRegistry;
 import saere.Goal;
+import saere.PredicateRegistry;
 import saere.StringAtom;
 import saere.Variable;
 
@@ -30,6 +27,20 @@ public class MainQueens {
 
 	public static void main(String[] args) throws Exception {
 
+		{
+			int counter = 0;
+			Variable solution = new Variable();
+			StringAtom time = StringAtom.get("time");
+			StringAtom queens = StringAtom.get("queens");
+			Goal s = compoundTerm(time, compoundTerm(queens, atomic(8), solution)).call();
+			while (s.next()) {
+				counter++;
+				System.out.println( solution.toProlog());
+			} 
+
+			System.out.println("Solutions: "+counter);
+		}
+		
 		System.out.println("Warm up...");
 		for (int i = 1; i <= 18; i++) {
 			Variable solution = new Variable();
@@ -56,11 +67,12 @@ public class MainQueens {
 					long startTime = System.nanoTime();
 					boolean succeeded = s.next();
 					long last_duration = System.nanoTime() - startTime;
-					
-					All.writeToPerformanceLog("queens "+i+" finished in: " + new Double(last_duration / 1000.0 / 1000.0 / 1000.0) + "\n");
+
+					All.writeToPerformanceLog("queens " + i + " finished in: "
+							+ new Double(last_duration / 1000.0 / 1000.0 / 1000.0) + "\n");
 					duration += last_duration;
 					if (succeeded) {
-						System.out.println(i + " => " + solution.toProlog()+"\n");
+						System.out.println(i + " => " + solution.toProlog() + "\n");
 					} else {
 						System.out.println();
 					}
