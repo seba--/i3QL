@@ -29,66 +29,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere.predicate;
-
-import saere.PredicateFactoryOneArg;
-import saere.PredicateFactory;
-import saere.PredicateIdentifier;
-import saere.PredicateRegistry;
-import saere.Goal;
-import saere.StringAtom;
-import saere.Term;
+package saere;
 
 /**
- * Writes out a term to standard out.
+ * Every goal that does not implement one of the standard control flow predicates (i.e., the goal is
+ * not ",", ";", "->" or "*->") is considered to be a primitive goal.
+ * <p>
+ * The main property of a primitive goal is that if it has a cut the cut has no effect on the
+ * caller. I.e., the cut is local/internal to the primitive goal.
+ * </p>
  * 
- * TODO implement the "real" Prolog semantics of write/1
- * 
- * @author Michael Eichberg (mail@michael-eichberg.de)
+ * @author Michael Eichberg
  */
-public class Write1 implements Goal {
-
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			StringAtom.get("write"), 1);
-
-	public final static PredicateFactory FACTORY = new PredicateFactoryOneArg() {
-
-		@Override
-		public Goal createInstance(Term t) {
-			return new Write1(t);
-		}
-	};
-
-	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
-		registry.register(IDENTIFIER, FACTORY);
-	}
-
-	private final Term t;
-
-	private boolean called = false;
-
-	public Write1(final Term t) {
-		this.t = t;
-	}
+public abstract class PrimitiveGoal implements Goal {
 
 	@Override
-	public boolean next() {
-		if (!called) {
-			called = true;
-			System.out.print(t.toProlog());
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
-	public void abort() {
-		// nothing to do
-	}
-
-	@Override
-	public boolean choiceCommitted() {
+	public final boolean choiceCommitted() {
 		return false;
 	}
 

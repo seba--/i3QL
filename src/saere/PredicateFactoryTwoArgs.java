@@ -36,7 +36,7 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class TwoArgsPredicateFactory implements PredicateFactory {
+public abstract class PredicateFactoryTwoArgs implements PredicateFactory {
 
 	public abstract Goal createInstance(Term t1, Term t2);
 

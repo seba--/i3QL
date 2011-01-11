@@ -60,7 +60,7 @@ import saere.predicate.Cut0;
  * <b>Performance Guideline</b> It is the responsibility of the creator of a new
  * goal instance to pass in "minimal" datastructures. I.e., if a an argument is
  * a bound argument the bound value should be passed to the goal and not the
- * variable (cf. {@link Term#unwrap()}). Further, if a (free) variable is
+ * variable (cf. {@link Term#expose()}). Further, if a (free) variable is
  * passed to a goal, the so-called head variable should be passed to the goal's
  * constructor.
  * </p>
@@ -105,13 +105,14 @@ public interface Goal {
 
 	/**
 	 * This method returns <code>true</code>, if - as part of the evaluation of
-	 * this predicate - a cut was performed.
+	 * this predicate - a cut was performed that also <b>cuts the evaluation of
+	 * the caller</b>.
 	 * <p>
 	 * Initially, this can only be the case if this implementation of this
 	 * interface is actually the cut operator itself (@link {@link Cut0}).<br />
 	 * If this implementation of this interface models one of the standard
-	 * control-flow predicates ("," {@link And2}) or ";" {@link Or2}) the
-	 * information is passed on the parent goal (and or or).<br/>
+	 * control-flow predicates (e.g., "," {@link And2}) or ";" {@link Or2}) the
+	 * information is passed on to the parent goal (and or or).<br/>
 	 * Recall, cuts appearing in the condition part of ->/2 (if-then(-else)) and
 	 * *->/2 (soft-cut) or in \+/1 (not) are local to the condition.
 	 * </p>

@@ -29,20 +29,54 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package saere;
+package saere.predicate;
+
+import static saere.StringAtom.NUMBER;
+import saere.Goal;
+import saere.PredicateFactoryOneArg;
+import saere.PredicateIdentifier;
+import saere.PredicateRegistry;
+import saere.Term;
 
 /**
- * Enables the creation of a new instance of a predicate.
+ * Prolog's "number/1" predicate.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class ThreeArgsPredicateFactory implements PredicateFactory {
+public class Number1 extends TestGoal {
 
-	public abstract Goal createInstance(Term t1, Term t2, Term t3);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(NUMBER, 1);
 
-	@Override
-	public final Goal createInstance(Term[] args) {
-		return createInstance(args[0], args[1], args[3]);
+	public final static PredicateFactoryOneArg FACTORY = new PredicateFactoryOneArg() {
+
+		@Override
+		public Goal createInstance(Term t) {
+			return new Number1(t);
+		}
+	};
+
+	public static void registerWithPredicateRegistry(PredicateRegistry registry) {
+		registry.register(IDENTIFIER, FACTORY);
 	}
 
+	private final Term t;
+	private boolean called = false;
+
+	public Number1(Term t) {
+		this.t = t;
+	}
+
+	@Override
+	public boolean next() {
+		if (!called) {
+			called = true;
+			return isNumber(t);
+		} else {
+			return false;
+		}
+	}
+
+	public static final boolean isNumber(Term t) {
+		return t.expose().termTypeID() >= Term.NUMBER_TYPE_ID;
+	}
 }

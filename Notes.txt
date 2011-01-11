@@ -1,7 +1,15 @@
 TODOs:
 
 0)
-Complete the support for "or"
+- ground, atom, atomic,var,functor,arg, =.. number (in the compiler)
+- atom_codes
+- call
+
+- memberchk
+- findall
+- length
+- is_list
+
 
 1)
 completely support all standard control-flow predicates: 
@@ -17,18 +25,22 @@ implement the condition-local cut.
 Implement functionality to test and extract values from terms if possible (instead of unifying)
 
 3)
-Implement last call optimization
+Implement more complete support for last call optimization (e.g., to support the integers predicate of primes)
 
 4) 
 Type specialization
 
-
 5)
-Optimize the support for arithmetic ...
+Improve the analysis of predicates to determine how many solutions will be generated at runtime
 
+6)
+(If necessary) Add a method to the goal interface that enables the caller of a predicate to identify the number of further solutions (e.g. a method hasMore() 
+where the answers are: No, Maybe, Yes)
+
+7) Generate a "test" method (additionally to the next method)?
 
 
 How to use the compiler:
 
-compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/Hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/').
+make,compile('benchmarks/einsteins_riddle.pl','build/src/java/'),compile('benchmarks/hanoi.pl','build/src/java/'),compile('benchmarks/primes.pl','build/src/java/'),compile('benchmarks/qsort.pl','build/src/java/'),compile('benchmarks/queens.pl','build/src/java/'),compile('benchmarks/tak.pl','build/src/java/'),compile('benchmarks/ancestor.pl','build/src/java/'),compile('benchmarks/chat_parser.pl','build/src/java/'),compile('benchmarks/nrev.pl','build/src/java/'),compile('benchmarks/zebra.pl','build/src/java/').
 

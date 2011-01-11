@@ -51,6 +51,7 @@
 		memberchk_ol/2,
 		clone_ol/2,
 		add_to_set_ol/2,
+		add_to_set_ol_identity/2,
 		member_ol/2,
 		
 		redirect_stdout_to_null/1,
@@ -63,6 +64,10 @@
 		
 		empty_set/1,
 		add_to_set/3,
+		remove_from_set/3,
+		merge_sets/3,
+		intersect_sets/3,
+		set_subtract/3,
 		
 		write_atomic_list/1,
 		write_atomic_list/2
@@ -322,7 +327,13 @@ append_ol(E,[_|T]) :- append_ol(E,T).
 */
 memberchk_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
 memberchk_ol(E,[E|_]) :- !. % we found a element
-memberchk_ol(E,[_NotE|RestOL]) :- /* E \= Cand, */memberchk_ol(E,RestOL).
+memberchk_ol(E,[_NotE|RestOL]) :- memberchk_ol(E,RestOL).
+
+
+
+memberchk_ol_identity(_T,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
+memberchk_ol_identity(T,[E|_]) :- T==E,!. % we found a element
+memberchk_ol_identity(T,[_NotE|RestOL]) :- memberchk_ol_identity(T,RestOL).
 
 
 
@@ -333,6 +344,14 @@ add_to_set_ol(E,OL) :-
 		append_ol(E,OL)
 	),!.
 
+
+
+add_to_set_ol_identity(E,OL) :-
+	( 
+		memberchk_ol_identity(E,OL)
+	;
+		append_ol(E,OL)
+	),!.
 
 
 member_ol(_E,OL) :- var(OL),!,fail. % the list is empty / we reached the end of the list
@@ -414,6 +433,43 @@ empty_set([]).
 add_to_set(X,[],[X]) :- !.
 add_to_set(X,[X|R],[X|R]) :- !.
 add_to_set(X,[Y|R],[Y|NewR]) :- add_to_set(X,R,NewR).
+
+
+
+remove_from_set(_X,[],[]) :- !.
+remove_from_set(X,[Y|Ys],NewYs) :- copy_term(X,XC),XC = Y,remove_from_set(X,Ys,NewYs),!.
+remove_from_set(X,[Y|Ys],[Y|NewYs]) :- X \= Y, remove_from_set(X,Ys,NewYs).
+
+
+
+/**
+	@signature merge_sets(ASet,BSet,NewSet)
+*/
+merge_sets([],Bs,Bs).
+merge_sets([A|As],Bs,Cs) :- add_to_set(A,Bs,ICs),merge_sets(As,ICs,Cs).
+
+
+
+/**
+	@signature set_subtract(BaseSet,SubtractSet,NewSet) 
+*/
+set_subtract([],_,[]) :- !.
+set_subtract(BaseSet,[],BaseSet) :- !.
+set_subtract(BaseSet,[X|Xs],NewBaseSet) :-
+	remove_from_set(X,BaseSet,IBaseSet),
+	set_subtract(IBaseSet,Xs,NewBaseSet).
+
+
+
+intersect_sets([],_,[]) :- !.
+intersect_sets(_,[],[]) :- !.
+intersect_sets([A|As],Bs,Cs) :- 
+	(	memberchk(A,Bs) ->
+		Cs = [A|Rest]
+	;
+		Cs = Rest
+	),
+	intersect_sets(As,Bs,Rest).
 
 
 

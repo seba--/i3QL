@@ -70,7 +70,7 @@ public abstract class CompoundTerm extends Term {
 
 	@Override
 	public final int termTypeID() {
-		return Term.COMPUND_TERM;
+		return Term.COMPUND_TERM_TYPE_ID;
 	}
 
 	/**
@@ -107,12 +107,57 @@ public abstract class CompoundTerm extends Term {
 	 * </p>
 	 */
 	@Override
-	public CompoundTermState manifestState() {
+	public State manifestState() {
+		// TODO reevaluate if the "isGround" test is still meaningful if we have completed the compiler support for variable dereferencing
 		if (isGround()) {
 			return null;
-		} else {
-			return CompoundTermState.manifest(this);
-		}
+		} 
+
+		CompoundTerm complexTerm = this;
+
+		// Compared to the recursive implementation,
+		// this implementation is ~5-10% faster (overall!).
+		CompoundTermsList workList = null;
+		StatesList statesList = null;
+
+		do {
+			final int arity = complexTerm.arity();
+			/* for_each_argument: */for (int i = 0; i < arity; i++) {
+				// We needed to integrate the state handling of
+				// variables here, to avoid stack overflow errors.
+				// E.g., if a complex term is bound to a variable
+				// the manifestation of the variable would lead to
+				// another call of the manifest method. If we now
+				// manifest a large datastructure (e.g., a long list)
+				// which contains a large number of (bound) variables
+				// this easily leads to a stack overflow error.
+				Term arg_i = complexTerm.arg(i).expose();
+				switch (arg_i.termTypeID()) {
+				case Term.VARIABLE_TYPE_ID:
+					Variable variable = arg_i.asVariable();
+					Term value = variable.getValue();
+					if (value == null) {
+						statesList = new StatesList(variable,statesList);
+					}
+					break;
+
+				case Term.COMPUND_TERM_TYPE_ID:
+					if (workList == null)
+						workList = new CompoundTermsList(arg_i.asCompoundTerm());
+					else
+						workList = workList.prepend(arg_i.asCompoundTerm());
+					break;
+				}
+			}
+			if (workList != null) {
+				complexTerm = workList.first();
+				workList = workList.rest();
+			} else {
+				complexTerm = null;
+			}
+		} while (complexTerm != null);
+
+		return statesList;
 	}
 
 	/**
@@ -163,7 +208,7 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public final Term unwrap() {
+	public final Term expose() {
 		return this;
 	}
 

@@ -36,11 +36,11 @@ import saere.PredicateIdentifier;
 import saere.Goal;
 import saere.StringAtom;
 import saere.Term;
-import saere.TwoArgsPredicateFactory;
+import saere.PredicateFactoryTwoArgs;
 
 public final class Plus2 extends TwoArgsCompoundTerm {
 
-	public static final TwoArgsPredicateFactory FACTORY = (TwoArgsPredicateFactory) predicateRegistry()
+	public static final PredicateFactoryTwoArgs FACTORY = (PredicateFactoryTwoArgs) predicateRegistry()
 			.getPredicateFactory(
 					new PredicateIdentifier(StringAtom.PLUS, 2));
 

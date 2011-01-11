@@ -265,7 +265,7 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public int termTypeID() {
-		return Term.VARIABLE;
+		return Term.VARIABLE_TYPE_ID;
 	}
 
 	@Override
@@ -285,7 +285,7 @@ public final class Variable extends Term implements State {
 	}
 
 	@Override
-	public Term unwrap() {
+	public Term expose() {
 		Variable hv = headVariable();
 		Term hvv = hv.value;
 		if (hvv == null) {

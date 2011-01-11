@@ -46,6 +46,8 @@
 	
 		default_op_table/1,
 		
+		predefined_functor/1,
+		
 		is_arithmetic_comparison_operator/1
 	]
 ).
@@ -58,10 +60,12 @@
 	Excerpts of the following text are taken 
 	from the online documentation of LogTalk
 )
-<h1>Mode directive</h1>
+<h1>Modes</h1>
 Many predicates cannot be called with arbitrary arguments with arbitrary
 instantiation status. The valid arguments and instantiation modes can be
-documented by using the mode/2 directive. For instance:
+documented by using the mode/2 directive. (In general, SAE Prolog does not
+use user-specified mode annotations, but calculates them for its own.) For
+instance:
 <code><pre>
     :- mode(member(?term, +list), zero_or_more).
 </pre></code>
@@ -73,29 +77,30 @@ be the instantiation mode of each argument. There are four possible values:
 <li>"?" Argument can either be instantiated or free.</li>
 <li>"@" Argument will not be modified.</li>
 </ul>
-These four mode atoms are also declared as prefix operators.This makes it
+These four mode atoms are also declared as prefix operators. This makes it
 possible to include type information for each argument like in the example
 above. Some of the possible type values are: callable, term, nonvar, var,
 atomic, atom, number, integer, float, compound, and list. It is also possible to
 use your own types. They can be either atoms or compound terms.
 
-The second argument documents the number of proofs (or solutions) for the specified mode. The possible values are:
+The second argument documents the number of proofs (or solutions) for the 
+specified mode ([LowerBound,UpperBound]). The possible values are:
 
 <ul>
-<li>"zero" Predicate always fails.</li>
-<li>"one" Predicate always succeeds once.</li>
-<li>"zero_or_one" Predicate either fails or succeeds.</li>
-<li>"zero_or_more" Predicate has zero or more solutions.</li>
-<li>"one_or_more" Predicate has one or more solutions.</li>
-<li>"error" Predicate will throw an error (see below).</li>
+<li>[0,0] Predicate always fails.</li>
+<li>[1,1] Predicate always succeeds once.</li>
+<li>[0,1] Predicate either fails or succeeds.</li>
+<li>[0,*] Predicate has zero or more solutions.</li>
+<li>[1,*] Predicate has one or more solutions.</li>
+<li>error Predicate will throw an error (see below).</li>
 </ul>
 
 Note that most predicates have more than one valid mode implying several mode
 directives. For example, to document the possible use modes of the atom_concat/3
 ISO built-in predicate we would write:
 
-    :- mode(atom_concat(?atom, ?atom, +atom), one_or_more).
-    :- mode(atom_concat(+atom, +atom, -atom), zero_or_one).
+    :- mode(atom_concat(?atom, ?atom, +atom), [1,*]).
+    :- mode(atom_concat(+atom, +atom, -atom), [0,1]).
 
 <h1>Metapredicate directive</h1>
 Some predicates may have arguments that will be called as goals. To ensure that
@@ -135,35 +140,35 @@ add_predefined_predicates_to_ast(AST,Program) :-
 		AST,
 		[	
 		% Extra-logical Predicates
-		pred(nonvar/1,[solutions(zero_or_one)]),
-		pred(var/1,[solutions(zero_or_one)]),
-		pred(atomic/1,[solutions(zero_or_one)]),
-		pred(integer/1,[solutions(zero_or_one)]),
-		pred(float/1,[solutions(zero_or_one)]),
-		pred(atom/1,[solutions(zero_or_one)]),
-		pred(compound/1,[solutions(zero_or_one)]),
-		pred(functor/3,[solutions(zero_or_one)]),
+		pred(nonvar/1,[solutions([0,1])]),
+		pred(var/1,[solutions([0,1])]),
+		pred(atomic/1,[solutions([0,1])]),
+		pred(integer/1,[solutions([0,1])]),
+		pred(float/1,[solutions([0,1])]),
+		pred(atom/1,[solutions([0,1])]),
+		pred(compound/1,[solutions([0,1])]),
+		pred(functor/3,[solutions([0,1])]),
 
 		% "Other" Predicates
-		pred('='/2,[solutions(zero_or_one)]), % unify
-		pred('\\='/2,[solutions(zero_or_one)]), % does not unify
-		pred('/'('\\+',1),[solutions(zero_or_one)]), % not
-		pred('=='/2,[solutions(zero_or_one)]), % term equality
-		pred('\\=='/2,[solutions(zero_or_one)]), % term inequality
+		pred('='/2,[solutions([0,1])]), % unify
+		pred('\\='/2,[solutions([0,1])]), % does not unify
+		pred('/'('\\+',1),[solutions([0,1])]), % not
+		pred('=='/2,[solutions([0,1])]), % term equality
+		pred('\\=='/2,[solutions([0,1])]), % term inequality
 
-		pred('is'/2,[solutions(zero_or_one)]), % "arithmetic" evaluation
+		pred('is'/2,[solutions([0,1])]), % "arithmetic" evaluation
 
-		pred(true/0,[solutions(one)]), % always succeeds
-		pred(false/0,[solutions(zero)]), % always fails
-		pred(fail/0,[solutions(zero)]), % always fails
-		pred('!'/0,[solutions(one)]), % cut
+		pred(true/0,[solutions([1,1])]), % always succeeds
+		pred(false/0,[solutions([0,0])]), % always fails
+		pred(fail/0,[solutions([0,0])]), % always fails
+		pred('!'/0,[solutions([1,1])]), % cut
 
-		pred('=:='/2,[solutions(zero_or_one),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=\\='/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('<'/2,[solutions(zero_or_one),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=<'/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>'/2,[solutions(zero_or_one),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>='/2,[solutions(zero_or_one),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
+		pred('=:='/2,[solutions([0,1]),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=\\='/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('<'/2,[solutions([0,1]),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=<'/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>'/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>='/2,[solutions([0,1]),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
 		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
 		],
 		Program
@@ -283,6 +288,33 @@ default_op_table(
 		]		
 	)
 ).
+
+
+
+predefined_functor('=').
+predefined_functor('\\=').
+predefined_functor(',').
+predefined_functor(';').
+predefined_functor('!').
+predefined_functor('*->').
+predefined_functor('->').
+predefined_functor('true').
+predefined_functor('false').
+predefined_functor('fail').
+predefined_functor('not').
+predefined_functor('\\+').
+predefined_functor('is').
+predefined_functor('*').
+predefined_functor('-').
+predefined_functor('+').
+predefined_functor('<').
+predefined_functor('=<').
+predefined_functor('>').
+predefined_functor('>=').
+predefined_functor('=:=').
+predefined_functor('=\\=').
+predefined_functor('[]').
+predefined_functor('.').
 
 
 

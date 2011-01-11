@@ -40,7 +40,7 @@ import saere.PredicateRegistry;
 import saere.State;
 import saere.StringAtom;
 import saere.Term;
-import saere.ThreeArgsPredicateFactory;
+import saere.PredicateFactoryThreeArgs;
 import saere.Variable;
 import saere.term.ListElement2;
 
@@ -61,7 +61,7 @@ public final class Append3 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("append"), 3);
 
-	public final static ThreeArgsPredicateFactory FACTORY = new ThreeArgsPredicateFactory() {
+	public final static PredicateFactoryThreeArgs FACTORY = new PredicateFactoryThreeArgs() {
 
 		@Override
 		public Goal createInstance(Term Xs, Term Ys, Term Zs) {
@@ -94,9 +94,9 @@ public final class Append3 implements Goal {
 	public Append3(final Term Xs, final Term Ys, final Term Zs) {
 		// the implementation depends on the property of Xs...Zs being
 		// "unwrapped"
-		this.Xs = Xs.unwrap();
-		this.Ys = Ys.unwrap();
-		this.Zs = Zs.unwrap();
+		this.Xs = Xs.expose();
+		this.Ys = Ys.expose();
+		this.Zs = Zs.expose();
 
 		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
 		this.rootXsState = Xs.manifestState();
@@ -136,12 +136,12 @@ public final class Append3 implements Goal {
 		} while (true);
 	}
 
-	private boolean clause1() {
+	private boolean clause1() { // append([],Ys,Ys).
 		if (goalToExecute == 1) {
-			XsState = Xs.manifestState();
-			if (!Xs.unify(EMPTY_LIST)) {
-				if (XsState != null)
-					XsState.reincarnate();
+			if (Xs.isVariable()) {
+				XsState = Xs.manifestState();
+				Xs.asVariable().setValue(EMPTY_LIST);
+			} else if (Xs != EMPTY_LIST) {
 				return false;
 			}
 
@@ -183,22 +183,13 @@ public final class Append3 implements Goal {
 			// this.ZsState = Zs.manifestState(); (not required...)
 			this.clv2 = variable();
 			if (Zs.unify(new ListElement2(clv0, clv2))) {
-				this.Xs = clv1.unwrap();
+				this.Xs = clv1.expose();
 				// this.Ys = Ys.unwrapped();
-				this.Zs = clv2.unwrap();
+				this.Zs = clv2.expose();
 				goalToExecute = 1;
 				return true;
 			}
 		}
-
-		// The following is not required, because this claus is tail recursive (and subject to last
-		// call optimization):
-		// if (XsState != null)
-		// XsState.reincarnate();
-		// // if (YsState != null)
-		// // YsState.reincarnate();
-		// if (ZsState != null)
-		// ZsState.reincarnate();
 		return false;
 	}
 }

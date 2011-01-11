@@ -41,7 +41,12 @@
 	'SAEProlog:Compiler:Analyses',
 	[	first_primitive_goal/2,
 		last_primitive_goals_if_true/3,
-		last_primitive_goal_if_false/2
+		last_primitive_goal_if_false/2,
+
+		number_of_solutions_of_goal/4,		
+		number_of_solutions_of_goal/5,
+		conjunction_of_number_of_solutions_of_goals/5,
+		disjunction_of_number_of_solutions_of_goals/5
 	]
 ).
 
@@ -96,3 +101,88 @@ last_primitive_goal_if_false(ASTNode,LastGoal) :-
 	),
 	!.
 last_primitive_goal_if_false(ASTNode,ASTNode).
+
+
+
+
+
+number_of_solutions_of_goal(Program,ASTNode,Solutions,DidCut) :-
+	number_of_solutions_of_goal(Program,none,ASTNode,Solutions,DidCut).
+
+number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
+	
+number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	(
+		complex_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
+		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,ThenASTNode,RASTNode,Solutions)
+	;
+		% the case: "complex_term(LASTNode,'*->',[IFASTNode,ThenASTNode]),!," 
+		% is appropriately handled by disjunction_of_number_of_solutions_of_goals...
+		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions)
+	).
+		
+number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,[0,UB],_DidCut) :-
+	complex_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
+	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[_LB,UB],_).
+	
+number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
+	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
+
+number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,DidCut) :-
+	(
+		complex_term_identifier(ASTNode,Functor/Arity),!
+	;
+		string_atom(ASTNode,Functor),Arity = 0
+	),
+	(
+		PredicateAssumption = assumption(Functor/Arity,solutions(Solutions)),
+		!
+	;	
+		Functor = '!',
+		Arity == 0, 
+		Solutions = [1,1],
+		DidCut = yes,
+		!
+	;	
+		lookup_predicate(Functor/Arity,Program,Predicate), % lookup may fail
+		lookup_in_predicate_meta(solutions(Solutions),Predicate), % lookup may fail
+		!
+	;
+		Solutions = [0,'*']
+	).
+
+
+
+conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,[LB,UB]) :-	
+	number_of_solutions_of_goal(Program,PredicateAssumption,LASTNode,[LLB,LUB],_DidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[RLB,RUB],RDidCut),
+	(
+		RDidCut == yes ->
+		LB is min(LLB,RLB),
+		UB = 1
+	;	
+		LB is min(LLB,RLB),
+		(	
+			(RUB == 0 ; LUB == 0),!,UB = 0
+		;
+			(LUB == '*' ; RUB == '*'),!,UB = '*'
+		;
+			UB = 1
+		)
+	).
+
+
+
+disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,[LB,UB]) :-	
+	number_of_solutions_of_goal(Program,PredicateAssumption,LASTNode,[LLB,LUB],_LDidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[RLB,RUB],_RDidCut),
+	LB is max(LLB,RLB),
+	(	(LUB == '*' ; RUB == '*') ->
+		UB = '*'
+	;
+		UB is max(LUB,RUB)
+	).

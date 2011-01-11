@@ -174,11 +174,24 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write(Stream,'}\n').
 write_class_member(Stream,field_decl(goal_stack)) :- !,
 	write(Stream,'private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;\n').
+write_class_member(Stream,field_decl_for_pre_created_term(Id,Expr)) :- !,	
+	type_of_term_expression(Expr,Type),
+	write(Stream,'private static final '),
+	write(Stream,Type),
+	write(Stream,' PCT'),write(Stream,Id),
+	write(Stream,' = '),
+	write_expr(Stream,Expr),
+	write(Stream,';\n').
 write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
 	write(Stream,'private '),
-	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),write(Stream,' = '),
-	write_expr(Stream,Expression),
+	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
+	( 	Expression == int(0) ->
+		write(Stream,'/* = 0; */')
+	;	
+		write(Stream,' = '),
+		write_expr(Stream,Expression)
+	),
 	write(Stream,';\n').		
 write_class_member(Stream,field_decl(Modifiers,Type,Name)) :- !,
 	write_field_decl_modifiers(Stream,Modifiers),
@@ -230,6 +243,7 @@ write_type(Stream,type(boolean)) :- !,write(Stream,'boolean').
 write_type(Stream,type(void)) :- !,write(Stream,'void').
 write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
 write_type(Stream,type(term)) :- !,write(Stream,'Term').
+write_type(Stream,type(state)) :- !,write(Stream,'State').
 write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
 write_type(Stream,type(complex_term)) :- !,write(Stream,'CompoundTerm').
 write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
@@ -246,7 +260,8 @@ write_stmts(Stream,[Stmt|Stmts]) :-
 
 
 
-write_stmt(_Stream,empty) :- !.
+write_stmt(_Stream,nop) :- !.
+write_stmt(_Stream,empty) :- !. % REFACTOR ... just use nop (check client code...)
 write_stmt(Stream,eol_comment(Comment)) :- !,
 	write(Stream,'// '),write(Stream,Comment),nl(Stream).
 write_stmt(Stream,expression_statement(Expression)) :- !,
@@ -269,29 +284,84 @@ write_stmt(Stream,if(ConditionExpression,TrueStmts)) :- !,
 write_stmt(Stream,if(ConditionExpression,TrueStmts,FalseStmts)) :- !,
 	write(Stream,'if('),write_expr(Stream,ConditionExpression),write(Stream,'){\n'),
 	write_stmts(Stream,TrueStmts),
-	write(Stream,'} else {\n'),
-	write_stmts(Stream,FalseStmts),
-	write(Stream,'}\n').
+	( (FalseStmts = [if(_,_,_)] ; FalseStmts = [if(_,_)] ),!,
+		write(Stream,'} else '),
+		write_stmts(Stream,FalseStmts)
+	;
+		write(Stream,'} else {\n'),
+		write_stmts(Stream,FalseStmts),
+		write(Stream,'}\n')
+	).
 write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
 	write(Stream,' = '),
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
+write_stmt(Stream,locally_scoped_states_list) :- !,
+	write(Stream,'StatesList sl = null;\n').
+write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
+	write(Stream,'if(sl != null) sl.reincarnate();\n').	
+write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- !,
+	% IMPROVE Is it meaningfull to write the "best-possible" type?
+	write(Stream,'Term lstv'),write(Stream,Id),
+	write(Stream,' = '),
+	write_expr(Stream,TermExpression),
+	write(Stream,';\n').	
+write_stmt(_Stream,manifest_state_and_add_to_locally_scoped_states_list([])) :- !
+	/* NOTHING TO DO */.
+write_stmt(Stream,manifest_state_and_add_to_locally_scoped_states_list(TermExprs)) :- !,
+	write(Stream,'sl = StatesList.prepend('),
+	write_wrapped_exprs(Stream,TermExprs,manifest_state),
+	write(Stream,',sl);\n').
+write_stmt(Stream,bind_variable(arg(ArgId),TermExpression)) :- !,
+	write(Stream,'this.arg'),write(Stream,ArgId),write(Stream,'.asVariable().setValue('),
+	write_expr(Stream,TermExpression),
+	write(Stream,');\n').
+write_stmt(Stream,bind_variable(TermVariable,TermExpression)) :- !,
+	write_expr(Stream,TermVariable),write(Stream,'.asVariable().bind('),
+	write_expr(Stream,TermExpression),
+	write(Stream,');\n').	
+write_stmt(Stream,clear_goal_stack) :- !,
+	write(Stream,'this.goalStack = GoalStack.EMPTY_GOAL_STACK;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.abortPendingGoals();\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
 	write(Stream,'this.goalStack = goalStack.put('),
 	write_expr(Stream,GoalExpression),
 	write(Stream,');\n').
-write_stmt(Stream,remove_top_element_from_goal_stack) :- !,
+write_stmt(Stream,abort_and_remove_top_level_goal_from_goal_stack) :- !,
+	write(Stream,'this.goalStack = goalStack.abortTopLevelGoal();\n').	
+write_stmt(Stream,remove_top_level_goal_from_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.drop();\n').
-write_stmt(Stream,switch(Expression,Cases)) :- !,
+write_stmt(Stream,switch(top_level,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
 	write_cases(Stream,Cases),
 	write(Stream,'default:\n'),
 	write(Stream,'// should never be reached\n'),
 	write(Stream,'throw new Error("internal compiler error");\n'),
 	write(Stream,'}\n').
+write_stmt(Stream,switch(inside_forever,Expression,Cases)) :- !,
+	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
+	write_cases(Stream,Cases),
+	write(Stream,'}\n').
+write_stmt(Stream,manifest_state(TermExpr,LValue)) :- !,
+	write_lvalue(Stream,LValue),
+	write(Stream,' = ('),
+	write_expr(Stream,TermExpr),
+	write(Stream,').manifestState();\n').
+write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
+	write(Stream,'if ('),
+	write_expr(Stream,StateExpr),
+	write(Stream,' != null)'),
+	write_expr(Stream,StateExpr),
+	write(Stream,'.reincarnate();\n').
+write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
+	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create ('),
+	write_expr(Stream,TermExpression),
+	write_complex_term_args(Stream,TermExpressions),
+	write(Stream,'));\n').
+write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
+	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create(sl));\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -304,12 +374,37 @@ write_cases(Stream,[case(ConstantExpression,Stmts)|Cases]) :-
 	
 	
 
-write_lvalue(Stream,field_ref(ReceiverExpression,Identifer)) :-
+write_lvalue(Stream,field_ref(ReceiverExpression,Identifer)) :- % TODO remove (after refactoring)...
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
 	write(Stream,Identifer).
-write_lvalue(Stream,local_variable_ref(Identifer)) :-
+write_lvalue(Stream,local_variable_ref(Identifer)) :- % TODO remove (after refactoring)...
 	write(Stream,Identifer).
+write_lvalue(Stream,clv(I)) :- !,
+	write(Stream,'this.clv'),write(Stream,I).
+write_lvalue(Stream,arg(I)) :- !,
+	write(Stream,'this.arg'),write(Stream,I).
+
+
+
+write_wrapped_expr(Stream,Expression,WrappingExpression) :-
+	AssembledExpression =.. [WrappingExpression,Expression],
+	write_expr(Stream,AssembledExpression).
+
+
+
+write_wrapped_exprs(_Stream,[],_WrappingExpression).
+write_wrapped_exprs(Stream,[Expression|Expressions],WrappingExpression) :-
+	write_wrapped_expr(Stream,Expression,WrappingExpression),
+	write_further_wrapped_exprs(Stream,Expressions,WrappingExpression).
+
+
+
+write_further_wrapped_exprs(_Stream,[],_WrappingExpression).
+write_further_wrapped_exprs(Stream,[Expression|Expressions],WrappingExpression) :-
+	write(Stream,', '),
+	write_wrapped_expr(Stream,Expression,WrappingExpression),
+	write_further_wrapped_exprs(Stream,Expressions,WrappingExpression).
 
 
 
@@ -325,9 +420,22 @@ write_further_exprs(Stream,[Expression|Expressions]) :-
 	write(Stream,', '),
 	write_expr(Stream,Expression),
 	write_further_exprs(Stream,Expressions).
-		
 
 
+write_expr(Stream,manifest_state(TermExpression)) :- !,
+	write_expr(Stream,TermExpression),write(Stream,'.manifestState()').
+write_expr(Stream,unify(ATermExpression,BTermExpression)) :- !,
+	write(Stream,'('),
+	write_expr(Stream,ATermExpression),
+	write(Stream,').unify('),
+	write_expr(Stream,BTermExpression),
+	write(Stream,')').
+write_expr(Stream,boolean_and(LBooleanExpr,RBooleanExpr)) :- !,
+	write_expr(Stream,LBooleanExpr),
+	write(Stream,' && '),
+	write_expr(Stream,RBooleanExpr).
+write_expr(Stream,arithmetic_evluation(ArithTerm)) :- !,
+	write_expr(Stream,eval_term(ArithTerm)).
 write_expr(Stream,arithmetic_comparison(Operator,LArithTerm,RArithTerm)) :- !,
 	map_arith_comp_operator_to_java_operator(Operator,JavaOperator),
 	write_expr(Stream,eval_term(LArithTerm)),
@@ -342,7 +450,19 @@ write_expr(Stream,assignment(LValue,Expression)) :- !,
 write_expr(Stream,reference_comparison(LExpression,RExpression)) :- !,
 	write_lvalue(Stream,LExpression),
 	write(Stream,' == '),
-	write_expr(Stream,RExpression).	
+	write_expr(Stream,RExpression).
+write_expr(Stream,value_comparison(Operator,LExpression,RExpression)) :- !,
+	write_expr(Stream,LExpression),
+	write(Stream,' '),	write(Stream,Operator),	write(Stream,' '),
+	write_expr(Stream,RExpression).
+write_expr(Stream,string_atom_comparison(LStringAtom,RStringAtom))	:- !,
+	write_expr(Stream,LStringAtom),
+	write(Stream,' == '),
+	write_expr(Stream,RStringAtom).
+write_expr(Stream,functor_comparison(LFunctor,RFunctor))	:- !,
+	write_expr(Stream,LFunctor),
+	write(Stream,' == '),
+	write_expr(Stream,RFunctor).
 write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :- !, 
 	write_expr(Stream,ReceiverExpression),
 	write(Stream,'.'),
@@ -374,12 +494,13 @@ write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :- !,
 write_expr(Stream,local_variable_ref(Identifier)):- !,
 	write(Stream,Identifier).
 write_expr(Stream,static_predicate_call(string_atom(Functor))):- !,
-	map_functor_to_class_name(Functor,ClassName),
+	map_functor_to_class_name(Functor/0,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,'0()').
 write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):- !,
 	length(ArgsExpressions,ArgsCount),
 	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
-	map_functor_to_class_name(Functor,ClassName),
+	length(ArgsExpressions,Arity),
+	map_functor_to_class_name(Functor/Arity,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,ArgsCount),write(Stream,'('),
 	write_expr(Stream,FirstArgExpression),
 	write_complex_term_args(Stream,MoreArgsExpressions),
@@ -388,8 +509,45 @@ write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,'.call()').	
 write_expr(Stream,get_top_element_from_goal_stack) :- !,
-	write(Stream,'this.goalStack.peek()').
+	write(Stream,'this.goalStack.peek()').	
+write_expr(Stream,term_arg(TermExpression,IndexExpression)) :- !,
+	write_expr(Stream,TermExpression),
+	write(Stream,'.arg('),
+	write_expr(Stream,IndexExpression),
+	write(Stream,')').	
+write_expr(Stream,term_arity(TermExpression)) :- !,
+	write_expr(Stream,TermExpression),
+	write(Stream,'.arity()').
+write_expr(Stream,term_functor(TermExpression)) :- !,
+	write_expr(Stream,TermExpression),
+	write(Stream,'.functor()').	
+write_expr(Stream,test_term_is_string_atom(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+	write_expr(Stream,TermExpression),
+	write(Stream,'.expose().isStringAtom()').
+write_expr(Stream,test_term_is_float_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+	write_expr(Stream,TermExpression),
+	write(Stream,'.expose().isFloatValue()').
+write_expr(Stream,test_term_is_integer_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+	write_expr(Stream,TermExpression),
+	write(Stream,'.expose().isIntValue()').
+% IMPROVE identify the case, where we can statically identify that the term expression is not of type variable
+write_expr(Stream,test_rttype_of_term_is_free_variable(exposed,TermExpression))	:- !,
+	write_expr(Stream,TermExpression),write(Stream,'.isVariable()').
+write_expr(Stream,test_rttype_of_term_is_free_variable(_Exposed,TermExpression))	:- 
+	write_expr(Stream,TermExpression),write(Stream,'.expose().isVariable()').
+write_expr(Stream,test_rttype_of_term_is_free_variable(TermExpression))	:- !,
+	write_expr(Stream,TermExpression),write(Stream,'.expose().isVariable()').
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
+write_expr(Stream,expose(TermExpression)) :-
+	write_expr(Stream,TermExpression),write(Stream,'.expose()').
+write_expr(Stream,pre_created_term(I)):- !,
+	write(Stream,'PCT'),write(Stream,I).
+write_expr(Stream,lstv(I)) :- !, % lstv == local scoped term variable
+	write(Stream,'lstv'),write(Stream,I).
+write_expr(Stream,clv(I)) :- !,
+	write(Stream,'this.clv'),write(Stream,I).
+write_expr(Stream,arg(I)) :- !,
+	write(Stream,'this.arg'),write(Stream,I).	
 write_expr(Stream,variable) :- !,
 	write(Stream,'variable()').
 write_expr(Stream,anonymous_variable) :- !, % TODO do we need to distinguish between "named" and anonymous variables?
@@ -406,6 +564,8 @@ write_expr(Stream,int_value(3)) :- !,
 	write(Stream,'IntValue_3').				
 write_expr(Stream,int_value(Value)) :- !,
 	write(Stream,'IntValue.get('),write(Stream,Value),write(Stream,')').
+write_expr(Stream,int_value_expr(Expr)) :- !,
+	write(Stream,'IntValue.get('),write_expr(Stream,Expr),write(Stream,')').
 write_expr(Stream,float_value(Value)) :- !,
 	write(Stream,'FloatValue.get('),write(Stream,Value),write(Stream,')').
 write_expr(Stream,string_atom('=')) :- !,write(Stream,'UNIFY').
@@ -464,6 +624,7 @@ write_expr(_Stream,Expr) :- % the last case...
 
 
 
+% TODO rename to "write_expr_list_1_to_n"
 write_complex_term_args(_Stream,[]).
 write_complex_term_args(Stream,[Arg|Args]) :-
 	write(Stream,', '),
@@ -474,9 +635,13 @@ write_complex_term_args(Stream,[Arg|Args]) :-
 
 write_arith_term(Stream,int_value(X)) :- !,
 	write(Stream,X),write(Stream,'l ').
-write_arith_term(Stream,local_variable_ref(Id)) :- !,
+write_arith_term(Stream,arg(I)) :- !,
+	write(Stream,'this.arg'),write(Stream,I),write(Stream,'.intEval() ').
+write_arith_term(Stream,clv(I)) :- !,
+	write(Stream,'this.clv'),write(Stream,I),write(Stream,'.intEval() ').
+write_arith_term(Stream,local_variable_ref(Id)) :- !, % TODO remove...
 	write_expr(Stream,local_variable_ref(Id)),write(Stream,'.intEval() ').
-write_arith_term(Stream,field_ref(Receiver,Id)) :- !,
+write_arith_term(Stream,field_ref(Receiver,Id)) :- !, % TODO remove... as soon as we always accept "PCT", arg() and clv() statements...
 	write_expr(Stream,field_ref(Receiver,Id)),write(Stream,'.intEval() ').
 write_arith_term(Stream,complex_term(string_atom('-'),[ArithTerm])) :- !,
 	map_arith_prolog_operator_to_java_operator('-',JavaOperator),
@@ -516,7 +681,7 @@ write_predicate_registration(Stream,Functor/Arity) :-
 		' */\n',
 		'package predicates;\n',
 		'import saere.*;\n\n',
-		'public class ',Functor,Arity,'Factory extends NArgsPredicateFactory{\n',
+		'public class ',Functor,Arity,'Factory extends PredicateFactoryNArgs{\n',
 		'	private ',Functor,Arity,'Factory(){\n',
 		'		/*NOTHING TO DO*/\n',
 		'	}\n',
@@ -544,32 +709,48 @@ array_acces(ArrayName,N,ArrayAccess) :-
  *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
  *                                                                            *
 \* ************************************************************************** */
-map_functor_to_class_name('=','Unify') :- !.
-map_functor_to_class_name('\\=','NotUnify') :- !.
-map_functor_to_class_name(',','And') :- !.
-map_functor_to_class_name(';','Or') :- !.
-map_functor_to_class_name('!','Cut') :- !.
-map_functor_to_class_name('*->','SoftCut') :- !.
-map_functor_to_class_name('->','If_Then') :- !.
-map_functor_to_class_name('true','True') :- !.
-map_functor_to_class_name('false','False') :- !.
-map_functor_to_class_name('fail','False') :- !.
-map_functor_to_class_name('not','Not') :- !.
-map_functor_to_class_name('\\+','Not') :- !.
-map_functor_to_class_name('is','Is') :- !.
-map_functor_to_class_name('<','Smaller') :- !.
-map_functor_to_class_name('=<','SmallerOrEqual') :- !.
-map_functor_to_class_name('>','Larger') :- !.
-map_functor_to_class_name('>=','LargerOrEqual') :- !.
-map_functor_to_class_name('=:=','ArithEqual') :- !.
-map_functor_to_class_name('=\\=','ArithNotEqual') :- !.
-% FURTHER BUILT-IN PREDICATES:
-map_functor_to_class_name('append','Append') :- !.
-map_functor_to_class_name('member','Member') :- !.
-map_functor_to_class_name('time','Time') :- !.
-map_functor_to_class_name('repeat','Repeat') :- !.
-map_functor_to_class_name(Functor,Functor).
+type_of_term_expression(string_atom(_),'StringAtom') :- !.
+type_of_term_expression(complex_term(_,_),'CompoundTerm') :- !.
+type_of_term_expression(int_value(_),'IntValue') :-!.
+type_of_term_expression(float_value(_),'FloatValue') :-!.
+type_of_term_expression(variable,'Variable') :-!.
+type_of_term_expression(anonymous_variable,'Variable') :-!.
+type_of_term_expression(_,'Term').
 
+map_functor_to_class_name('='/2,'Unify') :- !.
+map_functor_to_class_name('\\='/2,'NotUnify') :- !.
+map_functor_to_class_name(','/2,'And') :- !.
+map_functor_to_class_name(';'/2,'Or') :- !.
+map_functor_to_class_name('!'/0,'Cut') :- !.
+map_functor_to_class_name('*->'/2,'SoftCut') :- !.
+map_functor_to_class_name('->'/2,'If_Then') :- !.
+map_functor_to_class_name('true'/0,'True') :- !.
+map_functor_to_class_name('false'/0,'False') :- !.
+map_functor_to_class_name('fail'/0,'False') :- !.
+map_functor_to_class_name('not'/1,'Not') :- !.
+map_functor_to_class_name('/'('\\+',1),'Not') :- !.
+map_functor_to_class_name('is'/2,'Is') :- !.
+map_functor_to_class_name('<'/2,'Smaller') :- !.
+map_functor_to_class_name('=<'/2,'SmallerOrEqual') :- !.
+map_functor_to_class_name('>'/2,'Larger') :- !.
+map_functor_to_class_name('>='/2,'LargerOrEqual') :- !.
+map_functor_to_class_name('=:='/2,'ArithEqual') :- !.
+map_functor_to_class_name('=\\='/2,'ArithNotEqual') :- !.
+% FURTHER BUILT-IN PREDICATES:
+map_functor_to_class_name('atom'/1,'Atom') :- !.
+map_functor_to_class_name('number'/1,'Number') :- !.
+map_functor_to_class_name('append'/3,'Append') :- !.
+%map_functor_to_class_name('member'/2,'Member') :- !. FIXME... the optimized implementation is currently broken :-(
+map_functor_to_class_name('time'/1,'Time') :- !.
+map_functor_to_class_name('repeat'/0,'Repeat') :- !.
+map_functor_to_class_name('ground'/1,'Ground') :- !.
+map_functor_to_class_name(Functor/_Arity,Functor).
+
+
+map_term_functor_to_class_name('*'/2,'Mult2').
+map_term_functor_to_class_name('-'/1,'Minus1').
+map_term_functor_to_class_name('+'/2,'Plus2').
+map_term_functor_to_class_name('.'/2,'ListElement2').
 
 
 map_arith_comp_operator_to_java_operator('<','<') :- !.
@@ -594,8 +775,3 @@ map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['un
 
 
 
-%map_functor_to_class_name('*').
-%map_functor_to_class_name('-').
-%map_functor_to_class_name('+').
-%map_functor_to_class_name('[]').
-%map_functor_to_class_name('.').	

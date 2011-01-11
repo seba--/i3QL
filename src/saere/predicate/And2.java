@@ -44,7 +44,7 @@ public final class And2 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			AND, 2);
 
-	public final static TwoArgsPredicateFactory FACTORY = new TwoArgsPredicateFactory() {
+	public final static PredicateFactoryTwoArgs FACTORY = new PredicateFactoryTwoArgs() {
 
 		@Override
 		public Goal createInstance(Term t1, Term t2) {

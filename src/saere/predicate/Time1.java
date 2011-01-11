@@ -32,7 +32,7 @@
 package saere.predicate;
 
 import saere.Goal;
-import saere.OneArgPredicateFactory;
+import saere.PredicateFactoryOneArg;
 import saere.PredicateIdentifier;
 import saere.PredicateRegistry;
 import saere.StringAtom;
@@ -46,7 +46,7 @@ public final class Time1 implements Goal {
 	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
 			StringAtom.get("time"), 1);
 
-	public final static OneArgPredicateFactory FACTORY = new OneArgPredicateFactory() {
+	public final static PredicateFactoryOneArg FACTORY = new PredicateFactoryOneArg() {
 
 		@Override
 		public Goal createInstance(Term t) {
@@ -69,7 +69,7 @@ public final class Time1 implements Goal {
 		final long startTime = System.nanoTime();
 		final boolean succeeded = goal.next();
 		final double duration = ((System.nanoTime() - startTime)) / 1000.0 / 1000.0 / 1000.0;
-		System.out.printf("%8.4f", new Double(duration));
+		System.out.printf("finished in %8.4f secs.\n", new Double(duration));
 		return succeeded;
 	}
 

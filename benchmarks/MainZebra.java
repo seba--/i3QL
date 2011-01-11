@@ -1,43 +1,28 @@
-
-
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
-import predicates.tak4Factory;
-import saere.PredicateRegistry;
+import predicates.houses1Factory;
+import predicates.right_of3Factory;
+import predicates.zebra1Factory;
 import saere.Goal;
+import saere.PredicateRegistry;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 
-public class MainTak {
+public class MainZebra {
 
 	static {
 		PredicateRegistry registry = PredicateRegistry.predicateRegistry();
-		tak4Factory.registerWithPredicateRegistry(registry);
+		zebra1Factory.registerWithPredicateRegistry(registry);
+		houses1Factory.registerWithPredicateRegistry(registry);
+		right_of3Factory.registerWithPredicateRegistry(registry);
 	}
 
 	public static void main(String[] args) throws Throwable {
 
-		// Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.2)
-		// 3.06Ghz Core2Duo
-		// 4GB DDR3 Ram
-		//
-		// ?- time(tak(32,12,6,R)).
-		// % 10,440,011 inferences, 1.130 CPU in 1.145 seconds (99% CPU, 9238948
-		// Lips)
-		// R = 7.
-		//
-		// ?- time(tak(32,14,6,R)).
-		// % 182,748,891 inferences, 20.010 CPU in 20.190 seconds (99% CPU,
-		// 9132878 Lips)
-		// R = 7.
-
 		final Variable result = new Variable();
-		final long x = 34;
-		final long y = 13;
-		final long z = 6;
 		final Term t = compoundTerm(StringAtom.get("time"),
-				compoundTerm(atomic("tak"), atomic(x), atomic(y), atomic(z), result));
+				compoundTerm(atomic("zebra"), result));
 		{
 			Goal g = t.call();
 			while (g.next()) {
@@ -53,8 +38,8 @@ public class MainTak {
 			}
 			long duration = System.nanoTime() - startTime;
 			Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
-			All.writeToPerformanceLog("tak("+x+","+y+","+z+") run " + i + " (find all solutions) finished in: " + time
-					+ "\n");
+			All.writeToPerformanceLog("zebra run " + i
+					+ " (find all solutions) finished in: " + time + "\n");
 		}
 	}
 
