@@ -143,11 +143,11 @@ public abstract class GoalStack {
 
 	public abstract GoalStack drop() throws IllegalStateException;
 
-	public abstract GoalStack abortPendingGoals();
-
 	public abstract GoalStack abortTopLevelGoal();
 
 	public abstract GoalStack abortPendingGoals(int i);
+
+	public abstract GoalStack abortPendingGoals();
 
 	public abstract boolean isNotEmpty();
 

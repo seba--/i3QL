@@ -61,40 +61,16 @@ public abstract class UndoGoal implements Goal {
 		if (state != null)
 			return new UndoGoalOneNonTrivialState(state);
 		else
-			return DO_NOTHING_UNDO_GOAL;
+			return DO_NOTHING_ON_UNDO_GOAL;
 	}
 
-	public final static UndoGoal create(Term term) {
-		State state = term.manifestState();
-		if (state != null)
-			return new UndoGoalOneNonTrivialState(state);
-		else
-			return DO_NOTHING_UNDO_GOAL;
-	}
-
-	public final static UndoGoal create(Term s0, Term s1) {
-		return new UndoGoalTwoStates(s0, s1);
-	}
-
-	public final static UndoGoal create(Term s0, Term s1, Term s2) {
-		return new UndoGoalThreeStates(s0, s1, s2);
-	}
-
-	public final static UndoGoal create(Term s0, Term s1, Term s2, Term s3) {
-		return new UndoGoalFourStates(s0, s1, s2, s3);
-	}
-
-	public final static UndoGoal create(Term s0, Term s1, Term s2, Term s3,Term s4) {
-		return new UndoGoalFiveStates(s0, s1, s2, s3,s4);
-	}
-	
 	//
 	//
-	// S P E C I A L I Z E D   C L A S S E S 
+	// S P E C I A L I Z E D C L A S S E S
 	//
 	//
 
-	private static final UndoGoal DO_NOTHING_UNDO_GOAL = new UndoGoal() {
+	private static final UndoGoal DO_NOTHING_ON_UNDO_GOAL = new UndoGoal() {
 
 		@Override
 		public void abort() {
@@ -107,118 +83,12 @@ public abstract class UndoGoal implements Goal {
 		private final State state;
 
 		UndoGoalOneNonTrivialState(State state) {
-			// IMPROVE create a special undo goal for just one,two... states?
 			this.state = state;
 		}
 
 		@Override
 		public void abort() {
 			state.reincarnate();
-		}
-
-	}
-
-	private static final class UndoGoalTwoStates extends UndoGoal {
-
-		private final State s0;
-		private final State s1;
-
-		UndoGoalTwoStates(Term t0, Term t1) {
-			this.s0 = t0.manifestState();
-			this.s1 = t1.manifestState();
-		}
-
-		@Override
-		public void abort() {
-			if (s0 != null)
-				s0.reincarnate();
-			if (s1 != null)
-				s1.reincarnate();
-		}
-
-	}
-
-	private static final class UndoGoalThreeStates extends UndoGoal {
-
-		private final State s0;
-		private final State s1;
-		private final State s2;
-
-		UndoGoalThreeStates(Term t0, Term t1, Term t2) {
-			this.s0 = t0.manifestState();
-			this.s1 = t1.manifestState();
-			this.s2 = t2.manifestState();
-		}
-
-		@Override
-		public void abort() {
-			if (s0 != null)
-				s0.reincarnate();
-			if (s1 != null)
-				s1.reincarnate();
-			if (s2 != null)
-				s2.reincarnate();
-		}
-
-	}
-
-	private static final class UndoGoalFourStates extends UndoGoal {
-
-		private final State s0;
-		private final State s1;
-		private final State s2;
-		private final State s3;
-
-		UndoGoalFourStates(Term t0, Term t1, Term t2, Term t3) {
-			this.s0 = t0.manifestState();
-			this.s1 = t1.manifestState();
-			this.s2 = t2.manifestState();
-			this.s3 = t3.manifestState();
-		}
-
-		@Override
-		public void abort() {
-			if (s0 != null)
-				s0.reincarnate();
-			if (s1 != null)
-				s1.reincarnate();
-			if (s2 != null)
-				s2.reincarnate();
-			if (s3 != null)
-				s3.reincarnate();
-		}
-
-	}
-	
-	
-	private static final class UndoGoalFiveStates extends UndoGoal {
-
-		private final State s0;
-		private final State s1;
-		private final State s2;
-		private final State s3;
-		private final State s4;
-
-		UndoGoalFiveStates(Term t0, Term t1, Term t2, Term t3,Term t4) {
-			this.s0 = t0.manifestState();
-			this.s1 = t1.manifestState();
-			this.s2 = t2.manifestState();
-			this.s3 = t3.manifestState();
-			this.s4 = t4.manifestState();
-		}
-
-		@Override
-		public void abort() {
-			if (s0 != null)
-				s0.reincarnate();
-			if (s1 != null)
-				s1.reincarnate();
-			if (s2 != null)
-				s2.reincarnate();
-			if (s3 != null)
-				s3.reincarnate();
-			if (s4 != null)
-				s4.reincarnate();
 		}
 
 	}

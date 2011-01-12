@@ -78,7 +78,7 @@ public abstract class Atomic extends Term {
 	/*
 	 * In general, the compiler tries to avoid explicit manifestation of an
 	 * Atom's state. This – i.e., avoiding useless calls to manifestState –
-	 * however, requires whole program analyses.
+	 * however, requires deep static analyses.
 	 */
 	@Override
 	public final State manifestState() {

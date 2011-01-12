@@ -35,8 +35,8 @@ package saere;
  * Every goal that does not implement one of the standard control flow predicates (i.e., the goal is
  * not ",", ";", "->" or "*->") is considered to be a primitive goal.
  * <p>
- * The main property of a primitive goal is that if it has a cut the cut has no effect on the
- * caller. I.e., the cut is local/internal to the primitive goal.
+ * The main property of a primitive goal is that it does never cut choice points of a caller. I.e.,
+ * the cut is local/internal to the primitive goal.
  * </p>
  * 
  * @author Michael Eichberg

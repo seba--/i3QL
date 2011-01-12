@@ -52,14 +52,13 @@ public final class PredicateIdentifier {
 	}
 
 	public boolean sameAs(PredicateIdentifier other) {
-		return this.arity == other.arity
-				&& this.functor.sameAs(other.functor);
+		return this.arity == other.arity && this.functor.sameAs(other.functor);
 	}
-	
+
 	public StringAtom getFunctor() {
 		return functor;
 	}
-	
+
 	public int getArity() {
 		return arity;
 	}
@@ -71,6 +70,7 @@ public final class PredicateIdentifier {
 
 	@Override
 	public String toString() {
-		return "PredicateIdentifier["+functor.toProlog() + "/" + arity+"; hashCode="+hashCode+"]";
+		return "PredicateIdentifier[" + functor.toProlog() + "/" + arity + "; hashCode=" + hashCode
+				+ "]";
 	}
 }

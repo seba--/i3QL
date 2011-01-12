@@ -21,20 +21,19 @@ public class MainChatParser {
 	public static void main(String[] args) {
 
 		{
-			for (int i = 0; i < 20; i++) {
-				long startTime = System.nanoTime();
+			for (int i = 0; i < 100; i++) {
+				
 				Goal g;
 				Variable Input = new Variable();
 				Variable Answer = new Variable();
 				Term term = and(compoundTerm(atomic("input"), Input),
 						compoundTerm(atomic("determinate_say"), Input, Answer));
 				g = term.call();
-				do { /* nothing to do */
-				} while (g.next());
-
+				long startTime = System.nanoTime();
+				while (g.next()) { /*nothing to do*/ }
 				long duration = System.nanoTime() - startTime;
-				System.out.println("Finished in " + duration / 1000.0 / 1000.0 / 1000.0
-						+ "seconds");
+
+				All.writeToPerformanceLog("run \t"+i+"\t chat_parser (findall) finished in: \t" + duration/1000 + "\t microsecs.\n");
 			}
 		}
 

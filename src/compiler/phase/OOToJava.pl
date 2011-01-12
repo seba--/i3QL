@@ -355,11 +355,15 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write(Stream,' != null)'),
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
+write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
+	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create (('),
+	write_expr(Stream,TermExpression),
+	write(Stream,').manifestState()));\n').	
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
-	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create ('),
+	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create(StatesList.prepend('),
 	write_expr(Stream,TermExpression),
 	write_complex_term_args(Stream,TermExpressions),
-	write(Stream,'));\n').
+	write(Stream,',null)));\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
 	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create(sl));\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).

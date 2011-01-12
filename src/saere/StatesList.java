@@ -32,7 +32,7 @@
 package saere;
 
 /**
- * A list of state objects that represents a state on its own.
+ * An immutable list of state objects that represents a state on its own.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
@@ -67,7 +67,7 @@ final public class StatesList implements State {
 	@Override
 	public String toString() {
 		StatesList los = next;
-		String s = "[" + state.toString();
+		String s = "StatesList[" + state.toString();
 		while (los != null) {
 			s += "," + los.state.toString();
 			los = los.next;
@@ -75,14 +75,14 @@ final public class StatesList implements State {
 		return s += "]";
 	}
 
-	public static StatesList prepend(State s, StatesList sl) {
+	public final static StatesList prepend(State s, StatesList sl) {
 		if (s == null)
 			return null;
 		else
 			return new StatesList(s, sl);
 	}
 
-	public static StatesList prepend(State s1, State s2, StatesList sl) {
+	public final static StatesList prepend(State s1, State s2, StatesList sl) {
 		StatesList rest = prepend(s2, sl);
 		if (s1 != null)
 			return new StatesList(s1, rest);
@@ -90,7 +90,7 @@ final public class StatesList implements State {
 			return rest;
 	}
 
-	public static StatesList prepend(State s1, State s2, State s3, StatesList sl) {
+	public final static StatesList prepend(State s1, State s2, State s3, StatesList sl) {
 		StatesList rest = prepend(s2, s3, sl);
 		if (s1 != null)
 			return new StatesList(s1, rest);
@@ -98,8 +98,7 @@ final public class StatesList implements State {
 			return rest;
 	}
 
-	public static StatesList prepend(State s1, State s2, State s3, State s4,
-			StatesList sl) {
+	public final static StatesList prepend(State s1, State s2, State s3, State s4, StatesList sl) {
 		StatesList rest = prepend(s2, s3, s4, sl);
 		if (s1 != null)
 			return new StatesList(s1, rest);
@@ -107,12 +106,35 @@ final public class StatesList implements State {
 			return rest;
 	}
 
-	public static StatesList prepend(State s1, State s2, State s3, State s4,
-			State s5, StatesList sl) {
+	public final static StatesList prepend(State s1, State s2, State s3, State s4, State s5,
+			StatesList sl) {
 		StatesList rest = prepend(s2, s3, s4, s5, sl);
 		if (s1 != null)
 			return new StatesList(s1, rest);
 		else
 			return rest;
+	}
+
+	public final static StatesList prepend(Term t, StatesList sl) {
+		return prepend(t.manifestState(), sl);
+	}
+
+	public final static StatesList prepend(Term t1, Term t2, StatesList sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), sl);
+	}
+
+	public final static StatesList prepend(Term t1, Term t2, Term t3, StatesList sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(), sl);
+	}
+
+	public final static StatesList prepend(Term t1, Term t2, Term t3, Term t4, StatesList sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(),
+				t4.manifestState(), sl);
+	}
+
+	public final static StatesList prepend(Term t1, Term t2, Term t3, Term t4, Term t5,
+			StatesList sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(),
+				t4.manifestState(), t5.manifestState(), sl);
 	}
 }

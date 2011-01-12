@@ -67,7 +67,7 @@ public abstract class Term {
 	}
 
 	/**
-	 * Returns <code>true</code> if this term is ground. String atome, float values and integer
+	 * Returns <code>true</code> if this term is ground. String atoms, float values and integer
 	 * values are always ground. A complex term is ground if all arguments are ground. A variable is
 	 * ground if the variable is bound to a ground term.
 	 * 
@@ -78,7 +78,7 @@ public abstract class Term {
 	/**
 	 * Creates a {@link State} object that encapsulates the complete variable state information of
 	 * this term. The {@link State} object is later on used to reset (cf.
-	 * {@link State#reincarnate()})the state of this term to the time when this method was called
+	 * {@link State#reincarnate()}) the state of this term to the time when this method was called
 	 * (to undo all changes that were done in between).
 	 * 
 	 * <p>
@@ -213,19 +213,19 @@ public abstract class Term {
 
 	/**
 	 * @return Evaluates the arithmetic expression represented by this term, if possible.
-	 * @throws IllegalStateException
+	 * @throws PrologException
 	 *             if this term does not model an arithmetic expression.
 	 */
-	public long intEval() {
+	public long intEval() throws PrologException {
 		throw new PrologException("this term (" + this.toProlog() + ") is not an arithmetic term");
 	}
 
 	/**
 	 * @return Evaluates the arithmetic expression represented by this term, if possible.
-	 * @throws IllegalStateException
+	 * @throws PrologException
 	 *             if this term does not model an arithmetic expression.
 	 */
-	public double floatEval() {
+	public double floatEval() throws PrologException {
 		throw new PrologException("this term (" + this.toProlog() + ") is not an arithmetic term");
 	}
 

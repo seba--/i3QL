@@ -38,6 +38,11 @@ package saere;
  */
 public abstract class CompoundTerm extends Term {
 
+	@Override
+	public final int termTypeID() {
+		return Term.COMPUND_TERM_TYPE_ID;
+	}
+
 	/**
 	 * @return <code>false</code>; always.
 	 */
@@ -54,12 +59,6 @@ public abstract class CompoundTerm extends Term {
 		return true;
 	}
 
-	public abstract Term firstArg();
-
-	public Term secondArg() {
-		throw new IndexOutOfBoundsException();
-	}
-
 	/**
 	 * @return Always returns "<code>this</code>"
 	 */
@@ -68,9 +67,10 @@ public abstract class CompoundTerm extends Term {
 		return this;
 	}
 
-	@Override
-	public final int termTypeID() {
-		return Term.COMPUND_TERM_TYPE_ID;
+	public abstract Term firstArg();
+
+	public Term secondArg() {
+		throw new IndexOutOfBoundsException();
 	}
 
 	/**
@@ -102,16 +102,17 @@ public abstract class CompoundTerm extends Term {
 	 * structure. Hence, if all instances of a compound term are always ground then it is highly
 	 * recommended to override the corresponding {@link #isGround()} method and to always return
 	 * <code>true</code>. Overwriting {@link #isGround()} is more beneficial than overwriting this
-	 * method, because this method directly uses the method {@link #isGround()} and returns
+	 * method, because this method immediately calls the method {@link #isGround()} and returns
 	 * <code>null</code> if this compound term is ground.
 	 * </p>
 	 */
 	@Override
 	public State manifestState() {
-		// TODO reevaluate if the "isGround" test is still meaningful if we have completed the compiler support for variable dereferencing
+		// TODO reevaluate if the "isGround" test is still meaningful if we have completed the
+		// compiler support for variable dereferencing
 		if (isGround()) {
 			return null;
-		} 
+		}
 
 		CompoundTerm complexTerm = this;
 
@@ -128,7 +129,7 @@ public abstract class CompoundTerm extends Term {
 				// E.g., if a complex term is bound to a variable
 				// the manifestation of the variable would lead to
 				// another call of the manifest method. If we now
-				// manifest a large datastructure (e.g., a long list)
+				// manifest a large data structure (e.g., a long list)
 				// which contains a large number of (bound) variables
 				// this easily leads to a stack overflow error.
 				Term arg_i = complexTerm.arg(i).expose();
@@ -137,15 +138,12 @@ public abstract class CompoundTerm extends Term {
 					Variable variable = arg_i.asVariable();
 					Term value = variable.getValue();
 					if (value == null) {
-						statesList = new StatesList(variable,statesList);
+						statesList = new StatesList(variable/* .manifestState() */, statesList);
 					}
 					break;
 
 				case Term.COMPUND_TERM_TYPE_ID:
-					if (workList == null)
-						workList = new CompoundTermsList(arg_i.asCompoundTerm());
-					else
-						workList = workList.prepend(arg_i.asCompoundTerm());
+					workList = new CompoundTermsList(arg_i.asCompoundTerm(), workList);
 					break;
 				}
 			}
@@ -164,8 +162,9 @@ public abstract class CompoundTerm extends Term {
 	 * Unifies this compound term with another compound term.
 	 * <p>
 	 * This method does not take care of state handling; i.e, <font color="ref">both compound terms
-	 * may be partially bound after return.</font> The caller must take care to reset the state of
-	 * this compound term as well as the passed in compound term.
+	 * may be partially bound when this method returns.</font> The caller must take care of state
+	 * manifestation and state reincarnation of this compound term as well as the passed in compound
+	 * term.
 	 * </p>
 	 */
 	public boolean unify(CompoundTerm other) {
@@ -183,6 +182,11 @@ public abstract class CompoundTerm extends Term {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public final Term expose() {
+		return this;
 	}
 
 	@Override
@@ -208,11 +212,6 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public final Term expose() {
-		return this;
-	}
-
-	@Override
 	public String toProlog() {
 		// a compound term always has at least one argument
 		String s = arg(0).toProlog();
@@ -223,4 +222,5 @@ public abstract class CompoundTerm extends Term {
 		}
 		return functor().toProlog() + "(" + s + ")";
 	}
+
 }

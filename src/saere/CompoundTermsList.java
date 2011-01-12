@@ -44,12 +44,12 @@ public final class CompoundTermsList {
 	private final CompoundTermsList rest;
 	private final CompoundTerm term;
 
-	CompoundTermsList(CompoundTerm term) {
+	public CompoundTermsList(CompoundTerm term) {
 		this.rest = null;
 		this.term = term;
 	}
 
-	private CompoundTermsList(CompoundTerm term, CompoundTermsList next) {
+	public CompoundTermsList(CompoundTerm term, CompoundTermsList next) {
 		this.term = term;
 		this.rest = next;
 	}
@@ -60,10 +60,6 @@ public final class CompoundTermsList {
 
 	public CompoundTermsList rest() {
 		return rest;
-	}
-
-	public CompoundTermsList prepend(@SuppressWarnings("hiding") CompoundTerm term) {
-		return new CompoundTermsList(term, this);
 	}
 
 }

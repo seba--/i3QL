@@ -67,13 +67,13 @@ public final class StringAtom extends Atomic {
 	}
 
 	/**
-	 * Compares this StringAtom object with the given one and returns true if
-	 * this one and the other one represent the same string.
+	 * Compares this StringAtom object with the given one and returns true if this one and the other
+	 * one represent the same string.
 	 * 
 	 * @param other
 	 *            Some StringAtom.
-	 * @return true if this and the other <code>StringAtom</code> represent the
-	 *         same atom (basically, the same String).
+	 * @return true if this and the other <code>StringAtom</code> represent the same atom
+	 *         (basically, the same String).
 	 */
 	public boolean sameAs(StringAtom other) {
 		// StringAtoms are always "interned"...
@@ -81,12 +81,11 @@ public final class StringAtom extends Atomic {
 	}
 
 	/**
-	 * Tests if this StringAtom and the other object represent the same string
-	 * atom.
+	 * Tests if this StringAtom and the other object represent the same string atom.
 	 * <p>
 	 * <b>Performance Guidelines</b><br/>
-	 * This method is not intended to be called by clients of StringAtom.
-	 * Clients of StringAtom should use {@link #sameAs(StringAtom)}.
+	 * This method is not intended to be called by clients of StringAtom. Clients of StringAtom
+	 * should use {@link #sameAs(StringAtom)}.
 	 * </p>
 	 */
 	@Override
@@ -103,8 +102,8 @@ public final class StringAtom extends Atomic {
 	 * @return This StringAtom's hash value.
 	 *         <p>
 	 *         <b>Performance Guidelines</b><br/>
-	 *         Since the hashCode is calculated at instantiation time caching
-	 *         this value is meaningless.
+	 *         Since the hashCode is calculated at instantiation time caching this value on the
+	 *         client side is meaningless.
 	 *         </p>
 	 */
 	@Override
@@ -129,8 +128,8 @@ public final class StringAtom extends Atomic {
 
 	/**
 	 * @return This StringAtom's raw value. The byte array must not be changed. <br />
-	 *         This is a private method of this framework which is public only
-	 *         for technical reasons.
+	 *         <font color="red">This is a private method of the runtime environment which is public
+	 *         only for technical reasons.</font>
 	 */
 	public byte[] rawValue() {
 		return value;
@@ -139,7 +138,7 @@ public final class StringAtom extends Atomic {
 	public int termTypeID() {
 		return Term.STRING_ATOM_TYPE_ID;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "StringAtom[" + new String(value) + "]";
@@ -202,7 +201,7 @@ public final class StringAtom extends Atomic {
 
 	public static final StringAtom EMPTY_LIST = get("[]");
 	public static final StringAtom LIST = get(".");
-	
+
 	public static final StringAtom GROUND = get("ground");
 	public static final StringAtom VAR = get("var");
 	public static final StringAtom NONVAR = get("nonvar");
@@ -214,5 +213,5 @@ public final class StringAtom extends Atomic {
 	public static final StringAtom ARG = get("arg");
 	public static final StringAtom CALL = get("call");
 	public static final StringAtom UNIV = get("=..");
-	
+
 }
