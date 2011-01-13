@@ -39,7 +39,5 @@ next_to(A, B, [_ | Y]) :- next_to(A, B, Y).
 
 
 % ISO Prolog definition of member
-/*
 member(X, [X|_]).
 member(X, [_|Ys]) :- member(X, Ys).
-*/

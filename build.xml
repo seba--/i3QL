@@ -35,172 +35,139 @@ POSSIBILITY OF SUCH DAMAGE.
 Author 		Michael Eichberg (mail@michael-eichberg.de)
 -->
 <project name="SAE" default="default" basedir=".">
-    <description>Builds the SAE.</description>
+	<description>Builds the SAE.</description>
 
-    <!--
+	<!--
 		Read user properties from build.properties.
- 		Use this mechanism to set your own "scala.home".
 	-->
-    <property file="../build.properties"  />
+	<property file="../build.properties" />
 
 	<!-- General properties -->
-	<property name="version" value="0.0.0" />
+	<property name="version" value="0.1.2" />
 
 
 	<!-- Directories which contain the project's source files. -->
-	<property name="src.main.dir" value="src"/>
-	<property name="src.demo.dir" value="demo"/>
+	<property name="src.main.dir" value="src" />
+	<property name="src.benchmarks.dir" value="benchmarks" />
 
 
 	<!-- Directories where the generated code is stored. -->
-	<property name="build.dir" value="build"/>
-	<property name="class.dir" value="${build.dir}/class"/>
-	<property name="generated.dir" value="${build.dir}/src"/>
-	<property name="scala.generated.dir" value="${generated.dir}/scala"/>
-	<property name="prolog.generated.dir" value="${generated.dir}/prolog"/>	
-	<property name="doc.dir" value="${build.dir}/doc"/>
-	<property name="scala.test.data.dir" value="../test"/>
-	
+	<property name="build.dir" value="build" />
+	<property name="class.dir" value="${build.dir}/class" />
+	<property name="generated.dir" value="${build.dir}/src" />
+	<property name="javadoc.dir" value="${build.dir}/doc" />
+
 	<!-- Libraries & tools used at compile- and or run-time. -->
-	<property name="lib.dir" value="lib"/>
-	
-	<!-- Sets "scala.home" to the default directory, if no "build.properties" file exists. --> 
-	<condition property="scala.home" value="/opt/local/share/scala-2.8/">
-		<not><isset property="scala.home" /></not>
-	</condition>
-	<!-- Sets "scala.lib" to the default directory, if no "build.properties" file exists. --> 
-	<condition property="scala.lib" value="${scala.home}/lib">
-		<not><isset property="scala.lib"/></not>
-	</condition>
-	
-	<property name="scala-compiler.jar" location="${scala.lib}/scala-compiler.jar"/>
-	<property name="scala-library.jar" value="${scala.lib}/scala-library.jar"/>
-		
-        
-	<!-- Configuration of the "path"s. -->    
-	<path id="scala.classpath">
-	  <pathelement location="${scala-compiler.jar}"/>
-	  <pathelement location="${scala-library.jar}"/>
-	</path>	
+	<property name="lib.dir" value="lib" />
+
+
+	<!-- Configuration of the "path"s. -->
 	<path id="project.classpath">
-	  <path refid="scala.classpath"/>
-	  <pathelement location="${class.dir}"/>
-	</path>	
-	
-	<path id="scala.sourcepath">
-		<pathelement location="${src.main.dir}"/>
-		<pathelement location="${src.demo.dir}"/>
-		<pathelement location="${scala.generated.dir}"/>
+		<pathelement location="${class.dir}" />
 	</path>
-	
-    <taskdef resource="scala/tools/ant/antlib.xml">
-		<classpath refid="scala.classpath"/>
-	</taskdef>
-	
+
+
+	<macrodef name="compile-benchmark">
+		<attribute name="benchmark" />
+		<sequential>
+			<mkdir dir="${generated.dir}/java/benchmarks/@{benchmark}" />
+			<mkdir dir="${build.dir}/bin/class/benchmarks/@{benchmark}" />
+
+			<exec executable="swipl">
+				<arg value="-q" />
+				<arg value="-f" />
+				<arg value="src/compiler/Compiler.pl" />
+				<arg value="-t" />
+				<arg value="compile('benchmarks/@{benchmark}.pl','build/src/java/benchmarks/@{benchmark}/')." />
+			</exec>
+
+			<javac verbose="no" includeAntRuntime="false" srcdir="build/src/java/benchmarks/@{benchmark}/" destdir="${build.dir}/bin/class/benchmarks/@{benchmark}" source="1.6">
+				<classpath>
+					<pathelement path="${build.dir}/bin/class/runtime" />
+				</classpath>
+				<include name="**/*.java" />
+			</javac>
+			
+			<javac verbose="no" includeAntRuntime="false" srcdir="benchmarks" destdir="${build.dir}/bin/class/benchmarks/@{benchmark}" source="1.6">
+				<classpath>
+					<pathelement path="${build.dir}/bin/class/runtime" />
+					<pathelement path="${build.dir}/bin/class/benchmarks/@{benchmark}" />
+				</classpath>
+				<include name="@{benchmark}.java" />
+				<include name="Utils.java" />
+			</javac>
+			
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-benchmark">
+		<attribute name="benchmark" />
+		<sequential>
+			<java fork="yes" classname="@{benchmark}">
+				<classpath>
+					<pathelement path="${build.dir}/bin/class/runtime" />
+					<pathelement path="${build.dir}/bin/class/benchmarks/@{benchmark}" />
+				</classpath>
+			</java>
+		</sequential>
+	</macrodef>
+
 	<!-- Definition of all targets. -->
 
-	<target 
-			name="init" 
-			description="Creates the initial directory structure where the generated / compiled files are stored.">
-		<tstamp/>
-		<mkdir dir="${scala.generated.dir}"/>
-		<mkdir dir="${prolog.generated.dir}"/>
-		<mkdir dir="${class.dir}"/>
-		<mkdir dir="${doc.dir}"/>	
+
+	<target name="init" description="Creates the initial directory structure where the generated / compiled files are stored.">
+		<tstamp />		
+		<mkdir dir="${javadoc.dir}" />
+		<mkdir dir="${generated.dir}" />
 	</target>
 
-	<target name="clean" description="Cleans up all artifacts that can be regenerated." >
-		<delete dir="${build.dir}"/>
-	</target>
-	<target name="clean-generated-prolog-code" description="Clean up the generated prolog source files." >
-		<delete dir="${prolog.generated.dir}"/>
-	</target>
-	<target name="clean-generated-scala-code" description="Clean up the generated scala source files." >
-		<delete dir="${scala.generated.dir}"/>
-	</target>
-	<target name="clean-generated-code" depends="clean-generated-prolog-code,clean-generated-scala-code" />	
-	
-
-	<target name="compile" description="Compiles the SAE and the Demo code." depends="init"> 
-		<!--
-		<echo>
-		Note, if compilation fails due to a stack overflow error it is necessary 
-		to increase Java's heap and stack size. E.g. if you use Unix just set 
-		ANT_OPTS before calling "ant compile"; e.g.,
-			export ANT_OPTS="-Xmx1024m -Xss128m"
-		</echo>
-		-->
-		
-    	<!-- The attributes optimise="on" and 	addparams="-Yclosure-elim  -Yinline" 
-			are not very useful during development 
-			 since it requires to basically recompile the complete project after 
-			 every single (minor) source code change.  
-		-->
-		<scalac 
-				target="jvm-1.5" 
-				destdir="${class.dir}" 
-				classpathref="project.classpath" 
-				deprecation="on" 
-				scalacdebugging="off"
-				unchecked="yes"
-				force="changed">
-			<!--	addparams="-Xelide-below 3000"> -->
-			<src path="${src.main.dir}"/>
-			<src path="${src.demo.dir}"/>
-		    <src path="${scala.generated.dir}"/>
-	    	<include name="**/*.scala"/>
-	    	<include name="**/*.java"/>
-	  	</scalac>
-	
-	
-		<javac
-				srcdir="${src.main.dir}"
-				destdir="${class.dir}"
-	         	source="1.5"
-				classpathref="project.classpath" /> 
-	</target>
-	
-	
-	<target name="api-doc" depends="init" description="Generates SAE's API documentation.">
-		<javadoc
-				windowtitle="SAE Core Library"
-				sourcepath="${src.main.dir}"
-				classpathref="project.classpath"		
-				destdir="${doc.dir}"
-				locale="en_US"
-				encoding="UTF-8"
-				author="yes"
-				doctitle="The Static Analysis Engine - Core Library ${version}"
-			/>
+	<target name="clean" description="Cleans up all artifacts that can be regenerated.">
+		<delete dir="${build.dir}" />
 	</target>
 
-		
-	<target name="demo" depends="compile" description="Demonstrates Opal.">
-		<echo>
-		</echo>
-		<!--
-		<java classname="scala.tools.nsc.MainGenericRunner" fork="true">
-			<classpath><path refid="project.classpath"/></classpath>
-			<arg line="sae.predicates.Demo$"/> 
-		</java>-->
-		<java classname="queens.Demo" fork="true">
-			<classpath><path refid="project.classpath"/></classpath>
-			<!--
-			<jvmarg value="-Xms64m"/>
-			<jvmarg value="-Xss8m"/>
-			<jvmarg value="-Xfuture"/>			
-			<jvmarg value="-XX:+DoEscapeAnalysis"/>	
-		-->
-		</java>
+	<target name="compile" description="Compiles the SAE Runtime Environment." depends="init">
+		<mkdir dir="${build.dir}/bin/class/runtime" />
+		<javac includeAntRuntime="false" srcdir="${src.main.dir}" destdir="${build.dir}/bin/class/runtime" excludes="saere/database/**" source="1.6" />
 	</target>
-	
+
+	<target name="api-doc" depends="init" description="Generates SAE Prolog's API documentation.">
+		<javadoc windowtitle="SAE Prolog" classpathref="project.classpath" destdir="${javadoc.dir}" locale="en_US" encoding="UTF-8" author="yes" doctitle="SAE Prolog - Runtime Environment ${version}">
+			<fileset dir="${src.main.dir}" defaultexcludes="yes">
+				<include name="saere/*.java" />
+				<include name="saere/term/*.java" />
+				<include name="saere/predicate/*.java" />
+			</fileset>
+		</javadoc>
+	</target>
+
 	<target name="package" depends="compile" description="Packages the SAE.">
-		<jar destfile="${build.dir}/SAE-${version}.jar" basedir="${class.dir}"/>
+		<jar destfile="${build.dir}/bin/SAE-${version}.jar" basedir="${class.dir}" />
 	</target>
-	
-	<target 
-		name="default" 
-		depends="demo" 
-		description="Compiles the SAE and runs a Demo."/>
-	
+
+	<target name="default" depends="package" description="Compiles and packages the SAE." />
+
+	<target name="compile-benchmarks" depends="compile" description="Compiles all benchmarks.">
+		<compile-benchmark benchmark="ancestor" />
+		<compile-benchmark benchmark="arithmetic" />
+		<compile-benchmark benchmark="chat_parser" />
+		<compile-benchmark benchmark="crypt" />
+		<compile-benchmark benchmark="einsteins_riddle" />
+		<compile-benchmark benchmark="hanoi" />
+		<compile-benchmark benchmark="meta_nrev" />
+		<compile-benchmark benchmark="nrev" />
+		<compile-benchmark benchmark="primes" />
+		<compile-benchmark benchmark="qsort" />
+		<compile-benchmark benchmark="queens" />
+		<compile-benchmark benchmark="tak" />
+		<compile-benchmark benchmark="zebra" />
+	</target>
+
+	<target name="run-qsort" depends="compile-benchmarks" description="Runs the qsort benchmark.">
+		<run-benchmark benchmark="qsort" />
+	</target>
+
+	<target name="run-zebra" depends="compile-benchmarks" description="Runs the zebra benchmark.">
+		<run-benchmark benchmark="zebra" />
+	</target>
+
 </project>
