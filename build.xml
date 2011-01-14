@@ -107,7 +107,8 @@ POSSIBILITY OF SUCH DAMAGE.
 	<target name="compile-saere" 
 			depends="init" 
 			description="Compiles SAE Prolog's runtime environment.">
-		<javac 	includeAntRuntime="false" 
+		<javac 	debug="yes"
+				includeAntRuntime="false" 
 				srcdir="${saere.src.dir}" 
 				destdir="${saere.bin.dir}" 
 				excludes="saere/database/**" 
@@ -121,7 +122,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 		<echo 	level="verbose" 
 				message="Compiling the test suite of SAE Prolog's runtime environment." />
-		<javac 	includeAntRuntime="false" 
+		<javac 	debug="yes"
+				includeAntRuntime="false" 
 				srcdir="${saere.tests.dir}" 
 				destdir="${saere.bin.dir}" 
 				excludes="**/database/**" 
@@ -219,7 +221,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 	<macrodef name="compile-java-code-for-program-selected-from-repository">
 		<sequential>
-			<javac	verbose="no" 
+			<javac	debug="yes"
+					verbose="no" 
 					includeAntRuntime="false" 
 					srcdir="${temp.src.dir}" 
 					destdir="${temp.bin.dir}" 
@@ -242,7 +245,6 @@ POSSIBILITY OF SUCH DAMAGE.
 	<macrodef name="run-junit-tests-for-program-selected-from-repository">
 		<attribute name="program" />
 		<sequential>
-			<get-and-compile-program-from-repository program="@{program}" />
 			<junit	haltonerror="yes">
 				<classpath>
 					<path refid="project.classpath" />
@@ -253,54 +255,97 @@ POSSIBILITY OF SUCH DAMAGE.
 		</sequential>
 	</macrodef>
 
-	<macrodef name="measure-program-selected-from-repository">
+	<macrodef name="get-execute-and-verify-results-of-program">
+		<attribute name="program" />
+		<sequential>
+			<get-and-compile-program-from-repository program="@{program}" />
+			<run-junit-tests-for-program-selected-from-repository program="@{program}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="measure-program">
 		<attribute name="program" />
 		<attribute name="args" />
 		<sequential>
 			<java	fork="true"
 					classname="saere.utils.Performance"
 					classpathref="project.classpath">
-					<arg value="@{program}"/>
-					<arg line="@{args}"/>
+				<arg value="@{program}"/>
+				<arg line="@{args}"/>
+			</java>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="get-and-measure-program">
+		<attribute name="program" />
+		<sequential>
+			<get-execute-and-verify-results-of-program program="@{program}" />
+			<java	fork="true"
+					classname="saere.utils.Performance"
+					classpathref="project.classpath">
+				<arg value="@{program}"/>
 			</java>
 		</sequential>
 	</macrodef>
 	
 	<!-- 
 		Targets to get programs from the repository and to 
-		compile/evaluate/measure the programs. 
+		compile/evaluate the program. 
+	-->
+	
+	<target name="ask-get-and-compile-program-from-repository"
+			unless="${repository.program}"
+			description='Gets the program from the repository and compiles it.'>
+		<input 	message="Please enter the name of the program:"
+				addproperty="repository.program"/>
+		<get-and-compile-program-from-repository program="${repository.program}" />
+	</target>
+	<target name="get-and-compile-given-program-from-repository"
+			if="${repository.program}"
+			description='Gets the program from the repository and compiles it.'>
+		<get-and-compile-program-from-repository program="${repository.program}" />
+	</target>
+	
+	<target name="get-and-verify-results-of-program"
+			depends="ask-get-and-compile-program-from-repository,get-and-compile-given-program-from-repository"
+			description='Tests that SAE Prolog generates the correct results when running the program.'>
+		<run-junit-tests-for-program-selected-from-repository 
+				program="${repository.program}" />
+	</target>
+
+	<target name="get-and-measure-program"
+			depends="get-and-verify-results-of-program"
+			description='Measures the performance of the program.'>	
+		<measure-program program="${repository.program}"/>
+	</target>
+
+	<!-- 
+		Special targets to measure the performance of selected SAE Prolog programs.
 	-->
 
-	<target name="get-and-compile-qsort-from-repository"
-			description='Gets the qsort program from the test bench repository and compiles it.'>
-		<get-and-compile-program-from-repository program="qsort" />
-	</target>
-	<target name="execute-and-verify-results-of-qsort"
-			description='Tests that SAE Prolog generates the correct results when running the qsort program.'>
-		<run-junit-tests-for-program-selected-from-repository program="qsort" />
-	</target>
-	<target name="measure-qsort"
-			depends="execute-and-verify-results-of-qsort"
-			description='Tests that SAE Prolog generates the correct results when running the qsort program.'>
-		<measure-program-selected-from-repository program="qsort" args="" />
-	</target>
-
-	<target name="get-and-compile-queens-from-repository"
-			description='Gets the queens program from the test bench repository and compiles it.'>
-		<get-and-compile-program-from-repository program="queens" />
-	</target>
-	<target name="execute-and-verify-results-of-queens"
-			description='Tests that SAE Prolog generates the correct results when running the queens program.'>
-		<run-junit-tests-for-program-selected-from-repository program="queens" />
-	</target>
 	<target name="measure-queens"
-			depends="execute-and-verify-results-of-queens"
-			description='Tests that SAE Prolog generates the correct results when running the queens program.'>
-		<measure-program-selected-from-repository program="queens" args="queens-8-findall" />
-		<measure-program-selected-from-repository program="queens" args="queens-20" />
-		<measure-program-selected-from-repository program="queens" args="queens-1-26" />
+			description='Measures the performance of the queens program.'>
+		<antcall target="get-execute-and-verify-results-of-program">
+			<param name="repository.program" value="queens" />
+		</antcall>	
+		<measure-program program="queens" args="queens-8-findall" />
+		<measure-program program="queens" args="queens-20" />
+		<measure-program program="queens" args="queens-1-26" />
 	</target>
 
+	<!-- 
+		Targets for exhaustive testing and evaluation.
+	-->
 
+	<target name="verify-results-of-all-programs">
+		<get-execute-and-verify-results-of-program program="qsort" />
+		<get-execute-and-verify-results-of-program program="queens" />
+	</target>
+
+	<target name="measure-all-programs"
+			description="Measures the performance of all programs.">
+		<get-and-measure-program program="qsort"/>
+		<get-and-measure-program program="queens"/>		
+	</target>
 
 </project>

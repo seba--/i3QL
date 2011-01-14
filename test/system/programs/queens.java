@@ -38,6 +38,7 @@ import static saere.term.Terms.compoundTerm;
 
 import org.junit.Test;
 
+import predicates.benchmark1Factory;
 import predicates.not_attack2Factory;
 import predicates.not_attack3Factory;
 import predicates.queens2Factory;
@@ -62,6 +63,7 @@ public class queens {
 		queens3Factory.registerWithPredicateRegistry(registry);
 		range3Factory.registerWithPredicateRegistry(registry);
 		select3Factory.registerWithPredicateRegistry(registry);
+		benchmark1Factory.registerWithPredicateRegistry(registry);
 	}
 
 	@Test
@@ -110,7 +112,7 @@ public class queens {
 		for (int i = 0; i < 18; i++) {
 			Variable solution = new Variable();
 			StringAtom queens = StringAtom.get("queens");
-			Goal s = compoundTerm(queens, atomic(i+1), solution).call();
+			Goal s = compoundTerm(queens, atomic(i + 1), solution).call();
 			if (s.next())
 				assertTrue(expectedResults[i].unify(solution));
 			else
@@ -139,8 +141,21 @@ public class queens {
 			} else if (arg.equals("queens-1-26")) {
 				queens1to26();
 			} else {
-				throw new IllegalArgumentException(arg);
+				throw new Error();
 			}
+		}
+	}
+
+	public static void measure() throws Error {
+		Term term = compoundTerm(atomic("benchmark"), atomic("queens"));
+		Goal s = term.call();
+		long startTime = System.nanoTime();
+		boolean succeeded = s.next();
+		long duration = System.nanoTime() - startTime;
+		if (succeeded) {
+			Performance.writeToPerformanceLog("queens", duration);
+		} else {
+			Performance.writeToPerformanceLog("queens", -1l);
 		}
 	}
 

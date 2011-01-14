@@ -1,5 +1,7 @@
 % Usage, e.g, ?- queens(8, Qs).
 
+benchmark(queens) :- queens(22,_).
+
 queens(N,Qs) :-
 	range(1,N,Ns),
 	queens(Ns,[],Qs).

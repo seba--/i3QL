@@ -59,14 +59,14 @@ public class Performance {
 		String className = "harness." + args[0];
 		System.out.print("Loading: " + className);
 		if (args.length == 1) {
-			System.out.print(".");
+			System.out.println(".");
 			Method method = Class.forName(className).getMethod("measure", new Class<?>[] {});
 			System.out.println("Starting.");
 			method.invoke(null, new Object[] {});
 			System.out.println("Finished.");
 		} else {
 			String[] prg_args = Arrays.copyOfRange(args, 1, args.length);
-			System.out.print(": " + Arrays.toString(prg_args) + ".");
+			System.out.println(" " + Arrays.toString(prg_args) + ".");
 			Method method = Class.forName(className).getMethod("measure",
 					new Class<?>[] { String[].class });
 			System.out.println("Starting.");
@@ -80,6 +80,10 @@ public class Performance {
 	}
 
 	public static void writeToPerformanceLog(String benchmark, int run, long timeInNanoSecs) {
+		
+		Double time = new Double(timeInNanoSecs / 1000.0 / 1000.0 / 1000.0);
+		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark,Integer.valueOf(run),time);
+		
 		try {
 			SpreadsheetDocument doc;
 			File file = new File("PerformanceLog.ods");
