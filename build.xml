@@ -31,108 +31,128 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.	
+-->
 
-Author 		Michael Eichberg (mail@michael-eichberg.de)
+<!--
+	Author: Michael Eichberg (mail@michael-eichberg.de)
 -->
 <project name="SAE" default="default" basedir=".">
-	<description>Builds the SAE.</description>
+	<description>Builds, tests and packages SAE Prolog.</description>
 
-	<!--
-		Read user properties from build.properties.
-	-->
-	<property file="../build.properties" />
 
 	<!-- General properties -->
 	<property name="version" value="0.1.2" />
 
 
+	<!-- Read user properties from build.properties. -->
+	<property file="../build.properties" />
+
+
 	<!-- Directories which contain the project's source files. -->
-	<property name="src.main.dir" value="src" />
-	<property name="src.benchmarks.dir" value="benchmarks" />
+	<property name="saere.src.dir" value="src/java" />
+	<property name="compiler.src.dir" value="src/prolog" />
+
+	<property name="saere.tests.dir" value="test/runtime_environment" />
+
+	<property name="sae.test-programs.dir" value="test/system/programs" />
 
 
 	<!-- Directories where the generated code is stored. -->
 	<property name="build.dir" value="build" />
-	<property name="class.dir" value="${build.dir}/class" />
-	<property name="generated.dir" value="${build.dir}/src" />
-	<property name="javadoc.dir" value="${build.dir}/doc" />
+	
+	<property name="saere.bin.dir" value="${build.dir}/bin/runtime_environment" />
+	<property name="saere.doc.dir" value="${build.dir}/doc/runtime_environment" />
+
+	<property name="compiler.doc.dir" value="${build.dir}/doc/compiler" />
+
+	<property name="temp.src.dir" value="${build.dir}/src/temp" />
+	<property name="temp.bin.dir" value="${build.dir}/bin/temp" />
+
 
 	<!-- Libraries & tools used at compile- and or run-time. -->
 	<property name="lib.dir" value="lib" />
+	<property name="java.lib.dir" value="${lib.dir}/java" />
 
 
 	<!-- Configuration of the "path"s. -->
 	<path id="project.classpath">
-		<pathelement location="${class.dir}" />
+		<pathelement location="${saere.bin.dir}" />
+		<pathelement location="${temp.bin.dir}" />
+		<pathelement location="${java.lib.dir}/junit-4.8.2.jar" />
+		<pathelement location="${java.lib.dir}/simple-ODF-0.3.5.jar" />
+		<pathelement location="${java.lib.dir}/odfdom-java-0.8.7-20101206.jar" />
 	</path>
 
 
-	<macrodef name="compile-benchmark">
-		<attribute name="benchmark" />
-		<sequential>
-			<mkdir dir="${generated.dir}/java/benchmarks/@{benchmark}" />
-			<mkdir dir="${build.dir}/bin/class/benchmarks/@{benchmark}" />
 
-			<exec executable="swipl">
-				<arg value="-q" />
-				<arg value="-f" />
-				<arg value="src/compiler/Compiler.pl" />
-				<arg value="-t" />
-				<arg value="compile('benchmarks/@{benchmark}.pl','build/src/java/benchmarks/@{benchmark}/')." />
-			</exec>
+	<!-- 
+	
+		THE STANDARD TARGETS
 
-			<javac verbose="no" includeAntRuntime="false" srcdir="build/src/java/benchmarks/@{benchmark}/" destdir="${build.dir}/bin/class/benchmarks/@{benchmark}" source="1.6">
-				<classpath>
-					<pathelement path="${build.dir}/bin/class/runtime" />
-				</classpath>
-				<include name="**/*.java" />
-			</javac>
-			
-			<javac verbose="no" includeAntRuntime="false" srcdir="benchmarks" destdir="${build.dir}/bin/class/benchmarks/@{benchmark}" source="1.6">
-				<classpath>
-					<pathelement path="${build.dir}/bin/class/runtime" />
-					<pathelement path="${build.dir}/bin/class/benchmarks/@{benchmark}" />
-				</classpath>
-				<include name="@{benchmark}.java" />
-				<include name="Utils.java" />
-			</javac>
-			
-		</sequential>
-	</macrodef>
-
-	<macrodef name="run-benchmark">
-		<attribute name="benchmark" />
-		<sequential>
-			<java fork="yes" classname="@{benchmark}">
-				<classpath>
-					<pathelement path="${build.dir}/bin/class/runtime" />
-					<pathelement path="${build.dir}/bin/class/benchmarks/@{benchmark}" />
-				</classpath>
-			</java>
-		</sequential>
-	</macrodef>
-
-	<!-- Definition of all targets. -->
-
-
-	<target name="init" description="Creates the initial directory structure where the generated / compiled files are stored.">
+	  -->
+	
+	<target name="init" 
+			description="Creates the initial directory structure where the generated/compiled files are stored.">
 		<tstamp />		
-		<mkdir dir="${javadoc.dir}" />
-		<mkdir dir="${generated.dir}" />
+		<mkdir dir="${saere.bin.dir}" />
+		<mkdir dir="${saere.doc.dir}" />
+		<mkdir dir="${compiler.doc.dir}" />
 	</target>
-
-	<target name="clean" description="Cleans up all artifacts that can be regenerated.">
+	
+	<target name="clean" 
+			description="Deletes all artifacts that can be regenerated.">
 		<delete dir="${build.dir}" />
 	</target>
 
-	<target name="compile" description="Compiles the SAE Runtime Environment." depends="init">
-		<mkdir dir="${build.dir}/bin/class/runtime" />
-		<javac includeAntRuntime="false" srcdir="${src.main.dir}" destdir="${build.dir}/bin/class/runtime" excludes="saere/database/**" source="1.6" />
+	<target name="compile-saere" 
+			depends="init" 
+			description="Compiles SAE Prolog's runtime environment.">
+		<javac 	includeAntRuntime="false" 
+				srcdir="${saere.src.dir}" 
+				destdir="${saere.bin.dir}" 
+				excludes="saere/database/**" 
+				classpathref ="project.classpath"
+				source="1.6" />
 	</target>
+	
+	<target name="test-saere"
+			depends="compile-saere"
+			description="Tests SAE Prolog's runtime environment.">
 
-	<target name="api-doc" depends="init" description="Generates SAE Prolog's API documentation.">
-		<javadoc windowtitle="SAE Prolog" classpathref="project.classpath" destdir="${javadoc.dir}" locale="en_US" encoding="UTF-8" author="yes" doctitle="SAE Prolog - Runtime Environment ${version}">
-			<fileset dir="${src.main.dir}" defaultexcludes="yes">
+		<echo 	level="verbose" 
+				message="Compiling the test suite of SAE Prolog's runtime environment." />
+		<javac 	includeAntRuntime="false" 
+				srcdir="${saere.tests.dir}" 
+				destdir="${saere.bin.dir}" 
+				excludes="**/database/**" 
+				classpathref ="project.classpath"
+				source="1.6">
+		</javac>
+		
+		<echo 	level="verbose" 
+				message="Running the test suite of SAE Prolog's runtime environment." />		
+		<junit>
+			<classpath>
+				<path refid="project.classpath" />
+			</classpath>
+			<formatter type="brief" usefile="false" />
+			<test name="saere.CoreSuite" />
+		</junit>
+	</target>	
+
+	<target name="generate-api-doc" 
+			depends="init" 
+			description="Generates the API documentation of SAE Prolog's runtime environment.">
+		<javadoc 
+			windowtitle="SAE Prolog" 
+			classpathref="project.classpath" 
+			destdir="${saere.doc.dir}" 
+			locale="en_US"
+			encoding="UTF-8" 
+			author="yes" 
+			doctitle="SAE Prolog - Runtime Environment ${version}">
+			
+			<fileset dir="${saere.src.dir}" defaultexcludes="yes">
 				<include name="saere/*.java" />
 				<include name="saere/term/*.java" />
 				<include name="saere/predicate/*.java" />
@@ -140,34 +160,147 @@ Author 		Michael Eichberg (mail@michael-eichberg.de)
 		</javadoc>
 	</target>
 
-	<target name="package" depends="compile" description="Packages the SAE.">
-		<jar destfile="${build.dir}/bin/SAE-${version}.jar" basedir="${class.dir}" />
+	<target name="package" 
+			depends="compile-saere,test-saere" 
+			description="Packages the SAE.">
+		<delete file="${build.dir}/SAE-${version}.jar" />
+		<jar 	destfile="${build.dir}/SAE-${version}.jar" 
+				basedir="${saere.bin.dir}" />
 	</target>
 
-	<target name="default" depends="package" description="Compiles and packages the SAE." />
+	<target name="default" 
+			depends="package" 
+			description="Compiles and packages the SAE." />
 
-	<target name="compile-benchmarks" depends="compile" description="Compiles all benchmarks.">
-		<compile-benchmark benchmark="ancestor" />
-		<compile-benchmark benchmark="arithmetic" />
-		<compile-benchmark benchmark="chat_parser" />
-		<compile-benchmark benchmark="crypt" />
-		<compile-benchmark benchmark="einsteins_riddle" />
-		<compile-benchmark benchmark="hanoi" />
-		<compile-benchmark benchmark="meta_nrev" />
-		<compile-benchmark benchmark="nrev" />
-		<compile-benchmark benchmark="primes" />
-		<compile-benchmark benchmark="qsort" />
-		<compile-benchmark benchmark="queens" />
-		<compile-benchmark benchmark="tak" />
-		<compile-benchmark benchmark="zebra" />
+
+	<!-- 
+
+	TARGETS AND MACRO DEFINITIONS RELATED TO THE EXECUTION OF TEST PROGRAMS
+
+	-->
+	
+	<target name="clean-temp">
+		<delete dir="${temp.src.dir}" />
+		<delete dir="${temp.bin.dir}" />	
 	</target>
 
-	<target name="run-qsort" depends="compile-benchmarks" description="Runs the qsort benchmark.">
-		<run-benchmark benchmark="qsort" />
+	<macrodef name="get-program-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<antcall target="compile-saere"/>
+			<delete dir="${temp.bin.dir}" />
+			<mkdir dir="${temp.bin.dir}" />	
+
+			<delete dir="${temp.src.dir}" />
+			<mkdir dir="${temp.src.dir}/harness" />
+
+			<copy file="${sae.test-programs.dir}/@{program}.pl" todir="${temp.src.dir}" />
+
+			<copy todir="${temp.src.dir}/harness">
+				<fileset dir="${sae.test-programs.dir}">
+					<include name="@{program}*" />
+					<exclude name="@{program}.pl" />
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="run-sae-prolog-compiler-for-program-selected-from-repository">
+		<sequential>
+			<exec vmlauncher="false" executable="/opt/local/bin/swipl">
+				<arg value="-q" />
+				<arg value="-f" />
+				<arg value="${compiler.src.dir}/compiler/Compiler.pl" />
+				<arg value="-t" />
+				<arg value="compile('${temp.src.dir}/*.pl','${temp.src.dir}/')." />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="compile-java-code-for-program-selected-from-repository">
+		<sequential>
+			<javac	verbose="no" 
+					includeAntRuntime="false" 
+					srcdir="${temp.src.dir}" 
+					destdir="${temp.bin.dir}" 
+					classpathref="project.classpath"
+					source="1.6">
+				<include name="**/*.java" />
+			</javac>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="get-and-compile-program-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<get-program-from-repository program="@{program}" />
+			<run-sae-prolog-compiler-for-program-selected-from-repository />
+			<compile-java-code-for-program-selected-from-repository />		
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-junit-tests-for-program-selected-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<get-and-compile-program-from-repository program="@{program}" />
+			<junit	haltonerror="yes">
+				<classpath>
+					<path refid="project.classpath" />
+				</classpath>
+				<formatter type="brief" usefile="false" />
+				<test name="harness.@{program}" />
+			</junit>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="measure-program-selected-from-repository">
+		<attribute name="program" />
+		<attribute name="args" />
+		<sequential>
+			<java	fork="true"
+					classname="saere.utils.Performance"
+					classpathref="project.classpath">
+					<arg value="@{program}"/>
+					<arg line="@{args}"/>
+			</java>
+		</sequential>
+	</macrodef>
+	
+	<!-- 
+		Targets to get programs from the repository and to 
+		compile/evaluate/measure the programs. 
+	-->
+
+	<target name="get-and-compile-qsort-from-repository"
+			description='Gets the qsort program from the test bench repository and compiles it.'>
+		<get-and-compile-program-from-repository program="qsort" />
+	</target>
+	<target name="execute-and-verify-results-of-qsort"
+			description='Tests that SAE Prolog generates the correct results when running the qsort program.'>
+		<run-junit-tests-for-program-selected-from-repository program="qsort" />
+	</target>
+	<target name="measure-qsort"
+			depends="execute-and-verify-results-of-qsort"
+			description='Tests that SAE Prolog generates the correct results when running the qsort program.'>
+		<measure-program-selected-from-repository program="qsort" args="" />
 	</target>
 
-	<target name="run-zebra" depends="compile-benchmarks" description="Runs the zebra benchmark.">
-		<run-benchmark benchmark="zebra" />
+	<target name="get-and-compile-queens-from-repository"
+			description='Gets the queens program from the test bench repository and compiles it.'>
+		<get-and-compile-program-from-repository program="queens" />
 	</target>
+	<target name="execute-and-verify-results-of-queens"
+			description='Tests that SAE Prolog generates the correct results when running the queens program.'>
+		<run-junit-tests-for-program-selected-from-repository program="queens" />
+	</target>
+	<target name="measure-queens"
+			depends="execute-and-verify-results-of-queens"
+			description='Tests that SAE Prolog generates the correct results when running the queens program.'>
+		<measure-program-selected-from-repository program="queens" args="queens-8-findall" />
+		<measure-program-selected-from-repository program="queens" args="queens-20" />
+		<measure-program-selected-from-repository program="queens" args="queens-1-26" />
+	</target>
+
+
 
 </project>

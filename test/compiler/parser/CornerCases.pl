@@ -35,8 +35,8 @@
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
 
 
 :- begin_tests(parser_corner_cases).

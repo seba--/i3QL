@@ -11,3 +11,6 @@ delete_me.txt
 .settings
 lib/postgresql-9.0-801.jdbc4.jar
 PerformanceLog.txt
+PerformanceLog.ods
+nbproject/
+.~*

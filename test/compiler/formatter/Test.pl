@@ -31,14 +31,16 @@
 */
 
 
-/** Tests the formatter. 
- Autor Dennis Siebert
-% Datum: 08.11.2010
+/** 
+	Tests the formatter. 
+	
+	Autor Dennis Siebert
+	Datum: 08.11.2010
 */
 
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
-:- ensure_loaded('src/compiler/Formatter.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/Formatter.pl').
 
 
 do_formatting(FileName,Solution,Options) :-

@@ -9,6 +9,6 @@
 :- ensure_loaded('test/compiler/parser/Overall.pl').
 
 % Formatter
-:- ensure_loaded('test/compiler/formatter/Test.pl').
+% :- ensure_loaded('test/compiler/formatter/Test.pl').
 
 
