@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 License (BSD Style License):
-Copyright (c) 2010
+Copyright (c) 2011
 Software Engineering
 Department of Computer Science
 Technische Universität Darmstadt
@@ -323,8 +323,8 @@ POSSIBILITY OF SUCH DAMAGE.
 		Special targets to measure the performance of selected SAE Prolog programs.
 	-->
 
-	<target name="measure-queens"
-			description='Measures the performance of the queens program.'>
+	<target name="get-and-measure-queens"
+			description='Measures the run-time of the queens program.'>
 		<antcall target="get-execute-and-verify-results-of-program">
 			<param name="repository.program" value="queens" />
 		</antcall>	
@@ -338,12 +338,13 @@ POSSIBILITY OF SUCH DAMAGE.
 	-->
 
 	<target name="verify-results-of-all-programs">
+		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="qsort" />
 		<get-execute-and-verify-results-of-program program="queens" />
 	</target>
 
-	<target name="measure-all-programs"
-			description="Measures the performance of all programs.">
+	<target name="evaluate-performance"
+			description="Evaluates the performance of SAE Prolog.">
 		<get-and-measure-program program="qsort"/>
 		<get-and-measure-program program="queens"/>		
 	</target>
