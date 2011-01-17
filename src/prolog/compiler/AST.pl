@@ -996,7 +996,7 @@ named_variables_of_terms([],SZ,SZ).
 	@signature cut_analysis(ASTNode,CutBehavior)
 	@arg(out) CutBehavior is either "always", "maybe", or "never".
 */
-% TODO write test to check that the cut behavior analysis is correct for "->" and "*->"
+% TODO write a test to check that the cut behavior analysis is correct for "->" and "*->"
 cut_analysis(a(_,'!'),always):- !. % TODO rename cut_analysis to cut_behavior
 
 cut_analysis(ct(_Meta,',',[LASTNode,RASTNode]),CutBehavior) :- !,

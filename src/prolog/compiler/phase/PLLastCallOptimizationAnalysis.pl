@@ -126,7 +126,7 @@ analyze_tail_calls(DebugConfig,Program,Predicate) :-
 		_
 	),
 	% So far we have identified all "trivially" tail recursive calls where we
-	% can apply our last call optimization.
+	% can apply the last call optimization.
 	% However, predicates (clauses) that call themselve - before the 
 	% tail-recursive call - are not yet detected. For example, given the 
 	% following predicate:

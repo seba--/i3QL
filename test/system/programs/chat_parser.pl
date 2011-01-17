@@ -1,3 +1,25 @@
+/* BENCHMARK HARNESS - START */
+benchmark(chat_parser) :- run_chat_parser(500),!.
+
+
+
+run_chat_parser(0).
+run_chat_parser(R) :- 
+	R > 0,
+	NewR is R - 1,
+	chat_parser,
+	!,
+	run_chat_parser(NewR).
+
+
+chat_parser :- input(X),
+               determinate_say(X,_),
+               fail.
+chat_parser.
+/* BENCHMARK HARNESS - END */
+
+
+
 % generated: 19 November 1989
 % option(s): 
 %
@@ -5,19 +27,6 @@
 %
 %  Fernando C. N. Pereira and David H. D. Warren
 
-/* BENCHMARK HARNESS
-initialize(500).
-benchmark(X, _) :- call_num(X).
-
-call_num(0).
-call_num(X) :- X > 0, chat_parser, write(X), write(' '), X0 is X - 1, call_num(X0).
-*/
-
-
-chat_parser :- input(X),
-               determinate_say(X,_),
-               fail.
-chat_parser.
 
 
 %  query set

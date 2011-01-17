@@ -183,7 +183,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	field_decls_for_pre_created_terms(DeferredActions,SFieldDecls,SControlFlow),
 	% Standard (instance-related) variables
 	SControlFlow = [
-		eol_comment('variables to control/manage the execution this predicate')|
+		eol_comment('variables to control/manage the execution of this predicate')|
 		SClauseToExecute
 	],
 	(	single_clause(Clauses) ->
@@ -191,7 +191,7 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	;
 		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(0))|SCutEvaluation]
 	),	
-	(	lookup_in_meta(cut(never),PredicateMeta) ->
+	(	lookup_in_meta(uses_cut(no),PredicateMeta) ->
 		SCutEvaluation = SGoalsEvaluation
 	;
 		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
@@ -202,7 +202,8 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 		SGoalPredescessors
 	],
 	% For each goal, that is the successor of some "or" goal, we have to create a 
-	% a variable that stores which goal was executed previously.
+	% a variable that stores which goal was executed previously, to go back to
+	% the rigth goal in case of backtracking.
 	findall(
 		SGoalPredescessor,
 		(
@@ -247,7 +248,7 @@ field_decl_for_initial_pred_arg_state_i(I,field_decl([final],type(state),FieldNa
 
 gen_fields_for_clause_local_variables(
 		Predicate,
-		[eol_comment('variables to store clause local information')|SFieldDecls],
+		[eol_comment('variables to store intermediate, clause local information')|SFieldDecls],
 		SR
 	) :- 
 	predicate_meta(Predicate,Meta),
@@ -257,7 +258,7 @@ gen_fields_for_clause_local_variables(
 
 
 field_decl_for_clause_local_variable(I,field_decl([],type(term),FieldName)) :-
-	atom_concat(clv,I,FieldName).
+	atom_concat(clv,I,FieldName). % TODO remove the string concatenation here......just pass the field to the next phase
 
 
 
@@ -288,6 +289,7 @@ assign_ids_to_pre_created_terms(
 	assign_ids_to_pre_created_terms(NextId,Actions).
 assign_ids_to_pre_created_terms(Id,[_|Actions]) :-
 	assign_ids_to_pre_created_terms(Id,Actions).
+
 
 
 /*
@@ -897,8 +899,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 			SInitCLVs,
 			[ push_onto_goal_stack(static_predicate_call(NewTermConstructor)) ]
 		)
-	;	% TODO... is this case ever needed / meaningfull...?
-		write('If you see this comment, remove it and improve the inline code documentation...\n'),
+	;	% handles the case that the goal is a string-atom (not a compound term)
 		SInitCLVs = [ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
 	),
 	SCallCase = case(
@@ -1185,8 +1186,9 @@ unfold_unification(
 		SMatchTerm = [
 			if(
 				boolean_and(
+					% IMPROVE.. have something like a combined test and compare expression to avoid repetitive to expose the same term multiple times
 					test_term_is_string_atom(VarNodeTermConstructor),
-					string_atom_comparison(VarNodeTermConstructor,TermNodeTermConstructor)
+					string_atom_comparison(expose(VarNodeTermConstructor),TermNodeTermConstructor)
 				),
 				[
 					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))

@@ -71,6 +71,11 @@ process_predicate(DebugConfig,Predicate) :-
 		Clauses,
 		analyze_cut,
 		CutBehaviors),
+	(	uses_cut(CutBehaviors) ->
+		add_to_predicate_meta(uses_cut(yes),Predicate)
+	;
+		add_to_predicate_meta(uses_cut(no),Predicate)
+	),
 	deterministic_clause_selection(CutBehaviors,DeterministicClauseSelection),
 	add_to_predicate_meta(
 		deterministic_clause_selection(DeterministicClauseSelection),
@@ -86,6 +91,12 @@ analyze_cut(_ClauseId,Clause,_RelativeClausePosition,CutBehavior) :-
 	rule_body(Implementation,BodyASTNode),
 	cut_analysis(BodyASTNode,CutBehavior),
 	add_to_clause_meta(cut(CutBehavior),Clause).
+
+
+
+uses_cut([CutBehavior|_CutBehaviors]) :-
+	( CutBehavior = maybe ; CutBehavior = always),!.
+uses_cut([_CutBehavior|CutBehaviors]) :- uses_cut(CutBehaviors).
 
 
 

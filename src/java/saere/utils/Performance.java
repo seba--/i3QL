@@ -31,15 +31,10 @@
  */
 package saere.utils;
 
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.odftoolkit.odfdom.type.Color;
@@ -48,11 +43,18 @@ import org.odftoolkit.simple.table.Cell;
 import org.odftoolkit.simple.table.Row;
 import org.odftoolkit.simple.table.Table;
 
+/**
+ * To have some means to evaluate the performance (gains), we store the results
+ * of each run in an spreadsheet to facilitate analyses.
+ * 
+ * @author Michael Eichberg
+ */
 public class Performance {
 
 	public static void main(String[] args) throws Throwable {
 		if (args.length == 0) {
-			System.err.println("The program that should be measured needs to be specified.");
+			System.err
+					.println("The program that should be measured needs to be specified.");
 			System.exit(1);
 		}
 
@@ -60,7 +62,8 @@ public class Performance {
 		System.out.print("Loading: " + className);
 		if (args.length == 1) {
 			System.out.println(".");
-			Method method = Class.forName(className).getMethod("measure", new Class<?>[] {});
+			Method method = Class.forName(className).getMethod("measure",
+					new Class<?>[] {});
 			System.out.println("Starting.");
 			method.invoke(null, new Object[] {});
 			System.out.println("Finished.");
@@ -75,15 +78,18 @@ public class Performance {
 		}
 	}
 
-	public static void writeToPerformanceLog(String benchmark, long timeInNanoSecs) {
+	public static void writeToPerformanceLog(String benchmark,
+			long timeInNanoSecs) {
 		writeToPerformanceLog(benchmark, 1, timeInNanoSecs);
 	}
 
-	public static void writeToPerformanceLog(String benchmark, int run, long timeInNanoSecs) {
-		
+	public static void writeToPerformanceLog(String benchmark, int run,
+			long timeInNanoSecs) {
+
 		Double time = new Double(timeInNanoSecs / 1000.0 / 1000.0 / 1000.0);
-		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark,Integer.valueOf(run),time);
-		
+		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark,
+				Integer.valueOf(run), time);
+
 		try {
 			SpreadsheetDocument doc;
 			File file = new File("PerformanceLog.ods");
@@ -103,8 +109,9 @@ public class Performance {
 
 			Cell dateCell = row.getCellByIndex(0);
 			dateCell.setValueType("date");
-			dateCell.setDateValue(new GregorianCalendar(date.get(Calendar.YEAR), date
-					.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)));
+			dateCell.setDateValue(new GregorianCalendar(
+					date.get(Calendar.YEAR), date.get(Calendar.MONTH), date
+							.get(Calendar.DAY_OF_MONTH)));
 			dateCell.setFormatString("yyyy-MM-dd");
 
 			Cell timeCell = row.getCellByIndex(1);
@@ -117,7 +124,8 @@ public class Performance {
 			if (timeInNanoSecs >= 0) {
 
 				Cell performanceCell = row.getCellByIndex(3);
-				Double timeInSecs = new Double(timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
+				Double timeInSecs = new Double(
+						timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
 				performanceCell.setDoubleValue(timeInSecs);
 				performanceCell.setFormatString("0.0000");
 			} else {
@@ -129,25 +137,6 @@ public class Performance {
 			doc.save(file);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-	}
-
-	@Deprecated
-	public static void writeToPerformanceLog(String s) {
-
-		try {
-			FileOutputStream fos = new FileOutputStream("PerformanceLog.txt", true);
-			DataOutputStream dos = new DataOutputStream(fos);
-			if (s.equals("\n")) {
-				dos.writeChars("\n");
-			} else {
-				dos.writeChars(DateFormat.getDateTimeInstance().format(new Date()));
-				dos.writeChars("   =>   ");
-				dos.writeChars(s);
-			}
-			dos.close();
-		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
