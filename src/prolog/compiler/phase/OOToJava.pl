@@ -301,6 +301,13 @@ write_stmt(Stream,locally_scoped_states_list) :- !,
 	write(Stream,'StatesList sl = null;\n').
 write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
 	write(Stream,'if(sl != null) sl.reincarnate();\n').	
+write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- 
+	Id =.. [Functor,Value],!,
+	% IMPROVE Is it meaningfull to write the "best-possible" type?
+	write(Stream,'Term lstv_'),write(Stream,Functor),write(Stream,Value),
+	write(Stream,' = '),
+	write_expr(Stream,TermExpression),
+	write(Stream,';\n').
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- !,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
 	write(Stream,'Term lstv'),write(Stream,Id),
@@ -324,15 +331,15 @@ write_stmt(Stream,bind_variable(TermVariable,TermExpression)) :- !,
 write_stmt(Stream,clear_goal_stack) :- !,
 	write(Stream,'this.goalStack = GoalStack.EMPTY_GOAL_STACK;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
-	write(Stream,'this.goalStack = goalStack.abortPendingGoals();\n').
+	write(Stream,'this.goalStack = this.goalStack.abortPendingGoals();\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
-	write(Stream,'this.goalStack = goalStack.put('),
+	write(Stream,'this.goalStack = this.goalStack.put('),
 	write_expr(Stream,GoalExpression),
 	write(Stream,');\n').
 write_stmt(Stream,abort_and_remove_top_level_goal_from_goal_stack) :- !,
-	write(Stream,'this.goalStack = goalStack.abortTopLevelGoal();\n').	
+	write(Stream,'this.goalStack = this.goalStack.abortTopLevelGoal();\n').	
 write_stmt(Stream,remove_top_level_goal_from_goal_stack) :- !,
-	write(Stream,'this.goalStack = goalStack.drop();\n').
+	write(Stream,'this.goalStack = this.goalStack.drop();\n').
 write_stmt(Stream,switch(top_level,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
 	write_cases(Stream,Cases),
@@ -356,16 +363,16 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
-	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create (('),
+	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create (('),
 	write_expr(Stream,TermExpression),
 	write(Stream,').manifestState()));\n').	
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
-	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create(StatesList.prepend('),
+	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create(StatesList.prepend('),
 	write_expr(Stream,TermExpression),
 	write_complex_term_args(Stream,TermExpressions),
 	write(Stream,',null)));\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
-	write(Stream,'this.goalStack = goalStack.put(UndoGoal.create(sl));\n').
+	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create(sl));\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -546,6 +553,9 @@ write_expr(Stream,expose(TermExpression)) :-
 	write_expr(Stream,TermExpression),write(Stream,'.expose()').
 write_expr(Stream,pre_created_term(I)):- !,
 	write(Stream,'PCT'),write(Stream,I).
+write_expr(Stream,lstv(Id)) :-  % lstv == local scoped term variable
+	Id =.. [Functor,Value],!,
+	write(Stream,'lstv_'),write(Stream,Functor),write(Stream,Value).
 write_expr(Stream,lstv(I)) :- !, % lstv == local scoped term variable
 	write(Stream,'lstv'),write(Stream,I).
 write_expr(Stream,clv(I)) :- !,

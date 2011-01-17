@@ -886,16 +886,19 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 	goal_call_case_id(GoalNumber,CallCaseId),
 	create_term(PrimitiveGoal,do_not_cache_root,TermConstructor,VariableIds,DeferredActions),
 	(
-		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
+		lookup_in_meta(variables_used_for_the_first_time(FTUVars),Meta),
 		lookup_in_meta(variables_that_may_have_been_used(PotentiallyUsedVariables),Meta) ->
+		remove_from_set(arg(_),FTUVars,CLFTUVars),
+		replace_vars_in_term_constructor(TermConstructor,CLFTUVars,replace_by_lstv_var,NewTermConstructor),
 		init_clause_local_variables(
-			NewVariables,
+			FTUVars,
 			PotentiallyUsedVariables,
 			VariableIds,
 			SInitCLVs,
-			[ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
+			[ push_onto_goal_stack(static_predicate_call(NewTermConstructor)) ]
 		)
-	;
+	;	% TODO... is this case ever needed / meaningfull...?
+		write('If you see this comment, remove it and improve the inline code documentation...\n'),
 		SInitCLVs = [ push_onto_goal_stack(static_predicate_call(TermConstructor)) ]
 	),
 	SCallCase = case(
@@ -991,31 +994,30 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 
 
 /**
-	@signature init_clause_local_variables(VariablesUsedForTheFirstTime,VariablesPotentiallyUsedBefore,BodyVariableNames,SInitClauseLocalVariables,SZ).
+	@signature init_clause_local_variables(FTUVars,VariablesPotentiallyUsedBefore,BodyVariableIds,SInitClauseLocalVariables,SZ).
 */
 init_clause_local_variables(
-		NewVariables, % REFACTOR these are the VariablesUsedForTheFirstTime
+		FTUVars, % FTU = First Time Used...
 		PotentiallyUsedVariables,
-		[MappedBodyVariableName|MappedBodyVariableNames],
+		[VariableId|VariableIds],
 		SInitCLV,
 		SZ
 	) :-
-	(	MappedBodyVariableName = clv(_I), % may fail
+	(	VariableId = clv(_I), % may fail
 		(
-			memberchk(MappedBodyVariableName,NewVariables),
-			term_to_atom(NewVariables,NewVariablesAtom),
+			memberchk(VariableId,FTUVars),
 			SInitCLV = [
-				eol_comment(NewVariablesAtom),
-				expression_statement(assignment(MappedBodyVariableName,variable))
+				locally_scoped_term_variable(VariableId,assignment(VariableId,variable))
+				%expression_statement(assignment(VariableId,variable))
 				|SI
 			]
 		;	
-			memberchk(MappedBodyVariableName,PotentiallyUsedVariables),
+			memberchk(VariableId,PotentiallyUsedVariables),
 			SInitCLV = [
 				if(
-					reference_comparison(MappedBodyVariableName,null),
+					reference_comparison(VariableId,null),
 					[
-						expression_statement(assignment(MappedBodyVariableName,variable))
+						expression_statement(assignment(VariableId,variable))
 					]
 				)
 				|SI
@@ -1024,8 +1026,8 @@ init_clause_local_variables(
 	;
 		SInitCLV = SI
 	),!,
-	init_clause_local_variables(NewVariables,PotentiallyUsedVariables,MappedBodyVariableNames,SI,SZ).
-init_clause_local_variables(_NewVariables,_PotentiallyUsedVariables,[],SZ,SZ).
+	init_clause_local_variables(FTUVars,PotentiallyUsedVariables,VariableIds,SI,SZ).
+init_clause_local_variables(_FTUVars,_PotentiallyUsedVariables,[],SZ,SZ).
 
 
 
@@ -1134,12 +1136,14 @@ unfold_unification(
 		IsExposed = unknown
 	),
 	init_clause_local_variables(FTUVarsIds,MUVarsIds,VariablesIds,SInitCLVs,SSaveStates),
+	remove_from_set(arg(_),FTUVarsIds,CLFTUVars),
+	replace_vars_in_term_constructor(CachedTermNodeTermConstructor,CLFTUVars,replace_by_lstv_var,NewCachedTermNodeTermConstructor),
 	SSaveStates = [
 		manifest_state_and_add_to_locally_scoped_states_list([VarId]) |
 		SSucceeded
 	],		
 	SSucceeded = [
-		bind_variable(VarId,CachedTermNodeTermConstructor),
+		bind_variable(VarId,NewCachedTermNodeTermConstructor),
 		expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))
 	],
 	% if we can "unfold"...
@@ -1340,6 +1344,39 @@ term_constructors_variables([],SRest,SRest).
 term_constructors_variables([Arg|Args],SMappedVariables,SRest) :-
 	term_constructor_variables(Arg,SMappedVariables,SIMappedVariables),
 	term_constructors_variables(Args,SIMappedVariables,SRest).
+
+
+
+/**
+	replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,NewTermConstructor)
+*/
+replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
+	TermConstructor = int_value(_),!.
+replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
+	TermConstructor = float_value(_),!.
+replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
+	TermConstructor = string_atom,!.
+replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
+	TermConstructor = pre_created_term,!.
+replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
+	TermConstructor = anonymous_variable,!.	
+replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,complex_term(Functor,NewArgs)) :-
+	TermConstructor = complex_term(Functor,Args),!,
+	replace_vars_in_term_constructors(Args,FTUVars,Goal,NewArgs).
+replace_vars_in_term_constructor(Var,FTUVars,Goal,NewVar) :-
+	memberchk_ol(Var,FTUVars),!,
+	call(Goal,Var,NewVar).
+replace_vars_in_term_constructor(Var,_FTUVars,_Goal,Var).
+
+
+replace_vars_in_term_constructors([],_FTUVars,_Goal,[]) :- !.
+replace_vars_in_term_constructors([TermConstructor|TermConstructors],FTUVars,Goal,[NewTermConstructor|NewTermConstructors]) :-
+	replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,NewTermConstructor),
+	replace_vars_in_term_constructors(TermConstructors,FTUVars,Goal,NewTermConstructors).
+
+
+
+replace_by_lstv_var(Var,lstv(Var)).
 
 
 

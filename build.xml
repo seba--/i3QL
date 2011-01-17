@@ -316,7 +316,7 @@ POSSIBILITY OF SUCH DAMAGE.
 	<target name="get-and-measure-program"
 			depends="get-and-verify-results-of-program"
 			description='Measures the performance of the program.'>	
-		<measure-program program="${repository.program}"/>
+		<measure-program program="${repository.program}" args=""/>
 	</target>
 
 	<!-- 
@@ -325,7 +325,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 	<target name="get-and-measure-queens"
 			description='Measures the run-time of the queens program.'>
-		<antcall target="get-execute-and-verify-results-of-program">
+		<antcall target="get-and-measure-program">
 			<param name="repository.program" value="queens" />
 		</antcall>	
 		<measure-program program="queens" args="queens-8-findall" />
