@@ -347,6 +347,7 @@ POSSIBILITY OF SUCH DAMAGE.
 			description="Evaluates the performance of SAE Prolog.">
 		<get-and-measure-program program="qsort"/>
 		<get-and-measure-program program="queens"/>		
+		<get-and-measure-program program="chat_parser"/>		
 	</target>
 
 </project>

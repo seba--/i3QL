@@ -38,6 +38,10 @@ package saere;
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public abstract class Atomic extends Term {
+	
+	Atomic() {
+		// to prevent non-core classes from extending atomic!
+	}
 
 	/**
 	 * @return <code>true</code>; atomic information are by definition always

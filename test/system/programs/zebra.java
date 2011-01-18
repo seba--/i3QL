@@ -1,3 +1,5 @@
+package harness;
+
 import static saere.term.Terms.atomic;
 import static saere.term.Terms.compoundTerm;
 import predicates.houses1Factory;
@@ -8,6 +10,7 @@ import saere.PredicateRegistry;
 import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
+import saere.utils.Performance;
 
 public class zebra {
 
@@ -38,7 +41,7 @@ public class zebra {
 			}
 			long duration = System.nanoTime() - startTime;
 			Double time = new Double(duration / 1000.0 / 1000.0 / 1000.0);
-			Utils.writeToPerformanceLog("zebra run " + i
+			Performance.writeToPerformanceLog("zebra run " + i
 					+ " (find all solutions) finished in: " + time + "\n");
 		}
 	}
