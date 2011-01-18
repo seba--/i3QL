@@ -47,122 +47,59 @@
 
 
 /**
-	Encodes an SAE Prolog program using a small object-oriented language (SAEOOL).
+	Encodes an SAE Prolog program using a small object-oriented language (SAE-OO).
 	
-	This step creates the AST of SAEOOL.
-	
-	<h1>AST NODES</h1>
-	<h2>TOP LEVEL NODES</h2>
-	class_decl(PredicateIdentifier,ExtendedClasses,ImplementedInterfaces,ClassMembers) - ClassMembers is a list of SAEOO AST nodes 
-	predicate_registration(PredicateIdentifier) - PredicateIdentifier = Functor/Arity
-
-	<h2>CLASS MEMBERS</h2>
-	eol_comment(Comment)
-	field_decl(goal_stack) - create a field to manage the clause local goal stack(s) (a goal stack is not always required...)
-	field_decl(Modifiers,Type,Name)
-	field_decl(Modifiers,Type,Name,Expression) - Modifiers is a list of modifiers. Currently, the only allowed/supported modifier is final.)
-	constructor_decl(PredicateIdentifier,ParameterDecls,Statements) 
-	method_decl(Visibility,ReturnType,Identifier,ParameterDecls,Statements) - Visibility is either public or private
-
-	<h2>STATEMENTS</h2>
-	create_undo_goal_and_put_on_goal_stack(TermExpressions) - TermExpressions is a list of expressions where each expression has type term
-	clear_goal_stack
-	abort_pending_goals_and_clear_goal_stack
-	push_onto_goal_stack(GoalExpression)
-	remove_top_level_goal_from_goal_stack
-	abort_and_remove_top_level_goal_from_goal_stack
-	forever(Label,Statements)
-	continue(Label)
-	eol_comment(Comment)
-	switch(SwitchContext,Expression,CaseStatements) - SwitchContext is either "top_level" or "inside_forever"
-	expression_statement(Expression)
-	manifest_state(ReceiverExpression,Assignee) - ReceiverExpression must be of type "term"
-	reincarnate_state(ReceiverExpression) - ReceiverExpression must be of type "state"
-	return(Expression)
-	local_variable_decl(Type,Name,Expression)
-	if(Condition,Statements)
-	if(Condition,ThenStatements,ElseStatements)
-	error(ErrorDescription) - to signal an programmer's error (e.g., if the developer tries to evaluate a non-arithmetic term.)
-	locally_scoped_term_variable(Id,TermExpression)
-	
-	<h2>EXPRESSIONS</h2>
-	get_top_element_from_goal_stack 
-	assignment(LValue,Expression)
-	method_call(ReceiverExpression,Identifier,Expressions)
-	new_object(Type,Expressions) - Expressions is a list of expressions; for each constructor argument an expression has to be given.
-	field_ref(Receiver,Identifier)
-	local_variable_ref(Identifier)
-	reference_comparison(Expression,Expression)
-	value_comparison(Operator,LeftExpression,RightExpression) - Comparison of values in the target language
-	null
-	self - the self reference ("this" in Java)
-	string(Value) - a string value in the target language (not a string atom)
-	int(Value) - an int value in the target language (not a Prolog int value)
-	boolean(Value) - a boolean value in the target language (not a Prolog boolean value)
-	unify(Term1Expression,Term2Expression) - base unification without state manifestation
-	call_term(TermExpression)
-	static_predicate_call(complex_term(Functor,Terms))
-	predicate_lookup(Functor,Arity,TermExpressions)
-	arithmetic_comparison(Operator,LeftArithmeticTerm,RightArithmeticTerm) - for Prolog terms
-	arithmetic_evaluation(ArithmeticTerm) - for Prolog terms
-	
-	<h2>TERM EXPRESSION</H2>
-	string_atom(Value)
-	int_value(Value)
-	float_value(Value)
-	variable
-	complex_term(Functor,Terms) - Functor is a string atom and Terms is a list of term expressions (string atoms, int values, float values, variables of compound terms)
-	
-
-	<h2>LValue</h2>
-	field_ref(Receiver,Identifier)
-	local_variable_ref(Identifier)	
-
-	<h2>OTHER</h2>
-	param_decl(Type,Name) - Parameters are always considered to be final
-	case(ConstantExpression,Statements)
-	eol_comment(Comment)
-	multiline_comment(Comment)
-	
-	<h1>TYPES</h1>
-	type(void)
-	type(int)
-	type(boolean)
-	type(goal)
-	type(goal(PredicateIdentifier))
-	type(term)
-	type(complex_term)
-	type(complex_term(TermIdentifier)) - TermIdentifier = Functor,Arity
-	type(atomic(string_atom))
-	type(atomic(int_value))
-	type(atomic(float_value))
-	type(variable) - the type used by Prolog variables
-	@param Debug the list of debug information that should be printed.	
+	This step creates the AST of SAE-OO.
 */
 pl_to_oo(DebugConfig,Program,_OutputFolder,Program) :-
-	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Generate the OO Representation_______________________________\n')),
-	foreach_user_predicate(Program,process_predicate(DebugConfig,Program)).
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write('\n[Debug] Phase: Generate the OO Representation_______________________________\n')),
+	foreach_user_predicate(Program,encode_predicate(DebugConfig,Program)).
 
 
 
-process_predicate(DebugConfig,Program,Predicate) :-
+encode_predicate(DebugConfig,Program,Predicate) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = Functor/Arity,
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
+	debug_message(
+		DebugConfig,
+		processing_predicate,
+		write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	% build the OO AST
-	% METHODS
-	SMethods = [SConstructor,SAbortMethod,SChoiceCommittedMethod,SClauseSelectorMethod|S4],
+	% ------- METHODS -------
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
-	gen_choice_committed_method(Program,Predicate,SChoiceCommittedMethod),
-	gen_clause_selector_method(Program,Predicate,SClauseSelectorMethod),
-	gen_clause_impl_methods(DeferredActions,Program,Predicate,S4),
-	% FIELDS
-	gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,Program,Predicate,S1,S2),
+	gen_clause_impl_methods(DeferredActions,Program,Predicate,SClausesMethods),
+	% If the predicate is defined by a single clause, we simple copy the 
+	% the clause implementation in the "next()" method...
+	(	predicate_clauses(Predicate,Clauses),single_clause(Clauses) ->
+		SClausesMethods = [
+			method_decl(
+				private,type(boolean),_ClauseIdentifier,[],
+				SClauseImplementation
+			)
+		],
+		SImplementation = method_decl(
+				public,type(boolean),'next',[],
+				SClauseImplementation),
+		SMethods = [SConstructor,SAbortMethod,SImplementation]
+	;
+		gen_clause_selector_method(Program,Predicate,SClauseSelectorMethod),
+		SMethods = [
+			SConstructor,
+			SAbortMethod,
+			SClauseSelectorMethod |
+			SClausesMethods
+		]
+	),
+	% ------- FIELDS -------
+	gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,Program,Predicate,SFields,S2),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
 	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
 	OOAST = oo_ast([
-		class_decl(PredicateIdentifier,type(goal),S1),
+		predicate_decl(PredicateIdentifier,SFields),
 		predicate_registration(PredicateIdentifier)
 		]),
 	add_to_predicate_meta(OOAST,Predicate).	
@@ -191,14 +128,14 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	;
 		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(0))|SCutEvaluation]
 	),	
-	(	lookup_in_meta(uses_cut(no),PredicateMeta) ->
+	(	( lookup_in_meta(uses_cut(no),PredicateMeta) ; single_clause(Clauses) ) ->
 		SCutEvaluation = SGoalsEvaluation
 	;
 		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
 	),
 	SGoalsEvaluation = [
 		field_decl([],type(int),'goalToExecute',int(0)),
-		field_decl(goal_stack) |
+		goal_stack |
 		SGoalPredescessors
 	],
 	% For each goal, that is the successor of some "or" goal, we have to create a 
@@ -262,13 +199,13 @@ field_decl_for_clause_local_variable(I,field_decl([],type(term),FieldName)) :-
 
 
 
-field_decls_for_pre_created_terms(Tail,SR,SR) :- var(Tail),!.
+field_decls_for_pre_created_terms(Tail,SRest,SRest) :- var(Tail),!.
 field_decls_for_pre_created_terms(
 		[create_field_for_pre_created_term(PCTId,Expr)|Actions],
 		SFieldDecl,
 		SRest
 	) :- !,
-	SFieldDecl = [field_decl_for_pre_created_term(PCTId,Expr) | SNextFieldDecl],
+	SFieldDecl = [pre_created_term(PCTId,Expr) | SNextFieldDecl],
 	field_decls_for_pre_created_terms(Actions,SNextFieldDecl,SRest).
 field_decls_for_pre_created_terms([_Action|Actions],SFieldDecl,SRest) :- 
 	field_decls_for_pre_created_terms(Actions,SFieldDecl,SRest).
@@ -297,7 +234,11 @@ assign_ids_to_pre_created_terms(Id,[_|Actions]) :-
 	C O N S T R U C T O R
 	
 */
-gen_predicate_constructor(_Program,Predicate,constructor_decl(PredicateIdentifier,ParamDecls,SInitFieldsForArgsStmts)) :-
+gen_predicate_constructor(
+		_Program,
+		Predicate,
+		constructor_decl(PredicateIdentifier,ParamDecls,SInitFieldsForArgsStmts)
+	) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = _Functor/Arity,
 	call_foreach_i_in_0_to_u(Arity,constructor_param_decl_for_arg_i,ParamDecls),
@@ -307,17 +248,19 @@ gen_predicate_constructor(_Program,Predicate,constructor_decl(PredicateIdentifie
 	;
 		SInitFieldsForInitialArgStatesStmts = []
 	).
-	
+
+
 
 constructor_param_decl_for_arg_i(I,param_decl(type(term),ParamName)) :- 
 	atom_concat('arg',I,ParamName). % REFACTOR use "arg(I)"
+
 	
 	
 init_field_of_arg_i(
 		I,
 		expression_statement(
 			assignment(
-				field_ref(self,ArgName),expose(
+				arg(I),expose(
 				local_variable_ref(ArgName))))) :-
 	atom_concat('arg',I,ArgName).
 
@@ -360,22 +303,6 @@ reincarnate_initial_arg_state_i(
 		I,
 		reincarnate_state(field_ref(self,FieldName))) :-
 	atomic_list_concat(['initialArg',I,'state'],FieldName).
-
-
-
-/*
-
-	"boolean choiceCommitted()" M E T H O D
-
-*/	
-gen_choice_committed_method(_Program,_Predicate,ChoiceCommittedMethod) :-
-	ChoiceCommittedMethod = 
-		method_decl(
-			public,
-			type(boolean),
-			'choiceCommitted',
-			[],
-			[return(boolean(false))]).
 
 
 
@@ -450,7 +377,9 @@ selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :-
 	(	lookup_in_clause_meta(cut(never),Clause) ->
 		SCutReset = eol_comment('no cut...')
 	;
-		SCutReset = expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(false)))
+		SCutReset = expression_statement(
+			assignment(field_ref(self,'cutEvaluation'),boolean(false))
+		)
 	),
 	SPrepareForNextClause = [
 		SCutReset,
@@ -590,29 +519,39 @@ reset_clause_local_variable(
 	"boolean clauseX()" M E T H O D S      
 
 */
-gen_clause_impl_methods(DeferredActions,_Program,Predicate,ClauseImpls) :-
+gen_clause_impl_methods(DeferredActions,_Program,Predicate,SClauseImpls) :-
 	predicate_clauses(Predicate,Clauses),
-	foreach_clause(Clauses,implementation_for_clause_i(DeferredActions),ClauseImpls).
+	foreach_clause(
+		Clauses,
+		implementation_for_clause_i(Predicate,DeferredActions),
+		SClauseImpls).
 	
-implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMethod) :-
+implementation_for_clause_i(
+		Predicate,
+		DeferredActions,
+		I,
+		Clause,
+		_ClausePosition,
+		SClauseMethod
+	) :-
 	atom_concat('clause',I,ClauseIdentifier),
 	clause_definition(Clause,ClauseDefinition),
-	rule_body(ClauseDefinition,Body),
-	number_primitive_goals(Body,0,LastId),
-	set_primitive_goals_successors(DeferredActions,Body),
-	primitive_goals_list(Body,PrimitiveGoalsList,[]),
-	translate_goals(DeferredActions,PrimitiveGoalsList,Cases,[]),
+	rule_body(ClauseDefinition,BodyASTNode),
+	number_primitive_goals(BodyASTNode,0,LastId),
+	set_primitive_goals_successors(DeferredActions,BodyASTNode),
+	primitive_goals_list(BodyASTNode,PrimitiveGoalsList,[]),
+	translate_goals(Predicate,Clause,PrimitiveGoalsList,DeferredActions,SCases,[]),
 	(	LastId == 1 ->
-		MethodBody = [switch(top_level,field_ref(self,'goalToExecute'),Cases)]
+		MethodBody = [switch(top_level,field_ref(self,'goalToExecute'),SCases)]
 	;
 		MethodBody = [ 
 			forever(
 				'eval_goals',
-				[switch(inside_forever,field_ref(self,'goalToExecute'),Cases)]
+				[switch(inside_forever,field_ref(self,'goalToExecute'),SCases)]
 			) 
 		]
 	),
-	ClauseMethod = method_decl(
+	SClauseMethod = method_decl(
 			private,
 			type(boolean),
 			ClauseIdentifier,
@@ -622,10 +561,19 @@ implementation_for_clause_i(DeferredActions,I,Clause,_ClausePosition,ClauseMetho
 
 
 
-translate_goals(DeferredActions,[PrimitiveGoal|PrimitiveGoals],SGoalCases,SRest) :-
-	translate_goal(DeferredActions,PrimitiveGoal,SGoalCases,SOtherGoalCases),
-	translate_goals(DeferredActions,PrimitiveGoals,SOtherGoalCases,SRest).
-translate_goals(_DeferredActions,[],SCases,SCases).
+translate_goals(
+		Predicate,Clause,[PrimitiveGoal|PrimitiveGoals],
+		DeferredActions,SGoalCases,SRest
+	) :-
+	translate_goal(
+		PrimitiveGoal,Clause,Predicate,
+		DeferredActions,SGoalCases,SOtherGoalCases
+	),
+	translate_goals(
+		Predicate,Clause,PrimitiveGoals,
+		DeferredActions,SOtherGoalCases,SRest
+	).
+translate_goals(_Predicate,_Clause,[],_DeferredActions,SCases,SCases).
 
 
 
@@ -641,24 +589,34 @@ translate_goals(_DeferredActions,[],SCases,SCases).
 	<li>next_goal_if_succeeds(GoalNumber)</li>
 	</ul>
 */
-translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,Predicate,
+		_DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	string_atom(PrimitiveGoal,'!'),!,
-	term_meta(PrimitiveGoal,Meta),
-	lookup_in_meta(goal_number(GoalNumber),Meta),
+	term_meta(PrimitiveGoal,CutMeta),
+	lookup_in_meta(goal_number(GoalNumber),CutMeta),
 	% Handle the case if the cut is called the first time
 	goal_call_case_id(GoalNumber,CallCaseId),
-	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
-	SCall = case(
+	select_and_jump_to_next_goal_after_succeed(CutMeta,force_jump,JumpToNextGoalAfterSucceed),
+	(	predicate_clauses(Predicate,Clauses), single_clause(Clauses) ->
+		SetCutEvaluation = nop
+	;
+		SetCutEvaluation = expression_statement(
+			assignment(field_ref(self,'cutEvaluation'),boolean(true))
+		)
+	),
+	SCallCase = case(
 		int(CallCaseId),
 		[
 			eol_comment('cut...'),
-			expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(true))) |
+			SetCutEvaluation |
 			JumpToNextGoalAfterSucceed
 		]
 	),
 	% Handle the case if the cut is called the second time (redo-case)
 	goal_redo_case_id(GoalNumber,RedoCaseId),
-	SRedo = case(
+	SRedoCase = case(
 		int(RedoCaseId),
 		[
 			abort_pending_goals_and_clear_goal_stack,
@@ -669,8 +627,10 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 /*
 	Translates the "unification"
 */
-
-translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
 	(	is_variable(LASTNode), 
 		\+ is_variable(RASTNode),
@@ -725,7 +685,10 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 
 % Handles all other cases of unification 
 % IMPROVE unfold the unification of things such as "a(b,X) = a(_,Y)"...
-translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -781,7 +744,10 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 /*
 	Translates arithmetic comparisons. (e.g., =:=, =<, <, >, ... )
 */
-translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
 	is_arithmetic_comparison_operator(Operator),
 	!,
@@ -814,7 +780,10 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases
 /*
 	Translates the arithmetic evaluation operator "is".
 */
-translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	% implements the case that the result of "is" is assigned to a new variable..
 	% IMPROVE If the left side of "is" is an int_value or a variable(containing) an int_value, we currently just create an instance of the "is" Predicate, which ist grossly inefficient
 	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
@@ -827,7 +796,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(Meta,force_jump,JumpToNextGoalAfterSucceed),
 	create_term(RASTNode,do_not_cache,RTermConstructor,_RVariableIds,DeferredActions),
-	SCall = case(
+	SCallCase = case(
 		int(CallCaseId),
 		[
 			expression_statement(
@@ -840,7 +809,7 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 	% (redo-case)
 	goal_redo_case_id(GoalNumber,RedoCaseId),
 	select_and_jump_to_next_goal_after_fail(Meta,JumpToNextGoalAfterFail,[]),
-	SRedo = case(
+	SRedoCase = case(
 		int(RedoCaseId),
 		JumpToNextGoalAfterFail
 	).	
@@ -848,7 +817,10 @@ translate_goal(DeferredActions,PrimitiveGoal,[SCall,SRedo|SCases],SCases) :-
 /*
 	Translates tail recursive calls. (None of the previous goals can be tail-recursive!)
 */
-translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		_DeferredActions,[SCallCase|SCases],SCases
+	) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(last_call_optimization_is_possible,Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -871,7 +843,7 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 		clear_goal_stack,
 		return(boolean(true))
 	],
-	SGoalCall = case(
+	SCallCase = case(
 		int(CallCaseId),
 		SCaseHead
 	).
@@ -880,7 +852,10 @@ translate_goal(_DeferredActions,PrimitiveGoal,[SGoalCall|SCases],SCases) :-
 	Translates goals that are neither tail-recursive and subject to last-call
 	optimization nor built-ins of the SAE Prolog compiler.
 */
-translate_goal(DeferredActions,PrimitiveGoal,[SCallCase,SRedoCase|SCases],SCases) :-
+translate_goal(
+		PrimitiveGoal,_Clause,_Predicate,
+		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
+	) :-
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	
@@ -1137,8 +1112,12 @@ unfold_unification(
 		IsExposed = unknown
 	),
 	init_clause_local_variables(FTUVarsIds,MUVarsIds,VariablesIds,SInitCLVs,SSaveStates),
-	remove_from_set(arg(_),FTUVarsIds,CLFTUVars),
-	replace_vars_in_term_constructor(CachedTermNodeTermConstructor,CLFTUVars,replace_by_lstv_var,NewCachedTermNodeTermConstructor),
+	remove_from_set(arg(_),FTUVarsIds,CLFTUVarsIds),
+	replace_vars_in_term_constructor(
+		CachedTermNodeTermConstructor,
+		CLFTUVarsIds,
+		replace_by_lstv_var,
+		NewCachedTermNodeTermConstructor),
 	SSaveStates = [
 		manifest_state_and_add_to_locally_scoped_states_list([VarId]) |
 		SSucceeded
@@ -1357,9 +1336,9 @@ replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
 replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
 	TermConstructor = float_value(_),!.
 replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
-	TermConstructor = string_atom,!.
+	TermConstructor = string_atom(_),!.
 replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
-	TermConstructor = pre_created_term,!.
+	TermConstructor = pre_created_term(_),!.
 replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
 	TermConstructor = anonymous_variable,!.	
 replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,complex_term(Functor,NewArgs)) :-
@@ -1503,7 +1482,7 @@ create_term_for_cacheable_string_atom(
 
 /* *************************************************************************** *\
 
-	HELPER METHODS TO DETERMINE THE CONTROL FLOW
+	HELPER METHODS RELATED TO CONTROLLING AND DETERMING A CLAUSE'S CONTROL FLOW
 
 \* *************************************************************************** */
 
@@ -1524,7 +1503,7 @@ goal_redo_case_id(GoalNumber,RedoCaseId) :- RedoCaseId is GoalNumber * 2 + 1.
 
 	@signature primitive_goals_list(ASTNode,SGoals_HeadOfListOfASTNodes,SRest_TailOfThePreviousList)
 */
-primitive_goals_list(ASTNode,SGoal,SGoals) :- 
+primitive_goals_list(ASTNode,SGoal,SRest) :- 
 	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
 	(	
 		Functor = ',' 
@@ -1533,8 +1512,8 @@ primitive_goals_list(ASTNode,SGoal,SGoals) :-
 	),
 	!,
 	primitive_goals_list(LASTNode,SGoal,SFurtherGoals),
-	primitive_goals_list(RASTNode,SFurtherGoals,SGoals).
-primitive_goals_list(ASTNode,[ASTNode|SGoals],SGoals).
+	primitive_goals_list(RASTNode,SFurtherGoals,SRest).
+primitive_goals_list(ASTNode,[ASTNode|SRest],SRest).
 
 
 

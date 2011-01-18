@@ -45,7 +45,8 @@ public class TestCompoundTermStateManifestation {
 	@Test
 	public void testStateManifestationOfGroundCompoundTerm() {
 		{
-			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST);
+			CompoundTerm ct = compoundTerm(StringAtom.AND,
+					StringAtom.EMPTY_LIST);
 			State state = ct.manifestState();
 			if (state != null)
 				state.reincarnate();
@@ -54,8 +55,8 @@ public class TestCompoundTermStateManifestation {
 		}
 
 		{
-			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
-					atomic(2), atomic(3.0));
+			CompoundTerm ct = compoundTerm(StringAtom.AND,
+					StringAtom.EMPTY_LIST, atomic(2), atomic(3.0));
 			State state = ct.manifestState();
 			if (state != null)
 				state.reincarnate();
@@ -103,8 +104,8 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 
-			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
-					v1, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND,
+					StringAtom.EMPTY_LIST, v1, v1);
 			State state = ct.manifestState();
 			state.reincarnate();
 
@@ -154,8 +155,8 @@ public class TestCompoundTermStateManifestation {
 			Variable v1 = new Variable();
 			v1.bind(atomic(2));
 
-			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
-					v1, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND,
+					StringAtom.EMPTY_LIST, v1, v1);
 			State state = ct.manifestState();
 			if (state != null)
 				state.reincarnate();
@@ -202,8 +203,8 @@ public class TestCompoundTermStateManifestation {
 
 		{
 			Variable v1 = new Variable();
-			CompoundTerm ct = compoundTerm(StringAtom.AND, StringAtom.EMPTY_LIST,
-					v1, v1);
+			CompoundTerm ct = compoundTerm(StringAtom.AND,
+					StringAtom.EMPTY_LIST, v1, v1);
 			State state = ct.manifestState();
 			v1.bind(compoundTerm(StringAtom.CUT, atomic(0)));
 			state.reincarnate();

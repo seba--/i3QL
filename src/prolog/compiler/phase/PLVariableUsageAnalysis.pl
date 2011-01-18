@@ -102,7 +102,7 @@ analyze_variable_usage(ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariab
 	remove_from_set(arg(_),VariablesUsedOnlyOnce,CLVariablesUsedOnlyOnce),
 	(
 		CLVariablesUsedOnlyOnce \== [] ->
-		% IMPROVE message
+		% IMPROVE warning message
 		write('Clause '),write(ClauseId),write(' uses the following variables only once: '),write(CLVariablesUsedOnlyOnce),nl
 	;
 		true

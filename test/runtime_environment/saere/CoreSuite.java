@@ -39,8 +39,9 @@ import saere.predicate.TestAnd2;
 import saere.predicate.TestCompoundTermStateManifestation;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestIsGround.class, TestAnd2.class, TestCompoundTermStateManifestation.class,
-	TestVariableBinding.class, TestVariableSharingWithManifestation.class })
+@SuiteClasses({ TestIsGround.class, TestVariableBinding.class,
+		TestVariableSharingWithManifestation.class, TestAnd2.class,
+		TestCompoundTermStateManifestation.class })
 public class CoreSuite {
-    // nothing to do
+	// nothing to do
 }

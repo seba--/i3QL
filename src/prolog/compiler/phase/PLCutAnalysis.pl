@@ -94,8 +94,8 @@ analyze_cut(_ClauseId,Clause,_RelativeClausePosition,CutBehavior) :-
 
 
 
-uses_cut([CutBehavior|_CutBehaviors]) :-
-	( CutBehavior = maybe ; CutBehavior = always),!.
+uses_cut([CutBehavior|_CutBehaviors]) :- 
+	once( CutBehavior = maybe ; CutBehavior = always).
 uses_cut([_CutBehavior|CutBehaviors]) :- uses_cut(CutBehaviors).
 
 

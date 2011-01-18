@@ -113,7 +113,7 @@ public final class Or2 implements Goal {
 
 	@Override
 	public void abort() {
-		goalStack = goalStack.abortPendingGoals();
+		goalStack = goalStack.abortAndScrapAllGoals();
 	}
 
 	@Override

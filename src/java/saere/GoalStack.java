@@ -41,7 +41,7 @@ public abstract class GoalStack {
 
 	private final static class EmptyGoalStack extends GoalStack {
 
-		public EmptyGoalStack() {
+		EmptyGoalStack() {
 			// nothing to do
 		}
 
@@ -56,7 +56,7 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack drop() {
+		public GoalStack scrapTopGoal() {
 			throw new IllegalStateException("the goal stack is empty");
 		}
 
@@ -66,18 +66,18 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack abortPendingGoals() {
+		public GoalStack abortAndScrapAllGoals() {
 			return this;
 		}
 
 		@Override
-		public GoalStack abortTopLevelGoal() throws IllegalStateException {
+		public GoalStack abortAndScrapTopGoal() throws IllegalStateException {
 			throw new IllegalStateException();
 		}
 
 		@Override
-		public GoalStack abortPendingGoals(int i) {
-			assert i == 0 : "there are no more pending goals, the goal stack is empty";
+		public GoalStack abortAndScrapGoals(int i) {
+			assert i == 0 : "there are no more goals, the goal stack is empty";
 			return this;
 		}
 	}
@@ -103,7 +103,7 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack drop() {
+		public GoalStack scrapTopGoal() {
 			return rest;
 		}
 
@@ -113,22 +113,22 @@ public abstract class GoalStack {
 		}
 
 		@Override
-		public GoalStack abortPendingGoals() {
+		public GoalStack abortAndScrapAllGoals() {
 			goal.abort();
-			return rest.abortPendingGoals();
+			return rest.abortAndScrapAllGoals();
 		}
 
 		@Override
-		public GoalStack abortTopLevelGoal() {
+		public GoalStack abortAndScrapTopGoal() {
 			goal.abort();
 			return rest;
 		}
 
 		@Override
-		public GoalStack abortPendingGoals(int i) {
+		public GoalStack abortAndScrapGoals(int i) {
 			if (i > 0) {
 				goal.abort();
-				return rest.abortPendingGoals(i - 1);
+				return rest.abortAndScrapGoals(i - 1);
 			}
 			return this;
 		}
@@ -141,13 +141,13 @@ public abstract class GoalStack {
 
 	public abstract Goal peek() throws IllegalStateException;
 
-	public abstract GoalStack drop() throws IllegalStateException;
+	public abstract GoalStack scrapTopGoal() throws IllegalStateException;
 
-	public abstract GoalStack abortTopLevelGoal();
+	public abstract GoalStack abortAndScrapTopGoal();
 
-	public abstract GoalStack abortPendingGoals(int i);
+	public abstract GoalStack abortAndScrapGoals(int i);
 
-	public abstract GoalStack abortPendingGoals();
+	public abstract GoalStack abortAndScrapAllGoals();
 
 	public abstract boolean isNotEmpty();
 
