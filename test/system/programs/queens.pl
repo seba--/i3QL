@@ -2,6 +2,21 @@
 
 benchmark(queens) :- queens(22,_).
 
+benchmark(queens_8_findall) :- run_queens_8_findall(1000).
+
+run_queens_8_findall(0).
+run_queens_8_findall(R) :- 
+	R > 0,
+	NewR is R - 1,
+	queens_8_findall,
+	!,
+	run_queens_8_findall(NewR).
+
+queens_8_findall :- queens(8,_),fail.
+queens_8_findall.
+
+
+
 queens(N,Qs) :-
 	range(1,N,Ns),
 	queens(Ns,[],Qs).
@@ -38,21 +53,3 @@ not_attack([Y|Ys],X,N) :-
 	X =\= Y-N,
 	N1 is N+1,
 	not_attack(Ys,X,N1).
-
-
-% Architecture:
-% 	Model Name:	MacBook Pro
-% 	Model Identifier:	MacBookPro5,2
-% 	Processor Name:	Intel Core 2 Duo
-% 	Processor Speed:	3,06 GHz
-% 	Number Of Processors:	1
-% 	Total Number Of Cores:	2
-% 	L2 Cache:	6 MB
-% 	Memory:	4 GB
-% 	Bus Speed:	1,07 GHz
-% 
-% Michael$ swipl --nodebug -O -f Queens.pl
-% Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.8.3)
-% ?- time(queens(22,R)).
-% 115,761,936 inferences, 18.400 CPU in 18.961 seconds (97% CPU, 6291410 Lips)
-% R = [15, 11, 7, 16, 6, 9, 12, 21, 8|...].

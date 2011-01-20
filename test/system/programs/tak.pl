@@ -8,6 +8,10 @@
 	R = 7.
 */
 
+
+benchmark(tak) :- tak(32,14,6,_R).
+
+
 tak(X,Y,Z,A) :-
 	X =< Y, !,
 	Z = A.

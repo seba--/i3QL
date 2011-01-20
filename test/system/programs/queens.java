@@ -73,41 +73,51 @@ public class queens {
 				null,
 				null,
 				Terms.delimitedList(atomic(3), atomic(1), atomic(4), atomic(2)),
-				Terms.delimitedList(atomic(4), atomic(2), atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(5), atomic(3), atomic(1), atomic(6), atomic(4),
-						atomic(2)),
-				Terms.delimitedList(atomic(6), atomic(4), atomic(2), atomic(7), atomic(5),
-						atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(4), atomic(2), atomic(7), atomic(3), atomic(6),
-						atomic(8), atomic(5), atomic(1)),
-				Terms.delimitedList(atomic(5), atomic(7), atomic(9), atomic(4), atomic(2),
-						atomic(8), atomic(6), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(7), atomic(4), atomic(2), atomic(9), atomic(5),
-						atomic(10), atomic(8), atomic(6), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(10), atomic(8), atomic(6), atomic(4), atomic(2),
-						atomic(11), atomic(9), atomic(7), atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(4), atomic(9), atomic(7), atomic(2), atomic(11),
-						atomic(6), atomic(12), atomic(10), atomic(8), atomic(5), atomic(3),
+				Terms.delimitedList(atomic(4), atomic(2), atomic(5), atomic(3),
 						atomic(1)),
-				Terms.delimitedList(atomic(7), atomic(11), atomic(8), atomic(6), atomic(4),
-						atomic(13), atomic(10), atomic(12), atomic(9), atomic(2), atomic(5),
-						atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(11), atomic(8), atomic(6), atomic(2), atomic(9),
-						atomic(14), atomic(4), atomic(13), atomic(10), atomic(12), atomic(7),
+				Terms.delimitedList(atomic(5), atomic(3), atomic(1), atomic(6),
+						atomic(4), atomic(2)),
+				Terms.delimitedList(atomic(6), atomic(4), atomic(2), atomic(7),
 						atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(8), atomic(11), atomic(7), atomic(15), atomic(6),
-						atomic(9), atomic(13), atomic(4), atomic(14), atomic(12), atomic(10),
+				Terms.delimitedList(atomic(4), atomic(2), atomic(7), atomic(3),
+						atomic(6), atomic(8), atomic(5), atomic(1)),
+				Terms.delimitedList(atomic(5), atomic(7), atomic(9), atomic(4),
+						atomic(2), atomic(8), atomic(6), atomic(3), atomic(1)),
+				Terms.delimitedList(atomic(7), atomic(4), atomic(2), atomic(9),
+						atomic(5), atomic(10), atomic(8), atomic(6), atomic(3),
+						atomic(1)),
+				Terms.delimitedList(atomic(10), atomic(8), atomic(6),
+						atomic(4), atomic(2), atomic(11), atomic(9), atomic(7),
+						atomic(5), atomic(3), atomic(1)),
+				Terms.delimitedList(atomic(4), atomic(9), atomic(7), atomic(2),
+						atomic(11), atomic(6), atomic(12), atomic(10),
+						atomic(8), atomic(5), atomic(3), atomic(1)),
+				Terms.delimitedList(atomic(7), atomic(11), atomic(8),
+						atomic(6), atomic(4), atomic(13), atomic(10),
+						atomic(12), atomic(9), atomic(2), atomic(5), atomic(3),
+						atomic(1)),
+				Terms.delimitedList(atomic(11), atomic(8), atomic(6),
+						atomic(2), atomic(9), atomic(14), atomic(4),
+						atomic(13), atomic(10), atomic(12), atomic(7),
+						atomic(5), atomic(3), atomic(1)),
+				Terms.delimitedList(atomic(8), atomic(11), atomic(7),
+						atomic(15), atomic(6), atomic(9), atomic(13),
+						atomic(4), atomic(14), atomic(12), atomic(10),
 						atomic(2), atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(10), atomic(8), atomic(11), atomic(4), atomic(7),
-						atomic(16), atomic(6), atomic(15), atomic(12), atomic(14), atomic(9),
+				Terms.delimitedList(atomic(10), atomic(8), atomic(11),
+						atomic(4), atomic(7), atomic(16), atomic(6),
+						atomic(15), atomic(12), atomic(14), atomic(9),
 						atomic(13), atomic(2), atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(13), atomic(10), atomic(12), atomic(9), atomic(6),
-						atomic(4), atomic(17), atomic(14), atomic(16), atomic(7), atomic(15),
-						atomic(11), atomic(8), atomic(2), atomic(5), atomic(3), atomic(1)),
-				Terms.delimitedList(atomic(10), atomic(14), atomic(9), atomic(11), atomic(4),
-						atomic(7), atomic(18), atomic(6), atomic(17), atomic(13), atomic(16),
-						atomic(12), atomic(15), atomic(8), atomic(2), atomic(5), atomic(3),
-						atomic(1)) };
+				Terms.delimitedList(atomic(13), atomic(10), atomic(12),
+						atomic(9), atomic(6), atomic(4), atomic(17),
+						atomic(14), atomic(16), atomic(7), atomic(15),
+						atomic(11), atomic(8), atomic(2), atomic(5), atomic(3),
+						atomic(1)),
+				Terms.delimitedList(atomic(10), atomic(14), atomic(9),
+						atomic(11), atomic(4), atomic(7), atomic(18),
+						atomic(6), atomic(17), atomic(13), atomic(16),
+						atomic(12), atomic(15), atomic(8), atomic(2),
+						atomic(5), atomic(3), atomic(1)) };
 
 		for (int i = 0; i < 18; i++) {
 			Variable solution = new Variable();
@@ -134,9 +144,7 @@ public class queens {
 	public static void measure(String[] args) throws Error {
 		for (int i = 0; i < args.length; i++) {
 			String arg = args[i];
-			if (arg.equals("queens-8-findall")) {
-				queens8Findall();
-			} else if (arg.equals("queens-20")) {
+			if (arg.equals("queens-20")) {
 				queens20();
 			} else if (arg.equals("queens-1-26")) {
 				queens1to26();
@@ -147,15 +155,31 @@ public class queens {
 	}
 
 	public static void measure() throws Error {
-		Term term = compoundTerm(atomic("benchmark"), atomic("queens"));
-		Goal s = term.call();
-		long startTime = System.nanoTime();
-		boolean succeeded = s.next();
-		long duration = System.nanoTime() - startTime;
-		if (succeeded) {
-			Performance.writeToPerformanceLog("queens", duration);
-		} else {
-			Performance.writeToPerformanceLog("queens", -1l);
+		{
+			Term term = compoundTerm(atomic("benchmark"), atomic("queens"));
+			Goal s = term.call();
+			long startTime = System.nanoTime();
+			boolean succeeded = s.next();
+			long duration = System.nanoTime() - startTime;
+			if (succeeded) {
+				Performance.writeToPerformanceLog("queens", duration);
+			} else {
+				Performance.writeToPerformanceLog("queens", -1l);
+			}
+		}
+
+		{
+			Term term = compoundTerm(atomic("benchmark"),
+					atomic("queens_8_findall"));
+			Goal s = term.call();
+			long startTime = System.nanoTime();
+			boolean succeeded = s.next();
+			long duration = System.nanoTime() - startTime;
+			if (succeeded) {
+				Performance.writeToPerformanceLog("queens-8-findall", duration);
+			} else {
+				Performance.writeToPerformanceLog("queens-8-findall", -1l);
+			}
 		}
 	}
 
@@ -173,24 +197,8 @@ public class queens {
 		}
 	}
 
-	private static void queens8Findall() {
-		for (int i = 0; i < 50; i++) {
-			long startTime = System.nanoTime();
-			int counter = 0;
-			Variable solution = new Variable();
-			StringAtom queens = StringAtom.get("queens");
-			Goal s = compoundTerm(queens, atomic(8), solution).call();
-			while (s.next()) {
-				counter++;
-			}
-			long duration = System.nanoTime() - startTime;
-
-			Performance.writeToPerformanceLog("queens-8-findall", i, duration);
-		}
-	}
-
 	private static void queens20() throws Error {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 25; i++) {
 			Variable solution = new Variable();
 			StringAtom queens = StringAtom.get("queens");
 			Goal s = compoundTerm(queens, atomic(20), solution).call();

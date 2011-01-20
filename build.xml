@@ -328,7 +328,6 @@ POSSIBILITY OF SUCH DAMAGE.
 		<antcall target="get-and-measure-program">
 			<param name="repository.program" value="queens" />
 		</antcall>	
-		<measure-program program="queens" args="queens-8-findall" />
 		<measure-program program="queens" args="queens-20" />
 		<measure-program program="queens" args="queens-1-26" />
 	</target>
@@ -341,13 +340,18 @@ POSSIBILITY OF SUCH DAMAGE.
 		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="qsort" />
 		<get-execute-and-verify-results-of-program program="queens" />
+		<get-execute-and-verify-results-of-program program="chat_parser" />
+		<get-execute-and-verify-results-of-program program="tak" />
+		<get-execute-and-verify-results-of-program program="primes" />
 	</target>
 
 	<target name="evaluate-performance"
 			description="Evaluates the performance of SAE Prolog.">
 		<get-and-measure-program program="qsort"/>
 		<get-and-measure-program program="queens"/>		
-		<get-and-measure-program program="chat_parser"/>		
+		<get-and-measure-program program="chat_parser"/>	
+		<get-and-measure-program program="tak"/>	
+		<get-and-measure-program program="primes"/>	
 	</target>
 
 </project>
