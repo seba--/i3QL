@@ -848,7 +848,7 @@ term_meta(ASTNode,Meta) :- ASTNode =.. [_,Meta|_].
 
 
 
-add_to_each_term_meta([],_).
+add_to_each_term_meta(_,[]).
 add_to_each_term_meta(Flag,[ASTNode|ASTNodes]) :-
 	term_meta(ASTNode,Meta),
 	add_to_meta(Flag,Meta),
@@ -1058,6 +1058,13 @@ conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-
 
 
 % TODO rename: "is_ground"
+is_ground_term(V) :- 
+	var(V),
+	throw(internal_error(
+			'AST.pl',
+			is_ground_term/1,
+			'the argument must be instantiated')
+	).
 is_ground_term(ct(_Meta,_Functor,ASTNodes)) :- !,
 	forall(member(ASTNode,ASTNodes),is_ground_term(ASTNode)).
 is_ground_term(r(_,_)) :- !.

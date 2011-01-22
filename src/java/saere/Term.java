@@ -262,7 +262,7 @@ public abstract class Term {
 	@SuppressWarnings("all")
 	public final static boolean unify(Term t1, Term t2) {
 		if (t1.isVariable()) {
-			Variable t1hv = t1.asVariable().headVariable();
+			Variable t1hv = t1.asVariable().frontVariable();
 			Term t1hvv = t1hv.getValue();
 			if (t1hvv == null) {
 				t1 = t1hv; // t1 is a free head variable
@@ -273,7 +273,7 @@ public abstract class Term {
 
 		if (t2.isVariable()) {
 			Variable t2v = t2.asVariable();
-			Variable t2hv = t2v.headVariable();
+			Variable t2hv = t2v.frontVariable();
 			Term t2hvv = t2hv.getValue();
 			if (t2hvv == null) {
 				if (t2hv != t1) { // this checks that t1 and t2 not already
@@ -315,7 +315,7 @@ public abstract class Term {
 
 	public static final boolean is(Term term, long value) {
 		if (term.isVariable()) {
-			final Variable hv = term.asVariable().headVariable();
+			final Variable hv = term.asVariable().frontVariable();
 			final Term hvv = hv.getValue();
 			if (hvv != null) {
 				return hvv.intEval() == value;

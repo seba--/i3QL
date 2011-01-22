@@ -343,6 +343,7 @@ POSSIBILITY OF SUCH DAMAGE.
 		<get-execute-and-verify-results-of-program program="chat_parser" />
 		<get-execute-and-verify-results-of-program program="tak" />
 		<get-execute-and-verify-results-of-program program="primes" />
+		<get-execute-and-verify-results-of-program program="meta_nrev" />
 	</target>
 
 	<target name="evaluate-performance"
@@ -352,6 +353,7 @@ POSSIBILITY OF SUCH DAMAGE.
 		<get-and-measure-program program="chat_parser"/>	
 		<get-and-measure-program program="tak"/>	
 		<get-and-measure-program program="primes"/>	
+		<get-and-measure-program program="meta_nrev"/>	
 	</target>
 
 </project>

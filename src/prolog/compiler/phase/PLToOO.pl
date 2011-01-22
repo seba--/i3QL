@@ -31,7 +31,7 @@
 */
 
 /*
-	Generates the code for the SAE program.
+	Generates the code for the SAE Prolog program.
 
 	@author Michael Eichberg
 */
@@ -48,8 +48,6 @@
 
 /**
 	Encodes an SAE Prolog program using a small object-oriented language (SAE-OO).
-	
-	This step creates the AST of SAE-OO.
 */
 pl_to_oo(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
@@ -138,9 +136,9 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 		goal_stack |
 		SGoalPredescessors
 	],
-	% For each goal, that is the successor of some "or" goal, we have to create a 
+	% For each goal, that is the successor of an "or" goal, we have to create a 
 	% a variable that stores which goal was executed previously, to go back to
-	% the rigth goal in case of backtracking.
+	% the correct goal in case of backtracking.
 	findall(
 		SGoalPredescessor,
 		(
@@ -537,7 +535,7 @@ implementation_for_clause_i(
 	atom_concat('clause',I,ClauseIdentifier),
 	clause_definition(Clause,ClauseDefinition),
 	rule_body(ClauseDefinition,BodyASTNode),
-	number_primitive_goals(BodyASTNode,0,LastId),
+	number_primitive_goals(BodyASTNode,0,LastId),	
 	set_primitive_goals_successors(DeferredActions,BodyASTNode),
 	primitive_goals_list(BodyASTNode,PrimitiveGoalsList,[]),
 	translate_goals(Predicate,Clause,PrimitiveGoalsList,DeferredActions,SCases,[]),
@@ -1578,14 +1576,14 @@ set_successors(_DeferredActions,[],_Type,_SuccessorASTNodes).
 
 
 set_successor(DeferredActions,ASTNode,succeeds,[SuccessorASTNode|SuccessorASTNodes]) :-
-	set_succeeds_successor(ASTNode,SuccessorASTNode),
+	lookup_in_term_meta(goal_number(GoalNumber),SuccessorASTNode),
+	add_to_term_meta(next_goal_if_succeeds(GoalNumber),ASTNode),
 	set_successor(DeferredActions,ASTNode,succeeds,SuccessorASTNodes).
 set_successor(_DeferredActions,_ASTNode,succeeds,[]).
 % Action is either "call" or "redo"
 set_successor(DeferredActions,ASTNode,fails(Action),SuccessorASTNodes) :-
 	term_meta(ASTNode,Meta),
-	(
-		SuccessorASTNodes = [SuccessorASTNode], % ... may fail
+	(	SuccessorASTNodes = [SuccessorASTNode], % ... may fail
 		term_meta(SuccessorASTNode,SuccessorMeta),
 		lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
 		add_to_meta(next_goal_if_fails(Action,GoalNumber),Meta)
@@ -1595,15 +1593,3 @@ set_successor(DeferredActions,ASTNode,fails(Action),SuccessorASTNodes) :-
 		add_to_meta(next_goal_if_fails(Action,multiple),Meta),
 		add_to_each_term_meta(not_unique_predecessor_goal,SuccessorASTNodes)
 	),!.
-
-
-
-set_succeeds_successor(ASTNode,SuccessorASTNode) :-
-	term_meta(ASTNode,Meta),
-	term_meta(SuccessorASTNode,SuccessorMeta),
-	lookup_in_meta(goal_number(GoalNumber),SuccessorMeta),
-	add_to_meta(next_goal_if_succeeds(GoalNumber),Meta).
-
-
-
-
