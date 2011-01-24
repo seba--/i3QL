@@ -682,7 +682,7 @@ translate_goal(
 
 
 % Handles all other cases of unification 
-% IMPROVE unfold the unification of things such as "a(b,X) = a(_,Y)"...
+% IMPROVE unfold the unification in more complex cases such as "a(b,X) = a(_,Y)"...
 translate_goal(
 		PrimitiveGoal,_Clause,_Predicate,
 		DeferredActions,[SCallCase,SRedoCase|SCases],SCases

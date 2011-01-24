@@ -32,18 +32,19 @@
 
 
 /**
-	This analysis identifies clauses for which we can apply last call 
+	This analysis identifies clauses for which we can apply simple last call 
 	optimizations. I.e., this analysis identifies predicates that are tail 
-	recursive, and where we can statically decide that – when the tail recursive
-	goal is reached – that there a no more choice points. Additionally, this
-	analysis makes a sound approximation of the number of solutions of each 
-	predicate.
+	recursive, and where we can statically decide that there a no more choice 
+	points – when the tail recursive goal is reached. 
+	<br />
+	Additionally, this analysis makes a sound approximation of the number of 
+	solutions of each predicate.
 		
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:Phase:Analysis:LastCallOptimizationAnalysis',
-	[pl_last_call_optimization_analysis/4]
+	'SAEProlog:Compiler:Phase:Analysis:TailCalls',
+	[pl_analyze_tail_calls/4]
 ).
 
 :- use_module('../AST.pl').
@@ -54,10 +55,9 @@
 
 
 
-% TODO rename to analyze_tail_calls
-pl_last_call_optimization_analysis(DebugConfig,Program,_OutputFolder,Program) :-
+pl_analyze_tail_calls(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(DebugConfig,on_entry,
-	write('\n[Debug] Phase: Last Call Optimization Analysis______________________________\n')),
+	write('\n[Debug] Phase: Analyzing Tail Calls ________________________________________\n')),
 	% IMPROVE Implement a true fixed-point analysis for estimating the number of solutions and identifying tail calls etc.
 	foreach_user_predicate(
 		Program,

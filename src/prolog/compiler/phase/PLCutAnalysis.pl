@@ -54,8 +54,9 @@ pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
 		DebugConfig,
 		on_entry,
-		write('\n[Debug] Phase: Cut Analysis_________________________________________________\n')
+		write('\n[Debug] Phase: Analyze Cuts_________________________________________________\n')
 	),
+	
 	foreach_user_predicate(Program,process_predicate(DebugConfig)).
 
 

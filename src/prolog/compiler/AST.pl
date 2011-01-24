@@ -945,8 +945,7 @@ named_variables_of_terms([],SZ,SZ).
 
 
 /**	
-	Determines the behavior of the given term(goal) w.r.t. the usage of the cut
-	operator.
+	Determines how the given term(goal) uses the cut operator.
 	<p>
 	The cut analysis supports all standard control-flow constructs:<br/>
 	 ",",";","!","->","*->","-> ; ","*-> ; ".
@@ -957,7 +956,7 @@ named_variables_of_terms([],SZ,SZ).
 	<code><pre>
 	?- member(X,[a,b,a,c]),
 		(	(	write(try_a_),X == a ; 
-				write(try_b_),!, X == b; % this cut prevents that try_c_ will ever be evaluated
+				write(try_b_),!, X == b; % this cut prevents that the next goals is ever called
 				write(try_c_),X == c) 
 		->	write(yes),nl 
 		; 	write(fail),nl
@@ -997,7 +996,7 @@ named_variables_of_terms([],SZ,SZ).
 	@arg(out) CutBehavior is either "always", "maybe", or "never".
 */
 % TODO write a test to check that the cut behavior analysis is correct for "->" and "*->"
-cut_analysis(a(_,'!'),always):- !. % TODO rename cut_analysis to cut_behavior
+cut_analysis(a(_,'!'),always):- !. % TODO rename cut_analysis to cut_usage_analysis
 
 cut_analysis(ct(_Meta,',',[LASTNode,RASTNode]),CutBehavior) :- !,
 	cut_analysis_of_and_goal(LASTNode,RASTNode,CutBehavior).

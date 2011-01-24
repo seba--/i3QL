@@ -54,7 +54,7 @@
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
 :- use_module('phase/PLCutAnalysis.pl',[pl_cut_analysis/4]).
 :- use_module('phase/PLVariableUsageAnalysis.pl',[pl_variable_usage_analysis/4]).
-:- use_module('phase/PLLastCallOptimizationAnalysis.pl',[pl_last_call_optimization_analysis/4]).
+:- use_module('phase/PLAnalyzeTailCalls.pl',[pl_analyze_tail_calls/4]).
 :- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
 :- use_module('phase/OOToJava.pl',[oo_to_java/4]).
 
@@ -64,7 +64,7 @@
 
 /**
 	The phase/3 predicate identifies the different phases of the compiler and
-	specifies the debug information that will be produced when the respective
+	specifies the debug information that will be output when the respective
 	compiler phase is executed.</br>
 	The order in which the phases are specified determines the order in which
 	the phases are executed; if a phase is to be executed at all.
@@ -86,9 +86,9 @@
 			is executed if the value is: "execute". (The value "omit" is expected
 			to be used to define that the phase should not be executed.)
 	@param Debug is a list that identifies which debug information should be
-			produced. E.g., <code>[on_entry,ast]</code><br />
-			If the execution flag is not "execute", than the
-			value of Debug is meaningless. <br />
+			output. E.g., <code>[on_entry,ast]</code><br />
+			If the execution flag is not "execute", than the value of Debug is 
+			meaningless. <br />
 			Legal values of the debug argument are defined by the respective phase.
 			Most phases define "ast" and "on_entry" to show the program's ast after
 			execution of the phase and "on_entry" to signal that the phase is entered.
@@ -100,7 +100,7 @@ phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 %%%% 2. ANALYSES
 phase(pl_cut_analysis,execute,[on_entry,processing_predicate,results]) :- phase(pl_check,execute,_).
 phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
-phase(pl_last_call_optimization_analysis,execute,[on_entry,report_clauses_where_lco_is_possible,solutions]) :- phase(pl_cut_analysis,execute,_).
+phase(pl_analyze_tail_calls,execute,[on_entry,report_clauses_where_lco_is_possible,solutions]) :- phase(pl_cut_analysis,execute,_).
 
 %%%% 4. CODE GENERATION
 phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_variable_usage_analysis,execute,_).
@@ -168,12 +168,3 @@ execute_phases([],_,_) :- !.
 execute_phases([executable_phase(Phase,Debug)|Phases],Input,OutputFolder) :-
 	apply(Phase, [Debug,Input,OutputFolder,Output]),
 	execute_phases(Phases,Output,OutputFolder).
-
-
-
-
-
-
-
-
-
