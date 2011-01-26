@@ -34,10 +34,10 @@ package saere.predicate;
 import saere.Goal;
 
 /**
- * Common interface of goal that just perform some kind of test and does not
- * generate a choice point. I.e., a test goal never changes the state of any
- * variable that is passed to it. I.e., the return value of the next function is
- * the only observable effect.
+ * Interface of goals that just perform some kind of test and do not generate a choice point and do
+ * never instantiate a variable. I.e., a test goal never changes the state of any variable that is
+ * passed to it. I.e., the return value (<code>true</code>/<code>false</code>) of the next function
+ * is the only observable effect.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */

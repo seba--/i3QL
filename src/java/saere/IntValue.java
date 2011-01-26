@@ -32,8 +32,7 @@
 package saere;
 
 /**
- * Representation of an integer value. The SAE uses long values as the basis for
- * integer arithmetic.
+ * Representation of an integer value. The SAE uses long values as the basis for integer arithmetic.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
@@ -43,6 +42,16 @@ public final class IntValue extends Atomic {
 
 	private IntValue(long value) {
 		this.value = value;
+	}
+
+	@Override
+	public boolean isStringAtom() {
+		return false;
+	}
+
+	@Override
+	public boolean isFloatValue() {
+		return false;
 	}
 
 	@Override
@@ -65,16 +74,6 @@ public final class IntValue extends Atomic {
 		return Term.INT_VALUE_TYPE_ID;
 	}
 
-	@Override
-	public boolean equals(Object other) {
-		return other instanceof IntValue && this.sameAs((IntValue) other);
-	}
-
-	@Override
-	public int hashCode() {
-		return (int) (value % Integer.MAX_VALUE);
-	}
-
 	public boolean sameAs(IntValue other) {
 		return this.value == other.value;
 	}
@@ -86,13 +85,22 @@ public final class IntValue extends Atomic {
 
 	@Override
 	public Goal call() {
-		throw new IllegalStateException(
-				"calling integer values is not possible");
+		throw new PrologException("an integer value is not callable");
 	}
 
 	@Override
 	public String toProlog() {
 		return Long.toString(value);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof IntValue && this.sameAs((IntValue) other);
+	}
+
+	@Override
+	public int hashCode() {
+		return (int) (value % Integer.MAX_VALUE);
 	}
 
 	@Override
@@ -141,7 +149,7 @@ public final class IntValue extends Atomic {
 	@SuppressWarnings("all")
 	public final static IntValue get(final long value) {
 		if (value >= -1000l && value < 1000l) {
-			return INT_VALUES[((int) value)+1000];
+			return INT_VALUES[((int) value) + 1000];
 		} else {
 			return new IntValue(value);
 		}

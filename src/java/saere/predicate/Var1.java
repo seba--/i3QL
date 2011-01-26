@@ -38,15 +38,14 @@ import saere.PredicateRegistry;
 import static saere.StringAtom.*;
 import saere.Term;
 
-/** 
- * Prolog's "var/1" predicate. 
- *
+/**
+ * Prolog's "var/1" predicate.
+ * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
 public class Var1 extends TestGoal {
 
-	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(
-			VAR, 1);
+	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(VAR, 1);
 
 	public final static PredicateFactoryOneArg FACTORY = new PredicateFactoryOneArg() {
 

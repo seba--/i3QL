@@ -38,79 +38,90 @@ package saere;
  */
 public final class FloatValue extends Atomic {
 
-    private final double value;
+	private final double value;
 
-    private FloatValue(double value) {
-	this.value = value;
-    }
+	private FloatValue(double value) {
+		this.value = value;
+	}
 
-    @Override
-    public boolean isFloatValue() {
-	return true;
-    }
+	@Override
+	public final int termTypeID() {
+		return Term.FLOAT_VALUE_TYPE_ID;
+	}
 
-    @Override
-    public FloatValue asFloatValue() {
-	return this;
-    }
+	@Override
+	public boolean isStringAtom() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-    @Override
-    public final int termTypeID() {
-	return Term.FLOAT_VALUE_TYPE_ID;
-    }
+	@Override
+	public boolean isIntValue() {
+		return false;
+	}
 
-    @Override
-    public StringAtom functor() {
-	return StringAtom.get(Double.toString(value));
-    }
+	@Override
+	public boolean isFloatValue() {
+		return true;
+	}
 
-    public boolean sameAs(FloatValue other) {
-	return this.value == other.value;
-    }
+	@Override
+	public FloatValue asFloatValue() {
+		return this;
+	}
 
-    @Override
-    public boolean equals(Object other) {
-	return other instanceof FloatValue && this.sameAs((FloatValue) other);
-    }
+	@Override
+	public StringAtom functor() {
+		return StringAtom.get(Double.toString(value));
+	}
 
-    @Override
-    public int hashCode() {
-	return (int) (value % Integer.MAX_VALUE);
-    }
+	public boolean sameAs(FloatValue other) {
+		return this.value == other.value;
+	}
 
-    @Override
-    public double floatEval() {
-	return value;
-    }
+	@Override
+	public boolean equals(Object other) {
+		return other instanceof FloatValue && this.sameAs((FloatValue) other);
+	}
 
-    @Override
-    public Goal call() {
-	throw new IllegalStateException("calling float values is not possible");
-    }
+	@Override
+	public int hashCode() {
+		return (int) (this.value % Integer.MAX_VALUE);
+	}
 
-    @Override
-    public String toProlog() {
-	return Double.toString(value);
-    }
+	@Override
+	public double floatEval() {
+		return this.value;
+	}
 
-    @Override
-    public String toString() {
-	return "FloatValue[" + Double.toString(value) + "]";
-    }
+	@Override
+	public Goal call() {
+		throw new IllegalStateException("a float value is not callable");
+	}
 
-    public static final FloatValue FLOAT_VALUE_M1 = new FloatValue(-1.0);
-    public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
-    public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
+	@Override
+	public String toProlog() {
+		return Double.toString(value);
+	}
 
-    public static FloatValue get(double value) {
-	if (value == -1.0)
-	    return FLOAT_VALUE_M1;
-	if (value == 0.0)
-	    return FLOAT_VALUE_0;
-	if (value == 1.0)
-	    return FLOAT_VALUE_1;
+	@Override
+	public String toString() {
+		return "FloatValue[" + Double.toString(value) + "]";
+	}
 
-	return new FloatValue(value);
-    }
+	public static final FloatValue FLOAT_VALUE_M1 = new FloatValue(-1.0);
+	public static final FloatValue FLOAT_VALUE_0 = new FloatValue(0.0);
+	public static final FloatValue FLOAT_VALUE_1 = new FloatValue(1.0);
+
+	public static FloatValue get(double value) {
+		if (value == -1.0)
+			return FLOAT_VALUE_M1;
+		if (value == 0.0)
+			return FLOAT_VALUE_0;
+		if (value == 1.0)
+			return FLOAT_VALUE_1;
+
+		return new FloatValue(value);
+	}
 
 }

@@ -91,12 +91,13 @@ public final class Append3 implements Goal {
 	private Term clv1;
 	private Term clv2;
 
-	public Append3(final Term Xs, final Term Ys, final Term Zs) {
+	@SuppressWarnings("all")
+	public Append3(Term Xs, Term Ys, Term Zs) {
 		// the implementation depends on the property of Xs...Zs being
 		// "unwrapped"
-		this.Xs = Xs.expose();
-		this.Ys = Ys.expose();
-		this.Zs = Zs.expose();
+		this.Xs = Xs = Xs.expose();
+		this.Ys = Ys = Ys.expose();
+		this.Zs = Zs = Zs.expose();
 
 		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
 		this.rootXsState = Xs.manifestState();

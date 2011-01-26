@@ -92,7 +92,7 @@ public abstract class Term {
 	 *         <p>
 	 *         <b>Performance Guideline</b><br />
 	 *         It is legal and highly encouraged to return <code>null</code> if this term's state is
-	 *         immutable.
+	 *         immutable/if the term is ground..
 	 *         </p>
 	 */
 	public abstract State manifestState();
@@ -105,16 +105,12 @@ public abstract class Term {
 	 *         or not.)
 	 *         </p>
 	 */
-	public boolean isVariable() {
-		return false;
-	}
+	public abstract boolean isVariable();
 
 	/**
 	 * @return <code>true</code> if the type of this term is not a subtype of {@link Variable}.
 	 */
-	public boolean isNotVariable() {
-		return true;
-	}
+	public abstract boolean isNotVariable();
 
 	/**
 	 * @return <code>this</code> if this term object is an instance of a {@link Variable} object.
@@ -126,9 +122,7 @@ public abstract class Term {
 	/**
 	 * @return <code>true</code> if this Term is an instance of a {@link CompoundTerm}.
 	 */
-	public boolean isCompoundTerm() {
-		return false;
-	}
+	public abstract boolean isCompoundTerm();
 
 	/**
 	 * @return <code>this</code> if this term object is an instance of a {@link CompoundTerm}.
@@ -141,16 +135,12 @@ public abstract class Term {
 	 * 
 	 * @return <code>true</code> if this term is a subtype of {@link Atomic}.
 	 */
-	public boolean isAtomic() {
-		return true;
-	}
+	public abstract boolean isAtomic();
 
 	/**
 	 * @return <code>true</code> if this Term is an instance of a {@link StringAtom}.
 	 */
-	public boolean isStringAtom() {
-		return false;
-	}
+	public abstract boolean isStringAtom();
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of a {@link StringAtom}.
@@ -162,9 +152,7 @@ public abstract class Term {
 	/**
 	 * @return <code>true</code> if this Term is an instance of an {@link IntValue}.
 	 */
-	public boolean isIntValue() {
-		return false;
-	}
+	public abstract boolean isIntValue();
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of an {@link IntValue}.
@@ -176,9 +164,7 @@ public abstract class Term {
 	/**
 	 * @return <code>true</code> if this Term is an instance of a {@link FloatValue}.
 	 */
-	public boolean isFloatValue() {
-		return false;
-	}
+	public abstract boolean isFloatValue();
 
 	/**
 	 * @return <code>this</code> if this Term is an instance of a {@link FloatValue}.
@@ -187,6 +173,7 @@ public abstract class Term {
 		throw new ClassCastException();
 	}
 
+	
 	/**
 	 * @return The functor of this term. If this term is subtype of atomic, then - if necessary - a
 	 *         {@link StringAtom} is created and this {@link StringAtom} object is returned.
@@ -237,8 +224,14 @@ public abstract class Term {
 	public abstract Goal call();
 
 	/**
+	 * 
+	 * @return
+	 */
+	public abstract Term expose();
+
+	/**
 	 * @return A textual representation of the term that uses Prolog's syntax. I.e., a Prolog
-	 *         compiler should be able to immediately parse the resulting string and the result 
+	 *         compiler should be able to immediately parse the resulting string and the result
 	 *         should be the same term.
 	 */
 	public abstract String toProlog();
@@ -250,7 +243,7 @@ public abstract class Term {
 	 * responsibility of the caller to manifest the state of the given terms before calling this
 	 * method and to restore the state at the appropriate point in time. </b></font><br />
 	 * By moving the responsibility for state handling to the caller various optimizations of how
-	 * and when the state is saved / restored are possible
+	 * and when the state is saved/restored are possible
 	 * </p>
 	 * 
 	 * @param t1
@@ -314,7 +307,7 @@ public abstract class Term {
 		}
 	}
 
-	public static final boolean is(Term term, long value) {
+	public final static boolean is(Term term, long value) {
 		if (term.isVariable()) {
 			final Variable hv = term.asVariable().frontVariable();
 			final Term hvv = hv.getValue();
@@ -329,5 +322,4 @@ public abstract class Term {
 		}
 	}
 
-	public abstract Term expose();
 }

@@ -51,6 +51,31 @@ public abstract class CompoundTerm extends Term {
 		return false;
 	}
 
+	@Override
+	public final boolean isFloatValue() {
+		return false;
+	}
+
+	@Override
+	public final boolean isIntValue() {
+		return false;
+	}
+
+	@Override
+	public final boolean isVariable() {
+		return false;
+	}
+
+	@Override
+	public boolean isNotVariable() {
+		return true;
+	}
+
+	@Override
+	public boolean isStringAtom() {
+		return false;
+	}
+
 	/**
 	 * @return <code>true</code>; always.
 	 */
@@ -67,7 +92,7 @@ public abstract class CompoundTerm extends Term {
 		return this;
 	}
 
-	public abstract Term firstArg();
+	public abstract Term firstArg(); // every compound term has at least one arg
 
 	public Term secondArg() {
 		throw new IndexOutOfBoundsException();
@@ -85,7 +110,7 @@ public abstract class CompoundTerm extends Term {
 	 */
 	@Override
 	public boolean isGround() {
-		final int arity = arity();
+		final int arity = this.arity();
 		for (int i = 0; i < arity; i++) {
 			if (!arg(i).isGround()) {
 				return false;
@@ -162,12 +187,12 @@ public abstract class CompoundTerm extends Term {
 	 * Unifies this compound term with another compound term.
 	 * <p>
 	 * This method does not take care of state handling; i.e, <font color="ref">both compound terms
-	 * may be partially bound when this method returns.</font> The caller must take care of state
+	 * may be (partially) bound when this method returns.</font> The caller must take care of state
 	 * manifestation and state reincarnation of this compound term as well as the passed in compound
 	 * term.
 	 * </p>
 	 */
-	public boolean unify(CompoundTerm other) {
+	public final boolean unify(CompoundTerm other) {
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
@@ -190,7 +215,7 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public boolean equals(Object otherObject) {
+	public final boolean equals(Object otherObject) {
 		if (otherObject instanceof CompoundTerm) {
 			CompoundTerm other = (CompoundTerm) otherObject;
 			int arity = arity();
@@ -207,7 +232,7 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public int hashCode() {
+	public final int hashCode() {
 		return functor().hashCode() + arity();
 	}
 

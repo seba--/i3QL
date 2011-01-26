@@ -51,6 +51,20 @@ public final class StringAtom extends Atomic {
 		this.hashCode = java.util.Arrays.hashCode(title);
 	}
 
+	public int termTypeID() {
+		return Term.STRING_ATOM_TYPE_ID;
+	}
+
+	@Override
+	public boolean isFloatValue() {
+		return false;
+	}
+
+	@Override
+	public boolean isIntValue() {
+		return false;
+	}
+
 	@Override
 	public boolean isStringAtom() {
 		return true;
@@ -62,18 +76,22 @@ public final class StringAtom extends Atomic {
 	}
 
 	@Override
-	public StringAtom functor() {
+	public final StringAtom functor() {
 		return this;
 	}
 
+	public boolean mayUnify(Term t) {
+		return t == this;
+	}
+
 	/**
-	 * Compares this StringAtom object with the given one and returns true if this one and the other
-	 * one represent the same string.
+	 * Compares this StringAtom object with the given one and returns <code>true</code> if this one
+	 * and the other one represent the same string atom.
 	 * 
 	 * @param other
 	 *            Some StringAtom.
-	 * @return true if this and the other <code>StringAtom</code> represent the same atom
-	 *         (basically, the same String).
+	 * @return <code>true</code> if this and the other <code>StringAtom</code> represent the same
+	 *         atom (basically, the same String).
 	 */
 	public boolean sameAs(StringAtom other) {
 		// StringAtoms are always "interned"...
@@ -81,7 +99,7 @@ public final class StringAtom extends Atomic {
 	}
 
 	/**
-	 * Tests if this StringAtom and the other object represent the same string atom.
+	 * Tests if this string atom and the other object represent the same string atom.
 	 * <p>
 	 * <b>Performance Guidelines</b><br/>
 	 * This method is not intended to be called by clients of StringAtom. Clients of StringAtom
@@ -102,18 +120,18 @@ public final class StringAtom extends Atomic {
 	 * @return This StringAtom's hash value.
 	 *         <p>
 	 *         <b>Performance Guidelines</b><br/>
-	 *         Since the hashCode is calculated at instantiation time caching this value on the
+	 *         Since the hashCode is calculated at instantiation time, caching this value on the
 	 *         client side is meaningless.
 	 *         </p>
 	 */
 	@Override
 	public int hashCode() {
-		return hashCode;
+		return this.hashCode;
 	}
 
 	@Override
 	public String toProlog() {
-		String s = (new String(value)).replace("\\", "\\\\");
+		String s = (new String(this.value)).replace("\\", "\\\\");
 		if (Character.isUpperCase(s.charAt(0)) || s.charAt(0) == '_')
 			s = "'" + s + "'";
 		return s;
@@ -132,11 +150,7 @@ public final class StringAtom extends Atomic {
 	 *         only for technical reasons.</font>
 	 */
 	public byte[] rawValue() {
-		return value;
-	}
-
-	public int termTypeID() {
-		return Term.STRING_ATOM_TYPE_ID;
+		return this.value;
 	}
 
 	@Override
