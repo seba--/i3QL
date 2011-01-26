@@ -59,11 +59,11 @@ public final class Or2 implements Goal {
 	private final Term l;
 	private final Term r;
 
-	private boolean choiceCommitted = false;
+	private boolean choiceCommitted /*= false*/;
 
-	private int goalToExecute = 0;
+	private int goalToExecute /*= 0*/;
 	// IMPROVE We don't need a goal stack here.
-	private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;
+	private GoalStack goalStack /*= null*/;
 
 	public Or2(final Term l, final Term r) {
 		this.l = l;
@@ -75,7 +75,7 @@ public final class Or2 implements Goal {
 			switch (goalToExecute) {
 			case 0:
 				// prepare left goal...
-				goalStack = goalStack.put(l.call());
+				goalStack = new GoalStack(l.call());
 				goalToExecute = 1;
 			case 1: {
 				// evaluate left goal...
@@ -90,9 +90,8 @@ public final class Or2 implements Goal {
 					return false;
 				}
 
-				// prepare right goal...
-				goalStack = GoalStack.EMPTY_GOAL_STACK;
-				goalStack = goalStack.put(r.call());
+				// prepare right goal...				
+				goalStack = new GoalStack(r.call());
 				goalToExecute = 2;
 
 			}

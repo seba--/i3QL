@@ -100,14 +100,16 @@ analyze_variable_usage(ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariab
 
 	add_to_clause_meta(clause_local_variables_count(ClauseLocalVariablesCount),Clause),
 	
+	% FIXME... We have to add to the initial set of VariablesUsedOnlyOnce the head variables!
 	intra_clause_variable_usage(
 			BodyASTNode,
 			[],[],[],
 			_UsedVariables,_PotentiallyUsedVariables,VariablesUsedOnlyOnce),
-	remove_from_set(arg(_),VariablesUsedOnlyOnce,CLVariablesUsedOnlyOnce),
+	remove_from_set(arg(_),VariablesUsedOnlyOnce,CLVariablesUsedOnlyOnce),	
 	(
 		CLVariablesUsedOnlyOnce \== [] ->
 		% IMPROVE warning message
+		write_ast_node(BodyASTNode),nl,
 		write('Clause '),write(ClauseId),write(' uses the following variables only once: '),write(CLVariablesUsedOnlyOnce),nl
 	;
 		true

@@ -228,7 +228,7 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n').
 write_class_member(Stream,goal_stack) :- !,
-	write(Stream,'private GoalStack goalStack = GoalStack.EMPTY_GOAL_STACK;\n').
+	write(Stream,'private GoalStack goalStack /* = null*/;\n').
 write_class_member(Stream,pre_created_term(Id,Expr)) :- !,	
 	type_of_term_expression(Expr,Type),
 	write(Stream,'private static final '),
@@ -242,8 +242,11 @@ write_class_member(Stream,field_decl(Modifiers,Type,Name,Expression)) :- !,
 	write(Stream,'private '),
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
 	( 	Expression == int(0) ->
-		write(Stream,'/* = 0; */')
+		write(Stream,'/* = 0 */')
 	;	
+		Expression == boolean(false) ->
+		write(Stream,'/* = false */')
+	;
 		write(Stream,' = '),
 		write_expr(Stream,Expression)
 	),
@@ -386,13 +389,13 @@ write_stmt(Stream,bind_variable(TermVariable,TermExpression)) :- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,');\n').	
 write_stmt(Stream,clear_goal_stack) :- !,
-	write(Stream,'this.goalStack = GoalStack.EMPTY_GOAL_STACK;\n').	
+	write(Stream,'this.goalStack = null;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
-	write(Stream,'this.goalStack = this.goalStack.abortAndScrapAllGoals();\n').
+	write(Stream,'{ GoalStack gs = this.goalStack; if (gs != null) { gs.abortAndScrapAllGoals(); this.goalStack = null;} }\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
-	write(Stream,'this.goalStack = this.goalStack.put('),
+	write(Stream,'{ this.goalStack = new GoalStack('),
 	write_expr(Stream,GoalExpression),
-	write(Stream,');\n').
+	write(Stream,',this.goalStack);}\n').
 write_stmt(Stream,abort_and_remove_top_level_goal_from_goal_stack) :- !,
 	write(Stream,'this.goalStack = this.goalStack.abortAndScrapTopGoal();\n').	
 write_stmt(Stream,remove_top_level_goal_from_goal_stack) :- !,
@@ -420,16 +423,16 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
-	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create (('),
+	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create (('),
 	write_expr(Stream,TermExpression),
-	write(Stream,').manifestState()));\n').	
+	write(Stream,').manifestState()),this.goalStack);\n').	
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
-	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create(StatesList.prepend('),
+	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create(StatesList.prepend('),
 	write_expr(Stream,TermExpression),
 	write_complex_term_args(Stream,TermExpressions),
-	write(Stream,',null)));\n').
+	write(Stream,',null)),this.goalStack);\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
-	write(Stream,'this.goalStack = this.goalStack.put(UndoGoal.create(sl));\n').
+	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create(sl),this.goalStack);\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 

@@ -1,5 +1,5 @@
 /* License (BSD Style License):
- * Copyright (c) 2010
+ * Copyright (c) 2010,2011
  * Department of Computer Science
  * Technische Universität Darmstadt
  * All rights reserved.
@@ -33,122 +33,57 @@ package saere;
 
 /**
  * The goal stack is a very simple, <i>immutable</i> linked list, that offers a stack's standard
- * operations (put, peek and drop) to manage a list of {@link Goal}s.
+ * operations (put, peek and drop) to manage a list of {@link Goal}s. The empty goal stack is
+ * represented by <code>null</code>.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class GoalStack {
+public class GoalStack {
 
-	private final static class EmptyGoalStack extends GoalStack {
+	private final GoalStack rest;
+	private final Goal goal;
 
-		EmptyGoalStack() {
-			// nothing to do
-		}
-
-		@Override
-		public GoalStack put(Goal solutions) {
-			return new SomeGoalStack(this, solutions);
-		}
-
-		@Override
-		public Goal peek() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
-
-		@Override
-		public GoalStack scrapTopGoal() {
-			throw new IllegalStateException("the goal stack is empty");
-		}
-
-		@Override
-		public boolean isNotEmpty() {
-			return false;
-		}
-
-		@Override
-		public GoalStack abortAndScrapAllGoals() {
-			return this;
-		}
-
-		@Override
-		public GoalStack abortAndScrapTopGoal() throws IllegalStateException {
-			throw new IllegalStateException();
-		}
-
-		@Override
-		public GoalStack abortAndScrapGoals(int i) {
-			assert i == 0 : "there are no more goals, the goal stack is empty";
-			return this;
-		}
+	public GoalStack(Goal goal) {
+		this.goal = goal;
+		this.rest = null;
 	}
 
-	private final static class SomeGoalStack extends GoalStack {
-
-		private final GoalStack rest;
-		private final Goal goal;
-
-		public SomeGoalStack(GoalStack rest, Goal goal) {
-			this.rest = rest;
-			this.goal = goal;
-		}
-
-		@Override
-		public GoalStack put(@SuppressWarnings("hiding") Goal goal) {
-			return new SomeGoalStack(this, goal);
-		}
-
-		@Override
-		public Goal peek() {
-			return goal;
-		}
-
-		@Override
-		public GoalStack scrapTopGoal() {
-			return rest;
-		}
-
-		@Override
-		public boolean isNotEmpty() {
-			return true;
-		}
-
-		@Override
-		public GoalStack abortAndScrapAllGoals() {
-			goal.abort();
-			return rest.abortAndScrapAllGoals();
-		}
-
-		@Override
-		public GoalStack abortAndScrapTopGoal() {
-			goal.abort();
-			return rest;
-		}
-
-		@Override
-		public GoalStack abortAndScrapGoals(int i) {
-			if (i > 0) {
-				goal.abort();
-				return rest.abortAndScrapGoals(i - 1);
-			}
-			return this;
-		}
-
+	public GoalStack(Goal goal, GoalStack rest) {
+		this.goal = goal;
+		this.rest = rest;
 	}
 
-	public final static EmptyGoalStack EMPTY_GOAL_STACK = new EmptyGoalStack();
+	public GoalStack put(Goal goal) {
+		return new GoalStack(goal, this);
+	}
 
-	public abstract GoalStack put(Goal goal);
+	public Goal peek() {
+		return this.goal;
+	}
 
-	public abstract Goal peek() throws IllegalStateException;
+	public GoalStack scrapTopGoal() {
+		return rest;
+	}
 
-	public abstract GoalStack scrapTopGoal() throws IllegalStateException;
+	public GoalStack abortAndScrapAllGoals() {
+		this.goal.abort();
+		GoalStack rest = this.rest;
+		return rest == null ? null : rest.abortAndScrapAllGoals();
+	}
 
-	public abstract GoalStack abortAndScrapTopGoal();
+	public GoalStack abortAndScrapTopGoal() {
+		this.goal.abort();
+		return rest;
+	}
 
-	public abstract GoalStack abortAndScrapGoals(int i);
+	public GoalStack abortAndScrapGoals(int i) {
+		assert i > 0;
 
-	public abstract GoalStack abortAndScrapAllGoals();
-
-	public abstract boolean isNotEmpty();
+		this.goal.abort();
+		if (i > 1) {
+			return this.rest.abortAndScrapGoals(i - 1);
+		}
+		return this.rest;
+	}
 
 }
