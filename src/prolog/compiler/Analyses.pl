@@ -58,7 +58,7 @@
 
 /**
 	Given some (compound) goal, the first primitive goal that would be called,
-	if this (compound) goal as a whole is evaluated is returned.
+	if this (compound) goal as a whole is called is returned.
 	
 	@signature first_primitive_goal(ASTNode,FirstGoal_ASTNode)
 */	

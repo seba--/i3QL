@@ -33,8 +33,8 @@
 
 /**
 	Maps the names of the variables of a normalized clause to a set of unified 
-	names (arg(0)...arg(N) and clv(0)...clv(M)). Adds the new name to the variables
-	meta information (mapped_variable_name(Name)). Further, the information about
+	names (arg(0)...arg(N) and clv(0)...clv(M)). Adds the new name to the variable's
+	meta information (mapped_variable_id(Name)). Further, the information about
 	the number of body variables is added to the clauses' meta information.
 	
 	@author Michael Eichberg
@@ -54,9 +54,11 @@
 
 
 
-
 pl_variable_usage_analysis(DebugConfig,Program,_OutputFolder,Program) :-
-	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Variable Usage Analysis______________________________________\n')),
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write('\n[Debug] Phase: Variable Usage Analysis______________________________________\n')),
 	foreach_user_predicate(Program,process_predicate(DebugConfig)),
 	!/* we are finished... */.
 
@@ -66,7 +68,10 @@ pl_variable_usage_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 
 process_predicate(DebugConfig,Predicate) :-
 	predicate_identifier(Predicate,Functor/Arity),
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
+	debug_message(
+		DebugConfig,
+		processing_predicate,
+		write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	
 	predicate_clauses(Predicate,Clauses),	
 	foreach_clause(Clauses,analyze_variable_usage,NumberOfLocalVariablesOfClauses),
@@ -132,7 +137,11 @@ map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCo
 	@signature map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping)
 */
 map_names_of_body_variables(Id,[],Id,_VariableNamesMapping).	
-map_names_of_body_variables(Id,[Variable|Variables],ClauseLocalVariablesCount,VariableNamesMapping) :-
+map_names_of_body_variables(
+		Id,
+		[Variable|Variables],
+		ClauseLocalVariablesCount,VariableNamesMapping
+	) :-
 	variable(Variable,VariableName),
 	lookup(VariableName,VariableNamesMapping,MappedVariableId),
 	(	var(MappedVariableId) ->
@@ -141,8 +150,7 @@ map_names_of_body_variables(Id,[Variable|Variables],ClauseLocalVariablesCount,Va
 	;
 		NewId = Id
 	),
-	term_meta(Variable,Meta),
-	add_to_meta(MappedVariableId,Meta),
+	add_to_term_meta(MappedVariableId,Variable),
 	map_names_of_body_variables(NewId,Variables,ClauseLocalVariablesCount,VariableNamesMapping).
 
 

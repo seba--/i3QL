@@ -52,11 +52,12 @@ public final class Variable extends Term implements State {
 	/**
 	 * <code>value</code> is:
 	 * <ul>
-	 * <li><code>null</code> if this variable is free (new); i.e., the variable is not instantiated
-	 * and does not share.</li>
+	 * <li><code>null</code> if this variable is free (new); i.e., the variable
+	 * is not instantiated and does not share.</li>
 	 * <li>a value of type {@link Term} that is not a subtype of Variable</li>
 	 * if this variable is instantiated.
-	 * <li>another {@link Variable} if this variable and another variable share.</li>
+	 * <li>another {@link Variable} if this variable and another variable share.
+	 * </li>
 	 * </ul>
 	 */
 	private Term value;
@@ -96,7 +97,7 @@ public final class Variable extends Term implements State {
 		if (this.value == null) {
 			return this;
 		} else {
-			Variable hv = headVariable();
+			Variable hv = frontVariable();
 			Term hvv = hv.value;
 			if (hvv == null) {
 				return hv;
@@ -110,42 +111,45 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public int arity() {
-		Term hvv = headVariable().value;
+		Term hvv = frontVariable().value;
 		if (hvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.arity();
 	}
 
 	@Override
 	public Term arg(int i) {
-		Term hvv = headVariable().value;
+		Term hvv = frontVariable().value;
 		if (hvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.arg(i);
 	}
 
 	@Override
 	public StringAtom functor() {
-		Term hvv = headVariable().value;
+		Term hvv = frontVariable().value;
 		if (hvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"The variable is not sufficiently instantiated.");
 		else
 			return hvv.functor();
 	}
 
 	public boolean isInstantiated() {
-		return headVariable().value != null;
+		return frontVariable().value != null;
 	}
 
 	public Term binding() {
-		return headVariable().value;
+		return frontVariable().value;
 	}
 
 	@Override
 	public boolean isGround() {
-		Term hvv = headVariable().value;
+		Term hvv = frontVariable().value;
 		return hvv != null && hvv.isGround();
 	}
 
@@ -173,12 +177,14 @@ public final class Variable extends Term implements State {
 	/**
 	 * Instantiates this variable.
 	 * <p>
-	 * It is illegal to call this method if this variable is already instantiated.
+	 * It is illegal to call this method if this variable is already
+	 * instantiated.
 	 * </p>
 	 * <p>
 	 * <b>Performance Guideline</b><br />
-	 * If you know that this variable is also a headVariable, then it is more efficient to just call
-	 * {@link #setValue(Term)}. If in doubt, call this method.
+	 * If you know that this variable is also a headVariable, then it is more
+	 * efficient to just call {@link #setValue(Term)}. If in doubt, call this
+	 * method.
 	 * </p>
 	 */
 	public void bind(Term term) {
@@ -187,12 +193,12 @@ public final class Variable extends Term implements State {
 		assert term != null : "binding to null";
 		assert term.isNotVariable() : "variables cannot be bound together, they can only share";
 
-		headVariable().value = term;
+		frontVariable().value = term;
 	}
 
 	/**
-	 * Unification of this <b>free</b> variable with another free variable. These two variables are
-	 * said to share.
+	 * Unification of this <b>free</b> variable with another free variable.
+	 * These two variables are said to share.
 	 * 
 	 * @param other
 	 *            a Variable with which this variable shares.
@@ -202,33 +208,44 @@ public final class Variable extends Term implements State {
 		assert !isInstantiated() && !other.isInstantiated() : "two variables can only share if both are not bound";
 
 		/*
-		 * The general idea behind this implementation of sharing is that a value is always only
-		 * bound with the head variable. Problems that arise if we have a cyclic unification of
-		 * variables, e.g., A = X, X = Y,Y = A,..., X = 1 are mitigated. We do make sure that at
-		 * least one variable remains free. If more than two variables share, we don't create a
-		 * chain, but instead attach each new Variable with the head variable. This way the maximum
-		 * depth of the chain is more limited and manifestation etc. becomes cheaper.
+		 * The general idea behind this implementation of sharing is to chain
+		 * variables such that the value field of one variable remains free.
+		 * Problems that arise if we have a cyclic unification of variables,
+		 * e.g., A = X, X = Y,Y = A,..., X = 1 are mitigated. We do make sure
+		 * that at least one value field remains free. If more than two
+		 * variables share, we don't create a chain, but instead set the value
+		 * field of each new Variable to the front variable of an existing
+		 * variable. This way the maximum depth of the chain is more limited and
+		 * manifestation etc. becomes cheaper.
 		 */
 		if (value == null) {
-			value = other.headVariable();
+			value = other.frontVariable();
 		} else if (other.value == null) {
 			other.value = this;
 		} else {
-			final Variable otherHeadVariable = other.headVariable();
+			final Variable otherFrontVariable = other.frontVariable();
 
-			if (this.headVariable() != otherHeadVariable) {
-				otherHeadVariable.value = this;
+			if (this.frontVariable() != otherFrontVariable) {
+				otherFrontVariable.value = this;
 			}
 		}
 	}
 
 	/**
-	 * If this variable shares with another variable, it is possible that this variable points to
-	 * another variable.
+	 * If this variable shares with another variable, it is possible that this
+	 * variable points to another variable, which may reference another
+	 * variable, and so on, and so on. The variable that no longer points to
+	 * another variable is called the front variable.
+	 * 
+	 * <p>
+	 * <b>Implementation Note</b> In previous versions, this method was called
+	 * "headVariable()". We have renamed this method to avoid confusion with
+	 * variables that occur in the head of a clause.
+	 * </p>
 	 * 
 	 * @see #share(Variable)
 	 */
-	public final Variable headVariable() {
+	public final Variable frontVariable() {
 		Variable hv = this;
 		Term hvv = hv.value;
 		while (hvv != null) {
@@ -244,7 +261,7 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public long intEval() {
-		final Term hvv = headVariable().value;
+		final Term hvv = frontVariable().value;
 		if (hvv == null) {
 			throw new Error("This variable is not sufficiently instantiated.");
 		} else {
@@ -254,9 +271,10 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public double floatEval() {
-		final Term hvv = headVariable().value;
+		final Term hvv = frontVariable().value;
 		if (hvv == null) {
-			throw new PrologException("This variable is not sufficiently instantiated.");
+			throw new PrologException(
+					"This variable is not sufficiently instantiated.");
 		} else {
 			return hvv.floatEval();
 		}
@@ -269,10 +287,11 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public Goal call() {
-		final Term hvv = headVariable().value;
+		final Term hvv = frontVariable().value;
 		if (hvv == null) {
-			throw new PrologException("This variable is not sufficiently instantiated: "
-					+ headVariable().value.toProlog());
+			throw new PrologException(
+					"This variable is not sufficiently instantiated: "
+							+ frontVariable().value.toProlog());
 		} else {
 			return hvv.call();
 		}
@@ -285,7 +304,7 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public Term expose() {
-		Variable hv = headVariable();
+		Variable hv = frontVariable();
 		Term hvv = hv.value;
 		if (hvv == null) {
 			return hv;
@@ -295,7 +314,7 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public String toProlog() {
-		final Term hvv = headVariable().value;
+		final Term hvv = frontVariable().value;
 		if (hvv == null) {
 			return variableToName(this);
 		} else {
@@ -305,10 +324,10 @@ public final class Variable extends Term implements State {
 
 	//
 	//
-	// D E B U G G I N G   R E L A T E D   F U N C T I O N A L I T Y 
+	// D E B U G G I N G R E L A T E D F U N C T I O N A L I T Y
 	//
 	//
-	
+
 	@Override
 	public String toString() {
 		return "Variable[id=" + variableToName(this) + "; value=" + value + "]";
