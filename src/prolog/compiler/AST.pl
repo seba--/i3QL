@@ -32,8 +32,10 @@
 
 
 /**
-	This module provides predicates to create, traverse and manipulate a 
-	program's AST.
+	This module provides the predicates to create, traverse and manipulate a 
+	program's AST. <i>Code that wants to add, remove, manipulate or traverse the
+	AST is not allowed to directly operate on the AST; the datastructures used
+	to store the AST may change without notice.</i>
 	
 	<p><b>The AST</b><br/>
 	<i>Conceptually</i>, the AST has the following structure:
@@ -57,10 +59,6 @@
 											% the list of directives...
 	]
 	</code></pre>
-	This module provides all predicates that are necessary to process (parts of)
-	the AST. <i>Code that wants to add, remove, manipulate or traverse the AST
-	is not allowed to access the AST on its own.</i><br/> 
-	<br/>
 	The precise data structures that are used to store the AST and its nodes
 	are an implementation detail of this module. This enables the
 	exchange/evolution of the underlying data structure(s) whenever necessary.
@@ -172,7 +170,7 @@
 /* DEVELOPER
 	Internal Structure of the AST:
 	(
-		[										% The list of all predicates
+		[										% The open list of all predicates
 			pred(								% A predicate.
 				a/1, 							% The identifier of the predicate.
 				[								% An open list of ...
@@ -184,7 +182,8 @@
 				],			
 											
 				[type=...,_]				% An open list of this predicate's properties.
-			),...
+			),
+			...
 		],
 		[
 			Directives (as is)
@@ -206,7 +205,7 @@ empty_ast(([]/*Rules*/,[]/*Directives*/)).
 
 
 /**
-	Adds a clause – which has to be a valid, normalized rule or a directive – to
+	Adds a clause that has to be a valid, normalized rule or a directive to
 	the given AST.
 
 	@signature add_clause(AST,Clause,NewAST)
@@ -256,8 +255,8 @@ add_clause(_AST,Term,_NewAST) :-
 			)
 		]
 		</code></pre>
-		
-	@arg(out) NewAST is the extended AST.
+	@arg NewAST is the AST that contains the information about the 
+		specified predicates.
 */
 add_predicates((Rules,Directives),[pred(ID,Properties)|Preds],NewAST) :- !,
 	IntermediateAST = ([pred(ID,[],Properties)|Rules],Directives),

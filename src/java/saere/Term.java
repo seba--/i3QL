@@ -237,8 +237,9 @@ public abstract class Term {
 	public abstract Goal call();
 
 	/**
-	 * @return A textual representation of the term that uses the Prolog syntax. I.e., a Prolog
-	 *         compiler should be able to immediately parse the resulting string.
+	 * @return A textual representation of the term that uses Prolog's syntax. I.e., a Prolog
+	 *         compiler should be able to immediately parse the resulting string and the result 
+	 *         should be the same term.
 	 */
 	public abstract String toProlog();
 

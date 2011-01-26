@@ -33,7 +33,7 @@
 
 
 /**
-	Definition of general purpose helper predicates.
+	Definition of some general purpose analyses.
 	
 	@author Michael Eichberg
 */
@@ -79,8 +79,19 @@ first_primitive_goal(ASTNode,ASTNode).
 
 
 
+last_primitive_goals_if_true(ASTNode,SGoals) :-
+	last_primitive_goals_if_true(ASTNode,SGoals,[]).
+
 last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
-	complex_term(ASTNode,',',[_LASTNode,RASTNode]),!,
+	complex_term(ASTNode,Functor,[_LASTNode,RASTNode]),
+	(
+		Functor = ','
+	;
+		Functor = '->'
+	;
+		Functor = '*->'
+	),
+	!,
 	last_primitive_goals_if_true(RASTNode,SGoals,SRest).
 last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
 	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,

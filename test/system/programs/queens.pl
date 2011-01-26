@@ -36,11 +36,7 @@ range(M,N,[M|Ns]) :-
 	range(M1,N,Ns).
 
 
-select([X|Xs],Xs,X). %select is predefined by gprolog...
-% In case of the following clause, we can do last-call
-% optimization, because	the following select clause is 
-% the last clause, and "unifications with the head" never
-% generates choice points. 
+select([X|Xs],Xs,X). 
 select([Y|Ys],[Y|Zs],X) :- select(Ys,Zs,X).
 
 
