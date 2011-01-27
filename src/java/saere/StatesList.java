@@ -36,17 +36,14 @@ package saere;
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-final public class StatesList implements State {
+public final class StatesList implements State {
 
 	private final State state;
 
 	private final StatesList next;
 
 	StatesList(State state) {
-		assert state != null;
-
-		this.state = state;
-		this.next = null;
+		this(state, null);
 	}
 
 	StatesList(State state, StatesList next) {

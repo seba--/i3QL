@@ -76,7 +76,7 @@ public final class StringAtom extends Atomic {
 	}
 
 	@Override
-	public final StringAtom functor() {
+	public StringAtom functor() {
 		return this;
 	}
 

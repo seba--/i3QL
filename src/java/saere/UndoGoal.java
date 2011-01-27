@@ -32,13 +32,25 @@
 package saere;
 
 /**
+ * An UndoGoal is a immutable linked list of state objects that behaves as if it were a single goal.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
-public abstract class UndoGoal implements Goal {
+public final class UndoGoal implements Goal {
 
-	UndoGoal() {
-		// to prevent other classes (outside of the core of the SAE) to extend this one...
+	private final State state;
+
+	private final UndoGoal next;
+
+	public UndoGoal(State state) {
+		this(state, null);
+	}
+
+	public UndoGoal(State state, UndoGoal next) {
+		assert state != null;
+
+		this.state = state;
+		this.next = next;
 	}
 
 	@Override
@@ -51,45 +63,93 @@ public abstract class UndoGoal implements Goal {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void abort() {
+		UndoGoal ug = this;
+		do {
+			ug.state.reincarnate();
+			ug = ug.next;
+		} while (ug != null);
+	}
+
+	@Override
+	public String toString() {
+		UndoGoal ug = next;
+		String s = "UndoGoal[" + state.toString();
+		while (ug != null) {
+			s += "," + ug.state.toString();
+			ug = ug.next;
+		}
+		return s += "]";
+	}
+
 	//
 	//
-	// F A C T O R Y M E T H O D S
+	// FACTORY METHODS
 	//
 	//
 
-	public final static UndoGoal create(State state) {
-		if (state != null)
-			return new UndoGoalOneNonTrivialState(state);
+
+	public final static UndoGoal prepend(State s, UndoGoal sl) {
+		if (s == null)
+			return null;
 		else
-			return DO_NOTHING_ON_UNDO_GOAL;
+			return new UndoGoal(s, sl);
 	}
 
-	//
-	//
-	// S P E C I A L I Z E D C L A S S E S
-	//
-	//
-
-	private static final UndoGoal DO_NOTHING_ON_UNDO_GOAL = new UndoGoal() {
-
-		@Override
-		public void abort() {
-			// nothing to do
-		}
-
-	};
-
-	private static final class UndoGoalOneNonTrivialState extends UndoGoal {
-		private final State state;
-
-		UndoGoalOneNonTrivialState(State state) {
-			this.state = state;
-		}
-
-		@Override
-		public void abort() {
-			state.reincarnate();
-		}
-
+	public final static UndoGoal prepend(State s1, State s2, UndoGoal sl) {
+		UndoGoal rest = prepend(s2, sl);
+		if (s1 != null)
+			return new UndoGoal(s1, rest);
+		else
+			return rest;
 	}
+
+	public final static UndoGoal prepend(State s1, State s2, State s3, UndoGoal sl) {
+		UndoGoal rest = prepend(s2, s3, sl);
+		if (s1 != null)
+			return new UndoGoal(s1, rest);
+		else
+			return rest;
+	}
+
+	public final static UndoGoal prepend(State s1, State s2, State s3, State s4, UndoGoal sl) {
+		UndoGoal rest = prepend(s2, s3, s4, sl);
+		if (s1 != null)
+			return new UndoGoal(s1, rest);
+		else
+			return rest;
+	}
+
+	public final static UndoGoal prepend(State s1, State s2, State s3, State s4, State s5,
+			UndoGoal sl) {
+		UndoGoal rest = prepend(s2, s3, s4, s5, sl);
+		if (s1 != null)
+			return new UndoGoal(s1, rest);
+		else
+			return rest;
+	}
+
+	public final static UndoGoal prepend(Term t, UndoGoal sl) {
+		return prepend(t.manifestState(), sl);
+	}
+
+	public final static UndoGoal prepend(Term t1, Term t2, UndoGoal sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), sl);
+	}
+
+	public final static UndoGoal prepend(Term t1, Term t2, Term t3, UndoGoal sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(), sl);
+	}
+
+	public final static UndoGoal prepend(Term t1, Term t2, Term t3, Term t4, UndoGoal sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(),
+				t4.manifestState(), sl);
+	}
+
+	public final static UndoGoal prepend(Term t1, Term t2, Term t3, Term t4, Term t5, UndoGoal sl) {
+		return prepend(t1.manifestState(), t2.manifestState(), t3.manifestState(),
+				t4.manifestState(), t5.manifestState(), sl);
+	}
+
 }

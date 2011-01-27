@@ -173,11 +173,11 @@ public abstract class Term {
 		throw new ClassCastException();
 	}
 
-	
 	/**
 	 * @return The functor of this term. If this term is subtype of atomic, then - if necessary - a
 	 *         {@link StringAtom} is created and this {@link StringAtom} object is returned.
 	 */
+	// FIXME is a functor not actually an atomic...
 	public abstract StringAtom functor();
 
 	/**
@@ -224,10 +224,13 @@ public abstract class Term {
 	public abstract Goal call();
 
 	/**
+	 * Reveals the true nature of this term. If this term is not a variable it is the term itself.
+	 * If it is a variable it is either the bound term or the variable to which we can immediately
+	 * bind a value (see {@link Variable#frontVariable()}).
 	 * 
-	 * @return
+	 * @return this term's true nature.
 	 */
-	public abstract Term expose();
+	public abstract Term reveal();
 
 	/**
 	 * @return A textual representation of the term that uses Prolog's syntax. I.e., a Prolog
@@ -256,31 +259,43 @@ public abstract class Term {
 	@SuppressWarnings("all")
 	public final static boolean unify(Term t1, Term t2) {
 		if (t1.isVariable()) {
-			Variable t1hv = t1.asVariable().frontVariable();
-			Term t1hvv = t1hv.getValue();
-			if (t1hvv == null) {
-				t1 = t1hv; // t1 is a free head variable
-			} else {
-				t1 = t1hvv; // t1 is a term that is not a variable
-			}
-		}
-
-		if (t2.isVariable()) {
-			Variable t2v = t2.asVariable();
-			Variable t2hv = t2v.frontVariable();
-			Term t2hvv = t2hv.getValue();
-			if (t2hvv == null) {
-				if (t2hv != t1) { // this checks that t1 and t2 not already
-								  // share
-					// now t2 and t1 either share or t2 is bound to some term
-					t2hv.setValue(t1);
+			Variable t1fv = t1.asVariable().frontVariable();
+			Term t1fvv = t1fv.getValue();
+			if (t1fvv == null) {
+				// t1 is a free front variable
+				if (t2.isVariable()) {
+					Variable t2fv = t2.asVariable().frontVariable();
+					if (t2fv != t1fv) {
+						t1fv.setValue(t2fv);
+					}
+				} else {
+					t1fv.setValue(t2);
 				}
 				return true;
 			} else {
-				// ... t2 is an instantiated variable
-				t2 = t2hvv;
+				t1 = t1fvv; // t1 is a term that is not a variable
 			}
 		}
+		// t1 is a term that is not a variable...
+
+		if (t2.isVariable()) {
+			Variable t2v = t2.asVariable();
+			Variable t2fv = t2v.frontVariable();
+			Term t2fvv = t2fv.getValue();
+			if (t2fvv == null) {
+				// the first case already dealt with sharing
+				// if (t2fv != t1) { // this checks that t1 and t2 not already
+				// // share
+				// // now t2 and t1 either share or t2 is bound to some term
+				t2fv.setValue(t1);
+				// }
+				return true;
+			} else {
+				// ... t2 is an instantiated variable
+				t2 = t2fvv;
+			}
+		}
+		// t2 is an instantiate term
 
 		// minor performance improvement
 		if (t1 == t2) {
@@ -288,20 +303,15 @@ public abstract class Term {
 		}
 
 		switch (t1.termTypeID()) {
-		case VARIABLE_TYPE_ID:
-			// We know that:
-			// 1) t1 is actually a free variable and it is a head variable
-			// 2) t2 is not a (free/instantiated) variable
-			t1.asVariable().setValue(t2);
-			return true;
+		// case VARIABLE_TYPE_ID: ... is already dealt with
 		case COMPUND_TERM_TYPE_ID:
 			return t2.isCompoundTerm() && t1.asCompoundTerm().unify(t2.asCompoundTerm());
 		case STRING_ATOM_TYPE_ID:
 			return t2.isStringAtom() && t1.asStringAtom().sameAs(t2.asStringAtom());
-		case FLOAT_VALUE_TYPE_ID:
-			return t2.isFloatValue() && t1.asFloatValue().sameAs(t2.asFloatValue());
 		case INT_VALUE_TYPE_ID:
 			return t2.isIntValue() && t1.asIntValue().sameAs(t2.asIntValue());
+		case FLOAT_VALUE_TYPE_ID:
+			return t2.isFloatValue() && t1.asFloatValue().sameAs(t2.asFloatValue());
 		default:
 			throw new Error("encountered a term with an unknown type");
 		}

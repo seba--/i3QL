@@ -51,7 +51,6 @@ public final class FloatValue extends Atomic {
 
 	@Override
 	public boolean isStringAtom() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

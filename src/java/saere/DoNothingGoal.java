@@ -31,84 +31,27 @@
  */
 package saere;
 
-/**
- * Common interface implemented by {@link Term}s that represent atomic information. I.e., string
- * atoms, float values and integer values.
- * 
- * @author Michael Eichberg (mail@michael-eichberg.de)
- */
-public abstract class Atomic extends Term {
+public final class DoNothingGoal implements Goal {
 
-	Atomic() {
-		// to prevent non-core classes from extending atomic!
+	public static final Goal INSTANCE = new DoNothingGoal();
+
+	private DoNothingGoal() {
+		// nothing to do
 	}
 
 	@Override
-	public final boolean isNotVariable() {
-		return true;
+	public boolean next() {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public final boolean isVariable() {
-		return false;
+	public boolean choiceCommitted() {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public final boolean isCompoundTerm() {
-		return false;
-	}
-
-	@Override
-	public final boolean isAtomic() {
-		return true;
-	}
-
-	/**
-	 * @return <code>true</code>; atomic information are by definition always ground.
-	 */
-	@Override
-	public final boolean isGround() {
-		return true;
-	}
-
-	/**
-	 * @return 0. By definition the arity of some atomic information is always 0.
-	 */
-	@Override
-	public final int arity() {
-		return 0;
-	}
-
-	/**
-	 * Will always throw an <code>IndexOutOfBoundsException</code>, because atoms do not have
-	 * arguments.
-	 * 
-	 * @param i
-	 *            <i>"ignored"</i>.
-	 * @throws IndexOutOfBoundsException
-	 *             always.
-	 */
-	@Override
-	public final Term arg(int i) {
-		throw new IndexOutOfBoundsException("atoms have no arguments");
-	}
-
-	/**
-	 * @return <code>null</code>; an atomic information's state is immutable and, hence, no state
-	 *         information needs to be preserved.<br/>
-	 */
-	/*
-	 * In general, the compiler tries to avoid explicit manifestation of an Atom's state. This –
-	 * i.e., avoiding useless calls to manifestState – however, requires deep static analyses.
-	 */
-	@Override
-	public final State manifestState() {
-		return null;
-	}
-
-	@Override
-	public final Term reveal() {
-		return this;
+	public void abort() {
+		// nothing to do
 	}
 
 }

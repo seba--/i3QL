@@ -63,8 +63,8 @@ public class TestIsGround {
 
 		{
 			Variable v1 = new Variable();
-			v1.share(new Variable());
-			new Variable().share(v1);
+			v1.unify(new Variable());
+			new Variable().unify(v1);
 			assertFalse(v1.isGround());
 		}
 
@@ -88,12 +88,12 @@ public class TestIsGround {
 
 		{
 			Variable v1 = new Variable();
-			v1.share(new Variable());
+			v1.unify(new Variable());
 			Variable v2 = new Variable();
-			v2.share(v1);
+			v2.unify(v1);
 			Variable v3 = new Variable();
-			v3.share(v2);
-			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
+			v3.unify(v2);
+			v2.unify(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
 			assertTrue(v1.isGround());
 			assertTrue(v2.isGround());
 			assertTrue(v3.isGround());
@@ -101,14 +101,14 @@ public class TestIsGround {
 
 		{
 			Variable v1 = new Variable();
-			v1.share(new Variable());
+			v1.unify(new Variable());
 			Variable v2 = new Variable();
-			v2.share(v1);
+			v2.unify(v1);
 			Variable v3 = new Variable();
 			State s2 = v2.manifestState();
 			State s3 = v3.manifestState();
-			v3.share(v2);
-			v2.bind(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
+			v3.unify(v2);
+			v2.unify(new ListElement2(atomic("demo"), StringAtom.EMPTY_LIST));
 			assertTrue(v1.isGround());
 			assertTrue(v2.isGround());
 			assertTrue(v3.isGround());
@@ -123,7 +123,7 @@ public class TestIsGround {
 	@Test
 	public void testBindingToNumber() {
 		Variable v = new Variable();
-		v.bind(atomic(1));
+		v.unify(atomic(1));
 		assertTrue(v.isInstantiated());
 		assertEquals(atomic(1), v.binding());
 		assertEquals(atomic("1"), v.functor());
@@ -137,7 +137,7 @@ public class TestIsGround {
 	@Test
 	public void testBindingToStringAtom() {
 		Variable v = new Variable();
-		v.bind(atomic("test"));
+		v.unify(atomic("test"));
 		assertTrue(v.isInstantiated());
 		assertEquals(atomic("test"), v.binding());
 		assertEquals(atomic("test"), v.functor());
@@ -156,7 +156,7 @@ public class TestIsGround {
 		Term innerList = new ListElement2(StringAtom.get("demo"),
 				new ListElement2(l2, StringAtom.EMPTY_LIST));
 		// [_,demo,_]
-		v.bind(new ListElement2(l1, innerList));
+		v.unify(new ListElement2(l1, innerList));
 		assertTrue(v.isInstantiated());
 		assertEquals(2, v.arity());
 		assertEquals(StringAtom.LIST, v.functor());
@@ -180,7 +180,7 @@ public class TestIsGround {
 	@Test
 	public void testNoBindingButSharing() {
 		Variable v = new Variable();
-		v.share(new Variable());
+		v.unify(new Variable());
 		assertFalse(v.isInstantiated());
 		assertNull(v.binding());
 
@@ -192,7 +192,7 @@ public class TestIsGround {
 	@Test
 	public void testNoBindingButReverseSharing() {
 		Variable v = new Variable();
-		new Variable().share(v);
+		new Variable().unify(v);
 		assertFalse(v.isInstantiated());
 		assertNull(v.binding());
 
@@ -204,8 +204,8 @@ public class TestIsGround {
 	@Test
 	public void testBindingToNumberWithSimpleSharing() {
 		Variable v = new Variable();
-		v.share(new Variable());
-		v.bind(atomic(1));
+		v.unify(new Variable());
+		v.unify(atomic(1));
 		assertTrue(v.isInstantiated());
 		assertEquals(atomic(1), v.binding());
 		assertEquals(atomic("1"), v.functor());
@@ -222,10 +222,10 @@ public class TestIsGround {
 		Variable v1 = new Variable();
 		Variable v2 = new Variable();
 		Variable v3 = new Variable();
-		v.share(v1);
-		v1.share(v2);
-		v2.share(v3);
-		v.bind(atomic(1));
+		v.unify(v1);
+		v1.unify(v2);
+		v2.unify(v3);
+		v.unify(atomic(1));
 		assertTrue(v.isInstantiated());
 		assertEquals(atomic(1), v.binding());
 		assertEquals(atomic("1"), v.functor());
@@ -254,10 +254,10 @@ public class TestIsGround {
 		Variable v1 = new Variable();
 		Variable v2 = new Variable();
 		Variable v3 = new Variable();
-		v.share(v3);
-		v1.share(v2);
-		v2.share(v);
-		v.bind(atomic(1));
+		v.unify(v3);
+		v1.unify(v2);
+		v2.unify(v);
+		v.unify(atomic(1));
 		assertTrue(v.isInstantiated());
 		assertEquals(atomic(1), v.binding());
 		assertEquals(atomic("1"), v.functor());

@@ -78,6 +78,6 @@ public class Atom1 extends TestGoal {
 	}
 
 	public static final boolean isAtom(Term t) {
-		return t.expose().isStringAtom();
+		return t.reveal().isStringAtom();
 	}
 }

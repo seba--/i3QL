@@ -258,7 +258,7 @@ init_field_of_arg_i(
 		I,
 		expression_statement(
 			assignment(
-				arg(I),expose(
+				arg(I),reveal(
 				local_variable_ref(ArgName))))) :-
 	atom_concat('arg',I,ArgName).
 
@@ -825,11 +825,11 @@ translate_goal(
 	goal_call_case_id(GoalNumber,CallCaseId),
 	SCaseHead = [eol_comment('tail call with last call optimization')|SLSTVs],
 	(	complex_term_args(PrimitiveGoal,Args) ->
-		% IMPROVE Identify those variables that were not yet subject to unification..., because for these variables, we can omit calling "expose" (which is nice for all variables that just deal with numbers...)
+		% IMPROVE Identify those variables that were not yet subject to unification..., because for these variables, we can omit calling "reveal" (which is nice for all variables that just deal with numbers...)
 		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 		update_predicate_arguments(NewVariables,0,Args,SUpdatePredArgs,SRecursiveCall,IdsOfArgsThatNeedToBeTemporarilySaved),
 		findall(
-			locally_scoped_term_variable(Id,expose(arg(Id))),
+			locally_scoped_term_variable(Id,reveal(arg(Id))),
 			member_ol(Id,IdsOfArgsThatNeedToBeTemporarilySaved),
 			SLSTVs,
 			SUpdatePredArgs
@@ -1031,7 +1031,7 @@ update_predicate_arguments(
 	create_term(Arg,cache,TermConstructor,_,_DeferredActions),
 	replace_ids_of_args_lower_than(ArgId,TermConstructor,NewTermConstructor,IdsOfArgsThatNeedToBeTemprarilySaved),
 	(	
-		NewTermConstructor = expose(arg(ArgId)), memberchk_ol(arg(ArgId),NewVariables),
+		NewTermConstructor = reveal(arg(ArgId)), memberchk_ol(arg(ArgId),NewVariables),
 		!,
 		atomic_list_concat(['arg',ArgId,' is not used in the body...'],Comment),
 		SUpdatePredArg = [
@@ -1042,7 +1042,7 @@ update_predicate_arguments(
 		( NewTermConstructor = arg(_ArgId) ; NewTermConstructor = clv(_CLVId) ),
 		!,
 		SUpdatePredArg = [
-			expression_statement(assignment(arg(ArgId),expose(NewTermConstructor)))  | 
+			expression_statement(assignment(arg(ArgId),reveal(NewTermConstructor)))  | 
 			SNextUpdatePredArg
 		]
 	;
@@ -1062,11 +1062,11 @@ replace_ids_of_args_lower_than(Id,arg(ArgId),NewTermConstructor,Ids) :-
 		add_to_set_ol(ArgId,Ids),
 		NewTermConstructor = lstv(ArgId)
 	;
-		NewTermConstructor = expose(arg(ArgId))
+		NewTermConstructor = reveal(arg(ArgId))
 	).
 replace_ids_of_args_lower_than(_Id,clv(CLVId),NewTermConstructor,_Ids) :- 
 	!,
-	NewTermConstructor = expose(clv(CLVId)).	
+	NewTermConstructor = reveal(clv(CLVId)).	
 replace_ids_of_args_lower_than(
 		Id,
 		complex_term(Functor,ArgsConstructors),
@@ -1102,10 +1102,10 @@ unfold_unification(
 	lookup_in_meta(variables_that_may_have_been_used(MUVarsIds),UnifyMeta), % MUVar.. = May have been Used Variables
 	named_variables_of_term(TermASTNode,NamedVariablesASTNodes,[]),
 	mapped_variable_ids(NamedVariablesASTNodes,VariablesIds),
-	% if the variable is free... and guaranteed to be exposed 
-	% (currently, only args are guaranteed to be exposed)
+	% if the variable is free... and guaranteed to be reveald 
+	% (currently, only args are guaranteed to be reveald)
 	(	VarId = arg(_), memberchk_ol(VarId,FTUVarsIds) ->
-		IsExposed = exposed
+		IsExposed = reveald
 	;
 		IsExposed = unknown
 	),
@@ -1163,9 +1163,9 @@ unfold_unification(
 		SMatchTerm = [
 			if(
 				boolean_and(
-					% IMPROVE.. have something like a combined test and compare expression to avoid repetitive to expose the same term multiple times
+					% IMPROVE.. have something like a combined test and compare expression to avoid repetitive to reveal the same term multiple times
 					test_term_is_string_atom(VarNodeTermConstructor),
-					string_atom_comparison(expose(VarNodeTermConstructor),TermNodeTermConstructor)
+					string_atom_comparison(reveal(VarNodeTermConstructor),TermNodeTermConstructor)
 				),
 				[
 					expression_statement(assignment(local_variable_ref('succeeded'),boolean(true)))

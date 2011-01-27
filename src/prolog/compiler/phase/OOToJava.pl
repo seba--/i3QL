@@ -358,9 +358,9 @@ write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
 write_stmt(Stream,locally_scoped_states_list) :- !,
-	write(Stream,'StatesList sl = null;\n').
+	write(Stream,'UndoGoal ug = null;\n').
 write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
-	write(Stream,'if(sl != null) sl.reincarnate();\n').	
+	write(Stream,'if(ug != null) ug.abort();\n').	
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- 
 	Id =.. [Functor,Value],!,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
@@ -377,9 +377,9 @@ write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- !,
 write_stmt(_Stream,manifest_state_and_add_to_locally_scoped_states_list([])) :- !
 	/* NOTHING TO DO */.
 write_stmt(Stream,manifest_state_and_add_to_locally_scoped_states_list(TermExprs)) :- !,
-	write(Stream,'sl = StatesList.prepend('),
+	write(Stream,'ug = UndoGoal.prepend('),
 	write_wrapped_exprs(Stream,TermExprs,manifest_state),
-	write(Stream,',sl);\n').
+	write(Stream,',ug);\n').
 write_stmt(Stream,bind_variable(arg(ArgId),TermExpression)) :- !,
 	write(Stream,'this.arg'),write(Stream,ArgId),write(Stream,'.asVariable().setValue('),
 	write_expr(Stream,TermExpression),
@@ -423,16 +423,16 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
-	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create (('),
+	write(Stream,'{ State l_s = ('),
 	write_expr(Stream,TermExpression),
-	write(Stream,').manifestState()),this.goalStack);\n').	
-write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression|TermExpressions])) :- !,
-	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create(StatesList.prepend('),
-	write_expr(Stream,TermExpression),
-	write_complex_term_args(Stream,TermExpressions),
-	write(Stream,',null)),this.goalStack);\n').
+	write(Stream,').manifestState();\n'),	
+	write(Stream,'this.goalStack = new GoalStack(l_s == null ? DoNothingGoal.INSTANCE : new UndoGoal(l_s),this.goalStack);}\n').
+write_stmt(Stream,create_undo_goal_and_put_on_goal_stack(TermExpressions)) :- !,
+	write(Stream,'{ State l_s; UndoGoal l_ug = null;'),
+	write_manifest_and_create_undo_goal(Stream,TermExpressions),
+	write(Stream,'this.goalStack = new GoalStack(l_ug == null ? DoNothingGoal.INSTANCE : l_ug,this.goalStack);}\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
-	write(Stream,'this.goalStack = new GoalStack(UndoGoal.create(sl),this.goalStack);\n').
+	write(Stream,'this.goalStack = new GoalStack(ug == null ? DoNothingGoal.INSTANCE : ug,this.goalStack);\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -442,8 +442,16 @@ write_cases(Stream,[case(ConstantExpression,Stmts)|Cases]) :-
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n'),
 	write_cases(Stream,Cases).
-	
-	
+
+
+write_manifest_and_create_undo_goal(_Stream,[]) :- !.
+write_manifest_and_create_undo_goal(Stream,[TermExpression|TermExpressions]) :-
+	write(Stream,'l_s = '),
+	write_expr(Stream,TermExpression),
+	write(Stream,'.manifestState();'),
+	write(Stream,'if(l_s != null) l_ug = new UndoGoal(l_s,l_ug);\n'),
+	write_manifest_and_create_undo_goal(Stream,TermExpressions).
+
 
 write_lvalue(Stream,field_ref(ReceiverExpression,Identifer)) :- % TODO remove (after refactoring)...
 	write_expr(Stream,ReceiverExpression),
@@ -592,25 +600,25 @@ write_expr(Stream,term_arity(TermExpression)) :- !,
 write_expr(Stream,term_functor(TermExpression)) :- !,
 	write_expr(Stream,TermExpression),
 	write(Stream,'.functor()').	
-write_expr(Stream,test_term_is_string_atom(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+write_expr(Stream,test_term_is_string_atom(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is reveald
 	write_expr(Stream,TermExpression),
-	write(Stream,'.expose().isStringAtom()').
-write_expr(Stream,test_term_is_float_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+	write(Stream,'.reveal().isStringAtom()').
+write_expr(Stream,test_term_is_float_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is reveald
 	write_expr(Stream,TermExpression),
-	write(Stream,'.expose().isFloatValue()').
-write_expr(Stream,test_term_is_integer_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is exposed
+	write(Stream,'.reveal().isFloatValue()').
+write_expr(Stream,test_term_is_integer_value(TermExpression)) :- !, % IMPROVE add a flag in case that we statically know that the term is reveald
 	write_expr(Stream,TermExpression),
-	write(Stream,'.expose().isIntValue()').
+	write(Stream,'.reveal().isIntValue()').
 % IMPROVE identify the case, where we can statically identify that the term expression is not of type variable
-write_expr(Stream,test_rttype_of_term_is_free_variable(exposed,TermExpression))	:- !,
+write_expr(Stream,test_rttype_of_term_is_free_variable(reveald,TermExpression))	:- !,
 	write_expr(Stream,TermExpression),write(Stream,'.isVariable()').
 write_expr(Stream,test_rttype_of_term_is_free_variable(_Exposed,TermExpression))	:- 
-	write_expr(Stream,TermExpression),write(Stream,'.expose().isVariable()').
+	write_expr(Stream,TermExpression),write(Stream,'.reveal().isVariable()').
 write_expr(Stream,test_rttype_of_term_is_free_variable(TermExpression))	:- !,
-	write_expr(Stream,TermExpression),write(Stream,'.expose().isVariable()').
+	write_expr(Stream,TermExpression),write(Stream,'.reveal().isVariable()').
 /* E X P R E S S I O N S   W I T H   T Y P E   T E R M  */
-write_expr(Stream,expose(TermExpression)) :-
-	write_expr(Stream,TermExpression),write(Stream,'.expose()').
+write_expr(Stream,reveal(TermExpression)) :-
+	write_expr(Stream,TermExpression),write(Stream,'.reveal()').
 write_expr(Stream,pre_created_term(I)):- !,
 	write(Stream,'PCT'),write(Stream,I).
 write_expr(Stream,lstv(Id)) :-  % lstv == local scoped term variable

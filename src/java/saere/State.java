@@ -34,7 +34,7 @@ package saere;
 import saere.predicate.Unify2;
 
 /**
- * Encapsulates the (remaining) mutable state of a term.
+ * Encapsulates the (remaining) mutable variables of a term.
  * <p>
  * State manifestation is only necessary if a term is subject to unification. If
  * a term is just passed to another predicate, manifestation of its state is

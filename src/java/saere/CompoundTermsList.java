@@ -32,10 +32,8 @@
 package saere;
 
 /**
- * An immutable list of compound terms.
- * <p>
- * We use <code>null<code> to represent the empty list.
- * </p>
+ * An immutable list of compound terms. The empty list is represented using the value
+ * <code>null<code>.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */

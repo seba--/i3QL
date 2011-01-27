@@ -157,7 +157,7 @@ public abstract class CompoundTerm extends Term {
 				// manifest a large data structure (e.g., a long list)
 				// which contains a large number of (bound) variables
 				// this easily leads to a stack overflow error.
-				Term arg_i = complexTerm.arg(i).expose();
+				Term arg_i = complexTerm.arg(i).reveal();
 				switch (arg_i.termTypeID()) {
 				case Term.VARIABLE_TYPE_ID:
 					Variable variable = arg_i.asVariable();
@@ -196,13 +196,13 @@ public abstract class CompoundTerm extends Term {
 		final int arity = arity();
 		if (arity == other.arity() && functor().sameAs(other.functor())) {
 			int i = 0;
-			while (i < arity) {
+			do { // a compound term always has at least one argument
 				if (this.arg(i).unify(other.arg(i))) {
 					i += 1;
 				} else {
 					return false;
 				}
-			}
+			} while (i < arity);
 			return true;
 		} else {
 			return false;
@@ -210,7 +210,7 @@ public abstract class CompoundTerm extends Term {
 	}
 
 	@Override
-	public final Term expose() {
+	public final Term reveal() {
 		return this;
 	}
 

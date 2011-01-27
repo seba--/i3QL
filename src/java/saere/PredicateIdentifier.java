@@ -31,6 +31,11 @@
  */
 package saere;
 
+/**
+ * A predicate's identifier is composed of the functor of the predicate and its arity.
+ * 
+ * @author Michael Eichberg
+ */
 public final class PredicateIdentifier {
 
 	private final StringAtom functor;

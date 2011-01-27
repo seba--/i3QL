@@ -336,7 +336,9 @@ POSSIBILITY OF SUCH DAMAGE.
 		Targets for exhaustive testing and evaluation.
 	-->
 
-	<target name="verify-results-of-all-programs">
+	<target name="test"
+			depends="test-saere"
+			description="Runs the entire test suite.">
 		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="qsort" />
 		<get-execute-and-verify-results-of-program program="queens" />

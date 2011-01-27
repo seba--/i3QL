@@ -95,9 +95,9 @@ public final class Append3 implements Goal {
 	public Append3(Term Xs, Term Ys, Term Zs) {
 		// the implementation depends on the property of Xs...Zs being
 		// "unwrapped"
-		this.Xs = Xs = Xs.expose();
-		this.Ys = Ys = Ys.expose();
-		this.Zs = Zs = Zs.expose();
+		this.Xs = Xs = Xs.reveal();
+		this.Ys = Ys = Ys.reveal();
+		this.Zs = Zs = Zs.reveal();
 
 		// REQUIRED BY TAIL-CALL OPTIMIZATION ...
 		this.rootXsState = Xs.manifestState();
@@ -184,9 +184,9 @@ public final class Append3 implements Goal {
 			// this.ZsState = Zs.manifestState(); (not required...)
 			this.clv2 = variable();
 			if (Zs.unify(new ListElement2(clv0, clv2))) {
-				this.Xs = clv1.expose();
+				this.Xs = clv1.reveal();
 				// this.Ys = Ys.unwrapped();
-				this.Zs = clv2.expose();
+				this.Zs = clv2.reveal();
 				goalToExecute = 1;
 				return true;
 			}

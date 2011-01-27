@@ -44,16 +44,19 @@ public class GoalStack {
 	private final Goal goal;
 
 	public GoalStack(Goal goal) {
-		this.goal = goal;
-		this.rest = null;
+		this(goal,null); 
 	}
 
 	public GoalStack(Goal goal, GoalStack rest) {
+		assert goal != null;
+		
 		this.goal = goal;
 		this.rest = rest;
 	}
 
-	public GoalStack put(Goal goal) {
+	public GoalStack put(@SuppressWarnings("hiding") Goal goal) {
+		assert goal != null;
+		
 		return new GoalStack(goal, this);
 	}
 
@@ -67,8 +70,8 @@ public class GoalStack {
 
 	public GoalStack abortAndScrapAllGoals() {
 		this.goal.abort();
-		GoalStack rest = this.rest;
-		return rest == null ? null : rest.abortAndScrapAllGoals();
+		GoalStack gs = this.rest;
+		return gs == null ? null : gs.abortAndScrapAllGoals();
 	}
 
 	public GoalStack abortAndScrapTopGoal() {
@@ -79,6 +82,7 @@ public class GoalStack {
 	public GoalStack abortAndScrapGoals(int i) {
 		assert i > 0;
 
+		// TODO replace recursive call by while loop
 		this.goal.abort();
 		if (i > 1) {
 			return this.rest.abortAndScrapGoals(i - 1);

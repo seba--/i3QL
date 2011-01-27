@@ -77,7 +77,7 @@ public class ancestor {
 			final Goal solutions = new male1(X);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().unify(expectedSolutions[count]));
+				assertTrue(X.reveal().unify(expectedSolutions[count]));
 				count++;
 			}
 			assertEquals(expectedSolutions.length,count);
@@ -113,8 +113,8 @@ public class ancestor {
 			Goal solutions = new father2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -140,8 +140,8 @@ public class ancestor {
 			Goal solutions = new sibling2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -162,8 +162,8 @@ public class ancestor {
 			Goal solutions = new brother2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -187,8 +187,8 @@ public class ancestor {
 			Goal solutions = new sister2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -216,8 +216,8 @@ public class ancestor {
 			Goal solutions = new grandparent2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -263,8 +263,8 @@ public class ancestor {
 			Goal solutions = new ancestor2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);
@@ -290,9 +290,9 @@ public class ancestor {
 			Variable X = new Variable();
 			Goal solutions = new half_sister2(X, StringAtom.get("Wilhelm"));
 			assertTrue(solutions.next());
-			assertTrue(X.expose().asStringAtom().sameAs(atomic("Leonie")));
+			assertTrue(X.reveal().asStringAtom().sameAs(atomic("Leonie")));
 			assertTrue(solutions.next());
-			assertTrue(X.expose().asStringAtom().sameAs(atomic("Valerie")));
+			assertTrue(X.reveal().asStringAtom().sameAs(atomic("Valerie")));
 			assertFalse(solutions.next());
 		}
 		{
@@ -306,8 +306,8 @@ public class ancestor {
 			Goal solutions = new half_sister2(X, Y);
 			int count = 0;
 			while (solutions.next()) {
-				assertTrue(X.expose().asStringAtom().sameAs(expectedSolutions[count][0]));
-				assertTrue(Y.expose().asStringAtom().sameAs(expectedSolutions[count][1]));
+				assertTrue(X.reveal().asStringAtom().sameAs(expectedSolutions[count][0]));
+				assertTrue(Y.reveal().asStringAtom().sameAs(expectedSolutions[count][1]));
 				count ++;
 			}
 			assertEquals(expectedSolutions.length, count);

@@ -36,13 +36,22 @@ import java.util.WeakHashMap;
 /**
  * Representation of a Prolog variable.
  * <p>
- * A <br />
- * Variables that "share":<br/>
+ * <b>Sharing of Variables</b></br> Example, of Prolog variables that "share":<br/>
  * <code><pre>
  * X = Y, A = B, Y = A, Y = a. 
  * =>
  * X = a, Y = a, A = a, B = a
- * </pre></code>
+ * </pre></code> <br/>
+ * 
+ * The general idea behind the implementation of sharing that we use is to chain variables such that
+ * the field <code>value</code)({@link #getValue()}/{@link #setValue(Term)}) of one variable remains
+ * free. The underlying technique is to always compare the variables that are at the end of the
+ * chain, if two variables should be unified. Problems that arise if we have a cyclic unification of
+ * variables, e.g., A = X, X = Y,Y = A,..., X = 1 are mitigated by checking that a variable is not
+ * bound to itself. This way, we do make sure that at least one value field remains free. If more
+ * than two variables share, we don't always create a chain, but instead set the value field of each
+ * new Variable to the front variable of an existing variable. This way the maximum depth of the
+ * chain is more limited and manifestation, binding, further unifications become cheaper.
  * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
@@ -53,7 +62,7 @@ public final class Variable extends Term implements State {
 	 * <code>value</code> is:
 	 * <ul>
 	 * <li><code>null</code> if this variable is not yet instantiated. However, it is possible that
-	 * this variable and another variable do share.</li>
+	 * this variable and another variable do share and this variable is just the "front variable".</li>
 	 * <li>a value of type {@link Term} that is not a sub-type of Variable</li>
 	 * if this variable is instantiated.
 	 * <li>another {@link Variable} if this variable and the other variable share.</li>
@@ -65,13 +74,14 @@ public final class Variable extends Term implements State {
 		this.value = null;
 	}
 
-	/**
-	 * Creates a new Variable and immediately binds it to the given term. If the term is a variable
-	 * this variable shares with the other variable.
-	 */
-	public Variable(Term term) {
-		this.value = term;
-	}
+	// /**
+	// * Creates a new Variable and immediately binds it to the given term. If the term is a
+	// variable
+	// * this variable shares with the other variable.
+	// */
+	// public Variable(Term term) {
+	// this.value = term;
+	// }
 
 	@Override
 	public int termTypeID() {
@@ -120,7 +130,6 @@ public final class Variable extends Term implements State {
 
 	@Override
 	public State manifestState() {
-		// A variable may be bound to a compound term that contains free variables...
 		if (this.value == null) {
 			return this;
 		} else {
@@ -132,6 +141,7 @@ public final class Variable extends Term implements State {
 				return null; // further unifications will not change the value bound to this
 							 // variable
 			} else {
+				// A variable may be bound to a compound term that contains free variables...
 				return fvv.manifestState();
 			}
 		}
@@ -141,7 +151,7 @@ public final class Variable extends Term implements State {
 	public int arity() {
 		Term fvv = frontVariable().value;
 		if (fvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException("the variable is not sufficiently instantiated");
 		else
 			return fvv.arity();
 	}
@@ -150,7 +160,7 @@ public final class Variable extends Term implements State {
 	public Term arg(int i) {
 		Term fvv = frontVariable().value;
 		if (fvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException("the variable is not sufficiently instantiated");
 		else
 			return fvv.arg(i);
 	}
@@ -159,11 +169,11 @@ public final class Variable extends Term implements State {
 	public StringAtom functor() {
 		Term fvv = frontVariable().value;
 		if (fvv == null)
-			throw new PrologException("The variable is not sufficiently instantiated.");
+			throw new PrologException("the variable is not sufficiently instantiated");
 		else
 			return fvv.functor();
 	}
-	
+
 	public boolean isInstantiated() {
 		return frontVariable().value != null;
 	}
@@ -179,92 +189,50 @@ public final class Variable extends Term implements State {
 	}
 
 	/**
-	 * Clears all bindings of this variable.
+	 * Resets this variable.
 	 */
 	public void clear() {
 		this.value = null;
 	}
 
+	@Override
+	public void reincarnate() {
+		this.value = null;
+		// this.clear();
+	}
+
 	/**
 	 * Returns the value ({@link #Term}) this Variable points-to. This is <code>null</code> if this
 	 * variable is not instantiated, another Variable with which this variable shares or a
-	 * <code>Term</code> that is not a variable, if this variable is instantiated.
+	 * <code>Term</code> that is not a variable, if this variable is instantiated. If this variable
+	 * shares with another variable then it is necessary to ask the other variable for its value to
+	 * determine if this variable is actually instantiated.
+	 * 
+	 * @see Variable#frontVariable()
 	 */
 	public Term getValue() {
 		return this.value;
 	}
 
 	/**
-	 * Sets this variable's value.
+	 * Sets this variable's value to the given value.
 	 */
 	public void setValue(Term value) {
 		this.value = value;
 	}
 
 	/**
-	 * Instantiates this variable.
-	 * <p>
-	 * It is illegal to call this method if this variable is already instantiated.
-	 * </p>
-	 * <p>
-	 * <b>Performance Guideline</b><br />
-	 * If you know that this variable is also a frontVariable, then it is more efficient to just
-	 * call {@link #setValue(Term)}. If in doubt, call this method.
-	 * </p>
-	 */
-	public void bind(Term term) {
-
-		assert !this.isInstantiated() : "binding of an instantiated variable";
-		assert term != null : "binding to null";
-		assert term.isNotVariable() : "variables cannot be bound together, they can only share";
-
-		frontVariable().value = term;
-	}
-
-	/**
-	 * Unification of this <b>free</b> variable with another free variable. These two variables are
-	 * said to share.
-	 * 
-	 * @param other
-	 *            a Variable with which this variable shares.
-	 */
-	void share(Variable other) {
-
-		assert !isInstantiated() && !other.isInstantiated() : "two variables can only share if both are not bound";
-
-		/*
-		 * The general idea behind this implementation of sharing is to chain variables such that
-		 * the value field of one variable remains free. Problems that arise if we have a cyclic
-		 * unification of variables, e.g., A = X, X = Y,Y = A,..., X = 1 are mitigated. We do make
-		 * sure that at least one value field remains free. If more than two variables share, we
-		 * don't create a chain, but instead set the value field of each new Variable to the front
-		 * variable of an existing variable. This way the maximum depth of the chain is more limited
-		 * and manifestation etc. becomes cheaper.
-		 */
-		if (this.value == null) {
-			this.value = other.frontVariable();
-		} else if (other.value == null) {
-			other.value = this;
-		} else {
-			final Variable otherFrontVariable = other.frontVariable();
-
-			if (this.frontVariable() != otherFrontVariable) {
-				otherFrontVariable.value = this;
-			}
-		}
-	}
-
-	/**
 	 * If this variable shares with another variable, it is possible that this variable points to
 	 * another variable, which may reference yet another variable, and so on, and so on. The
-	 * variable that no longer points to another variable is called the front variable.
+	 * variable that no longer points to another variable is called the front variable (it is at the
+	 * front of the chain).
 	 * <p>
-	 * <b>Implementation Note</b> In previous versions, this method was called "headVariable()". We
-	 * have renamed this method to avoid confusion with variables that occur in the head of a
-	 * clause.
+	 * <b>Implementation Note</b><br/>
+	 * In previous versions, this method was called "headVariable()". We have renamed this method to
+	 * avoid confusion with variables that occur in the head of a clause.
 	 * </p>
 	 * 
-	 * @see #share(Variable)
+	 * @see Term#unify(Term)
 	 */
 	public final Variable frontVariable() {
 		Variable fv = this;
@@ -284,7 +252,7 @@ public final class Variable extends Term implements State {
 	public long intEval() {
 		final Term fvv = frontVariable().value;
 		if (fvv == null) {
-			throw new Error("This variable is not sufficiently instantiated.");
+			throw new Error("this variable is not sufficiently instantiated");
 		} else {
 			return fvv.intEval();
 		}
@@ -294,7 +262,7 @@ public final class Variable extends Term implements State {
 	public double floatEval() {
 		final Term fvv = frontVariable().value;
 		if (fvv == null) {
-			throw new PrologException("This variable is not sufficiently instantiated.");
+			throw new PrologException("this variable is not sufficiently instantiated");
 		} else {
 			return fvv.floatEval();
 		}
@@ -304,7 +272,7 @@ public final class Variable extends Term implements State {
 	public Goal call() {
 		final Term hvv = frontVariable().value;
 		if (hvv == null) {
-			throw new PrologException("This variable is not sufficiently instantiated: "
+			throw new PrologException("this variable is not sufficiently instantiated: "
 					+ frontVariable().value.toProlog());
 		} else {
 			return hvv.call();
@@ -312,12 +280,7 @@ public final class Variable extends Term implements State {
 	}
 
 	@Override
-	public void reincarnate() {
-		this.clear();
-	}
-
-	@Override
-	public Term expose() {
+	public Term reveal() {
 		Variable hv = frontVariable();
 		Term hvv = hv.value;
 		if (hvv == null) {
@@ -350,7 +313,7 @@ public final class Variable extends Term implements State {
 	private static int variableCount = 0;
 	private final static WeakHashMap<Variable, String> variableNames = new WeakHashMap<Variable, String>();
 
-	static String variableToName(Variable variable) {
+	private static String variableToName(Variable variable) {
 		synchronized (variableNames) {
 			// if (variableNames.isEmpty()) {
 			// variableCount = 0;

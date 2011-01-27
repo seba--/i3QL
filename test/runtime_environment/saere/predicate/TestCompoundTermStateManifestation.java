@@ -138,7 +138,7 @@ public class TestCompoundTermStateManifestation {
 	public void testStateManifestationOfNonGroundInstantiatedCompoundTermNoChanges() {
 		{
 			Variable v1 = new Variable();
-			v1.bind(compoundTerm(StringAtom.OR, atomic(1), atomic(2)));
+			v1.unify(compoundTerm(StringAtom.OR, atomic(1), atomic(2)));
 
 			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
@@ -153,7 +153,7 @@ public class TestCompoundTermStateManifestation {
 
 		{
 			Variable v1 = new Variable();
-			v1.bind(atomic(2));
+			v1.unify(atomic(2));
 
 			CompoundTerm ct = compoundTerm(StringAtom.AND,
 					StringAtom.EMPTY_LIST, v1, v1);
@@ -170,8 +170,8 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 			Variable v2 = new Variable();
-			v1.bind(StringAtom.get("demo"));
-			v2.bind(atomic(3.0));
+			v1.unify(StringAtom.get("demo"));
+			v2.unify(atomic(3.0));
 
 			CompoundTerm ct = compoundTerm(StringAtom.AND, v1,
 					StringAtom.EMPTY_LIST, atomic(2),
@@ -195,7 +195,7 @@ public class TestCompoundTermStateManifestation {
 			Variable v1 = new Variable();
 			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 			State state = ct.manifestState();
-			v1.bind(atomic(2.0));
+			v1.unify(atomic(2.0));
 			state.reincarnate();
 			assertSame(v1, ct.arg(0));
 			assertNull(v1.binding());
@@ -206,7 +206,7 @@ public class TestCompoundTermStateManifestation {
 			CompoundTerm ct = compoundTerm(StringAtom.AND,
 					StringAtom.EMPTY_LIST, v1, v1);
 			State state = ct.manifestState();
-			v1.bind(compoundTerm(StringAtom.CUT, atomic(0)));
+			v1.unify(compoundTerm(StringAtom.CUT, atomic(0)));
 			state.reincarnate();
 			assertSame(StringAtom.EMPTY_LIST, ct.arg(0));
 			assertSame(v1, ct.arg(1));
@@ -221,8 +221,8 @@ public class TestCompoundTermStateManifestation {
 					StringAtom.EMPTY_LIST, atomic(2),
 					compoundTerm(StringAtom.AND, v1, v2));
 			State state = ct.manifestState();
-			v1.bind(atomic(1));
-			v2.bind(compoundTerm(StringAtom.get("test"), atomic(1)));
+			v1.unify(atomic(1));
+			v2.unify(compoundTerm(StringAtom.get("test"), atomic(1)));
 			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));
@@ -239,11 +239,11 @@ public class TestCompoundTermStateManifestation {
 		{
 			Variable v1 = new Variable();
 			Variable v2 = new Variable();
-			v1.bind(compoundTerm(StringAtom.OR, v2, atomic(2)));
+			v1.unify(compoundTerm(StringAtom.OR, v2, atomic(2)));
 			CompoundTerm ct = compoundTerm(StringAtom.AND, v1);
 
 			State state = ct.manifestState();
-			v2.bind(atomic(2.0));
+			v2.unify(atomic(2.0));
 			state.reincarnate();
 
 			assertSame(v1, ct.arg(0));

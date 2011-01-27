@@ -61,7 +61,7 @@ import saere.predicate.Cut0;
  * <b>Performance Guideline</b> It is the responsibility of the creator of a new
  * goal instance to pass in "minimal" data structures. I.e., if a an argument is
  * a bound argument the bound value should be passed to the goal and not the
- * variable (cf. {@link Term#expose()}). Further, if a (free) variable is
+ * variable (cf. {@link Term#reveal()}). Further, if a (free) variable is
  * passed to a goal, the so-called head variable should be passed to the goal's
  * constructor.
  * </p>
