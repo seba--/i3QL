@@ -31,11 +31,16 @@
  */
 package saere;
 
-public final class DoNothingGoal implements Goal {
+/**
+ * A goal that does nothing on backtracking; intended to be put on the goal stack.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
+public final class DoesNothingGoal implements Goal {
 
-	public static final Goal INSTANCE = new DoNothingGoal();
+	public static final Goal INSTANCE = new DoesNothingGoal();
 
-	private DoNothingGoal() {
+	private DoesNothingGoal() {
 		// nothing to do
 	}
 

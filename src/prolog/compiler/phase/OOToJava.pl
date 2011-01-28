@@ -358,13 +358,13 @@ write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
 write_stmt(Stream,locally_scoped_states_list) :- !,
-	write(Stream,'UndoGoal ug = null;\n').
+	write(Stream,'States states = null;\n').
 write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
-	write(Stream,'if(ug != null) ug.abort();\n').	
+	write(Stream,'if(states != null) states.abort();\n').	
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- 
 	Id =.. [Functor,Value],!,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
-	write(Stream,'Term lstv_'),write(Stream,Functor),write(Stream,Value),
+	write(Stream,'Term ls_'),write(Stream,Functor),write(Stream,Value),
 	write(Stream,' = '),
 	write_expr(Stream,TermExpression),
 	write(Stream,';\n').
@@ -377,9 +377,9 @@ write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- !,
 write_stmt(_Stream,manifest_state_and_add_to_locally_scoped_states_list([])) :- !
 	/* NOTHING TO DO */.
 write_stmt(Stream,manifest_state_and_add_to_locally_scoped_states_list(TermExprs)) :- !,
-	write(Stream,'ug = UndoGoal.prepend('),
+	write(Stream,'states = States.prepend('),
 	write_wrapped_exprs(Stream,TermExprs,manifest_state),
-	write(Stream,',ug);\n').
+	write(Stream,',states);\n').
 write_stmt(Stream,bind_variable(arg(ArgId),TermExpression)) :- !,
 	write(Stream,'this.arg'),write(Stream,ArgId),write(Stream,'.asVariable().setValue('),
 	write_expr(Stream,TermExpression),
@@ -391,7 +391,7 @@ write_stmt(Stream,bind_variable(TermVariable,TermExpression)) :- !,
 write_stmt(Stream,clear_goal_stack) :- !,
 	write(Stream,'this.goalStack = null;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
-	write(Stream,'{ GoalStack gs = this.goalStack; if (gs != null) { gs.abortAndScrapAllGoals(); this.goalStack = null;} }\n').
+	write(Stream,'{ GoalStack _gs = this.goalStack; if (_gs != null) { _gs.abortAndScrapAllGoals(); this.goalStack = null;} }\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
 	write(Stream,'{ this.goalStack = new GoalStack('),
 	write_expr(Stream,GoalExpression),
@@ -423,16 +423,16 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
-	write(Stream,'{ State l_s = ('),
+	write(Stream,'{ State _s = ('),
 	write_expr(Stream,TermExpression),
 	write(Stream,').manifestState();\n'),	
-	write(Stream,'this.goalStack = new GoalStack(l_s == null ? DoNothingGoal.INSTANCE : new UndoGoal(l_s),this.goalStack);}\n').
+	write(Stream,'this.goalStack = new GoalStack(_s == null ? DoesNothingGoal.INSTANCE : new States(_s),this.goalStack);}\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack(TermExpressions)) :- !,
-	write(Stream,'{ State l_s; UndoGoal l_ug = null;'),
+	write(Stream,'{ State _s; States _states = null;'),
 	write_manifest_and_create_undo_goal(Stream,TermExpressions),
-	write(Stream,'this.goalStack = new GoalStack(l_ug == null ? DoNothingGoal.INSTANCE : l_ug,this.goalStack);}\n').
+	write(Stream,'this.goalStack = new GoalStack(_states == null ? DoesNothingGoal.INSTANCE : _states,this.goalStack);}\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
-	write(Stream,'this.goalStack = new GoalStack(ug == null ? DoNothingGoal.INSTANCE : ug,this.goalStack);\n').
+	write(Stream,'this.goalStack = new GoalStack(states == null ? DoesNothingGoal.INSTANCE : states,this.goalStack);\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -446,10 +446,10 @@ write_cases(Stream,[case(ConstantExpression,Stmts)|Cases]) :-
 
 write_manifest_and_create_undo_goal(_Stream,[]) :- !.
 write_manifest_and_create_undo_goal(Stream,[TermExpression|TermExpressions]) :-
-	write(Stream,'l_s = '),
+	write(Stream,'_s = '),
 	write_expr(Stream,TermExpression),
 	write(Stream,'.manifestState();'),
-	write(Stream,'if(l_s != null) l_ug = new UndoGoal(l_s,l_ug);\n'),
+	write(Stream,'if(_s != null) _states = new States(_s,_states);\n'),
 	write_manifest_and_create_undo_goal(Stream,TermExpressions).
 
 
@@ -623,7 +623,7 @@ write_expr(Stream,pre_created_term(I)):- !,
 	write(Stream,'PCT'),write(Stream,I).
 write_expr(Stream,lstv(Id)) :-  % lstv == local scoped term variable
 	Id =.. [Functor,Value],!,
-	write(Stream,'lstv_'),write(Stream,Functor),write(Stream,Value).
+	write(Stream,'ls_'),write(Stream,Functor),write(Stream,Value).
 write_expr(Stream,lstv(I)) :- !, % lstv == local scoped term variable
 	write(Stream,'lstv'),write(Stream,I).
 write_expr(Stream,clv(I)) :- !,

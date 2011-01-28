@@ -144,7 +144,7 @@ public abstract class CompoundTerm extends Term {
 		// Compared to the recursive implementation,
 		// this implementation is ~5-10% faster (overall!).
 		CompoundTermsList workList = null;
-		StatesList statesList = null;
+		States states = null;
 
 		do {
 			final int arity = complexTerm.arity();
@@ -163,7 +163,7 @@ public abstract class CompoundTerm extends Term {
 					Variable variable = arg_i.asVariable();
 					Term value = variable.getValue();
 					if (value == null) {
-						statesList = new StatesList(variable/* .manifestState() */, statesList);
+						states = new States(variable/* .manifestState() */, states);
 					}
 					break;
 
@@ -180,7 +180,7 @@ public abstract class CompoundTerm extends Term {
 			}
 		} while (complexTerm != null);
 
-		return statesList;
+		return states;
 	}
 
 	/**

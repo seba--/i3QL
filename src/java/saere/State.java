@@ -54,9 +54,6 @@ import saere.predicate.Unify2;
  * that the state object returned by a call to {@link Term#manifestState()} is
  * not <code>null</code>.
  * </p>
- * <p>
- * This is the state interface of the Memento Pattern.
- * </p>
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */
