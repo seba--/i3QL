@@ -47,7 +47,8 @@
 	<p>
 	<b>Implementation Note</b><br/>
 	If we use Variable or VariableId we refer to the unique id associated with 
-	each variable. We use NamedVariable to refer to the 
+	each variable. We use VariableNode to refer to the AST node that represents
+	the variable
 	</p>
 	
 	@author Michael Eichberg
@@ -137,9 +138,9 @@ write_warning_variables_used_only_once(Clause,[VariableUsedOnlyOnce|VariablesUse
 map_names_of_head_variables(_Id,[],0,_VariableNamesToIdsMap).
 map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCount,VariableNamesToIdsMap) :-
 	( 	variable(HeadVariable,HeadVariableName) ->
-		MappedVariableId = arg(Id),
-		lookup(HeadVariableName,VariableNamesToIdsMap,MappedVariableId),
-		add_to_term_meta(mapped_variable_name(MappedVariableId),HeadVariable),
+		VariableId = arg(Id),
+		lookup(HeadVariableName,VariableNamesToIdsMap,VariableId),
+		add_to_term_meta(variable_id(VariableId),HeadVariable),
 		FinalHeadVariablesCount = HeadVariablesCount + 1
 	;
 		FinalHeadVariablesCount = HeadVariablesCount
@@ -152,22 +153,22 @@ map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCo
 /** 
 	@signature map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping)
 */
-map_names_of_body_variables(Id,[],Id,_VariableNamesMapping).	
+map_names_of_body_variables(Id,[],Id,_VariableNamesToIdsMap).	
 map_names_of_body_variables(
 		Id,
-		[Variable|Variables],
-		ClauseLocalVariablesCount,VariableNamesMapping
+		[VariableNode|VariablesNodes],
+		ClauseLocalVariablesCount,VariableNamesToIdsMap
 	) :-
-	variable(Variable,VariableName),
-	lookup(VariableName,VariableNamesMapping,MappedVariableId),
-	(	var(MappedVariableId) ->
-		MappedVariableId = clv(Id),
+	variable(VariableNode,VariableName),
+	lookup(VariableName,VariableNamesToIdsMap,VariableId),
+	(	var(VariableId) ->
+		VariableId = clv(Id),
 		NewId is Id + 1
 	;
 		NewId = Id
 	),
-	add_to_term_meta(mapped_variable_name(MappedVariableId),Variable),
-	map_names_of_body_variables(NewId,Variables,ClauseLocalVariablesCount,VariableNamesMapping).
+	add_to_term_meta(variable_id(VariableId),VariableNode),
+	map_names_of_body_variables(NewId,VariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap).
 
 
 
@@ -236,8 +237,8 @@ intra_clause_variable_usage(
 		NewVariablesUsedOnlyOnce
 	) :-
 	is_compound_term(ASTNode),!, 
-	named_variables_of_term(ASTNode,NamedVariables,[]),
-	mapped_variable_ids(NamedVariables,UsedVariables,VariablesUsedMoreThanOnce),
+	named_variables_of_term(ASTNode,VariableNodes,[]),
+	mapped_variable_ids(VariableNodes,UsedVariables,VariableIdsUsedMoreThanOnce),
 	% let's determine the variables that are definitely used for the first time
 	% by this goal...
 	set_subtract(UsedVariables,PreviouslyUsedVariables,IVariables),
@@ -250,7 +251,7 @@ intra_clause_variable_usage(
 	set_subtract(PotentiallyUsedVariables,UsedVariables,NewPotentiallyUsedVariables),
 	% update the set of variables that are used only once
 	set_subtract(VariablesUsedOnlyOnce,UsedVariables,IUOV),
-	set_subtract(FirstTimeUsedVariables,VariablesUsedMoreThanOnce,IFTUV),
+	set_subtract(FirstTimeUsedVariables,VariableIdsUsedMoreThanOnce,IFTUV),
 	merge_sets(IUOV,IFTUV,NewVariablesUsedOnlyOnce).	
 
 intra_clause_variable_usage(
@@ -265,26 +266,26 @@ intra_clause_variable_usage(
 
 
 
-mapped_variable_ids(NamedVariables,MappedVariableIds) :-
-	mapped_variable_ids(NamedVariables,[],MappedVariableIds,_VariablesUsedMoreThanOnce).
+mapped_variable_ids(VariableNodes,MappedVariableIds) :-
+	mapped_variable_ids(VariableNodes,[],MappedVariableIds,_VariableIdsUsedMoreThanOnce).
 
 
 
-mapped_variable_ids(NamedVariables,MappedVariableIds,VariablesUsedMoreThanOnce) :-
-	mapped_variable_ids(NamedVariables,[],MappedVariableIds,VariablesUsedMoreThanOnce).
+mapped_variable_ids(VariableNodes,MappedVariableIds,VariableIdsUsedMoreThanOnce) :-
+	mapped_variable_ids(VariableNodes,[],MappedVariableIds,VariableIdsUsedMoreThanOnce).
 
 
 
 mapped_variable_ids([],MappedVariableIds,MappedVariableIds,[]).
-mapped_variable_ids([NamedVariable|NamedVariables],MappedVariableIds,NewMappedVariableIds,VariablesUsedMoreThanOnce) :-
-	lookup_in_term_meta(mapped_variable_name(VariableId),NamedVariable),
+mapped_variable_ids([VariableNode|VariableNodes],MappedVariableIds,NewMappedVariableIds,VariableIdsUsedMoreThanOnce) :-
+	lookup_in_term_meta(variable_id(VariableId),VariableNode),
 	add_to_set(VariableId,MappedVariableIds,IMappedVariableIds,VariableIdWasInSet),
 	(	VariableIdWasInSet ->
-		VariablesUsedMoreThanOnce = [VariableId|MoreVariablesUsedMoreThanOnce]
+		VariableIdsUsedMoreThanOnce = [VariableId|MoreVariableIdsUsedMoreThanOnce]
 	;
-		VariablesUsedMoreThanOnce = MoreVariablesUsedMoreThanOnce
+		VariableIdsUsedMoreThanOnce = MoreVariableIdsUsedMoreThanOnce
 	),
-	mapped_variable_ids(NamedVariables,IMappedVariableIds,NewMappedVariableIds,MoreVariablesUsedMoreThanOnce).
+	mapped_variable_ids(VariableNodes,IMappedVariableIds,NewMappedVariableIds,MoreVariableIdsUsedMoreThanOnce).
 	
 	
 	

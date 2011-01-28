@@ -787,7 +787,7 @@ translate_goal(
 	compound_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
-	lookup_in_term_meta(mapped_variable_name(VarId),LASTNode),
+	lookup_in_term_meta(variable_id(VarId),LASTNode),
 	memberchk_ol(VarId,NewVariables),VarId \= arg(_),!,
 	% Handle the case if "is" is called the first time
 	lookup_in_meta(goal_number(GoalNumber),Meta),
@@ -1438,7 +1438,7 @@ create_term(ASTNode,_,anonymous_variable,VarIds,VarIds,_DeferredActions) :-
 
 create_term(ASTNode,_Type,VariableId,OldVarIds,NewVarIds,_DeferredActions) :- 
 	is_variable(ASTNode),!,
-	lookup_in_term_meta(mapped_variable_name(VariableId),ASTNode),
+	lookup_in_term_meta(variable_id(VariableId),ASTNode),
 	add_to_set(VariableId,OldVarIds,NewVarIds).	
 
 create_term(ASTNode,Type,_,_,_,_) :-
