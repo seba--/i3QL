@@ -42,10 +42,7 @@
 		
 	@author Michael Eichberg
 */
-:- module(
-	sae_analyze_tail_calls,
-	[pl_analyze_tail_calls/4]
-).
+:- module(sae_analyze_tail_calls,[pl_analyze_tail_calls/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').

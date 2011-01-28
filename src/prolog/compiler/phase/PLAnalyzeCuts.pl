@@ -41,7 +41,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLCutAnalysis',[pl_cut_analysis/4]).
+:- module(sae_analyze_cuts,[pl_analyze_cuts/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').
@@ -50,7 +50,7 @@
 
 
 
-pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
+pl_analyze_cuts(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
 			DebugConfig,
 			on_entry,

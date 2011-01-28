@@ -52,8 +52,8 @@
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).
-:- use_module('phase/PLCutAnalysis.pl',[pl_cut_analysis/4]).
-:- use_module('phase/PLVariableUsageAnalysis.pl',[pl_variable_usage_analysis/4]).
+:- use_module('phase/PLAnalyzeCuts.pl',[pl_analyze_cuts/4]).
+:- use_module('phase/PLAnalyzeVariables.pl',[pl_analyze_variables/4]).
 :- use_module('phase/PLAnalyzeTailCalls.pl',[pl_analyze_tail_calls/4]).
 :- use_module('phase/PLToOO.pl',[pl_to_oo/4]).
 :- use_module('phase/OOToJava.pl',[oo_to_java/4]).
@@ -98,13 +98,18 @@ phase(pl_load,execute,[on_entry,reading_file/*,ast(user)*/]). %Debug flags: ast(
 phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
 	
 %%%% 2. ANALYSES
-phase(pl_cut_analysis,execute,[on_entry,processing_predicate,results]) :- phase(pl_check,execute,_).
-phase(pl_variable_usage_analysis,execute,[on_entry,processing_predicate]) :- phase(pl_check,execute,_).
-phase(pl_analyze_tail_calls,execute,[on_entry,report_clauses_where_lco_is_possible,solutions]) :- phase(pl_cut_analysis,execute,_).
+phase(pl_analyze_cuts,execute,[on_entry,processing_predicate,results]) :- 
+	phase(pl_check,execute,_).
+phase(pl_analyze_variables,execute,[on_entry,processing_predicate]) :- 
+	phase(pl_check,execute,_).
+phase(pl_analyze_tail_calls,execute,[on_entry,report_clauses_where_lco_is_possible,solutions]) :- 
+	phase(pl_analyze_cuts,execute,_).
 
 %%%% 4. CODE GENERATION
-phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- phase(pl_variable_usage_analysis,execute,_).
-phase(oo_to_java,execute,[on_entry,processing_predicate]) :- phase(pl_to_oo,execute,_).
+phase(pl_to_oo,execute,[on_entry,processing_predicate]) :- 
+	phase(pl_analyze_variables,execute,_).
+phase(oo_to_java,execute,[on_entry,processing_predicate]) :-
+	phase(pl_to_oo,execute,_).
 
 
 

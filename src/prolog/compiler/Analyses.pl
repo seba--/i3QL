@@ -115,42 +115,48 @@ last_primitive_goal_if_false(ASTNode,ASTNode).
 
 
 
-
-
 number_of_solutions_of_goal(Program,ASTNode,Solutions,DidCut) :-
 	number_of_solutions_of_goal(Program,none,ASTNode,Solutions,DidCut).
 
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+number_of_solutions_of_goal(
+		Program,
+		PredicateSolutionsAssumption,
+		ASTNode,
+		Solutions,
+		_DidCut
+	) :-
 	compound_term(ASTNode,',',[LASTNode,RASTNode]),!,
-	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
+	conjunction_of_number_of_solutions_of_goals(
+			Program,PredicateSolutionsAssumption,LASTNode,RASTNode,
+			Solutions).
 	
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,Solutions,_DidCut) :-
 	compound_term(ASTNode,';',[LASTNode,RASTNode]),!,
 	(
 		compound_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
-		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,ThenASTNode,RASTNode,Solutions)
+		disjunction_of_number_of_solutions_of_goals(Program,PredicateSolutionsAssumption,ThenASTNode,RASTNode,Solutions)
 	;
 		% the case: "compound_term(LASTNode,'*->',[IFASTNode,ThenASTNode]),!," 
 		% is appropriately handled by disjunction_of_number_of_solutions_of_goals...
-		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions)
+		disjunction_of_number_of_solutions_of_goals(Program,PredicateSolutionsAssumption,LASTNode,RASTNode,Solutions)
 	).
 		
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,[0,UB],_DidCut) :-
+number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,[0,UB],_DidCut) :-
 	compound_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
-	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[_LB,UB],_).
+	number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,RASTNode,[_LB,UB],_).
 	
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
+number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,Solutions,_DidCut) :-
 	compound_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
-	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
+	conjunction_of_number_of_solutions_of_goals(Program,PredicateSolutionsAssumption,LASTNode,RASTNode,Solutions).
 
-number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,DidCut) :-
+number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,Solutions,DidCut) :-
 	(
 		compound_term_identifier(ASTNode,Functor/Arity),!
 	;
 		string_atom(ASTNode,Functor),Arity = 0
 	),
 	(
-		PredicateAssumption = assumption(Functor/Arity,solutions(Solutions)),
+		PredicateSolutionsAssumption = assumption(Functor/Arity,solutions(Solutions)),
 		!
 	;	
 		Functor = '!',
@@ -168,9 +174,16 @@ number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,DidCut
 
 
 
-conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,[LB,UB]) :-	
-	number_of_solutions_of_goal(Program,PredicateAssumption,LASTNode,[LLB,LUB],_DidCut), % [Left Lower Bound, Left Upper Bound]
-	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[RLB,RUB],RDidCut),
+conjunction_of_number_of_solutions_of_goals(
+		Program,PredicateSolutionsAssumption,LASTNode,RASTNode,
+		[LB,UB]
+	) :-	
+	number_of_solutions_of_goal(
+			Program,PredicateSolutionsAssumption,LASTNode,
+			[LLB,LUB],_DidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(
+			Program,PredicateSolutionsAssumption,RASTNode,
+			[RLB,RUB],RDidCut),
 	(
 		RDidCut == yes ->
 		LB is min(LLB,RLB),
@@ -188,9 +201,16 @@ conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode
 
 
 
-disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,[LB,UB]) :-	
-	number_of_solutions_of_goal(Program,PredicateAssumption,LASTNode,[LLB,LUB],_LDidCut), % [Left Lower Bound, Left Upper Bound]
-	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[RLB,RUB],_RDidCut),
+disjunction_of_number_of_solutions_of_goals(
+		Program,PredicateSolutionsAssumption,LASTNode,RASTNode, % <= In
+		[LB,UB] % <= Out
+	) :-	
+	number_of_solutions_of_goal(
+			Program,PredicateSolutionsAssumption,LASTNode,
+			[LLB,LUB],_LDidCut), % [Left Lower Bound, Left Upper Bound]
+	number_of_solutions_of_goal(
+			Program,PredicateSolutionsAssumption,RASTNode,
+			[RLB,RUB],_RDidCut),
 	LB is max(LLB,RLB),
 	(	(LUB == '*' ; RUB == '*') ->
 		UB = '*'

@@ -34,10 +34,10 @@
 /**
 	Associates each (named) Prolog variable - i.e., variables that are not 
 	anonymous -	with a unique id.<br />
-	In case of head variables (variables defined in a clause's	head), the names
+	In case of head variables (variables defined in a clause's	head), the ids
 	are "arg(X)" where X identifies the argument's postion (0 based). In case of
-	local variables, the names are "clv(Y)". <br />
-	The variable id is then added to the variable's meta information 
+	local variables, the ids are "clv(Y)". <br />
+	The variable id is added to the variable's meta information 
 	(mapped_variable_id(Name)).
 	<p>
 	Further, the information about the number of body variables is added to the
@@ -46,17 +46,17 @@
 	
 	<p>
 	<b>Implementation Note</b><br/>
-	If we use Variable or VariableId we refer to the unique id associated with 
+	If we use Variable (or VariableId) we refer to the unique id associated with 
 	each variable. We use VariableNode to refer to the AST node that represents
-	the variable
+	the variable.
 	</p>
 	
 	@author Michael Eichberg
 */
 :- module(
-		'SAEProlog:Compiler:Phase:PLVariableUsageAnalysis',
+		sae_analyze_variables,
 		[
-			pl_variable_usage_analysis/4,
+			pl_analyze_variables/4,
 			mapped_variable_ids/2
 		]
 	).
@@ -68,7 +68,7 @@
 
 
 
-pl_variable_usage_analysis(DebugConfig,Program,_OutputFolder,Program) :-
+pl_analyze_variables(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
 			DebugConfig,
 			on_entry,
@@ -100,41 +100,52 @@ analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVaria
 		HeadVariablesCount = 0
 		% VariableIds remains free...
 	;
-		compound_term_args(HeadASTNode,AllHeadVariables), % since the clause is normalized, the head only contains (anonymous) variable declarations
-		map_names_of_head_variables(0,AllHeadVariables,HeadVariablesCountExpr,VariableNamesToIdsMap),
+		compound_term_args(HeadASTNode,AllHeadVariablesNodes), % since the clause is normalized, the head only contains (anonymous) variable declarations
+		map_names_of_head_variables(0,AllHeadVariablesNodes,HeadVariablesCountExpr,VariableNamesToIdsMap),
 		HeadVariablesCount is HeadVariablesCountExpr,
 		dictionary_values(VariableNamesToIdsMap,HeadVariables)
 	),
 	add_to_clause_meta(used_head_variables_count(HeadVariablesCount),Clause),
 	
 	rule_body(Implementation,BodyASTNode),
-	named_variables_of_term(BodyASTNode,AllBodyVariables,[]),
-	map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesToIdsMap),
-
+	named_variables_of_term(BodyASTNode,AllBodyVariablesNodes,[]),
+	map_names_of_body_variables(0,AllBodyVariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap),
 	add_to_clause_meta(clause_local_variables_count(ClauseLocalVariablesCount),Clause),
 	
 	intra_clause_variable_usage(
 			BodyASTNode,
 			HeadVariables,[],HeadVariables,
 			_UsedVariables,_PotentiallyUsedVariables,VariablesUsedOnlyOnce),
+			
 	write_warning_variables_used_only_once(Clause,VariablesUsedOnlyOnce,VariableNamesToIdsMap).
 
 
+
 write_warning_variables_used_only_once(_Clause,[],_VariableNamesToIdsMappping).
-write_warning_variables_used_only_once(Clause,[VariableUsedOnlyOnce|VariablesUsedOnlyOnce],VariableNamesToIdsMappping) :-
+write_warning_variables_used_only_once(
+		Clause,
+		[VariableIdUsedOnlyOnce|VariableIdsUsedOnlyOnce],
+		VariableNamesToIdsMappping
+	) :-
 	clause_implementation(Clause,ASTNode),
 	term_pos(ASTNode,File,LN,_CN),
-	dictionary_identity_lookup_key(VariableUsedOnlyOnce,VariableNamesToIdsMappping,Name),!,
-	atomic_list_concat([File,':',LN,': warning: the variable ',Name,' is only used once\n'],MSG),% GCC compliant
+	dictionary_identity_lookup_key(
+			VariableIdUsedOnlyOnce,
+			VariableNamesToIdsMappping,
+			VariableName),!,
+	atomic_list_concat(
+			[	File,':',LN,
+				': warning: the variable ',VariableName,' is only used once\n'
+			],
+			MSG),% GCC compliant
    write(MSG),
-	write_warning_variables_used_only_once(Clause,VariablesUsedOnlyOnce,VariableNamesToIdsMappping).
+	write_warning_variables_used_only_once(
+			Clause,
+			VariableIdsUsedOnlyOnce,
+			VariableNamesToIdsMappping).
 
 
 
-
-/**
-	@arg FinalHeadVariablesCount is a (complex) term that can be evaluated
-*/
 map_names_of_head_variables(_Id,[],0,_VariableNamesToIdsMap).
 map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCount,VariableNamesToIdsMap) :-
 	( 	variable(HeadVariable,HeadVariableName) ->
@@ -151,7 +162,7 @@ map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCo
 
 
 /** 
-	@signature map_names_of_body_variables(0,AllBodyVariables,ClauseLocalVariablesCount,VariableNamesMapping)
+	@signature map_names_of_body_variables(Id,AllBodyVariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap)
 */
 map_names_of_body_variables(Id,[],Id,_VariableNamesToIdsMap).	
 map_names_of_body_variables(
@@ -239,8 +250,7 @@ intra_clause_variable_usage(
 	is_compound_term(ASTNode),!, 
 	named_variables_of_term(ASTNode,VariableNodes,[]),
 	mapped_variable_ids(VariableNodes,UsedVariables,VariableIdsUsedMoreThanOnce),
-	% let's determine the variables that are definitely used for the first time
-	% by this goal...
+	% determine the variables that are used for the first time by this goal...
 	set_subtract(UsedVariables,PreviouslyUsedVariables,IVariables),
 	set_subtract(IVariables,PotentiallyUsedVariables,FirstTimeUsedVariables),
 	add_to_term_meta(variables_used_for_the_first_time(FirstTimeUsedVariables),ASTNode),
@@ -255,7 +265,7 @@ intra_clause_variable_usage(
 	merge_sets(IUOV,IFTUV,NewVariablesUsedOnlyOnce).	
 
 intra_clause_variable_usage(
-		_ASTNode, % is an atomic ..
+		_ASTNode, % if we reach this clause, ASTNode has to be an atomic ..
 		UsedVariables,
 		PotentiallyUsedVariables,
 		VariablesUsedOnlyOnce,		
@@ -266,26 +276,30 @@ intra_clause_variable_usage(
 
 
 
-mapped_variable_ids(VariableNodes,MappedVariableIds) :-
-	mapped_variable_ids(VariableNodes,[],MappedVariableIds,_VariableIdsUsedMoreThanOnce).
+mapped_variable_ids(VariableNodes,VariableIds) :-
+	mapped_variable_ids(VariableNodes,[],VariableIds,_VariableIdsUsedMoreThanOnce).
 
 
 
-mapped_variable_ids(VariableNodes,MappedVariableIds,VariableIdsUsedMoreThanOnce) :-
-	mapped_variable_ids(VariableNodes,[],MappedVariableIds,VariableIdsUsedMoreThanOnce).
+mapped_variable_ids(VariableNodes,VariableIds,VariableIdsUsedMoreThanOnce) :-
+	mapped_variable_ids(VariableNodes,[],VariableIds,VariableIdsUsedMoreThanOnce).
 
 
 
-mapped_variable_ids([],MappedVariableIds,MappedVariableIds,[]).
-mapped_variable_ids([VariableNode|VariableNodes],MappedVariableIds,NewMappedVariableIds,VariableIdsUsedMoreThanOnce) :-
+mapped_variable_ids([],VariableIds,VariableIds,[]).
+mapped_variable_ids(
+		[VariableNode|VariableNodes],
+		VariableIds,
+		NewVariableIds,
+		VariableIdsUsedMoreThanOnce) :-
 	lookup_in_term_meta(variable_id(VariableId),VariableNode),
-	add_to_set(VariableId,MappedVariableIds,IMappedVariableIds,VariableIdWasInSet),
+	add_to_set(VariableId,VariableIds,IVariableIds,VariableIdWasInSet),
 	(	VariableIdWasInSet ->
 		VariableIdsUsedMoreThanOnce = [VariableId|MoreVariableIdsUsedMoreThanOnce]
 	;
 		VariableIdsUsedMoreThanOnce = MoreVariableIdsUsedMoreThanOnce
 	),
-	mapped_variable_ids(VariableNodes,IMappedVariableIds,NewMappedVariableIds,MoreVariableIdsUsedMoreThanOnce).
+	mapped_variable_ids(VariableNodes,IVariableIds,NewVariableIds,MoreVariableIdsUsedMoreThanOnce).
 	
 	
 	

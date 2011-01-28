@@ -36,11 +36,11 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLLoad',[pl_load/4]).
+:- module(sae_load_program,[pl_load/4]).
 
+:- use_module('../AST.pl').
 :- use_module('../Debug.pl').
 :- use_module('../Utils.pl').
-:- use_module('../AST.pl').
 :- use_module('../Lexer.pl',[tokenize_file/2]).
 :- use_module('../Parser.pl',[clauses/2]).
 :- use_module('../Predef.pl',[add_predefined_predicates_to_ast/2]).
@@ -77,6 +77,7 @@ pl_load(DebugConfig,Files,_OutputFolders,AST) :-
 	% iterate over all terms of all ASTs and create a global ast
 	build_ast(ListOfListOfClauses,AST0),
 	add_predefined_predicates_to_ast(AST0,AST),
+	
 	debug_message(DebugConfig,ast(user),write_ast(user,AST)),
 	debug_message(DebugConfig,ast(built_in),write_ast(built_in,AST)).
 

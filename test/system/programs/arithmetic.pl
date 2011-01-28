@@ -1,6 +1,11 @@
 /* TYPICAL USAGE
 	?- num_to_binary(14, D),factorial(D, O).
 */
+
+benchmark(arithmetic) :- num_to_binary(16, D),factorial(D, _O).
+
+
+
 bit_xor(0, 0, 0).
 bit_xor(0, 1, 1).
 bit_xor(1, 0, 1).

@@ -35,7 +35,7 @@
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PhasePLtoOO',[pl_to_oo/4]).
+:- module(sae_pl_to_oo,[pl_to_oo/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
@@ -43,7 +43,7 @@
 :- use_module('../Debug.pl').
 :- use_module('../Analyses.pl').
 
-:- use_module('PLVariableUsageAnalysis.pl',[mapped_variable_ids/2]).
+:- use_module('PLAnalyzeVariables.pl',[mapped_variable_ids/2]).
 
 
 /**

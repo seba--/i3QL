@@ -873,8 +873,7 @@ add_to_meta(Information,Meta) :- append_ol(Information,Meta).
 
 
 
-clone_meta(Meta,NewMeta) :-
-	clone_ol(Meta,NewMeta).
+clone_meta(Meta,NewMeta) :- clone_ol(Meta,NewMeta).
 
 
 
