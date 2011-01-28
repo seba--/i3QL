@@ -34,7 +34,7 @@
 % Datum: 18.11.2010
 
 :- module(
-   'SAEProlog:Compiler:Formatter',
+   sae_formatter,
    [format_file/3]
 ).
 
@@ -59,11 +59,11 @@ write_clause(ASTNode,Value) :-
    ),!.
    
 write_clause(ASTNode,Out) :-
-   complex_term(ASTNode,'.',Args),
+   compound_term(ASTNode,'.',Args),
    write_List(Args,Out),!.
    
 write_clause(ASTNode,Out) :-
-   complex_term(ASTNode,Functor,Args),
+   compound_term(ASTNode,Functor,Args),
    (
       term_meta(ASTNode,Meta),
       lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
@@ -109,7 +109,7 @@ write_List([],'').
 
 write_List([H|T],Concated_List) :-
    (
-      complex_term(H,'.',Args),write_List(Args,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
+      compound_term(H,'.',Args),write_List(Args,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
       ;
       write_clause(H,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
    ),!
@@ -120,9 +120,9 @@ write_In_List([],_,'').
 
 write_In_List([H|T],Dotted,Output) :-
    (
-      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Output)
+      Dotted = 'false',compound_term(H,'.',Args),write_In_List(Args,'true',Output)
       ;
-      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Out),atomic_list_concat([',',Out],Output)
+      Dotted = 'true',compound_term(H,'.',Args),write_List(Args,Out),atomic_list_concat([',',Out],Output)
       ;
       string_atom(H,'[]'),write_In_List(T,'false',Rest),atomic_list_concat([Rest],Output)
       ;

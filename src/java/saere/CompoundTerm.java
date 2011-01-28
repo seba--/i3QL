@@ -139,7 +139,7 @@ public abstract class CompoundTerm extends Term {
 			return null;
 		}
 
-		CompoundTerm complexTerm = this;
+		CompoundTerm compoundTerm = this;
 
 		// Compared to the recursive implementation,
 		// this implementation is ~5-10% faster (overall!).
@@ -147,17 +147,17 @@ public abstract class CompoundTerm extends Term {
 		States states = null;
 
 		do {
-			final int arity = complexTerm.arity();
+			final int arity = compoundTerm.arity();
 			/* for_each_argument: */for (int i = 0; i < arity; i++) {
 				// We needed to integrate the state handling of
 				// variables here, to avoid stack overflow errors.
-				// E.g., if a complex term is bound to a variable
+				// E.g., if a compound term is bound to a variable
 				// the manifestation of the variable would lead to
 				// another call of the manifest method. If we now
 				// manifest a large data structure (e.g., a long list)
 				// which contains a large number of (bound) variables
 				// this easily leads to a stack overflow error.
-				Term arg_i = complexTerm.arg(i).reveal();
+				Term arg_i = compoundTerm.arg(i).reveal();
 				switch (arg_i.termTypeID()) {
 				case Term.VARIABLE_TYPE_ID:
 					Variable variable = arg_i.asVariable();
@@ -173,12 +173,12 @@ public abstract class CompoundTerm extends Term {
 				}
 			}
 			if (workList != null) {
-				complexTerm = workList.first();
+				compoundTerm = workList.first();
 				workList = workList.rest();
 			} else {
-				complexTerm = null;
+				compoundTerm = null;
 			}
-		} while (complexTerm != null);
+		} while (compoundTerm != null);
 
 		return states;
 	}

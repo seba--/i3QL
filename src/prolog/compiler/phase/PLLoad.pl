@@ -60,7 +60,10 @@
 		predefined predicates.
 */
 pl_load(DebugConfig,Files,_OutputFolders,AST) :-
-	debug_message(DebugConfig,on_entry,write('[Debug] Phase: Loading source files___________________________________\n')),
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write('[Debug] Phase: Loading source files___________________________________\n')),
 	findall(
 		Clauses,
 		(
@@ -92,7 +95,7 @@ build_ast(ListOfListOfClauses,TheAST) :-
 
 
 process_list_of_list_of_clauses(
-		[ListOfClauses|FurtherListsOfListsOfClauses],CurrentAST,FinalAST
+	[ListOfClauses|FurtherListsOfListsOfClauses],CurrentAST,FinalAST
 ) :- 
 	!,
 	process_clauses(ListOfClauses,CurrentAST,IntermediateAST),
@@ -213,7 +216,7 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	<p>
 	Requires that all arguments with index [1..MaxId) are variables. The behavior
 	of this predicate is not defined if a previous argument
-	is a complex term where the variable is used as an argument.
+	is a compound term where the variable is used as an argument.
 	</p>
 
 	@signature is_first_occurence_of_variable(VariableName,Args,Id,MaxID)

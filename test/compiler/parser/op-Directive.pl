@@ -66,7 +66,7 @@ test(xf_successful) :-
 				a([pos([], 1, 27)|_], b)])])]).
 
 
-test(meta_information_for_complex_terms_defined_using_operators) :- 
+test(meta_information_for_compound_terms_defined_using_operators) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
 	clauses(Ts,[FirstClause,SecondClause]),
 	term_meta(FirstClause,FirstMeta),
@@ -77,7 +77,7 @@ test(meta_information_for_complex_terms_defined_using_operators) :-
 	memberchk(op(300,xf,$),SecondPostfixOps).
 
 
-test(meta_information_for_complex_terms_with_op_in_functor_position) :- 
+test(meta_information_for_compound_terms_with_op_in_functor_position) :- 
 	tokenize_string("+(a,b).",Ts),
 	clauses(Ts,[Clause]),
 	term_meta(Clause,Meta),

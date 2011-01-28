@@ -57,7 +57,7 @@
 		followed by '('. However, ',' and '|' are never directly the functor
 		of a compound term, they always need to be put between two apostrophs to 
 		be used as a functor. This special treatment is necessary to enable 
-		"natural" definitions of the arguments of complex terms and lists.
+		"natural" definitions of the arguments of compound terms and lists.
 		</i></li>		
    <li>i(N,pos(F,LN,CN)) :- N is an integer value.</li>      
    <li>r(R,pos(F,LN,CN)) :- R is a real value / a floating point value.</li>      
@@ -127,7 +127,7 @@
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
 :- module(
-   'SAEProlog:Compiler:Lexer',
+   sae_lexer,
    [
 		tokenize_string/2,
       tokenize_file/2,
@@ -340,9 +340,12 @@ parenthesis('}').
 /**
 	Token is a token as produced by the lexer.
 */
-token_position(Token,File,LN,CN) :- Token =.. [_TokenType,_TokenInstance,pos(File,LN,CN)],!.
-token_position(Token,File,LN,CN) :- Token =.. [_Parenthesis,pos(File,LN,CN)],!.
-token_position(Token,_File,_LN,_CN) :- throw(internal_error('unsupported token type',Token)).
+token_position(Token,File,LN,CN) :- 
+	Token =.. [_TokenType,_TokenInstance,pos(File,LN,CN)],!.
+token_position(Token,File,LN,CN) :- 
+	Token =.. [_Parenthesis,pos(File,LN,CN)],!.
+token_position(Token,_File,_LN,_CN) :- 
+	throw(internal_error('unsupported token type',Token)).
 
 
 

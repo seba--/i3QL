@@ -629,7 +629,7 @@ translate_goal(
 		PrimitiveGoal,_Clause,_Predicate,
 		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
 	) :-
-	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
+	compound_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
 	(	is_variable(LASTNode), 
 		\+ is_variable(RASTNode),
 		VarASTNode = LASTNode,
@@ -687,7 +687,7 @@ translate_goal(
 		PrimitiveGoal,_Clause,_Predicate,
 		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
 	) :-
-	complex_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
+	compound_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	% call-case
@@ -746,7 +746,7 @@ translate_goal(
 		PrimitiveGoal,_Clause,_Predicate,
 		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
 	) :-
-	complex_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
+	compound_term(PrimitiveGoal,Operator,[LASTNode,RASTNode]),
 	is_arithmetic_comparison_operator(Operator),
 	!,
 	term_meta(PrimitiveGoal,Meta),% REFACTOR Meta -> PrimitiveGoalMeta
@@ -784,7 +784,7 @@ translate_goal(
 	) :-
 	% implements the case that the result of "is" is assigned to a new variable..
 	% IMPROVE If the left side of "is" is an int_value or a variable(containing) an int_value, we currently just create an instance of the "is" Predicate, which ist grossly inefficient
-	complex_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
+	compound_term(PrimitiveGoal,'is',[LASTNode,RASTNode]),
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 	lookup_in_term_meta(mapped_variable_name(VarId),LASTNode),
@@ -824,7 +824,7 @@ translate_goal(
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
 	SCaseHead = [eol_comment('tail call with last call optimization')|SLSTVs],
-	(	complex_term_args(PrimitiveGoal,Args) ->
+	(	compound_term_args(PrimitiveGoal,Args) ->
 		% IMPROVE Identify those variables that were not yet subject to unification..., because for these variables, we can omit calling "reveal" (which is nice for all variables that just deal with numbers...)
 		lookup_in_meta(variables_used_for_the_first_time(NewVariables),Meta),
 		update_predicate_arguments(NewVariables,0,Args,SUpdatePredArgs,SRecursiveCall,IdsOfArgsThatNeedToBeTemporarilySaved),
@@ -1069,8 +1069,8 @@ replace_ids_of_args_lower_than(_Id,clv(CLVId),NewTermConstructor,_Ids) :-
 	NewTermConstructor = reveal(clv(CLVId)).	
 replace_ids_of_args_lower_than(
 		Id,
-		complex_term(Functor,ArgsConstructors),
-		complex_term(Functor,NewArgsConstructors),
+		compound_term(Functor,ArgsConstructors),
+		compound_term(Functor,NewArgsConstructors),
 		Ids
 	) :- !,
 	replace_ids_of_args_of_list_lower_than(Id,ArgsConstructors,NewArgsConstructors,Ids).
@@ -1173,7 +1173,7 @@ unfold_unification(
 			)
 		]
 	;
-		TermNodeTermConstructor = complex_term(FunctorConstructor,ArgsConstructors),!,
+		TermNodeTermConstructor = compound_term(FunctorConstructor,ArgsConstructors),!,
 		FunctorConstructor = string_atom(StringValue),
 		create_term_for_cacheable_string_atom(
 				StringValue,
@@ -1313,7 +1313,7 @@ term_constructor_variables(float_value(_),SRest,SRest) :- !.
 term_constructor_variables(string_atom(_),SRest,SRest) :- !.
 term_constructor_variables(pre_created_term(_),SRest,SRest) :- !.
 term_constructor_variables(anonymous_variable,SRest,SRest) :- !.
-term_constructor_variables(complex_term(_,Args),SMappedVariables,SRest) :- !,
+term_constructor_variables(compound_term(_,Args),SMappedVariables,SRest) :- !,
 	term_constructors_variables(Args,SMappedVariables,SRest).
 term_constructor_variables(Variable,[Variable|SRest],SRest) :- !.
 
@@ -1339,8 +1339,8 @@ replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
 	TermConstructor = pre_created_term(_),!.
 replace_vars_in_term_constructor(TermConstructor,_FTUVars,_,TermConstructor) :-
 	TermConstructor = anonymous_variable,!.	
-replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,complex_term(Functor,NewArgs)) :-
-	TermConstructor = complex_term(Functor,Args),!,
+replace_vars_in_term_constructor(TermConstructor,FTUVars,Goal,compound_term(Functor,NewArgs)) :-
+	TermConstructor = compound_term(Functor,Args),!,
 	replace_vars_in_term_constructors(Args,FTUVars,Goal,NewArgs).
 replace_vars_in_term_constructor(Var,FTUVars,Goal,NewVar) :-
 	memberchk_ol(Var,FTUVars),!,
@@ -1393,27 +1393,27 @@ create_term(ASTNode,cache,TermConstructor,VarIds,VarIds,DeferredActions) :-
 create_term(
 		ASTNode,
 		do_not_cache,
-		complex_term(string_atom(Functor),ArgsConstructors),
+		compound_term(string_atom(Functor),ArgsConstructors),
 		OldVarIds,NewVarIds,
 		DeferredActions
 	) :-
-	complex_term(ASTNode,Functor,Args),
+	compound_term(ASTNode,Functor,Args),
 	create_terms(Args,do_not_cache,ArgsConstructors,OldVarIds,NewVarIds,DeferredActions),!.
 create_term(
 		ASTNode,
 		do_not_cache_root,
-		complex_term(string_atom(Functor),ArgsConstructors),
+		compound_term(string_atom(Functor),ArgsConstructors),
 		OldVarIds,NewVarIds,
 		DeferredActions) :-
-	complex_term(ASTNode,Functor,Args),
+	compound_term(ASTNode,Functor,Args),
 	create_terms(Args,cache,ArgsConstructors,OldVarIds,NewVarIds,DeferredActions),!.
 create_term(ASTNode,cache,TermConstructor,OldVarIds,NewVarIds,DeferredActions) :-
-	complex_term(ASTNode,Functor,Args),
+	compound_term(ASTNode,Functor,Args),
 	create_term_for_cacheable_string_atom(
 		Functor,
 		FunctorConstructor,
 		DeferredActions),
-	TC = complex_term(FunctorConstructor,ArgsConstructors),
+	TC = compound_term(FunctorConstructor,ArgsConstructors),
 	(	is_ground_term(ASTNode) ->
 		create_terms(
 			Args,
@@ -1502,7 +1502,7 @@ goal_redo_case_id(GoalNumber,RedoCaseId) :- RedoCaseId is GoalNumber * 2 + 1.
 	@signature primitive_goals_list(ASTNode,SGoals_HeadOfListOfASTNodes,SRest_TailOfThePreviousList)
 */
 primitive_goals_list(ASTNode,SGoal,SRest) :- 
-	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	compound_term(ASTNode,Functor,[LASTNode,RASTNode]),
 	(	
 		Functor = ',' 
 	; 
@@ -1522,7 +1522,7 @@ primitive_goals_list(ASTNode,[ASTNode|SRest],SRest).
 	Typical usage: <code>number_primitive_goals(ASTNode,0,L)</code>
 */
 number_primitive_goals(ASTNode,First,Last) :-
-	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	compound_term(ASTNode,Functor,[LASTNode,RASTNode]),
 	(	
 		Functor = ','
 	; 
@@ -1549,7 +1549,7 @@ number_primitive_goals(ASTNode,First,Last) :-
 	Prerequisite: all primitive goals must be numbered.<br />
 */
 set_primitive_goals_successors(DeferredActions,ASTNode) :-
-	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,',',[LASTNode,RASTNode]),!,
 	first_primitive_goal(RASTNode,FR),
 	last_primitive_goals_if_true(LASTNode,LeftLPGTs,[]),
 	last_primitive_goal_if_false(RASTNode,RightLPGF),
@@ -1558,7 +1558,7 @@ set_primitive_goals_successors(DeferredActions,ASTNode) :-
 	set_primitive_goals_successors(DeferredActions,LASTNode),
 	set_primitive_goals_successors(DeferredActions,RASTNode).
 set_primitive_goals_successors(DeferredActions,ASTNode) :-
-	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,';',[LASTNode,RASTNode]),!,
 	first_primitive_goal(RASTNode,FR),
 	first_primitive_goal(LASTNode,FL),
 	set_successors(DeferredActions,[FL],fails(call),[FR]),

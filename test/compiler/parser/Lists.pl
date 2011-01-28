@@ -67,7 +67,7 @@ test(
 
 
 test(
-	list_with_a_complex_term_as_a_tail,
+	list_with_a_compound_term_as_a_tail,
 	[	
 		true(P=[
 			ct([pos([], 1, 0)|_], ., [

@@ -48,7 +48,7 @@
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler',[phase/3,compile/2]).
+:- module(sae_compiler,[compile/2]).
 
 :- use_module('phase/PLLoad.pl',[pl_load/4]).
 :- use_module('phase/PLCheck.pl',[pl_check/4]).

@@ -35,7 +35,7 @@
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:Debug',
+	sae_debug,
 	[
 		debug_message/3,
 		

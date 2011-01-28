@@ -33,11 +33,12 @@
 
 
 /**
-	Traverses the generated SAE-OOAST and generates the corresponding Java code.
+	Traverses the AST of the object-oriented program and generates the 
+	corresponding Java code.
 
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:OOtoJava',[oo_to_java/4]).
+:- module(sae_oo_to_java,[oo_to_java/4]).
 
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
@@ -305,7 +306,7 @@ write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
 write_type(Stream,type(term)) :- !,write(Stream,'Term').
 write_type(Stream,type(state)) :- !,write(Stream,'State').
 write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
-write_type(Stream,type(complex_term)) :- !,write(Stream,'CompoundTerm').
+write_type(Stream,type(compound_term)) :- !,write(Stream,'CompoundTerm').
 write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
 write_type(Stream,type(atomic(int_value))) :- !,write(Stream,'IntValue').
 write_type(Stream,type(atomic(float_value))) :- !,write(Stream,'FloatValue').
@@ -575,14 +576,14 @@ write_expr(Stream,local_variable_ref(Identifier)):- !,
 write_expr(Stream,static_predicate_call(string_atom(Functor))):- !,
 	map_functor_to_class_name(Functor/0,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,'0()').
-write_expr(Stream,static_predicate_call(complex_term(string_atom(Functor),ArgsExpressions))):- !,
+write_expr(Stream,static_predicate_call(compound_term(string_atom(Functor),ArgsExpressions))):- !,
 	length(ArgsExpressions,ArgsCount),
 	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
 	length(ArgsExpressions,Arity),
 	map_functor_to_class_name(Functor/Arity,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,ArgsCount),write(Stream,'('),
 	write_expr(Stream,FirstArgExpression),
-	write_complex_term_args(Stream,MoreArgsExpressions),
+	write_compound_term_args(Stream,MoreArgsExpressions),
 	write(Stream,')').
 write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
@@ -677,28 +678,28 @@ write_expr(Stream,string_atom('[]')) :- !,write(Stream,'EMPTY_LIST').
 write_expr(Stream,string_atom('.')) :- !,write(Stream,'LIST').	
 write_expr(Stream,string_atom(Value)) :- !,
 	write(Stream,'StringAtom.get("'),write(Stream,Value),write(Stream,'")').
-write_expr(Stream,complex_term(string_atom(','),[LT,RT])) :- !,
+write_expr(Stream,compound_term(string_atom(','),[LT,RT])) :- !,
 	write(Stream,'and('),
 	write_expr(Stream,LT),
 	write(Stream,','),
 	write_expr(Stream,RT),
 	write(Stream,')').
-write_expr(Stream,complex_term(string_atom(';'),[LT,RT])) :- !,
+write_expr(Stream,compound_term(string_atom(';'),[LT,RT])) :- !,
 	write(Stream,'or('),
 	write_expr(Stream,LT),
 	write(Stream,','),
 	write_expr(Stream,RT),
 	write(Stream,')').
-write_expr(Stream,complex_term(string_atom('.'),[LT,RT])) :- !,
+write_expr(Stream,compound_term(string_atom('.'),[LT,RT])) :- !,
 	write(Stream,'list('),
 	write_expr(Stream,LT),
 	write(Stream,','),
 	write_expr(Stream,RT),
 	write(Stream,')').		
-write_expr(Stream,complex_term(Functor,Args)) :- !,
+write_expr(Stream,compound_term(Functor,Args)) :- !,
 	write(Stream,'compoundTerm('),
 	write_expr(Stream,Functor),
-	write_complex_term_args(Stream,Args),
+	write_compound_term_args(Stream,Args),
 	write(Stream,')').	
 write_expr(_Stream,Expr) :- % the last case... 
 	throw(internal_error(write_expr/2,['unknown expression ',Expr])).
@@ -707,11 +708,11 @@ write_expr(_Stream,Expr) :- % the last case...
 
 
 % TODO rename to "write_expr_list_1_to_n"
-write_complex_term_args(_Stream,[]).
-write_complex_term_args(Stream,[Arg|Args]) :-
+write_compound_term_args(_Stream,[]).
+write_compound_term_args(Stream,[Arg|Args]) :-
 	write(Stream,', '),
 	write_expr(Stream,Arg),
-	write_complex_term_args(Stream,Args).
+	write_compound_term_args(Stream,Args).
 
 
 
@@ -725,13 +726,13 @@ write_arith_term(Stream,local_variable_ref(Id)) :- !, % TODO remove...
 	write_expr(Stream,local_variable_ref(Id)),write(Stream,'.intEval() ').
 write_arith_term(Stream,field_ref(Receiver,Id)) :- !, % TODO remove... as soon as we always accept "PCT", arg() and clv() statements...
 	write_expr(Stream,field_ref(Receiver,Id)),write(Stream,'.intEval() ').
-write_arith_term(Stream,complex_term(string_atom('-'),[ArithTerm])) :- !,
+write_arith_term(Stream,compound_term(string_atom('-'),[ArithTerm])) :- !,
 	map_arith_prolog_operator_to_java_operator('-',JavaOperator),
 	write(Stream,JavaOperator),
 	write(Stream,'('),
 	write_arith_term(Stream,ArithTerm),
 	write(Stream,')').
-write_arith_term(Stream,complex_term(string_atom(Op),[LArithTerm,RArithTerm])) :- !,
+write_arith_term(Stream,compound_term(string_atom(Op),[LArithTerm,RArithTerm])) :- !,
 	map_arith_prolog_operator_to_java_operator(Op,JavaOperator),
 	write(Stream,'('),
 	write_arith_term(Stream,LArithTerm),
@@ -749,7 +750,7 @@ write_arith_term(_Stream,X) :-
  *                                                                            *
 \* ************************************************************************** */
 type_of_term_expression(string_atom(_),'StringAtom') :- !.
-type_of_term_expression(complex_term(_,_),'CompoundTerm') :- !.
+type_of_term_expression(compound_term(_,_),'CompoundTerm') :- !.
 type_of_term_expression(int_value(_),'IntValue') :-!.
 type_of_term_expression(float_value(_),'FloatValue') :-!.
 type_of_term_expression(variable,'Variable') :-!.

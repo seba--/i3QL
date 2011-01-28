@@ -41,7 +41,7 @@
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:Predef',
+	sae_predef,
 	[	add_predefined_predicates_to_ast/2,
 	
 		default_op_table/1,

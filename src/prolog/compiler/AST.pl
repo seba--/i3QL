@@ -76,7 +76,7 @@
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:AST',
+	sae_ast,
 	[	
 		empty_ast/1,
 		variable/2,
@@ -90,12 +90,12 @@
 		float_atom/3,
 		string_atom/2,
 		string_atom/3,
-		complex_term/3,		
-		complex_term/4,
-		complex_term/5,
-		complex_term_args/2,
-		complex_term_functor/2,	
-		complex_term_identifier/2,	
+		compound_term/3,		
+		compound_term/4,
+		compound_term/5,
+		compound_term_args/2,
+		compound_term_functor/2,	
+		compound_term_identifier/2,	
 		directive_goal/2,
 		rule/4,
 		rule_head/2,
@@ -458,7 +458,7 @@ predicate_identifier(pred(ID,_Clauses,_Properties),ID).
 
 /**
 	Succeeds if the given ASTNode represents a directive.<br /> 
-	(A directive is a complex term, with the functor 
+	(A directive is a compound term, with the functor 
 	":-" and exactly one argument.)
 	<p>
 	A directive is never a rule(/fact) and vice versa.
@@ -475,7 +475,7 @@ is_directive(ct(_Meta,':-',[_Directive])) :- true.
 	<code><pre>
 	:- use_module('Utils.pl').
 	</pre></code>
-	then Goal is the AST node that represents the complex term 
+	then Goal is the AST node that represents the compound term 
 	<code>use_module</code>.
 	<p>
 	This predicate can either be used to extract a directive's goal or
@@ -780,59 +780,59 @@ string_atom(Value,Pos,a([Pos|_],Value)).
 
 
 /**
-	(De)constructs an AST node that represents the definition of a complex term.<br/>
+	(De)constructs an AST node that represents the definition of a compound term.<br/>
 	If this predicate is used to construct an AST node, the node will not be
 	associated with any meta information.
 	
-	@signature complex_term(ComplexTerm_ASTNode,Functor,Args)
-	@arg ComplexTerm_ASTNode
-	@arg Functor A string atom representing the complex term's functor.
-	@arg Args the arguments of a complex term. Each argument is an AST node.
+	@signature compound_term(CompoundTerm_ASTNode,Functor,Args)
+	@arg CompoundTerm_ASTNode
+	@arg Functor A string atom representing the compound term's functor.
+	@arg Args the arguments of a compound term. Each argument is an AST node.
 */
-complex_term(ct(_Meta,Functor,Args),Functor,Args).
+compound_term(ct(_Meta,Functor,Args),Functor,Args).
 
 
 
 /**
-	Constructs a new complex term.
+	Constructs a new compound term.
 	
-	@signature complex_term(Functor,Args,Pos,ASTNode)
-	@arg Args are the arguments of a complex term. They are AST nodes.
+	@signature compound_term(Functor,Args,Pos,ASTNode)
+	@arg Args are the arguments of a compound term. They are AST nodes.
 */
-complex_term(Functor,Args,Pos,ct([Pos|_],Functor,Args)).
+compound_term(Functor,Args,Pos,ct([Pos|_],Functor,Args)).
 
 
 
 /**
-	Constructs a new complex term.
+	Constructs a new compound term.
 	
-	@signature complex_term(Functor,Args,Pos,OperatorTable,ASTNode)
-	@arg Args are the arguments of a complex term. They are AST nodes.
+	@signature compound_term(Functor,Args,Pos,OperatorTable,ASTNode)
+	@arg Args are the arguments of a compound term. They are AST nodes.
 */
-complex_term(Functor,Args,Pos,OperatorTable,ct([Pos,OperatorTable|_],Functor,Args)).
+compound_term(Functor,Args,Pos,OperatorTable,ct([Pos,OperatorTable|_],Functor,Args)).
 
 
 
 /**
-	@signature complex_term_args(ComplexTerm_ASTNode,Args)
-	@arg(in) ComplexTerm_ASTNode is an AST node that represents a complex term.
-	@arg(out) Args are the arguments of a complex term. They are AST nodes.
+	@signature compound_term_args(CompoundTerm_ASTNode,Args)
+	@arg(in) CompoundTerm_ASTNode is an AST node that represents a compound term.
+	@arg(out) Args are the arguments of a compound term. They are AST nodes.
 */
-complex_term_args(ct(_Meta,_Functor,Args),Args).
+compound_term_args(ct(_Meta,_Functor,Args),Args).
 
 
 
 /**
-	@signature complex_term_functor(ComplexTerm_ASTNode,Functor)
+	@signature compound_term_functor(CompoundTerm_ASTNode,Functor)
 */
-complex_term_functor(ct(_Meta,Functor,_Args),Functor).
+compound_term_functor(ct(_Meta,Functor,_Args),Functor).
 
 
 
 /**
-	@signature complex_term_identifier(ComplexTerm_ASTNode,Functor/Arity)
+	@signature compound_term_identifier(CompoundTerm_ASTNode,Functor/Arity)
 */
-complex_term_identifier(ct(_Meta,Functor,Args),Functor/Arity) :-
+compound_term_identifier(ct(_Meta,Functor,Args),Functor/Arity) :-
 	length(Args,Arity).
 
 
@@ -901,7 +901,7 @@ term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
 	@arg(out) File 
 	@arg(out) LN
 	@arg(out) CN 	 
-*/ % TODO deep documentation: make sure that the in annotation is enforced (=.. requires AST to be a complex term or an atom)
+*/ % TODO deep documentation: make sure that the in annotation is enforced (=.. requires AST to be a compound term or an atom)
 term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
 
 

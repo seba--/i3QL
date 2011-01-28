@@ -72,7 +72,7 @@ test(emptyFormatter) :- do_formatting('EmptyTest.pl','EmptyTest_formatted.pl',[]
 
 test(whitespaces_surrounding_operators) :- do_formatting('OperatorsWhitespace.pl','OperatorsWhitespace_formatted.pl',[]),!.
 
-test(whitespace_in_complex_terms) :- do_formatting('Whitespace_in_complex_terms.pl','Whitespace_in_complex_terms_formatted.pl',[]),!.
+test(whitespace_in_compound_terms) :- do_formatting('Whitespace_in_compound_terms.pl','Whitespace_in_compound_terms_formatted.pl',[]),!.
 
 test(lists) :- do_formatting('Lists.pl','Lists_formatted.pl',[]),!.
 

@@ -38,7 +38,7 @@
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:Analyses',
+	sae_analyses,
 	[	first_primitive_goal/2,
 		last_primitive_goals_if_true/3,
 		last_primitive_goal_if_false/2,
@@ -63,7 +63,7 @@
 	@signature first_primitive_goal(ASTNode,FirstGoal_ASTNode)
 */	
 first_primitive_goal(ASTNode,FirstGoal) :-
-	complex_term(ASTNode,Functor,[LASTNode,_RASTNode]),
+	compound_term(ASTNode,Functor,[LASTNode,_RASTNode]),
 	(	
 		Functor = ','
 	; 
@@ -83,7 +83,7 @@ last_primitive_goals_if_true(ASTNode,SGoals) :-
 	last_primitive_goals_if_true(ASTNode,SGoals,[]).
 
 last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
-	complex_term(ASTNode,Functor,[_LASTNode,RASTNode]),
+	compound_term(ASTNode,Functor,[_LASTNode,RASTNode]),
 	(
 		Functor = ','
 	;
@@ -94,7 +94,7 @@ last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
 	!,
 	last_primitive_goals_if_true(RASTNode,SGoals,SRest).
 last_primitive_goals_if_true(ASTNode,SGoals,SRest) :-
-	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,';',[LASTNode,RASTNode]),!,
 	last_primitive_goals_if_true(LASTNode,SGoals,SFurtherGoals),
 	last_primitive_goals_if_true(RASTNode,SFurtherGoals,SRest).	
 last_primitive_goals_if_true(ASTNode,[ASTNode|SRest],SRest).
@@ -102,7 +102,7 @@ last_primitive_goals_if_true(ASTNode,[ASTNode|SRest],SRest).
 
 
 last_primitive_goal_if_false(ASTNode,LastGoal) :-
-	complex_term(ASTNode,Functor,[LASTNode,RASTNode]),
+	compound_term(ASTNode,Functor,[LASTNode,RASTNode]),
 	(	
 		Functor = ',',
 		last_primitive_goal_if_false(LASTNode,LastGoal)
@@ -121,31 +121,31 @@ number_of_solutions_of_goal(Program,ASTNode,Solutions,DidCut) :-
 	number_of_solutions_of_goal(Program,none,ASTNode,Solutions,DidCut).
 
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
-	complex_term(ASTNode,',',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,',',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
 	
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
-	complex_term(ASTNode,';',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,';',[LASTNode,RASTNode]),!,
 	(
-		complex_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
+		compound_term(LASTNode,'->',[_IFASTNode,ThenASTNode]),!,
 		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,ThenASTNode,RASTNode,Solutions)
 	;
-		% the case: "complex_term(LASTNode,'*->',[IFASTNode,ThenASTNode]),!," 
+		% the case: "compound_term(LASTNode,'*->',[IFASTNode,ThenASTNode]),!," 
 		% is appropriately handled by disjunction_of_number_of_solutions_of_goals...
 		disjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions)
 	).
 		
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,[0,UB],_DidCut) :-
-	complex_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
+	compound_term(ASTNode,'->',[_LASTNode,RASTNode]),!,
 	number_of_solutions_of_goal(Program,PredicateAssumption,RASTNode,[_LB,UB],_).
 	
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,_DidCut) :-
-	complex_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
+	compound_term(ASTNode,'*->',[LASTNode,RASTNode]),!,
 	conjunction_of_number_of_solutions_of_goals(Program,PredicateAssumption,LASTNode,RASTNode,Solutions).
 
 number_of_solutions_of_goal(Program,PredicateAssumption,ASTNode,Solutions,DidCut) :-
 	(
-		complex_term_identifier(ASTNode,Functor/Arity),!
+		compound_term_identifier(ASTNode,Functor/Arity),!
 	;
 		string_atom(ASTNode,Functor),Arity = 0
 	),

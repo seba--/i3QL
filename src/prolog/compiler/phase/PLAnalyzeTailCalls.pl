@@ -43,7 +43,7 @@
 	@author Michael Eichberg
 */
 :- module(
-	'SAEProlog:Compiler:Phase:Analysis:TailCalls',
+	sae_analyze_tail_calls,
 	[pl_analyze_tail_calls/4]
 ).
 
@@ -201,8 +201,8 @@ check_clause_for_tail_recursion(
 		% x(...) :- a,!,x(...);b,x(...). 
 		% [this is the way to go for a more decent analysis:] 
 		% last_primitive_goals_if_true(BodyASTNode,[LastGoal],[]),...
-		complex_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
-		complex_term_identifier(LastGoal,Functor/Arity),% ... we have found a recursive call
+		compound_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
+		compound_term_identifier(LastGoal,Functor/Arity),% ... we have found a recursive call
 		HasTailCalls = true, %... this result is reported 
 		!,
 		(
@@ -243,8 +243,8 @@ check_predicate_for_tail_recursion(
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
 	(
-		complex_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
-		complex_term_identifier(LastGoal,Functor/Arity),
+		compound_term(BodyASTNode,',',[PreviousGoal,LastGoal]),
+		compound_term_identifier(LastGoal,Functor/Arity),
 		( lookup_in_clause_meta(cut(always),Clause) ; RelativePosition == last ),
 		number_of_solutions_of_goal(
 			Program,
@@ -267,8 +267,8 @@ check_predicate_for_tail_recursion(
 add_information_that_last_call_optimization_is_possible_for_tail_calls_with(PredicateIdentifier,Clause) :-
 	clause_implementation(Clause,Implementation),
 	rule_body(Implementation,BodyASTNode),
-	complex_term(BodyASTNode,',',[_PreviousGoal,LastGoal]),
-	complex_term_identifier(LastGoal,PredicateIdentifier),
+	compound_term(BodyASTNode,',',[_PreviousGoal,LastGoal]),
+	compound_term_identifier(LastGoal,PredicateIdentifier),
 	!,
 	add_to_clause_meta(last_call_optimization_is_possible,Clause),
 	add_to_term_meta(last_call_optimization_is_possible,LastGoal).

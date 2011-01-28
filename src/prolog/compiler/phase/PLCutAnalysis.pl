@@ -52,10 +52,9 @@
 
 pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
-		DebugConfig,
-		on_entry,
-		write('\n[Debug] Phase: Analyze Cuts_________________________________________________\n')
-	),
+			DebugConfig,
+			on_entry,
+			write('\n[Debug] Phase: Analyze Cuts_________________________________________________\n')),
 	
 	foreach_user_predicate(Program,process_predicate(DebugConfig)).
 
@@ -64,14 +63,17 @@ pl_cut_analysis(DebugConfig,Program,_OutputFolder,Program) :-
 process_predicate(DebugConfig,Predicate) :-
 	% logging...
 	predicate_identifier(Predicate,Functor/Arity),
-	debug_message(DebugConfig,processing_predicate,write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
+	debug_message(
+			DebugConfig,
+			processing_predicate,
+			write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	
 	% implementation...
 	predicate_clauses(Predicate,Clauses),
 	foreach_clause(
-		Clauses,
-		analyze_cut,
-		CutBehaviors),
+			Clauses,
+			analyze_cut,
+			CutBehaviors),
 	(	uses_cut(CutBehaviors) ->
 		add_to_predicate_meta(uses_cut(yes),Predicate)
 	;
@@ -83,7 +85,10 @@ process_predicate(DebugConfig,Predicate) :-
 		Predicate),
 		
 	% logging...
-	debug_message(DebugConfig,memberchk(results),write_atomic_list(['[Debug] Deterministic clause selection: ',Functor,'/',Arity,' - ',DeterministicClauseSelection,'\n'])).
+	debug_message(
+			DebugConfig,
+			memberchk(results),
+			write_atomic_list(['[Debug] Deterministic clause selection: ',Functor,'/',Arity,' - ',DeterministicClauseSelection,'\n'])).
 
 
 

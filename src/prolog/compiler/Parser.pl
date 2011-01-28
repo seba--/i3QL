@@ -41,13 +41,13 @@
 	<ul>
 	<li> "\+ (a,b)" and "\+(a,b)" are different statements; the first term
 	is equivalent to "'\+'(','(a,b))" and the second statemet is just a 
-	complex term with the functor "\+" and two arguments "a" and "b".</li>
+	compound term with the functor "\+" and two arguments "a" and "b".</li>
 	<li> "V=(a,b)" is equivalent to: "'='(V,(a,b))" ("'='(V,','(a,b))")</li>
 	</ul><br />
-	Furthermore, the priority of a complex term is always determined by the priority 
-	of the complex term's operator, if the complex term is defined using the operator notation. E.g.,
+	Furthermore, the priority of a compound term is always determined by the priority 
+	of the compound term's operator, if the compound term is defined using the operator notation. E.g.,
 	the priority of the term <code>a,b</code> is 1000; however, the priority
-	of the complex term ','(a,b) is 0 (the priority of all elementary terms.)<br />
+	of the compound term ','(a,b) is 0 (the priority of all elementary terms.)<br />
 	<br />
 	<i>Grammar</i>
 	<code><pre>
@@ -59,11 +59,11 @@
 	term ::= elementary_term
 
 	elementary_term ::= 
-		string_atom | float_atom | integer_atom | 
+		string_atom | float_value | integer_value | 
 		variable | 
-		complex_term |
+		compound_term |
 		list | nested_term | dcg_expr
-	complex_term ::= functor'(' term{Priority&lt;1000} (',' term{Priority&lt;1000})* ')'	% NOTE no whitespace is allowed between the functor and the opening bracket 
+	compound_term ::= functor'(' term{Priority&lt;1000} (',' term{Priority&lt;1000})* ')'	% NOTE no whitespace is allowed between the functor and the opening bracket 
 	list ::= '[' list_elems? ']'
 	list_elems ::= term{Priority&lt;1000} (',' term{Priority&lt;1000})*  ('|' term{Priority&lt;1000})? 
 	nested_term ::= '(' term{Priority&lt;=1200} ')'
@@ -75,8 +75,8 @@
 		string_atom | 
 		functor % EXAMPLE "V=(A,B)"; here "=" is indeed an infix operator in functor postion
 
-	integer_atom ::= &lt;an integer value&gt;
-	float_atom ::= &lt;a floating point value&gt;
+	integer_value ::= &lt;an integer value&gt;
+	float_value ::= &lt;a floating point value&gt;
 	functor ::= &lt;a string atom in functor position&gt;
 	string_atom ::= &lt;either a sequence of characters enclosed in "'"'s, an 
 			operator (sequence) or a "plain" name starting with a lower-case 
@@ -87,21 +87,36 @@
    
    @author Michael Eichberg (mail@michael-eichberg.de)	
 */
-:- module(
-   	'SAEProlog:Compiler:Parser',
-   	[
-      	clauses/2
-   	]
-	).
+:- module(sae_parser,[clauses/2]).
 
-:- use_module('AST.pl').
+:- use_module(
+		'AST.pl',
+		[
+			%construction
+			anonymous_variable/3,
+			variable/3,
+			compound_term/5,
+			string_atom/3,
+			integer_atom/3,
+			float_atom/3,
+			
+			% extraction
+			rule_head/2,
+			
+			% testing
+			is_anonymous_variable/1,
+			is_variable/1,
+			is_directive/1,
+			is_numeric_atom/1
+		]
+	).
 :- use_module('Lexer.pl',[token_position/4]).
 :- use_module('Predef.pl',[default_op_table/1]).
 
 
 
 /**
-   Parses a list of tokens (<code>Ts</code>) and identifies all clauses.
+   Parses a list of tokens (<code>Ts</code>) and returns all clauses.
  	The list of clauses encompasses (facts,) rules and directives.
 	
 	@signature program(TS,P)
@@ -110,16 +125,18 @@
 */
 clauses(Ts,Cs) :-
 	default_op_table(Ops),
-	clauses(Ops,Cs,Ts,X), % calls the corresponding DCG rule
+	clauses(Ops,Cs,Ts,X),!, % calls the corresponding DCG rule - we don't want to backtrack!
 	(	
-		X=[],! % the parser succeeded (all tokens were accepted).
+		X=[] % the parser succeeded (all tokens were accepted).
 	;
-		X=[T|_], % the parser failed while parsing the term beginnig with the token T
+		X=[T|_], % the parser failed while parsing the term beginnig with token T 
 		token_position(T,File,LN,CN),
-		atomic_list_concat([File,':',LN,':',CN,': error: syntax error\n'],MSG), % GCC compliant
+		atomic_list_concat(
+				[File,':',LN,':',CN,': error: syntax error\n'],
+				MSG), % GCC compliant
 	   write(MSG),
 		fail 
-	).
+	),!.
 
 
 
@@ -189,12 +206,12 @@ clauses(_Ops,[]) --> {true}.
 
 
 % TODO check that the operator definition is valid 
-% TODO check that no standard SAE Prolog operator is redefined
+% TODO check that no standard (SAE) Prolog operator is redefined
 % TODO support the removal / redefinition of operators
 % TODO check for discontiguous predicate definitions
 process_directive(Ops,Directive,NewOps) :- 
 	directive_goal(Directive,GoalNode),	
-	complex_term(GoalNode,Goal,Args),
+	compound_term(GoalNode,Goal,Args),
 	(
 		(
 			Goal = op,
@@ -272,7 +289,7 @@ validate_clause(Clause) :-
 	rule_head(Clause,Head),
 	( is_variable(Head) ; is_anonymous_variable(Head) ; is_numeric_atom(Head) ),
 	!,
-	parser_error(Clause,['a clause\'s head has to be a complex term or a string atom']),
+	parser_error(Clause,['a clause\'s head has to be a compound term or a string atom']),
 	fail.
 	
 validate_clause(_Clause). % base case, the Clause is considered to be valid
@@ -315,7 +332,7 @@ term(Ops,MaxPriority,Term,TermPriority) -->
 		)
 	}, 
 	term(Ops,MaxSubTermPriority,SubTerm,_SubTermPriority), 
-	{ complex_term(Op,[SubTerm],Pos,Ops,LeftTerm) },
+	{ compound_term(Op,[SubTerm],Pos,Ops,LeftTerm) },
 	term_r(Ops,MaxPriority,LeftTerm,Priority,Term,TermPriority).
 
 /**
@@ -343,7 +360,7 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		;	% (Associativity = xfx; Associativity = yfx),
 			Priority > RightTermPriority
 		),
-		complex_term(Op,[LeftTerm,RightTerm],Pos,Ops,IntermediateTerm)
+		compound_term(Op,[LeftTerm,RightTerm],Pos,Ops,IntermediateTerm)
 	},
 	term_r(Ops,MaxPriority,IntermediateTerm,Priority,Term,TermPriority).
 term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) --> 
@@ -354,7 +371,7 @@ term_r(Ops,MaxPriority,LeftTerm,LeftTermPriority,Term,TermPriority) -->
 		; 	% Associativity = yf 
  			Priority >= LeftTermPriority 
 		),
-		complex_term(Op,[LeftTerm],Pos,Ops,InnerLeftTerm)
+		compound_term(Op,[LeftTerm],Pos,Ops,InnerLeftTerm)
 	},
 	term_r(Ops,MaxPriority,InnerLeftTerm,Priority,Term,TermPriority).
 term_r(_Ops,_MaxPriority,T,TP,T,TP) --> [].
@@ -427,45 +444,45 @@ var(ASTNode) --> [av(V,Pos)],{anonymous_variable(V,Pos,ASTNode)}.
 	?- [a,b,c|d] = .(a,.(b,.(c,d))).
 	true.
 */
-list(Ops,ASTNode) --> ['['(Pos)], list_2(Ops,Pos,ASTNode), {!}.
+list(Ops,ASTNode) --> ['['(Pos)], rest_of_list(Ops,Pos,ASTNode), {!}.
 
 
-list_2(_Ops,Pos,ASTNode) --> [']'(_Pos)], {!,string_atom([],Pos,ASTNode)}.
-list_2(Ops,Pos,ASTNode) --> 
+rest_of_list(_Ops,Pos,ASTNode) --> [']'(_Pos)], {!,string_atom([],Pos,ASTNode)}.
+rest_of_list(Ops,Pos,ASTNode) --> 
 	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es),
-	{!,complex_term('.',[E,Es],Pos,ASTNode)}. % we can commit to the current term (E)
+	more_list_elements(Ops,Es),
+	{!,compound_term('.',[E,Es],Pos,Ops,ASTNode)}. % we can commit to the current term (E)
 
 
-list_elements_2(_Ops,ASTNode) --> [']'(Pos)], {!,string_atom([],Pos,ASTNode)}.	
-list_elements_2(Ops,ASTNode) --> 
+more_list_elements(_Ops,ASTNode) --> [']'(Pos)], {!,string_atom([],Pos,ASTNode)}.	
+more_list_elements(Ops,ASTNode) --> 
 	[a('|',_)], {!},
 	term(Ops,1200,ASTNode,_TermPriority),
 	[']'(_Pos)],
 	{!}. % we can commit to the current term (LE)
-list_elements_2(Ops,ASTNode) --> 
+more_list_elements(Ops,ASTNode) --> 
 	[a(',',Pos)], {!},
 	term(Ops,999,E,_TermPriority),
-	list_elements_2(Ops,Es),
-	{!,complex_term('.',[E,Es],Pos,ASTNode)}. % we can commit to the current term (E)
+	more_list_elements(Ops,Es),
+	{!,compound_term('.',[E,Es],Pos,Ops,ASTNode)}. % we can commit to the current term (E)
 
 
 
 
 /*
-	HANDLING OF COMPOUND/COMPLEX TERMS
+	HANDLING OF COMPOUND TERMS
 */
-compound_term(Ops,ASTNode) --> % TODO use "appropriate" imports to be able to use "complex term" here
+compound_term(Ops,ASTNode) --> 
 	[f(F,Pos)],
 	['('(_)],
-	term(Ops,999,T,_TermPriority), % a complex term has at least one argument
-	arguments_2(Ops,TRs),
-	{!,complex_term(F,[T|TRs],Pos,Ops,ASTNode)}. % we can commit to the current term (T) and the other arguments (TRs)
+	term(Ops,999,T,_TermPriority), % a compound term has at least one argument
+	more_arguments(Ops,TRs),
+	{!,compound_term(F,[T|TRs],Pos,Ops,ASTNode)}. % we can commit to the current term (T) and the other arguments (TRs)
  
 
-arguments_2(_Ops,[]) --> [')'(_)],{!}.
-arguments_2(Ops,[T|TRs]) --> 
+more_arguments(_Ops,[]) --> [')'(_)],{!}.
+more_arguments(Ops,[T|TRs]) --> 
 	[a(',',_Pos)],
 	term(Ops,999,T,_TermPriority), 
-	arguments_2(Ops,TRs),{!}. % we can commit to the term (T) and the arguments (TRs)
+	more_arguments(Ops,TRs),{!}. % we can commit to the term (T) and the arguments (TRs)
 	

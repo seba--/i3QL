@@ -36,7 +36,7 @@
 	
 	@author Michael Eichberg
 */
-:- module('SAEProlog:Compiler:Phase:PLCheck',[pl_check/4]).
+:- module(sae_check_sae_program,[pl_check/4]).
 
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
@@ -44,7 +44,10 @@
 
 
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
-	debug_message(DebugConfig,on_entry,write('\n[Debug] Phase: Check Program________________________________________________\n')),
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write('\n[Debug] Phase: Check Program________________________________________________\n')),
 	check_predicates(Program,State),
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.

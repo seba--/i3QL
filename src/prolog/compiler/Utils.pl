@@ -37,15 +37,18 @@
 	
 	@author Michael Eichberg
 */
-:- module('Utils',
+:- module(utils,
 	[	max/3,
 		memberchk_dl/2,
 		replace_first_dl/4,
-		lookup/3,
 		replace/4,
 		replace_char/4,
 		replace_char_with_string/4,
 		not_empty/1,
+
+		lookup/3,
+		dictionary_values/2,
+		dictionary_identity_lookup_key/3,
 
 		append_ol/2,
 		memberchk_ol/2,
@@ -53,6 +56,7 @@
 		add_to_set_ol/2,
 		add_to_set_ol_identity/2,
 		member_ol/2,
+		manifest_ol/2,
 		
 		redirect_stdout_to_null/1,
 		reset_stdout_redirect/1,
@@ -64,6 +68,7 @@
 		
 		empty_set/1,
 		add_to_set/3,
+		add_to_set/4,
 		remove_from_set/3,
 		merge_sets/3,
 		intersect_sets/3,
@@ -198,6 +203,18 @@ replace_first_dl([SomeE|OldDLR]-OldDLZ,OldE,NewE,[SomeE|NewDLR]-NewDLZ) :-
 */
 lookup(Key,[(Key,Value)|_Dict],Value).
 lookup(Key,[(Key1,_)|Dict],Value) :- Key \= Key1, lookup(Key,Dict,Value).
+
+
+
+dictionary_values(Dict,[]) :- var(Dict),!.
+dictionary_values([(_Key,Value)|Rest],[Value|Values]) :-
+	dictionary_values(Rest,Values).
+
+
+dictionary_identity_lookup_key(_Value,Dict,_Key) :- var(Dict),!,fail.
+dictionary_identity_lookup_key(Value,[(Key,StoredValue)|_Dict],Key) :- Value == StoredValue.
+dictionary_identity_lookup_key(Value,[_Entry|Dict],Key) :- dictionary_identity_lookup_key(Value,Dict,Key).
+	
 
 
 
@@ -360,6 +377,10 @@ member_ol(E,[_|RestOL]) :- member_ol(E,RestOL).
 
 
 
+manifest_ol(E,[]) :- var(E),!.
+manifest_ol([E|Es],[E|NewEs]) :- manifest_ol(Es,NewEs).
+
+
 
 /**
 	Redirects the standard out stream to null. The null stream can be queried 
@@ -419,7 +440,7 @@ call_foreach_i_in_l_to_u(I,X,F,[O|R],T) :-
 	call_foreach_i_in_l_to_u(NewI,X,F,R,T).
 
 
-
+% FIXME Add the type of the datastructure in front of the predicate "list_set"
 /**
 	@signature empty_set(Set)
 */
@@ -433,6 +454,16 @@ empty_set([]).
 add_to_set(X,[],[X]) :- !.
 add_to_set(X,[X|R],[X|R]) :- !.
 add_to_set(X,[Y|R],[Y|NewR]) :- add_to_set(X,R,NewR).
+
+
+
+/**
+	@signature add_to_set(Element,OldSet,NewSet,Contained)
+	@arg Contained <code>true</code> if the element was already in the set.
+*/
+add_to_set(X,[],[X],false) :- !.
+add_to_set(X,[X|R],[X|R],true) :- !.
+add_to_set(X,[Y|R],[Y|NewR],Contained) :- add_to_set(X,R,NewR,Contained).
 
 
 
@@ -479,6 +510,7 @@ write_atomic_list(AtomicList) :-
 
 
 
+% FIXME Call it list_write_elements
 write_atomic_list(_Stream,[]).
 write_atomic_list(Stream,[E|Es]) :-
 	write(Stream,E),
