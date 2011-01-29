@@ -43,9 +43,13 @@ import org.odftoolkit.simple.table.Cell;
 import org.odftoolkit.simple.table.Row;
 import org.odftoolkit.simple.table.Table;
 
+import saere.Goal;
+
 /**
- * A collection of convenience methods to systematically evaluate the performance (gains), we store
- * the results of each run in an spreadsheet to facilitate analyses.
+ * A collection of convenience methods to systematically evaluate the performance (gains) of SAE
+ * Prolog.
+ * 
+ * To keep track of the performance development, we store the results of each run in an spreadsheet.
  * 
  * @author Michael Eichberg
  */
@@ -53,22 +57,40 @@ public class Performance {
 
 	public static void main(String[] args) throws Throwable {
 		if (args.length == 0) {
-			System.err.println("The program that should be measured needs to be specified.");
-			System.exit(1);
+			System.err.println("The program to measure needs to be specified.");
+			System.exit(-1);
 		}
 
-		String className = "harness." + args[0];
-		System.out.print("Loading: " + className);
+		String benchmarkName = "harness." + args[0];
+		System.out.print("Loading: " + benchmarkName);
+		Class<?> benchmarkClass = Class.forName(benchmarkName);
+
 		if (args.length == 1) {
 			System.out.println(".");
-			Method method = Class.forName(className).getMethod("measure", new Class<?>[] {});
-			System.out.println("Starting.");
-			method.invoke(null, new Object[] {});
-			System.out.println("Finished.");
+			Benchmark benchmark = benchmarkClass.getAnnotation(Benchmark.class);
+			if (benchmark != null) {
+				// call the specified goal
+				Goal s = (Goal) Class.forName("predicates."+benchmark.goal()+"0").newInstance();
+				long startTime = System.nanoTime();
+				boolean succeeded = s.next();
+				long duration = System.nanoTime() - startTime;
+				if (succeeded) {
+					Performance.writeToPerformanceLog(benchmarkName, duration);
+				} else {
+					Performance.writeToPerformanceLog(benchmarkName, -1l);
+				}
+			} else {
+				// old method - call the method called "measure"
+				Method method = benchmarkClass.getMethod("measure",
+						new Class<?>[] {});
+				System.out.println("Starting.");
+				method.invoke(null, new Object[] {});
+				System.out.println("Finished.");
+			}
 		} else {
 			String[] prg_args = Arrays.copyOfRange(args, 1, args.length);
 			System.out.println(" " + Arrays.toString(prg_args) + ".");
-			Method method = Class.forName(className).getMethod("measure",
+			Method method = benchmarkClass.getMethod("measure",
 					new Class<?>[] { String[].class });
 			System.out.println("Starting.");
 			method.invoke(null, new Object[] { prg_args });
@@ -76,14 +98,17 @@ public class Performance {
 		}
 	}
 
-	public static void writeToPerformanceLog(String benchmark, long timeInNanoSecs) {
+	public static void writeToPerformanceLog(String benchmark,
+			long timeInNanoSecs) {
 		writeToPerformanceLog(benchmark, 1, timeInNanoSecs);
 	}
 
-	public static void writeToPerformanceLog(String benchmark, int run, long timeInNanoSecs) {
+	public static void writeToPerformanceLog(String benchmark, int run,
+			long timeInNanoSecs) {
 
 		Double time = new Double(timeInNanoSecs / 1000.0 / 1000.0 / 1000.0);
-		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark, Integer.valueOf(run), time);
+		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark,
+				Integer.valueOf(run), time);
 
 		try {
 			SpreadsheetDocument doc;
@@ -104,8 +129,9 @@ public class Performance {
 
 			Cell dateCell = row.getCellByIndex(0);
 			dateCell.setValueType("date");
-			dateCell.setDateValue(new GregorianCalendar(date.get(Calendar.YEAR), date
-					.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)));
+			dateCell.setDateValue(new GregorianCalendar(
+					date.get(Calendar.YEAR), date.get(Calendar.MONTH), date
+							.get(Calendar.DAY_OF_MONTH)));
 			dateCell.setFormatString("yyyy-MM-dd");
 
 			Cell timeCell = row.getCellByIndex(1);
@@ -118,7 +144,8 @@ public class Performance {
 			if (timeInNanoSecs >= 0) {
 
 				Cell performanceCell = row.getCellByIndex(3);
-				Double timeInSecs = new Double(timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
+				Double timeInSecs = new Double(
+						timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
 				performanceCell.setDoubleValue(timeInSecs);
 				performanceCell.setFormatString("0.0000");
 			} else {

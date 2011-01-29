@@ -1,5 +1,5 @@
-/* BENCHMARK HARNESS
-	Usage: 
+/*
+	Example Usage: 
 	?- zebra(Houses).
 */
 
@@ -36,7 +36,6 @@ right_of(A, B, [_ | Y]) :- right_of(A, B, Y).
 next_to(A, B, [A, B | _]).
 next_to(A, B, [B, A | _]).
 next_to(A, B, [_ | Y]) :- next_to(A, B, Y).
-
 
 % ISO Prolog definition of member
 member(X, [X|_]).

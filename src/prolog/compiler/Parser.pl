@@ -102,6 +102,9 @@
 			
 			% extraction
 			rule_head/2,
+			directive_goal/2,
+			compound_term/3,
+			term_pos/4,
 			
 			% testing
 			is_anonymous_variable/1,
@@ -232,7 +235,7 @@ process_directive(Ops,Directive,NewOps) :-
 		!
 	;
 		Ops = NewOps,	
-		parser_error(GoalNode,['the directive: ',Goal,' is unknown and ignored'])
+		parser_error(GoalNode,['the directive \'',Goal,'\' is unknown and ignored'])
 	).
 	
 	

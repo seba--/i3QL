@@ -63,7 +63,7 @@ pl_load(DebugConfig,Files,_OutputFolders,AST) :-
 	debug_message(
 			DebugConfig,
 			on_entry,
-			write('[Debug] Phase: Loading source files___________________________________\n')),
+			write('[Debug] Phase: Loading source files_________________________________________\n')),
 	findall(
 		Clauses,
 		(
@@ -74,12 +74,17 @@ pl_load(DebugConfig,Files,_OutputFolders,AST) :-
 		),
 		ListOfListOfClauses
 	),
-	% iterate over all terms of all ASTs and create a global ast
-	build_ast(ListOfListOfClauses,AST0),
-	add_predefined_predicates_to_ast(AST0,AST),
+	(	ListOfListOfClauses = [] ->
+		write('error: nothing to compile\n'),
+		fail
+	;
+		% iterate over all terms of all ASTs and create a global ast
+		build_ast(ListOfListOfClauses,AST0),
+		add_predefined_predicates_to_ast(AST0,AST),
 	
-	debug_message(DebugConfig,ast(user),write_ast(user,AST)),
-	debug_message(DebugConfig,ast(built_in),write_ast(built_in,AST)).
+		debug_message(DebugConfig,ast(user),write_ast(user,AST)),
+		debug_message(DebugConfig,ast(built_in),write_ast(built_in,AST))
+	).
 
 
 

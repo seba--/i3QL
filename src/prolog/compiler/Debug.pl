@@ -64,7 +64,7 @@
 */
 debug_message(DebugConfiguration,TestGenerateMessageGoal,MessageGoal) :-
 	call(TestGenerateMessageGoal,DebugConfiguration),
-	MessageGoal,
+	call(MessageGoal),
 	!.
 debug_message(_DebugConfiguration,_TestGenerateMessageGoal,_MessageGoal).
 
