@@ -91,28 +91,46 @@ POSSIBILITY OF SUCH DAMAGE.
 
 	  -->
 
-	<target name="init" description="Creates the initial directory structure where the generated/compiled files are stored.">
+	<target name="init" 
+			description="Creates the initial directory structure where the generated/compiled files are stored.">
 		<tstamp />
 		<mkdir dir="${saere.bin.dir}" />
 		<mkdir dir="${saere.doc.dir}" />
 		<mkdir dir="${compiler.doc.dir}" />
 	</target>
 
-	<target name="clean" description="Deletes all artifacts that can be regenerated.">
+	<target name="clean" 
+			description="Deletes all artifacts that can be regenerated.">
 		<delete dir="${build.dir}" />
 	</target>
 
-	<target name="compile-saere" depends="init" description="Compiles SAE Prolog's runtime environment.">
-		<javac debug="yes" includeAntRuntime="false" srcdir="${saere.src.dir}" destdir="${saere.bin.dir}" excludes="saere/database/**" classpathref="project.classpath" source="1.6" />
+	<target	name="compile-saere" 
+			depends="init" 
+			description="Compiles SAE Prolog's runtime environment.">
+		<javac 	debug="yes" 
+				includeAntRuntime="false"
+				srcdir="${saere.src.dir}" 
+				destdir="${saere.bin.dir}"
+				classpathref="project.classpath"
+				source="1.6" />
 	</target>
 
-	<target name="test-saere" depends="compile-saere" description="Tests SAE Prolog's runtime environment.">
+	<target	name="test-saere"
+			depends="compile-saere"
+			description="Tests SAE Prolog's runtime environment.">
 
-		<echo level="verbose" message="Compiling the test suite of SAE Prolog's runtime environment." />
-		<javac debug="yes" includeAntRuntime="false" srcdir="${saere.tests.dir}" destdir="${saere.bin.dir}" excludes="**/database/**" classpathref="project.classpath" source="1.6">
+		<echo 	level="verbose" 
+				message="Compiling the test suite of SAE Prolog's runtime environment." />
+		<javac 	debug="yes" 
+				includeAntRuntime="false" 
+				srcdir="${saere.tests.dir}" 
+				destdir="${saere.bin.dir}" 
+				classpathref="project.classpath" 
+				source="1.6">
 		</javac>
 
-		<echo level="verbose" message="Running the test suite of SAE Prolog's runtime environment." />
+		<echo 	level="verbose" 
+				message="Running the test suite of SAE Prolog's runtime environment." />
 		<junit>
 			<classpath>
 				<path refid="project.classpath" />
@@ -122,23 +140,35 @@ POSSIBILITY OF SUCH DAMAGE.
 		</junit>
 	</target>
 
-	<target name="generate-api-doc" depends="init" description="Generates the API documentation of SAE Prolog's runtime environment.">
-		<javadoc windowtitle="SAE Prolog" classpathref="project.classpath" destdir="${saere.doc.dir}" locale="en_US" encoding="UTF-8" author="yes" doctitle="SAE Prolog - Runtime Environment ${version}">
+	<target	name="generate-api-doc"
+			depends="init"
+			description="Generates the API documentation of SAE Prolog's runtime environment.">
+		<javadoc
+				windowtitle="SAE Prolog"
+				classpathref="project.classpath" 
+				destdir="${saere.doc.dir}"
+				locale="en_US" 
+				encoding="UTF-8"
+				author="yes"
+				doctitle="SAE Prolog - Runtime Environment ${version}">
 
 			<fileset dir="${saere.src.dir}" defaultexcludes="yes">
-				<include name="saere/*.java" />
-				<include name="saere/term/*.java" />
-				<include name="saere/predicate/*.java" />
+				<include name="saere/**/*.java" />
 			</fileset>
 		</javadoc>
 	</target>
 
-	<target name="package" depends="compile-saere,test-saere" description="Packages the SAE.">
+	<target name="package" 
+			depends="compile-saere,test-saere" 
+			description="Packages the SAE.">
 		<delete file="${build.dir}/SAE-${version}.jar" />
-		<jar destfile="${build.dir}/SAE-${version}.jar" basedir="${saere.bin.dir}" />
+		<jar 	destfile="${build.dir}/SAE-${version}.jar"
+				basedir="${saere.bin.dir}" />
 	</target>
 
-	<target name="default" depends="package" description="Compiles and packages the SAE." />
+	<target name="default" 
+			depends="package" 
+			description="Compiles and packages the SAE." />
 
 
 	<!-- 
@@ -191,7 +221,13 @@ POSSIBILITY OF SUCH DAMAGE.
 
 	<macrodef name="compile-java-code-for-program-selected-from-repository">
 		<sequential>
-			<javac debug="yes" verbose="no" includeAntRuntime="false" srcdir="${temp.src.dir}" destdir="${temp.bin.dir}" classpathref="project.classpath" source="1.6">
+			<javac	debug="yes" 
+					verbose="no"
+					includeAntRuntime="false"
+					srcdir="${temp.src.dir}" 
+					destdir="${temp.bin.dir}" 
+					classpathref="project.classpath" 
+					source="1.6">
 				<include name="**/*.java" />
 			</javac>
 		</sequential>
@@ -231,7 +267,9 @@ POSSIBILITY OF SUCH DAMAGE.
 		<attribute name="program" />
 		<attribute name="args" />
 		<sequential>
-			<java fork="true" classname="saere.utils.Performance" classpathref="project.classpath">
+			<java	fork="true"
+					classname="saere.utils.Performance" 
+					classpathref="project.classpath">
 				<arg value="@{program}" />
 				<arg line="@{args}" />
 			</java>
@@ -242,7 +280,9 @@ POSSIBILITY OF SUCH DAMAGE.
 		<attribute name="program" />
 		<sequential>
 			<get-execute-and-verify-results-of-program program="@{program}" />
-			<java fork="true" classname="saere.utils.Performance" classpathref="project.classpath">
+			<java	fork="true"
+					classname="saere.utils.Performance"
+					classpathref="project.classpath">
 				<arg value="@{program}" />
 			</java>
 		</sequential>
@@ -253,19 +293,26 @@ POSSIBILITY OF SUCH DAMAGE.
 		compile/evaluate the program. 
 	-->
 
-	<target name="ask-get-and-compile-program-from-repository" unless="${repository.program}" description='Gets the program from the repository and compiles it.'>
+	<target name="ask-get-and-compile-program-from-repository"
+			unless="${repository.program}" 
+			description='Gets the program from the repository and compiles it.'>
 		<input message="Please enter the name of the program:" addproperty="repository.program" />
 		<get-and-compile-program-from-repository program="${repository.program}" />
 	</target>
-	<target name="get-and-compile-given-program-from-repository" if="${repository.program}" description='Gets the program from the repository and compiles it.'>
+	<target name="get-and-compile-given-program-from-repository"
+			if="${repository.program}" 
+			description='Gets the program from the repository and compiles it.'>
 		<get-and-compile-program-from-repository program="${repository.program}" />
 	</target>
 
-	<target name="get-and-verify-results-of-program" depends="ask-get-and-compile-program-from-repository,get-and-compile-given-program-from-repository" description='Tests that SAE Prolog generates the correct results when running the program.'>
+	<target name="get-and-verify-results-of-program"
+			depends="ask-get-and-compile-program-from-repository,get-and-compile-given-program-from-repository" description='Tests that SAE Prolog generates the correct results when running the program.'>
 		<run-junit-tests-for-program-selected-from-repository program="${repository.program}" />
 	</target>
 
-	<target name="get-and-measure-program" depends="get-and-verify-results-of-program" description='Measures the performance of the program.'>
+	<target name="get-and-measure-program"
+			depends="get-and-verify-results-of-program"
+			description='Measures the performance of the program.'>
 		<measure-program program="${repository.program}" args="" />
 	</target>
 
@@ -273,7 +320,8 @@ POSSIBILITY OF SUCH DAMAGE.
 		Special targets to measure the performance of selected SAE Prolog programs.
 	-->
 
-	<target name="get-and-measure-queens" description='Measures the run-time of the queens program.'>
+	<target name="get-and-measure-queens"
+			description='Measures the run-time of the queens program.'>
 		<antcall target="get-and-measure-program">
 			<param name="repository.program" value="queens" />
 		</antcall>

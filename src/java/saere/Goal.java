@@ -112,7 +112,7 @@ public interface Goal {
 	 * Initially, this can only be the case if this implementation of this
 	 * interface is actually the cut operator itself (@link {@link Cut0}).<br />
 	 * If this implementation of this interface models one of the standard
-	 * control-flow predicates (e.g., "," {@link And2}) or ";" {@link Or2}) the
+	 * control-flow predicates (e.g., "," {@link And2}) or ";" (Or/2) the
 	 * information is passed on to the parent goal (and or or).<br/>
 	 * Recall, cuts appearing in the condition part of ->/2 (if-then(-else)) and
 	 * *->/2 (soft-cut) or in \+/1 (not) are local to the condition.

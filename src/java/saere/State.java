@@ -43,7 +43,7 @@ import saere.predicate.Unify2;
  * {@link Term#unify(Term, Term)}, you have to manifest the state and reset it
  * afterwards. If you use the predicate {@link Unify2}, you do not have to take
  * care of state manifestation, but directly calling
- * {@link Unification#unify(Term, Term)} and manually taking care of the state
+ * {@link Term#unify(Term, Term)} and manually taking care of the state
  * handling is generally more efficient.
  * </p>
  * <p>
