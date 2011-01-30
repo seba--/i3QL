@@ -97,7 +97,7 @@
 			variable/3,
 			compound_term/5,
 			string_atom/3,
-			integer_atom/3,
+			integer_value/3,
 			float_atom/3,
 			
 			% extraction
@@ -105,6 +105,8 @@
 			directive_goal/2,
 			compound_term/3,
 			term_pos/4,
+			string_atom/2,
+			integer_value/2,
 			
 			% testing
 			is_anonymous_variable/1,
@@ -244,7 +246,7 @@ process_op_directive(
 		ops(PrefixOps,InfixOps,PostfixOps),
 		ops(NewPrefixOps,NewInfixOps,NewPostfixOps)
 ) :- 
-	integer_atom(PriorityNode,Priority),
+	integer_value(PriorityNode,Priority),
 	string_atom(SpecifierNode,Specifier),
 	string_atom(OperatorNode,Operator),
 	(  (Specifier = fx ; Specifier = fy),!,
@@ -420,7 +422,7 @@ elementary_term(_Ops,A) --> atom(A),{!}.
 
 
 atom(ASTNode) --> [a(A,Pos)],{!,string_atom(A,Pos,ASTNode)}. 
-atom(ASTNode) --> [i(I,Pos)],{!,integer_atom(I,Pos,ASTNode)}.
+atom(ASTNode) --> [i(I,Pos)],{!,integer_value(I,Pos,ASTNode)}.
 atom(ASTNode) --> [r(F,Pos)],{float_atom(F,Pos,ASTNode)}.
 
 

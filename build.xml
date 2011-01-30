@@ -51,7 +51,8 @@ POSSIBILITY OF SUCH DAMAGE.
 	<!-- Directories which contain the project's source files. -->
 	<property name="saere.src.dir" value="src/java" />
 	<property name="compiler.src.dir" value="src/prolog" />
-
+	
+	<property name="compiler.tests.dir" value="test/compiler" />
 	<property name="saere.tests.dir" value="test/runtime_environment" />
 
 	<property name="sae.test-programs.dir" value="test/system/programs" />
@@ -113,6 +114,19 @@ POSSIBILITY OF SUCH DAMAGE.
 				destdir="${saere.bin.dir}"
 				classpathref="project.classpath"
 				source="1.6" />
+	</target>
+	
+	<target name="test-compiler"
+			description="Tests the compiler infrastructure.">
+		<echo 	message="Testing the compiler." />
+		<exec 	vmlauncher="false" 
+				executable="/opt/local/bin/swipl">
+			<arg value="-q" />
+			<arg value="-f" />
+			<arg value="${compiler.tests.dir}/Test.pl" />
+			<arg value="-t" />
+			<arg value="run_tests." />
+		</exec>
 	</target>
 
 	<target	name="test-saere"
@@ -194,7 +208,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 			<copy todir="${temp.src.dir}">
 				<fileset dir="${sae.test-programs.dir}">
-					<include name="@{program}*.pl" />
+					<include name="@{program}.*pl" />
 				</fileset>
 			</copy>
 
@@ -209,7 +223,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 	<macrodef name="run-sae-prolog-compiler-for-program-selected-from-repository">
 		<sequential>
-			<exec vmlauncher="false" executable="/opt/local/bin/swipl">
+			<exec 	vmlauncher="false" 
+					executable="/opt/local/bin/swipl">
 				<arg value="-q" />
 				<arg value="-f" />
 				<arg value="${compiler.src.dir}/compiler/Compiler.pl" />
@@ -333,29 +348,34 @@ POSSIBILITY OF SUCH DAMAGE.
 		Targets for exhaustive testing and evaluation.
 	-->
 
-	<target name="test" depends="test-saere" description="Runs the entire test suite.">
+	<target	name="test" 
+			depends="test-saere,test-compiler"
+			description="Runs the entire test suite.">
 		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="arithmetic" />
 		<get-execute-and-verify-results-of-program program="chat_parser" />
-
 		<get-execute-and-verify-results-of-program program="meta_nrev" />
 		<get-execute-and-verify-results-of-program program="nrev" />
 		<get-execute-and-verify-results-of-program program="primes" />
 		<get-execute-and-verify-results-of-program program="qsort" />
 		<get-execute-and-verify-results-of-program program="queens" />
+		<get-execute-and-verify-results-of-program program="sum" />
 		<get-execute-and-verify-results-of-program program="tak" />
 		<get-execute-and-verify-results-of-program program="zebra" />
 	</target>
 
-	<target name="evaluate-performance" description="Evaluates the performance of SAE Prolog.">
+	<target name="evaluate-performance" 
+			description="Evaluates the performance of SAE Prolog.">
+		<get-and-measure-program program="arithmetic" />
+		<get-and-measure-program program="chat_parser" />
+		<get-and-measure-program program="meta_nrev" />
+		<get-and-measure-program program="nrev" />
+		<get-and-measure-program program="primes" />
 		<get-and-measure-program program="qsort" />
 		<get-and-measure-program program="queens" />
-		<get-and-measure-program program="chat_parser" />
+		<get-and-measure-program program="sum" />
 		<get-and-measure-program program="tak" />
-		<get-and-measure-program program="primes" />
-		<get-and-measure-program program="nrev" />
-		<get-and-measure-program program="meta_nrev" />
-		<get-and-measure-program program="arithmetic" />
+		<get-and-measure-program program="zebra" />
 	</target>
 
 </project>

@@ -37,7 +37,7 @@ import java.util.WeakHashMap;
 import static saere.PredicateRegistry.predicateRegistry;
 
 /**
- * Representation of a string atom.
+ * Representation of a Prolog string atom.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */

@@ -135,7 +135,7 @@ write_warning_variables_used_only_once(
 			VariableName),!,
 	atomic_list_concat(
 			[	File,':',LN,
-				': warning: the variable ',VariableName,' is only used once\n'
+				': warning: the variable ',VariableName,' is only used once per possible path\n'
 			],
 			MSG),% GCC compliant
    write(MSG),

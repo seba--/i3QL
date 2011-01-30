@@ -1378,7 +1378,7 @@ create_term(ASTNode,Type,TermConstructor,VariableIds,DeferredActions) :-
 	@signature create_term(ASTNode,Type,TermConstructor,OldVariables,NewVariables,DeferredActions)
 */
 create_term(ASTNode,_Type,int_value(Value),VarIds,VarIds,_DeferredActions) :-	
-	integer_atom(ASTNode,Value),!.
+	integer_value(ASTNode,Value),!.
 create_term(ASTNode,_Type,float_value(Value),VarIds,VarIds,_DeferredActions) :-
 	float_atom(ASTNode,Value),!.
 

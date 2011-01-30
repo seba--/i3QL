@@ -54,7 +54,7 @@ write_clause(ASTNode,Value) :-
       variable(ASTNode,Value);
       anonymous_variable(ASTNode,Value);
       string_atom(ASTNode,Value);
-      integer_atom(ASTNode,Value);
+      integer_value(ASTNode,Value);
       float_atom(ASTNode,Value)
    ),!.
    

@@ -32,7 +32,8 @@
 package saere;
 
 /**
- * Representation of an integer value. The SAE uses long values as the basis for integer arithmetic.
+ * Representation of a Prolog integer value. The SAE uses long values as the basis for integer
+ * arithmetic.
  * 
  * @author Michael Eichberg (mail@michael-eichberg.de)
  */

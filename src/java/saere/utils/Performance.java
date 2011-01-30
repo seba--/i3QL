@@ -61,9 +61,10 @@ public class Performance {
 			System.exit(-1);
 		}
 
-		String benchmarkName = "harness." + args[0];
-		System.out.print("Loading: " + benchmarkName);
-		Class<?> benchmarkClass = Class.forName(benchmarkName);
+		String benchmarkName = args[0];
+		String benchmarkClassName = "harness." + benchmarkName;
+		System.out.print("Loading: " + benchmarkClassName);
+		Class<?> benchmarkClass = Class.forName(benchmarkClassName);
 
 		if (args.length == 1) {
 			System.out.println(".");

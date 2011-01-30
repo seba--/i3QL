@@ -84,8 +84,8 @@
 		variable/4,
 		anonymous_variable/2,
 		anonymous_variable/3,
-		integer_atom/2,	
-		integer_atom/3,
+		integer_value/2,	
+		integer_value/3,
 		float_atom/2,		
 		float_atom/3,
 		string_atom/2,
@@ -130,7 +130,7 @@
 		is_variable/1,
 		is_anonymous_variable/1,
 		is_string_atom/1,
-		is_integer_atom/1,
+		is_integer_value/1,
 		is_float_atom/1,
 		is_numeric_atom/1,
 		
@@ -605,7 +605,7 @@ is_anonymous_variable(av(_Meta,_Name)).
 /**
 	Succeeds if ASTNode represents a string atom.
 	
-	@signature is_integer_atom(ASTNode)
+	@signature is_integer_value(ASTNode)
 	@arg(in) ASTNode	
 */
 is_string_atom(a(_Meta,_Value)).
@@ -619,17 +619,17 @@ is_string_atom(a(_Meta,_Value)).
 	@arg(in) ASTNode	
 */
 is_numeric_atom(ASTNode) :- 
-	once((is_integer_atom(ASTNode) ; is_float_atom(ASTNode))).
+	once((is_integer_value(ASTNode) ; is_float_atom(ASTNode))).
 
 
 
 /**
 	Succeeds if ASTNode represents an integer value.
 	
-	@signature is_integer_atom(ASTNode)
+	@signature is_integer_value(ASTNode)
 	@arg(in) ASTNode	
 */
-is_integer_atom(i(_Meta,_Value)).
+is_integer_value(i(_Meta,_Value)).
 
 
 
@@ -718,9 +718,9 @@ anonymous_variable(Name,Pos,av([Pos|_],Name)).
 	If this predicate is used to construct an AST node, the node will not be
 	associated with any meta information.
 	
-	@signature integer_atom(IntegerAtom_ASTNode,Value)
+	@signature integer_value(IntegerAtom_ASTNode,Value)
 */
-integer_atom(i(_Meta,Value),Value). % TODO rename to integer_value
+integer_value(i(_Meta,Value),Value). % TODO rename to integer_value
 
 
 /**
@@ -729,9 +729,9 @@ integer_atom(i(_Meta,Value),Value). % TODO rename to integer_value
 	If this predicate is used to construct an AST node, the only meta information
 	will be the position information.
 	
-	@signature integer_atom(Value,Pos,IntegerAtom_ASTNode)
+	@signature integer_value(Value,Pos,IntegerAtom_ASTNode)
 */
-integer_atom(Value,Pos,i([Pos|_],Value)). % TODO rename to integer_value
+integer_value(Value,Pos,i([Pos|_],Value)). % TODO rename to integer_value
 
 
 /**

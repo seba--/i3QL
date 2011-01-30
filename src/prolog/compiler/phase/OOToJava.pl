@@ -574,14 +574,13 @@ write_expr(Stream,method_call(ReceiverExpression,Identifier,Expressions)) :- !,
 write_expr(Stream,local_variable_ref(Identifier)):- !,
 	write(Stream,Identifier).
 write_expr(Stream,static_predicate_call(string_atom(Functor))):- !,
-	map_functor_to_class_name(Functor/0,ClassName),
-	write(Stream,'new '),write(Stream,ClassName),write(Stream,'0()').
+	predicate_identifier_to_class_name(Functor/0,ClassName),
+	write(Stream,'new '),write(Stream,ClassName),write(Stream,'()').
 write_expr(Stream,static_predicate_call(compound_term(string_atom(Functor),ArgsExpressions))):- !,
-	length(ArgsExpressions,ArgsCount),
 	ArgsExpressions = [FirstArgExpression|MoreArgsExpressions],
 	length(ArgsExpressions,Arity),
-	map_functor_to_class_name(Functor/Arity,ClassName),
-	write(Stream,'new '),write(Stream,ClassName),write(Stream,ArgsCount),write(Stream,'('),
+	predicate_identifier_to_class_name(Functor/Arity,ClassName),
+	write(Stream,'new '),write(Stream,ClassName),write(Stream,'('),
 	write_expr(Stream,FirstArgExpression),
 	write_compound_term_args(Stream,MoreArgsExpressions),
 	write(Stream,')').
@@ -678,29 +677,24 @@ write_expr(Stream,string_atom('[]')) :- !,write(Stream,'EMPTY_LIST').
 write_expr(Stream,string_atom('.')) :- !,write(Stream,'LIST').	
 write_expr(Stream,string_atom(Value)) :- !,
 	write(Stream,'StringAtom.get("'),write(Stream,Value),write(Stream,'")').
-write_expr(Stream,compound_term(string_atom(','),[LT,RT])) :- !,
-	write(Stream,'and('),
-	write_expr(Stream,LT),
-	write(Stream,','),
-	write_expr(Stream,RT),
-	write(Stream,')').
-write_expr(Stream,compound_term(string_atom(';'),[LT,RT])) :- !,
-	write(Stream,'or('),
-	write_expr(Stream,LT),
-	write(Stream,','),
-	write_expr(Stream,RT),
-	write(Stream,')').
-write_expr(Stream,compound_term(string_atom('.'),[LT,RT])) :- !,
-	write(Stream,'list('),
-	write_expr(Stream,LT),
-	write(Stream,','),
-	write_expr(Stream,RT),
-	write(Stream,')').		
-write_expr(Stream,compound_term(Functor,Args)) :- !,
-	write(Stream,'compoundTerm('),
-	write_expr(Stream,Functor),
-	write_compound_term_args(Stream,Args),
-	write(Stream,')').	
+write_expr(Stream,compound_term(FunctorStringAtom,Args)) :- !,
+	(	length(Args,Arity),
+		FunctorStringAtom = string_atom(Functor),
+		term_identifier_to_class_name(Functor/Arity,ClassName) 
+	->
+		write(Stream,'new '),
+		write(Stream,ClassName),
+		write(Stream,'('),
+		Args = [FirstArg|RestArgs],
+		write_expr(Stream,FirstArg),
+		write_compound_term_args(Stream,RestArgs),
+		write(Stream,')')
+	;
+		write(Stream,'Terms.compoundTerm('),
+		write_expr(Stream,FunctorStringAtom),
+		write_compound_term_args(Stream,Args),
+		write(Stream,')')
+	).	
 write_expr(_Stream,Expr) :- % the last case... 
 	throw(internal_error(write_expr/2,['unknown expression ',Expr])).
 
@@ -759,40 +753,52 @@ type_of_term_expression(_,'Term').
 
 
 
-map_functor_to_class_name('='/2,'Unify') :- !.
-map_functor_to_class_name('\\='/2,'NotUnify') :- !.
-map_functor_to_class_name(','/2,'And') :- !.
-map_functor_to_class_name(';'/2,'Or') :- !.
-map_functor_to_class_name('!'/0,'Cut') :- !.
-map_functor_to_class_name('*->'/2,'SoftCut') :- !.
-map_functor_to_class_name('->'/2,'If_Then') :- !.
-map_functor_to_class_name('true'/0,'True') :- !.
-map_functor_to_class_name('false'/0,'False') :- !.
-map_functor_to_class_name('fail'/0,'False') :- !.
-map_functor_to_class_name('not'/1,'Not') :- !.
-map_functor_to_class_name('/'('\\+',1),'Not') :- !.
-map_functor_to_class_name('is'/2,'Is') :- !.
-map_functor_to_class_name('<'/2,'Smaller') :- !.
-map_functor_to_class_name('=<'/2,'SmallerOrEqual') :- !.
-map_functor_to_class_name('>'/2,'Larger') :- !.
-map_functor_to_class_name('>='/2,'LargerOrEqual') :- !.
-map_functor_to_class_name('=:='/2,'ArithEqual') :- !.
-map_functor_to_class_name('=\\='/2,'ArithNotEqual') :- !.
-% FURTHER BUILT-IN PREDICATES:
-map_functor_to_class_name('atom'/1,'Atom') :- !.
-map_functor_to_class_name('number'/1,'Number') :- !.
-map_functor_to_class_name('append'/3,'Append') :- !.
-%map_functor_to_class_name('member'/2,'Member') :- !. FIXME... the optimized implementation is currently broken :-(
-map_functor_to_class_name('time'/1,'Time') :- !.
-map_functor_to_class_name('repeat'/0,'Repeat') :- !.
-map_functor_to_class_name('ground'/1,'Ground') :- !.
-map_functor_to_class_name(Functor/_Arity,Functor).
+/**
+	Maps a predicate identifier to the name of the class that implements
+	the respective identifier.
+	For predefined predicates, the predicate identifier is mapped to the
+	name of the predefined class that implements the predicate.
+*/
+predicate_identifier_to_class_name('='/2,'saere.predicate.Unify2') :- !.
+predicate_identifier_to_class_name('\\='/2,'saere.predicate.NotUnify2') :- !.
+predicate_identifier_to_class_name(','/2,'saere.predicate.And2') :- !.
+predicate_identifier_to_class_name(';'/2,'saere.predicate.Or2') :- !.
+predicate_identifier_to_class_name('!'/0,'saere.predicate.Cut0') :- !.
+predicate_identifier_to_class_name('*->'/2,'saere.predicate.SoftCut2') :- !.
+predicate_identifier_to_class_name('->'/2,'saere.predicate.If_Then2') :- !.
+predicate_identifier_to_class_name('true'/0,'saere.predicate.True0') :- !.
+predicate_identifier_to_class_name('false'/0,'saere.predicate.False0') :- !.
+predicate_identifier_to_class_name('fail'/0,'saere.predicate.False0') :- !.
+predicate_identifier_to_class_name('not'/1,'saere.predicate.Not1') :- !.
+predicate_identifier_to_class_name('/'('\\+',1),'saere.predicate.Not1') :- !.
+predicate_identifier_to_class_name('is'/2,'saere.predicate.Is2') :- !.
+predicate_identifier_to_class_name('<'/2,'saere.predicate.Smaller2') :- !.
+predicate_identifier_to_class_name('=<'/2,'saere.predicate.SmallerOrEqual2') :- !.
+predicate_identifier_to_class_name('>'/2,'saere.predicate.Larger2') :- !.
+predicate_identifier_to_class_name('>='/2,'saere.predicate.LargerOrEqual2') :- !.
+predicate_identifier_to_class_name('=:='/2,'saere.predicate.ArithEqual2') :- !.
+predicate_identifier_to_class_name('=\\='/2,'saere.predicate.ArithNotEqual2') :- !.
+predicate_identifier_to_class_name('atom'/1,'saere.predicate.Atom1') :- !.
+predicate_identifier_to_class_name('number'/1,'saere.predicate.Number1') :- !.
+predicate_identifier_to_class_name('append'/3,'saere.predicate.Append3') :- !.
+predicate_identifier_to_class_name('time'/1,'saere.predicate.Time1') :- !.
+predicate_identifier_to_class_name('repeat'/0,'saere.predicate.Repeat0') :- !.
+predicate_identifier_to_class_name('ground'/1,'saere.predicate.Ground1') :- !.
+predicate_identifier_to_class_name('atom_concat'/3,'saere.predicate.AtomConcat3') :- !.
+predicate_identifier_to_class_name(Functor/Arity,ClassName) :- 
+	atom_concat(Functor,Arity,ClassName).
 
 
-map_term_functor_to_class_name('*'/2,'Mult2').
-map_term_functor_to_class_name('-'/1,'Minus1').
-map_term_functor_to_class_name('+'/2,'Plus2').
-map_term_functor_to_class_name('.'/2,'ListElement2').
+
+term_identifier_to_class_name(','/2,'saere.term.And2').
+term_identifier_to_class_name('='/2,'saere.term.Equals2').
+term_identifier_to_class_name('.'/2,'saere.term.ListElement2').
+term_identifier_to_class_name('-'/1,'saere.term.Minus1').
+term_identifier_to_class_name('-'/2,'saere.term.Minus2').
+term_identifier_to_class_name('*'/2,'saere.term.Mult2').
+term_identifier_to_class_name(';'/2,'saere.term.Or2').
+term_identifier_to_class_name('+'/2,'saere.term.Plus2').
+
 
 
 map_arith_comp_operator_to_java_operator('<','<') :- !.
