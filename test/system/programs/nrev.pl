@@ -17,4 +17,4 @@ nrev_range(0, Acc, [0|Acc]) :- !.
 nrev_range(X, Acc, Result) :- Y is X - 1, nrev_range(Y, [X|Acc], Result).
 
 
-benchmark(nrev) :- nrev_range(1500,Range), nrev(Range,Result).
+benchmark(nrev) :- nrev_range(1500,Range), nrev(Range,_Result).

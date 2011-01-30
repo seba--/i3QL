@@ -242,7 +242,9 @@ default_op_table(
 		[  % PREFIX...
 			op(1200,fx,':-'),
 			op(1200,fx,'?-'),
+			
 			op(900,fy,'\\+'),
+			
 			op(200,fy,'\\'), % bitwise complement
 			op(200,fy,'-'), % arithmetic "minus"
 			op(200,fx,'+'), % for mode declarations
@@ -252,15 +254,16 @@ default_op_table(
 		[	% INFIX...
 			op(1200,xfx,':-'),
 			op(1200,xfx,'-->'),
+			
+			op(1100,xfy,'|'), % also defined by SWI Prolog
 			op(1100,xfy,';'),
-			op(1000,xfy,','), % Redefining "and" is NOT supported!
-			op(700,xfx,'='),
-			op(500,yfx,'-'),
-			op(500,yfx,'+'),
+			
 			op(1050,xfy,'->'),
 			op(1050,xfy,'*->'),			
-			op(400,yfx,'*'),
-			op(400,yfx,'/'),
+			
+			op(1000,xfy,','), % redefining "and" is NOT supported
+			
+			op(700,xfx,'='),
 			op(700,xfx,'\\='),
 			op(700,xfx,'is'),
 			op(700,xfx,'<'),
@@ -275,14 +278,22 @@ default_op_table(
 			op(700,xfx,'@<'),
 			op(700,xfx,'@=<'),
 			op(700,xfx,'@>'),
-			op(700,xfx,'@>='),		
+			op(700,xfx,'@>='),
+			
+			op(600,xfy,':'), % specifies the module	
+
+			op(500,yfx,'-'),
+			op(500,yfx,'+'),
 			op(500,yfx,'\\/'),
-			op(500,yfx,'/\\'),	
-			op(1100,xfy,'|'), % also defined by SWI Prolog
-			op(400,yfx,'//'), % X // Y Division mit Ganzzahlergebnis
+			op(500,yfx,'/\\'),
+			
+			op(400,yfx,'*'),
+			op(400,yfx,'/'),
+			op(400,yfx,'//'), % "X // Y" is the integer division
 			op(400,yfx,'mod'),
 			op(400,yfx,'<<'),
 			op(400,yfx,'>>'),
+			
 			op(200,xfx,'**'),		
 			op(200,xfy,'^')				
 		],

@@ -40,6 +40,7 @@
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
 :- use_module('../Utils.pl').
+:- use_module('../collections/List.pl').
 :- use_module('../Debug.pl').
 :- use_module('../Analyses.pl').
 
@@ -713,7 +714,7 @@ translate_goal(
 		),
 		(	remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
 			set_subtract(VariableIds,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
-			not_empty(VariablesThatNeedToBeSaved) ->
+			is_not_empty(VariablesThatNeedToBeSaved) ->
 			save_state_in_undo_goal(VariablesThatNeedToBeSaved,SSaveState,SEval),
 			RedoAction = [
 				abort_and_remove_top_level_goal_from_goal_stack |

@@ -41,10 +41,10 @@
 	[	max/3,
 		memberchk_dl/2,
 		replace_first_dl/4,
-		replace/4,
+%		replace/4,
 		replace_char/4,
 		replace_char_with_string/4,
-		not_empty/1,
+%		not_empty/1,
 
 		lookup/3,
 		dictionary_values/2,
@@ -74,9 +74,11 @@
 		intersect_sets/3,
 		set_subtract/3,
 		
-		write_atomic_list/1,
-		write_atomic_list/2
+		write_atomic_list/1
+	%	write_atomic_list/2
 	]).
+
+:- use_module('collections/List.pl').
 
 :- meta_predicate(call_foreach_i_in_0_to_u(+,2,-)).
 :- meta_predicate(call_foreach_i_in_l_to_u(+,+,2,-)).
@@ -214,38 +216,6 @@ dictionary_values([(_Key,Value)|Rest],[Value|Values]) :-
 dictionary_identity_lookup_key(_Value,Dict,_Key) :- var(Dict),!,fail.
 dictionary_identity_lookup_key(Value,[(Key,StoredValue)|_Dict],Key) :- Value == StoredValue.
 dictionary_identity_lookup_key(Value,[_Entry|Dict],Key) :- dictionary_identity_lookup_key(Value,Dict,Key).
-	
-
-
-
-/**
- 	Replaces all occurences 
-	of the element OldElement in the list OldList with the element NewElement and
-	unifies the result with NewList.
-	
-	@signature replace(OldList,OldElement,NewElement,NewList)
-	@category lists
-*/
-replace([],_,_,[]) :- !. % green cut
-replace([H|Tail],H,Rs,[Rs|NewTail]) :- % found an element to be replaced 
-   !, % green cut
-	replace(Tail,H,Rs,NewTail).
-replace([H|Tail],E,Rs,[H|NewTail]):- % nothing to do
-   H \= E,
-	!, % green cut
-   replace(Tail,E,Rs,NewTail).
-
-
-
-/**
-	Tests if the given list is not empty. Fails if the given list is empty (or
-	if the given list ist not a list at all.)
-
-	@signature not_empty(List)
-	@arg(in) List A list.
-	@category lists
-*/
-not_empty([_|_]).
 
 
 
@@ -268,7 +238,7 @@ not_empty([_|_]).
 	@category strings        
 */
 replace_char(OldString,[OC],[NC],ResultString) :-
-	replace(OldString,OC,NC,ResultString).
+	list:replace(OldString,OC,NC,ResultString).
 
 
 
@@ -309,7 +279,7 @@ replace_char_with_string([C|RCs],OldC,NewString,[C|R]) :-
 
 
 
-clone_ol(E,_NewE) :- var(E),!.
+clone_ol(E,_NewE) :- var(E),!. % FIXME rename to new tail
 clone_ol([E|T],[E|NewT]) :- clone_ol(T,NewT).
 
 
@@ -507,11 +477,3 @@ intersect_sets([A|As],Bs,Cs) :-
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),
 	write(Atom).
-
-
-
-% FIXME Call it list_write_elements
-write_atomic_list(_Stream,[]).
-write_atomic_list(Stream,[E|Es]) :-
-	write(Stream,E),
-	write_atomic_list(Stream,Es).	

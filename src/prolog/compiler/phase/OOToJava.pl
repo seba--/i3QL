@@ -40,9 +40,11 @@
 */
 :- module(sae_oo_to_java,[oo_to_java/4]).
 
+:- use_module('../Utils.pl').
+:- use_module('../collections/List.pl').
+
 :- use_module('../AST.pl').
 :- use_module('../Predef.pl').
-:- use_module('../Utils.pl').
 :- use_module('../Debug.pl').
 
 
@@ -128,7 +130,7 @@ write_predicate_factory(Stream,Functor/Arity) :-
 	call_foreach_i_in_0_to_u(Arity,array_access('args'),ArrayAccesses),
 	atomic_list_concat(ArrayAccesses,',',ConstructorArgs),
 	
-	write_atomic_list(
+	list:write_elements(
 		Stream,
 		[
 		'/*\n',
@@ -169,7 +171,7 @@ array_access(ArrayName,N,ArrayAccess) :-
 
 write_predicate_implementation(Stream,Functor,Arity,ClassMembers) :-
 	% Write header
-	write_atomic_list(
+	list:write_elements(
 		Stream,
 		[
 		'/*\n',
