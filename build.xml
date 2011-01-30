@@ -283,7 +283,7 @@ POSSIBILITY OF SUCH DAMAGE.
 		<attribute name="args" />
 		<sequential>
 			<java	fork="true"
-					classname="saere.utils.Performance" 
+					classname="saere.utils.Evaluate" 
 					classpathref="project.classpath">
 				<arg value="@{program}" />
 				<arg line="@{args}" />
@@ -296,7 +296,7 @@ POSSIBILITY OF SUCH DAMAGE.
 		<sequential>
 			<get-execute-and-verify-results-of-program program="@{program}" />
 			<java	fork="true"
-					classname="saere.utils.Performance"
+					classname="saere.utils.Evaluate"
 					classpathref="project.classpath">
 				<arg value="@{program}" />
 			</java>
@@ -348,9 +348,13 @@ POSSIBILITY OF SUCH DAMAGE.
 		Targets for exhaustive testing and evaluation.
 	-->
 
-	<target	name="test" 
-			depends="test-saere,test-compiler"
-			description="Runs the entire test suite.">
+	<target	name="test-system" 
+			depends="compile-saere"
+			description="Runs all system-level test cases.">
+		<!-- small tests, that test the hotspots of the compiler -->
+		<get-execute-and-verify-results-of-program program="ControlFlowPredicates" />	
+		
+		<!-- programs that calculate something meaningful -->
 		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="arithmetic" />
 		<get-execute-and-verify-results-of-program program="chat_parser" />
@@ -363,6 +367,10 @@ POSSIBILITY OF SUCH DAMAGE.
 		<get-execute-and-verify-results-of-program program="tak" />
 		<get-execute-and-verify-results-of-program program="zebra" />
 	</target>
+	
+	<target	name="test" 
+			depends="test-saere,test-compiler,test-system"
+			description="Runs the entire test suite."/>
 
 	<target name="evaluate-performance" 
 			description="Evaluates the performance of SAE Prolog.">

@@ -92,15 +92,19 @@ process_predicate(DebugConfig,Predicate) :-
 
 
 
-analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVariablesCount) :-
+analyze_variable_usage(
+		_ClauseId,Clause,_RelativeClausePosition, % input
+		ClauseLocalVariablesCount % output
+	) :-
 	clause_implementation(Clause,Implementation),
 	
 	rule_head(Implementation,HeadASTNode),
 	(	is_string_atom(HeadASTNode) ->
 		HeadVariablesCount = 0
-		% VariableIds remains free...
+		% VariableNamesToIdsMap remains free...
 	;
-		compound_term_args(HeadASTNode,AllHeadVariablesNodes), % since the clause is normalized, the head only contains (anonymous) variable declarations
+		% since the clause is normalized, the head only contains (anonymous) variable declarations
+		compound_term_args(HeadASTNode,AllHeadVariablesNodes), 
 		map_names_of_head_variables(0,AllHeadVariablesNodes,HeadVariablesCountExpr,VariableNamesToIdsMap),
 		HeadVariablesCount is HeadVariablesCountExpr,
 		dictionary_values(VariableNamesToIdsMap,HeadVariables)
@@ -117,12 +121,12 @@ analyze_variable_usage(_ClauseId,Clause,_RelativeClausePosition,ClauseLocalVaria
 			HeadVariables,[],HeadVariables,
 			_UsedVariables,_PotentiallyUsedVariables,VariablesUsedOnlyOnce),
 			
-	write_warning_variables_used_only_once(Clause,VariablesUsedOnlyOnce,VariableNamesToIdsMap).
+	write_variables_used_only_once(Clause,VariablesUsedOnlyOnce,VariableNamesToIdsMap).
 
 
 
-write_warning_variables_used_only_once(_Clause,[],_VariableNamesToIdsMappping).
-write_warning_variables_used_only_once(
+write_variables_used_only_once(_Clause,[],_VariableNamesToIdsMappping).
+write_variables_used_only_once(
 		Clause,
 		[VariableIdUsedOnlyOnce|VariableIdsUsedOnlyOnce],
 		VariableNamesToIdsMappping
@@ -135,11 +139,14 @@ write_warning_variables_used_only_once(
 			VariableName),!,
 	atomic_list_concat(
 			[	File,':',LN,
-				': warning: the variable ',VariableName,' is only used once per possible path\n'
+				': warning: the variable ',
+				VariableName,
+				' is only used once (per possible path)\n'
 			],
 			MSG),% GCC compliant
    write(MSG),
-	write_warning_variables_used_only_once(
+
+	write_variables_used_only_once(
 			Clause,
 			VariableIdsUsedOnlyOnce,
 			VariableNamesToIdsMappping).

@@ -48,7 +48,7 @@ import saere.PredicateRegistry;
 import saere.Term;
 import saere.Variable;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class primes {
 
@@ -90,9 +90,9 @@ public class primes {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("primes", duration);
+			Evaluate.writeToPerformanceLog("primes", duration);
 		} else {
-			Performance.writeToPerformanceLog("primes", -1l);
+			Evaluate.writeToPerformanceLog("primes", -1l);
 		}
 	}
 }

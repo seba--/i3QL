@@ -160,7 +160,6 @@ compile(FilePatterns,OutputFolder) :-
 
 
 
-
 /**
 	Executes the compiler phases in the given order. If a compiler phase
 	fails, the compilation is aborted. <br />

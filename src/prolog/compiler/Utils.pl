@@ -476,4 +476,4 @@ intersect_sets([A|As],Bs,Cs) :-
 
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),
-	write(Atom).
+	write(Atom).	

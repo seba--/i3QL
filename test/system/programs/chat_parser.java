@@ -46,7 +46,7 @@ import saere.Goal;
 import saere.PredicateRegistry;
 import saere.Term;
 import saere.Variable;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class chat_parser {
 
@@ -92,9 +92,9 @@ public class chat_parser {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("chat_parser", duration);
+			Evaluate.writeToPerformanceLog("chat_parser", duration);
 		} else {
-			Performance.writeToPerformanceLog("chat_parser", -1l);
+			Evaluate.writeToPerformanceLog("chat_parser", -1l);
 		}
 	}
 

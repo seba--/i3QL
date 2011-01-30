@@ -48,7 +48,7 @@ import saere.PredicateRegistry;
 import saere.Term;
 import saere.Variable;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class arithmetic {
 
@@ -92,9 +92,9 @@ public class arithmetic {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("arithmetic", duration);
+			Evaluate.writeToPerformanceLog("arithmetic", duration);
 		} else {
-			Performance.writeToPerformanceLog("arithmetic", -1l);
+			Evaluate.writeToPerformanceLog("arithmetic", -1l);
 		}
 	}
 }

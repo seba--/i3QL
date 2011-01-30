@@ -49,7 +49,7 @@ import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class qsort {
 
@@ -98,9 +98,9 @@ public class qsort {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("qsort", duration); 
+			Evaluate.writeToPerformanceLog("qsort", duration); 
 		} else {
-			Performance.writeToPerformanceLog("qsort", -1l);
+			Evaluate.writeToPerformanceLog("qsort", -1l);
 		}
 	}
 

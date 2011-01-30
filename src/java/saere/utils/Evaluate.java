@@ -46,14 +46,14 @@ import org.odftoolkit.simple.table.Table;
 import saere.Goal;
 
 /**
- * A collection of convenience methods to systematically evaluate the performance (gains) of SAE
+ * A collection of convenience methods to systematically evaluate (the performance (gains) of) SAE
  * Prolog.
  * 
  * To keep track of the performance development, we store the results of each run in an spreadsheet.
  * 
  * @author Michael Eichberg
  */
-public class Performance {
+public class Evaluate {
 
 	public static void main(String[] args) throws Throwable {
 		if (args.length == 0) {
@@ -76,9 +76,9 @@ public class Performance {
 				boolean succeeded = s.next();
 				long duration = System.nanoTime() - startTime;
 				if (succeeded) {
-					Performance.writeToPerformanceLog(benchmarkName, duration);
+					Evaluate.writeToPerformanceLog(benchmarkName, duration);
 				} else {
-					Performance.writeToPerformanceLog(benchmarkName, -1l);
+					Evaluate.writeToPerformanceLog(benchmarkName, -1l);
 				}
 			} else {
 				// old method - call the method called "measure"

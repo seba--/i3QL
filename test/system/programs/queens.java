@@ -51,7 +51,7 @@ import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class queens {
 
@@ -162,9 +162,9 @@ public class queens {
 			boolean succeeded = s.next();
 			long duration = System.nanoTime() - startTime;
 			if (succeeded) {
-				Performance.writeToPerformanceLog("queens", duration);
+				Evaluate.writeToPerformanceLog("queens", duration);
 			} else {
-				Performance.writeToPerformanceLog("queens", -1l);
+				Evaluate.writeToPerformanceLog("queens", -1l);
 			}
 		}
 
@@ -176,9 +176,9 @@ public class queens {
 			boolean succeeded = s.next();
 			long duration = System.nanoTime() - startTime;
 			if (succeeded) {
-				Performance.writeToPerformanceLog("queens-8-findall", duration);
+				Evaluate.writeToPerformanceLog("queens-8-findall", duration);
 			} else {
-				Performance.writeToPerformanceLog("queens-8-findall", -1l);
+				Evaluate.writeToPerformanceLog("queens-8-findall", -1l);
 			}
 		}
 	}
@@ -193,7 +193,7 @@ public class queens {
 				throw new Error();
 			}
 			long duration = System.nanoTime() - startTime;
-			Performance.writeToPerformanceLog("queens-1-to-26", i, duration);
+			Evaluate.writeToPerformanceLog("queens-1-to-26", i, duration);
 		}
 	}
 
@@ -208,7 +208,7 @@ public class queens {
 			}
 			long duration = System.nanoTime() - startTime;
 
-			Performance.writeToPerformanceLog("queens-20", i, duration);
+			Evaluate.writeToPerformanceLog("queens-20", i, duration);
 		}
 	}
 

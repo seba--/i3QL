@@ -44,7 +44,7 @@ import saere.Goal;
 import saere.PredicateRegistry;
 import saere.Term;
 import saere.Variable;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class tak {
 
@@ -98,9 +98,9 @@ public class tak {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("tak", duration);
+			Evaluate.writeToPerformanceLog("tak", duration);
 		} else {
-			Performance.writeToPerformanceLog("tak", -1l);
+			Evaluate.writeToPerformanceLog("tak", -1l);
 		}
 	}
 

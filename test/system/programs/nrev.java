@@ -51,7 +51,7 @@ import saere.Term;
 import saere.Variable;
 import saere.predicate.Time1;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class nrev {
 
@@ -96,9 +96,9 @@ public class nrev {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("nrev", duration);
+			Evaluate.writeToPerformanceLog("nrev", duration);
 		} else {
-			Performance.writeToPerformanceLog("nrev", -1l);
+			Evaluate.writeToPerformanceLog("nrev", -1l);
 		}
 	}
 

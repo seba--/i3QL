@@ -71,8 +71,8 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_clause_impl_methods(DeferredActions,Program,Predicate,SClausesMethods),
-	% If the predicate is defined by a single clause, we simple copy the 
-	% the clause implementation in the "next()" method...
+	% If the predicate is defined by a single clause, we simple move the 
+	% the clause implementation in the "next()" method.
 	(	predicate_clauses(Predicate,Clauses),single_clause(Clauses) ->
 		SClausesMethods = [
 			method_decl(
@@ -80,10 +80,10 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 				SClauseImplementation
 			)
 		],
-		SImplementation = method_decl(
+		SNextMethod = method_decl(
 				public,type(boolean),'next',[],
 				SClauseImplementation),
-		SMethods = [SConstructor,SAbortMethod,SImplementation]
+		SMethods = [SConstructor,SAbortMethod,SNextMethod]
 	;
 		gen_clause_selector_method(Program,Predicate,SClauseSelectorMethod),
 		SMethods = [
@@ -94,7 +94,11 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 		]
 	),
 	% ------- FIELDS -------
-	gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,Program,Predicate,SFields,S2),
+	gen_fields_for_the_control_flow_and_evaluation_state(
+		Program,Predicate,
+		DeferredActions,
+		SFields,S2
+	),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
 	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
 	OOAST = oo_ast([
@@ -111,12 +115,18 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 
 */
 
-gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Predicate,SFieldDecls,SR) :-
+gen_fields_for_the_control_flow_and_evaluation_state(
+	_Program,Predicate, % input
+	DeferredActions,
+	SFieldDecls,SRest % output
+) :-
 	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
-	% Code to create fields for pre created terms.
+	
+	% create fields for pre created terms
 	assign_ids_to_pre_created_terms(1,DeferredActions),
 	field_decls_for_pre_created_terms(DeferredActions,SFieldDecls,SControlFlow),
+	
 	% Standard (instance-related) variables
 	SControlFlow = [
 		eol_comment('variables to control/manage the execution of this predicate')|
@@ -125,31 +135,44 @@ gen_fields_for_the_control_flow_and_evaluation_state(DeferredActions,_Program,Pr
 	(	single_clause(Clauses) ->
 		SClauseToExecute = SCutEvaluation
 	;
-		SClauseToExecute = [field_decl([],type(int),'clauseToExecute',int(0))|SCutEvaluation]
+		SClauseToExecute = [
+			field_decl([],type(int),'clauseToExecute',int(0))
+		|
+			SCutEvaluation
+		]
 	),	
 	(	( lookup_in_meta(uses_cut(no),PredicateMeta) ; single_clause(Clauses) ) ->
 		SCutEvaluation = SGoalsEvaluation
 	;
-		SCutEvaluation = [field_decl([],type(boolean),'cutEvaluation',boolean('false'))|SGoalsEvaluation]
+		SCutEvaluation = [
+			field_decl([],type(boolean),'cutEvaluation',boolean('false')) 
+		|
+			SGoalsEvaluation
+		]
 	),
 	SGoalsEvaluation = [
 		field_decl([],type(int),'goalToExecute',int(0)),
 		goal_stack |
-		SGoalPredescessors
+		SGoalPredecessors
 	],
+	
 	% For each goal, that is the successor of an "or" goal, we have to create a 
 	% a variable that stores which goal was executed previously, to go back to
 	% the correct goal in case of backtracking.
 	findall(
-		SGoalPredescessor,
+		SGoalPredecessor,
 		(
-			member_ol(create_field_to_store_predecessor_goal(GoalNumber),DeferredActions),
-			GoalCaseId is GoalNumber * 2 - 1,
-			atomic_list_concat(['goal',GoalCaseId,'PredecessorGoal'],PredecessorGoalFieldIdentifier),
-			SGoalPredescessor = field_decl([],type(int),PredecessorGoalFieldIdentifier,int(0))
+			member_ol(
+					create_field_to_store_predecessor_goal(GoalNumber),
+					DeferredActions),
+			goal_call_case_id(GoalNumber,CallCaseId), 
+			atomic_list_concat(
+					['case',CallCaseId,'PredecessorCase'],
+					PredecessorGoalFieldIdentifier),
+			SGoalPredecessor = field_decl([],type(int),PredecessorGoalFieldIdentifier,int(0))
 		),
-		SGoalPredescessors,
-		SR
+		SGoalPredecessors,
+		SRest
 	).
 
 
@@ -910,7 +933,7 @@ select_and_jump_to_next_goal_after_fail(Meta/*REFACTOR GoalMeta*/,SStmts,SRest) 
 	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
-	atomic_list_concat(['goal',CallCaseId,'PredecessorGoal'],PredecessorGoal),
+	atomic_list_concat(['case',CallCaseId,'PredecessorCase'],PredecessorGoal),
 	SStmts = [
 		expression_statement(assignment(field_ref(self,'goalToExecute'),field_ref(self,PredecessorGoal))),
 		continue('eval_goals')
@@ -940,7 +963,7 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 		(
 			lookup_in_meta(not_unique_predecessor_goal,Meta) ->
 			goal_redo_case_id(GoalNumber,ThisGoalRedoCaseId),
-			atomic_list_concat(['goal',TargetCallCaseId,'PredecessorGoal'],PredecessorGoal),
+			atomic_list_concat(['case',TargetCallCaseId,'PredecessorCase'],PredecessorGoal),
 			JumpToNextGoalAfterSucceed = [
 				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisGoalRedoCaseId))) | 
 				SelectAndJump

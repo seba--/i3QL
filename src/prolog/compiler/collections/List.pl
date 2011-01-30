@@ -31,14 +31,16 @@
 */
 
 /**
-	A set of predicates to operate on fixed-size lists; i.e., in general the tail
-	argument of the last element of the list that is processed is expected be 
+	Predicates to operate on fixed-size lists; i.e., in general the tail
+	argument of the last element of the list that is processed is expected to be 
 	bound to the empty list atom ('[]').<br/>
 	If the tail argument of the last list element is not bound to the empty list, 
-	the precise behavior is defined by the predicate (if supported).
+	the precise behavior is defined by the predicate. If the behavior is not 
+	specified no assumption is allowed to be made, the behavior of the 
+	implementation may change without notice.
 
 	@see open_list
-	@author Michael Eichberg
+	@author Michael Eichberg (mail@michael-eichberg.de)
 */
 :- module(
 		list,
@@ -62,7 +64,7 @@
 	the empty list atom.<br />
 	Does never cause instantiation of the given argument.
 	
-	@signature is_list(?List:term) is semdet
+	@signature is_list(?List:term) is semidet
 */
 is_list(List) :- var(List),!,fail.
 is_list(List) :- /*nonvar(L),*/ List == [],!.
@@ -158,7 +160,7 @@ replace_all([H|Tail],OldElement,NewElement,[H|NewTail]) :- % nothing to do
 write_elements(_Stream,List) :- 
 	var(List),
 	!,
-	throw(error(
+	throw(error( % ISO compliant
 			instantiation_error,
 			context(write_elements/2,'the list (2nd argument) has to be nonvar'))).
 write_elements(Stream,List) :- 

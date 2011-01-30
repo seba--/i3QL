@@ -49,7 +49,7 @@ import saere.StringAtom;
 import saere.Term;
 import saere.Variable;
 import saere.term.Terms;
-import saere.utils.Performance;
+import saere.utils.Evaluate;
 
 public class meta_nrev {
 
@@ -104,9 +104,9 @@ public class meta_nrev {
 		boolean succeeded = s.next();
 		long duration = System.nanoTime() - startTime;
 		if (succeeded) {
-			Performance.writeToPerformanceLog("meta_nrev", duration);
+			Evaluate.writeToPerformanceLog("meta_nrev", duration);
 		} else {
-			Performance.writeToPerformanceLog("meta_nrev", -1l);
+			Evaluate.writeToPerformanceLog("meta_nrev", -1l);
 		}
 	}
 
