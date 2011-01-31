@@ -959,11 +959,12 @@ select_and_jump_to_next_goal_after_fail(_Meta,[return(boolean(false))|SRest],SRe
 select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSucceed) :-
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	(	lookup_in_meta(next_goal_if_succeeds(TargetGoalNumber),Meta) ->
-		goal_call_case_id(TargetGoalNumber,TargetCallCaseId),
+		goal_call_case_id(TargetGoalNumber,TargetCallCaseId), % FIXME do we need this?
 		(
-			lookup_in_meta(not_unique_predecessor_goal,Meta) ->
+			lookup_in_meta(not_unique_predecessor_goal(BacktrackingGoalNumber),Meta) ->
 			goal_redo_case_id(GoalNumber,ThisGoalRedoCaseId),
-			atomic_list_concat(['case',TargetCallCaseId,'PredecessorCase'],PredecessorGoal),
+			goal_call_case_id(BacktrackingGoalNumber,BacktrackingGoalCallCaseId),
+			atomic_list_concat(['case',BacktrackingGoalCallCaseId,'PredecessorCase'],PredecessorGoal), % PredecessorGoal => BacktrackingCaseId
 			JumpToNextGoalAfterSucceed = [
 				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisGoalRedoCaseId))) | 
 				SelectAndJump
@@ -1567,7 +1568,7 @@ number_primitive_goals(ASTNode,First,Last) :-
 	<ul>
 	<li>next_goal_if_fails(GoalNumber)</li>
 	<li>next_goal_if_fails(multiple)</li>
-	<li>not_unique_predecessor_goal</li>
+	<li>not_unique_predecessor_goal(OfGoalNumber)</li>
 	<li>next_goal_if_succeeds(GoalNumber)</li>
 	</ul>
 	Prerequisite: all primitive goals must be numbered.<br />
@@ -1615,5 +1616,5 @@ set_successor(DeferredActions,ASTNode,fails(Action),SuccessorASTNodes) :-
 		lookup_in_meta(goal_number(GoalNumber),Meta),
 		add_to_set_ol(create_field_to_store_predecessor_goal(GoalNumber),DeferredActions),
 		add_to_meta(next_goal_if_fails(Action,multiple),Meta),
-		add_to_each_term_meta(not_unique_predecessor_goal,SuccessorASTNodes)
+		add_to_each_term_meta(not_unique_predecessor_goal(GoalNumber),SuccessorASTNodes)
 	),!.
