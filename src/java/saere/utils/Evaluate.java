@@ -32,18 +32,24 @@
 package saere.utils;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import org.junit.Assert;
 import org.odftoolkit.odfdom.type.Color;
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Cell;
 import org.odftoolkit.simple.table.Row;
 import org.odftoolkit.simple.table.Table;
 
+import saere.CompoundTerm;
 import saere.Goal;
+import saere.State;
+import saere.Term;
+import saere.Variable;
 
 /**
  * A collection of convenience methods to systematically evaluate (the performance (gains) of) SAE
@@ -71,7 +77,7 @@ public class Evaluate {
 			Benchmark benchmark = benchmarkClass.getAnnotation(Benchmark.class);
 			if (benchmark != null) {
 				// call the specified goal
-				Goal s = (Goal) Class.forName("predicates."+benchmark.goal()+"0").newInstance();
+				Goal s = (Goal) Class.forName("predicates." + benchmark.goal() + "0").newInstance();
 				long startTime = System.nanoTime();
 				boolean succeeded = s.next();
 				long duration = System.nanoTime() - startTime;
@@ -82,8 +88,7 @@ public class Evaluate {
 				}
 			} else {
 				// old method - call the method called "measure"
-				Method method = benchmarkClass.getMethod("measure",
-						new Class<?>[] {});
+				Method method = benchmarkClass.getMethod("measure", new Class<?>[] {});
 				System.out.println("Starting.");
 				method.invoke(null, new Object[] {});
 				System.out.println("Finished.");
@@ -91,25 +96,21 @@ public class Evaluate {
 		} else {
 			String[] prg_args = Arrays.copyOfRange(args, 1, args.length);
 			System.out.println(" " + Arrays.toString(prg_args) + ".");
-			Method method = benchmarkClass.getMethod("measure",
-					new Class<?>[] { String[].class });
+			Method method = benchmarkClass.getMethod("measure", new Class<?>[] { String[].class });
 			System.out.println("Starting.");
 			method.invoke(null, new Object[] { prg_args });
 			System.out.println("Finished.");
 		}
 	}
 
-	public static void writeToPerformanceLog(String benchmark,
-			long timeInNanoSecs) {
+	public static void writeToPerformanceLog(String benchmark, long timeInNanoSecs) {
 		writeToPerformanceLog(benchmark, 1, timeInNanoSecs);
 	}
 
-	public static void writeToPerformanceLog(String benchmark, int run,
-			long timeInNanoSecs) {
+	public static void writeToPerformanceLog(String benchmark, int run, long timeInNanoSecs) {
 
 		Double time = new Double(timeInNanoSecs / 1000.0 / 1000.0 / 1000.0);
-		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark,
-				Integer.valueOf(run), time);
+		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark, Integer.valueOf(run), time);
 
 		try {
 			SpreadsheetDocument doc;
@@ -130,9 +131,8 @@ public class Evaluate {
 
 			Cell dateCell = row.getCellByIndex(0);
 			dateCell.setValueType("date");
-			dateCell.setDateValue(new GregorianCalendar(
-					date.get(Calendar.YEAR), date.get(Calendar.MONTH), date
-							.get(Calendar.DAY_OF_MONTH)));
+			dateCell.setDateValue(new GregorianCalendar(date.get(Calendar.YEAR), date
+					.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)));
 			dateCell.setFormatString("yyyy-MM-dd");
 
 			Cell timeCell = row.getCellByIndex(1);
@@ -145,8 +145,7 @@ public class Evaluate {
 			if (timeInNanoSecs >= 0) {
 
 				Cell performanceCell = row.getCellByIndex(3);
-				Double timeInSecs = new Double(
-						timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
+				Double timeInSecs = new Double(timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
 				performanceCell.setDoubleValue(timeInSecs);
 				performanceCell.setFormatString("0.0000");
 			} else {
@@ -160,5 +159,58 @@ public class Evaluate {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static void callTest2Predicate() throws Exception {
+		int testsCounter = 0; // REFACTOR PASS THIS STUFF TO THE JUnit TEST RUNNER
+
+		Variable predicate = new Variable();
+		Variable tests = new Variable();
+		@SuppressWarnings("unchecked")
+		Class<Goal> goalClass = (Class<Goal>) Class.forName("predicates.test2");
+		Goal g = goalClass.getConstructor(Term.class, Term.class).newInstance(predicate, tests);
+		while (g.next()) {
+			CompoundTerm ct = predicate.reveal().asCompoundTerm();
+			String functor = new String(ct.firstArg().asStringAtom().rawValue());
+			long arity = ct.secondArg().asIntValue().intEval();
+
+			@SuppressWarnings("unchecked")
+			Class<Goal> testGoalClass = (Class<Goal>) Class
+					.forName("predicates." + functor + arity);
+			Term testArgs = tests.reveal();
+			// all except the last argument are considered input arguments
+			Term[] goalArgs = new Term[testArgs.arity()];
+			for (int i = 0; i < testArgs.arity() - 1; i++) {
+				goalArgs[i] = testArgs.arg(i).asCompoundTerm().firstArg(); // the first argument of
+																		   // "in"
+			}
+			Variable out = new Variable();
+			goalArgs[testArgs.arity() - 1] = out;
+			Goal testGoal = (Goal) testGoalClass.getConstructors()[0]
+					.newInstance((Object[]) goalArgs);
+
+			// expectedResults is always a list...
+			Term expectedResults = testArgs.arg(testArgs.arity() - 1).asCompoundTerm().firstArg();
+
+			while (testGoal.next()) {
+				State outState = out.manifestState();
+				Term expectedResult = expectedResults.asCompoundTerm().firstArg();
+				State expectedResultState = expectedResult.manifestState();
+
+				Assert.assertTrue(functor + "/" + arity + " => " + expectedResult.toProlog()
+						+ " unify " + out.toProlog(), expectedResult.unify(out));
+				testsCounter++;
+
+				if (outState != null)
+					outState.reincarnate();
+				if (expectedResultState != null)
+					expectedResultState.reincarnate();
+
+				expectedResults = expectedResults.asCompoundTerm().secondArg();
+			}
+
+		}
+
+		System.out.println("Number of successful test: " + testsCounter);
 	}
 }

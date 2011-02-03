@@ -35,10 +35,10 @@ import org.junit.Test;
 
 import saere.utils.Evaluate;
 
-public class ControlFlowPredicates {
+public class Unification {
 
 	public static void main(String[] args) throws Exception {
-		new ControlFlowPredicates().test();
+		new Unification().test();
 	}
 
 	@Test

@@ -105,7 +105,7 @@ multiple_ors_and_cuts_3(X) :-
 	),
 	'$SAE$succeed_twice'.
 test(multiple_ors_and_cuts_3/1,args(out([1,1,2,2,3,3]))).
-
+/*
 multiple_succeeding_ors(R) :- 
 	(	X = 1
 	;	X = 2
@@ -124,3 +124,4 @@ test(
 			p(3,1),p(3,2),p(3,3)
 		]))
 ).
+*/

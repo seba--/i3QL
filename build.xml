@@ -352,7 +352,8 @@ POSSIBILITY OF SUCH DAMAGE.
 			depends="compile-saere"
 			description="Runs all system-level test cases.">
 		<!-- small tests, that test the hotspots of the compiler -->
-		<get-execute-and-verify-results-of-program program="ControlFlowPredicates" />	
+		<get-execute-and-verify-results-of-program program="Unification" />
+		<get-execute-and-verify-results-of-program program="ControlFlowPredicates" />
 		
 		<!-- programs that calculate something meaningful -->
 		<get-execute-and-verify-results-of-program program="ancestor" />
