@@ -2,7 +2,7 @@
 
 :- discontiguous(test/2).
 
-/** 
+/* 
 	These predicates just succeed a given number of times. They are guaranteed
 	to not be optimized away by the compiler.
 */
@@ -11,13 +11,17 @@
 '$SAE$succeed_twice'.
 '$SAE$succeed_twice'.
 
-
+/*
+	Further helper predicates.
+*/
+unify_args(A,A).
 
 /* ************************************************************************** *\
  *                                                                            *
  *                  TESTS THAT OR(;/2) IS COMPILED CORRECTLY                  *
  *                                                                            *
 \* ************************************************************************** */
+
 or_0(X) :- (X = 1 ; X = 2).
 test(or_0/1,args(out([1,2]))). % the last argument has to be the out argument..
 
@@ -105,6 +109,7 @@ multiple_ors_and_cuts_3(X) :-
 	),
 	'$SAE$succeed_twice'.
 test(multiple_ors_and_cuts_3/1,args(out([1,1,2,2,3,3]))).
+
 /*
 multiple_succeeding_ors(R) :- 
 	(	X = 1
@@ -124,4 +129,21 @@ test(
 			p(3,1),p(3,2),p(3,3)
 		]))
 ).
+*/
+
+
+or_variable_usage(Left, Right, Elements):- 
+	unify_args(Left,Elements) ; 
+	unify_args(Right,Elements).
+test(or_variable_usage/3,args(in(1),in(2),out([1,2]))).
+
+/*
+or_variable_usage2(Left, Right, Elements):- 
+	(	L = 1, Right = L ; R = 1, Left = R ),
+	(
+		unify_args(Left,Elements) 
+	;
+		unify_args(Right,Elements)
+	).
+test(or_variable_usage2/3,args(in(1),in(2),out([1,2]))).
 */

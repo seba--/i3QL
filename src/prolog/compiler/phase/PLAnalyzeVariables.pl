@@ -235,15 +235,25 @@ intra_clause_variable_usage(
 			RASTNode,
 			UsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
 			UV2,PUV2,UOV2),
+%write('::::\n'),write(UsedVariables),nl,write(PotentiallyUsedVariables),nl,write(VariablesUsedOnlyOnce),nl,
+%write('l =>\n'),write(UV1),nl,write(PUV1),nl,write(UOV1),nl,
+%write('r =>\n'),write(UV2),nl,write(PUV2),nl,write(UOV2),nl,
 	intersect_sets(UV1,UV2,NewUsedVariables),
+	% determine those that are potentially used
 	merge_sets(PUV1,PUV2,MPUV_1_2),
-	% add those variables that are only used on one branch
 	set_subtract(UV1,NewUsedVariables,LPUV),
 	set_subtract(UV2,NewUsedVariables,RPUV),
 	merge_sets(LPUV,RPUV,LRPUV),
 	merge_sets(MPUV_1_2,LRPUV,NewPotentiallyUsedVariables),
 	% update the set of variables that are used only once
-	merge_sets(UOV1,UOV2,NewVariablesUsedOnlyOnce).
+	set_subtract(UOV1,UsedVariables,FTUV1), % Variables used for the first time and only once by the left term
+	set_subtract(UOV2,UsedVariables,FTUV2),
+	set_subtract(VariablesUsedOnlyOnce,UV1,VUOO1),
+	set_subtract(VUOO1,UV2,VUOO2),
+	merge_sets(VUOO2,FTUV1,VUOO3),
+	merge_sets(VUOO3,FTUV2,NewVariablesUsedOnlyOnce),
+%write('===>\n'),write(NewUsedVariables),nl,write(NewPotentiallyUsedVariables),nl,write(NewVariablesUsedOnlyOnce),nl,nl,nl,nl
+	.
 
 intra_clause_variable_usage(
 		ASTNode,
@@ -272,7 +282,7 @@ intra_clause_variable_usage(
 	merge_sets(IUOV,IFTUV,NewVariablesUsedOnlyOnce).	
 
 intra_clause_variable_usage(
-		_ASTNode, % if we reach this clause, ASTNode has to be an atomic ..
+		_ASTNode, % if we reach this clause, ASTNode has to be atomic or a variable...
 		UsedVariables,
 		PotentiallyUsedVariables,
 		VariablesUsedOnlyOnce,		
