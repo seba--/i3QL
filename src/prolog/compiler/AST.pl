@@ -891,17 +891,26 @@ pos_meta(Pos,[Pos|_]) :- Pos = pos(_,_,_).
 	@arg(out) Pos is the position object {@file SAEProlog:Compiler:Parser} 
 		identifying the position of the term in the source file.
 */
-term_pos(ASTNode,Pos) :- ASTNode =.. [_,[Pos|_]|_].
+term_pos(ASTNode,Pos) :- 
+	ASTNode =.. [_,Meta|_], 
+	Meta = [Pos|_], 
+	Pos = pos(_File,_LN,_CN).
 
 
 
 /**
+	Returns the position of the term in the source file. Succeeds iff position
+	information is available.
+	
 	@arg(in) ASTNode An AST node representing a term in a source file.
 	@arg(out) File 
 	@arg(out) LN
 	@arg(out) CN 	 
 */ % TODO deep documentation: make sure that the in annotation is enforced (=.. requires AST to be a compound term or an atom)
-term_pos(ASTNode,File,LN,CN) :- ASTNode =.. [_,[pos(File,LN,CN)|_]|_].
+term_pos(ASTNode,File,LN,CN) :- 
+	ASTNode =.. [_,Meta|_],
+	Meta = [Pos|_],
+	Pos = pos(File,LN,CN).
 
 
 

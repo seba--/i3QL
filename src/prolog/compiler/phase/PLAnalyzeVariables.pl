@@ -57,7 +57,10 @@
 		sae_analyze_variables,
 		[
 			pl_analyze_variables/4,
-			mapped_variable_ids/2
+			
+			analyze_variable_usage/3,
+			mapped_variable_ids/2,
+			mapped_variable_ids/3
 		]
 	).
 
@@ -95,10 +98,22 @@ process_predicate(DebugConfig,Predicate) :-
 analyze_variable_usage(
 		_ClauseId,Clause,_RelativeClausePosition, % input
 		ClauseLocalVariablesCount % output
+	) :- 
+	clause_meta(Clause,ClauseMeta),
+	clause_implementation(Clause,ClauseImplementation),
+	analyze_variable_usage(
+			ClauseMeta,
+			ClauseImplementation,
+			ClauseLocalVariablesCount).
+
+
+
+analyze_variable_usage(
+		ClauseMeta,
+		ClauseImplementation, % input
+		ClauseLocalVariablesCount % output
 	) :-
-	clause_implementation(Clause,Implementation),
-	
-	rule_head(Implementation,HeadASTNode),
+	rule_head(ClauseImplementation,HeadASTNode),
 	(	is_string_atom(HeadASTNode) ->
 		HeadVariablesCount = 0
 		% VariableNamesToIdsMap remains free...
@@ -109,74 +124,91 @@ analyze_variable_usage(
 		HeadVariablesCount is HeadVariablesCountExpr,
 		dictionary_values(VariableNamesToIdsMap,HeadVariables)
 	),
-	add_to_clause_meta(used_head_variables_count(HeadVariablesCount),Clause),
+	add_to_meta(used_head_variables_count(HeadVariablesCount),ClauseMeta),
 	
-	rule_body(Implementation,BodyASTNode),
-	named_variables_of_term(BodyASTNode,AllBodyVariablesNodes,[]),
-	map_names_of_body_variables(0,AllBodyVariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap),
-	add_to_clause_meta(clause_local_variables_count(ClauseLocalVariablesCount),Clause),
-	
+	rule_body(ClauseImplementation,BodyASTNode),
+	named_variables_of_term(BodyASTNode,AllBodyVariablesNodes,[]),	
+	map_names_of_body_variables(
+			0,AllBodyVariablesNodes,
+			ClauseLocalVariablesCount,VariableNamesToIdsMap),
+	add_to_meta(clause_local_variables_count(ClauseLocalVariablesCount),ClauseMeta),
+			
 	intra_clause_variable_usage(
 			BodyASTNode,
 			HeadVariables,[],HeadVariables,
 			_UsedVariables,_PotentiallyUsedVariables,VariablesUsedOnlyOnce),
 			
-	write_variables_used_only_once(Clause,VariablesUsedOnlyOnce,VariableNamesToIdsMap).
+	write_variables_used_only_once(ClauseImplementation,VariablesUsedOnlyOnce,VariableNamesToIdsMap).
 
 
 
-write_variables_used_only_once(_Clause,[],_VariableNamesToIdsMappping).
 write_variables_used_only_once(
-		Clause,
+		ClauseImplementationASTNode,
 		[VariableIdUsedOnlyOnce|VariableIdsUsedOnlyOnce],
 		VariableNamesToIdsMappping
 	) :-
-	clause_implementation(Clause,ASTNode),
-	term_pos(ASTNode,File,LN,_CN),
 	dictionary_identity_lookup_key(
 			VariableIdUsedOnlyOnce,
 			VariableNamesToIdsMappping,
 			VariableName),!,
-	atomic_list_concat(
-			[	File,':',LN,
-				': warning: the variable ',
-				VariableName,
-				' is only used once (per possible path)\n'
-			],
-			MSG),% GCC compliant
+	term_pos(ClauseImplementationASTNode,File,LN,_CN),			
+	(	nonvar(File),File \== [],nonvar(LN) ->	
+		atomic_list_concat(
+				[	File,':',LN,
+					': warning: the variable ',
+					VariableName,
+					' is only used once (per possible path)\n'
+				],
+				MSG)% GCC compliant
+	;
+		atomic_list_concat(
+				[	'Warning: the variable ',
+					VariableName,
+					' is only used once (per possible path)\n'
+				],
+				MSG)% GCC compliant
+	),
    write(MSG),
-
 	write_variables_used_only_once(
-			Clause,
+			ClauseImplementationASTNode,
 			VariableIdsUsedOnlyOnce,
 			VariableNamesToIdsMappping).
 
+write_variables_used_only_once(_Clause,[],_VariableNamesToIdsMappping).
 
 
-map_names_of_head_variables(_Id,[],0,_VariableNamesToIdsMap).
-map_names_of_head_variables(Id,[HeadVariable|HeadVariables],FinalHeadVariablesCount,VariableNamesToIdsMap) :-
-	( 	variable(HeadVariable,HeadVariableName) ->
+map_names_of_head_variables(_Id,[],0,_VariableNamesToIdsMap) :- !.
+map_names_of_head_variables(
+		Id,
+		[HeadVariableNode|HeadVariables],
+		FinalHeadVariablesCount,
+		VariableNamesToIdsMap
+	) :-
+	( 	variable(HeadVariableNode,HeadVariableName) ->
 		VariableId = arg(Id),
 		lookup(HeadVariableName,VariableNamesToIdsMap,VariableId),
-		add_to_term_meta(variable_id(VariableId),HeadVariable),
+		add_to_term_meta(variable_id(VariableId),HeadVariableNode),
 		FinalHeadVariablesCount = HeadVariablesCount + 1
 	;
 		FinalHeadVariablesCount = HeadVariablesCount
 	),
 	NewId is Id + 1,
 	map_names_of_head_variables(NewId,HeadVariables,HeadVariablesCount,VariableNamesToIdsMap).
+	
+
 
 
 
 /** 
 	@signature map_names_of_body_variables(Id,AllBodyVariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap)
 */
-map_names_of_body_variables(Id,[],Id,_VariableNamesToIdsMap).	
 map_names_of_body_variables(
-		Id,
-		[VariableNode|VariablesNodes],
+		Id,[],
+		Id,_VariableNamesToIdsMap) :- !.
+map_names_of_body_variables(
+		Id,[VariableNode|VariablesNodes],
 		ClauseLocalVariablesCount,VariableNamesToIdsMap
-	) :-
+	) :- 
 	variable(VariableNode,VariableName),
 	lookup(VariableName,VariableNamesToIdsMap,VariableId),
 	(	var(VariableId) ->
@@ -186,7 +218,9 @@ map_names_of_body_variables(
 		NewId = Id
 	),
 	add_to_term_meta(variable_id(VariableId),VariableNode),
-	map_names_of_body_variables(NewId,VariablesNodes,ClauseLocalVariablesCount,VariableNamesToIdsMap).
+	map_names_of_body_variables(
+			NewId,VariablesNodes,
+			ClauseLocalVariablesCount,VariableNamesToIdsMap).
 
 
 
@@ -204,14 +238,16 @@ intra_clause_variable_usage(
 			LASTNode,
 			UsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
 			UV1,PUV1,UOV1),
+%write(and),write(UV1),write(PUV1),write(UOV1),nl, 
 	intra_clause_variable_usage(
 			RASTNode,
 			UV1,PUV1,UOV1,
-			NewUsedVariables,NewPotentiallyUsedVariables,NewVariablesUsedOnlyOnce).
+			NewUsedVariables,NewPotentiallyUsedVariables,NewVariablesUsedOnlyOnce).%,
+%write(and),write(NewUsedVariables),write(NewPotentiallyUsedVariables),write(NewVariablesUsedOnlyOnce),nl .
 
 intra_clause_variable_usage(
 		ASTNode,
-		UsedVariables,
+		PreviouslyUsedVariables,
 		PotentiallyUsedVariables,
 		VariablesUsedOnlyOnce,
 		NewUsedVariables,
@@ -229,13 +265,13 @@ intra_clause_variable_usage(
 	),
 	intra_clause_variable_usage(
 			LASTNode,
-			UsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
+			PreviouslyUsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
 			UV1,PUV1,UOV1),
 	intra_clause_variable_usage(
 			RASTNode,
-			UsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
+			PreviouslyUsedVariables,PotentiallyUsedVariables,VariablesUsedOnlyOnce,
 			UV2,PUV2,UOV2),
-%write('::::\n'),write(UsedVariables),nl,write(PotentiallyUsedVariables),nl,write(VariablesUsedOnlyOnce),nl,
+%write('::::\n'),write(PreviouslyUsedVariables),nl,write(PotentiallyUsedVariables),nl,write(VariablesUsedOnlyOnce),nl,
 %write('l =>\n'),write(UV1),nl,write(PUV1),nl,write(UOV1),nl,
 %write('r =>\n'),write(UV2),nl,write(PUV2),nl,write(UOV2),nl,
 	intersect_sets(UV1,UV2,NewUsedVariables),
@@ -246,12 +282,17 @@ intra_clause_variable_usage(
 	merge_sets(LPUV,RPUV,LRPUV),
 	merge_sets(MPUV_1_2,LRPUV,NewPotentiallyUsedVariables),
 	% update the set of variables that are used only once
-	set_subtract(UOV1,UsedVariables,FTUV1), % Variables used for the first time and only once by the left term
-	set_subtract(UOV2,UsedVariables,FTUV2),
-	set_subtract(VariablesUsedOnlyOnce,UV1,VUOO1),
-	set_subtract(VUOO1,UV2,VUOO2),
-	merge_sets(VUOO2,FTUV1,VUOO3),
-	merge_sets(VUOO3,FTUV2,NewVariablesUsedOnlyOnce),
+%write('\nuov'),write(UOV1),write(UOV2),nl,
+	set_subtract(UOV1,PreviouslyUsedVariables,FTUV1), % Variables used for the first time and only once by the left term
+	set_subtract(UOV2,PreviouslyUsedVariables,FTUV2),
+%write('\nftuv'),write(FTUV1),write(FTUV2),nl, 	
+%set_subtract(VariablesUsedOnlyOnce,UV1,VUOO1),
+%set_subtract(VUOO1,UV2,VUOO2),
+%merge_sets(VUOO2,FTUV1,VUOO3),
+%merge_sets(VUOO3,FTUV2,NewVariablesUsedOnlyOnce)%,
+	intersect_sets(UOV1,UOV2,VUOO1),
+	merge_sets(VUOO1,FTUV1,VUOO2),
+	merge_sets(VUOO2,FTUV2,NewVariablesUsedOnlyOnce)%,
 %write('===>\n'),write(NewUsedVariables),nl,write(NewPotentiallyUsedVariables),nl,write(NewVariablesUsedOnlyOnce),nl,nl,nl,nl
 	.
 
@@ -278,8 +319,11 @@ intra_clause_variable_usage(
 	set_subtract(PotentiallyUsedVariables,UsedVariables,NewPotentiallyUsedVariables),
 	% update the set of variables that are used only once
 	set_subtract(VariablesUsedOnlyOnce,UsedVariables,IUOV),
+%compound_term(ASTNode,Name,_Args),write(Name),write('=>\n'),write(UsedVariables),write(VariablesUsedOnlyOnce),nl,	
 	set_subtract(FirstTimeUsedVariables,VariableIdsUsedMoreThanOnce,IFTUV),
-	merge_sets(IUOV,IFTUV,NewVariablesUsedOnlyOnce).	
+%write(FirstTimeUsedVariables),write(VariableIdsUsedMoreThanOnce),nl,		
+	merge_sets(IUOV,IFTUV,NewVariablesUsedOnlyOnce).%,
+%write(IUOV),write(IFTUV),write(NewVariablesUsedOnlyOnce),nl,nl.	
 
 intra_clause_variable_usage(
 		_ASTNode, % if we reach this clause, ASTNode has to be atomic or a variable...
@@ -303,7 +347,6 @@ mapped_variable_ids(VariableNodes,VariableIds,VariableIdsUsedMoreThanOnce) :-
 
 
 
-mapped_variable_ids([],VariableIds,VariableIds,[]).
 mapped_variable_ids(
 		[VariableNode|VariableNodes],
 		VariableIds,
@@ -317,7 +360,8 @@ mapped_variable_ids(
 		VariableIdsUsedMoreThanOnce = MoreVariableIdsUsedMoreThanOnce
 	),
 	mapped_variable_ids(VariableNodes,IVariableIds,NewVariableIds,MoreVariableIdsUsedMoreThanOnce).
-	
+
+mapped_variable_ids([],VariableIds,VariableIds,[]).	
 	
 	
 	

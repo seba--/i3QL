@@ -69,13 +69,17 @@
 		empty_set/1,
 		add_to_set/3,
 		add_to_set/4,
+		set_is_subset/2,
+		set_is_equal/2,
 		remove_from_set/3,
 		merge_sets/3,
 		intersect_sets/3,
 		set_subtract/3,
 		
-		write_atomic_list/1
+		write_atomic_list/1,
 	%	write_atomic_list/2
+	
+		assert_standard_output/2
 	]).
 
 :- use_module('collections/List.pl').
@@ -203,7 +207,7 @@ replace_first_dl([SomeE|OldDLR]-OldDLZ,OldE,NewE,[SomeE|NewDLR]-NewDLZ) :-
 	
 	@category dictionaries, maps
 */
-lookup(Key,[(Key,Value)|_Dict],Value).
+lookup(Key,[(Key,Value)|_Dict],Value) :- !.
 lookup(Key,[(Key1,_)|Dict],Value) :- Key \= Key1, lookup(Key,Dict,Value).
 
 
@@ -462,6 +466,15 @@ set_subtract(BaseSet,[X|Xs],NewBaseSet) :-
 
 
 
+set_is_subset([],_) :- !.
+set_is_subset([X|Xs],Set) :- memberchk(X,Set),set_is_subset(Xs,Set).
+
+
+
+set_is_equal(Set1,Set2) :- set_is_subset(Set1,Set2),set_is_subset(Set2,Set1).
+
+
+
 intersect_sets([],_,[]) :- !.
 intersect_sets(_,[],[]) :- !.
 intersect_sets([A|As],Bs,Cs) :- 
@@ -476,4 +489,37 @@ intersect_sets([A|As],Bs,Cs) :-
 
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),
-	write(Atom).	
+	write(Atom).
+
+
+/**
+	@signature assert_standard_output(+:callable_term,?ExpectedOutput:atom_codes)
+*/
+assert_standard_output(Goal,ExpectedOutput) :-
+	current_stream(1,_,StdOut),
+	tmp_file_stream(text, TmpFile, TmpOut),
+	set_output(TmpOut),
+	catch(
+		(call(Goal),Succeeded = true),
+		E,
+		Succeeded = false
+	),!,
+	close(TmpOut),
+	set_output(StdOut),
+	(	Succeeded
+	-> 
+		read_file_to_codes(TmpFile,Output,[]),
+		(	Output = ExpectedOutput ->
+			true
+		;
+			atom_codes(ExpectedOutputAtom,ExpectedOutput),
+			atom_codes(OutputAtom,Output),
+			nl,
+			write('Expected Output:\n"'),write(ExpectedOutputAtom),write('"'),nl,
+			write('Observed Output:\n"'),write(OutputAtom),write('"'),nl,
+			fail
+		)
+	;
+		write(E),
+		fail
+	).	

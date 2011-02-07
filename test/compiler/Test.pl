@@ -11,4 +11,5 @@
 % Formatter
 % :- ensure_loaded('test/compiler/formatter/Test.pl').
 
-
+:- ensure_loaded('test/compiler/data_flow/intra_clause_variable_usage.pl').
+:- ensure_loaded('test/compiler/data_flow/Messages.pl').
