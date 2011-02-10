@@ -74,7 +74,12 @@ assert_data_flow_analysis_results(
 		fail
 	).
 
-
+test(simple_1) :-
+	assert_data_flow_analysis_results(
+		"do(A,B).",
+		pre([clv(3)],[clv(4)],[clv(4)]),
+		post([clv(0),clv(1),clv(3)],[clv(4)],[clv(0),clv(1),clv(4)])
+	).	
 
 test(all_variables_are_new) :-
 	assert_data_flow_analysis_results(
@@ -138,6 +143,13 @@ test(or_one_variable_used_on_all_paths_two_used_on_only_one_path) :-
 		pre([],[],[]),
 		post([clv(0)],[clv(1),clv(2)],[clv(0),clv(1),clv(2)])
 	).
+	
+test(multi_or_all_variables_used_on_only_one_path) :-
+	assert_data_flow_analysis_results(
+		"do(A);do(B);do(C),do(D).",
+		pre([],[],[]),
+		post([],[clv(0),clv(1),clv(2),clv(3)],[clv(0),clv(1),clv(2),clv(3)])
+	).	
 
 
 :- end_tests(intra_clause_variable_usage).
