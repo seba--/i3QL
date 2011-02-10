@@ -17,14 +17,6 @@
 % Written by Peter Van Roy
 
 
-/* 
-	run_crypt(X) executes "crypt" X times.
-*/
-run_crypt(0).
-run_crypt(X) :- X > 0, \+(\+ crypt(_)), X0 is X - 1, run_crypt(X0).
-
-
-
 crypt([A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P]) :-
 	odd(A), even(B), even(C), even(E),
 	mult([C, B, A], E, [I, H, G, F | X]),

@@ -359,6 +359,7 @@ POSSIBILITY OF SUCH DAMAGE.
 		<get-execute-and-verify-results-of-program program="ancestor" />
 		<get-execute-and-verify-results-of-program program="arithmetic" />
 		<get-execute-and-verify-results-of-program program="chat_parser" />
+		<get-execute-and-verify-results-of-program program="crypt" />
 		<get-execute-and-verify-results-of-program program="meta_nrev" />
 		<get-execute-and-verify-results-of-program program="nrev" />
 		<get-execute-and-verify-results-of-program program="primes" />
@@ -377,6 +378,7 @@ POSSIBILITY OF SUCH DAMAGE.
 			description="Evaluates the performance of SAE Prolog.">
 		<get-and-measure-program program="arithmetic" />
 		<get-and-measure-program program="chat_parser" />
+		<get-and-measure-program program="crypt" />
 		<get-and-measure-program program="meta_nrev" />
 		<get-and-measure-program program="nrev" />
 		<get-and-measure-program program="primes" />
