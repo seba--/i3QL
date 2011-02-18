@@ -79,10 +79,11 @@ process_predicate(DebugConfig,Predicate) :-
 	;
 		add_to_predicate_meta(uses_cut(no),Predicate)
 	),
+	% IMPROVE rename: clause choice fixed after first succees
 	deterministic_clause_selection(CutBehaviors,DeterministicClauseSelection),
 	add_to_predicate_meta(
-		deterministic_clause_selection(DeterministicClauseSelection),
-		Predicate),
+			deterministic_clause_selection(DeterministicClauseSelection),
+			Predicate),
 		
 	% logging...
 	debug_message(

@@ -38,9 +38,9 @@ test(body_unify1/1,args(out([true]))).
 body_unify2(I,T) :-  T = I.
 test(body_unify2/2,args(in(true),out([true]))).
 test(body_unify2/2,args(in(false),out([false]))).
-/*
+
 body_unify3(T) :- X = _, X = T, T = X, _ = T, T = T, T = true, X = true.
 test(body_unify3/1,args(out([true]))).
-*/
+
 
 

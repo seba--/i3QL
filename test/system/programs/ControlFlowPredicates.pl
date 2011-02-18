@@ -110,7 +110,7 @@ multiple_ors_and_cuts_3(X) :-
 	'$SAE$succeed_twice'.
 test(multiple_ors_and_cuts_3/1,args(out([1,1,2,2,3,3]))).
 
-/*
+/* FIXME Unifications are not always compiled correctly
 multiple_succeeding_ors(R) :- 
 	(	X = 1
 	;	X = 2
@@ -137,7 +137,7 @@ or_variable_usage(Left, Right, Elements):-
 	unify_args(Right,Elements).
 test(or_variable_usage/3,args(in(1),in(2),out([1,2]))).
 
-/*
+/* FIXME Unifications are not always compiled correctly
 or_variable_usage2(Left, Right, Elements):- 
 	(	L = 1, Right = L ; R = 1, Left = R ),
 	(
