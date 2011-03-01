@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.tud.st.sae</groupId>
+	<artifactId>sae-core</artifactId>
+	<version>0.1.0</version>
+	<name>sae-core</name>
+
+	<build>
+		<!-- used for m2Eclipse since this will be read do configure buildpath -->
+		<sourceDirectory>src/java</sourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<excludes>
+						<exclude>**/saere/utils/*.java</exclude>
+					</excludes>
+
+					<sources>
+						<source>${project.basedir}/src/java</source>
+					</sources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
