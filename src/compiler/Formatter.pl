@@ -35,132 +35,272 @@
 
 :- module(
    'SAEProlog:Compiler:Formatter',
-   [format_file/3]
+   [format_clauses/2,
+   format_clauses/3,
+   getTabs/3,
+   replace_characer/4,build_string_sequence/4]
 ).
 
 :- use_module('AST.pl').
 
+format_clauses(Cs,Fs) :-  membercheck(X,[],80),format_file(Cs,'',X,Fs).
 
+format_clauses(Cs,Fs,Options) :- membercheck(X,Options,80),format_file(Cs,'',X,Fs).
 
-format_file([],L,L).
-format_file([H|T],In,OutputList) :- 
-   write_clause(H,1200,Out),
-   atomic_list_concat([In,Out,'.\n'],Concated_List),
-   format_file(T,Concated_List,OutputList).
    
-   
-write_clause(ASTNode,_,Value) :-
+count_clauses([],0).
+count_clauses([H|T],Length):- count_clause(H,AtomLength),count_clauses(T,RestLength), Length is AtomLength + RestLength,!.
+
+count_clause(ASTNode,Length) :-
    (
-      variable(ASTNode,Value);
-      anonymous_variable(ASTNode,Value);
-      string_atom(ASTNode,Value);
-      integer_atom(ASTNode,Value);
+      variable(ASTNode,Value)
+   ;
+      anonymous_variable(ASTNode,Value)
+   ;
+      string_atom(ASTNode,Value)
+   ;
+      integer_atom(ASTNode,Value)
+   ;
+      float_atom(ASTNode,Value)
+   ), term_to_atom(Value,Atom),atom_length(Atom,Length),write(Value),write(' = '),write(Length),nl,!.
+
+count_clause(ASTNode,Length) :-
+    complex_term(ASTNode,Functor,Args),count_clauses(Args,Restlength),term_to_atom(Functor,Atom),atom_length(Atom,FunctorLength), Length is FunctorLength + Restlength,write(Functor),write(' = '),write(FunctorLength),nl.
+
+format_file([],L,_,L).
+format_file([H|T],In,Linewidth,OutputList) :-
+% 
+%    nl,write('LineWidth = '),write(Linewidth),
+%    count_clause(H,Length),
+%    nl,write('Length = '),write(Length),
+%    (                                            c
+%       Length =< Linewidth
+%       %line short enought
+%       %format_file(Cs,'',Fs)
+%    ;
+%       Length > Linewidth
+%       %line to long, must be split
+%       %format_file(Cs,'',Fs)
+%    ),
+   (
+   (
+      % if
+      complex_term(H,':-',[First|_]),
+      complex_term(First,CurrentName,CurrentArity),
+      length(CurrentArity,ListLenght)
+   ;
+      complex_term(H,CurrentName,CurrentArity),
+      length(CurrentArity,ListLenght)
+   ),!,format_file([H|T],In,[CurrentName,ListLenght],Linewidth,OutputList)
+   ;
+   write_clause(H,1200,0,Out), atomic_list_concat([In,Out,'.\n'],Concated_List),format_file(T,Concated_List,Linewidth,OutputList)).
+
+format_file([],L,_,_,L).
+format_file([H|T],In,[ClauseName,ClauseArity],Linewidth,OutputList) :-
+%   nl,write('LineWidth = '),write(Linewidth),
+%    count_clause(H,Length),
+%    nl,write('Length = '),write(Length),
+%    (
+%       Length =< Linewidth
+%       %line short enought
+%       %format_file(Cs,'',Fs)
+%    ;
+%       Length > Linewidth
+%       %line to long, must be split
+%       %format_file(Cs,'',Fs)
+%    ),
+   (
+      complex_term(H,':-',[First|_]),
+      complex_term(First,CurrentName,CurrentArity),
+      length(CurrentArity,ListLenght)
+   ;
+      complex_term(H,CurrentName,CurrentArity),
+      length(CurrentArity,ListLenght)
+   ),
+   (
+      CurrentName = ClauseName, ListLenght = ClauseArity,
+      write_clause(H,1200,0,Out),
+      atomic_list_concat([In,Out,'.\n'],Concated_List)
+   ;
+      CurrentName = ClauseName,
+      write_clause(H,1200,0,Out),
+      atomic_list_concat([In,'\n',Out,'.\n'],Concated_List)
+   ;
+      write_clause(H,1200,0,Out),
+      atomic_list_concat([In,'\n\n',Out,'.\n'],Concated_List)
+   ),!,format_file(T,Concated_List,[CurrentName,ListLenght],Linewidth,OutputList).
+   
+
+replace_characer([],_,_,'').
+replace_characer([Char|Chars],OldChar,NewChar,Output) :-
+   (
+      Char = OldChar,
+      replace_characer(Chars,OldChar,NewChar,Out),
+     atomic_list_concat([NewChar,Out],Output)
+   ;
+     replace_characer(Chars,OldChar,NewChar,Out),
+     atomic_list_concat([Char,Out],Output)
+   ),!.
+   
+membercheck(Value,Options,DefaultValue) :-
+   (
+      memberchk(linewidth(Value),Options)
+   ;
+      Value is DefaultValue
+   ),!.
+   
+build_string_sequence(String,OldC,NewC,Sequence) :- term_to_atom(String,Atom),atom_chars(Atom,AtomList),replace_characer(AtomList,OldC,NewC,Sequence).
+
+write_clause(ASTNode,_,_,Value) :-
+   (
+      variable(ASTNode,Value)
+   ;
+      anonymous_variable(ASTNode,Value)
+   ;
+      string_atom(ASTNode,QValue),build_string_sequence(QValue,'\n','\\n',Value)
+   ;
+      integer_atom(ASTNode,Value)
+   ;
       float_atom(ASTNode,Value)
    ),!.
    
-write_clause(ASTNode,Priority,Out) :-
+write_clause(ASTNode,Priority,Depth,Out) :-
    complex_term(ASTNode,'.',Args),
-   write_List(Args,Priority,Out),!.
+   write_List(Args,Priority,Depth,Out),!.
    
-write_clause(ASTNode,Priority,Out) :-
+write_clause(ASTNode,Priority,Depth,Out) :-
    complex_term(ASTNode,Functor,Args),
    (
       term_meta(ASTNode,Meta),
       lookup_in_meta(ops(FirstPrefixOps,FirstInfixOps,FirstPostfixOps),Meta),
-      (
-         memberchk(op(_,_,Functor),FirstPrefixOps),Args = [_],write_functors(Functor,Args,Priority,Out)
-      ;
+      (  % ComplexTerm has a prefix functor
+         memberchk(op(Func_Priority,_,Functor),FirstPrefixOps),
+         Args = [_],
+         (
+            Func_Priority > Priority,
+            write_functors(_,Args,Priority,Depth,Output),
+            atomic_list_concat([Functor,'(',Output,')'],Out)
+         ;
+            write_functors(_,Args,Func_Priority,Depth,Output),
+            atomic_list_concat([Functor,' ',Output],Out)
+         )
+      ;  % ComplexTerm has an infix functor
          memberchk(op(Func_Priority,_,Functor),FirstInfixOps),Args = [_,_],
          (
             Func_Priority > Priority,
-            write_functor_infix(Functor,Args,Func_Priority,Output),
+
             (
                Functor = ';',
-               atomic_list_concat(['(\n',Output,'\n)'],Out)
+               write_functor_infix(Functor,Args,Func_Priority,Depth+1,Output),
+               atomic_list_concat(['\n(\n',Output,'\n)'],Out)
             ;
+             write_functor_infix(Functor,Args,Func_Priority,Depth,Output),
                atomic_list_concat(['(',Output,')'],Out)
             )
          ;
-            write_functor_infix(Functor,Args,Func_Priority,Output),
+         (
+            Functor = ';',
+            write_functor_infix(Functor,Args,Func_Priority,Depth,Output),
+            atomic_list_concat([Output],Out)
+            ;
+            write_functor_infix(Functor,Args,Func_Priority,Depth,Output),
             atomic_list_concat([Output],Out)
          )
-      ;
-         memberchk(op(_,_,Functor),FirstPostfixOps),Args=[_],write_functors(Functor,Args,Priority,Out)
+         )
+      ;  %ComplexTerm has a postfix functor
+         memberchk(op(_,_,Functor),FirstPostfixOps),Args=[_],write_functors(Functor,Args,Priority,Depth,Out),atomic_list_concat(['(',Output,')',Functor,' '],Out)
       )
       ;
-      write_functors(Functor,Args,Priority,Out)
+      %ComplexTerm has an unknown functor
+      write_functors(Functor,Args,Priority,Depth,Output),atomic_list_concat([Functor,'(',Output,')'],Out)
    ),!.
    
 write_clause(ASTNode,_,_) :- throw(internal_error('[Formatter] the given term has an unexpected type',ASTNode)).
 
 
-write_functors(Functor,ClauseList,Priority,Concated_List) :-
-   write_term_list(ClauseList,Priority,RestList),
-   atomic_list_concat([Functor,'(',RestList,')'],Concated_List).
+write_functors(_,ClauseList,Priority,Depth,RestList) :-
+   write_term_list(ClauseList,Priority,Depth,RestList).
+   %atomic_list_concat([Functor,'(',RestList,')'],Concated_List).
 
 
-write_functor_infix(',',[H|T],Priority,Concated_List) :-
-   write_clause(H,Priority,First),
-   write_rest_clause(T,Priority,Rest),
+write_functor_infix(',',[H|T],Priority,Depth,Concated_List) :-
+   write_clause(H,Priority,Depth,First),
+   write_rest_clause(T,Priority,Depth,Rest),
    atomic_list_concat([First,',',' ',Rest],Concated_List).
 
 
-write_functor_infix(';',[H|T],Priority,Concated_List) :-
-   write_clause(H,Priority,First),
-   write_rest_clause(T,Priority,Rest),
-   atomic_list_concat([First,'\n;\n',Rest],Concated_List).
+write_functor_infix(';',[H|T],Priority,Depth,Concated_List) :-
+   write_clause(H,Priority,Depth,First),
+   write_rest_clause(T,Priority,Depth,Rest),
+   getTabs(Depth,';',Functor),
+   getTabs(Depth,First,TabbedFirst),
+   getTabs(Depth,Rest,TabedRest),
+   atomic_list_concat([TabbedFirst,'\n',Functor,'\n',TabedRest],Concated_List).
 
 
-write_functor_infix(Functor,[H|T],Priority,Concated_List) :-
-      write_clause(H,Priority,First),
-      write_rest_clause(T,Priority,Rest),
-      atomic_list_concat([First,' ',Functor,' ',Rest],Concated_List).
+
+write_functor_infix(Functor,[H|T],Priority,Depth,Concated_List) :-
+   write_clause(H,Priority,Depth,First),
+   write_rest_clause(T,Priority,Depth,Rest),
+   atomic_list_concat([First,' ',Functor,' ',Rest],Concated_List).
 
 
-write_rest_clause([],_,'').
+write_rest_clause([],_,_,'').
 
-write_rest_clause([H|T],Priority,Concated_List) :-
-   write_clause(H,Priority,First),
-   write_rest_clause(T,Priority,Rest),
+write_rest_clause([H|T],Priority,Depth,Concated_List) :-
+   write_clause(H,Priority,Depth,First),
+   write_rest_clause(T,Priority,Depth,Rest),
    atomic_list_concat([First,Rest],Concated_List).
 
 
-write_List([],_,'').
+write_List([],_,_,'').
 
-write_List([H|T],Priority,Concated_List) :-
+write_List([H|T],Priority,Depth,Concated_List) :-
    (
-      complex_term(H,'.',Args),write_List(Args,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([First,Rest],Output)
+      complex_term(H,'.',Args),write_List(Args,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([First,Rest],Output)
       ;
-      write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([First,Rest],Output)
+      write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([First,Rest],Output)
    ),!
    ,atomic_list_concat(['[',Output,']'],Concated_List).
 
 
-write_In_List([],_,_,'').
+write_In_List([],_,_,_,'').
 
-write_In_List([H|T],Dotted,Priority,Output) :-
+write_In_List([H|T],Dotted,Priority,Depth,Output) :-
    (
-      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Priority,Output)
+      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Priority,Depth,Output)
       ;
-      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Priority,Out),atomic_list_concat([',',Out],Output)
+      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Priority,Depth,Out),atomic_list_concat([',',Out],Output)
       ;
-      string_atom(H,'[]'),write_In_List(T,'false',Priority,Rest),atomic_list_concat([Rest],Output)
+      string_atom(H,'[]'),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([Rest],Output)
       ;
-      T = [],write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat(['|',First,Rest],Output)
+      T = [],write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat(['|',First,Rest],Output)
       ;
-      write_clause(H,Priority,First),write_In_List(T,'false',Priority,Rest),atomic_list_concat([',',First,Rest],Output)
+      write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([',',First,Rest],Output)
    ),!.
 
 
-write_term_list([Arg|Args],Priority,Concated_List) :-
-   write_clause(Arg,Priority,H),
-   write_term_list_rest(Args,Priority,T),
+write_term_list([Arg|Args],Priority,Depth,Concated_List) :-
+   write_clause(Arg,Priority,Depth,H),
+   write_term_list_rest(Args,Priority,Depth,T),
    atomic_list_concat([H,T],Concated_List).
 
 
-write_term_list_rest([],_,'').
+write_term_list_rest([],_,_,'').
 
-write_term_list_rest([Clause|Clauses],Priority,Concated_List) :-
-   write_clause(Clause,Priority,H),
-   write_term_list_rest(Clauses,Priority,T),
+write_term_list_rest([Clause|Clauses],Priority,Depth,Concated_List) :-
+   write_clause(Clause,Priority,Depth,H),
+   write_term_list_rest(Clauses,Priority,Depth,T),
    atomic_list_concat([',',H,T],Concated_List).
+
+
+getTabs(Amount,OldTab,NewTab) :-
+   (
+      Amount > 0,
+      NewAmount is Amount - 1,
+      getTabs(NewAmount,OldTab,Tab),
+      atomic_list_concat(['\t',Tab],NewTab)
+   ;
+      atomic_list_concat([OldTab],NewTab)
+   ),!.
+ 

@@ -45,16 +45,17 @@ do_formatting(FileName,Solution,Options) :-
    atomic_list_concat(['test/compiler/formatter/data/',FileName],File),
    atomic_list_concat(['test/compiler/formatter/data/',Solution],FileSolution),
 
-   tokenize_file(File,Ts,Options), clauses(Ts,Cs), format_file(Cs,'',Formatted),
+   tokenize_file(File,Ts,Options), clauses(Ts,Cs), format_clauses(Cs,Formatted),
    nl,write('###FORMATTED###\n'),write(Formatted),
    load_solution(FileSolution,Formatted).
 
 load_solution(Solution,Lines) :-
    open(Solution,read,Stream),
    readLines(Stream,Out),
-   atomic_list_concat(Out,Lines),
-   %nl,write('###SOLUTION###\n'),write(Lines),
-   close(Stream).
+   close(Stream),
+   atomic_list_concat(Out,Lines).
+   %nl,write('###SOLUTION###\n'),write(Lines).
+
 
 
 readLines(Stream,[X|T]):-
@@ -81,6 +82,10 @@ test(comma_as_functor) :- do_formatting('Comma_as_functor.pl','Comma_as_functor_
 %test(comments) :- do_formatting('Comments.pl','Comments_formatted.pl',[]),!.
 
 test('no_empty_line_between_same_clauses\\arity') :- do_formatting('NoEmptyLines.pl','NoEmptyLines_formatted.pl',[]),!.
+
+test('lines between different arity') :- do_formatting('LineBetweenSameClauses.pl','LineBetweenSameClauses_formatted.pl',[]),!.
+
+test('lines between different clauses') :- do_formatting('TwoLineBetweenDiffClauses.pl','TwoLineBetweenDiffClauses_formatted.pl',[]),!.
 
 test(correct_functor_brackets) :- do_formatting('OperatorBrackets.pl','OperatorBrackets_formatted.pl',[]),!.
 

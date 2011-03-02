@@ -1,4 +1,4 @@
-qsort([], R, R).
+qsort([],R,R).
 
 
 partition([],_,[],[]).
