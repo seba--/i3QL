@@ -1,0 +1,216 @@
+/* License (BSD Style License):
+ * Copyright (c) 2010
+ * Department of Computer Science
+ * Technische Universität Darmstadt
+ * All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *
+ *  - Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *  - Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *  - Neither the name of the Software Technology Group or Technische 
+ *    Universität Darmstadt nor the names of its contributors may be used to 
+ *    endorse or promote products derived from this software without specific 
+ *    prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+package saere.utils;
+
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import org.junit.Assert;
+import org.odftoolkit.odfdom.type.Color;
+import org.odftoolkit.simple.SpreadsheetDocument;
+import org.odftoolkit.simple.table.Cell;
+import org.odftoolkit.simple.table.Row;
+import org.odftoolkit.simple.table.Table;
+
+import saere.CompoundTerm;
+import saere.Goal;
+import saere.State;
+import saere.Term;
+import saere.Variable;
+
+/**
+ * A collection of convenience methods to systematically evaluate (the performance (gains) of) SAE
+ * Prolog.
+ * 
+ * To keep track of the performance development, we store the results of each run in an spreadsheet.
+ * 
+ * @author Michael Eichberg
+ */
+public class Evaluate {
+
+	public static void main(String[] args) throws Throwable {
+		if (args.length == 0) {
+			System.err.println("The program to measure needs to be specified.");
+			System.exit(-1);
+		}
+
+		String benchmarkName = args[0];
+		String benchmarkClassName = "harness." + benchmarkName;
+		System.out.print("Loading: " + benchmarkClassName);
+		Class<?> benchmarkClass = Class.forName(benchmarkClassName);
+
+		if (args.length == 1) {
+			System.out.println(".");
+			Benchmark benchmark = benchmarkClass.getAnnotation(Benchmark.class);
+			if (benchmark != null) {
+				// call the specified goal
+				Goal s = (Goal) Class.forName("predicates." + benchmark.goal() + "0").newInstance();
+				long startTime = System.nanoTime();
+				boolean succeeded = s.next();
+				long duration = System.nanoTime() - startTime;
+				if (succeeded) {
+					Evaluate.writeToPerformanceLog(benchmarkName, duration);
+				} else {
+					Evaluate.writeToPerformanceLog(benchmarkName, -1l);
+				}
+			} else {
+				// old method - call the method called "measure"
+				Method method = benchmarkClass.getMethod("measure", new Class<?>[] {});
+				System.out.println("Starting.");
+				method.invoke(null, new Object[] {});
+				System.out.println("Finished.");
+			}
+		} else {
+			String[] prg_args = Arrays.copyOfRange(args, 1, args.length);
+			System.out.println(" " + Arrays.toString(prg_args) + ".");
+			Method method = benchmarkClass.getMethod("measure", new Class<?>[] { String[].class });
+			System.out.println("Starting.");
+			method.invoke(null, new Object[] { prg_args });
+			System.out.println("Finished.");
+		}
+	}
+
+	public static void writeToPerformanceLog(String benchmark, long timeInNanoSecs) {
+		writeToPerformanceLog(benchmark, 1, timeInNanoSecs);
+	}
+
+	public static void writeToPerformanceLog(String benchmark, int run, long timeInNanoSecs) {
+
+		Double time = new Double(timeInNanoSecs / 1000.0 / 1000.0 / 1000.0);
+		System.out.printf("%s - run %d - %9.6f secs.\n", benchmark, Integer.valueOf(run), time);
+
+		try {
+			SpreadsheetDocument doc;
+			File file = new File("PerformanceLog.ods");
+			if (file.exists())
+				doc = SpreadsheetDocument.loadDocument(file);
+			else
+				doc = SpreadsheetDocument.newSpreadsheetDocument();
+
+			Table table = doc.getTableByName(benchmark);
+			if (table == null) {
+				table = Table.newTable(doc);
+				table.setTableName(benchmark);
+			}
+			Row row = table.appendRow();
+
+			Calendar date = Calendar.getInstance();
+
+			Cell dateCell = row.getCellByIndex(0);
+			dateCell.setValueType("date");
+			dateCell.setDateValue(new GregorianCalendar(date.get(Calendar.YEAR), date
+					.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH)));
+			dateCell.setFormatString("yyyy-MM-dd");
+
+			Cell timeCell = row.getCellByIndex(1);
+			timeCell.setValueType("time");
+			timeCell.setTimeValue(date);
+
+			Cell runCell = row.getCellByIndex(2);
+			runCell.setStringValue(String.valueOf(run));
+
+			if (timeInNanoSecs >= 0) {
+
+				Cell performanceCell = row.getCellByIndex(3);
+				Double timeInSecs = new Double(timeInNanoSecs / 1000.0d / 1000.0d / 1000.0d);
+				performanceCell.setDoubleValue(timeInSecs);
+				performanceCell.setFormatString("0.0000");
+			} else {
+				Cell performanceCell = row.getCellByIndex(3);
+				performanceCell.setStringValue("measurement failed");
+				performanceCell.setCellBackgroundColor(Color.RED);
+			}
+
+			doc.save(file);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void callTest2Predicate() throws Exception {
+		int testsCounter = 0; // REFACTOR PASS THIS STUFF TO THE JUnit TEST RUNNER
+
+		Variable predicate = new Variable();
+		Variable tests = new Variable();
+		@SuppressWarnings("unchecked")
+		Class<Goal> goalClass = (Class<Goal>) Class.forName("predicates.test2");
+		Goal g = goalClass.getConstructor(Term.class, Term.class).newInstance(predicate, tests);
+		while (g.next()) {
+			CompoundTerm ct = predicate.reveal().asCompoundTerm();
+			String functor = new String(ct.firstArg().asStringAtom().rawValue());
+			long arity = ct.secondArg().asIntValue().intEval();
+
+			@SuppressWarnings("unchecked")
+			Class<Goal> testGoalClass = (Class<Goal>) Class
+					.forName("predicates." + functor + arity);
+			Term testArgs = tests.reveal();
+			// all except the last argument are considered input arguments
+			Term[] goalArgs = new Term[testArgs.arity()];
+			for (int i = 0; i < testArgs.arity() - 1; i++) {
+				goalArgs[i] = testArgs.arg(i).asCompoundTerm().firstArg(); // the first argument of
+																		   // "in"
+			}
+			Variable out = new Variable();
+			goalArgs[testArgs.arity() - 1] = out;
+			Goal testGoal = (Goal) testGoalClass.getConstructors()[0]
+					.newInstance((Object[]) goalArgs);
+
+			// expectedResults is always a list...
+			Term expectedResults = testArgs.arg(testArgs.arity() - 1).asCompoundTerm().firstArg();
+
+			while (testGoal.next()) {
+				State outState = out.manifestState();
+				Term expectedResult = expectedResults.asCompoundTerm().firstArg();
+				State expectedResultState = expectedResult.manifestState();
+
+				Assert.assertTrue(functor + "/" + arity + " => " + expectedResult.toProlog()
+						+ " unify " + out.toProlog(), expectedResult.unify(out));
+				testsCounter++;
+
+				if (outState != null)
+					outState.reincarnate();
+				if (expectedResultState != null)
+					expectedResultState.reincarnate();
+
+				expectedResults = expectedResults.asCompoundTerm().secondArg();
+			}
+
+		}
+
+		System.out.println("Number of successful test: " + testsCounter);
+	}
+}

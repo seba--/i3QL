@@ -39,77 +39,81 @@
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
-:- ensure_loaded('src/compiler/Utils.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/Utils.pl').
 
 
 :- begin_tests(parser_overall).
 
 % Let's test if we can load / parse some standard Prolog programs
 
-test('benchmarks/arithmetic.pl') :-
-	tokenize_file('benchmarks/arithmetic.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/ancestor.pl') :-
+	tokenize_file('test/system/programs/ancestor.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/boyer.pl') :-
-	tokenize_file('benchmarks/boyer.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/arithmetic.pl') :-
+	tokenize_file('test/system/programs/arithmetic.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/chat_parser.pl') :-
-	tokenize_file('benchmarks/chat_parser.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/boyer.pl') :-
+	tokenize_file('test/system/programs/boyer.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/crypt.pl') :-
-	tokenize_file('benchmarks/crypt.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/chat_parser.pl') :-
+	tokenize_file('test/system/programs/chat_parser.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/deriv.pl') :-
-	tokenize_file('benchmarks/deriv.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/crypt.pl') :-
+	tokenize_file('test/system/programs/crypt.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/meta_nrev.pl') :-
-	tokenize_file('benchmarks/meta_nrev.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/deriv.pl') :-
+	tokenize_file('test/system/programs/deriv.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/mu.pl') :-
-	tokenize_file('benchmarks/mu.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/meta_nrev.pl') :-
+	tokenize_file('test/system/programs/meta_nrev.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/nrev.pl') :-
-	tokenize_file('benchmarks/nrev.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/mu.pl') :-
+	tokenize_file('test/system/programs/mu.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/poly.pl') :-
-	tokenize_file('benchmarks/poly.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/nrev.pl') :-
+	tokenize_file('test/system/programs/nrev.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/primes.pl') :-
-	tokenize_file('benchmarks/primes.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/poly.pl') :-
+	tokenize_file('test/system/programs/poly.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/qsort.pl') :-
-	tokenize_file('benchmarks/qsort.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/primes.pl') :-
+	tokenize_file('test/system/programs/primes.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/queens.pl') :-
-	tokenize_file('benchmarks/queens.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/qsort.pl') :-
+	tokenize_file('test/system/programs/qsort.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/reducer.pl') :-
-	tokenize_file('benchmarks/reducer.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/queens.pl') :-
+	tokenize_file('test/system/programs/queens.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/sum.pl') :-
-	tokenize_file('benchmarks/sum.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/reducer.pl') :-
+	tokenize_file('test/system/programs/reducer.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/tak.pl') :-
-	tokenize_file('benchmarks/tak.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/sum.pl') :-
+	tokenize_file('test/system/programs/sum.pl',Ts),clauses(Ts,_P).
 
 
-test('benchmarks/zebra.pl') :-
-	tokenize_file('benchmarks/zebra.pl',Ts),clauses(Ts,_P).
+test('test/system/programs/tak.pl') :-
+	tokenize_file('test/system/programs/tak.pl',Ts),clauses(Ts,_P).
+
+
+test('test/system/programs/zebra.pl') :-
+	tokenize_file('test/system/programs/zebra.pl',Ts),clauses(Ts,_P).
 
 
 test('test/compiler/parser/data/NumberAtEnd.pl') :-
@@ -117,23 +121,23 @@ test('test/compiler/parser/data/NumberAtEnd.pl') :-
 
 % Let's test if we can parse our own code
 
-test('src/compiler/Lexer.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
-	tokenize_file('src/compiler/Lexer.pl',Ts),clauses(Ts,_P).
+test('src/prolog/compiler/Lexer.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/prolog/compiler/Lexer.pl',Ts),clauses(Ts,_P).
 
-test('src/compiler/Parser.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
-	tokenize_file('src/compiler/Parser.pl',Ts),clauses(Ts,_P).
-
-
-test('src/compiler/AST.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
-	tokenize_file('src/compiler/AST.pl',Ts),clauses(Ts,_P).
+test('src/prolog/compiler/Parser.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/prolog/compiler/Parser.pl',Ts),clauses(Ts,_P).
 
 
-test('src/compiler/Utils.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
-	tokenize_file('src/compiler/Utils.pl',Ts),clauses(Ts,_P).
+test('src/prolog/compiler/AST.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/prolog/compiler/AST.pl',Ts),clauses(Ts,_P).
 
 
-test('src/compiler/Predef.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
-	tokenize_file('src/compiler/Predef.pl',Ts),clauses(Ts,_P).
+test('src/prolog/compiler/Utils.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/prolog/compiler/Utils.pl',Ts),clauses(Ts,_P).
+
+
+test('src/prolog/compiler/Predef.pl',[setup(redirect_stdout_to_null(S)),cleanup(reset_stdout_redirect(S))]) :-
+	tokenize_file('src/prolog/compiler/Predef.pl',Ts),clauses(Ts,_P).
 		
 		
 % Let's test if we can load a (very) large fact database

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 License (BSD Style License):
-Copyright (c) 2010
+Copyright (c) 2011
 Software Engineering
 Department of Computer Science
 Technische Universität Darmstadt
@@ -31,176 +31,362 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.	
+-->
 
-Author 		Michael Eichberg (mail@michael-eichberg.de)
+<!--
+	Author: Michael Eichberg (mail@michael-eichberg.de)
 -->
 <project name="SAE" default="default" basedir=".">
-    <description>Builds the SAE.</description>
+	<description>Builds, tests and packages SAE Prolog.</description>
 
-    <!--
-		Read user properties from build.properties.
- 		Use this mechanism to set your own "scala.home".
-	-->
-    <property file="../build.properties"  />
 
 	<!-- General properties -->
-	<property name="version" value="0.0.0" />
+	<property name="version" value="0.1.2" />
+
+
+	<!-- Read user properties from build.properties. -->
+	<property file="../build.properties" />
 
 
 	<!-- Directories which contain the project's source files. -->
-	<property name="src.main.dir" value="src"/>
-	<property name="src.demo.dir" value="demo"/>
+	<property name="saere.src.dir" value="src/java" />
+	<property name="compiler.src.dir" value="src/prolog" />
+	
+	<property name="compiler.tests.dir" value="test/compiler" />
+	<property name="saere.tests.dir" value="test/runtime_environment" />
+
+	<property name="sae.test-programs.dir" value="test/system/programs" />
 
 
 	<!-- Directories where the generated code is stored. -->
-	<property name="build.dir" value="build"/>
-	<property name="class.dir" value="${build.dir}/class"/>
-	<property name="generated.dir" value="${build.dir}/src"/>
-	<property name="scala.generated.dir" value="${generated.dir}/scala"/>
-	<property name="prolog.generated.dir" value="${generated.dir}/prolog"/>	
-	<property name="doc.dir" value="${build.dir}/doc"/>
-	<property name="scala.test.data.dir" value="../test"/>
-	
+	<property name="build.dir" value="build" />
+
+	<property name="saere.bin.dir" value="${build.dir}/bin/runtime_environment" />
+	<property name="saere.doc.dir" value="${build.dir}/doc/runtime_environment" />
+
+	<property name="compiler.doc.dir" value="${build.dir}/doc/compiler" />
+
+	<property name="temp.src.dir" value="${build.dir}/src/temp" />
+	<property name="temp.bin.dir" value="${build.dir}/bin/temp" />
+
+
 	<!-- Libraries & tools used at compile- and or run-time. -->
-	<property name="lib.dir" value="lib"/>
-	
-	<!-- Sets "scala.home" to the default directory, if no "build.properties" file exists. --> 
-	<condition property="scala.home" value="/opt/local/share/scala-2.8/">
-		<not><isset property="scala.home" /></not>
-	</condition>
-	<!-- Sets "scala.lib" to the default directory, if no "build.properties" file exists. --> 
-	<condition property="scala.lib" value="${scala.home}/lib">
-		<not><isset property="scala.lib"/></not>
-	</condition>
-	
-	<property name="scala-compiler.jar" location="${scala.lib}/scala-compiler.jar"/>
-	<property name="scala-library.jar" value="${scala.lib}/scala-library.jar"/>
-		
-        
-	<!-- Configuration of the "path"s. -->    
-	<path id="scala.classpath">
-	  <pathelement location="${scala-compiler.jar}"/>
-	  <pathelement location="${scala-library.jar}"/>
-	</path>	
+	<property name="lib.dir" value="lib" />
+	<property name="java.lib.dir" value="${lib.dir}/java" />
+
+
+	<!-- Configuration of the "path"s. -->
 	<path id="project.classpath">
-	  <path refid="scala.classpath"/>
-	  <pathelement location="${class.dir}"/>
-	</path>	
-	
-	<path id="scala.sourcepath">
-		<pathelement location="${src.main.dir}"/>
-		<pathelement location="${src.demo.dir}"/>
-		<pathelement location="${scala.generated.dir}"/>
+		<pathelement location="${saere.bin.dir}" />
+		<pathelement location="${temp.bin.dir}" />
+		<pathelement location="${java.lib.dir}/junit-4.8.2.jar" />
+		<pathelement location="${java.lib.dir}/simple-ODF-0.3.5.jar" />
+		<pathelement location="${java.lib.dir}/odfdom-java-0.8.7-20101206.jar" />
 	</path>
-	
-    <taskdef resource="scala/tools/ant/antlib.xml">
-		<classpath refid="scala.classpath"/>
-	</taskdef>
-	
-	<!-- Definition of all targets. -->
 
-	<target 
-			name="init" 
-			description="Creates the initial directory structure where the generated / compiled files are stored.">
-		<tstamp/>
-		<mkdir dir="${scala.generated.dir}"/>
-		<mkdir dir="${prolog.generated.dir}"/>
-		<mkdir dir="${class.dir}"/>
-		<mkdir dir="${doc.dir}"/>	
-	</target>
 
-	<target name="clean" description="Cleans up all artifacts that can be regenerated." >
-		<delete dir="${build.dir}"/>
-	</target>
-	<target name="clean-generated-prolog-code" description="Clean up the generated prolog source files." >
-		<delete dir="${prolog.generated.dir}"/>
-	</target>
-	<target name="clean-generated-scala-code" description="Clean up the generated scala source files." >
-		<delete dir="${scala.generated.dir}"/>
-	</target>
-	<target name="clean-generated-code" depends="clean-generated-prolog-code,clean-generated-scala-code" />	
+
+	<!-- 
 	
+		THE STANDARD TARGETS
 
-	<target name="compile" description="Compiles the SAE and the Demo code." depends="init"> 
-		<!--
-		<echo>
-		Note, if compilation fails due to a stack overflow error it is necessary 
-		to increase Java's heap and stack size. E.g. if you use Unix just set 
-		ANT_OPTS before calling "ant compile"; e.g.,
-			export ANT_OPTS="-Xmx1024m -Xss128m"
-		</echo>
-		-->
-		
-    	<!-- The attributes optimise="on" and 	addparams="-Yclosure-elim  -Yinline" 
-			are not very useful during development 
-			 since it requires to basically recompile the complete project after 
-			 every single (minor) source code change.  
-		-->
-		<scalac 
-				target="jvm-1.5" 
-				destdir="${class.dir}" 
+	  -->
+
+	<target name="init" 
+			description="Creates the initial directory structure where the generated/compiled files are stored.">
+		<tstamp />
+		<mkdir dir="${saere.bin.dir}" />
+		<mkdir dir="${saere.doc.dir}" />
+		<mkdir dir="${compiler.doc.dir}" />
+	</target>
+
+	<target name="clean" 
+			description="Deletes all artifacts that can be regenerated.">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target	name="compile-saere" 
+			depends="init" 
+			description="Compiles SAE Prolog's runtime environment.">
+		<javac 	debug="yes" 
+				includeAntRuntime="false"
+				srcdir="${saere.src.dir}" 
+				destdir="${saere.bin.dir}"
+				classpathref="project.classpath"
+				source="1.6" />
+	</target>
+	
+	<target name="test-compiler"
+			description="Tests the compiler infrastructure.">
+		<echo 	message="Testing the compiler." />
+		<exec 	vmlauncher="false" 
+				executable="/opt/local/bin/swipl">
+			<arg value="-q" />
+			<arg value="-f" />
+			<arg value="${compiler.tests.dir}/Test.pl" />
+			<arg value="-t" />
+			<arg value="run_tests." />
+		</exec>
+	</target>
+
+	<target	name="test-saere"
+			depends="compile-saere"
+			description="Tests SAE Prolog's runtime environment.">
+
+		<echo 	level="verbose" 
+				message="Compiling the test suite of SAE Prolog's runtime environment." />
+		<javac 	debug="yes" 
+				includeAntRuntime="false" 
+				srcdir="${saere.tests.dir}" 
+				destdir="${saere.bin.dir}" 
 				classpathref="project.classpath" 
-				deprecation="on" 
-				scalacdebugging="off"
-				unchecked="yes"
-				force="changed">
-			<!--	addparams="-Xelide-below 3000"> -->
-			<src path="${src.main.dir}"/>
-			<src path="${src.demo.dir}"/>
-		    <src path="${scala.generated.dir}"/>
-	    	<include name="**/*.scala"/>
-	    	<include name="**/*.java"/>
-	  	</scalac>
-	
-	
-		<javac
-				srcdir="${src.main.dir}"
-				destdir="${class.dir}"
-	         	source="1.5"
-				classpathref="project.classpath" /> 
+				source="1.6">
+		</javac>
+
+		<echo 	level="verbose" 
+				message="Running the test suite of SAE Prolog's runtime environment." />
+		<junit>
+			<classpath>
+				<path refid="project.classpath" />
+			</classpath>
+			<formatter type="brief" usefile="false" />
+			<test name="saere.CoreSuite" />
+		</junit>
 	</target>
-	
-	
-	<target name="api-doc" depends="init" description="Generates SAE's API documentation.">
+
+	<target	name="generate-api-doc"
+			depends="init"
+			description="Generates the API documentation of SAE Prolog's runtime environment.">
 		<javadoc
-				windowtitle="SAE Core Library"
-				sourcepath="${src.main.dir}"
-				classpathref="project.classpath"		
-				destdir="${doc.dir}"
-				locale="en_US"
+				windowtitle="SAE Prolog"
+				classpathref="project.classpath" 
+				destdir="${saere.doc.dir}"
+				locale="en_US" 
 				encoding="UTF-8"
 				author="yes"
-				doctitle="The Static Analysis Engine - Core Library ${version}"
-			/>
+				doctitle="SAE Prolog - Runtime Environment ${version}">
+
+			<fileset dir="${saere.src.dir}" defaultexcludes="yes">
+				<include name="saere/**/*.java" />
+			</fileset>
+		</javadoc>
 	</target>
 
+	<target name="package" 
+			depends="compile-saere,test-saere" 
+			description="Packages the SAE.">
+		<delete file="${build.dir}/SAE-${version}.jar" />
+		<jar 	destfile="${build.dir}/SAE-${version}.jar"
+				basedir="${saere.bin.dir}" />
+	</target>
+
+	<target name="default" 
+			depends="package" 
+			description="Compiles and packages the SAE." />
+
+
+	<!-- 
+
+	TARGETS AND MACRO DEFINITIONS RELATED TO THE EXECUTION OF TEST PROGRAMS
+
+	-->
+
+	<target name="clean-temp">
+		<delete dir="${temp.src.dir}" />
+		<delete dir="${temp.bin.dir}" />
+	</target>
+
+	<macrodef name="get-program-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<antcall target="compile-saere" />
+			<delete dir="${temp.bin.dir}" />
+			<mkdir dir="${temp.bin.dir}" />
+
+			<delete dir="${temp.src.dir}" />
+			<mkdir dir="${temp.src.dir}/harness" />
+
+			<copy todir="${temp.src.dir}">
+				<fileset dir="${sae.test-programs.dir}">
+					<include name="@{program}.*pl" />
+				</fileset>
+			</copy>
+
+			<copy todir="${temp.src.dir}/harness">
+				<fileset dir="${sae.test-programs.dir}">
+					<include name="@{program}*" />
+					<exclude name="@{program}*.pl" />
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-sae-prolog-compiler-for-program-selected-from-repository">
+		<sequential>
+			<exec 	vmlauncher="false" 
+					executable="/opt/local/bin/swipl">
+				<arg value="-q" />
+				<arg value="-f" />
+				<arg value="${compiler.src.dir}/compiler/Compiler.pl" />
+				<arg value="-t" />
+				<arg value="compile('${temp.src.dir}/*.pl','${temp.src.dir}/')." />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="compile-java-code-for-program-selected-from-repository">
+		<sequential>
+			<javac	debug="yes" 
+					verbose="no"
+					includeAntRuntime="false"
+					srcdir="${temp.src.dir}" 
+					destdir="${temp.bin.dir}" 
+					classpathref="project.classpath" 
+					source="1.6">
+				<include name="**/*.java" />
+			</javac>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="get-and-compile-program-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<get-program-from-repository program="@{program}" />
+			<run-sae-prolog-compiler-for-program-selected-from-repository />
+			<compile-java-code-for-program-selected-from-repository />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="run-junit-tests-for-program-selected-from-repository">
+		<attribute name="program" />
+		<sequential>
+			<junit haltonerror="yes">
+				<classpath>
+					<path refid="project.classpath" />
+				</classpath>
+				<formatter type="brief" usefile="false" />
+				<test name="harness.@{program}" />
+			</junit>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="get-execute-and-verify-results-of-program">
+		<attribute name="program" />
+		<sequential>
+			<get-and-compile-program-from-repository program="@{program}" />
+			<run-junit-tests-for-program-selected-from-repository program="@{program}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="measure-program">
+		<attribute name="program" />
+		<attribute name="args" />
+		<sequential>
+			<java	fork="true"
+					classname="saere.utils.Evaluate" 
+					classpathref="project.classpath">
+				<arg value="@{program}" />
+				<arg line="@{args}" />
+			</java>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="get-and-measure-program">
+		<attribute name="program" />
+		<sequential>
+			<get-execute-and-verify-results-of-program program="@{program}" />
+			<java	fork="true"
+					classname="saere.utils.Evaluate"
+					classpathref="project.classpath">
+				<arg value="@{program}" />
+			</java>
+		</sequential>
+	</macrodef>
+
+	<!-- 
+		Targets to get programs from the repository and to 
+		compile/evaluate the program. 
+	-->
+
+	<target name="ask-get-and-compile-program-from-repository"
+			unless="${repository.program}" 
+			description='Gets the program from the repository and compiles it.'>
+		<input message="Please enter the name of the program:" addproperty="repository.program" />
+		<get-and-compile-program-from-repository program="${repository.program}" />
+	</target>
+	<target name="get-and-compile-given-program-from-repository"
+			if="${repository.program}" 
+			description='Gets the program from the repository and compiles it.'>
+		<get-and-compile-program-from-repository program="${repository.program}" />
+	</target>
+
+	<target name="get-and-verify-results-of-program"
+			depends="ask-get-and-compile-program-from-repository,get-and-compile-given-program-from-repository" description='Tests that SAE Prolog generates the correct results when running the program.'>
+		<run-junit-tests-for-program-selected-from-repository program="${repository.program}" />
+	</target>
+
+	<target name="get-and-measure-program"
+			depends="get-and-verify-results-of-program"
+			description='Measures the performance of the program.'>
+		<measure-program program="${repository.program}" args="" />
+	</target>
+
+	<!-- 
+		Special targets to measure the performance of selected SAE Prolog programs.
+	-->
+
+	<target name="get-and-measure-queens"
+			description='Measures the run-time of the queens program.'>
+		<antcall target="get-and-measure-program">
+			<param name="repository.program" value="queens" />
+		</antcall>
+		<measure-program program="queens" args="queens-20" />
+		<measure-program program="queens" args="queens-1-26" />
+	</target>
+
+	<!-- 
+		Targets for exhaustive testing and evaluation.
+	-->
+
+	<target	name="test-system" 
+			depends="compile-saere"
+			description="Runs all system-level test cases.">
+		<!-- small tests, that test the hotspots of the compiler -->
+		<get-execute-and-verify-results-of-program program="Unification" />
+		<get-execute-and-verify-results-of-program program="ControlFlowPredicates" />
 		
-	<target name="demo" depends="compile" description="Demonstrates Opal.">
-		<echo>
-		</echo>
-		<!--
-		<java classname="scala.tools.nsc.MainGenericRunner" fork="true">
-			<classpath><path refid="project.classpath"/></classpath>
-			<arg line="sae.predicates.Demo$"/> 
-		</java>-->
-		<java classname="queens.Demo" fork="true">
-			<classpath><path refid="project.classpath"/></classpath>
-			<!--
-			<jvmarg value="-Xms64m"/>
-			<jvmarg value="-Xss8m"/>
-			<jvmarg value="-Xfuture"/>			
-			<jvmarg value="-XX:+DoEscapeAnalysis"/>	
-		-->
-		</java>
+		<!-- programs that calculate something meaningful -->
+		<get-execute-and-verify-results-of-program program="ancestor" />
+		<get-execute-and-verify-results-of-program program="arithmetic" />
+		<get-execute-and-verify-results-of-program program="chat_parser" />
+		<get-execute-and-verify-results-of-program program="crypt" />
+		<get-execute-and-verify-results-of-program program="meta_nrev" />
+		<get-execute-and-verify-results-of-program program="nrev" />
+		<get-execute-and-verify-results-of-program program="primes" />
+		<get-execute-and-verify-results-of-program program="qsort" />
+		<get-execute-and-verify-results-of-program program="queens" />
+		<get-execute-and-verify-results-of-program program="sum" />
+		<get-execute-and-verify-results-of-program program="tak" />
+		<get-execute-and-verify-results-of-program program="zebra" />
 	</target>
 	
-	<target name="package" depends="compile" description="Packages the SAE.">
-		<jar destfile="${build.dir}/SAE-${version}.jar" basedir="${class.dir}"/>
+	<target	name="test" 
+			depends="test-saere,test-compiler,test-system"
+			description="Runs the entire test suite."/>
+
+	<target name="evaluate-performance" 
+			description="Evaluates the performance of SAE Prolog.">
+		<get-and-measure-program program="arithmetic" />
+		<get-and-measure-program program="chat_parser" />
+		<get-and-measure-program program="crypt" />
+		<get-and-measure-program program="meta_nrev" />
+		<get-and-measure-program program="nrev" />
+		<get-and-measure-program program="primes" />
+		<get-and-measure-program program="qsort" />
+		<get-and-measure-program program="queens" />
+		<get-and-measure-program program="sum" />
+		<get-and-measure-program program="tak" />
+		<get-and-measure-program program="zebra" />
 	</target>
-	
-	<target 
-		name="default" 
-		depends="demo" 
-		description="Compiles the SAE and runs a Demo."/>
-	
+
 </project>

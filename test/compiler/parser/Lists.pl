@@ -35,8 +35,8 @@
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
 
 
 :- begin_tests(parser_lists).
@@ -67,7 +67,7 @@ test(
 
 
 test(
-	list_with_a_complex_term_as_a_tail,
+	list_with_a_compound_term_as_a_tail,
 	[	
 		true(P=[
 			ct([pos([], 1, 0)|_], ., [

@@ -35,9 +35,9 @@
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
-:- ensure_loaded('src/compiler/AST.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/AST.pl').
 %:- ensure_loaded('src/compiler/Utils.pl').
 
 :- begin_tests(parser_op_directive).
@@ -66,7 +66,7 @@ test(xf_successful) :-
 				a([pos([], 1, 27)|_], b)])])]).
 
 
-test(meta_information_for_complex_terms_defined_using_operators) :- 
+test(meta_information_for_compound_terms_defined_using_operators) :- 
 	tokenize_string(":- op(300,xf,$).X = (a $ + b ).",Ts),
 	clauses(Ts,[FirstClause,SecondClause]),
 	term_meta(FirstClause,FirstMeta),
@@ -77,7 +77,7 @@ test(meta_information_for_complex_terms_defined_using_operators) :-
 	memberchk(op(300,xf,$),SecondPostfixOps).
 
 
-test(meta_information_for_complex_terms_with_op_in_functor_position) :- 
+test(meta_information_for_compound_terms_with_op_in_functor_position) :- 
 	tokenize_string("+(a,b).",Ts),
 	clauses(Ts,[Clause]),
 	term_meta(Clause,Meta),

@@ -31,14 +31,16 @@
 */
 
 
-/** Tests the formatter. 
- Autor Dennis Siebert
-% Datum: 08.11.2010
+/** 
+	Tests the formatter. 
+	
+	Autor Dennis Siebert
+	Datum: 08.11.2010
 */
 
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
-:- ensure_loaded('src/compiler/Formatter.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/Formatter.pl').
 
 
 do_formatting(FileName,Solution,Options) :-
@@ -71,7 +73,7 @@ test(emptyFormatter) :- do_formatting('EmptyTest.pl','EmptyTest_formatted.pl',[]
 
 test(whitespaces_surrounding_operators) :- do_formatting('OperatorsWhitespace.pl','OperatorsWhitespace_formatted.pl',[]),!.
 
-test(whitespace_in_complex_terms) :- do_formatting('Whitespace_in_complex_terms.pl','Whitespace_in_complex_terms_formatted.pl',[]),!.
+test(whitespace_in_compound_terms) :- do_formatting('Whitespace_in_compound_terms.pl','Whitespace_in_compound_terms_formatted.pl',[]),!.
 
 test(lists) :- do_formatting('Lists.pl','Lists_formatted.pl',[]),!.
 

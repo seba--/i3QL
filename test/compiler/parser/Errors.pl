@@ -35,10 +35,10 @@
 
    @author Michael Eichberg (mail@michael-eichberg.de)
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
-:- ensure_loaded('src/compiler/Parser.pl').
-:- ensure_loaded('src/compiler/AST.pl').
-:- ensure_loaded('src/compiler/Utils.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Parser.pl').
+:- ensure_loaded('src/prolog/compiler/AST.pl').
+:- ensure_loaded('src/prolog/compiler/Utils.pl').
 
 :- begin_tests(parser_error_handling).
 		

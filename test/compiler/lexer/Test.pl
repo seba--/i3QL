@@ -33,7 +33,7 @@
 /**
 	Tests the lexer. 
 */
-:- ensure_loaded('src/compiler/Lexer.pl').
+:- ensure_loaded('src/prolog/compiler/Lexer.pl').
 
 
 do_tokenization(SimpleFileName,Ts,Options) :-

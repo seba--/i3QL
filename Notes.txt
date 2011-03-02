@@ -1,11 +1,17 @@
 TODOs:
 
 0)
+member/2
+asserta/1
+call/1
+forall/2
+is_list/1
+memberchk/2
+throw/1
+var/1
 - ground, atom, atomic,var,functor,arg, =.. number (in the compiler)
 - atom_codes
 - call
-
-- memberchk
 - findall
 - length
 - is_list
