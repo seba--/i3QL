@@ -47,49 +47,17 @@ format_clauses(Cs,Fs) :-  membercheck(X,[],80),format_file(Cs,'',X,Fs).
 
 format_clauses(Cs,Fs,Options) :- membercheck(X,Options,80),format_file(Cs,'',X,Fs).
 
-   
-count_clauses([],0).
-count_clauses([H|T],Length):- count_clause(H,AtomLength),count_clauses(T,RestLength), Length is AtomLength + RestLength,!.
-
-count_clause(ASTNode,Length) :-
-   (
-      variable(ASTNode,Value)
-   ;
-      anonymous_variable(ASTNode,Value)
-   ;
-      string_atom(ASTNode,Value)
-   ;
-      integer_atom(ASTNode,Value)
-   ;
-      float_atom(ASTNode,Value)
-   ), term_to_atom(Value,Atom),atom_length(Atom,Length),write(Value),write(' = '),write(Length),nl,!.
-
-count_clause(ASTNode,Length) :-
-    complex_term(ASTNode,Functor,Args),count_clauses(Args,Restlength),term_to_atom(Functor,Atom),atom_length(Atom,FunctorLength), Length is FunctorLength + Restlength,write(Functor),write(' = '),write(FunctorLength),nl.
 
 format_file([],L,_,L).
 format_file([H|T],In,Linewidth,OutputList) :-
-% 
-%    nl,write('LineWidth = '),write(Linewidth),
-%    count_clause(H,Length),
-%    nl,write('Length = '),write(Length),
-%    (                                            c
-%       Length =< Linewidth
-%       %line short enought
-%       %format_file(Cs,'',Fs)
-%    ;
-%       Length > Linewidth
-%       %line to long, must be split
-%       %format_file(Cs,'',Fs)
-%    ),
    (
    (
       % if
-      complex_term(H,':-',[First|_]),
-      complex_term(First,CurrentName,CurrentArity),
+      compound_term(H,':-',[First|_]),
+      compound_term(First,CurrentName,CurrentArity),
       length(CurrentArity,ListLenght)
    ;
-      complex_term(H,CurrentName,CurrentArity),
+      compound_term(H,CurrentName,CurrentArity),
       length(CurrentArity,ListLenght)
    ),!,format_file([H|T],In,[CurrentName,ListLenght],Linewidth,OutputList)
    ;
@@ -97,24 +65,12 @@ format_file([H|T],In,Linewidth,OutputList) :-
 
 format_file([],L,_,_,L).
 format_file([H|T],In,[ClauseName,ClauseArity],Linewidth,OutputList) :-
-%   nl,write('LineWidth = '),write(Linewidth),
-%    count_clause(H,Length),
-%    nl,write('Length = '),write(Length),
-%    (
-%       Length =< Linewidth
-%       %line short enought
-%       %format_file(Cs,'',Fs)
-%    ;
-%       Length > Linewidth
-%       %line to long, must be split
-%       %format_file(Cs,'',Fs)
-%    ),
    (
-      complex_term(H,':-',[First|_]),
-      complex_term(First,CurrentName,CurrentArity),
+      compound_term(H,':-',[First|_]),
+      compound_term(First,CurrentName,CurrentArity),
       length(CurrentArity,ListLenght)
    ;
-      complex_term(H,CurrentName,CurrentArity),
+      compound_term(H,CurrentName,CurrentArity),
       length(CurrentArity,ListLenght)
    ),
    (
@@ -161,9 +117,9 @@ write_clause(ASTNode,_,_,Value) :-
    ;
       anonymous_variable(ASTNode,Value)
    ;
-      string_atom(ASTNode,QValue),build_string_sequence(QValue,'\n','\\n',Value)
+      string_atom(ASTNode,Value)%,build_string_sequence(QValue,'\n','\\n',Value)
    ;
-      integer_atom(ASTNode,Value)
+      integer_value(ASTNode,Value)
    ;
       float_atom(ASTNode,Value)
    ),!.
@@ -192,10 +148,9 @@ write_clause(ASTNode,Priority,Depth,Out) :-
          memberchk(op(Func_Priority,_,Functor),FirstInfixOps),Args = [_,_],
          (
             Func_Priority > Priority,
-
             (
                Functor = ';',
-               write_functor_infix(Functor,Args,Func_Priority,Depth+1,Output),
+               write_functor_infix(Functor,Args,Func_Priority,Depth+3,Output),
                atomic_list_concat(['\n(\n',Output,'\n)'],Out)
             ;
              write_functor_infix(Functor,Args,Func_Priority,Depth,Output),
@@ -261,8 +216,7 @@ write_List([],_,_,'').
 
 write_List([H|T],Priority,Depth,Concated_List) :-
    (
-      complex_term(H,'.',Args),write_List(Args,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([First,Rest],Output)
-      compound_term(H,'.',Args),write_List(Args,First),write_In_List(T,'false',Rest),atomic_list_concat([First,Rest],Output)
+      compound_term(H,'.',Args),write_List(Args,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([First,Rest],Output)
       ;
       write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([First,Rest],Output)
    ),!
@@ -273,11 +227,9 @@ write_In_List([],_,_,_,'').
 
 write_In_List([H|T],Dotted,Priority,Depth,Output) :-
    (
-      Dotted = 'false',complex_term(H,'.',Args),write_In_List(Args,'true',Priority,Depth,Output)
-      Dotted = 'false',compound_term(H,'.',Args),write_In_List(Args,'true',Output)
+      Dotted = 'false',compound_term(H,'.',Args),write_In_List(Args,'true',Priority,Depth,Output)
       ;
-      Dotted = 'true',complex_term(H,'.',Args),write_List(Args,Priority,Depth,Out),atomic_list_concat([',',Out],Output)
-      Dotted = 'true',compound_term(H,'.',Args),write_List(Args,Out),atomic_list_concat([',',Out],Output)
+      Dotted = 'true',compound_term(H,'.',Args),write_List(Args,Priority,Depth,Out),atomic_list_concat([',',Out],Output)
       ;
       string_atom(H,'[]'),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([Rest],Output)
       ;
@@ -306,7 +258,7 @@ getTabs(Amount,OldTab,NewTab) :-
       Amount > 0,
       NewAmount is Amount - 1,
       getTabs(NewAmount,OldTab,Tab),
-      atomic_list_concat(['\t',Tab],NewTab)
+      atomic_list_concat([' ',Tab],NewTab)
    ;
       atomic_list_concat([OldTab],NewTab)
    ),!.
