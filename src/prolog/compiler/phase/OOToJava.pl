@@ -49,6 +49,7 @@
 
 
 
+
 /**
 	Encodes an SAE Prolog program's object-oriented AST in Java.
 
@@ -64,8 +65,8 @@ oo_to_java(DebugConfig,Program,OutputFolder,Program) :-
 	( exists_directory(predicates) ; make_directory(predicates) ),
 	working_directory(_,predicates),!,
 	% the code generation phase does not affect the AST whatsoever; but, if an
-	% error is encountered, we want to make sure that the output directory is 
-	% still reset correctly.
+	% error is encountered, we want to make sure that the current directory is 
+	% reset correctly.
 	catch(
 		foreach_user_predicate(Program,encode_predicate(DebugConfig,Program)),
 		E,
@@ -119,7 +120,6 @@ encode_compilation_unit(predicate_registration(PredicateIdentifier)) :- !,
 
 
 
-
 /* ************************************************************************** *\
  *                                                                            *
  *      P R E D I C A T E   R E G I S T R A T I O N  (INFRASTRUCTURE)         *
@@ -127,7 +127,7 @@ encode_compilation_unit(predicate_registration(PredicateIdentifier)) :- !,
 \* ************************************************************************** */
 
 write_predicate_factory(Stream,Functor/Arity) :-
-	call_foreach_i_in_0_to_u(Arity,array_access('args'),ArrayAccesses),
+	call_foreach_i_in_0_to_u(Arity,encode_array_access('args'),ArrayAccesses),
 	atomic_list_concat(ArrayAccesses,',',ConstructorArgs),
 	
 	list:write_elements(
@@ -138,28 +138,23 @@ write_predicate_factory(Stream,Functor/Arity) :-
 		' * \n',	
 		' * DO NOT CHANGE MANUALLY - THE CLASS WILL COMPLETELY BE REGENERATED\n',			
 		' */\n',
-		'package predicates;\n',
-		'import saere.*;\n\n',
-		'public class ',Functor,Arity,'Factory extends PredicateFactoryNArgs{\n',
+		'package predicates;\n\n',
+		'public class ',Functor,Arity,'Factory extends saere.PredicateFactoryNArgs{\n',
 		'	private ',Functor,Arity,'Factory(){\n',
 		'		/*NOTHING TO DO*/\n',
 		'	}\n',
-		'	public final static PredicateIdentifier IDENTIFIER = new PredicateIdentifier(StringAtom.get("',Functor,'"), ',Arity,');\n\n',
-		'	public final static PredicateFactory INSTANCE = new ',Functor,Arity,'Factory();\n\n',
-		'	public Goal createInstance(Term[] args) {\n',
+		'	public final static saere.PredicateIdentifier IDENTIFIER = new saere.PredicateIdentifier(saere.StringAtom.get("',Functor,'"), ',Arity,');\n\n',
+		'	public final static saere.PredicateFactory INSTANCE = new ',Functor,Arity,'Factory();\n\n',
+		'	public saere.Goal createInstance(saere.Term[] args) {\n',
 		'		return new ',Functor,Arity,'(',ConstructorArgs,');\n',
 		'	}\n',
-		'	public static void registerWithPredicateRegistry(PredicateRegistry registry) {\n',
+		'	public static void registerWithPredicateRegistry(saere.PredicateRegistry registry) {\n',
 		'		registry.register(IDENTIFIER, INSTANCE);\n',
 		'	}\n',
 		'}\n'
 		]
 	).
 
-
-
-array_access(ArrayName,N,ArrayAccess) :- 
-	atomic_list_concat([ArrayName,'[',N,']'],ArrayAccess).
 
 
 
@@ -179,19 +174,13 @@ write_predicate_implementation(Stream,Functor,Arity,ClassMembers) :-
 		' * \n',	
 		' * DO NOT CHANGE MANUALLY - THE CLASS WILL COMPLETELY BE REGENERATED\n',			
 		' */\n',
-		'package predicates;\n',
-		'import saere.*;\n',
-		'import saere.predicate.*;\n',		
-		'import saere.term.*;\n\n',
-		'import static saere.term.Terms.*;\n',
-		'import static saere.IntValue.*;\n',
-		'import static saere.StringAtom.*;\n\n'		
+		'package predicates;\n\n'	
 		]
 	),
 	% Write "the" class
 	write(Stream,'public final class '),
 	write(Stream,Functor),write(Stream,Arity),
-	write(Stream,' extends PrimitiveGoal {\n'),
+	write(Stream,' extends saere.PrimitiveGoal {\n'),
 	write_class_members(Stream,ClassMembers),
 	write(Stream,'}\n').
 
@@ -211,7 +200,7 @@ write_class_members(Stream,[ClassMember|ClassMembers]) :-
 	).
 
 
-
+% TODO Escape functors if they are not legal Java identifiers.
 write_class_member(Stream,eol_comment(Comment)) :- !,
 	write(Stream,'// '),write(Stream,Comment),nl(Stream).
 write_class_member(Stream,constructor_decl(Functor/Arity,ParamDecls,Stmts)) :- !,
@@ -231,11 +220,10 @@ write_class_member(Stream,method_decl(Visibility,ReturnType,Identifier,ParamDecl
 	write_stmts(Stream,Stmts),
 	write(Stream,'}\n').
 write_class_member(Stream,goal_stack) :- !,
-	write(Stream,'private GoalStack goalStack /* = null*/;\n').
+	write(Stream,'private saere.GoalStack goalStack /* = null*/;\n').
 write_class_member(Stream,pre_created_term(Id,Expr)) :- !,	
-	type_of_term_expression(Expr,Type),
 	write(Stream,'private static final '),
-	write(Stream,Type),
+	type_of_term_expression(Expr,Type),write(Stream,Type),
 	write(Stream,' PCT'),write(Stream,Id),
 	write(Stream,' = '),
 	write_expr(Stream,Expr),
@@ -268,7 +256,10 @@ write_field_decl_modifiers(Stream,[Modifier|Modifiers]) :-
 		write(Stream,' '),
 		write_field_decl_modifiers(Stream,Modifiers)
 	;
-		throw(internal_error(write_field_decl_modifiers/2,['unknown field declaration modifier:',Modifier]))
+		throw(internal_error(
+				'OOToJava.pl',
+				write_field_decl_modifiers/2,
+				['unknown field declaration modifier: ',Modifier]))
 	).
 
 
@@ -277,7 +268,7 @@ write_field_decl_modifier(Stream,final) :- write(Stream,'final').
 
 
 
-% A predicate must not have any arguments (do :- ...)
+% Not all predicates have arguments (e.g., "do :- ...").
 write_param_decls(_Stream,[]).
 write_param_decls(Stream,[ParamDecl|ParamDecls]) :-
 	write_param_decl(Stream,ParamDecl),
@@ -304,14 +295,14 @@ write_param_decl(Stream,param_decl(Type,Name)) :-
 write_type(Stream,type(int)) :- !,write(Stream,'int').
 write_type(Stream,type(boolean)) :- !,write(Stream,'boolean').
 write_type(Stream,type(void)) :- !,write(Stream,'void').
-write_type(Stream,type(goal)) :- !,write(Stream,'Goal').
-write_type(Stream,type(term)) :- !,write(Stream,'Term').
-write_type(Stream,type(state)) :- !,write(Stream,'State').
-write_type(Stream,type(variable)) :- !,write(Stream,'Variable').
-write_type(Stream,type(compound_term)) :- !,write(Stream,'CompoundTerm').
-write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'StringAtom').
-write_type(Stream,type(atomic(int_value))) :- !,write(Stream,'IntValue').
-write_type(Stream,type(atomic(float_value))) :- !,write(Stream,'FloatValue').
+write_type(Stream,type(goal)) :- !,write(Stream,'saere.Goal').
+write_type(Stream,type(term)) :- !,write(Stream,'saere.Term').
+write_type(Stream,type(state)) :- !,write(Stream,'saere.State').
+write_type(Stream,type(variable)) :- !,write(Stream,'saere.Variable').
+write_type(Stream,type(compound_term)) :- !,write(Stream,'saere.CompoundTerm').
+write_type(Stream,type(atomic(string_atom))) :- !,write(Stream,'saere.StringAtom').
+write_type(Stream,type(atomic(int_value))) :- !,write(Stream,'saere.IntValue').
+write_type(Stream,type(atomic(float_value))) :- !,write(Stream,'saere.FloatValue').
 write_type(_Stream,Type) :- throw(internal_error(write_type/2,['unknown type:',Type])).
 
 
@@ -361,26 +352,26 @@ write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_expr(Stream,Expression),
 	write(Stream,';\n').	
 write_stmt(Stream,locally_scoped_states_list) :- !,
-	write(Stream,'States states = null;\n').
+	write(Stream,'saere.States states = null;\n').
 write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
 	write(Stream,'if(states != null) states.abort();\n').	
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- 
 	Id =.. [Functor,Value],!,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
-	write(Stream,'Term ls_'),write(Stream,Functor),write(Stream,Value),
+	write(Stream,'saere.Term ls_'),write(Stream,Functor),write(Stream,Value),
 	write(Stream,' = '),
 	write_expr(Stream,TermExpression),
 	write(Stream,';\n').
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- !,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
-	write(Stream,'Term lstv'),write(Stream,Id),
+	write(Stream,'saere.Term lstv'),write(Stream,Id),
 	write(Stream,' = '),
 	write_expr(Stream,TermExpression),
 	write(Stream,';\n').	
 write_stmt(_Stream,manifest_state_and_add_to_locally_scoped_states_list([])) :- !
 	/* NOTHING TO DO */.
 write_stmt(Stream,manifest_state_and_add_to_locally_scoped_states_list(TermExprs)) :- !,
-	write(Stream,'states = States.prepend('),
+	write(Stream,'states = saere.States.prepend('),
 	write_wrapped_exprs(Stream,TermExprs,manifest_state),
 	write(Stream,',states);\n').
 write_stmt(Stream,bind_variable(arg(ArgId),TermExpression)) :- !,
@@ -394,9 +385,9 @@ write_stmt(Stream,bind_variable(TermVariable,TermExpression)) :- !,
 write_stmt(Stream,clear_goal_stack) :- !,
 	write(Stream,'this.goalStack = null;\n').	
 write_stmt(Stream,abort_pending_goals_and_clear_goal_stack) :- !,
-	write(Stream,'{ GoalStack _gs = this.goalStack; if (_gs != null) { _gs.abortAndScrapAllGoals(); this.goalStack = null;} }\n').
+	write(Stream,'{ saere.GoalStack _gs = this.goalStack; if (_gs != null) { _gs.abortAndScrapAllGoals(); this.goalStack = null;} }\n').
 write_stmt(Stream,push_onto_goal_stack(GoalExpression)) :- !,
-	write(Stream,'{ this.goalStack = new GoalStack('),
+	write(Stream,'{ this.goalStack = new saere.GoalStack('),
 	write_expr(Stream,GoalExpression),
 	write(Stream,',this.goalStack);}\n').
 write_stmt(Stream,abort_and_remove_top_level_goal_from_goal_stack) :- !,
@@ -408,7 +399,7 @@ write_stmt(Stream,switch(top_level,Expression,Cases)) :- !,
 	write_cases(Stream,Cases),
 	write(Stream,'default:\n'),
 	write(Stream,'// should never be reached\n'),
-	write(Stream,'throw new Error("internal compiler error");\n'),
+	write(Stream,'throw new java.lang.Error("internal compiler error");\n'),
 	write(Stream,'}\n').
 write_stmt(Stream,switch(inside_forever,Expression,Cases)) :- !,
 	write(Stream,'switch('),write_expr(Stream,Expression),write(Stream,'){\n'),
@@ -426,16 +417,16 @@ write_stmt(Stream,reincarnate_state(StateExpr)) :- !,
 	write_expr(Stream,StateExpr),
 	write(Stream,'.reincarnate();\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack([TermExpression])) :- !,
-	write(Stream,'{ State _s = ('),
+	write(Stream,'{ saere.State _s = ('),
 	write_expr(Stream,TermExpression),
 	write(Stream,').manifestState();\n'),	
-	write(Stream,'this.goalStack = new GoalStack(_s == null ? DoesNothingGoal.INSTANCE : new States(_s),this.goalStack);}\n').
+	write(Stream,'this.goalStack = new saere.GoalStack(_s == null ? saere.DoesNothingGoal.INSTANCE : new saere.States(_s),this.goalStack);}\n').
 write_stmt(Stream,create_undo_goal_and_put_on_goal_stack(TermExpressions)) :- !,
-	write(Stream,'{ State _s; States _states = null;'),
+	write(Stream,'{ saere.State _s; saere.States _states = null;'),
 	write_manifest_and_create_undo_goal(Stream,TermExpressions),
-	write(Stream,'this.goalStack = new GoalStack(_states == null ? DoesNothingGoal.INSTANCE : _states,this.goalStack);}\n').
+	write(Stream,'this.goalStack = new saere.GoalStack(_states == null ? saere.DoesNothingGoal.INSTANCE : _states,this.goalStack);}\n').
 write_stmt(Stream,create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack) :- !,
-	write(Stream,'this.goalStack = new GoalStack(states == null ? DoesNothingGoal.INSTANCE : states,this.goalStack);\n').
+	write(Stream,'this.goalStack = new saere.GoalStack(states == null ? saere.DoesNothingGoal.INSTANCE : states,this.goalStack);\n').
 write_stmt(_Stream,Stmt) :- throw(internal_error(write_stmt/2,['unknown statement ',Stmt])).
 
 
@@ -452,7 +443,7 @@ write_manifest_and_create_undo_goal(Stream,[TermExpression|TermExpressions]) :-
 	write(Stream,'_s = '),
 	write_expr(Stream,TermExpression),
 	write(Stream,'.manifestState();'),
-	write(Stream,'if(_s != null) _states = new States(_s,_states);\n'),
+	write(Stream,'if(_s != null) _states = new saere.States(_s,_states);\n'),
 	write_manifest_and_create_undo_goal(Stream,TermExpressions).
 
 
@@ -490,18 +481,8 @@ write_further_wrapped_exprs(Stream,[Expression|Expressions],WrappingExpression) 
 
 
 
-write_exprs(_Stream,[]).
-write_exprs(Stream,[Expression|Expressions]) :-
-	write_expr(Stream,Expression),
-	write_further_exprs(Stream,Expressions).
 
 
-
-write_further_exprs(_Stream,[]).
-write_further_exprs(Stream,[Expression|Expressions]) :-
-	write(Stream,', '),
-	write_expr(Stream,Expression),
-	write_further_exprs(Stream,Expressions).
 
 
 write_expr(Stream,manifest_state(TermExpression)) :- !,
@@ -584,7 +565,7 @@ write_expr(Stream,static_predicate_call(compound_term(string_atom(Functor),ArgsE
 	predicate_identifier_to_class_name(Functor/Arity,ClassName),
 	write(Stream,'new '),write(Stream,ClassName),write(Stream,'('),
 	write_expr(Stream,FirstArgExpression),
-	write_compound_term_args(Stream,MoreArgsExpressions),
+	write_rest_of_exprs(Stream,MoreArgsExpressions),
 	write(Stream,')').
 write_expr(Stream,call_term(TermExpression)):- !,
 	write_expr(Stream,TermExpression),
@@ -633,52 +614,52 @@ write_expr(Stream,clv(I)) :- !,
 write_expr(Stream,arg(I)) :- !,
 	write(Stream,'this.arg'),write(Stream,I).	
 write_expr(Stream,variable) :- !,
-	write(Stream,'variable()').
+	write(Stream,'new saere.Variable()').
 write_expr(Stream,anonymous_variable) :- !, % TODO do we need to distinguish between "named" and anonymous variables?
-	write(Stream,'variable()').
+	write(Stream,'new saere.Variable()').
 write_expr(Stream,int_value(-1)) :- !,
-	write(Stream,'IntValue_M1').	
+	write(Stream,'saere.IntValue.IntValue_M1').	
 write_expr(Stream,int_value(0)) :- !,
-	write(Stream,'IntValue_0').
+	write(Stream,'saere.IntValue.IntValue_0').
 write_expr(Stream,int_value(1)) :- !,
-	write(Stream,'IntValue_1').	
+	write(Stream,'saere.IntValue.IntValue_1').	
 write_expr(Stream,int_value(2)) :- !,
-	write(Stream,'IntValue_2').
+	write(Stream,'saere.IntValue.IntValue_2').
 write_expr(Stream,int_value(3)) :- !,
-	write(Stream,'IntValue_3').				
+	write(Stream,'saere.IntValue.IntValue_3').				
 write_expr(Stream,int_value(Value)) :- !,
-	write(Stream,'IntValue.get('),write(Stream,Value),write(Stream,')').
+	write(Stream,'saere.IntValue.get('),write(Stream,Value),write(Stream,')').
 write_expr(Stream,int_value_expr(Expr)) :- !,
-	write(Stream,'IntValue.get('),write_expr(Stream,Expr),write(Stream,')').
+	write(Stream,'saere.IntValue.get('),write_expr(Stream,Expr),write(Stream,')').
 write_expr(Stream,float_value(Value)) :- !,
-	write(Stream,'FloatValue.get('),write(Stream,Value),write(Stream,')').
-write_expr(Stream,string_atom('=')) :- !,write(Stream,'UNIFY').
-write_expr(Stream,string_atom('\\=')) :- !,write(Stream,'DOES_NOT_UNIFY').
-write_expr(Stream,string_atom(',')) :- !,write(Stream,'AND').
-write_expr(Stream,string_atom(';')) :- !,write(Stream,'OR').
-write_expr(Stream,string_atom('!')) :- !,write(Stream,'CUT').
-write_expr(Stream,string_atom('*->')) :- !,write(Stream,'SOFT_CUT').
-write_expr(Stream,string_atom('->')) :- !,write(Stream,'IF_THEN').
-write_expr(Stream,string_atom('true')) :- !,write(Stream,'TRUE').
-write_expr(Stream,string_atom('false')) :- !,write(Stream,'FALSE').
-write_expr(Stream,string_atom('fail')) :- !,write(Stream,'FAIL').
-write_expr(Stream,string_atom('not')) :- !,write(Stream,'NOT').
-write_expr(Stream,string_atom('\\+')) :- !,write(Stream,'NOT_OPERATOR').
-write_expr(Stream,string_atom('is')) :- !,write(Stream,'IS').
-write_expr(Stream,string_atom('*')) :- !,write(Stream,'MULT').
-write_expr(Stream,string_atom('-')) :- !,write(Stream,'MINUS').
-write_expr(Stream,string_atom('+')) :- !,write(Stream,'PLUS').
-write_expr(Stream,string_atom('<')) :- !,write(Stream,'ARITH_SMALLER_THAN').
-write_expr(Stream,string_atom('=<')) :- !,write(Stream,'ARITH_SMALLER_OR_EQUAL_THAN').
-write_expr(Stream,string_atom('>')) :- !,write(Stream,'ARITH_LARGER_THAN').
-write_expr(Stream,string_atom('>=')) :- !,write(Stream,'ARITH_LARGER_OR_EQUAL_THAN').
-write_expr(Stream,string_atom('=:=')) :- !,write(Stream,'ARITH_IS_EQUAL').
+	write(Stream,'saere.FloatValue.get('),write(Stream,Value),write(Stream,')').
+write_expr(Stream,string_atom('=')) :- !,write(Stream,'saere.StringAtom.UNIFY').
+write_expr(Stream,string_atom('\\=')) :- !,write(Stream,'saere.StringAtom.DOES_NOT_UNIFY').
+write_expr(Stream,string_atom(',')) :- !,write(Stream,'saere.StringAtom.AND').
+write_expr(Stream,string_atom(';')) :- !,write(Stream,'saere.StringAtom.OR').
+write_expr(Stream,string_atom('!')) :- !,write(Stream,'saere.StringAtom.CUT').
+write_expr(Stream,string_atom('*->')) :- !,write(Stream,'saere.StringAtom.SOFT_CUT').
+write_expr(Stream,string_atom('->')) :- !,write(Stream,'saere.StringAtom.IF_THEN').
+write_expr(Stream,string_atom('true')) :- !,write(Stream,'saere.StringAtom.TRUE').
+write_expr(Stream,string_atom('false')) :- !,write(Stream,'saere.StringAtom.FALSE').
+write_expr(Stream,string_atom('fail')) :- !,write(Stream,'saere.StringAtom.FAIL').
+write_expr(Stream,string_atom('not')) :- !,write(Stream,'saere.StringAtom.NOT').
+write_expr(Stream,string_atom('\\+')) :- !,write(Stream,'saere.StringAtom.NOT_OPERATOR').
+write_expr(Stream,string_atom('is')) :- !,write(Stream,'saere.StringAtom.IS').
+write_expr(Stream,string_atom('*')) :- !,write(Stream,'saere.StringAtom.MULT').
+write_expr(Stream,string_atom('-')) :- !,write(Stream,'saere.StringAtom.MINUS').
+write_expr(Stream,string_atom('+')) :- !,write(Stream,'saere.StringAtom.PLUS').
+write_expr(Stream,string_atom('<')) :- !,write(Stream,'saere.StringAtom.ARITH_SMALLER_THAN').
+write_expr(Stream,string_atom('=<')) :- !,write(Stream,'saere.StringAtom.ARITH_SMALLER_OR_EQUAL_THAN').
+write_expr(Stream,string_atom('>')) :- !,write(Stream,'saere.StringAtom.ARITH_LARGER_THAN').
+write_expr(Stream,string_atom('>=')) :- !,write(Stream,'saere.StringAtom.ARITH_LARGER_OR_EQUAL_THAN').
+write_expr(Stream,string_atom('=:=')) :- !,write(Stream,'saere.StringAtom.ARITH_IS_EQUAL').
 write_expr(Stream,string_atom('=\\=')) :- !,
-	write(Stream,'ARITH_IS_NOT_EQUAL').
-write_expr(Stream,string_atom('[]')) :- !,write(Stream,'EMPTY_LIST').
-write_expr(Stream,string_atom('.')) :- !,write(Stream,'LIST').	
+	write(Stream,'saere.StringAtom.ARITH_IS_NOT_EQUAL').
+write_expr(Stream,string_atom('[]')) :- !,write(Stream,'saere.StringAtom.EMPTY_LIST').
+write_expr(Stream,string_atom('.')) :- !,write(Stream,'saere.StringAtom.LIST').	
 write_expr(Stream,string_atom(Value)) :- !,
-	write(Stream,'StringAtom.get("'),write(Stream,Value),write(Stream,'")').
+	write(Stream,'saere.StringAtom.get("'),write(Stream,Value),write(Stream,'")').
 write_expr(Stream,compound_term(FunctorStringAtom,Args)) :- !,
 	(	length(Args,Arity),
 		FunctorStringAtom = string_atom(Functor),
@@ -689,12 +670,12 @@ write_expr(Stream,compound_term(FunctorStringAtom,Args)) :- !,
 		write(Stream,'('),
 		Args = [FirstArg|RestArgs],
 		write_expr(Stream,FirstArg),
-		write_compound_term_args(Stream,RestArgs),
+		write_rest_of_exprs(Stream,RestArgs),
 		write(Stream,')')
 	;
-		write(Stream,'Terms.compoundTerm('),
+		write(Stream,'saere.term.Terms.compoundTerm('),
 		write_expr(Stream,FunctorStringAtom),
-		write_compound_term_args(Stream,Args),
+		write_rest_of_exprs(Stream,Args),
 		write(Stream,')')
 	).	
 write_expr(_Stream,Expr) :- % the last case... 
@@ -702,13 +683,18 @@ write_expr(_Stream,Expr) :- % the last case...
 
 
 
+write_exprs(_Stream,[]).
+write_exprs(Stream,[Expression|Expressions]) :-
+	write_expr(Stream,Expression),
+	write_rest_of_exprs(Stream,Expressions).
 
-% TODO rename to write_rest_ol_expr_list
-write_compound_term_args(_Stream,[]).
-write_compound_term_args(Stream,[Arg|Args]) :-
+
+
+write_rest_of_exprs(_Stream,[]).
+write_rest_of_exprs(Stream,[Expression|Expressions]) :-
 	write(Stream,', '),
-	write_expr(Stream,Arg),
-	write_compound_term_args(Stream,Args).
+	write_expr(Stream,Expression),
+	write_rest_of_exprs(Stream,Expressions).
 
 
 
@@ -740,18 +726,20 @@ write_arith_term(_Stream,X) :-
 
 
 
+
 /* ************************************************************************** *\
  *                                                                            *
  *              G E N E R A L   H E L P E R   P R E D I C A T E S             *
  *                                                                            *
 \* ************************************************************************** */
-type_of_term_expression(string_atom(_),'StringAtom') :- !.
-type_of_term_expression(compound_term(_,_),'CompoundTerm') :- !.
-type_of_term_expression(int_value(_),'IntValue') :-!.
-type_of_term_expression(float_value(_),'FloatValue') :-!.
-type_of_term_expression(variable,'Variable') :-!.
-type_of_term_expression(anonymous_variable,'Variable') :-!.
-type_of_term_expression(_,'Term').
+
+type_of_term_expression(string_atom(_),'saere.StringAtom') :- !.
+type_of_term_expression(compound_term(_,_),'saere.CompoundTerm') :- !.
+type_of_term_expression(int_value(_),'saere.IntValue') :-!.
+type_of_term_expression(float_value(_),'saere.FloatValue') :-!.
+type_of_term_expression(variable,'saere.Variable') :-!.
+type_of_term_expression(anonymous_variable,'saere.Variable') :-!.
+type_of_term_expression(_,'saere.Term').
 
 
 
@@ -824,4 +812,7 @@ map_arith_prolog_operator_to_java_operator('mod','%') :- !.
 map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported arithmetic operator: ',Op])).
 
 
+
+encode_array_access(ArrayName,Index,ArrayAccess) :- 
+	atomic_list_concat([ArrayName,'[',Index,']'],ArrayAccess).
 

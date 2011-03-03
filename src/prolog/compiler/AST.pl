@@ -1098,7 +1098,10 @@ is_ground_term(v(_Meta,_Name)) :- !,false.
 			+ContolFlowGoalTransformer:callable,
 			-NewASTNode:ASTNode
 		) is det
-	
+	@arg PrimitiveGoalTransformer a callable term that is passed in the current
+		primitive goal (ASTNode) and a free variable which has to be bound to the 
+		transformed ASTNode. If primitive goals are not to be transformed, it is
+		sufficient to pass in '=' to unify the input and the output.
 */
 transform_term(
 		ct(OrMeta,';',[ct(CondMeta,CFFunctor,[CondASTNode,LASTNode]),RASTNode]),
@@ -1119,7 +1122,8 @@ transform_term(
 				ct(CondMeta,CFFunctor,[NewCondASTNode,NewLASTNode]),
 				NewRASTNode
 			]
-		),NewASTNode).
+		),
+		NewASTNode).
 
 transform_term(
 		ct(Meta,CFFunctor,[LASTNode,RASTNode]),

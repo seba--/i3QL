@@ -1508,6 +1508,16 @@ create_term_for_cacheable_string_atom(
 	).
 
 
+/**
+	Adds a the deferred action "create_field_for_pre_created_term" to the list
+	of DeferredActions, if the list does not already contain an action that 
+	creates the same term. If a corresponding term constructor is already 
+	added to the list of deferred actions, the given <code>TId</code> and the
+	TId of the already added deferred action are unified and the predicate 
+	succeeds.
+	
+	@signature add_create_field_for_pre_created_term_to_set_ol(-TId:var,+TC:ASTNode,+DeferredActions:OpenList)
+*/
 add_create_field_for_pre_created_term_to_set_ol(TId,TC,DeferredActions) :-
 	var(DeferredActions),
 	!,
@@ -1517,7 +1527,7 @@ add_create_field_for_pre_created_term_to_set_ol(
 		TC,
 		[create_field_for_pre_created_term(OtherTId,OtherTC)|_]
 	) :-	
-	TC == OtherTC,
+	TC == OtherTC, % Standard unification using "=" does not work here!
 	TId = OtherTId,
 	!.
 add_create_field_for_pre_created_term_to_set_ol(
