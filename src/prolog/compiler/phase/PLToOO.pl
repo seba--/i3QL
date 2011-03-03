@@ -71,7 +71,7 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_clause_impl_methods(DeferredActions,Program,Predicate,SClausesMethods),
-	% If the predicate is defined by a single clause, we simple move the 
+	% If the predicate is defined by a single clause, we simple put the 
 	% the clause implementation in the "next()" method.
 	(	predicate_clauses(Predicate,Clauses),single_clause(Clauses) ->
 		SClausesMethods = [
@@ -234,16 +234,21 @@ field_decls_for_pre_created_terms([_Action|Actions],SFieldDecl,SRest) :-
 
 
 
-assign_ids_to_pre_created_terms(_Id,Tail) :- var(Tail),!.
+assign_ids_to_pre_created_terms(_Id,Actions) :- var(Actions),!.
 assign_ids_to_pre_created_terms(
 		Id,
 		[create_field_for_pre_created_term(PCTId,_)|Actions]
 	) :-
-	(	var(PCTId) ->
+/*	(	
+		var(PCTId) ->
 		PCTId = Id
 	;
 		true
 	),
+	NextId is Id + 1,
+	assign_ids_to_pre_created_terms(NextId,Actions),*/
+	var(PCTId),!,
+	PCTId = Id,
 	NextId is Id + 1,
 	assign_ids_to_pre_created_terms(NextId,Actions).
 assign_ids_to_pre_created_terms(Id,[_|Actions]) :-
@@ -1447,7 +1452,7 @@ create_term(ASTNode,cache,TermConstructor,OldVarIds,NewVarIds,DeferredActions) :
 			OldVarIds,NewVarIds,
 			DeferredActions),
 		TermConstructor = pre_created_term(CTId),
-		add_to_set_ol(create_field_for_pre_created_term(CTId,TC),DeferredActions)
+		add_create_field_for_pre_created_term_to_set_ol(CTId,TC,DeferredActions)
 	;
 		create_terms(
 			Args,
@@ -1496,11 +1501,32 @@ create_term_for_cacheable_string_atom(
 		TermConstructor = string_atom(StringValue)
 	;	
 		TermConstructor = pre_created_term(Id),
-		add_to_set_ol(
-			create_field_for_pre_created_term(Id,string_atom(StringValue)),
-			DeferredActions)
+		add_create_field_for_pre_created_term_to_set_ol(
+			Id,string_atom(StringValue),
+			DeferredActions
+		)
 	).
 
+
+add_create_field_for_pre_created_term_to_set_ol(TId,TC,DeferredActions) :-
+	var(DeferredActions),
+	!,
+	DeferredActions=[create_field_for_pre_created_term(TId,TC)|_].
+add_create_field_for_pre_created_term_to_set_ol(
+		TId,
+		TC,
+		[create_field_for_pre_created_term(OtherTId,OtherTC)|_]
+	) :-	
+	TC == OtherTC,
+	TId = OtherTId,
+	!.
+add_create_field_for_pre_created_term_to_set_ol(
+		TId,
+		TC,
+		[_|DeferredActions]
+	) :-	
+	add_create_field_for_pre_created_term_to_set_ol(TId,TC,DeferredActions).
+	
 
 
 /* *************************************************************************** *\
