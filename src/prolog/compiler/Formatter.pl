@@ -267,22 +267,35 @@ write_In_List([H|T],Dotted,Priority,Depth,Output) :-
       ;
       T = [],write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat(['|',First,Rest],Output)
       ;
+      compound_term(H,',',_),write_clause(H,0,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([',',First,Rest],Output)
+      ;
       write_clause(H,Priority,Depth,First),write_In_List(T,'false',Priority,Depth,Rest),atomic_list_concat([',',First,Rest],Output)
    ),!.
 
 
 write_term_list([Arg|Args],Priority,Depth,Concated_List) :-
-   write_clause(Arg,Priority,Depth,H),
+   (
+   compound_term(Arg,',',_),
+   write_clause(Arg,0,Depth,H)
+   ;
+   write_clause(Arg,Priority,Depth,H)
+   ),
    write_term_list_rest(Args,Priority,Depth,T),
-   atomic_list_concat([H,T],Concated_List).
+   atomic_list_concat([H,T],Concated_List),!.
 
 
 write_term_list_rest([],_,_,'').
 
 write_term_list_rest([Clause|Clauses],Priority,Depth,Concated_List) :-
-   write_clause(Clause,Priority,Depth,H),
+(
+   compound_term(Clause,',',_),
+   write_clause(Clause,0,Depth,H)
+   ;
+   write_clause(Clause,Priority,Depth,H)
+   ),
    write_term_list_rest(Clauses,Priority,Depth,T),
-   atomic_list_concat([',',H,T],Concated_List).
+   atomic_list_concat([',',H,T],Concated_List),!.
+
 
 
 getShift(Amount,OldTab,NewTab) :-
