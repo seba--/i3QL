@@ -285,7 +285,7 @@ assign_ids_to_pre_created_terms(Id,[_|DeferredActions]) :-
 gen_predicate_constructor(
 		_Program,
 		Predicate,
-		constructor_decl(PredicateIdentifier,ParamDecls,SInitFieldsForArgsStmts)
+		constructor_decl(PredicateIdentifier,ParamDecls,SInitFieldsForArgs)
 	) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = _Functor/Arity,
@@ -293,8 +293,8 @@ gen_predicate_constructor(
 	call_foreach_i_in_0_to_u(
 		Arity,
 		init_field_of_arg_i,
-		SInitFieldsForArgsStmts,
-		SInitFieldsForInitialArgStatesStmts
+		SInitFieldsForArgs,
+		SInitFieldsForInitialArgStates
 	),
 	(	lookup_in_predicate_meta(
 			has_clauses_where_last_call_optimization_is_possible,Predicate
@@ -302,10 +302,10 @@ gen_predicate_constructor(
 		call_foreach_i_in_0_to_u(
 			Arity,
 			init_field_of_initial_arg_state_i,
-			SInitFieldsForInitialArgStatesStmts
+			SInitFieldsForInitialArgStates
 		)	
 	;
-		SInitFieldsForInitialArgStatesStmts = []
+		SInitFieldsForInitialArgStates = []
 	).
 
 
@@ -313,8 +313,8 @@ gen_predicate_constructor(
 constructor_param_decl_for_arg_i(I,param_decl(type(term),ParamName)) :- 
 	atom_concat('_arg',I,ParamName). 
 
-	
-	
+
+
 init_field_of_arg_i(
 		I,
 		expression_statement(assignment(arg(I),local_variable_ref(ArgName)))
@@ -375,19 +375,19 @@ gen_clause_selector_method(
 	) :-
 	predicate_clauses(Predicate,Clauses),
 	(	lookup_in_predicate_meta(
-			has_clauses_where_last_call_optimization_is_possible,
-			Predicate
-		) ->
+			has_clauses_where_last_call_optimization_is_possible,Predicate
+		)
+	->
 		SBody = [forever('eval_clauses',SEvalGoals)],
 		SwitchContext = inside_forever
 	;
 		SBody = SEvalGoals,
 		SwitchContext = top_level
 	),
-	(	single_clause(Clauses) ->
-		SEvalGoals = [return(method_call(self,'clause0',[]))]
-	;	two_clauses(Clauses) -> 
-		/* If there are two clauses, "if" is used to select the current one. */
+	(	single_clause(Clauses) 
+	->	SEvalGoals = [return(method_call(self,'clause0',[]))]
+	;	two_clauses(Clauses)
+	-> /* If there are two clauses, "if" is used to select the current one. */
 		foreach_clause(
 			Clauses,
 			selector_for_clause_i(Predicate),
@@ -603,13 +603,12 @@ translate_goals(
 		Predicate,Clause,[PrimitiveGoal|PrimitiveGoals],
 		DeferredActions,SGoalCases,SRest
 	) :-
+	!,
 	translate_goal(
-		PrimitiveGoal,Clause,Predicate,
-		DeferredActions,SGoalCases,SOtherGoalCases
+		PrimitiveGoal,Clause,Predicate,DeferredActions,SGoalCases,SOtherGoalsCases
 	),
 	translate_goals(
-		Predicate,Clause,PrimitiveGoals,
-		DeferredActions,SOtherGoalCases,SRest
+		Predicate,Clause,PrimitiveGoals,DeferredActions,SOtherGoalsCases,SRest
 	).
 translate_goals(_Predicate,_Clause,[],_DeferredActions,SCases,SCases).
 
@@ -627,11 +626,13 @@ translate_goals(_Predicate,_Clause,[],_DeferredActions,SCases,SCases).
 	<li>next_goal_if_succeeds(GoalNumber)</li>
 	</ul>
 */
+/*
 translate_goal(
 		PrimitiveGoal,_Clause,Predicate,
 		_DeferredActions,[SCallCase,SRedoCase|SCases],SCases
 	) :-
-	string_atom(PrimitiveGoal,'!'),!,
+	string_atom(PrimitiveGoal,'!'),
+	!,
 	term_meta(PrimitiveGoal,CutMeta),
 	lookup_in_meta(goal_number(GoalNumber),CutMeta),
 	% Handle the case if the cut is called the first time
@@ -662,6 +663,150 @@ translate_goal(
 			return(boolean(false))
 		]
 	).
+*/
+
+
+is_chainable_goal(PrimitiveGoal) :-	string_atom(PrimitiveGoal,'!'),!.
+is_chainable_goal(PrimitiveGoal) :- compound_term(PrimitiveGoal,'var',[_ASTNode]),!.
+is_chainable_goal(PrimitiveGoal) :- compound_term(PrimitiveGoal,'nonvar',[_ASTNode]),!.
+is_chainable_goal(PrimitiveGoal) :- compound_term(PrimitiveGoal,'arg',[_,_,_]),!.
+
+
+translate_chainable_goal(
+		PrimitiveGoal,_Clause,Predicate,
+		_DeferredActions,
+		EvalStmt,block(SucceededBlockStmts),SucceededBlockStmts,
+		cut(Cut),cut(NewCut),
+		may_fail(MayFail),may_fail(MayFail),
+		manifests_states(ManifestsStates), manifests_states(ManifestsStates)
+	) :-
+	string_atom(PrimitiveGoal,'!'),
+	!,
+	(	(Cut == yes ; MayFail == no)
+	->	NewCut = yes
+	;	NewCut = maybe
+	),
+	(	predicate_clauses(Predicate,Clauses), 
+		single_clause(Clauses)
+	->
+		EvalStmt = nop
+	;
+		EvalStmt = expression_statement(
+			assignment(field_ref('cutEvaluation'),boolean(true))
+		)
+	).
+	
+	
+/**
+	Translate a single (semi-) deterministic goal that is chainable.
+*/
+translate_goal(
+		PrimitiveGoal,Clause,Predicate,
+		DeferredActions,
+		[SCallCase,SRedoCase|SCases],SCases
+	) :-
+	is_chainable_goal(PrimitiveGoal),
+	!,
+	
+	term_meta(PrimitiveGoal,GoalMeta),
+	lookup_in_meta(goal_number(GoalNumber),GoalMeta),
+	goal_call_case_id(GoalNumber,CallCaseId),
+	goal_redo_case_id(GoalNumber,RedoCaseId),
+	
+	translate_chainable_goal(
+		PrimitiveGoal,Clause,Predicate,
+		DeferredActions,
+		EvalStmt,ContinueStmt,SucceededBlockStmts,
+		cut(no),cut(Cut),
+		may_fail(no),may_fail(MayFail),
+		manifests_states(no), manifests_states(ManifestsStates)
+	),
+		
+	% call case
+	(	MayFail == yes
+	->	SucceededVariableDeclStmt = local_variable_decl(type(boolean),'succeeded',boolean(false))
+	;	SucceededVariableDeclStmt = nop
+	),
+	(	ManifestsStates == no
+	->	StatesListVariableDeclStmt = nop,
+		PreserveState = nop
+	;	StatesListVariableDeclStmt = locally_scoped_states_list,
+		PreserveState = create_undo_goal_for_locally_scoped_states_list_and_put_on_goal_stack
+	),
+	select_and_jump_to_next_goal_after_succeed(GoalMeta,force_jump,JumpToNextGoalAfterSucceed),
+	SucceededBlockStmts = [
+		PreserveState |
+		JumpToNextGoalAfterSucceed
+	],	
+	(	MayFail == yes 
+	->	(	ManifestsStates == yes
+		->	ClearStatesList = locally_scoped_states_list_reincarnate_states
+		;	ManifestsStates == maybe
+		->	ClearStatesList = locally_scoped_states_list_cond_reincarnate_states
+		;	ClearStatesList = nop
+		),
+		(	Cut == yes
+		->	JumpToNextGoalAfterFail = 	[
+				abort_pending_goals_and_clear_goal_stack,
+				return(boolean(false))
+			]
+		;	Cut == maybe
+		->	select_and_jump_to_next_goal_after_fail(GoalMeta,JumpToNextGoalAfterFailAndNoCut,[]),
+			JumpToNextGoalAfterFail = 	[
+				if(field_ref('cutEvaluation'),
+					[	abort_pending_goals_and_clear_goal_stack,
+						return(boolean(false))
+					],
+					JumpToNextGoalAfterFailAndNoCut
+				)
+			]
+		;	select_and_jump_to_next_goal_after_fail(GoalMeta,JumpToNextGoalAfterFail,[])
+		),
+		HandleFail = [
+			ClearStatesList |
+			JumpToNextGoalAfterFail
+		]
+	;	HandleFail = [nop]
+	),	
+	
+	SCallCase = case(
+		int(CallCaseId),
+		[
+			SucceededVariableDeclStmt,
+			StatesListVariableDeclStmt,
+			EvalStmt,
+			ContinueStmt |
+			% if fail...
+			HandleFail
+		]
+	),	
+	
+	% redo case	
+	(	Cut \== no % Cut == yes ; Cut == maybe
+	->
+		SRedoCase = case(
+			int(RedoCaseId),
+			[
+				abort_pending_goals_and_clear_goal_stack,
+				return(boolean(false))
+			]
+		)
+	;	
+		select_and_jump_to_next_goal_after_fail(GoalMeta,JumpToNextGoalAfterFail,[]),
+		SRedoCase = case(
+			int(RedoCaseId),
+			[
+				abort_and_remove_top_level_goal_from_goal_stack |
+				JumpToNextGoalAfterFail
+			]
+		)
+	)	
+	.
+	
+
+
+
+	
 
 /*
 	Translates the "unification"
@@ -705,7 +850,7 @@ translate_goal(
 				JumpToNextGoalAfterSucceed
 			],
 			[
-				locally_scoped_states_list_reincarnate_states |
+				locally_scoped_states_list_cond_reincarnate_states |
 				JumpToNextGoalAfterFail
 			]
 		)

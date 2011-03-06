@@ -345,6 +345,10 @@ write_stmt(Stream,if(ConditionExpression,TrueStmts,FalseStmts)) :- !,
 		write_stmts(Stream,FalseStmts),
 		write(Stream,'}\n')
 	).
+write_stmt(Stream,block(Stmts)) :-
+	write(Stream,'{\n'),
+	write_stmts(Stream,Stmts),
+	write(Stream,'}\n').	
 write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write_type(Stream,Type),write(Stream,' '),write(Stream,Name),
 	write(Stream,' = '),
@@ -352,8 +356,10 @@ write_stmt(Stream,local_variable_decl(Type,Name,Expression)) :- !,
 	write(Stream,';\n').	
 write_stmt(Stream,locally_scoped_states_list) :- !,
 	write(Stream,'saere.States states = null;\n').
-write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
+write_stmt(Stream,locally_scoped_states_list_cond_reincarnate_states) :- !,
 	write(Stream,'if(states != null) states.abort();\n').	
+write_stmt(Stream,locally_scoped_states_list_reincarnate_states) :- !,
+	write(Stream,'states.abort();\n').	
 write_stmt(Stream,locally_scoped_term_variable(Id,TermExpression)) :- 
 	Id =.. [Functor,Value],!,
 	% IMPROVE Is it meaningfull to write the "best-possible" type?
