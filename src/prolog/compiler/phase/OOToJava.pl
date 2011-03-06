@@ -285,7 +285,6 @@ write_further_param_decls(Stream,[ParamDecl|ParamDecls]) :-
 
 
 write_param_decl(Stream,param_decl(Type,Name)) :-
-	write(Stream,'final '),
 	write_type(Stream,Type),
 	write(Stream,' '),
 	write(Stream,Name).
@@ -447,11 +446,10 @@ write_manifest_and_create_undo_goal(Stream,[TermExpression|TermExpressions]) :-
 	write_manifest_and_create_undo_goal(Stream,TermExpressions).
 
 
-write_lvalue(Stream,field_ref(ReceiverExpression,Identifer)) :- % TODO remove (after refactoring)...
-	write_expr(Stream,ReceiverExpression),
-	write(Stream,'.'),
+write_lvalue(Stream,field_ref(Identifer)) :- 
+	write(Stream,'this.'),
 	write(Stream,Identifer).
-write_lvalue(Stream,local_variable_ref(Identifer)) :- % TODO remove (after refactoring)...
+write_lvalue(Stream,local_variable_ref(Identifer)) :- 
 	write(Stream,Identifer).
 write_lvalue(Stream,clv(I)) :- !,
 	write(Stream,'this.clv'),write(Stream,I).
@@ -526,9 +524,8 @@ write_expr(Stream,functor_comparison(LFunctor,RFunctor))	:- !,
 	write_expr(Stream,LFunctor),
 	write(Stream,' == '),
 	write_expr(Stream,RFunctor).
-write_expr(Stream,field_ref(ReceiverExpression,Identifer)) :- !, 
-	write_expr(Stream,ReceiverExpression),
-	write(Stream,'.'),
+write_expr(Stream,field_ref(Identifer)) :- !, 
+	write(Stream,'this.'),
 	write(Stream,Identifer).
 write_expr(Stream,local_variable_ref(Identifer)) :- !,
 	write(Stream,Identifer).
@@ -706,8 +703,8 @@ write_arith_term(Stream,clv(I)) :- !,
 	write(Stream,'this.clv'),write(Stream,I),write(Stream,'.intEval() ').
 write_arith_term(Stream,local_variable_ref(Id)) :- !, % TODO remove...
 	write_expr(Stream,local_variable_ref(Id)),write(Stream,'.intEval() ').
-write_arith_term(Stream,field_ref(Receiver,Id)) :- !, % TODO remove... as soon as we always accept "PCT", arg() and clv() statements...
-	write_expr(Stream,field_ref(Receiver,Id)),write(Stream,'.intEval() ').
+write_arith_term(Stream,field_ref(Id)) :- !, % TODO remove... as soon as we always accept "PCT", arg() and clv() statements...
+	write_expr(Stream,field_ref(Id)),write(Stream,'.intEval() ').
 write_arith_term(Stream,compound_term(string_atom('-'),[ArithTerm])) :- !,
 	map_arith_prolog_operator_to_java_operator('-',JavaOperator),
 	write(Stream,JavaOperator),

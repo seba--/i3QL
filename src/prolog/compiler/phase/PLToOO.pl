@@ -66,7 +66,7 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 		DebugConfig,
 		processing_predicate,
 		write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
-	% build the OO AST
+	% build the OO AST...
 	% ------- METHODS -------
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
@@ -97,12 +97,13 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 	gen_fields_for_the_control_flow_and_evaluation_state(
 		Program,Predicate,
 		DeferredActions,
-		SFields,S2
+		SClassBody,S2
 	),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
 	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
+	% -------- ADD OO AST TO META INFORMATION ---- 
 	OOAST = oo_ast([
-		predicate_decl(PredicateIdentifier,SFields),
+		predicate_decl(PredicateIdentifier,SClassBody),
 		predicate_registration(PredicateIdentifier)
 		]),
 	add_to_predicate_meta(OOAST,Predicate).	
@@ -116,10 +117,10 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 */
 
 gen_fields_for_the_control_flow_and_evaluation_state(
-	_Program,Predicate, % input
-	DeferredActions,
-	SFieldDecls,SRest % output
-) :-
+		_Program,Predicate, % input
+		DeferredActions,
+		SFieldDecls,SRest % output
+	) :-
 	predicate_meta(Predicate,PredicateMeta),
 	predicate_clauses(Predicate,Clauses),
 	
@@ -132,7 +133,8 @@ gen_fields_for_the_control_flow_and_evaluation_state(
 		eol_comment('variables to control/manage the execution of this predicate')|
 		SClauseToExecute
 	],
-	(	single_clause(Clauses) ->
+	(	single_clause(Clauses) 
+	->
 		SClauseToExecute = SCutEvaluation
 	;
 		SClauseToExecute = [
@@ -141,7 +143,8 @@ gen_fields_for_the_control_flow_and_evaluation_state(
 			SCutEvaluation
 		]
 	),	
-	(	( lookup_in_meta(uses_cut(no),PredicateMeta) ; single_clause(Clauses) ) ->
+	(	( lookup_in_meta(uses_cut(no),PredicateMeta) ; single_clause(Clauses) ) 
+	->
 		SCutEvaluation = SGoalsEvaluation
 	;
 		SCutEvaluation = [
@@ -185,12 +188,29 @@ gen_fields_for_predicate_arguments(
 	) :-
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = _Functor/Arity,
-	(
-		lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
-		call_foreach_i_in_0_to_u(Arity,field_decl_for_pred_arg_i([]),SFieldForArgDecls,SFieldForArgStateDecls),		
-		call_foreach_i_in_0_to_u(Arity,field_decl_for_initial_pred_arg_state_i,SFieldForArgStateDecls,SR)
+	(	lookup_in_predicate_meta(
+			has_clauses_where_last_call_optimization_is_possible,Predicate
+		)
+	->
+		call_foreach_i_in_0_to_u(
+			Arity,
+			field_decl_for_pred_arg_i([]),
+			SFieldForArgDecls,
+			SFieldForArgStateDecls
+		),		
+		call_foreach_i_in_0_to_u(
+			Arity,
+			field_decl_for_initial_pred_arg_state_i,
+			SFieldForArgStateDecls,
+			SR
+		)
 	;
-		call_foreach_i_in_0_to_u(Arity,field_decl_for_pred_arg_i([final]),SFieldForArgDecls,SR)		
+		call_foreach_i_in_0_to_u(
+			Arity,
+			field_decl_for_pred_arg_i([final]),
+			SFieldForArgDecls,
+			SR
+		)		
 	).
 
 
@@ -221,44 +241,45 @@ field_decl_for_clause_local_variable(I,field_decl([],type(term),FieldName)) :-
 
 
 
-field_decls_for_pre_created_terms(Tail,SRest,SRest) :- var(Tail),!.
+field_decls_for_pre_created_terms(DeferredActions,SRest,SRest) :- 
+	var(DeferredActions),
+	!.
 field_decls_for_pre_created_terms(
-		[create_field_for_pre_created_term(PCTId,Expr)|Actions],
+		[create_field_for_pre_created_term(PCTId,Expr)|DeferredActions],
 		SFieldDecl,
 		SRest
-	) :- !,
+	) :- 
+	!,
 	SFieldDecl = [pre_created_term(PCTId,Expr) | SNextFieldDecl],
-	field_decls_for_pre_created_terms(Actions,SNextFieldDecl,SRest).
-field_decls_for_pre_created_terms([_Action|Actions],SFieldDecl,SRest) :- 
-	field_decls_for_pre_created_terms(Actions,SFieldDecl,SRest).
+	field_decls_for_pre_created_terms(DeferredActions,SNextFieldDecl,SRest).
+field_decls_for_pre_created_terms(
+		[_DeferredAction|DeferredActions],
+		SFieldDecl,
+		SRest
+	) :- 
+	field_decls_for_pre_created_terms(DeferredActions,SFieldDecl,SRest).
 
 
 
-assign_ids_to_pre_created_terms(_Id,Actions) :- var(Actions),!.
+assign_ids_to_pre_created_terms(_Id,DeferredActions) :- var(DeferredActions),!.
 assign_ids_to_pre_created_terms(
 		Id,
-		[create_field_for_pre_created_term(PCTId,_)|Actions]
+		[create_field_for_pre_created_term(PCTId,_)|DeferredActions]
 	) :-
-/*	(	
-		var(PCTId) ->
-		PCTId = Id
-	;
-		true
-	),
-	NextId is Id + 1,
-	assign_ids_to_pre_created_terms(NextId,Actions),*/
-	var(PCTId),!,
+	% var(PCTId), % the ID variable of all pre created terms is initially unbound
+	!,
 	PCTId = Id,
 	NextId is Id + 1,
-	assign_ids_to_pre_created_terms(NextId,Actions).
-assign_ids_to_pre_created_terms(Id,[_|Actions]) :-
-	assign_ids_to_pre_created_terms(Id,Actions).
+	assign_ids_to_pre_created_terms(NextId,DeferredActions).
+assign_ids_to_pre_created_terms(Id,[_|DeferredActions]) :-
+	% deals with the other types of deferred actions
+	assign_ids_to_pre_created_terms(Id,DeferredActions).
 
 
 
 /*
 
-	C O N S T R U C T O R
+	G O A L / P R E D I C A T E   C O N S T R U C T O R
 	
 */
 gen_predicate_constructor(
@@ -269,9 +290,20 @@ gen_predicate_constructor(
 	predicate_identifier(Predicate,PredicateIdentifier),
 	PredicateIdentifier = _Functor/Arity,
 	call_foreach_i_in_0_to_u(Arity,constructor_param_decl_for_arg_i,ParamDecls),
-	call_foreach_i_in_0_to_u(Arity,init_field_of_arg_i,SInitFieldsForArgsStmts,SInitFieldsForInitialArgStatesStmts),
-	(	lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
-		call_foreach_i_in_0_to_u(Arity,init_field_of_initial_arg_state_i,SInitFieldsForInitialArgStatesStmts)	
+	call_foreach_i_in_0_to_u(
+		Arity,
+		init_field_of_arg_i,
+		SInitFieldsForArgsStmts,
+		SInitFieldsForInitialArgStatesStmts
+	),
+	(	lookup_in_predicate_meta(
+			has_clauses_where_last_call_optimization_is_possible,Predicate
+		) ->
+		call_foreach_i_in_0_to_u(
+			Arity,
+			init_field_of_initial_arg_state_i,
+			SInitFieldsForInitialArgStatesStmts
+		)	
 	;
 		SInitFieldsForInitialArgStatesStmts = []
 	).
@@ -279,26 +311,23 @@ gen_predicate_constructor(
 
 
 constructor_param_decl_for_arg_i(I,param_decl(type(term),ParamName)) :- 
-	atom_concat('arg',I,ParamName). % REFACTOR use "arg(I)"
+	atom_concat('_arg',I,ParamName). 
 
 	
 	
 init_field_of_arg_i(
 		I,
-		expression_statement(
-			assignment(
-				arg(I),reveal(
-				local_variable_ref(ArgName))))) :-
-	atom_concat('arg',I,ArgName).
+		expression_statement(assignment(arg(I),local_variable_ref(ArgName)))
+	) :-
+	atom_concat('_arg',I,ArgName).
 
 
 
 init_field_of_initial_arg_state_i(
 		I,
-		manifest_state(
-			local_variable_ref(ArgName),
-			field_ref(self,FieldName))) :-
-	atom_concat('arg',I,ArgName),
+		manifest_state(local_variable_ref(ArgName),field_ref(FieldName))
+	) :-
+	atom_concat('_arg',I,ArgName),
 	atomic_list_concat(['initialArg',I,'state'],FieldName).
 
 
@@ -308,27 +337,28 @@ init_field_of_initial_arg_state_i(
 	"void abort()" M E T H O D
 
 */	
-gen_abort_method(_Program,Predicate,AbortMethod) :-
+gen_abort_method(
+		_Program,
+		Predicate,
+		method_decl(public,type(void),'abort',[],	Stmts)
+	) :-
 	predicate_identifier(Predicate,_Functor/Arity),
-	(	lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
+	(	lookup_in_predicate_meta(
+			has_clauses_where_last_call_optimization_is_possible,
+			Predicate
+		) 
+	->
 		call_foreach_i_in_0_to_u(Arity,reincarnate_initial_arg_state_i,Stmts,SGoalStack)	
 	;
 		Stmts = SGoalStack
  	),
-	SGoalStack = [abort_pending_goals_and_clear_goal_stack],
-	AbortMethod = 
-		method_decl(
-			public,
-			type(void),
-			'abort',
-			[],
-			Stmts).
+	SGoalStack = [abort_pending_goals_and_clear_goal_stack].
 
 
 
 reincarnate_initial_arg_state_i(
 		I,
-		reincarnate_state(field_ref(self,FieldName))) :-
+		reincarnate_state(field_ref(FieldName))) :-
 	atomic_list_concat(['initialArg',I,'state'],FieldName).
 
 
@@ -338,80 +368,64 @@ reincarnate_initial_arg_state_i(
 	"boolean next()" M E T H O D      ( T H E   C L A U S E   S E L E C T O R )
 
 */	
-gen_clause_selector_method(_Program,Predicate,ClauseSelectorMethod) :-
+gen_clause_selector_method(
+		_Program,
+		Predicate,
+		method_decl(public,type(boolean),'next',[],SBody)
+	) :-
 	predicate_clauses(Predicate,Clauses),
-	(	lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
-		SMain = [forever('eval_clauses',SEvalGoals)],
+	(	lookup_in_predicate_meta(
+			has_clauses_where_last_call_optimization_is_possible,
+			Predicate
+		) ->
+		SBody = [forever('eval_clauses',SEvalGoals)],
 		SwitchContext = inside_forever
 	;
-		SMain = SEvalGoals,
+		SBody = SEvalGoals,
 		SwitchContext = top_level
 	),
-	(	single_clause(Clauses),!,
-		SEvalGoals = [return(method_call(self,'clause0',[]))],
-		ClauseSelectorMethod = 
-			method_decl(
-				public,
-				type(boolean),
-				'next',
-				[],
-				SMain)
-	;	/*
-		If we have only two cases it is sufficient to use an "if" statement to 
-		branch between these two statements.
-		*/
-		two_clauses(Clauses),!,
+	(	single_clause(Clauses) ->
+		SEvalGoals = [return(method_call(self,'clause0',[]))]
+	;	two_clauses(Clauses) -> 
+		/* If there are two clauses, "if" is used to select the current one. */
 		foreach_clause(
 			Clauses,
 			selector_for_clause_i(Predicate),
-			[
+			% deconstruct the generated switch statement ...
+			[	
 				case(int(0),FirstClauseStmts),
 				case(int(1),SecondClauseStmts)
 			]
 		),
 		SEvalGoals = [
+			% ... construct a new if statement
 			if(
-				value_comparison('==',field_ref(self,'clauseToExecute'),int(0)),
+				value_comparison('==',field_ref('clauseToExecute'),int(0)),
 				FirstClauseStmts
-			)|
+			) | 
 			SecondClauseStmts
-		],
-		ClauseSelectorMethod = 
-			method_decl(
-				public,
-				type(boolean),
-				'next',
-				[],
-				SMain)
-	;	/*
-		This is the base case to handle arbitrary numbers of clauses.
-		*/
-		SEvalGoals = [switch(SwitchContext,field_ref(self,'clauseToExecute'),CaseStmts)],
-		foreach_clause(Clauses,selector_for_clause_i(Predicate),CaseStmts),
-		ClauseSelectorMethod = 
-			method_decl(
-				public,
-				type(boolean),
-				'next',
-				[],
-				SMain)
+		]
+	;	/* This is the base case to handle arbitrary numbers of clauses. */
+		SEvalGoals = [switch(SwitchContext,field_ref('clauseToExecute'),CaseStmts)],
+		foreach_clause(Clauses,selector_for_clause_i(Predicate),CaseStmts)
 	).
 
 selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :- 
+	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),
+	!,
 	atom_concat('clause',I,ClauseIdentifier),
-	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),!,
 	reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
 	(	lookup_in_clause_meta(cut(never),Clause) ->
 		SCutReset = eol_comment('no cut...')
 	;
 		SCutReset = expression_statement(
-			assignment(field_ref(self,'cutEvaluation'),boolean(false))
+			assignment(field_ref('cutEvaluation'),boolean(false))
 		)
 	),
 	SPrepareForNextClause = [
 		SCutReset,
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))),
+		expression_statement(assignment(field_ref('goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref('clauseToExecute'),int(0))),
 		continue('eval_clauses')
 	],
 	Stmts = [
@@ -424,29 +438,30 @@ selector_for_clause_i(_Predicate,I,Clause,last,case(int(I),Stmts)) :-
 		return(boolean(false))
 	].
 
-selector_for_clause_i(_Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
-	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),!,
+selector_for_clause_i(_Predicate,I,Clause,_RelativeClausePosition,case(int(I),Stmts)) :-
+	lookup_in_clause_meta(last_call_optimization_is_possible,Clause),
+	!,
 	atom_concat('clause',I,ClauseIdentifier),
 	NextClauseId is I + 1,
 	(	lookup_in_clause_meta(cut(never),Clause) ->
 		SCutReset = eol_comment('no cut...')
 	;
-		SCutReset = expression_statement(assignment(field_ref(self,'cutEvaluation'),boolean(false)))
+		SCutReset = expression_statement(assignment(field_ref('cutEvaluation'),boolean(false)))
 	),
 	reset_clause_local_variables(
 		Clause,
 		SResetCLVs,
 		[  % after reseting the CLVs...
 			SCutReset,		
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-			expression_statement(assignment(field_ref(self,'clauseToExecute'),int(0))), % unless this is the first clause....
+			expression_statement(assignment(field_ref('goalToExecute'),int(0))),
+			expression_statement(assignment(field_ref('clauseToExecute'),int(0))), % unless this is the first clause....
 			continue('eval_clauses')
 		] 
 	),
 	(	lookup_in_clause_meta(cut(never),Clause) ->
 		SCut = eol_comment('this clause contains no "cut"')
 	;
-		SCut = if(field_ref(self,'cutEvaluation'),
+		SCut = if(field_ref('cutEvaluation'),
 			[
 				expression_statement(method_call(self,'abort',[])),
 				return(boolean(false))
@@ -462,12 +477,13 @@ selector_for_clause_i(_Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 		),		
 		SCut,
 		eol_comment('prepare the execution of the next clause'),
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
+		expression_statement(assignment(field_ref('goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref('clauseToExecute'),int(NextClauseId)))
 	].
 	
 
-selector_for_clause_i(Predicate,I,_Clause,last,case(int(I),Stmts)) :- !,
+selector_for_clause_i(Predicate,I,_Clause,last,case(int(I),Stmts)) :- 
+	!,
 	atom_concat('clause',I,ClauseIdentifier),
 	% if this is the last clause, we don't care if the evaluation was "cutted" or not
 	( lookup_in_predicate_meta(has_clauses_where_last_call_optimization_is_possible,Predicate) ->
@@ -490,8 +506,8 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 	reset_clause_local_variables(Clause,SCleanup,SPrepareForNextClause),
 	SPrepareForNextClause = [
 		eol_comment('prepare the execution of the next clause'),
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(0))),
-		expression_statement(assignment(field_ref(self,'clauseToExecute'),int(NextClauseId)))
+		expression_statement(assignment(field_ref('goalToExecute'),int(0))),
+		expression_statement(assignment(field_ref('clauseToExecute'),int(NextClauseId)))
 	],
 	(
 		lookup_in_clause_meta(cut(never),Clause) ->
@@ -506,7 +522,7 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 			Return = [return(boolean(false))]
 		),
 		ClauseFailed = [
-			if(field_ref(self,'cutEvaluation'),
+			if(field_ref('cutEvaluation'),
 				Return
 			) | 
 			SCleanup
@@ -521,29 +537,22 @@ selector_for_clause_i(Predicate,I,Clause,_ClausePosition,case(int(I),Stmts)) :-
 
 
 
-reset_clause_local_variables(
-		Clause,
-		SCLVReset,
-		SR
-	) :- 
+reset_clause_local_variables(Clause,SCLVReset,SR) :- 
 	lookup_in_clause_meta(clause_local_variables_count(CLVCount),Clause),
 	call_foreach_i_in_0_to_u(CLVCount,reset_clause_local_variable,SCLVReset,SR).
 
 
 
-reset_clause_local_variable(
-		I,
-		expression_statement(assignment(field_ref(self,FieldName),null))
-	) :-
-	atom_concat(clv,I,FieldName). % TODO let the OOto... layer rewrite the names..
+reset_clause_local_variable(I,expression_statement(assignment(clv(I),null))).
+
 
 
 
 /*
 
-	T H E   C L A U S E  I M P L E M E N T A T I O N S
+	T H E   C L A U S E   I M P L E M E N T A T I O N S
 	
-	"boolean clauseX()" M E T H O D S      
+	T H E   "boolean clauseX()"   M E T H O D S      
 
 */
 gen_clause_impl_methods(DeferredActions,_Program,Predicate,SClauseImpls) :-
@@ -553,12 +562,14 @@ gen_clause_impl_methods(DeferredActions,_Program,Predicate,SClauseImpls) :-
 		implementation_for_clause_i(Predicate,DeferredActions),
 		SClauseImpls).
 	
+	
+	
 implementation_for_clause_i(
 		Predicate,
 		DeferredActions,
 		I,
 		Clause,
-		_ClausePosition,
+		_RelativeClausePosition,
 		SClauseMethod
 	) :-
 	atom_concat('clause',I,ClauseIdentifier),
@@ -569,12 +580,12 @@ implementation_for_clause_i(
 	primitive_goals_list(BodyASTNode,PrimitiveGoalsList,[]),
 	translate_goals(Predicate,Clause,PrimitiveGoalsList,DeferredActions,SCases,[]),
 	(	LastId == 1 ->
-		MethodBody = [switch(top_level,field_ref(self,'goalToExecute'),SCases)]
+		MethodBody = [switch(top_level,field_ref('goalToExecute'),SCases)]
 	;
 		MethodBody = [ 
 			forever(
 				'eval_goals',
-				[switch(inside_forever,field_ref(self,'goalToExecute'),SCases)]
+				[switch(inside_forever,field_ref('goalToExecute'),SCases)]
 			) 
 		]
 	),
@@ -605,7 +616,7 @@ translate_goals(_Predicate,_Clause,[],_DeferredActions,SCases,SCases).
 
 
 /**
-	To translate a goal, the following information have to be available:
+	To translate a goal, the following information has to be available:
 	<ul>
 	<li>next_goal_if_fails(Action,GoalNumber)<br />
 		Action is either "redo" (in case of backtracking) or "call" (if we try an 
@@ -626,11 +637,12 @@ translate_goal(
 	% Handle the case if the cut is called the first time
 	goal_call_case_id(GoalNumber,CallCaseId),
 	select_and_jump_to_next_goal_after_succeed(CutMeta,force_jump,JumpToNextGoalAfterSucceed),
-	(	predicate_clauses(Predicate,Clauses), single_clause(Clauses) ->
+	(	predicate_clauses(Predicate,Clauses), single_clause(Clauses)
+	->
 		SetCutEvaluation = nop
 	;
 		SetCutEvaluation = expression_statement(
-			assignment(field_ref(self,'cutEvaluation'),boolean(true))
+			assignment(field_ref('cutEvaluation'),boolean(true))
 		)
 	),
 	SCallCase = case(
@@ -668,7 +680,8 @@ translate_goal(
 		\+ is_variable(LASTNode),
 		VarASTNode = RASTNode,
 		TermASTNode = LASTNode
-	),!,
+	),
+	!,
 	term_meta(PrimitiveGoal,UnifyMeta),
 	lookup_in_meta(goal_number(GoalNumber),UnifyMeta),
 	select_and_jump_to_next_goal_after_succeed(UnifyMeta,force_jump,JumpToNextGoalAfterSucceed),
@@ -680,7 +693,11 @@ translate_goal(
 		|
 		SUnification
 	],
-	unfold_unification(DeferredActions,UnifyMeta,VarASTNode,TermASTNode,SUnification,STail),	
+	unfold_unification(
+		DeferredActions, % in_out
+		UnifyMeta,VarASTNode,TermASTNode, % in
+		SUnification,STail % out
+	),	
 	STail = [
 		if(local_variable_ref('succeeded'),
 			[
@@ -716,7 +733,8 @@ translate_goal(
 		PrimitiveGoal,_Clause,_Predicate,
 		DeferredActions,[SCallCase,SRedoCase|SCases],SCases
 	) :-
-	compound_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),!,
+	compound_term(PrimitiveGoal,'=',[LASTNode,RASTNode]),
+	!,
 	term_meta(PrimitiveGoal,Meta),
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	% call-case
@@ -732,7 +750,8 @@ translate_goal(
 	],
 	(
 		lookup_in_meta(variables_used_for_the_first_time(VariablesUsedForTheFirstTime),Meta),
-		lookup_in_meta(variables_that_may_have_been_used(VariablesPotentiallyPreviouslyUsed),Meta) ->
+		lookup_in_meta(variables_that_may_have_been_used(VariablesPotentiallyPreviouslyUsed),Meta) 
+	->
 		init_clause_local_variables(
 			VariablesUsedForTheFirstTime,
 			VariablesPotentiallyPreviouslyUsed,
@@ -742,7 +761,8 @@ translate_goal(
 		),
 		(	remove_from_set(arg(_),VariablesUsedForTheFirstTime,CLVariablesUsedForTheFirstTime),
 			set_subtract(VariableIds,CLVariablesUsedForTheFirstTime,VariablesThatNeedToBeSaved),
-			is_not_empty(VariablesThatNeedToBeSaved) ->
+			is_not_empty(VariablesThatNeedToBeSaved)
+		->
 			save_state_in_undo_goal(VariablesThatNeedToBeSaved,SSaveState,SEval),
 			RedoAction = [
 				abort_and_remove_top_level_goal_from_goal_stack |
@@ -935,24 +955,26 @@ translate_goal(
 	has failed.
 */
 select_and_jump_to_next_goal_after_fail(Meta/*REFACTOR GoalMeta*/,SStmts,SRest) :-
-	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),!,
+	lookup_in_meta(next_goal_if_fails(redo,multiple),Meta),
+	!,
 	lookup_in_meta(goal_number(GoalNumber),Meta),
 	goal_call_case_id(GoalNumber,CallCaseId),
 	atomic_list_concat(['case',CallCaseId,'PredecessorCase'],PredecessorGoal),
 	SStmts = [
-		expression_statement(assignment(field_ref(self,'goalToExecute'),field_ref(self,PredecessorGoal))),
+		expression_statement(assignment(field_ref('goalToExecute'),field_ref(PredecessorGoal))),
 		continue('eval_goals')
 		|SRest
 	].
 select_and_jump_to_next_goal_after_fail(Meta,SStmts,SRest) :-
-	lookup_in_meta(next_goal_if_fails(Action,TargetGoalNumber),Meta),!,
+	lookup_in_meta(next_goal_if_fails(Action,TargetGoalNumber),Meta),
+	!,
 	(	Action == redo ->
 		goal_redo_case_id(TargetGoalNumber,TargetCaseId)
 	;	% Action == call
 		goal_call_case_id(TargetGoalNumber,TargetCaseId)
 	),
 	SStmts = [
-		expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetCaseId))),
+		expression_statement(assignment(field_ref('goalToExecute'),int(TargetCaseId))),
 		continue('eval_goals')
 		|SRest
 	].
@@ -971,7 +993,7 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 			goal_call_case_id(BacktrackingGoalNumber,BacktrackingGoalCallCaseId),
 			atomic_list_concat(['case',BacktrackingGoalCallCaseId,'PredecessorCase'],PredecessorGoal), % PredecessorGoal => BacktrackingCaseId
 			JumpToNextGoalAfterSucceed = [
-				expression_statement(assignment(field_ref(self,PredecessorGoal),int(ThisGoalRedoCaseId))) | 
+				expression_statement(assignment(field_ref(PredecessorGoal),int(ThisGoalRedoCaseId))) | 
 				SelectAndJump
 			]
 		;
@@ -982,7 +1004,7 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 			SelectAndJump = [eol_comment(NextGoalIfSucceedComment)]
 		;
 			SelectAndJump = [
-				expression_statement(assignment(field_ref(self,'goalToExecute'),int(TargetCallCaseId))),
+				expression_statement(assignment(field_ref('goalToExecute'),int(TargetCallCaseId))),
 				continue('eval_goals')
 			]
 		)
@@ -990,7 +1012,7 @@ select_and_jump_to_next_goal_after_succeed(Meta,ForceJump,JumpToNextGoalAfterSuc
 		% this is (a) last goal of the clause
 		goal_redo_case_id(GoalNumber,ThisGoalRedoCaseId),
 		JumpToNextGoalAfterSucceed = [
-			expression_statement(assignment(field_ref(self,'goalToExecute'),int(ThisGoalRedoCaseId))),
+			expression_statement(assignment(field_ref('goalToExecute'),int(ThisGoalRedoCaseId))),
 			return(boolean(true))
 		]
 	).
@@ -1046,7 +1068,7 @@ save_state_in_undo_goal(VariableIds,SSaveState,SEval) :-
 
 /*
 	Updates the predicate arguments before the next round (tail recursive)...
-	A predicate such as swap(X,Y) :- swap(Y,X) requires that we sometime have to 
+	A predicate such as swap(X,Y) :- swap(Y,X) requires that we sometimes have to 
 	store the values of the args into temporary variables.
 */
 update_predicate_arguments(_NewVariables,_,[],SR,SR,_) :- !.

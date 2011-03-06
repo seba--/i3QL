@@ -31,7 +31,7 @@
 */
 
 /**
-	Predicates to operate on fixed-size lists; i.e., in general the tail
+	Predicates to operate on fixed-sized lists; i.e., in general the tail
 	argument of the last element of the list that is processed is expected to be 
 	bound to the empty list atom ('[]').<br/>
 	If the tail argument of the last list element is not bound to the empty list, 
