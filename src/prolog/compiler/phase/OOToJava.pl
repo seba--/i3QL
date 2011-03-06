@@ -703,7 +703,7 @@ write_expr(_Stream,Expr) :- % the last case...
 
 
 
-% TODO rename to "write_expr_list_1_to_n"
+% TODO rename to write_rest_ol_expr_list
 write_compound_term_args(_Stream,[]).
 write_compound_term_args(Stream,[Arg|Args]) :-
 	write(Stream,', '),
@@ -809,7 +809,7 @@ map_arith_comp_operator_to_java_operator('>','>') :- !.
 map_arith_comp_operator_to_java_operator('>=','>=') :- !.
 map_arith_comp_operator_to_java_operator('=:=','==') :- !.
 map_arith_comp_operator_to_java_operator('=\\=','!=') :- !.
-map_arith_comp_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
+map_arith_comp_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported relational operator: ',Op])).
 
 
 map_arith_prolog_operator_to_java_operator('/\\','&') :- !.
@@ -821,7 +821,7 @@ map_arith_prolog_operator_to_java_operator('-','-') :- !. % unary and binary min
 map_arith_prolog_operator_to_java_operator('*','*') :- !.
 map_arith_prolog_operator_to_java_operator('//','/') :- !.
 map_arith_prolog_operator_to_java_operator('mod','%') :- !.
-map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported operator: ',Op])).
+map_arith_prolog_operator_to_java_operator(Op,_) :- throw(programming_error(['unsupported arithmetic operator: ',Op])).
 
 
 

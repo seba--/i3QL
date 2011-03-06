@@ -328,12 +328,17 @@ memberchk_ol_identity(T,[_NotE|RestOL]) :- memberchk_ol_identity(T,RestOL).
 
 
 
-add_to_set_ol(E,OL) :-
+add_to_set_ol(E,OL) :- var(OL),!,OL=[E|_].
+add_to_set_ol(E,[H|T]) :- E \= H,!,add_to_set_ol(E,T).
+add_to_set_ol(E,[E|_]).
+
+/*add_to_set_ol(E,OL) :-
 	( 
 		memberchk_ol(E,OL)
 	;
 		append_ol(E,OL)
 	),!.
+*/
 
 
 

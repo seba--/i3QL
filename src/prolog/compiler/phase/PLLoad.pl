@@ -151,9 +151,13 @@ normalize_rule(Rule0,NormalizedRule) :-
 	remove_head_unification(Rule1,Rule2),
 	rule_head(Rule2,Head2),
 	rule_body(Rule2,Body2),
-	left_descending_goal_sequence(Body2,LeftDescendingBody),
-	no_trailing_true_goals(LeftDescendingBody,OptimizedBody),
-	rule(Head2,OptimizedBody,Meta0,NormalizedRule).
+	transform_term(
+		Body2,
+		remove_unification_with_anonymous_variable,
+		minimize_cf_goal,
+		Body3),
+	left_descending_goal_sequence(Body3,LeftDescendingBody),
+	rule(Head2,LeftDescendingBody,Meta0,NormalizedRule).
 
 
 
@@ -254,9 +258,38 @@ left_descending_goal_sequence(Node,Node).
 /**
 	Removes all trailing true goals. Requires that the goal sequence is left descending.
 */
-no_trailing_true_goals(ct(_MI,',',[Goal,a(_AMI,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
-	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
-no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
+%no_trailing_true_goals(ct(_MI,',',[Goal,a(_AMI,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
+%	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
+%no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
+	
+
+minimize_cf_goal(ASTNode,NewASTNode) :-
+	compound_term(ASTNode,',',[LASTNode,NewASTNode]),
+	string_atom(LASTNode,'true'),
+	!.
+minimize_cf_goal(ASTNode,NewASTNode) :-
+	compound_term(ASTNode,',',[NewASTNode,RASTNode]),
+	string_atom(RASTNode,'true'),
+	!.
+minimize_cf_goal(ASTNode,NewASTNode) :-
+	compound_term(ASTNode,';',[LASTNode,NewASTNode]),
+	(string_atom(LASTNode,'false') ;  string_atom(LASTNode,'fail')),
+	!.
+minimize_cf_goal(ASTNode,NewASTNode) :-
+	compound_term(ASTNode,';',[NewASTNode,RASTNode]),
+	(string_atom(RASTNode,'false') ;  string_atom(RASTNode,'fail')),
+	!.		
+minimize_cf_goal(ASTNode,ASTNode).
 	
 	
+remove_unification_with_anonymous_variable(ASTNode,NewASTNode) :-
+	compound_term(ASTNode,'=',[LASTNode,RASTNode]),
+	term_meta(ASTNode,Meta),
+	( is_anonymous_variable(LASTNode) 
+	; is_anonymous_variable(RASTNode) 
+	),
+	!,
+	string_atom(NewASTNode,'true'),
+	term_meta(NewASTNode,Meta).
+remove_unification_with_anonymous_variable(ASTNode,ASTNode).
 	

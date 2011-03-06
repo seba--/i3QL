@@ -151,6 +151,8 @@
 		lookup_in_clause_meta/2,
 		add_to_clause_meta/2,
 		
+		transform_term/4,
+		
 		write_ast/2,
 		write_clauses/1,
 		write_ast_node/1
@@ -161,6 +163,7 @@
 :- meta_predicate(foreach_clause(+,1)).
 :- meta_predicate(foreach_clause(+,4,-)).
 :- meta_predicate(foreach_clause_impl(+,+,4,-)).
+:- meta_predicate(transform_term(+,2,2,-)).
 
 :- use_module('Utils.pl').
 
@@ -1080,6 +1083,68 @@ is_ground_term(av(_Meta,_Name)) :- !,false.
 is_ground_term(v(_Meta,_Name)) :- !,false.
 
 
+
+/**
+	Performs a depth-first, bottom-up traversal of the term (ASTNode) and calls 
+	for each
+	primitive goal and each control flow goal (<i>"COND -&gt; THEN ; ELSE",
+	"COND *-&gt; THEN ; ELSE", ",", ";", "-&gt;", "*-&gt;"</i>) 
+	the corresponding goal (<code>PrimitiveGoalTransformer</code>/<code>
+	ContolFlowGoalTransformer</code>) to transform the goal.
+	
+	@signature transform_term(
+			+ASTNode:ASTNode,
+			+PrimitiveGoalTransformer:callable,
+			+ContolFlowGoalTransformer:callable,
+			-NewASTNode:ASTNode
+		) is det
+	
+*/
+transform_term(
+		ct(OrMeta,';',[ct(CondMeta,CFFunctor,[CondASTNode,LASTNode]),RASTNode]),
+		PrimitiveGoalTransformer,
+		ContolFlowGoalTransformer,
+		NewASTNode
+	) :-
+	(	CFFunctor == '->' 
+	;	CFFunctor == '*->'
+	),
+	!,
+	transform_term(CondASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewCondASTNode),
+	transform_term(LASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewLASTNode),
+	transform_term(RASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewRASTNode),
+	call(
+		ContolFlowGoalTransformer,
+		ct(OrMeta,';',[
+				ct(CondMeta,CFFunctor,[NewCondASTNode,NewLASTNode]),
+				NewRASTNode
+			]
+		),NewASTNode).
+
+transform_term(
+		ct(Meta,CFFunctor,[LASTNode,RASTNode]),
+		PrimitiveGoalTransformer,
+		ContolFlowGoalTransformer,
+		NewASTNode
+	) :-
+	(	CFFunctor == ';' 
+	;	CFFunctor == ',' 
+	;	CFFunctor == '->' 
+	;	CFFunctor == '*->'
+	),
+	!,
+	transform_term(LASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewLASTNode),
+	transform_term(RASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewRASTNode),
+	call(ContolFlowGoalTransformer,ct(Meta,CFFunctor,[NewLASTNode,NewRASTNode]),NewASTNode).
+
+transform_term(
+		ASTNode,
+		PrimitiveGoalTransformer,
+		_ContolFlowGoalTransformer,
+		NewASTNode
+	) :-
+	call(PrimitiveGoalTransformer,ASTNode,NewASTNode).
+	
 
 /* ************************************************************************** *\
  *                                                                            *
