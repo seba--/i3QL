@@ -37,15 +37,15 @@
    sae_formatter,
    [format_clauses/2,
    format_clauses/3,
-   getTabs/3,
+   getShift/3,
    replace_characer/4,build_string_sequence/4]
 ).
 
 :- use_module('AST.pl').
+:- use_module('Utils.pl').
+format_clauses(Cs,Fs) :-  membercheck(X,[],30),format_file(Cs,'',X,Fs).
 
-format_clauses(Cs,Fs) :-  membercheck(X,[],80),format_file(Cs,'',X,Fs).
-
-format_clauses(Cs,Fs,Options) :- membercheck(X,Options,80),format_file(Cs,'',X,Fs).
+format_clauses(Cs,Fs,Options) :- membercheck(X,Options,30),format_file(Cs,'',X,Fs).
 
 
 format_file([],L,_,L).
@@ -61,7 +61,7 @@ format_file([H|T],In,Linewidth,OutputList) :-
       length(CurrentArity,ListLenght)
    ),!,format_file([H|T],In,[CurrentName,ListLenght],Linewidth,OutputList)
    ;
-   write_clause(H,1200,0,Out), atomic_list_concat([In,Out,'.\n'],Concated_List),format_file(T,Concated_List,Linewidth,OutputList)).
+   building_clause(H,1200,0,Linewidth,Out), atomic_list_concat([In,Out,'.\n'],Concated_List),format_file(T,Concated_List,Linewidth,OutputList)).
 
 format_file([],L,_,_,L).
 format_file([H|T],In,[ClauseName,ClauseArity],Linewidth,OutputList) :-
@@ -72,20 +72,46 @@ format_file([H|T],In,[ClauseName,ClauseArity],Linewidth,OutputList) :-
    ;
       compound_term(H,CurrentName,CurrentArity),
       length(CurrentArity,ListLenght)
-   ),
+   ),!,
    (
       CurrentName = ClauseName, ListLenght = ClauseArity,
-      write_clause(H,1200,0,Out),
+      building_clause(H,1200,0,Linewidth,Out),
       atomic_list_concat([In,Out,'.\n'],Concated_List)
    ;
       CurrentName = ClauseName,
-      write_clause(H,1200,0,Out),
+      building_clause(H,1200,0,Linewidth,Out),
       atomic_list_concat([In,'\n',Out,'.\n'],Concated_List)
    ;
-      write_clause(H,1200,0,Out),
+      building_clause(H,1200,0,Linewidth,Out),
       atomic_list_concat([In,'\n\n',Out,'.\n'],Concated_List)
    ),!,format_file(T,Concated_List,[CurrentName,ListLenght],Linewidth,OutputList).
-   
+
+building_clause(Clause,Priority,Depth,Linewidth,Out) :- write_clause(Clause,Priority,Depth,Output), string_length(Output,Length),Length =< Linewidth, atomic_list_concat([Output],Out).
+% nl,write(Length),nl.
+
+building_clause(Clause,Priority,Depth,Linewidth,Out) :-
+   compound_term(Clause,':-',[First|[Rest|_]]),
+   write_clause(First,Priority,Depth,FirstOut),
+   write_clause(Rest,Priority,Depth,RestOut),
+   string_length(FirstOut,FirstLength),FirstLength =< Linewidth,
+   string_length(RestOut,RestLength),RestLength =< Linewidth,
+   getShift(2,RestOut,RestTabbed),
+   atomic_list_concat([FirstOut,' :-\n',RestTabbed],Out).
+%    nl,write(FirstLength),nl,
+%    nl,write(RestLength),nl.
+
+building_clause(Clause,Priority,Depth,_,Out) :-
+   compound_term(Clause,':-',[First|Rest]),
+   write_clause(First,Priority,Depth,FirstOut),
+   build_body(Rest,Priority,2,RestOut),
+   atomic_list_concat([FirstOut,' :-\n',RestOut],Out).
+
+build_body([],_,_,'').
+build_body([H|T],Priority,Depth,Out) :-
+   write_clause(H,Priority,Depth,HeadOut),
+   build_body(T,Priority,Depth,RestOut),
+   getShift(Depth,HeadOut,Shifted),
+   atomic_list_concat([Shifted,RestOut],Out).
 
 replace_characer([],_,_,'').
 replace_characer([Char|Chars],OldChar,NewChar,Output) :-
@@ -109,7 +135,8 @@ membercheck(Value,Options,DefaultValue) :-
       Value is DefaultValue
    ),!.
    
-build_string_sequence(String,OldC,NewC,Sequence) :- term_to_atom(String,Atom),atom_chars(Atom,AtomList),replace_characer(AtomList,OldC,NewC,Sequence).
+build_string_sequence(Term,OldC,NewC,Sequence) :-
+   term_to_atom(Term,Atom),string_to_atom(InputString,Atom),replace_char_with_string(InputString,OldC,NewC,OutputList),string_to_list(OutputString,OutputList),string_to_atom(OutputString,Sequence),swrite(Sequence).
 
 write_clause(ASTNode,_,_,Value) :-
    (
@@ -117,7 +144,7 @@ write_clause(ASTNode,_,_,Value) :-
    ;
       anonymous_variable(ASTNode,Value)
    ;
-      string_atom(ASTNode,Value)%,build_string_sequence(QValue,'\n','\\n',Value)
+      string_atom(ASTNode,Value)%,build_string_sequence(QValue,"\n","\\n",Value)
    ;
       integer_value(ASTNode,Value)
    ;
@@ -185,15 +212,20 @@ write_functors(_,ClauseList,Priority,Depth,RestList) :-
 write_functor_infix(',',[H|T],Priority,Depth,Concated_List) :-
    write_clause(H,Priority,Depth,First),
    write_rest_clause(T,Priority,Depth,Rest),
-   atomic_list_concat([First,',',' ',Rest],Concated_List).
+   (Depth > 0,
+   getShift(2,Rest,Shifted),
+   atomic_list_concat([First,',','\n',Shifted],Concated_List)
+   ;
+    atomic_list_concat([First,',',' ',Rest],Concated_List)
+   ),!.
 
 
 write_functor_infix(';',[H|T],Priority,Depth,Concated_List) :-
    write_clause(H,Priority,Depth,First),
    write_rest_clause(T,Priority,Depth,Rest),
-   getTabs(Depth,';',Functor),
-   getTabs(Depth,First,TabbedFirst),
-   getTabs(Depth,Rest,TabedRest),
+   getShift(Depth,';',Functor),
+   getShift(Depth,First,TabbedFirst),
+   getShift(Depth,Rest,TabedRest),
    atomic_list_concat([TabbedFirst,'\n',Functor,'\n',TabedRest],Concated_List).
 
 
@@ -253,11 +285,11 @@ write_term_list_rest([Clause|Clauses],Priority,Depth,Concated_List) :-
    atomic_list_concat([',',H,T],Concated_List).
 
 
-getTabs(Amount,OldTab,NewTab) :-
+getShift(Amount,OldTab,NewTab) :-
    (
       Amount > 0,
       NewAmount is Amount - 1,
-      getTabs(NewAmount,OldTab,Tab),
+      getShift(NewAmount,OldTab,Tab),
       atomic_list_concat([' ',Tab],NewTab)
    ;
       atomic_list_concat([OldTab],NewTab)

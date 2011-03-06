@@ -32,10 +32,10 @@
 
 
 /** 
-	Tests the formatter. 
-	
-	Autor Dennis Siebert
-	Datum: 08.11.2010
+        Tests the formatter. 
+        
+        Autor Dennis Siebert
+        Datum: 08.11.2010
 */
 
 :- ensure_loaded('src/prolog/compiler/Lexer.pl').
@@ -55,8 +55,9 @@ load_solution(Solution,Lines) :-
    open(Solution,read,Stream),
    readLines(Stream,Out),
    close(Stream),
+   %nl,write('###SOLUTION###\n'),write(Lines),
    atomic_list_concat(Out,Lines).
-   %nl,write('###SOLUTION###\n'),write(Lines).
+
 
 
 
@@ -93,4 +94,5 @@ test(correct_functor_brackets) :- do_formatting('OperatorBrackets.pl','OperatorB
 
 test(if_then_else) :- do_formatting('If_then_else.pl','If_then_else_formatted.pl',[]),!.
 
+test('line breaks') :- do_formatting('Line_Break.pl','Line_Break_formatted.pl',[]),!.
 :- end_tests(formatter).
