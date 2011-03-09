@@ -296,8 +296,6 @@ write_term_list_rest([Clause|Clauses],Priority,Depth,Concated_List) :-
    write_term_list_rest(Clauses,Priority,Depth,T),
    atomic_list_concat([',',H,T],Concated_List),!.
 
-
-
 getShift(Amount,OldTab,NewTab) :-
    (
       Amount > 0,
