@@ -101,8 +101,8 @@ build_ast(ListOfListOfClauses,TheAST) :-
 
 
 process_list_of_list_of_clauses(
-	[ListOfClauses|FurtherListsOfListsOfClauses],CurrentAST,FinalAST
-) :- 
+		[ListOfClauses|FurtherListsOfListsOfClauses],CurrentAST,FinalAST
+	) :- 
 	!,
 	process_clauses(ListOfClauses,CurrentAST,IntermediateAST),
 	process_list_of_list_of_clauses(
@@ -139,11 +139,12 @@ process_clauses([],AST,AST).
 	Normalizes a rule. <br />
 	In a normalized rule the head's arguments are all variables where no
 	variable occurs more than once. Further, every rule is transformed into
-	"clausal form"; i.e., it is always a right side which may just be <code>true</code>.
+	"clausal form"; i.e., each clause always has a right side which may just
+	be <code>true</code>.
 	
 	@signature normalize_rule(Rule,NormalizedRule)
-	@arg Rule The old rule.
-	@arg NormalizedRule The normalized variant of the rule.
+	@arg(in,+,ASTNode) Rule The old rule.
+	@arg(out,?,ASTNode) NormalizedRule The normalized variant of the rule.
 */
 normalize_rule(Rule0,NormalizedRule) :-
 	term_meta(Rule0,Meta0),
@@ -153,8 +154,8 @@ normalize_rule(Rule0,NormalizedRule) :-
 	rule_body(Rule2,Body2),
 	transform_term(
 		Body2,
-		remove_unification_with_anonymous_variable,
-		minimize_cf_goal,
+		replace_unification_with_anonymous_variable_by_true_goal,
+		remove_superfluous_true_and_fail_goals,
 		Body3),
 	left_descending_goal_sequence(Body3,LeftDescendingBody),
 	rule(Head2,LeftDescendingBody,Meta0,NormalizedRule).
@@ -184,7 +185,7 @@ rule_with_head_and_body(Clause,_) :- % to catch errors early on...
 remove_head_unification(
 		ct(IMI,':-',[ct(HMI,Functor,HeadArgs),Body]),
 		ct(IMI,':-',[ct(HMI,Functor,NewHeadArgs),NewBody])
-) :- 	
+	) :- 	
 	/* not_empty(HeadArgs), */ !,
 	normalize_arguments(HeadArgs,1,HeadArgs,NewHeadArgs,Body,NewBody).	
 remove_head_unification(ASTNode,ASTNode).
@@ -232,9 +233,9 @@ normalize_arguments(AllHeadArgs,Id,[HArg|HArgs],NewHeadArgs,Body,NewBody) :-
 	@signature is_first_occurence_of_variable(VariableName,Args,Id,MaxID)
 	@arg VariableName The name of a variable for which it is checked if it is
 		already used by a previous argument.
-	@arg(in) Args the list of (all) arguments. 
-	@arg(int) ID The id (1-based) of the argument which is checked.
-	@arg(int) MaxID The id of the last argument which is checked for the 
+	@arg(in,+) Args the list of (all) arguments. 
+	@arg(in,+,int) ID The id (1-based) of the argument which is checked.
+	@arg(in,+,int) MaxID The id of the last argument which is checked for the 
 		definition of a variable.
 */
 is_first_occurence_of_variable_in_head(_,_,ID,MaxID) :- ID >= MaxID,!.
@@ -255,34 +256,27 @@ left_descending_goal_sequence(Node,Node).
 
 
 
-/**
-	Removes all trailing true goals. Requires that the goal sequence is left descending.
-*/
-%no_trailing_true_goals(ct(_MI,',',[Goal,a(_AMI,'true')]),GoalSeqWithoutTrailingTrueGoals) :- !,
-%	no_trailing_true_goals(Goal,GoalSeqWithoutTrailingTrueGoals).
-%no_trailing_true_goals(GoalSeqWithoutTrailingTrueGoals,GoalSeqWithoutTrailingTrueGoals).
-	
-
-minimize_cf_goal(ASTNode,NewASTNode) :-
+remove_superfluous_true_and_fail_goals(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,',',[LASTNode,NewASTNode]),
 	string_atom(LASTNode,'true'),
 	!.
-minimize_cf_goal(ASTNode,NewASTNode) :-
+remove_superfluous_true_and_fail_goals(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,',',[NewASTNode,RASTNode]),
 	string_atom(RASTNode,'true'),
 	!.
-minimize_cf_goal(ASTNode,NewASTNode) :-
+remove_superfluous_true_and_fail_goals(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,';',[LASTNode,NewASTNode]),
 	(string_atom(LASTNode,'false') ;  string_atom(LASTNode,'fail')),
 	!.
-minimize_cf_goal(ASTNode,NewASTNode) :-
+remove_superfluous_true_and_fail_goals(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,';',[NewASTNode,RASTNode]),
 	(string_atom(RASTNode,'false') ;  string_atom(RASTNode,'fail')),
 	!.		
-minimize_cf_goal(ASTNode,ASTNode).
+remove_superfluous_true_and_fail_goals(ASTNode,ASTNode).
 	
 	
-remove_unification_with_anonymous_variable(ASTNode,NewASTNode) :-
+
+replace_unification_with_anonymous_variable_by_true_goal(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,'=',[LASTNode,RASTNode]),
 	term_meta(ASTNode,Meta),
 	( is_anonymous_variable(LASTNode) 
@@ -290,6 +284,21 @@ remove_unification_with_anonymous_variable(ASTNode,NewASTNode) :-
 	),
 	!,
 	string_atom(NewASTNode,'true'),
-	term_meta(NewASTNode,Meta).
-remove_unification_with_anonymous_variable(ASTNode,ASTNode).
+	term_meta(NewASTNode,Meta),
+	% Generate warning message...
+	term_pos(ASTNode,File,LN,_CN),			
+	(	nonvar(File),File \== [],nonvar(LN) ->	
+		atomic_list_concat(
+				[	File,':',LN,
+					': warning: useless unification with an anonymous variable\n'
+				],
+				MSG)% GCC compliant
+	;
+		atomic_list_concat(
+				[	'Warning: useless unification with an anonymous variable\n' ],
+				MSG)% GCC compliant
+	),
+   write(MSG)
+	.
+replace_unification_with_anonymous_variable_by_true_goal(ASTNode,ASTNode).
 	
