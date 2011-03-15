@@ -35,22 +35,32 @@
 
 :- module(
    sae_formatter,
-   [format_clauses/2,
-   format_clauses/3]
+   [	format_clauses/2,
+   	format_clauses/3
+	]
    ).
 
 
 :- use_module('AST.pl').
 :- use_module('Utils.pl').
 
+
 /*
    format_clauses formats a clause or clauses in the ISO-Prlog standard and returns a char_sequence
    format_clauses(+Clauses,-FormattedClauses).
    It is possibel to configure the linewidth manually with a list of options like [linewidth(Value)]
 */
-format_clauses(Clauses,FClauses) :-  membercheck(X,[],30),format_terms(Clauses,'',X,FClauses).
+format_clauses(Clauses,FClauses) :-  
+	format_clauses(Clauses,FClauses,[]).
 
-format_clauses(Clauses,FClauses,Options) :- membercheck(X,Options,30),format_terms(Clauses,'',X,FClauses).
+format_clauses(Clauses,FClauses,Options) :- 
+	(
+		memberchk(linewidth(Value),Options) ->
+		format_terms(Clauses,'',Value,FClauses)
+	;
+		format_terms(Clauses,'',80/*default line width*/,FClauses)
+	).
+
 
 
 /*
@@ -155,12 +165,6 @@ build_body([H|T],Priority,[Depth,Mode],Out) :-
 checkLength([],_).
 checkLength([H|T],Linewidth) :- length(H,Length), Length =< Linewidth,checkLength(T,Linewidth).
 
-/*
-   membercheck/3 sets either the default value for the linewidth or the user one when set as an option.
-   membercheck(-Value,+Options,+DefaultValue)
-*/
-membercheck(Value,Options,DefaultValue) :-
- (memberchk(linewidth(Value),Options) ; Value is DefaultValue),!.
 
 /*
    build_string_sequence constructs an atom / char sequence and is able to replace chars in this atom

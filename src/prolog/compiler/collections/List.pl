@@ -106,7 +106,8 @@ is_not_empty(X) :- nonvar(X), X = [_|_].
  	Replaces all elements of the given list OldList that unify with OldElement with 
 	the (same instance of the) element NewElement and unifies the result with 
 	NewList. <br/>
-	Does never cause instantiation of OldElement.
+	Does never cause instantiation of OldElement; i.e., does not unify OldElement
+	with elements of OldList.
 	<p>
 	<b>Examples</b><br/>
 	<code><pre>
@@ -138,7 +139,7 @@ is_not_empty(X) :- nonvar(X), X = [_|_].
 	</p>	
 	
 	@signature replace_all(OldList,OldElement,NewElement,NewList) is det
-	@arg OldList 
+	@arg(in,+) OldList
 */
 replace_all([],_,_,[]) :- !. 
 replace_all([H|Tail],OldElement,NewElement,[NewElement|NewTail]) :- 

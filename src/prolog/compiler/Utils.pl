@@ -115,9 +115,9 @@
 	
 	
 	@signature max(V1,V2,R)
-	@arg(in) V1 an integer atom.
-	@arg(in) V2 an integer atom.
-	@arg(out) R the maximum of V1 and V2.
+	@arg(in,+,int) V1 an integer atom.
+	@arg(in,+,int) V2 an integer atom.
+	@arg(out,?,int) R the maximum of V1 and V2.
 	
 	@category math
 */
