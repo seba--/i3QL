@@ -41,18 +41,18 @@ showtabs=true
  
 \section{Formatting and Beautifying (ISO) Prolog} 
  \subsection{Test environment}
- The test environment is used as starting point to specify the different possible formattings for Prolog code. Based on this decisions, the test cases were build to guarantee the correctness of the formatter and as consequence the correctness of the produced code. Of course, the code has to be semantically and syntactic correct. Otherwise a formatter would be useless.  Next, different scenarios are illustrated on the left-hand side and their corresponding formatted code on the right-hand side. On every example code of formation on the right-hand side, every formation in use is used.
+ The test environment is used as a starting point to specify the different possible formatting for ISO-Prolog code. Based on these decisions, the test cases were build to guarantee the correctness of the formatter and as consequence the correctness of the produced code. Of course, the code has to be semantic and syntactic correct. Otherwise a formatter would be useless. Next, different scenarios are illustrated on the left-hand side and their corresponding formatted code on the right-hand side. On every example code of formation on the right-hand side, every formation in use is used.
  
  
 \begin{figure}[h]
 Starting with an empty set of code, the formatter naturally should not add anything and left the blank line.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/EmptyTest.pl}
+\lstinputlisting{data/EmptyTest.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/EmptyTest_formatted.pl}
+\lstinputlisting{data/EmptyTest_formatted.pl}
 \end{minipage}
 
 \caption{Formatting empty lines}
@@ -64,11 +64,11 @@ Starting with an empty set of code, the formatter naturally should not add anyth
 For better readability there should be some white spaces around an operator, as you can see around + and = in the following figure \ref{lst:operatorWhitespaces}.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/OperatorsWhitespace.pl}
+\lstinputlisting{data/OperatorsWhitespace.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/OperatorsWhitespace_formatted.pl}
+\lstinputlisting{data/OperatorsWhitespace_formatted.pl}
 \end{minipage}
 
 \caption{Formatting white spaces around operators}
@@ -81,11 +81,11 @@ But if a comma is used for a set of arguments, different variations of white spa
 
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Whitespace_in_compound_terms.pl}
+\lstinputlisting{data/Whitespace_in_compound_terms.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Whitespace_in_compound_terms_formatted.pl}
+\lstinputlisting{data/Whitespace_in_compound_terms_formatted.pl}
 \end{minipage}
 
 \caption{Formatting whitespaces in complex terms}
@@ -95,14 +95,14 @@ But if a comma is used for a set of arguments, different variations of white spa
 
 
 \begin{figure}[h]
-Lists are more a complex topic and is handled different among programmers. Figure \ref{lst:lists} shows a set of formations for lists. They always result in a style like [a,b$|$rest]. If the rest is empty, we can drop it.\\
+Lists are more a complex topic and are handled different among programmers. Figure \ref{lst:lists} shows a set of formations for lists. They always result in a style like [a,b$|$rest]. If the rest is empty, we can drop it.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Lists.pl}
+\lstinputlisting{data/Lists.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Lists_formatted.pl}
+\lstinputlisting{data/Lists_formatted.pl}
 \end{minipage}
 
 \caption{Formatting lists}
@@ -111,14 +111,14 @@ Lists are more a complex topic and is handled different among programmers. Figur
 
 
 \begin{figure}[h]
-Also white spaces in lists can occur but of course reduce readability as well. Figure \ref{lst:listWithesaces} shows the corresponig scenario and the formatted solution.\\
+Also white spaces in lists can occur but of course reduce readability as well. Figure \ref{lst:listWithesaces} shows the corresponding scenario and the formatted solution.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Whitespace_in_lists.pl}
+\lstinputlisting{data/Whitespace_in_lists.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Whitespace_in_lists_formatted.pl}
+\lstinputlisting{data/Whitespace_in_lists_formatted.pl}
 \end{minipage}
 
 \caption{Formatting white spaces in lists}
@@ -131,11 +131,11 @@ Also white spaces in lists can occur but of course reduce readability as well. F
 If the comma is used as an \& operator, it has to be formatted in another way to see the difference to a simple enumeration of parameters. Due to this fact, commas as functors have a white space behind them as illustrated in figure \ref{lst:comma}.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Comma_as_functor.pl}
+\lstinputlisting{data/Comma_as_functor.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Comma_as_functor_formatted.pl}
+\lstinputlisting{data/Comma_as_functor_formatted.pl}
 \end{minipage}
 
 \caption{Formatting comma as a functor}
@@ -147,25 +147,25 @@ If the comma is used as an \& operator, it has to be formatted in another way to
 To be able to distinguish the different clauses and their possible different arity figure \ref{lst:sameclause_arity} shows that there should not be any empty line between same clauses with the same arity.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/NoEmptyLines.pl}
+\lstinputlisting{data/NoEmptyLines.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/NoEmptyLines_formatted.pl}
+\lstinputlisting{data/NoEmptyLines_formatted.pl}
 \end{minipage}
 
 \caption{Formatting empty lines between same clause with same arity}
 \label{lst:sameclause_arity}
 \end{figure}
 
-\begin{figure}[h]If the arity is different but the clauses is again the same, we introduce only one empty line between them as mentioned in figure \ref{lst:sameclauses}.\\
+\begin{figure}[h]If the arity is different but the clauses is again the same one we insert only one empty line between them as mentioned in figure \ref{lst:sameclauses}.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/LineBetweenSameClauses.pl}
+\lstinputlisting{data/LineBetweenSameClauses.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/LineBetweenSameClauses_formatted.pl}
+\lstinputlisting{data/LineBetweenSameClauses_formatted.pl}
 \end{minipage}
 
 \caption{Formatting empty lines between same clauses with different arity}
@@ -176,25 +176,25 @@ To be able to distinguish the different clauses and their possible different ari
 Finally, if there are to different clauses, we separate them with two empty lines as you can see in figure \ref{lst:diffclauses}.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/TwoLineBetweenDiffClauses.pl}
+\lstinputlisting{data/TwoLineBetweenDiffClauses.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/TwoLineBetweenDiffClauses_formatted.pl}
+\lstinputlisting{data/TwoLineBetweenDiffClauses_formatted.pl}
 \end{minipage}
 
 \caption{Formatting empty lines between different clauses}
 \label{lst:diffclauses}
 \end{figure}
 
-\begin{figure}[h] A very important topic are brackets in Prolog to see which operator is at first and has a higher priority. Based on simple mathematics, the next scenario handles this problem. Naturally, multiplication has a higher priority than addition in mathematics, if the addition is not in brackets. On the other hand useless brackets can be dropped. Both test cases are illustrated in figure \ref{lst:operator_brackets}.\\
+\begin{figure}[h] A very important topic are brackets in Prolog to see which operator is at first and has a higher priority. The priority defines how strong surrounding parameters are bound to the operator. The next scenario illustrates some examples based on math. Naturally, multiplication has a higher priority than addition in mathematics, if the addition is not in brackets. On one hand if addition comes first, it has to be in brackets to represent a higher priority. On the other hand useless brackets can be dropped. Both test cases are illustrated in figure \ref{lst:operator_brackets}.\\
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/OperatorBrackets.pl}
+\lstinputlisting{data/OperatorBrackets.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/OperatorBrackets_formatted.pl}
+\lstinputlisting{data/OperatorBrackets_formatted.pl}
 \end{minipage}
 
 \caption{Formatting needed brackets around operators}
@@ -204,25 +204,39 @@ Finally, if there are to different clauses, we separate them with two empty line
 \begin{figure}[h]
 
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/If_then_else.pl}
+\lstinputlisting{data/If_then_else.pl}
 \end{minipage}
 \hfill
 \begin{minipage}{.5\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/If_then_else_formatted.pl}
+\lstinputlisting{data/If_then_else_formatted.pl}
 \end{minipage}
 
 \caption{Formatting or statements}
 \label{lst:or}
 \end{figure}
 
-\begin{figure}[h] The last topic is line break. When a line reaches the default or user-set linewidth the clause has to be split to several lines. Three cases are possible. First, the line fits into the line lenght. Second the line willbe split after the :- and it will be checked if clause body and head are both fit in their lines. Last the clause will be split after the :- and at every AND (,) in the body \ref{lst:line_break}.\\
+\begin{figure}[h] The next topic focuses on anonymous parameters in a parameter list. If an AND expression is a parameter and in brackets, it has to be in brackets after formatting the clause. For example in the first case the complete expression (b, c) is one parameter. \ref{lst:anonymous_tuple}.\\
+
+\begin{minipage}{.5\textwidth}
+\lstinputlisting{data/anonymous_tuple.pl}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\textwidth}
+\lstinputlisting{data/anonymous_tuple_formatted.pl}
+\end{minipage}
+
+\caption{Formatting or statements}
+\label{lst:anonymous_tuple}
+\end{figure}
+
+\begin{figure}[h] The last topic is line break. When a line reaches the default or user-set linewidth the clause has to be split to several lines. Three cases are possible. First, the line fits into the line length. Second the line will be split after the :- and it will be checked if clause body and head are both fit in their lines. Last the clause will be split after the :- and at every AND (,) in the body \ref{lst:line_break}.\\
 
 \begin{minipage}{1\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Line_Break.pl}
+\lstinputlisting{data/Line_Break.pl}
 \end{minipage}
 
 \begin{minipage}{1\textwidth}
-\lstinputlisting{Parser/test/compiler/formatter/data/Line_Break_formatted.pl}
+\lstinputlisting{data/Line_Break_formatted.pl}
 \end{minipage}
 
 \caption{Formatting needed brackets around operators}

@@ -95,4 +95,6 @@ test(correct_functor_brackets) :- do_formatting('OperatorBrackets.pl','OperatorB
 test(if_then_else) :- do_formatting('If_then_else.pl','If_then_else_formatted.pl',[]),!.
 
 test('line breaks') :- do_formatting('Line_Break.pl','Line_Break_formatted.pl',[]),!.
+
+test('anonymous tuple') :- do_formatting('anonymous_tuple.pl','anonymous_tuple_formatted.pl',[]),!.
 :- end_tests(formatter).
