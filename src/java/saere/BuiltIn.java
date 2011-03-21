@@ -31,17 +31,17 @@
  */
 package saere;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
-import saere.predicate.TestAnd2;
-import saere.predicate.TestCompoundTermStateManifestation;
+@Retention(RetentionPolicy.CLASS)
+@Documented
+public @interface BuiltIn {
 
-@RunWith(Suite.class)
-@SuiteClasses({ TestIsGround.class,TestIsIdentical.class, TestVariableBinding.class,
-		TestVariableSharingWithManifestation.class, TestAnd2.class,
-		TestCompoundTermStateManifestation.class })
-public class CoreSuite {
-	// nothing to do
+	/**
+	 * Used to specify that some method or class implements the semantics of a standard Prolog
+	 * built-in predicate.
+	 */
+	String value();
 }

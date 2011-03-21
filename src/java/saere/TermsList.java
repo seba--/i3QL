@@ -31,17 +31,35 @@
  */
 package saere;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+/**
+ * An immutable list of terms. The empty list is represented using the value <code>null<code>.
+ * 
+ * @author Michael Eichberg (mail@michael-eichberg.de)
+ */
+public final class TermsList {
 
-import saere.predicate.TestAnd2;
-import saere.predicate.TestCompoundTermStateManifestation;
+	private final TermsList rest;
+	private final Term term;
 
-@RunWith(Suite.class)
-@SuiteClasses({ TestIsGround.class,TestIsIdentical.class, TestVariableBinding.class,
-		TestVariableSharingWithManifestation.class, TestAnd2.class,
-		TestCompoundTermStateManifestation.class })
-public class CoreSuite {
-	// nothing to do
+	public TermsList(Term term) {
+		this.rest = null;
+		this.term = term;
+	}
+
+	public TermsList(Term term, TermsList next) {
+		this.term = term;
+		this.rest = next;
+	}
+
+	public Term first() {
+		return term;
+	}
+
+	public TermsList rest() {
+		return rest;
+	}
+
+	public static TermsList create(Term t1, Term t2) {
+		return new TermsList(t1, new TermsList(t2));
+	}
 }
