@@ -120,7 +120,7 @@ POSSIBILITY OF SUCH DAMAGE.
 			description="Tests the compiler infrastructure.">
 		<echo 	message="Testing the compiler." />
 		<exec 	vmlauncher="false" 
-				executable="/opt/local/bin/swipl">
+				executable="${prolog.executable}">
 			<arg value="-q" />
 			<arg value="-f" />
 			<arg value="${compiler.tests.dir}/Test.pl" />
@@ -224,7 +224,7 @@ POSSIBILITY OF SUCH DAMAGE.
 	<macrodef name="run-sae-prolog-compiler-for-program-selected-from-repository">
 		<sequential>
 			<exec 	vmlauncher="false" 
-					executable="/opt/local/bin/swipl">
+					executable="${prolog.executable}">
 				<arg value="-q" />
 				<arg value="-f" />
 				<arg value="${compiler.src.dir}/compiler/Compiler.pl" />
