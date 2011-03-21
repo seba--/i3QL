@@ -1,0 +1,20 @@
+# (c) 2010 Technische Universität Darmstadt, Department of Computer Science 
+# Author: 	Ralf Mitschke
+#		Michael Eichberg
+#
+# To customize OPAL to your setup:
+# (1) 	make a copy of this file named "build.properties" which
+# 	is stored in OPAL's root directory.
+# (2) 	Specify the parameters mentioned below.
+
+# The home of your Scala installation.
+# E.g.,
+# scala.home=/opt/scala-2.7.7.final
+
+# If the Scala libraries are not stored in the lib
+# directory below your "scala.home" directory, then
+# you have to set the "scala.lib" property.
+# E.g.,
+# scala.lib=opt/scala-2.7.7.final/lib
+
+prolog.executable=/opt/local/bin/swipl

@@ -45,7 +45,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 	<!-- Read user properties from build.properties. -->
-	<property file="../build.properties" />
+	<property file="build.properties" />
 
 
 	<!-- Directories which contain the project's source files. -->
