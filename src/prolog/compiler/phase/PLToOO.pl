@@ -31,7 +31,7 @@
 */
 
 /*
-	Generates the code for the SAE Prolog program.
+	Translates an SAE Prolog program into an SAE-OO program.
 
 	@author Michael Eichberg
 */
@@ -48,13 +48,18 @@
 
 
 /**
-	Encodes an SAE Prolog program using a small object-oriented language (SAE-OO).
+	Encodes an SAE Prolog program using the high-level, object-oriented language 
+	SAE-OO. 
+	SAE-OO uses standard concepts found in many object-oriented programming 
+	languages to make a final translation into some object-oriented target 
+	language possible.
 */
 pl_to_oo(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
 			DebugConfig,
 			on_entry,
 			write('\n[Debug] Phase: Generate the OO Representation_______________________________\n')),
+			
 	foreach_user_predicate(Program,encode_predicate(DebugConfig,Program)).
 
 
@@ -67,7 +72,7 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 		processing_predicate,
 		write_atomic_list(['[Debug] Processing Predicate: ',Functor,'/',Arity,'\n'])),
 	% build the OO AST...
-	% ------- METHODS -------
+	% METHODS
 	gen_predicate_constructor(Program,Predicate,SConstructor),
 	gen_abort_method(Program,Predicate,SAbortMethod),
 	gen_clause_impl_methods(DeferredActions,Program,Predicate,SClausesMethods),
@@ -93,7 +98,7 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 			SClausesMethods
 		]
 	),
-	% ------- FIELDS -------
+	% FIELDS
 	gen_fields_for_the_control_flow_and_evaluation_state(
 		Program,Predicate,
 		DeferredActions,
@@ -101,7 +106,7 @@ encode_predicate(DebugConfig,Program,Predicate) :-
 	),
 	gen_fields_for_predicate_arguments(Program,Predicate,S2,S3),
 	gen_fields_for_clause_local_variables(Predicate,S3,SMethods),
-	% -------- ADD OO AST TO META INFORMATION ---- 
+	% ADD THE OO AST TO THE PREDICATE'S META INFORMATION 
 	OOAST = oo_ast([
 		predicate_decl(PredicateIdentifier,SClassBody),
 		predicate_registration(PredicateIdentifier)
@@ -179,6 +184,22 @@ gen_fields_for_the_control_flow_and_evaluation_state(
 	).
 
 
+
+assign_ids_to_pre_created_terms(_Id,DeferredActions) :- var(DeferredActions),!.
+assign_ids_to_pre_created_terms(
+		Id,
+		[create_field_for_pre_created_term(PCTId,_)|DeferredActions]
+	) :-
+	% var(PCTId), % the ID variable of all pre created terms is initially unbound
+	!,
+	PCTId = Id,
+	NextId is Id + 1,
+	assign_ids_to_pre_created_terms(NextId,DeferredActions).
+assign_ids_to_pre_created_terms(Id,[_|DeferredActions]) :-
+	% deals with the other types of deferred actions
+	assign_ids_to_pre_created_terms(Id,DeferredActions).
+
+	
 
 gen_fields_for_predicate_arguments(
 		_Program,
@@ -261,19 +282,6 @@ field_decls_for_pre_created_terms(
 
 
 
-assign_ids_to_pre_created_terms(_Id,DeferredActions) :- var(DeferredActions),!.
-assign_ids_to_pre_created_terms(
-		Id,
-		[create_field_for_pre_created_term(PCTId,_)|DeferredActions]
-	) :-
-	% var(PCTId), % the ID variable of all pre created terms is initially unbound
-	!,
-	PCTId = Id,
-	NextId is Id + 1,
-	assign_ids_to_pre_created_terms(NextId,DeferredActions).
-assign_ids_to_pre_created_terms(Id,[_|DeferredActions]) :-
-	% deals with the other types of deferred actions
-	assign_ids_to_pre_created_terms(Id,DeferredActions).
 
 
 
@@ -683,8 +691,10 @@ translate_chainable_goal(
 	string_atom(PrimitiveGoal,'!'),
 	!,
 	(	(Cut == yes ; MayFail == no)
-	->	NewCut = yes
-	;	NewCut = maybe
+	->	
+		NewCut = yes
+	;	
+		NewCut = maybe
 	),
 	(	predicate_clauses(Predicate,Clauses), 
 		single_clause(Clauses)
@@ -698,7 +708,7 @@ translate_chainable_goal(
 	
 	
 /**
-	Translate a single (semi-) deterministic goal that is chainable.
+	Translate a single (semi-)deterministic goal that is chainable.
 */
 translate_goal(
 		PrimitiveGoal,Clause,Predicate,
@@ -1676,7 +1686,7 @@ create_term_for_cacheable_string_atom(
 
 
 /**
-	Adds a the deferred action "create_field_for_pre_created_term" to the list
+	Adds the deferred action "create_field_for_pre_created_term" to the list
 	of DeferredActions, if the list does not already contain an action that 
 	creates the same term. If a corresponding term constructor is already 
 	added to the list of deferred actions, the given <code>TId</code> and the
@@ -1725,7 +1735,7 @@ goal_redo_case_id(GoalNumber,RedoCaseId) :- RedoCaseId is GoalNumber * 2 + 1.
 /**
 	Returns the list of all (primitive) goals of the given term.<br />
 	The first element of the list is always the primitive goal that would be 
-	executed first, if we would call the term as a whole.
+	executed first, if we call the term as a whole.
 
 	@signature primitive_goals_list(ASTNode,SGoals_HeadOfListOfASTNodes,SRest_TailOfThePreviousList)
 */

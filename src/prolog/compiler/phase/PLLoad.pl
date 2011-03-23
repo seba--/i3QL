@@ -250,6 +250,7 @@ is_first_occurence_of_variable_in_head(VariableName,[Arg|Args],ID,MaxID) :-
 	We are performing a tree rotation of "and-goals" to facilitate some analyses
 	(e.g., tail call related analyses).
 */
+% TODO reevaluate if this analysis/transformation is still necessary (useful)
 left_descending_goal_sequence(ct(TMI,',',[LNode,ct(RMI,',',[RLNode,RRNode])]),NewNode) :- !,
 	left_descending_goal_sequence(ct(RMI,',',[ct(TMI,',',[LNode,RLNode]),RRNode]),NewNode).
 left_descending_goal_sequence(Node,Node).
@@ -275,18 +276,16 @@ remove_superfluous_true_and_fail_goals(ASTNode,NewASTNode) :-
 remove_superfluous_true_and_fail_goals(ASTNode,ASTNode).
 	
 	
-
 replace_unification_with_anonymous_variable_by_true_goal(ASTNode,NewASTNode) :-
 	compound_term(ASTNode,'=',[LASTNode,RASTNode]),
+	( is_anonymous_variable(LASTNode) ; is_anonymous_variable(RASTNode) ),
+	!, % TODO replace using "if -> then" predicate (verify that it works)
 	term_meta(ASTNode,Meta),
-	( is_anonymous_variable(LASTNode) 
-	; is_anonymous_variable(RASTNode) 
-	),
-	!,
 	string_atom(NewASTNode,'true'),
 	term_meta(NewASTNode,Meta),
 	% Generate warning message...
-	term_pos(ASTNode,File,LN,_CN),			
+	term_pos(ASTNode,File,LN,_CN),	
+	% TODO extract predicate "print_warning(POS,MSG)"		
 	(	nonvar(File),File \== [],nonvar(LN) ->	
 		atomic_list_concat(
 				[	File,':',LN,

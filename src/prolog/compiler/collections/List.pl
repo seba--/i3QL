@@ -64,16 +64,17 @@
 	the empty list atom.<br />
 	Does never cause instantiation of the given argument.
 	
-	@signature is_list(?List:term) is semidet
+	@signature is_list(List) is semidet
+	@arg List(in,@,term) a term.
 */
-is_list(List) :- var(List),!,fail.
-is_list(List) :- /*nonvar(L),*/ List == [],!.
+is_list(L) :- var(L),!,fail.
+is_list(L) :- /*nonvar(L),*/ L == [],!.
 is_list(/*List=*/[_|T]) :- /*nonvar(List),*/ is_list(T).
 
 
 
 /**
-	Tests if the given argument is a non-empty list. <br/>
+	Tests if the given term is a non-empty list. <br/>
 	Does never cause instantiation of the given argument.
 	<p>
 	<b>Examples</b><br/>
@@ -95,10 +96,10 @@ is_list(/*List=*/[_|T]) :- /*nonvar(List),*/ is_list(T).
 	</pre></code>
 	</p>
 	
-	@signature is_not_empty(?Argument:term) is semidet
-	@arg Argument An arbirtray term. 
+	@signature is_not_empty(List) is semidet
+	@arg List(in,@,term) a list.
 */
-is_not_empty(X) :- nonvar(X), X = [_|_].
+is_not_empty(L) :- nonvar(L), L = [_|_].
 
 
 
@@ -155,7 +156,9 @@ replace_all([H|Tail],OldElement,NewElement,[H|NewTail]) :- % nothing to do
 	Calls <code>write(Stream,E)</code> for all elements (E) of the given list 
 	(List = [E|Es]).<br />
 
-	@signature write_elements(+Stream,+List) is det
+	@signature write_elements(Stream,List) is det
+	@arg Stream(in,+)
+	@arg List(in,+)
 */
 write_elements(_Stream,List) :- 
 	var(List),

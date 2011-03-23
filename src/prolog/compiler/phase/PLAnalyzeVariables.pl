@@ -36,7 +36,7 @@
 	anonymous -	with a unique id.<br />
 	In case of head variables (variables defined in a clause's	head), the ids
 	are "arg(X)" where X identifies the argument's postion (0 based). In case of
-	local variables, the ids are "clv(Y)". <br />
+	clause local variables, the ids are "clv(Y)". <br />
 	The variable id is added to the variable's meta information 
 	(mapped_variable_id(Name)).
 	<p>

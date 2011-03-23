@@ -150,6 +150,7 @@ number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,Solutio
 	conjunction_of_number_of_solutions_of_goals(Program,PredicateSolutionsAssumption,LASTNode,RASTNode,Solutions).
 
 number_of_solutions_of_goal(Program,PredicateSolutionsAssumption,ASTNode,Solutions,DidCut) :-
+	% TODO (if possible) remove cuts and surround everything in once(...)
 	(
 		compound_term_identifier(ASTNode,Functor/Arity),!
 	;
