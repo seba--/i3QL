@@ -35,9 +35,9 @@
 
 :- module(
    sae_formatter,
-   [	format_clauses/2,
-   	format_clauses/3
-	]
+   [    format_clauses/2,
+        format_clauses/3
+        ]
    ).
 
 
@@ -51,15 +51,15 @@
    It is possibel to configure the linewidth manually with a list of options like [linewidth(Value)]
 */
 format_clauses(Clauses,FClauses) :-  
-	format_clauses(Clauses,FClauses,[]).
+        format_clauses(Clauses,FClauses,[]).
 
 format_clauses(Clauses,FClauses,Options) :- 
-	(
-		memberchk(linewidth(Value),Options) ->
-		format_terms(Clauses,'',Value,FClauses)
-	;
-		format_terms(Clauses,'',80/*default line width*/,FClauses)
-	).
+        (
+                memberchk(linewidth(Value),Options) ->
+                format_terms(Clauses,'',Value,FClauses)
+        ;
+                format_terms(Clauses,'',80/*default line width*/,FClauses)
+        ).
 
 
 
@@ -123,22 +123,45 @@ format_terms([H|T],In,[ClauseName,ClauseArity],Linewidth,OutputList) :-
 construct_clause(Clause,Priority,Linewidth,Out) :- write_clause(Clause,Priority,[0,none],Output), string_length(Output,Length),Length =< Linewidth, atomic_list_concat([Output],Out).
 construct_clause(Clause,Priority,Linewidth,Out) :-
    compound_term(Clause,':-',[First|[Rest|_]]),
-   write_clause(First,Priority,[0,none],FirstOut),
-   write_clause(Rest,Priority,[0,none],RestOut),
-   getShift(2,RestOut,RestTabbed),
-   atomic_list_concat([FirstOut,' :-\n',RestTabbed],Out),
-   atom_codes(RestTabbed,InputList),
-   split(InputList,"\n",Split),
-   checkLength(Split,Linewidth).
+%    (
+%       (
+%          compound_term(First,'use_module',_)
+%       ;
+%          compound_term(First,'module',_)
+%       ;
+%          compound_term(First,'ensure_loaded',_)
+%       ), write_clause(First,Priority,[0,none],FirstOut), atomic_list_concat([':- ',FirstOut],Out)
+%    ;
+      write_clause(First,Priority,[0,none],FirstOut),
+      write_clause(Rest,Priority,[0,none],RestOut),
+      getShift(2,RestOut,RestTabbed),
+      atomic_list_concat([FirstOut,' :-\n',RestTabbed],Out),
+      atom_codes(RestTabbed,InputList),
+      split(InputList,"\n",Split),
+      checkLength(Split,Linewidth).
+%   ),!.
 construct_clause(Clause,Priority,_,Out) :-
    compound_term(Clause,':-',[First|Rest]),
+      (
+      (
+         compound_term(First,'use_module',_)
+      ;
+         compound_term(First,'module',_)
+      ;
+         compound_term(First,'ensure_loaded',_)
+      ), write_clause(First,Priority,[0,none],FirstOut), atomic_list_concat([':- ',FirstOut],Out)
+   ;
    write_clause(First,Priority,[2,'and'],FirstOut),
    build_body(Rest,Priority,[2,'and'],RestOut),
-   atomic_list_concat([FirstOut,' :-\n',RestOut],Out).
+   atomic_list_concat([FirstOut,' :-\n',RestOut],Out)
+   ),!.
 %    atom_codes(RestOut,InputList),
 %    split(InputList,"\n",Split),
 %    checkLength(Split,Linewidth).
-   
+/*
+  the simple case when the formatter can not split anything
+*/
+construct_clause(Clause,Priority,_,Out) :- write_clause(Clause,Priority,[0,none],Output),atomic_list_concat([Output],Out).
 % construct_clause(Clause,Priority,_,Out) :-
 %    compound_term(Clause,':-',[First|Rest]),
 %    write_clause(First,Priority,[2,'or'],FirstOut),
