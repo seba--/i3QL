@@ -8,8 +8,9 @@
 :- ensure_loaded('test/compiler/parser/Errors.pl').
 :- ensure_loaded('test/compiler/parser/Overall.pl').
 
-% Formatter
-:- ensure_loaded('test/compiler/formatter/Test.pl').
-
+% Compiler functionality 
 :- ensure_loaded('test/compiler/data_flow/intra_clause_variable_usage.pl').
 :- ensure_loaded('test/compiler/data_flow/Messages.pl').
+
+% Formatter
+:- ensure_loaded('test/compiler/formatter/Test.pl').
