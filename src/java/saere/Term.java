@@ -67,12 +67,82 @@ public abstract class Term {
 	}
 
 	/**
+	 * Returns <code>true</code> if this term is identical (as defined by Prolog's "==" operator) to
+	 * the given term.
+	 */
+	@BuiltIn("==/2")
+	public static boolean isIdentical(Term term1, Term term2) {
+		if (term1 == term2) // to catch some trivial cases...
+			return true;
+
+		TermsList terms = TermsList.create(term1, term2);
+
+		do {
+			Term t1 = terms.first();
+			terms = terms.rest();
+			Term t2 = terms.first();
+			terms = terms.rest();
+
+			if (t1 == t2)
+				return true;
+
+			if (t1.isVariable()) {
+				Variable v1fv = t1.asVariable().frontVariable();
+				Term v1t = v1fv.getValue();
+				t1 = (v1t == null ? v1fv : v1t);
+			}
+			if (t2.isVariable()) {
+				Variable v2fv = t2.asVariable().frontVariable();
+				Term v2t = v2fv.getValue();
+				t2 = (v2t == null ? v2fv : v2t);
+			}
+			/* ... t1 and t2 are now either unbound (front) variables or are real terms */
+			if (t1 == t2)
+				return true; // Handles some cases; in particular, the case that the variables
+							 // share.
+
+			switch (t1.termTypeID()) {
+			case VARIABLE_TYPE_ID:
+				return false; // they don't share; we already checked that!
+			case COMPUND_TERM_TYPE_ID:
+				final int arity = t1.arity();
+				if (t1.arity() == t2.arity() && t1.functor().sameAs(t2.functor())) {
+					// prepare the comparison of the arguments
+					for (int i = 0; i < arity; i++) {
+						terms = new TermsList(t1.arg(i), terms);
+						terms = new TermsList(t2.arg(i), terms);
+					}
+					continue;
+				}
+				return false;
+			case STRING_ATOM_TYPE_ID:
+				if (!t2.isStringAtom() || !t1.asStringAtom().sameAs(t2.asStringAtom()))
+					return false;
+				continue;
+			case INT_VALUE_TYPE_ID:
+				if (!t2.isIntValue() || !t1.asIntValue().sameAs(t2.asIntValue()))
+					return false;
+				continue;
+			case FLOAT_VALUE_TYPE_ID:
+				if (!t2.isFloatValue() || !t1.asFloatValue().sameAs(t2.asFloatValue()))
+					return false;
+				continue;
+			default:
+				throw new Error("encountered a term with an unknown type");
+			}
+		} while (terms != null);
+
+		return true;
+	}
+
+	/**
 	 * Returns <code>true</code> if this term is ground. String atoms, float values and integer
 	 * values are always ground. A complex term is ground if all arguments are ground. A variable is
 	 * ground if the variable is bound to a ground term.
 	 * 
 	 * @return <code>true</code> if this term is ground.
 	 */
+	@BuiltIn("ground/1")
 	public abstract boolean isGround();
 
 	/**
@@ -132,7 +202,6 @@ public abstract class Term {
 	}
 
 	/**
-	 * 
 	 * @return <code>true</code> if this term is a subtype of {@link Atomic}.
 	 */
 	public abstract boolean isAtomic();

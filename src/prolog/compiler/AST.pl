@@ -138,7 +138,7 @@
 		lookup_in_predicate_meta/2,
 		add_flag_to_predicate_meta/2,
 		user_predicate/2,
-		predicate_identifier/2,
+		predicate_identifier/2, % TODO rename to predicate_indicator (as used by ISO Prolog)
 		predicate_clauses/2,
 		foreach_user_predicate/2,
 		foreach_clause/3,
@@ -1066,6 +1066,15 @@ conjunction_of_cut_behaviors(LCutBehavior,RCutBehavior,CutBehavior) :-
 
 
 
+/**
+	True if the given ASTNode represents a ground term. If the ASTNode itself or
+	some sub node of it represents a variable or an anonymous variable then this
+	predicate fails. 
+	
+	@signature is_ground(ASTNode) is semidet
+	@arg(in,+) ASTNode an ASTNode; if the term is not an ASTNode the result is 
+		undefined.
+*/
 % TODO rename: "is_ground"
 is_ground_term(V) :- 
 	var(V),
@@ -1109,10 +1118,7 @@ transform_term(
 		ContolFlowGoalTransformer,
 		NewASTNode
 	) :-
-	(	CFFunctor == '->' 
-	;	CFFunctor == '*->'
-	),
-	!,
+	(	CFFunctor == '->' ;	CFFunctor == '*->' ),	!,
 	transform_term(CondASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewCondASTNode),
 	transform_term(LASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewLASTNode),
 	transform_term(RASTNode,PrimitiveGoalTransformer,ContolFlowGoalTransformer,NewRASTNode),

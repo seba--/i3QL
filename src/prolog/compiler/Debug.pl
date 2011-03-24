@@ -30,7 +30,8 @@
     POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Predicates to facilitate tracing and debugging the compiler.
+/**
+	Predicates to facilitate tracing and debugging the compiler.
 
 	@author Michael Eichberg
 */
@@ -42,9 +43,9 @@
 		processing_predicate/1,
 		on_entry/1,
 		on_exit/1,
-		ast/2,
+		ast/2 %,
 		
-		write_list/1
+%		write_list/1
 	]
 ).
 :- meta_predicate debug_message(+,1,0).
@@ -82,10 +83,10 @@ ast(Type,DebugConfig) :- memberchk(ast(Type),DebugConfig).
 processing_predicate(DebugConfig) :- memberchk(processing_predicate,DebugConfig).	
 
 
-
+/* TODO test if we can remove this predicate... if not rename!
 write_list(X) :- var(X),!.
 write_list([]).
 write_list([X|Xs]) :- write(X),nl,write_list(Xs).
-
+*/
 
 

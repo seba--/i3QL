@@ -80,6 +80,7 @@ public final class StringAtom extends Atomic {
 		return this;
 	}
 
+
 	public boolean mayUnify(Term t) {
 		return t == this;
 	}

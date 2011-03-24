@@ -33,7 +33,7 @@
 
 /* Definition of the operators and predicates that are either directly
 	understood by SAE Prolog - i.e., that are taken care of during compilation -
-	or which are pre-implemented as part of SAE Prolog's library.
+	or which are always pre-implemented as part of SAE Prolog's library.
 	
 	The redefinition of built-in predicates (operators) is not supported. In 
 	general, these predicates have the standard ISO semantics.
@@ -89,10 +89,10 @@ specified mode ([LowerBound,UpperBound]). The possible values are:
 <ul>
 <li>[0,0] Predicate always fails.</li>
 <li>[1,1] Predicate always succeeds once.</li>
-<li>[0,1] Predicate either fails or succeeds.</li>
+<li>[0,1] Predicate either fails or succeeds once.</li>
 <li>[0,*] Predicate has zero or more solutions.</li>
 <li>[1,*] Predicate has one or more solutions.</li>
-<li>error Predicate will throw an error (see below).</li>
+<li>error Predicate will throw an error.</li>
 </ul>
 
 Note that most predicates have more than one valid mode implying several mode
@@ -237,6 +237,7 @@ add_predefined_predicates_to_ast(AST,Program) :-
 		InfixOperators is the list of all predefined infix Operators, and
 		PostfixOperators is the list of all predefined postfix operators.
 */
+% TODO use a better data structure to speed up operator look ups to avoid using "memberchk" - currently, the parser is "fast enough", but still slow
 default_op_table(
 	ops(
 		[  % PREFIX...
@@ -303,7 +304,11 @@ default_op_table(
 ).
 
 
-
+% TODO the predefined_functor predicate is specific to the OOToJava phase (to the Java based SAE Prolog implementation)... move it over there.
+% TODO rename to predefined_atom
+/**
+	Common string atoms which are predefined.
+*/
 predefined_functor('=').
 predefined_functor('\\=').
 predefined_functor(',').
@@ -330,7 +335,10 @@ predefined_functor('[]').
 predefined_functor('.').
 
 
-
+/**
+	The arithmetic comparison operators defined by ISO Prolog.
+*/
+% TODO rename to arithmetic_comparison_operator
 is_arithmetic_comparison_operator('=:=').
 is_arithmetic_comparison_operator('=\\=').
 is_arithmetic_comparison_operator('<').

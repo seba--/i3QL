@@ -1,0 +1,8 @@
+# (c) 2010 Technische Universität Darmstadt, Department of Computer Science 
+# Author: Michael Eichberg
+#
+# To customize the build process of SAE Prolog to your setup:
+# (1)	make a copy of this file and name it: "build.properties"
+# (2)	specify the parameters mentioned below
+
+prolog.executable=/opt/local/bin/swipl

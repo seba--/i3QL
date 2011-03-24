@@ -202,8 +202,8 @@ public final class Variable extends Term implements State {
 	}
 
 	/**
-	 * Returns the value (of type {@link Term}) this Variable points-to. This is <code>null</code> if this
-	 * variable is not instantiated, another Variable with which this variable shares or a
+	 * Returns the value (of type {@link Term}) this Variable points-to. This is <code>null</code>
+	 * if this variable is not instantiated, another Variable with which this variable shares or a
 	 * <code>Term</code> that is not a variable, if this variable is instantiated. If this variable
 	 * shares with another variable then it is necessary to ask the other variable for its value to
 	 * determine if this variable is actually instantiated.
