@@ -35,12 +35,13 @@
 	Checks that the SAE Prolog program is valid.
 	
 	@author Michael Eichberg
+	@author Malte Viering
 */
 :- module(sae_check_sae_program,[pl_check/4]).
 
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
-
+:- use_module('../AST.pl').
 
 
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
@@ -48,20 +49,112 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 			DebugConfig,
 			on_entry,
 			write('\n[Debug] Phase: Check Program________________________________________________\n')),
-	check_predicates(Program,State),
+	check_predicates(DebugConfig,Program,_).
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.
-	State = no_errors. 
-
+	%State = no_errors. 
 
 
 /**
 	Validates the SAE program.
 */
-check_predicates(_,_State). % :- !.
+
+check_predicates(DebugConfig,Program,State) :- 
+	write('check predicates'),
+	foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)).
+
+check_predicate(DebugConfig, State, Program, Predicate) :- 
+	write('check predicate'),
+	Predicate = pred(PredicateIdentifier,_,_),
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write( ('\n[Debug] Processing Predicate: ' , PredicateIdentifier , '\n')) ),
+	predicate_clauses(Predicate, Clauses), 
+	!,
+	catch(
+		foreach_clause(Clauses,check_clause(State, Program)),
+		_,
+		pl_check_failed(DebugConfig) ).
+
+		
+%CHECK: müssen fact und directive hier betrachtet werden?
+check_clause(State, Program, Clause):- 
+	write('\n\t Processing one Clause'), 
+	clause_implementation(Clause,Impl),
+	is_rule(Impl),
+	rule(_Head,Body,_Meta,Impl),
+	!,
+	check_term(State, Program, Body).
+	
+check_term(State, Program, Term) :- 
+	is_atom(Term),  %a atom is always a valid term
+	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n'),
+	!.
+check_term(State, Program, Term) :- 
+	 is_compound_term(Term), %compound term == compley term
+	 !,
+	 compound_term_identifier(Term,FunctorArity),
+	 compound_term(Term,Functor,Args),
+	 write('\n\t\tCurrent Clause is a compound_term'),
+	 write('\n\t\t\tFunktor:'),
+	 write(FunctorArity),
+	 %write('\n\t\t\tArgs:'),
+	 %write(Args),
+	 write('\n\t\t\tLookup the Predicate of the compound_term: '),
+	 write(FunctorArity),
+	 check_complex_term(State, Program, Functor, FunctorArity),
+	 !,
+	 check_args_of_a_complex_term(State, Program, Args).
+check_term(State, Program, Term) :- 
+	%no vaild Term so fail
+	write('\n\t\t\t\t\t\tUnknown term'),
+	write(Term),
+	%State = error,
+	!,
+	fail.			
+
+check_complex_term(State, Program, Functor, FunctorArity) :- 
+	lookup_predicate(FunctorArity,Program, Predicate), 
+	write('\n\t\t\t\tlookup of the functor was successful.'),
+	!.
+check_complex_term(State, Program, Functor, FunctorArity) :- 
+	FunctorArity = Functor/Arity,
+	predefined_functor(Functor),
+	Arity =:= 2,
+	write('\n\t\t\t\tlookup of the functor was successful.'),
+	!.
+check_complex_term(State, Program, Functor, FunctorArity) :- 
+	write('\n\t\t\t\t lookup failed'),
+	!,fail.
+
+check_args_of_a_complex_term(State, Program, [] ) .
+check_args_of_a_complex_term(State, Program, [Head | Tail ]  ) :- 
+	%write('\n'),
+	%write(Head),
+	%write('\n'),
+	!,
+	check_term(State, Program, Head),
+	!,
+	check_args_of_a_complex_term(State, Program, Tail ).
+	%check_term(State, Program, Head).
+	
+	
+is_atom(Term) :-
+	is_variable(Term);
+	is_string_atom(Term) ;
+	is_integer_value(Term) ;
+	is_float_atom(Term) ;
+	is_numeric_atom(Term) ;
+	is_anonymous_variable(Term).
+%check_predicates(_,_State). % :- !.
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
 % TODO check that no "default" operators are overridden
 
 
-
+pl_check_failed(DebugConfig) :-
+	debug_message(
+		DebugConfig,
+		on_entry,
+		write('\n[Debug] Phase: Check Program ---------------- FAILED --------------------------\n')).
