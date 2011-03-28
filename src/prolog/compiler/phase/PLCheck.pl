@@ -49,33 +49,37 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 			DebugConfig,
 			on_entry,
 			write('\n[Debug] Phase: Check Program________________________________________________\n')),
-	check_predicates(DebugConfig,Program,_).
+	check_predicates(DebugConfig,Program,_),
+	debug_message(
+			DebugConfig,
+			on_entry,
+			write('\n[Debug] Phase: Check Program_______________________END______________________\n')).
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.
 	%State = no_errors. 
-
+pl_check(_,_,_,_).
 
 /**
 	Validates the SAE program.
 */
 
 check_predicates(DebugConfig,Program,State) :- 
-	write('check predicates'),
-	foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)).
+	catch(
+		foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)),
+		_,
+		pl_check_failed(DebugConfig) ).
 
 check_predicate(DebugConfig, State, Program, Predicate) :- 
-	write('check predicate'),
 	Predicate = pred(PredicateIdentifier,_,_),
 	debug_message(
 			DebugConfig,
 			on_entry,
 			write( ('\n[Debug] Processing Predicate: ' , PredicateIdentifier , '\n')) ),
 	predicate_clauses(Predicate, Clauses), 
-	!,
 	catch(
 		foreach_clause(Clauses,check_clause(State, Program)),
 		_,
-		pl_check_failed(DebugConfig) ).
+		fail ).
 
 		
 %CHECK: müssen fact und directive hier betrachtet werden?
@@ -87,11 +91,11 @@ check_clause(State, Program, Clause):-
 	!,
 	check_term(State, Program, Body).
 	
-check_term(State, Program, Term) :- 
+check_term(_State, _Program, Term) :- 
 	is_atom(Term),  %a atom is always a valid term
 	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n'),
 	!.
-check_term(State, Program, Term) :- 
+check_term(State,Program, Term) :- 
 	 is_compound_term(Term), %compound term == compley term
 	 !,
 	 compound_term_identifier(Term,FunctorArity),
@@ -106,7 +110,7 @@ check_term(State, Program, Term) :-
 	 check_complex_term(State, Program, Functor, FunctorArity),
 	 !,
 	 check_args_of_a_complex_term(State, Program, Args).
-check_term(State, Program, Term) :- 
+check_term(_State, _Program, Term) :- 
 	%no vaild Term so fail
 	write('\n\t\t\t\t\t\tUnknown term'),
 	write(Term),
@@ -114,30 +118,32 @@ check_term(State, Program, Term) :-
 	!,
 	fail.			
 
-check_complex_term(State, Program, Functor, FunctorArity) :- 
-	lookup_predicate(FunctorArity,Program, Predicate), 
+check_complex_term(_State, Program, _Functor, FunctorArity) :- 
+	lookup_predicate(FunctorArity,Program, Predicate),
+	Predicate = pred(FunctorArity,_,_),
 	write('\n\t\t\t\tlookup of the functor was successful.'),
 	!.
-check_complex_term(State, Program, Functor, FunctorArity) :- 
+check_complex_term(_State, _Program, Functor, FunctorArity) :- 
 	FunctorArity = Functor/Arity,
 	predefined_functor(Functor),
 	Arity =:= 2,
 	write('\n\t\t\t\tlookup of the functor was successful.'),
 	!.
-check_complex_term(State, Program, Functor, FunctorArity) :- 
-	write('\n\t\t\t\t lookup failed'),
+	
+check_complex_term(_State, _Program, _Functor, FunctorArity) :- 
+	further_predefined_functor(FunctorArity),
+	write('\n\t\t\t\tlookup of the functor was successful.'),
+	!.
+	
+check_complex_term(_State, _Program, _Functor, _FunctorArity) :- 
+	write('\n\t\t\t\tlookup failed'),
 	!,fail.
 
-check_args_of_a_complex_term(State, Program, [] ) .
+check_args_of_a_complex_term(_State, _Program, [] ) :- !, write('\n\t\t\t\t\tlookup of the clause was successful.').
 check_args_of_a_complex_term(State, Program, [Head | Tail ]  ) :- 
-	%write('\n'),
-	%write(Head),
-	%write('\n'),
-	!,
 	check_term(State, Program, Head),
-	!,
 	check_args_of_a_complex_term(State, Program, Tail ).
-	%check_term(State, Program, Head).
+
 	
 	
 is_atom(Term) :-
@@ -147,7 +153,20 @@ is_atom(Term) :-
 	is_float_atom(Term) ;
 	is_numeric_atom(Term) ;
 	is_anonymous_variable(Term).
-%check_predicates(_,_State). % :- !.
+
+further_predefined_functor(final/1).
+further_predefined_functor((/)/2).
+further_predefined_functor(abstract/1).
+further_predefined_functor(args/1).
+further_predefined_functor((//)/2).
+further_predefined_functor(compl/1).
+further_predefined_functor((mod)/2).
+further_predefined_functor(app/3).
+further_predefined_functor(int/1).
+further_predefined_functor(synthetic/1).
+further_predefined_functor(out/1).
+further_predefined_functor(deprecated/1).
+further_predefined_functor(args/2).
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
 % TODO check that no "default" operators are overridden
@@ -157,4 +176,5 @@ pl_check_failed(DebugConfig) :-
 	debug_message(
 		DebugConfig,
 		on_entry,
-		write('\n[Debug] Phase: Check Program ---------------- FAILED --------------------------\n')).
+		write('\n[Debug] Phase: Check Program ---------------- PCCheck-FAILED --------------------------\n'))
+		,fail.
