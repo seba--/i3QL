@@ -62,7 +62,6 @@ pl_check(_,_,_,_).
 /**
 	Validates the SAE program.
 */
-
 check_predicates(DebugConfig,Program,State) :- 
 	catch(
 		foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)),
@@ -82,7 +81,7 @@ check_predicate(DebugConfig, State, Program, Predicate) :-
 		fail ).
 
 		
-%CHECK: müssen fact und directive hier betrachtet werden?
+%CHECK: müssen fact und directive hier noch mal gesondert betrachtet werden?
 check_clause(State, Program, Clause):- 
 	write('\n\t Processing one Clause'), 
 	clause_implementation(Clause,Impl),
@@ -127,13 +126,11 @@ check_complex_term(_State, _Program, Functor, FunctorArity) :-
 	FunctorArity = Functor/Arity,
 	predefined_functor(Functor),
 	Arity =:= 2,
-	write('\n\t\t\t\tlookup of the functor was successful.'),
-	!.
+	write('\n\t\t\t\tlookup of the functor was successful.').
 	
 check_complex_term(_State, _Program, _Functor, FunctorArity) :- 
 	further_predefined_functor(FunctorArity),
-	write('\n\t\t\t\tlookup of the functor was successful.'),
-	!.
+	write('\n\t\t\t\tlookup of the functor was successful.').
 	
 check_complex_term(_State, _Program, _Functor, _FunctorArity) :- 
 	write('\n\t\t\t\tlookup failed'),
@@ -167,6 +164,8 @@ further_predefined_functor(synthetic/1).
 further_predefined_functor(out/1).
 further_predefined_functor(deprecated/1).
 further_predefined_functor(args/2).
+further_predefined_functor(findall/4).
+further_predefined_functor(call/2).
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
 % TODO check that no "default" operators are overridden
