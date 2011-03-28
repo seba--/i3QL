@@ -87,16 +87,14 @@ check_clause(State, Program, Clause):-
 	clause_implementation(Clause,Impl),
 	is_rule(Impl),
 	rule(_Head,Body,_Meta,Impl),
-	!,
 	check_term(State, Program, Body).
 	
 check_term(_State, _Program, Term) :- 
 	is_atom(Term),  %a atom is always a valid term
-	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n'),
-	!.
+	!,
+	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n').
 check_term(State,Program, Term) :- 
 	 is_compound_term(Term), %compound term == compley term
-	 !,
 	 compound_term_identifier(Term,FunctorArity),
 	 compound_term(Term,Functor,Args),
 	 write('\n\t\tCurrent Clause is a compound_term'),
@@ -106,6 +104,7 @@ check_term(State,Program, Term) :-
 	 %write(Args),
 	 write('\n\t\t\tLookup the Predicate of the compound_term: '),
 	 write(FunctorArity),
+	 !,
 	 check_complex_term(State, Program, Functor, FunctorArity),
 	 !,
 	 check_args_of_a_complex_term(State, Program, Args).
@@ -120,8 +119,7 @@ check_term(_State, _Program, Term) :-
 check_complex_term(_State, Program, _Functor, FunctorArity) :- 
 	lookup_predicate(FunctorArity,Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
-	write('\n\t\t\t\tlookup of the functor was successful.'),
-	!.
+	write('\n\t\t\t\tlookup of the functor was successful.').
 check_complex_term(_State, _Program, Functor, FunctorArity) :- 
 	FunctorArity = Functor/Arity,
 	predefined_functor(Functor),
