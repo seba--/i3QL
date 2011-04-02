@@ -76,7 +76,7 @@ check_predicate(DebugConfig, State, Program, Predicate) :-
 		fail ).
 
 		
-check_clause(DebugConfig, State, Program, Clause):- 
+check_clause(_DebugConfig, _State, _Program, Clause):- 
 	is_rule_without_body(Clause). %CHECK: scheint nicht zu funktionieren
 		
 check_clause(DebugConfig, State, Program, Clause):- 
@@ -86,7 +86,7 @@ check_clause(DebugConfig, State, Program, Clause):-
 	rule(_Head,Body,_Meta,Impl),
 	check_term(DebugConfig, State, Program, Body).
 
-check_term(DebugConfig, _State, _Program, Term) :-
+check_term(_DebugConfig, _State, _Program, Term) :-
 	% a anonymous vaiable is no valid predicate
 	% ( p(x) :- _. )
 	is_anonymous_variable(Term),
@@ -109,7 +109,7 @@ check_term(DebugConfig, State,Program, Term) :-
 	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \t Current clause is a compound term with the functor: ',FunctorArity ])) ),
 	check_complex_term(DebugConfig, State, Program, Term, FunctorArity, Args).
 
-check_term(DebugConfig, State, _Program, Term) :- 
+check_term(_DebugConfig, _State, _Program, Term) :- 
 	%no vaild Term so fail
 	%State = error,
 	!,
@@ -118,17 +118,15 @@ check_term(DebugConfig, State, _Program, Term) :-
 	fail.	
 
 %----
-check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
-	FunctorArity == (=)/2.
 
-check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
+check_complex_term(DebugConfig, _State, Program, _Term,  FunctorArity, _Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
-	not(lookup_in_predicate_meta(mode(X),Predicate)),
+	not(lookup_in_predicate_meta(mode(_X),Predicate)),
 	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \t Lookup predicate succesful, predicate has no mode'))),
 	!.
 
-check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
+check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
 	lookup_in_predicate_meta(mode(X),Predicate),
@@ -140,7 +138,7 @@ check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :-
 
 %----
 	
-check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
+check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
 	% check if the term is a control flow term
 	internal_control_flow_term(FunctorArity),
 	!,
@@ -149,26 +147,26 @@ check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :-
 	
 	
 
-check_complex_term(DebugConfig, State, _Program, Term,  FunctorArity, Args) :- 
+check_complex_term(_DebugConfig, _State, _Program, Term,  _FunctorArity, _Args) :- 
 	%State = error_lookup_failed,
 	pl_check_error(Term, 'Lookup failed'),
 	!,fail.
 	
 
-check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, [] ).
+check_all_callable_sub_terms(_DebugConfig, _State, _Program,  _Predicate, _Args, [] ).
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [+;callable | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \t Found callable sub term')),
 	check_term(DebugConfig, State, Program, Arg),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
-check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [ X | Xs] ) :-
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args], [ _X | Xs] ) :-
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
 check_all_callable_sub_terms(_, _, _,  _, _, _ ) :- fail.
 
 
-check_args_of_a_complex_term(DebugConfig, _State, _Program, [] ) :- !.
+check_args_of_a_complex_term(_DebugConfig, _State, _Program, [] ) :- !.
 check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
 	check_term(DebugConfig, State, Program, Head),
 	!,
@@ -186,11 +184,11 @@ internal_control_flow_term((*->)/2).
 % TODO check that no "default" operators are overridden
 
 
-pl_check_failed(DebugConfig) :-
+pl_check_failed(_DebugConfig) :-
 	write('ERROR'),
 	fail.
 		
 pl_check_error(Term, MSG) :- 
 	term_pos(Term, File, LineNumber, CN),
-	atomic_list_concat(['\n',File, ':',LineNumber,':',' error: ',MSG], ErrorMSG),
+	atomic_list_concat(['\n',File, ':',LineNumber,':' , CN ,' : error: ',MSG], ErrorMSG),
 	write(ErrorMSG).
