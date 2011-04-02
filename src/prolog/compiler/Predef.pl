@@ -162,13 +162,17 @@ add_predefined_predicates_to_ast(AST,Program) :-
 		pred(fail/0,[solutions([0,0])]), % always fails
 		pred('!'/0,[solutions([1,1])]), % cut
 
-		pred('=:='/2,[solutions([0,1]),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=\\='/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('<'/2,[solutions([0,1]),mode(+number,+number)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('=<'/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>'/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
-		pred('>='/2,[solutions([0,1]),mode(+,+)]) % arithmetic comparison; requires both terms to be instantiated
+		pred('=:='/2,[solutions([0,1]),mode([+number,+number])]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=\\='/2,[solutions([0,1]),mode([+,+])]), % arithmetic comparison; requires both terms to be instantiated
+		pred('<'/2,[solutions([0,1]),mode([+number,+number])]), % arithmetic comparison; requires both terms to be instantiated
+		pred('=<'/2,[solutions([0,1]),mode([+,+])]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>'/2,[solutions([0,1]),mode([+,+])]), % arithmetic comparison; requires both terms to be instantiated
+		pred('>='/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
 		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
+		
+		pred(call/1,[mode([+;callable])]),
+		pred(','/2,[mode([+;callable,+;callable])]),
+		pred(findall/3,[mode([+,+;callable,+])])
 		],
 		Program
 	).
