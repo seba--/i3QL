@@ -42,6 +42,7 @@
 :- use_module('../Debug.pl').
 :- use_module('../Predef.pl').
 :- use_module('../AST.pl').
+:- use_module('../Utils.pl').
 
 % TODO: add a check if a variable is bounded
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
@@ -49,15 +50,12 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 			DebugConfig,
 			on_entry,
 			write('\n[Debug] Phase: Check Program________________________________________________\n')),
-	check_predicates(DebugConfig,Program,_),
-	debug_message(
-			DebugConfig,
-			on_exit,
-			write('\n[Debug] Phase: Check Program_______________________END______________________\n')).
+	check_predicates(DebugConfig,Program,_).
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.
 	%State = no_errors. 
-pl_check(_,_,_,_).
+
+
 
 /**
 	Validates the SAE program.
@@ -70,10 +68,7 @@ check_predicates(DebugConfig,Program,State) :-
 
 check_predicate(DebugConfig, State, Program, Predicate) :- 
 	Predicate = pred(PredicateIdentifier,_,_),
-	debug_message(
-			DebugConfig,
-			on_entry, %flag
-			write( ('\n[Debug] Processing Predicate: ' , PredicateIdentifier , '\n')) ),
+	debug_message(DebugConfig,processing_predicate, write_list(['\n[Debug] Processing Predicate: ', PredicateIdentifier])),
 	predicate_clauses(Predicate, Clauses), 
 	catch(
 		foreach_clause(Clauses,check_clause(DebugConfig, State, Program)),
@@ -85,7 +80,7 @@ check_clause(DebugConfig, State, Program, Clause):-
 	is_rule_without_body(Clause). %CHECK: scheint nicht zu funktionieren
 		
 check_clause(DebugConfig, State, Program, Clause):- 
-	write('\n\t Processing one Clause'), 
+	debug_message(DebugConfig,memberchk(processing_clause), write('\n[Debug] Processing one Clause: ') ),
 	clause_implementation(Clause,Impl),
 	is_rule(Impl),
 	rule(_Head,Body,_Meta,Impl),
@@ -101,106 +96,84 @@ check_term(DebugConfig, _State, _Program, Term) :-
 check_term(DebugConfig, _State, _Program, Term) :- 
 	%a atom make no sense as a predicate?
 	%aber brauch es da is_rule_without_body nicht so will wie ich möchte :)
-	is_atom(Term),  									
+	is_string_atom(Term),  									
 	!,
-	write(Term),
-	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n').
+	debug_message(DebugConfig,memberchk(processing_clause), write_list( ['\n[Debug] \tClause is a string atom: (',Term,')']) ).
+
 
 check_term(DebugConfig, State,Program, Term) :- 
-	 is_compound_term(Term), %compound term == compley term
-	 !,
-	 compound_term_identifier(Term,FunctorArity),
-	 compound_term_args(Term,Args),
-	 write('\n\t\tCurrent Clause is a compound_term'),
-	 write('\n\t\t\tFunktor:'),
-	 write(FunctorArity),
-	 %write('\n\t\t\tArgs:'),
-	 %write(Args),
-	 write('\n\t\t\tLookup the Predicate of the compound_term: '),
-	 write(FunctorArity),
-	 write('\n'),
-	check_complex_term(DebugConfig, State, Program, FunctorArity, Args).
+	is_compound_term(Term), %compound term == compley term
+	!,
+	compound_term_identifier(Term,FunctorArity),
+	compound_term_args(Term,Args),
+	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \t Current clause is a compound term with the functor: ',FunctorArity ])) ),
+	check_complex_term(DebugConfig, State, Program, Term, FunctorArity, Args).
 
-check_term(DebugConfig, _State, _Program, Term) :- 
+check_term(DebugConfig, State, _Program, Term) :- 
 	%no vaild Term so fail
-	write('\n\t\t\t\t\t\tUnknown term'),
-	write(Term),
 	%State = error,
 	!,
+	%State = error_unknown_term,
 	pl_check_error(Term, 'Unknown term'),
 	fail.	
 
 %----
-check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
 	FunctorArity == (=)/2.
 
-check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
-	write('\nPredicate in ast?'),
+check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
-	write('ja'),
 	not(lookup_in_predicate_meta(mode(X),Predicate)),
-	!,
-	write('\n\that kein mode').
+	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \t Lookup predicate succesful, predicate has no mode'))),
+	!.
 
-check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
-	write('\nPredicate in ast?'),
+check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
-	write('ja'),
 	lookup_in_predicate_meta(mode(X),Predicate),
 	!,
-	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X),
+	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \t Lookup predicate succesful, predicate has mode -> look if some sub terms a callable'))),
+	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X)
+	.
 	
-	write('\n\that mode: '),
-	write(X).
 
 %----
 	
-check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+check_complex_term(DebugConfig, State, Program, Term,  FunctorArity, Args) :- 
 	% check if the term is a control flow term
 	internal_control_flow_term(FunctorArity),
 	!,
-	write(FunctorArity),
-	write('\nIs control flow term\n\n'),
+	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \t Current term iscontrol flow term (',FunctorArity,')' ])) ),
 	check_args_of_a_complex_term(DebugConfig, State, Program, Args).
 	
 	
 
-check_complex_term(DebugConfig, _State, _Program,  _FunctorArity, Args) :- 
-	write('\n\t\t\t\tlookup failed'),
+check_complex_term(DebugConfig, State, _Program, Term,  FunctorArity, Args) :- 
+	%State = error_lookup_failed,
+	pl_check_error(Term, 'Lookup failed'),
 	!,fail.
 	
 
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, [] ).
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [+;callable | Xs] ) :-
 	!,
-	write('\nCheck sub terms Arg: \n'),
-	write(Arg),
+	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \t Found callable sub term')),
 	check_term(DebugConfig, State, Program, Arg),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [ X | Xs] ) :-
 	!,
-	write('\nCheck sub terms Mode X: \n'),
-	write(X),
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
+check_all_callable_sub_terms(_, _, _,  _, _, _ ) :- fail.
 
-check_args_of_a_complex_term(DebugConfig, _State, _Program, [] ) :- !, write('\n\t\t\t\t\tlookup of the clause was successful.').
+
+check_args_of_a_complex_term(DebugConfig, _State, _Program, [] ) :- !.
 check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
 	check_term(DebugConfig, State, Program, Head),
 	!,
 	check_args_of_a_complex_term(DebugConfig, State, Program, Tail ).
 
-% call x  gleich x
-is_atom(Term) :-
-
-	%is_variable(Term)  %vaiable mussen mussen gecheck werden das sie gebunden sind
-	is_string_atom(Term) 
-	%is_integer_value(Term) 
-	%is_float_atom(Term) ;
-	%is_numeric_atom(Term) 
-	. %hier muss ein fehelr passieren bei anonzmous vaiable
 
 %control flow terms	
 internal_control_flow_term((,)/2).
@@ -209,16 +182,15 @@ internal_control_flow_term((->)/2).
 internal_control_flow_term((*->)/2).
 
 
-% TODO implement a check for multiple occurences of the same "named" anonymous variable
-% TODO implement a check that all gooals exist (unresolved references)
+% TODO implement a check for multiple occurences of the same "name" anonymous variable
 % TODO check that no "default" operators are overridden
 
 
 pl_check_failed(DebugConfig) :-
-	debug_message(
-		DebugConfig,
-		on_entry,
-		write('\n[Debug] Phase: Check Program ---------------- PCCheck-FAILED --------------------------\n'))
-		,fail.
+	write('ERROR'),
+	fail.
 		
-pl_check_error(Term, MSG).
+pl_check_error(Term, MSG) :- 
+	term_pos(Term, File, LineNumber, CN),
+	atomic_list_concat(['\n',File, ':',LineNumber,':',' error: ',MSG], ErrorMSG),
+	write(ErrorMSG).
