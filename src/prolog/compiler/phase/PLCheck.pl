@@ -43,7 +43,7 @@
 :- use_module('../Predef.pl').
 :- use_module('../AST.pl').
 
-
+% TODO: add a check if a variable is bounded
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
 			DebugConfig,
@@ -52,7 +52,7 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	check_predicates(DebugConfig,Program,_),
 	debug_message(
 			DebugConfig,
-			on_entry,
+			on_exit,
 			write('\n[Debug] Phase: Check Program_______________________END______________________\n')).
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.
@@ -72,31 +72,45 @@ check_predicate(DebugConfig, State, Program, Predicate) :-
 	Predicate = pred(PredicateIdentifier,_,_),
 	debug_message(
 			DebugConfig,
-			on_entry,
+			on_entry, %flag
 			write( ('\n[Debug] Processing Predicate: ' , PredicateIdentifier , '\n')) ),
 	predicate_clauses(Predicate, Clauses), 
 	catch(
-		foreach_clause(Clauses,check_clause(State, Program)),
+		foreach_clause(Clauses,check_clause(DebugConfig, State, Program)),
 		_,
 		fail ).
 
 		
-%CHECK: müssen fact und directive hier noch mal gesondert betrachtet werden?
-check_clause(State, Program, Clause):- 
+check_clause(DebugConfig, State, Program, Clause):- 
+	is_rule_without_body(Clause). %CHECK: scheint nicht zu funktionieren
+		
+check_clause(DebugConfig, State, Program, Clause):- 
 	write('\n\t Processing one Clause'), 
 	clause_implementation(Clause,Impl),
 	is_rule(Impl),
 	rule(_Head,Body,_Meta,Impl),
-	check_term(State, Program, Body).
-	
-check_term(_State, _Program, Term) :- 
-	is_atom(Term),  %a atom is always a valid term
+	check_term(DebugConfig, State, Program, Body).
+
+check_term(DebugConfig, _State, _Program, Term) :-
+	% a anonymous vaiable is no valid predicate
+	% ( p(x) :- _. )
+	is_anonymous_variable(Term),
+	pl_check_error(Term, 'a anonymous variable is no valid predicate'),
 	!,
+	fail.
+check_term(DebugConfig, _State, _Program, Term) :- 
+	%a atom make no sense as a predicate?
+	%aber brauch es da is_rule_without_body nicht so will wie ich möchte :)
+	is_atom(Term),  									
+	!,
+	write(Term),
 	write('\n\t\tCurrent Clause is a atom -> Lookup was successful\n').
-check_term(State,Program, Term) :- 
+
+check_term(DebugConfig, State,Program, Term) :- 
 	 is_compound_term(Term), %compound term == compley term
+	 !,
 	 compound_term_identifier(Term,FunctorArity),
-	 compound_term(Term,Functor,Args),
+	 compound_term_args(Term,Args),
 	 write('\n\t\tCurrent Clause is a compound_term'),
 	 write('\n\t\t\tFunktor:'),
 	 write(FunctorArity),
@@ -104,66 +118,97 @@ check_term(State,Program, Term) :-
 	 %write(Args),
 	 write('\n\t\t\tLookup the Predicate of the compound_term: '),
 	 write(FunctorArity),
-	 !,
-	 check_complex_term(State, Program, Functor, FunctorArity),
-	 !,
-	 check_args_of_a_complex_term(State, Program, Args).
-check_term(_State, _Program, Term) :- 
+	 write('\n'),
+	check_complex_term(DebugConfig, State, Program, FunctorArity, Args).
+
+check_term(DebugConfig, _State, _Program, Term) :- 
 	%no vaild Term so fail
 	write('\n\t\t\t\t\t\tUnknown term'),
 	write(Term),
 	%State = error,
 	!,
-	fail.			
+	pl_check_error(Term, 'Unknown term'),
+	fail.	
 
-check_complex_term(_State, Program, _Functor, FunctorArity) :- 
-	lookup_predicate(FunctorArity,Program, Predicate),
+%----
+check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+	FunctorArity == (=)/2.
+
+check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+	write('\nPredicate in ast?'),
+	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
-	write('\n\t\t\t\tlookup of the functor was successful.').
-check_complex_term(_State, _Program, Functor, FunctorArity) :- 
-	FunctorArity = Functor/Arity,
-	predefined_functor(Functor),
-	Arity =:= 2,
-	write('\n\t\t\t\tlookup of the functor was successful.').
+	write('ja'),
+	not(lookup_in_predicate_meta(mode(X),Predicate)),
+	!,
+	write('\n\that kein mode').
+
+check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+	write('\nPredicate in ast?'),
+	lookup_predicate(FunctorArity, Program, Predicate),
+	Predicate = pred(FunctorArity,_,_),
+	write('ja'),
+	lookup_in_predicate_meta(mode(X),Predicate),
+	!,
+	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X),
 	
-check_complex_term(_State, _Program, _Functor, FunctorArity) :- 
-	further_predefined_functor(FunctorArity),
-	write('\n\t\t\t\tlookup of the functor was successful.').
+	write('\n\that mode: '),
+	write(X).
+
+%----
 	
-check_complex_term(_State, _Program, _Functor, _FunctorArity) :- 
+check_complex_term(DebugConfig, State, Program,  FunctorArity, Args) :- 
+	% check if the term is a control flow term
+	internal_control_flow_term(FunctorArity),
+	!,
+	write(FunctorArity),
+	write('\nIs control flow term\n\n'),
+	check_args_of_a_complex_term(DebugConfig, State, Program, Args).
+	
+	
+
+check_complex_term(DebugConfig, _State, _Program,  _FunctorArity, Args) :- 
 	write('\n\t\t\t\tlookup failed'),
 	!,fail.
-
-check_args_of_a_complex_term(_State, _Program, [] ) :- !, write('\n\t\t\t\t\tlookup of the clause was successful.').
-check_args_of_a_complex_term(State, Program, [Head | Tail ]  ) :- 
-	check_term(State, Program, Head),
-	check_args_of_a_complex_term(State, Program, Tail ).
-
 	
-	
+
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, [] ).
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [+;callable | Xs] ) :-
+	!,
+	write('\nCheck sub terms Arg: \n'),
+	write(Arg),
+	check_term(DebugConfig, State, Program, Arg),
+	!,
+	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [ X | Xs] ) :-
+	!,
+	write('\nCheck sub terms Mode X: \n'),
+	write(X),
+	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
+
+check_args_of_a_complex_term(DebugConfig, _State, _Program, [] ) :- !, write('\n\t\t\t\t\tlookup of the clause was successful.').
+check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
+	check_term(DebugConfig, State, Program, Head),
+	!,
+	check_args_of_a_complex_term(DebugConfig, State, Program, Tail ).
+
+% call x  gleich x
 is_atom(Term) :-
-	is_variable(Term);
-	is_string_atom(Term) ;
-	is_integer_value(Term) ;
-	is_float_atom(Term) ;
-	is_numeric_atom(Term) ;
-	is_anonymous_variable(Term).
 
-further_predefined_functor(final/1).
-further_predefined_functor((/)/2).
-further_predefined_functor(abstract/1).
-further_predefined_functor(args/1).
-further_predefined_functor((//)/2).
-further_predefined_functor(compl/1).
-further_predefined_functor((mod)/2).
-further_predefined_functor(app/3).
-further_predefined_functor(int/1).
-further_predefined_functor(synthetic/1).
-further_predefined_functor(out/1).
-further_predefined_functor(deprecated/1).
-further_predefined_functor(args/2).
-further_predefined_functor(findall/4).
-further_predefined_functor(call/2).
+	%is_variable(Term)  %vaiable mussen mussen gecheck werden das sie gebunden sind
+	is_string_atom(Term) 
+	%is_integer_value(Term) 
+	%is_float_atom(Term) ;
+	%is_numeric_atom(Term) 
+	. %hier muss ein fehelr passieren bei anonzmous vaiable
+
+%control flow terms	
+internal_control_flow_term((,)/2).
+internal_control_flow_term((;)/2).
+internal_control_flow_term((->)/2).
+internal_control_flow_term((*->)/2).
+
+
 % TODO implement a check for multiple occurences of the same "named" anonymous variable
 % TODO implement a check that all gooals exist (unresolved references)
 % TODO check that no "default" operators are overridden
@@ -175,3 +220,5 @@ pl_check_failed(DebugConfig) :-
 		on_entry,
 		write('\n[Debug] Phase: Check Program ---------------- PCCheck-FAILED --------------------------\n'))
 		,fail.
+		
+pl_check_error(Term, MSG).
