@@ -67,7 +67,6 @@ test('missing predicate') :- test_not_valid_prolog_clause('p(X) :- true, p3(_).'
 test('not1') :- test_not_valid_prolog_clause('p(X) :- not(p2(X)).').
 test('not2') :- test_not_valid_prolog_clause('p(X) :- \+(p2(X)).').
 test('not3') :- test_not_valid_prolog_clause('p(X) :- not(not(p2(X))).')
-test('not2') :- test_not_valid_prolog_clause('p(X) :- \+(\+(p2(X))).').
 
 :- end_tests(errors).
 

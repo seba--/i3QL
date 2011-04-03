@@ -128,7 +128,6 @@ check_term(DebugConfig, State,Program, Term) :-
 	compound_term_identifier(Term,FunctorArity),
 	compound_term_args(Term,Args),
 	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent Term is a compound term with the functor: ',FunctorArity ])) ),
-	!,
 	check_complex_term(DebugConfig, State, Program, Term, FunctorArity, Args).
 %check_term failed
 check_term(_DebugConfig, _State, _Program, Term) :- 
@@ -170,7 +169,6 @@ check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :-
 	lookup_in_predicate_meta(mode(X),Predicate),
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has mode -> look if some sub terms a callable'))),
-	!,
 	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X).
 %case 4:
 check_complex_term(_DebugConfig, _State, _Program, Term,  _FunctorArity, _Args) :- 
@@ -193,25 +191,20 @@ check_all_callable_sub_terms(_DebugConfig, _State, _Program, _Predicate, [], [] 
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable sub term')),
-	!,
 	check_term(DebugConfig, State, Program, Arg),
-	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
 %case 3:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable/A | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable/A sub term')),
 	term_name(Arg, Term_name),
-	!,
 	lookup_predicate(Term_name/A, Program, Pred),
 	Pred = pred(Term_name/A,_,_),
-	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).	
 %case 4:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args], [ _X | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tNot callable sub term')),
-	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
 
 /*
@@ -222,7 +215,6 @@ check_args_of_a_complex_term(_DebugConfig, _State, _Program, [] ) :- !.
 check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
 	!,
 	check_term(DebugConfig, State, Program, Head),
-	!,
 	check_args_of_a_complex_term(DebugConfig, State, Program, Tail ).
 
 
