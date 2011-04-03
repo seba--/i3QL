@@ -43,7 +43,8 @@
 :- use_module('../Predef.pl').
 :- use_module('../AST.pl').
 :- use_module('../Utils.pl').
-
+% TODO implement a check for multiple occurences of the same "name" anonymous variable
+% TODO check that no "default" operators are overridden
 % TODO: add a check if a variable is bounded
 pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	debug_message(
@@ -86,16 +87,6 @@ check_predicate(DebugConfig, State, Program, Predicate) :-
 		_,
 		fail ).
 	
-
-/*
-check_clause(DebugConfig, _State, _Program, Clause):- 
-	is_rule_without_body(Clause); %CHECK: scheint nicht zu funktionieren
-	clause_implementation(Clause,Impl),
-	is_rule(Impl),
-	rule(_Head,Body,_Meta,Impl),
-	is_string_atom(Body),
-	debug_message(DebugConfig,memberchk(processing_clause), write_list( ['\n[Debug] \tClause is a string atom: (',Body,')']) ).		
-*/
 check_clause(DebugConfig, State, Program, Clause):- 
 	debug_message(DebugConfig,memberchk(processing_clause), write('\n[Debug] Processing one Clause: ') ),
 	clause_implementation(Clause,Impl),
@@ -103,38 +94,33 @@ check_clause(DebugConfig, State, Program, Clause):-
 	rule(_Head,Body,_Meta,Impl),
 	check_term(DebugConfig, State, Program, Body).
 
+	
+/*
+	check_term checks the body of a clause
+	Term : Body of a clause ( rule(_Head,Body,_Meta,Impl),)
+	
+	check_term has the following cases
+		1) Term is a anonymous variable -> fail
+		2) Term is a predicate with arity 0 -> lookup predicate in the ast 
+			(need extra case because it is saved as a string atom in the ast)
+		3) Term is a complex term -> check complex term @see{check_complex_term/6} 
+		4) fail
+*/	
 check_term(_DebugConfig, _State, _Program, Term) :-
-	% a anonymous vaiable is no valid predicate
+	% a anonymous variable is no valid predicate
 	% ( p(x) :- _. )
 	is_anonymous_variable(Term),
 	pl_check_error(Term, 'a anonymous variable is no valid predicate'),
 	!,
 	fail.
-
-/*	
-% check_term for String atoms like !, fail, ...
-check_term(DebugConfig, _State, _Program, Term) :- 
-	%a atom make no sense as a predicate?
-	%aber brauch es da is_rule_without_body nicht so will wie ich möchte :)
-	is_string_atom(Term),  									
-	string_atom(Term,Value),
-	internal_allowed_string_atoms(Value),
-	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \Term a allowed string atom (fail, !, ...)') ).
-*/
-
 % check_term for predicates p\0	
 check_term(DebugConfig, _State, Program, Term) :- 
-	%a atom make no sense as a predicate?
-	%aber brauch es da is_rule_without_body nicht so will wie ich möchte :)
 	is_string_atom(Term),  									
 	string_atom(Term,Value),
 	lookup_predicate(Value/0, Program, Predicate),
 	Predicate = pred(Value/0,_,_),
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tCurrent Term is a predicate\0') ).	
-
-	
 %check_term for complex terms	
 check_term(DebugConfig, State,Program, Term) :- 
 	is_compound_term(Term), %compound term == compley term
@@ -144,8 +130,7 @@ check_term(DebugConfig, State,Program, Term) :-
 	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent Term is a compound term with the functor: ',FunctorArity ])) ),
 	!,
 	check_complex_term(DebugConfig, State, Program, Term, FunctorArity, Args).
-
-	%check_term failed
+%check_term failed
 check_term(_DebugConfig, _State, _Program, Term) :- 
 	%no vaild Term so fail
 	%State = error,
@@ -154,28 +139,31 @@ check_term(_DebugConfig, _State, _Program, Term) :-
 	pl_check_error(Term, 'Unknown term'),
 	fail.	
 
-check_term(_DebugConfig, _State, _Program, Term) :-
-	pl_check_error(Term, 'Error during PLCheck'),
-	!,
-	fail.	
-%----
 
+/*
+	check_complex_term checks a complex term
+	check_complex_term has the following cases:
+		1) complex term is a control flow term -> check all args of the complex term
+		2) complex term is in the ast and has no "mode(....)" meta informations -> finish
+		3) complex term is in the ast and has "mode(....)" meta informations -> 
+			check all callable args @see{check_all_callable_sub_terms/6}
+		4) fail
+*/
+%case 1:
 check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
 	% check if the term is a control flow term
 	internal_control_flow_term(FunctorArity),
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent term iscontrol flow term (',FunctorArity,')' ])) ),
 	check_args_of_a_complex_term(DebugConfig, State, Program, Args).
-	
-	
-
+%case 2:		
 check_complex_term(DebugConfig, _State, Program, _Term,  FunctorArity, _Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
 	not(lookup_in_predicate_meta(mode(_X),Predicate)),
 	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has no mode'))),
 	!.
-
+%case 3:
 check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
@@ -183,50 +171,53 @@ check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has mode -> look if some sub terms a callable'))),
 	!,
-	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X)
-	.
-	
-%----
-	
-
-
+	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X).
+%case 4:
 check_complex_term(_DebugConfig, _State, _Program, Term,  _FunctorArity, _Args) :- 
 	%State = error_lookup_failed,
 	pl_check_error(Term, 'Lookup failed'),
 	!,fail.
 	
-
+/*
+	check_all_callable_sub_terms iterate over all args and checks the args that have the mode callable
+	Cases:
+		1) finish
+		2) Arg has the mode _;callable (findall(X, p(X), Xs)) -> Arg is a complex term and can be checkt with check_term/2
+		3) Arg has the mode  _;callable/A (call(p, a)) -> Arg is a term but cant check with check_term/2 
+			because its stored in a string atom -> internal check
+		4) Arg has not the mode callable -> no check 
+*/
+%case 1:
 check_all_callable_sub_terms(_DebugConfig, _State, _Program, _Predicate, [], [] ).
+%case 2:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable sub term')),
-	%write(Arg),
 	!,
 	check_term(DebugConfig, State, Program, Arg),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
+%case 3:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable/A | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable/A sub term')),
 	term_name(Arg, Term_name),
-	%!,
-	%term_type(Arg, Term_type),
 	!,
 	lookup_predicate(Term_name/A, Program, Pred),
 	Pred = pred(Term_name/A,_,_),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).	
+%case 4:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args], [ _X | Xs] ) :-
-	%!,
-	%Arg \= _;callable_,
-	%Arg \= _;callable,
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tNot callable sub term')),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
-check_all_callable_sub_terms(_, _, _,  _, _, _ ) :- !, fail.
 
-
+/*
+	check_args_of_a_complex_term checks all args of a complex term. This predicate is used if the complex term 
+	is a controll flow term
+*/
 check_args_of_a_complex_term(_DebugConfig, _State, _Program, [] ) :- !.
 check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
 	!,
@@ -244,19 +235,11 @@ internal_control_flow_term(not/1).
 internal_control_flow_term((\+)/1).
 
 
-internal_allowed_string_atoms(!).
-internal_allowed_string_atoms(fail).
-internal_allowed_string_atoms(true).
-internal_allowed_string_atoms(false).
-
-% TODO implement a check for multiple occurences of the same "name" anonymous variable
-% TODO check that no "default" operators are overridden
-
-
-pl_check_failed(_DebugConfig) :-
-	write('fail'),
-	fail.
-		
+/*
+	write an error msg that is formatted as described here:
+	<a href="http://www.gnu.org/prep/standards/html_node/Errors.html">
+	http://www.gnu.org/prep/standards/html_node/Errors.html</a>
+*/		
 pl_check_error(Term, MSG) :- 
 	term_pos(Term, File, LineNumber, CN),
 	%TODO: put Term =.. [_,_, TermName|_] in the AST 
