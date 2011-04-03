@@ -34,7 +34,7 @@
 
    @author Malte Viering
 */
-:- ensure_loaded('test/compiler/checker/Special_Cases.pl').
-:- ensure_loaded('test/compiler/checker/Some_Standard_Programs.pl').
-:- ensure_loaded('test/compiler/checker/Some_Prolog_Clauses.pl').
-:- ensure_loaded('test/compiler/checker/Errors.pl').
+:- ensure_loaded('test/compiler/check/Special_Cases.pl').
+:- ensure_loaded('test/compiler/check/Some_Standard_Programs.pl').
+:- ensure_loaded('test/compiler/check/Some_Prolog_Clauses.pl').
+:- ensure_loaded('test/compiler/check/Errors.pl').

@@ -136,7 +136,7 @@ POSSIBILITY OF SUCH DAMAGE.
 					executable="${prolog.executable}">
 				<arg value="-q" />
 				<arg value="-f" />
-				<arg value="${compiler.tests.dir}/checker/suite.pl" />
+				<arg value="${compiler.tests.dir}/check/suite.pl" />
 				<arg value="-t" />
 				<arg value="run_tests." />
 			</exec>

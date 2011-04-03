@@ -15,7 +15,7 @@
 
         	 
 test_valid_prolog_file(File) :-
-	atomic_list_concat(['test/compiler/checker/data/',File,'.pl'], CompletFile),
+	atomic_list_concat(['test/compiler/check/data/',File,'.pl'], CompletFile),
 	test_valid_prolog_files([CompletFile]).
 test_valid_prolog_files(Files) :-
 	pl_load([],Files,_,AST),
