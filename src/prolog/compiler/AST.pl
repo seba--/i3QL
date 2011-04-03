@@ -348,7 +348,6 @@ lookup_predicate_in_predicates(
 		Predicate
 	) :-
 	lookup_predicate_in_predicates(PredicateIdentifier,Predicates,Predicate).
-lookup_predicate_in_predicates(_PredicateIdentifier, [], _Predicate) :- !, fail.
 
 
 /**
