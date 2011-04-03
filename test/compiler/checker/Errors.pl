@@ -45,6 +45,15 @@
 :- use_module('PLCheck_utils.pl').
 :- begin_tests(errors).
 
-test('call') :- test_valid_prolog_file('call').
-
+test('predicate') :- test_not_valid_prolog_clause('p(X) :- a(X).').
+test('predicate2') :- test_not_valid_prolog_clause('b(1). p(X) :- a(X).').
+test('call') :- test_not_valid_prolog_clause('p(X) :- call(p2,X).').
+%test('call2') :- test_not_valid_prolog_clause('call(p2,X).').
+test('_') :- test_not_valid_prolog_clause('p(X) :- _.').
+test('missing predicate') :- test_not_valid_prolog_clause('p(X) :- true, p3(_).').
+%test('findall') :- test_not_valid_prolog_clause('findall(X, p1, Xs).').
+test('findall2') :- test_not_valid_prolog_clause('p(X) :- findall(X, p1, Xs).').
+test('not1') :- test_not_valid_prolog_clause('p(X) :- not(p2(X)).').
+test('not1') :- test_not_valid_prolog_clause('p(X) :- \+(p2(X)).').
 :- end_tests(errors).
+

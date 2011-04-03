@@ -32,7 +32,6 @@
 
 /**
 	Tests for PLCheck. 
-	all tests in that file must succed
 
    @author Malte Viering
 */

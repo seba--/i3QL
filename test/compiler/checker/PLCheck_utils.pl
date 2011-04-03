@@ -26,7 +26,8 @@ test_not_valid_prolog_file(File) :-
 test_valid_prolog_sys_programs(File):-
 	atomic_list_concat(['test/system/programs/',File,'.pl'], CompletFile),
 	test_valid_prolog_files([CompletFile]).
-	
+
+%CHECK: not working for all PrologClauses!	
 test_valid_prolog_clause(PrologClause) :-
 	tokenize_string(PrologClause,Ts),
 	clauses(Ts,Clause),

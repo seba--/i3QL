@@ -43,11 +43,11 @@
 :- ensure_loaded('src/prolog/compiler/phase/PLCheck.pl').
 :- ensure_loaded('src/prolog/compiler/phase/PLLoad.pl').
 :- use_module('PLCheck_utils.pl').
-:- begin_tests(valid_prolog_clauses).
+:- begin_tests(special_cases).
 
-test('fact') :- test_valid_prolog_clause('a(1).').
-test('fact+rule') :- test_valid_prolog_clause('a(1). p(X) :- a(X).').
-test('fact+rule2') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- p(X), a(_).').
-test('fact+rule+call') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- call(p, A).').
+test('special_cases: call') :- test_valid_prolog_file('call').
+test('special_cases: control_flow') :- test_valid_prolog_file('control_flow').
+test('special_cases: findall') :- test_valid_prolog_file('findall').
+test('special_cases: not') :- test_valid_prolog_file('not').
 
-:- end_tests(valid_prolog_clauses).
+:- end_tests(special_cases).

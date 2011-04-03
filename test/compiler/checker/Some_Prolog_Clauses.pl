@@ -32,8 +32,7 @@
 
 /**
 	Tests for PLCheck. 
-	all tests in that file must succed
-
+	
    @author Malte Viering
 */
 :- ensure_loaded('src/prolog/compiler/Lexer.pl').
@@ -43,10 +42,18 @@
 :- ensure_loaded('src/prolog/compiler/phase/PLCheck.pl').
 :- ensure_loaded('src/prolog/compiler/phase/PLLoad.pl').
 :- use_module('PLCheck_utils.pl').
-:- begin_tests(special_cases).
+:- begin_tests(valid_prolog_clauses).
 
-test('call') :- test_valid_prolog_file('call').
-test('control_flow') :- test_valid_prolog_file('control_flow').
-test('findall') :- test_valid_prolog_file('findall').
+%test_valid_prolog_clause doesnt work for that clause
+%but test_valid_prolog_file works
+%test('valid_prolog_clauses: not2') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- \+(p(X)).').
+test('valid_prolog_clauses: cut') :- test_valid_prolog_clause('p(X) :- !.').
+test('valid_prolog_clauses: cut') :- test_valid_prolog_clause('a(1). p(X) :- !. p(X) :- a(X), p(X).').
+test('valid_prolog_clauses: fact') :- test_valid_prolog_clause('a(1).').
+test('valid_prolog_clauses: fact+rule') :- test_valid_prolog_clause('a(1). p(X) :- a(X).').
+test('valid_prolog_clauses: fact+rule2') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- p(X), a(_).').
+test('valid_prolog_clauses: fact+rule+call') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- call(p, A).').
+test('valid_prolog_clauses: not') :- test_valid_prolog_clause('a(1). p(X) :- a(X). p2(X) :- not(p(X)).').
 
-:- end_tests(special_cases).
+
+:- end_tests(valid_prolog_clauses).

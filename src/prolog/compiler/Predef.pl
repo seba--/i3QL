@@ -170,7 +170,12 @@ add_predefined_predicates_to_ast(AST,Program) :-
 		pred('>='/2,[solutions([0,1]),mode(+,+)]), % arithmetic comparison; requires both terms to be instantiated
 		% The "other" arithmetic operators ( +, -, *,...) are not top-level predicates!
 		
-		pred(call/1,[mode([+;callable])]),
+		pred(call/1,[mode([+;callable/0])]),
+		pred(call/2,[mode([+;callable/1,+])]),
+		pred(call/3,[mode([+;callable/2,+,+])]),
+		pred(call/4,[mode([+;callable/3,+,+,+])]),
+		pred(call/5,[mode([+;callable/4,+,+,+,+])]),
+		pred(call/6,[mode([+;callable/5,+,+,+,+,+])]),
 		pred(','/2,[mode([+;callable,+;callable])]),
 		pred(findall/3,[mode([+,+;callable,+])])
 		],

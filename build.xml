@@ -130,8 +130,8 @@ POSSIBILITY OF SUCH DAMAGE.
 	</target>
 	
 	<target name="test-plcheck"
-				description="Tests the checker.">
-			<echo 	message="Testing the checker." />
+				description="Tests the PLCheck.">
+			<echo 	message="Testing the PLCheck." />
 			<exec 	vmlauncher="false" 
 					executable="${prolog.executable}">
 				<arg value="-q" />

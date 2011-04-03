@@ -49,7 +49,7 @@
 	]
 ).
 :- meta_predicate debug_message(+,1,0).
-:- use_module('../Utils.pl').
+%:- use_module('../Utils.pl').
 /*	debug_message(DebugConfiguration,GenerateMessageGoal,MessageGoal) :-
 	is used to print debug messages.<br/>
 	The MessagePredicate is called if the GenerateMessageGoal succeeds. <code>
