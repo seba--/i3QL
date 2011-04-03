@@ -119,6 +119,8 @@
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
+		term_name/2,
+		term_type/2,
 		add_clause/3,
 		add_predicates/3,
 		is_ground_term/1,
@@ -898,7 +900,9 @@ term_pos(ASTNode,Pos) :-
 	Meta = [Pos|_], 
 	Pos = pos(_File,_LN,_CN).
 
-
+	
+term_name(ASTNode, Name) :- ASTNode =.. [_,_, Name|_].
+term_type(ASTNode, Type) :- ASTNode =.. [Type,_,_|_].
 
 /**
 	Returns the position of the term in the source file. Succeeds iff position

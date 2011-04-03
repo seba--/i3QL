@@ -235,10 +235,9 @@ internal_control_flow_term((\+)/1).
 pl_check_error(Term, MSG) :- 
 	term_pos(Term, File, LineNumber, CN),
 	%TODO: put Term =.. [_,_, TermName|_] in the AST 
-	Term =.. [TermType,_, TermName|_],
+	term_name(Term,TermName),
+	term_type(Term,TermType),
 	atomic_list_concat(['\n',File, ':',LineNumber,':' , CN ,' : error: ',MSG, ' (Termtype: ', TermType, ' Termname: ' ,TermName ,')'], ErrorMSG),
 	write(ErrorMSG).
 
-%TODO: put in the ast
-term_name(Term, Name) :- Term =.. [_,_, Name|_].
-term_type(Term, Type) :- Term =.. [Type,_,_|_].
+
