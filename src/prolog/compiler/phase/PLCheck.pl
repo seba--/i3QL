@@ -51,11 +51,12 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 			DebugConfig,
 			on_entry,
 			write('\n[Debug] Phase: Check Program________________________________________________\n')),
-	check_predicates(DebugConfig,Program,_).
+	check_predicates(DebugConfig,Program,State),
 	% The following unification (and subsequently the pl_check predicate as a 
 	% whole) fails if an error was found.
-	%State = no_errors. 
-
+	%\+(State == errors_found).
+	State = no_errors,
+	debug_message(DebugConfig,on_exit, write('\n[Debug] PLCheck: no errors found ')). 
 
 /**
 	Validates the SAE program.
@@ -65,27 +66,20 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 	calls for all user predicate the internal check routine
 */
 check_predicates(DebugConfig,Program,State) :- 
-	catch(
-		foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)),
-		_,
-		fail),
-		!,
-	debug_message(DebugConfig,on_exit, write('\n[Debug] PLCheck: no errors found '))
-		. 
+	foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)),
+	!. 
 		
 		
-check_predicates(DebugConfig,_Program,_State) :- 
+check_predicates(DebugConfig,_Program,State) :- 
 	debug_message(DebugConfig,on_exit, write('\n\n[Debug] PLCheck:  ###################### ERRORS FOUND ######################')),
 	!,
-	fail.	
+	State = error_found.	
 check_predicate(DebugConfig, State, Program, Predicate) :- 
 	Predicate = pred(PredicateIdentifier,_,_),
 	debug_message(DebugConfig,processing_predicate, write_list(['\n[Debug] Processing Predicate: ', PredicateIdentifier])),
 	predicate_clauses(Predicate, Clauses), 
-	catch(
-		foreach_clause(Clauses,check_clause(DebugConfig, State, Program)),
-		_,
-		fail ).
+	foreach_clause(Clauses,check_clause(DebugConfig, State, Program)).
+		
 	
 check_clause(DebugConfig, State, Program, Clause):- 
 	debug_message(DebugConfig,memberchk(processing_clause), write('\n[Debug] Processing one Clause: ') ),
@@ -93,7 +87,8 @@ check_clause(DebugConfig, State, Program, Clause):-
 	is_rule(Impl),
 	rule(_Head,Body,_Meta,Impl),
 	check_term(DebugConfig, State, Program, Body).
-
+check_clause(_DebugConfig, State, _Program, _Clause):- 
+	State = error_found.
 	
 /*
 	check_term checks the body of a clause
@@ -106,13 +101,13 @@ check_clause(DebugConfig, State, Program, Clause):-
 		3) Term is a complex term -> check complex term @see{check_complex_term/6} 
 		4) fail
 */	
-check_term(_DebugConfig, _State, _Program, Term) :-
+check_term(_DebugConfig, State, _Program, Term) :-
 	% a anonymous variable is no valid predicate
 	% ( p(x) :- _. )
 	is_anonymous_variable(Term),
 	pl_check_error(Term, 'a anonymous variable is no valid predicate'),
 	!,
-	fail.
+	State = error_found.
 % check_term for predicates p\0	
 check_term(DebugConfig, _State, Program, Term) :- 
 	is_string_atom(Term),  									
@@ -130,13 +125,10 @@ check_term(DebugConfig, State,Program, Term) :-
 	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent Term is a compound term with the functor: ',FunctorArity ])) ),
 	check_complex_term(DebugConfig, State, Program, Term, FunctorArity, Args).
 %check_term failed
-check_term(_DebugConfig, _State, _Program, Term) :- 
-	%no vaild Term so fail
-	%State = error,
+check_term(_DebugConfig, State, _Program, Term) :- 
 	!,
-	%State = error_unknown_term,
 	pl_check_error(Term, 'Unknown term'),
-	fail.	
+	State = error_found.	
 
 
 /*
@@ -171,10 +163,11 @@ check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :-
 	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has mode -> look if some sub terms a callable'))),
 	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X).
 %case 4:
-check_complex_term(_DebugConfig, _State, _Program, Term,  _FunctorArity, _Args) :- 
+check_complex_term(_DebugConfig, State, _Program, Term,  _FunctorArity, _Args) :- 
 	%State = error_lookup_failed,
 	pl_check_error(Term, 'Lookup failed'),
-	!,fail.
+	!,
+	State = error_found.
 	
 /*
 	check_all_callable_sub_terms iterate over all args and checks the args that have the mode callable
@@ -188,25 +181,28 @@ check_complex_term(_DebugConfig, _State, _Program, Term,  _FunctorArity, _Args) 
 %case 1:
 check_all_callable_sub_terms(_DebugConfig, _State, _Program, _Predicate, [], [] ).
 %case 2:
-check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable | Xs] ) :-
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_ : callable | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable sub term')),
 	check_term(DebugConfig, State, Program, Arg),
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
 %case 3:
-check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_;callable/A | Xs] ) :-
-	!,
+check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_ : callable/A | Xs] ) :-
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable/A sub term')),
-	term_name(Arg, Term_name),
-	lookup_predicate(Term_name/A, Program, Pred),
-	Pred = pred(Term_name/A,_,_),
+	term_hrr_name(Arg, Term_name),
+	
+		(lookup_predicate(Term_name/A, Program, Pred),
+		Pred = pred(Term_name/A,_,_))
+			;
+		(State = error_found,
+		pl_check_error(Arg,'No such predicate found')),
+	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).	
 %case 4:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args], [ _X | Xs] ) :-
 	!,
 	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tNot callable sub term')),
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
-
 /*
 	check_args_of_a_complex_term checks all args of a complex term. This predicate is used if the complex term 
 	is a controll flow term
@@ -234,10 +230,7 @@ internal_control_flow_term((\+)/1).
 */		
 pl_check_error(Term, MSG) :- 
 	term_pos(Term, File, LineNumber, CN),
-	%TODO: put Term =.. [_,_, TermName|_] in the AST 
-	term_name(Term,TermName),
-	term_type(Term,TermType),
+	term_hrr_name(Term,TermName),
+	term_hrr_type(Term,TermType),
 	atomic_list_concat(['\n',File, ':',LineNumber,':' , CN ,' : error: ',MSG, ' (Termtype: ', TermType, ' Termname: ' ,TermName ,')'], ErrorMSG),
 	write(ErrorMSG).
-
-

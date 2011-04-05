@@ -32,7 +32,7 @@
 
 /**
 	Tests for PLCheck. 
-	all tests in that file must succed
+	
 
    @author Malte Viering
 */
@@ -61,7 +61,7 @@ test('findall4') :- test_not_valid_prolog_clause('p(X) :- findall(X, findall(X1,
 test('findall5') :- test_not_valid_prolog_clause('p(X) :- findall(X, findall(X1, p, X1s), Xs).').
 test('call') :- test_not_valid_prolog_clause('p(X) :- call(p2,X).').
 test('call2') :- test_not_valid_prolog_clause('p1(X). p(X) :- call(p1,X,Y).').
-test('call3') :- test_not_valid_prolog_clause('a(1), p1(X) :- a(X). p(X) :- call(p1).').
+test('call3') :- test_not_valid_prolog_clause('a(1). p1(X) :- a(X). p(X) :- call(p1).').
 test('_') :- test_not_valid_prolog_clause('p(X) :- _.').
 test('missing predicate') :- test_not_valid_prolog_clause('p(X) :- true, p3(_).').
 test('not1') :- test_not_valid_prolog_clause('p(X) :- not(p2(X)).').

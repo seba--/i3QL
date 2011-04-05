@@ -119,8 +119,8 @@
 		term_meta/2,
 		term_pos/2,
 		term_pos/4,
-		term_name/2,
-		term_type/2,
+		term_hrr_name/2,
+		term_hrr_type/2,
 		add_clause/3,
 		add_predicates/3,
 		is_ground_term/1,
@@ -900,9 +900,23 @@ term_pos(ASTNode,Pos) :-
 	Meta = [Pos|_], 
 	Pos = pos(_File,_LN,_CN).
 
-	
-term_name(ASTNode, Name) :- ASTNode =.. [_,_, Name|_].
-term_type(ASTNode, Type) :- ASTNode =.. [Type,_,_|_].
+
+
+% term_hrr_name(ASTNode, Name)  (ASTNode =.. [_,_, Name|_].)
+term_hrr_name(ct(_,Name,_),Name).
+term_hrr_name(r(_,Name), Name).
+term_hrr_name(i(_,Name), Name).
+term_hrr_name(a(_,Name), Name).
+term_hrr_name(av(_,Name), Name).
+term_hrr_name(av(_,Name), Name).
+
+%:- term_type(ASTNode, Type)
+term_hrr_type(ct(_,_,_),compound_term).
+term_hrr_type(r(_,_), term_r).
+term_hrr_type(i(_,_), term_integer).
+term_hrr_type(a(_,_), term_atom).
+term_hrr_type(av(_,_), term_anonymous_variable).
+term_hrr_type(av(_,_), term_variable).
 
 /**
 	Returns the position of the term in the source file. Succeeds iff position
