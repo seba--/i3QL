@@ -63,17 +63,12 @@ pl_check(DebugConfig,Program,_OutputFolder,Program) :-
 */
 
 /*
-	calls for all user predicate the internal check routine
+	Calls for all user predicate the internal check routine
 */
 check_predicates(DebugConfig,Program,State) :- 
 	foreach_user_predicate(Program, check_predicate(DebugConfig,State, Program)),
 	!. 
 		
-		
-check_predicates(DebugConfig,_Program,State) :- 
-	debug_message(DebugConfig,on_exit, write('\n\n[Debug] PLCheck:  ###################### ERRORS FOUND ######################')),
-	!,
-	State = error_found.	
 check_predicate(DebugConfig, State, Program, Predicate) :- 
 	Predicate = pred(PredicateIdentifier,_,_),
 	debug_message(DebugConfig,processing_predicate, write_list(['\n[Debug] Processing Predicate: ', PredicateIdentifier])),
@@ -87,22 +82,21 @@ check_clause(DebugConfig, State, Program, Clause):-
 	is_rule(Impl),
 	rule(_Head,Body,_Meta,Impl),
 	check_term(DebugConfig, State, Program, Body).
-check_clause(_DebugConfig, State, _Program, _Clause):- 
-	State = error_found.
 	
 /*
 	check_term checks the body of a clause
-	Term : Body of a clause ( rule(_Head,Body,_Meta,Impl),)
+	Term: Body of a clause ( rule(_Head,Body,_Meta,Impl),)
 	
 	check_term has the following cases
-		1) Term is a anonymous variable -> fail
+		1) Term is an anonymous variable -> fail
 		2) Term is a predicate with arity 0 -> lookup predicate in the ast 
 			(need extra case because it is saved as a string atom in the ast)
-		3) Term is a complex term -> check complex term @see{check_complex_term/6} 
-		4) fail
+		3) Term is a in build predicate
+		4) Term is a complex term -> check complex term @see{check_complex_term/6} 
+		5) error
 */	
 check_term(_DebugConfig, State, _Program, Term) :-
-	% a anonymous variable is no valid predicate
+	% an anonymous variable is no valid predicate
 	% ( p(x) :- _. )
 	is_anonymous_variable(Term),
 	pl_check_error(Term, 'a anonymous variable is no valid predicate'),
@@ -115,10 +109,16 @@ check_term(DebugConfig, _State, Program, Term) :-
 	lookup_predicate(Value/0, Program, Predicate),
 	Predicate = pred(Value/0,_,_),
 	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tCurrent Term is a predicate\0') ).	
+	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tCurrent Term is a predicate with arity 0') ).	
+check_term(DebugConfig, _State ,_Program, Term) :- 
+	is_compound_term(Term),
+	compound_term_identifier(Term,FunctorArity),
+	internal_allowed_build_in_predicate(FunctorArity),
+	debug_message(DebugConfig,memberchk(processing_clause), write('\n[Debug] \tCurrent Term is a build-in predicate: ') ),
+	!.
 %check_term for complex terms	
 check_term(DebugConfig, State,Program, Term) :- 
-	is_compound_term(Term), %compound term == compley term
+	is_compound_term(Term), %compound term == complex term
 	!,
 	compound_term_identifier(Term,FunctorArity),
 	compound_term_args(Term,Args),
@@ -138,21 +138,21 @@ check_term(_DebugConfig, State, _Program, Term) :-
 		2) complex term is in the ast and has no "mode(....)" meta informations -> finish
 		3) complex term is in the ast and has "mode(....)" meta informations -> 
 			check all callable args @see{check_all_callable_sub_terms/6}
-		4) fail
+		4) error
 */
 %case 1:
 check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
 	% check if the term is a control flow term
 	internal_control_flow_term(FunctorArity),
 	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent term iscontrol flow term (',FunctorArity,')' ])) ),
+	debug_message(DebugConfig,memberchk(processing_clause), write_list( (['\n[Debug] \tCurrent term is a control flow term (',FunctorArity,')' ])) ),
 	check_args_of_a_complex_term(DebugConfig, State, Program, Args).
 %case 2:		
 check_complex_term(DebugConfig, _State, Program, _Term,  FunctorArity, _Args) :- 
 	lookup_predicate(FunctorArity, Program, Predicate),
 	Predicate = pred(FunctorArity,_,_),
 	not(lookup_in_predicate_meta(mode(_X),Predicate)),
-	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has no mode'))),
+	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup of the predicate was successful, predicate has no mode'))),
 	!.
 %case 3:
 check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :- 
@@ -160,12 +160,12 @@ check_complex_term(DebugConfig, State, Program, _Term,  FunctorArity, Args) :-
 	Predicate = pred(FunctorArity,_,_),
 	lookup_in_predicate_meta(mode(X),Predicate),
 	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup predicate succesful, predicate has mode -> look if some sub terms a callable'))),
+	debug_message(DebugConfig,memberchk(processing_clause), write( ('\n[Debug] \tLookup of the predicate was successful, predicate has mode -> look if some sub terms are callable'))),
 	check_all_callable_sub_terms(DebugConfig, State,Program, Predicate, Args, X).
 %case 4:
 check_complex_term(_DebugConfig, State, _Program, Term,  _FunctorArity, _Args) :- 
 	%State = error_lookup_failed,
-	pl_check_error(Term, 'Lookup failed'),
+	pl_check_error(Term, 'Lookup of the predicate failed'),
 	!,
 	State = error_found.
 	
@@ -173,35 +173,35 @@ check_complex_term(_DebugConfig, State, _Program, Term,  _FunctorArity, _Args) :
 	check_all_callable_sub_terms iterate over all args and checks the args that have the mode callable
 	Cases:
 		1) finish
-		2) Arg has the mode _;callable (findall(X, p(X), Xs)) -> Arg is a complex term and can be checkt with check_term/2
-		3) Arg has the mode  _;callable/A (call(p, a)) -> Arg is a term but cant check with check_term/2 
+		2) Arg has the mode _ : callable (findall(X, p(X), Xs)) -> Arg is a complex term and can be checkt with check_term/2
+		3) Arg has the mode _ : callable/A (call(p, a)) -> Arg is a term but can nott check with check_term/2 
 			because its stored in a string atom -> internal check
-		4) Arg has not the mode callable -> no check 
+		4) Arg is not callable -> no check 
 */
 %case 1:
 check_all_callable_sub_terms(_DebugConfig, _State, _Program, _Predicate, [], [] ).
 %case 2:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_ : callable | Xs] ) :-
 	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable sub term')),
+	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound a callable sub term')),
 	check_term(DebugConfig, State, Program, Arg),
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).
 %case 3:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [Arg|Args], [_ : callable/A | Xs] ) :-
-	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound callable/A sub term')),
+	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tFound a callable/A sub term')),
 	term_hrr_name(Arg, Term_name),
 	
 		(lookup_predicate(Term_name/A, Program, Pred),
 		Pred = pred(Term_name/A,_,_))
 			;
 		(State = error_found,
-		pl_check_error(Arg,'No such predicate found')),
+		pl_check_error(Arg,'Lookup of callable sub term failed')),
 	!,
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args,Xs ).	
 %case 4:
 check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args], [ _X | Xs] ) :-
 	!,
-	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tNot callable sub term')),
+	debug_message(DebugConfig,memberchk(processing_clause), write( '\n[Debug] \tCurrent sub term is not callable')),
 	check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, Args, Xs ).
 /*
 	check_args_of_a_complex_term checks all args of a complex term. This predicate is used if the complex term 
@@ -222,7 +222,8 @@ internal_control_flow_term((*->)/2).
 internal_control_flow_term(not/1).
 internal_control_flow_term((\+)/1).
 
-
+internal_allowed_build_in_predicate(functor/3).
+internal_allowed_build_in_predicate(arg/3).
 /*
 	write an error msg that is formatted as described here:
 	<a href="http://www.gnu.org/prep/standards/html_node/Errors.html">
