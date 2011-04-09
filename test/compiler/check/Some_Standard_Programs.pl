@@ -52,7 +52,7 @@ test(is_prime) :- test_valid_prolog_sys_programs('is_prime').
 %%@< is not supported
 %test(poly) :- test_valid_prolog_sys_programs('poly').
 test(qsort) :- test_valid_prolog_sys_programs('qsort').
-test(qsort) :- test_valid_prolog_sys_programs('browse').
+%test(qsort) :- test_valid_prolog_sys_programs('browse').
 test(queens) :- test_valid_prolog_sys_programs('queens').
 
 :- end_tests(test_some_standard_programs).

@@ -99,7 +99,7 @@ check_term(_DebugConfig, State, _Program, Term) :-
 	% an anonymous variable is no valid predicate
 	% ( p(x) :- _. )
 	is_anonymous_variable(Term),
-	pl_check_error(Term, 'a anonymous variable is no valid predicate'),
+	pl_check_error(Term, 'an anonymous variable is no valid predicate'),
 	!,
 	State = error_found.
 % check_term for predicates p\0	
@@ -207,6 +207,7 @@ check_all_callable_sub_terms(DebugConfig, State, Program,  Predicate, [_Arg|Args
 	check_args_of_a_complex_term checks all args of a complex term. This predicate is used if the complex term 
 	is a controll flow term
 */
+% TODO rename check_all_args_of_control_flow_term
 check_args_of_a_complex_term(_DebugConfig, _State, _Program, [] ) :- !.
 check_args_of_a_complex_term(DebugConfig, State, Program, [Head | Tail ]  ) :- 
 	!,
@@ -222,6 +223,8 @@ internal_control_flow_term((*->)/2).
 internal_control_flow_term(not/1).
 internal_control_flow_term((\+)/1).
 
+
+% TODO move to predef as soon as they are really supported...
 internal_allowed_build_in_predicate(functor/3).
 internal_allowed_build_in_predicate(arg/3).
 /*

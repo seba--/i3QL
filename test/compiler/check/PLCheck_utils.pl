@@ -3,7 +3,7 @@
 	test_not_valid_prolog_file/1,
 	test_valid_prolog_sys_programs/1,
 	test_valid_prolog_clause/1,
-	test_not_valid_prolog_clause/1]).
+	test_not_valid_prolog_clause/2]).
 
 :- ensure_loaded('src/prolog/compiler/Lexer.pl').
 :- ensure_loaded('src/prolog/compiler/Parser.pl').
@@ -33,5 +33,5 @@ test_valid_prolog_clause(PrologClause) :-
 	clauses(Ts,Clause),
 	construct_initial_ast([Clause],AST),
 	pl_check([],AST,_,AST).
-test_not_valid_prolog_clause(Clause) :-
-	not(test_valid_prolog_clause(Clause)).
+test_not_valid_prolog_clause(Clause, ExpectedOutput) :-
+	assert_standard_output(not(test_valid_prolog_clause(Clause)), ExpectedOutput).
