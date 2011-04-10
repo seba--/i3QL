@@ -907,7 +907,7 @@ term_hrr_name(ct(_,Name,_),Name).
 term_hrr_name(r(_,Name), Name).
 term_hrr_name(i(_,Name), Name).
 term_hrr_name(a(_,Name), Name).
-term_hrr_name(av(_,Name), Name).
+term_hrr_name(v(_,Name), Name).
 term_hrr_name(av(_,Name), Name).
 
 %:- term_type(ASTNode, Type)
@@ -916,7 +916,7 @@ term_hrr_type(r(_,_), term_r).
 term_hrr_type(i(_,_), term_integer).
 term_hrr_type(a(_,_), term_atom).
 term_hrr_type(av(_,_), term_anonymous_variable).
-term_hrr_type(av(_,_), term_variable).
+term_hrr_type(v(_,_), term_variable).
 
 /**
 	Returns the position of the term in the source file. Succeeds iff position

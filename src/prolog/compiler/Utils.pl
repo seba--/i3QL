@@ -496,7 +496,7 @@ intersect_sets([A|As],Bs,Cs) :-
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),
 	write(Atom).
-
+% write_list(list of terms)
 write_list([]).
 write_list([Head|Tail]) :-
 	write(Head),
