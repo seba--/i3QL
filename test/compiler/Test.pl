@@ -7,6 +7,8 @@
 :- ensure_loaded('test/compiler/parser/CornerCases.pl').
 :- ensure_loaded('test/compiler/parser/Errors.pl').
 :- ensure_loaded('test/compiler/parser/Overall.pl').
+% Check
+:- ensure_loaded('test/compiler/check/suite.pl').
 
 % Compiler functionality 
 :- ensure_loaded('test/compiler/data_flow/intra_clause_variable_usage.pl').

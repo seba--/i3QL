@@ -95,8 +95,8 @@
 */
 %%%% 1. LOADING AND CHECKING
 phase(pl_load,execute,[on_entry,reading_file/*,ast(user)*/]). %Debug flags: ast(user),ast(built_in), on_entry, reading_file
-phase(pl_check,execute,[on_entry]) :- phase(pl_load,execute,_).
-	
+phase(pl_check,execute,[on_entry,processing_predicate,processing_clause, processing_term, on_exit]) :- phase(pl_load,execute,_).
+
 %%%% 2. ANALYSES
 phase(pl_analyze_cuts,execute,[on_entry,processing_predicate,results]) :- 
 	phase(pl_check,execute,_).

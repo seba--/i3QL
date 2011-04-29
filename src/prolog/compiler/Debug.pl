@@ -49,8 +49,6 @@
 	]
 ).
 :- meta_predicate debug_message(+,1,0).
-
-
 /*	debug_message(DebugConfiguration,GenerateMessageGoal,MessageGoal) :-
 	is used to print debug messages.<br/>
 	The MessagePredicate is called if the GenerateMessageGoal succeeds. <code>

@@ -77,6 +77,7 @@
 		set_subtract/3,
 		
 		write_atomic_list/1,
+		write_list/1,
 	%	write_atomic_list/2
 	
 		assert_standard_output/2
@@ -495,7 +496,12 @@ intersect_sets([A|As],Bs,Cs) :-
 write_atomic_list(AtomicList) :-
 	atomic_list_concat(AtomicList,Atom),
 	write(Atom).
-
+% write_list(list of terms)
+write_list([]).
+write_list([Head|Tail]) :-
+	write(Head),
+	write_list(Tail).
+	
 
 /**
 	@signature assert_standard_output(+:callable_term,?ExpectedOutput:atom_codes)

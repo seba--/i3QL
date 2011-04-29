@@ -128,6 +128,19 @@ POSSIBILITY OF SUCH DAMAGE.
 			<arg value="run_tests." />
 		</exec>
 	</target>
+	
+	<target name="test-plcheck"
+				description="Tests the PLCheck.">
+			<echo 	message="Testing the PLCheck." />
+			<exec 	vmlauncher="false" 
+					executable="${prolog.executable}">
+				<arg value="-q" />
+				<arg value="-f" />
+				<arg value="${compiler.tests.dir}/check/suite.pl" />
+				<arg value="-t" />
+				<arg value="run_tests." />
+			</exec>
+		</target>
 
 	<target	name="test-saere"
 			depends="compile-saere"

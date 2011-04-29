@@ -38,11 +38,16 @@ case class group_by[V <: AnyRef, K <: AnyRef](val source: Observable[V], val gro
 
    def removed(v: V) {
       val key = groupKey(v)
+      /*if(!groups.contains(key)){
+        println("x")
+        //TODO remove 
+        return
+      }*/
       val (count, group) = groups(key)
       group.element_removed(v)
       if (count.dec == 0) {
          groups -= key
-         element_removed(key, group)
+         element_removed((key, group))
       }
    }
 
@@ -54,7 +59,7 @@ case class group_by[V <: AnyRef, K <: AnyRef](val source: Observable[V], val gro
          element_added((key, observable)); (new Count(), observable)
       })
       count.inc
-      group.element_added(v)
+      group.element_added(v) 
    }
 
    // the result is an observable list of pairs of values where the first
@@ -84,6 +89,8 @@ case class group_by[V <: AnyRef, K <: AnyRef](val source: Observable[V], val gro
          def removed(v: (K,Observable[V])) {
         	 val f = groups(v)
         	 val key = v._1
+        	 groups -= v
+        	 
         	 element_removed((key,f))
          }
     

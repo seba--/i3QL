@@ -36,7 +36,12 @@
 	
 	@author Michael Eichberg
 */
-:- module(sae_load_program,[pl_load/4]).
+:- module(
+	sae_load_program,
+	[
+		pl_load/4,
+		construct_initial_ast/2
+	]).
 
 :- use_module('../AST.pl').
 :- use_module('../Debug.pl').
@@ -79,18 +84,22 @@ pl_load(DebugConfig,Files,_OutputFolders,AST) :-
 		fail
 	;
 		% iterate over all terms of all ASTs and create a global ast
-		build_ast(ListOfListOfClauses,AST0),
-		add_predefined_predicates_to_ast(AST0,AST),
+		construct_initial_ast(ListOfListOfClauses,AST),
 	
 		debug_message(DebugConfig,ast(user),write_ast(user,AST)),
 		debug_message(DebugConfig,ast(built_in),write_ast(built_in,AST))
 	).
 
 
+construct_initial_ast(ListOfListOfClauses,AST) :-
+		build_ast(ListOfListOfClauses,AST0),
+		add_predefined_predicates_to_ast(AST0,AST).
+
 
 /* ************************************************************************** *\
  *                P R I V A T E     I M P L E M E N T A T I O N               *
 \* ************************************************************************** */
+
 
 
 
