@@ -15,27 +15,27 @@ trait InfixRelationalAlgebraSyntax[Domain <: AnyRef]
 object RelationalAlgebraSyntax
 {
 
-	/** definitions of projection syntax **/
+	/** definitions of selection syntax **/
 	
-	object project
+	object select
 	{
 		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] =
 		{
-			return new Projection[Domain](filter, relation);
+			return new Selection[Domain](filter, relation);
 		}	
 	}
 	
 
-	object Π
+	object σ
 	{
-		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] = project(filter, relation)
+		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] = select(filter, relation)
 	}
 
 
 	
-	/** definitions of selection syntax **/
+	/** definitions of projection syntax **/
 	
-	object select
+	object project
 	{
 		def apply[Domain <: AnyRef,Range <: AnyRef](selection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = 
 		{
@@ -43,9 +43,9 @@ object RelationalAlgebraSyntax
 		}
 	}
 	
-	object σ
+	object Π
 	{
-		def apply[Domain <: AnyRef,Range <: AnyRef](selection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = select(selection, relation)
+		def apply[Domain <: AnyRef,Range <: AnyRef](selection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = project(selection, relation)
 	}
 	
 	/** definitions of cross product syntax **/

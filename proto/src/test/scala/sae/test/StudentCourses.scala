@@ -52,19 +52,19 @@ class StudentCoursesFunSuite
 	courses += eise
 	courses += sed 
 	
-	test("projection") {
+	test("selection") {
 		// johnsId(StudentId) :- student(StudentId, john)
-		val johnsId : Relation[Student] = Π( _.Name ==  "john", students) 
+		val johnsId : Relation[Student] = σ( _.Name ==  "john", students) 
 		assert( johnsId.size === 1)
 		assert( johnsId.uniqueValue === Some(john))
 	}
 	
-	test("selection") {
+	test("projection") {
 		// johnsId(StudentId) :- student(StudentId, john)
-		val names : Relation[String] = σ[Student, String](_.Name, students)
+		val names : Relation[String] = Π[Student, String](_.Name, students)
 		
-		// the type inference is not string enough, either we need to supply function argument types of the whole function or of the lambda expression (see below) 
-		// val names : Relation[String] = σ( (s:Student) => (s.Name), students)
+		// the type inference is not strong enough, either we need to supply function argument types of the whole function or of the lambda expression (see below) 
+		// val names : Relation[String] = Π( (s:Student) => (s.Name), students)
 		
 
 		assert( names.size === students.size)

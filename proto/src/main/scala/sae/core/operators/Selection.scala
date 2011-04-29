@@ -7,7 +7,7 @@ import sae.core.impl.MultisetRelation
 import sae.Observer
 import sae.View
 
-class Projection[V <: AnyRef]
+class Selection[V <: AnyRef]
 	(
 		val filter : V => Boolean,
 		val relation : Relation[V]
