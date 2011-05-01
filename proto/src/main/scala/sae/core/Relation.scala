@@ -12,6 +12,12 @@ trait Relation[T <: AnyRef]
 
 	//def findIndex[K](column : Int) : Index[K, T, Relation[T]]
 
+	/**
+	 * The type of the tuples is sometimes needed as first class entity, e.g., during optimization.
+	 * Here the scala type system is not always powerful enough.
+	 * In particular the generic arguments can not be pattern matched over.
+	 */  
+	type tupleType = T
 
 	/**
 	 * Add a data tuple to this relation.

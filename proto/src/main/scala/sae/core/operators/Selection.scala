@@ -65,6 +65,12 @@ class Selection[V <: AnyRef]
 			this += v
 		}
 	}
-  
-
 }
+
+/*
+trait SelectionCriteria
+
+class ConstantSelection[Attribut, Constant](attr : Attribut, const : Constant) extends SelectionCriteria
+
+class AttributeSelection[AttributA, AttributB](attrA : AttributA, attrB : AttributB) extends SelectionCriteria
+*/

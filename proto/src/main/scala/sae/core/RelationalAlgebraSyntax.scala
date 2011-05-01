@@ -31,6 +31,18 @@ object RelationalAlgebraSyntax
 		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] = select(filter, relation)
 	}
 
+/*
+	def class selectionCriteriaFactory[T <: AnyRef, V <: AnyRef](val f : Function1[T, V])
+	{
+		
+		def ===(v : V) : SelectionCriteria
+	}
+
+	implicit def functionToSelectionCriteriaFactory[T <: AnyRef, V <: AnyRef](f : Function1[T, V]) : selectionCriteriaFactory=
+		new selectionCriteriaFactory(f)
+*/
+
+	/** END definitions of selection syntax **/
 
 	
 	/** definitions of projection syntax **/
@@ -46,6 +58,8 @@ object RelationalAlgebraSyntax
 	object Π
 	{
 		def apply[Domain <: AnyRef,Range <: AnyRef](selection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = project(selection, relation)
+		
+		def unapply[Domain <: AnyRef,Range <: AnyRef](p : Projection[Domain, Range]) : Option[(Domain => Range, Relation[Domain])]= Some((p.projection, p.relation))
 	}
 	
 	/** definitions of cross product syntax **/
@@ -120,5 +134,6 @@ object RelationalAlgebraSyntax
 		def apply[Domain <: AnyRef](columns : List[String], relation : Relation[Domain]) : Relation[Domain] = eq_join(columns, relation)
 
 	}
+
 
 }

@@ -34,23 +34,39 @@ case class Enrollment
 class StudentCoursesFunSuite
 	extends FunSuite  
 {
-
-	val students : Relation[Student] = new MultisetRelation[Student]{ def arity = 2 } // student(StudentId, Name)
-	val courses : Relation[Course] = new MultisetRelation[Course]{ def arity = 2 }  // course(CourseId, Name)
-	val enrollments : Relation[Enrollment] =  new MultisetRelation[Enrollment]{ def arity = 2 } // enrollment(StudentId, CourseId)
-	
 	// student(12345, john).
 	// student(12346, sally).
 	val john = Student(12345, "john")
 	val sally = Student(12346, "sally") 
 
-	students += john
-	students += sally
-	
 	val eise = Course(23, "EiSE") 
 	val sed = Course(51, "SE-D&C")
-	courses += eise
-	courses += sed 
+
+	// student(StudentId, Name)
+	def students : Relation[Student] = 
+	{
+		val students = new MultisetRelation[Student]{ def arity = 2 } 
+		students += john
+		students += sally
+	}
+
+	// course(CourseId, Name)
+	def courses : Relation[Course] = 
+	{
+		val courses = new MultisetRelation[Course]{ def arity = 2 }  
+		courses += eise
+		courses += sed 
+	}
+	
+	// enrollment(StudentId, CourseId)
+	def enrollments : Relation[Enrollment] = 
+	{ 
+		val enrollments = new MultisetRelation[Enrollment]{ def arity = 2 }
+		enrollments 
+	}
+	
+
+	
 	
 	test("selection") {
 		// johnsId(StudentId) :- student(StudentId, john)
@@ -59,8 +75,24 @@ class StudentCoursesFunSuite
 		assert( johnsId.uniqueValue === Some(john))
 	}
 	
-	test("projection") {
+	test("add to materialized selection") {
 		// johnsId(StudentId) :- student(StudentId, john)
+		var students = this.students
+		val johnsId : Relation[Student] = σ( _.Name ==  "john", students) 
+		assert( johnsId.size === 1)
+		assert( johnsId.uniqueValue === Some(john))
+		
+		val otherJohn = Student(11111, "john")
+		students += otherJohn
+		
+		assert( johnsId.size === 2)
+		val twoJohns = johnsId.asList
+		assert( twoJohns.contains(john) )
+		assert( twoJohns.contains(otherJohn) )
+	}
+	
+	test("projection") {
+		// names(Name) :- student(_, Name)
 		val names : Relation[String] = Π[Student, String](_.Name, students)
 		
 		// the type inference is not strong enough, either we need to supply function argument types of the whole function or of the lambda expression (see below) 
@@ -74,6 +106,22 @@ class StudentCoursesFunSuite
 				nameList.contains(s.Name)
 			}	
 		)
+	}
+	
+	
+	test("optimized projection") {
+		// names(StudentId) :- student(StudentId, john)
+		// there is an inner projection that does nothing
+		val students = this.students
+		def fun(x:Student) = x.Name
+		val names : Relation[String] = Π[Student, String](fun, Π[Student, Student]( s => s ,students))
+				
+		val optimized = ExecutionPlan(names)
+
+		assert( optimized ne names)
+		
+		val directNames : Relation[String] = Π[Student, String](fun, students)
+		assert( !(optimized match { case Π(_, Π(_,_)) => true; case _ => false }) )
 	}
 	
 	test("cross product") {
