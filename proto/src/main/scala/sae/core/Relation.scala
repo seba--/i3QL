@@ -7,7 +7,8 @@ trait Relation[T <: AnyRef]
 	 extends View[T]
 		with InfixRelationalAlgebraSyntax[T]
 {
-	def arity : Int
+	// TODO we forego arity for the moment and try to rely more on the typesystem 
+	// def arity : Int
 
 	//def findIndex[K](column : Int) : Index[K, T, Relation[T]]
 

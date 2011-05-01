@@ -7,6 +7,10 @@ import sae.core.impl.MultisetRelation
 import sae.Observer
 import sae.View
 
+/**
+ * A selection operates as a filter on the values in the relation and eliminates unwanted tuples.
+ * Thus the projection shrinks the number of relations.
+ */
 class Selection[V <: AnyRef]
 	(
 		val filter : V => Boolean,
@@ -16,7 +20,10 @@ class Selection[V <: AnyRef]
 		with SelfMaintainedView[V,V]
 		with MaterializedView[V]
 {
-	def arity = relation.arity
+	relation addObserver this
+
+	// TODO we forego arity for the time being and try to rely on the type system
+	// def arity = relation.arity
 	
 	def materialize() : Unit = 
 	{

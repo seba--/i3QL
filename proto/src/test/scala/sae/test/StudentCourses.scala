@@ -80,9 +80,11 @@ class StudentCoursesFunSuite
 		// student_courses(StudentId, SName, CourseId, CName) :- student(StudentId, SName), course(CourseId, CName).
 		// actually what we get looks more like the following  query.
 		// student_courses(student(StudentId, SName),course(CourseId, CName)) :- student(StudentId, SName), course(CourseId, CName).
+		
 		val student_courses = students × courses
 		assert( student_courses.size === students.size + courses.size)
-		assert( student_courses.arity === students.arity + courses.arity)
+		// assert( student_courses.arity === students.arity + courses.arity)
+		
 		// the cross product should contain every "student course" pair
 		val resultList = student_courses.asList
 		students.foreach( student => 

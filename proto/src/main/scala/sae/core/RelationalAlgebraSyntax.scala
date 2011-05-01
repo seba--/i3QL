@@ -37,9 +37,9 @@ object RelationalAlgebraSyntax
 	
 	object project
 	{
-		def apply[Domain <: AnyRef,Range <: AnyRef](selection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = 
+		def apply[Domain <: AnyRef,Range <: AnyRef](projection: Domain => Range, relation : Relation[Domain]) : Relation[Range] = 
 		{
-			return null;
+			return new Projection[Domain, Range](projection, relation);
 		}
 	}
 	
@@ -54,7 +54,7 @@ object RelationalAlgebraSyntax
 	{
 		def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA : Relation[DomainA], relationB: Relation[DomainB]) : Relation[(DomainA, DomainB)] =
 		{
-			return null;
+			return new CrossProduct(relationA, relationB);
 		}
 	}
 	
