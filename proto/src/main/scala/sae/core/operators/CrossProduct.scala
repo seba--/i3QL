@@ -1,11 +1,9 @@
 package sae.core.operators
 
 import sae.core.Relation
-import sae.core.SelfMaintainedView
-import sae.core.MaterializedView
 import sae.core.impl.MultisetRelation
+import sae.core.impl.MaterializedViewImpl
 import sae.Observer
-import sae.View
 
 /**
  * A cross product constructs all combinations of tuples in multiple relations.
@@ -21,7 +19,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 		val right : Relation[B]
 	)
 	 extends MultisetRelation[(A,B)]
-		with MaterializedView[(A,B)]
+		with MaterializedViewImpl[(A,B)]
 {
 	left addObserver LeftObserver
 	right addObserver RightObserver

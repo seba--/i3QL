@@ -16,7 +16,8 @@ object RelationalAlgebraSyntax
 {
 
 	/** definitions of selection syntax **/
-	
+
+
 	object select
 	{
 		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] =
@@ -31,15 +32,30 @@ object RelationalAlgebraSyntax
 		def apply[Domain <: AnyRef](filter: Domain => Boolean, relation: Relation[Domain]) : Relation[Domain] = select(filter, relation)
 	}
 
-/*
-	def class selectionCriteriaFactory[T <: AnyRef, V <: AnyRef](val f : Function1[T, V])
+/*	
+	object select
 	{
-		
-		def ===(v : V) : SelectionCriteria
+		def apply[Domain <: AnyRef](filter: SelectionCriteria[Domain], relation: Relation[Domain]) : Relation[Domain] =
+		{
+			return new Selection[Domain](filter, relation);
+		}	
+	}
+	
+
+	object σ
+	{
+		def apply[Domain <: AnyRef](filter: SelectionCriteria[Domain], relation: Relation[Domain]) : Relation[Domain] = select(filter, relation)
 	}
 
-	implicit def functionToSelectionCriteriaFactory[T <: AnyRef, V <: AnyRef](f : Function1[T, V]) : selectionCriteriaFactory=
-		new selectionCriteriaFactory(f)
+
+	class selectionCriteriaFactory[T <: AnyRef, V <: AnyRef](val f : Function1[T, V])
+	{
+		
+		def ===(v : V) : SelectionCriteria[V] = null
+	}
+
+	implicit def functionToSelectionCriteriaFactory[T <: AnyRef, V <: AnyRef](f : Function1[T, V]) : selectionCriteriaFactory[T,V] =
+		new selectionCriteriaFactory[T,V](f)
 */
 
 	/** END definitions of selection syntax **/

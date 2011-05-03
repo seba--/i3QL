@@ -43,25 +43,25 @@ class StudentCoursesFunSuite
 	val sed = Course(51, "SE-D&C")
 
 	// student(StudentId, Name)
-	def students : Relation[Student] = 
+	def students : MaterializedRelation[Student] = 
 	{
-		val students = new MultisetRelation[Student]{ def arity = 2 } 
+		val students = new MultisetRelation[Student]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } } 
 		students += john
 		students += sally
 	}
 
 	// course(CourseId, Name)
-	def courses : Relation[Course] = 
+	def courses : MaterializedRelation[Course] = 
 	{
-		val courses = new MultisetRelation[Course]{ def arity = 2 }  
+		val courses = new MultisetRelation[Course]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }  
 		courses += eise
 		courses += sed 
 	}
 	
 	// enrollment(StudentId, CourseId)
-	def enrollments : Relation[Enrollment] = 
+	def enrollments : MaterializedRelation[Enrollment] = 
 	{ 
-		val enrollments = new MultisetRelation[Enrollment]{ def arity = 2 }
+		val enrollments = new MultisetRelation[Enrollment]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
 		enrollments 
 	}
 	
@@ -71,16 +71,16 @@ class StudentCoursesFunSuite
 	test("selection") {
 		// johnsId(StudentId) :- student(StudentId, john)
 		val johnsId : Relation[Student] = σ( _.Name ==  "john", students) 
-		assert( johnsId.size === 1)
-		assert( johnsId.uniqueValue === Some(john))
+		assert( johnsId.size === 1 )
+		assert( johnsId.uniqueValue === Some(john) )
 	}
 	
 	test("add to materialized selection") {
 		// johnsId(StudentId) :- student(StudentId, john)
-		var students = this.students
+		val students = this.students
 		val johnsId : Relation[Student] = σ( _.Name ==  "john", students) 
-		assert( johnsId.size === 1)
-		assert( johnsId.uniqueValue === Some(john))
+		assert( johnsId.size === 1 )
+		assert( johnsId.uniqueValue === Some(john) )
 		
 		val otherJohn = Student(11111, "john")
 		students += otherJohn

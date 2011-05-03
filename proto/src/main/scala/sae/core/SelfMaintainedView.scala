@@ -32,5 +32,5 @@ trait SelfMaintainedView[V <: AnyRef, Z <: AnyRef]
 	 extends Observer[V]
 		with View[Z]
 {
-   
+
 }

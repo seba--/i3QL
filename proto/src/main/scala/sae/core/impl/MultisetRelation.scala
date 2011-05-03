@@ -2,29 +2,18 @@ package sae.core.impl
 
 import com.google.common.collect.Multiset;
 import com.google.common.collect.HashMultiset;
-import sae.core.Relation
+import sae.core.MaterializedRelation
 
 /**
  * A relation backed by a multi set for efficient access to elements
  */
 trait MultisetRelation[T <: AnyRef] 
-	 extends Relation[T]
+	 extends MaterializedRelation[T]
 {
 	private val data : Multiset[T] = HashMultiset.create[T]()
    
 	def size : Int = data.size()
-   
-	def asList : List[T] = 
-	{
-		var list : List[T] = List()
-		val it : java.util.Iterator[T] = data.iterator()
-		while(it.hasNext())
-		{
-			list = it.next() :: list
-		}
-		list
-	}
-   
+
 	def uniqueValue : Option[T] =
 	{
 		if( size != 1 )
