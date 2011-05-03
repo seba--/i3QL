@@ -28,6 +28,27 @@ class StudentCoursesSQLFunSuite
 			}	
 		)
 	}
+	
+	test("select distinct") {
+		val students = this.students // make a local copy of students for this test
+		val names = select distinct ((s:Student) => s.Name) from students
+		
+		assert( names.size === 2)
+		
+		val otherJohn = Student(11111, "john")
+		students += otherJohn
+		
+		assert( names.size === 2)
+		val nameList = names.asList
+		students.foreach( s =>
+			{
+				nameList.contains(s.Name)
+			}	
+		)
+		
+		val distinctStudents = select distinct * from students
+		assert( students.size === distinctStudents.size)
+	}
 
 	test("where") {
 		// * is a shortcut that really omits the projection function

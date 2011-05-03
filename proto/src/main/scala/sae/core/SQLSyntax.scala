@@ -32,16 +32,21 @@ object SQLSyntax
 	{
 		def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) : SelectFunctor[Domain,Range] = new SelectFunctor(projection) 
 		
-		def apply[Domain <: AnyRef, Range <: AnyRef](functor : DistinctFunctor[Domain,Range]) : DistinctFunctor[Domain,Range] = functor
+		def apply[Domain <: AnyRef](star : SQLSyntax.*.type) : SQLSyntax.*.type = SQLSyntax.* // or.. = star
 		
-		def apply[Domain <: AnyRef](star : *.type) : *.type = *
+		def * = SQLSyntax.*
+		
+		def distinct[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) : DistinctFunctor[Domain,Range] = new DistinctFunctor[Domain,Range](projection)
+		
+		def distinct(star : SQLSyntax.*.type) : SQLSyntax.*.type = SQLSyntax.* 
 	}
 	
-	object distinct
+	// * will return the relation itself and no projection takes place
+	object *
 	{
-		def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) : DistinctFunctor[Domain,Range] = new DistinctFunctor[Domain,Range](projection)
+		def from[Domain <: AnyRef](relation : Relation[Domain]) : Relation[Domain] = relation;
 	}
-
+	
 	/* helper classes for sql style infix syntax */
 	final class SelectFunctor[Domain <: AnyRef, Range <: AnyRef]
 		(projection: Domain => Range)
@@ -52,14 +57,9 @@ object SQLSyntax
 	
 	final class DistinctFunctor[Domain <: AnyRef, Range <: AnyRef]
 		(projection: Domain => Range)
-	{
+	{	
 		def from(relation : Relation[Domain]) : Relation[Range] = Π(projection, relation);
 	}
 	
-	object *
-	{
-		// def apply[T <: AnyRef]() : (T => T) = (x:T) => x
-		
-		def from[Domain <: AnyRef](relation : Relation[Domain]) : Relation[Domain] = relation;
-	}
+
 }
