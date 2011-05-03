@@ -142,7 +142,7 @@ class MaterializedSelection[V <: AnyRef]
 			{
 				if(filter(t))
 				{
-					this += t
+					add_element(t)
 				}
 			}
 		)

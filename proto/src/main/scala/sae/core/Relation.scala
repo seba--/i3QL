@@ -6,6 +6,7 @@ import sae.View
 trait Relation[T <: AnyRef] 
 	 extends View[T]
 		with InfixRelationalAlgebraSyntax[T]
+		with InfixSQLSyntax[T]
 {
 
 	/**

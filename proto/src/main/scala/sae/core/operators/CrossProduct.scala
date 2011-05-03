@@ -24,9 +24,6 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 	left addObserver LeftObserver
 	right addObserver RightObserver
 
-	// TODO we forego arity for the time being and try to rely on the type system
-	// def arity = left.arity + right.arity
-	
 	def materialize() : Unit = 
 	{
 		left.foreach( a =>
