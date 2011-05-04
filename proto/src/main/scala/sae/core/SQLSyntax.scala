@@ -51,7 +51,7 @@ object SQLSyntax
 	final class SelectFunctor[Domain <: AnyRef, Range <: AnyRef]
 		(projection: Domain => Range)
 	{
-		def from(relation : Relation[Domain]) = new NonSetProjection[Domain, Range](projection, relation);
+		def from(relation : Relation[Domain]) = new BagProjection[Domain, Range](projection, relation);
 		
 	}
 	

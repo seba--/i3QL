@@ -15,12 +15,16 @@ import org.scalatest.FunSuite
 @RunWith(classOf[JUnitRunner]) 
 class StudentCoursesSQLFunSuite
 	 extends FunSuite  
-		with StudentCoursesDatabase
 {
+
+	val database = new StudentCoursesDatabase()
+	import database._
+
+
 	test("select") {
 		val names = select ((s:Student) => s.Name) from students
 
-		assert( names.size === students.size)
+		assert( students.size === names.size)
 		val nameList = names.asList
 		students.foreach( s =>
 			{
@@ -30,15 +34,15 @@ class StudentCoursesSQLFunSuite
 	}
 	
 	test("select distinct") {
-		val students = this.students // make a local copy of students for this test
+		val students = database.students.copy // make a local copy of students for this test
 		val names = select distinct ((s:Student) => s.Name) from students
 		
-		assert( names.size === 2)
+		assert( 2 === names.size)
 		
 		val otherJohn = Student(11111, "john")
 		students += otherJohn
 		
-		assert( names.size === 2)
+		assert( 2 === names.size)
 		val nameList = names.asList
 		students.foreach( s =>
 			{
@@ -55,8 +59,8 @@ class StudentCoursesSQLFunSuite
 		val johnsData  = select (*) from students where (_.Name ==  "john")
 		
 		// val johnsData  = select ((x:Student) => x) from students where (_.Name ==  "john")
-		assert( johnsData.size === 1 )
-		assert( johnsData.uniqueValue === Some(john) )
+		assert( 1 === johnsData.size )
+		assert( Some(john) === johnsData.uniqueValue )
 	}
 
 }

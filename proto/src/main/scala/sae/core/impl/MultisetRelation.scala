@@ -12,7 +12,10 @@ trait MultisetRelation[T <: AnyRef]
 {
 	private val data : Multiset[T] = HashMultiset.create[T]()
    
-	def size : Int = data.size()
+	def size : Int = 
+	{
+		data.size()
+	}
 
 	def uniqueValue : Option[T] =
 	{
@@ -39,5 +42,16 @@ trait MultisetRelation[T <: AnyRef]
 		{
 			f( it.next() ) 		
 		}
+	}
+	
+	def copy : MaterializedRelation[T] =  
+	{
+		val copy = new MultisetRelation[T]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
+		this.foreach( e =>
+			{
+				copy.add_element(e)
+			}
+		)
+		copy
 	}
 }

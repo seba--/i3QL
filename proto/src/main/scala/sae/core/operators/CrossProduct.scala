@@ -26,11 +26,14 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 
 	def materialize() : Unit = 
 	{
+		// println("materialize cross-product")
+		// println(this)
 		left.foreach( a =>
 			{
 				right.foreach( b =>
 					{
-						this += (a, b)
+						// println(this + " - adding (" + a + "," + b + ")")
+						this.add_element (a, b)
 					}
 				)
 			}
@@ -42,6 +45,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 		// update operations on left relation
 		def updated(oldA: A, newA: A): Unit = 
 		{
+			println("updated in left")		
 			right.foreach( b =>
 				{
 					CrossProduct.this -= (oldA, b)
@@ -52,6 +56,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 	
 		def removed(v: A): Unit = 
 		{
+			println("removed from left")
 			right.foreach( b =>
 				{
 					CrossProduct.this -= (v, b)
@@ -61,6 +66,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 	
 		def added(v: A): Unit = 
 		{
+			println("added to left")
 			right.foreach( b =>
 				{
 					CrossProduct.this += (v, b)
@@ -74,6 +80,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 		// update operations on right relation
 		def updated(oldB: B, newB: B): Unit = 
 		{
+			println("updated in right")
 			left.foreach( a =>
 				{
 					CrossProduct.this -= (a, oldB)
@@ -84,6 +91,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 	
 		def removed(v: B): Unit = 
 		{
+			println("removed from right")
 			left.foreach( a =>
 				{
 					CrossProduct.this -= (a, v)
@@ -93,6 +101,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 	
 		def added(v: B): Unit = 
 		{
+			println("added to right")
 			left.foreach( a =>
 				{
 					CrossProduct.this += (a, v)

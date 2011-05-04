@@ -36,7 +36,7 @@ import sae.View
  * The general projection class implemented here used the relational algebra semantics.
  * Specialized classes for SQL semantics are available (see further below).
  */
-class Projection[Domain <: AnyRef, Range <: AnyRef]
+class SetProjection[Domain <: AnyRef, Range <: AnyRef]
 	(
 		val projection : Domain => Range,
 		val relation : Relation[Domain]
@@ -81,7 +81,7 @@ class Projection[Domain <: AnyRef, Range <: AnyRef]
 /**
  * The non set projection has the ususal SQL meaning of a projection
  */
-class NonSetProjection[Domain <: AnyRef, Range <: AnyRef]
+class BagProjection[Domain <: AnyRef, Range <: AnyRef]
 	(
 		val projection : Domain => Range,
 		val relation : Relation[Domain]
@@ -92,7 +92,7 @@ class NonSetProjection[Domain <: AnyRef, Range <: AnyRef]
 {
 	relation addObserver this
 
-	def asMaterialized = new MaterializedNonSetProjection(projection, relation)
+	def asMaterialized = new MaterializedBagProjection(projection, relation)
 
 	def initSize : Int = {
 		var size = 0
@@ -141,7 +141,7 @@ class NonSetProjection[Domain <: AnyRef, Range <: AnyRef]
 /**
  * The materialized non-set projection has the semantics as the NonSetProjection
  */
-class MaterializedNonSetProjection[Domain <: AnyRef, Range <: AnyRef]
+class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef]
 	(
 		val projection : Domain => Range,
 		val relation : Relation[Domain]
