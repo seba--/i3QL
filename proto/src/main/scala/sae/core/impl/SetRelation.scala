@@ -4,9 +4,10 @@ import sae.core.MaterializedRelation
 import scala.collection.immutable.HashSet
 
 /**
- * A relation backed by a set for efficient access to elements
+ * A relation backed by a set for efficient access to elements.
+ * Each element has only one occurrence in this relation.
  */
-trait HashSetRelation[T <: AnyRef] 
+trait SetRelation[T <: AnyRef] 
 	 extends MaterializedRelation[T]
 {
 	private var data : Set[T] = new HashSet[T]()

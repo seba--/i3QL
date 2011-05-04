@@ -3,9 +3,9 @@ package sae.core.operators
 import sae.core.Relation
 import sae.core.SelfMaintainedView
 import sae.core.MaterializedView
-import sae.core.impl.MultisetRelation
+import sae.core.impl.BagRelation
+import sae.core.impl.SetRelation
 import sae.core.impl.MaterializedViewImpl
-import sae.core.impl.HashSetRelation
 import sae.core.impl.SizeCachedMaintainedView
 import sae.Observer
 import sae.View
@@ -41,7 +41,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef]
 		val projection : Domain => Range,
 		val relation : Relation[Domain]
 	)
-	 extends HashSetRelation[Range]
+	 extends SetRelation[Range]
 		with SelfMaintainedView[Domain,Range]
 		with MaterializedViewImpl[Range]
 {
@@ -146,7 +146,7 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef]
 		val projection : Domain => Range,
 		val relation : Relation[Domain]
 	)
-	 extends MultisetRelation[Range]
+	 extends BagRelation[Range]
 		with MaterializedViewImpl[Range]
 		with SelfMaintainedView[Domain,Range]
 {

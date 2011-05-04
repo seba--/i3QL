@@ -1,7 +1,7 @@
 package sae.core.operators
 
 import sae.core.Relation
-import sae.core.impl.MultisetRelation
+import sae.core.impl.BagRelation
 import sae.core.impl.MaterializedViewImpl
 import sae.Observer
 
@@ -18,7 +18,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef]
 		val left : Relation[A],
 		val right : Relation[B]
 	)
-	 extends MultisetRelation[(A,B)]
+	 extends BagRelation[(A,B)]
 		with MaterializedViewImpl[(A,B)]
 {
 	left addObserver LeftObserver

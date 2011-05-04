@@ -36,8 +36,7 @@ class StudentCoursesDatabase
 
 	// student(StudentId, Name)
 	object students
-	 extends Relation[Student]
-		with MultisetRelation[Student]
+	 extends BagRelation[Student]
 	{
 	
 		def materialize() : Unit = { /* nothing to do, the set itself is the data */ }
@@ -62,24 +61,24 @@ class StudentCoursesDatabase
 	val sed = Course(51, "SE-D&C")
 	
 
-
-
-
-	// course(CourseId, Name)
-	def courses : MaterializedRelation[Course] = 
-	{
-		val courses = new MultisetRelation[Course]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }  
-		courses += eise
-		courses += sed 
-	}
+	object courses 
+	 extends BagRelation[Course]
+	 {
+	 	def materialize() : Unit = { /* nothing to do, the set itself is the data */ }
+	 }
+ 
+	courses += eise
+	courses += sed
 	
-	// enrollment(StudentId, CourseId)
-	def enrollments : MaterializedRelation[Enrollment] = 
-	{ 
-		val enrollments = new MultisetRelation[Enrollment]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
-		enrollments += Enrollment(john.Id, eise.Id)
-		enrollments += Enrollment(sally.Id, eise.Id)
-		enrollments += Enrollment(sally.Id, sed.Id)
-		enrollments 
+	object enrollments 
+	 extends BagRelation[Enrollment]
+	{
+		def materialize() : Unit = { /* nothing to do, the set itself is the data */ } 
 	}
+
+
+	enrollments += Enrollment(john.Id, eise.Id)
+	enrollments += Enrollment(sally.Id, eise.Id)
+	enrollments += Enrollment(sally.Id, sed.Id)
+
 }

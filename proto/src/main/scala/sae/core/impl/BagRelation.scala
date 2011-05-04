@@ -5,9 +5,10 @@ import com.google.common.collect.HashMultiset;
 import sae.core.MaterializedRelation
 
 /**
- * A relation backed by a multi set for efficient access to elements
+ * A relation backed by a multi set for efficient access to elements.
+ * Each element may have multiple occurrences in this relation.
  */
-trait MultisetRelation[T <: AnyRef] 
+trait BagRelation[T <: AnyRef] 
 	 extends MaterializedRelation[T]
 {
 	private val data : Multiset[T] = HashMultiset.create[T]()
