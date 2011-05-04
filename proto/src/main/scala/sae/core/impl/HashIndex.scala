@@ -6,51 +6,44 @@ import sae.core.Relation
 import scala.collection.mutable.HashMap
 
 /** 
- * TODO Identifiable[K] -> K is probably covariant?
+ * 
  */
-/*
-class HashIndex[K, V <: Identifiable[K], R <: Relation[_ <: V]]
-	(override val relation : R) 
-extends ObservingIndex[K,V,R](relation)
+class HashIndex[K <: AnyRef, V <: AnyRef]
+	(
+		override val relation : Relation[V],
+		override val keyFunction : V => K
+	) 
+	extends Index[K,V]
 {
-	// the index is lazy initialized
+
 	private val indexMap = new HashMap[K,V]()
 
+
 	// implementation of indexing operations
-	def update_index(oldV: V, newV: V): K =
+	def updated(oldV : V, newV : V) : Unit =
 	{
 		// actually this should never happen
-		val key = oldV.guid
+		val key = keyFunction(oldV)
 		indexMap(key) = newV
-		return key
 	}
 	
-	def remove_index(v: V): K =
+	def removed(v : V): Unit =
 	{
-		val key = v.guid
+		val key = keyFunction(v)
 		indexMap -= key;
-		return key;
 	}
 	
-	def add_index(v: V): K = 
+	def added(v : V): Unit = 
 	{
-		val key = v.guid
+		val key = keyFunction(v)
 		indexMap(key) = v
-		return key
 	}
-	
-	// view operations
-	
-	def foreach[T](f: Tuple2[K,V] => T) : Unit = indexMap.foreach(f)
-
 
 	// access operations
-	def get(key: K): Option[V] = indexMap.get(key)
-	 
 	
-	def getOrElse(key: K, f: => V): V = indexMap.getOrElse(key, f)
-
+	def put_internal(key: K, value: V) : Option[V] = indexMap.put(key, value)
 	
-	def isDefinedAt(key: K): Boolean = indexMap.isDefinedAt(key)
+	def get_internal(key: K): Option[V] = indexMap.get(key)
+		
+	def isDefinedAt_internal(key: K): Boolean = indexMap.isDefinedAt(key)
 }
-*/

@@ -10,16 +10,23 @@ import sae.View
 
 
 /**
- * A selection operates as a filter on the values in the relation and eliminates unwanted tuples.
- * Thus the projection shrinks the number of relations.
+ * An aggregate operator receives a list of functions and a list of attributes.
+ * The functions are evaluated on all tuples that coincide in all supplied attributes.
+ * Each function has one (or several) attributes as its domain.
+ * The list of attributes serves as a grouping key. This key is used to split the relation into 
+ * a relation that has only distinct combinations in the supplied attributes.
+ * (Note that this grouping is a projection in terms of Codds original relational algebra) 
+ * The list of grouping attributes is optional.
+ * If no grouping is supplied, the aggregation functions are applied on the entire relation.
+ * If no function is supplied the aggregation has no effect.
  */
-class Selection[V <: AnyRef]
+/*
+class SingleRelationAggregate[Domain <: AnyRef, KeyDomain <: AnyRef]
 	(
-		val filter : V => Boolean,
-		val relation : Relation[V]
+		val relation : Relation[Domain]
 	)
-	 extends Relation[V]
-		with SelfMaintainedView[V,V]
+	 extends Relation[DomainB]
+		with SelfMaintainedView[Domain,V]
 		with SizeCachedMaintainedView
 {
 	relation addObserver this
@@ -28,7 +35,7 @@ class Selection[V <: AnyRef]
 
 	def initSize : Int = {
 		var size = 0
-		relation.foreach( v => 
+		relation.foreach( v =>
 			{
 				if( filter(v) )
 				{
@@ -121,67 +128,4 @@ class Selection[V <: AnyRef]
 	}
 
 }
-
-/**
- * A materialized selection extends a selection to be materialized
- */
-class MaterializedSelection[V <: AnyRef]
-	(
-		val filter : V => Boolean,
-		val relation : Relation[V]
-	)
-	 extends BagRelation[V]
-		with MaterializedView[V]
-		with SelfMaintainedView[V,V]
-{
-	relation addObserver this
-	
-	def materialize() : Unit = 
-	{
-		relation.foreach( t =>
-			{
-				if(filter(t))
-				{
-					add_element(t)
-				}
-			}
-		)
-	}
-	
-	// update operations
-	def updated(oldV: V, newV: V): Unit = 
-	{
-		if( filter(oldV) )
-		{
-			this -= oldV
-		}
-		if( filter(newV) )
-		{
-			this += newV
-		}
-	}
-
-	def removed(v: V): Unit = 
-	{
-		if( filter(v) )
-		{
-			this -= v
-		}
-	}
-
-	def added(v: V): Unit = 
-	{
-		if( filter(v) )
-		{
-			this += v
-		}
-	}
-}
-
-/*
-trait SelectionCriteria
-
-class ConstantSelection[Attribut, Constant](attr : Attribut, const : Constant) extends SelectionCriteria
-
-class AttributeSelection[AttributA, AttributB](attrA : AttributA, attrB : AttributB) extends SelectionCriteria
 */

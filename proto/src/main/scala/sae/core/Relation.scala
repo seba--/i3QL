@@ -16,6 +16,10 @@ trait Relation[T <: AnyRef]
 	 */  
 	type tupleType = T
 
-
+	/**
+	 * creates a materialized view of this relation
+	 */ 
 	def asMaterialized : MaterializedView[T]
+	
+
 }

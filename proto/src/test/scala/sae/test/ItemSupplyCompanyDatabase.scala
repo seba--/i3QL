@@ -8,29 +8,31 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
 
-case class Item
-(
-	val Name : String,
-	val Type : String
-)
-
-case class Supplier
-(
-	val CompanyName : String,
-	val Department : String,
-	val ItemName : String,
-	val Volume : Int
-)
-
-
+/*
+	test("aggregate group") {
+		
+	}
+*/
 /**
  * Test the basic functions of the framework with an example database of companies and items supplied
- */
-
-@RunWith(classOf[JUnitRunner]) 
-class ItemSupplyCompanyFunSuite
-	extends FunSuite  
+ */ 
+class ItemSupplyCompanyDatabase
 {
+
+	case class Item
+	(
+		val Name : String,
+		val Type : String
+	)
+	
+	case class Supplier
+	(
+		val CompanyName : String,
+		val Department : String,
+		val ItemName : String,
+		val Volume : Int
+	)
+
 	// item(choclate, food).
 	// item(apples, food).
  	// item(tires, car).
@@ -55,9 +57,12 @@ class ItemSupplyCompanyFunSuite
 	val agrotrade_apples = Supplier("agrotrade", "fruits", "apples", 30000)
 	
 	// supplier(CompanyName,Department,ItemName,Volume)
-	def suppliers : MaterializedRelation[Supplier] = 
+	object suppliers 
+	 extends BagRelation[Supplier]  
 	{
-		val suppliers = new MultisetRelation[Supplier]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } } 
+		def materialize() : Unit = { /* nothing to do, the set itself is the data */ }
+	}
+	
 		suppliers += nestle_choclate
 		suppliers += nestle_apples
 		suppliers += agrotrade_apples
@@ -65,19 +70,17 @@ class ItemSupplyCompanyFunSuite
 		suppliers += ibm_cpu
 		suppliers += amd_cpu
 		suppliers += tx_cpu
-	}
 
 	// item(CourseId, Name)
-	def items : MaterializedRelation[Item] = 
+	object items 
+	 extends BagRelation[Item] 
 	{
-		val items = new MultisetRelation[Item]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }  
-		items += choclate
-		items += apples
-		items += tires
-		items += cpu 
+		def materialize() : Unit = { /* nothing to do, the set itself is the data */ }  
 	}
 
-	test("aggregate group") {
-		
-	}
+	items += choclate
+	items += apples
+	items += tires
+	items += cpu 
+
 }

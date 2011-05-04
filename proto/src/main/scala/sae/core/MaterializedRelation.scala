@@ -35,4 +35,9 @@ trait MaterializedRelation[T <: AnyRef]
    	// internal implementation of the add method
 	protected def remove_element(v : T) : Unit
 
+	
+	/**
+	 * returns an index for specified key function
+	 */
+	def index[K <: AnyRef](keyFunction : T => K) : Index[K,T]
 }

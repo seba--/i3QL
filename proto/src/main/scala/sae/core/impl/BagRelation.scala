@@ -10,6 +10,7 @@ import sae.core.MaterializedRelation
  */
 trait BagRelation[T <: AnyRef] 
 	 extends MaterializedRelation[T]
+	 	with HashIndexedRelation[T]
 {
 	private val data : Multiset[T] = HashMultiset.create[T]()
    
@@ -47,7 +48,7 @@ trait BagRelation[T <: AnyRef]
 	
 	def copy : MaterializedRelation[T] =  
 	{
-		val copy = new MultisetRelation[T]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
+		val copy = new BagRelation[T]{ def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
 		this.foreach( e =>
 			{
 				copy.add_element(e)

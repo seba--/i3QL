@@ -9,6 +9,7 @@ import scala.collection.immutable.HashSet
  */
 trait SetRelation[T <: AnyRef] 
 	 extends MaterializedRelation[T]
+	 	with HashIndexedRelation[T]
 {
 	private var data : Set[T] = new HashSet[T]()
    
