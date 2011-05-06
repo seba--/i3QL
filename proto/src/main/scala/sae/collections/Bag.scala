@@ -12,12 +12,12 @@ trait Bag[V <: AnyRef]
     import com.google.common.collect.HashMultiset;
     private val data : HashMultiset[V] = HashMultiset.create[V]()
 
-    def size : Int =
+    def materialized_size : Int =
         {
             data.size()
         }
 
-    def singletonValue : Option[V] =
+    def materialized_singletonValue : Option[V] =
         {
             if (size != 1)
                 None
@@ -42,17 +42,4 @@ trait Bag[V <: AnyRef]
                 f(it.next())
             }
         }
-
-   /*
-    def copy : Collection[V] =
-        {
-            val copy = new Bag[V] { def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
-            this.foreach(e =>
-                {
-                    copy.add_element(e)
-                }
-            )
-            copy
-        }
-    */      
 }

@@ -1,6 +1,7 @@
 package sae
 
-trait Observable[V <: AnyRef] {
+trait Observable[V <: AnyRef] 
+{
 
     private var observers = List[Observer[V]]();
 

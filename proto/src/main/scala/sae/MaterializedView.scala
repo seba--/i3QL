@@ -26,7 +26,7 @@ trait MaterializedView[V <: AnyRef]
     def lazyInitialize : Unit 
     
     // record whether the initialization is complete
-    private var initialized : Boolean = false
+    protected var initialized : Boolean = false
 
     /**
      * We give an abstract implementation of foreach, with
@@ -47,5 +47,5 @@ trait MaterializedView[V <: AnyRef]
      * The internal implementation that iterates only over materialized
      * data. 
      */
-    def materialized_foreach[T](f : (V) => T) : Unit
+    protected def materialized_foreach[T](f : (V) => T) : Unit
 }

@@ -12,9 +12,9 @@ trait Set[V <: AnyRef]
         {
     private var data : HashSet[V] = new HashSet[V]()
 
-    def size : Int = data.size
+    def materialized_size : Int = data.size
 
-    def singletonValue : Option[V] = data.headOption
+    def materialized_singletonValue : Option[V] = data.headOption
 
     def add_element(v : V) : Unit =
         {

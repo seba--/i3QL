@@ -30,18 +30,32 @@ import sae.collections.Bag
  *                  u | v
  *                  a | b
  *                  u | v
- * The general projection class implemented here used the relational algebra semantics.
+ *
  * Specialized classes for SQL semantics are available (see further below).
+ * In general the Projection is an operation that takes a projection function
+ * from domain to range and a relation of range tuples.
+ * The parameterized types are accessible as members for use in
+ * constructors during pattern matching
  */
+trait Projection[Domain <: AnyRef, Range <: AnyRef] {
+    type Dom = Domain
 
+    type Rng = Range
+
+    val projection : Domain => Range
+
+    val relation : LazyView[Domain]
+}
 /**
+ * The set projection class implemented here used the relational algebra semantics.
  * The set projection removes duplicates from the results set.
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
 class SetProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
     val relation : LazyView[Domain])
-        extends MaterializedView[Range]
+        extends Projection[Domain, Range]
+        with MaterializedView[Range]
         with Observer[Domain] {
 
     import com.google.common.collect.HashMultiset;
@@ -66,26 +80,27 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
         )
 
     /**
+     * We use a generalized bag semantics, thus this method
+     * returns true if the element was not already present in the list
+     * otherwise the method returns false
+     */
+    private def add_element(v : Range) : Boolean =
+        {
+        	val result = data.count(v) == 0
+            data.add(v)
+            return result
+        }
+
+    /**
      * We use a bag semantics, thus this method
      * returns false if the element is still present in the list
      * otherwise the method returns true, i.e., the element is
      * completely removed.
      */
-    private def add_element(v : Range) : Boolean =
-        {
-            data.add(v)
-            return data.count(v) != 0
-        }
-
-    /**
-     * We use a generalized bag semantics, thus this method
-     * returns false if the element was not already present in the list
-     * otherwise the method returns true
-     */
     private def remove_element(v : Range) : Boolean =
         {
             data.remove(v)
-            return data.count(v) != 0
+            return data.count(v) == 0
         }
 
     // update operations
@@ -128,8 +143,10 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
 class BagProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
     val relation : LazyView[Domain])
-        extends LazyView[Range]
+        extends Projection[Domain, Range]
+        with LazyView[Range]
         with Observer[Domain] {
+
     relation addObserver this
 
     def lazy_foreach[T](f : (Range) => T) : Unit =
@@ -162,10 +179,11 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
 class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
     val relation : LazyView[Domain])
-        extends Bag[Range]
-        with MaterializedView[Range]
+        extends Projection[Domain, Range]
+        with Bag[Range]
+        // with MaterializedView[Range] // Bag is a MaterializedView 
         with Observer[Domain] {
-    
+
     relation addObserver this
 
     def lazyInitialize() : Unit =

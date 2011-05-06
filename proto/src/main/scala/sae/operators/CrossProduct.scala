@@ -5,13 +5,13 @@ import sae.collections.Bag
 
 /**
  * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges 
+ * Thus the cross product dramatically enlarges
  * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the 
+ * The new relations are anonymous tuples of the
  * warranted size and types of the cross product.
- * 
+ *
  * IMPORTANT: The cross product is not a self-maintained view.
- *            In order to compute the delta of adding a tuple 
+ *            In order to compute the delta of adding a tuple
  *            to one of the underlying relations,
  *            the whole other relation needs to be considered.
  */
@@ -19,6 +19,10 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
     val left : MaterializedView[A],
     val right : MaterializedView[B])
         extends Bag[(A, B)] {
+
+    type LeftDomain = A
+
+    type RightDomain = B
 
     left addObserver LeftObserver
     right addObserver RightObserver

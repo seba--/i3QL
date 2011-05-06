@@ -6,10 +6,23 @@ import sae.collections.Bag
  * A selection operates as a filter on the values in the relation and eliminates
  * unwanted tuples. Thus the projection shrinks the number of relations.
  */
-class Selection[V <: AnyRef](
+trait Selection[V <: AnyRef] {
+    type Value = V
+
+    val filter : V => Boolean
+
+    val relation : LazyView[V]
+}
+
+/**
+ * The lazy selection stores no values an operates solely on the
+ * lazy reevaluation or incremental updates.
+ */
+class LazySelection[V <: AnyRef](
     val filter : V => Boolean,
     val relation : LazyView[V])
-        extends LazyView[V]
+        extends Selection[V]
+        with LazyView[V]
         with Observer[V] {
 
     relation addObserver this
@@ -56,12 +69,13 @@ class Selection[V <: AnyRef](
 }
 
 /**
- * A materialized selection extends a selection to be materialized
+ * A materialized selection stores all selected values in a Bag
  */
 class MaterializedSelection[V <: AnyRef](
     val filter : V => Boolean,
     val relation : LazyView[V])
-        extends Bag[V]
+        extends Selection[V]
+        with Bag[V]
         with Observer[V] {
 
     relation addObserver this

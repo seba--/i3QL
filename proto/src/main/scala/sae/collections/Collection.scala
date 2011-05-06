@@ -3,9 +3,28 @@ package collections
 
 trait Collection[V <: AnyRef]
         extends MaterializedView[V]
-        with Size
-        with SingletonValue[V]
-        with Listable[V] {
+        with Result[V] {
+
+    def size : Int = {
+        if (!initialized) {
+            lazyInitialize
+            initialized = true
+        }
+        materialized_size
+    }
+
+    def materialized_size : Int
+
+    def singletonValue : Option[V] = {
+        if (!initialized) {
+            lazyInitialize
+            initialized = true
+        }
+        materialized_singletonValue
+    }
+
+    def materialized_singletonValue : Option[V]
+
     /**
      * Add a data tuple to this relation.
      * The element is added and then a change event is fired.
