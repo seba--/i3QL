@@ -1,25 +1,19 @@
-package sae.core.impl
+package sae
+package core
 
+trait LazyInitializer[T <: AnyRef]
+        extends LazyView[T] {
+    private var initialized : Boolean = false
 
-import sae.core.MaterializedView
-
-
-
-trait MaterializedViewImpl[T <: AnyRef] 
-	extends MaterializedView[T]
-{
-	private var materialized : Boolean = false
-
-	abstract override def foreach[U](f: (T) => U) : Unit =
-	{
-		if( !materialized )
-		{
-			materialize()
-			materialized = true
-		}
-		super.foreach(f)
-	}
-   
+    abstract override def foreach[U](f : (T) => U) : Unit =
+        {
+            if (!initialized) {
+                lazyInitialize
+                initialized = true
+            }
+            super.foreach(f)
+        }
+    /*   
 	abstract override def size : Int =
 	{
 		if( !materialized )
@@ -49,4 +43,5 @@ trait MaterializedViewImpl[T <: AnyRef]
 		}
 		super.uniqueValue
 	}
+*/
 }

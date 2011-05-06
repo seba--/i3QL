@@ -1,0 +1,31 @@
+Ideas:
+- We could discern the operators by their allowed self-maintenance operations 
+  via the type system, i.e., write something as 
+  "extends ... with Insert with Remove".
+  Using this information first makes semantics more clear and second we 
+  might find opportunities for optimizations, e.g. sum is an opreator that 
+  does not require materialization of the whole underlying relation,
+  wheras min, max do.
+  
+- When we build queries without reusing them as subexpressions, we basically
+  have a chain of operators. Thus the generic Observable could be optimized with
+  a single value for an observer. If this is encoded as an immutable value
+  the JIT might optimize and inline function calls to the notification 
+  operations. 
+
+Pending Discussion:
+
+Already Discussed:
+- Query optimization requires an analysis of whether a selection is making an 
+  equality check or something different, i.e. <, >, ...
+  E.g., An optimization is to push comparison to constants inside the 
+  query to an early evaluation. Thus many cross products etc. may be smaller. 
+  For the time being we allow arbitraty scala functions. 
+  Since we can not analyze the expressions inside the functions we can not
+  make any optimizations on such knowledge.
+  Outcome:
+  - this is a mid term goal and deffered until other issues have been solved.
+  - Klaus is looking into stuff doable with experimental features of the scala 
+    compiler, to analyze the expressions
+  - Ralf suggests a definition of comparison operators a la "===" that can be 
+    pattern matched over.

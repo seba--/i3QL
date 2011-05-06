@@ -1,32 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>sae-database</artifactId>
-		<groupId>de.tud.cs.st.opal.sae</groupId>
-		<version>0.1.0</version>
-	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-database-observer-interface</artifactId>
-	<version>0.1.0</version>
+	<artifactId>sae-database-core</artifactId>
+	<version>0.2</version>
 	<packaging>jar</packaging>
 
-	<name>sae-database-observer-interface</name>
+	<name>sae-database-core</name>
 	<url>http://opal-project.org</url>
 
 	<properties>
+		<sae.version>0.2</sae.version>
+		<scala.version>2.9.0.RC2</scala.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<inceptionYear>2011</inceptionYear>
 	<build>
 		<!-- we keep this for the m2eclipse integration -->
-		<!-- <sourceDirectory>scala</sourceDirectory> -->
+		<sourceDirectory>src/main/scala</sourceDirectory>
+		<testSourceDirectory>src/test/scala</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.scala-tools</groupId>
 				<artifactId>maven-scala-plugin</artifactId>
 				<version>2.14.3</version>
+				<!-- 
 				<dependencies>
 					<dependency>
 						<groupId>org.scala-lang</groupId>
@@ -35,6 +35,7 @@
 						<scope>compile</scope>
 					</dependency>
 				</dependencies>
+				 -->
 				<executions>
 					<execution>
 						<goals>
@@ -42,7 +43,6 @@
 							<goal>testCompile</goal>
 						</goals>
 					</execution>
-
 				</executions>
 				<configuration>
 					<scalaVersion>${scala.version}</scalaVersion>
@@ -72,6 +72,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -97,7 +98,9 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>r09</version>
+			<scope>compile</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-bytecode-reader</artifactId>
@@ -117,14 +120,13 @@
 			<artifactId>bat-bytecode-model-transformation</artifactId>
 			<version>0.7.0</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.scala-lang</groupId> <artifactId>scala-dbc</artifactId> 
-			<version>2.9.0.RC2</version> </dependency> -->
+ 
 		<dependency>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest</artifactId>
 			<version>1.3</version>
+			<scope>test</scope>
 		</dependency>
-
-
+		 -->
 	</dependencies>
 </project>
