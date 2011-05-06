@@ -1,4 +1,5 @@
 package sae
+package collections
 
 trait Size {
     /**

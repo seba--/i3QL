@@ -1,4 +1,5 @@
 package sae
+package collections
 
 /**
  * a view that can be queried to supply a singleton value
