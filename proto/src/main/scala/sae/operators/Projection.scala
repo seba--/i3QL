@@ -2,7 +2,6 @@ package sae
 package operators
 
 import sae.collections.Bag
-import sae.core.LazyInitializer
 
 /**
  * A projection operates as a filter on the relation and eliminates unwanted
@@ -41,24 +40,18 @@ import sae.core.LazyInitializer
  */
 class SetProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
-    val relation : View[Domain])
+    val relation : LazyView[Domain])
         extends MaterializedView[Range]
-        with SelfMaintainedView[Domain, Range]
-        with LazyView[Range] {
+        with Observer[Domain] {
 
     import com.google.common.collect.HashMultiset;
 
     private val data : HashMultiset[Range] = HashMultiset.create[Range]()
 
-    private var initialized = false
-
     relation addObserver this
 
-    def foreach[U](f : Range => U) : Unit =
-        if (!initialized) {
-            lazyInitialize
-        } else {
-
+    def materialized_foreach[U](f : Range => U) : Unit =
+        {
             val it : java.util.Iterator[Range] = data.iterator()
             while (it.hasNext()) {
                 f(it.next())
@@ -66,7 +59,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
         }
 
     def lazyInitialize() : Unit =
-        relation.foreach(t =>
+        relation.lazy_foreach(t =>
             {
                 data.add(projection(t))
             }
@@ -134,12 +127,13 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
  */
 class BagProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
-    val relation : View[Domain])
-        extends SelfMaintainedView[Domain, Range] {
+    val relation : LazyView[Domain])
+        extends LazyView[Range]
+        with Observer[Domain] {
     relation addObserver this
 
-    def foreach[T](f : (Range) => T) : Unit =
-        relation.foreach(v =>
+    def lazy_foreach[T](f : (Range) => T) : Unit =
+        relation.lazy_foreach(v =>
             {
                 f(projection(v))
             }
@@ -167,16 +161,16 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
  */
 class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
-    val relation : View[Domain])
+    val relation : LazyView[Domain])
         extends Bag[Range]
         with MaterializedView[Range]
-        with SelfMaintainedView[Domain, Range]
-        with LazyInitializer[Range] {
+        with Observer[Domain] {
+    
     relation addObserver this
 
     def lazyInitialize() : Unit =
         {
-            relation.foreach(t =>
+            relation.lazy_foreach(t =>
                 {
                     this += projection(t)
                 }

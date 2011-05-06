@@ -1,17 +1,22 @@
 package sae
 
 /**
- * A lazy view is observable and initializes itself lazily
- * on the first call to foreach. Thus it can be Initialized for
+ * A lazy view is observable has a foreach that lazily
+ * evaluates all tuples, possibly defering to the underlying relation
+ * in the chain. Thus it can be Initialized for
  * tables that are already filled.
+ * The lazy foreach may be a costly operation, but can also reduce the
+ * amount of intermediate tables that are instantiated.
  */
-trait LazyView[T <: AnyRef]
-        extends View[T] {
+trait LazyView[V <: AnyRef]
+        extends Observable[V] 
+{
 
     /**
-     * Initializes this view.
-     * Implementors must guarantee that no update/add/remove event is fired during the materialization
+     * Applies f to all elements of the view.
+     * Implementors must guarantee that no update/add/remove event is
+     * fired during the deferred iteration
      */
-    protected def lazyInitialize()
+    def lazy_foreach[T](f : (V) => T)
 
 }

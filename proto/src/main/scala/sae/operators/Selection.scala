@@ -1,7 +1,6 @@
 package sae
 package operators
 import sae.collections.Bag
-import sae.core.LazyInitializer
 
 /**
  * A selection operates as a filter on the values in the relation and eliminates
@@ -9,13 +8,15 @@ import sae.core.LazyInitializer
  */
 class Selection[V <: AnyRef](
     val filter : V => Boolean,
-    val relation : View[V])
-        extends SelfMaintainedView[V, V] {
+    val relation : LazyView[V])
+        extends LazyView[V]
+        with Observer[V] {
+
     relation addObserver this
 
-    def foreach[T](f : (V) => T) : Unit =
+    def lazy_foreach[T](f : (V) => T) : Unit =
         {
-            relation.foreach(v =>
+            relation.lazy_foreach(v =>
                 {
                     if (filter(v)) {
                         f(v)
@@ -59,16 +60,15 @@ class Selection[V <: AnyRef](
  */
 class MaterializedSelection[V <: AnyRef](
     val filter : V => Boolean,
-    val relation : View[V])
+    val relation : LazyView[V])
         extends Bag[V]
-        with MaterializedView[V]
-        with SelfMaintainedView[V, V]
-        with LazyInitializer[V] {
+        with Observer[V] {
+
     relation addObserver this
 
     def lazyInitialize() : Unit =
         {
-            relation.foreach(t =>
+            relation.lazy_foreach(t =>
                 {
                     if (filter(t)) {
                         add_element(t)

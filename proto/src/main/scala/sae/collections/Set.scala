@@ -26,6 +26,6 @@ trait Set[V <: AnyRef]
             data = data - v
         }
 
-    def foreach[U](f : V => U) : Unit = data.foreach(f)
+    def materialized_foreach[U](f : V => U) : Unit = data.foreach(f)
 
 }

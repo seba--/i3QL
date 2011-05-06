@@ -35,7 +35,7 @@ trait Bag[V <: AnyRef]
             data.remove(v)
         }
 
-    def foreach[U](f : V => U) : Unit =
+    def materialized_foreach[U](f : V => U) : Unit =
         {
             val it : java.util.Iterator[V] = data.iterator()
             while (it.hasNext()) {
@@ -43,6 +43,7 @@ trait Bag[V <: AnyRef]
             }
         }
 
+   /*
     def copy : Collection[V] =
         {
             val copy = new Bag[V] { def materialize() : Unit = { /* nothing to do, the set itself is the data */ } }
@@ -53,4 +54,5 @@ trait Bag[V <: AnyRef]
             )
             copy
         }
+    */      
 }

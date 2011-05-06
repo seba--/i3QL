@@ -2,23 +2,28 @@ package sae
 package operators
 
 import sae.collections.Bag
+
 /**
  * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges the amount of tuples in it's output.
- * The new relations are anonymous tuples of the warranted size and types of the cross product.
+ * Thus the cross product dramatically enlarges 
+ * the amount of tuples in it's output.
+ * The new relations are anonymous tuples of the 
+ * warranted size and types of the cross product.
+ * 
  * IMPORTANT: The cross product is not a self-maintained view.
- *            In order to compute the delta of adding a tuple to one of the underlying relations,
+ *            In order to compute the delta of adding a tuple 
+ *            to one of the underlying relations,
  *            the whole other relation needs to be considered.
  */
 class CrossProduct[A <: AnyRef, B <: AnyRef](
     val left : MaterializedView[A],
     val right : MaterializedView[B])
-        extends Bag[(A, B)]
-        with sae.core.LazyInitializer[(A, B)] {
+        extends Bag[(A, B)] {
+
     left addObserver LeftObserver
     right addObserver RightObserver
 
-    def lazyInitialize() : Unit =
+    def lazyInitialize : Unit =
         {
             left.foreach(a =>
                 {
