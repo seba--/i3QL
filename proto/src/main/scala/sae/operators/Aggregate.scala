@@ -17,7 +17,7 @@ import scala.collection.mutable.Map
  * If no grouping is supplied, the aggregation functions are applied on the entire relation.
  * If no function is supplied the aggregation has no effect.
  */
-class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
                                                                                                  aggragationConstructorFunc : (Key, AggregationValue) => Result)
     extends Observer[Domain] with MaterializedView[Result] {
 	//TODO Evaluate cost of wrapping java.iterabel in scala iterable 

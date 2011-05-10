@@ -1,15 +1,20 @@
 package sae.test
+
+
+import junit.framework._
+import org.junit.Assert._
 import scala.collection.mutable.ListBuffer
 import sae.operators._
 import sae.functions._
-import junit.framework._
-import org.junit.Assert._
 import sae._
 import sae.collections._
-import sae.syntax._
 import sae.operators.CreateAggregationFunctionContainer._
 
+
+        
+        
 class Testaggregate extends TestCase {
+    case class Edge(a : String, b : String, c : Int)
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
     var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
@@ -183,7 +188,8 @@ class Testaggregate extends TestCase {
         assertTrue(list.contains("damen", "Adidas", 20, 2, 13))
     }
     def testSmallEdgeTest = {
-        case class Edge(a : String, b : String, c : Int)
+        
+       // case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, avgCost : Double)
         val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
@@ -207,8 +213,10 @@ class Testaggregate extends TestCase {
 
     }
     def testSallEdgeTest2 = {
-        case class Edge(a : String, b : String, c : Int)
+//        case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
+       // case class Edge(a : String, b : String, c : Int)
+        //case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
         val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
         val minAndAVGCost = new Aggregation(edges, (e : Edge) => (e.a, e.b),
@@ -228,7 +236,7 @@ class Testaggregate extends TestCase {
         assertTrue(ob.size == 3)
     }
     def testEdgeLazy = {
-        case class Edge(a : String, b : String, c : Int)
+        //case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
         val edges = new ObservableList[Edge]
         edges.add(new Edge("a", "b", 4))
@@ -254,6 +262,40 @@ class Testaggregate extends TestCase {
         assertTrue(minAndAVGCostAsList.size == 3)
         edges.add(new Edge("c", "b", 5))
         assertTrue(ob.contains(EdgeGroup("c", "b", 2, 2, 3.5)))
+    }
+    
+  def testAggregationWithSelection() = {
+      	
+        case class EdgeGroup(a : String, b : String, count : Int)
+        val edges = new ObservableList[Edge]
+        
+     
+        val selection = new LazySelection[Edge]( (x : Edge) => {x.a == "a" || x.a == "b"} , edges)
+        
+        val minAndAVGCost = new Aggregation(selection, (e : Edge) => (e.a, e.b),
+            Count[Edge](),
+            (x : (String, String), y : Int) => { new EdgeGroup(x._1, x._2, y) })
+        val selection2 = new MaterializedSelection[EdgeGroup]( (x : EdgeGroup) => {x.count > 2} , minAndAVGCost) 
+        val op = new ObserverList[EdgeGroup]()
+        minAndAVGCost.addObserver(op)
+        edges.add(new Edge("a", "b", 4)) 	//ja
+        assertTrue(selection2.materialized_size == 0)
+        edges.add(new Edge("a", "b", 2))	//ja
+        assertTrue(selection2.materialized_size == 0)
+        edges.add(new Edge("a", "b", 3))	//ja
+        assertTrue(selection2.materialized_size == 1)
+        edges.add(new Edge("d", "b", 2))
+        edges.add(new Edge("d", "b", 3))
+        edges.add(new Edge("c", "b", 2))
+        assertTrue(op.size == 1)
+        assertTrue(op.contains(new EdgeGroup("a", "b", 3)))
+        assertTrue(selection2.materialized_size == 1)
+        edges.add(new Edge("b", "d", 2))
+        assertTrue(op.size == 2)
+        assertTrue(op.contains(new EdgeGroup("b", "d", 1)))
+        edges.add(new Edge("b", "d", 2))
+        edges.add(new Edge("b", "d", 2))
+        assertTrue(selection2.materialized_size == 2)
     }
 
 }
