@@ -1,12 +1,14 @@
 package sae
 package collections
 
+import scala.collection.mutable.ListBuffer
+
 class ViewList[V <: AnyRef](val o: Observable[V]) extends Observer[V] with View[V] {
 
    o addObserver this
 
-   protected var data = List[V]();
-
+   //protected var data = ListBuffer[V]();
+protected var data = List[V]();
    def added(v: V) { add(v) }
    def removed(v: V) { remove(v) }
    def updated(oldV: V, newV: V) { update(oldV, newV) }

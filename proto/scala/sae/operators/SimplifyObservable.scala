@@ -21,6 +21,7 @@ class SimplifyObservable[K <: AnyRef, V <: AnyRef]  extends Observer[(K, Observa
 
     def removed(v: (K, Observable[V])): Unit = {
       v._2.removeObserver(obs)
+      
     }
 
     def added(v: (K, Observable[V])): Unit = {

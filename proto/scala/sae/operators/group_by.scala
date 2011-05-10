@@ -38,11 +38,6 @@ case class group_by[V <: AnyRef, K <: AnyRef](val source: Observable[V], val gro
 
    def removed(v: V) {
       val key = groupKey(v)
-      /*if(!groups.contains(key)){
-        println("x")
-        //TODO remove 
-        return
-      }*/
       val (count, group) = groups(key)
       group.element_removed(v)
       if (count.dec == 0) {
@@ -82,7 +77,7 @@ case class group_by[V <: AnyRef, K <: AnyRef](val source: Observable[V], val gro
          }
 
          def updated(oldV: (K,Observable[V]), newV: (K,Observable[V])) {
-            // the list of observables will not be updated...
+            // the list of obbservables will not be updated...
             throw new Error
          }
 

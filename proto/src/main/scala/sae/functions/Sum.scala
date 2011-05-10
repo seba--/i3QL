@@ -1,36 +1,31 @@
 package sae
 package functions
+import sae.operators._
 
-case class Sum[K <: AnyRef, V <: AnyRef](val source : Observable[K], val f : K => Int, val f2 : (K, Int) => V) extends Observer[K] with Observable[V] {
-
-    private var totalSum : Int = Integer.MIN_VALUE
-
-    source.addObserver(this)
-
-    def updated(oldV : K, newV : K) {
-        val ns = totalSum - f(oldV) + f(newV)
-        element_updated(f2(oldV, totalSum), f2(newV, ns))
-        totalSum = ns
+private class SumIntern[Domain <: AnyRef](val f : Domain => Int) extends AggregationFunktion[Domain, Int] {
+    var sum = 0
+    def add(d : Domain, data : Iterable[Domain]) = {
+        sum += f(d)
+        sum
+    }
+    def remove(d : Domain, data : Iterable[Domain]) = {
+        sum -= f(d)
+        sum
     }
 
-    def removed(k : K) {
-        if (totalSum - f(k) > 0)
-            element_updated(f2(k, totalSum), f2(k, totalSum - f(k)))
-        else
-            element_removed(f2(k, totalSum))
-        totalSum -= f(k)
+    def update(oldV : Domain, newV : Domain, data : Iterable[Domain]) = {
+        sum -= f(oldV)
+        sum += f(newV)
+        sum
     }
-    //unterscheiden zwischen observal value und observal "set"
-    def added(k : K) {
-        if (totalSum == Integer.MIN_VALUE) {
-            element_added(f2(k, f(k)))
-            totalSum = f(k)
-        } else {
-
-            element_updated(f2(k, totalSum), f2(k, totalSum + f(k)))
-            totalSum += f(k)
-        }
-
-    }
-
 }
+object Sum {
+    def apply[Domain <: AnyRef](f : (Domain => Int)) = {
+        new AggregationFunktionFactory[Domain, Int] {
+            def apply() : AggregationFunktion[Domain, Int] = {
+                new SumIntern[Domain](f)
+            }
+        }
+    }
+}
+
