@@ -17,6 +17,7 @@ class Testaggregate extends TestCase {
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
     class ObserverList[Domain <: AnyRef] extends Observer[Domain] {
         val data = ListBuffer[Domain]()
+
         def contains(x : Any) : Boolean = {
             data.contains(x)
         }
@@ -40,7 +41,9 @@ class Testaggregate extends TestCase {
         }
     }
     class ObservableList[V <: AnyRef] extends LazyView[V] {
-
+        def lazy_foreach[T](f : (V) => T) {
+            data.foreach(f)
+        }
         //   protected var data = List[V]();
         var data = ListBuffer[V]();
 
@@ -64,9 +67,6 @@ class Testaggregate extends TestCase {
 
         def foreach[T](f : (V) => T) {
             data.foreach(f)
-        }
-        def lazy_foreach[T](f : (V) => T) : Unit = {
-
         }
 
     }
@@ -185,18 +185,18 @@ class Testaggregate extends TestCase {
     def testSmallEdgeTest = {
         case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, avgCost : Double)
-        val list = new ObservableList[Edge]
+        val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
         //                                                                                                   aggragationConstructorFunc : (Key, AggregationValue) => Result)
-        val minAndAVGCost = new Aggregation(list, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
+        val minAndAVGCost = new Aggregation(edges, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
         val ob = new ObserverList[EdgeGroup];
         minAndAVGCost.addObserver(ob)
-        list.add(new Edge("a", "b", 4))
-        list.add(new Edge("a", "b", 2))
-        list.add(new Edge("a", "b", 3))
-        list.add(new Edge("d", "b", 2))
-        list.add(new Edge("d", "b", 3))
-        list.add(new Edge("c", "b", 2))
+        edges.add(new Edge("a", "b", 4))
+        edges.add(new Edge("a", "b", 2))
+        edges.add(new Edge("a", "b", 3))
+        edges.add(new Edge("d", "b", 2))
+        edges.add(new Edge("d", "b", 3))
+        edges.add(new Edge("c", "b", 2))
         assertTrue(ob.size == 3)
         assertTrue(ob.contains(EdgeGroup("a", "b", 2, 3.0)))
         assertTrue(ob.contains(EdgeGroup("d", "b", 2, 2.5)))
@@ -209,23 +209,51 @@ class Testaggregate extends TestCase {
     def testSallEdgeTest2 = {
         case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
-        val list = new ObservableList[Edge]
+        val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-        val minAndAVGCost = new Aggregation(list, (e : Edge) => (e.a, e.b),
+        val minAndAVGCost = new Aggregation(edges, (e : Edge) => (e.a, e.b),
             (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
             (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
         val ob = new ObserverList[EdgeGroup];
         minAndAVGCost.addObserver(ob)
-        list.add(new Edge("a", "b", 4))
-        list.add(new Edge("a", "b", 2))
-        list.add(new Edge("a", "b", 3))
-        list.add(new Edge("d", "b", 2))
-        list.add(new Edge("d", "b", 3))
-        list.add(new Edge("c", "b", 2))
+        edges.add(new Edge("a", "b", 4))
+        edges.add(new Edge("a", "b", 2))
+        edges.add(new Edge("a", "b", 3))
+        edges.add(new Edge("d", "b", 2))
+        edges.add(new Edge("d", "b", 3))
+        edges.add(new Edge("c", "b", 2))
         assertTrue(ob.contains(EdgeGroup("a", "b", 2, 3, 3.0)))
         assertTrue(ob.contains(EdgeGroup("d", "b", 2, 2, 2.5)))
         assertTrue(ob.contains(EdgeGroup("c", "b", 2, 1, 2.0)))
         assertTrue(ob.size == 3)
+    }
+    def testEdgeLazy = {
+        case class Edge(a : String, b : String, c : Int)
+        case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
+        val edges = new ObservableList[Edge]
+        edges.add(new Edge("a", "b", 4))
+        edges.add(new Edge("a", "b", 2))
+        edges.add(new Edge("a", "b", 3))
+        edges.add(new Edge("d", "b", 2))
+        edges.add(new Edge("d", "b", 3))
+        edges.add(new Edge("c", "b", 2))
+        //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+        val minAndAVGCost = new Aggregation(edges, (e : Edge) => (e.a, e.b),
+            (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
+            (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
+        val ob = new ObserverList[EdgeGroup];
+        minAndAVGCost.addObserver(ob)
+        assertTrue(ob.size == 0)
+        var minAndAVGCostAsList = List[EdgeGroup]()
+        minAndAVGCost.foreach((x : EdgeGroup) => {
+            minAndAVGCostAsList = x :: minAndAVGCostAsList
+        }) //x => minAndAVGCostAsList = x :: minAndAVGCostAsList)
+        assertTrue(minAndAVGCostAsList.contains(EdgeGroup("a", "b", 2, 3, 3.0)))
+        assertTrue(minAndAVGCostAsList.contains(EdgeGroup("d", "b", 2, 2, 2.5)))
+        assertTrue(minAndAVGCostAsList.contains(EdgeGroup("c", "b", 2, 1, 2.0)))
+        assertTrue(minAndAVGCostAsList.size == 3)
+        edges.add(new Edge("c", "b", 5))
+        assertTrue(ob.contains(EdgeGroup("c", "b", 2, 2, 3.5)))
     }
 
 }

@@ -18,15 +18,48 @@ import scala.collection.mutable.Map
  * If no function is supplied the aggregation has no effect.
  */
 class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-                                                                                                   aggragationConstructorFunc : (Key, AggregationValue) => Result)
-    extends Observer[Domain] with LazyView[Result] {
+                                                                                                 aggragationConstructorFunc : (Key, AggregationValue) => Result)
+    extends Observer[Domain] with MaterializedView[Result] {
+	//TODO Evaluate cost of wrapping java.iterabel in scala iterable 
+    import com.google.common.collect.HashMultiset;
+     var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunktion[Domain, AggregationValue], Result)]()
+    lazyInitialize
+    initialized = true
+    def lazyInitialize : Unit = {
+        
+        source.lazy_foreach((v : Domain) => {
+            //more or less a copy of added (without notify any observers)
+            val key = groupFunction(v)
+            if (groups.contains(key)) {
+                val (count, data, aggFuncs, oldResult) = groups(key)
+                data.add(v)
+                count.inc
+                val aggRes = aggFuncs.add(v, data)
+                val res = aggragationConstructorFunc(key, aggRes)
+                if (res != oldResult) {
+                    //some aggragation valus changed => updated event
+                    groups.put(key, (count, data, aggFuncs, res))
+                }
+            } else {
+                val c = new Count
+                c.inc
+                val data = HashMultiset.create[Domain]()
+                data.add(v)
+                val aggFuncs = aggregationFuncFactory()
+                val aggRes = aggFuncs.add(v, data)
+                val res = aggragationConstructorFunc(key, aggRes)
+                //groups.add(key, (c,data,aggFuncs, res))
+                groups.put(key, (c, data, aggFuncs, res))
+            }
+        })
 
-    def lazy_foreach[T](f : (Result) => T) : Unit = {
-        groups.foreach( x => f(x._2._4))
     }
-    
 
-    private class Count {
+    protected def materialized_foreach[T](f : (Result) => T) : Unit = {
+    		groups.foreach( x => f(x._2._4))
+    }
+
+    class Count {
         private var count : Int = 0
 
         def inc() = { this.count += 1 }
@@ -34,9 +67,7 @@ class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, R
 
         def apply() = this.count
     }
-    //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
-    import com.google.common.collect.HashMultiset;
-    private var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunktion[Domain, AggregationValue], Result)]()
+    
 
     source.addObserver(this)
 
@@ -44,13 +75,13 @@ class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, R
         val oldKey = groupFunction(oldV)
         val newKey = groupFunction(newV)
         if (oldKey == newKey) {
-            
+
             val (count, data, aggFuncs, oldResult) = groups(oldKey)
             data.remove(oldV)
             data.add(newV)
             val aggRes = aggFuncs.update(oldV, newV, data)
             val res = aggragationConstructorFunc(oldKey, aggRes)
-            groups.put(oldKey , (count, data, aggFuncs, res))
+            groups.put(oldKey, (count, data, aggFuncs, res))
             element_updated(oldResult, res)
         } else {
             removed(oldV);
@@ -61,20 +92,21 @@ class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, R
     def removed(v : Domain) {
         val key = groupFunction(v)
         val (count, data, aggFuncs, oldResult) = groups(key)
-        
+
         if (count.dec == 0) {
             //remove a group
             groups -= key
             element_removed(oldResult)
-        }else{
-        data.remove(v)
-        val aggRes = aggFuncs.remove(v, data)
-        val res = aggragationConstructorFunc(key, aggRes)
-        if (res != oldResult) {
-            //some aggragation valus changed => updated event
-            groups.put(key , (count, data, aggFuncs, res))
-            element_updated(oldResult, res)
-        }}
+        } else {
+            data.remove(v)
+            val aggRes = aggFuncs.remove(v, data)
+            val res = aggragationConstructorFunc(key, aggRes)
+            if (res != oldResult) {
+                //some aggragation valus changed => updated event
+                groups.put(key, (count, data, aggFuncs, res))
+                element_updated(oldResult, res)
+            }
+        }
     }
 
     def added(v : Domain) {
@@ -87,26 +119,24 @@ class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, R
             val res = aggragationConstructorFunc(key, aggRes)
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
-                groups.put(key , (count, data, aggFuncs, res))
+                groups.put(key, (count, data, aggFuncs, res))
                 element_updated(oldResult, res)
-             
+
             }
         } else {
-        	val c = new Count
-        	c.inc
-        	val data = HashMultiset.create[Domain]()
-        	data.add(v)
-        	val aggFuncs = aggregationFuncFactory()
-        	val aggRes = aggFuncs.add(v, data)
+            val c = new Count
+            c.inc
+            val data = HashMultiset.create[Domain]()
+            data.add(v)
+            val aggFuncs = aggregationFuncFactory()
+            val aggRes = aggFuncs.add(v, data)
             val res = aggragationConstructorFunc(key, aggRes)
             //groups.add(key, (c,data,aggFuncs, res))
-            groups.put(key, (c,data,aggFuncs, res))
+            groups.put(key, (c, data, aggFuncs, res))
             element_added(res)
         }
     }
 }
-
-
 
 /*trait AggregationFunktionsFactory[Domain <: AnyRef, AggregationValue] {
     def apply() : AggregationFunktions[Domain, AggregationValue]
