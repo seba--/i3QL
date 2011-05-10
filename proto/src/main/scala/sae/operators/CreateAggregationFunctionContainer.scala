@@ -2,6 +2,23 @@ package sae.operators
 
 object CreateAggregationFunctionContainer {
 
+    implicit def AggregationFunktionToAggregationFactory[Domain <: AnyRef, Value1 <: Any]
+                                                         (t : (AggregationFunktionFactory[Domain, Value1]
+                                                               )) : AggregationFunktionFactory[Domain, (Value1)] = {
+         CreateAggregationFunctionContainer.apply(t)
+    }
+    implicit def AggregationFunktionToAggregationFactory[Domain <: AnyRef, Value1 <: Any, Value2 <: Any]
+                                                         (t : (AggregationFunktionFactory[Domain, Value1],
+                                                               AggregationFunktionFactory[Domain, Value2])) : AggregationFunktionFactory[Domain, (Value1, Value2)] ={
+         CreateAggregationFunctionContainer.apply(t._1,t._2)
+    }
+    implicit def AggregationFunktionToAggregationFactory[Domain <: AnyRef, Value1 <: Any, Value2 <: Any, Value3 <: Any]
+                                                         (t : (AggregationFunktionFactory[Domain, Value1],
+                                                               AggregationFunktionFactory[Domain, Value2], AggregationFunktionFactory[Domain, Value3])) : AggregationFunktionFactory[Domain, (Value1, Value2, Value3)] ={
+         CreateAggregationFunctionContainer.apply(t._1,t._2, t._3)
+    }
+    
+    
     def apply[Domain <: AnyRef, Value1 <: Any](f1 : AggregationFunktionFactory[Domain, Value1]) : AggregationFunktionFactory[Domain, (Value1)] = {
         new AggregationFunktionFactory[Domain, (Value1)] {
             def apply() : AggregationFunktion[Domain, (Value1)] = {

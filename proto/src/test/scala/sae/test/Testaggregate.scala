@@ -7,37 +7,22 @@ import org.junit.Assert._
 import sae._
 import sae.collections._
 import sae.syntax._
+import sae.operators.CreateAggregationFunctionContainer._
 
 class Testaggregate extends TestCase {
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
     var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
     var list = new ObserverList[(String, String, Int, Int, Int)]
-       
-    val assertContainsNot = (x : ObserverList[(String, String, Int, Int, Int)], y : Any) => {
-        if(x.data.contains(y)){
-            println(x + " -- " +y)
-            fail
-        }     
-    }
-    val assertSize = (x : ObserverList[(String, String, Int, Int, Int)], y : Int) => {
-        if(x.data.size == y){
-            
-        }else{
-            println(x+ " -- " +y)
-            fail
-        }
-    }
-    val assertContains = (x : ObserverList[(String, String, Int, Int, Int)], y : Any) => {
-        if(!(x.data.contains(y))){
-            println(x+ " -- " +y)
-            fail
-        }
-    }
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
     class ObserverList[Domain <: AnyRef] extends Observer[Domain] {
         val data = ListBuffer[Domain]()
-
+        def contains(x : Any) : Boolean = {
+            data.contains(x)
+        }
+        def size() : Int = {
+            data.size
+        }
         def updated(oldV : Domain, newV : Domain) {
             data -= oldV
             data += newV
@@ -51,19 +36,51 @@ class Testaggregate extends TestCase {
             data += v
         }
         override def toString() : String = {
-           data.toString()
+            data.toString()
         }
     }
+    class ObservableList[V <: AnyRef] extends LazyView[V] {
+
+        //   protected var data = List[V]();
+        var data = ListBuffer[V]();
+
+        def add(k : V) {
+            data += k
+            element_added(k)
+        }
+
+        def remove(k : V) {
+            //data = data.filterNot(_ eq k)
+            data -= k
+            element_removed(k)
+        }
+
+        def update(oldV : V, newV : V) {
+            //data = newV +: (data.filterNot(_ eq oldV))
+            data -= oldV
+            data += newV
+            element_updated(oldV, newV)
+        }
+
+        def foreach[T](f : (V) => T) {
+            data.foreach(f)
+        }
+        def lazy_foreach[T](f : (V) => T) : Unit = {
+
+        }
+
+    }
     val aggFuncsFac = CreateAggregationFunctionContainer[Schuh, Int, Int, Int](
-            Sum( (x : Schuh) => x.preis),
-            Min( (x : Schuh) => x.preis),
-            Max( (x : Schuh) => x.preis))
+        Sum((x : Schuh) => x.preis),
+        Min((x : Schuh) => x.preis),
+        Max((x : Schuh) => x.preis))
     //before every method
     override def setUp() = {
         schuhe = new ObservableList[Schuh];
-        aggOp = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        //aggOp = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        aggOp = new Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         list = new ObserverList[(String, String, Int, Int, Int)]
-        aggOp.addObserver(list); 
+        aggOp.addObserver(list);
     }
     //after every method
     override def tearDown() = {
@@ -75,30 +92,30 @@ class Testaggregate extends TestCase {
         aggOp.addObserver(list);
         schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
 
-        assertSize(list, 1)
-        assertContains(list, ("herren", "Adidas", 11, 11, 11))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
 
         schuhe.add(new Schuh("damen", "GOODYEAR STREET W", "Adidas", 12, 12))
-        assertSize(list, 2)
-        assertContains(list, ("herren", "Adidas", 11, 11, 11))
-        assertContains(list, ("damen", "Adidas", 12, 12, 12))
+
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
+        assertTrue(list.contains("damen", "Adidas", 12, 12, 12))
 
         schuhe.add(new Schuh("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
-        assertSize(list, 3)
-        assertContains(list, ("herren", "Adidas", 11, 11, 11))
-        assertContains(list, ("damen", "Adidas", 12, 12, 12))
-        assertContains(list, ("damen", "Puma", 13, 13, 13))
+        assertTrue(list.size == 3)
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
+        assertTrue(list.contains("damen", "Adidas", 12, 12, 12))
+        assertTrue(list.contains("damen", "Puma", 13, 13, 13))
 
         schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 15, 12))
-        assertSize(list, 4)
-        assertContains(list, ("herren", "Puma", 15, 15, 15))
+        assertTrue(list.size == 4)
+        assertTrue(list.contains("herren", "Puma", 15, 15, 15))
 
         schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 0, 0))
-        assertSize(list, 4)
-        assertContains(list, ("herren", "Adidas", 11, 11, 11))
-        assertContains(list, ("damen", "Adidas", 12, 12, 12))
-        assertContains(list, ("damen", "Puma", 13, 13, 13))
-        assertContains(list, ("herren", "Puma", 15, 0, 15))
+        assertTrue(list.size == 4)
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
+        assertTrue(list.contains("damen", "Adidas", 12, 12, 12))
+        assertTrue(list.contains("damen", "Puma", 13, 13, 13))
+        assertTrue(list.contains("herren", "Puma", 15, 0, 15))
         //assertTrue(result.size == 5)
 
     }
@@ -110,63 +127,105 @@ class Testaggregate extends TestCase {
         schuhe.add(new Schuh("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
         schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 15, 12))
         schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 0, 0))
-        assertSize(list, 4)
+        assertTrue(list.size == 4)
         schuhe.remove(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 0, 0))
-        assertSize(list, 4)
-        assertContains(list, ("damen", "Puma", 13, 13, 13))
+        assertTrue(list.size == 4)
+        assertTrue(list.contains("damen", "Puma", 13, 13, 13))
         schuhe.remove(new Schuh("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
-        assertSize(list, 3)
-        assertContainsNot(list, ("damen", "Puma", 13, 13, 13))
+        assertTrue(list.size == 3)
+        assertFalse(list.contains("damen", "Puma", 13, 13, 13))
         //assertTrue(result.size == 5)
     }
     //oldKey = newKey
     def testUpdateCase1() = {
-    	schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
-    	schuhe.add(new Schuh("herren", "New GOODYEAR STREET M", "Adidas", 24, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("herren", "Adidas", 35, 11, 24))
-    	schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("herren", "Adidas", 29, 5, 24))
-    	schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 30, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("herren", "Adidas", 54, 24, 30))
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
+        schuhe.add(new Schuh("herren", "New GOODYEAR STREET M", "Adidas", 24, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("herren", "Adidas", 35, 11, 24))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("herren", "Adidas", 29, 5, 24))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 30, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("herren", "Adidas", 54, 24, 30))
     }
     //oldKey <> newkey and remove oldKey and add newKey
     def testUpdateCase2() = {
-    	schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("herren", "Adidas", 11, 11, 11))
-    	schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("damen", "Adidas", 5, 5, 5))
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("damen", "Adidas", 5, 5, 5))
     }
     //oldKey <> newkey and remove oldKey and update newKey
     def testUpdateCase3() = {
-    	schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
-    	schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
-    	assertSize(list, 2)
-    	assertContains(list, ("herren", "Adidas", 11, 11, 11))
-    	schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
-    	assertSize(list, 1)
-    	assertContains(list, ("damen", "Adidas", 18, 5, 13))
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
+        schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
+        assertTrue(list.size == 2)
+        assertTrue(list.contains("herren", "Adidas", 11, 11, 11))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains("damen", "Adidas", 18, 5, 13))
     }
     //oldKey <> newkey and update oldKey and update newKey
     def testUpdateCase4() = {
-    	schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
-    	schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
-    	schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 18, 12))
-    	schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 2, 12))
-    	assertSize(list, 2)
-    	assertContains(list, ("herren", "Adidas", 29, 11, 18))
-    	assertContains(list, ("damen", "Adidas", 15, 2, 13))
-    	schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
-    	assertSize(list, 2)
-    	assertContains(list, ("herren", "Adidas", 18, 18, 18))
-    	assertContains(list, ("damen", "Adidas", 20, 2, 13))
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
+        schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 18, 12))
+        schuhe.add(new Schuh("damen", "GOODYEAR STREET M", "Adidas", 2, 12))
+        assertTrue(list.size == 2)
+        assertTrue(list.contains("herren", "Adidas", 29, 11, 18))
+        assertTrue(list.contains("damen", "Adidas", 15, 2, 13))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("damen", "GOODYEAR STREET M", "Adidas", 5, 12))
+        assertTrue(list.size == 2)
+        assertTrue(list.contains("herren", "Adidas", 18, 18, 18))
+        assertTrue(list.contains("damen", "Adidas", 20, 2, 13))
     }
-    def test12 = {
+    def testSmallEdgeTest = {
+        case class Edge(a : String, b : String, c : Int)
+        case class EdgeGroup(a : String, b : String, minCost : Int, avgCost : Double)
+        val list = new ObservableList[Edge]
+        //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+        //                                                                                                   aggragationConstructorFunc : (Key, AggregationValue) => Result)
+        val minAndAVGCost = new Aggregation(list, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
+        val ob = new ObserverList[EdgeGroup];
+        minAndAVGCost.addObserver(ob)
+        list.add(new Edge("a", "b", 4))
+        list.add(new Edge("a", "b", 2))
+        list.add(new Edge("a", "b", 3))
+        list.add(new Edge("d", "b", 2))
+        list.add(new Edge("d", "b", 3))
+        list.add(new Edge("c", "b", 2))
+        assertTrue(ob.size == 3)
+        assertTrue(ob.contains(EdgeGroup("a", "b", 2, 3.0)))
+        assertTrue(ob.contains(EdgeGroup("d", "b", 2, 2.5)))
+        assertTrue(ob.contains(EdgeGroup("c", "b", 2, 2.0)))
 
+        //assertContains(ob,EdgeGroup(a,b,2,3.0))
+        //assertSize(ob,3)
+
+    }
+    def testSallEdgeTest2 = {
+        case class Edge(a : String, b : String, c : Int)
+        case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
+        val list = new ObservableList[Edge]
+        //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+        val minAndAVGCost = new Aggregation(list, (e : Edge) => (e.a, e.b),
+            (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
+            (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
+        val ob = new ObserverList[EdgeGroup];
+        minAndAVGCost.addObserver(ob)
+        list.add(new Edge("a", "b", 4))
+        list.add(new Edge("a", "b", 2))
+        list.add(new Edge("a", "b", 3))
+        list.add(new Edge("d", "b", 2))
+        list.add(new Edge("d", "b", 3))
+        list.add(new Edge("c", "b", 2))
+        assertTrue(ob.contains(EdgeGroup("a", "b", 2, 3, 3.0)))
+        assertTrue(ob.contains(EdgeGroup("d", "b", 2, 2, 2.5)))
+        assertTrue(ob.contains(EdgeGroup("c", "b", 2, 1, 2.0)))
+        assertTrue(ob.size == 3)
     }
 
 }

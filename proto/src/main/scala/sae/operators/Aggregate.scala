@@ -17,13 +17,14 @@ import scala.collection.mutable.Map
  * If no grouping is supplied, the aggregation functions are applied on the entire relation.
  * If no function is supplied the aggregation has no effect.
  */
-class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+class Aggregation[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
                                                                                                    aggragationConstructorFunc : (Key, AggregationValue) => Result)
     extends Observer[Domain] with LazyView[Result] {
 
-    def lazy_foreach[T](f : (Result) => T){
+    def lazy_foreach[T](f : (Result) => T) : Unit = {
         groups.foreach( x => f(x._2._4))
     }
+    
 
     private class Count {
         private var count : Int = 0
