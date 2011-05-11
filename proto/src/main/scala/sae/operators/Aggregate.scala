@@ -18,15 +18,19 @@ import scala.collection.mutable.Map
  * If no function is supplied the aggregation has no effect.
  */
 class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-                                                                                                 aggragationConstructorFunc : (Key, AggregationValue) => Result)
-    extends Observer[Domain] with MaterializedView[Result] {
-	//TODO Evaluate cost of wrapping java.iterabel in scala iterable 
+                                                                                           aggragationConstructorFunc : (Key, AggregationValue) => Result)
+        extends Observer[Domain] with MaterializedView[Result] {
+
+    //TODO Evaluate cost of wrapping java.iterabel in scala iterable
+
     import com.google.common.collect.HashMultiset;
-     var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunktion[Domain, AggregationValue], Result)]()
+
+    var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunktion[Domain, AggregationValue], Result)]()
+
     lazyInitialize
     initialized = true
     def lazyInitialize : Unit = {
-        
+
         source.lazy_foreach((v : Domain) => {
             //more or less a copy of added (without notify any observers)
             val key = groupFunction(v)
@@ -56,8 +60,18 @@ class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result 
     }
 
     protected def materialized_foreach[T](f : (Result) => T) : Unit = {
-    		groups.foreach( x => f(x._2._4))
+        groups.foreach(x => f(x._2._4))
     }
+
+    protected def materialized_size : Int = groups.size
+
+    protected def materialized_singletonValue : Option[Result] = 
+        {
+            if (size != 1)
+                None
+            else
+                Some(groups.head._2._4)
+        }
 
     class Count {
         private var count : Int = 0
@@ -67,7 +81,6 @@ class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result 
 
         def apply() = this.count
     }
-    
 
     source.addObserver(this)
 
