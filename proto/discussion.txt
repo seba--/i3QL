@@ -1,3 +1,6 @@
+Notes:
+Eclipse ScalaIDE does not compile the tests (for whatever reason)
+
 Ideas:
 - We could discern the operators by their allowed self-maintenance operations 
   via the type system, i.e., write something as 

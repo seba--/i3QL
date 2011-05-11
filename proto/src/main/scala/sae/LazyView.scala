@@ -20,3 +20,17 @@ trait LazyView[V <: AnyRef]
     def lazy_foreach[T](f : (V) => T)
 
 }
+
+
+trait DefaultLazyView[V <: AnyRef]
+        extends LazyView[V] 
+{
+
+    /**
+     * Applies f to all elements of the view.
+     * Implementors must guarantee that no update/add/remove event is
+     * fired during the deferred iteration
+     */
+    def lazy_foreach[T](f : (V) => T) = {}
+
+}

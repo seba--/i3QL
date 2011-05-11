@@ -1,5 +1,6 @@
 package sae
 package syntax
+
 import sae.operators._
 
 case class InfixConcatenator[Domain <: AnyRef](val left : LazyView[Domain]) {
@@ -22,9 +23,10 @@ case class InfixConcatenator[Domain <: AnyRef](val left : LazyView[Domain]) {
 }
 
 object RelationalAlgebraSyntax {
-    import sae.collections.Result
+    import sae.collections.QueryResult
 
-    implicit def lazyViewToResult[V <: AnyRef](lazyView : LazyView[V]) : Result[V] = sae.collections.Conversions.lazyViewToResult(lazyView)
+    // convenience forwarding to not always import conversion, but only the syntax
+    implicit def lazyViewToResult[V <: AnyRef](lazyView : LazyView[V]) : QueryResult[V] = sae.collections.Conversions.lazyViewToResult(lazyView)
 
     implicit def viewToConcatenator[Domain <: AnyRef](relation : LazyView[Domain]) : InfixConcatenator[Domain] =
         InfixConcatenator(relation)

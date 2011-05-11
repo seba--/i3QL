@@ -72,6 +72,19 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
             }
         }
 
+    def materialized_size : Int =
+        {
+            data.elementSet().size()
+        }
+
+    def materialized_singletonValue : Option[Range] =
+        {
+            if (size != 1)
+                None
+            else
+                Some(data.iterator().next())
+        }
+
     def lazyInitialize() : Unit =
         relation.lazy_foreach(t =>
             {
@@ -86,7 +99,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
      */
     private def add_element(v : Range) : Boolean =
         {
-        	val result = data.count(v) == 0
+            val result = data.count(v) == 0
             data.add(v)
             return result
         }

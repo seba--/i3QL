@@ -1,5 +1,4 @@
 package sae
-package collections
 
 /**
  * Trait used for testing purposes
