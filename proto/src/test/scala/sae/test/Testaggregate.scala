@@ -21,7 +21,8 @@ class Testaggregate extends TestCase {
     case class Edge(a : String, b : String, c : Int)
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
-    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+    //var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
     var list = new ObserverList[(String, String, Int, Int, Int)]
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
     class ObserverList[Domain <: AnyRef] extends Observer[Domain] {
@@ -95,13 +96,27 @@ class Testaggregate extends TestCase {
     override def setUp() = {
         schuhe = new ObservableList[Schuh];
         //aggOp = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-        aggOp = new Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        //aggOp = new Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        aggOp = Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         list = new ObserverList[(String, String, Int, Int, Int)]
         aggOp.addObserver(list);
     }
     //after every method
     override def tearDown() = {
         //  println("down!")
+    }
+    def testAggregationWithoutGrouping() = {
+        var sum = Aggregation(schuhe, Sum((x : Schuh) => x.preis))
+        val list = new ObserverList[Some[Int]]
+        sum.addObserver(list);
+        schuhe.add(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
+        schuhe.add(new Schuh("damen", "GOODYEAR STREET W", "Adidas", 12, 12))
+        schuhe.add(new Schuh("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
+        schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 15, 12))
+        schuhe.add(new Schuh("herren", "Speed Cat Gloss  M", "Puma", 0, 0))
+        assertTrue(list.size == 1)
+        assertTrue(list.contains(Some(51)))
+
     }
     def testAdd() = {
         val list = new ObserverList[(String, String, Int, Int, Int)]
@@ -235,7 +250,8 @@ class Testaggregate extends TestCase {
         val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
         //                                                                                                   aggragationConstructorFunc : (Key, AggregationValue) => Result)
-        val minAndAVGCost = new Aggregation(edges, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
+        //val minAndAVGCost = new Aggregation(edges, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
+        val minAndAVGCost = Aggregation(edges, (x : Edge) => { (x.a, x.b) }, (Min((x : Edge) => x.c), AVG((x : Edge) => x.c)), (x : (String, String), y : (Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2) })
         val ob = new ObserverList[EdgeGroup];
         minAndAVGCost.addObserver(ob)
         edges.add(new Edge("a", "b", 4))
@@ -260,7 +276,7 @@ class Testaggregate extends TestCase {
         //case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
         val edges = new ObservableList[Edge]
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-        val minAndAVGCost = new Aggregation(edges, (e : Edge) => (e.a, e.b),
+        val minAndAVGCost = Aggregation(edges, (e : Edge) => (e.a, e.b),
             (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
             (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
         val ob = new ObserverList[EdgeGroup];
@@ -287,14 +303,14 @@ class Testaggregate extends TestCase {
         edges.add(new Edge("d", "b", 3))
         edges.add(new Edge("c", "b", 2))
         //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-        val minAndAVGCost = new Aggregation(edges, (e : Edge) => (e.a, e.b),
+        val minAndAVGCost = Aggregation(edges, (e : Edge) => (e.a, e.b),
             (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
             (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
         val ob = new ObserverList[EdgeGroup];
         minAndAVGCost.addObserver(ob)
         assertTrue(ob.size == 0)
         var minAndAVGCostAsList = List[EdgeGroup]()
-        minAndAVGCost.foreach((x : EdgeGroup) => {
+        minAndAVGCost.asInstanceOf[MaterializedView[EdgeGroup]].foreach((x : EdgeGroup) => {
             minAndAVGCostAsList = x :: minAndAVGCostAsList
         }) //x => minAndAVGCostAsList = x :: minAndAVGCostAsList)
         assertTrue(minAndAVGCostAsList.contains(EdgeGroup("a", "b", 2, 3, 3.0)))
@@ -312,7 +328,7 @@ class Testaggregate extends TestCase {
 
         val selection = new LazySelection[Edge]((x : Edge) => { x.a == "a" || x.a == "b" }, edges)
 
-        val minAndAVGCost = new Aggregation(selection, (e : Edge) => (e.a, e.b),
+        val minAndAVGCost = Aggregation(selection, (e : Edge) => (e.a, e.b),
             Count[Edge](),
             (x : (String, String), y : Int) => { new EdgeGroup(x._1, x._2, y) })
         val selection2 = new MaterializedSelection[EdgeGroup]((x : EdgeGroup) => { x.count > 2 }, minAndAVGCost)
@@ -350,10 +366,23 @@ class Testaggregate extends TestCase {
     }
     def testBigAdd100() = {
 
-        val allLines = new ObservableList[Line];
+        val allLines = new LazyView[Line] {
+            def add(k : Line) {
+                element_added(k)
+            }
+            def remove(k : Line) {
+                element_removed(k)
+            }
+            def update(oldV : Line, newV : Line) {
+                element_updated(oldV, newV)
+            }
+            def lazy_foreach[T](f : (Line) => T) {
+                //throw new Error
+            }
+        }
         val lines = readFile("Daten.txt", 1000000)
         val lines100 = readFile("100.txt", 100)
-        val sumCost = new Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
 
@@ -363,7 +392,7 @@ class Testaggregate extends TestCase {
 
         var t1 = java.lang.System.nanoTime;
         lines100.foreach(x => {
-            sumCost.added(x)
+            allLines.add(x)
             //allLines.add(x)
         })
         var t2 = java.lang.System.nanoTime;
@@ -380,10 +409,23 @@ class Testaggregate extends TestCase {
     }
     def testBigRemove100() = {
 
-        val allLines = new ObservableList[Line];
+        val allLines = new LazyView[Line] {
+            def add(k : Line) {
+                element_added(k)
+            }
+            def remove(k : Line) {
+                element_removed(k)
+            }
+            def update(oldV : Line, newV : Line) {
+                element_updated(oldV, newV)
+            }
+            def lazy_foreach[T](f : (Line) => T) {
+                //throw new Error
+            }
+        }
         val lines = readFile("Daten.txt", 1000000)
         val lines100 = readFile("100.txt", 100)
-        val sumCost = new Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
 
@@ -393,7 +435,7 @@ class Testaggregate extends TestCase {
         //obs.data.foreach(println _)
         var t1 = java.lang.System.nanoTime;
         lines100.foreach(x => {
-            sumCost.removed(x)
+            allLines.remove(x)
             //allLines.remove(x)
         })
         var t2 = java.lang.System.nanoTime;
@@ -411,11 +453,24 @@ class Testaggregate extends TestCase {
     }
     def testBigUpdate100() = {
 
-        val allLines = new ObservableList[Line];
+        val allLines = new LazyView[Line] {
+            def add(k : Line) {
+                element_added(k)
+            }
+            def remove(k : Line) {
+                element_removed(k)
+            }
+            def update(oldV : Line, newV : Line) {
+                element_updated(oldV, newV)
+            }
+            def lazy_foreach[T](f : (Line) => T) {
+                //throw new Error
+            }
+        };
         val lines = readFile("Daten.txt", 1000000)
         val lines100 = readFile("100.txt", 100)
         val lines100Daten = readFile("100Daten.txt", 100)
-        val sumCost = new Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
 
@@ -427,7 +482,7 @@ class Testaggregate extends TestCase {
         //obs.data.foreach(println _)
         var t1 = java.lang.System.nanoTime;
         lines100.foreach(x => {
-            sumCost.updated(x, lines100Daten(i))
+            allLines.update(x, lines100Daten(i))
             //allLines.update(x, lines100Daten(i))
             i += 1
         })
@@ -457,16 +512,16 @@ class Testaggregate extends TestCase {
             def update(oldV : Line, newV : Line) {
                 element_updated(oldV, newV)
             }
-            def lazy_foreach[T](f : (Line) => T){
+            def lazy_foreach[T](f : (Line) => T) {
                 //throw new Error
             }
         }
         val lines = readFile("Daten_100k.txt", 100000)
-        val sumCost = new Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
         //
-       
+
         var t1 = java.lang.System.nanoTime;
         //println(t1);
         var idx = 0
@@ -511,11 +566,11 @@ class Testaggregate extends TestCase {
             def update(oldV : Line, newV : Line) {
                 element_updated(oldV, newV)
             }
-            def lazy_foreach[T](f : (Line) => T){
+            def lazy_foreach[T](f : (Line) => T) {
             }
         }
         val lines = readFile("Daten.txt", 1000000)
-        val sumCost = new Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
         var t1 = java.lang.System.nanoTime;

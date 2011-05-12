@@ -17,9 +17,12 @@ import scala.collection.mutable.Map
  * If no grouping is supplied, the aggregation functions are applied on the entire relation.
  * If no function is supplied the aggregation has no effect.
  */
-class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+trait Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef] extends LazyView[Result]{
+    
+}
+class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
                                                                                                  aggragationConstructorFunc : (Key, AggregationValue) => Result)
-    extends Observer[Domain] with MaterializedView[Result] {
+    extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
 	//TODO Evaluate cost of wrapping java.iterabel in scala iterable 
     import com.google.common.collect.HashMultiset;
      var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunktion[Domain, AggregationValue], Result)]()
@@ -138,6 +141,20 @@ class Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result 
     }
 }
 
+
+object Aggregation{
+    
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+                                                                                                 aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key , AggregationValue, Result ] = {
+        new AggregationIntern(source,groupFunction, aggregationFuncFactory,aggragationConstructorFunc )
+    }
+    
+    def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue])
+                                                                                                  = {
+        new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
+    }
+
+}
 /*trait AggregationFunktionsFactory[Domain <: AnyRef, AggregationValue] {
     def apply() : AggregationFunktions[Domain, AggregationValue]
 }*/
