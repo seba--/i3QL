@@ -4,9 +4,12 @@ package collections
 /**
  * A result is a kind of view that offers more convenience operators
  * for working with the underlying data.
- * However, these operators need not be efficient
+ * The result does not need to store all data internally and is thus not a
+ * materialized view. In particular if a result is required from a
+ * materialized view, a simple Proxy is used.
+ *
  */
-trait Result[V <: AnyRef]
+trait QueryResult[V <: AnyRef]
         extends View[V]
         with Size
         with SingletonValue[V]
@@ -19,7 +22,7 @@ trait Result[V <: AnyRef]
  */
 class BagResult[V <: AnyRef](
     val relation : LazyView[V])
-        extends Result[V]
+        extends QueryResult[V]
         with Bag[V]
         with Observer[V] {
 
@@ -51,67 +54,16 @@ class BagResult[V <: AnyRef](
 
 /**
  * A result that uses the underlying relation knowing that it is already
- * materialized and just caches size and singletonValue attributes
+ * materialized.
  */
-class MaterializedViewResult[V <: AnyRef](
+class MaterializedViewProxyResult[V <: AnyRef](
     val relation : MaterializedView[V])
-        extends MaterializedView[V]
-        with Result[V]
-        with Observer[V] {
+        extends QueryResult[V] {
 
-    relation addObserver this
+    def foreach[T](f : (V) => T) = relation.foreach(f)
 
-    var sizeData : Int = -1
+    def size : Int = relation.size
 
-    var singletonValueData : Option[V] = None
+    def singletonValue : Option[V] = relation.singletonValue
 
-    def materialized_foreach[T](f : (V) => T) = relation.foreach(f)
-
-    def lazyInitialize : Unit = {
-        sizeData = 0
-        relation.foreach(_ => sizeData += 1)
-        if (sizeData == 1)
-            relation.foreach(v => singletonValueData = Some(v))
-    }
-
-    override def size : Int = {
-        if (!initialized) {
-            lazyInitialize
-            initialized = true
-        }
-        sizeData
-    }
-
-    override def singletonValue : Option[V] = {
-        if (!initialized) {
-            lazyInitialize
-            initialized = true
-        }
-        singletonValueData
-    }
-
-    def updated(oldV : V, newV : V) : Unit =
-        {
-            // size does not change
-
-            if (singletonValue == Some(oldV))
-                singletonValueData = Some(newV)
-        }
-
-    def removed(v : V) : Unit =
-        {
-            sizeData -= 1
-            if (singletonValue.isDefined)
-                singletonValueData = None
-        }
-
-    def added(v : V) : Unit =
-        {
-            sizeData += 1
-            if (singletonValue.isDefined) {
-                singletonValueData = None
-            } else {
-                singletonValueData = Some(v)
-            }
-        }
 }

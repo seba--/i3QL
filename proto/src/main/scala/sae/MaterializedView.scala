@@ -6,32 +6,35 @@ package sae
  */
 trait MaterializedView[V <: AnyRef]
         extends View[V]
-        with LazyView[V] {
+        with LazyView[V]
+        with Size
+        with SingletonValue[V]
+        with Listable[V] {
 
     /**
      * A materialized view never needs to defer
-     * since it recored it's own elements
+     * since it records it's own elements
      */
     def lazy_foreach[T](f : (V) => T) = foreach(f)
 
     /**
-     * Each materilaized view must be able to 
-     * materialize it's content from the underlying 
+     * Each materialized view must be able to
+     * materialize it's content from the underlying
      * views.
-     * The lazyness allows a query to be set up 
+     * The lazyness allows a query to be set up
      * on relations (tables) that are already filled.
-     * thus the first call to foreach will try to 
+     * thus the first call to foreach will try to
      * materialize already persisted data.
      */
-    def lazyInitialize : Unit 
-    
+    def lazyInitialize : Unit
+
     // record whether the initialization is complete
     protected var initialized : Boolean = false
 
     /**
      * We give an abstract implementation of foreach, with
      * lazy initialization semantics.
-     * But clients are required to implement their own 
+     * But clients are required to implement their own
      * foreach method, with concrete semantics.
      */
     def foreach[T](f : (V) => T) : Unit =
@@ -42,10 +45,36 @@ trait MaterializedView[V <: AnyRef]
             }
             materialized_foreach(f)
         }
-    
+
     /**
      * The internal implementation that iterates only over materialized
-     * data. 
+     * data.
      */
     protected def materialized_foreach[T](f : (V) => T) : Unit
+
+    def size : Int = {
+        if (!initialized) {
+            lazyInitialize
+            initialized = true
+        }
+        materialized_size
+    }
+
+    /**
+     * The internal implementation that yields the size
+     */
+    protected def materialized_size : Int
+
+    def singletonValue : Option[V] = {
+        if (!initialized) {
+            lazyInitialize
+            initialized = true
+        }
+        materialized_singletonValue
+    }
+
+    /**
+     * The internal implementation that yields the singletonValue
+     */
+    protected def materialized_singletonValue : Option[V]
 }

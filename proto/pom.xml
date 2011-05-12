@@ -1,94 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>sae</artifactId>
+		<groupId>de.tud.cs.st.opal.sae</groupId>
+		<version>0.2.0</version>
+	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
 	<artifactId>sae-database-core</artifactId>
-	<version>0.2</version>
+	<version>0.2.0</version>
 	<packaging>jar</packaging>
 
 	<name>sae-database-core</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
-
-	<properties>
-		<sae.version>0.2</sae.version>
-		<scala.version>2.9.0.RC2</scala.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
-
-
-	<repositories>
-		<repository>
-			<id>scala-tools.org</id>
-			<name>Scala-Tools Maven2 Repository</name>
-			<url>http://scala-tools.org/repo-releases</url>
-		</repository>
-	</repositories>
-
-	<build>
-		<!-- we keep this for the m2eclipse integration -->
-		<sourceDirectory>src/main/scala</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.scala-tools</groupId>
-				<artifactId>maven-scala-plugin</artifactId>
-				<version>2.14.3</version>
-				<!-- <dependencies> <dependency> <groupId>org.scala-lang</groupId> <artifactId>scala-library</artifactId> 
-					<version>${scala.version}</version> <scope>compile</scope> </dependency> 
-					</dependencies> -->
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>testCompile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<scalaVersion>${scala.version}</scalaVersion>
-					<excludes>
-						<!-- <exclude>**/sae/demo/*.scala</exclude> -->
-						<!-- <exclude>**/sae/utils/*.scala</exclude> -->
-						<!-- <exclude>**/sae/operators/**/*.scala</exclude> -->
-					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.8.1</version>
-				<configuration>
-					<useFile>false</useFile>
-					<disableXmlReport>true</disableXmlReport>
-					<!-- If you have classpath issue like NoDefClassError,... -->
-					<!-- useManifestOnlyJar>false</useManifestOnlyJar -->
-					<includes>
-						<include>**/*Test.*</include>
-						<include>**/*Suite.*</include>
-						<include>**/*Spec.*</include>
-					</includes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-
-
 
 	<dependencies>
 		<dependency>

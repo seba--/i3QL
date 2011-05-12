@@ -24,7 +24,8 @@ class StudentCoursesRAFunSuite
 		assert( 2 === students.size )
 	
 		// johnsData(StudentId, john) :- student(StudentId, john)
-		val johnsData : Result[Student] = σ[Student]( _.Name ==  "john") (students)
+		// TODO this should type now
+		val johnsData : QueryResult[Student] = σ( (_:Student).Name ==  "john") (students)
 		assert( 1 === johnsData.size )
 		assert( Some(john) === johnsData.singletonValue )
 	}
@@ -34,7 +35,7 @@ class StudentCoursesRAFunSuite
 		
 		val students = database.students.copy // make a local copy
 		
-		val johnsData : Result[Student] = σ[Student]( _.Name ==  "john") (students) 
+		val johnsData : QueryResult[Student] = σ[Student]( _.Name ==  "john") (students) 
 		assert( 1 === johnsData.size )
 		assert( Some(john) === johnsData.singletonValue )
 		
@@ -58,7 +59,7 @@ class StudentCoursesRAFunSuite
 	
 	test("projection") {
 		// names(Name) :- student(_, Name)
-		val names : Result[String] = Π[Student, String]( _.Name)(students)
+		val names : QueryResult[String] = Π( (_:Student).Name)(students)
 		
 		// the type inference is not strong enough, either we need to supply function argument types of the whole function or of the lambda expression (see below) 
 		// val names : Relation[String] = Π( (s:Student) => (s.Name), students)
@@ -76,7 +77,7 @@ class StudentCoursesRAFunSuite
 	test("maintain projection") {
 	    val students = database.students.copy // make a local copy
 		// names(Name) :- student(_, Name)
-		val names : Result[String] = Π[Student, String]( _.Name)(students)
+		val names : QueryResult[String] = Π( (_:Student).Name)(students)
 		
 		// the type inference is not strong enough, either we need to supply function argument types of the whole function or of the lambda expression (see below) 
 		// val names : Relation[String] = Π( (s:Student) => (s.Name), students)
@@ -127,7 +128,7 @@ class StudentCoursesRAFunSuite
 		// actually what we get looks more like the following  query.
 		// student_courses(student(StudentId, SName),course(CourseId, CName)) :- student(StudentId, SName), course(CourseId, CName).
 		
-		val student_courses : Result[(Student, Course)] = students × courses
+		val student_courses : QueryResult[(Student, Course)] = students × courses
 		
 		assert( student_courses.size === students.size + courses.size)
 		// assert( student_courses.arity === students.arity + courses.arity)
@@ -158,9 +159,9 @@ class StudentCoursesRAFunSuite
 		// println("test joins")
 		val course_for_student = students ⋈ ( (t:(Student,Enrollment)) => t match {case (s,e) => s.Id == e.StudentId}, enrollments) 
 		
-		val eise_students : Result[(Student,Enrollment)] = σ[(Student,Enrollment)]( e => e._2.CourseId == eise.Id)(course_for_student)
+		val eise_students : QueryResult[(Student,Enrollment)] = σ[(Student,Enrollment)]( e => e._2.CourseId == eise.Id)(course_for_student)
 		
-		val sed_students : Result[(Student,Enrollment)] = σ[(Student,Enrollment)]( e => e._2.CourseId == sed.Id)(course_for_student)
+		val sed_students : QueryResult[(Student,Enrollment)] = σ[(Student,Enrollment)]( e => e._2.CourseId == sed.Id)(course_for_student)
 		
 		// john and sally are registered for eise
 		// sally is registered for sed
@@ -184,9 +185,9 @@ class StudentCoursesRAFunSuite
 
  		val course_for_student = students ⋈ ( (t:(Student,Enrollment)) => t match {case (s,e) => s.Id == e.StudentId}, enrollments) ⋈ ( (t: ((Student,Enrollment), Course)) => t._1._2.CourseId == t._2.Id, courses)
 		
-		val eise_students : Result[((Student,Enrollment), Course)] = σ[((Student,Enrollment), Course)]( e => e._2.Id == eise.Id)(course_for_student)
+		val eise_students : QueryResult[((Student,Enrollment), Course)] = σ[((Student,Enrollment), Course)]( e => e._2.Id == eise.Id)(course_for_student)
 		
-		val sed_students : Result[((Student,Enrollment), Course)] = σ[((Student,Enrollment), Course)]( e => e._2.Id == sed.Id)(course_for_student)
+		val sed_students : QueryResult[((Student,Enrollment), Course)] = σ[((Student,Enrollment), Course)]( e => e._2.Id == sed.Id)(course_for_student)
 		
 		// john and sally are registered for eise
 		// sally is registered for sed

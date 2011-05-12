@@ -3,27 +3,7 @@ package collections
 
 trait Collection[V <: AnyRef]
         extends MaterializedView[V]
-        with Result[V] {
-
-    def size : Int = {
-        if (!initialized) {
-            lazyInitialize
-            initialized = true
-        }
-        materialized_size
-    }
-
-    def materialized_size : Int
-
-    def singletonValue : Option[V] = {
-        if (!initialized) {
-            lazyInitialize
-            initialized = true
-        }
-        materialized_singletonValue
-    }
-
-    def materialized_singletonValue : Option[V]
+        with QueryResult[V] {
 
     /**
      * Add a data tuple to this relation.

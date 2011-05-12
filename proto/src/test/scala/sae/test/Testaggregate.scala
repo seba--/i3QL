@@ -440,7 +440,7 @@ class Testaggregate extends TestCase {
         })
         var t2 = java.lang.System.nanoTime;
         //obs.data.foreach(println _)
-        println("remove 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
+        println("remove 100 lines from a Table with 1000k entries: " + ((t2 - t1) / 1000000) + " milliseconds");
         //TODO add asserts
         /*  assertTrue(obs.contains(("TypeC", 498675626)))
         assertTrue(obs.contains(("TypeE", 502994963)))
