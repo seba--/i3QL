@@ -156,12 +156,17 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
 
 
 object Aggregation{
-    
+     /**
+     * @param source: Lasz Source View
+     * @param groupFunciton: the grouping function. Every return value for a element in one group must be equal by '==' (return value is used in a hashmap) 
+     * @param aggregationFuncFactory: a simple or complex aggregation function (factory)  
+     * @param aggragationConstructorFunc: (x : Result of grouping function, y : Result of Aggregation Function) => Aggregation return value
+     */
     def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
                                                                                                  aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key , AggregationValue, Result ] = {
         new AggregationIntern(source,groupFunction, aggregationFuncFactory,aggragationConstructorFunc )
     }
-    
+   
     def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue])
                                                                                                   = {
         new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
@@ -171,7 +176,7 @@ object Aggregation{
 /*trait AggregationFunktionsFactory[Domain <: AnyRef, AggregationValue] {
     def apply() : AggregationFunktions[Domain, AggregationValue]
 }*/
-trait AggregationFunktionFactory[Domain <: AnyRef, AggregationValue] {
+trait AggregationFunktionFactory[Domain <: AnyRef, AggregationValue <: Any] {
     def apply() : AggregationFunktion[Domain, AggregationValue]
 }
 
