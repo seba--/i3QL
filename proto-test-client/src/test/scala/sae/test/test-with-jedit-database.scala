@@ -113,6 +113,7 @@ class JEditSuite {
     }
     @Test
     def fanOut : Unit = {
+        //TODO change fanout -> sae.functions.fanout
         import scala.collection.mutable.Set
         val methods : ObservableList[Method] = new ObservableList[Method] //JEditSuiteBefore.db.classfile_methods
 

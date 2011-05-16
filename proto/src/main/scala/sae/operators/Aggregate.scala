@@ -97,8 +97,9 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             data.add(newV)
             val aggRes = aggFuncs.update(oldV, newV, data)
             val res = aggragationConstructorFunc(oldKey, aggRes)
-            groups.put(oldKey, (count, data, aggFuncs, res))
-            element_updated(oldResult, res)
+            groups.put(oldKey, (count, data, aggFuncs, res)) 
+            if(oldResult != res)
+            	element_updated(oldResult, res) 
         } else {
             removed(oldV);
             added(newV);

@@ -18,6 +18,7 @@ class Testaggregate extends TestCase {
             "ID: " + iD + " Type: " + itemType + " Preis " + preis
         }
     }
+
     case class Edge(a : String, b : String, c : Int)
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
@@ -203,10 +204,12 @@ class Testaggregate extends TestCase {
         schuhe.add(new Schuh("herren", "New GOODYEAR STREET M", "Adidas", 24, 12))
         assertTrue(list.size == 1)
         assertTrue(list.contains("herren", "Adidas", 35, 11, 24))
-        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 11, 12),
+            new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12))
         assertTrue(list.size == 1)
         assertTrue(list.contains("herren", "Adidas", 29, 5, 24))
-        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12), new Schuh("herren", "GOODYEAR STREET M", "Adidas", 30, 12))
+        schuhe.update(new Schuh("herren", "GOODYEAR STREET M", "Adidas", 5, 12),
+            new Schuh("herren", "GOODYEAR STREET M", "Adidas", 30, 12))
         assertTrue(list.size == 1)
         assertTrue(list.contains("herren", "Adidas", 54, 24, 30))
     }
@@ -470,7 +473,8 @@ class Testaggregate extends TestCase {
         val lines = readFile("Daten.txt", 1000000)
         val lines100 = readFile("100.txt", 100)
         val lines100Daten = readFile("100Daten.txt", 100)
-        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis),
+            (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
 
@@ -490,16 +494,48 @@ class Testaggregate extends TestCase {
         //obs.data.foreach(println _)
         println("updates 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
         //TODO add asserts
-        /*  assertTrue(obs.contains(("TypeC", 498675626)))
-        assertTrue(obs.contains(("TypeE", 502994963)))
-        assertTrue(obs.contains(("TypeB", 497639747)))
-        assertTrue(obs.contains(("TypeD", 498864034)))
-        assertTrue(obs.contains(("TypeA", 501896644)))
-        assertTrue(obs.size == 5)
-*/
-
     }
 
+    def testBigUpdate100Min() = {
+
+        val allLines = new LazyView[Line] {
+            def add(k : Line) {
+                element_added(k)
+            }
+            def remove(k : Line) {
+                element_removed(k)
+            }
+            def update(oldV : Line, newV : Line) {
+                element_updated(oldV, newV)
+            }
+            def lazy_foreach[T](f : (Line) => T) {
+                //throw new Error
+            }
+        };
+        val lines = readFile("Daten.txt", 1000000)
+        val lines100 = readFile("100.txt", 100)
+        val lines100Daten = readFile("100DatenMin.txt", 100)
+        val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Min((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
+        val obs = new ObserverList[(String, Int)]()
+        sumCost.addObserver(obs)
+
+        lines.foreach(x => {
+            allLines.add(x)
+        })
+
+        var i = 0
+        //obs.data.foreach(println _)
+        var t1 = java.lang.System.nanoTime;
+        lines100.foreach(x => {
+            allLines.update(x, lines100Daten(i))
+            //allLines.update(x, lines100Daten(i))
+            i += 1
+        })
+        var t2 = java.lang.System.nanoTime;
+        //obs.data.foreach(println _)
+        println("updates 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
+        //TODO add asserts
+    }
     def test100kAddsAndRemoves() = {
 
         val allLines = new LazyView[Line] {

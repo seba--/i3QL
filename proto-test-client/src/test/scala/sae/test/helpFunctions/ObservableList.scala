@@ -27,8 +27,8 @@ class ObservableList[V <: AnyRef] extends LazyView[V] {
     def foreach[T](f : (V) => T) {
         var x = data.iterator()
         while (x.hasNext()) {
-            //f(x.next)
-            x.next
+            f(x.next)
+            //x.next
         }
         //data.foreach(f)
     }
