@@ -5,6 +5,7 @@ import org.junit.Assert._
 
 import sae.collections._
 import sae.bytecode.model._
+import de.tud.cs.st.bat._
 import sae.syntax.RelationalAlgebraSyntax._
 
 
@@ -24,7 +25,7 @@ class GeronimoJPASuite {
     def count_classfiles : Unit = {
         val db = new GeronimoJPADatabase()
         // TODO QueryResult
-        val query : QueryResult[ClassFile] = db.classfiles;
+        val query : QueryResult[ObjectType] = db.classfiles;
         db.readBytecode
         assertEquals(91, query.size);
     }

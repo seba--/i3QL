@@ -12,5 +12,5 @@ object Conversions {
             case view : MaterializedView[V] => new MaterializedViewProxyResult(view)
             case _ => new BagResult(lazyView)
         }    
-    
+ 
 }

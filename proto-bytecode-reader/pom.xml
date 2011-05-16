@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>de.tud.cs.st.opal.bat</groupId>
 			<artifactId>bat-JVM1.5-bytecode-reader</artifactId>
-			<version>0.7.0</version>
+			<version>0.7.1</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
