@@ -7,7 +7,6 @@ package collections
  * The result does not need to store all data internally and is thus not a
  * materialized view. In particular if a result is required from a
  * materialized view, a simple Proxy is used.
- *
  */
 trait QueryResult[V <: AnyRef]
         extends View[V]
@@ -50,6 +49,7 @@ class BagResult[V <: AnyRef](
             this += v
         }
 
+    // def toAst = "QueryResult( " + relation.toAst + " )"
 }
 
 /**
@@ -66,4 +66,5 @@ class MaterializedViewProxyResult[V <: AnyRef](
 
     def singletonValue : Option[V] = relation.singletonValue
 
+    // def toAst = "QueryResult( " + relation.toAst + " )"
 }

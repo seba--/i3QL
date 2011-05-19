@@ -99,6 +99,21 @@ object RelationalAlgebraSyntax {
     /** definitions of aggregation syntax **/
     object γ {
 
+        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
+            source : LazyView[Domain],
+            groupFunction : Domain => Key,
+            aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+            aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] =
+            {
+                new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
+            }
+
+        def apply[Domain <: AnyRef, AggregationValue <: Any](
+            source : LazyView[Domain],
+            aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue]) =
+            {
+                new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
+            }
     }
 
     /** definitions of sort syntax **/

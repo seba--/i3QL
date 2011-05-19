@@ -1,5 +1,6 @@
 Notes:
 Eclipse ScalaIDE does not compile the tests (for whatever reason)
+if the tests are open Eclipse ScalaIDE can compile them
 
 Ideas:
 - We could discern the operators by their allowed self-maintenance operations 
@@ -14,7 +15,10 @@ Ideas:
   have a chain of operators. Thus the generic Observable could be optimized with
   a single value for an observer. If this is encoded as an immutable value
   the JIT might optimize and inline function calls to the notification 
-  operations. 
+  operations.
+  
+- Min and Max currently work over int to find min/max. => Rewrite Min and Max so that they work over Ordered
+ 
 
 Pending Discussion:
 

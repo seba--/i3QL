@@ -55,6 +55,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
         // update operations on left relation
         def updated(oldKV : (Key, DomainA), newKV : (Key, DomainA)) : Unit =
             {
+                initialized = true
                 val oldV = oldKV._2
                 val newV = newKV._2
                 if (oldV == newV)
@@ -84,6 +85,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
         def removed(kv : (Key, DomainA)) : Unit =
             {
+                initialized = true
                 rightIndex.get(kv._1) match {
                     case Some(col) =>
                         {
@@ -98,6 +100,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
         def added(kv : (Key, DomainA)) : Unit =
             {
+                initialized = true
                 rightIndex.get(kv._1) match {
                     case Some(col) =>
                         {
@@ -115,6 +118,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
         // update operations on right relation
         def updated(oldKV : (Key, DomainB), newKV : (Key, DomainB)) : Unit =
             {
+                initialized = true
                 val oldV = oldKV._2
                 val newV = newKV._2
                 if (oldV == newV)
@@ -144,6 +148,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
         def removed(kv : (Key, DomainB)) : Unit =
             {
+                initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>
                         {
@@ -158,6 +163,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
         def added(kv : (Key, DomainB)) : Unit =
             {
+                initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>
                         {
@@ -180,7 +186,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
                         case Some(col) =>
                             {
                                 col.foreach(u =>
-                                    this += joinFunction(v, u)
+                                    add_element(joinFunction(v, u))
                                 )
                             }
                         case _ => // do nothing
@@ -198,7 +204,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
                         case Some(col) =>
                             {
                                 col.foreach(v =>
-                                    this += joinFunction(v, u)
+                                    add_element(joinFunction(v, u))
                                 )
                             }
                         case _ => // do nothing

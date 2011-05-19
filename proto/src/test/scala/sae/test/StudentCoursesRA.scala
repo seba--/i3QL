@@ -204,9 +204,6 @@ class StudentCoursesRAFunSuite
     }
 
     test("equi join") {
-        
-        enrollments.foreach(println)
-        
         val student_names_to_courseId =
             /*
             // version with infix notation on keys and second relation
@@ -215,11 +212,11 @@ class StudentCoursesRAFunSuite
             // version with double parameter infix on key + relation
             ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s : Student, e : Enrollment) => (s, e.CourseId) }
 
-        student_names_to_courseId.foreach(println)
+        assert(student_names_to_courseId.size === 3)
         
         val student_courses = ((student_names_to_courseId, (_ : (Student, Integer))._2) ⋈ (courses.Id, courses)) { (e : (Student, Integer), c : Course) => (e._1, c) }
         
-        student_courses.foreach(println)
+        //student_courses.foreach( println )
         
         assert(student_courses.size === 3)
         
@@ -228,5 +225,35 @@ class StudentCoursesRAFunSuite
         assert(list.contains((john, eise)))
         assert(list.contains((sally, eise)))
         assert(list.contains((sally, sed)))
+    }
+    
+    test("maintain equi join") {
+        val student_names_to_courseId =
+            /*
+            // version with infix notation on keys and second relation
+            (students ⋈ (students.Id , enrollments.StudentId)) (enrollments) {(s:Student, e:Enrollment) => (s.Name, e.CourseId)} 
+             */
+            // version with double parameter infix on key + relation
+            ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s : Student, e : Enrollment) => (s, e.CourseId) }
+
+        assert(student_names_to_courseId.size === 3)
+        
+        val student_courses : QueryResult[(Student, Course)]= ((student_names_to_courseId, (_ : (Student, Integer))._2) ⋈ (courses.Id, courses)) { (e : (Student, Integer), c : Course) => (e._1, c) }
+        
+        //student_courses.foreach( println )
+        
+        assert(student_courses.size === 3)
+        
+       
+        enrollments += Enrollment(john.Id, sed.Id)
+        
+        assert(student_courses.size === 4)
+        assert(student_courses.asList.contains((john, sed)))
+        
+        enrollments -= Enrollment(sally.Id, sed.Id)
+        
+        assert(student_courses.size === 3)
+        assert(!student_courses.asList.contains((sally, sed)))
+
     }
 }

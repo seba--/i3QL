@@ -13,8 +13,9 @@ package sae
  */
 trait Index[K <: AnyRef, V <: AnyRef]
         extends Observer[V]
-        with MaterializedView[(K, V)] {
-    
+        with MaterializedView[(K, V)]
+        with SelfMaintainedView[V, (K, V)] {
+
     val relation : MaterializedView[V]
 
     val keyFunction : V => K
@@ -54,9 +55,9 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     protected def isDefinedAt_internal(key : K) : Boolean
 
-    def getOrElse(key : K, f : =>  Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
+    def getOrElse(key : K, f : => Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
 
-    def updated(oldV : V, newV : V) : Unit =
+    def updated_internal(oldV : V, newV : V) : Unit =
         {
             if (oldV == newV)
                 return
@@ -64,24 +65,28 @@ trait Index[K <: AnyRef, V <: AnyRef]
             val k2 = keyFunction(newV)
             if (k1 == k2) {
                 update_element(k1, oldV, newV)
-            }
-            else
-            {
+                element_updated((k1, oldV), (k1, newV))
+            } else {
                 remove_element((k1, oldV))
+                element_removed((k2, oldV))
                 add_element((k2, newV))
+                element_added((k2, oldV))
             }
         }
 
-    def removed(v : V) : Unit =
+    def removed_internal(v : V) : Unit =
         {
             val k = keyFunction(v)
             remove_element((k, v))
+            element_removed((k, v))
         }
 
-    def added(v : V) : Unit = {
-        val k = keyFunction(v)
-        add_element(k, v)
-    }
+    def added_internal(v : V) : Unit =
+        {
+            val k = keyFunction(v)
+            add_element(k, v)
+            element_added((k, v))
+        }
 
     def add_element(kv : (K, V)) : Unit
 

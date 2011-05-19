@@ -63,9 +63,9 @@ object Simple extends App {
   a = 15
   if (true) {
     println("\n--------------SOME TIME MEASURMENT------------\n");
-    val lines = new Array[Line](100000);
+    val lines = new Array[Line](10000000);
     var i = 0;
-    scala.io.Source.fromFile("Daten_100k.txt").getLines().foreach { line =>
+    scala.io.Source.fromFile("DatenBig.txt").getLines().foreach { line =>
       val lineArray = line.split(",");
       lines(i) = new Line(lineArray(0), lineArray(1), lineArray(2).toInt);
       i += 1;

@@ -10,7 +10,8 @@ class JEditDatabase extends sae.bytecode.BytecodeDatabase {
 
     def readBytecode : Unit =
         {
-            addArchiveAsResource("jedit-4.3.3-win.jar")
+            //addArchiveAsResource("jedit-4.3.3-win.jar")
+        addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/jedit-4.3.3-win.jar")
         }
 
 }
@@ -30,6 +31,7 @@ object JEditProfiler {
         // write( "calls(A,B,_)", profile(allMethodCallsQuery) )
         printResult(allMethodCallsQuery)
     }
+    
 
     def noQueries : Unit = {
         val db = new JEditDatabase()

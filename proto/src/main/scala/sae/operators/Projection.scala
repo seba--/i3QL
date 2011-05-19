@@ -56,7 +56,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
     val relation : LazyView[Domain])
         extends Projection[Domain, Range]
         with MaterializedView[Range]
-        with Observer[Domain] {
+        with SelfMaintainedView[Domain, Range] {
 
     import com.google.common.collect.HashMultiset;
 
@@ -117,7 +117,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
         }
 
     // update operations
-    def updated(oldV : Domain, newV : Domain) : Unit =
+    def updated_internal(oldV : Domain, newV : Domain) : Unit =
         {
             val oldP = projection(oldV)
             val newP = projection(newV)
@@ -132,7 +132,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
 
         }
 
-    def removed(v : Domain) : Unit =
+    def removed_internal(v : Domain) : Unit =
         {
             val p = projection(v)
             if (remove_element(p)) {
@@ -140,7 +140,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
             }
         }
 
-    def added(v : Domain) : Unit =
+    def added_internal(v : Domain) : Unit =
         {
             val p = projection(v)
             if (add_element(p)) {
@@ -157,11 +157,15 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
     val projection : Domain => Range,
     val relation : LazyView[Domain])
         extends Projection[Domain, Range]
-        with LazyView[Range]
-        with Observer[Domain] {
+        with SelfMaintainedView[Domain,Range] {
 
     relation addObserver this
 
+    def lazyInitialize : Unit = 
+    {
+        relation.lazyInitialize
+    }
+    
     def lazy_foreach[T](f : (Range) => T) : Unit =
         relation.lazy_foreach(v =>
             {
@@ -169,17 +173,17 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
             }
         )
 
-    def updated(oldV : Domain, newV : Domain) : Unit =
+    def updated_internal(oldV : Domain, newV : Domain) : Unit =
         {
             element_updated(projection(oldV), projection(newV))
         }
 
-    def removed(v : Domain) : Unit =
+    def removed_internal(v : Domain) : Unit =
         {
             element_removed(projection(v))
         }
 
-    def added(v : Domain) : Unit =
+    def added_internal(v : Domain) : Unit =
         {
             element_added(projection(v))
         }
@@ -195,7 +199,7 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
         extends Projection[Domain, Range]
         with Bag[Range]
         // with MaterializedView[Range] // Bag is a MaterializedView 
-        with Observer[Domain] {
+        with SelfMaintainedView[Domain, Range] {
 
     relation addObserver this
 
@@ -209,7 +213,7 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
         }
 
     // update operations
-    def updated(oldV : Domain, newV : Domain) : Unit =
+    def updated_internal(oldV : Domain, newV : Domain) : Unit =
         {
             val oldP = projection(oldV)
             val newP = projection(newV)
@@ -219,12 +223,12 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
             this += newP
         }
 
-    def removed(v : Domain) : Unit =
+    def removed_internal(v : Domain) : Unit =
         {
             this -= projection(v)
         }
 
-    def added(v : Domain) : Unit =
+    def added_internal(v : Domain) : Unit =
         {
             this += projection(v)
         }
