@@ -133,7 +133,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             data.add(v)
             count.inc
             val aggRes = aggFuncs.add(v, data)
-            val res = aggragationConstructorFunc(key, aggRes)
+            val res = aggragationConstructorFunc(key, aggRes) //FIXME name
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put(key, (count, data, aggFuncs, res))
@@ -159,7 +159,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
 object Aggregation{
      /**
      * @param source: Lasz Source View
-     * @param groupFunciton: the grouping function. Every return value for a element in one group must be equal by '==' (return value is used in a hashmap) 
+     * @param groupFunciton: the grouping function. return value for all elements in one group must be equal by '==' (return value is used in a hashmap) 
      * @param aggregationFuncFactory: a simple or complex aggregation function (factory)  
      * @param aggragationConstructorFunc: (x : Result of grouping function, y : Result of Aggregation Function) => Aggregation return value
      */
