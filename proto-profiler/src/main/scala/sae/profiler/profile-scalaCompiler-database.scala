@@ -1,35 +1,34 @@
 package sae.profiler
 
-import sae.test.helpFunctions.ObserverList
-import sae.test.helpFunctions.ObservableList
 import sae._
-
 import sae.operators._
 import sae.functions._
 import sae.util._
 import sae.bytecode.model._
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model._
-import sae.LazyView
+import sae.test.helpFunctions._
 import com.google.common.collect.HashMultiset
 import scala.collection.mutable._
+import de.tud.cs.st.bat._
+
+
 class ScalaCompilerDatabase extends sae.bytecode.BytecodeDatabase {
 
     def readBytecode : Unit =
         {
-            //addArchiveAsResource("scala-compiler.jar")
-            addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/scala-compiler.jar")
+            addArchiveAsResource("scala-compiler.jar")
+            //addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/scala-compiler.jar")
         }
 
 }
 
 object ScalaCompilerProfiler {
 
-    val allClassfiles = new ArrayBuffer[ClassFile]()
+    val allClassfiles = new ArrayBuffer[ObjectType]()
     val allMethods = new ArrayBuffer[Method]()
-    val mostClassfiles = new ArrayBuffer[ClassFile]()
+    val mostClassfiles = new ArrayBuffer[ObjectType]()
     val mostMethods = new ArrayBuffer[Method]()
-    val someClassfiles = new ArrayBuffer[ClassFile]()
+    val someClassfiles = new ArrayBuffer[ObjectType]()
     val someMethods = new ArrayBuffer[Method]()
     val someMethodsInMostMethods = new ArrayBuffer[Method]()
     val ONE_OUT_OF_X = 100
@@ -37,35 +36,14 @@ object ScalaCompilerProfiler {
     implicit val iterations = 1
     def main(args : Array[String]) : Unit = {
         init
-        /*
-         * run 10 times (16.5.2011 17:00):
-				read scala-compiler.jar : 11.081652407 (s)
-				group by Package : find class with max methods : 0.132172716 (s)
-				mantaining s.o. (665 ADDs) : 0.003960414 (s)
-				mantaining s.o. (665 UPDATES) : 0.003344864 (s)
-				mantaining s.o. (665 REMOVES) : 0.005974055 (s)
-				group by Package : calc fan out (too java.*) : 1.495154755 (s)
-				mantaining s.o. (665 ADDs) : 0.023866942 (s)
-				mantaining s.o. (665 UPDATES) : 0.029131108 (s)
-				mantaining s.o. (665 REMOVES) : 0.026410832 (s)
-				Fan In for scala.Tupel2 : 0.110415199 (s)
-				mantaining s.o. (665 ADDs) : 0.001852796 (s)
-				mantaining s.o. (665 UPDATES) : 0.004022944 (s)
-				mantaining s.o. (665 REMOVES) : 0.002811724 (s)
-				group by class : calc fan in for all classes : 14.456061346 (s)
-				mantaining s.o. (665 ADDs) : 0.138829912 (s)
-				mantaining s.o. (665 UPDATES) : 0.216978418 (s)
-				mantaining s.o. (665 REMOVES) : 0.159823323 (s)
-         */
+        
+        //
         write("read scala-compiler.jar", profile(read))
-
-        profiling("group by Package : find class with max methods", initClassWithMaxMethodsPairPackage)
-        profiling("group by Package : calc fan out (too java.*)", initSelectiveFanOut)
-        profiling("Fan In for scala.Tupel2", initSelectiveFanIn) //TODO check if selectiveFanIn works correct for java.lang.string
-        profiling("group by class : calc fan in for all classes", initFanIn)
-
+        
+        profiling("Fan In for scala.Tupel2", initSelectiveFanIn)
+        
         //-------------- group by  package find class with max methods   
-        /* write("group by Package : find class with max methods", profile(classWithMaxMethodsPairPackage))
+        write("group by Package : find class with max methods", profile(classWithMaxMethodsPairPackage))
         write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initClassWithMaxMethodsPairPackage,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
         write("mantaining s.o. (" + someMethods.size + " UPDATES)", profile2(initClassWithMaxMethodsPairPackage,
@@ -102,10 +80,10 @@ object ScalaCompilerProfiler {
         write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", profile2(initFanIn,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
-            }))*/
+            }))
     }
 
-    private def profiling(text : String, f1 : => (sae.test.helpFunctions.ObservableList[Method], Any)) {
+    private def profiling(text : String, f1 : => (sae.test.helpFunctions.ObservableList[Method], Any)){
         write(text, profile(f1))
         write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(f1,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
@@ -118,13 +96,14 @@ object ScalaCompilerProfiler {
                 x.remove(someMethodsInMostMethods(i))
             }))
     }
+        
 
     def init : Unit = {
         val db = new ScalaCompilerDatabase()
-        db.classfiles.addObserver(new Observer[ClassFile] {
-            def updated(oldV : ClassFile, newV : ClassFile) : Unit = { throw new Error() }
-            def removed(v : ClassFile) : Unit = { throw new Error() }
-            def added(v : ClassFile) : Unit = { allClassfiles += v }
+        db.classfiles.addObserver(new Observer[ObjectType] {
+            def updated(oldV : ObjectType, newV : ObjectType) : Unit = { throw new Error() }
+            def removed(v : ObjectType) : Unit = { throw new Error() }
+            def added(v : ObjectType) : Unit = { allClassfiles += v }
         })
         db.classfile_methods.addObserver(new Observer[Method] {
             def updated(oldV : Method, newV : Method) : Unit = { throw new Error() }
@@ -169,7 +148,7 @@ object ScalaCompilerProfiler {
     }
     def initSelectiveFanOut : (sae.test.helpFunctions.ObservableList[Method], Any) = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getFanOut(source, x => { !x.toJava.startsWith("java.", 0) }) //FIXME fan out z�hlt abh�ngigkeiten zu sich selbst mit
+        val res = getFanOut(source, x => { !x.toJava.startsWith("java.", 0) }) //FIXME fan out zï¿½hlt abhï¿½ngigkeiten zu sich selbst mit
         mostMethods.foreach(x => source.add(x))
         (source, res)
     }
@@ -225,7 +204,7 @@ object ScalaCompilerProfiler {
         println(t.elapsedSecondsWithUnit)
     }
     private def getGroupByPackageFindClassWithMaxMethods(source : LazyView[Method]) = {
-        val groupByClassesAndCountMethods = Aggregation(source, (x : Method) => (x.clazz.packageName, x.clazz.simpleName), Count[Method], (x : (String, String), y : Int) => (x._1, x._2, y))
+        val groupByClassesAndCountMethods = Aggregation(source, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[Method], (x : (String, String), y : Int) => (x._1, x._2, y))
         val groupByPackageFindClassWithMaxMethods = Aggregation(groupByClassesAndCountMethods,
             (x : (String, String, Int)) => x._1,
             Max2[(String, String, Int), Option[(String, String, Int)]]((x : (String, String, Int)) => x._3, (y : Option[(String, String, Int)], x : Int) => y),
@@ -236,9 +215,8 @@ object ScalaCompilerProfiler {
     private def getFanOut(source : LazyView[Method], f : de.tud.cs.st.bat.Type => Boolean) = {
         import sae.functions.FanOut
         import scala.collection.mutable._
-        val groupByClassesAndCalcFanOut = Aggregation(
-            source,
-            (x : Method) => x.clazz.packageName /*, x.clazz.simpleName)*/ ,
+        val groupByClassesAndCalcFanOut = Aggregation(source,
+            (x : Method) => x.declaringRef.packageName /*, x.clazz.simpleName)*/ ,
             FanOut((x : Method) => (x.parameters, x.returnType), f),
             (x : (String), y : Set[String]) => (x, y))
         groupByClassesAndCalcFanOut
@@ -251,7 +229,7 @@ object ScalaCompilerProfiler {
         import sae.functions.FanOut
         import scala.collection.mutable._
         val groupByClassesAndCalcFanOut = Aggregation(source,
-            (x : Method) => (x.clazz.packageName, x.clazz.simpleName),
+            (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName),
             FanOut((x : Method) => (x.parameters, x.returnType), select),
             (x : (String, String), y : Set[String]) => (x._1, x._2, y))
         groupByClassesAndCalcFanOut

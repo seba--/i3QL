@@ -199,7 +199,6 @@ public class Timer implements Comparable<Timer> {
 	}
 
 
-	@Override
 	public int compareTo(Timer o) {
 		if( !this.finished() )
 			throw new IllegalStateException("Trying to compare a running timer: " + this);
