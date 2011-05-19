@@ -5,13 +5,14 @@ package views
 import sae.Observable
 import sae.bytecode.model._
 
-class Classes extends LazyView[ClassFile]
+/*
+class Classes extends LazyView[ObjectType]
 {
     
-    def lazy_foreach[T](f : (ClassFile) => T) = {}
+    def lazy_foreach[T](f : (ObjectType) => T) = {}
     
 }
-
+*/
 /**
  * a singleton table of all classes
  */

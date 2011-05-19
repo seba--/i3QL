@@ -18,13 +18,14 @@ import scala.collection.mutable.Map
  * If no function is supplied the aggregation has no effect.
  */
 
-trait Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef] extends LazyView[Result]{
-    
+trait Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef]
+        extends LazyView[Result] {
+
 }
 class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
                                                                                                  aggragationConstructorFunc : (Key, AggregationValue) => Result)
-    extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
-	//TODO Evaluate cost of wrapping java.iterabel in scala iterable 
+        extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
+    //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
 
     import com.google.common.collect.HashMultiset;
 
@@ -68,7 +69,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
 
     protected def materialized_size : Int = groups.size
 
-    protected def materialized_singletonValue : Option[Result] = 
+    protected def materialized_singletonValue : Option[Result] =
         {
             if (size != 1)
                 None
@@ -97,9 +98,9 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             data.add(newV)
             val aggRes = aggFuncs.update(oldV, newV, data)
             val res = aggragationConstructorFunc(oldKey, aggRes)
-            groups.put(oldKey, (count, data, aggFuncs, res)) 
-            if(oldResult != res)
-            	element_updated(oldResult, res) 
+            groups.put(oldKey, (count, data, aggFuncs, res))
+            if (oldResult != res)
+                element_updated(oldResult, res)
         } else {
             removed(oldV);
             added(newV);
@@ -153,23 +154,23 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             element_added(res)
         }
     }
+    
+    // def toAst = "Aggregation( " + source.toAst + " )"
 }
 
-
-object Aggregation{
-     /**
+object Aggregation {
+    /**
      * @param source: Lasz Source View
      * @param groupFunciton: the grouping function. return value for all elements in one group must be equal by '==' (return value is used in a hashmap) 
      * @param aggregationFuncFactory: a simple or complex aggregation function (factory)  
      * @param aggragationConstructorFunc: (x : Result of grouping function, y : Result of Aggregation Function) => Aggregation return value
      */
     def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
-                                                                                                 aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key , AggregationValue, Result ] = {
-        new AggregationIntern(source,groupFunction, aggregationFuncFactory,aggragationConstructorFunc )
+                                                                                       aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] = {
+        new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
     }
-   
-    def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue])
-                                                                                                  = {
+
+    def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue]) = {
         new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
     }
 

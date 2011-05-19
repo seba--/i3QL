@@ -22,10 +22,15 @@ class Testaggregate extends TestCase {
     case class Edge(a : String, b : String, c : Int)
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
+
     //var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+
     var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+
     var list = new ObserverList[(String, String, Int, Int, Int)]
+
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
+
     class ObserverList[Domain <: AnyRef] extends Observer[Domain] {
         val data = ListBuffer[Domain]()
 
@@ -87,7 +92,7 @@ class Testaggregate extends TestCase {
             }
             //data.foreach(f)
         }
-
+        def lazyInitialize = {}
     }
     val aggFuncsFac = CreateAggregationFunctionContainer[Schuh, Int, Int, Int](
         Sum((x : Schuh) => x.preis),
@@ -331,12 +336,12 @@ class Testaggregate extends TestCase {
 
         val selection = new LazySelection[Edge]((x : Edge) => { x.a == "a" || x.a == "b" }, edges)
 
-        val minAndAVGCost = Aggregation(selection, (e : Edge) => (e.a, e.b),
+        val edgeStartingWithAOrB = Aggregation(selection, (e : Edge) => (e.a, e.b),
             Count[Edge](),
             (x : (String, String), y : Int) => { new EdgeGroup(x._1, x._2, y) })
-        val selection2 = new MaterializedSelection[EdgeGroup]((x : EdgeGroup) => { x.count > 2 }, minAndAVGCost)
+        val selection2 = new MaterializedSelection[EdgeGroup]((x : EdgeGroup) => { x.count > 2 }, edgeStartingWithAOrB)
         val op = new ObserverList[EdgeGroup]()
-        minAndAVGCost.addObserver(op)
+        edgeStartingWithAOrB.addObserver(op)
         edges.add(new Edge("a", "b", 4)) //ja
         assertTrue(selection2.materialized_size == 0)
         edges.add(new Edge("a", "b", 2)) //ja
@@ -356,6 +361,7 @@ class Testaggregate extends TestCase {
         edges.add(new Edge("b", "d", 2))
         assertTrue(selection2.materialized_size == 2)
     }
+
     private def readFile(fileName : String, size : Int) : Array[Line] = {
         val lines = new Array[Line](size);
         var i = 0;
@@ -367,6 +373,20 @@ class Testaggregate extends TestCase {
         }
         lines
     }
+
+    private def readResource(fileName : String, size : Int) : Array[Line] = {
+        val lines = new Array[Line](size);
+        var i = 0;
+        val stream = this.getClass().getClassLoader().getResourceAsStream(fileName)
+        scala.io.Source.fromInputStream(stream).getLines().foreach { line =>
+            val lineArray = line.split(",")
+            lines(i) = new Line(lineArray(0), lineArray(1), lineArray(2).toInt)
+            i += 1
+            //new Line(lineArray(0),lineArray(1),lineArray(2).toInt))    
+        }
+        lines
+    }
+
     def testBigAdd100() = {
 
         val allLines = new LazyView[Line] {
@@ -382,9 +402,10 @@ class Testaggregate extends TestCase {
             def lazy_foreach[T](f : (Line) => T) {
                 //throw new Error
             }
+            def lazyInitialize = {}
         }
-        val lines = readFile("Daten.txt", 1000000)
-        val lines100 = readFile("100.txt", 100)
+        val lines = readResource("Daten.txt", 1000000)
+        val lines100 = readResource("100.txt", 100)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
@@ -425,9 +446,10 @@ class Testaggregate extends TestCase {
             def lazy_foreach[T](f : (Line) => T) {
                 //throw new Error
             }
+            def lazyInitialize = {}
         }
-        val lines = readFile("Daten.txt", 1000000)
-        val lines100 = readFile("100.txt", 100)
+        val lines = readResource("Daten.txt", 1000000)
+        val lines100 = readResource("100.txt", 100)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
@@ -469,10 +491,11 @@ class Testaggregate extends TestCase {
             def lazy_foreach[T](f : (Line) => T) {
                 //throw new Error
             }
+            def lazyInitialize = {}
         };
-        val lines = readFile("Daten.txt", 1000000)
-        val lines100 = readFile("100.txt", 100)
-        val lines100Daten = readFile("100Daten.txt", 100)
+        val lines = readResource("Daten.txt", 1000000)
+        val lines100 = readResource("100.txt", 100)
+        val lines100Daten = readResource("100Daten.txt", 100)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis),
             (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
@@ -496,6 +519,8 @@ class Testaggregate extends TestCase {
         //TODO add asserts
     }
 
+    /*
+    // FIXME test data missing 
     def testBigUpdate100Min() = {
 
         val allLines = new LazyView[Line] {
@@ -512,9 +537,9 @@ class Testaggregate extends TestCase {
                 //throw new Error
             }
         };
-        val lines = readFile("Daten.txt", 1000000)
-        val lines100 = readFile("100.txt", 100)
-        val lines100Daten = readFile("100DatenMin.txt", 100)
+        val lines = readResource("Daten.txt", 1000000)
+        val lines100 = readResource("100.txt", 100)
+        val lines100Daten = readResource("100DatenMin.txt", 100)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Min((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
@@ -536,6 +561,10 @@ class Testaggregate extends TestCase {
         println("updates 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
         //TODO add asserts
     }
+    */
+
+    /*
+	// FIXME Test data missing
     def test100kAddsAndRemoves() = {
 
         val allLines = new LazyView[Line] {
@@ -552,7 +581,7 @@ class Testaggregate extends TestCase {
                 //throw new Error
             }
         }
-        val lines = readFile("Daten_100k.txt", 100000)
+        val lines = readResource("Daten_100k.txt", 100000)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)
@@ -589,6 +618,7 @@ class Testaggregate extends TestCase {
         assertTrue(obs.size == 0)
 
     }
+    */
 
     def test1000kAddsAndRemoves() = {
 
@@ -604,8 +634,9 @@ class Testaggregate extends TestCase {
             }
             def lazy_foreach[T](f : (Line) => T) {
             }
+            def lazyInitialize = {}
         }
-        val lines = readFile("Daten.txt", 1000000)
+        val lines = readResource("Daten.txt", 1000000)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
         val obs = new ObserverList[(String, Int)]()
         sumCost.addObserver(obs)

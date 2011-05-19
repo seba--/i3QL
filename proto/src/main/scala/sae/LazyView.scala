@@ -19,10 +19,23 @@ trait LazyView[V <: AnyRef]
      */
     def lazy_foreach[T](f : (V) => T)
 
+        /**
+     * Each materialized view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The lazyness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * thus the first call to foreach will try to
+     * materialize already persisted data.
+     */
+    def lazyInitialize : Unit
+
+    // record whether the initialization is complete
+    protected var initialized : Boolean = false
 }
 
 
-trait DefaultLazyView[V <: AnyRef]
+class DefaultLazyView[V <: AnyRef]
         extends LazyView[V] 
 {
 
@@ -33,4 +46,6 @@ trait DefaultLazyView[V <: AnyRef]
      */
     def lazy_foreach[T](f : (V) => T) = {}
 
+    
+    def lazyInitialize : Unit = {}
 }

@@ -22,11 +22,12 @@ class LazySelection[V <: AnyRef](
     val filter : V => Boolean,
     val relation : LazyView[V])
         extends Selection[V]
-        with LazyView[V]
-        with Observer[V] {
+        with SelfMaintainedView[V,V] {
 
     relation addObserver this
 
+    def lazyInitialize = relation.lazyInitialize
+    
     def lazy_foreach[T](f : (V) => T) : Unit =
         {
             relation.lazy_foreach(v =>
@@ -37,7 +38,7 @@ class LazySelection[V <: AnyRef](
                 })
         }
 
-    def updated(oldV : V, newV : V) : Unit =
+    def updated_internal(oldV : V, newV : V) : Unit =
         {
             if (filter(oldV) && filter(newV)) {
                 element_updated(oldV, newV)
@@ -52,14 +53,14 @@ class LazySelection[V <: AnyRef](
             }
         }
 
-    def removed(v : V) : Unit =
+    def removed_internal(v : V) : Unit =
         {
             if (filter(v)) {
                 element_removed(v)
             }
         }
 
-    def added(v : V) : Unit =
+    def added_internal(v : V) : Unit =
         {
             if (filter(v)) {
                 element_added(v)
@@ -76,7 +77,7 @@ class MaterializedSelection[V <: AnyRef](
     val relation : LazyView[V])
         extends Selection[V]
         with Bag[V]
-        with Observer[V] {
+        with SelfMaintainedView[V,V] {
 
     relation addObserver this
 
@@ -91,7 +92,7 @@ class MaterializedSelection[V <: AnyRef](
         }
 
     // update operations
-    def updated(oldV : V, newV : V) : Unit =
+    def updated_internal(oldV : V, newV : V) : Unit =
         {
             if (filter(oldV)) {
                 this -= oldV
@@ -101,14 +102,14 @@ class MaterializedSelection[V <: AnyRef](
             }
         }
 
-    def removed(v : V) : Unit =
+    def removed_internal(v : V) : Unit =
         {
             if (filter(v)) {
                 this -= v
             }
         }
 
-    def added(v : V) : Unit =
+    def added_internal(v : V) : Unit =
         {
             if (filter(v)) {
                 this += v

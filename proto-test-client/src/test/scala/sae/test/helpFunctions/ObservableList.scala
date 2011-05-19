@@ -8,6 +8,8 @@ class ObservableList[V <: AnyRef] extends LazyView[V] {
     import com.google.common.collect.HashMultiset;
     val data : HashMultiset[V] = HashMultiset.create[V]()
 
+    def lazyInitialize = {}
+    
     def add(k : V) {
         data.add(k) // += k
         element_added(k)

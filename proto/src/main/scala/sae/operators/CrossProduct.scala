@@ -101,4 +101,5 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 )
             }
     }
+    
 }
