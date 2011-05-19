@@ -1,8 +1,8 @@
 package sae
-package test
+package test
 
 import org.junit.BeforeClass
-
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Assert._
@@ -313,6 +313,7 @@ class JEditSuite {
     }
 
     @Test
+    @Ignore
     def fanIn() : Unit = {
         import scala.collection.mutable.Set
         val db = new BytecodeDatabase
