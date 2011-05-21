@@ -1,5 +1,5 @@
 package sae
-package test
+package test
 
 import org.junit.BeforeClass
 import org.junit.Ignore
@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Assert._
 import scala.collection.mutable.ListBuffer
+import sae._
 import sae.collections._
 import sae.bytecode.model._
 import de.tud.cs.st.bat._
@@ -19,8 +20,6 @@ import sae.bytecode._
 
 object JEditSuite {
 
-    import sae.test.helpFunctions._
-
     val db = new MaterializedDatabase()
 
     val resourceName = "jedit-4.3.3-win.jar"
@@ -28,7 +27,8 @@ object JEditSuite {
     @BeforeClass
     def init() : Unit = {
         db.method_calls // use once to init the query
-        db.addArchiveAsResource(resourceName)
+        //db.addArchiveAsResource(resourceName)
+        db.addArchiveAsFile("C:\\Users\\crypton\\workspace_BA\\SAE\\proto-test-data\\src\\main\\resources\\jedit-4.3.3-win.jar")
     }
 }
 
@@ -54,8 +54,7 @@ class JEditSuite {
                 db.classfiles,
                 (_ : ObjectType).packageName,
                 Count[ObjectType],
-                (x : String, y : Int) => (x, y)
-            )
+                (x : String, y : Int) => (x, y))
 
             db.addArchiveAsResource(JEditSuite.resourceName)
 
@@ -104,11 +103,11 @@ class JEditSuite {
         // the materialized db is already set up 
         // test that values were propagated to the results
         val db = new BytecodeDatabase
-        
+
         val query : QueryResult[MethodCall] = db.method_calls
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
-        
+        JEditSuite.db.method_calls.foreach(db.method_calls.element_added)
+
         assertEquals(44776, query.size)
     }
 
@@ -121,8 +120,8 @@ class JEditSuite {
         val query : QueryResult[MethodCall] = ((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach( db.classfile_methods.element_added )
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
+        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        JEditSuite.db.method_calls.foreach(db.method_calls.element_added)
 
         assertEquals(20358, query.size)
     }
@@ -137,7 +136,7 @@ class JEditSuite {
 
         // reuse existing data without loading bytecode from filesystem again
         JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
+        JEditSuite.db.method_calls.foreach(db.method_calls.element_added)
 
         assertEquals(14847, query.size)
     }
@@ -195,6 +194,95 @@ class JEditSuite {
 
     }
 
+      @Test
+    def fanIn() : Unit = {
+        import scala.collection.mutable.Set
+        val db = new BytecodeDatabase
+
+        val groupByClassesAndCalcFanOut = Aggregation(db.classfile_methods, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), sae.functions.FanOut((x : Method) => (x.parameters, x.returnType), y => true), (x : (String, String), y : Set[String]) => (x._1, x._2, y))
+        //        var out_file = new java.io.FileOutputStream("testtttttttt.txt")
+        //        var out_stream = new java.io.PrintStream(out_file)
+        //        out_stream.print("\n" + x)
+        //        out_stream.close
+
+        def fanInFor(s : String) = {
+            Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(s) && (x._1.replace('/', '.') + "." + x._2) != s }, groupByClassesAndCalcFanOut), Count[(String, String, Set[String])])
+        }
+        val t : QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
+
+        val res1 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.jEdit")
+        val res2 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.bsh.SimpleNode")
+        val res3 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.Buffer")
+        val res4 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.ActionSet")
+
+        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+
+        assertTrue(res1.asList.size == 0 && res1.singletonValue == None)
+        assertTrue(res2.asList.size == 1 && res2.singletonValue == Some(Some(19)))
+        assertTrue(res3.asList.size == 1 && res3.singletonValue == Some(Some(51)))
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
+        //Method(ClassFile(org/gjt/sp/jedit,ActionContext),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,Macros),getMacroActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActions,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getBrowserActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),addActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),removeActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getBuiltInActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSets,List(),ArrayType(ObjectType(className="org/gjt/sp/jedit/ActionSet")))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="org/gjt/sp/jedit/EditAction")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "addActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "removeActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getBuiltInActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSets"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction"))
+        
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction", 2))
+        
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActions"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActionSet"))
+        
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getBrowserActionSet"))
+        
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(2)))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "Macros", "getMacroActionSet"), getMethode("org/gjt/sp/jedit", "PluginJAR", "activatePlugin"))
+        
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(1)))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "ActionContext", "getActionSetForAction"), getMethode("org/gjt/sp/jedit", "JEditKillRing", "<init>"))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "ActionContext", "getActionSetForAction",2), getMethode("org/gjt/sp/jedit", "JEditKillRing", "<init>"))
+        assertTrue(res4.asList.size == 0 && res4.singletonValue == None)
+        /*
+ org.gjt.sp.jedit.jEdit 0
+ org.gjt.sp.jedit.bsh.SimpleNode 19 
+  org.gjt.sp.jedit.Buffer 51
+  org.gjt.sp.jedit.ActionSet 4
+ */
+        //                var i = 0
+        //                var j = 0
+        //                JEditSuite.allClassfiles.data.foreach(z => {
+        //                    j += 1
+        //                    fanInFor(z.packageName.replace('/', '.') + "." + z.simpleName).foreach(y => {
+        //                        i += 1
+        //                        println(z.simpleName + ": " + y)
+        //                    })
+        //                })
+        //                println(j)
+        //                println(i)
+        //            	fanInFor("java.lang.String").foreach(x => println("String: " + x))
+        //            	fanInFor("org.gjt.sp.jedit.bsh.Interpreter").foreach(x => println("org.gjt.sp.jedit.bsh.Interpreter: " + x))
+        //            	fanInFor("javax.swing.ListModel").foreach(x => println("javax.swing.ListModel: " + x))
+        //            	fanInFor("void").foreach(x => println("void: " + x))
+        //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
+
+    }
     @Test
     def fanOut : Unit = {
         import scala.collection.mutable.Set
@@ -278,7 +366,7 @@ class JEditSuite {
     }
 
     private def getMethode(pName : String, className : String, mName : String) = {
-        val mybreaks = new Breaks
+         val mybreaks = new Breaks
         import mybreaks.{ break, breakable }
         var res : Method = null
         breakable {
@@ -312,89 +400,7 @@ class JEditSuite {
         res
     }
 
-    @Test
-    @Ignore
-    def fanIn() : Unit = {
-        import scala.collection.mutable.Set
-        val db = new BytecodeDatabase
-
-        val groupByClassesAndCalcFanOut = Aggregation(db.classfile_methods, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), sae.functions.FanOut((x : Method) => (x.parameters, x.returnType), y => true), (x : (String, String), y : Set[String]) => (x._1, x._2, y))
-        //        var out_file = new java.io.FileOutputStream("testtttttttt.txt")
-        //        var out_stream = new java.io.PrintStream(out_file)
-        //        out_stream.print("\n" + x)
-        //        out_stream.close
-
-        def fanInFor(s : String) = {
-            Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(s) && (x._1.replace('/', '.') + "." + x._2) != s }, groupByClassesAndCalcFanOut), Count[(String, String, Set[String])])
-        }
-        val t : QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
-
-        val res1 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.jEdit")
-        val res2 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.bsh.SimpleNode")
-        val res3 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.Buffer")
-        val res4 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.ActionSet")
-        
-        JEditSuite.db.classfile_methods.foreach( db.classfile_methods.element_added )
-        
-        assertTrue(res1.asList.size == 0 && res1.singletonValue == None)
-        assertTrue(res2.asList.size == 1 && res2.singletonValue == Some(Some(19)))
-        assertTrue(res3.asList.size == 1 && res3.singletonValue == Some(Some(51)))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
-        //Method(ClassFile(org/gjt/sp/jedit,ActionContext),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //
-        //Method(ClassFile(org/gjt/sp/jedit,Macros),getMacroActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //
-        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActions,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getBrowserActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),addActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),removeActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getBuiltInActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSets,List(),ArrayType(ObjectType(className="org/gjt/sp/jedit/ActionSet")))
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="org/gjt/sp/jedit/EditAction")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "addActionSet"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "removeActionSet"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getBuiltInActionSet"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSets"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction"))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction", 2))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActions"))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActionSet"))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
-        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getBrowserActionSet"))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(2)))
-        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "Macros", "getMacroActionSet"), getMethode("org/gjt/sp/jedit", "PluginJAR", "activatePlugin"))
-        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(1)))
-        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "ActionContext", "getActionSetForAction"), getMethode("org/gjt/sp/jedit", "JEditKillRing", "<init>"))
-        assertTrue(res4.asList.size == 0 && res4.singletonValue == None)
-        /*
- org.gjt.sp.jedit.jEdit 0
- org.gjt.sp.jedit.bsh.SimpleNode 19 
-  org.gjt.sp.jedit.Buffer 51
-  org.gjt.sp.jedit.ActionSet 4
- */
-        //                var i = 0
-        //                var j = 0
-        //                JEditSuite.allClassfiles.data.foreach(z => {
-        //                    j += 1
-        //                    fanInFor(z.packageName.replace('/', '.') + "." + z.simpleName).foreach(y => {
-        //                        i += 1
-        //                        println(z.simpleName + ": " + y)
-        //                    })
-        //                })
-        //                println(j)
-        //                println(i)
-        //            	fanInFor("java.lang.String").foreach(x => println("String: " + x))
-        //            	fanInFor("org.gjt.sp.jedit.bsh.Interpreter").foreach(x => println("org.gjt.sp.jedit.bsh.Interpreter: " + x))
-        //            	fanInFor("javax.swing.ListModel").foreach(x => println("javax.swing.ListModel: " + x))
-        //            	fanInFor("void").foreach(x => println("void: " + x))
-        //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
-
-    }
+  
 
 }
 
