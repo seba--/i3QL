@@ -1,8 +1,6 @@
 package sae.operators
 
-trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any]{
-    def apply() : AggregationFunction[Domain, AggregationValue]
-}
+import sae.operators.intern._
 trait NotSelfMaintainalbeAggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any] 
 extends AggregationFunctionFactory[Domain,AggregationValue]{}
 

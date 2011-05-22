@@ -2,7 +2,7 @@ package sae
 package syntax
 
 import sae.operators._
-
+import sae.operators.intern._
 case class InfixConcatenator[Domain <: AnyRef](val left : LazyView[Domain]) {
 
     import RelationalAlgebraSyntax._

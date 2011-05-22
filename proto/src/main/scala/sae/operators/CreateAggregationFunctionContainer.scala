@@ -1,4 +1,5 @@
 package sae.operators
+import sae.operators.intern._
 
 object CreateAggregationFunctionContainer {
 

@@ -1,11 +1,6 @@
 package sae.operators
 
-trait AggregationFunction[Domain <: AnyRef, Result] {
-
-    def add(newD : Domain, data : Iterable[Domain]) : Result
-    def remove(newD : Domain, data : Iterable[Domain]) : Result
-    def update(oldD : Domain, newD : Domain, data : Iterable[Domain]) : Result
-}
+import sae.operators.intern._
 
 trait NotSelfMaintainalbeAggregationFunction[Domain <: AnyRef, Result] extends AggregationFunction[Domain, Result] {
 }
