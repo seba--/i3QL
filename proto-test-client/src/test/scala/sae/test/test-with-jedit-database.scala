@@ -283,6 +283,30 @@ class JEditSuite {
         //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
 
     }
+//         @Test
+//    def fanIn2() : Unit = {
+//             case class Method2(declaringRef : ReferenceType, name : String, parameter : de.tud.cs.st.bat.Type, returnType : de.tud.cs.st.bat.Type)
+//        import scala.collection.mutable.Set
+//        val db = new BytecodeDatabase
+//        val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
+//            var res = List[Method2]()
+//            if(x.parameters.size == 0 ){
+//               res = new Method2(x.declaringRef, x.name, null, x.returnType):: res 
+//            }else{
+//              x.parameters.foreach( (y : de.tud.cs.st.bat.Type) => {
+//                res = new Method2(x.declaringRef, x.name, y, x.returnType)  :: res
+//              })
+//            }
+//            res
+//        })
+//        val sel = new LazySelection((x : Metehod2) => )
+//             //Aggregation(db.classfile_methods, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), sae.functions.FanOut((x : Method) => (x.parameters, x.returnType), y => true), (x : (String, String), y : Set[String]) => (x._1, x._2, y))
+//            val fanIn = Aggregation(o2m, (x : Method2)  =>  (x.declaringRef.packageName, x.declaringRef.simpleName), Count[Method2](), (x : (String, String), y : Int) => (x,y))
+//          val res : QueryResult[((String,String),Int)] = fanIn
+//            // reuse existing data without loading bytecode from filesystem again
+//        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+//        res.asList.foreach(println _)
+//    }
     @Test
     def fanOut : Unit = {
         import scala.collection.mutable.Set

@@ -2,7 +2,7 @@ package sae.functions
 
 import sae.operators._
 
-private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (Option[Domain], Int) => Res) extends AggregationFunktion[Domain, Res] {
+private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (Option[Domain], Int) => Res) extends NotSelfMaintainalbeAggregationFunction[Domain, Res] {
      var max = Integer.MIN_VALUE
      var value : Option[Domain] = None
         def add(d : Domain, data : Iterable[Domain]) = {
@@ -41,8 +41,8 @@ private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (
 
 object Max2 {
     def apply[Domain <: AnyRef,Res <:Any ](f : (Domain => Int ), f2: (Option[Domain], Int) => Res) = {
-        new AggregationFunktionFactory[Domain, Res]{
-           def apply() : AggregationFunktion[Domain, Res] = {
+        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Res]{
+           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Res] = {
                new MaxIntern2[Domain,Res](f,f2)
            }
         }

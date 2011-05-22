@@ -6,7 +6,8 @@ import scala.collection.JavaConversions._
 import de.tud.cs.st.bat._
 import scala.collection.mutable.Set
 
-private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type), val select : Type => Boolean) extends AggregationFunktion[Domain, Set[String]] {
+
+private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type), val select : Type => Boolean) extends NotSelfMaintainalbeAggregationFunction[Domain, Set[String]] {
 
     import com.google.common.collect._;
     val dep = HashMultiset.create[String]()
@@ -20,10 +21,11 @@ private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type)
             if (select(x)) 
             dep.add(x.toJava)
             })
-        val res = Set[String]()
-        for(s <- dep.elementSet()) //TODO find a cheaper solution
-            res += s
-       res
+//        val res = Set[String]()
+//        for(s <- dep.elementSet()) //TODO find a cheaper solution
+//            res += s
+//       res
+            dep.elementSet().clone()
     }
     
     def remove(d : Domain, data : Iterable[Domain]) = {
@@ -31,10 +33,11 @@ private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type)
             dep.remove(f(d)._2.toJava)
         f(d)._1.foreach(x => if (select(x)) dep.remove(x.toJava))
        // dep.elementSet()
-        val res = Set[String]()
-        for(s <- dep.elementSet())
-            res += s
-       res
+//        val res = Set[String]()
+//        for(s <- dep.elementSet())
+//            res += s
+//       res
+        dep.elementSet().clone()
     }
     
     def update(oldV : Domain, newV : Domain, data : Iterable[Domain]) = {
@@ -46,17 +49,18 @@ private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type)
         f(newV)._1.foreach(x => if (select(x)) dep.add(x.toJava))
 
        // dep.elementSet()
-        val res = Set[String]()
-        for(s <- dep.elementSet())
-            res += s
-       res
+//        val res = Set[String]()
+//        for(s <- dep.elementSet())
+//            res += s
+//       res
+        dep.elementSet().clone()
     }
 }
 
 object FanOut {
     def apply[Domain <: AnyRef](f : (Domain => (Seq[Type], Type)), select : Type => Boolean) = {
-        new AggregationFunktionFactory[Domain, Set[String]] {
-            def apply() : AggregationFunktion[Domain, Set[String]] = {
+        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Set[String]] {
+            def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Set[String]] = {
                 new FanOutIntern[Domain](f, select)
             }
         }

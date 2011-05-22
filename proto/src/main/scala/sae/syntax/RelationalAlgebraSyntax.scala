@@ -102,7 +102,7 @@ object RelationalAlgebraSyntax {
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
             source : LazyView[Domain],
             groupFunction : Domain => Key,
-            aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
+            aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
             aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] =
             {
                 new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
@@ -110,7 +110,7 @@ object RelationalAlgebraSyntax {
 
         def apply[Domain <: AnyRef, AggregationValue <: Any](
             source : LazyView[Domain],
-            aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue]) =
+            aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) =
             {
                 new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
             }

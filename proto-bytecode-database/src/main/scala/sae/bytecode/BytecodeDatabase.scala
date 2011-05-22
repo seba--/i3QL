@@ -34,6 +34,7 @@ class BytecodeDatabase {
     })(σ((_ : Instr).operation == "invoke")(instructions))
 
     
+    
     lazy val transformer = new Java6ToSAE(
         classfiles,
         classfile_methods,
