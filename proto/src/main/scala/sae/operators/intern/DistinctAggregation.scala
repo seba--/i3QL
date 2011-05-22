@@ -5,13 +5,12 @@ import scala.collection.mutable.ListBuffer
 import sae.collections._
 import scala.collection.JavaConversions._
 import scala.collection.mutable.Map
-
-
+/**
+ * 
+ */
 class DistinctAggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, val distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : DistinctAggregationFunctionFactory[Domain, AggregationValue],
                                                                                                    aggregationConstructorFunction : (Key, AggregationValue) => Result)
     extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
-    //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
-
     import com.google.common.collect.HashMultiset;
     var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunction[Domain, AggregationValue], Result)]()
 
@@ -24,12 +23,15 @@ class DistinctAggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any,
             val key = groupFunction(v)
             if (groups.contains(key)) {
                 val (count, data, aggFuncs, oldResult) = groups(key)
+                var b = false
+                data.foreach(x => b = b || distinctFunction(x, v))
                 data.add(v)
                 count.inc
+                if (b) return
                 val aggRes = aggFuncs.add(v, data)
                 val res = aggregationConstructorFunction(key, aggRes)
                 if (res != oldResult) {
-                    //some aggragation valus changed => updated event
+                
                     groups.put(key, (count, data, aggFuncs, res))
                 }
             } else {
@@ -130,10 +132,10 @@ class DistinctAggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any,
             var b = false
             data.foreach(x => b = b || distinctFunction(x, v))
             data.add(v)
-            if (b) return
             count.inc
+            if (b) return
             val aggRes = aggFuncs.add(v, data)
-            val res = aggregationConstructorFunction(key, aggRes) //FIXME name
+            val res = aggregationConstructorFunction(key, aggRes) 
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put(key, (count, data, aggFuncs, res))

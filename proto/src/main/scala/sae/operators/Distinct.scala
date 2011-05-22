@@ -2,6 +2,11 @@ package sae.operators
 
 
 import sae.operators.intern._
+/**
+ * distinct operator
+ * should only be used at: Aggregate(...., Distinct(aggregation functions), ...)
+ * should NOT be used in "complex" aggregation functions (e.g. (Min, Distinct(Count), ...))
+ */
 object Distinct {
     def apply[Domain <: AnyRef, AggregationValue <: Any]
     (aggFunc : AggregationFunctionFactory[Domain, AggregationValue]) : DistinctAggregationFunctionFactory[Domain,AggregationValue] = {

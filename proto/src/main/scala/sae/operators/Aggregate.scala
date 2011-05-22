@@ -45,7 +45,7 @@ object Aggregation {
                                                                                        aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] = {
         new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
     }
-    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : DistinctAggregationFunctionFactory[Domain, AggregationValue],
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : sae.operators.intern.DistinctAggregationFunctionFactory[Domain, AggregationValue],
                                                                                        aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] = {
         new DistinctAggregation(source, groupFunction,distinctFunction, aggregationFuncFactory, aggregationConstructorFunction)
     }
