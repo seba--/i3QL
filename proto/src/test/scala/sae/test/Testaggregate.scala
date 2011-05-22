@@ -25,8 +25,9 @@ class Testaggregate extends TestCase {
 
     //var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
 
-    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-
+    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = 
+        Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int,Int,Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+//Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
     var list = new ObserverList[(String, String, Int, Int, Int)]
 
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
@@ -94,16 +95,13 @@ class Testaggregate extends TestCase {
         }
         def lazyInitialize = {}
     }
-    val aggFuncsFac = CreateAggregationFunctionContainer[Schuh, Int, Int, Int](
-        Sum((x : Schuh) => x.preis),
-        Min((x : Schuh) => x.preis),
-        Max((x : Schuh) => x.preis))
+
     //before every method
     override def setUp() = {
         schuhe = new ObservableList[Schuh];
         //aggOp = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         //aggOp = new Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-        aggOp = Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        aggOp = Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int,Int,Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         list = new ObserverList[(String, String, Int, Int, Int)]
         aggOp.addObserver(list);
     }
@@ -342,6 +340,7 @@ class Testaggregate extends TestCase {
         val selection2 = new MaterializedSelection[EdgeGroup]((x : EdgeGroup) => { x.count > 2 }, edgeStartingWithAOrB)
         val op = new ObserverList[EdgeGroup]()
         edgeStartingWithAOrB.addObserver(op)
+        
         edges.add(new Edge("a", "b", 4)) //ja
         assertTrue(selection2.materialized_size == 0)
         edges.add(new Edge("a", "b", 2)) //ja

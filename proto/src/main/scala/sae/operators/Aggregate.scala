@@ -145,14 +145,13 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
 
 class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
                                                                                                                                   aggregationConstructorFunction : (Key, AggregationValue) => Result)
-    extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain]{
+    extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
     //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
 
     import com.google.common.collect.HashMultiset;
     var groups = Map[Key, (Count, AggregationFunction[Domain, AggregationValue], Result)]()
-
-    //lazyInitialize
-    //initialized = true
+    lazyInitialize
+    initialized = true
     def lazyInitialize : Unit = {
 
         source.lazy_foreach((v : Domain) => {
@@ -160,12 +159,13 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             val key = groupFunction(v)
             if (groups.contains(key)) {
                 val (count, aggFuncs, oldResult) = groups(key)
+
                 count.inc
                 val aggRes = aggFuncs.add(v, null)
                 val res = aggregationConstructorFunction(key, aggRes)
                 if (res != oldResult) {
                     //some aggragation valus changed => updated event
-                    groups.put(key, (count,aggFuncs, res))
+                    groups.put(key, (count, aggFuncs, res))
                 }
             } else {
                 val c = new Count
@@ -173,18 +173,59 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
                 val aggFuncs = aggregationFuncFactory()
                 val aggRes = aggFuncs.add(v, null)
                 val res = aggregationConstructorFunction(key, aggRes)
-                groups.put(key, (c,aggFuncs, res))
+                groups.put(key, (c, aggFuncs, res))
             }
         })
 
     }
-    def lazy_foreach[T](f : (Result => T)){
-       if(initialized == false){
-           lazyInitialize
-           initialized = true
-       }
-       groups.foreach( (x : (Key, (Count, AggregationFunction[Domain, AggregationValue], Result))) => f(x._2._3))
+
+    protected def materialized_foreach[T](f : (Result) => T) : Unit = {
+        groups.foreach(x => f(x._2._3))
     }
+
+    protected def materialized_size : Int = groups.size
+    protected def materialized_singletonValue : Option[Result] =
+        {
+            if (size != 1)
+                None
+            else
+                Some(groups.head._2._3)
+        }
+    //
+    //    //lazyInitialize
+    //    //initialized = true
+    //    def lazyInitialize : Unit = {
+    //
+    //        source.lazy_foreach((v : Domain) => {
+    //            //more or less a copy of added (without notify any observers)
+    //            val key = groupFunction(v)
+    //            if (groups.contains(key)) {
+    //                val (count, aggFuncs, oldResult) = groups(key)
+    //                count.inc
+    //                val aggRes = aggFuncs.add(v, null)
+    //                val res = aggregationConstructorFunction(key, aggRes)
+    //                if (res != oldResult) {
+    //                    //some aggragation valus changed => updated event
+    //                    groups.put(key, (count, aggFuncs, res))
+    //                }
+    //            } else {
+    //                val c = new Count
+    //                c.inc
+    //                val aggFuncs = aggregationFuncFactory()
+    //                val aggRes = aggFuncs.add(v, null)
+    //                val res = aggregationConstructorFunction(key, aggRes)
+    //                groups.put(key, (c, aggFuncs, res))
+    //            }
+    //        })
+    //
+    //    }
+    //    def lazy_foreach[T](f : (Result => T)) {
+    //        if (initialized == false) {
+    //            lazyInitialize
+    //            initialized = true
+    //        }
+    //        groups.foreach((x : (Key, (Count, AggregationFunction[Domain, AggregationValue], Result))) => f(x._2._3))
+    //    }
 
     source.addObserver(this)
 
@@ -232,16 +273,16 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             val res = aggregationConstructorFunction(key, aggRes) //FIXME name
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
-                groups.put(key, (count, null, aggFuncs, res))
+                groups.put(key, (count, aggFuncs, res))
                 element_updated(oldResult, res)
             }
         } else {
             val c = new Count
             c.inc
-           val aggFuncs = aggregationFuncFactory()
+            val aggFuncs = aggregationFuncFactory()
             val aggRes = aggFuncs.add(v, null)
             val res = aggregationConstructorFunction(key, aggRes)
-            groups.put(key, (c,aggFuncs, res))
+            groups.put(key, (c, aggFuncs, res))
             element_added(res)
         }
     }
@@ -259,12 +300,18 @@ object Aggregation {
         new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
     }
 
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+                                                                                       aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] = {
+        new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
+    }
     def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
         new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
     }
+    def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
+        new AggregationForSelfMaintainableAggregationFunctions(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
+    }
+
 }
-
-
 
 class Count {
     private var count : Int = 0

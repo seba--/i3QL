@@ -28,8 +28,8 @@ case class InfixConcatenator[Domain <: AnyRef](val left : LazyView[Domain]) {
 }
 
 case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
-        val left : LazyView[Domain],
-        val leftFunction : Domain => Range) {
+    val left : LazyView[Domain],
+    val leftFunction : Domain => Range) {
 
     import RelationalAlgebraSyntax._
 
@@ -107,12 +107,26 @@ object RelationalAlgebraSyntax {
             {
                 new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
             }
+        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
+            source : LazyView[Domain],
+            groupFunction : Domain => Key,
+            aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+            aggragationConstructorFunc : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] =
+            {
+                new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
+            }
 
         def apply[Domain <: AnyRef, AggregationValue <: Any](
             source : LazyView[Domain],
             aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) =
             {
                 new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
+            }
+        def apply[Domain <: AnyRef, AggregationValue <: Any](
+            source : LazyView[Domain],
+            aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) =
+            {
+                new AggregationForSelfMaintainableAggregationFunctions(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
             }
     }
 
