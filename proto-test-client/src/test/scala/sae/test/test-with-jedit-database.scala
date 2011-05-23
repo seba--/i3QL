@@ -27,8 +27,8 @@ object JEditSuite {
     @BeforeClass
     def init() : Unit = {
         db.method_calls // use once to init the query
-        //db.addArchiveAsResource(resourceName)
-        db.addArchiveAsFile("C:\\Users\\crypton\\workspace_BA\\SAE\\proto-test-data\\src\\main\\resources\\jedit-4.3.3-win.jar")
+        db.addArchiveAsResource(resourceName)
+        //db.addArchiveAsFile("C:\\Users\\crypton\\workspace_BA\\SAE\\proto-test-data\\src\\main\\resources\\jedit-4.3.3-win.jar")
     }
 }
 
@@ -196,7 +196,7 @@ class JEditSuite {
     }
 
     @Test
-    def fanIn() : Unit = {
+    def fanInSelectivWithOwnAggragationFunction() : Unit = {
         import scala.collection.mutable.Set
         val db = new BytecodeDatabase
 
@@ -284,8 +284,9 @@ class JEditSuite {
         //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
 
     }
+    
     @Test
-    def fanOut2() : Unit = {
+    def fanOutWithSQL() : Unit = {
         case class Method2(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
         import scala.collection.mutable.Set
         val db = new BytecodeDatabase
@@ -302,7 +303,7 @@ class JEditSuite {
             res
         })
         val selection = new MaterializedSelection((x : Method2) => { (x.declaringRef.packageName + x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
-        val fanOut = Aggregation(selection, (x : Method2) => (x.declaringRef.packageName, x.declaringRef.simpleName), (m1 : Method2, m2 : Method2) => { m1.dep == m2.dep }, Distinct(Count[Method2]()), (x : (String, String), y : Int) => (x, y))
+        val fanOut = Aggregation(selection, (x : Method2) => (x.declaringRef.packageName, x.declaringRef.simpleName), Distinct(Count[Method2](),(x : Method2) => x.dep), (x : (String, String), y : Int) => (x, y))
         val res : QueryResult[((String, String), Int)] = fanOut
         JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
         var listRes = res.asList
@@ -321,54 +322,92 @@ class JEditSuite {
 
         db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "<init>"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "<init>"))
         listRes = res.asList
+        
         assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
 
         db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "eval"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "classLoaderChanged"))
         listRes = res.asList
         assertTrue(!listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
-        // res.asList.foreach(println _)
+
     }
     
     @Test
-    def fanIn2() : Unit = {
-        case class Method2(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
+    def fanInSelectivWithSQL() : Unit = {
+        case class ReducedMethod(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
         import scala.collection.mutable.Set
         val db = new BytecodeDatabase
         val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
-            var res = List[Method2]()
-            res = new Method2(x.declaringRef, x.name, x.returnType) :: res
+            var res = List[ReducedMethod]()
+            res = new ReducedMethod(x.declaringRef, x.name, x.returnType) :: res
             if (x.parameters.size == 0) {
 
             } else {
                 x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
-                    res = new Method2(x.declaringRef, x.name, y) :: res
+                    res = new ReducedMethod(x.declaringRef, x.name, y) :: res
                 })
             }
             res
         })
-        val selection = new MaterializedSelection((x : Method2) => { (x.declaringRef.packageName + x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
-        val r : QueryResult[Method2] = selection
-        
-        val coss = new CrossProduct(selection,selection)
-        val selection2 = new MaterializedSelection(
-                (x : (Method2, Method2)) => {(x._1.declaringRef.packageName + x._1.declaringRef.simpleName) != (x._2.declaringRef.packageName + x._2.declaringRef.simpleName)},
-                        coss)
-//        groupFunction : Domain => Key, distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : DistinctAggregationFunctionFactory[Domain, AggregationValue],
-//                                                                                       aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result]
-       val fanIn = Aggregation(selection2, 
-               (x : (Method2, Method2)) => (x._1.declaringRef.packageName, x._1.declaringRef.simpleName), 
-               /*(a : (Method2, Method2), b : (Method2, Method2)) => {a._2.dep == b._2.dep},*/ 
-               Count[(Method2, Method2)](), 
-               (x : (String,String), y : Int) => (x,y))
-      val res : QueryResult[((String,String),Int)] = fanIn
-      JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
-      r.asList.foreach(println _)
-      res.asList.foreach(println _)
+        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { (x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
+        val fanInToo = "org.gjt.sp.jedit.Buffer"
+        val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep.toJava == fanInToo}, removeMethodWithDependencyToThereImplClass)
+        val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a : (String, String), b : (Int)) => a)
+        val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String,String)])
+        val result : QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+       
+        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        assertTrue(result.asList.size == 1)
+        assertTrue(result.asList.contains(Some(51)))
+//        val coss = new CrossProduct(selection,selection)
+//        val selection2 = new MaterializedSelection(
+//                (x : (Method2, Method2)) => {(x._1.declaringRef.packageName + x._1.declaringRef.simpleName) == (x._2.declaringRef.packageName + x._2.declaringRef.simpleName)},
+//                        coss)
+////        groupFunction : Domain => Key, distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : DistinctAggregationFunctionFactory[Domain, AggregationValue],
+////                                                                                       aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result]
+//       val fanIn = Aggregation(selection2, 
+//               (x : (Method2, Method2)) => (x._1.declaringRef.packageName, x._1.declaringRef.simpleName), 
+//               /*(a : (Method2, Method2), b : (Method2, Method2)) => {a._2.dep == b._2.dep},*/ 
+//               Count[(Method2, Method2)](), 
+//               (x : (String,String), y : Int) => (x,y))
+//      val res : QueryResult[((String,String),Int)] = fanIn
+//      JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+//      r.asList.foreach(println _)
+//      res.asList.foreach(println _)
       
+    }
+    
+     @Test
+    def fanInWithSQL() : Unit = {
+        case class ReducedMethod(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
+        import scala.collection.mutable.Set
+        val db = new BytecodeDatabase
+        val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
+            var res = List[ReducedMethod]()
+            res = new ReducedMethod(x.declaringRef, x.name, x.returnType) :: res
+            if (x.parameters.size == 0) {
+
+            } else {
+                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
+                    res = new ReducedMethod(x.declaringRef, x.name, y) :: res
+                })
+            }
+            res
+        })
+        var list = List[(String,QueryResult[Some[Int]])]()
+        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { (x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
+         JEditSuite.db.classfiles.foreach(z => {
+    
+            val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep.toJava == z.toJava}, removeMethodWithDependencyToThereImplClass)
+            val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a : (String, String), b : (Int)) => a)
+            val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String,String)])
+            val result : QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+            list = (z.toJava,result) :: list
+        })
+        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
     }
 
     @Test
-    def fanOut : Unit = {
+    def fanOutWithOwnAggregationFunction : Unit = {
         import scala.collection.mutable.Set
 
         val db = new BytecodeDatabase

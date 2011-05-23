@@ -15,7 +15,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
     //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
 
     import com.google.common.collect.HashMultiset;
-    var groups = Map[Key, (Count, HashMultiset[Domain], AggregationFunction[Domain, AggregationValue], Result)]()
+    var groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
 
     lazyInitialize
     initialized = true
@@ -31,7 +31,6 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
                 val aggRes = aggFuncs.add(v, data)
                 val res = aggregationConstructorFunction(key, aggRes)
                 if (res != oldResult) {
-                    //some aggragation valus changed => updated event
                     groups.put(key, (count, data, aggFuncs, res))
                 }
             } else {
@@ -109,7 +108,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             data.add(v)
             count.inc
             val aggRes = aggFuncs.add(v, data)
-            val res = aggregationConstructorFunction(key, aggRes) //FIXME name
+            val res = aggregationConstructorFunction(key, aggRes)
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put(key, (count, data, aggFuncs, res))

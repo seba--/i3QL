@@ -11,8 +11,7 @@ trait AggregationFunction[Domain <: AnyRef, Result] {
     def remove(newD : Domain, data : Iterable[Domain]) : Result
     def update(oldD : Domain, newD : Domain, data : Iterable[Domain]) : Result
 }
-trait DistinctAggregationFunction[Domain <: AnyRef, Result] extends AggregationFunction[Domain, Result] {
-}
+
 
 /**
  * IMPORTANT: clients should NOT implement this interface
@@ -24,5 +23,4 @@ trait DistinctAggregationFunction[Domain <: AnyRef, Result] extends AggregationF
 trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any]{
     def apply() : AggregationFunction[Domain, AggregationValue]
 }
-trait DistinctAggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any] 
-extends AggregationFunctionFactory[Domain,AggregationValue]{}
+

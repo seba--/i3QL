@@ -8,6 +8,7 @@ import sae.functions._
 import sae._
 import sae.collections._
 import sae.operators.CreateAggregationFunctionContainer._
+import intern.AggregationForSelfMaintainableAggregationFunctions
 
 class Testaggregate extends TestCase {
     class Line(iD : String, itemType : String, preis : Integer) {
@@ -23,11 +24,9 @@ class Testaggregate extends TestCase {
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
 
-    //var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] =
+        Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis), Min((x : Schuh) => x.preis), Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
 
-    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] = 
-        Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int,Int,Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-//Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
     var list = new ObserverList[(String, String, Int, Int, Int)]
 
     val grouping = (x : Schuh) => { (x.art, x.hersteller) }
@@ -99,9 +98,7 @@ class Testaggregate extends TestCase {
     //before every method
     override def setUp() = {
         schuhe = new ObservableList[Schuh];
-        //aggOp = new Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)](schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-        //aggOp = new Aggregation(schuhe, grouping, aggFuncsFac, ((key, aggV) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
-        aggOp = Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis),Min((x : Schuh) => x.preis),Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int,Int,Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+        aggOp = Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis), Min((x : Schuh) => x.preis), Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         list = new ObserverList[(String, String, Int, Int, Int)]
         aggOp.addObserver(list);
     }
@@ -271,17 +268,10 @@ class Testaggregate extends TestCase {
         assertTrue(ob.contains(EdgeGroup("d", "b", 2, 2.5)))
         assertTrue(ob.contains(EdgeGroup("c", "b", 2, 2.0)))
 
-        //assertContains(ob,EdgeGroup(a,b,2,3.0))
-        //assertSize(ob,3)
-
     }
     def testSallEdgeTest2 = {
-        //        case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
-        // case class Edge(a : String, b : String, c : Int)
-        //case class EdgeGroup(a : String, b : String, minCost : Int, count : Int, avgCost : Double)
         val edges = new ObservableList[Edge]
-        //[Domain <: AnyRef, Key <: AnyRef, AggregationValue <: AnyRef, Result <: AnyRef](val source : Observable[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : AggregationFunktionFactory[Domain, AggregationValue],
         val minAndAVGCost = Aggregation(edges, (e : Edge) => (e.a, e.b),
             (Min((x : Edge) => x.c), Count[Edge](), AVG((x : Edge) => x.c)),
             (x : (String, String), y : (Int, Int, Double)) => { new EdgeGroup(x._1, x._2, y._1, y._2, y._3) })
@@ -340,7 +330,7 @@ class Testaggregate extends TestCase {
         val selection2 = new MaterializedSelection[EdgeGroup]((x : EdgeGroup) => { x.count > 2 }, edgeStartingWithAOrB)
         val op = new ObserverList[EdgeGroup]()
         edgeStartingWithAOrB.addObserver(op)
-        
+
         edges.add(new Edge("a", "b", 4)) //ja
         assertTrue(selection2.materialized_size == 0)
         edges.add(new Edge("a", "b", 2)) //ja
@@ -367,8 +357,7 @@ class Testaggregate extends TestCase {
         scala.io.Source.fromFile(fileName).getLines().foreach { line =>
             val lineArray = line.split(",")
             lines(i) = new Line(lineArray(0), lineArray(1), lineArray(2).toInt)
-            i += 1
-            //new Line(lineArray(0),lineArray(1),lineArray(2).toInt))    
+            i += 1 
         }
         lines
     }
@@ -381,7 +370,6 @@ class Testaggregate extends TestCase {
             val lineArray = line.split(",")
             lines(i) = new Line(lineArray(0), lineArray(1), lineArray(2).toInt)
             i += 1
-            //new Line(lineArray(0),lineArray(1),lineArray(2).toInt))    
         }
         lines
     }
@@ -416,18 +404,16 @@ class Testaggregate extends TestCase {
         var t1 = java.lang.System.nanoTime;
         lines100.foreach(x => {
             allLines.add(x)
-            //allLines.add(x)
         })
         var t2 = java.lang.System.nanoTime;
         println("add 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
         //TODO add asserts
-        /*  assertTrue(obs.contains(("TypeC", 498675626)))
-        assertTrue(obs.contains(("TypeE", 502994963)))
-        assertTrue(obs.contains(("TypeB", 497639747)))
-        assertTrue(obs.contains(("TypeD", 498864034)))
-        assertTrue(obs.contains(("TypeA", 501896644)))
-        assertTrue(obs.size == 5)
-*/
+//        assertTrue(obs.contains(("TypeC", 498675626)))
+//        assertTrue(obs.contains(("TypeE", 502994963)))
+//        assertTrue(obs.contains(("TypeB", 497639747)))
+//        assertTrue(obs.contains(("TypeD", 498864034)))
+//        assertTrue(obs.contains(("TypeA", 501896644)))
+//        assertTrue(obs.size == 5)
 
     }
     def testBigRemove100() = {
@@ -509,11 +495,9 @@ class Testaggregate extends TestCase {
         var t1 = java.lang.System.nanoTime;
         lines100.foreach(x => {
             allLines.update(x, lines100Daten(i))
-            //allLines.update(x, lines100Daten(i))
             i += 1
         })
         var t2 = java.lang.System.nanoTime;
-        //obs.data.foreach(println _)
         println("updates 100 lines in a 1000k Table: " + ((t2 - t1) / 1000000) + " milliseconds");
         //TODO add asserts
     }
@@ -562,8 +546,7 @@ class Testaggregate extends TestCase {
     }
     */
 
-    /*
-	// FIXME Test data missing
+
     def test100kAddsAndRemoves() = {
 
         val allLines = new LazyView[Line] {
@@ -579,6 +562,7 @@ class Testaggregate extends TestCase {
             def lazy_foreach[T](f : (Line) => T) {
                 //throw new Error
             }
+            def lazyInitialize : Unit = {}
         }
         val lines = readResource("Daten_100k.txt", 100000)
         val sumCost = Aggregation(allLines, (x : Line) => x.itemType, Sum((x : Line) => x.preis), (x : String, y : Int) => new Tuple2(x, y))
@@ -587,7 +571,6 @@ class Testaggregate extends TestCase {
         //
 
         var t1 = java.lang.System.nanoTime;
-        //println(t1);
         var idx = 0
         var count = 0
 
@@ -595,7 +578,6 @@ class Testaggregate extends TestCase {
             allLines.add(x)
         })
         var t2 = java.lang.System.nanoTime;
-        ////obs.data.foreach(println _)
         println("100k Adds Dif: " + ((t2 - t1) / 1000000) + " milliseconds");
 
         assertTrue(obs.contains(("TypeC", 49994539)))
@@ -617,7 +599,7 @@ class Testaggregate extends TestCase {
         assertTrue(obs.size == 0)
 
     }
-    */
+   
 
     def test1000kAddsAndRemoves() = {
 
@@ -663,6 +645,35 @@ class Testaggregate extends TestCase {
         println("1000k removes Dif: " + ((t2 - t1) / 1000000) + " milliseconds");
         assertTrue(obs.size == 0)
 
+    }
+ 
+    def testDistinct() = {
+        case class EdgeGroup(a : String, b : String, count : Int)
+        val edges = new ObservableList[Edge]
+
+        import sae.operators.intern._
+        val GroupAndCount = Aggregation(edges, (e : Edge) => (e.a, e.b), Distinct(Count[Edge](), (e : Edge) => (e.a, e.b)), (a : (String, String), b : Int) => (a, b))
+        val res : QueryResult[((String, String), Int)] = sae.syntax.RelationalAlgebraSyntax.lazyViewToResult(GroupAndCount)
+
+        edges.add(new Edge("a", "b", 4))
+        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        edges.add(new Edge("a", "b", 2))
+        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        edges.add(new Edge("a", "b", 3))
+        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        edges.add(new Edge("d", "b", 2))
+        assertTrue(res.asList.size == 2 && res.asList.contains(("d","b"),1))
+        edges.add(new Edge("d", "b", 3))
+        assertTrue(res.asList.size == 2 && res.asList.contains(("d","b"),1))
+        edges.add(new Edge("c", "b", 2))
+        assertTrue(res.asList.size == 3 && res.asList.contains(("c","b"),1))
+        edges.add(new Edge("b", "d", 2))
+        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        edges.add(new Edge("b", "d", 2))
+        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        edges.add(new Edge("b", "d", 2))
+        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        
     }
 
 }
