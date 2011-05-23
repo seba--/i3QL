@@ -27,7 +27,7 @@
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
@@ -39,7 +39,7 @@
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-test-data</artifactId>
 			<version>${sae.version}</version>
-			<scope>test</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>

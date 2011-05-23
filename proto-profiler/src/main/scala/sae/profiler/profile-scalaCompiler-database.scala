@@ -54,7 +54,7 @@ object ScalaCompilerProfiler {
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
-        //-------------- groub by package calc fan out to not java.*
+        //-------------- group by package calc fan out to not java.*
         write("group by Package : calc fan out", profile(selectiveFanOut))
         write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initSelectiveFanOut,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
@@ -66,7 +66,7 @@ object ScalaCompilerProfiler {
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
-        //-------------- groub by class calc fan in
+        //-------------- group by class calc fan in
         write("group by class : calc fan in", profile(fanInAll))
         write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initFanIn,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
