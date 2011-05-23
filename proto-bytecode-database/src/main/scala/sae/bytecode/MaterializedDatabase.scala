@@ -3,6 +3,7 @@ package bytecode
 
 import sae.DefaultLazyView
 import sae.bytecode.model._
+import dependencies._
 import sae.collections._
 import sae.collections.Conversions._
 import sae.bytecode.transform._
@@ -26,6 +27,18 @@ class MaterializedDatabase {
     val instructions : QueryResult[Instr] = db.instructions
 
     val method_calls : QueryResult[MethodCall] = db.method_calls
+
+    val `extends` : QueryResult[`extends`] = db.`extends`
+
+    val implements: QueryResult[implements] = db.implements
+
+    val fieldType : QueryResult[field_type] = db.field_type
+
+    val parameter: QueryResult[parameter] = db.parameter
+
+    val return_type: QueryResult[return_type] = db.return_type
+
+    val write_field: QueryResult[write_field] = db.write_field
 
     /**
      * Convenience method that opens a stream from a resource in the class path

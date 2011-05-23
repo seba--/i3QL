@@ -1,5 +1,6 @@
 package sae
-package test
+
+package test
 
 import org.junit.BeforeClass
 import org.junit.Ignore
@@ -16,26 +17,24 @@ import sae.operators._
 import sae.test.helpFunctions._
 import scala.util.control._
 import sae.bytecode._
+import junit.framework.TestSuite
 
-object JEditSuite {
-
-    import sae.test.helpFunctions._
-
-    val db = new MaterializedDatabase()
-
-    val resourceName = "jedit-4.3.3-win.jar"
-
-    @BeforeClass
-    def init() : Unit = {
-        db.method_calls // use once to init the query
-        db.addArchiveAsResource(resourceName)
-    }
-}
 
 class JEditSuite {
     import sae.test.helpFunctions._
 
-    val db = JEditSuite.db
+    private var database : MaterializedDatabase = null
+
+    private val resourceName = "jedit-4.3.3-win.jar"
+
+    def db = {
+        if(database == null){
+            database = new MaterializedDatabase()
+            database.addArchiveAsResource(resourceName)
+        }
+        database
+    }
+
 
     @Test
     def count_classfiles : Unit = {
@@ -57,7 +56,7 @@ class JEditSuite {
                 (x : String, y : Int) => (x, y)
             )
 
-            db.addArchiveAsResource(JEditSuite.resourceName)
+            db.addArchiveAsResource(resourceName)
 
             val result = List( // verified in swi-prolog
                 ("org/gjt/sp/jedit/bufferset", 13),
@@ -107,7 +106,7 @@ class JEditSuite {
         
         val query : QueryResult[MethodCall] = db.method_calls
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.method_calls.foreach( db.method_calls.element_added )
         
         assertEquals(44776, query.size)
     }
@@ -121,8 +120,8 @@ class JEditSuite {
         val query : QueryResult[MethodCall] = ((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach( db.classfile_methods.element_added )
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.classfile_methods.foreach( db.classfile_methods.element_added )
+        this.db.method_calls.foreach( db.method_calls.element_added )
 
         assertEquals(20358, query.size)
     }
@@ -136,10 +135,45 @@ class JEditSuite {
         val query : QueryResult[(Method, Method)] = δ(Π((c : MethodCall) => (c.source, c.target))(((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }))
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
-        JEditSuite.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        this.db.method_calls.foreach( db.method_calls.element_added )
 
         assertEquals(14847, query.size)
+    }
+
+    @Test
+    def count_extends_relation : Unit = {
+        assertEquals(1132, db.`extends`.size)
+    }
+
+    @Test
+    def count_implements_relation : Unit = {
+        assertEquals(513, db.implements.size)
+    }
+
+    @Test
+    def count_field_type_relation : Unit = {
+        assertEquals(2504, db.fieldType.size)
+    }
+
+    @Test
+    def count_parameter_relation : Unit = {
+        assertEquals(9248, db.parameter.size)
+    }
+
+    @Test
+    def count_internal_parameter_relation : Unit = {
+        assertEquals(6222, db.parameter.size)
+    }
+
+    @Test
+    def count_return_type_relation : Unit = {
+        assertEquals(7999, db.return_type.size)
+    }
+
+    @Test
+    def count_internal_return_type_relation : Unit = {
+        assertEquals(1999, db.return_type.size)
     }
 
     def find_classfile_with_max_methods_pair_package : Unit = {
@@ -155,7 +189,7 @@ class JEditSuite {
         val result : QueryResult[Option[(String, String, Int)]] = groupByPackageFindClassWithMaxMethods
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
         val list : List[Option[(String, String, Int)]] = result.asList
         //TODO add some more asserts
@@ -182,7 +216,7 @@ class JEditSuite {
         val result : QueryResult[(String, (Double, Double))] = pseudovarianzoveravg
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
         val list = result.asList
 
@@ -196,6 +230,7 @@ class JEditSuite {
     }
 
     @Test
+    @Ignore
     def fanOut : Unit = {
         import scala.collection.mutable.Set
 
@@ -206,7 +241,7 @@ class JEditSuite {
         val result : QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
 
         // reuse existing data without loading bytecode from filesystem again
-        JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
         var list = result.asList
         //val list = ob.data
@@ -282,7 +317,7 @@ class JEditSuite {
         import mybreaks.{ break, breakable }
         var res : Method = null
         breakable {
-            JEditSuite.db.classfile_methods.foreach(x => {
+            this.db.classfile_methods.foreach(x => {
                 if (x.declaringRef.packageName == pName && x.declaringRef.simpleName == className && x.name == mName) {
                     res = x
                     break
@@ -298,7 +333,7 @@ class JEditSuite {
         var res : Method = null
         var i = 1
         breakable {
-            JEditSuite.db.classfile_methods.foreach(x => {
+            this.db.classfile_methods.foreach(x => {
                 if (x.declaringRef.packageName == pName && x.declaringRef.simpleName == className && x.name == mName) {
                     if (i == count) {
                         res = x
@@ -334,7 +369,7 @@ class JEditSuite {
         val res3 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.Buffer")
         val res4 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.ActionSet")
         
-        JEditSuite.db.classfile_methods.foreach( db.classfile_methods.element_added )
+        this.db.classfile_methods.foreach( db.classfile_methods.element_added )
         
         assertTrue(res1.asList.size == 0 && res1.singletonValue == None)
         assertTrue(res2.asList.size == 1 && res2.singletonValue == Some(Some(19)))
