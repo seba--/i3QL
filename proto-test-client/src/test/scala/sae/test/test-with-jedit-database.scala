@@ -11,6 +11,7 @@ import scala.collection.mutable.ListBuffer
 import sae.collections._
 import sae.bytecode.model._
 import de.tud.cs.st.bat._
+import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions._
 import sae.operators._
@@ -18,6 +19,7 @@ import sae.test.helpFunctions._
 import scala.util.control._
 import sae.bytecode._
 import junit.framework.TestSuite
+import syntax.InfixFunctionConcatenator._
 
 
 class JEditSuite {
@@ -98,6 +100,14 @@ class JEditSuite {
         assertEquals(7999, db.classfile_methods.size);
     }
 
+
+    @Test
+    def count_fields : Unit = {
+        // the materialized db is already set up
+        // test that values were propagated to the results
+        assertEquals(4120, db.fields.size);
+    }
+
     @Test
     def count_method_calls : Unit = {
         // the materialized db is already set up 
@@ -153,7 +163,27 @@ class JEditSuite {
 
     @Test
     def count_field_type_relation : Unit = {
-        assertEquals(2504, db.fieldType.size)
+        assertEquals(4120, db.field_type.size)
+    }
+
+    @Test
+    def count_class_in_field_type_relation : Unit = {
+        val db = new BytecodeDatabase
+
+        val query : QueryResult[field_type] = σ((_:field_type).target.isObjectType)(db.field_type)
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.field_type.foreach( db.field_type.element_added )
+        assertEquals(2504, query.size)
+    }
+
+    @Test
+    def count_internal_field_type_relation : Unit = {
+        val db = new BytecodeDatabase
+
+        val query : QueryResult[field_type] = ( (db.field_type, (_:field_type).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (f : field_type, c : ObjectType) => f }
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.field_type.foreach( db.field_type.element_added )
+        assertEquals(1036, query.size)
     }
 
     @Test
@@ -163,7 +193,11 @@ class JEditSuite {
 
     @Test
     def count_internal_parameter_relation : Unit = {
-        assertEquals(6222, db.parameter.size)
+        val db = new BytecodeDatabase
+        val query : QueryResult[parameter] = ( (db.parameter, (_:parameter).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (x : parameter, c : ObjectType) => x }
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.parameter.foreach( db.parameter.element_added )
+        assertEquals(2577, query.size)
     }
 
     @Test
@@ -173,7 +207,11 @@ class JEditSuite {
 
     @Test
     def count_internal_return_type_relation : Unit = {
-        assertEquals(1999, db.return_type.size)
+        val db = new BytecodeDatabase
+        val query : QueryResult[return_type] = ( (db.return_type, (_:return_type).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (x : return_type, c : ObjectType) => x }
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.return_type.foreach( db.return_type.element_added )
+        assertEquals(616, query.size)
     }
 
     def find_classfile_with_max_methods_pair_package : Unit = {

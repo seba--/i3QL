@@ -24,6 +24,8 @@ class MaterializedDatabase {
 
     val methods : QueryResult[Method] = db.methods
 
+    val fields : QueryResult[Field] = db.fields
+
     val instructions : QueryResult[Instr] = db.instructions
 
     val method_calls : QueryResult[MethodCall] = db.method_calls
@@ -32,7 +34,7 @@ class MaterializedDatabase {
 
     val implements: QueryResult[implements] = db.implements
 
-    val fieldType : QueryResult[field_type] = db.field_type
+    val field_type : QueryResult[field_type] = db.field_type
 
     val parameter: QueryResult[parameter] = db.parameter
 

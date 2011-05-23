@@ -56,8 +56,9 @@ class BytecodeDatabase {
 
     val implements: LazyView[implements] = new DefaultLazyView[implements]
 
-    lazy val field_type : LazyView[field_type] =
-        Π( (f:Field) => new field_type(f, f.fieldType.asObjectType) )( σ((_: Field).fieldType.isObjectType)(fields) )
+    lazy val field_type : LazyView[field_type] = Π( (f:Field) => new field_type(f, f.fieldType) )(fields)
+
+    // Π( (f:Field) => new field_type(f, f.fieldType.asObjectType) )( σ((_: Field).fieldType.isObjectType)(fields) )
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 

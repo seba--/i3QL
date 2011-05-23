@@ -79,13 +79,15 @@ class Java6ToSAE(
 
         classfiles.element_added(classFile.thisClass)
 
-        classFile.methods.foreach(transform(classFile.thisClass, _))
-
         `extends`.element_added(new `extends`(classFile.thisClass, classFile.superClass))
 
         classFile.interfaces.foreach(i =>
             implements.element_added(new implements(classFile.thisClass, i))
         )
+
+        classFile.methods.foreach(transform(classFile.thisClass, _))
+
+        classFile.fields.foreach(transform(classFile.thisClass, _))
     }
 
     /**
