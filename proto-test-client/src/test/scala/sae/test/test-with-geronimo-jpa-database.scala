@@ -1,15 +1,6 @@
 package sae
 package test
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.Assert._
-
-import sae.collections._
-import sae.bytecode.model._
-import de.tud.cs.st.bat._
-import sae.syntax.RelationalAlgebraSyntax._
-
-
 class GeronimoJPADatabase extends sae.bytecode.BytecodeDatabase
 {
 
@@ -19,7 +10,8 @@ class GeronimoJPADatabase extends sae.bytecode.BytecodeDatabase
     }
     
 }
-// import org.scalatest.junit.JUnitRunner// @RunWith(classOf[JUnitRunner]) 
+// import org.scalatest.junit.JUnitRunner
+// @RunWith(classOf[JUnitRunner]) 
 class GeronimoJPASuite {
 
     @Test
