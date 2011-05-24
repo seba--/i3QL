@@ -1,13 +1,9 @@
 package sae
-
 package test
 
-import org.junit.BeforeClass
 import org.junit.Ignore
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.junit.Assert._
-import scala.collection.mutable.ListBuffer
 import sae.collections._
 import sae.bytecode.model._
 import de.tud.cs.st.bat._
@@ -15,11 +11,8 @@ import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions._
 import sae.operators._
-import sae.test.helpFunctions._
 import scala.util.control._
 import sae.bytecode._
-import junit.framework.TestSuite
-import syntax.InfixFunctionConcatenator._
 
 
 class JEditSuite {
@@ -39,7 +32,7 @@ class JEditSuite {
 
 
     @Test
-    def count_classfiles : Unit = {
+    def count_classfiles() {
         // the materialized db is already set up 
         // test that values were propagated to the results
         assertEquals(1132, db.classfiles.size);
@@ -47,16 +40,15 @@ class JEditSuite {
     }
 
     @Test
-    def count_classfiles_by_package : Unit =
+    def count_classfiles_by_package()
         {
             val db = new BytecodeDatabase
 
             val groupByPackage = γ(
                 db.classfiles,
                 (_ : ObjectType).packageName,
-                Count[ObjectType],
-                (x : String, y : Int) => (x, y)
-            )
+                Count[ObjectType](),
+                (x : String, y : Int) => (x, y))
 
             db.addArchiveAsResource(resourceName)
 
@@ -94,7 +86,7 @@ class JEditSuite {
         }
 
     @Test
-    def count_classfile_methods : Unit = {
+    def count_classfile_methods() {
         // the materialized db is already set up 
         // test that values were propagated to the results
         assertEquals(7999, db.classfile_methods.size);
@@ -102,18 +94,18 @@ class JEditSuite {
 
 
     @Test
-    def count_classfile_fields : Unit = {
+    def count_classfile_fields() {
         // the materialized db is already set up
         // test that values were propagated to the results
         assertEquals(4120, db.classfile_fields.size);
     }
 
     @Test
-    def count_method_calls : Unit = {
+    def count_method_calls() {
         // the materialized db is already set up 
         // test that values were propagated to the results
         val db = new BytecodeDatabase
-        
+
         val query : QueryResult[MethodCall] = db.method_calls
         // reuse existing data without loading bytecode from filesystem again
         this.db.method_calls.foreach( db.method_calls.element_added )
@@ -122,7 +114,7 @@ class JEditSuite {
     }
 
     @Test
-    def count_internal_method_calls : Unit = {
+    def count_internal_method_calls() {
         val db = new BytecodeDatabase
         // the cross product would generate (7999 * 44776) ~ 350 million entries    
         // naive query // val query : QueryResult[MethodCall] = Π( (_:(MethodCall,Method))._1 )(db.method_calls ⋈( (_:(MethodCall,Method)) match {case (c:MethodCall, m:Method) => c.target == m} , db.classfile_methods));
@@ -137,12 +129,13 @@ class JEditSuite {
     }
 
     @Test
-    def count_distinct_internal_method_calls : Unit = {
+    def count_distinct_internal_method_calls() {
         val db = new BytecodeDatabase
         // the cross product would generate (7999 * 44776) ~ 350 million entries    
         // naive query // val query : QueryResult[MethodCall] = Π( (_:(MethodCall,Method))._1 )(db.method_calls ⋈( (_:(MethodCall,Method)) match {case (c:MethodCall, m:Method) => c.target == m} , db.classfile_methods));
 
-        val query : QueryResult[(Method, Method)] = δ(Π((c : MethodCall) => (c.source, c.target))(((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }))
+        val query : QueryResult[(Method, Method)] = 
+            δ(Π((c : MethodCall) => (c.source, c.target))(((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }))
 
         // reuse existing data without loading bytecode from filesystem again
         this.db.classfile_methods.foreach(db.classfile_methods.element_added)
@@ -152,22 +145,22 @@ class JEditSuite {
     }
 
     @Test
-    def count_extends_relation : Unit = {
+    def count_extends_relation() {
         assertEquals(1132, db.`extends`.size)
     }
 
     @Test
-    def count_implements_relation : Unit = {
+    def count_implements_relation() {
         assertEquals(513, db.implements.size)
     }
 
     @Test
-    def count_field_type_relation : Unit = {
+    def count_field_type_relation() {
         assertEquals(4120, db.field_type.size)
     }
 
     @Test
-    def count_class_in_field_type_relation : Unit = {
+    def count_class_in_field_type_relation() {
         val db = new BytecodeDatabase
 
         val query : QueryResult[field_type] = σ((_:field_type).target.isObjectType)(db.field_type)
@@ -177,7 +170,7 @@ class JEditSuite {
     }
 
     @Test
-    def count_internal_field_type_relation : Unit = {
+    def count_internal_field_type_relation() {
         val db = new BytecodeDatabase
 
         val query : QueryResult[field_type] = ( (db.field_type, (_:field_type).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (f : field_type, c : ObjectType) => f }
@@ -187,12 +180,12 @@ class JEditSuite {
     }
 
     @Test
-    def count_parameter_relation : Unit = {
+    def count_parameter_relation() {
         assertEquals(9248, db.parameter.size)
     }
 
     @Test
-    def count_internal_parameter_relation : Unit = {
+    def count_internal_parameter_relation() {
         val db = new BytecodeDatabase
         val query : QueryResult[parameter] = ( (db.parameter, (_:parameter).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (x : parameter, c : ObjectType) => x }
         this.db.classfiles.foreach( db.classfiles.element_added )
@@ -201,12 +194,12 @@ class JEditSuite {
     }
 
     @Test
-    def count_return_type_relation : Unit = {
+    def count_return_type_relation() {
         assertEquals(7999, db.return_type.size)
     }
 
     @Test
-    def count_internal_return_type_relation : Unit = {
+    def count_internal_return_type_relation() {
         val db = new BytecodeDatabase
         val query : QueryResult[return_type] = ( (db.return_type, (_:return_type).target) ⋈ ( (o:ObjectType)=>o, db.classfiles) ) { (x : return_type, c : ObjectType) => x }
         this.db.classfiles.foreach( db.classfiles.element_added )
@@ -214,7 +207,7 @@ class JEditSuite {
         assertEquals(616, query.size)
     }
 
-    def find_classfile_with_max_methods_pair_package : Unit = {
+    def find_classfile_with_max_methods_pair_package() {
         val db = new BytecodeDatabase
 
         val groupByClassesAndCountMethods = Aggregation(db.classfile_methods, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[Method], (x : (String, String), y : Int) => (x._1, x._2, y))
@@ -270,6 +263,214 @@ class JEditSuite {
     @Test
     @Ignore
     def fanOut : Unit = {
+        import scala.collection.mutable.Set
+        val db = new BytecodeDatabase
+
+        val groupByClassesAndCalcFanOut = Aggregation(db.classfile_methods, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), sae.functions.FanOut((x : Method) => (x.parameters, x.returnType), y => true), (x : (String, String), y : Set[String]) => (x._1, x._2, y))
+        //        var out_file = new java.io.FileOutputStream("testtttttttt.txt")
+        //        var out_stream = new java.io.PrintStream(out_file)
+        //        out_stream.print("\n" + x)
+        //        out_stream.close
+
+        def fanInFor(s : String) = {
+            Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(s) && (x._1.replace('/', '.') + "." + x._2) != s }, groupByClassesAndCalcFanOut), Count[(String, String, Set[String])])
+        }
+        val t : QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
+
+        val res1 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.jEdit")
+        val res2 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.bsh.SimpleNode")
+        val res3 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.Buffer")
+        val res4 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.ActionSet")
+
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+
+        assertTrue(res1.asList.size == 0 && res1.singletonValue == None)
+        assertTrue(res2.asList.size == 1 && res2.singletonValue == Some(Some(19)))
+        assertTrue(res3.asList.size == 1 && res3.singletonValue == Some(Some(51)))
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
+        //Method(ClassFile(org/gjt/sp/jedit,ActionContext),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,Macros),getMacroActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActions,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,PluginJAR),getBrowserActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),addActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),removeActionSet,List(ObjectType(className="org/gjt/sp/jedit/ActionSet")),VoidType)
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getBuiltInActionSet,List(),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSets,List(),ArrayType(ObjectType(className="org/gjt/sp/jedit/ActionSet")))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="java/lang/String")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+        //Method(ClassFile(org/gjt/sp/jedit,jEdit),getActionSetForAction,List(ObjectType(className="org/gjt/sp/jedit/EditAction")),ObjectType(className="org/gjt/sp/jedit/ActionSet"))
+
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "addActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "removeActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getBuiltInActionSet"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSets"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction"))
+
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(4)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "jEdit", "getActionSetForAction", 2))
+
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActions"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getActionSet"))
+
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(3)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit", "PluginJAR", "getBrowserActionSet"))
+
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(2)))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "Macros", "getMacroActionSet"), getMethode("org/gjt/sp/jedit", "PluginJAR", "activatePlugin"))
+
+        assertTrue(res4.asList.size == 1 && res4.singletonValue == Some(Some(1)))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "ActionContext", "getActionSetForAction"), getMethode("org/gjt/sp/jedit", "JEditKillRing", "<init>"))
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit", "ActionContext", "getActionSetForAction", 2), getMethode("org/gjt/sp/jedit", "JEditKillRing", "<init>"))
+        assertTrue(res4.asList.size == 0 && res4.singletonValue == None)
+        /*
+ org.gjt.sp.jedit.jEdit 0
+ org.gjt.sp.jedit.bsh.SimpleNode 19 
+  org.gjt.sp.jedit.Buffer 51
+  org.gjt.sp.jedit.ActionSet 4
+ */
+        //                var i = 0
+        //                var j = 0
+        //                JEditSuite.allClassfiles.data.foreach(z => {
+        //                    j += 1
+        //                    fanInFor(z.packageName.replace('/', '.') + "." + z.simpleName).foreach(y => {
+        //                        i += 1
+        //                        println(z.simpleName + ": " + y)
+        //                    })
+        //                })
+        //                println(j)
+        //                println(i)
+        //            	fanInFor("java.lang.String").foreach(x => println("String: " + x))
+        //            	fanInFor("org.gjt.sp.jedit.bsh.Interpreter").foreach(x => println("org.gjt.sp.jedit.bsh.Interpreter: " + x))
+        //            	fanInFor("javax.swing.ListModel").foreach(x => println("javax.swing.ListModel: " + x))
+        //            	fanInFor("void").foreach(x => println("void: " + x))
+        //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
+
+    }
+    
+    @Test
+    def fanOutWithSQL() : Unit = {
+        case class Method2(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
+        val db = new BytecodeDatabase
+        val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
+            var res = List[Method2]()
+            res = new Method2(x.declaringRef, x.name, x.returnType) :: res
+            if (x.parameters.size == 0) {
+
+            } else {
+                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
+                    res = new Method2(x.declaringRef, x.name, y) :: res
+                })
+            }
+            res
+        })
+        val selection = new MaterializedSelection((x : Method2) => { (x.declaringRef.packageName + x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
+        val fanOut = Aggregation(selection, (x : Method2) => (x.declaringRef.packageName, x.declaringRef.simpleName), Distinct(Count[Method2](),(x : Method2) => x.dep), (x : (String, String), y : Int) => (x, y))
+        val res : QueryResult[((String, String), Int)] = fanOut
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        var listRes = res.asList
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/gui/statusbar", "ToolTipLabel"), 3)))
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 5)))
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh/org/objectweb/asm", "ClassVisitor"), 6)))
+
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "<init>"))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "setSelectedColor"))
+        listRes = res.asList
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 1)) || listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
+        db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "getSelectedColor"))
+        listRes = res.asList
+        assertTrue(!listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 0)))
+
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "<init>"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "<init>"))
+        listRes = res.asList
+        
+        assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
+
+        db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "eval"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "classLoaderChanged"))
+        listRes = res.asList
+        assertTrue(!listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
+
+    }
+    
+    @Test
+    def fanInSelectivWithSQL() : Unit = {
+        case class ReducedMethod(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
+        val db = new BytecodeDatabase
+        val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
+            var res = List[ReducedMethod]()
+            res = new ReducedMethod(x.declaringRef, x.name, x.returnType) :: res
+            if (x.parameters.size == 0) {
+
+            } else {
+                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
+                    res = new ReducedMethod(x.declaringRef, x.name, y) :: res
+                })
+            }
+            res
+        })
+        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { (x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
+        val fanInToo = "org.gjt.sp.jedit.Buffer"
+        val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep.toJava == fanInToo}, removeMethodWithDependencyToThereImplClass)
+        val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a : (String, String), b : (Int)) => a)
+        val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String,String)])
+        val result : QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+       
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+        assertTrue(result.asList.size == 1)
+        assertTrue(result.asList.contains(Some(51)))
+//        val coss = new CrossProduct(selection,selection)
+//        val selection2 = new MaterializedSelection(
+//                (x : (Method2, Method2)) => {(x._1.declaringRef.packageName + x._1.declaringRef.simpleName) == (x._2.declaringRef.packageName + x._2.declaringRef.simpleName)},
+//                        coss)
+////        groupFunction : Domain => Key, distinctFunction : (Domain, Domain) => Boolean, aggregationFuncFactory : DistinctAggregationFunctionFactory[Domain, AggregationValue],
+////                                                                                       aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result]
+//       val fanIn = Aggregation(selection2, 
+//               (x : (Method2, Method2)) => (x._1.declaringRef.packageName, x._1.declaringRef.simpleName), 
+//               /*(a : (Method2, Method2), b : (Method2, Method2)) => {a._2.dep == b._2.dep},*/ 
+//               Count[(Method2, Method2)](), 
+//               (x : (String,String), y : Int) => (x,y))
+//      val res : QueryResult[((String,String),Int)] = fanIn
+//      JEditSuite.db.classfile_methods.foreach(db.classfile_methods.element_added)
+//      r.asList.foreach(println _)
+//      res.asList.foreach(println _)
+      
+    }
+    
+     @Test
+    def fanInWithSQL() : Unit = {
+        case class ReducedMethod(declaringRef : ReferenceType, name : String, dep : de.tud.cs.st.bat.Type)
+        val db = new BytecodeDatabase
+        val o2m = new DefaultOneToMany(db.classfile_methods, (x : Method) => {
+            var res = List[ReducedMethod]()
+            res = new ReducedMethod(x.declaringRef, x.name, x.returnType) :: res
+            if (x.parameters.size == 0) {
+
+            } else {
+                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
+                    res = new ReducedMethod(x.declaringRef, x.name, y) :: res
+                })
+            }
+            res
+        })
+        var list = List[(String,QueryResult[Some[Int]])]()
+        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { (x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava }, o2m)
+         this.db.classfiles.foreach(z => {
+    
+            val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep.toJava == z.toJava}, removeMethodWithDependencyToThereImplClass)
+            val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a : (String, String), b : (Int)) => a)
+            val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String,String)])
+            val result : QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+            list = (z.toJava,result) :: list
+        })
+        this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+    }
+
+    @Test
+    def fanOutWithOwnAggregationFunction : Unit = {
         import scala.collection.mutable.Set
 
         val db = new BytecodeDatabase
@@ -399,7 +600,7 @@ class JEditSuite {
 
         def fanInFor(s : String) = {
             Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(s) && (x._1.replace('/', '.') + "." + x._2) != s }, groupByClassesAndCalcFanOut), Count[(String, String, Set[String])])
-        }
+}
         val t : QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
 
         val res1 : QueryResult[Some[Int]] = fanInFor("org.gjt.sp.jedit.jEdit")

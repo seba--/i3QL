@@ -3,8 +3,8 @@ import sae.operators._
 import sae.functions._
 
 
-private class PseudoVarianzIntern[Domain <: AnyRef](val f : Domain => Double) extends AggregationFunktion[Domain, (Double,Double)] {
-     val avg : AggregationFunktion[Domain, Double] = AVG(f).apply()
+private class PseudoVarianzIntern[Domain <: AnyRef](val f : Domain => Double) extends NotSelfMaintainalbeAggregationFunction[Domain, (Double,Double)] {
+     val avg : SelfMaintainalbeAggregationFunction[Domain, Double] = AVG(f).apply()
      val count = Count[Domain]().apply()
      var pi = 0.0
      var erwartunswet = 0.0
@@ -45,8 +45,8 @@ private class PseudoVarianzIntern[Domain <: AnyRef](val f : Domain => Double) ex
 
 object PseudoVarianz {
     def apply[Domain <: AnyRef](f : (Domain => Double )) = {
-        new AggregationFunktionFactory[Domain,(Double,Double)]{
-           def apply() : AggregationFunktion[Domain,  (Double,Double)] = {
+        new NotSelfMaintainalbeAggregationFunctionFactory[Domain,(Double,Double)]{
+           def apply() : NotSelfMaintainalbeAggregationFunction[Domain,  (Double,Double)] = {
                new PseudoVarianzIntern[Domain](f)
            }
         }

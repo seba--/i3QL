@@ -2,7 +2,7 @@ package sae.functions
 
 import sae.operators._
 
-private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends AggregationFunktion[Domain, Int] {
+private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregationFunction[Domain, Int] {
      var min = Integer.MAX_VALUE
         def add(d : Domain, data : Iterable[Domain]) = {
             if (f(d) < min)
@@ -28,8 +28,8 @@ private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends Aggrega
 
 object Min {
     def apply[Domain <: AnyRef](f : (Domain => Int )) = {
-        new AggregationFunktionFactory[Domain, Int]{
-           def apply() : AggregationFunktion[Domain, Int] = {
+        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Int]{
+           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Int] = {
                new MinIntern[Domain](f)
            }
         }

@@ -66,6 +66,9 @@ object ScalaCompilerProfiler {
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
+            
+        // fanin for all classes with sql like syntax
+        //write("Fan In with Sql ", profile(fanInWithSQL))     
         //-------------- group by class calc fan in
         write("group by class : calc fan in", profile(fanInAll))
         write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initFanIn,
@@ -148,19 +151,21 @@ object ScalaCompilerProfiler {
     }
     def initSelectiveFanOut : (sae.test.helpFunctions.ObservableList[Method], Any) = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getFanOut(source, x => { !x.toJava.startsWith("java.", 0) }) //FIXME fan out z�hlt abh�ngigkeiten zu sich selbst mit
+        val res = getFanOut(source, x => { !x.toJava.startsWith("java.", 0) }) //FIXME fan out zï¿½hlt abhï¿½ngigkeiten zu sich selbst mit
         mostMethods.foreach(x => source.add(x))
         (source, res)
     }
     def initFanIn = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
         val res = getFanOutByClass(source)
-        mostMethods.foreach(x => source.add(x))
-
         var list = List[LazyView[Some[Int]]]()
         allClassfiles.foreach(x => {
             list = getFanIn(res, x.packageName.replace('/', '.') + "." + x.simpleName) :: list
         })
+        mostMethods.foreach(x => source.add(x))
+
+        
+        
         (source, res)
     }
     def initSelectiveFanIn = {
@@ -197,7 +202,34 @@ object ScalaCompilerProfiler {
         }
         return timers
     }
+    def fanInWithSQL() : Unit = {
+        val source = new sae.test.helpFunctions.ObservableList[Method]()
+        val res = getFanOutByClass(source)
+        case class ReducedMethod(className : String, name : String, dep : String)
+        import scala.collection.mutable.Set
+        val o2m = new DefaultOneToMany(source, (x : Method) => {
+            var res = List[ReducedMethod]()
+            res = new ReducedMethod((x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.'), x.name, x.returnType.toJava) :: res
+            if (x.parameters.size == 0) {
 
+            } else {
+                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
+                    res = new ReducedMethod((x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.'), x.name, y.toJava) :: res
+                })
+            }
+            res
+        })
+        var list = List[AnyRef]()
+        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { x.className != x.dep }, o2m)
+         allClassfiles.foreach(z => {   
+            val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep == z.toJava}, removeMethodWithDependencyToThereImplClass)
+            val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => x.className, Count[ReducedMethod](), (a :  String, b : (Int)) => a)
+            val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[String])
+            list = countClassesWithDepToFanInClass :: list
+        })
+        mostMethods.foreach(x => source.add(x))
+    }
+    
     def write(name : String, profile : Array[Timer]) : Unit = {
         print(name + " : ")
         val t = Timer.median(profile)
@@ -235,7 +267,10 @@ object ScalaCompilerProfiler {
         groupByClassesAndCalcFanOut
     }
     private def getFanIn(source : LazyView[(String, String, Set[String])], clazz : String) = {
-        val res = Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(clazz) && (x._1.replace('/', '.') + "." + x._2) != clazz },
+//        val res = Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(clazz) && (x._1.replace('/', '.') + "." + x._2) != clazz },
+//            source), Count[(String, String, Set[String])])
+//        res
+         val res = Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(clazz) && (x._1+"/" + x._2) != clazz.replace(".","/") },
             source), Count[(String, String, Set[String])])
         res
     }
