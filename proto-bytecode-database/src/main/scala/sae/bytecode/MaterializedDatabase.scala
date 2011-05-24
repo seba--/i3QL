@@ -20,13 +20,15 @@ class MaterializedDatabase {
 
     val classfile_methods : QueryResult[Method] = db.classfile_methods
 
+    val classfile_fields : QueryResult[Field] = db.classfile_fields
+
     val classes : QueryResult[ObjectType] = db.classes
 
     val methods : QueryResult[Method] = db.methods
 
     val fields : QueryResult[Field] = db.fields
 
-    val instructions : QueryResult[Instr] = db.instructions
+    val instructions : QueryResult[Instr[_]] = db.instructions
 
     val method_calls : QueryResult[MethodCall] = db.method_calls
 

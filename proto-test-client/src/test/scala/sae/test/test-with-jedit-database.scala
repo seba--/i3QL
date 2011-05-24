@@ -102,10 +102,10 @@ class JEditSuite {
 
 
     @Test
-    def count_fields : Unit = {
+    def count_classfile_fields : Unit = {
         // the materialized db is already set up
         // test that values were propagated to the results
-        assertEquals(4120, db.fields.size);
+        assertEquals(4120, db.classfile_fields.size);
     }
 
     @Test

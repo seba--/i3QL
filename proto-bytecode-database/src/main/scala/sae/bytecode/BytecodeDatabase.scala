@@ -3,11 +3,13 @@ package bytecode
 
 import sae.DefaultLazyView
 import sae.bytecode.model._
+import sae.bytecode.model.instructions._
 import dependencies._
 import sae.reader._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
+
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
@@ -36,17 +38,19 @@ class BytecodeDatabase {
     // TODO check whether classfiles and classfile methods can be declared 
     // as views in combination with a classfile_source(Class, File) table
     // and how this affects performance
-    val classfiles: LazyView[ObjectType] = new DefaultLazyView[ObjectType] {}
+    val classfiles: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
-    val classfile_methods: LazyView[Method] = new DefaultLazyView[Method] {}
+    val classfile_methods: LazyView[Method] = new DefaultLazyView[Method]
 
-    val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType] {}
+    val classfile_fields: LazyView[Field] = new DefaultLazyView[Field]
 
-    val methods: LazyView[Method] = new DefaultLazyView[Method] {}
+    val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
-    val fields: LazyView[Field] = new DefaultLazyView[Field] {}
+    val methods: LazyView[Method] = new DefaultLazyView[Method]
 
-    val instructions: LazyView[Instr] = new DefaultLazyView[Instr] {}
+    val fields: LazyView[Field] = new DefaultLazyView[Field]
+
+    val instructions: LazyView[Instr[_]] = new DefaultLazyView[Instr[_]]
 
     /**
      * Begin with individual relations (derived are lazy vals others are filled during bytecode reading)
@@ -56,24 +60,30 @@ class BytecodeDatabase {
 
     val implements: LazyView[implements] = new DefaultLazyView[implements]
 
-    lazy val field_type : LazyView[field_type] = Π( (f:Field) => new field_type(f, f.fieldType) )(fields)
+    lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
 
     // Π( (f:Field) => new field_type(f, f.fieldType.asObjectType) )( σ((_: Field).fieldType.isObjectType)(fields) )
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
-    lazy val return_type: LazyView[return_type] = Π( (m:Method) => new return_type(m, m.returnType) ) (methods)
+    lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
 
     lazy val write_field: LazyView[write_field] = new DefaultLazyView[write_field]
 
-    lazy val method_calls: LazyView[MethodCall] = Π((_: Instr) match {
-        case Instr(
-        declaringMethod,
-        programCounter,
-        _,
-        InvokeParameters(_, callee)) =>
-            MethodCall(declaringMethod, callee, programCounter)
-    })(σ((_: Instr).operation == "invoke")(instructions))
+    lazy val method_calls: LazyView[MethodCall] = Π((_: Instr[_]) match {
+        case invokeinterface(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
+        case invokespecial(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
+        case invokestatic(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
+        case invokevirtual(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
+    }
+    )(σ((_: Instr[_]) match {
+        case invokeinterface(_, _, _) => true
+        case invokespecial(_, _, _) => true
+        case invokestatic(_, _, _) => true
+        case invokevirtual(_, _, _) => true
+        case _ => false
+    }
+    )(instructions))
 
 
     //lazy val uses : LazyView[Uses[_,_]] =
@@ -81,6 +91,7 @@ class BytecodeDatabase {
     lazy val transformer = new Java6ToSAE(
         classfiles,
         classfile_methods,
+        classfile_fields,
         classes,
         methods,
         fields,

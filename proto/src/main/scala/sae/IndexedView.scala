@@ -9,6 +9,7 @@ trait IndexedView[V <: AnyRef]
 
     // internally we forget the concrete Key type, since there may be many 
     // different keys
+    // TODO Manifest Types can help here
     var indices = new scala.collection.immutable.HashMap[(V => _), Index[_,V]] 
     
     /**
