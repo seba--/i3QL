@@ -7,6 +7,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
+import syntax.InfixConcatenator._
 
 /**
  * Test the basic functions of the framework with an example database of students and courses.
@@ -153,7 +154,9 @@ class StudentCoursesRAFunSuite
 
     test("joins") {
         // println("test joins")
-        val course_for_student = students ⋈ ((_ : (Student, Enrollment)) match { case (s, e) => s.Id == e.StudentId }, enrollments)
+        // val course_for_student = students ⋈ ((_ : (Student, Enrollment)) match { case (s, e) => s.Id == e.StudentId }, enrollments)
+
+        val course_for_student = ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s:Student, e:Enrollment ) => (s,e)}
 
         val eise_students : QueryResult[(Student, Enrollment)] = σ[(Student, Enrollment)](e => e._2.CourseId == eise.Id)(course_for_student)
 

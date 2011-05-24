@@ -14,6 +14,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain]) {
 
     // general join using bowtie symbol (U+22C8)
 
+
     def ⋈[OtherDomain <: AnyRef](filter: ((Domain, OtherDomain)) => Boolean, otherRelation: LazyView[OtherDomain]): LazyView[(Domain, OtherDomain)] = σ(filter)(this × otherRelation);
 
     // equi join using bowtie symbol (U+22C8)

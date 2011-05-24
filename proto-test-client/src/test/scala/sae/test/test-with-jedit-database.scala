@@ -116,7 +116,7 @@ class JEditSuite {
     @Test
     def count_internal_method_calls() {
         val db = new BytecodeDatabase
-        // the cross product would generate (7999 * 44776) ~ 350 million entries    
+        // the cross product would generate (7999 * 44776) ~ 350 million entries
         // naive query // val query : QueryResult[MethodCall] = Π( (_:(MethodCall,Method))._1 )(db.method_calls ⋈( (_:(MethodCall,Method)) match {case (c:MethodCall, m:Method) => c.target == m} , db.classfile_methods));
 
         val query : QueryResult[MethodCall] = ((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }
