@@ -4,7 +4,8 @@ package syntax
 import sae.operators._
 import sae.operators.intern._
 
-case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain]) {
+case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
+{
 
     import RelationalAlgebraSyntax._
 
@@ -15,26 +16,39 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain]) {
     // general join using bowtie symbol (U+22C8)
 
 
-    def ⋈[OtherDomain <: AnyRef](filter: ((Domain, OtherDomain)) => Boolean, otherRelation: LazyView[OtherDomain]): LazyView[(Domain, OtherDomain)] = σ(filter)(this × otherRelation);
+    def ⋈[OtherDomain <: AnyRef](
+        filter: ((Domain, OtherDomain)) => Boolean,
+        otherRelation: LazyView[OtherDomain]
+    ): LazyView[(Domain, OtherDomain)] = σ(filter)(this × otherRelation);
 
     // equi join using bowtie symbol (U+22C8)
-    def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef](leftKey: Domain => Key, rightKey: OtherDomain => Key)(otherRelation: LazyView[OtherDomain])(factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
+    def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef](leftKey: Domain => Key, rightKey: OtherDomain => Key)
+                (otherRelation: LazyView[OtherDomain])
+                (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftKey, rightKey, factory)
 
+    def ∪(otherRelation: LazyView[Domain]) = new BagUnion[Domain](left, otherRelation)
 }
 
-case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](left: LazyView[Domain], leftFunction: Domain => Range)
+case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
+    left: LazyView[Domain],
+    leftFunction: Domain => Range
+)
 {
 
     import Conversions._
 
-    def ⋈[OtherDomain <: AnyRef, Result <: AnyRef](rightKey: OtherDomain => Range,
-                                                   otherRelation: LazyView[OtherDomain])(factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
+    def ⋈[OtherDomain <: AnyRef, Result <: AnyRef](
+        rightKey: OtherDomain => Range,
+        otherRelation: LazyView[OtherDomain]
+    )
+                (factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftFunction, rightKey, factory)
 
 }
 
-object RelationalAlgebraSyntax {
+object RelationalAlgebraSyntax
+{
 
     import sae.collections.QueryResult
 
@@ -48,79 +62,113 @@ object RelationalAlgebraSyntax {
         InfixFunctionConcatenator(tuple._1, tuple._2)
 
     /**definitions of selection syntax **/
-    object σ {
-        def apply[Domain <: AnyRef](filter: Domain => Boolean)(relation: LazyView[Domain]): LazyView[Domain] = new LazySelection[Domain](filter, relation)
+    object σ
+    {
+        def apply[Domain <: AnyRef](filter: Domain => Boolean)
+                    (relation: LazyView[Domain]): LazyView[Domain] = new LazySelection[Domain](filter, relation)
+
+        // polymorhpic selection
+
+        class PolymorphSelection[T <: AnyRef] {
+
+            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain])(implicit m : ClassManifest[T]) =
+                new LazySelection[Domain]( (e : Domain) => polymorphFilter[Domain](e,m) , relation)
+
+            def polymorphFilter[Domain >: T](e : Domain, m : ClassManifest[T]) : Boolean =
+            {
+                return m.erasure.isInstance(e)
+            }
+
+        }
+        def apply[T <: AnyRef] = new PolymorphSelection[T]
+
 
     }
 
     /**definitions of projection syntax **/
-    object Π {
-        def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)(relation: LazyView[Domain]): LazyView[Range] = new BagProjection[Domain, Range](projection, relation)
+    object Π
+    {
+        def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
+                    (relation: LazyView[Domain]): LazyView[Range] = new BagProjection[Domain, Range](projection, relation)
 
         def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, LazyView[Domain])] = Some((p.projection, p.relation))
+
+        // polymorhpic projection
+        class PolymorphProjection[T <: AnyRef] {
+            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain]) =
+                new BagProjection[Domain, T](polymorphProjection[Domain]_, relation)
+
+            def polymorphProjection[Domain >: T](e : Domain) : T = e.asInstanceOf[T]
+        }
+        def apply[T <: AnyRef] = new PolymorphProjection[T]
+
+
     }
 
     /**definitions of cross product syntax **/
     // see also infix syntax
-    object × {
+    object ×
+    {
         // def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA : Relation[DomainA], relationB: Relation[DomainB]) : Relation[(DomainA, DomainB)] = cross_product(relationA, relationB)
 
         //def unapply()
     }
 
     /**definitions of duplicate elimination syntax **/
-    object δ {
+    object δ
+    {
         def apply[Domain <: AnyRef](relation: LazyView[Domain]): LazyView[Domain] =
             new SetDuplicateElimination(relation)
 
-        def apply[Domain <: AnyRef, Range <: AnyRef](proj: Π.type): LazyView[Domain] = {
-            println("PI");
-            return null
-        }
-
-        /*
-             proj match
-          {
-              case Π(projection : Domain => Range, relation : LazyView[Domain]) => new SetProjection(projection, relation)
-          }
-          */
         def unapply[Domain <: AnyRef](d: DuplicateElimination[Domain]): Option[LazyView[Domain]] = Some(d.relation)
     }
 
+
     /**definitions of aggregation syntax **/
-    object γ {
+    object γ
+    {
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                                  source: LazyView[Domain],
-                                                                                                  groupFunction: Domain => Key,
-                                                                                                  aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                  aggragationConstructorFunc: (Key, AggregationValue) => Result): Aggregation[Domain, Key, AggregationValue, Result] = {
+            source: LazyView[Domain],
+            groupFunction: Domain => Key,
+            aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+            aggragationConstructorFunc: (Key, AggregationValue) => Result
+        ): Aggregation[Domain, Key, AggregationValue, Result] =
             new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
-        }
+
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                                  source: LazyView[Domain],
-                                                                                                  groupFunction: Domain => Key,
-                                                                                                  aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                  aggragationConstructorFunc: (Key, AggregationValue) => Result): Aggregation[Domain, Key, AggregationValue, Result] = {
-            new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
-        }
+            source: LazyView[Domain],
+            groupFunction: Domain => Key,
+            aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+            aggragationConstructorFunc: (Key, AggregationValue) => Result
+        ): Aggregation[Domain, Key, AggregationValue, Result]
+        = new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
 
         def apply[Domain <: AnyRef, AggregationValue <: Any](
-                                                                    source: LazyView[Domain],
-                                                                    aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
-            new AggregationIntern(source, (x: Any) => "a", aggregationFuncFactory, (x: Any, y: AggregationValue) => Some(y))
-        }
+            source: LazyView[Domain],
+            aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]
+        ) =
+            new AggregationIntern(source, (x: Any) => "a", aggregationFuncFactory, (
+                x: Any,
+                y: AggregationValue
+            ) => Some(y))
 
         def apply[Domain <: AnyRef, AggregationValue <: Any](
-                                                                    source: LazyView[Domain],
-                                                                    aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
-            new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregationFuncFactory, (x: Any, y: AggregationValue) => Some(y))
-        }
+            source: LazyView[Domain],
+            aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]
+        ) =
+            new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregationFuncFactory, (
+                x: Any,
+                y: AggregationValue
+            ) => Some(y))
     }
 
+
+
     /**definitions of sort syntax **/
-    object τ {
+    object τ
+    {
 
     }
 

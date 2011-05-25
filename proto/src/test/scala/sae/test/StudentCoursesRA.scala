@@ -7,7 +7,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import syntax.InfixConcatenator._
+import reflect.ClassManifest
 
 /**
  * Test the basic functions of the framework with an example database of students and courses.
@@ -35,7 +35,7 @@ class StudentCoursesRAFunSuite
 
         val students = database.students.copy // make a local copy
 
-        val johnsData : QueryResult[Student] = σ[Student](_.Name == "john")(students)
+        val johnsData : QueryResult[Student] = σ( (_:Student).Name == "john")(students)
         assert(1 === johnsData.size)
         assert(Some(john) === johnsData.singletonValue)
 
@@ -158,9 +158,9 @@ class StudentCoursesRAFunSuite
 
         val course_for_student = ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s:Student, e:Enrollment ) => (s,e)}
 
-        val eise_students : QueryResult[(Student, Enrollment)] = σ[(Student, Enrollment)](e => e._2.CourseId == eise.Id)(course_for_student)
+        val eise_students : QueryResult[(Student, Enrollment)] = σ((e:(Student, Enrollment)) => e._2.CourseId == eise.Id)(course_for_student)
 
-        val sed_students : QueryResult[(Student, Enrollment)] = σ[(Student, Enrollment)](e => e._2.CourseId == sed.Id)(course_for_student)
+        val sed_students : QueryResult[(Student, Enrollment)] = σ((e:(Student, Enrollment)) => e._2.CourseId == sed.Id)(course_for_student)
 
         // john and sally are registered for eise
         // sally is registered for sed
@@ -183,9 +183,9 @@ class StudentCoursesRAFunSuite
 
         val course_for_student = students ⋈ ((t : (Student, Enrollment)) => t match { case (s, e) => s.Id == e.StudentId }, enrollments) ⋈ ((t : ((Student, Enrollment), Course)) => t._1._2.CourseId == t._2.Id, courses)
 
-        val eise_students : QueryResult[((Student, Enrollment), Course)] = σ[((Student, Enrollment), Course)](e => e._2.Id == eise.Id)(course_for_student)
+        val eise_students : QueryResult[((Student, Enrollment), Course)] = σ( (e :((Student, Enrollment), Course)) => e._2.Id == eise.Id)(course_for_student)
 
-        val sed_students : QueryResult[((Student, Enrollment), Course)] = σ[((Student, Enrollment), Course)](e => e._2.Id == sed.Id)(course_for_student)
+        val sed_students : QueryResult[((Student, Enrollment), Course)] = σ( (e :((Student, Enrollment), Course)) => e._2.Id == sed.Id)(course_for_student)
 
         // john and sally are registered for eise
         // sally is registered for sed
@@ -258,5 +258,33 @@ class StudentCoursesRAFunSuite
         assert(student_courses.size === 3)
         assert(!student_courses.asList.contains((sally, sed)))
 
+    }
+
+
+    test("type filter")
+    {
+        // implicit val m : ClassManifest[Employee] = ClassManifest.fromClass( Employee.getClass() )
+        val employees : QueryResult[Person] = σ[Employee](persons)
+        assert(employees.size === 2)
+        assert(employees.asList.contains(Employee("Johannes")))
+        assert(employees.asList.contains(Employee("Christian")))
+
+        val students : QueryResult[Person] = σ[Student](persons)
+        assert(students.size === 2)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+    }
+
+    test("type projection")
+    {
+        val employees : QueryResult[Employee] = Π[Employee](σ[Employee](persons))
+        assert(employees.size === 2)
+        assert(employees.asList.contains(Employee("Johannes")))
+        assert(employees.asList.contains(Employee("Christian")))
+
+        val students : QueryResult[Student] = Π[Student](σ[Student](persons))
+        assert(students.size === 2)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
     }
 }
