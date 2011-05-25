@@ -207,6 +207,25 @@ class JEditSuite {
         assertEquals(616, query.size)
     }
 
+    @Test
+    def count_write_field_relation() {
+        // instance fields: 5255
+        // static fields: 524
+        assertEquals((5255+524), db.write_field.size)
+    }
+
+    @Test
+    def count_internal_write_field_relation() {
+        val db = new BytecodeDatabase
+        val query : QueryResult[write_field] = ( (db.write_field, (_:write_field).target.declaringClass) ⋈ ( identity[ObjectType], db.classfiles) ) { (x : write_field, c : ObjectType) => x }
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.write_field.foreach( db.write_field.element_added )
+
+        // instance fields: 4994
+        // static fields: 524
+        assertEquals((4994+524), query.size)
+    }
+
     def find_classfile_with_max_methods_pair_package() {
         val db = new BytecodeDatabase
 

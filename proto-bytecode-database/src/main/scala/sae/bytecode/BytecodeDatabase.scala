@@ -68,7 +68,17 @@ class BytecodeDatabase {
 
     lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
 
-    lazy val write_field: LazyView[write_field] = new DefaultLazyView[write_field]
+    lazy val write_field: LazyView[write_field] =
+            (
+                Π[Instr[_], write_field]{
+                    case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field)
+                }(σ[putfield](instructions))
+            ) ∪ (
+                Π[Instr[_], write_field]{
+                    case putstatic(declaringMethod, _, field) => new write_field(declaringMethod, field)
+                }(σ[putstatic](instructions))
+            )
+
 
     lazy val method_calls: LazyView[MethodCall] = Π((_: Instr[_]) match {
         case invokeinterface(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
