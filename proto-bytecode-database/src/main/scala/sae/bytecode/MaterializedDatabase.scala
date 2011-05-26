@@ -30,8 +30,6 @@ class MaterializedDatabase {
 
     val instructions : QueryResult[Instr[_]] = db.instructions
 
-    val method_calls : QueryResult[MethodCall] = db.method_calls
-
     val `extends` : QueryResult[`extends`] = db.`extends`
 
     val implements: QueryResult[implements] = db.implements
@@ -43,6 +41,12 @@ class MaterializedDatabase {
     val return_type: QueryResult[return_type] = db.return_type
 
     val write_field: QueryResult[write_field] = db.write_field
+
+    val read_field: QueryResult[read_field] = db.read_field
+
+    val calls : QueryResult[calls] = db.calls
+
+    val class_cast : QueryResult[class_cast] = db.class_cast
 
     /**
      * Convenience method that opens a stream from a resource in the class path

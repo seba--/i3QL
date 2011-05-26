@@ -17,14 +17,9 @@ import de.tud.cs.st.bat._
  *  parameter(Method, Class)
  *  return_type(Method, Class)
  *  write_field(Method, Field)
- *  write_static_field(Method, Field)
  *  read_field(Method, Field)
- *  read_static_field(Method, Field)
- *  invoke_virtual(Method1, Method2)
- *  invoke_special(Method1, Method2)
- *  invoke_interface(Method1, Method2)
- *  invoke_static(Method1, Method2)
- *  cast(Method, Class)
+ *  calls(Method1, Method2)
+ *  class_cast(Method, Class)
  *  instanceof(Method, Class)
  *  create(Method, Class)
  *  create_class_array(Method, Class)
@@ -33,7 +28,8 @@ import de.tud.cs.st.bat._
  *  annotation(Class|Field|Method, Class)
  *  parameter_annotation(Method, Class)
  */
-class BytecodeDatabase {
+class BytecodeDatabase
+{
 
     // TODO check whether classfiles and classfile methods can be declared 
     // as views in combination with a classfile_source(Class, File) table
@@ -69,22 +65,33 @@ class BytecodeDatabase {
     lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
 
     lazy val write_field: LazyView[write_field] =
-            (
-                Π[Instr[_], write_field]{
+        (
+                Π[Instr[_], write_field] {
                     case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field)
                 }(σ[putfield](instructions))
-            ) ∪ (
-                Π[Instr[_], write_field]{
+                ) ∪ (
+                Π[Instr[_], write_field] {
                     case putstatic(declaringMethod, _, field) => new write_field(declaringMethod, field)
                 }(σ[putstatic](instructions))
-            )
+                )
+
+    lazy val read_field: LazyView[read_field] =
+        (
+                Π[Instr[_], read_field] {
+                    case getfield(declaringMethod, _, field) => new read_field(declaringMethod, field)
+                }(σ[getfield](instructions))
+                ) ∪ (
+                Π[Instr[_], read_field] {
+                    case getstatic(declaringMethod, _, field) => new read_field(declaringMethod, field)
+                }(σ[getstatic](instructions))
+                )
 
 
-    lazy val method_calls: LazyView[MethodCall] = Π((_: Instr[_]) match {
-        case invokeinterface(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
-        case invokespecial(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
-        case invokestatic(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
-        case invokevirtual(declaringMethod, programCounter, callee) => MethodCall(declaringMethod, callee, programCounter)
+    lazy val calls: LazyView[calls] = Π((_: Instr[_]) match {
+        case invokeinterface(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
+        case invokespecial(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
+        case invokestatic(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
+        case invokevirtual(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
     }
     )(σ((_: Instr[_]) match {
         case invokeinterface(_, _, _) => true
@@ -96,7 +103,42 @@ class BytecodeDatabase {
     )(instructions))
 
 
-    //lazy val uses : LazyView[Uses[_,_]] =
+    // TODO array references to primitive arrays are exempted, is this okay
+    lazy val class_cast: LazyView[class_cast] =
+        Π[Instr[_], class_cast] {
+            case checkcast(declaringMethod, _, to) => new class_cast(declaringMethod, to)
+        }(
+            σ((_: Instr[_]) match {
+                case checkcast(_, _, ObjectType(_)) => true
+                case checkcast(_, _, ArrayType(ObjectType(_))) => true
+                case _ => false
+            }
+        )(instructions))
+
+    // TODO can we find a better name for the dependency than instanceof
+    lazy val instanceof: LazyView[sae.bytecode.model.dependencies.instanceof] =
+        Π[Instr[_], sae.bytecode.model.dependencies.instanceof]{
+            case sae.bytecode.model.instructions.instanceof(declaringMethod, _, typ) =>
+                sae.bytecode.model.dependencies.instanceof(declaringMethod, typ)
+        }(σ[sae.bytecode.model.instructions.instanceof](instructions))
+
+
+    lazy val create: LazyView[create] =
+        Π[Instr[_], create]{
+            case `new`(declaringMethod, _, typ) => new create(declaringMethod, typ)
+        }(σ[`new`](instructions))
+
+    lazy val create_class_array: LazyView[create_class_array] =
+        Π[Instr[_], create_class_array]{
+            case newarray(declaringMethod, _, typ @ ObjectType(_)) => new create_class_array(declaringMethod, typ)
+        }(
+            σ( (_: Instr[_]) match {
+                    case newarray(_, _, ObjectType(_)) => true
+                    case _ => false
+                }
+            )(instructions)
+        )
+
 
     lazy val transformer = new Java6ToSAE(
         classfiles,
@@ -114,7 +156,8 @@ class BytecodeDatabase {
     /**
      * Convenience method that opens a stream from a resource in the class path
      */
-    def addArchiveAsResource(name: String): Unit = {
+    def addArchiveAsResource(name: String): Unit =
+    {
         val factory = new SAEFactFactory(transformer)
         val reader = new BytecodeReader(factory)
         val stream = this.getClass().getClassLoader().getResourceAsStream(name)
@@ -124,7 +167,8 @@ class BytecodeDatabase {
     /**
      * Convenience method that opens a stream from a file in the file system
      */
-    def addArchiveAsFile(name: String): Unit = {
+    def addArchiveAsFile(name: String): Unit =
+    {
         val factory = new SAEFactFactory(transformer)
         val reader = new BytecodeReader(factory)
         reader.readArchive(new java.io.File(name))
@@ -134,7 +178,8 @@ class BytecodeDatabase {
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchiveStream(stream: java.io.InputStream): Unit = {
+    def addArchiveStream(stream: java.io.InputStream): Unit =
+    {
         val factory = new SAEFactFactory(transformer)
         val reader = new BytecodeReader(factory)
         reader.readArchive(stream)

@@ -3,6 +3,7 @@ package sae.profiler
 import sae.collections._
 import sae.bytecode.model._
 import de.tud.cs.st.bat._
+import dependencies.calls
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.util._
 
@@ -10,8 +11,8 @@ class JEditDatabase extends sae.bytecode.BytecodeDatabase {
 
     def readBytecode : Unit =
         {
-            //addArchiveAsResource("jedit-4.3.3-win.jar")
-        addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/jedit-4.3.3-win.jar")
+            addArchiveAsResource("jedit-4.3.3-win.jar")
+            //addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/jedit-4.3.3-win.jar")
         }
 
 }
@@ -56,11 +57,11 @@ object JEditProfiler {
         db.readBytecode
     }
     
-    def allMethodCallsQuery : QueryResult[MethodCall] = {
+    def allMethodCallsQuery : QueryResult[calls] = {
         // note this is a lazy val in the database, so it should be only
         // instantiated as a query if used by clients
         val db = new JEditDatabase()
-        val q : QueryResult[MethodCall] = db.method_calls
+        val q : QueryResult[calls] = db.calls
         db.readBytecode
         q
     }
@@ -69,7 +70,7 @@ object JEditProfiler {
     def internalMethodCallsQuery : QueryResult[(Method,Method)] = 
     {
         val db = new JEditDatabase()
-        val query  : QueryResult[(Method,Method)] = δ( Π( (c:MethodCall) => (c.source, c.target)) ( ((db.method_calls, (_:MethodCall).target) ⋈ ( (m:Method) => m , db.classfile_methods)) { (c:MethodCall,m:Method) => c } ))
+        val query  : QueryResult[(Method,Method)] = δ( Π( (c:calls) => (c.source, c.target)) ( ((db.calls, (_:calls).target) ⋈ ( (m:Method) => m , db.classfile_methods)) { (c:calls,m:Method) => c } ))
         db.readBytecode
         query
     }
@@ -101,7 +102,7 @@ object JEditProfiler {
     }
     
     
-    def printResult(result : QueryResult[MethodCall]) : Unit = {
+    def printResult(result : QueryResult[calls]) : Unit = {
         result.foreach(println)
     }
 }

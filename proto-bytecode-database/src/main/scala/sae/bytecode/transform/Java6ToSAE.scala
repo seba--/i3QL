@@ -4,10 +4,10 @@ package transform
 
 import sae.Observable
 import sae.bytecode.model._
+import dependencies.{`extends`, parameter, implements}
 import sae.bytecode.model.instructions._
 import de.tud.cs.st.bat._
 import de.tud.cs.st.bat.instructions._
-import dependencies._
 import reflect.AnyValManifest
 
 /**

@@ -106,9 +106,9 @@ class JEditSuite {
         // test that values were propagated to the results
         val db = new BytecodeDatabase
 
-        val query : QueryResult[MethodCall] = db.method_calls
+        val query : QueryResult[calls] = db.calls
         // reuse existing data without loading bytecode from filesystem again
-        this.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.calls.foreach( db.calls.element_added )
         
         assertEquals(44776, query.size)
     }
@@ -117,13 +117,13 @@ class JEditSuite {
     def count_internal_method_calls() {
         val db = new BytecodeDatabase
         // the cross product would generate (7999 * 44776) ~ 350 million entries
-        // naive query // val query : QueryResult[MethodCall] = Π( (_:(MethodCall,Method))._1 )(db.method_calls ⋈( (_:(MethodCall,Method)) match {case (c:MethodCall, m:Method) => c.target == m} , db.classfile_methods));
+        // naive query // val query : QueryResult[calls] = Π( (_:(calls,Method))._1 )(db.method_calls ⋈( (_:(calls,Method)) match {case (c:calls, m:Method) => c.target == m} , db.classfile_methods));
 
-        val query : QueryResult[MethodCall] = ((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }
+        val query : QueryResult[calls] = ((db.calls, (_ : calls).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : calls, m : Method) => c }
 
         // reuse existing data without loading bytecode from filesystem again
         this.db.classfile_methods.foreach( db.classfile_methods.element_added )
-        this.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.calls.foreach( db.calls.element_added )
 
         assertEquals(20358, query.size)
     }
@@ -132,14 +132,14 @@ class JEditSuite {
     def count_distinct_internal_method_calls() {
         val db = new BytecodeDatabase
         // the cross product would generate (7999 * 44776) ~ 350 million entries    
-        // naive query // val query : QueryResult[MethodCall] = Π( (_:(MethodCall,Method))._1 )(db.method_calls ⋈( (_:(MethodCall,Method)) match {case (c:MethodCall, m:Method) => c.target == m} , db.classfile_methods));
+        // naive query // val query : QueryResult[calls] = Π( (_:(calls,Method))._1 )(db.method_calls ⋈( (_:(calls,Method)) match {case (c:calls, m:Method) => c.target == m} , db.classfile_methods));
 
         val query : QueryResult[(Method, Method)] = 
-            δ(Π((c : MethodCall) => (c.source, c.target))(((db.method_calls, (_ : MethodCall).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : MethodCall, m : Method) => c }))
+            δ(Π((c : calls) => (c.source, c.target))(((db.calls, (_ : calls).target) ⋈ ((m : Method) => m, db.classfile_methods)) { (c : calls, m : Method) => c }))
 
         // reuse existing data without loading bytecode from filesystem again
         this.db.classfile_methods.foreach(db.classfile_methods.element_added)
-        this.db.method_calls.foreach( db.method_calls.element_added )
+        this.db.calls.foreach( db.calls.element_added )
 
         assertEquals(14847, query.size)
     }
@@ -224,6 +224,36 @@ class JEditSuite {
         // instance fields: 4994
         // static fields: 524
         assertEquals((4994+524), query.size)
+    }
+
+
+    @Test
+    def count_read_field_relation() {
+        // instance fields: 17402
+        // static fields: 1968
+        assertEquals((17402 + 1968), db.read_field.size)
+    }
+
+    @Test
+    def count_internal_read_field_relation() {
+        val db = new BytecodeDatabase
+        val query : QueryResult[read_field] = ( (db.read_field, (_:read_field).target.declaringClass) ⋈ ( identity[ObjectType], db.classfiles) ) { (x : read_field, c : ObjectType) => x }
+        this.db.classfiles.foreach( db.classfiles.element_added )
+        this.db.read_field.foreach( db.read_field.element_added )
+
+        // instance fields: 16726
+        // static fields: 1574
+        assertEquals((16726+1574), query.size)
+    }
+
+    @Test
+    def count_class_cast_relation() {
+        // direct class casts:      1497
+        // array with classes:       117
+        // array with primitives:     14
+        //                          ----
+        //                          1628
+        assertEquals(1614, db.class_cast.size)
     }
 
     def find_classfile_with_max_methods_pair_package() {
