@@ -133,17 +133,17 @@ class BytecodeDatabase {
         reader.readArchive(stream)
     }
 
-    def processEventSet(event : Event): Unit = {
+    def processEventSet(event : EventSet): Unit = {
         val factory = new SAEFactFactory(transformer)
         val reader = new BytecodeReader(factory)
         event.eventFiles.foreach(x => {
             x match {
-                case EventFile("ADDED",_, _, file) => reader.readClassFile(file)
-                case EventFile("REMOVED",_, name, _) => ObjectType(name)
-                case EventFile("CHANGED",_, name,_file) => 
+                case Event("ADDED",_, _, file,_) => reader.readClassFile(file)
+                case Event("REMOVED",_, name, _,_) => ObjectType(name)
+                case Event("CHANGED",_, name,_file,_) => 
                     {
                         // RENMOVE
-                        reader.readClassFile(file)
+                        //reader.readClassFile(file)
                     }
             }
         })

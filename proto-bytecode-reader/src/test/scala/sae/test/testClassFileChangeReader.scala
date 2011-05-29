@@ -8,7 +8,8 @@ import sae.reader._
 import java.io.File
 
 class TestClassFileChangeReader extends org.scalatest.junit.JUnitSuite {
-    val location = "./src/main/recources"
+    val location = "./src/main/recources/smallTestSet"
+    
     @Test
     def readAndGroupSomeTestData() {
 
@@ -29,8 +30,8 @@ class TestClassFileChangeReader extends org.scalatest.junit.JUnitSuite {
     	      sumEventFiles += 1
     	    })
     	})
-    	assertTrue(sumEvents == 5)
-    	assertTrue(sumEventFiles == 84)
+    	assertTrue(sumEvents == 6)
+    	assertTrue(sumEventFiles == 85)
     	
     }
     @Test

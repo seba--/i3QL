@@ -2,32 +2,58 @@ package sae.reader
 import java.io.File
 
 import scala.collection.immutable.SortedMap
-
-// resolvedClassName := package/subpackage/ClassName
-case class Event(val eventType : String, val eventTime : Long, val resolvedClassName : String, val eventFile : File) {
-    
-}
-
+import scala.collection.mutable.Map
 
 /**
- * 
+ * case class for saving one change/add/remove event
+ * previousEvent: saves the previous event to a classFile if ByteCodeTracker recorded an event before the current Event for the classfile
+ * IMPORTENT: it is possible to get a remove event WITHOUT a previous add / change Event. (e.g. project clean generates the events: remove and then add)
+ */
+case class Event(val eventType : String, val eventTime : Long, val resolvedClassName : String, val eventFile : File, val previousEvent : Option[Event]) {
+    // resolvedClassName := package/subpackage/ClassName
+    def getCorrespondingEvent() : Option[Event] = {
+        previousEvent
+    }
+}
+object Event {
+    val CHANGED = "CHANGED"
+    val REMOVED = "REMOVED"
+    val ADDED = "ADDED"
+}
+case class EventSet(val eventFiles : List[Event]) {
+
+}
+/**
+ *
  * reading all classfiles (from the form TIMESTAMP_EVENTTYPE_NAME.class [output of ClassFileChangeTracker]) in a dir and all subdirs and
  * grouping this classfiles in Events
  * @param location : location of the "main" dir
- * IMPORTANT: location must be the folder of the default packages	
+ * IMPORTANT: location must be the folder of the default packages
  * @author Malte V
  */
 class ClassFileChangeEventReader(val location : File) {
-
-    
-
+     private var previousEvents = Map[String, Event]()
+	/**
+	 * IMPORTANT every method call will reprocess the whole directory
+	 */
     def foreach(f : EventSet => _) : Unit = {
-        getAllFilesGroupedByEventTime(location).foreach(x => f(eventFilesToEvent(x)))
+        getAllFilesGroupedByEventTime(location).foreach(x => f(eventsToEventSet(x)))
     }
     /**
-     * converts a list of Events into one Event
+     * returns a list with all EventSets 
+     * @return : list with all EventSets in the given location (constructor)
+     * IMPORTANT every method call will reprocess the whole directory
      */
-    private def eventFilesToEvent(eventSet : List[Event]) : EventSet = {
+    def getAllEventSets() : List[EventSet] = {
+        var res = List[EventSet]()
+        getAllFilesGroupedByEventTime(location).foreach( x => res = eventsToEventSet(x) :: res)
+        res
+    }
+    
+    /**
+     * converts a list of Events into one EventSet
+     */
+    private def eventsToEventSet(eventSet : List[Event]) : EventSet = {
         new EventSet(eventSet)
     }
 
@@ -38,6 +64,7 @@ class ClassFileChangeEventReader(val location : File) {
      * ONLY PUBLIY FOR TESTING
      */
     def getAllFilesGroupedByEventTime(currentLocation : File) = {
+        previousEvents = Map[String, Event]()
         var list = List[List[Event]]()
         var sortedFiles = getAllFilesSortedByEventTime(currentLocation)
         var lastFile : Option[Event] = None
@@ -63,7 +90,7 @@ class ClassFileChangeEventReader(val location : File) {
             }
 
         }
-        list
+        subList :: list
 
     }
 
@@ -105,9 +132,11 @@ class ClassFileChangeEventReader(val location : File) {
         if (!file.getName().endsWith("class"))
             false
         //TODO discuss if the check needs to be extended
-        //should normally only used on dir that were created by ClassfileChangeTracker
+        //should normally only used on a dir that was created by ClassfileChangeTracker
         true
     }
+
+   
     /**
      * wraps a file into an Event
      * should only be called for class files that are created by the ClassFilechangeTracker
@@ -119,19 +148,26 @@ class ClassFileChangeEventReader(val location : File) {
         val loc = location.getCanonicalPath
         val dest = file.getParentFile.getCanonicalPath()
         var packages = dest.drop(loc.length).replace(File.separator, "/")
-        if(packages.length > 1)
+        if (packages.length > 1)
             packages = packages.drop(1) + "/"
-        
+
         val fileNameParts = file.getName().split(SEPARATOR)
         if (fileNameParts.size >= 3) {
 
         } else {
             throw new ConvertFileToEventException
         }
-        val resolvedName = packages + fileNameParts.drop(2).mkString
-        //fileNameParts.splitAt(2)._2.mkString
-        new Event(fileNameParts(1), fileNameParts(0).toLong, resolvedName, file)
+        val resolvedName = packages + fileNameParts.drop(2).mkString.dropRight(6)
+        val previousEvent = previousEvents.get(resolvedName)
+        val res = previousEvent match {
+            case Some(x) => new Event(fileNameParts(1), fileNameParts(0).toLong, resolvedName, file, Some(x))
+            case _       => new Event(fileNameParts(1), fileNameParts(0).toLong, resolvedName, file, None)
+        }
+        previousEvents.put(resolvedName, res)
+        res
+
     }
 
 }
+//file can not be converted into an event
 class ConvertFileToEventException extends RuntimeException
