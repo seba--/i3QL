@@ -9,6 +9,9 @@ import sae.reader._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
+import java.io.File
+import sae.collections.Table
+
 
 /**
  *  extends(Class1, Class2)
@@ -140,7 +143,7 @@ class BytecodeDatabase
         )
 
 
-    lazy val transformer = new Java6ToSAE(
+    def transformer = new Java6ToSAE(
         classfiles,
         classfile_methods,
         classfile_fields,
@@ -185,4 +188,21 @@ class BytecodeDatabase
         reader.readArchive(stream)
     }
 
+    def processEventSet(event : EventSet): Unit = {
+        val factory = new SAEFactFactory(transformer)
+        val reader = new BytecodeReader(factory)
+        event.eventFiles.foreach(x => {
+            x match {
+                case Event("ADDED",_, _, file,_) => reader.readClassFile(file)
+                case Event("REMOVED",_, name, _,_) => ObjectType(name)
+                case Event("CHANGED",_, name,_file,_) => 
+                    {
+                        // RENMOVE
+                        //reader.readClassFile(file)
+                    }
+            }
+        })
+        
+    }
+    
 }
