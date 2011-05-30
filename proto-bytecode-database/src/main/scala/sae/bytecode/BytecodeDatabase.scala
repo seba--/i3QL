@@ -9,10 +9,6 @@ import sae.reader._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
-import java.io.File
-import sae.collections.Table
-
-
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
@@ -116,53 +112,65 @@ class BytecodeDatabase
                 case checkcast(_, _, ArrayType(ObjectType(_))) => true
                 case _ => false
             }
-        )(instructions))
+            )(instructions))
 
     // TODO can we find a better name for the dependency than instanceof
     lazy val instanceof: LazyView[sae.bytecode.model.dependencies.instanceof] =
-        Π[Instr[_], sae.bytecode.model.dependencies.instanceof]{
+        Π[Instr[_], sae.bytecode.model.dependencies.instanceof] {
             case sae.bytecode.model.instructions.instanceof(declaringMethod, _, typ) =>
                 sae.bytecode.model.dependencies.instanceof(declaringMethod, typ)
         }(σ[sae.bytecode.model.instructions.instanceof](instructions))
 
 
     lazy val create: LazyView[create] =
-        Π[Instr[_], create]{
+        Π[Instr[_], create] {
             case `new`(declaringMethod, _, typ) => new create(declaringMethod, typ)
         }(σ[`new`](instructions))
 
     lazy val create_class_array: LazyView[create_class_array] =
-        Π[Instr[_], create_class_array]{
-            case newarray(declaringMethod, _, typ @ ObjectType(_)) => new create_class_array(declaringMethod, typ)
+        Π[Instr[_], create_class_array] {
+            case newarray(declaringMethod, _, typ@ObjectType(_)) => new create_class_array(declaringMethod, typ)
         }(
-            σ( (_: Instr[_]) match {
-                    case newarray(_, _, ObjectType(_)) => true
-                    case _ => false
-                }
+            σ((_: Instr[_]) match {
+                case newarray(_, _, ObjectType(_)) => true
+                case _ => false
+            }
             )(instructions)
         )
 
 
-    def transformer = new Java6ToSAE(
-        classfiles,
-        classfile_methods,
-        classfile_fields,
-        classes,
-        methods,
-        fields,
-        instructions,
-        `extends`,
-        implements,
-        parameter
+    def classAdder = new Java6ClassTransformer(
+        classfiles.element_added,
+        classfile_methods.element_added,
+        classfile_fields.element_added,
+        classes.element_added,
+        methods.element_added,
+        fields.element_added,
+        instructions.element_added,
+        `extends`.element_added,
+        implements.element_added,
+        parameter.element_added
+    )
+
+
+    def classRemover = new Java6ClassTransformer(
+        classfiles.element_removed,
+        classfile_methods.element_removed,
+        classfile_fields.element_removed,
+        classes.element_removed,
+        methods.element_removed,
+        fields.element_removed,
+        instructions.element_removed,
+        `extends`.element_removed,
+        implements.element_removed,
+        parameter.element_removed
     )
 
     /**
      * Convenience method that opens a stream from a resource in the class path
      */
-    def addArchiveAsResource(name: String): Unit =
-    {
-        val factory = new SAEFactFactory(transformer)
-        val reader = new BytecodeReader(factory)
+    def addArchiveAsResource(name: String) {
+        val reader = new BytecodeReader(classAdder)
         val stream = this.getClass().getClassLoader().getResourceAsStream(name)
         reader.readArchive(stream)
     }
@@ -170,10 +178,8 @@ class BytecodeDatabase
     /**
      * Convenience method that opens a stream from a file in the file system
      */
-    def addArchiveAsFile(name: String): Unit =
-    {
-        val factory = new SAEFactFactory(transformer)
-        val reader = new BytecodeReader(factory)
+    def addArchiveAsFile(name: String) {
+        val reader = new BytecodeReader(classAdder)
         reader.readArchive(new java.io.File(name))
     }
 
@@ -181,28 +187,31 @@ class BytecodeDatabase
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchiveStream(stream: java.io.InputStream): Unit =
-    {
-        val factory = new SAEFactFactory(transformer)
-        val reader = new BytecodeReader(factory)
+    def addArchiveStream(stream: java.io.InputStream) {
+        val reader = new BytecodeReader(classAdder)
         reader.readArchive(stream)
     }
 
-    def processEventSet(event : EventSet): Unit = {
-        val factory = new SAEFactFactory(transformer)
-        val reader = new BytecodeReader(factory)
+
+    /**
+     * read an event set of class files that were removed and added
+     */
+    def processEventSet(event: EventSet) {
+        val addReader = new BytecodeReader(classAdder)
+        val removeReader = new BytecodeReader(classRemover)
         event.eventFiles.foreach(x => {
             x match {
-                case Event("ADDED",_, _, file,_) => reader.readClassFile(file)
-                case Event("REMOVED",_, name, _,_) => ObjectType(name)
-                case Event("CHANGED",_, name,_file,_) => 
-                    {
-                        // RENMOVE
-                        //reader.readClassFile(file)
-                    }
+                case Event("ADDED", _, _, file, _) => addReader.readClassFile(file)
+                case Event("REMOVED", _, _, file, Some(prev)) =>
+                    if( prev.eventType != "REMOVED") { removeReader.readClassFile(prev.eventFile) }
+                case Event("REMOVED", _, _, file, None) => // do nothing
+                case Event("CHANGED", _, _, file, _) => {
+                    removeReader.readClassFile(file)
+                    addReader.readClassFile(file)
+                }
             }
         })
-        
+
     }
-    
+
 }

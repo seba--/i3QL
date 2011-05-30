@@ -8,12 +8,17 @@ import sae.reader._
 import java.io.File
 
 class TestClassFileChangeReader extends org.scalatest.junit.JUnitSuite {
+
+    // FIXME add the location as /src/test/resource
     val location = "./src/main/recources/smallTestSet"
     
     @Test
     def readAndGroupSomeTestData() {
 
         //TODO what is the maven way for doing something like this
+        // FIXME
+        // solution 1: read from a resource in the classpath (as done in the sae tests)
+        // solution 2: use maven copy resources plugin and encode path as "target/choice-for-copied-resources
         val reader = new ClassFileChangeEventReader(new File(location))
     	var res : List[List[Event]]=  reader.getAllFilesGroupedByEventTime(new File(location))
     	var lastEventTime : Long = 0

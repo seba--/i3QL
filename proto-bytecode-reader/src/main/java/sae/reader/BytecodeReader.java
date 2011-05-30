@@ -24,10 +24,10 @@ import de.tud.cs.st.bat.reader.Java6Reader;
  */
 public class BytecodeReader {
 
-	private final BytecodeFactFactory factFactory;
+	private final BytecodeFactProcessor factProcessor;
 
-	public BytecodeReader(BytecodeFactFactory factFactory) {
-		this.factFactory = factFactory;
+	public BytecodeReader(BytecodeFactProcessor factProcessor) {
+		this.factProcessor = factProcessor;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class BytecodeReader {
 		} else {
 			readClassFile(file);
 		}
-		factFactory.addAllFacts();
+		factProcessor.processAllFacts();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class BytecodeReader {
 
 			}
 		}
-		factFactory.addAllFacts();
+		factProcessor.processAllFacts();
 	}
 
 	/**
@@ -99,14 +99,14 @@ public class BytecodeReader {
 	public void readClassFile(File file) throws IOException {
 		FileInputStream fileInputStream = new FileInputStream(file);
 		readClassFile(fileInputStream);
-		factFactory.addAllFacts();
+		factProcessor.processAllFacts();
 	}
 
 	private void readClassFile(InputStream stream) throws IOException {
 		DataInputStream dataInputStream = new DataInputStream(stream);
 		ClassFile classFile = (ClassFile) Java6Reader
 				.ClassFile(dataInputStream);
-		factFactory.addClassFile(classFile);
+		factProcessor.processClassFile(classFile);
 	}
 
 	private static class ZipStreamEntryWrapper extends InputStream {

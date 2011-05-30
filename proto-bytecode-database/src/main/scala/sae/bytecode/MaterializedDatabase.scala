@@ -8,13 +8,14 @@ import sae.collections._
 import sae.collections.Conversions._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
+import sae.reader.EventSet
 
 /**
  * Convenience database that materializes all queries as a result.
  */
 class MaterializedDatabase {
     
-    val db : BytecodeDatabase = new BytecodeDatabase()
+    private val db : BytecodeDatabase = new BytecodeDatabase()
 
     val classfiles : QueryResult[ObjectType] = db.classfiles
 
@@ -66,4 +67,9 @@ class MaterializedDatabase {
      */
     def addArchiveStream(stream : java.io.InputStream) : Unit =
         db.addArchiveStream(stream)
+
+    /**
+     *
+     */
+    def processEventSet(eventSet: EventSet) : Unit = db.processEventSet(eventSet)
 }

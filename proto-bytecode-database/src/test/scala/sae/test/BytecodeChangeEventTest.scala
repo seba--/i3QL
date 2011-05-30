@@ -36,29 +36,27 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
          */
         var state = 0
         def updated(oldV : ObjectType, newV : ObjectType) : Unit = {
+            // for the time being we do not generate update events, but remove and add the classes
             state match {
-                case 2 =>
-                    assertTrue(oldV.toJava.toLowerCase.contains("main"))
-                    assertTrue(oldV.toJava.toLowerCase.contains("main"))
-                    state += 1
-                case 4 =>
-                    assertTrue(oldV.toJava.toLowerCase.contains("macosxadapter"))
-                    assertTrue(oldV.toJava.toLowerCase.contains("macosxadapter"))
-                    state += 1
-                case 5 =>
-                    assertTrue(oldV.toJava.toLowerCase.contains("main"))
-                    assertTrue(oldV.toJava.toLowerCase.contains("main"))
-                    state += 1
                 case _ => fail()
             }
         }
 
         def removed(v : ObjectType) : Unit = {
             state match {
-                case 6 =>
+                case 2 =>
+                    assertTrue(v.toJava.toLowerCase.contains("main"))
+                    state += 1
+                case 5 =>
                     assertTrue(v.toJava.toLowerCase.contains("macosxadapter"))
                     state += 1
                 case 7 =>
+                    assertTrue(v.toJava.toLowerCase.contains("main"))
+                    state += 1
+                case 9 =>
+                    assertTrue(v.toJava.toLowerCase.contains("macosxadapter"))
+                    state += 1
+                case 10 =>
                     assertTrue(v.toJava.toLowerCase.contains("main"))
                     state += 1
                 case _ => fail()
@@ -74,23 +72,25 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
                     assertTrue(v.toJava.toLowerCase.contains("main"))
                     state += 1
                 case 3 =>
+                    assertTrue(v.toJava.toLowerCase.contains("main"))
+                    state += 1
+                case 4 =>
                     assertTrue(v.toJava.toLowerCase.contains("addedclass"))
+                    state += 1
+                case 6 =>
+                    assertTrue(v.toJava.toLowerCase.contains("macosxadapter"))
+                    state += 1
+                case 8 =>
+                    assertTrue(v.toJava.toLowerCase.contains("main"))
                     state += 1
                 case _ => fail()
             }
         }
     }
-    private var database : MaterializedDatabase = null
+    private var db : BytecodeDatabase = new BytecodeDatabase()
     private val location = new File("./src/main/recources/eventTestSet/changes")
     //private val resourceName = "initBytecodeChangeEventTest.jar"
 
-    def db = {
-        if (database == null) {
-            database = new MaterializedDatabase()
-            //database.addArchiveAsResource(resourceName)
-        }
-        database
-    }
 
     @Test
     def processEventSets() : Unit = {
@@ -99,8 +99,8 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
         val op = new TestObserver()
         db.classfiles.addObserver(op)
         //reader.foreach(println _)
-        reader.foreach(db.db.processEventSet _)
-        assertTrue(op.state == 8)
+        reader.foreach(db.processEventSet _)
+        assertTrue(op.state == 11)
 
     }
 
