@@ -27,7 +27,9 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
                 (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftKey, rightKey, factory)
 
-    def ∪(otherRelation: LazyView[Domain]) = new BagUnion[Domain](left, otherRelation)
+    def ∪(otherRelation: LazyView[Domain]) : LazyView[Domain] = new BagUnion[Domain](left, otherRelation)
+
+    def ∖(otherRelation: LazyView[Domain]) : LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
 }
 
 case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](

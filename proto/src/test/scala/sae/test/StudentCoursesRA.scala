@@ -8,6 +8,7 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
 import reflect.ClassManifest
+import org.scalatest.Assertions._
 
 /**
  * Test the basic functions of the framework with an example database of students and courses.
@@ -286,5 +287,48 @@ class StudentCoursesRAFunSuite
         assert(students.size === 2)
         assert(students.asList.contains(john))
         assert(students.asList.contains(sally))
+    }
+
+
+    test("set difference")
+    {
+        val employees = σ[Employee](persons)
+
+        val students : QueryResult[Person] = persons ∖ employees
+
+        assert(students.size === 2)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+
+        val heather = Student(25421,"heather")
+        persons += heather
+
+        assert(students.size === 3)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+        assert(students.asList.contains(heather))
+
+        val tim = Employee("tim")
+
+        persons += tim
+
+        assert(students.size === 3)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+        assert(students.asList.contains(heather))
+
+        val tom = Employee("tom")
+        val heather_new_number =Student(23744,"heather")
+
+        persons.update(tim, tom)
+
+        persons.update(heather, heather_new_number)
+
+        assert(students.size === 3)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+        assert(students.asList.contains(heather_new_number))
+
+
     }
 }
