@@ -50,6 +50,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     }
 
     protected def materialized_size : Int = groups.size
+
     protected def materialized_singletonValue : Option[Result] =
         {
             if (size != 1)
@@ -57,7 +58,19 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             else
                 Some(groups.head._2._3)
         }
- 
+
+    // TODO try giving a more efficient implementation
+    protected def materialized_contains(v: Result) =
+    {
+        var contained = false
+        groups.foreach( g =>
+            {
+                if( g._2._3 == v)
+                    contained = true
+            }
+        )
+        contained
+    }
 
     source.addObserver(this)
 

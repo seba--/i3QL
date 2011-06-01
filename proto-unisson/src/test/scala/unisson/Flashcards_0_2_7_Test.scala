@@ -7,6 +7,7 @@ import sae.bytecode.BytecodeDatabase
 import sae.syntax.RelationalAlgebraSyntax._
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Method, Field}
+import collection.script.Start
 
 /**
  *
@@ -38,7 +39,13 @@ class Flashcards_0_2_7_Test
         val learning_strategies = create_learning_strategies(queries)
         val main = create_main(queries)
 
+        //val start = System.nanoTime()
+
         queries.db.addArchiveAsResource("flashcards-0.2.7.jar")
+
+        //val end = System.nanoTime()
+
+        //println("took: " + (end - start)/1000000 + "ms")
 
         val sortedUILayer = ui_layer.asList.sortBy{
             case SourceElement( ObjectType(name) ) => "1" + name

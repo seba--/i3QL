@@ -37,72 +37,79 @@ import sae.collections.Bag
  * The parameterized types are accessible as members for use in
  * constructors during pattern matching
  */
-trait Projection[Domain <: AnyRef, Range <: AnyRef] {
+trait Projection[Domain <: AnyRef, Range <: AnyRef]
+{
     type Dom = Domain
 
     type Rng = Range
 
-    val projection : Domain => Range
+    val projection: Domain => Range
 
-    val relation : LazyView[Domain]
+    val relation: LazyView[Domain]
 }
+
 /**
  * The set projection class implemented here used the relational algebra semantics.
  * The set projection removes duplicates from the results set.
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
 class SetProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection : Domain => Range,
-    val relation : LazyView[Domain])
+    val projection: Domain => Range,
+    val relation: LazyView[Domain]
+)
         extends Projection[Domain, Range]
-        with MaterializedView[Range]
-        with SelfMaintainedView[Domain, Range] {
+                with MaterializedView[Range]
+                with SelfMaintainedView[Domain, Range]
+{
 
     import com.google.common.collect.HashMultiset;
 
-    private val data : HashMultiset[Range] = HashMultiset.create[Range]()
+    private val data: HashMultiset[Range] = HashMultiset.create[Range]()
 
     relation addObserver this
 
-    def materialized_foreach[U](f : Range => U) : Unit =
-        {
-            val it : java.util.Iterator[Range] = data.iterator()
-            while (it.hasNext()) {
-                f(it.next())
-            }
+    protected def materialized_foreach[U](f: Range => U)
+    {
+        val it: java.util.Iterator[Range] = data.iterator()
+        while (it.hasNext) {
+            f(it.next())
         }
+    }
 
-    def materialized_size : Int =
-        {
-            data.elementSet().size()
+    protected def materialized_size: Int =
+    {
+        data.elementSet().size()
+    }
+
+    protected def materialized_singletonValue: Option[Range] =
+    {
+        if (size != 1)
+            None
+        else
+            Some(data.iterator().next())
+    }
+
+    protected def materialized_contains(v: Range) = data.contains(v)
+
+    def lazyInitialize
+    {
+        relation.lazy_foreach(t => {
+            data.add(projection(t))
         }
-
-    def materialized_singletonValue : Option[Range] =
-        {
-            if (size != 1)
-                None
-            else
-                Some(data.iterator().next())
-        }
-
-    def lazyInitialize() : Unit =
-        relation.lazy_foreach(t =>
-            {
-                data.add(projection(t))
-            }
         )
+    }
 
     /**
      * We use a generalized bag semantics, thus this method
      * returns true if the element was not already present in the list
      * otherwise the method returns false
      */
-    private def add_element(v : Range) : Boolean =
-        {
-            val result = data.count(v) == 0
-            data.add(v)
-            return result
-        }
+    private def add_element(v: Range): Boolean =
+    {
+        val result = data.count(v) == 0
+        data.add(v)
+        result
+    }
 
     /**
      * We use a bag semantics, thus this method
@@ -110,43 +117,43 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
      * otherwise the method returns true, i.e., the element is
      * completely removed.
      */
-    private def remove_element(v : Range) : Boolean =
-        {
-            data.remove(v)
-            return data.count(v) == 0
-        }
+    private def remove_element(v: Range): Boolean =
+    {
+        data.remove(v)
+        data.count(v) == 0
+    }
 
     // update operations
-    def updated_internal(oldV : Domain, newV : Domain) : Unit =
-        {
-            val oldP = projection(oldV)
-            val newP = projection(newV)
-            if (oldP equals newP)
-                return ;
-            if (remove_element(oldP)) {
-                element_removed(oldP)
-            }
-            if (add_element(newP)) {
-                element_added(newP)
-            }
-
+    def updated_internal(oldV: Domain, newV: Domain)
+    {
+        val oldP = projection(oldV)
+        val newP = projection(newV)
+        if (oldP equals newP)
+            return;
+        if (remove_element(oldP)) {
+            element_removed(oldP)
+        }
+        if (add_element(newP)) {
+            element_added(newP)
         }
 
-    def removed_internal(v : Domain) : Unit =
-        {
-            val p = projection(v)
-            if (remove_element(p)) {
-                element_removed(p)
-            }
-        }
+    }
 
-    def added_internal(v : Domain) : Unit =
-        {
-            val p = projection(v)
-            if (add_element(p)) {
-                element_added(p)
-            }
+    def removed_internal(v: Domain)
+    {
+        val p = projection(v)
+        if (remove_element(p)) {
+            element_removed(p)
         }
+    }
+
+    def added_internal(v: Domain)
+    {
+        val p = projection(v)
+        if (add_element(p)) {
+            element_added(p)
+        }
+    }
 }
 
 /**
@@ -154,39 +161,42 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
  * TODO this is not correctly typed yet
  */
 class BagProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection : Domain => Range,
-    val relation : LazyView[Domain])
+    val projection: Domain => Range,
+    val relation: LazyView[Domain]
+)
         extends Projection[Domain, Range]
-        with SelfMaintainedView[Domain,Range] {
+                with SelfMaintainedView[Domain, Range]
+{
 
     relation addObserver this
 
-    def lazyInitialize : Unit = 
+    def lazyInitialize
     {
         relation.lazyInitialize
     }
-    
-    def lazy_foreach[T](f : (Range) => T) : Unit =
-        relation.lazy_foreach(v =>
-            {
-                f(projection(v))
-            }
+
+    def lazy_foreach[T](f: (Range) => T)
+    {
+        relation.lazy_foreach(v => {
+            f(projection(v))
+        }
         )
+    }
 
-    def updated_internal(oldV : Domain, newV : Domain) : Unit =
-        {
-            element_updated(projection(oldV), projection(newV))
-        }
+    def updated_internal(oldV: Domain, newV: Domain)
+    {
+        element_updated(projection(oldV), projection(newV))
+    }
 
-    def removed_internal(v : Domain) : Unit =
-        {
-            element_removed(projection(v))
-        }
+    def removed_internal(v: Domain)
+    {
+        element_removed(projection(v))
+    }
 
-    def added_internal(v : Domain) : Unit =
-        {
-            element_added(projection(v))
-        }
+    def added_internal(v: Domain)
+    {
+        element_added(projection(v))
+    }
 
 }
 
@@ -194,42 +204,43 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
  * The materialized non-set projection has the semantics as the NonSetProjection
  */
 class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection : Domain => Range,
-    val relation : LazyView[Domain])
+    val projection: Domain => Range,
+    val relation: LazyView[Domain]
+)
         extends Projection[Domain, Range]
-        with Bag[Range]
-        // with MaterializedView[Range] // Bag is a MaterializedView 
-        with SelfMaintainedView[Domain, Range] {
+                with Bag[Range]
+                // with MaterializedView[Range] // Bag is a MaterializedView
+                with SelfMaintainedView[Domain, Range]
+{
 
     relation addObserver this
 
-    def lazyInitialize() : Unit =
-        {
-            relation.lazy_foreach(t =>
-                {
-                    this += projection(t)
-                }
-            )
+    def lazyInitialize
+    {
+        relation.lazy_foreach(t => {
+            this += projection(t)
         }
+        )
+    }
 
     // update operations
-    def updated_internal(oldV : Domain, newV : Domain) : Unit =
-        {
-            val oldP = projection(oldV)
-            val newP = projection(newV)
-            if (oldP equals newP)
-                return ;
-            this -= oldP
-            this += newP
-        }
+    def updated_internal(oldV: Domain, newV: Domain)
+    {
+        val oldP = projection(oldV)
+        val newP = projection(newV)
+        if (oldP equals newP)
+            return;
+        this -= oldP
+        this += newP
+    }
 
-    def removed_internal(v : Domain) : Unit =
-        {
-            this -= projection(v)
-        }
+    def removed_internal(v: Domain)
+    {
+        this -= projection(v)
+    }
 
-    def added_internal(v : Domain) : Unit =
-        {
-            this += projection(v)
-        }
+    def added_internal(v: Domain)
+    {
+        this += projection(v)
+    }
 }

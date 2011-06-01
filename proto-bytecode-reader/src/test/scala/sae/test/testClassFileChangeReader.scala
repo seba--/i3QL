@@ -43,7 +43,9 @@ class TestClassFileChangeReader extends org.scalatest.junit.JUnitSuite {
     def applyFonAllEvents() {
         var i = 0
         val reader = new ClassFileChangeEventReader(new File(location))
-        reader.foreach(println _ )
+        //reader.foreach(println _ )
+
+        // TODO this is not a test
     }
 
 }

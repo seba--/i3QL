@@ -9,13 +9,17 @@ trait MaterializedView[V <: AnyRef]
         with LazyView[V]
         with Size
         with SingletonValue[V]
+        with Contains[V]
         with Listable[V] {
 
     /**
      * A materialized view never needs to defer
      * since it records it's own elements
      */
-    def lazy_foreach[T](f : (V) => T) = foreach(f)
+    def lazy_foreach[T](f : (V) => T)
+    {
+        foreach(f)
+    }
 
 
 
@@ -25,8 +29,8 @@ trait MaterializedView[V <: AnyRef]
      * But clients are required to implement their own
      * foreach method, with concrete semantics.
      */
-    def foreach[T](f : (V) => T) : Unit =
-        {
+    def foreach[T](f : (V) => T)
+    {
             if (!initialized) {
                 lazyInitialize
                 initialized = true
@@ -38,7 +42,7 @@ trait MaterializedView[V <: AnyRef]
      * The internal implementation that iterates only over materialized
      * data.
      */
-    protected def materialized_foreach[T](f : (V) => T) : Unit
+    protected def materialized_foreach[T](f : (V) => T)
 
     def size : Int = {
         if (!initialized) {
@@ -65,4 +69,17 @@ trait MaterializedView[V <: AnyRef]
      * The internal implementation that yields the singletonValue
      */
     protected def materialized_singletonValue : Option[V]
+
+    def contains(v : V): Boolean = {
+        if (!initialized) {
+            lazyInitialize
+            initialized = true
+        }
+        materialized_contains(v)
+    }
+
+    /**
+     * The internal implementation that yields the singletonValue
+     */
+    protected def materialized_contains(v : V) : Boolean
 }

@@ -41,8 +41,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
     rightIndex addObserver RightObserver
 
-    def lazyInitialize : Unit =
-        {
+    def lazyInitialize
+    {
             // iterate over the smaller of the two indices
             if (left.size <= right.size) {
                 leftEquiJoin()
@@ -53,8 +53,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
     object LeftObserver extends Observer[(Key, DomainA)] {
         // update operations on left relation
-        def updated(oldKV : (Key, DomainA), newKV : (Key, DomainA)) : Unit =
-            {
+        def updated(oldKV : (Key, DomainA), newKV : (Key, DomainA))
+        {
                 initialized = true
                 val oldV = oldKV._2
                 val newV = newKV._2
@@ -83,8 +83,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
                 }
             }
 
-        def removed(kv : (Key, DomainA)) : Unit =
-            {
+        def removed(kv : (Key, DomainA))
+        {
                 initialized = true
                 rightIndex.get(kv._1) match {
                     case Some(col) =>
@@ -98,8 +98,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
                 }
             }
 
-        def added(kv : (Key, DomainA)) : Unit =
-            {
+        def added(kv : (Key, DomainA))
+        {
                 initialized = true
                 rightIndex.get(kv._1) match {
                     case Some(col) =>
@@ -116,8 +116,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
     object RightObserver extends Observer[(Key, DomainB)] {
         // update operations on right relation
-        def updated(oldKV : (Key, DomainB), newKV : (Key, DomainB)) : Unit =
-            {
+        def updated(oldKV : (Key, DomainB), newKV : (Key, DomainB))
+        {
                 initialized = true
                 val oldV = oldKV._2
                 val newV = newKV._2
@@ -146,8 +146,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
                 }
             }
 
-        def removed(kv : (Key, DomainB)) : Unit =
-            {
+        def removed(kv : (Key, DomainB))
+        {
                 initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>
@@ -161,8 +161,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
             }
 
-        def added(kv : (Key, DomainB)) : Unit =
-            {
+        def added(kv : (Key, DomainB))
+        {
                 initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>
@@ -178,7 +178,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
     }
 
     // use the left relation as keys, since this relation is smaller
-    def leftEquiJoin() = {
+    def leftEquiJoin()
+    {
         leftIndex.foreach(
             {
                 case (key, v) =>
@@ -196,7 +197,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
     }
 
     // use the right relation as keys, since this relation is smaller
-    def rightEquiJoin() = {
+    def rightEquiJoin()
+    {
         rightIndex.foreach(
             {
                 case (key, u) =>
@@ -212,4 +214,5 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
             }
         )
     }
+
 }

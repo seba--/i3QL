@@ -42,4 +42,6 @@ trait Bag[V <: AnyRef]
                 f(it.next())
             }
         }
+
+    protected def materialized_contains(v: V) = data.contains(v)
 }

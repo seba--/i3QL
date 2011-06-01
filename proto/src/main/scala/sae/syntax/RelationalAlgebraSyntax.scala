@@ -3,6 +3,8 @@ package syntax
 
 import sae.operators._
 import sae.operators.intern._
+import functions.ElementOf
+import functions.NotElementOf
 
 case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
 {
@@ -27,9 +29,11 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
                 (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftKey, rightKey, factory)
 
-    def ∪(otherRelation: LazyView[Domain]) : LazyView[Domain] = new BagUnion[Domain](left, otherRelation)
+    def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = new BagUnion[CommonSuperClass, Domain, OtherDomain](left, otherRelation)
 
-    def ∖(otherRelation: LazyView[Domain]) : LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
+    def ∩(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagIntersection[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
+
+    def ∖(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
 }
 
 case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
@@ -49,10 +53,25 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
 
 }
 
+
+case class ElementConcatenator[Domain <: AnyRef](
+    element: Domain
+)
+{
+
+    import operators.Conversions._
+
+    def ∈(relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
+
+    def ∉(relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+}
+
 object RelationalAlgebraSyntax
 {
 
     import sae.collections.QueryResult
+
+    import operators.Conversions._
 
     // convenience forwarding to not always import conversion, but only the syntax
     implicit def lazyViewToResult[V <: AnyRef](lazyView: LazyView[V]): QueryResult[V] = sae.collections.Conversions.lazyViewToResult(lazyView)
@@ -63,25 +82,35 @@ object RelationalAlgebraSyntax
     implicit def viewAndFunToConcatenator[Domain <: AnyRef, Range <: AnyRef](tuple: (LazyView[Domain], Domain => Range)): InfixFunctionConcatenator[Domain, Range] =
         InfixFunctionConcatenator(tuple._1, tuple._2)
 
+    implicit def valueToConcatenator[Domain <: AnyRef](value: Domain) =
+        ElementConcatenator(value)
+
+
     /**definitions of selection syntax **/
     object σ
     {
         def apply[Domain <: AnyRef](filter: Domain => Boolean)
-                    (relation: LazyView[Domain]): LazyView[Domain] = new LazySelection[Domain](filter, relation)
+                    (relation: LazyView[Domain]): LazyView[Domain] =
+            if (filter.isInstanceOf[Observable[(Domain,Boolean)]]) {
+
+                new DynamicFilterSelection[Domain](filter.asInstanceOf[(Domain => Boolean) with Observable[(Domain,Boolean)]], lazyViewToIndexedView(relation))
+            }
+            else {
+                new LazySelection[Domain](filter, relation)
+            }
 
         // polymorhpic selection
 
-        class PolymorphSelection[T <: AnyRef] {
+        class PolymorphSelection[T <: AnyRef]
+        {
 
-            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain])(implicit m : ClassManifest[T]) =
-                new LazySelection[Domain]( (e : Domain) => polymorphFilter[Domain](e,m) , relation)
+            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain])(implicit m: ClassManifest[T]) =
+                new LazySelection[Domain]((e: Domain) => polymorphFilter[Domain](e, m), relation)
 
-            def polymorphFilter[Domain >: T](e : Domain, m : ClassManifest[T]) : Boolean =
-            {
-                return m.erasure.isInstance(e)
-            }
+            def polymorphFilter[Domain >: T](e: Domain, m: ClassManifest[T]) = m.erasure.isInstance(e)
 
         }
+
         def apply[T <: AnyRef] = new PolymorphSelection[T]
 
 
@@ -96,12 +125,14 @@ object RelationalAlgebraSyntax
         def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, LazyView[Domain])] = Some((p.projection, p.relation))
 
         // polymorhpic projection
-        class PolymorphProjection[T <: AnyRef] {
+        class PolymorphProjection[T <: AnyRef]
+        {
             def apply[Domain >: T <: AnyRef](relation: LazyView[Domain]) =
-                new BagProjection[Domain, T](polymorphProjection[Domain]_, relation)
+                new BagProjection[Domain, T](polymorphProjection[Domain] _, relation)
 
-            def polymorphProjection[Domain >: T](e : Domain) : T = e.asInstanceOf[T]
+            def polymorphProjection[Domain >: T](e: Domain): T = e.asInstanceOf[T]
         }
+
         def apply[T <: AnyRef] = new PolymorphProjection[T]
 
 
@@ -165,7 +196,6 @@ object RelationalAlgebraSyntax
                 y: AggregationValue
             ) => Some(y))
     }
-
 
 
     /**definitions of sort syntax **/
