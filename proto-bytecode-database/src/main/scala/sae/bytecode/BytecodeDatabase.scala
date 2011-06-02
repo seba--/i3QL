@@ -206,7 +206,7 @@ class BytecodeDatabase
                     if( prev.eventType != "REMOVED") { removeReader.readClassFile(prev.eventFile) }
                 case Event("REMOVED", _, _, file, None) => // do nothing
                 case Event("CHANGED", _, _, file, _) => {
-                    removeReader.readClassFile(file)
+                    removeReader.readClassFile(file) //TODO old file
                     addReader.readClassFile(file)
                 }
             }
