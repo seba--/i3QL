@@ -5,10 +5,11 @@ import sae.DefaultLazyView
 import sae.bytecode.model._
 import sae.bytecode.model.instructions._
 import dependencies._
-import sae.reader._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
+import de.tud.cs.st.lyrebird.replayframework._
+import sae.reader.BytecodeReader
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
@@ -201,11 +202,11 @@ class BytecodeDatabase
         val removeReader = new BytecodeReader(classRemover)
         event.eventFiles.foreach(x => {
             x match {
-                case Event("ADDED", _, _, file, _) => addReader.readClassFile(file)
-                case Event("REMOVED", _, _, file, Some(prev)) =>
-                    if( prev.eventType != "REMOVED") { removeReader.readClassFile(prev.eventFile) }
-                case Event("REMOVED", _, _, file, None) => // do nothing
-                case Event("CHANGED", _, _, file, _) => {
+                case Event(EventType.ADDED, _, _, file, _) => addReader.readClassFile(file)
+                case Event(EventType.REMOVED, _, _, file, Some(prev)) =>
+                    if( prev.eventType != EventType.REMOVED) { removeReader.readClassFile(prev.eventFile) }
+                case Event(EventType.REMOVED, _, _, file, None) => // do nothing
+                case Event(EventType.CHANGED, _, _, file, _) => {
                     removeReader.readClassFile(file) //TODO old file
                     addReader.readClassFile(file)
                 }
