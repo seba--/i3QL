@@ -11,7 +11,7 @@ import de.tud.cs.st.bat.ObjectType
  * A dependency arises if a new array of a class type is created.
  * Arrays of primitive types are not a dependency.
  */
-class create_class_array (val source: Method, val target: ObjectType)
+case class create_class_array (val source: Method, val target: ObjectType)
         extends Dependency[Method, ObjectType] {
 
 }

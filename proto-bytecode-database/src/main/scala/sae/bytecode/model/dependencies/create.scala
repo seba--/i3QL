@@ -10,7 +10,7 @@ import de.tud.cs.st.bat.ObjectType
  *
  */
 
-class create (val source: Method, val target: ObjectType)
+case class create (val source: Method, val target: ObjectType)
         extends Dependency[Method, ObjectType] {
 
 }
