@@ -46,7 +46,7 @@ trait NotElementOf[Domain <: AnyRef]
 
 object NotElementOf
 {
-    def apply[Domain <: AnyRef](r: MaterializedView[Domain]) = new ElementOf[Domain]
+    def apply[Domain <: AnyRef](r: MaterializedView[Domain]) = new NotElementOf[Domain]
     {
         r addObserver this
 

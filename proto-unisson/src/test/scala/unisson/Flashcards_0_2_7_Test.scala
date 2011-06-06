@@ -21,13 +21,13 @@ class Flashcards_0_2_7_Test
 
     def create_queries = new Queries(new BytecodeDatabase())
 
-    def create_ui_layer(queries : Queries): QueryResult[SourceElement[_]] =
+    def create_ui_layer(queries : Queries): QueryResult[SourceElement[AnyRef]] =
         queries.`package`("de.tud.cs.se.flashcards.ui")
 
-    def create_main (queries : Queries): QueryResult[SourceElement[_]] =
+    def create_main (queries : Queries): QueryResult[SourceElement[AnyRef]] =
         queries.class_with_members("de.tud.cs.se.flashcards.Main")
 
-    def create_learning_strategies (queries : Queries): QueryResult[SourceElement[_]] =
+    def create_learning_strategies (queries : Queries): QueryResult[SourceElement[AnyRef]] =
         queries.`package`("de.tud.cs.se.flashcards.model.learning")
 
 

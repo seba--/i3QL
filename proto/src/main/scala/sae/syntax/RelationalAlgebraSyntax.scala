@@ -34,6 +34,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
     def ∩(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagIntersection[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
 
     def ∖(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
+
 }
 
 case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
@@ -61,9 +62,26 @@ case class ElementConcatenator[Domain <: AnyRef](
 
     import operators.Conversions._
 
-    def ∈(relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
+    //def ∈(relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
 
-    def ∉(relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+    //def ∉(relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+
+    def apply(f : ElementOf[Domain]) = f(element)
+
+    def apply(f : NotElementOf[Domain]) = f(element)
+}
+
+case class FunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
+    function: Domain => Range
+)
+{
+    //def ∈(relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
+
+    //def ∉(relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+
+    def apply(f : ElementOf[Range]) = function.andThen(f)
+
+    def apply(f : NotElementOf[Range]) = function.andThen(f)
 }
 
 object RelationalAlgebraSyntax
@@ -82,9 +100,20 @@ object RelationalAlgebraSyntax
     implicit def viewAndFunToConcatenator[Domain <: AnyRef, Range <: AnyRef](tuple: (LazyView[Domain], Domain => Range)): InfixFunctionConcatenator[Domain, Range] =
         InfixFunctionConcatenator(tuple._1, tuple._2)
 
-    implicit def valueToConcatenator[Domain <: AnyRef](value: Domain) =
-        ElementConcatenator(value)
+    implicit def valueToConcatenator[Domain <: AnyRef](value: Domain) = ElementConcatenator(value)
 
+    implicit def functionToConcatenator[Domain <: AnyRef, Range <: AnyRef](f: Domain => Range) = FunctionConcatenator(f)
+
+    object ∈
+    {
+        def apply[Domain <: AnyRef](relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
+    }
+
+
+    object ∉
+    {
+        def apply[Domain <:AnyRef](relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+    }
 
     /**definitions of selection syntax **/
     object σ

@@ -14,27 +14,27 @@ import sae.LazyView
  */
 class Queries( val db : BytecodeDatabase )
 {
-    def `package`(name : String) : LazyView[SourceElement[_]] =
+    def `package`(name : String) : LazyView[SourceElement[AnyRef]] =
         (
-             Π[ObjectType, SourceElement[_]]{ SourceElement[ObjectType]((_:ObjectType)) }(σ{ (_:ObjectType).packageName == fromJava(name)}(db.classfiles))
+             Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (_:ObjectType).packageName == fromJava(name)}(db.classfiles))
         ) ∪
         (
-            Π[Method, SourceElement[_]]{ SourceElement[Method]((_:Method)) } (σ{ (_:Method).declaringRef.packageName == fromJava(name) }(db.classfile_methods))
+            Π[Method, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Method)) } (σ{ (_:Method).declaringRef.packageName == fromJava(name) }(db.classfile_methods))
         ) ∪
         (
-            Π[Field, SourceElement[_]]{ SourceElement[Field]((_:Field)) } (σ{ (_:Field).declaringClass.packageName == fromJava(name) }(db.classfile_fields))
+            Π[Field, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Field)) } (σ{ (_:Field).declaringClass.packageName == fromJava(name) }(db.classfile_fields))
         )
 
 
-    def class_with_members(qualifiedClass : String) : LazyView[SourceElement[_]] =
+    def class_with_members(qualifiedClass : String) : LazyView[SourceElement[AnyRef]] =
         (
-             Π[ObjectType, SourceElement[_]]{ SourceElement[ObjectType]((_:ObjectType)) }(σ{ (_:ObjectType) == ObjectType(fromJava(qualifiedClass))}(db.classfiles))
+             Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (_:ObjectType) == ObjectType(fromJava(qualifiedClass))}(db.classfiles))
         ) ∪
         (
-            Π[Method, SourceElement[_]]{ SourceElement[Method]((_:Method)) } (σ{ (_:Method).declaringRef == ObjectType(fromJava(qualifiedClass)) }(db.classfile_methods))
+            Π[Method, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Method)) } (σ{ (_:Method).declaringRef == ObjectType(fromJava(qualifiedClass)) }(db.classfile_methods))
         ) ∪
         (
-            Π[Field, SourceElement[_]]{ SourceElement[Field]((_:Field)) } (σ{ (_:Field).declaringClass == ObjectType(fromJava(qualifiedClass)) }(db.classfile_fields))
+            Π[Field, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Field)) } (σ{ (_:Field).declaringClass == ObjectType(fromJava(qualifiedClass)) }(db.classfile_fields))
         )
 
     def fromJava(unresolved : String) : String = unresolved.replace('.', '/')

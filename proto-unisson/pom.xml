@@ -21,7 +21,6 @@
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-bytecode</artifactId>
 			<version>${sae.version}</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
