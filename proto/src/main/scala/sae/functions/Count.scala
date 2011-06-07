@@ -17,7 +17,7 @@ private class CountIntern[Domain <: AnyRef]() extends SelfMaintainalbeAggregatio
 }
 
 object Count {
-    def apply[Domain <: AnyRef]() = {
+    def apply[Domain <: AnyRef]() : SelfMaintainalbeAggregationFunctionFactory[Domain, Int] = {
         new SelfMaintainalbeAggregationFunctionFactory[Domain, Int] {
             def apply() : SelfMaintainalbeAggregationFunction[Domain, Int] = {
                 new CountIntern[Domain]()
