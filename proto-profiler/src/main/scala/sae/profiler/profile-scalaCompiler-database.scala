@@ -1,5 +1,5 @@
 package sae.profiler
-
+import sae.profiler.util.Profile
 import sae._
 import sae.operators._
 import sae.functions._
@@ -10,6 +10,7 @@ import sae.test.helpFunctions._
 import com.google.common.collect.HashMultiset
 import scala.collection.mutable._
 import de.tud.cs.st.bat._
+import sae.profiler.util.Profile2
 
 
 class ScalaCompilerDatabase extends sae.bytecode.BytecodeDatabase {
@@ -38,63 +39,63 @@ object ScalaCompilerProfiler {
         init
         
         //
-        write("read scala-compiler.jar", profile(read))
+        write("read scala-compiler.jar", Profile(read))
         
         profiling("Fan In for scala.Tupel2", initSelectiveFanIn)
         
         //-------------- group by  package find class with max methods   
-        write("group by Package : find class with max methods", profile(classWithMaxMethodsPairPackage))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initClassWithMaxMethodsPairPackage,
+        write("group by Package : find class with max methods", Profile(classWithMaxMethodsPairPackage))
+        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initClassWithMaxMethodsPairPackage,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", profile2(initClassWithMaxMethodsPairPackage,
+        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initClassWithMaxMethodsPairPackage,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
                 x.update(someMethodsInMostMethods(i), someMethods(i))
             }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", profile2(initClassWithMaxMethodsPairPackage,
+        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initClassWithMaxMethodsPairPackage,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
         //-------------- group by package calc fan out to not java.*
-        write("group by Package : calc fan out", profile(selectiveFanOut))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initSelectiveFanOut,
+        write("group by Package : calc fan out", Profile(selectiveFanOut))
+        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initSelectiveFanOut,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", profile2(initSelectiveFanOut,
+        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initSelectiveFanOut,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
                 x.update(someMethodsInMostMethods(i), someMethods(i))
             }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", profile2(initSelectiveFanOut,
+        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initSelectiveFanOut,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
             
         // fanin for all classes with sql like syntax
-        //write("Fan In with Sql ", profile(fanInWithSQL))     
+        //write("Fan In with Sql ", Profile(fanInWithSQL))     
         //-------------- group by class calc fan in
-        write("group by class : calc fan in", profile(fanInAll))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(initFanIn,
+        write("group by class : calc fan in", Profile(fanInAll))
+        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initFanIn,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", profile2(initFanIn,
+        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initFanIn,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
                 //println(someMethodsInMostMethods(i))
                 //x.remove(someMethodsInMostMethods(i))
                 //x.add(someMethods(i))
                 x.update(someMethodsInMostMethods(i), someMethods(i))
             }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", profile2(initFanIn,
+        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initFanIn,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
     }
 
     private def profiling(text : String, f1 : => (sae.test.helpFunctions.ObservableList[Method], Any)){
-        write(text, profile(f1))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", profile2(f1,
+        write(text, Profile(f1))
+        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(f1,
             (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", profile2(f1,
+        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(f1,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
                 x.update(someMethodsInMostMethods(i), someMethods(i))
             }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", profile2(f1,
+        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(f1,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
             }))
@@ -177,31 +178,7 @@ object ScalaCompilerProfiler {
     def fanInAll {
         initFanIn
     }
-    def profile(f : => Unit)(implicit times : Int = 1) : Array[Timer] = {
-        var i = 0;
-        val timers = new Array[Timer](times)
-        while (i < times) {
-            val timer = new Timer()
-            f
-            timer.stop;
-            timers(i) = timer
-            i += 1
-        }
-        return timers
-    }
-    def profile2[T <: AnyRef](f1 : => (sae.test.helpFunctions.ObservableList[T], Any), f2 : sae.test.helpFunctions.ObservableList[T] => Unit)(implicit times : Int = 1) : Array[Timer] = {
-        var i = 0;
-        val timers = new Array[Timer](times)
-        while (i < times) {
-            val s = f1
-            val timer = new Timer()
-            f2(s._1)
-            timer.stop;
-            timers(i) = timer
-            i += 1
-        }
-        return timers
-    }
+    
     def fanInWithSQL() : Unit = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
         val res = getFanOutByClass(source)
