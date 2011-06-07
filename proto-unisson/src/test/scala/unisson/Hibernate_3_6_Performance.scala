@@ -1,6 +1,6 @@
 package unisson
 
-import hibernate_3_6.action_sad
+import hibernate_3_6._
 import sae.bytecode.BytecodeDatabase
 import sae.util.Timer
 import sae.profiler.Profiler._
@@ -18,14 +18,29 @@ object Hibernate_3_6_Performance {
 
     def main(args : Array[String]) {
         println("measuring performance:")
-        measure_action_sad
+        measure_sad(new action_sad(_))
+        measure_sad(new bytecode_sad(_))
     }
 
+    def setup_ensemble_definition( f : BytecodeDatabase => EnsembleDefinition)(run : Int) = {
+        println("run " + run)
+        val db = new BytecodeDatabase
+        println("creating queries")
+        val ensembles = f(db)
+        println("reading bytecode")
+        val transformer = db.transformerForArchiveResource("hibernate-core-3.6.0.Final.jar")
+        println("pushing data to database")
+        (transformer, ensembles)
+    }
 
-    def measure_action_sad(implicit times : Int = 15) {
+    def teardown_ensemble_definition( data : (Java6ClassTransformer, EnsembleDefinition) ) {
+        data._2.printViolations()
+    }
+
+    def measure_sad(f : BytecodeDatabase => EnsembleDefinition)(implicit times : Int = 15) {
         println("hibernate-core-3.6.0.Final.jar")
 
-        val timers = profile(setup_action_sad(_))(_._1.processAllFacts)(teardown_action_sad)(times)
+        val timers = profile(setup_ensemble_definition(f)(_))(_._1.processAllFacts)(teardown_ensemble_definition)(times)
 
         val median = Timer.median(timers)
         val mean = Timer.mean(timers)
@@ -38,27 +53,4 @@ object Hibernate_3_6_Performance {
         timers.sorted.foreach( (t:Timer) => print(t.elapsedSeconds() + ";") )
     }
 
-
-    def setup_action_sad(run : Int) = {
-        println("run " + run)
-        val db = new BytecodeDatabase
-        println("creating queries")
-        val ensembles = new action_sad(db)
-        println("reading bytecode")
-        val transformer = db.transformerForArchiveResource("hibernate-core-3.6.0.Final.jar")
-        println("pushing data to database")
-        (transformer, ensembles)
-    }
-
-    def teardown_action_sad( data : (Java6ClassTransformer, action_sad) ) {
-        import data._2._
-
-        incoming_engine_to_action_violation.foreach(println)
-
-        incoming_event_to_action_violation.foreach(println)
-
-        incoming_HQL_to_action_violation.foreach(println)
-
-        incoming_lock_to_action_violation.foreach(println)
-    }
 }

@@ -2,10 +2,9 @@ package unisson.hibernate_3_6
 
 import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
-import unisson.{SourceElement, Queries}
-import unisson.Queries
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.dependencies.{create, parameter, invoke_interface, Dependency}
+import unisson.{EnsembleDefinition, SourceElement, Queries}
 
 /**
  *
@@ -14,7 +13,7 @@ import sae.bytecode.model.dependencies.{create, parameter, invoke_interface, Dep
  *
  */
 
-class action_sad(val db: BytecodeDatabase)
+class action_sad(val db: BytecodeDatabase) extends EnsembleDefinition
 {
     val queries = new Queries(db)
 
@@ -130,7 +129,7 @@ class action_sad(val db: BytecodeDatabase)
                 )( db.create )
                 )
 
-
+    // FIXME we do not model individual arrows but individual relationship constraints, thus this is redundant
     val incoming_HQL_to_action_violation : QueryResult[Dependency[_, _]] =
         (
                 σ(
@@ -152,4 +151,15 @@ class action_sad(val db: BytecodeDatabase)
                     source(_: Dependency[_, _])(notInEngine)
                 )(dep1)
                 )
+
+
+    def printViolations() {
+        incoming_engine_to_action_violation.foreach(println)
+
+        incoming_event_to_action_violation.foreach(println)
+
+        incoming_HQL_to_action_violation.foreach(println)
+
+        incoming_lock_to_action_violation.foreach(println)
+    }
 }
