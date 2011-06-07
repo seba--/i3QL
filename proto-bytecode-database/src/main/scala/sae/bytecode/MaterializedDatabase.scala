@@ -8,7 +8,8 @@ import sae.collections._
 import sae.collections.Conversions._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
-import sae.reader.EventSet
+import de.tud.cs.st.lyrebird.replayframework.EventSet
+
 
 /**
  * Convenience database that materializes all queries as a result.

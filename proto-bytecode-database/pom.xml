@@ -48,5 +48,12 @@
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.tud.cs.st.lyrebird.replayframework</groupId>
+			<artifactId>de.tud.cs.st.lyrebird.replayframework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 </project>

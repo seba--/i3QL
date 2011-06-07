@@ -95,11 +95,12 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
     @Test
     def processEventSets() : Unit = {
 
-        val reader = new ClassFileChangeEventReader(location)
+        //val reader = new ClassFileChangeEventReader(location)
+        val replay = new de.tud.cs.st.lyrebird.replayframework.Replay(location)
         val op = new TestObserver()
         db.classfiles.addObserver(op)
         //reader.foreach(println _)
-        reader.foreach(db.processEventSet _)
+        replay.foreach(db.processEventSet _)
         assertTrue(op.state == 11)
 
     }

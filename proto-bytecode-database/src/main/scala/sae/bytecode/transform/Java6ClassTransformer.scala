@@ -58,7 +58,7 @@ class Java6ClassTransformer(
 
         val end = System.nanoTime()
 
-        //println("took: " + (end - start)/1000000 + "ms")
+        println("took: " + (end - start)/1000000 + "ms")
 
     }
 
