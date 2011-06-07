@@ -35,6 +35,7 @@ object Hibernate_3_6_Performance {
         println("min:    " + min.elapsedSecondsWithUnit)
         println("mean:   " + mean.elapsedSecondsWithUnit)
         println("median: " + median.elapsedSecondsWithUnit)
+        timers.sorted.foreach( (t:Timer) => print(t.elapsedSeconds() + ";") )
     }
 
 
@@ -51,7 +52,6 @@ object Hibernate_3_6_Performance {
 
     def teardown_action_sad( data : (Java6ClassTransformer, action_sad) ) {
         import data._2._
-        import sae.syntax.RelationalAlgebraSyntax._ // for implicit conversion
 
         incoming_engine_to_action_violation.foreach(println)
 

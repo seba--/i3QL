@@ -64,7 +64,7 @@ class action_sad(val db: BytecodeDatabase)
 
     // val notAllowedIncoming = notInEngine && notInEvent && notInHQL && notInLock // currently can not be modelled as updateable function
 
-    val incoming_engine_to_action_violation =
+    val incoming_engine_to_action_violation : QueryResult[Dependency[_, _]] =
         (
                 σ(
                     target(_: Dependency[_, _])(inAction)
@@ -86,7 +86,7 @@ class action_sad(val db: BytecodeDatabase)
                 )(dep2)
                 )
 
-    val incoming_lock_to_action_violation =
+    val incoming_lock_to_action_violation : QueryResult[Dependency[_, _]] =
         (
                 σ(
                     target(_: Dependency[_, _])(inAction)
@@ -108,7 +108,7 @@ class action_sad(val db: BytecodeDatabase)
                 )(dep1)
                 )
 
-    val incoming_event_to_action_violation =
+    val incoming_event_to_action_violation : QueryResult[create] =
         (
                 σ(
                     target(_: create)(inAction)
@@ -131,7 +131,7 @@ class action_sad(val db: BytecodeDatabase)
                 )
 
 
-    val incoming_HQL_to_action_violation =
+    val incoming_HQL_to_action_violation : QueryResult[Dependency[_, _]] =
         (
                 σ(
                     target(_: Dependency[_, _])(inAction)

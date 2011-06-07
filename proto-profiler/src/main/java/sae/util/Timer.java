@@ -103,11 +103,11 @@ public class Timer implements Comparable<Timer> {
 	public static Timer mean(Timer[] timers) {
 		if (timers.length == 0)
 			return new ValueTimer(0);
-		long mean = timers[0].elapsedNanoSeconds();
+        // FIXME we loose some precision here, but not by much
+		long mean = timers[0].elapsedNanoSeconds() / timers.length;
 		for (int i = 1; i < timers.length; i++) {
 			Timer timer = timers[i];
-			mean += timer.elapsedNanoSeconds();
-			mean /= 2;
+			mean += (timer.elapsedNanoSeconds() / timers.length);
 		}
 		return new ValueTimer(mean);
 	}
@@ -204,7 +204,12 @@ public class Timer implements Comparable<Timer> {
 			throw new IllegalStateException("Trying to compare a running timer: " + this);
 		if( !o.finished() )
 			throw new IllegalStateException("Trying to compare a running timer: " + o);
-		// FIXME might be an unsafe operation, but I expect the difference not to be great
-		return (int)(this.elapsedNanoSeconds() - o.elapsedNanoSeconds());
+        // we elaborately check the difference since we can not safely cast to an int result
+        long diff = this.elapsedNanoSeconds() - o.elapsedNanoSeconds();
+		if( diff < 0 )
+            return -1;
+        if( diff > 0)
+            return 1;
+        return 0;
 	}
 }
