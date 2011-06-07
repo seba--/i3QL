@@ -41,7 +41,7 @@ class Java6ClassTransformer(
 {
 
 
-    var list : List[ClassFile]= List()
+    private var list : List[ClassFile]= List()
 
     def processClassFile(cf : de.tud.cs.st.bat.ClassFile) {
         list = cf :: list
@@ -52,21 +52,21 @@ class Java6ClassTransformer(
         // but transform the directly
         // here we could schedule parallelization
 
-        val start = System.nanoTime()
+        //val start = System.nanoTime()
 
         list.foreach(transform)
 
-        val end = System.nanoTime()
+        //val end = System.nanoTime()
 
-        println("took: " + (end - start)/1000000 + "ms")
+        //println("took: " + (end - start)/1000000 + "ms")
 
     }
 
     // TODO: ideally we would search for a view on all process_class and reuse that here
 
-    var internalMethods = new scala.collection.immutable.HashMap[Method, Method]
+    private var internalMethods = new scala.collection.immutable.HashMap[Method, Method]
 
-    var internalFields = new scala.collection.immutable.HashMap[Field, Field]
+    private var internalFields = new scala.collection.immutable.HashMap[Field, Field]
 
 
     def getMethod(typ: Type, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {

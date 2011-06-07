@@ -5,6 +5,7 @@ import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
+import sae.bytecode.model.dependencies.Dependency
 
 /**
  *
@@ -37,5 +38,11 @@ class Queries( val db : BytecodeDatabase )
             Π[Field, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Field)) } (σ{ (_:Field).declaringClass == ObjectType(fromJava(qualifiedClass)) }(db.classfile_fields))
         )
 
-    def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
+
+    def source(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.source.asInstanceOf[AnyRef])
+
+    def target(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.target.asInstanceOf[AnyRef])
+
+
+    private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
 }

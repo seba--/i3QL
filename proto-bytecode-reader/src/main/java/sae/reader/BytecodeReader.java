@@ -63,7 +63,7 @@ public class BytecodeReader {
 		} else {
 			readClassFile(file);
 		}
-		factProcessor.processAllFacts();
+		//factProcessor.processAllFacts();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class BytecodeReader {
 
 			}
 		}
-		factProcessor.processAllFacts();
+		//factProcessor.processAllFacts();
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class BytecodeReader {
 	public void readClassFile(File file) throws IOException {
 		FileInputStream fileInputStream = new FileInputStream(file);
 		readClassFile(fileInputStream);
-		factProcessor.processAllFacts();
+		//factProcessor.processAllFacts();
 	}
 
 	private void readClassFile(InputStream stream) throws IOException {

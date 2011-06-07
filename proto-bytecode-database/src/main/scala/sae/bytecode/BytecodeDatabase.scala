@@ -174,17 +174,32 @@ class BytecodeDatabase
      * Convenience method that opens a stream from a resource in the class path
      */
     def addArchiveAsResource(name: String) {
-        val reader = new BytecodeReader(classAdder)
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
         val stream = this.getClass().getClassLoader().getResourceAsStream(name)
         reader.readArchive(stream)
+        transformer.processAllFacts
+    }
+
+    /**
+     * Convenience method that opens a stream from a resource in the class path
+     */
+    def transformerForArchiveResource(name: String) : Java6ClassTransformer = {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        val stream = this.getClass().getClassLoader().getResourceAsStream(name)
+        reader.readArchive(stream)
+        transformer
     }
 
     /**
      * Convenience method that opens a stream from a file in the file system
      */
     def addArchiveAsFile(name: String) {
-        val reader = new BytecodeReader(classAdder)
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
         reader.readArchive(new java.io.File(name))
+        transformer.processAllFacts
     }
 
     /**
@@ -192,8 +207,10 @@ class BytecodeDatabase
      * The underlying data is assumed to be in zip (jar) format
      */
     def addArchiveStream(stream: java.io.InputStream) {
-        val reader = new BytecodeReader(classAdder)
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
+        transformer.processAllFacts
     }
 
 
@@ -201,18 +218,29 @@ class BytecodeDatabase
      * read an event set of class files that were removed and added
      */
     def processEventSet(event: EventSet) {
-        val addReader = new BytecodeReader(classAdder)
-        val removeReader = new BytecodeReader(classRemover)
+        val addTransformer = classAdder
+        val removeTransformer = classRemover
+        val addReader = new BytecodeReader(addTransformer)
+        val removeReader = new BytecodeReader(removeTransformer)
         event.eventFiles.foreach(x => {
             x match {
-                case Event(EventType.ADDED, _, _, file, _) => addReader.readClassFile(file)
-                case Event(EventType.REMOVED, _, _, file, Some(prev)) =>
-                    if( prev.eventType != EventType.REMOVED) { removeReader.readClassFile(prev.eventFile) }
-                case Event(EventType.REMOVED, _, _, file, None) => // do nothing
+                case Event(EventType.ADDED, _, _, file, _) =>
+                {
+                    addReader.readClassFile(file)
+                    addTransformer.processAllFacts
+                }
+                case Event(EventType.REMOVED, _, _, file, Some(prev)) if( prev.eventType != EventType.REMOVED) =>
+                {
+                    removeReader.readClassFile(prev.eventFile)
+                    removeTransformer.processAllFacts
+                }
                 case Event(EventType.CHANGED, _, _, file, _) => {
                     removeReader.readClassFile(file) //TODO old file
+                    removeTransformer.processAllFacts
                     addReader.readClassFile(file)
+                    addTransformer.processAllFacts
                 }
+                case _ => // do nothing
             }
         })
 
