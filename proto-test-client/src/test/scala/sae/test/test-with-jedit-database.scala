@@ -82,7 +82,7 @@ class JEditSuite {
                 ("org/gjt/sp/jedit/input", 4),
                 ("org/gjt/sp/jedit/bufferio", 8),
                 ("org/gjt/sp/jedit/bsh/reflect", 1))
-            assertEquals(result, groupByPackage.asList)
+            assertEquals(result.sorted, groupByPackage.asList.sorted)
         }
 
     @Test

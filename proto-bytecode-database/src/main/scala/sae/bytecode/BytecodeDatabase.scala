@@ -86,6 +86,9 @@ class BytecodeDatabase
                 }(σ[getstatic](instructions))
                 )
 
+    lazy val invoke_interface: LazyView[invoke_interface] = Π((_: Instr[_]) match {
+        case invokeinterface(declaringMethod, pc, callee) => new invoke_interface(declaringMethod, callee)
+    })(σ[invokeinterface](instructions))
 
     lazy val calls: LazyView[calls] = Π((_: Instr[_]) match {
         case invokeinterface(declaringMethod, pc, callee) => new calls(declaringMethod, callee)

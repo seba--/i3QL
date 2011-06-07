@@ -40,15 +40,27 @@ class Java6ClassTransformer(
                 BytecodeFactProcessor
 {
 
-   def processClassFile(cf : de.tud.cs.st.bat.ClassFile) {
-            transform(cf)
-        }
+
+    var list : List[ClassFile]= List()
+
+    def processClassFile(cf : de.tud.cs.st.bat.ClassFile) {
+        list = cf :: list
+    }
 
     def processAllFacts {
-            // do nothing we need no extra processing of added process_classfile
-            // but transform the directly
-            // here we could schedule parallelization
-        }
+        // do nothing we need no extra processing of added process_classfile
+        // but transform the directly
+        // here we could schedule parallelization
+
+        val start = System.nanoTime()
+
+        list.foreach(transform)
+
+        val end = System.nanoTime()
+
+        println("took: " + (end - start)/1000000 + "ms")
+
+    }
 
     // TODO: ideally we would search for a view on all process_class and reuse that here
 

@@ -21,14 +21,20 @@ object Conversions {
         }
 
     // internal class for forwarding 
-    class HashIndexedViewProxy[V <: AnyRef](val relation : MaterializedView[V])
-            extends IndexedView[V] {
+    class HashIndexedViewProxy[V <: AnyRef](protected val relation : MaterializedView[V])
+            extends IndexedView[V]
+            with ObservableProxy[V]
+    {
 
-        def lazyInitialize : Unit = {
+        def lazyInitialize
+        {
             relation.lazyInitialize
         }
         
-        def materialized_foreach[T](f : (V) => T) = relation.foreach(f)
+        def materialized_foreach[T](f : (V) => T)
+        {
+            relation.foreach(f)
+        }
 
         def materialized_size : Int = relation.size
 
@@ -36,6 +42,8 @@ object Conversions {
         
         protected def createIndex[K <: AnyRef](keyFunction : V => K) : Index[K, V] =
             new sae.collections.HashMultiMap[K, V](relation, keyFunction)
+
+        protected def materialized_contains(v: V) = relation.contains(v)
     }
 
     def lazyViewToIndexedView[V <: AnyRef](lazyView : LazyView[V]) : IndexedView[V] =

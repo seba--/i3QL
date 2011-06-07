@@ -28,4 +28,5 @@ trait Set[V <: AnyRef]
 
     def materialized_foreach[U](f : V => U) : Unit = data.foreach(f)
 
+    protected def materialized_contains(v: V) = data.contains(v)
 }

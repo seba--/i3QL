@@ -9,7 +9,7 @@ package collections
  * materialized view, a simple Proxy is used.
  */
 trait QueryResult[V <: AnyRef]
-        extends View[V]
+        extends MaterializedView[V]
         with Size
         with SingletonValue[V]
         with Listable[V] {
@@ -60,11 +60,15 @@ class MaterializedViewProxyResult[V <: AnyRef](
     val relation : MaterializedView[V])
         extends QueryResult[V] {
 
-    def foreach[T](f : (V) => T) = relation.foreach(f)
+    def lazyInitialize {  }
 
-    def size : Int = relation.size
+    protected def materialized_contains(v: V) = relation.contains(v)
 
-    def singletonValue : Option[V] = relation.singletonValue
+    protected def materialized_singletonValue = relation.singletonValue
+
+    protected def materialized_size = relation.size
+
+    protected def materialized_foreach[T](f: (V) => T) = relation.foreach(f)
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
 }

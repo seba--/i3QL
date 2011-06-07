@@ -15,23 +15,23 @@ import sae.{SelfMaintainedView, LazyView}
  *
  * The Union in our algebra is always non-distinct
  */
-trait Union[Domain <: AnyRef]
+trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 {
-    type Dom = Domain
+    type Rng = Range
 
-    val left: LazyView[Domain]
+    val left: LazyView[DomainA]
 
-    val right: LazyView[Domain]
+    val right: LazyView[DomainB]
 }
 
 
-class BagUnion[Domain <: AnyRef]
+class BagUnion[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 (
-    val left: LazyView[Domain],
-    val right: LazyView[Domain]
+    val left: LazyView[DomainA],
+    val right: LazyView[DomainB]
 )
-        extends Union[Domain]
-        with SelfMaintainedView[Domain, Domain]
+        extends Union[Range,DomainA, DomainB]
+        with SelfMaintainedView[Range, Range]
 {
     left addObserver this
 
@@ -42,23 +42,23 @@ class BagUnion[Domain <: AnyRef]
         // do nothing
     }
 
-    def lazy_foreach[T](f: (Domain) => T)
+    def lazy_foreach[T](f: (Range) => T)
     {
         left.lazy_foreach(f)
         right.lazy_foreach(f)
     }
 
-    def added_internal(v: Domain)
+    def added_internal(v: Range)
     {
         element_added(v)
     }
 
-    def removed_internal(v: Domain)
+    def removed_internal(v: Range)
     {
         element_removed(v)
     }
 
-    def updated_internal(oldV: Domain, newV: Domain)
+    def updated_internal(oldV: Range, newV: Range)
     {
         element_updated(oldV, newV)
     }

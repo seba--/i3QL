@@ -10,7 +10,14 @@ class Table[V <: AnyRef]
     initialized = true
 
 	def lazyInitialize : Unit = { /* nothing to do, the table itself is the data */ }
-   
+
+    def update(oldV : V, newV : V)
+    {
+        remove_element(oldV)
+        add_element(newV)
+        element_updated(oldV, newV)
+    }
+
     def copy : Table[V] =
         {
             val copy = new Table[V]()

@@ -49,6 +49,10 @@ class SetDuplicateElimination[Domain <: AnyRef](
                 Some(data.iterator().next())
         }
 
+    protected def materialized_contains(v: Domain) =
+        data.contains(v)
+
+
     def lazyInitialize() : Unit =
         relation.lazy_foreach(t =>
             {
@@ -107,4 +111,5 @@ class SetDuplicateElimination[Domain <: AnyRef](
                 element_added(v)
             }
         }
+
 }

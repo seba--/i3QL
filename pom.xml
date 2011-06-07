@@ -30,6 +30,7 @@
 		<module>proto-profiler</module>
 		<module>proto-test-client</module>
 		<module>proto-test-data</module>
+        <module>proto-unisson</module>
 	</modules>
 
 	<build>

@@ -10,12 +10,14 @@ import scala.collection.mutable.Map
  * so that an aggregation function like min can use this data if necessary
  */
 class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                 aggregationConstructorFunction : (Key, AggregationValue) => Result)
+    aggregationConstructorFunction : (Key, AggregationValue) => Result)
     extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
-    //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
+
+    //TODO Evaluate cost of wrapping java.iterabel in scala iterable
 
     import com.google.common.collect.HashMultiset;
-    var groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
+
+    var groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain,AggregationValue], Result)]()
 
     lazyInitialize
     initialized = true
@@ -53,6 +55,7 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
     }
 
     protected def materialized_size : Int = groups.size
+
     protected def materialized_singletonValue : Option[Result] =
         {
             if (size != 1)
@@ -62,6 +65,19 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
         }
 
     source.addObserver(this)
+
+    // TODO try giving a more efficient implementation
+    protected def materialized_contains(v: Result) =
+    {
+        var contained = false
+        groups.foreach( g =>
+            {
+                if( g._2._4 == v)
+                    contained = true
+            }
+        )
+        contained
+    }
 
     def updated(oldV : Domain, newV : Domain) {
         val oldKey = groupFunction(oldV)
@@ -126,4 +142,5 @@ class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, R
             element_added(res)
         }
     }
+
 }
