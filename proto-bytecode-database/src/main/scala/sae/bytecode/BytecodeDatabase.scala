@@ -197,15 +197,20 @@ class BytecodeDatabase
     }
 
     def getAddClassFileFunction() = {
-        val addReader = new BytecodeReader(classAdder)
+        
         //addReader.readClassFile(file)
-        val f = (x : File) => {addReader.readClassFile(x)}
+        val f = (x : File) => {
+            val addReader = new BytecodeReader(classAdder)
+            addReader.readClassFile(x)}
         f
     }
     
     def getRemoveClassFileFunction()= {
-        val removeReader = new BytecodeReader(classRemover)
-        val f = (x : File) => removeReader.readClassFile(x)
+        
+        val f = (x : File) => {
+            val removeReader = new BytecodeReader(classRemover)
+            removeReader.readClassFile(x)
+        }
         f
     }
   
