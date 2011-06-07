@@ -100,7 +100,7 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
         val op = new TestObserver()
         db.classfiles.addObserver(op)
         //reader.foreach(println _)
-        replay.foreach(db.processEventSet _)
+        replay.processAllEventSets(db.getAddClassFileFunction, db.getRemoveClassFileFunction)
         assertTrue(op.state == 11)
 
     }

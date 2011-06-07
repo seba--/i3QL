@@ -8,8 +8,8 @@ import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
-import de.tud.cs.st.lyrebird.replayframework._
 import sae.reader.BytecodeReader
+import java.io.File
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
@@ -193,26 +193,18 @@ class BytecodeDatabase
         reader.readArchive(stream)
     }
 
-
-    /**
-     * read an event set of class files that were removed and added
-     */
-    def processEventSet(event: EventSet) {
+    def getAddClassFileFunction() = {
         val addReader = new BytecodeReader(classAdder)
-        val removeReader = new BytecodeReader(classRemover)
-        event.eventFiles.foreach(x => {
-            x match {
-                case Event(EventType.ADDED, _, _, file, _) => addReader.readClassFile(file)
-                case Event(EventType.REMOVED, _, _, file, Some(prev)) =>
-                    if( prev.eventType != EventType.REMOVED) { removeReader.readClassFile(prev.eventFile) }
-                case Event(EventType.REMOVED, _, _, file, None) => // do nothing
-                case Event(EventType.CHANGED, _, _, file, _) => {
-                    removeReader.readClassFile(file) //TODO old file
-                    addReader.readClassFile(file)
-                }
-            }
-        })
-
+        //addReader.readClassFile(file)
+        val f = (x : File) => {addReader.readClassFile(x)}
+        f
     }
+    
+    def getRemoveClassFileFunction()= {
+        val removeReader = new BytecodeReader(classRemover)
+        val f = (x : File) => removeReader.readClassFile(x)
+        f
+    }
+  
 
 }

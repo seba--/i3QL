@@ -8,14 +8,12 @@ import sae.collections._
 import sae.collections.Conversions._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
-import de.tud.cs.st.lyrebird.replayframework.EventSet
-
 
 /**
  * Convenience database that materializes all queries as a result.
  */
 class MaterializedDatabase {
-    
+
     private val db : BytecodeDatabase = new BytecodeDatabase()
 
     val classfiles : QueryResult[ObjectType] = db.classfiles
@@ -34,17 +32,17 @@ class MaterializedDatabase {
 
     val `extends` : QueryResult[`extends`] = db.`extends`
 
-    val implements: QueryResult[implements] = db.implements
+    val implements : QueryResult[implements] = db.implements
 
     val field_type : QueryResult[field_type] = db.field_type
 
-    val parameter: QueryResult[parameter] = db.parameter
+    val parameter : QueryResult[parameter] = db.parameter
 
-    val return_type: QueryResult[return_type] = db.return_type
+    val return_type : QueryResult[return_type] = db.return_type
 
-    val write_field: QueryResult[write_field] = db.write_field
+    val write_field : QueryResult[write_field] = db.write_field
 
-    val read_field: QueryResult[read_field] = db.read_field
+    val read_field : QueryResult[read_field] = db.read_field
 
     val calls : QueryResult[calls] = db.calls
 
@@ -69,8 +67,12 @@ class MaterializedDatabase {
     def addArchiveStream(stream : java.io.InputStream) : Unit =
         db.addArchiveStream(stream)
 
-    /**
-     *
-     */
-    def processEventSet(eventSet: EventSet) : Unit = db.processEventSet(eventSet)
+    def getAddClassFileFunction() = {
+        db.getAddClassFileFunction
+    }
+
+    def getRemoveClassFileFunction() = {
+        db.getRemoveClassFileFunction
+    }
+
 }
