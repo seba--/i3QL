@@ -4,7 +4,8 @@ import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.dependencies.{create, parameter, invoke_interface, Dependency}
-import unisson.{EnsembleDefinition, SourceElement, Queries}
+import unisson.EnsembleDefinition
+import unisson.Queries._
 
 /**
  *
@@ -13,41 +14,11 @@ import unisson.{EnsembleDefinition, SourceElement, Queries}
  *
  */
 
-class action_sad(val db: BytecodeDatabase) extends EnsembleDefinition
+class action_sad(db: BytecodeDatabase)
+    extends hibernate_3_6_ensemble_definitions(db)
+    with EnsembleDefinition
 {
-    val queries = new Queries(db)
 
-    import queries._
-
-    val `org.hibernate.event` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.event.def") ∪
-        `package`("org.hibernate.event")
-
-    val lock: QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.dialect.lock")
-
-    val `org.hibernate.action` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.action")
-
-    val HQL: QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.hql") ∪
-        `package`("org.hibernate.hql.antlr") ∪
-        `package`("org.hibernate.hql.ast") ∪
-        `package`("org.hibernate.hql.ast.exec") ∪
-        `package`("org.hibernate.hql.ast.tree")
-
-    val `org.hibernate.engine` : QueryResult[SourceElement[AnyRef]] =
-        (
-        `package`("org.hibernate.engine")
-                ∖ class_with_members("org.hibernate.engine.SessionImplementor")
-                ∖ class_with_members("org.hibernate.engine.SessionFactoryImplementor")
-        ) ∪
-        `package`("org.hibernate.engine.profile") ∪
-        `package`("org.hibernate.engine.jdbc") ∪
-        `package`("org.hibernate.engine.transaction") ∪
-        `package`("org.hibernate.engine.query") ∪
-        `package`("org.hibernate.engine.query.sql") ∪
-        `package`("org.hibernate.engine.loading")
 
     val dep1 = db.create.∪[Dependency[_, _], invoke_interface]( db.invoke_interface )
 

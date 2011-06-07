@@ -38,11 +38,16 @@ class Queries( val db : BytecodeDatabase )
             Π[Field, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:Field)) } (σ{ (_:Field).declaringClass == ObjectType(fromJava(qualifiedClass)) }(db.classfile_fields))
         )
 
+    def class_with_members(packageName : String, className : String) : LazyView[SourceElement[AnyRef]] = class_with_members(packageName + "." + className)
 
+    private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
+}
+
+
+object Queries
+{
     def source(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.source.asInstanceOf[AnyRef])
 
     def target(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.target.asInstanceOf[AnyRef])
 
-
-    private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
 }

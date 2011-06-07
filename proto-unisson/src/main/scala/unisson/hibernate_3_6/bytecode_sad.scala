@@ -3,8 +3,9 @@ package unisson.hibernate_3_6
 import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model.dependencies.invoke_interface
-import unisson.{EnsembleDefinition, SourceElement, Queries}
+import sae.bytecode.model.dependencies.{invoke_interface}
+import unisson.EnsembleDefinition
+import unisson.Queries._
 
 /**
  *
@@ -13,38 +14,10 @@ import unisson.{EnsembleDefinition, SourceElement, Queries}
  *
  */
 
-class bytecode_sad(val db: BytecodeDatabase) extends EnsembleDefinition
+class bytecode_sad(db: BytecodeDatabase)
+    extends hibernate_3_6_ensemble_definitions(db)
+    with EnsembleDefinition
 {
-    val queries = new Queries(db)
-
-    import queries._
-
-    val `org.hibernate.intercept` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.intercept") ∪
-                `package`("org.hibernate.intercept.cglib") ∪
-                `package`("org.hibernate.intercept.javassist")
-
-
-    val `org.hibernate.bytecode` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.bytecode.cglib") ∪
-                `package`("org.hibernate.bytecode.buildtime") ∪
-                `package`("org.hibernate.bytecode.util") ∪
-                `package`("org.hibernate.bytecode.javassist") ∪
-                `package`("org.hibernate.bytecode")
-
-
-    val `org.hibernate.tool` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.tool") ∪
-                `package`("org.hibernate.tool.hbm2ddl") ∪
-                `package`("org.hibernate.tool.instrument") ∪
-                `package`("org.hibernate.tool.instrument.cglib") ∪
-                `package`("org.hibernate.tool.instrument.javassist")
-
-    val `org.hibernate.tuple` : QueryResult[SourceElement[AnyRef]] =
-        `package`("org.hibernate.tuple.component") ∪
-                `package`("org.hibernate.tuple") ∪
-                `package`("org.hibernate.tuple.entity")
-
 
     // element checks declared as values so the functions are created once and not one function for each application inside the selection
     val inBytecode = ∈(`org.hibernate.bytecode`)
