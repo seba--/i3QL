@@ -48,8 +48,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
     def ⋈[OtherDomain <: AnyRef, Result <: AnyRef](
         rightKey: OtherDomain => Range,
         otherRelation: LazyView[OtherDomain]
-    )
-                (factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
+    )(factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftFunction, rightKey, factory)
 
 }

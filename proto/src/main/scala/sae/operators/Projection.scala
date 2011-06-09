@@ -172,7 +172,7 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
 
     def lazyInitialize
     {
-        relation.lazyInitialize
+
     }
 
     def lazy_foreach[T](f: (Range) => T)
