@@ -1,6 +1,7 @@
 package sae.operators
 import sae.operators.intern._
 
+// TODO comment on the functions
 object CreateAggregationFunctionContainer {
 
     implicit def AggregationFunctionsZipper1[Domain <: AnyRef, Value1 <: Any](t : (NotSelfMaintainalbeAggregationFunctionFactory[Domain, Value1])) : NotSelfMaintainalbeAggregationFunctionFactory[Domain, Value1] = {

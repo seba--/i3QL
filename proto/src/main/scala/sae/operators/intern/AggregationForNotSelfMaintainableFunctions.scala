@@ -9,7 +9,7 @@ import scala.collection.mutable.Map
  * an implementaion of Aggregation that saves for all groups the corresponding domain entries.
  * so that an aggregation function like min can use this data if necessary
  */
-class AggregationIntern[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
     aggregationConstructorFunction : (Key, AggregationValue) => Result)
     extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
 

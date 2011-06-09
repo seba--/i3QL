@@ -196,7 +196,7 @@ object RelationalAlgebraSyntax
             aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
             aggragationConstructorFunc: (Key, AggregationValue) => Result
         ): Aggregation[Domain, Key, AggregationValue, Result] =
-            new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
+            new AggregationForNotSelfMaintainableFunctions(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
 
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
@@ -211,7 +211,7 @@ object RelationalAlgebraSyntax
             source: LazyView[Domain],
             aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]
         ) =
-            new AggregationIntern(source, (x: Any) => "a", aggregationFuncFactory, (
+            new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregationFuncFactory, (
                 x: Any,
                 y: AggregationValue
             ) => Some(y))
