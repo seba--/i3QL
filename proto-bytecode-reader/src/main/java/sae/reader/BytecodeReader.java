@@ -102,7 +102,7 @@ public class BytecodeReader {
 		//factProcessor.processAllFacts();
 	}
 
-	private void readClassFile(InputStream stream) throws IOException {
+	public void readClassFile(InputStream stream) throws IOException {
 		DataInputStream dataInputStream = new DataInputStream(stream);
 		ClassFile classFile = (ClassFile) Java6Reader
 				.ClassFile(dataInputStream);

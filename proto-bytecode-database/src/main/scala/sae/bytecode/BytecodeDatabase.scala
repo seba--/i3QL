@@ -3,6 +3,7 @@ package bytecode
 
 import sae.DefaultLazyView
 import sae.bytecode.model._
+import internal.unresolved_enclosing_method
 import sae.bytecode.model.instructions._
 import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
@@ -10,6 +11,8 @@ import sae.bytecode.transform._
 import de.tud.cs.st.bat._
 import de.tud.cs.st.lyrebird.replayframework._
 import sae.reader.BytecodeReader
+import java.io.InputStream
+
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
@@ -56,9 +59,41 @@ class BytecodeDatabase
 
     val implements: LazyView[implements] = new DefaultLazyView[implements]
 
-    lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
+    // inner classes are added multiple times for each inner class, since the definition is repeated in the classfiles
+    private val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]
 
-    // Π( (f:Field) => new field_type(f, f.fieldType.asObjectType) )( σ((_: Field).fieldType.isObjectType)(fields) )
+    private val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
+
+    lazy val inner_classes: LazyView[inner_class] =
+        Π( // the directly encoded inner classes have their outer type set
+                (entry : InnerClassesEntry) =>
+                    new inner_class(
+                        entry.outerClassType,
+                        entry.innerClassType,
+                        true,
+                        if(entry.innerName eq null) { None } else {Some(entry.innerName)})
+        ) ( σ(  (_:InnerClassesEntry).outerClassType ne null )( δ (internal_inner_classes) ) ) ∪
+        (
+            ((
+                // all inner classes without explicit outer class
+                σ(  (_:InnerClassesEntry).outerClassType eq null )( δ (internal_inner_classes) ),
+                (entry : InnerClassesEntry) => entry.innerClassType
+            ) ⋈ ( // for complete data, i.e. is it an inner class and is it named we need a join
+                // outer determined by enclosing method
+                (_ : unresolved_enclosing_method).innerClass,
+                    internal_enclosing_methods
+            )) {
+                    (entry : InnerClassesEntry, enc : unresolved_enclosing_method) =>
+                        new inner_class(
+                            enc.declaringClass,
+                            enc.innerClass,
+                            false,
+                            if(entry.innerName eq null) {None} else {Some(entry.innerName)}
+                        )
+            }
+        )
+
+    lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
@@ -143,7 +178,7 @@ class BytecodeDatabase
         )
 
 
-    def classAdder = new Java6ClassTransformer(
+    private def classAdder = new Java6ClassTransformer(
         classfiles.element_added,
         classfile_methods.element_added,
         classfile_fields.element_added,
@@ -153,11 +188,13 @@ class BytecodeDatabase
         instructions.element_added,
         `extends`.element_added,
         implements.element_added,
-        parameter.element_added
+        parameter.element_added,
+        internal_inner_classes.element_added,
+        internal_enclosing_methods.element_added
     )
 
 
-    def classRemover = new Java6ClassTransformer(
+    private def classRemover = new Java6ClassTransformer(
         classfiles.element_removed,
         classfile_methods.element_removed,
         classfile_fields.element_removed,
@@ -167,8 +204,72 @@ class BytecodeDatabase
         instructions.element_removed,
         `extends`.element_removed,
         implements.element_removed,
-        parameter.element_removed
+        parameter.element_removed,
+        internal_inner_classes.element_removed,
+        internal_enclosing_methods.element_removed
     )
+
+
+    /**
+     * Read a stream as a jar file and return the appropriate transformer
+     */
+    def transformerForArchiveStream(stream : InputStream) = {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        reader.readArchive(stream)
+        transformer
+    }
+
+    /**
+     * Convenience method that opens a stream from a resource in the class path
+     */
+    def transformerForArchiveResource(name: String) : Java6ClassTransformer = {
+        val stream = this.getClass.getClassLoader.getResourceAsStream(name)
+        transformerForArchiveStream(stream)
+    }
+
+    /**
+     * Read a stream as a single .class file and return the appropriate transformer
+     */
+    def transformerForClassfileStream(stream : InputStream) = {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        reader.readClassFile(stream)
+        transformer
+    }
+
+    /**
+     * Read from a list of .class file streams and return the appropriate transformer
+     */
+    def transformerForClassfileStreams(streams : Seq[InputStream]) = {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        streams.foreach(reader.readClassFile(_))
+        transformer
+    }
+
+    def transformerForClassfileResources(names: Seq[String]) : Java6ClassTransformer = {
+        val streams = names.map( this.getClass.getClassLoader.getResourceAsStream(_) )
+        transformerForClassfileStreams(streams)
+    }
+
+    /**
+     * Convenience method that opens a stream from a given loaded class
+     */
+    def transformerForClass[T](clazz: Class[T]) : Java6ClassTransformer = {
+        val name = clazz.getName.replace(".", "/") + ".class"
+        val stream = clazz.getClassLoader.getResourceAsStream(name)
+        transformerForClassfileStream(stream)
+    }
+
+    /**
+     * Convenience method that opens a stream from a given loaded class
+     */
+    def transformerForClasses(classes: Array[Class[_]]) : Java6ClassTransformer = {
+        val streams = classes.map( (clazz:Class[_]) => (clazz.getClassLoader.getResourceAsStream(clazz.getName.replace(".", "/") + ".class")) )
+        transformerForClassfileStreams(streams)
+    }
+
 
     /**
      * Convenience method that opens a stream from a resource in the class path
@@ -176,21 +277,12 @@ class BytecodeDatabase
     def addArchiveAsResource(name: String) {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
-        val stream = this.getClass().getClassLoader().getResourceAsStream(name)
+        val stream = this.getClass.getClassLoader.getResourceAsStream(name)
         reader.readArchive(stream)
-        transformer.processAllFacts
+        transformer.processAllFacts()
     }
 
-    /**
-     * Convenience method that opens a stream from a resource in the class path
-     */
-    def transformerForArchiveResource(name: String) : Java6ClassTransformer = {
-        val transformer = classAdder
-        val reader = new BytecodeReader(transformer)
-        val stream = this.getClass().getClassLoader().getResourceAsStream(name)
-        reader.readArchive(stream)
-        transformer
-    }
+
 
     /**
      * Convenience method that opens a stream from a file in the file system
@@ -199,7 +291,7 @@ class BytecodeDatabase
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readArchive(new java.io.File(name))
-        transformer.processAllFacts
+        transformer.processAllFacts()
     }
 
     /**
@@ -210,7 +302,7 @@ class BytecodeDatabase
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
-        transformer.processAllFacts
+        transformer.processAllFacts()
     }
 
 
@@ -227,18 +319,18 @@ class BytecodeDatabase
                 case Event(EventType.ADDED, _, _, file, _) =>
                 {
                     addReader.readClassFile(file)
-                    addTransformer.processAllFacts
+                    addTransformer.processAllFacts()
                 }
                 case Event(EventType.REMOVED, _, _, file, Some(prev)) if( prev.eventType != EventType.REMOVED) =>
                 {
                     removeReader.readClassFile(prev.eventFile)
-                    removeTransformer.processAllFacts
+                    removeTransformer.processAllFacts()
                 }
                 case Event(EventType.CHANGED, _, _, file, _) => {
                     removeReader.readClassFile(file) //TODO old file
-                    removeTransformer.processAllFacts
+                    removeTransformer.processAllFacts()
                     addReader.readClassFile(file)
-                    addTransformer.processAllFacts
+                    addTransformer.processAllFacts()
                 }
                 case _ => // do nothing
             }
