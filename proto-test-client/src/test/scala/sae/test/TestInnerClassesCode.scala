@@ -79,6 +79,7 @@ class TestInnerClassesCode
                 Some("MyInnerPrinter")
             )
         )
-        assertEquals(expected, result)
+        assertEquals(expected.size, result.size)
+        assertTrue( expected.forall( result.contains(_) ) && result.forall( expected.contains(_)) )
     }
 }
