@@ -28,10 +28,10 @@ class SetDuplicateElimination[Domain <: AnyRef](
 
     relation addObserver this
 
-    def materialized_foreach[U](f : Domain => U) : Unit =
-        {
-            val it : java.util.Iterator[Domain] = data.iterator()
-            while (it.hasNext()) {
+    def materialized_foreach[U](f : Domain => U)
+    {
+            val it : java.util.Iterator[Domain] = data.elementSet().iterator()
+            while (it.hasNext) {
                 f(it.next())
             }
         }
@@ -53,12 +53,14 @@ class SetDuplicateElimination[Domain <: AnyRef](
         data.contains(v)
 
 
-    def lazyInitialize() : Unit =
-        relation.lazy_foreach(t =>
-            {
+    def lazyInitialize
+    {
+        relation.lazy_foreach(
+                t => {
                 data.add(t)
             }
         )
+    }
 
     /**
      * We use a generalized bag semantics, thus this method
@@ -69,7 +71,7 @@ class SetDuplicateElimination[Domain <: AnyRef](
         {
             val result = data.count(v) == 0
             data.add(v)
-            return result
+            result
         }
 
     /**
@@ -81,12 +83,12 @@ class SetDuplicateElimination[Domain <: AnyRef](
     private def remove_element(v : Domain) : Boolean =
         {
             data.remove(v)
-            return data.count(v) == 0
+            data.count(v) == 0
         }
 
     // update operations
-    def updated(oldV : Domain, newV : Domain) : Unit =
-        {
+    def updated(oldV : Domain, newV : Domain)
+    {
             if (oldV equals newV)
                 return ;
             if (remove_element(oldV)) {
@@ -98,15 +100,15 @@ class SetDuplicateElimination[Domain <: AnyRef](
 
         }
 
-    def removed(v : Domain) : Unit =
-        {
+    def removed(v : Domain)
+    {
             if (remove_element(v)) {
                 element_removed(v)
             }
         }
 
-    def added(v : Domain) : Unit =
-        {
+    def added(v : Domain)
+    {
             if (add_element(v)) {
                 element_added(v)
             }
