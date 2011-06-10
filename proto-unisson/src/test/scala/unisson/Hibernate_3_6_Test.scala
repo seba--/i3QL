@@ -29,9 +29,28 @@ class Hibernate_3_6_Test
 
         val SessionFactoryImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "SessionFactoryImpl")
 
-        database.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
+        val AbstractSessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "AbstractSessionImpl")
 
-        assertEquals(29, SessionFactory.size)
+        val SessionFactoryStub : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.jmx", "SessionFactoryStub")
+
+        val SessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "SessionImpl")
+
+        val Session : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "Session")
+
+        val ClassicSession : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.classic", "Session")
+
+        val StatelessSessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "StatelessSessionImpl")
+
+        val SessionImplementor : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.engine", "SessionImplementor")
+
+        val SessionFactoryImplementor : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.engine", "SessionFactoryImplementor")
+
+        val SessionFactoryObserver : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "SessionFactoryObserver")
+
+        val StatelessSession : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "StatelessSession")
+
+
+        database.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
 
         /*
         val impl = SessionFactoryImpl.asList.sortBy{
@@ -41,8 +60,20 @@ class Hibernate_3_6_Test
         }
         impl.foreach(println)
         */
-
+        assertEquals(29, SessionFactory.size)
         assertEquals(156, SessionFactoryImpl.size)
+        assertEquals(17, AbstractSessionImpl.size)
+        assertEquals(40, SessionFactoryStub.size)
+        assertEquals(257, SessionImpl.size)
+        assertEquals(92, Session.size)
+        assertEquals(23, ClassicSession.size)
+        assertEquals(92, StatelessSessionImpl.size)
+        assertEquals(57, SessionImplementor.size)
+        assertEquals(32, SessionFactoryImplementor.size)
+        assertEquals(3, SessionFactoryObserver.size)
+        assertEquals(26, StatelessSession.size)
+
+
     }
 
     @Test
@@ -86,14 +117,12 @@ class Hibernate_3_6_Test
         assertEquals(275, `org.hibernate.tool`.size) // findall :- 275
         assertEquals(649, `org.hibernate.tuple`.size) // findall :- 650
 
-        // FIXME not correct probably requires inner classes
-        //assertEquals(493, GlobalSettings.size) // findall :- 494
+
+        assertEquals(658, GlobalSettings.size) // findall :- 665
         assertEquals(75, lock.size) // findall :- 839
         assertEquals(2315, HQL.size) // findall :- 2329
-        // FIXME not correct probably requires inner classes (currently 2031)
-        // assertEquals(2518, Metamodel_Configurator.size) // findall :- 2537
-        //  FIXME not correct probably requires inner classes (currently 761)
-        //assertEquals(763, Session.size) // findall :- 766
+        assertEquals(1864, Metamodel_Configurator.size) // findall :- 1908
+        assertEquals(824, Session.size) // findall :- 834
 
     }
 

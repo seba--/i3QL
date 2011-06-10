@@ -55,8 +55,8 @@ class Queries( val db : BytecodeDatabase )
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
     val direct_class_members : LazyView[class_member[AnyRef]] =
-        Π{ ( (m : Method) =>  new class_member[AnyRef](m.declaringRef, new SourceElement[AnyRef]( m ) )) }(db.methods) ∪
-        Π{ ( (f : Field) =>  new class_member[AnyRef](f.declaringClass, new SourceElement[AnyRef]( f ) )) }(db.fields) ∪
+        Π{ ( (m : Method) =>  new class_member[AnyRef](m.declaringRef, new SourceElement[AnyRef]( m ) )) }(db.classfile_methods) ∪
+        Π{ ( (f : Field) =>  new class_member[AnyRef](f.declaringClass, new SourceElement[AnyRef]( f ) )) }(db.classfile_fields) ∪
         Π( (inner:inner_class) => new class_member[AnyRef](inner.source, new SourceElement[AnyRef]( inner.target ) ) ) (db.inner_classes)
 
     val direct_inner_class_members =
@@ -64,10 +64,16 @@ class Queries( val db : BytecodeDatabase )
                 (db.inner_classes, (_ : inner_class).target.asReferenceType) ⋈ ( (_: class_member[AnyRef]).source ,direct_class_members)
         ){ (inner : inner_class, member: class_member[AnyRef]) => new class_member[AnyRef](inner.source, member.target) }
 
+    val direct_inner_inner_class_members =
+        (
+                (db.inner_classes, (_ : inner_class).target.asReferenceType) ⋈ ( (_: class_member[AnyRef]).source ,direct_inner_class_members)
+        ){ (inner : inner_class, member: class_member[AnyRef]) => new class_member[AnyRef](inner.source, member.target) }
+
     val class_members : LazyView[class_member[AnyRef]] =
         direct_class_members ∪
         // TODO make recursive/transitive
-        direct_inner_class_members
+        direct_inner_class_members ∪
+        direct_inner_inner_class_members
 
 
     def class_with_members(packageName : String, className : String) : LazyView[SourceElement[AnyRef]] = class_with_members(packageName + "." + className)

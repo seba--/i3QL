@@ -108,17 +108,17 @@ class hibernate_3_6_ensemble_definitions(val db : BytecodeDatabase)
 
 
     lazy val Metamodel_Configurator: QueryResult[SourceElement[AnyRef]] =
-        ((((`package`("org.hibernate.cfg") ∖ class_with_members("org.hibernate.cfg", "Settings")) ∖ class_with_members(
-            "org.hibernate.cfg",
-            "SettingsFactory"
-        )) ∖ class_with_members("org.hibernate.cfg", "Environment")) ∖ class_with_members(
-            "org.hibernate.cfg",
-            "Configuration"
-        )) ∪
-                `package`("org.hibernate.cfg.annotations") ∪
-                `package`("org.hibernate.cfg.annotations.reflection") ∪
-                `package`("org.hibernate.cfg.beanvalidation") ∪
-                `package`("org.hibernate.cfg.search")
+        (
+            `package`("org.hibernate.cfg")
+                    ∖ class_with_members("org.hibernate.cfg", "Settings")
+                    ∖ class_with_members("org.hibernate.cfg", "SettingsFactory")
+                    ∖ class_with_members("org.hibernate.cfg", "Environment")
+                    ∖ class_with_members("org.hibernate.cfg", "Configuration")
+        ) ∪
+            `package`("org.hibernate.cfg.annotations") ∪
+            `package`("org.hibernate.cfg.annotations.reflection") ∪
+            `package`("org.hibernate.cfg.beanvalidation") ∪
+            `package`("org.hibernate.cfg.search")
 
 
     lazy val Session: QueryResult[SourceElement[AnyRef]] =
