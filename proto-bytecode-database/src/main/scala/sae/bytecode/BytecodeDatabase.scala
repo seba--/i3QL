@@ -33,6 +33,9 @@ import java.io.InputStream
  */
 class BytecodeDatabase
 {
+    /**
+     * BEWARE INITIALIZATION ORDER OF FIELDS (scala compiler will not warn you)
+     */
 
     // TODO check whether classfiles and classfile methods can be declared 
     // as views in combination with a classfile_source(Class, File) table

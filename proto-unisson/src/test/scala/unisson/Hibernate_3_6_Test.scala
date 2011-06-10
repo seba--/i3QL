@@ -5,6 +5,8 @@ import org.junit.Test
 import org.junit.Assert._
 import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
+import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model.{Method, Field}
 
 /**
  *
@@ -31,8 +33,16 @@ class Hibernate_3_6_Test
 
         assertEquals(29, SessionFactory.size)
 
-        // FIXME not correct probably requires inner classes
-        // assertEquals(135, SessionFactoryImpl.size)
+        /*
+        val impl = SessionFactoryImpl.asList.sortBy{
+            case SourceElement( ObjectType(name) ) => "1" + name
+            case SourceElement( Field(ObjectType(cls), name, _) ) => "2" + cls + name
+            case SourceElement( Method(ObjectType(cls), name, _, _) ) => "3" + cls + name
+        }
+        impl.foreach(println)
+        */
+
+        assertEquals(156, SessionFactoryImpl.size)
     }
 
     @Test
@@ -67,8 +77,7 @@ class Hibernate_3_6_Test
         assertEquals(186, `org.hibernate.action`.size) // findall :- 188
         assertEquals(410, `org.hibernate.bytecode`.size) // findall :- 416
         assertEquals(554, `org.hibernate.cache`.size) // findall :- 554
-        // FIXME not correct probably requires inner classes
-        //assertEquals(1655, `org.hibernate.engine`.size) // findall :- 1688
+        assertEquals(1655, `org.hibernate.engine`.size) // findall :- 1688
         assertEquals(836, `org.hibernate.event`.size) // findall :- 839
         assertEquals(91, `org.hibernate.intercept`.size) // findall :- 92
         assertEquals(879, `org.hibernate.loader`.size) // findall :- 881
@@ -78,12 +87,12 @@ class Hibernate_3_6_Test
         assertEquals(649, `org.hibernate.tuple`.size) // findall :- 650
 
         // FIXME not correct probably requires inner classes
-        // assertEquals(493, GlobalSettings.size) // findall :- 494
+        //assertEquals(493, GlobalSettings.size) // findall :- 494
         assertEquals(75, lock.size) // findall :- 839
         assertEquals(2315, HQL.size) // findall :- 2329
-        // FIXME not correct probably requires inner classes
-        //assertEquals(2518, Metamodel_Configurator.size) // findall :- 2537
-        // FIXME not correct probably requires inner classes
+        // FIXME not correct probably requires inner classes (currently 2031)
+        // assertEquals(2518, Metamodel_Configurator.size) // findall :- 2537
+        //  FIXME not correct probably requires inner classes (currently 761)
         //assertEquals(763, Session.size) // findall :- 766
 
     }
