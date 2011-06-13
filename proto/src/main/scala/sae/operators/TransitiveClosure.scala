@@ -2,6 +2,9 @@ package sae.operators
 
 import sae.{Observer, LazyView}
 import util.control.Breaks
+import collection.immutable.Range.Inclusive
+import sae.collections.HashMultiMap
+import com.sun.corba.se.spi.servicecontext.ServiceContextData
 
 
 /**
@@ -17,22 +20,32 @@ trait TransitiveClosure[Domain <: AnyRef, Vertex <: AnyRef] extends LazyView[(Ve
 
 /**
  * Algorithm for:
- * incremental view maintenance for transitive close of ACYCLIC graphs
+ * incremental view maintenance for transitive closure of ACYCLIC graphs
  * the algorithm is based on
  * Dong and Su Sigmod 2000 44-50
  *
  */
-class HashTransitiveClosure[Domain <: AnyRef, Vertex <: AnyRef](val source: LazyView[Domain],
-                                                                val startVertex: Domain => Vertex,
-                                                                val endVertex: Domain => Vertex) extends TransitiveClosure[Domain, Vertex] with Observer[Domain] {
+class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyView[Edge],
+                                                                val startVertex: Edge => Vertex,
+                                                                val endVertex: Edge => Vertex) extends TransitiveClosure[Edge, Vertex] with Observer[Edge] {
   //import scala.collection.mutable.Map
 
   import com.google.common.collect._
   import scala.collection.JavaConversions._
 
+
+  //all not derived Edges = (Vertex,Vertex)
   val graph = HashMultimap.create[Vertex, Vertex]()
-  val startPoints = HashMultimap.create[Vertex, Vertex]()
-  val endPoints = HashMultimap.create[Vertex, Vertex]()
+
+  // TransitiveClosure saved as: Adjacency Hashmultimap
+  //    e1 = (Key1, Value1), e2 = (Key1,Value2) ..., ei=(Key2,Value1), ei+1= (key2,Value2) ....   en = (Keyk, ValueN)
+  // Key = a Vertex (tail of the edge)
+  // Value = all adjacent Vertexes to the key Vertex (head of the edge)
+  val tailHeadAdjacencyList = HashMultimap.create[Vertex, Vertex]()
+  // reversed TransitiveClosure saved as: Adjacency hashmultimap
+  // Key = a Vertex   (head of the edge)
+  // Value = all adjacent Vertexes to the key Vertex (tail of the edge)
+  val headTailAdjacencyList = HashMultimap.create[Vertex, Vertex]()
 
   source addObserver this
 
@@ -40,96 +53,146 @@ class HashTransitiveClosure[Domain <: AnyRef, Vertex <: AnyRef](val source: Lazy
 
   def lazy_foreach[T](f: ((Vertex, Vertex)) => T) = null
 
-  def added(edge: Domain) {
+  def added(edge: Edge) {
     if (graph.put(startVertex(edge), endVertex(edge))) {
-
-      if (startPoints.put(startVertex(edge), endVertex(edge)) &&
-        endPoints.put(endVertex(edge), startVertex(edge)))
+      if (tailHeadAdjacencyList.put(startVertex(edge), endVertex(edge)) &&
+        headTailAdjacencyList.put(endVertex(edge), startVertex(edge)))
         element_added((startVertex(edge), endVertex(edge)))
     }
     //Step 1
-    endPoints.get(startVertex(edge)).foreach((x: Vertex) => {
+    headTailAdjacencyList.get(startVertex(edge)).foreach((x: Vertex) => {
       // the Vertex x has an outgoing Edge e = (x,endVertex(edge))
-      if (startPoints.put(x, endVertex(edge)) && endPoints.put(endVertex(edge), x))
+      if (tailHeadAdjacencyList.put(x, endVertex(edge)) && headTailAdjacencyList.put(endVertex(edge), x))
         element_added((x, endVertex(edge)))
     })
     //Step 2
-    startPoints.get(endVertex(edge)).foreach((x: Vertex) => {
+    tailHeadAdjacencyList.get(endVertex(edge)).foreach((x: Vertex) => {
       // the Vertex x has an incoming Edge e = (startVertex(edge),x)
-      if (startPoints.put(startVertex(edge), x) && endPoints.put(x, startVertex(edge))) //if (startPoints.put(startVertex(edge), x) && endPoints.put(endVertex(edge), x))
+      if (tailHeadAdjacencyList.put(startVertex(edge), x) && headTailAdjacencyList.put(x, startVertex(edge))) //if (startPoints.put(startVertex(edge), x) && endPoints.put(endVertex(edge), x))
         element_added((startVertex(edge), x))
     })
     //Step 3
-    endPoints.get(startVertex(edge)).foreach((x: Vertex) => {
-      startPoints.get(endVertex(edge)).foreach((y: Vertex) => {
-        if (startPoints.put(x, y) && endPoints.put(y, x))
+    headTailAdjacencyList.get(startVertex(edge)).foreach((x: Vertex) => {
+      tailHeadAdjacencyList.get(endVertex(edge)).foreach((y: Vertex) => {
+        if (tailHeadAdjacencyList.put(x, y) && headTailAdjacencyList.put(y, x))
           element_added((x, y))
       })
     })
   }
 
-  def removed(v: Domain) {
-    //val mybreak = new Breaks
-    //import mybreak.{break, breakable}
-    graph.remove(startVertex(v), endVertex(v))
-    //endPoints.remove(endVertex(v), startVertex(v))
-    //startPoints.remove(startVertex(v), endVertex(v))
+  def removed(e : Edge) {
+
+    graph.remove(startVertex(e), endVertex(e))
+
     import scala.collection.mutable.Set
-    val list = Set[(Vertex, Vertex)]()
-    list.add((startVertex(v), endVertex(v)))
-    endPoints.get(endVertex(v)).foreach((x: Vertex) => {
-      if (!graph.containsEntry(x, endVertex(v)))
-        list.add((x, endVertex(v)))
+    //set of all paths that maybe go through e
+    val edges = Set[(Vertex, Vertex)]()
+    edges.add((startVertex(e), endVertex(e)))
+
+    headTailAdjacencyList.get(endVertex(e)).foreach((x: Vertex) => {
+      if (!graph.containsEntry(x, endVertex(e)))
+        edges.add((x, endVertex(e)))
     })
-    startPoints.get(startVertex(v)).foreach((x: Vertex) => {
-      if (!graph.containsEntry(startVertex(v), x))
-        list.add((startVertex(v), x))
+    tailHeadAdjacencyList.get(startVertex(e)).foreach((x: Vertex) => {
+      if (!graph.containsEntry(startVertex(e), x))
+        edges.add((startVertex(e), x))
     })
 
-    endPoints.get(startVertex(v)).foreach((x: Vertex) => {
-      startPoints.get(endVertex(v)).foreach((y: Vertex) => {
+    headTailAdjacencyList.get(startVertex(e)).foreach((x: Vertex) => {
+      tailHeadAdjacencyList.get(endVertex(e)).foreach((y: Vertex) => {
         //println(x + " " + y)
-        list.add((x, y))
+        edges.add((x, y))
       })
     })
-    endPoints.remove(endVertex(v), startVertex(v))
-    startPoints.remove(startVertex(v), endVertex(v))
-    list.foreach(x => {
-      endPoints.remove(x._2, x._1)
-      startPoints.remove(x._1, x._2)
+
+    //remove all found edges
+    //creation of "T_ab" (see paper)
+    //we dont remove edges that are in Gnew
+    headTailAdjacencyList.remove(endVertex(e), startVertex(e))
+    tailHeadAdjacencyList.remove(startVertex(e), endVertex(e))
+    edges.foreach(x => {
+      headTailAdjacencyList.remove(x._2, x._1)
+      tailHeadAdjacencyList.remove(x._1, x._2)
     })
-    var putBack = List[(Vertex, Vertex)]()
-    list.foreach(x => {
-      startPoints.get(x._1).foreach((y: Vertex) => {
-        if (startPoints.containsEntry(y, x._2)) {
-          //println(x._1 + " " + y + " " + x._2)
-          putBack = (x._1, x._2) :: putBack
-        }
+
+    // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
+    for (i <- 1 to 2) {
+      var putBack = List[(Vertex, Vertex)]()
+      edges.foreach(x => {
+        tailHeadAdjacencyList.get(x._1).foreach((y: Vertex) => {
+          if (tailHeadAdjacencyList.containsEntry(y, x._2)) {
+
+            putBack = (x._1, x._2) :: putBack
+          }
+        })
       })
-    })
-    putBack.foreach(x => {
-      endPoints.put(x._2, x._1)
-      startPoints.put(x._1, x._2)
-      list.remove(x)
-    })
-    putBack = List[(Vertex, Vertex)]()
-    list.foreach(x => {
-      startPoints.get(x._1).foreach((y: Vertex) => {
-        if (startPoints.containsEntry(y, x._2)) {
-          //println(x._1 + " " + y + " " + x._2)
-          putBack = (x._1, x._2) :: putBack
-        }
+      putBack.foreach(x => {
+        headTailAdjacencyList.put(x._2, x._1)
+        tailHeadAdjacencyList.put(x._1, x._2)
+        edges.remove(x)
       })
+    }
+    // TC_old - TC_old
+    edges.foreach(x => {
+      element_removed(x._1, x._2)
     })
-    putBack.foreach(x => {
-      endPoints.put(x._2, x._1)
-      startPoints.put(x._1, x._2)
-      list.remove(x)
-    })
-    list.foreach(x => {
-      //if (!startPoints.containsEntry(x._1, x._2))
-        element_removed(x._1, x._2)
-    })
+
+  }
+
+  def updated(oldV: Edge, newV: Edge) {
+    //a direct update is not supported
+    removed(oldV)
+    added(newV)
+  }
+}
+
+/**
+ * Algorithm for:
+ * incremental view maintenance for transitive closure of ACYCLIC graphs
+ * the algorithm is based on
+ * Dong and Su Sigmod 2000 44-50
+ *
+ */
+/*class SQLTransitiveClosure[Domain <: AnyRef, Vertex <: AnyRef](val source: LazyView[Domain],
+                                                               val startVertex: Domain => Vertex,
+                                                               val endVertex: Domain => Vertex) extends TransitiveClosure[Domain, Vertex] with Observer[Domain] {
+  //import scala.collection.mutable.Map
+
+  import sae.collections.HashMultiMap
+
+  val startPoint = new HashMultiMap(source, startVertex)
+  val endPoint = new HashMultiMap(source, endVertex)
+
+
+  //source addObserver this
+  val addObs = new Observer[Domain] {
+    def added(edge: Domain) {
+      val first = startPoint.get(endVertex(edge))
+      val second = endPoint.get(startVertex(edge))
+      //val third =
+    }
+
+    def removed(v: Domain) {
+
+    }
+
+    def updated(oldV: Domain, newV: Domain) {
+      //a direct update is not supported
+      removed(oldV)
+      added(newV)
+    }
+  }
+
+  def lazyInitialize {}
+
+  def lazy_foreach[T](f: ((Vertex, Vertex)) => T) = null
+
+  def added(edge: Domain) {
+
+  }
+
+  def removed(v: Domain) {
+
 
   }
 
@@ -138,4 +201,4 @@ class HashTransitiveClosure[Domain <: AnyRef, Vertex <: AnyRef](val source: Lazy
     removed(oldV)
     added(newV)
   }
-}
+}   */
