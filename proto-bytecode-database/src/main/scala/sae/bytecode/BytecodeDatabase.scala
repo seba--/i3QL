@@ -9,9 +9,8 @@ import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
-import de.tud.cs.st.lyrebird.replayframework._
 import sae.reader.BytecodeReader
-import java.io.InputStream
+import java.io.{File, InputStream}
 
 /**
  *  extends(Class1, Class2)
@@ -308,37 +307,28 @@ class BytecodeDatabase
         transformer.processAllFacts()
     }
 
-
-    /**
-     * read an event set of class files that were removed and added
-     */
-    def processEventSet(event: EventSet) {
-        val addTransformer = classAdder
-        val removeTransformer = classRemover
-        val addReader = new BytecodeReader(addTransformer)
-        val removeReader = new BytecodeReader(removeTransformer)
-        event.eventFiles.foreach(x => {
-            x match {
-                case Event(EventType.ADDED, _, _, file, _) =>
-                {
-                    addReader.readClassFile(file)
-                    addTransformer.processAllFacts()
-                }
-                case Event(EventType.REMOVED, _, _, file, Some(prev)) if( prev.eventType != EventType.REMOVED) =>
-                {
-                    removeReader.readClassFile(prev.eventFile)
-                    removeTransformer.processAllFacts()
-                }
-                case Event(EventType.CHANGED, _, _, file, _) => {
-                    removeReader.readClassFile(file) //TODO old file
-                    removeTransformer.processAllFacts()
-                    addReader.readClassFile(file)
-                    addTransformer.processAllFacts()
-                }
-                case _ => // do nothing
-            }
-        })
-
+    def getAddClassFileFunction: (File) => Unit = {
+        
+        //addReader.readClassFile(file)
+        val f = (x : File) => {
+            val transformer = classAdder
+            val addReader = new BytecodeReader(transformer)
+            addReader.readClassFile(x)
+            transformer.processAllFacts()
+        }
+        f
     }
+    
+    def getRemoveClassFileFunction: (File) => Unit = {
+        
+        val f = (x : File) => {
+            val transformer = classRemover
+            val removeReader = new BytecodeReader(transformer)
+            removeReader.readClassFile(x)
+            transformer.processAllFacts()
+        }
+        f
+    }
+  
 
 }

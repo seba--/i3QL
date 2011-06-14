@@ -35,14 +35,16 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
 
          */
         var state = 0
-        def updated(oldV : ObjectType, newV : ObjectType) : Unit = {
+        def updated(oldV : ObjectType, newV : ObjectType)
+        {
             // for the time being we do not generate update events, but remove and add the classes
             state match {
                 case _ => fail()
             }
         }
 
-        def removed(v : ObjectType) : Unit = {
+        def removed(v : ObjectType)
+        {
             state match {
                 case 2 =>
                     assertTrue(v.toJava.toLowerCase.contains("main"))
@@ -63,7 +65,8 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
             }
         }
 
-        def added(v : ObjectType) : Unit = {
+        def added(v : ObjectType)
+        {
             state match {
                 case 0 =>
                     assertTrue(v.toJava.toLowerCase.contains("macosxadapter"))
@@ -93,14 +96,15 @@ class BytecodeChangeEventTest extends org.scalatest.junit.JUnitSuite {
 
 
     @Test
-    def processEventSets() : Unit = {
+    def processEventSets()
+    {
 
         //val reader = new ClassFileChangeEventReader(location)
         val replay = new de.tud.cs.st.lyrebird.replayframework.Replay(location)
         val op = new TestObserver()
         db.classfiles.addObserver(op)
         //reader.foreach(println _)
-        replay.foreach(db.processEventSet _)
+        replay.processAllEventSets(db.getAddClassFileFunction, db.getRemoveClassFileFunction)
         assertTrue(op.state == 11)
 
     }

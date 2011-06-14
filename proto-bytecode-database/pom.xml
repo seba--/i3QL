@@ -53,7 +53,7 @@
 			<artifactId>de.tud.cs.st.lyrebird.replayframework</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>jar</type>
-			<scope>compile</scope>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
