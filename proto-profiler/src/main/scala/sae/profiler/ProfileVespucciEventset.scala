@@ -22,20 +22,22 @@ import sae.functions.CalcSelfMaintable
 
 object ProfileVespucciEventset {
   var tmp: QueryResult[(ObjectType, ObjectType)] = null
-
+  var tmp2 : QueryResult[(ObjectType, Int)] = null
   //var tmp3 : ObserverList[(ReferenceType,Int,Int,Int)] = new ObserverList()
   //    var tmp3 : ObserverList[(ReferenceType, Option[Double])] = new ObserverList()
   //private val replay = new Replay(new File("./src/main/resources/VespucciEventSet"))
   def main(args: Array[String]): Unit = {
     //initial settings
-    val replayHelper = new ReplayHelper(new File("./src/main/resources/VespucciEventSet"))
+    //val replayHelper = new ReplayHelper(new File("./src/main/resources/VespucciEventSet"))
     //val replayHelper = new ReplayHelper(new File("./src/main/resources/Flashcards 0.3/bin"))
     //val replayHelper = new ReplayHelper(new File("./src/main/resources/testSet/bin"))
-    // val replayHelper = new ReplayHelper(new File("./src/main/resources/extendsSet/bin"))
+     val replayHelper = new ReplayHelper(new File("./src/main/resources/extendsSet/bin"))
     register(replayHelper.buffer)
 
     replayHelper.applyAll
      tmp.foreach(println _)
+     println("--")
+    tmp2.foreach(println _)
     //        println("--")
     //        tmp3.data.foreach(println _)
     //        println("--")
@@ -49,7 +51,8 @@ object ProfileVespucciEventset {
     registerFanOut(dbBuffer.parameter, dbBuffer.classfile_methods, dbBuffer.classfile_fields)
     registerFanIn(dbBuffer.parameter, dbBuffer.classfile_methods, dbBuffer.classfile_fields)
     registerLCOMStar(dbBuffer.read_field, dbBuffer.write_field, dbBuffer.classfile_methods, dbBuffer.classfile_fields)
-    registerExtendsCount(dbBuffer.`extends`)
+    tmp = registerExtends(dbBuffer.`extends`)
+    tmp2 = registerExtendsCount(dbBuffer.`extends`)
     //registerExtendsCount(dbBuffer.`extends`)
   }
 
@@ -122,10 +125,14 @@ object ProfileVespucciEventset {
   }
 
 
-  private def registerExtendsCount(extendz: LazyView[`extends`]) {
+  private def registerExtends(extendz: LazyView[`extends`]) = {
     val view = new HashTransitiveClosure(extendz, (x: `extends`) => x.source, (x: `extends`) => x.target)
-    tmp = view
-
+    view
+  }
+  private def registerExtendsCount(extendz: LazyView[`extends`]) = {
+    val view : LazyView[(ObjectType,ObjectType)] = new HashTransitiveClosure(extendz, (x: `extends`) => x.source, (x: `extends`) => x.target)
+    val res = Aggregation(view,(x : (ObjectType,ObjectType)) => x._1, Count[(ObjectType,ObjectType)](), (x : ObjectType, y : Int) => (x,y))
+    res
   }
 
 }

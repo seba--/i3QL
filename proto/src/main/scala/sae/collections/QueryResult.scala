@@ -10,9 +10,10 @@ package collections
  */
 trait QueryResult[V <: AnyRef]
         extends MaterializedView[V]
-        with Size
-        with SingletonValue[V]
-        with Listable[V] {
+                with Size
+                with SingletonValue[V]
+                with Listable[V]
+{
 
 }
 
@@ -20,34 +21,48 @@ trait QueryResult[V <: AnyRef]
  * A result that materializes all data from the underlying relation into a bag
  */
 class BagResult[V <: AnyRef](
-    val relation : LazyView[V])
+                                val relation: LazyView[V]
+                            )
         extends QueryResult[V]
-        with Bag[V]
-        with Observer[V] {
+                with Bag[V]
+                with Observer[V]
+{
 
     relation addObserver this
 
-    def lazyInitialize : Unit = {
-        relation.lazy_foreach(v =>
-            add_element(v)
+    def lazyInitialize
+    {
+        relation.lazy_foreach(
+                v =>
+                add_element(v)
         )
     }
 
-    def updated(oldV : V, newV : V) : Unit =
-        {
-            this -= oldV
-            this += newV
+    def updated(oldV: V, newV: V)
+    {
+        if (!initialized) {
+            initialized = true
+        }
+        this -= oldV
+        this += newV
+    }
+
+    def removed(v: V)
+    {
+        if (!initialized) {
+            initialized = true
         }
 
-    def removed(v : V) : Unit =
-        {
-            this -= v
-        }
+        this -= v
+    }
 
-    def added(v : V) : Unit =
-        {
-            this += v
+    def added(v: V)
+    {
+        if (!initialized) {
+            initialized = true
         }
+        this += v
+    }
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
 }
@@ -57,10 +72,13 @@ class BagResult[V <: AnyRef](
  * materialized.
  */
 class MaterializedViewProxyResult[V <: AnyRef](
-    val relation : MaterializedView[V])
-        extends QueryResult[V] {
+                                                  val relation: MaterializedView[V]
+                                              )
+        extends QueryResult[V]
+{
 
-    def lazyInitialize {  }
+    def lazyInitialize
+    {}
 
     protected def materialized_contains(v: V) = relation.contains(v)
 
@@ -68,7 +86,10 @@ class MaterializedViewProxyResult[V <: AnyRef](
 
     protected def materialized_size = relation.size
 
-    protected def materialized_foreach[T](f: (V) => T) = relation.foreach(f)
+    protected def materialized_foreach[T](f: (V) => T)
+    {
+        relation.foreach(f)
+    }
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
 }

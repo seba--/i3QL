@@ -20,7 +20,7 @@ import sae.operators.intern._
 
 trait Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef]
     extends LazyView[Result] {
-
+    // TODO declare values of Aggregation
 }
 
 
@@ -36,9 +36,9 @@ object Aggregation {
      * @param aggregationFuncFactory: a simple or complex aggregation function (factory)
      * @param aggregationConstructorFunction: (x : Result of grouping function, y : Result of Aggregation Function) => Aggregation return value
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                       aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] = {
-        new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue], aggregationConstructorFunction : (Key, AggregationValue) => Result) : Aggregation[Domain, Key, AggregationValue, Result] =
+    {
+        new AggregationForNotSelfMaintainableFunctions(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
     }
 
     def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source : LazyView[Domain], groupFunction : Domain => Key, aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
@@ -46,9 +46,9 @@ object Aggregation {
         new AggregationForSelfMaintainableAggregationFunctions(source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
     }
 
-    
+
     def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
-        new AggregationIntern(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
+        new AggregationForNotSelfMaintainableFunctions(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))
     }
     def apply[Domain <: AnyRef, AggregationValue <: Any](source : LazyView[Domain], aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
         new AggregationForSelfMaintainableAggregationFunctions(source, (x : Any) => "a", aggregationFuncFactory, (x : Any, y : AggregationValue) => Some(y))

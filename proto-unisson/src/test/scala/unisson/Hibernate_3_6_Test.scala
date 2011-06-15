@@ -1,11 +1,12 @@
 package unisson
 
-import sae.collections.QueryResult
+import hibernate_3_6.{hibernate_3_6_ensemble_definitions, cache_sad, bytecode_sad, action_sad}
 import org.junit.Test
 import org.junit.Assert._
 import sae.bytecode.BytecodeDatabase
-import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model.dependencies.{create, parameter, Dependency, invoke_interface}
+import sae.collections.QueryResult
+import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model.{Method, Field}
 
 /**
  *
@@ -16,183 +17,121 @@ import sae.bytecode.model.dependencies.{create, parameter, Dependency, invoke_in
 
 class Hibernate_3_6_Test
 {
-
-    class ensemble_definition(val db: BytecodeDatabase)
+    @Test
+    def test_class_with_members()
     {
-        val queries = new Queries(db)
-
+        val database = new BytecodeDatabase
+        val queries = new Queries(database)
         import queries._
+        import sae.syntax.RelationalAlgebraSyntax._
 
-        val `org.hibernate.event` : QueryResult[SourceElement[AnyRef]] =
-            `package`("org.hibernate.event.def") ∪
-                    `package`("org.hibernate.event")
+        val SessionFactory : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "SessionFactory")
 
-        val lock: QueryResult[SourceElement[AnyRef]] =
-            `package`("org.hibernate.dialect.lock")
+        val SessionFactoryImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "SessionFactoryImpl")
 
-        val `org.hibernate.action` : QueryResult[SourceElement[AnyRef]] =
-            `package`("org.hibernate.action")
+        val AbstractSessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "AbstractSessionImpl")
 
-        val HQL: QueryResult[SourceElement[AnyRef]] =
-            `package`("org.hibernate.hql") ∪
-                    `package`("org.hibernate.hql.antlr") ∪
-                    `package`("org.hibernate.hql.ast") ∪
-                    `package`("org.hibernate.hql.ast.exec") ∪
-                    `package`("org.hibernate.hql.ast.tree")
+        val SessionFactoryStub : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.jmx", "SessionFactoryStub")
 
-        val `org.hibernate.engine` : QueryResult[SourceElement[AnyRef]] =
-            (
-                    `package`("org.hibernate.engine")
-                            ∖ class_with_members("org.hibernate.engine.SessionImplementor")
-                            ∖ class_with_members("org.hibernate.engine.SessionFactoryImplementor")
-                    ) ∪
-                    `package`("org.hibernate.engine.profile") ∪
-                    `package`("org.hibernate.engine.jdbc") ∪
-                    `package`("org.hibernate.engine.transaction") ∪
-                    `package`("org.hibernate.engine.query") ∪
-                    `package`("org.hibernate.engine.query.sql") ∪
-                    `package`("org.hibernate.engine.loading")
+        val SessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "SessionImpl")
 
-        val dep1 = db.create.∪[Dependency[_, _], invoke_interface](db.invoke_interface)
+        val Session : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "Session")
 
-        val dep2 = dep1.∪[Dependency[_, _], parameter](db.parameter)
+        val ClassicSession : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.classic", "Session")
 
-        // element checks declared as values so the functions are created once and not one function for each application inside the selection
-        val inAction = ∈(`org.hibernate.action`)
-        val notInAction = ∉(`org.hibernate.action`)
-        val notInLock = ∉(lock)
-        val notInEvent = ∉(`org.hibernate.event`)
-        val notInHQL = ∉(HQL)
-        val notInEngine = ∉(`org.hibernate.engine`)
+        val StatelessSessionImpl : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.impl", "StatelessSessionImpl")
 
-        // val notAllowedIncoming = notInEngine && notInEvent && notInHQL && notInLock // currently can not be modelled as updateable function
+        val SessionImplementor : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.engine", "SessionImplementor")
+
+        val SessionFactoryImplementor : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate.engine", "SessionFactoryImplementor")
+
+        val SessionFactoryObserver : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "SessionFactoryObserver")
+
+        val StatelessSession : QueryResult[SourceElement[AnyRef]] = class_with_members("org.hibernate", "StatelessSession")
 
 
-        val incoming_engine_to_action_violation =
-            (
-                    σ(
-                        target(_: Dependency[_, _])(inAction)
-                    )(dep2)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInAction)
-                    )(dep2)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInLock)
-                    )(dep2)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEvent)
-                    )(dep2)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInHQL)
-                    )(dep2)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEngine)
-                    )(dep2)
-                    )
+        database.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
 
-        val incoming_lock_to_action_violation =
-            (
-                    σ(
-                        target(_: Dependency[_, _])(inAction)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInAction)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInLock)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEvent)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInHQL)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEngine)
-                    )(dep1)
-                    )
-
-        val incoming_event_to_action_violation =
-            (
-                    σ(
-                        target(_: create)(inAction)
-                    )(db.create)) ∩ (
-                    σ(
-                        source(_: create)(notInAction)
-                    )(db.create)) ∩ (
-                    σ(
-                        source(_: create)(notInLock)
-                    )(db.create)) ∩ (
-                    σ(
-                        source(_: create)(notInEvent)
-                    )(db.create)) ∩ (
-                    σ(
-                        source(_: create)(notInHQL)
-                    )(db.create)) ∩ (
-                    σ(
-                        source(_: create)(notInEngine)
-                    )(db.create)
-                    )
+        /*
+        val impl = SessionFactoryImpl.asList.sortBy{
+            case SourceElement( ObjectType(name) ) => "1" + name
+            case SourceElement( Field(ObjectType(cls), name, _) ) => "2" + cls + name
+            case SourceElement( Method(ObjectType(cls), name, _, _) ) => "3" + cls + name
+        }
+        impl.foreach(println)
+        */
+        assertEquals(29, SessionFactory.size)
+        assertEquals(156, SessionFactoryImpl.size)
+        assertEquals(17, AbstractSessionImpl.size)
+        assertEquals(40, SessionFactoryStub.size)
+        assertEquals(257, SessionImpl.size)
+        assertEquals(92, Session.size)
+        assertEquals(23, ClassicSession.size)
+        assertEquals(92, StatelessSessionImpl.size)
+        assertEquals(57, SessionImplementor.size)
+        assertEquals(32, SessionFactoryImplementor.size)
+        assertEquals(3, SessionFactoryObserver.size)
+        assertEquals(26, StatelessSession.size)
 
 
-        val incoming_HQL_to_action_violation =
-            (
-                    σ(
-                        target(_: Dependency[_, _])(inAction)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInAction)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInLock)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEvent)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInHQL)
-                    )(dep1)) ∩ (
-                    σ(
-                        source(_: Dependency[_, _])(notInEngine)
-                    )(dep1)
-                    )
-
-
-        def source(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.source.asInstanceOf[AnyRef])
-
-        def target(dependency: Dependency[_, _]): SourceElement[AnyRef] = new SourceElement[AnyRef](dependency.target.asInstanceOf[AnyRef])
-
-        // def sources(dependencies : LazyView[Dependency[_,_]]) = Π{ (_:Dependency[_,_]).source}(dependencies)
-
-        // def targets(dependencies : LazyView[Dependency[_,_]]) = Π{ (_:Dependency[_,_]).target}(dependencies)
     }
 
-
     @Test
-    def count_ensemble_elements()
+    def count_all_ensemble_elements()
     {
-        val db = new BytecodeDatabase
+        val database = new BytecodeDatabase
 
-        val ensembles = new ensemble_definition(db)
+        val ensembles = new hibernate_3_6_ensemble_definitions(database){
+            // access each lazy val once to initialize queries
+            `org.hibernate.action`
+            `org.hibernate.bytecode`
+            `org.hibernate.cache`
+            `org.hibernate.engine`
+            `org.hibernate.event`
+            `org.hibernate.intercept`
+            `org.hibernate.loader`
+            `org.hibernate.persister`
+            `org.hibernate.stat`
+            `org.hibernate.tool`
+            `org.hibernate.tuple`
+            GlobalSettings
+            HQL
+            lock
+            Metamodel_Configurator
+            Session
+        }
 
         import ensembles._
 
-        db.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
+        database.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
 
         assertEquals(186, `org.hibernate.action`.size) // findall :- 188
+        assertEquals(410, `org.hibernate.bytecode`.size) // findall :- 416
+        assertEquals(554, `org.hibernate.cache`.size) // findall :- 554
+        assertEquals(1655, `org.hibernate.engine`.size) // findall :- 1688
         assertEquals(836, `org.hibernate.event`.size) // findall :- 839
+        assertEquals(91, `org.hibernate.intercept`.size) // findall :- 92
+        assertEquals(879, `org.hibernate.loader`.size) // findall :- 881
+        assertEquals(1283, `org.hibernate.persister`.size) // findall :- 1289
+        assertEquals(473, `org.hibernate.stat`.size) // findall :- 473
+        assertEquals(275, `org.hibernate.tool`.size) // findall :- 275
+        assertEquals(649, `org.hibernate.tuple`.size) // findall :- 650
+
+
+        assertEquals(658, GlobalSettings.size) // findall :- 665
         assertEquals(75, lock.size) // findall :- 839
         assertEquals(2315, HQL.size) // findall :- 2329
-        assertEquals(1655, `org.hibernate.engine`.size) // findall :- 1688
+        assertEquals(1864, Metamodel_Configurator.size) // findall :- 1908
+        assertEquals(824, Session.size) // findall :- 834
 
     }
 
     @Test
-    def find_violation_elements()
+    def find_action_sad_violation_elements()
     {
         val db = new BytecodeDatabase
 
-        val ensembles = new ensemble_definition(db)
+        val ensembles = new action_sad(db)
 
         import ensembles._
 
@@ -211,5 +150,40 @@ class Hibernate_3_6_Test
         assertEquals(0, incoming_lock_to_action_violation.size)
 
     }
+
+
+    @Test
+    def find_bytecode_sad_violation_elements()
+    {
+        val db = new BytecodeDatabase
+
+        val ensembles = new bytecode_sad(db)
+
+        import ensembles._
+
+        db.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
+
+        incoming_invoke_interface_to_bytecode_violation.foreach(println)
+        assertEquals(0, incoming_invoke_interface_to_bytecode_violation.size)
+
+    }
+
+    @Test
+    def find_cache_sad_violation_elements()
+    {
+        val db = new BytecodeDatabase
+
+        val ensembles = new cache_sad(db)
+
+        import ensembles._
+
+        db.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
+
+        incoming_invoke_interface_to_cache_violation.foreach(println)
+        // TODO get correct value for the expectation
+        //assertEquals(0, incoming_invoke_interface_to_cache_violation.size)
+
+    }
+
 }
 

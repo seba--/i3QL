@@ -3,7 +3,8 @@ package bytecode
 package transform
 
 import sae.bytecode.model._
-import dependencies.{`extends`, parameter, implements}
+import dependencies._
+import internal.unresolved_enclosing_method
 import sae.bytecode.model.instructions._
 import de.tud.cs.st.bat._
 import de.tud.cs.st.bat.instructions._
@@ -35,41 +36,38 @@ class Java6ClassTransformer(
                         process_instruction: Instr[_] => Unit,
                         process_extends : `extends` => Unit,
                         process_implements: implements => Unit,
-                        process_parameter: parameter => Unit)
+                        process_parameter: parameter => Unit,
+                        process_inner_class_entry : InnerClassesEntry => Unit,
+                        process_enclosing_method : unresolved_enclosing_method => Unit
+)
         extends TransformInstruction[Unit, Method] with
                 BytecodeFactProcessor
 {
 
 
-    var list : List[ClassFile]= List()
+    private var list : List[ClassFile]= List()
 
     def processClassFile(cf : de.tud.cs.st.bat.ClassFile) {
         list = cf :: list
     }
 
-    def processAllFacts {
+    def processAllFacts() {
         // do nothing we need no extra processing of added process_classfile
         // but transform the directly
         // here we could schedule parallelization
 
-        val start = System.nanoTime()
-
         list.foreach(transform)
-
-        val end = System.nanoTime()
-
-        println("took: " + (end - start)/1000000 + "ms")
 
     }
 
     // TODO: ideally we would search for a view on all process_class and reuse that here
 
-    var internalMethods = new scala.collection.immutable.HashMap[Method, Method]
+    private var internalMethods = new scala.collection.immutable.HashMap[Method, Method]
 
-    var internalFields = new scala.collection.immutable.HashMap[Field, Field]
+    private var internalFields = new scala.collection.immutable.HashMap[Field, Field]
 
 
-    def getMethod(typ: Type, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
+    private def getMethod(typ: Type, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
         if (typ.isObjectType)
             getMethod(typ.asObjectType, name, parameters, returnType)
         else
@@ -77,7 +75,7 @@ class Java6ClassTransformer(
 
     }
 
-    def getMethod(declaringRef: ReferenceType, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
+    private def getMethod(declaringRef: ReferenceType, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
         val m = Method(declaringRef, name, parameters, returnType)
         val internalized = internalMethods.get(m)
         if (internalized == None) {
@@ -90,7 +88,7 @@ class Java6ClassTransformer(
     }
 
 
-    def getField(declaringClass: ObjectType, name: String, fieldType: FieldType): Field = {
+    private def getField(declaringClass: ObjectType, name: String, fieldType: FieldType): Field = {
         val f = Field(declaringClass, name, fieldType)
         val internalized = internalFields.get(f)
         if (internalized == None) {
@@ -105,7 +103,7 @@ class Java6ClassTransformer(
     /**
      * Conversions from constant value to a type
      */
-    def constant_value_function(constantValue : ConstantValue[_]) : () => _ =
+    private def constant_value_function(constantValue : ConstantValue[_]) : () => _ =
         constantValue.constant_Pool_EntryType match
         {
             // Note : hand coded magic numbers elicit a table switch
@@ -120,7 +118,7 @@ class Java6ClassTransformer(
     /**
      *
      */
-    def transform(classFile: de.tud.cs.st.bat.ClassFile) {
+    private def transform(classFile: de.tud.cs.st.bat.ClassFile) {
         // these process_class are always unique, no check is performed
         process_class(classFile.thisClass)
 
@@ -135,16 +133,18 @@ class Java6ClassTransformer(
         classFile.methods.foreach(transform(classFile.thisClass, _))
 
         classFile.fields.foreach(transform(classFile.thisClass, _))
+
+        classFile.attributes.foreach{
+            case ica : InnerClasses_attribute => transform(classFile.thisClass, ica)
+            case ema : EnclosingMethod_attribute => transform(classFile.thisClass, ema)
+            case _ => // do nothing
+        }
     }
 
     /**
      *
      */
-    def transform(declaringClass: ObjectType, method_info: Method_Info) {
-        /*
-        val method = Method(declaringClass, method_info.name, method_info.descriptor.parameterTypes, method_info.descriptor.returnType)
-        process_method.element_added(method);
-        */
+    private def transform(declaringClass: ObjectType, method_info: Method_Info) {
         val method = getMethod(declaringClass, method_info.name, method_info.descriptor.parameterTypes, method_info.descriptor.returnType)
 
         process_classfile_method(method);
@@ -164,12 +164,46 @@ class Java6ClassTransformer(
     /**
      *
      */
-    def transform(declaringClass: ObjectType, field_info: Field_Info) {
+    private def transform(declaringClass: ObjectType, field_info: Field_Info) {
         val field = getField(declaringClass, field_info.name, field_info.descriptor.fieldType)
         process_classfile_field(field);
     }
 
-    def transform(declaringMethod: Method, code_attribute: Code_attribute) {
+    /**
+     * The InnerClasses attribute5 is a variable-length attribute in the attributes table
+     * of the ClassFile (§4.2) structure. If the constant pool of a class or interface C contains
+     * a CONSTANT_Class_info entry which represents a class or interface that is
+     * not a member of a package, then C‘s ClassFile structure must have exactly one
+     * InnerClasses attribute in its attributes table.
+     *
+     * If C is a member, the value of the outer_class_info_index item is not zero.
+     *
+     * If C is anonymous, the value of the inner_name_index item must be zero.
+     */
+    private def transform(declaringClass: ObjectType, innerClasses: InnerClasses_attribute) {
+        innerClasses.classes.foreach( process_inner_class_entry )
+    }
+
+    /**
+     * The EnclosingMethod attribute is an optional fixed-length attribute in the attributes table of the ClassFile (§4.2) structure.
+     * A class must have an EnclosingMethod attribute if and only if it is a local class or an anonymous class.
+     * A class may have no more than one EnclosingMethod attribute.
+     */
+    private def transform(declaringClass: ObjectType, enclosingMethod: EnclosingMethod_attribute) {
+        // val source = getMethod(enclosingMethod.clazz, enclosingMethod.name, enclosingMethod.descriptor.parameterTypes, enclosingMethod.descriptor.returnType)
+        process_enclosing_method( new unresolved_enclosing_method(
+            enclosingMethod.clazz,
+            if( enclosingMethod.name eq null ) { None } else { Some(enclosingMethod.name) },
+            if( enclosingMethod.descriptor eq null ) { None } else { Some(enclosingMethod.descriptor.parameterTypes) },
+            if( enclosingMethod.descriptor eq null ) { None } else { Some(enclosingMethod.descriptor.returnType) },
+            declaringClass)
+        )
+    }
+
+    /**
+     * transform the individual bytecode instructions
+     */
+    private def transform(declaringMethod: Method, code_attribute: Code_attribute) {
         var pc = 0
         code_attribute.code.foreach(instr => {
             transform(instr, pc, code_attribute.bytecodeMap, declaringMethod)
@@ -177,8 +211,6 @@ class Java6ClassTransformer(
         }
         )
     }
-
-
 
     def transform_instruction_default(instr: Instruction, pc: Int, declaringMethod: Method) {
         // do nothing for process_instruction that we don't want to support yet
@@ -248,7 +280,7 @@ class Java6ClassTransformer(
     }
 
     override def transform_BAT_instanceof(instr: BAT_instanceof, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
-        val instruction = instanceof(declaringMethod, pc, instr.T.asReferenceType)
+        val instruction = sae.bytecode.model.instructions.instanceof(declaringMethod, pc, instr.T.asReferenceType)
         process_instruction(instruction)
     }
 

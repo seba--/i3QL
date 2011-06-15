@@ -48,8 +48,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
     def ⋈[OtherDomain <: AnyRef, Result <: AnyRef](
         rightKey: OtherDomain => Range,
         otherRelation: LazyView[OtherDomain]
-    )
-                (factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
+    )(factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
         new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftFunction, rightKey, factory)
 
 }
@@ -196,7 +195,7 @@ object RelationalAlgebraSyntax
             aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
             aggragationConstructorFunc: (Key, AggregationValue) => Result
         ): Aggregation[Domain, Key, AggregationValue, Result] =
-            new AggregationIntern(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
+            new AggregationForNotSelfMaintainableFunctions(source, groupFunction, aggregationFuncFactory, aggragationConstructorFunc)
 
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
@@ -211,7 +210,7 @@ object RelationalAlgebraSyntax
             source: LazyView[Domain],
             aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]
         ) =
-            new AggregationIntern(source, (x: Any) => "a", aggregationFuncFactory, (
+            new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregationFuncFactory, (
                 x: Any,
                 y: AggregationValue
             ) => Some(y))
