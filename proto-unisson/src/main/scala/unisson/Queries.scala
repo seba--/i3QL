@@ -69,6 +69,7 @@ class Queries( val db : BytecodeDatabase )
                 (db.inner_classes, (_ : inner_class).target.asReferenceType) ⋈ ( (_: class_member[AnyRef]).source ,direct_inner_class_members)
         ){ (inner : inner_class, member: class_member[AnyRef]) => new class_member[AnyRef](inner.source, member.target) }
 
+
     val class_members : LazyView[class_member[AnyRef]] =
         direct_class_members ∪
         // TODO make recursive/transitive

@@ -27,6 +27,7 @@ class cache_sad(db: BytecodeDatabase)
     val notInLoader = ∉(`org.hibernate.loader`)
     val notInPersister = ∉(`org.hibernate.persister`)
     val notInStat = ∉(`org.hibernate.stat`)
+    val notInSession = ∉(Session)
     val notInMetamodel = ∉(Metamodel_Configurator)
     val notInGlobalSettings = ∉(GlobalSettings)
 
@@ -63,6 +64,10 @@ class cache_sad(db: BytecodeDatabase)
                 ) ∩ (
                 σ(
                     source(_: invoke_interface)(notInStat)
+                )(db.invoke_interface)
+                ) ∩ (
+                σ(
+                    source(_: invoke_interface)(notInSession)
                 )(db.invoke_interface)
                 ) ∩ (
                 σ(

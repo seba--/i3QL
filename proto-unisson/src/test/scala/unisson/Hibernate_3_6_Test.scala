@@ -180,8 +180,8 @@ class Hibernate_3_6_Test
         db.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
 
         incoming_invoke_interface_to_cache_violation.foreach(println)
-        // TODO get correct value for the expectation
-        //assertEquals(0, incoming_invoke_interface_to_cache_violation.size)
+
+        assertEquals(0, incoming_invoke_interface_to_cache_violation.size)
 
     }
 
