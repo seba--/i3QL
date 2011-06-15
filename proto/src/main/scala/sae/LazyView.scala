@@ -38,6 +38,7 @@ trait LazyView[V <: AnyRef]
 class DefaultLazyView[V <: AnyRef]
         extends LazyView[V] 
 {
+    initialized = true
 
     /**
      * Applies f to all elements of the view.

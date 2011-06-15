@@ -3,9 +3,9 @@ package bytecode
 
 import sae.DefaultLazyView
 import sae.bytecode.model._
+import dependencies._
 import internal.unresolved_enclosing_method
 import sae.bytecode.model.instructions._
-import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
@@ -60,6 +60,11 @@ class BytecodeDatabase
     val `extends` : LazyView[`extends`] = new DefaultLazyView[`extends`]
 
     val implements: LazyView[implements] = new DefaultLazyView[implements]
+
+    lazy val subtypes : LazyView[(ObjectType, ObjectType)] = TC(
+        `extends`.∪[Dependency[ObjectType, ObjectType], implements] (implements)
+    )( (_:Dependency[ObjectType, ObjectType]).source, (_:Dependency[ObjectType, ObjectType]).target )
+
 
     // inner classes are added multiple times for each inner class, since the definition is repeated in the classfiles
     private val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]

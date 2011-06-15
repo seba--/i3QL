@@ -1,12 +1,10 @@
 package sae
 package bytecode
 
-import sae.DefaultLazyView
 import sae.bytecode.model._
 import dependencies._
 import sae.collections._
 import sae.collections.Conversions._
-import sae.bytecode.transform._
 import de.tud.cs.st.bat._
 
 /**
@@ -34,6 +32,8 @@ class MaterializedDatabase {
 
     val implements : QueryResult[implements] = db.implements
 
+    val subtypes : QueryResult[(ObjectType, ObjectType)] = db.subtypes
+
     val field_type : QueryResult[field_type] = db.field_type
 
     val parameter : QueryResult[parameter] = db.parameter
@@ -51,27 +51,33 @@ class MaterializedDatabase {
     /**
      * Convenience method that opens a stream from a resource in the class path
      */
-    def addArchiveAsResource(name : String) : Unit =
+    def addArchiveAsResource(name : String)
+    {
         db.addArchiveAsResource(name)
+    }
 
     /**
      * Convenience method that opens a stream from a file in the file system
      */
-    def addArchiveAsFile(name : String) : Unit =
+    def addArchiveAsFile(name : String)
+    {
         db.addArchiveAsFile(name)
+    }
 
     /**
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchiveStream(stream : java.io.InputStream) : Unit =
+    def addArchiveStream(stream : java.io.InputStream)
+    {
         db.addArchiveStream(stream)
+    }
 
-    def getAddClassFileFunction() = {
+    def getAddClassFileFunction = {
         db.getAddClassFileFunction
     }
 
-    def getRemoveClassFileFunction() = {
+    def getRemoveClassFileFunction = {
         db.getRemoveClassFileFunction
     }
 

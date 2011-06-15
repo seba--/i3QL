@@ -31,6 +31,7 @@ class hibernate_3_6_ensemble_definitions(val db : BytecodeDatabase)
                 `package`("org.hibernate.bytecode.javassist") ∪
                 `package`("org.hibernate.bytecode")
 
+
     lazy val `org.hibernate.cache` : QueryResult[SourceElement[AnyRef]] =
         `package`("org.hibernate.cache.impl.bridge") ∪
                 `package`("org.hibernate.cache") ∪

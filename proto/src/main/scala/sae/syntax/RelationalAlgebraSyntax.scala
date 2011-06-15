@@ -103,6 +103,12 @@ object RelationalAlgebraSyntax
 
     implicit def functionToConcatenator[Domain <: AnyRef, Range <: AnyRef](f: Domain => Range) = FunctionConcatenator(f)
 
+    object TC
+    {
+        // TODO think of better names for start/endVertex functions
+        def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: LazyView[Domain])(startVertex: Domain => Vertex, endVertex: Domain => Vertex) = new HashTransitiveClosure[Domain, Vertex](relation, startVertex, endVertex)
+    }
+
     object ∈
     {
         def apply[Domain <: AnyRef](relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
@@ -140,9 +146,9 @@ object RelationalAlgebraSyntax
         }
 
         def apply[T <: AnyRef] = new PolymorphSelection[T]
-
-
     }
+
+
 
     /**definitions of projection syntax **/
     object Π
