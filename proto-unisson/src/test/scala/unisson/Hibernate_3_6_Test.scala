@@ -166,7 +166,6 @@ class Hibernate_3_6_Test
     }
 
     @Test
-    @Ignore
     def find_cache_sad_violation_elements()
     {
         val db = new BytecodeDatabase

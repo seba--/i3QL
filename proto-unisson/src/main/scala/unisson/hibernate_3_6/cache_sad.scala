@@ -67,6 +67,10 @@ class cache_sad(db: BytecodeDatabase)
                 )(db.invoke_interface)
                 ) ∩ (
                 σ(
+                    source(_: invoke_interface)(notInSession)
+                )(db.invoke_interface)
+                ) ∩ (
+                σ(
                     source(_: invoke_interface)(notInMetamodel)
                 )(db.invoke_interface)
                 ) ∩ (
