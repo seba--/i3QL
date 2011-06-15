@@ -1,13 +1,10 @@
 package unisson
 
 import hibernate_3_6.{hibernate_3_6_ensemble_definitions, cache_sad, bytecode_sad, action_sad}
-import org.junit.Test
+import org.junit.{Test, Ignore}
 import org.junit.Assert._
 import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
-import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.{Method, Field}
-
 /**
  *
  * Author: Ralf Mitschke
@@ -169,6 +166,7 @@ class Hibernate_3_6_Test
     }
 
     @Test
+    @Ignore
     def find_cache_sad_violation_elements()
     {
         val db = new BytecodeDatabase
