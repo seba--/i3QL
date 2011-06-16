@@ -19,11 +19,11 @@ object Profiler
         while (i < times) {
             val timer = new Timer()
             f
-            timer.stop;
+            timer.stop();
             timers(i) = timer
             i += 1
         }
-        return timers
+        timers
     }
 
     def profile[Setup](setup : Int => Setup)(f: Setup => Unit)(tearDown : Setup => Unit)(implicit times: Int): Array[Timer] =
@@ -34,11 +34,11 @@ object Profiler
             val s = setup(i + 1)
             val timer = new Timer()
             f(s)
-            timer.stop;
+            timer.stop();
             timers(i) = timer
             tearDown(s)
             i += 1
         }
-        return timers
+        timers
     }
 }

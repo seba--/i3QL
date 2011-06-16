@@ -139,10 +139,10 @@ class Hibernate_3_6_Test
 
         incoming_event_to_action_violation.foreach(println)
         assertEquals(0, incoming_event_to_action_violation.size)
-
+        /*
         incoming_HQL_to_action_violation.foreach(println)
         assertEquals(0, incoming_HQL_to_action_violation.size)
-
+        */
         incoming_lock_to_action_violation.foreach(println)
         assertEquals(0, incoming_lock_to_action_violation.size)
 

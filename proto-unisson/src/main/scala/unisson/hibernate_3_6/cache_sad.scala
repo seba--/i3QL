@@ -13,6 +13,15 @@ import unisson.Queries._
  * Created: 07.06.11 09:53
  *
  */
+/*
+
+max:    1.44658265 (s)
+min:    1.00149824 (s)
+mean:   1.088503064 (s)
+median: 1.062571168 (s)
+1.00149824;1.004017763;1.02827486;1.033512157;1.042666745;1.048680494;1.056849215;1.058942594;1.066199743;1.067252207;1.067554396;1.075253473;1.139595429;1.190666101;1.44658265;
+
+ */
 class cache_sad(db: BytecodeDatabase)
     extends hibernate_3_6_ensemble_definitions(db)
     with EnsembleDefinition
