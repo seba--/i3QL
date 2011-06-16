@@ -66,10 +66,11 @@ class BytecodeDatabase
     )( (_:Dependency[ObjectType, ObjectType]).source, (_:Dependency[ObjectType, ObjectType]).target )
 
 
-    // inner classes are added multiple times for each inner class, since the definition is repeated in the classfiles
-    private val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]
+    // inner classes are added multiple times for each inner class, since the definition is repeated in the classfile
+    // TODO these relations are currently external for performance measurements
+    val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]
 
-    private val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
+    val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
 
     lazy val inner_classes: LazyView[inner_class] =
         Π( // the directly encoded inner classes have their outer type set
