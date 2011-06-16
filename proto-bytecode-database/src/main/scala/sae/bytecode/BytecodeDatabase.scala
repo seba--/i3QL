@@ -186,6 +186,37 @@ class BytecodeDatabase
         )
 
 
+    lazy val baseViews : List[LazyView[_]] = List(
+        classfiles,
+        classfile_methods,
+        classfile_fields,
+        classes,
+        methods,
+        fields,
+        instructions,
+        `extends`,
+        implements,
+        parameter,
+        internal_inner_classes,
+        internal_enclosing_methods
+    )
+
+    lazy val derivedViews : List[LazyView[_]] = List(
+        subtypes,
+        inner_classes,
+        field_type,
+        return_type,
+        write_field,
+        read_field,
+        invoke_interface,
+        calls,
+        class_cast,
+        instanceof,
+        create,
+        create_class_array
+    )
+
+
     private def classAdder = new Java6ClassTransformer(
         classfiles.element_added,
         classfile_methods.element_added,

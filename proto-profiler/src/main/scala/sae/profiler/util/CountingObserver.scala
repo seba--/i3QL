@@ -1,6 +1,6 @@
 package sae.profiler.util
 
-import sae.{Observer, LazyView}
+import sae.Observer
 
 /**
  *
@@ -9,7 +9,7 @@ import sae.{Observer, LazyView}
  *
  * An Observer that merely counts the number of facts added to it
  */
-class CountingObserver[V <: AnyRef]
+class CountingObserver[V]
         extends Observer[V]
 {
     private var counter = 0

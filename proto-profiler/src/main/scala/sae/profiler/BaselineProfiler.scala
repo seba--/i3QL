@@ -14,8 +14,14 @@ import sae.Observer
  * Created: 16.06.11 10:41
  *
  * The baseline profiler establishes timing profiles for the following setup:
+ * 1)
  * - measuring time required to pass through the base relations in a database without any registered observers
- * - measuring number of facts 'pumped' into the database
+ * - measuring number of non-derived facts 'pumped' into the database
+ * 2)
+ * - measuring time required to compute all relations in the database
+ * - measuring number of derived facts
+ * - measuring operators (TODO what do we measure - which operators, size of tables etc.)
+ *
  */
 object BaselineProfiler
 {
@@ -30,13 +36,24 @@ object BaselineProfiler
 
         implicit val times = 10
         val writer = new PrintWriter(out, true)
+        writer.println("Base Views;")
         writer.print(CSVHeader)
         writer.flush()
 
-        measure_jar("hibernate-core-3.6.0.Final.jar")(writer)
-        measure_jar("jedit-4.3.3-win.jar")(writer)
-        measure_jar("scala-compiler-2.8.1.jar")(writer)
-        measure_jar("scala-library-2.8.1.jar")(writer)
+        measure_jar("hibernate-core-3.6.0.Final.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("jedit-4.3.3-win.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("scala-compiler-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("scala-library-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
+
+        writer.println("Derived Views;includes computation time for base views")
+        writer.print(CSVHeader)
+        writer.flush()
+
+        measure_jar("hibernate-core-3.6.0.Final.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("jedit-4.3.3-win.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("scala-compiler-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        measure_jar("scala-library-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+
 
         writer.close()
     }
@@ -57,25 +74,15 @@ object BaselineProfiler
         transformer
     }
 
-    def readToCountingDatabase(jarFile: String)(run: Int) =
+    def readBaseViewsToCountingDatabase(jarFile: String)(run: Int) =
     {
         System.gc()
         print(jarFile + " run " + run)
         val db = new BytecodeDatabase
 
-        val o = new CountingObserver[AnyRef]()
-        db.classfiles.addObserver(o)
-        db.classfile_methods.addObserver(o)
-        db.classfile_fields.addObserver(o)
-        db.classes.addObserver(o)
-        db.methods.addObserver(o)
-        db.fields.addObserver(o)
-        db.instructions.addObserver(o)
-        db.`extends`.addObserver(o)
-        db.implements.addObserver(o)
-        db.internal_inner_classes.addObserver(o)
-        db.internal_enclosing_methods.addObserver(o)
-        db.parameter.addObserver(o)
+        val o = new CountingObserver[Any]()
+
+        db.baseViews.foreach( _.addObserver(o))
 
         println("...")
         val transformer = db.transformerForArchiveResource(jarFile)
@@ -83,10 +90,26 @@ object BaselineProfiler
         (transformer, o)
     }
 
-    def measure_jar(jarFile: String)(writer: PrintWriter)(implicit times: Int = 10)
+    def readDerivedViewsToCountingDatabase(jarFile: String)(run: Int) =
+    {
+        System.gc()
+        print(jarFile + " run " + run)
+        val db = new BytecodeDatabase
+
+        val o = new CountingObserver[Any]()
+
+        db.derivedViews.foreach( _.addObserver(o))
+
+        println("...")
+        val transformer = db.transformerForArchiveResource(jarFile)
+        println("pushing data to database")
+        (transformer, o)
+    }
+
+    def measure_jar(jarFile: String)(setup : (String, Int) => (Java6ClassTransformer, CountingObserver[_]))(writer: PrintWriter)(implicit times: Int = 10)
     {
         println("counting facts")
-        val numberOfFacts = countFacts(jarFile)
+        val numberOfFacts = countFacts(jarFile)( setup(_, 0) )
 
         writer.print(jarFile)
         writer.print(";")
@@ -94,8 +117,8 @@ object BaselineProfiler
         writer.print(";")
         writer.print(times)
         writer.print(";")
-        // reading a plain db or a counting one makes no difference
-        val timers = profile(readToCountingDatabase(jarFile)(_))(_._1.processAllFacts())((t: (Java6ClassTransformer,Observer[AnyRef])) => {})(
+
+        val timers = profile( setup(jarFile, _) )(_._1.processAllFacts())((t: (Java6ClassTransformer,CountingObserver[_])) => {})(
             times
         )
         val median = Timer.median(timers)
@@ -116,9 +139,9 @@ object BaselineProfiler
         writer.println()
     }
 
-    def countFacts(jarFile: String) =
+    def countFacts(jarFile: String)(setup : (String) => (Java6ClassTransformer, CountingObserver[_])) =
     {
-        val (transformer, observer) = readToCountingDatabase(jarFile)(0)
+        val (transformer, observer) = setup(jarFile)
         transformer.processAllFacts()
         observer.count
     }
