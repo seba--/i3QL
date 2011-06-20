@@ -13,16 +13,22 @@ import unisson.Queries._
  * Created: 07.06.11 09:53
  *
  */
+/*
+min:    1.777059369 (s)
+mean:   2.224382917 (s)
+median: 2.059122559 (s)
+1.777059369;1.804316795;1.844760817;1.921462101;1.955943186;1.962274908;1.964442583;2.010956172;2.107288947;2.108043457;2.280071248;2.318227487;2.544517603;2.549527392;4.216851817;hibernate-core-3.6.0.Final.jar
 
+ */
 class action_sad(db: BytecodeDatabase)
-    extends hibernate_3_6_ensemble_definitions(db)
-    with EnsembleDefinition
+        extends hibernate_3_6_ensemble_definitions(db)
+                with EnsembleDefinition
 {
 
 
-    val dep1 = db.create.∪[Dependency[_, _], invoke_interface]( db.invoke_interface )
+    val dep1 = db.create.∪[Dependency[_, _], invoke_interface](db.invoke_interface)
 
-    val dep2 = dep1.∪[Dependency[_, _], parameter]( db.parameter )
+    val dep2 = dep1.∪[Dependency[_, _], parameter](db.parameter)
 
     // element checks declared as values so the functions are created once and not one function for each application inside the selection
     val inAction = ∈(`org.hibernate.action`)
@@ -34,7 +40,7 @@ class action_sad(db: BytecodeDatabase)
 
     // val notAllowedIncoming = notInEngine && notInEvent && notInHQL && notInLock // currently can not be modelled as updateable function
 
-    val incoming_engine_to_action_violation : QueryResult[Dependency[_, _]] =
+    val incoming_engine_to_action_violation: QueryResult[Dependency[_, _]] =
         (
                 σ(
                     target(_: Dependency[_, _])(inAction)
@@ -56,7 +62,7 @@ class action_sad(db: BytecodeDatabase)
                 )(dep2)
                 )
 
-    val incoming_lock_to_action_violation : QueryResult[Dependency[_, _]] =
+    val incoming_lock_to_action_violation: QueryResult[Dependency[_, _]] =
         (
                 σ(
                     target(_: Dependency[_, _])(inAction)
@@ -78,29 +84,30 @@ class action_sad(db: BytecodeDatabase)
                 )(dep1)
                 )
 
-    val incoming_event_to_action_violation : QueryResult[create] =
+    val incoming_event_to_action_violation: QueryResult[create] =
         (
                 σ(
                     target(_: create)(inAction)
-                )( db.create )) ∩ (
+                )(db.create)) ∩ (
                 σ(
                     source(_: create)(notInAction)
-                )( db.create )) ∩ (
+                )(db.create)) ∩ (
                 σ(
                     source(_: create)(notInLock)
-                )( db.create )) ∩ (
+                )(db.create)) ∩ (
                 σ(
                     source(_: create)(notInEvent)
-                )( db.create )) ∩ (
+                )(db.create)) ∩ (
                 σ(
                     source(_: create)(notInHQL)
-                )( db.create )) ∩ (
+                )(db.create)) ∩ (
                 σ(
                     source(_: create)(notInEngine)
-                )( db.create )
+                )(db.create)
                 )
 
     // FIXME we do not model individual arrows but individual relationship constraints, thus this is redundant
+    /*
     val incoming_HQL_to_action_violation : QueryResult[Dependency[_, _]] =
         (
                 σ(
@@ -122,14 +129,15 @@ class action_sad(db: BytecodeDatabase)
                     source(_: Dependency[_, _])(notInEngine)
                 )(dep1)
                 )
+    */
 
-
-    def printViolations() {
+    def printViolations()
+    {
         incoming_engine_to_action_violation.foreach(println)
 
         incoming_event_to_action_violation.foreach(println)
 
-        incoming_HQL_to_action_violation.foreach(println)
+        // incoming_HQL_to_action_violation.foreach(println)
 
         incoming_lock_to_action_violation.foreach(println)
     }

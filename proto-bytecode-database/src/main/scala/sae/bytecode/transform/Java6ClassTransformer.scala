@@ -37,6 +37,8 @@ class Java6ClassTransformer(
                         process_extends : `extends` => Unit,
                         process_implements: implements => Unit,
                         process_parameter: parameter => Unit,
+                        process_exception_handler: ExceptionHandler => Unit,
+                        process_thrown_exception: throws => Unit,
                         process_inner_class_entry : InnerClassesEntry => Unit,
                         process_enclosing_method : unresolved_enclosing_method => Unit
 )
@@ -115,6 +117,18 @@ class Java6ClassTransformer(
             case /* CONSTANT_Class */ 	7 => () => constantValue.toClass
         }
 
+
+	private def lastInstructionIndex( bytecodeMap : Array[Int] ) : Int = {
+		var i = bytecodeMap.length - 1;
+		while( i > 0 ) {
+			if( bytecodeMap(i) != 0 ) {
+				return bytecodeMap(i)
+			}
+			i = i - 1;
+		}
+		0;
+	}
+
     /**
      *
      */
@@ -156,6 +170,7 @@ class Java6ClassTransformer(
         method_info.attributes.foreach(
         {
             case code_attribute: Code_attribute => transform(method, code_attribute)
+            case exceptions_attribute: Exceptions_attribute => transform(method, exceptions_attribute)
             case _ => // do nothing for currently unsupported attributes
         })
     }
@@ -200,15 +215,44 @@ class Java6ClassTransformer(
         )
     }
 
+    private def transform(declaringMethod: Method, exceptions_attribute: Exceptions_attribute)
+    {
+        exceptions_attribute.exceptionTable.foreach( e => process_thrown_exception(new throws(declaringMethod, e)) )
+    }
+
     /**
      * transform the individual bytecode instructions
      */
-    private def transform(declaringMethod: Method, code_attribute: Code_attribute) {
+    private def transform(declaringMethod: Method, code_attribute: Code_attribute)
+    {
         var pc = 0
+
+        code_attribute.exceptionTable.foreach( entry => {
+                val handler = new ExceptionHandler(
+                    declaringMethod,
+                    (
+                        if( entry.catchType == null)
+                            None
+                        else
+                            Some(entry.catchType)
+                    ),
+                    entry.startPC,
+                    (
+                        if( entry.endPC >= code_attribute.bytecodeMap.length )
+                            lastInstructionIndex(code_attribute.bytecodeMap)
+                        else
+                            code_attribute.bytecodeMap(entry.endPC)
+                    ),
+                    entry.handlerPC
+                )
+                process_exception_handler(handler)
+            }
+        )
+
         code_attribute.code.foreach(instr => {
             transform(instr, pc, code_attribute.bytecodeMap, declaringMethod)
             pc += 1
-        }
+            }
         )
     }
 

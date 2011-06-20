@@ -7,7 +7,6 @@ import sae.bytecode.BytecodeDatabase
 import sae.syntax.RelationalAlgebraSyntax._
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Method, Field}
-import collection.script.Start
 
 /**
  *
@@ -15,7 +14,6 @@ import collection.script.Start
  * Created: 30.05.11 14:18
  *
  */
-
 class Flashcards_0_2_7_Test
 {
 

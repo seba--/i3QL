@@ -95,8 +95,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/ResourceProvider"), 5)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Resource"), 7)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Consumer"), 15)))
-      //TODO put back after fanout to exceptions is counted
-      //assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Main"), 11)))
+      assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Main"), 11)))
     })
 
   }
@@ -126,7 +125,8 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
         x.read_field,
         x.write_field,
         x.classfile_fields,
-        x.calls
+        x.calls   ,
+      x.ex
       )
     })
     processRestAndTest({
@@ -161,24 +161,6 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
       db.write_field.foreach(println)
       db.calls.foreach(println)
     })
-    //Main must have a fan out of 11
-    //Lcom* of 0.5 (we cont static final vars)
-    //some static final vars are converted to "real" constants like "a cons" or "4"
-    //=> we may dont get all
-
-    //Main$1
-    //Fanout 3
-    //LCOm* 0
-
-    //Consumer
-    //Fan out 15
-    //Lcom* 1/3
-
-    //Resouce:
-    //fanout 7
-    //lcom 4/9
-
-
     view.foreach(println _)
   }
 

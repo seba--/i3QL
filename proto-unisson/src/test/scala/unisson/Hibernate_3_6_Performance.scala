@@ -13,13 +13,13 @@ import scala.Array
  * Created: 07.06.11 10:09
  *
  */
-
 object Hibernate_3_6_Performance {
 
     def main(args : Array[String]) {
         println("measuring performance:")
         measure_sad(new action_sad(_))
         measure_sad(new bytecode_sad(_))
+        measure_sad(new cache_sad(_))
     }
 
     def setup_ensemble_definition( f : BytecodeDatabase => EnsembleDefinition)(run : Int) = {
@@ -40,7 +40,7 @@ object Hibernate_3_6_Performance {
     def measure_sad(f : BytecodeDatabase => EnsembleDefinition)(implicit times : Int = 15) {
         println("hibernate-core-3.6.0.Final.jar")
 
-        val timers = profile(setup_ensemble_definition(f)(_))(_._1.processAllFacts)(teardown_ensemble_definition)(times)
+        val timers = profile(setup_ensemble_definition(f)(_))(_._1.processAllFacts())(teardown_ensemble_definition)(times)
 
         val median = Timer.median(timers)
         val mean = Timer.mean(timers)

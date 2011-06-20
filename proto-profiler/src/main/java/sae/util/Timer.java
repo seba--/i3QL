@@ -122,13 +122,15 @@ public class Timer implements Comparable<Timer> {
 			return new ValueTimer(0);
 		if (timers.length == 1)
 			return timers[0];
-		Arrays.sort(timers);
-		
-		int mid = timers.length / 2;
-		if (timers.length % 2 == 0)
-			return timers[mid];
 
-		return new ValueTimer( (timers[mid].elapsedNanoSeconds() + timers[mid + 1].elapsedNanoSeconds()) / 2 );
+        Timer[] copy = Arrays.copyOf(timers, timers.length);
+		Arrays.sort(copy);
+		
+		int mid = copy.length / 2;
+		if (copy.length % 2 == 0)
+			return copy[mid];
+
+		return new ValueTimer( (copy[mid].elapsedNanoSeconds() + copy[mid + 1].elapsedNanoSeconds()) / 2 );
 	}
 	
 	
@@ -141,9 +143,10 @@ public class Timer implements Comparable<Timer> {
 			return new ValueTimer(0);
 		if (timers.length == 1)
 			return timers[0];
-		Arrays.sort(timers);
 
-		return timers[timers.length - 1];
+        Timer[] copy = Arrays.copyOf(timers, timers.length);
+
+		return copy[copy.length - 1];
 	}
 	
 	/**
@@ -155,9 +158,10 @@ public class Timer implements Comparable<Timer> {
 			return new ValueTimer(0);
 		if (timers.length == 1)
 			return timers[0];
-		Arrays.sort(timers);
 
-		return timers[0];
+        Timer[] copy = Arrays.copyOf(timers, timers.length);
+
+		return copy[0];
 	}
 
 	public static double nanoToSeconds(long nanos) {

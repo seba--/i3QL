@@ -66,10 +66,11 @@ class BytecodeDatabase
     )( (_:Dependency[ObjectType, ObjectType]).source, (_:Dependency[ObjectType, ObjectType]).target )
 
 
-    // inner classes are added multiple times for each inner class, since the definition is repeated in the classfiles
-    private val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]
+    // inner classes are added multiple times for each inner class, since the definition is repeated in the classfile
+    // TODO these relations are currently external for performance measurements
+    val internal_inner_classes: LazyView[InnerClassesEntry] = new DefaultLazyView[InnerClassesEntry]
 
-    private val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
+    val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
 
     lazy val inner_classes: LazyView[inner_class] =
         Π( // the directly encoded inner classes have their outer type set
@@ -105,6 +106,13 @@ class BytecodeDatabase
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
     lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
+
+    val exception_handlers = new DefaultLazyView[ExceptionHandler]()
+
+    // exception handelers can have an undefined catchType. This is used to implement finally blocks
+    lazy val handled_exceptions : LazyView[ExceptionHandler] = σ( (_:ExceptionHandler).catchType != None )(exception_handlers)
+
+    val thrown_exceptions : LazyView[throws] = new DefaultLazyView[throws]()
 
     lazy val write_field: LazyView[write_field] =
         (
@@ -185,6 +193,38 @@ class BytecodeDatabase
         )
 
 
+    lazy val baseViews : List[LazyView[_]] = List(
+        classfiles,
+        classfile_methods,
+        classfile_fields,
+        classes,
+        methods,
+        fields,
+        instructions,
+        `extends`,
+        implements,
+        parameter,
+        exception_handlers,
+        internal_inner_classes,
+        internal_enclosing_methods
+    )
+
+    lazy val derivedViews : List[LazyView[_]] = List(
+        subtypes,
+        inner_classes,
+        field_type,
+        return_type,
+        write_field,
+        read_field,
+        invoke_interface,
+        calls,
+        class_cast,
+        instanceof,
+        create,
+        create_class_array
+    )
+
+
     private def classAdder = new Java6ClassTransformer(
         classfiles.element_added,
         classfile_methods.element_added,
@@ -196,6 +236,8 @@ class BytecodeDatabase
         `extends`.element_added,
         implements.element_added,
         parameter.element_added,
+        exception_handlers.element_added,
+        thrown_exceptions.element_added,
         internal_inner_classes.element_added,
         internal_enclosing_methods.element_added
     )
@@ -212,6 +254,8 @@ class BytecodeDatabase
         `extends`.element_removed,
         implements.element_removed,
         parameter.element_removed,
+        exception_handlers.element_removed,
+        thrown_exceptions.element_removed,
         internal_inner_classes.element_removed,
         internal_enclosing_methods.element_removed
     )

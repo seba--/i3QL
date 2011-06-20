@@ -48,6 +48,8 @@ class MaterializedDatabase {
 
     val class_cast : QueryResult[class_cast] = db.class_cast
 
+    val exception_handlers : QueryResult[ExceptionHandler] = db.exception_handlers
+
     /**
      * Convenience method that opens a stream from a resource in the class path
      */

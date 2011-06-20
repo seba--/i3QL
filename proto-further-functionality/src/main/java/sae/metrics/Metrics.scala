@@ -25,14 +25,16 @@ import sun.font.TrueTypeFont
  * Time: 00:16
  * @author Malte V
  */
-
+//TODO add a fan in/out and lcom that igrnore constructors
 object Metrics {
   def getFanOut(parameters: LazyView[parameter],
                 methods: LazyView[Method],
                 read_fields: LazyView[read_field],
                 write_fields: LazyView[write_field],
                 clase_fiels: LazyView[Field],
-                calls: LazyView[calls]
+                calls: LazyView[calls] ,
+                handled_exceptions: LazyView[ExceptionHandler]
+
                  ): LazyView[(ReferenceType, Int)] = {
     /*
 val isNotSelfReferenceAndIsObjectType: ((ReferenceType, Type)) => Boolean =
@@ -59,7 +61,7 @@ x: calls) => (x.source.declaringRef, x.target.declaringRef))(calls))))
 x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
 
     γ(getFanOutAsSet(parameters, methods, read_fields, write_fields, clase_fiels,
-      calls), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)](),
+      calls,handled_exceptions), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)](),
       (a: ReferenceType, b: Int) => (a, b))
 
   }
@@ -70,12 +72,13 @@ x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
                read_fields: LazyView[read_field],
                write_fields: LazyView[write_field],
                clase_fiels: LazyView[Field],
-               calls: LazyView[calls]
+               calls: LazyView[calls] ,
+                handled_exceptions: LazyView[ExceptionHandler]
                 ): LazyView[(Type, Int)] = {
 
 
     γ(getFanOutAsSet(parameters, methods, read_fields, write_fields, clase_fiels,
-      calls), (x: (ReferenceType, Type)) => x._2, Count[(ReferenceType, Type)](),
+      calls,handled_exceptions), (x: (ReferenceType, Type)) => x._2, Count[(ReferenceType, Type)](),
       (a: Type, b: Int) => (a, b))
   }
 
@@ -85,7 +88,8 @@ x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
                      read_fields: LazyView[read_field],
                      write_fields: LazyView[write_field],
                      clase_fiels: LazyView[Field],
-                     calls: LazyView[calls]
+                     calls: LazyView[calls],
+                     handled_exceptions: LazyView[ExceptionHandler]
                       ): LazyView[(ReferenceType, Type)] = {
 
     val isNotSelfReferenceAndIsObjectType: ((ReferenceType, Type)) => Boolean =
@@ -95,7 +99,7 @@ x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
     val union: LazyView[(ReferenceType, Type)] =
       δ(
         (
-          ((((σ(isNotSelfReferenceAndIsObjectType)
+          (((((σ(isNotSelfReferenceAndIsObjectType)
             (Π[parameter, (ReferenceType, Type)]((x: parameter) => (x.source.declaringRef, x.target))(parameters))))
             ∪
             (σ(isNotSelfReferenceAndIsObjectType)
@@ -108,7 +112,17 @@ x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
                                                                                       x: calls) => (x.source.declaringRef, x.target.declaringRef))(calls))))
 
             ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[Field, (ReferenceType, Type)]((
-                                                                                      x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))
+                                                                                      x: Field) => (x.declaringClass, x.fieldType))(clase_fiels))))
+
+            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[ExceptionHandler, (ReferenceType, Type)]((
+                                                                                                 x: ExceptionHandler) => {
+            (x.declaringMethod.declaringRef,
+              x.catchType match {
+                case Some(value) => value
+              })
+          })(handled_exceptions)))
+          )
+      )
 
     union
   }
@@ -143,11 +157,11 @@ x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
 
     val calc: ((ReferenceType, Int, Int, Int)) => Double =
       (x: (ReferenceType, Int, Int, Int)) => ({
-        if(x._4.asInstanceOf[Double] == 0) 0
+        if (x._4.asInstanceOf[Double] == 0) 0
         val a: Double = 1.asInstanceOf[Double] / x._4.asInstanceOf[Double]
         val b: Double = a * x._2.asInstanceOf[Double] - x._3.asInstanceOf[Double]
         val c: Double = 1 - x._3
-        if(c == 0) 0
+        if (c == 0) 0
         val d: Double = b / c
         d
       })
