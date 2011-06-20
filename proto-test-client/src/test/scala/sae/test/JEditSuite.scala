@@ -14,7 +14,7 @@ import sae.operators._
 import scala.util.control._
 import sae.bytecode._
 
-
+@Ignore
 class JEditSuite {
     import sae.test.helpFunctions._
 

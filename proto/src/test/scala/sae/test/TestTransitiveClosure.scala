@@ -124,10 +124,11 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
     assertTrue(res.size == 0)
   }
 
-  @Test
   @Ignore
+  @Test
   def testCycle {
     //Cycles dont work!
+    //TODO: find a case where cycles dont work
     testGraph = new Table[Edge]
     val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
@@ -143,19 +144,12 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
     assertTrue(res.size == 6)
     assertTrue(res.asList.contains((Vertex("a"), Vertex("d"))))
     assertTrue(res.asList.contains((Vertex("b"), Vertex("d"))))
-    testGraph += Edge("c", "a")
-    assertTrue(res.size == 12)
-    assertTrue(res.asList.contains((Vertex("c"), Vertex("a"))))
-    assertTrue(res.asList.contains((Vertex("c"), Vertex("b"))))
-    assertTrue(res.asList.contains((Vertex("c"), Vertex("c"))))
-    testGraph += Edge("d", "a")
-    assertTrue(res.size == 16)
-    assertTrue(res.asList.contains((Vertex("d"), Vertex("a"))))
-    assertTrue(res.asList.contains((Vertex("d"), Vertex("b"))))
-    assertTrue(res.asList.contains((Vertex("d"), Vertex("c"))))
-    assertTrue(res.asList.contains((Vertex("d"), Vertex("d"))))
+    testGraph += Edge("d", "e")
+    assertTrue(res.size == 10)
+    testGraph += Edge("e", "a")
+    assertTrue(res.size == 25)
     testGraph -= Edge("b", "c")
-    assertTrue(res.size == 0)
+    assertTrue(res.size == 6)
   }
 
   @Test
