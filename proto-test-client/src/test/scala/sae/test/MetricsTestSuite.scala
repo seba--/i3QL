@@ -17,17 +17,7 @@ import javax.xml.crypto.dsig.Reference
 import de.tud.cs.st.bat.{Type, ObjectType, ReferenceType}
 
 
-trait AbstractEventSetTestSuite {
-  val location: File
-  val helper = new EventSetTestHelper()
 
-  import helper._
-
-  @Before
-  def before() {
-    init(location)
-  }
-}
 
 trait MetricsTestCollection {
   protected def assertDoIT(res: QueryResult[(ObjectType, Int)], objectType: ObjectType, value: Int) {
