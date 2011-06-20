@@ -27,11 +27,12 @@
 		<module>proto</module>
 		<module>proto-bytecode-database</module>
 		<module>proto-bytecode-reader</module>
-		<module>proto-profiler</module>
-		<module>proto-test-client</module>
+        <module>proto-further-functionality</module>
+        <module>proto-profiler</module>
+        <module>proto-test-client</module>
 		<module>proto-test-data</module>
         <module>proto-unisson</module>
-	</modules>
+    </modules>
 
 	<build>
 
@@ -53,8 +54,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<!-- <source>1.6</source>
+					<target>1.6</target> -->
 					<scalaVersion>${scala.version}</scalaVersion>
 					<args>
 						<!-- compile with debug information -->

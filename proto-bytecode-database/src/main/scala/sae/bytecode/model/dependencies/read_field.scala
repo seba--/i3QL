@@ -9,7 +9,7 @@ import sae.bytecode.model.{Field, Method}
  *
  */
 
-class read_field (val source: Method, val target: Field)
+case class read_field (val source: Method, val target: Field)
         extends Dependency[Method, Field] {
 
 }
