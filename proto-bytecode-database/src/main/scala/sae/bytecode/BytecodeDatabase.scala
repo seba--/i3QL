@@ -107,12 +107,12 @@ class BytecodeDatabase
 
     lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
 
-    val exception_table_entries = new DefaultLazyView[ExceptionHandler]()
+    val exception_handlers = new DefaultLazyView[ExceptionHandler]()
 
-    lazy val throws : LazyView[throws] = δ(
-        Π( (e:ExceptionHandler) => new throws(e.declaringMethod, e.catchType.get)) (
-            σ( (_:ExceptionHandler).catchType != None )(exception_table_entries) )
-        )
+    // exception handelers can have an undefined catchType. This is used to implement finally blocks
+    lazy val handled_exceptions : LazyView[ExceptionHandler] = σ( (_:ExceptionHandler).catchType != None )(exception_handlers)
+
+    val thrown_exceptions : LazyView[throws] = new DefaultLazyView[throws]()
 
     lazy val write_field: LazyView[write_field] =
         (
@@ -204,7 +204,7 @@ class BytecodeDatabase
         `extends`,
         implements,
         parameter,
-        exception_table_entries,
+        exception_handlers,
         internal_inner_classes,
         internal_enclosing_methods
     )
@@ -236,7 +236,8 @@ class BytecodeDatabase
         `extends`.element_added,
         implements.element_added,
         parameter.element_added,
-        exception_table_entries.element_added,
+        exception_handlers.element_added,
+        thrown_exceptions.element_added,
         internal_inner_classes.element_added,
         internal_enclosing_methods.element_added
     )
@@ -253,7 +254,8 @@ class BytecodeDatabase
         `extends`.element_removed,
         implements.element_removed,
         parameter.element_removed,
-        exception_table_entries.element_removed,
+        exception_handlers.element_removed,
+        thrown_exceptions.element_removed,
         internal_inner_classes.element_removed,
         internal_enclosing_methods.element_removed
     )

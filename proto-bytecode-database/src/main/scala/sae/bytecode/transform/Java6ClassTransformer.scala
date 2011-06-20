@@ -38,6 +38,7 @@ class Java6ClassTransformer(
                         process_implements: implements => Unit,
                         process_parameter: parameter => Unit,
                         process_exception_handler: ExceptionHandler => Unit,
+                        process_thrown_exception: throws => Unit,
                         process_inner_class_entry : InnerClassesEntry => Unit,
                         process_enclosing_method : unresolved_enclosing_method => Unit
 )
@@ -169,6 +170,7 @@ class Java6ClassTransformer(
         method_info.attributes.foreach(
         {
             case code_attribute: Code_attribute => transform(method, code_attribute)
+            case exceptions_attribute: Exceptions_attribute => transform(method, exceptions_attribute)
             case _ => // do nothing for currently unsupported attributes
         })
     }
@@ -213,10 +215,16 @@ class Java6ClassTransformer(
         )
     }
 
+    private def transform(declaringMethod: Method, exceptions_attribute: Exceptions_attribute)
+    {
+        exceptions_attribute.exceptionTable.foreach( e => process_thrown_exception(new throws(declaringMethod, e)) )
+    }
+
     /**
      * transform the individual bytecode instructions
      */
-    private def transform(declaringMethod: Method, code_attribute: Code_attribute) {
+    private def transform(declaringMethod: Method, code_attribute: Code_attribute)
+    {
         var pc = 0
 
         code_attribute.exceptionTable.foreach( entry => {
