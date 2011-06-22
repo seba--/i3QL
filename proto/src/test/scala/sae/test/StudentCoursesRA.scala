@@ -26,7 +26,7 @@ class StudentCoursesRAFunSuite
 
         // johnsData(StudentId, john) :- student(StudentId, john)
         // TODO this should type now
-        val johnsData : QueryResult[Student] = σ((_ : Student).Name == "john")(students)
+        val johnsData : QueryResult[Student] = σ( (_ : Student).Name == "john" )(students)
         assert(1 === johnsData.size)
         assert(Some(john) === johnsData.singletonValue)
     }

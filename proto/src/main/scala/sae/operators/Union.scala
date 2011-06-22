@@ -7,9 +7,6 @@ import sae.{SelfMaintainedView, LazyView}
  * Author: Ralf Mitschke
  * Created: 25.05.11 12:33
  *
- */
-
-/**
  * In set theory, the union (denoted as ∪) of a collection of sets is the set of
  * all distinct elements in the collection
  *

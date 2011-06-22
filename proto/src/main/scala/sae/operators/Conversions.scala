@@ -21,7 +21,7 @@ object Conversions {
         }
 
     // internal class for forwarding 
-    class HashIndexedViewProxy[V <: AnyRef](protected val relation : MaterializedView[V])
+    class HashIndexedViewProxy[V <: AnyRef](val relation : MaterializedView[V])
             extends IndexedView[V]
             with ObservableProxy[V]
     {
@@ -52,4 +52,5 @@ object Conversions {
             case view : MaterializedView[V] => new HashIndexedViewProxy(view)
             case _                          => new HashIndexedViewProxy(lazyViewToMaterializedView(lazyView))
         }
+
 }
