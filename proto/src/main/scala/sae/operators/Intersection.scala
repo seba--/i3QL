@@ -15,6 +15,7 @@ import sae._
  *
  */
 trait Intersection[Domain <: AnyRef]
+    extends LazyView[Domain]
 {
     type Dom = Domain
 

@@ -5,6 +5,7 @@ import sae.operators._
 import sae.operators.intern._
 import functions.ElementOf
 import functions.NotElementOf
+import sae.LazyView
 
 case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
 {
@@ -133,6 +134,8 @@ object RelationalAlgebraSyntax
                 new LazySelection[Domain](filter, relation)
             }
 
+        def unapply[Domain <: AnyRef](s : Selection[Domain]) : Option[(Domain => Boolean, LazyView[Domain])] = Some((s.filter, s.relation))
+
         // polymorhpic selection
 
         class PolymorphSelection[T <: AnyRef]
@@ -179,6 +182,12 @@ object RelationalAlgebraSyntax
         // def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA : Relation[DomainA], relationB: Relation[DomainB]) : Relation[(DomainA, DomainB)] = cross_product(relationA, relationB)
 
         //def unapply()
+    }
+
+    object ⋈
+    {
+        def unapply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef](join : EquiJoin[DomainA, DomainB, Range, Key]) : Option[(LazyView[DomainA], DomainA => Key, LazyView[DomainB], DomainB => Key)] =
+            Some((join.left, join.leftKey, join.right, join.rightKey))
     }
 
     /**definitions of duplicate elimination syntax **/
@@ -238,4 +247,11 @@ object RelationalAlgebraSyntax
 
     }
 
+
+    object ∪
+    {
+
+        def unapply[Range <: AnyRef, DomainA <: Range, DomainB <: Range](union : Union[Range, DomainA, DomainB]) : Option[(LazyView[DomainA], LazyView[DomainB])] = Some((union.left, union.right))
+
+    }
 }

@@ -15,6 +15,7 @@ import sae._
  *
  */
 trait Difference[Domain <: AnyRef]
+    extends LazyView[Domain]
 {
     type Dom = Domain
 

@@ -8,6 +8,7 @@ import sae.collections.Bag
  * unwanted tuples. Thus the projection shrinks the number of relations.
  */
 trait Selection[V <: AnyRef]
+    extends LazyView[V]
 {
     type Value = V
 

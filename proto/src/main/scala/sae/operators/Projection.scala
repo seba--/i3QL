@@ -38,6 +38,7 @@ import sae.collections.Bag
  * constructors during pattern matching
  */
 trait Projection[Domain <: AnyRef, Range <: AnyRef]
+    extends LazyView[Range]
 {
     type Dom = Domain
 
