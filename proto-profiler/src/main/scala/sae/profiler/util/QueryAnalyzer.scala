@@ -84,6 +84,7 @@ trait QueryAnalyzer {
         }
         case _ =>
         {
+            baseView(view, parent)
             leafFunc()
         }
     }
@@ -107,9 +108,12 @@ trait QueryAnalyzer {
 
     def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[LazyView[Parent]] )
 
+    def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]])
+
     def isMaterializedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[MaterializedView[Domain]]
 
     def isIndexedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[IndexedView[Domain]]
+
 
     private object MaterializedViewProxy
     {

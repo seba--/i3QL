@@ -6,7 +6,9 @@ import sae.collections.Bag
 /**
  * A duplicate elimination is available as a unary operator by itself
  */
-trait DuplicateElimination[Domain <: AnyRef] {
+trait DuplicateElimination[Domain <: AnyRef]
+    extends LazyView[Domain]
+{
     type Dom = Domain
 
     val relation : LazyView[Domain]

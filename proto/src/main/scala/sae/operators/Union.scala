@@ -13,6 +13,7 @@ import sae.{SelfMaintainedView, LazyView}
  * The Union in our algebra is always non-distinct
  */
 trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
+    extends LazyView[Range]
 {
     type Rng = Range
 

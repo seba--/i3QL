@@ -22,7 +22,7 @@ class JEditSuite {
 
     private val resourceName = "jedit-4.3.3-win.jar"
 
-    def db = {
+    def db : Database = {
         if(database == null){
             database = new MaterializedDatabase()
             database.addArchiveAsResource(resourceName)

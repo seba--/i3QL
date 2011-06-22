@@ -6,7 +6,9 @@ import sae.collections.Bag
 /**
  * A join ....
  */
-trait EquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef] {
+trait EquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef]
+    extends LazyView[Range]
+{
 
     val left : MaterializedView[DomainA]
 
