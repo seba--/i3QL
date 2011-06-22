@@ -9,20 +9,20 @@ import scala.collection.mutable.Map
  * an implementaion of Aggregation that saves for all groups the corresponding domain entries.
  * so that an aggregation function like min can use this data if necessary
  */
-class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-    aggregationConstructorFunction : (Key, AggregationValue) => Result)
+class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, val aggregationFuncFactory : NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+    val aggregationConstructorFunction : (Key, AggregationValue) => Result)
     extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
 
-    //TODO Evaluate cost of wrapping java.iterabel in scala iterable
 
-    import com.google.common.collect.HashMultiset;
 
-    var groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain,AggregationValue], Result)]()
+    import com.google.common.collect._;
+
+    val groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain,AggregationValue], Result)]()
 
     lazyInitialize
-    initialized = true
-    def lazyInitialize : Unit = {
 
+    def lazyInitialize : Unit = {
+        if(!initialized){
         source.lazy_foreach((v : Domain) => {
             //more or less a copy of added (without notify any observers)
             val key = groupFunction(v)
@@ -47,6 +47,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
                 groups.put(key, (c, data, aggFuncs, res))
             }
         })
+      initialized = true    }
 
     }
 
@@ -69,14 +70,13 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     // TODO try giving a more efficient implementation
     protected def materialized_contains(v: Result) =
     {
-        var contained = false
         groups.foreach( g =>
             {
                 if( g._2._4 == v)
-                    contained = true
+                    true
             }
         )
-        contained
+        false
     }
 
     def updated(oldV : Domain, newV : Domain) {

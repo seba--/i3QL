@@ -36,29 +36,6 @@ object Metrics {
                 handled_exceptions: LazyView[ExceptionHandler]
 
                  ): LazyView[(ReferenceType, Int)] = {
-    /*
-val isNotSelfReferenceAndIsObjectType: ((ReferenceType, Type)) => Boolean =
-(x: (ReferenceType, Type)) => {
-x._2.isObjectType && x._1 != x._2
-}
-val union: LazyView[(ReferenceType, Type)] =
-δ(
-
-(
-((((σ(isNotSelfReferenceAndIsObjectType)
-(Π[parameter, (ReferenceType, Type)]((x: parameter) => (x.source.declaringRef, x.target))(parameters))))
-∪
-(σ(isNotSelfReferenceAndIsObjectType)
-(Π[Method, (ReferenceType, Type)]((x: Method) => (x.declaringRef, x.returnType))(methods)))
-∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[read_field, (ReferenceType, Type)]((
-x: read_field) => (x.source.declaringRef, x.target.declaringClass))(read_fields)))
-∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[write_field, (ReferenceType, Type)]((
-x: write_field) => (x.source.declaringRef, x.target.declaringClass))(write_fields))))
-∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[calls, (ReferenceType, Type)]((
-x: calls) => (x.source.declaringRef, x.target.declaringRef))(calls))))
-
-∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[Field, (ReferenceType, Type)]((
-x: Field) => (x.declaringClass, x.fieldType))(clase_fiels)))))  */
 
     γ(getFanOutAsSet(parameters, methods, read_fields, write_fields, clase_fiels,
       calls,handled_exceptions), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)](),

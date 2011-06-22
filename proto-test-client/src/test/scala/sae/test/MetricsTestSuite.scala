@@ -84,13 +84,15 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
         x.read_field,
         x.write_field,
         x.classfile_fields,
-        x.calls
+        x.calls  ,
+        x.exception_handlers
       )
     })
     processRestAndTest({
       // test values are calculated by hand with javap after the definition of Fan out given in
       // Predicting Class Testability using Object-Oriented Metrics
       val res: QueryResult[(ReferenceType, Int)] = view
+      res.foreach(println)
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Main$1"), 3)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/ResourceProvider"), 5)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Resource"), 7)))
@@ -109,6 +111,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
       // test values are calculated by hand with javap after the definition of LCOM* given in
       // Predicting Class Testability using Object-Oriented Metrics
       val res: QueryResult[(ReferenceType, Option[Double])] = view
+      res.foreach(println)
       assertLCOM(res, ObjectType(className = "sharedresources/ResourceProvider"), 0.75)
       assertLCOM(res, ObjectType(className = "sharedresources/Resource"), 0.444)
       assertLCOM(res, ObjectType(className = "sharedresources/Consumer"), 0.3333)
@@ -126,7 +129,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
         x.write_field,
         x.classfile_fields,
         x.calls   ,
-      x.ex
+        x.exception_handlers
       )
     })
     processRestAndTest({
@@ -143,6 +146,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
   }
 
   @Test
+  @Ignore
   def printData() {
     val view = registerQuery(x => {
       Metrics.getFanOut(x.parameter,
@@ -150,7 +154,8 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
         x.read_field,
         x.write_field,
         x.classfile_fields,
-        x.calls
+        x.calls    ,
+        x.exception_handlers
       )
     })
     processRestAndTest({})

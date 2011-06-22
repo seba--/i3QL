@@ -11,7 +11,7 @@ private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelf
         }
         def remove(d : Domain, data : Iterable[Domain]) = {
             if (f(d) == max) {
-                max = f(data.first)
+                max = f(data.head)
                 max = (max /: data)((i, s) => if (i > f(s)) i else f(s))
             }
             max

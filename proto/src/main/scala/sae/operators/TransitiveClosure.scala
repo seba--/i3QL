@@ -31,7 +31,7 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
   //import scala.collection.mutable.Map
 
   import com.google.common.collect._
-
+  private var internal_size: Int = 0
   //all not derived Edges = (Vertex,Vertex)
   val graph = HashMultimap.create[Vertex, Vertex]()
 
@@ -39,9 +39,9 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
   //TransitiveClose saved as double adjacencyList
   //for fast access its stored in a hashmap
   val transitiveClosure = HashMap[Vertex, (HashSet[Vertex], HashSet[Vertex])]()
-
+  lazyInitialize
   source addObserver this
-  source.lazyInitialize
+
 
   protected def materialized_contains(v: (Vertex, Vertex)) = {
     if (transitiveClosure.contains(v._1)) {
@@ -51,10 +51,10 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
     }
   }
 
-  protected def materialized_singletonValue  = {
-    if (transitiveClosure.size == 1){
-      if(transitiveClosure.head._2._2.size == 1){
-           Some((transitiveClosure.head._1,transitiveClosure.head._2._2.head))
+  protected def materialized_singletonValue = {
+    if (transitiveClosure.size == 1) {
+      if (transitiveClosure.head._2._2.size == 1) {
+        Some((transitiveClosure.head._1, transitiveClosure.head._2._2.head))
       }
     }
     None
@@ -63,40 +63,50 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
   protected def materialized_size = {
     internal_size
   }
-  private var internal_size : Int = 0
-  private def materialized_size_++  {
+
+
+
+  private def materialized_size_++ {
     internal_size += 1
 
   }
-   private def materialized_size_--{
+
+  private def materialized_size_-- {
     internal_size -= 1
   }
 
 
   protected def materialized_foreach[T](f: ((Vertex, Vertex)) => T) {
-    transitiveClosure.foreach( x =>{
-        x._2._1.foreach(y => {
-          f((x._1,y))
-        })
+    transitiveClosure.foreach(x => {
+      x._2._1.foreach(y => {
+        f((x._1, y))
+      })
     })
   }
 
-  def lazyInitialize {}
+  def lazyInitialize {
+    if(!initialized)  {
+      source.lazy_foreach(x =>
+      internal_add(x, false))
 
+    initialized = true
+    }
+
+  }
 
 
   private def transitiveClosureGet(v: Vertex) = {
     transitiveClosure.getOrElse(v, throw new Error())
   }
 
-  def added(edge: Edge) {
+  def internal_add(edge: Edge, notify: Boolean) {
     val adjacencyEdgesToStartVertex = transitiveClosure.getOrElseUpdate(getTail(edge), (HashSet[Vertex](), HashSet[Vertex]()))
     val adjacencyEdgesToEndVertex = transitiveClosure.getOrElseUpdate(getHead(edge), (HashSet[Vertex](), HashSet[Vertex]()))
     if (graph.put(getTail(edge), getHead(edge))) {
       if (!adjacencyEdgesToStartVertex._1.contains(getHead(edge))) {
         adjacencyEdgesToStartVertex._1.add(getHead(edge))
         adjacencyEdgesToEndVertex._2.add(getTail(edge))
-        element_added((getTail(edge), getHead(edge)))
+        if(notify)element_added((getTail(edge), getHead(edge)))
         materialized_size_++
       }
     }
@@ -108,7 +118,7 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
       if (!tmp._1.contains(getHead(edge))) {
         tmp._1.add(getHead(edge))
         adjacencyEdgesToEndVertex._2.add(x)
-        element_added((x, getHead(edge)))
+        if(notify)element_added((x, getHead(edge)))
         materialized_size_++
       }
 
@@ -122,7 +132,7 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
         adjacencyEdgesToStartVertex._1.add(x)
         //tailHeadAdjacencyList.put(startVertex(edge), x)
         // && headTailAdjacencyList.put(x, startVertex(edge)))
-        element_added((getTail(edge), x))
+        if(notify)element_added((getTail(edge), x))
         materialized_size_++
       }
 
@@ -136,12 +146,16 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
           tmp._1.add(y)
           transitiveClosure.getOrElse(y, throw new Error())._2.add(x)
           //if (tailHeadAdjacencyList.put(x, y) && headTailAdjacencyList.put(y, x))
-          element_added((x, y))
+          if(notify)element_added((x, y))
           materialized_size_++
         }
 
       })
     })
+  }
+
+  def added(edge: Edge) {
+    internal_add(edge, true)
   }
 
   def removed(e: Edge) {

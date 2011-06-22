@@ -20,6 +20,10 @@ import sae.operators.intern._
 
 trait Aggregation[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef]
     extends LazyView[Result] {
+     val source : LazyView[Domain]
+     val groupFunction : Domain => Key
+     val aggregationFuncFactory : AggregationFunctionFactory[Domain, AggregationValue]
+     val aggregationConstructorFunction : (Key, AggregationValue) => Result
     // TODO declare values of Aggregation
 }
 
@@ -56,9 +60,3 @@ object Aggregation {
 
 }
 
-class Count {
-    private var count : Int = 0
-    def inc() = { this.count += 1 }
-    def dec() : Int = { this.count -= 1; this.count }
-    def apply() = this.count
-}
