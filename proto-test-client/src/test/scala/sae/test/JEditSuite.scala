@@ -334,13 +334,13 @@ class JEditSuite {
     this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
     val list = result.asList
-
+      println(list)
     //TODO add some asserts for update and remove events
     assertTrue(list.size == 29)
     assertTrue(list.contains(("org/gjt/sp/jedit/bsh/commands", (5.0, 0.0))))
     assertTrue(list.contains(("org/gjt/sp/jedit/visitors", (3.0, 0.6666666666666666))))
     assertTrue(list.contains(("org/gjt/sp/jedit/proto/jeditresource", (3.0, 1.0))))
-    assertTrue(list.contains(("org/gjt/sp/jedit/print", (4.6, 5.44)))) // there are more methods and packages in JEditSuite.allMethods.data. then you see in the package explore
+    assertTrue(list.contains(("org/gjt/sp/jedit/print", (4.6, 5.44)))) // there are more methods and packages in JEditSuite.allMethods.data. then you see in the package explorer
 
   }
 

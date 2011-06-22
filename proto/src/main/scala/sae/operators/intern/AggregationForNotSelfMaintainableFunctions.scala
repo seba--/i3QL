@@ -19,10 +19,8 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
 
     val groups = Map[Key, (Count, HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain,AggregationValue], Result)]()
 
-    lazyInitialize
-
     def lazyInitialize : Unit = {
-        if(!initialized){
+
         source.lazy_foreach((v : Domain) => {
             //more or less a copy of added (without notify any observers)
             val key = groupFunction(v)
@@ -47,7 +45,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
                 groups.put(key, (c, data, aggFuncs, res))
             }
         })
-      initialized = true    }
+      initialized = true
 
     }
 

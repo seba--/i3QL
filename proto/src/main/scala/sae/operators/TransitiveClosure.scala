@@ -39,7 +39,7 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
   //TransitiveClose saved as double adjacencyList
   //for fast access its stored in a hashmap
   val transitiveClosure = HashMap[Vertex, (HashSet[Vertex], HashSet[Vertex])]()
-  lazyInitialize
+
   source addObserver this
 
 
@@ -85,12 +85,12 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
   }
 
   def lazyInitialize {
-    if(!initialized)  {
+
       source.lazy_foreach(x =>
       internal_add(x, false))
 
     initialized = true
-    }
+
 
   }
 
