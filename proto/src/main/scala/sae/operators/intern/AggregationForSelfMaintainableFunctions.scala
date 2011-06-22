@@ -9,17 +9,17 @@ import scala.collection.mutable.Map
 /**
  * an inplementaion of Aggregation that only saves the result of aggregation function (aggregationFuncFactory)
  */
-class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                                                  aggregationConstructorFunction : (Key, AggregationValue) => Result)
+class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, val aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+                                                                                                                                  val aggregationConstructorFunction : (Key, AggregationValue) => Result)
     extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
-    //TODO Evaluate cost of wrapping java.iterabel in scala iterable 
+
 
     import com.google.common.collect.HashMultiset;
-    var groups = Map[Key, (Count, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
+    val groups = Map[Key, (Count, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
     lazyInitialize
-    initialized = true
-    def lazyInitialize : Unit = {
 
+    def lazyInitialize : Unit = {
+         if(!initialized){
         source.lazy_foreach((v : Domain) => {
             //more or less a copy of added (without notify any observers)
             val key = groupFunction(v)
@@ -42,7 +42,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
                 groups.put(key, (c, aggFuncs, res))
             }
         })
-
+          initialized = true    }
     }
 
     protected def materialized_foreach[T](f : (Result) => T) : Unit = {
@@ -66,10 +66,10 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         groups.foreach( g =>
             {
                 if( g._2._3 == v)
-                    contained = true
+                    true
             }
         )
-        contained
+        false
     }
 
     source.addObserver(this)
