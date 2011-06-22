@@ -30,7 +30,7 @@ import java.io.{File, InputStream}
  *  annotation(Class|Field|Method, Class)
  *  parameter_annotation(Method, Class)
  */
-class BytecodeDatabase
+class BytecodeDatabase extends Database
 {
     /**
      * BEWARE INITIALIZATION ORDER OF FIELDS (scala compiler will not warn you)

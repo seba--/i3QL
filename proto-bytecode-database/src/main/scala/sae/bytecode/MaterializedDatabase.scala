@@ -10,7 +10,9 @@ import de.tud.cs.st.bat._
 /**
  * Convenience database that materializes all queries as a result.
  */
-class MaterializedDatabase {
+class MaterializedDatabase
+extends Database
+{
 
     private val db : BytecodeDatabase = new BytecodeDatabase()
 
