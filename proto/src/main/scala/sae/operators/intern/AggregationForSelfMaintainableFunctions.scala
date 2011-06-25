@@ -7,11 +7,11 @@ import scala.collection.JavaConversions._
 import scala.collection.mutable.Map
 
 /**
- * an inplementaion of Aggregation that only saves the result of aggregation function (aggregationFuncFactory)
- */
-class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, val aggregationFuncFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                                                  val aggregationConstructorFunction : (Key, AggregationValue) => Result)
-    extends Aggregation[Domain, Key, AggregationValue, Result] with Observer[Domain] with MaterializedView[Result] {
+* an inplementaion of Aggregation that only saves the result of aggregation function (aggregationFunction)
+*/
+class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source : LazyView[Domain], val groupFunction : Domain => Key, val aggregationFunctionFactory : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+                                                                                                                                  val convertKeyAndAggregationValueToResult : (Key, AggregationValue) => Result)
+    extends Aggregation[Domain, Key, AggregationValue, Result,SelfMaintainalbeAggregationFunction[Domain,AggregationValue], SelfMaintainalbeAggregationFunctionFactory[Domain,AggregationValue]] with Observer[Domain] with MaterializedView[Result] {
 
 
     import com.google.common.collect.HashMultiset;
@@ -28,7 +28,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
 
                 count.inc
                 val aggRes = aggFuncs.add(v)
-                val res = aggregationConstructorFunction(key, aggRes)
+                val res = convertKeyAndAggregationValueToResult(key, aggRes)
                 if (res != oldResult) {
                     //some aggragation valus changed => updated event
                     groups.put(key, (count, aggFuncs, res))
@@ -36,9 +36,9 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             } else {
                 val c = new Count
                 c.inc
-                val aggFuncs = aggregationFuncFactory()
+                val aggFuncs = aggregationFunctionFactory()
                 val aggRes = aggFuncs.add(v)
-                val res = aggregationConstructorFunction(key, aggRes)
+                val res = convertKeyAndAggregationValueToResult(key, aggRes)
                 groups.put(key, (c, aggFuncs, res))
             }
         })
@@ -80,7 +80,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         if (oldKey == newKey) {
             val (count, aggFuncs, oldResult) = groups(oldKey)
             val aggRes = aggFuncs.update(oldV, newV)
-            val res = aggregationConstructorFunction(oldKey, aggRes)
+            val res = convertKeyAndAggregationValueToResult(oldKey, aggRes)
             groups.put(oldKey, (count, aggFuncs, res))
             if (oldResult != res)
                 element_updated(oldResult, res)
@@ -100,7 +100,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             element_removed(oldResult)
         } else {
             val aggRes = aggFuncs.remove(v)
-            val res = aggregationConstructorFunction(key, aggRes)
+            val res = convertKeyAndAggregationValueToResult(key, aggRes)
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put(key, (count, aggFuncs, res))
@@ -115,7 +115,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
             val (count, aggFuncs, oldResult) = groups(key)
             count.inc
             val aggRes = aggFuncs.add(v)
-            val res = aggregationConstructorFunction(key, aggRes) //FIXME name
+            val res = convertKeyAndAggregationValueToResult(key, aggRes) //FIXME name
             if (res != oldResult) {
                 //some aggragation valus changed => updated event
                 groups.put(key, (count, aggFuncs, res))
@@ -124,9 +124,9 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         } else {
             val c = new Count
             c.inc
-            val aggFuncs = aggregationFuncFactory()
+            val aggFuncs = aggregationFunctionFactory()
             val aggRes = aggFuncs.add(v)
-            val res = aggregationConstructorFunction(key, aggRes)
+            val res = convertKeyAndAggregationValueToResult(key, aggRes)
             groups.put(key, (c, aggFuncs, res))
             element_added(res)
         }

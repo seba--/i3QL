@@ -20,7 +20,8 @@ trait AggregationFunction[Domain <: AnyRef, Result] {
  *  -SelfMaintainalbeAggregationFunctionFactory
  *  
  */
-trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any]{
-    def apply() : AggregationFunction[Domain, AggregationValue]
+trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, Function <: AggregationFunction[Domain, AggregationValue]]{
+    def apply() : Function
+
 }
 
