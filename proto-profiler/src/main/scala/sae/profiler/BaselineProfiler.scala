@@ -39,27 +39,27 @@ object BaselineProfiler
         writer.println("Base Views;")
         writer.print(CSVHeader)
         writer.flush()
-
+        /*
         measure_jar_time("hibernate-core-3.6.0.Final.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("jedit-4.3.3-win.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("scala-compiler-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("scala-library-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
-
+        */
         writer.println("Derived Views;includes computation time for base views")
         writer.print(CSVHeader)
         writer.flush()
 
         println(createQueryProfile("hibernate-core-3.6.0.Final.jar").toTikZ)
-        measure_jar_time("hibernate-core-3.6.0.Final.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        //measure_jar_time("hibernate-core-3.6.0.Final.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
-        println(createQueryProfile("jedit-4.3.3-win.jar").toTikZ)
-        measure_jar_time("jedit-4.3.3-win.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        //println(createQueryProfile("jedit-4.3.3-win.jar").toTikZ)
+        //measure_jar_time("jedit-4.3.3-win.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
-        println(createQueryProfile("scala-compiler-2.8.1.jar").toTikZ)
-        measure_jar_time("scala-compiler-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        //println(createQueryProfile("scala-compiler-2.8.1.jar").toTikZ)
+        //measure_jar_time("scala-compiler-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
-        println(createQueryProfile("scala-library-2.8.1.jar").toTikZ)
-        measure_jar_time("scala-library-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        //println(createQueryProfile("scala-library-2.8.1.jar").toTikZ)
+        //measure_jar_time("scala-library-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
 
         writer.close()
