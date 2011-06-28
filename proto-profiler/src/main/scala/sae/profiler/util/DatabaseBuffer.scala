@@ -9,9 +9,9 @@ import sae.collections.Conversions._
 import sae.bytecode.transform._
 import de.tud.cs.st.bat._
 import de.tud.cs.st.lyrebird.replayframework.EventSet
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode.{Database, BytecodeDatabase}
 
-class DatabaseBuffer(val db : BytecodeDatabase) {
+class DatabaseBuffer(val db : BytecodeDatabase) extends Database {
 
     val classfiles : ObserverBuffer[ObjectType] = new ObserverBuffer(db.classfiles)
     val classfile_methods : ObserverBuffer[Method] = new ObserverBuffer(db.classfile_methods)
@@ -29,7 +29,11 @@ class DatabaseBuffer(val db : BytecodeDatabase) {
     val read_field : ObserverBuffer[read_field] = new ObserverBuffer(db.read_field)
     val calls : ObserverBuffer[calls] = new ObserverBuffer(db.calls)
     val class_cast : ObserverBuffer[class_cast] = new ObserverBuffer(db.class_cast)
+    val handled_exceptions : ObserverBuffer[ExceptionHandler] = new ObserverBuffer(db.handled_exceptions)
+    val exception_handlers : ObserverBuffer[ExceptionHandler] = new ObserverBuffer(db.handled_exceptions)
 
+
+  val subtypes: ObserverBuffer[(ObjectType, ObjectType)] = new ObserverBuffer[(ObjectType, ObjectType)](db.subtypes)
 
 
     def replay() : Unit = {
@@ -49,6 +53,9 @@ class DatabaseBuffer(val db : BytecodeDatabase) {
         read_field.replay
         calls.replay
         class_cast.replay
+        handled_exceptions.replay
+        subtypes.replay
+        exception_handlers.replay
     }
 
     def reset() {
@@ -68,5 +75,8 @@ class DatabaseBuffer(val db : BytecodeDatabase) {
         read_field.reset
         calls.reset
         class_cast.reset
+        handled_exceptions.reset
+        subtypes.reset
+        exception_handlers.reset
     }
 }

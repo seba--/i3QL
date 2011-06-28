@@ -2,6 +2,10 @@ package sae.functions
 
 import sae.operators._
 
+/**
+ * A aggregation function that finds the maximum in set of domain entries
+ * @author Malte V
+ */
 private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregationFunction[Domain, Int] {
      var max = Integer.MIN_VALUE
         def add(d : Domain, data : Iterable[Domain]) = {
@@ -19,7 +23,7 @@ private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelf
 
         def update(oldV : Domain, newV : Domain, data : Iterable[Domain]) = {
             if (f(oldV) == max || f(newV) > max) {
-                max = f(data.first)
+                max = f(data.head)
                 max = (max /: data)((i, s) => if (i > f(s)) i else f(s))
             }
             max

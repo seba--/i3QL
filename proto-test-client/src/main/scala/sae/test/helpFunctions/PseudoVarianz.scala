@@ -4,7 +4,7 @@ import sae.functions._
 
 
 private class PseudoVarianzIntern[Domain <: AnyRef](val f : Domain => Double) extends NotSelfMaintainalbeAggregationFunction[Domain, (Double,Double)] {
-     val avg : SelfMaintainalbeAggregationFunction[Domain, Double] = AVG(f).apply()
+     val avg  = AVG(f).apply()
      val count = Count[Domain]().apply()
      var pi = 0.0
      var erwartunswet = 0.0

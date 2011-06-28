@@ -1,7 +1,7 @@
 package sae.bytecode
 
 import model.dependencies._
-import model.{Instr, Field, Method}
+import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
 
@@ -48,4 +48,10 @@ trait Database
     def calls: LazyView[calls]
 
     def class_cast: LazyView[class_cast]
+
+    def handled_exceptions : LazyView[ExceptionHandler]
+
+    def exception_handlers : LazyView[ExceptionHandler]
+
+
 }

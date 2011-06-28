@@ -23,9 +23,8 @@ class Testaggregate extends TestCase {
     case class Edge(a : String, b : String, c : Int)
     case class Schuh(val art : String, val name : String, val hersteller : String, val preis : Int, val groesse : Int)
     var schuhe = new ObservableList[Schuh];
-
-    var aggOp : Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)] =
-        Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis), Min((x : Schuh) => x.preis), Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
+          //: Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)]
+    var aggOp  = Aggregation(schuhe, grouping, (Sum((x : Schuh) => x.preis), Min((x : Schuh) => x.preis), Max((x : Schuh) => x.preis)), ((key : (String, String), aggV : (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
 
     var list = new ObserverList[(String, String, Int, Int, Int)]
 
@@ -86,11 +85,12 @@ class Testaggregate extends TestCase {
         }
 
         def foreach[T](f : (V) => T) {
-            var x = data.iterator()
-            while (x.hasNext()) {
-                f(x.next)
-            }
-            //data.foreach(f)
+            //var x = data.iterator()
+            //while (x.hasNext()) {
+              //  f(x.next)
+            //}
+          import scala.collection.JavaConversions._
+            data.foreach(f)
         }
         def lazyInitialize = {}
     }
@@ -181,6 +181,7 @@ class Testaggregate extends TestCase {
         assertTrue(list.contains("damen", "Adidas", 120, 12, 12))
 
     }
+
     def testDelet() = {
         val list = new ObserverList[(String, String, Int, Int, Int)]
         aggOp.addObserver(list);

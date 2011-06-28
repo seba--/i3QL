@@ -1,6 +1,7 @@
 package sae.operators
 
 import sae.operators.intern._
+
 trait NotSelfMaintainalbeAggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any]
     extends AggregationFunctionFactory[Domain, AggregationValue,NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue]] {
 

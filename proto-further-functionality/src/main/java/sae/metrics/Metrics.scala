@@ -17,7 +17,7 @@ import sae.functions.Count
 import sae.collections.QueryResult
 
 import sae.functions.Sum
-import sae.functions.CalcSelfMaintable
+
 import sun.font.TrueTypeFont
 
 /**
@@ -27,41 +27,54 @@ import sun.font.TrueTypeFont
  */
 //TODO add a fan in/out and lcom that igrnore constructors
 object Metrics {
+
+  def getFanOut(db : Database): LazyView[(ReferenceType, Int)] = {
+    getFanOut(db.parameter, db.classfile_methods, db.read_field, db.write_field, db.classfile_fields, db.calls, db.handled_exceptions)
+  }
   def getFanOut(parameters: LazyView[parameter],
                 methods: LazyView[Method],
                 read_fields: LazyView[read_field],
                 write_fields: LazyView[write_field],
                 clase_fiels: LazyView[Field],
-                calls: LazyView[calls] ,
-                handled_exceptions: LazyView[ExceptionHandler]
+                calls: LazyView[calls],
+                exception_handlers: LazyView[ExceptionHandler]
 
                  ): LazyView[(ReferenceType, Int)] = {
 
     γ(getFanOutAsSet(parameters, methods, read_fields, write_fields, clase_fiels,
-      calls,handled_exceptions), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)](),
+      calls, exception_handlers), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)](),
       (a: ReferenceType, b: Int) => (a, b))
 
   }
 
+  def getFanIn(db: Database): LazyView[(Type, Int)] = {
+    getFanIn(db.parameter,
+      db.classfile_methods,
+      db.read_field,
+      db.write_field,
+      db.classfile_fields,
+      db.calls,
+      db.handled_exceptions)
+  }
 
   def getFanIn(parameters: LazyView[parameter],
-               methods: LazyView[Method],
+               classfile_methods: LazyView[Method],
                read_fields: LazyView[read_field],
                write_fields: LazyView[write_field],
                clase_fiels: LazyView[Field],
-               calls: LazyView[calls] ,
-                handled_exceptions: LazyView[ExceptionHandler]
+               calls: LazyView[calls],
+               handled_exceptions: LazyView[ExceptionHandler]
                 ): LazyView[(Type, Int)] = {
 
 
-    γ(getFanOutAsSet(parameters, methods, read_fields, write_fields, clase_fiels,
-      calls,handled_exceptions), (x: (ReferenceType, Type)) => x._2, Count[(ReferenceType, Type)](),
+    γ(getFanOutAsSet(parameters, classfile_methods, read_fields, write_fields, clase_fiels,
+      calls, handled_exceptions), (x: (ReferenceType, Type)) => x._2, Count[(ReferenceType, Type)](),
       (a: Type, b: Int) => (a, b))
   }
 
 
   def getFanOutAsSet(parameters: LazyView[parameter],
-                     methods: LazyView[Method],
+                     classfile_methods: LazyView[Method],
                      read_fields: LazyView[read_field],
                      write_fields: LazyView[write_field],
                      clase_fiels: LazyView[Field],
@@ -73,6 +86,8 @@ object Metrics {
       (x: (ReferenceType, Type)) => {
         x._2.isObjectType && x._1 != x._2
       }
+
+
     val union: LazyView[(ReferenceType, Type)] =
       δ(
         (
@@ -80,7 +95,7 @@ object Metrics {
             (Π[parameter, (ReferenceType, Type)]((x: parameter) => (x.source.declaringRef, x.target))(parameters))))
             ∪
             (σ(isNotSelfReferenceAndIsObjectType)
-              (Π[Method, (ReferenceType, Type)]((x: Method) => (x.declaringRef, x.returnType))(methods)))
+              (Π[Method, (ReferenceType, Type)]((x: Method) => (x.declaringRef, x.returnType))(classfile_methods)))
             ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[read_field, (ReferenceType, Type)]((
                                                                                            x: read_field) => (x.source.declaringRef, x.target.declaringClass))(read_fields)))
             ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[write_field, (ReferenceType, Type)]((
@@ -96,7 +111,9 @@ object Metrics {
             (x.declaringMethod.declaringRef,
               x.catchType match {
                 case Some(value) => value
-              })
+              }
+
+              )
           })(handled_exceptions)))
           )
       )
@@ -104,6 +121,9 @@ object Metrics {
     union
   }
 
+  def getLCOMStar(db : Database): LazyView[(ReferenceType, Option[Double])] ={
+    getLCOMStar(db.read_field, db.write_field, db.classfile_methods, db.classfile_fields)
+  }
   def getLCOMStar(readField: LazyView[read_field],
                   writeField: LazyView[write_field],
                   methods: LazyView[Method],
@@ -152,9 +172,37 @@ object Metrics {
     view
   }
 
-  def getDedthOfInheritanceTree(extendz: LazyView[`extends`]) = {
+  def getDedthOfInheritanceTree(db : Database) : LazyView[(ObjectType, Int)]= {
+    getDedthOfInheritanceTree(db.`extends`)
+  }
+  def getDedthOfInheritanceTree(extendz: LazyView[`extends`]) : LazyView[(ObjectType, Int)] = {
     val view: LazyView[(ObjectType, ObjectType)] = new HashTransitiveClosure(extendz, (x: `extends`) => x.source, (x: `extends`) => x.target)
     val res = Aggregation(view, (x: (ObjectType, ObjectType)) => x._1, Count[(ObjectType, ObjectType)](), (x: ObjectType, y: Int) => (x, y))
     res
   }
+}
+
+
+private class CalcIntern[Domain <: AnyRef, Result <: AnyVal](val f : Domain => Result) extends SelfMaintainalbeAggregationFunction[Domain, Option[Result]] {
+
+    def add(d : Domain) = {
+        Some(f(d))
+
+    }
+    def remove(d : Domain) = {
+        None
+    }
+
+    def update(oldV : Domain, newV : Domain) = {
+        Some(f(newV))
+    }
+}
+protected object CalcSelfMaintable {
+    def apply[Domain <: AnyRef, Result <: AnyVal](f : (Domain => Result)) = {
+        new SelfMaintainalbeAggregationFunctionFactory[Domain, Option[Result]] {
+            def apply() : SelfMaintainalbeAggregationFunction[Domain, Option[Result]] = {
+                new CalcIntern[Domain, Result](f)
+            }
+        }
+    }
 }

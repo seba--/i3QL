@@ -340,6 +340,7 @@ class JEditSuite {
     assertTrue(list.contains(("org/gjt/sp/jedit/bsh/commands", (5.0, 0.0))))
     assertTrue(list.contains(("org/gjt/sp/jedit/visitors", (3.0, 0.6666666666666666))))
     assertTrue(list.contains(("org/gjt/sp/jedit/proto/jeditresource", (3.0, 1.0))))
+    list.foreach(println)
     assertTrue(list.contains(("org/gjt/sp/jedit/print", (4.6, 5.44)))) // there are more methods and packages in JEditSuite.allMethods.data. then you see in the package explore
 
   }
@@ -781,6 +782,53 @@ class JEditSuite {
     //            	fanInFor("org.gjt.sp.jedit.textarea.TextAreaPainter").foreach(x => println("org.gjt.sp.jedit.textarea.TextAreaPainter: " + x))
 
   }
+
+  private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (Option[Domain], Int) => Res) extends NotSelfMaintainalbeAggregationFunction[Domain, Res] {
+     var max = Integer.MIN_VALUE
+     var value : Option[Domain] = None
+        def add(d : Domain, data : Iterable[Domain]) = {
+            if (f(d) > max)
+                max = f(d)
+            f2(value,max)
+        }
+        def remove(d : Domain, data : Iterable[Domain]) = {
+            if (f(d) == max) {
+                max = Integer.MIN_VALUE
+                data.foreach( x => {
+                  if(f(x) > max){
+                      max = f(x)
+                      value = Some(x)
+                  }
+                })
+
+            }
+            f2(value,max)
+        }
+
+        def update(oldV : Domain, newV : Domain, data : Iterable[Domain]) = {
+            if (f(oldV) == max || f(newV) > max) {
+                   max = Integer.MIN_VALUE
+                data.foreach( x => {
+                  if(f(x) > max){
+                      max = f(x)
+                      value = Some(x)
+                  }
+                })
+
+            }
+             f2(value,max)
+        }
+}
+
+object Max2 {
+    def apply[Domain <: AnyRef,Res <:Any ](f : (Domain => Int ), f2: (Option[Domain], Int) => Res) = {
+        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Res]{
+           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Res] = {
+               new MaxIntern2[Domain,Res](f,f2)
+           }
+        }
+    }
+}
 
 }
 

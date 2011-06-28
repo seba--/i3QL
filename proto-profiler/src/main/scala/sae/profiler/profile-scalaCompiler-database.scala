@@ -1,5 +1,6 @@
 package sae.profiler
-import sae.profiler.util.Profile
+
+import sae.profiler.util.Profile
 import sae._
 import sae.operators._
 import sae.functions._
@@ -37,7 +38,7 @@ object ScalaCompilerProfiler {
     implicit val iterations = 1
     def main(args : Array[String]) : Unit = {
         init
-        
+       /*
         //
         write("read scala-compiler.jar", Profile(read))
         
@@ -98,7 +99,7 @@ object ScalaCompilerProfiler {
         write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(f1,
             (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
                 x.remove(someMethodsInMostMethods(i))
-            }))
+            }))    */
     }
         
 
@@ -133,18 +134,20 @@ object ScalaCompilerProfiler {
         db.readBytecode
     }
 
+  /*
     def classWithMaxMethodsPairPackage() : Unit = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
         getGroupByPackageFindClassWithMaxMethods(source)
         allMethods.foreach(x => source.add(x))
-    }
+    }    */
 
+  /*
     def initClassWithMaxMethodsPairPackage : (sae.test.helpFunctions.ObservableList[Method], Any) = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
         val res = getGroupByPackageFindClassWithMaxMethods(source)
         mostMethods.foreach(x => source.add(x))
         (source, res)
-    }
+    }*/
     def selectiveFanOut : Unit = {
         val source = new sae.test.helpFunctions.ObservableList[Method]()
         getFanOut(source, x => { !x.toJava.startsWith("java.", 0) })
@@ -212,6 +215,7 @@ object ScalaCompilerProfiler {
         val t = Timer.median(profile)
         println(t.elapsedSecondsWithUnit)
     }
+  /*
     private def getGroupByPackageFindClassWithMaxMethods(source : LazyView[Method]) = {
         val groupByClassesAndCountMethods = Aggregation(source, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[Method], (x : (String, String), y : Int) => (x._1, x._2, y))
         val groupByPackageFindClassWithMaxMethods = Aggregation(groupByClassesAndCountMethods,
@@ -219,7 +223,7 @@ object ScalaCompilerProfiler {
             Max2[(String, String, Int), Option[(String, String, Int)]]((x : (String, String, Int)) => x._3, (y : Option[(String, String, Int)], x : Int) => y),
             (x : String, y : Option[(String, String, Int)]) => y)
         groupByPackageFindClassWithMaxMethods
-    }
+    } */
     // grouped by packages!
     private def getFanOut(source : LazyView[Method], f : de.tud.cs.st.bat.Type => Boolean) = {
         import sae.functions.FanOut

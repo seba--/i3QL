@@ -6,7 +6,9 @@ import scala.collection.JavaConversions._
  * distinct operator
  * should only be used at: Aggregate(...., Distinct(aggregation functions), ...)
  * should NOT be used in "complex" aggregation functions (e.g. (Min, Distinct(Count), ...))
+ * @deprecated use DuplicateElimination instead
  */
+@Deprecated
 object Distinct {
     def apply[Domain <: AnyRef, AggregationValue <: Any, DistinctAttribut <: AnyRef]
     (aggFunc : SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue], distincFunction : Domain => DistinctAttribut) : DistinctSelfMaintainableAggregationFunctionFactory[Domain,AggregationValue] = {

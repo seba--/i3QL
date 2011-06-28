@@ -3,7 +3,6 @@ package sae.operators.intern
 import sae._
 
 import sae.operators._
-import sae.collections._
 import scala.collection.JavaConversions._
 import scala.collection.mutable.Map
 
