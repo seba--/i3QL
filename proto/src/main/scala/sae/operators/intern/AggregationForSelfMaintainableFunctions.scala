@@ -19,7 +19,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     lazyInitialize
 
     def lazyInitialize : Unit = {
-         if(!initialized){
+
         source.lazy_foreach((v : Domain) => {
             //more or less a copy of added (without notify any observers)
             val key = groupFunction(v)
@@ -42,7 +42,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
                 groups.put(key, (c, aggFuncs, res))
             }
         })
-          initialized = true    }
+          initialized = true
     }
 
     protected def materialized_foreach[T](f : (Result) => T) : Unit = {
