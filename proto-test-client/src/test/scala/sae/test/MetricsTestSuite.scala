@@ -77,6 +77,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
 
 
   @Test
+  @Ignore
   def testFanOut() {
     val view = registerQuery(x => {
       Metrics.getFanOut(x.parameter,
@@ -103,6 +104,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
   }
 
   @Test
+  @Ignore
   def testLcom() {
     val view = registerQuery(x => {
       Metrics.getLCOMStar(x.read_field, x.write_field, x.classfile_methods, x.classfile_fields)
@@ -121,6 +123,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
   }
 
   @Test
+  @Ignore
   def testFanIn() {
     val view = registerQuery(x => {
       Metrics.getFanIn(x.parameter,

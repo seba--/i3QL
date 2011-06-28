@@ -89,5 +89,11 @@ class DataQueryAnalyzer
     {
         profile.addOperator(view, parent)
     }
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef](view: TransitiveClosure[Domain, Vertex], parent: Option[LazyView[Parent]], childContinuation: => Unit) =
+    {
+        profile.addOperator(view, parent)
+        childContinuation
+    }
 }
 

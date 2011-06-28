@@ -108,6 +108,9 @@ object RelationalAlgebraSyntax
     {
         // TODO think of better names for start/endVertex functions
         def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: LazyView[Domain])(startVertex: Domain => Vertex, endVertex: Domain => Vertex) = new HashTransitiveClosure[Domain, Vertex](relation, startVertex, endVertex)
+
+        def unapply[Domain <: AnyRef, Vertex <: AnyRef](closure : TransitiveClosure[Domain, Vertex]) =
+            Some(closure.source, closure.getHead, closure.getTail)
     }
 
     object ∈

@@ -1,9 +1,9 @@
 package sae.profiler.util
 
 import sae.{IndexedView, MaterializedView, LazyView}
-import sae.operators.{DuplicateElimination, EquiJoin, Projection, Selection, Union, Intersection, Difference}
 import sae.collections.BagResult
 import sae.operators.Conversions.HashIndexedViewProxy
+import sae.operators._
 
 /**
  *
@@ -62,6 +62,10 @@ trait QueryAnalyzer {
         {
             indexedProxyView(proxy, parent, analyze(relation, Some(view)))
         }
+        case tc @ TC(relation, _, _) =>
+        {
+            transitiveClosureView(tc, parent, analyze(relation, Some(view)))
+        }
         case _ =>
         {
             baseView(view, parent)
@@ -88,6 +92,8 @@ trait QueryAnalyzer {
     def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
     def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]]) : T
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef]( view : TransitiveClosure[Domain, Vertex], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
     def isMaterializedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[MaterializedView[Domain]]
 

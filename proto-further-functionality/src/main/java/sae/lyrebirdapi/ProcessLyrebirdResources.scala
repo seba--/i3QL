@@ -12,7 +12,7 @@ import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 
 class ProcessLyrebirdResources(val location: File, val db: MaterializedDatabase) {
   private val replay = new Replay(location)
-  private val eventSets = replay.getAllEventSets()
+  private val eventSets = replay.getAllEventSets
   private var idx = 0
 
   def processNext() {

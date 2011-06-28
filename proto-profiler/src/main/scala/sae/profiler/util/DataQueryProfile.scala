@@ -47,7 +47,7 @@ class DataQueryProfile {
             "node[above] {" + counters(view).count + "}"
     }
 
-    val beginTiKz = "\n\\begin{tikzpicture}[grow=left]\n"
+    val beginTiKz = "\n\\begin{tikzpicture}\n"
 
     val endTikZ = "\\end{tikzpicture}\n\n"
 

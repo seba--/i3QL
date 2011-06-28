@@ -88,5 +88,11 @@ class BasicQueryAnalyzer
     {
         profile.baseRelations += 1
     }
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef](view: TransitiveClosure[Domain, Vertex], parent: Option[LazyView[Parent]], childContinuation: => Unit)
+    {
+        profile.transitiveClosures += 1
+        childContinuation
+    }
 }
 

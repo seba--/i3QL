@@ -38,13 +38,13 @@ abstract class TikZTreeConverter
     private def makeNode(kind : String, name : String) = "node[" + kind + "] {" + name + "}\n"
 
     def baseView[Domain <: AnyRef, Parent <: AnyRef](view: LazyView[Domain], parent: Option[LazyView[Parent]]) =
-        makeNode("base", "Base") + makeEdge (view, parent)
+        makeNode("base", "$Rel$") + makeEdge (view, parent)
 
     def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: HashIndexedViewProxy[Domain], parent: Option[LazyView[Parent]], childContinuation: => String) =
-        makeNode("proxy", "Index") + child(childContinuation) + makeEdge (view, parent)
+        makeNode("proxy", "$Idx$") + child(childContinuation) + makeEdge (view, parent)
 
     def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: BagResult[Domain], parent: Option[LazyView[Parent]], childContinuation: => String) =
-        makeNode("proxy", "Materialization") + child(childContinuation) + makeEdge (view, parent)
+        makeNode("proxy", "$Mat$") + child(childContinuation) + makeEdge (view, parent)
 
     def differenceView[Domain <: AnyRef, Parent <: AnyRef](view: Difference[Domain], parent: Option[LazyView[Parent]], leftContinuation: => String, rightContinuation: => String) =
     makeNode("operator", "$\\setminus$") + child(leftContinuation) + child(rightContinuation) + makeEdge (view, parent)
@@ -66,4 +66,7 @@ abstract class TikZTreeConverter
 
     def selectionView[Domain <: AnyRef, Parent <: AnyRef](view: Selection[Domain], parent: Option[LazyView[Parent]], childContinuation: => String) =
         makeNode("operator", "$\\sigma$") + child(childContinuation) + makeEdge (view, parent)
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef](view: TransitiveClosure[Domain, Vertex], parent: Option[LazyView[Parent]], childContinuation: => String) =
+        makeNode("operator", "$TC$") + child(childContinuation) + makeEdge (view, parent)
 }

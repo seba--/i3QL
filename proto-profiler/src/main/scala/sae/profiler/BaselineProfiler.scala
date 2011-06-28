@@ -7,6 +7,7 @@ import java.io.{FileOutputStream, PrintWriter, OutputStream}
 import sae.bytecode.transform.Java6ClassTransformer
 import sae.LazyView
 import util.{DataQueryAnalyzer, BasicQueryAnalyzer, BasicQueryProfile, CountingObserver}
+import sae.bytecode.model.dependencies.{class_cast, `extends`}
 
 /**
  *
@@ -34,13 +35,15 @@ object BaselineProfiler
         }
 
 
-        implicit val times = 0
+        implicit val times = 10
         val writer = new PrintWriter(out, true)
         writer.println("Base Views;")
         writer.print(CSVHeader)
         writer.flush()
+
+        // measure_jar_time("hibernate-core-3.6.0.Final.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
+
         /*
-        measure_jar_time("hibernate-core-3.6.0.Final.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("jedit-4.3.3-win.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("scala-compiler-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
         measure_jar_time("scala-library-2.8.1.jar")(readBaseViewsToCountingDatabase(_)(_))(writer)
@@ -49,13 +52,13 @@ object BaselineProfiler
         writer.print(CSVHeader)
         writer.flush()
 
-        println(createQueryProfile("hibernate-core-3.6.0.Final.jar").toTikZ)
-        //measure_jar_time("hibernate-core-3.6.0.Final.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
+        //println(createQueryProfile("hibernate-core-3.6.0.Final.jar").toTikZ)
+        //measure_jar_time("hibernate-core-3.6.0.Final.jar")(readViewToCountingDatabase(_)(_))(writer)
 
         //println(createQueryProfile("jedit-4.3.3-win.jar").toTikZ)
         //measure_jar_time("jedit-4.3.3-win.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
-        //println(createQueryProfile("scala-compiler-2.8.1.jar").toTikZ)
+        println(createQueryProfile( (db:BytecodeDatabase) => {db.transformerForArchiveResources(List("scala-compiler-2.8.1.jar", "scala-library-2.8.1.jar")) } ).toTikZ)
         //measure_jar_time("scala-compiler-2.8.1.jar")(readDerivedViewsToCountingDatabase(_)(_))(writer)
 
         //println(createQueryProfile("scala-library-2.8.1.jar").toTikZ)
@@ -113,8 +116,25 @@ object BaselineProfiler
         (transformer, o)
     }
 
+    def readViewToCountingDatabase(jarFile: String)(run: Int) =
+    {
+        System.gc()
+        print(jarFile + " run " + run)
+        val db = new BytecodeDatabase
 
-    def measure_jar_time(jarFile: String)(setup : (String, Int) => (Java6ClassTransformer, CountingObserver[_]))(writer: PrintWriter)(implicit times: Int = 10)
+        val o = new CountingObserver[Any]()
+
+        db.return_type.addObserver(o)
+
+
+        println("...")
+        val transformer = db.transformerForArchiveResource(jarFile)
+        println("pushing data to database")
+        (transformer, o)
+    }
+
+
+    def measure_jar_time[T](jarFile: String)(setup : (String, Int) => (Java6ClassTransformer, CountingObserver[_]))(writer: PrintWriter)(implicit times: Int = 10)
     {
         println("counting facts")
         val numberOfFacts = countFacts(jarFile)( setup(_, 0) )
@@ -154,17 +174,16 @@ object BaselineProfiler
         observer.count
     }
 
-    def createQueryProfile(jarFile: String) =
+    def createQueryProfile(f : BytecodeDatabase => Java6ClassTransformer) =
     {
-        print("profile for " + jarFile)
+        print("creating profile")
         val db = new BytecodeDatabase
 
         val analyzer = new DataQueryAnalyzer
 
         db.derivedViews.foreach( (view : LazyView[_]) => analyzer(view.asInstanceOf[LazyView[AnyRef]]) ) // TODO this is not nice
+        val transformer = f(db)
 
-        println("...")
-        val transformer = db.transformerForArchiveResource(jarFile)
         println("pushing data to database")
         transformer.processAllFacts()
 

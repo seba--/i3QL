@@ -80,10 +80,7 @@ public class BytecodeReader {
 			if (!zipEntry.isDirectory()
 					&& zipEntry.getName().endsWith(".class")) {
 				//System.out.println("reading ... " + zipEntry.getName());
-
-				
 				readClassFile(new ZipStreamEntryWrapper(zipStream, zipEntry));
-
 			}
 		}
 		//factProcessor.processAllFacts();
