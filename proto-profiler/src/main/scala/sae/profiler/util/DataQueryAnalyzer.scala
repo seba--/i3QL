@@ -16,68 +16,84 @@ import sae.operators._
 class DataQueryAnalyzer
     extends QueryAnalyzer
 {
-    type T = Unit
-
     val profile = new DataQueryProfile
 
-    private def leafFunc() {}
+    type T = Unit
 
-    private def joinResults : (Unit, Unit) => Unit = (_, _) => {}
+    // profile.addOperator(view, parent)
 
     def apply[Domain <: AnyRef]( view : LazyView[Domain] )
     {
-        analyze[Domain](view)(leafFunc, joinResults)
+        analyze[Domain](view)
     }
 
-    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: HashIndexedViewProxy[Domain], parent: Option[LazyView[Parent]])
+    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: HashIndexedViewProxy[Domain], parent: Option[LazyView[Parent]], childContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        childContinuation
     }
 
-    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: BagResult[Domain], parent: Option[LazyView[Parent]])
+    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef](view: BagResult[Domain], parent: Option[LazyView[Parent]], childContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        childContinuation
     }
 
-    def equiJoinView[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef, Parent <: AnyRef](view: EquiJoin[DomainA, DomainB, Range, Key], parent: Option[LazyView[Parent]])
+    def differenceView[Domain <: AnyRef, Parent <: AnyRef](view: Difference[Domain], parent: Option[LazyView[Parent]], leftContinuation: => Unit, rightContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        leftContinuation
+        rightContinuation
     }
 
-    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef](view: DuplicateElimination[Domain], parent: Option[LazyView[Parent]])
+    def intersectionView[Domain <: AnyRef, Parent <: AnyRef](view: Intersection[Domain], parent: Option[LazyView[Parent]], leftContinuation: => Unit, rightContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        leftContinuation
+        rightContinuation
     }
 
-
-    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef](view: Projection[Domain, Range], parent: Option[LazyView[Parent]])
+    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef](view: Union[Range, DomainA, DomainB], parent: Option[LazyView[Parent]], leftContinuation: => Unit, rightContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        leftContinuation
+        rightContinuation
     }
 
-    def selectionView[Domain <: AnyRef, Parent <: AnyRef](view: Selection[Domain], parent: Option[LazyView[Parent]])
+    def equiJoinView[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef, Parent <: AnyRef](view: EquiJoin[DomainA, DomainB, Range, Key], parent: Option[LazyView[Parent]], leftContinuation: => Unit, rightContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        leftContinuation
+        rightContinuation
     }
 
-    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef](view: Union[Range, DomainA, DomainB], parent: Option[LazyView[Parent]])
+    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef](view: DuplicateElimination[Domain], parent: Option[LazyView[Parent]], childContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        childContinuation
     }
 
-    def differenceView[Domain <: AnyRef, Parent <: AnyRef](view: Difference[Domain], parent: Option[LazyView[Parent]])
+    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef](view: Projection[Domain, Range], parent: Option[LazyView[Parent]], childContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        childContinuation
     }
 
-    def intersectionView[Domain <: AnyRef, Parent <: AnyRef](view: Intersection[Domain], parent: Option[LazyView[Parent]])
+    def selectionView[Domain <: AnyRef, Parent <: AnyRef](view: Selection[Domain], parent: Option[LazyView[Parent]], childContinuation: => Unit)
     {
         profile.addOperator(view, parent)
+        childContinuation
     }
 
     def baseView[Domain <: AnyRef, Parent <: AnyRef](view: LazyView[Domain], parent: Option[LazyView[Parent]])
     {
         profile.addOperator(view, parent)
+    }
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef](view: TransitiveClosure[Domain, Vertex], parent: Option[LazyView[Parent]], childContinuation: => Unit) =
+    {
+        profile.addOperator(view, parent)
+        childContinuation
     }
 }
 

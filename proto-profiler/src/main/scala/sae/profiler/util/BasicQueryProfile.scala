@@ -29,6 +29,8 @@ class BasicQueryProfile
 
     var differences = 0
 
+    var transitiveClosures = 0
+
     def asConsoleOutput = "" +
             "materializedViews:     " + materializedViews + "\n" +
             "indexedViews:          " + indexedViews + "\n" +
@@ -36,6 +38,7 @@ class BasicQueryProfile
             "projections:           " + projections + "\n" +
             "selections:            " + selections + "\n" +
             "duplicateEliminations: " + duplicateEliminations + "\n" +
-            "equiJoins:             " + equiJoins + ""
+            "equiJoins:             " + equiJoins + "\n"
+            "transitiveClosures:    " + transitiveClosures + ""
 }
 

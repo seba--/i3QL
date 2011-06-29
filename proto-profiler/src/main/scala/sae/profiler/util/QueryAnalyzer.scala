@@ -1,9 +1,9 @@
 package sae.profiler.util
 
 import sae.{IndexedView, MaterializedView, LazyView}
-import sae.operators.{DuplicateElimination, EquiJoin, Projection, Selection, Union, Intersection, Difference}
 import sae.collections.BagResult
 import sae.operators.Conversions.HashIndexedViewProxy
+import sae.operators._
 
 /**
  *
@@ -15,100 +15,85 @@ import sae.operators.Conversions.HashIndexedViewProxy
  */
 trait QueryAnalyzer {
 
-    type T
-
     import sae.syntax.RelationalAlgebraSyntax._
 
-    def analyze[Domain <: AnyRef]( view : LazyView[Domain] )(implicit leafFunc : () => T, joinResults : (T,T) => T) : T =
+    def analyze[Domain <: AnyRef]( view : LazyView[Domain] ) : T =
         analyze(view, None)
 
+    type T
 
-    private def analyze[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]] )(implicit leafFunc : () => T, joinResults : (T,T) => T) : T = view match {
+    private def analyze[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]] ) : T = view match {
         case selection @ σ(_, relation : LazyView[Domain]) =>
         {
-            selectionView(selection, parent)
-            analyze(relation, Some(view))
+            selectionView(selection, parent, analyze(relation, Some(view)))
         }
         case projection @ Π(_, relation : LazyView[Domain]) =>
         {
-            projectionView(projection, parent)
-            analyze(relation, Some(view))
+            projectionView(projection, parent, analyze(relation, Some(view)))
         }
         // TODO at least for case classes there is a way to do infix operators, check with ⋈ unapply method
         case equiJoin @ ⋈(relationA, _, relationB, _) =>
         {
-            equiJoinView(equiJoin, parent)
-            val ta = analyze(relationA, Some(view))
-            val tb = analyze(relationB, Some(view))
-            joinResults(ta, tb)
+            equiJoinView(equiJoin, parent, analyze(relationA, Some(view)), analyze(relationB, Some(view)))
         }
         case delta @ δ(relation) =>
         {
-            duplicateEliminationView(delta, parent)
-            analyze(relation, Some(view))
+            duplicateEliminationView(delta, parent, analyze(relation, Some(view)))
         }
         // TODO the pattern matching is not type safe here
         case union : Union[_,_,_] =>
         {
-            unionView(union, parent)
-            val ta = analyze( union.left, Some(view) )
-            val tb = analyze( union.right, Some(view) )
-            joinResults(ta, tb)
-
+            unionView(union, parent, analyze(union.left, Some(view)), analyze(union.right, Some(view)))
         }
         case intersection : Intersection[_] =>
         {
-            intersectionView(intersection, parent)
-            val ta = analyze( intersection.left, Some(view) )
-            val tb = analyze( intersection.right, Some(view) )
-            joinResults(ta, tb)
-
+            intersectionView(intersection, parent, analyze(intersection.left, Some(view)), analyze(intersection.right, Some(view)))
         }
         case difference : Difference[_] =>
         {
-            differenceView(difference, parent)
-            val ta = analyze( difference.left, Some(view) )
-            val tb = analyze( difference.right, Some(view) )
-            joinResults(ta, tb)
+            differenceView(difference, parent, analyze(difference.left, Some(view)), analyze(difference.right, Some(view)))
 
         }
         case proxy @ MaterializedViewProxy(relation) =>
         {
-            materializedProxyView(proxy, parent)
-            analyze(relation, Some(view))
+            materializedProxyView(proxy, parent, analyze(relation, Some(view)))
         }
         case proxy @ IndexedViewProxy(relation) =>
         {
-            indexedProxyView(proxy, parent)
-            analyze(relation, Some(view))
+            indexedProxyView(proxy, parent, analyze(relation, Some(view)))
+        }
+        case tc @ TC(relation, _, _) =>
+        {
+            transitiveClosureView(tc, parent, analyze(relation, Some(view)))
         }
         case _ =>
         {
             baseView(view, parent)
-            leafFunc()
         }
     }
 
-    def selectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Selection[Domain], parent : Option[LazyView[Parent]] )
+    def selectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Selection[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
-    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef]( view : Projection[Domain, Range], parent : Option[LazyView[Parent]] )
+    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef]( view : Projection[Domain, Range], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
-    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef]( view : DuplicateElimination[Domain], parent : Option[LazyView[Parent]] )
+    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef]( view : DuplicateElimination[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
     def equiJoinView[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef, Parent <: AnyRef](
-                                                                                                                view : EquiJoin[DomainA, DomainB, Range, Key], parent : Option[LazyView[Parent]] )
+                                                                                                                view : EquiJoin[DomainA, DomainB, Range, Key], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef]( view : Union[Range, DomainA, DomainB], parent : Option[LazyView[Parent]] )
+    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef]( view : Union[Range, DomainA, DomainB], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def intersectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Intersection[Domain], parent : Option[LazyView[Parent]] )
+    def intersectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Intersection[Domain], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def differenceView[Domain <: AnyRef, Parent <: AnyRef]( view : Difference[Domain], parent : Option[LazyView[Parent]] )
+    def differenceView[Domain <: AnyRef, Parent <: AnyRef]( view : Difference[Domain], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : BagResult[Domain], parent : Option[LazyView[Parent]] )
+    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : BagResult[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
-    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[LazyView[Parent]] )
+    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
-    def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]])
+    def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]]) : T
+
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef]( view : TransitiveClosure[Domain, Vertex], parent : Option[LazyView[Parent]], childContinuation : => T) : T
 
     def isMaterializedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[MaterializedView[Domain]]
 

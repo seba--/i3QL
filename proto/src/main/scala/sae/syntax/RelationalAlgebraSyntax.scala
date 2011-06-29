@@ -102,6 +102,9 @@ object RelationalAlgebraSyntax {
   object TC {
     // TODO think of better names for start/endVertex functions
     def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: LazyView[Domain])(startVertex: Domain => Vertex, endVertex: Domain => Vertex) = new HashTransitiveClosure[Domain, Vertex](relation, startVertex, endVertex)
+
+    def unapply[Domain <: AnyRef, Vertex <: AnyRef](closure: TransitiveClosure[Domain, Vertex]) =
+      Some(closure.source, closure.getHead, closure.getTail)
   }
 
   object ∈ {
@@ -186,28 +189,31 @@ object RelationalAlgebraSyntax {
 
   /**definitions of aggregation syntax **/
   object γ {
+
     def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source: LazyView[Domain],
-                                                                                     groupFunction: Domain => Key,
-                                                                                     aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                     aggregationConstructorFunction: (Key, AggregationValue) => Result) :
-  Aggregation[Domain, Key,AggregationValue,Result,NotSelfMaintainalbeAggregationFunction[Domain,AggregationValue],NotSelfMaintainalbeAggregationFunctionFactory[Domain,AggregationValue]]= {
-    new AggregationForNotSelfMaintainableFunctions[Domain,Key,AggregationValue,Result](source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
-  }
-
-  def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source: LazyView[Domain], groupFunction: Domain => Key, aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                     aggregationConstructorFunction: (Key, AggregationValue) => Result) :
-  Aggregation[Domain, Key,AggregationValue,Result,SelfMaintainalbeAggregationFunction[Domain,AggregationValue],SelfMaintainalbeAggregationFunctionFactory[Domain,AggregationValue]]= {
-    new AggregationForSelfMaintainableAggregationFunctions[Domain,Key,AggregationValue,Result](source, groupFunction, aggregationFuncFactory, aggregationConstructorFunction)
-  }
+                                                                                       groupingFunction: Domain => Key,
+                                                                                       aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+                                                                                       convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result):
+    Aggregation[Domain, Key, AggregationValue, Result, NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+      new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregationValue, Result](source, groupingFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
+    }
 
 
-  def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain], aggregationFuncFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
-    new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregationFuncFactory, (x: Any, y: AggregationValue) => Some(y))
-  }
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](source: LazyView[Domain], groupFunction: Domain => Key, aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
+                                                                                       convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result):
+    Aggregation[Domain, Key, AggregationValue, Result, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+      new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
+    }
 
-  def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain], aggregationFuncFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
-    new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregationFuncFactory, (x: Any, y: AggregationValue) => Some(y))
-  }
+
+    def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain], aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
+      new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregationFunctionFactory, (x: Any, y: AggregationValue) => Some(y))
+    }
+
+
+    def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain], aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
+      new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregationFunctionFactory, (x: Any, y: AggregationValue) => Some(y))
+    }
   }
 
 

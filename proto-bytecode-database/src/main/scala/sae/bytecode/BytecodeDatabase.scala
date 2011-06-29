@@ -221,7 +221,8 @@ class BytecodeDatabase extends Database
         class_cast,
         instanceof,
         create,
-        create_class_array
+        create_class_array,
+        handled_exceptions
     )
 
 
@@ -269,6 +270,26 @@ class BytecodeDatabase extends Database
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
         transformer
+    }
+
+    /**
+     * Read from a list of .jar file streams and return the appropriate transformer
+     */
+    def transformerForArchiveStreams(streams : Seq[InputStream]) = {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        streams.foreach(reader.readArchive(_))
+        transformer
+    }
+
+
+    /**
+     * Read from a list of .jar file streams and return the appropriate transformer
+     */
+    def transformerForArchiveResources(names : Seq[String]) = {
+        transformerForArchiveStreams(
+            names.map( this.getClass.getClassLoader.getResourceAsStream(_) )
+        )
     }
 
     /**

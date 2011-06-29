@@ -68,21 +68,21 @@ object EventProfiling {
 
   }
 
-  /*
+
   var f1: LazyView[(Type,Int)] = null
   var f2: LazyView[(ReferenceType,Option[Double])] = null
   var f3: LazyView[(ReferenceType,Int)] = null
   var f4: LazyView[(ObjectType,Int)] = null
-  */
+
   /**
    *
    */
   def register(): Database => Unit = {
     val metrics: Database => Unit = (x: Database) => {
-      Metrics.getFanIn(x)
-      Metrics.getLCOMStar(x)
-      Metrics.getFanOut(x)
-      Metrics.getDedthOfInheritanceTree(x)
+      f1 = Metrics.getFanIn(x)
+      f2 = Metrics.getLCOMStar(x)
+      f3 = Metrics.getFanOut(x)
+      f4 = Metrics.getDedthOfInheritanceTree(x)
     }
     metrics
   }
