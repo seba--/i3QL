@@ -44,6 +44,13 @@ object Aggregation {
   }
 
 
+  def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](source: LazyView[Domain],
+                                                                                     groupingFunction: Domain => Key,
+                                                                                     aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]):
+  Aggregation[Domain, Key, AggregationValue, (Key,AggregationValue), NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+    new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregationValue, (Key,AggregationValue)](source, groupingFunction, aggregationFunctionFactory, (a : Key, b : AggregationValue) => (a,b))
+  }
+
   /**
    * Construct a new Aggregation for aggregation function that are SELF maintainable
    * {@see sae.operators.SelfMaintainalbeAggregationFunctionFactory}
@@ -58,6 +65,13 @@ object Aggregation {
     new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
   }
 
+
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](source: LazyView[Domain],
+                                                                                     groupingFunction: Domain => Key,
+                                                                                     aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]):
+  Aggregation[Domain, Key, AggregationValue, (Key,AggregationValue), SelfMaintainalbeAggregationFunction[Domain, AggregationValue], SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+    new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue,  (Key,AggregationValue)](source, groupingFunction, aggregationFunctionFactory, (a : Key, b : AggregationValue) => (a,b))
+  }
 
   /**
    * Construct a new Aggregation for aggregation function that are NOT self maintainable without any grouping

@@ -4,10 +4,13 @@ import model.dependencies._
 import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
+import java.io.File
+
 
 /**
  *
  * Author: Ralf Mitschke
+ * Author: Malte V
  * Created: 22.06.11 15:22
  *
  */
@@ -52,6 +55,11 @@ trait Database
     def handled_exceptions : LazyView[ExceptionHandler]
 
     def exception_handlers : LazyView[ExceptionHandler]
+
+
+    def getAddClassFileFunction: (File) => Unit
+
+    def getRemoveClassFileFunction: (File) => Unit
 
 
 }

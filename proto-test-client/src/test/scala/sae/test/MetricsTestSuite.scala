@@ -13,7 +13,6 @@ import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
 import sae.metrics.Metrics
 import org.junit.{Ignore, Before, Test}
-import javax.xml.crypto.dsig.Reference
 import de.tud.cs.st.bat.{Type, ObjectType, ReferenceType}
 
 
@@ -77,16 +76,9 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
 
 
   @Test
-  @Ignore
   def testFanOut() {
     val view = registerQuery(x => {
-      Metrics.getFanOut(x.parameter,
-        x.classfile_methods,
-        x.read_field,
-        x.write_field,
-        x.classfile_fields,
-        x.calls  ,
-        x.exception_handlers
+      Metrics.numberOfFanOutPerClass(x
       )
     })
     processRestAndTest({
@@ -103,11 +95,11 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
 
   }
 
+
   @Test
-  @Ignore
   def testLcom() {
     val view = registerQuery(x => {
-      Metrics.getLCOMStar(x.read_field, x.write_field, x.classfile_methods, x.classfile_fields)
+      Metrics.LCOMStar(x)
     })
     processRestAndTest({
       // test values are calculated by hand with javap after the definition of LCOM* given in
@@ -116,23 +108,16 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
       res.foreach(println)
       assertLCOM(res, ObjectType(className = "sharedresources/ResourceProvider"), 0.75)
       assertLCOM(res, ObjectType(className = "sharedresources/Resource"), 0.444)
-      assertLCOM(res, ObjectType(className = "sharedresources/Consumer"), 0.3333)
+      assertLCOM(res, ObjectType(className = "sharedresources/Consumer"), 0.5)
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main")))
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main$1")))
     })
   }
 
   @Test
-  @Ignore
   def testFanIn() {
     val view = registerQuery(x => {
-      Metrics.getFanIn(x.parameter,
-        x.classfile_methods,
-        x.read_field,
-        x.write_field,
-        x.classfile_fields,
-        x.calls   ,
-        x.exception_handlers
+      Metrics.numberOfFanInPerClass(x
       )
     })
     processRestAndTest({
@@ -152,13 +137,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
   @Ignore
   def printData() {
     val view = registerQuery(x => {
-      Metrics.getFanOut(x.parameter,
-        x.classfile_methods,
-        x.read_field,
-        x.write_field,
-        x.classfile_fields,
-        x.calls    ,
-        x.exception_handlers
+      Metrics.numberOfFanOutPerClass(x
       )
     })
     processRestAndTest({})

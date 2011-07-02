@@ -35,12 +35,12 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
   source.addObserver(this)
 
   def lazyInitialize: Unit = {
-
-    source.lazy_foreach((v: Domain) => {
-      intern_added(v, false)
-    })
-    initialized = true
-
+    if (!initialized) {
+      source.lazy_foreach((v: Domain) => {
+        intern_added(v, false)
+      })
+      initialized = true
+    }
   }
 
   /**

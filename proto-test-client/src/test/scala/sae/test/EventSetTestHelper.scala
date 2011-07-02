@@ -14,11 +14,11 @@ import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 
 class EventSetTestHelper {
   var db: MaterializedDatabase = null
-  var lyrebird: ProcessLyrebirdResources = null
+  var lyrebird: LyrebirdRecorderAPI = null
 
   def init(location: File) {
     db = new MaterializedDatabase()
-    lyrebird = new ProcessLyrebirdResources(location, db)
+    lyrebird = new LyrebirdRecorderAPI(location, db)
   }
 
 

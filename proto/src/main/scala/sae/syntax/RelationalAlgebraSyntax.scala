@@ -214,6 +214,22 @@ object RelationalAlgebraSyntax {
     def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain], aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]) = {
       new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregationFunctionFactory, (x: Any, y: AggregationValue) => Some(y))
     }
+
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](source: LazyView[Domain],
+                                                                     groupingFunction: Domain => Key,
+                                                                     aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]):
+    Aggregation[Domain, Key, AggregationValue, (Key, AggregationValue), NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+      new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](source, groupingFunction, aggregationFunctionFactory, (a: Key, b: AggregationValue) => (a, b))
+    }
+
+    def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](source: LazyView[Domain],
+                                                                     groupingFunction: Domain => Key,
+                                                                     aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]):
+    Aggregation[Domain, Key, AggregationValue, (Key, AggregationValue), SelfMaintainalbeAggregationFunction[Domain, AggregationValue], SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] = {
+      new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](source, groupingFunction, aggregationFunctionFactory, (a: Key, b: AggregationValue) => (a, b))
+    }
+
+
   }
 
 

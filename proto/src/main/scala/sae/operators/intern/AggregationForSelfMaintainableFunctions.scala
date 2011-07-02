@@ -8,13 +8,13 @@ import scala.collection.mutable.Map
 /**
  * An implementation of Aggregation that only saves the result of aggregation function (aggregationFunction)
  *
- * Implementation details:
+ * Implementation detail:
  * these implementation has a control flow like:
- *  added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation result,  save result and notify observer
+ *  method added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation result,  save result and notify observer
  *                              -> (else) call aggregation function, collect aggregation result -> may be notify observer
  *
  * a possible alternative would be:
- *  added called -> key lookup -> (new key) create new map entry with a lazyview, create new aggregation function,
+ *  method added called -> key lookup -> (new key) create new map entry with a lazyview, create new aggregation function,
  *                                register aggregation function as an observer on the new lazyview,
  *                                register the whole aggregation as an observer of the aggregation function
  *                              -> (else) put the new value into the lazyview
@@ -27,19 +27,25 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
 
 
   val groups = Map[Key, (Count, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
-  lazyInitialize
+  lazyInitialize // is needed
   source.addObserver(this)
+
   /**
    * {@inheritDoc}
    */
   def lazyInitialize: Unit = {
+    if (!initialized) {
+      source.lazy_foreach((v: Domain) => {
+        internal_added(v, false)
+      })
+      initialized = true
+    }
 
-    source.lazy_foreach((v: Domain) => {
-      internal_added(v, false)
-    })
-    initialized = true
   }
 
+  /**
+   * {@inheritDoc}
+   */
   protected def materialized_foreach[T](f: (Result) => T): Unit = {
     groups.foreach(x => f(x._2._3))
   }
@@ -73,7 +79,6 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
   }
 
 
-
   /**
    * {@inheritDoc}
    */
@@ -105,6 +110,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
       groups -= key
       element_removed(oldResult)
     } else {
+      //remove element from key group
       val aggregationFunction = aggFuncs.remove(v)
       val res = convertKeyAndAggregationValueToResult(key, aggregationFunction)
       if (res != oldResult) {
@@ -125,16 +131,18 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
   private def internal_added(v: Domain, notify: Boolean) {
     val key = groupingFunction(v)
     if (groups.contains(key)) {
-      val (count, aggFuncs, oldResult) = groups(key)
+      //update key group
+      val (count, aggregationFunction, oldResult) = groups(key)
       count.inc
-      val aggregationFunction = aggFuncs.add(v)
-      val res = convertKeyAndAggregationValueToResult(key, aggregationFunction)
+      val aggregationValue = aggregationFunction.add(v)
+      val res = convertKeyAndAggregationValueToResult(key, aggregationValue)
       if (res != oldResult) {
-        //some aggragation valus changed => updated event
-        groups.put(key, (count, aggFuncs, res))
+        //some aggregation values changed => updated event
+        groups.put(key, (count, aggregationFunction, res))
         if (notify) element_updated(oldResult, res)
       }
     } else {
+      //new key group
       val c = new Count
       c.inc
       val aggregationFunction = aggregationFunctionFactory()
