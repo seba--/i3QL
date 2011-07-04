@@ -29,11 +29,5 @@
 			<version>${scala.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency> <groupId>de.tud.cs.st.opal.sae</groupId> <artifactId>sae-database-bytecode-reader</artifactId> 
-			<version>0.1.0</version> <type>jar</type> <scope>compile</scope> </dependency> 
-			<dependency> <groupId>de.tud.cs.st.opal.sae</groupId> <artifactId>sae-database-core</artifactId> 
-			<version>0.2.0</version> <type>jar</type> <scope>compile</scope> </dependency> 
-			<dependency> <groupId>de.tud.cs.st.opal.bat</groupId> <artifactId>bat-bytecode-model-transformation</artifactId> 
-			<version>0.7.0</version> </dependency> -->
 	</dependencies>
 </project>
