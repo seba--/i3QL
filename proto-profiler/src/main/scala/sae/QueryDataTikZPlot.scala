@@ -3,6 +3,7 @@ package sae
 import bytecode.BytecodeDatabase
 import profiler.util.DataQueryAnalyzer
 import java.io.{PrintWriter, FileOutputStream, OutputStream}
+import util.JarUtil._
 
 /**
  * 
@@ -13,12 +14,15 @@ import java.io.{PrintWriter, FileOutputStream, OutputStream}
  */
 object QueryDataTikZPlot {
 
-    val synopsis =  """QueryDataTikZPlot jarFiles [outputFile]
+    val synopsis =  """QueryDataTikZPlot jarFiles|directory [useClasspath outputFile]
                     |% prints a TikZ plot of all derived database queries and their respective throughput
                     |% mandatory parameters
-                    |jarFile:    comma separated list of jar files
-                    |% optional parameters:
-                    |outputFile: a file where generated tex sources are saved
+                    |jarFile:      comma separated list of jar files
+                    |directory:    directory to search for jar files
+                    |% optional parameters
+                    |% (if one parameter is present all previous optinal paremeters are assumed to be present)
+                    |useClasspath: (true|false) use the classpath to search for the jar files
+                    |outputFile:   a file where generated tex sources are saved
                     """.stripMargin
 
     def main(args: Array[String])
@@ -28,19 +32,31 @@ object QueryDataTikZPlot {
             return
         }
 
+        val useClasspath = (args.size == 2 && (args(1) == "true"))
+
         var out: OutputStream = System.out
-        if (args.size == 2) {
-            out = new FileOutputStream(args(1))
+        if (args.size == 3) {
+            out = new FileOutputStream(args(2))
         }
 
         val db = new BytecodeDatabase
-        print("setting up queries")
+        println("setting up queries")
         val profile = createProfile( createQueries(db) )
 
         val jarFiles = args(0).split(",")
 
-        print("pushing data to database")
-        for( jar <- jarFiles ) db.addArchiveAsFile(jar)
+        println("pushing data to database")
+        val urls =
+            if( !useClasspath)
+            {
+                resolveDirectoryAndJarUrisFromFilesystem(jarFiles)
+            }
+            else
+            {
+                resolveDirectoryAndJarUrisFromClasspath(jarFiles)
+            }
+        db.transformerForArchiveStreams(urls.filter(_.getFile.endsWith("jar")).map(_.openStream)).processAllFacts()
+
 
         val writer = new PrintWriter(out, true)
         writer.println( profile.toTikZ )
