@@ -1,6 +1,10 @@
 package sae.functions
 import sae.operators._
 
+/**
+ * Aggregation function that calculate the average
+ * @author Malte V
+ */
 private class AVGIntern[Domain <: AnyRef](val f : Domain => Double) extends SelfMaintainalbeAggregationFunction[Domain, Double] {
     var count = 0
     var sum = 0.0

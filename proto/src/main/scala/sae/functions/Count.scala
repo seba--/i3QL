@@ -1,5 +1,11 @@
 package sae.functions
 import sae.operators._
+
+
+/**
+ * A aggregation function that counts all domain entries
+ * @author Malte V
+ */
 private class CountIntern[Domain <: AnyRef]() extends SelfMaintainalbeAggregationFunction[Domain, Int] {
     var count = 0
     def add(d : Domain) = {

@@ -2,6 +2,10 @@ package sae
 package functions
 import sae.operators._
 
+/**
+ * A aggregation function that calculates the sum over a set of domain entries
+ * @author Malte V
+ */
 private class SumIntern[Domain <: AnyRef](val f : Domain => Int) extends SelfMaintainalbeAggregationFunction[Domain, Int] {
     var sum = 0
     def add(d : Domain) = {

@@ -2,7 +2,7 @@ package sae.operators.intern
 
 /**
  * IMPORTANT: clients should NOT implement this interface
- * clients should implement one of this interfaces: 
+ * clients should implement:
  *  -NotSelfMaintainalbeAggregationFunction
  *  -SelfMaintainalbeAggregationFunction 
  */
@@ -15,12 +15,13 @@ trait AggregationFunction[Domain <: AnyRef, Result] {
 
 /**
  * IMPORTANT: clients should NOT implement this interface
- * clients should implement one of this interfaces: 
+ * clients should implement:
  *  -NotSelfMaintainalbeAggregationFunctionFactory
  *  -SelfMaintainalbeAggregationFunctionFactory
  *  
  */
-trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any]{
-    def apply() : AggregationFunction[Domain, AggregationValue]
+trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregationFunctionType <: AggregationFunction[Domain, AggregationValue]]{
+    def apply() : AggregationFunctionType
+
 }
 

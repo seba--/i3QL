@@ -17,7 +17,7 @@ import de.tud.cs.st.bat.reader.Java6Reader;
  * Reads Java class files or JAR and ZIP files containing them and stores their
  * Prolog representations in a {@link FactListDatabase}. The transformation of
  * the bytecode to Prolog is done with the Bytecode Analysis Toolkit (BAT).
- * 
+ *
  * @author Ralf Mitschke
  * @author David Sullivan
  * @version $Date: 2009-08-12 11:24:16 +0200 (Wed, 12 Aug 2009) $ $Rev: 298 $
@@ -33,7 +33,7 @@ public class BytecodeReader {
 	/**
 	 * Processes the contents of a ZIP or JAR file and stores the Prolog
 	 * representations in the {@link Database}.
-	 * 
+	 *
 	 * @param filename
 	 *            The JAR or ZIP file.
 	 */
@@ -44,7 +44,7 @@ public class BytecodeReader {
 	/**
 	 * Processes the contents of a ZIP or JAR file and stores the Prolog
 	 * representations in the {@link Database}.
-	 * 
+	 *
 	 * @param file
 	 *            The JAR or ZIP file.
 	 */
@@ -69,7 +69,7 @@ public class BytecodeReader {
 	/**
 	 * Processes the contents of a ZIP or JAR file and stores the Prolog
 	 * representations in the {@link Database}.
-	 * 
+	 *
 	 * @param stream
 	 *            The JAR or ZIP file.
 	 */
@@ -89,7 +89,7 @@ public class BytecodeReader {
 	/**
 	 * Processes the contents of a Java class file and stores the Prolog
 	 * representations in the {@link Database}.
-	 * 
+	 *
 	 * @param filename
 	 *            The name class file.
 	 */

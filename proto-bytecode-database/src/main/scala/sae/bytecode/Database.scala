@@ -1,13 +1,16 @@
 package sae.bytecode
 
 import model.dependencies._
-import model.{Instr, Field, Method}
+import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
+import java.io.File
+
 
 /**
  *
  * Author: Ralf Mitschke
+ * Author: Malte V
  * Created: 22.06.11 15:22
  *
  */
@@ -48,4 +51,15 @@ trait Database
     def calls: LazyView[calls]
 
     def class_cast: LazyView[class_cast]
+
+    def handled_exceptions : LazyView[ExceptionHandler]
+
+    def exception_handlers : LazyView[ExceptionHandler]
+
+
+    def getAddClassFileFunction: (File) => Unit
+
+    def getRemoveClassFileFunction: (File) => Unit
+
+
 }

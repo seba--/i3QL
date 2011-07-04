@@ -101,7 +101,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
             }
 
         def added(kv : (Key, DomainA))
-        {
+        {//left
                 initialized = true
                 rightIndex.get(kv._1) match {
                     case Some(col) =>
@@ -164,7 +164,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
             }
 
         def added(kv : (Key, DomainB))
-        {
+        {//rught
                 initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>

@@ -1,262 +1,84 @@
 package sae.profiler
-import sae.profiler.util.Profile
+
+
 import sae._
-import sae.operators._
-import sae.functions._
-import sae.util._
-import sae.bytecode.model._
-import sae.syntax.RelationalAlgebraSyntax._
-import sae.test.helpFunctions._
-import com.google.common.collect.HashMultiset
-import scala.collection.mutable._
+import metrics.Metrics
 import de.tud.cs.st.bat._
-import sae.profiler.util.Profile2
+import sae.bytecode._
+import sae.profiler.util._
+import sae.util._
 
+class ScalaCompilerDatabase extends sae.bytecode.MaterializedDatabase {
 
-class ScalaCompilerDatabase extends sae.bytecode.BytecodeDatabase {
-
-    def readBytecode : Unit =
-        {
-            addArchiveAsResource("scala-compiler.jar")
-            //addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/scala-compiler.jar")
-        }
+  def readBytecode: Unit = {
+    addArchiveAsResource("scala-compiler.jar")
+    //addArchiveAsFile("C:/Users/crypton/workspace_BA/SAE/proto-test-data/src/main/resources/scala-compiler.jar")
+  }
 
 }
 
 object ScalaCompilerProfiler {
 
-    val allClassfiles = new ArrayBuffer[ObjectType]()
-    val allMethods = new ArrayBuffer[Method]()
-    val mostClassfiles = new ArrayBuffer[ObjectType]()
-    val mostMethods = new ArrayBuffer[Method]()
-    val someClassfiles = new ArrayBuffer[ObjectType]()
-    val someMethods = new ArrayBuffer[Method]()
-    val someMethodsInMostMethods = new ArrayBuffer[Method]()
-    val ONE_OUT_OF_X = 100
 
-    implicit val iterations = 1
-    def main(args : Array[String]) : Unit = {
-        init
-        
-        //
-        write("read scala-compiler.jar", Profile(read))
-        
-        profiling("Fan In for scala.Tupel2", initSelectiveFanIn)
-        
-        //-------------- group by  package find class with max methods   
-        write("group by Package : find class with max methods", Profile(classWithMaxMethodsPairPackage))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initClassWithMaxMethodsPairPackage,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initClassWithMaxMethodsPairPackage,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
-                x.update(someMethodsInMostMethods(i), someMethods(i))
-            }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initClassWithMaxMethodsPairPackage,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
-                x.remove(someMethodsInMostMethods(i))
-            }))
-        //-------------- group by package calc fan out to not java.*
-        write("group by Package : calc fan out", Profile(selectiveFanOut))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initSelectiveFanOut,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initSelectiveFanOut,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
-                x.update(someMethodsInMostMethods(i), someMethods(i))
-            }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initSelectiveFanOut,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
-                x.remove(someMethodsInMostMethods(i))
-            }))
-            
-        // fanin for all classes with sql like syntax
-        //write("Fan In with Sql ", Profile(fanInWithSQL))     
-        //-------------- group by class calc fan in
-        write("group by class : calc fan in", Profile(fanInAll))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(initFanIn,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(initFanIn,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
-                //println(someMethodsInMostMethods(i))
-                //x.remove(someMethodsInMostMethods(i))
-                //x.add(someMethods(i))
-                x.update(someMethodsInMostMethods(i), someMethods(i))
-            }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(initFanIn,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
-                x.remove(someMethodsInMostMethods(i))
-            }))
+  implicit val iterations = 5
+
+  def main(args: Array[String]): Unit = {
+    //mvn scala:run -Dlauncher=profile
+    val dbIntern = new ScalaCompilerDatabase()
+    dbIntern.readBytecode
+
+    val init: Int => Database = (x: Int) => {
+      val db: Database = new BytecodeDatabase()
+      register()(db)
+      db
+    }
+    val profiling: Database => Unit = (x: Database) => {
+      dbIntern.classfiles.foreach(e => x.classfiles.element_added(e))
+      dbIntern.classfile_methods.foreach(e => x.classfile_methods.element_added(e))
+      dbIntern.classfile_fields.foreach(e => x.classfile_fields.element_added(e))
+      dbIntern.classes.foreach(e => x.classes.element_added(e))
+      dbIntern.methods.foreach(e => x.methods.element_added(e))
+      dbIntern.fields.foreach(e => x.fields.element_added(e))
+      dbIntern.instructions.foreach(e => x.instructions.element_added(e))
+      dbIntern.`extends`.foreach(e => x.`extends`.element_added(e))
+      dbIntern.implements.foreach(e => x.implements.element_added(e))
+      dbIntern.subtypes.foreach(e => x.subtypes.element_added(e))
+      dbIntern.field_type.foreach(e => x.field_type.element_added(e))
+      dbIntern.parameter.foreach(e => x.parameter.element_added(e))
+      dbIntern.return_type.foreach(e => x.return_type.element_added(e))
+      dbIntern.write_field.foreach(e => x.write_field.element_added(e))
+      dbIntern.read_field.foreach(e => x.read_field.element_added(e))
+      dbIntern.calls.foreach(e => x.calls.element_added(e))
+      dbIntern.class_cast.foreach(e => x.class_cast.element_added(e))
+      dbIntern.handled_exceptions.foreach(e => x.handled_exceptions.element_added(e))
+      dbIntern.exception_handlers.foreach(e => x.exception_handlers.element_added(e))
+    }
+    val tearDown: Database => Unit = (x: Database) => {
+      System.gc()
     }
 
-    private def profiling(text : String, f1 : => (sae.test.helpFunctions.ObservableList[Method], Any)){
-        write(text, Profile(f1))
-        write("mantaining s.o. (" + someMethods.size + " ADDs)", Profile2(f1,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => someMethods.foreach(z => x.add(z))))
-        write("mantaining s.o. (" + someMethods.size + " UPDATES)", Profile2(f1,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethods.size - 1) {
-                x.update(someMethodsInMostMethods(i), someMethods(i))
-            }))
-        write("mantaining s.o. (" + someMethodsInMostMethods.size + " REMOVES)", Profile2(f1,
-            (x : sae.test.helpFunctions.ObservableList[Method]) => for (i <- 0 to someMethodsInMostMethods.size - 1) {
-                x.remove(someMethodsInMostMethods(i))
-            }))
-    }
-        
+    val times = Profiler.profile[Database](init)(profiling)(tearDown)
 
-    def init : Unit = {
-        val db = new ScalaCompilerDatabase()
-        db.classfiles.addObserver(new Observer[ObjectType] {
-            def updated(oldV : ObjectType, newV : ObjectType) : Unit = { throw new Error() }
-            def removed(v : ObjectType) : Unit = { throw new Error() }
-            def added(v : ObjectType) : Unit = { allClassfiles += v }
-        })
-        db.classfile_methods.addObserver(new Observer[Method] {
-            def updated(oldV : Method, newV : Method) : Unit = { throw new Error() }
-            def removed(v : Method) : Unit = { throw new Error() }
-            def added(v : Method) : Unit = { allMethods += v }
-        })
-        db.readBytecode
-        var i = 1
-        allClassfiles.foreach(x => {
-            if (i % ONE_OUT_OF_X == 0) { someClassfiles += x }
-            else mostClassfiles += x
-            i += 1
-        })
-        i = 1
-        allMethods.foreach(x => {
-            if (i % ONE_OUT_OF_X == 0) { someMethods += x; someMethodsInMostMethods += mostMethods(mostMethods.size - 1) }
-            else mostMethods += x
-            i += 1
-        })
-    }
-    def read {
-        val db = new ScalaCompilerDatabase()
-        db.readBytecode
-    }
+    times.foreach((x: Timer) => println(x.elapsedSecondsWithUnit()))
+    //f1.foreach(println)
+    //f2.foreach(println)
+    //f3.foreach(println)
+    //f4.foreach(println)
+  }
 
-    def classWithMaxMethodsPairPackage() : Unit = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        getGroupByPackageFindClassWithMaxMethods(source)
-        allMethods.foreach(x => source.add(x))
-    }
+  var f1: LazyView[(Type, Int)] = null
+  var f2: LazyView[(ReferenceType, Option[Double])] = null
+  var f3: LazyView[(ReferenceType, Int)] = null
+  var f4: LazyView[(ObjectType, Int)] = null
 
-    def initClassWithMaxMethodsPairPackage : (sae.test.helpFunctions.ObservableList[Method], Any) = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getGroupByPackageFindClassWithMaxMethods(source)
-        mostMethods.foreach(x => source.add(x))
-        (source, res)
+  def register(): Database => Unit = {
+    val metrics: Database => Unit = (x: Database) => {
+      Metrics.numberOfFanInPerClass(x)
+      Metrics.LCOMStar(x)
+      Metrics.numberOfFanOutPerClass(x)
+      Metrics.depthOfInheritanceTree(x)
     }
-    def selectiveFanOut : Unit = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        getFanOut(source, x => { !x.toJava.startsWith("java.", 0) })
-        allMethods.foreach(x => source.add(x))
-    }
-    def initSelectiveFanOut : (sae.test.helpFunctions.ObservableList[Method], Any) = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getFanOut(source, x => { !x.toJava.startsWith("java.", 0) }) //FIXME fan out zï¿½hlt abhï¿½ngigkeiten zu sich selbst mit
-        mostMethods.foreach(x => source.add(x))
-        (source, res)
-    }
-    def initFanIn = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getFanOutByClass(source)
-        var list = List[LazyView[Some[Int]]]()
-        allClassfiles.foreach(x => {
-            list = getFanIn(res, x.packageName.replace('/', '.') + "." + x.simpleName) :: list
-        })
-        mostMethods.foreach(x => source.add(x))
-
-        
-        
-        (source, res)
-    }
-    def initSelectiveFanIn = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val fanIn = getSelectivFanIn(source, "scala.Tuple2")
-        mostMethods.foreach(x => source.add(x))
-        (source, fanIn)
-    }
-    def fanInAll {
-        initFanIn
-    }
-    
-    def fanInWithSQL() : Unit = {
-        val source = new sae.test.helpFunctions.ObservableList[Method]()
-        val res = getFanOutByClass(source)
-        case class ReducedMethod(className : String, name : String, dep : String)
-        import scala.collection.mutable.Set
-        val o2m = new DefaultOneToMany(source, (x : Method) => {
-            var res = List[ReducedMethod]()
-            res = new ReducedMethod((x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.'), x.name, x.returnType.toJava) :: res
-            if (x.parameters.size == 0) {
-
-            } else {
-                x.parameters.foreach((y : de.tud.cs.st.bat.Type) => {
-                    res = new ReducedMethod((x.declaringRef.packageName +"."+ x.declaringRef.simpleName).replace('/', '.'), x.name, y.toJava) :: res
-                })
-            }
-            res
-        })
-        var list = List[AnyRef]()
-        val removeMethodWithDependencyToThereImplClass = new MaterializedSelection((x : ReducedMethod) => { x.className != x.dep }, o2m)
-         allClassfiles.foreach(z => {   
-            val filterDepEqFanInClass = new MaterializedSelection((x : ReducedMethod) => { x.dep == z.toJava}, removeMethodWithDependencyToThereImplClass)
-            val groupByClass = Aggregation(filterDepEqFanInClass, (x : ReducedMethod) => x.className, Count[ReducedMethod](), (a :  String, b : (Int)) => a)
-            val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[String])
-            list = countClassesWithDepToFanInClass :: list
-        })
-        mostMethods.foreach(x => source.add(x))
-    }
-    
-    def write(name : String, profile : Array[Timer]) : Unit = {
-        print(name + " : ")
-        val t = Timer.median(profile)
-        println(t.elapsedSecondsWithUnit)
-    }
-    private def getGroupByPackageFindClassWithMaxMethods(source : LazyView[Method]) = {
-        val groupByClassesAndCountMethods = Aggregation(source, (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[Method], (x : (String, String), y : Int) => (x._1, x._2, y))
-        val groupByPackageFindClassWithMaxMethods = Aggregation(groupByClassesAndCountMethods,
-            (x : (String, String, Int)) => x._1,
-            Max2[(String, String, Int), Option[(String, String, Int)]]((x : (String, String, Int)) => x._3, (y : Option[(String, String, Int)], x : Int) => y),
-            (x : String, y : Option[(String, String, Int)]) => y)
-        groupByPackageFindClassWithMaxMethods
-    }
-    // grouped by packages!
-    private def getFanOut(source : LazyView[Method], f : de.tud.cs.st.bat.Type => Boolean) = {
-        import sae.functions.FanOut
-        import scala.collection.mutable._
-        val groupByClassesAndCalcFanOut = Aggregation(source,
-            (x : Method) => x.declaringRef.packageName /*, x.clazz.simpleName)*/ ,
-            FanOut((x : Method) => (x.parameters, x.returnType), f),
-            (x : (String), y : Set[String]) => (x, y))
-        groupByClassesAndCalcFanOut
-    }
-    private def getFanOutByClass(source : LazyView[Method]) = {
-        getFanOutByClassWithSelectFunction(source, y => true)
-    }
-
-    private def getFanOutByClassWithSelectFunction(source : LazyView[Method], select : de.tud.cs.st.bat.Type => Boolean) = {
-        import sae.functions.FanOut
-        import scala.collection.mutable._
-        val groupByClassesAndCalcFanOut = Aggregation(source,
-            (x : Method) => (x.declaringRef.packageName, x.declaringRef.simpleName),
-            FanOut((x : Method) => (x.parameters, x.returnType), select),
-            (x : (String, String), y : Set[String]) => (x._1, x._2, y))
-        groupByClassesAndCalcFanOut
-    }
-    private def getFanIn(source : LazyView[(String, String, Set[String])], clazz : String) = {
-//        val res = Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(clazz) && (x._1.replace('/', '.') + "." + x._2) != clazz },
-//            source), Count[(String, String, Set[String])])
-//        res
-         val res = Aggregation(new MaterializedSelection((x : (String, String, Set[String])) => { x._3.contains(clazz) && (x._1+"/" + x._2) != clazz.replace(".","/") },
-            source), Count[(String, String, Set[String])])
-        res
-    }
-    private def getSelectivFanIn(source : LazyView[Method], clazz : String) = {
-        val groupByClassFanOutWithSelect = getFanOutByClassWithSelectFunction(source, (x : de.tud.cs.st.bat.Type) => {
-            x.toJava == clazz
-        })
-        val fanIn = getFanIn(groupByClassFanOutWithSelect, clazz)
-        fanIn
-    }
+    metrics
+  }
 }
 

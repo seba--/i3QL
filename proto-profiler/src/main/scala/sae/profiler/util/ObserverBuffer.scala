@@ -18,6 +18,9 @@ class ObserverBuffer[V <: AnyRef](val source : LazyView[V]) extends Observer[V] 
     }
 
     def added(v : V) : Unit = {
+
+
+
         buffer += new Tuple3(v,None, "added")
     }
     
@@ -33,10 +36,11 @@ class ObserverBuffer[V <: AnyRef](val source : LazyView[V]) extends Observer[V] 
         
     }  
     def lazy_foreach[T](f : (V) => T) {
-        source.lazy_foreach(f)
+        //source.lazy_foreach(f)
+     // buffer.foreach(x => f(x._1))
     }
     def lazyInitialize : Unit = {
-        source.lazyInitialize
+        //source.lazyInitialize
     }
  
 }
