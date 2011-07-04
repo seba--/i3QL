@@ -133,9 +133,9 @@ object OperatorProfile
 
     def passthroughOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = view.∪[T, T](view)
 
-    def selectEverythingOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ(_ => true)(view)
+    def selectEverythingOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ( (_:T) => true)(view)
 
-    def selectNoneOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ(_ => false)(view)
+    def selectNoneOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ( (_:T) => false)(view)
 
     def selectCallInstructionsPatternMatchOperation(view: LazyView[Instr[_]]): LazyView[Instr[_]] = σ((_: Instr[_]) match {
         case invokeinterface(_, _, _) => true
