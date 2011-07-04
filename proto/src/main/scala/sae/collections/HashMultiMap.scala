@@ -42,8 +42,19 @@ class HashMultiMap[K <: AnyRef, V <: AnyRef](
         }
     }
 
-    protected def isDefinedAt_internal(key: K): Boolean =
-        !map.get(key).isEmpty
+    protected def isDefinedAt_internal(key: K): Boolean = map.containsKey(key)
+
+
+    protected def elementCountAt_internal(key: K) =
+        if( !map.containsKey(key) )
+        {
+            0
+        }
+        else
+        {
+            map.get(key).size()
+        }
+
 
     def materialized_foreach[U](f: ((K, V)) => U)
     {
