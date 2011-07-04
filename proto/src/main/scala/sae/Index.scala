@@ -12,9 +12,9 @@ package sae
  * the values have to remain invariant. But the relation may still vary.
  */
 trait Index[K <: AnyRef, V <: AnyRef]
-        extends Observer[V]
-        with MaterializedView[(K, V)]
-        with SelfMaintainedView[V, (K, V)] {
+        extends MaterializedView[(K, V)]
+           with SelfMaintainedView[V, (K, V)]
+{
 
     val relation : MaterializedView[V]
 
@@ -54,6 +54,16 @@ trait Index[K <: AnyRef, V <: AnyRef]
         }
 
     protected def isDefinedAt_internal(key : K) : Boolean
+
+    def elementCountAt(key : K) : Int =
+        {
+            if (!initialized) {
+                this.lazyInitialize
+            }
+            elementCountAt_internal(key)
+        }
+
+    protected def elementCountAt_internal(key : K) : Int
 
     def getOrElse(key : K, f : => Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
 
