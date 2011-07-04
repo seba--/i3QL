@@ -10,6 +10,11 @@ import sae.collections._
 import sae.operators.CreateAggregationFunctionContainer._
 import intern.AggregationForSelfMaintainableAggregationFunctions
 
+
+/**
+ * Test suit for Aggregation
+ * @author Malte V
+ */
 class Testaggregate extends TestCase {
     class Line(iD : String, itemType : String, preis : Integer) {
         def iD() : String = { this.iD };

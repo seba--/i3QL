@@ -79,4 +79,8 @@ class DatabaseBuffer(val db : BytecodeDatabase) extends Database {
         subtypes.reset
         exception_handlers.reset
     }
+
+  def getRemoveClassFileFunction = throw new Error()
+
+  def getAddClassFileFunction = throw new Error()
 }

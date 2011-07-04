@@ -1,5 +1,6 @@
-package sae.operators
+package sae.functions
 
+import sae.operators._
 
 /**
  * distinct operator

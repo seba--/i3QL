@@ -53,7 +53,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
     //test for figure 2
     val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
-    //smallRemoveGraph.materialized_foreach((x: Edge) => smallRemoveGraph.element_added(x))
+
     assertTrue(res.size == 28)
     smallRemoveGraph.element_removed(Edge("a", "b"))
     assertTrue(res.size == 25)
@@ -311,6 +311,9 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
 
   }
 
+  /**
+   * a non incremental calculation of transitive closure
+   */
   private def calcTC(matrix: Array[Array[java.lang.Integer]], size: Int): Array[Array[java.lang.Integer]] = {
 
     val res = new Array[Array[java.lang.Integer]](size)

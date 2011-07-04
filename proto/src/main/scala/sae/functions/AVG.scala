@@ -2,7 +2,7 @@ package sae.functions
 import sae.operators._
 
 /**
- * A aggregation function that calculate the average
+ * Aggregation function that calculate the average
  * @author Malte V
  */
 private class AVGIntern[Domain <: AnyRef](val f : Domain => Double) extends SelfMaintainalbeAggregationFunction[Domain, Double] {

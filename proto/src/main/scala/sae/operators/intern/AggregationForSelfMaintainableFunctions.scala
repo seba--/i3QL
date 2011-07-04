@@ -27,7 +27,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
 
 
   val groups = Map[Key, (Count, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
-  lazyInitialize // is needed
+  lazyInitialize // aggregation need to be initialized for update and remove events
   source.addObserver(this)
 
   /**
@@ -69,7 +69,6 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
    * {@inheritDoc}
    */
   protected def materialized_contains(v: Result) = {
-    var contained = false
     groups.foreach(g => {
       if (g._2._3 == v)
         true
@@ -114,7 +113,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
       val aggregationFunction = aggFuncs.remove(v)
       val res = convertKeyAndAggregationValueToResult(key, aggregationFunction)
       if (res != oldResult) {
-        //some aggragation valus changed => updated event
+        //some aggregation values changed => updated event
         groups.put(key, (count, aggFuncs, res))
         element_updated(oldResult, res)
       }

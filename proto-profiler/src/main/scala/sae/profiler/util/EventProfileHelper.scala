@@ -3,7 +3,7 @@ package sae.profiler.util
 import de.tud.cs.st.lyrebird.replayframework._
 import sae.bytecode.{MaterializedDatabase, Database, BytecodeDatabase}
 import java.io.{OutputStream, PrintWriter, File}
-
+import sae.profiler._
 
 class EventProfileHelper(val location: File, val registerFunction: Database => Unit) {
   private var db = new BytecodeDatabase()
@@ -34,14 +34,14 @@ class EventProfileHelper(val location: File, val registerFunction: Database => U
   }
 
   def getInfo(i: Int): String = {
-    val res : String = "total size: " + allEventSets(i).eventFiles.size +
-      " count adds: " + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
+    val res : String = "t:" + allEventSets(i).eventFiles.size +
+      "\ta:" + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
       if (y.eventType == EventType.ADDED) x + 1 else x
     }) +
-      " count changeds: " + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
+      "\tc:" + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
       if (y.eventType == EventType.CHANGED) x + 1 else x
     }) +
-      " count removes: " + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
+      "\tr:" + allEventSets(i).eventFiles./:(0)((x: Int, y: Event) => {
       if (y.eventType == EventType.REMOVED) x + 1 else x})
 
     res
@@ -63,17 +63,18 @@ class EventProfileHelper(val location: File, val registerFunction: Database => U
   }
 
   def applyAll(text: List[String]) {
-    var i = 0
-    while (this.hasNext) {
-      if (i < text.size) {
-        applyNext()
-        Write(text(i), Profile(buffer.replay()))
-      } else {
-        applyNext()
-        Write("Profiling EventSet Number: " + i, Profile(buffer.replay()))
-      }
-      i += 1
-    }
+//    var i = 0
+//    implicit val times = 1
+//    while (this.hasNext) {
+//      if (i < text.size) {
+//        applyNext()
+//        Write(text(i), Profiler.profile(buffer.replay()))
+//      } else {
+//        applyNext()
+//        Write("Profiling EventSet Number: " + i, Profiler.profile(buffer.replay()))
+//      }
+//      i += 1
+//    }
   }
 
   def applyAll() {

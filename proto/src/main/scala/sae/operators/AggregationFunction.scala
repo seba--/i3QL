@@ -26,8 +26,9 @@ trait SelfMaintainalbeAggregationFunction[Domain <: AnyRef, Result <: Any] exten
     def remove(newD : Domain) : Result
     def update(oldD : Domain, newD : Domain) : Result
 }
-
+@Deprecated
 trait DistinctSelfMaintainableAggregationFunction[Domain <: AnyRef, Result <: Any] extends SelfMaintainalbeAggregationFunction[Domain, Result] {
 }
+@Deprecated
 trait DistinctNotSelfMaintainableAggregationFunction[Domain <: AnyRef, Result <: Any] extends NotSelfMaintainalbeAggregationFunction[Domain, Result] {
 }

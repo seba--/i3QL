@@ -2,7 +2,6 @@ package sae.profiler
 
 import sae.util.Timer
 import scala.Array
-import reflect.New
 
 /**
  *
@@ -57,7 +56,7 @@ object Profiler {
         val timer = new Timer()
         f(s)
         timer.stop()
-        timers
+
         timers(j)(i) = timer
         afterMeasurement(s)
         j += 1

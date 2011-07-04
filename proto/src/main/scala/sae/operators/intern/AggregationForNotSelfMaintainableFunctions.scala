@@ -34,6 +34,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
   lazyInitialize // aggregation need to be initialized for update and remove events
   source.addObserver(this)
 
+   /**
+   * {@inheritDoc}
+   */
   def lazyInitialize: Unit = {
     if (!initialized) {
       source.lazy_foreach((v: Domain) => {
@@ -145,7 +148,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
       val aggRes = aggregationFunction.add(v, data)
       val res = convertKeyAndAggregationValueToResult(key, aggRes)
       if (res != oldResult) {
-        //some aggragation valus changed => updated event
+        //some aggregation value changed => updated event
         groups.put(key, (data, aggregationFunction, res))
         if (notify) element_updated(oldResult, res)
       }

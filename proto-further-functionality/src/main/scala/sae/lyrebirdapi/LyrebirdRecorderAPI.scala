@@ -25,9 +25,9 @@ class LyrebirdRecorderAPI(val location: File, val db: Database) {
   }
 
   /**
-   * Returns true if the location contain a further EventSet
+   * Returns true if the location contains a further EventSet
    */
-  def hasNext() = {
+  def hasNext = {
     idx < eventSets.size
   }
 
