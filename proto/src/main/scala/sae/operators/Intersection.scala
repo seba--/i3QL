@@ -31,7 +31,6 @@ trait Intersection[Domain <: AnyRef]
  *
  * This class stores a relation for computing which elements are already in the intersection
  */
-/*
 class SetIntersection[Domain <: AnyRef]
     (
     val left: IndexedView[Domain],
@@ -39,13 +38,12 @@ class SetIntersection[Domain <: AnyRef]
 )
         extends Intersection[Domain]
                 with Set[Domain]
-                with SelfMaintainedView[Domain, Domain]
 {
     val leftIndex = left.index(identity)
 
     val rightIndex = right.index(identity)
 
-    leftIndex addObserver this
+    leftIndex addObserver LeftObserver
 
     rightIndex addObserver RightObserver
 
@@ -63,53 +61,113 @@ class SetIntersection[Domain <: AnyRef]
         initialized = true
     }
 
-    def added_internal(v: Domain)
+    object LeftObserver extends Observer[(Domain, Domain)]
     {
-        if ( rightIndex.isDefinedAt(v) && !this.contains(v) )
+
+        /**
+         * We have just added to left (leftIndex.elementCountAt(v) >= 1).
+         * While we add elements to left and
+         * have less than or equal elements compared to right, we generate new duplicates.
+         *
+         */
+        def added(kv: (Domain, Domain))
         {
-            element_added(v)
-            add_element(v)
+            val v = kv._1
+            if ( rightIndex.isDefinedAt(v) && !contains(v) )
+            {
+                element_added(v)
+                add_element(v)
+            }
+            initialized = true
+        }
+
+        /**
+         * as long as left has more elements than right we only remove excess duplicates
+         */
+        def removed(kv: (Domain, Domain))
+        {
+            val v = kv._1
+            // need to check the left index also to see whether the last element was removed
+            if ( !(rightIndex.isDefinedAt(v) && leftIndex.isDefinedAt(v)) )
+            {
+                element_removed(v)
+                remove_element(v)
+            }
+            initialized = true
+        }
+
+        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain))
+        {
+            val oldV = oldKV._1
+            val newV = newKV._1
+
+            val oldDef = rightIndex.isDefinedAt(oldV)
+            val newDef = rightIndex.isDefinedAt(newV)
+            if (oldDef && newDef)
+            {
+                element_updated(oldV, newV)
+                return
+            }
+            if (oldDef)
+            {
+                element_removed(oldV)
+                remove_element(oldV)
+            }
+
+            if (newDef)
+            {
+                element_added(newV)
+                add_element(newV)
+            }
+
+            initialized = true
         }
     }
 
-    def removed_internal(v: Domain)
+
+    object RightObserver extends Observer[(Domain, Domain)]
     {
-        // need to check the left index also to see whether the last element was removed
-        if ( !rightIndex.isDefinedAt(v)  || ! leftIndex.isDefinedAt(v) )
-        {
-            element_removed(v)
-            remove_element(v)
-        }
-    }
 
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
-        val oldDef = rightIndex.isDefinedAt(oldV)
-        val newDef = rightIndex.isDefinedAt(newV)
-        if (oldDef && newDef)
+        /**
+         * We have just added to left (leftIndex.elementCountAt(v) >= 1).
+         * While we add elements to left and
+         * have less than or equal elements compared to right, we generate new duplicates.
+         *
+         */
+        def added(kv: (Domain, Domain))
         {
-            element_updated(oldV, newV)
-            return
-        }
-        if (oldDef)
-        {
-            element_removed(oldV)
-            remove_element(oldV)
+            val v = kv._1
+
+            if( leftIndex.isDefinedAt(v) && !contains(v) )
+            {
+                element_added(v)
+                add_element(v)
+            }
+
+            initialized = true
         }
 
-        if (newDef)
+        /**
+         * as long as left has more elements than right we only remove excess duplicates
+         */
+        def removed(kv: (Domain, Domain))
         {
-            element_added(newV)
-            add_element(newV)
+            val v = kv._1
+
+            if ( !(rightIndex.isDefinedAt(v) && leftIndex.isDefinedAt(v)) )
+            {
+                element_removed(v)
+                remove_element(v)
+            }
+
+            initialized = true
         }
-    }
 
-
-    object RightObserver extends Observer[Domain]
-    {
-        // update operations on right relation
-        def updated(oldV: Domain, newV: Domain)
+        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain))
         {
+            val oldV = oldKV._1
+            val newV = newKV._1
+
             val oldDef = leftIndex.isDefinedAt(oldV)
             val newDef = leftIndex.isDefinedAt(newV)
             if (oldDef && !newDef)
@@ -125,33 +183,12 @@ class SetIntersection[Domain <: AnyRef]
                 element_added(oldV)
                 add_element(newV)
             }
-            initialized = true
-        }
-
-        def removed(v: Domain)
-        {
-            if ( !rightIndex.isDefinedAt(v) || ! leftIndex.isDefinedAt(v) )
-            {
-                element_removed(v)
-                remove_element(v)
-            }
-            initialized = true
-        }
-
-        def added(v: Domain)
-        {
-            if( leftIndex.isDefinedAt(v) && !contains(v) )
-            {
-                element_added(v)
-                add_element(v)
-            }
 
             initialized = true
         }
     }
 
 }
-*/
 
 /**
  * This intersection operation has non-distinct bag semantics
@@ -161,24 +198,23 @@ class SetIntersection[Domain <: AnyRef]
  * Updates are computed based on indices and foreach is recomputed on every call.
  *
  * The size is cached internally to avoid recomputations
- * FIXME this requires knowledge on how many elements are stored in a collection for a given key
  */
 class BagIntersection[Domain <: AnyRef]
-    (
+(
     val left: IndexedView[Domain],
     val right: IndexedView[Domain]
 )
         extends Intersection[Domain]
-                with MaterializedView[Domain]
-                with SelfMaintainedView[Domain, Domain]
+        with MaterializedView[Domain]
 {
-    left addObserver this
-
-    right addObserver RightObserver
 
     val leftIndex = left.index(identity)
 
     val rightIndex = right.index(identity)
+
+    leftIndex addObserver LeftObserver
+
+    rightIndex addObserver RightObserver
 
     var cached_size = 0
 
@@ -235,63 +271,125 @@ class BagIntersection[Domain <: AnyRef]
 
     protected def materialized_contains(v: Domain) = left.contains(v) && right.contains(v)
 
-    /**
-     * We have just added to left (leftIndex.elementCountAt(v) >= 1). While we add elements to left and
-     * have less than or equal elements compared to right, we generate new duplicates.
-     *
-     */
-    def added_internal(v: Domain)
-    {
-        println("left : " + leftIndex.elementCountAt(v) )
 
-        println("right: " + rightIndex.elementCountAt(v) )
-        if ( leftIndex.elementCountAt(v) <= rightIndex.elementCountAt(v) )
+    object LeftObserver extends Observer[(Domain, Domain)]
+    {
+
+        /**
+         * We have just added to left (leftIndex.elementCountAt(v) >= 1).
+         * While we add elements to left and
+         * have less than or equal elements compared to right, we generate new duplicates.
+         *
+         */
+        def added(kv: (Domain, Domain))
         {
-            element_added(v)
-            cached_size += 1
+            val v = kv._1
+            /*
+            println("+" + v)
+            println("left : " + leftIndex.elementCountAt(v))
+            println("right: " + rightIndex.elementCountAt(v))
+            */
+            if (leftIndex.elementCountAt(v) <= rightIndex.elementCountAt(v)) {
+                element_added(v)
+                cached_size += 1
+            }
+            initialized = true
+        }
+
+        /**
+         * as long as left has more elements than right we only remove excess duplicates
+         */
+        def removed(kv: (Domain, Domain))
+        {
+            val v = kv._1
+            /*
+            println("-" + v)
+            println("left : " + leftIndex.elementCountAt(v) )
+            println("right: " + rightIndex.elementCountAt(v) )
+            */
+            if ( leftIndex.elementCountAt(v) < rightIndex.elementCountAt(v) )
+            {
+                element_removed(v)
+                cached_size -= 1
+            }
+            initialized = true
+        }
+
+        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain))
+        {
+            val oldV = oldKV._1
+            val newV = newKV._1
+            val oldDef = rightIndex.isDefinedAt(oldV)
+            val newDef = rightIndex.isDefinedAt(newV)
+            if (oldDef && newDef)
+            {
+                element_updated(oldV, newV)
+                return
+            }
+            if (oldDef)
+            {
+                element_removed(oldV)
+                cached_size -= 1
+            }
+
+            if (newDef)
+            {
+                element_added(newV)
+                cached_size += 1
+            }
+            initialized = true
         }
     }
 
-    /**
-     * as long as left has more elements than right we only remove excess duplicates
-     */
-    def removed_internal(v: Domain)
+
+    object RightObserver extends Observer[(Domain, Domain)]
     {
-        if ( leftIndex.elementCountAt(v) <= rightIndex.elementCountAt(v) )
-        {
-            element_removed(v)
-            cached_size -= 1
-        }
-    }
 
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
-        val oldDef = rightIndex.isDefinedAt(oldV)
-        val newDef = rightIndex.isDefinedAt(newV)
-        if (oldDef && newDef)
+        /**
+         * We have just added to right (leftIndex.elementCountAt(v) >= 1). While we add elements to left and
+         * have less than or equal elements compared to right, we generate new duplicates.
+         *
+         */
+        def added(kv: (Domain, Domain))
         {
-            element_updated(oldV, newV)
-            return
-        }
-        if (oldDef)
-        {
-            element_removed(oldV)
-            cached_size -= 1
+            val v = kv._1
+            /*
+            println("+" + v)
+            println("left : " + leftIndex.elementCountAt(v) )
+            println("right: " + rightIndex.elementCountAt(v) )
+            */
+            if(  rightIndex.elementCountAt(v) <= leftIndex.elementCountAt(v) )
+            {
+                element_added(v)
+                cached_size += 1
+            }
+
+            initialized = true
         }
 
-        if (newDef)
+        /**
+         * as long as left has more elements than right we only remove excess duplicates
+         */
+        def removed(kv: (Domain, Domain))
         {
-            element_added(newV)
-            cached_size += 1
+            val v = kv._1
+            /*
+            println("-" + v)
+            println("left : " + leftIndex.elementCountAt(v) )
+            println("right: " + rightIndex.elementCountAt(v) )
+            */
+            if ( rightIndex.elementCountAt(v) < leftIndex.elementCountAt(v) )
+            {
+                element_removed(v)
+                cached_size -= 1
+            }
+            initialized = true
         }
-    }
 
-
-    object RightObserver extends Observer[Domain]
-    {
-        // update operations on right relation
-        def updated(oldV: Domain, newV: Domain)
+        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain))
         {
+            val oldV = oldKV._1
+            val newV = newKV._1
             val oldDef = leftIndex.isDefinedAt(oldV)
             val newDef = leftIndex.isDefinedAt(newV)
             if (oldDef && !newDef)
@@ -309,31 +407,6 @@ class BagIntersection[Domain <: AnyRef]
             }
             initialized = true
         }
-
-        def removed(v: Domain)
-        {
-            if ( rightIndex.elementCountAt(v) <= leftIndex.elementCountAt(v) )
-            {
-                element_removed(v)
-                cached_size -= 1
-            }
-            initialized = true
-        }
-
-        def added(v: Domain)
-        {
-            println("left : " + leftIndex.elementCountAt(v) )
-
-            println("right: " + rightIndex.elementCountAt(v) )
-
-            if(  rightIndex.elementCountAt(v) <= leftIndex.elementCountAt(v) )
-            {
-                element_added(v)
-                cached_size += 1
-            }
-
-            initialized = true
-        }
     }
-
 }
+

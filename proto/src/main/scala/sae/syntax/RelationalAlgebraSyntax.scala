@@ -29,11 +29,12 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain]) {
                                                               (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
     new HashEquiJoin(lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation), leftKey, rightKey, factory)
 
-  def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = new BagUnion[CommonSuperClass, Domain, OtherDomain](left, otherRelation)
+    // FIXME the type system for opertaors should make views covariant
+    def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = new BagUnion[CommonSuperClass, Domain, OtherDomain](left, otherRelation)
 
-  def ∩(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagIntersection[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
+    def ∩(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagIntersection[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
 
-  def ∖(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
+    def ∖(otherRelation: LazyView[Domain]): LazyView[Domain] = new BagDifference[Domain](lazyViewToIndexedView(left), lazyViewToIndexedView(otherRelation))
 
 }
 
@@ -58,10 +59,6 @@ case class ElementConcatenator[Domain <: AnyRef](
                                                   ) {
 
   import operators.Conversions._
-
-  //def ∈(relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
-
-  //def ∉(relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
 
   def apply(f: ElementOf[Domain]) = f(element)
 
@@ -154,7 +151,7 @@ object RelationalAlgebraSyntax {
 
     // polymorhpic projection
     class PolymorphProjection[T <: AnyRef] {
-      def apply[Domain >: T <: AnyRef](relation: LazyView[Domain]) =
+      def apply[Domain >: T <: AnyRef](relation: LazyView[Domain]) : LazyView[T] =
         new BagProjection[Domain, T](polymorphProjection[Domain] _, relation)
 
       def polymorphProjection[Domain >: T](e: Domain): T = e.asInstanceOf[T]
