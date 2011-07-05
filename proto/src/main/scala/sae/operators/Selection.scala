@@ -127,7 +127,7 @@ class MaterializedSelection[V <: AnyRef](
 
 
 /**
- * The lazy selection stores no values an operates solely on the
+ * The lazy selection stores no values and operates solely on the
  * lazy reevaluation or incremental updates.
  */
 class DynamicFilterSelection[V <: AnyRef]
@@ -136,13 +136,46 @@ class DynamicFilterSelection[V <: AnyRef]
     val relation: IndexedView[V]
 )
         extends Selection[V]
-                with SelfMaintainedView[V, V]
+            with LazyView[V]
 {
-
-    relation addObserver this
 
     val index = relation.index(identity)
 
+    index addObserver new Observer[(V, V)] {
+        def added(kv: (V, V))
+        {
+            val v = kv._1
+            if (filter(v))
+                element_added(v)
+            initialized = true
+        }
+
+        def removed(kv: (V, V))
+        {
+            val v = kv._1
+            if (filter(v))
+                element_removed(v)
+            initialized = true
+        }
+
+        def updated(oldKV: (V, V), newKV: (V, V))
+        {
+            val oldV = oldKV._1
+            val newV = newKV._1
+            if (filter(oldV) && filter(newV)) {
+                element_updated(oldV, newV)
+            } else {
+                // only one of the elements complies to the filter
+                if (filter(oldV)) {
+                    element_removed(oldV)
+                }
+                if (filter(newV)) {
+                    element_added(newV)
+                }
+            }
+            initialized = true
+        }
+    }
 
     filter addObserver new Observer[(V, Boolean)]
     {
@@ -152,6 +185,7 @@ class DynamicFilterSelection[V <: AnyRef]
                 case (v, true) if (index.isDefinedAt(v)) => element_added(v)
                 case _ => // do nothing
             }
+            initialized = true
         }
 
         def removed(vb: (V, Boolean))
@@ -160,6 +194,7 @@ class DynamicFilterSelection[V <: AnyRef]
                 case (v, true) if (index.isDefinedAt(v)) => element_removed(v)
                 case _ => // do nothing
             }
+            initialized = true
         }
 
 
@@ -183,46 +218,20 @@ class DynamicFilterSelection[V <: AnyRef]
                 }
                 case _ => // do nothing
             }
+            initialized = true
         }
 
     }
 
-    def lazyInitialize
-    {
-        relation.lazyInitialize
-    }
 
-    def updated_internal(oldV: V, newV: V)
-    {
-        if (filter(oldV) && filter(newV)) {
-            element_updated(oldV, newV)
-        } else {
-            // only one of the elements complies to the filter
-            if (filter(oldV)) {
-                element_removed(oldV)
-            }
-            if (filter(newV)) {
-                element_added(newV)
-            }
-        }
-    }
-
-    def removed_internal(v: V)
-    {
-        if (filter(v)) {
-            element_removed(v)
-        }
-    }
-
-    def added_internal(v: V)
-    {
-        if (filter(v)) {
-            element_added(v)
-        }
-    }
 
     def lazy_foreach[T](f: (V) => T)
     {
         relation.foreach(v => if (filter(v)) f(v))
+    }
+
+    def lazyInitialize
+    {
+        // do nothing
     }
 }

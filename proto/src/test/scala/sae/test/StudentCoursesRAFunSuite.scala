@@ -462,4 +462,100 @@ class StudentCoursesRAFunSuite
         assert(students.asList.contains(sally))
         assert(students.asList.contains(heather_new_number))
     }
+
+    test("set element of")
+    {   // copy of the intersection test, we could provide specialized operators later on
+        val persons = database.persons.copy
+        val students = database.students.copy
+
+        val person_students = σ[Student](persons)
+
+        val student_data_as_persons : LazyView[Person] = Π( (s:Student) => s.asInstanceOf[Person] )(students)
+
+        val studentsInPersons = ∈(person_students)
+
+        val intersect : QueryResult[Person] = σ( studentsInPersons )( student_data_as_persons )
+
+        assert(2 === intersect.size)
+
+        assert(intersect.asList.contains(john))
+        assert(intersect.asList.contains(sally))
+
+        val heather = Student(25421,"heather")
+        persons += heather
+        val tim = Employee("tim")
+        persons += tim
+
+        // students does not contain heather
+        //assert(empty.size === 0)
+        assert(intersect.size === 2)
+
+
+        students += heather
+        // students contains heather once, persons once
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+        persons += heather
+        // students contains heather once, persons twice
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+        students += heather
+        // students contains heather twice, persons twice
+        assert(intersect.size === 4)
+        assert(intersect.asList.contains(heather))
+
+        // students contains heather twice, persons once
+        persons -= heather
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+        // students contains heather twice, persons not
+        persons -= heather
+        assert(intersect.size === 2)
+        assert(!intersect.asList.contains(heather))
+
+        // students contains heather twice, persons once
+        persons += heather
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+
+        students -= heather
+        // students contains heather once, persons once
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+
+        // students contains heather once, persons not
+        persons -= heather
+        assert(intersect.size === 2)
+        assert(!intersect.asList.contains(heather))
+
+        persons += heather
+        students -= heather
+        assert(intersect.size === 2)
+        assert(!intersect.asList.contains(heather))
+
+        students += heather
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+
+        val heather_new_number =Student(23744,"heather")
+
+        persons.update(heather, heather_new_number)
+
+        assert(intersect.size === 2)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+
+        students.update(heather, heather_new_number)
+
+        assert(intersect.size === 3)
+        assert(students.asList.contains(john))
+        assert(students.asList.contains(sally))
+        assert(students.asList.contains(heather_new_number))
+    }
 }

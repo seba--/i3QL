@@ -17,7 +17,7 @@ import sae.{Observer, DefaultLazyView, LazyView}
  * Time: 13:53
  * @author Malte V
  */
-
+// TODO Delete me
 class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
 
   class TestObs[A <: AnyRef] extends Observer[A]() {
@@ -39,8 +39,8 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
     }
   }
 
-  @Ignore
-  @Test   //FIXME
+  @Ignore // moved to StudentCourse Example
+  @Test
   def elementOf(): Unit = {
 
 
@@ -50,7 +50,7 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
 
 
     val elementOf = ∈(w2)
-    val select = σ((x: String) => elementOf(x))(w1)
+    val select = σ(elementOf)(w1)
 
     val testObs = new TestObs[String]()
     select.addObserver(testObs)
@@ -72,8 +72,8 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
 
   }
 
- @Ignore
- @Test  //FIXME
+ @Ignore // moved to StudentCourse Example
+ @Test
   def intersection(): Unit = {
     case class SimpleClass(val key: String, val data: String)
 
