@@ -26,9 +26,11 @@ object Conversions {
             with ObservableProxy[V]
     {
 
+        initialized = true
+
         def lazyInitialize
         {
-            relation.lazyInitialize
+            // do nothing
         }
         
         def materialized_foreach[T](f : (V) => T)
@@ -41,7 +43,7 @@ object Conversions {
         def materialized_singletonValue : Option[V] = relation.singletonValue
         
         protected def createIndex[K <: AnyRef](keyFunction : V => K) : Index[K, V] =
-            new sae.collections.HashMultiMap[K, V](relation, keyFunction)
+            new sae.collections.HashBagIndex[K, V](relation, keyFunction)
 
         protected def materialized_contains(v: V) = relation.contains(v)
     }

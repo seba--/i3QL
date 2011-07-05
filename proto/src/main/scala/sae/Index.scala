@@ -10,6 +10,7 @@ package sae
  * Due to the contravariant nature of observers
  * (i.e., an Observer[Object] can still register as an observer for this index),
  * the values have to remain invariant. But the relation may still vary.
+ *
  */
 trait Index[K <: AnyRef, V <: AnyRef]
         extends MaterializedView[(K, V)]
@@ -20,6 +21,7 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     val keyFunction : V => K
 
+    //  TODO inidices should be updated prior to other relations; re-using only the observers will yield update order considerations where clients are foreced to rely on the index as underlying collection instead of the collection itself
     relation addObserver this
 
     // an index is lazy initialized by calling build
@@ -55,6 +57,7 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     protected def isDefinedAt_internal(key : K) : Boolean
 
+
     def elementCountAt(key : K) : Int =
         {
             if (!initialized) {
@@ -64,6 +67,7 @@ trait Index[K <: AnyRef, V <: AnyRef]
         }
 
     protected def elementCountAt_internal(key : K) : Int
+
 
     def getOrElse(key : K, f : => Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
 

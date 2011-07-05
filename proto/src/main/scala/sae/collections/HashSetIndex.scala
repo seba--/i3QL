@@ -3,11 +3,15 @@ package collections
 
 /**
  * An index backed by a guave HashMultimap.
+ * The index may have multiple values for a single key.
+ * The index does not store multiple equal key-value pairs.
+ * Thus this Index is suited for set semantics.
+ *
  * Multi-value semantics is a pre-requisite for the index to work with
  * arbitrary data. Parts of a tuple may be defined as index and must not be
  * unique in any way.
  */
-class HashMultiMap[K <: AnyRef, V <: AnyRef](
+class HashSetIndex[K <: AnyRef, V <: AnyRef](
     val relation: MaterializedView[V],
     val keyFunction: V => K
 )
@@ -54,7 +58,6 @@ class HashMultiMap[K <: AnyRef, V <: AnyRef](
         {
             map.get(key).size()
         }
-
 
     def materialized_foreach[U](f: ((K, V)) => U)
     {
