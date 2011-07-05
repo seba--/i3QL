@@ -6,8 +6,6 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import reflect.ClassManifest
-import org.scalatest.Assertions._
 import sae.LazyView
 
 /**
@@ -20,6 +18,37 @@ class StudentCoursesRAFunSuite
 
     val database = new StudentCoursesDatabase()
     import database._
+
+
+    test("indexing") {
+        val students = database.students.copy
+        val indexed_students = sae.operators.Conversions.lazyViewToIndexedView(students) // make a local copy
+
+        val index = indexed_students.index(identity)
+        val nameIndex = indexed_students.index( (_:Student).Name )
+
+        val judy = Student(21111, "judy")
+        // we add before accessing the index to test cache semantics
+        students += judy
+        assert( 3 === index.asList.size )
+        assert( 3 === nameIndex.asList.size )
+
+        val john = Student(21111, "john")
+        students += john
+
+        assert( 4 === index.asList.size )
+        assert( 1 === index.elementCountAt(john) )
+        assert( 4 === nameIndex.asList.size )
+        assert( 2 === nameIndex.elementCountAt("john") )
+
+        students += john
+
+        assert( 5 === index.asList.size )
+        assert( 2 === index.elementCountAt(john) )
+        assert( 5 === nameIndex.asList.size )
+        assert( 3 === nameIndex.elementCountAt("john") )
+
+    }
 
     test("selection") {
         assert(2 === students.size)
@@ -344,13 +373,13 @@ class StudentCoursesRAFunSuite
 
         val person_students = σ[Student](persons)
 
-        val empty : QueryResult[Person] = person_students ∩ employees
+        //val empty : QueryResult[Person] = person_students ∩ employees
 
         val student_data_as_persons : LazyView[Person] = Π( (s:Student) => s.asInstanceOf[Person] )(students)
 
-        val intersect : QueryResult[Person] = person_students ∩ student_data_as_persons
+        val intersect : QueryResult[Person] = student_data_as_persons ∩ person_students
 
-        assert(empty.size === 0)
+        //assert(empty.size === 0)
         assert(intersect.size === 2)
 
         assert(intersect.asList.contains(john))
@@ -362,7 +391,7 @@ class StudentCoursesRAFunSuite
         persons += tim
 
         // students does not contain heather
-        assert(empty.size === 0)
+        //assert(empty.size === 0)
         assert(intersect.size === 2)
 
 
@@ -376,10 +405,34 @@ class StudentCoursesRAFunSuite
         assert(intersect.size === 3)
         assert(intersect.asList.contains(heather))
 
+        students += heather
+        // students contains heather twice, persons twice
+        assert(intersect.size === 4)
+        assert(intersect.asList.contains(heather))
+
+        // students contains heather twice, persons once
         persons -= heather
         assert(intersect.size === 3)
         assert(intersect.asList.contains(heather))
 
+        // students contains heather twice, persons not
+        persons -= heather
+        assert(intersect.size === 2)
+        assert(!intersect.asList.contains(heather))
+
+        // students contains heather twice, persons once
+        persons += heather
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+
+        students -= heather
+        // students contains heather once, persons once
+        assert(intersect.size === 3)
+        assert(intersect.asList.contains(heather))
+
+
+        // students contains heather once, persons not
         persons -= heather
         assert(intersect.size === 2)
         assert(!intersect.asList.contains(heather))
