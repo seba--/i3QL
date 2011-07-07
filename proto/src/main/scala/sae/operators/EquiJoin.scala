@@ -7,12 +7,12 @@ import sae.collections.Bag
  * A join ....
  */
 trait EquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef]
-    extends LazyView[Range]
+    extends MaterializedView[Range]
 {
 
-    val left : MaterializedView[DomainA]
+    val left : IndexedView[DomainA]
 
-    val right : MaterializedView[DomainB]
+    val right : IndexedView[DomainB]
 
     type LeftDomain = DomainA
 
