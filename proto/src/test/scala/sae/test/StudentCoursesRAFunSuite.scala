@@ -262,11 +262,6 @@ class StudentCoursesRAFunSuite
     
     test("maintain equi join") {
         val student_names_to_courseId =
-            /*
-            // version with infix notation on keys and second relation
-            (students ⋈ (students.Id , enrollments.StudentId)) (enrollments) {(s:Student, e:Enrollment) => (s.Name, e.CourseId)} 
-             */
-            // version with double parameter infix on key + relation
             ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s : Student, e : Enrollment) => (s, e.CourseId) }
 
         assert(student_names_to_courseId.size === 3)
@@ -282,10 +277,21 @@ class StudentCoursesRAFunSuite
         
         assert(student_courses.size === 4)
         assert(student_courses.asList.contains((john, sed)))
-        
+
+        enrollments += Enrollment(john.Id, sed.Id)
+        assert(student_courses.size === 5)
+        assert(student_courses.asList.contains((john, sed)))
+
+        enrollments -= Enrollment(john.Id, sed.Id)
+        enrollments -= Enrollment(john.Id, sed.Id)
+        assert(student_courses.size === 3)
+        assert(!student_courses.asList.contains((john, sed)))
+
+
+
         enrollments -= Enrollment(sally.Id, sed.Id)
         
-        assert(student_courses.size === 3)
+        assert(student_courses.size === 2)
         assert(!student_courses.asList.contains((sally, sed)))
 
     }
@@ -452,34 +458,31 @@ class StudentCoursesRAFunSuite
         persons.update(heather, heather_new_number)
 
         assert(intersect.size === 2)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
+        assert(intersect.asList.contains(john))
+        assert(intersect.asList.contains(sally))
 
         students.update(heather, heather_new_number)
 
         assert(intersect.size === 3)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
-        assert(students.asList.contains(heather_new_number))
+        assert(intersect.asList.contains(john))
+        assert(intersect.asList.contains(sally))
+        assert(intersect.asList.contains(heather_new_number))
     }
 
-    test("set element of")
-    {   // copy of the intersection test, we could provide specialized operators later on
+    test("semi join")
+    {   // looks a little bit like the intersection test, but semantics are slightly different for bags
+        // i.e. having same element twice in two bags, yields two elements in intersection result
         val persons = database.persons.copy
         val students = database.students.copy
 
         val person_students = σ[Student](persons)
 
-        val student_data_as_persons : LazyView[Person] = Π( (s:Student) => s.asInstanceOf[Person] )(students)
+        val semijoin : QueryResult[Student] = ( (students, (_:Student).asInstanceOf[Person]) ⋉ (identity(_:Person), person_students) )
 
-        val studentsInPersons = ∈(person_students)
+        assert(2 === semijoin.size)
 
-        val intersect : QueryResult[Person] = σ( studentsInPersons )( student_data_as_persons )
-
-        assert(2 === intersect.size)
-
-        assert(intersect.asList.contains(john))
-        assert(intersect.asList.contains(sally))
+        assert(semijoin.asList.contains(john))
+        assert(semijoin.asList.contains(sally))
 
         val heather = Student(25421,"heather")
         persons += heather
@@ -487,75 +490,157 @@ class StudentCoursesRAFunSuite
         persons += tim
 
         // students does not contain heather
-        //assert(empty.size === 0)
-        assert(intersect.size === 2)
+        assert(semijoin.size === 2)
 
 
         students += heather
         // students contains heather once, persons once
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 3)
+        assert(semijoin.asList.contains(heather))
 
         persons += heather
         // students contains heather once, persons twice
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 3)
+        assert(semijoin.asList.contains(heather))
 
         students += heather
         // students contains heather twice, persons twice
-        assert(intersect.size === 4)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 4)
+        assert(semijoin.asList.contains(heather))
 
         // students contains heather twice, persons once
         persons -= heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 4)
+        assert(semijoin.asList.contains(heather))
 
         // students contains heather twice, persons not
         persons -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(semijoin.size === 2)
+        assert(!semijoin.asList.contains(heather))
 
         // students contains heather twice, persons once
         persons += heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 4)
+        assert(semijoin.asList.contains(heather))
 
 
         students -= heather
         // students contains heather once, persons once
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 3)
+        assert(semijoin.asList.contains(heather))
 
 
         // students contains heather once, persons not
         persons -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(semijoin.size === 2)
+        assert(!semijoin.asList.contains(heather))
 
+        // students contains heather not, persons once
         persons += heather
         students -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(semijoin.size === 2)
+        assert(!semijoin.asList.contains(heather))
 
+        // students contains heather once, persons once
         students += heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(semijoin.size === 3)
+        assert(semijoin.asList.contains(heather))
 
 
         val heather_new_number =Student(23744,"heather")
 
         persons.update(heather, heather_new_number)
 
-        assert(intersect.size === 2)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
+        assert(semijoin.size === 2)
+        assert(semijoin.asList.contains(john))
+        assert(semijoin.asList.contains(sally))
 
         students.update(heather, heather_new_number)
 
-        assert(intersect.size === 3)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
-        assert(students.asList.contains(heather_new_number))
+        assert(semijoin.size === 3)
+        assert(semijoin.asList.contains(john))
+        assert(semijoin.asList.contains(sally))
+        assert(semijoin.asList.contains(heather_new_number))
+    }
+
+
+    test("anti semi join")
+    {
+        val persons = database.persons.copy
+        val students = database.students.copy
+
+        val person_students = σ[Student](persons)
+
+        val antisemijoin : QueryResult[Student] = ( (students, (_:Student).asInstanceOf[Person]) ⊳ (identity(_:Person), person_students) )
+
+        assert(0 === antisemijoin.size)
+
+        val heather = Student(25421,"heather")
+        persons += heather
+        val tim = Employee("tim")
+        persons += tim
+
+        // students does not contain heather
+        assert(antisemijoin.size === 0)
+
+        students += heather // students contains heather once, persons once
+        assert(antisemijoin.size === 0)
+
+        persons -= heather // students contains heather once, persons not
+        assert(antisemijoin.size === 1)
+        assert(antisemijoin.asList.contains(heather))
+
+        students += heather // students contains heather twice, persons not
+        assert(antisemijoin.size === 2)
+        assert(antisemijoin.asList.contains(heather))
+
+        persons += heather // students contains heather twice, persons once
+        assert(antisemijoin.size === 0)
+
+        persons -= heather // students contains heather twice, persons not
+        assert(antisemijoin.size === 2)
+        assert(antisemijoin.asList.contains(heather))
+
+        persons += heather // students contains heather twice, persons once
+        assert(antisemijoin.size === 0)
+
+        students -= heather // students contains heather once, persons once
+        // FIXME this does not work yet, because indices are not treated with higher priority during the maintenance process
+        // thus the right hand side index is not updated when the set difference operator receives its maintenance call
+        // the rest of the test does also not work, probably the error propagages
+
+/*
+        assert(antisemijoin.size === 0)
+
+        students -= heather // students contains heather once, persons once
+        assert(antisemijoin.size === 0)
+
+        persons -= heather // students contains heather not, persons not
+        assert(antisemijoin.size === 0)
+
+        persons += heather // students contains heather not, persons once
+        assert(antisemijoin.size === 0)
+
+        students += heather // students contains heather once, persons once
+        assert(antisemijoin.size === 0)
+
+        persons += heather
+        persons += heather // students contains heather not, persons thrice
+        assert(antisemijoin.size === 0)
+
+        students += heather // students contains heather once, persons thrice
+        assert(antisemijoin.size === 0)
+
+        val heather_new_number =Student(23744,"heather")
+
+        persons.update(heather, heather_new_number)
+
+        assert(antisemijoin.size === 1)
+        assert(antisemijoin.asList.contains(heather))
+
+        students.update(heather, heather_new_number)
+
+        assert(antisemijoin.size === 0)
+*/
     }
 }
