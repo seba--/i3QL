@@ -82,9 +82,9 @@ trait Index[K <: AnyRef, V <: AnyRef]
                 element_updated((k1, oldV), (k1, newV))
             } else {
                 remove_element((k1, oldV))
-                element_removed((k2, oldV))
+                element_removed((k1, oldV))
                 add_element((k2, newV))
-                element_added((k2, oldV))
+                element_added((k2, newV))
             }
         }
 
