@@ -39,12 +39,12 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
     }
   }
 
-  @Ignore // moved to StudentCourse Example
+  //@Ignore // moved to StudentCourse Example
   @Test
   def elementOf(): Unit = {
 
 
-
+/*
     val w1: LazyView[String] = new DefaultLazyView[String]()
     val w2: LazyView[String] = new DefaultLazyView[String]()
 
@@ -68,11 +68,11 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
     w1.element_removed(key)
 
     if(testObs.i < 0) fail()
-
+*/
 
   }
 
- @Ignore // moved to StudentCourse Example
+ //@Ignore // moved to StudentCourse Example
  @Test
   def intersection(): Unit = {
     case class SimpleClass(val key: String, val data: String)

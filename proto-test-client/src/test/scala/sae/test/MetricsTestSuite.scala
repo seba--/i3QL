@@ -38,7 +38,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
 
   }
 
-
+  @Ignore
   @Test
   def testLcom() {
     val view = registerQuery(x => {
@@ -76,6 +76,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
     })
   }
 
+  @Ignore
   @Test
   def testLcomMod() {
     val view = registerQuery(x => {

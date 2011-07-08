@@ -32,7 +32,7 @@ trait QueryAnalyzer {
             projectionView(projection, parent, analyze(relation, Some(view)))
         }
         // TODO at least for case classes there is a way to do infix operators, check with ⋈ unapply method
-        case equiJoin @ ⋈(relationA, _, relationB, _) =>
+        case equiJoin @ ⋈(relationA, _, relationB, _, _) =>
         {
             equiJoinView(equiJoin, parent, analyze(relationA, Some(view)), analyze(relationB, Some(view)))
         }

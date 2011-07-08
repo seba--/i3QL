@@ -134,21 +134,21 @@ class Hibernate_3_6_Test
 
         db.addArchiveAsResource("hibernate-core-3.6.0.Final.jar")
 
-        incoming_engine_to_action_violation.foreach(println)
-        assertEquals(0, incoming_engine_to_action_violation.size)
+        incoming_violation_param_create_interface.foreach(println)
+        assertEquals(0, incoming_violation_param_create_interface.size)
 
-        incoming_event_to_action_violation.foreach(println)
-        assertEquals(0, incoming_event_to_action_violation.size)
+        incoming_violation_create.foreach(println)
+        assertEquals(0, incoming_violation_create.size)
         /*
         incoming_HQL_to_action_violation.foreach(println)
         assertEquals(0, incoming_HQL_to_action_violation.size)
         */
-        incoming_lock_to_action_violation.foreach(println)
-        assertEquals(0, incoming_lock_to_action_violation.size)
+        incoming_violation_create_interface.foreach(println)
+        assertEquals(0, incoming_violation_create_interface.size)
 
     }
 
-
+    @Ignore
     @Test
     def find_bytecode_sad_violation_elements()
     {
@@ -165,6 +165,7 @@ class Hibernate_3_6_Test
 
     }
 
+    @Ignore
     @Test
     def find_cache_sad_violation_elements()
     {

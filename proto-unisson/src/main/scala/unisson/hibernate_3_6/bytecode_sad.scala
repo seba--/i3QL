@@ -4,8 +4,8 @@ import sae.bytecode.BytecodeDatabase
 import sae.collections.QueryResult
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.dependencies.{invoke_interface}
-import unisson.EnsembleDefinition
 import unisson.Queries._
+import unisson.{SourceElement, EnsembleDefinition}
 
 /**
  *
@@ -25,33 +25,12 @@ class bytecode_sad(db: BytecodeDatabase)
     with EnsembleDefinition
 {
 
-    // element checks declared as values so the functions are created once and not one function for each application inside the selection
-    val inBytecode = ∈(`org.hibernate.bytecode`)
-    val notInBytecode = ∉(`org.hibernate.bytecode`)
-    val notInIntercept = ∉(`org.hibernate.intercept`)
-    val notInTool = ∉(`org.hibernate.tool`)
-    val notInTuple = ∉(`org.hibernate.tuple`)
-
-    // val notAllowedIncoming = notInEngine && notInEvent && notInHQL && notInLock // currently can not be modelled as updateable function
-
     val incoming_invoke_interface_to_bytecode_violation: QueryResult[invoke_interface] =
-        (
-                σ(
-                    target(_: invoke_interface)(inBytecode)
-                )(db.invoke_interface)) ∩ (
-                σ(
-                    source(_: invoke_interface)(notInBytecode)
-                )(db.invoke_interface)) ∩ (
-                σ(
-                    source(_: invoke_interface)(notInIntercept)
-                )(db.invoke_interface)) ∩ (
-                σ(
-                    source(_: invoke_interface)(notInTool)
-                )(db.invoke_interface)) ∩ (
-                σ(
-                    source(_: invoke_interface)(notInTuple)
-                )(db.invoke_interface)
-                )
+        ( (db.invoke_interface, target _) ⋉ (identity(_:SourceElement[AnyRef]), `org.hibernate.bytecode`) ) ∩
+        ( (db.invoke_interface, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.bytecode`) ) ∩
+        ( (db.invoke_interface, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.intercept`) ) ∩
+        ( (db.invoke_interface, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.tool`) ) ∩
+        ( (db.invoke_interface, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.tuple`) )
 
     def printViolations() {
         incoming_invoke_interface_to_bytecode_violation.foreach(println)
