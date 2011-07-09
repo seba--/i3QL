@@ -6,7 +6,6 @@ import org.junit.Test
 import org.junit.Assert._
 import sae.collections._
 import sae.bytecode.model._
-import de.tud.cs.st.bat._
 import dependencies._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions._
@@ -16,6 +15,7 @@ import metrics.Metrics
 import syntax.RelationalAlgebraSyntax.σ._
 import operators._
 import sae.LazyView
+import de.tud.cs.st.bat._
 
 /**
  * @author Malte V
@@ -350,48 +350,216 @@ class JEditSuite {
 
   @Test
   def fanOutWithSQL(): Unit = {
-    case class Method2(declaringRef: ReferenceType, name: String, dep: de.tud.cs.st.bat.Type)
     val db = new BytecodeDatabase
-    val o2m = new DefaultOneToMany(db.classfile_methods, (x: Method) => {
-      var res = List[Method2]()
-      res = new Method2(x.declaringRef, x.name, x.returnType) :: res
-      if (x.parameters.size == 0) {
 
-      } else {
-        x.parameters.foreach((y: de.tud.cs.st.bat.Type) => {
-          res = new Method2(x.declaringRef, x.name, y) :: res
-        })
-      }
-      res
-    })
-    val selection = new MaterializedSelection((x: Method2) => {
-      (x.declaringRef.packageName + x.declaringRef.simpleName).replace('/', '.') != x.dep.toJava
-    }, o2m)
-    val fanOut = Aggregation(selection, (x: Method2) => (x.declaringRef.packageName, x.declaringRef.simpleName), Distinct(Count[Method2](), (x: Method2) => x.dep), (x: (String, String), y: Int) => (x, y))
+
+    val parameters : LazyView[(ReferenceType, Type)] = Π( (x: parameter) => (x.source.declaringRef, x.target.asInstanceOf[Type]) )(db.parameter) // TODO remove cast once views are covariant
+
+    val returntypes : LazyView[(ReferenceType, Type)] = Π( (x: return_type) => (x.source.declaringRef, x.target) )(db.return_type )
+
+    val dependencies = parameters ∪ returntypes
+
+    val selection = δ( σ(
+                      (x: (ReferenceType, Type)) => x._1 != x._2)(dependencies)
+                   )
+
+
+    val fanOut = Aggregation(selection,
+                            (_:(ReferenceType, Type))._1,
+                            Count[(ReferenceType, Type)](),
+                            (x: ReferenceType, y: Int) => ((x.packageName, x.simpleName), y)
+                )
+
     val res: QueryResult[((String, String), Int)] = fanOut
-    this.db.classfile_methods.foreach(db.classfile_methods.element_added)
+    this.db.parameter.foreach(db.parameter.element_added)
+    this.db.return_type.foreach(db.return_type.element_added)
     var listRes = res.asList
+
     assertTrue(listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
     assertTrue(listRes.contains((("org/gjt/sp/jedit/gui/statusbar", "ToolTipLabel"), 3)))
     assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 5)))
     assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh/org/objectweb/asm", "ClassVisitor"), 6)))
 
-    db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "<init>"))
-    db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "setSelectedColor"))
+    db.parameter.element_removed(parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/gui/ColorWellButton"),
+                        "<init>",
+                        List(ObjectType("java/awt/Color")),
+                        VoidType()
+                ),
+                ObjectType("java/awt/Color")
+            )
+    )
     listRes = res.asList
-    assertTrue(listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 1)) || listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
-    db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "getSelectedColor"))
-    listRes = res.asList
-    assertTrue(!listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 0)))
+    assertTrue( listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
 
-    db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "<init>"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "<init>"))
+    db.parameter.element_removed(parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/gui/ColorWellButton"),
+                        "setSelectedColor",
+                        List(ObjectType("java/awt/Color")),
+                        VoidType()
+                ),
+                ObjectType("java/awt/Color")
+            )
+    )
+
+      listRes = res.asList
+      assertTrue( listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 2)))
+
+    db.return_type.element_removed(return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/gui/ColorWellButton"),
+                        "getSelectedColor",
+                        List(ObjectType("java/awt/Color")),
+                        VoidType()
+                ),
+                 ObjectType("java/awt/Color")
+            )
+    )
+
+      listRes = res.asList
+      assertTrue( listRes.contains((("org/gjt/sp/jedit/gui", "ColorWellButton"), 1)))
+
+    db.return_type.element_removed(return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/gui/ColorWellButton"),
+                        "<init>",
+                        List(ObjectType("java/awt/Color")),
+                        VoidType()
+                ),
+                VoidType()
+            )
+    )
+
+
+    db.return_type.element_removed(return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/gui/ColorWellButton"),
+                        "setSelectedColor",
+                        List(ObjectType("java/awt/Color")),
+                        VoidType()
+                ),
+                VoidType()
+            )
+    )
+
+    listRes = res.asList
+
+    assertTrue(!listRes.exists{ case (("org/gjt/sp/jedit/gui", "ColorWellButton"), _) => true; case _ => false})
+
+
+
+    db.parameter.element_updated(
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHTryStatement"),
+                        "<init>",
+                        List(IntegerType()),
+                        VoidType()
+                ),
+                IntegerType()
+            ),
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHType"),
+                        "<init>",
+                        List(IntegerType()),
+                        VoidType()
+                ),
+                IntegerType()
+            )
+    )
+    db.return_type.element_updated(
+            return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHTryStatement"),
+                        "<init>",
+                        List(IntegerType()),
+                        VoidType()
+                ),
+                VoidType()
+            ),
+            return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHType"),
+                        "<init>",
+                        List(IntegerType()),
+                        VoidType()
+                ),
+                VoidType()
+            )
+    )
     listRes = res.asList
 
     assertTrue(listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
 
-    db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "eval"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "classLoaderChanged"))
+
+    db.parameter.element_updated(
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHTryStatement"),
+                        "eval",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("org/gjt/sp/jedit/bsh/CallStack")
+            ),
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHType"),
+                        "classLoaderChanged",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("org/gjt/sp/jedit/bsh/CallStack")
+            )
+    )
+
+    db.parameter.element_updated(
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHTryStatement"),
+                        "eval",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("org/gjt/sp/jedit/bsh/Interpreter")
+            ),
+            parameter(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHType"),
+                        "classLoaderChanged",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("org/gjt/sp/jedit/bsh/Interpreter")
+            )
+    )
+    db.return_type.element_updated(
+            return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHTryStatement"),
+                        "eval",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("java/lang/Object")
+            ),
+            return_type(
+                Method(
+                        ObjectType("org/gjt/sp/jedit/bsh/BSHType"),
+                        "classLoaderChanged",
+                        List( ObjectType("org/gjt/sp/jedit/bsh/CallStack"), ObjectType("org/gjt/sp/jedit/bsh/Interpreter") ),
+                        ObjectType("java/lang/Object")
+                ),
+                ObjectType("java/lang/Object")
+            )
+    )
+
     listRes = res.asList
-    assertTrue(!listRes.contains((("org/gjt/sp/jedit/bsh", "BSHTryStatement"), 3)))
+
+    assertTrue(!listRes.exists{ case (("org/gjt/sp/jedit/bsh", "BSHTryStatement"), _) => true; case _ => false} )
 
   }
 

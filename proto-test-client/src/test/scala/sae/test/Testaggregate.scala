@@ -480,32 +480,52 @@ class Testaggregate extends TestCase {
 
     }
  
-    def testDistinct() = {
+    def testDistinct() {
         case class EdgeGroup(a : String, b : String, count : Int)
         val edges = new ObservableList[Edge]
 
+        import sae.syntax.RelationalAlgebraSyntax._
         import sae.operators.intern._
-        val GroupAndCount = Aggregation(edges, (e : Edge) => (e.a, e.b), Distinct(Count[Edge](), (e : Edge) => (e.a, e.b)), (a : (String, String), b : Int) => (a, b))
+        val GroupAndCount = Aggregation(δ(Π((e : Edge) => (e.a, e.b))(edges)),
+                                        identity (_:(String, String)),
+                                        Count[(String, String)](),
+                                        (a : (String, String), b : Int) => (a, b))
         val res : QueryResult[((String, String), Int)] = sae.syntax.RelationalAlgebraSyntax.lazyViewToResult(GroupAndCount)
 
         edges.add(new Edge("a", "b", 4))
-        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        assertEquals(1, res.asList.size)
+        assertTrue(res.asList.contains(("a","b"),1))
         edges.add(new Edge("a", "b", 2))
-        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        assertEquals(1, res.asList.size)
+        assertTrue(res.asList.contains(("a","b"),1))
+
         edges.add(new Edge("a", "b", 3))
-        assertTrue(res.asList.size == 1 && res.asList.contains(("a","b"),1))
+        assertEquals(1, res.asList.size)
+        assertTrue(res.asList.contains(("a","b"),1))
+
         edges.add(new Edge("d", "b", 2))
-        assertTrue(res.asList.size == 2 && res.asList.contains(("d","b"),1))
+        assertEquals(2, res.asList.size)
+        assertTrue(res.asList.contains(("d","b"),1))
+
         edges.add(new Edge("d", "b", 3))
-        assertTrue(res.asList.size == 2 && res.asList.contains(("d","b"),1))
+        assertEquals(2, res.asList.size)
+        assertTrue(res.asList.contains(("d","b"),1))
+
         edges.add(new Edge("c", "b", 2))
-        assertTrue(res.asList.size == 3 && res.asList.contains(("c","b"),1))
+        assertEquals(3, res.asList.size)
+        assertTrue(res.asList.contains(("c","b"),1))
+
         edges.add(new Edge("b", "d", 2))
-        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        assertEquals(4, res.asList.size)
+        assertTrue(res.asList.contains(("b","d"),1))
+
         edges.add(new Edge("b", "d", 2))
-        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        assertEquals(4, res.asList.size)
+        assertTrue(res.asList.contains(("b","d"),1))
+
         edges.add(new Edge("b", "d", 2))
-        assertTrue(res.asList.size == 4 && res.asList.contains(("b","d"),1))
+        assertEquals(4, res.asList.size)
+        assertTrue(res.asList.contains(("b","d"),1))
         
     }
 
