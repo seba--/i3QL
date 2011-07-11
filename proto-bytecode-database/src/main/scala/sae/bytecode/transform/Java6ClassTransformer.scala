@@ -138,8 +138,11 @@ class Java6ClassTransformer(
 
         process_classfile(classFile.thisClass)
 
-        `process_extends`(new `extends`(classFile.thisClass, classFile.superClass))
-
+        // Note: there is exactly one class (java/lang/Object) that has no superclass
+        if( classFile.superClass != null)
+        {
+            `process_extends`(new `extends`(classFile.thisClass, classFile.superClass))
+        }
         classFile.interfaces.foreach(i =>
             process_implements(new implements(classFile.thisClass, i))
         )

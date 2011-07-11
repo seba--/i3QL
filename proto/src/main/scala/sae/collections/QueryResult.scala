@@ -78,7 +78,9 @@ class MaterializedViewProxyResult[V <: AnyRef](
 {
 
     def lazyInitialize
-    {}
+    {
+        // the relation will initialize itself on calls to the materialized_* methods
+    }
 
     protected def materialized_contains(v: V) = relation.contains(v)
 

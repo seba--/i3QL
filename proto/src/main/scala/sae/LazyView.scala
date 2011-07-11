@@ -1,6 +1,12 @@
 package sae
 
 /**
+ *
+ * TODO fix nomenclature, this lazyness refers to caching of values.
+ * This means that some operators need recomputing,
+ * while others can rely on the values they already have produced.
+ *
+ *
  * A lazy view is observable has a foreach that lazily
  * evaluates all tuples, possibly defering to the underlying relation
  * in the chain. Thus it can be Initialized for
@@ -19,7 +25,7 @@ trait LazyView[V <: AnyRef]
      */
     def lazy_foreach[T](f : (V) => T)
 
-        /**
+    /**
      * Each materialized view must be able to
      * materialize it's content from the underlying
      * views.

@@ -18,10 +18,22 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>r09</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest</artifactId>
+			<version>1.4.RC2</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
@@ -29,11 +41,5 @@
 			<version>${scala.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency> <groupId>de.tud.cs.st.opal.sae</groupId> <artifactId>sae-database-bytecode-reader</artifactId> 
-			<version>0.1.0</version> <type>jar</type> <scope>compile</scope> </dependency> 
-			<dependency> <groupId>de.tud.cs.st.opal.sae</groupId> <artifactId>sae-database-core</artifactId> 
-			<version>0.2.0</version> <type>jar</type> <scope>compile</scope> </dependency> 
-			<dependency> <groupId>de.tud.cs.st.opal.bat</groupId> <artifactId>bat-bytecode-model-transformation</artifactId> 
-			<version>0.7.0</version> </dependency> -->
 	</dependencies>
 </project>
