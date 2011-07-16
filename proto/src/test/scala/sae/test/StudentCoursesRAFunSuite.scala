@@ -131,6 +131,16 @@ class StudentCoursesRAFunSuite
 
         students -= judy
         assert(0 === names.size)
+
+        val newJudy = Student(21111, "new judy")
+        students += judy
+        students += judy
+        assert(1 === names.size)
+        students.update(judy, newJudy)
+        assert(1 === names.size)
+        assert(names.asList.contains("new judy"))
+        assert(!names.asList.contains("judy"))
+
     }
 
     test("optimized projection") {

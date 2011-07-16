@@ -83,8 +83,8 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
                                                       rightKey: OtherDomain => Range,
                                                       otherRelation: LazyView[OtherDomain]
                                                   ) =
-        //⋈ (identity(_:Range), δ(Π(rightKey)(otherRelation))) { (left : Domain, right : Range) => left }
-        left ∖ (left ∖ ( ⋈ (rightKey, otherRelation){ (left : Domain, right : OtherDomain) => left }))
+        ⋈ (identity(_:Range), δ(Π(rightKey)(otherRelation))) { (left : Domain, right : Range) => left }
+        //left ∖ (left ∖ ( ⋈ (rightKey, otherRelation){ (left : Domain, right : OtherDomain) => left }))
 
     // anti semi-join
     def ⊳[OtherDomain <: AnyRef](

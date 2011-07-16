@@ -91,15 +91,12 @@ class SetDuplicateElimination[Domain <: AnyRef](
     // update operations
     def updated(oldV : Domain, newV : Domain)
     {
-            if (oldV equals newV)
+            if (oldV == newV)
                 return ;
-            if (remove_element(oldV)) {
-                element_removed(oldV)
-            }
-            if (add_element(newV)) {
-                element_added(newV)
-            }
-
+            val count = data.count(oldV)
+            data.remove(oldV, count)
+            data.add(newV, count)
+            element_updated(oldV, newV)
         }
 
     def removed(v : Domain)
