@@ -94,8 +94,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
     })
   }
 
-  @Test
-  @Ignore
+
   def printData() {
     val view = registerQuery(x => {
       Metrics.numberOfFanOutPerClass(x

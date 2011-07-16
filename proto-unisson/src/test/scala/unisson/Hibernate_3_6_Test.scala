@@ -148,7 +148,7 @@ class Hibernate_3_6_Test
 
     }
 
-    @Ignore
+
     @Test
     def find_bytecode_sad_violation_elements()
     {
@@ -165,7 +165,7 @@ class Hibernate_3_6_Test
 
     }
 
-    @Ignore
+
     @Test
     def find_cache_sad_violation_elements()
     {
