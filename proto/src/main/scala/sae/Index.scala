@@ -11,6 +11,14 @@ package sae
  * (i.e., an Observer[Object] can still register as an observer for this index),
  * the values have to remain invariant. But the relation may still vary.
  *
+ * Inidices are be updated prior to other relations and need not register themselves.
+ * Re-using only the observers would have
+ * yielded update order considerations where clients are forced to rely on the index as
+ * underlying collection instead of the collection itself.
+ *
+ * Especcially operators with a left and right operand, that rely on both being correctly indexed during update,
+ * must NOT rely on the indices, but rather on the operands.
+ *
  */
 trait Index[K <: AnyRef, V <: AnyRef]
         extends MaterializedView[(K, V)]
@@ -21,12 +29,9 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     val keyFunction : V => K
 
-    //  TODO inidices should be updated prior to other relations; re-using only the observers will yield update order considerations where clients are foreced to rely on the index as underlying collection instead of the collection itself
-    relation addObserver this
-
     // an index is lazy initialized by calling build
-    def lazyInitialize : Unit =
-        {
+    def lazyInitialize
+    {
             relation.foreach(v =>
                 {
                     put_internal(keyFunction(v), v)
@@ -35,7 +40,7 @@ trait Index[K <: AnyRef, V <: AnyRef]
             initialized = true
         }
 
-    protected def put_internal(key : K, value : V) : Unit
+    protected def put_internal(key : K, value : V)
 
     def get(key : K) : Option[Traversable[V]] =
         {
@@ -71,32 +76,25 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     def getOrElse(key : K, f : => Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
 
-    def updated_internal(oldV : V, newV : V) : Unit =
-        {
+    def updated_internal(oldV : V, newV : V)
+    {
             if (oldV == newV)
                 return
             val k1 = keyFunction(oldV)
             val k2 = keyFunction(newV)
-            if (k1 == k2) {
-                update_element(k1, oldV, newV)
-                element_updated((k1, oldV), (k1, newV))
-            } else {
-                remove_element((k1, oldV))
-                element_removed((k1, oldV))
-                add_element((k2, newV))
-                element_added((k2, newV))
-            }
+            update_element(k1, oldV, k2, newV)
+            element_updated((k1, oldV), (k2, newV))
         }
 
-    def removed_internal(v : V) : Unit =
-        {
+    def removed_internal(v : V)
+    {
             val k = keyFunction(v)
             remove_element((k, v))
             element_removed((k, v))
         }
 
-    def added_internal(v : V) : Unit =
-        {
+    def added_internal(v : V)
+    {
             val k = keyFunction(v)
             add_element(k, v)
             element_added((k, v))
@@ -106,6 +104,6 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     def remove_element(kv : (K, V)) : Unit
 
-    def update_element(key : K, oldV : V, newV : V) : Unit
+    def update_element(oldKey : K, oldV : V, newKey : K, newV : V) : Unit
 
 }

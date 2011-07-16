@@ -58,28 +58,31 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
         def updated(oldKV : (Key, DomainA), newKV : (Key, DomainA))
         {
                 initialized = true
+                val oldKey = oldKV._1
+                val newKey = newKV._1
                 val oldV = oldKV._2
                 val newV = newKV._2
                 if (oldV == newV)
                     return // no change in value
                 // change in value/ works also for change in key
                 // could inline the second lookup to the Some(u) in first if no key changes are required
-                rightIndex.get(oldKV._1) match {
+                rightIndex.get(oldKey) match {
                     case Some(col) =>
                         {
-                            col.foreach(u =>
+                            // the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+                            for(u <- col; i <- 1 to leftIndex.elementCountAt(newKey)) {
                                 HashEquiJoin.this -= joinFunction(oldV, u)
-                            )
-
+                            }
                         }
                     case _ => // do nothing
                 }
-                rightIndex.get(newKV._1) match {
+                rightIndex.get(newKey) match {
                     case Some(col) =>
                         {
-                            col.foreach(u =>
+                            // the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+                            for(u <- col; i <- 1 to leftIndex.elementCountAt(newKey)) {
                                 HashEquiJoin.this += joinFunction(newV, u)
-                            )
+                            }
                         }
                     case _ => // do nothing
                 }
@@ -121,28 +124,34 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
         def updated(oldKV : (Key, DomainB), newKV : (Key, DomainB))
         {
                 initialized = true
+                val oldKey = oldKV._1
+                val newKey = newKV._1
                 val oldV = oldKV._2
                 val newV = newKV._2
+
                 if (oldV == newV)
                     return // no change in value
                 // change in value/ works also for change in key
-                // could inline the second lookup to the Some(u) in first if no key changes are required
-                leftIndex.get(oldKV._1) match {
+
+                // the update may require a larger amount of elements to be generated, due to bag semantics
+
+                leftIndex.get(oldKey) match {
                     case Some(col) =>
                         {
-                            col.foreach(u =>
-
+                            // the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+                            for(u <- col; i <- 1 to rightIndex.elementCountAt(newKey)) {
                                 HashEquiJoin.this -= joinFunction(u, oldV)
-                            )
+                            }
                         }
                     case _ => // do nothing
                 }
-                leftIndex.get(newKV._1) match {
+                leftIndex.get(newKey) match {
                     case Some(col) =>
                         {
-                            col.foreach(u =>
+                            // the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+                            for(u <- col; i <- 1 to rightIndex.elementCountAt(newKey)) {
                                 HashEquiJoin.this += joinFunction(u, newV)
-                            )
+                            }
                         }
                     case _ => // do nothing
                 }
@@ -164,7 +173,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
             }
 
         def added(kv : (Key, DomainB))
-        {//rught
+        {//right
                 initialized = true
                 leftIndex.get(kv._1) match {
                     case Some(col) =>

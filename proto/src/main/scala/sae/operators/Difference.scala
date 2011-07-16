@@ -33,7 +33,6 @@ trait Difference[Domain <: AnyRef]
  *
  * The size is cached internally to avoid recomputations
  */
-// TODO we have a contains semantics now, so we don't need indices here
 class BagDifference[Domain <: AnyRef]
     (
     val left: IndexedView[Domain],
@@ -88,7 +87,8 @@ class BagDifference[Domain <: AnyRef]
 
     def added_internal(v: Domain)
     {
-        if (!rightIndex.isDefinedAt(v))
+        // check that this was an addition where we did not have less elements than right side
+        if ( leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v) )
         {
             element_added(v)
             cached_size += 1
@@ -97,7 +97,8 @@ class BagDifference[Domain <: AnyRef]
 
     def removed_internal(v: Domain)
     {
-        if (!rightIndex.isDefinedAt(v))
+        // check that this was a removal where we still had more elements than right side
+        if ( leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)  )
         {
             element_removed(v)
             cached_size -= 1
@@ -152,7 +153,8 @@ class BagDifference[Domain <: AnyRef]
 
         def removed(v: Domain)
         {
-            if( leftIndex.isDefinedAt(v) )
+            // check that this was the last removal of an element not in left side
+            if( leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v) )
             {
                 element_added(v)
                 cached_size += 1
@@ -162,7 +164,8 @@ class BagDifference[Domain <: AnyRef]
 
         def added(v: Domain)
         {
-            if( leftIndex.isDefinedAt(v) )
+            // check that this was an addition where we have more or equal amount of elements compared to left side
+            if( leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v) )
             {
                 element_removed(v)
                 cached_size -= 1

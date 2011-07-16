@@ -94,9 +94,9 @@ class HashSetIndex[K <: AnyRef, V <: AnyRef](
         map.remove(kv._1, kv._2)
     }
 
-    def update_element(key: K, oldV: V, newV: V)
+    def update_element(oldKey : K, oldV : V, newKey : K, newV : V)
     {
-        val valueSet = map.get(key)
+        val valueSet = map.get(oldKey)
         valueSet.remove(oldV)
         valueSet.add(newV)
     }

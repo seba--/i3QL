@@ -92,8 +92,10 @@ class StudentCoursesDatabase
         val Name: Person => String = s => s.Name
     }
 
+    val johannes = Employee("Johannes")
+    val christian = Employee("Christian")
     persons += john
     persons += sally
-    persons += Employee("Johannes")
-    persons += Employee("Christian")
+    persons += johannes
+    persons += christian
 }

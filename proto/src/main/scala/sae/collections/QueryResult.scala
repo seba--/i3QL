@@ -43,8 +43,7 @@ class BagResult[V <: AnyRef](
         if (!initialized) {
             initialized = true
         }
-        this -= oldV
-        this += newV
+        update(oldV, newV)
     }
 
     def removed(v: V)

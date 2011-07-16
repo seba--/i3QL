@@ -44,4 +44,12 @@ trait Bag[V <: AnyRef]
         }
 
     protected def materialized_contains(v: V) = data.contains(v)
+
+    def update(oldV : V, newV : V)
+    {
+        val count = data.count(oldV)
+        data.setCount(oldV, 0)
+        data.add(newV, count)
+        element_updated(oldV, newV)
+    }
 }

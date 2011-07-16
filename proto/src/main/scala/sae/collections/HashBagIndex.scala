@@ -1,6 +1,8 @@
 package sae
 package collections
 
+import java.util.ArrayList
+
 
 /**
  * An index backed by a guave ListMultimap.
@@ -95,11 +97,22 @@ class HashBagIndex[K <: AnyRef, V <: AnyRef](
         map.remove(kv._1, kv._2)
     }
 
-    def update_element(key: K, oldV: V, newV: V)
+    def update_element(oldKey : K, oldV : V, newKey : K, newV : V)
     {
-        val valueSet = map.get(key)
-        valueSet.remove(oldV)
-        valueSet.add(newV)
+        val list = map.get(oldKey)
+        val it = list.iterator()
+        val retainedMap = new java.util.LinkedList[V]()
+        val newMap = new java.util.LinkedList[V]()
+        while( it.hasNext )
+        {
+            val next = it.next()
+            if( next == oldV )
+                newMap.add(newV)
+            else
+                retainedMap.add(next)
+        }
+        map.replaceValues(oldKey, retainedMap)
+        map.putAll(newKey, newMap)
     }
 
 }

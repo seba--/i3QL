@@ -259,7 +259,8 @@ class StudentCoursesRAFunSuite
         assert(list.contains((sally, eise)))
         assert(list.contains((sally, sed)))
     }
-    
+
+
     test("maintain equi join") {
         val student_names_to_courseId =
             ((students, students.Id) ⋈ (enrollments.StudentId, enrollments)) { (s : Student, e : Enrollment) => (s, e.CourseId) }
@@ -328,45 +329,94 @@ class StudentCoursesRAFunSuite
     test("set difference")
     {
         val persons = database.persons.copy
+        val students = database.students.copy
 
-        val employees = σ[Employee](persons)
+        val person_students : LazyView[Person] = Π( (s:Student) => s.asInstanceOf[Person] )(students)
 
-        val students : QueryResult[Person] = persons ∖ employees
+        val difference : QueryResult[Person] = persons ∖ person_students
 
-        assert(students.size === 2)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
+        assert(difference.size === 2)
+        assert(difference.asList.contains(johannes))
+        assert(difference.asList.contains(christian))
 
         val heather = Student(25421,"heather")
         persons += heather
-
-        assert(students.size === 3)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
-        assert(students.asList.contains(heather))
+        assert(difference.size === 3)
+        assert(difference.asList.contains(heather))
 
         val tim = Employee("tim")
-
         persons += tim
+        assert(difference.size === 4)
+        assert(difference.asList.contains(tim))
 
-        assert(students.size === 3)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
-        assert(students.asList.contains(heather))
+        students += heather
+        // persons contains heather once, students once
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
 
-        val tom = Employee("tom")
+        persons += heather
+        // persons contains heather twice, students once
+        assert(difference.size === 4)
+        assert(!difference.asList.contains(heather))
+
+        students += heather
+        // persons contains heather twice, students twice
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
+
+        // persons contains heather once, students twice
+        persons -= heather
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
+
+        // persons contains heather not, students twice
+        persons -= heather
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
+
+        // persons contains heather once, students twice
+        persons += heather
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
+
+        // persons contains heather twice, students twice
+        persons += heather
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather))
+
+        students -= heather
+        // persons contains heather twice, students once
+        assert(difference.size === 4)
+        assert(!difference.asList.contains(heather))
+
+        students -= heather
+        // persons contains heather twice, students not
+        assert(difference.size === 5)
+        assert(difference.asList.contains(heather))
+
+        // persons contains heather once, students not
+        persons -= heather
+        assert(difference.size === 4)
+        assert(difference.asList.contains(heather))
+
+
         val heather_new_number =Student(23744,"heather")
-
-        persons.update(tim, tom)
 
         persons.update(heather, heather_new_number)
 
-        assert(students.size === 3)
-        assert(students.asList.contains(john))
-        assert(students.asList.contains(sally))
-        assert(students.asList.contains(heather_new_number))
+        assert(difference.size === 4)
+        assert(difference.asList.contains(heather_new_number))
 
+        // persons contains heather_new_number once, students heather once
+        students += heather
 
+        assert(difference.size === 4)
+        assert(difference.asList.contains(heather_new_number))
+
+        students.update(heather, heather_new_number)
+
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather_new_number))
     }
 
 
@@ -375,17 +425,12 @@ class StudentCoursesRAFunSuite
         val persons = database.persons.copy
         val students = database.students.copy
 
-        val employees = σ[Employee](persons)
-
         val person_students = σ[Student](persons)
-
-        //val empty : QueryResult[Person] = person_students ∩ employees
 
         val student_data_as_persons : LazyView[Person] = Π( (s:Student) => s.asInstanceOf[Person] )(students)
 
         val intersect : QueryResult[Person] = student_data_as_persons ∩ person_students
 
-        //assert(empty.size === 0)
         assert(intersect.size === 2)
 
         assert(intersect.asList.contains(john))
@@ -397,7 +442,6 @@ class StudentCoursesRAFunSuite
         persons += tim
 
         // students does not contain heather
-        //assert(empty.size === 0)
         assert(intersect.size === 2)
 
 
@@ -443,11 +487,13 @@ class StudentCoursesRAFunSuite
         assert(intersect.size === 2)
         assert(!intersect.asList.contains(heather))
 
+        // students contains heather not, persons once
         persons += heather
         students -= heather
         assert(intersect.size === 2)
         assert(!intersect.asList.contains(heather))
 
+        // students contains heather once, persons once
         students += heather
         assert(intersect.size === 3)
         assert(intersect.asList.contains(heather))
@@ -468,6 +514,88 @@ class StudentCoursesRAFunSuite
         assert(intersect.asList.contains(sally))
         assert(intersect.asList.contains(heather_new_number))
     }
+
+    test("semi join as differences")
+    {
+        val persons = database.persons.copy
+        val students = database.students.copy
+
+        val person_students = σ[Student](persons)
+
+        val join = ((students, (_:Student).asInstanceOf[Person]) ⋈ (identity(_:Person), person_students)){ (left : Student, right : Person) => left}
+
+        val joinResult : QueryResult[Student] = join
+
+        val diff = students ∖ join
+
+        val diffResult : QueryResult[Student] = diff
+
+        val semijoinResult : QueryResult[Student] = students ∖ diff
+
+        assert(joinResult.size === 2)
+        assert(diffResult.size === 0)
+        assert(semijoinResult.size === 2)
+        assert(joinResult.asList.contains(john))
+        assert(joinResult.asList.contains(sally))
+
+        persons -= john
+        assert(joinResult.size === 1)
+        assert(diffResult.size === 1)
+        assert(semijoinResult.size === 1)
+        persons -= sally
+
+        assert(joinResult.size === 0)
+        assert(diffResult.size === 2)
+        assert(semijoinResult.size === 0)
+
+        students -= john
+        assert(joinResult.size === 0)
+        assert(diffResult.size === 1)
+        assert(semijoinResult.size === 0)
+
+        students -= sally
+
+        assert(joinResult.size === 0)
+        assert(diffResult.size === 0)
+        assert(semijoinResult.size === 0)
+
+        // students once, persons once
+        val heather = Student(25421,"heather")
+        students += heather
+
+        assert(joinResult.size === 0)
+        assert(diffResult.size === 1)
+        assert(semijoinResult.size === 0)
+
+        // students once, persons once
+        persons += heather
+
+        assert(joinResult.size === 1)
+        assert(diffResult.size === 0)
+        assert(semijoinResult.size === 1)
+        assert(joinResult.asList.contains(heather))
+
+        // students once, persons twice
+        persons += heather
+        assert(joinResult.size === 2)
+        assert(diffResult.size === 0)
+        assert(semijoinResult.size === 1)
+
+        // students once, persons thrice
+        persons += heather
+        assert(joinResult.size === 3)
+        assert(diffResult.size === 0)
+        assert(semijoinResult.size === 1)
+
+        val heather_new_number =Student(23744,"heather")
+        persons.update(heather, heather_new_number)
+        assert(joinResult.size === 0)
+        assert(diffResult.size === 1)
+        assert(diffResult.asList.contains(heather))
+        assert(semijoinResult.size === 0)
+
+    }
+
 
     test("semi join")
     {   // looks a little bit like the intersection test, but semantics are slightly different for bags
@@ -605,11 +733,6 @@ class StudentCoursesRAFunSuite
         assert(antisemijoin.size === 0)
 
         students -= heather // students contains heather once, persons once
-        // FIXME this does not work yet, because indices are not treated with higher priority during the maintenance process
-        // thus the right hand side index is not updated when the set difference operator receives its maintenance call
-        // the rest of the test does also not work, probably the error propagages
-
-/*
         assert(antisemijoin.size === 0)
 
         students -= heather // students contains heather once, persons once
@@ -628,19 +751,19 @@ class StudentCoursesRAFunSuite
         persons += heather // students contains heather not, persons thrice
         assert(antisemijoin.size === 0)
 
-        students += heather // students contains heather once, persons thrice
+        students += heather // students contains heather twice, persons thrice
         assert(antisemijoin.size === 0)
 
+        assert(students.asList.filter( _ == heather ).size == 2)
         val heather_new_number =Student(23744,"heather")
 
         persons.update(heather, heather_new_number)
 
-        assert(antisemijoin.size === 1)
+        assert(antisemijoin.size === 2)
         assert(antisemijoin.asList.contains(heather))
 
         students.update(heather, heather_new_number)
 
         assert(antisemijoin.size === 0)
-*/
     }
 }
