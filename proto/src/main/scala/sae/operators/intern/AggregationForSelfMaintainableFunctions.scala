@@ -102,7 +102,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
    */
   def removed(v: Domain) {
     val key = groupingFunction(v)
-    val (count, aggFuncs, oldResult) = groups(key)
+    val (count, aggregationFunction, oldResult) = groups(key)
 
     if (count.dec == 0) {
       //remove a group
@@ -110,12 +110,12 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
       element_removed(oldResult)
     } else {
       //remove element from key group
-      val aggregationFunction = aggFuncs.remove(v)
-      val res = convertKeyAndAggregationValueToResult(key, aggregationFunction)
-      if (res != oldResult) {
+      val aggregationResult = aggregationFunction.remove(v)
+      val newResult = convertKeyAndAggregationValueToResult(key, aggregationResult)
+      if (newResult != oldResult) {
         //some aggregation values changed => updated event
-        groups.put(key, (count, aggFuncs, res))
-        element_updated(oldResult, res)
+        groups.put(key, (count, aggregationFunction, newResult))
+        element_updated(oldResult, newResult)
       }
     }
   }

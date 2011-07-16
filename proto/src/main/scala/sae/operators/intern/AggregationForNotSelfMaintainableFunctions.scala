@@ -21,6 +21,9 @@ import scala.collection.mutable.Map
  *                                register the whole aggregation as an observer of the aggregation function
  *                              -> (else) put the new value into the lazyview
  *
+ *  a further possible change could be to use an index view als source instead of a lazy view.  If aggregation use a indexed view as source
+ *  it could use the grouping function as the index function.
+ *
  * @author Malte V
  */
 class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source: LazyView[Domain], val groupingFunction: Domain => Key, val aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
