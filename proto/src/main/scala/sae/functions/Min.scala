@@ -6,7 +6,7 @@ import sae.operators._
  * A aggregation function that finds the minimum in set of domain entries
  * @author Malte V
  */
-private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregationFunction[Domain, Int] {
+private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregateFunction[Domain, Int] {
      var min = Integer.MAX_VALUE
         def add(d : Domain, data : Iterable[Domain]) = {
             if (f(d) < min)
@@ -32,8 +32,8 @@ private class MinIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelf
 
 object Min {
     def apply[Domain <: AnyRef](f : (Domain => Int )) = {
-        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Int]{
-           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Int] = {
+        new NotSelfMaintainalbeAggregateFunctionFactory[Domain, Int]{
+           def apply() : NotSelfMaintainalbeAggregateFunction[Domain, Int] = {
                new MinIntern[Domain](f)
            }
         }

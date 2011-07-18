@@ -6,7 +6,7 @@ import sae.operators._
  * A aggregation function that calculates the sum over a set of domain entries
  * @author Malte V
  */
-private class SumIntern[Domain <: AnyRef](val f : Domain => Int) extends SelfMaintainalbeAggregationFunction[Domain, Int] {
+private class SumIntern[Domain <: AnyRef](val f : Domain => Int) extends SelfMaintainalbeAggregateFunction[Domain, Int] {
     var sum = 0
     def add(d : Domain) = {
         sum += f(d)
@@ -25,8 +25,8 @@ private class SumIntern[Domain <: AnyRef](val f : Domain => Int) extends SelfMai
 }
 object Sum {
     def apply[Domain <: AnyRef](f : (Domain => Int)) = {
-        new SelfMaintainalbeAggregationFunctionFactory[Domain, Int] {
-            def apply() : SelfMaintainalbeAggregationFunction[Domain, Int] = {
+        new SelfMaintainalbeAggregateFunctionFactory[Domain, Int] {
+            def apply() : SelfMaintainalbeAggregateFunction[Domain, Int] = {
                 new SumIntern[Domain](f)
             }
         }

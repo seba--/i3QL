@@ -7,7 +7,7 @@ import de.tud.cs.st.bat._
 import scala.collection.mutable.Set
 
 
-private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type), val select : Type => Boolean) extends SelfMaintainalbeAggregationFunction[Domain, Set[String]] {
+private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type), val select : Type => Boolean) extends SelfMaintainalbeAggregateFunction[Domain, Set[String]] {
 
     import com.google.common.collect._;
     val dep = HashMultiset.create[String]()
@@ -44,8 +44,8 @@ private class FanOutIntern[Domain <: AnyRef](val f : Domain => (Seq[Type], Type)
 
 object FanOut {
     def apply[Domain <: AnyRef](f : (Domain => (Seq[Type], Type)), select : Type => Boolean) = {
-        new SelfMaintainalbeAggregationFunctionFactory[Domain, Set[String]] {
-            def apply() : SelfMaintainalbeAggregationFunction[Domain, Set[String]] = {
+        new SelfMaintainalbeAggregateFunctionFactory[Domain, Set[String]] {
+            def apply() : SelfMaintainalbeAggregateFunction[Domain, Set[String]] = {
                 new FanOutIntern[Domain](f, select)
             }
         }

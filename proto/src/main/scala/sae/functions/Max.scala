@@ -6,7 +6,7 @@ import sae.operators._
  * A aggregation function that finds the maximum in set of domain entries
  * @author Malte V
  */
-private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregationFunction[Domain, Int] {
+private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelfMaintainalbeAggregateFunction[Domain, Int] {
      var max = Integer.MIN_VALUE
         def add(d : Domain, data : Iterable[Domain]) = {
             if (f(d) > max)
@@ -32,8 +32,8 @@ private class MaxIntern[Domain <: AnyRef](val f : Domain => Int) extends NotSelf
 
 object Max {
     def apply[Domain <: AnyRef](f : (Domain => Int )) = {
-        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Int]{
-           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Int] = {
+        new NotSelfMaintainalbeAggregateFunctionFactory[Domain, Int]{
+           def apply() : NotSelfMaintainalbeAggregateFunction[Domain, Int] = {
                new MaxIntern[Domain](f)
            }
         }

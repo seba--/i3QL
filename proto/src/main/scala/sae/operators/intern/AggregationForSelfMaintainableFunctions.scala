@@ -21,12 +21,12 @@ import scala.collection.mutable.Map
  *
  * @author Malte V
  */
-class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source: LazyView[Domain], val groupingFunction: Domain => Key, val aggregationFunctionFactory: SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                                                  val convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result)
-  extends Aggregation[Domain, Key, AggregationValue, Result, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], SelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] with Observer[Domain] with MaterializedView[Result] {
+class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](val source: LazyView[Domain], val groupingFunction: Domain => Key, val aggregateFunctionFactory: SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                                                                  val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
+  extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainalbeAggregateFunction[Domain, AggregateValue], SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with MaterializedView[Result] {
 
 
-  val groups = Map[Key, (Count, SelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
+  val groups = Map[Key, (Count, SelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
   lazyInitialize // aggregation need to be initialized for update and remove events
   source.addObserver(this)
 
@@ -87,7 +87,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     if (oldKey == newKey) {
       val (count, aggregationFunction, oldResult) = groups(oldKey)
       val aggregationResult = aggregationFunction.update(oldV, newV)
-      val newResult = convertKeyAndAggregationValueToResult(oldKey, aggregationResult)
+      val newResult = convertKeyAndAggregateValueToResult(oldKey, aggregationResult)
       groups.put(oldKey, (count, aggregationFunction, newResult))
       if (oldResult != newResult)
         element_updated(oldResult, newResult)
@@ -111,7 +111,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     } else {
       //remove element from key group
       val aggregationResult = aggregationFunction.remove(v)
-      val newResult = convertKeyAndAggregationValueToResult(key, aggregationResult)
+      val newResult = convertKeyAndAggregateValueToResult(key, aggregationResult)
       if (newResult != oldResult) {
         //some aggregation values changed => updated event
         groups.put(key, (count, aggregationFunction, newResult))
@@ -134,7 +134,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
       val (count, aggregationFunction, oldResult) = groups(key)
       count.inc
       val aggregationValue = aggregationFunction.add(v)
-      val res = convertKeyAndAggregationValueToResult(key, aggregationValue)
+      val res = convertKeyAndAggregateValueToResult(key, aggregationValue)
       if (res != oldResult) {
         //some aggregation values changed => updated event
         groups.put(key, (count, aggregationFunction, res))
@@ -144,9 +144,9 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
       //new key group
       val c = new Count
       c.inc
-      val aggregationFunction = aggregationFunctionFactory()
+      val aggregationFunction = aggregateFunctionFactory()
       val aggRes = aggregationFunction.add(v)
-      val res = convertKeyAndAggregationValueToResult(key, aggRes)
+      val res = convertKeyAndAggregateValueToResult(key, aggRes)
       groups.put(key, (c, aggregationFunction, res))
       if (notify) element_added(res)
     }

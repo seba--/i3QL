@@ -3,10 +3,10 @@ package sae.operators.intern
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainalbeAggregationFunction
- *  -SelfMaintainalbeAggregationFunction 
+ *  -NotSelfMaintainalbeAggregateFunction
+ *  -SelfMaintainalbeAggregateFunction
  */
-trait AggregationFunction[Domain <: AnyRef, Result] {
+trait AggregateFunction[Domain <: AnyRef, Result] {
     def add(newD : Domain, data : Iterable[Domain]) : Result
     def remove(newD : Domain, data : Iterable[Domain]) : Result
     def update(oldD : Domain, newD : Domain, data : Iterable[Domain]) : Result
@@ -16,12 +16,12 @@ trait AggregationFunction[Domain <: AnyRef, Result] {
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainalbeAggregationFunctionFactory
- *  -SelfMaintainalbeAggregationFunctionFactory
+ *  -NotSelfMaintainalbeAggregateFunctionFactory
+ *  -SelfMaintainalbeAggregateFunctionFactory
  *  
  */
-trait AggregationFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregationFunctionType <: AggregationFunction[Domain, AggregationValue]]{
-    def apply() : AggregationFunctionType
+trait AggregateFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]{
+    def apply() : AggregateFunctionType
 
 }
 
