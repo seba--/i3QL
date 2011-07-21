@@ -101,8 +101,7 @@ public class BytecodeReader {
 
 	public void readClassFile(InputStream stream) throws IOException {
 		DataInputStream dataInputStream = new DataInputStream(stream);
-		ClassFile classFile = (ClassFile) Java6Reader
-				.ClassFile(dataInputStream);
+		ClassFile classFile = (ClassFile) Java6Reader.ClassFile(dataInputStream);
 		factProcessor.processClassFile(classFile);
 	}
 
