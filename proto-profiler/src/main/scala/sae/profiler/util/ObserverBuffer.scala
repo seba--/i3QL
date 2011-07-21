@@ -5,7 +5,13 @@ import scala.collection.mutable.ListBuffer
 class ObserverBuffer[V <: AnyRef](val source : LazyView[V]) extends Observer[V] with LazyView[V] {
     source.addObserver(this)
     var buffer = ListBuffer[(V,Option[V], String)]()
-    def reset() {
+
+
+    def resetObservers() {
+        observers = List[Observer[V]]();
+    }
+
+    def resetBuffer() {
         buffer = ListBuffer[(V,Option[V], String)]()
     }
     

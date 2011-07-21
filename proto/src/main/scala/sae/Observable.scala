@@ -3,7 +3,7 @@ package sae
 trait Observable[V <: AnyRef] 
 {
 
-    private var observers = List[Observer[V]]();
+    protected var observers = List[Observer[V]]();
 
     def addObserver(o : Observer[V]) {
         observers = o +: observers

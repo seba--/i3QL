@@ -59,25 +59,25 @@ class DatabaseBuffer(val db : BytecodeDatabase) extends Database {
     }
 
     def reset() {
-         classfiles.reset
-        classfile_methods.reset
-        classfile_fields.reset
-        classes.reset
-        methods.reset
-        fields.reset
-        instructions.reset
-        `extends`.reset
-        implements.reset
-        field_type.reset
-        parameter.reset
-        return_type.reset
-        write_field.reset
-        read_field.reset
-        calls.reset
-        class_cast.reset
-        handled_exceptions.reset
-        subtypes.reset
-        exception_handlers.reset
+         classfiles.resetBuffer()
+        classfile_methods.resetBuffer()
+        classfile_fields.resetBuffer()
+        classes.resetBuffer()
+        methods.resetBuffer()
+        fields.resetBuffer()
+        instructions.resetBuffer()
+        `extends`.resetBuffer()
+        implements.resetBuffer()
+        field_type.resetBuffer()
+        parameter.resetBuffer()
+        return_type.resetBuffer()
+        write_field.resetBuffer()
+        read_field.resetBuffer()
+        calls.resetBuffer()
+        class_cast.resetBuffer()
+        handled_exceptions.resetBuffer()
+        subtypes.resetBuffer()
+        exception_handlers.resetBuffer()
     }
 
   def getRemoveClassFileFunction = throw new Error()

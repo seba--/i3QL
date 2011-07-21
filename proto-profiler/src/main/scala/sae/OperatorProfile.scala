@@ -6,9 +6,12 @@ import bytecode.model.instructions.{invokevirtual, invokestatic, invokespecial, 
 import java.io._
 import profiler.Profiler._
 import profiler.util.{CountingObserver, ObserverBuffer}
+import profiler.{Profiler, Profile}
 import sae.syntax.RelationalAlgebraSyntax._
 import util.Timer.median
 import util.{Timer, JarUtil}
+import collection.mutable.Seq
+
 /**
  *
  * Author: Ralf Mitschke
@@ -35,16 +38,37 @@ object OperatorProfile
         if (args.size > 0) {
             out = new FileOutputStream(args(0))
         }
+        var data : Array[String] = Array()
+        if( args.size > 1) {
+            data = args(1).split(";")
+        }
+
+        implicit var times = 100
+        if( args.size > 2) {
+            times = Integer.parseInt(args(2))
+        }
 
 
 
-
-        implicit val times = 1000
         implicit val writer = new PrintStream(out, true)
         writer.flush()
 
 
-        measureCodebase("hibernate-core-3.6", "hibernate-core-3.6.0.Final.jar")
+        for( jar <- data) {
+            measureCodebase(jar, jar)
+        }
+
+        /*
+        measureCodebase("geronimo-jpa_1.0_spec-1.1.2", "geronimo-jpa_1.0_spec-1.1.2.jar")
+
+        measureCodebase("jedit-4.3.3", "jedit-4.3.3-win.jar")
+*/
+
+        //measureCodebase("hibernate-core-3.6", "hibernate-core-3.6.0.Final.jar")
+
+        // measureCodebase("scala-compiler-2.8.1", "scala-compiler-2.8.1.jar")
+
+
 
         writer.close()
     }
@@ -60,44 +84,117 @@ object OperatorProfile
         val counter = new CountingObserver[Instr[_]]
         db.instructions.addObserver(counter)
 
+        implicit val profiles = new scala.collection.mutable.ListBuffer[Profile]
+
         db.transformerForArchiveStreams(urls.filter(_.getFile.endsWith("jar")).map(_.openStream)).processAllFacts()
 
         // no relations are stored except in the buffer
 
-        val baselineTimers = profileOperation({}, instructions.replay)
+        val baselineTimers = profileOperation({}, instructions.replay(), reset(instructions))
         reportTimerProfile(baselineTimers, counter.count, name, "just replay")
 
-        writer.println(name + ";average replay time (ns/call);" + average(baselineTimers, counter.count))
+        //writer.println(name + ";average replay time (ns/call);" + average(baselineTimers, counter.count))
 
 
         // we had twice as many passthrough call, since we used as union with on and the same relation
-        val passthroughTimers = profileOperation(passthroughOperation(instructions), instructions.replay)
-        reportTimerProfile(passthroughTimers, counter.count * 2, name, "method call throughput")
+        val passthroughTimers = profileOperation(passthroughOperation(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(passthroughTimers, counter.count, name, "whole relation union")
 
-        writer.println(name + ";average union operator time (ns/call);" + average(passthroughTimers, counter.count))
-        writer.println(name + ";average method call time (ns/call);" + average(passthroughTimers, counter.count * 2, baselineTimers))
+        //writer.println(name + ";average union operator time (ns/call);" + average(passthroughTimers, counter.count))
+        //writer.println(name + ";average method call time (ns/call);" + average(passthroughTimers, counter.count * 2, baselineTimers))
+
+
+        val selectEverythingOperationTimers = profileOperation(selectEverythingOperation(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(selectEverythingOperationTimers, counter.count, name, "select where true")
+
+        val selectNoneOperationTimers = profileOperation(selectNoneOperation(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(selectNoneOperationTimers, counter.count, name, "select where false")
+
+        val selectCallInstructionsInstanceOfOperationTimers = profileOperation(selectCallInstructionsInstanceOfOperation(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(selectCallInstructionsInstanceOfOperationTimers, counter.count, name, "select where instanceof Call")
+
+        val selectCallInstructionsPatternMatchOperationTimers = profileOperation(selectCallInstructionsPatternMatchOperation(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(selectCallInstructionsPatternMatchOperationTimers, counter.count, name, "select where instanceof Call -- with pattern match")
+
+        val joinWholeInstructionRelationsTimers = profileOperation(joinWholeRelations(instructions), instructions.replay(), reset(instructions))
+        reportTimerProfile(joinWholeInstructionRelationsTimers, counter.count, name, "whole relation join")
+
+
+        // print the whole thing
+
+        printProfilesAsCSV(profiles, writer)
     }
 
-    def measureSelection( baseline : Array[Timer]) {
+    def printProfilesAsCSV(profiles : Seq[Profile],  writer: PrintStream) {
+        writer.print("codeBase;")
+        profiles.foreach( (p:Profile) => writer.print( p.codeBase + ";") )
+        writer.println()
 
+        writer.print("profileName;")
+        profiles.foreach( (p:Profile) => writer.print( p.profileName + ";") )
+        writer.println()
+
+        writer.print("sampleSize;")
+        profiles.foreach( (p:Profile) => writer.print( p.sampleSize + ";") )
+        writer.println()
+
+        writer.print("median (ns);")
+        profiles.foreach( (p:Profile) => writer.print( Timer.median(p.timers).elapsedNanoSeconds() + ";") )
+        writer.println()
+
+        writer.print("mean (ns);")
+        profiles.foreach( (p:Profile) => writer.print( Timer.mean(p.timers).elapsedNanoSeconds() + ";") )
+        writer.println()
+
+        writer.print("min (ns);")
+        profiles.foreach( (p:Profile) => writer.print( Timer.mean(p.timers).elapsedNanoSeconds() + ";") )
+        writer.println()
+
+        writer.print("max (ns);")
+        profiles.foreach( (p:Profile) => writer.print( Timer.max(p.timers).elapsedNanoSeconds() + ";") )
+        writer.println()
+
+        writer.print("data (ns);")
+        profiles.foreach( (p:Profile) => writer.print( "(" + p.measurements + " runs);") )
+        writer.println()
+
+        // print the data
+        val dataSize = profiles.map( _.measurements).max
+        var i = 0
+        while( i < dataSize ) {
+            writer.print(i + ";")
+            profiles.foreach( (p:Profile) =>
+                    if( i < p.measurements){
+                        writer.print(p.timers(i).elapsedNanoSeconds() + ";")
+                    }
+                    else{
+                        writer.print(";")
+                    }
+            )
+            writer.println()
+            i = i + 1
+        }
     }
 
 
-    def average(timers : Array[Timer], workload : Int, baseline : Array[Timer]): Double = (median(timers).elapsedNanoSeconds() - median(baseline).elapsedNanoSeconds()).asInstanceOf[Double] /  (workload)
+    def reset(buffers : ObserverBuffer[_]*) {
+        buffers.foreach(_.resetObservers())
+        System.gc()
+    }
 
-    def average(timers : Array[Timer], workload : Int): Double = median(timers).elapsedNanoSeconds() / workload
+    def average(timers : Array[Timer], workload : Long, baseline : Array[Timer]): Double = (median(timers).elapsedNanoSeconds() - median(baseline).elapsedNanoSeconds()).asInstanceOf[Double] /  (workload)
 
+    def average(timers : Array[Timer], workload : Long): Double = median(timers).elapsedNanoSeconds() / workload
 
-    def reportTimerProfile(timers: Array[Timer], workSteps: Int, codeBase: String, profileName: String)(implicit writer: PrintStream = System.out)
+/*
+    def reportTimerProfile(timers: Array[Timer], sampleSize: Int, codeBase: String, profileName: String)(implicit writer: PrintStream = System.out)
     {
-
-
         writer.print(codeBase)
         writer.print(";")
         writer.print(profileName)
         writer.print(";")
 
-        writer.print(workSteps)
+        writer.print(sampleSize)
         writer.print(";")
 
 
@@ -120,18 +217,19 @@ object OperatorProfile
         timers.foreach((t: Timer) => writer.println(t.elapsedNanoSeconds()))
         writer.println()
     }
-
-
-    def profileOperation(registerObservers: => Unit, replay: => Unit)(implicit times: Int) =
+*/
+   def reportTimerProfile(timers: Array[Timer], sampleSize: Int, codeBase: String, profileName: String)(implicit profiles : scala.collection.mutable.ListBuffer[Profile])
     {
-        System.gc()
-
-        registerObservers
-
-        profile(replay)
+        println(codeBase + " -- " + profileName + " -- DONE")
+        profiles.append(Profile(codeBase, profileName, timers, sampleSize))
     }
 
+    def profileOperation(setup: => Unit, replay: => Unit, tearDown: => Unit)(implicit times: Int) : Array[Timer] =
+        profile[Unit]((i:Int) => setup)((t:Unit) => replay)((t:Unit) => tearDown)
+
     def passthroughOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = view.∪[T, T](view)
+
+    def joinWholeRelations[T <: AnyRef](view: LazyView[T]): LazyView[T] = ((view, identity(_:T)) ⋈ (identity(_:T), view)){ (t1:T, t2:T) => t1 }
 
     def selectEverythingOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ( (_:T) => true)(view)
 
