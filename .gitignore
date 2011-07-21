@@ -17,9 +17,6 @@ nbproject/
 target/
 build.properties
 log.txt
-Daten2.txt
-DatenBig.txt
-Daten.txt
 *.iml
 bin
 .idea
