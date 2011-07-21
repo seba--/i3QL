@@ -763,7 +763,7 @@ class JEditSuite {
     res
   }
 
-    private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (Option[Domain], Int) => Res) extends NotSelfMaintainalbeAggregationFunction[Domain, Res] {
+    private class MaxIntern2[Domain <: AnyRef,Res](val f : Domain => Int, val f2 : (Option[Domain], Int) => Res) extends NotSelfMaintainalbeAggregateFunction[Domain, Res] {
      var max = Integer.MIN_VALUE
      var value : Option[Domain] = None
         def add(d : Domain, data : Iterable[Domain]) = {
@@ -802,11 +802,46 @@ class JEditSuite {
 
 object Max2 {
     def apply[Domain <: AnyRef,Res <:Any ](f : (Domain => Int ), f2: (Option[Domain], Int) => Res) = {
-        new NotSelfMaintainalbeAggregationFunctionFactory[Domain, Res]{
-           def apply() : NotSelfMaintainalbeAggregationFunction[Domain, Res] = {
+        new NotSelfMaintainalbeAggregateFunctionFactory[Domain, Res]{
+           def apply() : NotSelfMaintainalbeAggregateFunction[Domain, Res] = {
                new MaxIntern2[Domain,Res](f,f2)
            }
         }
+    }
+}
+
+trait OneToMany[Domain <: AnyRef,Result <: AnyRef]
+        extends LazyView[Result] {
+	val oneToMany : Domain => List[Result]
+}
+
+class DefaultOneToMany[Domain <: AnyRef,Result <: AnyRef](
+    val source : LazyView[Domain],
+    val oneToMany : Domain => List[Result]
+	) extends OneToMany[Domain,Result]
+	                    with Observer[Domain]{
+
+    source.addObserver(this)
+
+    def lazy_foreach[T](f : (Result) => T) {
+        source.lazy_foreach(x => oneToMany(x).foreach(f))
+    }
+
+
+    def lazyInitialize : Unit = {
+        source.lazyInitialize
+    }
+    def updated(oldV : Domain, newV : Domain) : Unit ={
+        oneToMany(oldV).foreach(x => element_removed(x))
+        oneToMany(newV).foreach(x => element_added(x))
+    }
+
+    def removed(v : Domain) : Unit={
+        oneToMany(v).foreach(x => element_removed(x))
+    }
+
+    def added(v : Domain) : Unit={
+        oneToMany(v).foreach(x => element_added(x))
     }
 }
 

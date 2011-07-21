@@ -26,14 +26,20 @@ import scala.collection.mutable.Map
  *
  * @author Malte V
  */
-class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](val source: LazyView[Domain], val groupingFunction: Domain => Key, val aggregationFunctionFactory: NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue],
-                                                                                                                          val convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result)
-  extends Aggregation[Domain, Key, AggregationValue, Result, NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], NotSelfMaintainalbeAggregationFunctionFactory[Domain, AggregationValue]] with Observer[Domain] with MaterializedView[Result] {
+
+
+class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef]
+          (val source: LazyView[Domain],
+           val groupingFunction: Domain => Key,
+           val aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+          val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
+  extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]]
+  with Observer[Domain] with MaterializedView[Result] {
 
 
   import com.google.common.collect._;
 
-  val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainalbeAggregationFunction[Domain, AggregationValue], Result)]()
+  val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
   lazyInitialize // aggregation need to be initialized for update and remove events
   source.addObserver(this)
 
@@ -96,7 +102,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
       data.remove(oldV)
       data.add(newV)
       val aggregationResult = aggregationFunction.update(oldV, newV, data)
-      val res = convertKeyAndAggregationValueToResult(oldKey, aggregationResult)
+      val res = convertKeyAndAggregateValueToResult(oldKey, aggregationResult)
       groups.put(oldKey, (data, aggregationFunction, res))
       if (oldResult != res)
         element_updated(oldResult, res)
@@ -120,7 +126,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     } else {
       data.remove(v)
       val aggregationResult = aggregationFunction.remove(v, data)
-      val res = convertKeyAndAggregationValueToResult(key, aggregationResult)
+      val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
       if (res != oldResult) {
         //some aggragation valus changed => updated event
         groups.put(key, (data, aggregationFunction, res))
@@ -149,7 +155,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
       data.add(v)
 
       val aggRes = aggregationFunction.add(v, data)
-      val res = convertKeyAndAggregationValueToResult(key, aggRes)
+      val res = convertKeyAndAggregateValueToResult(key, aggRes)
       if (res != oldResult) {
         //some aggregation value changed => updated event
         groups.put(key, (data, aggregationFunction, res))
@@ -159,9 +165,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
 
       val data = HashMultiset.create[Domain]()
       data.add(v)
-      val aggregationFunction = aggregationFunctionFactory()
+      val aggregationFunction = aggregateFunctionFactory()
       val aggregationResult = aggregationFunction.add(v, data)
-      val res = convertKeyAndAggregationValueToResult(key, aggregationResult)
+      val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
       groups.put(key, (data, aggregationFunction, res))
       if (notify) element_added(res)
     }

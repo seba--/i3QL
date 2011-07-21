@@ -28,7 +28,6 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
       // test values are calculated by hand with javap after the definition of Fan out given in
       // Predicting Class Testability using Object-Oriented Metrics
       val res: QueryResult[(ReferenceType, Int)] = view
-      res.foreach(println)
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Main$1"), 3)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/ResourceProvider"), 5)))
       assertTrue(res.asList.contains((ObjectType(className = "sharedresources/Resource"), 7)))
@@ -38,23 +37,25 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
 
   }
 
-  @Ignore
+
   @Test
   def testLcom() {
     val view = registerQuery(x => {
       Metrics.LCOMStar(x)
     })
     processRestAndThenTest({
+
       // test values are calculated by hand with javap after the definition of LCOM* given in
       // Predicting Class Testability using Object-Oriented Metrics
       val res: QueryResult[(ReferenceType, Option[Double])] = view
-      res.foreach(println)
+
       assertLCOM(res, ObjectType(className = "sharedresources/ResourceProvider"), 0.75)
       assertLCOM(res, ObjectType(className = "sharedresources/Resource"), 0.444)
       assertLCOM(res, ObjectType(className = "sharedresources/Consumer"), 0.5)
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main")))
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main$1")))
     })
+
   }
 
   @Test
@@ -76,7 +77,7 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
     })
   }
 
-  @Ignore
+
   @Test
   def testLcomMod() {
     val view = registerQuery(x => {
@@ -85,13 +86,14 @@ class MetricsTestSuite extends org.scalatest.junit.JUnitSuite with AbstractEvent
     processRestAndThenTest({
 
       val res: QueryResult[(ReferenceType, Option[Double])] = view
-      res.foreach(println)
+
       assertLCOM(res, ObjectType(className = "sharedresources/ResourceProvider"), 1)
       assertLCOM(res, ObjectType(className = "sharedresources/Resource"), 0.5)
       assertLCOM(res, ObjectType(className = "sharedresources/Consumer"), 1)
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main")))
       assertTrue(!contains[ReferenceType, Option[Double]](res, ObjectType(className = "sharedresources/Main$1")))
     })
+
   }
 
 
