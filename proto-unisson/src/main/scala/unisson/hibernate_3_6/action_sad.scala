@@ -37,7 +37,7 @@ class action_sad(db: BytecodeDatabase)
         ( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.action`) ) ∩
         ( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), lock) ) ∩
         ( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.event`) ) ∩
-        ( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
+        //( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
         ( (dep2, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.engine`) )
 
 
@@ -46,7 +46,7 @@ class action_sad(db: BytecodeDatabase)
         ( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.action`) ) ∩
         ( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), lock) ) ∩
         ( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.event`) ) ∩
-        ( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
+        //( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
         ( (dep1, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.engine`) )
 
 
@@ -55,7 +55,7 @@ class action_sad(db: BytecodeDatabase)
         ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.action`) ) ∩
         ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), lock) ) ∩
         ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.event`) ) ∩
-        ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
+        //( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
         ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.engine`) )
 
 

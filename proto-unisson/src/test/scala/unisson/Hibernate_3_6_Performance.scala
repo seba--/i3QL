@@ -17,9 +17,11 @@ object Hibernate_3_6_Performance {
 
     def main(args : Array[String]) {
         println("measuring performance:")
+
         measure_sad(new action_sad(_))
         measure_sad(new bytecode_sad(_))
         measure_sad(new cache_sad(_))
+
     }
 
     def setup_ensemble_definition( f : BytecodeDatabase => EnsembleDefinition)(run : Int) = {
