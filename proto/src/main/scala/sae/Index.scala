@@ -11,12 +11,12 @@ package sae
  * (i.e., an Observer[Object] can still register as an observer for this index),
  * the values have to remain invariant. But the relation may still vary.
  *
- * Inidices are be updated prior to other relations and need not register themselves.
+ * Indices are to be updated prior to other relations and need not register themselves.
  * Re-using only the observers would have
  * yielded update order considerations where clients are forced to rely on the index as
  * underlying collection instead of the collection itself.
  *
- * Especcially operators with a left and right operand, that rely on both being correctly indexed during update,
+ * Especially operators with a left and right operand, that rely on both being correctly indexed during update,
  * must NOT rely on the indices, but rather on the operands.
  *
  */
