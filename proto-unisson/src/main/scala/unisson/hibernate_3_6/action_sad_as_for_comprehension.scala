@@ -17,7 +17,7 @@ class action_sad_as_for_comprehension(db: BytecodeDatabase)
     extends hibernate_3_6_ensemble_definitions(db)
         with EnsembleDefinition
 {
-
+/*
     def directTranslation = for( elem <- db.create;
                    if( `org.hibernate.action`.exists( target(elem) ) );
                    if( !`org.hibernate.action`.exists( source(elem) ) );
@@ -36,6 +36,7 @@ class action_sad_as_for_comprehension(db: BytecodeDatabase)
                         Create(t) <- m.instructions // pattern matching, needs case class
                         if( t.package.name == "org.hibernate.action")
                     } yield (m, t)
+*/
 
 /*
     val incoming_violation_create: QueryResult[create] =
