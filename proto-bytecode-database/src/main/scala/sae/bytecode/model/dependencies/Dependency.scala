@@ -5,7 +5,7 @@ package sae.bytecode.model.dependencies
  * Created: 22.05.11 13:46
  */
 
-trait Dependency[S <: AnyRef,T <:AnyRef]
+trait Dependency[+S <: AnyRef, +T <:AnyRef]
 {
     type SourceType = S
 

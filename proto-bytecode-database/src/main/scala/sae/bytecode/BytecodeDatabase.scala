@@ -117,22 +117,22 @@ class BytecodeDatabase extends Database
     lazy val write_field: LazyView[write_field] =
         (
                 Π[Instr[_], write_field] {
-                    case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field)
+                    case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field, false)
                 }(σ[putfield](instructions))
                 ) ∪ (
                 Π[Instr[_], write_field] {
-                    case putstatic(declaringMethod, _, field) => new write_field(declaringMethod, field)
+                    case putstatic(declaringMethod, _, field) => new write_field(declaringMethod, field, true)
                 }(σ[putstatic](instructions))
                 )
 
     lazy val read_field: LazyView[read_field] =
         (
                 Π[Instr[_], read_field] {
-                    case getfield(declaringMethod, _, field) => new read_field(declaringMethod, field)
+                    case getfield(declaringMethod, _, field) => new read_field(declaringMethod, field, false)
                 }(σ[getfield](instructions))
                 ) ∪ (
                 Π[Instr[_], read_field] {
-                    case getstatic(declaringMethod, _, field) => new read_field(declaringMethod, field)
+                    case getstatic(declaringMethod, _, field) => new read_field(declaringMethod, field, true)
                 }(σ[getstatic](instructions))
                 )
 
@@ -140,6 +140,19 @@ class BytecodeDatabase extends Database
         case invokeinterface(declaringMethod, pc, callee) => new invoke_interface(declaringMethod, callee)
     })(σ[invokeinterface](instructions))
 
+    lazy val invoke_special: LazyView[invoke_special] = Π((_: Instr[_]) match {
+        case invokespecial(declaringMethod, pc, callee) => new invoke_special(declaringMethod, callee)
+    })(σ[invokespecial](instructions))
+    
+    lazy val invoke_virtual: LazyView[invoke_virtual] = Π((_: Instr[_]) match {
+        case invokevirtual(declaringMethod, pc, callee) => new invoke_virtual(declaringMethod, callee)
+    })(σ[invokevirtual](instructions))
+    
+    lazy val invoke_static: LazyView[invoke_static] = Π((_: Instr[_]) match {
+        case invokestatic(declaringMethod, pc, callee) => new invoke_static(declaringMethod, callee)
+    })(σ[invokestatic](instructions))
+
+    /*
     lazy val calls: LazyView[calls] = Π((_: Instr[_]) match {
         case invokeinterface(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
         case invokespecial(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
@@ -154,6 +167,8 @@ class BytecodeDatabase extends Database
         case _ => false
     }
     )(instructions))
+    */
+    lazy val calls: LazyView[calls] = invoke_interface.∪[calls, calls] (invoke_special.∪[calls, calls] ( invoke_virtual.∪[calls,invoke_static](invoke_static)))
 
 
     // TODO array references to primitive arrays are exempted, is this okay
@@ -191,6 +206,32 @@ class BytecodeDatabase extends Database
             }
             )(instructions)
         )
+
+    lazy val dependency : LazyView[Dependency[AnyRef, AnyRef]] =
+                `extends`.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                implements.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                inner_classes.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                field_type.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                parameter.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                return_type.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                Π( (handler:ExceptionHandler) =>
+                        new Dependency[Method, ObjectType]{
+                            val source = handler.declaringMethod
+                            val target = handler.catchType.get // the handled_exceptions relation is prefiltered, so we do not run into trouble with catchType == None here
+                        }
+                )(handled_exceptions).∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                thrown_exceptions.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                write_field.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                read_field.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                calls.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                class_cast.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                create.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
+                create_class_array.∪[Dependency[AnyRef, AnyRef], sae.bytecode.model.dependencies.instanceof](
+                instanceof)
+                )))))))))))))
+
+
+
 
 
     lazy val baseViews : List[LazyView[_]] = List(
