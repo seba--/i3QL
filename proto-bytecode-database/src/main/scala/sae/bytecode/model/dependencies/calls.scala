@@ -2,5 +2,8 @@ package sae.bytecode.model.dependencies
 
 import sae.bytecode.model.Method
 
-case class calls(source : Method, target : Method)
-        extends Dependency[Method, Method]
+trait calls extends Dependency[Method, Method]
+{
+    val source : Method
+    val target : Method
+}

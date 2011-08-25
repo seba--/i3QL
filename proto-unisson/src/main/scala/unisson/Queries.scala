@@ -6,6 +6,7 @@ import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
 import sae.bytecode.model.dependencies.{inner_class, Dependency}
+import sae.operators.BagUnion
 
 /**
  *
@@ -53,6 +54,14 @@ class Queries( val db : BytecodeDatabase )
         )
 
     private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
+
+    implicit def viewToUnissonConcatenator[Domain <: AnyRef](relation: LazyView[Domain]): UnissionInfixConcatenator[Domain] =
+        UnissionInfixConcatenator(relation)
+
+    case class UnissionInfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
+    {
+        def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = left ∪ otherRelation
+    }
 }
 
 
