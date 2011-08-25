@@ -1,16 +1,17 @@
 package unisson.hibernate_3_6
 
 import sae.bytecode.BytecodeDatabase
-import sae.collections.QueryResult
 import unisson.{SourceElement, Queries}
 import sae.syntax.RelationalAlgebraSyntax._
+import sae.LazyView
+import sae.collections.QueryResult
 
 /**
  * 
  * Author: Ralf Mitschke
  * Created: 07.06.11 15:02
  *
- * This trait defines all ensembles used throughout the various sad files for hibernate 3.6
+ * This trait defines all ensembles used throughout the various sad files for hibernate 3.6.6
  * Each ensemble is defined as a lazy val in order to allow subclasses to use only a fraction
  * of the defined ensembles, without instantiating all ensemble queries.
  */
@@ -135,5 +136,7 @@ class hibernate_3_6_ensemble_definitions(val db : BytecodeDatabase)
                 class_with_members("org.hibernate.engine", "SessionFactoryImplementor") ∪
                 class_with_members("org.hibernate", "SessionFactoryObserver") ∪
                 class_with_members("org.hibernate", "StatelessSession")
+
+
 
 }

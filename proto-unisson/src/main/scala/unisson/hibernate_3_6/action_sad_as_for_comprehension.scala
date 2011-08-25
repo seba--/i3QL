@@ -12,12 +12,12 @@ import unisson.{EnsembleDefinition, SourceElement}
  * Created: 12.08.11 11:51
  *
  */
-
+/*
 class action_sad_as_for_comprehension(db: BytecodeDatabase)
     extends hibernate_3_6_ensemble_definitions(db)
         with EnsembleDefinition
 {
-/*
+
     def directTranslation = for( elem <- db.create;
                    if( `org.hibernate.action`.exists( target(elem) ) );
                    if( !`org.hibernate.action`.exists( source(elem) ) );
@@ -36,15 +36,8 @@ class action_sad_as_for_comprehension(db: BytecodeDatabase)
                         Create(t) <- m.instructions // pattern matching, needs case class
                         if( t.package.name == "org.hibernate.action")
                     } yield (m, t)
-*/
 
-/*
-    val incoming_violation_create: QueryResult[create] =
-        ( (db.create, target _) ⋉ (identity(_:SourceElement[AnyRef]), `org.hibernate.action`) ) ∩
-        ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.action`) ) ∩
-        ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), lock) ) ∩
-        ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.event`) ) ∩
-        //( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), HQL) ) ∩
-        ( (db.create, source _) ⊳ (identity(_:SourceElement[AnyRef]), `org.hibernate.engine`) )
-*/
+
 }
+
+*/
