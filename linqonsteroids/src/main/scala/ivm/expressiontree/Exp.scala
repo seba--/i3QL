@@ -48,6 +48,12 @@ trait Exp[+T] {
   def +[S >: T, Sum](that: Exp[S])(implicit sumT: Summable[S, Sum]) = sumT.plusNode(this, that)
   def <=[S >: T](that: Exp[S])(implicit ord: Ordering[S]) = LEq(this, that)
   def is[S >: T](that: Exp[S]): Exp[Boolean] = Eq(this, that)
+
+  def &&[S >: T](that: Exp[S])(implicit ab : AsBool[S]) = And(ab(this),ab(that))
+  def ||[S >: T](that: Exp[S])(implicit ab : AsBool[S]) = Or(ab(this),ab(that))
+  def ![S >: T]()(implicit ab : AsBool[S]) = Not(ab(this))
+
+
   //def is(that: Exp[Int]): Exp[Boolean] = Eq(this, that)
 
   // method is used for testing. It is overriden in CallN to treat all calls as potentially equal
@@ -71,5 +77,3 @@ trait ChildlessExp[T] extends Exp[T] {
   def genericConstructor = _ => this
   def children = Seq()
 }
-
-trait ChildlessQueryReifier[T] extends ChildlessExp[QueryReifier[T]] with QueryOp[T]
