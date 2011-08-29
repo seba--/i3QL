@@ -8,11 +8,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-database-bytecode</artifactId>
+	<artifactId>sae-database-bytecode-rel</artifactId>
 	<version>0.2.0</version>
 	<packaging>jar</packaging>
 
-	<name>sae-database-bytecode</name>
+	<name>sae-database-bytecode-rel</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
 	

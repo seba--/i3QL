@@ -26,6 +26,7 @@
     <modules>
         <module>core</module>
         <module>bytecode-database-rel</module>
+        <module>bytecode-database-oo</module>
         <module>bytecode-reader</module>
         <module>further-functionality</module>
         <module>profiler</module>
