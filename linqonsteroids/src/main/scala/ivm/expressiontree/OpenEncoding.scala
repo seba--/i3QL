@@ -13,11 +13,20 @@ import scala.math.Numeric
  * another.
  * The approach here is to convert directly Double to DoubleExp, String to
  * StringExp, and so on.
- * An alternative solution is to make the generic conversion toExp: T => Exp[T]
- * have lower priority than the others, by defining toExp in a trait and the
+ * We have a generic conversion toExp: T => Exp[T], but we ensure that it has
+ * lower priority than the others, by defining toExp in a trait and the
  * others in an object inheriting from that trait.
  * This extra step would not be needed if toExpTempl were found by the Scala
  * compiler, which is not because of what I believe to be a bug.
+ *
+ * Currently, we experience ambiguity when triggering the initial conversion - see testBug().
+ * The Scala spec explains that for Scala type inference there is no single best solution, and the compiler is free
+ * to choose any one. When inferring implicit parameters or conversions, it chooses always the most specific solution
+ * (where "most specific" is defined as in overload resolution) and gives an error if no single solution exists.
+ * However, the encoding we use is the same as for Scala collection libraries. Therefore, it's not clear at all what happens.
+ *
+ * Alternatively, if we avoid supporting polymorphic lifting like in the current
+ * encoding, I think we would solve all current problems would disappear. 
  * @author Paolo G. Giarrusso
  */
 
@@ -86,8 +95,8 @@ object OpenEncoding {
     //trait NumExp[T](implicit isNum: Numeric[T]) extends Exp[T]
     trait NumExp[T] extends Exp[T] {
       //If this were not a mixin, this would be an implicit parameter:
-      def isNum: Numeric[T]
-      def +(that: NumExp[T]): NumExp[T] = Plus(this, that)(isNum)
+      implicit val isNum: Numeric[T]
+      def +(that: NumExp[T]): NumExp[T] = Plus(this, that)
     }
 
     case class NumExpWrap[T](t: Exp[T])(implicit val isNum: Numeric[T]) extends
@@ -156,13 +165,21 @@ object OpenEncoding {
     implicit def canBuildExp[T]: CanBuildExp[T, Exp[T]] = new CanBuildExp[T, Exp[T]] {
       def apply(e: Exp[T]) = e
     }
+    implicit def toExp[T](t: T): Exp[T] = toExpTempl(t)
+
+    /*
+    implicit def canBuildExpString: CanBuildExp[String, Exp[String]] = new CanBuildExp[String, Exp[String]] {
+      def apply(e: Exp[String]) = e
+    }
+    implicit def toExp(t: String): Exp[String] = toExpTempl(t)
+    */
+
     //implicit object canBuildExpStr extends CanBuildExp[String, StringExp]
     implicit def canBuildExpNum[T](implicit numT: Numeric[T]) =
       new CanBuildExp[T, NumExp[T]] {
         def apply(e: Exp[T]) = NumExpWrap(e)
       }
-    implicit def toExp[T](t: T): Exp[T] = toExpTempl(t)
-    implicit def canBuildExpTrav[T, ExpT <: Exp[T]](implicit c: CanBuildExp[T, ExpT]): CanBuildExp[Traversable[T], TraversableExp[T, ExpT]] =
+    implicit def canBuildExpTrav[T, ExpT <: Exp[T]](implicit cCBET: CanBuildExp[T, ExpT]): CanBuildExp[Traversable[T], TraversableExp[T, ExpT]] =
       new CanBuildExp[Traversable[T], TraversableExp[T, ExpT]] {
         def apply(e: Exp[Traversable[T]]) = TraversableExpWrap(e)//(c)
       }
@@ -177,7 +194,7 @@ object OpenEncoding {
     //to toExpTempl. The difference between these two methods is thus in the
     //implicitly passed parameter (canBuildExpNum vs canBuildExp)
     implicit def toNumExp[T : Numeric](t: T): NumExp[T] = toExpTempl(t)
-    implicit def toTraversableExp[T, ExpT <: Exp[T]](t: Traversable[T])(implicit c: CanBuildExp[T, ExpT]): TraversableExp[T, ExpT] = toExpTempl(t)
+    implicit def toTraversableExp[T, ExpT <: Exp[T]](t: Traversable[T])(implicit cTTE: CanBuildExp[T, ExpT]): TraversableExp[T, ExpT] = toExpTempl(t)
 
     //Question: does implicit lookup find a most-specific solution just because
     //the target type is NumExp[T], and only passing canBuildExpNum gives that
@@ -191,6 +208,15 @@ object OpenEncoding {
         print(name + ": ")
         println(v)
       }
+      val i: Exp[Int] = 1
+      show("i", i)
+      val i1: Exp[Int] = toExpTempl(1)
+      show("i1", i1)
+      //One of the syntaxes we want to support - both ones just fail, with "could not find implicit value for parameter cTTE: ivm.expressiontree.OpenEncoding.CanBuildExp[Int,ExpT]"
+      //val a0: Exp[Traversable[Int]] = Seq(1, 2, 3, 5)
+      //val a0: Exp[Traversable[Int]] = Seq(1, 2, 3, 5).toTraversable
+      val a0: Exp[Traversable[Int]] = toTraversableExp(Seq(1, 2, 3, 5))
+      //show("a0", a0)
 
       val a1 = toExpTempl(Seq(1, 2, 3, 5)) //Doesn't work well - canBuildExp[Seq[Int]]: CanBuildExp[Seq[Int], Exp[Seq[Int]]] is preferred to canBuildExpTrav[Int, NumExp[Int]]: CanBuildExp[Traversable[Int], TraversableExp[Int]].
       show("a1", a1)
@@ -202,7 +228,7 @@ object OpenEncoding {
       show("a4", a4)
       val a5: Exp[Traversable[Int]] = toExpTempl(Seq(1, 2, 3, 5)) //Works well apparently.
       show("a5", a5)
-      val a6: TraversableExp[Int, NumExp[Int]] = Seq(1, 2, 3, 5)
+      val a6: TraversableExp[Int, NumExp[Int]] = Seq(1, 2, 3, 5) //This one obviously works.
       show("a6", a6)
 
       show("(like a3) toExpTempl(Seq(1, 2, 3, 5))", toExpTempl(Seq(1, 2, 3, 5)))

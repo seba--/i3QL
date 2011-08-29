@@ -4,33 +4,33 @@ package optimization
 
 import expressiontree._
 import expressiontree.Lifting._
-import indexing.{PathIndex, HashIndex,Path}
+import indexing.{HashIndex, Path}
 
 class Optimization {
   val cartProdToJoin : Exp[_] => Exp[_] =
      (e) => e match {
-       case FlatMap(fmcol,fmf) => fmf.f(fmf.x) match {
+       case FlatMap(fmcol,fmf) => fmf.body match {
          case Map(mccol,mcf) => mccol match {
            case WithFilter(col3,h) => {
-             if (col3.isOrContains(fmf.x)) e else 
-             h.f(h.x) match {
+             if (col3.isOrContains(fmf.x)) e else
+             h.body match {
                case Eq(l,r) => if (!(l.isOrContains(h.x)) && !(r.isOrContains(fmf.x)))
-                                   Join(fmcol, 
-                                        col3, 
+                                   Join(fmcol,
+                                        col3,
                                         FuncExp.makefun[Any,Any](l, fmf.x),  // no idea why the [Any,Any] stuff passes the typechecker
                                         FuncExp.makefun[Any,Any](r, h.x),
                                         FuncExp.makepairfun[Any,Any,Any](
-                                                mcf.f(mcf.x), 
-                                                fmf.x, 
+                                                mcf.body,
+                                                fmf.x,
                                                 mcf.x))
                                else if (!(r.isOrContains(h.x)) && !(l.isOrContains(fmf.x)))
-                                   Join(fmcol, 
-                                        col3, 
-                                        FuncExp.makefun[Any,Any](r, fmf.x), 
+                                   Join(fmcol,
+                                        col3,
+                                        FuncExp.makefun[Any,Any](r, fmf.x),
                                         FuncExp.makefun[Any,Any](l, h.x),
                                         FuncExp.makepairfun[Any,Any,Any](
-                                                mcf.f(mcf.x), 
-                                                fmf.x, 
+                                                mcf.body,
+                                                fmf.x,
                                                 mcf.x))
                                else e
                case _ => e
@@ -46,7 +46,7 @@ class Optimization {
   val removeIdentityMaps : Exp[_] => Exp[_] =
     (e) => e match {
       case Map(col,f) =>
-        f.f(f.x) match {
+        f.body match {
           case f.x => col
           case x => println(x); e
         }
@@ -58,26 +58,26 @@ class Optimization {
       case WithFilter(col,f) =>
         col match {
           case WithFilter(col2,f2) =>
-            mergeFilters(WithFilter(col2, FuncExp( (x:Exp[_]) => And(f2(x),f(x)))))
+            mergeFilters(new WithFilterMaintainerExp(col2, FuncExp( (x:Exp[_]) => And(f2.f(x), f.f(x)))))
           case _ => e
         }
       case _ => e
     }
 
-  val normalizer : Exp[_] => Exp[_] = 
+  val normalizer : Exp[_] => Exp[_] =
      (e) => e match {
        case p@Plus(x,y) => Plus(Exp.min(x,y), Exp.max(x,y))(p.sum)
        case e@Eq(x,y) => Eq(Exp.min(x,y), Exp.max(x,y))
        case _ => e
      }
-     
-  private def hasIndex(idx: scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]], hx: Var[_], l: Exp[_]) : Boolean = {
+
+  private def hasIndex(idx: scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]], hx: Var, l: Exp[_]) : Boolean = {
     idx.contains(Optimization.normalize(FuncExp.makefun(l, hx)).asInstanceOf[FuncExp[Any,Any]])
   }
 
   private def getPath[T,S](col: QueryReifier[T]) : Option[(Path[(S,_),T], Traversable[S]) /*forSome {type S}*/]  = {
     col match {
-      case f: FlatMap[q,T] => {
+      case f: FlatMap[q, _ /*T*/] => {
         getPath[q,S](f.col) match {
           case Some((a,b)) => None
           case _ => None
@@ -89,17 +89,17 @@ class Optimization {
   }
 
   val indexer : Exp[_] => Exp[_] =  (e) => e match {
-       case WithFilter(col,h)  => h.f(h.x) match {
-         case Eq(l,r) => if ((!(l.isOrContains(h.x))) && (r.freeVars == Seq(h.x)) 
-                              && hasIndex(col.indexes.asInstanceOf[scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]]], h.x, r)) 
+       case WithFilter(col,h)  => h.body match {
+         case Eq(l,r) => if ((!(l.isOrContains(h.x))) && (r.freeVars == Seq(h.x))
+                              && hasIndex(col.indexes.asInstanceOf[scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]]], h.x, r))
                          IndexAt(col.indexes(Optimization.normalize(FuncExp.makefun(r, h.x)).asInstanceOf[FuncExp[Any,Any]]).asInstanceOf[HashIndex[Any,Any]], l)
-                         else 
-                         if ((!(r.isOrContains(h.x))) 
+                         else
+                         if ((!(r.isOrContains(h.x)))
                              && (l.freeVars.equals(Set(h.x)))
-                              && hasIndex(col.indexes.asInstanceOf[scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]]], h.x, l)) 
+                              && hasIndex(col.indexes.asInstanceOf[scala.collection.mutable.Map[FuncExp[Any,Any],HashIndex[Any,Any]]], h.x, l))
                          IndexAt(col.indexes(Optimization.normalize(FuncExp.makefun(l, h.x)).asInstanceOf[FuncExp[Any,Any]]).asInstanceOf[HashIndex[Any,Any]], r)
                          else e
-                           
+
          case _ => e
        }
        case _ => e

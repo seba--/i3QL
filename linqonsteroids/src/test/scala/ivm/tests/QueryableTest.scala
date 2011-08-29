@@ -5,10 +5,9 @@ import expressiontree._
 
 import org.scalatest.junit.JUnitSuite
 import org.scalatest.junit.ShouldMatchersForJUnit
-import org.junit.Test
-
 import collections.{IncHashSet, IncArrayBuffer}
 import collection.mutable.{HashSet, ArrayBuffer}
+import org.junit.{Ignore, Test}
 
 class QueryableTest extends JUnitSuite with ShouldMatchersForJUnit {
   import Lifting._
@@ -81,11 +80,20 @@ class QueryableTest extends JUnitSuite with ShouldMatchersForJUnit {
     println("vCollPlusOne: " + vCollPlusOne)
   }
 
+  def show[T: Ordering](name: String, v: IncrementalResult[T]) {
+    println()
+    println("%s: after sorting\t\t%s, before\t\t%s" format(name, v.toSeq.sorted, v))
+    //println("vIncUpd.exec(): " + vIncUpd.exec())
+    //println("vIncUpd.interpret.exec(): " + vIncUpd.interpret.exec())
+    v.exec() should be (v.interpret().exec())
+    v.exec() should be (v.inner.exec())
+    //println("vIncUpd.inner.exec(): " + vIncUpd.inner.exec())
+  }
+
   @Test
   def testIncremental() {
     val v = new IncHashSet[Int]
     v ++= Seq(1, 2, 3)
-    //under ++= Seq(1, 2, 3) //XXX
 
     println("v: " + v)
     val vPlusOne: IncHashSet[Int] = v.map(_ + 1) //canBuildFrom gives us the expected return type
@@ -99,29 +107,30 @@ class QueryableTest extends JUnitSuite with ShouldMatchersForJUnit {
     assert(vQueryable == v)
     //val vQueryablePlusOne2: HashSet[Int] = vQueryable.map((i: Int) => i + 1) //gives error
     val vQueryablePlusOne: QueryReifier[Int] = vQueryable.map(_ + 1)
-    println("vIncUpd: " + vIncUpd)
+    //val vIncUpdPlus2 = new IncrementalResult(for (i <- vIncUpd.asQueryable) yield 2 * i) //XXX can't use *, not defined, nor asQueryable.
+    val vIncUpdPlus2 = new IncrementalResult(for (i <- vIncUpd.asQueryable) yield 2 + i)
 
-    def out {
-      println()
-      println("vIncUpd: " + vIncUpd)
-      //println("vIncUpd.exec(): " + vIncUpd.exec())
-      //println("vIncUpd.interpret.exec(): " + vIncUpd.interpret.exec())
-      vIncUpd.exec() should be (vIncUpd.interpret.exec())
-      vIncUpd.exec() should be (vIncUpd.inner.exec())
-      //println("vIncUpd.inner.exec(): " + vIncUpd.inner.exec())
+    def out() {
+      show("vIncUpd", vIncUpd)
+      show("vIncUpdPlus2", vIncUpdPlus2)
     }
+    out()
     v ++= Seq(4, 5, 6)
-    out
+    out()
 
     // Check that redundant updates are handled correctly.
     // test actually - we need an union
     // operation for a proper test.
     v ++= Seq(4, 5, 6) //Now the inclusion count should be 1, not 2!
-    out
+    out()
     v --= Seq(4, 5, 6) //Now the elements should already be removed!
-    out
+    out()
     v --= Seq(4, 5, 6)
-    out
+    out()
+    v.clear()
+    out()
+    v ++= Seq(1, 5, 7)
+    out()
 
     println("vQueryable: " + vQueryable)
 
@@ -134,6 +143,56 @@ class QueryableTest extends JUnitSuite with ShouldMatchersForJUnit {
     assert(vColl == v)
     val vCollPlusOne: HashSet[Int] = vColl.map(_ + 1) //Here, the resulting object has actually HashSet as dynamic type.
     //Since vColl has a different static type, a different implicit is passed here.
-    println("vCollPlusOne: " + vCollPlusOne)
+    println("vCollPlusOne: %s, type: %s" format (vCollPlusOne, vCollPlusOne.getClass.getName))
+  }
+
+  def testFlatMap(working: Boolean) {
+    //val v = Seq(1, 2, 3)
+    val v = IncHashSet[Int]()
+    if (!working)
+      v ++= Seq(10, 20, 30)
+    val v2 = IncHashSet(4, 5, 6)
+
+    val res = new IncrementalResult[Int](for (i <- v.asQueryable; j <- v2.asQueryable) yield i + j)
+    show("res", res)
+    if (working)
+      v ++= Seq(10, 20, 30)
+    show("res", res)
+    v += 40
+    show("res", res)
+    v2 += 7
+    show("res", res)
+  }
+
+  @Test
+  def testFlatMapWorking() {
+    testFlatMap(working = true)
+  }
+
+  @Test
+  def testFlatMapNotWorking() {
+    testFlatMap(working = false)
+  }
+
+  @Ignore
+  @Test
+  def testFlatMap2() {
+    val v = new IncHashSet[Int]
+    v ++= Seq(0, 1, 2)
+    val vArr = Array(IncHashSet(40, 50, 60), IncHashSet(40, 50, 60), IncHashSet(40, 50, 60), IncHashSet(40, 50, 60))
+
+    //This term is invalid because of its use of interpret.
+    val res = new IncrementalResult[Int](for (i <- v.asQueryable;
+                                              j <- liftCall(
+                                                ((_: Array[IncHashSet[Int]]).apply(_: Int).asQueryable),
+                                                Const(vArr),
+                                                i).interpret()) yield i + j)
+    show("res", res)
+    v += 3
+    show("res", res)
+    for (i <- 0 until 3) {
+      vArr(i) += 70
+      show("res", res)
+    }
   }
 }

@@ -1,7 +1,32 @@
 package ivm.expressiontree
 
-import collection.mutable.{HashMap, Subscriber, Buffer, Set}
-// Let us first implement incremental view maintenance for multisets.
+import collection.mutable.HashMap
+
+// All the maintainer classes/traits (MapMaintener, WithFilterMaintainer, FlatMapMaintainer) have a common structure of
+// "message transformers". That can be probably abstracted away: they should have a method
+// producedMessages: Message[T] => Seq[Message[T]], we should remove Script[T], implement publish in term of it in type:
+// Forwarder[T, U, Repr] extends Subscriber[Seq[Message[T]], Repr] with Publisher[Seq[Message[U]]]
+// notify(evts: Seq[Message[T]]) = publish(evts flatMap producedMessages)
+// This should just be the default implementation though, because it doesn't use batching.
+// Moreover, we might want to have by-name values there (impossible) or sth. alike - otherwise the pipeline will always
+// execute the maintenance (say, apply the mapped function) before we get a chance to say "better not".
+// Maybe we just bind the transformers together and pass them upwards together with the input, so that the concrete node
+// decides whether to do the first application or not.
+//
+// Importantly, producedMessages can be recursive to reuse code - that's better than making notify recursive, because
+// that forces to split notifications:
+//case Update(old, curr) =>
+//  notify(pub, Remove(old))
+//  notify(pub, Include(curr))
+//case Script(msgs @ _*) => msgs foreach (notify(pub, _))
+//Moreover producedMessages is purely functional, unlike notify.
+//
+// This way, a pipeline of message transformers becomes simply a sequencing through >>= of monadic actions.
+// However, since some reifiers will not work this way, we cannot enforce this structure.
+// TODO: We could use MonadPlus.mplus for composing observables.
+
+// Let us first implement incremental view maintenance for sets.
+
 //Trait implementing incremental view maintenance for Map operations
 trait MapMaintainer[T, U, Repr] extends EvtTransformer[T, U, Repr] {
   def fInt: T => U
@@ -62,10 +87,23 @@ trait FlatMapMaintainer[T, U, Repr] extends EvtTransformer[T, U, Repr] {
         }
       }
     }
+  //To be invoked by the constructor with the initial elements.
+  protected def initListening(values: Traversable[T]) {
+    for (v <- values) {
+      //XXX copied from transformedMessages. Could I really reuse that as-is? I believe I cannot!
+      //Basically, it doesn't make sense to generate the new events and then to drop them!
+      //Plus, here I still need to call startListening.
+      val fV = cache.getOrElseUpdate(v, fInt(v))
+      fV subscribe subCollListener
+      fV match {
+        case m: Maintainer[_] => m.startListening()
+      }
+    }
+  }
   override def transformedMessages(evt: Message[T]) = {
     evt match {
       case Include(v) =>
-        val fV = fInt(v)
+        val fV = cache.getOrElseUpdate(v, fInt(v))
         fV subscribe subCollListener
         fV.exec().toSeq map (Include(_))
       case Remove(v) =>
@@ -73,6 +111,7 @@ trait FlatMapMaintainer[T, U, Repr] extends EvtTransformer[T, U, Repr] {
         //need a map from v to the returned collection - as done in LiveLinq
         //anyway.
         val fV = cache(v)
+        //cache -= v //This might actually be incorrect, if v is included twice in the collection. This is a problem!
         fV removeSubscription subCollListener
         fV.exec().toSeq map (Remove(_))
       case _ => defTransformedMessages(evt)
@@ -84,20 +123,69 @@ trait FlatMapMaintainer[T, U, Repr] extends EvtTransformer[T, U, Repr] {
   }
 }
 
+/*trait Maintainer[T, Repr <: QueryReifier[T]] extends MsgSeqSubscriber[T, Repr] {
+  this: QueryReifier[T]#Sub =>
+  val col: QueryReifier[T]
+
+  //def uglyCast(v: Subscriber[Seq[Message[T]], QueryReifier[T]#Pub]): Subscriber[Seq[Message[T]], col.Pub] =
+  //Equivalent to:
+  //def uglyCast(v: Subscriber[Seq[Message[T]], QueryReifier[T]]): Subscriber[Seq[Message[T]], col.Pub] =
+  //Which is wrong. Instead we need:
+  def uglyCast(v: Subscriber[Seq[Message[T]], Repr]): Subscriber[Seq[Message[T]], col.Pub] =
+    v.asInstanceOf[Subscriber[Seq[Message[T]], col.Pub]]
+  /*
+   * Why is that cast needed? Repr <: QueryReifier[T], col.Pub <: QueryReifier[T], but col.Pub and Repr are incomparable.
+   * The cast would be unneeded if Subscriber[..., col.Pub] >: Subscriber[..., Repr], i.e. col.Pub <: Repr.
+   * Therefore, let's set Repr = QueryReifier[T]
+   */
+
+  def startListening() {
+    //col subscribe this.asInstanceOf[col.Sub]
+    col subscribe uglyCast(this)
+  }
+}*/
+trait Maintainer[T] {
+  this: MsgSeqSubscriber[T, QueryReifier[T]] =>
+  val col: QueryReifier[T]
+
+  def startListening() {
+    if (Debug.verbose)
+      //println("Maintainer(col = %s) startListening" format col)
+      println("%s startListening" format this)
+    col subscribe this
+  }
+}
+
 //Don't make Repr so specific as IncCollectionReifier. Making Repr any specific
 //is entirely optional - it just enables the listener to get a more specific
 //type for the pub param to notify(), if he cares.
 class MapMaintainerExp[T,U](col: QueryReifier[T], f: FuncExp[T,U]) extends Map[T,U](col, f)
-with MapMaintainer[T, U, QueryReifier[T]] with QueryReifier[U] {
+    with MapMaintainer[T, U, QueryReifier[T]] with QueryReifier[U] with Maintainer[T] {
   override def fInt = f.interpret()
+  //XXX: only the name of the constructed class changes
+  override def genericConstructor =
+      v => new MapMaintainerExp(v(0).asInstanceOf[QueryReifier[T]],
+          v(1).asInstanceOf[FuncExp[T, U]])
 }
 class FlatMapMaintainerExp[T,U](col: QueryReifier[T], f: FuncExp[T,QueryReifier[U]]) extends FlatMap[T,U](col, f)
-with FlatMapMaintainer[T, U, QueryReifier[T]] with QueryReifier[U] {
+    with FlatMapMaintainer[T, U, QueryReifier[T]] with QueryReifier[U] with Maintainer[T] {
   override def fInt = x => f.interpret()(x)
+  //XXX ditto
+  override def genericConstructor =
+      v => new FlatMapMaintainerExp(v(0).asInstanceOf[QueryReifier[T]],
+          v(1).asInstanceOf[FuncExp[T, QueryReifier[U]]])
+
+  //XXX this ensures that we listen on the results corresponding to the elements already present in col.
+  //However, it is a hack - see IncrementalResult for discussion.
+  initListening(col.exec())
 }
 class WithFilterMaintainerExp[T](col: QueryReifier[T], p: FuncExp[T,Boolean]) extends WithFilter[T](col, p)
-with WithFilterMaintainer[T, QueryReifier[T]] with QueryReifier[T] {
+    with WithFilterMaintainer[T, QueryReifier[T]] with QueryReifier[T] with Maintainer[T] {
   override def pInt = p.interpret()
+  //XXX ditto
+  override def genericConstructor =
+      v => new WithFilterMaintainerExp(v(0).asInstanceOf[QueryReifier[T]],
+          v(1).asInstanceOf[FuncExp[T, Boolean]])
 }
 
 // TODO: add a trait which implements maintenance of union.

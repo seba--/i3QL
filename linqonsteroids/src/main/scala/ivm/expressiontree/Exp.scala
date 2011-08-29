@@ -4,9 +4,18 @@ trait Exp[+T] {
 
   def interpret(): T
   private[ivm] def children: Seq[Exp[_]]
+  private[ivm] def closedTermChildren: Seq[Exp[_]] = children
   //The arity is not specified.
   private[ivm] def genericConstructor: Seq[Exp[_]] => Exp[T]
   // some child management auxiliary functions
+
+  //Many visitors might not want to visit childrens of FuncExp, i.e. function bodies, because they are open terms.
+  private[ivm] def visitPreorderClosedChildren(visitor: Exp[_] => Unit) {
+    visitor(this)
+    for (c <- closedTermChildren) {
+      c.visitPreorderClosedChildren(visitor)
+    }
+  }
   private[ivm] def transform(transformer: Exp[_] => Exp[_]): Exp[T] = {
     val transformedChilds = for (c <- children) yield c.transform(transformer)
     val newself = genericConstructor(transformedChilds)
@@ -17,7 +26,7 @@ trait Exp[+T] {
     mapper(this, mappedChilds)
   }
   private[ivm] def containsExp[S](e: Exp[S]): Boolean = {
-    var ac = allChildren
+    var ac = allChildren //XXX slow, allChildren computes an eager sequence!
     ac.contains(e)
   }
   private[ivm] def isOrContains[S](e: Exp[S]): Boolean = if (this.equals(e)) true else containsExp(e)
@@ -28,9 +37,9 @@ trait Exp[+T] {
       case Var(x) => if (x.equals(v)) e else exp
       case _ => exp
     })
-    
-  private[ivm] def freeVars: Set[Var[_]] = {
-    val mapper : (Exp[_], Seq[Set[Var[_]]]) => Set[Var[_]] = (e,c) => e match {
+
+  private[ivm] def freeVars: Set[Var] = {
+    val mapper : (Exp[_], Seq[Set[Var]]) => Set[Var] = (e,c) => e match {
       case v@Var(_) => Set(v)
       case fe@FuncExp(_) => c.fold(Set.empty)(_ union _).filter(!_.equals(fe.x))
       case _ => c.fold(Set.empty)(_ union _)
@@ -51,17 +60,16 @@ trait Exp[+T] {
 
   def &&[S >: T](that: Exp[S])(implicit ab : AsBool[S]) = And(ab(this),ab(that))
   def ||[S >: T](that: Exp[S])(implicit ab : AsBool[S]) = Or(ab(this),ab(that))
-  def ![S >: T]()(implicit ab : AsBool[S]) = Not(ab(this))
+  def unary_![S >: T]()(implicit ab : AsBool[S]) = Not(ab(this))
 
 
   //def is(that: Exp[Int]): Exp[Boolean] = Eq(this, that)
 
   // method is used for testing. It is overriden in CallN to treat all calls as potentially equal
   private[ivm] def potentiallyEquals[S](other: Exp[S]) : Boolean = {
-    val c  = children.zip(other.children) 
+    val c  = children.zip(other.children)
     this.getClass().equals(other.getClass()) &&
       c.map({ case (a, b) => a.potentiallyEquals(b)}).forall(identity)
- 
   }
 }
 
