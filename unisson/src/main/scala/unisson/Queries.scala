@@ -5,7 +5,7 @@ import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
-import sae.bytecode.model.dependencies.{inner_class, Dependency}
+import sae.bytecode.model.dependencies.{inner_class, Dependency, `extends`}
 import sae.operators.BagUnion
 
 /**
@@ -16,6 +16,17 @@ import sae.operators.BagUnion
  */
 class Queries( val db : BytecodeDatabase )
 {
+
+    // TODO
+    /*
+    def supertype( target : LazyView[SourceElement[AnyRef]]) =
+        Π[`extends`, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:`extends`).source) }(
+            (db.`extends`, target _) ⊳ ((_:SourceElement[AnyRef]).element, target)
+        )
+    */
+    def `class`(packageName : String, name : String) : LazyView[SourceElement[AnyRef]] =
+Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (o:ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == fromJava(name) )}(db.classfiles))
+
     def `package`(name : String) : LazyView[SourceElement[AnyRef]] =
         (
              Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (_:ObjectType).packageName == fromJava(name)}(db.classfiles))
@@ -53,6 +64,13 @@ class Queries( val db : BytecodeDatabase )
             σ{ (_:(AnyRef, AnyRef))._1 == ObjectType(fromJava(qualifiedClass))} (transitive_class_members)
         )
 
+
+
+    def transitive(  target : LazyView[SourceElement[AnyRef]] ) : LazyView[SourceElement[AnyRef]] = null
+
+    def class_with_members(target : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] = null
+
+
     private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
 
     implicit def viewToUnissonConcatenator[Domain <: AnyRef](relation: LazyView[Domain]): UnissionInfixConcatenator[Domain] =
@@ -61,6 +79,9 @@ class Queries( val db : BytecodeDatabase )
     case class UnissionInfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
     {
         def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = left ∪ otherRelation
+
+        def without(otherRelation: LazyView[Domain]): LazyView[Domain] = left ∖ otherRelation
+
     }
 }
 

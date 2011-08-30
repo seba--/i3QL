@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://vespucci.editor" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <ShapesDiagram xmi:id="_8LfzwGD7EeCOYcN1QQ3S6Q">
+    <shapes xmi:type="Ensemble" xmi:id="_9k3acGD7EeCOYcN1QQ3S6Q" name="pa.ClassA1" query="class_with_members('pa','ClassA1')&#xD;&#xA;without class('pa','ClassA1')"/>
+    <shapes xmi:type="Ensemble" xmi:id="_-Ox6IGD7EeCOYcN1QQ3S6Q" name="pb.B1" query="class_with_members('pb','B1')&#xA;">
+      <targetConnections xmi:type="NotAllowed" xmi:id="__0bCQGD7EeCOYcN1QQ3S6Q" source="_-Ox6IGD7EeCOYcN1QQ3S6Q" target="_9k3acGD7EeCOYcN1QQ3S6Q"/>
+    </shapes>
+  </ShapesDiagram>
+  <notation:Diagram xmi:id="_8LfzwWD7EeCOYcN1QQ3S6Q" type="Vespucci" element="_8LfzwGD7EeCOYcN1QQ3S6Q" name="testWithoutClassClass.sad" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_9lDAoGD7EeCOYcN1QQ3S6Q" type="2001" element="_9k3acGD7EeCOYcN1QQ3S6Q" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_9lDnsGD7EeCOYcN1QQ3S6Q" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_9lEOwGD7EeCOYcN1QQ3S6Q" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9lDAoWD7EeCOYcN1QQ3S6Q" x="481" y="146"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_-O1kgGD7EeCOYcN1QQ3S6Q" type="2001" element="_-Ox6IGD7EeCOYcN1QQ3S6Q" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_-O2yoGD7EeCOYcN1QQ3S6Q" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_-O2yoWD7EeCOYcN1QQ3S6Q" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-O1kgWD7EeCOYcN1QQ3S6Q" x="222" y="152" width="79"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_jWoWgGD8EeCOYcN1QQ3S6Q" type="Note" fontName="Segoe UI" description="No violations should be thrown because ClassA1 was filtered out" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_jWoWgWD8EeCOYcN1QQ3S6Q" type="DiagramName">
+        <element xsi:nil="true"/>
+      </children>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_jWoWgmD8EeCOYcN1QQ3S6Q" type="Description">
+        <element xsi:nil="true"/>
+      </children>
+      <styles xmi:type="notation:TextStyle" xmi:id="_jWoWg2D8EeCOYcN1QQ3S6Q"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_jWoWhGD8EeCOYcN1QQ3S6Q"/>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jWoWhWD8EeCOYcN1QQ3S6Q" x="684" y="144"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8LfzwmD7EeCOYcN1QQ3S6Q"/>
+    <edges xmi:type="notation:Edge" xmi:id="__0i-EGD7EeCOYcN1QQ3S6Q" type="4004" element="__0bCQGD7EeCOYcN1QQ3S6Q" source="_-O1kgGD7EeCOYcN1QQ3S6Q" target="_9lDAoGD7EeCOYcN1QQ3S6Q">
+      <children xmi:type="notation:DecorationNode" xmi:id="__0kMMGD7EeCOYcN1QQ3S6Q" type="6004">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__0kMMWD7EeCOYcN1QQ3S6Q" x="-7" y="-7"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="__0i-EWD7EeCOYcN1QQ3S6Q"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__0i-EmD7EeCOYcN1QQ3S6Q" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__0i-E2D7EeCOYcN1QQ3S6Q" points="[0, 0, -193, 35]$[180, -42, -13, -7]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__1GXsGD7EeCOYcN1QQ3S6Q" id="(0.9367088607594937,0.325)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__1G-wGD7EeCOYcN1QQ3S6Q" id="(0.16049382716049382,0.175)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>
