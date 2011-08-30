@@ -3,8 +3,8 @@ package unisson.prolog
 import parser.UnissonPrologParser
 import utils.ISOPrologStringConversion
 import java.io._
-import unisson.ast.{DependencyConstraint, Ensemble, UnissonDefinition, UnissionQuery}
 import java.lang.IllegalArgumentException
+import unisson.ast._
 
 /**
  * 
@@ -40,6 +40,8 @@ object SadFromProlog {
                 result = result :+ readPrologLine(s)
             }
         }
+
+        result.foreach(ResolveAST(_, result))
 
         result
     }
