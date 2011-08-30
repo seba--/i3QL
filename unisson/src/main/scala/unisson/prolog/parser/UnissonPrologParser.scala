@@ -24,11 +24,11 @@ class UnissonPrologParser
             case (arch ~ name ~ params ~ query ~ subEnsembles) => Ensemble(name, query)
         }
 
-    def atom: Parser[String] = ident | "'" ~> ident <~ "'"
+    def atom: Parser[String] = ident | "'" ~> """[^']*""".r <~ "'"
 
     def atomList: Parser[List[String]] =
         (
-            "[" ~> repsep(atom, ",") <~ "]" ^^ { _.foldRight[List[String]](Nil){ (e,l) => l :+ e } }
+            "[" ~> repsep(atom, ",") <~ "]" ^^ { _.foldRight[List[String]](Nil){ (e,l) =>  l.:: (e) } }
             | failure("Illegal list")
         )
 
@@ -49,60 +49,47 @@ class UnissonPrologParser
                 case (name) => PackageQuery(name)
             }
 
-/*
-            def theory:Parser[Theory] = rep(clause) ^^ {list => new Theory(list)}
 
-            def clause: Parser[Clause] = (
-                            predicate~opt(":-"~>formula)<~"."
-                                    ^^ {
-                                            case head~None => new Clause(head,True)
-                                            case head~Some(body) => new Clause(head,body)
-                            }
-                            | failure("Illegal clause")
-            )
-
-            def formula: Parser[Formula] = (
-                            "true" ^^ {_ => True}
-                            | "false" ^^ {_ => False}
-                            | predicate~","~formula
-                                    ^^ {case first~_~second => new And(first, second)}
-                            | predicate
-                            | failure("Illegal formula")
-            )
+    def dependencyConstraint : Parser[DependencyConstraint] =
+        incoming |
+        outgoing |
+        not_allowed |
+        expected
 
 
-            def predicate: Parser[Predicate] = (
-                            """[a-z]\w*""".r ~ opt("("~>repsep(term,",")<~")")
-                                    ^^ {
-                                            case name ~ None => new Predicate(Symbol(name),0,List())
-                                            case name ~ Some(arglist) => new Predicate(Symbol(name),arglist.length,arglist)
-                            }
-                            | failure("Illegal predicate")
-            )
+    def incoming  : Parser[DependencyConstraint] =
+        "incoming(" ~> dependency <~ ")." ^^
+                {
+                    case (architecture , sourceName , sourceParams , targetName , targetParams , kinds) =>
+                    IncomingConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
+                }
 
-            def term: Parser[Term] = (
-                            atom
-                            | variable
-                            | wholeNumber ^^ {n => new Integer(n.toInt)}
-                            //| decimalNumber ^^ {n => new Number(n.toDouble)}
-                            | list
-                            | failure("Illegal term")
-            )
+    def outgoing : Parser[DependencyConstraint] =
+        "outgoing(" ~> dependency <~ ")." ^^
+                {
+                    case (architecture , sourceName , sourceParams , targetName , targetParams , kinds) =>
+                    OutgoingConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
+                }
 
-            def atom: Parser[Atom] = """[a-z]\w*""".r ^^ {name => new Atom(Symbol(name))}
+    def not_allowed : Parser[DependencyConstraint] =
+        "not_allowed(" ~> dependency <~ ")." ^^
+                {
+                    case (architecture , sourceName , sourceParams , targetName , targetParams , kinds) =>
+                    NotAllowedConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
+                }
 
-            def variable: Parser[Variable] = (
-                    """[A-Z]\w*""".r ^^ {name => new NamedVar(Symbol(name))}
-                    | """_\w*""".r ^^ {_ => DontCare}
-            )
+    def expected : Parser[DependencyConstraint] =
+        "expected(" ~> dependency <~ ")." ^^ 
+                {
+                    case (architecture , sourceName , sourceParams , targetName , targetParams , kinds) =>
+                    ExpectedConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
+                }
 
-            def list: Parser[ScalaLogicList] = (
-                    "["~>repsep(term,",")<~"]"
-                            ^^ { _.foldRight(EmptyList:ScalaLogicList){ (e,l) => new ListNode(e,l) } }
-                    | "["~rep1sep(term,",")~"|"~variable~"]"
-                            ^^ {  case "["~(e::r)~"|"~end~"]" => new ListNode(e, r.foldRight(end:Term){ ListNode(_,_) } )}
-                    | failure("Illegal list")
-            )
 
-*/
+    def dependency: Parser[(String, String, List[String],String, List[String],List[String])] =
+        (atom <~ "," ~ wholeNumber) ~ ("," ~> atom) ~ (", " ~> atomList) ~ ("," ~> atom) ~ ("," ~> atomList) ~ ("," ~> atomList) ^^
+        {
+            case(architecture ~ source ~ sourceParams ~ target ~ targetParams ~ kinds) =>
+                (architecture , source , sourceParams , target , targetParams , kinds)
+        }
 }

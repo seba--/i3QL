@@ -1,5 +1,7 @@
 package unisson.ast
 
+import java.lang.IllegalStateException
+
 /**
  * 
  * Author: Ralf Mitschke
@@ -7,8 +9,10 @@ package unisson.ast
  *
  */
 
-case class DependencyConstraint()
+trait DependencyConstraint
     extends UnissonDefinition
 {
+    var source : Option[Ensemble] = None
 
+    var target : Option[Ensemble] = None
 }

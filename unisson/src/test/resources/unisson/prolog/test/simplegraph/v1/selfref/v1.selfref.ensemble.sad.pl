@@ -16,7 +16,7 @@
 :- discontiguous not_allowed/7.
 :- discontiguous expected/7.
 
-% Date <30/08/2011 10:42:27>.
+% Date <30/08/2011 14:43:41>.
 %------
 
 %------

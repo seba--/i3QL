@@ -12,7 +12,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_PYC4UtLjEeC42KfVP2e-2A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_PYC4U9LjEeC42KfVP2e-2A"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PYBqMdLjEeC42KfVP2e-2A" x="85" y="75" width="91" height="61"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PYBqMdLjEeC42KfVP2e-2A" x="60" y="55" width="91" height="61"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_NQTIsNLjEeC42KfVP2e-2A"/>
   </notation:Diagram>

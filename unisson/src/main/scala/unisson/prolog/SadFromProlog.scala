@@ -3,7 +3,8 @@ package unisson.prolog
 import parser.UnissonPrologParser
 import utils.ISOPrologStringConversion
 import java.io._
-import unisson.ast.{Ensemble, UnissonDefinition, UnissionQuery}
+import unisson.ast.{DependencyConstraint, Ensemble, UnissonDefinition, UnissionQuery}
+import java.lang.IllegalArgumentException
 
 /**
  * 
@@ -16,7 +17,9 @@ object SadFromProlog {
 
     private val ensembleFunctor = "ensemble"
 
-    private val dependencyConstraintFunctors = List("incoming", "outgoing", "not_allowed", "inAndOut")
+    private val dependencyConstraintFunctors = List("incoming", "outgoing", "not_allowed", "inAndOut", "expected")
+
+    private val parser = new UnissonPrologParser()
 
     def main (args: Array[String]) {
 
@@ -27,17 +30,18 @@ object SadFromProlog {
     def readSadFile( stream : InputStream ) : Seq[UnissonDefinition] =
     {
         val in = new BufferedReader(new InputStreamReader(stream))
+        var result : Seq[UnissonDefinition] = Nil
         while( in.ready )
         {
 
             val s = in.readLine();
             if( s.trim().length() > 0 && ! s.trim().startsWith("%") && ! s.trim().startsWith(":-") )
             {
-                readPrologLine(s)
+                result = result :+ readPrologLine(s)
             }
         }
 
-        Nil
+        result
     }
 
     def resourceAsStream(name : String) = {
@@ -45,32 +49,30 @@ object SadFromProlog {
     }
 
 
-    def readPrologLine(s: String)
+    def readPrologLine(s: String) : UnissonDefinition =
     {
         val functor = ISOPrologStringConversion.getFunctor(s)
         if( functor == ensembleFunctor )
         {
-            readEnsemble(s)
+            return readEnsemble(s)
         }
         else if( dependencyConstraintFunctors.contains(functor) )
         {
-            val compounds = ISOPrologStringConversion.getArgs(s)
-            readDependencyConstraint(functor, compounds)
+            return readDependencyConstraint(s)
         }
-
+        throw new IllegalArgumentException("can not parse the following string: " + s)
     }
 
     def readEnsemble(s : String) : Ensemble =
     {
-        val parser = new UnissonPrologParser()
         val result = parser.parse(parser.ensemble, s)
         result.get
-
     }
 
-    def readDependencyConstraint(functor:String, args: Array[String]) =
+    def readDependencyConstraint(s : String) : DependencyConstraint =
     {
-
+        val result = parser.parse(parser.dependencyConstraint, s)
+        result.get
     }
 
 
