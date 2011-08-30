@@ -8,7 +8,7 @@ package unisson.ast
  */
 
 case class ClassWithMembersQuery(packageName : String, name : String)
-    extends UnissionQuery
+    extends UnissonQuery
 {
 
 }

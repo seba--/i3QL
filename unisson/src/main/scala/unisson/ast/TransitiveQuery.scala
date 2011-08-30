@@ -7,8 +7,8 @@ package unisson.ast
  *
  */
 
-class TransitiveQuery( subQuery : UnissionQuery )
-    extends UnissionQuery
+class TransitiveQuery( subQuery : UnissonQuery )
+    extends UnissonQuery
 {
 
 }

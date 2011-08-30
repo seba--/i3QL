@@ -7,6 +7,6 @@ package unisson.ast
  *
  */
 
-trait UnissionQuery {
+trait UnissonQuery {
 
 }

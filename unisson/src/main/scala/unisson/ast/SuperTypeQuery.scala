@@ -7,8 +7,8 @@ package unisson.ast
  *
  */
 
-class SuperTypeQuery( subQuery : UnissionQuery)
-    extends UnissionQuery
+class SuperTypeQuery( subQuery : UnissonQuery)
+    extends UnissonQuery
 {
 
 }

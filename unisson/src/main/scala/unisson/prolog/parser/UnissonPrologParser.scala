@@ -34,20 +34,43 @@ class UnissonPrologParser
                         | failure("Illegal list")
                 )
 
-    def query: Parser[UnissionQuery] = "(" ~> singleQuery <~ ")"
 
-    def singleQuery: Parser[UnissionQuery] =
-        class_with_members |
-                `package`
+    def query: Parser[UnissonQuery] = unaryQuery ||| binaryQuery
+
+    def parensQuery: Parser[UnissonQuery] = "(" ~> query <~ ")"
+
+    def unaryQuery: Parser[UnissonQuery] =
+        parensQuery |
+        `package` |
+        class_with_members
+
+    def binaryQuery : Parser[UnissonQuery] =
+        or | without
+
+    def or : Parser[UnissonQuery] =
+        unaryQuery ~ ("or" ~> query) ^^
+                {
+                    case (left ~ right) => OrQuery(left, right)
+                }
+
+    def without : Parser[UnissonQuery] =
+        unaryQuery ~ ("without" ~> query) ^^
+                {
+                    case (left ~ right) => WithoutQuery(left, right)
+                }
 
 
-    def class_with_members: Parser[ClassWithMembersQuery] = "class_with_members(" ~> atom ~ ("," ~> atom <~ ")") ^^ {
-        case (packageName ~ name) => ClassWithMembersQuery(packageName, name)
-    }
+    def class_with_members: Parser[ClassWithMembersQuery] =
+        "class_with_members(" ~> atom ~ ("," ~> atom <~ ")") ^^
+            {
+                case (packageName ~ name) => ClassWithMembersQuery(packageName, name)
+            }
 
-    def `package` : Parser[PackageQuery] = "package(" ~> atom <~ ")" ^^ {
-        case (name) => PackageQuery(name)
-    }
+    def `package` : Parser[PackageQuery] =
+        "package(" ~> atom <~ ")" ^^
+                {
+                    case (name) => PackageQuery(name)
+                }
 
 
     def dependencyConstraint: Parser[DependencyConstraint] =
