@@ -125,4 +125,71 @@ class TestConstraintViolations
         )
 
     }
+
+    @Test
+    def testSimpleGraphOutgoingNoViolation()
+    {
+
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v3/directed/outgoing/v3.directed.outgoing.correct.sad.pl"
+                )
+            )
+        )
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.A],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.B],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.C],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.D]
+            )
+        ).processAllFacts()
+
+
+        assertEquals(0, checker.violations.size)
+
+    }
+
+    @Test
+    def testSimpleGraphOutgoingViolation()
+    {
+
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v3/directed/outgoing/v3.directed.outgoing.violation.sad.pl"
+                )
+            )
+        )
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.A],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.B],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.C],
+                classOf[unisson.test.simplegraph.v3.directed.outgoing.D]
+            )
+        ).processAllFacts()
+
+        checker.getEnsembles.foreach( (e:Ensemble) => println(checker.ensembleStatistic(e)))
+        checker.violations.foreach(println)
+
+
+
+
+    }
 }

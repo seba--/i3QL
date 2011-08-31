@@ -20,16 +20,11 @@ class ArchitectureChecker(val db: BytecodeDatabase)
 
     private var constraintViolations: Map[DependencyConstraint, QueryResult[Violation]] = Map()
 
-    private var allViolations = new QueryResult[Violation]
-    {
-        def lazyInitialize {}
-        protected def materialized_foreach[T](f : (Violation) => T) {}
-        protected def materialized_size : Int = 0
-        protected def materialized_singletonValue : Option[Violation] = None
-        protected def materialized_contains(v : Violation) : Boolean = false
-    }
+    private var allViolations : QueryResult[Violation] = null
 
     def getEnsembles = ensembles.keySet
+
+    def getConstraints = constraintViolations.keySet
 
     def ensembleStatistic(ensemble : Ensemble) =
 
@@ -71,13 +66,18 @@ class ArchitectureChecker(val db: BytecodeDatabase)
 
     def addConstraint(constraint: DependencyConstraint, query: LazyView[Violation])
     {
-        import RelationalAlgebraSyntax._
-
         constraintViolations += {
             constraint -> Conversions.lazyViewToResult(query)
         }
-        allViolations = allViolations ∪ query // union should yield all elements in foreach, as it just delegates to the underlying views, which are materialized
     }
+
+    def updateConstraint(constraint: DependencyConstraint, query: LazyView[Violation])
+    {
+
+        constraintViolations = constraintViolations.updated( constraint , Conversions.lazyViewToResult(query) )
+
+    }
+
 
 
     def hasConstraint(constraint: DependencyConstraint) = constraintViolations.isDefinedAt(constraint)
@@ -88,7 +88,28 @@ class ArchitectureChecker(val db: BytecodeDatabase)
 
     def violations: QueryResult[Violation] =
     {
+                import RelationalAlgebraSyntax._
+        if( allViolations == null ){
+            allViolations =
+            constraintViolations.values.foldLeft[QueryResult[Violation]](new ArchitectureChecker.EmptyResult[Violation])(
+                _ ∪ _ // union should yield all elements in foreach, as it just delegates to the underlying views, which are materialized
+            )
+        }
+
         allViolations
     }
 
+}
+
+object ArchitectureChecker
+{
+
+    class EmptyResult[V <: AnyRef] extends QueryResult[V]
+    {
+        def lazyInitialize {}
+        protected def materialized_foreach[T](f : (V) => T) {}
+        protected def materialized_size : Int = 0
+        protected def materialized_singletonValue : Option[V] = None
+        protected def materialized_contains(v : V) : Boolean = false
+    }
 }

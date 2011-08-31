@@ -25,7 +25,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_zpBkxNOsEeCe8ZvrJz7RPQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_zpBkxdOsEeCe8ZvrJz7RPQ"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zpA9sdOsEeCe8ZvrJz7RPQ" x="225" y="150"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zpA9sdOsEeCe8ZvrJz7RPQ" x="225" y="180"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_uHZvQtOsEeCe8ZvrJz7RPQ"/>
     <edges xmi:type="notation:Edge" xmi:id="_28eSgNOsEeCe8ZvrJz7RPQ" type="4005" element="_28bPMNOsEeCe8ZvrJz7RPQ" source="_xac0YNOsEeCe8ZvrJz7RPQ" target="_zpA9sNOsEeCe8ZvrJz7RPQ">

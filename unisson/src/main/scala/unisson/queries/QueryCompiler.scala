@@ -1,10 +1,11 @@
 package unisson.queries
 
-import sae.LazyView
 import sae.bytecode.BytecodeDatabase
 import unisson.ast._
 import unisson.{Violation, ArchitectureChecker, Queries, SourceElement}
 import sae.bytecode.model.dependencies.{return_type, parameter, Dependency}
+import sae.collections.{BagResult, QueryResult}
+import sae.{Observer, LazyView}
 
 /**
  * 
@@ -39,9 +40,32 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
     def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
     {
-
+        import sae.syntax.RelationalAlgebraSyntax._
         val query = compileUnissonQuery(ensemble.query)
         checker.addEnsemble(ensemble, query)
+
+        // all outgoing constraints that did not yet have this ensemble included need to append this ensemble
+
+        val outgoingConstraints = checker.getConstraints.collect{case out : OutgoingConstraint => out}
+
+
+        for( out <- outgoingConstraints )
+        {
+            val dependencyRelation = kindAsDependency(out.kind)
+            val oldResult = checker.violations(out).asInstanceOf[BagResult[Violation]]
+            oldResult.relation.removeObserver(oldResult)
+            val newQuery = oldResult.relation match
+            {
+                case p @ Π(func,oldQuery:LazyView[Dependency[AnyRef, AnyRef]]) =>
+                    {
+                        p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
+                        Π(func)(oldQuery ∩ ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), query)))
+                    }
+            }
+
+            checker.updateConstraint(out, newQuery)
+        }
+
         query
     }
 
@@ -87,17 +111,47 @@ class QueryCompiler(val checker : ArchitectureChecker)
         violations
     }
 
-    def createOutgoingQuery(constraint:OutgoingConstraint): LazyView[SourceElement[AnyRef]] =
+    def createOutgoingQuery(constraint:OutgoingConstraint): LazyView[Violation] =
+    {
+        import sae.syntax.RelationalAlgebraSyntax._
+        val dependencyRelation = kindAsDependency(constraint.kind)
+        val sourceQuery =  existingQuery(constraint.source).getOrElse(createEnsembleQuery(constraint.source))
+
+        var query = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
+        ( (dependencyRelation, Queries.target(_)) ⊳ (identity(_:SourceElement[AnyRef]), sourceQuery) )
+
+        constraint.targets.foreach(
+            (target : Ensemble) =>
+            {
+                val targetQuery = existingQuery(target).getOrElse(createEnsembleQuery(target))
+                query = query ∩
+                ((dependencyRelation, Queries.target(_)) ⊳ (identity(_:SourceElement[AnyRef]), targetQuery))
+            }
+        )
+
+        val otherEnsembles =
+            for( ensemble <- checker.getEnsembles; if(!constraint.targets.contains(ensemble)) )
+                yield checker.ensembleElements(ensemble)
+
+        val restQuery = otherEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
+
+        query = query ∩
+            ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), restQuery))
+
+        // TODO currently we do not resolve targets as ensembles for the constraint.
+        // potentially the element can belong to more than one ensemble
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), None, Queries.target(d), constraint, constraint.kind) )(query)
+
+        checker.addConstraint(constraint, violations)
+        violations
+    }
+
+    def createNotAllowedQuery(constraint:NotAllowedConstraint): LazyView[Violation] =
     {
         null
     }
 
-    def createNotAllowedQuery(constraint:NotAllowedConstraint): LazyView[SourceElement[AnyRef]] =
-    {
-        null
-    }
-
-    def createExpectedQuery(constraint:ExpectedConstraint): LazyView[SourceElement[AnyRef]] =
+    def createExpectedQuery(constraint:ExpectedConstraint): LazyView[Violation] =
     {
         null
     }

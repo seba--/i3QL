@@ -1,5 +1,5 @@
 %------
-% Prolog based representation of the Vespucci architecture diagram: D:/workspace/sae/unisson/src/test/resources/unisson/prolog/test/simplegraph/v3/directed/incoming/v3.directed.incoming.violation_form_cloud.sad
+% Prolog based representation of the Vespucci architecture diagram: D:/workspace/sae/unisson/src/test/resources/unisson/prolog/test/simplegraph/v3/directed/incoming/v3.directed.incoming.violation_from_cloud.sad
 % Created by Vespucci, Technische Universität Darmstadt, Department of Computer Science
 % www.opal-project.de
 
@@ -16,7 +16,7 @@
 :- discontiguous not_allowed/7.
 :- discontiguous expected/7.
 
-% Date <31/08/2011 10:42:58>.
+% Date <31/08/2011 17:50:29>.
 %------
 
 %------
@@ -27,8 +27,8 @@
 %	Query - Query that determines which source elements belong to the ensemble
 %	SubEnsembles - List of all sub ensembles of this ensemble
 %------
-ensemble('v3.directed.incoming.violation_form_cloud.sad', 'A', [], (class_with_members('unisson.test.simplegraph.v3.directed.incoming','A') ), []).
-ensemble('v3.directed.incoming.violation_form_cloud.sad', 'C', [], (class_with_members('unisson.test.simplegraph.v3.directed.incoming','C') ), []).
+ensemble('v3.directed.incoming.violation_from_cloud.sad', 'A', [], (class_with_members('unisson.test.simplegraph.v3.directed.incoming','A') ), []).
+ensemble('v3.directed.incoming.violation_from_cloud.sad', 'C', [], (class_with_members('unisson.test.simplegraph.v3.directed.incoming','C') ), []).
 
 %------
 %DEPENDENCY(File, ID, SourceE, SourceE Parameter, TargetE, TargetE Parameter, Type) :- Definition of a dependency between two ensembles.
@@ -41,4 +41,4 @@ ensemble('v3.directed.incoming.violation_form_cloud.sad', 'C', [], (class_with_m
 %	TargetE Parameter - Parameter of the target ensemble
 %	Relation classifier - Kinds of uses-relation between source and target ensemble (all, field_access, method_call,...)
 %------
-incoming('v3.directed.incoming.violation_form_cloud.sad', 1, 'A', [], 'C', [], [all]).
+incoming('v3.directed.incoming.violation_from_cloud.sad', 1, 'A', [], 'C', [], [all]).
