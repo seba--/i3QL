@@ -39,16 +39,10 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
     def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
     {
-        if( checker.hasEnsemble(ensemble) )
-        {
-            checker.ensembleElements(ensemble)
-        }
-        else
-        {
-            val query = compileUnissonQuery(ensemble.query)
-            checker.addEnsemble(ensemble, query)
-            query
-        }
+
+        val query = compileUnissonQuery(ensemble.query)
+        checker.addEnsemble(ensemble, query)
+        query
     }
 
     def compileUnissonQuery(query : UnissonQuery) : LazyView[SourceElement[AnyRef]] =
@@ -87,7 +81,10 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         // TODO currently we do not resolve sources as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
-        Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, constraint.kind) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, constraint.kind) )(query)
+
+        checker.addConstraint(constraint, violations)
+        violations
     }
 
     def createOutgoingQuery(constraint:OutgoingConstraint): LazyView[SourceElement[AnyRef]] =
@@ -106,7 +103,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
     }
 
 /**
- * The follwoing depdency kinds are supported
+ * The following dependency kinds are supported
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
  *  field_type(Field, Class)

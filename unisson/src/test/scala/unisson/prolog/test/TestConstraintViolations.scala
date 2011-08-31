@@ -1,11 +1,14 @@
 package unisson.prolog.test
 
 import org.junit.Test
+import org.junit.Assert._
 import unisson.prolog.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
+import sae.bytecode.model._
 import unisson.queries.QueryCompiler
-import unisson.ArchitectureChecker
-import unisson.ast.Ensemble
+import unisson._
+import unisson.ast._
+import de.tud.cs.st.bat.ObjectType
 
 /**
  *
@@ -41,9 +44,11 @@ class TestConstraintViolations
             )
         ).processAllFacts()
 
-        checker.getEnsembles.foreach( (e:Ensemble) => println(checker.ensembleStatistic(e)))
+        /*
+        checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
         checker.violations.foreach(println)
-
+        */
+        assertEquals(0, checker.violations.size)
     }
 
     @Test
@@ -72,9 +77,52 @@ class TestConstraintViolations
             )
         ).processAllFacts()
 
-
+        /*
         checker.getEnsembles.foreach( (e:Ensemble) => println(checker.ensembleStatistic(e)))
         checker.violations.foreach(println)
+        */
+
+        assertEquals(1, checker.violations.size)
+
+        val violation = checker.violations.singletonValue.get
+        assertEquals(
+            Violation(
+                None,
+                SourceElement(
+                    Field(
+                        ObjectType("unisson/test/simplegraph/v3/directed/incoming/B"),
+                        "fieldRef",
+                        ObjectType("unisson/test/simplegraph/v3/directed/incoming/C")
+                    )
+                ),
+                Some(
+                    Ensemble(
+                        "C",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        List()
+                    )
+                ),
+                SourceElement(ObjectType("unisson/test/simplegraph/v3/directed/incoming/C")),
+                IncomingConstraint(
+                    List(
+                        Ensemble(
+                            "A",
+                            ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "A")),
+                            List()
+                        )
+                    ),
+                    Ensemble(
+                        "C",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        List()
+                    ),
+                    "all"
+                ),
+                "all"
+            ),
+
+            violation
+        )
 
     }
 }
