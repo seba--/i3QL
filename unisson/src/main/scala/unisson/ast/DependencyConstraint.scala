@@ -12,19 +12,5 @@ import java.lang.IllegalStateException
 trait DependencyConstraint
     extends UnissonDefinition
 {
-    val architecture: String
 
-    val sourceName: String
-
-    val sourceParams: List[String]
-
-    val targetName: String
-
-    val targetParams: List[String]
-
-    val kinds: List[String]
-
-    var source : Option[Ensemble] = None
-
-    var target : Option[Ensemble] = None
 }

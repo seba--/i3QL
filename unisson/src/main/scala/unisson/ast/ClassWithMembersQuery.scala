@@ -7,7 +7,7 @@ package unisson.ast
  *
  */
 
-case class ClassWithMembersQuery(packageName : String, name : String)
+case class ClassWithMembersQuery(classQuery : UnissonQuery)
     extends UnissonQuery
 {
 

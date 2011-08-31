@@ -8,7 +8,7 @@ package unisson.ast
  */
 
 case class ExpectedConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
-        extends DependencyConstraint
+        extends SingleDependencyConstraint
 {
 
 }

@@ -13,7 +13,8 @@ import unisson.ast._
  *
  */
 
-object SadFromProlog {
+object CheckArchitectureFromProlog {
+
 
     private val ensembleFunctor = "ensemble"
 
@@ -41,9 +42,7 @@ object SadFromProlog {
             }
         }
 
-        result.foreach(ResolveAST(_, result))
-
-        result
+        ResolveAST(result)
     }
 
     def resourceAsStream(name : String) = {
@@ -53,6 +52,7 @@ object SadFromProlog {
 
     def readPrologLine(s: String) : UnissonDefinition =
     {
+        // TODO move functor recognition to the parser
         val functor = ISOPrologStringConversion.getFunctor(s)
         if( functor == ensembleFunctor )
         {

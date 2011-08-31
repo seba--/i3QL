@@ -11,11 +11,100 @@ package unisson.ast
 
 object ResolveAST {
 
-    def apply(elem : UnissonDefinition, rest: Seq[UnissonDefinition])
+
+    def apply(elements: Seq[UnissonDefinition]) : Seq[UnissonDefinition] =
+    {
+        elements.foreach(resolve(_, elements))
+        val filtered = elements.filter( _ match
+            {
+                case i:SingleIncomingConstraint => false
+                case i:SingleOutgoingConstraint => false
+                case _=> true
+            }
+        )
+
+        filtered.flatMap( _ match
+            {
+                case e: Ensemble => resolveIncomingAndOutgoing(e) :+ e
+                case elem => List(elem)
+            }
+        )
+    }
+
+
+    private def resolveIncomingAndOutgoing(ensemble :Ensemble) : Seq[UnissonDefinition] =
+    {
+        val outgoing = ensemble.outgoingConnections.collect{ case i:SingleOutgoingConstraint => i }
+
+        val incoming = ensemble.incomingConnections.collect{ case i:SingleIncomingConstraint => i }
+
+        ensemble.outgoingConnections = ensemble.outgoingConnections.filter( _ match
+            {
+                // incoming and outgoing are both edged and must be removed from both sides
+                case i:SingleOutgoingConstraint => false
+                case i:SingleIncomingConstraint => false
+                case _=> true
+            }
+        )
+
+        ensemble.incomingConnections = ensemble.incomingConnections.filter( _ match
+            {
+                // incoming and outgoing are both edged and must be removed from both sides
+                case i:SingleOutgoingConstraint => false
+                case i:SingleIncomingConstraint => false
+                case _=> true
+            }
+        )
+
+        val resolvedOutgoing =
+            for( kind <- outgoing.flatMap( _.kinds ).distinct )
+                yield
+                    OutgoingConstraint(ensemble,
+                            for{
+                                out <- outgoing
+                                if( out.kinds.contains(kind) )
+                                target <- out.target
+                            } yield target
+                            ,
+                            kind
+                    )
+
+        ensemble.outgoingConnections = ensemble.outgoingConnections ++ resolvedOutgoing
+
+        for{ con <- resolvedOutgoing
+               target <- con.targets
+        }{
+            target.incomingConnections = target.incomingConnections :+ con
+        }
+
+        val resolvedIncoming = for( kind <- incoming.flatMap( _.kinds ).distinct )
+            yield IncomingConstraint(
+                            for{
+                                in <- incoming
+                                if( in.kinds.contains(kind) )
+                                source <- in.source
+                            } yield source
+                            , ensemble,
+                            kind
+                    )
+
+        ensemble.incomingConnections = ensemble.incomingConnections ++ resolvedIncoming
+
+        for{ con <- resolvedIncoming
+               source <- con.sources
+        }{
+            source.outgoingConnections = source.outgoingConnections :+ con
+        }
+
+        resolvedIncoming ++ resolvedOutgoing
+    }
+
+
+    private def resolve(elem : UnissonDefinition, rest: Seq[UnissonDefinition])
     {
         elem match {
             case e: Ensemble => resolveEnsemble(e, rest)
-            case d: DependencyConstraint => resolveConstraint(d, rest)
+            case d: SingleDependencyConstraint => resolveConstraint(d, rest)
 
         }
     }
@@ -25,9 +114,9 @@ object ResolveAST {
 
         for( elem <- rest )
         {
-            if( elem.isInstanceOf[DependencyConstraint])
+            if( elem.isInstanceOf[SingleDependencyConstraint])
             {
-                connect(ensemble, elem.asInstanceOf[DependencyConstraint])
+                connect(ensemble, elem.asInstanceOf[SingleDependencyConstraint])
             }
             if( elem.isInstanceOf[Ensemble])
             {
@@ -37,7 +126,7 @@ object ResolveAST {
 
     }
 
-    private def resolveConstraint(constraint : DependencyConstraint, rest: Seq[UnissonDefinition])
+    private def resolveConstraint(constraint : SingleDependencyConstraint, rest: Seq[UnissonDefinition])
     {
         for( e @ Ensemble(_,_,_) <- rest)
         {
@@ -46,15 +135,15 @@ object ResolveAST {
     }
 
 
-    def connect(ensemble: Ensemble, constraint:DependencyConstraint)
+    def connect(ensemble: Ensemble, constraint:SingleDependencyConstraint)
     {
         if( constraint.sourceName == ensemble.name )
         {
             constraint.source = Some(ensemble)
 
-            if( !ensemble.outgoingConstraints.contains(constraint) )
+            if( !ensemble.outgoingConnections.contains(constraint) )
             {
-                ensemble.outgoingConstraints = ensemble.outgoingConstraints :+ constraint
+                ensemble.outgoingConnections = ensemble.outgoingConnections :+ constraint
             }
 
         }
@@ -62,9 +151,9 @@ object ResolveAST {
         {
             constraint.target = Some(ensemble)
 
-            if( !ensemble.incomingConstraints.contains(constraint) )
+            if( !ensemble.incomingConnections.contains(constraint) )
             {
-                ensemble.incomingConstraints = ensemble.incomingConstraints :+ constraint
+                ensemble.incomingConnections = ensemble.incomingConnections :+ constraint
             }
         }
     }

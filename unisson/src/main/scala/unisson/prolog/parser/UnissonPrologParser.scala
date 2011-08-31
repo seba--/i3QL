@@ -63,7 +63,7 @@ class UnissonPrologParser
     def class_with_members: Parser[ClassWithMembersQuery] =
         "class_with_members(" ~> atom ~ ("," ~> atom <~ ")") ^^
             {
-                case (packageName ~ name) => ClassWithMembersQuery(packageName, name)
+                case (packageName ~ name) => ClassWithMembersQuery(ClassQuery(packageName, name))
             }
 
     def `package` : Parser[PackageQuery] =
@@ -83,7 +83,7 @@ class UnissonPrologParser
     def incoming: Parser[DependencyConstraint] =
         "incoming(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                IncomingConstraint(
+                SingleIncomingConstraint(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],
@@ -96,7 +96,7 @@ class UnissonPrologParser
     def outgoing: Parser[DependencyConstraint] =
         "outgoing(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                OutgoingConstraint(
+                SingleOutgoingConstraint(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],

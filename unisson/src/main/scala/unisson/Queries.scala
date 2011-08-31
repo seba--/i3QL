@@ -17,13 +17,13 @@ import sae.operators.BagUnion
 class Queries( val db : BytecodeDatabase )
 {
 
-    // TODO
+    def supertype( target : LazyView[SourceElement[AnyRef]]) = null
     /*
-    def supertype( target : LazyView[SourceElement[AnyRef]]) =
         Π[`extends`, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:`extends`).source) }(
             (db.`extends`, target _) ⊳ ((_:SourceElement[AnyRef]).element, target)
         )
     */
+
     def `class`(packageName : String, name : String) : LazyView[SourceElement[AnyRef]] =
 Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (o:ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == fromJava(name) )}(db.classfiles))
 

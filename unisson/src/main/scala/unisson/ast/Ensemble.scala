@@ -10,9 +10,9 @@ package unisson.ast
 case class Ensemble(name : String, query : UnissonQuery, subEnsembleNames : Seq[String])
     extends UnissonDefinition
 {
-    var outgoingConstraints : Seq[DependencyConstraint] = Nil
+    var outgoingConnections : Seq[DependencyConstraint] = Nil
 
-    var incomingConstraints : Seq[DependencyConstraint] = Nil
+    var incomingConnections : Seq[DependencyConstraint] = Nil
 
     var childEnsembles : Seq[Ensemble] = Nil
 

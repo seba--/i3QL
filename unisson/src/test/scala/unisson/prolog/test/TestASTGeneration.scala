@@ -13,7 +13,7 @@ import unisson.ast._
 
 class TestASTGeneration {
 
-    import unisson.prolog.SadFromProlog._
+    import unisson.prolog.CheckArchitectureFromProlog._
 
     @Test
     def testSimpleGraphV1()
@@ -22,7 +22,7 @@ class TestASTGeneration {
         val definitions = readSadFile(resourceAsStream("unisson/prolog/test/simplegraph/v1/selfref/v1.selfref.ensemble.sad.pl"))
         val A = definitions.collectFirst{ case e @ Ensemble("A",_,_) => e }
         assertTrue( A != None )
-        assertEquals( ClassWithMembersQuery("opal.test.simplegraph.v1.selfref","A"), A.get.query )
+        assertEquals( ClassWithMembersQuery(ClassQuery("opal.test.simplegraph.v1.selfref","A")), A.get.query )
     }
 
     @Test
@@ -33,13 +33,13 @@ class TestASTGeneration {
 
         val A = definitions.collectFirst{ case e @ Ensemble("A",_,_) => e }
         assertTrue( A != None )
-        assertEquals( ClassWithMembersQuery("opal.test.simplegraph.v2.cycle","A"), A.get.query )
+        assertEquals( ClassWithMembersQuery(ClassQuery("opal.test.simplegraph.v2.cycle","A")), A.get.query )
 
 
 
         val B = definitions.collectFirst{ case e @ Ensemble("B",_,_) => e }
         assertTrue( B != None )
-        assertEquals( ClassWithMembersQuery("opal.test.simplegraph.v2.cycle","B"), B.get.query )
+        assertEquals( ClassWithMembersQuery(ClassQuery("opal.test.simplegraph.v2.cycle","B")), B.get.query )
 
 
 

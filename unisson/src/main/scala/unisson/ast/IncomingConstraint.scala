@@ -7,7 +7,7 @@ package unisson.ast
  *
  */
 
-case class IncomingConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
+case class IncomingConstraint(sources:  Seq[Ensemble], target: Ensemble, kind: String)
     extends DependencyConstraint
 {
 

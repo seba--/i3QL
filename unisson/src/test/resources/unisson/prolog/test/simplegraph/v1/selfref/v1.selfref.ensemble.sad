@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
   <ShapesDiagram xmi:id="_NQR6kNLjEeC42KfVP2e-2A">
-    <shapes xmi:type="Ensemble" xmi:id="_PX8xsNLjEeC42KfVP2e-2A" name="A" description="" query="class_with_members('opal.test.simplegraph.v1.selfref','A')"/>
+    <shapes xmi:type="Ensemble" xmi:id="_PX8xsNLjEeC42KfVP2e-2A" name="A" description="" query="class_with_members('unisson.test.simplegraph.v1.selfref','A')"/>
   </ShapesDiagram>
   <notation:Diagram xmi:id="_NQShoNLjEeC42KfVP2e-2A" type="Vespucci" element="_NQR6kNLjEeC42KfVP2e-2A" name="v1.selfref.ensemble.sad" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_PYBqMNLjEeC42KfVP2e-2A" type="2001" element="_PX8xsNLjEeC42KfVP2e-2A" fontName="Segoe UI">
