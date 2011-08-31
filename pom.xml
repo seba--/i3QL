@@ -24,14 +24,15 @@
     </repositories>
 
     <modules>
-        <module>proto</module>
-        <module>proto-bytecode-database</module>
-        <module>proto-bytecode-reader</module>
-        <module>proto-further-functionality</module>
-        <module>proto-profiler</module>
-        <module>proto-test-client</module>
-        <module>proto-test-data</module>
-        <module>proto-unisson</module>
+        <module>core</module>
+        <module>bytecode-database-rel</module>
+        <module>bytecode-database-oo</module>
+        <module>bytecode-reader</module>
+        <module>further-functionality</module>
+        <module>profiler</module>
+        <module>test-client</module>
+        <module>test-data</module>
+        <module>unisson</module>
     </modules>
 
     <build>

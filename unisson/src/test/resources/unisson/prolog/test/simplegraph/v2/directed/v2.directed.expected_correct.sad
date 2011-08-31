@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <ShapesDiagram xmi:id="_r_m_kPJQEd-yZO2-1zaJIg">
+    <shapes xmi:type="Ensemble" xmi:id="_sU2PwPJQEd-yZO2-1zaJIg" name="A" query="class_with_members('opal.test.simplegraph.v2.directed','A')">
+      <targetConnections xmi:type="Expected" xmi:id="_Ht9V8PJREd-yZO2-1zaJIg" source="_sU2PwPJQEd-yZO2-1zaJIg" target="_s0R9wPJQEd-yZO2-1zaJIg"/>
+    </shapes>
+    <shapes xmi:type="Ensemble" xmi:id="_s0R9wPJQEd-yZO2-1zaJIg" name="B" query="class_with_members('opal.test.simplegraph.v2.directed','B')"/>
+  </ShapesDiagram>
+  <notation:Diagram xmi:id="_r_nmoPJQEd-yZO2-1zaJIg" type="Vespucci" element="_r_m_kPJQEd-yZO2-1zaJIg" name="not_allowed.sad" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_sU56IPJQEd-yZO2-1zaJIg" type="2001" element="_sU2PwPJQEd-yZO2-1zaJIg" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_sU6hMPJQEd-yZO2-1zaJIg" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_sU7IQPJQEd-yZO2-1zaJIg" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sU56IfJQEd-yZO2-1zaJIg" x="205" y="95"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_s0Sk0PJQEd-yZO2-1zaJIg" type="2001" element="_s0R9wPJQEd-yZO2-1zaJIg" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_s0TL4fJQEd-yZO2-1zaJIg" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_s0Ty8PJQEd-yZO2-1zaJIg" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s0TL4PJQEd-yZO2-1zaJIg" x="205" y="175"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_r_nmofJQEd-yZO2-1zaJIg"/>
+    <edges xmi:type="notation:Edge" xmi:id="_HuBnYPJREd-yZO2-1zaJIg" type="4002" element="_Ht9V8PJREd-yZO2-1zaJIg" source="_sU56IPJQEd-yZO2-1zaJIg" target="_s0Sk0PJQEd-yZO2-1zaJIg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_HuCOcPJREd-yZO2-1zaJIg" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HuCOcfJREd-yZO2-1zaJIg" x="2" y="-20"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_HuBnYfJREd-yZO2-1zaJIg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_HuBnYvJREd-yZO2-1zaJIg" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HuBnY_JREd-yZO2-1zaJIg" points="[0, 36, 0, -45]$[5, 76, 5, -5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HuFRwPJREd-yZO2-1zaJIg" id="(0.875,0.1)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HuF40PJREd-yZO2-1zaJIg" id="(0.875,0.125)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

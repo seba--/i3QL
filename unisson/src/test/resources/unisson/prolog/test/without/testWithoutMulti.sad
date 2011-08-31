@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://vespucci.editor" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <ShapesDiagram xmi:id="_PLN4AGD6EeCOYcN1QQ3S6Q">
+    <shapes xmi:type="Ensemble" xmi:id="_CWpj4GD7EeCOYcN1QQ3S6Q" name="pb.B2" query="class_with_members('pb','B2')&#xA;">
+      <targetConnections xmi:type="NotAllowed" xmi:id="_Hnkq8GD7EeCOYcN1QQ3S6Q" source="_CWpj4GD7EeCOYcN1QQ3S6Q" target="_DrZwUGD7EeCOYcN1QQ3S6Q"/>
+    </shapes>
+    <shapes xmi:type="Ensemble" xmi:id="_DrZwUGD7EeCOYcN1QQ3S6Q" name="pa" query="(package('pa')&#xD;&#xA;without class('pa','ClassA1'))&#xD;&#xA;without class('pa','ClassA2')&#xD;&#xA;"/>
+  </ShapesDiagram>
+  <notation:Diagram xmi:id="_PLN4AWD6EeCOYcN1QQ3S6Q" type="Vespucci" element="_PLN4AGD6EeCOYcN1QQ3S6Q" name="testWithoutMulti.sad" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_CW1KEGD7EeCOYcN1QQ3S6Q" type="2001" element="_CWpj4GD7EeCOYcN1QQ3S6Q" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_CW2YMGD7EeCOYcN1QQ3S6Q" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_CW2YMWD7EeCOYcN1QQ3S6Q" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CW1KEWD7EeCOYcN1QQ3S6Q" x="142" y="180" width="111"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_DrczoGD7EeCOYcN1QQ3S6Q" type="2001" element="_DrZwUGD7EeCOYcN1QQ3S6Q" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_DreBwGD7EeCOYcN1QQ3S6Q" type="5001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_DreBwWD7EeCOYcN1QQ3S6Q" type="7001"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DrczoWD7EeCOYcN1QQ3S6Q" x="372" y="180" width="141"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VFX3YGD8EeCOYcN1QQ3S6Q" type="Note" fontName="Segoe UI" description="No violations should be thrown because ClassA1 and ClassA2 were filtered out" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_VFYecGD8EeCOYcN1QQ3S6Q" type="DiagramName">
+        <element xsi:nil="true"/>
+      </children>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_VFYecWD8EeCOYcN1QQ3S6Q" type="Description">
+        <element xsi:nil="true"/>
+      </children>
+      <styles xmi:type="notation:TextStyle" xmi:id="_VFYecmD8EeCOYcN1QQ3S6Q"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_VFYec2D8EeCOYcN1QQ3S6Q"/>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VFYedGD8EeCOYcN1QQ3S6Q" x="696" y="180" width="265"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_PLN4AmD6EeCOYcN1QQ3S6Q"/>
+    <edges xmi:type="notation:Edge" xmi:id="_Hnr_sGD7EeCOYcN1QQ3S6Q" type="4004" element="_Hnkq8GD7EeCOYcN1QQ3S6Q" source="_CW1KEGD7EeCOYcN1QQ3S6Q" target="_DrczoGD7EeCOYcN1QQ3S6Q">
+      <children xmi:type="notation:DecorationNode" xmi:id="_HnvqEGD7EeCOYcN1QQ3S6Q" type="6004">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HnvqEWD7EeCOYcN1QQ3S6Q" x="-7" y="-7"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_Hnr_sWD7EeCOYcN1QQ3S6Q"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_Hnr_smD7EeCOYcN1QQ3S6Q" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Hnr_s2D7EeCOYcN1QQ3S6Q" points="[0, 0, -140, 27]$[134, -29, -6, -2]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HoJ5wGD7EeCOYcN1QQ3S6Q" id="(0.990990990990991,0.225)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HoJ5wWD7EeCOYcN1QQ3S6Q" id="(0.14893617021276595,0.05)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>
