@@ -37,6 +37,13 @@ class QueryCompiler(val checker : ArchitectureChecker)
         }
     }
 
+    /**
+     * call this method to indicate that no more ensembles are forthcoming
+     * This is required to close the Outgoing constraints
+     */
+    def closeWorld() {
+
+    }
 
     def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
     {
@@ -130,13 +137,17 @@ class QueryCompiler(val checker : ArchitectureChecker)
         )
 
         val otherEnsembles =
-            for( ensemble <- checker.getEnsembles; if(!constraint.targets.contains(ensemble)) )
-                yield checker.ensembleElements(ensemble)
+            for{ ensemble <- checker.getEnsembles
+                 if(constraint.source != ensemble)
+                 if(!constraint.targets.contains(ensemble))
+            }
+                yield existingQuery(ensemble).getOrElse(createEnsembleQuery(ensemble))
 
         val restQuery = otherEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
 
         query = query ∩
-            ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), restQuery))
+                ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), restQuery))
+
 
         // TODO currently we do not resolve targets as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
@@ -213,9 +224,11 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         if( checker.hasConstraint(c) )
         {
-            checker.violations(c)
+            Some(checker.violations(c))
         }
-        None
+        else{
+            None
+        }
     }
 
     private def existingQuery(e : Ensemble) : Option[LazyView[SourceElement[AnyRef]]] =
@@ -223,9 +236,11 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         if( checker.hasEnsemble(e) )
         {
-            checker.ensembleElements(e)
+            Some(checker.ensembleElements(e))
         }
-        None
+        else{
+            None
+        }
     }
 }
 

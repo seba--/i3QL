@@ -74,7 +74,9 @@ class ArchitectureChecker(val db: BytecodeDatabase)
     def updateConstraint(constraint: DependencyConstraint, query: LazyView[Violation])
     {
 
-        constraintViolations = constraintViolations.updated( constraint , Conversions.lazyViewToResult(query) )
+        constraintViolations = (constraintViolations - constraint)
+        constraintViolations += {  constraint -> Conversions.lazyViewToResult(query) }
+        //constraintViolations = constraintViolations.updated( constraint , Conversions.lazyViewToResult(query) )
 
     }
 

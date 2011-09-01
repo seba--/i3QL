@@ -1,6 +1,6 @@
 package unisson.prolog.test
 
-import org.junit.Test
+import org.junit.{Test, Ignore}
 import org.junit.Assert._
 import unisson.prolog.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
@@ -9,7 +9,6 @@ import unisson.queries.QueryCompiler
 import unisson._
 import unisson.ast._
 import de.tud.cs.st.bat.ObjectType
-
 /**
  *
  * Author: Ralf Mitschke
@@ -126,6 +125,7 @@ class TestConstraintViolations
 
     }
 
+
     @Test
     def testSimpleGraphOutgoingNoViolation()
     {
@@ -153,7 +153,7 @@ class TestConstraintViolations
             )
         ).processAllFacts()
 
-
+        checker.violations.foreach(println)
         assertEquals(0, checker.violations.size)
 
     }
@@ -161,7 +161,6 @@ class TestConstraintViolations
     @Test
     def testSimpleGraphOutgoingViolation()
     {
-
         val db = new BytecodeDatabase()
 
         val checker = new ArchitectureChecker(db)
@@ -176,6 +175,19 @@ class TestConstraintViolations
             )
         )
 
+        /*
+        val A = checker.getEnsembles.collectFirst{ case e @ Ensemble("A",_,_) => e }.get
+        val B = checker.getEnsembles.collectFirst{ case e @ Ensemble("B",_,_) => e }.get
+        val C = checker.getEnsembles.collectFirst{ case e @ Ensemble("C",_,_) => e }.get
+
+        val dependencyRelation = checker.db.dependency
+        val query = Conversions.lazyViewToResult(
+            ((dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), checker.ensembleElements(A)) ) ∩
+        ( (dependencyRelation, Queries.target(_)) ⊳ (identity(_:SourceElement[AnyRef]), checker.ensembleElements(A)) )∩
+        ((dependencyRelation, Queries.target(_)) ⊳ (identity(_:SourceElement[AnyRef]), checker.ensembleElements(B))) ∩
+        ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), checker.ensembleElements(C))))
+        */
+
         db.transformerForClasses(
             Array(
                 classOf[unisson.test.simplegraph.v3.directed.outgoing.A],
@@ -185,10 +197,46 @@ class TestConstraintViolations
             )
         ).processAllFacts()
 
-        checker.getEnsembles.foreach( (e:Ensemble) => println(checker.ensembleStatistic(e)))
-        checker.violations.foreach(println)
+        //checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
 
 
+        assertEquals(
+            Violation(
+                Some(
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        List()
+                    )
+                ),
+                SourceElement(
+                    Field(
+                        ObjectType("unisson/test/simplegraph/v3/directed/outgoing/A"),
+                        "fieldRefC",
+                        ObjectType("unisson/test/simplegraph/v3/directed/outgoing/C")
+                    )
+                ),
+                None,
+                SourceElement(ObjectType("unisson/test/simplegraph/v3/directed/outgoing/C")),
+                OutgoingConstraint(
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        List()
+                    ),
+                    List(
+                        Ensemble(
+                            "B",
+                            ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "B")),
+                            List()
+                        )
+                    ),
+                    "all"
+                ),
+                "all"
+            ),
+            checker.violations.singletonValue.get
+        )
 
 
     }
