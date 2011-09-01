@@ -31,32 +31,14 @@ import scala.math.Numeric
  */
 
 object OpenEncoding {
-  trait Exp[+T] {
-    def interpret: T
+  trait ExpModule {
+    trait Exp[+T] {
+      def interpret: T
+    }
   }
 
-  //When building an expression, we need to construct the right object, but I think that a
-  //trick like CanBuildFrom should work.
-  //Note: To is supposed to be a subclass of Exp[Elem], but the following
-  //declaration does not compile because of variance problems - I should make
-  //Elem invariant, which is not what I want:
-  //trait CanBuildExp[-Elem, +To <: Exp[Elem]]
-
-  //Instances work as implicit conversions themselves because this trait extends Function.
-  trait CanBuildExp[-Elem, +To] extends (Exp[Elem] => To) {
-    def apply(e: Exp[Elem]): To
-  }
-  //XXX: in comparison to Scala collection, we are less flexible - if you upcast a value, a different implicit might be selected, leading to different code being executed.
-  //In Scala, implicits are used just to have a finer static type, but the actual code to be executed is chosen at runtime - most instances of CanBuildFrom delegate construction to the original collection!
-  //However, having a precise static type determines which operations are available. So, even if we make our code more dynamic like for Scala collections, we still need to ensure the best static types are inferred.
-  //Moreover, in the current implementation I need to use wrapper nodes; while they probably cannot be avoided altogether, we should save a few of them - in particular, instead of App nodes we should
-  //use specialized Map, FlatMap and WithFilter nodes, extending TraversableExp.
-
-  class ExpWrapper[+T](t: Exp[T]) extends Exp[T] {
-    def interpret = t.interpret
-  }
-
-  trait ExpressionTree {
+  trait BaseExprTree {
+    this: ExpModule =>
     //A few nodes for expression trees.
     case class Const[T](t: T) extends Exp[T] {
       def interpret = t
@@ -65,13 +47,37 @@ object OpenEncoding {
     case class App[T, U](f: T => U, t: Exp[T]) extends Exp[U] {
       def interpret = f(t.interpret)
     }
+    object Exp {
+      def app[T, U](f: T => U, t: Exp[T]): Exp[U] = App(f, t)
+    }
+  }
+
+  trait CanBuildExpExpressionTree extends BaseExprTree with ExpModule {
+    //When building an expression, we need to construct the right object, but I think that a
+    //trick like CanBuildFrom should work.
+    //Note: To is supposed to be a subclass of Exp[Elem], but the following
+    //declaration does not compile because of variance problems - I should make
+    //Elem invariant, which is not what I want:
+    //trait CanBuildExp[-Elem, +To <: Exp[Elem]]
+
+    //Instances work as implicit conversions themselves because this trait extends Function.
+    trait CanBuildExp[-Elem, +To] extends (Exp[Elem] => To) {
+      def apply(e: Exp[Elem]): To
+    }
+    //XXX: in comparison to Scala collection, we are less flexible - if you upcast a value, a different implicit might be selected, leading to different code being executed.
+    //In Scala, implicits are used just to have a finer static type, but the actual code to be executed is chosen at runtime - most instances of CanBuildFrom delegate construction to the original collection!
+    //However, having a precise static type determines which operations are available. So, even if we make our code more dynamic like for Scala collections, we still need to ensure the best static types are inferred.
+    //Moreover, in the current implementation I need to use wrapper nodes; while they probably cannot be avoided altogether, we should save a few of them - in particular, instead of App nodes we should
+    //use specialized Map, FlatMap and WithFilter nodes, extending TraversableExp.
+
+    class ExpWrapper[+T](t: Exp[T]) extends Exp[T] {
+      def interpret = t.interpret
+    }
+
     /*case class App2[T, U](f: Exp[T] => Exp[U], t: Exp[T]) extends Exp[U] {
       def interpret = f(t).interpret
     }*/
 
-    object Exp {
-      def app[T, U](f: T => U, t: Exp[T]): Exp[U] = App(f, t)
-    }
     //T cannot be contravariant here. Also ExpT must be invariant. Damn!
     //case class FuncExp[-T, +U, +ExpT2 <: ExpT, -ExpT <: Exp[T]](f: ExpT => Exp[U])(implicit val cbeT: CanBuildExp[T, ExpT2]) extends Exp[T => U]
     case class FuncExp[T, +U, ExpT <: Exp[T]](f: ExpT => Exp[U])(implicit val cbeT: CanBuildExp[T, ExpT]) extends Exp[T => U] {
@@ -80,7 +86,7 @@ object OpenEncoding {
   }
 
   trait NumExps {
-    this: ExpressionTree with NumExpressionTree =>
+    this: CanBuildExpExpressionTree with NumExpressionTree =>
     //Alternative encoding of operations which are not available for every Exp[T]
     //but only for e.g. Exp[String], Exp[T <% Numeric] and so on.
     //Idea: instead of having all those methods in Exp[T], and instead of having to
@@ -104,7 +110,7 @@ object OpenEncoding {
   }
 
   trait TraversableExps {
-    this: ExpressionTree =>
+    this: CanBuildExpExpressionTree =>
     trait TraversableExp[T, ExpT <: Exp[T]] extends Exp[Traversable[T]] {
       implicit val cbeT: CanBuildExp[T, ExpT]
       //XXX: Here I should use Map, FlatMap and WithFilter nodes, instead of generic application nodes. But that's beside the point I'm making for this encoding.
@@ -137,7 +143,7 @@ object OpenEncoding {
     }
   }
 
-  trait OpenEncodingBase extends NumExps with TraversableExps with ExpressionTree with NumExpressionTree {
+  trait OpenEncodingBase extends CanBuildExpExpressionTree with NumExps with TraversableExps with NumExpressionTree {
     //Use CanBuildExp for more precise automatic lifting. Problem: Scala seems
     //too shy to apply this conversion automatically, because "That" does not
     //match so obviously with the target type. Therefore, specializations such
@@ -260,6 +266,7 @@ object OpenEncoding {
       testTraversable()
     }
   }
+
   def main(args: Array[String]) {
     OpenEncoding.main(args)
   }
