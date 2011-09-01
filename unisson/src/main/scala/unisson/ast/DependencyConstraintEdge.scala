@@ -7,7 +7,7 @@ package unisson.ast
  *
  */
 
-trait SingleDependencyConstraint
+trait DependencyConstraintEdge
     extends DependencyConstraint
 {
     val architecture: String

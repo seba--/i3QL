@@ -6,6 +6,8 @@ import unisson.{Violation, ArchitectureChecker, Queries, SourceElement}
 import sae.bytecode.model.dependencies._
 import sae.collections.{BagResult, QueryResult}
 import sae.{Observer, LazyView}
+import sae.functions.Count
+import sae.operators.{Aggregation, NotSelfMaintainalbeAggregateFunction}
 
 /**
  * 
@@ -32,8 +34,8 @@ class QueryCompiler(val checker : ArchitectureChecker)
             case e @ Ensemble(_,_,_) => existingQuery(e).getOrElse(createEnsembleQuery(e))
             case inc @ IncomingConstraint(_,_,_) => existingQuery(inc).getOrElse(createIncomingQuery(inc))
             case out @ OutgoingConstraint(_,_,_) => existingQuery(out).getOrElse(createOutgoingQuery(out))
-            case not @ NotAllowedConstraint(_,_,_,_,_,_) => existingQuery(not).getOrElse(createNotAllowedQuery(not))
-            case exp @ ExpectedConstraint(_,_,_,_,_,_) => existingQuery(exp).getOrElse(createExpectedQuery(exp))
+            case not @ NotAllowedConstraint(_,_,_) => existingQuery(not).getOrElse(createNotAllowedQuery(not))
+            case exp @ ExpectedConstraint(_,_,_) => existingQuery(exp).getOrElse(createExpectedQuery(exp))
         }
     }
 
@@ -157,36 +159,46 @@ class QueryCompiler(val checker : ArchitectureChecker)
     {
 
         import sae.syntax.RelationalAlgebraSyntax._
-        val sourceQuery =  existingQuery(constraint.source.get).getOrElse(createEnsembleQuery(constraint.source.get))
+        val sourceQuery =  existingQuery(constraint.source).getOrElse(createEnsembleQuery(constraint.source))
 
-        val targetQuery =  existingQuery(constraint.target.get).getOrElse(createEnsembleQuery(constraint.target.get))
+        val targetQuery =  existingQuery(constraint.target).getOrElse(createEnsembleQuery(constraint.target))
 
-        for( kind <- constraint.kinds )
-        {
+        val dependencyRelation = kindAsDependency(constraint.kind)
 
-            val dependencyRelation = kindAsDependency(kind)
+        val query = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
+        ( (dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), targetQuery) )
 
-            val query = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
-            ( (dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), targetQuery) )
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), Some(constraint.target), Queries.target(d), constraint, dependencyAsKind(d)) )(query)
 
-            val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( constraint.source, Queries.source(d), constraint.target, Queries.target(d), constraint, dependencyAsKind(d)) )(query)
-
-            checker.addConstraint(constraint, violations)
-        }
+        checker.addConstraint(constraint, violations)
     }
 
     def createExpectedQuery(constraint:ExpectedConstraint)
     {
         import sae.syntax.RelationalAlgebraSyntax._
-        val sourceQuery =  existingQuery(constraint.source.get).getOrElse(createEnsembleQuery(constraint.source.get))
+        val sourceQuery =  existingQuery(constraint.source).getOrElse(createEnsembleQuery(constraint.source))
 
-        val targetQuery =  existingQuery(constraint.target.get).getOrElse(createEnsembleQuery(constraint.target.get))
+        val targetQuery =  existingQuery(constraint.target).getOrElse(createEnsembleQuery(constraint.target))
 
-        for( kind <- constraint.kinds )
-        {
 
-            val dependencyRelation = kindAsDependency(kind)
-        }
+        val dependencyRelation = kindAsDependency(constraint.kind)
+
+        val sourceToTargetDep = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
+        ( (dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), targetQuery) )
+
+        // TODO this is not so nice, I can not have a LazyView of any thus I can not select the count(*)
+        val aggregation = Aggregation[Dependency[AnyRef, AnyRef], None.type, Int](sourceToTargetDep,
+                (newD : Dependency[AnyRef, AnyRef]) => None,
+                Count[Dependency[AnyRef, AnyRef]]()
+        )
+
+        val countQuery = σ( (_:(None.type, Int))._2 == 0 )(aggregation)
+
+
+        val violations = Π( (i:(None.type, Int)) => Violation( Some(constraint.source), null, Some(constraint.target), null, constraint, "none") )(countQuery)
+
+        checker.addConstraint(constraint, violations)
+
     }
 
 /**

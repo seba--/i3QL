@@ -5,10 +5,17 @@ import org.junit.Assert._
 import unisson.prolog.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
 import sae.bytecode.model._
+import dependencies.Dependency
 import unisson.queries.QueryCompiler
 import unisson._
 import unisson.ast._
 import de.tud.cs.st.bat.ObjectType
+import sae.operators.Aggregation._
+import sae.functions.Count._
+import sae.syntax.RelationalAlgebraSyntax._
+import sae.operators.Aggregation
+import sae.functions.Count
+import sae.collections.QueryResult
 
 /**
  *
@@ -19,6 +26,141 @@ import de.tud.cs.st.bat.ObjectType
 
 class TestConstraintViolations
 {
+
+    @Test
+    def testSimpleGraphExpectedNoViolation()
+    {
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v2/directed/v2.directed.expected_correct.sad.pl"
+                )
+            )
+        )
+        compiler.finishOutgoing()
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v2.directed.A],
+                classOf[unisson.test.simplegraph.v2.directed.B]
+            )
+        ).processAllFacts()
+
+        /*
+        checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
+        checker.violations.foreach(println)
+        */
+
+        assertEquals(0, checker.violations.size)
+    }
+
+    @Test
+    def testSimpleGraphExpectedViolation()
+    {
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v2/directed/v2.directed.expected_violation.sad.pl"
+                )
+            )
+        )
+        compiler.finishOutgoing()
+
+
+        val A = checker.getEnsembles.collectFirst {
+            case e@Ensemble("A", _, _) => e
+        }.get
+        val B = checker.getEnsembles.collectFirst {
+            case e@Ensemble("B", _, _) => e
+        }.get
+
+        val sourceQuery = checker.ensembleElements(B)
+
+        val targetQuery = checker.ensembleElements(A)
+
+        val dependencyRelation = db.dependency
+
+        val sourceToTargetDep = ((dependencyRelation, Queries.source(_)) ⋉ (identity(_: SourceElement[AnyRef]), sourceQuery)) ∩
+                ((dependencyRelation, Queries.target(_)) ⋉ (identity(_: SourceElement[AnyRef]), targetQuery))
+
+        val res1: QueryResult[Dependency[AnyRef, AnyRef]] = sourceToTargetDep
+
+        val aggregation = Aggregation[Dependency[AnyRef, AnyRef], None.type, Int](
+            sourceToTargetDep,
+                (newD: Dependency[AnyRef, AnyRef]) => None,
+            Count[Dependency[AnyRef, AnyRef]]()
+        )
+
+
+
+        val countQuery = σ((_: (None.type, Int))._2 == 0)(aggregation)
+
+
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v2.directed.A],
+                classOf[unisson.test.simplegraph.v2.directed.B]
+            )
+        ).processAllFacts()
+
+        res1.foreach(println)
+
+        checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
+        checker.violations.foreach(println)
+
+        assertEquals(1, checker.violations.size)
+
+        assertEquals(
+            Violation(
+                Some(
+                    Ensemble(
+                        "B",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List()
+                    )
+                ),
+                null,
+                Some(
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List()
+                    )
+                ),
+                null,
+                ExpectedConstraint(
+                    Ensemble(
+                        "B",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List()
+                    ),
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List()
+                    ),
+                    "all"
+                ),
+                "none"
+            ),
+            checker.violations.singletonValue.get
+        )
+
+    }
+
 
     @Test
     def testSimpleGraphNotAllowedNoViolation()
@@ -108,7 +250,19 @@ class TestConstraintViolations
                     )
                 ),
                 SourceElement(ObjectType(className = "unisson/test/simplegraph/v2/directed/B")),
-                NotAllowedConstraint("v2.directed.not_allowed_violation.sad", "A", List(), "B", List(), List("all")),
+                NotAllowedConstraint(
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List()
+                    ),
+                    Ensemble(
+                        "B",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List()
+                    )
+                    , "all"
+                ),
                 "field_type"
             ),
             checker.violations.singletonValue.get

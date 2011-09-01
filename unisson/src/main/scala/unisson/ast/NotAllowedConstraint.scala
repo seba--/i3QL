@@ -7,8 +7,8 @@ package unisson.ast
  *
  */
 
-case class NotAllowedConstraint(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
-    extends SingleDependencyConstraint
+case class NotAllowedConstraint(source: Ensemble, target: Ensemble, kind: String)
+    extends DependencyConstraint
 {
 
 }

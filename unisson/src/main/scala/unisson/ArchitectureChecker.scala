@@ -34,16 +34,16 @@ class ArchitectureChecker(val db: BytecodeDatabase)
         (ensemble.outgoingConnections.map( _ match
             {
                 case OutgoingConstraint(_,targets,kind) => "   " + "outgoing    " + kind + " to " + targets +"\n"
-                case NotAllowedConstraint(_,_,_,target,_,kinds) => "   " + "not_allowed " + kinds +  " to " + target +"\n"
-                case ExpectedConstraint(_,_,_,target,_,kinds) => "   " + "expected    " + kinds +  " to " + target +"\n"
+                case NotAllowedConstraint(_,target,kind) => "   " + "not_allowed " + kind +  " to " + target +"\n"
+                case ExpectedConstraint(_,target,kind) => "   " + "expected    " + kind +  " to " + target +"\n"
                 case _ => ""
             }
         ).foldLeft("")(_ + _)) +
         (ensemble.incomingConnections.map( _ match
             {
                 case IncomingConstraint(sources,_,kind) => "   " + "incoming    " + kind + " from " + sources +"\n"
-                case NotAllowedConstraint(_,source,_,_,_,kinds) => "   " + "not_allowed " + kinds +  " from " + source +"\n"
-                case ExpectedConstraint(_,source,_,_,_,kinds) => "   " + "expected    " + kinds +  " from " + source +"\n"
+                case NotAllowedConstraint(source,_,kind) => "   " + "not_allowed " + kind +  " from " + source +"\n"
+                case ExpectedConstraint(source,_,kind) => "   " + "expected    " + kind +  " from " + source +"\n"
                 case _ => ""
             }
         ).foldLeft("")(_ + _))

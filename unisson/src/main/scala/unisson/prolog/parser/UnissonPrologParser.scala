@@ -83,7 +83,7 @@ class UnissonPrologParser
     def incoming: Parser[DependencyConstraint] =
         "incoming(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                SingleIncomingConstraint(
+                IncomingConstraintEdge(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],
@@ -96,7 +96,7 @@ class UnissonPrologParser
     def outgoing: Parser[DependencyConstraint] =
         "outgoing(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                SingleOutgoingConstraint(
+                OutgoingConstraintEdge(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],
@@ -109,7 +109,7 @@ class UnissonPrologParser
     def not_allowed: Parser[DependencyConstraint] =
         "not_allowed(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                NotAllowedConstraint(
+                NotAllowedConstraintEdge(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],
@@ -122,7 +122,7 @@ class UnissonPrologParser
     def expected: Parser[DependencyConstraint] =
         "expected(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
-                ExpectedConstraint(
+                ExpectedConstraintEdge(
                     architecture: String,
                     sourceName: String,
                     sourceParams: List[String],

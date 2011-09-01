@@ -17,46 +17,47 @@ object ResolveAST {
         elements.foreach(resolve(_, elements))
         val filtered = elements.filter( _ match
             {
-                case i:SingleIncomingConstraint => false
-                case i:SingleOutgoingConstraint => false
+                case i:DependencyConstraintEdge => false
                 case _=> true
             }
         )
 
         filtered.flatMap( _ match
             {
-                case e: Ensemble => resolveIncomingAndOutgoing(e) :+ e
+                case e: Ensemble => resolveEdges(e) :+ e
                 case elem => List(elem)
             }
         )
     }
 
 
-    private def resolveIncomingAndOutgoing(ensemble :Ensemble) : Seq[UnissonDefinition] =
+    private def resolveEdges(ensemble :Ensemble) : Seq[UnissonDefinition] =
     {
-        val outgoing = ensemble.outgoingConnections.collect{ case i:SingleOutgoingConstraint => i }
+        val outgoing = ensemble.outgoingConnections.collect{ case i:OutgoingConstraintEdge => i }
 
-        val incoming = ensemble.incomingConnections.collect{ case i:SingleIncomingConstraint => i }
+        val incoming = ensemble.incomingConnections.collect{ case i:IncomingConstraintEdge => i }
+
+        val not_allowed = ensemble.outgoingConnections.collect{ case i:NotAllowedConstraintEdge => i }
+
+        val expected = ensemble.outgoingConnections.collect{ case i:ExpectedConstraintEdge => i }
 
         ensemble.outgoingConnections = ensemble.outgoingConnections.filter( _ match
             {
-                // incoming and outgoing are both edged and must be removed from both sides
-                case i:SingleOutgoingConstraint => false
-                case i:SingleIncomingConstraint => false
+                // all edges must be removed from both sides
+                case i:DependencyConstraintEdge => false
                 case _=> true
             }
         )
 
         ensemble.incomingConnections = ensemble.incomingConnections.filter( _ match
             {
-                // incoming and outgoing are both edged and must be removed from both sides
-                case i:SingleOutgoingConstraint => false
-                case i:SingleIncomingConstraint => false
+                // all edges must be removed from both sides
+                case i:DependencyConstraintEdge => false
                 case _=> true
             }
         )
 
-        val resolvedOutgoing =
+        val resolvedOutgoingDependencies =
             for( kind <- outgoing.flatMap( _.kinds ).distinct )
                 yield
                     OutgoingConstraint(ensemble,
@@ -69,12 +70,38 @@ object ResolveAST {
                             kind
                     )
 
-        ensemble.outgoingConnections = ensemble.outgoingConnections ++ resolvedOutgoing
+        val resolvedNotAllowedDependencies =
+            for( constraint <- not_allowed; kind <- constraint.kinds)
+                yield
+                    NotAllowedConstraint(constraint.source.get,
+                                    constraint.target.get,
+                            kind
+                    )
 
-        for{ con <- resolvedOutgoing
+        val resolvedExpectedDependencies =
+            for( constraint <- expected; kind <- constraint.kinds)
+                yield
+                    ExpectedConstraint(constraint.source.get,
+                                    constraint.target.get,
+                            kind
+                    )
+
+        ensemble.outgoingConnections = ensemble.outgoingConnections ++ resolvedOutgoingDependencies ++ resolvedNotAllowedDependencies ++ resolvedExpectedDependencies
+
+        for{ con <- resolvedOutgoingDependencies
                target <- con.targets
         }{
             target.incomingConnections = target.incomingConnections :+ con
+        }
+
+        for{ con <- resolvedNotAllowedDependencies
+        }{
+            con.target.incomingConnections = con.target.incomingConnections :+ con
+        }
+
+        for{ con <- resolvedExpectedDependencies
+        }{
+            con.target.incomingConnections = con.target.incomingConnections :+ con
         }
 
         val resolvedIncoming = for( kind <- incoming.flatMap( _.kinds ).distinct )
@@ -96,7 +123,7 @@ object ResolveAST {
             source.outgoingConnections = source.outgoingConnections :+ con
         }
 
-        resolvedIncoming ++ resolvedOutgoing
+        resolvedIncoming ++ resolvedOutgoingDependencies ++ resolvedNotAllowedDependencies ++ resolvedExpectedDependencies
     }
 
 
@@ -104,7 +131,7 @@ object ResolveAST {
     {
         elem match {
             case e: Ensemble => resolveEnsemble(e, rest)
-            case d: SingleDependencyConstraint => resolveConstraint(d, rest)
+            case d: DependencyConstraintEdge => resolveConstraint(d, rest)
 
         }
     }
@@ -114,9 +141,9 @@ object ResolveAST {
 
         for( elem <- rest )
         {
-            if( elem.isInstanceOf[SingleDependencyConstraint])
+            if( elem.isInstanceOf[DependencyConstraintEdge])
             {
-                connect(ensemble, elem.asInstanceOf[SingleDependencyConstraint])
+                connect(ensemble, elem.asInstanceOf[DependencyConstraintEdge])
             }
             if( elem.isInstanceOf[Ensemble])
             {
@@ -126,7 +153,7 @@ object ResolveAST {
 
     }
 
-    private def resolveConstraint(constraint : SingleDependencyConstraint, rest: Seq[UnissonDefinition])
+    private def resolveConstraint(constraint : DependencyConstraintEdge, rest: Seq[UnissonDefinition])
     {
         for( e @ Ensemble(_,_,_) <- rest)
         {
@@ -135,7 +162,7 @@ object ResolveAST {
     }
 
 
-    def connect(ensemble: Ensemble, constraint:SingleDependencyConstraint)
+    def connect(ensemble: Ensemble, constraint:DependencyConstraintEdge)
     {
         if( constraint.sourceName == ensemble.name )
         {
