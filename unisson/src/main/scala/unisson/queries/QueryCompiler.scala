@@ -3,7 +3,7 @@ package unisson.queries
 import sae.bytecode.BytecodeDatabase
 import unisson.ast._
 import unisson.{Violation, ArchitectureChecker, Queries, SourceElement}
-import sae.bytecode.model.dependencies.{return_type, parameter, Dependency}
+import sae.bytecode.model.dependencies._
 import sae.collections.{BagResult, QueryResult}
 import sae.{Observer, LazyView}
 
@@ -120,7 +120,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         // TODO currently we do not resolve sources as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
-        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, constraint.kind) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, dependencyAsKind(d)) )(query)
 
         checker.addConstraint(constraint, violations)
         violations
@@ -147,7 +147,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         // TODO currently we do not resolve targets as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
-        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), None, Queries.target(d), constraint, constraint.kind) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), None, Queries.target(d), constraint, dependencyAsKind(d)) )(query)
 
         checker.addConstraint(constraint, violations)
         violations
@@ -211,7 +211,31 @@ class QueryCompiler(val checker : ArchitectureChecker)
             case "create_class_array" => checker.db.create_class_array.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
             case "class_cast" => checker.db.class_cast.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
             case "throws" => checker.db.thrown_exceptions.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            case "exception" => checker.db.handled_exceptions.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
+            //case "exception" => checker.db.handled_exceptions.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
+        }
+    }
+
+
+    private def dependencyAsKind(d:Dependency[AnyRef, AnyRef]) : String =
+    {
+        d match
+        {
+            case `extends`(_,_) => "extends"
+            case implements(_,_) => "implements"
+            case field_type(_,_) => "field_type"
+            case parameter(_,_) => "parameter"
+            case return_type(_,_) => "return_type"
+            case write_field(_,_,_) => "write_field"
+            case read_field(_,_,_) => "read_field"
+            case invoke_interface(_,_) => "invoke_interface"
+            case invoke_special(_,_) => "invoke_special"
+            case invoke_static(_,_) => "invoke_static"
+            case invoke_virtual(_,_) => "invoke_virtual"
+            case instanceof(_,_) => "instanceof"
+            case create(_,_) => "create"
+            case create_class_array(_,_) => "create_class_array"
+            case class_cast(_,_) => "class_cast"
+            case throws(_,_) => "throws"
         }
     }
 

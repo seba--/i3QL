@@ -20,6 +20,68 @@ class TestConstraintViolations
 {
 
     @Test
+    def testSimpleGraphNotAllowedNoViolation()
+    {
+        val definitions = readSadFile(
+            resourceAsStream(
+                "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_correct.sad.pl"
+            )
+        )
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(definitions)
+        compiler.finishOutgoing()
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v2.directed.A],
+                classOf[unisson.test.simplegraph.v2.directed.B]
+            )
+        ).processAllFacts()
+
+        /*
+        checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
+        checker.violations.foreach(println)
+        */
+        assertEquals(0, checker.violations.size)
+    }
+
+    @Test
+    def testSimpleGraphNotAllowedViolation()
+    {
+        val definitions = readSadFile(
+            resourceAsStream(
+                "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_violation.sad.pl"
+            )
+        )
+        val db = new BytecodeDatabase()
+
+        val checker = new ArchitectureChecker(db)
+
+        val compiler = new QueryCompiler(checker)
+
+        compiler.addAll(definitions)
+        compiler.finishOutgoing()
+
+        db.transformerForClasses(
+            Array(
+                classOf[unisson.test.simplegraph.v2.directed.A],
+                classOf[unisson.test.simplegraph.v2.directed.B]
+            )
+        ).processAllFacts()
+
+        /*
+        checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
+        checker.violations.foreach(println)
+        */
+        assertEquals(1, checker.violations.size)
+    }
+
+    @Test
     def testSimpleGraphIncomingNoViolation()
     {
         val definitions = readSadFile(
@@ -119,7 +181,7 @@ class TestConstraintViolations
                     ),
                     "all"
                 ),
-                "all"
+                "field_type"
             ),
 
             violation
@@ -239,7 +301,7 @@ class TestConstraintViolations
                     ),
                     "all"
                 ),
-                "all"
+                "field_type"
             ),
             checker.violations.singletonValue.get
         )

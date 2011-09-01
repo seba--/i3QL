@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <ShapesDiagram xmi:id="_r_m_kPJQEd-yZO2-1zaJIg">
-    <shapes xmi:type="Ensemble" xmi:id="_sU2PwPJQEd-yZO2-1zaJIg" name="A" query="class_with_members('opal.test.simplegraph.v2.directed','A')">
-      <targetConnections xmi:type="Expected" xmi:id="_Ht9V8PJREd-yZO2-1zaJIg" source="_sU2PwPJQEd-yZO2-1zaJIg" target="_s0R9wPJQEd-yZO2-1zaJIg"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <ShapesDiagram xmi:id="_8LwngNSAEeC2v8u2KqbGTg">
+    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('opal.test.simplegraph.v2.directed','A')&#xA;">
+      <targetConnections xmi:type="Expected" xmi:id="__e7BYNSAEeC2v8u2KqbGTg" source="_8jr_UNSAEeC2v8u2KqbGTg" target="_807gUNSAEeC2v8u2KqbGTg"/>
     </shapes>
-    <shapes xmi:type="Ensemble" xmi:id="_s0R9wPJQEd-yZO2-1zaJIg" name="B" query="class_with_members('opal.test.simplegraph.v2.directed','B')"/>
+    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('opal.test.simplegraph.v2.directed','B')&#xA;"/>
   </ShapesDiagram>
-  <notation:Diagram xmi:id="_r_nmoPJQEd-yZO2-1zaJIg" type="Vespucci" element="_r_m_kPJQEd-yZO2-1zaJIg" name="not_allowed.sad" measurementUnit="Pixel">
-    <children xmi:type="notation:Shape" xmi:id="_sU56IPJQEd-yZO2-1zaJIg" type="2001" element="_sU2PwPJQEd-yZO2-1zaJIg" fontName="Segoe UI">
-      <children xmi:type="notation:DecorationNode" xmi:id="_sU6hMPJQEd-yZO2-1zaJIg" type="5001"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_sU7IQPJQEd-yZO2-1zaJIg" type="7001"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sU56IfJQEd-yZO2-1zaJIg" x="205" y="95"/>
-    </children>
-    <children xmi:type="notation:Shape" xmi:id="_s0Sk0PJQEd-yZO2-1zaJIg" type="2001" element="_s0R9wPJQEd-yZO2-1zaJIg" fontName="Segoe UI">
-      <children xmi:type="notation:DecorationNode" xmi:id="_s0TL4fJQEd-yZO2-1zaJIg" type="5001"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_s0Ty8PJQEd-yZO2-1zaJIg" type="7001"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s0TL4PJQEd-yZO2-1zaJIg" x="205" y="175"/>
-    </children>
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_r_nmofJQEd-yZO2-1zaJIg"/>
-    <edges xmi:type="notation:Edge" xmi:id="_HuBnYPJREd-yZO2-1zaJIg" type="4002" element="_Ht9V8PJREd-yZO2-1zaJIg" source="_sU56IPJQEd-yZO2-1zaJIg" target="_s0Sk0PJQEd-yZO2-1zaJIg">
-      <children xmi:type="notation:DecorationNode" xmi:id="_HuCOcPJREd-yZO2-1zaJIg" type="6002">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_HuCOcfJREd-yZO2-1zaJIg" x="2" y="-20"/>
+  <notation:Diagram xmi:id="_8Lx1oNSAEeC2v8u2KqbGTg" type="Vespucci" element="_8LwngNSAEeC2v8u2KqbGTg" name="v2.directed.expected_correct.sad" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_8jwQwNSAEeC2v8u2KqbGTg" type="2001" element="_8jr_UNSAEeC2v8u2KqbGTg" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8jw30NSAEeC2v8u2KqbGTg" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8jw30dSAEeC2v8u2KqbGTg" type="5008"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8jxe4NSAEeC2v8u2KqbGTg" type="7001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8jxe4dSAEeC2v8u2KqbGTg" type="7003">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_8jxe4tSAEeC2v8u2KqbGTg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_8jxe49SAEeC2v8u2KqbGTg"/>
       </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_HuBnYfJREd-yZO2-1zaJIg"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_HuBnYvJREd-yZO2-1zaJIg" fontName="Segoe UI"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HuBnY_JREd-yZO2-1zaJIg" points="[0, 36, 0, -45]$[5, 76, 5, -5]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HuFRwPJREd-yZO2-1zaJIg" id="(0.875,0.1)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HuF40PJREd-yZO2-1zaJIg" id="(0.875,0.125)"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jwQwdSAEeC2v8u2KqbGTg" x="301" y="113"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_809VgNSAEeC2v8u2KqbGTg" type="2001" element="_807gUNSAEeC2v8u2KqbGTg" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8098kNSAEeC2v8u2KqbGTg" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8098kdSAEeC2v8u2KqbGTg" type="5008"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_8098ktSAEeC2v8u2KqbGTg" type="7001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_80-joNSAEeC2v8u2KqbGTg" type="7003">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_80-jodSAEeC2v8u2KqbGTg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_80-jotSAEeC2v8u2KqbGTg"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_809VgdSAEeC2v8u2KqbGTg" x="305" y="220"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8Lx1odSAEeC2v8u2KqbGTg"/>
+    <edges xmi:type="notation:Edge" xmi:id="__e-EsNSAEeC2v8u2KqbGTg" type="4002" element="__e7BYNSAEeC2v8u2KqbGTg" source="_8jwQwNSAEeC2v8u2KqbGTg" target="_809VgNSAEeC2v8u2KqbGTg">
+      <children xmi:type="notation:DecorationNode" xmi:id="__e_S0NSAEeC2v8u2KqbGTg" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__e_S0dSAEeC2v8u2KqbGTg" x="-7" y="-7"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="__e-rwNSAEeC2v8u2KqbGTg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__e-rwdSAEeC2v8u2KqbGTg" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__e-rwtSAEeC2v8u2KqbGTg" points="[1, 27, -3, -80]$[1, 81, -3, -26]"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
