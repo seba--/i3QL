@@ -76,8 +76,6 @@ class ArchitectureChecker(val db: BytecodeDatabase)
 
         constraintViolations = (constraintViolations - constraint)
         constraintViolations += {  constraint -> Conversions.lazyViewToResult(query) }
-        //constraintViolations = constraintViolations.updated( constraint , Conversions.lazyViewToResult(query) )
-
     }
 
 

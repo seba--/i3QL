@@ -34,6 +34,7 @@ class TestConstraintViolations
         val compiler = new QueryCompiler(checker)
 
         compiler.addAll(definitions)
+        compiler.finishOutgoing()
 
         db.transformerForClasses(
             Array(
@@ -67,6 +68,7 @@ class TestConstraintViolations
                 )
             )
         )
+        compiler.finishOutgoing()
 
         db.transformerForClasses(
             Array(
@@ -143,6 +145,7 @@ class TestConstraintViolations
                 )
             )
         )
+        compiler.finishOutgoing()
 
         db.transformerForClasses(
             Array(
@@ -152,6 +155,7 @@ class TestConstraintViolations
                 classOf[unisson.test.simplegraph.v3.directed.outgoing.D]
             )
         ).processAllFacts()
+
 
         checker.violations.foreach(println)
         assertEquals(0, checker.violations.size)
@@ -174,6 +178,7 @@ class TestConstraintViolations
                 )
             )
         )
+        compiler.finishOutgoing()
 
         /*
         val A = checker.getEnsembles.collectFirst{ case e @ Ensemble("A",_,_) => e }.get
@@ -196,6 +201,7 @@ class TestConstraintViolations
                 classOf[unisson.test.simplegraph.v3.directed.outgoing.D]
             )
         ).processAllFacts()
+
 
         //checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
 

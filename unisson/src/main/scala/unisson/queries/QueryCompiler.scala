@@ -41,24 +41,26 @@ class QueryCompiler(val checker : ArchitectureChecker)
      * call this method to indicate that no more ensembles are forthcoming
      * This is required to close the Outgoing constraints
      */
-    def closeWorld() {
+    def finishOutgoing() {
 
-    }
-
-    def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
-    {
         import sae.syntax.RelationalAlgebraSyntax._
-        val query = compileUnissonQuery(ensemble.query)
-        checker.addEnsemble(ensemble, query)
-
         // all outgoing constraints that did not yet have this ensemble included need to append this ensemble
 
         val outgoingConstraints = checker.getConstraints.collect{case out : OutgoingConstraint => out}
 
-
         for( out <- outgoingConstraints )
         {
             val dependencyRelation = kindAsDependency(out.kind)
+            val otherEnsembles =
+                for{ ensemble <- checker.getEnsembles
+                     if(out.source != ensemble)
+                     if(!out.targets.contains(ensemble))
+                }
+                    yield existingQuery(ensemble).get
+
+            val restQuery = otherEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
+
+            val inAnyEnsemble = ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), restQuery))
             val oldResult = checker.violations(out).asInstanceOf[BagResult[Violation]]
             oldResult.relation.removeObserver(oldResult)
             val newQuery = oldResult.relation match
@@ -66,13 +68,19 @@ class QueryCompiler(val checker : ArchitectureChecker)
                 case p @ Π(func,oldQuery:LazyView[Dependency[AnyRef, AnyRef]]) =>
                     {
                         p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
-                        Π(func)(oldQuery ∩ ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), query)))
+                        Π(func)(oldQuery ∩ inAnyEnsemble)
                     }
             }
 
             checker.updateConstraint(out, newQuery)
         }
 
+    }
+
+    def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
+    {
+        val query = compileUnissonQuery(ensemble.query)
+        checker.addEnsemble(ensemble, query)
         query
     }
 
@@ -135,18 +143,6 @@ class QueryCompiler(val checker : ArchitectureChecker)
                 ((dependencyRelation, Queries.target(_)) ⊳ (identity(_:SourceElement[AnyRef]), targetQuery))
             }
         )
-
-        val otherEnsembles =
-            for{ ensemble <- checker.getEnsembles
-                 if(constraint.source != ensemble)
-                 if(!constraint.targets.contains(ensemble))
-            }
-                yield existingQuery(ensemble).getOrElse(createEnsembleQuery(ensemble))
-
-        val restQuery = otherEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
-
-        query = query ∩
-                ((dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), restQuery))
 
 
         // TODO currently we do not resolve targets as ensembles for the constraint.
