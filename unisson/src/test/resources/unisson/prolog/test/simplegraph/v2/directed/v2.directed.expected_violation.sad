@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
   <ShapesDiagram xmi:id="_8LwngNSAEeC2v8u2KqbGTg">
-    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('opal.test.simplegraph.v2.directed','A')&#xA;"/>
-    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('opal.test.simplegraph.v2.directed','B')&#xA;">
+    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','A')&#xA;"/>
+    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','B')&#xA;">
       <targetConnections xmi:type="Expected" xmi:id="_QUgecNSBEeC2v8u2KqbGTg" source="_807gUNSAEeC2v8u2KqbGTg" target="_8jr_UNSAEeC2v8u2KqbGTg"/>
     </shapes>
   </ShapesDiagram>

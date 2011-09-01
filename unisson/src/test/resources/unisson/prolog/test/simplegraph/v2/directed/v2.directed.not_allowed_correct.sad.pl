@@ -16,7 +16,7 @@
 :- discontiguous not_allowed/7.
 :- discontiguous expected/7.
 
-% Date <01/09/2011 12:03:37>.
+% Date <01/09/2011 12:53:33>.
 %------
 
 %------
@@ -27,8 +27,8 @@
 %	Query - Query that determines which source elements belong to the ensemble
 %	SubEnsembles - List of all sub ensembles of this ensemble
 %------
-ensemble('v2.directed.not_allowed_correct.sad', 'A', [], (class_with_members('opal.test.simplegraph.v2.directed','A') ), []).
-ensemble('v2.directed.not_allowed_correct.sad', 'B', [], (class_with_members('opal.test.simplegraph.v2.directed','B') ), []).
+ensemble('v2.directed.not_allowed_correct.sad', 'A', [], (class_with_members('unisson.test.simplegraph.v2.directed','A') ), []).
+ensemble('v2.directed.not_allowed_correct.sad', 'B', [], (class_with_members('unisson.test.simplegraph.v2.directed','B') ), []).
 
 %------
 %DEPENDENCY(File, ID, SourceE, SourceE Parameter, TargetE, TargetE Parameter, Type) :- Definition of a dependency between two ensembles.

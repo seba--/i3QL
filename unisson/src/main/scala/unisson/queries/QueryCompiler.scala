@@ -153,14 +153,40 @@ class QueryCompiler(val checker : ArchitectureChecker)
         violations
     }
 
-    def createNotAllowedQuery(constraint:NotAllowedConstraint): LazyView[Violation] =
+    def createNotAllowedQuery(constraint:NotAllowedConstraint)
     {
-        null
+
+        import sae.syntax.RelationalAlgebraSyntax._
+        val sourceQuery =  existingQuery(constraint.source.get).getOrElse(createEnsembleQuery(constraint.source.get))
+
+        val targetQuery =  existingQuery(constraint.target.get).getOrElse(createEnsembleQuery(constraint.target.get))
+
+        for( kind <- constraint.kinds )
+        {
+
+            val dependencyRelation = kindAsDependency(kind)
+
+            val query = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
+            ( (dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), targetQuery) )
+
+            val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( constraint.source, Queries.source(d), constraint.target, Queries.target(d), constraint, dependencyAsKind(d)) )(query)
+
+            checker.addConstraint(constraint, violations)
+        }
     }
 
-    def createExpectedQuery(constraint:ExpectedConstraint): LazyView[Violation] =
+    def createExpectedQuery(constraint:ExpectedConstraint)
     {
-        null
+        import sae.syntax.RelationalAlgebraSyntax._
+        val sourceQuery =  existingQuery(constraint.source.get).getOrElse(createEnsembleQuery(constraint.source.get))
+
+        val targetQuery =  existingQuery(constraint.target.get).getOrElse(createEnsembleQuery(constraint.target.get))
+
+        for( kind <- constraint.kinds )
+        {
+
+            val dependencyRelation = kindAsDependency(kind)
+        }
     }
 
 /**

@@ -1,6 +1,6 @@
 package unisson.prolog.test
 
-import org.junit.{Test, Ignore}
+import org.junit.Test
 import org.junit.Assert._
 import unisson.prolog.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
@@ -9,6 +9,7 @@ import unisson.queries.QueryCompiler
 import unisson._
 import unisson.ast._
 import de.tud.cs.st.bat.ObjectType
+
 /**
  *
  * Author: Ralf Mitschke
@@ -22,18 +23,19 @@ class TestConstraintViolations
     @Test
     def testSimpleGraphNotAllowedNoViolation()
     {
-        val definitions = readSadFile(
-            resourceAsStream(
-                "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_correct.sad.pl"
-            )
-        )
         val db = new BytecodeDatabase()
 
         val checker = new ArchitectureChecker(db)
 
         val compiler = new QueryCompiler(checker)
 
-        compiler.addAll(definitions)
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_correct.sad.pl"
+                )
+            )
+        )
         compiler.finishOutgoing()
 
         db.transformerForClasses(
@@ -47,24 +49,26 @@ class TestConstraintViolations
         checker.getEnsembles.foreach((e: Ensemble) => println(checker.ensembleStatistic(e)))
         checker.violations.foreach(println)
         */
+
         assertEquals(0, checker.violations.size)
     }
 
     @Test
     def testSimpleGraphNotAllowedViolation()
     {
-        val definitions = readSadFile(
-            resourceAsStream(
-                "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_violation.sad.pl"
-            )
-        )
         val db = new BytecodeDatabase()
 
         val checker = new ArchitectureChecker(db)
 
         val compiler = new QueryCompiler(checker)
 
-        compiler.addAll(definitions)
+        compiler.addAll(
+            readSadFile(
+                resourceAsStream(
+                    "unisson/prolog/test/simplegraph/v2/directed/v2.directed.not_allowed_violation.sad.pl"
+                )
+            )
+        )
         compiler.finishOutgoing()
 
         db.transformerForClasses(
@@ -79,6 +83,37 @@ class TestConstraintViolations
         checker.violations.foreach(println)
         */
         assertEquals(1, checker.violations.size)
+
+        assertEquals(
+            Violation(
+                Some(
+                    Ensemble(
+                        "A",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List()
+                    )
+                ),
+                SourceElement(
+                    Field(
+                        ObjectType("unisson/test/simplegraph/v2/directed/A"),
+                        "fieldRef",
+                        ObjectType("unisson/test/simplegraph/v2/directed/B")
+                    )
+                ),
+                Some(
+                    Ensemble(
+                        "B",
+                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List()
+                    )
+                ),
+                SourceElement(ObjectType(className = "unisson/test/simplegraph/v2/directed/B")),
+                NotAllowedConstraint("v2.directed.not_allowed_violation.sad", "A", List(), "B", List(), List("all")),
+                "field_type"
+            ),
+            checker.violations.singletonValue.get
+        )
+
     }
 
     @Test

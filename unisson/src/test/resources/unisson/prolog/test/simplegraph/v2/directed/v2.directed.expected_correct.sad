@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
   <ShapesDiagram xmi:id="_8LwngNSAEeC2v8u2KqbGTg">
-    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('opal.test.simplegraph.v2.directed','A')&#xA;">
+    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','A')&#xA;">
       <targetConnections xmi:type="Expected" xmi:id="__e7BYNSAEeC2v8u2KqbGTg" source="_8jr_UNSAEeC2v8u2KqbGTg" target="_807gUNSAEeC2v8u2KqbGTg"/>
     </shapes>
-    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('opal.test.simplegraph.v2.directed','B')&#xA;"/>
+    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','B')&#xA;"/>
   </ShapesDiagram>
   <notation:Diagram xmi:id="_8Lx1oNSAEeC2v8u2KqbGTg" type="Vespucci" element="_8LwngNSAEeC2v8u2KqbGTg" name="v2.directed.expected_correct.sad" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_8jwQwNSAEeC2v8u2KqbGTg" type="2001" element="_8jr_UNSAEeC2v8u2KqbGTg" fontName="Segoe UI">
@@ -25,7 +25,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_80-jodSAEeC2v8u2KqbGTg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_80-jotSAEeC2v8u2KqbGTg"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_809VgdSAEeC2v8u2KqbGTg" x="305" y="220"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_809VgdSAEeC2v8u2KqbGTg" x="300" y="215"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_8Lx1odSAEeC2v8u2KqbGTg"/>
     <edges xmi:type="notation:Edge" xmi:id="__e-EsNSAEeC2v8u2KqbGTg" type="4002" element="__e7BYNSAEeC2v8u2KqbGTg" source="_8jwQwNSAEeC2v8u2KqbGTg" target="_809VgNSAEeC2v8u2KqbGTg">

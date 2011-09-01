@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
   <ShapesDiagram xmi:id="_8LwngNSAEeC2v8u2KqbGTg">
-    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('opal.test.simplegraph.v2.directed','A')&#xA;"/>
-    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('opal.test.simplegraph.v2.directed','B')&#xA;">
+    <shapes xmi:type="Ensemble" xmi:id="_8jr_UNSAEeC2v8u2KqbGTg" name="A" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','A')&#xA;"/>
+    <shapes xmi:type="Ensemble" xmi:id="_807gUNSAEeC2v8u2KqbGTg" name="B" description="" query="class_with_members('unisson.test.simplegraph.v2.directed','B')&#xA;">
       <targetConnections xmi:type="NotAllowed" xmi:id="_qMl2wNSBEeC2v8u2KqbGTg" source="_807gUNSAEeC2v8u2KqbGTg" target="_8jr_UNSAEeC2v8u2KqbGTg"/>
     </shapes>
   </ShapesDiagram>
@@ -25,7 +25,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_80-jodSAEeC2v8u2KqbGTg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_80-jotSAEeC2v8u2KqbGTg"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_809VgdSAEeC2v8u2KqbGTg" x="70" y="185"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_809VgdSAEeC2v8u2KqbGTg" x="75" y="175"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_8Lx1odSAEeC2v8u2KqbGTg"/>
     <edges xmi:type="notation:Edge" xmi:id="_qMnr8NSBEeC2v8u2KqbGTg" type="4004" element="_qMl2wNSBEeC2v8u2KqbGTg" source="_809VgNSAEeC2v8u2KqbGTg" target="_8jwQwNSAEeC2v8u2KqbGTg">
