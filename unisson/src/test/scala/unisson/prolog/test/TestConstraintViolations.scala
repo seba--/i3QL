@@ -10,8 +10,6 @@ import unisson.queries.QueryCompiler
 import unisson._
 import unisson.ast._
 import de.tud.cs.st.bat.ObjectType
-import sae.operators.Aggregation._
-import sae.functions.Count._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.operators.Aggregation
 import sae.functions.Count
@@ -80,10 +78,10 @@ class TestConstraintViolations
 
 
         val A = checker.getEnsembles.collectFirst {
-            case e@Ensemble("A", _, _) => e
+            case e@Ensemble("A", _, _, _) => e
         }.get
         val B = checker.getEnsembles.collectFirst {
-            case e@Ensemble("B", _, _) => e
+            case e@Ensemble("B", _, _, _) => e
         }.get
 
         val sourceQuery = checker.ensembleElements(B)
@@ -129,6 +127,7 @@ class TestConstraintViolations
                     Ensemble(
                         "B",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List(),
                         List()
                     )
                 ),
@@ -137,6 +136,7 @@ class TestConstraintViolations
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List(),
                         List()
                     )
                 ),
@@ -145,11 +145,13 @@ class TestConstraintViolations
                     Ensemble(
                         "B",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List(),
                         List()
                     ),
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List(),
                         List()
                     ),
                     "all"
@@ -232,6 +234,7 @@ class TestConstraintViolations
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List(),
                         List()
                     )
                 ),
@@ -246,6 +249,7 @@ class TestConstraintViolations
                     Ensemble(
                         "B",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List(),
                         List()
                     )
                 ),
@@ -254,11 +258,13 @@ class TestConstraintViolations
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        List(),
                         List()
                     ),
                     Ensemble(
                         "B",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        List(),
                         List()
                     )
                     , "all"
@@ -351,6 +357,7 @@ class TestConstraintViolations
                     Ensemble(
                         "C",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        List(),
                         List()
                     )
                 ),
@@ -360,12 +367,14 @@ class TestConstraintViolations
                         Ensemble(
                             "A",
                             ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "A")),
+                            List(),
                             List()
                         )
                     ),
                     Ensemble(
                         "C",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        List(),
                         List()
                     ),
                     "all"
@@ -463,6 +472,7 @@ class TestConstraintViolations
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        List(),
                         List()
                     )
                 ),
@@ -479,12 +489,14 @@ class TestConstraintViolations
                     Ensemble(
                         "A",
                         ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        List(),
                         List()
                     ),
                     List(
                         Ensemble(
                             "B",
                             ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "B")),
+                            List(),
                             List()
                         )
                     ),

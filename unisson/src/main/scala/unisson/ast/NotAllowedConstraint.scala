@@ -10,5 +10,6 @@ package unisson.ast
 case class NotAllowedConstraint(source: Ensemble, target: Ensemble, kind: String)
     extends DependencyConstraint
 {
-
+    source.outgoingConnections = source.outgoingConnections :+ this
+    target.incomingConnections = target.incomingConnections :+ this
 }

@@ -17,9 +17,9 @@ class UnissonPrologParser
 
     import unisson.ast._
 
-    def ensemble: Parser[Ensemble] =
+    def ensemble: Parser[UnresolvedEnsemble] =
         "ensemble(" ~> atom ~ ("," ~> atom) ~ ("," ~> atomList) ~ ("," ~> query) ~ ("," ~> atomList <~ ").") ^^ {
-            case (arch ~ name ~ params ~ query ~ subEnsembles) => Ensemble(name, query, subEnsembles)
+            case (arch ~ name ~ params ~ query ~ subEnsembles) => UnresolvedEnsemble(name, query, subEnsembles)
         }
 
     def atom: Parser[String] = ident | "'" ~> """[^']*""".r <~ "'"
@@ -37,12 +37,16 @@ class UnissonPrologParser
 
     def query: Parser[UnissonQuery] = unaryQuery ||| binaryQuery
 
-    def parensQuery: Parser[UnissonQuery] = "(" ~> query <~ ")"
-
     def unaryQuery: Parser[UnissonQuery] =
-        parensQuery |
+        parenthesis |
         `package` |
-        class_with_members
+        class_with_members |
+        class_with_members_short |
+        transitive |
+        supertype |
+        `class` |
+        derived |
+        empty
 
     def binaryQuery : Parser[UnissonQuery] =
         or | without
@@ -59,11 +63,25 @@ class UnissonPrologParser
                     case (left ~ right) => WithoutQuery(left, right)
                 }
 
+    def parenthesis: Parser[UnissonQuery] = "(" ~> query <~ ")"
 
-    def class_with_members: Parser[ClassWithMembersQuery] =
+    def transitive: Parser[UnissonQuery] = ("transitive(" ~> query <~ ")") ^^ {TransitiveQuery(_:UnissonQuery)}
+
+    def supertype: Parser[UnissonQuery] = ("supertype(" ~> query <~ ")") ^^ {SuperTypeQuery(_:UnissonQuery)}
+
+    def class_with_members_short: Parser[ClassWithMembersQuery] =
         "class_with_members(" ~> atom ~ ("," ~> atom <~ ")") ^^
             {
                 case (packageName ~ name) => ClassWithMembersQuery(ClassQuery(packageName, name))
+            }
+
+    def class_with_members: Parser[ClassWithMembersQuery] =
+        ("class_with_members(" ~> query <~ ")") ^^ { ClassWithMembersQuery(_:UnissonQuery) }
+
+    def `class` : Parser[UnissonQuery] =
+            "class(" ~> atom ~ ("," ~> atom <~ ")") ^^
+            {
+                case (packageName ~ name) => ClassQuery(packageName, name)
             }
 
     def `package` : Parser[PackageQuery] =
@@ -71,6 +89,12 @@ class UnissonPrologParser
                 {
                     case (name) => PackageQuery(name)
                 }
+
+    def derived : Parser[DerivedQuery] =
+        "derived" ^^^ DerivedQuery()
+
+    def empty : Parser[EmptyQuery] =
+        "empty" ^^^ EmptyQuery()
 
 
     def dependencyConstraint: Parser[DependencyConstraint] =

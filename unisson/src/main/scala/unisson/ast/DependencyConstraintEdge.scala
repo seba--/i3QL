@@ -22,7 +22,7 @@ trait DependencyConstraintEdge
 
     val kinds: List[String]
 
-    var source : Option[Ensemble] = None
+    var source : Option[UnresolvedEnsemble] = None
 
-    var target : Option[Ensemble] = None
+    var target : Option[UnresolvedEnsemble] = None
 }

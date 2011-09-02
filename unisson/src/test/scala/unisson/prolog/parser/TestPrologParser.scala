@@ -92,6 +92,43 @@ class TestPrologParser
         )
     }
 
+    @Test
+    def testClassWithMembersSubqueryQuery()
+    {
+        val parser = new UnissonPrologParser()
+
+        import parser._
+
+        assertEquals(
+            ClassWithMembersQuery(
+                ClassQuery("org.hibernate.cache","Cache")
+            )
+            ,
+            parser.parseAll(
+                query,
+                "class_with_members(class('org.hibernate.cache','Cache'))"
+            ).get
+        )
+    }
+
+    @Test
+    def testTransitiveQuery()
+    {
+        val parser = new UnissonPrologParser()
+
+        import parser._
+
+        assertEquals(
+            TransitiveQuery(
+                ClassQuery("org.hibernate.cache","Cache")
+            )
+            ,
+            parser.parseAll(
+                query,
+                "transitive(class('org.hibernate.cache','Cache'))"
+            ).get
+        )
+    }
 
     @Test
     def testTransitiveSupertypeQuery()
@@ -101,14 +138,11 @@ class TestPrologParser
         import parser._
 
         assertEquals(
-            OrQuery(
-                WithoutQuery(
-                    PackageQuery("org.hibernate.id"),
-                    ClassWithMembersQuery(ClassQuery("org.hibernate.id", "IdentifierGenerationException"))
-                ),
-                OrQuery(
-                    PackageQuery("org.hibernate.id.uuid"),
-                    OrQuery(PackageQuery("org.hibernate.id.enhanced"), PackageQuery("org.hibernate.id.insert"))
+            ClassWithMembersQuery(
+                TransitiveQuery(
+                    SuperTypeQuery(
+                        ClassQuery("org.hibernate.cache","Cache")
+                    )
                 )
             )
             ,

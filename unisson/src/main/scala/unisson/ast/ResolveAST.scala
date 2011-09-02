@@ -1,7 +1,7 @@
 package unisson.ast
 
 /**
- * 
+ *
  * Author: Ralf Mitschke
  * Created: 30.08.11 15:25
  * Resolves entities in the ast to build a coherent object graph.
@@ -9,206 +9,166 @@ package unisson.ast
  * The resolves state is mutable!
  */
 
-object ResolveAST {
+object ResolveAST
+{
 
 
-    def apply(elements: Seq[UnissonDefinition]) : Seq[UnissonDefinition] =
+    def apply(elements: Seq[UnissonDefinition]): Seq[UnissonDefinition] =
     {
-        elements.foreach(resolve(_, elements))
-        val filtered = elements.filter( _ match
-            {
-                case i:DependencyConstraintEdge => false
-                case _=> true
+        val ensembles = resolveEnsembleHierarchy(
+            elements.collect {
+                case e: UnresolvedEnsemble => e
             }
         )
 
-        filtered.flatMap( _ match
-            {
-                case e: Ensemble => resolveEdges(e) :+ e
-                case elem => List(elem)
+        val constraints = resolveConstraintEdges(
+            elements.collect {
+                case e: DependencyConstraintEdge => e
+            },
+            ensembles
+        )
+
+        ensembles ++ constraints
+    }
+
+    /**
+     *
+     */
+    private def resolveEnsembleHierarchy(implicit unresolved: Seq[UnresolvedEnsemble]): Seq[Ensemble] =
+    {
+        val allChildren = (for {
+            e <- unresolved
+            sub <- e.subEnsembleNames
+        } yield sub).distinct
+
+        val topLevel = for {
+            e <- unresolved
+            if (allChildren.contains(e.name))
+        } yield resolveChildreRec(e)
+
+        collectAllChildren(topLevel)
+    }
+
+
+    private def collectAllChildren(ensembles: Seq[Ensemble]): Seq[Ensemble] =
+    {
+        ensembles.flatMap((e: Ensemble) => e.children ++ collectAllChildren(e.children))
+    }
+
+
+    private def resolveChildreRec(unresolved: UnresolvedEnsemble)(implicit allUnresolved: Seq[UnresolvedEnsemble]): Ensemble =
+    {
+        val children: Seq[Ensemble] = allUnresolved.filter(
+                (e: UnresolvedEnsemble) =>
+                unresolved.subEnsembleNames.contains(e.name)
+        ).map(resolveChildreRec)
+        Ensemble(
+            unresolved.name,
+            if (unresolved.query == DerivedQuery()) {
+                children.foldLeft[UnissonQuery](EmptyQuery())((q: UnissonQuery, e: Ensemble) => OrQuery(q, e.query))
             }
+            else {
+                unresolved.query
+            },
+            Nil,
+            children
         )
     }
 
 
-    private def resolveEdges(ensemble :Ensemble) : Seq[UnissonDefinition] =
+    private def resolveConstraintEdges(implicit edges: Seq[DependencyConstraintEdge], ensembles: Seq[Ensemble]): Seq[DependencyConstraint] =
     {
-        val outgoing = ensemble.outgoingConnections.collect{ case i:OutgoingConstraintEdge => i }
+        val outgoing = for {ensemble <- ensembles
+                            res <- resolveConstraints(
+                            {
+                                case OutgoingConstraintEdge(_, ensemble.name, _, _, _, _) => true
+                            },
+                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
+                                OutgoingConstraint(
+                                    ensemble,
+                                    for {
+                                        target <- ensembles
+                                        out <- constraints
+                                        if (target.name == out.targetName)
+                                        if (out.kinds.contains(kind))
+                                    } yield target
+                                    ,
+                                    kind
+                                )
+                            )
+        } yield res
 
-        val incoming = ensemble.incomingConnections.collect{ case i:IncomingConstraintEdge => i }
+        val incoming = for {ensemble <- ensembles
+                            res <- resolveConstraints(
+                            {
+                                case IncomingConstraintEdge(_, _, _, ensemble.name, _, _) => true
+                            },
+                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
+                                IncomingConstraint(
+                                    for {
+                                        source <- ensembles
+                                        in <- constraints
+                                        if (source.name == in.sourceName)
+                                        if (in.kinds.contains(kind))
+                                    } yield source
+                                    , ensemble,
+                                    kind
+                                )
+                            )
+        } yield res
 
-        val not_allowed = ensemble.outgoingConnections.collect{ case i:NotAllowedConstraintEdge => i }
+        val not_allowed = for {source <- ensembles
+                               target <- ensembles
+                               res <- resolveConstraints(
+                               {
+                                   case NotAllowedConstraintEdge(_, source.name, _, target.name, _, _) => true
+                               },
+                                   (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
+                                   NotAllowedConstraint(
+                                       source,
+                                       target,
+                                       kind
+                                   )
+                               )
+        } yield res
 
-        val expected = ensemble.outgoingConnections.collect{ case i:ExpectedConstraintEdge => i }
+        val expected = for {source <- ensembles
+                            target <- ensembles
+                            res <- resolveConstraints(
+                            {
+                                case ExpectedConstraintEdge(_, source.name, _, target.name, _, _) => true
+                            },
+                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
+                                ExpectedConstraint(
+                                    source,
+                                    target,
+                                    kind
+                                )
+                            )
+        } yield res
 
-        ensemble.outgoingConnections = ensemble.outgoingConnections.filter( _ match
-            {
-                // all edges must be removed from both sides
-                case i:DependencyConstraintEdge => false
-                case _=> true
+        outgoing ++ incoming ++ not_allowed ++ expected
+    }
+
+    /**
+     * provide:
+     * - a function that tells us how to identify the relevant edges
+     */
+    private def resolveConstraints(
+                                      isRelevant: PartialFunction[DependencyConstraintEdge, Boolean],
+                                      createDependency: (String, Seq[DependencyConstraintEdge]) => DependencyConstraint
+                                  )
+                                  (
+                                      implicit allEdges: Seq[DependencyConstraintEdge]
+                                  ): Seq[DependencyConstraint] =
+    {
+        val relevant = allEdges.filter(
+            isRelevant.orElse {
+                case _ => false
             }
         )
-
-        ensemble.incomingConnections = ensemble.incomingConnections.filter( _ match
-            {
-                // all edges must be removed from both sides
-                case i:DependencyConstraintEdge => false
-                case _=> true
-            }
-        )
-
-        val resolvedOutgoingDependencies =
-            for( kind <- outgoing.flatMap( _.kinds ).distinct )
-                yield
-                    OutgoingConstraint(ensemble,
-                            for{
-                                out <- outgoing
-                                if( out.kinds.contains(kind) )
-                                target <- out.target
-                            } yield target
-                            ,
-                            kind
-                    )
-
-        val resolvedNotAllowedDependencies =
-            for( constraint <- not_allowed; kind <- constraint.kinds)
-                yield
-                    NotAllowedConstraint(constraint.source.get,
-                                    constraint.target.get,
-                            kind
-                    )
-
-        val resolvedExpectedDependencies =
-            for( constraint <- expected; kind <- constraint.kinds)
-                yield
-                    ExpectedConstraint(constraint.source.get,
-                                    constraint.target.get,
-                            kind
-                    )
-
-        ensemble.outgoingConnections = ensemble.outgoingConnections ++ resolvedOutgoingDependencies ++ resolvedNotAllowedDependencies ++ resolvedExpectedDependencies
-
-        for{ con <- resolvedOutgoingDependencies
-               target <- con.targets
-        }{
-            target.incomingConnections = target.incomingConnections :+ con
-        }
-
-        for{ con <- resolvedNotAllowedDependencies
-        }{
-            con.target.incomingConnections = con.target.incomingConnections :+ con
-        }
-
-        for{ con <- resolvedExpectedDependencies
-        }{
-            con.target.incomingConnections = con.target.incomingConnections :+ con
-        }
-
-        val resolvedIncoming = for( kind <- incoming.flatMap( _.kinds ).distinct )
-            yield IncomingConstraint(
-                            for{
-                                in <- incoming
-                                if( in.kinds.contains(kind) )
-                                source <- in.source
-                            } yield source
-                            , ensemble,
-                            kind
-                    )
-
-        ensemble.incomingConnections = ensemble.incomingConnections ++ resolvedIncoming
-
-        for{ con <- resolvedIncoming
-               source <- con.sources
-        }{
-            source.outgoingConnections = source.outgoingConnections :+ con
-        }
-
-        resolvedIncoming ++ resolvedOutgoingDependencies ++ resolvedNotAllowedDependencies ++ resolvedExpectedDependencies
+        for (kind <- relevant.flatMap(_.kinds).distinct
+        ) yield createDependency(kind, relevant)
     }
 
-
-    private def resolve(elem : UnissonDefinition, rest: Seq[UnissonDefinition])
-    {
-        elem match {
-            case e: Ensemble => resolveEnsemble(e, rest)
-            case d: DependencyConstraintEdge => resolveConstraint(d, rest)
-
-        }
-    }
-
-    private def resolveEnsemble(ensemble : Ensemble, rest: Seq[UnissonDefinition])
-    {
-
-        for( elem <- rest )
-        {
-            if( elem.isInstanceOf[DependencyConstraintEdge])
-            {
-                connect(ensemble, elem.asInstanceOf[DependencyConstraintEdge])
-            }
-            if( elem.isInstanceOf[Ensemble])
-            {
-                connect(ensemble, elem.asInstanceOf[Ensemble])
-            }
-        }
-
-    }
-
-    private def resolveConstraint(constraint : DependencyConstraintEdge, rest: Seq[UnissonDefinition])
-    {
-        for( e @ Ensemble(_,_,_) <- rest)
-        {
-            connect(e, constraint)
-        }
-    }
-
-
-    def connect(ensemble: Ensemble, constraint:DependencyConstraintEdge)
-    {
-        if( constraint.sourceName == ensemble.name )
-        {
-            constraint.source = Some(ensemble)
-
-            if( !ensemble.outgoingConnections.contains(constraint) )
-            {
-                ensemble.outgoingConnections = ensemble.outgoingConnections :+ constraint
-            }
-
-        }
-        else if( constraint.targetName == ensemble.name )
-        {
-            constraint.target = Some(ensemble)
-
-            if( !ensemble.incomingConnections.contains(constraint) )
-            {
-                ensemble.incomingConnections = ensemble.incomingConnections :+ constraint
-            }
-        }
-    }
-
-    def connect(ensembleA: Ensemble, ensembleB: Ensemble)
-    {
-        if( ensembleA.subEnsembleNames.contains(ensembleB.name) )
-        {
-            if( !ensembleA.childEnsembles.contains(ensembleB) )
-            {
-                ensembleA.childEnsembles = ensembleA.childEnsembles :+ ensembleB
-            }
-            if( ensembleB.parentEnsemble != Some(ensembleA) )
-            {
-                ensembleB.parentEnsemble = Some(ensembleA)
-            }
-        }
-        else
-        if( ensembleB.subEnsembleNames.contains(ensembleA.name) )
-        {
-            if( !ensembleB.childEnsembles.contains(ensembleA) )
-            {
-                ensembleB.childEnsembles = ensembleB.childEnsembles :+ ensembleA
-            }
-            if( ensembleA.parentEnsemble != Some(ensembleB) )
-            {
-                ensembleA.parentEnsemble = Some(ensembleB)
-            }
-        }
-    }
 }

@@ -1,20 +1,30 @@
 package unisson.ast
 
 /**
- * 
+ *
  * Author: Ralf Mitschke
- * Created: 30.08.11 11:08
+ * Created: 02.09.11 14:32
  *
  */
 
-case class Ensemble(name : String, query : UnissonQuery, subEnsembleNames : Seq[String])
-    extends UnissonDefinition
+case class Ensemble(
+                       name: String,
+                       query: UnissonQuery,
+                       contextParameters: List[String],
+                       children: Seq[Ensemble]
+                   )
+        extends UnissonDefinition
 {
-    var outgoingConnections : Seq[DependencyConstraint] = Nil
+    children.foreach(
+        _.parentRef = Some(this)
+    )
 
-    var incomingConnections : Seq[DependencyConstraint] = Nil
+    private var parentRef: Option[Ensemble] = None
 
-    var childEnsembles : Seq[Ensemble] = Nil
+    def parent: Option[Ensemble] = parentRef
 
-    var parentEnsemble : Option[Ensemble] = None
+    var outgoingConnections: Seq[DependencyConstraint] = Nil
+
+    var incomingConnections: Seq[DependencyConstraint] = Nil
+
 }

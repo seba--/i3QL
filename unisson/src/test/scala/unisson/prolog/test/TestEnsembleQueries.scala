@@ -2,13 +2,13 @@ package unisson.prolog.test
 
 import org.junit.Test
 import unisson.prolog.CheckArchitectureFromProlog._
-import unisson.ast.Ensemble
 import org.junit.Assert._
 import sae.bytecode.BytecodeDatabase
 import unisson.queries.QueryCompiler
 import unisson.{SourceElement, ArchitectureChecker}
 import sae.bytecode.model._
 import de.tud.cs.st.bat._
+import unisson.ast.{Ensemble, UnresolvedEnsemble}
 
 /**
  *
@@ -29,7 +29,7 @@ class TestEnsembleQueries
             )
         )
         val A = definitions.collectFirst {
-            case e@Ensemble("A", _, _) => e
+            case e@Ensemble("A", _, _,_) => e
         }.get
 
 

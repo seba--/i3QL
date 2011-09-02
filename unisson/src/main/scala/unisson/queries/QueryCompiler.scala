@@ -31,7 +31,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
     def add(definition : UnissonDefinition)
     {
         definition match {
-            case e @ Ensemble(_,_,_) => existingQuery(e).getOrElse(createEnsembleQuery(e))
+            case e @ Ensemble(_,_,_,_) => existingQuery(e).getOrElse(createEnsembleQuery(e))
             case inc @ IncomingConstraint(_,_,_) => existingQuery(inc).getOrElse(createIncomingQuery(inc))
             case out @ OutgoingConstraint(_,_,_) => existingQuery(out).getOrElse(createOutgoingQuery(out))
             case not @ NotAllowedConstraint(_,_,_) => existingQuery(not).getOrElse(createNotAllowedQuery(not))
