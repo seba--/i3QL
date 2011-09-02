@@ -10,11 +10,5 @@ package unisson.ast
 case class UnresolvedEnsemble(name : String, query : UnissonQuery, subEnsembleNames : Seq[String])
     extends UnissonDefinition
 {
-    var outgoingConnections : Seq[DependencyConstraint] = Nil
 
-    var incomingConnections : Seq[DependencyConstraint] = Nil
-
-    var childEnsembles : Seq[UnresolvedEnsemble] = Nil
-
-    var parentEnsemble : Option[UnresolvedEnsemble] = None
 }

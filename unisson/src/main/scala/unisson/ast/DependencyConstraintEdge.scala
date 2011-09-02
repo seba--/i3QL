@@ -21,8 +21,4 @@ trait DependencyConstraintEdge
     val targetParams: List[String]
 
     val kinds: List[String]
-
-    var source : Option[UnresolvedEnsemble] = None
-
-    var target : Option[UnresolvedEnsemble] = None
 }

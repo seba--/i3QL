@@ -43,10 +43,10 @@ object ResolveAST
 
         val topLevel = for {
             e <- unresolved
-            if (allChildren.contains(e.name))
+            if (!allChildren.contains(e.name))
         } yield resolveChildreRec(e)
 
-        collectAllChildren(topLevel)
+        topLevel ++ collectAllChildren(topLevel)
     }
 
 

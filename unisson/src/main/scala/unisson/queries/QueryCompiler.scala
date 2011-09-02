@@ -98,6 +98,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
             case WithoutQuery(left, right) => compileUnissonQuery(left) without compileUnissonQuery(right)
             case TransitiveQuery(innerQuery) => transitive(compileUnissonQuery(innerQuery))
             case SuperTypeQuery(innerQuery) => supertype(compileUnissonQuery(innerQuery))
+            case EmptyQuery() => new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]]()
             case _ => throw new IllegalArgumentException("Unknown query type: " + query)
         }
     }

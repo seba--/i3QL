@@ -4,9 +4,8 @@ import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.LazyView
 import sae.bytecode.model.dependencies.{inner_class, Dependency, `extends`}
-import sae.operators.BagUnion
+import sae.{Observer, LazyView}
 
 /**
  *
@@ -17,7 +16,18 @@ import sae.operators.BagUnion
 class Queries( val db : BytecodeDatabase )
 {
 
-    def supertype( target : LazyView[SourceElement[AnyRef]]) = null
+    /**
+     * select all supertype form supertype where supertype.target exists in targets
+     */
+    def supertype( targets : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] =
+        Π(
+            (d:Dependency[AnyRef, AnyRef]) => new SourceElement(d.source)
+         )(
+            (
+                    db.implements.∪[Dependency[AnyRef, AnyRef], `extends`](db.`extends`),
+                    (_:Dependency[AnyRef, AnyRef]).target
+            ) ⋉ ((_:SourceElement[AnyRef]).element, targets)
+        )
     /*
         Π[`extends`, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:`extends`).source) }(
             (db.`extends`, target _) ⊳ ((_:SourceElement[AnyRef]).element, target)
@@ -65,10 +75,38 @@ class Queries( val db : BytecodeDatabase )
         )
 
 
+    /**
+     * rewrites the query so it will be used transitively
+     */
+    def transitive(  target : LazyView[SourceElement[AnyRef]] ) : LazyView[SourceElement[AnyRef]] =
 
-    def transitive(  target : LazyView[SourceElement[AnyRef]] ) : LazyView[SourceElement[AnyRef]] = null
+            target match
+            {
+                case p @ Π(
+                            func:(Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]),
+                            oldQuery:LazyView[Dependency[AnyRef, AnyRef]]
+                        ) =>
+                    {
+                        p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
+                        Π[(AnyRef, AnyRef),SourceElement[AnyRef]](
+                            // wrap in a dependency again so we can reuse the projection function
+                            (t:(AnyRef,AnyRef)) => func.asInstanceOf[Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]](
+                                new Dependency[AnyRef,AnyRef] {
+                                    val source = t._1
+                                    val target = t._2
+                                }
+                            )
 
-    def class_with_members(target : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] = null
+                        )(TC(oldQuery)(_.source, _.target))
+                    }
+            }
+
+    /**
+     * select all (class, member) from transitive_class_members where class exists in target
+     */
+    def class_with_members(target : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] = Π{ (tuple:(AnyRef, AnyRef)) => new SourceElement[AnyRef]( tuple._2 ) } (
+            (transitive_class_members, (cm:(AnyRef, AnyRef)) => new SourceElement[AnyRef](cm._1)) ⋉ (identity[SourceElement[AnyRef]], target)
+        )
 
 
     private def fromJava(unresolved : String) : String = unresolved.replace('.', '/')
