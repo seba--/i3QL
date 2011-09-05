@@ -275,6 +275,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
             case create_class_array(_,_) => "create_class_array"
             case class_cast(_,_) => "class_cast"
             case throws(_,_) => "throws"
+            case inner_class(_,_,_,_) => "inner_class"
         }
     }
 

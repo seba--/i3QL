@@ -14,6 +14,7 @@ import sae.collections.QueryResult
 
 class Hibernate_3_6_Test
 {
+    @Ignore
     @Test
     def test_class_with_members()
     {
@@ -73,6 +74,8 @@ class Hibernate_3_6_Test
 
     }
 
+
+    @Ignore
     @Test
     def count_all_ensemble_elements()
     {
@@ -123,6 +126,7 @@ class Hibernate_3_6_Test
 
     }
 
+    @Ignore
     @Test
     def find_action_sad_violation_elements()
     {
@@ -148,7 +152,7 @@ class Hibernate_3_6_Test
 
     }
 
-
+    @Ignore
     @Test
     def find_bytecode_sad_violation_elements()
     {
@@ -165,7 +169,7 @@ class Hibernate_3_6_Test
 
     }
 
-
+    @Ignore
     @Test
     def find_cache_sad_violation_elements()
     {

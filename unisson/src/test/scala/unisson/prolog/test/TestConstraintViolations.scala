@@ -1,8 +1,8 @@
 package unisson.prolog.test
 
-import org.junit.Test
+import org.junit.{Test, Ignore}
 import org.junit.Assert._
-import unisson.prolog.CheckArchitectureFromProlog._
+import unisson.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
 import sae.bytecode.model._
 import dependencies.Dependency
@@ -58,6 +58,7 @@ class TestConstraintViolations
         assertEquals(0, checker.violations.size)
     }
 
+    @Ignore
     @Test
     def testSimpleGraphExpectedViolation()
     {

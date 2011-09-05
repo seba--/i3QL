@@ -13,7 +13,7 @@ import unisson.ast._
 
 class TestASTGeneration {
 
-    import unisson.prolog.CheckArchitectureFromProlog._
+    import unisson.CheckArchitectureFromProlog._
 
     @Test
     def testSimpleGraphV1()
