@@ -14,28 +14,76 @@ import sae.bytecode.model._
 object Utilities
 {
 
-    def ensembleToString(ensemble : Ensemble)(implicit delimiter: String, checker: ArchitectureChecker) =
-
-        ensemble.name + delimiter + checker.ensembleElements(ensemble).size + "\n" +
-        (ensemble.outgoingConnections.collect( (c:DependencyConstraint) => c match
-            {
-                case OutgoingConstraint(_,targets,kind) => "outgoing" + delimiter + kind + delimiter + ensembleListToString(targets) + delimiter + checker.violations(c).size
-                case NotAllowedConstraint(_,target,kind) => "not_allowed" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
-                case ExpectedConstraint(_,target,kind) => "expected" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
-            }
-        ).foldRight("")( delimiter + delimiter + _ + "\n" + _)) +
-        (ensemble.incomingConnections.collect( (c:DependencyConstraint) => c match
-            {
-                case IncomingConstraint(sources,_,kind) => "incoming" + delimiter + kind + delimiter + ensembleListToString(sources) + delimiter + checker.violations(c).size
-                case NotAllowedConstraint(source,_,kind) => "not_allowed" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
-                case ExpectedConstraint(source,_,kind) => "expected" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
-            }
-        ).foldRight("")( delimiter + delimiter + _ + "\n" + _))
-
-
-    def ensembleListToString(ensembles : Seq[Ensemble]) : String =
+    def ensembleToString(ensemble: Ensemble)(implicit delimiter: String, checker: ArchitectureChecker) =
     {
-        (ensembles.foldLeft("")(_ + " | " + _.name)).drop(3)
+
+        val outgoing = ensemble.outgoingConnections.collect(
+                (c: DependencyConstraint) => c match {
+                case OutgoingConstraint(
+                _,
+                targets,
+                kind
+                ) => "outgoing" + delimiter + kind + delimiter + ensembleListToString(targets) + delimiter + checker.violations(
+                    c
+                ).size
+                case NotAllowedConstraint(
+                _,
+                target,
+                kind
+                ) => "not_allowed" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
+                case ExpectedConstraint(
+                _,
+                target,
+                kind
+                ) => "expected" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
+            }
+        )
+
+        val incoming = ensemble.incomingConnections.collect(
+                (c: DependencyConstraint) => c match {
+                case IncomingConstraint(
+                sources,
+                _,
+                kind
+                ) => "incoming" + delimiter + kind + delimiter + ensembleListToString(sources) + delimiter + checker.violations(
+                    c
+                ).size
+                case NotAllowedConstraint(
+                source,
+                _,
+                kind
+                ) => "not_allowed" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
+                case ExpectedConstraint(
+                source,
+                _,
+                kind
+                ) => "expected" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
+            }
+        )
+
+        val result = ensemble.name + delimiter + checker.ensembleElements(ensemble).size +
+                (
+                        if (!outgoing.isEmpty) {
+                            outgoing.reduceRight(delimiter + delimiter + _ + "\n" + _)
+                        } else {
+                            ""
+                        }
+                        ) +
+                (
+                        if (!incoming.isEmpty) {
+                            incoming.reduceRight(delimiter + delimiter + _ + "\n" + _)
+                        }
+                        else {
+                            ""
+                        }
+                        )
+
+        result
+    }
+
+    def ensembleListToString(ensembles: Seq[Ensemble]): String =
+    {
+        ensembles.map(_.name).reduceLeft(_ + " | " + _)
     }
 
     /**
@@ -54,16 +102,16 @@ object Utilities
             kind
             ) => List(
                 if (source == None) {
-                    (ensmblesForElement(sourceElement).foldLeft("")(_ + " | " + _.name)).drop(3)
+                    ensembleListToString(ensmblesForElement(sourceElement))
                 } else {
                     source.get.name
                 },
                 if (target == None) {
-                    (ensmblesForElement(targetElement).foldLeft("")(_ + " | " + _.name)).drop(3)
+                    ensembleListToString(ensmblesForElement(targetElement))
                 } else {
                     target.get.name
                 },
-                constraintType (constraint),
+                constraintType(constraint),
                 kind,
                 elementToString(sourceElement),
                 elementToString(targetElement)
@@ -94,7 +142,9 @@ object Utilities
             params,
             ret
             )
-            ) => "method" + delimiter + decl.toJava + "." + name + "(" + (params.foldLeft("")(_ + ", " + _.toJava)).drop(2) + ")" + ": " + ret.toJava
+            ) => "method" + delimiter + decl.toJava + "." + name + "(" + (params.foldLeft("")(_ + ", " + _.toJava)).drop(
+                2
+            ) + ")" + ": " + ret.toJava
 
             case SourceElement(
             Field(
@@ -106,27 +156,26 @@ object Utilities
         }
     }
 
-    def ensmblesForElement(sourceElement: SourceElement[AnyRef])(implicit checker: ArchitectureChecker): Set[Ensemble] =
+    def ensmblesForElement(sourceElement: SourceElement[AnyRef])(implicit checker: ArchitectureChecker): Seq[Ensemble] =
     {
 
-        val ensembles = checker.getEnsembles.filter( (ensemble:Ensemble) => {
+        val ensembles = checker.getEnsembles.filter(
+                (ensemble: Ensemble) => {
                 val elements = checker.ensembleElements(ensemble);
-                if (elements.contains(sourceElement) )
-                {
+                if (elements.contains(sourceElement)) {
                     true
                 }
-                else
-                {
+                else {
                     false
                 }
-        })
+            }
+        )
 
-        if( !ensembles.isEmpty ){
-           ensembles
+        if (!ensembles.isEmpty) {
+            ensembles.toList
         }
-        else
-        {
-            Set(CloudEnsemble)
+        else {
+            Set(CloudEnsemble).toList
         }
     }
 }

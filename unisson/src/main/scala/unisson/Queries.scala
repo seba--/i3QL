@@ -104,7 +104,16 @@ class Queries( val db : BytecodeDatabase )
     /**
      * select all (class, member) from transitive_class_members where class exists in target
      */
-    def class_with_members(target : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] = Π{ (tuple:(AnyRef, AnyRef)) => new SourceElement[AnyRef]( tuple._2 ) } (
+    def class_with_members(target : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] =
+     Π(identity(_:SourceElement[AnyRef])) (
+            σ( (_:SourceElement[AnyRef]) match
+            {
+                    case SourceElement(_:ObjectType) => true
+                    case _ => false
+            }
+            )(target)
+        ) ∪
+        Π{ (tuple:(AnyRef, AnyRef)) => new SourceElement[AnyRef]( tuple._2 ) } (
             (transitive_class_members, (cm:(AnyRef, AnyRef)) => new SourceElement[AnyRef](cm._1)) ⋉ (identity[SourceElement[AnyRef]], target)
         )
 

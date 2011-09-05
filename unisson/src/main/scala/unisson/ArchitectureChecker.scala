@@ -64,6 +64,11 @@ class ArchitectureChecker(val db: BytecodeDatabase)
         ensembles.get(ensemble).get
     }
 
+    def getEnsemble(name : String) : Option[Ensemble] =
+    {
+        ensembles.keySet.collectFirst( { case e @ Ensemble(n,_,_,_) if( n == name) => e } )
+    }
+
     def addConstraint(constraint: DependencyConstraint, query: LazyView[Violation])
     {
         constraintViolations += {

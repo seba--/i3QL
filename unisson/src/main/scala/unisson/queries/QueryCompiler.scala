@@ -8,6 +8,8 @@ import sae.collections.{BagResult, QueryResult}
 import sae.{Observer, LazyView}
 import sae.functions.Count
 import sae.operators.{Aggregation, NotSelfMaintainalbeAggregateFunction}
+import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model._
 
 /**
  * 
@@ -76,6 +78,24 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
             checker.updateConstraint(out, newQuery)
         }
+
+
+        val allElements = Π(new SourceElement[AnyRef](_:ObjectType))(db.classfiles) ∪ Π(new SourceElement[AnyRef](_:Method))(db.classfile_methods) ∪ Π(new SourceElement[AnyRef](_:Field))(db.classfile_fields)
+
+        val allEnsembles =
+                for(ensemble <- checker.getEnsembles)
+                    yield existingQuery(ensemble).get
+
+
+
+
+        val restQuery = allEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
+        val notInAnyEnsemble = (allElements, identity(_:SourceElement[AnyRef])) ⊳ (identity(_:SourceElement[AnyRef]), restQuery)
+
+        checker.addEnsemble(CloudEnsemble, allElements)
+        checker.addEnsemble(RestEnsemble, notInAnyEnsemble)
+
+
 
     }
 

@@ -98,10 +98,14 @@ object CheckArchitectureFromProlog
         println(
             "Ensemble;EnsembleElementCount;ConstraintTypem;ConstraintKind;Constraint(Srcs/Trgts);ConstraintViolationCount"
         )
-        checker.getEnsembles.foreach((e: Ensemble) => println(ensembleToString(e)))
+        (checker.getEnsembles.toList.sortBy{ _.name}).foreach((e: Ensemble) => println(ensembleToString(e)))
 
+        checker.ensembleElements( checker.getEnsemble("Exceptions").get ).foreach(println)
 
-        checker.violations.foreach((v: Violation) => println(violationToString(v)))
+        println("-----------------------------------------------------------------")
+        //checker.ensembleElements( checker.getEnsemble("@rest").get ).foreach(println)
+
+        //checker.violations.foreach((v: Violation) => println(violationToString(v)))
     }
 
 
@@ -188,7 +192,7 @@ object CheckArchitectureFromProlog
         val result = parser.parseAll(parser.ensemble, s)
         result match {
             case parser.Failure(msg, next) => {
-                println("unable to parse ensmble:")
+                println("unable to parse ensemble:")
                 println(msg)
                 println(next.pos.longString)
                 System.exit(-1)

@@ -7,8 +7,8 @@ package unisson.ast
  *
  */
 
-object CloudEnsemble
-        extends Ensemble("@cloud", AllQuery(), Nil, Nil)
+object RestEnsemble
+        extends Ensemble("@rest", AllQuery(), Nil, Nil)
 {
 
 }
