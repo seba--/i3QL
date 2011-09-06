@@ -77,7 +77,7 @@ class TestPrologParser
             OrQuery(
                 WithoutQuery(
                     PackageQuery("org.hibernate.id"),
-                    ClassWithMembersQuery(ClassQuery("org.hibernate.id", "IdentifierGenerationException"))
+                    ClassWithMembersQuery(ClassSelectionQuery("org.hibernate.id", "IdentifierGenerationException"))
                 ),
                 OrQuery(
                     PackageQuery("org.hibernate.id.uuid"),
@@ -101,7 +101,7 @@ class TestPrologParser
 
         assertEquals(
             ClassWithMembersQuery(
-                ClassQuery("org.hibernate.cache","Cache")
+                ClassSelectionQuery("org.hibernate.cache","Cache")
             )
             ,
             parser.parseAll(
@@ -120,7 +120,7 @@ class TestPrologParser
 
         assertEquals(
             TransitiveQuery(
-                ClassQuery("org.hibernate.cache","Cache")
+                ClassSelectionQuery("org.hibernate.cache","Cache")
             )
             ,
             parser.parseAll(
@@ -141,7 +141,7 @@ class TestPrologParser
             ClassWithMembersQuery(
                 TransitiveQuery(
                     SuperTypeQuery(
-                        ClassQuery("org.hibernate.cache","Cache")
+                        ClassSelectionQuery("org.hibernate.cache","Cache")
                     )
                 )
             )

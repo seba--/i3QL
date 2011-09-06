@@ -127,7 +127,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "B",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "B")),
                         List(),
                         List()
                     )
@@ -136,7 +136,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "A")),
                         List(),
                         List()
                     )
@@ -145,13 +145,13 @@ class TestConstraintViolations
                 ExpectedConstraint(
                     Ensemble(
                         "B",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "B")),
                         List(),
                         List()
                     ),
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "A")),
                         List(),
                         List()
                     ),
@@ -234,7 +234,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "A")),
                         List(),
                         List()
                     )
@@ -249,7 +249,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "B",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "B")),
                         List(),
                         List()
                     )
@@ -258,13 +258,13 @@ class TestConstraintViolations
                 NotAllowedConstraint(
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "A")),
                         List(),
                         List()
                     ),
                     Ensemble(
                         "B",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v2.directed", "B")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v2.directed", "B")),
                         List(),
                         List()
                     )
@@ -357,7 +357,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "C",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
                         List(),
                         List()
                     )
@@ -367,14 +367,14 @@ class TestConstraintViolations
                     List(
                         Ensemble(
                             "A",
-                            ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "A")),
+                            ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.incoming", "A")),
                             List(),
                             List()
                         )
                     ),
                     Ensemble(
                         "C",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.incoming", "C")),
                         List(),
                         List()
                     ),
@@ -472,7 +472,7 @@ class TestConstraintViolations
                 Some(
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
                         List(),
                         List()
                     )
@@ -489,14 +489,14 @@ class TestConstraintViolations
                 OutgoingConstraint(
                     Ensemble(
                         "A",
-                        ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
+                        ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.outgoing", "A")),
                         List(),
                         List()
                     ),
                     List(
                         Ensemble(
                             "B",
-                            ClassWithMembersQuery(ClassQuery("unisson.test.simplegraph.v3.directed.outgoing", "B")),
+                            ClassWithMembersQuery(ClassSelectionQuery("unisson.test.simplegraph.v3.directed.outgoing", "B")),
                             List(),
                             List()
                         )

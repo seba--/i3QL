@@ -3,10 +3,11 @@ package unisson.ast
 /**
  * 
  * Author: Ralf Mitschke
- * Created: 30.08.11 10:11
+ * Created: 06.09.11 12:02
  *
  */
-case class ClassQuery(packageName : String, name : String)
+
+case class ClassQuery(subQuery : UnissonQuery)
     extends UnissonQuery
 {
 

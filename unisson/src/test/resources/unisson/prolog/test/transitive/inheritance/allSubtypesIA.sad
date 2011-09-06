@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://vespucci.editor/2011-06-01" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <ShapesDiagram xmi:id="_oKS2cNh0EeCB5sZAxAFU2w">
+    <shapes xmi:type="Ensemble" xmi:id="_oW69MNh0EeCB5sZAxAFU2w" name="AllSubtypesIA" query="class(transitive(supertype(class('unisson.test.transitive.inheritance','IA'))))"/>
+  </ShapesDiagram>
+  <notation:Diagram xmi:id="_oKTdgNh0EeCB5sZAxAFU2w" type="Vespucci" element="_oKS2cNh0EeCB5sZAxAFU2w" name="allSubtypesIA.sad" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_oW6WINh0EeCB5sZAxAFU2w" type="2001" element="_oW69MNh0EeCB5sZAxAFU2w" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oW6WIdh0EeCB5sZAxAFU2w" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_oW6WIth0EeCB5sZAxAFU2w" type="5008"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_oW6WI9h0EeCB5sZAxAFU2w" type="7001"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_oW6WJNh0EeCB5sZAxAFU2w" type="7003">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_oW6WJdh0EeCB5sZAxAFU2w"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_oW6WJth0EeCB5sZAxAFU2w"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oW6WJ9h0EeCB5sZAxAFU2w" x="160" y="45"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_oKTdgdh0EeCB5sZAxAFU2w"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -84,12 +84,12 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         val allEnsembles =
                 for(ensemble <- checker.getEnsembles)
-                    yield existingQuery(ensemble).get
+                    yield checker.ensembleElements(ensemble)
 
 
 
 
-        val restQuery = allEnsembles.foldLeft[QueryResult[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
+        val restQuery : QueryResult[SourceElement[AnyRef]] = allEnsembles.foldLeft[LazyView[SourceElement[AnyRef]]](new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]])(_ ∪ _)
         val notInAnyEnsemble = (allElements, identity(_:SourceElement[AnyRef])) ⊳ (identity(_:SourceElement[AnyRef]), restQuery)
 
         checker.addEnsemble(CloudEnsemble, allElements)
@@ -110,13 +110,14 @@ class QueryCompiler(val checker : ArchitectureChecker)
     {
         query match
         {
-            case ClassQuery(pn, sn) => `class`(pn, sn)
-            case ClassWithMembersQuery(ClassQuery(pn, sn)) => class_with_members(pn, sn)
+            case ClassSelectionQuery(pn, sn) => `class`(pn, sn)
+            case ClassQuery(classQuery) => `class`(compileUnissonQuery(classQuery))
+            case ClassWithMembersQuery(ClassSelectionQuery(pn, sn)) => class_with_members(pn, sn)
             case ClassWithMembersQuery(classQuery) => class_with_members(compileUnissonQuery(classQuery))
             case PackageQuery(pn) => `package`(pn)
             case OrQuery(left, right) => compileUnissonQuery(left) or compileUnissonQuery(right)
             case WithoutQuery(left, right) => compileUnissonQuery(left) without compileUnissonQuery(right)
-            case TransitiveQuery(innerQuery) => transitive(compileUnissonQuery(innerQuery))
+            case TransitiveQuery(SuperTypeQuery(innerQuery)) => transitive_supertype(compileUnissonQuery(innerQuery))
             case SuperTypeQuery(innerQuery) => supertype(compileUnissonQuery(innerQuery))
             case EmptyQuery() => new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]]()
             case _ => throw new IllegalArgumentException("Unknown query type: " + query)

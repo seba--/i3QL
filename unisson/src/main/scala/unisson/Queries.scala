@@ -4,8 +4,8 @@ import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model.dependencies.{inner_class, Dependency, `extends`}
 import sae.{Observer, LazyView}
+import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
 
 /**
  *
@@ -15,6 +15,16 @@ import sae.{Observer, LazyView}
  */
 class Queries( val db : BytecodeDatabase )
 {
+
+
+
+
+    def `class`(packageName : String, name : String) : LazyView[SourceElement[AnyRef]] =
+Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (o:ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == fromJava(name) )}(db.classfiles))
+
+
+    def `class`( targets : LazyView[SourceElement[AnyRef]]) : LazyView[SourceElement[AnyRef]] =
+        (targets, (_:SourceElement[AnyRef]).element) ⋉ (identity(_:ObjectType), db.classfiles)
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
@@ -28,14 +38,6 @@ class Queries( val db : BytecodeDatabase )
                     (_:Dependency[AnyRef, AnyRef]).target
             ) ⋉ ((_:SourceElement[AnyRef]).element, targets)
         )
-    /*
-        Π[`extends`, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:`extends`).source) }(
-            (db.`extends`, target _) ⊳ ((_:SourceElement[AnyRef]).element, target)
-        )
-    */
-
-    def `class`(packageName : String, name : String) : LazyView[SourceElement[AnyRef]] =
-Π[ObjectType, SourceElement[AnyRef]]{ SourceElement[AnyRef]((_:ObjectType)) }(σ{ (o:ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == fromJava(name) )}(db.classfiles))
 
     def `package`(name : String) : LazyView[SourceElement[AnyRef]] =
         (
@@ -54,13 +56,13 @@ class Queries( val db : BytecodeDatabase )
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
-    val direct_class_members : LazyView[class_member[AnyRef]] =
+    lazy val direct_class_members : LazyView[class_member[AnyRef]] =
         Π{ ( (m : Method) =>  new class_member[AnyRef](m.declaringRef, new SourceElement[AnyRef]( m ) )) }(db.classfile_methods) ∪
         Π{ ( (f : Field) =>  new class_member[AnyRef](f.declaringClass, new SourceElement[AnyRef]( f ) )) }(db.classfile_fields) ∪
         Π( (inner:inner_class) => new class_member[AnyRef](inner.source, new SourceElement[AnyRef]( inner.target ) ) ) (db.inner_classes)
 
 
-     val transitive_class_members : LazyView[(AnyRef, AnyRef)] =
+     lazy val transitive_class_members : LazyView[(AnyRef, AnyRef)] =
         TC(direct_class_members)( (cm:class_member[AnyRef]) => (cm.source), (_:class_member[AnyRef]).target.element )
 
 
@@ -74,9 +76,23 @@ class Queries( val db : BytecodeDatabase )
             σ{ (_:(AnyRef, AnyRef))._1 == ObjectType(fromJava(qualifiedClass))} (transitive_class_members)
         )
 
+    // reuse this query so the supertype is not recomputed multiple times
+    lazy val supertypeTrans = TC(db.implements.∪[Dependency[AnyRef, AnyRef], `extends`](db.`extends`))(_.source, _.target)
 
+    def transitive_supertype(  targets : LazyView[SourceElement[AnyRef]] ) : LazyView[SourceElement[AnyRef]] =
+        δ( // TODO something is not right here, this should not require a delta, values should be distinct on their own
+        Π(
+            (d:(AnyRef, AnyRef)) => new SourceElement(d._1) // _.source
+         )(
+            (
+                    supertypeTrans,
+                    (_:(AnyRef, AnyRef))._2 // _.target
+            ) ⋉ ((_:SourceElement[AnyRef]).element, targets)
+        )
+        )
     /**
      * rewrites the query so it will be used transitively
+     * // TODO rewriting is currently very unsatisfying, there are multiple prox objects in the tree
      */
     def transitive(  target : LazyView[SourceElement[AnyRef]] ) : LazyView[SourceElement[AnyRef]] =
 
@@ -84,20 +100,30 @@ class Queries( val db : BytecodeDatabase )
             {
                 case p @ Π(
                             func:(Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]),
-                            oldQuery:LazyView[Dependency[AnyRef, AnyRef]]
+                            sj @ ⋉(
+                                transitiveQuery:LazyView[Dependency[AnyRef, AnyRef]],
+                                transitiveKey: (Dependency[AnyRef, AnyRef] => AnyRef),
+                                outerQuery : LazyView[SourceElement[AnyRef]],
+                                outerKey : (SourceElement[AnyRef] => AnyRef)
+                            )
                         ) =>
                     {
-                        p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
-                        Π[(AnyRef, AnyRef),SourceElement[AnyRef]](
-                            // wrap in a dependency again so we can reuse the projection function
-                            (t:(AnyRef,AnyRef)) => func.asInstanceOf[Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]](
-                                new Dependency[AnyRef,AnyRef] {
-                                    val source = t._1
-                                    val target = t._2
-                                }
-                            )
+                        //p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
+                        sj.leftIndex.relation.removeObserver(sj.leftIndex)
+                        sj.rightIndex.relation.removeObserver(sj.rightIndex)
 
-                        )(TC(oldQuery)(_.source, _.target))
+                        val transitiveDependencies =
+                        Π[(AnyRef, AnyRef),Dependency[AnyRef, AnyRef]](
+                            // wrap in a dependency again so we can reuse the old key and projection functions
+                                (t:(AnyRef,AnyRef)) => (
+                                    new Dependency[AnyRef,AnyRef] {
+                                        val source = t._1
+                                        val target = t._2
+                                    }
+                                )
+                            ) (TC(transitiveQuery)(_.source, _.target))
+
+                        Π(func)((transitiveDependencies, transitiveKey) ⋉ (outerKey, outerQuery))
                     }
             }
 

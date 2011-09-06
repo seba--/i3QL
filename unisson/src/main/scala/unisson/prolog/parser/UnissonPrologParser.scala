@@ -44,7 +44,8 @@ class UnissonPrologParser
         class_with_members_short |
         transitive |
         supertype |
-        `class` |
+        classSelection |
+        classFromSubQuery |
         derived |
         empty
 
@@ -72,17 +73,21 @@ class UnissonPrologParser
     def class_with_members_short: Parser[ClassWithMembersQuery] =
         "class_with_members(" ~> atom ~ ("," ~> atom <~ ")") ^^
             {
-                case (packageName ~ name) => ClassWithMembersQuery(ClassQuery(packageName, name))
+                case (packageName ~ name) => ClassWithMembersQuery(ClassSelectionQuery(packageName, name))
             }
 
     def class_with_members: Parser[ClassWithMembersQuery] =
         ("class_with_members(" ~> query <~ ")") ^^ { ClassWithMembersQuery(_:UnissonQuery) }
 
-    def `class` : Parser[UnissonQuery] =
+    def classSelection : Parser[UnissonQuery] =
             "class(" ~> atom ~ ("," ~> atom <~ ")") ^^
             {
-                case (packageName ~ name) => ClassQuery(packageName, name)
+                case (packageName ~ name) => ClassSelectionQuery(packageName, name)
             }
+
+    def classFromSubQuery : Parser[UnissonQuery] =
+            "class(" ~> query <~ ")" ^^ { ClassQuery(_:UnissonQuery) }
+
 
     def `package` : Parser[PackageQuery] =
         "package(" ~> atom <~ ")" ^^

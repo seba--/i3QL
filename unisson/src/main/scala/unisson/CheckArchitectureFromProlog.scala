@@ -100,10 +100,11 @@ object CheckArchitectureFromProlog
         )
         (checker.getEnsembles.toList.sortBy{ _.name}).foreach((e: Ensemble) => println(ensembleToString(e)))
 
-        checker.ensembleElements( checker.getEnsemble("Exceptions").get ).foreach(println)
 
+        val e = checker.getEnsemble("@rest").get
         println("-----------------------------------------------------------------")
-        //checker.ensembleElements( checker.getEnsemble("@rest").get ).foreach(println)
+        val q = checker.ensembleElements( e )
+        q.foreach(println)
 
         //checker.violations.foreach((v: Violation) => println(violationToString(v)))
     }
