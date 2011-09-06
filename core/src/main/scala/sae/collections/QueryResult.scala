@@ -74,7 +74,10 @@ class MaterializedViewProxyResult[V <: AnyRef](
                                                   val relation: MaterializedView[V]
                                               )
         extends QueryResult[V]
+        with SelfMaintainedView[V, V]
 {
+
+    relation.addObserver(this)
 
     def lazyInitialize
     {
@@ -93,4 +96,17 @@ class MaterializedViewProxyResult[V <: AnyRef](
     }
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
+
+    def updated_internal(oldV : V, newV : V) {
+        element_updated(oldV, newV)
+    }
+
+    def added_internal(v : V) {
+        element_added(v)
+    }
+
+    def removed_internal(v : V) {
+        element_removed(v)
+    }
+
 }

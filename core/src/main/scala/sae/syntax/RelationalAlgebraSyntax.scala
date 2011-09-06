@@ -308,6 +308,16 @@ object RelationalAlgebraSyntax
     }
 
 
+    object ⋉
+    {
+        def unapply[Key <: AnyRef, DomainA <: AnyRef, DomainB <: AnyRef](semiJoin: HashEquiJoin[DomainA, DomainB, DomainA, Key]): Option[(LazyView[DomainA], DomainA => Key, LazyView[DomainB], DomainB => Key)] = semiJoin match
+        {
+            case ⋈(left, leftKey, δ( Π(rightKey:(DomainB => Key),right:LazyView[DomainB]) ), _, _) => Some((left, leftKey, right, rightKey))
+            case _ => None
+        }
+
+    }
+
 /*
     object ∈
     {

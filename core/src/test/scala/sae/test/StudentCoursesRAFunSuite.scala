@@ -776,4 +776,35 @@ class StudentCoursesRAFunSuite
 
         assert(antisemijoin.size === 0)
     }
+
+    test("anti semi join with result subquery")
+    {
+
+        val students = new Table[Student]
+        val employee = new Table[Employee]
+
+        val persons = students.∪[Person, Employee](employee)
+
+        // results must still pass on the respective events
+        val persons_that_are_students : QueryResult[Person] = persons ∖ σ[Employee](persons)
+
+        val antisemijoin : QueryResult[Student] = ( (students, (_:Student).asInstanceOf[Person]) ⊳ (identity(_:Person), persons_that_are_students) )
+
+        val heather = Student(25421,"heather")
+
+        val bob = Employee("Bob")
+
+        assert(antisemijoin.size === 0)
+
+        students += heather
+        // students : heather x 1
+        // persons_that_are_students : heather x 1
+        assert(antisemijoin.size === 0)
+
+        employee += bob
+
+        // students : heather x 1
+        // persons_that_are_students : heather x 1
+        assert(antisemijoin.size === 0)
+    }
 }
