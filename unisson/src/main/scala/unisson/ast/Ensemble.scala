@@ -27,4 +27,9 @@ case class Ensemble(
 
     var incomingConnections: Seq[DependencyConstraint] = Nil
 
+    def allDescendents : Seq[Ensemble] =
+    {
+        this.children ++ this.children.flatMap( _.allDescendents )
+    }
+
 }

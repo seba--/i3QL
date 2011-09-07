@@ -30,16 +30,20 @@ object CheckArchitectureFromProlog
 
     private val jarListOption = "--code"
 
-    private val ensembleOutputOption = "--outEnsembles"
+    private val outputOption = "--out"
 
-    private val violationOutputOption = "--outViolations"
+    private val disjunct = "--disjunct"
+
+    private val overview = "--overview"
+
+    private val violations = "--violations"
 
     private val classPattern = """.*\.class""".r
 
     private val jarPattern = """.*\.jar""".r
 
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
-                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + ensembleOutputOption + """ <csvFile>] [""" + violationOutputOption + """ <csvFile>]
+                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + disjunct + """] [""" + overview + """]
                 |<sadFile>: A sad file architecture definition. Implicitly a .sad.pl file assumed to be present
                 |<codeLocation>: A code location may be one of the following:
                 |                - a jar file
@@ -47,6 +51,9 @@ object CheckArchitectureFromProlog
                 |<sadFileList> : A whitespace separated list of sad files
                 |<jarFileList> : A whitespace separated list of jar files
                 |<csvFile>     : A comma separated value file where output is written to
+                |""" + violations + """ : outputs all violations
+                |""" + disjunct + """ : outputs all elements that belong to two or more ensembles simultaniously (along with the respective ensembles).
+                |""" + overview + """ : outputs all ensembles, their constraints, as well as counts for ensemble elements and constraint violations
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -64,7 +71,7 @@ object CheckArchitectureFromProlog
         if (args(0) == sadListOption) {
             sadFiles = args.dropRight(1).drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violationOutputOption && s != ensembleOutputOption
+                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != overview
             )
 
         }
@@ -83,30 +90,97 @@ object CheckArchitectureFromProlog
         if (rest(0) == jarListOption) {
             codeLocations = rest.drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violationOutputOption && s != ensembleOutputOption
+                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != overview
             )
         }
         else {
             codeLocations = Array(rest.head)
         }
 
+        val trail = rest.drop(codeLocations.size)
+
+        var printViolations = false
+        var printDisjunct = false
+        var printOverview = false
+        var output = ""
+
+        var i = 0
+        trail.foreach(
+                (s: String) => {
+                if (s == violations) {
+                    printViolations = true
+                }
+                if (s == disjunct) {
+                    printDisjunct = true
+                }
+                if (s == overview) {
+                    printOverview = true
+                }
+                if (s == outputOption) {
+                    if( i + 1 <= trail.size - 1)
+                    {
+                        output = trail(i+1)
+                    }
+                    else
+                    {
+                        println(outputOption + " specified without a value")
+                        System.exit(-1)
+                    }
+                }
+                i = i + 1
+            }
+        )
+
+
+
         implicit val checker = checkArchitectures(sadFiles, codeLocations)
 
         implicit val delimiter = ";"
 
+        implicit val outputWriter = if( output == ""){ System.out } else { new PrintStream(new FileOutputStream(output),true)}
 
-        println(
-            "Ensemble;EnsembleElementCount;ConstraintTypem;ConstraintKind;Constraint(Srcs/Trgts);ConstraintViolationCount"
-        )
-        (checker.getEnsembles.toList.sortBy{ _.name}).foreach((e: Ensemble) => println(ensembleToString(e)))
+        if (printOverview) {
+
+            outputWriter.println(
+                "Ensemble;EnsembleElementCount;ConstraintTypem;ConstraintKind;Constraint(Srcs/Trgts);ConstraintViolationCount"
+            )
+            (checker.getEnsembles.toList.sortBy {
+                _.name
+            }).foreach((e: Ensemble) => outputWriter.println(ensembleToString(e)))
+        }
+
+        if (printViolations) {
+            checker.violations.foreach((v: Violation) => println(violationToString(v)))
+        }
 
 
-        val e = checker.getEnsemble("@rest").get
-        println("-----------------------------------------------------------------")
-        val q = checker.ensembleElements( e )
-        q.foreach(println)
+        if (printDisjunct) {
+            var pairs : List[(Ensemble, Ensemble)] = Nil
+            for (
+                first <- checker.getEnsembles.filter((e:Ensemble) => !e.name.startsWith("@"));
+                second <- checker.getEnsembles.filter((e:Ensemble) => e != first && !first.allDescendents.contains(e) && !e.name.startsWith("@"))
+            ) {
+                if( !pairs.contains((first,second)) && ! pairs.contains((second,first)))
+                {
+                    pairs = pairs :+ (first,second)
+                }
+            }
 
-        //checker.violations.foreach((v: Violation) => println(violationToString(v)))
+            val double = pairs.flatMap{ case(fst,snd) =>
+                {
+                    println("checking pair (" + fst.name + ", " + snd.name + ")")
+                    val elemA = checker.ensembleElements(fst).asList
+                    val elemB = checker.ensembleElements(snd).asList
+                    val doubles = elemA.filter( elemB.contains(_) )
+                    for( elem <- doubles ) yield (fst,snd, elem)
+                }
+            }
+            double.foreach{
+                case(fst,snd,elem) => outputWriter.println(fst.name + delimiter + snd.name + delimiter + elementToString(elem))
+            }
+
+        }
+
     }
 
 
