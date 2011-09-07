@@ -215,10 +215,7 @@ class BytecodeDatabase extends Database
                 parameter.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
                 return_type.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
                 Π( (handler:ExceptionHandler) =>
-                        new Dependency[Method, ObjectType]{
-                            val source = handler.declaringMethod
-                            val target = handler.catchType.get // the handled_exceptions relation is prefiltered, so we do not run into trouble with catchType == None here
-                        }
+                        handled_exception(handler.declaringMethod, handler.catchType.get) // the handled_exceptions relation is prefiltered, so we do not run into trouble with catchType == None here
                 )(handled_exceptions).∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
                 thrown_exceptions.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
                 write_field.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
