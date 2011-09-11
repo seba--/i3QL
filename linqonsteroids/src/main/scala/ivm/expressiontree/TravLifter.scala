@@ -1,7 +1,12 @@
-package ivm.expressiontree
+package ivm
+package expressiontree
 
-import collection.TraversableView
 import Lifting._
+import optimization.Optimization
+
+import collection.{mutable, TraversableView}
+import mutable.HashMap
+import indexing.Index
 
 /**
  * User: pgiarrusso
@@ -9,11 +14,11 @@ import Lifting._
  */
 
 object TravLifter {
-  implicit def expToTraversableOps[T](t: Exp[Traversable[T]]) = new TraversableOps(t)
+  implicit def expToTraversableOps[T](t: Exp[Traversable[T]]) = new TraversableWrapper(t)
   implicit def toTraversableOps[T](t: Traversable[T]) = expToTraversableOps(t)
 
-  case class Map[T, U](base: Exp[Traversable[T]], f: Exp[T => U]) extends BinaryOpExp[Traversable[T], T => U, Traversable[U]](base, f) {
-    def copy(base: Exp[Traversable[T]], f: Exp[T => U]) = Map(base, f)
+  case class MapOp[T, U](base: Exp[Traversable[T]], f: Exp[T => U]) extends BinaryOpExp[Traversable[T], T => U, Traversable[U]](base, f) {
+    def copy(base: Exp[Traversable[T]], f: Exp[T => U]) = MapOp(base, f)
     override def interpret() = base.interpret map f.interpret()
   }
 
@@ -22,10 +27,12 @@ object TravLifter {
     override def interpret() = base.interpret flatMap f.interpret()
   }
 
-  /*case class WithFilter[T](base: Exp[Traversable[T]], f: Exp[T => Boolean]) extends Exp[Traversable[T]] {
-    //XXX: Again the same problem with filtering - we cannot call withFilter.
-    override def interpret = base.interpret.view filter f.interpret
-  }*/
+  case class WithFilter[T](base: Exp[Traversable[T]], f: Exp[T => Boolean]) extends BinaryOpExp[Traversable[T], T => Boolean, Traversable[T]](base, f) {
+    override def copy(base: Exp[Traversable[T]], f: Exp[T => Boolean]) = WithFilter(base, f)
+    //XXX: Again the same problem with filtering - we cannot call withFilter because of its very generic result type.
+    override def interpret = base.interpret.view filter f.interpret()
+  }
+
   case class Union[T](lhs: Exp[Traversable[T]], rhs: Exp[Traversable[T]]) extends BinaryOpSymmExp[Traversable[T], Traversable[T]](lhs, rhs) {
     def copy(base: Exp[Traversable[T]], that: Exp[Traversable[T]]) = Union(base, that)
     override def interpret() = lhs.interpret ++ rhs.interpret
@@ -45,14 +52,17 @@ object TravLifter {
                                        colinner: Exp[Traversable[S]],
                                        outerKeySelector: FuncExp[T, TKey],
                                        innerKeySelector: FuncExp[S, TKey],
-                                       resultSelector: FuncExp[(T, S), TResult]) extends Exp[Traversable[TResult]] {
+                                       resultSelector: FuncExp[(T, S), TResult]) extends
+                                       QuinaryOp[Exp[Traversable[T]],
+                                         Exp[Traversable[S]],
+                                         FuncExp[T, TKey], FuncExp[S, TKey], FuncExp[(T, S), TResult],
+                                         Traversable[TResult]](colouter, colinner, outerKeySelector, innerKeySelector, resultSelector) {
+    override def copy(colouter: Exp[Traversable[T]],
+                                       colinner: Exp[Traversable[S]],
+                                       outerKeySelector: FuncExp[T, TKey],
+                                       innerKeySelector: FuncExp[S, TKey],
+                                       resultSelector: FuncExp[(T, S), TResult]) = Join(colouter, colinner, outerKeySelector, innerKeySelector, resultSelector)
 
-    def children = Seq(colouter,colinner,outerKeySelector, innerKeySelector, resultSelector)
-    def genericConstructor = (v) => Join(v(0).asInstanceOf[Exp[Traversable[T]]],
-      v(1).asInstanceOf[Exp[Traversable[S]]],
-      v(2).asInstanceOf[FuncExp[T, TKey]],
-      v(3).asInstanceOf[FuncExp[S, TKey]],
-      v(4).asInstanceOf[FuncExp[(T, S), TResult]])
     override def interpret() = {
       // naive hash join algorithm
       val ci: Traversable[S] = colinner.interpret()
@@ -67,23 +77,51 @@ object TravLifter {
     }
   }
 
-  class TraversableOps[T](val t: Exp[Traversable[T]]) /*extends Exp[Traversable[T]]*/ {
+  trait TraversableOps[T] {
+    val underlying: Exp[Traversable[T]]
     def map[U](f: Exp[T] => Exp[U]): Exp[Traversable[U]] =
-      Map(this.t, FuncExp(f))
+      MapOp(this.underlying, FuncExp(f))
 
     def flatMap[U](f: Exp[T] => Exp[Traversable[U]]): Exp[Traversable[U]] =
-      FlatMap(this.t, FuncExp(f))
+      FlatMap(this.underlying, FuncExp(f))
 
     def withFilter(f: Exp[T] => Exp[Boolean]): Exp[Traversable[T]] =
-      WithFilter2(View(this.t), FuncExp(f))
+      WithFilter(this.underlying, FuncExp(f))
+      //WithFilter2(View(this.underlying), FuncExp(f))
 
     def union[U >: T](that: Exp[Traversable[U]]): Exp[Traversable[U]] =
-      Union(this.t, that)
+      Union(this.underlying, that)
 
     def join[S,TKey,TResult](outercol: Exp[Traversable[S]],
                              outerKeySelector: Exp[T] => Exp[TKey],
                              innerKeySelector: Exp[S] => Exp[TKey],
                              resultSelector: Exp[(T, S)] => Exp[TResult]): Exp[Traversable[TResult]]
-    = Join[T,S,TKey,TResult](this.t, outercol, FuncExp(outerKeySelector), FuncExp(innerKeySelector), FuncExp(resultSelector))
+    = Join[T,S,TKey,TResult](this.underlying, outercol, FuncExp(outerKeySelector), FuncExp(innerKeySelector), FuncExp(resultSelector))
+  }
+  
+  class TraversableWrapper[T](val underlying: Exp[Traversable[T]]) extends TraversableOps[T] {
+    def asIndexable = new QueryReifier[T](underlying)
+  }
+
+  class HashIndex[T,S](it: Exp[Traversable[T]], f: FuncExp[T, S]) extends HashMap[S, Traversable[T]] with Index[S, Traversable[T]] {
+    this ++= it.interpret().groupBy(f.interpret())
+  }
+
+  //XXX better define the usage.
+  case class QueryReifier[T](t: Exp[Traversable[T]]) extends UnaryOpExp[Traversable[T], Traversable[T]](t) with TraversableOps[T] {
+    //Bad idea - the QueryReifier node needs to be part of the expression tree.
+    //override val underlying = t
+    override val underlying = this
+    override def copy(t: Exp[Traversable[T]]) = new QueryReifier(t)
+    override def interpret() = t.interpret()
+
+    val indexes: mutable.Map[FuncExp[T,_],HashIndex[T,_]] = HashMap()
+    def addIndex[S](f: FuncExp[T,S]) {
+      val nf = Optimization.normalize(f).asInstanceOf[FuncExp[T,S]]
+      indexes += ((nf, new HashIndex(this,nf)))
+    }
+    def addIndex[S](f: Exp[T] => Exp[S]) {
+      addIndex(FuncExp(f))
+    }
   }
 }
