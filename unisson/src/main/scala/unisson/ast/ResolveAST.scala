@@ -82,6 +82,7 @@ object ResolveAST
                             res <- resolveConstraints(
                             {
                                 case OutgoingConstraintEdge(_, ensemble.name, _, _, _, _) => true
+                                //case OutgoingConstraintEdge(_, someName, _, _, _, _) if(ensemble.allAncestors.map(_.name).contains(someName) ) => true
                             },
                                 (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
                                 OutgoingConstraint(

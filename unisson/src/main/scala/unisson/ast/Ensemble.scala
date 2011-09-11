@@ -32,4 +32,11 @@ case class Ensemble(
         this.children ++ this.children.flatMap( _.allDescendents )
     }
 
+    def allAncestors : Seq[Ensemble] =
+    {
+        this.parent match {
+            case None => Nil
+            case Some(p) => List(p) ++ p.allAncestors
+        }
+    }
 }

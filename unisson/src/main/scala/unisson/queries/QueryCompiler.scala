@@ -10,6 +10,7 @@ import sae.functions.Count
 import sae.operators.{Aggregation, NotSelfMaintainalbeAggregateFunction}
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model._
+import java.lang.IllegalArgumentException
 
 /**
  * 
@@ -50,6 +51,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
         import sae.syntax.RelationalAlgebraSyntax._
         // all outgoing constraints that did not yet have this ensemble included need to append this ensemble
 
+
         val outgoingConstraints = checker.getConstraints.collect{case out : OutgoingConstraint => out}
 
         for( out <- outgoingConstraints )
@@ -59,6 +61,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
                 for{ ensemble <- checker.getEnsembles
                      if(out.source != ensemble)
                      if(!out.targets.contains(ensemble))
+                     if(!out.source.allDescendents.contains(ensemble))
                 }
                     yield existingQuery(ensemble).get
 
@@ -253,7 +256,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
             case "all" => checker.db.dependency.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
             case "calls" => checker.db.calls.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            case "subtype" => checker.db.subtypes.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
+            case "subtype" => checker.db.`extends`.∪[Dependency[AnyRef, AnyRef], implements] (checker.db.implements)
             case "signature" => checker.db.parameter.∪[Dependency[AnyRef, AnyRef], return_type] (checker.db.return_type)
             case "extends" => checker.db.`extends`.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
             case "implements" => checker.db.implements.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
@@ -297,6 +300,8 @@ class QueryCompiler(val checker : ArchitectureChecker)
             case class_cast(_,_) => "class_cast"
             case throws(_,_) => "throws"
             case inner_class(_,_,_,_) => "inner_class"
+            case handled_exception(_,_) => "handled_exception"
+            case _ => throw new IllegalArgumentException("Unknown dependency kind + " + d)
         }
     }
 

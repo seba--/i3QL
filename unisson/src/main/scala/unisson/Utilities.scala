@@ -1,8 +1,8 @@
 package unisson
 
 import ast._
-import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model._
+import de.tud.cs.st.bat.{Type, ObjectType}
 
 /**
  *
@@ -61,14 +61,14 @@ object Utilities
             }
         )
 
-        val result = ensemble.name + delimiter + checker.ensembleElements(ensemble).size +
+        val result = ensemble.name + delimiter + checker.ensembleElements(ensemble).size + "\n" +
                 (
                         if (!outgoing.isEmpty) {
                             outgoing.reduceRight(delimiter + delimiter + _ + "\n" + _)
                         } else {
                             ""
                         }
-                        ) +
+                        ) + "\n"
                 (
                         if (!incoming.isEmpty) {
                             incoming.reduceRight(delimiter + delimiter + _ + "\n" + _)
@@ -135,6 +135,7 @@ object Utilities
     {
         elem match {
             case SourceElement(ObjectType(name)) => "class" + delimiter + name
+            case SourceElement(t:Type) => "type" + delimiter + t.toJava
             case SourceElement(
             Method(
             decl,
@@ -162,7 +163,7 @@ object Utilities
         val ensembles = checker.getEnsembles.filter(
                 (ensemble: Ensemble) => {
                 val elements = checker.ensembleElements(ensemble);
-                if (elements.contains(sourceElement)) {
+                if ( !ensemble.name.startsWith("@") && elements.contains(sourceElement)) {
                     true
                 }
                 else {

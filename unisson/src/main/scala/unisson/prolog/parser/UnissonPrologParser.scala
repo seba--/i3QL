@@ -26,7 +26,7 @@ class UnissonPrologParser
 
     def atomList: Parser[List[String]] =
         (
-                "[" ~> repsep(atom, ",") <~ "]" ^^ {
+                ("[" ~> repsep(atom, ",") <~ "]") ^^ {
                     _.foldRight[List[String]](Nil) {
                             (e, l) => l.::(e)
                     }

@@ -105,39 +105,44 @@ object CheckArchitectureFromProlog
         var output = ""
 
         var i = 0
+        var consumeNext = false
         trail.foreach(
-                (s: String) => {
-                if (s == violations) {
-                    printViolations = true
-                }
-                if (s == disjunct) {
-                    printDisjunct = true
-                }
-                if (s == overview) {
-                    printOverview = true
-                }
-                if (s == outputOption) {
-                    if( i + 1 <= trail.size - 1)
-                    {
-                        output = trail(i+1)
+                (s: String) => { s match
+                {
+                    case  _ if s == violations => printViolations = true
+                    case  _ if s == disjunct => printDisjunct = true
+                    case  _ if s == overview => printOverview = true
+                    case  _ if s == outputOption => {
+                        if( i + 1 <= trail.size - 1)
+                        {
+                            output = trail(i+1)
+                            consumeNext = true
+                        }
+                        else
+                        {
+                            println(outputOption + " specified without a value")
+                            System.exit(-1)
+                        }
                     }
-                    else
-                    {
-                        println(outputOption + " specified without a value")
+                    case _ if( consumeNext) => consumeNext = false // do nothing
+                    case _ if( !consumeNext) => {
+                        println("Unknown option: " + outputOption)
                         System.exit(-1)
                     }
                 }
+
+
                 i = i + 1
             }
         )
 
-
+        implicit val outputWriter = if( output == ""){ System.out } else { new PrintStream(new FileOutputStream(output),true)}
 
         implicit val checker = checkArchitectures(sadFiles, codeLocations)
 
         implicit val delimiter = ";"
 
-        implicit val outputWriter = if( output == ""){ System.out } else { new PrintStream(new FileOutputStream(output),true)}
+
 
         if (printOverview) {
 
@@ -150,7 +155,7 @@ object CheckArchitectureFromProlog
         }
 
         if (printViolations) {
-            checker.violations.foreach((v: Violation) => println(violationToString(v)))
+            checker.violations.foreach((v: Violation) => outputWriter.println(violationToString(v)))
         }
 
 
@@ -158,7 +163,12 @@ object CheckArchitectureFromProlog
             var pairs : List[(Ensemble, Ensemble)] = Nil
             for (
                 first <- checker.getEnsembles.filter((e:Ensemble) => !e.name.startsWith("@"));
-                second <- checker.getEnsembles.filter((e:Ensemble) => e != first && !first.allDescendents.contains(e) && !e.name.startsWith("@"))
+                second <- checker.getEnsembles.filter(
+                        (e:Ensemble) =>
+                            e != first &&
+                                    !first.allDescendents.contains(e) &&
+                                    !first.allAncestors.contains(e) &&
+                                    !e.name.startsWith("@"))
             ) {
                 if( !pairs.contains((first,second)) && ! pairs.contains((second,first)))
                 {
@@ -280,7 +290,16 @@ object CheckArchitectureFromProlog
     def readDependencyConstraint(s: String): DependencyConstraint =
     {
         val result = parser.parseAll(parser.dependencyConstraint, s)
-        result.get
+        result match {
+            case parser.Failure(msg, next) => {
+                println("unable to parse dependency:")
+                println(msg)
+                println(next.pos.longString)
+                System.exit(-1)
+                null
+            }
+            case parser.Success(dependency, _) => dependency
+        }
     }
 
 
