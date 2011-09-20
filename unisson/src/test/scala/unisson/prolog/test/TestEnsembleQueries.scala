@@ -1,7 +1,7 @@
 package unisson.prolog.test
 
 import org.junit.Test
-import unisson.CheckArchitectureFromProlog._
+import unisson.Utilities._
 import org.junit.Assert._
 import sae.bytecode.BytecodeDatabase
 import unisson.queries.QueryCompiler

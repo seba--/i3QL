@@ -4,6 +4,7 @@ import org.junit.{Test, Ignore}
 import org.junit.Assert._
 import unisson.ast._
 import unisson.model.kinds.AllKind
+import unisson.Utilities._
 
 /**
  *

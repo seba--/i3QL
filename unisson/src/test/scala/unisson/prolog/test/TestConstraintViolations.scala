@@ -2,7 +2,6 @@ package unisson.prolog.test
 
 import org.junit.{Test, Ignore}
 import org.junit.Assert._
-import unisson.CheckArchitectureFromProlog._
 import sae.bytecode.BytecodeDatabase
 import sae.bytecode.model._
 import dependencies.Dependency
@@ -15,6 +14,7 @@ import sae.syntax.RelationalAlgebraSyntax._
 import sae.operators.Aggregation
 import sae.functions.Count
 import sae.collections.QueryResult
+import unisson.Utilities._
 
 /**
  *

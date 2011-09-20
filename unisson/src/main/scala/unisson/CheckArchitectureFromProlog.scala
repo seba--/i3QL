@@ -1,12 +1,7 @@
 package unisson
 
-import prolog.parser.UnissonPrologParser
 import java.io._
-import java.lang.IllegalArgumentException
-import prolog.utils.ISOPrologStringConversion
 import unisson.ast._
-import sae.bytecode.BytecodeDatabase
-import unisson.queries.QueryCompiler
 import Utilities._
 
 /**
@@ -20,19 +15,13 @@ object CheckArchitectureFromProlog
 {
 
 
-    private val ensembleFunctor = "ensemble"
-
-    private val dependencyConstraintFunctors = List("incoming", "outgoing", "not_allowed", "inAndOut", "expected")
-
-    private val parser = new UnissonPrologParser()
-
     private val sadListOption = "--sad"
 
     private val jarListOption = "--code"
 
     private val outputOption = "--out"
 
-    private val disjunct = "--disjunct"
+    private val duplicates = "--duplicates"
 
     private val ensembles = "--ensembles"
 
@@ -40,12 +29,10 @@ object CheckArchitectureFromProlog
 
     private val violations = "--violations"
 
-    private val classPattern = """.*\.class""".r
-
-    private val jarPattern = """.*\.jar""".r
+    private val showRest = "--rest"
 
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
-                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + disjunct + """] [""" + ensembles + """]
+                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + duplicates + """] [""" + ensembles + """]
                 |<sadFile>: A sad file architecture definition. Implicitly a .sad.pl file assumed to be present
                 |<codeLocation>: A code location may be one of the following:
                 |                - a jar file
@@ -54,9 +41,10 @@ object CheckArchitectureFromProlog
                 |<jarFileList> : A whitespace separated list of jar files
                 |<csvFile>     : A comma separated value file where output is written to
                 |""" + violations + """ : outputs all violations
-                |""" + disjunct + """ : outputs all elements that belong to two or more ensembles simultaniously (along with the respective ensembles).
+                |""" + duplicates + """ : outputs all elements that belong to two or more ensembles simultaniously (along with the respective ensembles).
                 |""" + ensembles + """ : outputs all ensembles with a count of contained elements
                 |""" + constraints + """ : outputs all constraints with counts for constraint violations
+                |""" + showRest + """ : outputs all elements that are not contained in an ensemble
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -74,7 +62,7 @@ object CheckArchitectureFromProlog
         if (args(0) == sadListOption) {
             sadFiles = args.dropRight(1).drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != ensembles
+                    s != jarListOption && s != violations && s != outputOption && s != duplicates && s != ensembles
             )
 
         }
@@ -93,7 +81,7 @@ object CheckArchitectureFromProlog
         if (rest(0) == jarListOption) {
             codeLocations = rest.drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != ensembles
+                    s != jarListOption && s != violations && s != outputOption && s != duplicates && s != ensembles
             )
         }
         else {
@@ -103,35 +91,35 @@ object CheckArchitectureFromProlog
         val trail = rest.drop(codeLocations.size)
 
         var printViolations = false
-        var printDisjunct = false
+        var printDuplicates = false
         var printEnsembles = false
+        var printRest = false
         var printConstraints = false
         var output = ""
 
         var i = 0
         var consumeNext = false
         trail.foreach(
-                (s: String) => { s match
-                {
-                    case  _ if s == violations => printViolations = true
-                    case  _ if s == disjunct => printDisjunct = true
-                    case  _ if s == ensembles => printEnsembles = true
-                    case  _ if s == constraints => printConstraints = true
-                    case  _ if s == outputOption => {
-                        if( i + 1 <= trail.size - 1)
-                        {
-                            output = trail(i+1)
+                (s: String) => {
+                s match {
+                    case _ if s == violations => printViolations = true
+                    case _ if s == duplicates => printDuplicates = true
+                    case _ if s == ensembles => printEnsembles = true
+                    case _ if s == constraints => printConstraints = true
+                    case _ if s == showRest => printRest = true
+                    case _ if s == outputOption => {
+                        if (i + 1 <= trail.size - 1) {
+                            output = trail(i + 1)
                             consumeNext = true
                         }
-                        else
-                        {
+                        else {
                             println(outputOption + " specified without a value")
                             System.exit(-1)
                         }
                     }
-                    case _ if( consumeNext) => consumeNext = false // do nothing
-                    case _ if( !consumeNext) => {
-                        println("Unknown option: " + outputOption)
+                    case _ if (consumeNext) => consumeNext = false // do nothing
+                    case _ if (!consumeNext) => {
+                        println("Unknown option: " + s)
                         System.exit(-1)
                     }
                 }
@@ -141,12 +129,25 @@ object CheckArchitectureFromProlog
             }
         )
 
-        implicit val outputWriter = if( output == ""){ System.out } else { new PrintStream(new FileOutputStream(output),true)}
+        implicit val outputWriter = if (output == "") {
+            System.out
+        } else {
+            new PrintStream(new FileOutputStream(output), true)
+        }
 
         implicit val checker = checkArchitectures(sadFiles, codeLocations)
 
         implicit val delimiter = ";"
 
+
+        if (printRest) {
+
+            outputWriter.println("Type" + delimiter + "Element")
+
+            checker.ensembleElements(checker.getEnsemble("@rest").get).foreach(
+                    (e: SourceElement[AnyRef]) => outputWriter.println(elementToString(e))
+            )
+        }
 
 
         if (printEnsembles) {
@@ -164,10 +165,11 @@ object CheckArchitectureFromProlog
                 "Type" + delimiter + "Kind" + delimiter + "Source Ensembles(s)" + delimiter + "Target Ensembles(s)" + delimiter + "Violation Count"
             )
             (
-                    checker.getConstraints.toList.sortBy { (c:DependencyConstraint) =>
-                        (c.sources.map(_.name).reduce(_+_), c.targets.map(_.name).reduce(_+_))
+                    checker.getConstraints.toList.sortBy {
+                            (c: DependencyConstraint) =>
+                            (c.sources.map(_.name).reduce(_ + _), c.targets.map(_.name).reduce(_ + _))
                     }
-            ).foreach((c: DependencyConstraint) => outputWriter.println(constraintToString(c)))
+                    ).foreach((c: DependencyConstraint) => outputWriter.println(constraintToString(c)))
         }
 
         if (printViolations) {
@@ -175,148 +177,42 @@ object CheckArchitectureFromProlog
         }
 
 
-        if (printDisjunct) {
-            var pairs : List[(Ensemble, Ensemble)] = Nil
+        if (printDuplicates) {
+            var pairs: List[(Ensemble, Ensemble)] = Nil
             for (
-                first <- checker.getEnsembles.filter((e:Ensemble) => !e.name.startsWith("@"));
+                first <- checker.getEnsembles.filter((e: Ensemble) => !e.name.startsWith("@"));
                 second <- checker.getEnsembles.filter(
-                        (e:Ensemble) =>
-                            e != first &&
-                                    !first.allDescendents.contains(e) &&
-                                    !first.allAncestors.contains(e) &&
-                                    !e.name.startsWith("@"))
+                        (e: Ensemble) =>
+                        e != first &&
+                                !first.allDescendents.contains(e) &&
+                                !first.allAncestors.contains(e) &&
+                                !e.name.startsWith("@")
+                )
             ) {
-                if( !pairs.contains((first,second)) && ! pairs.contains((second,first)))
-                {
-                    pairs = pairs :+ (first,second)
+                if (!pairs.contains((first, second)) && !pairs.contains((second, first))) {
+                    pairs = pairs :+ (first, second)
                 }
             }
 
-            val double = pairs.flatMap{ case(fst,snd) =>
-                {
-                    println("checking pair (" + fst.name + ", " + snd.name + ")")
+            val double = pairs.flatMap {
+                case (fst, snd) => {
+                    // println("checking pair (" + fst.name + ", " + snd.name + ")")
                     val elemA = checker.ensembleElements(fst).asList
                     val elemB = checker.ensembleElements(snd).asList
-                    val doubles = elemA.filter( elemB.contains(_) )
-                    for( elem <- doubles ) yield (fst,snd, elem)
+                    val doubles = elemA.filter(elemB.contains(_))
+                    for (elem <- doubles) yield (fst, snd, elem)
                 }
             }
-            double.foreach{
-                case(fst,snd,elem) => outputWriter.println(fst.name + delimiter + snd.name + delimiter + elementToString(elem))
-            }
-
-        }
-
-    }
-
-
-    def checkArchitectures(sadFiles: Array[String], codeLocations: Array[String]): ArchitectureChecker =
-    {
-        val database = new BytecodeDatabase
-        val checker = new ArchitectureChecker(database)
-        val compiler = new QueryCompiler(checker)
-
-        sadFiles.foreach(
-                (sadFile: String) => {
-                val plFile = sadFile + ".pl"
-                println("reading architecture from " + plFile)
-                compiler.addAll(
-                    readSadFile(
-                        fileNameAsStream(plFile)
+            double.foreach {
+                case (fst, snd, elem) => outputWriter.println(
+                    fst.name + delimiter + snd.name + delimiter + elementToString(
+                        elem
                     )
                 )
             }
-        )
-        compiler.finishOutgoing()
 
-
-        codeLocations.map(
-                (loc: String) => loc match {
-                case classPattern() => {
-                    println("reading bytecode from " + loc)
-                    database.transformerForClassfileStream(fileNameAsStream(loc)).processAllFacts()
-                }
-                case jarPattern() => {
-                    println("reading bytecode from " + loc)
-                    database.transformerForArchiveStream(fileNameAsStream(loc)).processAllFacts()
-                }
-                case _ => println("unrecognized code location type : " + loc)
-            }
-        )
-
-        checker
-    }
-
-
-    def readSadFile(stream: InputStream): Seq[UnissonDefinition] =
-    {
-        val in = new BufferedReader(new InputStreamReader(stream))
-        var result: Seq[UnissonDefinition] = Nil
-        while (in.ready) {
-
-            val s = in.readLine();
-            if (s.trim().length() > 0 && !s.trim().startsWith("%") && !s.trim().startsWith(":-")) {
-                result = result :+ readPrologLine(s)
-            }
         }
 
-        ResolveAST(result)
     }
-
-    def resourceAsStream(name: String) =
-    {
-        this.getClass.getClassLoader.getResourceAsStream(name)
-    }
-
-    def fileNameAsStream(name: String) =
-    {
-        val file = new File(name)
-        new FileInputStream(file)
-    }
-
-
-    def readPrologLine(s: String): UnissonDefinition =
-    {
-        // TODO move functor recognition to the parser
-        val functor = ISOPrologStringConversion.getFunctor(s)
-        if (functor == ensembleFunctor) {
-            return readEnsemble(s)
-        }
-        else if (dependencyConstraintFunctors.contains(functor)) {
-            return readDependencyConstraint(s)
-        }
-        throw new IllegalArgumentException("can not parse the following string: " + s)
-    }
-
-    def readEnsemble(s: String): UnresolvedEnsemble =
-    {
-        val result = parser.parseAll(parser.ensemble, s)
-        result match {
-            case parser.Failure(msg, next) => {
-                println("unable to parse ensemble:")
-                println(msg)
-                println(next.pos.longString)
-                System.exit(-1)
-                null
-            }
-            case parser.Success(ensemble, _) => ensemble
-        }
-    }
-
-    def readDependencyConstraint(s: String): DependencyConstraintEdge =
-    {
-        val result = parser.parseAll(parser.dependencyConstraint, s)
-        result match {
-            case parser.Failure(msg, next) => {
-                println("unable to parse dependency:")
-                println(msg)
-                println(next.pos.longString)
-                System.exit(-1)
-                null
-            }
-            case parser.Success(dependency, _) => dependency
-        }
-    }
-
 
 }
