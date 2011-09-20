@@ -1,6 +1,6 @@
 package unisson.ast
 
-import java.lang.IllegalStateException
+import unisson.model.kinds.DependencyKind
 
 /**
  * 
@@ -12,5 +12,9 @@ import java.lang.IllegalStateException
 trait DependencyConstraint
     extends UnissonDefinition
 {
+
+    def sources : Seq[Ensemble]
+
+    def targets : Seq[Ensemble]
 
 }

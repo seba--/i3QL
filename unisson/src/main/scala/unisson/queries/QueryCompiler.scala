@@ -11,6 +11,7 @@ import sae.operators.{Aggregation, NotSelfMaintainalbeAggregateFunction}
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model._
 import java.lang.IllegalArgumentException
+import unisson.model.kinds.DependencyKind
 
 /**
  * 
@@ -248,10 +249,11 @@ class QueryCompiler(val checker : ArchitectureChecker)
  *  calls(Method1, Method2) =
  *  signature
  */
-    private def kindAsDependency(kind : String) : LazyView[Dependency[AnyRef, AnyRef]] =
+    private def kindAsDependency(kind : DependencyKind) : LazyView[Dependency[AnyRef, AnyRef]] =
     {
         import sae.syntax.RelationalAlgebraSyntax._
-        kind match
+        // TODO we can do the match by kind tpye now, not by string
+        kind.designator match
         {
 
             case "all" => checker.db.dependency.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]

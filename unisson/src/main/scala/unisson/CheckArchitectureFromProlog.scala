@@ -34,7 +34,9 @@ object CheckArchitectureFromProlog
 
     private val disjunct = "--disjunct"
 
-    private val overview = "--overview"
+    private val ensembles = "--ensembles"
+
+    private val constraints = "--constraints"
 
     private val violations = "--violations"
 
@@ -43,7 +45,7 @@ object CheckArchitectureFromProlog
     private val jarPattern = """.*\.jar""".r
 
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
-                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + disjunct + """] [""" + overview + """]
+                |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + disjunct + """] [""" + ensembles + """]
                 |<sadFile>: A sad file architecture definition. Implicitly a .sad.pl file assumed to be present
                 |<codeLocation>: A code location may be one of the following:
                 |                - a jar file
@@ -53,7 +55,8 @@ object CheckArchitectureFromProlog
                 |<csvFile>     : A comma separated value file where output is written to
                 |""" + violations + """ : outputs all violations
                 |""" + disjunct + """ : outputs all elements that belong to two or more ensembles simultaniously (along with the respective ensembles).
-                |""" + overview + """ : outputs all ensembles, their constraints, as well as counts for ensemble elements and constraint violations
+                |""" + ensembles + """ : outputs all ensembles with a count of contained elements
+                |""" + constraints + """ : outputs all constraints with counts for constraint violations
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -71,7 +74,7 @@ object CheckArchitectureFromProlog
         if (args(0) == sadListOption) {
             sadFiles = args.dropRight(1).drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != overview
+                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != ensembles
             )
 
         }
@@ -90,7 +93,7 @@ object CheckArchitectureFromProlog
         if (rest(0) == jarListOption) {
             codeLocations = rest.drop(1).takeWhile(
                     (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != overview
+                    s != jarListOption && s != violations && s != outputOption && s != disjunct && s != ensembles
             )
         }
         else {
@@ -101,7 +104,8 @@ object CheckArchitectureFromProlog
 
         var printViolations = false
         var printDisjunct = false
-        var printOverview = false
+        var printEnsembles = false
+        var printConstraints = false
         var output = ""
 
         var i = 0
@@ -111,7 +115,8 @@ object CheckArchitectureFromProlog
                 {
                     case  _ if s == violations => printViolations = true
                     case  _ if s == disjunct => printDisjunct = true
-                    case  _ if s == overview => printOverview = true
+                    case  _ if s == ensembles => printEnsembles = true
+                    case  _ if s == constraints => printConstraints = true
                     case  _ if s == outputOption => {
                         if( i + 1 <= trail.size - 1)
                         {
@@ -144,14 +149,25 @@ object CheckArchitectureFromProlog
 
 
 
-        if (printOverview) {
+        if (printEnsembles) {
 
-            outputWriter.println(
-                "Ensemble;EnsembleElementCount;ConstraintTypem;ConstraintKind;Constraint(Srcs/Trgts);ConstraintViolationCount"
-            )
+            outputWriter.println("Ensemble" + delimiter + "EnsembleElementCount")
+
             (checker.getEnsembles.toList.sortBy {
                 _.name
             }).foreach((e: Ensemble) => outputWriter.println(ensembleToString(e)))
+        }
+
+        if (printConstraints) {
+
+            outputWriter.println(
+                "Type" + delimiter + "Kind" + delimiter + "Source Ensembles(s)" + delimiter + "Target Ensembles(s)" + delimiter + "Violation Count"
+            )
+            (
+                    checker.getConstraints.toList.sortBy { (c:DependencyConstraint) =>
+                        (c.sources.map(_.name).reduce(_+_), c.targets.map(_.name).reduce(_+_))
+                    }
+            ).foreach((c: DependencyConstraint) => outputWriter.println(constraintToString(c)))
         }
 
         if (printViolations) {
@@ -287,7 +303,7 @@ object CheckArchitectureFromProlog
         }
     }
 
-    def readDependencyConstraint(s: String): DependencyConstraint =
+    def readDependencyConstraint(s: String): DependencyConstraintEdge =
     {
         val result = parser.parseAll(parser.dependencyConstraint, s)
         result match {

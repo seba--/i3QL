@@ -102,14 +102,14 @@ class UnissonPrologParser
         "empty" ^^^ EmptyQuery()
 
 
-    def dependencyConstraint: Parser[DependencyConstraint] =
+    def dependencyConstraint: Parser[DependencyConstraintEdge] =
         incoming |
                 outgoing |
                 not_allowed |
                 expected
 
 
-    def incoming: Parser[DependencyConstraint] =
+    def incoming: Parser[DependencyConstraintEdge] =
         "incoming(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
                 IncomingConstraintEdge(
@@ -122,7 +122,7 @@ class UnissonPrologParser
                 )
         }
 
-    def outgoing: Parser[DependencyConstraint] =
+    def outgoing: Parser[DependencyConstraintEdge] =
         "outgoing(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
                 OutgoingConstraintEdge(
@@ -135,7 +135,7 @@ class UnissonPrologParser
                 )
         }
 
-    def not_allowed: Parser[DependencyConstraint] =
+    def not_allowed: Parser[DependencyConstraintEdge] =
         "not_allowed(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
                 NotAllowedConstraintEdge(
@@ -148,7 +148,7 @@ class UnissonPrologParser
                 )
         }
 
-    def expected: Parser[DependencyConstraint] =
+    def expected: Parser[DependencyConstraintEdge] =
         "expected(" ~> dependency <~ ")." ^^ {
             case (architecture, sourceName, sourceParams, targetName, targetParams, kinds) =>
                 ExpectedConstraintEdge(

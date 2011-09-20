@@ -8,7 +8,7 @@ package unisson.ast
  */
 
 trait DependencyConstraintEdge
-    extends DependencyConstraint
+        extends UnissonDefinition
 {
     val architecture: String
 

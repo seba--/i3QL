@@ -8,6 +8,7 @@ import sae.bytecode.model._
 import dependencies.Dependency
 import unisson.queries.QueryCompiler
 import unisson._
+import model.kinds.AllKind
 import unisson.ast._
 import de.tud.cs.st.bat.ObjectType
 import sae.syntax.RelationalAlgebraSyntax._
@@ -155,7 +156,7 @@ class TestConstraintViolations
                         List(),
                         List()
                     ),
-                    "all"
+                    AllKind
                 ),
                 "none"
             ),
@@ -268,7 +269,7 @@ class TestConstraintViolations
                         List(),
                         List()
                     )
-                    , "all"
+                    , AllKind
                 ),
                 "field_type"
             ),
@@ -378,7 +379,7 @@ class TestConstraintViolations
                         List(),
                         List()
                     ),
-                    "all"
+                    AllKind
                 ),
                 "field_type"
             ),
@@ -501,7 +502,7 @@ class TestConstraintViolations
                             List()
                         )
                     ),
-                    "all"
+                    AllKind
                 ),
                 "field_type"
             ),

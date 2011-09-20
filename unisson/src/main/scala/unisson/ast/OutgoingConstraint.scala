@@ -1,5 +1,7 @@
 package unisson.ast
 
+import unisson.model.kinds.DependencyKind
+
 /**
  *
  * Author: Ralf Mitschke
@@ -7,12 +9,16 @@ package unisson.ast
  *
  */
 
-case class OutgoingConstraint(source: Ensemble, targets: Seq[Ensemble], kind: String)
+case class OutgoingConstraint(source: Ensemble, targets: Seq[Ensemble], kind: DependencyKind)
         extends DependencyConstraint
 {
     source.outgoingConnections = source.outgoingConnections :+ this
+
     targets.foreach(
             (target: Ensemble) =>
             target.incomingConnections = target.incomingConnections :+ this
     )
+
+    val sources : Seq[Ensemble] = List(source)
+
 }

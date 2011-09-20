@@ -1,5 +1,7 @@
 package unisson.ast
 
+import unisson.model.kinds.{ResolveKinds, DependencyKind}
+
 /**
  *
  * Author: Ralf Mitschke
@@ -79,74 +81,85 @@ object ResolveAST
     private def resolveConstraintEdges(implicit edges: Seq[DependencyConstraintEdge], ensembles: Seq[Ensemble]): Seq[DependencyConstraint] =
     {
         val outgoing = for {ensemble <- ensembles
-                            res <- resolveConstraints(
+                            constraint <- resolveConstraints(
                             {
+                                // my own outgoing constraints
                                 case OutgoingConstraintEdge(_, ensemble.name, _, _, _, _) => true
-                                //case OutgoingConstraintEdge(_, someName, _, _, _, _) if(ensemble.allAncestors.map(_.name).contains(someName) ) => true
+                                // my parents outgoing constraints
+                                case OutgoingConstraintEdge(_, someName, _, _, _, _)
+                                    if (ensemble.allAncestors.map(_.name).contains(someName)) => true
                             },
-                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
-                                OutgoingConstraint(
-                                    ensemble,
-                                    for {
-                                        target <- ensembles
-                                        out <- constraints
-                                        if (target.name == out.targetName)
-                                        if (out.kinds.contains(kind))
-                                    } yield target
-                                    ,
-                                    kind
-                                )
+                                (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
+                                for (kind <- removeSubsumptions(resolveKinds(kinds)))
+                                yield
+                                    OutgoingConstraint(
+                                        ensemble,
+                                        for {
+                                            target <- ensembles
+                                            out <- constraints
+                                            if (target.name == out.targetName)
+                                            if (out.kinds.contains(kind.designator))
+                                        } yield target
+                                        ,
+                                        kind
+                                    )
                             )
-        } yield res
+        } yield constraint
 
         val incoming = for {ensemble <- ensembles
-                            res <- resolveConstraints(
+                            constraint <- resolveConstraints(
                             {
                                 case IncomingConstraintEdge(_, _, _, ensemble.name, _, _) => true
                             },
-                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
-                                IncomingConstraint(
-                                    for {
-                                        source <- ensembles
-                                        in <- constraints
-                                        if (source.name == in.sourceName)
-                                        if (in.kinds.contains(kind))
-                                    } yield source
-                                    , ensemble,
-                                    kind
-                                )
+                                (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
+                                for (kind <- resolveKinds(kinds))
+                                yield
+                                    IncomingConstraint(
+                                        for {
+                                            source <- ensembles
+                                            in <- constraints
+                                            if (source.name == in.sourceName)
+                                            if (in.kinds.contains(kind.designator))
+                                        } yield source
+                                        , ensemble,
+                                        kind
+                                    )
                             )
-        } yield res
+        } yield constraint
 
         val not_allowed = for {source <- ensembles
                                target <- ensembles
-                               res <- resolveConstraints(
+                               constraint <- resolveConstraints(
                                {
                                    case NotAllowedConstraintEdge(_, source.name, _, target.name, _, _) => true
                                },
-                                   (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
-                                   NotAllowedConstraint(
-                                       source,
-                                       target,
-                                       kind
-                                   )
+                                   (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
+                                   for (kind <- resolveKinds(kinds))
+                                   yield
+                                       NotAllowedConstraint(
+                                           source,
+                                           target,
+                                           kind
+                                       )
                                )
-        } yield res
+        } yield constraint
 
         val expected = for {source <- ensembles
                             target <- ensembles
-                            res <- resolveConstraints(
+                            constraint <- resolveConstraints(
                             {
                                 case ExpectedConstraintEdge(_, source.name, _, target.name, _, _) => true
                             },
-                                (kind: String, constraints: Seq[DependencyConstraintEdge]) =>
-                                ExpectedConstraint(
-                                    source,
-                                    target,
-                                    kind
-                                )
+                                (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
+                                for (kind <- resolveKinds(kinds))
+                                yield
+                                    ExpectedConstraint(
+                                        source,
+                                        target,
+                                        kind
+                                    )
                             )
-        } yield res
+        } yield constraint
 
         outgoing ++ incoming ++ not_allowed ++ expected
     }
@@ -157,7 +170,7 @@ object ResolveAST
      */
     private def resolveConstraints(
                                       isRelevant: PartialFunction[DependencyConstraintEdge, Boolean],
-                                      createDependency: (String, Seq[DependencyConstraintEdge]) => DependencyConstraint
+                                      createDependencies: (Seq[String], Seq[DependencyConstraintEdge]) => Seq[DependencyConstraint]
                                   )
                                   (
                                       implicit allEdges: Seq[DependencyConstraintEdge]
@@ -168,8 +181,32 @@ object ResolveAST
                 case _ => false
             }
         )
-        for (kind <- relevant.flatMap(_.kinds).distinct
-        ) yield createDependency(kind, relevant)
+        createDependencies(relevant.flatMap(_.kinds).distinct, relevant)
     }
 
+
+    /**
+     * resolve the kinds by removing subsumptions and returning a list of kinds
+     * that have pairwise non-overlapping regions for all pairs.
+     * I.e. for all pairs (A,B) the following holds: A ∪ B != A and A ∪ B != B
+     */
+    private def removeSubsumptions(resolved: Seq[DependencyKind]): Seq[DependencyKind] =
+    {
+        val subsumptions = for (k <- resolved;
+                             y <- resolved;
+                             if( k.isSubKindOf(y) )
+        ) yield (k, y)
+        val result = resolved.filterNot( (k:DependencyKind) => subsumptions.exists{ case (x,_) if x == k => true } )
+        result
+    }
+
+    /**
+     * resolve the kinds by removing subsumptions and returning a list of kinds
+     * that have pairwise non-overlapping regions for all pairs.
+     * I.e. for all pairs (A,B) the following holds: A ∪ B != A and A ∪ B != B
+     */
+    private def resolveKinds(kinds: Seq[String]): Seq[DependencyKind] =
+    {
+        for (k <- kinds) yield ResolveKinds(k)
+    }
 }

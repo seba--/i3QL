@@ -14,77 +14,63 @@ import de.tud.cs.st.bat.{Type, ObjectType}
 object Utilities
 {
 
+    /**
+     * Given a delimiter (e.g. ;) returns a string in the form:
+     * Ensemble;EnsembleElementCount
+     */
     def ensembleToString(ensemble: Ensemble)(implicit delimiter: String, checker: ArchitectureChecker) =
     {
-
-        val outgoing = ensemble.outgoingConnections.collect(
-                (c: DependencyConstraint) => c match {
-                case OutgoingConstraint(
-                _,
-                targets,
-                kind
-                ) => "outgoing" + delimiter + kind + delimiter + ensembleListToString(targets) + delimiter + checker.violations(
-                    c
-                ).size
-                case NotAllowedConstraint(
-                _,
-                target,
-                kind
-                ) => "not_allowed" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
-                case ExpectedConstraint(
-                _,
-                target,
-                kind
-                ) => "expected" + delimiter + kind + delimiter + target.name + delimiter + checker.violations(c).size
-            }
-        )
-
-        val incoming = ensemble.incomingConnections.collect(
-                (c: DependencyConstraint) => c match {
-                case IncomingConstraint(
-                sources,
-                _,
-                kind
-                ) => "incoming" + delimiter + kind + delimiter + ensembleListToString(sources) + delimiter + checker.violations(
-                    c
-                ).size
-                case NotAllowedConstraint(
-                source,
-                _,
-                kind
-                ) => "not_allowed" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
-                case ExpectedConstraint(
-                source,
-                _,
-                kind
-                ) => "expected" + delimiter + kind + delimiter + source.name + delimiter + checker.violations(c).size
-            }
-        )
-
-        val result = ensemble.name + delimiter + checker.ensembleElements(ensemble).size + "\n" +
-                (
-                        if (!outgoing.isEmpty) {
-                            outgoing.reduceRight(delimiter + delimiter + _ + "\n" + _)
-                        } else {
-                            ""
-                        }
-                        ) + "\n"
-                (
-                        if (!incoming.isEmpty) {
-                            incoming.reduceRight(delimiter + delimiter + _ + "\n" + _)
-                        }
-                        else {
-                            ""
-                        }
-                        )
-
-        result
+        ensemble.name + delimiter + checker.ensembleElements(ensemble).size
     }
 
     def ensembleListToString(ensembles: Seq[Ensemble]): String =
     {
         ensembles.map(_.name).reduceLeft(_ + " | " + _)
     }
+
+    /**
+     * Given a delimiter (e.g. ;) returns a string in the form:
+     * Type;Kind;Source Ensembles(s);Target Ensembles(s);Violation Count
+     */
+    def constraintToString(constraint: DependencyConstraint)(implicit delimiter: String, checker: ArchitectureChecker) =
+        constraint match {
+            case IncomingConstraint(
+            sources,
+            target,
+            kind
+            ) => "incoming" + delimiter +
+                    kind.designator + delimiter +
+                    ensembleListToString(sources) + delimiter +
+                    target.name + delimiter +
+                    checker.violations(constraint).size
+            case OutgoingConstraint(
+            source,
+            targets,
+            kind
+            ) => "outgoing" + delimiter +
+                    kind.designator + delimiter +
+                    source.name + delimiter +
+                    ensembleListToString(targets) + delimiter +
+                    checker.violations(constraint).size
+            case NotAllowedConstraint(
+            source,
+            target,
+            kind
+            ) => "not_allowed" + delimiter +
+                    kind.designator + delimiter +
+                    source.name + delimiter +
+                    target.name + delimiter +
+                    checker.violations(constraint).size
+            case ExpectedConstraint(
+            source,
+            target,
+            kind
+            ) => "expected" + delimiter +
+                    kind.designator + delimiter +
+                    source.name + delimiter +
+                    target.name + delimiter +
+                    checker.violations(constraint).size
+        }
 
     /**
      * Converts the violation to a delimited string
@@ -135,7 +121,7 @@ object Utilities
     {
         elem match {
             case SourceElement(ObjectType(name)) => "class" + delimiter + name
-            case SourceElement(t:Type) => "type" + delimiter + t.toJava
+            case SourceElement(t: Type) => "type" + delimiter + t.toJava
             case SourceElement(
             Method(
             decl,
@@ -163,7 +149,7 @@ object Utilities
         val ensembles = checker.getEnsembles.filter(
                 (ensemble: Ensemble) => {
                 val elements = checker.ensembleElements(ensemble);
-                if ( !ensemble.name.startsWith("@") && elements.contains(sourceElement)) {
+                if (!ensemble.name.startsWith("@") && elements.contains(sourceElement)) {
                     true
                 }
                 else {

@@ -1,5 +1,7 @@
 package unisson.ast
 
+import unisson.model.kinds.DependencyKind
+
 /**
  *
  * Author: Ralf Mitschke
@@ -7,9 +9,15 @@ package unisson.ast
  *
  */
 
-case class ExpectedConstraint(source: Ensemble, target: Ensemble, kind: String)
+case class ExpectedConstraint(source: Ensemble, target: Ensemble, kind: DependencyKind)
         extends DependencyConstraint
 {
+
     source.outgoingConnections = source.outgoingConnections :+ this
+
     target.incomingConnections = target.incomingConnections :+ this
+
+    val sources : Seq[Ensemble] = List(source)
+
+    val targets : Seq[Ensemble] = List(target)
 }
