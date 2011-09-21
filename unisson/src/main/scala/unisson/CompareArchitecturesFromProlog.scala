@@ -27,11 +27,11 @@ object CompareArchitecturesFromProlog
 
     private val usage = ("""CompareArchitecturesFromProlog <sadFiles1> <codeLocations1> <sadFiles2> <codeLocations2>
                 |CheckArchitectureFromProlog  [""" + outputOption + """ <csvFile>]
-                |<sadFiles>: A sad file architecture definition. Multiple sad files can be given as : separated list. Implicitly a .sad.pl file assumed to be present for each .sad file
+                |<sadFiles>: A sad file architecture definition. Multiple sad files can be given as " " separated list. Implicitly a .sad.pl file assumed to be present for each .sad file
                 |<codeLocations>: A code location may be one of the following:
                 |                 - a jar file
                 |                 - .class file
-                |                 Multiple code locations can be given as : separated list.
+                |                 Multiple code locations can be given as " " separated list.
                 |<csvFile>      : A comma separated value file where output is written to
                 |""" + ensembles + """ : compares the ensembles in the two sad files
                 |""" + constraints + """ : compares the constraints in the two sad files
@@ -46,13 +46,13 @@ object CompareArchitecturesFromProlog
             println(usage)
             return
         }
-        val sadFiles1 = args(0).split(";")
+        val sadFiles1 = args(0).split(" ")
 
-        val codeLocs1 = args(1).split(";")
+        val codeLocs1 = args(1).split(" ")
 
-        val sadFiles2 = args(2).split(";")
+        val sadFiles2 = args(2).split(" ")
 
-        val codeLocs2 = args(3).split(";")
+        val codeLocs2 = args(3).split(" ")
 
 
         val trail = args.drop(4)
@@ -110,8 +110,8 @@ object CompareArchitecturesFromProlog
             new PrintStream(new FileOutputStream(output), true)
         }
 
-        val checker1 = checkArchitectures(sadFiles1, codeLocs1)
-        val checker2 = checkArchitectures(sadFiles2, codeLocs2)
+        val checker1 = readArchitectures(sadFiles1, codeLocs1)
+        val checker2 = readArchitectures(sadFiles2, codeLocs2)
 
         implicit val delimiter = ";"
 
@@ -152,7 +152,7 @@ object CompareArchitecturesFromProlog
                         val deltaIndex = compareStrings(query1, query2)
                         val delta1 = query1.substring(deltaIndex, query1.length() - deltaIndex)
                         val delta2 = query2.substring(deltaIndex, query2.length() - deltaIndex)
-                        val common = query1.substring(0, deltaIndex + 1)
+                        val common = query1.substring(0, deltaIndex)
                         outputWriter.println(e1.name + delimiter + checker1.ensembleElements(e1).size + delimiter + checker2.ensembleElements(e2).size + delimiter + "query" + delimiter + common + delimiter + delta1 + delimiter + delta2)
                     }
                 }

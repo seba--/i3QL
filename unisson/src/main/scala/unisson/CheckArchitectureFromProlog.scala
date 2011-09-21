@@ -25,6 +25,8 @@ object CheckArchitectureFromProlog
 
     private val ensembles = "--ensembles"
 
+    private val ensemble = "--ensemble"
+
     private val constraints = "--constraints"
 
     private val violations = "--violations"
@@ -43,6 +45,7 @@ object CheckArchitectureFromProlog
                 |""" + violations + """ : outputs all violations
                 |""" + duplicates + """ : outputs all elements that belong to two or more ensembles simultaniously (along with the respective ensembles).
                 |""" + ensembles + """ : outputs all ensembles with a count of contained elements
+                |""" + ensemble + """ <Name>: outputs the elements of the ensemble with the given <Name>
                 |""" + constraints + """ : outputs all constraints with counts for constraint violations
                 |""" + showRest + """ : outputs all elements that are not contained in an ensemble
                 """).stripMargin
@@ -96,6 +99,7 @@ object CheckArchitectureFromProlog
         var printRest = false
         var printConstraints = false
         var output = ""
+        var printEnsemble = ""
 
         var i = 0
         var consumeNext = false
@@ -114,6 +118,17 @@ object CheckArchitectureFromProlog
                         }
                         else {
                             println(outputOption + " specified without a value")
+                            System.exit(-1)
+                        }
+                    }
+
+                    case _ if s == ensemble => {
+                        if (i + 1 <= trail.size - 1) {
+                            printEnsemble = trail(i + 1)
+                            consumeNext = true
+                        }
+                        else {
+                            println(ensemble + " specified without a value")
                             System.exit(-1)
                         }
                     }
@@ -139,6 +154,21 @@ object CheckArchitectureFromProlog
 
         implicit val delimiter = ";"
 
+
+        if( printEnsemble != "")
+        {
+            if(checker.getEnsemble(printEnsemble) == None)
+            {
+                println("ensemble " + printEnsemble + " not found")
+                System.exit(-1)
+            }
+
+            outputWriter.println("Type" + delimiter + "Element")
+
+            checker.ensembleElements(checker.getEnsemble(printEnsemble).get).foreach(
+                    (e: SourceElement[AnyRef]) => outputWriter.println(elementToString(e))
+            )
+        }
 
         if (printRest) {
 

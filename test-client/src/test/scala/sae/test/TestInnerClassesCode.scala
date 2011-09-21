@@ -23,29 +23,56 @@ class TestInnerClassesCode
         val db = new BytecodeDatabase
 
         val inner_classes: QueryResult[inner_class] = db.inner_classes
-
         val classes = List(
+            "sae/test/code/innerclass/MyRootClass.class",
             "sae/test/code/innerclass/MyRootClass$1.class",
+            "sae/test/code/innerclass/MyRootClass$1$1.class",
+            "sae/test/code/innerclass/MyRootClass$1$1$1.class",
+            "sae/test/code/innerclass/MyRootClass$1$InnerPrinterOfAnonymousClass.class",
             "sae/test/code/innerclass/MyRootClass$1MyInnerPrinter.class",
             "sae/test/code/innerclass/MyRootClass$2.class",
+            "sae/test/code/innerclass/MyRootClass$Formater.class",
             "sae/test/code/innerclass/MyRootClass$InnerPrinterOfX.class",
-            "sae/test/code/innerclass/MyRootClass$1$InnerPrinterOfAnonymousClass.class",
-            "sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$InnerPrettyPrinter.class",
-            "sae/test/code/innerclass/MyRootClass.class"
+            "sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$1.class",
+            "sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$InnerPrettyPrinter.class"
         )
 
         val t = db.transformerForClassfileResources(classes)
 
         t.processAllFacts()
 
-        val result = inner_classes.asList
+
+
+
+
+
+        val result = inner_classes.asList.sortBy( (i:inner_class) => (i.source.className, i.target.className, i.isDeclaredMember, i.name) )
+        result.foreach(println)
 
         val expected = List(
             inner_class(
-                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX"),
-                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$InnerPrettyPrinter"),
+                ObjectType("sae/test/code/innerclass/MyRootClass"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$1"),
+                false,
+                None
+            ),
+            inner_class(
+                ObjectType("sae/test/code/innerclass/MyRootClass"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$1MyInnerPrinter"),
+                false,
+                Some("MyInnerPrinter")
+            ),
+            inner_class(
+                ObjectType("sae/test/code/innerclass/MyRootClass"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$2"),
+                false,
+                None
+            ),
+            inner_class(
+                ObjectType("sae/test/code/innerclass/MyRootClass"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$Formater"),
                 true,
-                Some("InnerPrettyPrinter")
+                Some("Formater")
             ),
             inner_class(
                 ObjectType("sae/test/code/innerclass/MyRootClass"),
@@ -54,8 +81,14 @@ class TestInnerClassesCode
                 Some("InnerPrinterOfX")
             ),
             inner_class(
-                ObjectType("sae/test/code/innerclass/MyRootClass"),
                 ObjectType("sae/test/code/innerclass/MyRootClass$1"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$1$1"),
+                false,
+                None
+            ),
+            inner_class(
+                ObjectType(className="sae/test/code/innerclass/MyRootClass$1$1"),
+                ObjectType(className="sae/test/code/innerclass/MyRootClass$1$1$1"),
                 false,
                 None
             ),
@@ -65,21 +98,21 @@ class TestInnerClassesCode
                 true,
                 Some("InnerPrinterOfAnonymousClass")
             ),
-
             inner_class(
-                ObjectType("sae/test/code/innerclass/MyRootClass"),
-                ObjectType("sae/test/code/innerclass/MyRootClass$2"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$1"),
                 false,
                 None
             ),
             inner_class(
-                ObjectType("sae/test/code/innerclass/MyRootClass"),
-                ObjectType("sae/test/code/innerclass/MyRootClass$1MyInnerPrinter"),
-                false,
-                Some("MyInnerPrinter")
+                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX"),
+                ObjectType("sae/test/code/innerclass/MyRootClass$InnerPrinterOfX$InnerPrettyPrinter"),
+                true,
+                Some("InnerPrettyPrinter")
             )
-        )
-        assertEquals(expected.size, result.size)
-        assertTrue( expected.forall( result.contains(_) ) && result.forall( expected.contains(_)) )
+
+        ).sortBy( (i:inner_class) => (i.source.className, i.target.className, i.isDeclaredMember, i.name) )
+
+        assertEquals(expected, result)
     }
 }

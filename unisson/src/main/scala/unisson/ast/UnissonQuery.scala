@@ -21,6 +21,7 @@ object UnissonQuery {
     {
         case OrQuery(left,right) => asString(left) + " or " + asString(right)
         case WithoutQuery(left,right) => asString(left) + " without " + asString(right)
+        case AllQuery() => "all"
         case ClassQuery(inner) => "class(" + asString(inner) + ")"
         case ClassSelectionQuery(packageName,className) => "class(" + substitutePackagePrefix(packageName) + "," + className+ ")"
         case ClassWithMembersQuery(inner) => "class_with_members(" + asString(inner) + ")"

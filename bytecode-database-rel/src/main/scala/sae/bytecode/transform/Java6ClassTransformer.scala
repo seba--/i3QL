@@ -4,7 +4,7 @@ package transform
 
 import sae.bytecode.model._
 import dependencies._
-import internal.unresolved_enclosing_method
+import internal.{unresolved_inner_class_entry, unresolved_enclosing_method}
 import sae.bytecode.model.instructions._
 import de.tud.cs.st.bat._
 import de.tud.cs.st.bat.instructions._
@@ -39,7 +39,7 @@ class Java6ClassTransformer(
                         process_parameter: parameter => Unit,
                         process_exception_handler: ExceptionHandler => Unit,
                         process_thrown_exception: throws => Unit,
-                        process_inner_class_entry : InnerClassesEntry => Unit,
+                        process_inner_class_entry : unresolved_inner_class_entry => Unit,
                         process_enclosing_method : unresolved_enclosing_method => Unit
 )
         extends TransformInstruction[Unit, Method] with
@@ -199,7 +199,7 @@ class Java6ClassTransformer(
      * If C is anonymous, the value of the inner_name_index item must be zero.
      */
     private def transform(declaringClass: ObjectType, innerClasses: InnerClasses_attribute) {
-        innerClasses.classes.foreach( process_inner_class_entry )
+        innerClasses.classes.foreach( (e:InnerClassesEntry) => process_inner_class_entry(unresolved_inner_class_entry(declaringClass, e.innerClassType, e.outerClassType, e.innerName, e.accessFlags)) )
     }
 
     /**
