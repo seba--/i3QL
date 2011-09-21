@@ -145,19 +145,12 @@ class BytecodeDatabase extends Database
                                 )
                         )
                                 (
-                                    ( // all inner classes without explicit outer class
-                                            // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
-                                            σ((e: unresolved_inner_class_entry) => (e.outerClassType eq null) && (e.innerClassType.className.length() > e.declaringClass.className.length()))(
-                                                internal_inner_classes
-                                            ),
-                                            (e: unresolved_inner_class_entry) => (e.innerClassType, e.declaringClass)
-                                            ) ⊳ ( // if there is no guaranteed fact, that innerType is an enclosing class for the declaring class, then it is a new fact for inner_class
-                                            (i: inner_class) => (i.source, i.target),
-                                            internal_guaranteed_inner_classes
-                                            )
+                                // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
+                                σ((e: unresolved_inner_class_entry) => (e.outerClassType eq null) && (e.innerClassType.className.length() > e.declaringClass.className.length()))(
+                                    internal_inner_classes
                                 )
                         )
-
+                )
     lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]

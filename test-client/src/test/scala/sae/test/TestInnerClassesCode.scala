@@ -47,7 +47,7 @@ class TestInnerClassesCode
 
 
         val result = inner_classes.asList.sortBy( (i:inner_class) => (i.source.className, i.target.className, i.isDeclaredMember, i.name) )
-        result.foreach(println)
+        //result.foreach(println)
 
         val expected = List(
             inner_class(
