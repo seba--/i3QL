@@ -181,7 +181,8 @@ object Utilities
 
     private val jarPattern = """.*\.jar""".r
 
-    def checkArchitectures(sadFiles: Array[String], codeLocations: Array[String]): ArchitectureChecker =
+
+    def createChecker(sadFiles: Array[String], violations: Boolean): ArchitectureChecker =
     {
         val database = new BytecodeDatabase
         val checker = new ArchitectureChecker(database)
@@ -192,15 +193,29 @@ object Utilities
                 val plFile = sadFile + ".pl"
                 println("reading architecture from " + plFile)
                 compiler.addAll(
-                    readSadFile(
-                        fileNameAsStream(plFile)
-                    )
+                    if (violations) {
+                        readSadFile(
+                            fileNameAsStream(plFile)
+                        )
+
+                    }
+                    else {
+                        readSadFile(
+                            fileNameAsStream(plFile)
+                        ).collect {
+                            case e@Ensemble(_, _, _, _) => e
+                        } // only read ensembles we do not want to evaluate the violations
+                    }
                 )
             }
         )
         compiler.finishOutgoing()
+        checker
+    }
 
-
+    def readCode(checker: ArchitectureChecker, codeLocations: Array[String])
+    {
+        val database = checker.db
         codeLocations.map(
                 (loc: String) => loc match {
                 case classPattern() => {
@@ -214,8 +229,34 @@ object Utilities
                 case _ => println("unrecognized code location type : " + loc)
             }
         )
+    }
 
+    def checkArchitectures(sadFiles: Array[String], codeLocations: Array[String]): ArchitectureChecker =
+    {
+        val checker = createChecker(sadFiles, true)
+        readCode(checker, codeLocations)
         checker
+    }
+
+
+    def uniquePairs(checker: ArchitectureChecker): List[(Ensemble, Ensemble)] =
+    {
+        var pairs : List[(Ensemble, Ensemble)] = Nil
+        for (
+            first <- checker.getEnsembles.filter((e: Ensemble) => !e.name.startsWith("@"));
+            second <- checker.getEnsembles.filter(
+                    (e: Ensemble) =>
+                    e != first &&
+                            !first.allDescendents.contains(e) &&
+                            !first.allAncestors.contains(e) &&
+                            !e.name.startsWith("@")
+            )
+        ) {
+            if (!pairs.contains((first, second)) && !pairs.contains((second, first))) {
+                pairs = pairs :+ (first, second)
+            }
+        }
+        pairs
     }
 
 

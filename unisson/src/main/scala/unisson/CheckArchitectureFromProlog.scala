@@ -3,7 +3,9 @@ package unisson
 import java.io._
 import unisson.ast._
 import Utilities._
-
+import sae.collections.QueryResult
+import sae.bytecode.model.dependencies.Dependency
+import sae.syntax.RelationalAlgebraSyntax._
 /**
  *
  * Author: Ralf Mitschke
@@ -31,6 +33,8 @@ object CheckArchitectureFromProlog
 
     private val violations = "--violations"
 
+    private val dependencies = "--dependencies"
+
     private val showRest = "--rest"
 
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
@@ -47,6 +51,7 @@ object CheckArchitectureFromProlog
                 |""" + ensembles + """ : outputs all ensembles with a count of contained elements
                 |""" + ensemble + """ <Name>: outputs the elements of the ensemble with the given <Name>
                 |""" + constraints + """ : outputs all constraints with counts for constraint violations
+                |""" + dependencies + """ : outputs all dependencies for the modeled ensembles with a count for the dependencies.
                 |""" + showRest + """ : outputs all elements that are not contained in an ensemble
                 """).stripMargin
     //TODO make directories a code location
@@ -98,6 +103,7 @@ object CheckArchitectureFromProlog
         var printEnsembles = false
         var printRest = false
         var printConstraints = false
+        var printDependencies = false
         var output = ""
         var printEnsemble = ""
 
@@ -111,6 +117,7 @@ object CheckArchitectureFromProlog
                     case _ if s == ensembles => printEnsembles = true
                     case _ if s == constraints => printConstraints = true
                     case _ if s == showRest => printRest = true
+                    case _ if s == dependencies => printDependencies = true
                     case _ if s == outputOption => {
                         if (i + 1 <= trail.size - 1) {
                             output = trail(i + 1)
@@ -150,15 +157,42 @@ object CheckArchitectureFromProlog
             new PrintStream(new FileOutputStream(output), true)
         }
 
-        implicit val checker = checkArchitectures(sadFiles, codeLocations)
+
+
+        implicit val checker = createChecker(sadFiles, printViolations)
+
+        var dependencyQueries: Set[(Ensemble, Ensemble, QueryResult[Dependency[AnyRef, AnyRef]])] = Set()
+        if (printDependencies) {
+            dependencyQueries = for {
+                first <- checker.getEnsembles;
+                if (first.name != "empty");
+                if (!first.name.startsWith("@"));
+                second <- checker.getEnsembles;
+                if (second.name != "empty");
+                if (!second.name.startsWith("@"));
+                if (second != first);
+                if (!first.allDescendents.contains(second));
+                if (!first.allAncestors.contains(second))
+            } yield {
+                val firstView = checker.ensembleElements(first)
+                val secondView = checker.ensembleElements(second)
+                val dependencyQuery = (
+                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).source) ⋉ ((_:SourceElement[AnyRef]).element, firstView)
+                        ) ∩ (
+                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).target) ⋉ ((_:SourceElement[AnyRef]).element, secondView)
+                        )
+
+                (first, second, lazyViewToResult(dependencyQuery))
+            }
+        }
+
+        readCode(checker, codeLocations)
 
         implicit val delimiter = ";"
 
 
-        if( printEnsemble != "")
-        {
-            if(checker.getEnsemble(printEnsemble) == None)
-            {
+        if (printEnsemble != "") {
+            if (checker.getEnsemble(printEnsemble) == None) {
                 println("ensemble " + printEnsemble + " not found")
                 System.exit(-1)
             }
@@ -186,7 +220,9 @@ object CheckArchitectureFromProlog
 
             (checker.getEnsembles.toList.sortBy {
                 _.name
-            }).foreach((e: Ensemble) => outputWriter.println(ensembleToString(e)))
+            }).foreach(
+                    (e: Ensemble) => outputWriter.println(ensembleToString(e))
+            )
         }
 
         if (printConstraints) {
@@ -206,24 +242,22 @@ object CheckArchitectureFromProlog
             checker.violations.foreach((v: Violation) => outputWriter.println(violationToString(v)))
         }
 
-
-        if (printDuplicates) {
-            var pairs: List[(Ensemble, Ensemble)] = Nil
-            for (
-                first <- checker.getEnsembles.filter((e: Ensemble) => !e.name.startsWith("@"));
-                second <- checker.getEnsembles.filter(
-                        (e: Ensemble) =>
-                        e != first &&
-                                !first.allDescendents.contains(e) &&
-                                !first.allAncestors.contains(e) &&
-                                !e.name.startsWith("@")
-                )
-            ) {
-                if (!pairs.contains((first, second)) && !pairs.contains((second, first))) {
-                    pairs = pairs :+ (first, second)
-                }
+        if (printDependencies) {
+            outputWriter.println("Source Ensemble" + delimiter + "Source Element Count" + delimiter + "Target Ensemble" + delimiter + "Target Element Count" + delimiter + "Dependency Count")
+            dependencyQueries.foreach {
+                case (source, target, query) =>
+                    outputWriter.println(
+                        ensembleToString(source) + delimiter +
+                                ensembleToString(target) + delimiter +
+                                query.size
+                    )
             }
 
+        }
+
+        if (printDuplicates) {
+
+            val pairs = uniquePairs(checker)
             val double = pairs.flatMap {
                 case (fst, snd) => {
                     // println("checking pair (" + fst.name + ", " + snd.name + ")")
