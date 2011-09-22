@@ -6,6 +6,8 @@ import Utilities._
 import sae.collections.QueryResult
 import sae.bytecode.model.dependencies.Dependency
 import sae.syntax.RelationalAlgebraSyntax._
+import de.tud.cs.st.bat.ObjectType
+
 /**
  *
  * Author: Ralf Mitschke
@@ -37,6 +39,10 @@ object CheckArchitectureFromProlog
 
     private val showRest = "--rest"
 
+    private val verbose = "--verbose"
+
+    private val createSad = "--createSad"
+
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
                 |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + duplicates + """] [""" + ensembles + """]
                 |<sadFile>: A sad file architecture definition. Implicitly a .sad.pl file assumed to be present
@@ -53,6 +59,8 @@ object CheckArchitectureFromProlog
                 |""" + constraints + """ : outputs all constraints with counts for constraint violations
                 |""" + dependencies + """ : outputs all dependencies for the modeled ensembles with a count for the dependencies.
                 |""" + showRest + """ : outputs all elements that are not contained in an ensemble
+                |""" + verbose + """ : outputs more data for other options, e.g. all elements in the dependency graph
+                |""" + createSad + """ <sadFile> creates a sad file, .e.g. to depict all dependencies
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -104,7 +112,9 @@ object CheckArchitectureFromProlog
         var printRest = false
         var printConstraints = false
         var printDependencies = false
+        var isVerbose = false
         var output = ""
+        var sadFileOut = ""
         var printEnsemble = ""
 
         var i = 0
@@ -118,6 +128,7 @@ object CheckArchitectureFromProlog
                     case _ if s == constraints => printConstraints = true
                     case _ if s == showRest => printRest = true
                     case _ if s == dependencies => printDependencies = true
+                    case _ if s == verbose => isVerbose = true
                     case _ if s == outputOption => {
                         if (i + 1 <= trail.size - 1) {
                             output = trail(i + 1)
@@ -139,6 +150,18 @@ object CheckArchitectureFromProlog
                             System.exit(-1)
                         }
                     }
+
+                    case _ if s == createSad => {
+                        if (i + 1 <= trail.size - 1) {
+                            sadFileOut = trail(i + 1)
+                            consumeNext = true
+                        }
+                        else {
+                            println(createSad + " specified without a value")
+                            System.exit(-1)
+                        }
+                    }
+
                     case _ if (consumeNext) => consumeNext = false // do nothing
                     case _ if (!consumeNext) => {
                         println("Unknown option: " + s)
@@ -157,7 +180,11 @@ object CheckArchitectureFromProlog
             new PrintStream(new FileOutputStream(output), true)
         }
 
-
+        val sadWriter = if (sadFileOut == "") {
+            System.out
+        } else {
+            new PrintStream(new FileOutputStream(sadFileOut), true)
+        }
 
         implicit val checker = createChecker(sadFiles, printViolations)
 
@@ -177,9 +204,9 @@ object CheckArchitectureFromProlog
                 val firstView = checker.ensembleElements(first)
                 val secondView = checker.ensembleElements(second)
                 val dependencyQuery = (
-                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).source) ⋉ ((_:SourceElement[AnyRef]).element, firstView)
+                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).source) ⋉ ((_: SourceElement[AnyRef]).element, firstView)
                         ) ∩ (
-                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).target) ⋉ ((_:SourceElement[AnyRef]).element, secondView)
+                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).target) ⋉ ((_: SourceElement[AnyRef]).element, secondView)
                         )
 
                 (first, second, lazyViewToResult(dependencyQuery))
@@ -216,12 +243,19 @@ object CheckArchitectureFromProlog
 
         if (printEnsembles) {
 
-            outputWriter.println("Ensemble" + delimiter + "EnsembleElementCount")
+            outputWriter.println("Ensemble" + delimiter + "Element Count" + delimiter + "Class Count" + delimiter + "Query")
 
             (checker.getEnsembles.toList.sortBy {
                 _.name
             }).foreach(
-                    (e: Ensemble) => outputWriter.println(ensembleToString(e))
+                    (e: Ensemble) => {
+                        var classes = 0
+                        checker.ensembleElements(e).foreach{
+                            case SourceElement(ObjectType(_)) => classes = classes + 1
+                            case _ => // do nothing
+                        }
+                        outputWriter.println(ensembleToString(e) + delimiter +  classes + delimiter + UnissonQuery.asString(e.query) )
+                    }
             )
         }
 
@@ -245,14 +279,94 @@ object CheckArchitectureFromProlog
         if (printDependencies) {
             outputWriter.println("Source Ensemble" + delimiter + "Source Element Count" + delimiter + "Target Ensemble" + delimiter + "Target Element Count" + delimiter + "Dependency Count")
             dependencyQueries.foreach {
-                case (source, target, query) =>
+                case (source, target, query) => {
                     outputWriter.println(
                         ensembleToString(source) + delimiter +
                                 ensembleToString(target) + delimiter +
                                 query.size
                     )
+                    if (isVerbose) {
+                        query.foreach(
+                                (d: Dependency[AnyRef, AnyRef]) =>
+                                outputWriter.println(
+                                    ensembleToString(source) + delimiter +
+                                            ensembleToString(target) + delimiter +
+                                            query.size + delimiter +
+                                            dependencyAsKind(d) + delimiter +
+                                            elementToString(new SourceElement(d.source)) + delimiter +
+                                            elementToString(new SourceElement(d.target))
+                                )
+                        )
+                    }
+                }
             }
+            if (sadFileOut != "") {
 
+                var id = -1
+
+                def nextId: Int =
+                {
+                    id += 1;
+                    id
+                }
+
+                val diagramId = nextId
+
+                var ensembleIds: Map[Ensemble, Int] = Map()
+
+                sadWriter.println(
+                    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns=\"http://vespucci.editor/2011-06-01\" xmlns:notation=\"http://www.eclipse.org/gmf/runtime/1.0.2/notation\">"
+                )
+
+                sadWriter.println("<ShapesDiagram xmi:id=\"" + diagramId + "\">")
+
+                for {ensemble <- checker.getEnsembles;
+                     if (ensemble.name != "empty");
+                     if (!ensemble.name.startsWith("@"))
+                } {
+                    val sourceId = ensembleIds.getOrElse(
+                    ensemble, {
+                        val id = nextId;
+                        ensembleIds += {
+                            ensemble -> id
+                        };
+                        id
+                    }
+                    )
+
+                    sadWriter.println(
+                        "<shapes xmi:type=\"Ensemble\" xmi:id=\"" + sourceId + "\" name=\"" + ensemble.name + "\" query=\"" + (UnissonQuery.asString(ensemble.query)(("",""), true)) + "\">\n"
+                    )
+
+                    for {
+                        (source, target, query) <- dependencyQueries;
+                        if (query.size > 0);
+                        if (source == ensemble);
+                        if (source.children.isEmpty); // only draw dependencies between leafs
+                        if (target.children.isEmpty)  // only draw dependencies between leafs
+                    } {
+
+                        val targetId = ensembleIds.getOrElse(
+                        target, {
+                            val id = nextId;
+                            ensembleIds += {
+                                target -> id
+                            };
+                            id
+                        }
+                        )
+
+                        val kinds = query.asList.map((d: Dependency[AnyRef, AnyRef]) => dependencyAsKind(d)).distinct
+                        val name = kinds.reduceRight(_ + "," + _)
+                        sadWriter.println(
+                            "<targetConnections xmi:type=\"Expected\" xmi:id=\"" + nextId + "\" source=\"" + sourceId + "\" target=\"" + targetId + "\" name=\"" + name + "[" + query.size + "]" + "\"/>\n"
+                        )
+                    }
+                    sadWriter.println("</shapes>")
+                }
+                sadWriter.println("</ShapesDiagram>\n  <notation:Diagram xmi:id=\"" + nextId + "\" type=\"Vespucci\" element=\"" + diagramId + "\" name=\"" + sadFileOut + "\" measurementUnit=\"Pixel\">\n\n  </notation:Diagram>\n</xmi:XMI>")
+
+            }
         }
 
         if (printDuplicates) {

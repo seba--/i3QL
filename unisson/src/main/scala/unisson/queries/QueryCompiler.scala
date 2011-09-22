@@ -2,7 +2,6 @@ package unisson.queries
 
 import sae.bytecode.BytecodeDatabase
 import unisson.ast._
-import unisson.{Violation, ArchitectureChecker, Queries, SourceElement}
 import sae.bytecode.model.dependencies._
 import sae.collections.{BagResult, QueryResult}
 import sae.{Observer, LazyView}
@@ -12,6 +11,7 @@ import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model._
 import java.lang.IllegalArgumentException
 import unisson.model.kinds.DependencyKind
+import unisson._
 
 /**
  * 
@@ -148,7 +148,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         // TODO currently we do not resolve sources as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
-        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, dependencyAsKind(d)) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( None, Queries.source(d), Some(constraint.target), Queries.target(d), constraint, Utilities.dependencyAsKind(d)) )(query)
 
         checker.addConstraint(constraint, violations)
         violations
@@ -175,7 +175,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
         // TODO currently we do not resolve targets as ensembles for the constraint.
         // potentially the element can belong to more than one ensemble
-        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), None, Queries.target(d), constraint, dependencyAsKind(d)) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), None, Queries.target(d), constraint, Utilities.dependencyAsKind(d)) )(query)
 
         checker.addConstraint(constraint, violations)
         violations
@@ -194,7 +194,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
         val query = ( (dependencyRelation, Queries.source(_)) ⋉ (identity(_:SourceElement[AnyRef]), sourceQuery) ) ∩
         ( (dependencyRelation, Queries.target(_)) ⋉ (identity(_:SourceElement[AnyRef]), targetQuery) )
 
-        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), Some(constraint.target), Queries.target(d), constraint, dependencyAsKind(d)) )(query)
+        val violations = Π( (d:Dependency[AnyRef, AnyRef]) => Violation( Some(constraint.source), Queries.source(d), Some(constraint.target), Queries.target(d), constraint, Utilities.dependencyAsKind(d)) )(query)
 
         checker.addConstraint(constraint, violations)
     }
@@ -281,31 +281,7 @@ class QueryCompiler(val checker : ArchitectureChecker)
     }
 
 
-    private def dependencyAsKind(d:Dependency[AnyRef, AnyRef]) : String =
-    {
-        d match
-        {
-            case `extends`(_,_) => "extends"
-            case implements(_,_) => "implements"
-            case field_type(_,_) => "field_type"
-            case parameter(_,_) => "parameter"
-            case return_type(_,_) => "return_type"
-            case write_field(_,_,_) => "write_field"
-            case read_field(_,_,_) => "read_field"
-            case invoke_interface(_,_) => "invoke_interface"
-            case invoke_special(_,_) => "invoke_special"
-            case invoke_static(_,_) => "invoke_static"
-            case invoke_virtual(_,_) => "invoke_virtual"
-            case instanceof(_,_) => "instanceof"
-            case create(_,_) => "create"
-            case create_class_array(_,_) => "create_class_array"
-            case class_cast(_,_) => "class_cast"
-            case throws(_,_) => "throws"
-            case inner_class(_,_,_,_) => "inner_class"
-            case handled_exception(_,_) => "handled_exception"
-            case _ => throw new IllegalArgumentException("Unknown dependency kind + " + d)
-        }
-    }
+
 
     private def existingQuery(c : DependencyConstraint) : Option[LazyView[Violation]] =
     {

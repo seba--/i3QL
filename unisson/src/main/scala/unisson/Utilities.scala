@@ -6,6 +6,7 @@ import prolog.utils.ISOPrologStringConversion
 import queries.QueryCompiler
 import sae.bytecode.model._
 import de.tud.cs.st.bat.{Type, ObjectType}
+import dependencies._
 import sae.bytecode.BytecodeDatabase
 import java.io._
 
@@ -330,5 +331,30 @@ object Utilities
         }
     }
 
+    def dependencyAsKind(d:Dependency[AnyRef, AnyRef]) : String =
+    {
+        d match
+        {
+            case `extends`(_,_) => "extends"
+            case implements(_,_) => "implements"
+            case field_type(_,_) => "field_type"
+            case parameter(_,_) => "parameter"
+            case return_type(_,_) => "return_type"
+            case write_field(_,_,_) => "write_field"
+            case read_field(_,_,_) => "read_field"
+            case invoke_interface(_,_) => "invoke_interface"
+            case invoke_special(_,_) => "invoke_special"
+            case invoke_static(_,_) => "invoke_static"
+            case invoke_virtual(_,_) => "invoke_virtual"
+            case instanceof(_,_) => "instanceof"
+            case create(_,_) => "create"
+            case create_class_array(_,_) => "create_class_array"
+            case class_cast(_,_) => "class_cast"
+            case throws(_,_) => "throws"
+            case inner_class(_,_,_,_) => "inner_class"
+            case handled_exception(_,_) => "handled_exception"
+            case _ => throw new IllegalArgumentException("Unknown dependency kind + " + d)
+        }
+    }
 
 }
