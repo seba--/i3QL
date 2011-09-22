@@ -7,6 +7,7 @@ import sae.collections.QueryResult
 import sae.bytecode.model.dependencies.Dependency
 import sae.syntax.RelationalAlgebraSyntax._
 import de.tud.cs.st.bat.ObjectType
+import sae.LazyView
 
 /**
  *
@@ -188,35 +189,26 @@ object CheckArchitectureFromProlog
 
         implicit val checker = createChecker(sadFiles, printViolations)
 
-        var dependencyQueries: Set[(Ensemble, Ensemble, QueryResult[Dependency[AnyRef, AnyRef]])] = Set()
-        if (printDependencies) {
-            dependencyQueries = for {
-                first <- checker.getEnsembles;
-                if (first.name != "empty");
-                if (!first.name.startsWith("@"));
-                second <- checker.getEnsembles;
-                if (second.name != "empty");
-                if (!second.name.startsWith("@"));
-                if (second != first);
-                if (!first.allDescendents.contains(second));
-                if (!first.allAncestors.contains(second))
-            } yield {
-                val firstView = checker.ensembleElements(first)
-                val secondView = checker.ensembleElements(second)
-                val dependencyQuery = (
-                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).source) ⋉ ((_: SourceElement[AnyRef]).element, firstView)
-                        ) ∩ (
-                        (checker.db.dependency, (_: Dependency[AnyRef, AnyRef]).target) ⋉ ((_: SourceElement[AnyRef]).element, secondView)
-                        )
 
-                (first, second, lazyViewToResult(dependencyQuery))
-            }
+        implicit val delimiter = ";"
+
+
+
+        var storedDependencies : QueryResult[Dependency[AnyRef, AnyRef]] = null
+        if (printDependencies) {
+
+            storedDependencies = lazyViewToResult(checker.db.dependency)
+
         }
 
         readCode(checker, codeLocations)
 
-        implicit val delimiter = ";"
-
+            storedDependencies.foreach((d: Dependency[AnyRef, AnyRef]) =>
+                                outputWriter.println(
+                                            elementToString(new SourceElement(d.source)) + delimiter +
+                                            elementToString(new SourceElement(d.target))
+                                )
+            )
 
         if (printEnsemble != "") {
             if (checker.getEnsemble(printEnsemble) == None) {
@@ -249,13 +241,13 @@ object CheckArchitectureFromProlog
                 _.name
             }).foreach(
                     (e: Ensemble) => {
-                        var classes = 0
-                        checker.ensembleElements(e).foreach{
-                            case SourceElement(ObjectType(_)) => classes = classes + 1
-                            case _ => // do nothing
-                        }
-                        outputWriter.println(ensembleToString(e) + delimiter +  classes + delimiter + UnissonQuery.asString(e.query) )
+                    var classes = 0
+                    checker.ensembleElements(e).foreach {
+                        case SourceElement(ObjectType(_)) => classes = classes + 1
+                        case _ => // do nothing
                     }
+                    outputWriter.println(ensembleToString(e) + delimiter + classes + delimiter + UnissonQuery.asString(e.query))
+                }
             )
         }
 
@@ -277,9 +269,26 @@ object CheckArchitectureFromProlog
         }
 
         if (printDependencies) {
+
+            val dependencyPairs: Set[(Ensemble, Ensemble)] = for {
+                first <- checker.getEnsembles;
+                if (first.name != "empty");
+                if (!first.name.startsWith("@"));
+                second <- checker.getEnsembles;
+                if (second.name != "empty");
+                if (!second.name.startsWith("@"));
+                if (!first.allDescendents.contains(second));
+                if (!first.allAncestors.contains(second))
+            } yield {
+                (first, second)
+            }
+            println("writing depdencies ...")
+
             outputWriter.println("Source Ensemble" + delimiter + "Source Element Count" + delimiter + "Target Ensemble" + delimiter + "Target Element Count" + delimiter + "Dependency Count")
-            dependencyQueries.foreach {
-                case (source, target, query) => {
+            dependencyPairs.foreach {
+                case (source, target) => {
+
+                    val query = createDependencyQuery(checker.ensembleElements(source), checker.ensembleElements(target), storedDependencies)
                     outputWriter.println(
                         ensembleToString(source) + delimiter +
                                 ensembleToString(target) + delimiter +
@@ -301,7 +310,7 @@ object CheckArchitectureFromProlog
                 }
             }
             if (sadFileOut != "") {
-
+                println("creating depdency diagram ...")
                 var id = -1
 
                 def nextId: Int =
@@ -335,15 +344,19 @@ object CheckArchitectureFromProlog
                     )
 
                     sadWriter.println(
-                        "<shapes xmi:type=\"Ensemble\" xmi:id=\"" + sourceId + "\" name=\"" + ensemble.name + "\" query=\"" + (UnissonQuery.asString(ensemble.query)(("",""), true)) + "\">\n"
+                        "<shapes xmi:type=\"Ensemble\" xmi:id=\"" + sourceId + "\" name=\"" + ensemble.name + "\" query=\"" + (UnissonQuery.asString(
+                            ensemble.query
+                        )(("", ""), true)) + "\">\n"
                     )
 
                     for {
-                        (source, target, query) <- dependencyQueries;
+                        (source, target) <- dependencyPairs;
+                        val query = createDependencyQuery(checker.ensembleElements(source), checker.ensembleElements(target), storedDependencies);
                         if (query.size > 0);
+                        if (source != target);
                         if (source == ensemble);
                         if (source.children.isEmpty); // only draw dependencies between leafs
-                        if (target.children.isEmpty)  // only draw dependencies between leafs
+                        if (target.children.isEmpty) // only draw dependencies between leafs
                     } {
 
                         val targetId = ensembleIds.getOrElse(
@@ -391,6 +404,18 @@ object CheckArchitectureFromProlog
 
         }
 
+    }
+
+
+    def createDependencyQuery(firstView: LazyView[SourceElement[AnyRef]], secondView: LazyView[SourceElement[AnyRef]], dependencies: QueryResult[Dependency[AnyRef, AnyRef]]): QueryResult[Dependency[AnyRef, AnyRef]] =
+    {
+        val dependencyQuery = (
+                (dependencies, (_: Dependency[AnyRef, AnyRef]).source) ⋉ ((_: SourceElement[AnyRef]).element, firstView)
+                ) ∩ (
+                (dependencies, (_: Dependency[AnyRef, AnyRef]).target) ⋉ ((_: SourceElement[AnyRef]).element, secondView)
+                )
+
+        lazyViewToResult(dependencyQuery)
     }
 
 }
