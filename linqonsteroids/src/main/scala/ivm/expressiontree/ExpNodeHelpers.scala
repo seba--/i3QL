@@ -23,16 +23,21 @@ trait NullaryExp[R] extends CheckingExp[R] {
   def checkedGenericConstructor = _ => this
 }
 
-abstract class UnaryOp[T1 <: Exp[_], R](t1: T1) extends CheckingExp[R] {
+trait UnaryOpTrait[T1 <: Exp[_], R] extends CheckingExp[R] {
+  def t1: T1
   override def nodeArity = 1
   def children = Seq(t1)
   def checkedGenericConstructor = v => copy(v(0).asInstanceOf[T1])
   def copy(t1: T1): Exp[R]
 }
 
+abstract class UnaryOp[T1 <: Exp[_], R](val t1: T1) extends UnaryOpTrait[T1, R]
+
 abstract class UnaryOpExp[T1, R](t1: Exp[T1]) extends UnaryOp[Exp[T1], R](t1)
 
-abstract class BinaryOp[T1 <: Exp[_], T2 <: Exp[_], R](t1: T1, t2: T2) extends CheckingExp[R] {
+trait BinaryOpTrait[T1 <: Exp[_], T2 <: Exp[_], +R] extends CheckingExp[R] {
+  def t1: T1
+  def t2: T2
   override def nodeArity = 2
   def children = Seq(t1, t2)
   def checkedGenericConstructor =
@@ -40,8 +45,14 @@ abstract class BinaryOp[T1 <: Exp[_], T2 <: Exp[_], R](t1: T1, t2: T2) extends C
   def copy(t1: T1, t2: T2): Exp[R]
 }
 
-abstract class BinaryOpExp[T1, T2, R](t1: Exp[T1], t2: Exp[T2]) extends BinaryOp[Exp[T1], Exp[T2], R](t1, t2)
-abstract class BinaryOpSymmExp[Arg, R](t1: Exp[Arg], t2: Exp[Arg]) extends BinaryOpExp[Arg, Arg, R](t1, t2)
+abstract class BinaryOp[T1 <: Exp[_], T2 <: Exp[_], +R](val t1: T1, val t2: T2) extends BinaryOpTrait[T1, T2, R]
+
+trait BinaryOpExpTrait[T1, T2, +R] extends BinaryOpTrait[Exp[T1], Exp[T2], R]
+
+// XXX: should this inherit from BinaryOpExpTrait or from BinaryOp? Does it matter? I hope not - these classes should
+// stay an implementation detail.
+abstract class BinaryOpExp[T1, T2, +R](t1: Exp[T1], t2: Exp[T2]) extends BinaryOp[Exp[T1], Exp[T2], R](t1, t2)
+abstract class BinaryOpSymmExp[Arg, +R](t1: Exp[Arg], t2: Exp[Arg]) extends BinaryOpExp[Arg, Arg, R](t1, t2)
 
 //For join
 abstract class QuaternaryOp[T1 <: Exp[_], T2 <: Exp[_], T3 <: Exp[_], T4 <: Exp[_], R](t1: T1, t2: T2, t3: T3, t4: T4) extends CheckingExp[R] {

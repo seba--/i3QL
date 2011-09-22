@@ -3,7 +3,6 @@ package expressiontree
 
 import scala.collection.mutable.HashMap
 import scala.collection.mutable
-import indexing.HashIndex
 import optimization.Optimization
 
 /*
@@ -43,15 +42,9 @@ trait QueryReifierBase[T] extends Exp[QueryReifierBase[T]]  {
                            resultSelector: Exp[(T,S)] => Exp[TResult]): QueryReifierBase[TResult]
     = Join[T,S,TKey,TResult](this, outercol, FuncExp(outerKeySelector), FuncExp(innerKeySelector), FuncExp(resultSelector))
 
-  val indexes : mutable.Map[FuncExp[T,_],HashIndex[T,_]] = HashMap()
-  def addIndex[S](f: FuncExp[T,S]) {
-    val nf = Optimization.normalize(f).asInstanceOf[FuncExp[T,S]]
-    indexes += ((nf, new HashIndex(this,nf)))
-  }
-  def addIndex[S](f: Exp[T] => Exp[S]) {
-    addIndex(FuncExp(f))
-  }
+  def groupBy[S](f: Exp[T] => Exp[S]) : MapReifier[S,T] = GroupBy(this,FuncExp(f))
 }
+
 
 // Variant of QueryReifier, which also sends event to derived collections. Note that this is not reified!
 // XXX: we forget to add mutation operations. But see Queryable and QueryableTest. So make this a trait which is mixed in
@@ -61,21 +54,12 @@ trait QueryReifier[T] extends QueryReifierBase[T] with MsgSeqPublisher[T] with E
   //subscription is a side effect, but query composition requires the passed functions to be pure.
   //In particular, when we pass Var inside a query, we execute these operations, but the results must just be inspected,
   //they must not become listeners - especially because they contain Var nodes.
-  override def map[U](f: Exp[T] => Exp[U]): QueryReifier[U] = {
-    val res = new MapOpMaintainerExp[T, U](this, FuncExp(f))
-    //this subscribe res
-    res
-  }
-  override def withFilter(p: Exp[T] => Exp[Boolean]): QueryReifier[T] = {
-    val res = new WithFilterMaintainerExp[T](this, FuncExp(p))
-    //this subscribe res
-    res
-  }
-  override def flatMap[U](f: Exp[T] => Exp[QueryReifier[U]]): QueryReifier[U] = {
-    val res = new FlatMapMaintainerExp[T, U](this, FuncExp(f))
-    //this subscribe res
-    res
-  }
+  override def map[U](f: Exp[T] => Exp[U]): QueryReifier[U] =
+    new MapOpMaintainerExp[T, U](this, FuncExp(f))
+  override def withFilter(p: Exp[T] => Exp[Boolean]): QueryReifier[T] =
+    new WithFilterMaintainerExp[T](this, FuncExp(p))
+  override def flatMap[U](f: Exp[T] => Exp[QueryReifier[U]]): QueryReifier[U] =
+    new FlatMapMaintainerExp[T, U](this, FuncExp(f))
   //XXX add join, and add union
 }
 

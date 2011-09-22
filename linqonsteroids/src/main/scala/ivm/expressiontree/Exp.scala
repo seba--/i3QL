@@ -21,15 +21,18 @@ trait Exp[+T] {
     val newself = genericConstructor(transformedChilds)
     transformer(newself).asInstanceOf[Exp[T]]
   }
-  private[ivm] def map[S](mapper: (Exp[_], Seq[S]) => S): S = {
-    val mappedChilds = for (c <- children) yield c.map(mapper)
+  private[ivm] def treeMap[S](mapper: (Exp[_], Seq[S]) => S): S = {
+    val mappedChilds = for (c <- children) yield c.treeMap(mapper)
     mapper(this, mappedChilds)
   }
   private[ivm] def containsExp[S](e: Exp[S]): Boolean = {
     var ac = allChildren //XXX slow, allChildren computes an eager sequence!
     ac.contains(e)
   }
-  private[ivm] def isOrContains[S](e: Exp[S]): Boolean = if (this.equals(e)) true else containsExp(e)
+  //Alternative implementation not using allChildren - and thus probably faster:
+  //def containsExp[S](e: Exp[S]): Boolean = children.map(_.isOrContains(e)).foldRight(false)(_ || _)
+
+  private[ivm] def isOrContains(e: Exp[_]): Boolean = if (this.equals(e)) true else containsExp(e)
   private[ivm] def allChildren: Seq[Exp[_]] = children ++ (for (c <- children; a <- c.allChildren) yield a)
 
   private[ivm] def substVar[S](v: String, e: Exp[S]) =
@@ -44,7 +47,7 @@ trait Exp[+T] {
       case fe@FuncExp(_) => c.fold(Set.empty)(_ union _).filter(!_.equals(fe.x))
       case _ => c.fold(Set.empty)(_ union _)
     }
-    map(mapper)
+    treeMap(mapper)
   }
 
   //Methods for the clients of the library, rather than for the implementations.
@@ -52,12 +55,6 @@ trait Exp[+T] {
   def is[S >: T](that: Exp[S]): Exp[Boolean] = Eq(this, that)
   //def is(that: Exp[T]): Exp[Boolean] = Eq(this, that)
 
-  // method is used for testing. It is overriden in CallN to treat all calls as potentially equal
-  private[ivm] def potentiallyEquals[S](other: Exp[S]) : Boolean = {
-    val c  = children.zip(other.children)
-    this.getClass().equals(other.getClass()) &&
-      c.map({ case (a, b) => a.potentiallyEquals(b)}).forall(identity)
-  }
 }
 
 private[ivm] object Exp {
