@@ -357,4 +357,10 @@ object Utilities
         }
     }
 
+
+    def ensembleElementsSortOrder( e:SourceElement[AnyRef] ) : (String, String,String,String, String)= e match {
+        case SourceElement(t @ ObjectType(_)) => ("1", t.toJava, "", "", "")
+        case SourceElement(Method(declaringClass, name, parameters, returnType)) => ("2", declaringClass.toJava, name, parameters.map(_.toJava).fold("")(_ + _), returnType.toJava)
+        case SourceElement(Field(declaringClass, name, typ)) => ("3", declaringClass.toJava, name, typ.toJava, "")
+    }
 }
