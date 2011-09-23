@@ -24,7 +24,7 @@ class HashBagIndex[K <: AnyRef, V <: AnyRef](
 
     private val map = com.google.common.collect.LinkedListMultimap.create[K, V]()
 
-    def foreachKey[U](f: (K) => U) {
+    protected def foreachKey_internal[U](f: (K) => U) {
         val it = map.keySet().iterator()
         while (it.hasNext) {
             val next = it.next()

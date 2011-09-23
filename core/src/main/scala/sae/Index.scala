@@ -36,6 +36,14 @@ trait Index[K <: AnyRef, V <: AnyRef]
      * { (elem, count) } anyway.
      */
     def foreachKey[U](f: (K) => U)
+        {
+            if (!initialized) {
+                this.lazyInitialize
+            }
+            foreachKey_internal(f)
+        }
+
+    protected def foreachKey_internal[U](f: (K) => U)
 
     // an index is lazy initialized by calling build
     def lazyInitialize

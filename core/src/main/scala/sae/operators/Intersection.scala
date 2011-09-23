@@ -220,16 +220,13 @@ class BagIntersection[Domain <: AnyRef]
 
     def lazyInitialize
     {
-        leftIndex.foreach(
+        leftIndex.foreachKey( (key:Domain) =>
             {
-                case (key, element) if ( rightIndex.isDefinedAt(key) ) =>
-                    cached_size += {
-                        if(leftIndex.elementCountAt(key) > rightIndex.elementCountAt(key))
-                            rightIndex.elementCountAt(key)
-                        else
-                            leftIndex.elementCountAt(key)
-                    }
-                case _ => // do nothing
+                if ( rightIndex.isDefinedAt(key) )
+                {
+                    // we compute the min over the two counts
+                    cached_size += scala.math.min(leftIndex.elementCountAt(key), rightIndex.elementCountAt(key))
+                }
             }
         )
         initialized = true
