@@ -21,6 +21,14 @@ class HashSetIndex[K <: AnyRef, V <: AnyRef](
 
     private val map = com.google.common.collect.HashMultimap.create[K, V]()
 
+    def foreachKey[U](f: (K) => U) {
+        val it = map.keys().iterator()
+        while (it.hasNext) {
+            val next = it.next()
+            f(next)
+        }
+    }
+
     protected def put_internal(key: K, value: V)
     {
         map.put(key, value)

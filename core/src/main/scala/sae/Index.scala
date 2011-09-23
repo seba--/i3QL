@@ -29,6 +29,14 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     val keyFunction : V => K
 
+    /**
+     * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
+     * The question remains whether this is needed, or if bag indices should always make
+     * computations over number of contained elements since they basically are sets of the type
+     * { (elem, count) } anyway.
+     */
+    def foreachKey[U](f: (K) => U)
+
     // an index is lazy initialized by calling build
     def lazyInitialize
     {

@@ -446,71 +446,76 @@ class StudentCoursesRAFunSuite
         assert(intersect.asList.contains(john))
         assert(intersect.asList.contains(sally))
 
+
+        students -= john
+        students -= sally
         val heather = Student(25421,"heather")
         persons += heather
         val tim = Employee("tim")
         persons += tim
 
         // students does not contain heather
-        assert(intersect.size === 2)
+        assert(intersect.size === 0)
 
 
         students += heather
         // students contains heather once, persons once
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
         persons += heather
         // students contains heather once, persons twice
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
         students += heather
         // students contains heather twice, persons twice
-        assert(intersect.size === 4)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 2)
+        assert(intersect.asList === List(heather, heather))
 
         // students contains heather twice, persons once
         persons -= heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
         // students contains heather twice, persons not
         persons -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(intersect.size === 0)
+        assert(intersect.asList === Nil)
 
         // students contains heather twice, persons once
         persons += heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
 
         students -= heather
         // students contains heather once, persons once
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
 
         // students contains heather once, persons not
         persons -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(intersect.size === 0)
+        assert(intersect.asList === Nil)
 
         // students contains heather not, persons once
         persons += heather
         students -= heather
-        assert(intersect.size === 2)
-        assert(!intersect.asList.contains(heather))
+        assert(intersect.size === 0)
+        assert(intersect.asList === Nil)
 
         // students contains heather once, persons once
         students += heather
-        assert(intersect.size === 3)
-        assert(intersect.asList.contains(heather))
+        assert(intersect.size === 1)
+        assert(intersect.asList === List(heather))
 
 
         val heather_new_number =Student(23744,"heather")
 
+        students += john
+        students += sally
         persons.update(heather, heather_new_number)
 
         assert(intersect.size === 2)

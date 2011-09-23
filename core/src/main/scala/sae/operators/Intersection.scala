@@ -237,20 +237,17 @@ class BagIntersection[Domain <: AnyRef]
 
     def materialized_foreach[T](f: (Domain) => T)
     {
-        leftIndex.foreach(
+        leftIndex.foreachKey( (key:Domain) =>
             {
-                case (key, element) if ( rightIndex.isDefinedAt(key) ) =>
-                    var count = {
-                        if(leftIndex.elementCountAt(key) > rightIndex.elementCountAt(key))
-                            rightIndex.elementCountAt(key)
-                        else
-                            leftIndex.elementCountAt(key)
-                    }
+                if ( rightIndex.isDefinedAt(key) )
+                {
+                    // we compute the min over the two counts
+                    var count = scala.math.min(leftIndex.elementCountAt(key), rightIndex.elementCountAt(key))
                     while( count > 0 ){
-                        f(element)
+                        f(key) // the keys and elements are the same as we used identity as key function
                         count -= 1
                     }
-                case _ => // do nothing
+                }
             }
         )
     }
