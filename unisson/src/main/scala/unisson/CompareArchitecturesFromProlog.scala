@@ -118,11 +118,15 @@ object CompareArchitecturesFromProlog
 
         if (printEnsembles) {
 
-            outputWriter.println("Ensemble" + delimiter + "Architecture 1 Count" + delimiter + "Architecture 2 Count" + delimiter + "Type of Change (added|removed|query|hierarchy)")
+            outputWriter.println("Ensemble" + delimiter + "Architecture 1 Count" + delimiter + "Architecture 2 Count" + delimiter + "Type of Change (added|removed|renamed|query|hierarchy)")
 
-            val ensemblesOnlyIn1 = checker1.getEnsembles.filter( (e:Ensemble) => checker2.getEnsemble(e.name) == None )
-            val ensemblesOnlyIn2 = checker2.getEnsembles.filter( (e:Ensemble) => checker1.getEnsemble(e.name) == None )
-            val ensemblesInBoth = checker1.getEnsembles.collect( (e1:Ensemble) => checker2.getEnsemble(e1.name) match
+            val subst = (prefix(0), prefix(1))
+            val ensemblesOnlyIn1 = checker1.getEnsembles.filter( (e:Ensemble) => checker2.getEnsemble(Utilities.substitutePrefix(e.name)(subst)) == None )
+            val ensemblesOnlyIn2 = checker2.getEnsembles.filter( (e:Ensemble) =>
+                checker1.getEnsemble(Utilities.substitutePrefix(e.name)((prefix(1), prefix(0)))) == None
+            )
+            val ensemblesInBoth = checker1.getEnsembles.collect( (e1:Ensemble) =>
+                checker2.getEnsemble(Utilities.substitutePrefix(e1.name)(subst)) match
                 {
                     case Some(e2 @ Ensemble(_,_,_,_)) => (e1, e2)
                 }
@@ -155,6 +159,14 @@ object CompareArchitecturesFromProlog
                         val common = query1.substring(0, deltaIndex)
                         outputWriter.println(e1.name + delimiter + checker1.ensembleElements(e1).size + delimiter + checker2.ensembleElements(e2).size + delimiter + "query" + delimiter + common + delimiter + delta1 + delimiter + delta2)
                     }
+                    else
+                    {
+                        val nameChanged = e1.name != e2.name
+                        if(nameChanged)
+                        {
+outputWriter.println(e1.name + delimiter + checker1.ensembleElements(e1).size + delimiter + checker2.ensembleElements(e2).size + delimiter + "renamed"  + delimiter + e1.name + delimiter + e2.name )
+                        }
+                    }
                 }
             }
         }
@@ -166,6 +178,8 @@ object CompareArchitecturesFromProlog
 
 
     }
+
+
 
 
     /**

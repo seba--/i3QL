@@ -41,8 +41,7 @@ object UnissonQuery {
             newPackagePrefix +
                     packageName.substring(
                         oldPackagePrefix.length(),
-                        packageName.length() - oldPackagePrefix.length()
-                    )
+                        packageName.length())
         }
         else{
             packageName

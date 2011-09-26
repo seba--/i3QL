@@ -363,4 +363,20 @@ object Utilities
         case SourceElement(Method(declaringClass, name, parameters, returnType)) => ("2", declaringClass.toJava, name, parameters.map(_.toJava).fold("")(_ + _), returnType.toJava)
         case SourceElement(Field(declaringClass, name, typ)) => ("3", declaringClass.toJava, name, typ.toJava, "")
     }
+
+    def substitutePrefix(name:String)(implicit substitution : (String, String)) =
+    {
+        val oldPrefix : String = substitution._1
+        val newPrefix : String = substitution._2
+
+        if( name.startsWith(oldPrefix) ){
+            newPrefix +
+                    name.substring(
+                        oldPrefix.length(),
+                        name.length())
+        }
+        else{
+            name
+        }
+    }
 }
