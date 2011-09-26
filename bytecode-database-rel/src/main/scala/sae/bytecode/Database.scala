@@ -56,6 +56,7 @@ trait Database
 
     def exception_handlers : LazyView[ExceptionHandler]
 
+    val inner_classes: LazyView[inner_class]
 
     def getAddClassFileFunction: (File) => Unit
 

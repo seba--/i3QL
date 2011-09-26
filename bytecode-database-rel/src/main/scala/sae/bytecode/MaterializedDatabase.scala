@@ -10,11 +10,14 @@ import de.tud.cs.st.bat._
 /**
  * Convenience database that materializes all queries as a result.
  */
-class MaterializedDatabase
+class MaterializedDatabase(private val db : BytecodeDatabase)
 extends Database
 {
 
-    private val db : BytecodeDatabase = new BytecodeDatabase()
+    def this()
+    {
+        this(new BytecodeDatabase())
+    }
 
     val classfiles : QueryResult[ObjectType] = db.classfiles
 
@@ -49,6 +52,9 @@ extends Database
     val calls : QueryResult[calls] = db.calls
 
     val class_cast : QueryResult[class_cast] = db.class_cast
+
+    val inner_classes: QueryResult[inner_class] = db.inner_classes
+
 
     lazy val handled_exceptions : QueryResult[ExceptionHandler] = db.handled_exceptions
 
