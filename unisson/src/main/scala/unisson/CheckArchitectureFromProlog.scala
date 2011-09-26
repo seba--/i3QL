@@ -1,6 +1,7 @@
 package unisson
 
 import java.io._
+import queries.QueryCompiler
 import unisson.ast._
 import Utilities._
 import sae.collections.QueryResult
@@ -8,6 +9,7 @@ import sae.bytecode.model.dependencies.Dependency
 import sae.syntax.RelationalAlgebraSyntax._
 import de.tud.cs.st.bat.ObjectType
 import sae.LazyView
+import sae.bytecode.MaterializedDatabase
 
 /**
  *
@@ -31,6 +33,8 @@ object CheckArchitectureFromProlog
     private val ensembles = "--ensembles"
 
     private val ensemble = "--ensemble"
+
+    private val checkQueries = "--checkQueries"
 
     private val constraints = "--constraints"
 
@@ -62,6 +66,7 @@ object CheckArchitectureFromProlog
                 |""" + showRest + """ : outputs all elements that are not contained in an ensemble
                 |""" + verbose + """ : outputs more data for other options, e.g. all elements in the dependency graph
                 |""" + createSad + """ <sadFile> creates a sad file, .e.g. to depict all dependencies
+                |""" + checkQueries + """ sanity check all parts of the queries to see which sub queries do not select elements
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -117,6 +122,7 @@ object CheckArchitectureFromProlog
         var output = ""
         var sadFileOut = ""
         var printEnsemble = ""
+        var printQueryCheck = false
 
         var i = 0
         var consumeNext = false
@@ -130,6 +136,7 @@ object CheckArchitectureFromProlog
                     case _ if s == showRest => printRest = true
                     case _ if s == dependencies => printDependencies = true
                     case _ if s == verbose => isVerbose = true
+                    case _ if s == checkQueries => printQueryCheck = true
                     case _ if s == outputOption => {
                         if (i + 1 <= trail.size - 1) {
                             output = trail(i + 1)
@@ -201,15 +208,23 @@ object CheckArchitectureFromProlog
 
         }
 
+        var storedDatabase : MaterializedDatabase = null
+
+        if( printQueryCheck )
+        {
+            storedDatabase = new MaterializedDatabase(checker.db)
+        }
+
         readCode(checker, codeLocations)
 
+        /*
             storedDependencies.foreach((d: Dependency[AnyRef, AnyRef]) =>
                                 outputWriter.println(
                                             elementToString(new SourceElement(d.source)) + delimiter +
                                             elementToString(new SourceElement(d.target))
                                 )
             )
-
+        */
         if (printEnsemble != "") {
             if (checker.getEnsemble(printEnsemble) == None) {
                 println("ensemble " + printEnsemble + " not found")
@@ -288,7 +303,9 @@ object CheckArchitectureFromProlog
             dependencyPairs.foreach {
                 case (source, target) => {
 
-                    val query = createDependencyQuery(checker.ensembleElements(source), checker.ensembleElements(target), storedDependencies)
+                    val sources = checker.ensembleElements(source)
+                    val targets = checker.ensembleElements(target)
+                    val query = createDependencyQuery(sources, targets, storedDependencies)
                     outputWriter.println(
                         ensembleToString(source) + delimiter +
                                 ensembleToString(target) + delimiter +
@@ -307,6 +324,10 @@ object CheckArchitectureFromProlog
                                 )
                         )
                     }
+                    // TODO this is not 100% correct, as we clear also observers vor violations, but for now this will do.
+                    sources.clearObservers()
+                    targets.clearObservers()
+                    storedDependencies.clearObservers()
                 }
             }
             if (sadFileOut != "") {
@@ -351,29 +372,39 @@ object CheckArchitectureFromProlog
 
                     for {
                         (source, target) <- dependencyPairs;
-                        val query = createDependencyQuery(checker.ensembleElements(source), checker.ensembleElements(target), storedDependencies);
-                        if (query.size > 0);
+
                         if (source != target);
                         if (source == ensemble);
                         if (source.children.isEmpty); // only draw dependencies between leafs
                         if (target.children.isEmpty) // only draw dependencies between leafs
                     } {
-
-                        val targetId = ensembleIds.getOrElse(
-                        target, {
-                            val id = nextId;
-                            ensembleIds += {
-                                target -> id
-                            };
-                            id
+                        val sources = checker.ensembleElements(source)
+                        val targets = checker.ensembleElements(target)
+                        val query = createDependencyQuery(sources, targets, storedDependencies)
+                        if (query.size > 0)
+                        {
+                            val targetId = ensembleIds.getOrElse(
+                            target, {
+                                val id = nextId;
+                                ensembleIds += {
+                                    target -> id
+                                };
+                                id
+                            }
+                            )
+                            val kinds = query.asList.map((d: Dependency[AnyRef, AnyRef]) => dependencyAsKind(d)).distinct
+                            val name = kinds.reduceRight(_ + "," + _)
+                            sadWriter.println(
+                                "<targetConnections xmi:type=\"Expected\" xmi:id=\"" + nextId +
+                                        "\" source=\"" + sourceId + "\" target=\"" + targetId +
+                                        "\" name=\"" + name + "[" + query.size + "]" + "\"/>\n"
+                            )
                         }
-                        )
+                        // TODO this is not 100% correct, as we clear also observers vor violations, but for now this will do.
+                        sources.clearObservers()
+                        targets.clearObservers()
+                        storedDependencies.clearObservers()
 
-                        val kinds = query.asList.map((d: Dependency[AnyRef, AnyRef]) => dependencyAsKind(d)).distinct
-                        val name = kinds.reduceRight(_ + "," + _)
-                        sadWriter.println(
-                            "<targetConnections xmi:type=\"Expected\" xmi:id=\"" + nextId + "\" source=\"" + sourceId + "\" target=\"" + targetId + "\" name=\"" + name + "[" + query.size + "]" + "\"/>\n"
-                        )
                     }
                     sadWriter.println("</shapes>")
                 }
@@ -404,6 +435,33 @@ object CheckArchitectureFromProlog
 
         }
 
+
+        if( printQueryCheck )
+        {
+
+            println("checking queries for empty selections ...")
+            for( view <- checker.db.baseViews)
+            {
+                view.clearObservers()
+            }
+            outputWriter.println("Ensemble" + delimiter + "Query" + delimiter + "Empty SubQuery")
+
+            implicit val queries = new Queries(storedDatabase)
+
+            for( ensemble <- checker.getEnsembles)
+            {
+                val concreteQueries = collectConcreteSubQueries(ensemble.query)
+                for( query <- concreteQueries; if(query != AllQuery() && query != RestQuery() ) )
+                {
+                    val view = lazyViewToResult(QueryCompiler.compileUnissonQuery(query))
+                    if( view.size == 0)
+                    {
+                        outputWriter.println(ensemble.name + delimiter + UnissonQuery.asString(ensemble.query) + delimiter + UnissonQuery.asString(query))
+                    }
+                }
+            }
+
+        }
     }
 
 
@@ -418,4 +476,23 @@ object CheckArchitectureFromProlog
         lazyViewToResult(dependencyQuery)
     }
 
+    // collect concrete subqueries, i.e., everything that is not concerned with logical combination (or/without)
+    def collectConcreteSubQueries(query : UnissonQuery) : Seq[UnissonQuery] =
+    {
+        query match
+        {
+            case ClassSelectionQuery(_, _) => List(query)
+            case ClassQuery(_) => List(query)
+            case ClassWithMembersQuery(_) => List(query)
+            case PackageQuery(_) => List(query)
+            case OrQuery(left, right) => collectConcreteSubQueries(left) ++ collectConcreteSubQueries(right)
+            case WithoutQuery(left, right) => collectConcreteSubQueries(left) ++ collectConcreteSubQueries(right)
+            case TransitiveQuery(_) => List(query)
+            case SuperTypeQuery(innerQuery) => List(query)
+            case EmptyQuery() => List(query)
+            case AllQuery() => List(query)
+            case RestQuery() => List(query)
+            case _ => throw new IllegalArgumentException("Unknown query type: " + query)
+        }
+    }
 }

@@ -23,7 +23,7 @@ import unisson._
 class QueryCompiler(val checker : ArchitectureChecker)
 {
 
-    val queries = new Queries(checker.db)
+    implicit val queries = new Queries(checker.db)
 
     import queries._
 
@@ -105,28 +105,12 @@ class QueryCompiler(val checker : ArchitectureChecker)
 
     def createEnsembleQuery(ensemble:Ensemble): LazyView[SourceElement[AnyRef]] =
     {
-        val query = compileUnissonQuery(ensemble.query)
+        val query = QueryCompiler.compileUnissonQuery(ensemble.query)
         checker.addEnsemble(ensemble, query)
         query
     }
 
-    def compileUnissonQuery(query : UnissonQuery) : LazyView[SourceElement[AnyRef]] =
-    {
-        query match
-        {
-            case ClassSelectionQuery(pn, sn) => `class`(pn, sn)
-            case ClassQuery(classQuery) => `class`(compileUnissonQuery(classQuery))
-            case ClassWithMembersQuery(ClassSelectionQuery(pn, sn)) => class_with_members(pn, sn)
-            case ClassWithMembersQuery(classQuery) => class_with_members(compileUnissonQuery(classQuery))
-            case PackageQuery(pn) => `package`(pn)
-            case OrQuery(left, right) => compileUnissonQuery(left) or compileUnissonQuery(right)
-            case WithoutQuery(left, right) => compileUnissonQuery(left) without compileUnissonQuery(right)
-            case TransitiveQuery(SuperTypeQuery(innerQuery)) => transitive_supertype(compileUnissonQuery(innerQuery))
-            case SuperTypeQuery(innerQuery) => supertype(compileUnissonQuery(innerQuery))
-            case EmptyQuery() => new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]]()
-            case _ => throw new IllegalArgumentException("Unknown query type: " + query)
-        }
-    }
+
 
     def createIncomingQuery(constraint:IncomingConstraint): LazyView[Violation] =
     {
@@ -308,3 +292,24 @@ class QueryCompiler(val checker : ArchitectureChecker)
     }
 }
 
+object QueryCompiler
+{
+    def compileUnissonQuery(query : UnissonQuery)(implicit queries : Queries) : LazyView[SourceElement[AnyRef]] =
+    {
+        import queries._
+        query match
+        {
+            case ClassSelectionQuery(pn, sn) => `class`(pn, sn)
+            case ClassQuery(classQuery) => `class`(compileUnissonQuery(classQuery))
+            case ClassWithMembersQuery(ClassSelectionQuery(pn, sn)) => class_with_members(pn, sn)
+            case ClassWithMembersQuery(classQuery) => class_with_members(compileUnissonQuery(classQuery))
+            case PackageQuery(pn) => `package`(pn)
+            case OrQuery(left, right) => compileUnissonQuery(left) or compileUnissonQuery(right)
+            case WithoutQuery(left, right) => compileUnissonQuery(left) without compileUnissonQuery(right)
+            case TransitiveQuery(SuperTypeQuery(innerQuery)) => transitive_supertype(compileUnissonQuery(innerQuery))
+            case SuperTypeQuery(innerQuery) => supertype(compileUnissonQuery(innerQuery))
+            case EmptyQuery() => new ArchitectureChecker.EmptyResult[SourceElement[AnyRef]]()
+            case _ => throw new IllegalArgumentException("Unknown query type: " + query)
+        }
+    }
+}

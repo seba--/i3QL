@@ -150,8 +150,8 @@ object CompareArchitecturesFromProlog
                     if(queryChanged)
                     {
                         val deltaIndex = compareStrings(query1, query2)
-                        val delta1 = query1.substring(deltaIndex, query1.length() - deltaIndex)
-                        val delta2 = query2.substring(deltaIndex, query2.length() - deltaIndex)
+                        val delta1 = query1.substring(deltaIndex, query1.length() )
+                        val delta2 = query2.substring(deltaIndex, query2.length() )
                         val common = query1.substring(0, deltaIndex)
                         outputWriter.println(e1.name + delimiter + checker1.ensembleElements(e1).size + delimiter + checker2.ensembleElements(e2).size + delimiter + "query" + delimiter + common + delimiter + delta1 + delimiter + delta2)
                     }

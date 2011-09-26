@@ -1,11 +1,11 @@
 package unisson
 
-import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.{Observer, LazyView}
 import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
+import sae.bytecode.{Database, BytecodeDatabase}
 
 /**
  *
@@ -13,7 +13,7 @@ import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
  * Created: 30.05.11 13:37
  *
  */
-class Queries( val db : BytecodeDatabase )
+class Queries( val db : Database )
 {
 
 

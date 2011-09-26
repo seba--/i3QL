@@ -32,14 +32,15 @@ class Flashcards_0_2_7_Test
     @Test
     def count_ensemble_elements()
     {
-        val queries = this.create_queries;
+        val db = new BytecodeDatabase()
+        val queries = new Queries(db)
         val ui_layer = create_ui_layer(queries)
         val learning_strategies = create_learning_strategies(queries)
         val main = create_main(queries)
 
         //val start = System.nanoTime()
 
-        queries.db.addArchiveAsResource("flashcards-0.2.7.jar")
+        db.addArchiveAsResource("flashcards-0.2.7.jar")
 
         //val end = System.nanoTime()
 
