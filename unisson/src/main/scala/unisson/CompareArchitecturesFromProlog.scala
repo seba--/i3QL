@@ -35,7 +35,7 @@ object CompareArchitecturesFromProlog
                 |<csvFile>      : A comma separated value file where output is written to
                 |""" + ensembles + """ : compares the ensembles in the two sad files
                 |""" + constraints + """ : compares the constraints in the two sad files
-                |""" + prefixChange + """ <String>: indicates that all packages had their prefixed changed, thus queries will be compared based on the changed prefixes.
+                |""" + prefixChange + """ <String>-><String>: indicates that all packages had their prefixed changed, thus ensemble names and queries will be compared based on the changed prefixes.
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -74,7 +74,7 @@ object CompareArchitecturesFromProlog
                     case _ if s == constraints => printConstraints = true
                     case _ if s == prefixChange => {
                         if (i + 1 <= trail.size - 1) {
-                            prefix = trail(i + 1).split("=")
+                            prefix = trail(i + 1).split(" ")
                             consumeNext = true
                         }
                         else {
