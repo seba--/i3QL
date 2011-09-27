@@ -46,6 +46,8 @@ object CheckArchitectureFromProlog
 
     private val verbose = "--verbose"
 
+    private val aggregate = "--aggregated"
+
     private val createSad = "--createSad"
 
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
@@ -65,6 +67,7 @@ object CheckArchitectureFromProlog
                 |""" + dependencies + """ : outputs all dependencies for the modeled ensembles with a count for the dependencies.
                 |""" + showRest + """ : outputs all elements that are not contained in an ensemble
                 |""" + verbose + """ : outputs more data for other options, e.g. all elements in the dependency graph
+                |""" + aggregate + """ : outputs aggregated counts
                 |""" + createSad + """ <sadFile> creates a sad file, .e.g. to depict all dependencies
                 |""" + checkQueries + """ sanity check all parts of the queries to see which sub queries do not select elements
                 """).stripMargin
@@ -123,6 +126,7 @@ object CheckArchitectureFromProlog
         var sadFileOut = ""
         var printEnsemble = ""
         var printQueryCheck = false
+        var printAggregated = false
 
         var i = 0
         var consumeNext = false
@@ -136,6 +140,7 @@ object CheckArchitectureFromProlog
                     case _ if s == showRest => printRest = true
                     case _ if s == dependencies => printDependencies = true
                     case _ if s == verbose => isVerbose = true
+                    case _ if s == aggregate => printAggregated = true
                     case _ if s == checkQueries => printQueryCheck = true
                     case _ if s == outputOption => {
                         if (i + 1 <= trail.size - 1) {
@@ -283,34 +288,53 @@ object CheckArchitectureFromProlog
             checker.violations.foreach((v: Violation) => outputWriter.println(violationToString(v)))
         }
 
-        if (printDependencies) {
+        val dependencyPairs: Set[(Ensemble, Ensemble)] = for {
+            first <- checker.getEnsembles;
+            if (first.name != "empty");
+            if (!first.name.startsWith("@"));
+            second <- checker.getEnsembles;
+            if (second.name != "empty");
+            if (!second.name.startsWith("@"));
+            if (!first.allDescendents.contains(second));
+            if (!first.allAncestors.contains(second))
+        } yield {
+            (first, second)
+        }
 
-            val dependencyPairs: Set[(Ensemble, Ensemble)] = for {
-                first <- checker.getEnsembles;
-                if (first.name != "empty");
-                if (!first.name.startsWith("@"));
-                second <- checker.getEnsembles;
-                if (second.name != "empty");
-                if (!second.name.startsWith("@"));
-                if (!first.allDescendents.contains(second));
-                if (!first.allAncestors.contains(second))
-            } yield {
-                (first, second)
-            }
+        if (printDependencies && sadFileOut == "") {
+
+
             println("writing depdencies ...")
-
+            if( !printAggregated )
+             {
             outputWriter.println("Source Ensemble" + delimiter + "Source Element Count" + delimiter + "Target Ensemble" + delimiter + "Target Element Count" + delimiter + "Dependency Count")
+             }
+            var aggregated : Map[Ensemble, (Int, Int, Int, Int)] = Map()
             dependencyPairs.foreach {
                 case (source, target) => {
 
                     val sources = checker.ensembleElements(source)
                     val targets = checker.ensembleElements(target)
                     val query = createDependencyQuery(sources, targets, storedDependencies)
-                    outputWriter.println(
-                        ensembleToString(source) + delimiter +
-                                ensembleToString(target) + delimiter +
-                                query.size
-                    )
+                    if( !printAggregated )
+                    {
+                        outputWriter.println(
+                            ensembleToString(source) + delimiter +
+                                    ensembleToString(target) + delimiter +
+                                    query.size
+                        )
+                    }
+                    else
+                    {
+                        val oldSourceCounts = aggregated.getOrElse( source, (0, 0, 0, 0))
+                        val oldTargetCounts = aggregated.getOrElse( target, (0, 0, 0, 0))
+                        val inc = if( query.size == 0 ){ 0 } else { 1 }
+                        val sourceCounts = (oldSourceCounts._1 + inc, oldSourceCounts._2 + query.size, oldSourceCounts._3, oldSourceCounts._4 )
+                        val targetCounts = (oldTargetCounts._1, oldTargetCounts._2, oldTargetCounts._3 + inc, oldTargetCounts._4 + query.size)
+
+                        aggregated += source -> sourceCounts
+                        aggregated += target -> targetCounts
+                    }
                     if (isVerbose) {
                         query.foreach(
                                 (d: Dependency[AnyRef, AnyRef]) =>
@@ -324,93 +348,114 @@ object CheckArchitectureFromProlog
                                 )
                         )
                     }
-                    // TODO this is not 100% correct, as we clear also observers vor violations, but for now this will do.
                     sources.clearObservers()
                     targets.clearObservers()
                     storedDependencies.clearObservers()
                 }
             }
-            if (sadFileOut != "") {
-                println("creating depdency diagram ...")
-                var id = -1
+             if( printAggregated )
+             {
+                                      outputWriter.println(
+                            "Ensemble" + delimiter +
+                                    "outgoing #ensembles" + delimiter +
+                                    "outgoing #total" + delimiter +
+                                    "incoming #ensembles"  + delimiter +
+                                    "incoming #total"  + delimiter +
+                                    "in+out coming #ensembles"
+                        )
+                 for( (ensemble, (outE, out, incE, inc)) <- aggregated)
+                 {
+                     outputWriter.println(
+                            ensemble.name + delimiter +
+                                    outE + delimiter +
+                                    out + delimiter +
+                                    incE + delimiter +
+                                    inc  + delimiter +
+                                    (outE + incE)
+                        )
+                 }
+             }
+        }
+        if (printDependencies && sadFileOut != "") {
+            println("creating depdency diagram ...")
+            var id = -1
 
-                def nextId: Int =
-                {
-                    id += 1;
+            def nextId: Int =
+            {
+                id += 1;
+                id
+            }
+
+            val diagramId = nextId
+
+            var ensembleIds: Map[Ensemble, Int] = Map()
+
+            sadWriter.println(
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns=\"http://vespucci.editor/2011-06-01\" xmlns:notation=\"http://www.eclipse.org/gmf/runtime/1.0.2/notation\">"
+            )
+
+            sadWriter.println("<ShapesDiagram xmi:id=\"" + diagramId + "\">")
+
+            for {ensemble <- checker.getEnsembles;
+                 if (ensemble.name != "empty");
+                 if (!ensemble.name.startsWith("@"))
+            } {
+                val sourceId = ensembleIds.getOrElse(
+                ensemble, {
+                    val id = nextId;
+                    ensembleIds += {
+                        ensemble -> id
+                    };
                     id
                 }
-
-                val diagramId = nextId
-
-                var ensembleIds: Map[Ensemble, Int] = Map()
-
-                sadWriter.println(
-                    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns=\"http://vespucci.editor/2011-06-01\" xmlns:notation=\"http://www.eclipse.org/gmf/runtime/1.0.2/notation\">"
                 )
 
-                sadWriter.println("<ShapesDiagram xmi:id=\"" + diagramId + "\">")
+                sadWriter.println(
+                    "<shapes xmi:type=\"Ensemble\" xmi:id=\"" + sourceId + "\" name=\"" + ensemble.name + "\" query=\"" + (UnissonQuery.asString(
+                        ensemble.query
+                    )(("", ""), true)) + "\">\n"
+                )
 
-                for {ensemble <- checker.getEnsembles;
-                     if (ensemble.name != "empty");
-                     if (!ensemble.name.startsWith("@"))
+                for {
+                    (source, target) <- dependencyPairs;
+
+                    if (source != target);
+                    if (source == ensemble);
+                    if (source.children.isEmpty); // only draw dependencies between leafs
+                    if (target.children.isEmpty) // only draw dependencies between leafs
                 } {
-                    val sourceId = ensembleIds.getOrElse(
-                    ensemble, {
-                        val id = nextId;
-                        ensembleIds += {
-                            ensemble -> id
-                        };
-                        id
-                    }
-                    )
-
-                    sadWriter.println(
-                        "<shapes xmi:type=\"Ensemble\" xmi:id=\"" + sourceId + "\" name=\"" + ensemble.name + "\" query=\"" + (UnissonQuery.asString(
-                            ensemble.query
-                        )(("", ""), true)) + "\">\n"
-                    )
-
-                    for {
-                        (source, target) <- dependencyPairs;
-
-                        if (source != target);
-                        if (source == ensemble);
-                        if (source.children.isEmpty); // only draw dependencies between leafs
-                        if (target.children.isEmpty) // only draw dependencies between leafs
-                    } {
-                        val sources = checker.ensembleElements(source)
-                        val targets = checker.ensembleElements(target)
-                        val query = createDependencyQuery(sources, targets, storedDependencies)
-                        if (query.size > 0)
-                        {
-                            val targetId = ensembleIds.getOrElse(
-                            target, {
-                                val id = nextId;
-                                ensembleIds += {
-                                    target -> id
-                                };
-                                id
-                            }
-                            )
-                            val kinds = query.asList.map((d: Dependency[AnyRef, AnyRef]) => dependencyAsKind(d)).distinct
-                            val name = kinds.reduceRight(_ + "," + _)
-                            sadWriter.println(
-                                "<targetConnections xmi:type=\"Expected\" xmi:id=\"" + nextId +
-                                        "\" source=\"" + sourceId + "\" target=\"" + targetId +
-                                        "\" name=\"" + name + "[" + query.size + "]" + "\"/>\n"
-                            )
+                    val sources = checker.ensembleElements(source)
+                    val targets = checker.ensembleElements(target)
+                    val query = createDependencyQuery(sources, targets, storedDependencies)
+                    if (query.size > 0)
+                    {
+                        val targetId = ensembleIds.getOrElse(
+                        target, {
+                            val id = nextId;
+                            ensembleIds += {
+                                target -> id
+                            };
+                            id
                         }
-                        // TODO this is not 100% correct, as we clear also observers vor violations, but for now this will do.
-                        sources.clearObservers()
-                        targets.clearObservers()
-                        storedDependencies.clearObservers()
-
+                        )
+                        val kinds = query.asList.map((d: Dependency[AnyRef, AnyRef]) => dependencyAsKind(d)).distinct
+                        val name = kinds.reduceRight(_ + "," + _)
+                        sadWriter.println(
+                            "<targetConnections xmi:type=\"Expected\" xmi:id=\"" + nextId +
+                                    "\" source=\"" + sourceId + "\" target=\"" + targetId +
+                                    "\" name=\"" + name + "[" + query.size + "]" + "\"/>\n"
+                        )
                     }
-                    sadWriter.println("</shapes>")
-                }
-                sadWriter.println("</ShapesDiagram>\n  <notation:Diagram xmi:id=\"" + nextId + "\" type=\"Vespucci\" element=\"" + diagramId + "\" name=\"" + sadFileOut + "\" measurementUnit=\"Pixel\">\n\n  </notation:Diagram>\n</xmi:XMI>")
+                    // TODO this is not 100% correct, as we clear also observers vor violations, but for now this will do.
+                    sources.clearObservers()
+                    targets.clearObservers()
+                    storedDependencies.clearObservers()
 
+                }
+                sadWriter.println("</shapes>")
             }
+            sadWriter.println("</ShapesDiagram>\n  <notation:Diagram xmi:id=\"" + nextId + "\" type=\"Vespucci\" element=\"" + diagramId + "\" name=\"" + sadFileOut + "\" measurementUnit=\"Pixel\">\n\n  </notation:Diagram>\n</xmi:XMI>")
+
         }
 
         if (printDuplicates) {
