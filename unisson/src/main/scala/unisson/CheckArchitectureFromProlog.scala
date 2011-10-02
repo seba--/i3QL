@@ -326,14 +326,18 @@ object CheckArchitectureFromProlog
                     }
                     else
                     {
-                        val oldSourceCounts = aggregated.getOrElse( source, (0, 0, 0, 0))
-                        val oldTargetCounts = aggregated.getOrElse( target, (0, 0, 0, 0))
-                        val inc = if( query.size == 0 ){ 0 } else { 1 }
-                        val sourceCounts = (oldSourceCounts._1 + inc, oldSourceCounts._2 + query.size, oldSourceCounts._3, oldSourceCounts._4 )
-                        val targetCounts = (oldTargetCounts._1, oldTargetCounts._2, oldTargetCounts._3 + inc, oldTargetCounts._4 + query.size)
+                        // in aggregated mode we do not want to know about internal dependencies and not about high-level deps.
+                        if( source != target && source.children == Nil && target.children == Nil )
+                        {
+                            val oldSourceCounts = aggregated.getOrElse( source, (0, 0, 0, 0))
+                            val oldTargetCounts = aggregated.getOrElse( target, (0, 0, 0, 0))
+                            val inc = if( query.size == 0 ){ 0 } else { 1 }
+                            val sourceCounts = (oldSourceCounts._1 + inc, oldSourceCounts._2 + query.size, oldSourceCounts._3, oldSourceCounts._4 )
+                            val targetCounts = (oldTargetCounts._1, oldTargetCounts._2, oldTargetCounts._3 + inc, oldTargetCounts._4 + query.size)
 
-                        aggregated += source -> sourceCounts
-                        aggregated += target -> targetCounts
+                            aggregated += source -> sourceCounts
+                            aggregated += target -> targetCounts
+                        }
                     }
                     if (isVerbose) {
                         query.foreach(
