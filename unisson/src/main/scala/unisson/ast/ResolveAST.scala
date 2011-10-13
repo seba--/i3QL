@@ -92,7 +92,8 @@ object ResolveAST
                                 (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
                                 for (kind <- removeSubsumptions(resolveKinds(kinds)))
                                 yield
-                                    OutgoingConstraint(
+                                {
+                                    val c = OutgoingConstraint(
                                         ensemble,
                                         for {
                                             target <- ensembles
@@ -103,6 +104,9 @@ object ResolveAST
                                         ,
                                         kind
                                     )
+                                    c.origins = constraints
+                                    c
+                                }
                             )
         } yield constraint
 
@@ -112,18 +116,22 @@ object ResolveAST
                                 case IncomingConstraintEdge(_, _, _, ensemble.name, _, _) => true
                             },
                                 (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
-                                for (kind <- resolveKinds(kinds))
+                                for (kind <- normalizeKinds(resolveKinds(kinds)))
                                 yield
-                                    IncomingConstraint(
+                                {
+                                    val c = IncomingConstraint(
                                         for {
                                             source <- ensembles
                                             in <- constraints
                                             if (source.name == in.sourceName)
-                                            if (in.kinds.contains(kind.designator))
+                                            if (in.kinds.exists((s: String) => kind.isCompatibleKind(ResolveKinds(s))))
                                         } yield source
                                         , ensemble,
                                         kind
                                     )
+                                    c.origins = constraints
+                                    c
+                                }
                             )
         } yield constraint
 
@@ -136,11 +144,15 @@ object ResolveAST
                                    (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
                                    for (kind <- resolveKinds(kinds))
                                    yield
-                                       NotAllowedConstraint(
+                                {
+                                    val c = NotAllowedConstraint(
                                            source,
                                            target,
                                            kind
-                                       )
+                                    )
+                                    c.origins = constraints
+                                    c
+                                }
                                )
         } yield constraint
 
@@ -153,11 +165,15 @@ object ResolveAST
                                 (kinds: Seq[String], constraints: Seq[DependencyConstraintEdge]) =>
                                 for (kind <- resolveKinds(kinds))
                                 yield
-                                    ExpectedConstraint(
+                                {
+                                    val c = ExpectedConstraint(
                                         source,
                                         target,
                                         kind
                                     )
+                                    c.origins = constraints
+                                    c
+                                }
                             )
         } yield constraint
 
@@ -193,17 +209,45 @@ object ResolveAST
     private def removeSubsumptions(resolved: Seq[DependencyKind]): Seq[DependencyKind] =
     {
         val subsumptions = for (k <- resolved;
-                             y <- resolved;
-                             if( k.isSubKindOf(y) )
+                                y <- resolved;
+                                if (k.isSubKindOf(y))
         ) yield (k, y)
-        val result = resolved.filterNot( (k:DependencyKind) => subsumptions.exists{ case (x,_) if x == k => true } )
+        val result = resolved.filterNot(
+                (k: DependencyKind) => subsumptions.exists {
+                case (x, _) if x == k => true
+            }
+        )
         result
     }
 
     /**
-     * resolve the kinds by removing subsumptions and returning a list of kinds
-     * that have pairwise non-overlapping regions for all pairs.
-     * I.e. for all pairs (A,B) the following holds: A ∪ B != A and A ∪ B != B
+     * TODO
+     * Currently it is not performant to normalize every "all" relation.
+     * This will only be possible once queries are optimized.
+     * Thus we check first whether normalization is required.
+     */
+    def normalizeKinds(resolved: Seq[DependencyKind]): Seq[DependencyKind] =
+    {
+        var needsNormalize = false
+        for (kind <- resolved; if (resolved.exists((_: DependencyKind).isSubKindOf(kind)))) {
+            needsNormalize = true
+        }
+        if (needsNormalize) {
+            val result = ((
+                    for (kind <- resolved; node <- kind.descendents; if (node.children == Nil)) yield node
+                    ) ++
+                    (
+                            for (kind <- resolved; if (kind.children == Nil)) yield kind
+                            )).distinct
+            result
+        }
+        else {
+            resolved
+        }
+    }
+
+    /**
+     * resolve the kinds from strings to a sequence of kind types
      */
     private def resolveKinds(kinds: Seq[String]): Seq[DependencyKind] =
     {

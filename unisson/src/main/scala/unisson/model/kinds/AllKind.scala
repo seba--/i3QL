@@ -24,6 +24,7 @@ object AllKind
         InstanceOfKind,
         ReadFieldKind,
         WriteFieldKind,
-        ThrowsKind
+        ThrowsKind,
+        ClassCastKind
     )
 }

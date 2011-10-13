@@ -17,4 +17,6 @@ trait DependencyConstraint
 
     def targets : Seq[Ensemble]
 
+    // todo this is not very nice and just a bad hack remove in future
+    var origins : Seq[DependencyConstraintEdge] = Nil
 }

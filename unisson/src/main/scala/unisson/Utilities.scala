@@ -50,8 +50,16 @@ object Utilities
             target,
             kind
             ) => "incoming" + delimiter +
-                    kind.designator + delimiter +
-                    ensembleListToString(sources) + delimiter +
+                    kind.designator + delimiter + (
+                    if(sources != Nil)
+                        {
+                            ensembleListToString(sources)
+                        }
+                        else
+                        {
+                            ""
+                        }
+                    ) + delimiter +
                     target.name + delimiter +
                     checker.violations(constraint).size
             case OutgoingConstraint(
@@ -61,7 +69,16 @@ object Utilities
             ) => "outgoing" + delimiter +
                     kind.designator + delimiter +
                     source.name + delimiter +
-                    ensembleListToString(targets) + delimiter +
+                    (
+                        if(targets != Nil)
+                        {
+                            ensembleListToString(targets)
+                        }
+                        else
+                        {
+                            ""
+                        }
+                    ) + delimiter +
                     checker.violations(constraint).size
             case NotAllowedConstraint(
             source,
@@ -121,10 +138,30 @@ object Utilities
     def constraintType(constraint: DependencyConstraint): String =
     {
         constraint match {
-            case NotAllowedConstraint(_, _, kind) => "not_allowed(" + kind + ")"
-            case ExpectedConstraint(_, _, kind) => "expected(" + kind + ")"
-            case IncomingConstraint(_, _, kind) => "incoming(" + kind + ")"
-            case OutgoingConstraint(_, _, kind) => "outgoing(" + kind + ")"
+            case NotAllowedConstraint(_, _, kind) => "not_allowed(" +  kind.designator + ")"
+            case ExpectedConstraint(_, _, kind) => "expected(" +  kind.designator + ")"
+            case IncomingConstraint(_, _, kind) => "incoming(" +  kind.designator + ")"
+            case OutgoingConstraint(_, _, kind) => "outgoing(" +  kind.designator + ")"
+        }
+    }
+
+    def constraintTypeOnly(constraint: DependencyConstraint): String =
+    {
+        constraint match {
+            case NotAllowedConstraint(_, _, kind) => "not_allowed"
+            case ExpectedConstraint(_, _, kind) => "expected"
+            case IncomingConstraint(_, _, kind) => "incoming"
+            case OutgoingConstraint(_, _, kind) => "outgoing"
+        }
+    }
+
+    def constraintKind(constraint: DependencyConstraint): String =
+    {
+        constraint match {
+            case NotAllowedConstraint(_, _, kind) => kind.designator
+            case ExpectedConstraint(_, _, kind) => kind.designator
+            case IncomingConstraint(_, _, kind) => kind.designator
+            case OutgoingConstraint(_, _, kind) => kind.designator
         }
     }
 

@@ -50,6 +50,8 @@ object CheckArchitectureFromProlog
 
     private val createSad = "--createSad"
 
+    private val unchecked = "--unchecked"
+
     private val usage = ("""CheckArchitectureFromProlog [<sadFile> <codeLocation>]
                 |CheckArchitectureFromProlog [""" + sadListOption + """ [<sadFileList>] | <sadFile>] [""" + jarListOption + """ [<codeLocationList>] | <codeLocation>] [""" + outputOption + """ <csvFile>] [""" + violations + """] [""" + duplicates + """] [""" + ensembles + """]
                 |<sadFile>: A sad file architecture definition. Implicitly a .sad.pl file assumed to be present
@@ -70,6 +72,7 @@ object CheckArchitectureFromProlog
                 |""" + aggregate + """ : outputs aggregated counts
                 |""" + createSad + """ <sadFile> creates a sad file, .e.g. to depict all dependencies
                 |""" + checkQueries + """ sanity check all parts of the queries to see which sub queries do not select elements
+                |""" + unchecked + """dont run the checker
                 """).stripMargin
     //TODO make directories a code location
     //                |                - a directory, which is searched recursively for .class files
@@ -84,10 +87,11 @@ object CheckArchitectureFromProlog
 
         var codeLocations: Array[String] = Array()
 
+        var isSadList = false
         if (args(0) == sadListOption) {
+            isSadList =true
             sadFiles = args.dropRight(1).drop(1).takeWhile(
-                    (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != duplicates && s != ensembles
+                    (s: String) => !s.startsWith("--")
             )
 
         }
@@ -95,25 +99,25 @@ object CheckArchitectureFromProlog
             sadFiles = Array(args.head)
         }
 
-        val rest = args.drop(sadFiles.size)
+        val rest = args.drop(sadFiles.size + (if(isSadList){1}else{0}))
 
         if (rest.length == 0) {
             println("Not enough arguments -- specified " + sadFiles.size + "sad files and no code locations")
         }
 
 
-
+        var isJarList = false
         if (rest(0) == jarListOption) {
+            isJarList = true
             codeLocations = rest.drop(1).takeWhile(
-                    (s: String) =>
-                    s != jarListOption && s != violations && s != outputOption && s != duplicates && s != ensembles
+                    (s: String) => !s.startsWith("--")
             )
         }
         else {
             codeLocations = Array(rest.head)
         }
 
-        val trail = rest.drop(codeLocations.size)
+        val trail = rest.drop(codeLocations.size + (if(isJarList){1}else{0}))
 
         var printViolations = false
         var printDuplicates = false
@@ -127,21 +131,24 @@ object CheckArchitectureFromProlog
         var printEnsemble = ""
         var printQueryCheck = false
         var printAggregated = false
+        var createConstraints = false
+        var runChecker = true
 
         var i = 0
         var consumeNext = false
         trail.foreach(
                 (s: String) => {
                 s match {
-                    case _ if s == violations => printViolations = true
+                    case _ if s == violations => printViolations = true; createConstraints = true
                     case _ if s == duplicates => printDuplicates = true
                     case _ if s == ensembles => printEnsembles = true
-                    case _ if s == constraints => printConstraints = true
+                    case _ if s == constraints => printConstraints = true; createConstraints = true
                     case _ if s == showRest => printRest = true
                     case _ if s == dependencies => printDependencies = true
                     case _ if s == verbose => isVerbose = true
                     case _ if s == aggregate => printAggregated = true
                     case _ if s == checkQueries => printQueryCheck = true
+                    case _ if s == unchecked => runChecker = false
                     case _ if s == outputOption => {
                         if (i + 1 <= trail.size - 1) {
                             output = trail(i + 1)
@@ -199,7 +206,7 @@ object CheckArchitectureFromProlog
             new PrintStream(new FileOutputStream(sadFileOut), true)
         }
 
-        implicit val checker = createChecker(sadFiles, printViolations)
+        implicit val checker = createChecker(sadFiles, createConstraints)
 
 
         implicit val delimiter = ";"
@@ -220,8 +227,10 @@ object CheckArchitectureFromProlog
             storedDatabase = new MaterializedDatabase(checker.db)
         }
 
-        readCode(checker, codeLocations)
-
+        if(runChecker)
+        {
+            readCode(checker, codeLocations)
+        }
         /*
             storedDependencies.foreach((d: Dependency[AnyRef, AnyRef]) =>
                                 outputWriter.println(
@@ -272,16 +281,57 @@ object CheckArchitectureFromProlog
         }
 
         if (printConstraints) {
+            if(printAggregated)
+            {
+                outputWriter.println(
+                    "Type" + delimiter + "Kind" + delimiter + "Source Ensembles(s)" + delimiter + "Target Ensembles(s)" + delimiter + "Violation Count"
+                )
+                (
+                        checker.getConstraints.toList.sortBy {
+                                (c: DependencyConstraint) =>
+                                (c.sources.map(_.name).foldLeft("")(_ + _), c.targets.map(_.name).foldLeft("")(_ + _))
+                        }
+                        ).foreach((c: DependencyConstraint) => outputWriter.println(constraintToString(c)))
+            }
+            else
+            {
+                outputWriter.println(
+                    "Type" + delimiter + "Kind" + delimiter + "Source Ensembles" + delimiter + "Target Ensembles" + delimiter + "Violation Count"
+                )
 
-            outputWriter.println(
-                "Type" + delimiter + "Kind" + delimiter + "Source Ensembles(s)" + delimiter + "Target Ensembles(s)" + delimiter + "Violation Count"
-            )
-            (
-                    checker.getConstraints.toList.sortBy {
+                        /*
+                        checker.getConstraints.toList.sortBy {
+                                (c: DependencyConstraint) =>
+                                (c.sources.map(_.name).foldLeft("")(_ + _), c.targets.map(_.name).foldLeft("")(_ + _))
+                        }
+                        ).foreach(
                             (c: DependencyConstraint) =>
-                            (c.sources.map(_.name).reduce(_ + _), c.targets.map(_.name).reduce(_ + _))
+                            {
+                                for(src <- c.sources; trgt <- c.targets)
+                                {
+                                    outputWriter.println(
+                                        constraintTypeOnly(c) + delimiter +
+                                        constraintKind(c) + delimiter +
+                                        src.name + delimiter +
+                                        trgt.name + delimiter +
+                                        checker.violations(c).size
+                                    )
+                                }
+                            }
+                        )
+                        */
+                    val edges = (for( c <- checker.getConstraints; e <- c.origins) yield e)
+                    for( e <- edges)
+                    {
+                        outputWriter.println(
+                            e.designator + delimiter +
+                            (e.kinds.reduceLeft(_ + "," + _)) + delimiter +
+                            e.sourceName + delimiter +
+                            e.targetName
+                        )
                     }
-                    ).foreach((c: DependencyConstraint) => outputWriter.println(constraintToString(c)))
+
+            }
         }
 
         if (printViolations) {

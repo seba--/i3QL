@@ -88,6 +88,13 @@ class UnissonPrologParser
     def classFromSubQuery : Parser[UnissonQuery] =
             "class(" ~> query <~ ")" ^^ { ClassQuery(_:UnissonQuery) }
 
+    /*
+    def methodSelection : Parser[UnissonQuery] =
+            "method(" ~> query ~ ("," ~> atom) ~ ("," ~> atom) ~ ("," ~> atom <~ ")") ^^
+            {
+                case (packageName ~ name) => ClassSelectionQuery(packageName, name)
+            }
+    */
 
     def `package` : Parser[PackageQuery] =
         "package(" ~> atom <~ ")" ^^

@@ -29,9 +29,10 @@ object ResolveKinds
             case "invoke_static" => InvokeStaticKind
             case "invoke_virtual" => InvokeVirtualKind
             case "instanceof" => InstanceOfKind
+            case "class_cast" => ClassCastKind
                 /* TODO enble rest of kinds
             case "create_class_array" =>
-            case "class_cast" =>
+
                 */
     }
 

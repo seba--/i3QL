@@ -36,4 +36,16 @@ trait DependencyKind
             case Some(p) if(p != kind) => p.isSubKindOf(kind)
         }
     }
+
+    def isCompatibleKind(kind : DependencyKind) : Boolean =
+    {
+        if( kind == this )
+        {
+            true
+        }
+        else
+        {
+           this.isSubKindOf(kind)
+        }
+    }
 }

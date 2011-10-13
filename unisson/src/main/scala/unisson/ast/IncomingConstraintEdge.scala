@@ -10,5 +10,5 @@ package unisson.ast
 case class IncomingConstraintEdge(architecture: String, sourceName: String, sourceParams: List[String], targetName: String, targetParams: List[String], kinds: List[String])
     extends DependencyConstraintEdge
 {
-
+    val designator : String = "incoming"
 }

@@ -21,4 +21,6 @@ trait DependencyConstraintEdge
     val targetParams: List[String]
 
     val kinds: List[String]
+
+    val designator : String
 }
