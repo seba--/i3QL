@@ -25,7 +25,8 @@ object CompareArchitecturesFromProlog
 
     private val outputOption = "--out"
 
-    private val usage = ("""CompareArchitecturesFromProlog <sadFiles1> <codeLocations1> <sadFiles2> <codeLocations2>
+        private val unchecked = "--unchecked"
+        private val usage = ("""CompareArchitecturesFromProlog <sadFiles1> <codeLocations1> <sadFiles2> <codeLocations2>
                 |CheckArchitectureFromProlog  [""" + outputOption + """ <csvFile>]
                 |<sadFiles>: A sad file architecture definition. Multiple sad files can be given as " " separated list. Implicitly a .sad.pl file assumed to be present for each .sad file
                 |<codeLocations>: A code location may be one of the following:
@@ -46,13 +47,13 @@ object CompareArchitecturesFromProlog
             println(usage)
             return
         }
-        val sadFiles1 = args(0).split(" ")
+        val sadFiles1 = args(0).split("\\s+")
 
-        val codeLocs1 = args(1).split(" ")
+        val codeLocs1 = args(1).split("\\s+")
 
-        val sadFiles2 = args(2).split(" ")
+        val sadFiles2 = args(2).split("\\s+")
 
-        val codeLocs2 = args(3).split(" ")
+        val codeLocs2 = args(3).split("\\s+")
 
 
         val trail = args.drop(4)
@@ -65,6 +66,8 @@ object CompareArchitecturesFromProlog
 
         var printConstraints = false
 
+        var runChecker = true
+
         var i = 0
         var consumeNext = false
         trail.foreach(
@@ -72,6 +75,7 @@ object CompareArchitecturesFromProlog
                 s match {
                     case _ if s == ensembles => printEnsembles = true
                     case _ if s == constraints => printConstraints = true
+                        case _ if s == unchecked => runChecker = false
                     case _ if s == prefixChange => {
                         if (i + 1 <= trail.size - 1) {
                             prefix = trail(i + 1).split(" ")
@@ -110,10 +114,16 @@ object CompareArchitecturesFromProlog
             new PrintStream(new FileOutputStream(output), true)
         }
 
-        val checker1 = readArchitectures(sadFiles1, codeLocs1)
-        val checker2 = readArchitectures(sadFiles2, codeLocs2)
+        val checker1 = createChecker(sadFiles1, true)
+        val checker2 = createChecker(sadFiles2, true)
 
         implicit val delimiter = ";"
+
+        if(runChecker)
+        {
+            readCode(checker1, codeLocs1)
+            readCode(checker2, codeLocs2)
+        }
 
 
         if (printEnsembles) {
@@ -172,7 +182,51 @@ outputWriter.println(e1.name + delimiter + checker1.ensembleElements(e1).size + 
         }
 
         if (printConstraints) {
+            outputWriter.println(
+                 "Type" + delimiter + "Kind" + delimiter + "Source Ensembles" + delimiter + "Target Ensembles" + delimiter + "enactment"
+             )
 
+                 val edges1 = (for( c <- checker2.getConstraints; e <- c.origins) yield e)
+                val edges2 = (for( c <- checker1.getConstraints; e <- c.origins) yield e)
+                 for( e <- edges1)
+                 {
+                      outputWriter.print(
+                         e.designator + delimiter +
+                         (e.kinds.reduceLeft(_ + "," + _)) + delimiter +
+                         e.sourceName + delimiter +
+                         e.targetName + delimiter
+                     )
+                     val opt2 = edges2.collectFirst( {case e2: DependencyConstraintEdge if (e2.designator == e.designator && e2.sourceName == e.sourceName && e2.targetName == e.targetName) => e2} )
+                     if( opt2 == None )
+                     {
+                         outputWriter.println("new")
+                     }
+                     else {
+                     val e2 = opt2.get
+		     if( e2.kinds != e.kinds )
+			{
+				outputWriter.println("kinds changed")
+			}
+			else{
+				outputWriter.println("unchanged")
+			}
+                 }
+                 }
+                 for( e <- edges2)
+                 {
+                     val opt1 = edges1.collectFirst( {case e2: DependencyConstraintEdge if (e2.designator == e.designator && e2.sourceName == e.sourceName && e2.targetName == e.targetName) => e2} )
+                     if( opt1 == None )
+                     {
+                        outputWriter.print(
+                         e.designator + delimiter +
+                         (e.kinds.reduceLeft(_ + "," + _)) + delimiter +
+                         e.sourceName + delimiter +
+                         e.targetName + delimiter
+                     )
+                         outputWriter.println("removed")
+                     }
+
+                 }
 
         }
 
