@@ -1,3 +1,26 @@
+2011 06 27 Monday:
+- Read paper about ScalaQL from Spiewak und Zhao, various issues with it
+- Discussion with Klaus: he proposed me to prototype incremental view maintenance for Scala, in a way which is integrated within Scala collections
+- There might be a place for monadic language embeddings (like in language virtualization), where possible semantics rotate around execution and optimization.
+- Alternatively, it might be worth to support a better syntax for Applicative-based language embeddings, given an important enough motivation.
+
+2011 06 28 Tuesday:
+- In the context of The Project, blurring the distinction between static analyses (happening at something like development/compile-time) and manipulations of e.g. expression trees (like in deep embeddings, LINQ, expression trees). Does that mean moving toward Lisp, again?
+- Tillmann yesterday mentioned using incremental view maintenance for handling program modifications done by e.g. optimizations, to save time needed in recomputing static analyses. While the idea is interesting, it requires an extremely cool view maintenance algorithm: to update the results of static analysis, for instance it must be able to handle the fixpoint. Interestingly, there are algorithms for view maintenance able to handle incremental queries: some paper from Ooge de Moor discussed a translation of a Datalog subset using some kind of recursive relational queries, and the Datalog subset was indeed aimed at static analysis/code querying/refactoring: "CodeQuest : Scalable Source Code Queries with Datalog".
+However, let's keep in mind that all incremental view maintenance algorithms are only heuristically more efficient than recomputing the whole view from scratch.
+- Incremental update: what about changes to element?
+  Sol. 1) Element are immutable, like keys in standard hashtables. But what about nested collections? If they are also immutable, then it makes sense for homogeneity that the 
+  Updating an existing materialized view is in essence a side-effect, thus we cannot hope to get a purely functional solution.
+  Sol. 2) Notify derived views about changes to single elements. The protocol for such updates is slightly problematic though. The simplest possibility is to encode element modification in term of addition and removal, but to encode that properly we need to signal the removal of the old value, followed by the insertion of the new value. That might be too onerous a constraint.
+  As an alternative, one might notify the change of one element: in that case the listeners receive the identity of the changed object and of course its new value, but not the old one, complicating the update.
+  This issue is present in general in incremental view maintenance - this is one of the choice in the modification dimension of the problem statement [2].
+
+- Read some papers about incremental view maintenance. E.g.
+
+  - [1] Ashish Gupta, Inderpal Singh Mumick, and V. S. Subrahmanian. 1993. Maintaining views incrementally. Proc. SIGMOD '93
+  - [2] Ashish Gupta, Inderpal Singh Mumick, Maintenance of materialized views: problems, techniques, and applications, 714 cit., 1999 (survey paper, including probably the previous one)
+http://portal.acm.org/citation.cfm?id=310737
+
 2011 06 29 Wednesday:
 - The Scala update protocol is cool, in that Observable report before and after the changes they get. In theory/according to Klaus. In practice that seems to not work - see the Update class:
 https://lampsvn.epfl.ch/trac/scala/browser/scala/tags/R_2_9_0_1/src//library/scala/collection/script/Message.scala#L1.
