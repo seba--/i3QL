@@ -1,0 +1,149 @@
+2011 06 29 Wednesday:
+- The Scala update protocol is cool, in that Observable report before and after the changes they get. In theory/according to Klaus. In practice that seems to not work - see the Update class:
+https://lampsvn.epfl.ch/trac/scala/browser/scala/tags/R_2_9_0_1/src//library/scala/collection/script/Message.scala#L1.
+Actually, as seen here:
+https://lampsvn.epfl.ch/trac/scala/browser/scala/tags/R_2_9_0_1/src//library/scala/collection/mutable/ObservableBuffer.scala#L1
+the standard protocol is to send an Undoable Update operation. But you can access the old element only by undoing the update, which will trigger another modification. The update message contains enough information to re-undo the update again. Anyway: we need a better ObservableBuffer at hand - quite a few operations seem to have no associated notification (say insert/insertAll); BufferLike docs require the implementation of insertAll in particular (insert is implemented in terms of it). One problem with the current protocol is that the Include message allows for just one element - which is suboptimal when you can optimize bulk operation. One could have a translator from a more complex protocol to a simpler one - a listener decorator - to allow a client to understand just a simple protocol, which doesn't directly support BulkInsert but supports it only indirectly in terms of its translation.
+However REMEMBER, BACKWARDS COMPATIBILITY in research, is NOT a STRICT requirement.
+
+- There are 2 ScalaQL around, and seemingly no implementation available of the work I studied. Ask Daniel Spiewak himself, and read the paper from the other group (which seem to be using however expression trees)! The second ScalaQL is:
+http://www.sts.tu-harburg.de/people/mi.garcia/ScalaQL/ - the status is discussed here: http://scala-programming-language.1934581.n4.nabble.com/scala-tools-Status-of-ScalaQL-td1984651.html.
+
+A page mentioning the first is the home of D. Spiewak: http://www.cs.uwm.edu/~dspiewak/
+- Monadic queries are also possible in:
+- https://github.com/szeiger/scala-query#readme
+- See http://www.quora.com/ScalaQL
+
+- Christian suggested looking for references about view maintenance in books shown here: http://wwwiti.cs.uni-magdeburg.de/iti_db/lehre/db2/2011/slides/teil1.pdf 
+- Discussed with Klaus: we can derive primary-key constraints from Map instances.
+
+2011 06 30 Thursday:
+
+- Noticed this paper submission:
+http://www.cs.utexas.edu/~wcook/Drafts/2011/batchdb.pdf
+In this case, I think it's even clearer the relation to LINQ and to monads; the main difference is the operation reordering.
+
+- IncViewMaint: implemented ObservableBuffer2, fixing a bug in ObservableBuffer, and a testcase showing notifications.
+- we can use a smart update protocol when elements are observable themselves - including nested collections. Non-observable mutable elements are a problem, because we don't know when they are updated: either they are forbidden or the client is forced to manually send notifications for them.
+- Some problems with incr. view maintenance, e.g. the need for maintaining counts of elements, are only present when using set semantics for relations (select distinct …), not when using duplicate semantics (which are more natural in most cases with collections). We should however also provide a "uniq" operator (if there isn't already one in Scala).
+- Look at scala's SeqView - it already define a family of classes which represent modified views. We just need to extend all of them with more methods - (the expression problem appears again?).
+  See in particular FlatMapped. We need in particular to have 
+- We discussed the ability of optimizing queries in monadic form, by recognizing joins and possibly permutating the iteration order for operands of join. I think this would be another contribution; moreover it is not clear how to show safety of such reorderings if the reordered operations perform side effects. We have to see what the SAE/proto library does in this respect.
+- TODO: Study the architecture of materialization/unmaterialization in Scala. It seems to be mediated mainly by the couple of methods view/force, which are surely inverse of each other for immutable objects. When identity is important new questions arise: is c.view.force the same object as c or a copy of it?
+
+- Sequence operators on views produce in essence a data representation of a program to be interpreted to produce the view itself. When executing a complex query not within a database but by manipulation on views, interpretative overhead might arise. Since the query is known at compile time, we might instead convert it into a program in a polymorphically embedded DSL (produced by (inlined) interpretation of the query comprehension syntax), and provide different interpretations for view materialization, view update, and so on.
+At this point, databases could become simple libraries - the only point in having a separate DB would be to share it between multiple programs. One might however instead communicate with such a database simply through an efficient variant of Remote Method Invocation, for instance Remote Batch Invocation or the like. Interoperability problems arise in this case - RBI as-is is somewhat interoperable; an alternative might be to implement all of this within a .NET environment with its better support for interoperability between languages. Staying within the JVM platform implies restricting support for such a protocol only to Scala - a standard protocol would have to be implemented for interoperability with other languages, leading to the question: Why do it? Alternatively, one could choose an interoperable RMI approach; but can such an approach be flexible enough? The collection interface that we need uses all features of Scala type-system.
+
+2011 07 1 Friday
+- whole day: preparation of guest Typechef lecture.
+- Write down link to Jaque http://code.google.com/p/jaque/
+
+2011 07 6 Wednesday:
+- The original view content should be created as an update on the empty view, to reuse the code from notification.
+Sunday 24 July:
+- Scala Linq:
+  - He uses FuncExp: (Exp(S) => Exp(T)) => Exp[S => T], i.e. HOAS. However, this form of HOAS assumes currying, which is NOT pervasively available in Scala. The correct uncurried version is:
+FuncExp: (Exp(S1, S2, …, Sn) => Exp(T)) => Exp[(S1, S2, …, Sn) => T], with variations for n = 1, 2, …, until some implementation-limit.
+- I didn’t discuss with Klaus the simple lifters (through implicit conversion) for function values! But his code seems to go in another direction…
+
+  def testLiftedFuncs(l: MyList[String], j: MyList[String]) {
+    import FunctionLifter._
+    val r2 = for (k <- l; k2 <- j if (test _)(k,k2)) yield k+k2
+    val r3 = for (k <- l; k2 <- j if (foo _)(k) is (bar _)(k2)) yield k+k2
+  }
+  //Experimental conversions.
+  object FunctionLifter {
+    // The implementations here are temporary, just to match the types.
+    implicit def injectF[A, B](f: A => B) : Exp[A] => Exp[B] = x => f(x.compile())
+    implicit def injectF2[A, B, C](f: (A, B) => C) : (Exp[A],Exp[B]) => Exp[C] = (x,y) => f(x.compile(), y.compile())
+  }
+
+Thursday Aug 4:
+- Check paper on DryadLINQ
+- TODO: prepare feature request for implicit search.
+- How to write an implicit conversion which applies other implicits:
+implicit toExp[T, S, That](t: T)(implicit toS: T => S, cbe: CanBuildExp[S, That]): That = 
+cbe buildExp toGenericExp(toS(t))
+The really cool thing here is that we get to apply two implicates, but only for an explicit design decision of one of the two libraries. A problem however might exist, due to type inference not working within one parameter list, but only from one to the other: this might be solved by having more implicit parameter lists.
+If something like this really works, you might end up addressing one Haskell’s problem - but in the context of Scala. In Haskell, sometimes, you really need to lift many values explicitly to execute computations in a non-pure monad - or applicative functor. It would be much nicer if the need to lift such values could be inferred. Instead in Scala, thanks to implicit conversions, we have a pattern for implementing a library of such computations - and this is useful for language virtualization.
+- What I just read: Scala implicit resolution can in some case choose between multiple methods the “most specific one”. It just does so by using only the argument type of the selector, rather than the target type.
+
+Wednesday 24 August 2011
+- HOAS -> FOAS conversion, as in Klaus idea, also appears within Conan Elliot’s Compiling embedded languages. That’s also related to place from “Boxes go bananas”.
+
+- LinqOnSteroids: for tomorrow, my TODOS are in commit fa1dbe4807ff1575fc7120696bcf02b531620505:
+- TODO: IncrementalResult needs also to propagate updates. (DONE)
+- test flatMap!
+
+Sun 28 Aug:
+- I think that the equivalent to the iterator pattern are folds - that calls for IVM for folds.
+- We probably want to have lazily initialized views, just as in the other framework. That would move the initialization cost for IncrementalResult to when it’s actually used.
+- It would be cool to do incremental maintenance for folds by simply storing the intermediate results and doing the computation in a balanced tree - a change to any element would cause just a logarithmic number of recompilations. Splay trees come to mind: they’d allow doing even less recomputations when recently changed elements are changed again.
+
+- Related work for IVM:
+OOPSLA 2011, Two for the Price of One: A Model for Parallel and Incremental Computation
+
+Wed 31:
+- HOAS -> FOAS conversion sounds related to weak HOAS, but is not really - that’s Lam (Name -> Exp), not Lam (Exp -> Exp).
+
+Mon 5 Sep:
+- Convert Lifting.TraversableLifter.Join to split the casts away.
+- Move IVM todos (like the one above) to a separate file.
+
+IVM related works
+MOVIE: An incremental maintenance system for materialized object views
+Incremental Attribute Evaluation: A Flexible Algorithm for Lazy Update
+The Monad.Reader 11 - How to Refold a Map (?)
+
+New “bug” in Scala compiler: implicits are not applied for pattern matches.
+
+IVM note: It is notable that in this new encoding, where Traversable[T] is no longer
+"special", we could after all define withFilter as returning Exp[FilterMonadic[T, Repr]].
+This encoding effort is starting however to require a bit too many classes - using FilterMonadic would avoid that! To get precise types, we’d then need to create an instance of TraversableOpsLike with the right params (as for Scala collections) and the associated conversions (instead of the associated builder object).
+
+For IVM, I should build a test comparing, for each class, the results of interpretation and of incremental update. QuickCheck (and maybe ScalaCheck) can generate functions - that could be used for testing here?
+
+19 Sep:
+- what about Exp[T] <: Publisher[Message[T]], and having messages for a collection type T = Traversable[S] extend Message[Traversable[T]]? Sounds cool.
+- Currently we can extend Exp with methods specific for our usage of expression trees. In the future, we’ll have to transform general expression trees in trees specific for us!
+
+(First days of October)
+==
+Related work: http://ppl.stanford.edu/wiki/index.php/SLINQ
+
+Virtualized pattern-matching:
+Given:
+case class Foo(a: Bar)
+then:
+exp match {
+case Foo(a) =>b
+}
+should become:
+Foo.unapply(exp) match {
+case None => ()
+case Some(a) => b
+}
+which should become:
+val t /*$tmp *//*: Exp[Option[Bar]]*/ = Foo.unapply(exp)
+if (!t.isDefined) 
+  ()
+else {
+  val a = t.get
+  b
+}
+
+This translation is/will be supported by expression trees, and it would make sense also when not using expression trees (since I avoided if (t is None)). I.e., that’s an untyped desugaring which is as flexible as Scala’s for comprehension. Can desugar without inspecting the type of unapply/unapplySeq?
+
+== The difference between view.filter and withFilter ==
+Traversable[T] defines view: TraversableView[T, Traversable[T]] and withFilter(…): FilterMonadic[T, Traversable[T]]. One can further call the same method on each of those two classes. They thus seem similar, but they are not, because TraversableView <: Traversable. Note the funny type that view must have on TraversableView:
+def view : TraversableView[A, TraversableView[A, Coll]]
+Instead, FilterMonadic >: Traversable, hence the returning object can have a more general type.
+Indeed, withFilter returns FilterMonadic[T, Repr] when invoked on FilterMonadic[T, Repr], that is, e.g. on instances of Traversable.WithFilter[T, Repr] or of Traversable[T].
+
+18 Oct 2011:
+- Other closely related project to IVM:
+http://code.google.com/p/scala-integrated-query/
+Their embedding of Scala collections supports only Iterable collections. We do better.
+
+19 Oct 2011:
+the key trick is to register on children of a FlatMap only during interpretation, notification, or construction of IncrementalResults, but not when a FlatMap node is constructed itself, since FlatMap nodes are constructed also when Var is passed.
