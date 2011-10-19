@@ -1,3 +1,5 @@
+Warning: what follows is often close to a stream of consciousness!
+
 2011 06 27 Monday:
 - Read paper about ScalaQL from Spiewak und Zhao, various issues with it
 - Discussion with Klaus: he proposed me to prototype incremental view maintenance for Scala, in a way which is integrated within Scala collections
