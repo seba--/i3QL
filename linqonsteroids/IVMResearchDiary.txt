@@ -172,3 +172,11 @@ Their embedding of Scala collections supports only Iterable collections. We do b
 
 19 Oct 2011:
 the key trick is to register on children of a FlatMap only during interpretation, notification, or construction of IncrementalResults, but not when a FlatMap node is constructed itself, since FlatMap nodes are constructed also when Var is passed.
+
+20 Oct 2011:
+what if we get a list of tuples, but we want to treat it as a Map? We can use groupBy, yes; but what if we know that we have a unicity constraint on one column (or in general, the result of applying one function on each tuple) and want to take advantage of that to construct a simpler map than would be constructed by groupBy?
+Traversable[T].groupBy(T => U): Map[U, Traversable[T]]; but sometimes we want just
+Traversable[T].groupBy_(T => U): Map[U, T], or even Traversable[T].groupBy_(T => U, T => Rest): Map[U, Rest]. For that to make sense, we need an unicity constraint on the result!
+- I duplicate the conversion from Coll[T] to Exp[Coll[T]] for each relevant collection.
+Shouldn’t I have something like:
+toCollExp[T, Repr](t: Exp[Repr])(implicit c: CanBuildFrom[T, Repr, Repr]), with sensible bounds like Repr <: Traversable[T] to help type inference? It would be nice, let’s try it soon.
