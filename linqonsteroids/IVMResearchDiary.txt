@@ -180,3 +180,113 @@ Traversable[T].groupBy_(T => U): Map[U, T], or even Traversable[T].groupBy_(T =>
 - I duplicate the conversion from Coll[T] to Exp[Coll[T]] for each relevant collection.
 Shouldn’t I have something like:
 toCollExp[T, Repr](t: Exp[Repr])(implicit c: CanBuildFrom[T, Repr, Repr]), with sensible bounds like Repr <: Traversable[T] to help type inference? It would be nice, let’s try it soon.
+
+23 Oct 2011:
+- does the lifting code generator lifts methods which are available through implicit conversions? What should we do to handle that case?
+Should be easy: given an implicit f: A => B, provide a corresponding implicit conversion of type (with quasi-quotes): ,(Exp[`A] => `Transformed(B)), where Transformed(B) is the lifted version of class B.
+Given
+implicit def f(a: A) = new B(a)
+class B(a: A) {
+def foo(params: Types) = …
+}
+we produce:
+implicit def f_(a: Exp[A]) = new TransformedB(a)
+class TransformedB(a: Exp[A]) {
+def foo(params: Exp[Types]) = onExp(a, params)((x, params) => f(x).foo(params))
+}
+I.e., we include the implicit conversion in the lifted function, since we cannot invoke it on a: Exp[A] directly. Otherwise, we could have 2 onExp calls, and “call the first” eagerly before constructing TransformedB. Not that it really matters much, since no interpretation is going on. If the code reuses the result of an implicit conversion, we can ensure to reuse the expression tree node, which is a modest saving. Two onExp calls, however, produce an expression tree with a clearer structure.
+
+24 Oct 2011:
+# Our query language and data model compared to OO and semi-structured data
+Our data model is not semi-structured; it is OO, but unlike pure OO systems, it’s also functional; in particular, pattern-matching is encouraged in Scala. It entails checking at runtime whether a value has a given type (instanceof) and deconstruction. They are both possible in classical OO systems, but instanceof is discouraged. Is it supported in classical OO database systems? Do they have type indexes as we do now, thanks to Klaus?
+
+Handling of NULL values? Can we use Option for those values?
+
+25 Oct 2011:
+VLDB deadlines - papers submitted for the 1st December/1st January 2011 will get acceptance/rejection/revision requests within two months, and those requests will have to be handled within two months. The conference is in August 2012. So the deadline will be (unfortunately) 1st January.
+
+26 Oct 2011:
+- Map[K, V] <: Function1[K, Option[V]] or extends PartialFunction[K, V]? There is an isomorphism between the two types, expressed by the functions:
+
+_.lift: PartialFunction[K, V] => Function[K, Option[V]]
+Function.unlift: Function[K, Option[V]] => PartialFunction[K, V]
+
+but using directly Function1[K, Option[V]] is faster when the value is needed (i.e. usually); converting Function1 to PartialFunction produces a slow PartialFunction, as noted in ScalaDocs for Function.unlift.
+On instances of PartialFunction, one needs to invoke isDefinedAt to get a yes/no answer, and when yes, to invoke apply to get the actual value. Usually this implies doing part of the computation (e.g. pattern matching) within isDefinedAt; possibly all of it must be done, and then the result thrown away (see Function.unlift).
+
+- People love column-store DBs - even if that’s just a storage model. Is that something we can easily support in our language? Is that something that our implementation language allows hiding?
+“Database Architecture Evolution: Mammals Flourished long before Dinosaurs became Extinct” - http://www.vldb.org/pvldb/2/vldb09-10years.pdf
+See the description of Radix-cluster - it becomes clear that we need to optimize also queries which take significant time after indexing. Btw, it’s also clear that we need to benchmark against e.g. SQLite in async mode, or something even faster.
+But let’s remember that we have a few clear contributions - I shouldn’t build a full-scale database system in one go.
+
+27 Oct 2011:
+When is it better to recompute a materialized view from scratch than to update it?
+Let’s consider the example query `res = c map f`, and the example update `c += x`. 
+`res` is updated through `res += f(x)`. Such an update cannot remove elements from the result: we term such updates _expansive_. It is thus clear that recomputing the result from scratch implies recomputing all the elements which are already part of the result, and performing additional work for the new elements. The map operation is even “distributive”, because it’s a homomorphism on the monoid of lists. Incremental maintenance for expansive updates is always convenient.
+
+For the same query, consider the example update `c -= x`. This time, `res` is updated through `res -= f(x)` if `f` is pure, since removal compares object for equality, not for identity. Otherwise, we would need to find the object originally produced when `f(x)` was added to `res` and remove it. We pay the cost of computing `f(x)` only to look it up and throw it away. If computing `f(x)` has a roughly constant cost for each input, when removing at least half of `c`, it is better to recompute `res` from scratch. We term such an incremental update _contractive_.
+
+Consider now the query `res2 = c2 - res`. Here `res = c map f` and `c` appears with negative _polarity_ (this can be probably formalized also using data structure derivatives, where we’ll get a subtraction in front of `\Delta c`).
+`c += x` will compute `f(x)` just to remove it from `res2`, indeed; however, recomputing that from scratch will not be helpful. Additionally, it makes much sense to materialize c map f here anyway to handle addition of elements to c2 - in general, set difference is not completely self-maintainable, unlike set union; the 2nd table must be materialized (the first needn’t).
+Thus, in this case, we want decide the update strategy for `res` locally. It seems also convenient to just remove the new elements from `res2`.
+
+Conclusion: for these example, it’s only removing elements which should sometimes be translated to a notification of a clear() followed by add(remaining elements). And that can always be decided locally, it seems. Given a set of adds and removes, it makes sense to perform the removes first (which might trigger recomputations) and then the adds (of course, if an element is first added and then removed, it should not be added in the end). IOW we have a directed semantic-preserving rewrite rule: `(a + b) - c => (a - c) + (b - c)`. Equational proof of correctness:
+`(a + b) - c = (a + b) \land \neg c = a \land \neg c + b \land \neg c = (a - c) + (b - c)`.
+
+Queries are contractive when:
+- Usually when deleting elements
+- Adding elements might contract the result when those elements are transformed into filters. E.g., in c withFilter f, imagine that f is x => c2 forall (x > _). forall is a map followed by a fold(false)(&&), and we don’t support folds yet in any case - but that’s an orthogonal problem, because we’ll indeed support `a - b` even now.
+
+===
+
+- The other idea for nested indexes is to represent them with multiindexes.
+- Problem with first-class indexes: they were probably avoided for all this time because they seem to tie queries with implementation details. What happens when an index is replaced by a non-materialized view? We might then need an optimization creating the index on the fly when worth, to make queries using a non-materialized index more efficient. Otherwise, explicit index application will only produce a query which is fragile wrt index changes. Standard optimizations to get some indexes applied are anyway also fragile wrt the same changes.
+
+- I plan to implement functional updates on query results (e.g., `res + c` producing a new incrementally maintained query). Actually, that’s kind of already supported because IncrementalResult[T] <: Exp[Set[T]].
+
+==
+Rewriting IncrementalResult.
+orig.toMaintainable could be implemented as c.withFilter (_._2 > 0).map (_._1) on top of a “counting map c”. The counting map can then be expressed as orig.map((_, 1)).groupBy(_._1).map((k, v) => (k, v.sum))
+Let’s pack this altogether:
+orig.map((_, 1)).groupBy(_._1).map((k, v) => (k, v.fold(0)(+)).withFilter (_._2 > 0).map (_._1)
+
+Using groupBy and a fold on a monoid is a very compact way to express incremental updates on maps - however, we need them exactly to implement maintenance of groupBy results, and thus of indexes. Hence we need a common different basic operator - groupByAndFold. The important thing is that while sum here is a fold, it can be maintained. But that’s orthogonal.
+
+Here, the point would be to materialize the first part, possibly up to and including the final filter:
+orig.map((_, 1)).groupByAndFold(_._1, 0, _+_).withFilter (_._2 > 0).force.view.map (_._1)
+
+groupBy(f)(bf: CanBuildFrom) = groupByAndFold(f, bf(), _ ++ List(b), _ --  List(b)) /*Small lists are smaller than small Traversable = small Vectors; +, :+, +: are not defined on Traversable.*/
+
+IncMaint for:
+GroupByAndFold[A, B, K](toKey: A => K, z: B, op: (B, A) => B, invop: (B, A) => B) extends Exp[Map[K, B]] {
+//Note: this class is not self-maintainable without itself.
+def transformedMessages(msg) = msg match {
+case Include(el) =>
+val key = toKey(el)
+//this(key) = op(this.getOrElse(key, z), el)
+UpdateMap(key, op(this.getOrElse(key, z), el))
+case Remove(el) =>
+val key = toKey(el)
+//this(key) = invop(this(key), el) //Precondition: el \in this.
+UpdateMap(key, invop(this(key), el))
+}
+}
+This avoids the need to have special messages Message[Map[K, V]].
+
+NOTE: set union and maps are so cool that they are incrementally maintainable without even reference to themselves. This concept is not described in the literature I know of about IVM.
+
+== Many of our operations (joins, indexes, and so on) allow arbitrary functions where standard DB theory doesn’t. Is there a tradeoff?
+Yep. What’s the cost of those operations? How do I optimize when considering general functions? Canonicalize the representation: resulting tree sound easier to manage. OTOH, indexes on OO databases use generic attributes, and thus face potentially a similar problem - don’t they?
+
+Consider the example of Join:
+Join(colouter: Exp[Traversable[T]], colinner: Exp[Traversable[S]], outerKeySelector: FuncExp[T, TKey], innerKeySelector: FuncExp[S, TKey], resultSelector: FuncExp[(T, S), TResult])
+
+==
+- Set intersection:
+A - (A - B) =
+A \intersect \neg (A \intersect \neg B) = A \intersect (\neg A \union B) = A \intersect \neg A \union A \intersect B =
+A \intersect B
+
+==
+A relation can be viewed as a map. In DB theory, there is the concept of nested relations, which sounds clearly related.
+Google Scholar “nested relations” - e.g. A recursive algebra for nested relations
