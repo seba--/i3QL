@@ -290,3 +290,23 @@ A \intersect B
 ==
 A relation can be viewed as a map. In DB theory, there is the concept of nested relations, which sounds clearly related.
 Google Scholar “nested relations” - e.g. A recursive algebra for nested relations
+
+==
+How can we express outer joins in our setting?
+Inner join:
+coll1 flatMap(x => coll2.withFilter(y => f(x) == g(y)).map(y => h(x, y)))
+Which could maybe become sth. like:
+a flatMap (x => b.groupBy(g).get(f(x)).flatMap(y => h(x, y))) //Can’t be transformed yet into a join operation. Note the use of get: => Option[V] instead of apply: => V
+
+This could be executed somewhat efficiently by unnesting and making sure to materialize b.groupBy(g). We’d have still a full table scan for the outer table, though.
+We should allow expressing intersection of dictionaries on their keys within the query language, rather than just through Join nodes - which are really too complex.
+
+Left(?) outer join:
+a flatMap (x => b.groupBy(g).get(f(x)).map(_.map(Some(_))).getOrElse(Traversable(None)).map(y => h(x, y)))
+This is complicated to express for two reasons:
+- Left joins make little sense and rely on NULL
+- None has a distinct type from object values; we must convert values to a nullable column
+- we could always hide this into a separate pimpled method:
+x: Option[Traversable[T]] => x.map(_.map(Some(_))).getOrElse(Traversable(None))
+
+Shall we say that we don’t want to express outer joins for now? Yep.
