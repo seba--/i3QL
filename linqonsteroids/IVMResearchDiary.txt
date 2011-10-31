@@ -310,3 +310,12 @@ This is complicated to express for two reasons:
 x: Option[Traversable[T]] => x.map(_.map(Some(_))).getOrElse(Traversable(None))
 
 Shall we say that we don’t want to express outer joins for now? Yep.
+
+==
+30 Oct 2011:
+Is Exp an applicative functor? Yep, because it embeds lambda-calculus primitives HOAS, which are well known (I’d expect) to include the applicative functor interface (minus pure, which we do have anyway). Implement that with Scalaz.
+
+<*> = apply: Exp[A => B] => Exp[A] => Exp[B] (producing App nodes)
+pure = toExp (producing Const)
+
+HOAS representation adds lam, for us FuncExp: (Exp[S] => Exp[T]) => Exp[S => T], the inverse of App.
