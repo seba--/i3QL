@@ -6,7 +6,14 @@
 # Meta infos
 This project, variously called LINQ on Steroids, IVM, and part of The Project\ (™), implements Incremental View Maintenance (IVM) for views on in-memory collections. It is related to projects presented at ECOOP from students of James Noble.
 
-It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.	
+It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
+
+# A new take on the presentation
+## Introduction
+Typical programs perform repetitive work, and thus contain computations over collections of some form; in particular, they produce new collections from existing ones, and thus perform _queries_. Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like map, flatMap, withFilter and union, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing map, flatMap and withFilter. We consider these operators to form a DSEL for queries over collection. In our work, we reimplement this DSEL to allow optimization of queries, and we implement a few significant ones. We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
+We evaluate our work.
+Further work (just started):
+- 
 
 # Introduction
 Many computations in typical programs operate over collections and extract informations from them. Higher-order operators allow formulating many such computations as queries; we can also say that a collection library provides a DSEL of queries over collections. It is often desirable to optimize execution of queries using a variety of approaches. For instance, some queries are often re-executed after changes on the original collections; other queries might be executed faster by maintaining additional data structures, like indexes over the original collections; yet other queries might be executed faster simply by restructuring the query before execution. We propose a deeply-embedded Scala DSEL for expressing queries over in-memory collections with the following desirable properties:

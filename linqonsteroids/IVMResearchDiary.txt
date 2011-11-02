@@ -296,12 +296,13 @@ How can we express outer joins in our setting?
 Inner join:
 coll1 flatMap(x => coll2.withFilter(y => f(x) == g(y)).map(y => h(x, y)))
 Which could maybe become sth. like:
-a flatMap (x => b.groupBy(g).get(f(x)).flatMap(y => h(x, y))) //Can’t be transformed yet into a join operation. Note the use of get: => Option[V] instead of apply: => V
+coll1 flatMap (x => coll2.groupBy(g).get(f(x)).flatMap(y => h(x, y))) //Can’t be transformed yet into a join operation. Note the use of get: => Option[V] instead of apply: => V
 
 This could be executed somewhat efficiently by unnesting and making sure to materialize b.groupBy(g). We’d have still a full table scan for the outer table, though.
-We should allow expressing intersection of dictionaries on their keys within the query language, rather than just through Join nodes - which are really too complex.
+We should allow expressing *intersection* of dictionaries on their keys within the query language, rather than just through Join nodes - which are really too complex.
 
 Left(?) outer join:
+coll1 flatMap (x => coll2.withFilter(y => f(x) == g(y)).map(Some(_)).addIfEmpty(None).map(y => h(x, y))) which becomes, after indexing:
 a flatMap (x => b.groupBy(g).get(f(x)).map(_.map(Some(_))).getOrElse(Traversable(None)).map(y => h(x, y)))
 This is complicated to express for two reasons:
 - Left joins make little sense and rely on NULL
@@ -311,6 +312,7 @@ x: Option[Traversable[T]] => x.map(_.map(Some(_))).getOrElse(Traversable(None))
 
 Shall we say that we don’t want to express outer joins for now? Yep.
 
+More interestingly: how do we express the body of an inner join so that it can be optimized/incrementally maintained as well? We want also IVM to reuse the ideas from hash-join!
 ==
 30 Oct 2011:
 Is Exp an applicative functor? Yep, because it embeds lambda-calculus primitives HOAS, which are well known (I’d expect) to include the applicative functor interface (minus pure, which we do have anyway). Implement that with Scalaz.
@@ -319,3 +321,5 @@ Is Exp an applicative functor? Yep, because it embeds lambda-calculus primitives
 pure = toExp (producing Const)
 
 HOAS representation adds lam, for us FuncExp: (Exp[S] => Exp[T]) => Exp[S => T], the inverse of App.
+
+==
