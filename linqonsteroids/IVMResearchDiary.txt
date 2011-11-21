@@ -323,3 +323,19 @@ pure = toExp (producing Const)
 HOAS representation adds lam, for us FuncExp: (Exp[S] => Exp[T]) => Exp[S => T], the inverse of App.
 
 ==
+
+18 Nov 2011:
+Hints on Programming Language Design, Hoare, 1973. He makes the exact same points as we make for query optimization: for transparency, it should be a 
+The point is less valid for programming languages nowadays due to technology advances; however, DB optimizations are concerned with order-of-magnitude speedups, thus optimization transparency there becomes all the more important.
+
+21 Nov 2011:
+
+= Why it is hard to support Exp[Seq] explicitly =
+I thought that IVM on Seq was harder to support. Indeed, there are more details to manage (think especially of flatMap); however, that's not the most complex problem.
+As pointed out by [*], different implementations of joins are equivalent only if the result is regarded as a set, not as a list. For instance, a join executed through nested loops returns results in different orders depending on which collection is the outer one.
+[*] Sec. 6.6 of "Generic Multiset Programming for Language-integrated Querying":
+"The problem is that the cross-product then needs to define a particular order for its pairs that each implementation must abide by, but the order is different depending on which join algo-rithm is used: nested iteration, sort-merge join, hash join or discriminatory join."
+So, the solution is first given by T. Grust (2004), "XQuery on SQL hosts".
+
+= Relational algebra vs relational calculus =
+Relational algebra uses explicit select, project etc. steps; the two relational calculi (tuple r.c. and domain r.c.) instead are in essence restricted variants of set comprehensions, where variables range over either tuples or domains.
