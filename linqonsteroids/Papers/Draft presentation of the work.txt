@@ -24,7 +24,7 @@ Many computations in typical programs operate over collections and extract infor
 - queries can have, as results, both Traversable, Set and Map (support for Seq should be possible, too)
 - our embedding techniques (we are embedding monadic operations over queries) extends the techniques used in the Scala collection library ([Fighting Bitrot with Types]) and allows, without code duplication, to have very specific types for the result of different operations; flatMap on a Map will return a Map, and on a Set will return a Set, and so on.
 - results of queries over mutable collections are incrementally updated when the original collection changes.
-- indexes can be generated and applied - they are simply queries of type Map[A, B], which are updated thanks to same support for IVM as other query results. This is only possible because our data representation allows to also represent uniformly 
+- indexes can be generated and applied - they are simply queries of type Map[A, B], which are updated thanks to same support for IVM as other query results. This is only possible because our data representation allows to also represent different kinds of collections uniformly.
 - queries can be optimized before execution; the optimized queries, unlike in SQL, can still be expressed in the same language
 - we embed a significant subset of pure Scala, and identify problems which prevent using (?)
 - the complete pure subset of Scala can be used in the queries (? - elaborate), except function calls (…) and pattern matching and …
