@@ -334,8 +334,62 @@ The point is less valid for programming languages nowadays due to technology adv
 I thought that IVM on Seq was harder to support. Indeed, there are more details to manage (think especially of flatMap); however, that's not the most complex problem.
 As pointed out by [*], different implementations of joins are equivalent only if the result is regarded as a set, not as a list. For instance, a join executed through nested loops returns results in different orders depending on which collection is the outer one.
 [*] Sec. 6.6 of "Generic Multiset Programming for Language-integrated Querying":
-"The problem is that the cross-product then needs to define a particular order for its pairs that each implementation must abide by, but the order is different depending on which join algo-rithm is used: nested iteration, sort-merge join, hash join or discriminatory join."
+"The problem is that the cross-product then needs to define a particular order for its pairs that each implementation must abide by, but the order is different depending on which join algorithm is used: nested iteration, sort-merge join, hash join or discriminatory join."
 So, the solution is first given by T. Grust (2004), "XQuery on SQL hosts".
+
+However, Klaus explained that joins can be order-preserving if needed.
 
 = Relational algebra vs relational calculus =
 Relational algebra uses explicit select, project etc. steps; the two relational calculi (tuple r.c. and domain r.c.) instead are in essence restricted variants of set comprehensions, where variables range over either tuples or domains.
+
+24 Nov 2011:
+Discussion with Sebastian about folds
+I imagined that binary operators can be defined with type: (InvExp[T], InvExp[T] => InvExp[T]), and the resulting expression tree could be automatically inverted. However this interface does not forbid things like a + a. While this is easily invertible for +, it is not invertible for a generic binary function given its inverse in one direction. So one does have to pass to fold invertible functions.
+
+Tillmann did mention partial isomorphisms, which are however partial; there were before non-partial variants, but they're unary, not binary.
+So maybe I have to go back to something like Sebastian's invertible combinators - but I don't believe they can really made easily usable.
+Haskell allows to write things like:
+f :: ::  Num b => b -> b -> b -> b
+f = ((+) .) . (+) 
+but they are indeed hard to read.
+Sebastian wrote as an example: Comp(f, g)(o, i) = g(f(o, i), i), and that's indeed the only composition with asymmetric types if we don't consider right-folds. But of course, with symmetric functions, there are n permutations of the above.
+
+[Type inference for this term: 
+(+) :: Num a => a -> a -> a
+(.) :: (b -> c) -> (a -> b) -> (a -> c)
+((+) .) :: Num b => (a -> b) -> (a -> b -> b)
+
+
+((+) .) . (+) :: [(.) :: (b -> c) -> (a -> b) -> (a -> c)] applied, with [b |-> Num b1 => (a1 -> b1), c |-> (a1 -> b1 -> b1), a |-> Num a2 => a2, b |-> Num a2 => a2 -> a2, which gives a1 |-> b1, a2 |-> b1, b |-> Num b1 => b1 -> b1, a |-> Num b1 => b1, c |-> Num b1 => b1 -> b1 -> b1] so we get (a -> c) |-> Num b1 -> b1 -> b1 -> b1
+]
+
+25 Nov 2011:
+- How do we allow to globally optimize the IVM plan?
+IVM updates needs to send whole collections, as we know; so send AddSeq: Seq[T] => Message[Traversable[T]] instead of Add: T => Message[Traversable[T]]. They might additionally receive queries, to enable later operators to use different update strategies. How do we share computations? The used expression nodes should cache the result of interpret(), in case multiple derived collections are active (XXX we didn't handle GC yet). How do we invalidate the cache?
+We could use a global version counter, incremented by the original update. Moreover, updates performed during IVM might invalidate the caches… but actually, if we don't track those dependencies, results will indeed be invalidated when updating one derived collection and before updating the other. Instead of invalidating the cache, we need to incrementally update it when it's used! This means that the query tree should have materializing expression nodes.
+In sum: IVM performs updates which might cause other updates. We need to construct examples where this happens or prove the lack thereof.
+
+A much simpler solution seems to iterate over listeners of a collection we are updating, and do that recursively.
+
+- First-class support for Bags!
+1) The result of aggregation operators depends on multiplicities (see database books, like Garcia-Molina et al.).
+2) We don't need to unify duplicated elements
+3) We still ignore the order
+4) If Bag <: Map[V, Int] <: Iterable[(V, Int)], an IncrementalResultSet could be implemented as Bag.map(_._1).
+
+- Potential advantage of discriminator-based equality for Java?
+Henglein explains that Java hash codes must be stored on object - that's true when objects are used and then moved (IIRC, MicroJVMs at least don't always store the hashcode, but check). However, it's not clear to me how he avoids requiring stable hashcodes: I need to study the exact semantics of page 58 I guess.
+Anyway, if this would be reproducible in Java (which I guess it isn't), one could avoid the hashcode overhead.
+ftp://ftp.diku.dk/diku/semantics/papers/D-608.pdf
+
+Another point is that sort-based discrimination is linear-time while sort-based.
+More importantly, let's consider their sdisc for bags: instead of hashing bags, they are sorted and lexicographically compared.
+Now, according to this paper, sort-join will soon be faster than hash-join. Maybe discriminator-based join is already faster? The contribution here would just be testing of this hypothesis and validation, but that'd be cool, isn't it?
+[1] Sort vs. Hash Revisited: Fast Join Implementation on Modern Multi-Core CPUs
+Sometimes discriminator-join is two-pass, and is not yet parallelized (it's not divide-and-conquer), but it has probably more cache locality than hash-join (actually, partitioned hash-join already handles concerns about cache locality).
+
+That paper also mentions that databases operating in-memory will become more common in the near future.
+
+Henglein 2010, PEPM: he writes "select p1 (select p2 s)" claiming that deforestation in Haskell isn't needed, but that's not true (at least, not for the reason and citation he argues - doesn't he know on the work on deforestation in Haskell?).
+
+An important motivation for using discrimination is that it does not require equals() and hashCode() to be kept in sync.
