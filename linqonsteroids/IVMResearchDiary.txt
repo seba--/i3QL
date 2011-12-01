@@ -393,3 +393,15 @@ That paper also mentions that databases operating in-memory will become more com
 Henglein 2010, PEPM: he writes "select p1 (select p2 s)" claiming that deforestation in Haskell isn't needed, but that's not true (at least, not for the reason and citation he argues - doesn't he know on the work on deforestation in Haskell?).
 
 An important motivation for using discrimination is that it does not require equals() and hashCode() to be kept in sync.
+
+==
+Related work:
+Questions about "Reactive Imperative Programming with Dataflow Constraints"
+- is the programming model reasonably natural, as argued?
+- how does it compare to self-adjusting computation?
+- is the slowdown acceptable?
+
+Patrick Lamand, Eric Bodden et al. cite this this paper and argues that incremental computation could speed-up the Soot implementation in a workshop paper (The {Soot} framework for {Java} program analysis: a retrospective).
+
+http://www.bodden.de/pubs/lblh11soot.pdf
+
