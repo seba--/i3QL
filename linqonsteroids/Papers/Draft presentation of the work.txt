@@ -14,6 +14,7 @@ Typical programs perform repetitive work, and thus contain computations over col
 We evaluate our work.
 
 Further work (just started):
+
 - incremental view maintenance
 - XXX
 
@@ -32,7 +33,7 @@ Many computations in typical programs operate over collections and extract infor
 - the complete pure subset of Scala can be used in the queries (? - elaborate), except function calls (…) and pattern matching and …
 - we have a partial emulation of expression trees in Scala through implicit conversions, and suggest approaches to extend the covered Scala subset.
 
-Incremental maintenance of the results of flatMap is a novel algorithm. (XXX: still need to take care of memory and garbage collection).
+Incremental maintenance of the results of flatMap is a novel algorithm.
 
 Our contributions are as follows:
 - index are identified with materialized views representing dictionaries, and can be used explicitly; this simplifies query optimization
@@ -110,7 +111,8 @@ for (i <- coll1;
 - Projection: becomes map
 - Rename: makes less sense as such, becomes map as well
 
-- Aggregation: becomes fold (still to implement)
+- Aggregation: becomes fold (implementation started)
+
 ## First-order basic operators from relational algebra
 - Set union: cannot be expressed through other operators
 - Set difference can be expressed in the base language through withFilter and forall (in time O(N^2)), but also with a specific, direct operator, which can be executed similarly to an anti-join.
@@ -120,12 +122,80 @@ but probably should be expressed directly, not through other operators.
 Set intersection and set difference allow unseating collections built within withFilter operations.
 
 It could be useful to have a let operation to support directly hoisting out of loops.
+
 ## Other kinds of joins
 Semi-joins, anti-joins.
-## IVM properties
+
+## IVM properties of those operators
 Set union, selection and mapping are completely self-maintainable: that is, not even the result is needed for self-maintenance.
 Tables used in filters, instead, must be materialized to allow self-maintenance; the result, again, is not needed.
 flatMap is more complex. Results of flatMap require instead to store part of the results.
+
+# Expression trees and nodes
+We reify expression as expression trees. Each node has type `Exp[T]` for some `T`, and contains a list of children of type `Exp[S] forSome {type S}`.
+Lambda abstractions have type `Exp[S => T]` and have a single child, their body, of type `Exp[T]`, which is an open term containing also terms of type
+
+## Evaluation
+Expression trees representing closed terms might be evaluated by calling on their root node the method `Exp[T].interpret(): T`, which recurses on subnodes and return the result of the expression. 
+The recursion is done by calling `expResult()` to potentially reuse cached values.
+Evaluation is not defined for nodes of type `Var` and nodes containing them, because they represent open terms.
+Interpretation is in general side-effect-free, with a few exceptions related to incremental view maintenance.
+
+# Incremental view maintenance
+## Architecture
+Our model for incremental view maintenance (IVM) support is based on the Observer pattern (TODO maybe reference?). The Scala collection library defines a reusable framework to support this pattern, but we use a variant of it. The two main roles are fulfilled by traits Publisher and Subscriber.
+Definitions follow [are provided in Fig. x]:
+
+~~~
+trait Publisher[+Evt, +Pub <: Publisher[Evt, Pub]] {
+  type Sub = Subscriber[Evt, Pub]
+
+  def addSubscriber(sub: Sub)
+  def removeSubscriber(sub: Sub)
+  protected[this] def publish(evt: Evt)
+}
+
+trait MsgSeqPublisher[+T, +Pub <: MsgSeqPublisher[T, Pub]] extends Publisher[Seq[Message[T]], Pub] //Simplified
+~~~
+
+An expression node of type `Exp[T]` publishes to its subscribers sequences of messages of type `Message[T]`:
+
+`Exp[T] <: MsgSeqPublisher[T, Exp[T]]`
+
+Composite expression nodes subscribe on their children expression nodes. [Is this what we implement? It's not so simple]
+
+A subscriber receiving a sequence of messages can handle each of them separately, and we provide infrastructure for that; to allow more efficient handling of updates, a subscriber can however also analyze the complete sequence before deciding the update strategy. For instance, if the sequence of updates is long, it might be simpler to recompute the result from scratch.
+
+Many expression nodes handle messages by producing, for each message, a sequence of messages; the generic code then produces a bigger batch by concatenating the produced sequences:
+~~~
+trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr] with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]] {
+  //Contract: transforms messages, potentially executes them. XXX: pub is not passed
+  def transformedMessages(v: Message[T]): Seq[Message[U]]
+
+  override def notify(pub: Repr, evts: Seq[Message[T]]) {
+    publish(evts flatMap transformedMessages)
+  }
+}
+~~~
+
+Various implementation of Message[T] exist. If T is atomic, it is appropriate to send a message which simply contains the old and new value:
+
+`case class UpdateVal[T](oldV: T, newV: T) extends Message[T]`
+
+However, this message forces subscribers to reexecute the computations they represent. When `T` is a structured type, values of type `Message[T]` can indicate more precisely which part of it changed, to allow listeners to execute only the associated part of the computation. Users can use this framework to observe result of queries and provide updates. We want them (TODO) to be able to provide datatype-specific messages using our framework.
+
+Our library deals in particular with the specific case of collections, and provides specific messages for modifications on Traversables.
+We also supply reusable traits for collections publishing their modifications, together with concrete collections using those traits.
+
+## FlatMap operations
+Incremental maintenance for `FlatMap(collection, function)` nodes requires applying `function` to each element of `collection`, and listening on both `collection` and the results.
+However, that applies also to MapOp, only we just didn't implement it yet.
+
+## Recompute messages
+We also support Recompute messages - which just provide the new value (XXX: do they?)
+
+### GC
+Nodes hold onto their observers through weak references and on nodes they depend on through strong references.
 
 # Related work
 An embedding of Scala within itself is Lightweight modular staging and language virtualization.
@@ -140,3 +210,5 @@ In a relational database, a relation is actually also a dictionary, mapping a va
 Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
 
 Henglein, Larsen (2010), in "Generic Multiset Programming for Language-integrated Querying", present an alternative framework which allows implementing some of the same optimizations we present. In their development however the users are supposed to write the functions used for queries explicitly using operators exposing their structure. In our case, instead, we emulate expression trees to allow the same optimization to be still possible with less involvement of the user. Their model does not reify the queries, preventing their optimization to happen before execution time - this is sensible for the limited optimizations they implement, but not in general. Lazy products, on the other hand, are indeed an interesting idea which we do not support (XXX: should we?).
+
+"Caching and Incrementalization in the Java language" (Darren Willis, David J. Pearce and James Noble, OOPSLA 2008) does not support reduce, requires a special-purpose compiler (with all the known problems for language extensions)

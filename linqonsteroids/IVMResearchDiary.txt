@@ -405,3 +405,12 @@ Patrick Lamand, Eric Bodden et al. cite this this paper and argues that incremen
 
 http://www.bodden.de/pubs/lblh11soot.pdf
 
+"Demand-driven evaluation of collection attributes", cited in "Building semantic editors using JastAdd: tool demonstration" (http://dl.acm.org/citation.cfm?id=1988794), also seems related work (as are Attribute Grammars, AGs, in general). However, incremental evaluation of RAGs (Reference AGs) is still ongoing work (as opposed to AGs, I guess).
+
+6 Dec 2011:
+From "Caching and Incrementalization in the Java language" (Darren Willis, David J. Pearce and James Noble, OOPSLA 2008):
+"An important issue in this respect is the query/update ratio for a particular query. This arises because there is a cost associated with incrementally maintaining a cached result set: when the number of updates affecting a result set is high, compared with how often it is actually used, it becomes uneconomical to cache that result set. To deal with this, our system monitors the query/update ratio and dynamically determines when to begin, and when to stop caching the result set."
+We instead currently leave this issue to the user.
+
+About the idea of sending query trees as update messages: the problem with that would be "how to avoid recomputing stuff when executing things multiple times".
+Now, if cells cache their results, or at least all complete trees do so, we can just have interpret() (or result()) reuse the cache.
