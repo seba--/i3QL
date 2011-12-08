@@ -3,29 +3,31 @@
 <!-- % An embedded language for optimizable incremental queries over in-memory collections -->
 \newcommand{\intersect}{\wedge}
 
-# Meta infos
-This project, variously called LINQ on Steroids, IVM, and part of The Project\ (™), implements Incremental View Maintenance (IVM) for views on in-memory collections. It is related to projects presented at ECOOP from students of James Noble.
+# Meta-introduction
+This project, variously called LINQ on Steroids, IVM, and part of The Project (™), implements a deeply embedded DSL for queries over collections and Incremental View Maintenance (IVM) for views defined using this query language.
+It is related to projects presented at ECOOP and OOPSLA from students of James Noble.
 
-It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
-
-# A new take on the presentation
-## Introduction
-Typical programs perform repetitive work, and thus contain computations over collections of some form; in particular, they produce new collections from existing ones, and thus perform _queries_. Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like map, flatMap, withFilter and union, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing map, flatMap and withFilter. We consider these operators to form a DSEL for queries over collection. In our work, we reimplement this DSEL to allow optimization of queries, and we implement a few significant ones. We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
-We evaluate our work.
-
-Further work (just started):
-
-- incremental view maintenance
-- XXX
+A possibility is to publish this work without support for Incremental View Maintenance. A possible introduction would be as follows.
 
 # Introduction
-Many computations in typical programs operate over collections and extract informations from them. Higher-order operators allow formulating many such computations as queries; we can also say that a collection library provides a DSEL of queries over collections. It is often desirable to optimize execution of queries using a variety of approaches. For instance, some queries are often re-executed after changes on the original collections; other queries might be executed faster by maintaining additional data structures, like indexes over the original collections; yet other queries might be executed faster simply by restructuring the query before execution. We propose a deeply-embedded Scala DSEL for expressing queries over in-memory collections with the following desirable properties:
+
+Typical programs perform repetitive work, and thus contain computations over collections of some form; in particular, they produce new collections from existing ones, they perform in other words _queries_. Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like `map`, `flatMap`, `withFilter` and `union`, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing `map`, `flatMap` and `withFilter`. We consider these operators to form a DSEL for queries over collection. In our work, we reimplement this DSEL to allow optimization of queries, we implement a few significant ones, and show that they provide a significant speedup with an evaluation on (to be determined). We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
+
+
+Another possibility would be to publish this work in a more complete form. The rest of this paper is a draft which follows this idea.
+
+# Introduction
+Many computations in typical programs operate over collections to extract informations from them. Higher-order operators allow formulating many such computations as queries; a collection library provides in other words a DSEL of queries over collections, which we call the query DSEL.
+
+It is often desirable to optimize execution of queries using a variety of approaches. For instance, some queries are often re-executed after changes on the original collections; other queries might be executed faster by maintaining additional data structures, like indexes over the original collections; yet other queries might be executed faster simply by restructuring the query before execution.
+To implement these optimizations, we embed the query DSEL _deeply_, so that our library constructs in-memory representation of queries in form of abstract syntax trees before executing them. These ASTs can then be subject to optimizations before being executed on in-memory collections.
+We propose a deeply-embedded Scala DSEL for expressing queries over in-memory collections with the following desirable properties:
 
 - the query language is based on a hierarchical data model and the associated monadic query language, like the one used for Scala for comprehension, and similarly to the one described by Meijer and Biederman (2011) and Fegaras and Maier (2000)
 - queries are expressed using for comprehensions
 - queries can be interpreted with a very small overhead compared to queries expressed directly using Scala’s collection library
 - queries can have, as results, both Traversable, Set and Map (support for Seq should be possible, too)
-- our embedding techniques (we are embedding monadic operations over queries) extends the techniques used in the Scala collection library ([Fighting Bitrot with Types]) and allows, without code duplication, to have very specific types for the result of different operations; flatMap on a Map will return a Map, and on a Set will return a Set, and so on.
+- our embedding techniques (we are embedding monadic operations over queries) extends the techniques used in the Scala collection library ([Fighting Bitrot with Types]) and allows, without code duplication, to have very specific types for the result of different operations; `flatMap` on a Map will return a Map, and on a Set will return a Set, and so on.
 - results of queries over mutable collections are incrementally updated when the original collection changes.
 - indexes can be generated and applied - they are simply queries of type Map[A, B], which are updated thanks to same support for IVM as other query results. This is only possible because our data representation allows to also represent different kinds of collections uniformly.
 - queries can be optimized before execution; the optimized queries, unlike in SQL, can still be expressed in the same language
@@ -33,13 +35,13 @@ Many computations in typical programs operate over collections and extract infor
 - the complete pure subset of Scala can be used in the queries (? - elaborate), except function calls (…) and pattern matching and …
 - we have a partial emulation of expression trees in Scala through implicit conversions, and suggest approaches to extend the covered Scala subset.
 
-Incremental maintenance of the results of flatMap is a novel algorithm.
+Incremental maintenance of the results of `flatMap` is a novel algorithm.
 
 Our contributions are as follows:
 - index are identified with materialized views representing dictionaries, and can be used explicitly; this simplifies query optimization
 - our embedding supports both Traversable, Set and Map with appropriate types
 - the architecture used to implement IVM on expression trees is novel
-- we are the first to support Incremental View Maintainance for FlatMap operations
+- we are the first to support Incremental View Maintainance for `flatMap` operations
 
 # Our query language: first-class indexes considered helpful
 Query languages for relational and OO databases allow to program queries declaratively, and optimizers transform those queries into execution plans for efficient execution.
@@ -77,7 +79,7 @@ A repository contains a map from queries to their evaluated results (XXX: it sho
 
 # A few running examples:
 
-Example 1 - a join expressed through a set comprehension, as a filtered Cartesian product (expressed through flatMap):
+Example 1 - a join expressed through a set comprehension, as a filtered Cartesian product (expressed through `flatMap`):
 
 ~~~
 for (i <- coll1;
@@ -106,16 +108,15 @@ for (i <- coll1;
 
 # Operators
 ## Higher-order operators from relational algebra
-- Join: can be expressed through flatMap, which can be executed directly (similarly to a nested-loop join), but also through a special join node.
-- Selection: becomes withFilter
-- Projection: becomes map
-- Rename: makes less sense as such, becomes map as well
-
-- Aggregation: becomes fold (implementation started)
+- Join: can be expressed through `flatMap`, which can be executed directly (similarly to a nested-loop join) or converted to a specific `join` node.
+- Selection: becomes `withFilter`.
+- Projection: becomes `map`.
+- Rename: since it makes less sense as such, it becomes `map` as well.
+- Aggregation: becomes `fold`.
 
 ## First-order basic operators from relational algebra
 - Set union: cannot be expressed through other operators
-- Set difference can be expressed in the base language through withFilter and forall (in time O(N^2)), but also with a specific, direct operator, which can be executed similarly to an anti-join.
+- Set difference can be expressed in the base language through withFilter and forall (in time O($N^2$)), but also with a specific, direct operator, which can be executed similarly to an anti-join.
 - Set intersection: can be expressed through set difference ($A \intersect B = A - (A - B)$) or through a join.
 but probably should be expressed directly, not through other operators.
 
@@ -129,7 +130,7 @@ Semi-joins, anti-joins.
 ## IVM properties of those operators
 Set union, selection and mapping are completely self-maintainable: that is, not even the result is needed for self-maintenance.
 Tables used in filters, instead, must be materialized to allow self-maintenance; the result, again, is not needed.
-flatMap is more complex. Results of flatMap require instead to store part of the results.
+`flatMap` is more complex. Results of `flatMap` require instead to store part of the results.
 
 # Expression trees and nodes
 We reify expression as expression trees. Each node has type `Exp[T]` for some `T`, and contains a list of children of type `Exp[S] forSome {type S}`.
@@ -187,28 +188,35 @@ However, this message forces subscribers to reexecute the computations they repr
 Our library deals in particular with the specific case of collections, and provides specific messages for modifications on Traversables.
 We also supply reusable traits for collections publishing their modifications, together with concrete collections using those traits.
 
-## FlatMap operations
+## `FlatMap` operations
 Incremental maintenance for `FlatMap(collection, function)` nodes requires applying `function` to each element of `collection`, and listening on both `collection` and the results.
 However, that applies also to MapOp, only we just didn't implement it yet.
 
 ## Recompute messages
-We also support Recompute messages - which just provide the new value (XXX: do they?)
+When an expression node is incapable of updating its result incrementally, it can also recompute its value and propagate it with a `Recompute` message - which just provides the new value. (XXX: does it?)
 
 ### GC
 Nodes hold onto their observers through weak references and on nodes they depend on through strong references.
 
 # Related work
+## Query embeddings
+LINQ also represents a deep embedding of queries, even for queries
 An embedding of Scala within itself is Lightweight modular staging and language virtualization.
-Techniques for embedding operations on Scala collections are also used for e.g. Scala Integrated Query, a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
+Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query, a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
 
+Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
+
+## Query languages for hierarchical data
 "A Recursive Algebra for Nested Relations" defines a data-model similar to ours, because it is also compositional.
 
 (Verify) Various techniques can be seen as allowing representing dictionaries. For instance, a JSON object is a dictionary; since JSON and XML are "similar", one can argue that even XML allows representing dictionaries, especially when those techniques are used in a semi-structural context where no fixed schema is imposed. However, indexes are in a sense _reverse_ maps, and thus are different.
 
 In a relational database, a relation is actually also a dictionary, mapping a value of the primary key to the whole record; however, the language does not explicitly allow using a relation as a dictionary; moreover, there is no uniform way to refer to both relations and indexes.
 
-Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
-
 Henglein, Larsen (2010), in "Generic Multiset Programming for Language-integrated Querying", present an alternative framework which allows implementing some of the same optimizations we present. In their development however the users are supposed to write the functions used for queries explicitly using operators exposing their structure. In our case, instead, we emulate expression trees to allow the same optimization to be still possible with less involvement of the user. Their model does not reify the queries, preventing their optimization to happen before execution time - this is sensible for the limited optimizations they implement, but not in general. Lazy products, on the other hand, are indeed an interesting idea which we do not support (XXX: should we?).
 
-"Caching and Incrementalization in the Java language" (Darren Willis, David J. Pearce and James Noble, OOPSLA 2008) does not support reduce, requires a special-purpose compiler (with all the known problems for language extensions)
+## Incremental View Maintenance
+"Caching and Incrementalization in the Java language" (Darren Willis, David J. Pearce and James Noble, OOPSLA 2008) does not support reduce and requires a special-purpose compiler (with all the known problems for language extensions)
+
+# Future work
+It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
