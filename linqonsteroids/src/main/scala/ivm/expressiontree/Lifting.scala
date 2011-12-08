@@ -1,59 +1,30 @@
 package ivm.expressiontree
 
-object Lifting {
-  implicit def pairToPairExp[A, B](pair: (Exp[A], Exp[B])): Pair[A, B] = Pair[A,B](pair._1, pair._2)
+object Lifting extends SimpleOpenEncoding.MapOps with SimpleOpenEncoding.SetOps with SimpleOpenEncoding.OpsExpressionTreeTrait with SimpleOpenEncoding.TypeFilterOps {
+  def liftFunc[S, T](f: Exp[S] => Exp[T]): Exp[S => T] = FuncExp(f)
 
-  //To "unlift" a pair, here's my first solution:
-  /*implicit*/ def unliftPair[A, B](pair: Exp[(A, B)]): (Exp[A], Exp[B]) = (Proj1(pair), Proj2(pair))
-  /*
-  //Unfortunately this conversion is not redundant; we may want to have a special node to support this, or to
-  //remove Pair constructors applied on top of other pair constructors.
-  implicit def expPairToPairExp[A, B](pair: Exp[(A, B)]): Pair[A, B] =
-    (Pair[A,B] _).tupled(unliftPair(pair))
-  */
+  implicit def arrayToExpSeq[T](x: Array[T]) = (x: Seq[T]): Exp[Seq[T]]
 
-  //Here's the second one, adapted from Klaus code. It represents but does not build a tuple (once one adds lazy vals).
-  //However, one cannot do pattern matching against the result, not with the existing pattern.
-  //Lesson: Scala does not allow to define additional extractors for a given pattern type, and syntax shortcuts such
-  //as tuples or => are simply built-in in the language.
-  case class PairHelper[A,B](p: Exp[(A,B)]) {
-    lazy val _1 = Proj1(p)
-    lazy val _2 = Proj2(p)
+  class NumericOps[T: Numeric](t: Exp[T]) {
+    def +(that: Exp[T]): Exp[T] = Plus(this.t, that)
+    def *(that: Exp[T]): Exp[T] = Times(this.t, that)
+    def -(that: Exp[T]): Exp[T] = onExp(implicitly[Numeric[T]], this.t, that)('NumericOps$minus, _.minus(_, _))
   }
 
-  implicit def toPairHelper[A, B](e: Exp[(A, B)]): PairHelper[A, B] = PairHelper(e)
+  class FractionalOps[T: Fractional](t: Exp[T]) {
+    def /(that: Exp[T]): Exp[T] = onExp(implicitly[Fractional[T]], this.t, that)('FractionalOps$div, _.div(_, _))
+  }
 
-  implicit def fToFunOps[A, B](f: Exp[A => B]): Exp[A] => Exp[B] =
-    x => App(f, x)
-
-  // these functions are explicitly not implicit :)
-  def liftCall[Res](id: Symbol, callfunc: () => Res) = new Call0(id,callfunc)
-  def liftCall[A0, Res](id: Symbol, callfunc: A0 => Res, arg0: Exp[A0]) = new Call1(id,callfunc, arg0)
-  def liftCall[A0, A1, Res](id: Symbol, callfunc: (A0, A1) => Res, arg0: Exp[A0], arg1: Exp[A1]) =
-     new Call2(id,callfunc, arg0, arg1)
-  def liftCall[A0, A1, A2, Res](id: Symbol, callfunc: (A0, A1, A2) => Res, arg0: Exp[A0], arg1: Exp[A1], arg2: Exp[A2]) =
-     new Call3(id,callfunc, arg0, arg1, arg2)
-  def liftCall[A0, A1, A2, A3, Res](id: Symbol, callfunc: (A0, A1, A2, A3) => Res, arg0: Exp[A0], arg1: Exp[A1], arg2: Exp[A2], arg3: Exp[A3]) =
-     new Call4(id,callfunc, arg0, arg1, arg2, arg3)
-  def liftCall[A0, A1, A2, A3, A4, Res](id: Symbol, callfunc: (A0, A1, A2, A3, A4) => Res, arg0: Exp[A0], arg1: Exp[A1], arg2: Exp[A2], arg3: Exp[A3], arg4: Exp[A4]) =
-     new Call5(id,callfunc, arg0, arg1, arg2, arg3, arg4)
-
-
-  def liftFunc[S,T](f: Exp[S] => Exp[T]) : Exp[S => T] = FuncExp(f)
-
-  implicit def toExp[T](x: T): Exp[T] = Const(x)
-  /*implicit def liftOrd[T: Ordering](x: T) = Const(x)
-  implicit def liftNum[T: Numeric](x: T) = Const(x)
-
-  implicit def liftBool(x: Boolean) : Exp[Boolean] = Const(x)
-  implicit def liftString(x: String) : Exp[String] = Const(x)*/
-
-  class NumOps[T](val t: Exp[T])(implicit val isNum: Numeric[T]) {
-    def +(that: Exp[T]): Exp[T] = Plus(this.t, that)
+  class IntegralOps[T: Integral](t: Exp[T]) {
+    def %(that: Exp[T]): Exp[T] = onExp(implicitly[Integral[T]], this.t, that)('IntegralOps$mod, _.rem(_, _))
   }
 
   class OrderingOps[T: Ordering](t: Exp[T]) {
-    def <=(that: Exp[T]) = LEq(t, that)
+    //XXX: we probably need to use distinguished nodes for these operations, to be able to use indexes for them.
+    def <=(that: Exp[T]): Exp[Boolean] = LEq(this.t, that)
+    def <(that: Exp[T]): Exp[Boolean] = onExp(implicitly[Ordering[T]], this.t, that)('OrderingOps$lt, _.lt(_, _))
+    def >(that: Exp[T]): Exp[Boolean] = onExp(implicitly[Ordering[T]], this.t, that)('OrderingOps$gt, _.gt(_, _))
+    def >=(that: Exp[T]): Exp[Boolean] = onExp(implicitly[Ordering[T]], this.t, that)('OrderingOps$gteq, _.gteq(_, _))
   }
 
   class StringOps(t: Exp[String]) {
@@ -66,7 +37,8 @@ object Lifting {
     def unary_! = Not(b)
   }
 
-  implicit def expToNumOps[T: Numeric](t: Exp[T]) = new NumOps(t)
+  implicit def expToNumOps[T: Numeric](t: Exp[T]) = new NumericOps(t)
+  implicit def expToIntegralOps[T: Integral](t: Exp[T]) = new IntegralOps(t)
   implicit def expToOrderingOps[T: Ordering](t: Exp[T]) = new OrderingOps(t)
   implicit def expToStringOps(t: Exp[String]) = new StringOps(t)
   implicit def expToBooleanOps(t: Exp[Boolean]) = new BooleanOps(t)
@@ -80,7 +52,7 @@ object Lifting {
   implicit def toNumOps[T: Numeric](t: T) = expToNumOps(t)
   implicit def toOrderingOps[T: Ordering](t: T) = expToOrderingOps(t)
   // These definitions work even if both liftOrd and liftNum are declared.
-  /*implicit def toNumOps[T: Numeric](t: T): NumOps[T] = Const(t)
+  /*implicit def toNumOps[T: Numeric](t: T): NumericOps[T] = Const(t)
   implicit def toOrderingOps[T: Ordering](t: T): OrderingOps[T] = Const(t)*/
   implicit def toStringOps(t: String) = expToStringOps(t)
   implicit def toBooleanOps(t: Boolean) = expToBooleanOps(t)
@@ -110,4 +82,7 @@ object Lifting {
     implicit def liftCall5[A0, A1, A2, A3, A4, Res](id: Symbol, f: (A0, A1, A2, A3, A4) => Res):
       (Exp[A0], Exp[A1], Exp[A2], Exp[A3], Exp[A4]) => Exp[Res]= new Call5(id,f, _, _, _, _, _)
   }
+
+  // maybe this is not the best place to define this function
+  def filterByType[S: Manifest]: Exp[PartialFunction[Any,S]] = new PartialFuncExp( (x) => x.ifInstanceOf[S])
 }

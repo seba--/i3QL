@@ -12,46 +12,42 @@ import collection.immutable.HashSet
  */
 
 sealed trait Message[+T]
-case class Include[T](t: T) extends Message[T]
+case class Include[+T](t: T) extends TravMessage[T]
 /*class Include[T](_t : => T) extends Message[T] {
   lazy val t = _t
 }*/
-case class Remove[T](t: T) extends Message[T]
-case class Update[T](old: T, curr: T) extends Message[T]
-case class Reset() extends Message[Nothing]
+case class Remove[+T](t: T) extends TravMessage[T]
+case class Update[+T](old: T, curr: T) extends TravMessage[T]
+case object Reset extends TravMessage[Nothing]
+
+//Allow updating single elements (e.g. the result of folds)!
+case class NewVal[T](newV: T) extends Message[T]
+case class UpdateVal[T](oldV: T, newV: T) extends Message[T]
+
 // XXX: A union class will have a hard time handling a Reset event. Maybe it's better to just batch Remove messages for
 // a Reset? That's a problem when reset is O(1); maybe that must be done by intermediate nodes, which don't have however
 // the elements anyway, because they have not been transformed.
 
-//XXX: We don't have (yet) a concept of Self-Maintenable View, which in databases saves IO and for us can allow
-// garbage-collecting the original collection. But they are problematic. Here's the problem and a potential solution.
-// Publishers hang onto their subscribers through weak references, hence each subscriber must keep the
-// previous one alive. We can allow only the original collection to be GC-ed, not the intermediate message transformers.
-// Hence the first-level intermediate nodes must use a weak reference to the original collection; other nodes have just
-// a strong reference.
-// XXX: a further problem is that if the original collection is GC-ed, it makes no more sense to keep the intermediate
-// nodes in memory. We need to listen with a referencequeue on the original collection.
-
 //Script nodes can be useful as a space optimization for Seq[Message[T]]; however, types become less perspicuous.
 //case class Script[T](changes: Message[T]*) extends Message[T]
 
-// Publisher hangs onto the listeners directly, while in our scenario weak references are badly needed.
-// Here's a version of Publisher without this problem; the design is very similar to the original Publisher class, but
+// DefaultPublisher hangs onto the listeners directly, while in our scenario weak references are badly needed.
+// Here's a version of DefaultPublisher without this problem; the design is very similar to the original DefaultPublisher class, but
 // with weak references and without filters (since we currently don't need them).
 
-/* TODO Copyright: our Publisher class derives from the Scala library, which has a BSD license. Copying code is allowed
- * and no problem, as long as we acknowledge it in the sources. */
+/* TODO Copyright: our DefaultPublisher class derives from Publisher in the Scala library, which has a BSD license.
+ * Copying code is allowed and no problem, as long as we acknowledge it in the sources. */
 
 /**
  * Extends WeakReference with working equality comparison
  */
 class EqWeakReference[+T >: Null <: AnyRef](t: T) extends WeakReference[T](t: T) with Equals {
   override def canEqual(that: Any) = that.isInstanceOf[EqWeakReference[_]]
+  private def getOrNull[S >: Null <: AnyRef](x: WeakReference[S]): S = x.get.orNull
   override def equals(other: Any) =
     other match {
       case that: AnyRef if that eq this => true
       case that: EqWeakReference[_] =>
-        def getOrNull[S >: Null <: AnyRef](x: WeakReference[S]): S = x.get.orNull
         (that canEqual this) &&
           //XXX: use eq or equals? equals makes more sense in general, but eq makes more sense for our use case.
           (getOrNull(this) eq getOrNull(that))
@@ -61,27 +57,48 @@ class EqWeakReference[+T >: Null <: AnyRef](t: T) extends WeakReference[T](t: T)
         // uses identity comparison.
         //super.equals(other)
     }
-  override def hashCode() = get.hashCode
+  override def hashCode() = System.identityHashCode(getOrNull(this)) //Use identityHashCode(_) instead of _.hashCode() to get a constant hashcode;
+  // but call it on the actual object, not on some Option wrapper.
 }
 
-trait Publisher[Evt] {
-  type Pub <: Publisher[Evt]
+trait Publisher[+Evt, +Pub <: Publisher[Evt, Pub]] {
   type Sub = Subscriber[Evt, Pub]
 
-  protected def selfAsPub: Pub = this.asInstanceOf[Pub]
-  //XXX: If Pub were a (covariant) type parameter, then we could just write (I expect) selfAsPub: Pub => at the beginning, instead of
-  //such an ugly cast. However, Pub appears in Subscriber in a contravariant position, so that's not so easily possible.
+  def addSubscriber(sub: Sub)
+  def removeSubscriber(sub: Sub)
+  protected[this] def publish(evt: Evt)
+}
 
-  //XXX: I believe that we need to filter out duplicate elements - I'd need a WeakHashSet.
-  var subscribers: Set[EqWeakReference[Sub]] = HashSet()
-  def subscribe(sub: Sub) {
+trait IgnoringPublisher[+Evt, +Pub <: Publisher[Evt, Pub]] extends Publisher[Evt, Pub] {
+  def addSubscriber(sub: Sub) {}
+  def removeSubscriber(sub: Sub) {}
+  protected[this] def publish(evt: Evt) {}
+}
+
+/*
+ * DefaultPublisher hangs onto subscribers through weak references. The subscribers, instead, hang onto the nodes they
+ * listen to through strong references. This way, whenever a query result is thrown away, the intermediate nodes which
+ * were needed for it can be garbage collected.
+ * If the original collection is no more referenced elsewhere, the query results will keep it in scope. However, if it
+ * cannot be modified now, maybe one should allow it to be GC'ed? Not in general, because that would prevent reevaluation
+ * of the results. TODO: We could introduce an IncrementalResult.detach() method for these situations.
+ * The alternative would be that the intermediate nodes keep only a weak reference to the base collections - which is
+ * a special node anyway (it must be an incremental collection, like IncArrayBuffer or IncHashSet).
+ * Moreover, also self-maintainable nodes could hang onto their sources through weak references.
+ * But XXX: We don't have (yet) a concept of Self-Maintainable View (which exists in databases to save IO).
+ */
+trait DefaultPublisher[+Evt, +Pub <: DefaultPublisher[Evt, Pub]] extends Publisher[Evt, Pub] {
+  selfAsPub: Pub =>
+
+  private[this] var subscribers: Set[EqWeakReference[Sub]] = HashSet.empty
+  def addSubscriber(sub: Sub) {
     subscribers += new EqWeakReference(sub)
   }
-  def removeSubscription(sub: Sub) {
+  def removeSubscriber(sub: Sub) {
     subscribers -= new EqWeakReference(sub)
   }
 
-  def publish(evt: Evt) {
+  protected[this] def publish(evt: Evt) {
     for (subWeakRef <- subscribers; sub <- subWeakRef.get) {
       sub.notify(selfAsPub, evt)
     }
@@ -89,22 +106,29 @@ trait Publisher[Evt] {
   }
 }
 
-trait MsgSeqPublisher[T] extends Publisher[Seq[Message[T]]] {
-  def publish(evt: Message[T]) {
+trait MsgSeqPublisher[+T, +Pub <: MsgSeqPublisher[T, Pub]] extends DefaultPublisher[Seq[Message[T]], Pub] {
+  selfAsPub: Pub =>
+  protected[this] def publish(evt: Message[T]) {
     publish(Seq(evt))
   }
 }
 
 trait MsgSeqSubscriber[-T, -Repr] extends Subscriber[Seq[Message[T]], Repr]
 
-trait EvtTransformer[-T, U, -Repr] extends MsgSeqSubscriber[T, Repr] with MsgSeqPublisher[U] {
-  //Contract: transforms messages, potentially executes them.
+trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr] with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]] {
+  //Contract: transforms messages, potentially executes them. XXX: pub is not passed
   def transformedMessages(v: Message[T]): Seq[Message[U]]
 
+  override def notify(pub: Repr, evts: Seq[Message[T]]) {
+    publish(evts flatMap transformedMessages)
+  }
+}
+
+trait EvtTransformer[-T, +U, -Repr] extends EvtTransformerBase[Traversable[T], Traversable[U], Repr] {
   //Precondition: only ever pass Reset or Update nodes.
-  protected def defTransformedMessages(v: Message[T]): Seq[Message[U]] = {
+  protected def defTransformedMessages(v: TravMessage[T]): Seq[TravMessage[U]] = {
     v match {
-      case Reset() => Seq(Reset())
+      case Reset => Seq(Reset)
       case Update(old, curr) =>
         Seq(Remove(old), Include(curr)) flatMap transformedMessages
       case _ =>
@@ -115,12 +139,6 @@ trait EvtTransformer[-T, U, -Repr] extends MsgSeqSubscriber[T, Repr] with MsgSeq
     }
   }
 
-  override def notify(pub: Repr, evts: Seq[Message[T]]) = {
-    val res = evts flatMap transformedMessages
-    if (Debug.verbose)
-      println("%s notify(\n  pub = %s,\n  evts = %s\n) = %s" format (this, pub, evts, res))
-    publish(res)
-  }
 }
 
 object Debug {

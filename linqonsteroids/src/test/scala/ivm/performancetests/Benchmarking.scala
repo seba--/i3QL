@@ -1,5 +1,5 @@
 package ivm
-package tests
+package performancetests
 
 import expressiontree.Exp
 import optimization._
@@ -26,12 +26,19 @@ object Benchmarking {
    * @param warmuUpLoops: Warm up the VM - should be more
    * @param sampleLoops Iterations to measure variance.
    */
-  def benchMark(name: String, execLoops: Int = 1, warmUpLoops: Int = 10, sampleLoops: Int = 5, verbose: Boolean = true)
+  def benchMark(name: String, execLoops: Int = 1, warmUpLoops: Int = 10, sampleLoops: Int = 5, verbose: Boolean = true, hasConsoleOutput: Boolean = false)
                (toBench: => Unit): Double = {
+    if (!hasConsoleOutput)
+      print(">>> Name = %s, starting warmup..." format name)
+
     for (i <- 1 to warmUpLoops)
       toBench
-    if (verbose)
+    System.gc()
+
+    if (hasConsoleOutput)
       println()
+    else
+      print(" ending warmup, starting benchmarking...")
 
     val stats = new VarianceCalc
     for (i <- 1 to sampleLoops) {
@@ -39,13 +46,20 @@ object Benchmarking {
       for (i <- 1 to execLoops)
         toBench
       stats.update((System.nanoTime() - before) / execLoops)
+      System.gc()
     }
-    val avg = stats.avg / math.pow(10,6)
-    if (verbose)
-      println(">>> Name = %s, time = %.3f +- %.3f" format (name,
-        avg,
-        math.sqrt(stats.variance) / math.pow(10, 6)))
-    avg
+    if (!hasConsoleOutput)
+      print(" ended benchmarking, name = %s, time = " format name)
+    val avgMs = stats.avg / math.pow(10,6)
+    if (verbose) {
+      val devStdMs = math.sqrt(stats.variance) / math.pow(10,6)
+      //The error of the measured average as an estimator of the average of the underlying random variable
+      val stdErrMs = devStdMs / math.sqrt(sampleLoops)
+      if (hasConsoleOutput)
+        print(">>> Name = %s, time = " format name)
+      println("(%.3f +- %.3f (stdErr = %.3f)) ms" format (avgMs, devStdMs, stdErrMs))
+    }
+    avgMs
   }
 
   def silentBenchMark(name: String, execLoops: Int = 1, warmUpLoops: Int = 3, sampleLoops: Int = 3)

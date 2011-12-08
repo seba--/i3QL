@@ -10,19 +10,32 @@ import ref.WeakReference
 */
 
 class EqWeakReferenceTests extends JUnitSuite with ShouldMatchersForJUnit {
+  //Should be part of ScalaTest.
+  def assertEqualsAndSameHash[T](l: T, r: T) {
+    l should be === (r)
+    l.hashCode should be === (r.hashCode)
+  }
+
+  val o = new AnyRef()
   @Test
   def equals() {
-    val o = new AnyRef()
-    val a = new EqWeakReference(o)
-    val b = new EqWeakReference(o)
-    a should (be === b)
-    val nullRef = new EqWeakReference(null)
-    a should (not (be === nullRef))
-    nullRef should (not (be === a))
-    val d = new EqWeakReference(null)
-    nullRef should (be === d)
-    val e = new WeakReference(o)
-    a should (not (be === e))
-    e should (not (be === a))
+    val refO1 = new EqWeakReference(o)
+    val refO2 = new EqWeakReference(o)
+    assertEqualsAndSameHash(refO1, refO2)
+
+    val nullRef1 = new EqWeakReference(null)
+    refO1 should not be === (nullRef1)
+    nullRef1 should not be === (refO1)
+
+    val nullRef2 = new EqWeakReference(null)
+    assertEqualsAndSameHash(nullRef1, nullRef2)
+  }
+
+  @Test
+  def eqWeakReferenceDiffersFromWeakReference() {
+    val eqWeakRef = new EqWeakReference(o)
+    val weakRef = new WeakReference(o) //Note that this is WeakReference, not EqWeakReference, and thus differs from a.
+    eqWeakRef should not be === (weakRef)
+    weakRef should not be === (eqWeakRef)
   }
 }

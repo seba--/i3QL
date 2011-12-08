@@ -3,20 +3,19 @@
   <component name="FacetManager">
     <facet type="scala" name="Scala">
       <configuration>
-        <option name="compilerLibraryLevel" value="Project" />
-        <option name="compilerLibraryName" value="buildScalaLocal" />
+        <option name="compilerLibraryLevel" value="Global" />
+        <option name="compilerLibraryName" value="scala-compiler-2.9.1.final" />
+        <option name="deprecationWarnings" value="true" />
+        <option name="explainTypeErrors" value="true" />
+        <option name="fsc" value="true" />
         <option name="optimiseBytecode" value="true" />
-        <option name="pluginPaths">
-          <array>
-            <option value="C:\dev\scala\lib\scala-compiler.jar" />
-          </array>
-        </option>
+        <option name="uncheckedWarnings" value="true" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/target/scala-2.9.0.1/classes" />
-    <output-test url="file://$MODULE_DIR$/target/scala-2.9.0.1/test-classes" />
+    <output url="file://$MODULE_DIR$/target/scala-2.9.1.final/classes" />
+    <output-test url="file://$MODULE_DIR$/target/scala-2.9.1.final/test-classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/scala" isTestSource="false" />
@@ -24,27 +23,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/various" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.9.0-1/test/junit-4.8.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.9.0-1/test/junit-interface-0.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -54,26 +36,25 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="library" name="scala-library-2.9.1.final" level="application" />
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.9.0-1/compile/scalatest_2.9.0-1.6.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/opal-0.7.0.final.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="" scope="TEST">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.9.0-1/test/test-interface-0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/junit-4.8.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="scala-library-2.9.0.1" level="application" />
-    <orderEntry type="library" name="buildScalaLocal" level="project" />
   </component>
 </module>
 

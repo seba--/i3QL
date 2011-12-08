@@ -4,8 +4,8 @@ package collections
 import collection.GenSet
 import collection.mutable.{SetLike, HashSet, Set}
 import collection.generic.{GenericCompanion, CanBuildFrom, MutableSetFactory, GenericSetTemplate}
+import expressiontree.{TravMsgSeqPublisher, Queryable, ObservableSet}
 
-import expressiontree.{Queryable, ObservableSet}
 
 /*
 //Failed attempt to make this trait typecheck
@@ -45,10 +45,10 @@ class IncHashSet[T] extends HashSet[T] with IncSetLike[T, HashSet[T]]
 //Scala library. Should the Scala library change a bit, tis code will be very fragile.
 trait IncSetLike[T, CCThis[X] <: Set[X] with SetLike[X, CCThis[X]] with GenSet[X], BaseRepr]
   extends ObservableSet[T] with Queryable[T, BaseRepr] with SetLike[T, CCThis[T]]
-  with GenericSetTemplate[T, CCThis]
+  with GenericSetTemplate[T, CCThis] with TravMsgSeqPublisher[T, IncSetLike[T, CCThis, BaseRepr]]
 {
   this: BaseRepr with CCThis[T] =>
-  type Pub <: IncSetLike[T, CCThis, BaseRepr]
+  //type Pub <: IncSetLike[T, CCThis, BaseRepr]
   //Here we have an abstract definition with the right type from GenericSetTemplate,
   //but also a concrete definition from Set with the "wrong" type GenericCompanion[Set]. Hence, we must define a body,
   //so we fake it.
@@ -56,9 +56,9 @@ trait IncSetLike[T, CCThis[X] <: Set[X] with SetLike[X, CCThis[X]] with GenSet[X
 }
 
 class IncHashSet[T] extends HashSet[T]
-   with IncSetLike[T, IncHashSet, HashSet[T]]
+   with IncSetLike[T, IncHashSet, HashSet[T]] with TravMsgSeqPublisher[T,  IncHashSet[T]]
 {
-  type Pub <: IncHashSet[T] //This definition is not required but simplifies the definition of Pub
+  //type Pub <: IncHashSet[T] //This definition is not required but simplifies the definition of Pub
   override def companion = IncHashSet
 }
 
@@ -69,8 +69,8 @@ class IncHashSet[T] extends HashSet[T]
 object IncHashSet extends MutableSetFactory[IncHashSet] {
   implicit def canBuildFrom[A]: CanBuildFrom[Coll, A, IncHashSet[A]] = setCanBuildFrom[A]
   override def empty[A] = new IncHashSet[A]
-  // XXX: without the above definition the code compiles, but empty is defined through newBuilder, and newBuilder
+  // Without the above definition the code compiles, but empty is defined through newBuilder, and newBuilder
   // through empty, because one of the two is supposed to be overriden; not doing so results in infinite recursion.
-  // TODO: write test for that.
+  // Thus there's a test for that in QueryableTest.emptyIncHashSet.
 }
 
