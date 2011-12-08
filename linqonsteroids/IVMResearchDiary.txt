@@ -414,3 +414,13 @@ We instead currently leave this issue to the user.
 
 About the idea of sending query trees as update messages: the problem with that would be "how to avoid recomputing stuff when executing things multiple times".
 Now, if cells cache their results, or at least all complete trees do so, we can just have interpret() (or result()) reuse the cache.
+
+7 Dec 2011:
+
+We discussed with Darmstadt guys optimizations based on unnesting (also based on "Optimizing Object Queries Using an Effective Calculus") and an evaluation based on FindBugs-like queries.
+Tillmann explained me that atomic blocks (like the one in Imperative reactive programming with dataflow constraints) are non-modular, as he learned from (I guess) this thread from Haskell-cafe and Haskell-libraries:
+
+http://www.haskell.org/pipermail/libraries/2010-March/013310.html
+http://www.haskell.org/pipermail/libraries/2010-April/013420.html
+
+Now, the idea we seemed to agree on was that adding scoping to constraint disabling, so that each module could disable its own constraints without disabling another modules constraints, should solve the problem. This has possibly impact on our definition of update batching.
