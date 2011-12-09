@@ -156,20 +156,24 @@ trait Publisher[+Evt, +Pub <: Publisher[Evt, Pub]] {
   protected[this] def publish(evt: Evt)
 }
 
-trait MsgSeqPublisher[+T, +Pub <: MsgSeqPublisher[T, Pub]] extends Publisher[Seq[Message[T]], Pub] //Simplified
+trait MsgSeqPublisher[+T, +Pub <: MsgSeqPublisher[T, Pub]]
+  extends Publisher[Seq[Message[T]], Pub] //Simplified
 ~~~
 
 An expression node of type `Exp[T]` publishes to its subscribers sequences of messages of type `Message[T]`:
 
 `Exp[T] <: MsgSeqPublisher[T, Exp[T]]`
 
-Composite expression nodes subscribe on their children expression nodes. [Is this what we implement? It's not so simple]
+Composite expression nodes subscribe on their children expression nodes. [Is this what we implement? It's not so simple!]
 
 A subscriber receiving a sequence of messages can handle each of them separately, and we provide infrastructure for that; to allow more efficient handling of updates, a subscriber can however also analyze the complete sequence before deciding the update strategy. For instance, if the sequence of updates is long, it might be simpler to recompute the result from scratch.
 
 Many expression nodes handle messages by producing, for each message, a sequence of messages; the generic code then produces a bigger batch by concatenating the produced sequences:
+
 ~~~
-trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr] with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]] {
+trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr]
+  with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]]
+{
   //Contract: transforms messages, potentially executes them. XXX: pub is not passed
   def transformedMessages(v: Message[T]): Seq[Message[U]]
 
@@ -200,23 +204,27 @@ Nodes hold onto their observers through weak references and on nodes they depend
 
 # Related work
 ## Query embeddings
-LINQ also represents a deep embedding of queries, even for queries
+\textsc{Linq} also represents a deep embedding of queries, even for queries
 An embedding of Scala within itself is Lightweight modular staging and language virtualization.
 Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query, a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
 
 Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
 
 ## Query languages for hierarchical data
-"A Recursive Algebra for Nested Relations" defines a data-model similar to ours, because it is also compositional.
+\citet{Colby90}, in "A Recursive Algebra for Nested Relations", defines a data-model similar to ours, because it is also compositional.
 
-(Verify) Various techniques can be seen as allowing representing dictionaries. For instance, a JSON object is a dictionary; since JSON and XML are "similar", one can argue that even XML allows representing dictionaries, especially when those techniques are used in a semi-structural context where no fixed schema is imposed. However, indexes are in a sense _reverse_ maps, and thus are different.
+Various techniques can be seen as allowing representing dictionaries. For instance, a JSON object is a dictionary; since JSON and XML are "similar", one can argue that even XML allows representing dictionaries, especially when those techniques are used in a semi-structural context where no fixed schema is imposed. However, indexes are in a sense _reverse_ maps, and thus are different.
 
 In a relational database, a relation is actually also a dictionary, mapping a value of the primary key to the whole record; however, the language does not explicitly allow using a relation as a dictionary; moreover, there is no uniform way to refer to both relations and indexes.
 
-Henglein, Larsen (2010), in "Generic Multiset Programming for Language-integrated Querying", present an alternative framework which allows implementing some of the same optimizations we present. In their development however the users are supposed to write the functions used for queries explicitly using operators exposing their structure. In our case, instead, we emulate expression trees to allow the same optimization to be still possible with less involvement of the user. Their model does not reify the queries, preventing their optimization to happen before execution time - this is sensible for the limited optimizations they implement, but not in general. Lazy products, on the other hand, are indeed an interesting idea which we do not support (XXX: should we?).
+\citet{Henglein10}, in "Generic Multiset Programming for Language-integrated Querying", present an alternative framework which allows implementing some of the same optimizations we present. In their development however the users are supposed to write the functions used for queries explicitly using operators exposing their structure. In our case, instead, we emulate expression trees to allow the same optimization to be still possible with less involvement of the user. Their model does not reify the queries, preventing their optimization to happen before execution time - this is sensible for the limited optimizations they implement, but not in general. Lazy products, on the other hand, are indeed an interesting idea which we do not support (XXX: should we?).
 
 ## Incremental View Maintenance
-"Caching and Incrementalization in the Java language" (Darren Willis, David J. Pearce and James Noble, OOPSLA 2008) does not support reduce and requires a special-purpose compiler (with all the known problems for language extensions)
+\citet{Willis08}, in "Caching and Incrementalization in the Java language", do not support reduce and requires a special-purpose compiler,  with the associated complexity of implementation and integration with other extensions (cite our LDTA 2012 paper).
 
 # Future work
 It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
+
+\bibliography{/Users/pgiarrusso/Documents/Research/PS-Repo/Paolo/DB}
+
+# References

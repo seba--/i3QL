@@ -1,7 +1,15 @@
 NAME=paper-draft
-.PHONY: all
+BIB=~/Documents/Research/PS-Repo/Paolo/DB.bib
+
+.PHONY: all FORCE
+
+.PRECIOUS: $(NAME).tex
+
 all: $(NAME).pdf
 %.pdf: %.tex
 	pdflatex $<
-%.tex: %.txt
-	pandoc -s $< -o $@
+	bibtex $*
+	pdflatex $<
+%.tex: %.txt FORCE
+	pandoc --natbib -s $< -o $@
+#pandoc --natbib --bibliography $(BIB) -s $< -o $@
