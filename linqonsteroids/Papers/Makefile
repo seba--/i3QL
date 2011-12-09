@@ -7,7 +7,6 @@ BIB=~/Documents/Research/PS-Repo/Paolo/DB.bib
 
 all: $(NAME).pdf
 %.pdf: %.tex
-	pdflatex $<
 	bibtex $*
 	pdflatex $<
 %.tex: %.txt FORCE

@@ -99,6 +99,7 @@ $endif$
 $if(date)$
 \date{$date$}
 $endif$
+\input{macros.tex}
 
 \begin{document}
 $if(title)$
