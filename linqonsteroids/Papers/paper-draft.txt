@@ -174,13 +174,14 @@ Many expression nodes handle messages by producing, for each message, a sequence
 trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr]
   with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]]
 {
-  //Contract: transforms messages, potentially executes them. XXX: pub is not passed
-  def transformedMessages(v: Message[T]): Seq[Message[U]]
+  //Contract: transforms messages, potentially executes them.
+  def transformedMessages(pub: Repr, v: Message[T]): Seq[Message[U]]
 
   override def notify(pub: Repr, evts: Seq[Message[T]]) {
-    publish(evts flatMap transformedMessages)
+    publish(evts flatMap (transformedMessages(pub, _)))
   }
 }
+
 ~~~
 
 Various implementation of Message[T] exist. If T is atomic, it is appropriate to send a message which simply contains the old and new value:
