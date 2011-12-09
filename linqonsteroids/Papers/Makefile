@@ -11,5 +11,5 @@ all: $(NAME).pdf
 	bibtex $*
 	pdflatex $<
 %.tex: %.txt FORCE
-	pandoc --natbib -s $< -o $@
+	pandoc --template latex.template --natbib -s $< -o $@
 #pandoc --natbib --bibliography $(BIB) -s $< -o $@
