@@ -77,6 +77,12 @@ is semantically equivalent to a query which builds an index first with the resul
 What the optimizer does is (a variant of common subexpression elimination) between the resulting query and the keys of a map existing precomputed expressions.
 A repository contains a map from queries to their evaluated results (XXX: it should be incrementally maintained queries!).
 
+XXX: show a query that we can help using indexing.
+
+## Indexes for nested objects
+Queries often traverse multiple objects, and more complex index organizations are needed. \citet{Bertino89} describe three index organizations for this scenario, together with the corresponding optimizations to use them: nested indexes, path indexes and multiindexes. Nested indexes require reverse references between objects to be maintained, but since we do not maintain reverse references, we exclude nested indexes from further discussion.
+We can readily use multiple groupBy indexes together to encode multiindexes \citep{Bertino89}; our framework allows defining also path indexes through specific operators.
+
 # A few running examples:
 
 Example 1 - a join expressed through a set comprehension, as a filtered Cartesian product (expressed through `flatMap`):
@@ -207,7 +213,7 @@ Nodes hold onto their observers through weak references and on nodes they depend
 ## Query embeddings
 \textsc{Linq} also represents a deep embedding of queries, even for queries
 An embedding of Scala within itself is Lightweight modular staging and language virtualization.
-Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query, a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
+Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query (XXX citations), a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
 
 Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
 
@@ -220,8 +226,21 @@ In a relational database, a relation is actually also a dictionary, mapping a va
 
 \citet{Henglein10}, in "Generic Multiset Programming for Language-integrated Querying", present an alternative framework which allows implementing some of the same optimizations we present. In their development however the users are supposed to write the functions used for queries explicitly using operators exposing their structure. In our case, instead, we emulate expression trees to allow the same optimization to be still possible with less involvement of the user. Their model does not reify the queries, preventing their optimization to happen before execution time - this is sensible for the limited optimizations they implement, but not in general. Lazy products, on the other hand, are indeed an interesting idea which we do not support (XXX: should we?).
 
+## Index organizations
+\citet{Lee98} describes other indexes. We do not implement them, but they could be represented by our interface. Moreover the path dictionary is tuned to reduce disk I/O, not for memory operations; it is not clear if it could be advantageous because of its reduced cache footprint (we have no clue and don't really care, at least yet).
+
 ## Incremental View Maintenance
 \citet{Willis08}, in "Caching and Incrementalization in the Java language", do not support reduce and requires a special-purpose compiler,  with the associated complexity of implementation and integration with other extensions (cite our LDTA 2012 paper).
+
+## Incremental computation
+\citet{Hammer11} design a semantics for self-adjusting computation for low-level languages. Their work allow supporting a large class of imperative programs; they trace program execution while the initial result is being computed, producing a tree of intermediate results, and can reevaluate this trace when the input is changed. The cost of reevaluation in the worst case is proportional to the height of the computation tree; thus, to support efficient incremental updates, the computation needs to be tree-structured. For instance, updating the result of a linear fold takes linear time if the first element is changed, while a tree-fold takes logarithmic time (as for us). Thus, the example code they present to compute the maximum of a vector implements an in-place destructive tree-fold, which is a non-idiomatic implementation in C; moreover, the programmer needs to control explicitly memoization points to reuse computations. In other words, their library supports incremental maintenance for arbitrary client programs, but does not guarantee efficient performance unless the program is engineered specifically to take advantage of their library.
+Our library, instead, does not support arbitrary input programs, but provides an extensible repository of high-level operations for which we studied incremental maintenance algorithms. The implementor of such operations needs to reason about incremental maintenance, but the user is freed from such responsibility. On the other hand, we provide no support for memoization.
+
+\citet{Demetrescu11} provides a different model. (XXX continue).
+
+\citet{Burckhardt11} discuss yet another model. (XXX read).
+
+\citet{Ramalingam93} provide an extensive bibliography of previous approaches to incremental computation.
 
 # Future work
 It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
