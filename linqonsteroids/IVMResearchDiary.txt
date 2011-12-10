@@ -8,7 +8,7 @@ Warning: what follows is often close to a stream of consciousness!
 
 2011 06 28 Tuesday:
 - In the context of The Project, blurring the distinction between static analyses (happening at something like development/compile-time) and manipulations of e.g. expression trees (like in deep embeddings, LINQ, expression trees). Does that mean moving toward Lisp, again?
-- Tillmann yesterday mentioned using incremental view maintenance for handling program modifications done by e.g. optimizations, to save time needed in recomputing static analyses. While the idea is interesting, it requires an extremely cool view maintenance algorithm: to update the results of static analysis, for instance it must be able to handle the fixpoint. Interestingly, there are algorithms for view maintenance able to handle incremental queries: some paper from Ooge de Moor discussed a translation of a Datalog subset using some kind of recursive relational queries, and the Datalog subset was indeed aimed at static analysis/code querying/refactoring: "CodeQuest : Scalable Source Code Queries with Datalog".
+- Tillmann yesterday mentioned using incremental view maintenance for handling program modifications done by e.g. optimizations, to save time needed in recomputing static analyses. While the idea is interesting, it requires an extremely cool view maintenance algorithm: to update the results of static analysis, for instance it must be able to handle the fixpoint. Interestingly, there are algorithms for view maintenance able to handle incremental queries: some paper from Ooge de Moor discussed a translation of a Datalog subset using some kind of recursive relational queries, and the Datalog subset was indeed aimed at static analysis/code querying/refactoring: "CodeQuest: Scalable Source Code Queries with Datalog".
 However, let's keep in mind that all incremental view maintenance algorithms are only heuristically more efficient than recomputing the whole view from scratch.
 - Incremental update: what about changes to element?
   Sol. 1) Element are immutable, like keys in standard hashtables. But what about nested collections? If they are also immutable, then it makes sense for homogeneity that the 
@@ -79,8 +79,8 @@ FuncExp: (Exp(S1, S2, …, Sn) => Exp(T)) => Exp[(S1, S2, …, Sn) => T], with v
   //Experimental conversions.
   object FunctionLifter {
     // The implementations here are temporary, just to match the types.
-    implicit def injectF[A, B](f: A => B) : Exp[A] => Exp[B] = x => f(x.compile())
-    implicit def injectF2[A, B, C](f: (A, B) => C) : (Exp[A],Exp[B]) => Exp[C] = (x,y) => f(x.compile(), y.compile())
+    implicit def injectF[A, B](f: A => B): Exp[A] => Exp[B] = x => f(x.compile())
+    implicit def injectF2[A, B, C](f: (A, B) => C): (Exp[A],Exp[B]) => Exp[C] = (x,y) => f(x.compile(), y.compile())
   }
 
 Thursday Aug 4:
@@ -161,7 +161,7 @@ This translation is/will be supported by expression trees, and it would make sen
 
 == The difference between view.filter and withFilter ==
 Traversable[T] defines view: TraversableView[T, Traversable[T]] and withFilter(…): FilterMonadic[T, Traversable[T]]. One can further call the same method on each of those two classes. They thus seem similar, but they are not, because TraversableView <: Traversable. Note the funny type that view must have on TraversableView:
-def view : TraversableView[A, TraversableView[A, Coll]]
+def view: TraversableView[A, TraversableView[A, Coll]]
 Instead, FilterMonadic >: Traversable, hence the returning object can have a more general type.
 Indeed, withFilter returns FilterMonadic[T, Repr] when invoked on FilterMonadic[T, Repr], that is, e.g. on instances of Traversable.WithFilter[T, Repr] or of Traversable[T].
 
