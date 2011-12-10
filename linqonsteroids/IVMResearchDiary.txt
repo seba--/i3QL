@@ -424,3 +424,6 @@ http://www.haskell.org/pipermail/libraries/2010-March/013310.html
 http://www.haskell.org/pipermail/libraries/2010-April/013420.html
 
 Now, the idea we seemed to agree on was that adding scoping to constraint disabling, so that each module could disable its own constraints without disabling another modules constraints, should solve the problem. This has possibly impact on our definition of update batching.
+
+9 Dec 2011:
+We need to recognize constant functions, so that their results can be incrementally maintained - re-executing the query would create a new instance of it. This should maybe be changed using hash-consing as in TypeChef boolean formulas.
