@@ -7,8 +7,11 @@ BIB=~/Documents/Research/PS-Repo/Paolo/DB.bib
 
 all: $(NAME).pdf
 %.pdf: %.tex
+	pdflatex $<
 	bibtex $*
 	pdflatex $<
+	pdflatex $<
+
 %.tex: %.txt FORCE
 	pandoc --template latex.template --natbib -s $< -o $@
 #pandoc --natbib --bibliography $(BIB) -s $< -o $@
