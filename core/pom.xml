@@ -3,13 +3,13 @@
 	<parent>
 		<artifactId>sae</artifactId>
 		<groupId>de.tud.cs.st.opal.sae</groupId>
-		<version>0.2.0</version>
+		<version>0.3.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
 	<artifactId>sae-database-core</artifactId>
-	<version>0.2.0</version>
+	<version>${sae.version}</version>
 	<packaging>jar</packaging>
 
 	<name>sae-database-core</name>
@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -31,8 +31,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest</artifactId>
-			<version>1.4.RC2</version>
+			<artifactId>scalatest_${scala.version}</artifactId>
+			<version>${scalatest.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

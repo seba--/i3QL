@@ -110,3 +110,12 @@ class MaterializedViewProxyResult[V <: AnyRef](
     }
 
 }
+
+class EmptyResult[V <: AnyRef] extends QueryResult[V]
+{
+    def lazyInitialize {}
+    protected def materialized_foreach[T](f : (V) => T) {}
+    protected def materialized_size : Int = 0
+    protected def materialized_singletonValue : Option[V] = None
+    protected def materialized_contains(v : V) : Boolean = false
+}
