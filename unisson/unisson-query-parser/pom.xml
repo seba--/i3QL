@@ -9,7 +9,7 @@
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>unisson-query-parser</artifactId>
-    <version>0.3.0</version>
+    <version>${sae.version}</version>
     <packaging>jar</packaging>
 
     <name>unisson-query-parser</name>

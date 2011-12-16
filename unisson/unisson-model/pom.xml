@@ -26,7 +26,6 @@
                     <execution>
                         <goals>
                             <goal>bundle</goal>
-                            <goal>install</goal>
                         </goals>
                     </execution>
                 </executions>
