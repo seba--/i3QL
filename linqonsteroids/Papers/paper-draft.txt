@@ -38,10 +38,12 @@ We propose a deeply-embedded Scala DSEL for expressing queries over in-memory co
 Incremental maintenance of the results of `flatMap` is a novel algorithm.
 
 Our contributions are as follows:
-- index are identified with materialized views representing dictionaries, and can be used explicitly; this simplifies query optimization
-- our embedding supports both Traversable, Set and Map with appropriate types
-- the architecture used to implement IVM on expression trees is novel
-- we are the first to support Incremental View Maintainance for `flatMap` operations
+- index are identified with materialized views representing dictionaries, and can be used explicitly; this simplifies query optimization;
+- embedded queries have precise types, just as the native Scala collections; in particular, our embedding supports both Traversable, Set and Map;
+- the architecture used to implement IVM on expression trees is novel;
+- we support Incremental View Maintainance for `flatMap` operations.
+
+The rest of this paper is organized as follows. Sec. X describes the language we support; Sec. X describe how we embed this language; Sec. X discusses optimizations; Sec. X evaluates our framework by reimplementing queries from FindBugs; Sec. X discusses related work and Sec. X discusses future work and concludes.
 
 # Our query language: first-class indexes considered helpful
 Query languages for relational and OO databases allow to program queries declaratively, and optimizers transform those queries into execution plans for efficient execution.
@@ -53,7 +55,7 @@ Disadvantages are:
 The reason for this is that execution plans contain many low-level details, with which the developer should have nothing to do.
 
 We maintain that as many optimizations as possible should produce a program in the same language, that is, it should be _closed_. To this end, we introduce a query language embedded in Scala based on for-comprehensions, where indexes are first-class entities like tables. Transformation of queries done to benefit from indexing becomes then a closed transformation, which can be done either automatically or manually.
-We do not maintain that *all* optimizations should be accessible to the suer. However, it should be possible to at least perform transformations which change the time complexity of queries.
+We do not maintain that *all* optimizations should be accessible to the user. However, it should be possible to at least perform transformations which change the time complexity of queries.
 That is why in our proposal, indexes are made part of the logical level and become therefore accessible.
 
 Our prototype implementation supports only in-memory collections, but this already allows showing the potential of the language.
@@ -120,7 +122,7 @@ for (i <- coll1;
 - Rename: since it makes less sense as such, it becomes `map` as well.
 - Aggregation: becomes `fold`.
 
-## First-order basic operators from relational algebra
+## Set basic operators from logic and relational algebra
 - Set union: cannot be expressed through other operators
 - Set difference can be expressed in the base language through withFilter and forall (in time O($N^2$)), but also with a specific, direct operator, which can be executed similarly to an anti-join.
 - Set intersection: can be expressed through set difference ($A \intersect B = A - (A - B)$) or through a join.
@@ -213,7 +215,7 @@ Nodes hold onto their observers through weak references and on nodes they depend
 ## Query embeddings
 \textsc{Linq} also represents a deep embedding of queries, even for queries
 An embedding of Scala within itself is Lightweight modular staging and language virtualization.
-Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query (XXX citations), a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding allows expressing  looks more suitable for CoSQL databases.
+Techniques for embedding operations on Scala collections are also used for e.g. Scalaquery and Scala Integrated Query (XXX citations), a Scala DSEL for queries to SQL databases expressed using for comprehensions and additional operators. Their data model however only considers one type of collections, represented by the interface Iterable, because different types are not necessary for queries on SQL databases (relational algebra does not support different ways to group records, only different records). Our language embedding looks more suitable for CoSQL databases and allows expressing XXX.
 
 Ferry is also a functional language for data queries, but it is implemented by translation to SQL; moreover, they do not have a concept of first-class dictionaries or indexes - XXX develop a stronger comparison.
 
@@ -236,7 +238,7 @@ In a relational database, a relation is actually also a dictionary, mapping a va
 \citet{Hammer11} design a semantics for self-adjusting computation for low-level languages. Their work allow supporting a large class of imperative programs; they trace program execution while the initial result is being computed, producing a tree of intermediate results, and can reevaluate this trace when the input is changed. The cost of reevaluation in the worst case is proportional to the height of the computation tree; thus, to support efficient incremental updates, the computation needs to be tree-structured. For instance, updating the result of a linear fold takes linear time if the first element is changed, while a tree-fold takes logarithmic time (as for us). Thus, the example code they present to compute the maximum of a vector implements an in-place destructive tree-fold, which is a non-idiomatic implementation in C; moreover, the programmer needs to control explicitly memoization points to reuse computations. In other words, their library supports incremental maintenance for arbitrary client programs, but does not guarantee efficient performance unless the program is engineered specifically to take advantage of their library.
 Our library, instead, does not support arbitrary input programs, but provides an extensible repository of high-level operations for which we studied incremental maintenance algorithms. The implementor of such operations needs to reason about incremental maintenance, but the user is freed from such responsibility. On the other hand, we provide no support for memoization.
 
-\citet{Demetrescu11} provides a different model. (XXX continue).
+\citet{Demetrescu11} provides a different model; objects can be located in a separate store of reactive memory, and developers specify one-way, dataflow constraints in the form of arbitrary groups of imperative statements, which typically transform input data in reactive memory into output data. Modifications in reactive memory are detected, and affected dataflow constraints are re-executed as needed. This model is more explicit than the one by \citet{Hammer11}, but similarly requires the end developer to explicitly structure reactive computation. \citeauthor{Demetrescu11} do not describe reusable building blocks for incremental computation, but they describe the implementation of the Observer pattern, so we believe that an architecture similar to ours could in principle be implemented on top of their platform.
 
 \citet{Burckhardt11} discuss yet another model. (XXX read).
 
