@@ -427,3 +427,6 @@ Now, the idea we seemed to agree on was that adding scoping to constraint disabl
 
 9 Dec 2011:
 We need to recognize constant functions, so that their results can be incrementally maintained - re-executing the query would create a new instance of it. This should maybe be changed using hash-consing as in TypeChef boolean formulas.
+
+14 Dec 2011:
+One important point for IVM in programs, and for doing that based on the observer pattern, is that it also enables to use notifications for performing external side effects.
