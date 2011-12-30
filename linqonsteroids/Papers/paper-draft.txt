@@ -10,14 +10,15 @@ It is related to projects presented at ECOOP and OOPSLA from students of James N
 A possibility is to publish this work without support for Incremental View Maintenance. A possible introduction would be as follows.
 
 # Introduction
+Typical programs perform repetitive work, and thus contain computations over collections of some form; in particular, they produce new collections from existing ones, they perform in other words _queries_.
 
-Typical programs perform repetitive work, and thus contain computations over collections of some form; in particular, they produce new collections from existing ones, they perform in other words _queries_. Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like `map`, `flatMap`, `withFilter` and `union`, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing `map`, `flatMap` and `withFilter`. We consider these operators to form a DSEL for queries over collection. In our work, we reimplement this DSEL to allow optimization of queries, we implement a few significant ones, and show that they provide a significant speedup with an evaluation on (to be determined). We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
+Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like `map`, `flatMap`, `withFilter` and `union`, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing `map`, `flatMap` and `withFilter`. We consider these operators to form a DSEL for queries over collection. In our work, we reimplement this DSEL to allow optimization of queries, we implement a few significant ones, and show that they provide a significant speedup with an evaluation on (to be determined). We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
 
 
 Another possibility would be to publish this work in a more complete form. The rest of this paper is a draft which follows this idea.
 
 # Introduction
-Many computations in typical programs operate over collections to extract informations from them. Higher-order operators allow formulating many such computations as queries; a collection library provides in other words a DSEL of queries over collections, which we call the query DSEL.
+Many computations in typical programs extract information from collections. Higher-order operators allow formulating many such computations as queries; a collection library provides in other words a DSEL of queries over collections, which we call the query DSEL.
 
 It is often desirable to optimize execution of queries using a variety of approaches. For instance, some queries are often re-executed after changes on the original collections; other queries might be executed faster by maintaining additional data structures, like indexes over the original collections; yet other queries might be executed faster simply by restructuring the query before execution.
 To implement these optimizations, we embed the query DSEL _deeply_, so that our library constructs in-memory representation of queries in form of abstract syntax trees before executing them. These ASTs can then be subject to optimizations before being executed on in-memory collections.
@@ -141,8 +142,18 @@ Tables used in filters, instead, must be materialized to allow self-maintenance;
 `flatMap` is more complex. Results of `flatMap` require instead to store part of the results.
 
 # Expression trees and nodes
-We reify expression as expression trees. Each node has type `Exp[T]` for some `T`, and contains a list of children of type `Exp[S] forSome {type S}`.
-Lambda abstractions have type `Exp[S => T]` and have a single child, their body, of type `Exp[T]`, which is an open term containing also terms of type
+We reify expression as expression trees. Each term of type `T` is represented by a node `n` with type `Exp[T]`; `n.subterms` returns a list of subterms, each of type `Exp[S] forSome {type S}`, but for different `S`. The simplest node is `case class Const[T](t: T) extends Exp[T]`. Note that `Const` nodes have no subterms - they just contain an evaluated expression.
+
+Lambda abstractions have type `Exp[S => T]`. Values of function type (of type `S => T`) can be lifted through `Const`; in addition, we support higher-order abstract syntax (HOAS) and thus embed a term constructor `FuncExp` (classically called `Lam`), of type `(Exp[S] => Exp[T]) => Exp[S => T]`; however, we allow converting these terms to first-order abstract syntax (FOAS) through a standard trick; they have a single subterm, their body, of type `Exp[T]`, which is an open term containing also terms of type `TypedVar[S]`. This
+This conversion is always done for three reasons:
+
+- it removes the interpretative overhead due, e.g., to function composition and so on (see also higher), through _normalization by evaluation_ (XXX add citations). See also "Building blocks for performance oriented DSLs", where they do the same kind of trick to remove overhead from higher-order functions, even though they do not cite normalization by evaluation. [XXX note: it is not appropriate to cite Danvy's paper here, since their normalization by evaluation is not what we need.].
+- it catches early exotic terms, which call interpret() - `interpret()` will be called on open terms and throw an exception when recursing on TypedVar[S] terms.
+- a FOAS representation allows performing optimization on function bodies.
+
+What is not possible efficiently, to the best of our knowledge, is to convert FOAS back to HOAS. Given `e: Exp[T]` containing `v: TypedVar[S]`, the body can be expressed as `(x: Exp[S]) => e.substVar(v, x)`, which contains a substitution at runtime.
+
+Note, moreover, that while the interface of our representation is well-typed and type-safe, its internals are well-typed but not automatically type-safe; in other words, the compiler does not guarantee that our code is safe, because in the implementation we rely on erasure and employ casts. We thus need to prove separately that the implementation is type-safe. However, this is common to most other implementations of expression trees, which rely on an untyped core tree wrapped through a phantom type.
 
 ## Evaluation
 Expression trees representing closed terms might be evaluated by calling on their root node the method `Exp[T].interpret(): T`, which recurses on subnodes and return the result of the expression. 
@@ -247,6 +258,5 @@ Our library, instead, does not support arbitrary input programs, but provides an
 # Future work
 It could be nice to integrate this with some (transparent) support for persistence (orthogonal persistence?), like Hibernate, to get an embedded database library. If a remoting library could then support remote clients, we would then have a complete DBMS. However, numerous research challenges exist for something like this.
 
-\bibliography{/Users/pgiarrusso/Documents/Research/PS-Repo/Paolo/DB}
-
 # References
+\bibliography{/Users/pgiarrusso/Documents/Research/PS-Repo/Paolo/DB}
