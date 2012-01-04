@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.bat.ObjectType
-import de.tud.cs.st.vespucci.interfaces.ISourceCodeElement
+import de.tud.cs.st.vespucci.interfaces.IClassDeclaration
 
 /**
  *
@@ -11,17 +11,24 @@ import de.tud.cs.st.vespucci.interfaces.ISourceCodeElement
  *
  */
 class ClassDeclaration(val element: ObjectType)
-        extends ISourceCodeElement with SourceElement[ObjectType]
+        extends IClassDeclaration with SourceElement[ObjectType]
 {
     def getPackageIdentifier = element.packageName
 
-    def getSimpleClassName = element.simpleName
+    def getTypeQualifier = element.signature
 
-    def getSignature = element.signature
+    def getSimpleClassName = element.simpleName
 
     def getLineNumber = -1
 
     override def hashCode() = element.hashCode()
 
-    override def equals(obj: Any) = element.equals(obj)
+    override def equals(obj: Any) : Boolean = {
+        if( !obj.isInstanceOf[ClassDeclaration] ){
+            return false
+        }
+        element.equals(obj.asInstanceOf[ClassDeclaration].element)
+    }
+
+    override def toString = getTypeQualifier
 }

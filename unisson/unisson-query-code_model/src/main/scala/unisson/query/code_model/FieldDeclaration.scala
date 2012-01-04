@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.ISourceCodeElement
 import sae.bytecode.model.Field
+import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
 
 /**
  *
@@ -11,7 +11,7 @@ import sae.bytecode.model.Field
  *
  */
 class FieldDeclaration(val element: Field)
-        extends ISourceCodeElement with SourceElement[Field]
+        extends IFieldDeclaration with SourceElement[Field]
 {
     def getPackageIdentifier = element.declaringClass.packageName
 
@@ -21,5 +21,16 @@ class FieldDeclaration(val element: Field)
 
     override def hashCode() = element.hashCode()
 
-    override def equals(obj: Any) = element.equals(obj)
+    override def equals(obj: Any) : Boolean = {
+        if( !obj.isInstanceOf[FieldDeclaration] ){
+            return false
+        }
+        element.equals(obj.asInstanceOf[FieldDeclaration].element)
+    }
+
+
+    override def toString = element.declaringClass.signature +
+            element.name +
+            ":" + element.fieldType.signature
+
 }

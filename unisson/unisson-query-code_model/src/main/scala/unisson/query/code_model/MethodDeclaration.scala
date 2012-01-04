@@ -1,8 +1,7 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.{IMethodElement, ISourceCodeElement}
 import sae.bytecode.model.Method
-import collection.JavaConversions
+import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
 
 
 /**
@@ -13,22 +12,39 @@ import collection.JavaConversions
  *
  */
 class MethodDeclaration(val element: Method)
-        extends ISourceCodeElement with IMethodElement with SourceElement[Method]
+        extends IMethodDeclaration with SourceElement[Method]
 {
 
     def getPackageIdentifier = element.declaringRef.packageName
 
     def getSimpleClassName = element.declaringRef.simpleName
 
+    def getReturnTypeQualifier = element.returnType.signature
+
+    lazy val getParameterTypeQualifiers = element.parameters.map(_.signature).toArray
+
     def getLineNumber = -1
 
     def getMethodName = element.name
 
-    def getReturnType = element.returnType.signature
-
-    lazy val getListParamTypes = JavaConversions.seqAsJavaList(element.parameters.map(_.signature))
-
     override def hashCode() = element.hashCode()
 
-    override def equals(obj: Any) = element.equals(obj)
+    override def equals(obj: Any) : Boolean = {
+        if( !obj.isInstanceOf[MethodDeclaration] ){
+            return false
+        }
+        element.equals(obj.asInstanceOf[MethodDeclaration].element)
+    }
+
+    override def toString = element.declaringRef.signature +
+            element.name +
+            "(" + (
+            if (getParameterTypeQualifiers.isEmpty) {
+                ""
+            }
+            else {
+                getParameterTypeQualifiers.reduceLeft(_ + "," + _)
+            }
+            ) + ")" +
+            ":" + element.returnType.signature
 }
