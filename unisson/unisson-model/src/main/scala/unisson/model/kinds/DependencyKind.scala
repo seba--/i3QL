@@ -13,4 +13,6 @@ trait DependencyKind
     def designator: String
 
     def asVespucciString = designator
+
+    override def toString = designator
 }

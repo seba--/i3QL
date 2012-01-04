@@ -1,4 +1,4 @@
-package unisson.model.kinds.parser
+package unisson.model.kinds
 
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.Test

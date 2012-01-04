@@ -1,10 +1,9 @@
-package unisson.model.kinds.resolver
+package unisson.model.kinds
 
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.Test
 import unisson.model.kinds.primitive._
 import unisson.model.kinds.group._
-import unisson.model.kinds.parser.KindParser
 
 
 /**

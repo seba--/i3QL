@@ -1,6 +1,5 @@
-package unisson.model.kinds.resolver
+package unisson.model.kinds
 
-import unisson.model.kinds._
 import unisson.model.kinds.operator._
 import unisson.model.kinds.group._
 
