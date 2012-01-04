@@ -3,13 +3,13 @@
     <parent>
         <artifactId>sae</artifactId>
         <groupId>de.tud.cs.st.opal.sae</groupId>
-        <version>0.3.0</version>
+        <version>0.3.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>unisson</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <packaging>pom</packaging>
 
     <name>unisson</name>
@@ -21,5 +21,6 @@
         <module>unisson-query-parser</module>
         <module>unisson-query-code_model</module>
         <module>unisson-model</module>
+        <module>unisson-utilities</module>
     </modules>
 </project>

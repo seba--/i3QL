@@ -3,13 +3,13 @@
     <parent>
         <artifactId>unisson</artifactId>
         <groupId>de.tud.cs.st.opal.sae</groupId>
-        <version>0.3.0</version>
+        <version>0.3.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>unisson-query-parser</artifactId>
-    <version>${sae.version}</version>
+    <version>0.3.1</version>
     <packaging>jar</packaging>
 
     <name>unisson-query-parser</name>

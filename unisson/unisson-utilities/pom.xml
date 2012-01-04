@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>unisson</artifactId>
-        <groupId>de.tud.cs.st.opal.sae</groupId>
-        <version>0.3.1</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>unisson</artifactId>
+		<groupId>de.tud.cs.st.opal.sae</groupId>
+		<version>0.3.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.tud.cs.st.opal.sae</groupId>
-    <artifactId>unisson-query-code_model</artifactId>
+	<groupId>de.tud.cs.st.opal.sae</groupId>
+	<artifactId>unisson-utilities</artifactId>
     <version>0.3.1</version>
-    <packaging>jar</packaging>
+	<packaging>pom</packaging>
 
-    <name>unisson-query-code_model</name>
-    <url>http://opal-project.org</url>
-    <inceptionYear>2011</inceptionYear>
+	<name>unisson-utilities</name>
+	<url>http://opal-project.org</url>
+	<inceptionYear>2011</inceptionYear>
 
     <build>
         <plugins>
@@ -35,15 +35,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>de.tud.cs.st.vespucci</groupId>
-            <artifactId>analysis-model</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.tud.cs.st.opal.sae</groupId>
-            <artifactId>sae-database-bytecode</artifactId>
-            <version>${sae.version}</version>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
