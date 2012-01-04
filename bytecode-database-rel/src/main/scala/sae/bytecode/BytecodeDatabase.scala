@@ -541,5 +541,20 @@ class BytecodeDatabase extends Database
         f
     }
 
+    def addClassFile (stream: java.io.InputStream)
+    {
+        val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        reader.readClassFile(stream)
+        transformer.processAllFacts()
+    }
+
+    def removeClassFile(stream: java.io.InputStream)
+    {
+        val transformer = classRemover
+        val reader = new BytecodeReader(transformer)
+        reader.readClassFile(stream)
+        transformer.processAllFacts()
+    }
 
 }
