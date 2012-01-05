@@ -6,7 +6,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import sae.LazyView
+import sae.{DefaultLazyView, LazyView}
 
 /**
  * Test the basic functions of the framework with an example database of students and courses.
@@ -811,5 +811,40 @@ class StudentCoursesRAFunSuite
         // students : heather x 1
         // persons_that_are_students : heather x 1
         assert(antisemijoin.size === 0)
+    }
+
+    test("anti semi join push order")
+    {
+
+        val students = new DefaultLazyView[Student]
+        val employee = new DefaultLazyView[Employee]
+
+        val students_not_employees : QueryResult[Student] = (
+                (
+                        students,
+                        (_:Student).Name
+                        ) ⊳ (
+                        (_:Employee).Name,
+                        employee
+                        )
+                )
+
+        assert(students_not_employees.size === 0)
+
+        employee.element_added(Employee("Alice"))
+
+        assert(students_not_employees.size === 0)
+
+        employee.element_added(Employee("Bob"))
+
+        assert(students_not_employees.size === 0)
+
+        students.element_added(Student(1, "Alice"))
+
+        assert(students_not_employees.size === 0)
+
+        students.element_added(Student(2, "Heather"))
+
+        assert(students_not_employees.size === 1)
     }
 }
