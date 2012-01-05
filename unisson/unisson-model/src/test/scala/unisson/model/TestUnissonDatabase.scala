@@ -447,4 +447,108 @@ class TestUnissonDatabase
         result.asList should be(Nil)
 
     }
+
+    @Test
+    def testGlobalIncomingViolation() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
+        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
+        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembles = Set(ensembleA, ensembleB, ensembleC)
+
+        val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
+        val constraints = Set(constraint)
+
+        val global = GlobalArchitectureModel(ensembles)
+        val model = ArchitectureModel(ensembles, constraints, "test")
+
+        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+
+        db.addModel(model)
+        db.addGlobalModel(global)
+
+        val a = ObjectType("test/A")
+        val b = ObjectType("test/B")
+        val c = ObjectType("test/C")
+
+        val fieldRefBToA = Field(b, "fieldInB", a)
+        val fieldRefCToA = Field(c, "fieldInC", a)
+
+        bc.classfiles.element_added(a)
+
+
+        bc.classfiles.element_added(b)
+        bc.classfile_fields.element_added(fieldRefBToA)
+
+        bc.classfiles.element_added(c)
+        bc.classfile_fields.element_added(fieldRefCToA)
+
+        result.asList should be(
+            List(
+                Violation(
+                    constraint,
+                    ensembleC,
+                    ensembleA,
+                    SourceElement(fieldRefCToA),
+                    SourceElement(a),
+                    ""
+                )
+            )
+        )
+
+    }
+
+    @Test
+    def testGlobalIncomingViolationWithoutLocalEnsembleMention() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
+        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
+        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembles = Set(ensembleA, ensembleB, ensembleC)
+
+        val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
+        val constraints = Set(constraint)
+
+        val global = GlobalArchitectureModel(ensembles)
+        val model = ArchitectureModel(Set(ensembleA, ensembleB), constraints, "test")
+
+        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+
+        db.addModel(model)
+        db.addGlobalModel(global)
+
+        val a = ObjectType("test/A")
+        val b = ObjectType("test/B")
+        val c = ObjectType("test/C")
+
+        val fieldRefBToA = Field(b, "fieldInB", a)
+        val fieldRefCToA = Field(c, "fieldInC", a)
+
+        bc.classfiles.element_added(a)
+
+
+        bc.classfiles.element_added(b)
+        bc.classfile_fields.element_added(fieldRefBToA)
+
+        bc.classfiles.element_added(c)
+        bc.classfile_fields.element_added(fieldRefCToA)
+
+        result.asList should be(
+            List(
+                Violation(
+                    constraint,
+                    ensembleC,
+                    ensembleA,
+                    SourceElement(fieldRefCToA),
+                    SourceElement(a),
+                    ""
+                )
+            )
+        )
+
+    }
 }
