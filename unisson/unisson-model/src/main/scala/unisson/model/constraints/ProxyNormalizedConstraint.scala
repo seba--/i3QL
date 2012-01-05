@@ -10,7 +10,7 @@ import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
  * Time: 17:16
  *
  */
-case class ProxyNormalizedConstraint(origin: IConstraint, kind: DependencyKind)
+case class ProxyNormalizedConstraint(origin: IConstraint, kind: DependencyKind, context : String)
         extends NormalizedConstraint
 {
 
@@ -19,4 +19,5 @@ case class ProxyNormalizedConstraint(origin: IConstraint, kind: DependencyKind)
     def source: IEnsemble = origin.getSource
 
     def target: IEnsemble = origin.getTarget
+
 }

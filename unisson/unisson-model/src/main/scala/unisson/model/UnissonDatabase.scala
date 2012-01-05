@@ -13,7 +13,6 @@ import unisson.query.compiler.QueryCompiler
 import de.tud.cs.st.vespucci.interfaces.IViolation
 
 
-
 /**
  *
  * Author: Ralf Mitschke
@@ -24,15 +23,18 @@ import de.tud.cs.st.vespucci.interfaces.IViolation
 class UnissonDatabase(bc: Database)
 {
 
-    val ensembles: MaterializedView[IEnsemble] = new DefaultLazyView[IEnsemble]
-
     val global_ensembles: MaterializedView[IEnsemble] = new DefaultLazyView[IEnsemble]
 
-    val constraints: LazyView[IConstraint] = new DefaultLazyView[IConstraint]
+    val local_ensembles: MaterializedView[(IEnsemble, String)] = new DefaultLazyView[(IEnsemble, String)]
+
+    /**
+     * constraints are always local, there is no global list of constraints
+     */
+    val local_constraints: LazyView[(IConstraint, String)] = new DefaultLazyView[(IConstraint, String)]
 
     // TODO emulation of subquery should be removed
     // todo lazy initialization
-    val ensembleElements: LazyView[(IEnsemble, SourceElement[AnyRef])] = new LazyView[(IEnsemble, SourceElement[AnyRef])]
+    val global_ensemble_elements: LazyView[(IEnsemble, SourceElement[AnyRef])] = new LazyView[(IEnsemble, SourceElement[AnyRef])]
     {
 
         private val queryCompiler = new QueryCompiler(bc)
@@ -85,7 +87,7 @@ class UnissonDatabase(bc: Database)
             }
         }
 
-        class ElementObserver(val ensemble:IEnsemble) extends Observer[SourceElement[AnyRef]]
+        class ElementObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
         {
             def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
                 element_updated((ensemble, oldV), (ensemble, newV))
@@ -101,44 +103,46 @@ class UnissonDatabase(bc: Database)
         }
 
 
-        ensembles.addObserver(ensembleObserver)
+        global_ensembles.addObserver(ensembleObserver)
     }
 
 
-
     // TODO emulation of subquery should be removed
-    val normalizedConstraints = new DefaultLazyView[NormalizedConstraint] {
+    val normalized_constraints = new DefaultLazyView[NormalizedConstraint] {
 
         private val kindParser = new KindParser()
 
-        val observer = new Observer[IConstraint]
+        val observer = new Observer[(IConstraint, String)]
         {
-            def updated(oldV: IConstraint, newV: IConstraint) {
+            def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
                 removed(oldV)
                 added(newV)
             }
 
-            def removed(v: IConstraint) {
+            def removed(v: (IConstraint, String)) {
                 // TODO error handling for kinds
-                val kinds = KindResolver(kindParser.parse(v.getDependencyKind).get)
+                // TODO normalize in and out
+                val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
                 for (kind <- kinds) {
-                    element_removed(ProxyNormalizedConstraint(v, kind))
+                    element_removed(ProxyNormalizedConstraint(v._1, kind, v._2))
                 }
             }
 
-            def added(v: IConstraint) {
+            def added(v: (IConstraint, String)) {
                 // TODO error handling for kinds
-                val kinds = KindResolver(kindParser.parse(v.getDependencyKind).get)
+                // TODO normalize in and out
+                val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
                 for (kind <- kinds) {
-                    element_added(ProxyNormalizedConstraint(v, kind))
+                    element_added(ProxyNormalizedConstraint(v._1, kind, v._2))
                 }
             }
+
         }
 
-        constraints.addObserver(observer)
+        local_constraints.addObserver(observer)
     }
 
-    val kindAsDependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
+    val kind_and_dependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
         Π {
             (ClassCastKind, (_: Dependency[AnyRef, AnyRef]))
         }(bc.class_cast.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
@@ -188,44 +192,19 @@ class UnissonDatabase(bc: Database)
                 }(bc.write_field.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]])
     }
 
-
+    /**
+     * all not_allowed violations
+     */
     val violations_not_allowed: LazyView[IViolation] = {
         val not_allowed = σ {
             (_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed
-        }(normalizedConstraints)
-        val dependencyRelation: LazyView[(Dependency[AnyRef, AnyRef], NormalizedConstraint)] = (
-                (
-                        kindAsDependency,
-                        (_: (DependencyKind, Dependency[AnyRef, AnyRef]))._1
-                        ) ⋈(
-                        (_: NormalizedConstraint).kind,
-                        not_allowed
-                        )
-                ) {
-            (d: (DependencyKind, Dependency[AnyRef, AnyRef]),
-             c: NormalizedConstraint) =>
-                (d._2, c)
-        }
+        }(normalized_constraints)
 
-        val sourceElements = (
-                (
-                        not_allowed,
-                        (_: NormalizedConstraint).source
-                        ) ⋈(
-                        (_: (IEnsemble, SourceElement[AnyRef]))._1,
-                        ensembleElements
-                        )
-                ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+        val sourceElements = sourcesByConstraint(not_allowed)
 
-        val targetElements = (
-                (
-                        not_allowed,
-                        (_: NormalizedConstraint).target
-                        ) ⋈(
-                        (_: (IEnsemble, SourceElement[AnyRef]))._1,
-                        ensembleElements
-                        )
-                ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+        val targetElements = targetsByConstraint(not_allowed)
+
+        val dependencyRelation = dependenciesByConstraintKind(not_allowed)
 
         val violatingDependencies = (
                 (
@@ -244,40 +223,207 @@ class UnissonDatabase(bc: Database)
                         )
                 )
 
-        val violations = Π[(Dependency[AnyRef, AnyRef], NormalizedConstraint), IViolation] {
-            t: (Dependency[AnyRef, AnyRef], NormalizedConstraint) =>
-                new Violation(
-                    t._2.origin,
-                    t._2.source,
-                    t._2.target,
-                    SourceElement(t._1.source),
-                    SourceElement(t._1.target),
-                    ""
-                )
-        }(violatingDependencies)
+        val violations = dependenciesAsViolations(violatingDependencies)
 
         violations
     }
 
-    val violations: LazyView[IViolation] = violations_not_allowed
+    /**
+     * all local incoming violations
+     */
+    val violations_local_incoming: LazyView[IViolation] = {
+        val local_incoming = σ {
+            (_: NormalizedConstraint).constraintType == ConstraintType.Incoming
+        }(normalized_constraints)
+
+        // all dependencies that have the same kind as the constraint
+        val dependencyByKind = dependenciesByConstraintKind(local_incoming)
+
+        // all dependencies that have a target to an ensemble with a local incoming constraint
+        val dependenciesWithTargetToIncoming = (
+                (
+                        global_ensemble_elements,
+                        identity( _:(IEnsemble, SourceElement[AnyRef]) )
+                        ) ⋈(
+                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) => (dep._2.target, SourceElement(dep._1.target)),
+                        dependencyByKind
+                        )
+                ){ (elem:(IEnsemble, SourceElement[AnyRef]), dep:(Dependency[AnyRef, AnyRef], NormalizedConstraint)) => dep }
+
+
+        // all local ensembles joined by their contexts to the incoming constraints
+        val ensemblesWithConstraints = (
+                (
+                        local_ensembles,
+                        (_: (IEnsemble, String))._2
+                        ) ⋈(
+                        (_: NormalizedConstraint).context,
+                        local_incoming
+                        )
+                ){ (e:(IEnsemble, String), c:NormalizedConstraint) => (e._1, e._2, c) }
+
+        // filter obviously allowed combinations
+        val filteredEnsemblesWithConstraints = σ{ (e:(IEnsemble, String, NormalizedConstraint)) => (e._1 != e._3.target && e._3.source != e._1)}(ensemblesWithConstraints)
+
+        // all disallowed combinations taking all constraints to an ensemble into account
+        val disallowedEnsemblesPerConstraint = (
+                (
+                        filteredEnsemblesWithConstraints,
+                        (e:(IEnsemble, String, NormalizedConstraint)) => (e._1, e._2)
+                        ) ⊳ (
+                        (c: NormalizedConstraint) => (c.source, c.context),
+                        local_incoming
+                        )
+
+                )
+        // all source elements that may not use the target
+        val disallowedSources = (
+                (
+                        disallowedEnsemblesPerConstraint,
+                        (disallowed:(IEnsemble, String, NormalizedConstraint)) => (disallowed._1, disallowed._2)
+                        ) ⋈(
+                        (elem: (IEnsemble, String, SourceElement[AnyRef])) => (elem._1, elem._2),
+                        local_ensemble_elements
+                        )
+                ){
+            (disallowed:(IEnsemble, String, NormalizedConstraint), elem: (IEnsemble, String, SourceElement[AnyRef])) =>
+                (disallowed._1, disallowed._2, elem._3)
+        }
+
+        // every dependency that has a target to a local incoming constraint and does not have one of the
+        val violations = (
+                (
+                        dependenciesWithTargetToIncoming,
+                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) => (entry._2.context, entry._1.source)
+                        ) ⋈ (
+                        (entry:(IEnsemble, String, SourceElement[AnyRef])) => (entry._2, entry._3.element),
+                        disallowedSources
+                        )
+
+                ){
+            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint), e:(IEnsemble, String, SourceElement[AnyRef])) =>
+            new Violation(
+                v._2.origin,
+                e._1,
+                v._2.target,
+                e._3,
+                SourceElement(v._1.target),
+                ""
+            ).asInstanceOf[IViolation]
+        }
+
+        violations
+
+    }
+
+    /*
+    val violations_global_incoming: LazyView[IViolation] = {
+
+    }
+    */
+
+    val violations: LazyView[IViolation] = violations_not_allowed ∪ violations_local_incoming
+
+    /**
+     * all source elements that match the source ensembles in a given view of constraints
+     */
+    def sourcesByConstraint(constraints: LazyView[NormalizedConstraint]) = (
+            (
+                    constraints,
+                    (_: NormalizedConstraint).source
+                    ) ⋈(
+                    (_: (IEnsemble, SourceElement[AnyRef]))._1,
+                    global_ensemble_elements
+                    )
+            ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+
+    /**
+     *
+
+    def localSourcesByConstraint(constraints: LazyView[NormalizedConstraint]) = (
+            (
+                    constraints,
+                    (c: NormalizedConstraint) => (c.source, c.context)
+                    ) ⋈(
+                    (entry: (IEnsemble, String, SourceElement[AnyRef])) => (entry._1, entry._2),
+                    local_ensemble_elements
+                    )
+            ) {(con: NormalizedConstraint, e: (IEnsemble, String, SourceElement[AnyRef])) => e}
+
+
+    val local_ensemble_elements = (
+            (
+                    global_ensemble_elements,
+                    (_: (IEnsemble, SourceElement[AnyRef]))._1
+                    ) ⋈(
+                    (_: (IEnsemble, String))._1,
+                    local_ensembles
+                    )
+            ){(elem:(IEnsemble, SourceElement[AnyRef]), ctx:(IEnsemble, String)) => (elem._1, ctx._2, elem._2)}
+     */
+
+    /**
+     * all source elements that match the target ensembles in a given view of constraints
+     */
+    def targetsByConstraint(constraints: LazyView[NormalizedConstraint]) = (
+            (
+                    constraints,
+                    (_: NormalizedConstraint).target
+                    ) ⋈(
+                    (_: (IEnsemble, SourceElement[AnyRef]))._1,
+                    global_ensemble_elements
+                    )
+            ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+
+    /**
+     * all dependencies that conform to the given constraints' kinds
+     */
+    def dependenciesByConstraintKind(constraints: LazyView[NormalizedConstraint]): LazyView[(Dependency[AnyRef, AnyRef], NormalizedConstraint)] = (
+            (
+                    kind_and_dependency,
+                    (_: (DependencyKind, Dependency[AnyRef, AnyRef]))._1
+                    ) ⋈(
+                    (_: NormalizedConstraint).kind,
+                    constraints
+                    )
+            ) {
+        (d: (DependencyKind, Dependency[AnyRef, AnyRef]),
+         c: NormalizedConstraint) =>
+            (d._2, c)
+    }
+
+    /**
+     * convert dependencies to Violation objects
+     */
+    def dependenciesAsViolations(violatingDependencies: LazyView[(Dependency[AnyRef, AnyRef], NormalizedConstraint)]) = Π[(Dependency[AnyRef, AnyRef], NormalizedConstraint), IViolation] {
+        t: (Dependency[AnyRef, AnyRef], NormalizedConstraint) =>
+            new Violation(
+                t._2.origin,
+                t._2.source,
+                t._2.target,
+                SourceElement(t._1.source),
+                SourceElement(t._1.target),
+                ""
+            )
+    }(violatingDependencies)
 
     def addModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            ensembles.element_added(ensemble)
+            local_ensembles.element_added((ensemble, model.getName))
         }
-        for (contraint <- model.getConstraints) {
-            constraints.element_added(contraint)
+        for (constraint <- model.getConstraints) {
+            local_constraints.element_added((constraint, model.getName))
         }
     }
 
     def removeModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            ensembles.element_removed(ensemble)
+            local_ensembles.element_removed((ensemble, model.getName))
         }
-        for (contraint <- model.getConstraints) {
-            constraints.element_removed(contraint)
+        for (constraint <- model.getConstraints) {
+            local_constraints.element_removed((constraint, model.getName))
         }
     }
 

@@ -24,4 +24,6 @@ trait NormalizedConstraint
 
     def target: IEnsemble
 
+    def context : String
+
 }
