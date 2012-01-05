@@ -280,14 +280,14 @@ class UnissonDatabase(bc: Database)
         val disallowedSources = (
                 (
                         disallowedEnsemblesPerConstraint,
-                        (disallowed:(IEnsemble, String, NormalizedConstraint)) => (disallowed._1, disallowed._2)
+                        (disallowed:(IEnsemble, String, NormalizedConstraint)) => disallowed._1
                         ) ⋈(
-                        (elem: (IEnsemble, String, SourceElement[AnyRef])) => (elem._1, elem._2),
-                        local_ensemble_elements
+                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
+                        global_ensemble_elements
                         )
                 ){
-            (disallowed:(IEnsemble, String, NormalizedConstraint), elem: (IEnsemble, String, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, elem._3)
+            (disallowed:(IEnsemble, String, NormalizedConstraint), elem: (IEnsemble, SourceElement[AnyRef])) =>
+                (disallowed._1, disallowed._2, elem._2)
         }
 
         // every dependency that has a target to a local incoming constraint and does not have one of the
@@ -315,13 +315,66 @@ class UnissonDatabase(bc: Database)
         violations
 
     }
-
     /*
     val violations_global_incoming: LazyView[IViolation] = {
+        val global_incoming = σ {
+            (_: NormalizedConstraint).constraintType == ConstraintType.GlobalIncoming
+        }(normalized_constraints)
 
+        // all dependencies that have the same kind as the constraint
+        val dependencyByKind = dependenciesByConstraintKind(global_incoming)
+
+        // all dependencies that have a target to an ensemble with a local incoming constraint
+        val dependenciesWithTargetToIncoming = (
+                (
+                        global_ensemble_elements,
+                        identity( _:(IEnsemble, SourceElement[AnyRef]) )
+                        ) ⋈(
+                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) => (dep._2.target, SourceElement(dep._1.target)),
+                        dependencyByKind
+                        )
+                ){ (elem:(IEnsemble, SourceElement[AnyRef]), dep:(Dependency[AnyRef, AnyRef], NormalizedConstraint)) => dep }
+
+
+        // all source elements that may not use the target
+        val disallowedSources = (
+                (
+                        disallowedEnsemblesPerConstraint,
+                        (disallowed:(IEnsemble, String, NormalizedConstraint)) => (disallowed._1, disallowed._2)
+                        ) ⋈(
+                        (elem: (IEnsemble, String, SourceElement[AnyRef])) => (elem._1, elem._2),
+                        local_ensemble_elements
+                        )
+                ){
+            (disallowed:(IEnsemble, String, NormalizedConstraint), elem: (IEnsemble, String, SourceElement[AnyRef])) =>
+                (disallowed._1, disallowed._2, elem._3)
+        }
+
+        // every dependency that has a target to a local incoming constraint and does not have one of the
+        val violations = (
+                (
+                        dependenciesWithTargetToIncoming,
+                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) => (entry._2.context, entry._1.source)
+                        ) ⋈ (
+                        (entry:(IEnsemble, String, SourceElement[AnyRef])) => (entry._2, entry._3.element),
+                        disallowedSources
+                        )
+
+                ){
+            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint), e:(IEnsemble, String, SourceElement[AnyRef])) =>
+                new Violation(
+                    v._2.origin,
+                    e._1,
+                    v._2.target,
+                    e._3,
+                    SourceElement(v._1.target),
+                    ""
+                ).asInstanceOf[IViolation]
+        }
+
+        violations
     }
-    */
-
+*/
     val violations: LazyView[IViolation] = violations_not_allowed ∪ violations_local_incoming
 
     /**
