@@ -1417,7 +1417,7 @@ class TestUnissonDatabase
         val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
-        val constraint = OutgoingConstraint("field_type", ensembleB, ensembleA)
+        val constraint = OutgoingConstraint("field_type", ensembleA, ensembleB)
         val constraints = Set(
             constraint
         )
@@ -1518,9 +1518,9 @@ class TestUnissonDatabase
                 Violation(
                     constraintAToC,
                     ensembleA,
-                    ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    ensembleB,
+                    SourceElement(fieldRefAToB),
+                    SourceElement(b),
                     ""
                 ),
                 Violation(
@@ -1584,16 +1584,8 @@ class TestUnissonDatabase
             List(
                 Violation(
                     constraintAToB,
-                    ensembleE,
                     ensembleA,
-                    SourceElement(fieldRefAToE),
-                    SourceElement(e),
-                    ""
-                ),
-                Violation(
-                    constraintAToB,
                     ensembleD,
-                    ensembleA,
                     SourceElement(fieldRefAToD),
                     SourceElement(d),
                     ""
@@ -1604,6 +1596,14 @@ class TestUnissonDatabase
                     ensembleD,
                     SourceElement(fieldRefAToD),
                     SourceElement(d),
+                    ""
+                ),
+                Violation(
+                    constraintAToB,
+                    ensembleA,
+                    ensembleE,
+                    SourceElement(fieldRefAToE),
+                    SourceElement(e),
                     ""
                 )
             )

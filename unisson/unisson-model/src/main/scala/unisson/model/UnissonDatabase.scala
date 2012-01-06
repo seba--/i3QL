@@ -559,7 +559,97 @@ class UnissonDatabase(bc: Database)
     }
 
     val violations_global_outgoing: LazyView[IViolation] = {
-        new DefaultLazyView[IViolation]
+        // all dependencies that have the same kind as the constraint
+        val dependencyByKind = dependenciesByConstraintKind(global_outgoing)
+
+        // all dependencies that have a source from an ensemble with a local outgoing constraint
+        val dependenciesWithSourceFromOutgoing = (
+                (
+                        global_ensemble_elements,
+                        identity(_: (IEnsemble, SourceElement[AnyRef]))
+                        ) ⋈(
+                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                            (dep._2.source, SourceElement(dep._1.source)),
+                        dependencyByKind
+                        )
+                ) {(elem: (IEnsemble, SourceElement[AnyRef]),
+                    dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+            dep
+        }
+
+
+        // all source target combinations that have to do with an ensemble where a constraint is declared
+        val source_target_combinations = (
+                (
+                        global_ensembles × contexts,
+                        (_: (IEnsemble, String))._2
+                        ) ⋈(
+                        (_: NormalizedConstraint).context,
+                        global_outgoing
+                        )
+                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)}
+
+        // filter obviously allowed combinations
+        // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
+        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, IEnsemble, String)) =>
+            (e._1 != e._2)
+        }(source_target_combinations)
+
+        /**
+         * all disallowed combinations taking all constraints to an ensemble into account
+         * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
+         * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
+         */
+        val disallowedEnsemblesPerConstraint = (
+                (
+                        filteredEnsemblesWithConstraints,
+                        identity(_: (IEnsemble, IEnsemble, String))
+                        ) ⊳(
+                        (c: NormalizedConstraint) => (c.source, c.target, c.context),
+                        local_outgoing ∪ global_outgoing
+                        )
+
+                )
+
+        // all target elements that may not be used by the source
+        val disallowedTargets = (
+                (
+                        disallowedEnsemblesPerConstraint,
+                        (disallowed: (IEnsemble, IEnsemble, String)) => disallowed._2
+                        ) ⋈(
+                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
+                        global_ensemble_elements
+                        )
+                ) {
+            (disallowed: (IEnsemble, IEnsemble, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
+                (disallowed._1, disallowed._2, disallowed._3, elem._2)
+        }
+
+        // every dependency from the source that uses a disallowed target
+        val violations = (
+                (
+                        dependenciesWithSourceFromOutgoing,
+                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                            (entry._2.source, entry._1.target, entry._2.context)
+                        ) ⋈(
+                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                            (entry._1, entry._4.element, entry._3),
+                        disallowedTargets
+                        )
+
+                ) {(v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
+                    e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+            new Violation(
+                v._2.origin,
+                e._1,
+                e._2,
+                SourceElement(v._1.source),
+                e._4,
+                ""
+            ).asInstanceOf[IViolation]
+        }
+
+        violations
     }
 
     val violations_expected: LazyView[IViolation] = {
