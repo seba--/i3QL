@@ -1,11 +1,11 @@
 package unisson.model
 
+import constraints.{NormalizedConstraintWithType, ConstraintType, ProxyNormalizedConstraint, NormalizedConstraint}
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
 import unisson.model.kinds.{KindParser, KindResolver, DependencyKind}
 import unisson.query.code_model.SourceElement
 import sae.{Observer, DefaultLazyView, MaterializedView, LazyView}
 import sae.syntax.RelationalAlgebraSyntax._
-import unisson.model.constraints.{ConstraintType, ProxyNormalizedConstraint, NormalizedConstraint}
 import sae.bytecode.model.dependencies.Dependency
 import unisson.model.kinds.primitive._
 import sae.bytecode.Database
@@ -125,19 +125,37 @@ class UnissonDatabase(bc: Database)
 
             def removed(v: (IConstraint, String)) {
                 // TODO error handling for kinds
-                // TODO normalize in and out
                 val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                for (kind <- kinds) {
-                    element_removed(ProxyNormalizedConstraint(v._1, kind, v._2))
+                if( ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing )
+                {
+                    for (kind <- kinds) {
+                        element_removed(ProxyNormalizedConstraint(v._1, kind, v._2))
+                    }
+                }
+                else
+                {
+                    for (kind <- kinds) {
+                        element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
+                        element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
+                    }
                 }
             }
 
             def added(v: (IConstraint, String)) {
                 // TODO error handling for kinds
-                // TODO normalize in and out
                 val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                for (kind <- kinds) {
-                    element_added(ProxyNormalizedConstraint(v._1, kind, v._2))
+                if( ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing )
+                {
+                    for (kind <- kinds) {
+                        element_added(ProxyNormalizedConstraint(v._1, kind, v._2))
+                    }
+                }
+                else
+                {
+                    for (kind <- kinds) {
+                        element_added(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
+                        element_added(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
+                    }
                 }
             }
 
@@ -203,6 +221,14 @@ class UnissonDatabase(bc: Database)
 
     val global_incoming = σ {
         (_: NormalizedConstraint).constraintType == ConstraintType.GlobalIncoming
+    }(normalized_constraints)
+
+    val local_outgoing = σ {
+        (_: NormalizedConstraint).constraintType == ConstraintType.Outgoing
+    }(normalized_constraints)
+
+    val global_outgoing = σ {
+        (_: NormalizedConstraint).constraintType == ConstraintType.GlobalOutgoing
     }(normalized_constraints)
 
     val not_allowed = σ {
@@ -437,10 +463,6 @@ class UnissonDatabase(bc: Database)
     }
 
     val violations_local_outgoing: LazyView[IViolation] = {
-        val local_outgoing = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.Outgoing
-        }(normalized_constraints)
-
         // all dependencies that have the same kind as the constraint
         val dependencyByKind = dependenciesByConstraintKind(local_outgoing)
 
