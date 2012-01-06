@@ -112,6 +112,7 @@ class UnissonDatabase(bc: Database)
 
 
     // TODO emulation of subquery should be removed
+    // TODO normalize constraints to sub-ensembles
     val normalized_constraints = new DefaultLazyView[NormalizedConstraint] {
 
         private val kindParser = new KindParser()
@@ -126,14 +127,12 @@ class UnissonDatabase(bc: Database)
             def removed(v: (IConstraint, String)) {
                 // TODO error handling for kinds
                 val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                if( ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing )
-                {
+                if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
                     for (kind <- kinds) {
                         element_removed(ProxyNormalizedConstraint(v._1, kind, v._2))
                     }
                 }
-                else
-                {
+                else {
                     for (kind <- kinds) {
                         element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
                         element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
@@ -144,14 +143,12 @@ class UnissonDatabase(bc: Database)
             def added(v: (IConstraint, String)) {
                 // TODO error handling for kinds
                 val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                if( ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing )
-                {
+                if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
                     for (kind <- kinds) {
                         element_added(ProxyNormalizedConstraint(v._1, kind, v._2))
                     }
                 }
-                else
-                {
+                else {
                     for (kind <- kinds) {
                         element_added(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
                         element_added(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
@@ -310,8 +307,11 @@ class UnissonDatabase(bc: Database)
             (e._1 != e._3.target && e._3.source != e._1)
         }(ensemblesWithConstraints)
 
-        // all disallowed combinations taking all constraints to an ensemble into account
-        // i.e. for all incoming(X,Y,ctx) && Z where X,Y,Z in Ensembles(ctx), if !exists incoming(Z,Y, ctx) => Z is disallowed to use Y
+        /**
+         * all disallowed combinations taking all constraints to an ensemble into account
+         * for all (Z,Y) where Z,Y in Ensembles and Incoming(_,Y, ctx) ;
+         * if !exists (Z,Y) with Incoming(Z,Y, ctx) or GlobalIncoming(Z,Y, ctx) then Z may not use Y
+         */
         val disallowedEnsemblesPerConstraint = (
                 (
                         filteredEnsemblesWithConstraints,
@@ -344,8 +344,9 @@ class UnissonDatabase(bc: Database)
                         (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
                             (entry._1.source, entry._2.target, entry._2.context)
                         ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) => (entry._4.element, entry
-                                ._2, entry._3),
+                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                            (entry._4.element, entry
+                                    ._2, entry._3),
                         disallowedSources
                         )
 
@@ -408,7 +409,7 @@ class UnissonDatabase(bc: Database)
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
          * for all (Z,Y) where Z,Y in Ensembles and GlobalIncoming(_,Y, ctx) ;
-         * if !exists (Z,Y) with GlobalIncoming(Z,Y, ctx) then Z may not use Y
+         * if !exists (Z,Y) with GlobalIncoming(Z,Y, ctx) or LocalIncoming(Z,Y, ctx) then Z may not use Y
          */
         val disallowedEnsemblesPerConstraint = (
                 (
@@ -441,8 +442,9 @@ class UnissonDatabase(bc: Database)
                         (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
                             (entry._1.source, entry._2.target, entry._2.context)
                         ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) => (entry._4.element, entry
-                                ._2, entry._3),
+                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                            (entry._4.element, entry
+                                    ._2, entry._3),
                         disallowedSources
                         )
 
@@ -482,8 +484,8 @@ class UnissonDatabase(bc: Database)
         }
 
 
-        // all local ensembles joined by their contexts to the outgoing constraints
-        val ensemblesWithConstraints = (
+        // all source target combinations that have to do with an ensemble where a constraint is declared
+        val source_target_combinations = (
                 (
                         local_ensembles,
                         (_: (IEnsemble, String))._2
@@ -491,92 +493,66 @@ class UnissonDatabase(bc: Database)
                         (_: NormalizedConstraint).context,
                         local_outgoing
                         )
-                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, e._2, c)}
+                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)}
 
         // filter obviously allowed combinations
-        // Allowed are all (A, Outgoing(A, _) and (A, Outgoing(_, A)
-        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, String, NormalizedConstraint)) =>
-            (e._1 != e._3.source && e._1 != e._3.target)
-        }(ensemblesWithConstraints)
+        // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
+        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, IEnsemble, String)) =>
+            (e._1 != e._2)
+        }(source_target_combinations)
 
-        // all disallowed combinations taking all constraints to an ensemble into account
-        // i.e. for all outgoing(X,Y,ctx) && Z where X,Y,Z in Ensembles(ctx), if !exists outgoing(X,Z, ctx) => X is disallowed to use Z
+        /**
+         * all disallowed combinations taking all constraints to an ensemble into account
+         * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
+         * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
+         */
         val disallowedEnsemblesPerConstraint = (
                 (
                         filteredEnsemblesWithConstraints,
-                        (e: (IEnsemble, String, NormalizedConstraint)) => (e._3.source, e._1, e._2)
+                        identity(_: (IEnsemble, IEnsemble, String))
                         ) ⊳(
                         (c: NormalizedConstraint) => (c.source, c.target, c.context),
-                        local_outgoing
+                        local_outgoing ∪ global_outgoing
                         )
 
                 )
 
-        disallowedEnsemblesPerConstraint.addObserver(new Observer[(IEnsemble, String, NormalizedConstraint)] {
-            def updated(oldV: (IEnsemble, String, NormalizedConstraint),
-                        newV: (IEnsemble, String, NormalizedConstraint)) {
-
-            }
-
-            def removed(v: (IEnsemble, String, NormalizedConstraint)) {
-                println("-" + v)
-            }
-
-            def added(v: (IEnsemble, String, NormalizedConstraint)) {
-                println("+" + v)
-            }
-        })
-
-        // all source elements that may not use be used by the source
+        // all target elements that may not be used by the source
         val disallowedTargets = (
                 (
                         disallowedEnsemblesPerConstraint,
-                        (disallowed: (IEnsemble, String, NormalizedConstraint)) => disallowed._1
+                        (disallowed: (IEnsemble, IEnsemble, String)) => disallowed._2
                         ) ⋈(
                         (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
                         global_ensemble_elements
                         )
                 ) {
-            (disallowed: (IEnsemble, String, NormalizedConstraint), elem: (IEnsemble, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, elem._2)
+            (disallowed: (IEnsemble, IEnsemble, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
+                (disallowed._1, disallowed._2, disallowed._3, elem._2)
         }
 
-        disallowedTargets.addObserver(new Observer[(IEnsemble, String, SourceElement[AnyRef])] {
-            def updated(oldV: (IEnsemble, String, SourceElement[AnyRef]),
-                        newV: (IEnsemble, String, SourceElement[AnyRef])) {
-
-            }
-
-            def removed(v: (IEnsemble, String, SourceElement[AnyRef])) {
-                println("-" + v)
-            }
-
-            def added(v: (IEnsemble, String, SourceElement[AnyRef])) {
-                println("+" + v)
-            }
-        })
-
-        // every dependency that has a target to a local outgoing constraint and is not allowed to use it
+        // every dependency from the source that uses a disallowed target
         val violations = (
                 (
                         dependenciesWithSourceFromOutgoing,
                         (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (entry._2.context, entry._1.target)
+                            (entry._2.source, entry._1.target, entry._2.context)
                         ) ⋈(
-                        (entry: (IEnsemble, String, SourceElement[AnyRef])) => (entry._2, entry._3.element),
+                        (entry: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                            (entry._1, entry._4.element, entry._3),
                         disallowedTargets
                         )
 
-                ) {
-            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint), e: (IEnsemble, String, SourceElement[AnyRef])) =>
-                new Violation(
-                    v._2.origin,
-                    v._2.source,
-                    e._1,
-                    SourceElement(v._1.source),
-                    e._3,
-                    ""
-                ).asInstanceOf[IViolation]
+                ) {(v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
+                    e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+            new Violation(
+                v._2.origin,
+                e._1,
+                e._2,
+                SourceElement(v._1.source),
+                e._4,
+                ""
+            ).asInstanceOf[IViolation]
         }
 
         violations
