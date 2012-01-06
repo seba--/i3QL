@@ -23,5 +23,5 @@ case class GlobalIncomingConstraint(kind: String, source: Ensemble, target: Ense
 
     def getTarget = target
 
-    override def toString = "Constraint(" + source.getName + ", " + target.getName + ")"
+    override def toString = "GlobalIncomingConstraint(" + source.getName + ", " + target.getName + ")"
 }

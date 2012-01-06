@@ -23,5 +23,5 @@ case class NotAllowedConstraint(kind : String, source:Ensemble, target: Ensemble
 
     def getTarget = target
 
-    override def toString = "Constraint(" + source.getName + ", " + target.getName + ")"
+    override def toString = "NotAllowedConstraint(" + source.getName + ", " + target.getName + ")"
 }

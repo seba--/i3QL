@@ -1,6 +1,6 @@
 package unisson.model.mock.vespucci
 
-import de.tud.cs.st.vespucci.model.IIncoming
+import de.tud.cs.st.vespucci.model.IDocumentedViolation
 
 
 /**
@@ -10,8 +10,8 @@ import de.tud.cs.st.vespucci.model.IIncoming
  * Time: 16:26
  *
  */
-case class IncomingConstraint(kind: String, source: Ensemble, target: Ensemble)
-        extends IIncoming
+case class DocumentedViolation(kind: String, source: Ensemble, target: Ensemble)
+        extends IDocumentedViolation
 {
     source.sourceConnections += this
 
@@ -23,5 +23,5 @@ case class IncomingConstraint(kind: String, source: Ensemble, target: Ensemble)
 
     def getTarget = target
 
-    override def toString = "IncomingConstraint(" + source.getName + ", " + target.getName + ")"
+    override def toString = "DocumentedViolation(" + source.getName + ", " + target.getName + ")"
 }
