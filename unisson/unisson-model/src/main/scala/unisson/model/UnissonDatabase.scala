@@ -38,7 +38,7 @@ class UnissonDatabase(bc: Database)
 
     // TODO emulation of subquery should be removed
     // todo lazy initialization
-    val global_ensemble_elements: LazyView[(IEnsemble, SourceElement[AnyRef])] = new LazyView[(IEnsemble, SourceElement[AnyRef])]
+    lazy val global_ensemble_elements: LazyView[(IEnsemble, SourceElement[AnyRef])] = new LazyView[(IEnsemble, SourceElement[AnyRef])]
     {
 
         private val queryCompiler = new QueryCompiler(bc)
@@ -657,7 +657,7 @@ class UnissonDatabase(bc: Database)
     }
 
 
-    val violations: LazyView[IViolation] =
+    lazy val violations: LazyView[IViolation] =
         violations_not_allowed ∪
                 violations_local_incoming ∪
                 violations_global_incoming ∪
@@ -743,6 +743,12 @@ class UnissonDatabase(bc: Database)
         }
     }
 
+    def updateModel(oldModel: IArchitectureModel, newModel : IArchitectureModel) {
+        import scala.collection.JavaConversions.collectionAsScalaIterable
+        removeModel(oldModel)
+        addModel(newModel)
+    }
+
     // TODO should be part of the model?
     def addGlobalModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
@@ -757,5 +763,12 @@ class UnissonDatabase(bc: Database)
             global_ensembles.element_removed(ensemble)
         }
     }
+
+    def updateGlobalModel(oldModel: IArchitectureModel, newModel : IArchitectureModel) {
+        import scala.collection.JavaConversions.collectionAsScalaIterable
+        removeGlobalModel(oldModel)
+        addGlobalModel(newModel)
+    }
+
 
 }
