@@ -30,6 +30,16 @@ class BagResult[V <: AnyRef](
 
     relation addObserver this
 
+    override protected def children = List(relation)
+
+    override protected def childObservers(o:Observable[_]) =
+    {
+        if( o == relation){
+            List(this)
+        }
+        Nil
+    }
+
     def lazyInitialize
     {
         relation.lazy_foreach(
@@ -78,6 +88,16 @@ class MaterializedViewProxyResult[V <: AnyRef](
 {
 
     relation.addObserver(this)
+
+    override protected def children = List(relation)
+
+    override protected def childObservers(o:Observable[_]) =
+    {
+        if( o == relation){
+            List(this)
+        }
+        Nil
+    }
 
     def lazyInitialize
     {

@@ -25,9 +25,9 @@ trait Index[K <: AnyRef, V <: AnyRef]
            with SelfMaintainedView[V, (K, V)]
 {
 
-    val relation : MaterializedView[V]
+    def relation : MaterializedView[V]
 
-    val keyFunction : V => K
+    def keyFunction : V => K
 
     /**
      * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.

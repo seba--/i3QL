@@ -15,7 +15,7 @@ import sae._
  *
  */
 trait Difference[Domain <: AnyRef]
-    extends LazyView[Domain]
+        extends LazyView[Domain]
 {
     type Dom = Domain
 
@@ -34,17 +34,29 @@ trait Difference[Domain <: AnyRef]
  * The size is cached internally to avoid recomputations
  */
 class BagDifference[Domain <: AnyRef]
-    (
-    val left: IndexedView[Domain],
-    val right: IndexedView[Domain]
-)
+(
+        val left: IndexedView[Domain],
+        val right: IndexedView[Domain]
+        )
         extends Difference[Domain]
-                with MaterializedView[Domain]
-                with SelfMaintainedView[Domain, Domain]
+        with MaterializedView[Domain]
+        with SelfMaintainedView[Domain, Domain]
 {
     left addObserver this
 
     right addObserver RightObserver
+
+    override protected def children = List(left, right)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left) {
+            return List(this, leftIndex)
+        }
+        if (o == right) {
+            return List(RightObserver, rightIndex)
+        }
+        Nil
+    }
 
     private val leftIndex = left.index(identity)
 
@@ -52,8 +64,7 @@ class BagDifference[Domain <: AnyRef]
 
     private var cached_size = 0
 
-    def lazyInitialize
-    {
+    def lazyInitialize {
         left.foreach(element =>
             if (!rightIndex.isDefinedAt(element))
                 cached_size += 1
@@ -61,10 +72,9 @@ class BagDifference[Domain <: AnyRef]
         initialized = true
     }
 
-    def materialized_foreach[T](f: (Domain) => T)
-    {
+    def materialized_foreach[T](f: (Domain) => T) {
         left.foreach(element =>
-            if ( !rightIndex.isDefinedAt(element) )
+            if (!rightIndex.isDefinedAt(element))
                 f(element)
         )
     }
@@ -85,43 +95,35 @@ class BagDifference[Domain <: AnyRef]
 
     protected def materialized_contains(v: Domain) = left.contains(v) && !right.contains(v)
 
-    def added_internal(v: Domain)
-    {
+    def added_internal(v: Domain) {
         // check that this was an addition where we did not have less elements than right side
-        if ( leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v) )
-        {
+        if (leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) {
             element_added(v)
             cached_size += 1
         }
     }
 
-    def removed_internal(v: Domain)
-    {
+    def removed_internal(v: Domain) {
         // check that this was a removal where we still had more elements than right side
-        if ( leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)  )
-        {
+        if (leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) {
             element_removed(v)
             cached_size -= 1
         }
     }
 
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
+    def updated_internal(oldV: Domain, newV: Domain) {
         val oldDef = rightIndex.isDefinedAt(oldV)
         val newDef = rightIndex.isDefinedAt(newV)
-        if (!oldDef && !newDef)
-        {
+        if (!oldDef && !newDef) {
             element_updated(oldV, newV)
             return
         }
-        if (!oldDef)
-        {
+        if (!oldDef) {
             element_removed(oldV)
             cached_size -= 1
         }
 
-        if (!newDef)
-        {
+        if (!newDef) {
             element_added(newV)
             cached_size += 1
         }
@@ -131,19 +133,16 @@ class BagDifference[Domain <: AnyRef]
     object RightObserver extends Observer[Domain]
     {
         // update operations on right relation
-        def updated(oldV: Domain, newV: Domain)
-        {
+        def updated(oldV: Domain, newV: Domain) {
             val oldDef = leftIndex.isDefinedAt(oldV)
             val newDef = leftIndex.isDefinedAt(newV)
-            if (!oldDef && newDef)
-            {
+            if (!oldDef && newDef) {
                 // the element was not in A but will be in A and in B thus it is not be in the difference
                 element_removed(newV)
                 cached_size -= 1
             }
 
-            if (oldDef && !newDef)
-            {
+            if (oldDef && !newDef) {
                 // the element was in A but oldV will not be in B anymore thus the oldV is added to the difference
                 element_added(oldV)
                 cached_size += 1
@@ -151,22 +150,18 @@ class BagDifference[Domain <: AnyRef]
             initialized = true
         }
 
-        def removed(v: Domain)
-        {
+        def removed(v: Domain) {
             // check that this was the last removal of an element not in left side
-            if( leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v) )
-            {
+            if (leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) {
                 element_added(v)
                 cached_size += 1
             }
             initialized = true
         }
 
-        def added(v: Domain)
-        {
+        def added(v: Domain) {
             // check that this was an addition where we have more or equal amount of elements compared to left side
-            if( leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v) )
-            {
+            if (leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) {
                 element_removed(v)
                 cached_size -= 1
             }

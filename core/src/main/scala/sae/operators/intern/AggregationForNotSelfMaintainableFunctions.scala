@@ -29,147 +29,159 @@ import scala.collection.mutable.Map
 
 
 class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef]
-          (val source: LazyView[Domain],
-           val groupingFunction: Domain => Key,
-           val aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
-          val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
-  extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]]
-  with Observer[Domain] with MaterializedView[Result] {
+(val source: LazyView[Domain],
+ val groupingFunction: Domain => Key,
+ val aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+ val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
+        extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]]
+        with Observer[Domain] with MaterializedView[Result]
+{
 
 
-  import com.google.common.collect._;
+    import com.google.common.collect._;
 
-  val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
-  lazyInitialize // aggregation need to be initialized for update and remove events
-  source.addObserver(this)
+    val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
 
-   /**
-   * {@inheritDoc}
-   */
-  def lazyInitialize: Unit = {
-    if (!initialized) {
-      source.lazy_foreach((v: Domain) => {
-        intern_added(v, false)
-      })
-      initialized = true
+    lazyInitialize // aggregation need to be initialized for update and remove events
+
+    source.addObserver(this)
+
+    override protected def children = List(source)
+
+    override protected def childObservers(o: Observable[_]) = {
+        if (o == source) {
+            List(this)
+        }
+        Nil
     }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  protected def materialized_foreach[T](f: (Result) => T): Unit = {
-    groups.foreach(x => f(x._2._3))
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  protected def materialized_size: Int = groups.size
-
-  /**
-   * {@inheritDoc}
-   */
-  protected def materialized_singletonValue: Option[Result] = {
-    if (size != 1)
-      None
-    else
-      Some(groups.head._2._3)
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * these implementation runs in O(n)
-   */
-  protected def materialized_contains(v: Result) = {
-    groups.foreach(g => {
-      if (g._2._3 == v)
-        true
+    /**
+     * {@inheritDoc}
+     */
+    def lazyInitialize: Unit = {
+        if (!initialized) {
+            source.lazy_foreach((v: Domain) => {
+                intern_added(v, false)
+            })
+            initialized = true
+        }
     }
-    )
-    false
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  def updated(oldV: Domain, newV: Domain) {
-    val oldKey = groupingFunction(oldV)
-    val newKey = groupingFunction(newV)
-    if (oldKey == newKey) {
-      val (data, aggregationFunction, oldResult) = groups(oldKey)
-      data.remove(oldV)
-      data.add(newV)
-      val aggregationResult = aggregationFunction.update(oldV, newV, data)
-      val res = convertKeyAndAggregateValueToResult(oldKey, aggregationResult)
-      groups.put(oldKey, (data, aggregationFunction, res))
-      if (oldResult != res)
-        element_updated(oldResult, res)
-    } else {
-      removed(oldV);
-      added(newV);
+    /**
+     * {@inheritDoc}
+     */
+    protected def materialized_foreach[T](f: (Result) => T): Unit = {
+        groups.foreach(x => f(x._2._3))
     }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  def removed(v: Domain) {
-    val key = groupingFunction(v)
-    val (data, aggregationFunction, oldResult) = groups(key)
+    /**
+     * {@inheritDoc}
+     */
+    protected def materialized_size: Int = groups.size
 
-    if (data.size == 1) {
-      //remove a group
-      groups -= key
-      element_removed(oldResult)
-    } else {
-      data.remove(v)
-      val aggregationResult = aggregationFunction.remove(v, data)
-      val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
-      if (res != oldResult) {
-        //some aggragation valus changed => updated event
-        groups.put(key, (data, aggregationFunction, res))
-        element_updated(oldResult, res)
-      }
+    /**
+     * {@inheritDoc}
+     */
+    protected def materialized_singletonValue: Option[Result] = {
+        if (size != 1)
+            None
+        else
+            Some(groups.head._2._3)
     }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  def added(v: Domain) {
-    intern_added(v, true)
-  }
 
-  /**
-   * internal added method for added
-   * @param v : Domain
-   * @param notify: true -> notify observers if a change occurs
-   *                false -> dont notify any observer
-   */
-  private def intern_added(v: Domain, notify: Boolean) {
-    val key = groupingFunction(v)
-    if (groups.contains(key)) {
-      val (data, aggregationFunction, oldResult) = groups(key)
-      data.add(v)
-
-      val aggRes = aggregationFunction.add(v, data)
-      val res = convertKeyAndAggregateValueToResult(key, aggRes)
-      if (res != oldResult) {
-        //some aggregation value changed => updated event
-        groups.put(key, (data, aggregationFunction, res))
-        if (notify) element_updated(oldResult, res)
-      }
-    } else {
-
-      val data = HashMultiset.create[Domain]()
-      data.add(v)
-      val aggregationFunction = aggregateFunctionFactory()
-      val aggregationResult = aggregationFunction.add(v, data)
-      val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
-      groups.put(key, (data, aggregationFunction, res))
-      if (notify) element_added(res)
+    /**
+     * {@inheritDoc}
+     * these implementation runs in O(n)
+     */
+    protected def materialized_contains(v: Result) = {
+        groups.foreach(g => {
+            if (g._2._3 == v)
+                true
+        }
+        )
+        false
     }
-  }
+
+    /**
+     * {@inheritDoc}
+     */
+    def updated(oldV: Domain, newV: Domain) {
+        val oldKey = groupingFunction(oldV)
+        val newKey = groupingFunction(newV)
+        if (oldKey == newKey) {
+            val (data, aggregationFunction, oldResult) = groups(oldKey)
+            data.remove(oldV)
+            data.add(newV)
+            val aggregationResult = aggregationFunction.update(oldV, newV, data)
+            val res = convertKeyAndAggregateValueToResult(oldKey, aggregationResult)
+            groups.put(oldKey, (data, aggregationFunction, res))
+            if (oldResult != res)
+                element_updated(oldResult, res)
+        } else {
+            removed(oldV);
+            added(newV);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    def removed(v: Domain) {
+        val key = groupingFunction(v)
+        val (data, aggregationFunction, oldResult) = groups(key)
+
+        if (data.size == 1) {
+            //remove a group
+            groups -= key
+            element_removed(oldResult)
+        } else {
+            data.remove(v)
+            val aggregationResult = aggregationFunction.remove(v, data)
+            val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
+            if (res != oldResult) {
+                //some aggragation valus changed => updated event
+                groups.put(key, (data, aggregationFunction, res))
+                element_updated(oldResult, res)
+            }
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    def added(v: Domain) {
+        intern_added(v, true)
+    }
+
+    /**
+     * internal added method for added
+     * @param v : Domain
+     * @param notify: true -> notify observers if a change occurs
+     *                false -> dont notify any observer
+     */
+    private def intern_added(v: Domain, notify: Boolean) {
+        val key = groupingFunction(v)
+        if (groups.contains(key)) {
+            val (data, aggregationFunction, oldResult) = groups(key)
+            data.add(v)
+
+            val aggRes = aggregationFunction.add(v, data)
+            val res = convertKeyAndAggregateValueToResult(key, aggRes)
+            if (res != oldResult) {
+                //some aggregation value changed => updated event
+                groups.put(key, (data, aggregationFunction, res))
+                if (notify) element_updated(oldResult, res)
+            }
+        } else {
+
+            val data = HashMultiset.create[Domain]()
+            data.add(v)
+            val aggregationFunction = aggregateFunctionFactory()
+            val aggregationResult = aggregationFunction.add(v, data)
+            val res = convertKeyAndAggregateValueToResult(key, aggregationResult)
+            groups.put(key, (data, aggregationFunction, res))
+            if (notify) element_added(res)
+        }
+    }
 }

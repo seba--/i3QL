@@ -16,9 +16,10 @@ import sae.collections.Bag
  *            the whole other relation needs to be considered.
  */
 class CrossProduct[A <: AnyRef, B <: AnyRef](
-    val left : MaterializedView[A],
-    val right : MaterializedView[B])
-        extends Bag[(A, B)] {
+                                                    val left: MaterializedView[A],
+                                                    val right: MaterializedView[B])
+        extends Bag[(A, B)]
+{
 
     type LeftDomain = A
 
@@ -27,79 +28,78 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
     left addObserver LeftObserver
     right addObserver RightObserver
 
-    def lazyInitialize : Unit =
-        {
-            left.foreach(a =>
-                {
-                    right.foreach(b =>
-                        {
-                            this.add_element(a, b)
-                        }
-                    )
-                }
+    override protected def children = List(left, right).asInstanceOf[List[Observable[AnyRef]]]
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left) {
+            return List(LeftObserver)
+        }
+        if (o == right) {
+            return List(RightObserver)
+        }
+        Nil
+    }
+
+    def lazyInitialize: Unit = {
+        left.foreach(a => {
+            right.foreach(b => {
+                this.add_element(a, b)
+            }
+            )
+        }
+        )
+    }
+
+    object LeftObserver extends Observer[A]
+    {
+        // update operations on left relation
+        def updated(oldA: A, newA: A): Unit = {
+            right.foreach(b => {
+                CrossProduct.this -=(oldA, b)
+                CrossProduct.this +=(newA, b)
+            }
             )
         }
 
-    object LeftObserver extends Observer[A] {
-        // update operations on left relation
-        def updated(oldA : A, newA : A) : Unit =
-            {
-                right.foreach(b =>
-                    {
-                        CrossProduct.this -= (oldA, b)
-                        CrossProduct.this += (newA, b)
-                    }
-                )
+        def removed(v: A): Unit = {
+            right.foreach(b => {
+                CrossProduct.this -=(v, b)
             }
+            )
+        }
 
-        def removed(v : A) : Unit =
-            {
-                right.foreach(b =>
-                    {
-                        CrossProduct.this -= (v, b)
-                    }
-                )
+        def added(v: A): Unit = {
+            right.foreach(b => {
+                CrossProduct.this +=(v, b)
             }
-
-        def added(v : A) : Unit =
-            {
-                right.foreach(b =>
-                    {
-                        CrossProduct.this += (v, b)
-                    }
-                )
-            }
+            )
+        }
     }
 
-    object RightObserver extends Observer[B] {
+    object RightObserver extends Observer[B]
+    {
         // update operations on right relation
-        def updated(oldB : B, newB : B) : Unit =
-            {
-                left.foreach(a =>
-                    {
-                        CrossProduct.this -= (a, oldB)
-                        CrossProduct.this += (a, newB)
-                    }
-                )
+        def updated(oldB: B, newB: B): Unit = {
+            left.foreach(a => {
+                CrossProduct.this -=(a, oldB)
+                CrossProduct.this +=(a, newB)
             }
+            )
+        }
 
-        def removed(v : B) : Unit =
-            {
-                left.foreach(a =>
-                    {
-                        CrossProduct.this -= (a, v)
-                    }
-                )
+        def removed(v: B): Unit = {
+            left.foreach(a => {
+                CrossProduct.this -=(a, v)
             }
+            )
+        }
 
-        def added(v : B) : Unit =
-            {
-                left.foreach(a =>
-                    {
-                        CrossProduct.this += (a, v)
-                    }
-                )
+        def added(v: B): Unit = {
+            left.foreach(a => {
+                CrossProduct.this +=(a, v)
             }
+            )
+        }
     }
-    
+
 }

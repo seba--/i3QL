@@ -38,7 +38,7 @@ import sae.collections.Bag
  * constructors during pattern matching
  */
 trait Projection[Domain <: AnyRef, Range <: AnyRef]
-    extends LazyView[Range]
+        extends LazyView[Range]
 {
     type Dom = Domain
 
@@ -55,12 +55,12 @@ trait Projection[Domain <: AnyRef, Range <: AnyRef]
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
 class SetProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection: Domain => Range,
-    val relation: LazyView[Domain]
-)
+                                                              val projection: Domain => Range,
+                                                              val relation: LazyView[Domain]
+                                                              )
         extends Projection[Domain, Range]
-                with MaterializedView[Range]
-                with SelfMaintainedView[Domain, Range]
+        with MaterializedView[Range]
+        with SelfMaintainedView[Domain, Range]
 {
 
     import com.google.common.collect.HashMultiset;
@@ -69,21 +69,27 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
 
     relation addObserver this
 
-    protected def materialized_foreach[U](f: Range => U)
-    {
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
+    }
+
+    protected def materialized_foreach[U](f: Range => U) {
         val it: java.util.Iterator[Range] = data.iterator()
         while (it.hasNext) {
             f(it.next())
         }
     }
 
-    protected def materialized_size: Int =
-    {
+    protected def materialized_size: Int = {
         data.elementSet().size()
     }
 
-    protected def materialized_singletonValue: Option[Range] =
-    {
+    protected def materialized_singletonValue: Option[Range] = {
         if (size != 1)
             None
         else
@@ -92,8 +98,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
 
     protected def materialized_contains(v: Range) = data.contains(v)
 
-    def lazyInitialize
-    {
+    def lazyInitialize {
         relation.lazy_foreach(t => {
             data.add(projection(t))
         }
@@ -105,8 +110,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
      * returns true if the element was not already present in the list
      * otherwise the method returns false
      */
-    private def add_element(v: Range): Boolean =
-    {
+    private def add_element(v: Range): Boolean = {
         val result = data.count(v) == 0
         data.add(v)
         result
@@ -118,15 +122,13 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
      * otherwise the method returns true, i.e., the element is
      * completely removed.
      */
-    private def remove_element(v: Range): Boolean =
-    {
+    private def remove_element(v: Range): Boolean = {
         data.remove(v)
         data.count(v) == 0
     }
 
     // update operations
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
+    def updated_internal(oldV: Domain, newV: Domain) {
         val oldP = projection(oldV)
         val newP = projection(newV)
         if (oldP equals newP)
@@ -140,16 +142,14 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
 
     }
 
-    def removed_internal(v: Domain)
-    {
+    def removed_internal(v: Domain) {
         val p = projection(v)
         if (remove_element(p)) {
             element_removed(p)
         }
     }
 
-    def added_internal(v: Domain)
-    {
+    def added_internal(v: Domain) {
         val p = projection(v)
         if (add_element(p)) {
             element_added(p)
@@ -162,40 +162,44 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
  * TODO this is not correctly typed yet
  */
 class BagProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection: Domain => Range,
-    val relation: LazyView[Domain]
-)
+                                                              val projection: Domain => Range,
+                                                              val relation: LazyView[Domain]
+                                                              )
         extends Projection[Domain, Range]
-                with SelfMaintainedView[Domain, Range]
+        with SelfMaintainedView[Domain, Range]
 {
 
     relation addObserver this
 
-    def lazyInitialize
-    {
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
+    }
+
+    def lazyInitialize {
 
     }
 
-    def lazy_foreach[T](f: (Range) => T)
-    {
+    def lazy_foreach[T](f: (Range) => T) {
         relation.lazy_foreach(v => {
             f(projection(v))
         }
         )
     }
 
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
+    def updated_internal(oldV: Domain, newV: Domain) {
         element_updated(projection(oldV), projection(newV))
     }
 
-    def removed_internal(v: Domain)
-    {
+    def removed_internal(v: Domain) {
         element_removed(projection(v))
     }
 
-    def added_internal(v: Domain)
-    {
+    def added_internal(v: Domain) {
         element_added(projection(v))
     }
 
@@ -205,19 +209,27 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
  * The materialized non-set projection has the semantics as the NonSetProjection
  */
 class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
-    val projection: Domain => Range,
-    val relation: LazyView[Domain]
-)
+                                                                          val projection: Domain => Range,
+                                                                          val relation: LazyView[Domain]
+                                                                          )
         extends Projection[Domain, Range]
-                with Bag[Range]
-                // with MaterializedView[Range] // Bag is a MaterializedView
-                with SelfMaintainedView[Domain, Range]
+        with Bag[Range]
+        // with MaterializedView[Range] // Bag is a MaterializedView
+        with SelfMaintainedView[Domain, Range]
 {
 
     relation addObserver this
 
-    def lazyInitialize
-    {
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
+    }
+
+    def lazyInitialize {
         relation.lazy_foreach(t => {
             this += projection(t)
         }
@@ -225,8 +237,7 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
     }
 
     // update operations
-    def updated_internal(oldV: Domain, newV: Domain)
-    {
+    def updated_internal(oldV: Domain, newV: Domain) {
         val oldP = projection(oldV)
         val newP = projection(newV)
         if (oldP equals newP)
@@ -235,13 +246,11 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
         this += newP
     }
 
-    def removed_internal(v: Domain)
-    {
+    def removed_internal(v: Domain) {
         this -= projection(v)
     }
 
-    def added_internal(v: Domain)
-    {
+    def added_internal(v: Domain) {
         this += projection(v)
     }
 }

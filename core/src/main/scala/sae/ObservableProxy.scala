@@ -10,9 +10,18 @@ package sae
 trait ObservableProxy[V <: AnyRef] extends Observable[V]
 {
 
-    protected val relation: Observable[V]
+    protected def relation: Observable[V]
 
     relation.addObserver(ProxyObserver)
+
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(ProxyObserver)
+        }
+        Nil
+    }
 
     private object ProxyObserver extends Observer[V]
     {
