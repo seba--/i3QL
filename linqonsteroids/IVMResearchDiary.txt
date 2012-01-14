@@ -430,3 +430,67 @@ We need to recognize constant functions, so that their results can be incrementa
 
 14 Dec 2011:
 One important point for IVM in programs, and for doing that based on the observer pattern, is that it also enables to use notifications for performing external side effects.
+
+25 Dec 2011:
+I read again "Normalization by evaluation with typed abstract syntax". In their work, no first-order abstract syntax is used, and both the meta-level and the object-level use the ASTs they introduce. In particular, they mention introduction of FOAS and do not discuss converting FOAS back to HOAS - which is what we cannot do efficiently.
+
+We still need to stop using CanBuildFrom for Views or to add extra instances to fix the problems we have. We produce terms of type Exp[TraversableView[T, Traversable[_]]].
+
+30 Dec 2011:
+Paper topics: What do we embed:
+
+- embedding the lambda-calculus; lifting values (cross-stage persistence through interpretation); performance for HOAS/FOAS conversion
+- tuples; embedding functions without currying; mention embedding of base types.
+- Embedding of Traversable, Seq, Set, Map and Option; we embed the whole hierarchy, unlike ScalaIntegratedQuery (see their thesis); we reuse CanBuildFrom.
+In general, we can define a functor for lifting existing interfaces.
+- discuss operations on collections compared at least to relational algebra (or some more appropriate conceptual framework).
+- issues with implicit conversions: combining two implicit conversions explicitly, existing implicit conversions must be manually lifted because:
+a) implicit def foo: A => B won't be applied before converting B => Exp[B]
+b) foo, as above, will not be applied to Exp[A].
+- disabling lifting for Unit (and mutable collections)
+- withFilter and Views - why Views should not use CanBuildFrom
+- pattern-matching problems; effects; use of Let
+
+Optimization:
+- optimizing function bodies
+- recognizing function equality for opaque functions (Call* nodes, analogue to function lifted through cross-stage persistence)
+- function equality for expression trees
+- examples of well-known optimizations - fusion, join recognition, unnesting (?) 
+
+We require expressions to be side-effect-free - is this a significant limitation?
+
+2 Jan 2012:
+- I needed to use Let while building an expression tree. The current way to simulate this is:
+  //The use of _App_ and FuncExp means that t will be evaluated only once.
+  def letExp[T, U](t: Exp[T])(f: Exp[T] => Exp[U]): Exp[U] = App(FuncExp(f), t)
+
+This must be used within buildAntiJoin - it can be avoided by defining a specific AntiJoin node.
+
+Introducing such a node would mean that we actually need to implement beta-reduction before comparison.
+
+Write in this paper, instead, that we do not create redexes, and that Lets we need for optimization are within interpret().
+
+Moreover, nested Lets don't even work, because I implemented static scoping through dynamic scoping; all interpreters using static scoping must pass the environment through recursive calls to interpret.
+
+- I realized how reassociation is possible: when reassociating terms with identical commutative and associative operations, always move constants on the left side, and nest them deeper; i.e., given a + (x + b), with a, b constants, always produce (a + b) + x. Look this up in the compiler book. (DONE)
+
+12 Jan 2012:
+- together with Tillmann, fixed the problem with the encoding of Option.
+- questions to ask to Klaus:
+  - can we use indexing as an optimization
+  - which optimizations should we include?
+  - which result should we aim for?
+
+13 Jan 2012:
+Tips from Christian:
+- write the paper first as a solution plan (with "we will implement"), without stopping for coding
+- we need, for each optimization we present, to show some query which gets faster
+- we needn't be fast on all queries
+- consider algebraic optimizations from text books, show stupid query which gets faster, and motivate the result by modularity
+- handcode queries to check their speed
+- implement "moving filter as early as possible"
+- collaboration with him is OK
+What I implemented after that:
+- implemented hoistFilter (which moves filter as early as possible).
+- implemented removal of stupid Let
+- implementing these optimizations was much more complex, and taught me that it's still essentially untyped what we do, even when enabling some typechecking: the new thing are Exp.transform() calls which produce an expression with a different type.
