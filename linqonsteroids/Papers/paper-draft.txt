@@ -14,9 +14,10 @@ Many computations in typical programs extract information from collections. High
 
 Research in query processing in database has identified many optimizations which afford great speedups, from high-level restructuring to index application and incremental view maintenance, yet the typical program does not take advantage of them for processing over in-memory collection, because performing these optimizations by hand leads to a complex, error-prone and hard-to-maintain restructuring of the original program. Scala offers operators like `map`, `flatMap`, `withFilter` and `union`, which are present in different form in many functional languages, together with for comprehensions, similar to list comprehensions in other languages: they are a form of syntactic sugar for accessing `map`, `flatMap` and `withFilter`. We consider these operators to form a DSEL for queries over collection. We reimplement this DSEL to allow optimization of queries, we implement a few significant ones, and show that they provide a significant speedup with an evaluation on (to be determined). We first design and implement a deep embedding of a portion of this DSEL. On top of this deep embedding, we implement some simple optimizations as a first step.
 
+One of the design goals for this DSEL is that embedded queries should be as close as possible to their native equivalent, to simplify transforming a native query into an embedded one. Ideally, querying a "smart" collection instead of a native one should be enough to ensure to produce a representation of the query instead of executing it; however, a query representation needs to be then converted explicitly to its result. However, Scala does not support natively expression trees, which are used in C# to achieve this goal. We instead provide an emulation for them, based on user-defined implicit conversions, which we later describe. The surface syntax is quite close to Scala in many regards, but some areas show significant limitations; in other cases, providing a usable surface syntax is made more complex by limitations of Scala's type inference; one of our goals is to not require the user to supply more type annotations than it would need if expression trees were natively supported.
 
-Another possibility would be to publish this work in a more complete form. The rest of this paper is a draft which follows this idea.
-
+%Another possibility would be to publish this work in a more complete form. The rest of this paper is a draft which follows this idea.
+% The above is not really true anymore.
 # Introduction
 Many computations in typical programs extract information from collections. Higher-order operators allow formulating many such computations as queries; a collection library provides in other words a DSEL of queries over collections, which we call the query DSEL.
 
@@ -147,7 +148,7 @@ We reify expression as expression trees. Each term of type `T` is represented by
 Lambda abstractions have type `Exp[S => T]`. Values of function type (of type `S => T`) can be lifted through `Const`; in addition, we support higher-order abstract syntax (HOAS) and thus embed a term constructor `FuncExp` (classically called `Lam`), of type `(Exp[S] => Exp[T]) => Exp[S => T]`; however, we allow converting these terms to first-order abstract syntax (FOAS) through a standard trick; they have a single subterm, their body, of type `Exp[T]`, which is an open term containing also terms of type `TypedVar[S]`. This
 This conversion is always done for three reasons:
 
-- it removes the interpretative overhead due, e.g., to function composition and so on (see also higher), through _normalization by evaluation_ (XXX add citations). See also "Building blocks for performance oriented DSLs", where they do the same kind of trick to remove overhead from higher-order functions, even though they do not cite normalization by evaluation. [XXX note: it is not appropriate to cite Danvy's paper here, since their normalization by evaluation is not what we need.].
+- it removes the interpretative overhead due, e.g., to function composition and so on (see also higher), through _normalization by evaluation_ (XXX add citations). See also "Building blocks for performance oriented DSLs", where they do the same kind of trick to remove overhead from higher-order functions, even though they do not cite normalization by evaluation. [XXX note: it is not appropriate to cite Danvy's paper here, since _their_ normalization by evaluation is not what we need.].
 - it catches early exotic terms, which call interpret() - `interpret()` will be called on open terms and throw an exception when recursing on TypedVar[S] terms.
 - a FOAS representation allows performing optimization on function bodies.
 
@@ -156,10 +157,35 @@ What is not possible efficiently, to the best of our knowledge, is to convert FO
 Note, moreover, that while the interface of our representation is well-typed and type-safe, its internals are well-typed but not automatically type-safe; in other words, the compiler does not guarantee that our code is safe, because in the implementation we rely on erasure and employ casts. We thus need to prove separately that the implementation is type-safe. However, this is common to most other implementations of expression trees, which rely on an untyped core tree wrapped through a phantom type.
 
 ## Evaluation
-Expression trees representing closed terms might be evaluated by calling on their root node the method `Exp[T].interpret(): T`, which recurses on subnodes and return the result of the expression. 
-The recursion is done by calling `expResult()` to potentially reuse cached values.
-Evaluation is not defined for nodes of type `Var` and nodes containing them, because they represent open terms.
+Closed terms %or "Expression trees representing closed terms"? I need to ensure, before in the paper, that I can use the simpler language.
+might be evaluated by calling on their root node the method `Exp[T].expResult(): T`, which returns the result of the expression. Its default implementation simply delegates to the abstract method `private[ivm] def Exp[T].interpret(): T`, which evaluates the expression node it is invoked on; each concrete expression node must provide an implementation. However, `Exp[T].expResult(): T` might also be overridden, for instance to cache its result or maintain it incrementally, while `interpret()` always reevaluates the content. //XXX: not true for Queryable, fix this.
+The recursion is done by calling `expResult()` to reuse any cached results. //XXX: fix this too.
 Interpretation is in general side-effect-free, with a few exceptions related to incremental view maintenance.
+Environments is represented as a `HashMap[Int, Any]`; during interpretation, the topmost environment is stored inside a thread-local global variable and not passed through interpreters.
+When evaluating the body of a closure, we save the current environment on the metalanguage stack, add a new binding to the environment saved in the closure and use the result to replace the current environment, evaluate the body and then 
+~~~
+class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
+  override def interpret(): S => T = {
+    //Close over the current environment, and ensure it is stored in the returned closure.
+    val env = FuncExpInt.env.get()
+    z => FuncExpInt.env.withValue(env + (v.id -> z))(foasBody.interpret())
+  }
+}
+
+class ScalaThreadLocal[T](v: => T) extends java.lang.ThreadLocal[T] {
+  //...
+  def withValue[U](tempV: T)(toCompute: => U) = {
+    val old = get()
+
+    set(tempV)
+    val res = toCompute
+    set(old)
+    res
+  }
+}
+~~~
+<Explanation> Thus, `ScalaThreadLocal.withValue` reuses the host-language stack as the stack of our interpreter.
+Open terms might not be evaluated; consequently, if `x: Var` then `x.interpret()` fails, unless a binding for `x` exists in the current environment.
 
 # Incremental view maintenance
 ## Architecture
