@@ -494,3 +494,9 @@ What I implemented after that:
 - implemented hoistFilter (which moves filter as early as possible).
 - implemented removal of stupid Let
 - implementing these optimizations was much more complex, and taught me that it's still essentially untyped what we do, even when enabling some typechecking: the new thing are Exp.transform() calls which produce an expression with a different type.
+
+14 Jan 2012:
+- for the DB paper, I should also implement pretty-printing of expressions to something more similar to the source language, somehow. Pretty hard for Call nodes as they are!
+Note: that comes almost for free (or with hopefully small changes) when using Delite.
+Moreover, that would be useful during development too, since mentally converting from one style of writing expressions to the other takes time.
+Pretty-printing is needed for the DB paper since we talk about "in-language optimization" and the ability to inspect the result of optimization - we could argue for that even without pretty-printing, but it would be a bit harder.
