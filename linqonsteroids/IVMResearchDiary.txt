@@ -500,3 +500,16 @@ What I implemented after that:
 Note: that comes almost for free (or with hopefully small changes) when using Delite.
 Moreover, that would be useful during development too, since mentally converting from one style of writing expressions to the other takes time.
 Pretty-printing is needed for the DB paper since we talk about "in-language optimization" and the ability to inspect the result of optimization - we could argue for that even without pretty-printing, but it would be a bit harder.
+
+- Something which I forgot, about composability of implicit conversions (here called view):
+"The problem is that views don't chain. Instead, use view bounds. In this [A <% Seq] notation, we accept any type A that can be implicitly converted to a Seq."
+From [Scala complexity] http://yz.mit.edu/wp/true-scala-complexity/. However, commit 8ae00b2a444de091329600d13f79cacd9200e90e shows that "view bounds" don't work.
+
+Again from there: this code:
+new {
+   def runs(f: (A,A) => Boolean) = 0
+   def isMajority(x: A) = false
+}
+uses refinement types and reflection, which is bad and slow!
+- I'm wondering: should I also write a paper about how type inference in Scala sucks and how it makes life difficult for the programmer, because it is unpredictable?
+I'd need to get comments on a draft of this, and get suggestions about how to proceed.
