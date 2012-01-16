@@ -19,6 +19,10 @@ trait Observable[V <: AnyRef]
         observers = HashSet.empty
     }
 
+    def hasObservers = {
+        !observers.isEmpty
+    }
+
     /**
      * remove all observers
      */
