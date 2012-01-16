@@ -513,3 +513,5 @@ new {
 uses refinement types and reflection, which is bad and slow!
 - I'm wondering: should I also write a paper about how type inference in Scala sucks and how it makes life difficult for the programmer, because it is unpredictable?
 I'd need to get comments on a draft of this, and get suggestions about how to proceed.
+16 Jan:
+- would it be possible to inject implicit definitions as constraints for constraint-based type inference in Scala? See various/ImplicitParamBugReport.scala; it seems that there implicits are not helping type inference, but only depending on some strange circumstances. 
