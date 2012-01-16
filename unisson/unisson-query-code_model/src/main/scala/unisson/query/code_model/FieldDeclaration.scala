@@ -29,6 +29,10 @@ class FieldDeclaration(val element: Field)
     }
 
 
+    def getFieldName = element.name
+
+    def getTypeQualifier = element.fieldType.signature
+
     override def toString = element.declaringClass.signature +
             element.name +
             ":" + element.fieldType.signature
