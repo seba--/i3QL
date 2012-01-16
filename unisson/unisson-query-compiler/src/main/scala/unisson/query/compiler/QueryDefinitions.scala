@@ -14,7 +14,7 @@ import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
  * Created: 30.05.11 13:37
  *
  */
-class QueryDefinitions(val db: Database)
+class QueryDefinitions(private val db: Database)
 {
     /**
      * BEWARE INITIALIZATION ORDER OF FIELDS (the scala compiler will not warn you)

@@ -17,7 +17,6 @@ import unisson.query.UnissonQuery
  */
 class QueryCompiler(val db: Database)
 {
-
     val definitions = new QueryDefinitions(db)
 
     def parseAndCompile(query: String): LazyView[SourceElement[AnyRef]] = {
