@@ -13,4 +13,11 @@ case class TransitiveQuery(subQuery: UnissonQuery)
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case TransitiveQuery(otherSubQuery) if subQuery.isSyntacticEqual(otherSubQuery) => true
+            case _ => false
+        }
+    }
+
 }

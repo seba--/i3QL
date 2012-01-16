@@ -13,4 +13,11 @@ case class PackageQuery(name: String)
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case PackageQuery(otherName) if (otherName == name) => true
+            case _ => false
+        }
+    }
+
 }

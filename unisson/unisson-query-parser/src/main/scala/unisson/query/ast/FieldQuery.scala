@@ -15,4 +15,13 @@ case class FieldQuery(classQuery: UnissonQuery,
         extends UnissonQuery
 {
 
+
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case FieldQuery(otherClassQuery, otherName, otherFieldType) if
+            (classQuery.isSyntacticEqual(otherClassQuery) && otherName == name && fieldType.isSyntacticEqual(otherFieldType)) => true
+            case _ => false
+        }
+    }
+
 }

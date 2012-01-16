@@ -13,4 +13,11 @@ case class TypeQuery(name: String)
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case TypeQuery(otherName) if (otherName == name) => true
+            case _ => false
+        }
+    }
+
 }

@@ -13,4 +13,6 @@ case class DerivedQuery()
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = query.isInstanceOf[DerivedQuery]
+
 }

@@ -13,4 +13,11 @@ case class WithoutQuery(left: UnissonQuery, right: UnissonQuery)
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query:UnissonQuery) : Boolean = {
+        query match {
+            case WithoutQuery(otherLeft, otherRight) if( left.isSyntacticEqual(otherLeft) && right.isSyntacticEqual(otherRight))=> true
+            case _ => false
+        }
+    }
+    
 }

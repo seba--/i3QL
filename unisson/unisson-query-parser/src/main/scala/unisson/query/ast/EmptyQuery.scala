@@ -13,4 +13,6 @@ case class EmptyQuery()
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = query.isInstanceOf[EmptyQuery]
+
 }

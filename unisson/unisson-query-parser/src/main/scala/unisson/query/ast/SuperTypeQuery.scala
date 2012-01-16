@@ -13,4 +13,11 @@ case class SuperTypeQuery(subQuery: UnissonQuery)
         extends UnissonQuery
 {
 
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case SuperTypeQuery(otherSubQuery) if subQuery.isSyntacticEqual(otherSubQuery) => true
+            case _ => false
+        }
+    }
+
 }

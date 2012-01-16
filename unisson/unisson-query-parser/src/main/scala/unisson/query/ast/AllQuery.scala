@@ -12,5 +12,6 @@ import unisson.query.UnissonQuery
 case class AllQuery()
         extends UnissonQuery
 {
+    def isSyntacticEqual(query: UnissonQuery) = query.isInstanceOf[AllQuery]
 
 }

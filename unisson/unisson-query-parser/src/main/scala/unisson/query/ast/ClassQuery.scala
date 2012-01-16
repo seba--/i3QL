@@ -12,5 +12,11 @@ import unisson.query.UnissonQuery
 case class ClassQuery(subQuery: UnissonQuery)
         extends UnissonQuery
 {
+    def isSyntacticEqual(query: UnissonQuery) = {
+        query match {
+            case ClassQuery(otherSubQuery) if subQuery.isSyntacticEqual(otherSubQuery) => true
+            case _ => false
+        }
+    }
 
 }
