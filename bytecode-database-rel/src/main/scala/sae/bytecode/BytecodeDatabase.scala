@@ -508,9 +508,17 @@ class BytecodeDatabase extends Database
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchiveStream(stream: java.io.InputStream)
+    def addArchive(stream: java.io.InputStream)
     {
         val transformer = classAdder
+        val reader = new BytecodeReader(transformer)
+        reader.readArchive(stream)
+        transformer.processAllFacts()
+    }
+
+    def removeArchive(stream: java.io.InputStream)
+    {
+        val transformer = classRemover
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
         transformer.processAllFacts()

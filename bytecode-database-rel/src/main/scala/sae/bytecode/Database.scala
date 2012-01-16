@@ -80,4 +80,7 @@ trait Database
 
     def removeClassFile(stream: java.io.InputStream)
 
+    def addArchive(stream: java.io.InputStream)
+
+    def removeArchive(stream: java.io.InputStream)
 }

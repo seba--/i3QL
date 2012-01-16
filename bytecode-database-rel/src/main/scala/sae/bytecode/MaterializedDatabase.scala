@@ -97,9 +97,14 @@ class MaterializedDatabase(private val db: BytecodeDatabase)
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchiveStream(stream: java.io.InputStream) {
-        db.addArchiveStream(stream)
+    def addArchive(stream: java.io.InputStream) {
+        db.addArchive(stream)
     }
+
+    def removeArchive(stream: java.io.InputStream) {
+        db.removeArchive(stream)
+    }
+
 
     def getAddClassFileFunction = {
         db.getAddClassFileFunction
