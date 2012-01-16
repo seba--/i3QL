@@ -150,6 +150,8 @@ This conversion is always done for three reasons:
 
 - it removes the interpretative overhead due, e.g., to function composition and so on (see also higher), through _normalization by evaluation_ (XXX add citations). See also "Building blocks for performance oriented DSLs", where they do the same kind of trick to remove overhead from higher-order functions, even though they do not cite normalization by evaluation. [XXX note: it is not appropriate to cite Danvy's paper here, since _their_ normalization by evaluation is not what we need.].
 - it catches early exotic terms, which call interpret() - `interpret()` will be called on open terms and throw an exception when recursing on TypedVar[S] terms.
+%(there's a citation for that in Tillmann's TSR paper or in the "Boxes go bananas" paper)
+
 - a FOAS representation allows performing optimization on function bodies.
 
 What is not possible efficiently, to the best of our knowledge, is to convert FOAS back to HOAS. Given `e: Exp[T]` containing `v: TypedVar[S]`, the body can be expressed as `(x: Exp[S]) => e.substVar(v, x)`, which contains a substitution at runtime.
