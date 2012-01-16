@@ -23,15 +23,26 @@ import scala.collection.mutable.Map
  */
 class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](val source: LazyView[Domain],
                                                                                                                                 val groupingFunction: Domain => Key,
-                                                                                                                                val aggregateFunctionFactory: SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                                                                val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                                                                 val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
-        extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainalbeAggregateFunction[Domain, AggregateValue], SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with MaterializedView[Result]
+        extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with MaterializedView[Result]
 {
 
 
-    val groups = Map[Key, (Count, SelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
+    val groups = Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
+
     lazyInitialize // aggregation need to be initialized for update and remove events
+
     source.addObserver(this)
+
+    override protected def children = List(source)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == source) {
+            return List(this)
+        }
+        Nil
+    }
 
     /**
      * {@inheritDoc}

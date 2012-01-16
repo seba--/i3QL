@@ -1,5 +1,6 @@
 package sae
 
+import functions.{Min, Count}
 import syntax.RelationalAlgebraSyntax._
 import test.StudentCoursesDatabase
 import org.junit.Test
@@ -209,4 +210,336 @@ class TestObserverManipulation extends ShouldMatchers
         students.observers should have size (0)
     }
 
+    @Test
+    def testUnionRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Student]
+        import o._
+
+        val studentsA = students.copy
+        val studentsB = students.copy
+
+        val union = studentsA ∪ studentsB
+        union.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        studentsA += mark
+        o.events should be(List(AddEvent(mark)))
+        studentsB += mark
+        o.events should be(List(AddEvent(mark), AddEvent(mark)))
+
+        union.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != studentsA && o != studentsB
+            }
+        )
+
+        // check that the the observer was correctly removed
+        studentsA.observers should have size (0)
+        studentsB.observers should have size (0)
+    }
+
+    @Test
+    def testIntersectionRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Student]
+        import o._
+
+        val studentsA = students.copy
+        val studentsB = students.copy
+
+        val intersection = studentsA ∩ studentsB
+        intersection.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        studentsA += mark
+        o.events should be(Nil)
+        studentsB += mark
+        o.events should be(List(AddEvent(mark)))
+
+        intersection.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != studentsA && o != studentsB
+            }
+        )
+
+        // check that the the observer was correctly removed
+        studentsA.observers should have size (0)
+        studentsB.observers should have size (0)
+    }
+
+    @Test
+    def testDifferenceRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Student]
+        import o._
+
+        val studentsA = students.copy
+        val studentsB = students.copy
+
+        val difference = studentsA ∖ studentsB
+        difference.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        studentsA += mark
+        o.events should be(List(AddEvent(mark)))
+
+        studentsB += mark
+        o.events should be(List(
+            RemoveEvent(mark),
+            AddEvent(mark)
+        ))
+
+        difference.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != studentsA && o != studentsB
+            }
+        )
+
+        // check that the the observer was correctly removed
+        studentsA.observers should have size (0)
+        studentsB.observers should have size (0)
+    }
+
+    @Test
+    def testTransitiveClosureRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[CoursePrerequisite]
+        import o._
+
+        val transitiveClosure = Π(
+            (edge: (Integer, Integer)) => CoursePrerequisite(edge._1, edge._2)
+        )(TC(prerequisites)(prerequisites.CourseId, prerequisites.PrerequisiteId))
+        transitiveClosure.addObserver(o);
+
+        // 001\ -> 002 -> 003 -> / -> 005
+        //     \    -> 004  ->  /
+        // check that the observer was correctly added
+
+        prerequisites += CoursePrerequisite(001, 002)
+        prerequisites += CoursePrerequisite(002, 003)
+        prerequisites += CoursePrerequisite(003, 005)
+        prerequisites += CoursePrerequisite(004, 005)
+
+
+        o.events should be(List(
+            AddEvent(CoursePrerequisite(4, 5)),
+            AddEvent(CoursePrerequisite(1, 5)),
+            AddEvent(CoursePrerequisite(2, 5)),
+            AddEvent(CoursePrerequisite(3, 5)),
+            AddEvent(CoursePrerequisite(1, 3)),
+            AddEvent(CoursePrerequisite(2, 3)),
+            AddEvent(CoursePrerequisite(1, 2))
+        ))
+
+        transitiveClosure.clearObserversForChildren(_ != prerequisites)
+
+        // check that the the observer was correctly removed
+        prerequisites.observers should have size (0)
+    }
+
+
+    @Test
+    def testSelfMaintainedAggregationClosureRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Option[Int]]
+        import o._
+
+        val aggregation = γ(students, Count[Student]())
+        aggregation.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        students += mark
+        students += mark
+        // the database has started with two students
+        o.events should be(List(
+            UpdateEvent(Some(3), Some(4)),
+            UpdateEvent(Some(2), Some(3))
+        ))
+
+        aggregation.clearObserversForChildren(_ != students)
+
+        // check that the the observer was correctly removed
+        students.observers should have size (0)
+    }
+
+    @Test
+    def testNotSelfMaintainedAggregationClosureRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Option[Int]]
+        import o._
+
+        val aggregation = γ(students, Min((_:Student).Id.intValue()))
+        aggregation.addObserver(o);
+
+        // check that the observer was correctly added
+        students += new Student(1, "Mark")
+        students += new Student(0, "Mark")
+        // the database has started with two students
+        o.events should be(List(
+            UpdateEvent(Some(1), Some(0)),
+            UpdateEvent(Some(12345),Some(1))
+        ))
+
+        aggregation.clearObserversForChildren(_ != students)
+
+        // check that the the observer was correctly removed
+        students.observers should have size (0)
+    }
+
+
+    @Test
+    def testSemiJoinRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Student]
+        import o._
+
+        val studentsA = students.copy
+        val studentsB = students.copy
+
+        val semijoin = ((studentsA, students.Name) ⋉(students.Name, studentsB))
+        semijoin.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark001 = new Student(00001, "Mark")
+        studentsA += mark001
+        studentsB += mark001
+        o.events should be(List(
+            AddEvent(mark001)
+        ))
+
+        semijoin.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != studentsA && o != studentsB
+            }
+        )
+
+        // check that the the observer was correctly removed
+        studentsA.observers should have size (0)
+        studentsB.observers should have size (0)
+    }
+
+
+    @Test
+    def testAntiSemiJoinRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[Student]
+        import o._
+
+        val studentsA = students.copy
+        val studentsB = students.copy
+
+        val antisemi = ((studentsA, students.Name) ⊳(students.Name, studentsB))
+        antisemi.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        studentsA += mark
+        studentsB += mark
+        o.events should be(List(
+            RemoveEvent(mark),
+            AddEvent(mark)
+        ))
+
+
+        antisemi.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != studentsA && o != studentsB
+            }
+        )
+
+        // check that the the observer was correctly removed
+        studentsA.observers should have size (0)
+        studentsB.observers should have size (0)
+
+    }
+
+    @Test
+    def testCombinedSelectProjectRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[String]
+        import o._
+
+        val selection = σ((_: Student).Name == "Mark")(students)
+        val projection = Π((_: Student).Name)(selection)
+        projection.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        students += mark
+        o.events should be(List(AddEvent("Mark")))
+
+        projection.clearObserversForChildren(_ != students)
+
+        // check that the the observer was correctly removed
+        students.observers should have size (0)
+    }
+
+
+    @Test
+    def testLeaveRequiredObservers() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[String]
+        import o._
+
+        val selection = σ((_: Student).Name == "Mark")(students)
+        val projection = Π((_: Student).Name)(selection)
+        projection.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        students += mark
+        o.events should be(List(AddEvent("Mark")))
+
+        val otherInterestedParty : Observer[Student] = new MockObserver[Student]()
+        selection.addObserver(otherInterestedParty)
+
+        projection.clearObserversForChildren(_ != students)
+
+        // check that the the observer was correctly removed
+        students.observers should have size (1)
+        students.observers should contain (selection.asInstanceOf[Observer[Student]])
+
+        selection.observers should have size (1)
+        selection.observers should contain (otherInterestedParty)
+    }
+
+    @Test
+    def testStopAtChildren() {
+        val database = new StudentCoursesDatabase()
+        import database._
+        val o = new MockObserver[String]
+        import o._
+
+        val selection = σ((_: Student).Name == "Mark")(students)
+        val projection = Π((_: Student).Name)(selection)
+        projection.addObserver(o);
+
+        // check that the observer was correctly added
+        val mark = new Student(00001, "Mark")
+        students += mark
+        o.events should be(List(AddEvent("Mark")))
+
+        projection.clearObserversForChildren(_ != selection)
+
+        // check that the the observer was correctly removed
+        students.observers should have size (1)
+        students.observers should contain (selection.asInstanceOf[Observer[Student]])
+
+        selection.observers should have size (0)
+    }
 }

@@ -5,7 +5,8 @@ import sae.operators.intern._
 /**
  * Interface for a not self maintainable aggregate function like min
  */
-trait NotSelfMaintainalbeAggregateFunction[Domain <: AnyRef, Result <: Any] extends AggregateFunction[Domain, Result]
+trait NotSelfMaintainableAggregateFunction[Domain <: AnyRef, Result <: Any]
+        extends AggregateFunction[Domain, Result]
 {
 
 }
@@ -13,7 +14,8 @@ trait NotSelfMaintainalbeAggregateFunction[Domain <: AnyRef, Result <: Any] exte
 /**
  * Interface for a self maintainable aggregate function like count
  */
-trait SelfMaintainalbeAggregateFunction[Domain <: AnyRef, Result <: Any] extends AggregateFunction[Domain, Result]
+trait SelfMaintainableAggregateFunction[Domain <: AnyRef, Result <: Any]
+        extends AggregateFunction[Domain, Result]
 {
 
     final override def add(newD: Domain, data: Iterable[Domain]): Result = {

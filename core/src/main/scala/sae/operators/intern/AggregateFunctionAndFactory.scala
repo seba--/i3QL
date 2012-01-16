@@ -3,8 +3,8 @@ package sae.operators.intern
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainalbeAggregateFunction
- *  -SelfMaintainalbeAggregateFunction
+ *  -NotSelfMaintainableAggregateFunction
+ *  -SelfMaintainableAggregateFunction
  */
 trait AggregateFunction[Domain <: AnyRef, Result]
 {
@@ -19,8 +19,8 @@ trait AggregateFunction[Domain <: AnyRef, Result]
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainalbeAggregateFunctionFactory
- *  -SelfMaintainalbeAggregateFunctionFactory
+ *  -NotSelfMaintainableAggregateFunctionFactory
+ *  -SelfMaintainableAggregateFunctionFactory
  *
  */
 trait AggregateFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]

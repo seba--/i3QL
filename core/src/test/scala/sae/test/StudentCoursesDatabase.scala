@@ -10,7 +10,7 @@ class StudentCoursesDatabase
 
     trait Person
     {
-        val Name: String
+        def Name: String
     }
 
     case class Student
@@ -30,6 +30,11 @@ class StudentCoursesDatabase
     case class Enrollment(
         StudentId: Integer,
         CourseId: Integer
+    )
+    
+    case class CoursePrerequisite(
+        CourseId : Integer,
+        PrerequisiteId : Integer
     )
 
     // student(12345, john).
@@ -98,4 +103,11 @@ class StudentCoursesDatabase
     persons += sally
     persons += johannes
     persons += christian
+
+    object prerequisites
+        extends Table[CoursePrerequisite]
+    {
+        val CourseId : CoursePrerequisite => Integer = pre => pre.CourseId
+        val PrerequisiteId : CoursePrerequisite => Integer = pre => pre.PrerequisiteId
+    }
 }

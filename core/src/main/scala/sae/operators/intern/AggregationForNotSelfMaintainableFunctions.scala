@@ -25,22 +25,21 @@ import scala.collection.mutable.Map
  *  it could use the grouping function as the index function.
  *
  * @author Malte V
+ * @author Ralf Mitschke
  */
-
-
 class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef]
 (val source: LazyView[Domain],
  val groupingFunction: Domain => Key,
- val aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+ val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
  val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
-        extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]]
+        extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
         with Observer[Domain] with MaterializedView[Result]
 {
 
 
     import com.google.common.collect._;
 
-    val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], Result)]()
+    val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
     lazyInitialize // aggregation need to be initialized for update and remove events
 
@@ -48,9 +47,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
 
     override protected def children = List(source)
 
-    override protected def childObservers(o: Observable[_]) = {
+    override protected def childObservers(o: Observable[_]) : Seq[Observer[_]] = {
         if (o == source) {
-            List(this)
+            return List(this)
         }
         Nil
     }

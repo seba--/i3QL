@@ -3,22 +3,23 @@ package sae.operators
 import util.control.Breaks
 import collection.mutable.{HashSet, HashMap}
 import java.lang.Error
-import sae.{MaterializedView, Observer, LazyView}
+import sae.{Observable, MaterializedView, Observer, LazyView}
 
 /**
  * A operation that calculates the transitive closure for a given source relation
  * The Arity of TransitiveClosure is 2 even if the arity of the source relation is not 2
  * @author Malte V
+ * @author Ralf Mitschke
  */
 trait TransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef] extends MaterializedView[(Vertex, Vertex)]
 {
-    val source: LazyView[Edge]
+    def source: LazyView[Edge]
     // naming after  "Network Flows: Theory, Algorithms, and Applications"
     // Edge e = (Vertex u , Vertx v)
     // u is tail of e
     // v is head of e
-    val getTail: Edge => Vertex
-    val getHead: Edge => Vertex
+    def getTail: Edge => Vertex
+    def getHead: Edge => Vertex
 }
 
 /**
@@ -28,6 +29,7 @@ trait TransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef] extends MaterializedVi
  * Dong and Su Sigmod 2000 44-50
  *
  * @author Malte V
+ * @author Ralf Mitschke
  */
 class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyView[Edge],
                                                               val getTail: Edge => Vertex,
@@ -53,6 +55,16 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
     // (v,u)(v,w)
     // (v,x)
     source addObserver this
+
+    override protected def children = List(source)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == source) {
+            return List(this)
+        }
+        Nil
+    }
+
     lazyInitialize
 
     /**

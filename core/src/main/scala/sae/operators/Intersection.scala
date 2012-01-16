@@ -210,17 +210,7 @@ class BagIntersection[Domain <: AnyRef]
 
     rightIndex addObserver RightObserver
 
-    override protected def children = List(leftIndex, rightIndex)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == leftIndex) {
-            return List(LeftObserver)
-        }
-        if (o == rightIndex) {
-            return List(RightObserver)
-        }
-        Nil
-    }
+    override protected def children = List(left.asInstanceOf[Observable[AnyRef]], right)
 
     var cached_size = 0
 
