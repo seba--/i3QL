@@ -9,10 +9,15 @@ import sae.Observer
  * Time: 11:10
  *
  */
-class PrintingObserver[-V <: AnyRef] extends Observer[V]{
-    def updated(oldV: V, newV: V) {println(oldV + "->" + newV)}
+class PrintingObserver[-V <: AnyRef](val prefix:String) extends Observer[V]{
 
-    def removed(v: V) {println("-" + v)}
+    def this(){
+        this("")
+    }
 
-    def added(v: V) {println("+" + v)}
+    def updated(oldV: V, newV: V) {println(prefix + oldV + "->" + newV)}
+
+    def removed(v: V) {println(prefix + "-" + v)}
+
+    def added(v: V) {println(prefix + "+" + v)}
 }
