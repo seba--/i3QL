@@ -49,6 +49,8 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
 
     rightIndex addObserver RightObserver
 
+    lazyInitialize
+
     override protected def children = List(left.asInstanceOf[Observable[AnyRef]], right)
 
     def lazyInitialize {
@@ -58,6 +60,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
         } else {
             rightEquiJoin()
         }
+        initialized = true
     }
 
     object LeftObserver extends Observer[(Key, DomainA)]

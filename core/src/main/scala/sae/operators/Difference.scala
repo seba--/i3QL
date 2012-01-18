@@ -19,9 +19,9 @@ trait Difference[Domain <: AnyRef]
 {
     type Dom = Domain
 
-    val left: IndexedView[Domain]
+    def left: IndexedView[Domain]
 
-    val right: IndexedView[Domain]
+    def right: IndexedView[Domain]
 }
 
 /**
@@ -40,9 +40,8 @@ class BagDifference[Domain <: AnyRef]
         )
         extends Difference[Domain]
         with MaterializedView[Domain]
-        with SelfMaintainedView[Domain, Domain]
 {
-    left addObserver this
+    left addObserver LeftObserver
 
     right addObserver RightObserver
 
@@ -50,7 +49,7 @@ class BagDifference[Domain <: AnyRef]
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
-            return List(this, leftIndex)
+            return List(LeftObserver, leftIndex)
         }
         if (o == right) {
             return List(RightObserver, rightIndex)
@@ -64,18 +63,28 @@ class BagDifference[Domain <: AnyRef]
 
     private var cached_size = 0
 
+    // TODO we can simplify the initialization code in the observers by just calling init on construction
     def lazyInitialize {
-        left.foreach(element =>
-            if (!rightIndex.isDefinedAt(element))
-                cached_size += 1
+        leftIndex.foreachKey(
+            (v: Domain) => {
+                var difference = leftIndex.elementCountAt(v) - rightIndex.elementCountAt(v)
+                if (difference > 0) {
+                    cached_size += difference
+                }
+            }
         )
         initialized = true
     }
 
     def materialized_foreach[T](f: (Domain) => T) {
-        left.foreach(element =>
-            if (!rightIndex.isDefinedAt(element))
-                f(element)
+        leftIndex.foreachKey(
+            (v: Domain) => {
+                var difference = leftIndex.elementCountAt(v) - rightIndex.elementCountAt(v)
+                while (difference > 0) {
+                    f(v)
+                    difference = difference - 1
+                }
+            }
         )
     }
 
@@ -92,81 +101,123 @@ class BagDifference[Domain <: AnyRef]
 
     protected def materialized_size = this.cached_size
 
-
     protected def materialized_contains(v: Domain) = left.contains(v) && !right.contains(v)
 
-    def added_internal(v: Domain) {
-        // check that this was an addition where we did not have less elements than right side
-        if (leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) {
-            element_added(v)
-            cached_size += 1
+    object LeftObserver extends Observer[Domain]
+    {
+        def updated(oldV: Domain, newV: Domain) {
+            // we are notified after the update, hence the leftIndex will be updated to newV
+            var oldCount = leftIndex.elementCountAt(newV) - rightIndex.elementCountAt(oldV)
+            var newCount = leftIndex.elementCountAt(newV) - rightIndex.elementCountAt(newV)
+            if(!initialized){
+                lazyInitialize
+                 if(oldCount>0) cached_size -= oldCount
+                 if(newCount>0) cached_size +=newCount
+            }
+
+            if (oldCount == newCount) {
+                element_updated(oldV, newV)
+                return
+            }
+            while(oldCount > 0)
+            {
+                element_removed(oldV)
+                cached_size -= 1
+                oldCount -= 1
+            }
+            while(newCount > 0)
+            {
+                element_added(oldV)
+                cached_size += 1
+                newCount -= 1
+            }
+        }
+
+        def removed(v: Domain) {
+            if(!initialized){
+                lazyInitialize
+                // add the removed element
+                if(leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) cached_size += 1
+            }
+
+            // check that this was a removal where we still had more elements than right side
+            if (leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) {
+                element_removed(v)
+                cached_size -= 1
+            }
+        }
+
+        def added(v: Domain) {
+            if(!initialized){
+                lazyInitialize
+                // remove the added element
+                if(leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) cached_size -= 1
+            }
+
+            // check that this was an addition where we did not have less elements than right side
+            if (leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) {
+                element_added(v)
+                cached_size += 1
+            }
         }
     }
-
-    def removed_internal(v: Domain) {
-        // check that this was a removal where we still had more elements than right side
-        if (leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) {
-            element_removed(v)
-            cached_size -= 1
-        }
-    }
-
-    def updated_internal(oldV: Domain, newV: Domain) {
-        val oldDef = rightIndex.isDefinedAt(oldV)
-        val newDef = rightIndex.isDefinedAt(newV)
-        if (!oldDef && !newDef) {
-            element_updated(oldV, newV)
-            return
-        }
-        if (!oldDef) {
-            element_removed(oldV)
-            cached_size -= 1
-        }
-
-        if (!newDef) {
-            element_added(newV)
-            cached_size += 1
-        }
-    }
-
 
     object RightObserver extends Observer[Domain]
     {
         // update operations on right relation
         def updated(oldV: Domain, newV: Domain) {
-            val oldDef = leftIndex.isDefinedAt(oldV)
-            val newDef = leftIndex.isDefinedAt(newV)
-            if (!oldDef && newDef) {
-                // the element was not in A but will be in A and in B thus it is not be in the difference
-                element_removed(newV)
-                cached_size -= 1
+            // we are notified after the update, hence the rightIndex will be updated to newV
+            var oldCount = if(leftIndex.elementCountAt(oldV) >= rightIndex.elementCountAt(newV) ) rightIndex.elementCountAt(newV) else leftIndex.elementCountAt(oldV)
+            var newCount = if(leftIndex.elementCountAt(newV) >= rightIndex.elementCountAt(newV) ) rightIndex.elementCountAt(newV) else leftIndex.elementCountAt(oldV)
+            if(!initialized){
+                lazyInitialize
+                if(oldCount>0) cached_size += oldCount
+                if(newCount>0) cached_size -=newCount
             }
-
-            if (oldDef && !newDef) {
-                // the element was in A but oldV will not be in B anymore thus the oldV is added to the difference
+            if (oldCount == newCount) {
+                element_updated(oldV, newV)
+                return
+            }
+            while(oldCount > 0)
+            {
                 element_added(oldV)
                 cached_size += 1
+                oldCount -= 1
             }
-            initialized = true
+            while(newCount > 0)
+            {
+                element_removed(oldV)
+                cached_size -= 1
+                newCount -= 1
+            }
         }
 
         def removed(v: Domain) {
+            if(!initialized){
+                lazyInitialize
+                // remove the removed element
+                if(leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) cached_size -= 1
+            }
+
             // check that this was the last removal of an element not in left side
             if (leftIndex.elementCountAt(v) > rightIndex.elementCountAt(v)) {
                 element_added(v)
                 cached_size += 1
             }
-            initialized = true
         }
 
         def added(v: Domain) {
+            if(!initialized){
+                lazyInitialize
+                // add the added element
+                if(leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) cached_size += 1
+            }
+
             // check that this was an addition where we have more or equal amount of elements compared to left side
             if (leftIndex.elementCountAt(v) >= rightIndex.elementCountAt(v)) {
                 element_removed(v)
                 cached_size -= 1
             }
-
-            initialized = true
         }
     }
 

@@ -8,6 +8,11 @@ trait Observable[V <: AnyRef]
     protected[sae] var observers: HashSet[Observer[V]] = new HashSet[Observer[V]]()
 
     def addObserver(o: Observer[V]) {
+        // sanity check that the assumption of never adding the same observer twice holds
+        if(observers.contains(o))
+        {
+            throw new IllegalArgumentException("observer already present: " + o.toString)
+        }
         observers.add(o)
     }
 

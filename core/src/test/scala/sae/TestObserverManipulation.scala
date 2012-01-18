@@ -188,6 +188,36 @@ class TestObserverManipulation extends ShouldMatchers
     }
 
     @Test
+    def testJoinMultipleIndicesRemoval() {
+        val database = new StudentCoursesDatabase()
+        import database._
+
+        val joinA = ((students, students.Id) ⋈(enrollments.StudentId, enrollments)) {(s: Student,
+                                                                                     e: Enrollment) =>
+            s
+        }
+
+        val joinB = ((students, students.Name) ⋈(persons.Name, persons)) {(s: Student,
+                                                                                      e: Person) =>
+            s
+        }
+
+        enrollments.observers should have size (1)
+        persons.observers should have size (1)
+        students.observers should have size (2)
+
+        joinA.clearObserversForChildren(
+            (o: Observable[_ <: AnyRef]) => {
+                o != students && o != enrollments
+            }
+        )
+
+        enrollments.observers should have size (0)
+        persons.observers should have size (1)
+        students.observers should have size (1)
+    }
+
+    @Test
     def testDistinctRemoval() {
         val database = new StudentCoursesDatabase()
         import database._

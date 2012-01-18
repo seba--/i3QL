@@ -367,7 +367,7 @@ class StudentCoursesRAFunSuite
         persons += heather
         // persons contains heather twice, students once
         assert(difference.size === 4)
-        assert(!difference.asList.contains(heather))
+        assert(difference.asList.contains(heather))
 
         students += heather
         // persons contains heather twice, students twice
@@ -397,12 +397,12 @@ class StudentCoursesRAFunSuite
         students -= heather
         // persons contains heather twice, students once
         assert(difference.size === 4)
-        assert(!difference.asList.contains(heather))
+        assert(difference.asList.contains(heather))
 
         students -= heather
         // persons contains heather twice, students not
         assert(difference.size === 5)
-        assert(difference.asList.contains(heather))
+        assert(difference.asList.filter( _ == heather ).size == 2)
 
         // persons contains heather once, students not
         persons -= heather
@@ -417,12 +417,18 @@ class StudentCoursesRAFunSuite
         assert(difference.size === 4)
         assert(difference.asList.contains(heather_new_number))
 
-        // persons contains heather_new_number once, students heather once
+        persons.update(heather_new_number, heather)
+        // persons contains heather once, students heather once
         students += heather
+        assert(difference.size === 3)
+        assert(!difference.asList.contains(heather_new_number))
+
+        // persons contains heather_new_number once, students heather once
+        persons.update(heather, heather_new_number)
 
         assert(difference.size === 4)
         assert(difference.asList.contains(heather_new_number))
-
+        // persons contains heather_new_number once, students heather_new_number once
         students.update(heather, heather_new_number)
 
         assert(difference.size === 3)
@@ -770,14 +776,17 @@ class StudentCoursesRAFunSuite
         assert(antisemijoin.size === 0)
 
         assert(students.asList.filter( _ == heather ).size == 2)
+        assert(persons.asList.filter( _ == heather ).size == 3)
         val heather_new_number =Student(23744,"heather")
 
         persons.update(heather, heather_new_number)
+        assert(persons.asList.filter( _ == heather_new_number ).size == 3)
 
         assert(antisemijoin.size === 2)
-        assert(antisemijoin.asList.contains(heather))
+        assert(antisemijoin.asList.filter( _ == heather ).size == 2)
 
         students.update(heather, heather_new_number)
+        assert(students.asList.filter( _ == heather_new_number ).size == 2)
 
         assert(antisemijoin.size === 0)
     }
