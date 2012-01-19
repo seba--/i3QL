@@ -12,6 +12,8 @@ import unisson.model.kinds.primitive._
 import sae.bytecode.Database
 import de.tud.cs.st.vespucci.interfaces.IViolation
 import unisson.query.compiler.CachingQueryCompiler
+import unisson.query.parser.QueryParser
+import sae.collections.Table
 
 
 /**
@@ -21,13 +23,20 @@ import unisson.query.compiler.CachingQueryCompiler
  * Time: 16:24
  *
  * Validation of the model, queries and dependency kinds is assumed to be in the scope of the Eclipse UI.
+ *
+ * The database relies on the IEnsemble and IConstraint interfaces.
+ * Objects implementing these interfaces must provide the following equality guarantees:
+ *
+ * IEnsemble elements are equal if their names are equal, additional equality may include inner ensembles.
+ * Under no circumstances must the queries be part of the equality.
+ *
  */
 class UnissonDatabase(bc: Database)
 {
 
-    val global_ensembles: MaterializedView[IEnsemble] = new DefaultLazyView[IEnsemble]
+    val global_ensembles = new Table[IEnsemble]()
 
-    val local_ensembles: MaterializedView[(IEnsemble, String)] = new DefaultLazyView[(IEnsemble, String)]
+    val local_ensembles = new Table[(IEnsemble, String)]()
 
     val contexts: MaterializedView[String] = δ(Π {
         (_: (IEnsemble, String))._2
@@ -36,97 +45,118 @@ class UnissonDatabase(bc: Database)
     /**
      * constraints are always local, there is no global list of constraints
      */
-    val local_constraints: LazyView[(IConstraint, String)] = new DefaultLazyView[(IConstraint, String)]
+    val local_constraints = new Table[(IConstraint, String)]()
 
     /**
      * Queries of ensembles are compiled from a string that is a value in the database.
-     * Hence
+     * Hence they are wrapped in their own view implementation
      */
-    lazy val global_ensemble_elements: LazyView[(IEnsemble, SourceElement[AnyRef])] =
-        new LazyView[(IEnsemble, SourceElement[AnyRef])]
+    val global_ensemble_elements: LazyView[(IEnsemble, SourceElement[AnyRef])] = new LazyView[(IEnsemble, SourceElement[AnyRef])] {
+
+        private val queryCompiler = new CachingQueryCompiler(bc)
+
+        private val queryParser = new QueryParser()
+
+        def lazy_foreach[T](f: ((IEnsemble, SourceElement[AnyRef])) => T) {
+            for (e <- global_ensembles) {
+                queryCompiler.parseAndCompile(e.getQuery).foreach[Unit](
+                    f(e, _)
+                )
+            }
+        }
+
+        def lazyInitialize {
+            // should never be used
+            throw new UnsupportedOperationException("lazyInitialize not supported for global_ensemble_elements")
+            /*
+            global_ensembles.foreach((e: IEnsemble) => {
+                ensembleObserver.added(e)
+            })
+            */
+        }
+
+        var elementObservers: Map[IEnsemble, ElementObserver] = Map.empty
+
+        val ensembleObserver = new Observer[IEnsemble]
         {
+            def updated(oldV: IEnsemble, newV: IEnsemble) {
+                val oldQuery = queryParser.parse(oldV.getQuery).get
+                val newQuery = queryParser.parse(newV.getQuery).get
+                if (oldQuery.isSyntacticEqual(newQuery))
+                    return
 
-            private val queryCompiler = new CachingQueryCompiler(bc)
+                // remove old elements
+                val oldCompiledQuery = queryCompiler.compile(oldQuery)
+                oldCompiledQuery.lazy_foreach(
+                    (e: SourceElement[AnyRef]) => element_removed((oldV, e))
+                )
+                for( oldObserver <- elementObservers.get(oldV) )
+                {
+                    oldCompiledQuery.removeObserver(oldObserver)
+                }
+                // dispose of obsolete views and observers
+                val oldObserver= elementObservers(oldV)
+                oldCompiledQuery.removeObserver(oldObserver)
+                elementObservers -= oldV
 
-            def lazy_foreach[T](f: ((IEnsemble, SourceElement[AnyRef])) => T) {
-                for (e <- global_ensembles) {
-                    queryCompiler.parseAndCompile(e.getQuery).foreach[Unit](
-                        f(e, _)
-                    )
+                queryCompiler.dispose(oldQuery)
+
+                // add new elements
+                val newCompiledQuery = queryCompiler.compile(newQuery)
+                newCompiledQuery.lazy_foreach(
+                    (e: SourceElement[AnyRef]) => element_added((newV, e))
+                )
+                val newObserver= new ElementObserver(newV)
+                newCompiledQuery.addObserver(newObserver)
+                elementObservers += {
+                    newV -> newObserver
                 }
             }
 
-            def lazyInitialize {
-                println("global_ensemble_elements.lazyInitialize")
-
-                global_ensembles.foreach((e: IEnsemble) => {
-                    println(e); ensembleObserver.added(e)
-                })
+            def removed(v: IEnsemble) {
+                val oldQuery = queryParser.parse(v.getQuery).get
+                val compiledQuery = queryCompiler.compile(oldQuery)
+                compiledQuery.lazy_foreach(
+                    (e: SourceElement[AnyRef]) => element_removed((v, e))
+                )
+                compiledQuery.removeObserver(elementObservers(v))
+                elementObservers -= v
+                // dispose of obsolete views
+                queryCompiler.dispose(oldQuery)
             }
 
-            var elementObservers: Map[IEnsemble, ElementObserver] = Map.empty
+            def added(v: IEnsemble) {
+                val compiledQuery = queryCompiler.parseAndCompile(v.getQuery)
+                compiledQuery.lazy_foreach(
+                    (e: SourceElement[AnyRef]) => element_added((v, e))
+                )
+                val oo = new ElementObserver(v)
 
-            val ensembleObserver = new Observer[IEnsemble]
-            {
-                def updated(oldV: IEnsemble, newV: IEnsemble) {
-                    val oldCompiledQuery = queryCompiler.parseAndCompile(oldV.getQuery)
-                    oldCompiledQuery.foreach(
-                        (e: SourceElement[AnyRef]) => element_removed((oldV, e))
-                    )
-
-                    val newCompiledQuery: MaterializedView[SourceElement[AnyRef]] = queryCompiler
-                            .parseAndCompile(newV.getQuery)
-                    newCompiledQuery.foreach(
-                        (e: SourceElement[AnyRef]) => element_added((newV, e))
-                    )
-
-                }
-
-                def removed(v: IEnsemble) {
-                    val query = queryCompiler.parseAndCompile(v.getQuery)
-                    query.foreach(
-                        (e: SourceElement[AnyRef]) => element_removed((v, e))
-                    )
-                    query.removeObserver(elementObservers(v))
-                    elementObservers -= v
-                }
-
-                def added(v: IEnsemble) {
-                    val compiledQuery: MaterializedView[SourceElement[AnyRef]] = queryCompiler
-                            .parseAndCompile(v.getQuery)
-                    compiledQuery.foreach(
-                        (e: SourceElement[AnyRef]) => element_added((v, e))
-                    )
-                    val oo = new ElementObserver(v)
-
-                    compiledQuery.addObserver(oo)
-                    elementObservers += {
-                        v -> oo
-                    }
+                compiledQuery.addObserver(oo)
+                elementObservers += {
+                    v -> oo
                 }
             }
+        }
 
-            class ElementObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
-            {
-                def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
-                    element_updated((ensemble, oldV), (ensemble, newV))
-                }
-
-                def removed(v: SourceElement[AnyRef]) {
-                    element_removed((ensemble, v))
-                }
-
-                def added(v: SourceElement[AnyRef]) {
-                    element_added((ensemble, v))
-                }
+        class ElementObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
+        {
+            def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
+                element_updated((ensemble, oldV), (ensemble, newV))
             }
 
+            def removed(v: SourceElement[AnyRef]) {
+                element_removed((ensemble, v))
+            }
 
-            global_ensembles.addObserver(ensembleObserver)
+            def added(v: SourceElement[AnyRef]) {
+                element_added((ensemble, v))
+            }
         }
 
 
-    //global_ensemble_elements.addObserver(new PrintingObserver[(IEnsemble, SourceElement[AnyRef])]())
+        global_ensembles.addObserver(ensembleObserver)
+    }
 
     // TODO emulation of subquery should be removed
     // TODO normalize constraints to sub-ensembles
@@ -745,20 +775,20 @@ class UnissonDatabase(bc: Database)
     def addModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            local_ensembles.element_added((ensemble, model.getName))
+            local_ensembles +=(ensemble, model.getName)
         }
         for (constraint <- model.getConstraints) {
-            local_constraints.element_added((constraint, model.getName))
+            local_constraints +=(constraint, model.getName)
         }
     }
 
     def removeModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            local_ensembles.element_removed((ensemble, model.getName))
+            local_ensembles -=(ensemble, model.getName)
         }
         for (constraint <- model.getConstraints) {
-            local_constraints.element_removed((constraint, model.getName))
+            local_constraints -=(constraint, model.getName)
         }
     }
 
@@ -771,20 +801,41 @@ class UnissonDatabase(bc: Database)
     def addGlobalModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            global_ensembles.element_added(ensemble)
+            global_ensembles += ensemble
         }
     }
 
     def removeGlobalModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions.collectionAsScalaIterable
         for (ensemble <- model.getEnsembles) {
-            global_ensembles.element_removed(ensemble)
+            global_ensembles -= ensemble
         }
     }
 
     def updateGlobalModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-        removeGlobalModel(oldModel)
-        addGlobalModel(newModel)
+        import scala.collection.JavaConversions.asScalaSet
+
+        // remove old Ensembles
+        for (ensemble <- oldModel.getEnsembles.filterNot(
+            (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
+        )
+        ) {
+            global_ensembles += ensemble
+        }
+        // add new Ensembles
+        for (ensemble <- newModel.getEnsembles.filterNot(
+            (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
+        )
+        ) {
+            global_ensembles -= ensemble
+        }
+        // update existing Ensembles
+        for (oldE <- oldModel.getEnsembles;
+             newE <- newModel.getEnsembles)
+            if (oldE.getName == newE.getName
+            ) {
+                global_ensembles.update(oldE, newE)
+            }
     }
 
 

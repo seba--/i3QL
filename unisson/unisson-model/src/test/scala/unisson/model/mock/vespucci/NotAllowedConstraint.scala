@@ -1,6 +1,5 @@
 package unisson.model.mock.vespucci
 
-import unisson.model.kinds.DependencyKind
 import de.tud.cs.st.vespucci.model.{IEnsemble, INotAllowed}
 
 /**
@@ -10,12 +9,12 @@ import de.tud.cs.st.vespucci.model.{IEnsemble, INotAllowed}
  * Time: 16:26
  *
  */
-case class NotAllowedConstraint(kind : String, source:Ensemble, target: Ensemble)
+case class NotAllowedConstraint(kind: String, source: IEnsemble, target: IEnsemble)
         extends INotAllowed
 {
-    source.sourceConnections += this
+    source.getSourceConnections.add(this)
 
-    target.targetConnections += this
+    target.getTargetConnections.add(this)
 
     def getDependencyKind = kind
 

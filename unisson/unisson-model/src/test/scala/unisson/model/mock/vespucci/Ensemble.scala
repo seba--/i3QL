@@ -2,6 +2,7 @@ package unisson.model.mock.vespucci
 
 import collection.JavaConversions
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
+import java.util.HashSet
 
 /**
  *
@@ -10,12 +11,10 @@ import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
  * Time: 16:26
  *
  */
-case class Ensemble(name: String, query : String, innerEnsembles : Set[IEnsemble])
+private case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
     extends IEnsemble
 {
-    var sourceConnections : Set[IConstraint]= Set.empty
-
-    var targetConnections : Set[IConstraint] = Set.empty
+    var query : String = ""
 
     def getDescription = ""
 
@@ -23,11 +22,21 @@ case class Ensemble(name: String, query : String, innerEnsembles : Set[IEnsemble
 
     def getQuery = query
 
-    def getSourceConnections = JavaConversions.setAsJavaSet(sourceConnections)
+    def getSourceConnections = new HashSet[IConstraint]()
 
-    def getTargetConnections = JavaConversions.setAsJavaSet(targetConnections)
+    def getTargetConnections = new HashSet[IConstraint]()
 
     def getInnerEnsembles = JavaConversions.setAsJavaSet(innerEnsembles)
 
     override def toString = "Ensemble(" + name +")"
+}
+
+object Ensemble
+{
+    def apply(name: String, query : String, innerEnsembles : Set[IEnsemble]) :IEnsemble =
+    {
+        val e = EnsembleImpl(name, innerEnsembles)
+        e.query = query
+        e
+    }
 }

@@ -1,6 +1,6 @@
 package unisson.model.mock.vespucci
 
-import de.tud.cs.st.vespucci.model.IDocumentedViolation
+import de.tud.cs.st.vespucci.model.{IEnsemble, IDocumentedViolation}
 
 
 /**
@@ -10,12 +10,12 @@ import de.tud.cs.st.vespucci.model.IDocumentedViolation
  * Time: 16:26
  *
  */
-case class DocumentedViolation(kind: String, source: Ensemble, target: Ensemble)
+case class DocumentedViolation(kind: String, source: IEnsemble, target: IEnsemble)
         extends IDocumentedViolation
 {
-    source.sourceConnections += this
+    source.getSourceConnections.add(this)
 
-    target.targetConnections += this
+    target.getTargetConnections.add(this)
 
     def getDependencyKind = kind
 

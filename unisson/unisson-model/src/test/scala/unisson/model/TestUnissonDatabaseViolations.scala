@@ -20,68 +20,10 @@ import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
  * Time: 16:22
  *
  */
-class TestUnissonDatabase
+class TestUnissonDatabaseViolations
         extends ShouldMatchers
 {
-
-
-    implicit def violationOrdering(implicit
-                                   constraintOrdering: Ordering[IConstraint],
-                                   ensembleOrdering: Ordering[IEnsemble],
-                                   elementOrdering: Ordering[ICodeElement]
-                                          ): Ordering[IViolation] = {
-        new Ordering[IViolation]
-        {
-            def compare(x: IViolation, y: IViolation): Int = {
-                val constraintOrder = constraintOrdering.compare(x.getConstraint, y.getConstraint)
-                if (constraintOrder != 0) return constraintOrder
-
-                val sourceEnsembleOrder = ensembleOrdering.compare(x.getSourceEnsemble, y.getSourceEnsemble)
-                if (sourceEnsembleOrder != 0) return sourceEnsembleOrder
-
-                val targetEnsembleOrder = ensembleOrdering.compare(x.getTargetEnsemble, y.getTargetEnsemble)
-                if (targetEnsembleOrder != 0) return targetEnsembleOrder
-
-                val sourceElementOrder = elementOrdering.compare(x.getSourceElement, y.getSourceElement)
-                if (sourceElementOrder != 0) return sourceElementOrder
-
-                val targetElementOrder = elementOrdering.compare(x.getTargetElement, y.getTargetElement)
-                if (targetElementOrder != 0) return targetElementOrder
-
-                0
-            }
-        }
-    }
-
-    implicit def constraintOrdering(implicit ensembleOrdering: Ordering[IEnsemble]): Ordering[IConstraint] = {
-        new Ordering[IConstraint]
-        {
-            def compare(x: IConstraint, y: IConstraint): Int = {
-                val sourceOrder = ensembleOrdering.compare(x.getSource, y.getSource)
-                if (sourceOrder != 0) return sourceOrder
-
-                val targetOrder = ensembleOrdering.compare(x.getTarget, y.getTarget)
-                if (targetOrder != 0) return targetOrder
-
-                x.getDependencyKind.compare(y.getDependencyKind)
-            }
-        }
-    }
-
-    implicit def ensembleOrdering: Ordering[IEnsemble] = new Ordering[IEnsemble] {
-        def compare(x: IEnsemble, y: IEnsemble): Int =
-            x.getName.compare(y.getName)
-    }
-
-    implicit def elementOrdering: Ordering[ICodeElement] = new Ordering[ICodeElement] {
-        def compare(x: ICodeElement, y: ICodeElement): Int = {
-            val pnCompare = x.getPackageIdentifier.compareTo(y.getPackageIdentifier)
-            if (pnCompare != 0) return pnCompare
-            val snCompare = x.getSimpleClassName.compareTo(y.getSimpleClassName)
-            if (snCompare != 0) return snCompare
-            0
-        }
-    }
+    import Ordering._
 
     @Test
     def testEnsembleElements() {
@@ -320,10 +262,10 @@ class TestUnissonDatabase
         bc.classfile_fields.element_added(fieldRefDToA)
 
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
                 Violation(
-                    constraintDToA,
+                    constraintBToA,
                     ensembleC,
                     ensembleA,
                     SourceElement(fieldRefCToA),
@@ -331,7 +273,7 @@ class TestUnissonDatabase
                     ""
                 ),
                 Violation(
-                    constraintBToA,
+                    constraintDToA,
                     ensembleC,
                     ensembleA,
                     SourceElement(fieldRefCToA),
@@ -386,22 +328,22 @@ class TestUnissonDatabase
         bc.classfiles.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintBToA,
-                    ensembleC,
-                    ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
-                    ""
-                ),
                 Violation(
                     constraintAToC,
                     ensembleB,
                     ensembleC,
                     SourceElement(fieldRefBToC),
                     SourceElement(c),
+                    ""
+                ),
+                Violation(
+                    constraintBToA,
+                    ensembleC,
+                    ensembleA,
+                    SourceElement(fieldRefCToA),
+                    SourceElement(a),
                     ""
                 )
             )
@@ -657,22 +599,22 @@ class TestUnissonDatabase
         bc.classfiles.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintBToA,
-                    ensembleC,
-                    ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
-                    ""
-                ),
                 Violation(
                     constraintAToC,
                     ensembleB,
                     ensembleC,
                     SourceElement(fieldRefBToC),
                     SourceElement(c),
+                    ""
+                ),
+                Violation(
+                    constraintBToA,
+                    ensembleC,
+                    ensembleA,
+                    SourceElement(fieldRefCToA),
+                    SourceElement(a),
                     ""
                 )
             )
@@ -837,7 +779,7 @@ class TestUnissonDatabase
         bc.classfile_fields.element_added(fieldRefCToA)
 
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
                 Violation(
                     constraintBToA,
@@ -909,21 +851,21 @@ class TestUnissonDatabase
         bc.classfile_fields.element_added(fieldRefEToA)
 
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintBToA,
-                    ensembleE,
-                    ensembleA,
-                    SourceElement(fieldRefEToA),
-                    SourceElement(a),
-                    ""
-                ),
                 Violation(
                     constraintBToA,
                     ensembleD,
                     ensembleA,
                     SourceElement(fieldRefDToA),
+                    SourceElement(a),
+                    ""
+                ),
+                Violation(
+                    constraintBToA,
+                    ensembleE,
+                    ensembleA,
+                    SourceElement(fieldRefEToA),
                     SourceElement(a),
                     ""
                 ),
@@ -1033,10 +975,10 @@ class TestUnissonDatabase
         bc.classfiles.element_added(c)
         bc.classfiles.element_added(d)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
                 Violation(
-                    constraintAToD,
+                    constraintAToB,
                     ensembleA,
                     ensembleC,
                     SourceElement(fieldRefAToC),
@@ -1044,7 +986,7 @@ class TestUnissonDatabase
                     ""
                 ),
                 Violation(
-                    constraintAToB,
+                    constraintAToD,
                     ensembleA,
                     ensembleC,
                     SourceElement(fieldRefAToC),
@@ -1108,22 +1050,22 @@ class TestUnissonDatabase
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintBToC,
-                    ensembleB,
-                    ensembleA,
-                    SourceElement(fieldRefBToA),
-                    SourceElement(a),
-                    ""
-                ),
                 Violation(
                     constraintAToB,
                     ensembleA,
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
+                    ""
+                ),
+                Violation(
+                    constraintBToC,
+                    ensembleB,
+                    ensembleA,
+                    SourceElement(fieldRefBToA),
+                    SourceElement(a),
                     ""
                 )
             )
@@ -1382,22 +1324,22 @@ class TestUnissonDatabase
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintBToC,
-                    ensembleB,
-                    ensembleA,
-                    SourceElement(fieldRefBToA),
-                    SourceElement(a),
-                    ""
-                ),
                 Violation(
                     constraintAToB,
                     ensembleA,
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
+                    ""
+                ),
+                Violation(
+                    constraintBToC,
+                    ensembleB,
+                    ensembleA,
+                    SourceElement(fieldRefBToA),
+                    SourceElement(a),
                     ""
                 )
             )
@@ -1562,22 +1504,22 @@ class TestUnissonDatabase
         bc.classfiles.element_added(b)
         bc.classfiles.element_added(c)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
-                Violation(
-                    constraintAToC,
-                    ensembleA,
-                    ensembleB,
-                    SourceElement(fieldRefAToB),
-                    SourceElement(b),
-                    ""
-                ),
                 Violation(
                     constraintAToB,
                     ensembleA,
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
+                    ""
+                ),
+                Violation(
+                    constraintAToC,
+                    ensembleA,
+                    ensembleB,
+                    SourceElement(fieldRefAToB),
+                    SourceElement(b),
                     ""
                 )
             )
@@ -1629,18 +1571,10 @@ class TestUnissonDatabase
         bc.classfiles.element_added(d)
         bc.classfiles.element_added(e)
 
-        result.asList should be(
+        result.asList.sorted should be(
             List(
                 Violation(
                     constraintAToB,
-                    ensembleA,
-                    ensembleD,
-                    SourceElement(fieldRefAToD),
-                    SourceElement(d),
-                    ""
-                ),
-                Violation(
-                    constraintAToC,
                     ensembleA,
                     ensembleD,
                     SourceElement(fieldRefAToD),
@@ -1653,6 +1587,14 @@ class TestUnissonDatabase
                     ensembleE,
                     SourceElement(fieldRefAToE),
                     SourceElement(e),
+                    ""
+                ),
+                Violation(
+                    constraintAToC,
+                    ensembleA,
+                    ensembleD,
+                    SourceElement(fieldRefAToD),
+                    SourceElement(d),
                     ""
                 )
             )

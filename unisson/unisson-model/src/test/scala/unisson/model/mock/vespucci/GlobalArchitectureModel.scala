@@ -12,6 +12,8 @@ import de.tud.cs.st.vespucci.model.IEnsemble
 object GlobalArchitectureModel
 {
 
-    def apply(ensembles: Set[_ <:IEnsemble]) = ArchitectureModel(ensembles, Set.empty, null)
+    def apply(ensembles: IEnsemble*) = ArchitectureModel(ensembles.toSet[IEnsemble], Set.empty, null)
+
+    def apply(ensembles: Set[_ <: IEnsemble]) = ArchitectureModel(ensembles.toSet[IEnsemble], Set.empty, null)
 
 }

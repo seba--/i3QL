@@ -1,6 +1,6 @@
 package unisson.model.mock.vespucci
 
-import de.tud.cs.st.vespucci.model.{IGlobalIncoming, IIncoming}
+import de.tud.cs.st.vespucci.model.{IEnsemble, IGlobalIncoming}
 
 
 /**
@@ -10,12 +10,12 @@ import de.tud.cs.st.vespucci.model.{IGlobalIncoming, IIncoming}
  * Time: 16:26
  *
  */
-case class GlobalIncomingConstraint(kind: String, source: Ensemble, target: Ensemble)
+case class GlobalIncomingConstraint(kind: String, source: IEnsemble, target: IEnsemble)
         extends IGlobalIncoming
 {
-    source.sourceConnections += this
+    source.getSourceConnections.add(this)
 
-    target.targetConnections += this
+    target.getTargetConnections.add(this)
 
     def getDependencyKind = kind
 
