@@ -270,7 +270,7 @@ class TestLazyInitialization
     }
 
     @Test
-    def testAntiSemiJoinWithDoubledSource() {
+    def testAntiSemiJoinAdditionsToDoubledSource() {
         type Ensemble = String
         type Constraint = (String, String)
         type Context = String
@@ -280,7 +280,7 @@ class TestLazyInitialization
         val local_incoming = new Table[(Constraint, Context)]
 
 
-        val ensemblesWithConstraints = (
+        val ensemblesAndConstraintsInSameContext = (
                 (
                         local_ensembles,
                         (_: (Ensemble, Context))._2
@@ -294,7 +294,7 @@ class TestLazyInitialization
         // Allowed are all (A, Incoming(_, A) and (A, Incoming(A, _)
         val filteredEnsemblesWithConstraints = σ {(e: (Ensemble, Constraint, Context)) =>
             (e._1 != e._2._2 && e._2._1 != e._1)
-        }(ensemblesWithConstraints)
+        }(ensemblesAndConstraintsInSameContext)
 
 
         val firstObserver = local_incoming.observers.head
@@ -326,7 +326,7 @@ class TestLazyInitialization
             i += 1
             // this should not take more than 10 tries, the test never got stuck here, but we should check anyway
             Assert
-                    .assertTrue("could not construct the test prerequisite, that right side is notified first. We made " + i + "attempts", i < 1000)
+                    .assertTrue("could not construct the test prerequisite, that right side is notified first. We made " + i + "attempts", i < 10000)
             disallowedEnsemblesPerConstraint.clearObserversForChildren(
                 (o: Observable[_ <: AnyRef]) => {
                     o != filteredEnsemblesWithConstraints
@@ -368,7 +368,7 @@ class TestLazyInitialization
         local_ensembles -= ensembleC
         local_incoming -= constraintB_A
 
-        ensemblesWithConstraints.asList should be(Nil)
+        ensemblesAndConstraintsInSameContext.asList should be(Nil)
 
         disallowedEnsemblesPerConstraint.asList should be(
             Nil
@@ -386,6 +386,106 @@ class TestLazyInitialization
                 ("B", ("C", "A"), "context")
             )
         )
+
+    }
+
+    @Test
+    def testAntiSemiJoinAdditionsWithNeighboringDoubledSource() {
+        type Ensemble = String
+        type Constraint = (String, String)
+        type Context = String
+
+        // simulation of a serious test that went bad with ensembles, which we emulate here by strings
+        val local_ensembles = new Table[(Ensemble, Context)]
+        val local_incoming = new Table[(Constraint, Context)]
+
+
+        val ensemblesAndConstraintsInSameContext = (
+                (
+                        local_ensembles,
+                        (_: (Ensemble, Context))._2
+                        ) ⋈(
+                        (_: (Constraint, Context))._2,
+                        local_incoming
+                        )
+                ) {(e: (Ensemble, Context), c: (Constraint, Context)) => (e._1, c._1, e._2)}
+
+        // filter obviously allowed combinations
+        // Allowed are all (A, Incoming(_, A) and (A, Incoming(A, _)
+        val filteredEnsemblesWithConstraints = σ {(e: (Ensemble, Constraint, Context)) =>
+            (e._1 != e._2._2 && e._2._1 != e._1)
+        }(ensemblesAndConstraintsInSameContext)
+
+
+        val firstObserver = local_incoming.observers.head
+
+        /**
+         * all disallowed combinations taking all constraints to an ensemble into account
+         * for all (Z,Y) where Z,Y in Ensembles and Incoming(_,Y, ctx) ;
+         * if !exists (Z,Y) with Incoming(Z,Y, ctx) or GlobalIncoming(Z,Y, ctx) then Z may not use Y
+         */
+
+        // there is a specific problem if the right relation of the not exists operator notifies the not exists first
+        // hence we construct this relation until we are sure the not exists is notified first
+
+        var disallowedEnsemblesPerConstraint = (
+                (
+                        filteredEnsemblesWithConstraints,
+                        (e: (Ensemble, Constraint, Context)) => (e._1, e._2._2, e._3)
+                        ) ⊳(
+                        (c: (Constraint, Context)) => (c._1._1, c._1._2, c._2),
+                        local_incoming
+                        )
+
+                )
+
+
+        val ensembleA = ("A", "context")
+        val ensembleB = ("B", "context")
+        val ensembleC = ("C", "context")
+        val ensembleD = ("D", "context")
+
+        local_ensembles += ensembleA
+        local_ensembles += ensembleB
+        local_ensembles += ensembleC
+
+        val constraintB_A = (("B", "A"), "context")
+        local_incoming += constraintB_A
+
+        disallowedEnsemblesPerConstraint.asList should be(
+            List(
+                ("C", ("B", "A"), "context")
+            )
+        )
+
+        local_ensembles -= ensembleA
+        local_ensembles -= ensembleB
+        local_ensembles -= ensembleC
+        local_incoming -= constraintB_A
+
+        ensemblesAndConstraintsInSameContext.asList should be(Nil)
+
+        disallowedEnsemblesPerConstraint.asList should be(Nil)
+
+        local_ensembles += ensembleA
+        local_ensembles += ensembleB
+        local_ensembles += ensembleD
+        local_incoming += constraintB_A
+
+        disallowedEnsemblesPerConstraint.asList should be(
+            List(
+                ("D", ("B", "A"), "context")
+            )
+        )
+
+        local_ensembles -= ensembleA
+        local_ensembles -= ensembleB
+        local_ensembles -= ensembleD
+        local_incoming -= constraintB_A
+
+        ensemblesAndConstraintsInSameContext.asList should be(Nil)
+
+        disallowedEnsemblesPerConstraint.asList should be(Nil)
 
     }
 
