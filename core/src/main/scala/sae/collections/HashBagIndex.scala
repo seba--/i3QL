@@ -37,7 +37,7 @@ class HashBagIndex[K <: AnyRef, V <: AnyRef](
     protected def get_internal(key: K): Option[Traversable[V]] = {
         val l = map.get(key)
         if (l.isEmpty)
-            None
+            return None
         Some(new ValueListTraverser(l))
     }
 

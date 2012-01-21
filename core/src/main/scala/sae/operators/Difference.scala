@@ -63,7 +63,6 @@ class BagDifference[Domain <: AnyRef]
 
     private var cached_size = 0
 
-    // TODO we can simplify the initialization code in the observers by just calling init on construction
     def lazyInitialize {
         leftIndex.foreachKey(
             (v: Domain) => {
@@ -76,6 +75,11 @@ class BagDifference[Domain <: AnyRef]
         initialized = true
     }
 
+    // TODO the materialized foreach already has all elements of the underlying relation
+    // if another view calls foreach during lazyInitialize at the time of an add event from this operator,
+    // then elements may be added twice.
+    // Note: The deeper issue is, what is the consistent state for operators before they fire events.
+    // currently they have the values of the result minus the delta values they currently process in an event
     def materialized_foreach[T](f: (Domain) => T) {
         leftIndex.foreachKey(
             (v: Domain) => {

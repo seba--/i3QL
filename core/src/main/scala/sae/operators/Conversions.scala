@@ -11,7 +11,7 @@ object Conversions
 
     // note rewrite to specialized operators makes sense, but may also
     // be irritating from a client perspective.
-    // if you use viewX in a query and want to add elements later, then maybe viewX 
+    // if you use viewX in a query and want to add elements later, then maybe viewX
     // was replaced inside a query and results do not get updated
     def lazyViewToMaterializedView[V <: AnyRef](lazyView: LazyView[V]): MaterializedView[V] =
         lazyView match {
@@ -21,31 +21,7 @@ object Conversions
             case _ => new BagResult(lazyView)
         }
 
-    // internal class for forwarding 
-    class HashIndexedViewProxy[V <: AnyRef](val relation: MaterializedView[V])
-            extends IndexedView[V]
-            with ObservableProxy[V]
-    {
 
-        initialized = true
-
-        def lazyInitialize {
-            // do nothing
-        }
-
-        def materialized_foreach[T](f: (V) => T) {
-            relation.foreach(f)
-        }
-
-        def materialized_size: Int = relation.size
-
-        def materialized_singletonValue: Option[V] = relation.singletonValue
-
-        protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V] =
-            new sae.collections.HashBagIndex[K, V](relation, keyFunction)
-
-        protected def materialized_contains(v: V) = relation.contains(v)
-    }
 
     def lazyViewToIndexedView[V <: AnyRef](lazyView: LazyView[V]): IndexedView[V] =
         lazyView match {

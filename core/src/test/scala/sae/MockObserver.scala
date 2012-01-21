@@ -9,15 +9,7 @@ package sae
  */
 class MockObserver[-V] extends Observer[V]
 {
-
-    trait ObserverEvent
-
-    case class AddEvent[T](value: T) extends ObserverEvent
-
-    case class RemoveEvent[T](value: T) extends ObserverEvent
-
-    case class UpdateEvent[T](oldValue: T, newValue: T) extends ObserverEvent
-
+    import MockObserver._
     private var eventQueue: List[ObserverEvent] = Nil
 
     def events = eventQueue
@@ -39,3 +31,13 @@ class MockObserver[-V] extends Observer[V]
     }
 }
 
+object MockObserver
+{
+    trait ObserverEvent
+
+    case class AddEvent[T](value: T) extends ObserverEvent
+
+    case class RemoveEvent[T](value: T) extends ObserverEvent
+
+    case class UpdateEvent[T](oldValue: T, newValue: T) extends ObserverEvent
+}

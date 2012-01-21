@@ -41,7 +41,7 @@ class LazySelection[V <: AnyRef](
     }
 
     def lazyInitialize {
-        relation.lazyInitialize
+
     }
 
     def lazy_foreach[T](f: (V) => T) {

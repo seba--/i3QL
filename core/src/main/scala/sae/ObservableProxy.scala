@@ -41,3 +41,34 @@ trait ObservableProxy[V <: AnyRef] extends Observable[V]
         }
     }
 }
+
+// proxy observer for indices
+class HashIndexedViewProxy[V <: AnyRef](val relation: MaterializedView[V])
+        extends IndexedView[V]
+        with ObservableProxy[V]
+{
+
+    initialized = true
+
+    def lazyInitialize {
+        // do nothing
+    }
+
+    def materialized_foreach[T](f: (V) => T) {
+        relation.foreach(f)
+    }
+
+    def materialized_size: Int = relation.size
+
+    def materialized_singletonValue: Option[V] = relation.singletonValue
+
+    protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V] =
+    {
+        val index = new sae.collections.HashBagIndex[K, V](relation, keyFunction)
+        index.lazyInitialize
+        index
+    }
+        
+
+    protected def materialized_contains(v: V) = relation.contains(v)
+}
