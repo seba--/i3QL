@@ -57,6 +57,8 @@ class UnissonDatabase(bc: Database)
 
         private val queryParser = new QueryParser()
 
+        initialized = true
+
         def lazy_foreach[T](f: ((IEnsemble, SourceElement[AnyRef])) => T) {
             for (e <- global_ensembles) {
                 queryCompiler.parseAndCompile(e.getQuery).foreach[Unit](
@@ -164,6 +166,28 @@ class UnissonDatabase(bc: Database)
 
         private val kindParser = new KindParser()
 
+        initialized = true
+
+        override def lazy_foreach[T](f: (NormalizedConstraint) => T) {
+            local_constraints.foreach(
+                (v: (IConstraint, String)) => {
+                    // TODO error handling for kinds
+                    val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
+                    if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
+                        for (kind <- kinds) {
+                            f(ProxyNormalizedConstraint(v._1, kind, v._2))
+                        }
+                    }
+                    else {
+                        for (kind <- kinds) {
+                            f(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
+                            f(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
+                        }
+                    }
+                }
+            )
+        }
+
         val observer = new Observer[(IConstraint, String)]
         {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
@@ -207,8 +231,6 @@ class UnissonDatabase(bc: Database)
 
         local_constraints.addObserver(observer)
     }
-
-    //normalized_constraints.addObserver(new PrintingObserver[NormalizedConstraint]())
 
     val kind_and_dependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
         Π {
@@ -820,14 +842,14 @@ class UnissonDatabase(bc: Database)
             (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
         )
         ) {
-            global_ensembles += ensemble
+            global_ensembles -= ensemble
         }
         // add new Ensembles
         for (ensemble <- newModel.getEnsembles.filterNot(
             (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
         )
         ) {
-            global_ensembles -= ensemble
+            global_ensembles += ensemble
         }
         // update existing Ensembles
         for (oldE <- oldModel.getEnsembles;
