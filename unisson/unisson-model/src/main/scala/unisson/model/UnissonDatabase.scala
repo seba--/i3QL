@@ -1,19 +1,17 @@
 package unisson.model
 
-import constraints.{NormalizedConstraintWithType, ConstraintType, ProxyNormalizedConstraint, NormalizedConstraint}
-import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
-import debug.PrintingObserver
-import unisson.model.kinds.{KindParser, KindResolver, DependencyKind}
+import constraints._
+import kinds.primitive._
+import kinds.{DependencyKind, KindResolver, KindParser}
 import unisson.query.code_model.SourceElement
-import sae.{Observer, DefaultLazyView, MaterializedView, LazyView}
-import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model.dependencies.Dependency
-import unisson.model.kinds.primitive._
 import sae.bytecode.Database
-import de.tud.cs.st.vespucci.interfaces.IViolation
+import sae.collections.Table
 import unisson.query.compiler.CachingQueryCompiler
 import unisson.query.parser.QueryParser
-import sae.collections.Table
+import sae.{DefaultLazyView, MaterializedView, Observer, LazyView}
+import sae.bytecode.model.dependencies.Dependency
+import de.tud.cs.st.vespucci.interfaces.IViolation
+import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
 
 
 /**
@@ -34,9 +32,137 @@ import sae.collections.Table
 class UnissonDatabase(bc: Database)
 {
 
+    import sae.syntax.RelationalAlgebraSyntax._
+
     val global_ensembles = new Table[IEnsemble]()
 
+    val normalized_global_ensembles = new LazyView[IEnsemble] {
+
+        initialized = true
+
+        def lazy_foreach[T](f: (IEnsemble) => T) {
+            for (g <- global_ensembles;
+                 leaf <- EnsembleNormalizer.allLeaves(g)) {
+                f(leaf)
+            }
+        }
+
+        def lazyInitialize() {
+            // should never be used
+            throw new UnsupportedOperationException("lazyInitialize not supported for normalized_global_ensembles")
+        }
+
+
+        val ensembleObserver = new Observer[IEnsemble]
+        {
+
+            import EnsembleNormalizer.allLeaves
+
+            def updated(oldV: IEnsemble, newV: IEnsemble) {
+                val oldLeaves = allLeaves(oldV)
+                val newLeaves = allLeaves(newV)
+                // remove old Ensembles
+                for (ensemble <- oldLeaves.filterNot(
+                    (e: IEnsemble) => newLeaves.exists(_.getName == e.getName)
+                )
+                ) {
+                    element_removed(ensemble)
+                }
+                // add new Ensembles
+                for (ensemble <- newLeaves.filterNot(
+                    (e: IEnsemble) => oldLeaves.exists(_.getName == e.getName)
+                )
+                ) {
+                    element_added(ensemble)
+                }
+                // update existing Ensembles
+                for (oldE <- oldLeaves;
+                     newE <- newLeaves)
+                    if (oldE.getName == newE.getName
+                    ) {
+                        updated(oldE, newE)
+                    }
+            }
+
+            def removed(v: IEnsemble) {
+                for (leaf <- allLeaves(v)) {
+                    element_removed(leaf)
+                }
+            }
+
+            def added(v: IEnsemble) {
+                for (leaf <- allLeaves(v)) {
+                    element_added(leaf)
+                }
+            }
+        }
+
+        global_ensembles.addObserver(ensembleObserver)
+    }
+
     val local_ensembles = new Table[(IEnsemble, String)]()
+
+    val normalized_local_ensembles = new LazyView[(IEnsemble, String)] {
+
+        initialized = true
+
+        def lazy_foreach[T](f: ((IEnsemble, String)) => T) {
+            for (g <- local_ensembles;
+                 leaf <- EnsembleNormalizer.allLeaves(g._1)) {
+                f((leaf, g._2))
+            }
+        }
+
+        def lazyInitialize() {
+            // should never be used
+            throw new UnsupportedOperationException("lazyInitialize not supported for normalized_global_ensembles")
+        }
+
+
+        val ensembleObserver = new Observer[(IEnsemble, String)] {
+
+            import EnsembleNormalizer.allLeaves
+
+            def updated(oldV: (IEnsemble, String), newV: (IEnsemble, String)) {
+                val oldLeaves = allLeaves(oldV._1)
+                val newLeaves = allLeaves(newV._1)
+                // remove old Ensembles
+                for (ensemble <- oldLeaves.filterNot(
+                    (e: IEnsemble) => newLeaves.exists(_.getName == e.getName)
+                )
+                ) {
+                    element_removed((ensemble, oldV._2))
+                }
+                // add new Ensembles
+                for (ensemble <- newLeaves.filterNot(
+                    (e: IEnsemble) => oldLeaves.exists(_.getName == e.getName)
+                )
+                ) {
+                    element_added((ensemble, newV._2))
+                }
+                // update existing Ensembles
+                for (oldE <- oldLeaves;
+                     newE <- newLeaves)
+                    if (oldE.getName == newE.getName
+                    ) {
+                        updated((oldE, oldV._2), (newE, newV._2))
+                    }
+            }
+
+            def removed(v: (IEnsemble, String)) {
+                for (leaf <- allLeaves(v._1)) {
+                    element_removed((leaf, v._2))
+                }
+            }
+
+            def added(v: (IEnsemble, String)) {
+                for (leaf <- allLeaves(v._1)) {
+                    element_added((leaf, v._2))
+                }
+            }
+        }
+        local_ensembles.addObserver(ensembleObserver)
+    }
 
     val contexts: MaterializedView[String] = δ(Π {
         (_: (IEnsemble, String))._2
@@ -70,17 +196,11 @@ class UnissonDatabase(bc: Database)
         def lazyInitialize {
             // should never be used
             throw new UnsupportedOperationException("lazyInitialize not supported for global_ensemble_elements")
-            /*
-            global_ensembles.foreach((e: IEnsemble) => {
-                ensembleObserver.added(e)
-            })
-            */
         }
 
         var elementObservers: Map[IEnsemble, ElementObserver] = Map.empty
 
-        val ensembleObserver = new Observer[IEnsemble]
-        {
+        val ensembleObserver = new Observer[IEnsemble] {
             def updated(oldV: IEnsemble, newV: IEnsemble) {
                 val oldQuery = queryParser.parse(oldV.getQuery).get
                 val newQuery = queryParser.parse(newV.getQuery).get
@@ -92,12 +212,11 @@ class UnissonDatabase(bc: Database)
                 oldCompiledQuery.lazy_foreach(
                     (e: SourceElement[AnyRef]) => element_removed((oldV, e))
                 )
-                for( oldObserver <- elementObservers.get(oldV) )
-                {
+                for (oldObserver <- elementObservers.get(oldV)) {
                     oldCompiledQuery.removeObserver(oldObserver)
                 }
                 // dispose of obsolete views and observers
-                val oldObserver= elementObservers(oldV)
+                val oldObserver = elementObservers(oldV)
                 oldCompiledQuery.removeObserver(oldObserver)
                 elementObservers -= oldV
 
@@ -108,7 +227,7 @@ class UnissonDatabase(bc: Database)
                 newCompiledQuery.lazy_foreach(
                     (e: SourceElement[AnyRef]) => element_added((newV, e))
                 )
-                val newObserver= new ElementObserver(newV)
+                val newObserver = new ElementObserver(newV)
                 newCompiledQuery.addObserver(newObserver)
                 elementObservers += {
                     newV -> newObserver
@@ -157,74 +276,78 @@ class UnissonDatabase(bc: Database)
         }
 
 
-        global_ensembles.addObserver(ensembleObserver)
+        normalized_global_ensembles.addObserver(ensembleObserver)
     }
 
     // TODO emulation of subquery should be removed
-    // TODO normalize constraints to sub-ensembles
-    val normalized_constraints = new DefaultLazyView[NormalizedConstraint] {
+    val normalized_constraints = new LazyView[NormalizedConstraint] {
 
         private val kindParser = new KindParser()
 
         initialized = true
 
+
+        def lazyInitialize() {
+            // should never be used
+            throw new UnsupportedOperationException("lazyInitialize not supported for normalized_constraints")
+        }
+
+        import EnsembleNormalizer.allLeaves
+
+        private def apply[T](v: (IConstraint, String))(f: (NormalizedConstraint) => T) {
+            // TODO error handling for kinds
+            val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
+            val typ = ConstraintType(v._1)
+            for (kind <- kinds; source <- allLeaves(v._1.getSource); target <- allLeaves(v._1.getTarget)) {
+                if (typ != ConstraintType.IncomingAndOutgoing) {
+                    f(new NormalizedConstraintImpl(
+                        v._1,
+                        kind,
+                        typ,
+                        source,
+                        target,
+                        v._2
+                    ))
+                }
+                else {
+                    f(new NormalizedConstraintImpl(
+                        v._1,
+                        kind,
+                        ConstraintType.Incoming,
+                        source,
+                        target,
+                        v._2
+                    ))
+                    f(new NormalizedConstraintImpl(
+                        v._1,
+                        kind,
+                        ConstraintType.Outgoing,
+                        source,
+                        target,
+                        v._2
+                    ))
+                }
+            }
+        }
+
         override def lazy_foreach[T](f: (NormalizedConstraint) => T) {
             local_constraints.foreach(
-                (v: (IConstraint, String)) => {
-                    // TODO error handling for kinds
-                    val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                    if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
-                        for (kind <- kinds) {
-                            f(ProxyNormalizedConstraint(v._1, kind, v._2))
-                        }
-                    }
-                    else {
-                        for (kind <- kinds) {
-                            f(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
-                            f(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
-                        }
-                    }
-                }
+                apply(_)(f)
             )
         }
 
-        val observer = new Observer[(IConstraint, String)]
-        {
+        val observer = new Observer[(IConstraint, String)] {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
                 removed(oldV)
                 added(newV)
             }
 
             def removed(v: (IConstraint, String)) {
-                // TODO error handling for kinds
-                val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
-                    for (kind <- kinds) {
-                        element_removed(ProxyNormalizedConstraint(v._1, kind, v._2))
-                    }
-                }
-                else {
-                    for (kind <- kinds) {
-                        element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
-                        element_removed(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
-                    }
-                }
+                apply(v)(element_removed)
             }
 
             def added(v: (IConstraint, String)) {
-                // TODO error handling for kinds
-                val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                if (ConstraintType(v._1) != ConstraintType.IncomingAndOutgoing) {
-                    for (kind <- kinds) {
-                        element_added(ProxyNormalizedConstraint(v._1, kind, v._2))
-                    }
-                }
-                else {
-                    for (kind <- kinds) {
-                        element_added(NormalizedConstraintWithType(v._1, ConstraintType.Incoming, kind, v._2))
-                        element_added(NormalizedConstraintWithType(v._1, ConstraintType.Outgoing, kind, v._2))
-                    }
-                }
+                apply(v)(element_added)
             }
 
         }
@@ -356,27 +479,31 @@ class UnissonDatabase(bc: Database)
                                     ._1.target)),
                         dependencyByKind
                         )
-                ) {(elem: (IEnsemble, SourceElement[AnyRef]),
-                    dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-            dep
+                ) {
+            (elem: (IEnsemble, SourceElement[AnyRef]),
+             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                dep
         }
 
 
         // all local ensembles joined by their contexts to the incoming constraints
         val ensemblesWithConstraints = (
                 (
-                        local_ensembles,
+                        normalized_local_ensembles,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
                         local_incoming
                         )
-                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, e._2, c)}
+                ) {
+            (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, e._2, c)
+        }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Incoming(_, A) and (A, Incoming(A, _)
-        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, String, NormalizedConstraint)) =>
-            (e._1 != e._3.target && e._3.source != e._1)
+        val filteredEnsemblesWithConstraints = σ {
+            (e: (IEnsemble, String, NormalizedConstraint)) =>
+                (e._1 != e._3.target && e._3.source != e._1)
         }(ensemblesWithConstraints)
 
         /**
@@ -454,9 +581,10 @@ class UnissonDatabase(bc: Database)
                                     ._1.target)),
                         dependencyByKind
                         )
-                ) {(elem: (IEnsemble, SourceElement[AnyRef]),
-                    dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-            dep
+                ) {
+            (elem: (IEnsemble, SourceElement[AnyRef]),
+             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                dep
         }
 
         // treat all global ensembles as if they were present in the context by joining all contexts to the global incoming constraints
@@ -469,13 +597,16 @@ class UnissonDatabase(bc: Database)
                         (_: NormalizedConstraint).context,
                         global_incoming
                         )
-                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, e._2, c)}
+                ) {
+            (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, e._2, c)
+        }
 
 
         // filter obviously allowed combinations
         // Allowed are all (A, GlobalIncoming(_, A) and (A, GlobalIncoming(A, _)
-        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, String, NormalizedConstraint)) =>
-            (e._1 != e._3.target && e._3.source != e._1)
+        val filteredEnsemblesWithConstraints = σ {
+            (e: (IEnsemble, String, NormalizedConstraint)) =>
+                (e._1 != e._3.target && e._3.source != e._1)
         }(ensemblesWithConstraints)
 
         /**
@@ -550,26 +681,30 @@ class UnissonDatabase(bc: Database)
                             (dep._2.source, SourceElement(dep._1.source)),
                         dependencyByKind
                         )
-                ) {(elem: (IEnsemble, SourceElement[AnyRef]),
-                    dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-            dep
+                ) {
+            (elem: (IEnsemble, SourceElement[AnyRef]),
+             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                dep
         }
 
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations = (
                 (
-                        local_ensembles,
+                        normalized_local_ensembles,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
                         local_outgoing
                         )
-                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)}
+                ) {
+            (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)
+        }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
-        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, IEnsemble, String)) =>
-            (e._1 != e._2)
+        val filteredEnsemblesWithConstraints = σ {
+            (e: (IEnsemble, IEnsemble, String)) =>
+                (e._1 != e._2)
         }(source_target_combinations)
 
         /**
@@ -614,16 +749,17 @@ class UnissonDatabase(bc: Database)
                         disallowedTargets
                         )
 
-                ) {(v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-                    e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
-            new Violation(
-                v._2.origin,
-                e._1,
-                e._2,
-                SourceElement(v._1.source),
-                e._4,
-                ""
-            ).asInstanceOf[IViolation]
+                ) {
+            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
+             e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                new Violation(
+                    v._2.origin,
+                    e._1,
+                    e._2,
+                    SourceElement(v._1.source),
+                    e._4,
+                    ""
+                ).asInstanceOf[IViolation]
         }
 
         violations
@@ -643,9 +779,10 @@ class UnissonDatabase(bc: Database)
                             (dep._2.source, SourceElement(dep._1.source)),
                         dependencyByKind
                         )
-                ) {(elem: (IEnsemble, SourceElement[AnyRef]),
-                    dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-            dep
+                ) {
+            (elem: (IEnsemble, SourceElement[AnyRef]),
+             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
+                dep
         }
 
 
@@ -658,12 +795,15 @@ class UnissonDatabase(bc: Database)
                         (_: NormalizedConstraint).context,
                         global_outgoing
                         )
-                ) {(e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)}
+                ) {
+            (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, e._2)
+        }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
-        val filteredEnsemblesWithConstraints = σ {(e: (IEnsemble, IEnsemble, String)) =>
-            (e._1 != e._2)
+        val filteredEnsemblesWithConstraints = σ {
+            (e: (IEnsemble, IEnsemble, String)) =>
+                (e._1 != e._2)
         }(source_target_combinations)
 
         /**
@@ -708,16 +848,17 @@ class UnissonDatabase(bc: Database)
                         disallowedTargets
                         )
 
-                ) {(v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-                    e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
-            new Violation(
-                v._2.origin,
-                e._1,
-                e._2,
-                SourceElement(v._1.source),
-                e._4,
-                ""
-            ).asInstanceOf[IViolation]
+                ) {
+            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
+             e: (IEnsemble, IEnsemble, String, SourceElement[AnyRef])) =>
+                new Violation(
+                    v._2.origin,
+                    e._1,
+                    e._2,
+                    SourceElement(v._1.source),
+                    e._4,
+                    ""
+                ).asInstanceOf[IViolation]
         }
 
         violations
@@ -747,7 +888,9 @@ class UnissonDatabase(bc: Database)
                     (_: (IEnsemble, SourceElement[AnyRef]))._1,
                     global_ensemble_elements
                     )
-            ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+            ) {
+        (con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e
+    }
 
     /**
      * all source elements that match the target ensembles in a given view of constraints
@@ -760,7 +903,9 @@ class UnissonDatabase(bc: Database)
                     (_: (IEnsemble, SourceElement[AnyRef]))._1,
                     global_ensemble_elements
                     )
-            ) {(con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e}
+            ) {
+        (con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e
+    }
 
     /**
      * all dependencies that conform to the given constraints' kinds
@@ -795,7 +940,8 @@ class UnissonDatabase(bc: Database)
     }(violatingDependencies)
 
     def addModel(model: IArchitectureModel) {
-        import scala.collection.JavaConversions.collectionAsScalaIterable
+        import scala.collection.JavaConversions._
+
         for (ensemble <- model.getEnsembles) {
             local_ensembles +=(ensemble, model.getName)
         }
@@ -805,7 +951,8 @@ class UnissonDatabase(bc: Database)
     }
 
     def removeModel(model: IArchitectureModel) {
-        import scala.collection.JavaConversions.collectionAsScalaIterable
+        import scala.collection.JavaConversions._
+
         for (ensemble <- model.getEnsembles) {
             local_ensembles -=(ensemble, model.getName)
         }
@@ -821,21 +968,23 @@ class UnissonDatabase(bc: Database)
 
     // TODO should be part of the model?
     def addGlobalModel(model: IArchitectureModel) {
-        import scala.collection.JavaConversions.collectionAsScalaIterable
+        import scala.collection.JavaConversions._
+
         for (ensemble <- model.getEnsembles) {
             global_ensembles += ensemble
         }
     }
 
     def removeGlobalModel(model: IArchitectureModel) {
-        import scala.collection.JavaConversions.collectionAsScalaIterable
+        import scala.collection.JavaConversions._
+
         for (ensemble <- model.getEnsembles) {
             global_ensembles -= ensemble
         }
     }
 
     def updateGlobalModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-        import scala.collection.JavaConversions.asScalaSet
+        import scala.collection.JavaConversions._
 
         // remove old Ensembles
         for (ensemble <- oldModel.getEnsembles.filterNot(
@@ -861,4 +1010,15 @@ class UnissonDatabase(bc: Database)
     }
 
 
+}
+
+object EnsembleNormalizer
+{
+
+    def allLeaves(e: IEnsemble): List[IEnsemble] = {
+        import scala.collection.JavaConversions._
+        if (e.getInnerEnsembles.isEmpty)
+            return List(e)
+        e.getInnerEnsembles.map(allLeaves(_)).fold[List[IEnsemble]](Nil)(_ ::: _)
+    }
 }

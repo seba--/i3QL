@@ -46,6 +46,7 @@ class QueryCompiler(val db: Database)
             case TransitiveQuery(SuperTypeQuery(innerQuery)) => transitive_supertype(compile(innerQuery))
             case SuperTypeQuery(innerQuery) => supertype(compile(innerQuery))
             case EmptyQuery() => new EmptyResult[SourceElement[AnyRef]]()
+            case DerivedQuery() => new EmptyResult[SourceElement[AnyRef]]()
             case _ => throw new IllegalArgumentException("Unknown query type: " + query)
         }
     }
