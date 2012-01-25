@@ -15,10 +15,10 @@ case class Violation(constraint: IConstraint,
                      targetEnsemble: IEnsemble,
                      sourceElement: ICodeElement,
                      targetElement: ICodeElement,
-                     description: String)
+                     kind: String)
         extends IViolation
 {
-    def getDescription = description
+    def getDescription = kind
 
     def getSourceElement = sourceElement
 

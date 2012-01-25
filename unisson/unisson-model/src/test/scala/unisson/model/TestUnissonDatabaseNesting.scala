@@ -35,7 +35,7 @@ class TestUnissonDatabaseNesting
 
         val globalModel = GlobalArchitectureModel(Set(ensembleA))
 
-        val result: QueryResult[(IEnsemble, SourceElement[AnyRef])] = Conversions.lazyViewToResult(db.global_ensemble_elements)
+        val result: QueryResult[(IEnsemble, SourceElement[AnyRef])] = Conversions.lazyViewToResult(db.leaf_ensemble_elements)
 
         db.addGlobalModel(globalModel)
 
@@ -115,7 +115,7 @@ class TestUnissonDatabaseNesting
                     ensembleA1,
                     SourceElement(fieldRefCToA1),
                     SourceElement(a1),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraint,
@@ -123,7 +123,7 @@ class TestUnissonDatabaseNesting
                     ensembleA2,
                     SourceElement(fieldRefCToA2),
                     SourceElement(a2),
-                    ""
+                    "field_type"
                 )
             )
         )

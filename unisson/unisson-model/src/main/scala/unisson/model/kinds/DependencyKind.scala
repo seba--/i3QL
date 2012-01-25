@@ -15,4 +15,15 @@ trait DependencyKind
     def asVespucciString = designator
 
     override def toString = designator
+
+    override def hashCode() = designator.hashCode() * 487;
+
+    override def equals(obj: Any) : Boolean = {
+        if( obj == null )
+            return false;
+        if( !obj.isInstanceOf[DependencyKind] )
+            return false;
+        obj.asInstanceOf[DependencyKind].designator == this.designator
+    }
+
 }

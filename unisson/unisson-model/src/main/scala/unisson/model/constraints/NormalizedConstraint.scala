@@ -24,6 +24,28 @@ trait NormalizedConstraint
 
     def target: IEnsemble
 
-    def context : String
+    def context: String
 
+}
+
+object NormalizedConstraint
+{
+    def apply(
+                     origin: IConstraint,
+                     kind: DependencyKind,
+                     constraintType: ConstraintType.Value,
+                     source: IEnsemble,
+                     target: IEnsemble,
+                     context: String
+                     ): NormalizedConstraint = {
+        val c = new NormalizedConstraintImpl(
+            kind,
+            constraintType,
+            source,
+            target,
+            context
+        )
+        c.origin = origin
+        c
+    }
 }

@@ -46,7 +46,7 @@ class TestUnissonDatabaseViolations
         val model = ArchitectureModel(ensembles, constraints, "test")
 
         val result: QueryResult[(IEnsemble, SourceElement[AnyRef])] = Conversions
-                .lazyViewToResult(db.global_ensemble_elements)
+                .lazyViewToResult(db.leaf_ensemble_elements)
 
         db.addModel(model)
         db.addGlobalModel(global)
@@ -119,7 +119,7 @@ class TestUnissonDatabaseViolations
                     ensembleB,
                     SourceElement(fieldRef),
                     SourceElement(b),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -211,7 +211,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -270,7 +270,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintDToA,
@@ -278,7 +278,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -336,7 +336,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefBToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintBToA,
@@ -344,7 +344,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -409,7 +409,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -548,7 +548,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -607,7 +607,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefBToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintBToA,
@@ -615,7 +615,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -667,7 +667,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -733,7 +733,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -787,7 +787,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintCToA,
@@ -795,7 +795,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefBToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -859,7 +859,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintBToA,
@@ -867,7 +867,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefEToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintCToA,
@@ -875,7 +875,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -927,7 +927,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -983,7 +983,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintAToD,
@@ -991,7 +991,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1058,7 +1058,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintBToC,
@@ -1066,7 +1066,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefBToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1132,7 +1132,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1264,7 +1264,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1332,7 +1332,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintBToC,
@@ -1340,7 +1340,7 @@ class TestUnissonDatabaseViolations
                     ensembleA,
                     SourceElement(fieldRefBToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1390,7 +1390,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1459,7 +1459,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1512,7 +1512,7 @@ class TestUnissonDatabaseViolations
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintAToC,
@@ -1520,7 +1520,7 @@ class TestUnissonDatabaseViolations
                     ensembleB,
                     SourceElement(fieldRefAToB),
                     SourceElement(b),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -1579,7 +1579,7 @@ class TestUnissonDatabaseViolations
                     ensembleD,
                     SourceElement(fieldRefAToD),
                     SourceElement(d),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintAToB,
@@ -1587,7 +1587,7 @@ class TestUnissonDatabaseViolations
                     ensembleE,
                     SourceElement(fieldRefAToE),
                     SourceElement(e),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraintAToC,
@@ -1595,7 +1595,7 @@ class TestUnissonDatabaseViolations
                     ensembleD,
                     SourceElement(fieldRefAToD),
                     SourceElement(d),
-                    ""
+                    "field_type"
                 )
             )
         )

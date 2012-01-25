@@ -11,14 +11,13 @@ import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
  * Time: 15:34
  *
  */
-class NormalizedConstraintImpl(
-                                      val origin: IConstraint,
-                                      val kind: DependencyKind,
-                                      val constraintType: ConstraintType.Value,
-                                      val source: IEnsemble,
-                                      val target: IEnsemble,
-                                      val context: String
-                                      ) extends NormalizedConstraint
+case class NormalizedConstraintImpl(
+                                           kind: DependencyKind,
+                                           constraintType: ConstraintType.Value,
+                                           source: IEnsemble,
+                                           target: IEnsemble,
+                                           context: String
+                                           ) extends NormalizedConstraint
 {
-
+    var origin: IConstraint = null
 }

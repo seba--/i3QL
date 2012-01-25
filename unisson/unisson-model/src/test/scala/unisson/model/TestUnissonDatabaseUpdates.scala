@@ -69,7 +69,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -89,7 +89,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -148,7 +148,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -165,7 +165,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 ),
                 Violation(
                     constraint,
@@ -173,7 +173,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -226,7 +226,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -244,7 +244,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefBToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -302,7 +302,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
@@ -319,7 +319,7 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    ""
+                    "field_type"
                 )
             )
         )
