@@ -3,13 +3,13 @@
     <parent>
         <artifactId>sae</artifactId>
         <groupId>de.tud.cs.st.opal.sae</groupId>
-        <version>0.3.1</version>
+        <version>0.4.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>unisson</artifactId>
-    <version>0.3.1</version>
+    <version>0.4.0</version>
     <packaging>pom</packaging>
 
     <name>unisson</name>
