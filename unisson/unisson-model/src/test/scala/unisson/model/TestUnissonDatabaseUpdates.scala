@@ -28,9 +28,9 @@ class TestUnissonDatabaseUpdates
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleCV0 = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleCV0 = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleCV0)
 
         val constraint = IncomingConstraint("field_type", ensembleB, ensembleA)
@@ -69,12 +69,13 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
 
-        val EnsembleCV1 = Ensemble("C", "class_with_members('test','D')", Set.empty)
+        val EnsembleCV1 = Ensemble("C", "class_with_members('test','D')")
         val globalModelV1 = GlobalArchitectureModel(
             ensembleA, ensembleB, EnsembleCV1
         )
@@ -89,12 +90,13 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
 
-        val EnsembleCV2 = Ensemble("C", "class_with_members('test','E')", Set.empty)
+        val EnsembleCV2 = Ensemble("C", "class_with_members('test','E')")
         val globalModelV2 = GlobalArchitectureModel(
             ensembleA, ensembleB, EnsembleCV2
         )
@@ -109,10 +111,10 @@ class TestUnissonDatabaseUpdates
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
-        val ensembleD = Ensemble("D", "class_with_members('test','D')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleD = Ensemble("D", "class_with_members('test','D')")
 
         val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
 
@@ -148,7 +150,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -165,7 +168,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 ),
                 Violation(
                     constraint,
@@ -173,7 +177,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -191,9 +196,9 @@ class TestUnissonDatabaseUpdates
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraintV0 = IncomingConstraint("field_type", ensembleB, ensembleA)
@@ -226,7 +231,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -244,7 +250,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefBToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -263,10 +270,10 @@ class TestUnissonDatabaseUpdates
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
-        val ensembleD = Ensemble("D", "class_with_members('test','D')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleD = Ensemble("D", "class_with_members('test','D')")
         val constraint = IncomingConstraint("field_type", ensembleB, ensembleA)
 
         val globalModel = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
@@ -302,7 +309,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -319,7 +327,8 @@ class TestUnissonDatabaseUpdates
                     ensembleA,
                     SourceElement(fieldRefDToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )

@@ -11,10 +11,14 @@ import java.util.HashSet
  * Time: 16:26
  *
  */
-private case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
+case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
     extends IEnsemble
 {
     var query : String = ""
+
+    var parent : IEnsemble = null
+
+    def getParent = parent
 
     def getDescription = ""
 
@@ -33,10 +37,14 @@ private case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
 
 object Ensemble
 {
-    def apply(name: String, query : String, innerEnsembles : Set[IEnsemble]) :IEnsemble =
+    def apply(name: String, query : String, innerEnsembles : EnsembleImpl*) :EnsembleImpl =
     {
-        val e = EnsembleImpl(name, innerEnsembles)
+        val e = EnsembleImpl(name, innerEnsembles.toSet[IEnsemble])
         e.query = query
+        for( child <- innerEnsembles)
+        {
+            child.parent = e
+        }
         e
     }
 }

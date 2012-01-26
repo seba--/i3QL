@@ -29,9 +29,9 @@ class TestUnissonDatabaseNesting
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')", Set.empty)
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')", Set.empty)
-        val ensembleA = Ensemble("A", "derived", Set(ensembleA1, ensembleA2))
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
 
         val globalModel = GlobalArchitectureModel(Set(ensembleA))
 
@@ -72,11 +72,11 @@ class TestUnissonDatabaseNesting
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')", Set.empty)
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')", Set.empty)
-        val ensembleA = Ensemble("A", "derived", Set(ensembleA1, ensembleA2))
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
 
         val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
 
@@ -115,7 +115,8 @@ class TestUnissonDatabaseNesting
                     ensembleA1,
                     SourceElement(fieldRefCToA1),
                     SourceElement(a1),
-                    "field_type"
+                    "field_type",
+                    "test"
                 ),
                 Violation(
                     constraint,
@@ -123,7 +124,8 @@ class TestUnissonDatabaseNesting
                     ensembleA2,
                     SourceElement(fieldRefCToA2),
                     SourceElement(a2),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )

@@ -15,10 +15,13 @@ case class Violation(constraint: IConstraint,
                      targetEnsemble: IEnsemble,
                      sourceElement: ICodeElement,
                      targetElement: ICodeElement,
-                     kind: String)
+                     kind: String,
+                     context: String)
         extends IViolation
 {
-    def getDescription = kind
+    def getViolatingKind = kind
+
+    def getDiagramFile = context
 
     def getSourceElement = sourceElement
 

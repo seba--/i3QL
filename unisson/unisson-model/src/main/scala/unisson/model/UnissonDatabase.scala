@@ -1,7 +1,6 @@
 package unisson.model
 
 import constraints._
-import debug.PrintingObserver
 import kinds.primitive._
 import kinds.{DependencyKind, KindResolver, KindParser}
 import unisson.query.code_model.SourceElement
@@ -13,7 +12,6 @@ import sae.{DefaultLazyView, MaterializedView, Observer, LazyView}
 import de.tud.cs.st.vespucci.interfaces.IViolation
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
 import sae.bytecode.model.dependencies._
-import sae.bytecode.model.Field
 import de.tud.cs.st.bat.ArrayType
 
 
@@ -282,7 +280,6 @@ class UnissonDatabase(bc: Database)
         leaf_ensembles.addObserver(ensembleObserver)
     }
 
-    // TODO emulation of subquery should be removed
     val normalized_constraints = new LazyView[NormalizedConstraint] {
 
         private val kindParser = new KindParser()
@@ -473,6 +470,7 @@ class UnissonDatabase(bc: Database)
 
         val targetElements = targetsByConstraint(not_allowed)
 
+        // all dependencies that have the same kind as the constraint
         val dependencyRelation = dependenciesByConstraintKind(not_allowed)
 
         val violatingDependencies = (
@@ -593,7 +591,8 @@ class UnissonDatabase(bc: Database)
                     e._2,
                     e._5,
                     SourceElement(v._1.target),
-                    v._2.kind.asVespucciString
+                    v._2.kind.asVespucciString,
+                    e._4
                 ).asInstanceOf[IViolation]
         }
 
@@ -693,7 +692,8 @@ class UnissonDatabase(bc: Database)
                     e._2,
                     e._5,
                     SourceElement(v._1.target),
-                    v._2.kind.asVespucciString
+                    v._2.kind.asVespucciString,
+                    e._4
                 ).asInstanceOf[IViolation]
         }
 
@@ -791,7 +791,8 @@ class UnissonDatabase(bc: Database)
                     e._2,
                     SourceElement(v._1.source),
                     e._5,
-                    v._2.kind.asVespucciString
+                    v._2.kind.asVespucciString,
+                    e._4
                 ).asInstanceOf[IViolation]
         }
 
@@ -890,7 +891,8 @@ class UnissonDatabase(bc: Database)
                     e._2,
                     SourceElement(v._1.source),
                     e._5,
-                    v._2.kind.asVespucciString
+                    v._2.kind.asVespucciString,
+                    e._4
                 ).asInstanceOf[IViolation]
         }
 
@@ -968,7 +970,8 @@ class UnissonDatabase(bc: Database)
                 t._2.target,
                 SourceElement(t._1.source),
                 SourceElement(t._1.target),
-                t._2.kind.asVespucciString
+                t._2.kind.asVespucciString,
+                t._2.context
             )
     }(violatingDependencies)
 
@@ -999,7 +1002,6 @@ class UnissonDatabase(bc: Database)
         addModel(newModel)
     }
 
-    // TODO should be part of the model?
     def addGlobalModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
 

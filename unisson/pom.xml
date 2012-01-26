@@ -21,6 +21,5 @@
         <module>unisson-query-parser</module>
         <module>unisson-query-code_model</module>
         <module>unisson-model</module>
-        <module>unisson-utilities</module>
     </modules>
 </project>

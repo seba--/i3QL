@@ -31,8 +31,8 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
         val ensembles = Set(ensembleA, ensembleB)
 
 
@@ -79,7 +79,8 @@ class TestUnissonDatabaseKinds
                     ensembleB,
                     SourceElement(fieldRef),
                     SourceElement(b),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -91,9 +92,9 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraint = IncomingConstraint("all", ensembleB, ensembleA)
@@ -133,7 +134,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -145,16 +147,16 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
-        val ensembleD = Ensemble("D", "class_with_members('test','D')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleD = Ensemble("D", "class_with_members('test','D')")
 
         val constraintBToA = IncomingConstraint("all", ensembleB, ensembleA)
         val constraintDToA = IncomingConstraint("field_type", ensembleD, ensembleA)
 
         val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "context")
+        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
@@ -190,7 +192,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 ),
                 Violation(
                     constraintDToA,
@@ -198,7 +201,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -211,17 +215,17 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
-        val ensembleD = Ensemble("D", "class_with_members('test','D')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleD = Ensemble("D", "class_with_members('test','D')")
 
         val constraintBToA = IncomingConstraint("subtype", ensembleB, ensembleA)
         val constraintDToA = IncomingConstraint("signature", ensembleD, ensembleA)
 
         val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val modelA = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextA")
-        val modelB = ArchitectureModel(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextB")
+        val modelA = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextBToA")
+        val modelB = ArchitectureModel(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextDToA")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
@@ -258,7 +262,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "contextBToA"
                 ),
                 Violation(
                     constraintDToA,
@@ -266,7 +271,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "contextDToA"
                 )
             )
         )
@@ -279,9 +285,9 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraint = GlobalIncomingConstraint("all", ensembleB, ensembleA)
@@ -319,7 +325,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -331,16 +338,16 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
-        val ensembleD = Ensemble("D", "class_with_members('test','D')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleD = Ensemble("D", "class_with_members('test','D')")
 
         val constraintBToA = GlobalIncomingConstraint("all", ensembleB, ensembleA)
         val constraintDToA = GlobalIncomingConstraint("field_type", ensembleD, ensembleA)
 
         val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "context")
+        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
@@ -376,7 +383,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 ),
                 Violation(
                     constraintDToA,
@@ -384,7 +392,8 @@ class TestUnissonDatabaseKinds
                     ensembleA,
                     SourceElement(fieldRefCToA),
                     SourceElement(a),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -396,9 +405,9 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraint = OutgoingConstraint("all", ensembleA, ensembleB)
@@ -435,7 +444,8 @@ class TestUnissonDatabaseKinds
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -447,9 +457,9 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraint = OutgoingConstraint("all", ensembleA, ensembleB)
@@ -486,7 +496,8 @@ class TestUnissonDatabaseKinds
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
@@ -498,9 +509,9 @@ class TestUnissonDatabaseKinds
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')", Set.empty)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')", Set.empty)
-        val ensembleC = Ensemble("C", "class_with_members('test','C')", Set.empty)
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
         val ensembles = Set(ensembleA, ensembleB, ensembleC)
 
         val constraint = GlobalOutgoingConstraint("all", ensembleA, ensembleB)
@@ -537,7 +548,8 @@ class TestUnissonDatabaseKinds
                     ensembleC,
                     SourceElement(fieldRefAToC),
                     SourceElement(c),
-                    "field_type"
+                    "field_type",
+                    "test"
                 )
             )
         )
