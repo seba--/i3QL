@@ -529,3 +529,8 @@ I'd need to get comments on a draft of this, and get suggestions about how to pr
   - concentrating on the evaluation and on what is relevant for that.
   - Klaus proposed selecting FindBugs queries interesting for us and hand-coding in a few cases the compiled query, to show what we would get if we had compilation.
   - Ignore OptiQL for now but keep it in mind, instead of contacting them and risk waking them up.
+
+26 Jan:
+- Boolean operators are not symmetric because they are not short-circuiting!
+- Talking with Klaus, he suggested that we shouldn't offer short-circuiting operators
+  - However, I'm still supporting them for now, and I improved their support; support for them is an implementation detail though.
