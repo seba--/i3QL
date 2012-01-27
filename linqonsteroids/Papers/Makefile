@@ -5,7 +5,7 @@ BIB=~/Documents/Research/PS-Repo/Paolo/DB.bib
 
 .PRECIOUS: $(NAME).tex
 
-all: $(NAME).pdf
+all: $(NAME).pdf oopsla12.pdf
 %.pdf: %.tex
 	pdflatex $<
 	bibtex $*
