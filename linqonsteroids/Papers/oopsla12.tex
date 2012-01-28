@@ -407,26 +407,29 @@ passed through interpreters. When evaluating the body of a closure, we
 save the current environment on the metalanguage stack, add a new
 binding to the environment saved in the closure and use the result to
 replace the current environment, evaluate the body and then
-\textsubscr{\ensuremath{\sim}} class
-FuncExpInt\href{val\%20foasBody:\%20Exp{[}T{]},\%20v:\%20TypedVar{[}S{]}}{S,
-T} extends FuncExp\href{\%E2\%80\%A6}{S, T} \{ override def interpret():
-S =\textgreater{} T = \{ //Close over the current environment, and
-ensure it is stored in the returned closure. val env =
-FuncExpInt.env.get() z =\textgreater{} FuncExpInt.env.withValue(env +
-(v.id -\textgreater{} z))(foasBody.interpret()) \} \}
-
-class ScalaThreadLocal\href{v:\%20=\%3E\%20T}{T} extends
-java.lang.ThreadLocal{[}T{]} \{ //\ldots{} def
-withValue\href{tempV:\%20T}{U}(toCompute: =\textgreater{} U) = \{ val
-old = get()
-
+\textsubscr{\ensuremath{\sim}}
 \begin{verbatim}
-set(tempV)
-val res = toCompute
-set(old)
-res
+class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
+  override def interpret(): S => T = {
+    //Close over the current environment, and ensure it is stored in the returned closure.
+    val env = FuncExpInt.env.get()
+    z => FuncExpInt.env.withValue(env + (v.id -> z))(foasBody.interpret())
+  }
+}
+
+class ScalaThreadLocal[T](v: => T) extends java.lang.ThreadLocal[T] {
+  //...
+  def withValue[U](tempV: T)(toCompute: => U) = {
+    val old = get()
+
+    set(tempV)
+    val res = toCompute
+    set(old)
+    res
+  }
+}
 \end{verbatim}
-\} \} \textsubscr{\ensuremath{\sim}} Thus,
+Thus,
 \texttt{ScalaThreadLocal.withValue} reuses the host-language stack as
 the stack of our interpreter. Open terms might not be evaluated;
 consequently, if \texttt{x: Var} then \texttt{x.interpret()} fails,

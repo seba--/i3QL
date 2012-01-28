@@ -165,6 +165,7 @@ The recursion is done by calling `expResult()` to reuse any cached results. //XX
 Interpretation is in general side-effect-free, with a few exceptions related to incremental view maintenance.
 Environments is represented as a `HashMap[Int, Any]`; during interpretation, the topmost environment is stored inside a thread-local global variable and not passed through interpreters.
 When evaluating the body of a closure, we save the current environment on the metalanguage stack, add a new binding to the environment saved in the closure and use the result to replace the current environment, evaluate the body and then 
+
 ~~~
 class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
   override def interpret(): S => T = {
@@ -186,6 +187,7 @@ class ScalaThreadLocal[T](v: => T) extends java.lang.ThreadLocal[T] {
   }
 }
 ~~~
+
 <Explanation> Thus, `ScalaThreadLocal.withValue` reuses the host-language stack as the stack of our interpreter.
 Open terms might not be evaluated; consequently, if `x: Var` then `x.interpret()` fails, unless a binding for `x` exists in the current environment.
 
