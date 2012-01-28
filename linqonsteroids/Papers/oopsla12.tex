@@ -37,18 +37,6 @@
 \maketitle
 
  \newcommand{\intersect}{\wedge}
-
-\section{Meta-introduction}
-
-This project, variously called LINQ on Steroids, IVM, and part of The
-Project (™), implements a deeply embedded DSL for queries over
-collections and Incremental View Maintenance (IVM) for views defined
-using this query language. It is related to projects presented at ECOOP
-and OOPSLA from students of James Noble.
-
-A possibility is to publish this work without support for Incremental
-View Maintenance. A possible introduction would be as follows.
-
 \section{Introduction}
 
 Many computations in typical programs extract information from
@@ -91,13 +79,13 @@ Scala's type inference; one of our goals is to not require the user to
 supply more type annotations than it would need if expression trees were
 natively supported.
 
-\%Another possibility would be to publish this work in a more complete
-form. The rest of this paper is a draft which follows this idea. \% The
-above is not really true anymore. \# Introduction Many computations in
-typical programs extract information from collections. Higher-order
-operators allow formulating many such computations as queries; a
-collection library provides in other words a DSEL of queries over
-collections, which we call the query DSEL.
+%Another possibility would be to publish this work in a more complete
+%form. The rest of this paper is a draft which follows this idea. \% The
+%above is not really true anymore. \# Introduction Many computations in
+%typical programs extract information from collections. Higher-order
+%operators allow formulating many such computations as queries; a
+%collection library provides in other words a DSEL of queries over
+%collections, which we call the query DSEL.
 
 It is often desirable to optimize execution of queries using a variety
 of approaches. For instance, some queries are often re-executed after
@@ -174,43 +162,43 @@ discusses optimizations; Sec. X evaluates our framework by
 reimplementing queries from FindBugs; Sec. X discusses related work and
 Sec. X discusses future work and concludes.
 
-\section{Our query language: first-class indexes considered helpful}
-
-Query languages for relational and OO databases allow to program queries
-declaratively, and optimizers transform those queries into execution
-plans for efficient execution. Optimizers however often fail optimizing
-a query to an efficient execution plan: In this case, developers modify
-their queries to a different form until the results of optimization are
-the expected ones. Disadvantages are: - Understanding the output of
-optimization requires understanding a different language than SQL. - The
-optimizer has access to `built-in functions' which the programmer cannot
-use. - Producing the desired execution plan might in general be
-impossible. Since the result of optimization is expressed in a quite
-different form, it is impossible to write directly an execution plan.
-The reason for this is that execution plans contain many low-level
-details, with which the developer should have nothing to do.
-
-We maintain that as many optimizations as possible should produce a
-program in the same language, that is, it should be \emph{closed}. To
-this end, we introduce a query language embedded in Scala based on
-for-comprehensions, where indexes are first-class entities like tables.
-Transformation of queries done to benefit from indexing becomes then a
-closed transformation, which can be done either automatically or
-manually. We do not maintain that \emph{all} optimizations should be
-accessible to the user. However, it should be possible to at least
-perform transformations which change the time complexity of queries.
-That is why in our proposal, indexes are made part of the logical level
-and become therefore accessible.
-
-Our prototype implementation supports only in-memory collections, but
-this already allows showing the potential of the language.
-
- This situation resembles logic programming: a declarative approach is
-proposed, but efficient execution demands manual optimizations which
-break the elegance of the original model. Functional programming
-languages, on the other side, allow expressing the intent in a clear way
-which also lends itself to reasonably efficient execution (compared to
-logic programming) and to further optimizations.
+%\section{Our query language: first-class indexes considered helpful}
+%
+%Query languages for relational and OO databases allow to program queries
+%declaratively, and optimizers transform those queries into execution
+%plans for efficient execution. Optimizers however often fail optimizing
+%a query to an efficient execution plan: In this case, developers modify
+%their queries to a different form until the results of optimization are
+%the expected ones. Disadvantages are: - Understanding the output of
+%optimization requires understanding a different language than SQL. - The
+%optimizer has access to `built-in functions' which the programmer cannot
+%use. - Producing the desired execution plan might in general be
+%impossible. Since the result of optimization is expressed in a quite
+%different form, it is impossible to write directly an execution plan.
+%The reason for this is that execution plans contain many low-level
+%details, with which the developer should have nothing to do.
+%
+%We maintain that as many optimizations as possible should produce a
+%program in the same language, that is, it should be \emph{closed}. To
+%this end, we introduce a query language embedded in Scala based on
+%for-comprehensions, where indexes are first-class entities like tables.
+%Transformation of queries done to benefit from indexing becomes then a
+%closed transformation, which can be done either automatically or
+%manually. We do not maintain that \emph{all} optimizations should be
+%accessible to the user. However, it should be possible to at least
+%perform transformations which change the time complexity of queries.
+%That is why in our proposal, indexes are made part of the logical level
+%and become therefore accessible.
+%
+%Our prototype implementation supports only in-memory collections, but
+%this already allows showing the potential of the language.
+%
+% This situation resembles logic programming: a declarative approach is
+%proposed, but efficient execution demands manual optimizations which
+%break the elegance of the original model. Functional programming
+%languages, on the other side, allow expressing the intent in a clear way
+%which also lends itself to reasonably efficient execution (compared to
+%logic programming) and to further optimizations.
 
 \section{Representing indexes: The groupBy operator}
 
