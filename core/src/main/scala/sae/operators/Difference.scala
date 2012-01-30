@@ -64,6 +64,7 @@ class BagDifference[Domain <: AnyRef]
     private var cached_size = 0
 
     def lazyInitialize {
+        if (initialized) return
         leftIndex.foreachKey(
             (v: Domain) => {
                 var difference = leftIndex.elementCountAt(v) - rightIndex.elementCountAt(v)

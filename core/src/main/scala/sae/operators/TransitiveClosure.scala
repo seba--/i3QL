@@ -124,7 +124,7 @@ class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyVi
      * {@inheritDoc}
      */
     def lazyInitialize {
-
+        if (initialized) return
         source.lazy_foreach(x =>
             internal_add(x, false))
         initialized = true

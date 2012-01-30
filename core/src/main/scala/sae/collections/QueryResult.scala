@@ -40,10 +40,12 @@ class BagResult[V <: AnyRef](
     }
 
     def lazyInitialize {
+        if (initialized) return
         relation.lazy_foreach(
             v =>
                 add_element(v)
         )
+        initialized = true
     }
 
     def updated(oldV: V, newV: V) {

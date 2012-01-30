@@ -105,11 +105,13 @@ class MaterializedSelection[V <: AnyRef](
     }
 
     def lazyInitialize {
+        if (initialized) return
         relation.lazy_foreach(t => {
             if (filter(t)) {
                 add_element(t)
             }
         })
+        initialized = true
     }
 
     // update operations

@@ -41,6 +41,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
     }
 
     def lazyInitialize: Unit = {
+        if (initialized) return
         left.foreach(a => {
             right.foreach(b => {
                 this.add_element(a, b)
@@ -48,6 +49,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
             )
         }
         )
+        initialized = true
     }
 
     object LeftObserver extends Observer[A]

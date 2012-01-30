@@ -52,6 +52,7 @@ class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <:
     override protected def children = List(left.asInstanceOf[Observable[AnyRef]], right)
 
     def lazyInitialize {
+        if (initialized) return
         // iterate over the smaller of the two indices
         if (left.size <= right.size) {
             leftEquiJoin()

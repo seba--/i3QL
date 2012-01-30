@@ -13,6 +13,7 @@
         <scalatest.version>1.6.1</scalatest.version>
         <junit.version>4.10</junit.version>
         <guava.version>r09</guava.version>
+        <bat.version>0.7.2</bat.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -28,6 +29,7 @@
         <module>core</module>
         <module>bytecode-database-rel</module>
         <module>bytecode-reader</module>
+        <module>deploy</module>
         <module>unisson</module>
         <!--
           <module>further-functionality</module>
@@ -35,7 +37,7 @@
           <module>test-client</module>
           <module>test-data</module>
           <module>unisson</module>
-          <module>unisson-deploy</module>
+
       -->
     </modules>
 

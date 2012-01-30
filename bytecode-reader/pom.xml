@@ -34,7 +34,7 @@
         <dependency>
             <groupId>de.tud.cs.st.opal</groupId>
             <artifactId>bat-library</artifactId>
-            <version>0.7.2</version>
+            <version>${bat.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

@@ -99,10 +99,12 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
     protected def materialized_contains(v: Range) = data.contains(v)
 
     def lazyInitialize {
+        if (initialized) return
         relation.lazy_foreach(t => {
             data.add(projection(t))
         }
         )
+        initialized = true
     }
 
     /**
@@ -230,10 +232,12 @@ class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
     }
 
     def lazyInitialize {
+        if (initialized) return
         relation.lazy_foreach(t => {
             this += projection(t)
         }
         )
+        initialized = true
     }
 
     // update operations

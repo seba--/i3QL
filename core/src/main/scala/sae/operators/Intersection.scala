@@ -60,6 +60,7 @@ class SetIntersection[Domain <: AnyRef]
     }
 
     def lazyInitialize {
+        if (initialized) return
         leftIndex.foreach(
         {
             case (key, element) if (rightIndex.isDefinedAt(element)) =>
@@ -215,6 +216,7 @@ class BagIntersection[Domain <: AnyRef]
     var cached_size = 0
 
     def lazyInitialize {
+        if (initialized) return
         leftIndex.foreachKey((key: Domain) => {
             if (rightIndex.isDefinedAt(key)) {
                 // we compute the min over the two counts

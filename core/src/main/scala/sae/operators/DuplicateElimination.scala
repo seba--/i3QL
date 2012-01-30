@@ -63,11 +63,13 @@ class SetDuplicateElimination[Domain <: AnyRef](
 
 
     def lazyInitialize {
+        if (initialized) return
         relation.lazy_foreach(
             t => {
                 data.add(t)
             }
         )
+        initialized = true
     }
 
     /**
