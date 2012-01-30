@@ -36,10 +36,10 @@ class BytecodeDatabase extends Database
      * BEWARE INITIALIZATION ORDER OF FIELDS (scala compiler will not warn you)
      */
 
-    // TODO check whether classfiles and classfile methods can be declared 
+    // TODO check whether classfile_types and classfile methods can be declared
     // as views in combination with a classfile_source(Class, File) table
     // and how this affects performance
-    val classfiles: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
+    val classfile_types: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
     val classfile_methods: LazyView[Method] = new DefaultLazyView[Method]
 
@@ -315,7 +315,7 @@ class BytecodeDatabase extends Database
 
 
     lazy val baseViews: List[LazyView[_]] = List(
-        classfiles,
+        classfile_types,
         classfile_methods,
         classfile_fields,
         classes,
@@ -348,7 +348,7 @@ class BytecodeDatabase extends Database
 
 
     private def classAdder = new Java6ClassTransformer(
-        classfiles.element_added,
+        classfile_types.element_added,
         classfile_methods.element_added,
         classfile_fields.element_added,
         classes.element_added,
@@ -366,7 +366,7 @@ class BytecodeDatabase extends Database
 
 
     private def classRemover = new Java6ClassTransformer(
-        classfiles.element_removed,
+        classfile_types.element_removed,
         classfile_methods.element_removed,
         classfile_fields.element_removed,
         classes.element_removed,

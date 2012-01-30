@@ -18,7 +18,7 @@ class MaterializedDatabase(private val db: BytecodeDatabase)
         this (new BytecodeDatabase())
     }
 
-    val classfiles: QueryResult[ObjectType] = db.classfiles
+    val classfile_types: QueryResult[ObjectType] = db.classfile_types
 
     val classfile_methods: QueryResult[Method] = db.classfile_methods
 

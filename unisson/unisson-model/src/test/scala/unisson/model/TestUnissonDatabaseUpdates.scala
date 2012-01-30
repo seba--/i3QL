@@ -52,14 +52,14 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = Field(c, "fieldInC", a)
         val fieldRefDToA = Field(d, "fieldInD", a)
 
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(d)
         bc.classfile_fields.element_added(fieldRefDToA)
-        bc.classfiles.element_added(e)
+        bc.classfile_types.element_added(e)
 
         result.asList.sorted should be(
             List(
@@ -134,12 +134,12 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = Field(c, "fieldInC", a)
         val fieldRefDToA = Field(d, "fieldInD", a)
 
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(d)
         bc.classfile_fields.element_added(fieldRefDToA)
 
         result.asList.sorted should be(
@@ -217,10 +217,10 @@ class TestUnissonDatabaseUpdates
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList.sorted should be(
@@ -292,12 +292,12 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = Field(c, "fieldInC", a)
         val fieldRefDToA = Field(d, "fieldInD", a)
 
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(d)
         bc.classfile_fields.element_added(fieldRefDToA)
 
 

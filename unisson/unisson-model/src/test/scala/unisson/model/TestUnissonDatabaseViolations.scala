@@ -53,8 +53,8 @@ class TestUnissonDatabaseViolations
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
 
         result.asList.sorted should be(
             List(
@@ -98,7 +98,7 @@ class TestUnissonDatabaseViolations
         val fieldRef = Field(a, "myB", b)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.`extends`.element_added(`extends`(a, obj))
 
 
@@ -109,7 +109,7 @@ class TestUnissonDatabaseViolations
 
         bc.classfile_fields.element_added(fieldRef)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
 
         result.asList.sorted should be(
             List(
@@ -156,8 +156,8 @@ class TestUnissonDatabaseViolations
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
         val fieldRef = Field(a, "myA", a)
-        bc.classfiles.element_added(a)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRef)
 
         result.asList should be(Nil)
@@ -195,13 +195,13 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList should be(
@@ -252,15 +252,15 @@ class TestUnissonDatabaseViolations
         val fieldRefCToA = Field(c, "fieldInC", a)
         val fieldRefDToA = Field(d, "fieldInD", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(d)
         bc.classfile_fields.element_added(fieldRefDToA)
 
 
@@ -322,14 +322,14 @@ class TestUnissonDatabaseViolations
         val fieldRefBToC = Field(b, "fieldAToC", c)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList.sorted should be(
@@ -395,15 +395,15 @@ class TestUnissonDatabaseViolations
 
         val fieldRefCToB = Field(c, "excessFieldInC", b)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -453,13 +453,13 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList should be(Nil)
@@ -497,13 +497,13 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList should be(Nil)
@@ -538,13 +538,13 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList should be(
@@ -597,14 +597,14 @@ class TestUnissonDatabaseViolations
         val fieldRefBToC = Field(b, "fieldAToC", c)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList.sorted should be(
@@ -660,13 +660,13 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
         result.asList should be(
@@ -724,15 +724,15 @@ class TestUnissonDatabaseViolations
 
         val fieldRefCToB = Field(c, "excessFieldInC", b)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -782,12 +782,12 @@ class TestUnissonDatabaseViolations
         val fieldRefBToA = Field(b, "fieldInB", a)
         val fieldRefCToA = Field(c, "fieldInC", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
 
@@ -850,18 +850,18 @@ class TestUnissonDatabaseViolations
         val fieldRefDToA = Field(d, "fieldInD", a)
         val fieldRefEToA = Field(e, "fieldInE", a)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
 
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(d)
         bc.classfile_fields.element_added(fieldRefDToA)
 
-        bc.classfiles.element_added(e)
+        bc.classfile_types.element_added(e)
         bc.classfile_fields.element_added(fieldRefEToA)
 
 
@@ -928,12 +928,12 @@ class TestUnissonDatabaseViolations
         val fieldRefAToB = Field(a, "fieldToB", b)
         val fieldRefAToC = Field(a, "fieldToC", c)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
 
         result.asList should be(
@@ -984,14 +984,14 @@ class TestUnissonDatabaseViolations
         val fieldRefAToC = Field(a, "fieldAToC", c)
         val fieldRefAToD = Field(a, "fieldAToD", d)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
         bc.classfile_fields.element_added(fieldRefAToD)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
-        bc.classfiles.element_added(d)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
+        bc.classfile_types.element_added(d)
 
         result.asList.sorted should be(
             List(
@@ -1056,17 +1056,17 @@ class TestUnissonDatabaseViolations
         val fieldRefAToA = Field(a, "selfFieldInA", a)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -1131,17 +1131,17 @@ class TestUnissonDatabaseViolations
         val fieldRefAToA = Field(a, "selfFieldInA", a)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -1191,12 +1191,12 @@ class TestUnissonDatabaseViolations
         val fieldRefAToB = Field(a, "fieldToB", b)
         val fieldRefAToC = Field(a, "fieldToC", c)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
 
         result.asList should be(Nil)
@@ -1231,12 +1231,12 @@ class TestUnissonDatabaseViolations
         val fieldRefAToB = Field(a, "fieldToB", b)
         val fieldRefAToC = Field(a, "fieldToC", c)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
 
         result.asList should be(Nil)
@@ -1271,12 +1271,12 @@ class TestUnissonDatabaseViolations
         val fieldRefAToB = Field(a, "fieldToB", b)
         val fieldRefAToC = Field(a, "fieldToC", c)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
 
         result.asList should be(
@@ -1334,17 +1334,17 @@ class TestUnissonDatabaseViolations
         val fieldRefAToA = Field(a, "selfFieldInA", a)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -1401,12 +1401,12 @@ class TestUnissonDatabaseViolations
         val fieldRefAToB = Field(a, "fieldToB", b)
         val fieldRefAToC = Field(a, "fieldToC", c)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
         result.asList should be(
             List(
@@ -1463,17 +1463,17 @@ class TestUnissonDatabaseViolations
         val fieldRefAToA = Field(a, "selfFieldInA", a)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToA)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
 
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA)
         bc.classfile_fields.element_added(fieldRefBToC)
 
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA)
         bc.classfile_fields.element_added(fieldRefCToB)
 
@@ -1524,13 +1524,13 @@ class TestUnissonDatabaseViolations
         val fieldRefAToC = Field(a, "fieldAToC", c)
 
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
 
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
 
         result.asList.sorted should be(
             List(
@@ -1590,16 +1590,16 @@ class TestUnissonDatabaseViolations
         val fieldRefAToD = Field(a, "fieldToD", d)
         val fieldRefAToE = Field(a, "fieldToE", e)
 
-        bc.classfiles.element_added(a)
+        bc.classfile_types.element_added(a)
         bc.classfile_fields.element_added(fieldRefAToB)
         bc.classfile_fields.element_added(fieldRefAToC)
         bc.classfile_fields.element_added(fieldRefAToD)
         bc.classfile_fields.element_added(fieldRefAToE)
 
-        bc.classfiles.element_added(b)
-        bc.classfiles.element_added(c)
-        bc.classfiles.element_added(d)
-        bc.classfiles.element_added(e)
+        bc.classfile_types.element_added(b)
+        bc.classfile_types.element_added(c)
+        bc.classfile_types.element_added(d)
+        bc.classfile_types.element_added(e)
 
         result.asList.sorted should be(
             List(

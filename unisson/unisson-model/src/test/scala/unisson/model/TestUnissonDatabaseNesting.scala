@@ -49,12 +49,12 @@ class TestUnissonDatabaseNesting
         val fieldRefCToA1 = Field(c, "fieldInC", a1)
         val fieldRefCToA2 = Field(c, "fieldInC", a2)
 
-        bc.classfiles.element_added(a1)
-        bc.classfiles.element_added(a2)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a1)
+        bc.classfile_types.element_added(a2)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA1)
         bc.classfile_fields.element_added(fieldRefBToA2)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA1)
         bc.classfile_fields.element_added(fieldRefCToA2)
 
@@ -98,12 +98,12 @@ class TestUnissonDatabaseNesting
         val fieldRefCToA1 = Field(c, "fieldInC", a1)
         val fieldRefCToA2 = Field(c, "fieldInC", a2)
 
-        bc.classfiles.element_added(a1)
-        bc.classfiles.element_added(a2)
-        bc.classfiles.element_added(b)
+        bc.classfile_types.element_added(a1)
+        bc.classfile_types.element_added(a2)
+        bc.classfile_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA1)
         bc.classfile_fields.element_added(fieldRefBToA2)
-        bc.classfiles.element_added(c)
+        bc.classfile_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA1)
         bc.classfile_fields.element_added(fieldRefCToA2)
 

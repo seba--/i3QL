@@ -49,14 +49,14 @@ class CachingQueryCompiler(db: Database)
             query match {
                 case ClassSelectionQuery(_, _) =>
                     removeAllSingleObserversOnPath(
-                        List(db.classfiles),
+                        List(db.classfile_types),
                         compiledQuery
                     )
                 case ClassQuery(innerQuery) => {
                     for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
                         removeAllSingleObserversOnPath(
-                            List(db.classfiles, innerCompiledQuery),
+                            List(db.classfile_types, innerCompiledQuery),
                             compiledQuery
                         )
                         dispose(innerQuery)
@@ -66,7 +66,7 @@ class CachingQueryCompiler(db: Database)
                     for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
                         removeAllSingleObserversOnPath(
-                            List(db.classfiles, definitions.transitive_class_members, innerCompiledQuery),
+                            List(db.classfile_types, definitions.transitive_class_members, innerCompiledQuery),
                             compiledQuery
                         )
                         dispose(innerQuery)
@@ -74,7 +74,7 @@ class CachingQueryCompiler(db: Database)
                 }
                 case PackageQuery(_) => {
                     removeAllSingleObserversOnPath(
-                        List(db.classfiles, db.classfile_methods, db.classfile_fields),
+                        List(db.classfile_types, db.classfile_methods, db.classfile_fields),
                         compiledQuery
                     )
                 }

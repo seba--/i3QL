@@ -27,11 +27,11 @@ class QueryDefinitions(private val db: Database)
             new ClassDeclaration((_: ObjectType))
         }(
             σ {(o: ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == name)}(db
-                    .classfiles)
+                    .classfile_types)
         )
 
     def `class`(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
-        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.classfiles)
+        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.classfile_types)
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
@@ -54,7 +54,7 @@ class QueryDefinitions(private val db: Database)
                     SourceElement(_: ObjectType)
                 }(σ {
                     (_: ObjectType).packageName == fromJava(name)
-                }(db.classfiles))
+                }(db.classfile_types))
                 ) ∪
                 (
                         Π[Method, SourceElement[AnyRef]] {
@@ -97,7 +97,7 @@ class QueryDefinitions(private val db: Database)
         }(
             σ {
                 (_: ObjectType) == ObjectType(fromJava(qualifiedClass))
-            }(db.classfiles)
+            }(db.classfile_types)
         ) ∪
                 Π {(cm: (AnyRef, AnyRef)) => SourceElement[AnyRef](cm._2)}(
                     σ {

@@ -1,12 +1,10 @@
 package sae.bytecode
 
 import model.dependencies._
-import model.instructions.{invokevirtual, invokespecial, invokeinterface}
 import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
 import java.io.File
-import sae.syntax.RelationalAlgebraSyntax.Π._
 
 
 /**
@@ -20,7 +18,7 @@ import sae.syntax.RelationalAlgebraSyntax.Π._
 trait Database
 {
 
-    def classfiles: LazyView[ObjectType]
+    def classfile_types: LazyView[ObjectType]
 
     def classfile_methods: LazyView[Method]
 
@@ -36,7 +34,7 @@ trait Database
 
     def instructions: LazyView[Instr[_]]
 
-    def `extends` : LazyView[`extends`]
+    def `extends`: LazyView[`extends`]
 
     def implements: LazyView[implements]
 
@@ -56,9 +54,9 @@ trait Database
 
     def class_cast: LazyView[class_cast]
 
-    def handled_exceptions : LazyView[ExceptionHandler]
+    def handled_exceptions: LazyView[ExceptionHandler]
 
-    def exception_handlers : LazyView[ExceptionHandler]
+    def exception_handlers: LazyView[ExceptionHandler]
 
     def inner_classes: LazyView[inner_class]
 
@@ -76,7 +74,7 @@ trait Database
 
     def getRemoveClassFileFunction: (File) => Unit
 
-    def addClassFile (stream: java.io.InputStream)
+    def addClassFile(stream: java.io.InputStream)
 
     def removeClassFile(stream: java.io.InputStream)
 
