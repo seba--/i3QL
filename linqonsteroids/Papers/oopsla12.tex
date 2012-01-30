@@ -1,6 +1,8 @@
 \documentclass[preprint,authoryear,10pt]{sigplanconf}
 \usepackage{amssymb,amsmath}
 
+\usepackage{listings}
+
 \usepackage{ifxetex,ifluatex}
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
@@ -261,16 +263,16 @@ Sec. X discusses future work and concludes.
 Indexes do not require special support; they are encoded through the
 \texttt{groupBy} operator. A query of the form:
 
-\begin{verbatim}
+\begin{lstlisting}
 coll filter (x => f(x) == y)
-\end{verbatim}
+\end{lstlisting}
 is semantically equivalent to a query which builds an index first with
 the result of applying \texttt{f} to elements of \texttt{coll}, and then
 selecting the entry for \texttt{y}:
 
-\begin{verbatim}
+\begin{lstlisting}
 coll groupBy f apply y
-\end{verbatim}
+\end{lstlisting}
 What the optimizer does is (a variant of common subexpression
 elimination) between the resulting query and the keys of a map existing
 precomputed expressions. A repository contains a map from queries to
@@ -297,29 +299,29 @@ through specific operators.
 Example 1 - a join expressed through a set comprehension, as a filtered
 Cartesian product (expressed through \texttt{flatMap}):
 
-\begin{verbatim}
+\begin{lstlisting}
 for (i <- coll1;
       j <- coll2;
       if i.field1 === j.field2)
   yield (i, j)
-\end{verbatim}
+\end{lstlisting}
 Example 2 - a Cartesian product query which cannot be transformed into a
 join - it could be manually rewritten though:
 
-\begin{verbatim}
+\begin{lstlisting}
 for (i <- coll1;
       j <- coll2;
       if i.foo + j.bar === 3)
   yield (i, j)
-\end{verbatim}
+\end{lstlisting}
 Example 3 - a query which could not be expressed as a Cartesian product:
 
-\begin{verbatim}
+\begin{lstlisting}
 for (i <- coll1;
       j <- i.divisors;
       if i.foo + j.bar === 3)
   yield (i, j)
-\end{verbatim}
+\end{lstlisting}
 \section{Operators}
 
 \subsection{Higher-order operators from relational algebra}
@@ -453,7 +455,7 @@ save the current environment on the metalanguage stack, add a new
 binding to the environment saved in the closure and use the result to
 replace the current environment, evaluate the body and then
 
-\begin{verbatim}
+\begin{lstlisting}
 class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
   override def interpret(): S => T = {
     //Close over the current environment, and ensure it is stored in the returned closure.
@@ -473,7 +475,7 @@ class ScalaThreadLocal[T](v: => T) extends java.lang.ThreadLocal[T] {
     res
   }
 }
-\end{verbatim}
+\end{lstlisting}
 Thus,
 \texttt{ScalaThreadLocal.withValue} reuses the host-language stack as
 the stack of our interpreter. Open terms might not be evaluated;
@@ -490,7 +492,7 @@ unless a binding for \texttt{x} exists in the current environment.
 %variant of it. The two main roles are fulfilled by traits Publisher and
 %Subscriber. Definitions follow {[}are provided in Fig. x{]}:
 %
-%\begin{verbatim}
+%\begin{lstlisting}
 %trait Publisher[+Evt, +Pub <: Publisher[Evt, Pub]] {
 %  type Sub = Subscriber[Evt, Pub]
 %
@@ -501,7 +503,7 @@ unless a binding for \texttt{x} exists in the current environment.
 %
 %trait MsgSeqPublisher[+T, +Pub <: MsgSeqPublisher[T, Pub]]
 %  extends Publisher[Seq[Message[T]], Pub] //Simplified
-%\end{verbatim}
+%\end{lstlisting}
 %An expression node of type \texttt{Exp{[}T{]}} publishes to its
 %subscribers sequences of messages of type \texttt{Message{[}T{]}}:
 %
@@ -521,7 +523,7 @@ unless a binding for \texttt{x} exists in the current environment.
 %sequence of messages; the generic code then produces a bigger batch by
 %concatenating the produced sequences:
 %
-%\begin{verbatim}
+%\begin{lstlisting}
 %trait EvtTransformerBase[-T, +U, -Repr] extends MsgSeqSubscriber[T, Repr]
 %  with MsgSeqPublisher[U, EvtTransformerBase[T, U, Repr]]
 %{
@@ -532,7 +534,7 @@ unless a binding for \texttt{x} exists in the current environment.
 %    publish(evts flatMap (transformedMessages(pub, _)))
 %  }
 %}
-%\end{verbatim}
+%\end{lstlisting}
 %Various implementation of Message{[}T{]} exist. If T is atomic, it is
 %appropriate to send a message which simply contains the old and new
 %value:
