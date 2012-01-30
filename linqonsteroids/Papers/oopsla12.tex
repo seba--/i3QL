@@ -1,31 +1,22 @@
 \documentclass[preprint,authoryear,10pt]{sigplanconf}
+\usepackage[utf8]{inputenc}
+\usepackage[unicode=true]{hyperref}
+
 \usepackage{amssymb,amsmath}
+\input{macros.tex}
 
-\usepackage{listings}
+\lstset{% general command to set parameter(s)
+basicstyle=\small,	% print whole listing small
+%keywordstyle=\color{black}\bfseries\underbar, % underlined bold black keywords 
+identifierstyle=,% nothing happens 
+%commentstyle=\color{white},% white comments
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false, % no special string spaces
+language=Scala
+}
 
-\usepackage{ifxetex,ifluatex}
-\ifxetex
-  \usepackage{fontspec,xltxtra,xunicode}
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-\else
-  \ifluatex
-    \usepackage{fontspec}
-    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \else
-    \usepackage[utf8]{inputenc}
-    \usepackage[T1]{fontenc}
-  \fi
-\fi
 \usepackage{natbib}
 \bibliographystyle{plainnat}
-
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
 
 \hypersetup{breaklinks=true, pdfborder={0 0 0}}
 %\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
@@ -35,8 +26,6 @@
 %\setcounter{secnumdepth}{0}
 
 \newcommand{\intersect}{\wedge}
-
-\input{macros.tex}
 
 \begin{document}
 
@@ -264,7 +253,7 @@ Indexes do not require special support; they are encoded through the
 \texttt{groupBy} operator. A query of the form:
 
 \begin{lstlisting}
-coll filter (x => f(x) == y)
+coll filter (x => f(x) === y)
 \end{lstlisting}
 is semantically equivalent to a query which builds an index first with
 the result of applying \texttt{f} to elements of \texttt{coll}, and then
@@ -455,6 +444,7 @@ save the current environment on the metalanguage stack, add a new
 binding to the environment saved in the closure and use the result to
 replace the current environment, evaluate the body and then
 
+\begin{figure}
 \begin{lstlisting}
 class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](...) {
   override def interpret(): S => T = {
@@ -476,6 +466,7 @@ class ScalaThreadLocal[T](v: => T) extends java.lang.ThreadLocal[T] {
   }
 }
 \end{lstlisting}
+\end{figure}
 Thus,
 \texttt{ScalaThreadLocal.withValue} reuses the host-language stack as
 the stack of our interpreter. Open terms might not be evaluated;
