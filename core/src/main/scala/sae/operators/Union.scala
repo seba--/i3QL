@@ -1,6 +1,7 @@
 package sae.operators
 
-import sae.{SelfMaintainedView, LazyView}
+import sae.{Observable, SelfMaintainedView, LazyView, Observer}
+
 
 /**
  *
@@ -13,7 +14,7 @@ import sae.{SelfMaintainedView, LazyView}
  * The Union in our algebra is always non-distinct
  */
 trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
-    extends LazyView[Range]
+        extends LazyView[Range]
 {
     type Rng = Range
 
@@ -25,39 +26,43 @@ trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 
 class BagUnion[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 (
-    val left: LazyView[DomainA],
-    val right: LazyView[DomainB]
-)
-        extends Union[Range,DomainA, DomainB]
+        val left: LazyView[DomainA],
+        val right: LazyView[DomainB]
+        )
+        extends Union[Range, DomainA, DomainB]
         with SelfMaintainedView[Range, Range]
 {
     left addObserver this
 
     right addObserver this
 
-    def lazyInitialize
-    {
+    override protected def children = List(left.asInstanceOf[Observable[AnyRef]], right)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left || o == right) {
+            return List(this)
+        }
+        Nil
+    }
+
+    def lazyInitialize {
         // do nothing
     }
 
-    def lazy_foreach[T](f: (Range) => T)
-    {
+    def lazy_foreach[T](f: (Range) => T) {
         left.lazy_foreach(f)
         right.lazy_foreach(f)
     }
 
-    def added_internal(v: Range)
-    {
+    def added_internal(v: Range) {
         element_added(v)
     }
 
-    def removed_internal(v: Range)
-    {
+    def removed_internal(v: Range) {
         element_removed(v)
     }
 
-    def updated_internal(oldV: Range, newV: Range)
-    {
+    def updated_internal(oldV: Range, newV: Range) {
         element_updated(oldV, newV)
     }
 }

@@ -14,14 +14,17 @@ import intern._
  * The list of grouping attributes is optional.
  * If no grouping is supplied, the aggregation functions are applied on the entire relation.
  * If no function is supplied the aggregation has no effect.
+ *
  * @author Malte V
+ * @author Ralf Mitschke
  */
 trait Aggregation[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
-  extends LazyView[Result] {
-  val source: LazyView[Domain]
-  val groupingFunction: Domain => Key
-  val aggregateFunctionFactory: AggregateFunctionFactoryType
-  val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
+        extends LazyView[Result]
+{
+    def source: LazyView[Domain]
+    def groupingFunction: Domain => Key
+    def aggregateFunctionFactory: AggregateFunctionFactoryType
+    def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
 
 }
 
@@ -30,96 +33,105 @@ trait Aggregation[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <:
  *
  * @author Malte V
  */
-object Aggregation {
-  /**
-   * Construct a new Aggregation for NOT self maintainable aggregation functions
-   * {@see sae.operators.NotSelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}
-   * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-   * @return MaterializedView[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain],
+object Aggregation
+{
+    /**
+     * Construct a new Aggregation for NOT self maintainable aggregation functions
+     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
+     * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
+     * @return MaterializedView[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain],
                                                                                      groupingFunction: Domain => Key,
-                                                                                     aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                     aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                      convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result):
-  Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] = {
-    new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupingFunction, aggregateFunctionFactory, convertKeyAndAggregateValueToResult)
-  }
+    Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
+        new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupingFunction, aggregateFunctionFactory, convertKeyAndAggregateValueToResult)
+    }
 
 
-  /**
-   * Construct a new Aggregation for NOT self maintainable aggregation functions
-   *
-   * {@see sae.operators.NotSelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}
-   * @return MaterializedView[(groupingFunction return type, aggregationFunction retun type] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
+    /**
+     * Construct a new Aggregation for NOT self maintainable aggregation functions
+     *
+     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
+     * @return MaterializedView[(groupingFunction return type, aggregationFunction retun type] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
                                                                    groupingFunction: Domain => Key,
-                                                                   aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]):
-  Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), NotSelfMaintainalbeAggregateFunction[Domain, AggregateValue], NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] = {
-    new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key, b: AggregateValue) => (a, b))
-  }
+                                                                   aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
+    Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
+        new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
+                                                                                                                                                                b: AggregateValue) => (a, b))
+    }
 
-  /**
-   * Construct a new Aggregation for SELF maintainable aggregation functions
-   * {@see sae.operators.SelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}.
-   * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-   * @return MaterializedView[convertKeyAndAggregationValueToResult returnvalue type] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain], groupFunction: Domain => Key, aggregationFunctionFactory: SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue],
+    /**
+     * Construct a new Aggregation for SELF maintainable aggregation functions
+     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
+     * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
+     * @return MaterializedView[convertKeyAndAggregationValueToResult returnvalue type] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain],
+                                                                                     groupFunction: Domain => Key,
+                                                                                     aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                      convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result):
-  Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainalbeAggregateFunction[Domain, AggregateValue], SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] = {
-    new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
-  }
+    Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
+        new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
+    }
 
-  /**
-   * Construct a new Aggregation for SELF maintainable aggregation functions
-   * {@see sae.operators.SelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}.
-   * @return MaterializedView[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
+    /**
+     * Construct a new Aggregation for SELF maintainable aggregation functions
+     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
+     * @return MaterializedView[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
                                                                    groupingFunction: Domain => Key,
-                                                                   aggregateFunctionFactory: SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]):
-  Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainalbeAggregateFunction[Domain, AggregateValue], SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]] = {
-    new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key, b: AggregateValue) => (a, b))
-  }
+                                                                   aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
+    Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
+        new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
+                                                                                                                                                                        b: AggregateValue) => (a, b))
+    }
 
-  /**
-   * Construct a new Aggregation for aggregation function that are NOT self maintainable without any grouping
-   * (the aggregation function is used on the whole source relation)
-   * {@see sae.operators.NotSelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}.
-   * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain], aggregateFunctionFactory: NotSelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]) = {
-    new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any, y: AggregateValue) => Some(y))
-  }
+    /**
+     * Construct a new Aggregation for aggregation function that are NOT self maintainable without any grouping
+     * (the aggregation function is used on the whole source relation)
+     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
+     * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain],
+                                                       aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {
+        new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
+                                                                                                           y: AggregateValue) => Some(y))
+    }
 
-  /**
-   * Construct a new Aggregation for aggregation function that are SELF maintainable without any grouping
-   * (the aggregation function is used on the whole source relation)
-   * {@see sae.operators.SelfMaintainalbeAggregateFunctionFactory}
-   * @param source: Source relation
-   * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-   * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  {@see sae.functions}.
-   * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
-   */
-  def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain], aggregateFunctionFactory: SelfMaintainalbeAggregateFunctionFactory[Domain, AggregateValue]) = {
-    new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any, y: AggregateValue) => Some(y))
-  }
+    /**
+     * Construct a new Aggregation for aggregation function that are SELF maintainable without any grouping
+     * (the aggregation function is used on the whole source relation)
+     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
+     * @param source: Source relation
+     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
+     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
+     * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
+     */
+    def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain],
+                                                       aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {
+        new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
+                                                                                                                   y: AggregateValue) => Some(y))
+    }
 
 }
 

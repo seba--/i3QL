@@ -22,12 +22,12 @@ package sae
  */
 trait Index[K <: AnyRef, V <: AnyRef]
         extends MaterializedView[(K, V)]
-           with SelfMaintainedView[V, (K, V)]
+        with SelfMaintainedView[V, (K, V)]
 {
 
-    val relation : MaterializedView[V]
+    def relation: MaterializedView[V]
 
-    val keyFunction : V => K
+    def keyFunction: V => K
 
     /**
      * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
@@ -35,91 +35,83 @@ trait Index[K <: AnyRef, V <: AnyRef]
      * computations over number of contained elements since they basically are sets of the type
      * { (elem, count) } anyway.
      */
-    def foreachKey[U](f: (K) => U)
-        {
-            if (!initialized) {
-                this.lazyInitialize
-            }
-            foreachKey_internal(f)
+    def foreachKey[U](f: (K) => U) {
+        if (!initialized) {
+            this.lazyInitialize
         }
+        foreachKey_internal(f)
+    }
 
     protected def foreachKey_internal[U](f: (K) => U)
 
     // an index is lazy initialized by calling build
-    def lazyInitialize
-    {
-            relation.foreach(v =>
-                {
-                    put_internal(keyFunction(v), v)
-                }
-            )
-            initialized = true
+    def lazyInitialize {
+        if (initialized) return
+        relation.foreach(v => {
+            put_internal(keyFunction(v), v)
         }
+        )
+        initialized = true
+    }
 
-    protected def put_internal(key : K, value : V)
+    protected def put_internal(key: K, value: V)
 
-    def get(key : K) : Option[Traversable[V]] =
-        {
-            if (!initialized) {
-                this.lazyInitialize
-            }
-            get_internal(key)
+    def get(key: K): Option[Traversable[V]] = {
+        if (!initialized) {
+            this.lazyInitialize
         }
+        get_internal(key)
+    }
 
-    protected def get_internal(key : K) : Option[Traversable[V]]
+    protected def get_internal(key: K): Option[Traversable[V]]
 
-    def isDefinedAt(key : K) : Boolean =
-        {
-            if (!initialized) {
-                this.lazyInitialize
-            }
-            isDefinedAt_internal(key)
+    def isDefinedAt(key: K): Boolean = {
+        if (!initialized) {
+            this.lazyInitialize
         }
+        isDefinedAt_internal(key)
+    }
 
-    protected def isDefinedAt_internal(key : K) : Boolean
+    protected def isDefinedAt_internal(key: K): Boolean
 
 
-    def elementCountAt(key : K) : Int =
-        {
-            if (!initialized) {
-                this.lazyInitialize
-            }
-            elementCountAt_internal(key)
+    def elementCountAt(key: K): Int = {
+        if (!initialized) {
+            this.lazyInitialize
         }
+        elementCountAt_internal(key)
+    }
 
-    protected def elementCountAt_internal(key : K) : Int
+    protected def elementCountAt_internal(key: K): Int
 
 
-    def getOrElse(key : K, f : => Iterable[V]) : Traversable[V] = get(key).getOrElse(f)
+    def getOrElse(key: K, f: => Iterable[V]): Traversable[V] = get(key).getOrElse(f)
 
-    def updated_internal(oldV : V, newV : V)
-    {
-            if (oldV == newV)
-                return
-            val k1 = keyFunction(oldV)
-            val k2 = keyFunction(newV)
-            update_element(k1, oldV, k2, newV)
-            element_updated((k1, oldV), (k2, newV))
-        }
+    def updated_internal(oldV: V, newV: V) {
+        if (oldV == newV)
+            return
+        val k1 = keyFunction(oldV)
+        val k2 = keyFunction(newV)
+        update_element(k1, oldV, k2, newV)
+        element_updated((k1, oldV), (k2, newV))
+    }
 
-    def removed_internal(v : V)
-    {
-            val k = keyFunction(v)
-            remove_element((k, v))
-            element_removed((k, v))
-        }
+    def removed_internal(v: V) {
+        val k = keyFunction(v)
+        remove_element((k, v))
+        element_removed((k, v))
+    }
 
-    def added_internal(v : V)
-    {
-            val k = keyFunction(v)
-            add_element(k, v)
-            element_added((k, v))
-        }
+    def added_internal(v: V) {
+        val k = keyFunction(v)
+        add_element(k, v)
+        element_added((k, v))
+    }
 
-    def add_element(kv : (K, V)) : Unit
+    def add_element(kv: (K, V)): Unit
 
-    def remove_element(kv : (K, V)) : Unit
+    def remove_element(kv: (K, V)): Unit
 
-    def update_element(oldKey : K, oldV : V, newKey : K, newV : V) : Unit
+    def update_element(oldKey: K, oldV: V, newKey: K, newV: V): Unit
 
 }

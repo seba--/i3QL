@@ -4,7 +4,7 @@
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
 	<artifactId>sae-library</artifactId>
-	<version>0.2.0</version>
+	<version>0.4.0</version>
 	<packaging>jar</packaging>
 
 	<name>sae-library</name>
@@ -35,6 +35,7 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+                            <createSourcesJar>true</createSourcesJar>
 							<artifactSet>
 								<excludes>
 									<exclude>org.scala-lang:scala-library:*</exclude>
@@ -58,7 +59,7 @@
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-bytecode</artifactId>
-			<version>0.2.0</version>
+			<version>0.4.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

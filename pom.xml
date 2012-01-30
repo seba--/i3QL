@@ -3,15 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>sae</artifactId>
-    <version>0.2.0</version>
+    <version>0.4.0</version>
     <name>sae</name>
     <packaging>pom</packaging>
 
-    <dependencies>
-    </dependencies>
     <properties>
-        <sae.version>0.2.0</sae.version>
-        <scala.version>2.9.0</scala.version>
+        <sae.version>0.4.0</sae.version>
+        <scala.version>2.9.1</scala.version>
+        <scalatest.version>1.6.1</scalatest.version>
+        <junit.version>4.10</junit.version>
+        <guava.version>r09</guava.version>
+        <bat.version>0.7.2</bat.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -26,14 +28,17 @@
     <modules>
         <module>core</module>
         <module>bytecode-database-rel</module>
-        <module>bytecode-database-oo</module>
         <module>bytecode-reader</module>
-        <module>further-functionality</module>
-        <module>profiler</module>
-        <module>test-client</module>
-        <module>test-data</module>
+        <module>deploy</module>
         <module>unisson</module>
-        <module>unisson-deploy</module>
+        <!--
+          <module>further-functionality</module>
+          <module>profiler</module>
+          <module>test-client</module>
+          <module>test-data</module>
+          <module>unisson</module>
+
+      -->
     </modules>
 
     <build>
@@ -89,6 +94,18 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
                         </goals>
                     </execution>
                 </executions>
