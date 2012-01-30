@@ -556,6 +556,6 @@ b) foo, as above, will not be applied to Exp[A].
 - withFilter and Views - why Views should not use CanBuildFrom
 - pattern-matching problems; effects; use of Let
 
-*) 
+*)
 *) Optimizations support writing queries modularly and compositionally, without optimizing them by hand (because optimization is not a modular activity)
-*) Evaluation: we reduce the size of code one writes
+*) Evaluation: we reduce the size of code one writes, we make queries faster than they'd be otherwise, and we simplify optimization.
