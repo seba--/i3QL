@@ -18,6 +18,7 @@ One of the design goals for this DSEL is that embedded queries should be as clos
 
 %Another possibility would be to publish this work in a more complete form. The rest of this paper is a draft which follows this idea.
 % The above is not really true anymore.
+
 # Introduction
 Many computations in typical programs extract information from collections. Higher-order operators allow formulating many such computations as queries; a collection library provides in other words a DSEL of queries over collections, which we call the query DSEL.
 
@@ -52,6 +53,7 @@ The rest of this paper is organized as follows. Sec. X describes the language we
 Query languages for relational and OO databases allow to program queries declaratively, and optimizers transform those queries into execution plans for efficient execution.
 Optimizers however often fail optimizing a query to an efficient execution plan: In this case, developers modify their queries to a different form until the results of optimization are the expected ones.
 Disadvantages are:
+
 - Understanding the output of optimization requires understanding a different language than SQL.
 - The optimizer has access to ‘built-in functions’ which the programmer cannot use.
 - Producing the desired execution plan might in general be impossible. Since the result of optimization is expressed in a quite different form, it is impossible to write directly an execution plan.
@@ -90,7 +92,7 @@ We can readily use multiple groupBy indexes together to encode multiindexes \cit
 
 # A few running examples:
 
-Example 1 - a join expressed through a set comprehension, as a filtered Cartesian product (expressed through `flatMap`):
+Example 1 -- a join expressed through a set comprehension, as a filtered Cartesian product (expressed through `flatMap`):
 
 ~~~
 for (i <- coll1;
@@ -99,7 +101,7 @@ for (i <- coll1;
   yield (i, j)
 ~~~
 
-Example 2 - a Cartesian product query which cannot be transformed into a join - it could be manually rewritten though:
+Example 2 -- a Cartesian product query which cannot be transformed into a join - it could be manually rewritten though:
 
 ~~~
 for (i <- coll1;
@@ -108,7 +110,7 @@ for (i <- coll1;
   yield (i, j)
 ~~~
 
-Example 3 - a query which could not be expressed as a Cartesian product:
+Example 3 -- a query which could not be expressed as a Cartesian product:
 
 ~~~
 for (i <- coll1;
