@@ -456,7 +456,7 @@ binding to the environment saved in the closure and use the result to
 replace the current environment, evaluate the body and then
 
 \begin{lstlisting}
-class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
+class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](...) {
   override def interpret(): S => T = {
     //Close over the current environment, and ensure it is stored in the returned closure.
     val env = FuncExpInt.env.get()
