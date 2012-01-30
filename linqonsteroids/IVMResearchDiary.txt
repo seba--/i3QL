@@ -534,3 +534,28 @@ I'd need to get comments on a draft of this, and get suggestions about how to pr
 - Boolean operators are not symmetric because they are not short-circuiting!
 - Talking with Klaus, he suggested that we shouldn't offer short-circuiting operators
   - However, I'm still supporting them for now, and I improved their support; support for them is an implementation detail though.
+- Why does else_ if_ work? Because else_ is a method and if_ is directly available. Hence it follows that parsing in Scala uses much more of the lexer hack than C.
+Apparently, however, that's not necessarily the case - parsing seems to proceed as-if methods were there, and then they're later looked up. This means however that the AST is significantly restructured (to accommodate precedence) after parsing proper.
+- Links about transitive closure implementations: http://www.cs.hut.fi/~enu/tc.html
+http://scholar.google.com/scholar?q=transitive+closure+efficient+algorithm&hl=en&as_sdt=0&as_vis=1&oi=scholart
+
+27 Jan:
+Paper topics, v2: 
+
+*) What do we embed:
+
+- embedding the lambda-calculus; lifting values (cross-stage persistence through interpretation); performance for HOAS/FOAS conversion
+- tuples; embedding functions without currying; mention embedding of base types.
+- Embedding of Traversable, Seq, Set, Map and Option; we embed the whole hierarchy, unlike ScalaIntegratedQuery (see their thesis); we reuse CanBuildFrom.
+In general, we can define a functor for lifting existing interfaces.
+- discuss operations on collections compared at least to relational algebra (or some more appropriate conceptual framework).
+- issues with implicit conversions: combining two implicit conversions explicitly, existing implicit conversions must be manually lifted because:
+a) implicit def foo: A => B won't be applied before converting B => Exp[B]
+b) foo, as above, will not be applied to Exp[A].
+- disabling lifting for Unit (and mutable collections)
+- withFilter and Views - why Views should not use CanBuildFrom
+- pattern-matching problems; effects; use of Let
+
+*) 
+*) Optimizations support writing queries modularly and compositionally, without optimizing them by hand (because optimization is not a modular activity)
+*) Evaluation: we reduce the size of code one writes

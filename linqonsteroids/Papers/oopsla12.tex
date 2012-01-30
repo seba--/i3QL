@@ -1,5 +1,6 @@
-\documentclass{article}
+\documentclass[preprint,authoryear,10pt]{sigplanconf}
 \usepackage{amssymb,amsmath}
+
 \usepackage{ifxetex,ifluatex}
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
@@ -15,6 +16,7 @@
 \fi
 \usepackage{natbib}
 \bibliographystyle{plainnat}
+
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -22,21 +24,58 @@
 \else
   \usepackage[unicode=true]{hyperref}
 \fi
-\hypersetup{breaklinks=true, pdfborder={0 0 0}}
-\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
 
-\title{Optimized queries over in-memory collections}
-\author{Paolo G. Giarrusso, Klaus Ostermann}
+\hypersetup{breaklinks=true, pdfborder={0 0 0}}
+%\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{6pt plus 2pt minus 1pt}
+%\setlength{\emergencystretch}{3em}  % prevent overfull lines
+%\setcounter{secnumdepth}{0}
+
+\newcommand{\intersect}{\wedge}
+
 \input{macros.tex}
 
 \begin{document}
+
+
+\conferenceinfo{OOPSLA '12}{date, City.} 
+\copyrightyear{2012} 
+\copyrightdata{[to be supplied]} 
+
+\titlebanner{banner above paper title}        % These are ignored unless
+\preprintfooter{short description of paper}   % 'preprint' option specified.
+
+\title{Optimized queries over in-memory collections}
+%\subtitle{Subtitle Text, if any}
+
+%\author{Paolo G. Giarrusso, Klaus Ostermann}
+\authorinfo{Paolo G. Giarrusso \and Klaus Ostermann}
+	   {Philipps University Marburg}
+%\authorinfo{Name1}
+%           {Affiliation1}
+%           {Email1}
+%\authorinfo{Name2\and Name3}
+%           {Affiliation2/3}
+%           {Email2/3}
+
 \maketitle
 
- \newcommand{\intersect}{\wedge}
+\begin{abstract}
+This is the text of the abstract.
+\end{abstract}
+
+\category{CR-number}{subcategory}{third-level}
+
+\terms
+term1, term2
+
+\keywords
+keyword1, keyword2
+
+
+
+
 \section{Introduction}
 
 Many computations in typical programs extract information from
@@ -396,7 +435,7 @@ passed through interpreters. When evaluating the body of a closure, we
 save the current environment on the metalanguage stack, add a new
 binding to the environment saved in the closure and use the result to
 replace the current environment, evaluate the body and then
-\textsubscr{\ensuremath{\sim}}
+
 \begin{verbatim}
 class FuncExpInt[S, T](val foasBody: Exp[T], v: TypedVar[S]) extends FuncExp[S, T](…) {
   override def interpret(): S => T = {
