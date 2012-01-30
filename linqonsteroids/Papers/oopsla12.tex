@@ -365,13 +365,13 @@ out of loops.
 
 Semi-joins, anti-joins.
 
-\subsection{IVM properties of those operators}
-
-Set union, selection and mapping are completely self-maintainable: that
-is, not even the result is needed for self-maintenance. Tables used in
-filters, instead, must be materialized to allow self-maintenance; the
-result, again, is not needed. \texttt{flatMap} is more complex. Results
-of \texttt{flatMap} require instead to store part of the results.
+%\subsection{IVM properties of those operators}
+%
+%Set union, selection and mapping are completely self-maintainable: that
+%is, not even the result is needed for self-maintenance. Tables used in
+%filters, instead, must be materialized to allow self-maintenance; the
+%result, again, is not needed. \texttt{flatMap} is more complex. Results
+%of \texttt{flatMap} require instead to store part of the results.
 
 \section{Expression trees and nodes}
 
@@ -635,13 +635,16 @@ is tuned to reduce disk I/O, not for memory operations; it is not clear
 if it could be advantageous because of its reduced cache footprint (we
 have no clue and don't really care, at least yet).
 
+% XXX This work is still related!
+
 %\subsection{Incremental View Maintenance}
 %
 %\citet{Willis08}, in ``Caching and Incrementalization in the Java
 %language'', do not support reduce and requires a special-purpose
 %compiler, with the associated complexity of implementation and
 %integration with other extensions (cite our LDTA 2012 paper).
-%
+
+
 %\subsection{Incremental computation}
 %
 %\citet{Hammer11} design a semantics for self-adjusting computation for
