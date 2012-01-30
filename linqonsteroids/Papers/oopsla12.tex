@@ -195,14 +195,23 @@ in-memory collections with the following desirable properties:
 Incremental maintenance of the results of \texttt{flatMap} is a novel
 algorithm.
 
-Our contributions are as follows: - index are identified with
-materialized views representing dictionaries, and can be used
-explicitly; this simplifies query optimization; - embedded queries have
-precise types, just as the native Scala collections; in particular, our
-embedding supports both Traversable, Set and Map; - the architecture
-used to implement IVM on expression trees is novel; - we support
-Incremental View Maintainance for \texttt{flatMap} operations.
+Our contributions are as follows:
 
+\begin{itemize}
+\item
+  index are identified with materialized views representing
+  dictionaries, and can be used explicitly; this simplifies query
+  optimization;
+\item
+  embedded queries have precise types, just as the native Scala
+  collections; in particular, our embedding supports both Traversable,
+  Set and Map;
+\item
+  the architecture used to implement IVM on expression trees is novel;
+\item
+  we support Incremental View Maintainance for \texttt{flatMap}
+  operations.
+\end{itemize}
 The rest of this paper is organized as follows. Sec. X describes the
 language we support; Sec. X describe how we embed this language; Sec. X
 discusses optimizations; Sec. X evaluates our framework by

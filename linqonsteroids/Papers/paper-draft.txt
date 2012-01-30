@@ -40,6 +40,7 @@ We propose a deeply-embedded Scala DSEL for expressing queries over in-memory co
 Incremental maintenance of the results of `flatMap` is a novel algorithm.
 
 Our contributions are as follows:
+
 - index are identified with materialized views representing dictionaries, and can be used explicitly; this simplifies query optimization;
 - embedded queries have precise types, just as the native Scala collections; in particular, our embedding supports both Traversable, Set and Map;
 - the architecture used to implement IVM on expression trees is novel;
