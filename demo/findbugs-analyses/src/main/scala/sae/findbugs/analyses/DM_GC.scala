@@ -1,11 +1,11 @@
 package sae.findbugs.analyses
 
 import sae.LazyView
-import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.{VoidType, ObjectType}
 import sae.bytecode.model.dependencies.{Dependency, invoke_virtual, invoke_static}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.Database
+import sae.bytecode.model.{MethodDeclaration, MethodReference}
 
 /**
  *
@@ -23,8 +23,8 @@ object DM_GC
 
     private val runtimeGC = MethodReference(ObjectType("java/lang/Runtime"), "gc", Seq(), VoidType())
 
-    def apply(database: Database): LazyView[Dependency[MethodReference, MethodReference]] =
-        σ((_: invoke_static).target == systemGC)(database.invoke_static).∪[Dependency[MethodReference, MethodReference], invoke_virtual](
+    def apply(database: Database): LazyView[Dependency[MethodDeclaration, MethodReference]] =
+        σ((_: invoke_static).target == systemGC)(database.invoke_static).∪[Dependency[MethodDeclaration, MethodReference], invoke_virtual](
             σ((_: invoke_virtual).target == runtimeGC)(database.invoke_virtual)
         )
 

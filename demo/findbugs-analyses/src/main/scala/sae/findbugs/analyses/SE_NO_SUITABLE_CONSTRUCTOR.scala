@@ -3,9 +3,9 @@ package sae.findbugs.analyses
 import sae.bytecode.Database
 import sae.LazyView
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.bytecode.model.MethodReference
 import sae.bytecode.model.dependencies.{`extends`, implements}
 import de.tud.cs.st.bat.{ReferenceType, ObjectType}
+import sae.bytecode.model.{MethodDeclaration, MethodReference}
 
 /**
  *
@@ -59,7 +59,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
             (superType: ObjectType, classFileType: ObjectType) => superType
         }
 
-        val noargConstructors = σ( (m: MethodReference) =>
+        val noargConstructors = σ( (m: MethodDeclaration) =>
         {
             m.isConstructor && m.parameters.isEmpty
         }) (database.declared_methods)
@@ -67,13 +67,13 @@ object SE_NO_SUITABLE_CONSTRUCTOR
         val noargConstructorsInSuperClassOfSerializableClasses = (
                 (
                         noargConstructors,
-                        (_: MethodReference).declaringRef
+                        (_: MethodDeclaration).declaringRef
                         ) ⋈(
                         identity(_:ObjectType),
                         analyzedSuperClassesOfSerializableClasses
                         )
                 ) {
-            (m: MethodReference, superType: ObjectType) => m
+            (m: MethodDeclaration, superType: ObjectType) => m
         }
 
         val serializableClassWithoutDefaultConstructor = (
@@ -81,7 +81,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                         analyzedSuperClassesOfSerializableClasses,
                         identity(_: ReferenceType)
                         ) ⊳(
-                        (_: (MethodReference)).declaringRef,
+                        (_: (MethodDeclaration)).declaringRef,
                         noargConstructorsInSuperClassOfSerializableClasses
                         )
                 )

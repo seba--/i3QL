@@ -1,13 +1,13 @@
 package sae.findbugs
 
-import analyses.{SE_NO_SUITABLE_CONSTRUCTOR, IMSE_DONT_CATCH_IMSE, DM_GC}
+import analyses.{FI_PUBLIC_SHOULD_BE_PROTECTED, SE_NO_SUITABLE_CONSTRUCTOR, IMSE_DONT_CATCH_IMSE, DM_GC}
 import sae.collections.QueryResult
-import sae.bytecode.model.{ExceptionHandler, MethodReference}
 import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 import java.io.FileInputStream
 import sae.profiler.Profiler._
-import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.dependencies.Dependency
+import de.tud.cs.st.bat.{ReferenceType, ObjectType}
+import sae.bytecode.model.{MethodDeclaration, ExceptionHandler, MethodReference}
 
 /**
  *
@@ -78,12 +78,19 @@ object FindbugsChecker
     def analyzeFromMaterialized(database: MaterializedDatabase) {
         import sae.collections.Conversions._
 
-        val garbageCollectionInvocations: QueryResult[Dependency[MethodReference, MethodReference]] = DM_GC(database)
+        val garbageCollectionInvocations: QueryResult[Dependency[MethodDeclaration, MethodReference]] = DM_GC(database)
         profile(time => println("DM_GC: " + nanoToSeconds(time)))(
             garbageCollectionInvocations.lazyInitialize()
         )
         println("# Violations: " + garbageCollectionInvocations.size)
         //garbageCollectionInvocations.foreach(println)
+
+        val classesWithPublicFinalizeMethods: QueryResult[ReferenceType] = FI_PUBLIC_SHOULD_BE_PROTECTED(database)
+        profile(time => println("FI_PUBLIC_SHOULD_BE_PROTECTED: " + nanoToSeconds(time)))(
+            classesWithPublicFinalizeMethods.lazyInitialize()
+        )
+        println("# Violations: " + classesWithPublicFinalizeMethods.size)
+        //classesWithPublicFinalizeMethods.foreach(println)
 
         val catchesIllegalMonitorStateException: QueryResult[ExceptionHandler] = IMSE_DONT_CATCH_IMSE(database)
         profile(time => println("IMSE_DONT_CATCH_IMSE: " + nanoToSeconds(time)))(
@@ -97,6 +104,7 @@ object FindbugsChecker
         )
         println("# Violations: " + serializableClassWithoutDefaultConstructorInSuperClass.size)
         //serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
+
     }
 
 
