@@ -24,7 +24,7 @@ class MaterializedDatabase(private val db: BytecodeDatabase)
 
     val declared_methods: QueryResult[MethodDeclaration] = db.declared_methods
 
-    val classfile_fields: QueryResult[FieldReference] = db.classfile_fields
+    val declared_fields: QueryResult[FieldReference] = db.declared_fields
 
     val classes: QueryResult[ObjectType] = db.classes
 

@@ -54,11 +54,11 @@ class TestUnissonDatabaseUpdates
 
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
         bc.declared_types.element_added(e)
 
         result.asList.sorted should be(
@@ -136,11 +136,11 @@ class TestUnissonDatabaseUpdates
 
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
 
         result.asList.sorted should be(
             List(
@@ -219,9 +219,9 @@ class TestUnissonDatabaseUpdates
 
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         result.asList.sorted should be(
             List(
@@ -294,11 +294,11 @@ class TestUnissonDatabaseUpdates
 
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(

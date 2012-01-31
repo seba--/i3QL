@@ -27,7 +27,7 @@ trait Database
 
     def declared_methods: LazyView[MethodDeclaration]
 
-    def classfile_fields: LazyView[FieldReference]
+    def declared_fields: LazyView[FieldReference]
 
     def classes: LazyView[ObjectType]
 

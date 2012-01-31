@@ -68,7 +68,7 @@ class QueryDefinitions(private val db: Database)
                             SourceElement[AnyRef]((_: FieldReference))
                         }(σ {
                             (_: FieldReference).declaringClass.packageName == fromJava(name)
-                        }(db.classfile_fields))
+                        }(db.declared_fields))
                         )
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
@@ -79,7 +79,7 @@ class QueryDefinitions(private val db: Database)
         }(db.declared_methods) ∪
                 Π {
                     ((f: FieldReference) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
-                }(db.classfile_fields) ∪
+                }(db.declared_fields) ∪
                 Π((inner: inner_class) => new class_member[AnyRef](inner.source, new ClassDeclaration(inner.target)))(db
                         .inner_classes)
 

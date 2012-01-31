@@ -44,7 +44,7 @@ class BytecodeDatabase extends Database
 
     val declared_methods = new DefaultLazyView[MethodDeclaration]
 
-    val classfile_fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
+    val declared_fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
 
     val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
@@ -125,7 +125,7 @@ class BytecodeDatabase extends Database
                         )
     lazy val field_type: LazyView[field_type] = Π((f: FieldReference) =>
         new field_type(f, f
-                .fieldType))(classfile_fields)
+                .fieldType))(declared_fields)
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
@@ -239,7 +239,7 @@ class BytecodeDatabase extends Database
     private def classAdder = new Java6ClassTransformer(
         declared_classes.element_added,
         declared_methods.element_added,
-        classfile_fields.element_added,
+        declared_fields.element_added,
         classes.element_added,
         methods.element_added,
         fields.element_added,
@@ -257,7 +257,7 @@ class BytecodeDatabase extends Database
     private def classRemover = new Java6ClassTransformer(
         declared_classes.element_removed,
         declared_methods.element_removed,
-        classfile_fields.element_removed,
+        declared_fields.element_removed,
         classes.element_removed,
         methods.element_removed,
         fields.element_removed,

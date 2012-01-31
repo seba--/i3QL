@@ -52,11 +52,11 @@ class TestUnissonDatabaseNesting
         bc.declared_types.element_added(a1)
         bc.declared_types.element_added(a2)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA1)
-        bc.classfile_fields.element_added(fieldRefBToA2)
+        bc.declared_fields.element_added(fieldRefBToA1)
+        bc.declared_fields.element_added(fieldRefBToA2)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA1)
-        bc.classfile_fields.element_added(fieldRefCToA2)
+        bc.declared_fields.element_added(fieldRefCToA1)
+        bc.declared_fields.element_added(fieldRefCToA2)
 
         result.asList.sorted should be(
             List(
@@ -101,11 +101,11 @@ class TestUnissonDatabaseNesting
         bc.declared_types.element_added(a1)
         bc.declared_types.element_added(a2)
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA1)
-        bc.classfile_fields.element_added(fieldRefBToA2)
+        bc.declared_fields.element_added(fieldRefBToA1)
+        bc.declared_fields.element_added(fieldRefBToA2)
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA1)
-        bc.classfile_fields.element_added(fieldRefCToA2)
+        bc.declared_fields.element_added(fieldRefCToA1)
+        bc.declared_fields.element_added(fieldRefCToA2)
 
         result.asList.sorted should be(
             List(

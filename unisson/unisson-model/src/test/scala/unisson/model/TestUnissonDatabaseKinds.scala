@@ -67,7 +67,7 @@ class TestUnissonDatabaseKinds
         bc.instructions.element_added(push(initA, 3, null, obj))
         bc.instructions.element_added(putfield(initA, 4, fieldRef))
 
-        bc.classfile_fields.element_added(fieldRef)
+        bc.declared_fields.element_added(fieldRef)
 
         bc.declared_types.element_added(b)
 
@@ -121,10 +121,10 @@ class TestUnissonDatabaseKinds
 
 
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
 
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -175,13 +175,13 @@ class TestUnissonDatabaseKinds
         bc.declared_types.element_added(a)
 
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
 
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -245,13 +245,13 @@ class TestUnissonDatabaseKinds
         bc.declared_types.element_added(a)
 
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
 
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -312,10 +312,10 @@ class TestUnissonDatabaseKinds
 
 
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
 
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -366,13 +366,13 @@ class TestUnissonDatabaseKinds
         bc.declared_types.element_added(a)
 
         bc.declared_types.element_added(b)
-        bc.classfile_fields.element_added(fieldRefBToA)
+        bc.declared_fields.element_added(fieldRefBToA)
 
         bc.declared_types.element_added(c)
-        bc.classfile_fields.element_added(fieldRefCToA)
+        bc.declared_fields.element_added(fieldRefCToA)
 
         bc.declared_types.element_added(d)
-        bc.classfile_fields.element_added(fieldRefDToA)
+        bc.declared_fields.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -429,8 +429,8 @@ class TestUnissonDatabaseKinds
         val fieldRefAToC = FieldReference(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
-        bc.classfile_fields.element_added(fieldRefAToB)
-        bc.classfile_fields.element_added(fieldRefAToC)
+        bc.declared_fields.element_added(fieldRefAToB)
+        bc.declared_fields.element_added(fieldRefAToC)
 
         bc.declared_types.element_added(b)
         bc.declared_types.element_added(c)
@@ -481,8 +481,8 @@ class TestUnissonDatabaseKinds
         val fieldRefAToC = FieldReference(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
-        bc.classfile_fields.element_added(fieldRefAToB)
-        bc.classfile_fields.element_added(fieldRefAToC)
+        bc.declared_fields.element_added(fieldRefAToB)
+        bc.declared_fields.element_added(fieldRefAToC)
 
         bc.declared_types.element_added(b)
         bc.declared_types.element_added(c)
@@ -533,8 +533,8 @@ class TestUnissonDatabaseKinds
         val fieldRefAToC = FieldReference(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
-        bc.classfile_fields.element_added(fieldRefAToB)
-        bc.classfile_fields.element_added(fieldRefAToC)
+        bc.declared_fields.element_added(fieldRefAToB)
+        bc.declared_fields.element_added(fieldRefAToC)
 
         bc.declared_types.element_added(b)
         bc.declared_types.element_added(c)
