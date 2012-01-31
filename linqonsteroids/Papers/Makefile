@@ -12,6 +12,6 @@ all: $(NAME).pdf oopsla12.pdf
 	pdflatex $<
 	pdflatex $<
 
-%.tex: %.txt FORCE
+%.tex: %.txt # FORCE
 	pandoc --template latex.template --natbib -s $< -o $@
 #pandoc --natbib --bibliography $(BIB) -s $< -o $@
