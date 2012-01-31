@@ -60,7 +60,7 @@ object FindbugsChecker
         }
         println("Took: " + nanoToSeconds(fillingTime))
 
-        println("Number of class files: " + materializedDatabase.classfiles.size)
+        println("Number of class files: " + materializedDatabase.classfile_types.size)
 
         analyzeFromMaterialized(materializedDatabase)
 
