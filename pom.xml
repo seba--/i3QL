@@ -31,6 +31,7 @@
         <module>bytecode-reader</module>
         <module>deploy</module>
         <module>unisson</module>
+        <module>demo/findbugs-analyses</module>
         <!--
           <module>further-functionality</module>
           <module>profiler</module>

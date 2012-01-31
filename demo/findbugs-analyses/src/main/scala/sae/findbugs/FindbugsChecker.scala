@@ -91,12 +91,12 @@ object FindbugsChecker
         )
         println("# Violations: " + catchesIllegalMonitorStateException.size)
 
-        val serializableClassWithoutDefaultConstructorInSuperClass: QueryResult[`extends`] = SE_NO_SUITABLE_CONSTRUCTOR(database)
+        val serializableClassWithoutDefaultConstructorInSuperClass: QueryResult[ObjectType] = SE_NO_SUITABLE_CONSTRUCTOR(database)
         profile(time => println("SE_NO_SUITABLE_CONSTRUCTOR: " + nanoToSeconds(time)))(
             serializableClassWithoutDefaultConstructorInSuperClass.lazyInitialize()
         )
         println("# Violations: " + serializableClassWithoutDefaultConstructorInSuperClass.size)
-        //serializableClassWithoutDefaultConstructor.foreach(println)
+        serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
     }
 
 

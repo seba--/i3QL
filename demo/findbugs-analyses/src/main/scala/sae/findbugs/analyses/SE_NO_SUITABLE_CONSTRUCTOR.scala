@@ -1,11 +1,11 @@
 package sae.findbugs.analyses
 
-import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.Database
 import sae.LazyView
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.Method
 import sae.bytecode.model.dependencies.{`extends`, implements}
+import de.tud.cs.st.bat.{ReferenceType, ObjectType}
 
 /**
  *
@@ -21,8 +21,8 @@ object SE_NO_SUITABLE_CONSTRUCTOR
 
     val serializable = ObjectType("java/io/Serializable")
 
-    def apply(database: Database): LazyView[`extends`] = {
-        // TODO maybe use distinct here
+    def apply(database: Database): LazyView[ObjectType] = {
+
         val serializableClasses = Π(
             (_: implements).source
         )(
@@ -33,7 +33,8 @@ object SE_NO_SUITABLE_CONSTRUCTOR
             )
         )
 
-        val superClassRelationsOfSerializableClasses = (
+        // super types may appear more than once for different serializable classes
+        val superTypesOfSerializableClasses = δ((
                 (
                         serializableClasses,
                         identity(_: ObjectType)
@@ -41,9 +42,21 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                         (_: `extends`).source,
                         database.`extends`
                         )
-                ) {(serializableClass: ObjectType,
-                    supertypeRelation: `extends`) =>
-            supertypeRelation
+                ) {
+            (serializableClass: ObjectType, supertypeRelation: `extends`) => supertypeRelation.target
+        })
+
+        // we wish to select only classes that are part of the analyzed code base
+        val analyzedSuperClassesOfSerializableClasses = (
+                (
+                        superTypesOfSerializableClasses,
+                        identity(_: ObjectType)
+                        ) ⋈(
+                        identity(_: ObjectType),
+                        database.classfile_types
+                        )
+                ) {
+            (superType: ObjectType, classFileType: ObjectType) => superType
         }
 
         val noargConstructors = σ( (m: Method) =>
@@ -56,19 +69,19 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                         noargConstructors,
                         (_: Method).declaringRef
                         ) ⋈(
-                        (_: `extends`).target,
-                        superClassRelationsOfSerializableClasses
+                        identity(_:ObjectType),
+                        analyzedSuperClassesOfSerializableClasses
                         )
                 ) {
-            (m: Method, superTypeRelation: `extends`) => (m, superTypeRelation)
+            (m: Method, superType: ObjectType) => m
         }
 
         val serializableClassWithoutDefaultConstructor = (
                 (
-                        superClassRelationsOfSerializableClasses,
-                        identity(_: `extends`)
+                        analyzedSuperClassesOfSerializableClasses,
+                        identity(_: ReferenceType)
                         ) ⊳(
-                        (_: (Method, `extends`))._2,
+                        (_: (Method)).declaringRef,
                         noargConstructorsInSuperClassOfSerializableClasses
                         )
                 )
