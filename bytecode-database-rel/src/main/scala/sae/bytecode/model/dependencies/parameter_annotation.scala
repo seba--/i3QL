@@ -1,7 +1,7 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model.MethodDeclaration
 
-case class parameter_annotation(source : MethodReference, target : ObjectType)
-        extends Dependency[MethodReference, ObjectType]
+case class parameter_annotation(source: MethodDeclaration, target: ObjectType)
+        extends Dependency[MethodDeclaration, ObjectType]

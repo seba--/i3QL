@@ -1,16 +1,16 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model.MethodDeclaration
 
 /**
- * 
+ *
  * Author: Ralf Mitschke
  * Created: 22.05.11 13:56
  *
  */
-
-case class create (val source: MethodReference, val target: ObjectType)
-        extends Dependency[MethodReference, ObjectType] {
+case class create(source: MethodDeclaration, target: ObjectType)
+        extends Dependency[MethodDeclaration, ObjectType]
+{
 
 }

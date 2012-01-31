@@ -5,13 +5,13 @@ import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
 import sae.collections.{Conversions, QueryResult}
 import org.junit.Test
-import sae.bytecode.model.{MethodReference, FieldReference}
 import de.tud.cs.st.bat.{VoidType, ObjectType}
 import sae.bytecode.model.dependencies.{`extends`}
 import sae.bytecode.model.instructions.{putfield, push, invokespecial}
 import sae.bytecode.{BytecodeDatabase}
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
+import sae.bytecode.model.{MethodReference, MethodDeclaration, FieldReference}
 
 /**
  *
@@ -93,7 +93,7 @@ class TestUnissonDatabaseViolations
         val obj = ObjectType("java/lang/Object")
         val superConst = MethodReference(obj, "<init>", Nil, VoidType())
         val a = ObjectType("test/A")
-        val initA = MethodReference(a, "<init>", Nil, VoidType())
+        val initA = MethodDeclaration(a, "<init>", Nil, VoidType())
         val b = ObjectType("test/B")
         val fieldRef = FieldReference(a, "myB", b)
 
@@ -102,7 +102,7 @@ class TestUnissonDatabaseViolations
         bc.`extends`.element_added(`extends`(a, obj))
 
 
-        bc.classfile_methods.element_added(initA)
+        bc.declared_methods.element_added(initA)
         bc.instructions.element_added(invokespecial(initA, 1, superConst))
         bc.instructions.element_added(push(initA, 3, null, obj))
         bc.instructions.element_added(putfield(initA, 4, fieldRef))

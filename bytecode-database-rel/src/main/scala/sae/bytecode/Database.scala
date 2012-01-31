@@ -18,11 +18,14 @@ import java.io.File
 trait Database
 {
 
-    def class_declarations: LazyView[ClassDeclaration]
+    def declared_classes: LazyView[ClassDeclaration]
 
+    /**
+     * convenience accessor for classDeclaration.objectType
+     */
     def declared_types: LazyView[ObjectType]
 
-    def classfile_methods: LazyView[MethodReference]
+    def declared_methods: LazyView[MethodDeclaration]
 
     def classfile_fields: LazyView[FieldReference]
 

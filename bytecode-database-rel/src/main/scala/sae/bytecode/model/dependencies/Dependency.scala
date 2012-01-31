@@ -11,7 +11,7 @@ trait Dependency[+S <: AnyRef, +T <:AnyRef]
 
     type TargetType = T
 
-    val source : S
+    def source : S
 
-    val target : T
+    def target : T
 }

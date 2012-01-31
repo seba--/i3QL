@@ -74,7 +74,7 @@ class CachingQueryCompiler(db: Database)
                 }
                 case PackageQuery(_) => {
                     removeAllSingleObserversOnPath(
-                        List(db.declared_types, db.classfile_methods, db.classfile_fields),
+                        List(db.declared_types, db.declared_methods, db.classfile_fields),
                         compiledQuery
                     )
                 }

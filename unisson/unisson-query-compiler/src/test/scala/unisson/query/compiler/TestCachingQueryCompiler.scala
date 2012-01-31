@@ -54,7 +54,7 @@ class TestCachingQueryCompiler
 
         bc.declared_types.hasObservers should be(false)
         bc.classfile_fields.hasObservers should be(false)
-        bc.classfile_methods.hasObservers should be(false)
+        bc.declared_methods.hasObservers should be(false)
 
         compiler.cachedQueries should have size (0)
     }
@@ -158,28 +158,28 @@ class TestCachingQueryCompiler
         compiler.cachedQueries should have size (5)
         observerCount(bc.declared_types) should be (3)
         observerCount(bc.classfile_fields) should be (3)
-        observerCount(bc.classfile_methods) should be (3)
+        observerCount(bc.declared_methods) should be (3)
 
         compiler.compile(queryB)
 
         compiler.cachedQueries should have size (8) // added package('d') && 2 or queries
         observerCount(bc.declared_types) should be (4)
         observerCount(bc.classfile_fields) should be (4)
-        observerCount(bc.classfile_methods) should be (4)
+        observerCount(bc.declared_methods) should be (4)
 
         compiler.dispose(queryA)
 
         compiler.cachedQueries should have size (5) // removed package('c') && 2 or queries
         observerCount(bc.declared_types) should be (3)
         observerCount(bc.classfile_fields) should be (3)
-        observerCount(bc.classfile_methods) should be (3)
+        observerCount(bc.declared_methods) should be (3)
 
         compiler.dispose(queryB)
 
         compiler.cachedQueries should have size (0)
         observerCount(bc.declared_types) should be (0)
         observerCount(bc.classfile_fields) should be (0)
-        observerCount(bc.classfile_methods) should be (0)
+        observerCount(bc.declared_methods) should be (0)
 
     }
 
@@ -196,7 +196,7 @@ class TestCachingQueryCompiler
 
         bc.declared_types.hasObservers should be(false)
         bc.classfile_fields.hasObservers should be(false)
-        bc.classfile_methods.hasObservers should be(false)
+        bc.declared_methods.hasObservers should be(false)
 
         compiler.cachedQueries should have size (0)
     }

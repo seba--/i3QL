@@ -1,12 +1,12 @@
 package unisson.query.compiler
 
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.{FieldReference, MethodReference}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
 import sae.bytecode.Database
 import unisson.query.code_model._
 import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
+import sae.bytecode.model.{MethodDeclaration, FieldReference, MethodReference}
 
 /**
  *
@@ -57,11 +57,11 @@ class QueryDefinitions(private val db: Database)
                 }(db.declared_types))
                 ) ∪
                 (
-                        Π[MethodReference, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: MethodReference))
+                        Π[MethodDeclaration, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: MethodDeclaration))
                         }(σ {
-                            (_: MethodReference).declaringRef.packageName == fromJava(name)
-                        }(db.classfile_methods))
+                            (_: MethodDeclaration).declaringRef.packageName == fromJava(name)
+                        }(db.declared_methods))
                         ) ∪
                 (
                         Π[FieldReference, SourceElement[AnyRef]] {
@@ -75,8 +75,8 @@ class QueryDefinitions(private val db: Database)
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
     lazy val direct_class_members: LazyView[class_member[AnyRef]] =
         Π {
-            ((m: MethodReference) => new class_member[AnyRef](m.declaringRef, new MethodDeclaration(m)))
-        }(db.classfile_methods) ∪
+            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringRef, new MethodDeclarationAdapter(m)))
+        }(db.declared_methods) ∪
                 Π {
                     ((f: FieldReference) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
                 }(db.classfile_fields) ∪

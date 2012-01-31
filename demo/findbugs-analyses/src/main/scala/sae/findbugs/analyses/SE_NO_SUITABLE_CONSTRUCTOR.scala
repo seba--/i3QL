@@ -62,7 +62,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
         val noargConstructors = σ( (m: MethodReference) =>
         {
             m.isConstructor && m.parameters.isEmpty
-        }) (database.classfile_methods)
+        }) (database.declared_methods)
 
         val noargConstructorsInSuperClassOfSerializableClasses = (
                 (

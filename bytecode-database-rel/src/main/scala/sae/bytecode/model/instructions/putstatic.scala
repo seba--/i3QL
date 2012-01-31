@@ -1,9 +1,11 @@
 package sae.bytecode.model.instructions
 
-import sae.bytecode.model.{MethodReference, Instr, FieldReference}
+import sae.bytecode.model.{MethodDeclaration, Instr, FieldReference}
 
-case class putstatic(val declaringMethod: MethodReference, val programCounter: Int, val field: FieldReference)
-        extends Instr[putstatic] {
+
+case class putstatic(declaringMethod: MethodDeclaration, programCounter: Int, field: FieldReference)
+        extends Instr[putstatic]
+{
 
     val mnemonic = "putstatic"
 

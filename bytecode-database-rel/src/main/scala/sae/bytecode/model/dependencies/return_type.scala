@@ -1,7 +1,7 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.Type
+import sae.bytecode.model.MethodDeclaration
 
 /**
  *
@@ -10,8 +10,8 @@ import de.tud.cs.st.bat.Type
  *
  */
 
-case class return_type(source: MethodReference, target: Type)
-        extends Dependency[MethodReference, Type]
+case class return_type(source: MethodDeclaration, target: Type)
+        extends Dependency[MethodDeclaration, Type]
 {
 
 }

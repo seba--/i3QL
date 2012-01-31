@@ -8,7 +8,7 @@ package model
  */
 trait Instr[T]
 {
-    def declaringMethod: MethodReference
+    def declaringMethod: MethodDeclaration
 
     def programCounter: Int
 

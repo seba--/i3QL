@@ -1,9 +1,11 @@
 package sae.bytecode.model.instructions
 
-import sae.bytecode.model.{MethodReference, Instr, FieldReference}
+import sae.bytecode.model.{MethodDeclaration, Instr, FieldReference}
 
-case class putfield(val declaringMethod: MethodReference, val programCounter: Int, val field: FieldReference)
-        extends Instr[putfield] {
+
+case class putfield(declaringMethod: MethodDeclaration, programCounter: Int, field: FieldReference)
+        extends Instr[putfield]
+{
 
     val mnemonic = "putfield"
 

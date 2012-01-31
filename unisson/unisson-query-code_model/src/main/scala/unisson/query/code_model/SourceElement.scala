@@ -1,8 +1,8 @@
 package unisson.query.code_model
 
-import sae.bytecode.model.{MethodReference, FieldReference}
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import de.tud.cs.st.bat.{ArrayType, ObjectType}
+import sae.bytecode.model.{MethodDeclaration, FieldReference}
 
 /**
  *
@@ -23,8 +23,8 @@ object SourceElement
         if (element.isInstanceOf[ObjectType]) {
             return new ClassDeclaration(element.asInstanceOf[ObjectType])
         }
-        if (element.isInstanceOf[MethodReference]) {
-            return new MethodDeclaration(element.asInstanceOf[MethodReference])
+        if (element.isInstanceOf[MethodDeclaration]) {
+            return new MethodDeclarationAdapter(element.asInstanceOf[MethodDeclaration])
         }
         if (element.isInstanceOf[FieldReference]) {
             return new FieldDeclaration(element.asInstanceOf[FieldReference])
@@ -41,15 +41,15 @@ object SourceElement
     }
 
     // TODO careful with to string, use for testing only
-    implicit def compare[T <: AnyRef](x: SourceElement[T], y: SourceElement[T]) : Int = {
-        if(x.isInstanceOf[ClassDeclaration] && y.isInstanceOf[ClassDeclaration])
-        {
-            return x.asInstanceOf[ClassDeclaration].getTypeQualifier.compare(y.asInstanceOf[ClassDeclaration].getTypeQualifier)
+    implicit def compare[T <: AnyRef](x: SourceElement[T], y: SourceElement[T]): Int = {
+        if (x.isInstanceOf[ClassDeclaration] && y.isInstanceOf[ClassDeclaration]) {
+            return x.asInstanceOf[ClassDeclaration].getTypeQualifier
+                    .compare(y.asInstanceOf[ClassDeclaration].getTypeQualifier)
         }
         x.toString.compareTo(y.toString)
     }
 
-    implicit def ordering[T <: AnyRef]: Ordering[SourceElement[T]] = new Ordering[SourceElement[T]]{
+    implicit def ordering[T <: AnyRef]: Ordering[SourceElement[T]] = new Ordering[SourceElement[T]] {
         def compare(x: SourceElement[T], y: SourceElement[T]) = SourceElement.compare(x, y)
     }
 }

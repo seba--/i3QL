@@ -14,8 +14,8 @@ class MethodDeclaration(
                                val parameters: Seq[de.tud.cs.st.bat.Type],
                                val returnType: de.tud.cs.st.bat.Type,
                                val accessFlags: Int,
-                               val hasDeprecatedAttribute: Boolean,
-                               val hasSyntheticAttribute: Boolean
+                               val isDeprecated: Boolean,
+                               val isSynthetic: Boolean
                                )
         extends MethodIdentifier
 {
@@ -88,11 +88,6 @@ class MethodDeclaration(
     lazy val isAbstract = MethodDeclaration.isAbstract(this)
 
     lazy val isStrict = MethodDeclaration.isStrict(this)
-
-    lazy val isSynthetic = MethodDeclaration.isSynthetic(this)
-
-    def isDeprecated = hasDeprecatedAttribute
-
 }
 
 object MethodDeclaration
@@ -103,9 +98,18 @@ object MethodDeclaration
               parameters: Seq[de.tud.cs.st.bat.Type],
               returnType: de.tud.cs.st.bat.Type,
               accessFlags: Int,
-              hasDeprecatedAttribute: Boolean,
-              hasSyntheticAttribute: Boolean
-                     ) = new MethodDeclaration(declaringRef, name, parameters, returnType, accessFlags, hasDeprecatedAttribute, hasSyntheticAttribute)
+              isDeprecated: Boolean,
+              isSynthetic: Boolean
+                     ) = new MethodDeclaration(declaringRef, name, parameters, returnType, accessFlags, isDeprecated, isSynthetic)
+
+    /**
+     * create a method declaration with default visibility that is neither deprecated nor synthetic
+     */
+    def apply(declaringRef: ReferenceType,
+              name: String,
+              parameters: Seq[de.tud.cs.st.bat.Type],
+              returnType: de.tud.cs.st.bat.Type
+                     ) = new MethodDeclaration(declaringRef, name, parameters, returnType, 0, false, false)
 
     def unapply(methodDeclaration: MethodDeclaration):
     Option[(ReferenceType, String, Seq[de.tud.cs.st.bat.Type], de.tud.cs.st.bat.Type, Int, Boolean, Boolean)] =
@@ -116,8 +120,8 @@ object MethodDeclaration
             methodDeclaration.parameters,
             methodDeclaration.returnType,
             methodDeclaration.accessFlags,
-            methodDeclaration.hasDeprecatedAttribute,
-            methodDeclaration.hasSyntheticAttribute
+            methodDeclaration.isDeprecated,
+            methodDeclaration.isSynthetic
         )
 
     import de.tud.cs.st.bat.constants.ACC_PUBLIC
@@ -178,9 +182,5 @@ object MethodDeclaration
 
     def isStrict(methodDeclaration: MethodDeclaration) =
         ACC_STRICT ∈ methodDeclaration.accessFlags
-
-    def isSynthetic(methodDeclaration: MethodDeclaration) =
-        ACC_SYNTHETIC ∈ methodDeclaration.accessFlags ||
-                (methodDeclaration.hasSyntheticAttribute)
 
 }

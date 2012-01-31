@@ -1,9 +1,11 @@
 package sae.bytecode.model.instructions
 
-import sae.bytecode.model.{Instr, MethodReference}
+import sae.bytecode.model.{MethodReference, Instr, MethodDeclaration}
 
-case class invokespecial(val declaringMethod: MethodReference, val programCounter: Int, val method: MethodReference)
-        extends Instr[invokespecial] {
+
+case class invokespecial(declaringMethod: MethodDeclaration, programCounter: Int, method: MethodReference)
+        extends Instr[invokespecial]
+{
 
     val mnemonic = "invokespecial"
 
