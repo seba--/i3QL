@@ -7,7 +7,7 @@ import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 import java.io.FileInputStream
 import sae.profiler.Profiler._
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.dependencies.{`extends`, implements, Dependency}
+import sae.bytecode.model.dependencies.Dependency
 
 /**
  *
@@ -96,7 +96,7 @@ object FindbugsChecker
             serializableClassWithoutDefaultConstructorInSuperClass.lazyInitialize()
         )
         println("# Violations: " + serializableClassWithoutDefaultConstructorInSuperClass.size)
-        serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
+        //serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
     }
 
 
