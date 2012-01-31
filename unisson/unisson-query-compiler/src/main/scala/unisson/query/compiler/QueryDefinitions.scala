@@ -6,7 +6,7 @@ import sae.LazyView
 import sae.bytecode.Database
 import unisson.query.code_model._
 import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
-import sae.bytecode.model.{MethodDeclaration, FieldReference, MethodReference}
+import sae.bytecode.model.{FieldDeclaration, MethodDeclaration, FieldReference, MethodReference}
 
 /**
  *
@@ -64,10 +64,10 @@ class QueryDefinitions(private val db: Database)
                         }(db.declared_methods))
                         ) ∪
                 (
-                        Π[FieldReference, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: FieldReference))
+                        Π[FieldDeclaration, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: FieldDeclaration))
                         }(σ {
-                            (_: FieldReference).declaringClass.packageName == fromJava(name)
+                            (_: FieldDeclaration).declaringClass.packageName == fromJava(name)
                         }(db.declared_fields))
                         )
 
@@ -78,7 +78,7 @@ class QueryDefinitions(private val db: Database)
             ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringRef, new MethodDeclarationAdapter(m)))
         }(db.declared_methods) ∪
                 Π {
-                    ((f: FieldReference) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
+                    ((f: FieldDeclaration) => new class_member[AnyRef](f.declaringClass, new FieldDeclarationAdapter(f)))
                 }(db.declared_fields) ∪
                 Π((inner: inner_class) => new class_member[AnyRef](inner.source, new ClassDeclaration(inner.target)))(db
                         .inner_classes)

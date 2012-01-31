@@ -10,7 +10,7 @@ import sae.bytecode.model.instructions.{putfield, push, invokespecial}
 import sae.bytecode.{BytecodeDatabase}
 import de.tud.cs.st.vespucci.interfaces.{IViolation}
 import org.junit.{Ignore, Test}
-import sae.bytecode.model.{MethodReference, MethodDeclaration, FieldReference}
+import sae.bytecode.model.{FieldReference, FieldDeclaration, MethodReference, MethodDeclaration}
 
 /**
  *
@@ -55,8 +55,8 @@ class TestUnissonDatabaseKinds
         val a = ObjectType("test/A")
         val initA = MethodDeclaration(a, "<init>", Nil, VoidType())
         val b = ObjectType("test/B")
-        val fieldRef = FieldReference(a, "myB", b)
 
+        val field = FieldDeclaration(a, "myB", b)
 
         bc.declared_types.element_added(a)
         bc.`extends`.element_added(`extends`(a, obj))
@@ -65,9 +65,9 @@ class TestUnissonDatabaseKinds
         bc.declared_methods.element_added(initA)
         bc.instructions.element_added(invokespecial(initA, 1, superConst))
         bc.instructions.element_added(push(initA, 3, null, obj))
-        bc.instructions.element_added(putfield(initA, 4, fieldRef))
+        bc.instructions.element_added(putfield(initA, 4, FieldReference(a, "myB", b)))
 
-        bc.declared_fields.element_added(fieldRef)
+        bc.declared_fields.element_added(field)
 
         bc.declared_types.element_added(b)
 
@@ -77,7 +77,7 @@ class TestUnissonDatabaseKinds
                     c,
                     ensembleA,
                     ensembleB,
-                    SourceElement(fieldRef),
+                    SourceElement(field),
                     SourceElement(b),
                     "field_type",
                     "test"
@@ -114,8 +114,8 @@ class TestUnissonDatabaseKinds
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefBToA = FieldReference(b, "fieldInB", a)
-        val fieldRefCToA = FieldReference(c, "fieldInC", a)
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
         bc.declared_types.element_added(a)
 
@@ -168,9 +168,9 @@ class TestUnissonDatabaseKinds
         val c = ObjectType("test/C")
         val d = ObjectType("test/D")
 
-        val fieldRefBToA = FieldReference(b, "fieldInB", a)
-        val fieldRefCToA = FieldReference(c, "fieldInC", a)
-        val fieldRefDToA = FieldReference(d, "fieldInD", a)
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
+        val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
         bc.declared_types.element_added(a)
 
@@ -238,9 +238,9 @@ class TestUnissonDatabaseKinds
         val c = ObjectType("test/C")
         val d = ObjectType("test/D")
 
-        val fieldRefBToA = FieldReference(b, "fieldInB", a)
-        val fieldRefCToA = FieldReference(c, "fieldInC", a)
-        val fieldRefDToA = FieldReference(d, "fieldInD", a)
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
+        val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
         bc.declared_types.element_added(a)
 
@@ -305,8 +305,8 @@ class TestUnissonDatabaseKinds
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefBToA = FieldReference(b, "fieldInB", a)
-        val fieldRefCToA = FieldReference(c, "fieldInC", a)
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
         bc.declared_types.element_added(a)
 
@@ -359,9 +359,9 @@ class TestUnissonDatabaseKinds
         val c = ObjectType("test/C")
         val d = ObjectType("test/D")
 
-        val fieldRefBToA = FieldReference(b, "fieldInB", a)
-        val fieldRefCToA = FieldReference(c, "fieldInC", a)
-        val fieldRefDToA = FieldReference(d, "fieldInD", a)
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
+        val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
         bc.declared_types.element_added(a)
 
@@ -425,8 +425,8 @@ class TestUnissonDatabaseKinds
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefAToB = FieldReference(a, "fieldToB", b)
-        val fieldRefAToC = FieldReference(a, "fieldToC", c)
+        val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
+        val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
         bc.declared_fields.element_added(fieldRefAToB)
@@ -477,8 +477,8 @@ class TestUnissonDatabaseKinds
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefAToB = FieldReference(a, "fieldToB", b)
-        val fieldRefAToC = FieldReference(a, "fieldToC", c)
+        val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
+        val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
         bc.declared_fields.element_added(fieldRefAToB)
@@ -529,8 +529,8 @@ class TestUnissonDatabaseKinds
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefAToB = FieldReference(a, "fieldToB", b)
-        val fieldRefAToC = FieldReference(a, "fieldToC", c)
+        val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
+        val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
         bc.declared_types.element_added(a)
         bc.declared_fields.element_added(fieldRefAToB)

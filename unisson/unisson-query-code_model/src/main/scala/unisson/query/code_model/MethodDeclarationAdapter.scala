@@ -36,5 +36,15 @@ class MethodDeclarationAdapter(val element: MethodDeclaration)
         element.equals(obj.asInstanceOf[MethodDeclarationAdapter].element)
     }
 
-    override def toString = element.toString
+    override def toString = element.declaringRef.signature +
+            element.name +
+            "(" + (
+            if (getParameterTypeQualifiers.isEmpty) {
+                ""
+            }
+            else {
+                getParameterTypeQualifiers.reduceLeft(_ + "," + _)
+            }
+            ) + ")" +
+            ":" + element.returnType.signature
 }

@@ -22,7 +22,7 @@ class MethodDeclaration(
 
     override def hashCode() = _hashCode
 
-    lazy val _hashCode = {
+    private lazy val _hashCode = {
         var code = "MethodDeclaration".hashCode()
         code = code * 41 + (if (declaringRef == null) 0 else declaringRef.hashCode())
         code = code * 41 + (if (name == null) 0 else name.hashCode())

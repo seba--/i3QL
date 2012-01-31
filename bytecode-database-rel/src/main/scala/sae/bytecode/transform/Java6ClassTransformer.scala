@@ -29,7 +29,7 @@ import sae.reader.BytecodeFactProcessor
 class Java6ClassTransformer(
                                    process_class_declaration: ClassDeclaration => Unit,
                                    process_classfile_method: MethodDeclaration => Unit,
-                                   process_classfile_field: FieldReference => Unit,
+                                   process_classfile_field: FieldDeclaration => Unit,
                                    process_class: ObjectType => Unit,
                                    process_method: MethodReference => Unit,
                                    process_field: FieldReference => Unit,
@@ -169,7 +169,12 @@ class Java6ClassTransformer(
      *
      */
     private def transform(declaringClass: ObjectType, field_info: Field_Info) {
-        val field = getField(declaringClass, field_info.name, field_info.descriptor.fieldType)
+        val field = FieldDeclaration(declaringClass,
+            field_info.name,
+            field_info.descriptor.fieldType,
+            field_info.accessFlags,
+            field_info.isDeprecated,
+            field_info.isSynthetic)
         process_classfile_field(field);
     }
 
@@ -186,8 +191,9 @@ class Java6ClassTransformer(
      */
     private def transform(declaringClass: ObjectType, innerClasses: InnerClasses_attribute) {
         innerClasses.classes
-                .foreach((e: InnerClassesEntry) => process_inner_class_entry(unresolved_inner_class_entry(declaringClass, e
-                .innerClassType, e.outerClassType, e.innerName, e.accessFlags)))
+                .foreach((e: InnerClassesEntry) =>
+            process_inner_class_entry(unresolved_inner_class_entry(declaringClass, e
+                    .innerClassType, e.outerClassType, e.innerName, e.accessFlags)))
     }
 
     /**
@@ -333,7 +339,8 @@ class Java6ClassTransformer(
         process_instruction(instruction)
     }
 
-    override def transform_BAT_new(instr: BAT_new, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodDeclaration) {
+    override def transform_BAT_new(instr: BAT_new, pc: Int, bytecodeMap: Array[Int],
+                                   declaringMethod: MethodDeclaration) {
         val instruction = `new`(declaringMethod, pc, instr.T.asObjectType)
         process_instruction(instruction)
     }

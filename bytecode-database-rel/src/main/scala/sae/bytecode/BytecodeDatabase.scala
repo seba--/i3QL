@@ -44,7 +44,7 @@ class BytecodeDatabase extends Database
 
     val declared_methods = new DefaultLazyView[MethodDeclaration]
 
-    val declared_fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
+    val declared_fields = new DefaultLazyView[FieldDeclaration]
 
     val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
@@ -123,7 +123,7 @@ class BytecodeDatabase extends Database
                                     )
                                 )
                         )
-    lazy val field_type: LazyView[field_type] = Π((f: FieldReference) =>
+    lazy val field_type: LazyView[field_type] = Π((f: FieldDeclaration) =>
         new field_type(f, f
                 .fieldType))(declared_fields)
 

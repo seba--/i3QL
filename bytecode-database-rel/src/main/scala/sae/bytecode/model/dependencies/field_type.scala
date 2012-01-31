@@ -1,7 +1,7 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.FieldReference
 import de.tud.cs.st.bat.Type
+import sae.bytecode.model.FieldDeclaration
 
 /**
  *
@@ -10,8 +10,8 @@ import de.tud.cs.st.bat.Type
  *
  */
 
-case class field_type(source: FieldReference, target: Type)
-        extends Dependency[FieldReference, Type]
+case class field_type(source: FieldDeclaration, target: Type)
+        extends Dependency[FieldDeclaration, Type]
 {
 
 }

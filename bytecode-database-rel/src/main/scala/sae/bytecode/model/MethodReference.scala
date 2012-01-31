@@ -29,7 +29,7 @@ class MethodReference(
 {
     override def hashCode(): Int = _hashCode
 
-    lazy val _hashCode: Int = {
+    private lazy val _hashCode: Int = {
         var code = "MethodReference".hashCode()
         code = code * 41 + (if (declaringRef == null) 0 else declaringRef.hashCode())
         code = code * 41 + (if (name == null) 0 else name.hashCode())
