@@ -10,7 +10,7 @@ import de.tud.cs.st.bat.ObjectType
  * Time: 17:55
  *
  */
-case class ClassDeclaration(objectType: ObjectType, accessFlags: Int, isDeprecated: Boolean, isSynthetic: Boolean)
+case class ClassDeclaration(objectType: ObjectType, accessFlags: Int, hasDeprecatedAttribute: Boolean, hasSyntheticAttribute: Boolean)
 {
 
     lazy val isAnnotation = ClassDeclaration.isClass(this)
@@ -26,6 +26,10 @@ case class ClassDeclaration(objectType: ObjectType, accessFlags: Int, isDeprecat
     lazy val isFinal = ClassDeclaration.isFinal(this)
 
     lazy val isAbstract = ClassDeclaration.isAbstract(this)
+
+    lazy val isSynthetic = ClassDeclaration.isSynthetic(this)
+
+    def isDeprecated = hasDeprecatedAttribute
 }
 
 object ClassDeclaration
@@ -37,6 +41,7 @@ object ClassDeclaration
     import de.tud.cs.st.bat.constants.ACC_PUBLIC
     import de.tud.cs.st.bat.constants.ACC_FINAL
     import de.tud.cs.st.bat.constants.ACC_ABSTRACT
+    import de.tud.cs.st.bat.constants.ACC_SYNTHETIC
 
 
     private val classCategoryMask: Int =
@@ -68,5 +73,9 @@ object ClassDeclaration
 
     def isAbstract(classDeclaration: ClassDeclaration) =
         ACC_ABSTRACT ∈ classDeclaration.accessFlags
+
+    def isSynthetic(classDeclaration: ClassDeclaration) =
+        ACC_SYNTHETIC ∈ classDeclaration.accessFlags ||
+                (classDeclaration.hasSyntheticAttribute)
 
 }
