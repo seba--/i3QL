@@ -58,11 +58,11 @@ object EventProfiling {
   var f2: QueryResult[(ReferenceType,Option[Double])] = null
   //var f3: LazyView[(ReferenceType,Int)] = null
   //var f4: LazyView[(ObjectType,Int)] = null
-  //var f5: LazyView[(Method, Field)] = null
-  //var f6 : QueryResult[Field] = null
+  //var f5: LazyView[(MethodReference, FieldReference)] = null
+  //var f6 : QueryResult[FieldReference] = null
   //var f7 : LazyView[(String, Int)] = null
 
- // var obBuffer : ObserverBuffer[(Method, Field)] = null
+ // var obBuffer : ObserverBuffer[(MethodReference, FieldReference)] = null
   /**
    *
    */

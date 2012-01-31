@@ -1,6 +1,6 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.ObjectType
 
 /**
@@ -11,7 +11,7 @@ import de.tud.cs.st.bat.ObjectType
  * A dependency arises if a new array of a class type is created.
  * Arrays of primitive types are not a dependency.
  */
-case class create_class_array (val source: Method, val target: ObjectType)
-        extends Dependency[Method, ObjectType] {
+case class create_class_array (val source: MethodReference, val target: ObjectType)
+        extends Dependency[MethodReference, ObjectType] {
 
 }

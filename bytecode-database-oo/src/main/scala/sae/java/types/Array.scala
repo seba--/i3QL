@@ -17,5 +17,5 @@ final case class Array(Type : Type, Dimensions : Int)
 
     override val Name : String = "Array[" + Type.Name + "]" + "(" + Dimensions + ")"
 
-    Methods :+ List(Method(this, "clone", List(), Object)) // with Set[Method]
+    Methods :+ List(Method(this, "clone", List(), Object)) // with Set[MethodReference]
 }

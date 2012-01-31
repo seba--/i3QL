@@ -52,7 +52,7 @@ class TestCachingQueryCompiler
 
         compiler.dispose(parser.parse("package('test')").get)
 
-        bc.classfile_types.hasObservers should be(false)
+        bc.declared_types.hasObservers should be(false)
         bc.classfile_fields.hasObservers should be(false)
         bc.classfile_methods.hasObservers should be(false)
 
@@ -73,7 +73,7 @@ class TestCachingQueryCompiler
         compiler.dispose(parser.parse("package('test')").get)
 
         val a = ObjectType("test/A")
-        bc.classfile_types.element_added(a)
+        bc.declared_types.element_added(a)
 
         resultB.asList.sorted should be(
             List(
@@ -96,8 +96,8 @@ class TestCachingQueryCompiler
 
         val testA = ObjectType("test/A")
         val otherB = ObjectType("other/B")
-        bc.classfile_types.element_added(testA)
-        bc.classfile_types.element_added(otherB)
+        bc.declared_types.element_added(testA)
+        bc.declared_types.element_added(otherB)
 
         result.asList.sorted should be(
             List(
@@ -156,28 +156,28 @@ class TestCachingQueryCompiler
         compiler.compile(queryA)
 
         compiler.cachedQueries should have size (5)
-        observerCount(bc.classfile_types) should be (3)
+        observerCount(bc.declared_types) should be (3)
         observerCount(bc.classfile_fields) should be (3)
         observerCount(bc.classfile_methods) should be (3)
 
         compiler.compile(queryB)
 
         compiler.cachedQueries should have size (8) // added package('d') && 2 or queries
-        observerCount(bc.classfile_types) should be (4)
+        observerCount(bc.declared_types) should be (4)
         observerCount(bc.classfile_fields) should be (4)
         observerCount(bc.classfile_methods) should be (4)
 
         compiler.dispose(queryA)
 
         compiler.cachedQueries should have size (5) // removed package('c') && 2 or queries
-        observerCount(bc.classfile_types) should be (3)
+        observerCount(bc.declared_types) should be (3)
         observerCount(bc.classfile_fields) should be (3)
         observerCount(bc.classfile_methods) should be (3)
 
         compiler.dispose(queryB)
 
         compiler.cachedQueries should have size (0)
-        observerCount(bc.classfile_types) should be (0)
+        observerCount(bc.declared_types) should be (0)
         observerCount(bc.classfile_fields) should be (0)
         observerCount(bc.classfile_methods) should be (0)
 
@@ -194,7 +194,7 @@ class TestCachingQueryCompiler
 
         compiler.dispose(parser.parse("package('test') or package('other')").get)
 
-        bc.classfile_types.hasObservers should be(false)
+        bc.declared_types.hasObservers should be(false)
         bc.classfile_fields.hasObservers should be(false)
         bc.classfile_methods.hasObservers should be(false)
 
@@ -235,16 +235,16 @@ class TestCachingQueryCompiler
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
         val d = ObjectType("test/D")
-        bc.classfile_types.element_added(obj)
-        bc.classfile_types.element_added(a)
+        bc.declared_types.element_added(obj)
+        bc.declared_types.element_added(a)
         bc.`extends`.element_added(`extends`(a, obj))
-        bc.classfile_types.element_added(b)
+        bc.declared_types.element_added(b)
         bc.`extends`.element_added(`extends`(b, obj))
         bc.`extends`.element_added(`extends`(b, a))
-        bc.classfile_types.element_added(c)
+        bc.declared_types.element_added(c)
         bc.`extends`.element_added(`extends`(c, obj))
         bc.`extends`.element_added(`extends`(c, a))
-        bc.classfile_types.element_added(d)
+        bc.declared_types.element_added(d)
         bc.`extends`.element_added(`extends`(d, obj))
         bc.`extends`.element_added(`extends`(d, b))
 
@@ -274,7 +274,7 @@ class TestCachingQueryCompiler
 
 
         val e = ObjectType("test/E")
-        bc.classfile_types.element_added(e)
+        bc.declared_types.element_added(e)
         bc.`extends`.element_added(`extends`(e, obj))
         bc.`extends`.element_added(`extends`(e, d))
 

@@ -1,6 +1,6 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 import de.tud.cs.st.bat.FieldType
 
 /**
@@ -10,7 +10,7 @@ import de.tud.cs.st.bat.FieldType
  *
  */
 
-case class parameter(val source: Method, val target: FieldType)
-        extends Dependency[Method, FieldType] {
+case class parameter(val source: MethodReference, val target: FieldType)
+        extends Dependency[MethodReference, FieldType] {
 
 }

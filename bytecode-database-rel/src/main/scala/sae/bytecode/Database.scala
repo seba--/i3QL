@@ -1,7 +1,7 @@
 package sae.bytecode
 
+import model._
 import model.dependencies._
-import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
 import java.io.File
@@ -18,19 +18,21 @@ import java.io.File
 trait Database
 {
 
-    def classfile_types: LazyView[ObjectType]
+    def class_declarations: LazyView[ClassDeclaration]
 
-    def classfile_methods: LazyView[Method]
+    def declared_types: LazyView[ObjectType]
 
-    def classfile_fields: LazyView[Field]
+    def classfile_methods: LazyView[MethodReference]
+
+    def classfile_fields: LazyView[FieldReference]
 
     def classes: LazyView[ObjectType]
 
     def create: LazyView[create]
 
-    def methods: LazyView[Method]
+    def methods: LazyView[MethodReference]
 
-    def fields: LazyView[Field]
+    def fields: LazyView[FieldReference]
 
     def instructions: LazyView[Instr[_]]
 

@@ -15,20 +15,20 @@ import java.io.{File, InputStream}
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
- *  field_type(Field, Class)
- *  parameter(Method, Class)
- *  return_type(Method, Class)
- *  write_field(Method, Field)
- *  read_field(Method, Field)
+ *  field_type(FieldReference, Class)
+ *  parameter(MethodReference, Class)
+ *  return_type(MethodReference, Class)
+ *  write_field(MethodReference, FieldReference)
+ *  read_field(MethodReference, FieldReference)
  *  calls(Method1, Method2)
- *  class_cast(Method, Class)
- *  instanceof(Method, Class)
- *  create(Method, Class)
- *  create_class_array(Method, Class)
- *  throw(Method, Class)
- *  get_class(Method, Class)
- *  annotation(Class|Field|Method, Class)
- *  parameter_annotation(Method, Class)
+ *  class_cast(MethodReference, Class)
+ *  instanceof(MethodReference, Class)
+ *  create(MethodReference, Class)
+ *  create_class_array(MethodReference, Class)
+ *  throw(MethodReference, Class)
+ *  get_class(MethodReference, Class)
+ *  annotation(Class|FieldReference|MethodReference, Class)
+ *  parameter_annotation(MethodReference, Class)
  */
 class BytecodeDatabase extends Database
 {
@@ -36,20 +36,21 @@ class BytecodeDatabase extends Database
      * BEWARE INITIALIZATION ORDER OF FIELDS (scala compiler will not warn you)
      */
 
-    // TODO check whether classfile_types and classfile methods can be declared
-    // as views in combination with a classfile_source(Class, File) table
-    // and how this affects performance
-    val classfile_types: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
+    // TODO check whether declared_types and classfile methods can be declared as views in combination with a classfile_source(Class, File) table and how this affects performance
 
-    val classfile_methods: LazyView[Method] = new DefaultLazyView[Method]
+    val class_declarations = new DefaultLazyView[ClassDeclaration]
 
-    val classfile_fields: LazyView[Field] = new DefaultLazyView[Field]
+    lazy val declared_types: LazyView[ObjectType] = Π((_:ClassDeclaration).objectType)(class_declarations)
+
+    val classfile_methods: LazyView[MethodReference] = new DefaultLazyView[MethodReference]
+
+    val classfile_fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
 
     val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
-    val methods: LazyView[Method] = new DefaultLazyView[Method]
+    val methods: LazyView[MethodReference] = new DefaultLazyView[MethodReference]
 
-    val fields: LazyView[Field] = new DefaultLazyView[Field]
+    val fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
 
     val instructions: LazyView[Instr[_]] = new DefaultLazyView[Instr[_]]
 
@@ -151,11 +152,11 @@ class BytecodeDatabase extends Database
                                 )
                         )
                 )
-    lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
+    lazy val field_type: LazyView[field_type] = Π((f: FieldReference) => new field_type(f, f.fieldType))(classfile_fields)
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
-    lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
+    lazy val return_type: LazyView[return_type] = Π((m: MethodReference) => new return_type(m, m.returnType))(classfile_methods)
 
     val exception_handlers = new DefaultLazyView[ExceptionHandler]()
 
@@ -315,7 +316,7 @@ class BytecodeDatabase extends Database
 
 
     lazy val baseViews: List[LazyView[_]] = List(
-        classfile_types,
+        declared_types,
         classfile_methods,
         classfile_fields,
         classes,
@@ -348,7 +349,7 @@ class BytecodeDatabase extends Database
 
 
     private def classAdder = new Java6ClassTransformer(
-        classfile_types.element_added,
+        class_declarations.element_added,
         classfile_methods.element_added,
         classfile_fields.element_added,
         classes.element_added,
@@ -366,7 +367,7 @@ class BytecodeDatabase extends Database
 
 
     private def classRemover = new Java6ClassTransformer(
-        classfile_types.element_removed,
+        class_declarations.element_removed,
         classfile_methods.element_removed,
         classfile_fields.element_removed,
         classes.element_removed,

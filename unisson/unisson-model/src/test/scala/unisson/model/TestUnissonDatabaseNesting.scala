@@ -5,7 +5,7 @@ import org.scalatest.matchers.ShouldMatchers
 import sae.bytecode.{BytecodeDatabase, MaterializedDatabase}
 import sae.collections.{Conversions, QueryResult}
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.Field
+import sae.bytecode.model.FieldReference
 import unisson.query.code_model.SourceElement
 import org.junit.Test
 import de.tud.cs.st.vespucci.model.IEnsemble
@@ -44,17 +44,17 @@ class TestUnissonDatabaseNesting
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefBToA1 = Field(b, "fieldInB", a1)
-        val fieldRefBToA2 = Field(b, "fieldInB", a2)
-        val fieldRefCToA1 = Field(c, "fieldInC", a1)
-        val fieldRefCToA2 = Field(c, "fieldInC", a2)
+        val fieldRefBToA1 = FieldReference(b, "fieldInB", a1)
+        val fieldRefBToA2 = FieldReference(b, "fieldInB", a2)
+        val fieldRefCToA1 = FieldReference(c, "fieldInC", a1)
+        val fieldRefCToA2 = FieldReference(c, "fieldInC", a2)
 
-        bc.classfile_types.element_added(a1)
-        bc.classfile_types.element_added(a2)
-        bc.classfile_types.element_added(b)
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+        bc.declared_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA1)
         bc.classfile_fields.element_added(fieldRefBToA2)
-        bc.classfile_types.element_added(c)
+        bc.declared_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA1)
         bc.classfile_fields.element_added(fieldRefCToA2)
 
@@ -93,17 +93,17 @@ class TestUnissonDatabaseNesting
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
 
-        val fieldRefBToA1 = Field(b, "fieldInB", a1)
-        val fieldRefBToA2 = Field(b, "fieldInB", a2)
-        val fieldRefCToA1 = Field(c, "fieldInC", a1)
-        val fieldRefCToA2 = Field(c, "fieldInC", a2)
+        val fieldRefBToA1 = FieldReference(b, "fieldInB", a1)
+        val fieldRefBToA2 = FieldReference(b, "fieldInB", a2)
+        val fieldRefCToA1 = FieldReference(c, "fieldInC", a1)
+        val fieldRefCToA2 = FieldReference(c, "fieldInC", a2)
 
-        bc.classfile_types.element_added(a1)
-        bc.classfile_types.element_added(a2)
-        bc.classfile_types.element_added(b)
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+        bc.declared_types.element_added(b)
         bc.classfile_fields.element_added(fieldRefBToA1)
         bc.classfile_fields.element_added(fieldRefBToA2)
-        bc.classfile_types.element_added(c)
+        bc.declared_types.element_added(c)
         bc.classfile_fields.element_added(fieldRefCToA1)
         bc.classfile_fields.element_added(fieldRefCToA2)
 

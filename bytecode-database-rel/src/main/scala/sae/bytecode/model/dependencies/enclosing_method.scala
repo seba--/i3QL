@@ -1,7 +1,7 @@
 package sae.bytecode.model.dependencies
 
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 
 /**
  * 
@@ -10,5 +10,5 @@ import sae.bytecode.model.Method
  *
  */
 
-case class enclosing_method(source : Method, target : ObjectType)
-    extends Dependency[Method, ObjectType]
+case class enclosing_method(source : MethodReference, target : ObjectType)
+    extends Dependency[MethodReference, ObjectType]

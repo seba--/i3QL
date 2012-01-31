@@ -1,9 +1,9 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 
-trait calls extends Dependency[Method, Method]
+trait calls extends Dependency[MethodReference, MethodReference]
 {
-    val source : Method
-    val target : Method
+    val source : MethodReference
+    val target : MethodReference
 }

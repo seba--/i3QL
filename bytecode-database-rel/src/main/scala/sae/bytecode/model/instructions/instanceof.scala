@@ -1,9 +1,9 @@
 package sae.bytecode.model.instructions
 
 import de.tud.cs.st.bat.ReferenceType
-import sae.bytecode.model.{Method, Instr}
+import sae.bytecode.model.{MethodReference, Instr}
 
-case class instanceof(val declaringMethod: Method, val programCounter: Int, val typ: ReferenceType)
+case class instanceof(val declaringMethod: MethodReference, val programCounter: Int, val typ: ReferenceType)
         extends Instr[instanceof] {
 
     val mnemonic = "instanceof"

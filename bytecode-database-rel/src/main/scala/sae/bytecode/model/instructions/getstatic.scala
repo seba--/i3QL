@@ -1,8 +1,8 @@
 package sae.bytecode.model.instructions
 
-import sae.bytecode.model.{Method, Instr, Field}
+import sae.bytecode.model.{MethodReference, Instr, FieldReference}
 
-case class getstatic(val declaringMethod: Method, val programCounter: Int, val field: Field)
+case class getstatic(val declaringMethod: MethodReference, val programCounter: Int, val field: FieldReference)
         extends Instr[getstatic] {
 
     val mnemonic = "getstatic"

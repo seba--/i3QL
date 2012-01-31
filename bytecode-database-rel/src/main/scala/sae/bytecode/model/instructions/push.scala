@@ -1,9 +1,9 @@
 package sae.bytecode.model.instructions
 
 import de.tud.cs.st.bat._
-import sae.bytecode.model.{Instr, Method}
+import sae.bytecode.model.{Instr, MethodReference}
 
-case class push[T](val declaringMethod: Method, val programCounter: Int, val value: T, typ: Type)
+case class push[T](val declaringMethod: MethodReference, val programCounter: Int, val value: T, typ: Type)
         extends Instr[push[T]]
 {
 

@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import sae.bytecode.model.Field
+import sae.bytecode.model.FieldReference
 import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
 
 /**
@@ -10,8 +10,8 @@ import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
  * Time: 12:48
  *
  */
-class FieldDeclaration(val element: Field)
-        extends IFieldDeclaration with SourceElement[Field]
+class FieldDeclaration(val element: FieldReference)
+        extends IFieldDeclaration with SourceElement[FieldReference]
 {
     def getPackageIdentifier = element.declaringClass.packageName
 

@@ -1,6 +1,6 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.{Field, Method}
+import sae.bytecode.model.{FieldReference, MethodReference}
 import de.tud.cs.st.bat.ReferenceType
 
 /**
@@ -9,7 +9,7 @@ import de.tud.cs.st.bat.ReferenceType
  * Created: 22.05.11 13:56
  *
  */
-case class class_cast (val source: Method, val target: ReferenceType)
-        extends Dependency[Method, ReferenceType] {
+case class class_cast (val source: MethodReference, val target: ReferenceType)
+        extends Dependency[MethodReference, ReferenceType] {
 
 }

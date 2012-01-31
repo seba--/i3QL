@@ -1,6 +1,6 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.{Field, Method}
+import sae.bytecode.model.{FieldReference, MethodReference}
 
 /**
  * 
@@ -9,7 +9,7 @@ import sae.bytecode.model.{Field, Method}
  *
  */
 
-case class write_field (source: Method, target: Field, isStatic: Boolean)
-        extends Dependency[Method, Field] {
+case class write_field (source: MethodReference, target: FieldReference, isStatic: Boolean)
+        extends Dependency[MethodReference, FieldReference] {
 
 }

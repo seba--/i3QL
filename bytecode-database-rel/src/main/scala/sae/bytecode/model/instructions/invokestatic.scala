@@ -1,8 +1,8 @@
 package sae.bytecode.model.instructions
 
-import sae.bytecode.model.{Instr, Method}
+import sae.bytecode.model.{Instr, MethodReference}
 
-case class invokestatic(val declaringMethod: Method, val programCounter: Int, val method: Method)
+case class invokestatic(val declaringMethod: MethodReference, val programCounter: Int, val method: MethodReference)
         extends Instr[invokestatic] {
 
     val mnemonic = "invokestatic"

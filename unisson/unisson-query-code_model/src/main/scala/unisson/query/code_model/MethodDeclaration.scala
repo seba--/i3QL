@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
 
 
@@ -11,8 +11,8 @@ import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
  * Time: 13:13
  *
  */
-class MethodDeclaration(val element: Method)
-        extends IMethodDeclaration with SourceElement[Method]
+class MethodDeclaration(val element: MethodReference)
+        extends IMethodDeclaration with SourceElement[MethodReference]
 {
 
     def getPackageIdentifier = element.declaringRef.packageName

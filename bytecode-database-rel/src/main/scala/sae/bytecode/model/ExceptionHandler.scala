@@ -9,7 +9,7 @@ import de.tud.cs.st.bat.ObjectType
  *
  */
 
-case class ExceptionHandler(declaringMethod : Method, catchType : Option[ObjectType], startPC : Int, endPC : Int, handlerPC : Int)
+case class ExceptionHandler(declaringMethod : MethodReference, catchType : Option[ObjectType], startPC : Int, endPC : Int, handlerPC : Int)
 {
 
 }

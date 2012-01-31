@@ -1,7 +1,7 @@
 package unisson.query.compiler
 
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.{Field, Method}
+import sae.bytecode.model.{FieldReference, MethodReference}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.LazyView
 import sae.bytecode.Database
@@ -27,11 +27,11 @@ class QueryDefinitions(private val db: Database)
             new ClassDeclaration((_: ObjectType))
         }(
             σ {(o: ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == name)}(db
-                    .classfile_types)
+                    .declared_types)
         )
 
     def `class`(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
-        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.classfile_types)
+        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.declared_types)
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
@@ -54,20 +54,20 @@ class QueryDefinitions(private val db: Database)
                     SourceElement(_: ObjectType)
                 }(σ {
                     (_: ObjectType).packageName == fromJava(name)
-                }(db.classfile_types))
+                }(db.declared_types))
                 ) ∪
                 (
-                        Π[Method, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: Method))
+                        Π[MethodReference, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: MethodReference))
                         }(σ {
-                            (_: Method).declaringRef.packageName == fromJava(name)
+                            (_: MethodReference).declaringRef.packageName == fromJava(name)
                         }(db.classfile_methods))
                         ) ∪
                 (
-                        Π[Field, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: Field))
+                        Π[FieldReference, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: FieldReference))
                         }(σ {
-                            (_: Field).declaringClass.packageName == fromJava(name)
+                            (_: FieldReference).declaringClass.packageName == fromJava(name)
                         }(db.classfile_fields))
                         )
 
@@ -75,10 +75,10 @@ class QueryDefinitions(private val db: Database)
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
     lazy val direct_class_members: LazyView[class_member[AnyRef]] =
         Π {
-            ((m: Method) => new class_member[AnyRef](m.declaringRef, new MethodDeclaration(m)))
+            ((m: MethodReference) => new class_member[AnyRef](m.declaringRef, new MethodDeclaration(m)))
         }(db.classfile_methods) ∪
                 Π {
-                    ((f: Field) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
+                    ((f: FieldReference) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
                 }(db.classfile_fields) ∪
                 Π((inner: inner_class) => new class_member[AnyRef](inner.source, new ClassDeclaration(inner.target)))(db
                         .inner_classes)
@@ -97,7 +97,7 @@ class QueryDefinitions(private val db: Database)
         }(
             σ {
                 (_: ObjectType) == ObjectType(fromJava(qualifiedClass))
-            }(db.classfile_types)
+            }(db.declared_types)
         ) ∪
                 Π {(cm: (AnyRef, AnyRef)) => SourceElement[AnyRef](cm._2)}(
                     σ {

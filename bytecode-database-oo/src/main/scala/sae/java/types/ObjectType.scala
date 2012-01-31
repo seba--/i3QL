@@ -22,9 +22,9 @@ trait ObjectType
 
     var Interfaces : Seq[Interface] = Nil // with Set[Interface]
 
-    var Methods: Seq[Method] = Nil // with Set[Method]
+    var Methods: Seq[Method] = Nil // with Set[MethodReference]
 
-    var Fields: Seq[Field] = Nil // with Set[Field]
+    var Fields: Seq[Field] = Nil // with Set[FieldReference]
 
     var InnerClasses: Seq[Class] = Nil // with Set[Class]
 }

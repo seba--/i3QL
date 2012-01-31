@@ -2,7 +2,7 @@ package sae.findbugs
 
 import analyses.{SE_NO_SUITABLE_CONSTRUCTOR, IMSE_DONT_CATCH_IMSE, DM_GC}
 import sae.collections.QueryResult
-import sae.bytecode.model.{ExceptionHandler, Method}
+import sae.bytecode.model.{ExceptionHandler, MethodReference}
 import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 import java.io.FileInputStream
 import sae.profiler.Profiler._
@@ -60,7 +60,7 @@ object FindbugsChecker
         }
         println("Took: " + nanoToSeconds(fillingTime))
 
-        println("Number of class files: " + materializedDatabase.classfile_types.size)
+        println("Number of class files: " + materializedDatabase.declared_types.size)
 
         analyzeFromMaterialized(materializedDatabase)
 
@@ -78,7 +78,7 @@ object FindbugsChecker
     def analyzeFromMaterialized(database: MaterializedDatabase) {
         import sae.collections.Conversions._
 
-        val garbageCollectionInvocations: QueryResult[Dependency[Method, Method]] = DM_GC(database)
+        val garbageCollectionInvocations: QueryResult[Dependency[MethodReference, MethodReference]] = DM_GC(database)
         profile(time => println("DM_GC: " + nanoToSeconds(time)))(
             garbageCollectionInvocations.lazyInitialize()
         )

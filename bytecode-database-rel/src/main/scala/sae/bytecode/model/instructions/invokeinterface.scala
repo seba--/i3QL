@@ -1,9 +1,9 @@
 package sae.bytecode.model
 package instructions
 
-import sae.bytecode.model.Method
+import sae.bytecode.model.MethodReference
 
-case class invokeinterface(val declaringMethod: Method, val programCounter: Int, val method: Method)
+case class invokeinterface(val declaringMethod: MethodReference, val programCounter: Int, val method: MethodReference)
         extends Instr[invokeinterface] {
 
     val mnemonic = "invokeinterface"

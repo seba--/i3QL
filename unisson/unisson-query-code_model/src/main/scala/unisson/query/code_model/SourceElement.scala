@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import sae.bytecode.model.{Method, Field}
+import sae.bytecode.model.{MethodReference, FieldReference}
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import de.tud.cs.st.bat.{ArrayType, ObjectType}
 
@@ -23,11 +23,11 @@ object SourceElement
         if (element.isInstanceOf[ObjectType]) {
             return new ClassDeclaration(element.asInstanceOf[ObjectType])
         }
-        if (element.isInstanceOf[Method]) {
-            return new MethodDeclaration(element.asInstanceOf[Method])
+        if (element.isInstanceOf[MethodReference]) {
+            return new MethodDeclaration(element.asInstanceOf[MethodReference])
         }
-        if (element.isInstanceOf[Field]) {
-            return new FieldDeclaration(element.asInstanceOf[Field])
+        if (element.isInstanceOf[FieldReference]) {
+            return new FieldDeclaration(element.asInstanceOf[FieldReference])
         }
         if (element.isInstanceOf[ArrayType]) {
             return new ArrayDeclaration(element.asInstanceOf[ArrayType])

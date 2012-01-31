@@ -30,8 +30,8 @@ class TestQueryDefinitions
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
-        bc.classfile_types.element_added(a)
-        bc.classfile_types.element_added(b)
+        bc.declared_types.element_added(a)
+        bc.declared_types.element_added(b)
 
 
         result.asList.sorted should be(

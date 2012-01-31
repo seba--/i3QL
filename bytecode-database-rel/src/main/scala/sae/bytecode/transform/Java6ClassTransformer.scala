@@ -27,12 +27,12 @@ import sae.reader.BytecodeFactProcessor
  * Furthermore subsequent queries could make object referential equality checks for better performance.
  */
 class Java6ClassTransformer(
-                        process_classfile: ObjectType => Unit,
-                        process_classfile_method: Method => Unit,
-                        process_classfile_field: Field => Unit,
+                        process_class_declaration: ClassDeclaration => Unit,
+                        process_classfile_method: MethodReference => Unit,
+                        process_classfile_field: FieldReference => Unit,
                         process_class: ObjectType => Unit,
-                        process_method: Method => Unit,
-                        process_field: Field => Unit,
+                        process_method: MethodReference => Unit,
+                        process_field: FieldReference => Unit,
                         process_instruction: Instr[_] => Unit,
                         process_extends : `extends` => Unit,
                         process_implements: implements => Unit,
@@ -42,7 +42,7 @@ class Java6ClassTransformer(
                         process_inner_class_entry : unresolved_inner_class_entry => Unit,
                         process_enclosing_method : unresolved_enclosing_method => Unit
 )
-        extends TransformInstruction[Unit, Method] with
+        extends TransformInstruction[Unit, MethodReference] with
                 BytecodeFactProcessor
 {
 
@@ -54,7 +54,7 @@ class Java6ClassTransformer(
     }
 
     def processAllFacts() {
-        // do nothing we need no extra processing of added process_classfile
+        // do nothing we need no extra processing of added process_class_declaration
         // but transform the directly
         // here we could schedule parallelization
 
@@ -62,14 +62,7 @@ class Java6ClassTransformer(
 
     }
 
-    // TODO: ideally we would search for a view on all process_class and reuse that here
-
-    private var internalMethods = new scala.collection.immutable.HashMap[Method, Method]
-
-    private var internalFields = new scala.collection.immutable.HashMap[Field, Field]
-
-
-    private def getMethod(typ: Type, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
+    private def getMethod(typ: Type, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): MethodReference = {
         if (typ.isObjectType)
             getMethod(typ.asObjectType, name, parameters, returnType)
         else
@@ -77,29 +70,13 @@ class Java6ClassTransformer(
 
     }
 
-    private def getMethod(declaringRef: ReferenceType, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): Method = {
-        val m = Method(declaringRef, name, parameters, returnType)
-        val internalized = internalMethods.get(m)
-        if (internalized == None) {
-            internalMethods += (m -> m)
-            process_method(m)
-            m
-        } else {
-            internalized.get
-        }
+    private def getMethod(declaringRef: ReferenceType, name: String, parameters: Seq[de.tud.cs.st.bat.Type], returnType: de.tud.cs.st.bat.Type): MethodReference = {
+        MethodReference(declaringRef, name, parameters, returnType)
     }
 
 
-    private def getField(declaringClass: ObjectType, name: String, fieldType: FieldType): Field = {
-        val f = Field(declaringClass, name, fieldType)
-        val internalized = internalFields.get(f)
-        if (internalized == None) {
-            internalFields += (f -> f)
-            process_field(f)
-            f
-        } else {
-            internalized.get
-        }
+    private def getField(declaringClass: ObjectType, name: String, fieldType: FieldType): FieldReference = {
+        FieldReference(declaringClass, name, fieldType)
     }
 
     /**
@@ -136,7 +113,7 @@ class Java6ClassTransformer(
         // these process_class are always unique, no check is performed
         process_class(classFile.thisClass)
 
-        process_classfile(classFile.thisClass)
+        process_class_declaration(ClassDeclaration(classFile.thisClass,classFile.accessFlags, classFile.isDeprecated, classFile.isSynthetic))
 
         // Note: there is exactly one class (java/lang/Object) that has no superclass
         if( classFile.superClass != null)
@@ -218,7 +195,7 @@ class Java6ClassTransformer(
         )
     }
 
-    private def transform(declaringMethod: Method, exceptions_attribute: Exceptions_attribute)
+    private def transform(declaringMethod: MethodReference, exceptions_attribute: Exceptions_attribute)
     {
         exceptions_attribute.exceptionTable.foreach( e => process_thrown_exception(new throws(declaringMethod, e)) )
     }
@@ -226,7 +203,7 @@ class Java6ClassTransformer(
     /**
      * transform the individual bytecode instructions
      */
-    private def transform(declaringMethod: Method, code_attribute: Code_attribute)
+    private def transform(declaringMethod: MethodReference, code_attribute: Code_attribute)
     {
         var pc = 0
 
@@ -259,84 +236,84 @@ class Java6ClassTransformer(
         )
     }
 
-    def transform_instruction_default(instr: Instruction, pc: Int, declaringMethod: Method) {
+    def transform_instruction_default(instr: Instruction, pc: Int, declaringMethod: MethodReference) {
         // do nothing for process_instruction that we don't want to support yet
     }
 
-    override def transform_BAT_invokeinterface(instr: BAT_invokeinterface, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_invokeinterface(instr: BAT_invokeinterface, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val callee = getMethod(instr.declaring_class_type, instr.method_name.toUTF8, instr.method_parameters.asFieldTypeSeq, instr.method_return_type)
         val instruction = invokeinterface(declaringMethod, pc, callee)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_invokespecial(instr: BAT_invokespecial, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_invokespecial(instr: BAT_invokespecial, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val callee = getMethod(instr.declaring_class_type, instr.method_name.toUTF8, instr.method_parameters.asFieldTypeSeq, instr.method_return_type)
         val instruction = invokespecial(declaringMethod, pc, callee)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_invokestatic(instr: BAT_invokestatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_invokestatic(instr: BAT_invokestatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val callee = getMethod(instr.declaring_class_type, instr.method_name.toUTF8, instr.method_parameters.asFieldTypeSeq, instr.method_return_type)
         val instruction = invokestatic(declaringMethod, pc, callee)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_invokevirtual(instr: BAT_invokevirtual, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_invokevirtual(instr: BAT_invokevirtual, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val callee = getMethod(instr.declaring_class_type, instr.method_name.toUTF8, instr.method_parameters.asFieldTypeSeq, instr.method_return_type)
         val instruction = invokevirtual(declaringMethod, pc, callee)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_putstatic(instr: BAT_putstatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_putstatic(instr: BAT_putstatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val field = getField(instr.declaringClass.asObjectType, instr.fieldName.toUTF8, instr.fieldType.asFieldType)
         val instruction = putstatic(declaringMethod, pc, field)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_putfield(instr: BAT_putfield, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_putfield(instr: BAT_putfield, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val field = getField(instr.declaringClass.asObjectType, instr.fieldName.toUTF8, instr.fieldType.asFieldType)
         val instruction = putfield(declaringMethod, pc, field)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_getstatic(instr: BAT_getstatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_getstatic(instr: BAT_getstatic, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val field = getField(instr.declaringClass.asObjectType, instr.fieldName.toUTF8, instr.fieldType.asFieldType)
         val instruction = getstatic(declaringMethod, pc, field)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_getfield(instr: BAT_getfield, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_getfield(instr: BAT_getfield, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val field = getField(instr.declaringClass.asObjectType, instr.fieldName.toUTF8, instr.fieldType.asFieldType)
         val instruction = getfield(declaringMethod, pc, field)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_checkcast(instr: BAT_checkcast, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_checkcast(instr: BAT_checkcast, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val instruction = checkcast(declaringMethod, pc, instr.T.asReferenceType)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_newarray(instr: BAT_newarray, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_newarray(instr: BAT_newarray, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val instruction = newarray(declaringMethod, pc, instr.T)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_new(instr: BAT_new, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_new(instr: BAT_new, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val instruction = `new`(declaringMethod, pc, instr.T.asObjectType)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_instanceof(instr: BAT_instanceof, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_instanceof(instr: BAT_instanceof, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val instruction = sae.bytecode.model.instructions.instanceof(declaringMethod, pc, instr.T.asReferenceType)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_cast(instr: BAT_cast, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_cast(instr: BAT_cast, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         val instruction = cast(declaringMethod, pc, instr.S, instr.T)
         process_instruction(instruction)
     }
 
-    override def transform_BAT_push(instr: BAT_push, pc: Int, bytecodeMap: Array[Int], declaringMethod: Method) {
+    override def transform_BAT_push(instr: BAT_push, pc: Int, bytecodeMap: Array[Int], declaringMethod: MethodReference) {
         def createPush[T](f: () => T) = new push[T](declaringMethod, pc, f(), instr.T)
         val instruction = createPush(constant_value_function(instr.value))
         process_instruction(instruction)
