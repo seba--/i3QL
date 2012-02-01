@@ -37,37 +37,7 @@ class FieldDeclaration(
 
     lazy val isEnum = FieldDeclaration.isEnum(this)
 
-    override def hashCode(): Int = _hashCode
-
-    private lazy val _hashCode: Int = {
-        var code = "FieldDeclaration".hashCode()
-        code = code * 41 + (if (declaringClass == null) 0 else declaringClass.hashCode())
-        code = code * 41 + (if (name == null) 0 else name.hashCode())
-        code = code * 41 + (if (fieldType == null) 0 else fieldType.hashCode())
-        code = code * 41 + this.accessFlags
-        code
-    }
-
-    override def equals(obj: Any): Boolean = {
-        if (this eq obj.asInstanceOf[AnyRef])
-            return true;
-        if (obj.isInstanceOf[FieldDeclaration]) {
-            val other = obj.asInstanceOf[FieldDeclaration]
-            return this.declaringClass == other.declaringClass &&
-                    this.name == other.name &&
-                    this.fieldType == other.fieldType &&
-                    this.accessFlags == other.accessFlags
-        }
-        if (obj.isInstanceOf[FieldIdentifier]) {
-            val other = obj.asInstanceOf[FieldIdentifier]
-            return this.declaringClass == other.declaringClass &&
-                    this.name == other.name &&
-                    this.fieldType == other.fieldType
-        }
-        false
-    }
-
-    override def toString = "FieldDeclaration(" + declaringClass.toString + "," + name + "," + fieldType.toString + (
+    override def toString = "FieldDeclaration(" + declaringClass.toString + "," + name + "," + fieldType.toString + "," + (
             if (isPublic)
                 "public"
             else if (isProtected)

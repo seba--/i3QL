@@ -20,42 +20,6 @@ class MethodDeclaration(
         extends MethodIdentifier
 {
 
-    override def hashCode() = _hashCode
-
-    private lazy val _hashCode = {
-        var code = "MethodDeclaration".hashCode()
-        code = code * 41 + (if (declaringRef == null) 0 else declaringRef.hashCode())
-        code = code * 41 + (if (name == null) 0 else name.hashCode())
-        code = code * 41 + (if (parameters == null) 0 else parameters.hashCode())
-        code = code * 41 + (if (returnType == null) 0 else returnType.hashCode())
-        code = code * 41 + accessFlags
-        code
-    }
-
-    override def equals(obj: Any): Boolean = {
-        if (this eq obj.asInstanceOf[AnyRef])
-            return true;
-        // compare to a method declaration
-        if (obj.isInstanceOf[MethodDeclaration]) {
-            val other = obj.asInstanceOf[MethodDeclaration]
-            return this.declaringRef == other.declaringRef &&
-                    this.name == other.name &&
-                    this.returnType == other.returnType &&
-                    this.parameters == other.parameters &&
-                    this.accessFlags == other.accessFlags
-        }
-        // compare to a method identifier
-        if (obj.isInstanceOf[MethodIdentifier]) {
-            val other = obj.asInstanceOf[MethodIdentifier]
-            return this.declaringRef == other.declaringRef &&
-                    this.name == other.name &&
-                    this.returnType == other.returnType &&
-                    this.parameters == other.parameters
-        }
-        false
-    }
-
-
     override def toString = "MethodDeclaration(" + declaringRef.toString + "," + name + "," + parameters
             .toString + "," + returnType.toString + "," + (
             if (isPublic)
