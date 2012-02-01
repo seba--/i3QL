@@ -112,7 +112,17 @@ object FindbugsChecker
         println("# Violations: " + serializableClassWithoutDefaultConstructorInSuperClass.size)
         //serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
 
-    }
+        val unusedPrivateFields: QueryResult[FieldDeclaration] = UUF_UNUSED_FIELD(database)
+        profile(time => println("UUF_UNUSED_FIELD: " + nanoToSeconds(time)))(
+            unusedPrivateFields.lazyInitialize()
+        )
+        println("# Violations: " + unusedPrivateFields.size)
 
+        import sae.syntax.RelationalAlgebraSyntax._
+        val violatingClasses: QueryResult[ObjectType]  = δ(Π( (f:FieldDeclaration) => f.declaringClass)(unusedPrivateFields))
+        println("# Violating Classes (for comparison to BAT): " + violatingClasses.size)
+        //unusedPrivateFields.foreach( fd => println(fd.declaringClass + "." + fd.name))
+
+    }
 
 }
