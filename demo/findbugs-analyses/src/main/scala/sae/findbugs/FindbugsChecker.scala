@@ -1,13 +1,13 @@
 package sae.findbugs
 
-import analyses.{FI_PUBLIC_SHOULD_BE_PROTECTED, SE_NO_SUITABLE_CONSTRUCTOR, IMSE_DONT_CATCH_IMSE, DM_GC}
+import analyses._
 import sae.collections.QueryResult
 import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 import java.io.FileInputStream
 import sae.profiler.Profiler._
 import sae.bytecode.model.dependencies.Dependency
 import de.tud.cs.st.bat.{ReferenceType, ObjectType}
-import sae.bytecode.model.{MethodDeclaration, ExceptionHandler, MethodReference}
+import sae.bytecode.model._
 
 /**
  *
@@ -77,6 +77,13 @@ object FindbugsChecker
 
     def analyzeFromMaterialized(database: MaterializedDatabase) {
         import sae.collections.Conversions._
+
+        val protectedFieldsInFinalClasses: QueryResult[(ClassDeclaration, FieldDeclaration)] = CI_CONFUSED_INHERITANCE(database)
+        profile(time => println("CI_CONFUSED_INHERITANCE: " + nanoToSeconds(time)))(
+            protectedFieldsInFinalClasses.lazyInitialize()
+        )
+        println("# Violations: " + protectedFieldsInFinalClasses.size)
+        //protectedFieldsInFinalClasses.foreach(println)
 
         val garbageCollectionInvocations: QueryResult[Dependency[MethodDeclaration, MethodReference]] = DM_GC(database)
         profile(time => println("DM_GC: " + nanoToSeconds(time)))(
