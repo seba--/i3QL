@@ -3,16 +3,16 @@
 	<parent>
 		<artifactId>sae</artifactId>
 		<groupId>de.tud.cs.st.opal.sae</groupId>
-		<version>0.2.0</version>
+		<version>0.4.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-database-bytecode-rel</artifactId>
-	<version>0.2.0</version>
+	<artifactId>sae-database-bytecode</artifactId>
+    <version>0.4.0</version>
 	<packaging>jar</packaging>
 
-	<name>sae-database-bytecode-rel</name>
+	<name>sae-database-bytecode</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
 	

@@ -38,7 +38,7 @@ class HashSetIndex[K <: AnyRef, V <: AnyRef](
     {
         val l = map.get(key)
         if (l.isEmpty)
-            None
+            return None
         Some(new ValueListTraverser(l))
     }
 

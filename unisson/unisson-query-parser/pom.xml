@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>unisson</artifactId>
+        <groupId>de.tud.cs.st.opal.sae</groupId>
+        <version>0.4.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.tud.cs.st.opal.sae</groupId>
+    <artifactId>unisson-query-parser</artifactId>
+    <version>0.4.0</version>
+    <packaging>jar</packaging>
+
+    <name>unisson-query-parser</name>
+    <url>http://opal-project.org</url>
+    <inceptionYear>2011</inceptionYear>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <!-- the scala convention states that we have the version of the underlying scala library encoded in the artifact id -->
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>${scalatest.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -10,9 +10,9 @@ package collections
  */
 trait QueryResult[V <: AnyRef]
         extends MaterializedView[V]
-                with Size
-                with SingletonValue[V]
-                with Listable[V]
+        with Size
+        with SingletonValue[V]
+        with Listable[V]
 {
 
 }
@@ -21,33 +21,41 @@ trait QueryResult[V <: AnyRef]
  * A result that materializes all data from the underlying relation into a bag
  */
 class BagResult[V <: AnyRef](
-                                val relation: LazyView[V]
-                            )
+                                    val relation: LazyView[V]
+                                    )
         extends QueryResult[V]
-                with Bag[V]
-                with Observer[V]
+        with Bag[V]
+        with Observer[V]
 {
 
     relation addObserver this
 
-    def lazyInitialize
-    {
-        relation.lazy_foreach(
-                v =>
-                add_element(v)
-        )
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
     }
 
-    def updated(oldV: V, newV: V)
-    {
+    def lazyInitialize {
+        if (initialized) return
+        relation.lazy_foreach(
+            v =>
+                add_element(v)
+        )
+        initialized = true
+    }
+
+    def updated(oldV: V, newV: V) {
         if (!initialized) {
             initialized = true
         }
         update(oldV, newV)
     }
 
-    def removed(v: V)
-    {
+    def removed(v: V) {
         if (!initialized) {
             initialized = true
         }
@@ -55,8 +63,7 @@ class BagResult[V <: AnyRef](
         this -= v
     }
 
-    def added(v: V)
-    {
+    def added(v: V) {
         if (!initialized) {
             initialized = true
         }
@@ -71,16 +78,24 @@ class BagResult[V <: AnyRef](
  * materialized.
  */
 class MaterializedViewProxyResult[V <: AnyRef](
-                                                  val relation: MaterializedView[V]
-                                              )
+                                                      val relation: MaterializedView[V]
+                                                      )
         extends QueryResult[V]
         with SelfMaintainedView[V, V]
 {
 
     relation.addObserver(this)
 
-    def lazyInitialize
-    {
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
+    }
+
+    def lazyInitialize {
         // the relation will initialize itself on calls to the materialized_* methods
     }
 
@@ -90,23 +105,35 @@ class MaterializedViewProxyResult[V <: AnyRef](
 
     protected def materialized_size = relation.size
 
-    protected def materialized_foreach[T](f: (V) => T)
-    {
+    protected def materialized_foreach[T](f: (V) => T) {
         relation.foreach(f)
     }
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
 
-    def updated_internal(oldV : V, newV : V) {
+    def updated_internal(oldV: V, newV: V) {
         element_updated(oldV, newV)
     }
 
-    def added_internal(v : V) {
+    def added_internal(v: V) {
         element_added(v)
     }
 
-    def removed_internal(v : V) {
+    def removed_internal(v: V) {
         element_removed(v)
     }
 
+}
+
+class EmptyResult[V <: AnyRef] extends QueryResult[V]
+{
+    def lazyInitialize {}
+
+    protected def materialized_foreach[T](f: (V) => T) {}
+
+    protected def materialized_size: Int = 0
+
+    protected def materialized_singletonValue: Option[V] = None
+
+    protected def materialized_contains(v: V): Boolean = false
 }
