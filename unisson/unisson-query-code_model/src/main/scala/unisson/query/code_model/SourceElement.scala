@@ -2,7 +2,7 @@ package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import de.tud.cs.st.bat.{ArrayType, ObjectType}
-import sae.bytecode.model.{FieldDeclaration, MethodDeclaration, FieldReference}
+import sae.bytecode.model.{MethodReference, FieldDeclaration, MethodDeclaration, FieldReference}
 
 /**
  *
@@ -26,8 +26,14 @@ object SourceElement
         if (element.isInstanceOf[MethodDeclaration]) {
             return new MethodDeclarationAdapter(element.asInstanceOf[MethodDeclaration])
         }
+        if (element.isInstanceOf[MethodReference]) {
+            return new MethodReferenceAdapter(element.asInstanceOf[MethodReference])
+        }
         if (element.isInstanceOf[FieldDeclaration]) {
             return new FieldDeclarationAdapter(element.asInstanceOf[FieldDeclaration])
+        }
+        if (element.isInstanceOf[FieldReference]) {
+            return new FieldReferenceAdapter(element.asInstanceOf[FieldReference])
         }
         if (element.isInstanceOf[ArrayType]) {
             return new ArrayDeclaration(element.asInstanceOf[ArrayType])
