@@ -15,6 +15,8 @@ showstringspaces=false, % no special string spaces
 language=Scala
 }
 
+% literate programming
+\lstset{literate={{<-}{{$\gets$}}1  {<=}{{$\leq$}}1  {>=}{{$\geq$}}1  {!=}{{$\neq$}}1 {===}{{$\equiv$}}1 }}
 \usepackage{natbib}
 \bibliographystyle{plainnat}
 
@@ -37,6 +39,7 @@ language=Scala
 %\titlebanner{This is only a preprint.}        % These are ignored unless
 %\preprintfooter{short description of paper}   % 'preprint' option specified.
 
+% XXX change title.
 \title{Database Optimizations for Queries over In-memory Collections}
 %\subtitle{Subtitle Text, if any}
 
@@ -60,11 +63,11 @@ language=Scala
 % Trying to follow Kent Beck's idea (http://www.sigplan.org/oopsla/oopsla96/how93.html).
 Queries over collections need to be efficient, and to this end they are often optimized by hand instead of
 being specified in a declarative way. Database optimizers free the developer from manual optimizations of queries
-over databases, but are not applied to collections. Employing the same techniques for queries over collections can
+over databases, but are often not applied to collections. Employing the same techniques for queries over collections 
 allow to improve performance, to make queries more compact and readable, or both.
 
 We implement a deeply-embedded DSEL for queries over collections in Scala, close to native query operators,
-implement a few significant optimizations, and demostrate their usefulness over bug-finding queries on source code
+implement a few significant optimizations, and demonstrate their usefulness over bug-finding queries on source code
 extracted from FindBugs.
 \end{abstract}
 
@@ -84,30 +87,53 @@ keyword1, keyword2
 
 
 \section{Introduction}
+Many computations in typical programs extract information from large collections and need to do so efficiently. For persistent collections, database systems support declarative programming languages with powerful optimizers, which save much optimization effort for the programmer, while allowing queries to be specified in a compact and easy-to-maintain form. However, nowadays also in-memory collections can be quite large, especially since the amount of RAM in a typical computer is always increasing. To get good performance programmers need thus more and more to to use complex optimizations, which hinder programming and source-code maintenance. In this paper we show that many database optimizations could be adapted for this scenario and would allow developers to specify queries declaratively while retaining performance.
+One common example is a source code processor analyzing the source code of a large object program, for instance to compile it or to perform static analysis oriented toward bug-finding. During execution, information on the object program is kept in memory and not in a database. Moreover, information is highly structured through object-oriented hierarchies and thus hard to map onto conventional relational databases.
+%TODO elaborate, citing non-compositionality.
+While object-oriented databases solve this particular problem, they are also oriented towards persistent information: in this context not the organization of data, but only execution of queries on them need to be optimized.
 
-Many computations in typical programs extract information from
-collections. Higher-order operators allow formulating many such
-computations as queries; a collection library provides in other words a
-DSEL of queries over collections, which we call the query DSEL.
+Typically, instead, queries are written in imperative style and optimized by hand. For instance, to make some queries faster many programs maintain dictionaries used like database indexes; manually maintaining such dictionaries in sync with the underlying data can be complex and error-prone.
 
-Research in query processing in database has identified many
-optimizations which afford great speedups, from high-level restructuring
-to index application and incremental view maintenance, yet the typical
-program does not take advantage of them for processing over in-memory
-collection, because performing these optimizations by hand leads to a
-complex, error-prone and hard-to-maintain restructuring of the original
-program. Scala offers operators like \texttt{map}, \texttt{flatMap},
-\texttt{withFilter} and \texttt{union}, which are present in different
-form in many functional languages, together with for comprehensions,
-similar to list comprehensions in other languages: they are a form of
-syntactic sugar for accessing \texttt{map}, \texttt{flatMap} and
-\texttt{withFilter}. We consider these operators to form a DSEL for
-queries over collection. We reimplement this DSEL to allow optimization
-of queries, we implement a few significant ones, and show that they
-provide a significant speedup with an evaluation on (to be determined).
-We first design and implement a deep embedding of a portion of this
-DSEL. On top of this deep embedding, we implement some simple
-optimizations as a first step.
+A lot of research targets improved support for declarative queries, by both providing libraries and language constructs for expressing these computations and devising optimizations for queries expressed in such languages.
+Typical libraries provide support for operations such as \texttt{map} and \texttt{filter} and syntactic sugar in the form of list comprehensions (like in Haskell) or SQL-like surface syntax (like in LINQ); queries written with such constructs typically require optimizations such as deforestation/fusion.
+% There are many other optimizations, mention some of them.
+
+% Mention LINQ somewhere! LINQ to Objects is a deep embedding, just a dumb one.
+Modern collections libraries like the one offered by Scala can be considered domain-specific embedded languages (DSELs).
+Current library designs are typically \emph{shallow} embeddings: the DSL program, here a query, is executed immediately, and optimizations are typically done at compile-time by the host language optimizer. An alternative are \emph{deep} embeddings, where the DSL program constructs an AST which can then be optimized by the library and executed. In this paper, we explore an alternative road and argue that \emph{deep} embeddings deserve more consideration. We implement a deep embedding for the core of the Scala collection library, which allows to implement powerful optimizations quite easily. To evaluate the framework, we implement a few (mostly standard) optimizations from the database world, and evaluate their effectiveness on a selection of queries.
+
+
+
+%showing how to represent the rich complexity of its types
+
+%Typically, modern programming languages allow specifying such computation in a compact and declarative way through analogs of list comprehensions and offer rich libraries
+%as queries, 
+%Higher-order operators allow formulating many such
+%computations as queries; a collection library provides in other words a
+%DSEL of queries over collections, which we call the query DSEL.
+%
+%Research in query processing in database has identified many
+%optimizations which afford great speedups, from high-level restructuring
+%to index application and incremental view maintenance, yet the typical
+%program does not take advantage of them for processing over in-memory
+%collection, because these optimizations are not supported by commonly used libraries, and performing these optimizations by hand would lead to a
+%complex, error-prone and hard-to-maintain restructuring of the original
+%program.
+%Similarly to other functional languages, Scala allows 
+%Scala offers operators like \texttt{map}, \texttt{flatMap},
+%\texttt{withFilter} and \texttt{union}, which are present in different
+%form in many functional languages, together with for comprehensions,
+%similar to list comprehensions in other languages: they are a form of
+%syntactic sugar for accessing \texttt{map}, \texttt{flatMap} and
+%\texttt{withFilter}. We consider these operators to form a DSEL for
+%queries over collection. We reimplement this DSEL to allow optimization
+%of queries, we implement a few significant ones, and show that they
+%provide a significant speedup with an evaluation on (to be determined).
+%We first design and implement a deep embedding of a portion of this
+%DSEL. On top of this deep embedding, we implement some simple
+%optimizations as a first step.
+
+% Good paragraph
 
 One of the design goals for this DSEL is that embedded queries should be
 as close as possible to their native equivalent, to simplify
@@ -133,83 +159,95 @@ natively supported.
 %collection library provides in other words a DSEL of queries over
 %collections, which we call the query DSEL.
 
-It is often desirable to optimize execution of queries using a variety
-of approaches. For instance, some queries are often re-executed after
-changes on the original collections; other queries might be executed
-faster by maintaining additional data structures, like indexes over the
-original collections; yet other queries might be executed faster simply
-by restructuring the query before execution. To implement these
-optimizations, we embed the query DSEL \emph{deeply}, so that our
-library constructs in-memory representation of queries in form of
-abstract syntax trees before executing them. These ASTs can then be
-subject to optimizations before being executed on in-memory collections.
+%It is often desirable to optimize execution of queries using a variety
+%of approaches. For instance, some queries are often re-executed after
+%changes on the original collections; other queries might be executed
+%faster by maintaining additional data structures, like indexes over the
+%original collections; yet other queries might be executed faster simply
+%by restructuring the query before execution. To implement these
+%optimizations, we embed the query DSEL \emph{deeply}, so that our
+%library constructs in-memory representation of queries in form of
+%abstract syntax trees before executing them. These ASTs can then be
+%subject to optimizations before being executed on in-memory collections.
 We propose a deeply-embedded Scala DSEL for expressing queries over
 in-memory collections with the following desirable properties:
-
 \begin{itemize}
+\item
+  queries are expressed using for comprehensions;
+% XXX: Only maybe we will get that.
+\item
+  queries can be interpreted with a very small overhead compared to
+  queries expressed directly using Scala's collection library;
+% Unify with below.
+\item
+  queries can have, as results, \lstinline!Traversable!,
+  \lstinline!Seq!, \lstinline!Set! and \lstinline!Map!
+% XXX (support for Seq should be possible, too);
 \item
   the query language is based on a hierarchical data model and the
   associated monadic query language, like the one used for Scala for
   comprehension, and similarly to the one described by Meijer and
-  Biederman (2011) and Fegaras and Maier (2000)
+  Biederman (2011) and Fegaras and Maier (2000).
 \item
-  queries are expressed using for comprehensions
-\item
-  queries can be interpreted with a very small overhead compared to
-  queries expressed directly using Scala's collection library
-\item
-  queries can have, as results, both Traversable, Set and Map (support
-  for Seq should be possible, too)
-\item
-  our embedding techniques (we are embedding monadic operations over
+  Our embedding techniques (we are embedding monadic operations over
   queries) extends the techniques used in the Scala collection library
   ({[}Fighting Bitrot with Types{]}) and allows, without code
   duplication, to have very specific types for the result of different
   operations; \texttt{flatMap} on a Map will return a Map, and on a Set
   will return a Set, and so on.
-\item
-  results of queries over mutable collections are incrementally updated
-  when the original collection changes.
+%\item
+%  Results of queries over mutable collections are incrementally updated
+%  when the original collection changes.
 \item
   indexes can be generated and applied - they are simply queries of type
-  Map{[}A, B{]}, which are updated thanks to same support for IVM as
-  other query results. This is only possible because our data
+  \lstinline!Map[A, B]!.
+  %which are updated thanks to same support for IVM as
+  %other query results.
+  This is only possible because our data
   representation allows to also represent different kinds of collections
   uniformly.
-\item
-  queries can be optimized before execution; the optimized queries,
-  unlike in SQL, can still be expressed in the same language
-\item
-  we embed a significant subset of pure Scala, and identify problems
-  which prevent using (?)
-\item
-  the complete pure subset of Scala can be used in the queries (? -
-  elaborate), except function calls (\ldots{}) and pattern matching and
-  \ldots{}
+% Drop this point for now.
+%\item
+%  queries can be optimized before execution; the optimized queries,
+%  unlike in SQL, can still be expressed in the same language
+
+
+%\item
+%  we embed a significant subset of pure Scala, and identify problems
+%  which prevent using (?)
+%\item
+%  the complete pure subset of Scala can be used in the queries (? -
+%  elaborate), except function calls (\ldots{}) and pattern matching and
+%  \ldots{}
+
 \item
   we have a partial emulation of expression trees in Scala through
   implicit conversions, and suggest approaches to extend the covered
   Scala subset.
 \end{itemize}
-Incremental maintenance of the results of \texttt{flatMap} is a novel
-algorithm.
+%Incremental maintenance of the results of \texttt{flatMap} is a novel
+%algorithm.
 
-Our contributions are as follows:
-
+In particular we propose the following contributions:
+% XXX Add more contributions.
 \begin{itemize}
+\item
+embedded queries have precise types, just as the native Scala
+collections; in particular, our embedding
+supports \lstinline!Traversable!, \lstinline!Seq!, \lstinline!Set! and \lstinline!Map!;
+% XXX (support for Seq should be possible, too);
+%
+%
+% do we have this?
 \item
   index are identified with materialized views representing
   dictionaries, and can be used explicitly; this simplifies query
   optimization;
-\item
-  embedded queries have precise types, just as the native Scala
-  collections; in particular, our embedding supports both Traversable,
-  Set and Map;
-\item
-  the architecture used to implement IVM on expression trees is novel;
-\item
-  we support Incremental View Maintainance for \texttt{flatMap}
-  operations.
+%\item
+%  the architecture used to implement IVM on expression trees is novel;
+%\item
+%  we support Incremental View Maintainance for \texttt{flatMap}
+%  operations.
 \end{itemize}
 The rest of this paper is organized as follows. Sec. X describes the
 language we support; Sec. X describe how we embed this language; Sec. X
