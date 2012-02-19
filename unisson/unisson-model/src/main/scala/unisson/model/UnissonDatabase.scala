@@ -9,10 +9,12 @@ import sae.collections.Table
 import unisson.query.compiler.CachingQueryCompiler
 import unisson.query.parser.QueryParser
 import sae.{DefaultLazyView, MaterializedView, Observer, LazyView}
-import de.tud.cs.st.vespucci.interfaces.IViolation
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
 import sae.bytecode.model.dependencies._
-import de.tud.cs.st.bat.ArrayType
+import sae.functions.Count
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolationSummary, IViolation}
+import sae.bytecode.model.{MethodDeclaration, FieldDeclaration, ClassDeclaration}
+import de.tud.cs.st.bat.{ObjectType, ArrayType}
 
 
 /**
@@ -397,7 +399,10 @@ class UnissonDatabase(bc: Database)
                     σ(
                         (v: parameter) => !(v.target.isBaseType || v.target.isVoidType)
                     )(
-                        Π[parameter, parameter]{ case(parameter(m, ArrayType(component))) => parameter(m, component); case x => x}(bc.parameter)
+                        Π[parameter, parameter] {
+                            case (parameter(m, ArrayType(component))) => parameter(m, component);
+                            case x => x
+                        }(bc.parameter)
                     ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
                 ) ∪
                 Π {
@@ -406,7 +411,10 @@ class UnissonDatabase(bc: Database)
                     σ(
                         (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
                     )(
-                        Π[return_type, return_type]{ case(return_type(m, ArrayType(component))) => return_type(m, component); case x => x}(bc.return_type)
+                        Π[return_type, return_type] {
+                            case (return_type(m, ArrayType(component))) => return_type(m, component);
+                            case x => x
+                        }(bc.return_type)
                     ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
                 ) ∪
                 Π {
@@ -415,7 +423,10 @@ class UnissonDatabase(bc: Database)
                     σ(
                         (v: field_type) => !(v.target.isBaseType || v.target.isVoidType)
                     )(
-                        Π[field_type, field_type]{ case(field_type(m, ArrayType(component))) => field_type(m, component); case x => x}(bc.field_type)
+                        Π[field_type, field_type] {
+                            case (field_type(m, ArrayType(component))) => field_type(m, component);
+                            case x => x
+                        }(bc.field_type)
                     ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
                 ) ∪
                 Π {
@@ -499,7 +510,7 @@ class UnissonDatabase(bc: Database)
      * all local incoming violations
      */
     val violations_local_incoming: LazyView[IViolation] = {
-         // all local ensembles joined by their contexts to the incoming constraints
+        // all local ensembles joined by their contexts to the incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
                         leaf_local_ensembles,
@@ -599,6 +610,7 @@ class UnissonDatabase(bc: Database)
         violations
 
     }
+
 
     val violations_global_incoming: LazyView[IViolation] = {
         // treat all global ensembles as if they were present in the context by joining all contexts to the global incoming constraints
@@ -700,6 +712,7 @@ class UnissonDatabase(bc: Database)
         violations
     }
 
+
     val violations_local_outgoing: LazyView[IViolation] = {
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
@@ -799,8 +812,9 @@ class UnissonDatabase(bc: Database)
         violations
     }
 
+
     val violations_global_outgoing: LazyView[IViolation] = {
-          // all source target combinations that have to do with an ensemble where a constraint is declared
+        // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
                         top_level_ensembles × contexts,
@@ -899,6 +913,7 @@ class UnissonDatabase(bc: Database)
         violations
     }
 
+
     val violations_expected: LazyView[IViolation] = {
         new DefaultLazyView[IViolation]
     }
@@ -911,6 +926,26 @@ class UnissonDatabase(bc: Database)
                 violations_local_outgoing ∪
                 violations_global_outgoing ∪
                 violations_expected
+
+
+    lazy val violation_summary: LazyView[IViolationSummary] =
+        γ(violations,
+            (v: IViolation) => (v.getDiagramFile, v.getSourceEnsemble, v.getTargetEnsemble, v.getConstraint),
+            Count[IViolation](),
+            (elem: (String, IEnsemble, IEnsemble, IConstraint), count: Int) =>
+                ViolationSummary(elem._4, elem._2, elem._3, elem._1, count)
+        )
+
+
+    lazy val unmodeled_elements: LazyView[ICodeElement] = (
+            (
+            Π(SourceElement(_: ObjectType))(bc.declared_types) ∪
+                    Π(SourceElement(_: FieldDeclaration))(bc.declared_fields) ∪
+                    Π(SourceElement(_: MethodDeclaration))(bc.declared_methods)
+            ) ∖
+            δ(Π((_: (IEnsemble, SourceElement[AnyRef]))._2)(leaf_ensemble_elements))
+            ).asInstanceOf[LazyView[ICodeElement]]
+
 
     /**
      * all source elements that match the source ensembles in a given view of constraints

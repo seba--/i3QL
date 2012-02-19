@@ -1,8 +1,8 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
-import de.tud.cs.st.bat.{ArrayType, ObjectType}
 import sae.bytecode.model.{MethodReference, FieldDeclaration, MethodDeclaration, FieldReference}
+import de.tud.cs.st.bat.{Type, ArrayType, ObjectType}
 
 /**
  *
@@ -35,8 +35,8 @@ object SourceElement
         if (element.isInstanceOf[FieldReference]) {
             return new FieldReferenceAdapter(element.asInstanceOf[FieldReference])
         }
-        if (element.isInstanceOf[ArrayType]) {
-            return new ArrayDeclaration(element.asInstanceOf[ArrayType])
+        if (element.isInstanceOf[Type]) {
+            return new TypeReference(element.asInstanceOf[Type])
         }
 
         throw new IllegalArgumentException("can not convert " + element + " to a SourceElement")
