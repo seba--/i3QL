@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
-import sae.bytecode.model.MethodReference
+import sae.bytecode.model.{MethodIdentifier, MethodReference}
 
 
 /**
@@ -11,8 +11,8 @@ import sae.bytecode.model.MethodReference
  * Time: 13:13
  *
  */
-class MethodReferenceAdapter(val element: MethodReference)
-        extends IMethodDeclaration with SourceElement[MethodReference]
+class MethodReferenceAdapter(val element: MethodIdentifier)
+        extends IMethodDeclaration with SourceElement[MethodIdentifier]
 {
 
     def getPackageIdentifier = element.declaringRef.packageName
@@ -30,10 +30,10 @@ class MethodReferenceAdapter(val element: MethodReference)
     override def hashCode() = element.hashCode()
 
     override def equals(obj: Any): Boolean = {
-        if (!obj.isInstanceOf[MethodReferenceAdapter]) {
+        if (!obj.isInstanceOf[SourceElement[MethodIdentifier]]) {
             return false
         }
-        element.equals(obj.asInstanceOf[MethodReferenceAdapter].element)
+        element.equals(obj.asInstanceOf[SourceElement[MethodIdentifier]].element)
     }
 
     override def toString = element.declaringRef.signature +

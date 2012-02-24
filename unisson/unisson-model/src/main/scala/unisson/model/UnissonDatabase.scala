@@ -1,6 +1,7 @@
 package unisson.model
 
 import constraints._
+import debug.PrintingObserver
 import kinds.primitive._
 import kinds.{DependencyKind, KindResolver, KindParser}
 import unisson.query.code_model.SourceElement
@@ -616,7 +617,7 @@ class UnissonDatabase(bc: Database)
         // treat all global ensembles as if they were present in the context by joining all contexts to the global incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
-                        top_level_ensembles × contexts,
+                        leaf_ensembles × contexts,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
@@ -817,7 +818,7 @@ class UnissonDatabase(bc: Database)
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
-                        top_level_ensembles × contexts,
+                        leaf_ensembles × contexts,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
@@ -1033,8 +1034,8 @@ class UnissonDatabase(bc: Database)
     }
 
     def updateModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-        removeModel(oldModel)
-        addModel(newModel)
+            removeModel(oldModel)
+            addModel(newModel)
     }
 
     def addGlobalModel(model: IArchitectureModel) {

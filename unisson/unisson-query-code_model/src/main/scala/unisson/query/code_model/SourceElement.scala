@@ -52,6 +52,7 @@ object SourceElement
             return x.asInstanceOf[ClassDeclaration].getTypeQualifier
                     .compare(y.asInstanceOf[ClassDeclaration].getTypeQualifier)
         }
+
         x.toString.compareTo(y.toString)
     }
 
