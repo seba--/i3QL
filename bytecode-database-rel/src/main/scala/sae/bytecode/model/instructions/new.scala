@@ -1,10 +1,11 @@
 package sae.bytecode.model.instructions
 
 import de.tud.cs.st.bat._
-import sae.bytecode.model.{Instr, Method}
+import sae.bytecode.model.{Instr, MethodDeclaration}
 
-case class `new`(val declaringMethod: Method, val programCounter: Int, val typ: ObjectType)
-        extends Instr[`new`] {
+case class `new`(declaringMethod: MethodDeclaration, programCounter: Int, typ: ObjectType)
+        extends Instr[`new`]
+{
 
     val mnemonic = "new"
 

@@ -15,20 +15,20 @@ import java.io.{File, InputStream}
 /**
  *  extends(Class1, Class2)
  *  implements(Class1, Class2)
- *  field_type(Field, Class)
- *  parameter(Method, Class)
- *  return_type(Method, Class)
- *  write_field(Method, Field)
- *  read_field(Method, Field)
+ *  field_type(FieldReference, Class)
+ *  parameter(MethodReference, Class)
+ *  return_type(MethodReference, Class)
+ *  write_field(MethodReference, FieldReference)
+ *  read_field(MethodReference, FieldReference)
  *  calls(Method1, Method2)
- *  class_cast(Method, Class)
- *  instanceof(Method, Class)
- *  create(Method, Class)
- *  create_class_array(Method, Class)
- *  throw(Method, Class)
- *  get_class(Method, Class)
- *  annotation(Class|Field|Method, Class)
- *  parameter_annotation(Method, Class)
+ *  class_cast(MethodReference, Class)
+ *  instanceof(MethodReference, Class)
+ *  create(MethodReference, Class)
+ *  create_class_array(MethodReference, Class)
+ *  throw(MethodReference, Class)
+ *  get_class(MethodReference, Class)
+ *  annotation(Class|FieldReference|MethodReference, Class)
+ *  parameter_annotation(MethodReference, Class)
  */
 class BytecodeDatabase extends Database
 {
@@ -36,20 +36,21 @@ class BytecodeDatabase extends Database
      * BEWARE INITIALIZATION ORDER OF FIELDS (scala compiler will not warn you)
      */
 
-    // TODO check whether classfiles and classfile methods can be declared 
-    // as views in combination with a classfile_source(Class, File) table
-    // and how this affects performance
-    val classfiles: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
+    // TODO check whether declared_types and classfile methods can be declared as views in combination with a classfile_source(Class, File) table and how this affects performance
 
-    val classfile_methods: LazyView[Method] = new DefaultLazyView[Method]
+    val declared_classes = new DefaultLazyView[ClassDeclaration]
 
-    val classfile_fields: LazyView[Field] = new DefaultLazyView[Field]
+    lazy val declared_types: LazyView[ObjectType] = Π((_: ClassDeclaration).objectType)(declared_classes)
+
+    val declared_methods = new DefaultLazyView[MethodDeclaration]
+
+    val declared_fields = new DefaultLazyView[FieldDeclaration]
 
     val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
 
-    val methods: LazyView[Method] = new DefaultLazyView[Method]
+    val methods: LazyView[MethodReference] = new DefaultLazyView[MethodReference]
 
-    val fields: LazyView[Field] = new DefaultLazyView[Field]
+    val fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
 
     val instructions: LazyView[Instr[_]] = new DefaultLazyView[Instr[_]]
 
@@ -57,7 +58,7 @@ class BytecodeDatabase extends Database
      * Begin with individual relations (derived are lazy vals others are filled during bytecode reading)
      */
 
-    val `extends` : LazyView[`extends`] = new DefaultLazyView[`extends`]
+    val `extends`: LazyView[`extends`] = new DefaultLazyView[`extends`]
 
     val implements: LazyView[implements] = new DefaultLazyView[implements]
 
@@ -72,43 +73,11 @@ class BytecodeDatabase extends Database
 
     val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
 
-    /*
-    lazy val inner_classes: LazyView[inner_class] =
-        Π( // the directly encoded inner classes have their outer type set
-                (entry : InnerClassesEntry) =>
-                    new inner_class(
-                        entry.outerClassType,
-                        entry.innerClassType,
-                        true,
-                        if(entry.innerName eq null) { None } else {Some(entry.innerName)})
-        ) ( σ(  (_:InnerClassesEntry).outerClassType ne null )( δ (internal_inner_classes) ) ) ∪
-        (
-            ((
-                // all inner classes without explicit outer class
-                σ(  (_:InnerClassesEntry).outerClassType eq null )( δ (internal_inner_classes) ),
-                (entry : InnerClassesEntry) => entry.innerClassType
-            ) ⋈ ( // for complete data, i.e. is it an inner class and is it named we need a join
-                // outer determined by enclosing method
-                (_ : unresolved_enclosing_method).innerClass,
-                    internal_enclosing_methods
-            )) {
-                    (entry : InnerClassesEntry, enc : unresolved_enclosing_method) =>
-                        new inner_class(
-                            enc.declaringClass,
-                            enc.innerClass,
-                            false,
-                            if(entry.innerName eq null) {None} else {Some(entry.innerName)}
-                        )
-            }
-        )
-    */
-
-
     lazy val internal_guaranteed_inner_classes: LazyView[inner_class] =
         δ(
             Π(
                 // the directly encoded inner classes have their outer type set
-                    (entry: unresolved_inner_class_entry) =>
+                (entry: unresolved_inner_class_entry) =>
                     new inner_class(
                         entry.outerClassType,
                         entry.innerClassType,
@@ -132,7 +101,7 @@ class BytecodeDatabase extends Database
                 (
                         Π(
                             // the directly encoded inner classes have their outer type set
-                                (entry: unresolved_inner_class_entry) =>
+                            (entry: unresolved_inner_class_entry) =>
                                 new inner_class(
                                     entry.declaringClass,
                                     entry.innerClassType,
@@ -145,17 +114,24 @@ class BytecodeDatabase extends Database
                                 )
                         )
                                 (
-                                // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
-                                σ((e: unresolved_inner_class_entry) => (e.outerClassType eq null) && (e.innerClassType.className.length() > e.declaringClass.className.length()))(
-                                    internal_inner_classes
+                                    // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
+                                    σ((e: unresolved_inner_class_entry) =>
+                                        (e.outerClassType eq null) && (e
+                                                .innerClassType.className.length() > e.declaringClass.className
+                                                .length()))(
+                                        internal_inner_classes
+                                    )
                                 )
                         )
-                )
-    lazy val field_type: LazyView[field_type] = Π((f: Field) => new field_type(f, f.fieldType))(classfile_fields)
+    lazy val field_type: LazyView[field_type] = Π((f: FieldDeclaration) =>
+        new field_type(f, f
+                .fieldType))(declared_fields)
 
     val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
 
-    lazy val return_type: LazyView[return_type] = Π((m: Method) => new return_type(m, m.returnType))(classfile_methods)
+    lazy val return_type: LazyView[return_type] = Π((m: MethodDeclaration) =>
+        new return_type(m, m
+                .returnType))(declared_methods)
 
     val exception_handlers = new DefaultLazyView[ExceptionHandler]()
 
@@ -212,22 +188,6 @@ class BytecodeDatabase extends Database
         }
     )(σ[invokestatic](instructions))
 
-    /*
-    lazy val calls: LazyView[calls] = Π((_: Instr[_]) match {
-        case invokeinterface(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
-        case invokespecial(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
-        case invokestatic(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
-        case invokevirtual(declaringMethod, pc, callee) => new calls(declaringMethod, callee)
-    }
-    )(σ((_: Instr[_]) match {
-        case invokeinterface(_, _, _) => true
-        case invokespecial(_, _, _) => true
-        case invokestatic(_, _, _) => true
-        case invokevirtual(_, _, _) => true
-        case _ => false
-    }
-    )(instructions))
-    */
     lazy val calls: LazyView[calls] = invoke_interface.∪[calls, calls](
         invoke_special.∪[calls, calls](
             invoke_virtual.∪[calls, invoke_static](
@@ -276,81 +236,10 @@ class BytecodeDatabase extends Database
             )(instructions)
         )
 
-    lazy val dependency: LazyView[Dependency[AnyRef, AnyRef]] =
-        `extends`.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-            implements.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                inner_classes.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                    field_type.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                        parameter.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                            return_type.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                Π(
-                                        (handler: ExceptionHandler) =>
-                                        handled_exception(
-                                            handler.declaringMethod,
-                                            handler.catchType.get
-                                        ) // the handled_exceptions relation is prefiltered, so we do not run into trouble with catchType == None here
-                                )(handled_exceptions).∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                    thrown_exceptions.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                        write_field.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                            read_field.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                                calls.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                                    class_cast.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                                        create.∪[Dependency[AnyRef, AnyRef], Dependency[AnyRef, AnyRef]](
-                                                            create_class_array.∪[Dependency[AnyRef, AnyRef], sae.bytecode.model.dependencies.instanceof](
-                                                                instanceof
-                                                            )
-                                                        )
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        )
-
-
-    lazy val baseViews: List[LazyView[_]] = List(
-        classfiles,
-        classfile_methods,
-        classfile_fields,
-        classes,
-        methods,
-        fields,
-        instructions,
-        `extends`,
-        implements,
-        parameter,
-        exception_handlers,
-        internal_inner_classes,
-        internal_enclosing_methods
-    )
-
-    lazy val derivedViews: List[LazyView[_]] = List(
-        subtypes,
-        inner_classes,
-        field_type,
-        return_type,
-        write_field,
-        read_field,
-        invoke_interface,
-        calls,
-        class_cast,
-        instanceof,
-        create,
-        create_class_array,
-        handled_exceptions
-    )
-
-
     private def classAdder = new Java6ClassTransformer(
-        classfiles.element_added,
-        classfile_methods.element_added,
-        classfile_fields.element_added,
+        declared_classes.element_added,
+        declared_methods.element_added,
+        declared_fields.element_added,
         classes.element_added,
         methods.element_added,
         fields.element_added,
@@ -366,9 +255,9 @@ class BytecodeDatabase extends Database
 
 
     private def classRemover = new Java6ClassTransformer(
-        classfiles.element_removed,
-        classfile_methods.element_removed,
-        classfile_fields.element_removed,
+        declared_classes.element_removed,
+        declared_methods.element_removed,
+        declared_fields.element_removed,
         classes.element_removed,
         methods.element_removed,
         fields.element_removed,
@@ -386,8 +275,7 @@ class BytecodeDatabase extends Database
     /**
      * Read a stream as a jar file and return the appropriate transformer
      */
-    def transformerForArchiveStream(stream: InputStream) =
-    {
+    def transformerForArchiveStream(stream: InputStream) = {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
@@ -397,8 +285,7 @@ class BytecodeDatabase extends Database
     /**
      * Read from a list of .jar file streams and return the appropriate transformer
      */
-    def transformerForArchiveStreams(streams: Seq[InputStream]) =
-    {
+    def transformerForArchiveStreams(streams: Seq[InputStream]) = {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         streams.foreach(reader.readArchive(_))
@@ -409,8 +296,7 @@ class BytecodeDatabase extends Database
     /**
      * Read from a list of .jar file streams and return the appropriate transformer
      */
-    def transformerForArchiveResources(names: Seq[String]) =
-    {
+    def transformerForArchiveResources(names: Seq[String]) = {
         transformerForArchiveStreams(
             names.map(this.getClass.getClassLoader.getResourceAsStream(_))
         )
@@ -419,8 +305,7 @@ class BytecodeDatabase extends Database
     /**
      * Convenience method that opens a stream from a resource in the class path
      */
-    def transformerForArchiveResource(name: String): Java6ClassTransformer =
-    {
+    def transformerForArchiveResource(name: String): Java6ClassTransformer = {
         val stream = this.getClass.getClassLoader.getResourceAsStream(name)
         transformerForArchiveStream(stream)
     }
@@ -428,8 +313,7 @@ class BytecodeDatabase extends Database
     /**
      * Read a stream as a single .class file and return the appropriate transformer
      */
-    def transformerForClassfileStream(stream: InputStream) =
-    {
+    def transformerForClassfileStream(stream: InputStream) = {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readClassFile(stream)
@@ -439,16 +323,14 @@ class BytecodeDatabase extends Database
     /**
      * Read from a list of .class file streams and return the appropriate transformer
      */
-    def transformerForClassfileStreams(streams: Seq[InputStream]) =
-    {
+    def transformerForClassfileStreams(streams: Seq[InputStream]) = {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         streams.foreach(reader.readClassFile(_))
         transformer
     }
 
-    def transformerForClassfileResources(names: Seq[String]): Java6ClassTransformer =
-    {
+    def transformerForClassfileResources(names: Seq[String]): Java6ClassTransformer = {
         val streams = names.map(this.getClass.getClassLoader.getResourceAsStream(_))
         transformerForClassfileStreams(streams)
     }
@@ -456,8 +338,7 @@ class BytecodeDatabase extends Database
     /**
      * Convenience method that opens a stream from a given loaded class
      */
-    def transformerForClass[T](clazz: Class[T]): Java6ClassTransformer =
-    {
+    def transformerForClass[T](clazz: Class[T]): Java6ClassTransformer = {
         val name = clazz.getName.replace(".", "/") + ".class"
         val stream = clazz.getClassLoader.getResourceAsStream(name)
         transformerForClassfileStream(stream)
@@ -466,15 +347,15 @@ class BytecodeDatabase extends Database
     /**
      * Convenience method that opens a stream from a given loaded class
      */
-    def transformerForClasses(classes: Array[Class[_]]): Java6ClassTransformer =
-    {
+    def transformerForClasses(classes: Array[Class[_]]): Java6ClassTransformer = {
         val streams = classes.map(
-                (clazz: Class[_]) => (clazz.getClassLoader.getResourceAsStream(
-                clazz.getName.replace(
-                    ".",
-                    "/"
-                ) + ".class"
-            ))
+            (clazz: Class[_]) =>
+                (clazz.getClassLoader.getResourceAsStream(
+                    clazz.getName.replace(
+                        ".",
+                        "/"
+                    ) + ".class"
+                ))
         )
         transformerForClassfileStreams(streams)
     }
@@ -483,8 +364,7 @@ class BytecodeDatabase extends Database
     /**
      * Convenience method that opens a stream from a resource in the class path
      */
-    def addArchiveAsResource(name: String)
-    {
+    def addArchiveAsResource(name: String) {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         val stream = this.getClass.getClassLoader.getResourceAsStream(name)
@@ -496,8 +376,7 @@ class BytecodeDatabase extends Database
     /**
      * Convenience method that opens a stream from a file in the file system
      */
-    def addArchiveAsFile(name: String)
-    {
+    def addArchiveAsFile(name: String) {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readArchive(new java.io.File(name))
@@ -508,24 +387,21 @@ class BytecodeDatabase extends Database
      * Read a jar archive from the stream.
      * The underlying data is assumed to be in zip (jar) format
      */
-    def addArchive(stream: java.io.InputStream)
-    {
+    def addArchive(stream: java.io.InputStream) {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
         transformer.processAllFacts()
     }
 
-    def removeArchive(stream: java.io.InputStream)
-    {
+    def removeArchive(stream: java.io.InputStream) {
         val transformer = classRemover
         val reader = new BytecodeReader(transformer)
         reader.readArchive(stream)
         transformer.processAllFacts()
     }
 
-    def getAddClassFileFunction: (File) => Unit =
-    {
+    def getAddClassFileFunction: (File) => Unit = {
 
         //addReader.readClassFile(file)
         val f = (x: File) => {
@@ -537,8 +413,7 @@ class BytecodeDatabase extends Database
         f
     }
 
-    def getRemoveClassFileFunction: (File) => Unit =
-    {
+    def getRemoveClassFileFunction: (File) => Unit = {
 
         val f = (x: File) => {
             val transformer = classRemover
@@ -549,16 +424,14 @@ class BytecodeDatabase extends Database
         f
     }
 
-    def addClassFile (stream: java.io.InputStream)
-    {
+    def addClassFile(stream: java.io.InputStream) {
         val transformer = classAdder
         val reader = new BytecodeReader(transformer)
         reader.readClassFile(stream)
         transformer.processAllFacts()
     }
 
-    def removeClassFile(stream: java.io.InputStream)
-    {
+    def removeClassFile(stream: java.io.InputStream) {
         val transformer = classRemover
         val reader = new BytecodeReader(transformer)
         reader.readClassFile(stream)

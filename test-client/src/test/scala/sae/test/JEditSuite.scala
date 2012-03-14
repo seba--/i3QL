@@ -123,7 +123,7 @@ class JEditSuite {
   def count_internal_method_calls() {
     val db = new BytecodeDatabase
     // the cross product would generate (7999 * 44776) ~ 350 million entries
-    // naive query // val query : QueryResult[calls] = Π( (_:(calls,Method))._1 )(db.method_calls ⋈( (_:(calls,Method)) match {case (c:calls, m:Method) => c.target == m} , db.classfile_methods));
+    // naive query // val query : QueryResult[calls] = Π( (_:(calls,MethodReference))._1 )(db.method_calls ⋈( (_:(calls,MethodReference)) match {case (c:calls, m:MethodReference) => c.target == m} , db.classfile_methods));
 
     val query: QueryResult[calls] = ((db.calls, (_: calls).target) ⋈ ((m: Method) => m, db.classfile_methods)) {
       (c: calls, m: Method) => c
@@ -140,7 +140,7 @@ class JEditSuite {
   def count_distinct_internal_method_calls() {
     val db = new BytecodeDatabase
     // the cross product would generate (7999 * 44776) ~ 350 million entries
-    // naive query // val query : QueryResult[calls] = Π( (_:(calls,Method))._1 )(db.method_calls ⋈( (_:(calls,Method)) match {case (c:calls, m:Method) => c.target == m} , db.classfile_methods));
+    // naive query // val query : QueryResult[calls] = Π( (_:(calls,MethodReference))._1 )(db.method_calls ⋈( (_:(calls,MethodReference)) match {case (c:calls, m:MethodReference) => c.target == m} , db.classfile_methods));
 
     val query: QueryResult[(Method, Method)] =
       δ(Π((c: calls) => (c.source, c.target))(((db.calls, (_: calls).target) ⋈ ((m: Method) => m, db.classfile_methods)) {
@@ -318,7 +318,7 @@ class JEditSuite {
     assertTrue(list.contains(Some(("org/gjt/sp/jedit/bsh/commands", "dir", 5))))
     assertTrue(list.contains(Some(("org/gjt/sp/jedit/bufferset", "BufferSet", 18))))
 
-    //val groupByPackage = Aggregation(methods, (x : Method) => x.clazz.packageName, Max(), (x : String, y : Int) => (x, y))
+    //val groupByPackage = Aggregation(methods, (x : MethodReference) => x.clazz.packageName, Max(), (x : String, y : Int) => (x, y))
   }
 
   @Test

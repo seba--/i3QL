@@ -1,12 +1,12 @@
 package unisson.query.compiler
 
-import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.{Field, Method}
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.LazyView
 import sae.bytecode.Database
 import unisson.query.code_model._
 import sae.bytecode.model.dependencies.{Dependency, inner_class, `extends`}
+import sae.bytecode.model.{FieldDeclaration, MethodDeclaration}
+import de.tud.cs.st.bat._
+import sae._
 
 /**
  *
@@ -22,21 +22,93 @@ class QueryDefinitions(private val db: Database)
 
     private def fromJava(unresolved: String): String = unresolved.replace('.', '/')
 
+    private def joinByTargetElement[T <: AnyRef](view: LazyView[T], viewFun: T => AnyRef,
+                                                 target: LazyView[SourceElement[AnyRef]]): LazyView[T] =
+        ((
+                (
+                        target,
+                        (_: SourceElement[AnyRef]).element
+                        ) ⋈(
+                        viewFun,
+                        view
+                        )
+                ) {(c: SourceElement[AnyRef], f: T) => f})
+
     def `class`(packageName: String, name: String): LazyView[SourceElement[AnyRef]] =
         Π[ObjectType, SourceElement[AnyRef]] {
             new ClassDeclaration((_: ObjectType))
         }(
             σ {(o: ObjectType) => (o.packageName == fromJava(packageName) && o.simpleName == name)}(db
-                    .classfiles)
+                    .declared_types)
         )
 
     def `class`(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
-        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.classfiles)
+        (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.declared_types)
+
+    def field(declaringClasses: LazyView[SourceElement[AnyRef]], name: String,
+              fieldType: LazyView[SourceElement[AnyRef]]) =
+        Π(SourceElement(_: FieldDeclaration))(
+            joinByTargetElement[FieldDeclaration](
+                joinByTargetElement(
+                    σ(
+                        (f: FieldDeclaration) => {
+                            f.name == name
+                        }
+                    )(db.declared_fields),
+                    _.declaringClass,
+                    declaringClasses),
+                _.fieldType,
+                fieldType
+            )
+        )
+
+    def method(declaringClasses: LazyView[SourceElement[AnyRef]], name: String,
+               returnTypes: LazyView[SourceElement[AnyRef]],
+               parameterTypes: LazyView[SourceElement[AnyRef]]*) =
+        Π(SourceElement(_: MethodDeclaration))(
+        {
+            var i = -1;
+            parameterTypes.foldLeft[LazyView[MethodDeclaration]](
+                joinByTargetElement(
+                    joinByTargetElement[MethodDeclaration](
+                        σ(
+                            (f: MethodDeclaration) => {
+                                f.name == name
+                            }
+                        )(db.declared_methods),
+                        _.declaringRef,
+                        declaringClasses),
+                    _.returnType,
+                    returnTypes
+                )
+            )(
+                (view: LazyView[MethodDeclaration], parameterType: LazyView[SourceElement[AnyRef]]) => {
+                    i = i + 1
+                    val index = i
+                    joinByTargetElement(
+                        view,
+                        m =>
+                            if (index < m.parameters.length) m.parameters(index)
+                            else VoidType() // we fill in void type for methods with less parameters, as this will never match
+                        ,
+                        parameterType
+                    )
+                }
+            )
+        }
+        )
+
+    /**
+     * Direct queries for a specific type are wrapped as source code elements to allow
+     * subqueries in type, e.g., all methods that return a specific a set of classes
+     * @param name
+     * @return
+     */
+    def typeQuery(name: String): LazyView[SourceElement[AnyRef]] = new TypeElementView(name).asInstanceOf[LazyView[SourceElement[AnyRef]]]
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
      */
-
     // TODO make this special to ObjectType?
     def supertype(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
         Π(
@@ -54,38 +126,43 @@ class QueryDefinitions(private val db: Database)
                     SourceElement(_: ObjectType)
                 }(σ {
                     (_: ObjectType).packageName == fromJava(name)
-                }(db.classfiles))
+                }(db.declared_types))
                 ) ∪
                 (
-                        Π[Method, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: Method))
+                        Π[MethodDeclaration, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: MethodDeclaration))
                         }(σ {
-                            (_: Method).declaringRef.packageName == fromJava(name)
-                        }(db.classfile_methods))
+                            (_: MethodDeclaration).declaringRef.packageName == fromJava(name)
+                        }(db.declared_methods))
                         ) ∪
                 (
-                        Π[Field, SourceElement[AnyRef]] {
-                            SourceElement[AnyRef]((_: Field))
+                        Π[FieldDeclaration, SourceElement[AnyRef]] {
+                            SourceElement[AnyRef]((_: FieldDeclaration))
                         }(σ {
-                            (_: Field).declaringClass.packageName == fromJava(name)
-                        }(db.classfile_fields))
+                            (_: FieldDeclaration).declaringClass.packageName == fromJava(name)
+                        }(db.declared_fields))
                         )
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
     lazy val direct_class_members: LazyView[class_member[AnyRef]] =
         Π {
-            ((m: Method) => new class_member[AnyRef](m.declaringRef, new MethodDeclaration(m)))
-        }(db.classfile_methods) ∪
+            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringRef, new MethodDeclarationAdapter(m)))
+        }(db.declared_methods) ∪
                 Π {
-                    ((f: Field) => new class_member[AnyRef](f.declaringClass, new FieldDeclaration(f)))
-                }(db.classfile_fields) ∪
-                Π((inner: inner_class) => new class_member[AnyRef](inner.source, new ClassDeclaration(inner.target)))(db
+                    ((f: FieldDeclaration) =>
+                        new class_member[AnyRef](f
+                                .declaringClass, new FieldDeclarationAdapter(f)))
+                }(db.declared_fields) ∪
+                Π((inner: inner_class) =>
+                    new class_member[AnyRef](inner.source, new ClassDeclaration(inner
+                            .target)))(db
                         .inner_classes)
 
 
     lazy val transitive_class_members: LazyView[(AnyRef, AnyRef)] =
-        TC(direct_class_members)((cm: class_member[AnyRef]) => (cm.source), (_: class_member[AnyRef]).target.element)
+        TC(direct_class_members)((cm: class_member[AnyRef]) => (cm.source), (_: class_member[AnyRef]).target
+                .element)
 
 
     def class_with_members(packageName: String, className: String): LazyView[SourceElement[AnyRef]] =
@@ -97,7 +174,7 @@ class QueryDefinitions(private val db: Database)
         }(
             σ {
                 (_: ObjectType) == ObjectType(fromJava(qualifiedClass))
-            }(db.classfiles)
+            }(db.declared_types)
         ) ∪
                 Π {(cm: (AnyRef, AnyRef)) => SourceElement[AnyRef](cm._2)}(
                     σ {
@@ -131,12 +208,12 @@ class QueryDefinitions(private val db: Database)
         target match {
             case p@Π(
             func: (Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]),
-            sj @sae.syntax.RelationalAlgebraSyntax.⋉ (
-                    transitiveQuery: LazyView[Dependency[AnyRef, AnyRef]],
-                    transitiveKey: (Dependency[AnyRef, AnyRef] => AnyRef),
-                    outerQuery: LazyView[SourceElement[AnyRef]],
-                    outerKey: (SourceElement[AnyRef] => AnyRef)
-                    )
+            sj@sae.syntax.RelationalAlgebraSyntax.⋉(
+            transitiveQuery: LazyView[Dependency[AnyRef, AnyRef]],
+            transitiveKey: (Dependency[AnyRef, AnyRef] => AnyRef),
+            outerQuery: LazyView[SourceElement[AnyRef]],
+            outerKey: (SourceElement[AnyRef] => AnyRef)
+            )
             ) => {
                 //p.relation.removeObserver(p.asInstanceOf[Observer[Dependency[AnyRef, AnyRef]]])
                 sj.leftIndex.relation.removeObserver(sj.leftIndex)

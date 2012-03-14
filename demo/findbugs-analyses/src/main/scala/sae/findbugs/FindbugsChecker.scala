@@ -1,13 +1,13 @@
 package sae.findbugs
 
-import analyses.{SE_NO_SUITABLE_CONSTRUCTOR, IMSE_DONT_CATCH_IMSE, DM_GC}
+import analyses._
 import sae.collections.QueryResult
-import sae.bytecode.model.{ExceptionHandler, Method}
 import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
 import java.io.FileInputStream
 import sae.profiler.Profiler._
-import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.dependencies.{`extends`, implements, Dependency}
+import sae.bytecode.model.dependencies.Dependency
+import de.tud.cs.st.bat.{ReferenceType, ObjectType}
+import sae.bytecode.model._
 
 /**
  *
@@ -60,7 +60,7 @@ object FindbugsChecker
         }
         println("Took: " + nanoToSeconds(fillingTime))
 
-        println("Number of class files: " + materializedDatabase.classfiles.size)
+        println("Number of class files: " + materializedDatabase.declared_types.size)
 
         analyzeFromMaterialized(materializedDatabase)
 
@@ -78,12 +78,26 @@ object FindbugsChecker
     def analyzeFromMaterialized(database: MaterializedDatabase) {
         import sae.collections.Conversions._
 
-        val garbageCollectionInvocations: QueryResult[Dependency[Method, Method]] = DM_GC(database)
+        val protectedFieldsInFinalClasses: QueryResult[(ClassDeclaration, FieldDeclaration)] = CI_CONFUSED_INHERITANCE(database)
+        profile(time => println("CI_CONFUSED_INHERITANCE: " + nanoToSeconds(time)))(
+            protectedFieldsInFinalClasses.lazyInitialize()
+        )
+        println("# Violations: " + protectedFieldsInFinalClasses.size)
+        //protectedFieldsInFinalClasses.foreach(println)
+
+        val garbageCollectionInvocations: QueryResult[Dependency[MethodDeclaration, MethodReference]] = DM_GC(database)
         profile(time => println("DM_GC: " + nanoToSeconds(time)))(
             garbageCollectionInvocations.lazyInitialize()
         )
         println("# Violations: " + garbageCollectionInvocations.size)
         //garbageCollectionInvocations.foreach(println)
+
+        val classesWithPublicFinalizeMethods: QueryResult[ReferenceType] = FI_PUBLIC_SHOULD_BE_PROTECTED(database)
+        profile(time => println("FI_PUBLIC_SHOULD_BE_PROTECTED: " + nanoToSeconds(time)))(
+            classesWithPublicFinalizeMethods.lazyInitialize()
+        )
+        println("# Violations: " + classesWithPublicFinalizeMethods.size)
+        //classesWithPublicFinalizeMethods.foreach(println)
 
         val catchesIllegalMonitorStateException: QueryResult[ExceptionHandler] = IMSE_DONT_CATCH_IMSE(database)
         profile(time => println("IMSE_DONT_CATCH_IMSE: " + nanoToSeconds(time)))(
@@ -91,13 +105,24 @@ object FindbugsChecker
         )
         println("# Violations: " + catchesIllegalMonitorStateException.size)
 
-        val serializableClassWithoutDefaultConstructorInSuperClass: QueryResult[`extends`] = SE_NO_SUITABLE_CONSTRUCTOR(database)
+        val serializableClassWithoutDefaultConstructorInSuperClass: QueryResult[ObjectType] = SE_NO_SUITABLE_CONSTRUCTOR(database)
         profile(time => println("SE_NO_SUITABLE_CONSTRUCTOR: " + nanoToSeconds(time)))(
             serializableClassWithoutDefaultConstructorInSuperClass.lazyInitialize()
         )
         println("# Violations: " + serializableClassWithoutDefaultConstructorInSuperClass.size)
-        //serializableClassWithoutDefaultConstructor.foreach(println)
-    }
+        //serializableClassWithoutDefaultConstructorInSuperClass.foreach(println)
 
+        val unusedPrivateFields: QueryResult[FieldDeclaration] = UUF_UNUSED_FIELD(database)
+        profile(time => println("UUF_UNUSED_FIELD: " + nanoToSeconds(time)))(
+            unusedPrivateFields.lazyInitialize()
+        )
+        println("# Violations: " + unusedPrivateFields.size)
+
+        import sae.syntax.RelationalAlgebraSyntax._
+        val violatingClasses: QueryResult[ObjectType]  = δ(Π( (f:FieldDeclaration) => f.declaringClass)(unusedPrivateFields))
+        println("# Violating Classes (for comparison to BAT): " + violatingClasses.size)
+        //unusedPrivateFields.foreach( fd => println(fd.declaringClass + "." + fd.name))
+
+    }
 
 }

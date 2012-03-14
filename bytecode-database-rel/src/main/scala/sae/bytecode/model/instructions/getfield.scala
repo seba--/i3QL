@@ -1,10 +1,11 @@
 package sae.bytecode.model
 package instructions
 
-import sae.bytecode.model.Field
+import sae.bytecode.model.FieldReference
 
-case class getfield(val declaringMethod: Method, val programCounter: Int, val field: Field)
-        extends Instr[getfield] {
+case class getfield(declaringMethod: MethodDeclaration, programCounter: Int, field: FieldReference)
+        extends Instr[getfield]
+{
 
     val mnemonic = "getfield"
 

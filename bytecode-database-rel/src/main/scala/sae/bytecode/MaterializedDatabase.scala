@@ -18,17 +18,19 @@ class MaterializedDatabase(private val db: BytecodeDatabase)
         this (new BytecodeDatabase())
     }
 
-    val classfiles: QueryResult[ObjectType] = db.classfiles
+    val declared_classes : QueryResult[ClassDeclaration] =  db.declared_classes
 
-    val classfile_methods: QueryResult[Method] = db.classfile_methods
+    val declared_types: QueryResult[ObjectType] = db.declared_types
 
-    val classfile_fields: QueryResult[Field] = db.classfile_fields
+    val declared_methods: QueryResult[MethodDeclaration] = db.declared_methods
+
+    val declared_fields: QueryResult[FieldDeclaration] = db.declared_fields
 
     val classes: QueryResult[ObjectType] = db.classes
 
-    val methods: QueryResult[Method] = db.methods
+    val methods: QueryResult[MethodReference] = db.methods
 
-    val fields: QueryResult[Field] = db.fields
+    val fields: QueryResult[FieldReference] = db.fields
 
     val instructions: QueryResult[Instr[_]] = db.instructions
 

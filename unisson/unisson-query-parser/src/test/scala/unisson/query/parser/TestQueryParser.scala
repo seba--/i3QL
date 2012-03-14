@@ -133,7 +133,7 @@ class TestQueryParser
 
 
     @Test
-    def testFieldQuery() {
+    def testFieldQueryWithClassQuery() {
         val parser = new QueryParser()
 
         import parser._
@@ -148,6 +148,51 @@ class TestQueryParser
             parser.parseAll(
                 query,
                 "field(class('org.hibernate.cache','BlockingCache'), lockedKeys, class('java.util','HashMap'))"
+            ).get
+        )
+    }
+
+
+    @Test
+    def testFieldQuery() {
+        val parser = new QueryParser()
+
+        import parser._
+
+        assertEquals(
+            FieldQuery(
+                ClassSelectionQuery("org.hibernate.cache", "BlockingCache"),
+                "lockedKeys",
+                ClassSelectionQuery("java.util", "HashMap")
+            )
+            ,
+            parser.parseAll(
+                query,
+                "field('org.hibernate.cache','BlockingCache', lockedKeys, class('java.util','HashMap'))"
+            ).get
+        )
+    }
+
+    @Test
+    def testMethodQueryWithClassQuery() {
+        val parser = new QueryParser()
+
+        import parser._
+
+        assertEquals(
+            MethodQuery(
+                ClassSelectionQuery("org.hibernate.cache", "Cache"),
+                "put",
+                TypeQuery("void"),
+                List(
+                    ClassSelectionQuery("java.lang", "Object"),
+                    ClassSelectionQuery("java.lang", "Object")
+                ) :_*
+            )
+            ,
+            parser.parseAll(
+                query,
+                "method(class('org.hibernate.cache','Cache'), put, void, [class('java.lang','Object'),class('java.lang','Object') ])"
             ).get
         )
     }
@@ -171,7 +216,31 @@ class TestQueryParser
             ,
             parser.parseAll(
                 query,
-                "method(class('org.hibernate.cache','Cache'), put, void, [class('java.lang','Object'),class('java.lang','Object') ])"
+                "method('org.hibernate.cache','Cache', put, void, [class('java.lang','Object'),class('java.lang','Object') ])"
+            ).get
+        )
+    }
+
+    @Test
+    def testMethodWithTypeQuery() {
+        val parser = new QueryParser()
+
+        import parser._
+
+        assertEquals(
+            MethodQuery(
+                ClassSelectionQuery("org.hibernate.cache", "Cache"),
+                "put",
+                TypeQuery("void"),
+                List(
+                    TypeQuery("java.lang.Object"),
+                    TypeQuery("java.lang.Object")
+                ) :_*
+            )
+            ,
+            parser.parseAll(
+                query,
+                "method('org.hibernate.cache','Cache', put, void, ['java.lang.Object','java.lang.Object' ])"
             ).get
         )
     }

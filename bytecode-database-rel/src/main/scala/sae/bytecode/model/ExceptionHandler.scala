@@ -3,13 +3,17 @@ package sae.bytecode.model
 import de.tud.cs.st.bat.ObjectType
 
 /**
- * 
+ *
  * Author: Ralf Mitschke
  * Created: 20.06.11 13:43
  *
  */
 
-case class ExceptionHandler(declaringMethod : Method, catchType : Option[ObjectType], startPC : Int, endPC : Int, handlerPC : Int)
+case class ExceptionHandler(declaringMethod: MethodDeclaration,
+                            catchType: Option[ObjectType],
+                            startPC: Int,
+                            endPC: Int,
+                            handlerPC: Int)
 {
 
 }

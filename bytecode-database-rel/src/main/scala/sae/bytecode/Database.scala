@@ -1,12 +1,10 @@
 package sae.bytecode
 
+import model._
 import model.dependencies._
-import model.instructions.{invokevirtual, invokespecial, invokeinterface}
-import model.{ExceptionHandler, Instr, Field, Method}
 import sae.LazyView
 import de.tud.cs.st.bat.ObjectType
 import java.io.File
-import sae.syntax.RelationalAlgebraSyntax.Π._
 
 
 /**
@@ -20,23 +18,28 @@ import sae.syntax.RelationalAlgebraSyntax.Π._
 trait Database
 {
 
-    def classfiles: LazyView[ObjectType]
+    def declared_classes: LazyView[ClassDeclaration]
 
-    def classfile_methods: LazyView[Method]
+    /**
+     * convenience accessor for classDeclaration.objectType
+     */
+    def declared_types: LazyView[ObjectType]
 
-    def classfile_fields: LazyView[Field]
+    def declared_methods: LazyView[MethodDeclaration]
+
+    def declared_fields: LazyView[FieldDeclaration]
 
     def classes: LazyView[ObjectType]
 
     def create: LazyView[create]
 
-    def methods: LazyView[Method]
+    def methods: LazyView[MethodReference]
 
-    def fields: LazyView[Field]
+    def fields: LazyView[FieldReference]
 
     def instructions: LazyView[Instr[_]]
 
-    def `extends` : LazyView[`extends`]
+    def `extends`: LazyView[`extends`]
 
     def implements: LazyView[implements]
 
@@ -56,9 +59,9 @@ trait Database
 
     def class_cast: LazyView[class_cast]
 
-    def handled_exceptions : LazyView[ExceptionHandler]
+    def handled_exceptions: LazyView[ExceptionHandler]
 
-    def exception_handlers : LazyView[ExceptionHandler]
+    def exception_handlers: LazyView[ExceptionHandler]
 
     def inner_classes: LazyView[inner_class]
 
@@ -76,7 +79,7 @@ trait Database
 
     def getRemoveClassFileFunction: (File) => Unit
 
-    def addClassFile (stream: java.io.InputStream)
+    def addClassFile(stream: java.io.InputStream)
 
     def removeClassFile(stream: java.io.InputStream)
 

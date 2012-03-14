@@ -1,7 +1,7 @@
 package sae.bytecode.model.dependencies
 
-import sae.bytecode.model.Method
 import de.tud.cs.st.bat.ObjectType
+import sae.bytecode.model.MethodDeclaration
 
 /**
  *
@@ -10,8 +10,9 @@ import de.tud.cs.st.bat.ObjectType
  *
  */
 
-case class handled_exception(val source: Method, val target: ObjectType)
-        extends Dependency[Method, ObjectType] {
+case class handled_exception(source: MethodDeclaration, target: ObjectType)
+        extends Dependency[MethodDeclaration, ObjectType]
+{
 
 
 }

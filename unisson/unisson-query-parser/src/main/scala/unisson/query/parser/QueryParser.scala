@@ -36,7 +36,9 @@ class QueryParser
                 classSelection |
                 classFromSubQuery |
                 fieldSelection |
+                fieldSelectionWithClassQuery |
                 methodSelection |
+                methodSelectionWithClassQuery |
                 derived |
                 empty |
                 typeSelection
@@ -96,7 +98,7 @@ class QueryParser
         }
 
 
-    protected[parser] def methodSelection: Parser[MethodQuery] =
+    protected[parser] def methodSelectionWithClassQuery: Parser[MethodQuery] =
         "method(" ~> query ~ ("," ~> atom) ~ ("," ~> query) ~ ("," ~> list <~ ")") ^^ {
             case (declaringClass ~ name ~ returnType ~ parameters) =>
                 MethodQuery(
@@ -107,11 +109,32 @@ class QueryParser
                 )
         }
 
-    protected[parser] def fieldSelection: Parser[FieldQuery] =
+    protected[parser] def methodSelection: Parser[MethodQuery] =
+        "method(" ~> atom ~ ("," ~> atom) ~ ("," ~> atom) ~ ("," ~> query) ~ ("," ~> list <~ ")") ^^ {
+            case (declaringClassPackage ~ declaringClassName ~ name ~ returnType ~ parameters) =>
+                MethodQuery(
+                    ClassSelectionQuery(declaringClassPackage, declaringClassName),
+                    name,
+                    returnType,
+                    parameters: _*
+                )
+        }
+
+    protected[parser] def fieldSelectionWithClassQuery: Parser[FieldQuery] =
         "field(" ~> query ~ ("," ~> atom) ~ ("," ~> query <~ ")") ^^ {
             case (declaringClass ~ name ~ fieldType) =>
                 FieldQuery(
                     declaringClass,
+                    name,
+                    fieldType
+                )
+        }
+
+    protected[parser] def fieldSelection: Parser[FieldQuery] =
+        "field(" ~> atom ~ ("," ~> atom) ~ ("," ~> atom) ~ ("," ~> query <~ ")") ^^ {
+            case (declaringClassPackage ~ declaringClassName ~ name ~ fieldType) =>
+                FieldQuery(
+                    ClassSelectionQuery(declaringClassPackage, declaringClassName),
                     name,
                     fieldType
                 )

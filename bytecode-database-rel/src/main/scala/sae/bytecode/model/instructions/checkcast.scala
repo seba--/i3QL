@@ -1,10 +1,11 @@
 package sae.bytecode.model.instructions
 
 import de.tud.cs.st.bat._
-import sae.bytecode.model.{Method, Instr}
+import sae.bytecode.model.{MethodDeclaration, Instr}
 
-case class checkcast(val declaringMethod: Method, val programCounter: Int, val to: ReferenceType)
-        extends Instr[checkcast] {
+case class checkcast(declaringMethod: MethodDeclaration, programCounter: Int, to: ReferenceType)
+        extends Instr[checkcast]
+{
 
     val mnemonic = "checkcast"
 

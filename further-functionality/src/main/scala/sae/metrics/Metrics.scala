@@ -102,8 +102,8 @@ object Metrics {
     val numberOfMethods: LazyView[(ReferenceType, Int)] =
       γ(db.classfile_methods, (x: Method) => x.declaringRef, Count[Method]())
 
-    //set = { (Method, Field) | method use field}
-    //Method use field if
+    //set = { (MethodReference, FieldReference) | method use field}
+    //MethodReference use field if
     //  - field is a global class field
     //  - method reads/writes the field
     val methodUseField: LazyView[(Method, Field)] = δ(
@@ -196,8 +196,8 @@ object Metrics {
         σ(isNeitherConstructOrStaticInitializer)(db.classfile_methods)
         , (x: Method) => x.declaringRef, Count[Method]())
 
-    //set = { (Method, Field) | method use field}
-    //Method use field if
+    //set = { (MethodReference, FieldReference) | method use field}
+    //MethodReference use field if
     //  - field is a global class field
     //  - method reads/writes the field
     val methodUseField: LazyView[(Method, Field)] = δ(

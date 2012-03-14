@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <sae.version>0.4.0</sae.version>
+        <sae.version>0.5.0</sae.version>
         <scala.version>2.9.1</scala.version>
         <scalatest.version>1.6.1</scalatest.version>
         <junit.version>4.10</junit.version>
