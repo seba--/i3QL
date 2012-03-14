@@ -11,11 +11,12 @@ import unisson.query.compiler.CachingQueryCompiler
 import unisson.query.parser.QueryParser
 import sae.{DefaultLazyView, MaterializedView, Observer, LazyView}
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
-import sae.bytecode.model.dependencies._
 import sae.functions.Count
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolationSummary, IViolation}
 import sae.bytecode.model.{MethodDeclaration, FieldDeclaration, ClassDeclaration}
 import de.tud.cs.st.bat.{ObjectType, ArrayType}
+import collection.JavaConversions
+import sae.bytecode.model.dependencies._
 
 
 /**
@@ -649,7 +650,7 @@ class UnissonDatabase(bc: Database)
                         local_incoming ∪ global_incoming
                         )
                 )
-
+        
         // all source elements that may not use the target
         val disallowedSources = (
                 (
@@ -948,6 +949,42 @@ class UnissonDatabase(bc: Database)
             ).asInstanceOf[LazyView[ICodeElement]]
 
 
+    lazy val ensembleDependencies : MaterializedView[(IEnsemble, IEnsemble, Int)] =
+    {
+        val sourceEnsembleDependencies = (
+                (
+                        leaf_ensemble_elements,
+                        (_:(IEnsemble, SourceElement[AnyRef]))._2.element
+                        ) ⋈
+                        (
+                                (_:(DependencyKind, Dependency[AnyRef, AnyRef]))._2.source,
+                                kind_and_dependency
+                                )
+                ){
+        (e1:(IEnsemble, SourceElement[AnyRef]), e2:(DependencyKind, Dependency[AnyRef, AnyRef])) =>
+            (e1._1, e2._2)
+        }
+        val targetEnsembleDependencies = (
+            (
+                    leaf_ensemble_elements,
+                    (_:(IEnsemble, SourceElement[AnyRef]))._2.element
+                    ) ⋈
+                    (
+                            (_:(IEnsemble, Dependency[AnyRef, AnyRef]))._2.target,
+                            sourceEnsembleDependencies
+                            )
+            ){
+        (e1:(IEnsemble, SourceElement[AnyRef]), e2:(IEnsemble, Dependency[AnyRef, AnyRef])) =>
+            (e2._1, e1._1, e2._2)
+        }
+        val leafDependencies = γ(targetEnsembleDependencies,
+            (v: (IEnsemble, IEnsemble,Dependency[AnyRef, AnyRef]) ) => (v._1, v._2),
+            Count[(IEnsemble, IEnsemble,Dependency[AnyRef, AnyRef])](),
+            (elem: (IEnsemble, IEnsemble), count: Int) => (elem._1, elem._2, count)
+        )
+        leafDependencies
+    }
+    
     /**
      * all source elements that match the source ensembles in a given view of constraints
      */
@@ -1034,8 +1071,49 @@ class UnissonDatabase(bc: Database)
     }
 
     def updateModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-            removeModel(oldModel)
-            addModel(newModel)
+        import scala.collection.JavaConversions._
+        // remove old Ensembles
+        for (ensemble <- oldModel.getEnsembles.filterNot(
+            (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
+        )
+        ) {
+            top_level_local_ensembles -= (ensemble, oldModel.getName)
+        }
+        // remove old constraints
+        for (constraint <- oldModel.getConstraints.filterNot(
+            (c: IConstraint) => newModel.getConstraints.exists(_ == c)
+        )
+        ) {
+            top_level_local_constraints -= (constraint, oldModel.getName)
+        }
+
+
+        // update existing Ensembles
+        for (oldE <- oldModel.getEnsembles;
+             newE <- newModel.getEnsembles)
+            if (oldE.getName == newE.getName
+            ) {
+                top_level_local_ensembles.update((oldE, oldModel.getName), (newE, newModel.getName))
+            }
+        // we currently do not update any constraints.
+        // This would make sense only for constraint changes w.r.t. kinds,
+        // but then removing the old constraint is probably as effective.
+
+        // add new Ensembles
+        for (ensemble <- newModel.getEnsembles.filterNot(
+            (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
+        )
+        ) {
+            top_level_local_ensembles += (ensemble, newModel.getName)
+        }
+
+        // add new Constraints
+        for (constraint <- newModel.getConstraints.filterNot(
+            (c: IConstraint) => oldModel.getConstraints.exists(_ == c)
+        )
+        ) {
+            top_level_local_constraints += (constraint, newModel.getName)
+        }
     }
 
     def addGlobalModel(model: IArchitectureModel) {

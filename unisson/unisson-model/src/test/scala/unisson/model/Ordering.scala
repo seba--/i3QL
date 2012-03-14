@@ -1,8 +1,8 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
-import de.tud.cs.st.vespucci.interfaces.{IViolation, ICodeElement}
 import unisson.query.code_model.SourceElement
+import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 
 /**
  *
@@ -14,6 +14,27 @@ import unisson.query.code_model.SourceElement
 object Ordering
 {
 
+    implicit def violationSummaryOrdering(implicit
+                                   constraintOrdering: Ordering[IConstraint],
+                                   ensembleOrdering: Ordering[IEnsemble],
+                                   elementOrdering: Ordering[ICodeElement]
+                                          ): Ordering[IViolationSummary] = {
+        new Ordering[IViolationSummary]
+        {
+            def compare(x: IViolationSummary, y: IViolationSummary): Int = {
+                val constraintOrder = constraintOrdering.compare(x.getConstraint, y.getConstraint)
+                if (constraintOrder != 0) return constraintOrder
+
+                val sourceEnsembleOrder = ensembleOrdering.compare(x.getSourceEnsemble, y.getSourceEnsemble)
+                if (sourceEnsembleOrder != 0) return sourceEnsembleOrder
+
+                val targetEnsembleOrder = ensembleOrdering.compare(x.getTargetEnsemble, y.getTargetEnsemble)
+                if (targetEnsembleOrder != 0) return targetEnsembleOrder
+
+                x.getDiagramFile.compareTo(y.getDiagramFile)
+            }
+        }
+    }
 
     implicit def violationOrdering(implicit
                                    constraintOrdering: Ordering[IConstraint],
