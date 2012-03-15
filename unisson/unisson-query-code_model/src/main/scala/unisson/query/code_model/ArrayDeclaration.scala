@@ -32,4 +32,5 @@ class ArrayDeclaration (val element: ArrayType)
 
     override def toString = getTypeQualifier
 
+    def getSootIdentifier = element.toJava
 }

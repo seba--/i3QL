@@ -3,6 +3,7 @@ package unisson.query.code_model
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import sae.bytecode.model.{MethodReference, FieldDeclaration, MethodDeclaration, FieldReference}
 import de.tud.cs.st.bat.{Type, ArrayType, ObjectType}
+import soot.bridge.ISootCodeElement
 
 /**
  *
@@ -12,7 +13,7 @@ import de.tud.cs.st.bat.{Type, ArrayType, ObjectType}
  *
  */
 trait SourceElement[+T <: AnyRef]
-        extends ICodeElement
+        extends ICodeElement with ISootCodeElement
 {
     def element: T
 }

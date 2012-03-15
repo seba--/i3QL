@@ -31,4 +31,6 @@ class ClassDeclaration(val element: ObjectType)
     }
 
     override def toString = getTypeQualifier
+
+    lazy val getSootIdentifier = element.toJava
 }

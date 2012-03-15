@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
-import sae.bytecode.model.{MethodIdentifier, MethodDeclaration}
+import sae.bytecode.model.MethodIdentifier
 
 
 /**
@@ -47,4 +47,19 @@ class MethodDeclarationAdapter(val element: MethodIdentifier)
             }
             ) + ")" +
             ":" + element.returnType.signature
+
+    lazy val getSootIdentifier =
+        "<" + element.declaringRef.toJava + ":" + element.returnType.toJava + " " + element.name +
+                "(" +
+                (
+                        if (element.parameters.isEmpty) {
+                            ""
+                        }
+                        else {
+                            element.parameters.map(_.toJava).reduceLeft(_ + " " + _)
+                        }
+                        ) +
+                ")" +
+                ">"
+
 }

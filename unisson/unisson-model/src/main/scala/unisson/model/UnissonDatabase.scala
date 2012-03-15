@@ -359,10 +359,14 @@ class UnissonDatabase(bc: Database)
         top_level_local_constraints.addObserver(observer)
     }
 
+
+    def kind_and_dependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] =
+        kind_and_dependency_view
+
     // tuples of dependencies with their kinds for later joining.
     // dependencies are filtered and will not contain base types
     // array types are projected to their component types so the dependencies are counted as being to the actual component types
-    val kind_and_dependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
+    protected val kind_and_dependency_view: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
         Π {
             (ClassCastKind, (_: Dependency[AnyRef, AnyRef]))
         }(bc.class_cast.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
@@ -477,7 +481,7 @@ class UnissonDatabase(bc: Database)
     /**
      * all not_allowed violations
      */
-    val violations_not_allowed: LazyView[IViolation] = {
+    lazy val violations_not_allowed: LazyView[IViolation] = {
 
         val sourceElements = sourcesByConstraint(not_allowed)
 
@@ -511,7 +515,7 @@ class UnissonDatabase(bc: Database)
     /**
      * all local incoming violations
      */
-    val violations_local_incoming: LazyView[IViolation] = {
+    lazy val violations_local_incoming: LazyView[IViolation] = {
         // all local ensembles joined by their contexts to the incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
@@ -614,7 +618,7 @@ class UnissonDatabase(bc: Database)
     }
 
 
-    val violations_global_incoming: LazyView[IViolation] = {
+    lazy val violations_global_incoming: LazyView[IViolation] = {
         // treat all global ensembles as if they were present in the context by joining all contexts to the global incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
@@ -715,7 +719,7 @@ class UnissonDatabase(bc: Database)
     }
 
 
-    val violations_local_outgoing: LazyView[IViolation] = {
+    lazy val violations_local_outgoing: LazyView[IViolation] = {
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
@@ -815,7 +819,7 @@ class UnissonDatabase(bc: Database)
     }
 
 
-    val violations_global_outgoing: LazyView[IViolation] = {
+    lazy val violations_global_outgoing: LazyView[IViolation] = {
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
@@ -887,7 +891,7 @@ class UnissonDatabase(bc: Database)
 
 
         // every dependency from the source that uses a disallowed target
-        val violations = (
+        lazy val violations = (
                 (
                         dependenciesWithSourceFromOutgoing,
                         (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
@@ -916,7 +920,7 @@ class UnissonDatabase(bc: Database)
     }
 
 
-    val violations_expected: LazyView[IViolation] = {
+    lazy val violations_expected: LazyView[IViolation] = {
         new DefaultLazyView[IViolation]
     }
 

@@ -23,7 +23,7 @@ class KindParser
 
     protected def kinds: Parser[KindExpr] = create | throws | `extends` | implements | field_type |
             parameter | return_type | read_field | write_field | invoke_interface | invoke_special | invoke_static |
-            invoke_virtual | instanceof | class_cast
+            invoke_virtual | instanceof | class_cast | dataflow
 
     protected def groups: Parser[KindExpr] = all | calls | subtype | signature
 
@@ -80,5 +80,7 @@ class KindParser
     protected def instanceof: Parser[InstanceOfKind.type] = "instanceof" ^^^ InstanceOfKind
 
     protected def class_cast: Parser[ClassCastKind.type] = "class_cast" ^^^ ClassCastKind
+
+    protected def dataflow: Parser[DataFlowKind.type] = "dataflow" ^^^ DataFlowKind
 
 }

@@ -14,4 +14,6 @@ case class TypeReference(element: Type) extends SourceElement[Type]
     def getPackageIdentifier = ""
 
     def getSimpleClassName = element.toJava
+
+    def getSootIdentifier = element.toJava
 }

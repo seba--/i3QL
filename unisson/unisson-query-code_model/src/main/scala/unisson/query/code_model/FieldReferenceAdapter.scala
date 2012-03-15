@@ -37,4 +37,7 @@ class FieldReferenceAdapter(val element: FieldReference)
             element.name +
             ":" + element.fieldType.signature
 
+    lazy val getSootIdentifier =
+        "<" + element.declaringClass.toJava + ":" + element.fieldType.toJava + " " + element.name + ">"
+
 }
