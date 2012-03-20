@@ -2,6 +2,7 @@ package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
 import sae.bytecode.model.MethodIdentifier
+import collection.JavaConversions
 
 
 /**
@@ -30,10 +31,20 @@ class MethodDeclarationAdapter(val element: MethodIdentifier)
     override def hashCode() = element.hashCode()
 
     override def equals(obj: Any): Boolean = {
-        if (!obj.isInstanceOf[SourceElement[MethodIdentifier]]) {
-            return false
+        if (obj.isInstanceOf[SourceElement[MethodIdentifier]]) {
+            return element.equals(obj.asInstanceOf[SourceElement[MethodIdentifier]].element)
         }
-        element.equals(obj.asInstanceOf[SourceElement[MethodIdentifier]].element)
+
+        if( obj.isInstanceOf[IMethodDeclaration])
+        {
+            val other = obj.asInstanceOf[IMethodDeclaration]
+            return this.getPackageIdentifier == other.getPackageIdentifier &&
+                    this.getSimpleClassName == other.getSimpleClassName &&
+                    this.getMethodName == other.getMethodName &&
+                    this.getReturnTypeQualifier == other.getReturnTypeQualifier &&
+                    java.util.Arrays.equals (getParameterTypeQualifiers.asInstanceOf[Array[Object]],other.getParameterTypeQualifiers.asInstanceOf[Array[Object]])
+        }
+        false
     }
 
     override def toString = element.declaringRef.signature +

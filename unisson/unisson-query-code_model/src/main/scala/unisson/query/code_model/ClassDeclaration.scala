@@ -24,10 +24,15 @@ class ClassDeclaration(val element: ObjectType)
     override def hashCode() = element.hashCode()
 
     override def equals(obj: Any) : Boolean = {
-        if( !obj.isInstanceOf[ClassDeclaration] ){
-            return false
+        if( obj.isInstanceOf[ClassDeclaration] ){
+            return element.equals(obj.asInstanceOf[ClassDeclaration].element)
         }
-        element.equals(obj.asInstanceOf[ClassDeclaration].element)
+        if(obj.isInstanceOf[IClassDeclaration])
+        {
+            val other = obj.asInstanceOf[IClassDeclaration]
+            return (getPackageIdentifier == other.getPackageIdentifier) && (getSimpleClassName == other.getSimpleClassName)
+        }
+        false
     }
 
     override def toString = getTypeQualifier

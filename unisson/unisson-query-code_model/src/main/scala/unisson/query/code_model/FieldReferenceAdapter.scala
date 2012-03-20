@@ -22,10 +22,17 @@ class FieldReferenceAdapter(val element: FieldReference)
     override def hashCode() = element.hashCode()
 
     override def equals(obj: Any): Boolean = {
-        if (!obj.isInstanceOf[FieldReferenceAdapter]) {
-            return false
+        if (obj.isInstanceOf[FieldReferenceAdapter]) {
+            return element.equals(obj.asInstanceOf[FieldReferenceAdapter].element)
         }
-        element.equals(obj.asInstanceOf[FieldReferenceAdapter].element)
+        if (obj.isInstanceOf[IFieldDeclaration]) {
+            val other = obj.asInstanceOf[IFieldDeclaration]
+            return this.getPackageIdentifier == other.getPackageIdentifier &&
+                    this.getSimpleClassName == other.getSimpleClassName &&
+                    this.getFieldName == other.getFieldName &&
+                    this.getTypeQualifier == other.getTypeQualifier
+        }
+        false
     }
 
 
