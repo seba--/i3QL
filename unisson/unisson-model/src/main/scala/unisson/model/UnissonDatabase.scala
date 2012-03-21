@@ -1,7 +1,6 @@
 package unisson.model
 
 import constraints._
-import debug.PrintingObserver
 import kinds.primitive._
 import kinds.{DependencyKind, KindResolver, KindParser}
 import unisson.query.code_model.SourceElement
@@ -13,10 +12,10 @@ import sae.{DefaultLazyView, MaterializedView, Observer, LazyView}
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IConstraint, IEnsemble}
 import sae.functions.Count
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolationSummary, IViolation}
-import sae.bytecode.model.{MethodDeclaration, FieldDeclaration, ClassDeclaration}
+import sae.bytecode.model.{MethodDeclaration, FieldDeclaration}
 import de.tud.cs.st.bat.{ObjectType, ArrayType}
-import collection.JavaConversions
 import sae.bytecode.model.dependencies._
+import sae.operators.Conversions
 
 
 /**
@@ -478,44 +477,43 @@ class UnissonDatabase(bc: Database)
     }(normalized_constraints)
 
 
-    /**
-     * all not_allowed violations
-     */
-    lazy val violations_not_allowed: LazyView[IViolation] = {
-
-        val sourceElements = sourcesByConstraint(not_allowed)
-
-        val targetElements = targetsByConstraint(not_allowed)
-
-        // all dependencies that have the same kind as the constraint
-        val dependencyRelation = dependenciesByConstraintKind(not_allowed)
-
-        val violatingDependencies = (
+    lazy val ensemble_dependencies: MaterializedView[((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])] = {
+        val indexedElements = Conversions.lazyViewToIndexedView(leaf_ensemble_elements)
+        val elementIndex = (t: (IEnsemble, SourceElement[AnyRef])) => t._2.element
+        val sourceDependencies = (
                 (
-                        dependencyRelation,
-                        (_: (Dependency[AnyRef, AnyRef], NormalizedConstraint))._1.source
-                        ) ⋉(
-                        (_: (IEnsemble, SourceElement[AnyRef]))._2.element,
-                        sourceElements)
-                ) ∩ (
-                (
-                        dependencyRelation,
-                        (_: (Dependency[AnyRef, AnyRef], NormalizedConstraint))._1.target
-                        ) ⋉(
-                        (_: (IEnsemble, SourceElement[AnyRef]))._2.element,
-                        targetElements
+                        indexedElements,
+                        elementIndex
+                        ) ⋈(
+                        (t: (DependencyKind, Dependency[AnyRef, AnyRef])) => t._2.source,
+                        kind_and_dependency
                         )
-                )
-
-        val violations = dependenciesAsViolations(violatingDependencies)
-
-        violations
+                ) {
+            (source: (IEnsemble, SourceElement[AnyRef]), dep: (DependencyKind, Dependency[AnyRef, AnyRef])) =>
+                (source._1, dep)
+        }
+        val targetDependencies = (
+                (
+                        indexedElements,
+                        elementIndex
+                        ) ⋈(
+                        (t: (IEnsemble, (DependencyKind, Dependency[AnyRef, AnyRef]))) => t._2._2.target,
+                        sourceDependencies
+                        )
+                ) {
+            (target: (IEnsemble, SourceElement[AnyRef]),
+             source: (IEnsemble, (DependencyKind, Dependency[AnyRef, AnyRef]))) =>
+                ((source._1, target._1, source._2._1), source._2._2)
+        }
+        targetDependencies
     }
 
-    /**
-     * all local incoming violations
-     */
-    lazy val violations_local_incoming: LazyView[IViolation] = {
+    lazy val source_target_violations_by_not_allowed: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
+        Π((c: NormalizedConstraint) => ((c.source, c.target, c.kind), c))(not_allowed)
+    }
+
+    lazy val source_target_violations_by_local_incoming: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
+
         // all local ensembles joined by their contexts to the incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
@@ -526,14 +524,14 @@ class UnissonDatabase(bc: Database)
                         local_incoming
                         )
                 ) {
-            (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, c.target, c.kind, e._2)
+            (e: (IEnsemble, String), c: NormalizedConstraint) => ((e._1, c.target, c.kind), c)
         }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Incoming(_, A) and (A, Incoming(A, _)
         val source_target_ensemble_combinations = δ(σ {
-            (e: (IEnsemble, IEnsemble, DependencyKind, String)) =>
-                (e._1 != e._2)
+            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                (e._1._1 != e._1._2)
         }(source_target_ensemble_combinations_with_selfref))
 
         /**
@@ -544,81 +542,18 @@ class UnissonDatabase(bc: Database)
         val disallowedEnsemblesWithSameContext = (
                 (
                         source_target_ensemble_combinations,
-                        identity(_: (IEnsemble, IEnsemble, DependencyKind, String))
+                        (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                            (e._1, e._2.context)
                         ) ⊳(
-                        (c: NormalizedConstraint) => (c.source, c.target, c.kind, c.context),
+                        (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
                         local_incoming ∪ global_incoming
                         )
 
                 )
-
-        // all source elements that may not use the target
-        val disallowedSources = (
-                (
-                        disallowedEnsemblesWithSameContext,
-                        (disallowed: (IEnsemble, IEnsemble, DependencyKind, String)) => disallowed._1
-                        ) ⋈(
-                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
-                        leaf_ensemble_elements
-                        )
-                ) {
-            (disallowed: (IEnsemble, IEnsemble, DependencyKind, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, disallowed._3, disallowed._4, elem._2)
-        }
-
-        // all dependencies that have the same kind as the constraint
-        val dependencyByKind = dependenciesByConstraintKind(local_incoming)
-
-        // all dependencies that have a target to an ensemble with a local incoming constraint
-        val dependenciesWithTargetToIncoming = (
-                (
-                        leaf_ensemble_elements,
-                        identity(_: (IEnsemble, SourceElement[AnyRef]))
-                        ) ⋈(
-                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (dep._2.target, SourceElement(dep
-                                    ._1.target)),
-                        dependencyByKind
-                        )
-                ) {
-            (elem: (IEnsemble, SourceElement[AnyRef]),
-             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                dep
-        }
-
-
-        // every dependency that has a target to a local incoming constraint and is not allowed to use the target
-        val violations = (
-                (
-                        dependenciesWithTargetToIncoming,
-                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (entry._1.source, entry._2.target, entry._2.kind, entry._2.context)
-                        ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                            (entry._5.element, entry._2, entry._3, entry._4),
-                        disallowedSources
-                        )
-
-                ) {
-            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-             e: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                new Violation(
-                    v._2.origin,
-                    e._1,
-                    e._2,
-                    e._5,
-                    SourceElement(v._1.target),
-                    v._2.kind.asVespucciString,
-                    e._4
-                ).asInstanceOf[IViolation]
-        }
-
-        violations
-
+        disallowedEnsemblesWithSameContext
     }
 
-
-    lazy val violations_global_incoming: LazyView[IViolation] = {
+    lazy val source_target_violations_by_global_incoming: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
         // treat all global ensembles as if they were present in the context by joining all contexts to the global incoming constraints
         val source_target_ensemble_combinations_with_selfref = (
                 (
@@ -629,15 +564,15 @@ class UnissonDatabase(bc: Database)
                         global_incoming
                         )
                 ) {
-            (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, c.target, c.kind, e._2)
+            (e: (IEnsemble, String), c: NormalizedConstraint) => ((e._1, c.target, c.kind), c)
         }
 
 
         // filter obviously allowed combinations
         // Allowed are all (A, GlobalIncoming(_, A) and (A, GlobalIncoming(A, _)
         val source_target_ensemble_combinations = δ(σ {
-            (e: (IEnsemble, IEnsemble, DependencyKind, String)) =>
-                (e._1 != e._2)
+            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                (e._1._1 != e._1._2)
         }(source_target_ensemble_combinations_with_selfref))
 
         /**
@@ -648,78 +583,18 @@ class UnissonDatabase(bc: Database)
         val disallowedEnsemblesWithSameContext = (
                 (
                         source_target_ensemble_combinations,
-                        identity(_: (IEnsemble, IEnsemble, DependencyKind, String))
+                        (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                            (e._1, e._2.context)
                         ) ⊳(
-                        (c: NormalizedConstraint) => (c.source, c.target, c.kind, c.context),
+                        (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
                         local_incoming ∪ global_incoming
                         )
                 )
-        
-        // all source elements that may not use the target
-        val disallowedSources = (
-                (
-                        disallowedEnsemblesWithSameContext,
-                        (disallowed: (IEnsemble, IEnsemble, DependencyKind, String)) => disallowed._1
-                        ) ⋈(
-                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
-                        leaf_ensemble_elements
-                        )
-                ) {
-            (disallowed: (IEnsemble, IEnsemble, DependencyKind, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, disallowed._3, disallowed._4, elem._2)
-        }
-
-        // all dependencies that have the same kind as the constraint
-        val dependencyByKind = dependenciesByConstraintKind(global_incoming)
-
-        // all dependencies that have a target to an ensemble with a local incoming constraint
-        val dependenciesWithTargetToIncoming = (
-                (
-                        leaf_ensemble_elements,
-                        identity(_: (IEnsemble, SourceElement[AnyRef]))
-                        ) ⋈(
-                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (dep._2.target, SourceElement(dep
-                                    ._1.target)),
-                        dependencyByKind
-                        )
-                ) {
-            (elem: (IEnsemble, SourceElement[AnyRef]),
-             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                dep
-        }
-
-        // every dependency that has a target to a local incoming constraint and is not allowed to use the target
-        val violations = (
-                (
-                        dependenciesWithTargetToIncoming,
-                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (entry._1.source, entry._2.target, entry._2.kind, entry._2.context)
-                        ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                            (entry._5.element, entry._2, entry._3, entry._4),
-                        disallowedSources
-                        )
-
-                ) {
-            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-             e: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                new Violation(
-                    v._2.origin,
-                    e._1,
-                    e._2,
-                    e._5,
-                    SourceElement(v._1.target),
-                    v._2.kind.asVespucciString,
-                    e._4
-                ).asInstanceOf[IViolation]
-        }
-
-        violations
+        disallowedEnsemblesWithSameContext
     }
 
 
-    lazy val violations_local_outgoing: LazyView[IViolation] = {
+    lazy val source_target_violations_by_local_outgoing: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
@@ -730,14 +605,14 @@ class UnissonDatabase(bc: Database)
                         local_outgoing
                         )
                 ) {
-            (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, c.kind, e._2)
+            (e: (IEnsemble, String), c: NormalizedConstraint) => ((c.source, e._1, c.kind), c)
         }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
         val source_target_combinations = δ(σ {
-            (e: (IEnsemble, IEnsemble, DependencyKind, String)) =>
-                (e._1 != e._2)
+            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                (e._1._1 != e._1._2)
         }(source_target_combinations_with_selfref))
 
         /**
@@ -748,78 +623,19 @@ class UnissonDatabase(bc: Database)
         val disallowedEnsemblesWithSameContext = (
                 (
                         source_target_combinations,
-                        identity(_: (IEnsemble, IEnsemble, DependencyKind, String))
+                        (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                            (e._1, e._2.context)
                         ) ⊳(
-                        (c: NormalizedConstraint) => (c.source, c.target, c.kind, c.context),
+                        (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
                         local_outgoing ∪ global_outgoing
                         )
 
                 )
-
-        // all target elements that may not be used by the source
-        val disallowedTargets = (
-                (
-                        disallowedEnsemblesWithSameContext,
-                        (disallowed: (IEnsemble, IEnsemble, DependencyKind, String)) => disallowed._2
-                        ) ⋈(
-                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
-                        leaf_ensemble_elements
-                        )
-                ) {
-            (disallowed: (IEnsemble, IEnsemble, DependencyKind, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, disallowed._3, disallowed._4, elem._2)
-        }
-
-        // all dependencies that have the same kind as the constraint
-        val dependencyByKind = dependenciesByConstraintKind(local_outgoing)
-
-        // all dependencies that have a source from an ensemble with a local outgoing constraint
-        val dependenciesWithSourceFromOutgoing = (
-                (
-                        leaf_ensemble_elements,
-                        identity(_: (IEnsemble, SourceElement[AnyRef]))
-                        ) ⋈(
-                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (dep._2.source, SourceElement(dep._1.source)),
-                        dependencyByKind
-                        )
-                ) {
-            (elem: (IEnsemble, SourceElement[AnyRef]),
-             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                dep
-        }
-
-        // every dependency from the source that uses a disallowed target
-        val violations = (
-                (
-                        dependenciesWithSourceFromOutgoing,
-                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (entry._2.source, entry._1.target, entry._2.kind, entry._2.context)
-                        ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                            (entry._1, entry._5.element, entry._3, entry._4),
-                        disallowedTargets
-                        )
-
-                ) {
-            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-             e: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                new Violation(
-                    v._2.origin,
-                    e._1,
-                    e._2,
-                    SourceElement(v._1.source),
-                    e._5,
-                    v._2.kind.asVespucciString,
-                    e._4
-                ).asInstanceOf[IViolation]
-        }
-
-        violations
+        disallowedEnsemblesWithSameContext
     }
 
 
-    lazy val violations_global_outgoing: LazyView[IViolation] = {
+    lazy val source_target_violations_by_global_outgoing: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
         // all source target combinations that have to do with an ensemble where a constraint is declared
         val source_target_combinations_with_selfref = (
                 (
@@ -830,14 +646,14 @@ class UnissonDatabase(bc: Database)
                         global_outgoing
                         )
                 ) {
-            (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, c.kind, e._2)
+            (e: (IEnsemble, String), c: NormalizedConstraint) => ((c.source, e._1, c.kind), c)
         }
 
         // filter obviously allowed combinations
         // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
         val source_target_combinations = δ(σ {
-            (e: (IEnsemble, IEnsemble, DependencyKind, String)) =>
-                (e._1 != e._2)
+            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                (e._1._1 != e._1._2)
         }(source_target_combinations_with_selfref))
 
         /**
@@ -848,90 +664,56 @@ class UnissonDatabase(bc: Database)
         val disallowedEnsemblesWithSameContext = (
                 (
                         source_target_combinations,
-                        identity(_: (IEnsemble, IEnsemble, DependencyKind, String))
+                        (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
+                            (e._1, e._2.context)
                         ) ⊳(
-                        (c: NormalizedConstraint) => (c.source, c.target, c.kind, c.context),
+                        (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
                         local_outgoing ∪ global_outgoing
                         )
 
                 )
+        disallowedEnsemblesWithSameContext
+    }
 
-        // all target elements that may not be used by the source
-        val disallowedTargets = (
+    lazy val source_target_violations: LazyView[IViolation] = {
+        val source_target_disallowed =
+            source_target_violations_by_not_allowed ∪
+                    source_target_violations_by_local_incoming ∪
+                    source_target_violations_by_global_incoming ∪
+                    source_target_violations_by_local_outgoing ∪
+                    source_target_violations_by_global_outgoing
+
+        val violations = (
                 (
-                        disallowedEnsemblesWithSameContext,
-                        (disallowed: (IEnsemble, IEnsemble, DependencyKind, String)) => disallowed._2
+                        source_target_disallowed,
+                        (t: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) => t._1
                         ) ⋈(
-                        (elem: (IEnsemble, SourceElement[AnyRef])) => elem._1,
-                        leaf_ensemble_elements
+                        (t: ((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])) => t._1,
+                        ensemble_dependencies
                         )
                 ) {
-            (disallowed: (IEnsemble, IEnsemble, DependencyKind, String), elem: (IEnsemble, SourceElement[AnyRef])) =>
-                (disallowed._1, disallowed._2, disallowed._3, disallowed._4, elem._2)
-        }
-
-        // all dependencies that have the same kind as the constraint
-        val dependencyByKind = dependenciesByConstraintKind(global_outgoing)
-
-        // all dependencies that have a source from an ensemble with a local outgoing constraint
-        val dependenciesWithSourceFromOutgoing = (
-                (
-                        leaf_ensemble_elements,
-                        identity(_: (IEnsemble, SourceElement[AnyRef]))
-                        ) ⋈(
-                        (dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (dep._2.source, SourceElement(dep._1.source)),
-                        dependencyByKind
-                        )
-                ) {
-            (elem: (IEnsemble, SourceElement[AnyRef]),
-             dep: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                dep
-        }
-
-
-        // every dependency from the source that uses a disallowed target
-        lazy val violations = (
-                (
-                        dependenciesWithSourceFromOutgoing,
-                        (entry: (Dependency[AnyRef, AnyRef], NormalizedConstraint)) =>
-                            (entry._2.source, entry._1.target, entry._2.kind, entry._2.context)
-                        ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
-                            (entry._1, entry._5.element, entry._3, entry._4),
-                        disallowedTargets
-                        )
-
-                ) {
-            (v: (Dependency[AnyRef, AnyRef], NormalizedConstraint),
-             e: (IEnsemble, IEnsemble, DependencyKind, String, SourceElement[AnyRef])) =>
+            (disallowed: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint),
+             dependency: ((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])) =>
                 new Violation(
-                    v._2.origin,
-                    e._1,
-                    e._2,
-                    SourceElement(v._1.source),
-                    e._5,
-                    v._2.kind.asVespucciString,
-                    e._4
+                    disallowed._2.origin,
+                    disallowed._1._1,
+                    disallowed._1._2,
+                    SourceElement(dependency._2.source),
+                    SourceElement(dependency._2.target),
+                    disallowed._2.kind.asVespucciString,
+                    disallowed._2.context
                 ).asInstanceOf[IViolation]
         }
-
         violations
     }
 
 
+    lazy val violations: LazyView[IViolation] =
+        source_target_violations ∪ violations_expected
+
     lazy val violations_expected: LazyView[IViolation] = {
         new DefaultLazyView[IViolation]
     }
-
-
-    lazy val violations: LazyView[IViolation] =
-        violations_not_allowed ∪
-                violations_local_incoming ∪
-                violations_global_incoming ∪
-                violations_local_outgoing ∪
-                violations_global_outgoing ∪
-                violations_expected
 
 
     lazy val violation_summary: LazyView[IViolationSummary] =
@@ -945,112 +727,48 @@ class UnissonDatabase(bc: Database)
 
     lazy val unmodeled_elements: LazyView[ICodeElement] = (
             (
-            Π(SourceElement(_: ObjectType))(bc.declared_types) ∪
-                    Π(SourceElement(_: FieldDeclaration))(bc.declared_fields) ∪
-                    Π(SourceElement(_: MethodDeclaration))(bc.declared_methods)
-            ) ∖
-            δ(Π((_: (IEnsemble, SourceElement[AnyRef]))._2)(leaf_ensemble_elements))
+                    Π(SourceElement(_: ObjectType))(bc.declared_types) ∪
+                            Π(SourceElement(_: FieldDeclaration))(bc.declared_fields) ∪
+                            Π(SourceElement(_: MethodDeclaration))(bc.declared_methods)
+                    ) ∖
+                    δ(Π((_: (IEnsemble, SourceElement[AnyRef]))._2)(leaf_ensemble_elements))
             ).asInstanceOf[LazyView[ICodeElement]]
 
 
-    lazy val ensembleDependencies : MaterializedView[(IEnsemble, IEnsemble, Int)] =
-    {
+    lazy val ensembleDependencies: MaterializedView[(IEnsemble, IEnsemble, Int)] = {
         val sourceEnsembleDependencies = (
                 (
                         leaf_ensemble_elements,
-                        (_:(IEnsemble, SourceElement[AnyRef]))._2.element
+                        (_: (IEnsemble, SourceElement[AnyRef]))._2.element
                         ) ⋈
                         (
-                                (_:(DependencyKind, Dependency[AnyRef, AnyRef]))._2.source,
+                                (_: (DependencyKind, Dependency[AnyRef, AnyRef]))._2.source,
                                 kind_and_dependency
                                 )
-                ){
-        (e1:(IEnsemble, SourceElement[AnyRef]), e2:(DependencyKind, Dependency[AnyRef, AnyRef])) =>
-            (e1._1, e2._2)
+                ) {
+            (e1: (IEnsemble, SourceElement[AnyRef]), e2: (DependencyKind, Dependency[AnyRef, AnyRef])) =>
+                (e1._1, e2._2)
         }
         val targetEnsembleDependencies = (
-            (
-                    leaf_ensemble_elements,
-                    (_:(IEnsemble, SourceElement[AnyRef]))._2.element
-                    ) ⋈
-                    (
-                            (_:(IEnsemble, Dependency[AnyRef, AnyRef]))._2.target,
-                            sourceEnsembleDependencies
-                            )
-            ){
-        (e1:(IEnsemble, SourceElement[AnyRef]), e2:(IEnsemble, Dependency[AnyRef, AnyRef])) =>
-            (e2._1, e1._1, e2._2)
+                (
+                        leaf_ensemble_elements,
+                        (_: (IEnsemble, SourceElement[AnyRef]))._2.element
+                        ) ⋈
+                        (
+                                (_: (IEnsemble, Dependency[AnyRef, AnyRef]))._2.target,
+                                sourceEnsembleDependencies
+                                )
+                ) {
+            (e1: (IEnsemble, SourceElement[AnyRef]), e2: (IEnsemble, Dependency[AnyRef, AnyRef])) =>
+                (e2._1, e1._1, e2._2)
         }
         val leafDependencies = γ(targetEnsembleDependencies,
-            (v: (IEnsemble, IEnsemble,Dependency[AnyRef, AnyRef]) ) => (v._1, v._2),
-            Count[(IEnsemble, IEnsemble,Dependency[AnyRef, AnyRef])](),
+            (v: (IEnsemble, IEnsemble, Dependency[AnyRef, AnyRef])) => (v._1, v._2),
+            Count[(IEnsemble, IEnsemble, Dependency[AnyRef, AnyRef])](),
             (elem: (IEnsemble, IEnsemble), count: Int) => (elem._1, elem._2, count)
         )
         leafDependencies
     }
-    
-    /**
-     * all source elements that match the source ensembles in a given view of constraints
-     */
-    def sourcesByConstraint(constraints: LazyView[NormalizedConstraint]) = (
-            (
-                    constraints,
-                    (_: NormalizedConstraint).source
-                    ) ⋈(
-                    (_: (IEnsemble, SourceElement[AnyRef]))._1,
-                    leaf_ensemble_elements
-                    )
-            ) {
-        (con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e
-    }
-
-    /**
-     * all source elements that match the target ensembles in a given view of constraints
-     */
-    def targetsByConstraint(constraints: LazyView[NormalizedConstraint]) = (
-            (
-                    constraints,
-                    (_: NormalizedConstraint).target
-                    ) ⋈(
-                    (_: (IEnsemble, SourceElement[AnyRef]))._1,
-                    leaf_ensemble_elements
-                    )
-            ) {
-        (con: NormalizedConstraint, e: (IEnsemble, SourceElement[AnyRef])) => e
-    }
-
-    /**
-     * all dependencies that conform to the given constraints' kinds
-     */
-    def dependenciesByConstraintKind(constraints: LazyView[NormalizedConstraint]): LazyView[(Dependency[AnyRef, AnyRef], NormalizedConstraint)] = (
-            (
-                    kind_and_dependency,
-                    (_: (DependencyKind, Dependency[AnyRef, AnyRef]))._1
-                    ) ⋈(
-                    (_: NormalizedConstraint).kind,
-                    constraints
-                    )
-            ) {
-        (d: (DependencyKind, Dependency[AnyRef, AnyRef]),
-         c: NormalizedConstraint) =>
-            (d._2, c)
-    }
-
-    /**
-     * convert dependencies to Violation objects
-     */
-    def dependenciesAsViolations(violatingDependencies: LazyView[(Dependency[AnyRef, AnyRef], NormalizedConstraint)]) = Π[(Dependency[AnyRef, AnyRef], NormalizedConstraint), IViolation] {
-        t: (Dependency[AnyRef, AnyRef], NormalizedConstraint) =>
-            new Violation(
-                t._2.origin,
-                t._2.source,
-                t._2.target,
-                SourceElement(t._1.source),
-                SourceElement(t._1.target),
-                t._2.kind.asVespucciString,
-                t._2.context
-            )
-    }(violatingDependencies)
 
     def addModel(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
@@ -1081,14 +799,14 @@ class UnissonDatabase(bc: Database)
             (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
         )
         ) {
-            top_level_local_ensembles -= (ensemble, oldModel.getName)
+            top_level_local_ensembles -=(ensemble, oldModel.getName)
         }
         // remove old constraints
         for (constraint <- oldModel.getConstraints.filterNot(
             (c: IConstraint) => newModel.getConstraints.exists(_ == c)
         )
         ) {
-            top_level_local_constraints -= (constraint, oldModel.getName)
+            top_level_local_constraints -=(constraint, oldModel.getName)
         }
 
 
@@ -1108,7 +826,7 @@ class UnissonDatabase(bc: Database)
             (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
         )
         ) {
-            top_level_local_ensembles += (ensemble, newModel.getName)
+            top_level_local_ensembles +=(ensemble, newModel.getName)
         }
 
         // add new Constraints
@@ -1116,7 +834,7 @@ class UnissonDatabase(bc: Database)
             (c: IConstraint) => oldModel.getConstraints.exists(_ == c)
         )
         ) {
-            top_level_local_constraints += (constraint, newModel.getName)
+            top_level_local_constraints +=(constraint, newModel.getName)
         }
     }
 
