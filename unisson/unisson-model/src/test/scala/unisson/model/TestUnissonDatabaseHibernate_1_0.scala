@@ -56,8 +56,8 @@ class TestUnissonDatabaseHibernate_1_0
                             Seq(ObjectType("cirrus/hibernate/Session")),
                             VoidType(),
                             ACC_PUBLIC.mask,
-                            false,
-                            false
+                            isDeprecated = false,
+                            isSynthetic = false
                         ))
                         ),
                 (deprecatedPersistenceLifecycleCallbacks,
@@ -67,8 +67,8 @@ class TestUnissonDatabaseHibernate_1_0
                             Seq(ObjectType("cirrus/hibernate/Session")),
                             VoidType(),
                             ACC_PUBLIC.mask,
-                            false,
-                            false
+                            isDeprecated = false,
+                            isSynthetic = false
                         ))
                         ),
                 (deprecatedPersistenceLifecycleCallbacks,
@@ -78,8 +78,8 @@ class TestUnissonDatabaseHibernate_1_0
                             Seq(ObjectType("cirrus/hibernate/Session")),
                             VoidType(),
                             ACC_PUBLIC.mask,
-                            false,
-                            false
+                            isDeprecated = false,
+                            isSynthetic = false
                         ))
                         ),
                 (deprecatedPersistenceLifecycleCallbacks,
@@ -89,8 +89,8 @@ class TestUnissonDatabaseHibernate_1_0
                             Seq(),
                             VoidType(),
                             ACC_PUBLIC.mask,
-                            false,
-                            false
+                            isDeprecated = false,
+                            isSynthetic = false
                         ))
                         ),
                 (deprecatedPersistenceMarkerInterface, SourceElement(ObjectType("cirrus/hibernate/Persistent")))
@@ -136,8 +136,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ArrayType(1, ObjectType("java/lang/Object")), ObjectType("java/lang/Object"), ObjectType("java/io/Serializable"), ObjectType("cirrus/hibernate/impl/SessionImplementor")),
                     ObjectType("java/lang/Object"),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -152,8 +152,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ArrayType(1, ObjectType("java/lang/Object")), ObjectType("java/lang/Object"), ObjectType("java/io/Serializable"), ObjectType("cirrus/hibernate/impl/SessionImplementor")),
                     ObjectType("java/lang/Object"),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -161,8 +161,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("cirrus/hibernate/Session")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy"),
@@ -176,8 +176,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/lang/Object")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -192,8 +192,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/lang/Object")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -201,8 +201,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("cirrus/hibernate/Session")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy"),
@@ -216,8 +216,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/util/List"), IntegerType()),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -232,8 +232,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/util/List"), IntegerType()),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -248,8 +248,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/util/List"), IntegerType()),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -257,8 +257,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("cirrus/hibernate/Session")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy"),
@@ -272,8 +272,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/util/List"), IntegerType()),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -281,8 +281,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("cirrus/hibernate/Session")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy"),
@@ -296,8 +296,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -312,8 +312,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -321,8 +321,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy"),
@@ -336,8 +336,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/lang/Object"), ObjectType("java/io/Serializable")),
                     ObjectType("java/io/Serializable"),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
@@ -352,8 +352,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("java/lang/Object"), ObjectType("java/io/Serializable")),
                     ObjectType("java/io/Serializable"),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/PersistentLifecycle"),
@@ -361,8 +361,8 @@ class TestUnissonDatabaseHibernate_1_0
                     Seq(ObjectType("cirrus/hibernate/Session")),
                     VoidType(),
                     0,
-                    false,
-                    false
+                    isDeprecated = false,
+                    isSynthetic = false
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy")

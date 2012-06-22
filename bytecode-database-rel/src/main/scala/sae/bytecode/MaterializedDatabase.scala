@@ -68,7 +68,7 @@ class MaterializedDatabase(private val db: BytecodeDatabase)
 
     lazy val handled_exceptions: QueryResult[ExceptionHandler] = db.handled_exceptions
 
-    val thrown_exceptions: LazyView[throws] = db.thrown_exceptions
+    val thrown_exceptions: QueryResult[throws] = db.thrown_exceptions
 
     val exception_handlers: QueryResult[ExceptionHandler] = db.exception_handlers
 
