@@ -24,7 +24,7 @@ class TestUnissonDatabaseHibernate_1_0
 {
 
 
-    import Ordering._
+    import UnissonOrdering._
     import sae.collections.Conversions._
 
     @Test

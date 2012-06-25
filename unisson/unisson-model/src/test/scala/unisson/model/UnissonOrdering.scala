@@ -11,7 +11,7 @@ import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeEle
  * Time: 16:51
  *
  */
-object Ordering
+object UnissonOrdering
 {
 
     implicit def violationSummaryOrdering(implicit
