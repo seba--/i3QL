@@ -3,7 +3,6 @@ package unisson.model.kinds
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.Test
 import unisson.model.kinds.primitive._
-import unisson.model.kinds.group._
 
 
 /**
@@ -18,7 +17,7 @@ class TestKindResolver
 {
 
     @Test
-    def testAllKind {
+    def testAllKind() {
         val parser = new KindParser()
         KindResolver(parser.parse("all").get) should be(
             Set(
@@ -42,7 +41,7 @@ class TestKindResolver
     }
 
     @Test
-    def testCallsKind {
+    def testCallsKind() {
         val parser = new KindParser()
         KindResolver(parser.parse("calls").get) should be(
             Set(
@@ -55,7 +54,7 @@ class TestKindResolver
     }
 
     @Test
-    def testCreateKind {
+    def testCreateKind() {
         val parser = new KindParser()
         KindResolver(parser.parse("create").get) should be(
             Set(CreateKind)
@@ -63,7 +62,7 @@ class TestKindResolver
     }
 
     @Test
-    def testUnionOfTwoKinds {
+    def testUnionOfTwoKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("extends, implements").get) should be(
             Set(ExtendsKind, ImplementsKind)
@@ -71,7 +70,7 @@ class TestKindResolver
     }
 
     @Test
-    def testDoubleUnionOfKinds {
+    def testDoubleUnionOfKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("extends, implements, subtype").get) should be(
             Set(ExtendsKind, ImplementsKind)
@@ -79,7 +78,7 @@ class TestKindResolver
     }
 
     @Test
-    def testUnionOfManyKinds {
+    def testUnionOfManyKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("extends, implements, create, calls").get) should be(
             Set(
@@ -95,7 +94,7 @@ class TestKindResolver
     }
 
     @Test
-    def testNotKinds {
+    def testNotKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("!calls").get) should be(
             Set(
@@ -115,14 +114,14 @@ class TestKindResolver
     }
 
     @Test
-    def testTwoNotsInUnion {
+    def testTwoNotsInUnion() {
         val parser = new KindParser()
         KindResolver(parser.parse("!calls, !subtype").get) should be
         (KindResolver(parser.parse("all").get))
     }
 
     @Test
-    def testDifferenceKinds {
+    def testDifferenceKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("all \\ calls").get) should be(
             Set(
@@ -142,7 +141,7 @@ class TestKindResolver
     }
 
     @Test
-    def testDifferenceInUnionOfTwoKinds {
+    def testDifferenceInUnionOfTwoKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("calls \\ invoke_virtual, subtype").get) should be(
             Set(
@@ -156,7 +155,7 @@ class TestKindResolver
     }
 
     @Test
-    def testDifferenceInUnionOfManyKinds {
+    def testDifferenceInUnionOfManyKinds() {
         val parser = new KindParser()
         KindResolver(parser.parse("calls \\ invoke_virtual, create, subtype \\ implements").get) should be(
             Set(

@@ -23,7 +23,7 @@ class TestUnissonDatabaseKinds
         extends ShouldMatchers
 {
 
-    import Ordering._
+    import UnissonOrdering._
 
 
     @Test

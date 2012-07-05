@@ -21,7 +21,7 @@ class TestUnissonDatabaseUpdates
         extends ShouldMatchers
 {
 
-    import Ordering._
+    import UnissonOrdering._
 
     @Test
     def testGlobalModelQueryChange() {

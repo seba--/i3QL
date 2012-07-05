@@ -20,7 +20,7 @@ import sae.collections.{Table, QueryResult}
  *
  */
 class UnissonDataflowDatabase(bc: Database, val dataFlowEvaluator: DataFlowEvaluator)
-        extends UnissonDatabase(bc)
+        extends UnissonDatabase(bc) with IUnissonArchitectureModelDatabase
 {
 
     import sae.syntax.RelationalAlgebraSyntax._

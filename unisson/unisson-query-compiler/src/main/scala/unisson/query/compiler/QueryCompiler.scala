@@ -8,6 +8,7 @@ import sae.collections.EmptyResult
 import unisson.query.parser.QueryParser
 import java.lang.IllegalArgumentException
 import unisson.query.UnissonQuery
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *

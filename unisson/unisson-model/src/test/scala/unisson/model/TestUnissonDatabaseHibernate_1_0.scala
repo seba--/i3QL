@@ -10,7 +10,7 @@ import de.tud.cs.st.bat.constants.ACC_PUBLIC
 import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.bat.{ArrayType, IntegerType, VoidType, ObjectType}
 import sae.collections.QueryResult
-import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation}
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolationSummary, IViolation}
 
 /**
  *
@@ -33,7 +33,7 @@ class TestUnissonDatabaseHibernate_1_0
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
-        val elements: QueryResult[(IEnsemble, SourceElement[AnyRef])] = db.leaf_ensemble_elements
+        val elements: QueryResult[(IEnsemble, ICodeElement)] = db.ensemble_elements
 
         val deprecatedPersistenceMarkerInterface = Ensemble("DeprecatedPersistenceMarkerInterface", "class_with_members('cirrus.hibernate','Persistent')")
         val deprecatedPersistenceLifecycleCallbacks = Ensemble("DeprecatedPersistenceLifecycleCallbacks", "class_with_members('cirrus.hibernate','PersistentLifecycle')")

@@ -10,7 +10,7 @@ import sae.bytecode.model.dependencies.{`extends`}
 import sae.bytecode.model.instructions.{putfield, push, invokespecial}
 import sae.bytecode.{BytecodeDatabase}
 import de.tud.cs.st.vespucci.model.{IEnsemble}
-import de.tud.cs.st.vespucci.interfaces.{IViolation}
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
 import sae.bytecode.model._
 
 /**
@@ -24,7 +24,7 @@ class TestUnissonDatabaseViolations
         extends ShouldMatchers
 {
 
-    import Ordering._
+    import UnissonOrdering._
 
     @Test
     def testEnsembleElements() {
@@ -46,8 +46,8 @@ class TestUnissonDatabaseViolations
         val global = GlobalArchitectureModel(ensembles)
         val model = ArchitectureModel(ensembles, constraints, "test")
 
-        val result: QueryResult[(IEnsemble, SourceElement[AnyRef])] = Conversions
-                .lazyViewToResult(db.leaf_ensemble_elements)
+        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
+                .lazyViewToResult(db.ensemble_elements)
 
         db.addModel(model)
         db.addGlobalModel(global)

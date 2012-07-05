@@ -9,7 +9,7 @@ import sae.bytecode.model.FieldDeclaration
 import unisson.query.code_model.SourceElement
 import org.junit.Test
 import de.tud.cs.st.vespucci.model.IEnsemble
-import de.tud.cs.st.vespucci.interfaces.IViolation
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
 
 /**
  *
@@ -22,7 +22,7 @@ class TestUnissonDatabaseNesting
         extends ShouldMatchers
 {
 
-    import Ordering._
+    import UnissonOrdering._
 
     @Test
     def testEnsembleElementsForNesting() {
@@ -35,8 +35,8 @@ class TestUnissonDatabaseNesting
 
         val globalModel = GlobalArchitectureModel(Set(ensembleA))
 
-        val result: QueryResult[(IEnsemble, SourceElement[AnyRef])] = Conversions
-                .lazyViewToResult(db.leaf_ensemble_elements)
+        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
+                .lazyViewToResult(db.ensemble_elements)
 
         db.addGlobalModel(globalModel)
 
