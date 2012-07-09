@@ -15,9 +15,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Add all ensembles and constraints in the <code>model</code> to a concern identified to the models name.
-     * TODO: rename to addConcern
      */
-    def addModel(model: IArchitectureModel) {
+    def addConcern(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
         addEnsemblesToConcern(model.getEnsembles)(model.getName)
         addConstraintsToConcern(model.getConstraints)(model.getName)
@@ -25,9 +24,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Remove all ensembles and constraints in the <code>model</code> from the concern identified to the models name.
-     * TODO: rename to removeConcern
      */
-    def removeModel(model: IArchitectureModel) {
+    def removeConcern(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
         removeEnsemblesFromConcern(model.getEnsembles)(model.getName)
         removeConstraintsFromConcern(model.getConstraints)(model.getName)
@@ -35,9 +33,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Update all ensembles and constraints in the <code>oldModel</code> to the values in the <code>newModel</code>.
-     * TODO: rename to updateConcern
      */
-    def updateModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
+    def updateConcern(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
         import scala.collection.JavaConversions._
 
         val oldEnsembles = oldModel.getEnsembles
@@ -86,9 +83,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Add all ensembles in the <code>model</code> and their children to the global list of defined ensembles.
-     * TODO: rename to addRepository
      */
-    def addGlobalModel(model: IArchitectureModel) {
+    def setRepository(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
         for (ensemble <- model.getEnsembles) {
             addEnsemble(ensemble)
@@ -97,9 +93,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Remove all ensembles in the <code>model</code> and their children to the global list of defined ensembles.
-     * TODO: rename to removeRepository
      */
-    def removeGlobalModel(model: IArchitectureModel) {
+    def unsetRepository(model: IArchitectureModel) {
         import scala.collection.JavaConversions._
 
         for (ensemble <- model.getEnsembles) {
@@ -109,9 +104,8 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
 
     /**
      * Update all ensembles in the <code>model</code> and their children to the global list of defined ensembles.
-     * TODO: rename to updateRepository
      */
-    def updateGlobalModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
+    def updateRepository(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
         import scala.collection.JavaConversions._
 
         // remove old Ensembles

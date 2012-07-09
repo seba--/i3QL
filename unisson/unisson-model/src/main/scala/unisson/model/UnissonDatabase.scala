@@ -812,7 +812,7 @@ class UnissonDatabase(val bc: Database)
             leafDependencies
         }
 
-        def addModel(model: IArchitectureModel) {
+        def addConcern(model: IArchitectureModel) {
             import scala.collection.JavaConversions._
 
             for (ensemble <- model.getEnsembles) {
@@ -823,7 +823,7 @@ class UnissonDatabase(val bc: Database)
             }
         }
 
-        def removeModel(model: IArchitectureModel) {
+        def removeConcern(model: IArchitectureModel) {
             import scala.collection.JavaConversions._
 
             for (ensemble <- model.getEnsembles) {
@@ -834,7 +834,7 @@ class UnissonDatabase(val bc: Database)
             }
         }
 
-        def updateModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
+        def updateConcern(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
             import scala.collection.JavaConversions._
             // remove old Ensembles
             for (ensemble <- oldModel.getEnsembles.filterNot(
@@ -880,7 +880,7 @@ class UnissonDatabase(val bc: Database)
             }
         }
 
-        def addGlobalModel(model: IArchitectureModel) {
+        def setRepository(model: IArchitectureModel) {
             import scala.collection.JavaConversions._
 
             for (ensemble <- model.getEnsembles) {
@@ -888,7 +888,7 @@ class UnissonDatabase(val bc: Database)
             }
         }
 
-        def removeGlobalModel(model: IArchitectureModel) {
+        def unsetRepository(model: IArchitectureModel) {
             import scala.collection.JavaConversions._
 
             for (ensemble <- model.getEnsembles) {
@@ -896,7 +896,7 @@ class UnissonDatabase(val bc: Database)
             }
         }
 
-        def updateGlobalModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
+        def updateRepository(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
             import scala.collection.JavaConversions._
 
             // remove old Ensembles

@@ -47,10 +47,10 @@ class TestUnissonDatabaseHibernate_1_2_3
         val ensembles = Set(Actions, UtilitiesAndExceptions, Empty)
         val emptyToExceptions = GlobalOutgoingConstraint("all", Actions, Empty)
         val constraints = Set(emptyToExceptions)
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "Actions.sad")
-        db.addGlobalModel(global)
-        db.addModel(model)
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "Actions.sad")
+        db.setRepository(global)
+        db.addConcern(model)
 
         val queryResult: QueryResult[IViolation] = db.violations
 
@@ -235,8 +235,8 @@ class TestUnissonDatabaseHibernate_1_2_3
         val UtilitiesAndExceptions = Ensemble("UtilitiesAndExceptions", "derived", Utilities, Exceptions)
 
         val ensembles = Set(Actions, UtilitiesAndExceptions)
-        val global = GlobalArchitectureModel(ensembles)
-        db.addGlobalModel(global)
+        val global = Repository(ensembles)
+        db.setRepository(global)
 
         /*
         val queryResult: QueryResult[(IEnsemble, IEnsemble, Int)] = db.ensembleDependencies

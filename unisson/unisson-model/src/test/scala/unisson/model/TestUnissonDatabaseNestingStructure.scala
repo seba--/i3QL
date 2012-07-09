@@ -504,12 +504,12 @@ class TestUnissonDatabaseNestingStructure
         val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
         val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
 
-        val globalModel = GlobalArchitectureModel(Set(ensembleA))
+        val globalModel = Repository(Set(ensembleA))
 
         val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
                 .lazyViewToResult(db.ensemble_elements)
 
-        db.addGlobalModel(globalModel)
+        db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
         val a2 = ObjectType("test/A2")
@@ -553,13 +553,13 @@ class TestUnissonDatabaseNestingStructure
 
         val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModel = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC), Set(constraint), "test")
+        val globalModel = Repository(Set(ensembleA, ensembleB, ensembleC))
+        val model = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(globalModel)
+        db.addConcern(model)
+        db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
         val a2 = ObjectType("test/A2")
@@ -620,13 +620,13 @@ class TestUnissonDatabaseNestingStructure
 
         val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModel = GlobalArchitectureModel(Set(ensembleA, ensembleB))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB), Set(constraint), "test")
+        val globalModel = Repository(Set(ensembleA, ensembleB))
+        val model = Concern(Set(ensembleA, ensembleB), Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(globalModel)
+        db.addConcern(model)
+        db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
         val a2 = ObjectType("test/A2")
@@ -667,13 +667,13 @@ class TestUnissonDatabaseNestingStructure
 
         val constraint = GlobalIncomingConstraint("field_type", EmptyEnsemble, ensembleA)
 
-        val globalModel = GlobalArchitectureModel(Set(ensembleA, ensembleB))
-        val model = ArchitectureModel(Set(ensembleA), Set(constraint), "test")
+        val globalModel = Repository(Set(ensembleA, ensembleB))
+        val model = Concern(Set(ensembleA), Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(globalModel)
+        db.addConcern(model)
+        db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
         val a2 = ObjectType("test/A2")

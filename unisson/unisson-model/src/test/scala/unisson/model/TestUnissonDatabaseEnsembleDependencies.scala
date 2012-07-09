@@ -20,7 +20,7 @@ import sae.bytecode.model._
  * Time: 16:22
  *
  */
-class TestUnissonDatabaseViolations
+class TestUnissonDatabaseEnsembleDependencies
         extends ShouldMatchers
 {
 

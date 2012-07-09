@@ -35,7 +35,7 @@ class TestUnissonDatabaseEnsembleElements
         val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
                 .lazyViewToResult(db.ensemble_elements)
 
-        db.addGlobalModel(GlobalArchitectureModel(ensembles))
+        db.setRepository(Repository(ensembles))
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -67,7 +67,7 @@ class TestUnissonDatabaseEnsembleElements
         val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
                 .lazyViewToResult(db.ensemble_elements)
 
-        db.addGlobalModel(GlobalArchitectureModel(ensembles))
+        db.setRepository(Repository(ensembles))
 
         val a = ObjectType("test/A")
         val a1 = ObjectType("test/A1")
@@ -106,7 +106,7 @@ class TestUnissonDatabaseEnsembleElements
         val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
                 .lazyViewToResult(db.ensemble_elements)
 
-        db.addGlobalModel(GlobalArchitectureModel(ensembles))
+        db.setRepository(Repository(ensembles))
 
         val a = ObjectType("test.a/A")
         val a1 = ObjectType("test.a/A1")

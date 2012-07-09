@@ -40,9 +40,9 @@ class TestUnissonDatabaseHibernate_1_0
         val deprecatedLegacy = Ensemble("DeprecatedLegacy", "derived", deprecatedPersistenceMarkerInterface, deprecatedPersistenceLifecycleCallbacks)
 
         val ensembles = Set(deprecatedLegacy)
-        val global = GlobalArchitectureModel(ensembles)
+        val global = Repository(ensembles)
 
-        db.addGlobalModel(global)
+        db.setRepository(global)
 
         bc.addArchiveAsResource("hibernate-1.0.jar")
 
@@ -114,10 +114,10 @@ class TestUnissonDatabaseHibernate_1_0
         val ensembles = Set(deprecatedLegacy, usersOfPersistenceLifecycleCallbacks)
         val emptyToDeprecatedPersistenceLifecycleCallbacks = GlobalIncomingConstraint("all", EmptyEnsemble, deprecatedLegacy)
         val constraints = Set(emptyToDeprecatedPersistenceLifecycleCallbacks)
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "DeprecatedLegacy")
-        db.addGlobalModel(global)
-        db.addModel(model)
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "DeprecatedLegacy")
+        db.setRepository(global)
+        db.addConcern(model)
 
         val queryResult: QueryResult[IViolation] = db.violations
 
@@ -390,10 +390,10 @@ class TestUnissonDatabaseHibernate_1_0
         val CollectionActionsToActionInterface = IncomingOutgoingConstraint("implements", CollectionActions, ActionInterface)
 
         val constraints = Set(EmptyToActions, ActionsToEmpty, ScalarActionsToActionInterface, CollectionActionsToActionInterface)
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "actions.sad")
-        db.addGlobalModel(global)
-        db.addModel(model)
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "actions.sad")
+        db.setRepository(global)
+        db.addConcern(model)
 
         val queryResult: QueryResult[IViolationSummary] = db.violation_summary
 
@@ -458,10 +458,10 @@ class TestUnissonDatabaseHibernate_1_0
             CollectionActionsToActionInterface,
             ConcreteSessionToActions
         )
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "actions.sad")
-        db.addGlobalModel(global)
-        db.addModel(model)
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "actions.sad")
+        db.setRepository(global)
+        db.addConcern(model)
 
         val queryResult: QueryResult[IViolationSummary] = db.violation_summary
 

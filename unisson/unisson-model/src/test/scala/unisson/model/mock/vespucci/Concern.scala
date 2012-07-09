@@ -11,7 +11,7 @@ import collection.JavaConversions
  * Time: 16:25
  *
  */
-case class ArchitectureModel(ensembles: Set[_ <:IEnsemble], constraints : Set[_ <: IConstraint], name : String)
+case class Concern(ensembles: Set[_ <:IEnsemble], constraints : Set[_ <: IConstraint], name : String)
         extends IArchitectureModel
 {
     def getEnsembles = JavaConversions.setAsJavaSet(ensembles).asInstanceOf[java.util.Set[IEnsemble]]

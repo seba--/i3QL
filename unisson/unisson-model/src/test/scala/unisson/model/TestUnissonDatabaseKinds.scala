@@ -42,13 +42,13 @@ class TestUnissonDatabaseKinds
             c
         )
 
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "test")
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val obj = ObjectType("java/lang/Object")
         val superConst = MethodReference(obj, "<init>", Nil, VoidType())
@@ -102,13 +102,13 @@ class TestUnissonDatabaseKinds
             constraint
         )
 
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "test")
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -155,13 +155,13 @@ class TestUnissonDatabaseKinds
         val constraintBToA = IncomingConstraint("all", ensembleB, ensembleA)
         val constraintDToA = IncomingConstraint("field_type", ensembleD, ensembleA)
 
-        val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "test")
+        val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
+        val model = Concern(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -223,15 +223,15 @@ class TestUnissonDatabaseKinds
         val constraintBToA = IncomingConstraint("subtype", ensembleB, ensembleA)
         val constraintDToA = IncomingConstraint("signature", ensembleD, ensembleA)
 
-        val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val modelA = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextBToA")
-        val modelB = ArchitectureModel(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextDToA")
+        val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
+        val modelA = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextBToA")
+        val modelB = Concern(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextDToA")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(modelA)
-        db.addModel(modelB)
-        db.addGlobalModel(global)
+        db.addConcern(modelA)
+        db.addConcern(modelB)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -293,13 +293,13 @@ class TestUnissonDatabaseKinds
         val constraint = GlobalIncomingConstraint("all", ensembleB, ensembleA)
         val constraints = Set(constraint)
 
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "test")
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -346,13 +346,13 @@ class TestUnissonDatabaseKinds
         val constraintBToA = GlobalIncomingConstraint("all", ensembleB, ensembleA)
         val constraintDToA = GlobalIncomingConstraint("field_type", ensembleD, ensembleA)
 
-        val global = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "test")
+        val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
+        val model = Concern(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -412,14 +412,14 @@ class TestUnissonDatabaseKinds
 
         val constraint = OutgoingConstraint("all", ensembleA, ensembleB)
 
-        val global = GlobalArchitectureModel(ensembles)
+        val global = Repository(ensembles)
 
-        val model = ArchitectureModel(ensembles, Set(constraint), "test")
+        val model = Concern(ensembles, Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -464,14 +464,14 @@ class TestUnissonDatabaseKinds
 
         val constraint = OutgoingConstraint("all", ensembleA, ensembleB)
 
-        val global = GlobalArchitectureModel(ensembles)
+        val global = Repository(ensembles)
 
-        val model = ArchitectureModel(ensembles, Set(constraint), "test")
+        val model = Concern(ensembles, Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -517,13 +517,13 @@ class TestUnissonDatabaseKinds
         val constraint = GlobalOutgoingConstraint("all", ensembleA, ensembleB)
         val constraints = Set(constraint)
 
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "test")
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")

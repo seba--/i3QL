@@ -35,13 +35,13 @@ class TestUnissonDatabaseUpdates
 
         val constraint = IncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModelV0 = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, Set(constraint), "test")
+        val globalModelV0 = Repository(ensembles)
+        val model = Concern(ensembles, Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(globalModelV0)
+        db.addConcern(model)
+        db.setRepository(globalModelV0)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -76,11 +76,11 @@ class TestUnissonDatabaseUpdates
         )
 
         val EnsembleCV1 = Ensemble("C", "class_with_members('test','D')")
-        val globalModelV1 = GlobalArchitectureModel(
+        val globalModelV1 = Repository(
             ensembleA, ensembleB, EnsembleCV1
         )
 
-        db.updateGlobalModel(globalModelV0, globalModelV1)
+        db.updateRepository(globalModelV0, globalModelV1)
 
         result.asList.sorted should be(
             List(
@@ -97,11 +97,11 @@ class TestUnissonDatabaseUpdates
         )
 
         val EnsembleCV2 = Ensemble("C", "class_with_members('test','E')")
-        val globalModelV2 = GlobalArchitectureModel(
+        val globalModelV2 = Repository(
             ensembleA, ensembleB, EnsembleCV2
         )
 
-        db.updateGlobalModel(globalModelV1, globalModelV2)
+        db.updateRepository(globalModelV1, globalModelV2)
 
         result.asList.sorted should be(Nil)
     }
@@ -118,13 +118,13 @@ class TestUnissonDatabaseUpdates
 
         val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModelV0 = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC))
-        val model = ArchitectureModel(Set(ensembleA, ensembleB), Set(constraint), "test")
+        val globalModelV0 = Repository(Set(ensembleA, ensembleB, ensembleC))
+        val model = Concern(Set(ensembleA, ensembleB), Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(globalModelV0)
+        db.addConcern(model)
+        db.setRepository(globalModelV0)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -156,9 +156,9 @@ class TestUnissonDatabaseUpdates
             )
         )
 
-        val globalModelV1 = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
+        val globalModelV1 = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
 
-        db.updateGlobalModel(globalModelV0, globalModelV1)
+        db.updateRepository(globalModelV0, globalModelV1)
 
         result.asList.sorted should be(
             List(
@@ -183,9 +183,9 @@ class TestUnissonDatabaseUpdates
             )
         )
 
-        val globalModelV2 = GlobalArchitectureModel(Set(ensembleA, ensembleB))
+        val globalModelV2 = Repository(Set(ensembleA, ensembleB))
 
-        db.updateGlobalModel(globalModelV1, globalModelV2)
+        db.updateRepository(globalModelV1, globalModelV2)
 
         result.asList.sorted should be(Nil)
     }
@@ -203,13 +203,13 @@ class TestUnissonDatabaseUpdates
 
         val constraintV0 = IncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModel = GlobalArchitectureModel(ensembles)
-        val modelV0 = ArchitectureModel(ensembles, Set(constraintV0), "test")
+        val globalModel = Repository(ensembles)
+        val modelV0 = Concern(ensembles, Set(constraintV0), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(modelV0)
-        db.addGlobalModel(globalModel)
+        db.addConcern(modelV0)
+        db.setRepository(globalModel)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -238,9 +238,9 @@ class TestUnissonDatabaseUpdates
         )
 
         val constraintV1 = IncomingConstraint("field_type", ensembleC, ensembleA)
-        val modelV1 = ArchitectureModel(ensembles, Set(constraintV1), "test")
+        val modelV1 = Concern(ensembles, Set(constraintV1), "test")
 
-        db.updateModel(modelV0, modelV1)
+        db.updateConcern(modelV0, modelV1)
 
         result.asList.sorted should be(
             List(
@@ -256,9 +256,9 @@ class TestUnissonDatabaseUpdates
             )
         )
 
-        val modelV2 = ArchitectureModel(ensembles, Set(), "test")
+        val modelV2 = Concern(ensembles, Set(), "test")
 
-        db.updateModel(modelV1, modelV2)
+        db.updateConcern(modelV1, modelV2)
 
         result.asList.sorted should be(Nil)
 
@@ -276,13 +276,13 @@ class TestUnissonDatabaseUpdates
         val ensembleD = Ensemble("D", "class_with_members('test','D')")
         val constraint = IncomingConstraint("field_type", ensembleB, ensembleA)
 
-        val globalModel = GlobalArchitectureModel(Set(ensembleA, ensembleB, ensembleC, ensembleD))
-        val modelV0 = ArchitectureModel(Set(ensembleA, ensembleB, ensembleC), Set(constraint), "test")
+        val globalModel = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
+        val modelV0 = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraint), "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(modelV0)
-        db.addGlobalModel(globalModel)
+        db.addConcern(modelV0)
+        db.setRepository(globalModel)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
@@ -315,9 +315,9 @@ class TestUnissonDatabaseUpdates
             )
         )
 
-        val modelV1 = ArchitectureModel(Set(ensembleA, ensembleB, ensembleD), Set(constraint), "test")
+        val modelV1 = Concern(Set(ensembleA, ensembleB, ensembleD), Set(constraint), "test")
 
-        db.updateModel(modelV0, modelV1)
+        db.updateConcern(modelV0, modelV1)
 
         result.asList.sorted should be(
             List(
@@ -333,9 +333,9 @@ class TestUnissonDatabaseUpdates
             )
         )
 
-        val modelV2 = ArchitectureModel(Set(ensembleA, ensembleB), Set(constraint), "test")
+        val modelV2 = Concern(Set(ensembleA, ensembleB), Set(constraint), "test")
 
-        db.updateModel(modelV1, modelV2)
+        db.updateConcern(modelV1, modelV2)
 
         result.asList.sorted should be(Nil)
 
