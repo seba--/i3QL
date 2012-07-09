@@ -26,7 +26,7 @@ class CompiledEnsembleElementsView(bc: Database,
 
     initialized = true
 
-    ensembleView.addObserver(ensembleObserver)
+
 
     def lazy_foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
         ensembleView.lazy_foreach((e:IEnsemble) =>
@@ -102,6 +102,8 @@ class CompiledEnsembleElementsView(bc: Database,
             }
         }
     }
+
+    ensembleView.addObserver(ensembleObserver)
 
     class ElementObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
     {

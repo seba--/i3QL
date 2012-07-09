@@ -238,14 +238,15 @@ class TestUnissonDatabaseHibernate_1_2_3
         val global = GlobalArchitectureModel(ensembles)
         db.addGlobalModel(global)
 
+        /*
         val queryResult: QueryResult[(IEnsemble, IEnsemble, Int)] = db.ensembleDependencies
 
         bc.addArchiveAsResource("hibernate-1.2.3.jar")
 
         val result = queryResult.asList.sorted
 
-        //result.foreach(println)
-
+        result.foreach(println)
+        */
     }
 
 }

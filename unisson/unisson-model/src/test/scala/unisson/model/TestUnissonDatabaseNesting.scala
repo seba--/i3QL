@@ -7,7 +7,7 @@ import sae.collections.{Conversions, QueryResult}
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.FieldDeclaration
 import unisson.query.code_model.SourceElement
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import de.tud.cs.st.vespucci.model.IEnsemble
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
 
@@ -24,6 +24,299 @@ class TestUnissonDatabaseNesting
 
     import UnissonOrdering._
 
+    @Test
+    def testAddEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleA,
+                ensembleA1,
+                ensembleA2
+            )
+        )
+    }
+
+    @Test
+    def testRemoveEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        db.removeEnsemble(ensembleA)
+
+        db.ensembles.asList.sorted should be( Nil )
+    }
+
+    @Test
+    def testUpdateAddEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2, ensembleA1)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleA2,
+                ensembleA3
+            )
+        )
+    }
+
+    @Test
+    def testUpdateRemoveEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1
+            )
+        )
+    }
+
+    @Test
+    def testUpdateAddRemoveEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA3)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleA3
+            )
+        )
+    }
+
+    @Test
+    def testUpdateChangeEnsembleChildrenQuery() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2Old = Ensemble("A2", "class_with_members('test','A2Old')")
+        val ensembleA2New = Ensemble("A2", "class_with_members('test','A2New')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2Old)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA2New)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleA2New
+            )
+        )
+    }
+
+    @Test
+    def testAddTwoLevelsOfEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleA,
+                ensembleA1,
+                ensembleA2,
+                ensembleA21,
+                ensembleA22
+            )
+        )
+    }
+
+    @Test
+    def testRemoveTwoLevelsOfEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        db.removeEnsemble(ensembleA)
+
+        db.ensembles.asList.sorted should be( Nil )
+    }
+
+    @Test
+    def testUpdateAddAtFirstAndSecondLevelOfEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleA23 = Ensemble("A2.3", "class_with_members('test','A2.3')")
+        val ensembleA2Update = Ensemble("A2", "derived", ensembleA23, ensembleA22, ensembleA21)
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2Update, ensembleA1)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleAUpdate,
+                ensembleA21,
+                ensembleA22,
+                ensembleA23,
+                ensembleA3
+            )
+        )
+    }
+
+    @Test
+    def testUpdateRemoveTwoLevelsOfEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1
+            )
+        )
+    }
+
+    @Test
+    def testUpdateAddRemoveTwoLevelsOfEnsembleChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA3)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleA3
+            )
+        )
+    }
+
+    @Test
+    def testUpdateChangeTwoLevelsOfEnsembleChildrenQuery() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2Old = Ensemble("A2", "class_with_members('test','A2Old')")
+        val ensembleA2New = Ensemble("A2", "class_with_members('test','A2New')")
+
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2Old)
+
+        db.addEnsemble(ensembleA)
+
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA2New)
+
+        db.updateEnsemble(ensembleA, ensembleAUpdate)
+
+        db.ensembles.asList.sorted should be(
+            List(
+                ensembleAUpdate,
+                ensembleA1,
+                ensembleA2New
+            )
+        )
+    }
+
+
+    @Ignore
     @Test
     def testEnsembleElementsForNesting() {
         val bc = new BytecodeDatabase()
@@ -68,6 +361,7 @@ class TestUnissonDatabaseNesting
         )
     }
 
+    @Ignore
     @Test
     def testGlobalIncomingToParentWithViolation() {
         val bc = new BytecodeDatabase()
@@ -132,6 +426,7 @@ class TestUnissonDatabaseNesting
         )
     }
 
+    @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithoutViolation() {
         val bc = new BytecodeDatabase()
@@ -178,6 +473,7 @@ class TestUnissonDatabaseNesting
 
     }
 
+    @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithViolations() {
         val bc = new BytecodeDatabase()
