@@ -59,7 +59,7 @@ class TestUnissonDatabaseNesting
 
         db.removeEnsemble(ensembleA)
 
-        db.ensembles.asList.sorted should be( Nil )
+        db.ensembles.asList.sorted should be(Nil)
     }
 
     @Test
@@ -163,6 +163,9 @@ class TestUnissonDatabaseNesting
                 ensembleA2New
             )
         )
+
+        val resultingEnsembleA2 = db.ensembles.asList.find(_.getName == "A2").get
+        resultingEnsembleA2.getQuery should be("class_with_members('test','A2New')")
     }
 
     @Test
@@ -204,7 +207,7 @@ class TestUnissonDatabaseNesting
 
         db.removeEnsemble(ensembleA)
 
-        db.ensembles.asList.sorted should be( Nil )
+        db.ensembles.asList.sorted should be(Nil)
     }
 
     @Test
@@ -307,7 +310,7 @@ class TestUnissonDatabaseNesting
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA1Old = Ensemble("A1", "class_with_members('test','A1Old')")
+        val ensembleA1Old = Ensemble("A1", "class_with_members('test','A1.Old')")
         val ensembleA21Old = Ensemble("A2.1", "class_with_members('test','A2.1.Old')")
         val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
         val ensembleA2 = Ensemble("A2", "derived", ensembleA21Old, ensembleA22)
@@ -316,7 +319,7 @@ class TestUnissonDatabaseNesting
 
         db.addEnsemble(ensembleA)
 
-        val ensembleA1New = Ensemble("A1", "class_with_members('test','A1New')")
+        val ensembleA1New = Ensemble("A1", "class_with_members('test','A1.New')")
         val ensembleA21New = Ensemble("A2.1", "class_with_members('test','A2.1.New')")
         val ensembleA2Update = Ensemble("A2", "derived", ensembleA21New, ensembleA22)
         val ensembleAUpdate = Ensemble("A", "derived", ensembleA1New, ensembleA2Update)
@@ -332,6 +335,14 @@ class TestUnissonDatabaseNesting
                 ensembleA22
             )
         )
+
+        val resultingEnsembleA1 = db.ensembles.asList.find(_.getName == "A1").get
+        resultingEnsembleA1.getQuery should be("class_with_members('test','A1.New')")
+
+
+        val resultingEnsembleA21 = db.ensembles.asList.find(_.getName == "A2.1").get
+        resultingEnsembleA21.getQuery should be("class_with_members('test','A2.1.New')")
+
     }
 
 
