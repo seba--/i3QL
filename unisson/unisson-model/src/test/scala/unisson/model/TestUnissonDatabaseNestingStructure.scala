@@ -15,21 +15,25 @@ import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
  *
  * Author: Ralf Mitschke
  * Date: 18.01.12
+ *
  * Test the addition/removal/update of ensembles w.r.t. to the correct structure as follows:
  * 1. db.ensembles must be the flattened representation of all ensembles
  * 2. db.children must contain correct parent-child relations
  * 3. db.descendants must contain correct descendant relations (i.e., all transitive children)
  */
-class TestUnissonDatabaseNesting
+class TestUnissonDatabaseNestingStructure
         extends ShouldMatchers
 {
 
     import UnissonOrdering._
 
+    import sae.collections.Conversions._
+
     @Test
     def testAddEnsembleChildren() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
+
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
         val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
@@ -42,6 +46,20 @@ class TestUnissonDatabaseNesting
                 ensembleA,
                 ensembleA1,
                 ensembleA2
+            )
+        )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleA, ensembleA1),
+                (ensembleA, ensembleA2)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleA, ensembleA1),
+                (ensembleA, ensembleA2)
             )
         )
     }
@@ -60,6 +78,10 @@ class TestUnissonDatabaseNesting
         db.removeEnsemble(ensembleA)
 
         db.ensembles.asList.sorted should be(Nil)
+
+        db.children.asList.sorted should be( Nil)
+
+        db.descendants.asList.sorted should be( Nil)
     }
 
     @Test
@@ -87,6 +109,22 @@ class TestUnissonDatabaseNesting
                 ensembleA3
             )
         )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA2),
+                (ensembleAUpdate, ensembleA3)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA2),
+                (ensembleAUpdate, ensembleA3)
+            )
+        )
     }
 
     @Test
@@ -109,6 +147,18 @@ class TestUnissonDatabaseNesting
             List(
                 ensembleAUpdate,
                 ensembleA1
+            )
+        )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1)
             )
         )
     }
@@ -135,6 +185,20 @@ class TestUnissonDatabaseNesting
                 ensembleAUpdate,
                 ensembleA1,
                 ensembleA3
+            )
+        )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA3)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA3)
             )
         )
     }
@@ -190,6 +254,26 @@ class TestUnissonDatabaseNesting
                 ensembleA22
             )
         )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleA, ensembleA1),
+                (ensembleA, ensembleA2),
+                (ensembleA2, ensembleA21),
+                (ensembleA2, ensembleA22)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleA, ensembleA1),
+                (ensembleA, ensembleA2),
+                (ensembleA, ensembleA21),
+                (ensembleA, ensembleA22),
+                (ensembleA2, ensembleA21),
+                (ensembleA2, ensembleA22)
+            )
+        )
     }
 
     @Test
@@ -208,6 +292,10 @@ class TestUnissonDatabaseNesting
         db.removeEnsemble(ensembleA)
 
         db.ensembles.asList.sorted should be(Nil)
+
+        db.children.asList.sorted should be( Nil)
+
+        db.descendants.asList.sorted should be( Nil)
     }
 
     @Test
@@ -242,6 +330,31 @@ class TestUnissonDatabaseNesting
                 ensembleA3
             )
         )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleAUpdate, ensembleA3),
+                (ensembleA2Update, ensembleA21),
+                (ensembleA2Update, ensembleA22),
+                (ensembleA2Update, ensembleA23)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA1),
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleAUpdate, ensembleA21),
+                (ensembleAUpdate, ensembleA22),
+                (ensembleAUpdate, ensembleA23),
+                (ensembleAUpdate, ensembleA3),
+                (ensembleA2Update, ensembleA21),
+                (ensembleA2Update, ensembleA22),
+                (ensembleA2Update, ensembleA23)
+            )
+        )
     }
 
     @Test
@@ -268,6 +381,21 @@ class TestUnissonDatabaseNesting
                 ensembleAUpdate,
                 ensembleA2Update,
                 ensembleA22
+            )
+        )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleA2Update, ensembleA22)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleAUpdate, ensembleA22),
+                (ensembleA2Update, ensembleA22)
             )
         )
     }
@@ -301,6 +429,26 @@ class TestUnissonDatabaseNesting
                 ensembleA22,
                 ensembleA23,
                 ensembleA3
+            )
+        )
+
+        db.children.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleAUpdate, ensembleA3),
+                (ensembleA2Update, ensembleA22),
+                (ensembleA2Update, ensembleA23)
+            )
+        )
+
+        db.descendants.asList.sorted should be(
+            List(
+                (ensembleAUpdate, ensembleA2Update),
+                (ensembleAUpdate, ensembleA22),
+                (ensembleAUpdate, ensembleA23),
+                (ensembleAUpdate, ensembleA3),
+                (ensembleA2Update, ensembleA22),
+                (ensembleA2Update, ensembleA23)
             )
         )
     }
