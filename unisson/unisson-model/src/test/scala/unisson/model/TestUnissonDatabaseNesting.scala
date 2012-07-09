@@ -15,8 +15,10 @@ import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
  *
  * Author: Ralf Mitschke
  * Date: 18.01.12
- * Time: 12:05
- *
+ * Test the addition/removal/update of ensembles w.r.t. to the correct structure as follows:
+ * 1. db.ensembles must be the flattened representation of all ensembles
+ * 2. db.children must contain correct parent-child relations
+ * 3. db.descendants must contain correct descendant relations (i.e., all transitive children)
  */
 class TestUnissonDatabaseNesting
         extends ShouldMatchers
@@ -230,7 +232,7 @@ class TestUnissonDatabaseNesting
             List(
                 ensembleAUpdate,
                 ensembleA1,
-                ensembleAUpdate,
+                ensembleA2Update,
                 ensembleA21,
                 ensembleA22,
                 ensembleA23,
@@ -240,77 +242,94 @@ class TestUnissonDatabaseNesting
     }
 
     @Test
-    def testUpdateRemoveTwoLevelsOfEnsembleChildren() {
+    def testUpdateRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
 
         val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
 
         db.addEnsemble(ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1)
+        val ensembleA2Update = Ensemble("A2", "derived", ensembleA22)
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA2Update)
 
         db.updateEnsemble(ensembleA, ensembleAUpdate)
 
         db.ensembles.asList.sorted should be(
             List(
                 ensembleAUpdate,
-                ensembleA1
+                ensembleA2Update,
+                ensembleA22
             )
         )
     }
 
     @Test
-    def testUpdateAddRemoveTwoLevelsOfEnsembleChildren() {
+    def testUpdateAddRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
         val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
 
         val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
 
         db.addEnsemble(ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA3)
+        val ensembleA23 = Ensemble("A2.3", "class_with_members('test','A2.3')")
+        val ensembleA2Update = Ensemble("A2", "derived", ensembleA23, ensembleA22)
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2Update)
 
         db.updateEnsemble(ensembleA, ensembleAUpdate)
 
         db.ensembles.asList.sorted should be(
             List(
                 ensembleAUpdate,
-                ensembleA1,
+                ensembleA2Update,
+                ensembleA22,
+                ensembleA23,
                 ensembleA3
             )
         )
     }
 
     @Test
-    def testUpdateChangeTwoLevelsOfEnsembleChildrenQuery() {
+    def testUpdateChangeAtFirstAndSecondLevelOfEnsembleChildrenQuery() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2Old = Ensemble("A2", "class_with_members('test','A2Old')")
-        val ensembleA2New = Ensemble("A2", "class_with_members('test','A2New')")
+        val ensembleA1Old = Ensemble("A1", "class_with_members('test','A1Old')")
+        val ensembleA21Old = Ensemble("A2.1", "class_with_members('test','A2.1.Old')")
+        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble("A2", "derived", ensembleA21Old, ensembleA22)
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2Old)
+        val ensembleA = Ensemble("A", "derived", ensembleA1Old, ensembleA2)
 
         db.addEnsemble(ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA2New)
+        val ensembleA1New = Ensemble("A1", "class_with_members('test','A1New')")
+        val ensembleA21New = Ensemble("A2.1", "class_with_members('test','A2.1.New')")
+        val ensembleA2Update = Ensemble("A2", "derived", ensembleA21New, ensembleA22)
+        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1New, ensembleA2Update)
 
         db.updateEnsemble(ensembleA, ensembleAUpdate)
 
         db.ensembles.asList.sorted should be(
             List(
                 ensembleAUpdate,
-                ensembleA1,
-                ensembleA2New
+                ensembleA1New,
+                ensembleA2Update,
+                ensembleA21New,
+                ensembleA22
             )
         )
     }
