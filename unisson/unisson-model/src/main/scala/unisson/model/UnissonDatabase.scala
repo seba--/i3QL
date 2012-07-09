@@ -1,14 +1,20 @@
 package unisson.model
 
-import kinds.KindParser
-import kinds.primitive.{CreateKind, ClassCastKind}
+import kinds.{DependencyKind, KindParser}
+import kinds.primitive._
 import unisson.query.code_model.SourceElement
 import sae.bytecode.Database
 import sae.collections.Table
-import sae.{DefaultLazyView, MaterializedView, LazyView}
+import sae.LazyView
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
-import sae.bytecode.model.dependencies.{class_cast, Dependency}
+import sae.bytecode.model.dependencies._
+import de.tud.cs.st.bat.ArrayType
+import sae.bytecode.model.dependencies.parameter
+import sae.bytecode.model.dependencies.return_type
+import sae.bytecode.model.dependencies.read_field
+import sae.bytecode.model.dependencies.write_field
+import sae.bytecode.model.dependencies.field_type
 
 
 /**
@@ -32,7 +38,6 @@ class UnissonDatabase(val bc: Database)
 
     import sae.syntax.RelationalAlgebraSyntax._
 
-    import UnissonUtilities._
 
     import scala.collection.JavaConversions._
 
@@ -49,7 +54,7 @@ class UnissonDatabase(val bc: Database)
     /**
      * A list of all descendants of an ensemble in the form (parent,child)
      */
-    lazy val children  = new Table[(IEnsemble, IEnsemble)]
+    lazy val children = new Table[(IEnsemble, IEnsemble)]
 
     /**
      * The table of concerns and their ensembles
@@ -73,9 +78,8 @@ class UnissonDatabase(val bc: Database)
      */
     def addEnsemble(ensemble: IEnsemble) {
         ensembles += ensemble
-        for (child <- ensemble.getInnerEnsembles)
-        {
-            children += (ensemble, child)
+        for (child <- ensemble.getInnerEnsembles) {
+            children +=(ensemble, child)
             addEnsemble(child)
         }
     }
@@ -87,8 +91,7 @@ class UnissonDatabase(val bc: Database)
      */
     def addEnsembleToConcern(ensemble: IEnsemble)(implicit concern: String) {
         concern_ensembles +=(ensemble, concern)
-        for (child <- ensemble.getInnerEnsembles)
-        {
+        for (child <- ensemble.getInnerEnsembles) {
             addEnsembleToConcern(child)
         }
     }
@@ -107,9 +110,8 @@ class UnissonDatabase(val bc: Database)
      */
     def removeEnsemble(ensemble: IEnsemble) {
         ensembles -= ensemble
-        for (child <- ensemble.getInnerEnsembles)
-        {
-            children -= (ensemble, child)
+        for (child <- ensemble.getInnerEnsembles) {
+            children -=(ensemble, child)
             removeEnsemble(child)
         }
     }
@@ -121,8 +123,7 @@ class UnissonDatabase(val bc: Database)
      */
     def removeEnsembleFromConcern(ensemble: IEnsemble)(implicit concern: String) {
         concern_ensembles -=(ensemble, concern)
-        for (child <- ensemble.getInnerEnsembles)
-        {
+        for (child <- ensemble.getInnerEnsembles) {
             removeEnsembleFromConcern(child)
         }
     }
@@ -142,28 +143,26 @@ class UnissonDatabase(val bc: Database)
      */
     def updateEnsemble(oldE: IEnsemble, newE: IEnsemble) {
         ensembles.update(oldE, newE)
-        val oldEChildren : scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
-        val newEChildren : scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
+        val oldEChildren: scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
+        val newEChildren: scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
 
         val (retainedOldChildren, notExistingChildren) = oldEChildren.partition(
-            (e:IEnsemble) => newEChildren.exists((_:IEnsemble).getName == e.getName)
+            (e: IEnsemble) => newEChildren.exists((_: IEnsemble).getName == e.getName)
         )
         val (retainedNewChildren, newChildren) = newEChildren.partition(
-            (e:IEnsemble) => oldEChildren.exists((_:IEnsemble).getName == e.getName)
+            (e: IEnsemble) => oldEChildren.exists((_: IEnsemble).getName == e.getName)
         )
 
         // remove old children
-        for (child <- notExistingChildren)
-        {
+        for (child <- notExistingChildren) {
             // remove the parent-child relation
-            children -= (oldE, child)
+            children -=(oldE, child)
             // transitively remove all further children
             removeEnsemble(child)
         }
         // update existing children
         for (oldChild <- retainedOldChildren;
-               newChild <- retainedNewChildren.find( _.getName == oldChild.getName))
-        {
+             newChild <- retainedNewChildren.find(_.getName == oldChild.getName)) {
             //val newChild = retainedNewChildren.find( _.getName == oldChild.getName).get
             // update the parent child relation
             children.update((oldE, oldChild), (newE, newChild))
@@ -171,10 +170,9 @@ class UnissonDatabase(val bc: Database)
             updateEnsemble(oldChild, newChild)
         }
         // add new children
-        for (child <- newChildren)
-        {
+        for (child <- newChildren) {
             // add the parent-child relation
-            children += (newE, child)
+            children +=(newE, child)
             // transitively add all further children
             addEnsemble(child)
         }
@@ -190,97 +188,78 @@ class UnissonDatabase(val bc: Database)
         concern_ensembles.update((oldE, concern), (newE, concern))
     }
 
+    private def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: LazyView[_ <: Dependency[S, T]],
+                                                                      kind: DependencyKind
+                                                                             ): LazyView[(ICodeElement, ICodeElement, String)] = {
+        Π[Dependency[S, T], (ICodeElement, ICodeElement, String)](
+            (d: Dependency[S, T]) => (SourceElement(d.source), SourceElement(d.target), kind.asVespucciString)
+        )(dependencyView.asInstanceOf[LazyView[Dependency[S, T]]])
+    }
+
     /**
      * A list of dependencies between the source code elements
      */
-    lazy val source_code_dependencies = new DefaultLazyView[(ICodeElement, ICodeElement, String)]
- /*   Π {
-        (d: class_cast) => (d.source, d.target, ClassCastKind.asVespucciString)
-    }(bc.class_cast) ∪
-            Π {
-                (d: Dependency[AnyRef, AnyRef]) => (d._1, d._2 , CreateKind.asVespucciString)
-            }(bc.create.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (ExtendsKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.`extends`.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (ImplementsKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.implements.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.inner_classes.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (InvokeInterfaceKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.invoke_interface
-                    .asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (InvokeSpecialKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.invoke_special.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (InvokeStaticKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.invoke_static.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (InvokeVirtualKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.invoke_virtual.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (ThrowsKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.thrown_exceptions
-                    .asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-            Π {
-                (ParameterKind, (_: Dependency[AnyRef, AnyRef]))
-            }(
+    lazy val source_code_dependencies = dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
+            dependencyView_to_tupleView(bc.implements, ImplementsKind) ∪
+            dependencyView_to_tupleView(bc.invoke_interface, InvokeInterfaceKind) ∪
+            dependencyView_to_tupleView(bc.invoke_special, InvokeSpecialKind) ∪
+            dependencyView_to_tupleView(bc.invoke_static, InvokeStaticKind) ∪
+            dependencyView_to_tupleView(bc.invoke_virtual, InvokeVirtualKind) ∪
+            dependencyView_to_tupleView(bc.create, CreateKind) ∪
+            dependencyView_to_tupleView(bc.class_cast, ClassCastKind) ∪
+            dependencyView_to_tupleView(bc.thrown_exceptions, ThrowsKind) ∪
+            dependencyView_to_tupleView(// parameter
                 σ(
-                    (v: parameter) => !(v.target.isBaseType || v.target.isVoidType)
+                    (v: parameter) => !(v.target.isBaseType)
                 )(
                     Π[parameter, parameter] {
-                        case (parameter(m, ArrayType(component))) => parameter(m, component);
+                        case (parameter(m, ArrayType(component))) => parameter(m, component)
                         case x => x
                     }(bc.parameter)
-                ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            ) ∪
-            Π {
-                (ReturnTypeKind, (_: Dependency[AnyRef, AnyRef]))
-            }(
+                ),
+                ParameterKind) ∪
+            dependencyView_to_tupleView(// return types
                 σ(
                     (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
                 )(
                     Π[return_type, return_type] {
-                        case (return_type(m, ArrayType(component))) => return_type(m, component);
+                        case (return_type(m, ArrayType(component))) => return_type(m, component)
                         case x => x
                     }(bc.return_type)
-                ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            ) ∪
-            Π {
-                (FieldTypeKind, (_: Dependency[AnyRef, AnyRef]))
-            }(
+                ),
+                ReturnTypeKind) ∪
+            dependencyView_to_tupleView(// field types
                 σ(
-                    (v: field_type) => !(v.target.isBaseType || v.target.isVoidType)
+                    (v: field_type) => !(v.target.isBaseType)
                 )(
                     Π[field_type, field_type] {
-                        case (field_type(m, ArrayType(component))) => field_type(m, component);
+                        case (field_type(m, ArrayType(component))) => field_type(m, component)
                         case x => x
                     }(bc.field_type)
-                ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            ) ∪
-            Π {
-                (ReadFieldKind, (_: Dependency[AnyRef, AnyRef]))
-            }(
+                ),
+                FieldTypeKind) ∪
+            dependencyView_to_tupleView(// read_field instructions
                 σ(
                     (v: read_field) => !(v.target.fieldType.isBaseType)
                 )(
                     // TODO what about arrays with component types of not allowed elements?
                     bc.read_field
-                ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            ) ∪
-            Π {
-                (WriteFieldKind, (_: Dependency[AnyRef, AnyRef]))
-            }(
+                ),
+                ReadFieldKind) ∪
+            dependencyView_to_tupleView(// write_field instructions
                 σ(
                     // TODO what about arrays with component types of not allowed elements?
                     (v: write_field) => !v.target.fieldType.isBaseType
-                )(bc.write_field).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-            )
-}*/
+                )(
+                    bc.write_field
+                ),
+                WriteFieldKind)
+    /*
+                // TODO instance of checks
+                Π {
+                    (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
+                }(bc.inner_classes.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
+    */
 
 
     /**
@@ -307,6 +286,7 @@ class UnissonDatabase(val bc: Database)
      * A list of violations summing up individual source code dependencies
      */
     def violation_summary = null
+
     /*
         private def normalized_constraint[T](v: (IConstraint, String)) : List[IConstraint] = {
             val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
