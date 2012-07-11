@@ -108,9 +108,9 @@ class TestUnissonDatabaseEnsembleElements
 
         db.setRepository(Repository(ensembles))
 
-        val a = ObjectType("test.a/A")
-        val a1 = ObjectType("test.a/A1")
-        val a2 = ObjectType("test.a/A2")
+        val a = ObjectType("test/a/A")
+        val a1 = ObjectType("test/a/A1")
+        val a2 = ObjectType("test/a/A2")
         val b = ObjectType("test/B")
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
