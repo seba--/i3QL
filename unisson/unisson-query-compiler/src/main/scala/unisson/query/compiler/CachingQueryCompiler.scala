@@ -14,18 +14,24 @@ import sae.{Observable, LazyView}
  * Time: 12:47
  *
  */
-class CachingQueryCompiler(db: Database)
-        extends QueryCompiler(db)
+class CachingQueryCompiler(val decoratee : QueryCompiler)
+        extends QueryCompiler
 {
-
     protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, LazyView[SourceElement[AnyRef]]] =
         new WeakHashMap[UnissonQuery, LazyView[SourceElement[AnyRef]]]()
 
-    override def compile(query: UnissonQuery): LazyView[SourceElement[AnyRef]] = {
+    val db = decoratee.db
+
+    val definitions = decoratee.definitions
+
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] =
+        decoratee.parseAndCompile(query)(this)
+
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] = {
         for (compiledQuery <- getChachedQuery(query)) {
             return compiledQuery
         }
-        val compiledQuery = super.compile(query)
+        val compiledQuery = decoratee.compile(query)(this)
         cachedQueries += {
             query -> compiledQuery
         }

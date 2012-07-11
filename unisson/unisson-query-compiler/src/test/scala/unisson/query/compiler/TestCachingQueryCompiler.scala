@@ -32,7 +32,8 @@ class TestCachingQueryCompiler
     def testReuseCachedPackageQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
 
 
         val viewA = compiler.compile(parser.parse("package('test')").get)
@@ -46,7 +47,9 @@ class TestCachingQueryCompiler
     def testDisposePackageQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
         compiler.compile(parser.parse("package('test')").get)
 
@@ -63,7 +66,9 @@ class TestCachingQueryCompiler
     def testKeepReusedSubQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
         compiler.compile(parser.parse("package('test')").get)
 
@@ -87,7 +92,9 @@ class TestCachingQueryCompiler
     def testKeepUsedQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
         val result: QueryResult[SourceElement[AnyRef]] = compiler
                 .compile(parser.parse("package('test') or package('other')").get)
@@ -112,7 +119,9 @@ class TestCachingQueryCompiler
     def testReuseOrQueryWithDifferentOrder() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
 
         val viewA = compiler.compile(parser.parse("package('test') or package('other')").get)
@@ -126,7 +135,9 @@ class TestCachingQueryCompiler
     def testReuseOfSubExpressionsInOrQueries() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
         // we use the parse but rely on the order here so the order is checked
         // prerequisite is that no two 'or' sub-trees are syntactically equal
@@ -188,7 +199,9 @@ class TestCachingQueryCompiler
     def testDisposeOrQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
         compiler.compile(parser.parse("package('test') or package('other')").get)
 
@@ -205,7 +218,9 @@ class TestCachingQueryCompiler
     def testDistinctTransitiveSuperTypeQueries() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
 
 
@@ -219,7 +234,9 @@ class TestCachingQueryCompiler
     def testDisposeTransitiveSuperTypeQuery() {
         val bc: Database = new BytecodeDatabase()
         val parser = new QueryParser()
-        val compiler = new CachingQueryCompiler(bc)
+        val baseCompiler = new BaseQueryCompiler(bc)
+        val compiler = new CachingQueryCompiler(baseCompiler)
+
 
 
 

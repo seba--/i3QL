@@ -1,14 +1,9 @@
 package unisson.query.compiler
 
-import unisson.query.ast._
 import sae.LazyView
-import sae.bytecode.Database
 import unisson.query.code_model.SourceElement
-import sae.collections.EmptyResult
-import unisson.query.parser.QueryParser
-import java.lang.IllegalArgumentException
 import unisson.query.UnissonQuery
-import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import sae.bytecode.Database
 
 /**
  *
@@ -16,43 +11,24 @@ import de.tud.cs.st.vespucci.interfaces.ICodeElement
  * Created: 31.08.11 09:17
  *
  */
-class QueryCompiler(val db: Database)
+trait QueryCompiler
 {
-    val definitions = new QueryDefinitions(db)
 
-    def parseAndCompile(query: String): LazyView[SourceElement[AnyRef]] = {
-        val parser = new QueryParser()
-        val result = parser.parse(query);
-        result match {
-            case parser.Failure(msg, next) => {
-                throw new IllegalArgumentException(msg + "\n" + next.pos.longString)
-            }
-            case parser.Success(queryAST, _) => compile(queryAST)
-        }
-    }
+    def db: Database
+
+
+    def definitions: QueryDefinitions
 
     /**
-     *
+     * parse and compile the query in one pass
      */
-    def compile(query: UnissonQuery): LazyView[SourceElement[AnyRef]] = {
-        import definitions._
-        query match {
-            case ClassSelectionQuery(pn, sn) => `class`(pn, sn)
-            case ClassQuery(classQuery) => `class`(compile(classQuery))
-            case ClassWithMembersQuery(ClassSelectionQuery(pn, sn)) => class_with_members(pn, sn)
-            case ClassWithMembersQuery(classQuery) => class_with_members(compile(classQuery))
-            case PackageQuery(pn) => `package`(pn)
-            case OrQuery(left, right) => compile(left) or compile(right)
-            case WithoutQuery(left, right) => compile(left) without compile(right)
-            case MethodQuery(classQuery, name,returnType,parameters @_*) => method(compile(classQuery), name, compile(returnType), parameters.map(compile):_*)
-            case FieldQuery(classQuery, name,fieldType) => field(compile(classQuery), name, compile(fieldType))
-            case TransitiveQuery(SuperTypeQuery(innerQuery)) => transitive_supertype(compile(innerQuery))
-            case SuperTypeQuery(innerQuery) => supertype(compile(innerQuery))
-            case TypeQuery(name) => typeQuery(name)
-            case EmptyQuery() => new EmptyResult[SourceElement[AnyRef]]()
-            case DerivedQuery() => new EmptyResult[SourceElement[AnyRef]]()
-            case _ => throw new IllegalArgumentException("Unknown query type: " + query)
-        }
-    }
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]]
+
+    /**
+     * compile a query from a given parse tree.
+     * Whenever the compiler descends in the parse tree the <code>decorator</code> is called.
+     * Thus  <code>decorator</code> provides a hook, for extending a recursive compilation process.
+     */
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]]
 
 }
