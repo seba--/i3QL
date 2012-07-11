@@ -15,6 +15,10 @@ import sae.bytecode.model.dependencies.return_type
 import sae.bytecode.model.dependencies.read_field
 import sae.bytecode.model.dependencies.write_field
 import sae.bytecode.model.dependencies.field_type
+import unisson.query.UnissonQuery
+import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
+import unisson.query.parser.QueryParser
+import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
 
 
 /**
@@ -47,6 +51,34 @@ class UnissonDatabase(val bc: Database)
     private val kindParser = new KindParser()
 
     /**
+     * Utility for parsing queries of an ensemble
+     */
+    private val queryParser = new QueryParser()
+
+    /**
+     * Returns the parsed query or an empty query if the query could not be parsed.
+     * In the later event, the error is logged in the database.
+     * Queries are normalized, such that an ensemble with a derived query, has a query equal to the queries of it's children
+     */
+    private def getNormalizedQuery(ensemble : IEnsemble) : UnissonQuery = {
+        val query = queryParser.parse(ensemble.getQuery) match {
+            case queryParser.Success(result, _) => result
+            case queryParser.Failure(msg, next) => {
+                errors += new IllegalArgumentException(msg + next.pos.longString)
+                EmptyQuery()
+            }
+        }
+        if (query.isSyntacticEqual(DerivedQuery())) {
+            val childrenQueries = ensemble.getInnerEnsembles.map(getNormalizedQuery)
+            childrenQueries.fold(EmptyQuery())(OrQuery(_,_))
+        }
+        else
+        {
+            query
+        }
+    }
+
+    /**
      * The table of all ensembles, including children
      */
     lazy val ensembles = new Table[IEnsemble]()
@@ -67,10 +99,19 @@ class UnissonDatabase(val bc: Database)
     lazy val concern_constraints = new Table[(IConstraint, String)]()
 
     /**
+     * The queries for each ensemble
+     */
+    lazy val ensemble_queries: LazyView[(IEnsemble, UnissonQuery)] =
+        Π( (e:IEnsemble) => (e,getNormalizedQuery(e)))(ensembles)
+
+    /**
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    lazy val ensemble_elements: LazyView[(IEnsemble, ICodeElement)] = new CompiledEnsembleElementsView(bc, ensembles)
+    lazy val ensemble_elements: LazyView[(IEnsemble, ICodeElement)] =
+        new CompiledEnsembleElementsView(bc, ensemble_queries)
+
+
 
 
     /**
@@ -922,7 +963,18 @@ class UnissonDatabase(val bc: Database)
                 }
         }
     */
+    /**
+     * A list of errors that occurred during database updates
+     */
+    lazy val errors = new Table[Exception]
 
+    /**
+     * Clear the list of errors from the database
+     */
+    def clear_errors() {
+        val oldErrors = errors.copy
+        oldErrors.foreach(errors -= _)
+    }
 }
 
 

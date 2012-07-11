@@ -239,4 +239,14 @@ trait IUnissonDatabase
      * A list of violations summing up individual source code dependencies
      */
     def violation_summary : LazyView[IViolationSummary]
+
+    /**
+     * A list of errors that occurred during database updates
+     */
+    def errors : LazyView[Exception]
+
+    /**
+     * Clear the list of errors from the database
+     */
+    def clear_errors()
 }

@@ -1,12 +1,14 @@
 package unisson.model
 
-import unisson.query.compiler.CachingQueryCompiler
+import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
 import unisson.query.parser.QueryParser
 import de.tud.cs.st.vespucci.model.IEnsemble
 import unisson.query.code_model.SourceElement
 import sae.{LazyView, Observer}
 import sae.bytecode.Database
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import sae.collections.Table
+import unisson.query.UnissonQuery
 
 /**
  *
@@ -16,96 +18,82 @@ import de.tud.cs.st.vespucci.interfaces.ICodeElement
  *
  */
 class CompiledEnsembleElementsView(bc: Database,
-                                   ensembleView: LazyView[IEnsemble])
+                                   ensembleQueries: LazyView[(IEnsemble,UnissonQuery)])
         extends LazyView[(IEnsemble, ICodeElement)]
 {
 
-    private val queryCompiler = new CachingQueryCompiler(bc)
-
-    private val queryParser = new QueryParser()
+    private val queryCompiler = new CachingQueryCompiler(new BaseQueryCompiler(bc))
 
     initialized = true
-
-
-
-    def lazy_foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
-        ensembleView.lazy_foreach((e:IEnsemble) =>
-                queryCompiler.parseAndCompile(e.getQuery).lazy_foreach[Unit](
-                    f(e, _)
-                )
-        )
-    }
 
     def lazyInitialize() {
         // should never be used
         throw new UnsupportedOperationException("lazyInitialize not supported for global_ensemble_elements")
     }
 
-    var elementObservers: Map[IEnsemble, ElementObserver] = Map.empty
+    def lazy_foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
+        ensembleQueries.lazy_foreach((entry:(IEnsemble,UnissonQuery)) =>
+                queryCompiler.compile(entry._2).lazy_foreach[Unit](
+                    (e:ICodeElement) => f((entry._1, e))
+                )
+        )
+    }
 
-    val ensembleObserver = new Observer[IEnsemble] {
-        def updated(oldV: IEnsemble, newV: IEnsemble) {
-            val oldQuery = queryParser.parse(oldV.getQuery).get
-            val newQuery = queryParser.parse(newV.getQuery).get
-            if (oldQuery.isSyntacticEqual(newQuery))
-                return
 
-            // remove old elements
-            val oldCompiledQuery = queryCompiler.compile(oldQuery)
-            oldCompiledQuery.lazy_foreach(
-                (e: SourceElement[AnyRef]) => element_removed((oldV, e))
-            )
-            for (oldObserver <- elementObservers.get(oldV)) {
-                oldCompiledQuery.removeObserver(oldObserver)
-            }
-            // dispose of obsolete views and observers
-            val oldObserver = elementObservers(oldV)
-            oldCompiledQuery.removeObserver(oldObserver)
-            elementObservers -= oldV
+    private var elementObservers: Map[IEnsemble, CompiledViewObserver] = Map.empty
 
-            queryCompiler.dispose(oldQuery)
 
-            // add new elements
-            val newCompiledQuery = queryCompiler.compile(newQuery)
-            newCompiledQuery.lazy_foreach(
-                (e: SourceElement[AnyRef]) => element_added((newV, e))
-            )
-            val newObserver = new ElementObserver(newV)
-            newCompiledQuery.addObserver(newObserver)
-            elementObservers += {
-                newV -> newObserver
-            }
-        }
-
-        def removed(v: IEnsemble) {
-            val oldQuery = queryParser.parse(v.getQuery).get
-            val compiledQuery = queryCompiler.compile(oldQuery)
-            compiledQuery.lazy_foreach(
-                (e: SourceElement[AnyRef]) => element_removed((v, e))
-            )
-            compiledQuery.removeObserver(elementObservers(v))
-            elementObservers -= v
-            // dispose of obsolete views
-            queryCompiler.dispose(oldQuery)
-        }
-
-        def added(v: IEnsemble) {
-            val compiledQuery = queryCompiler.parseAndCompile(v.getQuery)
-            compiledQuery.lazy_foreach(
-                (e: SourceElement[AnyRef]) => element_added((v, e))
-            )
-            val oo = new ElementObserver(v)
-
-            compiledQuery.addObserver(oo)
-            elementObservers += {
-                v -> oo
-            }
+    private def addCompiledQueryView(v:IEnsemble, view : LazyView[SourceElement[AnyRef]])
+    {
+        view.lazy_foreach(
+            (e: SourceElement[AnyRef]) => element_added((v, e))
+        )
+        val oo = new CompiledViewObserver(v)
+        view.addObserver(oo)
+        elementObservers += {
+            v -> oo
         }
     }
 
-    ensembleView.addObserver(ensembleObserver)
+    private def removeCompiledQueryView(v:IEnsemble, view : LazyView[SourceElement[AnyRef]])
+    {
+        view.lazy_foreach(
+            (e: SourceElement[AnyRef]) => element_removed((v, e))
+        )
+        // dispose of obsolete observers
+        view.removeObserver(elementObservers(v))
+        elementObservers -= v
+    }
 
-    class ElementObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
+    private val queryObservingCompiler = new Observer[(IEnsemble,UnissonQuery)] {
+
+
+        def added(v: (IEnsemble, UnissonQuery)) {
+            val compiledQuery = queryCompiler.compile(v._2)
+            addCompiledQueryView(v._1, compiledQuery)
+        }
+
+        def removed(v: (IEnsemble, UnissonQuery)) {
+            val compiledQuery = queryCompiler.compile(v._2)
+            removeCompiledQueryView(v._1, compiledQuery)
+            // dispose of obsolete views
+            queryCompiler.dispose(v._2)
+        }
+
+        def updated(oldV: (IEnsemble, UnissonQuery), newV: (IEnsemble, UnissonQuery)) {
+            removed(oldV)
+            added(newV)
+        }
+    }
+
+    ensembleQueries.addObserver(queryObservingCompiler)
+
+    /**
+     * This observer adds entries from a compiled view of source code elements.
+     * Since the ensemble is not contained as an information in the compiled view (i.e., they are only a set of code elements)
+     * there is one observer per ensemble.
+     */
+    class CompiledViewObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
     {
         def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
             element_updated((ensemble, oldV), (ensemble, newV))

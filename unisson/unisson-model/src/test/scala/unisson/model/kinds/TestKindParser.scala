@@ -19,83 +19,83 @@ class TestKindParser
 {
 
     @Test
-    def testAllKind {
+    def testAllKind() {
         val parser = new KindParser()
         (parser.parse("all").get) should be(AllKind)
     }
 
     @Test
-    def testCallsKind {
+    def testCallsKind() {
         val parser = new KindParser()
         (parser.parse("calls").get) should be(CallsKind)
     }
 
     @Test
-    def testCreateKind {
+    def testCreateKind() {
         val parser = new KindParser()
         (parser.parse("create").get) should be(CreateKind)
     }
 
     @Test
-    def testInvokeVirtualKind {
+    def testInvokeVirtualKind() {
         val parser = new KindParser()
         (parser.parse("invoke_virtual").get) should be(InvokeVirtualKind)
     }
 
 
     @Test
-    def testEmptyKind {
+    def testEmptyKind() {
         val parser = new KindParser()
         parser.parse("").successful should be(false)
     }
 
     @Test
-    def testBogusKind {
+    def testBogusKind() {
         val parser = new KindParser()
         parser.parse("bogus").successful should be(false)
     }
 
     @Test
-    def testUnionOfTwoKinds {
+    def testUnionOfTwoKinds() {
         val parser = new KindParser()
         (parser.parse("extends, implements").get) should be(Union(ExtendsKind, ImplementsKind))
     }
 
     @Test
-    def testUnionOfManyKinds {
+    def testUnionOfManyKinds() {
         val parser = new KindParser()
         (parser.parse("extends, implements, create, calls").get) should be
         (Union(ExtendsKind, Union(ImplementsKind, Union(CreateKind, CallsKind))))
     }
 
     @Test
-    def testNotKinds {
+    def testNotKinds() {
         val parser = new KindParser()
         (parser.parse("!calls").get) should be(Not(CallsKind))
     }
 
     @Test
-    def testNotInUnionOfManyKinds {
+    def testNotInUnionOfManyKinds() {
         val parser = new KindParser()
         (parser.parse("!extends, implements, !create, calls").get) should be
         (Union(Not(ExtendsKind), Union(ImplementsKind, Union(Not(CreateKind), CallsKind))))
     }
 
     @Test
-    def testDifferenceKinds {
+    def testDifferenceKinds() {
         val parser = new KindParser()
         (parser.parse("all \\ calls").get) should be(Difference(AllKind, CallsKind))
     }
 
     @Test
-    def testDifferenceInUnionOfTwoKinds {
+    def testDifferenceInUnionOfTwoKinds() {
         val parser = new KindParser()
         (parser.parse("calls \\ invoke_virtual, create").get) should be
         (Union(Difference(CallsKind, InvokeVirtualKind), CreateKind))
     }
 
     @Test
-    def testDifferenceInUnionOfManyKinds {
+    def testDifferenceInUnionOfManyKinds() {
         val parser = new KindParser()
         (parser.parse("calls \\ invoke_virtual, create, subtype \\ implements").get) should be
         (Union(Difference(CallsKind, InvokeVirtualKind), Union(ImplementsKind, Difference(SubtypeKind, ImplementsKind))))
