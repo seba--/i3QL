@@ -447,7 +447,7 @@ class TestUnissonDatabaseEnsembleDependencies
         db.ensemble_dependencies.asList.sorted should be(
             List(
                 (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a4), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
                 (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
                 (ensembleA1, ensembleA4, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
                 (ensembleA1, ensembleA5, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
