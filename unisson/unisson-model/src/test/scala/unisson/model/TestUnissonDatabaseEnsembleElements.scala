@@ -3,12 +3,11 @@ package unisson.model
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
-import sae.collections.{Conversions, QueryResult}
-import org.junit.Test
+import sae.collections.Conversions
+import org.junit.{Ignore, Test}
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.BytecodeDatabase
-import de.tud.cs.st.vespucci.model.IEnsemble
-import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import sae.bytecode.model.FieldDeclaration
 
 /**
  *
@@ -23,17 +22,16 @@ class TestUnissonDatabaseEnsembleElements
 
     import UnissonOrdering._
 
+    import Conversions._
+
     @Test
-    def testDirectEnsembleElements() {
+    def testClassTypeQuery() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class('test','A')")
         val ensembleB = Ensemble("B", "class('test','B')")
         val ensembles = Set(ensembleA, ensembleB)
-
-        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
-                .lazyViewToResult(db.ensemble_elements)
 
         db.setRepository(Repository(ensembles))
 
@@ -42,7 +40,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.declared_types.element_added(a)
         bc.declared_types.element_added(b)
 
-        result.asList.sorted should be(
+        db.ensemble_elements.asList.sorted should be(
             List(
                 (ensembleA, SourceElement(a)),
                 (ensembleB, SourceElement(b))
@@ -51,9 +49,8 @@ class TestUnissonDatabaseEnsembleElements
 
     }
 
-
     @Test
-    def testChildrenAndDerivedParentEnsembleElements() {
+    def testChildrenAndDerivedParentQuery() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
@@ -63,9 +60,6 @@ class TestUnissonDatabaseEnsembleElements
         val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
         val ensembleB = Ensemble("B", "class('test','B')")
         val ensembles = Set(ensembleA, ensembleB)
-
-        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
-                .lazyViewToResult(db.ensemble_elements)
 
         db.setRepository(Repository(ensembles))
 
@@ -78,7 +72,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.declared_types.element_added(a1)
         bc.declared_types.element_added(a2)
 
-        result.asList.sorted should be(
+        db.ensemble_elements.asList.sorted should be(
             List(
                 (ensembleA, SourceElement(a1)),
                 (ensembleA, SourceElement(a2)),
@@ -90,9 +84,8 @@ class TestUnissonDatabaseEnsembleElements
 
     }
 
-
     @Test
-    def testChildrenAndDirectParentEnsembleElements() {
+    def testChildrenAndDirectParentQuery() {
         val bc = new BytecodeDatabase()
         val db = new UnissonDatabase(bc)
 
@@ -102,9 +95,6 @@ class TestUnissonDatabaseEnsembleElements
         val ensembleA = Ensemble("A", "package('test.a')", ensembleA1, ensembleA2)
         val ensembleB = Ensemble("B", "class('test','B')")
         val ensembles = Set(ensembleA, ensembleB)
-
-        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
-                .lazyViewToResult(db.ensemble_elements)
 
         db.setRepository(Repository(ensembles))
 
@@ -117,7 +107,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.declared_types.element_added(a1)
         bc.declared_types.element_added(a2)
 
-        result.asList.sorted should be(
+        db.ensemble_elements.asList.sorted should be(
             List(
                 (ensembleA, SourceElement(a)),
                 (ensembleA, SourceElement(a1)),
@@ -125,6 +115,90 @@ class TestUnissonDatabaseEnsembleElements
                 (ensembleA1, SourceElement(a1)),
                 (ensembleA2, SourceElement(a2)),
                 (ensembleB, SourceElement(b))
+            )
+        )
+
+    }
+
+    @Test
+    def testClassWithMembersQuery() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembles = Set(ensembleA, ensembleB)
+
+
+        db.setRepository(Repository(ensembles))
+
+        val a = ObjectType("test/A")
+
+        val b = ObjectType("test/B")
+
+        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
+        val fieldRefAToB = FieldDeclaration(a, "fieldInA", b)
+
+        bc.declared_types.element_added(a)
+        bc.declared_types.element_added(b)
+
+        bc.declared_fields.element_added(fieldRefAToB)
+        bc.declared_fields.element_added(fieldRefBToA)
+
+
+
+        db.ensemble_elements.asList.sorted should be(
+            List(
+                (ensembleA, SourceElement(a)),
+                (ensembleA, SourceElement(fieldRefAToB)),
+                (ensembleB, SourceElement(b)),
+                (ensembleB, SourceElement(fieldRefBToA))
+
+            )
+        )
+
+    }
+
+    @Test
+    def testTwoLevelDerivedClassWithMembersQuery() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembles = Set(ensembleA, ensembleB)
+
+
+        db.setRepository(Repository(ensembles))
+
+        val a1 = ObjectType("test/A1")
+        val a2 = ObjectType("test/A2")
+        val b = ObjectType("test/B")
+
+        val fieldRefBToA1 = FieldDeclaration(b, "fieldA1InB", a1)
+        val fieldRefBToA2 = FieldDeclaration(b, "fieldA2InB", a2)
+
+        bc.declared_types.element_added(b)
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+
+        bc.declared_fields.element_added(fieldRefBToA1)
+        bc.declared_fields.element_added(fieldRefBToA2)
+
+
+        db.ensemble_elements.asList.sorted should be(
+            List(
+                (ensembleA, SourceElement(a1)),
+                (ensembleA, SourceElement(a2)),
+                (ensembleA1, SourceElement(a1)),
+                (ensembleA2, SourceElement(a2)),
+                (ensembleB, SourceElement(b)),
+                (ensembleB, SourceElement(fieldRefBToA1)),
+                (ensembleB, SourceElement(fieldRefBToA2))
             )
         )
 
