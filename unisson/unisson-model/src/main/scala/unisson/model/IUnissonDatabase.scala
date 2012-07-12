@@ -174,46 +174,53 @@ trait IUnissonDatabase
     /**
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      */
-    val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
-        {
-            val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
+    val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
+        val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
 
-            val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
+        val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
 
-            val sourceEnsembleDependencies = (
-                    (
-                            indexed_ensemble_element,
-                            (_: (IEnsemble, ICodeElement))._2
-                            ) ⋈
-                            (
-                                    (_: (ICodeElement, ICodeElement, String))._1,
-                                    indexed_source_code_dependencies
-                                    )
-                    ) {
-                (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
-                    (source, dependency)
-            }
-            val targetEnsembleDependencies = (
-                    (
-                            indexed_ensemble_element,
-                            (_: (IEnsemble, ICodeElement))._2
-                            ) ⋈
-                            (
-                                    (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
-                                    sourceEnsembleDependencies
-                                    )
-                    ) {
-                (target: (IEnsemble, ICodeElement),
-                 sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
-                    (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
-            }
-            val filteredSelfRef = σ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
-                (dependency._1 != dependency._2)
-            )(targetEnsembleDependencies)
-
-            // TODO filter children
-            filteredSelfRef
+        val sourceEnsembleDependencies = (
+                (
+                        indexed_ensemble_element,
+                        (_: (IEnsemble, ICodeElement))._2
+                        ) ⋈
+                        (
+                                (_: (ICodeElement, ICodeElement, String))._1,
+                                indexed_source_code_dependencies
+                                )
+                ) {
+            (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
+                (source, dependency)
         }
+        val targetEnsembleDependencies = (
+                (
+                        indexed_ensemble_element,
+                        (_: (IEnsemble, ICodeElement))._2
+                        ) ⋈
+                        (
+                                (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
+                                sourceEnsembleDependencies
+                                )
+                ) {
+            (target: (IEnsemble, ICodeElement),
+             sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
+                (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
+        }
+        val filteredSelfRef = σ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+            (dependency._1 != dependency._2)
+        )(targetEnsembleDependencies)
+
+
+        val descendantsAndAncestors = descendants ∪ Π((_: (IEnsemble, IEnsemble)).swap)(descendants)
+
+        (
+                filteredSelfRef,
+                (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry._2)
+                ) ⊳(
+                identity[(IEnsemble, IEnsemble)],
+                descendantsAndAncestors
+                )
+    }
 
 
     /**
