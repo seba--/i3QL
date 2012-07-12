@@ -1,7 +1,7 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import sae.{Observer, DefaultLazyView, LazyView}
+import sae.LazyView
 import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.operators.Conversions
@@ -149,8 +149,8 @@ trait IUnissonDatabase
      * A list naming all concerns
      */
     val concerns: LazyView[String] = δ(Π {
-            (_: (IEnsemble, String))._2
-        }(concern_ensembles))
+        (_: (IEnsemble, String))._2
+    }(concern_ensembles))
 
     /**
      * A list of dependencies between the source code elements
@@ -161,13 +161,12 @@ trait IUnissonDatabase
     /**
      * A list of all descendants of an ensemble in the form (parent,child)
      */
-    def children : LazyView[(IEnsemble, IEnsemble)]
+    def children: LazyView[(IEnsemble, IEnsemble)]
 
     /**
      * A list of all descendants of an ensemble in the form (ancestor,descendant)
      */
-    val descendants : LazyView[(IEnsemble, IEnsemble)] =
-    {
+    val descendants: LazyView[(IEnsemble, IEnsemble)] = {
         TC(children)(_._1, _._2)
     }
 
@@ -175,44 +174,46 @@ trait IUnissonDatabase
     /**
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      */
-    val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
-        val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
+    val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
+        {
+            val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
 
-        val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
+            val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
 
-        val sourceEnsembleDependencies = (
-                (
-                        indexed_ensemble_element,
-                        (_: (IEnsemble, ICodeElement))._2
-                        ) ⋈
-                        (
-                                (_: (ICodeElement, ICodeElement, String))._1,
-                                indexed_source_code_dependencies
-                                )
-                ) {
-            (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
-                (source, dependency)
-        }
-        val targetEnsembleDependencies = (
-                (
-                        indexed_ensemble_element,
-                        (_: (IEnsemble, ICodeElement))._2
-                        ) ⋈
-                        (
-                                (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
-                                sourceEnsembleDependencies
-                                )
-                ) {
-            (target: (IEnsemble, ICodeElement), sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
-                (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
-        }
-        val filteredSelfRef = σ(  (dependency :(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+            val sourceEnsembleDependencies = (
+                    (
+                            indexed_ensemble_element,
+                            (_: (IEnsemble, ICodeElement))._2
+                            ) ⋈
+                            (
+                                    (_: (ICodeElement, ICodeElement, String))._1,
+                                    indexed_source_code_dependencies
+                                    )
+                    ) {
+                (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
+                    (source, dependency)
+            }
+            val targetEnsembleDependencies = (
+                    (
+                            indexed_ensemble_element,
+                            (_: (IEnsemble, ICodeElement))._2
+                            ) ⋈
+                            (
+                                    (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
+                                    sourceEnsembleDependencies
+                                    )
+                    ) {
+                (target: (IEnsemble, ICodeElement),
+                 sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
+                    (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
+            }
+            val filteredSelfRef = σ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
                 (dependency._1 != dependency._2)
-        )(targetEnsembleDependencies)
+            )(targetEnsembleDependencies)
 
-        // TODO filter children
-        filteredSelfRef
-    }
+            // TODO filter children
+            filteredSelfRef
+        }
 
 
     /**
@@ -238,12 +239,12 @@ trait IUnissonDatabase
     /**
      * A list of violations summing up individual source code dependencies
      */
-    def violation_summary : LazyView[IViolationSummary]
+    def violation_summary: LazyView[IViolationSummary]
 
     /**
      * A list of errors that occurred during database updates
      */
-    def errors : LazyView[Exception]
+    def errors: LazyView[Exception]
 
     /**
      * Clear the list of errors from the database

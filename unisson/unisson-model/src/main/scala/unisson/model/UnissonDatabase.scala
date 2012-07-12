@@ -16,7 +16,6 @@ import sae.bytecode.model.dependencies.read_field
 import sae.bytecode.model.dependencies.write_field
 import sae.bytecode.model.dependencies.field_type
 import unisson.query.UnissonQuery
-import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
 import unisson.query.parser.QueryParser
 import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
 
@@ -60,7 +59,7 @@ class UnissonDatabase(val bc: Database)
      * In the later event, the error is logged in the database.
      * Queries are normalized, such that an ensemble with a derived query, has a query equal to the queries of it's children
      */
-    private def getNormalizedQuery(ensemble : IEnsemble) : UnissonQuery = {
+    private def getNormalizedQuery(ensemble: IEnsemble): UnissonQuery = {
         val query = queryParser.parse(ensemble.getQuery) match {
             case queryParser.Success(result, _) => result
             case queryParser.Failure(msg, next) => {
@@ -70,10 +69,9 @@ class UnissonDatabase(val bc: Database)
         }
         if (query.isSyntacticEqual(DerivedQuery())) {
             val childrenQueries = ensemble.getInnerEnsembles.map(getNormalizedQuery)
-            childrenQueries.fold(EmptyQuery())(OrQuery(_,_))
+            childrenQueries.fold(EmptyQuery())(OrQuery(_, _))
         }
-        else
-        {
+        else {
             query
         }
     }
@@ -102,16 +100,13 @@ class UnissonDatabase(val bc: Database)
      * The queries for each ensemble
      */
     lazy val ensemble_queries: LazyView[(IEnsemble, UnissonQuery)] =
-        Π( (e:IEnsemble) => (e,getNormalizedQuery(e)))(ensembles)
+        Π((e: IEnsemble) => (e, getNormalizedQuery(e)))(ensembles)
 
     /**
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    lazy val ensemble_elements: LazyView[(IEnsemble, ICodeElement)] =
-        new CompiledEnsembleElementsView(bc, ensemble_queries)
-
-
+    lazy val ensemble_elements = lazyViewToResult(new CompiledEnsembleElementsView(bc, ensemble_queries))
 
 
     /**
@@ -240,61 +235,62 @@ class UnissonDatabase(val bc: Database)
     /**
      * A list of dependencies between the source code elements
      */
-    lazy val source_code_dependencies = dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
-            dependencyView_to_tupleView(bc.implements, ImplementsKind) ∪
-            dependencyView_to_tupleView(bc.invoke_interface, InvokeInterfaceKind) ∪
-            dependencyView_to_tupleView(bc.invoke_special, InvokeSpecialKind) ∪
-            dependencyView_to_tupleView(bc.invoke_static, InvokeStaticKind) ∪
-            dependencyView_to_tupleView(bc.invoke_virtual, InvokeVirtualKind) ∪
-            dependencyView_to_tupleView(bc.create, CreateKind) ∪
-            dependencyView_to_tupleView(bc.class_cast, ClassCastKind) ∪
-            dependencyView_to_tupleView(bc.thrown_exceptions, ThrowsKind) ∪
-            dependencyView_to_tupleView(// parameter
-                σ(
-                    (v: parameter) => !(v.target.isBaseType)
-                )(
-                    Π[parameter, parameter] {
-                        case (parameter(m, ArrayType(component))) => parameter(m, component)
-                        case x => x
-                    }(bc.parameter)
-                ),
-                ParameterKind) ∪
-            dependencyView_to_tupleView(// return types
-                σ(
-                    (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
-                )(
-                    Π[return_type, return_type] {
-                        case (return_type(m, ArrayType(component))) => return_type(m, component)
-                        case x => x
-                    }(bc.return_type)
-                ),
-                ReturnTypeKind) ∪
-            dependencyView_to_tupleView(// field types
-                σ(
-                    (v: field_type) => !(v.target.isBaseType)
-                )(
-                    Π[field_type, field_type] {
-                        case (field_type(m, ArrayType(component))) => field_type(m, component)
-                        case x => x
-                    }(bc.field_type)
-                ),
-                FieldTypeKind) ∪
-            dependencyView_to_tupleView(// read_field instructions
-                σ(
-                    (v: read_field) => !(v.target.fieldType.isBaseType)
-                )(
-                    // TODO what about arrays with component types of not allowed elements?
-                    bc.read_field
-                ),
-                ReadFieldKind) ∪
-            dependencyView_to_tupleView(// write_field instructions
-                σ(
-                    // TODO what about arrays with component types of not allowed elements?
-                    (v: write_field) => !v.target.fieldType.isBaseType
-                )(
-                    bc.write_field
-                ),
-                WriteFieldKind)
+    lazy val source_code_dependencies =
+        dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
+                dependencyView_to_tupleView(bc.implements, ImplementsKind) ∪
+                dependencyView_to_tupleView(bc.invoke_interface, InvokeInterfaceKind) ∪
+                dependencyView_to_tupleView(bc.invoke_special, InvokeSpecialKind) ∪
+                dependencyView_to_tupleView(bc.invoke_static, InvokeStaticKind) ∪
+                dependencyView_to_tupleView(bc.invoke_virtual, InvokeVirtualKind) ∪
+                dependencyView_to_tupleView(bc.create, CreateKind) ∪
+                dependencyView_to_tupleView(bc.class_cast, ClassCastKind) ∪
+                dependencyView_to_tupleView(bc.thrown_exceptions, ThrowsKind) ∪
+                dependencyView_to_tupleView(// parameter
+                    σ(
+                        (v: parameter) => !(v.target.isBaseType)
+                    )(
+                        Π[parameter, parameter] {
+                            case (parameter(m, ArrayType(component))) => parameter(m, component)
+                            case x => x
+                        }(bc.parameter)
+                    ),
+                    ParameterKind) ∪
+                dependencyView_to_tupleView(// return types
+                    σ(
+                        (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
+                    )(
+                        Π[return_type, return_type] {
+                            case (return_type(m, ArrayType(component))) => return_type(m, component)
+                            case x => x
+                        }(bc.return_type)
+                    ),
+                    ReturnTypeKind) ∪
+                dependencyView_to_tupleView(// field types
+                    σ(
+                        (v: field_type) => !(v.target.isBaseType)
+                    )(
+                        Π[field_type, field_type] {
+                            case (field_type(m, ArrayType(component))) => field_type(m, component)
+                            case x => x
+                        }(bc.field_type)
+                    ),
+                    FieldTypeKind) ∪
+                dependencyView_to_tupleView(// read_field instructions
+                    σ(
+                        (v: read_field) => !(v.target.fieldType.isBaseType)
+                    )(
+                        // TODO what about arrays with component types of not allowed elements?
+                        bc.read_field
+                    ),
+                    ReadFieldKind) ∪
+                dependencyView_to_tupleView(// write_field instructions
+                    σ(
+                        // TODO what about arrays with component types of not allowed elements?
+                        (v: write_field) => !v.target.fieldType.isBaseType
+                    )(
+                        bc.write_field
+                    ),
+                    WriteFieldKind)
     /*
                 // TODO instance of checks
                 Π {
