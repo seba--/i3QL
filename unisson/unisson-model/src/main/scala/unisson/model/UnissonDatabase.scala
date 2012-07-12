@@ -1,13 +1,15 @@
 package unisson.model
 
-import kinds.{DependencyKind, KindParser}
+import constraints.{NormalizedConstraint, ConstraintType}
+import debug.PrintingObserver
+import kinds.{KindResolver, DependencyKind, KindParser}
 import kinds.primitive._
 import unisson.query.code_model.SourceElement
 import sae.bytecode.Database
 import sae.collections.Table
-import sae.LazyView
+import sae.{Observer, LazyView}
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import de.tud.cs.st.vespucci.interfaces.{IViolation, ICodeElement}
 import sae.bytecode.model.dependencies._
 import de.tud.cs.st.bat.ArrayType
 import sae.bytecode.model.dependencies.parameter
@@ -325,10 +327,101 @@ class UnissonDatabase(val bc: Database)
     */
 
 
+    private def parseQueryKinds(constraint: IConstraint): Set[DependencyKind] = {
+        kindParser.parse(constraint.getDependencyKind) match {
+            case kindParser.Success(result, _) => KindResolver(result)
+            case kindParser.Failure(msg, next) => {
+                errors += new IllegalArgumentException(msg + next.pos.longString)
+                Set()
+            }
+        }
+    }
+
+    /**
+     * Returns a list of constraints, that only contain one dependency kind.
+     * InAndOut constraints are normalized as one incoming and one outgoing constraint
+     */
+    private def getNormalizedConstraints[T](v: (IConstraint, String)): List[NormalizedConstraint] = {
+        val kinds = parseQueryKinds(v._1)
+        val typ = ConstraintType(v._1)
+        var result: List[NormalizedConstraint] = Nil
+        for (kind <- kinds) {
+            if (typ != ConstraintType.IncomingAndOutgoing) {
+                result = NormalizedConstraint(
+                    v._1,
+                    kind,
+                    typ,
+                    v._1.getSource,
+                    v._1.getTarget,
+                    v._2
+                ) :: result
+            }
+            else {
+                result = NormalizedConstraint(
+                    v._1,
+                    kind,
+                    ConstraintType.Incoming,
+                    v._1.getSource,
+                    v._1.getTarget,
+                    v._2
+                ) :: NormalizedConstraint(
+                    v._1,
+                    kind,
+                    ConstraintType.Outgoing,
+                    v._1.getSource,
+                    v._1.getTarget,
+                    v._2
+                ) :: result
+            }
+        }
+        result
+    }
+
+    lazy val normalized_constraints = new LazyView[(NormalizedConstraint)] {
+
+        concern_constraints.addObserver(new Observer[(IConstraint, String)] {
+            def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
+                removed(oldV)
+                added(newV)
+            }
+
+            def removed(v: (IConstraint, String)) {
+                val normalizedConstraints = getNormalizedConstraints(v)
+                normalizedConstraints.foreach(element_removed)
+            }
+
+            def added(v: (IConstraint, String)) {
+                val normalizedConstraints = getNormalizedConstraints(v)
+                normalizedConstraints.foreach(element_added)
+            }
+
+        })
+
+        def lazy_foreach[T](f: ((NormalizedConstraint)) => T) {
+            concern_constraints.foreach(
+                getNormalizedConstraints(_).foreach(f)
+            )
+        }
+
+        def lazyInitialize() {
+            initialized = true
+        }
+    }
+
+    private lazy val disallowed_dependencies_from_not_allowed = {
+        Π(
+            (constraint: NormalizedConstraint) =>
+                (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint.context)
+        )(
+            σ((_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed)(normalized_constraints)
+        )
+    }
+
     /**
      * A list of ensemble dependencies that are not allowed
      */
-    def notAllowedEnsembleDependencies = null
+    def notAllowedEnsembleDependencies = disallowed_dependencies_from_not_allowed
+
 
     /**
      * A list of ensemble dependencies that are expected
@@ -343,275 +436,44 @@ class UnissonDatabase(val bc: Database)
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    def violations = null
-
+    /*
+    lazy val violations = {
+        val disallowed_dependency_violations = (
+                (
+                        ensemble_dependencies,
+                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry
+                                ._2, entry._5)
+                        ) ⋈(
+                        (entry: ((IEnsemble, IEnsemble, String), NormalizedConstraint)) => entry._1,
+                        disallowed_dependencies
+                        )
+                ) {
+            (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String),
+             disallowed: ((IEnsemble, IEnsemble, String), NormalizedConstraint)) => {
+                new Violation(
+                    disallowed._2.origin,
+                    dependency._1,
+                    dependency._2,
+                    dependency._3,
+                    dependency._4,
+                    dependency._5,
+                    disallowed._2.context
+                ).asInstanceOf[IViolation]
+            }
+        }
+        disallowed_dependency_violations
+    }
+    */
     /**
      * A list of violations summing up individual source code dependencies
      */
     def violation_summary = null
 
     /*
-        private def normalized_constraint[T](v: (IConstraint, String)) : List[IConstraint] = {
-            val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-            val typ = ConstraintType(v._1)
-            for (kind <- kinds) {
-                if (typ != ConstraintType.IncomingAndOutgoing) {
-                    f(NormalizedConstraint(
-                        v._1,
-                        kind,
-                        typ,
-                        source,
-                        target,
-                        v._2
-                    ))
-                }
-                else {
-                    f(NormalizedConstraint(
-                        v._1,
-                        kind,
-                        ConstraintType.Incoming,
-                        source,
-                        target,
-                        v._2
-                    ))
-                    f(NormalizedConstraint(
-                        v._1,
-                        kind,
-                        ConstraintType.Outgoing,
-                        source,
-                        target,
-                        v._2
-                    ))
-                }
-            }
-        }
 
 
 
-        val normalized_constraints = new LazyView[NormalizedConstraint] {
 
-            private val kindParser = new KindParser()
-
-            initialized = true
-
-
-            def lazyInitialize() {
-                // should never be used
-                throw new UnsupportedOperationException("lazyInitialize not supported for normalized_constraints")
-            }
-
-            import EnsembleNormalizer.allLeaves
-
-            private def apply[T](v: (IConstraint, String))(f: (NormalizedConstraint) => T) {
-                // TODO error handling for kinds
-                val kinds = KindResolver(kindParser.parse(v._1.getDependencyKind).get)
-                val typ = ConstraintType(v._1)
-                for (kind <- kinds; source <- allLeaves(v._1.getSource); target <- allLeaves(v._1.getTarget)) {
-                    if (typ != ConstraintType.IncomingAndOutgoing) {
-                        f(NormalizedConstraint(
-                            v._1,
-                            kind,
-                            typ,
-                            source,
-                            target,
-                            v._2
-                        ))
-                    }
-                    else {
-                        f(NormalizedConstraint(
-                            v._1,
-                            kind,
-                            ConstraintType.Incoming,
-                            source,
-                            target,
-                            v._2
-                        ))
-                        f(NormalizedConstraint(
-                            v._1,
-                            kind,
-                            ConstraintType.Outgoing,
-                            source,
-                            target,
-                            v._2
-                        ))
-                    }
-                }
-            }
-
-            override def lazy_foreach[T](f: (NormalizedConstraint) => T) {
-                top_level_local_constraints.foreach(
-                    apply(_)(f)
-                )
-            }
-
-            val observer = new Observer[(IConstraint, String)] {
-                def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
-                    removed(oldV)
-                    added(newV)
-                }
-
-                def removed(v: (IConstraint, String)) {
-                    apply(v)(element_removed)
-                }
-
-                def added(v: (IConstraint, String)) {
-                    apply(v)(element_added)
-                }
-
-            }
-
-            top_level_local_constraints.addObserver(observer)
-        }
-
-
-        def kind_and_dependency: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] =
-            kind_and_dependency_view
-
-        // tuples of dependencies with their kinds for later joining.
-        // dependencies are filtered and will not contain base types
-        // array types are projected to their component types so the dependencies are counted as being to the actual component types
-        protected val kind_and_dependency_view: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = {
-            Π {
-                (ClassCastKind, (_: Dependency[AnyRef, AnyRef]))
-            }(bc.class_cast.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (CreateKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.create.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (ExtendsKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.`extends`.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (ImplementsKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.implements.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.inner_classes.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (InvokeInterfaceKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.invoke_interface
-                            .asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (InvokeSpecialKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.invoke_special.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (InvokeStaticKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.invoke_static.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (InvokeVirtualKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.invoke_virtual.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (ThrowsKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(bc.thrown_exceptions
-                            .asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
-                    Π {
-                        (ParameterKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(
-                        σ(
-                            (v: parameter) => !(v.target.isBaseType || v.target.isVoidType)
-                        )(
-                            Π[parameter, parameter] {
-                                case (parameter(m, ArrayType(component))) => parameter(m, component);
-                                case x => x
-                            }(bc.parameter)
-                        ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-                    ) ∪
-                    Π {
-                        (ReturnTypeKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(
-                        σ(
-                            (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
-                        )(
-                            Π[return_type, return_type] {
-                                case (return_type(m, ArrayType(component))) => return_type(m, component);
-                                case x => x
-                            }(bc.return_type)
-                        ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-                    ) ∪
-                    Π {
-                        (FieldTypeKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(
-                        σ(
-                            (v: field_type) => !(v.target.isBaseType || v.target.isVoidType)
-                        )(
-                            Π[field_type, field_type] {
-                                case (field_type(m, ArrayType(component))) => field_type(m, component);
-                                case x => x
-                            }(bc.field_type)
-                        ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-                    ) ∪
-                    Π {
-                        (ReadFieldKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(
-                        σ(
-                            (v: read_field) => !(v.target.fieldType.isBaseType)
-                        )(
-                            // TODO what about arrays with component types of not allowed elements?
-                            bc.read_field
-                        ).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-                    ) ∪
-                    Π {
-                        (WriteFieldKind, (_: Dependency[AnyRef, AnyRef]))
-                    }(
-                        σ(
-                            // TODO what about arrays with component types of not allowed elements?
-                            (v: write_field) => !v.target.fieldType.isBaseType
-                        )(bc.write_field).asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]
-                    )
-        }
-
-        //kind_and_dependency.addObserver(new PrintingObserver[(DependencyKind, Dependency[AnyRef, AnyRef])]())
-
-        val local_incoming = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.Incoming
-        }(normalized_constraints)
-
-        val global_incoming = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.GlobalIncoming
-        }(normalized_constraints)
-
-        val local_outgoing = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.Outgoing
-        }(normalized_constraints)
-
-        val global_outgoing = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.GlobalOutgoing
-        }(normalized_constraints)
-
-        val not_allowed = σ {
-            (_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed
-        }(normalized_constraints)
-
-
-        lazy val ensemble_dependencies: MaterializedView[((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])] = {
-            val indexedElements = Conversions.lazyViewToIndexedView(leaf_ensemble_elements)
-            val elementIndex = (t: (IEnsemble, SourceElement[AnyRef])) => t._2.element
-            val sourceDependencies = (
-                    (
-                            indexedElements,
-                            elementIndex
-                            ) ⋈(
-                            (t: (DependencyKind, Dependency[AnyRef, AnyRef])) => t._2.source,
-                            kind_and_dependency
-                            )
-                    ) {
-                (source: (IEnsemble, SourceElement[AnyRef]), dep: (DependencyKind, Dependency[AnyRef, AnyRef])) =>
-                    (source._1, dep)
-            }
-            val targetDependencies = (
-                    (
-                            indexedElements,
-                            elementIndex
-                            ) ⋈(
-                            (t: (IEnsemble, (DependencyKind, Dependency[AnyRef, AnyRef]))) => t._2._2.target,
-                            sourceDependencies
-                            )
-                    ) {
-                (target: (IEnsemble, SourceElement[AnyRef]),
-                 source: (IEnsemble, (DependencyKind, Dependency[AnyRef, AnyRef]))) =>
-                    ((source._1, target._1, source._2._1), source._2._2)
-            }
-            targetDependencies
-        }
 
         lazy val source_target_violations_by_not_allowed: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
             Π((c: NormalizedConstraint) => ((c.source, c.target, c.kind), c))(not_allowed)
@@ -874,117 +736,8 @@ class UnissonDatabase(val bc: Database)
             )
             leafDependencies
         }
-
-        def addConcern(model: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-
-            for (ensemble <- model.getEnsembles) {
-                top_level_local_ensembles +=(ensemble, model.getName)
-            }
-            for (constraint <- model.getConstraints) {
-                top_level_local_constraints +=(constraint, model.getName)
-            }
-        }
-
-        def removeConcern(model: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-
-            for (ensemble <- model.getEnsembles) {
-                top_level_local_ensembles -=(ensemble, model.getName)
-            }
-            for (constraint <- model.getConstraints) {
-                top_level_local_constraints -=(constraint, model.getName)
-            }
-        }
-
-        def updateConcern(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-            // remove old Ensembles
-            for (ensemble <- oldModel.getEnsembles.filterNot(
-                (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
-            )
-            ) {
-                top_level_local_ensembles -=(ensemble, oldModel.getName)
-            }
-            // remove old constraints
-            for (constraint <- oldModel.getConstraints.filterNot(
-                (c: IConstraint) => newModel.getConstraints.exists(_ == c)
-            )
-            ) {
-                top_level_local_constraints -=(constraint, oldModel.getName)
-            }
-
-
-            // update existing Ensembles
-            for (oldE <- oldModel.getEnsembles;
-                 newE <- newModel.getEnsembles)
-                if (oldE.getName == newE.getName
-                ) {
-                    top_level_local_ensembles.update((oldE, oldModel.getName), (newE, newModel.getName))
-                }
-            // we currently do not update any constraints.
-            // This would make sense only for constraint changes w.r.t. kinds,
-            // but then removing the old constraint is probably as effective.
-
-            // add new Ensembles
-            for (ensemble <- newModel.getEnsembles.filterNot(
-                (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
-            )
-            ) {
-                top_level_local_ensembles +=(ensemble, newModel.getName)
-            }
-
-            // add new Constraints
-            for (constraint <- newModel.getConstraints.filterNot(
-                (c: IConstraint) => oldModel.getConstraints.exists(_ == c)
-            )
-            ) {
-                top_level_local_constraints +=(constraint, newModel.getName)
-            }
-        }
-
-        def setRepository(model: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-
-            for (ensemble <- model.getEnsembles) {
-                top_level_ensembles += ensemble
-            }
-        }
-
-        def unsetRepository(model: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-
-            for (ensemble <- model.getEnsembles) {
-                top_level_ensembles -= ensemble
-            }
-        }
-
-        def updateRepository(oldModel: IArchitectureModel, newModel: IArchitectureModel) {
-            import scala.collection.JavaConversions._
-
-            // remove old Ensembles
-            for (ensemble <- oldModel.getEnsembles.filterNot(
-                (e: IEnsemble) => newModel.getEnsembles.exists(_.getName == e.getName)
-            )
-            ) {
-                top_level_ensembles -= ensemble
-            }
-            // add new Ensembles
-            for (ensemble <- newModel.getEnsembles.filterNot(
-                (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
-            )
-            ) {
-                top_level_ensembles += ensemble
-            }
-            // update existing Ensembles
-            for (oldE <- oldModel.getEnsembles;
-                 newE <- newModel.getEnsembles)
-                if (oldE.getName == newE.getName
-                ) {
-                    top_level_ensembles.update(oldE, newE)
-                }
-        }
     */
+
     /**
      * A list of errors that occurred during database updates
      */
@@ -998,83 +751,3 @@ class UnissonDatabase(val bc: Database)
         oldErrors.foreach(errors -= _)
     }
 }
-
-
-/*
-object EnsembleNormalizer
-{
-
-    def allLeaves(e: IEnsemble): List[IEnsemble] = {
-        import scala.collection.JavaConversions._
-        if (e.getInnerEnsembles.isEmpty)
-            return List(e)
-        e.getInnerEnsembles.map(allLeaves(_)).fold[List[IEnsemble]](Nil)(_ ::: _)
-    }
-}
-*/
-
-/*
-val leaf_ensembles = new LazyView[IEnsemble] {
-
-initialized = true
-
-def lazy_foreach[T](f: (IEnsemble) => T) {
-for (g <- top_level_ensembles;
-leaf <- EnsembleNormalizer.allLeaves(g)) {
-f(leaf)
-}
-}
-
-def lazyInitialize() {
-// should never be used
-throw new UnsupportedOperationException("lazyInitialize not supported for normalized_global_ensembles")
-}
-
-
-val ensembleObserver = new Observer[IEnsemble]
-{
-
-import EnsembleNormalizer.allLeaves
-
-def updated(oldV: IEnsemble, newV: IEnsemble) {
-val oldLeaves = allLeaves(oldV)
-val newLeaves = allLeaves(newV)
-// remove old Ensembles
-for (ensemble <- oldLeaves.filterNot(
-(e: IEnsemble) => newLeaves.exists(_.getName == e.getName)
-)
-) {
-element_removed(ensemble)
-}
-// add new Ensembles
-for (ensemble <- newLeaves.filterNot(
-(e: IEnsemble) => oldLeaves.exists(_.getName == e.getName)
-)
-) {
-element_added(ensemble)
-}
-// update existing Ensembles
-for (oldE <- oldLeaves;
-newE <- newLeaves)
-if (oldE.getName == newE.getName
-) {
-element_updated(oldE, newE)
-}
-}
-
-def removed(v: IEnsemble) {
-for (leaf <- allLeaves(v)) {
-element_removed(leaf)
-}
-}
-
-def added(v: IEnsemble) {
-for (leaf <- allLeaves(v)) {
-element_added(leaf)
-}
-}
-}
-
-top_level_ensembles.addObserver(ensembleObserver)
-}
-*/

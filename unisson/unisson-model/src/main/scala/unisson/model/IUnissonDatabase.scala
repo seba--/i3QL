@@ -224,9 +224,9 @@ trait IUnissonDatabase
 
 
     /**
-     * A list of ensemble dependencies that are not allowed
+     * A list of ensemble dependencies that are not allowed, by a specific constraint in a specific concern
      */
-    def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String)]
+    def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
      * A list of ensemble dependencies that are expected
@@ -241,7 +241,34 @@ trait IUnissonDatabase
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    def violations: LazyView[IViolation]
+    val violations: LazyView[IViolation] =
+    {
+        val disallowed_dependency_violations = (
+                (
+                        ensemble_dependencies,
+                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry
+                                ._2, entry._5)
+                        ) ⋈(
+                        (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry
+                                ._2, entry._3),
+                        notAllowedEnsembleDependencies
+                        )
+                ) {
+            (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String),
+             disallowed: (IEnsemble, IEnsemble, String, IConstraint, String)) => {
+                new Violation(
+                    disallowed._4,
+                    dependency._1,
+                    dependency._2,
+                    dependency._3,
+                    dependency._4,
+                    dependency._5,
+                    disallowed._5
+                ).asInstanceOf[IViolation]
+            }
+        }
+        disallowed_dependency_violations
+    }
 
     /**
      * A list of violations summing up individual source code dependencies
