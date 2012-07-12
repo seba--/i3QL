@@ -314,4 +314,150 @@ class TestUnissonDatabaseEnsembleDependencies
         )
     }
 
+
+    @Test
+    def testParentChildDependencyExclusion() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembles = Set(ensembleA)
+
+
+        db.setRepository(Repository(ensembles))
+
+        val a1 = ObjectType("test/A1")
+        val a2 = ObjectType("test/A2")
+
+        val fieldRefA1ToA2 = FieldDeclaration(a1, "fieldA1InB", a2)
+        val fieldRefA2ToA1 = FieldDeclaration(a2, "fieldA2InB", a1)
+
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+
+        bc.declared_fields.element_added(fieldRefA1ToA2)
+        bc.declared_fields.element_added(fieldRefA2ToA1)
+
+
+        db.ensemble_elements.asList.sorted should be(
+            List(
+                (ensembleA, SourceElement(a1)),
+                (ensembleA, SourceElement(fieldRefA1ToA2)),
+                (ensembleA, SourceElement(a2)),
+                (ensembleA, SourceElement(fieldRefA2ToA1)),
+                (ensembleA1, SourceElement(a1)),
+                (ensembleA1, SourceElement(fieldRefA1ToA2)),
+                (ensembleA2, SourceElement(a2)),
+                (ensembleA2, SourceElement(fieldRefA2ToA1))
+            )
+        )
+
+        db.ensemble_dependencies.asList.sorted should be(
+            List(
+                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
+                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind.asVespucciString)
+            )
+        )
+    }
+
+    @Test
+    def testTransitiveChildrenDependencyExclusion() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test.inner','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test.inner','A2')")
+
+        val ensembleA4 = Ensemble("A4", "class_with_members('test.inner.inner','A4')")
+        val ensembleA5 = Ensemble("A5", "class_with_members('test.inner.inner','A5')")
+        val ensembleA3 = Ensemble("A3", "derived", ensembleA4, ensembleA5)
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2, ensembleA3)
+        val ensembles = Set(ensembleA)
+
+
+        db.setRepository(Repository(ensembles))
+
+        val a1 = ObjectType("test/inner/A1")
+        val a2 = ObjectType("test/inner/A2")
+
+        val a4 = ObjectType("test/inner/inner/A4")
+        val a5 = ObjectType("test/inner/inner/A5")
+
+
+        val fieldRefA1ToA2 = FieldDeclaration(a1, "fieldA2InA1", a2)
+        val fieldRefA1ToA4 = FieldDeclaration(a1, "fieldA4InA1", a4)
+        val fieldRefA1ToA5 = FieldDeclaration(a1, "fieldA5InA1", a5)
+        val fieldRefA2ToA1 = FieldDeclaration(a2, "fieldA1InA2", a1)
+        val fieldRefA4ToA1 = FieldDeclaration(a4, "fieldA1InA4", a1)
+        val fieldRefA4ToA5 = FieldDeclaration(a4, "fieldA5InA4", a5)
+        val fieldRefA5ToA2 = FieldDeclaration(a5, "fieldA2InA5", a2)
+
+
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+        bc.declared_types.element_added(a4)
+        bc.declared_types.element_added(a5)
+
+
+
+        bc.declared_fields.element_added(fieldRefA1ToA2)
+        bc.declared_fields.element_added(fieldRefA1ToA4)
+        bc.declared_fields.element_added(fieldRefA1ToA5)
+        bc.declared_fields.element_added(fieldRefA2ToA1)
+        bc.declared_fields.element_added(fieldRefA4ToA1)
+        bc.declared_fields.element_added(fieldRefA4ToA5)
+        bc.declared_fields.element_added(fieldRefA5ToA2)
+
+        db.ensemble_elements.asList.sorted should be(
+            List(
+                (ensembleA, SourceElement(a1)),
+                (ensembleA, SourceElement(fieldRefA1ToA2)),
+                (ensembleA, SourceElement(fieldRefA1ToA4)),
+                (ensembleA, SourceElement(fieldRefA1ToA5)),
+                (ensembleA, SourceElement(a2)),
+                (ensembleA, SourceElement(fieldRefA2ToA1)),
+                (ensembleA, SourceElement(a4)),
+                (ensembleA, SourceElement(fieldRefA4ToA1)),
+                (ensembleA, SourceElement(fieldRefA4ToA5)),
+                (ensembleA, SourceElement(a5)),
+                (ensembleA, SourceElement(fieldRefA5ToA2)),
+                (ensembleA1, SourceElement(a1)),
+                (ensembleA1, SourceElement(fieldRefA1ToA2)),
+                (ensembleA1, SourceElement(fieldRefA1ToA4)),
+                (ensembleA1, SourceElement(fieldRefA1ToA5)),
+                (ensembleA2, SourceElement(a2)),
+                (ensembleA2, SourceElement(fieldRefA2ToA1)),
+                (ensembleA3, SourceElement(a4)),
+                (ensembleA3, SourceElement(fieldRefA4ToA1)),
+                (ensembleA3, SourceElement(fieldRefA4ToA5)),
+                (ensembleA3, SourceElement(a5)),
+                (ensembleA3, SourceElement(fieldRefA5ToA2)),
+                (ensembleA4, SourceElement(a4)),
+                (ensembleA4, SourceElement(fieldRefA4ToA1)),
+                (ensembleA4, SourceElement(fieldRefA4ToA5)),
+                (ensembleA5, SourceElement(a5)),
+                (ensembleA5, SourceElement(fieldRefA5ToA2))
+            )
+        )
+
+        db.ensemble_dependencies.asList.sorted should be(
+            List(
+                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a4), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleA4, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleA5, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
+                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
+                (ensembleA4, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
+                (ensembleA4, ensembleA5, SourceElement(fieldRefA4ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
+                (ensembleA5, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind.asVespucciString)
+            )
+        )
+    }
 }
