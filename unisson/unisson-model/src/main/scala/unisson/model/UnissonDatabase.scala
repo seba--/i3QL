@@ -222,6 +222,32 @@ class UnissonDatabase(val bc: Database)
      */
     def updateEnsembleInConcern(oldE: IEnsemble, newE: IEnsemble)(implicit concern: String) {
         concern_ensembles.update((oldE, concern), (newE, concern))
+        val oldEChildren: scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
+        val newEChildren: scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
+
+        val (retainedOldChildren, notExistingChildren) = oldEChildren.partition(
+            (e: IEnsemble) => newEChildren.exists((_: IEnsemble).getName == e.getName)
+        )
+        val (retainedNewChildren, newChildren) = newEChildren.partition(
+            (e: IEnsemble) => oldEChildren.exists((_: IEnsemble).getName == e.getName)
+        )
+
+        // remove old children
+        for (child <- notExistingChildren) {
+            // transitively remove all further children
+            removeEnsembleFromConcern(child)
+        }
+        // update existing children
+        for (oldChild <- retainedOldChildren;
+             newChild <- retainedNewChildren.find(_.getName == oldChild.getName)) {
+            // transitively update the child
+            updateEnsembleInConcern(oldChild, newChild)
+        }
+        // add new children
+        for (child <- newChildren) {
+            // transitively add all further children
+            addEnsembleToConcern(child)
+        }
     }
 
     private def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: LazyView[_ <: Dependency[S, T]],
