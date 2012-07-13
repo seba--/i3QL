@@ -444,8 +444,8 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val disallowed_dependencies_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        val source_target_ensemble_combinations = (
+    lazy val constrained_ensemble_combinations_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        (
                 (
                         concern_ensembles,
                         (_: (IEnsemble, String))._2
@@ -457,19 +457,6 @@ class UnissonDatabase(val bc: Database)
             (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, c.target, c.kind.asVespucciString, c.origin, c
                     .context)
         }
-
-        /**
-         * all disallowed combinations taking all constraints to an ensemble into account
-         * for all (Z,Y) where Z,Y in Ensembles and Incoming(_,Y, ctx) ;
-         * if !exists (Z,Y) with Incoming(Z,Y, ctx) or GlobalIncoming(Z,Y, ctx) then Z may not use Y
-         */
-        (
-                source_target_ensemble_combinations,
-                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
-                ) ⊳(
-                (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
-                incoming
-                )
     }
 
 
@@ -478,13 +465,18 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val disallowed_dependencies_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        val source_target_ensemble_combinations =
-            Π(
-                (entry: (IEnsemble, NormalizedConstraint)) =>
-                    (entry._1, entry._2.target, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
-            )(ensembles × global_incoming)
+    lazy val constrained_ensemble_combinations_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        Π(
+            (entry: (IEnsemble, NormalizedConstraint)) =>
+                (entry._1, entry._2.target, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
+        )(ensembles × global_incoming)
+    }
 
+
+    private lazy val disallowed_dependencies_by_incoming = {
+        val source_target_ensemble_combinations =
+            constrained_ensemble_combinations_by_local_incoming ∪
+                    constrained_ensemble_combinations_by_global_incoming
 
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
@@ -506,8 +498,8 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val disallowed_dependencies_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        val source_target_ensemble_combinations = (
+    lazy val constrained_ensemble_combinations_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        (
                 (
                         concern_ensembles,
                         (_: (IEnsemble, String))._2
@@ -519,19 +511,6 @@ class UnissonDatabase(val bc: Database)
             (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, c.kind.asVespucciString, c.origin, c
                     .context)
         }
-
-        /**
-         * all disallowed combinations taking all constraints to an ensemble into account
-         * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
-         * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
-         */
-        (
-                source_target_ensemble_combinations,
-                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
-                ) ⊳(
-                (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
-                outgoing
-                )
     }
 
     /**
@@ -539,13 +518,19 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val disallowed_dependencies_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] =
-    {
+    lazy val constrained_ensemble_combinations_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        Π(
+            (entry: (IEnsemble, NormalizedConstraint)) =>
+                (entry._2.source, entry._1, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
+        )(ensembles × global_outgoing)
+    }
+
+
+    private lazy val disallowed_dependencies_by_outgoing = {
         val source_target_ensemble_combinations =
-            Π(
-                (entry: (IEnsemble, NormalizedConstraint)) =>
-                    (entry._2.source, entry._1, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
-            )(ensembles × global_outgoing)
+            constrained_ensemble_combinations_by_local_outgoing ∪
+                    constrained_ensemble_combinations_by_global_outgoing
+
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
          * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
@@ -559,16 +544,6 @@ class UnissonDatabase(val bc: Database)
                 outgoing
                 )
     }
-
-
-    private lazy val disallowed_dependencies_by_incoming =
-        disallowed_dependencies_by_local_incoming ∪
-                disallowed_dependencies_by_global_incoming
-
-
-    private lazy val disallowed_dependencies_by_outgoing =
-        disallowed_dependencies_by_local_outgoing ∪
-                disallowed_dependencies_by_global_outgoing
 
 
     /**
