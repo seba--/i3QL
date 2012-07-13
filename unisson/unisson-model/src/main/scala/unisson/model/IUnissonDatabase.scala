@@ -224,7 +224,8 @@ trait IUnissonDatabase
 
 
     /**
-     * A list of ensemble dependencies that are not allowed, by a specific constraint in a specific concern
+     * A list of ensemble dependencies that are not allowed in the form:
+     * (E_src, E_trgt, kind, constraint, concern)
      */
     def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 

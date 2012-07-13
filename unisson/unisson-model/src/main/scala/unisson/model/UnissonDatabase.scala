@@ -1,7 +1,6 @@
 package unisson.model
 
 import constraints.{NormalizedConstraint, ConstraintType}
-import debug.PrintingObserver
 import kinds.{KindResolver, DependencyKind, KindParser}
 import kinds.primitive._
 import unisson.query.code_model.SourceElement
@@ -9,7 +8,7 @@ import sae.bytecode.Database
 import sae.collections.Table
 import sae.{Observer, LazyView}
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import de.tud.cs.st.vespucci.interfaces.{IViolation, ICodeElement}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import sae.bytecode.model.dependencies._
 import de.tud.cs.st.bat.ArrayType
 import sae.bytecode.model.dependencies.parameter
@@ -408,19 +407,68 @@ class UnissonDatabase(val bc: Database)
         }
     }
 
-    private lazy val disallowed_dependencies_from_not_allowed = {
+
+    /**
+     * Returns a view of the disallowed ensemble dependencies derived from the not_allowed constraints in the form:
+     * (E_src, E_trgt, kind, constraint, concern).
+     */
+    private lazy val disallowed_dependencies_by_not_allowed: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (constraint: NormalizedConstraint) =>
-                (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint.context)
+                (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
+                        .context)
         )(
             σ((_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed)(normalized_constraints)
         )
     }
 
+    private lazy val local_incoming = σ((_: NormalizedConstraint).constraintType == ConstraintType
+            .Incoming)(normalized_constraints)
+
+    private lazy val global_incoming = σ((_: NormalizedConstraint).constraintType == ConstraintType
+            .GlobalIncoming)(normalized_constraints)
+
+    private lazy val incoming: LazyView[NormalizedConstraint] = local_incoming ∪ global_incoming // TODO make this joint with descentandts
+
     /**
-     * A list of ensemble dependencies that are not allowed
+     * Returns a view of the disallowed ensemble dependencies derived from the local_incoming constraints in the form:
+     * (E_src, E_trgt, kind, constraint, concern).
+     * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    def notAllowedEnsembleDependencies = disallowed_dependencies_from_not_allowed
+    lazy val disallowed_dependencies_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        val source_target_ensemble_combinations: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = (
+                (
+                        concern_ensembles,
+                        (_: (IEnsemble, String))._2
+                        ) ⋈(
+                        (_: NormalizedConstraint).context,
+                        local_incoming
+                        )
+                ) {
+            (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, c.target, c.kind.asVespucciString, c.origin, c
+                    .context)
+        }
+
+        /**
+         * all disallowed combinations taking all constraints to an ensemble into account
+         * for all (Z,Y) where Z,Y in Ensembles and Incoming(_,Y, ctx) ;
+         * if !exists (Z,Y) with Incoming(Z,Y, ctx) or GlobalIncoming(Z,Y, ctx) then Z may not use Y
+         */
+        (
+                source_target_ensemble_combinations,
+                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
+                ) ⊳(
+                (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
+                incoming
+                )
+    }
+
+    /**
+     * A list of ensemble dependencies that are not allowed in the form:
+     * (E_src, E_trgt, kind, constraint, concern)
+     */
+    def notAllowedEnsembleDependencies = disallowed_dependencies_by_not_allowed ∪
+            disallowed_dependencies_by_local_incoming
 
 
     /**
@@ -433,41 +481,12 @@ class UnissonDatabase(val bc: Database)
      */
     def consistencyViolations = null
 
-    /**
-     * A list of violations with full information on source code dependencies and violating constraint
-     */
-    /*
-    lazy val violations = {
-        val disallowed_dependency_violations = (
-                (
-                        ensemble_dependencies,
-                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry
-                                ._2, entry._5)
-                        ) ⋈(
-                        (entry: ((IEnsemble, IEnsemble, String), NormalizedConstraint)) => entry._1,
-                        disallowed_dependencies
-                        )
-                ) {
-            (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String),
-             disallowed: ((IEnsemble, IEnsemble, String), NormalizedConstraint)) => {
-                new Violation(
-                    disallowed._2.origin,
-                    dependency._1,
-                    dependency._2,
-                    dependency._3,
-                    dependency._4,
-                    dependency._5,
-                    disallowed._2.context
-                ).asInstanceOf[IViolation]
-            }
-        }
-        disallowed_dependency_violations
-    }
-    */
+
     /**
      * A list of violations summing up individual source code dependencies
      */
     def violation_summary = null
+
 
     /*
 
