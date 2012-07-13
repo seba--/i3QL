@@ -435,7 +435,30 @@ class UnissonDatabase(val bc: Database)
             .GlobalOutgoing)(normalized_constraints)
 
 
-    private lazy val incoming: LazyView[NormalizedConstraint] = local_incoming ∪ global_incoming // TODO make this joint with descentandts
+    private lazy val incoming: LazyView[NormalizedConstraint] = {
+        val allIncoming = local_incoming ∪ global_incoming
+        allIncoming ∪ (
+                (
+                        (
+                                descendants,
+                                (_: (IEnsemble, IEnsemble))._1
+                                ) ⋈(
+                                (_: NormalizedConstraint).source,
+                                allIncoming
+                                )
+                        ) {
+                    (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
+                        NormalizedConstraint(
+                            c.origin,
+                            c.kind,
+                            c.constraintType,
+                            parentChild._2,
+                            c.target,
+                            c.context
+                        )
+                })
+    }
+
 
     private lazy val outgoing: LazyView[NormalizedConstraint] = local_outgoing ∪ global_outgoing // TODO make this joint with descentandts
 
