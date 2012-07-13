@@ -26,46 +26,6 @@ class TestUnissonDatabaseViolations
 
     import UnissonOrdering._
 
-    @Test
-    def testEnsembleElements() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
-
-        val ensembleA = Ensemble("A", "class('test','A')")
-        val ensembleB = Ensemble("B", "class('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
-
-
-        val c = NotAllowedConstraint("all", ensembleA, ensembleB)
-
-        val constraints = Set(
-            c
-        )
-
-
-        val global = Repository(ensembles)
-        val model = Concern(ensembles, constraints, "test")
-
-        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
-                .lazyViewToResult(db.ensemble_elements)
-
-        db.addConcern(model)
-        db.setRepository(global)
-
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-
-        result.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a)),
-                (ensembleB, SourceElement(b))
-            )
-        )
-
-    }
-
 
     @Test
     def testNotAllowedViolation() {
