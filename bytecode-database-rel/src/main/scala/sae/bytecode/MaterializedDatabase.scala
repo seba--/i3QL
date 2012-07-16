@@ -9,14 +9,11 @@ import de.tud.cs.st.bat._
 
 /**
  * Convenience database that materializes all queries as a result.
+ * WARNING: When using the materialized database, the data must still be added via the underlying non-materialized database
  */
 class MaterializedDatabase(private val db: BytecodeDatabase)
         extends Database
 {
-
-    def this() {
-        this (new BytecodeDatabase())
-    }
 
     val declared_classes : QueryResult[ClassDeclaration] =  db.declared_classes
 

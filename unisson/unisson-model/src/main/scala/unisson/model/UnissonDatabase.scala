@@ -460,7 +460,31 @@ class UnissonDatabase(val bc: Database)
     }
 
 
-    private lazy val outgoing: LazyView[NormalizedConstraint] = local_outgoing ∪ global_outgoing // TODO make this joint with descentandts
+    private lazy val outgoing: LazyView[NormalizedConstraint] =
+    {
+        val allOutgoing = local_outgoing ∪ global_outgoing
+        allOutgoing ∪ (
+                (
+                        (
+                                descendants,
+                                (_: (IEnsemble, IEnsemble))._1
+                                ) ⋈(
+                                (_: NormalizedConstraint).target,
+                                allOutgoing
+                                )
+                        ) {
+                    (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
+                        NormalizedConstraint(
+                            c.origin,
+                            c.kind,
+                            c.constraintType,
+                            c.source,
+                            parentChild._2,
+                            c.context
+                        )
+                })
+    }
+
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the local_incoming constraints in the form:

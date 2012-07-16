@@ -7,7 +7,7 @@ import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.FieldDeclaration
 import unisson.query.code_model.SourceElement
-import org.junit.Test
+import org.junit.{Assert, Test}
 
 
 /**
@@ -354,4 +354,289 @@ class TestUnissonDatabaseNestingViolations
     }
 
 
+    @Test
+    def testLocalOutgoingExemptsAllTargetChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test.inner','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test.inner','A2')")
+
+        val ensembleA4 = Ensemble("A4", "class_with_members('test.inner.inner','A4')")
+        val ensembleA5 = Ensemble("A5", "class_with_members('test.inner.inner','A5')")
+        val ensembleA3 = Ensemble("A3", "derived", ensembleA4, ensembleA5)
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2, ensembleA3)
+
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+
+        val ensembles = Set(ensembleA, ensembleB)
+
+
+        db.setRepository(Repository(ensembles))
+
+        db.addConcern(Concern(ensembles, Set(OutgoingConstraint(FieldTypeKind
+                .asVespucciString, ensembleB, ensembleA)), "test"))
+
+        val b = ObjectType("test/B")
+
+        val a1 = ObjectType("test/inner/A1")
+        val a2 = ObjectType("test/inner/A2")
+
+        val a4 = ObjectType("test/inner/inner/A4")
+        val a5 = ObjectType("test/inner/inner/A5")
+
+
+        val fieldRefBToA1 = FieldDeclaration(b, "fieldA1", a1)
+        val fieldRefBToA2 = FieldDeclaration(b, "fieldA2", a2)
+        val fieldRefBToA4 = FieldDeclaration(b, "fieldA4", a4)
+        val fieldRefBToA5 = FieldDeclaration(b, "fieldA5", a5)
+
+
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+        bc.declared_types.element_added(a4)
+        bc.declared_types.element_added(a5)
+
+        bc.declared_types.element_added(b)
+
+        bc.declared_fields.element_added(fieldRefBToA1)
+        bc.declared_fields.element_added(fieldRefBToA2)
+        bc.declared_fields.element_added(fieldRefBToA4)
+        bc.declared_fields.element_added(fieldRefBToA5)
+
+        db.ensemble_elements.asList.sorted should be(
+            List(
+                (ensembleA, SourceElement(a1)),
+                (ensembleA, SourceElement(a2)),
+                (ensembleA, SourceElement(a4)),
+                (ensembleA, SourceElement(a5)),
+                (ensembleA1, SourceElement(a1)),
+                (ensembleA2, SourceElement(a2)),
+                (ensembleA3, SourceElement(a4)),
+                (ensembleA3, SourceElement(a5)),
+                (ensembleA4, SourceElement(a4)),
+                (ensembleA5, SourceElement(a5)),
+                (ensembleB, SourceElement(b)),
+                (ensembleB, SourceElement(fieldRefBToA1)),
+                (ensembleB, SourceElement(fieldRefBToA2)),
+                (ensembleB, SourceElement(fieldRefBToA4)),
+                (ensembleB, SourceElement(fieldRefBToA5))
+            )
+        )
+
+
+        Assert.assertEquals(
+            db.ensemble_dependencies.asList.sorted,
+            List(
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA1, SourceElement(fieldRefBToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA2, SourceElement(fieldRefBToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA3, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA3, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA4, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA5, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind.asVespucciString)
+            )
+        )
+
+        db.concern_constraints.asList should not be (Nil)
+
+        db.violations.asList should be(Nil)
+    }
+
+    @Test
+    def testLocalOutgoingViolatesForAllTargetChildren() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+
+        val ensembleA1 = Ensemble("A1", "class_with_members('test.inner','A1')")
+        val ensembleA2 = Ensemble("A2", "class_with_members('test.inner','A2')")
+
+        val ensembleA4 = Ensemble("A4", "class_with_members('test.inner.inner','A4')")
+        val ensembleA5 = Ensemble("A5", "class_with_members('test.inner.inner','A5')")
+        val ensembleA3 = Ensemble("A3", "derived", ensembleA4, ensembleA5)
+        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2, ensembleA3)
+
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+
+        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+
+        val ensembles = Set(ensembleA, ensembleB, ensembleC)
+
+
+        db.setRepository(Repository(ensembles))
+
+        val constraint = OutgoingConstraint(FieldTypeKind.asVespucciString, ensembleB, ensembleC)
+        val contextName = "test"
+        db.addConcern(Concern(ensembles, Set(constraint), contextName))
+
+        val b = ObjectType("test/B")
+
+        val c = ObjectType("test/C")
+
+        val a1 = ObjectType("test/inner/A1")
+        val a2 = ObjectType("test/inner/A2")
+
+        val a4 = ObjectType("test/inner/inner/A4")
+        val a5 = ObjectType("test/inner/inner/A5")
+
+
+        val fieldRefBToA1 = FieldDeclaration(b, "fieldA1", a1)
+        val fieldRefBToA2 = FieldDeclaration(b, "fieldA2", a2)
+        val fieldRefBToA4 = FieldDeclaration(b, "fieldA4", a4)
+        val fieldRefBToA5 = FieldDeclaration(b, "fieldA5", a5)
+
+        val fieldRefBToC = FieldDeclaration(b, "fieldC", c)
+
+        bc.declared_types.element_added(a1)
+        bc.declared_types.element_added(a2)
+        bc.declared_types.element_added(a4)
+        bc.declared_types.element_added(a5)
+
+        bc.declared_types.element_added(b)
+
+        bc.declared_types.element_added(c)
+
+        bc.declared_fields.element_added(fieldRefBToA1)
+        bc.declared_fields.element_added(fieldRefBToA2)
+        bc.declared_fields.element_added(fieldRefBToA4)
+        bc.declared_fields.element_added(fieldRefBToA5)
+
+        bc.declared_fields.element_added(fieldRefBToC)
+
+        Assert.assertEquals(
+            db.ensemble_elements.asList.sorted,
+            List(
+                (ensembleA, SourceElement(a1)),
+                (ensembleA, SourceElement(a2)),
+                (ensembleA, SourceElement(a4)),
+                (ensembleA, SourceElement(a5)),
+                (ensembleA1, SourceElement(a1)),
+                (ensembleA2, SourceElement(a2)),
+                (ensembleA3, SourceElement(a4)),
+                (ensembleA3, SourceElement(a5)),
+                (ensembleA4, SourceElement(a4)),
+                (ensembleA5, SourceElement(a5)),
+                (ensembleB, SourceElement(b)),
+                (ensembleB, SourceElement(fieldRefBToA1)),
+                (ensembleB, SourceElement(fieldRefBToA2)),
+                (ensembleB, SourceElement(fieldRefBToA4)),
+                (ensembleB, SourceElement(fieldRefBToA5)),
+                (ensembleB, SourceElement(fieldRefBToC)),
+                (ensembleC, SourceElement(c))
+            )
+        )
+
+
+        Assert.assertEquals(
+            db.ensemble_dependencies.asList.sorted,
+            List(
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA1, SourceElement(fieldRefBToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA2, SourceElement(fieldRefBToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA3, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA3, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA4, SourceElement(fieldRefBToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleA5, SourceElement(fieldRefBToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleB, ensembleC, SourceElement(fieldRefBToC), SourceElement(c), FieldTypeKind.asVespucciString)
+            )
+        )
+
+        db.concern_constraints.asList should not be (Nil)
+
+        Assert.assertEquals(db.violations.asList.sorted,
+            List(
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA,
+                    SourceElement(fieldRefBToA1), SourceElement(a1),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA,
+                    SourceElement(fieldRefBToA2), SourceElement(a2),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB,ensembleA,
+                    SourceElement(fieldRefBToA4), SourceElement(a4),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA,
+                    SourceElement(fieldRefBToA5), SourceElement(a5),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA1,
+                    SourceElement(fieldRefBToA1), SourceElement(a1),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA2,
+                    SourceElement(fieldRefBToA2), SourceElement(a2),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA3,
+                    SourceElement(fieldRefBToA4), SourceElement(a4),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA3,
+                    SourceElement(fieldRefBToA5), SourceElement(a5),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA4,
+                    SourceElement(fieldRefBToA4), SourceElement(a4),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation(
+                    constraint,
+                    ensembleB, ensembleA5,
+                    SourceElement(fieldRefBToA5), SourceElement(a5),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                )
+            )
+        )
+    }
 }
+
+
