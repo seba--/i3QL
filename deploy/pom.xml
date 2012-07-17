@@ -4,7 +4,7 @@
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
 	<artifactId>sae-library</artifactId>
-	<version>0.5.0</version>
+	<version>0.6.0</version>
 	<packaging>jar</packaging>
 
 	<name>sae-library</name>
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-bytecode</artifactId>
-			<version>0.5.0</version>
+			<version>0.6.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

@@ -3,12 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>sae</artifactId>
-    <version>0.5.0</version>
+    <version>0.6.0</version>
     <name>sae</name>
     <packaging>pom</packaging>
 
     <properties>
-        <sae.version>0.5.0</sae.version>
+        <sae.version>0.6.0</sae.version>
+        <sae.core.version>1.0.0</sae.core.version>
         <scala.version>2.9.1</scala.version>
         <scalatest.version>1.6.1</scalatest.version>
         <junit.version>4.10</junit.version>
