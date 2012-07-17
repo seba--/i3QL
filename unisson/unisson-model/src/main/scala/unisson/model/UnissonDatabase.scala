@@ -253,7 +253,7 @@ class UnissonDatabase(val bc: Database)
         }
     }
 
-    private def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: LazyView[_ <: Dependency[S, T]],
+    protected[model] def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: LazyView[_ <: Dependency[S, T]],
                                                                       kind: DependencyKind
                                                                              ): LazyView[(ICodeElement, ICodeElement, String)] = {
         Π[Dependency[S, T], (ICodeElement, ICodeElement, String)](
@@ -261,11 +261,13 @@ class UnissonDatabase(val bc: Database)
         )(dependencyView.asInstanceOf[LazyView[Dependency[S, T]]])
     }
 
+
     /**
      * A list of dependencies between the source code elements
      */
-    lazy val source_code_dependencies =
-        dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
+    def source_code_dependencies = internal_source_code_dependencies
+
+    lazy val internal_source_code_dependencies  =  dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
                 dependencyView_to_tupleView(bc.implements, ImplementsKind) ∪
                 dependencyView_to_tupleView(bc.invoke_interface, InvokeInterfaceKind) ∪
                 dependencyView_to_tupleView(bc.invoke_special, InvokeSpecialKind) ∪

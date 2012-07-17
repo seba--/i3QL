@@ -1,13 +1,12 @@
 package unisson.model
 
-import kinds.DependencyKind
 import kinds.primitive.DataFlowKind
 import sae.bytecode.Database
 import sae.bytecode.model.dependencies.Dependency
 import unisson.query.code_model.SourceElement
 import collection.JavaConversions
 import sae.LazyView
-import de.tud.cs.st.vespucci.interfaces.IPair
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IPair}
 import soot.bridge.{ISootCodeElement, DataFlowEvaluator}
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IEnsemble}
 import sae.collections.{Table, QueryResult}
@@ -25,27 +24,26 @@ class UnissonDataflowDatabase(bc: Database, val dataFlowEvaluator: DataFlowEvalu
 
     import sae.syntax.RelationalAlgebraSyntax._
 
-    def dataflow_dependencies: LazyView[(DependencyKind, Dependency[AnyRef, AnyRef])] = dataflow_view
+    private def dataflow_dependencies: LazyView[Dependency[AnyRef, AnyRef]] = dataflow_view
 
-    private val dataflow_view: DataFlowView = new DataFlowView()
+    private lazy val dataflow_view = new DataFlowView()
 
-    protected val kind_and_dependency_view_with_data_flow = kind_and_dependency_view ∪ dataflow_dependencies
-
-    override def kind_and_dependency = kind_and_dependency_view_with_data_flow
+    override def source_code_dependencies = internal_source_code_dependencies ∪
+            dependencyView_to_tupleView(dataflow_dependencies, DataFlowKind)
 
 
     private case class DataFlowDependency(source: AnyRef, target: AnyRef) extends Dependency[AnyRef, AnyRef]
 
-    private class DataFlowView extends Table[(DependencyKind, Dependency[AnyRef, AnyRef])]
+    private class DataFlowView extends Table[(Dependency[AnyRef, AnyRef])]
     {
         lazy val elements: QueryResult[IPair[IEnsemble, ISootCodeElement]] =
-            Π((t: (IEnsemble, SourceElement[AnyRef])) =>
+            Π((t: (IEnsemble, ICodeElement)) =>
                 new IPair[IEnsemble, ISootCodeElement]
                 {
                     def getFirst = t._1
 
                     def getSecond = t._2.asInstanceOf[ISootCodeElement]
-                })(leaf_ensemble_elements)
+                })(ensemble_elements)
 
         def update() {
             foreach(this -= _) // clear the table
@@ -55,24 +53,24 @@ class UnissonDataflowDatabase(bc: Database, val dataFlowEvaluator: DataFlowEvalu
             for (key <- keys; SourceElement(source) = key) {
                 val dataflows = JavaConversions.iterableAsScalaIterable(sootResults.get(key))
                 for (SourceElement(target) <- dataflows) {
-                    this +=(DataFlowKind, DataFlowDependency(source, target))
+                    this += (DataFlowDependency(source, target))
                 }
             }
         }
     }
 
-    override def addGlobalModel(model: IArchitectureModel) = {
-        super.addGlobalModel(model)
+    override def setRepository(model: IArchitectureModel) = {
+        super.setRepository(model)
         dataflow_view.update()
     }
 
-    override def removeGlobalModel(model: IArchitectureModel) = {
-        super.removeGlobalModel(model)
+    override def unsetRepository(model: IArchitectureModel) = {
+        super.unsetRepository(model)
         dataflow_view.update()
     }
 
-    override def updateGlobalModel(oldModel: IArchitectureModel, newModel: IArchitectureModel) = {
-        super.updateGlobalModel(oldModel, newModel)
+    override def updateRepository(oldModel: IArchitectureModel, newModel: IArchitectureModel) = {
+        super.updateRepository(oldModel, newModel)
         dataflow_view.update()
     }
 

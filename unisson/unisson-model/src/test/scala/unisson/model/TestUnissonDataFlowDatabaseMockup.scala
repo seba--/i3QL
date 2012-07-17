@@ -1,7 +1,7 @@
 package unisson.model
 
 import mock.soot.MockDataFlowEvaluator
-import mock.vespucci.{ArchitectureModel, GlobalArchitectureModel, NotAllowedConstraint, Ensemble}
+import mock.vespucci.{Concern, Repository, NotAllowedConstraint, Ensemble}
 import org.junit.Test
 import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.vespucci.interfaces.IViolation
@@ -35,13 +35,13 @@ class TestUnissonDataFlowDatabaseMockup extends ShouldMatchers
             c
         )
 
-        val global = GlobalArchitectureModel(ensembles)
-        val model = ArchitectureModel(ensembles, constraints, "test")
+        val global = Repository(ensembles)
+        val model = Concern(ensembles, constraints, "test")
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addModel(model)
-        db.addGlobalModel(global)
+        db.addConcern(model)
+        db.setRepository(global)
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
