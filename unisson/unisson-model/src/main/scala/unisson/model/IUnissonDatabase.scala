@@ -1,10 +1,11 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import sae.LazyView
+import sae.{MaterializedView, LazyView}
 import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.operators.Conversions
+import sae.functions.Count
 
 /**
  *
@@ -173,6 +174,7 @@ trait IUnissonDatabase
 
     /**
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
+     * Each entry can be included multiple times, since two ensembles can have multiple dependencies to the same element
      */
     val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
         val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
@@ -227,23 +229,18 @@ trait IUnissonDatabase
      * A list of ensemble dependencies that are not allowed in the form:
      * (E_src, E_trgt, kind, constraint, concern)
      */
-    def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
+    protected[model] def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
-     * A list of ensemble dependencies that are expected
+     * A list of ensemble dependencies that are expected in the form:
+     * (E_src, E_trgt, kind, constraint, concern)
      */
-    def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String)]
-
-    /**
-     * A list of violating ensembles dependencies
-     */
-    def consistencyViolations: LazyView[(IEnsemble, IEnsemble, String)]
+    protected[model] def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    val violations: LazyView[IViolation] =
-    {
+    val violations: LazyView[IViolation] = {
         val disallowed_dependency_violations = (
                 (
                         ensemble_dependencies,
@@ -268,13 +265,55 @@ trait IUnissonDatabase
                 ).asInstanceOf[IViolation]
             }
         }
-        disallowed_dependency_violations
+
+        val unfullfilled_dependency_expectations =
+            Π(
+                (expected: (IEnsemble, IEnsemble, String, IConstraint, String)) => {
+                    new Violation(
+                        expected._4,
+                        expected._1,
+                        expected._2,
+                        null,
+                        null,
+                        expected._3,
+                        expected._5
+                    ).asInstanceOf[IViolation]
+                }
+            )(
+                (
+                        expectedEnsembleDependencies,
+                        (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) =>
+                            (entry._1, entry._2, entry._3)
+                        ) ⊳(
+                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+                            (entry._1, entry._2, entry._5),
+                        ensemble_dependencies
+                        )
+            )
+
+        disallowed_dependency_violations ∪ unfullfilled_dependency_expectations
     }
 
     /**
      * A list of violations summing up individual source code dependencies
      */
-    def violation_summary: LazyView[IViolationSummary]
+    lazy val violation_summary: LazyView[IViolationSummary] =
+        γ(violations,
+            (v: IViolation) => (v.getDiagramFile, v.getSourceEnsemble, v.getTargetEnsemble, v.getConstraint),
+            Count[IViolation](),
+            (elem: (String, IEnsemble, IEnsemble, IConstraint), count: Int) =>
+                ViolationSummary(elem._4, elem._2, elem._3, elem._1, count)
+        )
+
+
+    def unmodeled_elements: LazyView[ICodeElement]
+
+    @deprecated("use ensemble_dependency_count")
+    def ensembleDependencies: MaterializedView[(IEnsemble, IEnsemble, Int)] =
+        ensemble_dependency_count
+
+
+    def ensemble_dependency_count: MaterializedView[(IEnsemble, IEnsemble, Int)]
 
     /**
      * A list of errors that occurred during database updates

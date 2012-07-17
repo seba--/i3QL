@@ -357,8 +357,10 @@ class TestUnissonDatabaseEnsembleDependencies
 
         db.ensemble_dependencies.asList.sorted should be(
             List(
-                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
-                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind.asVespucciString)
+                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString)
             )
         )
     }
@@ -446,17 +448,95 @@ class TestUnissonDatabaseEnsembleDependencies
 
         db.ensemble_dependencies.asList.sorted should be(
             List(
-                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleA4, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleA5, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
-                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind.asVespucciString),
-                (ensembleA4, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind.asVespucciString),
-                (ensembleA4, ensembleA5, SourceElement(fieldRefA4ToA5), SourceElement(a5), FieldTypeKind.asVespucciString),
-                (ensembleA5, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind.asVespucciString)
+                (ensembleA1, ensembleA2, SourceElement(fieldRefA1ToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA1, ensembleA3, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA1, ensembleA4, SourceElement(fieldRefA1ToA4), SourceElement(a4), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA1, ensembleA5, SourceElement(fieldRefA1ToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA2, ensembleA1, SourceElement(fieldRefA2ToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA3, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA3, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA4, ensembleA1, SourceElement(fieldRefA4ToA1), SourceElement(a1), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA4, ensembleA5, SourceElement(fieldRefA4ToA5), SourceElement(a5), FieldTypeKind
+                        .asVespucciString),
+                (ensembleA5, ensembleA2, SourceElement(fieldRefA5ToA2), SourceElement(a2), FieldTypeKind
+                        .asVespucciString)
+            )
+        )
+    }
+
+
+    @Test
+    def testDoubleDependency() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembles = Set(ensembleA, ensembleB)
+
+        val global = Repository(ensembles)
+
+        db.setRepository(global)
+
+        val a = ObjectType("test/A")
+        val b = ObjectType("test/B")
+        val field1BFromA = FieldDeclaration(a, "myB1", b)
+        val field2BFromA = FieldDeclaration(a, "myB2", b)
+        bc.declared_types.element_added(a)
+        bc.declared_types.element_added(b)
+        bc.declared_fields.element_added(field1BFromA)
+        bc.declared_fields.element_added(field2BFromA)
+
+        db.ensemble_dependencies.asList should be(
+            List(
+                (ensembleA, ensembleB, SourceElement(field1BFromA), SourceElement(b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElement(field2BFromA), SourceElement(b), FieldTypeKind.asVespucciString)
+            )
+        )
+
+        db.ensemble_dependency_count.asList should be(
+            List(
+                (ensembleA, ensembleB, 2)
+            )
+        )
+    }
+
+
+    @Test
+    def testDoubleDependencyCount() {
+        val bc = new BytecodeDatabase()
+        val db = new UnissonDatabase(bc)
+
+        val ensembleA = Ensemble("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble("B", "class_with_members('test','B')")
+        val ensembles = Set(ensembleA, ensembleB)
+
+        val global = Repository(ensembles)
+
+        db.setRepository(global)
+
+        val a = ObjectType("test/A")
+        val b = ObjectType("test/B")
+        val field1BFromA = FieldDeclaration(a, "myB1", b)
+        val field2BFromA = FieldDeclaration(a, "myB2", b)
+        bc.declared_types.element_added(a)
+        bc.declared_types.element_added(b)
+        bc.declared_fields.element_added(field1BFromA)
+        bc.declared_fields.element_added(field2BFromA)
+
+        db.ensemble_dependency_count.asList should be(
+            List(
+                (ensembleA, ensembleB, 2)
             )
         )
     }

@@ -6,11 +6,11 @@ import kinds.primitive._
 import unisson.query.code_model.SourceElement
 import sae.bytecode.Database
 import sae.collections.Table
-import sae.{Observer, LazyView}
+import sae.{MaterializedView, Observer, LazyView}
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import sae.bytecode.model.dependencies._
-import de.tud.cs.st.bat.ArrayType
+import de.tud.cs.st.bat.{ObjectType, ArrayType}
 import sae.bytecode.model.dependencies.parameter
 import sae.bytecode.model.dependencies.return_type
 import sae.bytecode.model.dependencies.read_field
@@ -19,6 +19,8 @@ import sae.bytecode.model.dependencies.field_type
 import unisson.query.UnissonQuery
 import unisson.query.parser.QueryParser
 import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
+import sae.bytecode.model.{MethodDeclaration, FieldDeclaration}
+import sae.functions.Count
 
 
 /**
@@ -376,7 +378,7 @@ class UnissonDatabase(val bc: Database)
         result
     }
 
-    lazy val normalized_constraints = new LazyView[(NormalizedConstraint)] {
+    private lazy val normalized_constraints = new LazyView[(NormalizedConstraint)] {
 
         concern_constraints.addObserver(new Observer[(IConstraint, String)] {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
@@ -460,8 +462,7 @@ class UnissonDatabase(val bc: Database)
     }
 
 
-    private lazy val outgoing: LazyView[NormalizedConstraint] =
-    {
+    private lazy val outgoing: LazyView[NormalizedConstraint] = {
         val allOutgoing = local_outgoing ∪ global_outgoing
         allOutgoing ∪ (
                 (
@@ -491,7 +492,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val constrained_ensemble_combinations_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
                         concern_ensembles,
@@ -512,7 +513,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val constrained_ensemble_combinations_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._1, entry._2.target, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
@@ -545,7 +546,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val constrained_ensemble_combinations_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
                         concern_ensembles,
@@ -565,7 +566,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, concern).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    lazy val constrained_ensemble_combinations_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._2.source, entry._1, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
@@ -604,200 +605,35 @@ class UnissonDatabase(val bc: Database)
     /**
      * A list of ensemble dependencies that are expected
      */
-    def expectedEnsembleDependencies = null
-
-    /**
-     * A list of violating ensembles dependencies
-     */
-    def consistencyViolations = null
-
-
-    /**
-     * A list of violations summing up individual source code dependencies
-     */
-    def violation_summary = null
+    def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+        Π(
+            (constraint: NormalizedConstraint) =>
+                (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
+                        .context)
+        )(
+            σ((_: NormalizedConstraint).constraintType == ConstraintType.Expected)(normalized_constraints)
+        )
+    }
 
 
-    /*
-
-
-
-        lazy val source_target_violations_by_local_outgoing: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
-            // all source target combinations that have to do with an ensemble where a constraint is declared
-            val source_target_combinations_with_selfref = (
-                    (
-                            leaf_local_ensembles,
-                            (_: (IEnsemble, String))._2
-                            ) ⋈(
-                            (_: NormalizedConstraint).context,
-                            local_outgoing
-                            )
-                    ) {
-                (e: (IEnsemble, String), c: NormalizedConstraint) => ((c.source, e._1, c.kind), c)
-            }
-
-            // filter obviously allowed combinations
-            // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
-            val source_target_combinations = δ(σ {
-                (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
-                    (e._1._1 != e._1._2)
-            }(source_target_combinations_with_selfref))
-
-            /**
-             * all disallowed combinations taking all constraints to an ensemble into account
-             * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
-             * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
-             */
-            val disallowedEnsemblesWithSameContext = (
-                    (
-                            source_target_combinations,
-                            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
-                                (e._1, e._2.context)
-                            ) ⊳(
-                            (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
-                            local_outgoing ∪ global_outgoing
-                            )
-
-                    )
-            disallowedEnsemblesWithSameContext
-        }
-
-
-        lazy val source_target_violations_by_global_outgoing: LazyView[((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)] = {
-            // all source target combinations that have to do with an ensemble where a constraint is declared
-            val source_target_combinations_with_selfref = (
-                    (
-                            leaf_ensembles × contexts,
-                            (_: (IEnsemble, String))._2
-                            ) ⋈(
-                            (_: NormalizedConstraint).context,
-                            global_outgoing
-                            )
-                    ) {
-                (e: (IEnsemble, String), c: NormalizedConstraint) => ((c.source, e._1, c.kind), c)
-            }
-
-            // filter obviously allowed combinations
-            // Allowed are all (A, Outgoing(_, A) and (A, Outgoing(A, _)
-            val source_target_combinations = δ(σ {
-                (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
-                    (e._1._1 != e._1._2)
-            }(source_target_combinations_with_selfref))
-
-            /**
-             * all disallowed combinations taking all constraints to an ensemble into account
-             * for all (Y, Z) where Z,Y in Ensembles and Outgoing(Y,_, ctx) ;
-             * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
-             */
-            val disallowedEnsemblesWithSameContext = (
-                    (
-                            source_target_combinations,
-                            (e: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) =>
-                                (e._1, e._2.context)
-                            ) ⊳(
-                            (c: NormalizedConstraint) => ((c.source, c.target, c.kind), c.context),
-                            local_outgoing ∪ global_outgoing
-                            )
-
-                    )
-            disallowedEnsemblesWithSameContext
-        }
-
-        lazy val source_target_violations: LazyView[IViolation] = {
-            val source_target_disallowed =
-                source_target_violations_by_not_allowed ∪
-                        source_target_violations_by_local_incoming ∪
-                        source_target_violations_by_global_incoming ∪
-                        source_target_violations_by_local_outgoing ∪
-                        source_target_violations_by_global_outgoing
-
-            val violations = (
-                    (
-                            source_target_disallowed,
-                            (t: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint)) => t._1
-                            ) ⋈(
-                            (t: ((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])) => t._1,
-                            ensemble_dependencies
-                            )
-                    ) {
-                (disallowed: ((IEnsemble, IEnsemble, DependencyKind), NormalizedConstraint),
-                 dependency: ((IEnsemble, IEnsemble, DependencyKind), Dependency[AnyRef, AnyRef])) =>
-                    new Violation(
-                        disallowed._2.origin,
-                        disallowed._1._1,
-                        disallowed._1._2,
-                        SourceElement(dependency._2.source),
-                        SourceElement(dependency._2.target),
-                        disallowed._2.kind.asVespucciString,
-                        disallowed._2.context
-                    ).asInstanceOf[IViolation]
-            }
-            violations
-        }
-
-
-        lazy val violations: LazyView[IViolation] =
-            source_target_violations ∪ violations_expected
-
-        lazy val violations_expected: LazyView[IViolation] = {
-            new DefaultLazyView[IViolation]
-        }
-
-
-        lazy val violation_summary: LazyView[IViolationSummary] =
-            γ(violations,
-                (v: IViolation) => (v.getDiagramFile, v.getSourceEnsemble, v.getTargetEnsemble, v.getConstraint),
-                Count[IViolation](),
-                (elem: (String, IEnsemble, IEnsemble, IConstraint), count: Int) =>
-                    ViolationSummary(elem._4, elem._2, elem._3, elem._1, count)
+    lazy val unmodeled_elements: LazyView[ICodeElement] = (
+            (
+                    Π(SourceElement(_: ObjectType).asInstanceOf[ICodeElement])(bc.declared_types) ∪
+                            Π(SourceElement(_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.declared_fields) ∪
+                            Π(SourceElement(_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.declared_methods)
+                    ) ∖
+                    δ(Π((_: (IEnsemble, ICodeElement))._2)(ensemble_elements))
             )
 
 
-        lazy val unmodeled_elements: LazyView[ICodeElement] = (
-                (
-                        Π(SourceElement(_: ObjectType))(bc.declared_types) ∪
-                                Π(SourceElement(_: FieldDeclaration))(bc.declared_fields) ∪
-                                Π(SourceElement(_: MethodDeclaration))(bc.declared_methods)
-                        ) ∖
-                        δ(Π((_: (IEnsemble, SourceElement[AnyRef]))._2)(leaf_ensemble_elements))
-                ).asInstanceOf[LazyView[ICodeElement]]
+    lazy val ensemble_dependency_count: MaterializedView[(IEnsemble, IEnsemble, Int)] = {
+        γ(ensemble_dependencies,
+            (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (dependency._1, dependency._2),
+            Count[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)](),
+            (elem: (IEnsemble, IEnsemble), count: Int) => (elem._1, elem._2, count)
+        )
+    }
 
-
-        lazy val ensembleDependencies: MaterializedView[(IEnsemble, IEnsemble, Int)] = {
-            val sourceEnsembleDependencies = (
-                    (
-                            leaf_ensemble_elements,
-                            (_: (IEnsemble, SourceElement[AnyRef]))._2.element
-                            ) ⋈
-                            (
-                                    (_: (DependencyKind, Dependency[AnyRef, AnyRef]))._2.source,
-                                    kind_and_dependency
-                                    )
-                    ) {
-                (e1: (IEnsemble, SourceElement[AnyRef]), e2: (DependencyKind, Dependency[AnyRef, AnyRef])) =>
-                    (e1._1, e2._2)
-            }
-            val targetEnsembleDependencies = (
-                    (
-                            leaf_ensemble_elements,
-                            (_: (IEnsemble, SourceElement[AnyRef]))._2.element
-                            ) ⋈
-                            (
-                                    (_: (IEnsemble, Dependency[AnyRef, AnyRef]))._2.target,
-                                    sourceEnsembleDependencies
-                                    )
-                    ) {
-                (e1: (IEnsemble, SourceElement[AnyRef]), e2: (IEnsemble, Dependency[AnyRef, AnyRef])) =>
-                    (e2._1, e1._1, e2._2)
-            }
-            val leafDependencies = γ(targetEnsembleDependencies,
-                (v: (IEnsemble, IEnsemble, Dependency[AnyRef, AnyRef])) => (v._1, v._2),
-                Count[(IEnsemble, IEnsemble, Dependency[AnyRef, AnyRef])](),
-                (elem: (IEnsemble, IEnsemble), count: Int) => (elem._1, elem._2, count)
-            )
-            leafDependencies
-        }
-    */
 
     /**
      * A list of errors that occurred during database updates
