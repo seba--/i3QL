@@ -50,7 +50,7 @@ class TestUnissonDatabaseHibernate_1_2_3
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "Actions.sad")
         db.setRepository(global)
-        db.addConcern(model)
+        db.addSlice(model)
 
         val queryResult: QueryResult[IViolation] = db.violations
 

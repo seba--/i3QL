@@ -40,7 +40,7 @@ class TestUnissonDatabaseUpdates
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(globalModelV0)
 
         val a = ObjectType("test/A")
@@ -124,7 +124,7 @@ class TestUnissonDatabaseUpdates
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(globalModelV0)
 
         val a = ObjectType("test/A")
@@ -209,7 +209,7 @@ class TestUnissonDatabaseUpdates
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(modelV0)
+        db.addSlice(modelV0)
         db.setRepository(globalModel)
 
         val a = ObjectType("test/A")
@@ -227,7 +227,7 @@ class TestUnissonDatabaseUpdates
 
         Assert.assertEquals(
             List((constraintV0,"test")),
-            db.concern_constraints.asList
+            db.slice_constraints.asList
         )
 
         Assert.assertEquals(
@@ -248,11 +248,11 @@ class TestUnissonDatabaseUpdates
         val constraintV1 = IncomingConstraint("field_type", ensembleC, ensembleA)
         val modelV1 = Concern(ensembles, Set(constraintV1), "test")
 
-        db.updateConcern(modelV0, modelV1)
+        db.updateSlice(modelV0, modelV1)
 
         Assert.assertEquals(
             List((constraintV1,"test")),
-            db.concern_constraints.asList
+            db.slice_constraints.asList
         )
 
 
@@ -273,11 +273,11 @@ class TestUnissonDatabaseUpdates
 
         val modelV2 = Concern(ensembles, Set(), "test")
 
-        db.updateConcern(modelV1, modelV2)
+        db.updateSlice(modelV1, modelV2)
 
         Assert.assertEquals(
             Nil,
-            db.concern_constraints.asList
+            db.slice_constraints.asList
         )
 
 
@@ -305,7 +305,7 @@ class TestUnissonDatabaseUpdates
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(modelV0)
+        db.addSlice(modelV0)
         db.setRepository(globalModel)
 
         val a = ObjectType("test/A")
@@ -341,7 +341,7 @@ class TestUnissonDatabaseUpdates
 
         val modelV1 = Concern(Set(ensembleA, ensembleB, ensembleD), Set(constraint), "test")
 
-        db.updateConcern(modelV0, modelV1)
+        db.updateSlice(modelV0, modelV1)
 
         result.asList.sorted should be(
             List(
@@ -359,7 +359,7 @@ class TestUnissonDatabaseUpdates
 
         val modelV2 = Concern(Set(ensembleA, ensembleB), Set(constraint), "test")
 
-        db.updateConcern(modelV1, modelV2)
+        db.updateSlice(modelV1, modelV2)
 
         result.asList.sorted should be(Nil)
 

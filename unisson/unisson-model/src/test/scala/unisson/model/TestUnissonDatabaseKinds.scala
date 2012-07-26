@@ -47,7 +47,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val obj = ObjectType("java/lang/Object")
@@ -107,7 +107,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -160,7 +160,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -229,8 +229,8 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(modelA)
-        db.addConcern(modelB)
+        db.addSlice(modelA)
+        db.addSlice(modelB)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -298,7 +298,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -351,7 +351,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -418,7 +418,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -470,7 +470,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")
@@ -522,7 +522,7 @@ class TestUnissonDatabaseKinds
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")

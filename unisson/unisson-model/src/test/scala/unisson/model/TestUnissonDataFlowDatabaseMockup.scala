@@ -40,7 +40,7 @@ class TestUnissonDataFlowDatabaseMockup extends ShouldMatchers
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(global)
 
         val a = ObjectType("test/A")

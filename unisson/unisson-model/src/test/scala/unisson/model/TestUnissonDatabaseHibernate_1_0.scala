@@ -164,7 +164,7 @@ class TestUnissonDatabaseHibernate_1_0
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "DeprecatedLegacy")
         db.setRepository(global)
-        db.addConcern(model)
+        db.addSlice(model)
 
         val queryResult: QueryResult[IViolation] = db.violations
 
@@ -680,7 +680,7 @@ class TestUnissonDatabaseHibernate_1_0
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "actions.sad")
         db.setRepository(global)
-        db.addConcern(model)
+        db.addSlice(model)
 
         val queryResult: QueryResult[IViolationSummary] = db.violation_summary
 
@@ -740,7 +740,7 @@ class TestUnissonDatabaseHibernate_1_0
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "actions.sad")
         db.setRepository(global)
-        db.addConcern(model)
+        db.addSlice(model)
 
         val queryResult: QueryResult[IViolationSummary] = db.violation_summary
 

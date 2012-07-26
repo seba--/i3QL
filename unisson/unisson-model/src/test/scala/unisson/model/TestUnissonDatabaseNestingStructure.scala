@@ -558,7 +558,7 @@ class TestUnissonDatabaseNestingStructure
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
@@ -625,7 +625,7 @@ class TestUnissonDatabaseNestingStructure
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")
@@ -672,7 +672,7 @@ class TestUnissonDatabaseNestingStructure
 
         val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
 
-        db.addConcern(model)
+        db.addSlice(model)
         db.setRepository(globalModel)
 
         val a1 = ObjectType("test/A1")

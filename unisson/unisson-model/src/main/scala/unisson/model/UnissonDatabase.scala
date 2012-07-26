@@ -90,14 +90,14 @@ class UnissonDatabase(val bc: Database)
     lazy val children = new Table[(IEnsemble, IEnsemble)]
 
     /**
-     * The table of concerns and their ensembles
+     * The table of slices and their ensembles
      */
-    lazy val concern_ensembles = new Table[(IEnsemble, String)]()
+    lazy val slice_ensembles = new Table[(IEnsemble, String)]()
 
     /**
-     * The table of concerns and their constraints
+     * The table of slices and their constraints
      */
-    lazy val concern_constraints = new Table[(IConstraint, String)]()
+    lazy val slice_constraints = new Table[(IConstraint, String)]()
 
     /**
      * The queries for each ensemble
@@ -124,24 +124,24 @@ class UnissonDatabase(val bc: Database)
     }
 
     /**
-     * Add the <code>ensemble</code> and it's children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Add the <code>ensemble</code> and it's children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def addEnsembleToConcern(ensemble: IEnsemble)(implicit concern: String) {
-        concern_ensembles +=(ensemble, concern)
+    def addEnsembleToSlice(ensemble: IEnsemble)(implicit slice: String) {
+        slice_ensembles +=(ensemble, slice)
         for (child <- ensemble.getInnerEnsembles) {
-            addEnsembleToConcern(child)
+            addEnsembleToSlice(child)
         }
     }
 
     /**
-     * Add the <code>constraint</code> and to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Add the <code>constraint</code> and to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def addConstraintToConcern(constraint: IConstraint)(implicit concern: String) {
-        concern_constraints +=(constraint, concern)
+    def addConstraintToSlice(constraint: IConstraint)(implicit slice: String) {
+        slice_constraints +=(constraint, slice)
     }
 
     /**
@@ -156,24 +156,24 @@ class UnissonDatabase(val bc: Database)
     }
 
     /**
-     * Remove the <code>ensemble</code> and it's children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Remove the <code>ensemble</code> and it's children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def removeEnsembleFromConcern(ensemble: IEnsemble)(implicit concern: String) {
-        concern_ensembles -=(ensemble, concern)
+    def removeEnsembleFromSlice(ensemble: IEnsemble)(implicit slice: String) {
+        slice_ensembles -=(ensemble, slice)
         for (child <- ensemble.getInnerEnsembles) {
-            removeEnsembleFromConcern(child)
+            removeEnsembleFromSlice(child)
         }
     }
 
     /**
-     * Remove the <code>constraint</code> and to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Remove the <code>constraint</code> and to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def removeConstraintFromConcern(constraint: IConstraint)(implicit concern: String) {
-        concern_constraints -=(constraint, concern)
+    def removeConstraintFromSlice(constraint: IConstraint)(implicit slice: String) {
+        slice_constraints -=(constraint, slice)
     }
 
     /**
@@ -219,12 +219,12 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Updates the ensemble <code>oldE</code> with the values of <code>newE</code>.
-     * The update is performed for the ensemble and all children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * The update is performed for the ensemble and all children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def updateEnsembleInConcern(oldE: IEnsemble, newE: IEnsemble)(implicit concern: String) {
-        concern_ensembles.update((oldE, concern), (newE, concern))
+    def updateEnsembleInSlice(oldE: IEnsemble, newE: IEnsemble)(implicit slice: String) {
+        slice_ensembles.update((oldE, slice), (newE, slice))
         val oldEChildren: scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
         val newEChildren: scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
 
@@ -238,18 +238,18 @@ class UnissonDatabase(val bc: Database)
         // remove old children
         for (child <- notExistingChildren) {
             // transitively remove all further children
-            removeEnsembleFromConcern(child)
+            removeEnsembleFromSlice(child)
         }
         // update existing children
         for (oldChild <- retainedOldChildren;
              newChild <- retainedNewChildren.find(_.getName == oldChild.getName)) {
             // transitively update the child
-            updateEnsembleInConcern(oldChild, newChild)
+            updateEnsembleInSlice(oldChild, newChild)
         }
         // add new children
         for (child <- newChildren) {
             // transitively add all further children
-            addEnsembleToConcern(child)
+            addEnsembleToSlice(child)
         }
     }
 
@@ -382,7 +382,7 @@ class UnissonDatabase(val bc: Database)
 
     private lazy val normalized_constraints = new LazyView[(NormalizedConstraint)] {
 
-        concern_constraints.addObserver(new Observer[(IConstraint, String)] {
+        slice_constraints.addObserver(new Observer[(IConstraint, String)] {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
                 removed(oldV)
                 added(newV)
@@ -401,7 +401,7 @@ class UnissonDatabase(val bc: Database)
         })
 
         def lazy_foreach[T](f: ((NormalizedConstraint)) => T) {
-            concern_constraints.foreach(
+            slice_constraints.foreach(
                 getNormalizedConstraints(_).foreach(f)
             )
         }
@@ -414,7 +414,7 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the not_allowed constraints in the form:
-     * (E_src, E_trgt, kind, constraint, concern).
+     * (E_src, E_trgt, kind, constraint, slice).
      */
     private lazy val disallowed_dependencies_by_not_allowed: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
@@ -491,13 +491,13 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the local_incoming constraints in the form:
-     * (E_src, E_trgt, kind, constraint, concern).
+     * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
     private lazy val constrained_ensemble_combinations_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
-                        concern_ensembles,
+                        slice_ensembles,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
@@ -512,7 +512,7 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the global_incoming constraints in the form:
-     * (E_src, E_trgt, kind, constraint, concern).
+     * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
     private lazy val constrained_ensemble_combinations_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
@@ -545,13 +545,13 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the local_outgoing constraints in the form:
-     * (E_src, E_trgt, kind, constraint, concern).
+     * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
     private lazy val constrained_ensemble_combinations_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
-                        concern_ensembles,
+                        slice_ensembles,
                         (_: (IEnsemble, String))._2
                         ) ⋈(
                         (_: NormalizedConstraint).context,
@@ -565,7 +565,7 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * Returns a view of the disallowed ensemble dependencies derived from the local_outgoing constraints in the form:
-     * (E_src, E_trgt, kind, constraint, concern).
+     * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
     private lazy val constrained_ensemble_combinations_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
@@ -598,7 +598,7 @@ class UnissonDatabase(val bc: Database)
 
     /**
      * A list of ensemble dependencies that are not allowed in the form:
-     * (E_src, E_trgt, kind, constraint, concern)
+     * (E_src, E_trgt, kind, constraint, slice)
      */
     def notAllowedEnsembleDependencies = disallowed_dependencies_by_not_allowed ∪
             disallowed_dependencies_by_incoming ∪

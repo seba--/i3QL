@@ -35,16 +35,16 @@ class TestUnissonDatabaseNestingViolations
         val ensembleA = Ensemble("A2", "derived", ensembleA1, ensembleA2)
         val ensembles = Set(ensembleA)
 
-        val concernName = "test"
+        val sliceName = "test"
 
         val c = NotAllowedConstraint("field_type", ensembleA1, ensembleA2)
         val constraints = Set(c)
 
         val global = Repository(ensembles)
-        val model = Concern(ensembles, constraints, concernName)
+        val model = Concern(ensembles, constraints, sliceName)
 
         db.setRepository(global)
-        db.addConcern(model)
+        db.addSlice(model)
 
 
         val a1 = ObjectType("test/A1")
@@ -65,7 +65,7 @@ class TestUnissonDatabaseNestingViolations
                     SourceElement(fieldRefA1ToA2),
                     SourceElement(a2),
                     FieldTypeKind.asVespucciString,
-                    concernName
+                    sliceName
                 )
             )
         )
@@ -94,7 +94,7 @@ class TestUnissonDatabaseNestingViolations
 
         db.setRepository(Repository(ensembles))
 
-        db.addConcern(Concern(ensembles, Set(IncomingConstraint(FieldTypeKind
+        db.addSlice(Concern(ensembles, Set(IncomingConstraint(FieldTypeKind
                 .asVespucciString, ensembleA, ensembleB)), "test"))
 
         val b = ObjectType("test/B")
@@ -165,7 +165,7 @@ class TestUnissonDatabaseNestingViolations
             )
         )
 
-        db.concern_constraints.asList should not be (Nil)
+        db.slice_constraints.asList should not be (Nil)
 
         db.violations.asList should be(Nil)
     }
@@ -196,7 +196,7 @@ class TestUnissonDatabaseNestingViolations
 
         val constraint = IncomingConstraint(FieldTypeKind.asVespucciString, ensembleC, ensembleB)
         val contextName = "test"
-        db.addConcern(Concern(ensembles, Set(constraint), contextName))
+        db.addSlice(Concern(ensembles, Set(constraint), contextName))
 
         val b = ObjectType("test/B")
 
@@ -275,7 +275,7 @@ class TestUnissonDatabaseNestingViolations
             )
         )
 
-        db.concern_constraints.asList should not be (Nil)
+        db.slice_constraints.asList should not be (Nil)
 
         db.violations.asList.sorted should be(
             List(
@@ -375,7 +375,7 @@ class TestUnissonDatabaseNestingViolations
 
         db.setRepository(Repository(ensembles))
 
-        db.addConcern(Concern(ensembles, Set(OutgoingConstraint(FieldTypeKind
+        db.addSlice(Concern(ensembles, Set(OutgoingConstraint(FieldTypeKind
                 .asVespucciString, ensembleB, ensembleA)), "test"))
 
         val b = ObjectType("test/B")
@@ -447,7 +447,7 @@ class TestUnissonDatabaseNestingViolations
             )
         )
 
-        db.concern_constraints.asList should not be (Nil)
+        db.slice_constraints.asList should not be (Nil)
 
         db.violations.asList should be(Nil)
     }
@@ -477,7 +477,7 @@ class TestUnissonDatabaseNestingViolations
 
         val constraint = OutgoingConstraint(FieldTypeKind.asVespucciString, ensembleB, ensembleC)
         val contextName = "test"
-        db.addConcern(Concern(ensembles, Set(constraint), contextName))
+        db.addSlice(Concern(ensembles, Set(constraint), contextName))
 
         val b = ObjectType("test/B")
 
@@ -560,7 +560,7 @@ class TestUnissonDatabaseNestingViolations
             )
         )
 
-        db.concern_constraints.asList should not be (Nil)
+        db.slice_constraints.asList should not be (Nil)
 
         Assert.assertEquals(db.violations.asList.sorted,
             List(

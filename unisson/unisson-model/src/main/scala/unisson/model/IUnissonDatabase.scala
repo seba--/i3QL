@@ -16,7 +16,7 @@ import sae.functions.Count
  */
 trait IUnissonDatabase
 {
-    private val defaultConcern = "default concern"
+    private val defaultSlice = "_default"
 
     /**
      * A violation is a tuple consisting of:<br>
@@ -24,7 +24,7 @@ trait IUnissonDatabase
      * 2. the source and target ensembles,<br>
      * 3. the source and target code elements,<br>
      * 4. the dependency kind (as String),<br>
-     * 5. the concern (as String)
+     * 5. the slice (as String)
      */
     //type Violation = (IConstraint, IEnsemble, IEnsemble, ICodeElement, ICodeElement, String, String)
 
@@ -34,18 +34,18 @@ trait IUnissonDatabase
     def addEnsemble(ensemble: IEnsemble)
 
     /**
-     * Add the <code>ensemble</code> and it's children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Add the <code>ensemble</code> and it's children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def addEnsembleToConcern(ensemble: IEnsemble)(implicit concern: String = defaultConcern)
+    def addEnsembleToSlice(ensemble: IEnsemble)(implicit slice: String = defaultSlice)
 
     /**
-     * Add the <code>constraint</code> and to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Add the <code>constraint</code> and to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def addConstraintToConcern(constraint: IConstraint)(implicit concern: String = defaultConcern)
+    def addConstraintToSlice(constraint: IConstraint)(implicit slice: String = defaultSlice)
 
     /**
      * Remove the <code>ensemble</code> and it's children to the global list of defined ensembles.
@@ -53,18 +53,18 @@ trait IUnissonDatabase
     def removeEnsemble(ensemble: IEnsemble)
 
     /**
-     * Remove the <code>ensemble</code> and it's children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Remove the <code>ensemble</code> and it's children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def removeEnsembleFromConcern(ensemble: IEnsemble)(implicit concern: String = defaultConcern)
+    def removeEnsembleFromSlice(ensemble: IEnsemble)(implicit slice: String = defaultSlice)
 
     /**
-     * Remove the <code>constraint</code> and to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * Remove the <code>constraint</code> and to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def removeConstraintFromConcern(constraint: IConstraint)(implicit concern: String = defaultConcern)
+    def removeConstraintFromSlice(constraint: IConstraint)(implicit slice: String = defaultSlice)
 
 
     /**
@@ -75,11 +75,11 @@ trait IUnissonDatabase
 
     /**
      * Updates the ensemble <code>oldE</code> with the values of <code>newE</code>.
-     * The update is performed for the ensemble and all children to the local <code>concern</code>.
-     * The concern can be bound to a string via <code>implicit</code>.
-     * The concern can be omitted, resulting in the name: "default concern".
+     * The update is performed for the ensemble and all children to the local <code>slice</code>.
+     * The slice can be bound to a string via <code>implicit</code>.
+     * The slice can be omitted, resulting in the name: "default slice".
      */
-    def updateEnsembleInConcern(oldE: IEnsemble, newE: IEnsemble)(implicit concern: String = defaultConcern)
+    def updateEnsembleInSlice(oldE: IEnsemble, newE: IEnsemble)(implicit slice: String = defaultSlice)
 
     /**
      * Convenience function for list of ensembles
@@ -91,15 +91,15 @@ trait IUnissonDatabase
     /**
      * Convenience function for list of ensembles
      */
-    def addEnsemblesToConcern(ensembles: Iterable[IEnsemble])(implicit concern: String = defaultConcern) {
-        ensembles.foreach(addEnsembleToConcern)
+    def addEnsemblesToSlice(ensembles: Iterable[IEnsemble])(implicit slice: String = defaultSlice) {
+        ensembles.foreach(addEnsembleToSlice)
     }
 
     /**
      * Convenience function for list of constraints
      */
-    def addConstraintsToConcern(constraints: Iterable[IConstraint])(implicit concern: String = defaultConcern) {
-        constraints.foreach(addConstraintToConcern)
+    def addConstraintsToSlice(constraints: Iterable[IConstraint])(implicit slice: String = defaultSlice) {
+        constraints.foreach(addConstraintToSlice)
     }
 
     /**
@@ -112,16 +112,16 @@ trait IUnissonDatabase
     /**
      * Convenience function for list of ensembles
      */
-    def removeEnsemblesFromConcern(ensembles: Iterable[IEnsemble])(implicit concern: String = defaultConcern) {
-        ensembles.foreach(removeEnsembleFromConcern)
+    def removeEnsemblesFromSlice(ensembles: Iterable[IEnsemble])(implicit slice: String = defaultSlice) {
+        ensembles.foreach(removeEnsembleFromSlice)
     }
 
     /**
      * Convenience function for list of constraints
      */
-    def removeConstraintsFromConcern(constraints: Iterable[IConstraint])
-                                    (implicit concern: String = defaultConcern) {
-        constraints.foreach(removeConstraintFromConcern)
+    def removeConstraintsFromSlice(constraints: Iterable[IConstraint])
+                                    (implicit slice: String = defaultSlice) {
+        constraints.foreach(removeConstraintFromSlice)
     }
 
 
@@ -137,21 +137,21 @@ trait IUnissonDatabase
     def ensemble_elements: LazyView[(IEnsemble, ICodeElement)]
 
     /**
-     * A list of ensembles in one concern
+     * A list of ensembles in one slice
      */
-    def concern_ensembles: LazyView[(IEnsemble, String)]
+    def slice_ensembles: LazyView[(IEnsemble, String)]
 
     /**
-     * A list of constraints in one concern
+     * A list of constraints in one slice
      */
-    def concern_constraints: LazyView[(IConstraint, String)]
+    def slice_constraints: LazyView[(IConstraint, String)]
 
     /**
-     * A list naming all concerns
+     * A list naming all slices
      */
-    val concerns: LazyView[String] = δ(Π {
+    val slices: LazyView[String] = δ(Π {
         (_: (IEnsemble, String))._2
-    }(concern_ensembles))
+    }(slice_ensembles))
 
     /**
      * A list of dependencies between the source code elements
@@ -227,13 +227,13 @@ trait IUnissonDatabase
 
     /**
      * A list of ensemble dependencies that are not allowed in the form:
-     * (E_src, E_trgt, kind, constraint, concern)
+     * (E_src, E_trgt, kind, constraint, slice)
      */
     protected[model] def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
      * A list of ensemble dependencies that are expected in the form:
-     * (E_src, E_trgt, kind, constraint, concern)
+     * (E_src, E_trgt, kind, constraint, slice)
      */
     protected[model] def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
