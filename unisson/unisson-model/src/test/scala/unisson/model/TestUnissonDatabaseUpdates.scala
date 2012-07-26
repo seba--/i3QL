@@ -8,7 +8,7 @@ import sae.collections.{Conversions, QueryResult}
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model.FieldDeclaration
 import unisson.query.code_model.SourceElement
-import org.junit.Test
+import org.junit.{Assert, Test}
 
 /**
  *
@@ -61,7 +61,7 @@ class TestUnissonDatabaseUpdates
         bc.declared_fields.element_added(fieldRefDToA)
         bc.declared_types.element_added(e)
 
-        result.asList.sorted should be(
+        Assert.assertEquals(
             List(
                 Violation(
                     constraint,
@@ -72,7 +72,8 @@ class TestUnissonDatabaseUpdates
                     "field_type",
                     "test"
                 )
-            )
+            ),
+            result.asList.sorted
         )
 
         val EnsembleCV1 = Ensemble("C", "class_with_members('test','D')")
@@ -82,18 +83,18 @@ class TestUnissonDatabaseUpdates
 
         db.updateRepository(globalModelV0, globalModelV1)
 
-        result.asList.sorted should be(
-            List(
-                Violation(
-                    constraint,
-                    EnsembleCV1,
-                    ensembleA,
-                    SourceElement(fieldRefDToA),
-                    SourceElement(a),
-                    "field_type",
-                    "test"
-                )
+        Assert.assertEquals(List(
+            Violation(
+                constraint,
+                EnsembleCV1,
+                ensembleA,
+                SourceElement(fieldRefDToA),
+                SourceElement(a),
+                "field_type",
+                "test"
             )
+        ),
+            result.asList.sorted
         )
 
         val EnsembleCV2 = Ensemble("C", "class_with_members('test','E')")
@@ -103,7 +104,7 @@ class TestUnissonDatabaseUpdates
 
         db.updateRepository(globalModelV1, globalModelV2)
 
-        result.asList.sorted should be(Nil)
+        Assert.assertEquals(Nil, result.asList.sorted)
     }
 
     @Test
@@ -223,7 +224,13 @@ class TestUnissonDatabaseUpdates
         bc.declared_types.element_added(c)
         bc.declared_fields.element_added(fieldRefCToA)
 
-        result.asList.sorted should be(
+
+        Assert.assertEquals(
+            List((constraintV0,"test")),
+            db.concern_constraints.asList
+        )
+
+        Assert.assertEquals(
             List(
                 Violation(
                     constraintV0,
@@ -234,7 +241,8 @@ class TestUnissonDatabaseUpdates
                     "field_type",
                     "test"
                 )
-            )
+            ),
+            result.asList.sorted
         )
 
         val constraintV1 = IncomingConstraint("field_type", ensembleC, ensembleA)
@@ -242,7 +250,13 @@ class TestUnissonDatabaseUpdates
 
         db.updateConcern(modelV0, modelV1)
 
-        result.asList.sorted should be(
+        Assert.assertEquals(
+            List((constraintV1,"test")),
+            db.concern_constraints.asList
+        )
+
+
+        Assert.assertEquals(
             List(
                 Violation(
                     constraintV1,
@@ -253,14 +267,24 @@ class TestUnissonDatabaseUpdates
                     "field_type",
                     "test"
                 )
-            )
+            ),
+            result.asList.sorted
         )
 
         val modelV2 = Concern(ensembles, Set(), "test")
 
         db.updateConcern(modelV1, modelV2)
 
-        result.asList.sorted should be(Nil)
+        Assert.assertEquals(
+            Nil,
+            db.concern_constraints.asList
+        )
+
+
+        Assert.assertEquals(
+            Nil,
+            result.asList.sorted
+        )
 
     }
 

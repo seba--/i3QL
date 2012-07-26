@@ -2,7 +2,7 @@ package unisson.model
 
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
-import org.junit.Test
+import org.junit.{Assert, Test}
 import de.tud.cs.st.vespucci.model.IEnsemble
 import unisson.query.code_model.SourceElement
 import sae.bytecode.model.MethodDeclaration
@@ -46,8 +46,54 @@ class TestUnissonDatabaseHibernate_1_0
 
         bc.addArchiveAsResource("hibernate-1.0.jar")
 
-        elements.asList.sorted should be(
+        Assert.assertEquals(
             List(
+                (deprecatedLegacy, SourceElement(ObjectType("cirrus/hibernate/Persistent"))),
+                (deprecatedLegacy, SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle"))),
+                (deprecatedLegacy,
+                        SourceElement(MethodDeclaration(
+                            ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                            "create",
+                            Seq(ObjectType("cirrus/hibernate/Session")),
+                            VoidType(),
+                            ACC_PUBLIC.mask,
+                            isDeprecated = false,
+                            isSynthetic = false
+                        ))
+                        ),
+                (deprecatedLegacy,
+                        SourceElement(MethodDeclaration(
+                            ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                            "delete",
+                            Seq(ObjectType("cirrus/hibernate/Session")),
+                            VoidType(),
+                            ACC_PUBLIC.mask,
+                            isDeprecated = false,
+                            isSynthetic = false
+                        ))
+                        ),
+                (deprecatedLegacy,
+                        SourceElement(MethodDeclaration(
+                            ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                            "load",
+                            Seq(ObjectType("cirrus/hibernate/Session")),
+                            VoidType(),
+                            ACC_PUBLIC.mask,
+                            isDeprecated = false,
+                            isSynthetic = false
+                        ))
+                        ),
+                (deprecatedLegacy,
+                        SourceElement(MethodDeclaration(
+                            ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                            "store",
+                            Seq(),
+                            VoidType(),
+                            ACC_PUBLIC.mask,
+                            isDeprecated = false,
+                            isSynthetic = false
+                        ))
+                        ),
                 (deprecatedPersistenceLifecycleCallbacks, SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle"))),
                 (deprecatedPersistenceLifecycleCallbacks,
                         SourceElement(MethodDeclaration(
@@ -94,7 +140,8 @@ class TestUnissonDatabaseHibernate_1_0
                         ))
                         ),
                 (deprecatedPersistenceMarkerInterface, SourceElement(ObjectType("cirrus/hibernate/Persistent")))
-            )
+            ),
+            elements.asList.sorted
         )
     }
 
@@ -123,13 +170,13 @@ class TestUnissonDatabaseHibernate_1_0
 
         bc.addArchiveAsResource("hibernate-1.0.jar")
 
-        val result = queryResult.asList.sorted
+        val result = queryResult.asList.sorted.map(_.toString).foldLeft("")(_ + "\n" + _)
 
         val expectedResult = List(
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 classPersister,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
@@ -145,7 +192,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 classPersister,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
@@ -169,7 +216,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
@@ -185,7 +232,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
@@ -209,7 +256,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
@@ -225,7 +272,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
@@ -241,7 +288,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
@@ -265,7 +312,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
@@ -289,7 +336,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
@@ -305,7 +352,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
@@ -329,7 +376,7 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
@@ -345,7 +392,248 @@ class TestUnissonDatabaseHibernate_1_0
             Violation(
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
-                deprecatedPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "save",
+                    Seq(ObjectType("java/lang/Object"), ObjectType("java/io/Serializable")),
+                    ObjectType("java/io/Serializable"),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "create",
+                    Seq(ObjectType("cirrus/hibernate/Session")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            // from usersOfPersistentLifeCycleCallBack
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/ClassPersister"),
+                    "assemble",
+                    Seq(ArrayType(1, ObjectType("java/lang/Object")), ObjectType("java/lang/Object"), ObjectType("java/io/Serializable"), ObjectType("cirrus/hibernate/impl/SessionImplementor")),
+                    ObjectType("java/lang/Object"),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/ClassPersister"),
+                    "assemble",
+                    Seq(ArrayType(1, ObjectType("java/lang/Object")), ObjectType("java/lang/Object"), ObjectType("java/io/Serializable"), ObjectType("cirrus/hibernate/impl/SessionImplementor")),
+                    ObjectType("java/lang/Object"),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "load",
+                    Seq(ObjectType("cirrus/hibernate/Session")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "delete",
+                    Seq(ObjectType("java/lang/Object")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "delete",
+                    Seq(ObjectType("java/lang/Object")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "delete",
+                    Seq(ObjectType("cirrus/hibernate/Session")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doLoadCallbacks",
+                    Seq(ObjectType("java/util/List"), IntegerType()),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doLoadCallbacks",
+                    Seq(ObjectType("java/util/List"), IntegerType()),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doLoadCallbacks",
+                    Seq(ObjectType("java/util/List"), IntegerType()),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "load",
+                    Seq(ObjectType("cirrus/hibernate/Session")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doLoadCallbacks",
+                    Seq(ObjectType("java/util/List"), IntegerType()),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "load",
+                    Seq(ObjectType("cirrus/hibernate/Session")),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doStoreCallbacks",
+                    Seq(),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "doStoreCallbacks",
+                    Seq(),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/PersistentLifecycle"),
+                    "store",
+                    Seq(),
+                    VoidType(),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                "invoke_interface",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
+                SourceElement(MethodDeclaration(
+                    ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
+                    "save",
+                    Seq(ObjectType("java/lang/Object"), ObjectType("java/io/Serializable")),
+                    ObjectType("java/io/Serializable"),
+                    0,
+                    isDeprecated = false,
+                    isSynthetic = false
+                )),
+                SourceElement(ObjectType("cirrus/hibernate/PersistentLifecycle")),
+                "class_cast",
+                "DeprecatedLegacy"),
+            Violation(
+                emptyToDeprecatedPersistenceLifecycleCallbacks,
+                usersOfPersistenceLifecycleCallbacks,
+                deprecatedLegacy,
                 SourceElement(MethodDeclaration(
                     ObjectType("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
@@ -366,10 +654,9 @@ class TestUnissonDatabaseHibernate_1_0
                 )),
                 "invoke_interface",
                 "DeprecatedLegacy")
-        )
+        ).map(_.toString).foldLeft("")(_ + "\n" + _)
 
-        result should be(expectedResult)
-
+        Assert.assertEquals(expectedResult, result)
     }
 
     @Test
@@ -399,7 +686,7 @@ class TestUnissonDatabaseHibernate_1_0
 
         bc.addArchiveAsResource("hibernate-1.0.jar")
 
-        queryResult.asList should be (Nil)
+        queryResult.asList should be(Nil)
     }
 
     @Test
@@ -422,7 +709,7 @@ class TestUnissonDatabaseHibernate_1_0
         val ResultIterator = Ensemble("ResultIterator", "class_with_members('cirrus.hibernate.impl','IdentifierIterator')")
         val ByIDQuery = Ensemble("ByIDQuery", "class_with_members('cirrus.hibernate.impl','ByIDQuery')")
         val PersisterCache = Ensemble("PersisterCache", "class_with_members('cirrus.hibernate.impl','PersisterCache')")
-        val PersistenceManagement = Ensemble("PersistenceManagement", "derived",ClassPersister, CollectionPersister, PersistentCollectionWrappers, ResultIterator, ByIDQuery, PersisterCache)
+        val PersistenceManagement = Ensemble("PersistenceManagement", "derived", ClassPersister, CollectionPersister, PersistentCollectionWrappers, ResultIterator, ByIDQuery, PersisterCache)
 
         val SessionInternalInterface = Ensemble("SessionInternalInterface", "class_with_members('cirrus.hibernate.impl','SessionImplementor')")
         val SessionApplicationInterface = Ensemble("SessionApplicationInterface", "class_with_members('cirrus.hibernate','Session')")
@@ -439,24 +726,16 @@ class TestUnissonDatabaseHibernate_1_0
             SessionManagement
         )
 
-        val ActionsToExceptions = GlobalOutgoingConstraint("all", Actions, Exceptions)
-        val ActionsToSessionInternalInterface = GlobalOutgoingConstraint("all", Actions, SessionInternalInterface)
-        val ScalarActionsToClassPersister = GlobalOutgoingConstraint("all", ScalarActions, ClassPersister)
-        val CollectionActionsToCollectionPersister = GlobalOutgoingConstraint("all", CollectionActions, CollectionPersister)
-        val CollectionActionsToPersistentCollectionWrappers = GlobalOutgoingConstraint("all", CollectionActions, PersistentCollectionWrappers)
-        val ScalarActionsToActionInterface = IncomingOutgoingConstraint("implements", ScalarActions, ActionInterface)
-        val CollectionActionsToActionInterface = IncomingOutgoingConstraint("implements", CollectionActions, ActionInterface)
-        val ConcreteSessionToActions = GlobalIncomingConstraint("all", ConcreteSession, Actions)
+        val ActionsToUtilAndExceptions = GlobalOutgoingConstraint("all", Actions, UtilitiesAndExceptions)
+        val ActionsToSession = GlobalOutgoingConstraint("all", Actions, SessionManagement)
+        val ActionToPersistence = GlobalOutgoingConstraint("all", Actions, PersistenceManagement)
+        val SessionToAction = GlobalIncomingConstraint("all", SessionManagement, Actions)
 
         val constraints = Set(
-            ActionsToExceptions,
-            ActionsToSessionInternalInterface,
-            ScalarActionsToClassPersister,
-            CollectionActionsToCollectionPersister,
-            CollectionActionsToPersistentCollectionWrappers,
-            ScalarActionsToActionInterface,
-            CollectionActionsToActionInterface,
-            ConcreteSessionToActions
+            ActionsToUtilAndExceptions,
+            ActionsToSession,
+            ActionToPersistence,
+            SessionToAction
         )
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "actions.sad")
@@ -467,7 +746,8 @@ class TestUnissonDatabaseHibernate_1_0
 
         bc.addArchiveAsResource("hibernate-1.0.jar")
 
-        queryResult.asList should be (Nil)
+        println(queryResult.asList.sorted.map(_.toString).foldLeft("")(_ + "\n" + _))
+        Assert.assertEquals(Nil, queryResult.asList)
     }
 
 }

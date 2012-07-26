@@ -46,12 +46,10 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
         )(oldModel.getName)
 
         // remove old constraints
-        for (constraint <- oldModel.getConstraints.filterNot(
+        removeConstraintsFromConcern(oldModel.getConstraints.filterNot(
             (c: IConstraint) => newModel.getConstraints.exists(_ == c)
-        )
-        ) {
-            removeConstraintFromConcern(constraint)(oldModel.getName)
-        }
+        ))(oldModel.getName)
+
 
 
         // update existing Ensembles
@@ -66,19 +64,16 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
         // but then removing the old constraint is probably as effective.
 
         // add new Ensembles
+        addEnsemblesToConcern(newModel.getEnsembles.filterNot(
+            (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
+        ))(newModel.getName)
 
-        addEnsemblesToConcern(
-            newModel.getEnsembles.filterNot(
-                (e: IEnsemble) => oldModel.getEnsembles.exists(_.getName == e.getName)
-            )
-        )
 
         // add new Constraints
-        addConstraintsToConcern(
-            newModel.getConstraints.filterNot(
-                (c: IConstraint) => oldModel.getConstraints.exists(_ == c)
-            )
-        )
+        addConstraintsToConcern(newModel.getConstraints.filterNot(
+            (c: IConstraint) => oldModel.getConstraints.exists(_ == c)
+        ))(newModel.getName)
+
     }
 
     /**
@@ -98,7 +93,7 @@ trait IUnissonArchitectureModelDatabase extends IUnissonDatabase
         import scala.collection.JavaConversions._
 
         for (ensemble <- model.getEnsembles) {
-            removeEnsemble( ensemble)
+            removeEnsemble(ensemble)
         }
     }
 
