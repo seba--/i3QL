@@ -2,9 +2,9 @@ package sae
 package syntax
 
 import sae.operators._
-import sae.operators.intern._
 import sae.LazyView
 
+/*
 object SQLSyntax
 {
 
@@ -17,21 +17,37 @@ object SQLSyntax
     )
 
 
+    //def *[A](a: A): A = identity(a)
 
 
-    def *[A](a: A): A = identity(a)
+    object SELECT
+    {
+
+        def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) = InfixSelect(projection)
+
+        def *() = InfixSelect[_ <: AnyRef, _ <: AnyRef](identity_)
 
 
-    case class SELECT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
+    }
+
+    case class NoSelect()
+    {
+        def FROM[Domain <: AnyRef](relation: LazyView[Domain]): LazyView[Range] = new BagProjection[Domain, Domain](
+            indentity[Domain],
+            relation
+        )
+
+    case class InfixSelect[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
     {
         def FROM(relation: LazyView[Domain]): LazyView[Range] = new BagProjection[Domain, Range](
             projection,
             relation
         )
 
+
         /*
         def FROM(relation: LazyView[Domain])(where : WHERE[Domain]): LazyView[Range] = new BagProjection[Domain, Range](
-            projection,
+            InfixSelect,
             relation
         )
         */
@@ -39,11 +55,15 @@ object SQLSyntax
 
     }
 
-    case class FROM[Domain <: AnyRef](relation: LazyView[Domain]){
+    case class FROM[Domain <: AnyRef](relation: LazyView[Domain])
+    {
 
     }
 
-    case class WHERE[Domain <: AnyRef](relation: LazyView[Domain]){
+    case class WHERE[Domain <: AnyRef](relation: LazyView[Domain])
+    {
 
     }
+
 }
+*/

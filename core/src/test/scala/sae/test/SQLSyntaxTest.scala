@@ -1,8 +1,8 @@
 package sae.test
 
 import org.junit.{Assert, Test}
-import sae.syntax.SQLSyntax
 import sae.collections.QueryResult
+import sae.syntax.sql._
 
 /**
  *
@@ -14,10 +14,6 @@ import sae.collections.QueryResult
 class SQLSyntaxTest
 {
 
-    import SQLSyntax._
-
-
-
     @Test
     def testProjectSyntax() {
 
@@ -27,9 +23,26 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val names: QueryResult[String] = SELECT ((_: Student).Name) FROM students
+        def Name(s: Student) = s.Name
 
-        Assert.assertEquals(2, names.size)
+
+        val names1: QueryResult[String] = SELECT {
+            (_: Student).Name
+        } FROM students
+
+        val names2: QueryResult[String] = SELECT {
+            Name(_: Student)
+        } FROM students
+
+        val names3: QueryResult[String] = FROM(students) SELECT {
+            Name(_)
+        }
+
+        val names4: QueryResult[String] = FROM(students) SELECT {(_:Student).Name}
+
+        Assert.assertEquals(2, names1.size)
+        Assert.assertEquals(2, names2.size)
+        Assert.assertEquals(2, names3.size)
 
     }
 
@@ -42,7 +55,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val allStudents: QueryResult[Student] = SELECT {*[Student]} FROM students
+        val allStudents: QueryResult[Student] = SELECT(*) FROM (students)
 
         Assert.assertEquals(2, allStudents.size)
 
