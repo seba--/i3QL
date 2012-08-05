@@ -7,7 +7,7 @@ package sae.syntax.sql
  * Time: 21:11
  *
  */
-trait STARTING_FROM_CLAUSE_MULTI_RELATION2[DomainA <: AnyRef, DomainB <: AnyRef]
+trait STARTING_FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef]
 {
 
     def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range): FROM_CLAUSE[(DomainA, DomainB), Range]

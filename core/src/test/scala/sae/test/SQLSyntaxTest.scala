@@ -335,4 +335,30 @@ class SQLSyntaxTest
         )
 
     }
+
+
+    @Test
+    def testCrossProductStartAtFromNoProjectionWithSelectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val courses = database.courses.copy // make a local copy
+
+        val selection1: QueryResult[(Student, Course)] = FROM (students, courses) SELECT (*)
+
+        Assert.assertEquals (
+            List (
+                (john, eise),
+                (john, sed),
+                (sally, eise),
+                (sally, sed)
+            ),
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
+        )
+
+    }
 }

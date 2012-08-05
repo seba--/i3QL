@@ -11,7 +11,7 @@ import sae.syntax.sql._
  */
 
 case class FromStarting2[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB])
-    extends STARTING_FROM_CLAUSE_MULTI_RELATION2[DomainA, DomainB]
+    extends STARTING_FROM_CLAUSE_2[DomainA, DomainB]
 {
 
     def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range) =
