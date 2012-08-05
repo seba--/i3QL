@@ -12,7 +12,10 @@ trait FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
     extends FROM_CLAUSE[(DomainA, DomainB), Range]
 {
 
-    def WHERE(predicatesA: WHERE_CLAUSE_2A[DomainA], predicatesB: WHERE_CLAUSE_2B[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
 
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR): WHERE_CLAUSE[(DomainA, DomainB), Range]
+
+    def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
 
 }

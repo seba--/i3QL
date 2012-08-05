@@ -10,14 +10,14 @@ package sae.syntax.sql
 trait STARTING_FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef]
 {
 
-    def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range): FROM_CLAUSE[(DomainA, DomainB), Range]
+    def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
-    def SELECT[RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA, projectionB : DomainB => RangeB): FROM_CLAUSE[(DomainA, DomainB), (RangeA,RangeB)]
+    def SELECT[RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA, projectionB : DomainB => RangeB): FROM_CLAUSE_2[DomainA, DomainB, (RangeA,RangeB)]
 
-    def SELECT(x: STAR): FROM_CLAUSE[(DomainA, DomainB), (DomainA, DomainB)]
+    def SELECT(x: STAR): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 
-    def SELECT[Range <: AnyRef](distinct: DISTINCT_PROJECTION[(DomainA, DomainB), Range]): FROM_CLAUSE[(DomainA, DomainB), Range]
+    def SELECT[Range <: AnyRef](distinct: DISTINCT_PROJECTION[(DomainA, DomainB), Range]): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
-    def SELECT(distinct: DISTINCT_NO_PROJECTION.type): FROM_CLAUSE[(DomainA, DomainB), (DomainA, DomainB)]
+    def SELECT(distinct: DISTINCT_NO_PROJECTION.type): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 
 }

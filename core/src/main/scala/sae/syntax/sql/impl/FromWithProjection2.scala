@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.LazyView
 import sae.operators.{BagProjection, Conversions, CrossProduct}
-import sae.syntax.sql.FROM_CLAUSE
+import sae.syntax.sql.{STAR, INLINE_WHERE_CLAUSE, FROM_CLAUSE_2, FROM_CLAUSE}
 
 /**
  *
@@ -17,7 +17,7 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
                                                                                          relationB: LazyView[DomainB],
                                                                                          distinct: Boolean
                                                                                          )
-    extends FROM_CLAUSE[(DomainA, DomainB), Range]
+    extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
     def compile() = withDistinct(
         new BagProjection[(DomainA, DomainB), Range](
@@ -40,4 +40,10 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
             ),
             distinct
         )
+
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
+
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR) = null
+
+    def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 }

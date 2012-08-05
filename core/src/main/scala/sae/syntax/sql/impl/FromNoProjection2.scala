@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.LazyView
-import sae.syntax.sql.FROM_CLAUSE
+import sae.syntax.sql.{STAR, INLINE_WHERE_CLAUSE, FROM_CLAUSE_2}
 import sae.operators.{Conversions, CrossProduct}
 
 /**
@@ -12,14 +12,14 @@ import sae.operators.{Conversions, CrossProduct}
  *
  */
 private[sql] case class FromNoProjection2[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB], distinct: Boolean)
-    extends FROM_CLAUSE[(DomainA, DomainB), (DomainA, DomainB)]
+    extends FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 {
 
     def compile() =
-        withDistinct (
+        withDistinct(
             new CrossProduct[DomainA, DomainB](
-                Conversions.lazyViewToMaterializedView (relationA),
-                Conversions.lazyViewToMaterializedView (relationB)
+                Conversions.lazyViewToMaterializedView(relationA),
+                Conversions.lazyViewToMaterializedView(relationB)
             ),
             distinct
         )
@@ -33,4 +33,13 @@ private[sql] case class FromNoProjection2[DomainA <: AnyRef, DomainB <: AnyRef](
             ),
             distinct
         )
+
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]) =
+        WhereNoProjection(
+
+        )
+
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR) = null
+
+    def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 }

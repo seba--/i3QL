@@ -2,6 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
+import sql.impl.InlineWhereClause
 
 /**
  *
@@ -26,5 +27,8 @@ package object sql
 
     implicit def functionTuples2[Domain, R1, R2](functionTuple: (Domain => R1, Domain => R2)): Domain => (R1, R2) =
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))
+
+    implicit def predicateToInlineWhereClause[Domain <: AnyRef](f : Domain => Boolean) : INLINE_WHERE_CLAUSE[Domain] =
+        InlineWhereClause(f)
 
 }
