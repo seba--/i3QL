@@ -13,4 +13,6 @@ trait FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
     extends SQL_END_CLAUSE[Range]
 {
 
+    def WHERE(predicate : Domain => Boolean) : WHERE_CLAUSE[Domain, Range]
+
 }

@@ -14,7 +14,7 @@ import sae.syntax.sql.FROM_CLAUSE
 case class FromWithProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                     projection: Domain => Range,
                                                                     relation: LazyView[Domain],
-                                                                    distinct: Boolean = false
+                                                                    distinct: Boolean
                                                                     )
     extends FROM_CLAUSE[Domain, Range]
 {
@@ -26,4 +26,5 @@ case class FromWithProjection[Domain <: AnyRef, Range <: AnyRef](
         new BagProjection[Domain, Range](projection, relation)
     }
 
+    def WHERE(predicate: (Domain) => Boolean) = WhereWithProjection (projection, predicate, relation, distinct)
 }

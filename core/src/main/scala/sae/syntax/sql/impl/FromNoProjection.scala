@@ -11,7 +11,7 @@ import sae.operators.SetDuplicateElimination
  * Time: 20:08
  *
  */
-private[sql] case class FromNoProjection[Domain <: AnyRef](relation: LazyView[Domain], distinct: Boolean = false)
+private[sql] case class FromNoProjection[Domain <: AnyRef](relation: LazyView[Domain], distinct: Boolean)
     extends FROM_CLAUSE[Domain, Domain]
 {
 
@@ -22,4 +22,5 @@ private[sql] case class FromNoProjection[Domain <: AnyRef](relation: LazyView[Do
         relation
     }
 
+    def WHERE(predicate: (Domain) => Boolean) = WhereNoProjection (predicate, relation, distinct)
 }

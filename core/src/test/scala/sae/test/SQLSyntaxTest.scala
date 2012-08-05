@@ -128,4 +128,21 @@ class SQLSyntaxTest
         Assert.assertEquals (2, names.size)
     }
 
+    @Test
+    def testFilterSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val selection: QueryResult[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally")
+
+        Assert.assertEquals (1, selection.size)
+
+        Assert.assertEquals (Some (sally), selection.singletonValue)
+
+    }
+
 }

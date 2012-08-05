@@ -10,7 +10,7 @@ import sae.syntax.sql.SELECT_CLAUSE_NO_PROJECTION
  * Time: 20:00
  *
  */
-case class NoProjection(distinct: Boolean = false)
+case class NoProjection(distinct: Boolean)
     extends SELECT_CLAUSE_NO_PROJECTION
 {
     def FROM[Domain <: AnyRef](relation: LazyView[Domain]) = FromNoProjection[Domain](relation, distinct)

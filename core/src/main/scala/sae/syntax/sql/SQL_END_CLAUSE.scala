@@ -1,6 +1,7 @@
 package sae.syntax.sql
 
 import sae.LazyView
+import sae.operators.SetDuplicateElimination
 
 /**
  *
@@ -14,4 +15,13 @@ trait SQL_END_CLAUSE[Domain <: AnyRef]
 
     def compile() : LazyView[Domain]
 
+
+    protected def withDistinct(result : LazyView[Domain], distinct : Boolean) : LazyView[Domain] = {
+        if (distinct){
+            new SetDuplicateElimination[Domain](result)
+        }
+        else{
+            result
+        }
+    }
 }

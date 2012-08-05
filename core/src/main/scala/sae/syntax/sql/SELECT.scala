@@ -12,15 +12,15 @@ import impl.{NoProjection, Projection}
 object SELECT
 {
 
-    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) : SELECT_CLAUSE[Domain, Range] =
-        Projection(projection)
+    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range] =
+        Projection (projection, distinct = false)
 
-    def apply(x:STAR) : SELECT_CLAUSE_NO_PROJECTION = NoProjection()
+    def apply(x: STAR): SELECT_CLAUSE_NO_PROJECTION = NoProjection (distinct = false)
 
-    def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range) : SELECT_CLAUSE[Domain, Range] =
-        Projection(projection, distinct = true)
+    def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range] =
+        Projection (projection, distinct = true)
 
-    def DISTINCT(x:STAR) : SELECT_CLAUSE_NO_PROJECTION = NoProjection(distinct = true)
+    def DISTINCT(x: STAR): SELECT_CLAUSE_NO_PROJECTION = NoProjection (distinct = true)
 
 
 }
