@@ -182,4 +182,157 @@ class SQLSyntaxTest
         )
 
     }
+
+
+    @Test
+    def testMultipleFilterDisjunctionWithProjectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        def Name: Student => String = x => x.Name
+
+        val selection: QueryResult[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+
+        Assert.assertEquals (2, selection.size)
+
+        Assert.assertEquals (
+            List ("john", "sally"),
+            selection.asList.sorted
+        )
+
+    }
+
+
+    @Test
+    def testCrossProductStartAtFromWithProjectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val courses = database.courses.copy // make a local copy
+
+        def Name: Student => String = x => x.Name
+
+        def CourseName: Course => String = x => x.Name
+
+        val selection1: QueryResult[(String, String)] = FROM (students, courses) SELECT ((s: Student, c: Course) => (s.Name, c.Name))
+
+        // this causes ambiguites with the select distinct syntax
+        //val selection2: QueryResult[(String, String)] = FROM (students, courses) SELECT ((Name, CourseName))
+
+        val selection3: QueryResult[(String, String)] = FROM (students, courses) SELECT(Name, CourseName)
+
+        Assert.assertEquals (
+            List (
+                ("john", "EiSE"),
+                ("john", "SE-D&C"),
+                ("sally", "EiSE"),
+                ("sally", "SE-D&C")
+            ),
+            selection1.asList.sorted
+        )
+
+        //Assert.assertEquals (selection1.asList.sorted, selection2.asList.sorted)
+
+        Assert.assertEquals (selection1.asList.sorted, selection3.asList.sorted)
+    }
+
+    @Test
+    def testDistinctCrossProductStartAtFromWithProjectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        students += sally
+
+        val courses = database.courses.copy // make a local copy
+
+        def Name: Student => String = x => x.Name
+
+        def CourseName: Course => String = x => x.Name
+
+        val selection1: QueryResult[(String, String)] = FROM (students, courses) SELECT DISTINCT ((s: Student, c: Course) => (s.Name, c.Name))
+
+        // this causes ambiguites with the select syntax
+        //val selection2: QueryResult[(String, String)] = FROM (students, courses) SELECT DISTINCT ((Name, CourseName))
+
+        val selection3: QueryResult[(String, String)] = FROM (students, courses) SELECT DISTINCT (Name, CourseName)
+
+        Assert.assertEquals (
+            List (
+                ("john", "EiSE"),
+                ("john", "SE-D&C"),
+                ("sally", "EiSE"),
+                ("sally", "SE-D&C")
+            ),
+            selection1.asList.sorted
+        )
+
+        //Assert.assertEquals (selection1.asList.sorted, selection2.asList.sorted)
+
+        Assert.assertEquals (selection1.asList.sorted, selection3.asList.sorted)
+
+    }
+
+    @Test
+    def testCrossProductStartAtFromNoProjectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val courses = database.courses.copy // make a local copy
+
+        val selection1: QueryResult[(Student, Course)] = FROM (students, courses) SELECT (*)
+
+        Assert.assertEquals (
+            List (
+                (john, eise),
+                (john, sed),
+                (sally, eise),
+                (sally, sed)
+            ),
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
+        )
+
+    }
+
+    @Test
+    def testDistinctCrossProductStartAtFromNoProjectionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        students += sally
+
+        val courses = database.courses.copy // make a local copy
+
+        val selection1: QueryResult[(Student, Course)] = FROM (students, courses) SELECT DISTINCT (*)
+
+        Assert.assertEquals (
+            List (
+                (john, eise),
+                (john, sed),
+                (sally, eise),
+                (sally, sed)
+            ),
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
+        )
+
+    }
 }

@@ -15,12 +15,7 @@ private[sql] case class FromNoProjection[Domain <: AnyRef](relation: LazyView[Do
     extends FROM_CLAUSE[Domain, Domain]
 {
 
-    def compile() = if (distinct) {
-        new SetDuplicateElimination[Domain](relation)
-    } else
-    {
-        relation
-    }
+    def compile() = withDistinct(relation, distinct)
 
     def WHERE(predicate: (Domain) => Boolean) = WhereNoProjection (predicate, relation, distinct)
 }

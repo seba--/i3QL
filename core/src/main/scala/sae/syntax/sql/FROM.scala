@@ -1,6 +1,6 @@
 package sae.syntax.sql
 
-import impl.FromStarting
+import impl.{FromStarting2, FromStarting}
 import sae.LazyView
 
 /**
@@ -15,5 +15,8 @@ object FROM
 
     def apply[Domain <: AnyRef](relation: LazyView[Domain]): STARTING_FROM_CLAUSE[Domain] =
         FromStarting (relation)
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): STARTING_FROM_CLAUSE_MULTI_RELATION2[DomainA, DomainB] =
+        FromStarting2 (relationA, relationB)
 
 }
