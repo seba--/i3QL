@@ -21,4 +21,7 @@ case class WhereNoProjection[Domain <: AnyRef](filter: Domain => Boolean,
         distinct
     )
 
+    def AND(predicate: (Domain) => Boolean) = WhereNoProjection ((x) => filter (x) && predicate (x), relation, distinct)
+
+    def OR(predicate: (Domain) => Boolean) = WhereNoProjection ((x) => filter (x) || predicate (x), relation, distinct)
 }

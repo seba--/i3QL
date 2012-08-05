@@ -12,9 +12,9 @@ import sae.LazyView
  */
 
 case class WhereWithProjection[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range,
-                                                              filter: Domain => Boolean,
-                                                              relation: LazyView[Domain],
-                                                              distinct: Boolean = false)
+                                                                  filter: Domain => Boolean,
+                                                                  relation: LazyView[Domain],
+                                                                  distinct: Boolean = false)
     extends WHERE_CLAUSE[Domain, Range]
 {
     def compile() = withDistinct (
@@ -22,4 +22,7 @@ case class WhereWithProjection[Domain <: AnyRef, Range <: AnyRef](projection: Do
         distinct
     )
 
+    def AND(predicate: (Domain) => Boolean) = WhereWithProjection (projection, (x) => filter (x) && predicate (x), relation, distinct)
+
+    def OR(predicate: (Domain) => Boolean) = WhereWithProjection (projection, (x) => filter (x) || predicate (x), relation, distinct)
 }

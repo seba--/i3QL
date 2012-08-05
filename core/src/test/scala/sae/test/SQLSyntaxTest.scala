@@ -145,4 +145,41 @@ class SQLSyntaxTest
 
     }
 
+    @Test
+    def testMultipleFilterConjunctionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val selection: QueryResult[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
+
+        Assert.assertEquals (1, selection.size)
+
+        Assert.assertEquals (Some (sally), selection.singletonValue)
+
+    }
+
+
+    @Test
+    def testMultipleFilterDisjunctionSyntax() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val selection: QueryResult[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+
+        Assert.assertEquals (2, selection.size)
+
+        Assert.assertEquals (
+            List (john, sally),
+            selection.asList.sortBy (_.Id)
+        )
+
+    }
 }
