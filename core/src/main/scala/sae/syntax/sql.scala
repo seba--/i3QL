@@ -24,5 +24,6 @@ package object sql
         lazyView
     )
 
+    implicit def functionTuples2[Domain,R1, R2](functionTuple : (Domain=> R1, Domain=> R2)) : Domain => (R1,R2) = (x:Domain) => (functionTuple._1(x), functionTuple._2(x))
 
 }

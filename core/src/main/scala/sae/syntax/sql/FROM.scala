@@ -1,5 +1,6 @@
 package sae.syntax.sql
 
+import impl.FromStarting
 import sae.LazyView
 
 /**
@@ -12,6 +13,7 @@ import sae.LazyView
 object FROM
 {
 
-    def apply[Domain <: AnyRef](relation : LazyView[Domain]) : STARTING_FROM_CLAUSE[Domain] = FromNoProjection(relation)
+    def apply[Domain <: AnyRef](relation: LazyView[Domain]): STARTING_FROM_CLAUSE[Domain] =
+        FromStarting (relation)
 
 }
