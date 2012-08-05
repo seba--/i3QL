@@ -348,7 +348,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: QueryResult[(Student, Course)] = FROM (students, courses) SELECT (*)
+        val selection1: QueryResult[(Student, Course)] = FROM (students, courses) SELECT (*) WHERE ( x => x._1.Name == "john") OR ( x => x._1.Name == "sally")
 
         Assert.assertEquals (
             List (

@@ -9,11 +9,10 @@ package sae.syntax.sql
  *
  */
 trait FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
-    extends SQL_END_CLAUSE[Range]
+    extends FROM_CLAUSE[(DomainA, DomainB), Range]
 {
 
-    def WHERE(predicate: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    def WHERE(predicatesA: WHERE_CLAUSE_2A[DomainA], predicatesB: WHERE_CLAUSE_2B[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
 
-    def WHERE(predicate: DomainB => Boolean): WHERE_CLAUSE_2[DomainB, DomainB, Range]
 
 }

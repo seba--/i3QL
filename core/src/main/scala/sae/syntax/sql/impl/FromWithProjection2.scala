@@ -27,7 +27,17 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
                 Conversions.lazyViewToMaterializedView(relationB)
             )
         ),
-        distinct)
+        distinct
+    )
 
-    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) = null
+    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) =
+        WhereWithProjection(
+            projection,
+            predicate,
+            new CrossProduct[DomainA, DomainB](
+                Conversions.lazyViewToMaterializedView(relationA),
+                Conversions.lazyViewToMaterializedView(relationB)
+            ),
+            distinct
+        )
 }

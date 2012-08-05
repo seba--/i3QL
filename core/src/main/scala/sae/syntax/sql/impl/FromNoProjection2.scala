@@ -24,5 +24,13 @@ private[sql] case class FromNoProjection2[DomainA <: AnyRef, DomainB <: AnyRef](
             distinct
         )
 
-    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) = null
+    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) =
+        WhereNoProjection(
+            predicate,
+            new CrossProduct[DomainA, DomainB](
+                Conversions.lazyViewToMaterializedView(relationA),
+                Conversions.lazyViewToMaterializedView(relationB)
+            ),
+            distinct
+        )
 }

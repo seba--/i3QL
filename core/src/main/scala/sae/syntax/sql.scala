@@ -27,9 +27,4 @@ package object sql
     implicit def functionTuples2[Domain, R1, R2](functionTuple: (Domain => R1, Domain => R2)): Domain => (R1, R2) =
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))
 
-
-    /*
-    implicit def function2Tuples2[D1, D2, R1, R2](functionTuple: (D1 => R1, D2 => R2)): (D1, D2) => (R1, R2) =
-        (d1: D1, d2: D2) => (functionTuple._1 (d1), functionTuple._2 (d2))
-    */
 }
