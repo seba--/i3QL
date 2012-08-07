@@ -35,9 +35,7 @@ private[sql] case class FromNoProjection2[DomainA <: AnyRef, DomainB <: AnyRef](
         )
 
     def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]) =
-        WhereNoProjection(
-
-        )
+        null
 
     def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR) = null
 

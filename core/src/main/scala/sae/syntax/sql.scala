@@ -14,11 +14,8 @@ import sql.impl.InlineWhereClause
 package object sql
 {
 
-    implicit def convertASTToQuery[Domain <: AnyRef](clause: SQL_END_CLAUSE[Domain]): LazyView[Domain] =
+    implicit def compile[Domain <: AnyRef](clause: SQL_END_CLAUSE[Domain]): LazyView[Domain] =
         clause.compile ()
-
-    implicit def convertASTToQueryResult[Domain <: AnyRef](clause: SQL_END_CLAUSE[Domain]): QueryResult[Domain] =
-        lazyViewToResult (clause.compile ())
 
     implicit def lazyViewToResult[V <: AnyRef](lazyView: LazyView[V]): QueryResult[V] = sae.collections.Conversions
         .lazyViewToResult (
