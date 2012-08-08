@@ -1,10 +1,7 @@
 package sae.findbugs.analyses
 
-import sae.bytecode.Database
+import sae.bytecode.BytecodeDatabase
 import sae.LazyView
-import sae.bytecode.model.MethodDeclaration
-import de.tud.cs.st.bat.{ReferenceType, VoidType}
-
 
 /**
  *
@@ -17,7 +14,8 @@ import de.tud.cs.st.bat.{ReferenceType, VoidType}
 object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
 
-    def asOperators(database: Database): LazyView[ReferenceType] = {
+    /*
+    def asOperators(database: BytecodeDatabase): LazyView[ReferenceType] = {
         import sae.syntax.RelationalAlgebraSyntax._
         Π((_: MethodDeclaration).declaringRef)(
             σ(
@@ -26,14 +24,16 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
             )(database.declared_methods)
         )
     }
+    */
 
 
-    def apply(database: Database): LazyView[ReferenceType] = {
+
+    def apply(database: BytecodeDatabase): LazyView[ReferenceType] = {
         import sae.syntax.sql._
         import database._
         //val a = SELECT(*) FROM declared_methods WHERE ((m: MethodDeclaration) => (m.name == "finalize" && m.isPublic && m.returnType == VoidType() && m.parameters.isEmpty))
 
-        SELECT (declaringType) FROM declared_methods WHERE
+        SELECT(declaringType) FROM declared_methods WHERE
                 (_.name == "finalize") AND
                 (_.isPublic) AND
                 (_.returnType == void) AND

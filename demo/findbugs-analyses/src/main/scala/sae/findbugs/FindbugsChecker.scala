@@ -1,13 +1,8 @@
 package sae.findbugs
 
-import analyses._
-import sae.collections.QueryResult
-import sae.bytecode.{MaterializedDatabase, BytecodeDatabase}
+import sae.bytecode.BytecodeDatabase
 import java.io.FileInputStream
 import sae.profiler.Profiler._
-import sae.bytecode.model.dependencies.Dependency
-import de.tud.cs.st.bat.{ReferenceType, ObjectType}
-import sae.bytecode.model._
 
 /**
  *
@@ -21,8 +16,8 @@ object FindbugsChecker
 
     private val usage =
         ("""FindbugsChecker [<jarFile> ...]
-                |<jarFile>: The path to a jar file containong code to be checked
-                """).stripMargin
+           |<jarFile>: The path to a jar file containong code to be checked
+         """).stripMargin
 
     def main(args: Array[String]) {
 
@@ -40,8 +35,8 @@ object FindbugsChecker
             }
         }
 
-        val database = new BytecodeDatabase
-        val materializedDatabase = new MaterializedDatabase(database)
+        val database = null // new BytecodeDatabaseImpl
+        val materializedDatabase = null //new MaterializedDatabase(database)
 
         println("Reading class files:")
         var readingTime: Long = 0
@@ -75,6 +70,7 @@ object FindbugsChecker
         () => transformer.processAllFacts
     }
 
+    /*
     def analyzeFromMaterialized(database: MaterializedDatabase) {
         import sae.collections.Conversions._
 
@@ -124,5 +120,5 @@ object FindbugsChecker
         //unusedPrivateFields.foreach( fd => println(fd.declaringClass + "." + fd.name))
 
     }
-
+    */
 }

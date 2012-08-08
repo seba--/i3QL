@@ -1,90 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.tud.cs.st.opal.sae</groupId>
+        <artifactId>sae-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+
     <groupId>de.tud.cs.st.opal.sae</groupId>
     <artifactId>sae-demo-findbugs-analyses</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>sae-demo-findbugs-analyses</name>
     <packaging>jar</packaging>
 
-    <properties>
-        <sae.version>0.5.0</sae.version>
-        <scala.version>2.9.1</scala.version>
-        <scalatest.version>1.6.1</scalatest.version>
-        <junit.version>4.10</junit.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>scala-tools.org</id>
-            <name>Scala-Tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-    </repositories>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.scala-tools</groupId>
-                <artifactId>maven-scala-plugin</artifactId>
-                <version>2.14.3</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <!-- we keep this for the m2eclipse integration -->
-                            <goal>add-source</goal>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--<source>1.6</source>
-                    <target>1.6</target> -->
-                    <scalaVersion>${scala.version}</scalaVersion>
-                    <args>
-                        <!-- compile with debug information -->
-                        <arg>-g:vars</arg>
-                    </args>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.8.1</version>
-                <configuration>
-
-                    <useFile>false</useFile>
-                    <disableXmlReport>true</disableXmlReport>
-                    <includes>
-                        <include>**/*Test*.*</include>
-                        <include>**/*Suite*.*</include>
-                        <include>**/*Spec*.*</include>
-                    </includes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencies>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
-            <artifactId>sae-database-bytecode</artifactId>
-            <version>${sae.version}</version>
+            <artifactId>sae-bytecode-database-interface</artifactId>
         </dependency>
     </dependencies>
 

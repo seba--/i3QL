@@ -1,6 +1,6 @@
 package sae.findbugs.analyses
 
-import sae.bytecode.Database
+import sae.bytecode.{BytecodeDatabase, Database}
 import sae.LazyView
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.{FieldIdentifier, MethodDeclaration, FieldDeclaration}
@@ -16,7 +16,7 @@ import sae.bytecode.model.dependencies.{write_field, Dependency}
 object UUF_UNUSED_FIELD
 {
 
-    def apply(database: Database): LazyView[FieldDeclaration] = {
+    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
 
         val privateFields = σ((_: FieldDeclaration).isPrivate)(database.declared_fields)
         (

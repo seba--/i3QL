@@ -1,7 +1,7 @@
 package sae.findbugs.analyses
 
 import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.Database
+import sae.bytecode.{BytecodeDatabase, Database}
 import sae.LazyView
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.ExceptionHandler
@@ -18,7 +18,7 @@ object IMSE_DONT_CATCH_IMSE
 
     val IllegalMonitorStateExceptionType = Some(ObjectType("java/lang/IllegalMonitorStateException"))
 
-    def apply(database: Database): LazyView[ExceptionHandler] =
+    def apply(database: BytecodeDatabase): LazyView[ExceptionHandler] =
         σ((_: ExceptionHandler).catchType == IllegalMonitorStateExceptionType)(database.exception_handlers)
 
 }

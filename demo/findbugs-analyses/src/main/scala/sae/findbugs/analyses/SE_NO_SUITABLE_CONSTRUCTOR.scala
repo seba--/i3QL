@@ -1,6 +1,6 @@
 package sae.findbugs.analyses
 
-import sae.bytecode.Database
+import sae.bytecode.{BytecodeDatabase, Database}
 import sae.LazyView
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.model.dependencies.{`extends`, implements}
@@ -21,7 +21,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
 
     val serializable = ObjectType("java/io/Serializable")
 
-    def apply(database: Database): LazyView[ObjectType] = {
+    def apply(database: BytecodeDatabase): LazyView[ObjectType] = {
 
         val serializableClasses = Π(
             (_: implements).source

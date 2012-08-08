@@ -1,6 +1,6 @@
 package sae.findbugs.analyses
 
-import sae.bytecode.Database
+import sae.bytecode.{BytecodeDatabase, Database}
 import sae.LazyView
 import sae.bytecode.model.{FieldDeclaration, ClassDeclaration}
 import sae.syntax.RelationalAlgebraSyntax._
@@ -17,7 +17,7 @@ import de.tud.cs.st.bat.ObjectType
 object CI_CONFUSED_INHERITANCE
 {
 
-    def apply(database: Database): LazyView[(ClassDeclaration,FieldDeclaration)] = {
+    def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
         val finalClasses = σ((_: ClassDeclaration).isFinal)(database.declared_classes)
         val protectedFields = σ((_: FieldDeclaration).isProtected)(database.declared_fields)
         (
