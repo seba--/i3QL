@@ -28,4 +28,9 @@ package object sql
     implicit def predicateToInlineWhereClause[Domain <: AnyRef](f : Domain => Boolean) : INLINE_WHERE_CLAUSE[Domain] =
         InlineWhereClause(f)
 
+
+    implicit def functionToComparator[Domain, Range](f:Domain => Range) : WHERE_FUNCTION_COMPARATOR[Domain,Range] = new WHERE_FUNCTION_COMPARATOR[Domain,Range] {
+        def === (value: Range) = (x:Domain) => f(x) == value
+    }
+
 }

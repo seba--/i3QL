@@ -9,34 +9,22 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-database-core</artifactId>
-    <version>1.0.0</version>
+	<artifactId>sae-bytecode-database-interface</artifactId>
+    <version>0.1.0</version>
 	<packaging>jar</packaging>
 
-	<name>sae-database-core</name>
+	<name>sae-bytecode-database-interface</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
-
+	
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<groupId>de.tud.cs.st.opal.sae</groupId>
+			<artifactId>sae-database-core</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_${scala.version}</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>de.tud.cs.st</groupId>
+            <artifactId>bat-core</artifactId>
+        </dependency>
 	</dependencies>
 </project>

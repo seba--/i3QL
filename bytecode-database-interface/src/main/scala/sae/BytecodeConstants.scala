@@ -30,27 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import sae.{TypeBindingBAT, LazyView}
+package sae
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 09.08.12
+ * Time: 23:10
  */
-trait BytecodeBaseRelations
+
+trait BytecodeConstants
     extends TypeBindingBAT
 {
-
-    def declared_classes: LazyView[ClassDeclaration]
-
-    def declared_methods: LazyView[MethodDeclaration]
-
-    def declared_fields: LazyView[FieldDeclaration]
-
-    def instructions: LazyView[Instruction]
-
+     def void : VoidType
 }
