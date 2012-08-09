@@ -36,6 +36,9 @@ trait TypeBindingBAT
 
     type FieldDeclaration = de.tud.cs.st.bat.resolved.Field
 
+    type ClassMember = de.tud.cs.st.bat.resolved.ClassMember
+
+    type SourceElement = de.tud.cs.st.bat.resolved.SourceElement
 
 
 }

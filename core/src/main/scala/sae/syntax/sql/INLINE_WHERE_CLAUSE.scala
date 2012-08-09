@@ -7,7 +7,7 @@ package sae.syntax.sql
  * Time: 16:41
  */
 
-trait INLINE_WHERE_CLAUSE[Domain <: AnyRef]
+trait INLINE_WHERE_CLAUSE[-Domain <: AnyRef]
 {
 
     def AND(predicate: Domain => Boolean): INLINE_WHERE_CLAUSE[Domain]

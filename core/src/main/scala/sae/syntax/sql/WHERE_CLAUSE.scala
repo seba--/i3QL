@@ -14,6 +14,13 @@ trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def AND(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
+    def AND(notPredicate: NOT[Domain]): WHERE_CLAUSE[Domain, Range]
+
+    def AND(inlineWhereClause : INLINE_WHERE_CLAUSE[Domain]): WHERE_CLAUSE[Domain, Range]
+
     def OR(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
+    def OR(notPredicate: NOT[Domain]): WHERE_CLAUSE[Domain, Range]
+
+    def OR(inlineWhereClause : INLINE_WHERE_CLAUSE[Domain]): WHERE_CLAUSE[Domain, Range]
 }

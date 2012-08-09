@@ -30,40 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.syntax.sql
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 09.08.12
- * Time: 23:00
+ * Date: 10.08.12
+ * Time: 00:30
  */
 
-trait BytecodeFunctions
-    extends TypeBindingBAT
+object NOT
 {
-    def declaringType: MethodDeclaration => ReferenceType
-
-    def name: MethodDeclaration => String
-
-    def isPublic: ClassMember => Boolean
-
-    def isPackage: ClassMember => Boolean
-
-    def isProtected: ClassMember => Boolean
-
-    def isPrivate: ClassMember => Boolean
-
-    def isFinal: ClassMember => Boolean
-
-    def isStatic: ClassMember => Boolean
-
-    def returnType: MethodDeclaration => ReturnType
-
-    def parameters: MethodDeclaration => Seq[ParameterType]
-
-    def isSynthetic: FieldDeclaration => Boolean
-
-    def isVolatile: FieldDeclaration => Boolean
-
+    def apply[Domain <: AnyRef](predicate: Domain => Boolean) : Domain => Boolean = {
+        x => !predicate(x)
+    }
 }

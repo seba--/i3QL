@@ -18,12 +18,13 @@ package object bytecode
     def declaringType : MethodDeclaration => ReferenceType = null
 
     def void = VoidType
-
+/*
     def name : MethodDeclaration => String = method => method.name
 
-    def public : MethodDeclaration => Boolean = method => method.isPublic
+    def isPublic : Cla => Boolean = method => method.isPublic
 
     def returnType : MethodDeclaration => ReturnType = method => method.descriptor.returnType
 
     def parameters : MethodDeclaration => Seq[Type] = method => method.descriptor.parameterTypes
+   */
 }
