@@ -46,4 +46,6 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
     def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR) = null
 
     def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
+
+    def WHERE(predicateA: (DomainA) => Boolean, predicateB: (DomainB) => Boolean) = null
 }

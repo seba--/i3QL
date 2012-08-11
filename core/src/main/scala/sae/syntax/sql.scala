@@ -35,4 +35,5 @@ package object sql
         def === (value: Range) = (x: Domain) => f (x) == value
     }
 
+    implicit def functionToJoin[Domain,Range](f:  Domain => Range): WHERE_FUNCTION_JOIN[Domain, Range] = null
 }

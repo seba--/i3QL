@@ -12,8 +12,6 @@ trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
     extends SQL_END_CLAUSE[Range]
 {
 
-    implicit val ctx = this
-
     def AND(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
     //def AND(inlineWhereClause : INLINE_WHERE_CLAUSE[Domain]): WHERE_CLAUSE[Domain, Range]

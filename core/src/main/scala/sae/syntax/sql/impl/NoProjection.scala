@@ -14,4 +14,6 @@ case class NoProjection(distinct: Boolean)
     extends SELECT_CLAUSE_NO_PROJECTION
 {
     def FROM[Domain <: AnyRef](relation: LazyView[Domain]) = FromNoProjection[Domain](relation, distinct)
+
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) = FromNoProjection2(relationA, relationB, distinct)
 }
