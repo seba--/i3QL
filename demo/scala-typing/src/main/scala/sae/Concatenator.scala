@@ -40,10 +40,11 @@ package sae
  */
 
 case class Concatenator[Domain](pred:Domain => Boolean)
+    //extends (Domain => Boolean)
 {
     def AND(f:Domain => Boolean) : Concatenator[Domain] = Concatenator(x => pred(x) && f(x))
 
-    def AND(f:(Domain,Domain) => Boolean) : Concatenator[Domain] = null;
+    //def AND(f:(Domain,Domain) => Boolean) : Concatenator[Domain] = null;
 
     def OR(f:Domain => Boolean) : Concatenator[Domain] = Concatenator(x => pred(x) || f(x))
 }

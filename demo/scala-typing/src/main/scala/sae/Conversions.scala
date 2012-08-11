@@ -46,6 +46,18 @@ object Conversions
 
     //implicit def funToConcB[Domain,DomainA<:Domain,DomainB<:Domain](f:(DomainA,DomainB) => Boolean) : Domain => Boolean = null
 
-    //implicit def concToFunc[Domain](conc :Concatenator[Domain]) : Domain => Boolean = null
+    implicit def concToFunc[Domain](conc :Concatenator[Domain]) : Domain => Boolean = null
 
+    //implicit def funToConcBool(b: Boolean) : Concatenator[Any] = null
+
+    implicit def richEquals[Domain](v: Domain) : SQLEquals[Domain] = null
+
+    //implicit def funToConcBool[Domain](f:Domain => Boolean) : Domain => Boolean with ORTrait[Domain] = null
+
+    implicit def funToConcBool[Domain](f: => Boolean) : Concatenator[Domain] = null
+
+}
+
+trait ORTrait[Domain] {
+    val OR : Domain
 }

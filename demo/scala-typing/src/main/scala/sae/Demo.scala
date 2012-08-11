@@ -44,6 +44,8 @@ object Demo
     def main(args: Array[String]) {
         import Conversions._
         val first = funToConcA((_:Data).id == 0)
-        val query = first AND (_.name == "Kitty" || _.property == false)
+
+        //val test = (_:Data).id == 0 OR (_.property == false)
+        //val query = first AND (_.name == "Kitty" OR  (_.property == false))
     }
 }
