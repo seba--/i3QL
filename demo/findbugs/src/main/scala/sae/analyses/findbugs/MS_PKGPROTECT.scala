@@ -23,12 +23,13 @@ object MS_PKGPROTECT
 
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         import database._
-        SELECT (*) FROM declared_fields WHERE
+
+        SELECT (*) FROM (declared_fields) WHERE
             isFinal AND
             isStatic AND
             NOT (isSynthetic) AND
             NOT (isVolatile) AND
-            (isPublic OR isProtected) AND
+            (isProtected OR isPublic) AND
             (isArray OR isHashTable)
     }
 
