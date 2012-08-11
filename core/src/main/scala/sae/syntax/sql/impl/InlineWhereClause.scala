@@ -16,4 +16,6 @@ case class InlineWhereClause[Domain <: AnyRef](f : Domain => Boolean)
     def AND(predicate: (Domain) => Boolean) = InlineWhereClause((x) => f(x) && predicate(x))
 
     def OR(predicate: (Domain) => Boolean) = InlineWhereClause((x) => f(x) || predicate(x))
+
+    def function = f
 }

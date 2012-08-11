@@ -1,6 +1,6 @@
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.WHERE_CLAUSE
+import sae.syntax.sql.{INLINE_WHERE_CLAUSE, WHERE_CLAUSE}
 import sae.operators.{BagProjection, LazySelection}
 import sae.LazyView
 
@@ -25,4 +25,8 @@ case class WhereWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: A
     def AND(predicate: ((DomainA, DomainB)) => Boolean) = null
 
     def OR(predicate: ((DomainA, DomainB)) => Boolean) = null
+
+    def AND(inlineWhereClause: INLINE_WHERE_CLAUSE[(DomainA, DomainB)]) = null
+
+    def OR(inlineWhereClause: INLINE_WHERE_CLAUSE[(DomainA, DomainB)]) = null
 }

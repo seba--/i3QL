@@ -1,6 +1,6 @@
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.WHERE_CLAUSE
+import sae.syntax.sql.{INLINE_WHERE_CLAUSE, WHERE_CLAUSE}
 import sae.operators.LazySelection
 import sae.LazyView
 
@@ -24,4 +24,8 @@ case class WhereNoProjection[Domain <: AnyRef](filter: Domain => Boolean,
     def AND(predicate: (Domain) => Boolean) = WhereNoProjection ((x) => filter (x) && predicate (x), relation, distinct)
 
     def OR(predicate: (Domain) => Boolean) = WhereNoProjection ((x) => filter (x) || predicate (x), relation, distinct)
+
+    def AND(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x:Domain) => filter (x) && inlineWhereClause.function (x), relation, distinct)
+
+    def OR(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x:Domain) => filter (x) || inlineWhereClause.function (x), relation, distinct)
 }

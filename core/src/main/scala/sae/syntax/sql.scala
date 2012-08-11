@@ -25,12 +25,14 @@ package object sql
     implicit def functionTuples2[Domain, R1, R2](functionTuple: (Domain => R1, Domain => R2)): Domain => (R1, R2) =
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))
 
-    implicit def predicateToInlineWhereClause[Domain <: AnyRef](f : Domain => Boolean) : INLINE_WHERE_CLAUSE[Domain] =
-        InlineWhereClause(f)
+    implicit def predicateToInlineWhereClause[Domain <: AnyRef](f: Domain => Boolean): INLINE_WHERE_CLAUSE[Domain] =
+        InlineWhereClause (f)
 
+    implicit def inlineWhereClauseToPredicate[Domain <: AnyRef](clause: INLINE_WHERE_CLAUSE[Domain]): Domain => Boolean =
+        clause.function
 
-    implicit def functionToComparator[Domain, Range](f:Domain => Range) : WHERE_FUNCTION_COMPARATOR[Domain,Range] = new WHERE_FUNCTION_COMPARATOR[Domain,Range] {
-        def === (value: Range) = (x:Domain) => f(x) == value
+    implicit def functionToComparator[Domain, Range](f: Domain => Range): WHERE_FUNCTION_COMPARATOR[Domain, Range] = new WHERE_FUNCTION_COMPARATOR[Domain, Range] {
+        def === (value: Range) = (x: Domain) => f (x) == value
     }
 
 }

@@ -190,6 +190,29 @@ class SQLSyntaxTest
 
     }
 
+    @Test
+    def testMultipleFilterInlineSyntax() {
+
+        val database = new StudentCoursesDatabase()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val sally2 = Student(636363, "sally")
+        students += sally2
+
+        val selection: LazyView[Student] = SELECT(*) FROM (students) WHERE (_.Name == "sally") AND (((_:Student).Id == 12346) OR (_.Id == 636363))
+
+        Assert.assertEquals(2, selection.size)
+
+        Assert.assertEquals(
+            List(sally, sally2),
+            selection.asList.sortBy(_.Id)
+        )
+
+    }
+
 
     @Test
     def testMultipleFilterDisjunctionWithProjectionSyntax() {
