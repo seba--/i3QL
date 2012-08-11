@@ -15,16 +15,40 @@ package object bytecode
     with BytecodeConstants
 {
 
-    def declaringType : MethodDeclaration => ReferenceType = null
+    def declaringType: MethodDeclaration => ReferenceType = null
 
     def void = VoidType
-/*
-    def name : MethodDeclaration => String = method => method.name
 
-    def isPublic : Cla => Boolean = method => method.isPublic
+    def name = member => {
+        if (member.isInstanceOf[MethodDeclaration]) {
+            member.asInstanceOf[MethodDeclaration].name
+        }
+        else
+        if (member.isInstanceOf[FieldDeclaration]) {
+            member.asInstanceOf[FieldDeclaration].name
+        }
+        else
+            throw new UnsupportedOperationException ("Object " + member + " of type " + member.getClass + " has no name attribute")
+    }
 
-    def returnType : MethodDeclaration => ReturnType = method => method.descriptor.returnType
 
-    def parameters : MethodDeclaration => Seq[Type] = method => method.descriptor.parameterTypes
-   */
+    def isPublic = member => member.isPublic
+
+    def isPackage = member => !member.isPrivate && !member.isProtected && !member.isPublic
+
+    def isProtected = member => member.isProtected
+
+    def isPrivate = member => member.isPrivate
+
+    def isFinal = member => member.isFinal
+
+    def isStatic = member => member.isStatic
+
+    def returnType = method => method.descriptor.returnType
+
+    def parameterTypes = method => method.descriptor.parameterTypes
+
+    def isSynthetic = field => field.isSynthetic
+
+    def isVolatile = field => field.isVolatile
 }

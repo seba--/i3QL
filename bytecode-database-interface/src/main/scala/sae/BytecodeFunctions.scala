@@ -44,7 +44,7 @@ trait BytecodeFunctions
 {
     def declaringType: MethodDeclaration => ReferenceType
 
-    def name: MethodDeclaration => String
+    def name: ClassMember => String
 
     def isPublic: ClassMember => Boolean
 
@@ -60,7 +60,7 @@ trait BytecodeFunctions
 
     def returnType: MethodDeclaration => ReturnType
 
-    def parameters: MethodDeclaration => Seq[ParameterType]
+    def parameterTypes: MethodDeclaration => Seq[ParameterType]
 
     def isSynthetic: FieldDeclaration => Boolean
 
