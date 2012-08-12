@@ -14,9 +14,13 @@ trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def AND(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
+    def AND(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
+
+    def AND(notExists: NOT_EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
+
     def OR(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
-    //def AND(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
+    def OR(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
 
-    //def OR(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
+    def OR(notExists: NOT_EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
 }

@@ -35,13 +35,19 @@ package sae.syntax.sql
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ * Date: 12.08.12
+ * Time: 12:56
  */
 
-object NOT
+trait STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain <: AnyRef]
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+    def SELECT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE[Domain, Range]]
+
+    def SELECT[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_2[DomainA, DomainB, Range]]
+
+    def SELECT(x: STAR_KEYWORD): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_NO_PROJECTION]
+
+    def SELECT[Domain <: AnyRef, Range <: AnyRef](x: DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE[Domain, Range]]
+
+    def SELECT(x: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_NO_PROJECTION]
 }

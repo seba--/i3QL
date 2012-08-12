@@ -15,6 +15,12 @@ package object sql
 {
     val * : STAR_KEYWORD = keywords.STAR_KEYWORD
 
+    val EXISTS : EXISTS_KEYWORD = keywords.EXISTS_KEYWORD
+
+    val NOT : NOT_KEYWORD = keywords.NOT_KEYWORD
+
+    def NOT[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {x => !predicate (x)}
+
     implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): LazyView[Domain] =
         clause.compile ()
 
