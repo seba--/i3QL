@@ -3,6 +3,7 @@ package sae.test
 import org.junit.{Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
+import sae.syntax.sql
 
 /**
  *
@@ -209,6 +210,28 @@ class SQLSyntaxTest
     }
 
     @Test
+    def testMultipleFilterCovarianceSyntax() {
+
+        val database = new StudentCoursesDatabase()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        def Name : Person => String = person => person.Name
+
+        val selection: LazyView[String] = SELECT(Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+
+        Assert.assertEquals(2, selection.size)
+
+        Assert.assertEquals(
+            List("john", "sally"),
+            selection.asList.sorted
+        )
+
+    }
+
+    @Test
     def testMultipleFilterInlineSyntax() {
 
         val database = new StudentCoursesDatabase()
@@ -401,7 +424,7 @@ class SQLSyntaxTest
 
         def Name: Student => String = x => x.Name
 
-        val selection1: LazyView[(Student, Course)] = FROM(students, courses) SELECT (*) WHERE (x => x._1
+        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM(students, courses) WHERE (x => x._1
                 .Name == "john") OR (x => x._1.Name == "sally")
         /*
                 val selection2: LazyView[(Student, Course)] = FROM (students, courses) SELECT (*) WHERE ( {
@@ -419,5 +442,70 @@ class SQLSyntaxTest
         )
 
         //Assert.assertEquals (selection1.asList.sortBy (x => (x._1.Name, x._2.Name)), selection2.asList.sortBy (x => (x._1.Name, x._2.Name)))
+    }
+
+    @Test
+    def testJoinSyntax() {
+
+        val database = new StudentCoursesDatabase()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[(Student, Enrollment)] =
+            SELECT (*) FROM(students, enrollments) WHERE ((_:Student).Id) =#= ((_:Enrollment).StudentId)
+
+        val join = ((_:Student).Id) =#= ((_:Enrollment).StudentId)
+
+        val queryWithPreparedJoin: LazyView[(Student, Enrollment)] =
+            SELECT (*) FROM(students, enrollments) WHERE join
+
+
+        Assert.assertEquals(
+            List(
+                (john, Enrollment(john.Id, eise.Id)),
+                (sally, Enrollment(sally.Id, eise.Id)),
+                (sally, Enrollment(sally.Id, sed.Id))
+            ),
+            query.asList.sortBy(x => (x._1.Name, x._2.CourseId))
+        )
+
+        Assert.assertEquals(
+            List(
+                (john, Enrollment(john.Id, eise.Id)),
+                (sally, Enrollment(sally.Id, eise.Id)),
+                (sally, Enrollment(sally.Id, sed.Id))
+            ),
+            queryWithPreparedJoin.asList.sortBy(x => (x._1.Name, x._2.CourseId))
+        )
+    }
+
+    @Test
+    def testSubQueryJoinOpenSyntax() {
+
+        val database = new StudentCoursesDatabase()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val join1 =  ((_:Enrollment).StudentId) =#= ((_:Student).Id)
+
+        val subQuery1 = SELECT (*) FROM(enrollments) WHERE join1
+
+        val query: LazyView[(Enrollment,Student)] =
+            SELECT (*) FROM(enrollments, students) WHERE join1
+
+        val join2 =  ((_:Enrollment).CourseId) =#= ((_:Course).Id)
+
+        val subQuery2 = SELECT (*) FROM(enrollments, students) WHERE join2
+
+        val queryWithSub = SELECT (*) FROM(students) WHERE EXISTS(subQuery1)
+
     }
 }

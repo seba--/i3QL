@@ -4,6 +4,8 @@ import de.tud.cs.st.bat.resolved._
 import sae.bytecode._
 import sae.syntax.sql._
 import sae.LazyView
+import schema.FieldDeclaration
+import sae.TypeBindingBAT.FieldDeclaration
 
 /**
  *
@@ -24,15 +26,36 @@ object MS_PKGPROTECT
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         import database._
 
-        SELECT (*) FROM (declared_fields) WHERE
-            isFinal AND
-            isStatic AND
-            NOT (isSynthetic) AND
-            NOT (isVolatile) AND
-            (isProtected OR isPublic) AND
-            (isArray OR isHashTable)
+        val fieldReadsFromExternalPackage: LazyView[ReadFieldInstruction] =
+            SELECT (*) FROM fieldReadInstructions WHERE (instruction =>
+                instruction.declaringMethod.declaringType.packageName !=
+                    instruction.targetField.declaringType.packageName)
+
+        val result: LazyView[FieldDeclaration] =
+            SELECT (*) FROM (declared_fields) WHERE
+                isFinal AND
+                isStatic AND
+                NOT (isSynthetic) AND
+                NOT (isVolatile) AND
+                (isProtected OR isPublic) AND
+                (isArray OR isHashTable)
+                AND NOT EXISTS
+
+        val fieldDeclaration: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration]
+
+        val join: JOIN_CLAUSE[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
+            FieldDeclaration.targetField =#= fieldDeclaration // works
+            //targetField _ =#= {(x:FieldDeclaration) => x} // works
+            //targetField _ =#= {(x:FieldDeclaration) => x} // does not work
+            //((_:ReadFieldInstruction).targetField) =#= {(x:FieldDeclaration) => x} // works
+            //functionToJoin (targetField) =#= fieldDeclaration //works
+
+        val inner: SQL_SUB_QUERY_WHERE_OPEN_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
+            SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
+        result
     }
 
+    //SELECT (*) FROM (fieldReadInstructions) WHERE
 
     /*
         def analyze(project: Project) = {

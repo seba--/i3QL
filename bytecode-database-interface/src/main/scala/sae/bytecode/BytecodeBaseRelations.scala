@@ -53,4 +53,6 @@ trait BytecodeBaseRelations
 
     def instructions: LazyView[Instruction]
 
+    def fieldReadInstructions: LazyView[ReadFieldInstruction]
+
 }

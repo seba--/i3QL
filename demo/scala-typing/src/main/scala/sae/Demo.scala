@@ -45,6 +45,12 @@ object Demo
         import Conversions._
         val first = funToConcA((_:Data).id == 0)
 
+        val EXISTS : EXISTS_KEYWORD=null
+
+        val fun = (_:Data).property == false
+
+        val test1 = first and EXISTS SELECT ()
+
         //val test = (_:Data).id == 0 OR (_.property == false)
         //val query = first AND (_.name == "Kitty" OR  (_.property == false))
     }

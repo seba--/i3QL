@@ -30,25 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.bytecode.schema
+
+import sae.TypeBindingBAT
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 11:27
+ * Date: 12.08.12
+ * Time: 19:47
  */
 
-case class Concatenator[Domain](pred: Domain => Boolean)
-//extends (Domain => Boolean)
+object FieldDeclaration
+    extends TypeBindingBAT
 {
-    def AND(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) && f (x))
 
-    //def AND(f:(Domain,Domain) => Boolean) : Concatenator[Domain] = null;
-
-    def OR(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x))
-
-    def and(keyword: EXISTS_KEYWORD): EXISTS_CLAUSE = null
-
-    def apply(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x)): Concatenator[Domain]
+    def targetField: ReadFieldInstruction => FieldReference = (instruction: ReadFieldInstruction) => instruction.targetField
 }

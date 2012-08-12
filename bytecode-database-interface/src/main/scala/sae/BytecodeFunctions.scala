@@ -42,19 +42,15 @@ package sae
 trait BytecodeFunctions
     extends TypeBindingBAT
 {
-    def declaringType: MethodDeclaration => ReferenceType
+    def isPublic(modifiedElement: AccessModified) : Boolean
 
-    def name: ClassMember => String
-
-    def isPublic: ClassMember => Boolean
-
-    def isPackage: ClassMember => Boolean
+    def isPackage: AccessModified => Boolean
 
     def isProtected: ClassMember => Boolean
 
     def isPrivate: ClassMember => Boolean
 
-    def isFinal: ClassMember => Boolean
+    def isFinal: AccessModified => Boolean
 
     def isStatic: ClassMember => Boolean
 
@@ -65,5 +61,16 @@ trait BytecodeFunctions
     def isSynthetic: FieldDeclaration => Boolean
 
     def isVolatile: FieldDeclaration => Boolean
+
+    def classType: ClassDeclaration => ClassType
+
+    def declaringClass: DeclaredClassMember => ReferenceType
+    //def declaringClass(member: DeclaredClassMember) : ClassDeclaration
+
+    def name: ClassMember => String
+
+
+    def targetField(instruction:ReadFieldInstruction) : FieldReference = instruction.targetField
+
 
 }

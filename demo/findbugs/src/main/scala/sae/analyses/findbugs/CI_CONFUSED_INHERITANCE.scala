@@ -51,6 +51,11 @@ object CI_CONFUSED_INHERITANCE
         SELECT (*) FROM (declared_classes, declared_fields) WHERE (isFinal, isProtected) AND (classType =#= declaringClass)
     }
 
+    def withoutJoin(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
+        import database._
+        SELECT (*) FROM (declared_fields) WHERE isProtected AND (declaringClass(_).isFinal)
+    }
+
     /*
         def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
         val finalClasses = σ((_: ClassDeclaration).isFinal)(database.declared_classes)

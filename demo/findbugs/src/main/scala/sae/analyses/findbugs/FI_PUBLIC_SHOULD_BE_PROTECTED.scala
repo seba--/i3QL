@@ -15,9 +15,9 @@ import sae.syntax.sql._
 object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
 
-    def apply(database: BytecodeDatabase): LazyView[ReferenceType] = {
+    def apply(database: BytecodeDatabase): LazyView[ClassDeclaration] = {
         import database._
-        FROM (declared_methods) SELECT (declaringClass) WHERE
+        SELECT (declaringClass) FROM (declared_methods) WHERE
             (_.name == "finalize") AND
             (_.isPublic) AND
             returnType === void AND

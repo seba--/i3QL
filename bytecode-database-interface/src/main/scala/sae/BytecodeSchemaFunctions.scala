@@ -30,20 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
-
-import sae.LazyView
-import sae.operators.SetDuplicateElimination
+package sae
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:57
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 09.08.12
+ * Time: 23:00
  */
-trait SQL_OUTER_QUERY[Domain <: AnyRef, CLAUSE]
-    extends CLAUSE
+
+trait BytecodeSchemaFunctions
+    extends TypeBindingBAT
 {
-    self : CLAUSE =>
+    //def FieldDeclaration(fieldDeclaration : FieldDeclaration):  FieldDeclaration = fieldDeclaration
+
 }

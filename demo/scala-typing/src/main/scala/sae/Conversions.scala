@@ -50,7 +50,7 @@ object Conversions
 
     //implicit def funToConcBool(b: Boolean) : Concatenator[Any] = null
 
-    implicit def richEquals[Domain](v: Domain) : SQLEquals[Domain] = null
+    //implicit def richEquals[Domain](v: Domain) : SQLEquals[Domain] = null
 
     //implicit def funToConcBool[Domain](f:Domain => Boolean) : Domain => Boolean with ORTrait[Domain] = null
 

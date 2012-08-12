@@ -36,19 +36,14 @@ package sae
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 11.08.12
- * Time: 11:27
+ * Time: 21:00
  */
 
-case class Concatenator[Domain](pred: Domain => Boolean)
-//extends (Domain => Boolean)
+trait EXISTS_KEYWORD[Domain]
 {
-    def AND(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) && f (x))
 
-    //def AND(f:(Domain,Domain) => Boolean) : Concatenator[Domain] = null;
+    //def apply() : EXISTS_KEYWORD.type = this
 
-    def OR(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x))
+    def SELECT() : Concatenator[Domain]
 
-    def and(keyword: EXISTS_KEYWORD): EXISTS_CLAUSE = null
-
-    def apply(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x)): Concatenator[Domain]
 }

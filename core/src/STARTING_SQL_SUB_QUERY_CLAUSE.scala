@@ -39,15 +39,15 @@ package sae.syntax.sql
  * Time: 12:56
  */
 
-trait STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain <: AnyRef]
+trait STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain <: AnyRef, OuterRange <: AnyRef]
 {
     def SELECT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE[Domain, Range]]
 
     def SELECT[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_2[DomainA, DomainB, Range]]
 
-    def SELECT(x: STAR_KEYWORD): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_NO_PROJECTION]
+    def SELECT(x: STAR_KEYWORD): SUB_QUERY_SELECT_CLAUSE_NO_PROJECTION[OuterDomain, OuterRange]
 
     def SELECT[Domain <: AnyRef, Range <: AnyRef](x: DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE[Domain, Range]]
 
-    def SELECT(x: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): SQL_OUTER_QUERY[OuterDomain, SELECT_CLAUSE_NO_PROJECTION]
+    def SELECT(x: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): SUB_QUERY_SELECT_CLAUSE_NO_PROJECTION[OuterDomain, OuterRange]
 }

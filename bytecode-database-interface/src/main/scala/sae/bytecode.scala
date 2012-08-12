@@ -1,6 +1,7 @@
 package sae
 
 import de.tud.cs.st.bat.resolved.VoidType
+import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_FINAL, ACC_PRIVATE, ACC_PUBLIC}
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,9 +14,8 @@ package object bytecode
     extends TypeBindingBAT
     with BytecodeFunctions
     with BytecodeConstants
+    with BytecodeSchemaFunctions
 {
-
-    def declaringType: MethodDeclaration => ReferenceType = null
 
     def void = VoidType
 
@@ -32,15 +32,15 @@ package object bytecode
     }
 
 
-    def isPublic = member => member.isPublic
+    def isPublic(modifiedElement: AccessModified) = ACC_PUBLIC element_of modifiedElement.accessFlags
 
-    def isPackage = member => !member.isPrivate && !member.isProtected && !member.isPublic
+    def isPackage = member => !isPublic (member) && !(ACC_PRIVATE element_of member.accessFlags) && !(ACC_PROTECTED element_of member.accessFlags)
 
     def isProtected = member => member.isProtected
 
     def isPrivate = member => member.isPrivate
 
-    def isFinal = member => member.isFinal
+    def isFinal = member => ACC_FINAL element_of member.accessFlags
 
     def isStatic = member => member.isStatic
 
@@ -51,4 +51,10 @@ package object bytecode
     def isSynthetic = field => field.isSynthetic
 
     def isVolatile = field => field.isVolatile
+
+    def classType = classDeclaration => classDeclaration.thisClass
+
+    //def declaringClass(member: DeclaredClassMember): ClassDeclaration = member.declaringClass
+
+    def declaringClass = (member: DeclaredClassMember) => member.declaringClass
 }

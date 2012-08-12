@@ -15,7 +15,7 @@ package object sql
 {
     val * : STAR_KEYWORD = keywords.STAR_KEYWORD
 
-    val EXISTS: EXISTS_KEYWORD = keywords.EXISTS_KEYWORD
+    //val EXISTS: EXISTS_KEYWORD = keywords.EXISTS_KEYWORD
 
     val NOT: NOT_KEYWORD = keywords.NOT_KEYWORD
 
