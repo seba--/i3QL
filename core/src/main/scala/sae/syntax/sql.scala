@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.impl.InlineWhereClause
+import sql.impl.{JoinInfixOperator, InlineWhereClause}
 
 /**
  *
@@ -15,11 +15,13 @@ package object sql
 {
     val * : STAR_KEYWORD = keywords.STAR_KEYWORD
 
-    val EXISTS : EXISTS_KEYWORD = keywords.EXISTS_KEYWORD
+    val EXISTS: EXISTS_KEYWORD = keywords.EXISTS_KEYWORD
 
-    val NOT : NOT_KEYWORD = keywords.NOT_KEYWORD
+    val NOT: NOT_KEYWORD = keywords.NOT_KEYWORD
 
-    def NOT[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {x => !predicate (x)}
+    def NOT[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
+        x => !predicate (x)
+    }
 
     implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): LazyView[Domain] =
         clause.compile ()
@@ -42,5 +44,9 @@ package object sql
         def === (value: Range) = (x: Domain) => f (x) == value
     }
 
-    implicit def functionToJoin[Domain, Range](f: Domain => Range): WHERE_FUNCTION_JOIN[Domain, Range] = null
+    implicit def functionToJoin[Domain <: AnyRef, Range <: AnyRef](left: Domain => Range): JOIN_INFIX_KEYWORD[Domain, Range] =
+        JoinInfixOperator (left)
+
+    implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CLAUSE[DomainA , DomainB, RangeA , RangeB]): JOIN_CLAUSE_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
+        new JOIN_CLAUSE_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] {}
 }

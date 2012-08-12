@@ -39,9 +39,8 @@ package sae.syntax.sql
  * Time: 23:39
  */
 
-trait WHERE_FUNCTION_JOIN[DomainA, RangeA]
+trait JOIN_INFIX_KEYWORD[DomainA <: AnyRef, RangeA <: AnyRef]
 {
-
-    def =#=[DomainB, RangeB] (value: DomainB => RangeB): (DomainA => RangeA, DomainB => RangeB)
-
+    def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: DomainB => RangeB): JOIN_CLAUSE[DomainA, DomainB, RangeA, RangeB]
+    //(DomainA => RangeA, DomainB => RangeB)
 }

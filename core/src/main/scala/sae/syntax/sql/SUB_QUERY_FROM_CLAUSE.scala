@@ -33,17 +33,16 @@
 package sae.syntax.sql
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 20:39
+ *
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 19:51
+ *
  */
-
-/*
-trait EXISTS_CLAUSE[OuterDomain <: AnyRef]
-    extends STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain]
-    with SQL_QUERY[OuterDomain]
+trait SUB_QUERY_FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef, OuterDomain <: AnyRef, OuterRange <: AnyRef]
+    extends SQL_QUERY[OuterRange]
 {
 
+    def WHERE(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
+
 }
-*/

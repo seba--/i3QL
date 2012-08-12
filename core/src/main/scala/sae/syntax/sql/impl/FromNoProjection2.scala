@@ -42,4 +42,9 @@ private[sql] case class FromNoProjection2[DomainA <: AnyRef, DomainB <: AnyRef](
     def WHERE(predicatesA: STAR_KEYWORD, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 
     def WHERE(predicateA: (DomainA) => Boolean, predicateB: (DomainB) => Boolean) = null
+
+    def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: ((DomainA) => RangeA, (DomainB) => RangeB)) = null
+
+    def WHERE[DomainC <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: (((DomainA, DomainB)) => RangeA, (DomainC) => RangeB)) = null
+
 }

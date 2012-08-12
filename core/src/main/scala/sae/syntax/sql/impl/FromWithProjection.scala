@@ -28,4 +28,6 @@ case class FromWithProjection[Domain <: AnyRef, Range <: AnyRef](
                     }
 
     def WHERE(predicate: (Domain) => Boolean) = WhereWithProjection (projection, predicate, relation, distinct)
+
+    def WHERE[DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: ((Domain) => RangeA, (DomainB) => RangeB)) = null
 }

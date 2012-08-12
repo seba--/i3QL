@@ -30,20 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 20:39
+ * Date: 12.08.12
+ * Time: 18:10
  */
 
-/*
-trait EXISTS_CLAUSE[OuterDomain <: AnyRef]
-    extends STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain]
-    with SQL_QUERY[OuterDomain]
+case class JoinInfixOperator[DomainA <: AnyRef, RangeA <: AnyRef](left: DomainA => RangeA)
+    extends sae.syntax.sql.JOIN_INFIX_KEYWORD[DomainA, RangeA]
 {
-
+    def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: (DomainB) => RangeB) = (left, right)
 }
-*/

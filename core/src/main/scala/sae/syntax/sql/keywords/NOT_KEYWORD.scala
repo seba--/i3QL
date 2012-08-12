@@ -42,5 +42,5 @@ package sae.syntax.sql.keywords
 object NOT_KEYWORD
     extends sae.syntax.sql.NOT_KEYWORD
 {
-
+    def EXISTS = null
 }

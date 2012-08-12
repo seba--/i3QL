@@ -35,15 +35,11 @@ package sae.syntax.sql
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 20:39
+ * Date: 12.08.12
+ * Time: 19:04
  */
 
-/*
-trait EXISTS_CLAUSE[OuterDomain <: AnyRef]
-    extends STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain]
-    with SQL_QUERY[OuterDomain]
+trait JOIN_CLAUSE[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
 {
 
 }
-*/

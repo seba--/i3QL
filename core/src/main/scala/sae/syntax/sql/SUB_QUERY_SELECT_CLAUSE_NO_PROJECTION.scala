@@ -41,11 +41,10 @@ import sae.LazyView
  * Time: 19:48
  *
  */
-trait SUB_QUERY_SELECT_CLAUSE_NO_PROJECTION
-    extends SELECT_CLAUSE_NO_PROJECTION
+trait SUB_QUERY_SELECT_CLAUSE_NO_PROJECTION[OuterDomain <: AnyRef, OuterRange <: AnyRef]
 {
 
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Domain]
+    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): SUB_QUERY_FROM_CLAUSE[Domain, Domain, OuterDomain, OuterRange]
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+    //def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }
