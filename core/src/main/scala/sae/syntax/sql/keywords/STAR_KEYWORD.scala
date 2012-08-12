@@ -32,8 +32,6 @@
  */
 package sae.syntax.sql.keywords
 
-import sae.syntax.sql.STAR_KEYWORD
-
 /**
  *
  * Author: Ralf Mitschke
@@ -41,7 +39,7 @@ import sae.syntax.sql.STAR_KEYWORD
  * Time: 21:12
  *
  */
-object STAR_KEYWORD extends STAR_KEYWORD
+object STAR_KEYWORD extends sae.syntax.sql.STAR_KEYWORD
 {
 
 }

@@ -10,8 +10,8 @@ import sae.syntax.sql.SELECT_CLAUSE
  * Time: 19:55
  *
  */
-case class Projection[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range, distinct: Boolean)
-    extends SELECT_CLAUSE[Domain, Range]
+case class Projection[SelectionDomain <: AnyRef, Range <: AnyRef](projection: SelectionDomain => Range, distinct: Boolean)
+    extends SELECT_CLAUSE[SelectionDomain, Range]
 {
-    def FROM(relation: LazyView[Domain]) = FromWithProjection (projection, relation, distinct)
+    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]) = FromWithProjection (projection, relation, distinct)
 }

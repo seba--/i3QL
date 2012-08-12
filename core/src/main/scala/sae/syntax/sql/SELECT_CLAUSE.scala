@@ -41,9 +41,9 @@ import sae.LazyView
  * Time: 19:48
  *
  */
-trait SELECT_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
+trait SELECT_CLAUSE[SelectionDomain <: AnyRef, Range <: AnyRef]
 {
 
-    def FROM(relation: LazyView[Domain]): FROM_CLAUSE[Domain, Range]
+    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Range]
 
 }
