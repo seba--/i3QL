@@ -33,15 +33,23 @@
 package sae.syntax.sql
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ *
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 21:11
+ *
  */
-
-object NOT
+trait FROM_CLAUSE_AS_PREFIX_2[DomainA <: AnyRef, DomainB <: AnyRef]
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+
+    def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range): FROM_CLAUSE_2[DomainA, DomainB, Range]
+
+    def SELECT[RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA, projectionB: DomainB => RangeB): FROM_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)]
+
+    def SELECT(x: STAR_KEYWORD): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+
+    def SELECT[Range <: AnyRef](distinct: DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range]): FROM_CLAUSE_2[DomainA, DomainB, Range]
+
+    def SELECT(distinct: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+
 }

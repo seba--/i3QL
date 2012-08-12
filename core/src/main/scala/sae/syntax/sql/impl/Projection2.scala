@@ -13,7 +13,7 @@ import sae.syntax.sql.SELECT_CLAUSE_2
 case class Projection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range, distinct: Boolean)
     extends SELECT_CLAUSE_2[DomainA, DomainB, Range]
 {
-    def FROM(relationA: LazyView[DomainA], relationB:  LazyView[DomainB]) =
+    def FROM(relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
         FromWithProjection2 ((tuple: (DomainA, DomainB)) => projection (tuple._1, tuple._2), relationA, relationB, distinct)
 
 }

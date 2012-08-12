@@ -25,7 +25,7 @@ case class WhereNoProjection[Domain <: AnyRef](filter: Domain => Boolean,
 
     def OR(predicate: (Domain) => Boolean) = WhereNoProjection ((x) => filter (x) || predicate (x), relation, distinct)
 
-    def AND(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x:Domain) => filter (x) && inlineWhereClause.function (x), relation, distinct)
+    def AND(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x: Domain) => filter (x) && inlineWhereClause.function (x), relation, distinct)
 
-    def OR(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x:Domain) => filter (x) || inlineWhereClause.function (x), relation, distinct)
+    def OR(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereNoProjection ((x: Domain) => filter (x) || inlineWhereClause.function (x), relation, distinct)
 }

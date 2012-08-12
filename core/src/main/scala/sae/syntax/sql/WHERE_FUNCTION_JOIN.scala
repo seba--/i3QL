@@ -42,6 +42,6 @@ package sae.syntax.sql
 trait WHERE_FUNCTION_JOIN[DomainA, RangeA]
 {
 
-    def =#=[DomainB,RangeB] (value: DomainB => RangeB) : (DomainA => RangeA, DomainB => RangeB)
+    def =#=[DomainB, RangeB] (value: DomainB => RangeB): (DomainA => RangeA, DomainB => RangeB)
 
 }

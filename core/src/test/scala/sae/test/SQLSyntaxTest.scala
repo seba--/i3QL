@@ -125,7 +125,7 @@ class SQLSyntaxTest
 
         def Name: Student => String = s => s.Name
 
-        val names: LazyView[String] = FROM(students) SELECT DISTINCT(Name)
+        val names: LazyView[String] = FROM(students) SELECT DISTINCT (Name)
 
         Assert.assertEquals(2, names.size)
     }
@@ -139,7 +139,25 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT(*) FROM (students) WHERE (_.Name == "sally")
+        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally")
+
+        Assert.assertEquals(1, selection.size)
+
+        Assert.assertEquals(Some(sally), selection.singletonValue)
+
+    }
+
+    @Test
+    def testDistinctFilterSyntax() {
+
+        val database = new StudentCoursesDatabase()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+        students += sally
+
+        val selection: LazyView[Student] = SELECT DISTINCT (*) FROM (students) WHERE (_.Name == "sally")
 
         Assert.assertEquals(1, selection.size)
 
@@ -156,7 +174,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT(*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
+        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
 
         val selectionNative: LazyView[Student] = SELECT(*) FROM (students) WHERE ((s: Student) => s.Name == "sally" && s
                 .Id == 12346)

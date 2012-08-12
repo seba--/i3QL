@@ -1,7 +1,6 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.{INLINE_WHERE_CLAUSE, WHERE_CLAUSE}
-import sae.operators.{BagProjection, LazySelection}
 import sae.LazyView
 
 /**

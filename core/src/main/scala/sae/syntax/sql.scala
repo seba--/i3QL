@@ -13,8 +13,9 @@ import sql.impl.InlineWhereClause
  */
 package object sql
 {
+    val * : STAR_KEYWORD = keywords.STAR_KEYWORD
 
-    implicit def compile[Domain <: AnyRef](clause: SQL_END_CLAUSE[Domain]): LazyView[Domain] =
+    implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): LazyView[Domain] =
         clause.compile ()
 
     implicit def lazyViewToResult[V <: AnyRef](lazyView: LazyView[V]): QueryResult[V] = sae.collections.Conversions
@@ -35,5 +36,5 @@ package object sql
         def === (value: Range) = (x: Domain) => f (x) == value
     }
 
-    implicit def functionToJoin[Domain,Range](f:  Domain => Range): WHERE_FUNCTION_JOIN[Domain, Range] = null
+    implicit def functionToJoin[Domain, Range](f: Domain => Range): WHERE_FUNCTION_JOIN[Domain, Range] = null
 }

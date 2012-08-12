@@ -42,6 +42,6 @@ package sae.syntax.sql
 trait WHERE_FUNCTION_COMPARATOR[Domain, Range]
 {
 
-    def ===(value : Range) : Domain => Boolean
+    def === (value: Range): Domain => Boolean
 
 }

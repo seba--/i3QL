@@ -32,16 +32,15 @@
  */
 package sae.syntax.sql
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ * Date: 11.08.12
+ * Time: 16:59
  */
 
-object NOT
+trait EXISTS_KEYWORD
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+
 }

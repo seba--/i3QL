@@ -32,16 +32,22 @@
  */
 package sae.syntax.sql
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ * Date: 12.08.12
+ * Time: 11:28
  */
 
-object NOT
+trait STARTING_CLAUSE_PREFIX_SELECT
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range]
+
+    def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION
+
+    def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range]
+
+    def DISTINCT(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION
+
 }

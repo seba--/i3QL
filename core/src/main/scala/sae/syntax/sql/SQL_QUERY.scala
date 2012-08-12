@@ -32,14 +32,29 @@
  */
 package sae.syntax.sql
 
-/**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 16:59
- */
+import sae.LazyView
+import sae.operators.SetDuplicateElimination
 
-object EXISTS
+/**
+ *
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 20:57
+ *
+ */
+trait SQL_QUERY[Domain <: AnyRef]
 {
 
+    def compile(): LazyView[Domain]
+
+
+    protected def withDistinct(result: LazyView[Domain], distinct: Boolean): LazyView[Domain] = {
+        if (distinct) {
+            new SetDuplicateElimination[Domain](result)
+        }
+        else
+        {
+            result
+        }
+    }
 }

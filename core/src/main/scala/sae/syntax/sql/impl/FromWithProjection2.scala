@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.LazyView
 import sae.operators.{BagProjection, Conversions, CrossProduct}
-import sae.syntax.sql.{STAR, INLINE_WHERE_CLAUSE, FROM_CLAUSE_2, FROM_CLAUSE}
+import sae.syntax.sql._
 
 /**
  *
@@ -19,33 +19,33 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
                                                                                          )
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
-    def compile() = withDistinct(
+    def compile() = withDistinct (
         new BagProjection[(DomainA, DomainB), Range](
             projection,
             new CrossProduct[DomainA, DomainB](
-                Conversions.lazyViewToMaterializedView(relationA),
-                Conversions.lazyViewToMaterializedView(relationB)
+                Conversions.lazyViewToMaterializedView (relationA),
+                Conversions.lazyViewToMaterializedView (relationB)
             )
         ),
         distinct
     )
 
     def WHERE(predicate: ((DomainA, DomainB)) => Boolean) =
-        WhereWithProjection(
+        WhereWithProjection (
             projection,
             predicate,
             new CrossProduct[DomainA, DomainB](
-                Conversions.lazyViewToMaterializedView(relationA),
-                Conversions.lazyViewToMaterializedView(relationB)
+                Conversions.lazyViewToMaterializedView (relationA),
+                Conversions.lazyViewToMaterializedView (relationB)
             ),
             distinct
         )
 
     def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 
-    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR) = null
+    def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR_KEYWORD) = null
 
-    def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
+    def WHERE(predicatesA: STAR_KEYWORD, predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 
     def WHERE(predicateA: (DomainA) => Boolean, predicateB: (DomainB) => Boolean) = null
 }

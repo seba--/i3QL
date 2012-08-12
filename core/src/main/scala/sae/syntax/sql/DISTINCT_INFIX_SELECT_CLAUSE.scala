@@ -35,13 +35,11 @@ package sae.syntax.sql
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ * Date: 12.08.12
+ * Time: 11:31
  */
 
-object NOT
+trait DISTINCT_INFIX_SELECT_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+    def function: Domain => Range
 }

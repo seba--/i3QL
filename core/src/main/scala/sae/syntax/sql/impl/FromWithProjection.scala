@@ -21,10 +21,11 @@ case class FromWithProjection[Domain <: AnyRef, Range <: AnyRef](
 
     def compile() = if (distinct) {
         new SetDuplicateElimination[Range](new BagProjection[Domain, Range](projection, relation))
-    } else
-    {
-        new BagProjection[Domain, Range](projection, relation)
     }
+                    else
+                    {
+                        new BagProjection[Domain, Range](projection, relation)
+                    }
 
     def WHERE(predicate: (Domain) => Boolean) = WhereWithProjection (projection, predicate, relation, distinct)
 }

@@ -35,13 +35,17 @@ package sae.syntax.sql
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ * Date: 12.08.12
+ * Time: 11:31
  */
 
-object NOT
+trait DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+
+}
+
+object DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+    extends DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+{
+
 }

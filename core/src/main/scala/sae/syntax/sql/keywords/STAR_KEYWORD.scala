@@ -30,18 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.keywords
+
+import sae.syntax.sql.STAR_KEYWORD
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 10.08.12
- * Time: 00:30
+ *
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 21:12
+ *
  */
-
-object NOT
+object STAR_KEYWORD extends STAR_KEYWORD
 {
-    def apply[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
-        x => !predicate (x)
-    }
+
 }

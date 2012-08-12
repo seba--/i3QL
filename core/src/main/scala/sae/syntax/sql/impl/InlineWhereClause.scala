@@ -10,12 +10,12 @@ import sae.syntax.sql.INLINE_WHERE_CLAUSE
  *
  * TODO this needs operator precedence
  */
-case class InlineWhereClause[Domain <: AnyRef](f : Domain => Boolean)
+case class InlineWhereClause[Domain <: AnyRef](f: Domain => Boolean)
     extends INLINE_WHERE_CLAUSE[Domain]
 {
-    def AND(predicate: (Domain) => Boolean) = InlineWhereClause((x) => f(x) && predicate(x))
+    def AND(predicate: (Domain) => Boolean) = InlineWhereClause ((x) => f (x) && predicate (x))
 
-    def OR(predicate: (Domain) => Boolean) = InlineWhereClause((x) => f(x) || predicate(x))
+    def OR(predicate: (Domain) => Boolean) = InlineWhereClause ((x) => f (x) || predicate (x))
 
     def function = f
 }

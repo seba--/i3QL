@@ -9,14 +9,14 @@ package sae.syntax.sql
  * TODO this needs operator precedence
  */
 trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
-    extends SQL_END_CLAUSE[Range]
+    extends SQL_QUERY[Range]
 {
 
     def AND(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
-    //def AND(inlineWhereClause : INLINE_WHERE_CLAUSE[Domain]): WHERE_CLAUSE[Domain, Range]
-
     def OR(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
-    //def OR(inlineWhereClause : INLINE_WHERE_CLAUSE[Domain]): WHERE_CLAUSE[Domain, Range]
+    //def AND(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
+
+    //def OR(exists: EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
 }

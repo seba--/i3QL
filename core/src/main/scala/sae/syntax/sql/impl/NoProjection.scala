@@ -15,5 +15,5 @@ case class NoProjection(distinct: Boolean)
 {
     def FROM[Domain <: AnyRef](relation: LazyView[Domain]) = FromNoProjection[Domain](relation, distinct)
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) = FromNoProjection2(relationA, relationB, distinct)
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) = FromNoProjection2 (relationA, relationB, distinct)
 }

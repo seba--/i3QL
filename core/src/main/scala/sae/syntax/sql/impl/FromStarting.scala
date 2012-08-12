@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.LazyView
-import sae.syntax.sql.{DISTINCT_NO_PROJECTION, STAR, DISTINCT_PROJECTION, STARTING_FROM_CLAUSE}
+import sae.syntax.sql._
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,13 +11,13 @@ import sae.syntax.sql.{DISTINCT_NO_PROJECTION, STAR, DISTINCT_PROJECTION, STARTI
  */
 
 case class FromStarting[Domain <: AnyRef](relation: LazyView[Domain])
-    extends STARTING_FROM_CLAUSE[Domain]
+    extends FROM_CLAUSE_AS_PREFIX[Domain]
 {
     def SELECT[Range <: AnyRef](projection: (Domain) => Range) = FromWithProjection (projection, relation, distinct = false)
 
-    def SELECT(x: STAR) = FromNoProjection (relation, distinct = false)
+    def SELECT(x: STAR_KEYWORD) = FromNoProjection (relation, distinct = false)
 
-    def SELECT[Range <: AnyRef](distinct: DISTINCT_PROJECTION[Domain, Range]) = FromWithProjection (distinct.function, relation, distinct = true)
+    def SELECT[Range <: AnyRef](distinct: DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]) = FromWithProjection (distinct.function, relation, distinct = true)
 
-    def SELECT(distinct: DISTINCT_NO_PROJECTION.type) = FromNoProjection (relation, distinct = true)
+    def SELECT(distinct: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION) = FromNoProjection (relation, distinct = true)
 }
