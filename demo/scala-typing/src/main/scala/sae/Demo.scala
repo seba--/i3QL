@@ -41,15 +41,45 @@ package sae
 
 object Demo
 {
+    type Structural = {def foo(): Unit}
+
+    class Real
+    {
+        def foo() {
+            println ("foo")
+        }
+    }
+
+    trait ContainerLike[V <: AnyRef, +This <: ContainerLike[V, This]]
+    {
+        self : This =>
+        def addV(v: V)
+    }
+
+    trait Container[V <: AnyRef] extends ContainerLike[V, Container[V]]
+    {
+
+    }
+
+
+    class ContainerImpl[V <: AnyRef] extends Container[V]
+    {
+        def addV(v: V) {println("added " + v)}
+    }
+
     def main(args: Array[String]) {
         import Conversions._
-        val first = funToConcA((_:Data).id == 0)
+        val first = funToConcA ((_: Data).id == 0)
 
         //val EXISTS : EXISTS_KEYWORD=null
 
-        val fun = (_:Data).property == false
+        val fun = (_: Data).property == false
 
-        val test1 = first and EXISTS SELECT ()
+        val c: Container[Structural] = new ContainerImpl[Structural]
+
+        c.addV(new Real)
+        //c.addV(new Object) // should be wrong
+        //val test1 = first and EXISTS SELECT ()
 
         //val test = (_:Data).id == 0 OR (_.property == false)
         //val query = first AND (_.name == "Kitty" OR  (_.property == false))

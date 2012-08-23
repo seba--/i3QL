@@ -57,7 +57,7 @@ package object bytecode
     }
 
     type ClassDeclaration = AnyRef with AccessModified {
-        def thisClass: ClassType
+        def classType: ClassType
 
         def isFinal: Boolean
     }

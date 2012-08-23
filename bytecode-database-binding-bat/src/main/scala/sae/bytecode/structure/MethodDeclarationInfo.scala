@@ -30,29 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import sae.LazyView
+package sae.bytecode.structure
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 23.08.12
+ * Time: 13:08
  */
-trait BytecodeBaseRelations
+
+case class MethodDeclarationInfo(accessFlags: Int,
+                      name: String,
+                      returnType: sae.bytecode.ReturnType,
+                      parameterTypes: sae.bytecode.ParameterType)
 {
-    import sae.bytecode._
-
-    def declared_classes: sae.collections.Set[ClassDeclaration]
-
-    def declared_methods: sae.collections.Set[MethodDeclaration]
-
-    def declared_fields: sae.collections.Set[FieldDeclaration]
-
-    def instructions: LazyView[Instruction]
-
-    def fieldReadInstructions: LazyView[ReadFieldInstruction]
 
 }
