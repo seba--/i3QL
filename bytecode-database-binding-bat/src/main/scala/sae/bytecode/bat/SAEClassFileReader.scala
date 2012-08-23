@@ -86,9 +86,15 @@ trait SAEClassFileReader
                     attributes: Attributes)(
         implicit cp: Constant_Pool): Method_Info =
     {
-        //TODO implement this
-        //new MethodDeclarationInfo(0, "", null, null)
-        null
+        val descriptor = descriptor_index.asMethodDescriptor
+        val methodDeclaration = MethodDeclarationInfo (
+            accessFlags,
+            name_index.asString,
+            descriptor.returnType,
+            descriptor.parameterTypes
+        )
+        database.declared_methods += methodDeclaration
+        methodDeclaration
     }
 
     def ClassFile(minor_version: Int, major_version: Int,

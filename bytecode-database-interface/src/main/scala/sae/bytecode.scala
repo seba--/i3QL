@@ -41,11 +41,11 @@ package object bytecode
     type AccessModified = {def accessFlags: Int}
 
     type ClassMember = AnyRef with AccessModified {
-        def declaringType: ClassType
+        //def declaringType: ClassType
     }
 
     type DeclaredClassMember = ClassMember {
-        def declaringClass: ClassDeclaration
+        //def declaringClass: ClassDeclaration
 
         def isPublic: Boolean
 
@@ -135,5 +135,5 @@ package object bytecode
 
     //def declaringClass(member: DeclaredClassMember): ClassDeclaration = member.declaringClass
 
-    def declaringClass = (member: DeclaredClassMember) => member.declaringClass
+    //def declaringClass = (member: DeclaredClassMember) => member.declaringClass
 }

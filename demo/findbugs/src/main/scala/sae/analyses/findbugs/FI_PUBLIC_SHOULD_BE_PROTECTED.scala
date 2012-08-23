@@ -14,7 +14,7 @@ import sae.syntax.sql._
  */
 object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
-
+/*
     def apply(database: BytecodeDatabase): LazyView[ClassDeclaration] = {
         import database._
         SELECT (declaringClass) FROM (declared_methods) WHERE
@@ -23,4 +23,5 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
             returnType === void AND
             parameterTypes === Nil
     }
+*/
 }

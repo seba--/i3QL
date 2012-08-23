@@ -30,47 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs
-
-import sae.bytecode._
-import sae.syntax.sql._
-import sae.LazyView
+package sae.bytecode.profiler.observers
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 17:05
+ * Date: 23.08.12
+ * Time: 17:15
  */
 
-object CI_CONFUSED_INHERITANCE
+trait ElementCounter[-V <: AnyRef]
+    extends sae.Observer[V]
 {
-/*
-    def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
-        import database._
-        SELECT (*) FROM (declared_classes, declared_fields) WHERE (isFinal, isProtected) AND (classType =#= declaringClass)
+    private var counter = 0
+
+    def count = counter
+
+    def updated(oldV: V, newV: V) {}
+
+    def removed(v: V) {
+        counter -= 1
     }
 
-    def withoutJoin(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
-        import database._
-        SELECT (*) FROM (declared_fields) WHERE isProtected AND (_.declaringClass.isFinal)
+    def added(v: V) {
+        counter += 1
     }
-*/
-    /*
-        def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
-        val finalClasses = σ((_: ClassDeclaration).isFinal)(database.declared_classes)
-        val protectedFields = σ((_: FieldDeclaration).isProtected)(database.declared_fields)
-        (
-                (
-                        finalClasses,
-                        (_: ClassDeclaration).objectType
-                        ) ⋈(
-                        (_: FieldDeclaration).declaringClass,
-                        protectedFields
-                        )
-                ) {
-            (cd: ClassDeclaration, fd: FieldDeclaration) => (cd, fd)
-        }
-    }
-     */
 }

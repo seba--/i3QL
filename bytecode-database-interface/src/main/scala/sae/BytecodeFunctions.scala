@@ -65,7 +65,7 @@ trait BytecodeFunctions
 
     def classType: ClassDeclaration => ClassType
 
-    def declaringClass: DeclaredClassMember => ClassDeclaration
+    //def declaringClass: DeclaredClassMember => ClassDeclaration
 
     def name: ClassMember => String
 

@@ -21,7 +21,7 @@ object MS_PKGPROTECT
     def isHashTable: FieldDeclaration => Boolean = field => field.fieldType == hashTableType
 
     def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
-
+/*
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         //import database._
 
@@ -53,7 +53,7 @@ object MS_PKGPROTECT
             SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
         result
     }
-
+*/
     //SELECT (*) FROM (fieldReadInstructions) WHERE
 
     /*

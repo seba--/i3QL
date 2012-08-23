@@ -32,8 +32,11 @@
  */
 package sae.bytecode.profiler
 
+import observers.MemoryEstimateObserver
 import sae.bytecode._
 import java.io.FileInputStream
+import sae.{DefaultLazyView, LazyView}
+import structure.ClassDeclarationInfo
 
 
 /**
@@ -68,11 +71,14 @@ object BaseProfiler
         }
 
         val database = BATDatabaseFactory.create()
+        val o = new MemoryEstimateObserver()
+        database.declared_classes.addObserver(o)
         for (file <- files )
         {
             memory(l => println((l/1024) + " KB"))(database.addArchive(new FileInputStream(file)))
         }
 
+        println(o.estimate)
         println(database.declared_classes.size)
 
         sys.exit (0)
