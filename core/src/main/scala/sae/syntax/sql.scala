@@ -47,6 +47,6 @@ package object sql
     implicit def functionToJoin[Domain <: AnyRef, Range <: AnyRef](left: Domain => Range): JOIN_INFIX_KEYWORD[Domain, Range] =
         JoinInfixOperator (left)
 
-    implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CLAUSE[DomainA , DomainB, RangeA , RangeB]): JOIN_CLAUSE_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
-        new JOIN_CLAUSE_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] {}
+    implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA , DomainB, RangeA , RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
+        new JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] {}
 }

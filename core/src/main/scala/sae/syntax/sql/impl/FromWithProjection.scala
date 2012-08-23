@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.LazyView
 import sae.operators.{SetDuplicateElimination, BagProjection}
-import sae.syntax.sql.FROM_CLAUSE
+import sae.syntax.sql.{EXISTS_KEYWORD, SQL_SUB_QUERY_WHERE_OPEN_1, FROM_CLAUSE}
 
 /**
  *
@@ -29,5 +29,5 @@ case class FromWithProjection[Domain <: AnyRef, Range <: AnyRef](
 
     def WHERE(predicate: (Domain) => Boolean) = WhereWithProjection (projection, predicate, relation, distinct)
 
-    def WHERE[DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: ((Domain) => RangeA, (DomainB) => RangeB)) = null
+    def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with EXISTS_KEYWORD) {}
 }

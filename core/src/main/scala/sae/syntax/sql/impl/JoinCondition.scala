@@ -30,16 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
+
+import sae.syntax.sql.JOIN_CONDITION
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 19:04
+ * Date: 23.08.12
+ * Time: 08:53
  */
 
-trait JOIN_CLAUSE_UNBOUND_RELATION_1[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
+case class JoinCondition[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](left : DomainA => RangeA, right : DomainB => RangeB)
+    extends JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
 {
 
 }

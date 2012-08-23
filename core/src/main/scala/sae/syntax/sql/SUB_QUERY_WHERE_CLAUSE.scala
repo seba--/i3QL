@@ -8,6 +8,7 @@ package sae.syntax.sql
  *
  * TODO this needs operator precedence
  */
+/*
 trait SUB_QUERY_WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
     extends SQL_QUERY[Range]
 {
@@ -24,3 +25,4 @@ trait SUB_QUERY_WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def OR(notExists: NOT_EXISTS_KEYWORD): EXISTS_CLAUSE[Domain]
 }
+*/

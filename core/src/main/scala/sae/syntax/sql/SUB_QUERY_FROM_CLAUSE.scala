@@ -39,6 +39,7 @@ package sae.syntax.sql
  * Time: 19:51
  *
  */
+/*
 trait SUB_QUERY_FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef, OuterDomain <: AnyRef, OuterRange <: AnyRef]
     extends SQL_QUERY[OuterRange]
 {
@@ -46,3 +47,4 @@ trait SUB_QUERY_FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef, OuterDomain <: An
     def WHERE(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
 }
+*/

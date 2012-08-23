@@ -45,7 +45,7 @@ trait FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 {
     def WHERE(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
-    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CLAUSE_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]): SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, UnboundDomain]
+    //def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]): SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, UnboundDomain]
 
     def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with sae.syntax.sql.EXISTS_KEYWORD)
 
