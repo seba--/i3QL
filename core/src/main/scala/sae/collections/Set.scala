@@ -17,16 +17,32 @@ trait Set[V <: AnyRef]
     def materialized_singletonValue : Option[V] = data.headOption
 
     def add_element(v : V) : Unit =
-        {
-            data = data + v
-        }
+    {
+        data = data + v
+    }
 
     def remove_element(v : V) : Unit =
-        {
-            data = data - v
-        }
+    {
+        data = data - v
+    }
 
     def materialized_foreach[U](f : V => U) : Unit = data.foreach(f)
 
     protected def materialized_contains(v: V) = data.contains(v)
+}
+
+class HashSetView[V <: AnyRef] extends Set[V]
+{
+
+
+    /**
+     * Each materialized view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * thus the first call to foreach will try to
+     * materialize already persisted data.
+     */
+    def lazyInitialize() {}
 }
