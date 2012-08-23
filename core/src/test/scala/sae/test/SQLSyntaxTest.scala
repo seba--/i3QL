@@ -1,6 +1,6 @@
 package sae.test
 
-import org.junit.{Assert, Test}
+import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
 import sae.syntax.sql
@@ -412,6 +412,7 @@ class SQLSyntaxTest
 
 
     @Test
+    @Ignore
     def testCrossProductStartAtFromNoProjectionWithSelectionSyntax() {
 
         val database = new StudentCoursesDatabase()
@@ -445,6 +446,7 @@ class SQLSyntaxTest
     }
 
     @Test
+    @Ignore
     def testJoinSyntax() {
 
         val database = new StudentCoursesDatabase()
@@ -484,6 +486,7 @@ class SQLSyntaxTest
     }
 
     @Test
+    @Ignore
     def testSubQueryJoinOpenSyntax() {
 
         val database = new StudentCoursesDatabase()

@@ -30,7 +30,8 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
         distinct
     )
 
-    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) =
+    def WHERE(predicate: ((DomainA, DomainB)) => Boolean) = null
+    /*
         WhereWithProjection (
             projection,
             predicate,
@@ -40,6 +41,7 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
             ),
             distinct
         )
+    */
 
     def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]) = null
 
@@ -52,4 +54,7 @@ case class FromWithProjection2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: An
     def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) = null
 
     def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, (DomainA, DomainB)] with EXISTS_KEYWORD) {}
+
+    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]) = null
+
 }

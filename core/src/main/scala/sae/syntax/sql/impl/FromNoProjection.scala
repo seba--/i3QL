@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.LazyView
-import sae.syntax.sql.{EXISTS_KEYWORD, SQL_SUB_QUERY_WHERE_OPEN_1, FROM_CLAUSE}
+import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, EXISTS_KEYWORD, SQL_SUB_QUERY_WHERE_OPEN_1, FROM_CLAUSE}
 
 /**
  *
@@ -19,4 +19,6 @@ private[sql] case class FromNoProjection[Domain <: AnyRef](relation: LazyView[Do
     def WHERE(predicate: (Domain) => Boolean) = WhereNoProjection (predicate, relation, distinct)
 
     def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with EXISTS_KEYWORD) {}
+
+    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) = null
 }
