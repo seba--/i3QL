@@ -45,7 +45,7 @@ object Demo
         import Conversions._
         val first = funToConcA((_:Data).id == 0)
 
-        val EXISTS : EXISTS_KEYWORD=null
+        //val EXISTS : EXISTS_KEYWORD=null
 
         val fun = (_:Data).property == false
 

@@ -40,19 +40,20 @@ package sae
  */
 
 trait BytecodeFunctions
-    extends TypeBindingBAT
 {
+    import bytecode._
+
     def isPublic(modifiedElement: AccessModified) : Boolean
 
     def isPackage: AccessModified => Boolean
 
-    def isProtected: ClassMember => Boolean
+    def isProtected: DeclaredClassMember => Boolean
 
-    def isPrivate: ClassMember => Boolean
+    def isPrivate: DeclaredClassMember => Boolean
 
     def isFinal: AccessModified => Boolean
 
-    def isStatic: ClassMember => Boolean
+    def isStatic: DeclaredClassMember => Boolean
 
     def returnType: MethodDeclaration => ReturnType
 
@@ -64,8 +65,7 @@ trait BytecodeFunctions
 
     def classType: ClassDeclaration => ClassType
 
-    def declaringClass: DeclaredClassMember => ReferenceType
-    //def declaringClass(member: DeclaredClassMember) : ClassDeclaration
+    def declaringClass: DeclaredClassMember => ClassDeclaration
 
     def name: ClassMember => String
 

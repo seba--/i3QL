@@ -48,7 +48,7 @@ case class Concatenator[Domain](pred: Domain => Boolean)
 
     def OR(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x))
 
-    def and(keyword: EXISTS_KEYWORD): EXISTS_CLAUSE = null
+    //def and(keyword: EXISTS_KEYWORD): EXISTS_CLAUSE = null
 
     def apply(f: Domain => Boolean): Concatenator[Domain] = Concatenator (x => pred (x) || f (x)): Concatenator[Domain]
 }

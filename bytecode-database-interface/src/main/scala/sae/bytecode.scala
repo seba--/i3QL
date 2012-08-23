@@ -11,11 +11,90 @@ import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_FINAL, ACC_PRIVATE, ACC_PUBLIC}
  */
 
 package object bytecode
-    extends TypeBindingBAT
-    with BytecodeFunctions
+    extends BytecodeFunctions
     with BytecodeConstants
     with BytecodeSchemaFunctions
 {
+
+    type Instruction = de.tud.cs.st.bat.resolved.Instruction
+
+    type Type = de.tud.cs.st.bat.resolved.Type
+
+    type ReturnType = de.tud.cs.st.bat.resolved.Type
+
+    type ParameterType = de.tud.cs.st.bat.resolved.FieldType
+
+    type FieldType = de.tud.cs.st.bat.resolved.FieldType
+
+    type VoidType = de.tud.cs.st.bat.resolved.VoidType
+
+    type ReferenceType = de.tud.cs.st.bat.resolved.ReferenceType
+
+    type ClassType = de.tud.cs.st.bat.resolved.ObjectType
+
+    type ArrayType = de.tud.cs.st.bat.resolved.ArrayType
+
+    type InterfaceType = de.tud.cs.st.bat.resolved.ObjectType
+
+    type PrimitiveType = de.tud.cs.st.bat.resolved.BaseType
+
+    type AccessModified = {def accessFlags: Int}
+
+    type ClassMember = AnyRef with AccessModified {
+        def declaringType: ClassType
+    }
+
+    type DeclaredClassMember = ClassMember {
+        def declaringClass: ClassDeclaration
+
+        def isPublic: Boolean
+
+        def isProtected: Boolean
+
+        def isPrivate: Boolean
+
+        def isStatic: Boolean
+    }
+
+    type ClassDeclaration = AnyRef with AccessModified {
+        def thisClass: ClassType
+
+        def isFinal: Boolean
+    }
+
+    type InterfaceDeclaration = de.tud.cs.st.bat.resolved.ClassFile with AccessModified
+
+    type MethodDeclaration = DeclaredClassMember {
+        def name: String
+
+        def returnType: ReturnType
+
+        def parameterTypes: Seq[ParameterType]
+    }
+
+    type FieldDeclaration = DeclaredClassMember {
+        def name: String
+
+        def fieldType: FieldType
+
+        def isFinal: Boolean
+
+        def isTransient: Boolean
+
+        def isVolatile: Boolean
+
+        def isSynthetic: Boolean
+
+        def isDeprecated: Boolean
+
+        def isEnum: Boolean
+    }
+
+    type FieldReference = ClassMember {def name: String; def fieldType: FieldType}
+
+    type SourceElement = de.tud.cs.st.bat.resolved.SourceElement
+
+    type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: MethodDeclaration; def targetField: FieldReference}
 
     def void = VoidType
 
@@ -44,9 +123,9 @@ package object bytecode
 
     def isStatic = member => member.isStatic
 
-    def returnType = method => method.descriptor.returnType
+    def returnType = method => method.returnType
 
-    def parameterTypes = method => method.descriptor.parameterTypes
+    def parameterTypes = method => method.parameterTypes
 
     def isSynthetic = field => field.isSynthetic
 

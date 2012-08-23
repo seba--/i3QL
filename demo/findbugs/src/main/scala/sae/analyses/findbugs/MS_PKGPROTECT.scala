@@ -5,7 +5,6 @@ import sae.bytecode._
 import sae.syntax.sql._
 import sae.LazyView
 import schema.FieldDeclaration
-import sae.TypeBindingBAT.FieldDeclaration
 
 /**
  *
@@ -24,26 +23,26 @@ object MS_PKGPROTECT
     def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
 
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
-        import database._
+        //import database._
 
         val fieldReadsFromExternalPackage: LazyView[ReadFieldInstruction] =
-            SELECT (*) FROM fieldReadInstructions WHERE (instruction =>
+            SELECT (*) FROM database.fieldReadInstructions WHERE (instruction =>
                 instruction.declaringMethod.declaringType.packageName !=
                     instruction.targetField.declaringType.packageName)
 
         val result: LazyView[FieldDeclaration] =
-            SELECT (*) FROM (declared_fields) WHERE
+            SELECT (*) FROM (database.declared_fields) WHERE
                 isFinal AND
                 isStatic AND
                 NOT (isSynthetic) AND
                 NOT (isVolatile) AND
                 (isProtected OR isPublic) AND
                 (isArray OR isHashTable)
-                AND NOT EXISTS
+                //AND NOT EXISTS
 
         val fieldDeclaration: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration]
 
-        val join: JOIN_CLAUSE[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
+        val join: JOIN_CONDITION[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
             FieldDeclaration.targetField =#= fieldDeclaration // works
             //targetField _ =#= {(x:FieldDeclaration) => x} // works
             //targetField _ =#= {(x:FieldDeclaration) => x} // does not work

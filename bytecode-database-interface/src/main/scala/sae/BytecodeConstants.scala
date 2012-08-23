@@ -40,7 +40,8 @@ package sae
  */
 
 trait BytecodeConstants
-    extends TypeBindingBAT
 {
+    import bytecode._
+
      def void : VoidType
 }

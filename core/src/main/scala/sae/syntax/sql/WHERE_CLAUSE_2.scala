@@ -17,9 +17,9 @@ trait WHERE_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
 
     def OR(predicateA: DomainA => Boolean, predicateB: DomainB => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def AND[RangeA, RangeB](join: (DomainA => RangeA, DomainB => RangeB)): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    def AND[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def OR[RangeA, RangeB](join: (DomainA => RangeA, DomainB => RangeB)): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    def OR[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 
 }

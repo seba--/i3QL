@@ -11,20 +11,22 @@
         <module>sae-parent</module>
         <module>core</module>
         <module>bytecode-database-interface</module>
+        <module>bytecode-database-binding-bat</module>
         <module>demo/findbugs</module>
-        <module>demo/scala-typing</module>
-        <!--
-                <module>bytecode-reader</module>
-        <module>deploy</module>
-        <module>unisson</module>
 
-          <module>further-functionality</module>
-          <module>profiler</module>
-          <module>test-client</module>
-          <module>test-data</module>
+        <!--<module>demo/scala-typing</module>
+
+                  <module>bytecode-reader</module>
+          <module>deploy</module>
           <module>unisson</module>
 
-      -->
+            <module>further-functionality</module>
+            <module>profiler</module>
+            <module>test-client</module>
+            <module>test-data</module>
+            <module>unisson</module>
+
+        -->
     </modules>
 
 </project>

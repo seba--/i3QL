@@ -53,7 +53,7 @@ object CI_CONFUSED_INHERITANCE
 
     def withoutJoin(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         import database._
-        SELECT (*) FROM (declared_fields) WHERE isProtected AND (declaringClass(_).isFinal)
+        SELECT (*) FROM (declared_fields) WHERE isProtected AND (_.declaringClass.isFinal)
     }
 
     /*

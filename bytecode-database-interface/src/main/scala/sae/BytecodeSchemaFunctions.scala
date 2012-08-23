@@ -40,7 +40,6 @@ package sae
  */
 
 trait BytecodeSchemaFunctions
-    extends TypeBindingBAT
 {
     //def FieldDeclaration(fieldDeclaration : FieldDeclaration):  FieldDeclaration = fieldDeclaration
 

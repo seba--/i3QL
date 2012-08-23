@@ -32,7 +32,7 @@
  */
 package sae.bytecode
 
-import sae.{TypeBindingBAT, LazyView}
+import sae.LazyView
 
 /**
  *
@@ -42,8 +42,15 @@ import sae.{TypeBindingBAT, LazyView}
  *
  */
 trait BytecodeBaseRelations
-    extends TypeBindingBAT
 {
+    import sae.bytecode._
+/*
+    def declared_classes: sae.collections.Set[ClassDeclaration]
+
+    def declared_methods: sae.collections.Set[MethodDeclaration]
+
+    def declared_fields: sae.collections.Set[FieldDeclaration]
+*/
 
     def declared_classes: LazyView[ClassDeclaration]
 

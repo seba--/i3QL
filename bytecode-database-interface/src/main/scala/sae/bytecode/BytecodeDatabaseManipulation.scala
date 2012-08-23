@@ -30,19 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode;
+package sae.bytecode
 
 /**
  * Author: Ralf Mitschke
  * Date: 07.08.12
  * Time: 12:11
  */
-trait BytecodeDatabaseManipulation {
-
-    def getAddClassFileFunction: (java.io.File) => Unit
-
-    def getRemoveClassFileFunction: (java.io.File) => Unit
-
+trait BytecodeDatabaseManipulation
+{
     def addClassFile(stream: java.io.InputStream)
 
     def removeClassFile(stream: java.io.InputStream)

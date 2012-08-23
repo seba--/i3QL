@@ -32,8 +32,6 @@
  */
 package sae.bytecode.schema
 
-import sae.TypeBindingBAT
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -42,8 +40,7 @@ import sae.TypeBindingBAT
  */
 
 object FieldDeclaration
-    extends TypeBindingBAT
 {
-
+    import sae.bytecode._
     def targetField: ReadFieldInstruction => FieldReference = (instruction: ReadFieldInstruction) => instruction.targetField
 }

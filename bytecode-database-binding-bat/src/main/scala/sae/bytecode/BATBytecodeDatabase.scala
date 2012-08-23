@@ -30,20 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.bytecode
+
+import sae.collections.HashSetView
+import java.io.InputStream
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 20:39
+ * Date: 22.08.12
+ * Time: 21:08
  */
 
-/*
-trait EXISTS_CLAUSE[OuterDomain <: AnyRef]
-    extends STARTING_SQL_SUB_QUERY_CLAUSE[OuterDomain]
-    with SQL_QUERY[OuterDomain]
+class BATBytecodeDatabase
+    extends BytecodeDatabase
 {
+    def declared_classes = new HashSetView[ClassDeclaration]
 
+    def declared_methods = new HashSetView[MethodDeclaration]
+
+    def declared_fields = new HashSetView[FieldDeclaration]
+
+    def instructions = null
+
+    def fieldReadInstructions = null
+
+    def addClassFile(stream: InputStream) {
+
+    }
+
+    def removeClassFile(stream: InputStream) {
+
+    }
+
+    def addArchive(stream: InputStream) {
+
+    }
+
+    def removeArchive(stream: InputStream) {
+
+    }
 }
-*/
