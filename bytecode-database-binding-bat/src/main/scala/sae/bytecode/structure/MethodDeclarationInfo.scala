@@ -41,8 +41,8 @@ package sae.bytecode.structure
 
 case class MethodDeclarationInfo(accessFlags: Int,
                       name: String,
-                      returnType: sae.bytecode.ReturnType,
-                      parameterTypes: sae.bytecode.ParameterType)
+                      returnType: de.tud.cs.st.bat.resolved.Type,
+                      parameterTypes: de.tud.cs.st.bat.resolved.Type)
 {
 
 }

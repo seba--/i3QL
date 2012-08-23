@@ -131,7 +131,7 @@ package object bytecode
 
     def isVolatile = field => field.isVolatile
 
-    def classType = classDeclaration => classDeclaration.thisClass
+    def classType = classDeclaration => classDeclaration.classType
 
     //def declaringClass(member: DeclaredClassMember): ClassDeclaration = member.declaringClass
 

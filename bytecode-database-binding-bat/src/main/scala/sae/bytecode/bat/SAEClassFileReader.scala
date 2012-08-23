@@ -34,9 +34,9 @@ package sae.bytecode.bat
 
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.{Method, Field, ObjectType}
+import de.tud.cs.st.bat.resolved.ObjectType
 import sae.bytecode.structure.{FieldDeclarationInfo, MethodDeclarationInfo, ClassDeclarationInfo}
-import sae.bytecode.BATBytecodeDatabase
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,11 +55,11 @@ trait SAEClassFileReader
     type ClassFile = ClassDeclarationInfo
 
     type Method_Info = MethodDeclarationInfo
-    type Methods <: IndexedSeq[Method_Info]
+    type Methods <: IndexedSeq[MethodDeclarationInfo]
     val Method_InfoManifest: ClassManifest[Method_Info] = implicitly
 
     type Field_Info = FieldDeclarationInfo
-    type Fields <: IndexedSeq[Field_Info]
+    type Fields <: IndexedSeq[FieldDeclarationInfo]
     val Field_InfoManifest: ClassManifest[Field_Info] = implicitly
 
     type Interface = ObjectType
@@ -76,6 +76,7 @@ trait SAEClassFileReader
         implicit cp: Constant_Pool): Field_Info =
     {
         //TODO implement this
+        //new FieldDeclarationInfo(0, "", null)
         null
     }
 
@@ -86,6 +87,7 @@ trait SAEClassFileReader
         implicit cp: Constant_Pool): Method_Info =
     {
         //TODO implement this
+        //new MethodDeclarationInfo(0, "", null, null)
         null
     }
 
@@ -99,14 +101,17 @@ trait SAEClassFileReader
                   attributes: Attributes)(
         implicit cp: Constant_Pool): ClassFile =
     {
+        /*
         val classDeclaration = ClassDeclarationInfo (this_class.asObjectType,
             access_flags,
-            (attributes contains de.tud.cs.st.bat.resolved.Deprecated),
-            (attributes contains de.tud.cs.st.bat.resolved.Synthetic)
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
         database.declared_classes += classDeclaration
 
         classDeclaration
+        */
+        null
     }
 
 }

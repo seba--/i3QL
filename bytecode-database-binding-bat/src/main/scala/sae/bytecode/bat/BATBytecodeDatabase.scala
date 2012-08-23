@@ -30,10 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.bat
 
 import sae.collections.HashSetView
 import java.io.InputStream
+import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, BytecodeDatabase}
 
 /**
  * Created with IntelliJ IDEA.
@@ -45,6 +46,7 @@ import java.io.InputStream
 class BATBytecodeDatabase
     extends BytecodeDatabase
 {
+
     def declared_classes = new HashSetView[ClassDeclaration]
 
     def declared_methods = new HashSetView[MethodDeclaration]

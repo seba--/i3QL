@@ -14,7 +14,10 @@
         <module>bytecode-database-binding-bat</module>
         <module>demo/findbugs</module>
 
-        <!--<module>demo/scala-typing</module>
+        <module>demo/scala-typing</module>
+
+
+        <!--
 
                   <module>bytecode-reader</module>
           <module>deploy</module>

@@ -32,9 +32,9 @@
 */
 package sae.bytecode.bat
 
+import de.tud.cs.st.bat._
 import de.tud.cs.st.bat.reader._
 import de.tud.cs.st.bat.resolved.reader._
-import sae.bytecode.BATBytecodeDatabase
 
 
 /**
@@ -44,9 +44,11 @@ import sae.bytecode.BATBytecodeDatabase
  *
  * @author Michael Eichberg
  */
+
 class SAEJava6Framework(val database : BATBytecodeDatabase)
     extends ConstantPoolBinding
-    with ClassFileBinding
+    with SAEClassFileReader
+    //with ClassFileBinding
     with InterfacesReader
     with FieldsReader
     with MethodsReader
@@ -74,5 +76,3 @@ class SAEJava6Framework(val database : BATBytecodeDatabase)
 
 
 }
-
-

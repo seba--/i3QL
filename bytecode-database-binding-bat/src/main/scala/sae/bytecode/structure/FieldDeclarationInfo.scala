@@ -2,7 +2,7 @@ package sae.bytecode.structure
 
 case class FieldDeclarationInfo(accessFlags: Int,
                      name: String,
-                     fieldType: sae.bytecode.FieldType)
+                     fieldType: de.tud.cs.st.bat.resolved.FieldType)
 {
 
 }

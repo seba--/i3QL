@@ -41,6 +41,7 @@
                     <args>
                         <!-- compile with debug information -->
                         <arg>-g:vars</arg>
+
                         <!-- enable for detailed type information
                         <arg>-Ytyper-debug</arg>
                         <arg>-Xlog-implicits</arg>
