@@ -32,54 +32,24 @@
  */
 package sae.bytecode.bat
 
-import sae.collections.HashSetView
-import java.io.{DataInputStream, InputStream}
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, BytecodeDatabase}
+import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 23.08.12
+ * Time: 16:27
  */
-
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
 {
 
-    val reader = new SAEJava6Framework(this)
-
-    val declared_classes = new HashSetView[ClassDeclaration]
-
-    val declared_methods = new HashSetView[MethodDeclaration]
-
-    val declared_fields = new HashSetView[FieldDeclaration]
-
-    def instructions = null
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile(() => stream)
+    @Override override def close() {
+        stream.closeEntry ()
     }
 
-    def removeClassFile(stream: InputStream) {
-
+    @Override def read: Int = {
+        stream.read
     }
 
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({zipEntry = zipStream.getNextEntry; zipEntry})) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile(new DataInputStream(new ZipStreamEntryWrapper (zipStream, zipEntry)))
-            }
-        }
-    }
-
-    def removeArchive(stream: InputStream) {
-
-    }
 }

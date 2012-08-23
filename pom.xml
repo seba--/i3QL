@@ -12,6 +12,7 @@
         <module>core</module>
         <module>bytecode-database-interface</module>
         <module>bytecode-database-binding-bat</module>
+        <module>bytecode-database-profiler</module>
         <module>demo/findbugs</module>
 
         <module>demo/scala-typing</module>

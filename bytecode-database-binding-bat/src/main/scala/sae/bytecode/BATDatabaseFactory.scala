@@ -30,56 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode
 
-import sae.collections.HashSetView
-import java.io.{DataInputStream, InputStream}
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
+import bat.BATBytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 23.08.12
+ * Time: 16:04
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+object BATDatabaseFactory
 {
-
-    val reader = new SAEJava6Framework(this)
-
-    val declared_classes = new HashSetView[ClassDeclaration]
-
-    val declared_methods = new HashSetView[MethodDeclaration]
-
-    val declared_fields = new HashSetView[FieldDeclaration]
-
-    def instructions = null
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile(() => stream)
-    }
-
-    def removeClassFile(stream: InputStream) {
-
-    }
-
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({zipEntry = zipStream.getNextEntry; zipEntry})) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile(new DataInputStream(new ZipStreamEntryWrapper (zipStream, zipEntry)))
-            }
-        }
-    }
-
-    def removeArchive(stream: InputStream) {
-
-    }
+    def create() : BytecodeDatabase = new BATBytecodeDatabase
 }

@@ -101,7 +101,7 @@ trait SAEClassFileReader
                   attributes: Attributes)(
         implicit cp: Constant_Pool): ClassFile =
     {
-        /*
+
         val classDeclaration = ClassDeclarationInfo (this_class.asObjectType,
             access_flags,
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
@@ -110,8 +110,6 @@ trait SAEClassFileReader
         database.declared_classes += classDeclaration
 
         classDeclaration
-        */
-        null
     }
 
 }
