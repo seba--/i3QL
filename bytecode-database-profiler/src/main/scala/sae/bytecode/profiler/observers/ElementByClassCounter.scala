@@ -39,20 +39,28 @@ package sae.bytecode.profiler.observers
  * Time: 17:15
  */
 
-trait ElementCounter[-V <: AnyRef]
+trait ElementByClassCounter[-V <: AnyRef]
         extends sae.Observer[V]
 {
-    private var counter: Long = 0
+    protected var counters = scala.collection.mutable.Map[Class[_], Long]()
 
-    def count = counter
-
-    def updated(oldV: V, newV: V) {}
+    def updated(oldV: V, newV: V) {
+        if (oldV.getClass != newV.getClass) {
+            // should not happen anyway, but just in case
+            val oldC : Long = counters.getOrElse(oldV.getClass,0)
+            val newC : Long = counters.getOrElse(newV.getClass,0)
+            counters(oldV.getClass) = oldC - 1
+            counters(newV.getClass) = newC + 1
+        }
+    }
 
     def removed(v: V) {
-        counter -= 1
+        val old : Long = counters.getOrElse(v.getClass,0)
+        counters(v.getClass) = old - 1
     }
 
     def added(v: V) {
-        counter += 1
+        val old : Long = counters.getOrElse(v.getClass,0)
+        counters(v.getClass) = old + 1
     }
 }

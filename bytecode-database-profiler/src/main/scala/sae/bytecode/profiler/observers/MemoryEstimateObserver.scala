@@ -32,6 +32,8 @@
  */
 package sae.bytecode.profiler.observers
 
+import sae.bytecode.profiler.MemoryEstimates
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,46 +43,12 @@ package sae.bytecode.profiler.observers
  */
 
 class MemoryEstimateObserver[-V <: AnyRef]
-    extends ElementCounter[V]
+        extends ElementByClassCounter[V]
 {
-    var erasure: Option[Class[_]] = None
-
-    def estimate = {
-        if (!erasure.isDefined)
-        {
-            0
-        }
-        else
-        {
-            val fields = erasure.get.getDeclaredFields
-
-            val bytesPerElement = (for (field <- fields) yield 4).sum
-            bytesPerElement * count
-        }
-
+    def estimate: Long = {
+        (for ((clazz, count) <- counters) yield {
+            MemoryEstimates.get(clazz) * count
+        }).sum
     }
 
-    override def updated(oldV: V, newV: V) {
-        if (!erasure.isDefined)
-        {
-            erasure = Some (oldV.getClass)
-        }
-        super.updated (oldV, newV)
-    }
-
-    override def removed(v: V) {
-        if (!erasure.isDefined)
-        {
-            erasure = Some (v.getClass)
-        }
-        super.removed (v)
-    }
-
-    override def added(v: V) {
-        if (!erasure.isDefined)
-        {
-            erasure = Some (v.getClass)
-        }
-        super.added (v)
-    }
 }

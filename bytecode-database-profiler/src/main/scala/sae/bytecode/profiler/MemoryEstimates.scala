@@ -42,4 +42,36 @@ package sae.bytecode.profiler
 object MemoryEstimates
 {
 
+    val objectHouseKeeping = 8
+
+    def get(clazz: Class[_]): Long = {
+
+        val fields = clazz.getDeclaredFields
+
+        val basicFieldEstimate = (for (field <- fields) yield getFieldSize(field.getType)).sum
+
+        basicFieldEstimate + objectHouseKeeping
+    }
+
+    private val booleanClass = classOf[Boolean]
+    private val byteClass =classOf[Byte]
+    private val charClass = classOf[Char]
+    private val shortClass = classOf[Short]
+    private val intClass = classOf[Int]
+    private val floatClass = classOf[Float]
+    private val longClass = classOf[Long]
+    private val doubleClass = classOf[Double]
+
+
+    private def getFieldSize(clazz: Class[_]) = clazz match {
+        case `booleanClass` => 1
+        case  `byteClass` => 1
+        case `charClass` => 2
+        case `shortClass` => 2
+        case `intClass` => 4
+        case `floatClass` => 4
+        case `longClass` => 8
+        case `doubleClass` => 8
+        case _ => 4 // assume we have an object or array reference
+    }
 }
