@@ -74,7 +74,7 @@ class BATBytecodeDatabase
         while ((({zipEntry = zipStream.getNextEntry; zipEntry})) != null)
         {
             if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile(new DataInputStream(new ZipStreamEntryWrapper (zipStream, zipEntry)))
+                addClassFile(new ZipStreamEntryWrapper (zipStream, zipEntry))
             }
         }
     }

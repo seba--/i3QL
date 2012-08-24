@@ -44,12 +44,33 @@ import java.util.zip.{ZipEntry, ZipInputStream}
 class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
 {
 
-    @Override override def close() {
+    private var availableCounter =  entry.getCompressedSize.toInt;
+
+    override def close() {
         stream.closeEntry ()
     }
 
-    @Override def read: Int = {
+    override def read: Int = {
+        availableCounter -= 1
         stream.read
     }
 
+    override def read(b: Array[Byte]) = {
+        availableCounter -= b.size
+        stream.read(b)
+    }
+
+    override def read(b: Array[Byte], off: Int, len: Int) = {
+        availableCounter -= len
+        stream.read(b, off, len)
+    }
+
+    override def skip(n: Long) = {
+        availableCounter -= n.toInt
+        stream.skip(n)
+    }
+
+    override def available() : Int = {
+        availableCounter
+    }
 }
