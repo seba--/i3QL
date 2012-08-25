@@ -30,30 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler
+package sae
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 16:00
+ * Date: 25.08.12
+ * Time: 09:19
+ *
+ * A set view is guaranteed to contain each element only once.
  */
-
-trait MemoryUsage
+trait SetRelation[V <: AnyRef]
+    extends Observable[V]
 {
-    /**
-     * Measures the amount of memory that is used as a side-effect
-     * of executing the given method.
-     */
-    def memory[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        //memoryMXBean.setVerbose(true)
-        memoryMXBean.gc()
-        val usedBefore = memoryMXBean.getHeapMemoryUsage.getUsed
-        val r = f
-        memoryMXBean.gc()
-        val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
-        mu(usedAfter - usedBefore)
-        r
-    }
+
+}
+
+class BaseSetRelation[V <: AnyRef]
+    extends SetRelation[V]
+{
+
 }

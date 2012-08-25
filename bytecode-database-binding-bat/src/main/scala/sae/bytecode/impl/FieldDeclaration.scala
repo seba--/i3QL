@@ -61,9 +61,9 @@ object FieldDeclaration
               name: String,
               fieldType: de.tud.cs.st.bat.FieldType,
               accessFlags: Int,
-              isDeprecated: Boolean,
-              isSynthetic: Boolean) =
-        new FieldDeclaration (declaringClass, name, fieldType, accessFlags, isDeprecated, isSynthetic)
+              hasDeprecatedAttribute: Boolean,
+              hasSyntheticAttribute: Boolean) =
+        new FieldDeclaration (declaringClass, name, fieldType, accessFlags, hasDeprecatedAttribute, hasSyntheticAttribute)
 
 
     def unapply(fieldDeclaration: FieldDeclaration):
@@ -74,8 +74,8 @@ object FieldDeclaration
             fieldDeclaration.name,
             fieldDeclaration.fieldType,
             fieldDeclaration.accessFlags,
-            fieldDeclaration.isDeprecated,
-            fieldDeclaration.isSynthetic
+            fieldDeclaration.hasDeprecatedAttribute,
+            fieldDeclaration.hasSyntheticAttribute
         )
 */
 

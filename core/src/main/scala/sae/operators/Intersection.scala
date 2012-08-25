@@ -1,7 +1,7 @@
 package sae.operators
 
 import sae._
-import sae.collections.Set
+import collections.{HashSet, Set}
 
 /**
  *
@@ -37,7 +37,7 @@ class SetIntersection[Domain <: AnyRef]
         val right: IndexedView[Domain]
         )
         extends Intersection[Domain]
-        with Set[Domain]
+        with HashSet[Domain]
 {
     val leftIndex = left.index(identity)
 

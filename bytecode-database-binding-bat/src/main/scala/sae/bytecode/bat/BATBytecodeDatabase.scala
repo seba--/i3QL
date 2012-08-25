@@ -36,6 +36,8 @@ import sae.collections.HashSetView
 import java.io.{DataInputStream, InputStream}
 import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, BytecodeDatabase}
 import java.util.zip.{ZipEntry, ZipInputStream}
+import sae.BaseSetRelation
+import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,11 +52,11 @@ class BATBytecodeDatabase
 
     val reader = new SAEJava6Framework(this)
 
-    val declared_classes = new HashSetView[ClassDeclaration]
+    val declared_classes = new BaseSetRelation[ClassDeclaration]
 
-    val declared_methods = new HashSetView[MethodDeclaration]
+    val declared_methods = new BaseSetRelation[MethodDeclaration]
 
-    val declared_fields = new HashSetView[FieldDeclaration]
+    val declared_fields = new BaseSetRelation[FieldDeclaration]
 
     def instructions = null
 
@@ -77,6 +79,8 @@ class BATBytecodeDatabase
                 addClassFile(new ZipStreamEntryWrapper (zipStream, zipEntry))
             }
         }
+        ObjectType.cache.clear()
+        ArrayType.cache.clear()
     }
 
     def removeArchive(stream: InputStream) {

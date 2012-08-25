@@ -32,7 +32,7 @@
  */
 package sae.bytecode.profiler
 
-import observers.MemoryEstimateObserver
+import observers.ElementCounter
 import sae.bytecode._
 import java.io.FileInputStream
 
@@ -50,7 +50,7 @@ import java.io.FileInputStream
 import java.lang.instrument.Instrumentation
 
 object MemoryProfiler
-        extends MemoryUsage
+    extends MemoryUsage
 {
     val usage = """|Usage: java …Main <ZIP or JAR file containing class files>+
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -60,66 +60,80 @@ object MemoryProfiler
 
     def premain(options: String, inst: Instrumentation) {
         instrumentation = inst
-    }
-
-    def main(args: Array[String]) {
-
-
-        println(instrumentation.getObjectSize(new Object))  // 16
-        println(instrumentation.getObjectSize(Array()))     // 24
-        println(instrumentation.getObjectSize(Array(1)))    // 32
-        println(instrumentation.getObjectSize(1))           // 24
-        println(instrumentation.getObjectSize(1L))          // 24
-        println(instrumentation.getObjectSize(""))          // 40
-        println(instrumentation.getObjectSize("a"))         // 40
-        println(instrumentation.getObjectSize("aa"))        // 40
-        println(instrumentation.getObjectSize("aaa"))       // 40
+        println (instrumentation.getObjectSize (new Object)) // 16
+        println (instrumentation.getObjectSize (Array ())) // 24
+        println (instrumentation.getObjectSize (Array (1))) // 32
+        println (instrumentation.getObjectSize (1)) // 24
+        println (instrumentation.getObjectSize (1L)) // 24
+        println (instrumentation.getObjectSize ("")) // 40
+        println (instrumentation.getObjectSize ("a")) // 40
+        println (instrumentation.getObjectSize ("aa")) // 40
+        println (instrumentation.getObjectSize ("aaa")) // 40
         val s = "aaaa"
-        println(instrumentation.getObjectSize(s))           // 40
-        val c1 = Array('a', 'a', 'a', 'a')
-        val c2 = Array('a', 'a', '%', 'a', '%', 'a', '%', 'a', 'a')
+        println (instrumentation.getObjectSize (s)) // 40
+        val c1 = Array ('a', 'a', 'a', 'a')
+        val c2 = Array ('a', 'a', '%', 'a', '%', 'a', '%', 'a', 'a')
 
-        println(instrumentation.getObjectSize(c1))          // 32
-        println(instrumentation.getObjectSize(c2))          // 48
+        println (instrumentation.getObjectSize (c1)) // 32
+        println (instrumentation.getObjectSize (c2)) // 48
         val ao0 = new Array[Object](0)
         val ao1 = new Array[Object](1)
         val ao3 = new Array[Object](3)
         val ao4 = new Array[Object](4)
         val ao5 = new Array[Object](5)
-        println(instrumentation.getObjectSize(ao0))          // 48
-        println(instrumentation.getObjectSize(ao1))          // 48
-        println(instrumentation.getObjectSize(ao3))          // 48
-        println(instrumentation.getObjectSize(ao4))          // 48
-        println(instrumentation.getObjectSize(ao5))          // 48
+        println (instrumentation.getObjectSize (ao0)) // 48
+        println (instrumentation.getObjectSize (ao1)) // 48
+        println (instrumentation.getObjectSize (ao3)) // 48
+        println (instrumentation.getObjectSize (ao4)) // 48
+        println (instrumentation.getObjectSize (ao5)) // 48
+    }
 
-        sys.exit(0)
-        if (args.length == 0 || !args.forall(arg ⇒ arg.endsWith(".zip") || arg.endsWith(".jar"))) {
-            println(usage)
-            sys.exit(1)
+    def main(args: Array[String]) {
+
+        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
+            println (usage)
+            sys.exit (1)
         }
 
         val files = for (arg ← args) yield {
-            val file = new java.io.File(arg)
+            val file = new java.io.File (arg)
             if (!file.canRead || file.isDirectory) {
-                println("The file: " + file + " cannot be read.")
-                println(usage)
-                sys.exit(1)
+                println ("The file: " + file + " cannot be read.")
+                println (usage)
+                sys.exit (1)
             }
             file
         }
 
-        val database = BATDatabaseFactory.create()
-        val o = new MemoryEstimateObserver()
-        database.declared_classes.addObserver(o)
-        for (file <- files) {
-            memory(l => println((l / 1024) + " KB"))(database.addArchive(new FileInputStream(file)))
+
+        memory (l => println ((l / 1024) + " KB"))(measure(files))
+        for (i <- 1 to 100) {
+
         }
 
-        println((o.estimate / 1024) + " KB")
-        println(database.declared_classes.size)
 
-        sys.exit(0)
+        sys.exit (0)
     }
 
+    def measure(files : Seq[java.io.File]) {
+        val database = BATDatabaseFactory.create ()
 
+        val classCounter = new ElementCounter[ClassDeclaration] {}
+        val methodCounter = new ElementCounter[MethodDeclaration] {}
+        val fieldCounter = new ElementCounter[FieldDeclaration] {}
+        //val o = new MemoryEstimateObserver()
+        database.declared_classes.addObserver (classCounter)
+        database.declared_methods.addObserver (methodCounter)
+        database.declared_fields.addObserver (fieldCounter)
+
+
+        for (file <- files) {
+            memory (l => println ((l / 1024) + " KB"))(database.addArchive (new FileInputStream (file)))
+
+        }
+        //println((o.estimate / 1024) + " KB")
+        println ("classes: " + classCounter.count)
+        println ("methods: " + methodCounter.count)
+        println ("fields: " + fieldCounter.count)
+    }
 }

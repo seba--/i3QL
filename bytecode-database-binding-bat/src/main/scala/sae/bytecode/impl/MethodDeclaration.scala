@@ -61,9 +61,9 @@ object MethodDeclaration
               parameters: Seq[de.tud.cs.st.bat.Type],
               returnType: de.tud.cs.st.bat.Type,
               accessFlags: Int,
-              isDeprecated: Boolean,
-              isSynthetic: Boolean
-                 ) = new MethodDeclaration (declaringRef, name, parameters, returnType, accessFlags, isDeprecated, isSynthetic)
+              hasDeprecatedAttribute: Boolean,
+              hasSyntheticAttribute: Boolean
+                 ) = new MethodDeclaration (declaringRef, name, parameters, returnType, accessFlags, hasDeprecatedAttribute, hasSyntheticAttribute)
 
     /**
      * create a method declaration with default visibility that is neither deprecated nor synthetic
@@ -83,8 +83,8 @@ object MethodDeclaration
             methodDeclaration.parameters,
             methodDeclaration.returnType,
             methodDeclaration.accessFlags,
-            methodDeclaration.isDeprecated,
-            methodDeclaration.isSynthetic
+            methodDeclaration.hasDeprecatedAttribute,
+            methodDeclaration.hasSyntheticAttribute
         )
 */
 
