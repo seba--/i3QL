@@ -9,34 +9,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-bytecode-database-profiler</artifactId>
+	<artifactId>sae-bytecode-database-profiling-runner</artifactId>
     <version>0.1.0</version>
 	<packaging>jar</packaging>
 
-	<name>sae-bytecode-database-profiler</name>
+	<name>sae-bytecode-database-profiling-runner</name>
 	<url>http://opal-project.org</url>
 	<inceptionYear>2011</inceptionYear>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <premain-class>sae.bytecode.profiler.MemoryProfiler</premain-class>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 	<dependencies>
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
-			<artifactId>sae-bytecode-database-bat</artifactId>
+			<artifactId>sae-bytecode-database-profiling-library</artifactId>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

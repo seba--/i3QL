@@ -30,51 +30,57 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.observers
+package sae.bytecode.profiler
+
+import sae.bytecode.BytecodeDatabase
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 11:03
+ * Date: 23.08.12
+ * Time: 15:52
+ *
+ *
  */
-
-class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
-    extends sae.Observer[V] with sae.Size
+object BaseRelationMemoryProfiler
 {
-    private var buffer: Array[Object] = Array.ofDim (incrementSize)
+    val usage = """|Usage: java BaseRelationMemoryProfiler <ZIP or JAR file containing class files>+
+                  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
+                  | """.stripMargin
 
-    private var index = 0
+    private var iterations = 10
 
-    private def grow() {
-        buffer = java.util.Arrays.copyOf (buffer, buffer.size + incrementSize)
-    }
-
-    def trim() {
-        val last = buffer.indexWhere (_ == null)
-        buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
-    }
-
-    def updated(oldV: V, newV: V) {
-        throw new UnsupportedOperationException
-    }
-
-    def removed(v: V) {
-        throw new UnsupportedOperationException
-    }
-
-    def added(v: V) {
-        if (index == buffer.size) {
-            grow ()
+    def main(args: Array[String]) {
+        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
+            println (usage)
+            sys.exit (1)
         }
-        buffer (index) = v
-        index += 1
-    }
 
-    /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
-     */
-    def size = buffer.size
+        val files = for (arg ← args) yield {
+            val file = new java.io.File (arg)
+            if (!file.canRead || file.isDirectory) {
+                println ("The file: " + file + " cannot be read.")
+                println (usage)
+                sys.exit (1)
+            }
+            file
+        }
+
+        var i = 0
+        while (i < iterations){
+            MemoryProfiler.dataMemory(
+                files,
+                (db:BytecodeDatabase)=> Seq(
+                    db.declared_classes,
+                    db.declared_fields,
+                    db.declared_methods,
+                    db.instructions
+                )
+            )
+            i += 1
+        }
+
+        sys.exit (0)
+    }
 }

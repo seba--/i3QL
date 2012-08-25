@@ -32,9 +32,10 @@
  */
 package sae.bytecode.profiler
 
-import observers.{ArrayBufferObserver, ElementCounter}
+import observers.ArrayBufferObserver
 import sae.bytecode._
 import java.io.FileInputStream
+import sae.Observable
 
 
 /**
@@ -52,9 +53,6 @@ import java.lang.instrument.Instrumentation
 object MemoryProfiler
     extends MemoryUsage
 {
-    val usage = """|Usage: java …Main <ZIP or JAR file containing class files>+
-                  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                """.stripMargin
 
     final var instrumentation: Instrumentation = null
 
@@ -88,32 +86,33 @@ object MemoryProfiler
         println (instrumentation.getObjectSize (ao5)) // 48
     }
 
-    def main(args: Array[String]) {
-
-        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
-            println (usage)
-            sys.exit (1)
+    /**
+     * Measure the memory consumed by the bytecode data inside the relations
+     * The function assumes that the relations do NOT store the data themselves or build any indices
+     */
+    def dataMemory(files: Seq[java.io.File], relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+        val database = BATDatabaseFactory.create ()
+        val relations = relationSelector (database)
+        val buffers = for (relation <- relations) yield {
+            val buffer = new ArrayBufferObserver[AnyRef](10000)
+            relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
+            buffer
         }
-
-        val files = for (arg ← args) yield {
-            val file = new java.io.File (arg)
-            if (!file.canRead || file.isDirectory) {
-                println ("The file: " + file + " cannot be read.")
-                println (usage)
-                sys.exit (1)
+        var consumed: Long = 0
+        for (file <- files) {
+            memory (size => (consumed += size)) {
+                database.addArchive (new FileInputStream (file))
+                buffers.foreach (_.trim ())
             }
-            file
+            buffers.foreach (consumed -= _.bufferConsumption)
         }
-
-
-        memory (l => println ((l / 1024) + " KB"))(measure (files))
-
-
-        sys.exit (0)
+        consumed
     }
 
+    /*
     def measure(files: Seq[java.io.File]) {
-        val database = BATDatabaseFactory.create ()
+
+
 
         val classCounter = new ElementCounter[ClassDeclaration] {}
         val methodCounter = new ElementCounter[MethodDeclaration] {}
@@ -137,17 +136,9 @@ object MemoryProfiler
         database.instructions.addObserver (instructionBuffer)
 
 
-        for (file <- files) {
-            memory (l => println (((l / 1024) / 1024) + " MB")) {
-                database.addArchive (new FileInputStream (file))
-                classBuffer.trim ()
-                methodBuffer.trim ()
-                fieldBuffer.trim ()
-                instructionBuffer.trim()
-            }
-        }
 
-        //println((o.estimate / 1024) + " KB")
+
+
         println ("classes: " + classCounter.count)
         println ("buffered: " + classBuffer.size)
         println ("methods: " + methodCounter.count)
@@ -157,4 +148,5 @@ object MemoryProfiler
         println ("instructions: " + instructionCounter.count)
         println ("buffered: " + instructionBuffer.size)
     }
+    */
 }
