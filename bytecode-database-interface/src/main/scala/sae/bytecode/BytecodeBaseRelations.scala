@@ -52,7 +52,7 @@ trait BytecodeBaseRelations
 
     def declared_fields: SetRelation[FieldDeclaration]
 
-    def instructions: LazyView[Instruction]
+    def instructions: LazyView[InstructionInfo]
 
     // TODO move this is not a base relation
     def fieldReadInstructions: LazyView[ReadFieldInstruction]

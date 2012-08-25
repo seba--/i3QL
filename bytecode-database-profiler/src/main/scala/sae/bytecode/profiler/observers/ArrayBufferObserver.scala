@@ -30,62 +30,51 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+package sae.bytecode.profiler.observers
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 25.08.12
+ * Time: 11:03
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
+    extends sae.Observer[V] with sae.Size
 {
+    private var buffer: Array[Object] = Array.ofDim (incrementSize)
 
-    val reader = new SAEJava6Framework (this)
+    private var index = 0
 
-    val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
-
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
-
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
-
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
+    private def grow() {
+        buffer = java.util.Arrays.copyOf (buffer, buffer.size + incrementSize)
     }
 
-    def removeClassFile(stream: InputStream) {
-
+    def trim() {
+        val last = buffer.indexWhere (_ == null)
+        buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
     }
 
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({
-            zipEntry = zipStream.getNextEntry;
-            zipEntry
-        })) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
-            }
+    def updated(oldV: V, newV: V) {
+        throw new UnsupportedOperationException
+    }
+
+    def removed(v: V) {
+        throw new UnsupportedOperationException
+    }
+
+    def added(v: V) {
+        if (index == buffer.size) {
+            grow ()
         }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
+        buffer (index) = v
+        index += 1
     }
 
-    def removeArchive(stream: InputStream) {
-
-    }
+    /**
+     * Returns the size of the view in terms of elements.
+     * This can be a costly operation.
+     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
+     */
+    def size = buffer.size
 }

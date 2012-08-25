@@ -30,62 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.structure
 
-import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+import de.tud.cs.st.bat.resolved.Instruction
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 25.08.12
+ * Time: 12:58
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+case class InstructionInfo(instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
 {
 
-    val reader = new SAEJava6Framework (this)
-
-    val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
-
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
-
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
-
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
-    }
-
-    def removeClassFile(stream: InputStream) {
-
-    }
-
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({
-            zipEntry = zipStream.getNextEntry;
-            zipEntry
-        })) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
-            }
-        }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
-    }
-
-    def removeArchive(stream: InputStream) {
-
-    }
 }

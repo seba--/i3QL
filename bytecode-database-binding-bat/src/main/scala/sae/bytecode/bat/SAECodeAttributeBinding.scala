@@ -32,46 +32,48 @@
 */
 package sae.bytecode.bat
 
-import de.tud.cs.st.bat.reader._
+import de.tud.cs.st.bat.reader.Code_attributeReader
 import de.tud.cs.st.bat.resolved.reader._
 
-
 /**
- * This "framework" can be used to read in Java 6 (vesion 50) class files. All
- * standard information (as defined in the Java Virtual Machine Specification)
- * is represented.
+ *
  *
  * @author Michael Eichberg
  */
-
-class SAEJava6Framework(val database: BATBytecodeDatabase)
-    extends ConstantPoolBinding
-    with SAEClassFileReader
-    //with ClassFileBinding
-    with InterfacesReader
-    with FieldsReader
-    with MethodsReader
-    with AttributesReader
-    //with Unknown_attributeBinding // If this entire line is commented out: unknown attributes are completely ignored
-    with SkipUnknown_attributeReader
-    with AnnotationsBinding
-    with StackMapTable_attributeBinding
-    with InnerClasses_attributeBinding
-    with EnclosingMethod_attributeBinding
-    with SourceFile_attributeBinding
-    with SourceDebugExtension_attributeBinding
-    with Deprecated_attributeBinding
-    with Signature_attributeBinding
-    with Synthetic_attributeBinding
-    with LineNumberTable_attributeBinding
-    with LocalVariableTable_attributeBinding
-    with LocalVariableTypeTable_attributeBinding
-    with Exceptions_attributeBinding
-    with ConstantValue_attributeBinding
-    with CodeReader
-    with SAEBytecodeReaderAndBinding
-    with SAECodeAttributeBinding
-    with SAECodeBinding
+trait SAECodeAttributeBinding
+    extends Code_attributeReader
+    with ConstantPoolBinding
+    with AttributeBinding
 {
 
+    type ExceptionTableEntry = de.tud.cs.st.bat.resolved.ExceptionHandler
+    val ExceptionTableEntryManifest: ClassManifest[ExceptionTableEntry] = implicitly
+    type Code_attribute = de.tud.cs.st.bat.resolved.Code
+
+    def Code_attribute(attribute_name_index: Constant_Pool_Index,
+                       attribute_length: Int,
+                       max_stack: Int,
+                       max_locals: Int,
+                       instructions: Instructions,
+                       exception_handlers: ExceptionHandlers,
+                       attributes: Attributes)(
+        implicit cp: Constant_Pool) =
+    {
+        // TODO implement this
+        null
+    }
+
+    def ExceptionTableEntry(start_pc: Int,
+                            end_pc: Int,
+                            handler_pc: Int,
+                            catch_type_index: Constant_Pool_Index)(
+        implicit cp: Constant_Pool): ExceptionTableEntry =
+    {
+        new ExceptionTableEntry (
+            start_pc, end_pc, handler_pc,
+            if (catch_type_index == 0) None else Some (catch_type_index.asObjectType)
+        )
+    }
 }
+
+

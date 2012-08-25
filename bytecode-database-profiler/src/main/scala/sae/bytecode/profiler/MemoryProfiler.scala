@@ -32,7 +32,7 @@
  */
 package sae.bytecode.profiler
 
-import observers.ElementCounter
+import observers.{ArrayBufferObserver, ElementCounter}
 import sae.bytecode._
 import java.io.FileInputStream
 
@@ -106,34 +106,55 @@ object MemoryProfiler
         }
 
 
-        memory (l => println ((l / 1024) + " KB"))(measure(files))
-        for (i <- 1 to 100) {
-
-        }
+        memory (l => println ((l / 1024) + " KB"))(measure (files))
 
 
         sys.exit (0)
     }
 
-    def measure(files : Seq[java.io.File]) {
+    def measure(files: Seq[java.io.File]) {
         val database = BATDatabaseFactory.create ()
 
         val classCounter = new ElementCounter[ClassDeclaration] {}
         val methodCounter = new ElementCounter[MethodDeclaration] {}
         val fieldCounter = new ElementCounter[FieldDeclaration] {}
+        val instructionCounter = new ElementCounter[InstructionInfo] {}
+
         //val o = new MemoryEstimateObserver()
         database.declared_classes.addObserver (classCounter)
         database.declared_methods.addObserver (methodCounter)
         database.declared_fields.addObserver (fieldCounter)
+        database.instructions.addObserver (instructionCounter)
+
+        val classBuffer = new ArrayBufferObserver[ClassDeclaration](1000)
+        val methodBuffer = new ArrayBufferObserver[MethodDeclaration](10000)
+        val fieldBuffer = new ArrayBufferObserver[FieldDeclaration](10000)
+        val instructionBuffer = new ArrayBufferObserver[InstructionInfo](100000)
+
+        database.declared_classes.addObserver (classBuffer)
+        database.declared_methods.addObserver (methodBuffer)
+        database.declared_fields.addObserver (fieldBuffer)
+        database.instructions.addObserver (instructionBuffer)
 
 
         for (file <- files) {
-            memory (l => println ((l / 1024) + " KB"))(database.addArchive (new FileInputStream (file)))
-
+            memory (l => println (((l / 1024) / 1024) + " MB")) {
+                database.addArchive (new FileInputStream (file))
+                classBuffer.trim ()
+                methodBuffer.trim ()
+                fieldBuffer.trim ()
+                instructionBuffer.trim()
+            }
         }
+
         //println((o.estimate / 1024) + " KB")
         println ("classes: " + classCounter.count)
+        println ("buffered: " + classBuffer.size)
         println ("methods: " + methodCounter.count)
+        println ("buffered: " + methodBuffer.size)
         println ("fields: " + fieldCounter.count)
+        println ("buffered: " + fieldBuffer.size)
+        println ("instructions: " + instructionCounter.count)
+        println ("buffered: " + instructionBuffer.size)
     }
 }
