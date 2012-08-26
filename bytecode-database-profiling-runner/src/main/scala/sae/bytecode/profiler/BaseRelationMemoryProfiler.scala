@@ -32,10 +32,7 @@
  */
 package sae.bytecode.profiler
 
-import observers.ArrayBufferObserver
 import sae.bytecode._
-import sae.Observable
-import java.io.FileInputStream
 import statistics.Statistic
 import util.{MegaByte, KiloByte}
 
@@ -55,7 +52,7 @@ object BaseRelationMemoryProfiler
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                   | """.stripMargin
 
-    private val iterations = 20
+    private val iterations = 10
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
@@ -73,96 +70,41 @@ object BaseRelationMemoryProfiler
             file
         }
 
-        val measureFiles = measure (files, iterations) _
+        val measureMem = measureMemory (iterations) _
 
-        measureFiles("declared classes", (db: BytecodeDatabase) => Seq (db.declared_classes))
+        val baseMemory = MemoryProfiler.memoryOfData (files) _
 
-        sys.exit (0)
-
-        val leakStatistic = Statistic (iterations)
-        val memStatistic = Statistic (iterations)
-        for (i <- 1 to iterations)
-        {
-            //memory( l => println((l / 1024) + " KB leak"))(measure (files)) // good
-
-            //memory( l => println((l.toDouble / 1024) + " KB leak"))(measure (files)) // good
-            //memory (leakStatistic.add (_))(measure (files)) // good
-
-            //memory (leakStatistic.add (_))(memStatistic.add (measure (files))) // good
-
-            memory (leakStatistic.add (_))(memStatistic.add ( MemoryProfiler.dataMemory (files,  (db: BytecodeDatabase) => Seq (db.declared_classes))  )) // good
-
-        }
-        println ("leak " + leakStatistic.summary (KiloByte))
-        println ("mem  " + memStatistic.summary (MegaByte))
-
-
-        sys.exit (0)
-
-        def allBaseRelations = (db: BytecodeDatabase) => Seq (
+        measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_classes)))
+        measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_methods)))
+        measureMem ("declared fields  - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_fields)))
+        measureMem ("declared structures - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.declared_classes,
+            db.declared_fields,
+            db.declared_methods
+        )))
+        measureMem ("instructions - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
+        measureMem ("base relations - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
             db.declared_classes,
             db.declared_fields,
             db.declared_methods,
             db.instructions
-        )
+        )))
 
-        def declaredClasses = (db: BytecodeDatabase) => Seq (db.declared_classes)
 
-        def declaredFields = (db: BytecodeDatabase) => Seq (db.declared_fields)
 
-        def declaredMethods = (db: BytecodeDatabase) => Seq (db.declared_methods)
-
-        def instructions = (db: BytecodeDatabase) => Seq (db.instructions)
-
-        measureFiles ("declared classes", declaredClasses)
-
-        measureFiles ("declared fields", declaredFields)
-
-        measureFiles ("declared methods", declaredMethods)
-
-        measureFiles ("instructions", instructions)
-
-        measureFiles ("base relations", allBaseRelations)
-
-        sys.exit (0)
     }
 
 
-    def measure(files: Seq[java.io.File], iterations: Int)(msg: String, relationSelector: BytecodeDatabase => Seq[Observable[_]]) {
+    def measureMemory(iterations: Int)(msg: String, f: () => Long) {
         val leakStatistic = Statistic (iterations)
         val memStatistic = Statistic (iterations)
         for (i <- 1 to iterations)
         {
-            memory (leakStatistic.add (_))(memStatistic.add ( MemoryProfiler.dataMemory (files,  relationSelector )))
+            memory (leakStatistic.add (_))(memStatistic.add (f ()))
 
         }
         println (msg + " memory: " + memStatistic.summary (MegaByte))
         println (msg + " leak  : " + leakStatistic.summary (KiloByte))
     }
 
-    /*
-        def report(msg: String)(memory: Long)(implicit unit: MemoryUnit) {
-            println (msg + " " + unit.fromBase (memory) + " " + unit.descriptor)
-        }
-    */
-
-
-    def measure(files: Seq[java.io.File]): Long = {
-        val database = BATDatabaseFactory.create ()
-
-        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
-
-        database.declared_classes.addObserver (classBuffer)
-        var mem: Long = 0
-        for (file <- files) {
-            //memory (l => println (((l / 1024)) + " KB")) {
-            memory (l => mem += l) {
-                database.addArchive (new FileInputStream (file))
-                classBuffer.trim ()
-            }
-            mem -= classBuffer.bufferConsumption
-        }
-        println (((mem / 1024)) + " KB")
-        mem
-    }
 }

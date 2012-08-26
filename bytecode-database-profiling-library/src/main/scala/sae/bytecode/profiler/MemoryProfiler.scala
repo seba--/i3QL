@@ -92,6 +92,30 @@ object MemoryProfiler
      * Measure the memory consumed by the bytecode data inside the relations
      * The function assumes that the relations do NOT store the data themselves or build any indices
      */
+    def memoryOfData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+        val database = BATDatabaseFactory.create ()
+        val relations = relationSelector (database)
+        val buffers = for (relation <- relations) yield {
+            val buffer = new ArrayBufferObserver[AnyRef](10000)
+            relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
+            buffer
+        }
+        var consumed: Long = 0
+        for (file <- files) {
+            memory (size => (consumed += size)) {
+                database.addArchive (new FileInputStream (file))
+                buffers.foreach (_.trim ())
+            }
+            //buffers.foreach (consumed -= _.bufferConsumption)
+        }
+        println (consumed)
+        consumed
+    }
+
+    /**
+     * Measure the memory consumed by the bytecode data inside the relations
+     * The function assumes that the relations do NOT store the data themselves or build any indices
+     */
     def dataMemory(files: Seq[java.io.File], relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
         val database = BATDatabaseFactory.create ()
         val relations = relationSelector (database)
@@ -106,7 +130,7 @@ object MemoryProfiler
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
             }
-            buffers.foreach (consumed -= _.bufferConsumption)
+            //buffers.foreach (consumed -= _.bufferConsumption)
             //buffers.foreach (_.clear)
         }
         /*
