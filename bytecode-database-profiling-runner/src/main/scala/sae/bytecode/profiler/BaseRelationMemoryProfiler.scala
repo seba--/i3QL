@@ -74,6 +74,21 @@ object BaseRelationMemoryProfiler
 
         val baseMemory = MemoryProfiler.memoryOfData (files) _
 
+        val materializedMemory = MemoryProfiler.memoryOfMaterializedData (files) _
+
+        // warmup
+        print("warmup")
+        for (i <- 1 to 50) {
+            materializedMemory ((db: BytecodeDatabase) => Seq (
+                db.declared_classes,
+                db.declared_fields,
+                db.declared_methods,
+                db.instructions
+            ))
+            print(".")
+        }
+        println("")
+
         measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_classes)))
         measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_methods)))
         measureMem ("declared fields  - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.declared_fields)))
@@ -91,6 +106,22 @@ object BaseRelationMemoryProfiler
         )))
 
 
+
+        measureMem ("declared classes - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.declared_classes)))
+        measureMem ("declared methods - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.declared_methods)))
+        measureMem ("declared fields  - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.declared_fields)))
+        measureMem ("declared structures - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
+            db.declared_classes,
+            db.declared_fields,
+            db.declared_methods
+        )))
+        measureMem ("instructions - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
+        measureMem ("base relations - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
+            db.declared_classes,
+            db.declared_fields,
+            db.declared_methods,
+            db.instructions
+        )))
 
     }
 

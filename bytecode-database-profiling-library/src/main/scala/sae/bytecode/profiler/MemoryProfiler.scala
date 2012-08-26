@@ -106,9 +106,9 @@ object MemoryProfiler
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
             }
-            //buffers.foreach (consumed -= _.bufferConsumption)
+            //buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
         }
-        println (consumed)
+        //println (consumed)
         consumed
     }
 
@@ -116,69 +116,18 @@ object MemoryProfiler
      * Measure the memory consumed by the bytecode data inside the relations
      * The function assumes that the relations do NOT store the data themselves or build any indices
      */
-    def dataMemory(files: Seq[java.io.File], relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
-        val database = BATDatabaseFactory.create ()
-        val relations = relationSelector (database)
-        val buffers = for (relation <- relations) yield {
-            val buffer = new ArrayBufferObserver[AnyRef](10000)
-            relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
-            buffer
-        }
+    def memoryOfMaterializedData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+        val database: BytecodeDatabase = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        relationSelector (database) // instantiate the given relations all others are lazy vals
+
         var consumed: Long = 0
         for (file <- files) {
             memory (size => (consumed += size)) {
                 database.addArchive (new FileInputStream (file))
-                buffers.foreach (_.trim ())
             }
-            //buffers.foreach (consumed -= _.bufferConsumption)
-            //buffers.foreach (_.clear)
         }
-        /*
-        for ((relation, buffer) <- relations.zip (buffers)) {
-            relation.asInstanceOf[Observable[AnyRef]].removeObserver (buffer)
-        }
-
-        */
-        println (consumed)
+        //println (consumed)
         consumed
     }
 
-
-    def measure(files: Seq[java.io.File]) {
-        val database = BATDatabaseFactory.create ()
-
-        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
-        /*
-        val methodBuffer = new ArrayBufferObserver[MethodDeclaration](10000)
-        val fieldBuffer = new ArrayBufferObserver[FieldDeclaration](10000)
-        val instructionBuffer = new ArrayBufferObserver[InstructionInfo](100000)
-         */
-
-        database.declared_classes.addObserver (classBuffer)
-        /*
-      database.declared_methods.addObserver (methodBuffer)
-      database.declared_fields.addObserver (fieldBuffer)
-      database.instructions.addObserver (instructionBuffer)
-        */
-
-        for (file <- files) {
-            //memory (l => println ((l / 1024) + " KB"))(database.addArchive (new FileInputStream (file)))
-            memory (l => println (((l / 1024)) + " KB")) {
-                database.addArchive (new FileInputStream (file))
-                classBuffer.trim ()
-                /*
-                methodBuffer.trim ()
-                fieldBuffer.trim ()
-                instructionBuffer.trim ()
-                */
-            }
-        }
-        /*
-        println ("classes: " + classBuffer.size)
-        println ("methods: " + methodBuffer.size)
-        println ("fields: " + fieldBuffer.size)
-        println ("instructions: " + instructionBuffer.size)
-        */
-
-    }
 }
