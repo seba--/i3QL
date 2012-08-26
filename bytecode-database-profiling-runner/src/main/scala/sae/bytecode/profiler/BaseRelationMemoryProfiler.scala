@@ -73,6 +73,12 @@ object BaseRelationMemoryProfiler
             file
         }
 
+        val measureFiles = measure (files, iterations) _
+
+        measureFiles("declared classes", (db: BytecodeDatabase) => Seq (db.declared_classes))
+
+        sys.exit (0)
+
         val leakStatistic = Statistic (iterations)
         val memStatistic = Statistic (iterations)
         for (i <- 1 to iterations)
@@ -82,15 +88,16 @@ object BaseRelationMemoryProfiler
             //memory( l => println((l.toDouble / 1024) + " KB leak"))(measure (files)) // good
             //memory (leakStatistic.add (_))(measure (files)) // good
 
-            memory (leakStatistic.add (_))(memStatistic.add (measure (files))) // good
+            //memory (leakStatistic.add (_))(memStatistic.add (measure (files))) // good
+
+            memory (leakStatistic.add (_))(memStatistic.add ( MemoryProfiler.dataMemory (files,  (db: BytecodeDatabase) => Seq (db.declared_classes))  )) // good
+
         }
         println ("leak " + leakStatistic.summary (KiloByte))
         println ("mem  " + memStatistic.summary (MegaByte))
 
 
         sys.exit (0)
-
-        val measureFiles = measure (files, iterations) _
 
         def allBaseRelations = (db: BytecodeDatabase) => Seq (
             db.declared_classes,
@@ -122,18 +129,15 @@ object BaseRelationMemoryProfiler
 
 
     def measure(files: Seq[java.io.File], iterations: Int)(msg: String, relationSelector: BytecodeDatabase => Seq[Observable[_]]) {
-        //val statistics = Statistic.apply(iterations)(MemoryProfiler.dataMemory _)(files,relationSelector)
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        val leakStatistic = Statistic (iterations)
+        val memStatistic = Statistic (iterations)
         for (i <- 1 to iterations)
         {
+            memory (leakStatistic.add (_))(memStatistic.add ( MemoryProfiler.dataMemory (files,  relationSelector )))
 
-            //memoryMXBean.gc()
-
-            println (MemoryProfiler.dataMemory (files, relationSelector))
-            memoryMXBean.gc ()
         }
-
-        //println(msg + " " + statistics.summary(MegaByte))
+        println (msg + " memory: " + memStatistic.summary (MegaByte))
+        println (msg + " leak  : " + leakStatistic.summary (KiloByte))
     }
 
     /*
@@ -156,6 +160,7 @@ object BaseRelationMemoryProfiler
                 database.addArchive (new FileInputStream (file))
                 classBuffer.trim ()
             }
+            mem -= classBuffer.bufferConsumption
         }
         println (((mem / 1024)) + " KB")
         mem

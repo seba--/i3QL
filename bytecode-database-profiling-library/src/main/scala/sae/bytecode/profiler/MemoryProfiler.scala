@@ -106,12 +106,15 @@ object MemoryProfiler
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
             }
-            //buffers.foreach (consumed -= _.bufferConsumption)
-            buffers.foreach (_.clear)
+            buffers.foreach (consumed -= _.bufferConsumption)
+            //buffers.foreach (_.clear)
         }
+        /*
         for ((relation, buffer) <- relations.zip (buffers)) {
             relation.asInstanceOf[Observable[AnyRef]].removeObserver (buffer)
         }
+
+        */
         println (consumed)
         consumed
     }
