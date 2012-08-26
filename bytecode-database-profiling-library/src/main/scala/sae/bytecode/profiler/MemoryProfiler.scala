@@ -58,6 +58,7 @@ object MemoryProfiler
 
     def premain(options: String, inst: Instrumentation) {
         instrumentation = inst
+        /*
         println (instrumentation.getObjectSize (new Object)) // 16
         println (instrumentation.getObjectSize (Array ())) // 24
         println (instrumentation.getObjectSize (Array (1))) // 32
@@ -79,11 +80,12 @@ object MemoryProfiler
         val ao3 = new Array[Object](3)
         val ao4 = new Array[Object](4)
         val ao5 = new Array[Object](5)
-        println (instrumentation.getObjectSize (ao0)) // 48
-        println (instrumentation.getObjectSize (ao1)) // 48
-        println (instrumentation.getObjectSize (ao3)) // 48
-        println (instrumentation.getObjectSize (ao4)) // 48
-        println (instrumentation.getObjectSize (ao5)) // 48
+        println (instrumentation.getObjectSize (ao0)) // 16
+        println (instrumentation.getObjectSize (ao1)) // 24
+        println (instrumentation.getObjectSize (ao3)) // 32
+        println (instrumentation.getObjectSize (ao4)) // 32
+        println (instrumentation.getObjectSize (ao5)) // 40
+        */
     }
 
     /**
@@ -104,49 +106,52 @@ object MemoryProfiler
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
             }
-            buffers.foreach (consumed -= _.bufferConsumption)
+            //buffers.foreach (consumed -= _.bufferConsumption)
+            buffers.foreach (_.clear)
         }
+        for ((relation, buffer) <- relations.zip (buffers)) {
+            relation.asInstanceOf[Observable[AnyRef]].removeObserver (buffer)
+        }
+        println (consumed)
         consumed
     }
 
-    /*
+
     def measure(files: Seq[java.io.File]) {
+        val database = BATDatabaseFactory.create ()
 
-
-
-        val classCounter = new ElementCounter[ClassDeclaration] {}
-        val methodCounter = new ElementCounter[MethodDeclaration] {}
-        val fieldCounter = new ElementCounter[FieldDeclaration] {}
-        val instructionCounter = new ElementCounter[InstructionInfo] {}
-
-        //val o = new MemoryEstimateObserver()
-        database.declared_classes.addObserver (classCounter)
-        database.declared_methods.addObserver (methodCounter)
-        database.declared_fields.addObserver (fieldCounter)
-        database.instructions.addObserver (instructionCounter)
-
-        val classBuffer = new ArrayBufferObserver[ClassDeclaration](1000)
+        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
+        /*
         val methodBuffer = new ArrayBufferObserver[MethodDeclaration](10000)
         val fieldBuffer = new ArrayBufferObserver[FieldDeclaration](10000)
         val instructionBuffer = new ArrayBufferObserver[InstructionInfo](100000)
+         */
 
         database.declared_classes.addObserver (classBuffer)
-        database.declared_methods.addObserver (methodBuffer)
-        database.declared_fields.addObserver (fieldBuffer)
-        database.instructions.addObserver (instructionBuffer)
+        /*
+      database.declared_methods.addObserver (methodBuffer)
+      database.declared_fields.addObserver (fieldBuffer)
+      database.instructions.addObserver (instructionBuffer)
+        */
 
+        for (file <- files) {
+            //memory (l => println ((l / 1024) + " KB"))(database.addArchive (new FileInputStream (file)))
+            memory (l => println (((l / 1024)) + " KB")) {
+                database.addArchive (new FileInputStream (file))
+                classBuffer.trim ()
+                /*
+                methodBuffer.trim ()
+                fieldBuffer.trim ()
+                instructionBuffer.trim ()
+                */
+            }
+        }
+        /*
+        println ("classes: " + classBuffer.size)
+        println ("methods: " + methodBuffer.size)
+        println ("fields: " + fieldBuffer.size)
+        println ("instructions: " + instructionBuffer.size)
+        */
 
-
-
-
-        println ("classes: " + classCounter.count)
-        println ("buffered: " + classBuffer.size)
-        println ("methods: " + methodCounter.count)
-        println ("buffered: " + methodBuffer.size)
-        println ("fields: " + fieldCounter.count)
-        println ("buffered: " + fieldBuffer.size)
-        println ("instructions: " + instructionCounter.count)
-        println ("buffered: " + instructionBuffer.size)
     }
-    */
 }

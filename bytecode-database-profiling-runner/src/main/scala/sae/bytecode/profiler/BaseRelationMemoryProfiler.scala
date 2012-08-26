@@ -32,7 +32,12 @@
  */
 package sae.bytecode.profiler
 
-import sae.bytecode.BytecodeDatabase
+import observers.ArrayBufferObserver
+import sae.bytecode._
+import sae.Observable
+import java.io.FileInputStream
+import statistics.Statistic
+import util.{MegaByte, KiloByte}
 
 
 /**
@@ -44,12 +49,13 @@ import sae.bytecode.BytecodeDatabase
  *
  */
 object BaseRelationMemoryProfiler
+    extends MemoryUsage
 {
     val usage = """|Usage: java BaseRelationMemoryProfiler <ZIP or JAR file containing class files>+
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                   | """.stripMargin
 
-    private var iterations = 10
+    private val iterations = 20
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
@@ -67,20 +73,91 @@ object BaseRelationMemoryProfiler
             file
         }
 
-        var i = 0
-        while (i < iterations){
-            MemoryProfiler.dataMemory(
-                files,
-                (db:BytecodeDatabase)=> Seq(
-                    db.declared_classes,
-                    db.declared_fields,
-                    db.declared_methods,
-                    db.instructions
-                )
-            )
-            i += 1
+        val leakStatistic = Statistic (iterations)
+        val memStatistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            //memory( l => println((l / 1024) + " KB leak"))(measure (files)) // good
+
+            //memory( l => println((l.toDouble / 1024) + " KB leak"))(measure (files)) // good
+            //memory (leakStatistic.add (_))(measure (files)) // good
+
+            memory (leakStatistic.add (_))(memStatistic.add (measure (files))) // good
         }
+        println ("leak " + leakStatistic.summary (KiloByte))
+        println ("mem  " + memStatistic.summary (MegaByte))
+
 
         sys.exit (0)
+
+        val measureFiles = measure (files, iterations) _
+
+        def allBaseRelations = (db: BytecodeDatabase) => Seq (
+            db.declared_classes,
+            db.declared_fields,
+            db.declared_methods,
+            db.instructions
+        )
+
+        def declaredClasses = (db: BytecodeDatabase) => Seq (db.declared_classes)
+
+        def declaredFields = (db: BytecodeDatabase) => Seq (db.declared_fields)
+
+        def declaredMethods = (db: BytecodeDatabase) => Seq (db.declared_methods)
+
+        def instructions = (db: BytecodeDatabase) => Seq (db.instructions)
+
+        measureFiles ("declared classes", declaredClasses)
+
+        measureFiles ("declared fields", declaredFields)
+
+        measureFiles ("declared methods", declaredMethods)
+
+        measureFiles ("instructions", instructions)
+
+        measureFiles ("base relations", allBaseRelations)
+
+        sys.exit (0)
+    }
+
+
+    def measure(files: Seq[java.io.File], iterations: Int)(msg: String, relationSelector: BytecodeDatabase => Seq[Observable[_]]) {
+        //val statistics = Statistic.apply(iterations)(MemoryProfiler.dataMemory _)(files,relationSelector)
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        for (i <- 1 to iterations)
+        {
+
+            //memoryMXBean.gc()
+
+            println (MemoryProfiler.dataMemory (files, relationSelector))
+            memoryMXBean.gc ()
+        }
+
+        //println(msg + " " + statistics.summary(MegaByte))
+    }
+
+    /*
+        def report(msg: String)(memory: Long)(implicit unit: MemoryUnit) {
+            println (msg + " " + unit.fromBase (memory) + " " + unit.descriptor)
+        }
+    */
+
+
+    def measure(files: Seq[java.io.File]): Long = {
+        val database = BATDatabaseFactory.create ()
+
+        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
+
+        database.declared_classes.addObserver (classBuffer)
+        var mem: Long = 0
+        for (file <- files) {
+            //memory (l => println (((l / 1024)) + " KB")) {
+            memory (l => mem += l) {
+                database.addArchive (new FileInputStream (file))
+                classBuffer.trim ()
+            }
+        }
+        println (((mem / 1024)) + " KB")
+        mem
     }
 }
