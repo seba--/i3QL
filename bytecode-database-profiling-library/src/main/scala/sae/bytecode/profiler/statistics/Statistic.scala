@@ -30,62 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+package sae.bytecode.profiler.statistics
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 26.08.12
+ * Time: 13:56
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+object Statistic
 {
 
-    val reader = new SAEJava6Framework (this)
-
-    val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
-
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
-
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
-
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
+    def apply(sampleSize: Int): SampleStatistic = {
+        new ArrayBufferSampleStatistic (sampleSize)
     }
 
-    def removeClassFile(stream: InputStream) {
-
-    }
-
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({
-            zipEntry = zipStream.getNextEntry;
-            zipEntry
-        })) != null)
+    def apply(sampleSize: Int, f: () => Long): SampleStatistic = {
+        val statistic = new ArrayBufferSampleStatistic (sampleSize)
+        var i = 0
+        while (i < sampleSize)
         {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
-            }
+            statistic.add (f ())
+            i += 1
         }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
+        statistic
     }
 
-    def removeArchive(stream: InputStream) {
 
+    def apply[T1, T2](sampleSize: Int, f: (T1, T2) => Long)(t1: T1, t2: T2): SampleStatistic = {
+        val statistic = new ArrayBufferSampleStatistic (sampleSize)
+        var i = 0
+        while (i < sampleSize)
+        {
+            statistic.add (f (t1, t2))
+            i += 1
+        }
+        statistic
     }
 }

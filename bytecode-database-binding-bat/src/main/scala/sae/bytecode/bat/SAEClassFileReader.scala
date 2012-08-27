@@ -75,9 +75,15 @@ trait SAEClassFileReader
                    attributes: Attributes)(
         implicit cp: Constant_Pool): Field_Info =
     {
-        //TODO implement this
-        //new FieldDeclarationInfo(0, "", null)
-        null
+        val fieldDeclaration = new FieldDeclarationInfo (
+            access_flags,
+            name_index.asString,
+            descriptor_index.asFieldType,
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
+        )
+        database.declared_fields.element_added (fieldDeclaration)
+        fieldDeclaration
     }
 
     def Method_Info(accessFlags: Int,
@@ -91,9 +97,11 @@ trait SAEClassFileReader
             accessFlags,
             name_index.asString,
             descriptor.returnType,
-            descriptor.parameterTypes
+            descriptor.parameterTypes,
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
+            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
-        database.declared_methods += methodDeclaration
+        database.declared_methods.element_added (methodDeclaration)
         methodDeclaration
     }
 
@@ -113,7 +121,7 @@ trait SAEClassFileReader
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
-        database.declared_classes += classDeclaration
+        database.declared_classes.element_added (classDeclaration)
 
         classDeclaration
     }

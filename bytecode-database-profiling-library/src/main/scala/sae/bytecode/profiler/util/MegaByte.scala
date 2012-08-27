@@ -30,62 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.profiler.util
 
-import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+import sae.bytecode.profiler.statistics.MeasurementUnit
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 26.08.12
+ * Time: 12:54
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+object MegaByte
+    extends MeasurementUnit
 {
+    def descriptor = "MB"
 
-    val reader = new SAEJava6Framework (this)
-
-    val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
-
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
-
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
-
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
-    }
-
-    def removeClassFile(stream: InputStream) {
-
-    }
-
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({
-            zipEntry = zipStream.getNextEntry;
-            zipEntry
-        })) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
-            }
-        }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
-    }
-
-    def removeArchive(stream: InputStream) {
-
-    }
+    def fromBase(value: Double) = value / (1024 * 1024)
 }

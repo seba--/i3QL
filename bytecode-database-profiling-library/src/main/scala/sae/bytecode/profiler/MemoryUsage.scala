@@ -30,62 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
-
-import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
-import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+package sae.bytecode.profiler
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 22.08.12
- * Time: 21:08
+ * Date: 23.08.12
+ * Time: 16:00
  */
 
-class BATBytecodeDatabase
-    extends BytecodeDatabase
+trait MemoryUsage
 {
-
-    val reader = new SAEJava6Framework (this)
-
-    val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
-
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
-
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
-
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
-
-    def fieldReadInstructions = null
-
-    def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
-    }
-
-    def removeClassFile(stream: InputStream) {
-
-    }
-
-    def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
-        var zipEntry: ZipEntry = null
-        while ((({
-            zipEntry = zipStream.getNextEntry;
-            zipEntry
-        })) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
-            }
-        }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
-    }
-
-    def removeArchive(stream: InputStream) {
-
+    /**
+     * Measures the amount of memory that is used as a side-effect
+     * of executing the given method.
+     */
+    def memory[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        //memoryMXBean.setVerbose(true)
+        memoryMXBean.gc()
+        val usedBefore = memoryMXBean.getHeapMemoryUsage.getUsed
+        val r = f
+        memoryMXBean.gc()
+        val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
+        mu(usedAfter - usedBefore)
+        r
     }
 }

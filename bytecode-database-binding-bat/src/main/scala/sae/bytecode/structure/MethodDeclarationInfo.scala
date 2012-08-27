@@ -44,7 +44,9 @@ import de.tud.cs.st.bat._
 case class MethodDeclarationInfo(accessFlags: Int,
                       name: String,
                       returnType: de.tud.cs.st.bat.resolved.Type,
-                      parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
+                      parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType],
+                      hasDeprecatedAttribute: Boolean,
+                      hasSyntheticAttribute: Boolean)
 {
     def isPublic = MethodDeclarationInfo.isPublic (this)
 
@@ -67,6 +69,10 @@ case class MethodDeclarationInfo(accessFlags: Int,
     def isAbstract = MethodDeclarationInfo.isAbstract (this)
 
     def isStrict = MethodDeclarationInfo.isStrict (this)
+
+    def isDeprecated = hasDeprecatedAttribute
+
+    def isSynthetic = MethodDeclarationInfo.isSynthetic(this)
 }
 
 object MethodDeclarationInfo
@@ -105,5 +111,9 @@ object MethodDeclarationInfo
 
     def isStrict(methodDeclaration: MethodDeclarationInfo) =
         ACC_STRICT ∈ methodDeclaration.accessFlags
+
+    def isSynthetic(methodDeclaration: MethodDeclarationInfo) =
+        ACC_SYNTHETIC ∈ methodDeclaration.accessFlags ||
+            (methodDeclaration.hasSyntheticAttribute)
 
 }

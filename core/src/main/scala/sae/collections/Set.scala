@@ -1,37 +1,46 @@
 package sae
 package collections
 
-import scala.collection.immutable.HashSet
 
 /**
- * A relation backed by a set for efficient access to elements.
- * Each element has only one occurrence in this relation.
+ * A relation that is guaranteed to hold each element only once
  */
 trait Set[V <: AnyRef]
-        extends Collection[V] //	 	with HashIndexedRelation[V]
-        {
-    private var data : HashSet[V] = new HashSet[V]()
+    extends Collection[V]
+{
 
-    def materialized_size : Int = data.size
+}
 
-    def materialized_singletonValue : Option[V] = data.headOption
+/**
+ *
+ * An implementation of set semantics based on a scala immutable HashSet
+ *
+ */
+trait HashSet[V <: AnyRef]
+    extends Set[V]
+{
+    private var data: scala.collection.immutable.HashSet[V] = new scala.collection.immutable.HashSet[V]()
 
-    def add_element(v : V) : Unit =
+    def materialized_size: Int = data.size
+
+    def materialized_singletonValue: Option[V] = data.headOption
+
+    def add_element(v: V): Unit =
     {
         data = data + v
     }
 
-    def remove_element(v : V) : Unit =
+    def remove_element(v: V): Unit =
     {
         data = data - v
     }
 
-    def materialized_foreach[U](f : V => U) : Unit = data.foreach(f)
+    def materialized_foreach[U](f: V => U): Unit = data.foreach (f)
 
-    protected def materialized_contains(v: V) = data.contains(v)
+    protected def materialized_contains(v: V) = data.contains (v)
 }
 
-class HashSetView[V <: AnyRef] extends Set[V]
+class HashSetView[V <: AnyRef] extends HashSet[V]
 {
 
 

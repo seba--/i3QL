@@ -18,6 +18,12 @@ package object bytecode
 
     type Instruction = de.tud.cs.st.bat.resolved.Instruction
 
+    type InstructionInfo = {
+        def instruction : de.tud.cs.st.bat.resolved.Instruction
+        def bytecodeIndex : Int
+        def sequenceIndex : Int
+    }
+
     type Type = de.tud.cs.st.bat.resolved.Type
 
     type ReturnType = de.tud.cs.st.bat.resolved.Type

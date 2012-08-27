@@ -30,29 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler
+package sae.bytecode.profiler.util
+
+import sae.bytecode.profiler.statistics.MeasurementUnit
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 16:00
+ * Date: 26.08.12
+ * Time: 12:54
  */
 
-trait MemoryUsage
+object KiloByte
+    extends MeasurementUnit
 {
-    /**
-     * Measures the amount of memory that is used as a side-effect
-     * of executing the given method.
-     */
-    def memory[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc()
-        val usedBefore = memoryMXBean.getHeapMemoryUsage.getUsed
-        val r = f
-        memoryMXBean.gc()
-        val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
-        mu(usedAfter - usedBefore)
-        r
-    }
+    def descriptor = "KB"
+
+    def fromBase(value: Double) = value / 1024
 }
