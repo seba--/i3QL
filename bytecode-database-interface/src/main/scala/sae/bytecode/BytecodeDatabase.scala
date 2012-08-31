@@ -11,6 +11,7 @@ package sae.bytecode
 
 trait BytecodeDatabase
         extends BytecodeBaseRelations
+        with BytecodeDervivedRelations
         with BytecodeDatabaseManipulation
 {
 

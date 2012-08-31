@@ -54,6 +54,8 @@ trait SAEClassFileReader
 
     type ClassFile = BATClassDeclaration
 
+    type Class_Info = BATClassDeclaration
+
     type Method_Info = BATDeclaredMethodInfo
     type Methods <: IndexedSeq[Method_Info]
     val Method_InfoManifest: ClassManifest[Method_Info] = implicitly

@@ -41,21 +41,11 @@ import sae.{SetRelation, LazyView}
  * Time: 11:20
  *
  */
-trait BytecodeBaseRelations
+trait BytecodeDervivedRelations
 {
 
     import sae.bytecode._
 
-    def declared_classes: SetRelation[ClassDeclaration]
-
-    def declared_methods: SetRelation[DeclaredMethodInfo]
-
-    def methodDeclarations: SetRelation[MethodDeclaration]
-
-    def fieldDeclarations: SetRelation[FieldDeclaration]
-
-    def declared_fields: SetRelation[DeclaredFieldInfo]
-
-    def instructions: LazyView[InstructionInfo]
+    def fieldReadInstructions: LazyView[ReadFieldInstruction]
 
 }

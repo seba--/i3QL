@@ -26,7 +26,6 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
 
-    // TODO move this is not a base relation
     def fieldReadInstructions = null
 
     def addClassFile(stream: InputStream) {
