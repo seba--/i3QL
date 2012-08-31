@@ -19,7 +19,7 @@ class MethodDeclaration(
     extends MethodIdentifier
 {
 
-    override def toString = "MethodDeclaration(" + declaringRef.toString + "," + name + "," + parameters
+    override def toString = "BATMethodDeclaration(" + declaringRef.toString + "," + name + "," + parameters
         .toString + "," + returnType.toString + "," + (
         if (isPublic)
             "public"
@@ -63,7 +63,7 @@ object MethodDeclaration
               accessFlags: Int,
               hasDeprecatedAttribute: Boolean,
               hasSyntheticAttribute: Boolean
-                 ) = new MethodDeclaration (declaringRef, name, parameters, returnType, accessFlags, hasDeprecatedAttribute, hasSyntheticAttribute)
+                 ) = new BATMethodDeclaration (declaringRef, name, parameters, returnType, accessFlags, hasDeprecatedAttribute, hasSyntheticAttribute)
 
     /**
      * create a method declaration with default visibility that is neither deprecated nor synthetic
@@ -72,9 +72,9 @@ object MethodDeclaration
               name: String,
               parameters: Seq[de.tud.cs.st.bat.Type],
               returnType: de.tud.cs.st.bat.Type
-                 ) = new MethodDeclaration (declaringRef, name, parameters, returnType, 0, false, false)
+                 ) = new BATMethodDeclaration (declaringRef, name, parameters, returnType, 0, false, false)
 
-    def unapply(methodDeclaration: MethodDeclaration):
+    def unapply(methodDeclaration: BATMethodDeclaration):
     Option[(ReferenceType, String, Seq[de.tud.cs.st.bat.Type], de.tud.cs.st.bat.Type, Int, Boolean, Boolean)] =
         if (methodDeclaration == null) None
         else Some (

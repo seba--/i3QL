@@ -42,5 +42,5 @@ package sae.bytecode.schema
 object FieldDeclaration
 {
     import sae.bytecode._
-    def targetField: ReadFieldInstruction => FieldReference = (instruction: ReadFieldInstruction) => instruction.targetField
+    def targetField: ReadFieldInstruction => FieldInfo = (instruction: ReadFieldInstruction) => instruction.targetField
 }

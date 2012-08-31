@@ -30,40 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.bytecode.structure
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 09:19
- *
- * A set view is guaranteed to contain each element only once.
+ * Date: 31.08.12
+ * Time: 09:04
  */
-trait SetRelation[V <: AnyRef]
-    extends LazyView[V]
+
+case class BATFieldDeclaration(declaringClass: BATClassDeclaration, declaredField: BATDeclaredFieldInfo)
 {
 
-}
-
-class BaseSetRelation[V <: AnyRef]
-    extends SetRelation[V]
-{
-    /**
-     * Applies f to all elements of the view.
-     * Implementers must guarantee that no update/add/remove event is
-     * fired during the deferred iteration
-     */
-    def lazy_foreach[T](f: (V) => T) {}
-
-    /**
-     * Each materialized view must be able to
-     * materialize it's content from the underlying
-     * views.
-     * The laziness allows a query to be set up
-     * on relations (tables) that are already filled.
-     * thus the first call to foreach will try to
-     * materialize already persisted data.
-     */
-    def lazyInitialize() {}
 }

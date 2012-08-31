@@ -45,6 +45,12 @@ import sae.LazyView
 
 object CI_CONFUSED_INHERITANCE
 {
+
+    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
+        import database._
+        SELECT (*) FROM (fieldDeclarations) WHERE (_.declaredField.isProtected) AND (_.declaringClass.isFinal)
+    }
+
 /*
     def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
         import database._

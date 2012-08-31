@@ -19,9 +19,9 @@ package object bytecode
     type Instruction = de.tud.cs.st.bat.resolved.Instruction
 
     type InstructionInfo = {
-        def instruction : de.tud.cs.st.bat.resolved.Instruction
-        def bytecodeIndex : Int
-        def sequenceIndex : Int
+        def instruction: de.tud.cs.st.bat.resolved.Instruction
+        def bytecodeIndex: Int
+        def sequenceIndex: Int
     }
 
     type Type = de.tud.cs.st.bat.resolved.Type
@@ -46,9 +46,7 @@ package object bytecode
 
     type AccessModified = {def accessFlags: Int}
 
-    type ClassMember = AnyRef with AccessModified {
-        //def declaringType: ClassType
-    }
+    type ClassMember = AnyRef
 
     type DeclaredClassMember = ClassMember {
         //def declaringClass: ClassDeclaration
@@ -70,7 +68,13 @@ package object bytecode
 
     type InterfaceDeclaration = de.tud.cs.st.bat.resolved.ClassFile with AccessModified
 
-    type MethodDeclaration = DeclaredClassMember {
+    type FieldInfo = ClassMember {
+        def name: String
+
+        def fieldType: FieldType
+    }
+
+    type MethodInfo = ClassMember {
         def name: String
 
         def returnType: ReturnType
@@ -78,11 +82,9 @@ package object bytecode
         def parameterTypes: Seq[ParameterType]
     }
 
-    type FieldDeclaration = DeclaredClassMember {
-        def name: String
+    type DeclaredMethodInfo = DeclaredClassMember with MethodInfo
 
-        def fieldType: FieldType
-
+    type DeclaredFieldInfo = DeclaredClassMember with FieldInfo {
         def isFinal: Boolean
 
         def isTransient: Boolean
@@ -96,21 +98,32 @@ package object bytecode
         def isEnum: Boolean
     }
 
-    type FieldReference = ClassMember {def name: String; def fieldType: FieldType}
+    type MemberDeclaration = AnyRef {
+        def declaringClass: ClassDeclaration
+    }
+
+    type MethodDeclaration = MemberDeclaration {
+        def declaredMethod: DeclaredMethodInfo
+    }
+
+    type FieldDeclaration = MemberDeclaration {
+        def declaredField: DeclaredFieldInfo
+    }
+
 
     type SourceElement = de.tud.cs.st.bat.resolved.SourceElement
 
-    type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: MethodDeclaration; def targetField: FieldReference}
+    type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: DeclaredMethodInfo; def targetField: FieldInfo}
 
     def void = VoidType
 
     def name = member => {
-        if (member.isInstanceOf[MethodDeclaration]) {
-            member.asInstanceOf[MethodDeclaration].name
+        if (member.isInstanceOf[DeclaredMethodInfo]) {
+            member.asInstanceOf[DeclaredMethodInfo].name
         }
         else
-        if (member.isInstanceOf[FieldDeclaration]) {
-            member.asInstanceOf[FieldDeclaration].name
+        if (member.isInstanceOf[DeclaredFieldInfo]) {
+            member.asInstanceOf[DeclaredFieldInfo].name
         }
         else
             throw new UnsupportedOperationException ("Object " + member + " of type " + member.getClass + " has no name attribute")
@@ -142,4 +155,5 @@ package object bytecode
     //def declaringClass(member: DeclaredClassMember): ClassDeclaration = member.declaringClass
 
     //def declaringClass = (member: DeclaredClassMember) => member.declaringClass
+    def declaringClass = _.declaringClass
 }

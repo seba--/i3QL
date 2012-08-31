@@ -48,9 +48,13 @@ trait BytecodeBaseRelations
 
     def declared_classes: SetRelation[ClassDeclaration]
 
-    def declared_methods: SetRelation[MethodDeclaration]
+    def declared_methods: SetRelation[DeclaredMethodInfo]
 
-    def declared_fields: SetRelation[FieldDeclaration]
+    def methodDeclarations: SetRelation[MethodDeclaration]
+
+    def fieldDeclarations: SetRelation[FieldDeclaration]
+
+    def declared_fields: SetRelation[DeclaredFieldInfo]
 
     def instructions: LazyView[InstructionInfo]
 

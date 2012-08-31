@@ -14,14 +14,14 @@ import sae.syntax.sql._
  */
 object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
-/*
+
     def apply(database: BytecodeDatabase): LazyView[ClassDeclaration] = {
         import database._
-        SELECT (declaringClass) FROM (declared_methods) WHERE
-            (_.name == "finalize") AND
-            (_.isPublic) AND
-            returnType === void AND
-            parameterTypes === Nil
+        SELECT (declaringClass) FROM (methodDeclarations) WHERE
+            (_.declaredMethod.name == "finalize") AND
+            (_.declaredMethod.isPublic) AND
+            (_.declaredMethod.returnType == void) AND
+            (_.declaredMethod.parameterTypes == Nil)
     }
-*/
+
 }

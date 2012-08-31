@@ -33,10 +33,11 @@
 package sae.bytecode.bat
 
 import java.io.InputStream
-import sae.bytecode.{FieldDeclaration, MethodDeclaration, ClassDeclaration, InstructionInfo, BytecodeDatabase}
+import sae.bytecode.{DeclaredFieldInfo, DeclaredMethodInfo, ClassDeclaration, InstructionInfo, BytecodeDatabase}
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+import sae.bytecode.impl.{FieldDeclaration, MethodDeclaration}
 
 /**
  * Created with IntelliJ IDEA.
@@ -53,9 +54,13 @@ class BATBytecodeDatabase
 
     val declared_classes: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
 
-    val declared_methods: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
+    val declared_methods: SetRelation[DeclaredMethodInfo] = new BaseSetRelation[DeclaredMethodInfo]
 
-    val declared_fields: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
+    val declared_fields: SetRelation[DeclaredFieldInfo] = new BaseSetRelation[DeclaredFieldInfo]
+
+    val methodDeclarations: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
+
+    val fieldDeclarations: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
 
     val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
 
@@ -73,7 +78,7 @@ class BATBytecodeDatabase
         val zipStream: ZipInputStream = new ZipInputStream (stream)
         var zipEntry: ZipEntry = null
         while ((({
-            zipEntry = zipStream.getNextEntry;
+            zipEntry = zipStream.getNextEntry
             zipEntry
         })) != null)
         {
@@ -88,4 +93,5 @@ class BATBytecodeDatabase
     def removeArchive(stream: InputStream) {
 
     }
+
 }

@@ -55,22 +55,22 @@ trait BytecodeFunctions
 
     def isStatic: DeclaredClassMember => Boolean
 
-    def returnType: MethodDeclaration => ReturnType
+    def returnType: DeclaredMethodInfo => ReturnType
 
-    def parameterTypes: MethodDeclaration => Seq[ParameterType]
+    def parameterTypes: DeclaredMethodInfo => Seq[ParameterType]
 
-    def isSynthetic: FieldDeclaration => Boolean
+    def isSynthetic: DeclaredFieldInfo => Boolean
 
-    def isVolatile: FieldDeclaration => Boolean
+    def isVolatile: DeclaredFieldInfo => Boolean
 
     def classType: ClassDeclaration => ClassType
 
-    //def declaringClass: DeclaredClassMember => ClassDeclaration
+    def declaringClass: MemberDeclaration => ClassDeclaration
 
     def name: ClassMember => String
 
 
-    def targetField(instruction:ReadFieldInstruction) : FieldReference = instruction.targetField
+    def targetField(instruction:ReadFieldInstruction) : FieldInfo = instruction.targetField
 
 
 }
