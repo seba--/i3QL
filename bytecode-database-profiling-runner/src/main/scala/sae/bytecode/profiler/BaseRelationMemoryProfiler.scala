@@ -52,7 +52,7 @@ object BaseRelationMemoryProfiler
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                   | """.stripMargin
 
-    private val iterations = 10
+    private val iterations = 100
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
@@ -76,9 +76,13 @@ object BaseRelationMemoryProfiler
 
         val materializedMemory = MemoryProfiler.memoryOfMaterializedData (files) _
 
+        println ("statistics")
+        Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach(println)
+
+
         // warmup
-        print("warmup")
-        for (i <- 1 to 5) {
+        print ("warmup")
+        for (i <- 1 to 50) {
             materializedMemory ((db: BytecodeDatabase) => Seq (
                 db.classDeclarations,
                 db.fieldDeclarations,
@@ -87,9 +91,9 @@ object BaseRelationMemoryProfiler
                 db.interfaceInheritance,
                 db.instructions
             ))
-            print(".")
+            print (".")
         }
-        println("")
+        println ("")
 
         measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
         measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))

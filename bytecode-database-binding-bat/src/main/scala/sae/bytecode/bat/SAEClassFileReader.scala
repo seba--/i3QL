@@ -34,9 +34,12 @@ package sae.bytecode.bat
 
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.{InheritanceRelation, FieldDeclaration, MethodDeclaration, ClassDeclaration}
+import de.tud.cs.st.bat.resolved.{Instruction, Code, ObjectType}
+import sae.bytecode.structure._
 import java.io.DataInputStream
+import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.InheritanceRelation
+import sae.bytecode.structure.FieldDeclaration
 
 
 /**
@@ -124,7 +127,26 @@ trait SAEClassFileReader
             descriptor.parameterTypes
         )
         database.methodDeclarations.element_added (methodDeclaration)
+        attributes.foreach (_ match {
+            case code: Code => addInstructions (methodDeclaration, code.instructions)
+            case _ => /* do nothing*/
+        })
         methodDeclaration
+    }
+
+    def addInstructions(declaringMethod: Method_Info, instructions: Array[Instruction]) {
+        var i = 0
+        var index = 0
+        while (i < instructions.length)
+        {
+            val instr = instructions (i)
+            i += 1
+            if (instr != null) {
+                index += 1
+                database.instructions.element_added (InstructionInfo (instr, i, index))
+            }
+
+        }
     }
 
     def ClassFile(classInfo: Class_Info,
