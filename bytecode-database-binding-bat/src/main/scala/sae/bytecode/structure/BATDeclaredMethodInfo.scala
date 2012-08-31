@@ -41,81 +41,33 @@ import de.tud.cs.st.bat._
  * Time: 13:08
  */
 
-case class BATDeclaredMethodInfo(accessFlags: Int,
-                      name: String,
-                      returnType: de.tud.cs.st.bat.resolved.Type,
-                      parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType],
-                      hasDeprecatedAttribute: Boolean,
-                      hasSyntheticAttribute: Boolean)
+case class BATDeclaredMethodInfo(declaringClass: BATDeclaredClassInfo,
+                                 accessFlags: Int,
+                                 name: String,
+                                 returnType: de.tud.cs.st.bat.resolved.Type,
+                                 parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
 {
-    def isPublic = BATDeclaredMethodInfo.isPublic (this)
+    def isPublic = ACC_PUBLIC ∈ accessFlags
 
-    def isProtected = BATDeclaredMethodInfo.isProtected (this)
+    def isProtected = ACC_PROTECTED ∈ accessFlags
 
-    def isPrivate = BATDeclaredMethodInfo.isPrivate (this)
+    def isPrivate = ACC_PRIVATE ∈ accessFlags
 
-    def isStatic = BATDeclaredMethodInfo.isStatic (this)
+    def isStatic = ACC_STATIC ∈ accessFlags
 
-    def isFinal = BATDeclaredMethodInfo.isFinal (this)
+    def isFinal = ACC_FINAL ∈ accessFlags
 
-    def isSynchronized = BATDeclaredMethodInfo.isSynchronized (this)
+    def isSynchronized = ACC_SYNCHRONIZED ∈ accessFlags
 
-    def isBridge = BATDeclaredMethodInfo.isBridge (this)
+    def isBridge = ACC_BRIDGE ∈ accessFlags
 
-    def isVarArgs = BATDeclaredMethodInfo.isVarArgs (this)
+    def isVarArgs = ACC_VARARGS ∈ accessFlags
 
-    def isNative = BATDeclaredMethodInfo.isNative (this)
+    def isNative = ACC_NATIVE ∈ accessFlags
 
-    def isAbstract = BATDeclaredMethodInfo.isAbstract (this)
+    def isAbstract = ACC_ABSTRACT ∈ accessFlags
 
-    def isStrict = BATDeclaredMethodInfo.isStrict (this)
+    def isStrict = ACC_STRICT ∈ accessFlags
 
-    def isDeprecated = hasDeprecatedAttribute
-
-    def isSynthetic = BATDeclaredMethodInfo.isSynthetic(this)
-}
-
-
-// TODO Inline this. It is an object due to some fields required for computation, which we wanted to be static, now not necessary
-object BATDeclaredMethodInfo
-{
-
-
-    def isPublic(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_PUBLIC ∈ methodDeclaration.accessFlags
-
-    def isProtected(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_PROTECTED ∈ methodDeclaration.accessFlags
-
-    def isPrivate(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_PRIVATE ∈ methodDeclaration.accessFlags
-
-    def isStatic(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_STATIC ∈ methodDeclaration.accessFlags
-
-    def isFinal(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_FINAL ∈ methodDeclaration.accessFlags
-
-    def isSynchronized(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_SYNCHRONIZED ∈ methodDeclaration.accessFlags
-
-    def isBridge(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_BRIDGE ∈ methodDeclaration.accessFlags
-
-    def isVarArgs(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_VARARGS ∈ methodDeclaration.accessFlags
-
-    def isNative(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_NATIVE ∈ methodDeclaration.accessFlags
-
-    def isAbstract(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_ABSTRACT ∈ methodDeclaration.accessFlags
-
-    def isStrict(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_STRICT ∈ methodDeclaration.accessFlags
-
-    def isSynthetic(methodDeclaration: BATDeclaredMethodInfo) =
-        ACC_SYNTHETIC ∈ methodDeclaration.accessFlags ||
-            (methodDeclaration.hasSyntheticAttribute)
-
+    def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
 }

@@ -49,7 +49,7 @@ package object bytecode
     type ClassMember = AnyRef
 
     type DeclaredClassMember = ClassMember {
-        //def declaringClass: ClassDeclaration
+        def declaringClass: ClassDeclaration
 
         def isPublic: Boolean
 
@@ -82,9 +82,9 @@ package object bytecode
         def parameterTypes: Seq[ParameterType]
     }
 
-    type DeclaredMethodInfo = DeclaredClassMember with MethodInfo
+    type MethodDeclaration = DeclaredClassMember with MethodInfo
 
-    type DeclaredFieldInfo = DeclaredClassMember with FieldInfo {
+    type FieldDeclaration = DeclaredClassMember with FieldInfo {
         def isFinal: Boolean
 
         def isTransient: Boolean
@@ -93,37 +93,24 @@ package object bytecode
 
         def isSynthetic: Boolean
 
-        def isDeprecated: Boolean
-
         def isEnum: Boolean
     }
 
-    type MemberDeclaration = AnyRef {
-        def declaringClass: ClassDeclaration
-    }
-
-    type MethodDeclaration = MemberDeclaration {
-        def declaredMethod: DeclaredMethodInfo
-    }
-
-    type FieldDeclaration = MemberDeclaration {
-        def declaredField: DeclaredFieldInfo
-    }
 
 
     type SourceElement = de.tud.cs.st.bat.resolved.SourceElement
 
-    type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: DeclaredMethodInfo; def targetField: FieldInfo}
+    type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: MethodDeclaration; def targetField: FieldInfo}
 
     def void = VoidType
 
     def name = member => {
-        if (member.isInstanceOf[DeclaredMethodInfo]) {
-            member.asInstanceOf[DeclaredMethodInfo].name
+        if (member.isInstanceOf[MethodDeclaration]) {
+            member.asInstanceOf[MethodDeclaration].name
         }
         else
-        if (member.isInstanceOf[DeclaredFieldInfo]) {
-            member.asInstanceOf[DeclaredFieldInfo].name
+        if (member.isInstanceOf[FieldDeclaration]) {
+            member.asInstanceOf[FieldDeclaration].name
         }
         else
             throw new UnsupportedOperationException ("Object " + member + " of type " + member.getClass + " has no name attribute")

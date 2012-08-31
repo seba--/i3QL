@@ -48,13 +48,13 @@ object CI_CONFUSED_INHERITANCE
 
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         import database._
-        SELECT (*) FROM (fieldDeclarations) WHERE (_.declaredField.isProtected) AND (_.declaringClass.isFinal)
+        SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
     }
 
 /*
     def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
         import database._
-        SELECT (*) FROM (declared_classes, declared_fields) WHERE (isFinal, isProtected) AND (classType =#= declaringClass)
+        SELECT (*) FROM (classDeclarations, declared_fields) WHERE (isFinal, isProtected) AND (classType =#= declaringClass)
     }
 
     def withoutJoin(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
@@ -64,7 +64,7 @@ object CI_CONFUSED_INHERITANCE
 */
     /*
         def apply(database: BytecodeDatabase): LazyView[(ClassDeclaration,FieldDeclaration)] = {
-        val finalClasses = σ((_: ClassDeclaration).isFinal)(database.declared_classes)
+        val finalClasses = σ((_: ClassDeclaration).isFinal)(database.classDeclarations)
         val protectedFields = σ((_: FieldDeclaration).isProtected)(database.declared_fields)
         (
                 (

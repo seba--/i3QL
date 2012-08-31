@@ -55,17 +55,17 @@ trait BytecodeFunctions
 
     def isStatic: DeclaredClassMember => Boolean
 
-    def returnType: DeclaredMethodInfo => ReturnType
+    def returnType: MethodDeclaration => ReturnType
 
-    def parameterTypes: DeclaredMethodInfo => Seq[ParameterType]
+    def parameterTypes: MethodDeclaration => Seq[ParameterType]
 
-    def isSynthetic: DeclaredFieldInfo => Boolean
+    def isSynthetic: FieldDeclaration => Boolean
 
-    def isVolatile: DeclaredFieldInfo => Boolean
+    def isVolatile: FieldDeclaration => Boolean
 
     def classType: ClassDeclaration => ClassType
 
-    def declaringClass: MemberDeclaration => ClassDeclaration
+    def declaringClass: DeclaredClassMember => ClassDeclaration
 
     def name: ClassMember => String
 

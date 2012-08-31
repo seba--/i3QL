@@ -18,9 +18,9 @@ object MS_PKGPROTECT
 
     val hashTableType = ObjectType ("java/util/Hashtable")
 
-    def isHashTable: DeclaredFieldInfo => Boolean = field => field.fieldType == hashTableType
+    def isHashTable: FieldDeclaration => Boolean = field => field.fieldType == hashTableType
 
-    def isArray: DeclaredFieldInfo => Boolean = field => field.fieldType.isArrayType
+    def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
 /*
     def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
         //import database._

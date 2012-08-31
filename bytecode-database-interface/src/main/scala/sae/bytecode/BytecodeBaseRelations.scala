@@ -46,15 +46,11 @@ trait BytecodeBaseRelations
 
     import sae.bytecode._
 
-    def declared_classes: SetRelation[ClassDeclaration]
-
-    def declared_methods: SetRelation[DeclaredMethodInfo]
+    def classDeclarations: SetRelation[ClassDeclaration]
 
     def methodDeclarations: SetRelation[MethodDeclaration]
 
     def fieldDeclarations: SetRelation[FieldDeclaration]
-
-    def declared_fields: SetRelation[DeclaredFieldInfo]
 
     def instructions: LazyView[InstructionInfo]
 

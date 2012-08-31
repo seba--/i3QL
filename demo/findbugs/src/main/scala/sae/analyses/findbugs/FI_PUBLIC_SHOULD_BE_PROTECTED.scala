@@ -18,10 +18,10 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
     def apply(database: BytecodeDatabase): LazyView[ClassDeclaration] = {
         import database._
         SELECT (declaringClass) FROM (methodDeclarations) WHERE
-            (_.declaredMethod.name == "finalize") AND
-            (_.declaredMethod.isPublic) AND
-            (_.declaredMethod.returnType == void) AND
-            (_.declaredMethod.parameterTypes == Nil)
+            (_.name == "finalize") AND
+            (_.isPublic) AND
+            (_.returnType == void) AND
+            (_.parameterTypes == Nil)
     }
 
 }

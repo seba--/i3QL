@@ -59,7 +59,9 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
 
     def trim() {
         val last = buffer.indexWhere (_ == null)
-        buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
+        if (last >= 0) {
+            buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
+        }
     }
 
     def updated(oldV: V, newV: V) {

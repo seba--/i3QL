@@ -35,7 +35,8 @@ package sae.bytecode.bat
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.{BATDeclaredFieldInfo, BATDeclaredMethodInfo, BATClassDeclaration}
+import sae.bytecode.structure.{BATDeclaredFieldInfo, BATDeclaredMethodInfo, BATDeclaredClassInfo}
+import java.io.DataInputStream
 
 
 /**
@@ -52,9 +53,9 @@ trait SAEClassFileReader
 {
     def database: BATBytecodeDatabase
 
-    type ClassFile = BATClassDeclaration
+    type ClassFile = BATDeclaredClassInfo
 
-    type Class_Info = BATClassDeclaration
+    type Class_Info = BATDeclaredClassInfo
 
     type Method_Info = BATDeclaredMethodInfo
     type Methods <: IndexedSeq[Method_Info]
@@ -68,27 +69,48 @@ trait SAEClassFileReader
     type Interfaces <: IndexedSeq[ObjectType]
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
-    def Interface(interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface =
+    protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)(implicit cp: Constant_Pool): Class_Info = {
+
+        val classInfo = BATDeclaredClassInfo (minor_version,
+            major_version,
+            in.readUnsignedShort,
+            in.readUnsignedShort.asObjectType)
+
+        val super_class = in.readUnsignedShort
+        val superClass = if (super_class == 0) None else Some (super_class.asObjectType)
+        // TODO add super class to base relations
+        database.classDeclarations.element_added (classInfo)
+        classInfo
+    }
+
+
+    def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface =
         interface_index.asObjectType
 
-    def Field_Info(access_flags: Int,
+    def Field_Info(declaringClass: Class_Info,
+                   access_flags: Int,
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
         implicit cp: Constant_Pool): Field_Info =
     {
         val fieldDeclaration = new BATDeclaredFieldInfo (
+            declaringClass,
             access_flags,
             name_index.asString,
-            descriptor_index.asFieldType,
+            descriptor_index.asFieldType)
+        /*
+        ,
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
-        database.declared_fields.element_added (fieldDeclaration)
+        */
+        database.fieldDeclarations.element_added (fieldDeclaration)
         fieldDeclaration
     }
 
-    def Method_Info(accessFlags: Int,
+    def Method_Info(declaringClass: Class_Info,
+                    accessFlags: Int,
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
@@ -96,36 +118,40 @@ trait SAEClassFileReader
     {
         val descriptor = descriptor_index.asMethodDescriptor
         val methodDeclaration = BATDeclaredMethodInfo (
+            declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
-            descriptor.parameterTypes,
+            descriptor.parameterTypes
+        )
+        /*
+        ,
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
-        database.declared_methods.element_added (methodDeclaration)
+        */
+        database.methodDeclarations.element_added (methodDeclaration)
         methodDeclaration
     }
 
-    def ClassFile(minor_version: Int, major_version: Int,
-                  access_flags: Int,
-                  this_class: Int,
-                  super_class: Int,
+    def ClassFile(classInfo: Class_Info,
                   interfaces: Interfaces,
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
         implicit cp: Constant_Pool): ClassFile =
     {
-
+        classInfo
+        /*
         val classDeclaration = BATClassDeclaration (this_class.asObjectType,
             access_flags,
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
             (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
         )
-        database.declared_classes.element_added (classDeclaration)
+        database.classDeclarations.element_added (classDeclaration)
 
         classDeclaration
+        */
     }
 
 }

@@ -39,7 +39,7 @@ package sae.bytecode.structure
  * Time: 09:04
  */
 
-case class BATFieldDeclaration(declaringClass: BATClassDeclaration, declaredField: BATDeclaredFieldInfo)
+case class BATFieldDeclaration(declaringClass: BATDeclaredClassInfo, declaredField: BATDeclaredFieldInfo)
 {
 
 }

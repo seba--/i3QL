@@ -14,11 +14,7 @@ import sae.collections.{BagResult, SetResult}
 class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     extends BytecodeDatabase
 {
-    lazy val declared_classes = new SetResult[ClassDeclaration](database.declared_classes)
-
-    lazy val declared_methods = new SetResult[DeclaredMethodInfo](database.declared_methods)
-
-    lazy val declared_fields = new SetResult[DeclaredFieldInfo](database.declared_fields)
+    lazy val classDeclarations = new SetResult[ClassDeclaration](database.classDeclarations)
 
     lazy val instructions = new BagResult[InstructionInfo](database.instructions)
 
