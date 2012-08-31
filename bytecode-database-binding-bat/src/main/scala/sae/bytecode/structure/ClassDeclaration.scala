@@ -11,19 +11,19 @@ import de.tud.cs.st.bat._
  * Time: 17:55
  *
  */
-case class BATDeclaredClassInfo(minorVersion: Int,
+case class ClassDeclaration(minorVersion: Int,
                                 majorVersion: Int,
                                 accessFlags: Int,
                                 classType: ObjectType)
 {
 
-    def isAnnotation = BATDeclaredClassInfo.isAnnotation (this)
+    def isAnnotation = ClassDeclaration.isAnnotation (this)
 
-    def isClass = BATDeclaredClassInfo.isClass (this)
+    def isClass = ClassDeclaration.isClass (this)
 
-    def isEnum = BATDeclaredClassInfo.isEnum (this)
+    def isEnum = ClassDeclaration.isEnum (this)
 
-    def isInterface = BATDeclaredClassInfo.isInterface (this)
+    def isInterface = ClassDeclaration.isInterface (this)
 
     def isPublic = ACC_PUBLIC ∈ accessFlags
 
@@ -37,7 +37,7 @@ case class BATDeclaredClassInfo(minorVersion: Int,
 
 }
 
-object BATDeclaredClassInfo
+object ClassDeclaration
 {
     private val classCategoryMask: Int =
         ACC_INTERFACE.mask | ACC_ANNOTATION.mask | ACC_ENUM.mask
@@ -45,16 +45,16 @@ object BATDeclaredClassInfo
     private val annotationMask: Int =
         ACC_ANNOTATION.mask | ACC_INTERFACE.mask
 
-    def isAnnotation(classDeclaration: BATDeclaredClassInfo) =
+    def isAnnotation(classDeclaration: ClassDeclaration) =
         (classDeclaration.accessFlags & classCategoryMask) == annotationMask
 
-    def isClass(classDeclaration: BATDeclaredClassInfo) =
+    def isClass(classDeclaration: ClassDeclaration) =
         (classDeclaration.accessFlags & classCategoryMask) == 0
 
-    def isEnum(classDeclaration: BATDeclaredClassInfo) =
+    def isEnum(classDeclaration: ClassDeclaration) =
         (classDeclaration.accessFlags & classCategoryMask) == ACC_ENUM.mask
 
-    def isInterface(classDeclaration: BATDeclaredClassInfo) =
+    def isInterface(classDeclaration: ClassDeclaration) =
         (classDeclaration.accessFlags & classCategoryMask) == ACC_INTERFACE.mask
 
 }

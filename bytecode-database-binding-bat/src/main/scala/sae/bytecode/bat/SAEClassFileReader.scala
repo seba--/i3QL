@@ -35,7 +35,7 @@ package sae.bytecode.bat
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.{BATDeclaredFieldInfo, BATDeclaredMethodInfo, BATDeclaredClassInfo}
+import sae.bytecode.structure.{FieldDeclaration, MethodDeclaration, ClassDeclaration}
 import java.io.DataInputStream
 
 
@@ -53,15 +53,15 @@ trait SAEClassFileReader
 {
     def database: BATBytecodeDatabase
 
-    type ClassFile = BATDeclaredClassInfo
+    type ClassFile = ClassDeclaration
 
-    type Class_Info = BATDeclaredClassInfo
+    type Class_Info = ClassDeclaration
 
-    type Method_Info = BATDeclaredMethodInfo
+    type Method_Info = MethodDeclaration
     type Methods <: IndexedSeq[Method_Info]
     val Method_InfoManifest: ClassManifest[Method_Info] = implicitly
 
-    type Field_Info = BATDeclaredFieldInfo
+    type Field_Info = FieldDeclaration
     type Fields <: IndexedSeq[Field_Info]
     val Field_InfoManifest: ClassManifest[Field_Info] = implicitly
 
@@ -71,7 +71,7 @@ trait SAEClassFileReader
 
     protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)(implicit cp: Constant_Pool): Class_Info = {
 
-        val classInfo = BATDeclaredClassInfo (minor_version,
+        val classInfo = ClassDeclaration (minor_version,
             major_version,
             in.readUnsignedShort,
             in.readUnsignedShort.asObjectType)
@@ -94,17 +94,11 @@ trait SAEClassFileReader
                    attributes: Attributes)(
         implicit cp: Constant_Pool): Field_Info =
     {
-        val fieldDeclaration = new BATDeclaredFieldInfo (
+        val fieldDeclaration = new FieldDeclaration (
             declaringClass,
             access_flags,
             name_index.asString,
             descriptor_index.asFieldType)
-        /*
-        ,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
-        )
-        */
         database.fieldDeclarations.element_added (fieldDeclaration)
         fieldDeclaration
     }
@@ -117,19 +111,13 @@ trait SAEClassFileReader
         implicit cp: Constant_Pool): Method_Info =
     {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = BATDeclaredMethodInfo (
+        val methodDeclaration = MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
             descriptor.parameterTypes
         )
-        /*
-        ,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
-        )
-        */
         database.methodDeclarations.element_added (methodDeclaration)
         methodDeclaration
     }
@@ -142,16 +130,6 @@ trait SAEClassFileReader
         implicit cp: Constant_Pool): ClassFile =
     {
         classInfo
-        /*
-        val classDeclaration = BATClassDeclaration (this_class.asObjectType,
-            access_flags,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
-        )
-        database.classDeclarations.element_added (classDeclaration)
-
-        classDeclaration
-        */
     }
 
 }

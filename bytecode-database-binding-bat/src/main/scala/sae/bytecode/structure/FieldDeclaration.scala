@@ -1,7 +1,7 @@
 package sae.bytecode.structure
 
 
-case class BATDeclaredFieldInfo(declaringClass: BATDeclaredClassInfo,
+case class FieldDeclaration(declaringClass: ClassDeclaration,
                                 accessFlags: Int,
                                 name: String,
                                 fieldType: de.tud.cs.st.bat.resolved.FieldType)
