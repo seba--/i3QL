@@ -100,15 +100,18 @@ object MemoryProfiler
             relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
             buffer
         }
+
+
         var consumed: Long = 0
-        for (file <- files) {
-            memory (size => (consumed += size)) {
+
+        memory (size => (consumed += size)) {
+            for (file <- files) {
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
+                //buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
-            //buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
         }
-        //println (consumed)
+
         consumed
     }
 

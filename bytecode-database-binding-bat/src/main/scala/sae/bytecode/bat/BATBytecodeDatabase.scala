@@ -35,7 +35,7 @@ package sae.bytecode.bat
 import java.io.InputStream
 import sae.bytecode._
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{SetRelation, LazyView, DefaultLazyView, BaseSetRelation}
+import sae.{DefaultLazyView, BaseSetRelation}
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 
 /**
@@ -51,13 +51,17 @@ class BATBytecodeDatabase
 
     val reader = new SAEJava6Framework (this)
 
-    val classDeclarations: SetRelation[ClassDeclaration] = new BaseSetRelation[ClassDeclaration]
+    val classDeclarations = new BaseSetRelation[ClassDeclaration]
 
-    val methodDeclarations: SetRelation[MethodDeclaration] = new BaseSetRelation[MethodDeclaration]
+    val methodDeclarations = new BaseSetRelation[MethodDeclaration]
 
-    val fieldDeclarations: SetRelation[FieldDeclaration] = new BaseSetRelation[FieldDeclaration]
+    val fieldDeclarations = new BaseSetRelation[FieldDeclaration]
 
-    val instructions: LazyView[InstructionInfo] = new DefaultLazyView[InstructionInfo]
+    val classInheritance = new BaseSetRelation[InheritanceRelation]
+
+    val interfaceInheritance = new BaseSetRelation[InheritanceRelation]
+
+    val instructions = new DefaultLazyView[InstructionInfo]
 
     def fieldReadInstructions = null
 

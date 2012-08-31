@@ -22,6 +22,10 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
 
+    lazy val classInheritance = new SetResult[InheritanceRelation](database.classInheritance)
+
+    lazy val interfaceInheritance = new SetResult[InheritanceRelation](database.interfaceInheritance)
+
     def fieldReadInstructions = null
 
     def addClassFile(stream: InputStream) {

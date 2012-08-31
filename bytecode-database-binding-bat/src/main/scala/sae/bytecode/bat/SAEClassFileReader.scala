@@ -35,7 +35,7 @@ package sae.bytecode.bat
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.{FieldDeclaration, MethodDeclaration, ClassDeclaration}
+import sae.bytecode.structure.{InheritanceRelation, FieldDeclaration, MethodDeclaration, ClassDeclaration}
 import java.io.DataInputStream
 
 
@@ -76,16 +76,21 @@ trait SAEClassFileReader
             in.readUnsignedShort,
             in.readUnsignedShort.asObjectType)
 
-        val super_class = in.readUnsignedShort
-        val superClass = if (super_class == 0) None else Some (super_class.asObjectType)
-        // TODO add super class to base relations
+        val super_type = in.readUnsignedShort
+        if (super_type != 0) {
+            database.classInheritance.element_added (InheritanceRelation (super_type.asObjectType, classInfo.classType))
+        }
         database.classDeclarations.element_added (classInfo)
         classInfo
     }
 
 
-    def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface =
-        interface_index.asObjectType
+    def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface = {
+        val interface = interface_index.asObjectType
+        database.interfaceInheritance.element_added (InheritanceRelation (interface, declaringClass.classType))
+        interface
+    }
+
 
     def Field_Info(declaringClass: Class_Info,
                    access_flags: Int,

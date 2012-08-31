@@ -30,66 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.observers
+package sae.bytecode.structure
 
-import sae.bytecode.profiler.MemoryProfiler
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 11:03
+ * Date: 31.08.12
+ * Time: 14:51
  */
 
-class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
-    extends sae.Observer[V] with sae.Size
+case class InheritanceRelation(superType:ObjectType, subType:ObjectType)
 {
-    private var buffer: Array[Object] = Array.ofDim (incrementSize)
 
-    private var index = 0
-
-    private def grow() {
-        buffer = java.util.Arrays.copyOf (buffer, buffer.size + incrementSize)
-    }
-
-
-    def clear {
-        buffer = Array.ofDim (0)
-    }
-
-    def trim() {
-        val last = buffer.indexWhere (_ == null)
-        if (last >= 0) {
-            buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
-        }
-    }
-
-    def updated(oldV: V, newV: V) {
-        throw new UnsupportedOperationException
-    }
-
-    def removed(v: V) {
-        throw new UnsupportedOperationException
-    }
-
-    def added(v: V) {
-        if (index == buffer.size) {
-            grow ()
-        }
-        buffer (index) = v
-        index += 1
-    }
-
-    /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
-     */
-    def size = buffer.size
-
-
-    def bufferConsumption = {
-        val consumption = MemoryProfiler.instrumentation.getObjectSize (buffer)
-        consumption
-    }
 }

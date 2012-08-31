@@ -96,6 +96,12 @@ package object bytecode
         def isEnum: Boolean
     }
 
+    type InheritanceRelation = AnyRef {
+        def superType : ClassType
+
+        def subType : ClassType
+    }
+
 
 
     type SourceElement = de.tud.cs.st.bat.resolved.SourceElement

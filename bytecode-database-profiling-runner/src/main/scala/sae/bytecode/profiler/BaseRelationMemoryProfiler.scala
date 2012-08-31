@@ -83,6 +83,8 @@ object BaseRelationMemoryProfiler
                 db.classDeclarations,
                 db.fieldDeclarations,
                 db.methodDeclarations,
+                db.classInheritance,
+                db.interfaceInheritance,
                 db.instructions
             ))
             print(".")
@@ -92,16 +94,24 @@ object BaseRelationMemoryProfiler
         measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
         measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))
         measureMem ("declared fields  - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.fieldDeclarations)))
+        measureMem ("class inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classInheritance)))
+        measureMem ("interface inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.interfaceInheritance)))
         measureMem ("declared structures - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
             db.classDeclarations,
             db.fieldDeclarations,
             db.methodDeclarations
+        )))
+        measureMem ("inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classInheritance,
+            db.interfaceInheritance
         )))
         measureMem ("instructions - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
         measureMem ("base relations - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
             db.classDeclarations,
             db.fieldDeclarations,
             db.methodDeclarations,
+            db.classInheritance,
+            db.interfaceInheritance,
             db.instructions
         )))
 
@@ -110,16 +120,24 @@ object BaseRelationMemoryProfiler
         measureMem ("declared classes - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
         measureMem ("declared methods - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))
         measureMem ("declared fields  - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.fieldDeclarations)))
+        measureMem ("class inheritance - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.classInheritance)))
+        measureMem ("interface inheritance - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.interfaceInheritance)))
         measureMem ("declared structures - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
             db.classDeclarations,
             db.fieldDeclarations,
             db.methodDeclarations
+        )))
+        measureMem ("inheritance - materialized", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classInheritance,
+            db.interfaceInheritance
         )))
         measureMem ("instructions - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
         measureMem ("base relations - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
             db.classDeclarations,
             db.fieldDeclarations,
             db.methodDeclarations,
+            db.classInheritance,
+            db.interfaceInheritance,
             db.instructions
         )))
 

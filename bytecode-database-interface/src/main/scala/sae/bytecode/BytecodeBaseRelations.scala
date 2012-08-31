@@ -52,6 +52,10 @@ trait BytecodeBaseRelations
 
     def fieldDeclarations: SetRelation[FieldDeclaration]
 
+    def classInheritance: SetRelation[InheritanceRelation]
+
+    def interfaceInheritance: SetRelation[InheritanceRelation]
+
     def instructions: LazyView[InstructionInfo]
 
 }
