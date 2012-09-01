@@ -14,7 +14,7 @@ import sae.collections.{BagResult, SetResult}
 class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     extends BytecodeDatabase
 {
-    val relations = Seq (
+    lazy val relations = Seq (
         classDeclarations,
         fieldDeclarations,
         methodDeclarations,

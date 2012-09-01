@@ -52,7 +52,9 @@ object BaseRelationMemoryProfiler
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                   | """.stripMargin
 
-    private val iterations = 100
+    private val iterations = 20
+
+    private val warmup = 10
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
@@ -82,7 +84,7 @@ object BaseRelationMemoryProfiler
 
         // warmup
         print ("warmup")
-        for (i <- 1 to 50) {
+        for (i <- 1 to warmup) {
             materializedMemory ((db: BytecodeDatabase) => Seq (
                 db.classDeclarations,
                 db.fieldDeclarations,

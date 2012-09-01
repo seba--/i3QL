@@ -30,31 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.bytecode.profiler
 
-import sae.LazyView
-import sae.bytecode.InstructionInfo
+import sae.bytecode.BytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 11:42
+ * Date: 31.08.12
+ * Time: 19:03
  */
 
-trait SAECodeBinding
+object BaseRelationSelectorFunctions
 {
-    type Instruction <: de.tud.cs.st.bat.resolved.Instruction
 
-    type Instructions = LazyView[InstructionInfo]
+    def classDeclarations = (database : BytecodeDatabase) => database.classDeclarations
 
-    def database : BATBytecodeDatabase
+    def fieldDeclarations = (database : BytecodeDatabase) => database.fieldDeclarations
 
-    def Instructions(codeSize: Int) : Instructions = database.instructions
-
-    def add(byteCodeIndex: Int, sequenceIndex: Int, instruction: Instruction, instructions: Instructions) = {
-        //instructions.element_added (sae.bytecode.structure.InstructionInfo (instruction, byteCodeIndex, sequenceIndex))
-        instructions
-    }
-
+    def methodDeclarations = (database : BytecodeDatabase) => database.methodDeclarations
 }

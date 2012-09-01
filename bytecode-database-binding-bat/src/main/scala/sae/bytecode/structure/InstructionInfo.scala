@@ -41,7 +41,7 @@ import de.tud.cs.st.bat.resolved.Instruction
  * Time: 12:58
  */
 
-case class InstructionInfo(instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
+case class InstructionInfo(declaringMethod: MethodDeclaration, instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
 {
 
 }
