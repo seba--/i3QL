@@ -14,6 +14,13 @@ trait BytecodeDatabase
         with BytecodeDervivedRelations
         with BytecodeDatabaseManipulation
 {
-
+    lazy val relations = Seq (
+        classDeclarations,
+        fieldDeclarations,
+        methodDeclarations,
+        classInheritance,
+        interfaceInheritance,
+        instructions
+    ).view
 
 }

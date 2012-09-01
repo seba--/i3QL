@@ -30,25 +30,64 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs
+package sae.bytecode.profiler
 
-import sae.bytecode._
-import sae.syntax.sql._
-import sae.LazyView
+import sae.bytecode.BytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 17:05
+ * Date: 01.09.12
+ * Time: 14:09
  */
-object CI_CONFUSED_INHERITANCE
-    extends (BytecodeDatabase => LazyView[FieldDeclaration])
-{
 
-    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
-        import database._
-        SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
+trait AbstractMemoryProfiler
+{
+    val usage = """|Usage: java BaseRelationMemoryProfiler <ZIP or JAR file containing class files>+
+                  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
+                  | """.stripMargin
+
+    def iterations = 20
+
+    def warmupIterations : Int = 10
+
+    def main(args: Array[String]) {
+        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
+            println (usage)
+            sys.exit (1)
+        }
+
+        val files = for (arg ← args) yield {
+            val file = new java.io.File (arg)
+            if (!file.canRead || file.isDirectory) {
+                println ("The file: " + file + " cannot be read.")
+                println (usage)
+                sys.exit (1)
+            }
+            file
+        }
+
+        warmUp(files)
+
+        profile(files)
     }
 
+    def profile(implicit files: Seq[java.io.File])
+
+    def warmUp(files: Seq[java.io.File]) {
+        // warmup
+        print ("warmup")
+        for (i <- 1 to warmupIterations) {
+            MemoryProfiler.memoryOfMaterializedData (files)((db: BytecodeDatabase) => Seq (
+                db.classDeclarations,
+                db.fieldDeclarations,
+                db.methodDeclarations,
+                db.classInheritance,
+                db.interfaceInheritance,
+                db.instructions
+            ))
+            print (".")
+        }
+        println ("")
+    }
 }

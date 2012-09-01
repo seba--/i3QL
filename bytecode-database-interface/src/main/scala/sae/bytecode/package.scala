@@ -142,8 +142,9 @@ package object bytecode
 
     def classType = classDeclaration => classDeclaration.classType
 
-    def declaringClass = _.declaringClass
 */
 
-    def classType: ClassDeclaration => ClassType = classDeclaration => classDeclaration.classType
+    def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
+
+    def classType: ClassDeclaration => ClassType = _.classType
 }

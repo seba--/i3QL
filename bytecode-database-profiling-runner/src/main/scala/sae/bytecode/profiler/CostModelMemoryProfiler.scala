@@ -75,7 +75,7 @@ object CostModelMemoryProfiler
         }
 
 
-        println ("statistics")
+        //println ("statistics")
         //Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach (println)
 
         val elementCount = elementCounts (files)

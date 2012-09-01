@@ -30,25 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs
+package sae.analyses.findbugs.profiler
 
+import sae.bytecode.profiler.AbstractMemoryProfiler
+import java.io.File
 import sae.bytecode._
-import sae.syntax.sql._
-import sae.LazyView
+import profiler.util.MegaByte
+import sae.analyses.findbugs.CI_CONFUSED_INHERITANCE
+import sae.bytecode.profiler.MemoryProfiler._
+import sae.{Observable, LazyView}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 17:05
+ * Date: 01.09.12
+ * Time: 14:08
  */
-object CI_CONFUSED_INHERITANCE
-    extends (BytecodeDatabase => LazyView[FieldDeclaration])
-{
 
-    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
-        import database._
-        SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
+object AnalysesMemoryProfiler
+    extends AbstractMemoryProfiler
+{
+    def profile(implicit files: Seq[File]) {
+        implicit val iter = iterations
+        //val databaseMaterializedMemoryFunction = () => memoryOfMaterializedData (files)((db: BytecodeDatabase) => db.relations)
+        //val (databaseMaterializedMemory, _) = measureMemory (iterations)(databaseMaterializedMemoryFunction)
+
+
+        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+
+        val (memory_CI_CONFUSED_INHERITANCE,_) = dataMemory(measure (CI_CONFUSED_INHERITANCE))
+
+        println("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary(MegaByte))
     }
 
+    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]) :  BytecodeDatabase => Seq[Observable[_]] = {
+        (db: BytecodeDatabase) =>  Seq (f(db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
+    }
+
+    def dataMemory( relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations : Int, files: Seq[File] ) = {
+        measureMemory (iterations)(() => memoryOfData (files)(relations))
+    }
 }

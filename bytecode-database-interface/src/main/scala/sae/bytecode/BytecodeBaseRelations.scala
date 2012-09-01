@@ -43,7 +43,6 @@ import sae.{SetRelation, LazyView}
  */
 trait BytecodeBaseRelations
 {
-
     import sae.bytecode._
 
     def classDeclarations: SetRelation[ClassDeclaration]

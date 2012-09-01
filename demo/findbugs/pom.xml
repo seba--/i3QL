@@ -22,6 +22,10 @@
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-bytecode-database-interface</artifactId>
         </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-profiling-library</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
