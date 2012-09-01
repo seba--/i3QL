@@ -30,18 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.structure
 
-import bat.BATBytecodeDatabase
+import de.tud.cs.st.bat.resolved.Instruction
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 16:04
+ * Date: 25.08.12
+ * Time: 12:58
  */
 
-object BATDatabaseFactory
+case class StrippedInstructionInfo(instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
 {
-    def create() : BytecodeDatabase = new BATBytecodeDatabase
+
 }

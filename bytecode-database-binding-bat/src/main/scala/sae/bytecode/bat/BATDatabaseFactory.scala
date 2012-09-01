@@ -30,61 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.statistics
+package sae.bytecode.bat
 
-import sae.bytecode.bat.BATDatabaseFactory
-import sae.bytecode.MaterializedBytecodeDatabase
+import sae.bytecode.BytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 26.08.12
- * Time: 13:56
+ * Date: 23.08.12
+ * Time: 16:04
  */
 
-object Statistic
+object BATDatabaseFactory
 {
-
-    def elementStatistic(files: Seq[java.io.File]): Seq[(String, Int)] = {
-        val database = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
-        database.relations.foreach (r => () /* do nothing but iterate over the relations to instantiate*/)
-        for (file <- files) {
-            database.addArchive (new java.io.FileInputStream (file))
-        }
-        List (
-            ("classes", database.classDeclarations.size),
-            ("fields", database.fieldDeclarations.size),
-            ("methods", database.methodDeclarations.size),
-            ("class inheritance", database.classInheritance.size),
-            ("interface inheritance", database.interfaceInheritance.size),
-            ("instructions", database.instructions.size)
-        )
-    }
-
-    def apply(sampleSize: Int): SampleStatistic = {
-        new ArrayBufferSampleStatistic (sampleSize)
-    }
-
-    def apply(sampleSize: Int, f: () => Long): SampleStatistic = {
-        val statistic = new ArrayBufferSampleStatistic (sampleSize)
-        var i = 0
-        while (i < sampleSize)
-        {
-            statistic.add (f ())
-            i += 1
-        }
-        statistic
-    }
-
-
-    def apply[T1, T2](sampleSize: Int, f: (T1, T2) => Long)(t1: T1, t2: T2): SampleStatistic = {
-        val statistic = new ArrayBufferSampleStatistic (sampleSize)
-        var i = 0
-        while (i < sampleSize)
-        {
-            statistic.add (f (t1, t2))
-            i += 1
-        }
-        statistic
-    }
+    def create(): BytecodeDatabase = new BATBytecodeDatabase
 }

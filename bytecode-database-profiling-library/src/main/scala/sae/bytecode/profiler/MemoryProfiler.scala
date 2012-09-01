@@ -34,8 +34,11 @@ package sae.bytecode.profiler
 
 import observers.ArrayBufferObserver
 import sae.bytecode._
+import bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.Observable
+import statistics.{SampleStatistic, Statistic}
+import util.{KiloByte, MegaByte}
 
 
 /**
@@ -131,6 +134,24 @@ object MemoryProfiler
         }
         //println (consumed)
         consumed
+    }
+
+
+    /**
+     * performs the measurement of function f in iterations times.
+     * Two statistics are returned
+     * first: memory consumed when applying f
+     * second: memory leak after f has been applied
+     */
+    def measureMemory(iterations: Int)(f: () => Long) : (SampleStatistic, SampleStatistic) = {
+        val leakStatistic = Statistic (iterations)
+        val memStatistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            memory (leakStatistic.add (_))(memStatistic.add (f ()))
+
+        }
+        (memStatistic, leakStatistic)
     }
 
 }

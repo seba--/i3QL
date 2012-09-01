@@ -11,9 +11,6 @@ import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_FINAL, ACC_PRIVATE, ACC_PUBLIC}
  */
 
 package object bytecode
-    extends BytecodeFunctions
-    with BytecodeConstants
-    with BytecodeSchemaFunctions
 {
 
     type Instruction = de.tud.cs.st.bat.resolved.Instruction
@@ -97,19 +94,19 @@ package object bytecode
     }
 
     type InheritanceRelation = AnyRef {
-        def superType : ClassType
+        def superType: ClassType
 
-        def subType : ClassType
+        def subType: ClassType
     }
-
 
 
     type SourceElement = de.tud.cs.st.bat.resolved.SourceElement
 
     type ReadFieldInstruction = de.tud.cs.st.bat.resolved.Instruction {def declaringMethod: MethodDeclaration; def targetField: FieldInfo}
 
-    def void = VoidType
+    val void = VoidType
 
+/*
     def name = member => {
         if (member.isInstanceOf[MethodDeclaration]) {
             member.asInstanceOf[MethodDeclaration].name
@@ -145,8 +142,8 @@ package object bytecode
 
     def classType = classDeclaration => classDeclaration.classType
 
-    //def declaringClass(member: DeclaredClassMember): ClassDeclaration = member.declaringClass
-
-    //def declaringClass = (member: DeclaredClassMember) => member.declaringClass
     def declaringClass = _.declaringClass
+*/
+
+    def classType: ClassDeclaration => ClassType = classDeclaration => classDeclaration.classType
 }

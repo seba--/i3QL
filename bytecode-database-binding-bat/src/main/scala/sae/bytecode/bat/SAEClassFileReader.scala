@@ -143,7 +143,7 @@ trait SAEClassFileReader
             i += 1
             if (instr != null) {
                 index += 1
-                database.instructions.element_added (InstructionInfo (declaringMethod, instr, i, index))
+                database.instructions.element_added (StrippedInstructionInfo (instr, i, index))
             }
 
         }
