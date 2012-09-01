@@ -89,7 +89,11 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
 
 
     def bufferConsumption = {
-        val consumption = MemoryProfiler.instrumentation.getObjectSize (buffer)
-        consumption
+        if (MemoryProfiler.instrumentation != null){
+            MemoryProfiler.instrumentation.getObjectSize (buffer)
+        }
+        else {
+            0L
+        }
     }
 }

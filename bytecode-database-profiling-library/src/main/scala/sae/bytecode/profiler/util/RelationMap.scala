@@ -52,19 +52,29 @@ class RelationMap[V]
 
     private def equalFunctionResult[T <: AnyRef](f1: BytecodeDatabase => LazyView[T], f2: BytecodeDatabase => LazyView[_ <: AnyRef]): Boolean = {
         val db = BATDatabaseFactory.create ()
-        f1 (db) == f2 (db)
+        val v1 = f1 (db)
+        val v2 = f2 (db)
+        //f1 (db) == f2 (db)
+        v1 == v2
+    }
+
+    def apply[T <: AnyRef](key: BytecodeDatabase => LazyView[T]): V = {
+        for (oldKey <- values.keys) {
+            if (equalFunctionResult (key, oldKey)) {
+                return values (oldKey)
+            }
+        }
+        throw new IllegalArgumentException ("key not found " + key)
     }
 
     def update[T <: AnyRef](key: BytecodeDatabase => LazyView[T], value: V): RelationMap[V] = {
         for (oldKey <- values.keys) {
             if (equalFunctionResult (key, oldKey)) {
                 values = values.updated (key, value)
-            }
-            else
-            {
-                values += (key -> value)
+                return this
             }
         }
+        values += (key -> value)
         this
     }
 }

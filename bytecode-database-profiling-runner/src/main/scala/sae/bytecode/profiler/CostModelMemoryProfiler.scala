@@ -35,8 +35,7 @@ package sae.bytecode.profiler
 import sae.syntax.sql._
 import sae.bytecode._
 import bat.BATDatabaseFactory
-import statistics.Statistic
-import util.{MegaByte, RelationMap}
+import util.{Byte, MegaByte, RelationMap}
 
 
 /**
@@ -65,9 +64,6 @@ object CostModelMemoryProfiler
             sys.exit (1)
         }
 
-        val q = (db: BytecodeDatabase) => compile(SELECT (classType) FROM db.classDeclarations)
-        val x = q(BATDatabaseFactory.create())
-
         val files = for (arg ← args) yield {
             val file = new java.io.File (arg)
             if (!file.canRead || file.isDirectory) {
@@ -80,14 +76,14 @@ object CostModelMemoryProfiler
 
 
         println ("statistics")
-        Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach (println)
+        //Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach (println)
 
         val elementCount = elementCounts (files)
 
         // warmup
         print ("warmup")
         for (i <- 1 to warmup) {
-            MemoryProfiler.memoryOfMaterializedData (files) ((db: BytecodeDatabase) => Seq (
+            MemoryProfiler.memoryOfMaterializedData (files)((db: BytecodeDatabase) => Seq (
                 db.classDeclarations,
                 db.fieldDeclarations,
                 db.methodDeclarations,
@@ -99,24 +95,26 @@ object CostModelMemoryProfiler
         }
         println ("")
 
-        classDeclarations(iterations, files)
+        classDeclarations (iterations, files, elementCount)
     }
 
 
-    def classDeclarations(iterations: Int, files: Seq[java.io.File]) {
+    def classDeclarations(iterations: Int, files: Seq[java.io.File], counters: RelationMap[Int]) {
 
         val mem = MemoryProfiler.measureMemory (iterations) _
 
         val classDataFunction = () => MemoryProfiler.memoryOfData (files)((db: BytecodeDatabase) => Seq (db.classDeclarations))
 
         val classTypeDataFunction = () => MemoryProfiler.memoryOfData (files)((db: BytecodeDatabase) => Seq (
-            SELECT (classType)  FROM db.classDeclarations
+            SELECT (classType) FROM db.classDeclarations
         )
         )
-        val (classMem, classLeak) = mem (classDataFunction)
-        val (typeMem, typeLeak) = mem (classTypeDataFunction)
-        println(classMem.summary(MegaByte))
-        println(typeMem.summary(MegaByte))
+        val (classMem, _) = mem (classDataFunction)
+        val (typeMem, _) = mem (classTypeDataFunction)
+        println (classMem.summary (MegaByte))
+        println (typeMem.summary (MegaByte))
+
+        println ((classMem - typeMem).summaryPerUnit (counters ((db: BytecodeDatabase) => db.classDeclarations))(Byte))
     }
 
     def elementCounts(files: Seq[java.io.File]): RelationMap[Int] = {

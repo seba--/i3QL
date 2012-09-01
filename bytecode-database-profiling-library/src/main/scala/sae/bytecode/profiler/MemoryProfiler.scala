@@ -111,7 +111,7 @@ object MemoryProfiler
             for (file <- files) {
                 database.addArchive (new FileInputStream (file))
                 buffers.foreach (_.trim ())
-                //buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
+                buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
         }
 

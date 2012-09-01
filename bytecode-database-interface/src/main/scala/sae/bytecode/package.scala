@@ -15,7 +15,7 @@ package object bytecode
 
     type Instruction = de.tud.cs.st.bat.resolved.Instruction
 
-    type InstructionInfo = {
+    type InstructionInfo = AnyRef {
         def instruction: de.tud.cs.st.bat.resolved.Instruction
         def bytecodeIndex: Int
         def sequenceIndex: Int
