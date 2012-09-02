@@ -30,25 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
+import sae.syntax.sql.SELECT_CLAUSE_NO_PROJECTION
 import sae.LazyView
+import sae.syntax.sql.ast.{SelectClause2, SelectClause1}
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 21:15
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 02.09.12
+ * Time: 19:38
  */
-object FROM
-    extends STARTING_CLAUSE_PREFIX_FROM
+
+case class SelectClauseNoProjectionSyntax(distinct: Boolean = false)
+    extends SELECT_CLAUSE_NO_PROJECTION
 {
+    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
+        FromClause1Syntax[Domain, Domain](
+            SelectClause1[Domain, Domain](None, distinct),
+            relation
+        )
 
-    def apply[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE_AS_PREFIX[Domain] =
-        FromStarting (relation)
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_AS_PREFIX_2[DomainA, DomainB] =
-        FromStarting2 (relationA, relationB)
-
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
+        FromClause2Syntax[DomainA, DomainB, (DomainA, DomainB)](
+            SelectClause2[DomainA, DomainB, (DomainA, DomainB)](None, distinct),
+            relationA,
+            relationB
+        )
 }

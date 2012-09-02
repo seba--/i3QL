@@ -32,23 +32,14 @@
  */
 package sae.syntax.sql
 
-import sae.LazyView
-
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 21:15
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 02.09.12
+ * Time: 18:34
  */
-object FROM
-    extends STARTING_CLAUSE_PREFIX_FROM
+
+trait WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[NextDomain <: AnyRef]
 {
-
-    def apply[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE_AS_PREFIX[Domain] =
-        FromStarting (relation)
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_AS_PREFIX_2[DomainA, DomainB] =
-        FromStarting2 (relationA, relationB)
-
+    def predicate: NextDomain => Boolean
 }

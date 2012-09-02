@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.impl.{JoinInfixOperator, InlineWhereClause}
+import sql.impl.{PredicateTypeSwitch, JoinInfixOperator, InlineWhereClause}
 
 /**
  *
@@ -34,6 +34,9 @@ package object sql
 
     implicit def predicateToInlineWhereClause[Domain <: AnyRef](f: Domain => Boolean): INLINE_WHERE_CLAUSE[Domain] =
         InlineWhereClause (f)
+
+    implicit def predicateToTypeSwitchPredicate[Domain <: AnyRef](f: Domain => Boolean): WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[Domain] =
+        PredicateTypeSwitch (f)
 
     implicit def inlineWhereClauseToPredicate[Domain <: AnyRef](clause: INLINE_WHERE_CLAUSE[Domain]): Domain => Boolean =
         clause.function

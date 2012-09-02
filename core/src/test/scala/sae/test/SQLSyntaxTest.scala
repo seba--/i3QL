@@ -425,7 +425,12 @@ class SQLSyntaxTest
 
         def Name: Student => String = x => x.Name
 
-        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM(students, courses) WHERE (_.Name == "john") OR (_.Name == "sally")
+        val selection1: LazyView[(Student, Course)] =
+            SELECT (*) FROM(students, courses) WHERE
+                (_.Name == "john") OR
+                (_.Name == "sally") OR
+                ((_:Course).Name == "EiSE") OR
+                (_.Name == "SE-D&C")
 
         Assert.assertEquals(
             List(
@@ -437,7 +442,6 @@ class SQLSyntaxTest
             selection1.asList.sortBy(x => (x._1.Name, x._2.Name))
         )
 
-        //Assert.assertEquals (selection1.asList.sortBy (x => (x._1.Name, x._2.Name)), selection2.asList.sortBy (x => (x._1.Name, x._2.Name)))
     }
 
     @Test

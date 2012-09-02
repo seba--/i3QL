@@ -32,7 +32,8 @@
  */
 package sae.syntax.sql
 
-import impl.{Projection2, NoProjection, Projection}
+import ast.SelectClause1
+import impl.{SelectClauseNoProjectionSyntax, SelectClause1Syntax}
 
 /**
  *
@@ -46,16 +47,17 @@ object SELECT
 {
 
     def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range] =
-        Projection (projection, distinct = false)
+        SelectClause1Syntax (SelectClause1 (Some (projection)))
 
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
-        Projection2 (projection, distinct = false)
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range) =
 
-    def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION = NoProjection (distinct = false)
+
+    def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
+        SelectClauseNoProjectionSyntax ()
 
     def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: (Domain) => Range): SELECT_CLAUSE[Domain, Range] =
-        Projection (projection, distinct = true)
+        SelectClause1Syntax (SelectClause1 (Some (projection), distinct = true))
 
     def DISTINCT(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
-        NoProjection (distinct = true)
+        SelectClauseNoProjectionSyntax (distinct = true)
 }

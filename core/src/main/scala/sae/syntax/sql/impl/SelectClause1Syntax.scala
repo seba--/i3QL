@@ -30,25 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
+import sae.syntax.sql.ast.SelectClause1
+import sae.syntax.sql.SELECT_CLAUSE
 import sae.LazyView
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 21:15
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 02.09.12
+ * Time: 19:38
  */
-object FROM
-    extends STARTING_CLAUSE_PREFIX_FROM
+
+case class SelectClause1Syntax[SelectionDomain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range])
+    extends SELECT_CLAUSE[SelectionDomain, Range]
 {
-
-    def apply[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE_AS_PREFIX[Domain] =
-        FromStarting (relation)
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_AS_PREFIX_2[DomainA, DomainB] =
-        FromStarting2 (relationA, relationB)
+    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]) = FromClause1Syntax (selectClause, relation)
 
 }
