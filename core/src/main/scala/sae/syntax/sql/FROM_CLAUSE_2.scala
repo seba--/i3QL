@@ -44,17 +44,9 @@ trait FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
     extends SQL_QUERY[Range]
 {
 
-    //def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
+    def WHERE(predicate: ActiveDomain => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, ActiveDomain, Range]
 
-    //def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR): WHERE_CLAUSE[(DomainA, DomainB), Range]
-
-    //def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
-
-    //def WHERE(predicate: (DomainA, DomainB) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
-
-    def WHERE(predicate: ((DomainA, DomainB)) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
-
-    def WHERE(predicateA: DomainA => Boolean, predicateB: DomainB => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    def WHERE(predicate: WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[DomainB]): WHERE_CLAUSE_2[DomainA, DomainB, DomainB, Range]
 
     def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 

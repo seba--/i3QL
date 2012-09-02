@@ -425,13 +425,8 @@ class SQLSyntaxTest
 
         def Name: Student => String = x => x.Name
 
-        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM(students, courses) WHERE (x => x._1
-                .Name == "john") OR (x => x._1.Name == "sally")
-        /*
-                val selection2: LazyView[(Student, Course)] = FROM (students, courses) SELECT (*) WHERE ( {
-                    (s: Student) => s.Name == "john" || s.Name == "sally"
-                }, *)
-        */
+        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM(students, courses) WHERE (_.Name == "john") OR (_.Name == "sally")
+
         Assert.assertEquals(
             List(
                 (john, eise),

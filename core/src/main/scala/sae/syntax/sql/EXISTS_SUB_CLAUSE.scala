@@ -32,21 +32,15 @@
  */
 package sae.syntax.sql
 
-import sae.LazyView
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 19:48
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 11.08.12
+ * Time: 16:59
  */
-/*
-trait SUB_QUERY_SELECT_CLAUSE_NO_PROJECTION[OuterDomain <: AnyRef, OuterRange <: AnyRef]
+
+trait EXISTS_SUB_CLAUSE
 {
 
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): SUB_QUERY_FROM_CLAUSE[Domain, Domain, OuterDomain, OuterRange]
-
-    //def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }
-*/

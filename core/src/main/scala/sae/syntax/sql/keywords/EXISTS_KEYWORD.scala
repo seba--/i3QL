@@ -40,7 +40,7 @@ package sae.syntax.sql.keywords
  */
 
 object EXISTS_KEYWORD
-    extends sae.syntax.sql.EXISTS_KEYWORD
+    extends sae.syntax.sql.EXISTS_SUB_CLAUSE
 {
 
 }

@@ -45,6 +45,6 @@ object EXISTS
 {
 
     def apply[Domain <: AnyRef, Range <: AnyRef, OpenDomain <: AnyRef](subQuery : SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain]) :
-        SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain] with EXISTS_KEYWORD = null
+        SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain] with EXISTS_SUB_CLAUSE = null
 
 }
