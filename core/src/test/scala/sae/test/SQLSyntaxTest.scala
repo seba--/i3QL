@@ -412,8 +412,7 @@ class SQLSyntaxTest
 
 
     @Test
-    @Ignore
-    def testCrossProductStartAtFromNoProjectionWithSelectionSyntax() {
+    def testCrossProductNoProjectionWithProjectionSyntax() {
 
         val database = new StudentCoursesDatabase ()
 
@@ -423,14 +422,8 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        def Name: Student => String = x => x.Name
-
         val selection1: LazyView[(Student, Course)] =
-            SELECT (*) FROM (students, courses) WHERE
-                (_.Name == "john") OR
-                (_.Name == "sally") OR
-                ((_: Course).Name == "EiSE") OR
-                (_.Name == "SE-D&C")
+            SELECT (*) FROM (students, courses) WHERE (_.Name == "john") OR (_.Name == "sally") OR ((_: Course).Name == "EiSE") OR (_.Name == "SE-D&C")
 
         Assert.assertEquals (
             List (
@@ -441,8 +434,8 @@ class SQLSyntaxTest
             ),
             selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
         )
-
     }
+
 
     @Test
     @Ignore
@@ -510,4 +503,5 @@ class SQLSyntaxTest
         //val queryWithSub = SELECT (*) FROM (students) WHERE EXISTS (subQuery1)
 
     }
+
 }

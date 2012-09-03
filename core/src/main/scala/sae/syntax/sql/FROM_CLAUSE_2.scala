@@ -46,7 +46,7 @@ trait FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
 
     def WHERE(predicate: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def WHERE(predicate: WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[DomainB]): WHERE_CLAUSE[DomainB, Range]
+    //def WHERE(predicate: WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[DomainB]): WHERE_CLAUSE[DomainB, Range]
 
     def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
