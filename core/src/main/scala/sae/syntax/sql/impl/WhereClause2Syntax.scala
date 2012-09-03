@@ -54,5 +54,5 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
             )
         )
 
-    def compile() = null
+    def compile() = Compiler(whereClause)
 }

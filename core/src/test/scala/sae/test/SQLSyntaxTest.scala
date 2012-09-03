@@ -438,7 +438,6 @@ class SQLSyntaxTest
 
 
     @Test
-    @Ignore
     def testJoinSyntax() {
 
         val database = new StudentCoursesDatabase ()
@@ -474,6 +473,29 @@ class SQLSyntaxTest
                 (sally, Enrollment (sally.Id, sed.Id))
             ),
             queryWithPreparedJoin.asList.sortBy (x => (x._1.Name, x._2.CourseId))
+        )
+    }
+
+    @Test
+    def testJoinSyntaxWithSelection() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[(Student, Enrollment)] =
+            SELECT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) =#= ((_: Enrollment).StudentId)
+
+        Assert.assertEquals (
+            List (
+                (sally, Enrollment (sally.Id, eise.Id)),
+                (sally, Enrollment (sally.Id, sed.Id))
+            ),
+            query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
         )
     }
 
