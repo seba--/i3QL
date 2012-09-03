@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.LazyView
 import sae.syntax.sql._
-import ast.SelectClause2
+import ast.{Compiler, FromClause2, SelectClause2}
 
 /**
  *
@@ -11,7 +11,7 @@ import ast.SelectClause2
  * Time: 20:08
  *
  */
-case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[_ >: DomainA, _ >: DomainB, Range],
+case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[_ >: DomainA <: AnyRef, _ >: DomainB <: AnyRef, Range],
                                                                                     relationA: LazyView[DomainA],
                                                                                     relationB: LazyView[DomainB])
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
@@ -25,5 +25,11 @@ case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyR
 
     def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]) = null
 
-    def compile() = null
+    def compile() = Compiler (
+        FromClause2[DomainA, DomainB, Range](// currently we deliberately "forget" the type of the selection, i.e., we could parametrize this type but makes no sense
+            selectClause,
+            relationA,
+            relationB
+        )
+    )
 }

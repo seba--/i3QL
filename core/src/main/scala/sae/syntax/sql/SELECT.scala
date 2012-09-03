@@ -32,8 +32,9 @@
  */
 package sae.syntax.sql
 
-import ast.SelectClause1
-import impl.{SelectClauseNoProjectionSyntax, SelectClause1Syntax}
+import alternative.STARTING_CLAUSE_PREFIX_SELECT
+import ast.{SelectClause2, SelectClause1}
+import impl.{SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1Syntax}
 
 /**
  *
@@ -49,14 +50,41 @@ object SELECT
     def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range] =
         SelectClause1Syntax (SelectClause1 (Some (projection)))
 
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range) =
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+        SelectClause2Syntax (SelectClause2 (Some (projection)))
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](projectionA: DomainA => RangeA,
+                                                                                        projectionB: DomainB => RangeB): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
+        SelectClause2Syntax (
+            SelectClause2 (
+                Some ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b)))
+            )
+        )
 
 
     def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
         SelectClauseNoProjectionSyntax ()
 
     def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: (Domain) => Range): SELECT_CLAUSE[Domain, Range] =
-        SelectClause1Syntax (SelectClause1 (Some (projection), distinct = true))
+        SelectClause1Syntax (
+            SelectClause1 (Some (projection), distinct = true)
+        )
+
+    def DISTINCT[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+        SelectClause2Syntax (
+            SelectClause2 (
+                Some (projection)
+            )
+        )
+
+    def DISTINCT[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](projectionA: DomainA => RangeA,
+                                                                                           projectionB: DomainB => RangeB): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
+        SelectClause2Syntax (
+            SelectClause2 (
+                Some ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b)))
+            )
+        )
+
 
     def DISTINCT(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
         SelectClauseNoProjectionSyntax (distinct = true)

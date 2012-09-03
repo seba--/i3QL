@@ -15,16 +15,6 @@ import sae.syntax.sql.ast.Filter
 case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](whereClause: WhereClause1[Domain, Range])
     extends WHERE_CLAUSE[Domain, Range]
 {
-    /*
-    def compile() = withDistinct (
-        new BagProjection[Domain, Range](projection, new LazySelection[Domain](filter, relation)),
-        distinct
-    )
-
-    def AND(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereWithProjection (projection, (x: Domain) => filter (x) && inlineWhereClause.function (x), relation, distinct)
-
-    def OR(inlineWhereClause: INLINE_WHERE_CLAUSE[Domain]) = WhereWithProjection (projection, (x: Domain) => filter (x) || inlineWhereClause.function (x), relation, distinct)
-    */
     def AND(predicate: (Domain) => Boolean) =
         WhereClause1Syntax (
             WhereClause1 (
@@ -40,4 +30,6 @@ case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](whereClause: Wh
                 whereClause.conditions ++ Seq (OrOperator, Filter (predicate))
             )
         )
+
+    def compile() = Compiler(whereClause)
 }

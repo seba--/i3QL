@@ -30,22 +30,58 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.syntax.sql.ast
 
-import sae.syntax.sql.ast.SelectClause1
-import sae.syntax.sql.SELECT_CLAUSE
 import sae.LazyView
+import sae.operators.{Conversions, CrossProduct, SetDuplicateElimination, BagProjection}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 02.09.12
- * Time: 19:38
+ * Time: 20:57
  */
 
-case class SelectClause1Syntax[SelectionDomain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range])
-    extends SELECT_CLAUSE[SelectionDomain, Range]
+object Compiler
 {
-    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]) = FromClause1Syntax[Domain, Range](selectClause, relation)
+    def apply[Domain <: AnyRef, Range <: AnyRef](whereClause: WhereClause1[Domain, Range]) = null
+
+    def apply[Domain <: AnyRef, Range <: AnyRef](fromClause: FromClause1[Domain, Range]): LazyView[Range] =
+    {
+        val projection = fromClause.selectClause.projection match {
+            case Some (f) => new BagProjection (f, fromClause.relation)
+            case None => fromClause.relation.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
+        }
+        if (fromClause.selectClause.distinct) {
+            new SetDuplicateElimination (projection)
+        }
+        else
+        {
+            projection
+        }
+    }
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](fromClause: FromClause2[DomainA, DomainB, Range]): LazyView[Range] =
+    {
+        val crossProduct = new CrossProduct (
+            Conversions.lazyViewToMaterializedView (fromClause.relationA),
+            Conversions.lazyViewToMaterializedView (fromClause.relationB)
+        )
+
+        val projection = fromClause.selectClause.projection match {
+            case Some (f) => new BagProjection (
+                (tuple: (DomainA, DomainB)) => f (tuple._1, tuple._2),
+                crossProduct
+            )
+            case None => crossProduct.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
+        }
+        if (fromClause.selectClause.distinct) {
+            new SetDuplicateElimination (projection)
+        }
+        else
+        {
+            projection
+        }
+    }
 
 }

@@ -30,7 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.alternative
+
+import sae.syntax.sql.{DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION, DISTINCT_INFIX_SELECT_CLAUSE, STAR_KEYWORD, FROM_CLAUSE_2}
 
 /**
  *
@@ -39,15 +41,17 @@ package sae.syntax.sql
  * Time: 21:11
  *
  */
-trait FROM_CLAUSE_AS_PREFIX[Domain <: AnyRef]
+trait FROM_CLAUSE_AS_PREFIX_2[DomainA <: AnyRef, DomainB <: AnyRef]
 {
 
-    def SELECT[Range <: AnyRef](projection: Domain => Range): FROM_CLAUSE[Domain, Range]
+    def SELECT[Range <: AnyRef](projection: (DomainA, DomainB) => Range): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
-    def SELECT(x: STAR_KEYWORD): FROM_CLAUSE[Domain, Domain]
+    def SELECT[RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA, projectionB: DomainB => RangeB): FROM_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)]
 
-    def SELECT[Range <: AnyRef](x: DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]): FROM_CLAUSE[Domain, Range]
+    def SELECT(x: STAR_KEYWORD): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 
-    def SELECT(x: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): FROM_CLAUSE[Domain, Domain]
+    def SELECT[Range <: AnyRef](distinct: DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range]): FROM_CLAUSE_2[DomainA, DomainB, Range]
+
+    def SELECT(distinct: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 
 }

@@ -3,7 +3,7 @@ package sae.test
 import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
-import sae.syntax.sql
+import scala.Some
 
 /**
  *
@@ -18,7 +18,7 @@ class SQLSyntaxTest
     @Test
     def testProjectSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -32,33 +32,35 @@ class SQLSyntaxTest
         } FROM students
 
         val names2: LazyView[String] = SELECT {
-            Name(_: Student)
+            Name (_: Student)
         } FROM students
 
-        val names3: LazyView[String] = FROM(students) SELECT {
-            Name(_)
+        /*
+        val names3: LazyView[String] = FROM (students) SELECT {
+            Name (_)
         }
 
         def SName: Student => String = s => s.Name
 
         // the scala compiler can not infer the type of the anonymous function, because the function needs a type before it is passed as parameter
-        val names4: LazyView[String] = FROM(students) SELECT ((_: Student).Name)
+        val names4: LazyView[String] = FROM (students) SELECT ((_: Student).Name)
 
         // but we can do this
-        val names5: LazyView[String] = FROM(students) SELECT (SName)
-
-        Assert.assertEquals(2, names1.size)
-        Assert.assertEquals(2, names2.size)
-        Assert.assertEquals(2, names3.size)
-        Assert.assertEquals(2, names4.size)
-        Assert.assertEquals(2, names5.size)
-
+        val names5: LazyView[String] = FROM (students) SELECT (SName)
+        */
+        Assert.assertEquals (2, names1.size)
+        Assert.assertEquals (2, names2.size)
+        /*
+        Assert.assertEquals (2, names3.size)
+        Assert.assertEquals (2, names4.size)
+        Assert.assertEquals (2, names5.size)
+          */
     }
 
     @Test
     def testProjectFunctionTuplesFieldsSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -69,26 +71,24 @@ class SQLSyntaxTest
         def Id: Student => Integer = s => s.Id
 
         // but we can do this
-        val select: LazyView[(String, Integer)] = FROM(students) SELECT {
-            (Name, Id)
-        }
+        val select: LazyView[(String, Integer)] = SELECT ((Name, Id)) FROM (students)
 
-        Assert.assertEquals(2, select.size)
+        Assert.assertEquals (2, select.size)
 
     }
 
     @Test
     def testProjectStarSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
         val students = database.students.copy // make a local copy
 
-        val allStudents: LazyView[Student] = SELECT(*) FROM (students)
+        val allStudents: LazyView[Student] = SELECT (*) FROM (students)
 
-        Assert.assertEquals(2, allStudents.size)
+        Assert.assertEquals (2, allStudents.size)
 
     }
 
@@ -96,7 +96,7 @@ class SQLSyntaxTest
     @Test
     def testProjectDistinctStarSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -107,7 +107,7 @@ class SQLSyntaxTest
 
         val allStudents: LazyView[Student] = SELECT DISTINCT (*) FROM (students)
 
-        Assert.assertEquals(2, allStudents.size)
+        Assert.assertEquals (2, allStudents.size)
 
     }
 
@@ -115,7 +115,7 @@ class SQLSyntaxTest
     @Test
     def testDistinctProjectSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -126,15 +126,15 @@ class SQLSyntaxTest
 
         def Name: Student => String = s => s.Name
 
-        val names: LazyView[String] = FROM(students) SELECT DISTINCT (Name)
+        val names: LazyView[String] = SELECT DISTINCT (Name) FROM (students)
 
-        Assert.assertEquals(2, names.size)
+        Assert.assertEquals (2, names.size)
     }
 
     @Test
     def testFilterSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -142,16 +142,16 @@ class SQLSyntaxTest
 
         val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally")
 
-        Assert.assertEquals(1, selection.size)
+        Assert.assertEquals (1, selection.size)
 
-        Assert.assertEquals(Some(sally), selection.singletonValue)
+        Assert.assertEquals (Some (sally), selection.singletonValue)
 
     }
 
     @Test
     def testDistinctFilterSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -160,16 +160,16 @@ class SQLSyntaxTest
 
         val selection: LazyView[Student] = SELECT DISTINCT (*) FROM (students) WHERE (_.Name == "sally")
 
-        Assert.assertEquals(1, selection.size)
+        Assert.assertEquals (1, selection.size)
 
-        Assert.assertEquals(Some(sally), selection.singletonValue)
+        Assert.assertEquals (Some (sally), selection.singletonValue)
 
     }
 
     @Test
     def testMultipleFilterConjunctionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -177,14 +177,14 @@ class SQLSyntaxTest
 
         val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
 
-        val selectionNative: LazyView[Student] = SELECT(*) FROM (students) WHERE ((s: Student) => s.Name == "sally" && s
-                .Id == 12346)
+        val selectionNative: LazyView[Student] = SELECT (*) FROM (students) WHERE ((s: Student) => s.Name == "sally" && s
+            .Id == 12346)
 
-        Assert.assertEquals(1, selection.size)
+        Assert.assertEquals (1, selection.size)
 
-        Assert.assertEquals(Some(sally), selection.singletonValue)
+        Assert.assertEquals (Some (sally), selection.singletonValue)
 
-        Assert.assertEquals(selection.asList, selectionNative.asList)
+        Assert.assertEquals (selection.asList, selectionNative.asList)
 
     }
 
@@ -192,19 +192,19 @@ class SQLSyntaxTest
     @Test
     def testMultipleFilterDisjunctionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT(*) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
-        Assert.assertEquals(2, selection.size)
+        Assert.assertEquals (2, selection.size)
 
-        Assert.assertEquals(
-            List(john, sally),
-            selection.asList.sortBy(_.Id)
+        Assert.assertEquals (
+            List (john, sally),
+            selection.asList.sortBy (_.Id)
         )
 
     }
@@ -212,20 +212,20 @@ class SQLSyntaxTest
     @Test
     def testMultipleFilterCovarianceSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
         val students = database.students.copy // make a local copy
 
-        def Name : Person => String = person => person.Name
+        def Name: Person => String = person => person.Name
 
-        val selection: LazyView[String] = SELECT(Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: LazyView[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
-        Assert.assertEquals(2, selection.size)
+        Assert.assertEquals (2, selection.size)
 
-        Assert.assertEquals(
-            List("john", "sally"),
+        Assert.assertEquals (
+            List ("john", "sally"),
             selection.asList.sorted
         )
 
@@ -234,22 +234,22 @@ class SQLSyntaxTest
     @Test
     def testMultipleFilterInlineSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
         val students = database.students.copy // make a local copy
 
-        val sally2 = Student(636363, "sally")
+        val sally2 = Student (636363, "sally")
         students += sally2
 
-        val selection: LazyView[Student] = SELECT(*) FROM (students) WHERE (_.Name == "sally") AND (((_:Student).Id == 12346) OR (_.Id == 636363))
+        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (((_: Student).Id == 12346) OR (_.Id == 636363))
 
-        Assert.assertEquals(2, selection.size)
+        Assert.assertEquals (2, selection.size)
 
-        Assert.assertEquals(
-            List(sally, sally2),
-            selection.asList.sortBy(_.Id)
+        Assert.assertEquals (
+            List (sally, sally2),
+            selection.asList.sortBy (_.Id)
         )
 
     }
@@ -258,7 +258,7 @@ class SQLSyntaxTest
     @Test
     def testMultipleFilterDisjunctionWithProjectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -266,12 +266,12 @@ class SQLSyntaxTest
 
         def Name: Student => String = x => x.Name
 
-        val selection: LazyView[String] = SELECT(Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: LazyView[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
-        Assert.assertEquals(2, selection.size)
+        Assert.assertEquals (2, selection.size)
 
-        Assert.assertEquals(
-            List("john", "sally"),
+        Assert.assertEquals (
+            List ("john", "sally"),
             selection.asList.sorted
         )
 
@@ -281,7 +281,7 @@ class SQLSyntaxTest
     @Test
     def testCrossProductStartAtFromWithProjectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -293,16 +293,15 @@ class SQLSyntaxTest
 
         def CourseName: Course => String = x => x.Name
 
-        val selection1: LazyView[(String, String)] = FROM(students, courses) SELECT ((s: Student, c: Course) => (s
-                .Name, c.Name))
+        val selection1: LazyView[(String, String)] = SELECT ((s: Student, c: Course) => (s
+            .Name, c.Name)) FROM (students, courses)
 
         // this causes ambiguites with the select distinct syntax
         //val selection2: LazyView[(String, String)] = FROM (students, courses) SELECT ((Name, CourseName))
 
-        val selection3: LazyView[(String, String)] = FROM(students, courses) SELECT(Name, CourseName)
-
-        Assert.assertEquals(
-            List(
+        val selection3: LazyView[(String, String)] = SELECT (Name, CourseName) FROM (students, courses)
+        Assert.assertEquals (
+            List (
                 ("john", "EiSE"),
                 ("john", "SE-D&C"),
                 ("sally", "EiSE"),
@@ -313,13 +312,13 @@ class SQLSyntaxTest
 
         //Assert.assertEquals (selection1.asList.sorted, selection2.asList.sorted)
 
-        Assert.assertEquals(selection1.asList.sorted, selection3.asList.sorted)
+        Assert.assertEquals (selection1.asList.sorted, selection3.asList.sorted)
     }
 
     @Test
     def testDistinctCrossProductStartAtFromWithProjectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -333,17 +332,18 @@ class SQLSyntaxTest
 
         def CourseName: Course => String = x => x.Name
 
-        val selection1: LazyView[(String, String)] = FROM(students, courses) SELECT DISTINCT((s: Student,
-                                                                                              c: Course) => (s.Name, c
-                .Name))
+        val selection1: LazyView[(String, String)] =
+            SELECT DISTINCT ((s: Student, c: Course) => (s.Name, c.Name)) FROM (students, courses)
+
 
         // this causes ambiguites with the select syntax
         //val selection2: LazyView[(String, String)] = FROM (students, courses) SELECT DISTINCT ((Name, CourseName))
 
-        val selection3: LazyView[(String, String)] = FROM(students, courses) SELECT DISTINCT(Name, CourseName)
+        val selection3: LazyView[(String, String)] =
+            SELECT DISTINCT (Name, CourseName) FROM (students, courses)
 
-        Assert.assertEquals(
-            List(
+        Assert.assertEquals (
+            List (
                 ("john", "EiSE"),
                 ("john", "SE-D&C"),
                 ("sally", "EiSE"),
@@ -354,14 +354,14 @@ class SQLSyntaxTest
 
         //Assert.assertEquals (selection1.asList.sorted, selection2.asList.sorted)
 
-        Assert.assertEquals(selection1.asList.sorted, selection3.asList.sorted)
+        Assert.assertEquals (selection1.asList.sorted, selection3.asList.sorted)
 
     }
 
     @Test
     def testCrossProductStartAtFromNoProjectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -369,16 +369,16 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: LazyView[(Student, Course)] = FROM(students, courses) SELECT (*)
+        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM (students, courses)
 
-        Assert.assertEquals(
-            List(
+        Assert.assertEquals (
+            List (
                 (john, eise),
                 (john, sed),
                 (sally, eise),
                 (sally, sed)
             ),
-            selection1.asList.sortBy(x => (x._1.Name, x._2.Name))
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
         )
 
     }
@@ -386,7 +386,7 @@ class SQLSyntaxTest
     @Test
     def testDistinctCrossProductStartAtFromNoProjectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -396,16 +396,16 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: LazyView[(Student, Course)] = FROM(students, courses) SELECT DISTINCT(*)
+        val selection1: LazyView[(Student, Course)] = SELECT DISTINCT (*) FROM (students, courses)
 
-        Assert.assertEquals(
-            List(
+        Assert.assertEquals (
+            List (
                 (john, eise),
                 (john, sed),
                 (sally, eise),
                 (sally, sed)
             ),
-            selection1.asList.sortBy(x => (x._1.Name, x._2.Name))
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
         )
 
     }
@@ -415,7 +415,7 @@ class SQLSyntaxTest
     @Ignore
     def testCrossProductStartAtFromNoProjectionWithSelectionSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -426,20 +426,20 @@ class SQLSyntaxTest
         def Name: Student => String = x => x.Name
 
         val selection1: LazyView[(Student, Course)] =
-            SELECT (*) FROM(students, courses) WHERE
+            SELECT (*) FROM (students, courses) WHERE
                 (_.Name == "john") OR
                 (_.Name == "sally") OR
-                ((_:Course).Name == "EiSE") OR
+                ((_: Course).Name == "EiSE") OR
                 (_.Name == "SE-D&C")
 
-        Assert.assertEquals(
-            List(
+        Assert.assertEquals (
+            List (
                 (john, eise),
                 (john, sed),
                 (sally, eise),
                 (sally, sed)
             ),
-            selection1.asList.sortBy(x => (x._1.Name, x._2.Name))
+            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
         )
 
     }
@@ -448,7 +448,7 @@ class SQLSyntaxTest
     @Ignore
     def testJoinSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -457,30 +457,30 @@ class SQLSyntaxTest
         val enrollments = database.enrollments.copy // make a local copy
 
         val query: LazyView[(Student, Enrollment)] =
-            SELECT (*) FROM(students, enrollments) WHERE ((_:Student).Id) =#= ((_:Enrollment).StudentId)
+            SELECT (*) FROM (students, enrollments) WHERE ((_: Student).Id) =#= ((_: Enrollment).StudentId)
 
-        val join = ((_:Student).Id) =#= ((_:Enrollment).StudentId)
+        val join = ((_: Student).Id) =#= ((_: Enrollment).StudentId)
 
         val queryWithPreparedJoin: LazyView[(Student, Enrollment)] =
-            SELECT (*) FROM(students, enrollments) WHERE join
+            SELECT (*) FROM (students, enrollments) WHERE join
 
 
-        Assert.assertEquals(
-            List(
-                (john, Enrollment(john.Id, eise.Id)),
-                (sally, Enrollment(sally.Id, eise.Id)),
-                (sally, Enrollment(sally.Id, sed.Id))
+        Assert.assertEquals (
+            List (
+                (john, Enrollment (john.Id, eise.Id)),
+                (sally, Enrollment (sally.Id, eise.Id)),
+                (sally, Enrollment (sally.Id, sed.Id))
             ),
-            query.asList.sortBy(x => (x._1.Name, x._2.CourseId))
+            query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
         )
 
-        Assert.assertEquals(
-            List(
-                (john, Enrollment(john.Id, eise.Id)),
-                (sally, Enrollment(sally.Id, eise.Id)),
-                (sally, Enrollment(sally.Id, sed.Id))
+        Assert.assertEquals (
+            List (
+                (john, Enrollment (john.Id, eise.Id)),
+                (sally, Enrollment (sally.Id, eise.Id)),
+                (sally, Enrollment (sally.Id, sed.Id))
             ),
-            queryWithPreparedJoin.asList.sortBy(x => (x._1.Name, x._2.CourseId))
+            queryWithPreparedJoin.asList.sortBy (x => (x._1.Name, x._2.CourseId))
         )
     }
 
@@ -488,7 +488,7 @@ class SQLSyntaxTest
     @Ignore
     def testSubQueryJoinOpenSyntax() {
 
-        val database = new StudentCoursesDatabase()
+        val database = new StudentCoursesDatabase ()
 
         import database._
 
@@ -496,18 +496,18 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val join1 =  ((_:Enrollment).StudentId) =#= ((_:Student).Id)
+        val join1 = ((_: Enrollment).StudentId) =#= ((_: Student).Id)
 
-        val subQuery1 = SELECT (*) FROM(enrollments) WHERE join1
+        val subQuery1 = SELECT (*) FROM (enrollments) WHERE join1
 
-        val query: LazyView[(Enrollment,Student)] =
-            SELECT (*) FROM(enrollments, students) WHERE join1
+        val query: LazyView[(Enrollment, Student)] =
+            SELECT (*) FROM (enrollments, students) WHERE join1
 
-        val join2 =  ((_:Enrollment).CourseId) =#= ((_:Course).Id)
+        val join2 = ((_: Enrollment).CourseId) =#= ((_: Course).Id)
 
-        val subQuery2 = SELECT (*) FROM(enrollments, students) WHERE join2
+        val subQuery2 = SELECT (*) FROM (enrollments, students) WHERE join2
 
-        val queryWithSub = SELECT (*) FROM(students) WHERE EXISTS(subQuery1)
+        //val queryWithSub = SELECT (*) FROM (students) WHERE EXISTS (subQuery1)
 
     }
 }

@@ -30,24 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.alternative
 
+import sae.syntax.sql.{DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION, DISTINCT_INFIX_SELECT_CLAUSE, STAR_KEYWORD, FROM_CLAUSE}
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 11:28
+ *
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 21:11
+ *
  */
-
-trait STARTING_CLAUSE_PREFIX_SELECT
+trait FROM_CLAUSE_AS_PREFIX[Domain <: AnyRef]
 {
-    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range]
 
-    def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION
+    def SELECT[Range <: AnyRef](projection: Domain => Range): FROM_CLAUSE[Domain, Range]
 
-    def DISTINCT[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range]
+    def SELECT(x: STAR_KEYWORD): FROM_CLAUSE[Domain, Domain]
 
-    def DISTINCT(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION
+    def SELECT[Range <: AnyRef](x: DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]): FROM_CLAUSE[Domain, Range]
+
+    def SELECT(x: DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION): FROM_CLAUSE[Domain, Domain]
 
 }
