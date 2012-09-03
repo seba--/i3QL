@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.ConditionExpression
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -40,6 +42,7 @@ package sae.syntax.sql
  */
 
 trait JOIN_CONDITION[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
+    extends ConditionExpression
 {
 
 }

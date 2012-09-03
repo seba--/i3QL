@@ -2,7 +2,10 @@ package sae.syntax.sql.impl
 
 import sae.LazyView
 import sae.syntax.sql._
-import ast.{Compiler, FromClause2, SelectClause2}
+import ast._
+import ast.FromClause2
+import ast.SelectClause2
+import ast.WhereClause2
 
 /**
  *
@@ -17,19 +20,36 @@ case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyR
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
 
-    def WHERE(predicate: (DomainA) => Boolean) = null
-
-    def WHERE(predicate: WHERE_CLAUSE_PREDICATE_TYPE_SWITCH[DomainB]) = null
-
-    def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) = null
-
-    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]) = null
-
-    def compile() = Compiler (
+    private def thisFromClause =
         FromClause2[DomainA, DomainB, Range](// currently we deliberately "forget" the type of the selection, i.e., we could parametrize this type but makes no sense
             selectClause,
             relationA,
             relationB
         )
+
+    def WHERE(predicate: (DomainA) => Boolean) =
+        WhereClause2Syntax (
+            WhereClause2 (
+                thisFromClause,
+                Seq (Filter (predicate)),
+                Seq (),
+                Seq ()
+            )
+        )
+
+    def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+        WhereClause2Syntax (
+            WhereClause2 (
+                thisFromClause,
+                Seq (),
+                Seq (),
+                Seq (join)
+            )
+        )
+
+    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]) = null
+
+    def compile() = Compiler (
+        thisFromClause
     )
 }

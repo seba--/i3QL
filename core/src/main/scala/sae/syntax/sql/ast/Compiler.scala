@@ -33,7 +33,8 @@
 package sae.syntax.sql.ast
 
 import sae.LazyView
-import sae.operators.{Conversions, CrossProduct, SetDuplicateElimination, BagProjection}
+import sae.operators._
+import scala.Some
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,7 +45,63 @@ import sae.operators.{Conversions, CrossProduct, SetDuplicateElimination, BagPro
 
 object Compiler
 {
-    def apply[Domain <: AnyRef, Range <: AnyRef](whereClause: WhereClause1[Domain, Range]) = null
+    def apply[Domain <: AnyRef, Range <: AnyRef](whereClause: WhereClause1[Domain, Range]): LazyView[Range] =
+    {
+        val fromClause = whereClause.fromClause
+        val selection = compileSelections (whereClause.conditions, fromClause.relation)
+        val projection = fromClause.selectClause.projection match {
+            case Some (f) => new BagProjection (f, selection)
+            case None => selection.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
+        }
+        if (fromClause.selectClause.distinct) {
+            new SetDuplicateElimination (projection)
+        }
+        else
+        {
+            projection
+        }
+    }
+
+    /**
+     * Compile the condition with operator precedence (AND > OR)
+     *
+     */
+    private def compileSelections[Domain <: AnyRef](conditions: Seq[ConditionExpression], relation: LazyView[Domain]) = {
+        val orConditions = separateByOperators (conditions)
+
+        val orFilters = for (orExpr <- orConditions) yield {
+            val andFilters = orExpr.filter (_.isInstanceOf[Filter[Domain]]).map (_.asInstanceOf[Filter[Domain]].filter)
+            andFilters.reduce((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
+        }
+        val selection = orFilters.reduce((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+        new LazySelection (selection, relation)
+    }
+
+    /**
+     * Separates the flat list of operators into a sequence of OR operations that each contain a sequence of AND operations.
+     * Parenthesis are already handled by the syntax
+     */
+    private def separateByOperators(rest: Seq[ConditionExpression]): Seq[Seq[ConditionExpression]] = {
+        val andConditions = rest.takeWhile ({
+            case AndOperator => true
+            case OrOperator => false
+            case _ => true
+        })
+        val restConditions = rest.drop (andConditions.size)
+        val andConditionsWithoutOperator = andConditions.filter ({
+            case AndOperator => false
+            case _ => true
+        })
+        if (restConditions.isEmpty)
+        {
+            Seq (andConditionsWithoutOperator)
+        }
+        else
+        {
+            Seq(andConditionsWithoutOperator) ++ separateByOperators (restConditions.drop (1))
+        }
+    }
+
 
     def apply[Domain <: AnyRef, Range <: AnyRef](fromClause: FromClause1[Domain, Range]): LazyView[Range] =
     {

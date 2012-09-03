@@ -22,25 +22,26 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
                                                                 relation: LazyView[Domain])
     extends FROM_CLAUSE[Domain, Range]
 {
-    def WHERE(predicate: (Domain) => Boolean) =
-        WhereClause1Syntax (
-            WhereClause1 (
-                FromClause1[Domain, Range](// currently we deliberately "forget" the type of the selection, i.e., we could parametrize this type but makes no sense
-                    selectClause,
-                    relation
-                ),
-                Seq (Filter (predicate))
-            )
-        )
-
-    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) = null
-
-    def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with EXISTS_SUB_CLAUSE) {}
-
-    def compile() = Compiler (
+    private def thisFromClause =
         FromClause1[Domain, Range](// currently we deliberately "forget" the type of the selection, i.e., we could parametrize this type but makes no sense
             selectClause,
             relation
         )
+
+    def WHERE(predicate: (Domain) => Boolean) =
+        WhereClause1Syntax (
+            WhereClause1 (
+                thisFromClause,
+                Seq (Filter (predicate))
+            )
+        )
+
+    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
+        null
+
+    def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with EXISTS_SUB_CLAUSE) {}
+
+    def compile() = Compiler (
+        thisFromClause
     )
 }

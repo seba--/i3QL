@@ -42,5 +42,4 @@ package sae.syntax.sql
 trait JOIN_INFIX_KEYWORD[DomainA <: AnyRef, RangeA <: AnyRef]
 {
     def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: DomainB => RangeB): JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
-    //(DomainA => RangeA, DomainB => RangeB)
 }

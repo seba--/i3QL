@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.syntax.sql.ast
 
 import sae.syntax.sql.JOIN_CONDITION
 
@@ -41,8 +41,9 @@ import sae.syntax.sql.JOIN_CONDITION
  * Time: 08:53
  */
 
-case class JoinCondition[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](left : DomainA => RangeA, right : DomainB => RangeB)
+case class JoinCondition[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](left: DomainA => RangeA, right: DomainB => RangeB)
     extends JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
+    with ConditionExpression
 {
 
 }

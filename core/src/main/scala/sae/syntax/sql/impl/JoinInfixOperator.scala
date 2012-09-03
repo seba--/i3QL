@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql.impl
 
+import sae.syntax.sql.ast.JoinCondition
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -42,5 +44,5 @@ package sae.syntax.sql.impl
 case class JoinInfixOperator[DomainA <: AnyRef, RangeA <: AnyRef](left: DomainA => RangeA)
     extends sae.syntax.sql.JOIN_INFIX_KEYWORD[DomainA, RangeA]
 {
-    def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: (DomainB) => RangeB) = JoinCondition(left, right)
+    def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: (DomainB) => RangeB) = JoinCondition (left, right)
 }
