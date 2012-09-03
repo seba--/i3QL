@@ -32,14 +32,17 @@
  */
 package sae.syntax.sql
 
+import ast.ConditionExpression
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 09.08.12
- * Time: 23:39
+ * Date: 12.08.12
+ * Time: 19:04
  */
 
-trait JOIN_INFIX_KEYWORD[DomainA <: AnyRef, RangeA]
+trait JOIN_CONDITION_NEGATIVE[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
+    extends ConditionExpression
 {
-    def =#=[DomainB <: AnyRef, RangeB] (right: DomainB => RangeB): JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
+
 }

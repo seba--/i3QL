@@ -41,7 +41,7 @@ import ast.ConditionExpression
  * Time: 19:04
  */
 
-trait JOIN_CONDITION[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
+trait JOIN_CONDITION[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB]
     extends ConditionExpression
 {
 

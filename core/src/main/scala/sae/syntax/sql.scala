@@ -17,9 +17,13 @@ package object sql
 
     val NOT: NOT_KEYWORD = keywords.NOT_KEYWORD
 
+    // val _1 : FIRST_KEYWORD = null
+
     def NOT[Domain <: AnyRef](predicate: Domain => Boolean): Domain => Boolean = {
         x => !predicate (x)
     }
+
+    def NOT[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join : JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_NEGATIVE[DomainA, DomainB, RangeA, RangeB] = null
 
     implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): LazyView[Domain] =
         clause.compile ()
@@ -46,7 +50,7 @@ package object sql
         def === (value: Range) = (x: Domain) => f (x) == value
     }
 
-    implicit def functionToJoin[Domain <: AnyRef, Range <: AnyRef](left: Domain => Range): JOIN_INFIX_KEYWORD[Domain, Range] =
+    implicit def functionToJoin[Domain <: AnyRef, Range](left: Domain => Range): JOIN_INFIX_KEYWORD[Domain, Range] =
         JoinInfixOperator (left)
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
