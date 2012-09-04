@@ -1,7 +1,6 @@
 package sae
 
 import de.tud.cs.st.bat.resolved.VoidType
-import de.tud.cs.st.bat.{ACC_PROTECTED, ACC_FINAL, ACC_PRIVATE, ACC_PUBLIC}
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +15,7 @@ package object bytecode
     type Instruction = de.tud.cs.st.bat.resolved.Instruction
 
     type InstructionInfo = AnyRef {
-        def instruction: de.tud.cs.st.bat.resolved.Instruction
+        def declaringMethod: MethodDeclaration
         def bytecodeIndex: Int
         def sequenceIndex: Int
     }
@@ -59,6 +58,10 @@ package object bytecode
 
     type ClassDeclaration = AnyRef with AccessModified {
         def classType: ClassType
+
+        def minorVersion: Int
+
+        def majorVersion: Int
 
         def isFinal: Boolean
     }
@@ -106,45 +109,66 @@ package object bytecode
 
     val void = VoidType
 
-/*
-    def name = member => {
-        if (member.isInstanceOf[MethodDeclaration]) {
-            member.asInstanceOf[MethodDeclaration].name
-        }
-        else
-        if (member.isInstanceOf[FieldDeclaration]) {
-            member.asInstanceOf[FieldDeclaration].name
-        }
-        else
-            throw new UnsupportedOperationException ("Object " + member + " of type " + member.getClass + " has no name attribute")
+
+    type InvokeInstruction = InstructionInfo with MethodInfo {
+        def receiverType: ReferenceType
     }
 
+    type INVOKESPECIAL = InvokeInstruction {
+        def instruction: de.tud.cs.st.bat.resolved.INVOKESPECIAL
+    }
 
-    def isPublic(modifiedElement: AccessModified) = ACC_PUBLIC element_of modifiedElement.accessFlags
+    type INVOKEVIRTUAL = InvokeInstruction {
+        def instruction: de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
+    }
 
-    def isPackage = member => !isPublic (member) && !(ACC_PRIVATE element_of member.accessFlags) && !(ACC_PROTECTED element_of member.accessFlags)
+    /*
+        def name = member => {
+            if (member.isInstanceOf[MethodDeclaration]) {
+                member.asInstanceOf[MethodDeclaration].name
+            }
+            else
+            if (member.isInstanceOf[FieldDeclaration]) {
+                member.asInstanceOf[FieldDeclaration].name
+            }
+            else
+                throw new UnsupportedOperationException ("Object " + member + " of type " + member.getClass + " has no name attribute")
+        }
 
-    def isProtected = member => member.isProtected
 
-    def isPrivate = member => member.isPrivate
+        def isPublic(modifiedElement: AccessModified) = ACC_PUBLIC element_of modifiedElement.accessFlags
 
-    def isFinal = member => ACC_FINAL element_of member.accessFlags
+        def isPackage = member => !isPublic (member) && !(ACC_PRIVATE element_of member.accessFlags) && !(ACC_PROTECTED element_of member.accessFlags)
 
-    def isStatic = member => member.isStatic
+        def isProtected = member => member.isProtected
 
-    def returnType = method => method.returnType
+        def isPrivate = member => member.isPrivate
 
-    def parameterTypes = method => method.parameterTypes
+        def isFinal = member => ACC_FINAL element_of member.accessFlags
 
-    def isSynthetic = field => field.isSynthetic
+        def isStatic = member => member.isStatic
 
-    def isVolatile = field => field.isVolatile
+        def returnType = method => method.returnType
 
-    def classType = classDeclaration => classDeclaration.classType
+        def parameterTypes = method => method.parameterTypes
 
-*/
+        def isSynthetic = field => field.isSynthetic
+
+        def isVolatile = field => field.isVolatile
+
+        def classType = classDeclaration => classDeclaration.classType
+
+    */
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
+
+    def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
+
+    def sequenceIndex: InstructionInfo => Int = _.sequenceIndex
+
+    def receiverType: InvokeInstruction => ReferenceType = _.receiverType
+
+    def returnType : MethodInfo => ReturnType = _.returnType
 
     def classType: ClassDeclaration => ClassType = _.classType
 }

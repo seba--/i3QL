@@ -37,7 +37,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
 
     // FIXME the type system for operators should make views covariant
     def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] =
-        new BagUnion[CommonSuperClass, Domain, OtherDomain](
+        new AddMultiSetUnion[CommonSuperClass, Domain, OtherDomain](
             left,
             otherRelation
         )

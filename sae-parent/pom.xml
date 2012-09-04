@@ -43,6 +43,7 @@
                         <arg>-g:vars</arg>
 
                         <!-- enable for detailed type information
+                        <arg>-Xprint:typer</arg>
                         <arg>-Ytyper-debug</arg>
                         <arg>-Xlog-implicits</arg>
                         -->
