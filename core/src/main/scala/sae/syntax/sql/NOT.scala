@@ -35,13 +35,17 @@ package sae.syntax.sql
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 09.08.12
- * Time: 23:39
+ * Date: 04.09.12
+ * Time: 20:28
  */
 
-trait WHERE_FUNCTION_COMPARATOR[Domain, Range]
+object NOT
 {
 
-    def === (value: Range): Domain => Boolean
+    def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION[Domain]) =
+        null
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) =
+        null
 
 }

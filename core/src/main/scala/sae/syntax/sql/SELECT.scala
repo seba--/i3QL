@@ -44,7 +44,6 @@ import impl.{SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1S
  *
  */
 object SELECT
-    extends STARTING_CLAUSE_PREFIX_SELECT
 {
 
     def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): SELECT_CLAUSE[Domain, Range] =

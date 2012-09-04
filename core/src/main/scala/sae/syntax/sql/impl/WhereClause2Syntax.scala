@@ -1,8 +1,8 @@
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.WHERE_CLAUSE_2
 import sae.syntax.sql.ast._
 import sae.syntax.sql
+import sql.{WHERE_CLAUSE_EXPRESSION_2, WHERE_CLAUSE_2}
 
 /**
  * Created with IntelliJ IDEA.
@@ -54,5 +54,11 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
             )
         )
 
+    def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) = null
+
+    def OR(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) = null
+
     def compile() = Compiler(whereClause)
+
+
 }

@@ -1,12 +1,13 @@
 package sae.syntax.sql
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 05.08.12
  * Time: 16:41
  *
- * TODO this needs operator precedence
+ * The top level where clause has its own type since we can compile this to a query of type Range
  */
 trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
     extends SQL_QUERY[Range]
@@ -16,4 +17,7 @@ trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def OR(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
+    def AND(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE[Domain, Range]
+
+    def OR(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE[Domain, Range]
 }

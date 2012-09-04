@@ -32,16 +32,28 @@
  */
 package sae.syntax.sql
 
+import ast.ConditionExpression
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 14:43
+ * Date: 05.08.12
+ * Time: 16:41
  */
 
-trait NOT_CLAUSE[Domain <: AnyRef]
+trait WHERE_CLAUSE_EXPRESSION[Domain <: AnyRef]
 {
-    //def EXISTS[SubDomain <: AnyRef](query : SQL_QUERY[SubDomain]) : EXISTS_CLAUSE[Domain]
 
-    def apply
+    def AND(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def OR(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def AND(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def OR(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    // TODO this is one point where the syntax is no abstract from the implementation
+    protected[impl] type Representation <: ConditionExpression
+
+    protected[impl] def representation: Representation
 }

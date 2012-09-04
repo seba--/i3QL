@@ -1,0 +1,34 @@
+package sae.syntax.sql.impl
+
+import sae.syntax.sql.WHERE_CLAUSE_EXPRESSION
+import sae.syntax.sql.ast._
+import sae.syntax.sql.ast.Filter
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 05.08.12
+ * Time: 20:41
+ *
+ */
+case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[ConditionExpression])
+    extends WHERE_CLAUSE_EXPRESSION[Domain]
+{
+    def AND(predicate: (Domain) => Boolean) =
+        WhereClause1Expression (conditions ++ Seq (AndOperator, Filter (predicate)))
+
+    def OR(predicate: (Domain) => Boolean) =
+        WhereClause1Expression (conditions ++ Seq (OrOperator, Filter (predicate)))
+
+
+    def AND(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]) =
+        WhereClause1Expression (conditions ++ Seq (AndOperator, subExpression.representation))
+
+    def OR(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]) =
+        WhereClause1Expression (conditions ++ Seq (OrOperator, subExpression.representation))
+
+
+    type Representation = ConditionExpression
+
+    protected lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
+}

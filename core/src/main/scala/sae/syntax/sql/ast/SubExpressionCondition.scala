@@ -30,22 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.08.12
- * Time: 16:41
+ * Date: 04.09.12
+ * Time: 21:17
  */
 
-trait INLINE_WHERE_CLAUSE[Domain <: AnyRef]
+case class SubExpressionCondition(conditions: Seq[ConditionExpression])
+    extends ConditionExpression
 {
-
-    def AND(predicate: Domain => Boolean): INLINE_WHERE_CLAUSE[Domain]
-
-    def OR(predicate: Domain => Boolean): INLINE_WHERE_CLAUSE[Domain]
-
-    def function: Domain => Boolean
 
 }
