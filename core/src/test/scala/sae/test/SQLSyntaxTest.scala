@@ -412,6 +412,7 @@ class SQLSyntaxTest
 
 
     @Test
+    @Ignore
     def testCrossProductNoProjectionWithProjectionSyntax() {
 
         val database = new StudentCoursesDatabase ()
@@ -449,9 +450,9 @@ class SQLSyntaxTest
         val enrollments = database.enrollments.copy // make a local copy
 
         val query: LazyView[(Student, Enrollment)] =
-            SELECT (*) FROM (students, enrollments) WHERE ((_: Student).Id) =#= ((_: Enrollment).StudentId)
+            SELECT (*) FROM (students, enrollments) WHERE ((_: Student).Id) === ((_: Enrollment).StudentId)
 
-        val join = ((_: Student).Id) =#= ((_: Enrollment).StudentId)
+        val join = ((_: Student).Id) === ((_: Enrollment).StudentId)
 
         val queryWithPreparedJoin: LazyView[(Student, Enrollment)] =
             SELECT (*) FROM (students, enrollments) WHERE join
@@ -488,12 +489,34 @@ class SQLSyntaxTest
         val enrollments = database.enrollments.copy // make a local copy
 
         val query: LazyView[(Student, Enrollment)] =
-            SELECT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) =#= ((_: Enrollment).StudentId)
+            SELECT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) === ((_: Enrollment).StudentId)
 
         Assert.assertEquals (
             List (
                 (sally, Enrollment (sally.Id, eise.Id)),
                 (sally, Enrollment (sally.Id, sed.Id))
+            ),
+            query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
+        )
+    }
+
+    @Test
+    @Ignore
+    def testJoinNegationSyntaxWithSelection() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[(Student, Enrollment)] =
+            SELECT (*) FROM (students, enrollments) WHERE (_.Name == "john") AND NOT (((_: Student).Id) === ((_: Enrollment).StudentId)) // NOT(((_: Student).Id) === ((_: Enrollment).StudentId))
+        Assert.assertEquals (
+            List (
+                (john, Enrollment (john.Id, sed.Id))
             ),
             query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
         )
@@ -511,14 +534,14 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val join1 = ((_: Enrollment).StudentId) =#= ((_: Student).Id)
+        val join1 = ((_: Enrollment).StudentId) === ((_: Student).Id)
 
         val subQuery1 = SELECT (*) FROM (enrollments) WHERE join1
 
         val query: LazyView[(Enrollment, Student)] =
             SELECT (*) FROM (enrollments, students) WHERE join1
 
-        val join2 = ((_: Enrollment).CourseId) =#= ((_: Course).Id)
+        val join2 = ((_: Enrollment).CourseId) === ((_: Course).Id)
 
         val subQuery2 = SELECT (*) FROM (enrollments, students) WHERE join2
 

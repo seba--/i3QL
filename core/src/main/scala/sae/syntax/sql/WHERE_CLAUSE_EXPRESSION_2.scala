@@ -32,7 +32,6 @@
  */
 package sae.syntax.sql
 
-import ast.ConditionExpression
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,23 +41,8 @@ import ast.ConditionExpression
  */
 
 trait WHERE_CLAUSE_EXPRESSION_2[DomainA <: AnyRef, DomainB <: AnyRef]
+    extends WHERE_CLAUSE_EXPRESSION_START_2[DomainA, DomainB]
 {
 
-    def AND(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def AND[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    // TODO this is one point where the syntax is no abstract from the implementation
-    protected[impl] type Representation <: ConditionExpression
-
-    protected[impl] def representation: Representation
 
 }

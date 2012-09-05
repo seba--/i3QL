@@ -39,11 +39,11 @@ package sae.syntax.sql
  * Time: 23:39
  */
 
-trait WHERE_CLAUSE_COMPARATOR[-Domain, Range]
+trait WHERE_CLAUSE_COMPARATOR[-Domain <: AnyRef, Range]
 {
 
     def === (value: Range): Domain => Boolean
 
-    def ===[OtherDomain <: AnyRef, OtherRange <: AnyRef](function : OtherDomain => OtherRange) : JOIN_CONDITION[Domain, OtherDomain, Range, OtherRange]
+    def ===[OtherDomain <: AnyRef, OtherRange] (function: OtherDomain => OtherRange): JOIN_CONDITION[Domain, OtherDomain, Range, OtherRange]
 
 }

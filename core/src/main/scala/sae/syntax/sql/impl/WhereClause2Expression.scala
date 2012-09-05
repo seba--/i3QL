@@ -20,10 +20,10 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
     def OR(predicate: (DomainA) => Boolean) =
         WhereClause2Expression (conditions ++ Seq (OrOperator, Filter (predicate)))
 
-    def AND[RangeA <: AnyRef, RangeB <: AnyRef](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def AND[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Expression (conditions ++ Seq (AndOperator, join))
 
-    def OR[RangeA <: AnyRef, RangeB <: AnyRef](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def OR[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Expression (conditions ++ Seq (OrOperator, join))
 
     def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) =
@@ -34,5 +34,5 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
 
     type Representation = ConditionExpression
 
-    protected lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
+    lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
 }

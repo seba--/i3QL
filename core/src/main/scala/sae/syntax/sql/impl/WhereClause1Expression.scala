@@ -30,5 +30,5 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[ConditionExp
 
     type Representation = ConditionExpression
 
-    protected lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
+    lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
 }

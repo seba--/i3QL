@@ -14,7 +14,7 @@ import de.tud.cs.st.bat.resolved.ObjectType
  *
  */
 object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
-    extends (BytecodeDatabase => LazyView[InstructionInfo])
+    extends (BytecodeDatabase => LazyView[INVOKEVIRTUAL])
 {
     // With the analyzed sequence check FindBugs only finds
     // new Integer(1).doubleValue()
@@ -30,10 +30,10 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
 
         SELECT ((a: INVOKESPECIAL, b: INVOKEVIRTUAL) => b) FROM
             (invokeSpecial, invokeVirtual) WHERE
-            (declaringMethod =#= declaringMethod) AND
-            (receiverType =#= receiverType) AND
-            (sequenceIndex =#= ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
-            NOT (firstParamType =#= returnType) AND
+            (declaringMethod === declaringMethod) AND
+            (receiverType === receiverType) AND
+            (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
+            NOT (firstParamType === returnType) AND
             (_.declaringMethod.declaringClass.majorVersion >= 49 ) AND
             (!_.receiverType.isReferenceType) AND
             (_.receiverType.asInstanceOf[ObjectType].className.startsWith ("java/lang")) AND

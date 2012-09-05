@@ -42,12 +42,12 @@ import sae.syntax.sql.ast.JoinCondition
  * Time: 21:04
  */
 
-case class WhereClauseComparator[Domain, Range](left: Domain => Range)
+case class WhereClauseComparator[Domain <: AnyRef, Range](left: Domain => Range)
     extends WHERE_CLAUSE_COMPARATOR[Domain, Range]
 {
     def === (right: Range) = (x: Domain) => left (x) == right
 
-    def ===[OtherDomain <: AnyRef, OtherRange <: AnyRef] (right: (OtherDomain) => OtherRange): JOIN_CONDITION[Domain, OtherDomain, Range, OtherRange] =
+    def ===[OtherDomain <: AnyRef, OtherRange] (right: (OtherDomain) => OtherRange): JOIN_CONDITION[Domain, OtherDomain, Range, OtherRange] =
         JoinCondition (left, right)
 
 }

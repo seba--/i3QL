@@ -116,6 +116,15 @@ object Compiler
         }
     }
 
+
+    /**
+     * Normalize the conditions into disjunctive normal form with operator precedence (AND > OR)
+     *
+     */
+    private def disjunctiveNormalForm(conditions: Seq[ConditionExpression]) : Seq[Seq[ConditionExpression]] = {
+                                  null
+    }
+
     /**
      * Compile the condition with operator precedence (AND > OR)
      *

@@ -30,17 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.keywords
+package sae.syntax.sql.ast
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 14:43
+ * Date: 05.09.12
+ * Time: 20:41
  */
 
-object NOT_KEYWORD
-    extends sae.syntax.sql.NOT_KEYWORD
+case class NegatedSubExpression(subExpression: ConditionExpression)
+    extends ConditionExpression
 {
-    def EXISTS = null
+
 }

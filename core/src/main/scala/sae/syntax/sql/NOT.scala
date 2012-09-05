@@ -32,6 +32,9 @@
  */
 package sae.syntax.sql
 
+import ast.{Filter, NegatedSubExpression}
+import impl.{WhereClause1Expression, WhereClause2Expression}
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -42,10 +45,17 @@ package sae.syntax.sql
 object NOT
 {
 
-    def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION[Domain]) =
-        null
+    def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain] =
+        WhereClause1Expression (Seq (NegatedSubExpression (Filter (predicate))))
 
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) =
-        null
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
+        WhereClause2Expression (Seq (NegatedSubExpression (join)))
+
+    def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain] =
+        WhereClause1Expression (Seq (NegatedSubExpression (where_clause_expression.representation)))
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
+        WhereClause2Expression (Seq (NegatedSubExpression (where_clause_expression.representation)))
+
 
 }

@@ -32,16 +32,32 @@
  */
 package sae.syntax.sql
 
+import ast.ConditionExpression
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 05.08.12
  * Time: 16:41
+ *
+ * To avoid ambiguities when applying implicit conversions subexpressions have an explicit start that is not
+ * accepted as parameter. Thus anonymous functions will always be treated as applied to the actual where clause (or the subexpresion they are part of).
+ * In other words, there are no subexpressions without an AND or OR.
+ * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
  */
-
-trait WHERE_CLAUSE_EXPRESSION[Domain <: AnyRef]
-    extends WHERE_CLAUSE_EXPRESSION_START[Domain]
+trait WHERE_CLAUSE_EXPRESSION_START[Domain <: AnyRef]
 {
 
+    def AND(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def OR(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def AND(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    def OR(subExpression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
+
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: ConditionExpression
+
+    def representation: Representation
 }

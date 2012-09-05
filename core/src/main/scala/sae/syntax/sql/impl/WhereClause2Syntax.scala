@@ -18,7 +18,7 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
         WhereClause2Syntax (
             WhereClause2 (
                 whereClause.fromClause,
-                whereClause.conditionsA ++ Seq (AndOperator, Filter(predicateA)),
+                whereClause.conditionsA ++ Seq (AndOperator, Filter (predicateA)),
                 whereClause.conditionsB,
                 whereClause.joinConditions
             )
@@ -28,13 +28,13 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
         WhereClause2Syntax (
             WhereClause2 (
                 whereClause.fromClause,
-                whereClause.conditionsA ++ Seq (OrOperator, Filter(predicateA)),
+                whereClause.conditionsA ++ Seq (OrOperator, Filter (predicateA)),
                 whereClause.conditionsB,
                 whereClause.joinConditions
             )
         )
 
-    def AND[RangeA <: AnyRef, RangeB <: AnyRef](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def AND[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Syntax (
             WhereClause2 (
                 whereClause.fromClause,
@@ -44,7 +44,7 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
             )
         )
 
-    def OR[RangeA <: AnyRef, RangeB <: AnyRef](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def OR[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Syntax (
             WhereClause2 (
                 whereClause.fromClause,
@@ -54,11 +54,13 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
             )
         )
 
-    def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) = null
+    def AND[SuperDomainA >: DomainA <: AnyRef, SuperDomainB >: DomainB  <: AnyRef](subExpression: WHERE_CLAUSE_EXPRESSION_2[SuperDomainA, SuperDomainB]) =
+    //def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_2[DomainA, DomainB, Range] =
+        null
 
     def OR(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) = null
 
-    def compile() = Compiler(whereClause)
+    def compile() = Compiler (whereClause)
 
 
 }
