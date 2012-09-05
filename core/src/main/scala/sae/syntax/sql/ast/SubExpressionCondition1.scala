@@ -30,33 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
 
-import ast.Filter
-import ast.NegatedSubExpression1
-import ast.NegatedSubExpression2
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 04.09.12
- * Time: 20:28
+ * Time: 21:17
  */
 
-object NOT
+case class SubExpressionCondition1[-Domain <: AnyRef](conditions: Seq[ConditionExpression])
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
-
-    def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        NegatedSubExpression1[Domain](Filter (predicate))
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        NegatedSubExpression2[DomainA, DomainB](join)
-
-    def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        NegatedSubExpression1 (where_clause_expression)
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        NegatedSubExpression2 (where_clause_expression)
-
 
 }

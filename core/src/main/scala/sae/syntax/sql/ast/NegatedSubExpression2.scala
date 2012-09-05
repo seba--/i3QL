@@ -30,39 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
 
-import ast.ConditionExpression
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.08.12
- * Time: 16:46
- *
- * To avoid ambiguities when applying implicit conversions subexpressions have an explicit start that is not
- * accepted as parameter. Thus anonymous functions will always be treated as applied to the actual where clause (or the subexpresion they are part of).
- * In other words, there are no subexpressions without an AND or OR.
- * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
+ * Date: 05.09.12
+ * Time: 20:41
  */
-trait WHERE_CLAUSE_EXPRESSION_START_2[DomainA <: AnyRef, DomainB <: AnyRef]
+
+case class NegatedSubExpression2[-DomainA <: AnyRef, -DomainB <: AnyRef](subExpression: ConditionExpression)
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]
 {
-
-    def AND(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def AND[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    def OR(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
-
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: ConditionExpression
-
-    def representation: Representation
 
 }

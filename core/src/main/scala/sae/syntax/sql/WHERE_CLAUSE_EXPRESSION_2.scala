@@ -32,17 +32,36 @@
  */
 package sae.syntax.sql
 
+import ast.ConditionExpression
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 05.08.12
- * Time: 16:41
+ * Time: 16:46
+ *
+ * To avoid ambiguities when applying implicit conversions subexpressions have an explicit start that is not
+ * accepted as parameter. Thus anonymous functions will always be treated as applied to the actual where clause (or the subexpresion they are part of).
+ * In other words, there are no subexpressions without an AND or OR.
+ * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
  */
-
 trait WHERE_CLAUSE_EXPRESSION_2[DomainA <: AnyRef, DomainB <: AnyRef]
-    extends WHERE_CLAUSE_EXPRESSION_START_2[DomainA, DomainB]
 {
 
+    def AND(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
 
+    def OR(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
+
+    def AND[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
+
+    def OR[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
+
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
+
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
+
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: Seq[ConditionExpression]
+
+    def representation: Representation
 }

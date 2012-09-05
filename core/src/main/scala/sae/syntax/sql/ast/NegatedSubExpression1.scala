@@ -32,15 +32,17 @@
  */
 package sae.syntax.sql.ast
 
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 04.09.12
- * Time: 21:17
+ * Date: 05.09.12
+ * Time: 20:41
  */
 
-case class SubExpressionCondition(conditions: Seq[ConditionExpression])
-    extends ConditionExpression
+case class NegatedSubExpression1[-Domain <: AnyRef](subExpression: ConditionExpression)
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
 
 }

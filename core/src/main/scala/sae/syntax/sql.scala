@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.ast.Filter
+import sql.ast.{SubExpressionCondition2, SubExpressionCondition1, Filter}
 import sql.impl.{WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
 
 /**
@@ -35,17 +35,18 @@ package object sql
     implicit def functionTuples2[Domain, R1, R2](functionTuple: (Domain => R1, Domain => R2)): Domain => (R1, R2) =
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))
 
-    implicit def predicateToInlineWhereClause[Domain <: AnyRef](f: Domain => Boolean): WHERE_CLAUSE_EXPRESSION_START[Domain] =
+    implicit def predicateToInlineWhereClause[Domain <: AnyRef](f: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain] =
         WhereClause1Expression (Seq (Filter (f)))
 
-    implicit def joinToInlineWhereClause[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_START_2[DomainA, DomainB] =
+    implicit def joinToInlineWhereClause[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
         WhereClause2Expression (Seq (join))
 
+    implicit def whereClauseExpressionToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
+        SubExpressionCondition1 (expression.representation)
 
-    /*
-    implicit def functionToJoin[Domain <: AnyRef, Range](left: Domain => Range): JOIN_INFIX_KEYWORD[Domain, Range] =
-        JoinInfixOperator (left)
-    */
+    implicit def whereClauseExpressionToFinalSubExpression2[DomainA <: AnyRef, DomainB <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
+        SubExpressionCondition2 (expression.representation)
+
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
         new JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB]

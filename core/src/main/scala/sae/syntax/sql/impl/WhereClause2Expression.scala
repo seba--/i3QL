@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
 import sae.syntax.sql
-import sql.WHERE_CLAUSE_EXPRESSION_2
+import sql.{WHERE_CLAUSE_EXPRESSION_2, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2}
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,13 +26,13 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
     def OR[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Expression (conditions ++ Seq (OrOperator, join))
 
-    def AND(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) =
-        WhereClause2Expression (conditions ++ Seq (AndOperator, subExpression.representation))
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
+        WhereClause2Expression (conditions ++ Seq (AndOperator, subExpression))
 
-    def OR(subExpression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]) =
-        WhereClause2Expression (conditions ++ Seq (OrOperator, subExpression.representation))
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
+        WhereClause2Expression (conditions ++ Seq (OrOperator, subExpression))
 
-    type Representation = ConditionExpression
+    type Representation = Seq[ConditionExpression]
 
-    lazy val representation: ConditionExpression = SubExpressionCondition (conditions)
+    def representation = conditions
 }

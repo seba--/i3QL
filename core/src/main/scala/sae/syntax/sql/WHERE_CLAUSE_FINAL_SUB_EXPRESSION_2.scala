@@ -30,16 +30,19 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql
+
+import ast.ConditionExpression
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.09.12
- * Time: 20:41
+ * Date: 05.08.12
+ * Time: 16:41
  */
 
-case class NegatedSubExpression(subExpression: ConditionExpression)
+trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[-DomainA <: AnyRef, -DomainB <: AnyRef]
     extends ConditionExpression
 {
 

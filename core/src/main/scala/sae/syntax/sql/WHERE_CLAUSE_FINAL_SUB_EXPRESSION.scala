@@ -30,17 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.keywords
+package sae.syntax.sql
+
+import ast.ConditionExpression
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 13:09
+ * Date: 05.08.12
+ * Time: 16:41
  */
 
-object EXISTS_KEYWORD
-    extends sae.syntax.sql.EXISTS_SUB_CLAUSE
+trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION[-Domain <: AnyRef]
+    extends ConditionExpression
 {
 
 }
