@@ -412,7 +412,6 @@ class SQLSyntaxTest
 
 
     @Test
-    @Ignore
     def testCrossProductNoProjectionWithProjectionSyntax() {
 
         val database = new StudentCoursesDatabase ()
@@ -501,7 +500,6 @@ class SQLSyntaxTest
     }
 
     @Test
-    @Ignore
     def testJoinNegationSyntaxWithSelection() {
 
         val database = new StudentCoursesDatabase ()
@@ -523,7 +521,6 @@ class SQLSyntaxTest
     }
 
     @Test
-    @Ignore
     def testSubQueryJoinOpenSyntax() {
 
         val database = new StudentCoursesDatabase ()

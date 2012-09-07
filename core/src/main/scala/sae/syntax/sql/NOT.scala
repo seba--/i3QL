@@ -46,7 +46,7 @@ object NOT
     def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
         null
 
-    //Negation (Filter1 (predicate))
+    //Negation (Filter (predicate))
 
     def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
         null

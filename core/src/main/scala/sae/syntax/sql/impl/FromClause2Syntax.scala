@@ -6,7 +6,7 @@ import ast._
 import ast.FromClause2
 import ast.SelectClause2
 import compiler.Compiler
-import predicates.{WhereClauseSequence, Filter1}
+import predicates.{WhereClauseSequence, Filter}
 
 /**
  *
@@ -33,7 +33,7 @@ case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyR
                 selectClause,
                 this.toAst,
                 Some (
-                    WhereClauseSequence (Seq (Filter1 (predicate)))
+                    WhereClauseSequence (Seq (Filter (predicate, 1)))
                 )
             )
         )

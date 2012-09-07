@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.WhereClauseExpression
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,9 +45,10 @@ package sae.syntax.sql
  * accepted as parameter. Thus anonymous functions will always be treated as applied to the actual where clause (or the subexpresion they are part of).
  * In other words, there are no subexpressions without an AND or OR.
  * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
+ *
+ * WARNING: This looks like a supertype for WHERE_CLAUSE_FINAL_SUB_EXPRESSION, but is explicitly there so the two types will not subtype
  */
 trait WHERE_CLAUSE_EXPRESSION[Domain <: AnyRef]
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
 
     def AND(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
@@ -56,4 +59,8 @@ trait WHERE_CLAUSE_EXPRESSION[Domain <: AnyRef]
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
 
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: Seq[WhereClauseExpression]
+
+    def representation: Representation
 }

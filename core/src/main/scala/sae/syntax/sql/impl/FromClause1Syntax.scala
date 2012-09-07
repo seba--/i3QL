@@ -3,7 +3,7 @@ package sae.syntax.sql.impl
 import sae.LazyView
 import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, EXISTS_SUB_CLAUSE, SQL_SUB_QUERY_WHERE_OPEN_1, FROM_CLAUSE}
 import sae.syntax.sql.ast._
-import predicates.{WhereClauseSequence, Filter1}
+import predicates.{WhereClauseSequence, Filter}
 import sae.syntax.sql.ast.FromClause1
 import sae.syntax.sql.ast.SelectClause1
 import sae.syntax.sql.compiler.Compiler
@@ -30,7 +30,7 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
                 selectClause,
                 this.toAst,
                 Some (
-                    WhereClauseSequence (Seq (Filter1 (predicate)))
+                    WhereClauseSequence (Seq (Filter (predicate, 1)))
                 )
             )
         )

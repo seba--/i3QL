@@ -37,7 +37,7 @@ import sae.{SetRelation, LazyView}
 import sae.operators._
 import scala._
 import sae.syntax.sql.ast._
-import predicates.{Filter1, Negation}
+import predicates.{Predicate, Filter, Negation}
 import sae.syntax.sql.ast.FromClause1
 import sae.syntax.sql.ast.SelectClause2
 import sae.syntax.sql.ast.SQLQuery
@@ -56,6 +56,7 @@ object Compiler
 {
 
     def apply[Range <: AnyRef](query: SQLQuery[Range]): LazyView[Range] = {
+        // There is some ugliness here because we deliberately forget some types in the AST
         query match {
             case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], None) => compileNoWhere1 (
                 select.asInstanceOf[SelectClause1[from.Domain, Range]],
@@ -107,27 +108,12 @@ object Compiler
                                                             whereClause: WhereClause): LazyView[Range] =
     {
         val cnf = NormalizePredicates (whereClause.expressions)
-        val (filters, subQueries) = cnf.partition (_.exists {
-            case f: Filter1[_] => true
-            case Negation (f: Filter1[_]) => true
-            case _ => false
-        })
-
-        val fun =
-            (for (conjunction <- filters) yield {
-                (for (filter <- conjunction) yield {
-                    val fun: Domain => Boolean = filter match {
-                        case Filter1 (f: (Domain => Boolean)) => f
-                        case Negation (Filter1 (f: (Domain => Boolean))) => !f (_)
-                    }
-                    fun
-                }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
-            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+        val (filters, subQueries) = partitionPredicates (cnf)
 
         compileDistinct (
             compileProjection (
                 selectClause.projection,
-                compileSelection (fun, fromClause.relation)),
+                compileSelection (combineFilters (filters), fromClause.relation)),
             selectClause.distinct
         )
     }
@@ -136,14 +122,61 @@ object Compiler
                                                                                 fromClause: FromClause2[DomainA, DomainB],
                                                                                 whereClause: WhereClause): LazyView[Range] =
     {
+        val cnf = NormalizePredicates (whereClause.expressions)
+
+        val (filters, subQueries) = partitionPredicates (cnf)
+
+        val differentFilters = discernFilters (filters)
+
+        val filtersA = differentFilters (Seq (1))
+        val filtersB = differentFilters (Seq (2))
+
         compileDistinct (
             compileCrossProduct (
                 selectClause.projection,
-                fromClause.relationA,
-                fromClause.relationB
+                compileSelection (combineFilters (filtersA), fromClause.relationA),
+                compileSelection (combineFilters (filtersB), fromClause.relationB)
             ),
             selectClause.distinct
         )
+    }
+
+    private def combineFilters[Domain <: AnyRef](filters: Seq[Seq[Predicate]]) = {
+        (for (conjunction <- filters) yield {
+            (for (filter <- conjunction) yield {
+                val fun: Domain => Boolean = filter match {
+                    case Filter (f: (Domain => Boolean), _) => f
+                    case Negation (Filter (f: (Domain => Boolean), _)) => !f (_)
+                }
+                fun
+            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
+        }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+    }
+
+    /**
+     * discerns the different filters for different relations
+     */
+    def discernFilters(cnf: Seq[Seq[Predicate]]): Map[Seq[Int], Seq[Seq[Predicate]]] =
+    {
+        cnf.groupBy (
+            _.map (
+            {
+                case Filter (_, num) => num
+                case Negation (Filter (_, num)) => num
+            }
+            ).sorted.distinct
+        )
+    }
+
+    /**
+     * partition the predicates (given in CNF form) to (filtersOnly, SubQueriesAndFilters)
+     */
+    private def partitionPredicates(cnf: Seq[Seq[Predicate]]): (Seq[Seq[Predicate]], Seq[Seq[Predicate]]) = {
+        cnf.partition (_.exists {
+            case Filter (_, _) => true
+            case Negation (Filter (_, _)) => true
+            case _ => false
+        })
     }
 
     /*
@@ -202,122 +235,6 @@ object Compiler
         }
 
 
-    /**
-     * Normalize the conditions into disjunctive normal form with operator precedence (AND > OR)
-     *
-     */
-    private def disjunctiveNormalForm(conditions: Seq[WhereClauseExpression]): Seq[Seq[Predicate]] = {
-        separateCNFOperators (eliminateSubExpressions (conditions))
-    }
-
-
-    private def conjunctiveNormalForm(conditions: Seq[Predicate]): Seq[Seq[Predicate]] = {
-        null
-    }
-
-
-    private def eliminateSubExpressions(conditions: Seq[WhereClauseExpression]): Seq[Predicate] = {
-        val eliminatedNegations = conditions.map (_ match {
-            case NegatedSubExpression1 (SubExpressionCondition1 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: Predicate) => NegatedSubExpression1 (c))
-            case NegatedSubExpression2 (SubExpressionCondition2 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: Predicate) => NegatedSubExpression2 (c))
-            case x => Seq (x)
-        }).flatten
-
-        val afterSubExpressionElimination: Iterator[Seq[Predicate]] = for (window <- eliminatedNegations.sliding (3)) yield
-        {
-            window match {
-                case Seq (p, AndOperator, SubExpressionCondition1 (subConditions)) => distributeSubExpression (p, disjunctiveNormalForm (subConditions))
-                case Seq (p, AndOperator, SubExpressionCondition2 (subConditions)) => distributeSubExpression (p, disjunctiveNormalForm (subConditions))
-                case any => Seq (any.head)
-            }
-        }
-        afterSubExpressionElimination.flatten.toSeq
-    }
-
-    /**
-     * A and (B or C) == A and B or A and C
-     */
-    private def distributeSubExpression(conjunct: Predicate, dnf: Seq[Seq[Predicate]]): Seq[Predicate] =
-    {
-        val flatConjunctions = for (subConjunctions <- dnf)
-        yield
-        {
-            Seq (conjunct, AndOperator) ++ subConjunctions
-        }
-        flatConjunctions.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (OrOperator) ++ right)
-    }
-
-    /**
-     * !(A and B) == !A or !B
-     *
-     * we apply this to a cnf representation: !((A or B or C) and (D or E or F))
-     * hence we obtain a dnf representaion: !(A or B or C) or !(D or E or F ) == !A and !B and !C or !D and !E and !F
-     */
-    private def deMorgan(cnf: Seq[Seq[Predicate]], createNegation: Predicate => Predicate): Seq[Predicate] =
-    {
-        val disjunctions =
-            for (listOfDisjuncts <- cnf)
-            yield
-            {
-                deMorganDisjunctions (listOfDisjuncts, createNegation)
-            }
-        disjunctions.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (OrOperator) ++ right)
-    }
-
-    /**
-     * !(A or B) == !A and !B
-     */
-    private def deMorganDisjunctions(disjunctions: Seq[Predicate], createNegation: Predicate => Predicate): Seq[Predicate] =
-    {
-        val predicates = disjunctions.map ((p: Predicate) => Seq (createNegation (p)))
-        predicates.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (AndOperator) ++ right)
-    }
-
-
-    /**
-     * Compile the condition with operator precedence (AND > OR)
-     *
-     */
-    private def compileSelections[Domain <: AnyRef](conditions: Seq[Predicate], relation: LazyView[Domain]): LazyView[Domain] =
-    {
-        if (conditions.isEmpty) {
-            return relation
-        }
-        val orConditions = separateCNFOperators (conditions)
-
-        val orFilters = for (orExpr <- orConditions) yield {
-            val andFilters = orExpr.filter (_.isInstanceOf[Filter1[Domain]]).map (_.asInstanceOf[Filter1[Domain]].filter)
-            andFilters.reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
-        }
-        val selection = orFilters.reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
-        new LazySelection (selection, relation)
-    }
-
-    /**
-     * Separates the flat list of operators into a sequence of OR operations that each contain a sequence of AND operations.
-     * Parenthesis are already handled by the syntax
-     */
-    private def separateCNFOperators(rest: Seq[Predicate]): Seq[Seq[Predicate]] =
-    {
-        val andConditions = rest.takeWhile ({
-            case AndOperator => true
-            case OrOperator => false
-            case _ => true
-        })
-        val restConditions = rest.drop (andConditions.size)
-        val andConditionsWithoutOperator = andConditions.filter ({
-            case AndOperator => false
-            case _ => true
-        })
-        if (restConditions.isEmpty)
-        {
-            Seq (andConditionsWithoutOperator)
-        }
-        else
-        {
-            Seq (andConditionsWithoutOperator) ++ separateCNFOperators (restConditions.drop (1))
-        }
-    }
     */
 
     private def compileSelection[Domain <: AnyRef](selection: Domain => Boolean,

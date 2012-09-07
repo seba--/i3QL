@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.{WHERE_CLAUSE_EXPRESSION, WHERE_CLAUSE_FINAL_SUB_EXPRESSION}
 import sae.syntax.sql.ast._
-import predicates.{WhereClauseSequence, Filter1}
+import predicates.{WhereClauseSequence, Filter}
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,17 +16,17 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[WhereClauseE
     with WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
     def AND(predicate: (Domain) => Boolean) =
-        WhereClause1Expression (conditions ++ Seq (AndOperator, Filter1 (predicate)))
+        WhereClause1Expression (conditions ++ Seq (AndOperator, Filter (predicate, 1)))
 
     def OR(predicate: (Domain) => Boolean) =
-        WhereClause1Expression (conditions ++ Seq (OrOperator, Filter1 (predicate)))
+        WhereClause1Expression (conditions ++ Seq (OrOperator, Filter (predicate, 1)))
 
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
-        WhereClause1Expression (conditions ++ Seq (AndOperator, WhereClauseSequence(subExpression.representation)))
+        WhereClause1Expression (conditions ++ Seq (AndOperator, WhereClauseSequence (subExpression.representation)))
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
-        WhereClause1Expression (conditions ++ Seq (OrOperator, WhereClauseSequence(subExpression.representation)))
+        WhereClause1Expression (conditions ++ Seq (OrOperator, WhereClauseSequence (subExpression.representation)))
 
     type Representation = Seq[WhereClauseExpression]
 
