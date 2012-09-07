@@ -3,7 +3,7 @@ package sae.syntax
 import sae.LazyView
 import sae.collections.QueryResult
 import sql.ast.predicates.Filter
-import sql.impl.{WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
+import sql.impl.{WhereClause1From2Syntax, WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
 
 /**
  *
@@ -25,7 +25,7 @@ package object sql
     )
 
     implicit def whereClaus2ToNextDomain[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](whereClause2: WHERE_CLAUSE_2[DomainA, DomainB, Range]): WHERE_CLAUSE[DomainB, Range] =
-        null
+        WhereClause1From2Syntax (whereClause2.query)
 
 
     implicit def functionToComparator[Domain <: AnyRef, Range](left: Domain => Range): WHERE_CLAUSE_COMPARATOR[Domain, Range] =

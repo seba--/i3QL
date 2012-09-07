@@ -110,4 +110,18 @@ class TestNormalizePredicates
             ),
             normalized)
     }
+
+    @Test
+    def testNestedOrNormalization() {
+        val clause = WhereClauseSequence (Seq ("A", OrOperator, "B", OrOperator, WhereClauseSequence (Seq ("C", OrOperator, "D"))))
+        val normalized = NormalizePredicates (clause.expressions)
+        assertEquals (
+            Seq (
+                Seq (p ("A")),
+                Seq (p ("B")),
+                Seq (p ("C")),
+                Seq (p ("D"))
+            ),
+            normalized)
+    }
 }

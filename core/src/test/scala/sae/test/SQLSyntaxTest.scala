@@ -412,7 +412,7 @@ class SQLSyntaxTest
 
 
     @Test
-    def testCrossProductNoProjectionWithProjectionSyntax() {
+    def testDisjunctionsFlatNoSubQuery() {
 
         val database = new StudentCoursesDatabase ()
 
@@ -422,7 +422,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: LazyView[(Student, Course)] =
+        val selection: LazyView[(Student, Course)] =
             SELECT (*) FROM (students, courses) WHERE (_.Name == "john") OR (_.Name == "sally") OR ((_: Course).Name == "EiSE") OR (_.Name == "SE-D&C")
 
         Assert.assertEquals (
@@ -432,7 +432,32 @@ class SQLSyntaxTest
                 (sally, eise),
                 (sally, sed)
             ),
-            selection1.asList.sortBy (x => (x._1.Name, x._2.Name))
+            selection.asList.sortBy (x => (x._1.Name, x._2.Name))
+        )
+    }
+
+    @Test
+    def testDisjunctionsNestedNoSubQuery() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val courses = database.courses.copy // make a local copy
+
+        val selection: LazyView[(Student, Course)] =
+            SELECT (*) FROM (students, courses) WHERE (_.Name == "john") OR (_.Name == "sally") OR (((_: Course).Name == "EiSE") OR (_.Name == "SE-D&C"))
+
+        Assert.assertEquals (
+            List (
+                (john, eise),
+                (john, sed),
+                (sally, eise),
+                (sally, sed)
+            ),
+            selection.asList.sortBy (x => (x._1.Name, x._2.Name))
         )
     }
 

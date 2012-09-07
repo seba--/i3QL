@@ -95,11 +95,12 @@ object NormalizePredicates
         if (eliminatedNegations.last.isInstanceOf[WhereClauseSequence] ||
             eliminatedNegations (eliminatedNegations.size - 3).isInstanceOf[WhereClauseSequence])
         {
-            if (eliminatedNegations.last.isInstanceOf[WhereClauseSequence] && eliminatedNegations (eliminatedNegations.size - 2).isInstanceOf[OrOperator.type])
+            if (eliminatedNegations.last.isInstanceOf[WhereClauseSequence] &&
+                !eliminatedNegations (eliminatedNegations.size - 3).isInstanceOf[WhereClauseSequence] &&
+                eliminatedNegations (eliminatedNegations.size - 2).isInstanceOf[OrOperator.type])
             {
-                (afterSubExpressionElimination.toList.take (afterSubExpressionElimination.size - 1) ++
-                    Seq(eliminateSubExpressions (eliminatedNegations.last.asInstanceOf[WhereClauseSequence].expressions))
-                    ).flatten
+                afterSubExpressionElimination.flatten.toList ++
+                    eliminateSubExpressions (eliminatedNegations.last.asInstanceOf[WhereClauseSequence].expressions)
             }
             else
             {
