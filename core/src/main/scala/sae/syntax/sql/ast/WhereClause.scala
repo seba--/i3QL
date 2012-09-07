@@ -44,5 +44,3 @@ trait WhereClause
     def expressions: Seq[WhereClauseExpression]
 }
 
-case class WhereClauseSequence(expressions: Seq[WhereClauseExpression])
-    extends WhereClause

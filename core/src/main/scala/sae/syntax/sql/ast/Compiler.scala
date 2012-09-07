@@ -47,6 +47,8 @@ object Compiler
 {
 
     def apply[Range <: AnyRef](query: SQLQuery[Range]): LazyView[Range] = {
+        null
+        /*
         query match {
             case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], None) => compileNoWhere1 (
                 select,
@@ -65,6 +67,7 @@ object Compiler
                 from,
                 where)
         }
+        */
     }
 
     private def compileNoWhere1[Domain <: AnyRef, SelectionDomain >: Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range],
@@ -181,7 +184,7 @@ object Compiler
      *
      */
     private def disjunctiveNormalForm(conditions: Seq[WhereClauseExpression]): Seq[Seq[Predicate]] = {
-        separateByOperators (eliminateSubExpressions (conditions))
+        separateCNFOperators (eliminateSubExpressions (conditions))
     }
 
 
@@ -257,7 +260,7 @@ object Compiler
         if (conditions.isEmpty) {
             return relation
         }
-        val orConditions = separateByOperators (conditions)
+        val orConditions = separateCNFOperators (conditions)
 
         val orFilters = for (orExpr <- orConditions) yield {
             val andFilters = orExpr.filter (_.isInstanceOf[Filter[Domain]]).map (_.asInstanceOf[Filter[Domain]].filter)
@@ -271,7 +274,7 @@ object Compiler
      * Separates the flat list of operators into a sequence of OR operations that each contain a sequence of AND operations.
      * Parenthesis are already handled by the syntax
      */
-    private def separateByOperators(rest: Seq[Predicate]): Seq[Seq[Predicate]] =
+    private def separateCNFOperators(rest: Seq[Predicate]): Seq[Seq[Predicate]] =
     {
         val andConditions = rest.takeWhile ({
             case AndOperator => true
@@ -289,7 +292,7 @@ object Compiler
         }
         else
         {
-            Seq (andConditionsWithoutOperator) ++ separateByOperators (restConditions.drop (1))
+            Seq (andConditionsWithoutOperator) ++ separateCNFOperators (restConditions.drop (1))
         }
     }
     */

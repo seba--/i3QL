@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.ast
 
-import predicates.Predicate
+import predicates.{WhereClauseSequence, Predicate}
 import sae.syntax.sql.SQL_QUERY
 
 /**

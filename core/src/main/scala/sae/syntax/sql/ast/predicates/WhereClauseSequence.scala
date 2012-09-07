@@ -32,14 +32,8 @@
  */
 package sae.syntax.sql.ast.predicates
 
-/**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 07.09.12
- * Time: 10:47
- */
+import sae.syntax.sql.ast.{WhereClause, WhereClauseExpression}
 
-case class Parenthesis(conditions: Seq[Predicate])
-{
-
-}
+case class WhereClauseSequence(expressions: Seq[WhereClauseExpression])
+    extends WhereClause
+    with Predicate
