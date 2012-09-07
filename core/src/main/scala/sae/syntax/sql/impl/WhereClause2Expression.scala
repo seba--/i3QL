@@ -11,7 +11,7 @@ import sql.{WHERE_CLAUSE_EXPRESSION_2, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2}
  * Time: 16:42
  */
 
-case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditions: Seq[ConditionExpression])
+case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditions: Seq[Predicate])
     extends WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
 {
     def AND(predicate: (DomainA) => Boolean) =
@@ -32,7 +32,7 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
         WhereClause2Expression (conditions ++ Seq (OrOperator, subExpression))
 
-    type Representation = Seq[ConditionExpression]
+    type Representation = Seq[Predicate]
 
     def representation = conditions
 }

@@ -41,7 +41,7 @@ import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
  * Time: 21:17
  */
 
-case class SubExpressionCondition1[-Domain <: AnyRef](conditions: Seq[ConditionExpression])
+case class SubExpressionCondition1[-Domain <: AnyRef](conditions: Seq[Predicate])
     extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
 

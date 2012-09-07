@@ -39,7 +39,7 @@ package sae.syntax.sql.ast
  * Time: 20:46
  */
 
-trait ConditionExpression
+trait Predicate
 {
 
 }

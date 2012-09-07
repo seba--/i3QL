@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.ConditionExpression
+import ast.Predicate
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,7 +42,7 @@ import ast.ConditionExpression
  */
 
 trait JOIN_CONDITION_NEGATIVE[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
-    extends ConditionExpression
+    extends Predicate
 {
 
 }

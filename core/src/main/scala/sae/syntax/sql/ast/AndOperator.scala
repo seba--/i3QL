@@ -8,7 +8,7 @@ package sae.syntax.sql.ast
  */
 
 object AndOperator
-    extends ConditionExpression
+    extends Predicate
 {
 
 }

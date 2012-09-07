@@ -40,7 +40,7 @@ package sae.syntax.sql.ast
  */
 
 case class WhereClause1[Domain <: AnyRef, Range <: AnyRef](fromClause: FromClause1[Domain, Range],
-                                                           conditions: Seq[ConditionExpression])
+                                                           conditions: Seq[Predicate])
 {
 
 }

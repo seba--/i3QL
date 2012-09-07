@@ -41,7 +41,7 @@ import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2
  * Time: 21:17
  */
 
-case class SubExpressionCondition2[-DomainA <: AnyRef, -DomainB <: AnyRef](conditions: Seq[ConditionExpression])
+case class SubExpressionCondition2[-DomainA <: AnyRef, -DomainB <: AnyRef](conditions: Seq[Predicate])
     extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]
 {
 

@@ -11,7 +11,7 @@ import sae.syntax.sql.ast.Filter
  * Time: 20:41
  *
  */
-case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[ConditionExpression])
+case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[Predicate])
     extends WHERE_CLAUSE_EXPRESSION[Domain]
 {
     def AND(predicate: (Domain) => Boolean) =
@@ -27,7 +27,7 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[ConditionExp
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Expression (conditions ++ Seq (OrOperator, subExpression))
 
-    type Representation = Seq[ConditionExpression]
+    type Representation = Seq[Predicate]
 
     def representation = conditions
 }

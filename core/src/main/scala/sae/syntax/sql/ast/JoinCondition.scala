@@ -43,7 +43,7 @@ import sae.syntax.sql.JOIN_CONDITION
 
 case class JoinCondition[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](left: DomainA => RangeA, right: DomainB => RangeB)
     extends JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
-    with ConditionExpression
+    with Predicate
 {
 
 }

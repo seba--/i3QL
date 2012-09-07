@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.ConditionExpression
+import ast.Predicate
 
 
 /**
@@ -43,7 +43,7 @@ import ast.ConditionExpression
  */
 
 trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[-DomainA <: AnyRef, -DomainB <: AnyRef]
-    extends ConditionExpression
+    extends Predicate
 {
 
 }

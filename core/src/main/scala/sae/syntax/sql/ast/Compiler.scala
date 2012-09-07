@@ -121,24 +121,24 @@ object Compiler
      * Normalize the conditions into disjunctive normal form with operator precedence (AND > OR)
      *
      */
-    private def disjunctiveNormalForm(conditions: Seq[ConditionExpression]): Seq[Seq[ConditionExpression]] = {
+    private def disjunctiveNormalForm(conditions: Seq[Predicate]): Seq[Seq[Predicate]] = {
         separateByOperators(eliminateSubExpressions(conditions))
     }
 
 
-    private def conjunctiveNormalForm(conditions: Seq[ConditionExpression]): Seq[Seq[ConditionExpression]] = {
+    private def conjunctiveNormalForm(conditions: Seq[Predicate]): Seq[Seq[Predicate]] = {
         null
     }
 
 
-    private def eliminateSubExpressions(conditions: Seq[ConditionExpression]): Seq[ConditionExpression] = {
+    private def eliminateSubExpressions(conditions: Seq[Predicate]): Seq[Predicate] = {
         val eliminatedNegations = conditions.map (_ match {
-            case NegatedSubExpression1 (SubExpressionCondition1 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: ConditionExpression) => NegatedSubExpression1 (c))
-            case NegatedSubExpression2 (SubExpressionCondition2 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: ConditionExpression) => NegatedSubExpression2 (c))
+            case NegatedSubExpression1 (SubExpressionCondition1 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: Predicate) => NegatedSubExpression1 (c))
+            case NegatedSubExpression2 (SubExpressionCondition2 (subConditions)) => deMorgan (conjunctiveNormalForm (subConditions), (c: Predicate) => NegatedSubExpression2 (c))
             case x => Seq (x)
         }).flatten
 
-        val afterSubExpressionElimination: Iterator[Seq[ConditionExpression]] = for (window <- eliminatedNegations.sliding (3)) yield
+        val afterSubExpressionElimination: Iterator[Seq[Predicate]] = for (window <- eliminatedNegations.sliding (3)) yield
         {
             window match {
                 case Seq (p, AndOperator, SubExpressionCondition1 (subConditions)) => distributeSubExpression (p, disjunctiveNormalForm (subConditions))
@@ -152,14 +152,14 @@ object Compiler
     /**
      * A and (B or C) == A and B or A and C
      */
-    private def distributeSubExpression(conjunct: ConditionExpression, dnf: Seq[Seq[ConditionExpression]]): Seq[ConditionExpression] =
+    private def distributeSubExpression(conjunct: Predicate, dnf: Seq[Seq[Predicate]]): Seq[Predicate] =
     {
         val flatConjunctions = for (subConjunctions <- dnf)
         yield
         {
             Seq (conjunct, AndOperator) ++ subConjunctions
         }
-        flatConjunctions.reduce ((left: Seq[ConditionExpression], right: Seq[ConditionExpression]) => left ++ Seq (OrOperator) ++ right)
+        flatConjunctions.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (OrOperator) ++ right)
     }
 
     /**
@@ -168,7 +168,7 @@ object Compiler
      * we apply this to a cnf representation: !((A or B or C) and (D or E or F))
      * hence we obtain a dnf representaion: !(A or B or C) or !(D or E or F ) == !A and !B and !C or !D and !E and !F
      */
-    private def deMorgan(cnf: Seq[Seq[ConditionExpression]], createNegation: ConditionExpression => ConditionExpression): Seq[ConditionExpression] =
+    private def deMorgan(cnf: Seq[Seq[Predicate]], createNegation: Predicate => Predicate): Seq[Predicate] =
     {
         val disjunctions =
             for (listOfDisjuncts <- cnf)
@@ -176,21 +176,16 @@ object Compiler
             {
                 deMorganDisjunctions (listOfDisjuncts, createNegation)
             }
-        disjunctions.reduce ((left: Seq[ConditionExpression], right: Seq[ConditionExpression]) => left ++ Seq (OrOperator) ++ right)
+        disjunctions.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (OrOperator) ++ right)
     }
 
     /**
      * !(A or B) == !A and !B
      */
-    private def deMorganDisjunctions(disjunctions: Seq[ConditionExpression], createNegation: ConditionExpression => ConditionExpression): Seq[ConditionExpression] =
+    private def deMorganDisjunctions(disjunctions: Seq[Predicate], createNegation: Predicate => Predicate): Seq[Predicate] =
     {
-        val predicates =
-            for (disjunct <- disjunctions)
-            yield
-            {
-                createNegation (disjunct)
-            }
-        predicates.reduce ((left: Seq[ConditionExpression], right: Seq[ConditionExpression]) => left ++ Seq (AndOperator) ++ right)
+        val predicates  = disjunctions.map( (p:Predicate) =>Seq(createNegation(p)))
+        predicates.reduce ((left: Seq[Predicate], right: Seq[Predicate]) => left ++ Seq (AndOperator) ++ right)
     }
 
 
@@ -198,7 +193,7 @@ object Compiler
      * Compile the condition with operator precedence (AND > OR)
      *
      */
-    private def compileSelections[Domain <: AnyRef](conditions: Seq[ConditionExpression], relation: LazyView[Domain]): LazyView[Domain] =
+    private def compileSelections[Domain <: AnyRef](conditions: Seq[Predicate], relation: LazyView[Domain]): LazyView[Domain] =
     {
         if (conditions.isEmpty) {
             return relation
@@ -217,7 +212,7 @@ object Compiler
      * Separates the flat list of operators into a sequence of OR operations that each contain a sequence of AND operations.
      * Parenthesis are already handled by the syntax
      */
-    private def separateByOperators(rest: Seq[ConditionExpression]): Seq[Seq[ConditionExpression]] =
+    private def separateByOperators(rest: Seq[Predicate]): Seq[Seq[Predicate]] =
     {
         val andConditions = rest.takeWhile ({
             case AndOperator => true

@@ -9,7 +9,7 @@ package sae.syntax.sql.ast
  */
 
 case class Filter[Domain <: AnyRef](filter: Domain => Boolean)
-    extends ConditionExpression
+    extends Predicate
 {
 
 }
