@@ -9,7 +9,7 @@ package sae.syntax.sql.ast.predicates
  *
  * A predicate the makes a test which evaluates to a "constant" boolean
  */
-case class Filter[-Domain <: AnyRef](filter: Domain => Boolean)
+case class Filter1[-Domain <: AnyRef](filter: Domain => Boolean)
     extends Predicate
 {
 

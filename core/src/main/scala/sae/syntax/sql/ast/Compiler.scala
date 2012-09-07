@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.ast
 
-import predicates.{Filter, Negation}
+import predicates.{Filter1, Negation}
 import sae.{SetRelation, LazyView}
 import sae.operators._
 import scala.Some
@@ -101,8 +101,8 @@ object Compiler
     {
         val cnf = NormalizePredicates (whereClause.expressions)
         val (filters, subQueries) = cnf.partition (_.exists {
-            case f: Filter[_] => true
-            case Negation (f: Filter[_]) => true
+            case f: Filter1[_] => true
+            case Negation (f: Filter1[_]) => true
             case _ => false
         })
 
@@ -110,8 +110,8 @@ object Compiler
             (for (conjunction <- filters) yield {
                 (for (filter <- conjunction) yield {
                     val fun: Domain => Boolean = filter match {
-                        case Filter (f: (Domain => Boolean)) => f
-                        case Negation (Filter (f: (Domain => Boolean))) => !f (_)
+                        case Filter1 (f: (Domain => Boolean)) => f
+                        case Negation (Filter1 (f: (Domain => Boolean))) => !f (_)
                     }
                     fun
                 }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
@@ -279,7 +279,7 @@ object Compiler
         val orConditions = separateCNFOperators (conditions)
 
         val orFilters = for (orExpr <- orConditions) yield {
-            val andFilters = orExpr.filter (_.isInstanceOf[Filter[Domain]]).map (_.asInstanceOf[Filter[Domain]].filter)
+            val andFilters = orExpr.filter (_.isInstanceOf[Filter1[Domain]]).map (_.asInstanceOf[Filter1[Domain]].filter)
             andFilters.reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
         }
         val selection = orFilters.reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))

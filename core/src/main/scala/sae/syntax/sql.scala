@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.ast.predicates.Filter
+import sql.ast.predicates.Filter1
 import sql.impl.{WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
 
 /**
@@ -36,7 +36,7 @@ package object sql
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))
 
     implicit def predicateToInlineWhereClause[Domain <: AnyRef](f: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain] =
-        WhereClause1Expression (Seq (Filter (f)))
+        WhereClause1Expression (Seq (Filter1 (f)))
 
     implicit def joinToInlineWhereClause[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
         WhereClause2Expression (Seq (join))

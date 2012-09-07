@@ -5,7 +5,7 @@ import sae.syntax.sql._
 import ast._
 import ast.FromClause2
 import ast.SelectClause2
-import predicates.{WhereClauseSequence, Filter}
+import predicates.{WhereClauseSequence, Filter1}
 
 /**
  *
@@ -32,7 +32,7 @@ case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyR
                 selectClause,
                 this.toAst,
                 Some (
-                    WhereClauseSequence (Seq (Filter (predicate)))
+                    WhereClauseSequence (Seq (Filter1 (predicate)))
                 )
             )
         )

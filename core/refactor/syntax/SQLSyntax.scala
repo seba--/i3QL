@@ -5,10 +5,10 @@ import sae.core.operators._
 import RelationalAlgebraSyntax._
 
 /**
- * σ(Filter)(R) corresponds to the following SQL query:
+ * σ(Filter1)(R) corresponds to the following SQL query:
  *   SELECT *
  *   FROM R
- *   WHERE Filter
+ *   WHERE Filter1
  *
  * Π(Projection)(R) corresponds to the following SQL query:
  *   SELECT DISTINCT Projection

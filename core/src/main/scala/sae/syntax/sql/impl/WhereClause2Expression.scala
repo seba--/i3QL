@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
-import predicates.{Filter, Predicate}
+import predicates.{Filter1, Predicate}
 import sae.syntax.sql
 import sql.{WHERE_CLAUSE_EXPRESSION_2, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2}
 
@@ -16,10 +16,10 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
     extends WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
 {
     def AND(predicate: (DomainA) => Boolean) =
-        WhereClause2Expression (conditions ++ Seq (AndOperator, Filter (predicate)))
+        WhereClause2Expression (conditions ++ Seq (AndOperator, Filter1 (predicate)))
 
     def OR(predicate: (DomainA) => Boolean) =
-        WhereClause2Expression (conditions ++ Seq (OrOperator, Filter (predicate)))
+        WhereClause2Expression (conditions ++ Seq (OrOperator, Filter1 (predicate)))
 
     def AND[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2Expression (conditions ++ Seq (AndOperator, join))
