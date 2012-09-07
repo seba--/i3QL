@@ -3,6 +3,7 @@ package sae.syntax.sql.impl
 import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter1}
 import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION, WHERE_CLAUSE}
+import sae.syntax.sql.compiler.Compiler
 
 /**
  * Created with IntelliJ IDEA.

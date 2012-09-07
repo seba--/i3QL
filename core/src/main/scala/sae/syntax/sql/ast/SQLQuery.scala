@@ -35,6 +35,7 @@ package sae.syntax.sql.ast
 import predicates.{WhereClauseSequence, Predicate}
 import sae.syntax.sql.SQL_QUERY
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -45,7 +46,7 @@ import sae.syntax.sql.SQL_QUERY
 case class SQLQuery[Range <: AnyRef](selectClause: SelectClause[Range], fromClause: FromClause, whereClause: Option[WhereClause])
     extends SQL_QUERY[Range]
 {
-    def compile() = Compiler (this)
+    def compile() = sae.syntax.sql.compiler.Compiler (this)
 
 
     def append (op: BooleanOperator, pred: Predicate): SQLQuery[Range] =

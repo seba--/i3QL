@@ -30,13 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.compiler
 
-import predicates.{Filter1, Negation}
+
 import sae.{SetRelation, LazyView}
 import sae.operators._
+import scala._
+import sae.syntax.sql.ast._
+import predicates.{Filter1, Negation}
+import sae.syntax.sql.ast.FromClause1
+import sae.syntax.sql.ast.SelectClause2
+import sae.syntax.sql.ast.SQLQuery
+import sae.syntax.sql.ast.FromClause2
 import scala.Some
-import sae.syntax.sql.compiler.NormalizePredicates
+import sae.syntax.sql.ast.SelectClause1
 
 /**
  * Created with IntelliJ IDEA.

@@ -6,6 +6,7 @@ import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter1}
 import sae.syntax.sql.ast.FromClause1
 import sae.syntax.sql.ast.SelectClause1
+import sae.syntax.sql.compiler.Compiler
 
 /**
  *

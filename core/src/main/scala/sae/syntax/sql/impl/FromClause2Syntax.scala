@@ -5,6 +5,7 @@ import sae.syntax.sql._
 import ast._
 import ast.FromClause2
 import ast.SelectClause2
+import compiler.Compiler
 import predicates.{WhereClauseSequence, Filter1}
 
 /**
