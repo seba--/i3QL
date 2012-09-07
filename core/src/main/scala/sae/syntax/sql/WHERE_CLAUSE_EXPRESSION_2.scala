@@ -46,6 +46,7 @@ import ast.WhereClauseExpression
  * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
  */
 trait WHERE_CLAUSE_EXPRESSION_2[DomainA <: AnyRef, DomainB <: AnyRef]
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]
 {
 
     def AND(predicateA: DomainA => Boolean): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
@@ -60,8 +61,4 @@ trait WHERE_CLAUSE_EXPRESSION_2[DomainA <: AnyRef, DomainB <: AnyRef]
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
 
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: Seq[WhereClauseExpression]
-
-    def representation: Representation
 }

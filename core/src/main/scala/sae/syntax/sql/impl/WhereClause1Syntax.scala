@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
-import predicates.Filter1
+import predicates.{WhereClauseSequence, Filter1}
 import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION, WHERE_CLAUSE}
 
 /**
@@ -26,12 +26,12 @@ case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](query: SQLQuery
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Syntax (
-            query.append (AndOperator, subExpression)
+            query.append (AndOperator, WhereClauseSequence(subExpression.representation))
         )
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Syntax (
-            query.append (OrOperator, subExpression)
+            query.append (OrOperator, WhereClauseSequence(subExpression.representation))
         )
 
 
