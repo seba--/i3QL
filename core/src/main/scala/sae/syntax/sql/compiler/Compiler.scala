@@ -37,7 +37,7 @@ import sae.{SetRelation, LazyView}
 import sae.operators._
 import scala._
 import sae.syntax.sql.ast._
-import predicates.{Predicate, Filter, Negation}
+import predicates.{Join, Predicate, Filter, Negation}
 import sae.syntax.sql.ast.FromClause1
 import sae.syntax.sql.ast.SelectClause2
 import sae.syntax.sql.ast.SQLQuery
@@ -108,7 +108,7 @@ object Compiler
                                                             whereClause: WhereClause): LazyView[Range] =
     {
         val cnf = NormalizePredicates (whereClause.expressions)
-        val (filters, subQueries) = partitionPredicates (cnf)
+        val (filters, subQueries) = partitionForFilters (cnf)
 
         compileDistinct (
             compileProjection (
@@ -124,39 +124,64 @@ object Compiler
     {
         val cnf = NormalizePredicates (whereClause.expressions)
 
-        val (filters, subQueries) = partitionPredicates (cnf)
+        val (filters, others) = partitionForFilters (cnf)
 
-        val differentFilters = discernFilters (filters)
+        val selectionsOnly =
+            if (!filters.isEmpty) {
+                val relationFilters = filtersByRelation (filters)
+                val filtersA = relationFilters.getOrElse (Seq (1), Nil)
+                val filtersB = relationFilters.getOrElse (Seq (2), Nil)
+                Some (
+                    compileCrossProduct (
+                        selectClause.projection,
+                        compileSelection (combineFilters (filtersA), fromClause.relationA),
+                        compileSelection (combineFilters (filtersB), fromClause.relationB)
+                    )
+                )
+            }
+            else None
 
-        val filtersA = differentFilters (Seq (1))
-        val filtersB = differentFilters (Seq (2))
+        val (joins, subQueries) = partitionForJoins (others)
 
-        compileDistinct (
-            compileCrossProduct (
-                selectClause.projection,
-                compileSelection (combineFilters (filtersA), fromClause.relationA),
-                compileSelection (combineFilters (filtersB), fromClause.relationB)
-            ),
-            selectClause.distinct
-        )
+        val joinsOnly =
+            joins.map (
+                compileJoins (
+                    _,
+                    selectClause.projection,
+                    fromClause.relationA,
+                    fromClause.relationB
+                )
+            )
+
+        (selectionsOnly, joinsOnly) match {
+            case (None, seq) if seq.size > 1 => seq.reduce (compileUnion (_, _))
+            case (None, seq) if seq.size == 1 => seq.head
+            case (Some (q), Nil) => q
+            case (Some (q), seq) => seq.foldLeft (q)(compileUnion (_, _))
+            case _ => null
+        }
     }
 
-    private def combineFilters[Domain <: AnyRef](filters: Seq[Seq[Predicate]]) = {
-        (for (conjunction <- filters) yield {
-            (for (filter <- conjunction) yield {
-                val fun: Domain => Boolean = filter match {
-                    case Filter (f: (Domain => Boolean), _) => f
-                    case Negation (Filter (f: (Domain => Boolean), _)) => !f (_)
-                }
-                fun
-            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
-        }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+    private def combineFilters[Domain <: AnyRef](filters: Seq[Seq[Predicate]]): Option[Domain => Boolean] = {
+        if (filters.isEmpty || filters.size == 1 && filters.head == Nil)
+            return None
+        Some (
+            (for (conjunction <- filters) yield {
+                (for (filter <- conjunction) yield {
+                    val fun: Domain => Boolean = filter match {
+                        case Filter (f: (Domain => Boolean), _) => f
+                        case Negation (Filter (f: (Domain => Boolean), _)) => !f (_)
+                    }
+                    fun
+                }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
+            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+        )
     }
 
     /**
      * discerns the different filters for different relations
      */
-    def discernFilters(cnf: Seq[Seq[Predicate]]): Map[Seq[Int], Seq[Seq[Predicate]]] =
+    def filtersByRelation(cnf: Seq[Seq[Predicate]]): Map[Seq[Int], Seq[Seq[Predicate]]] =
     {
         cnf.groupBy (
             _.map (
@@ -169,78 +194,41 @@ object Compiler
     }
 
     /**
-     * partition the predicates (given in CNF form) to (filtersOnly, SubQueriesAndFilters)
+     * partition the predicates (given in CNF form) to (filtersOnly, Others)
      */
-    private def partitionPredicates(cnf: Seq[Seq[Predicate]]): (Seq[Seq[Predicate]], Seq[Seq[Predicate]]) = {
-        cnf.partition (_.exists {
-            case Filter (_, _) => true
-            case Negation (Filter (_, _)) => true
-            case _ => false
+    private def partitionForFilters(cnf: Seq[Seq[Predicate]]): (Seq[Seq[Predicate]], Seq[Seq[Predicate]]) = {
+        val (others, filtersOnly) = cnf.partition (_.exists {
+            case Filter (_, _) => false
+            case Negation (Filter (_, _)) => false
+            case _ => true
         })
+        (filtersOnly, others)
     }
 
-    /*
-        /**
-         * For now lets just assume that joins and exist conditions are AND concatenated.
-         * For correctness we need to normalize the conditions using De Morgan and discern them.
-         */
-        def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](whereClause: WhereClause2[DomainA, DomainB, Range]): LazyView[Range] =
-        {
-            val fromClause = whereClause.fromClause
-            val selectionA = compileSelections (whereClause.conditionsA, fromClause.relationA)
-            val selectionB = compileSelections (whereClause.conditionsB, fromClause.relationB)
 
-            compileJoins (whereClause.joinConditions.filter (_.isInstanceOf[Join[DomainA, DomainB, AnyRef, AnyRef]]).asInstanceOf[Seq[Join[DomainA, DomainB, AnyRef, AnyRef]]],
-                whereClause.fromClause.selectClause.projection,
-                selectionA,
-                selectionB)
-        }
-
-        private def compileJoins[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](joinConditions: Seq[Join[DomainA, DomainB, AnyRef, AnyRef]],
-                                                                                        projection: Option[(DomainA, DomainB) => Range],
-                                                                                        relationA: LazyView[DomainA],
-                                                                                        relationB: LazyView[DomainB]
-                                                                                           ): LazyView[Range] =
-        {
-            if (joinConditions.isEmpty)
-            {
-                return compileCrossProduct (projection, relationA, relationB)
-            }
-            val leftKey = compileHashKey (joinConditions.map (_.left))
-            val rightKey = compileHashKey (joinConditions.map (_.right))
-            new HashEquiJoin (
-                Conversions.lazyViewToIndexedView (relationA),
-                Conversions.lazyViewToIndexedView (relationB),
-                leftKey,
-                rightKey,
-                projection.getOrElse ((a: DomainA, b: DomainB) => (a, b)).asInstanceOf[(DomainA, DomainB) => Range]
-            )
-        }
+    /**
+     * partition the predicates (given in CNF form) to (JoinsAndFilters, Others)
+     */
+    private def partitionForJoins(cnf: Seq[Seq[Predicate]]): (Seq[Seq[Predicate]], Seq[Seq[Predicate]]) = {
+        val (others, joinsAndFiltersOnly) = cnf.partition (_.exists {
+            case Join (_, _) => false
+            case Negation (Join (_, _)) => false
+            case Filter (_, _) => false
+            case Negation (Filter (_, _)) => false
+            case _ => true
+        })
+        (joinsAndFiltersOnly, others)
+    }
 
 
-        private def compileHashKey[Domain <: AnyRef](keyExtractors: Seq[Domain => AnyRef]): Domain => AnyRef = {
-            keyExtractors.size match {
-                case 1 => keyExtractors (0)
-                case 2 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x))
-                case 3 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x))
-                case 4 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x))
-                case 5 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x))
-                case 6 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x))
-                case 7 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x))
-                case 8 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x))
-                case 9 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x))
-                case 10 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x), keyExtractors (9)(x))
-                case _ => throw new IllegalArgumentException ("Too many join conditions for SAE")
-            }
-        }
-
-
-    */
-
-    private def compileSelection[Domain <: AnyRef](selection: Domain => Boolean,
+    private def compileSelection[Domain <: AnyRef](selection: Option[Domain => Boolean],
                                                    relation: LazyView[Domain]): LazyView[Domain] =
     {
-        new LazySelection[Domain](selection, relation)
+        selection match {
+            case Some (fun) => new LazySelection[Domain](fun, relation)
+            case None => relation
+        }
+
     }
 
 
@@ -280,5 +268,64 @@ object Compiler
         }
     }
 
+    private def compileJoins[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](predicates: Seq[Predicate],
+                                                                                    projection: Option[(DomainA, DomainB) => Range],
+                                                                                    relationA: LazyView[DomainA],
+                                                                                    relationB: LazyView[DomainB]
+                                                                                       ): LazyView[Range] =
+    {
 
+        val joins = predicates.filter (_.isInstanceOf[Join[DomainA, DomainB, _, _]]).asInstanceOf[Seq[Join[DomainA, DomainB, _, _]]]
+        if (joins.isEmpty)
+        {
+            // could happen if we have negative joins
+            return compileCrossProduct (projection, relationA, relationB)
+        }
+        val filtersA = predicates.filter ({
+            case Filter (_, 1) => true
+            case Negation (Filter (_, 1)) => true
+            case _ => false
+        })
+        val filtersB = predicates.filter ({
+            case Filter (_, 2) => true
+            case Negation (Filter (_, 2)) => true
+            case _ => false
+        })
+        val leftKey = compileHashKey (joins.map (_.left))
+        val rightKey = compileHashKey (joins.map (_.right))
+        new HashEquiJoin (
+            Conversions.lazyViewToIndexedView (
+                compileSelection (combineFilters (Seq (filtersA)), relationA)
+            ),
+            Conversions.lazyViewToIndexedView (
+                compileSelection (combineFilters (Seq (filtersB)), relationB)
+            ),
+            leftKey,
+            rightKey,
+            projection.getOrElse ((a: DomainA, b: DomainB) => (a, b)).asInstanceOf[(DomainA, DomainB) => Range]
+        )
+    }
+
+
+    private def compileHashKey[Domain <: AnyRef](keyExtractors: Seq[Domain => Any]): Domain => AnyRef = {
+        keyExtractors.size match {
+            case 1 => keyExtractors (0).asInstanceOf[Domain => AnyRef]
+            case 2 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x))
+            case 3 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x))
+            case 4 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x))
+            case 5 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x))
+            case 6 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x))
+            case 7 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x))
+            case 8 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x))
+            case 9 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x))
+            case 10 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x), keyExtractors (9)(x))
+            case _ => throw new IllegalArgumentException ("Too many join conditions for SAE")
+        }
+    }
+
+    private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: LazyView[DomainA],
+                                                                                               relationB: LazyView[DomainB]) =
+    {
+        null
+    }
 }
