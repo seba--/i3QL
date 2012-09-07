@@ -32,17 +32,15 @@
  */
 package sae.syntax.sql.ast
 
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 04.09.12
- * Time: 21:17
+ * Date: 07.09.12
+ * Time: 11:00
  */
 
-case class SubExpressionCondition2[-DomainA <: AnyRef, -DomainB <: AnyRef](conditions: Seq[Predicate])
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]
+trait BooleanOperator
+    extends WhereClauseExpression
 {
 
 }

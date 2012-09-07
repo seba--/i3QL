@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.Predicate
+import ast.predicates.Predicate
 
 /**
  * Created with IntelliJ IDEA.

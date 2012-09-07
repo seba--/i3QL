@@ -42,15 +42,15 @@ import sae.operators.SetDuplicateElimination
  * Time: 20:57
  *
  */
-trait SQL_QUERY[Domain <: AnyRef]
+trait SQL_QUERY[Range <: AnyRef]
 {
 
-    def compile(): LazyView[Domain]
+    def compile(): LazyView[Range]
 
 
-    protected def withDistinct(result: LazyView[Domain], distinct: Boolean): LazyView[Domain] = {
+    protected def withDistinct(result: LazyView[Range], distinct: Boolean): LazyView[Range] = {
         if (distinct) {
-            new SetDuplicateElimination[Domain](result)
+            new SetDuplicateElimination[Range](result)
         }
         else
         {

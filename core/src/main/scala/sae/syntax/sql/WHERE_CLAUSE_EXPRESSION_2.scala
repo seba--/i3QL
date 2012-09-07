@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.Predicate
+import ast.WhereClauseExpression
 
 /**
  * Created with IntelliJ IDEA.
@@ -61,7 +61,7 @@ trait WHERE_CLAUSE_EXPRESSION_2[DomainA <: AnyRef, DomainB <: AnyRef]
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]
 
     // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: Seq[Predicate]
+    type Representation <: Seq[WhereClauseExpression]
 
     def representation: Representation
 }

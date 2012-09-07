@@ -10,8 +10,8 @@ import sae.LazyView
  * Time: 20:08
  *
  */
-case class FromClause1[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[_ >: Domain <: AnyRef, Range],
-                                                          relation: LazyView[Domain])
+case class FromClause1[FromDomain <: AnyRef](relation: LazyView[FromDomain])
+    extends FromClause
 {
-
+    type Domain = FromDomain
 }

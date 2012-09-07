@@ -35,15 +35,11 @@ package sae.syntax.sql.ast
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:37
+ * Date: 07.09.12
+ * Time: 10:30
  */
 
-case class SelectClause2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
-                                                                                                  distinct: Boolean = false)
-    extends SelectClause[Range]
+trait WhereClauseExpression
 {
-    type DomainA = SelectionDomainA
 
-    type DomainB = SelectionDomainB
 }

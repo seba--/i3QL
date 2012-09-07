@@ -10,9 +10,13 @@ import sae.LazyView
  * Time: 20:08
  *
  */
-case class FromClause2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[_ >: DomainA <: AnyRef, _ >: DomainB <: AnyRef, Range],
-                                                                              relationA: LazyView[DomainA],
-                                                                              relationB: LazyView[DomainB])
+case class FromClause2[FromDomainA <: AnyRef, FromDomainB <: AnyRef](relationA: LazyView[FromDomainA],
+                                                                     relationB: LazyView[FromDomainB])
+    extends FromClause
 {
+
+    type DomainA = FromDomainA
+
+    type DomainB = FromDomainB
 
 }

@@ -1,8 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
-import sae.syntax.sql.ast.WhereClause1
-import sae.syntax.sql.ast.Filter
+import predicates.Filter
 import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION, WHERE_CLAUSE}
 
 /**
@@ -12,43 +11,31 @@ import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION, WHERE_CLAUSE}
  * Time: 16:42
  */
 
-case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](whereClause: WhereClause1[Domain, Range])
+case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](query: SQLQuery[Range])
     extends WHERE_CLAUSE[Domain, Range]
 {
     def AND(predicate: (Domain) => Boolean) =
         WhereClause1Syntax (
-            WhereClause1 (
-                whereClause.fromClause,
-                whereClause.conditions ++ Seq (AndOperator, Filter (predicate))
-            )
+            query.append (AndOperator, Filter (predicate))
         )
 
     def OR(predicate: (Domain) => Boolean) =
         WhereClause1Syntax (
-            WhereClause1 (
-                whereClause.fromClause,
-                whereClause.conditions ++ Seq (OrOperator, Filter (predicate))
-            )
+            query.append (OrOperator, Filter (predicate))
         )
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Syntax (
-            WhereClause1 (
-                whereClause.fromClause,
-                whereClause.conditions ++ Seq (AndOperator, subExpression)
-            )
+            query.append (AndOperator, subExpression)
         )
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Syntax (
-            WhereClause1 (
-                whereClause.fromClause,
-                whereClause.conditions ++ Seq (OrOperator, subExpression)
-            )
+            query.append (OrOperator, subExpression)
         )
 
 
-    def compile() = Compiler (whereClause)
+    def compile() = Compiler (query)
 
 
 }

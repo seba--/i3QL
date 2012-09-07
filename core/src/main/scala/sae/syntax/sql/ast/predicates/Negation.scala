@@ -30,16 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.ast.predicates
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 20:46
+ * Date: 07.09.12
+ * Time: 10:35
  */
 
-trait Predicate
+case class Negation[-Domain <: AnyRef](predicate: Predicate)
+    extends Predicate
 {
 
 }

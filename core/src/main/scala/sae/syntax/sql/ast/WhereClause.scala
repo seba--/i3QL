@@ -35,12 +35,14 @@ package sae.syntax.sql.ast
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 20:45
+ * Date: 07.09.12
+ * Time: 10:47
  */
 
-case class WhereClause1[Domain <: AnyRef, Range <: AnyRef](fromClause: FromClause1[Domain, Range],
-                                                           conditions: Seq[Predicate])
+trait WhereClause
 {
-
+    def expressions: Seq[WhereClauseExpression]
 }
+
+case class WhereClauseSequence(expressions: Seq[WhereClauseExpression])
+    extends WhereClause

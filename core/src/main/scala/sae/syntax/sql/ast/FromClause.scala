@@ -32,17 +32,14 @@
  */
 package sae.syntax.sql.ast
 
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.09.12
- * Time: 20:41
+ * Date: 07.09.12
+ * Time: 10:44
  */
 
-case class NegatedSubExpression2[-DomainA <: AnyRef, -DomainB <: AnyRef](subExpression: Predicate)
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]
+trait FromClause
 {
 
 }

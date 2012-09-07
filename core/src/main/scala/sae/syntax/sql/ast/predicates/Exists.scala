@@ -30,20 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.ast.predicates
+
+import sae.syntax.sql.ast.SQLQuery
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:37
+ * Date: 07.09.12
+ * Time: 10:38
  */
 
-case class SelectClause2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
-                                                                                                  distinct: Boolean = false)
-    extends SelectClause[Range]
+case class Exists[Range <: AnyRef](subQuery: SQLQuery[Range])
+    extends Predicate
 {
-    type DomainA = SelectionDomainA
 
-    type DomainB = SelectionDomainB
 }

@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.{JOIN_CONDITION, WHERE_CLAUSE_COMPARATOR}
-import sae.syntax.sql.ast.JoinCondition
+import sae.syntax.sql.ast.predicates.Join
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,6 +48,6 @@ case class WhereClauseComparator[Domain <: AnyRef, Range](left: Domain => Range)
     def === (right: Range) = (x: Domain) => left (x) == right
 
     def ===[OtherDomain <: AnyRef, OtherRange] (right: (OtherDomain) => OtherRange): JOIN_CONDITION[Domain, OtherDomain, Range, OtherRange] =
-        JoinCondition (left, right)
+        Join (left, right)
 
 }

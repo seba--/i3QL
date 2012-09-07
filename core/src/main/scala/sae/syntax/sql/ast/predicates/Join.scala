@@ -30,20 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.ast.predicates
+
+import sae.syntax.sql.JOIN_CONDITION
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:37
+ * Date: 23.08.12
+ * Time: 08:53
  */
 
-case class SelectClause2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
-                                                                                                  distinct: Boolean = false)
-    extends SelectClause[Range]
+case class Join[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB](left: DomainA => RangeA, right: DomainB => RangeB)
+    extends JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
+    with Predicate
 {
-    type DomainA = SelectionDomainA
 
-    type DomainB = SelectionDomainB
 }

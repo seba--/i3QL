@@ -40,7 +40,9 @@ package sae.syntax.sql.ast
  */
 
 case class SelectClause1[SelectionDomain <: AnyRef, Range <: AnyRef](projection: Option[SelectionDomain => Range] = None,
-                                                                    distinct: Boolean = false)
+                                                                     distinct: Boolean = false)
+    extends SelectClause[Range]
 {
 
+    type Domain = SelectionDomain
 }

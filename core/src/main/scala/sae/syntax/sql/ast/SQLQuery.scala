@@ -32,17 +32,29 @@
  */
 package sae.syntax.sql.ast
 
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+import predicates.Predicate
+import sae.syntax.sql.SQL_QUERY
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 04.09.12
- * Time: 21:17
+ * Date: 07.09.12
+ * Time: 10:39
  */
 
-case class SubExpressionCondition1[-Domain <: AnyRef](conditions: Seq[Predicate])
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
+case class SQLQuery[Range <: AnyRef](selectClause: SelectClause[Range], fromClause: FromClause, whereClause: Option[WhereClause])
+    extends SQL_QUERY[Range]
 {
+    def compile() = Compiler (this)
 
+
+    def append (op: BooleanOperator, pred: Predicate): SQLQuery[Range] =
+        SQLQuery (this.selectClause,
+            this.fromClause,
+            Some (
+                WhereClauseSequence (
+                    this.whereClause.getOrElse (WhereClauseSequence (Nil)).expressions ++ Seq (op, pred)
+                )
+            )
+        )
 }

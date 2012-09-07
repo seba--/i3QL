@@ -30,19 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
-
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+package sae.syntax.sql.ast.predicates
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.09.12
- * Time: 20:41
+ * Date: 07.09.12
+ * Time: 10:47
  */
 
-case class NegatedSubExpression1[-Domain <: AnyRef](subExpression: Predicate)
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
+case class Parenthesis(conditions: Seq[Predicate])
 {
 
 }

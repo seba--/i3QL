@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.{WHERE_CLAUSE_EXPRESSION, WHERE_CLAUSE_FINAL_SUB_EXPRESSION}
 import sae.syntax.sql.ast._
-import sae.syntax.sql.ast.Filter
+import predicates.{Filter, Predicate}
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +11,7 @@ import sae.syntax.sql.ast.Filter
  * Time: 20:41
  *
  */
-case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[Predicate])
+case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[WhereClauseExpression])
     extends WHERE_CLAUSE_EXPRESSION[Domain]
 {
     def AND(predicate: (Domain) => Boolean) =
@@ -27,7 +27,7 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[Predicate])
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
         WhereClause1Expression (conditions ++ Seq (OrOperator, subExpression))
 
-    type Representation = Seq[Predicate]
+    type Representation = Seq[WhereClauseExpression]
 
     def representation = conditions
 }

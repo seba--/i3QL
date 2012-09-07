@@ -32,18 +32,14 @@
  */
 package sae.syntax.sql.ast
 
-import sae.syntax.sql.JOIN_CONDITION
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 08:53
+ * Date: 07.09.12
+ * Time: 10:45
  */
 
-case class JoinCondition[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](left: DomainA => RangeA, right: DomainB => RangeB)
-    extends JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
-    with Predicate
+trait SelectClause[Range <: AnyRef]
 {
 
 }

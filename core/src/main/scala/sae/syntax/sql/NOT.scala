@@ -32,9 +32,6 @@
  */
 package sae.syntax.sql
 
-import ast.Filter
-import ast.NegatedSubExpression1
-import ast.NegatedSubExpression2
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,16 +44,24 @@ object NOT
 {
 
     def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        NegatedSubExpression1[Domain](Filter (predicate))
+        null
+
+    //Negation (Filter (predicate))
 
     def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        NegatedSubExpression2[DomainA, DomainB](join)
+        null
+
+    //Negation (join)
 
     def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        NegatedSubExpression1 (where_clause_expression)
+        null
+
+    //Negation (where_clause_expression)
 
     def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        NegatedSubExpression2 (where_clause_expression)
+        null
+
+    //Negation (where_clause_expression)
 
 
 }

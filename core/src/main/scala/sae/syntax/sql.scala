@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.ast.{SubExpressionCondition2, SubExpressionCondition1, Filter}
+import sql.ast.predicates.Filter
 import sql.impl.{WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
 
 /**
@@ -42,10 +42,14 @@ package object sql
         WhereClause2Expression (Seq (join))
 
     implicit def whereClauseExpressionToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        SubExpressionCondition1 (expression.representation)
+        null
+
+    //SubExpressionCondition1 (expression.representation)
 
     implicit def whereClauseExpressionToFinalSubExpression2[DomainA <: AnyRef, DomainB <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        SubExpressionCondition2 (expression.representation)
+        null
+
+    //SubExpressionCondition2 (expression.representation)
 
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =

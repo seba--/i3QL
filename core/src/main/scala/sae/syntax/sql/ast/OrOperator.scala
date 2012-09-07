@@ -1,5 +1,7 @@
 package sae.syntax.sql.ast
 
+import predicates.Predicate
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -8,7 +10,7 @@ package sae.syntax.sql.ast
  */
 
 object OrOperator
-    extends Predicate
+    extends BooleanOperator
 {
 
 }
