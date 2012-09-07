@@ -39,7 +39,7 @@ package sae.syntax.sql.ast
  * Time: 19:37
  */
 
-case class SelectClause2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
+case class SelectClause2[-SelectionDomainA <: AnyRef, -SelectionDomainB <: AnyRef, Range <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
                                                                                                   distinct: Boolean = false)
     extends SelectClause[Range]
 {

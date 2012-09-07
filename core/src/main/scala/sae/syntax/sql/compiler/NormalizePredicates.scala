@@ -68,6 +68,10 @@ object NormalizePredicates
             case x => Seq (x)
         }).flatten
 
+        if (eliminatedNegations.size < 3) {
+            return eliminatedNegations
+        }
+
         val afterSubExpressionElimination =
             for (window <- eliminatedNegations.sliding (3)) yield
             {

@@ -30,19 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.ast.predicates
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:37
+ * Date: 07.09.12
+ * Time: 15:18
  */
 
-case class SelectClause1[-SelectionDomain <: AnyRef, Range <: AnyRef](projection: Option[SelectionDomain => Range] = None,
-                                                                     distinct: Boolean = false)
-    extends SelectClause[Range]
+trait SubQueryPredicate
+    extends Predicate
 {
 
-    type Domain = SelectionDomain
 }

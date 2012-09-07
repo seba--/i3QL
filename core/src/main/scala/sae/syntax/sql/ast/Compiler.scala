@@ -32,9 +32,11 @@
  */
 package sae.syntax.sql.ast
 
+import predicates.{Filter, Negation}
 import sae.{SetRelation, LazyView}
 import sae.operators._
 import scala.Some
+import sae.syntax.sql.compiler.NormalizePredicates
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,31 +49,28 @@ object Compiler
 {
 
     def apply[Range <: AnyRef](query: SQLQuery[Range]): LazyView[Range] = {
-        null
-        /*
         query match {
             case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], None) => compileNoWhere1 (
-                select,
+                select.asInstanceOf[SelectClause1[from.Domain, Range]],
                 from
             )
             case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], Some (where)) => compile1 (
-                select,
+                select.asInstanceOf[SelectClause1[from.Domain, Range]],
                 from,
                 where)
             case SQLQuery (select: SelectClause2[_, _, Range], from: FromClause2[_, _], None) => compileNoWhere2 (
-                select,
+                select.asInstanceOf[SelectClause2[from.DomainA, from.DomainB, Range]],
                 from
             )
             case SQLQuery (select: SelectClause2[_, _, Range], from: FromClause2[_, _], Some (where)) => compile2 (
-                select,
+                select.asInstanceOf[SelectClause2[from.DomainA, from.DomainB, Range]],
                 from,
                 where)
         }
-        */
     }
 
-    private def compileNoWhere1[Domain <: AnyRef, SelectionDomain >: Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range],
-                                                                                                        fromClause: FromClause1[Domain]): LazyView[Range] =
+    private def compileNoWhere1[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[Domain, Range],
+                                                                   fromClause: FromClause1[Domain]): LazyView[Range] =
     {
         compileDistinct (
             compileProjection (
@@ -82,8 +81,8 @@ object Compiler
         )
     }
 
-    private def compileNoWhere2[DomainA <: AnyRef, SelectionDomainA >: DomainA <: AnyRef, DomainB <: AnyRef, SelectionDomainB >: DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[SelectionDomainA, SelectionDomainB, Range],
-                                                                                                                                                                     fromClause: FromClause2[DomainA, DomainB]): LazyView[Range] =
+    private def compileNoWhere2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[DomainA, DomainB, Range],
+                                                                                       fromClause: FromClause2[DomainA, DomainB]): LazyView[Range] =
     {
         compileDistinct (
             compileCrossProduct (
@@ -96,22 +95,39 @@ object Compiler
     }
 
 
-    private def compile1[Domain <: AnyRef, SelectionDomain >: Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range],
-                                                                                                 fromClause: FromClause1[Domain],
-                                                                                                 whereClause: WhereClause): LazyView[Range] =
+    private def compile1[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[Domain, Range],
+                                                            fromClause: FromClause1[Domain],
+                                                            whereClause: WhereClause): LazyView[Range] =
     {
-        val selection = null
+        val cnf = NormalizePredicates (whereClause.expressions)
+        val (filters, subQueries) = cnf.partition (_.exists {
+            case f: Filter[_] => true
+            case Negation (f: Filter[_]) => true
+            case _ => false
+        })
+
+        val fun =
+            (for (conjunction <- filters) yield {
+                (for (filter <- conjunction) yield {
+                    val fun: Domain => Boolean = filter match {
+                        case Filter (f: (Domain => Boolean)) => f
+                        case Negation (Filter (f: (Domain => Boolean))) => !f (_)
+                    }
+                    fun
+                }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
+            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+
         compileDistinct (
             compileProjection (
                 selectClause.projection,
-                selection),
+                compileSelection (fun, fromClause.relation)),
             selectClause.distinct
         )
     }
 
-    private def compile2[DomainA <: AnyRef, SelectionDomainA >: DomainA <: AnyRef, DomainB <: AnyRef, SelectionDomainB >: DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[SelectionDomainA, SelectionDomainB, Range],
-                                                                                                                                                              fromClause: FromClause2[DomainA, DomainB],
-                                                                                                                                                              whereClause: WhereClause): LazyView[Range] =
+    private def compile2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[DomainA, DomainB, Range],
+                                                                                fromClause: FromClause2[DomainA, DomainB],
+                                                                                whereClause: WhereClause): LazyView[Range] =
     {
         compileDistinct (
             compileCrossProduct (
@@ -296,6 +312,13 @@ object Compiler
         }
     }
     */
+
+    private def compileSelection[Domain <: AnyRef](selection: Domain => Boolean,
+                                                   relation: LazyView[Domain]): LazyView[Domain] =
+    {
+        new LazySelection[Domain](selection, relation)
+    }
+
 
     private def compileProjection[Domain <: AnyRef, Range <: AnyRef](projection: Option[(Domain) => Range],
                                                                      relation: LazyView[Domain]): LazyView[Range] =
