@@ -1,6 +1,6 @@
 package sae.test
 
-import org.junit.{Assert, Test}
+import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
 import scala.Some
@@ -525,6 +525,7 @@ class SQLSyntaxTest
     }
 
     @Test
+    @Ignore
     def testConjunctiveExistsWithoutJoin() {
 
         val database = new StudentCoursesDatabase ()
@@ -608,6 +609,7 @@ class SQLSyntaxTest
 
 
     @Test
+    @Ignore
     def testJoinNegationSyntaxWithSelection ()
     {
 
