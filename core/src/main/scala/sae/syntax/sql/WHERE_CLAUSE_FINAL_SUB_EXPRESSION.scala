@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.WhereClauseExpression
+import ast.predicates.Predicate
 
 
 /**
@@ -46,7 +46,7 @@ trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION[-Domain <: AnyRef]
 {
 
     // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: Seq[WhereClauseExpression]
+    type Representation <: Predicate
 
     def representation: Representation
 }

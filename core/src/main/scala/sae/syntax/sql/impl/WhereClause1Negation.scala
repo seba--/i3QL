@@ -30,17 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast.predicates
+package sae.syntax.sql.impl
+
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+import sae.syntax.sql.ast.predicates.{Predicate, Negation}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 07.09.12
- * Time: 10:35
+ * Date: 08.09.12
+ * Time: 11:13
  */
 
-case class Negation(predicate: Predicate)
-    extends Predicate
+case class WhereClause1Negation[-Domain <: AnyRef](predicate: Predicate)
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
 {
+    type Representation = Negation
 
+    def representation = Negation (predicate)
 }
+

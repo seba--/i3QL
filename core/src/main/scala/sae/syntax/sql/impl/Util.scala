@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast.WhereClauseExpression
-import sae.syntax.sql.ast.predicates.{WhereClauseSequence, Negation, Filter}
+import sae.syntax.sql.ast.predicates.{Predicate, WhereClauseSequence, Negation, Filter}
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,14 +44,21 @@ import sae.syntax.sql.ast.predicates.{WhereClauseSequence, Negation, Filter}
 
 object Util
 {
-    def mapFiltersTo2[Domain <: AnyRef](expression: Seq[WhereClauseExpression]): Seq[WhereClauseExpression] = {
+    def filtersToOtherRelation[Domain <: AnyRef](predicate: Predicate, from: Int, to: Int): Predicate = {
+        predicate match {
+            case Filter (f, `from`) => Filter (f.asInstanceOf[Domain => Boolean], to)
+            case WhereClauseSequence (expressions) => WhereClauseSequence (sequenceFiltersToOtherRelation (expressions, from, to))
+            case Negation (pred) => Negation (filtersToOtherRelation (pred, from, to))
+        }
+    }
+
+
+    def sequenceFiltersToOtherRelation[Domain <: AnyRef](expression: Seq[WhereClauseExpression], from: Int, to: Int): Seq[WhereClauseExpression] = {
         expression.map (_ match {
-            case Filter (f, 1) => Filter (f.asInstanceOf[Domain => Boolean], 2) // syntax makes sure of this type
-            case Negation (Filter (f, 1)) => Negation (Filter (f.asInstanceOf[Domain => Boolean], 2)) // syntax makes sure of this type
-            case WhereClauseSequence (sub) => WhereClauseSequence (mapFiltersTo2 (sub))
-            case Negation (WhereClauseSequence (sub)) => Negation (WhereClauseSequence (mapFiltersTo2 (sub)))
+            case p: Predicate => filtersToOtherRelation (p, from, to)
             case x => x
         }
         )
     }
+
 }

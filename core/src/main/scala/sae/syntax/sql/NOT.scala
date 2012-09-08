@@ -32,6 +32,9 @@
  */
 package sae.syntax.sql
 
+import ast.predicates.Filter
+import impl.{WhereClause2Negation, WhereClause1Negation}
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,24 +47,15 @@ object NOT
 {
 
     def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        null
+        WhereClause1Negation (Filter (predicate, 1))
 
-    //Negation (Filter (predicate))
+    def apply[Domain <: AnyRef](subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
+        WhereClause1Negation (subExpression.representation)
 
     def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        null
+        WhereClause2Negation (join)
 
-    //Negation (join)
-
-    def apply[Domain <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
-        null
-
-    //Negation (where_clause_expression)
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](where_clause_expression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
-        null
-
-    //Negation (where_clause_expression)
-
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef](subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
+        WhereClause2Negation (subExpression.representation)
 
 }

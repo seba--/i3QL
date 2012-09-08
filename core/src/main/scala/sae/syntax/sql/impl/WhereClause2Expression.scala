@@ -29,12 +29,12 @@ case class WhereClause2Expression[DomainA <: AnyRef, DomainB <: AnyRef](conditio
         WhereClause2Expression (conditions ++ Seq (OrOperator, join))
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
-        WhereClause2Expression (conditions ++ Seq (AndOperator, WhereClauseSequence (subExpression.representation)))
+        WhereClause2Expression (conditions ++ Seq (AndOperator, subExpression.representation))
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
-        WhereClause2Expression (conditions ++ Seq (OrOperator, WhereClauseSequence (subExpression.representation)))
+        WhereClause2Expression (conditions ++ Seq (OrOperator, subExpression.representation))
 
-    type Representation = Seq[WhereClauseExpression]
+    type Representation = WhereClauseSequence
 
-    def representation = conditions
+    def representation = WhereClauseSequence (conditions)
 }

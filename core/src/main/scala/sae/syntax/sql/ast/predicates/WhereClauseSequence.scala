@@ -37,3 +37,12 @@ import sae.syntax.sql.ast.{WhereClause, WhereClauseExpression}
 case class WhereClauseSequence(expressions: Seq[WhereClauseExpression])
     extends WhereClause
     with Predicate
+    with Seq[WhereClauseExpression]
+{
+
+    def length = expressions.length
+
+    def iterator = expressions.iterator
+
+    override def apply(idx: Int) = expressions(idx)
+}

@@ -38,41 +38,35 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
         WhereClause2Syntax (
-            query.append (AndOperator, WhereClauseSequence (subExpression.representation))
+            query.append (AndOperator, subExpression.representation)
         )
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB]) =
         WhereClause2Syntax (
-            query.append (OrOperator, WhereClauseSequence (subExpression.representation))
+            query.append (OrOperator, subExpression.representation)
         )
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[DomainB]) =
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[DomainB]) = {
+        val newSubExpression = subExpression.representation match {
+            // special case, if we started with a filter we need to map all filters to the second relation
+            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
+            case x => x
+        }
         WhereClause1From2Syntax (
-            if (subExpression.representation.head.isInstanceOf[Filter[DomainB]])
-            {
-                // special case, if we started with a filter we need to map all filters to the second relation
-                query.append (AndOperator, WhereClauseSequence (Util.mapFiltersTo2[DomainB](subExpression.representation)))
-            }
-            else
-            {
-                // in this case we have started out with a join or else the DomainA, and ended at DomainB, hence the filters all apply to correct relations
-                query.append (AndOperator, WhereClauseSequence (subExpression.representation))
-            }
+            query.append (AndOperator, newSubExpression)
         )
+    }
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[DomainB]) =
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[DomainB]) = {
+        val newSubExpression = subExpression.representation match {
+            // special case, if we started with a filter we need to map all filters to the second relation
+            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
+            case x => x
+        }
         WhereClause1From2Syntax (
-            if (subExpression.representation.head.isInstanceOf[Filter[DomainB]])
-            {
-                // special case, if we started with a filter we need to map all filters to the second relation
-                query.append (OrOperator, WhereClauseSequence (Util.mapFiltersTo2[DomainB](subExpression.representation)))
-            }
-            else
-            {
-                // in this case we have started out with a join or else the DomainA, and ended at DomainB, hence the filters all apply to correct relations
-                query.append (OrOperator, WhereClauseSequence (subExpression.representation))
-            }
+            query.append (OrOperator, newSubExpression)
         )
+    }
 
     def compile() = Compiler (query)
 

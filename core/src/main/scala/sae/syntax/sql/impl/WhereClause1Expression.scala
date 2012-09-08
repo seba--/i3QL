@@ -23,12 +23,12 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[WhereClauseE
 
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
-        WhereClause1Expression (conditions ++ Seq (AndOperator, WhereClauseSequence (subExpression.representation)))
+        WhereClause1Expression (conditions ++ Seq (AndOperator, subExpression.representation))
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
-        WhereClause1Expression (conditions ++ Seq (OrOperator, WhereClauseSequence (subExpression.representation)))
+        WhereClause1Expression (conditions ++ Seq (OrOperator, subExpression.representation))
 
-    type Representation = Seq[WhereClauseExpression]
+    type Representation = WhereClauseSequence
 
-    def representation = conditions
+    def representation = WhereClauseSequence(conditions)
 }
