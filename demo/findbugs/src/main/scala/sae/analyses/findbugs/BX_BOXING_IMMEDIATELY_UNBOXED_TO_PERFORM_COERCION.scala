@@ -41,31 +41,6 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
             (_.declaringMethod.name.endsWith ("Value"))
     }
 
-    /*
-        def analyze(project: Project) = {
-            val classFiles: Traversable[ClassFile] = project.classFiles
-            for (classFile ← classFiles if classFile.majorVersion >= 49;
-                 method ← classFile.methods if method.body.isDefined;
-                 Seq (
-                 (INVOKESPECIAL (firstReceiver, _, MethodDescriptor (Seq (paramType), _)), _),
-                 (INVOKEVIRTUAL (secondReceiver, name, MethodDescriptor (Seq (), returnType)), idx)
-                 ) ← withIndex (method.body.get.instructions).sliding (2)
-                 if (
-                     !paramType.isReferenceType &&
-                         firstReceiver.asInstanceOf[ObjectType].className.startsWith ("java/lang") &&
-                         firstReceiver == secondReceiver &&
-                         name.endsWith ("Value") &&
-                         returnType != paramType // coercion to another type performed
-                     )
-            ) yield
-            {
-                ("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION",
-                    classFile.thisClass.toJava + "." +
-                        method.name +
-                        method.descriptor.toUMLNotation, idx)
-            }
-        }
-    */
     /**
      * ###### FindBugs Code
      */
