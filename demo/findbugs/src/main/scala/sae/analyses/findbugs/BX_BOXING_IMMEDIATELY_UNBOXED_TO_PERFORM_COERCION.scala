@@ -3,8 +3,6 @@ package sae.analyses.findbugs
 import sae.bytecode._
 import sae.LazyView
 import sae.syntax.sql._
-import de.tud.cs.st.bat.resolved.ObjectType
-
 
 /**
  *
@@ -36,7 +34,7 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
             NOT (firstParamType === returnType) AND
             (_.declaringMethod.declaringClass.majorVersion >= 49 ) AND
             (!_.receiverType.isReferenceType) AND
-            (_.receiverType.asInstanceOf[ObjectType].className.startsWith ("java/lang")) AND
+            (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND
             ((_: INVOKEVIRTUAL).parameterTypes == Nil) AND
             (_.declaringMethod.name.endsWith ("Value"))
     }
