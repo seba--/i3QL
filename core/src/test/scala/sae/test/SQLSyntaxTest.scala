@@ -1,6 +1,6 @@
 package sae.test
 
-import org.junit.{Ignore, Assert, Test}
+import org.junit.{Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
 import scala.Some
@@ -525,7 +525,88 @@ class SQLSyntaxTest
     }
 
     @Test
-    def testJoinNegationSyntaxWithSelection() {
+    def testConjunctiveExistsWithoutJoin() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[Student] =
+            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (SELECT (*) FROM (enrollments) WHERE (_.StudentId == 12346))
+
+        Assert.assertEquals (
+            List (
+                (sally)
+            ),
+            query.asList
+        )
+    }
+
+    @Test
+    def testConjunctiveExistsWithJoin ()
+    {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[Enrollment, Enrollment, Student] = SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id)
+
+        val query1: LazyView[Student] =
+            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (subQuery)
+
+        val query2: LazyView[Student] =
+            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND
+                EXISTS (SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id))
+
+        Assert.assertEquals (
+            List (
+                (sally)
+            ),
+            query1.asList
+        )
+
+        Assert.assertEquals (
+            List (
+                (sally)
+            ),
+            query2.asList
+        )
+
+    }
+
+    @Test
+    def testDisjunctiveExistsWithoutJoin() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[Student] =
+            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND NOT (EXISTS (SELECT (*) FROM (enrollments) WHERE (_.StudentId == 12346)))
+
+        Assert.assertEquals (
+            List (),
+            query.asList
+        )
+    }
+
+
+    @Test
+    def testJoinNegationSyntaxWithSelection ()
+    {
 
         val database = new StudentCoursesDatabase ()
 
@@ -543,33 +624,6 @@ class SQLSyntaxTest
             ),
             query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
         )
-    }
-
-    @Test
-    @Ignore
-    def testSubQueryJoinOpenSyntax() {
-
-        val database = new StudentCoursesDatabase ()
-
-        import database._
-
-        val students = database.students.copy // make a local copy
-
-        val enrollments = database.enrollments.copy // make a local copy
-
-        val join1 = ((_: Enrollment).StudentId) === ((_: Student).Id)
-
-        val subQuery1 = SELECT (*) FROM (enrollments) WHERE join1
-
-        val query: LazyView[(Enrollment, Student)] =
-            SELECT (*) FROM (enrollments, students) WHERE join1
-
-        val join2 = ((_: Enrollment).CourseId) === ((_: Course).Id)
-
-        val subQuery2 = SELECT (*) FROM (enrollments, students) WHERE join2
-
-        //val queryWithSub = SELECT (*) FROM (students) WHERE EXISTS (subQuery1)
-
     }
 
 }

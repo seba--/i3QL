@@ -41,7 +41,7 @@ package object sql
     implicit def joinToInlineWhereClause[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
         WhereClause2Expression (Seq (join))
 
-    implicit def whereClauseExpressionToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
+    implicit def whereClauseExpressionToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain] =
         WhereClause1Expression (expression.representation)
 
     implicit def whereClauseExpressionToFinalSubExpression2[DomainA <: AnyRef, DomainB <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =

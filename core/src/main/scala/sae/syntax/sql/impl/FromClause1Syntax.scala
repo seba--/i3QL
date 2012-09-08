@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.LazyView
-import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, EXISTS_SUB_CLAUSE, SQL_SUB_QUERY_WHERE_OPEN_1, FROM_CLAUSE}
+import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, FROM_CLAUSE}
 import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter}
 import sae.syntax.sql.ast.FromClause1
@@ -35,10 +35,8 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
             )
         )
 
-    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
+    def WHERE[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
         null
-
-    def WHERE[SubDomain <: AnyRef, SubRange <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[SubDomain, SubRange, Domain] with EXISTS_SUB_CLAUSE) {}
 
     def compile() = Compiler (
         SQLQuery (selectClause, this.toAst, None)

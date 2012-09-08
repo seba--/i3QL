@@ -34,15 +34,19 @@ package sae.syntax.sql
 
 import ast.predicates.Predicate
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 19:04
+ * Date: 05.08.12
+ * Time: 16:41
  */
 
-trait JOIN_CONDITION_NEGATIVE[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
-    extends Predicate
+trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
 {
 
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: Predicate
+
+    def representation: Representation
 }

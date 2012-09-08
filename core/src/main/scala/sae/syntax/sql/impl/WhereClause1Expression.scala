@@ -1,6 +1,6 @@
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.{WHERE_CLAUSE_EXPRESSION, WHERE_CLAUSE_FINAL_SUB_EXPRESSION}
+import sae.syntax.sql.{WHERE_CLAUSE_EXPRESSION, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1}
 import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter}
 
@@ -13,7 +13,7 @@ import predicates.{WhereClauseSequence, Filter}
  */
 case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[WhereClauseExpression])
     extends WHERE_CLAUSE_EXPRESSION[Domain]
-    with WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
+    with WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]
 {
     def AND(predicate: (Domain) => Boolean) =
         WhereClause1Expression (conditions ++ Seq (AndOperator, Filter (predicate, 1)))
@@ -22,10 +22,10 @@ case class WhereClause1Expression[Domain <: AnyRef](conditions: Seq[WhereClauseE
         WhereClause1Expression (conditions ++ Seq (OrOperator, Filter (predicate, 1)))
 
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]) =
         WhereClause1Expression (conditions ++ Seq (AndOperator, subExpression.representation))
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]) =
         WhereClause1Expression (conditions ++ Seq (OrOperator, subExpression.representation))
 
     type Representation = WhereClauseSequence

@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1
 import sae.syntax.sql.ast.predicates.{Predicate, Negation}
 
 /**
@@ -43,7 +43,7 @@ import sae.syntax.sql.ast.predicates.{Predicate, Negation}
  */
 
 case class WhereClause1Negation[-Domain <: AnyRef](predicate: Predicate)
-    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]
 {
     type Representation = Negation
 

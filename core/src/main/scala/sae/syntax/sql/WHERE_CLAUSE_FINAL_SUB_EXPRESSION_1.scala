@@ -42,7 +42,7 @@ import ast.predicates.Predicate
  * Time: 16:41
  */
 
-trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION[-Domain <: AnyRef]
+trait WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[-Domain <: AnyRef]
 {
 
     // TODO this is one point where the syntax is no abstract from the implementation

@@ -30,37 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
-import ast.WhereClauseExpression
-
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
+import sae.syntax.sql.ast.predicates.{Predicate, Negation}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.08.12
- * Time: 16:41
- *
- * To avoid ambiguities when applying implicit conversions subexpressions have an explicit start that is not
- * accepted as parameter. Thus anonymous functions will always be treated as applied to the actual where clause (or the subexpresion they are part of).
- * In other words, there are no subexpressions without an AND or OR.
- * Also a consequence multiple parenthesis over a single expression will always just apply the inner expression.
- *
- * WARNING: This looks like a supertype for WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, but is explicitly there so the two types will not subtype
+ * Date: 08.09.12
+ * Time: 11:13
  */
-trait WHERE_CLAUSE_EXPRESSION[Domain <: AnyRef]
+
+case class WhereClause0Negation(predicate: Predicate)
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
 {
+    type Representation = Negation
 
-    def AND(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
-
-    def OR(predicate: Domain => Boolean): WHERE_CLAUSE_EXPRESSION[Domain]
-
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
-
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE_EXPRESSION[Domain]
-
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: Seq[WhereClauseExpression]
-
-    def representation: Representation
+    def representation = Negation (predicate)
 }
+

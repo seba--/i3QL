@@ -17,7 +17,11 @@ trait WHERE_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def OR(predicate: Domain => Boolean): WHERE_CLAUSE[Domain, Range]
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE[Domain, Range]
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0): WHERE_CLAUSE[Domain, Range]
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE[Domain, Range]
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0): WHERE_CLAUSE[Domain, Range]
+
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE[Domain, Range]
+
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE[Domain, Range]
 }

@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
 import predicates.Filter
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,12 +24,12 @@ case class WhereClause1From2Syntax[Domain <: AnyRef, Range <: AnyRef](override v
             query.append (OrOperator, Filter (predicate, 2))
         )
 
-    override def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
+    override def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]) =
         WhereClause1From2Syntax (
             query.append (AndOperator, Util.filtersToOtherRelation[Domain](subExpression.representation, 1, 2))
         )
 
-    override def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]) =
+    override def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]) =
         WhereClause1From2Syntax (
             query.append (OrOperator, Util.filtersToOtherRelation[Domain](subExpression.representation, 1, 2))
         )

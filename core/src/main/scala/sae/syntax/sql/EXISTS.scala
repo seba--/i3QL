@@ -33,7 +33,6 @@
 package sae.syntax.sql
 
 
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -44,7 +43,16 @@ package sae.syntax.sql
 object EXISTS
 {
 
-    def apply[Domain <: AnyRef, Range <: AnyRef, OpenDomain <: AnyRef](subQuery : SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain]) :
-        SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain] with EXISTS_SUB_CLAUSE = null
+    def apply[Range <: AnyRef](query: SQL_QUERY[Range]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0 =
+    {
+        null
+    }
+
+
+    def apply[Domain <: AnyRef, Range <: AnyRef, OpenDomain <: AnyRef](subQuery: SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, OpenDomain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[OpenDomain] =
+    {
+        null
+    }
+
 
 }

@@ -33,7 +33,7 @@
 package sae.syntax.sql
 
 import ast.predicates.Filter
-import impl.{WhereClause2Negation, WhereClause1Negation}
+import impl.{WhereClause0Negation, WhereClause2Negation, WhereClause1Negation}
 
 
 /**
@@ -46,10 +46,13 @@ import impl.{WhereClause2Negation, WhereClause1Negation}
 object NOT
 {
 
-    def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
+    def apply(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0 =
+        WhereClause0Negation (subExpression.representation)
+
+    def apply[Domain <: AnyRef] (predicate: Domain => Boolean): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain] =
         WhereClause1Negation (Filter (predicate, 1))
 
-    def apply[Domain <: AnyRef](subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION[Domain] =
+    def apply[Domain <: AnyRef](subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain] =
         WhereClause1Negation (subExpression.representation)
 
     def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
