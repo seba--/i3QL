@@ -558,7 +558,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val subQuery: SQL_QUERY_UNBOUND_1[Enrollment, Enrollment, Student] = SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id)
+        val subQuery: SQL_QUERY_UNBOUND_1[Enrollment, Student, Enrollment] = SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id)
 
         val query1: LazyView[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (subQuery)
