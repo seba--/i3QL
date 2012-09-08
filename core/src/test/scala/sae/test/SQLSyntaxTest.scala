@@ -563,6 +563,7 @@ class SQLSyntaxTest
         val query1: LazyView[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (subQuery)
 
+        // scala compiles this, intellij not
         val query2: LazyView[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND
                 EXISTS (SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id))

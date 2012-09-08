@@ -80,5 +80,7 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
 
     def compile() = Compiler (query)
 
+    type Representation =  SQLQuery[Range]
 
+    def representation = query
 }

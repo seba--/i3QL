@@ -30,25 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast.predicates
 
-import ast.SQLQuery
-import sae.LazyView
+import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, JOIN_CONDITION}
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:57
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 08.09.12
+ * Time: 13:05
  */
-trait SQL_QUERY[Range <: AnyRef]
+
+case class UnboundJoin[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB])
+    extends JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB]
+    with Predicate
 {
 
-    def compile(): LazyView[Range]
-
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQLQuery[Range]
-
-    def representation: Representation
 }

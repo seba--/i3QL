@@ -49,4 +49,7 @@ case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](query: SQLQuery
 
     def compile() = Compiler (query)
 
+    type Representation =  SQLQuery[Range]
+
+    def representation = query
 }

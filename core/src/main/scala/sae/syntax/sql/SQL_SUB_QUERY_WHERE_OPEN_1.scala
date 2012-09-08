@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.SQLQuery
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -42,4 +44,8 @@ package sae.syntax.sql
 trait SQL_SUB_QUERY_WHERE_OPEN_1[Domain <: AnyRef, Range <: AnyRef, OpenDomain <: AnyRef]
 {
 
- }
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: SQLQuery[Range]
+
+    def representation: Representation
+}

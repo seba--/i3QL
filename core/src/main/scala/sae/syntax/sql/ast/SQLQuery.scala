@@ -58,4 +58,8 @@ case class SQLQuery[Range <: AnyRef](selectClause: SelectClause[Range], fromClau
                 )
             )
         )
+
+    type Representation = this.type
+
+    def representation = this
 }

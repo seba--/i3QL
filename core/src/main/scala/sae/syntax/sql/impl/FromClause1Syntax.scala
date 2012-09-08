@@ -39,6 +39,10 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
         null
 
     def compile() = Compiler (
-        SQLQuery (selectClause, this.toAst, None)
+        representation
     )
+
+    type Representation = SQLQuery[Range]
+
+    def representation = SQLQuery (selectClause, this.toAst, None)
 }
