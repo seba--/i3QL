@@ -30,44 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
+package sae.bytecode.bat.instructions
 
-import de.tud.cs.st.bat._
+import sae.bytecode.bat.structure.MethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 13:08
+ * Date: 25.08.12
+ * Time: 12:58
  */
 
-case class MethodDeclaration(declaringClass: ClassDeclaration,
-                                 accessFlags: Int,
-                                 name: String,
-                                 returnType: de.tud.cs.st.bat.resolved.Type,
-                                 parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
+trait InstructionInfo
 {
-    def isPublic = ACC_PUBLIC ∈ accessFlags
+    def declaringMethod: MethodDeclaration
 
-    def isProtected = ACC_PROTECTED ∈ accessFlags
+    def instruction: de.tud.cs.st.bat.resolved.Instruction
 
-    def isPrivate = ACC_PRIVATE ∈ accessFlags
+    def bytecodeIndex: Int
 
-    def isStatic = ACC_STATIC ∈ accessFlags
+    def sequenceIndex: Int
+}
 
-    def isFinal = ACC_FINAL ∈ accessFlags
 
-    def isSynchronized = ACC_SYNCHRONIZED ∈ accessFlags
+object InstructionInfo
+{
+    def apply(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.Instruction, bytecodeIndex: Int, sequenceIndex: Int) = {
+        instruction.opcode match {
 
-    def isBridge = ACC_BRIDGE ∈ accessFlags
+            case 25 => ALOAD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.ALOAD], bytecodeIndex, sequenceIndex)
+            case 83 => AASTORE (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.AASTORE.type], bytecodeIndex, sequenceIndex)
 
-    def isVarArgs = ACC_VARARGS ∈ accessFlags
-
-    def isNative = ACC_NATIVE ∈ accessFlags
-
-    def isAbstract = ACC_ABSTRACT ∈ accessFlags
-
-    def isStrict = ACC_STRICT ∈ accessFlags
-
-    def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+        }
+    }
 }

@@ -1,10 +1,9 @@
 package sae.bytecode.structure
 
-
 case class FieldDeclaration(declaringClass: ClassDeclaration,
-                                accessFlags: Int,
-                                name: String,
-                                fieldType: de.tud.cs.st.bat.resolved.FieldType)
+                            accessFlags: Int,
+                            name: String,
+                            fieldType: de.tud.cs.st.bat.resolved.FieldType)
 {
 
     import de.tud.cs.st.bat._

@@ -32,16 +32,42 @@
  */
 package sae.bytecode.structure
 
-import de.tud.cs.st.bat.resolved.Instruction
+import de.tud.cs.st.bat._
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 12:58
+ * Date: 23.08.12
+ * Time: 13:08
  */
 
-case class InstructionInfo(declaringMethod: MethodDeclaration, instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
+case class MethodDeclaration(declaringClass: ClassDeclaration,
+                             accessFlags: Int,
+                             name: String,
+                             returnType: de.tud.cs.st.bat.resolved.Type,
+                             parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
 {
+    def isPublic = ACC_PUBLIC ∈ accessFlags
 
+    def isProtected = ACC_PROTECTED ∈ accessFlags
+
+    def isPrivate = ACC_PRIVATE ∈ accessFlags
+
+    def isStatic = ACC_STATIC ∈ accessFlags
+
+    def isFinal = ACC_FINAL ∈ accessFlags
+
+    def isSynchronized = ACC_SYNCHRONIZED ∈ accessFlags
+
+    def isBridge = ACC_BRIDGE ∈ accessFlags
+
+    def isVarArgs = ACC_VARARGS ∈ accessFlags
+
+    def isNative = ACC_NATIVE ∈ accessFlags
+
+    def isAbstract = ACC_ABSTRACT ∈ accessFlags
+
+    def isStrict = ACC_STRICT ∈ accessFlags
+
+    def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
 }

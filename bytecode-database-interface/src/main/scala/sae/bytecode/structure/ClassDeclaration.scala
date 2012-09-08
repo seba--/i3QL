@@ -12,9 +12,9 @@ import de.tud.cs.st.bat._
  *
  */
 case class ClassDeclaration(minorVersion: Int,
-                                majorVersion: Int,
-                                accessFlags: Int,
-                                classType: ObjectType)
+                            majorVersion: Int,
+                            accessFlags: Int,
+                            classType: ObjectType)
 {
 
     def isAnnotation = ClassDeclaration.isAnnotation (this)
