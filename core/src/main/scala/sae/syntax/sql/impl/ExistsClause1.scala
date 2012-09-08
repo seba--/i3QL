@@ -30,16 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
+
+import sae.syntax.sql.ast.SQLQuery
+import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0}
+import sae.syntax.sql.ast.predicates.Exists
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 19:00
+ * Date: 08.09.12
+ * Time: 13:15
  */
 
-trait JOIN_OPEN_CLAUSE_1[Domain <: AnyRef, Range <: AnyRef]
+case class ExistsClause1[OpenDomain <: AnyRef, Range <: AnyRef](query: SQLQuery[Range])
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[OpenDomain]
 {
-    def WHERE[DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](join: (Domain => RangeA, DomainB => RangeB)): SQL_SUB_QUERY_WHERE_OPEN_1[Domain, Range, DomainB]
+    type Representation = Exists[Range]
+
+    def representation = Exists[Range](query, 1)
 }

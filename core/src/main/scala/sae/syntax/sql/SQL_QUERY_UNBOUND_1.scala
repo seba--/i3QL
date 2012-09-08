@@ -32,14 +32,20 @@
  */
 package sae.syntax.sql
 
+import ast.SQLQuery
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 12.08.12
- * Time: 19:00
+ * Time: 17:19
  */
 
-trait JOIN_OPEN_CLAUSE_2[Domain <: AnyRef, Range <: AnyRef]
+trait SQL_QUERY_UNBOUND_1[Domain <: AnyRef, UnboundDomain <: AnyRef, Range <: AnyRef]
 {
-    //def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: (DomainA => RangeA, DomainB => RangeB)): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: SQLQuery[Range]
+
+    def representation: Representation
 }

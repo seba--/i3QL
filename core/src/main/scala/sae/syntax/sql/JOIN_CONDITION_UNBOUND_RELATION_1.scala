@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.predicates.Predicate
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -40,6 +42,7 @@ package sae.syntax.sql
  */
 
 trait JOIN_CONDITION_UNBOUND_RELATION_1[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB]
+    extends Predicate
 {
 
 }

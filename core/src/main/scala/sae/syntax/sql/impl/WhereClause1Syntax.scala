@@ -2,7 +2,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast._
 import predicates.Filter
-import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, WHERE_CLAUSE}
+import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, WHERE_CLAUSE}
 import sae.syntax.sql.compiler.Compiler
 
 /**
@@ -46,10 +46,21 @@ case class WhereClause1Syntax[Domain <: AnyRef, Range <: AnyRef](query: SQLQuery
             query.append (OrOperator, subExpression.representation)
         )
 
+    def AND[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
+        WhereClause2From1Syntax (
+            query.append (AndOperator, join)
+        )
+
+    def OR[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
+        WhereClause2From1Syntax (
+            query.append (OrOperator, join)
+        )
+
 
     def compile() = Compiler (query)
 
-    type Representation =  SQLQuery[Range]
+    type Representation = SQLQuery[Range]
 
     def representation = query
+
 }

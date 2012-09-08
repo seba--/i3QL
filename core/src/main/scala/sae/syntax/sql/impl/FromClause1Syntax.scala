@@ -36,7 +36,15 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
         )
 
     def WHERE[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]) =
-        null
+        WhereClause2From1Syntax(
+            SQLQuery (
+                selectClause,
+                this.toAst,
+                Some (
+                    WhereClauseSequence (Seq (join))
+                )
+            )
+        )
 
     def compile() = Compiler (
         representation

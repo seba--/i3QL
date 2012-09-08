@@ -30,22 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
-import ast.SQLQuery
+import sae.syntax.sql.ast.SQLQuery
+import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
+import sae.syntax.sql.ast.predicates.Exists
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 17:19
+ * Date: 08.09.12
+ * Time: 13:15
  */
 
-trait SQL_SUB_QUERY_WHERE_OPEN_1[Domain <: AnyRef, Range <: AnyRef, OpenDomain <: AnyRef]
+case class ExistsClause0[Range <: AnyRef](query: SQLQuery[Range])
+    extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
 {
+    type Representation = Exists[Range]
 
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQLQuery[Range]
-
-    def representation: Representation
+    def representation = Exists[Range](query, 0)
 }

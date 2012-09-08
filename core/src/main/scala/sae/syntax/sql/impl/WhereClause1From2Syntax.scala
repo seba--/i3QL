@@ -33,6 +33,4 @@ case class WhereClause1From2Syntax[Domain <: AnyRef, Range <: AnyRef](override v
         WhereClause1From2Syntax (
             query.append (OrOperator, Util.filtersToOtherRelation[Domain](subExpression.representation, 1, 2))
         )
-
-
 }
