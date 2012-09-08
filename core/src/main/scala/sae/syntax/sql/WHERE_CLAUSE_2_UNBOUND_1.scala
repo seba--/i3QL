@@ -23,9 +23,9 @@ trait WHERE_CLAUSE_2_UNBOUND_1[DomainA <: AnyRef, UnboundDomain <: AnyRef, Range
 
     def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, UnboundDomain]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[UnboundDomain]): WHERE_CLAUSE[UnboundDomain, Range]
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[UnboundDomain]): WHERE_CLAUSE[UnboundDomain, Range]
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
 
     def AND[RangeA, RangeB] (join: JOIN_CONDITION[DomainA, UnboundDomain, RangeA, RangeB]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
 

@@ -49,7 +49,7 @@ object MS_PKGPROTECT
             //((_:ReadFieldInstruction).targetField) =#= {(x:FieldDeclaration) => x} // works
             //functionToJoin (targetField) =#= fieldDeclaration //works
 
-        val inner: SQL_SUB_QUERY_WHERE_OPEN_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
+        val inner: SQL_QUERY_UNBOUND_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
             SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
         result
     }

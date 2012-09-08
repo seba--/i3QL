@@ -13,6 +13,7 @@ import sae.syntax.sql._
  * FINDBUGS: FI: Finalizer should be protected, not isPublic (FI_PUBLIC_SHOULD_BE_PROTECTED)
  */
 object FI_PUBLIC_SHOULD_BE_PROTECTED
+    extends (BytecodeDatabase => LazyView[ClassDeclaration])
 {
 
     def apply(database: BytecodeDatabase): LazyView[ClassDeclaration] = {

@@ -56,31 +56,23 @@ case class WhereClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: Any
             query.append (OrOperator, subExpression.representation)
         )
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainB]) = {
-        val newSubExpression = subExpression.representation match {
-            // special case, if we started with a filter we need to map all filters to the second relation
-            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
-            case x => x
-        }
-        WhereClause1From2Syntax (
-            query.append (AndOperator, newSubExpression)
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]) =
+        WhereClause2Syntax (
+            query.append (AndOperator, subExpression.representation)
         )
-    }
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainB]) = {
-        val newSubExpression = subExpression.representation match {
-            // special case, if we started with a filter we need to map all filters to the second relation
-            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
-            case x => x
-        }
-        WhereClause1From2Syntax (
-            query.append (OrOperator, newSubExpression)
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]) =
+        WhereClause2Syntax (
+            query.append (OrOperator, subExpression.representation)
         )
-    }
 
     def compile() = Compiler (query)
 
     type Representation =  SQLQuery[Range]
 
     def representation = query
+
+
+
+
 }

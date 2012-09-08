@@ -28,6 +28,8 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     def fieldReadInstructions = null
 
+    def inheritance = null
+
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
     }

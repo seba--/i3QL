@@ -93,4 +93,5 @@ class BATBytecodeDatabase
 
     }
 
+    def inheritance = null
 }

@@ -2,8 +2,19 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.ast.predicates.{Join, UnboundJoin, Filter}
-import sql.impl.{WhereClause1From2Syntax, WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
+import sql.ast.predicates._
+import sql.ast.predicates.Filter
+import sql.ast.predicates.Join
+import sql.ast.predicates.UnboundJoin
+import sql.impl._
+import sql.impl.WhereClause1Expression
+import sql.impl.WhereClause1Expression
+import sql.impl.WhereClause1From2Syntax
+import sql.impl.WhereClause1From2Syntax
+import sql.impl.WhereClause2Expression
+import sql.impl.WhereClause2Expression
+import sql.impl.WhereClauseComparator
+import sql.impl.WhereClauseComparator
 
 /**
  *
@@ -27,6 +38,9 @@ package object sql
     implicit def whereClaus2ToNextDomain[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](whereClause2: WHERE_CLAUSE_2[DomainA, DomainB, Range]): WHERE_CLAUSE[DomainB, Range] =
         WhereClause1From2Syntax (whereClause2.query)
 
+    implicit def whereClausUnbound2ToNextDomain[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](whereClause2: WHERE_CLAUSE_2_UNBOUND_1[DomainA, DomainB, Range]): WHERE_CLAUSE[DomainB, Range] =
+        WhereClause1From2Syntax (whereClause2.query)
+
 
     implicit def functionToComparator[Domain <: AnyRef, Range](left: Domain => Range): WHERE_CLAUSE_COMPARATOR[Domain, Range] =
         WhereClauseComparator (left)
@@ -41,10 +55,13 @@ package object sql
     implicit def joinToInlineWhereClause[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB] =
         WhereClause2Expression (Seq (join))
 
-    implicit def whereClauseExpressionToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain] =
+    implicit def whereClauseExpression1ToFinalSubExpression1[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain] =
         WhereClause1Expression (expression.representation)
 
-    implicit def whereClauseExpressionToFinalSubExpression2[DomainA <: AnyRef, DomainB <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
+    implicit def whereClauseExpression1ToFinalSubExpression2[Domain <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION[Domain]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[AnyRef, Domain] =
+        WhereClause2Expression (Util.sequenceFiltersToOtherRelation(expression.representation, 1, 2))
+
+    implicit def whereClauseExpression2ToFinalSubExpression2[DomainA <: AnyRef, DomainB <: AnyRef](expression: WHERE_CLAUSE_EXPRESSION_2[DomainA, DomainB]): WHERE_CLAUSE_FINAL_SUB_EXPRESSION_2[DomainA, DomainB] =
         WhereClause2Expression (expression.representation)
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =

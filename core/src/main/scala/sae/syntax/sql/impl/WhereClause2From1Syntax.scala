@@ -58,31 +58,23 @@ case class WhereClause2From1Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <
             query.append (OrOperator, subExpression.representation)
         )
 
-    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainB]) = {
-        val newSubExpression = subExpression.representation match {
-            // special case, if we started with a filter we need to map all filters to the second relation
-            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
-            case x => x
-        }
-        WhereClause1From2Syntax (
-            query.append (AndOperator, newSubExpression)
+    def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]) =
+        WhereClause2From1Syntax (
+            query.append (AndOperator, subExpression.representation)
         )
-    }
 
-    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainB]) = {
-        val newSubExpression = subExpression.representation match {
-            // special case, if we started with a filter we need to map all filters to the second relation
-            case WhereClauseSequence (seq) if seq.head.isInstanceOf[Filter[DomainB]] => Util.filtersToOtherRelation[DomainB](subExpression.representation, 1, 2)
-            case x => x
-        }
-        WhereClause1From2Syntax (
-            query.append (OrOperator, newSubExpression)
+    def OR(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[DomainA]) =
+        WhereClause2From1Syntax (
+            query.append (OrOperator, subExpression.representation)
         )
-    }
 
     def compile() = throw new UnsupportedOperationException ("Trying to compile a subquery with open joins to outer query")
 
     type Representation = SQLQuery[Range]
 
     def representation = query
+
+
+
+
 }

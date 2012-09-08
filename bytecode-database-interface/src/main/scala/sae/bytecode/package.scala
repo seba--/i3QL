@@ -34,7 +34,19 @@ package object bytecode
 
     type ClassType = de.tud.cs.st.bat.resolved.ObjectType
 
+    def ClassType(fullyQualified: String): ClassType = de.tud.cs.st.bat.resolved.ObjectType (fullyQualified)
+
+    type LongType = de.tud.cs.st.bat.resolved.LongType
+
+    def LongType = de.tud.cs.st.bat.resolved.LongType
+
+    type DoubleType = de.tud.cs.st.bat.resolved.DoubleType
+
+    def DoubleType = de.tud.cs.st.bat.resolved.DoubleType
+
     type ArrayType = de.tud.cs.st.bat.resolved.ArrayType
+
+    def ArrayType(componentType: ClassType): ArrayType = de.tud.cs.st.bat.resolved.ArrayType (componentType)
 
     type InterfaceType = de.tud.cs.st.bat.resolved.ObjectType
 
@@ -118,8 +130,28 @@ package object bytecode
         def instruction: de.tud.cs.st.bat.resolved.INVOKESPECIAL
     }
 
+    type INVOKESTATIC = InvokeInstruction {
+        def instruction: de.tud.cs.st.bat.resolved.INVOKESTATIC
+    }
+
     type INVOKEVIRTUAL = InvokeInstruction {
         def instruction: de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
+    }
+
+    type INVOKEINTERFACE = InvokeInstruction {
+        def instruction: de.tud.cs.st.bat.resolved.INVOKEINTERFACE
+    }
+
+    type I2L = InstructionInfo {
+        def instruction: de.tud.cs.st.bat.resolved.I2L.type
+    }
+
+    type ICONST_0 = InstructionInfo {
+        def instruction: de.tud.cs.st.bat.resolved.ICONST_0.type
+    }
+
+    type ANEWARRAY = InstructionInfo {
+        def instruction: de.tud.cs.st.bat.resolved.ANEWARRAY
     }
 
     /*
@@ -168,7 +200,7 @@ package object bytecode
 
     def receiverType: InvokeInstruction => ReferenceType = _.receiverType
 
-    def returnType : MethodInfo => ReturnType = _.returnType
+    def returnType: MethodInfo => ReturnType = _.returnType
 
     def classType: ClassDeclaration => ClassType = _.classType
 }
