@@ -585,7 +585,7 @@ class SQLSyntaxTest
     }
 
     @Test
-    def testDisjunctiveExistsWithoutJoin() {
+    def testConjunctiveNotExistsWithJoin() {
 
         val database = new StudentCoursesDatabase ()
 
@@ -596,7 +596,9 @@ class SQLSyntaxTest
         val enrollments = database.enrollments.copy // make a local copy
 
         val query: LazyView[Student] =
-            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND NOT (EXISTS (SELECT (*) FROM (enrollments) WHERE (_.StudentId == 12346)))
+            SELECT (*) FROM (students) WHERE (_.Name == "sally") AND NOT (
+                EXISTS (SELECT (*) FROM (enrollments) WHERE  ((_: Enrollment).StudentId) === ((_: Student).Id))
+            )
 
         Assert.assertEquals (
             List (),

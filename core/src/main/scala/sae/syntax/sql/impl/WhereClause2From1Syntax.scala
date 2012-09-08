@@ -28,14 +28,14 @@ case class WhereClause2From1Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <
             query.append (OrOperator, Filter (predicateA, 1))
         )
 
-    def AND[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def AND[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2From1Syntax (
-            query.append (AndOperator, UnboundJoin (join))
+            query.append (AndOperator, UnboundJoin (join.asInstanceOf[Join[DomainA, DomainB, RangeA, RangeB]])) // TODO ugly typecast
         )
 
-    def OR[RangeA, RangeB](join: sql.JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
+    def OR[RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]) =
         WhereClause2From1Syntax (
-            query.append (OrOperator, UnboundJoin (join))
+            query.append (OrOperator, UnboundJoin (join.asInstanceOf[Join[DomainA, DomainB, RangeA, RangeB]])) // TODO ugly typecast
         )
 
     def AND(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0) =

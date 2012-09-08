@@ -35,15 +35,9 @@ package sae.syntax.sql.compiler
 
 import sae.{SetRelation, LazyView}
 import sae.operators._
-import scala._
+import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
-import predicates.{Join, Predicate, Filter, Negation}
-import sae.syntax.sql.ast.FromClause1
-import sae.syntax.sql.ast.SelectClause2
-import sae.syntax.sql.ast.SQLQuery
-import sae.syntax.sql.ast.FromClause2
-import scala.Some
-import sae.syntax.sql.ast.SelectClause1
+import predicates._
 
 /**
  * Created with IntelliJ IDEA.
@@ -108,12 +102,28 @@ object Compiler
                                                             whereClause: WhereClause): LazyView[Range] =
     {
         val cnf = NormalizePredicates (whereClause.expressions)
-        val (filters, subQueries) = partitionForFilters (cnf)
+        val compiledQueries =
+            partitionForFilters (cnf) match {
+                case (Nil, seq) => seq.map (compileSubQueries1 (_, fromClause.relation)).flatten
+                case (seq, Nil) => Seq (compileSelection (combineFilters (seq), fromClause.relation))
+                case (seqFilters, seqSubQueries) => compileSelection (combineFilters (seqFilters), fromClause.relation) +: seqSubQueries.map (compileSubQueries1 (_, fromClause.relation)).flatten
+                case _ => throw new IllegalArgumentException ("Compile method for where clause called with empty where clause.")
+            }
+
+        val union =
+            if (compiledQueries.size == 1) {
+                compiledQueries (0)
+            }
+            else
+            {
+                compiledQueries.reduce (compileUnion (_, _))
+            }
 
         compileDistinct (
             compileProjection (
                 selectClause.projection,
-                compileSelection (combineFilters (filters), fromClause.relation)),
+                union
+            ),
             selectClause.distinct
         )
     }
@@ -220,7 +230,6 @@ object Compiler
         (joinsAndFiltersOnly, others)
     }
 
-
     private def compileSelection[Domain <: AnyRef](selection: Option[Domain => Boolean],
                                                    relation: LazyView[Domain]): LazyView[Domain] =
     {
@@ -247,23 +256,23 @@ object Compiler
         {
             return relation
         }
-        new SetDuplicateElimination (relation)
+        δ (relation)
     }
 
     private def compileCrossProduct[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
                                                                                            relationA: LazyView[DomainA],
                                                                                            relationB: LazyView[DomainB]) =
     {
-        val crossProduct = new CrossProduct (
-            Conversions.lazyViewToMaterializedView (relationA),
-            Conversions.lazyViewToMaterializedView (relationB)
-        )
+        val crossProduct =
+            Conversions.lazyViewToMaterializedView (relationA) × Conversions.lazyViewToMaterializedView (relationB)
 
         projection match {
-            case Some (f) => new BagProjection (
-                (tuple: (DomainA, DomainB)) => f (tuple._1, tuple._2),
-                crossProduct
-            )
+            case Some (f) =>
+                Π (
+                    (tuple: (DomainA, DomainB)) => f (tuple._1, tuple._2)
+                )(
+                    crossProduct
+                )
             case None => crossProduct.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
         }
     }
@@ -275,7 +284,7 @@ object Compiler
                                                                                        ): LazyView[Range] =
     {
 
-        val joins = predicates.filter (_.isInstanceOf[Join[DomainA, DomainB, _, _]]).asInstanceOf[Seq[Join[DomainA, DomainB, _, _]]]
+        val joins = predicates.filter (_.isInstanceOf[Join[DomainA, DomainB, _, _]]).asInstanceOf[Seq[Join[AnyRef, AnyRef, _, _]]]
         if (joins.isEmpty)
         {
             // could happen if we have negative joins
@@ -293,32 +302,117 @@ object Compiler
         })
         val leftKey = compileHashKey (joins.map (_.left))
         val rightKey = compileHashKey (joins.map (_.right))
-        new HashEquiJoin (
-            Conversions.lazyViewToIndexedView (
-                compileSelection (combineFilters (Seq (filtersA)), relationA)
-            ),
-            Conversions.lazyViewToIndexedView (
-                compileSelection (combineFilters (Seq (filtersB)), relationB)
-            ),
-            leftKey,
-            rightKey,
-            projection.getOrElse ((a: DomainA, b: DomainB) => (a, b)).asInstanceOf[(DomainA, DomainB) => Range]
-        )
+
+        (
+            (
+                Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filtersA)), relationA)),
+                leftKey
+                ) ⋈ (
+                rightKey,
+                Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filtersB)), relationB))
+                )
+            ) (projection.getOrElse ((a: DomainA, b: DomainB) => (a, b)).asInstanceOf[(DomainA, DomainB) => Range])
+    }
+
+    private def compileSubQueries1[Domain <: AnyRef](predicates: Seq[Predicate],
+                                                     relation: LazyView[Domain]
+                                                        ): Seq[LazyView[Domain]] =
+    {
+        val filters = predicates.filter ({
+            case Filter (_, 1) => true
+            case Negation (Filter (_, 1)) => true
+            case _ => false
+        })
+
+        val existsSubQueries = predicates.filter (_.isInstanceOf[Exists[_ <: AnyRef]]).asInstanceOf[Seq[Exists[_ <: AnyRef]]]
+
+        val notExistsSubQueries = predicates.collect {
+            case Negation (e: Exists[_]) => e
+        }
+
+        val (existsWithJoin, existsWithoutJoin) = existsSubQueries.partition ({
+            case Exists (_, num) => num > 0
+        })
+
+        val (notExistsWithJoin, notExistsWithoutJoin) = notExistsSubQueries.partition ({
+            case Exists (_, num) => num > 0
+        })
+
+        val compiledExists =
+            for (subQuery <- existsWithJoin.map (_.subQuery);
+                 (concreteSubQuery, unboundJoins) <- concreteQueriesAndUnboundJoin1 (subQuery))
+            yield
+            {
+                val subRelation = Compiler (concreteSubQuery)
+                val outerKey = compileHashKey (unboundJoins.map (_.right))
+                val innerKey = compileHashKey (unboundJoins.map (_.left))
+                (
+                    Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filters)), relation)),
+                    outerKey
+                    ) ⋉ (
+                    innerKey,
+                    Conversions.lazyViewToIndexedView (subRelation)
+                    )
+            }
+
+        val compiledNotExists =
+            for (subQuery <- notExistsWithJoin.map (_.subQuery);
+                 (concreteSubQuery, unboundJoins) <- concreteQueriesAndUnboundJoin1 (subQuery))
+            yield
+            {
+                val subRelation = Compiler (concreteSubQuery)
+                val outerKey = compileHashKey (unboundJoins.map (_.right))
+                val innreKey = compileHashKey (unboundJoins.map (_.left))
+                (
+                    Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filters)), relation)),
+                    outerKey
+                    ) ⊳ (
+                    innreKey,
+                    Conversions.lazyViewToIndexedView (subRelation)
+                    )
+            }
+
+        (compiledExists ++ compiledNotExists)
     }
 
 
-    private def compileHashKey[Domain <: AnyRef](keyExtractors: Seq[Domain => Any]): Domain => AnyRef = {
+    private def concreteQueriesAndUnboundJoin1[Range <: AnyRef](query: SQLQuery[Range]): Seq[(SQLQuery[Range], Seq[Join[AnyRef, AnyRef, _, _]])] = {
+        if (!query.whereClause.isDefined) {
+            return Seq ((query, Nil))
+        }
+        val cnf = NormalizePredicates (query.whereClause.get.expressions)
+        // if there are multiple queries with a join we need to make a union
+        for (conjunct <- cnf) yield {
+            val (unboundJoins, predicates) = conjunct.partition {
+                case UnboundJoin (_) => true
+                //case Negation (UnboundJoin (_)) => true// TODO what about negated unbounds?
+                case _ => false
+            }
+            val newSubQuery =
+                SQLQuery[Range](
+                    query.selectClause,
+                    query.fromClause,
+                    if (predicates.isEmpty) None
+                    else Some (WhereClauseSequence (predicates.flatMap (Seq (AndOperator, _)).drop (1)))
+                )
+            (newSubQuery, unboundJoins.map {
+                case UnboundJoin (join) => join.asInstanceOf[Join[AnyRef, AnyRef, _, _]]
+            })
+        }
+    }
+
+    private def compileHashKey(keyExtractors: Seq[AnyRef => Any]): AnyRef => AnyRef = {
         keyExtractors.size match {
-            case 1 => keyExtractors (0).asInstanceOf[Domain => AnyRef]
-            case 2 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x))
-            case 3 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x))
-            case 4 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x))
-            case 5 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x))
-            case 6 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x))
-            case 7 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x))
-            case 8 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x))
-            case 9 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x))
-            case 10 => (x: Domain) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x), keyExtractors (9)(x))
+            case 1 => keyExtractors (0).asInstanceOf[AnyRef => AnyRef]
+            case 2 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x))
+            case 3 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x))
+            case 4 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x))
+            case 5 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x))
+            case 6 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x))
+            case 7 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x))
+            case 8 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x))
+            case 9 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x))
+            case 10 => (x: AnyRef) => (keyExtractors (0)(x), keyExtractors (1)(x), keyExtractors (2)(x), keyExtractors (3)(x), keyExtractors (4)(x), keyExtractors (5)(x), keyExtractors (6)(x), keyExtractors (7)(x), keyExtractors (8)(x), keyExtractors (9)(x))
             case _ => throw new IllegalArgumentException ("Too many join conditions for SAE")
         }
     }

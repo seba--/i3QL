@@ -2,7 +2,7 @@ package sae.syntax
 
 import sae.LazyView
 import sae.collections.QueryResult
-import sql.ast.predicates.{UnboundJoin, Filter}
+import sql.ast.predicates.{Join, UnboundJoin, Filter}
 import sql.impl.{WhereClause1From2Syntax, WhereClause2Expression, WhereClauseComparator, WhereClause1Expression}
 
 /**
@@ -48,5 +48,5 @@ package object sql
         WhereClause2Expression (expression.representation)
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
-        UnboundJoin (join)
+        UnboundJoin (join.asInstanceOf[Join[DomainA, DomainB, RangeA, RangeB]]) // TODO ugly typecast
 }

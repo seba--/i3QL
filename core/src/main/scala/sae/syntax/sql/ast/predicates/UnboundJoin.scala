@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.ast.predicates
 
-import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, JOIN_CONDITION}
+import sae.syntax.sql.JOIN_CONDITION_UNBOUND_RELATION_1
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,7 +41,7 @@ import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, JOIN_CONDITION}
  * Time: 13:05
  */
 
-case class UnboundJoin[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB])
+case class UnboundJoin[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB](join: Join[DomainA, DomainB, RangeA, RangeB])
     extends JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB]
     with Predicate
 {
