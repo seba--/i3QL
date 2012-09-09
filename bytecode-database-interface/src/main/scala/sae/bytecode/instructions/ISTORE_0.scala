@@ -33,7 +33,7 @@
 */
 package sae.bytecode.instructions
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Store int into local variable with index 0.

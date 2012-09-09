@@ -34,7 +34,7 @@
 package sae.bytecode.instructions
 
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Duplicate the top one or two operand stack values and insert two or

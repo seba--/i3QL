@@ -34,7 +34,7 @@
 package sae.bytecode.instructions
 
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Branch if int comparison succeeds; succeeds if and only if value1 ≤ value2.

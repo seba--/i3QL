@@ -34,7 +34,7 @@
 package sae.bytecode.instructions
 
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Push the float constant 2.0 onto the operand stack.

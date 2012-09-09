@@ -33,7 +33,7 @@
 */
 package sae.bytecode.instructions
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Push the double constant 0.0 onto the operand stack.

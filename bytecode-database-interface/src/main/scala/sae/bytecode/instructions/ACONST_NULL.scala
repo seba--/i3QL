@@ -34,14 +34,14 @@
 package sae.bytecode.instructions
 
 
-import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Push null.
  *
  * @author Ralf Mitschke
  */
-case class ACONST_NULL(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ACONST_NULL(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ACONST_NULL.type, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 
