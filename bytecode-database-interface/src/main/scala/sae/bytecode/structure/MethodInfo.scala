@@ -30,37 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.instructions
+package sae.bytecode.structure
 
-import sae.bytecode.bat.structure.MethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 12:58
+ * Date: 09.09.12
+ * Time: 10:42
  */
 
-trait InstructionInfo
+trait MethodInfo
 {
-    def declaringMethod: MethodDeclaration
+    def name: String
 
-    def instruction: de.tud.cs.st.bat.resolved.Instruction
+    def returnType: de.tud.cs.st.bat.resolved.Type
 
-    def bytecodeIndex: Int
-
-    def sequenceIndex: Int
-}
-
-
-object InstructionInfo
-{
-    def apply(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.Instruction, bytecodeIndex: Int, sequenceIndex: Int) = {
-        instruction.opcode match {
-
-            case 25 => ALOAD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.ALOAD], bytecodeIndex, sequenceIndex)
-            case 83 => AASTORE (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.AASTORE.type], bytecodeIndex, sequenceIndex)
-
-        }
-    }
+    def parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType]
 }

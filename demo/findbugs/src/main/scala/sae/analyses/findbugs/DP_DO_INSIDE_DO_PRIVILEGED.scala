@@ -1,8 +1,10 @@
 package sae.analyses.findbugs
 
-import sae.bytecode._
 import sae.LazyView
 import sae.syntax.sql._
+import sae.bytecode._
+import sae.bytecode.instructions._
+import sae.bytecode.structure._
 
 /**
  *

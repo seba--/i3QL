@@ -1,10 +1,7 @@
 package sae.analyses.findbugs
 
-import de.tud.cs.st.bat.resolved._
 import sae.bytecode._
-import sae.syntax.sql._
-import sae.LazyView
-import schema.FieldDeclaration
+import sae.bytecode.structure._
 
 /**
  *
@@ -16,44 +13,45 @@ import schema.FieldDeclaration
 object MS_PKGPROTECT
 {
 
-    val hashTableType = ObjectType ("java/util/Hashtable")
+    val hashTableType = ClassType ("java/util/Hashtable")
 
     def isHashTable: FieldDeclaration => Boolean = field => field.fieldType == hashTableType
 
     def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
-/*
-    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
-        //import database._
 
-        val fieldReadsFromExternalPackage: LazyView[ReadFieldInstruction] =
-            SELECT (*) FROM database.fieldReadInstructions WHERE (instruction =>
-                instruction.declaringMethod.declaringType.packageName !=
-                    instruction.targetField.declaringType.packageName)
+    /*
+        def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
+            //import database._
 
-        val result: LazyView[FieldDeclaration] =
-            SELECT (*) FROM (database.declared_fields) WHERE
-                isFinal AND
-                isStatic AND
-                NOT (isSynthetic) AND
-                NOT (isVolatile) AND
-                (isProtected OR isPublic) AND
-                (isArray OR isHashTable)
-                //AND NOT EXISTS
+            val fieldReadsFromExternalPackage: LazyView[ReadFieldInstruction] =
+                SELECT (*) FROM database.fieldReadInstructions WHERE (instruction =>
+                    instruction.declaringMethod.declaringType.packageName !=
+                        instruction.targetField.declaringType.packageName)
 
-        val fieldDeclaration: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration]
+            val result: LazyView[FieldDeclaration] =
+                SELECT (*) FROM (database.declared_fields) WHERE
+                    isFinal AND
+                    isStatic AND
+                    NOT (isSynthetic) AND
+                    NOT (isVolatile) AND
+                    (isProtected OR isPublic) AND
+                    (isArray OR isHashTable)
+                    //AND NOT EXISTS
 
-        val join: JOIN_CONDITION[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
-            FieldDeclaration.targetField =#= fieldDeclaration // works
-            //targetField _ =#= {(x:FieldDeclaration) => x} // works
-            //targetField _ =#= {(x:FieldDeclaration) => x} // does not work
-            //((_:ReadFieldInstruction).targetField) =#= {(x:FieldDeclaration) => x} // works
-            //functionToJoin (targetField) =#= fieldDeclaration //works
+            val fieldDeclaration: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration]
 
-        val inner: SQL_QUERY_UNBOUND_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
-            SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
-        result
-    }
-*/
+            val join: JOIN_CONDITION[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
+                FieldDeclaration.targetField =#= fieldDeclaration // works
+                //targetField _ =#= {(x:FieldDeclaration) => x} // works
+                //targetField _ =#= {(x:FieldDeclaration) => x} // does not work
+                //((_:ReadFieldInstruction).targetField) =#= {(x:FieldDeclaration) => x} // works
+                //functionToJoin (targetField) =#= fieldDeclaration //works
+
+            val inner: SQL_QUERY_UNBOUND_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
+                SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
+            result
+        }
+    */
     //SELECT (*) FROM (fieldReadInstructions) WHERE
 
     /*

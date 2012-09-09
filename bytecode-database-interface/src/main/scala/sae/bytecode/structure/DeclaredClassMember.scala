@@ -30,44 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.structure
-
-import de.tud.cs.st.bat._
+package sae.bytecode.structure
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 13:08
+ * Date: 09.09.12
+ * Time: 10:46
  */
 
-case class MethodDeclaration(declaringClass: ClassDeclaration,
-                             accessFlags: Int,
-                             name: String,
-                             returnType: de.tud.cs.st.bat.resolved.Type,
-                             parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
+trait DeclaredClassMember
 {
-    def isPublic = ACC_PUBLIC ∈ accessFlags
+    def declaringClass: ClassDeclaration
 
-    def isProtected = ACC_PROTECTED ∈ accessFlags
+    def isPublic: Boolean
 
-    def isPrivate = ACC_PRIVATE ∈ accessFlags
+    def isProtected: Boolean
 
-    def isStatic = ACC_STATIC ∈ accessFlags
+    def isPrivate: Boolean
 
-    def isFinal = ACC_FINAL ∈ accessFlags
-
-    def isSynchronized = ACC_SYNCHRONIZED ∈ accessFlags
-
-    def isBridge = ACC_BRIDGE ∈ accessFlags
-
-    def isVarArgs = ACC_VARARGS ∈ accessFlags
-
-    def isNative = ACC_NATIVE ∈ accessFlags
-
-    def isAbstract = ACC_ABSTRACT ∈ accessFlags
-
-    def isStrict = ACC_STRICT ∈ accessFlags
-
-    def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+    def isStatic: Boolean
 }

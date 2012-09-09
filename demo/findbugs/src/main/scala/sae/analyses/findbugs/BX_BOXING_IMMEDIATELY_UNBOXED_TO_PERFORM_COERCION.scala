@@ -1,8 +1,10 @@
 package sae.analyses.findbugs
 
-import sae.bytecode._
 import sae.LazyView
 import sae.syntax.sql._
+import sae.bytecode._
+import sae.bytecode.instructions._
+import de.tud.cs.st.bat.resolved.FieldType
 
 /**
  *
@@ -24,7 +26,7 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
         val invokeSpecial /*: LazyView[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
         val invokeVirtual /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
-        val firstParamType: INVOKESPECIAL => ParameterType = _.parameterTypes (0)
+        val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
 
         SELECT ((a: INVOKESPECIAL, b: INVOKEVIRTUAL) => b) FROM
             (invokeSpecial, invokeVirtual) WHERE

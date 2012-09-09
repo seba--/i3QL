@@ -1,7 +1,9 @@
 package sae.bytecode
 
+import instructions.InstructionInfo
 import java.io.InputStream
 import sae.collections.{BagResult, SetResult}
+import sae.bytecode.structure._
 
 /**
  *

@@ -30,18 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat.structure
+package sae.bytecode.instructions
 
-import de.tud.cs.st.bat.resolved.ObjectType
+import sae.bytecode.structure.MethodInfo
+import de.tud.cs.st.bat.resolved.ReferenceType
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 31.08.12
- * Time: 14:51
+ * Date: 09.09.12
+ * Time: 10:39
  */
 
-case class InheritanceRelation(superType: ObjectType, subType: ObjectType)
+trait InvokeInstruction
+    extends MethodInfo
 {
+
+    def receiverType: ReferenceType
 
 }

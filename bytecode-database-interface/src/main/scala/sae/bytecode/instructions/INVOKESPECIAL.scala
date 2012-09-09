@@ -44,6 +44,13 @@ import sae.bytecode.structure.MethodDeclaration
  */
 case class INVOKESPECIAL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INVOKESPECIAL, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
+    with InvokeInstruction
 {
+    def receiverType = instruction.declaringClass
 
+    def name = instruction.name
+
+    def returnType = instruction.methodDescriptor.returnType
+
+    def parameterTypes = instruction.methodDescriptor.parameterTypes
 }

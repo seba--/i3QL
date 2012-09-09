@@ -33,7 +33,7 @@
 package sae.bytecode.bat
 
 import sae.LazyView
-import sae.bytecode.InstructionInfo
+import sae.bytecode.instructions.InstructionInfo
 
 /**
  * Created with IntelliJ IDEA.

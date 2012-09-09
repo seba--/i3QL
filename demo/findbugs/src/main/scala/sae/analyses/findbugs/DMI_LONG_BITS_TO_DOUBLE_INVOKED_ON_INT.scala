@@ -1,8 +1,10 @@
 package sae.analyses.findbugs
 
+import sae.LazyView
 import sae.syntax.sql._
 import sae.bytecode._
-import sae.LazyView
+import sae.bytecode.instructions._
+import de.tud.cs.st.bat.resolved.{LongType, DoubleType}
 
 /**
  *

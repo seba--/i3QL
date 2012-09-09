@@ -32,14 +32,12 @@
  */
 package sae.bytecode.bat
 
+import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved.{Instruction, Code, ObjectType}
 import sae.bytecode.structure._
-import java.io.DataInputStream
-import sae.bytecode.structure.MethodDeclaration
-import sae.bytecode.structure.InheritanceRelation
-import sae.bytecode.structure.FieldDeclaration
+import sae.bytecode.instructions.InstructionInfo
 
 
 /**

@@ -43,6 +43,13 @@ import sae.bytecode.structure.MethodDeclaration
  */
 case class INVOKEVIRTUAL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INVOKEVIRTUAL, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
+    with InvokeInstruction
 {
+    def receiverType = instruction.declaringClass
 
+    def name = instruction.name
+
+    def returnType = instruction.methodDescriptor.returnType
+
+    def parameterTypes = instruction.methodDescriptor.parameterTypes
 }

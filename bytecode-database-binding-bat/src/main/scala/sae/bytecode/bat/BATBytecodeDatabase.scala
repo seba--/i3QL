@@ -33,10 +33,12 @@
 package sae.bytecode.bat
 
 import java.io.InputStream
-import sae.bytecode._
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.{DefaultLazyView, BaseSetRelation}
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+import sae.bytecode.structure._
+import sae.bytecode.instructions.InstructionInfo
+import sae.bytecode.BytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.

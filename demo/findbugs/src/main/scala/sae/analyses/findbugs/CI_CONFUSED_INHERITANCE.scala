@@ -32,9 +32,10 @@
  */
 package sae.analyses.findbugs
 
-import sae.bytecode._
-import sae.syntax.sql._
 import sae.LazyView
+import sae.syntax.sql._
+import sae.bytecode._
+import sae.bytecode.structure._
 
 /**
  * Created with IntelliJ IDEA.

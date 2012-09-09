@@ -32,16 +32,18 @@
  */
 package sae.bytecode.structure
 
-import de.tud.cs.st.bat.resolved.Instruction
+import de.tud.cs.st.bat.resolved.FieldType
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 12:58
+ * Date: 09.09.12
+ * Time: 10:45
  */
 
-case class StrippedInstructionInfo(instruction: Instruction, bytecodeIndex: Int, sequenceIndex: Int)
+trait FieldInfo
 {
+    def name: String
 
+    def fieldType: FieldType
 }

@@ -46,6 +46,8 @@ case class MethodDeclaration(declaringClass: ClassDeclaration,
                              name: String,
                              returnType: de.tud.cs.st.bat.resolved.Type,
                              parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
+    extends DeclaredClassMember
+    with MethodInfo
 {
     def isPublic = ACC_PUBLIC ∈ accessFlags
 
