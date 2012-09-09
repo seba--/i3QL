@@ -36,7 +36,7 @@ package sae.bytecode.instructions
 /**
  * Load reference from local variable with index 3.
  *
- * @author Michael Eichberg
+ * @author Ralf Mitschke
  */
 case object ALOAD_3(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
 extends InstructionInfo

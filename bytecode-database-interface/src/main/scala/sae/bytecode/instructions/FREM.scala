@@ -36,13 +36,10 @@ package sae.bytecode.instructions
 /**
  * Remainder float.
  *
- * @author Michael Eichberg
+ * @author Ralf Mitschke
  */
-case object FREM extends FloatingPointRemainderInstruction
+case object FREM (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+extends InstructionInfo
 {
-
-    def opcode: Int = 114
-
-    def mnemonic: String = "frem"
 
 }
