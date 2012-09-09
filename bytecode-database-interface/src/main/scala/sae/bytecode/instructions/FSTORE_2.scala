@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class FSTORE_2(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ASTORE_0.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FSTORE_2(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FSTORE_2.type, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

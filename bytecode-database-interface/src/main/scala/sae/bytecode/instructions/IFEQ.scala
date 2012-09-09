@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IFEQ(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IFEQ (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFEQ, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

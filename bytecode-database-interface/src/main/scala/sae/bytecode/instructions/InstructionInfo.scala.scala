@@ -49,7 +49,7 @@ trait InstructionInfo
 
 object InstructionInfo
 {
-    def apply(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.Instruction, bytecodeIndex: Int, sequenceIndex: Int) = {
+    def apply(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.Instruction, bytecodeIndex: Int, sequenceIndex: Int): InstructionInfo =
         instruction.opcode match {
             case 50 => AALOAD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.AALOAD.type], bytecodeIndex, sequenceIndex)
             case 83 => AASTORE (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.AASTORE.type], bytecodeIndex, sequenceIndex)
@@ -133,7 +133,7 @@ object InstructionInfo
             case 69 => FSTORE_2 (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.FSTORE_2.type], bytecodeIndex, sequenceIndex)
             case 70 => FSTORE_3 (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.FSTORE_3.type], bytecodeIndex, sequenceIndex)
             case 102 => FSUB (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.FSUB.type], bytecodeIndex, sequenceIndex)
-            case 180 => GETFIELD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.GETFIELD, bytecodeIndex, sequenceIndex)
+            case 180 => GETFIELD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.GETFIELD], bytecodeIndex, sequenceIndex)
             case 178 => GETSTATIC (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.GETSTATIC], bytecodeIndex, sequenceIndex)
             case 167 => GOTO (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.GOTO], bytecodeIndex, sequenceIndex)
             case 200 => GOTO_W (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.GOTO_W], bytecodeIndex, sequenceIndex)
@@ -243,8 +243,8 @@ object InstructionInfo
             case 0 => NOP (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.NOP.type], bytecodeIndex, sequenceIndex)
             case 87 => POP (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.POP.type], bytecodeIndex, sequenceIndex)
             case 88 => POP2 (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.POP2.type], bytecodeIndex, sequenceIndex)
-            case 181 => (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.], bytecodeIndex, sequenceIndex)
-            case 179 => (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.], bytecodeIndex, sequenceIndex)
+            case 181 => PUTFIELD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.PUTFIELD], bytecodeIndex, sequenceIndex)
+            case 179 => PUTSTATIC (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.PUTSTATIC], bytecodeIndex, sequenceIndex)
             case 169 => RET (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.RET], bytecodeIndex, sequenceIndex)
             case 177 => RETURN (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.RETURN.type], bytecodeIndex, sequenceIndex)
             case 53 => SALOAD (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.SALOAD.type], bytecodeIndex, sequenceIndex)
@@ -254,4 +254,4 @@ object InstructionInfo
             case 170 => TABLESWITCH (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.TABLESWITCH], bytecodeIndex, sequenceIndex)
             case 196 => WIDE (declaringMethod, instruction.asInstanceOf[de.tud.cs.st.bat.resolved.WIDE.type], bytecodeIndex, sequenceIndex)
         }
-    }
+}

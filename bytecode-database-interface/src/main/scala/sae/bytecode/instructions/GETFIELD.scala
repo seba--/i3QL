@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class GETFIELD(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class GETFIELD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.GETFIELD, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

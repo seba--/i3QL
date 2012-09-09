@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class INSTANCEOF(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class INSTANCEOF (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INSTANCEOF, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

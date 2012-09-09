@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class GOTO_W(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class GOTO_W (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.GOTO_W, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

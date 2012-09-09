@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IF_ICMPGT(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IF_ICMPGT (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IF_ICMPGT, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

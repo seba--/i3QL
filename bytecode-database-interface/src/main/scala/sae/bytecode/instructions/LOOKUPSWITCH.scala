@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LOOKUPSWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LNEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LOOKUPSWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LOOKUPSWITCH, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

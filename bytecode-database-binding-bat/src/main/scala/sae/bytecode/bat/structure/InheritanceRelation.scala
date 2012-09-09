@@ -30,18 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.bytecode.bat.structure
+
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 09.08.12
- * Time: 23:10
+ * Date: 31.08.12
+ * Time: 14:51
  */
 
-trait BytecodeConstants
+case class InheritanceRelation(superType: ObjectType, subType: ObjectType)
 {
-    import bytecode._
 
-     def void : VoidType
 }
