@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Extend local variable index by additional bytes.
  *
  * @author Ralf Mitschke
  */
-case object WIDE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class WIDE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.WIDE.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

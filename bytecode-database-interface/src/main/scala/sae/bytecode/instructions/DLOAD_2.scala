@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Load double from local variable with index 2.
  *
  * @author Ralf Mitschke
  */
-case object DLOAD_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class DLOAD_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DLOAD_2.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

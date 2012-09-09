@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Store float into local variable with index 1.
  *
  * @author Ralf Mitschke
  */
-case object FSTORE_1(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class FSTORE_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FSTORE_1.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

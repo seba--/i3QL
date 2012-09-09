@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Store int into local variable with index 3.
  *
  * @author Ralf Mitschke
  */
-case object ISTORE_3(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class ISTORE_3 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ISTORE_3.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

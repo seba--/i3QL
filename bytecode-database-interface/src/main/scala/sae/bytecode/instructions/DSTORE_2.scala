@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Store double into local variable with index 2.
  *
  * @author Ralf Mitschke
  */
-case object DSTORE_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class DSTORE_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DSTORE_2.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

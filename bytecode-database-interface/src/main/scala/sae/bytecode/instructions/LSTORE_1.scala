@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Store long into local variable with index 1.
  *
  * @author Ralf Mitschke
  */
-case object LSTORE_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class LSTORE_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LSTORE_1.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

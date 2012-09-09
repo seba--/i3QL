@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Load reference from local variable with index 0.
  *
  * @author Ralf Mitschke
  */
-case object ALOAD_0(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class ALOAD_0 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ALOAD_0.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

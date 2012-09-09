@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Enter monitor for object.
  *
  * @author Ralf Mitschke
  */
-case object MONITORENTER (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class MONITORENTER (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MONITORENTER.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

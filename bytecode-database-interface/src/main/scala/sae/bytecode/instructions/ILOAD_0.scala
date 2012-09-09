@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Load int from local variable with index 0.
  *
  * @author Ralf Mitschke
  */
-case object ILOAD_0(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class ILOAD_0 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ILOAD_0.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

@@ -33,16 +33,16 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
+
 /**
  * Load float from local variable.
  *
  * @author Ralf Mitschke
  */
-case class FLOAD(val lvIndex: Int) extends LoadLocalVariableInstruction with ExplicitLocalVariableIndex
+case class FLOAD(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.BIPUSH.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
-
-    def opcode: Int = 23
-
-    def mnemonic: String = "fload"
 
 }

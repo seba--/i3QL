@@ -34,13 +34,15 @@
 package sae.bytecode.instructions
 
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Convert int to short.
  *
  * @author Ralf Mitschke
  */
-case object I2S (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class I2S (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2S.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

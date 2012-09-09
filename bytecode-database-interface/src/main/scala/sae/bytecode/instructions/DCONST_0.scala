@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Push the double constant 0.0 onto the operand stack.
  *
  * @author Ralf Mitschke
  */
-case object DCONST_0(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class DCONST_0 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DCONST_0.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

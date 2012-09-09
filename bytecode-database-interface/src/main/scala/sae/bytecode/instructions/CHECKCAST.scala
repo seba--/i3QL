@@ -33,13 +33,14 @@
 */
 package sae.bytecode.instructions
 
+
 import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
 
 /**
-  * Check whether object is of given type.
-  *
-  * @author Ralf Mitschke
-  */
+ * Check whether object is of given type.
+ *
+ * @author Ralf Mitschke
+ */
 case class CHECKCAST(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
     extends InstructionInfo
 {

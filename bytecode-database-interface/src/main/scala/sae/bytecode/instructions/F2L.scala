@@ -34,13 +34,15 @@
 package sae.bytecode.instructions
 
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Convert float to long.
  *
  * @author Ralf Mitschke
  */
-case object F2L (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class F2L (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.F2L.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

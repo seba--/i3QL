@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Duplicate the top operand stack value and insert two values down..
  *
  * @author Ralf Mitschke
  */
-case object DUP_X1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class DUP_X1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DUP_X1.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

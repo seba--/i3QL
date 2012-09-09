@@ -33,18 +33,16 @@
 */
 package sae.bytecode.instructions
 
+
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Push byte.
  *
  * @author Ralf Mitschke
  */
-case class BIPUSH(val value: Int) extends LoadConstantInstruction
+case class BIPUSH (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.BIPUSH.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
-
-    def opcode: Int = 16
-
-    def mnemonic: String = "bipush"
-
-    final def indexOfNextInstruction(currentPC: Int, code: Code): Int = currentPC + 2
 
 }

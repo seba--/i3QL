@@ -34,13 +34,15 @@
 package sae.bytecode.instructions
 
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Convert int to long.
  *
  * @author Ralf Mitschke
  */
-case object I2L (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class I2L (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2L.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

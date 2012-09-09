@@ -34,13 +34,15 @@
 package sae.bytecode.instructions
 
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Negate int.
  *
  * @author Ralf Mitschke
  */
-case object INEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class INEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

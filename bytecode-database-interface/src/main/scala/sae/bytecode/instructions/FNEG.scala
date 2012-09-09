@@ -34,13 +34,15 @@
 package sae.bytecode.instructions
 
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Negate float.
  *
  * @author Ralf Mitschke
  */
-case object FNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class FNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FNEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

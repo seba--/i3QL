@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Load float from local variable with index 1.
  *
  * @author Ralf Mitschke
  */
-case object FLOAD_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class FLOAD_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FLOAD_1.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

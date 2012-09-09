@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Load long from local variable with index 1.
  *
  * @author Ralf Mitschke
  */
-case object LLOAD_1(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class LLOAD_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LLOAD_1.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }

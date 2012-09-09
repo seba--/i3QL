@@ -33,13 +33,15 @@
 */
 package sae.bytecode.instructions
 
+import sae.bytecode.structure.{InstructionInfo, MethodDeclaration}
+
 /**
  * Exit monitor for object.
  *
  * @author Ralf Mitschke
  */
-case object MONITOREXIT(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
-extends InstructionInfo
+case class MONITOREXIT (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MONITOREXIT.type, bytecodeIndex: Int, sequenceIndex: Int)
+    extends InstructionInfo
 {
 
 }
