@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.ast
 
-import sae.operators.intern.{AggregateFunctionFactory, AggregateFunction}
+import sae.operators.SelfMaintainableAggregateFunctionFactory
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,10 +41,12 @@ import sae.operators.intern.{AggregateFunctionFactory, AggregateFunction}
  * Time: 19:37
  */
 
-case class AggregateSelectClause1[-SelectionDomain <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Range, AggregateValue]](projection: Option[SelectionDomain => Range] = None,
-                                                                                                                                                                                    aggregateFunction: AggregateFunctionFactory[Range, AggregateValue, AggregateFunctionType],
-                                                                                                                                                                                    distinct: Boolean = false)
+case class AggregateSelectClauseSelfMaintainable2[-SelectionDomainA <: AnyRef, -SelectionDomainB <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
+                                                                                                                                                               aggregateFunction: SelfMaintainableAggregateFunctionFactory[Range, AggregateValue],
+                                                                                                                                                               distinct: Boolean = false)
     extends SelectClause[Result]
 {
-    type Domain = SelectionDomain
+    type DomainA = SelectionDomainA
+
+    type DomainB = SelectionDomainB
 }

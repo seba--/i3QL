@@ -53,61 +53,124 @@ object Compiler
     def apply[Range <: AnyRef](query: SQL_QUERY[Range]): LazyView[Range] = {
         // There is some ugliness here because we deliberately forget some types in the AST
         query.representation match {
-            case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], None) => compileNoWhere1 (
-                select.asInstanceOf[SelectClause1[from.Domain, Range]],
-                from
-            )
-            case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], Some (where)) => compile1 (
-                select.asInstanceOf[SelectClause1[from.Domain, Range]],
-                from,
-                where)
-            case SQLQuery (select: SelectClause2[_, _, Range], from: FromClause2[_, _], None) => compileNoWhere2 (
-                select.asInstanceOf[SelectClause2[from.DomainA, from.DomainB, Range]],
-                from
-            )
-            case SQLQuery (select: SelectClause2[_, _, Range], from: FromClause2[_, _], Some (where)) => compile2 (
-                select.asInstanceOf[SelectClause2[from.DomainA, from.DomainB, Range]],
-                from,
-                where)
+            case SQLQuery (SelectClause1 (projection, distinct), from@FromClause1 (relation), None) =>
+                compileNoWhere1 (
+                    projection.asInstanceOf[Option[from.Domain => Range]],
+                    distinct,
+                    relation
+                )
+            case SQLQuery (SelectClause1 (projection, distinct), from@FromClause1 (relation), Some (where)) =>
+                compile1 (
+                    projection.asInstanceOf[Option[from.Domain => Range]],
+                    distinct,
+                    relation,
+                    where.expressions
+                )
+            case SQLQuery (SelectClause2 (projection, distinct), from@FromClause2 (relationA, relationB), None) =>
+                compileNoWhere2 (
+                    projection.asInstanceOf[Option[(from.DomainA, from.DomainB) => Range]],
+                    distinct,
+                    relationA,
+                    relationB
+                )
+            case SQLQuery (SelectClause2 (projection, distinct), from@FromClause2 (relationA, relationB), Some (where)) =>
+                compile2 (
+                    projection.asInstanceOf[Option[(from.DomainA, from.DomainB) => Range]],
+                    distinct,
+                    relationA,
+                    relationB,
+                    where.expressions
+                )
+            case SQLQuery (AggregateSelectClauseSelfMaintainable1 (projection, functionFactory, distinct), from@FromClause1 (relation), None) =>
+                compileAggregationSelfMaintainable (
+                    compileNoWhere1 (
+                        projection.asInstanceOf[Option[from.Domain => Range]],
+                        distinct,
+                        relation
+                    ).asInstanceOf[LazyView[AnyRef]],
+                    functionFactory
+                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+            case SQLQuery (AggregateSelectClauseSelfMaintainable1 (projection, functionFactory, distinct), from@FromClause1 (relation), Some (where)) =>
+                compileAggregationSelfMaintainable (
+                    compile1 (
+                        projection.asInstanceOf[Option[from.Domain => Range]],
+                        distinct,
+                        relation,
+                        where.expressions
+                    ).asInstanceOf[LazyView[AnyRef]],
+                    functionFactory
+                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+            case SQLQuery (AggregateSelectClauseSelfMaintainable2 (projection, functionFactory, distinct), from@FromClause2 (relationA, relationB), None) =>
+                compileAggregationSelfMaintainable (
+                    compileNoWhere2 (
+                        projection.asInstanceOf[Option[(from.DomainA, from.DomainB) => Range]],
+                        distinct,
+                        relationA,
+                        relationB
+                    ).asInstanceOf[LazyView[AnyRef]],
+                    functionFactory
+                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+            case SQLQuery (AggregateSelectClauseSelfMaintainable2 (projection, functionFactory, distinct), from@FromClause2 (relationA, relationB), Some (where)) =>
+                compileAggregationSelfMaintainable (
+                    compile2 (
+                        projection.asInstanceOf[Option[(from.DomainA, from.DomainB) => Range]],
+                        distinct,
+                        relationA,
+                        relationB,
+                        where.expressions
+                    ).asInstanceOf[LazyView[AnyRef]],
+                    functionFactory
+                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
         }
     }
 
-    private def compileNoWhere1[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[Domain, Range],
-                                                                   fromClause: FromClause1[Domain]): LazyView[Range] =
+
+    private def compileAggregationSelfMaintainable[Domain <: AnyRef, AggregateValue](relation: LazyView[Domain],
+                                                                                     functionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]): LazyView[Some[AggregateValue]] =
+    {
+        γ (relation, functionFactory)
+    }
+
+    private def compileNoWhere1[Domain <: AnyRef, Range <: AnyRef](projection: Option[Domain => Range],
+                                                                   distinct: Boolean,
+                                                                   relation: LazyView[Domain]): LazyView[Range] =
     {
         compileDistinct (
             compileProjection (
-                selectClause.projection,
-                fromClause.relation
+                projection,
+                relation
             ),
-            selectClause.distinct
+            distinct
         )
     }
 
-    private def compileNoWhere2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[DomainA, DomainB, Range],
-                                                                                       fromClause: FromClause2[DomainA, DomainB]): LazyView[Range] =
+
+    private def compileNoWhere2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
+                                                                                       distinct: Boolean,
+                                                                                       relationA: LazyView[DomainA],
+                                                                                       relationB: LazyView[DomainB]): LazyView[Range] =
     {
         compileDistinct (
             compileCrossProduct (
-                selectClause.projection,
-                fromClause.relationA,
-                fromClause.relationB
+                projection,
+                relationA,
+                relationB
             ),
-            selectClause.distinct
+            distinct
         )
     }
 
-
-    private def compile1[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[Domain, Range],
-                                                            fromClause: FromClause1[Domain],
-                                                            whereClause: WhereClause): LazyView[Range] =
+    private def compile1[Domain <: AnyRef, Range <: AnyRef](projection: Option[Domain => Range],
+                                                            distinct: Boolean,
+                                                            relation: LazyView[Domain],
+                                                            expressions: Seq[WhereClauseExpression]): LazyView[Range] =
     {
-        val cnf = NormalizePredicates (whereClause.expressions)
+        val cnf = NormalizePredicates (expressions)
         val compiledQueries =
             partitionForFilters (cnf) match {
-                case (Nil, seq) => seq.map (compileSubQueries1 (_, fromClause.relation)).flatten
-                case (seq, Nil) => Seq (compileSelection (combineFilters (seq), fromClause.relation))
-                case (seqFilters, seqSubQueries) => compileSelection (combineFilters (seqFilters), fromClause.relation) +: seqSubQueries.map (compileSubQueries1 (_, fromClause.relation)).flatten
+                case (Nil, seq) => seq.map (compileSubQueries1 (_, relation)).flatten
+                case (seq, Nil) => Seq (compileSelection (combineFilters (seq), relation))
+                case (seqFilters, seqSubQueries) => compileSelection (combineFilters (seqFilters), relation) +: seqSubQueries.map (compileSubQueries1 (_, relation)).flatten
                 case _ => throw new IllegalArgumentException ("Compile method for where clause called with empty where clause.")
             }
 
@@ -122,18 +185,21 @@ object Compiler
 
         compileDistinct (
             compileProjection (
-                selectClause.projection,
+                projection,
                 union
             ),
-            selectClause.distinct
+            distinct
         )
     }
 
-    private def compile2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[DomainA, DomainB, Range],
-                                                                                fromClause: FromClause2[DomainA, DomainB],
-                                                                                whereClause: WhereClause): LazyView[Range] =
+
+    private def compile2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
+                                                                                distinct: Boolean,
+                                                                                relationA: LazyView[DomainA],
+                                                                                relationB: LazyView[DomainB],
+                                                                                expressions: Seq[WhereClauseExpression]): LazyView[Range] =
     {
-        val cnf = NormalizePredicates (whereClause.expressions)
+        val cnf = NormalizePredicates (expressions)
 
         val (filters, others) = partitionForFilters (cnf)
 
@@ -144,9 +210,9 @@ object Compiler
                 val filtersB = relationFilters.getOrElse (Seq (2), Nil)
                 Some (
                     compileCrossProduct (
-                        selectClause.projection,
-                        compileSelection (combineFilters (filtersA), fromClause.relationA),
-                        compileSelection (combineFilters (filtersB), fromClause.relationB)
+                        projection,
+                        compileSelection (combineFilters (filtersA), relationA),
+                        compileSelection (combineFilters (filtersB), relationB)
                     )
                 )
             }
@@ -158,9 +224,9 @@ object Compiler
             joins.map (
                 compileJoins (
                     _,
-                    selectClause.projection,
-                    fromClause.relationA,
-                    fromClause.relationB
+                    projection,
+                    relationA,
+                    relationB
                 )
             )
 
@@ -379,7 +445,7 @@ object Compiler
 
     private def concreteQueriesAndUnboundJoin1[Range <: AnyRef](query: SQL_QUERY[Range]): Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])] = {
         query match {
-            case Union(left, right) => concreteQueriesAndUnboundJoin1(left).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]] ++ concreteQueriesAndUnboundJoin1(right).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]]
+            case Union (left, right) => concreteQueriesAndUnboundJoin1 (left).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]] ++ concreteQueriesAndUnboundJoin1 (right).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]]
             case SQLQuery (selectClause, fromClause, whereClause) =>
             {
                 if (!whereClause.isDefined) {

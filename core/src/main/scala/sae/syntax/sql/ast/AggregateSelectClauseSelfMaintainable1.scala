@@ -30,32 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.syntax.sql.ast
 
-import sae.syntax.sql.{SELECT_CLAUSE_AGGREGATION_NO_PROJECTION, SELECT_CLAUSE_NO_PROJECTION}
-import sae.LazyView
-import sae.syntax.sql.ast.{SelectClause2, SelectClause1}
+import sae.operators.SelfMaintainableAggregateFunctionFactory
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 02.09.12
- * Time: 19:38
+ * Time: 19:37
  */
 
-case class SelectClauseAggregationNoProjectionSyntax(distinct: Boolean = false)
-    extends SELECT_CLAUSE_AGGREGATION_NO_PROJECTION
+case class AggregateSelectClauseSelfMaintainable1[-SelectionDomain <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef](projection: Option[SelectionDomain => Range] = None,
+                                                                                                                                 functionFactory: SelfMaintainableAggregateFunctionFactory[Range, AggregateValue],
+                                                                                                                                 distinct: Boolean = false)
+    extends SelectClause[Result]
 {
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
-        FromClause1Syntax[Domain, Some[Int]](
-            SelectClause1[Domain, Some[Int]](None, distinct),
-            relation
-        )
-
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
-        FromClause2Syntax[DomainA, DomainB, Some[Int]](
-            SelectClause2[DomainA, DomainB, Some[Int]](None, distinct),
-            relationA,
-            relationB
-        )
+    type Domain = SelectionDomain
 }

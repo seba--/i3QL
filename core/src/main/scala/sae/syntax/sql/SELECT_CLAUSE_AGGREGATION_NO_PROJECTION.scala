@@ -41,10 +41,10 @@ import sae.LazyView
  * Time: 19:48
  *
  */
-trait SELECT_CLAUSE_AGGREGATION_NO_PROJECTION
+trait SELECT_CLAUSE_AGGREGATION_NO_PROJECTION[Result <: AnyRef]
 {
 
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Some[Int]]
+    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Result]
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Some[Int]]
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Result]
 }

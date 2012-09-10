@@ -638,6 +638,24 @@ class SQLSyntaxTest
 
         val database = new StudentCoursesDatabase ()
 
+        val students = database.students.copy // make a local copy
+
+        val query: LazyView[Some[Int]] =
+            SELECT COUNT (*) FROM (students) WHERE (_.Name == "sally")
+
+        Assert.assertEquals (
+            List (
+                (Some(1))
+            ),
+            query.asList
+        )
+    }
+
+    @Test
+    def testAggregationCountWithJoin() {
+
+        val database = new StudentCoursesDatabase ()
+
         import database._
 
         val students = database.students.copy // make a local copy
@@ -649,7 +667,7 @@ class SQLSyntaxTest
 
         Assert.assertEquals (
             List (
-                (2)
+                (Some(2))
             ),
             query.asList
         )

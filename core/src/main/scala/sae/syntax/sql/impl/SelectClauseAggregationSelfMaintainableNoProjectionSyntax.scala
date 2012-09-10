@@ -30,23 +30,41 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.ast
+package sae.syntax.sql.impl
 
-import sae.operators.intern.{AggregateFunctionFactory, AggregateFunction}
+import sae.syntax.sql.SELECT_CLAUSE_AGGREGATION_NO_PROJECTION
+import sae.LazyView
+import sae.syntax.sql.ast.{AggregateSelectClauseSelfMaintainable2, AggregateSelectClauseSelfMaintainable1}
+import sae.operators.SelfMaintainableAggregateFunctionFactory
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 02.09.12
- * Time: 19:37
+ * Time: 19:38
  */
-
-case class AggregateSelectClause2[-SelectionDomainA <: AnyRef, -SelectionDomainB <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Range, AggregateValue]](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
-                                                                                                                                                                                                      aggregateFunction: AggregateFunctionFactory[Range, AggregateValue, AggregateFunctionType],
-                                                                                                                                                                                                      distinct: Boolean = false)
-    extends SelectClause[Result]
+case class SelectClauseAggregationSelfMaintainableNoProjectionSyntax[AggregateValue, Result <: AnyRef](functionFactory: SelfMaintainableAggregateFunctionFactory[AnyRef, AggregateValue],
+                                                                                                       distinct: Boolean = false)
+    extends SELECT_CLAUSE_AGGREGATION_NO_PROJECTION[Result]
 {
-    type DomainA = SelectionDomainA
+    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
+        FromClause1Syntax[Domain, Result](
+            AggregateSelectClauseSelfMaintainable1[Domain, Domain, AggregateValue, Result](
+                None,
+                functionFactory.asInstanceOf[SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]],
+                distinct
+            ),
+            relation
+        )
 
-    type DomainB = SelectionDomainB
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
+        FromClause2Syntax[DomainA, DomainB, Result](
+            AggregateSelectClauseSelfMaintainable2[DomainA, DomainB, (DomainA, DomainB), AggregateValue, Result](
+                None,
+                functionFactory.asInstanceOf[SelfMaintainableAggregateFunctionFactory[(DomainA, DomainB), AggregateValue]],
+                distinct
+            ),
+            relationA,
+            relationB
+        )
 }

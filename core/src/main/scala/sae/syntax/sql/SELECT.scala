@@ -32,10 +32,18 @@
  */
 package sae.syntax.sql
 
-import ast.{AggregateSelectClause1, AggregateSelectClause2, SelectClause2, SelectClause1}
-import impl.{SelectClauseAggregationNoProjectionSyntax, SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1Syntax}
+import ast._
+import ast.AggregateSelectClauseSelfMaintainable1
+import ast.SelectClause1
+import ast.SelectClause2
+import impl.SelectClause1Syntax
+import impl.SelectClause2Syntax
+import impl.SelectClauseAggregationSelfMaintainableNoProjectionSyntax
+import impl.SelectClauseNoProjectionSyntax
+import impl.{SelectClauseAggregationSelfMaintainableNoProjectionSyntax, SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1Syntax}
 import sae.functions.Count
 import sae.operators.SelfMaintainableAggregateFunction
+import scala.Some
 
 /**
  *
@@ -96,7 +104,7 @@ object SELECT
 
     def COUNT[Domain <: AnyRef, Range <: AnyRef](projection: (Domain) => Range): SELECT_CLAUSE[Domain, Some[Int]] =
         SelectClause1Syntax (
-            AggregateSelectClause1[Domain, Range, Int, Some[Int], SelfMaintainableAggregateFunction[Range, Int]](
+            AggregateSelectClauseSelfMaintainable1[Domain, Range, Int, Some[Int]](
                 Some (projection),
                 Count[Range](),
                 distinct = false
@@ -105,7 +113,7 @@ object SELECT
 
     def COUNT[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SELECT_CLAUSE_2[DomainA, DomainB, Some[Int]] =
         SelectClause2Syntax (
-            AggregateSelectClause2[DomainA, DomainB, Range, Int, Some[Int], SelfMaintainableAggregateFunction[Range, Int]](
+            AggregateSelectClauseSelfMaintainable2[DomainA, DomainB, Range, Int, Some[Int]](
                 Some (projection),
                 Count[Range](),
                 distinct = false
@@ -115,7 +123,7 @@ object SELECT
     def COUNT[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](projectionA: DomainA => RangeA,
                                                                                         projectionB: DomainB => RangeB): SELECT_CLAUSE_2[DomainA, DomainB, Some[Int]] =
         SelectClause2Syntax (
-            AggregateSelectClause2[DomainA, DomainB, (RangeA, RangeB), Int, Some[Int], SelfMaintainableAggregateFunction[(RangeA, RangeB), Int]](
+            AggregateSelectClauseSelfMaintainable2[DomainA, DomainB, (RangeA, RangeB), Int, Some[Int]](
                 Some ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b))),
                 Count[(RangeA, RangeB)](),
                 distinct = false
@@ -123,6 +131,6 @@ object SELECT
         )
 
 
-    def COUNT(x: STAR_KEYWORD): SELECT_CLAUSE_AGGREGATION_NO_PROJECTION =
-        SelectClauseAggregationNoProjectionSyntax (distinct = false)
+    def COUNT(x: STAR_KEYWORD): SELECT_CLAUSE_AGGREGATION_NO_PROJECTION[Some[Int]] =
+        SelectClauseAggregationSelfMaintainableNoProjectionSyntax[Int, Some[Int]](Count[AnyRef](), distinct = false)
 }
