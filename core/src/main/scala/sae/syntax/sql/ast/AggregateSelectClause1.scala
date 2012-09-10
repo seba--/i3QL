@@ -30,26 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.syntax.sql.ast
 
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
-import sae.LazyView
+import sae.operators.intern.{AggregateFunctionFactory, AggregateFunction}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
  * Date: 02.09.12
- * Time: 19:38
+ * Time: 19:37
  */
 
-case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
-    extends SELECT_CLAUSE_2[SelectionDomainA, SelectionDomainB, Range]
+case class AggregateSelectClause1[-SelectionDomain <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Range, AggregateValue]](projection: Option[SelectionDomain => Range] = None,
+                                                                                                                                                                                    aggregateFunction: AggregateFunctionFactory[Range, AggregateValue, AggregateFunctionType],
+                                                                                                                                                                                    distinct: Boolean = false)
+    extends SelectClause[Result]
 {
-    def FROM(relationA: LazyView[SelectionDomainA], relationB: LazyView[SelectionDomainB]) =
-        FromClause2Syntax (
-            selectClause,
-            relationA,
-            relationB
-        )
+    type Domain = SelectionDomain
 }

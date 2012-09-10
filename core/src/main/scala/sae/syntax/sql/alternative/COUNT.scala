@@ -30,26 +30,40 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.syntax.sql.alternative
 
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
-import sae.LazyView
+import sae.syntax.sql.STAR_KEYWORD
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:38
+ * Date: 05.08.12
+ * Time: 13:55
  */
-
-case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
-    extends SELECT_CLAUSE_2[SelectionDomainA, SelectionDomainB, Range]
+object COUNT
 {
-    def FROM(relationA: LazyView[SelectionDomainA], relationB: LazyView[SelectionDomainB]) =
-        FromClause2Syntax (
-            selectClause,
-            relationA,
-            relationB
-        )
+
+    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range] =
+        new DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]
+        {
+            def function = projection
+        }
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range] =
+        new DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range]
+        {
+            def function = (tuple: (DomainA, DomainB)) => projection (tuple._1, tuple._2)
+        }
+
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA,
+                                                                              projectionB: DomainB => RangeB): DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), (RangeA, RangeB)] =
+        new DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), (RangeA, RangeB)]
+        {
+            def function = (tuple: (DomainA, DomainB)) => (projectionA (tuple._1), projectionB (tuple._2))
+        }
+
+
+    def apply(x: STAR_KEYWORD): DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION = DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+
+
 }

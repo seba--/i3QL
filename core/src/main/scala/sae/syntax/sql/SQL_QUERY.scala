@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import ast.SQLQuery
+import ast.Union
 import sae.LazyView
 
 /**
@@ -48,7 +48,9 @@ trait SQL_QUERY[Range <: AnyRef]
     def compile(): LazyView[Range]
 
     // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQLQuery[Range]
+    type Representation <: SQL_QUERY[Range]
 
     def representation: Representation
+
+    def UNION[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) = Union (representation, other)
 }

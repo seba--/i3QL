@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql.ast
 
+import sae.operators.intern.AggregateFunction
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke

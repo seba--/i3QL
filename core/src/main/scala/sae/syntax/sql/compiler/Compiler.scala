@@ -38,6 +38,7 @@ import sae.operators._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
 import predicates._
+import sae.syntax.sql.SQL_QUERY
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,9 +50,9 @@ import predicates._
 object Compiler
 {
 
-    def apply[Range <: AnyRef](query: SQLQuery[Range]): LazyView[Range] = {
+    def apply[Range <: AnyRef](query: SQL_QUERY[Range]): LazyView[Range] = {
         // There is some ugliness here because we deliberately forget some types in the AST
-        query match {
+        query.representation match {
             case SQLQuery (select: SelectClause1[_, Range], from: FromClause1[_], None) => compileNoWhere1 (
                 select.asInstanceOf[SelectClause1[from.Domain, Range]],
                 from
@@ -183,8 +184,8 @@ object Compiler
                         case Negation (Filter (f: (Domain => Boolean), _)) => !f (_)
                     }
                     fun
-                }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) && right (x))
-            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => (x: Domain) => left (x) || right (x))
+                }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => ((x: Domain) => (left (x) && right (x))))
+            }).reduce ((left: Domain => Boolean, right: Domain => Boolean) => ((x: Domain) => (left (x) || right (x))))
         )
     }
 
@@ -376,29 +377,42 @@ object Compiler
     }
 
 
-    private def concreteQueriesAndUnboundJoin1[Range <: AnyRef](query: SQLQuery[Range]): Seq[(SQLQuery[Range], Seq[Join[AnyRef, AnyRef, _, _]])] = {
-        if (!query.whereClause.isDefined) {
-            return Seq ((query, Nil))
-        }
-        val cnf = NormalizePredicates (query.whereClause.get.expressions)
-        // if there are multiple queries with a join we need to make a union
-        for (conjunct <- cnf) yield {
-            val (unboundJoins, predicates) = conjunct.partition {
-                case UnboundJoin (_) => true
-                //case Negation (UnboundJoin (_)) => true// TODO what about negated unbounds?
-                case _ => false
+    private def concreteQueriesAndUnboundJoin1[Range <: AnyRef](query: SQL_QUERY[Range]): Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])] = {
+        query match {
+            case Union(left, right) => concreteQueriesAndUnboundJoin1(left).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]] ++ concreteQueriesAndUnboundJoin1(right).asInstanceOf[Seq[(SQL_QUERY[Range], Seq[Join[AnyRef, AnyRef, _, _]])]]
+            case SQLQuery (selectClause, fromClause, whereClause) =>
+            {
+                if (!whereClause.isDefined) {
+                    Seq ((query, Nil))
+                }
+                else
+                {
+
+
+                    val cnf = NormalizePredicates (whereClause.get.expressions)
+                    // if there are multiple queries with a join we need to make a union
+                    for (conjunct <- cnf) yield {
+                        val (unboundJoins, predicates) = conjunct.partition {
+                            case UnboundJoin (_) => true
+                            //case Negation (UnboundJoin (_)) => true// TODO what about negated unbounds?
+                            case _ => false
+                        }
+                        val newSubQuery =
+                            SQLQuery[Range](
+                                selectClause,
+                                fromClause,
+                                if (predicates.isEmpty) None
+                                else Some (WhereClauseSequence (predicates.flatMap (Seq (AndOperator, _)).drop (1)))
+                            )
+                        (newSubQuery, unboundJoins.map {
+                            case UnboundJoin (join) => join.asInstanceOf[Join[AnyRef, AnyRef, _, _]]
+                        })
+                    }
+                }
             }
-            val newSubQuery =
-                SQLQuery[Range](
-                    query.selectClause,
-                    query.fromClause,
-                    if (predicates.isEmpty) None
-                    else Some (WhereClauseSequence (predicates.flatMap (Seq (AndOperator, _)).drop (1)))
-                )
-            (newSubQuery, unboundJoins.map {
-                case UnboundJoin (join) => join.asInstanceOf[Join[AnyRef, AnyRef, _, _]]
-            })
+
         }
+
     }
 
     private def compileHashKey(keyExtractors: Seq[AnyRef => Any]): AnyRef => AnyRef = {

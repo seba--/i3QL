@@ -32,9 +32,9 @@
  */
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
+import sae.syntax.sql.{SELECT_CLAUSE_AGGREGATION_NO_PROJECTION, SELECT_CLAUSE_NO_PROJECTION}
 import sae.LazyView
+import sae.syntax.sql.ast.{SelectClause2, SelectClause1}
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,12 +43,18 @@ import sae.LazyView
  * Time: 19:38
  */
 
-case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
-    extends SELECT_CLAUSE_2[SelectionDomainA, SelectionDomainB, Range]
+case class SelectClauseAggregationNoProjectionSyntax(distinct: Boolean = false)
+    extends SELECT_CLAUSE_AGGREGATION_NO_PROJECTION
 {
-    def FROM(relationA: LazyView[SelectionDomainA], relationB: LazyView[SelectionDomainB]) =
-        FromClause2Syntax (
-            selectClause,
+    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
+        FromClause1Syntax[Domain, Some[Int]](
+            SelectClause1[Domain, Some[Int]](None, distinct),
+            relation
+        )
+
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
+        FromClause2Syntax[DomainA, DomainB, Some[Int]](
+            SelectClause2[DomainA, DomainB, Some[Int]](None, distinct),
             relationA,
             relationB
         )

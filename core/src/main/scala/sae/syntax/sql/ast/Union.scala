@@ -30,38 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
+
+import sae.syntax.sql.SQL_QUERY
+import sae.syntax.sql.compiler.Compiler
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 05.08.12
- * Time: 13:55
+ * Date: 09.09.12
+ * Time: 13:47
  */
-object DISTINCT
+
+case class Union[RangeA <: AnyRef, RangeB >: RangeA <: AnyRef](left: SQL_QUERY[RangeA], right: SQL_QUERY[RangeB])
+    extends SQL_QUERY[RangeB]
 {
+    def compile() = Compiler (this)
 
-    def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range): DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range] =
-        new DISTINCT_INFIX_SELECT_CLAUSE[Domain, Range]
-        {
-            def function = projection
-        }
+    type Representation = this.type
 
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range] =
-        new DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), Range]
-        {
-            def function = (tuple: (DomainA, DomainB)) => projection (tuple._1, tuple._2)
-        }
-
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB](projectionA: DomainA => RangeA,
-                                                                              projectionB: DomainB => RangeB): DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), (RangeA, RangeB)] =
-        new DISTINCT_INFIX_SELECT_CLAUSE[(DomainA, DomainB), (RangeA, RangeB)]
-        {
-            def function = (tuple: (DomainA, DomainB)) => (projectionA (tuple._1), projectionB (tuple._2))
-        }
-
-
-    def apply(x: STAR_KEYWORD): DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION = DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
-
-
+    def representation = this
 }

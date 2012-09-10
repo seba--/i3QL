@@ -18,7 +18,7 @@ import sae.syntax.sql.compiler.Compiler
  *
  * In the from clause we curre
  */
-case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[_ >: Domain <: AnyRef, Range],
+case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range],
                                                                 relation: LazyView[Domain])
     extends FROM_CLAUSE[Domain, Range]
 {

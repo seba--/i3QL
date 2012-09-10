@@ -30,22 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
+
+import sae.operators.intern.{AggregateFunctionFactory, AggregateFunction}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 11:31
+ * Date: 02.09.12
+ * Time: 19:37
  */
 
-trait DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+case class AggregateSelectClause2[-SelectionDomainA <: AnyRef, -SelectionDomainB <: AnyRef, Range <: AnyRef, AggregateValue, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Range, AggregateValue]](projection: Option[(SelectionDomainA, SelectionDomainB) => Range] = None,
+                                                                                                                                                                                                      aggregateFunction: AggregateFunctionFactory[Range, AggregateValue, AggregateFunctionType],
+                                                                                                                                                                                                      distinct: Boolean = false)
+    extends SelectClause[Result]
 {
+    type DomainA = SelectionDomainA
 
-}
-
-object DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
-    extends DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
-{
-
+    type DomainB = SelectionDomainB
 }

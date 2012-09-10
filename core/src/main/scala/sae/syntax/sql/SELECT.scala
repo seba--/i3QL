@@ -32,9 +32,10 @@
  */
 package sae.syntax.sql
 
-import alternative.STARTING_CLAUSE_PREFIX_SELECT
-import ast.{SelectClause2, SelectClause1}
-import impl.{SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1Syntax}
+import ast.{AggregateSelectClause1, AggregateSelectClause2, SelectClause2, SelectClause1}
+import impl.{SelectClauseAggregationNoProjectionSyntax, SelectClause2Syntax, SelectClauseNoProjectionSyntax, SelectClause1Syntax}
+import sae.functions.Count
+import sae.operators.SelfMaintainableAggregateFunction
 
 /**
  *
@@ -92,4 +93,36 @@ object SELECT
 
     def DISTINCT(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
         SelectClauseNoProjectionSyntax (distinct = true)
+
+    def COUNT[Domain <: AnyRef, Range <: AnyRef](projection: (Domain) => Range): SELECT_CLAUSE[Domain, Some[Int]] =
+        SelectClause1Syntax (
+            AggregateSelectClause1[Domain, Range, Int, Some[Int], SelfMaintainableAggregateFunction[Range, Int]](
+                Some (projection),
+                Count[Range](),
+                distinct = false
+            )
+        )
+
+    def COUNT[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: (DomainA, DomainB) => Range): SELECT_CLAUSE_2[DomainA, DomainB, Some[Int]] =
+        SelectClause2Syntax (
+            AggregateSelectClause2[DomainA, DomainB, Range, Int, Some[Int], SelfMaintainableAggregateFunction[Range, Int]](
+                Some (projection),
+                Count[Range](),
+                distinct = false
+            )
+        )
+
+    def COUNT[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](projectionA: DomainA => RangeA,
+                                                                                        projectionB: DomainB => RangeB): SELECT_CLAUSE_2[DomainA, DomainB, Some[Int]] =
+        SelectClause2Syntax (
+            AggregateSelectClause2[DomainA, DomainB, (RangeA, RangeB), Int, Some[Int], SelfMaintainableAggregateFunction[(RangeA, RangeB), Int]](
+                Some ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b))),
+                Count[(RangeA, RangeB)](),
+                distinct = false
+            )
+        )
+
+
+    def COUNT(x: STAR_KEYWORD): SELECT_CLAUSE_AGGREGATION_NO_PROJECTION =
+        SelectClauseAggregationNoProjectionSyntax (distinct = false)
 }

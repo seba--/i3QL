@@ -33,6 +33,7 @@
 package sae.syntax.sql.ast.predicates
 
 import sae.syntax.sql.ast.SQLQuery
+import sae.syntax.sql.SQL_QUERY
 
 
 /**
@@ -42,7 +43,7 @@ import sae.syntax.sql.ast.SQLQuery
  * Time: 10:38
  */
 
-case class Exists[Range <: AnyRef](subQuery: SQLQuery[Range], numOpenJoins: Int)
+case class Exists[Range <: AnyRef](subQuery: SQL_QUERY[Range], numOpenJoins: Int)
     extends Predicate
 {
 

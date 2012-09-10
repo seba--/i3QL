@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.ast.SelectClause1
+import sae.syntax.sql.ast.{SelectClause, SelectClause1}
 import sae.syntax.sql.SELECT_CLAUSE
 import sae.LazyView
 
@@ -43,7 +43,7 @@ import sae.LazyView
  * Time: 19:38
  */
 
-case class SelectClause1Syntax[SelectionDomain <: AnyRef, Range <: AnyRef](selectClause: SelectClause1[SelectionDomain, Range])
+case class SelectClause1Syntax[SelectionDomain <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
     extends SELECT_CLAUSE[SelectionDomain, Range]
 {
     def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]) = FromClause1Syntax[Domain, Range](selectClause, relation)

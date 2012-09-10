@@ -4,6 +4,7 @@ import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
 import scala.Some
+import runtime.Boxed
 
 /**
  *
@@ -598,7 +599,7 @@ class SQLSyntaxTest
 
         val query: LazyView[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND NOT (
-                EXISTS (SELECT (*) FROM (enrollments) WHERE  ((_: Enrollment).StudentId) === ((_: Student).Id))
+                EXISTS (SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id))
             )
 
         Assert.assertEquals (
@@ -628,6 +629,29 @@ class SQLSyntaxTest
                 (john, Enrollment (john.Id, sed.Id))
             ),
             query.asList.sortBy (x => (x._1.Name, x._2.CourseId))
+        )
+    }
+
+
+    @Test
+    def testAggregationCount() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        val query: LazyView[Some[Int]] =
+            SELECT COUNT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) === ((_: Enrollment).StudentId)
+
+        Assert.assertEquals (
+            List (
+                (2)
+            ),
+            query.asList
         )
     }
 

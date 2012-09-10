@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.alternative
 
-import sae.syntax.sql.{DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION, DISTINCT_INFIX_SELECT_CLAUSE, STAR_KEYWORD, FROM_CLAUSE_2}
+import sae.syntax.sql.{STAR_KEYWORD, FROM_CLAUSE_2}
 
 /**
  *

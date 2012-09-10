@@ -15,7 +15,7 @@ import predicates.{WhereClauseSequence, Filter}
  * Time: 20:08
  *
  */
-case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause2[_ >: DomainA <: AnyRef, _ >: DomainB <: AnyRef, Range],
+case class FromClause2Syntax[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range],
                                                                                     relationA: LazyView[DomainA],
                                                                                     relationB: LazyView[DomainB])
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]

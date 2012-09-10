@@ -30,26 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
-
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
-import sae.LazyView
+package sae.syntax.sql.alternative
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:38
+ * Date: 12.08.12
+ * Time: 11:31
  */
 
-case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
-    extends SELECT_CLAUSE_2[SelectionDomainA, SelectionDomainB, Range]
+trait DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
 {
-    def FROM(relationA: LazyView[SelectionDomainA], relationB: LazyView[SelectionDomainB]) =
-        FromClause2Syntax (
-            selectClause,
-            relationA,
-            relationB
-        )
+
+}
+
+object DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+    extends DISTINCT_INFIX_SELECT_CLAUSE_NO_PROJECTION
+{
+
 }

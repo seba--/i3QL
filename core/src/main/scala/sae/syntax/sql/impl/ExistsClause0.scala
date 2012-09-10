@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast.SQLQuery
-import sae.syntax.sql.WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
+import sae.syntax.sql.{SQL_QUERY, WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0}
 import sae.syntax.sql.ast.predicates.Exists
 
 /**
@@ -43,7 +43,7 @@ import sae.syntax.sql.ast.predicates.Exists
  * Time: 13:15
  */
 
-case class ExistsClause0[Range <: AnyRef](query: SQLQuery[Range])
+case class ExistsClause0[Range <: AnyRef](query: SQL_QUERY[Range])
     extends WHERE_CLAUSE_FINAL_SUB_EXPRESSION_0
 {
     type Representation = Exists[Range]
