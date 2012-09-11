@@ -32,27 +32,14 @@
  */
 package sae.syntax.sql
 
-import ast.{UnionAll, Union}
-import sae.LazyView
-
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:57
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 11.09.12
+ * Time: 18:12
  */
-trait SQL_QUERY[Range <: AnyRef]
+
+trait UNNESTING_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 {
 
-    def compile(): LazyView[Range]
-
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQL_QUERY[Range]
-
-    def representation: Representation
-
-    def UNION[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = Union (representation, other)
-
-    def UNION_ALL[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = UnionAll (representation, other)
 }

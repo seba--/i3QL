@@ -30,26 +30,69 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.impl
+package sae.operators
 
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
-import sae.LazyView
+import sae.{SelfMaintainedView, LazyView}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 02.09.12
- * Time: 19:38
+ * Date: 11.09.12
+ * Time: 17:23
  */
 
-case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
-    extends SELECT_CLAUSE_2[SelectionDomainA, SelectionDomainB, Range]
+trait UnNest[Range <: AnyRef, Domain <: Range]
+    extends LazyView[Range]
 {
-    def FROM[DomainA <: SelectionDomainA, DomainB <: SelectionDomainB](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
-        FromClause2Syntax (
-            selectClause,
-            relationA,
-            relationB
+    type Rng = Range
+
+    def relation: LazyView[Domain]
+
+    def unNestFunction: Domain => Traversable[Range]
+}
+
+class UnNesting[Range <: AnyRef, Domain <: Range](
+                                                     val relation: LazyView[Domain],
+                                                     val unNestFunction: Domain => Seq[Range]
+                                                     )
+    extends UnNest[Range, Domain]
+    with SelfMaintainedView[Domain, Range]
+{
+    /**
+     * Applies f to all elements of the view.
+     * Implementers must guarantee that no update/add/remove event is
+     * fired during the deferred iteration
+     */
+    def lazy_foreach[T](f: (Range) => T) {
+        relation.lazy_foreach(
+            unNestFunction(_).foreach(f)
         )
+    }
+
+    /**
+     * Each materialized view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * thus the first call to foreach will try to
+     * materialize already persisted data.
+     */
+    def lazyInitialize() {
+        initialized = true
+    }
+
+    // TODO we could try and see whether the returned unestings are equal, but it is not
+    def updated_internal(oldV: Domain, newV: Domain) {
+        removed_internal(oldV)
+        added_internal(newV)
+    }
+
+    def removed_internal(v: Domain) {
+        unNestFunction(v).foreach(element_removed)
+    }
+
+    def added_internal(v: Domain) {
+        unNestFunction(v).foreach(element_added)
+    }
 }

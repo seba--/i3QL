@@ -45,6 +45,9 @@ package object sql
     implicit def functionToComparator[Domain <: AnyRef, Range](left: Domain => Range): WHERE_CLAUSE_COMPARATOR[Domain, Range] =
         WhereClauseComparator (left)
 
+    implicit def functionToInClauseUnnesting[Domain <: AnyRef, Range <: AnyRef](fun: Domain => Seq[Range]): IN_CLAUSE_UNNESTING[Domain, Range] =
+        InClauseUnnestingSyntax (fun)
+
 
     implicit def functionTuples2[Domain, R1, R2](functionTuple: (Domain => R1, Domain => R2)): Domain => (R1, R2) =
         (x: Domain) => (functionTuple._1 (x), functionTuple._2 (x))

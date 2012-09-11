@@ -30,29 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.impl
 
-import ast.{UnionAll, Union}
+import sae.syntax.sql.{UNNESTING_CLAUSE, IN_CLAUSE_UNNESTING}
 import sae.LazyView
+import sae.syntax.sql.ast.UnnestingClause
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:57
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 11.09.12
+ * Time: 18:15
  */
-trait SQL_QUERY[Range <: AnyRef]
+
+case class InClauseUnnestingSyntax[UnnestingDomain <: AnyRef, Range <: AnyRef](function: UnnestingDomain => Seq[Range])
+    extends IN_CLAUSE_UNNESTING[UnnestingDomain, Range]
 {
 
-    def compile(): LazyView[Range]
+    def IN[Domain <: UnnestingDomain](relation: LazyView[Domain]): UNNESTING_CLAUSE[Domain, Range] =
+        UnnestingClause (function, relation)
 
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQL_QUERY[Range]
-
-    def representation: Representation
-
-    def UNION[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = Union (representation, other)
-
-    def UNION_ALL[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = UnionAll (representation, other)
 }

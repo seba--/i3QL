@@ -30,29 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql
+package sae.syntax.sql.ast
 
-import ast.{UnionAll, Union}
-import sae.LazyView
+import sae.syntax.sql.SQL_QUERY
+import sae.syntax.sql.compiler.Compiler
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:57
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 09.09.12
+ * Time: 13:47
  */
-trait SQL_QUERY[Range <: AnyRef]
+
+case class UnionAll[RangeA <: AnyRef, RangeB >: RangeA <: AnyRef](left: SQL_QUERY[RangeA], right: SQL_QUERY[RangeB])
+    extends SQL_QUERY[RangeB]
 {
+    def compile() = Compiler (this)
 
-    def compile(): LazyView[Range]
+    type Representation = this.type
 
-    // TODO this is one point where the syntax is no abstract from the implementation
-    type Representation <: SQL_QUERY[Range]
-
-    def representation: Representation
-
-    def UNION[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = Union (representation, other)
-
-    def UNION_ALL[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = UnionAll (representation, other)
+    def representation = this
 }

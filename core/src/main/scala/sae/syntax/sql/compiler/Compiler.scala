@@ -121,6 +121,7 @@ object Compiler
                     ).asInstanceOf[LazyView[AnyRef]],
                     functionFactory
                 ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+            case UnionAll (left, right) => compileUnionAll(Compiler (left), Compiler(right)).asInstanceOf[LazyView[Range]]
         }
     }
 
@@ -501,5 +502,11 @@ object Compiler
                                                                                                relationB: LazyView[DomainB]) =
     {
         null
+    }
+
+    private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: LazyView[DomainA],
+                                                                                                  relationB: LazyView[DomainB]) =
+    {
+        new AddMultiSetUnion(relationA, relationB)
     }
 }
