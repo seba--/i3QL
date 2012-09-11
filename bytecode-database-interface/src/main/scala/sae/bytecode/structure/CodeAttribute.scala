@@ -30,34 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import instructions.InstructionInfo
-import sae.{SetRelation, LazyView}
-import sae.bytecode.structure._
+package sae.bytecode.structure
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 11.09.12
+ * Time: 21:38
  */
-trait BytecodeBaseRelations
+
+case class CodeAttribute(declaringMethod : MethodDeclaration,
+                         codeLength: Int,
+                         max_stack: Int,
+                         max_locals: Int,
+                         exceptionHandlers: Seq[de.tud.cs.st.bat.resolved.ExceptionHandler])
 {
-
-    def classDeclarations: SetRelation[ClassDeclaration]
-
-    def methodDeclarations: SetRelation[MethodDeclaration]
-
-    def fieldDeclarations: SetRelation[FieldDeclaration]
-
-    def classInheritance: SetRelation[InheritanceRelation]
-
-    def interfaceInheritance: SetRelation[InheritanceRelation]
-
-    def instructions: SetRelation[InstructionInfo]
-
-    def codeAttributes: SetRelation[CodeAttribute]
 
 }

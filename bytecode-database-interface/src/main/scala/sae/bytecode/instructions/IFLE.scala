@@ -42,7 +42,7 @@ import sae.bytecode.structure.MethodDeclaration
  * * @author Ralf Mitschke
  */
 case class IFLE(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFLE, pc: Int, sequenceIndex: Int)
-    extends BranchInstructionInfo
+    extends IfBranchInstructionInfo
 {
     def branchOffset = instruction.branchoffset
 }

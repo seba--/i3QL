@@ -39,7 +39,7 @@ package sae.bytecode.instructions
  * Time: 16:51
  */
 
-trait BranchInstructionInfo
+trait GotoBranchInstructionInfo
     extends InstructionInfo
 {
     def branchOffset: Int

@@ -30,34 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
-
-import instructions.InstructionInfo
-import sae.{SetRelation, LazyView}
-import sae.bytecode.structure._
+package sae.bytecode.instructions
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 11.09.12
+ * Time: 16:51
  */
-trait BytecodeBaseRelations
+
+trait IfBranchInstructionInfo
+    extends InstructionInfo
 {
-
-    def classDeclarations: SetRelation[ClassDeclaration]
-
-    def methodDeclarations: SetRelation[MethodDeclaration]
-
-    def fieldDeclarations: SetRelation[FieldDeclaration]
-
-    def classInheritance: SetRelation[InheritanceRelation]
-
-    def interfaceInheritance: SetRelation[InheritanceRelation]
-
-    def instructions: SetRelation[InstructionInfo]
-
-    def codeAttributes: SetRelation[CodeAttribute]
-
+    def branchOffset: Int
 }

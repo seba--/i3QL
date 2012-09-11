@@ -32,10 +32,11 @@
  */
 package sae.bytecode
 
-import instructions.{SwitchInstructionInfo, ReturnInstructionInfo, BranchInstructionInfo, InstructionInfo}
+import instructions._
 import sae.LazyView
 import sae.syntax.sql._
 import structure.MethodDeclaration
+import scala.Some
 
 /**
  * Created with IntelliJ IDEA.
@@ -71,26 +72,170 @@ trait BytecodeCFG
 
     def instructions: LazyView[InstructionInfo]
 
-    def branchInstructions: LazyView[BranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[BranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[BranchInstructionInfo])
+    def ifBranchInstructions: LazyView[IfBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[IfBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[IfBranchInstructionInfo])
+
+    def gotoBranchInstructions: LazyView[GotoBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[GotoBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[GotoBranchInstructionInfo])
 
     def returnInstructions: LazyView[ReturnInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[ReturnInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[ReturnInstructionInfo])
 
     def switchInstructions: LazyView[SwitchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[SwitchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[SwitchInstructionInfo])
 
+    def switchJumpTargets: LazyView[(SwitchInstructionInfo, Int)] = SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch, switch.pc + jumpOffset.get)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
+
+    /*
+    basic_block_end_pcs(Pc, if_cmp_const(_, Target), [Pc|PrevList]) :- !, % if_cmp_const marks the end of a basic block
+    (Target >= 1) ->
+        (       % the jump target ist not the very first instruction
+            EndPc is Target - 1,  % the instruction before Target is also the end of a basic block
+            PrevList = [EndPc]
+    )
+    ;       % the jump target is the very first instruction of the method
+    PrevList = [].
+
+    basic_block_end_pcs(Pc, if_cmp(_, _, Target), [Pc|PrevList]) :- !, % if_cmp marks the end of a basic block
+    (Target >= 1) ->
+        (
+            EndPc is Target - 1, % the instruction before Target is also the end of a basic block
+            PrevList = [EndPc]
+    );
+    PrevList = [].
+
+    basic_block_end_pcs(Pc, goto(Target), [Pc|PrevList]) :- !, % goto marks the end of a basic block.
+    (Target >= 1) ->
+        (
+            EndPc is Target - 1, % the instruction before Target is also the end of a basic block
+            PrevList = [EndPc]
+    );
+    PrevList = [].
+
+
+    basic_block_end_pcs(Pc, return(_), [Pc]) :- !. % a return statement always marks the end of a basic block.
+
+    basic_block_end_pcs(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), List) :- !,
+    List = [Pc|DefaulTargetEndPcList],
+    tableswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
+    DefaultTargetEndPc is DefaultTarget - 1,
+    (
+        (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList])
+    ;
+    (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
+    ).
+
+    basic_block_end_pcs(Pc, lookupswitch(DefaultTarget,_,JumpTargets), List) :- !,
+    List = [Pc|DefaulTargetEndPcList],
+    lookupswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
+    DefaultTargetEndPc is DefaultTarget - 1,
+    (
+        (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList]);
+    (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
+    ).
+
+
+    basic_block_end_pcs(Pc, athrow, [Pc]) :- !. % a throw statement always marks the end of a basic block.
+
+
+    % tableswitch_target_end_pc(JumpTargetList, EndPcList) :-
+    %                      Determines all EndPc's in EndPcList that stem from the given jump targets
+    tableswitch_target_end_pc_list([Target|RestTargets], List) :- !,
+    EndPc is Target - 1,
+    (
+        (
+            EndPc >= 0,!,
+        List = [EndPc| RestEndPcs]
+    );
+    (
+        EndPc  < 0,
+        List = RestEndPcs
+        )
+    ),
+    tableswitch_target_end_pc_list(RestTargets, RestEndPcs).
+        tableswitch_target_end_pc_list([], []).
+
+    % lookupswitch_target_end_pc(JumpTargetList, EndPcList) :-
+        %                      Determines all EndPc's in EndPcList that stem from the given jump targets
+        lookupswitch_target_end_pc_list([kv(_,Target)|RestTargets], List) :- !,
+    EndPc is Target - 1,
+    (
+        (
+            EndPc >= 0,!,
+        List = [EndPc| RestEndPcs]
+    );
+    (
+        EndPc  < 0,
+        List = RestEndPcs
+        )
+    ),
+    lookupswitch_target_end_pc_list(RestTargets, RestEndPcs).
+        lookupswitch_target_end_pc_list([], []).
+    */
     def basicBlockEndPcs: LazyView[(MethodDeclaration, Int)] =
-        SELECT ((branch: BranchInstructionInfo) => (branch.declaringMethod, branch.pc)) FROM branchInstructions UNION_ALL (
-            SELECT ((branch: BranchInstructionInfo) => (branch.declaringMethod, branch.branchOffset - 1)) FROM branchInstructions WHERE (_.branchOffset >= 1)
+        SELECT ((branch: IfBranchInstructionInfo) => (branch.declaringMethod, branch.pc)) FROM ifBranchInstructions UNION_ALL (
+            SELECT ((branch: IfBranchInstructionInfo) => (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM ifBranchInstructions WHERE (_.branchOffset >= 1)
+            ) UNION_ALL (
+            SELECT ((branch: GotoBranchInstructionInfo) => (branch.declaringMethod, branch.pc)) FROM gotoBranchInstructions
+            ) UNION_ALL (
+            SELECT ((branch: GotoBranchInstructionInfo) => (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM gotoBranchInstructions WHERE (_.branchOffset >= 1)
             ) UNION_ALL (
             SELECT ((retrn: ReturnInstructionInfo) => (retrn.declaringMethod, retrn.pc)) FROM returnInstructions
             ) UNION_ALL (
             SELECT ((switch: SwitchInstructionInfo) => (switch.declaringMethod, switch.pc)) FROM switchInstructions
             ) UNION_ALL (
             SELECT (*) FROM (
-                    SELECT ((switch: SwitchInstructionInfo) => (switch.declaringMethod, switch.defaultOffset - 1)) FROM switchInstructions
+                SELECT ((switch: SwitchInstructionInfo) => (switch.declaringMethod, switch.pc + switch.defaultOffset - 1)) FROM switchInstructions
                 ) WHERE (_._2 >= 0)
             ) UNION_ALL (
-            SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch.declaringMethod, jumpOffset.get - 1)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
+            SELECT ((e: (SwitchInstructionInfo, Int)) => (e._1.declaringMethod, e._2 - 1)) FROM switchJumpTargets
             )
+
+    /*
+        % basic_block_edge_list(Pc, Instr, EdgeList) :-
+        %
+        basic_block_edge_list(Pc, if_cmp_const(_, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
+                             (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
+
+
+        basic_block_edge_list(Pc, if_cmp(_, _, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
+                             (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
+
+        basic_block_edge_list(Pc, goto(Target), [(Pc, Target)]) :- !.
+
+        basic_block_edge_list(Pc, return(_), [(Pc, end)]) :- !.
+
+        basic_block_edge_list(Pc, athrow, [(Pc, end)]) :- !.
+
+        basic_block_edge_list(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
+                             tableswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
+
+        basic_block_edge_list(Pc, lookupswitch(DefaultTarget,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
+                             lookupswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
+
+
+        % tableswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
+        %
+        tableswitch_target_edge_list([Target|RestTargets], Pc, [(Pc, Target)|RestEdges])  :- !,
+                               tableswitch_target_edge_list(RestTargets, Pc, RestEdges).
+        tableswitch_target_edge_list([Target], Pc, [(Pc, Target)]).
+
+        % lookupswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
+        %
+        lookupswitch_target_edge_list([kv(_,Target)|RestTargets], Pc, [(Pc, Target)|RestEdges]) :- !,
+                               lookupswitch_target_edge_list(RestTargets, Pc, RestEdges).
+        lookupswitch_target_edge_list([kv(_,Target)], Pc, [(Pc, Target)]).
+     */
+    def basicBlockEdgeList: LazyView[(MethodDeclaration, (Int, Int))] =
+        SELECT ((branch: IfBranchInstructionInfo) => (branch.declaringMethod, (branch.pc, branch.pc + 1))) FROM ifBranchInstructions UNION_ALL (
+            SELECT ((branch: IfBranchInstructionInfo) => (branch.declaringMethod, (branch.pc, branch.pc + branch.branchOffset))) FROM ifBranchInstructions
+            ) UNION_ALL (
+            SELECT ((branch: GotoBranchInstructionInfo) => (branch.declaringMethod, (branch.pc, branch.pc + branch.branchOffset))) FROM gotoBranchInstructions
+            ) UNION_ALL (
+            SELECT ((retrn: ReturnInstructionInfo) => (retrn.declaringMethod, (retrn.pc, -1))) FROM returnInstructions
+            ) UNION_ALL (
+            SELECT ((switch: SwitchInstructionInfo) => (switch.declaringMethod, (switch.pc, switch.pc + switch.defaultOffset))) FROM switchInstructions
+            ) UNION_ALL (
+            SELECT ((e: (SwitchInstructionInfo, Int)) =>  (e._1.declaringMethod, (e._1.pc, e._2))) FROM switchJumpTargets
+            )
+
+
 }
 
 /*
@@ -98,126 +243,10 @@ trait BytecodeCFG
 % TODO (uncomment?) basic_block_end_pcs(_, jsr(_), _) :- !,fail,
 % TODO (uncomment?) basic_block_end_pcs(_, ret(_), _) :- !,fail.
 
-basic_block_end_pcs(Pc, if_cmp_const(_, Target), [Pc|PrevList]) :- !, % if_cmp_const marks the end of a basic block
-        (Target >= 1) ->
-        (       % the jump target ist not the very first instruction
-        EndPc is Target - 1,  % the instruction before Target is also the end of a basic block
-        PrevList = [EndPc]
-                )
-                ;       % the jump target is the very first instruction of the method
-                PrevList = [].
-
-basic_block_end_pcs(Pc, if_cmp(_, _, Target), [Pc|PrevList]) :- !, % if_cmp marks the end of a basic block
-                       (Target >= 1) ->
-                       (
-                           EndPc is Target - 1, % the instruction before Target is also the end of a basic block
-                           PrevList = [EndPc]
-                       );
-                       PrevList = [].
-
-basic_block_end_pcs(Pc, goto(Target), [Pc|PrevList]) :- !, % goto marks the end of a basic block.
-                       (Target >= 1) ->
-                       (
-                           EndPc is Target - 1, % the instruction before Target is also the end of a basic block
-                           PrevList = [EndPc]
-                       );
-                       PrevList = [].
-
-
-basic_block_end_pcs(Pc, return(_), [Pc]) :- !. % a return statement always marks the end of a basic block.
-
-basic_block_end_pcs(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), List) :- !,
-                       List = [Pc|DefaulTargetEndPcList],
-                       tableswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
-                       DefaultTargetEndPc is DefaultTarget - 1,
-                       (
-                            (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList])
-                                                                        ;
-                            (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
-                       ).
-
-basic_block_end_pcs(Pc, lookupswitch(DefaultTarget,_,JumpTargets), List) :- !,
-                       List = [Pc|DefaulTargetEndPcList],
-                       lookupswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
-                       DefaultTargetEndPc is DefaultTarget - 1,
-                       (
-                            (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList]);
-                            (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
-                       ).
-
-
-basic_block_end_pcs(Pc, athrow, [Pc]) :- !. % a throw statement always marks the end of a basic block.
-
-
-% tableswitch_target_end_pc(JumpTargetList, EndPcList) :-
-%                      Determines all EndPc's in EndPcList that stem from the given jump targets
-tableswitch_target_end_pc_list([Target|RestTargets], List) :- !,
-                        EndPc is Target - 1,
-                        (
-                             (
-                                  EndPc >= 0,!,
-                                  List = [EndPc| RestEndPcs]
-                             );
-                             (
-                                  EndPc  < 0,
-                                  List = RestEndPcs
-                             )
-                        ),
-                        tableswitch_target_end_pc_list(RestTargets, RestEndPcs).
-tableswitch_target_end_pc_list([], []).
-
-% lookupswitch_target_end_pc(JumpTargetList, EndPcList) :-
-%                      Determines all EndPc's in EndPcList that stem from the given jump targets
-lookupswitch_target_end_pc_list([kv(_,Target)|RestTargets], List) :- !,
-                        EndPc is Target - 1,
-                        (
-                             (
-                                  EndPc >= 0,!,
-                                  List = [EndPc| RestEndPcs]
-                             );
-                             (
-                                  EndPc  < 0,
-                                  List = RestEndPcs
-                             )
-                        ),
-                        lookupswitch_target_end_pc_list(RestTargets, RestEndPcs).
-lookupswitch_target_end_pc_list([], []).
 
 
 
-% basic_block_edge_list(Pc, Instr, EdgeList) :-
-%
-basic_block_edge_list(Pc, if_cmp_const(_, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
-                     (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
 
-
-basic_block_edge_list(Pc, if_cmp(_, _, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
-                     (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
-
-basic_block_edge_list(Pc, goto(Target), [(Pc, Target)]) :- !.
-
-basic_block_edge_list(Pc, return(_), [(Pc, end)]) :- !.
-
-basic_block_edge_list(Pc, athrow, [(Pc, end)]) :- !.
-
-basic_block_edge_list(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
-                     tableswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
-
-basic_block_edge_list(Pc, lookupswitch(DefaultTarget,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
-                     lookupswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
-
-
-% tableswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
-%
-tableswitch_target_edge_list([Target|RestTargets], Pc, [(Pc, Target)|RestEdges])  :- !,
-                       tableswitch_target_edge_list(RestTargets, Pc, RestEdges).
-tableswitch_target_edge_list([Target], Pc, [(Pc, Target)]).
-
-% lookupswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
-%
-lookupswitch_target_edge_list([kv(_,Target)|RestTargets], Pc, [(Pc, Target)|RestEdges]) :- !,
-                       lookupswitch_target_edge_list(RestTargets, Pc, RestEdges).
-lookupswitch_target_edge_list([kv(_,Target)], Pc, [(Pc, Target)]).
 
 
 

@@ -42,7 +42,7 @@ import sae.bytecode.structure.MethodDeclaration
  * @author Ralf Mitschke
  */
 case class GOTO (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.GOTO, pc: Int, sequenceIndex: Int)
-    extends BranchInstructionInfo
+    extends GotoBranchInstructionInfo
 {
     def branchOffset = instruction.branchoffset
 }
