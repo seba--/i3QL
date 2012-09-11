@@ -44,6 +44,9 @@ import sae.LazyView
 
 case class UnnestingClause[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range], relation: LazyView[Domain])
     extends UNNESTING_CLAUSE[Domain, Range]
+    with FromClause
 {
+    type Representation = this.type
 
+    def representation = this
 }

@@ -32,6 +32,9 @@
  */
 package sae.syntax.sql
 
+import ast.FromClause
+import sae.LazyView
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -41,5 +44,7 @@ package sae.syntax.sql
 
 trait UNNESTING_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 {
+    type Representation <: FromClause
 
+    def representation : Representation
 }

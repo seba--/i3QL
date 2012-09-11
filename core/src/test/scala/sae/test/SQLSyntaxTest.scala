@@ -5,6 +5,7 @@ import sae.syntax.sql._
 import sae.LazyView
 import scala.Some
 import runtime.Boxed
+import sae.collections.Table
 
 /**
  *
@@ -30,7 +31,7 @@ class SQLSyntaxTest
 
         val names1: LazyView[String] = SELECT {
             (_: Student).Name
-        } FROM students
+        } FROM (students)
 
         val names2: LazyView[String] = SELECT {
             Name (_: Student)
@@ -664,6 +665,32 @@ class SQLSyntaxTest
 
         val query: LazyView[Some[Int]] =
             SELECT COUNT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) === ((_: Enrollment).StudentId)
+
+        Assert.assertEquals (
+            List (
+                (Some(2))
+            ),
+            query.asList
+        )
+    }
+
+    @Test
+    def testUnnestingWithoutProjection() {
+
+        val database = new StudentCoursesDatabase ()
+
+        case class Data(name : String, values : Seq[Int])
+
+        val data = new Table[Data]
+
+        data += Data("Empty", Nil)
+        data += Data("One", Seq(1))
+        data += Data("Two", Seq(1, 2))
+
+
+        val query: LazyView[Some[Int]] =
+
+            SELECT (*) FROM (((_:Data).values.map(Some(_))) IN data)
 
         Assert.assertEquals (
             List (

@@ -43,7 +43,9 @@ import sae.syntax.sql.SQL_QUERY
  * Time: 10:39
  */
 
-case class SQLQuery[Range <: AnyRef](selectClause: SelectClause[Range], fromClause: FromClause, whereClause: Option[WhereClause])
+case class SQLQuery[Range <: AnyRef](selectClause: SelectClause[Range],
+                                     fromClause: FromClause,
+                                     whereClause: Option[WhereClause])
     extends SQL_QUERY[Range]
 {
     def compile() = sae.syntax.sql.compiler.Compiler (this)

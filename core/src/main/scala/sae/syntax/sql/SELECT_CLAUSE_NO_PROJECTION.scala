@@ -46,5 +46,7 @@ trait SELECT_CLAUSE_NO_PROJECTION
 
     def FROM[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Domain]
 
+    def FROM[Domain <: AnyRef, UnNestingRange <: AnyRef](unnesting: UNNESTING_CLAUSE[Domain, UnNestingRange]): FROM_CLAUSE[UnNestingRange, UnNestingRange]
+
     def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }
