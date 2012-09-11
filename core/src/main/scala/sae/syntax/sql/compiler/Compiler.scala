@@ -121,7 +121,67 @@ object Compiler
                     ).asInstanceOf[LazyView[AnyRef]],
                     functionFactory
                 ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
-            case UnionAll (left, right) => compileUnionAll(Compiler (left), Compiler(right)).asInstanceOf[LazyView[Range]]
+            case UnionAll (left, right) => compileUnionAll (Compiler (left), Compiler (right)).asInstanceOf[LazyView[Range]]
+            case SQLQuery (SelectClause1 (projection, distinct), from@UnnestingClause (function, relation), None) =>
+                compileNoWhere1 (
+                    projection.asInstanceOf[Option[from.Domain => Range]],
+                    distinct,
+                    compileUnnesting (function, relation)
+                )
+            case SQLQuery (SelectClause1 (projection, distinct), from@UnnestingClause (function, relation), Some (where)) =>
+                compile1 (
+                    projection.asInstanceOf[Option[from.Domain => Range]],
+                    distinct,
+                    compileUnnesting (function, relation),
+                    where.expressions
+                )
+            case SQLQuery (SelectClause2 (projection, distinct), from@FromClause2Unnesting (relationA, un@UnnestingClause (function, relation)), None) =>
+                if (relation eq relationA) {
+                    compileDistinct (
+                        compileUnnestingWithProjection (
+                            function,
+                            projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
+                            relation
+                        ),
+                        distinct
+                    ).asInstanceOf[LazyView[Range]]
+                }
+                else
+                {
+                    compileNoWhere2 (
+                        projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
+                        distinct,
+                        relationA,
+                        compileUnnesting (function, relation)
+                    )
+                }
+            case SQLQuery (SelectClause2 (projection, distinct), from@FromClause2Unnesting (relationA, un@UnnestingClause (function, relation)), Some (where)) =>
+                if (relation eq relationA)
+                {
+                    compileDistinct (
+                        compileUnnestingWithProjection (
+                            function,
+                            projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
+                            compile1 (
+                                None,
+                                false,
+                                relation,
+                                where.expressions
+                            )
+                        ),
+                        distinct
+                    ).asInstanceOf[LazyView[Range]]
+                }
+                else
+                {
+                    compile2 (
+                        projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
+                        distinct,
+                        relationA,
+                        compileUnnesting (function, relation),
+                        where.expressions
+                    )
+                }
         }
     }
 
@@ -507,6 +567,27 @@ object Compiler
     private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: LazyView[DomainA],
                                                                                                   relationB: LazyView[DomainB]) =
     {
-        new AddMultiSetUnion(relationA, relationB)
+        new AddMultiSetUnion (relationA, relationB)
+    }
+
+    private def compileUnnesting[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range],
+                                                                     relation: LazyView[Domain]) =
+    {
+        new UnNesting (relation, function)
+    }
+
+
+    private def compileUnnestingWithProjection[Domain <: AnyRef, UnnestingRange <: AnyRef, Range <: AnyRef] (function: Domain => Seq[UnnestingRange],
+                                                                                                             projection: Option[(Domain, UnnestingRange) => Range],
+                                                                                                             relation: LazyView[Domain]) =
+    {
+        if (projection.isDefined)
+        {
+            new UnNestingWithProjection (relation, function, projection.get)
+        }
+        else
+        {
+            new UnNestingWithProjection (relation, function, (d: Domain, u: UnnestingRange) => (d, u))
+        }
     }
 }

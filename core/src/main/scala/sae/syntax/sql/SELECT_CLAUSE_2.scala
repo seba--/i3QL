@@ -46,5 +46,6 @@ trait SELECT_CLAUSE_2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Ra
 
     def FROM[DomainA <: SelectionDomainA, DomainB <: SelectionDomainB](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
-    //def FROM[UnNestingDomain >: DomainA <: AnyRef, UnNestingRange <: AnyRef](relation: LazyView[DomainA], unNesting: UNNESTING_CLAUSE[UnNestingDomain, UnNestingRange]): FROM_CLAUSE_2[Domain, UnNestingRange, Range]
+    def FROM[DomainA <: SelectionDomainA, DomainUnnesting <: AnyRef, UnNestingRange <: SelectionDomainB](relationA: LazyView[DomainA], unnesting: UNNESTING_CLAUSE[DomainUnnesting, UnNestingRange]): FROM_CLAUSE_2[DomainA, UnNestingRange, Range]
+
 }

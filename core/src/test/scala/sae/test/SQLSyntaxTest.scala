@@ -4,7 +4,6 @@ import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import sae.LazyView
 import scala.Some
-import runtime.Boxed
 import sae.collections.Table
 
 /**
@@ -646,7 +645,7 @@ class SQLSyntaxTest
 
         Assert.assertEquals (
             List (
-                (Some(1))
+                (Some (1))
             ),
             query.asList
         )
@@ -668,7 +667,7 @@ class SQLSyntaxTest
 
         Assert.assertEquals (
             List (
-                (Some(2))
+                (Some (2))
             ),
             query.asList
         )
@@ -679,24 +678,54 @@ class SQLSyntaxTest
 
         val database = new StudentCoursesDatabase ()
 
-        case class Data(name : String, values : Seq[Int])
+        case class Data(name: String, values: Seq[Int])
 
         val data = new Table[Data]
 
-        data += Data("Empty", Nil)
-        data += Data("One", Seq(1))
-        data += Data("Two", Seq(1, 2))
+        data += Data ("Empty", Nil)
+        data += Data ("One", Seq (1))
+        data += Data ("Two", Seq (1, 2))
 
 
         val query: LazyView[Some[Int]] =
 
-            SELECT (*) FROM (((_:Data).values.map(Some(_))) IN data)
+            SELECT (*) FROM (((_: Data).values.map (Some (_))) IN data)
 
         Assert.assertEquals (
             List (
-                (Some(2))
+                Some (1),
+                Some (1),
+                Some (2)
             ),
-            query.asList
+            query.asList.sortBy(_.get)
+        )
+    }
+
+    @Test
+    def testUnnestingWithProjectionFromDomain() {
+
+        val database = new StudentCoursesDatabase ()
+
+        case class Data(name: String, values: Seq[Int])
+
+        val data= new Table[Data]
+
+        data += Data ("Empty", Nil)
+        data += Data ("One", Seq (1))
+        data += Data ("Two", Seq (1, 2))
+
+
+        val query: LazyView[(String, Some[Int])] =
+
+            SELECT ((data: Data, v: Some[Int]) => (data.name, v)) FROM (data, ((_: Data).values.map (Some (_))) IN data)
+
+        Assert.assertEquals (
+            List (
+                ("One", Some (1)),
+                ("Two", Some (1)),
+                ("Two", Some (2))
+            ),
+            query.asList.sortBy((t:(String, Some[Int])) => (t._1, t._2.get))
         )
     }
 

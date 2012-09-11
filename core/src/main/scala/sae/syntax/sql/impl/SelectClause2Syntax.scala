@@ -32,8 +32,8 @@
  */
 package sae.syntax.sql.impl
 
-import sae.syntax.sql.ast.{SelectClause, SelectClause2}
-import sae.syntax.sql.SELECT_CLAUSE_2
+import sae.syntax.sql.ast.SelectClause
+import sae.syntax.sql.{UNNESTING_CLAUSE, SELECT_CLAUSE_2}
 import sae.LazyView
 
 /**
@@ -51,5 +51,12 @@ case class SelectClause2Syntax[SelectionDomainA <: AnyRef, SelectionDomainB <: A
             selectClause,
             relationA,
             relationB
+        )
+
+    def FROM[DomainA <: SelectionDomainA, DomainUnnesting <: AnyRef, UnNestingRange <: SelectionDomainB](relationA: LazyView[DomainA], unnesting: UNNESTING_CLAUSE[DomainUnnesting, UnNestingRange]) =
+        FromClause2UnnestingSyntax (
+            selectClause,
+            relationA,
+            unnesting.representation
         )
 }

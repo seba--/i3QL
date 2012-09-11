@@ -41,7 +41,7 @@ import sae.{SelfMaintainedView, LazyView}
  * Time: 17:23
  */
 
-trait UnNest[Range <: AnyRef, Domain <: Range]
+trait UnNest[Range <: AnyRef, Domain <: AnyRef]
     extends LazyView[Range]
 {
     type Rng = Range
@@ -51,10 +51,10 @@ trait UnNest[Range <: AnyRef, Domain <: Range]
     def unNestFunction: Domain => Traversable[Range]
 }
 
-class UnNesting[Range <: AnyRef, Domain <: Range](
-                                                     val relation: LazyView[Domain],
-                                                     val unNestFunction: Domain => Seq[Range]
-                                                     )
+class UnNesting[Range <: AnyRef, Domain <: AnyRef](
+                                                      val relation: LazyView[Domain],
+                                                      val unNestFunction: Domain => Seq[Range]
+                                                      )
     extends UnNest[Range, Domain]
     with SelfMaintainedView[Domain, Range]
 {
@@ -64,8 +64,8 @@ class UnNesting[Range <: AnyRef, Domain <: Range](
      * fired during the deferred iteration
      */
     def lazy_foreach[T](f: (Range) => T) {
-        relation.lazy_foreach(
-            unNestFunction(_).foreach(f)
+        relation.lazy_foreach (
+            unNestFunction (_).foreach (f)
         )
     }
 
@@ -84,15 +84,80 @@ class UnNesting[Range <: AnyRef, Domain <: Range](
 
     // TODO we could try and see whether the returned unestings are equal, but it is not
     def updated_internal(oldV: Domain, newV: Domain) {
-        removed_internal(oldV)
-        added_internal(newV)
+        removed_internal (oldV)
+        added_internal (newV)
     }
 
     def removed_internal(v: Domain) {
-        unNestFunction(v).foreach(element_removed)
+        unNestFunction (v).foreach (element_removed)
     }
 
     def added_internal(v: Domain) {
-        unNestFunction(v).foreach(element_added)
+        unNestFunction (v).foreach (element_added)
+    }
+}
+
+
+trait UnNestProject[Range <: AnyRef, UnnestRange <: AnyRef, Domain <: Range]
+    extends LazyView[Range]
+{
+    type Rng = Range
+
+    def relation: LazyView[Domain]
+
+    def unNestFunction: Domain => Seq[UnnestRange]
+
+    def projection: (Domain, UnnestRange) => Range
+}
+
+class UnNestingWithProjection[Range <: AnyRef, UnnestRange <: AnyRef, Domain <: Range](val relation: LazyView[Domain],
+                                                                                       val unNestFunction: Domain => Seq[UnnestRange],
+                                                                                       val projection: (Domain, UnnestRange) => Range
+                                                                                          )
+    extends UnNestProject[Range, UnnestRange, Domain]
+    with SelfMaintainedView[Domain, Range]
+{
+    /**
+     * Applies f to all elements of the view.
+     * Implementers must guarantee that no update/add/remove event is
+     * fired during the deferred iteration
+     */
+    def lazy_foreach[T](f: (Range) => T) {
+        relation.lazy_foreach ((v: Domain) =>
+            unNestFunction (v).foreach ((u: UnnestRange) =>
+                f (projection (v, u))
+            )
+        )
+    }
+
+    /**
+     * Each materialized view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * thus the first call to foreach will try to
+     * materialize already persisted data.
+     */
+    def lazyInitialize() {
+        initialized = true
+    }
+
+    // TODO we could try and see whether the returned unestings are equal, but it is not
+    def updated_internal(oldV: Domain, newV: Domain) {
+        removed_internal (oldV)
+        added_internal (newV)
+    }
+
+    def removed_internal(v: Domain) {
+        unNestFunction (v).foreach ((u: UnnestRange) =>
+            element_removed (projection (v, u))
+        )
+    }
+
+    def added_internal(v: Domain) {
+        unNestFunction (v).foreach ((u: UnnestRange) =>
+            element_added (projection (v, u))
+        )
     }
 }

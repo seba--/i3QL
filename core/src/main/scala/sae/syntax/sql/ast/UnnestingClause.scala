@@ -42,10 +42,12 @@ import sae.LazyView
  * Time: 18:16
  */
 
-case class UnnestingClause[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range], relation: LazyView[Domain])
-    extends UNNESTING_CLAUSE[Domain, Range]
+case class UnnestingClause[FromDomain <: AnyRef, Range <: AnyRef] (function: FromDomain => Seq[Range], relation: LazyView[FromDomain])
+    extends UNNESTING_CLAUSE[FromDomain, Range]
     with FromClause
 {
+    type Domain = FromDomain
+
     type Representation = this.type
 
     def representation = this
