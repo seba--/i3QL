@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class JSR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.JSR, bytecodeIndex: Int, sequenceIndex: Int)
+case class JSR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.JSR, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

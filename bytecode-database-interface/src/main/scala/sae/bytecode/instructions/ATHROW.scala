@@ -40,8 +40,8 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ATHROW (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ATHROW.type, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class ATHROW (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ATHROW.type, pc: Int, sequenceIndex: Int)
+    extends ReturnInstructionInfo
 {
 
 }

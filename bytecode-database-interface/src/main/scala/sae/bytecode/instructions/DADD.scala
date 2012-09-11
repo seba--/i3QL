@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DADD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DADD.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DADD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DADD.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

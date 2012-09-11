@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LRETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LRETURN.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LRETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LRETURN.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

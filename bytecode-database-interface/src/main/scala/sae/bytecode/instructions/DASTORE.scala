@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DASTORE.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

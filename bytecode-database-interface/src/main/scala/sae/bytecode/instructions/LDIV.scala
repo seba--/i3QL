@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LDIV (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LDIV.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LDIV (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LDIV.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

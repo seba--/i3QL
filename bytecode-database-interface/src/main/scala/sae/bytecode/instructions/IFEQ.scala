@@ -41,8 +41,8 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IFEQ (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFEQ, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class IFEQ (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFEQ, pc: Int, sequenceIndex: Int)
+    extends BranchInstructionInfo
 {
-
+    def branchOffset = instruction.branchoffset
 }

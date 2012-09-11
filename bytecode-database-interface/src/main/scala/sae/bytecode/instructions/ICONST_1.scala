@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ICONST_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ICONST_1.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ICONST_1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ICONST_1.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

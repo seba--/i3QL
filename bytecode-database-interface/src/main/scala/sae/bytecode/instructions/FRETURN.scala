@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class FRETURN(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FRETURN.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FRETURN(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FRETURN.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

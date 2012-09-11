@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class ANEWARRAY(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ANEWARRAY, bytecodeIndex: Int, sequenceIndex: Int)
+case class ANEWARRAY(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ANEWARRAY, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
     def componentType = instruction.componentType

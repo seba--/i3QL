@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ALOAD(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ALOAD, bytecodeIndex: Int, sequenceIndex: Int)
+case class ALOAD(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ALOAD, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
     def lvIndex = instruction.lvIndex

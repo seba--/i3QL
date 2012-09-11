@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class DREM (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DREM.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DREM (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DREM.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

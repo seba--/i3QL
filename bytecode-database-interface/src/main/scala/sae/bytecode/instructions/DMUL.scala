@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DMUL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DMUL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

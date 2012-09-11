@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ALOAD_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ALOAD_2.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ALOAD_2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ALOAD_2.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

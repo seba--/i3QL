@@ -41,7 +41,7 @@ trait InstructionInfo
 
     def instruction: de.tud.cs.st.bat.resolved.Instruction
 
-    def bytecodeIndex: Int
+    def pc: Int
 
     def sequenceIndex: Int
 }

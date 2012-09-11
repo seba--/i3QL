@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LNEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LNEG.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

@@ -41,8 +41,8 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IFLT (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFLT, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class IFLT (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IFLT, pc: Int, sequenceIndex: Int)
+    extends BranchInstructionInfo
 {
-
+    def branchOffset = instruction.branchoffset
 }

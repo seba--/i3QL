@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IINC (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IINC, bytecodeIndex: Int, sequenceIndex: Int)
+case class IINC (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IINC, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

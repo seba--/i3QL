@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class DALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DALOAD.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DALOAD.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

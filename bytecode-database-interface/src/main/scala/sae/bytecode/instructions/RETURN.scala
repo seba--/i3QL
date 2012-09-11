@@ -40,8 +40,8 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class RETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.RETURN.type, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class RETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.RETURN.type, pc: Int, sequenceIndex: Int)
+    extends ReturnInstructionInfo
 {
 
 }

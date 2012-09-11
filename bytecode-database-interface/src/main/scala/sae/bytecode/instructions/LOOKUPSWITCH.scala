@@ -40,8 +40,10 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LOOKUPSWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LOOKUPSWITCH, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class LOOKUPSWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LOOKUPSWITCH, pc: Int, sequenceIndex: Int)
+    extends SwitchInstructionInfo
 {
+    def jumpOffsets = instruction.npairs.map(_._2)
 
+    def defaultOffset = instruction.defaultOffset
 }

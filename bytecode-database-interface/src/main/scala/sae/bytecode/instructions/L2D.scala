@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class L2D (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.L2D.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class L2D (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.L2D.type, pc: Int, sequenceIndex: Int)
 extends InstructionInfo
 {
 

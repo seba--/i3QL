@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class I2F (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2F.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class I2F (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2F.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

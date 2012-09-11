@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class AALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AALOAD.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class AALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.AALOAD.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

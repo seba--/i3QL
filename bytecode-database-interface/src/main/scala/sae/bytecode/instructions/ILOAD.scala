@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ILOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ILOAD, bytecodeIndex: Int, sequenceIndex: Int)
+case class ILOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ILOAD, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

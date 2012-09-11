@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class SIPUSH (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.SIPUSH, bytecodeIndex: Int, sequenceIndex: Int)
+case class SIPUSH (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.SIPUSH, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

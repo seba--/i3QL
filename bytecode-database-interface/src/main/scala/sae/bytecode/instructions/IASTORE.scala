@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IASTORE.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

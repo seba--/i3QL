@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class I2S (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2S.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class I2S (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.I2S.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

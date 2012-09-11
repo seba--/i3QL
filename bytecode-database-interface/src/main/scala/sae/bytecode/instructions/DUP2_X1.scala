@@ -42,7 +42,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class DUP2_X1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DUP2_X1.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DUP2_X1 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DUP2_X1.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

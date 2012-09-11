@@ -41,8 +41,10 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class TABLESWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.TABLESWITCH, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class TABLESWITCH(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.TABLESWITCH, pc: Int, sequenceIndex: Int)
+    extends SwitchInstructionInfo
 {
+    def jumpOffsets = instruction.jumpOffsets
 
+    def defaultOffset = instruction.defaultOffset
 }

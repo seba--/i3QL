@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class DDIV (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DDIV.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DDIV (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DDIV.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

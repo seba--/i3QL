@@ -41,8 +41,8 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IF_ICMPLE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IF_ICMPLE, bytecodeIndex: Int, sequenceIndex: Int)
-    extends InstructionInfo
+case class IF_ICMPLE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IF_ICMPLE, pc: Int, sequenceIndex: Int)
+    extends BranchInstructionInfo
 {
-
+    def branchOffset = instruction.branchoffset
 }

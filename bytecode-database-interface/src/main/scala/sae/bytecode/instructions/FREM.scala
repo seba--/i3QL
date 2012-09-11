@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class FREM (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FREM.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FREM (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FREM.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

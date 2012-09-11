@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class F2D (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.F2D.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class F2D (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.F2D.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class FLOAD_3 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FLOAD_3.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FLOAD_3 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FLOAD_3.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

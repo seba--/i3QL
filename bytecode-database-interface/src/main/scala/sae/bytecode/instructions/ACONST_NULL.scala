@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ACONST_NULL(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ACONST_NULL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ACONST_NULL(declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ACONST_NULL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

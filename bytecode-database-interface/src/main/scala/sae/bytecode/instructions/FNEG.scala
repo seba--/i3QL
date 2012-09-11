@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class FNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FNEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FNEG.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

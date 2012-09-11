@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class POP2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.POP2.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class POP2 (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.POP2.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

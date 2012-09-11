@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DLOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DLOAD, bytecodeIndex: Int, sequenceIndex: Int)
+case class DLOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DLOAD, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class IUSHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IUSHR.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IUSHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IUSHR.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class LOR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LOR.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LOR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LOR.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

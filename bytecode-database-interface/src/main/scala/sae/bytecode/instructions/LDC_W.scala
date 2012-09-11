@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LDC_W (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LDC_W, bytecodeIndex: Int, sequenceIndex: Int)
+case class LDC_W (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LDC_W, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

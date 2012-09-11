@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class ISHL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ISHL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ISHL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ISHL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

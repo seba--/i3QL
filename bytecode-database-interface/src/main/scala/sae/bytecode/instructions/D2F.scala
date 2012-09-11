@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class D2F (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.D2F.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class D2F (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.D2F.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

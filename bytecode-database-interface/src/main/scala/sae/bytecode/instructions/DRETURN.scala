@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DRETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DRETURN.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DRETURN (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DRETURN.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

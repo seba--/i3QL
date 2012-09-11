@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class FASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FASTORE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class FASTORE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.FASTORE.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

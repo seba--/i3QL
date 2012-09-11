@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class WIDE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.WIDE.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class WIDE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.WIDE.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

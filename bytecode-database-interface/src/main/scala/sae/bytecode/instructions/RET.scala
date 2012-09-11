@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class RET (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.RET, bytecodeIndex: Int, sequenceIndex: Int)
+case class RET (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.RET, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

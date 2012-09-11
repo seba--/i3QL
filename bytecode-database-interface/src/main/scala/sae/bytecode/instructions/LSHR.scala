@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LSHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LSHR.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LSHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LSHR.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

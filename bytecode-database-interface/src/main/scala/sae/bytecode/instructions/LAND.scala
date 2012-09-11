@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LAND (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LAND.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LAND (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LAND.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

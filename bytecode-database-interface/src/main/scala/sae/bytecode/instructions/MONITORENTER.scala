@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class MONITORENTER (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MONITORENTER.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class MONITORENTER (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MONITORENTER.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class DCMPL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DCMPL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DCMPL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DCMPL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

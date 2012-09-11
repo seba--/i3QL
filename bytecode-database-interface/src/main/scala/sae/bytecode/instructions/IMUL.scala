@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class IMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IMUL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IMUL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

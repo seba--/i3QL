@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class IADD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IADD.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class IADD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.IADD.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

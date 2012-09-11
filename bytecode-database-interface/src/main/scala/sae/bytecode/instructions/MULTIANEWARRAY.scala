@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class MULTIANEWARRAY (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MULTIANEWARRAY, bytecodeIndex: Int, sequenceIndex: Int)
+case class MULTIANEWARRAY (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.MULTIANEWARRAY, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

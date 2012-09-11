@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class INEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class INEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INEG.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

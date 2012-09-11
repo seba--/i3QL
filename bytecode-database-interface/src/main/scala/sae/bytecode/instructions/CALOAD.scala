@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class CALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.CALOAD.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class CALOAD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.CALOAD.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

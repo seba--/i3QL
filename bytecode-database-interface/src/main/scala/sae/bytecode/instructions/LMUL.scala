@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class LMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LMUL.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class LMUL (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.LMUL.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

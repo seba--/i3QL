@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class INVOKEINTERFACE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INVOKEINTERFACE, bytecodeIndex: Int, sequenceIndex: Int)
+case class INVOKEINTERFACE (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.INVOKEINTERFACE, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
     with InvokeInstruction
 {

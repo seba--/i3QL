@@ -41,7 +41,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * * @author Ralf Mitschke
  */
-case class ISHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ISHR.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class ISHR (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.ISHR.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 

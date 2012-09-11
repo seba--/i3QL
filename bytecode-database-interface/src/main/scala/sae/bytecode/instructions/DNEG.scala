@@ -40,7 +40,7 @@ import sae.bytecode.structure.MethodDeclaration
  *
  * @author Ralf Mitschke
  */
-case class DNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DNEG.type, bytecodeIndex: Int, sequenceIndex: Int)
+case class DNEG (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.DNEG.type, pc: Int, sequenceIndex: Int)
     extends InstructionInfo
 {
 
