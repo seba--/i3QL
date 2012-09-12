@@ -6,7 +6,8 @@ package collections
  * A relation that is guaranteed to hold each element only once
  */
 trait Set[V <: AnyRef]
-    extends Collection[V]
+    extends SetRelation[V]
+    with Collection[V]
 {
 
 }

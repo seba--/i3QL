@@ -39,8 +39,7 @@ package sae.syntax.sql
  * Time: 23:39
  */
 
-trait JOIN_INFIX_KEYWORD[DomainA <: AnyRef, RangeA <: AnyRef]
+trait JOIN_INFIX_KEYWORD[DomainA <: AnyRef, RangeA]
 {
-    def =#=[DomainB <: AnyRef, RangeB <: AnyRef] (right: DomainB => RangeB): JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
-    //(DomainA => RangeA, DomainB => RangeB)
+    def =#=[DomainB <: AnyRef, RangeB] (right: DomainB => RangeB): JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]
 }

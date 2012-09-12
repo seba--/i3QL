@@ -32,8 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.{UnionAll, Union}
 import sae.LazyView
-import sae.operators.SetDuplicateElimination
 
 /**
  *
@@ -42,19 +42,17 @@ import sae.operators.SetDuplicateElimination
  * Time: 20:57
  *
  */
-trait SQL_QUERY[Domain <: AnyRef]
+trait SQL_QUERY[Range <: AnyRef]
 {
 
-    def compile(): LazyView[Domain]
+    def compile(): LazyView[Range]
 
+    // TODO this is one point where the syntax is no abstract from the implementation
+    type Representation <: SQL_QUERY[Range]
 
-    protected def withDistinct(result: LazyView[Domain], distinct: Boolean): LazyView[Domain] = {
-        if (distinct) {
-            new SetDuplicateElimination[Domain](result)
-        }
-        else
-        {
-            result
-        }
-    }
+    def representation: Representation
+
+    def UNION[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = Union (representation, other)
+
+    def UNION_ALL[OtherRange >: Range <: AnyRef](other: SQL_QUERY[OtherRange]) : SQL_QUERY[OtherRange] = UnionAll (representation, other)
 }

@@ -1,7 +1,10 @@
 package sae.analyses.findbugs
 
-import de.tud.cs.st.bat.resolved._
-import de.tud.cs.st.bat.resolved.analyses.BaseAnalyses._
+import sae.LazyView
+import sae.syntax.sql._
+import sae.bytecode._
+import sae.bytecode.instructions._
+import de.tud.cs.st.bat.resolved.FieldType
 
 /**
  *
@@ -11,33 +14,31 @@ import de.tud.cs.st.bat.resolved.analyses.BaseAnalyses._
  *
  */
 object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
-        extends Analysis
+    extends (BytecodeDatabase => LazyView[INVOKEVIRTUAL])
 {
     // With the analyzed sequence check FindBugs only finds
     // new Integer(1).doubleValue()
     // and not
     // Integer.valueOf(1).doubleValue()
-    def analyze(project: Project) = {
-        val classFiles: Traversable[ClassFile] = project.classFiles
-        for (classFile ← classFiles if classFile.majorVersion >= 49;
-             method ← classFile.methods if method.body.isDefined;
-             Seq(
-             (INVOKESPECIAL(firstReceiver, _, MethodDescriptor(Seq(paramType), _)), _),
-             (INVOKEVIRTUAL(secondReceiver, name, MethodDescriptor(Seq(), returnType)), idx)
-             ) ← withIndex(method.body.get.instructions).sliding(2)
-             if (
-                     !paramType.isReferenceType &&
-                             firstReceiver.asInstanceOf[ObjectType].className.startsWith("java/lang") &&
-                             firstReceiver == secondReceiver &&
-                             name.endsWith("Value") &&
-                             returnType != paramType // coercion to another type performed
-                     )
-        ) yield {
-            ("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION",
-                    classFile.thisClass.toJava + "." +
-                            method.name +
-                            method.descriptor.toUMLNotation, idx)
-        }
+    def apply(database: BytecodeDatabase): LazyView[INVOKEVIRTUAL] = {
+        import database._
+
+        val invokeSpecial /*: LazyView[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val invokeVirtual /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+
+        val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
+
+        SELECT ((a: INVOKESPECIAL, b: INVOKEVIRTUAL) => b) FROM
+            (invokeSpecial, invokeVirtual) WHERE
+            (declaringMethod === declaringMethod) AND
+            (receiverType === receiverType) AND
+            (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
+            NOT (firstParamType === returnType) AND
+            (_.declaringMethod.declaringClass.majorVersion >= 49 ) AND
+            (!_.receiverType.isReferenceType) AND
+            (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND
+            ((_: INVOKEVIRTUAL).parameterTypes == Nil) AND
+            (_.declaringMethod.name.endsWith ("Value"))
     }
 
     /**

@@ -44,21 +44,11 @@ trait FROM_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
     extends SQL_QUERY[Range]
 {
 
-    //def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
-
-    //def WHERE(predicatesA: INLINE_WHERE_CLAUSE[DomainA], predicatesB: STAR): WHERE_CLAUSE[(DomainA, DomainB), Range]
-
-    //def WHERE(predicatesA: STAR, predicatesB: INLINE_WHERE_CLAUSE[DomainB]): WHERE_CLAUSE[(DomainA, DomainB), Range]
-
-    //def WHERE(predicate: (DomainA, DomainB) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
-
-    def WHERE(predicate: ((DomainA, DomainB)) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
-
-    def WHERE(predicateA: DomainA => Boolean, predicateB: DomainB => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    def WHERE(predicate: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
     def WHERE[RangeA <: AnyRef, RangeB <: AnyRef](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def WHERE[UnboundDomain <: AnyRef, RangeA <: AnyRef, UnboundRange <: AnyRef](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]): SQL_SUB_QUERY_WHERE_OPEN_1[DomainB, Range, UnboundDomain]
+    def WHERE[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]): SQL_QUERY_UNBOUND_1[DomainB, Range, UnboundDomain]
 
 
 }

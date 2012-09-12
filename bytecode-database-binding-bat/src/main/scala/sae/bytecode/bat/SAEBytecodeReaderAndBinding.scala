@@ -48,7 +48,7 @@ import de.tud.cs.st.bat.resolved.reader._
  *
  * @author Michael Eichberg
  * @author Ralf Mitschke
- *         resued all parsing just the representation was changed
+ *         reused all parsing just the representation was changed
  */
 trait SAEBytecodeReaderAndBinding extends ConstantPoolBinding with CodeReader
 {

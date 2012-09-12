@@ -30,17 +30,45 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.syntax.sql.keywords
+package sae.analyses.findbugs.profiler
+
+import sae.bytecode.profiler.AbstractMemoryProfiler
+import java.io.File
+import sae.bytecode._
+import profiler.util.MegaByte
+import sae.analyses.findbugs.{BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, CI_CONFUSED_INHERITANCE}
+import sae.bytecode.profiler.MemoryProfiler._
+import sae.{Observable, LazyView}
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.08.12
- * Time: 14:43
+ * Date: 01.09.12
+ * Time: 14:08
  */
 
-object NOT_KEYWORD
-    extends sae.syntax.sql.NOT_KEYWORD
+object AnalysesMemoryProfiler
+    extends AbstractMemoryProfiler
 {
-    def EXISTS = null
+    def profile(implicit files: Seq[File]) {
+        implicit val iter = iterations
+
+        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+
+        val (memory_CI_CONFUSED_INHERITANCE,_) = dataMemory(measure (CI_CONFUSED_INHERITANCE))
+
+        val (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, _) = dataMemory(measure (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION))
+
+        println("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary(MegaByte))
+
+        println("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary(MegaByte))
+    }
+
+    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]) :  BytecodeDatabase => Seq[Observable[_]] = {
+        (db: BytecodeDatabase) =>  Seq (f(db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
+    }
+
+    def dataMemory( relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations : Int, files: Seq[File] ) = {
+        measureMemory (iterations)(() => memoryOfData (files)(relations))
+    }
 }

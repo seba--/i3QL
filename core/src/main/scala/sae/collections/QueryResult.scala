@@ -1,6 +1,8 @@
 package sae
 package collections
 
+import com.google.common.collect.Sets.SetView
+
 /**
  * A result is a kind of view that offers more convenience operators
  * for working with the underlying data.
@@ -72,6 +74,60 @@ class BagResult[V <: AnyRef](
 
     // def toAst = "QueryResult( " + relation.toAst + " )"
 }
+
+
+/**
+ * A result that materializes all data from the underlying relation into a set
+ */
+class SetResult[V <: AnyRef](
+                                val relation: SetRelation[V]
+                                )
+    extends QueryResult[V]
+    with HashSet[V]
+    with Observer[V]
+{
+
+    relation addObserver this
+
+    override protected def children = List(relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List(this)
+        }
+        Nil
+    }
+
+    def lazyInitialize() {
+        if (initialized) return
+        initialized = true
+    }
+
+    def updated(oldV: V, newV: V) {
+        if (!initialized) {
+            initialized = true
+        }
+        this -= oldV
+        this += newV
+    }
+
+    def removed(v: V) {
+        if (!initialized) {
+            initialized = true
+        }
+
+        this -= v
+    }
+
+    def added(v: V) {
+        if (!initialized) {
+            initialized = true
+        }
+        this += v
+    }
+
+}
+
 
 /**
  * A result that uses the underlying relation knowing that it is already

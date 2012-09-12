@@ -41,9 +41,11 @@ import sae.LazyView
  * Time: 19:48
  *
  */
-trait SELECT_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
+trait SELECT_CLAUSE_2[SelectionDomainA <: AnyRef, SelectionDomainB <: AnyRef, Range <: AnyRef]
 {
 
-    def FROM(relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Range]
+    def FROM[DomainA <: SelectionDomainA, DomainB <: SelectionDomainB](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Range]
+
+    def FROM[DomainA <: SelectionDomainA, DomainUnnesting <: AnyRef, UnNestingRange <: SelectionDomainB](relationA: LazyView[DomainA], unnesting: UNNESTING_CLAUSE[DomainUnnesting, UnNestingRange]): FROM_CLAUSE_2[DomainA, UnNestingRange, Range]
 
 }

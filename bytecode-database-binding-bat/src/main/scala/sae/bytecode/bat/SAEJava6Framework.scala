@@ -68,10 +68,9 @@ class SAEJava6Framework(val database: BATBytecodeDatabase)
     with LocalVariableTypeTable_attributeBinding
     with Exceptions_attributeBinding
     with ConstantValue_attributeBinding
+    with BytecodeReaderAndBinding
+    with CodeAttributeBinding
     with CodeReader
-    with SAEBytecodeReaderAndBinding
-    with SAECodeAttributeBinding
-    with SAECodeBinding
 {
 
 }

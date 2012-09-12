@@ -32,10 +32,7 @@
  */
 package sae.bytecode.profiler
 
-import observers.ArrayBufferObserver
 import sae.bytecode._
-import sae.Observable
-import java.io.FileInputStream
 import statistics.Statistic
 import util.{MegaByte, KiloByte}
 
@@ -57,6 +54,8 @@ object BaseRelationMemoryProfiler
 
     private val iterations = 20
 
+    private val warmup = 10
+
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
             println (usage)
@@ -73,91 +72,94 @@ object BaseRelationMemoryProfiler
             file
         }
 
+        val measureMem = measureMemory (iterations) _
+
+        val baseMemory = MemoryProfiler.memoryOfData (files) _
+
+        val materializedMemory = MemoryProfiler.memoryOfMaterializedData (files) _
+
+        println ("statistics")
+        Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach(println)
+
+
+        // warmup
+        print ("warmup")
+        for (i <- 1 to warmup) {
+            materializedMemory ((db: BytecodeDatabase) => Seq (
+                db.classDeclarations,
+                db.fieldDeclarations,
+                db.methodDeclarations,
+                db.classInheritance,
+                db.interfaceInheritance,
+                db.instructions
+            ))
+            print (".")
+        }
+        println ("")
+
+        measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
+        measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))
+        measureMem ("declared fields  - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.fieldDeclarations)))
+        measureMem ("class inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classInheritance)))
+        measureMem ("interface inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.interfaceInheritance)))
+        measureMem ("declared structures - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classDeclarations,
+            db.fieldDeclarations,
+            db.methodDeclarations
+        )))
+        measureMem ("inheritance - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classInheritance,
+            db.interfaceInheritance
+        )))
+        measureMem ("instructions - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
+        measureMem ("base relations - data", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classDeclarations,
+            db.fieldDeclarations,
+            db.methodDeclarations,
+            db.classInheritance,
+            db.interfaceInheritance,
+            db.instructions
+        )))
+
+
+
+        measureMem ("declared classes - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
+        measureMem ("declared methods - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))
+        measureMem ("declared fields  - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.fieldDeclarations)))
+        measureMem ("class inheritance - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.classInheritance)))
+        measureMem ("interface inheritance - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.interfaceInheritance)))
+        measureMem ("declared structures - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
+            db.classDeclarations,
+            db.fieldDeclarations,
+            db.methodDeclarations
+        )))
+        measureMem ("inheritance - materialized", () => baseMemory ((db: BytecodeDatabase) => Seq (
+            db.classInheritance,
+            db.interfaceInheritance
+        )))
+        measureMem ("instructions - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (db.instructions)))
+        measureMem ("base relations - materialized", () => materializedMemory ((db: BytecodeDatabase) => Seq (
+            db.classDeclarations,
+            db.fieldDeclarations,
+            db.methodDeclarations,
+            db.classInheritance,
+            db.interfaceInheritance,
+            db.instructions
+        )))
+
+    }
+
+
+    def measureMemory(iterations: Int)(msg: String, f: () => Long) {
         val leakStatistic = Statistic (iterations)
         val memStatistic = Statistic (iterations)
         for (i <- 1 to iterations)
         {
-            //memory( l => println((l / 1024) + " KB leak"))(measure (files)) // good
+            memory (leakStatistic.add (_))(memStatistic.add (f ()))
 
-            //memory( l => println((l.toDouble / 1024) + " KB leak"))(measure (files)) // good
-            //memory (leakStatistic.add (_))(measure (files)) // good
-
-            memory (leakStatistic.add (_))(memStatistic.add (measure (files))) // good
         }
-        println ("leak " + leakStatistic.summary (KiloByte))
-        println ("mem  " + memStatistic.summary (MegaByte))
-
-
-        sys.exit (0)
-
-        val measureFiles = measure (files, iterations) _
-
-        def allBaseRelations = (db: BytecodeDatabase) => Seq (
-            db.declared_classes,
-            db.declared_fields,
-            db.declared_methods,
-            db.instructions
-        )
-
-        def declaredClasses = (db: BytecodeDatabase) => Seq (db.declared_classes)
-
-        def declaredFields = (db: BytecodeDatabase) => Seq (db.declared_fields)
-
-        def declaredMethods = (db: BytecodeDatabase) => Seq (db.declared_methods)
-
-        def instructions = (db: BytecodeDatabase) => Seq (db.instructions)
-
-        measureFiles ("declared classes", declaredClasses)
-
-        measureFiles ("declared fields", declaredFields)
-
-        measureFiles ("declared methods", declaredMethods)
-
-        measureFiles ("instructions", instructions)
-
-        measureFiles ("base relations", allBaseRelations)
-
-        sys.exit (0)
+        println (msg + " memory: " + memStatistic.summary (MegaByte))
+        println (msg + " leak  : " + leakStatistic.summary (KiloByte))
     }
 
-
-    def measure(files: Seq[java.io.File], iterations: Int)(msg: String, relationSelector: BytecodeDatabase => Seq[Observable[_]]) {
-        //val statistics = Statistic.apply(iterations)(MemoryProfiler.dataMemory _)(files,relationSelector)
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        for (i <- 1 to iterations)
-        {
-
-            //memoryMXBean.gc()
-
-            println (MemoryProfiler.dataMemory (files, relationSelector))
-            memoryMXBean.gc ()
-        }
-
-        //println(msg + " " + statistics.summary(MegaByte))
-    }
-
-    /*
-        def report(msg: String)(memory: Long)(implicit unit: MemoryUnit) {
-            println (msg + " " + unit.fromBase (memory) + " " + unit.descriptor)
-        }
-    */
-
-
-    def measure(files: Seq[java.io.File]): Long = {
-        val database = BATDatabaseFactory.create ()
-
-        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
-
-        database.declared_classes.addObserver (classBuffer)
-        var mem: Long = 0
-        for (file <- files) {
-            //memory (l => println (((l / 1024)) + " KB")) {
-            memory (l => mem += l) {
-                database.addArchive (new FileInputStream (file))
-                classBuffer.trim ()
-            }
-        }
-        println (((mem / 1024)) + " KB")
-        mem
-    }
 }

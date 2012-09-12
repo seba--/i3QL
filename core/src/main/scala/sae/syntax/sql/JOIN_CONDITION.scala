@@ -32,6 +32,8 @@
  */
 package sae.syntax.sql
 
+import ast.predicates.Predicate
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -39,7 +41,8 @@ package sae.syntax.sql
  * Time: 19:04
  */
 
-trait JOIN_CONDITION[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef]
+trait JOIN_CONDITION[-DomainA <: AnyRef, -DomainB <: AnyRef, RangeA, RangeB]
+    extends Predicate
 {
 
 }

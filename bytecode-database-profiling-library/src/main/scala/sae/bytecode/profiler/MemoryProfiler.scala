@@ -34,8 +34,10 @@ package sae.bytecode.profiler
 
 import observers.ArrayBufferObserver
 import sae.bytecode._
+import bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.Observable
+import statistics.{SampleStatistic, Statistic}
 
 
 /**
@@ -89,10 +91,37 @@ object MemoryProfiler
     }
 
     /**
-     * Measure the memory consumed by the bytecode data inside the relations
-     * The function assumes that the relations do NOT store the data themselves or build any indices
+     * Measure the memory consumed by the data of the given relations.
+     * This method does not keep the database alive, hence materialized views inside the database are not measured.
      */
-    def dataMemory(files: Seq[java.io.File], relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+    def memoryOfData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+        val buffers = for (relation <- relationSelector (BATDatabaseFactory.create ())) yield {
+            val buffer = new ArrayBufferObserver[AnyRef](10000)
+            relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
+            buffer
+        }
+        var consumed: Long = 0
+
+        memory (size => (consumed += size)) {
+            val database = BATDatabaseFactory.create ()
+            for ((buffer, relation) <- buffers.zip (relationSelector (database))) {
+                relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
+            }
+            for (file <- files) {
+                database.addArchive (new FileInputStream (file))
+                buffers.foreach (_.trim ())
+                buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
+            }
+        }
+
+        consumed
+    }
+
+
+    /**
+     * Measure the memory consumed by the database when computing the given relations.
+     */
+    def memoryOfComputation(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
         val database = BATDatabaseFactory.create ()
         val relations = relationSelector (database)
         val buffers = for (relation <- relations) yield {
@@ -101,57 +130,52 @@ object MemoryProfiler
             buffer
         }
         var consumed: Long = 0
+
+        memory (size => (consumed += size)) {
+            for (file <- files) {
+                database.addArchive (new FileInputStream (file))
+                buffers.foreach (_.trim ())
+                buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
+            }
+        }
+
+        consumed
+    }
+
+    /**
+     * Measure the memory consumed by the bytecode data inside the relations
+     * The function assumes that the relations do NOT store the data themselves or build any indices
+     */
+    def memoryOfMaterializedData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
+        val database: BytecodeDatabase = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        relationSelector (database) // instantiate the given relations all others are lazy vals
+
+        var consumed: Long = 0
         for (file <- files) {
             memory (size => (consumed += size)) {
                 database.addArchive (new FileInputStream (file))
-                buffers.foreach (_.trim ())
             }
-            //buffers.foreach (consumed -= _.bufferConsumption)
-            buffers.foreach (_.clear)
         }
-        for ((relation, buffer) <- relations.zip (buffers)) {
-            relation.asInstanceOf[Observable[AnyRef]].removeObserver (buffer)
-        }
-        println (consumed)
+        //println (consumed)
         consumed
     }
 
 
-    def measure(files: Seq[java.io.File]) {
-        val database = BATDatabaseFactory.create ()
+    /**
+     * performs the measurement of function f in iterations times.
+     * Two statistics are returned
+     * first: memory consumed when applying f
+     * second: memory leak after f has been applied
+     */
+    def measureMemory(iterations: Int)(f: () => Long): (SampleStatistic, SampleStatistic) = {
+        val leakStatistic = Statistic (iterations)
+        val memStatistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            memory (leakStatistic.add (_))(memStatistic.add (f ()))
 
-        val classBuffer = new ArrayBufferObserver[ClassDeclaration](10000)
-        /*
-        val methodBuffer = new ArrayBufferObserver[MethodDeclaration](10000)
-        val fieldBuffer = new ArrayBufferObserver[FieldDeclaration](10000)
-        val instructionBuffer = new ArrayBufferObserver[InstructionInfo](100000)
-         */
-
-        database.declared_classes.addObserver (classBuffer)
-        /*
-      database.declared_methods.addObserver (methodBuffer)
-      database.declared_fields.addObserver (fieldBuffer)
-      database.instructions.addObserver (instructionBuffer)
-        */
-
-        for (file <- files) {
-            //memory (l => println ((l / 1024) + " KB"))(database.addArchive (new FileInputStream (file)))
-            memory (l => println (((l / 1024)) + " KB")) {
-                database.addArchive (new FileInputStream (file))
-                classBuffer.trim ()
-                /*
-                methodBuffer.trim ()
-                fieldBuffer.trim ()
-                instructionBuffer.trim ()
-                */
-            }
         }
-        /*
-        println ("classes: " + classBuffer.size)
-        println ("methods: " + methodBuffer.size)
-        println ("fields: " + fieldBuffer.size)
-        println ("instructions: " + instructionBuffer.size)
-        */
-
+        (memStatistic, leakStatistic)
     }
+
 }

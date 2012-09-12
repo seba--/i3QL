@@ -32,7 +32,9 @@
  */
 package sae.bytecode
 
+import instructions.InstructionInfo
 import sae.{SetRelation, LazyView}
+import sae.bytecode.structure._
 
 /**
  *
@@ -44,17 +46,18 @@ import sae.{SetRelation, LazyView}
 trait BytecodeBaseRelations
 {
 
-    import sae.bytecode._
+    def classDeclarations: SetRelation[ClassDeclaration]
 
-    def declared_classes: SetRelation[ClassDeclaration]
+    def methodDeclarations: SetRelation[MethodDeclaration]
 
-    def declared_methods: SetRelation[MethodDeclaration]
+    def fieldDeclarations: SetRelation[FieldDeclaration]
 
-    def declared_fields: SetRelation[FieldDeclaration]
+    def classInheritance: SetRelation[InheritanceRelation]
 
-    def instructions: LazyView[InstructionInfo]
+    def interfaceInheritance: SetRelation[InheritanceRelation]
 
-    // TODO move this is not a base relation
-    def fieldReadInstructions: LazyView[ReadFieldInstruction]
+    def instructions: SetRelation[InstructionInfo]
+
+    def codeAttributes: SetRelation[CodeAttribute]
 
 }

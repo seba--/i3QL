@@ -44,7 +44,7 @@ import sae.bytecode.profiler.MemoryProfiler
 class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
     extends sae.Observer[V] with sae.Size
 {
-    private var buffer: Array[Object] = Array.ofDim (0)
+    private var buffer: Array[Object] = Array.ofDim (incrementSize)
 
     private var index = 0
 
@@ -59,7 +59,9 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
 
     def trim() {
         val last = buffer.indexWhere (_ == null)
-        buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
+        if (last >= 0) {
+            buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
+        }
     }
 
     def updated(oldV: V, newV: V) {
@@ -87,7 +89,11 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
 
 
     def bufferConsumption = {
-        val consumption = MemoryProfiler.instrumentation.getObjectSize (buffer)
-        consumption
+        if (MemoryProfiler.instrumentation != null){
+            MemoryProfiler.instrumentation.getObjectSize (buffer)
+        }
+        else {
+            0L
+        }
     }
 }

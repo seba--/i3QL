@@ -32,6 +32,9 @@
  */
 package sae.bytecode.profiler.statistics
 
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.MaterializedBytecodeDatabase
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -41,6 +44,22 @@ package sae.bytecode.profiler.statistics
 
 object Statistic
 {
+
+    def elementStatistic(files: Seq[java.io.File]): Seq[(String, Int)] = {
+        val database = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        database.relations.foreach (r => () /* do nothing but iterate over the relations to instantiate*/)
+        for (file <- files) {
+            database.addArchive (new java.io.FileInputStream (file))
+        }
+        List (
+            ("classes", database.classDeclarations.size),
+            ("fields", database.fieldDeclarations.size),
+            ("methods", database.methodDeclarations.size),
+            ("class inheritance", database.classInheritance.size),
+            ("interface inheritance", database.interfaceInheritance.size),
+            ("instructions", database.instructions.size)
+        )
+    }
 
     def apply(sampleSize: Int): SampleStatistic = {
         new ArrayBufferSampleStatistic (sampleSize)

@@ -32,6 +32,8 @@
  */
 package sae.bytecode.profiler.util
 
+import sae.bytecode.profiler.statistics.MeasurementUnit
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -40,11 +42,9 @@ package sae.bytecode.profiler.util
  */
 
 object Byte
-    extends MemoryUnit
+    extends MeasurementUnit
 {
     def descriptor = "B"
 
-    def toBase(value: Long) = value
-
-    def fromBase(value: Long) = value
+    def fromBase(value: Double) = value
 }

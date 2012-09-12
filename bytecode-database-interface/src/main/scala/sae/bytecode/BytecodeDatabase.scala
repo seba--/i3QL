@@ -11,8 +11,16 @@ package sae.bytecode
 
 trait BytecodeDatabase
         extends BytecodeBaseRelations
+        with BytecodeDervivedRelations
         with BytecodeDatabaseManipulation
 {
-
+    lazy val relations = Seq (
+        classDeclarations,
+        fieldDeclarations,
+        methodDeclarations,
+        classInheritance,
+        interfaceInheritance,
+        instructions
+    ).view
 
 }

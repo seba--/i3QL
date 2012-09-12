@@ -32,10 +32,12 @@
  */
 package sae.bytecode.bat
 
+import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.{FieldDeclarationInfo, MethodDeclarationInfo, ClassDeclarationInfo}
+import de.tud.cs.st.bat.resolved.{Instruction, Code, ObjectType}
+import sae.bytecode.structure._
+import sae.bytecode.instructions.InstructionInfo
 
 
 /**
@@ -52,78 +54,107 @@ trait SAEClassFileReader
 {
     def database: BATBytecodeDatabase
 
-    type ClassFile = ClassDeclarationInfo
+    type ClassFile = ClassDeclaration
 
-    type Method_Info = MethodDeclarationInfo
-    type Methods <: IndexedSeq[MethodDeclarationInfo]
+    type Class_Info = ClassDeclaration
+
+    type Method_Info = MethodDeclaration
+    type Methods <: IndexedSeq[Method_Info]
     val Method_InfoManifest: ClassManifest[Method_Info] = implicitly
 
-    type Field_Info = FieldDeclarationInfo
-    type Fields <: IndexedSeq[FieldDeclarationInfo]
+    type Field_Info = FieldDeclaration
+    type Fields <: IndexedSeq[Field_Info]
     val Field_InfoManifest: ClassManifest[Field_Info] = implicitly
 
     type Interface = ObjectType
     type Interfaces <: IndexedSeq[ObjectType]
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
-    def Interface(interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface =
-        interface_index.asObjectType
+    protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)(implicit cp: Constant_Pool): Class_Info = {
 
-    def Field_Info(access_flags: Int,
+        val classInfo = ClassDeclaration (minor_version,
+            major_version,
+            in.readUnsignedShort,
+            in.readUnsignedShort.asObjectType)
+
+        val super_type = in.readUnsignedShort
+        if (super_type != 0) {
+            database.classInheritance.element_added (InheritanceRelation (super_type.asObjectType, classInfo.classType))
+        }
+        database.classDeclarations.element_added (classInfo)
+        classInfo
+    }
+
+
+    def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface = {
+        val interface = interface_index.asObjectType
+        database.interfaceInheritance.element_added (InheritanceRelation (interface, declaringClass.classType))
+        interface
+    }
+
+
+    def Field_Info(declaringClass: Class_Info,
+                   access_flags: Int,
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
         implicit cp: Constant_Pool): Field_Info =
     {
-        val fieldDeclaration = new FieldDeclarationInfo (
+        val fieldDeclaration = new FieldDeclaration (
+            declaringClass,
             access_flags,
             name_index.asString,
-            descriptor_index.asFieldType,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
-        )
-        database.declared_fields.element_added (fieldDeclaration)
+            descriptor_index.asFieldType)
+        database.fieldDeclarations.element_added (fieldDeclaration)
         fieldDeclaration
     }
 
-    def Method_Info(accessFlags: Int,
+    def Method_Info(declaringClass: Class_Info,
+                    accessFlags: Int,
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
         implicit cp: Constant_Pool): Method_Info =
     {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclarationInfo (
+        val methodDeclaration = MethodDeclaration (
+            declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
-            descriptor.parameterTypes,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
+            descriptor.parameterTypes
         )
-        database.declared_methods.element_added (methodDeclaration)
+        database.methodDeclarations.element_added (methodDeclaration)
+        attributes.foreach (_ match {
+            case code: Code => addInstructions (methodDeclaration, code.instructions)
+            case _ => /* do nothing*/
+        })
         methodDeclaration
     }
 
-    def ClassFile(minor_version: Int, major_version: Int,
-                  access_flags: Int,
-                  this_class: Int,
-                  super_class: Int,
+    def addInstructions(declaringMethod: Method_Info, instructions: Array[Instruction]) {
+        var i = 0
+        var index = 0
+        while (i < instructions.length)
+        {
+            val instr = instructions (i)
+            i += 1
+            if (instr != null) {
+                index += 1
+                database.instructions.element_added (InstructionInfo (declaringMethod, instr, i, index))
+            }
+
+        }
+    }
+
+    def ClassFile(classInfo: Class_Info,
                   interfaces: Interfaces,
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
         implicit cp: Constant_Pool): ClassFile =
     {
-
-        val classDeclaration = ClassDeclarationInfo (this_class.asObjectType,
-            access_flags,
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Deprecated)),
-            (attributes exists (_ == de.tud.cs.st.bat.resolved.Synthetic))
-        )
-        database.declared_classes.element_added (classDeclaration)
-
-        classDeclaration
+        classInfo
     }
 
 }

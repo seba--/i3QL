@@ -5,22 +5,22 @@ package sae
  * some form of intermediate storage.
  */
 trait MaterializedView[V <: AnyRef]
-        extends View[V]
-        with LazyView[V]
-        with Size
-        with SingletonValue[V]
-        with Contains[V]
-        with Listable[V] {
+    extends View[V]
+    with LazyView[V]
+    with Size
+    with SingletonValue[V]
+    with Contains[V]
+    with Listable[V]
+{
 
     /**
      * A materialized view never needs to defer
      * since it records it's own elements
      */
-    def lazy_foreach[T](f : (V) => T)
+    def lazy_foreach[T](f: (V) => T)
     {
-        foreach(f)
+        foreach (f)
     }
-
 
 
     /**
@@ -29,24 +29,24 @@ trait MaterializedView[V <: AnyRef]
      * But clients are required to implement their own
      * foreach method, with concrete semantics.
      */
-    def foreach[T](f : (V) => T)
+    def foreach[T](f: (V) => T)
     {
-            if (!initialized) {
-                lazyInitialize
-                initialized = true
-            }
-            materialized_foreach(f)
+        if (!initialized) {
+            lazyInitialize ()
+            initialized = true
         }
+        materialized_foreach (f)
+    }
 
     /**
      * The internal implementation that iterates only over materialized
      * data.
      */
-    protected def materialized_foreach[T](f : (V) => T)
+    protected def materialized_foreach[T](f: (V) => T)
 
-    def size : Int = {
+    def size: Int = {
         if (!initialized) {
-            lazyInitialize
+            lazyInitialize ()
             initialized = true
         }
         materialized_size
@@ -55,11 +55,11 @@ trait MaterializedView[V <: AnyRef]
     /**
      * The internal implementation that yields the size
      */
-    protected def materialized_size : Int
+    protected def materialized_size: Int
 
-    def singletonValue : Option[V] = {
+    def singletonValue: Option[V] = {
         if (!initialized) {
-            lazyInitialize
+            lazyInitialize ()
             initialized = true
         }
         materialized_singletonValue
@@ -68,18 +68,20 @@ trait MaterializedView[V <: AnyRef]
     /**
      * The internal implementation that yields the singletonValue
      */
-    protected def materialized_singletonValue : Option[V]
+    protected def materialized_singletonValue: Option[V]
 
-    def contains(v : V): Boolean = {
+    def contains(v: V): Boolean = {
         if (!initialized) {
-            lazyInitialize
+            lazyInitialize ()
             initialized = true
         }
-        materialized_contains(v)
+        materialized_contains (v)
     }
 
     /**
      * The internal implementation that yields the singletonValue
      */
-    protected def materialized_contains(v : V) : Boolean
+    protected def materialized_contains(v: V): Boolean
+
+
 }

@@ -33,7 +33,7 @@
 package sae.bytecode.bat
 
 import sae.LazyView
-import sae.bytecode.InstructionInfo
+import sae.bytecode.instructions.InstructionInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -53,7 +53,7 @@ trait SAECodeBinding
     def Instructions(codeSize: Int) : Instructions = database.instructions
 
     def add(byteCodeIndex: Int, sequenceIndex: Int, instruction: Instruction, instructions: Instructions) = {
-        instructions.element_added (sae.bytecode.structure.InstructionInfo (instruction, byteCodeIndex, sequenceIndex))
+        //instructions.element_added (sae.bytecode.structure.InstructionInfo (instruction, byteCodeIndex, sequenceIndex))
         instructions
     }
 
