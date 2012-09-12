@@ -30,34 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.profiler
 
-import instructions.InstructionInfo
-import sae.{SetRelation, LazyView}
-import sae.bytecode.structure._
+import java.io.File
+import util.MegaByte
+import sae.bytecode.BytecodeDatabase
 
 /**
- *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 12.09.12
+ * Time: 21:35
  */
-trait BytecodeBaseRelations
+
+object CFGMemoryProfiler
+    extends AbstractMemoryProfiler
 {
+    def profile(implicit files: Seq[File]) {
+        implicit val iter = iterations
 
-    def classDeclarations: SetRelation[ClassDeclaration]
+        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
 
-    def methodDeclarations: SetRelation[MethodDeclaration]
+        val (cfgMemory,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlocks))
 
-    def fieldDeclarations: SetRelation[FieldDeclaration]
+        println("CFG memory: " + (cfgMemory - databaseMemory).summary(MegaByte))
 
-    def classInheritance: SetRelation[InheritanceRelation]
-
-    def interfaceInheritance: SetRelation[InheritanceRelation]
-
-    def instructions: SetRelation[InstructionInfo]
-
-    def codeAttributes: SetRelation[CodeAttribute]
-
+    }
 }

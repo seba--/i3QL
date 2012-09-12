@@ -7,7 +7,7 @@ package sae.bytecode.structure
  * Time: 14:30
  *
  */
-case class ExceptionHandler(declaringMethod: MethodDeclaration, handler: de.tud.cs.st.bat.resolved.ExceptionHandler)
+case class ExceptionHandlerInfo(declaringMethod: MethodDeclaration, handler: de.tud.cs.st.bat.resolved.ExceptionHandler)
 {
     def startPc = handler.startPC
 

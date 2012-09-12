@@ -30,8 +30,6 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
 
-    lazy val exceptionHandlers = new SetResult[ExceptionHandler](database.exceptionHandlers)
-
     def fieldReadInstructions = null
 
     def inheritance = null

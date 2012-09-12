@@ -67,7 +67,7 @@ class BATBytecodeDatabase
 
     val codeAttributes = new BaseSetRelation[CodeAttribute]
 
-    val exceptionHandlers = new BaseSetRelation[ExceptionHandler]
+    val exceptionHandlers = new BaseSetRelation[ExceptionHandlerInfo]
 
     def fieldReadInstructions = null
 

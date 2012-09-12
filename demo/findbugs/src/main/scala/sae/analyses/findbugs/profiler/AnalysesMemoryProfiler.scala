@@ -64,11 +64,5 @@ object AnalysesMemoryProfiler
         println("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary(MegaByte))
     }
 
-    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]) :  BytecodeDatabase => Seq[Observable[_]] = {
-        (db: BytecodeDatabase) =>  Seq (f(db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
-    }
 
-    def dataMemory( relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations : Int, files: Seq[File] ) = {
-        measureMemory (iterations)(() => memoryOfData (files)(relations))
-    }
 }

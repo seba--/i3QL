@@ -33,6 +33,9 @@
 package sae.bytecode.profiler
 
 import sae.bytecode.BytecodeDatabase
+import sae.{Observable, LazyView}
+import java.io.File
+import sae.bytecode.profiler.MemoryProfiler._
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,7 +52,7 @@ trait AbstractMemoryProfiler
 
     def iterations = 20
 
-    def warmupIterations : Int = 10
+    def warmupIterations: Int = 10
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
@@ -67,9 +70,9 @@ trait AbstractMemoryProfiler
             file
         }
 
-        warmUp(files)
+        warmUp (files)
 
-        profile(files)
+        profile (files)
     }
 
     def profile(implicit files: Seq[java.io.File])
@@ -89,5 +92,13 @@ trait AbstractMemoryProfiler
             print (".")
         }
         println ("")
+    }
+
+    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]): BytecodeDatabase => Seq[Observable[_]] = {
+        (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
+    }
+
+    def dataMemory(relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations: Int, files: Seq[File]) = {
+        measureMemory (iterations)(() => memoryOfData (files)(relations))
     }
 }

@@ -35,8 +35,9 @@ package sae.bytecode
 import instructions._
 import sae.{SetRelation, LazyView}
 import sae.syntax.sql._
-import structure.{ExceptionHandler, BasicBlock, CodeAttribute, MethodDeclaration}
+import structure.{ExceptionHandlerInfo, BasicBlock, CodeAttribute, MethodDeclaration}
 import scala.Some
+import de.tud.cs.st.bat.resolved.ExceptionHandler
 
 /**
  * Created with IntelliJ IDEA.
@@ -74,17 +75,23 @@ trait BytecodeCFG
 
     def codeAttributes: SetRelation[CodeAttribute]
 
-    def exceptionHandlers: SetRelation[ExceptionHandler]
+    private lazy val exceptionHandlers: LazyView[ExceptionHandlerInfo] =
+        SELECT ((code: CodeAttribute, handler: ExceptionHandler) => ExceptionHandlerInfo (code.declaringMethod, handler)) FROM (codeAttributes, ((_: CodeAttribute).exceptionHandlers) IN codeAttributes)
 
-    private val ifBranchInstructions: LazyView[IfBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[IfBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[IfBranchInstructionInfo])
+    private lazy val ifBranchInstructions: LazyView[IfBranchInstructionInfo] =
+        SELECT ((_: InstructionInfo).asInstanceOf[IfBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[IfBranchInstructionInfo])
 
-    private val gotoBranchInstructions: LazyView[GotoBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[GotoBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[GotoBranchInstructionInfo])
+    private lazy val gotoBranchInstructions: LazyView[GotoBranchInstructionInfo] =
+        SELECT ((_: InstructionInfo).asInstanceOf[GotoBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[GotoBranchInstructionInfo])
 
-    private val returnInstructions: LazyView[ReturnInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[ReturnInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[ReturnInstructionInfo])
+    private lazy val returnInstructions: LazyView[ReturnInstructionInfo] =
+        SELECT ((_: InstructionInfo).asInstanceOf[ReturnInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[ReturnInstructionInfo])
 
-    private val switchInstructions: LazyView[SwitchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[SwitchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[SwitchInstructionInfo])
+    private lazy val switchInstructions: LazyView[SwitchInstructionInfo] =
+        SELECT ((_: InstructionInfo).asInstanceOf[SwitchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[SwitchInstructionInfo])
 
-    private val switchJumpTargets: LazyView[(SwitchInstructionInfo, Int)] = SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch, switch.pc + jumpOffset.get)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
+    private lazy val switchJumpTargets: LazyView[(SwitchInstructionInfo, Int)] =
+        SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch, switch.pc + jumpOffset.get)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
 
     /*
     basic_block_end_pcs(Pc, if_cmp_const(_, Target), [Pc|PrevList]) :- !, % if_cmp_const marks the end of a basic block
@@ -177,7 +184,7 @@ trait BytecodeCFG
     /**
      *
      */
-    private val basicBlockEndPcs: LazyView[BasicBlockEndBorder] =
+    private lazy val basicBlockEndPcs: LazyView[BasicBlockEndBorder] =
         SELECT (*) FROM (
             SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc)) FROM ifBranchInstructions UNION_ALL (
                 SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM ifBranchInstructions
@@ -236,7 +243,7 @@ trait BytecodeCFG
 
     private case class SuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int)
 
-    private val basicBlockSuccessorEdges: LazyView[SuccessorEdge] =
+    private lazy val basicBlockSuccessorEdges: LazyView[SuccessorEdge] =
         SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions UNION_ALL (
             SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
             ) UNION_ALL (
@@ -266,7 +273,7 @@ trait BytecodeCFG
     /**
      * In the end each basic block that does not have a successor yet has to receive a fall through case
      */
-    private val fallThroughCaseSuccessors =
+    private lazy val fallThroughCaseSuccessors =
         SELECT ((b: BasicBlockEndBorder) => SuccessorEdge (b.declaringMethod, b.endPc, b.endPc + 1)) FROM basicBlockEndPcs WHERE NOT (
             EXISTS (
                 SELECT (*) FROM basicBlockSuccessorEdges WHERE ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
@@ -280,12 +287,12 @@ trait BytecodeCFG
 
     private case class BasicBlockStartBorder(declaringMethod: MethodDeclaration, startPc: Int)
 
-    private val basicBlockStartPcs: LazyView[BasicBlockStartBorder] =
+    private lazy val basicBlockStartPcs: LazyView[BasicBlockStartBorder] =
         SELECT ((c: CodeAttribute) => BasicBlockStartBorder (c.declaringMethod, 0)) FROM codeAttributes UNION_ALL (
             SELECT ((edge: SuccessorEdge) => BasicBlockStartBorder (edge.declaringMethod, edge.toStartPc)) FROM basicBlockSuccessorEdges
             )
 
-    def basicBlocks: LazyView[BasicBlock] = {
+    lazy val basicBlocks: LazyView[BasicBlock] = {
         import sae.syntax.RelationalAlgebraSyntax._
 
         val bordersAll: LazyView[(MethodDeclaration, Int, Int)] = SELECT ((start: BasicBlockStartBorder, end: BasicBlockEndBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE (startBorderMethod === endBorderMethod)
@@ -347,23 +354,23 @@ trait BytecodeCFG
      * 3. the pc before the handler
      * After the endPc there may be a finally block which should reach until the handler comes.
      */
-    private val exceptionHandlerBasicBlockEndList: LazyView[BasicBlockEndBorder] =
-        SELECT ((e: ExceptionHandler) => BasicBlockEndBorder (e.declaringMethod, e.startPc - 1)) FROM exceptionHandlers UNION_ALL (
-            SELECT ((e: ExceptionHandler) => BasicBlockEndBorder (e.declaringMethod, e.endPc - 1)) FROM exceptionHandlers
+    private lazy val exceptionHandlerBasicBlockEndList: LazyView[BasicBlockEndBorder] =
+        SELECT ((e: ExceptionHandlerInfo) => BasicBlockEndBorder (e.declaringMethod, e.startPc - 1)) FROM exceptionHandlers UNION_ALL (
+            SELECT ((e: ExceptionHandlerInfo) => BasicBlockEndBorder (e.declaringMethod, e.endPc - 1)) FROM exceptionHandlers
             ) UNION_ALL (
-            SELECT ((e: ExceptionHandler) => BasicBlockEndBorder (e.declaringMethod, e.handlerPc - 1)) FROM exceptionHandlers
+            SELECT ((e: ExceptionHandlerInfo) => BasicBlockEndBorder (e.declaringMethod, e.handlerPc - 1)) FROM exceptionHandlers
             )
 
     /**
      * Every endPc that is in the range between handler.startPc and handler.endPc - 1 must receive an edge to the handler
      */
-    private val exceptionHandlerBasicBlockSuccessors =
-        SELECT ((e: ExceptionHandler) => SuccessorEdge (e.declaringMethod, e.endPc - 1, e.handlerPc)) FROM (exceptionHandlers) UNION_ALL (
-            SELECT ((e: (BasicBlockEndBorder, ExceptionHandler)) => SuccessorEdge (e._1.declaringMethod, e._1.endPc, e._2.handlerPc)) FROM (
+    private lazy val exceptionHandlerBasicBlockSuccessors =
+        SELECT ((e: ExceptionHandlerInfo) => SuccessorEdge (e.declaringMethod, e.endPc - 1, e.handlerPc)) FROM (exceptionHandlers) UNION_ALL (
+            SELECT ((e: (BasicBlockEndBorder, ExceptionHandlerInfo)) => SuccessorEdge (e._1.declaringMethod, e._1.endPc, e._2.handlerPc)) FROM (
                 SELECT (*) FROM (basicBlockEndPcs, exceptionHandlers) WHERE (
-                    ((_: BasicBlockEndBorder).declaringMethod) === ((_: ExceptionHandler).declaringMethod)
+                    ((_: BasicBlockEndBorder).declaringMethod) === ((_: ExceptionHandlerInfo).declaringMethod)
                     )
-                ) WHERE ((e: (BasicBlockEndBorder, ExceptionHandler)) => e._1.endPc < e._2.endPc - 1 && e._1.endPc >= e._2.startPc)
+                ) WHERE ((e: (BasicBlockEndBorder, ExceptionHandlerInfo)) => e._1.endPc < e._2.endPc - 1 && e._1.endPc >= e._2.startPc)
             )
 
 

@@ -10,9 +10,10 @@ package sae.bytecode
  */
 
 trait BytecodeDatabase
-        extends BytecodeBaseRelations
-        with BytecodeDervivedRelations
-        with BytecodeDatabaseManipulation
+    extends BytecodeBaseRelations
+    with BytecodeDervivedRelations
+    with BytecodeDatabaseManipulation
+    with BytecodeCFG
 {
     lazy val relations = Seq (
         classDeclarations,
