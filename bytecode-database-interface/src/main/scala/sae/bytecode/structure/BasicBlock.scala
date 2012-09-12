@@ -39,15 +39,6 @@ package sae.bytecode.structure
  * Time: 16:26
  */
 
-trait BasicBlock
-{
-
-    def declaringMethod : MethodDeclaration
-
-    def startPC: Int
-
-    def endPC: Int
-
-    def successors: Seq[BasicBlock]
-
-}
+case class BasicBlock(declaringMethod: MethodDeclaration,
+                      startPC: Int,
+                      endPC: Int)
