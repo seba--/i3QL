@@ -34,7 +34,7 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{DefaultLazyView, BaseSetRelation}
+import sae.BaseSetRelation
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
 import sae.bytecode.instructions.InstructionInfo
@@ -63,9 +63,16 @@ class BATBytecodeDatabase
 
     val interfaceInheritance = new BaseSetRelation[InheritanceRelation]
 
-    val instructions = new DefaultLazyView[InstructionInfo]
+    val instructions = new BaseSetRelation[InstructionInfo]
+
+    val codeAttributes = new BaseSetRelation[CodeAttribute]
+
+    val exceptionHandlers = new BaseSetRelation[ExceptionHandler]
 
     def fieldReadInstructions = null
+
+    def inheritance = null
+
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)
@@ -95,5 +102,5 @@ class BATBytecodeDatabase
 
     }
 
-    def inheritance = null
+
 }

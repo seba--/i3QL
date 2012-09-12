@@ -1,7 +1,7 @@
 package sae.syntax.sql.impl
 
 import sae.LazyView
-import sae.syntax.sql.{JOIN_CONDITION_UNBOUND_RELATION_1, FROM_CLAUSE}
+import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, JOIN_CONDITION_UNBOUND_RELATION_1, FROM_CLAUSE}
 import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter}
 import sae.syntax.sql.ast.FromClause1
@@ -46,6 +46,17 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
             )
         )
 
+    def WHERE(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]) =
+        WhereClause1Syntax (
+            SQLQuery (
+                selectClause,
+                this.toAst,
+                Some (
+                    WhereClauseSequence (Seq (subExpression.representation))
+                )
+            )
+        )
+
     def compile() = Compiler (
         representation
     )
@@ -53,4 +64,6 @@ case class FromClause1Syntax[Domain <: AnyRef, Range <: AnyRef](selectClause: Se
     type Representation = SQLQuery[Range]
 
     def representation = SQLQuery (selectClause, this.toAst, None)
+
+
 }

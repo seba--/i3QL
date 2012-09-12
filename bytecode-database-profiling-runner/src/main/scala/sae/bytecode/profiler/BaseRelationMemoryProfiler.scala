@@ -35,6 +35,7 @@ package sae.bytecode.profiler
 import sae.bytecode._
 import statistics.Statistic
 import util.{MegaByte, KiloByte}
+import sae.operators.Conversions
 
 
 /**
@@ -79,7 +80,7 @@ object BaseRelationMemoryProfiler
         val materializedMemory = MemoryProfiler.memoryOfMaterializedData (files) _
 
         println ("statistics")
-        Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach(println)
+        Statistic.elementStatistic (files).map (e => e._1 + ": " + e._2).foreach (println)
 
 
         // warmup
@@ -96,6 +97,14 @@ object BaseRelationMemoryProfiler
             print (".")
         }
         println ("")
+
+        measureMem ("class inheritance - indices", () => baseMemory ((db: BytecodeDatabase) => {
+            val indexed = Conversions.lazyViewToIndexedView (db.classInheritance)
+            Seq (
+                indexed.index (_.subType),
+                indexed.index (_.superType)
+            )
+        }))
 
         measureMem ("declared classes - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.classDeclarations)))
         measureMem ("declared methods - data", () => baseMemory ((db: BytecodeDatabase) => Seq (db.methodDeclarations)))

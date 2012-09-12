@@ -125,8 +125,20 @@ trait SAEClassFileReader
             descriptor.parameterTypes
         )
         database.methodDeclarations.element_added (methodDeclaration)
+
         attributes.foreach (_ match {
-            case code: Code => addInstructions (methodDeclaration, code.instructions)
+            case code: Code => {
+                database.codeAttributes.element_added (
+                    CodeAttribute (
+                        methodDeclaration,
+                        code.instructions.size,
+                        code.maxLocals,
+                        code.maxStack,
+                        code.exceptionHandlers
+                    )
+                )
+                addInstructions (methodDeclaration, code.instructions)
+            }
             case _ => /* do nothing*/
         })
         methodDeclaration

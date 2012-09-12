@@ -69,6 +69,15 @@ object SELECT
             )
         )
 
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef, RangeA <: AnyRef, RangeB <: AnyRef](projectionA: DomainA => RangeA,
+                                                                                        projectionB: DomainB => RangeB,
+                                                                                        aggregations1 : AGGREGATE_FUNCTION_1[DomainA, RangeA]): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
+        SelectClause2Syntax (
+            SelectClause2 (
+                Some ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b)))
+            )
+        )
+
 
     def apply(x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
         SelectClauseNoProjectionSyntax ()

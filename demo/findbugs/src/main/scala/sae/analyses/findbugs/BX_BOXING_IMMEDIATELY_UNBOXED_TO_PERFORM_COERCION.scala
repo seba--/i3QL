@@ -23,8 +23,8 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
     def apply(database: BytecodeDatabase): LazyView[INVOKEVIRTUAL] = {
         import database._
 
-        val invokeSpecial /*: LazyView[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
-        val invokeVirtual /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+        val invokeSpecial: LazyView[INVOKESPECIAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val invokeVirtual: LazyView[INVOKEVIRTUAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
         val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
 
@@ -34,11 +34,11 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
             (receiverType === receiverType) AND
             (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
             NOT (firstParamType === returnType) AND
-            (_.declaringMethod.declaringClass.majorVersion >= 49 ) AND
-            (!_.receiverType.isReferenceType) AND
+            (_.declaringMethod.declaringClass.majorVersion >= 49) AND
+            (_.receiverType.isObjectType) AND
             (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND
             ((_: INVOKEVIRTUAL).parameterTypes == Nil) AND
-            (_.declaringMethod.name.endsWith ("Value"))
+            (_.name.endsWith ("Value"))
     }
 
     /**

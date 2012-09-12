@@ -2,6 +2,7 @@ package sae.test
 
 import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
+import impl.WhereClause0Negation
 import sae.LazyView
 import scala.Some
 import sae.collections.Table
@@ -722,6 +723,33 @@ class SQLSyntaxTest
         Assert.assertEquals (
             List (
                 ("One", Some (1)),
+                ("Two", Some (1)),
+                ("Two", Some (2))
+            ),
+            query.asList.sortBy((t:(String, Some[Int])) => (t._1, t._2.get))
+        )
+    }
+
+    @Test
+    def testUnnestingWithProjectionAndSelectionFromDomain() {
+
+        val database = new StudentCoursesDatabase ()
+
+        case class Data(name: String, values: Seq[Int])
+
+        val data= new Table[Data]
+
+        data += Data ("Empty", Nil)
+        data += Data ("One", Seq (1))
+        data += Data ("Two", Seq (1, 2))
+
+
+        val query: LazyView[(String, Some[Int])] =
+
+            SELECT ((data: Data, v: Some[Int]) => (data.name, v)) FROM (data, ((_: Data).values.map (Some (_))) IN data) WHERE (_.name == "Two")
+
+        Assert.assertEquals (
+            List (
                 ("Two", Some (1)),
                 ("Two", Some (2))
             ),

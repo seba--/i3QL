@@ -47,4 +47,6 @@ trait FROM_CLAUSE[Domain <: AnyRef, Range <: AnyRef]
 
     def WHERE[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[Domain, UnboundDomain, RangeA, UnboundRange]): WHERE_CLAUSE_2_UNBOUND_1[Domain, UnboundDomain, Range]
 
+    def WHERE(subExpression: WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1[Domain]): WHERE_CLAUSE[Domain, Range]
+
 }
