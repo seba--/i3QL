@@ -60,4 +60,6 @@ trait BytecodeBaseRelations
 
     def codeAttributes: SetRelation[CodeAttribute]
 
+    def exceptionHandlers: SetRelation[ExceptionHandler]
+
 }

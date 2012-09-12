@@ -74,6 +74,8 @@ trait BytecodeCFG
 
     def codeAttributes: SetRelation[CodeAttribute]
 
+    def exceptionHandlers: SetRelation[ExceptionHandler]
+
     private val ifBranchInstructions: LazyView[IfBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[IfBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[IfBranchInstructionInfo])
 
     private val gotoBranchInstructions: LazyView[GotoBranchInstructionInfo] = SELECT ((_: InstructionInfo).asInstanceOf[GotoBranchInstructionInfo]) FROM instructions WHERE (_.isInstanceOf[GotoBranchInstructionInfo])
@@ -172,26 +174,31 @@ trait BytecodeCFG
     */
     private case class BasicBlockEndBorder(declaringMethod: MethodDeclaration, endPc: Int)
 
+    /**
+     *
+     */
     private val basicBlockEndPcs: LazyView[BasicBlockEndBorder] =
-        SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc)) FROM ifBranchInstructions UNION_ALL (
-            SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM ifBranchInstructions WHERE ( (branch:IfBranchInstructionInfo) => branch.pc + branch.branchOffset >= 0 )
+            SELECT (*) FROM
+            (
+            SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc)) FROM ifBranchInstructions
+             UNION_ALL (
+            SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM ifBranchInstructions WHERE
             ) UNION_ALL (
             SELECT ((branch: GotoBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc)) FROM gotoBranchInstructions
             ) UNION_ALL (
-            SELECT ((branch: GotoBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM gotoBranchInstructions WHERE ( (branch:GotoBranchInstructionInfo) => branch.pc + branch.branchOffset >= 0 )
+            SELECT ((branch: GotoBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM gotoBranchInstructions WHERE
             ) UNION_ALL (
             SELECT ((retrn: ReturnInstructionInfo) => BasicBlockEndBorder (retrn.declaringMethod, retrn.pc)) FROM returnInstructions
             ) UNION_ALL (
             SELECT ((switch: SwitchInstructionInfo) => BasicBlockEndBorder (switch.declaringMethod, switch.pc)) FROM switchInstructions
             ) UNION_ALL (
-            SELECT (*) FROM (
-                SELECT ((switch: SwitchInstructionInfo) => BasicBlockEndBorder (switch.declaringMethod, switch.pc + switch.defaultOffset - 1)) FROM switchInstructions
-                ) WHERE (_.endPc >= 0)
+            SELECT ((switch: SwitchInstructionInfo) => BasicBlockEndBorder (switch.declaringMethod, switch.pc + switch.defaultOffset - 1)) FROM switchInstructions
             ) UNION_ALL (
             SELECT ((e: (SwitchInstructionInfo, Int)) => BasicBlockEndBorder (e._1.declaringMethod, e._2 - 1)) FROM switchJumpTargets
             ) UNION_ALL (
             SELECT ((code: CodeAttribute) => BasicBlockEndBorder (code.declaringMethod, code.codeLength)) FROM codeAttributes
             )
+            ) WHERE (_.endPc >= 0)
 
     /*
         % basic_block_edge_list(Pc, Instr, EdgeList) :-
@@ -229,12 +236,13 @@ trait BytecodeCFG
         lookupswitch_target_edge_list([kv(_,Target)], Pc, [(Pc, Target)]).
      */
 
-    private case class SuccessorEdge(declaringMethod: MethodDeclaration, endPc: Int, startPc: Int)
+    private case class SuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int)
 
     private val basicBlockEdgeList: LazyView[SuccessorEdge] =
-        SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + 1)) FROM ifBranchInstructions UNION_ALL (
-            SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
-            ) UNION_ALL (
+             SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions
+                 UNION_ALL (
+                SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
+             ) UNION_ALL (
             SELECT ((branch: GotoBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM gotoBranchInstructions
             ) UNION_ALL (
             SELECT ((retrn: ReturnInstructionInfo) => SuccessorEdge (retrn.declaringMethod, retrn.pc, Int.MaxValue)) FROM returnInstructions
@@ -242,7 +250,29 @@ trait BytecodeCFG
             SELECT ((switch: SwitchInstructionInfo) => SuccessorEdge (switch.declaringMethod, switch.pc, switch.pc + switch.defaultOffset)) FROM switchInstructions
             ) UNION_ALL (
             SELECT ((e: (SwitchInstructionInfo, Int)) => SuccessorEdge (e._1.declaringMethod, e._1.pc, e._2)) FROM switchJumpTargets
-            )
+            ) UNION_ALL (fallThroughCaseEdgeList)
+
+    /*
+   cfg_add_fall_through_cases([EndPc|RestEndPcs], BasicBlockSuccessorSet) :-
+     NextPc is EndPc + 1,
+     (
+        treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (EndPc, _), (NextPc, _)) ->    % we have an empty list and thus no edge yet
+          treeset_lookup((EndPc, NextPc), BasicBlockSuccessorSet)
+          ;
+          true
+     ),
+     cfg_add_fall_through_cases(RestEndPcs, BasicBlockSuccessorSet).
+
+   cfg_add_fall_through_cases([], _) :- !. % green cut
+    */
+
+    /**
+     * In the end each basic block that does not have a successor yet has to receive a fall through case
+     */
+    private val fallThroughCaseSuccessors =
+        SELECT ((b:BasicBlockEndBorder) => SuccessorEdge(b.declaringMethod, b.endPc, b.endPc + 1) FROM (basicBlockEndPcs)) WHERE
+        NOT( EXISTS( SELECT (*) FROM basicBlockSuccessors WHERE ((_: SuccessorEdge).endPc)) === (_:BasicBlockEndBorder).endPc )
+
 
 
     private def endBorderMethod: BasicBlockEndBorder => MethodDeclaration = _.declaringMethod
@@ -275,28 +305,64 @@ trait BytecodeCFG
         )
     }
 
-
     /*
-        SELECT ((e: (MethodDeclaration, Int, Int)) => BasicBlock (e._1, e._3, e._2)) FROM (
-            SELECT (((_: BasicBlockStartBorder).declaringMethod), ((_: BasicBlockEndBorder).endPc), MAX ((_: BasicBlockStartBorder).startPc)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE (startBorderMethod === endBorderMethod) AND ((_.startPc) <<< (_.endPC))
-            )
+    % cfg_add_exception_handler(Handlers, BasicBlockBorderSet, BasicBlockSuccessorSet) :-
+    %
+    cfg_add_exception_handler([], _, _).
+    cfg_add_exception_handler([handler(TryBlockStartPC,EndPC,HandlerPC,_)| HandlersRest], BasicBlockBorderSet, BasicBlockSuccessorSet) :-
+          PCBeforeTryBlock is TryBlockStartPC - 1,
+          PCBeforeHandlerPCEnd is HandlerPC - 1,
+          TryBlockEndPC is EndPC - 1,
+          treeset_lookup(PCBeforeTryBlock, BasicBlockBorderSet),
+          treeset_lookup(PCBeforeHandlerPCEnd, BasicBlockBorderSet),
+          treeset_lookup(TryBlockEndPC, BasicBlockBorderSet),
+          % if there is no edge yet from the TryBlockEndPC, then it is not a jump and we construct a fall through case.
+          % EndPC is TryBlockEndPC + 1 => thus we can reuse the variable here to denote the jump target
+          (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (PCBeforeTryBlock, _), (TryBlockStartPC, _)) -> treeset_lookup((PCBeforeTryBlock, TryBlockStartPC), BasicBlockSuccessorSet); true),
+          (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (PCBeforeHandlerPCEnd, _), (HandlerPC, _)) -> treeset_lookup((PCBeforeHandlerPCEnd, HandlerPC), BasicBlockSuccessorSet); true),
+          (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (TryBlockEndPC, _), (EndPC, _)) -> treeset_lookup((TryBlockEndPC, EndPC), BasicBlockSuccessorSet); true),
+          cfg_add_exception_handler(HandlersRest, BasicBlockBorderSet, BasicBlockSuccessorSet),
+          % addition of edges can only be performed after all borders have been set thus we perform this step on the upward recursive step.
+          % TODO try with tail recursion and two predicates
+          (
+              % we know that TryBlockEndPC is a trivial solution to this call, but we need to know all solutions anyway
+              treeset_to_list_within_bounds(BasicBlockBorderSet, BBInTryBlockEndPCList-[], TryBlockStartPC, TryBlockEndPC),
+              %treeset_lookup((BBInTryBlockEndPC, HandlerPC), BasicBlockSuccessorSet)
+              add_catch_block_edge_list(BBInTryBlockEndPCList, HandlerPC, BasicBlockSuccessorSet)
+          ).
+
+    % add_catch_block_edge_list(BBInTryBlockEndPCList, HandlerPC, BasicBlockSuccessorSet) :-
+    %
+    %
+    add_catch_block_edge_list([EndPC|RestEndPcs], HandlerPC, BasicBlockSuccessorSet) :-
+          treeset_lookup((EndPC, HandlerPC), BasicBlockSuccessorSet),
+          add_catch_block_edge_list(RestEndPcs, HandlerPC, BasicBlockSuccessorSet).
+
+    add_catch_block_edge_list([], _, _).
     */
 
+    /**
+     * Handlers mark three new ends of blocks:
+     * 1. the pc before the try block starts
+     * 2. the pc before the try block ends (the try block end denotes the first pc after the block)
+     * 3. the pc before the handler
+     * After the endPc there may be a finally block which should reach until the handler comes.
+     */
+    private val exceptionHandlerBasicBlockEndList : LazyView[BasicBlockEndBorder] =
+        SELECT ((e:ExceptionHandler) => BasicBlockEndBorder(e.declaringMethod, e.startPc - 1) FROM (exceptionHandlers) UNION_ALL (
+            SELECT ((e:ExceptionHandler) => BasicBlockEndBorder(e.declaringMethod, e.endPc - 1) FROM (exceptionHandlers)
+        )UNION_ALL (
+            SELECT ((e:ExceptionHandler) => BasicBlockEndBorder(e.declaringMethod, e.handlerPc - 1) FROM (exceptionHandlers)
+        )
 
-    /*
-   cfg_add_fall_through_cases([EndPc|RestEndPcs], BasicBlockSuccessorSet) :-
-     NextPc is EndPc + 1,
-     (
-        treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (EndPc, _), (NextPc, _)) ->    % we have an empty list and thus no edge yet
-          treeset_lookup((EndPc, NextPc), BasicBlockSuccessorSet)
-          ;
-          true
-     ),
-     cfg_add_fall_through_cases(RestEndPcs, BasicBlockSuccessorSet).
-
-   cfg_add_fall_through_cases([], _) :- !. % green cut
-    */
-    def fallThroughCases: LazyView[(MethodDeclaration, (Int, Int))] = null // TODO do we need that?
+    /**
+     * Every endPc that is in the range between handler.startPc and handler.endPc - 1 must receive an edge to the handler
+     */
+    private val exceptionHandlerBasicBlockSuccessors =
+        SELECT ((e:ExceptionHandler) => SuccessorEdge(e.declaringMethod, e.endPc - 1, e.handlerPc) FROM (exceptionHandlers) UNION_ALL(
+        SELECT ((e:(BasicBlockEndBorder, ExceptionHandler) => SuccessorEdge(e._1.declaringMethod, e._1.endPc, e._2.handlerPc))) FROM (SELECT (*) FROM (basicBlockEndPcs, exceptionHandlers) WHERE (declaringMethod === declaringMethod)) WHERE
+            ((e:(BasicBlockEndBorder, ExceptionHandler)) => e._1.endPc < e._2.endPc - 1 && e._1.endPc >= e._2.startPc)
+        )
 
     /*
     % cfg_graph_list(StartPc, BasicBlockBorderList, CompleteBasicBlockBorders, BasicBlockSuccessorSet, CFG) :-
@@ -310,7 +376,7 @@ trait BytecodeCFG
 
     cfg_graph_list(_, [], _, _, []).
     */
-    def cgfGraphList: LazyView[AnyRef] = null
+    def basicBlockSuccessors: LazyView[AnyRef] = null
 
     /*
     % cfg_graph_successors(BasicBlockSuccessorList, CompleteBasicBlockBorders, BasicBlockSuccessors) :-
@@ -342,25 +408,7 @@ trait BytecodeCFG
 /* The (obsolete) instructions jsr and ret are not supported. */
 % TODO (uncomment?) basic_block_end_pcs(_, jsr(_), _) :- !,fail,
 % TODO (uncomment?) basic_block_end_pcs(_, ret(_), _) :- !,fail.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% cfg_instruction_rec(MID, Pc, MethodEndPC, CurrentInstr, NextInstr, BasicBlockBorderSet, BasicBlockSuccessorSet) :-
+cfg_instruction_rec(MID, Pc, MethodEndPC, CurrentInstr, NextInstr, BasicBlockBorderSet, BasicBlockSuccessorSet) :-
 %     This is the 'main loop' of the cfg algorithm. each instruction is analyzed
 %     once and respective modifications to basic block information is stored inside
 %     BasicBlockBorderSet and BasicBlockSuccessorSet.
@@ -385,37 +433,3 @@ cfg_instruction_rec(_, Pc, MethodEndPC, 'n/a', _, _, _) :- MethodEndPC is Pc - 1
 
 
 
-% cfg_add_exception_handler(Handlers, BasicBlockBorderSet, BasicBlockSuccessorSet) :-
-%
-cfg_add_exception_handler([], _, _).
-cfg_add_exception_handler([handler(TryBlockStartPC,EndPC,HandlerPC,_)| HandlersRest], BasicBlockBorderSet, BasicBlockSuccessorSet) :-
-      PCBeforeTryBlock is TryBlockStartPC - 1,
-      PCBeforeHandlerPCEnd is HandlerPC - 1,
-      TryBlockEndPC is EndPC - 1,
-      treeset_lookup(PCBeforeTryBlock, BasicBlockBorderSet),
-      treeset_lookup(PCBeforeHandlerPCEnd, BasicBlockBorderSet),
-      treeset_lookup(TryBlockEndPC, BasicBlockBorderSet),
-      % if there is no edge yet from the TryBlockEndPC, then it is not a jump and we construct a fall through case.
-      % EndPC is TryBlockEndPC + 1 => thus we can reuse the variable here to denote the jump target
-      (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (PCBeforeTryBlock, _), (TryBlockStartPC, _)) -> treeset_lookup((PCBeforeTryBlock, TryBlockStartPC), BasicBlockSuccessorSet); true),
-      (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (PCBeforeHandlerPCEnd, _), (HandlerPC, _)) -> treeset_lookup((PCBeforeHandlerPCEnd, HandlerPC), BasicBlockSuccessorSet); true),
-      (treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (TryBlockEndPC, _), (EndPC, _)) -> treeset_lookup((TryBlockEndPC, EndPC), BasicBlockSuccessorSet); true),
-      cfg_add_exception_handler(HandlersRest, BasicBlockBorderSet, BasicBlockSuccessorSet),
-      % addition of edges can only be performed after all borders have been set thus we perform this step on the upward recursive step.
-      % TODO try with tail recursion and two predicates
-      (
-          % we know that TryBlockEndPC is a trivial solution to this call, but we need to know all solutions anyway
-          treeset_to_list_within_bounds(BasicBlockBorderSet, BBInTryBlockEndPCList-[], TryBlockStartPC, TryBlockEndPC),
-          %treeset_lookup((BBInTryBlockEndPC, HandlerPC), BasicBlockSuccessorSet)
-          add_catch_block_edge_list(BBInTryBlockEndPCList, HandlerPC, BasicBlockSuccessorSet)
-      ).
-
-% add_catch_block_edge_list(BBInTryBlockEndPCList, HandlerPC, BasicBlockSuccessorSet) :-
-%
-%
-add_catch_block_edge_list([EndPC|RestEndPcs], HandlerPC, BasicBlockSuccessorSet) :-
-      treeset_lookup((EndPC, HandlerPC), BasicBlockSuccessorSet),
-      add_catch_block_edge_list(RestEndPcs, HandlerPC, BasicBlockSuccessorSet).
-
-add_catch_block_edge_list([], _, _).
-*/
