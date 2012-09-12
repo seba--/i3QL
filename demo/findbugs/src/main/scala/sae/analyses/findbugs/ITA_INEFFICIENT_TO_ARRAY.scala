@@ -61,6 +61,7 @@ object ITA_INEFFICIENT_TO_ARRAY
             (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1)) AND
             EXISTS (SELECT (*) FROM inheritance WHERE (_.superType == collectionInterface) AND ((_: InheritanceRelation).subType) === ((_: INVOKEINTERFACE).receiverType))
 */
+        null
     }
 
 

@@ -65,14 +65,20 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
     }
 
     def updated(oldV: V, newV: V) {
-        throw new UnsupportedOperationException
+        val index = buffer.indexWhere (_ == oldV)
+        if (index == -1) {
+            println (oldV)
+        }
+        buffer (index) = newV
     }
 
     def removed(v: V) {
-        throw new UnsupportedOperationException
+        index = buffer.indexWhere (_ == v)
+        buffer (index) = null
     }
 
     def added(v: V) {
+        index == buffer.indexWhere (_ == null)
         if (index == buffer.size) {
             grow ()
         }
@@ -89,10 +95,11 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
 
 
     def bufferConsumption = {
-        if (MemoryProfiler.instrumentation != null){
+        if (MemoryProfiler.instrumentation != null) {
             MemoryProfiler.instrumentation.getObjectSize (buffer)
         }
-        else {
+        else
+        {
             0L
         }
     }

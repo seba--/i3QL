@@ -243,8 +243,9 @@ trait BytecodeCFG
 
     private case class SuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int)
 
-    private lazy val basicBlockSuccessorEdges: LazyView[SuccessorEdge] =
-        SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions UNION_ALL (
+    private lazy val immediateBasicBlockSuccessorEdges: LazyView[SuccessorEdge] =
+        (SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions
+            ) UNION_ALL (
             SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
             ) UNION_ALL (
             SELECT ((branch: GotoBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM gotoBranchInstructions
@@ -254,7 +255,11 @@ trait BytecodeCFG
             SELECT ((switch: SwitchInstructionInfo) => SuccessorEdge (switch.declaringMethod, switch.pc, switch.pc + switch.defaultOffset)) FROM switchInstructions
             ) UNION_ALL (
             SELECT ((e: (SwitchInstructionInfo, Int)) => SuccessorEdge (e._1.declaringMethod, e._1.pc, e._2)) FROM switchJumpTargets
-            ) UNION_ALL (fallThroughCaseSuccessors)
+            )
+
+
+    private lazy val basicBlockSuccessorEdges: LazyView[SuccessorEdge] =
+        SELECT (*) FROM immediateBasicBlockSuccessorEdges UNION_ALL (fallThroughCaseSuccessors)
 
     /*
    cfg_add_fall_through_cases([EndPc|RestEndPcs], BasicBlockSuccessorSet) :-
@@ -276,7 +281,7 @@ trait BytecodeCFG
     private lazy val fallThroughCaseSuccessors =
         SELECT ((b: BasicBlockEndBorder) => SuccessorEdge (b.declaringMethod, b.endPc, b.endPc + 1)) FROM basicBlockEndPcs WHERE NOT (
             EXISTS (
-                SELECT (*) FROM basicBlockSuccessorEdges WHERE ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
+                SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
             )
         )
 
@@ -295,7 +300,9 @@ trait BytecodeCFG
     lazy val basicBlocks: LazyView[BasicBlock] = {
         import sae.syntax.RelationalAlgebraSyntax._
 
-        val bordersAll: LazyView[(MethodDeclaration, Int, Int)] = SELECT ((start: BasicBlockStartBorder, end: BasicBlockEndBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE (startBorderMethod === endBorderMethod)
+        //val bordersAll: LazyView[(MethodDeclaration, Int, Int)] = SELECT ((start: BasicBlockStartBorder, end: BasicBlockEndBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE (startBorderMethod === endBorderMethod)
+
+        val bordersAll: LazyView[(MethodDeclaration, Int, Int)] = SELECT ((end: BasicBlockEndBorder, start: BasicBlockStartBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockEndPcs, basicBlockStartPcs) WHERE (endBorderMethod === startBorderMethod)
 
         val borders = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
