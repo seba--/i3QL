@@ -37,7 +37,8 @@ import sae.bytecode.BytecodeDatabase
 import sae.{Observable, LazyView}
 import java.io.FileInputStream
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.collections.Conversions
+import sae.collections.{QueryResult, Conversions}
+import statistics.{Statistic, SampleStatistic}
 
 /**
  * Created with IntelliJ IDEA.
@@ -72,9 +73,6 @@ trait AbstractTimeProfiler
         println ("")
     }
 
-    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]): BytecodeDatabase => Seq[Observable[_]] = {
-        (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
-    }
 
     /**
      * Measure the time taken by computing the given views.
@@ -94,7 +92,7 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach(println(_))
+        results.foreach ((q:QueryResult[_]) => println (q.size))
         taken
     }
 
@@ -114,9 +112,24 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach(println(_))
+        results.foreach ((q:CountingObserver[_]) => println (q.count))
         taken
     }
 
 
+    /**
+     * performs the measurement of function f in iterations times.
+     * Two statistics are returned
+     * first: memory consumed when applying f
+     * second: memory leak after f has been applied
+     */
+    def measureTime(iterations: Int)(f: () => Long): SampleStatistic = {
+        val statistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            statistic.add (f ())
+
+        }
+        statistic
+    }
 }
