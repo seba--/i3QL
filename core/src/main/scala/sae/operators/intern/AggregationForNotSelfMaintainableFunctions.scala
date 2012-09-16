@@ -128,6 +128,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
      */
     def removed(v: Domain) {
         val key = groupingFunction(v)
+        if(!groups.contains(key)){
+            println(v + " => " + key)
+        }
         val (data, aggregationFunction, oldResult) = groups(key)
 
         if (data.size == 1) {

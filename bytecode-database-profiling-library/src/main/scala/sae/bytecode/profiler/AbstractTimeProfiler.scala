@@ -32,10 +32,12 @@
  */
 package sae.bytecode.profiler
 
+import observers.CountingObserver
 import sae.bytecode.BytecodeDatabase
 import sae.{Observable, LazyView}
-import java.io.File
-import sae.bytecode.profiler.MemoryProfiler._
+import java.io.FileInputStream
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.collections.Conversions
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,9 +46,14 @@ import sae.bytecode.profiler.MemoryProfiler._
  * Time: 14:09
  */
 
-trait AbstractMemoryProfiler
+trait AbstractTimeProfiler
     extends AbstractJarProfiler
+    with TimeMeasurement
 {
+
+    def operations: BytecodeDatabase => Seq[Observable[_]]
+
+    def profile(implicit files: Seq[java.io.File])
 
     def warmUp(files: Seq[java.io.File]) {
         // warmup
@@ -69,7 +76,47 @@ trait AbstractMemoryProfiler
         (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
     }
 
-    def dataMemory(relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations: Int, files: Seq[File]) = {
-        measureMemory (iterations)(() => memoryOfData (files)(relations))
+    /**
+     * Measure the time taken by computing the given views.
+     * The results are stored in QueryResults, hence in hashtables
+     */
+    def computeViewAsResult(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]): Long = {
+        val database: BytecodeDatabase = BATDatabaseFactory.create ()
+
+        val results = for (view <- views (database)) yield {
+            Conversions.lazyViewToResult (view)
+        }
+
+        var taken: Long = 0
+        for (file <- files) {
+            time (t => (taken += t)) {
+                database.addArchive (new FileInputStream (file))
+            }
+        }
+
+        results.foreach(println(_))
+        taken
     }
+
+    def computeViewAsCount(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]): Long = {
+        val database: BytecodeDatabase = BATDatabaseFactory.create ()
+
+        val results = for (view <- views (database)) yield {
+            val o = new CountingObserver[AnyRef]
+            view.addObserver (o)
+            o
+        }
+
+        var taken: Long = 0
+        for (file <- files) {
+            time (t => (taken += t)) {
+                database.addArchive (new FileInputStream (file))
+            }
+        }
+
+        results.foreach(println(_))
+        taken
+    }
+
+
 }

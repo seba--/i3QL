@@ -32,44 +32,45 @@
  */
 package sae.bytecode.profiler
 
-import sae.bytecode.BytecodeDatabase
-import sae.{Observable, LazyView}
-import java.io.File
-import sae.bytecode.profiler.MemoryProfiler._
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 01.09.12
- * Time: 14:09
+ * Date: 16.09.12
+ * Time: 20:52
  */
 
-trait AbstractMemoryProfiler
-    extends AbstractJarProfiler
+trait AbstractJarProfiler
 {
+    val usage = """|Usage: java BaseRelationMemoryProfiler <ZIP or JAR file containing class files>+
+                  |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
+                  | """.stripMargin
 
-    def warmUp(files: Seq[java.io.File]) {
-        // warmup
-        print ("warmup")
-        for (i <- 1 to warmupIterations) {
-            MemoryProfiler.memoryOfMaterializedData (files)((db: BytecodeDatabase) => Seq (
-                db.classDeclarations,
-                db.fieldDeclarations,
-                db.methodDeclarations,
-                db.classInheritance,
-                db.interfaceInheritance,
-                db.instructions
-            ))
-            print (".")
+    def iterations = 20
+
+    def warmupIterations: Int = 10
+
+    def main(args: Array[String]) {
+        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
+            println (usage)
+            sys.exit (1)
         }
-        println ("")
+
+        val files = for (arg ← args) yield {
+            val file = new java.io.File (arg)
+            if (!file.canRead || file.isDirectory) {
+                println ("The file: " + file + " cannot be read.")
+                println (usage)
+                sys.exit (1)
+            }
+            file
+        }
+
+        warmUp (files)
+
+        profile (files)
     }
 
-    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]): BytecodeDatabase => Seq[Observable[_]] = {
-        (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
-    }
+    def profile(implicit files: Seq[java.io.File])
 
-    def dataMemory(relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations: Int, files: Seq[File]) = {
-        measureMemory (iterations)(() => memoryOfData (files)(relations))
-    }
+    def warmUp(files: Seq[java.io.File])
 }

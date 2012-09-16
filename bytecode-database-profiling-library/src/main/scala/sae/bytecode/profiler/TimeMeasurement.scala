@@ -30,23 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.util
+package sae.bytecode.profiler
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 26.08.12
- * Time: 12:54
+ * Date: 16.09.12
+ * Time: 20:50
  */
 
-trait MemoryUnit
+trait TimeMeasurement
 {
-
-    def descriptor : String
-
-    def convertTo(unit : MemoryUnit)(value : Long) = unit.fromBase(this.toBase(value))
-
-    def toBase(value : Long) : Long
-
-    def fromBase(value : Long) : Long
+    /**
+     * Measures the time spent when executing the given method.
+     */
+    def time[T](mu: (Long) ⇒ Unit)(f: ⇒ T): T = {
+        val start = System.nanoTime
+        val r = f
+        val end = System.nanoTime
+        mu (end - start)
+        r
+    }
 }
