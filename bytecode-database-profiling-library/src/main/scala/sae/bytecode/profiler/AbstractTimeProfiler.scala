@@ -52,7 +52,7 @@ trait AbstractTimeProfiler
     with TimeMeasurement
 {
 
-    def operations: BytecodeDatabase => Seq[Observable[_]]
+    def operations: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]
 
     def profile(implicit files: Seq[java.io.File])
 
@@ -60,14 +60,7 @@ trait AbstractTimeProfiler
         // warmup
         print ("warmup")
         for (i <- 1 to warmupIterations) {
-            MemoryProfiler.memoryOfMaterializedData (files)((db: BytecodeDatabase) => Seq (
-                db.classDeclarations,
-                db.fieldDeclarations,
-                db.methodDeclarations,
-                db.classInheritance,
-                db.interfaceInheritance,
-                db.instructions
-            ))
+            measureTime(iterations)(() => computeViewAsCount(files)(operations))
             print (".")
         }
         println ("")

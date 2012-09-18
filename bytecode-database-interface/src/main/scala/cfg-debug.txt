@@ -1,0 +1,30 @@
+basicBlockEndPcs.added    : ,113)
+basicBlockStartPcs.added  : ,114)
+basicBlockStartPcs.added  : ,0)
+borders.added             : ,0,113)
+
+basicBlockStartPcs.added  : ,112)
+borders.added             : ,112,113)
+
+borders.added             : ,0,111)
+basicBlockEndPcs.added    : ,111)
+
+basicBlockStartPcs.added  : ,112)
+borders.added             : ,112,113)
+
+immediateBasicBlockSuccessorEdges.added  : 5,112)
+
+borders.added             : ,0,5)
+basicBlockEndPcs.added    : ,5)
+
+basicBlockStartPcs.removed: ,6)
+borders.removed           : ,6,113)
+borders.removed           : ,6,111)
+
+basicBlockStartPcs.added  : ,112)
+borders.added             : ,112,113)
+borders.added             : ,0,76)
+basicBlockEndPcs.added    : ,76)
+basicBlockStartPcs.removed: ,77)
+borders.removed           : ,77,113)
+(MethodDeclaration(ClassDeclaration(0,49,33,ObjectType(className="com/sun/activation/registries/MailcapTokenizer")),9,nameForToken,ObjectType(className="java/lang/String"),List(IntegerType)),77,111)

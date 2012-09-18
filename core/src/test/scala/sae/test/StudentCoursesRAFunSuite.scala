@@ -913,4 +913,55 @@ class StudentCoursesRAFunSuite
 
         assert(students_not_employees.size === 1)
     }
+
+
+    test("anti semi join push on same") {
+
+        val persons = new DefaultLazyView[Person]
+        val registeredStudents = new DefaultLazyView[Student]
+
+        val potentialStudents = (
+            (
+                persons,
+                (_: Person).Name
+                ) ⊳(
+                (_: Student).Name,
+                registeredStudents
+                )
+            )
+
+        val allRegistrations =
+            Π((_: Student).Name)(registeredStudents)  ∪ Π((_: Person).Name)(potentialStudents)
+
+        val selfJoin = (
+            (
+                allRegistrations,
+                identity(_: String)
+                )  ⋈(
+                (_: Person).Name,
+                persons
+                )
+            ){ (s:String, p:Person) => p}
+
+        val longestName : QueryResult[(String, Int)] = γ (selfJoin,
+            (p: Person) => p.Name,
+            sae.functions.Max[Person]((p: Person) => (p.Name.length)),
+            (key: String, value: Int) => (key, value)
+        )
+
+
+        case class PersonImpl(Name:String) extends Person
+
+        persons.element_added(PersonImpl("A1"))
+        persons.element_added(PersonImpl("A2"))
+        persons.element_added(PersonImpl("A3"))
+        persons.element_added(PersonImpl("A4"))
+
+        registeredStudents.element_added(new Student(1, "A1"))
+        registeredStudents.element_added(new Student(2, "A2"))
+        registeredStudents.element_added(new Student(3, "A3"))
+
+
+
+    }
 }

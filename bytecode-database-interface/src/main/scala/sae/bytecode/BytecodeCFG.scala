@@ -33,7 +33,7 @@
 package sae.bytecode
 
 import instructions._
-import sae.{SetRelation, LazyView}
+import sae.{Observer, SetRelation, LazyView}
 import sae.syntax.sql._
 import structure.{ExceptionHandlerInfo, BasicBlock, CodeAttribute, MethodDeclaration}
 import scala.Some
@@ -304,8 +304,69 @@ trait BytecodeCFG
 
         //val bordersAll: LazyView[(MethodDeclaration, Int, Int)] = SELECT ((end: BasicBlockEndBorder, start: BasicBlockStartBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockEndPcs, basicBlockStartPcs) WHERE (endBorderMethod === startBorderMethod)
 
-        val borders = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
+        val borders : LazyView[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
+
+        immediateBasicBlockSuccessorEdges.addObserver(new Observer[AnyRef] {
+            def updated(oldV: AnyRef, newV: AnyRef) {
+                println("immediateBasicBlockSuccessorEdges." + "updated: " + oldV + "")
+                println("                                            to: " + newV + "")
+            }
+
+            def removed(v:AnyRef) {
+                println("immediateBasicBlockSuccessorEdges." + "removed: " + v)
+            }
+
+            def added(v: AnyRef) {
+                println("immediateBasicBlockSuccessorEdges." + "added  : " + v)
+            }
+        })
+
+
+        basicBlockEndPcs.addObserver(new Observer[AnyRef] {
+            def updated(oldV: AnyRef, newV: AnyRef) {
+                println("basicBlockEndPcs." + "updated: " + oldV + "")
+                println("                           to: " + newV + "")
+            }
+
+            def removed(v:AnyRef) {
+                println("basicBlockEndPcs." + "removed: " + v)
+            }
+
+            def added(v: AnyRef) {
+                println("basicBlockEndPcs." + "added  : " + v)
+            }
+        })
+
+        basicBlockStartPcs.addObserver(new Observer[AnyRef] {
+            def updated(oldV: AnyRef, newV: AnyRef) {
+                println("basicBlockStartPcs." + "updated: " + oldV + "")
+                println("basicBlockStartPcs." + "     to: " + newV + "")
+            }
+
+            def removed(v:AnyRef) {
+                println("basicBlockStartPcs." + "removed: " + v)
+            }
+
+            def added(v: AnyRef) {
+                println("basicBlockStartPcs." + "added  : " + v)
+            }
+        })
+
+        borders.addObserver(new Observer[(MethodDeclaration, Int, Int)] {
+            def updated(oldV: (MethodDeclaration, Int, Int), newV: (MethodDeclaration, Int, Int)) {
+                println("borders." + "updated: " + oldV + "")
+                println("borders." + "     to: " + newV + "")
+            }
+
+            def removed(v: (MethodDeclaration, Int, Int)) {
+                println("borders." + "removed: " + v)
+            }
+
+            def added(v: (MethodDeclaration, Int, Int)) {
+                println("borders." + "added  : " + v)
+            }
+        })
         /*
          SELECT (   (e: (MethodDeclaration, Int, Int)) => (e._1, e._3),
                     MAX[(MethodDeclaration, Int, Int)]((e: (MethodDeclaration, Int, Int)) => e._2) )
