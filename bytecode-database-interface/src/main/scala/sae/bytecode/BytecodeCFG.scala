@@ -307,18 +307,22 @@ trait BytecodeCFG
         val borders : LazyView[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
 
-        immediateBasicBlockSuccessorEdges.addObserver(new Observer[AnyRef] {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                println("immediateBasicBlockSuccessorEdges." + "updated: " + oldV + "")
-                println("                                            to: " + newV + "")
+        basicBlockSuccessorEdges.addObserver(new Observer[SuccessorEdge] {
+            def updated(oldV: SuccessorEdge, newV: SuccessorEdge) {
+                println("basicBlockSuccessorEdges." + "updated: " + oldV + "")
+                println("                                   to: " + newV + "")
+
             }
 
-            def removed(v:AnyRef) {
-                println("immediateBasicBlockSuccessorEdges." + "removed: " + v)
+            def removed(v: SuccessorEdge) {
+                println("basicBlockSuccessorEdges." + "removed: " + v)
+                if (v.fromEndPc == 75 && v.toStartPc == 76) {
+                    println("NOW")
+                }
             }
 
-            def added(v: AnyRef) {
-                println("immediateBasicBlockSuccessorEdges." + "added  : " + v)
+            def added(v: SuccessorEdge) {
+                println("basicBlockSuccessorEdges." + "added  : " + v)
             }
         })
 

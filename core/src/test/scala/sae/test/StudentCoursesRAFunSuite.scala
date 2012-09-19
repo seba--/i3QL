@@ -914,6 +914,41 @@ class StudentCoursesRAFunSuite
         assert(students_not_employees.size === 1)
     }
 
+    test("anti semi join add/remove order") {
+
+        val studentsA = new DefaultLazyView[Student]
+        val studentsB = new DefaultLazyView[Student]
+
+        val studentsANotB: QueryResult[Student] = (
+                (
+                        studentsA,
+                        (_: Student).Name
+                        ) ⊳(
+                        (_: Student).Name,
+                        studentsB
+                        )
+                )
+
+        assert(studentsANotB.size === 0)
+
+        studentsA.element_added(Student(1, "Alice"))
+
+        assert(studentsANotB.size === 1)
+
+        studentsA.element_added(Student(2, "Alice"))
+
+        assert(studentsANotB.size === 2)
+
+        studentsB.element_added(Student(4, "Alice"))
+
+        assert(studentsANotB.size === 0)
+
+        studentsA.element_added(Student(4, "Alice"))
+
+        assert(studentsANotB.size === 0)
+
+    }
+
 
     test("anti semi join push on same") {
 

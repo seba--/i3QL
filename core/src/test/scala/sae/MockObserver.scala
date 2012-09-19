@@ -12,7 +12,7 @@ class MockObserver[-V] extends Observer[V]
     import MockObserver._
     private var eventQueue: List[ObserverEvent] = Nil
 
-    def events = eventQueue
+    def events = eventQueue.reverse
 
     def clearEvents() {
         eventQueue = Nil

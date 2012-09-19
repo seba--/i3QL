@@ -150,12 +150,11 @@ trait SAEClassFileReader
         while (i < instructions.length)
         {
             val instr = instructions (i)
-            i += 1
             if (instr != null) {
-                index += 1
                 database.instructions.element_added (InstructionInfo (declaringMethod, instr, i, index))
+                index += 1
             }
-
+            i += 1
         }
     }
 
