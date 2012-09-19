@@ -61,6 +61,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this +=(newA, b)
             }
             )
+            initialized = true
         }
 
         def removed(v: A): Unit = {
@@ -68,6 +69,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this -=(v, b)
             }
             )
+            initialized = true
         }
 
         def added(v: A): Unit = {
@@ -75,6 +77,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this +=(v, b)
             }
             )
+            initialized = true
         }
     }
 
@@ -87,6 +90,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this +=(a, newB)
             }
             )
+            initialized = true
         }
 
         def removed(v: B): Unit = {
@@ -94,6 +98,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this -=(a, v)
             }
             )
+            initialized = true
         }
 
         def added(v: B): Unit = {
@@ -101,6 +106,7 @@ class CrossProduct[A <: AnyRef, B <: AnyRef](
                 CrossProduct.this +=(a, v)
             }
             )
+            initialized = true
         }
     }
 
