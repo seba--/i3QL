@@ -1,7 +1,7 @@
 package sae.profiler.util
 import de.tud.cs.st.bat.ObjectType
 import sae.bytecode.model._
-import sae.DefaultLazyView
+import sae.BagExtent
 import sae.bytecode.model._
 import dependencies._
 import sae.collections._

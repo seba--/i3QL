@@ -5,7 +5,7 @@ import org.junit.{Before, Test, Ignore}
 import sae.collections.{QueryResult, Table}
 import sae.operators.HashTransitiveClosure
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.{DefaultLazyView, Observer, Relation}
+import sae.{BagExtent, Observer, Relation}
 import util.Random
 
 
@@ -248,7 +248,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
 
   def rndTestHelpber() {
     val size = 20
-    val source: Relation[(java.lang.Integer, java.lang.Integer)] = new DefaultLazyView[(java.lang.Integer, java.lang.Integer)]
+    val source: Relation[(java.lang.Integer, java.lang.Integer)] = new BagExtent[(java.lang.Integer, java.lang.Integer)]
     val tc = new HashTransitiveClosure(source, (_: (java.lang.Integer, java.lang.Integer))._1, (_: (java.lang.Integer, java.lang.Integer))._2)
     val queryResult: QueryResult[(java.lang.Integer, java.lang.Integer)] = tc
     val matrix = new Array[Array[java.lang.Integer]](size)

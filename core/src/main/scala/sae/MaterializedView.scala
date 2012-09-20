@@ -1,5 +1,7 @@
 package sae
 
+import capabilities.{Contains, SingletonValue, Size}
+
 /**
  * This view materializes its elements and thus requires
  * some form of intermediate storage.

@@ -504,8 +504,8 @@ class TestObserverManipulation extends ShouldMatchers
         val o = new MockObserver[Student]
         
 
-        val studentsA = new DefaultLazyView[Student]
-        val studentsB = new DefaultLazyView[Student]
+        val studentsA = new BagExtent[Student]
+        val studentsB = new BagExtent[Student]
 
         val antisemi = ((studentsA, students.Name) ⊳(students.Name, studentsB))
         antisemi.addObserver(o);

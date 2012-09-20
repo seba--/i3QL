@@ -9,7 +9,7 @@ import org.junit.{Ignore, Before, Test}
 import de.tud.cs.st.bat.{Type, ObjectType, ReferenceType}
 import sae.operators.HashEquiJoin
 import sae.operators.Conversions._
-import sae.{Observer, DefaultLazyView, Relation}
+import sae.{Observer, BagExtent, Relation}
 
 
 /**
@@ -45,8 +45,8 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
 
 
 /*
-    val w1: Relation[String] = new DefaultLazyView[String]()
-    val w2: Relation[String] = new DefaultLazyView[String]()
+    val w1: Relation[String] = new BagExtent[String]()
+    val w2: Relation[String] = new BagExtent[String]()
 
 
     val elementOf = ∈(w2)
@@ -77,8 +77,8 @@ class TestSelfMaintenance extends org.scalatest.junit.JUnitSuite {
   def intersection(): Unit = {
     case class SimpleClass(val key: String, val data: String)
 
-    val w1: Relation[String] = new DefaultLazyView[String]()
-    val w2: Relation[String] = new DefaultLazyView[String]()
+    val w1: Relation[String] = new BagExtent[String]()
+    val w2: Relation[String] = new BagExtent[String]()
     val intersection = w1 ∩ w2
 
     val testObs = new TestObs[String]()

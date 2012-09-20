@@ -6,7 +6,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import sae.{DefaultLazyView, Relation}
+import sae.{BagExtent, Relation}
 import scala.Predef._
 
 /**
@@ -882,8 +882,8 @@ class StudentCoursesRAFunSuite
 
     test("anti semi join push order") {
 
-        val students = new DefaultLazyView[Student]
-        val employee = new DefaultLazyView[Employee]
+        val students = new BagExtent[Student]
+        val employee = new BagExtent[Employee]
 
         val students_not_employees: QueryResult[Student] = (
                 (
@@ -916,8 +916,8 @@ class StudentCoursesRAFunSuite
 
     test("anti semi join add/remove order") {
 
-        val studentsA = new DefaultLazyView[Student]
-        val studentsB = new DefaultLazyView[Student]
+        val studentsA = new BagExtent[Student]
+        val studentsB = new BagExtent[Student]
 
         val studentsANotB: QueryResult[Student] = (
                 (
@@ -952,8 +952,8 @@ class StudentCoursesRAFunSuite
 
     test("anti semi join push on same") {
 
-        val persons = new DefaultLazyView[Person]
-        val registeredStudents = new DefaultLazyView[Student]
+        val persons = new BagExtent[Person]
+        val registeredStudents = new BagExtent[Student]
 
         val potentialStudents = (
             (

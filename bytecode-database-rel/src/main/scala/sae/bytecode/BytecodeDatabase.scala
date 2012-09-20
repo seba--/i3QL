@@ -1,7 +1,7 @@
 package sae
 package bytecode
 
-import sae.DefaultLazyView
+import sae.BagExtent
 import sae.bytecode.model._
 import dependencies._
 import internal._
@@ -38,29 +38,29 @@ class BytecodeDatabase extends Database
 
     // TODO check whether declared_types and classfile methods can be declared as views in combination with a classfile_source(Class, File) table and how this affects performance
 
-    val declared_classes = new DefaultLazyView[ClassDeclaration]
+    val declared_classes = new BagExtent[ClassDeclaration]
 
     lazy val declared_types: Relation[ObjectType] = Π((_: ClassDeclaration).objectType)(declared_classes)
 
-    val declared_methods = new DefaultLazyView[MethodDeclaration]
+    val declared_methods = new BagExtent[MethodDeclaration]
 
-    val declared_fields = new DefaultLazyView[FieldDeclaration]
+    val declared_fields = new BagExtent[FieldDeclaration]
 
-    val classes: Relation[ObjectType] = new DefaultLazyView[ObjectType]
+    val classes: Relation[ObjectType] = new BagExtent[ObjectType]
 
-    val methods: Relation[MethodReference] = new DefaultLazyView[MethodReference]
+    val methods: Relation[MethodReference] = new BagExtent[MethodReference]
 
-    val fields: Relation[FieldReference] = new DefaultLazyView[FieldReference]
+    val fields: Relation[FieldReference] = new BagExtent[FieldReference]
 
-    val instructions: Relation[Instr[_]] = new DefaultLazyView[Instr[_]]
+    val instructions: Relation[Instr[_]] = new BagExtent[Instr[_]]
 
     /**
      * Begin with individual relations (derived are lazy vals others are filled during bytecode reading)
      */
 
-    val `extends`: Relation[`extends`] = new DefaultLazyView[`extends`]
+    val `extends`: Relation[`extends`] = new BagExtent[`extends`]
 
-    val implements: Relation[implements] = new DefaultLazyView[implements]
+    val implements: Relation[implements] = new BagExtent[implements]
 
     lazy val subtypes: Relation[(ObjectType, ObjectType)] = TC(
         `extends`.∪[Dependency[ObjectType, ObjectType], implements](implements)
@@ -69,9 +69,9 @@ class BytecodeDatabase extends Database
 
     // inner classes are added multiple times for each inner class, since the definition is repeated in the classfile
     // TODO these relations are currently external for performance measurements
-    val internal_inner_classes: Relation[unresolved_inner_class_entry] = new DefaultLazyView[unresolved_inner_class_entry]
+    val internal_inner_classes: Relation[unresolved_inner_class_entry] = new BagExtent[unresolved_inner_class_entry]
 
-    val internal_enclosing_methods: Relation[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
+    val internal_enclosing_methods: Relation[unresolved_enclosing_method] = new BagExtent[unresolved_enclosing_method]
 
     lazy val internal_guaranteed_inner_classes: Relation[inner_class] =
         δ(
@@ -127,20 +127,20 @@ class BytecodeDatabase extends Database
         new field_type(f, f
                 .fieldType))(declared_fields)
 
-    val parameter: Relation[parameter] = new DefaultLazyView[parameter]
+    val parameter: Relation[parameter] = new BagExtent[parameter]
 
     lazy val return_type: Relation[return_type] = Π((m: MethodDeclaration) =>
         new return_type(m, m
                 .returnType))(declared_methods)
 
-    val exception_handlers = new DefaultLazyView[ExceptionHandler]()
+    val exception_handlers = new BagExtent[ExceptionHandler]()
 
     // exception handelers can have an undefined catchType. This is used to implement finally blocks
     lazy val handled_exceptions: Relation[ExceptionHandler] = σ((_: ExceptionHandler).catchType != None)(
         exception_handlers
     )
 
-    val thrown_exceptions: Relation[throws] = new DefaultLazyView[throws]()
+    val thrown_exceptions: Relation[throws] = new BagExtent[throws]()
 
     lazy val write_field: Relation[write_field] =
         (

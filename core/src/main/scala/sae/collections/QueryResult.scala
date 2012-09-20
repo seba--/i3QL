@@ -2,6 +2,7 @@ package sae
 package collections
 
 import com.google.common.collect.Sets.SetView
+import capabilities.{SingletonValue, Size}
 
 /**
  * A result is a kind of view that offers more convenience operators

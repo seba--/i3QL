@@ -30,78 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler.observers
-
-import sae.bytecode.profiler.MemoryProfiler
-import sae.capabilities.Size
+package sae
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 25.08.12
- * Time: 11:03
+ * Date: 20.09.12
+ * Time: 22:14
  */
 
-class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
-    extends sae.Observer[V] with sae.capabilities.Size
+trait LazyInitialized
 {
-    private var buffer: Array[Object] = Array.ofDim (incrementSize)
-
-    private var index = 0
-
-    private def grow() {
-        buffer = java.util.Arrays.copyOf (buffer, buffer.size + incrementSize)
-    }
-
-
-    def clear {
-        buffer = Array.ofDim (0)
-    }
-
-    def trim() {
-        val last = buffer.indexWhere (_ == null)
-        if (last >= 0) {
-            buffer = java.util.Arrays.copyOfRange (buffer, 0, last)
-        }
-    }
-
-    def updated(oldV: V, newV: V) {
-        val index = buffer.indexWhere (_ == oldV)
-        if (index == -1) {
-            println (oldV)
-        }
-        buffer (index) = newV
-    }
-
-    def removed(v: V) {
-        index = buffer.indexWhere (_ == v)
-        buffer (index) = null
-    }
-
-    def added(v: V) {
-        index == buffer.indexWhere (_ == null)
-        if (index == buffer.size) {
-            grow ()
-        }
-        buffer (index) = v
-        index += 1
-    }
 
     /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
      */
-    def size = buffer.size
+    def lazyInitialize()
 
+    /**
+     * Returns true initialization is complete
+     */
+    protected var initialized: Boolean = false
 
-    def bufferConsumption = {
-        if (MemoryProfiler.instrumentation != null) {
-            MemoryProfiler.instrumentation.getObjectSize (buffer)
-        }
-        else
-        {
-            0L
-        }
-    }
 }

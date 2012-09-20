@@ -21,8 +21,8 @@ class TestVarious
      */
     @Test
     def basicBlockBugTestWithoutIndex() {
-        val basicBlockEndPcs: Relation[java.lang.Integer] = new DefaultLazyView[java.lang.Integer]
-        val immediateBasicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = new DefaultLazyView[(java.lang.Integer, java.lang.Integer)]
+        val basicBlockEndPcs: Relation[java.lang.Integer] = new BagExtent[java.lang.Integer]
+        val immediateBasicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = new BagExtent[(java.lang.Integer, java.lang.Integer)]
 
         val fallThroughCaseSuccessors =
             SELECT ((i: java.lang.Integer) => (i, Integer.valueOf (i + 1))) FROM basicBlockEndPcs WHERE NOT (
@@ -34,7 +34,7 @@ class TestVarious
 
         val basicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = SELECT (*) FROM immediateBasicBlockSuccessorEdges UNION_ALL (fallThroughCaseSuccessors)
 
-        val zeroBasicBlockStartPcs: Relation[java.lang.Integer] = new DefaultLazyView[java.lang.Integer]
+        val zeroBasicBlockStartPcs: Relation[java.lang.Integer] = new BagExtent[java.lang.Integer]
 
         val basicBlockStartPcs: Relation[java.lang.Integer] =
             SELECT (*) FROM zeroBasicBlockStartPcs UNION_ALL (
@@ -137,8 +137,8 @@ class TestVarious
      */
     @Test
     def basicBlockBugTestWithIndexOnBordersAll() {
-        val basicBlockEndPcs: Relation[(String, Int)] = new DefaultLazyView[(String, Int)]
-        val immediateBasicBlockSuccessorEdges: Relation[(String, Int, Int)] = new DefaultLazyView[(String, Int, Int)]
+        val basicBlockEndPcs: Relation[(String, Int)] = new BagExtent[(String, Int)]
+        val immediateBasicBlockSuccessorEdges: Relation[(String, Int, Int)] = new BagExtent[(String, Int, Int)]
 
         val fallThroughCaseSuccessors =
             SELECT ((e: (String, Int)) => (e._1, e._2, (e._2 + 1))) FROM basicBlockEndPcs WHERE NOT (
@@ -151,7 +151,7 @@ class TestVarious
 
         val basicBlockSuccessorEdges: Relation[(String, Int, Int)] = SELECT (*) FROM immediateBasicBlockSuccessorEdges UNION_ALL (fallThroughCaseSuccessors)
 
-        val zeroBasicBlockStartPcs: Relation[(String, Int)] = new DefaultLazyView[(String, Int)]
+        val zeroBasicBlockStartPcs: Relation[(String, Int)] = new BagExtent[(String, Int)]
 
         val basicBlockStartPcs: Relation[(String, Int)] =
             SELECT (*) FROM zeroBasicBlockStartPcs UNION_ALL (
@@ -260,8 +260,8 @@ class TestVarious
      */
     @Test
     def basicBlockBugWithLazyInit() {
-        val basicBlockEndPcs: Relation[java.lang.Integer] = new DefaultLazyView[java.lang.Integer]
-        val immediateBasicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = new DefaultLazyView[(java.lang.Integer, java.lang.Integer)]
+        val basicBlockEndPcs: Relation[java.lang.Integer] = new BagExtent[java.lang.Integer]
+        val immediateBasicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = new BagExtent[(java.lang.Integer, java.lang.Integer)]
 
         val fallThroughCaseSuccessors =
             SELECT ((i: java.lang.Integer) => (i, Integer.valueOf (i + 1))) FROM basicBlockEndPcs WHERE NOT (
@@ -273,7 +273,7 @@ class TestVarious
 
         val basicBlockSuccessorEdges: Relation[(java.lang.Integer, java.lang.Integer)] = SELECT (*) FROM immediateBasicBlockSuccessorEdges UNION_ALL (fallThroughCaseSuccessors)
 
-        val zeroBasicBlockStartPcs: Relation[java.lang.Integer] = new DefaultLazyView[java.lang.Integer]
+        val zeroBasicBlockStartPcs: Relation[java.lang.Integer] = new BagExtent[java.lang.Integer]
 
         val basicBlockStartPcs: Relation[java.lang.Integer] =
             SELECT (*) FROM zeroBasicBlockStartPcs UNION_ALL (
@@ -310,8 +310,8 @@ class TestVarious
         {
             import sae.syntax.RelationalAlgebraSyntax._
 
-            val basicBlockEndPcs: Relation[(String, Int)] = new DefaultLazyView[(String, Int)]
-            val immediateBasicBlockSuccessorEdges: Relation[(String, Int, Int)] = new DefaultLazyView[(String, Int, Int)]
+            val basicBlockEndPcs: Relation[(String, Int)] = new BagExtent[(String, Int)]
+            val immediateBasicBlockSuccessorEdges: Relation[(String, Int, Int)] = new BagExtent[(String, Int, Int)]
 
 
            val fallThroughCaseSuccessors  =
