@@ -3,7 +3,7 @@ package sae.operators
 import util.control.Breaks
 import collection.mutable.{HashSet, HashMap}
 import java.lang.Error
-import sae.{Observable, MaterializedView, Observer, LazyView}
+import sae.{Observable, MaterializedView, Observer, Relation}
 
 /**
  * A operation that calculates the transitive closure for a given source relation
@@ -13,7 +13,7 @@ import sae.{Observable, MaterializedView, Observer, LazyView}
  */
 trait TransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef] extends MaterializedView[(Vertex, Vertex)]
 {
-    def source: LazyView[Edge]
+    def source: Relation[Edge]
     // naming after  "Network Flows: Theory, Algorithms, and Applications"
     // Edge e = (Vertex u , Vertx v)
     // u is tail of e
@@ -31,7 +31,7 @@ trait TransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef] extends MaterializedVi
  * @author Malte V
  * @author Ralf Mitschke
  */
-class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: LazyView[Edge],
+class HashTransitiveClosure[Edge <: AnyRef, Vertex <: AnyRef](val source: Relation[Edge],
                                                               val getTail: Edge => Vertex,
                                                               val getHead: Edge => Vertex) extends TransitiveClosure[Edge, Vertex] with Observer[Edge]
 {

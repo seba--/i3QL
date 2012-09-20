@@ -16,7 +16,7 @@ import collections.{HashSet, Set}
  *
  */
 trait Intersection[Domain <: AnyRef]
-        extends LazyView[Domain]
+        extends Relation[Domain]
 {
     type Dom = Domain
 

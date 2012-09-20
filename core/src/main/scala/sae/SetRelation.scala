@@ -41,7 +41,7 @@ package sae
  * A set view is guaranteed to contain each element only once.
  */
 trait SetRelation[V <: AnyRef]
-    extends LazyView[V]
+    extends Relation[V]
 {
 
 }

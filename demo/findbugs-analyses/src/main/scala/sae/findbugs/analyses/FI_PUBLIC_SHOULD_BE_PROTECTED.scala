@@ -1,7 +1,7 @@
 package sae.findbugs.analyses
 
 import sae.bytecode.BytecodeDatabase
-import sae.LazyView
+import sae.Relation
 
 /**
  *
@@ -15,7 +15,7 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
 {
 
     /*
-    def asOperators(database: BytecodeDatabase): LazyView[ReferenceType] = {
+    def asOperators(database: BytecodeDatabase): Relation[ReferenceType] = {
         import sae.syntax.RelationalAlgebraSyntax._
         Π((_: MethodDeclaration).declaringRef)(
             σ(
@@ -28,7 +28,7 @@ object FI_PUBLIC_SHOULD_BE_PROTECTED
 
 
 
-    def apply(database: BytecodeDatabase): LazyView[ReferenceType] = {
+    def apply(database: BytecodeDatabase): Relation[ReferenceType] = {
         import sae.syntax.sql._
         import database._
         //val a = SELECT(*) FROM declared_methods WHERE ((m: MethodDeclaration) => (m.name == "finalize" && m.isPublic && m.returnType == VoidType() && m.parameters.isEmpty))

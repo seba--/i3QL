@@ -32,7 +32,7 @@
  */
 package sae.analyses.findbugs
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.structure._
@@ -44,10 +44,10 @@ import sae.bytecode.structure._
  * Time: 17:05
  */
 object CI_CONFUSED_INHERITANCE
-    extends (BytecodeDatabase => LazyView[FieldDeclaration])
+    extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
 
-    def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
+    def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
         import database._
         SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
     }

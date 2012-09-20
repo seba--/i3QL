@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql.alternative
 
-import sae.LazyView
+import sae.Relation
 
 /**
  *
@@ -45,10 +45,10 @@ object FROM
     extends STARTING_CLAUSE_PREFIX_FROM
 {
 
-    def apply[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE_AS_PREFIX[Domain] =
+    def apply[Domain <: AnyRef](relation: Relation[Domain]): FROM_CLAUSE_AS_PREFIX[Domain] =
         null
 
-    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_AS_PREFIX_2[DomainA, DomainB] =
+    def apply[DomainA <: AnyRef, DomainB <: AnyRef](relationA: Relation[DomainA], relationB: Relation[DomainB]): FROM_CLAUSE_AS_PREFIX_2[DomainA, DomainB] =
         null
 
 }

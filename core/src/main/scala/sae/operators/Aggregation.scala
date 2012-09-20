@@ -19,9 +19,9 @@ import intern._
  * @author Ralf Mitschke
  */
 trait Aggregation[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
-        extends LazyView[Result]
+        extends Relation[Result]
 {
-    def source: LazyView[Domain]
+    def source: Relation[Domain]
     def groupingFunction: Domain => Key
     def aggregateFunctionFactory: AggregateFunctionFactoryType
     def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
@@ -44,7 +44,7 @@ object Aggregation
      * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
      * @return MaterializedView[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
                                                                                      groupingFunction: Domain => Key,
                                                                                      aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                      convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result):
@@ -62,7 +62,7 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
      * @return MaterializedView[(groupingFunction return type, aggregationFunction retun type] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
                                                                    groupingFunction: Domain => Key,
                                                                    aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
     Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
@@ -79,7 +79,7 @@ object Aggregation
      * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
      * @return MaterializedView[convertKeyAndAggregationValueToResult returnvalue type] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
                                                                                      groupFunction: Domain => Key,
                                                                                      aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                      convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result):
@@ -95,7 +95,7 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return MaterializedView[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
                                                                    groupingFunction: Domain => Key,
                                                                    aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
     Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] = {
@@ -112,7 +112,7 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
                                                        aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {
         new AggregationForNotSelfMaintainableFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
                                                                                                            y: AggregateValue) => Some(y))
@@ -127,7 +127,7 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return MaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as MaterializedView
      */
-    def apply[Domain <: AnyRef, AggregateValue <: Any](source: LazyView[Domain],
+    def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
                                                        aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {
         new AggregationForSelfMaintainableAggregationFunctions(source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
                                                                                                                    y: AggregateValue) => Some(y))

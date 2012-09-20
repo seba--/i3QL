@@ -38,7 +38,7 @@ import sae.bytecode._
 import profiler.util.MegaByte
 import sae.analyses.findbugs.{BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, CI_CONFUSED_INHERITANCE}
 import sae.bytecode.profiler.MemoryProfiler._
-import sae.{Observable, LazyView}
+import sae.{Observable, Relation}
 
 /**
  * Created with IntelliJ IDEA.

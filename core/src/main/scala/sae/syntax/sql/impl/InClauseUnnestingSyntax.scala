@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.{UNNESTING_CLAUSE, IN_CLAUSE_UNNESTING}
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql.ast.UnnestingClause
 
 /**
@@ -47,7 +47,7 @@ case class InClauseUnnestingSyntax[UnnestingDomain <: AnyRef, Range <: AnyRef](f
     extends IN_CLAUSE_UNNESTING[UnnestingDomain, Range]
 {
 
-    def IN[Domain <: UnnestingDomain](relation: LazyView[Domain]): UNNESTING_CLAUSE[Domain, Range] =
+    def IN[Domain <: UnnestingDomain](relation: Relation[Domain]): UNNESTING_CLAUSE[Domain, Range] =
         UnnestingClause (function, relation)
 
 }

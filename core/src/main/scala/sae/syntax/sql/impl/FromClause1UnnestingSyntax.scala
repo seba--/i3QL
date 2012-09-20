@@ -1,6 +1,6 @@
 package sae.syntax.sql.impl
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql.{WHERE_CLAUSE_FINAL_SUB_EXPRESSION_1, JOIN_CONDITION_UNBOUND_RELATION_1, FROM_CLAUSE}
 import sae.syntax.sql.ast._
 import predicates.{WhereClauseSequence, Filter}

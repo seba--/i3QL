@@ -6,7 +6,7 @@ package sae
  */
 trait MaterializedView[V <: AnyRef]
     extends View[V]
-    with LazyView[V]
+    with Relation[V]
     with Size
     with SingletonValue[V]
     with Contains[V]

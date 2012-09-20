@@ -32,7 +32,7 @@
  */
 package sae.bytecode
 
-import sae.LazyView
+import sae.Relation
 import structure.InheritanceRelation
 
 /**
@@ -47,8 +47,8 @@ trait BytecodeDervivedRelations
 
     import sae.bytecode._
 
-    //def fieldReadInstructions: LazyView[ReadFieldInstruction]
+    //def fieldReadInstructions: Relation[ReadFieldInstruction]
 
 
-    def inheritance: LazyView[InheritanceRelation]
+    def inheritance: Relation[InheritanceRelation]
 }

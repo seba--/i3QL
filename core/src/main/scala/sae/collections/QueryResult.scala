@@ -23,7 +23,7 @@ trait QueryResult[V <: AnyRef]
  * A result that materializes all data from the underlying relation into a bag
  */
 class BagResult[V <: AnyRef](
-                                    val relation: LazyView[V]
+                                    val relation: Relation[V]
                                     )
         extends QueryResult[V]
         with Bag[V]

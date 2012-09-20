@@ -1,7 +1,7 @@
 package sae.profiler.util
 
 import collection.immutable.HashMap
-import sae.LazyView
+import sae.Relation
 import sae.operators._
 import sae.collections.BagResult
 import sae.operators.Conversions.HashIndexedViewProxy
@@ -15,17 +15,17 @@ import sae.operators.Conversions.HashIndexedViewProxy
  */
 class DataQueryProfile {
 
-    private var counters = HashMap[LazyView[_ <: AnyRef], CountingObserver[_]]()
+    private var counters = HashMap[Relation[_ <: AnyRef], CountingObserver[_]]()
 
     // we make the structure of parents explicit here, so we do not need to compute them later
-    //private var parents = HashMap[LazyView[_], LazyView[_]]()
+    //private var parents = HashMap[Relation[_], Relation[_]]()
 
     // we make the structure of parents explicit here, so we do not need an additional visitor later
-    //private var children = HashMap[LazyView[_], List[LazyView[_]]]()
+    //private var children = HashMap[Relation[_], List[Relation[_]]]()
 
-    private var queries = List[LazyView[_ <: AnyRef]]()
+    private var queries = List[Relation[_ <: AnyRef]]()
 
-    def addOperator( op : LazyView[_ <: AnyRef], parent : Option[LazyView[_]] )
+    def addOperator( op : Relation[_ <: AnyRef], parent : Option[Relation[_]] )
     {
         if( parent == None )
         {
@@ -43,7 +43,7 @@ class DataQueryProfile {
 
     object DataProfileToTikZConverter extends TikZTreeConverter
     {
-        protected def makeEdgeLabel[Domain <: AnyRef, Parent <: AnyRef](view: LazyView[Domain], parent: LazyView[Parent]) =
+        protected def makeEdgeLabel[Domain <: AnyRef, Parent <: AnyRef](view: Relation[Domain], parent: Relation[Parent]) =
             "node[above] {" + counters(view).count + "}"
     }
 
@@ -55,7 +55,7 @@ class DataQueryProfile {
     {
         (
             "" /:
-            queries.map( (view : LazyView[_ <: AnyRef]) =>
+            queries.map( (view : Relation[_ <: AnyRef]) =>
                 beginTiKz + "\\" + DataProfileToTikZConverter(view) + ";\n" + endTikZ
             )
         )(_ + _)

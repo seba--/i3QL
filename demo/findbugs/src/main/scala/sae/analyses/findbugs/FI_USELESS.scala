@@ -34,7 +34,7 @@ package sae.analyses.findbugs
 
 import sae.bytecode._
 import instructions.InstructionInfo
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.functions.Count
 
@@ -46,14 +46,14 @@ import sae.functions.Count
  *         BAT version by Michael Eichberg
  */
 object FI_USELESS
-    //extends (BytecodeDatabase => LazyView[MethodDeclaration])
+    //extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
       /*
-    def apply(database: BytecodeDatabase): LazyView[MethodDeclaration] = {
+    def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
 
-        val invokeSpecial /*: LazyView[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val invokeSpecial /*: Relation[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
 
         val subselect = SELECT (*) FROM invokeSpecial WHERE
             (_.name == "finalize") AND
@@ -80,7 +80,7 @@ object FI_USELESS
         val c = count(null)
     }
 
-    def count(instructions :LazyView[InstructionInfo]) : LazyView[Some[Int]]  = {
+    def count(instructions :Relation[InstructionInfo]) : Relation[Some[Int]]  = {
         import sae.syntax.RelationalAlgebraSyntax._
         γ(instructions, Count[InstructionInfo]())
     }

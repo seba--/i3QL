@@ -5,7 +5,7 @@ import sae.bytecode.Database
 import sae.bytecode.model.dependencies.Dependency
 import unisson.query.code_model.SourceElement
 import collection.JavaConversions
-import sae.LazyView
+import sae.Relation
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IPair}
 import soot.bridge.{ISootCodeElement, DataFlowEvaluator}
 import de.tud.cs.st.vespucci.model.{IArchitectureModel, IEnsemble}
@@ -24,7 +24,7 @@ class UnissonDataflowDatabase(bc: Database, val dataFlowEvaluator: DataFlowEvalu
 
     import sae.syntax.RelationalAlgebraSyntax._
 
-    private def dataflow_dependencies: LazyView[Dependency[AnyRef, AnyRef]] = dataflow_view
+    private def dataflow_dependencies: Relation[Dependency[AnyRef, AnyRef]] = dataflow_view
 
     private lazy val dataflow_view = new DataFlowView()
 

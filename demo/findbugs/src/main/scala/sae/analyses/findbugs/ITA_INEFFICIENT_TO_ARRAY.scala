@@ -1,7 +1,7 @@
 package sae.analyses.findbugs
 
 import sae.bytecode._
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.bytecode.structure._
@@ -16,7 +16,7 @@ import de.tud.cs.st.bat.resolved.ArrayType
  *
  */
 object ITA_INEFFICIENT_TO_ARRAY
-//extends (BytecodeDatabase => LazyView[InstructionInfo])
+//extends (BytecodeDatabase => Relation[InstructionInfo])
 {
 
 
@@ -26,16 +26,16 @@ object ITA_INEFFICIENT_TO_ARRAY
 
     val listInterface = ClassType ("java/util/List")
 
-    def apply(database: BytecodeDatabase): LazyView[InstructionInfo] = {
+    def apply(database: BytecodeDatabase): Relation[InstructionInfo] = {
         import database._
 
-        val invokeInterface /*: LazyView[INVOKEINTERFACE] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM instructions WHERE (_.isInstanceOf[INVOKEINTERFACE])
+        val invokeInterface /*: Relation[INVOKEINTERFACE] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM instructions WHERE (_.isInstanceOf[INVOKEINTERFACE])
 
-        val invokeVirtual /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+        val invokeVirtual /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
-        val iconst0 /*: LazyView[ICONST_0] */ = SELECT ((_: InstructionInfo).asInstanceOf[ICONST_0]) FROM instructions WHERE (_.isInstanceOf[ICONST_0])
+        val iconst0 /*: Relation[ICONST_0] */ = SELECT ((_: InstructionInfo).asInstanceOf[ICONST_0]) FROM instructions WHERE (_.isInstanceOf[ICONST_0])
 
-        val anewarray /*: LazyView[ANEWARRAY] */ = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
+        val anewarray /*: Relation[ANEWARRAY] */ = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
 
         val newArray0 =
             SELECT ((i: ICONST_0, a: ANEWARRAY) => a) FROM (iconst0, anewarray) WHERE

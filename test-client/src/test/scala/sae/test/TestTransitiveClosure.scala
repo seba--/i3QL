@@ -5,7 +5,7 @@ import org.junit.{Before, Test, Ignore}
 import sae.collections.{QueryResult, Table}
 import sae.operators.HashTransitiveClosure
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.{DefaultLazyView, Observer, LazyView}
+import sae.{DefaultLazyView, Observer, Relation}
 import util.Random
 
 
@@ -33,7 +33,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def addTest {
     //test for figure 1 (a)
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //smallAddTestGraph.materialized_foreach((x: Edge) => smallAddTestGraph.element_added(x))
     assertTrue(res.size == 2)
@@ -51,7 +51,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def removeTest {
     //test for figure 2
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
 
     assertTrue(res.size == 28)
@@ -69,7 +69,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testSet {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("a", "b")
@@ -112,7 +112,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testSetSemantic {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("a", "b")
@@ -130,7 +130,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   def testCycle {
     //in general Cycles dont work!
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("a", "b")
@@ -155,7 +155,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testSmall {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("a", "b")
@@ -172,7 +172,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testRemoveWithNoUpdateCase1 {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("a", "b")
@@ -189,7 +189,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testRemoveWithNoUpdateCase2 {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("x", "a")
@@ -207,7 +207,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
   @Test
   def testRemoveWithNoUpdateCase3 {
     testGraph = new Table[Edge]
-    val view: LazyView[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+    val view: Relation[(Vertex, Vertex)] = new HashTransitiveClosure[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
     val res: QueryResult[(Vertex, Vertex)] = view
     //add some edges
     testGraph += Edge("x", "a")
@@ -248,7 +248,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite {
 
   def rndTestHelpber() {
     val size = 20
-    val source: LazyView[(java.lang.Integer, java.lang.Integer)] = new DefaultLazyView[(java.lang.Integer, java.lang.Integer)]
+    val source: Relation[(java.lang.Integer, java.lang.Integer)] = new DefaultLazyView[(java.lang.Integer, java.lang.Integer)]
     val tc = new HashTransitiveClosure(source, (_: (java.lang.Integer, java.lang.Integer))._1, (_: (java.lang.Integer, java.lang.Integer))._2)
     val queryResult: QueryResult[(java.lang.Integer, java.lang.Integer)] = tc
     val matrix = new Array[Array[java.lang.Integer]](size)

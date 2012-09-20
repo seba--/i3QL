@@ -3,7 +3,7 @@ package sae.test
 import java.io.File
 import sae.lyrebirdapi._
 import java.lang.Long
-import sae.LazyView
+import sae.Relation
 import org.junit.Before
 import sae.bytecode.{Database, MaterializedDatabase, BytecodeDatabase}
 
@@ -53,7 +53,7 @@ trait AbstractEventSetTestSuite  {
    * Registers a query on the internal database
    * return: the registered query
    */
-  def registerQuery[T <: AnyRef](query: Database => LazyView[T]): LazyView[T] = {
+  def registerQuery[T <: AnyRef](query: Database => Relation[T]): Relation[T] = {
     query(db)
   }
 

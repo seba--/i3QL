@@ -40,40 +40,40 @@ class BytecodeDatabase extends Database
 
     val declared_classes = new DefaultLazyView[ClassDeclaration]
 
-    lazy val declared_types: LazyView[ObjectType] = Π((_: ClassDeclaration).objectType)(declared_classes)
+    lazy val declared_types: Relation[ObjectType] = Π((_: ClassDeclaration).objectType)(declared_classes)
 
     val declared_methods = new DefaultLazyView[MethodDeclaration]
 
     val declared_fields = new DefaultLazyView[FieldDeclaration]
 
-    val classes: LazyView[ObjectType] = new DefaultLazyView[ObjectType]
+    val classes: Relation[ObjectType] = new DefaultLazyView[ObjectType]
 
-    val methods: LazyView[MethodReference] = new DefaultLazyView[MethodReference]
+    val methods: Relation[MethodReference] = new DefaultLazyView[MethodReference]
 
-    val fields: LazyView[FieldReference] = new DefaultLazyView[FieldReference]
+    val fields: Relation[FieldReference] = new DefaultLazyView[FieldReference]
 
-    val instructions: LazyView[Instr[_]] = new DefaultLazyView[Instr[_]]
+    val instructions: Relation[Instr[_]] = new DefaultLazyView[Instr[_]]
 
     /**
      * Begin with individual relations (derived are lazy vals others are filled during bytecode reading)
      */
 
-    val `extends`: LazyView[`extends`] = new DefaultLazyView[`extends`]
+    val `extends`: Relation[`extends`] = new DefaultLazyView[`extends`]
 
-    val implements: LazyView[implements] = new DefaultLazyView[implements]
+    val implements: Relation[implements] = new DefaultLazyView[implements]
 
-    lazy val subtypes: LazyView[(ObjectType, ObjectType)] = TC(
+    lazy val subtypes: Relation[(ObjectType, ObjectType)] = TC(
         `extends`.∪[Dependency[ObjectType, ObjectType], implements](implements)
     )((_: Dependency[ObjectType, ObjectType]).source, (_: Dependency[ObjectType, ObjectType]).target)
 
 
     // inner classes are added multiple times for each inner class, since the definition is repeated in the classfile
     // TODO these relations are currently external for performance measurements
-    val internal_inner_classes: LazyView[unresolved_inner_class_entry] = new DefaultLazyView[unresolved_inner_class_entry]
+    val internal_inner_classes: Relation[unresolved_inner_class_entry] = new DefaultLazyView[unresolved_inner_class_entry]
 
-    val internal_enclosing_methods: LazyView[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
+    val internal_enclosing_methods: Relation[unresolved_enclosing_method] = new DefaultLazyView[unresolved_enclosing_method]
 
-    lazy val internal_guaranteed_inner_classes: LazyView[inner_class] =
+    lazy val internal_guaranteed_inner_classes: Relation[inner_class] =
         δ(
             Π(
                 // the directly encoded inner classes have their outer type set
@@ -96,7 +96,7 @@ class BytecodeDatabase extends Database
      * Deduces inner classes only by looking at the inner classes attribute.
      * Taking enclosing methods into account is not feasible for older jars.
      */
-    lazy val inner_classes: LazyView[inner_class] =
+    lazy val inner_classes: Relation[inner_class] =
         internal_guaranteed_inner_classes ∪
                 (
                         Π(
@@ -123,26 +123,26 @@ class BytecodeDatabase extends Database
                                     )
                                 )
                         )
-    lazy val field_type: LazyView[field_type] = Π((f: FieldDeclaration) =>
+    lazy val field_type: Relation[field_type] = Π((f: FieldDeclaration) =>
         new field_type(f, f
                 .fieldType))(declared_fields)
 
-    val parameter: LazyView[parameter] = new DefaultLazyView[parameter]
+    val parameter: Relation[parameter] = new DefaultLazyView[parameter]
 
-    lazy val return_type: LazyView[return_type] = Π((m: MethodDeclaration) =>
+    lazy val return_type: Relation[return_type] = Π((m: MethodDeclaration) =>
         new return_type(m, m
                 .returnType))(declared_methods)
 
     val exception_handlers = new DefaultLazyView[ExceptionHandler]()
 
     // exception handelers can have an undefined catchType. This is used to implement finally blocks
-    lazy val handled_exceptions: LazyView[ExceptionHandler] = σ((_: ExceptionHandler).catchType != None)(
+    lazy val handled_exceptions: Relation[ExceptionHandler] = σ((_: ExceptionHandler).catchType != None)(
         exception_handlers
     )
 
-    val thrown_exceptions: LazyView[throws] = new DefaultLazyView[throws]()
+    val thrown_exceptions: Relation[throws] = new DefaultLazyView[throws]()
 
-    lazy val write_field: LazyView[write_field] =
+    lazy val write_field: Relation[write_field] =
         (
                 Π[Instr[_], write_field] {
                     case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field, false)
@@ -153,7 +153,7 @@ class BytecodeDatabase extends Database
                 }(σ[putstatic](instructions))
                 )
 
-    lazy val read_field: LazyView[read_field] =
+    lazy val read_field: Relation[read_field] =
         (
                 Π[Instr[_], read_field] {
                     case getfield(declaringMethod, _, field) => new read_field(declaringMethod, field, false)
@@ -164,31 +164,31 @@ class BytecodeDatabase extends Database
                 }(σ[getstatic](instructions))
                 )
 
-    lazy val invoke_interface: LazyView[invoke_interface] = Π(
+    lazy val invoke_interface: Relation[invoke_interface] = Π(
         (_: Instr[_]) match {
             case invokeinterface(declaringMethod, pc, callee) => new invoke_interface(declaringMethod, callee)
         }
     )(σ[invokeinterface](instructions))
 
-    lazy val invoke_special: LazyView[invoke_special] = Π(
+    lazy val invoke_special: Relation[invoke_special] = Π(
         (_: Instr[_]) match {
             case invokespecial(declaringMethod, pc, callee) => new invoke_special(declaringMethod, callee)
         }
     )(σ[invokespecial](instructions))
 
-    lazy val invoke_virtual: LazyView[invoke_virtual] = Π(
+    lazy val invoke_virtual: Relation[invoke_virtual] = Π(
         (_: Instr[_]) match {
             case invokevirtual(declaringMethod, pc, callee) => new invoke_virtual(declaringMethod, callee)
         }
     )(σ[invokevirtual](instructions))
 
-    lazy val invoke_static: LazyView[invoke_static] = Π(
+    lazy val invoke_static: Relation[invoke_static] = Π(
         (_: Instr[_]) match {
             case invokestatic(declaringMethod, pc, callee) => new invoke_static(declaringMethod, callee)
         }
     )(σ[invokestatic](instructions))
 
-    lazy val calls: LazyView[calls] = invoke_interface.∪[calls, calls](
+    lazy val calls: Relation[calls] = invoke_interface.∪[calls, calls](
         invoke_special.∪[calls, calls](
             invoke_virtual.∪[calls, invoke_static](
                 invoke_static
@@ -198,7 +198,7 @@ class BytecodeDatabase extends Database
 
 
     // TODO array references to primitive arrays are exempted, is this okay
-    lazy val class_cast: LazyView[class_cast] =
+    lazy val class_cast: Relation[class_cast] =
         Π[Instr[_], class_cast] {
             case checkcast(declaringMethod, _, to) => new class_cast(declaringMethod, to)
         }(
@@ -212,19 +212,19 @@ class BytecodeDatabase extends Database
         )
 
     // TODO can we find a better name for the dependency than instanceof
-    lazy val instanceof: LazyView[sae.bytecode.model.dependencies.instanceof] =
+    lazy val instanceof: Relation[sae.bytecode.model.dependencies.instanceof] =
         Π[Instr[_], sae.bytecode.model.dependencies.instanceof] {
             case sae.bytecode.model.instructions.instanceof(declaringMethod, _, typ) =>
                 sae.bytecode.model.dependencies.instanceof(declaringMethod, typ)
         }(σ[sae.bytecode.model.instructions.instanceof](instructions))
 
 
-    lazy val create: LazyView[create] =
+    lazy val create: Relation[create] =
         Π[Instr[_], create] {
             case `new`(declaringMethod, _, typ) => new create(declaringMethod, typ)
         }(σ[`new`](instructions))
 
-    lazy val create_class_array: LazyView[create_class_array] =
+    lazy val create_class_array: Relation[create_class_array] =
         Π[Instr[_], create_class_array] {
             case newarray(declaringMethod, _, typ@ObjectType(_)) => new create_class_array(declaringMethod, typ)
         }(

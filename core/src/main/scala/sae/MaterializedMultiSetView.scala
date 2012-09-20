@@ -40,7 +40,7 @@ package sae
  */
 
 trait MaterializedMultiSetView[V <: AnyRef]
-    extends LazyView[V]
+    extends Relation[V]
 {
 
     /**

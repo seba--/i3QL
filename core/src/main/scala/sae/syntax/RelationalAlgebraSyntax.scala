@@ -3,16 +3,16 @@ package syntax
 
 import sae.operators._
 import sae.operators.intern._
-import sae.LazyView
+import sae.Relation
 
-case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
+case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 {
 
     import RelationalAlgebraSyntax._
 
     import Conversions._
 
-    def ×[OtherDomain <: AnyRef] (otherRelation: LazyView[OtherDomain]): LazyView[(Domain, OtherDomain)] = new CrossProduct (
+    def ×[OtherDomain <: AnyRef] (otherRelation: Relation[OtherDomain]): Relation[(Domain, OtherDomain)] = new CrossProduct (
         lazyViewToMaterializedView (left),
         lazyViewToMaterializedView (otherRelation)
     )
@@ -20,12 +20,12 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
     // general join using bowtie symbol (U+22C8)
     def ⋈[OtherDomain <: AnyRef] (
                                      filter: ((Domain, OtherDomain)) => Boolean,
-                                     otherRelation: LazyView[OtherDomain]
-                                     ): LazyView[(Domain, OtherDomain)] = σ (filter)(this × otherRelation);
+                                     otherRelation: Relation[OtherDomain]
+                                     ): Relation[(Domain, OtherDomain)] = σ (filter)(this × otherRelation);
 
     // equi join using bowtie symbol (U+22C8)
     def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef] (leftKey: Domain => Key, rightKey: OtherDomain => Key)
-                                                                 (otherRelation: LazyView[OtherDomain])
+                                                                 (otherRelation: Relation[OtherDomain])
                                                                  (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
         new HashEquiJoin (
             lazyViewToIndexedView (left),
@@ -36,19 +36,19 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
         )
 
     // FIXME the type system for operators should make views covariant
-    def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass] (otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] =
+    def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass] (otherRelation: Relation[OtherDomain]): Relation[CommonSuperClass] =
         new AddMultiSetUnion[CommonSuperClass, Domain, OtherDomain](
             left,
             otherRelation
         )
 
-    def ∩ (otherRelation: LazyView[Domain]): LazyView[Domain] =
+    def ∩ (otherRelation: Relation[Domain]): Relation[Domain] =
         new BagIntersection[Domain](
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation)
         )
 
-    def ∖ (otherRelation: LazyView[Domain]): LazyView[Domain] =
+    def ∖ (otherRelation: Relation[Domain]): Relation[Domain] =
         new BagDifference[Domain](
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation)
@@ -57,7 +57,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
 }
 
 case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
-                                                                           left: LazyView[Domain],
+                                                                           left: Relation[Domain],
                                                                            leftFunction: Domain => Range
                                                                            )
 {
@@ -69,7 +69,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
     // equi-join
     def ⋈[OtherDomain <: AnyRef, Result <: AnyRef] (
                                                        rightKey: OtherDomain => Range,
-                                                       otherRelation: LazyView[OtherDomain]
+                                                       otherRelation: Relation[OtherDomain]
                                                        )
                                                    (factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
         new HashEquiJoin (
@@ -83,7 +83,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
     // semi-join
     def ⋉[OtherDomain <: AnyRef] (
                                      rightKey: OtherDomain => Range,
-                                     otherRelation: LazyView[OtherDomain]
+                                     otherRelation: Relation[OtherDomain]
                                      ) =
         ⋈ (identity (_: Range), δ (Π (rightKey)(otherRelation))) {
             (left: Domain, right: Range) => left
@@ -94,7 +94,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
     // anti semi-join
     def ⊳[OtherDomain <: AnyRef] (
                                      rightKey: OtherDomain => Range,
-                                     otherRelation: LazyView[OtherDomain]
+                                     otherRelation: Relation[OtherDomain]
                                      ) =
         left ∖ (⋉ (rightKey, otherRelation))
 
@@ -108,21 +108,21 @@ object RelationalAlgebraSyntax
 
 
     // convenience forwarding to not always import conversion, but only the syntax
-    implicit def lazyViewToResult[V <: AnyRef](lazyView: LazyView[V]): QueryResult[V] = sae.collections.Conversions
+    implicit def lazyViewToResult[V <: AnyRef](lazyView: Relation[V]): QueryResult[V] = sae.collections.Conversions
         .lazyViewToResult (
         lazyView
     )
 
-    implicit def viewToConcatenator[Domain <: AnyRef](relation: LazyView[Domain]): InfixConcatenator[Domain] =
+    implicit def viewToConcatenator[Domain <: AnyRef](relation: Relation[Domain]): InfixConcatenator[Domain] =
         InfixConcatenator (relation)
 
-    implicit def viewAndFunToConcatenator[Domain <: AnyRef, Range <: AnyRef](tuple: (LazyView[Domain], Domain => Range)): InfixFunctionConcatenator[Domain, Range] =
+    implicit def viewAndFunToConcatenator[Domain <: AnyRef, Range <: AnyRef](tuple: (Relation[Domain], Domain => Range)): InfixFunctionConcatenator[Domain, Range] =
         InfixFunctionConcatenator (tuple._1, tuple._2)
 
     object TC
     {
         // TODO think of better names for start/endVertex functions
-        def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: LazyView[Domain])
+        def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: Relation[Domain])
                                                      (startVertex: Domain => Vertex, endVertex: Domain => Vertex) =
             new HashTransitiveClosure[Domain, Vertex](
                 relation,
@@ -137,17 +137,17 @@ object RelationalAlgebraSyntax
     /** definitions of selection syntax **/
     object σ
     {
-        def apply[Domain <: AnyRef](filter: Domain => Boolean)(relation: LazyView[Domain]): LazyView[Domain] =
+        def apply[Domain <: AnyRef](filter: Domain => Boolean)(relation: Relation[Domain]): Relation[Domain] =
             new LazySelection[Domain](filter, relation)
 
-        def unapply[Domain <: AnyRef](s: Selection[Domain]): Option[(Domain => Boolean, LazyView[Domain])] = Some ((s
+        def unapply[Domain <: AnyRef](s: Selection[Domain]): Option[(Domain => Boolean, Relation[Domain])] = Some ((s
             .filter, s.relation))
 
         // polymorhpic selection, omit the selection function for a type parameter, that selects all entries of this type
         class PolymorphSelection[T <: AnyRef]
         {
 
-            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain])(implicit m: ClassManifest[T]) =
+            def apply[Domain >: T <: AnyRef](relation: Relation[Domain])(implicit m: ClassManifest[T]) =
                 new LazySelection[Domain]((e: Domain) => polymorphFilter[Domain](e, m), relation)
 
             def polymorphFilter[Domain >: T](e: Domain, m: ClassManifest[T]) = m.erasure.isInstance (e)
@@ -162,19 +162,19 @@ object RelationalAlgebraSyntax
     object Π
     {
         def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
-                                                    (relation: LazyView[Domain]): LazyView[Range] = new BagProjection[Domain, Range](
+                                                    (relation: Relation[Domain]): Relation[Range] = new BagProjection[Domain, Range](
             projection,
             relation
         )
 
-        def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, LazyView[Domain])] = Some (
+        def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, Relation[Domain])] = Some (
             (p.projection, p.relation)
         )
 
         // polymorhpic projection
         class PolymorphProjection[T <: AnyRef]
         {
-            def apply[Domain >: T <: AnyRef](relation: LazyView[Domain]): LazyView[T] =
+            def apply[Domain >: T <: AnyRef](relation: Relation[Domain]): Relation[T] =
                 new BagProjection[Domain, T](polymorphProjection[Domain] _, relation)
 
             def polymorphProjection[Domain >: T](e: Domain): T = e.asInstanceOf[T]
@@ -194,17 +194,17 @@ object RelationalAlgebraSyntax
 
     object ⋈
     {
-        def unapply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef](join: EquiJoin[DomainA, DomainB, Range, Key]): Option[(LazyView[DomainA], DomainA => Key, LazyView[DomainB], DomainB => Key, (DomainA, DomainB) => Range)] =
+        def unapply[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef](join: EquiJoin[DomainA, DomainB, Range, Key]): Option[(Relation[DomainA], DomainA => Key, Relation[DomainB], DomainB => Key, (DomainA, DomainB) => Range)] =
             Some ((join.left, join.leftKey, join.right, join.rightKey, join.joinFunction))
     }
 
     /** definitions of duplicate elimination syntax **/
     object δ
     {
-        def apply[Domain <: AnyRef](relation: LazyView[Domain]): LazyView[Domain] =
+        def apply[Domain <: AnyRef](relation: Relation[Domain]): Relation[Domain] =
             new SetDuplicateElimination (relation)
 
-        def unapply[Domain <: AnyRef](d: DuplicateElimination[Domain]): Option[LazyView[Domain]] = Some (d.relation)
+        def unapply[Domain <: AnyRef](d: DuplicateElimination[Domain]): Option[Relation[Domain]] = Some (d.relation)
     }
 
 
@@ -213,7 +213,7 @@ object RelationalAlgebraSyntax
     {
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                              source: LazyView[Domain],
+                                                                                              source: Relation[Domain],
                                                                                               groupingFunction: Domain => Key,
                                                                                               aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
                                                                                               convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
@@ -230,7 +230,7 @@ object RelationalAlgebraSyntax
 
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                              source: LazyView[Domain],
+                                                                                              source: Relation[Domain],
                                                                                               groupFunction: Domain => Key,
                                                                                               aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
                                                                                               convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
@@ -247,7 +247,7 @@ object RelationalAlgebraSyntax
 
 
         def apply[Domain <: AnyRef, AggregationValue <: Any](
-                                                                source: LazyView[Domain],
+                                                                source: Relation[Domain],
                                                                 aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
                                                                 ) =
         {
@@ -260,7 +260,7 @@ object RelationalAlgebraSyntax
         }
 
 
-        def apply[Domain <: AnyRef, AggregationValue <: Any](source: LazyView[Domain],
+        def apply[Domain <: AnyRef, AggregationValue <: Any](source: Relation[Domain],
                                                              aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
                                                                 ) =
         {
@@ -273,7 +273,7 @@ object RelationalAlgebraSyntax
         }
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](
-                                                                            source: LazyView[Domain],
+                                                                            source: Relation[Domain],
                                                                             groupingFunction: Domain => Key,
                                                                             aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
                                                                             ):
@@ -288,7 +288,7 @@ object RelationalAlgebraSyntax
         }
 
         def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](
-                                                                            source: LazyView[Domain],
+                                                                            source: Relation[Domain],
                                                                             groupingFunction: Domain => Key,
                                                                             aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
                                                                             ):
@@ -316,7 +316,7 @@ object RelationalAlgebraSyntax
     object ∪
     {
 
-        def unapply[Range <: AnyRef, DomainA <: Range, DomainB <: Range](union: Union[Range, DomainA, DomainB]): Option[(LazyView[DomainA], LazyView[DomainB])] = Some (
+        def unapply[Range <: AnyRef, DomainA <: Range, DomainB <: Range](union: Union[Range, DomainA, DomainB]): Option[(Relation[DomainA], Relation[DomainB])] = Some (
             (union.left, union.right)
         )
 
@@ -325,8 +325,8 @@ object RelationalAlgebraSyntax
 
     object ⋉
     {
-        def unapply[Key <: AnyRef, DomainA <: AnyRef, DomainB <: AnyRef](semiJoin: HashEquiJoin[DomainA, DomainB, DomainA, Key]): Option[(LazyView[DomainA], DomainA => Key, LazyView[DomainB], DomainB => Key)] = semiJoin match {
-            case ⋈ (left, leftKey, δ (Π (rightKey: (DomainB => Key), right: LazyView[DomainB])), _, _) => Some ((left, leftKey, right, rightKey))
+        def unapply[Key <: AnyRef, DomainA <: AnyRef, DomainB <: AnyRef](semiJoin: HashEquiJoin[DomainA, DomainB, DomainA, Key]): Option[(Relation[DomainA], DomainA => Key, Relation[DomainB], DomainB => Key)] = semiJoin match {
+            case ⋈ (left, leftKey, δ (Π (rightKey: (DomainB => Key), right: Relation[DomainB])), _, _) => Some ((left, leftKey, right, rightKey))
             case _ => None
         }
 
@@ -335,13 +335,13 @@ object RelationalAlgebraSyntax
     /*
         object ∈
         {
-            def apply[Domain <: AnyRef](relation: LazyView[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
+            def apply[Domain <: AnyRef](relation: Relation[Domain]) = ElementOf(lazyViewToMaterializedView(relation))
         }
 
 
         object ∉
         {
-            def apply[Domain <: AnyRef](relation: LazyView[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
+            def apply[Domain <: AnyRef](relation: Relation[Domain]) = NotElementOf(lazyViewToMaterializedView(relation))
         }
     */
 
@@ -383,18 +383,18 @@ object RelationalAlgebraSyntax
 
         case class SetInclusionConverter[Domain <: AnyRef](element: Domain)
         {
-            def ∈(relation: LazyView[Domain]) = ElementOf(relation)
+            def ∈(relation: Relation[Domain]) = ElementOf(relation)
 
-            def ∉(relation: LazyView[Domain]) = NotElementOf(relation)
+            def ∉(relation: Relation[Domain]) = NotElementOf(relation)
         }
 
         case class SetProjectionInclusionConverter[Domain <: AnyRef, Range <: AnyRef](
                                                                                          projection: Domain => Range
                                                                                      )
         {
-            def ∈(relation: LazyView[Domain]) = ElementOfProjection(projection, lazyViewToMaterializedView(relation))
+            def ∈(relation: Relation[Domain]) = ElementOfProjection(projection, lazyViewToMaterializedView(relation))
 
-            def ∉(relation: LazyView[Domain]) = NotElementOfProjection(projection, lazyViewToMaterializedView(relation))
+            def ∉(relation: Relation[Domain]) = NotElementOfProjection(projection, lazyViewToMaterializedView(relation))
 
             def apply(f: ElementOf[Range]) = ElementOfProjection(projection, f.relation)
 

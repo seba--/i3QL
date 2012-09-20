@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import sae.LazyView
+import sae.Relation
 
 /**
  *
@@ -44,7 +44,7 @@ import sae.LazyView
 trait SELECT_CLAUSE_AGGREGATION_NO_PROJECTION[Result <: AnyRef]
 {
 
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Result]
+    def FROM[Domain <: AnyRef](relation: Relation[Domain]): FROM_CLAUSE[Domain, Result]
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Result]
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: Relation[DomainA], relationB: Relation[DomainB]): FROM_CLAUSE_2[DomainA, DomainB, Result]
 }

@@ -1,6 +1,6 @@
 package sae.profiler.util
 
-import sae.{IndexedView, MaterializedView, LazyView}
+import sae.{IndexedView, MaterializedView, Relation}
 import sae.collections.BagResult
 import sae.operators.Conversions.HashIndexedViewProxy
 import sae.operators._
@@ -17,17 +17,17 @@ trait QueryAnalyzer {
 
     import sae.syntax.RelationalAlgebraSyntax._
 
-    def analyze[Domain <: AnyRef]( view : LazyView[Domain] ) : T =
+    def analyze[Domain <: AnyRef]( view : Relation[Domain] ) : T =
         analyze(view, None)
 
     type T
 
-    private def analyze[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]] ) : T = view match {
-        case selection @ σ(_, relation : LazyView[Domain]) =>
+    private def analyze[Domain <: AnyRef, Parent <: AnyRef]( view : Relation[Domain], parent : Option[Relation[Parent]] ) : T = view match {
+        case selection @ σ(_, relation : Relation[Domain]) =>
         {
             selectionView(selection, parent, analyze(relation, Some(view)))
         }
-        case projection @ Π(_, relation : LazyView[Domain]) =>
+        case projection @ Π(_, relation : Relation[Domain]) =>
         {
             projectionView(projection, parent, analyze(relation, Some(view)))
         }
@@ -72,41 +72,41 @@ trait QueryAnalyzer {
         }
     }
 
-    def selectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Selection[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def selectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Selection[Domain], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
-    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef]( view : Projection[Domain, Range], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def projectionView[Domain <: AnyRef, Range <: AnyRef, Parent <: AnyRef]( view : Projection[Domain, Range], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
-    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef]( view : DuplicateElimination[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def duplicateEliminationView[Domain <: AnyRef, Parent <: AnyRef]( view : DuplicateElimination[Domain], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
     def equiJoinView[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef, Parent <: AnyRef](
-                                                                                                                view : EquiJoin[DomainA, DomainB, Range, Key], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
+                                                                                                                view : EquiJoin[DomainA, DomainB, Range, Key], parent : Option[Relation[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef]( view : Union[Range, DomainA, DomainB], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
+    def unionView[Range <: AnyRef, DomainA <: Range, DomainB <: Range, Parent <: AnyRef]( view : Union[Range, DomainA, DomainB], parent : Option[Relation[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def intersectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Intersection[Domain], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
+    def intersectionView[Domain <: AnyRef, Parent <: AnyRef]( view : Intersection[Domain], parent : Option[Relation[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def differenceView[Domain <: AnyRef, Parent <: AnyRef]( view : Difference[Domain], parent : Option[LazyView[Parent]], leftContinuation : => T, rightContinuation : => T) : T
+    def differenceView[Domain <: AnyRef, Parent <: AnyRef]( view : Difference[Domain], parent : Option[Relation[Parent]], leftContinuation : => T, rightContinuation : => T) : T
 
-    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : BagResult[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def materializedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : BagResult[Domain], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
-    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def indexedProxyView[Domain <: AnyRef, Parent <: AnyRef]( view : HashIndexedViewProxy[Domain], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
-    def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : LazyView[Domain], parent : Option[LazyView[Parent]]) : T
+    def baseView[Domain <: AnyRef, Parent <: AnyRef]( view : Relation[Domain], parent : Option[Relation[Parent]]) : T
 
-    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef]( view : TransitiveClosure[Domain, Vertex], parent : Option[LazyView[Parent]], childContinuation : => T) : T
+    def transitiveClosureView[Domain <: AnyRef, Vertex <: AnyRef, Parent <: AnyRef]( view : TransitiveClosure[Domain, Vertex], parent : Option[Relation[Parent]], childContinuation : => T) : T
 
-    def isMaterializedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[MaterializedView[Domain]]
+    def isMaterializedView[Domain <: AnyRef]( view : Relation[Domain] ) = view.isInstanceOf[MaterializedView[Domain]]
 
-    def isIndexedView[Domain <: AnyRef]( view : LazyView[Domain] ) = view.isInstanceOf[IndexedView[Domain]]
+    def isIndexedView[Domain <: AnyRef]( view : Relation[Domain] ) = view.isInstanceOf[IndexedView[Domain]]
 
 
     private object MaterializedViewProxy
     {
-        def unapply[Domain <: AnyRef](proxy : BagResult[Domain]) : Option[LazyView[Domain]]= Some(proxy.relation)
+        def unapply[Domain <: AnyRef](proxy : BagResult[Domain]) : Option[Relation[Domain]]= Some(proxy.relation)
     }
 
     private object IndexedViewProxy
     {
-        def unapply[Domain <: AnyRef](proxy : HashIndexedViewProxy[Domain]) : Option[LazyView[Domain]]= Some(proxy.relation)
+        def unapply[Domain <: AnyRef](proxy : HashIndexedViewProxy[Domain]) : Option[Relation[Domain]]= Some(proxy.relation)
     }
 }

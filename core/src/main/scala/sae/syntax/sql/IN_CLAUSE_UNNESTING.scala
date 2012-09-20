@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import sae.LazyView
+import sae.Relation
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,6 +44,6 @@ import sae.LazyView
 trait IN_CLAUSE_UNNESTING[UnnestingDomain <: AnyRef, Range <: AnyRef]
 {
 
-    def IN[Domain <: UnnestingDomain](relation: LazyView[Domain]): UNNESTING_CLAUSE[Domain, Range]
+    def IN[Domain <: UnnestingDomain](relation: Relation[Domain]): UNNESTING_CLAUSE[Domain, Range]
 
 }

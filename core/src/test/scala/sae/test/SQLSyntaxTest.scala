@@ -3,7 +3,7 @@ package sae.test
 import org.junit.{Ignore, Assert, Test}
 import sae.syntax.sql._
 import impl.WhereClause0Negation
-import sae.LazyView
+import sae.Relation
 import scala.Some
 import sae.collections.Table
 
@@ -29,26 +29,26 @@ class SQLSyntaxTest
         def Name(s: Student) = s.Name
 
 
-        val names1: LazyView[String] = SELECT {
+        val names1: Relation[String] = SELECT {
             (_: Student).Name
         } FROM (students)
 
-        val names2: LazyView[String] = SELECT {
+        val names2: Relation[String] = SELECT {
             Name (_: Student)
         } FROM students
 
         /*
-        val names3: LazyView[String] = FROM (students) SELECT {
+        val names3: Relation[String] = FROM (students) SELECT {
             Name (_)
         }
 
         def SName: Student => String = s => s.Name
 
         // the scala compiler can not infer the type of the anonymous function, because the function needs a type before it is passed as parameter
-        val names4: LazyView[String] = FROM (students) SELECT ((_: Student).Name)
+        val names4: Relation[String] = FROM (students) SELECT ((_: Student).Name)
 
         // but we can do this
-        val names5: LazyView[String] = FROM (students) SELECT (SName)
+        val names5: Relation[String] = FROM (students) SELECT (SName)
         */
         Assert.assertEquals (2, names1.size)
         Assert.assertEquals (2, names2.size)
@@ -73,7 +73,7 @@ class SQLSyntaxTest
         def Id: Student => Integer = s => s.Id
 
         // but we can do this
-        val select: LazyView[(String, Integer)] = SELECT ((Name, Id)) FROM (students)
+        val select: Relation[(String, Integer)] = SELECT ((Name, Id)) FROM (students)
 
         Assert.assertEquals (2, select.size)
 
@@ -88,7 +88,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val allStudents: LazyView[Student] = SELECT (*) FROM (students)
+        val allStudents: Relation[Student] = SELECT (*) FROM (students)
 
         Assert.assertEquals (2, allStudents.size)
 
@@ -107,7 +107,7 @@ class SQLSyntaxTest
         // add sally twice
         students += sally
 
-        val allStudents: LazyView[Student] = SELECT DISTINCT (*) FROM (students)
+        val allStudents: Relation[Student] = SELECT DISTINCT (*) FROM (students)
 
         Assert.assertEquals (2, allStudents.size)
 
@@ -128,7 +128,7 @@ class SQLSyntaxTest
 
         def Name: Student => String = s => s.Name
 
-        val names: LazyView[String] = SELECT DISTINCT (Name) FROM (students)
+        val names: Relation[String] = SELECT DISTINCT (Name) FROM (students)
 
         Assert.assertEquals (2, names.size)
     }
@@ -142,7 +142,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally")
+        val selection: Relation[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally")
 
         Assert.assertEquals (1, selection.size)
 
@@ -160,7 +160,7 @@ class SQLSyntaxTest
         val students = database.students.copy // make a local copy
         students += sally
 
-        val selection: LazyView[Student] = SELECT DISTINCT (*) FROM (students) WHERE (_.Name == "sally")
+        val selection: Relation[Student] = SELECT DISTINCT (*) FROM (students) WHERE (_.Name == "sally")
 
         Assert.assertEquals (1, selection.size)
 
@@ -177,9 +177,9 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
+        val selection: Relation[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (_.Id == 12346)
 
-        val selectionNative: LazyView[Student] = SELECT (*) FROM (students) WHERE ((s: Student) => s.Name == "sally" && s
+        val selectionNative: Relation[Student] = SELECT (*) FROM (students) WHERE ((s: Student) => s.Name == "sally" && s
             .Id == 12346)
 
         Assert.assertEquals (1, selection.size)
@@ -200,7 +200,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: Relation[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
         Assert.assertEquals (2, selection.size)
 
@@ -222,7 +222,7 @@ class SQLSyntaxTest
 
         def Name: Person => String = person => person.Name
 
-        val selection: LazyView[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: Relation[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
         Assert.assertEquals (2, selection.size)
 
@@ -245,7 +245,7 @@ class SQLSyntaxTest
         val sally2 = Student (636363, "sally")
         students += sally2
 
-        val selection: LazyView[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (((_: Student).Id == 12346) OR (_.Id == 636363))
+        val selection: Relation[Student] = SELECT (*) FROM (students) WHERE (_.Name == "sally") AND (((_: Student).Id == 12346) OR (_.Id == 636363))
 
         Assert.assertEquals (2, selection.size)
 
@@ -268,7 +268,7 @@ class SQLSyntaxTest
 
         def Name: Student => String = x => x.Name
 
-        val selection: LazyView[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
+        val selection: Relation[String] = SELECT (Name) FROM (students) WHERE (_.Name == "sally") OR (_.Id == 12345)
 
         Assert.assertEquals (2, selection.size)
 
@@ -295,13 +295,13 @@ class SQLSyntaxTest
 
         def CourseName: Course => String = x => x.Name
 
-        val selection1: LazyView[(String, String)] = SELECT ((s: Student, c: Course) => (s
+        val selection1: Relation[(String, String)] = SELECT ((s: Student, c: Course) => (s
             .Name, c.Name)) FROM (students, courses)
 
         // this causes ambiguites with the select distinct syntax
-        //val selection2: LazyView[(String, String)] = FROM (students, courses) SELECT ((Name, CourseName))
+        //val selection2: Relation[(String, String)] = FROM (students, courses) SELECT ((Name, CourseName))
 
-        val selection3: LazyView[(String, String)] = SELECT (Name, CourseName) FROM (students, courses)
+        val selection3: Relation[(String, String)] = SELECT (Name, CourseName) FROM (students, courses)
         Assert.assertEquals (
             List (
                 ("john", "EiSE"),
@@ -334,14 +334,14 @@ class SQLSyntaxTest
 
         def CourseName: Course => String = x => x.Name
 
-        val selection1: LazyView[(String, String)] =
+        val selection1: Relation[(String, String)] =
             SELECT DISTINCT ((s: Student, c: Course) => (s.Name, c.Name)) FROM (students, courses)
 
 
         // this causes ambiguites with the select syntax
-        //val selection2: LazyView[(String, String)] = FROM (students, courses) SELECT DISTINCT ((Name, CourseName))
+        //val selection2: Relation[(String, String)] = FROM (students, courses) SELECT DISTINCT ((Name, CourseName))
 
-        val selection3: LazyView[(String, String)] =
+        val selection3: Relation[(String, String)] =
             SELECT DISTINCT (Name, CourseName) FROM (students, courses)
 
         Assert.assertEquals (
@@ -371,7 +371,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: LazyView[(Student, Course)] = SELECT (*) FROM (students, courses)
+        val selection1: Relation[(Student, Course)] = SELECT (*) FROM (students, courses)
 
         Assert.assertEquals (
             List (
@@ -398,7 +398,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection1: LazyView[(Student, Course)] = SELECT DISTINCT (*) FROM (students, courses)
+        val selection1: Relation[(Student, Course)] = SELECT DISTINCT (*) FROM (students, courses)
 
         Assert.assertEquals (
             List (
@@ -424,7 +424,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection: LazyView[(Student, Course)] =
+        val selection: Relation[(Student, Course)] =
             SELECT (*) FROM (students, courses) WHERE (_.Name == "john") OR (_.Name == "sally") OR ((_: Course).Name == "EiSE") OR (_.Name == "SE-D&C")
 
         Assert.assertEquals (
@@ -449,7 +449,7 @@ class SQLSyntaxTest
 
         val courses = database.courses.copy // make a local copy
 
-        val selection: LazyView[(Student, Course)] =
+        val selection: Relation[(Student, Course)] =
             SELECT (*) FROM (students, courses) WHERE (_.Name == "john") OR (_.Name == "sally") OR (((_: Course).Name == "EiSE") OR (_.Name == "SE-D&C"))
 
         Assert.assertEquals (
@@ -475,12 +475,12 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[(Student, Enrollment)] =
+        val query: Relation[(Student, Enrollment)] =
             SELECT (*) FROM (students, enrollments) WHERE ((_: Student).Id) === ((_: Enrollment).StudentId)
 
         val join = ((_: Student).Id) === ((_: Enrollment).StudentId)
 
-        val queryWithPreparedJoin: LazyView[(Student, Enrollment)] =
+        val queryWithPreparedJoin: Relation[(Student, Enrollment)] =
             SELECT (*) FROM (students, enrollments) WHERE join
 
 
@@ -514,7 +514,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[(Student, Enrollment)] =
+        val query: Relation[(Student, Enrollment)] =
             SELECT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) === ((_: Enrollment).StudentId)
 
         Assert.assertEquals (
@@ -538,7 +538,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[Student] =
+        val query: Relation[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (SELECT (*) FROM (enrollments) WHERE (_.StudentId == 12346))
 
         Assert.assertEquals (
@@ -563,11 +563,11 @@ class SQLSyntaxTest
 
         val subQuery: SQL_QUERY_UNBOUND_1[Enrollment, Student, Enrollment] = SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id)
 
-        val query1: LazyView[Student] =
+        val query1: Relation[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND EXISTS (subQuery)
 
         // scala compiles this, intellij not
-        val query2: LazyView[Student] =
+        val query2: Relation[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND
                 EXISTS (SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id))
 
@@ -598,7 +598,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[Student] =
+        val query: Relation[Student] =
             SELECT (*) FROM (students) WHERE (_.Name == "sally") AND NOT (
                 EXISTS (SELECT (*) FROM (enrollments) WHERE ((_: Enrollment).StudentId) === ((_: Student).Id))
             )
@@ -623,7 +623,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[(Student, Enrollment)] =
+        val query: Relation[(Student, Enrollment)] =
             SELECT (*) FROM (students, enrollments) WHERE (_.Name == "john") AND NOT (((_: Student).Id) === ((_: Enrollment).StudentId)) // NOT(((_: Student).Id) === ((_: Enrollment).StudentId))
         Assert.assertEquals (
             List (
@@ -641,7 +641,7 @@ class SQLSyntaxTest
 
         val students = database.students.copy // make a local copy
 
-        val query: LazyView[Some[Int]] =
+        val query: Relation[Some[Int]] =
             SELECT COUNT (*) FROM (students) WHERE (_.Name == "sally")
 
         Assert.assertEquals (
@@ -663,7 +663,7 @@ class SQLSyntaxTest
 
         val enrollments = database.enrollments.copy // make a local copy
 
-        val query: LazyView[Some[Int]] =
+        val query: Relation[Some[Int]] =
             SELECT COUNT (*) FROM (students, enrollments) WHERE (_.Name == "sally") AND ((_: Student).Id) === ((_: Enrollment).StudentId)
 
         Assert.assertEquals (
@@ -688,7 +688,7 @@ class SQLSyntaxTest
         data += Data ("Two", Seq (1, 2))
 
 
-        val query: LazyView[Some[Int]] =
+        val query: Relation[Some[Int]] =
 
             SELECT (*) FROM (((_: Data).values.map (Some (_))) IN data)
 
@@ -716,7 +716,7 @@ class SQLSyntaxTest
         data += Data ("Two", Seq (1, 2))
 
 
-        val query: LazyView[(String, Some[Int])] =
+        val query: Relation[(String, Some[Int])] =
 
             SELECT ((data: Data, v: Some[Int]) => (data.name, v)) FROM (data, ((_: Data).values.map (Some (_))) IN data)
 
@@ -744,7 +744,7 @@ class SQLSyntaxTest
         data += Data ("Two", Seq (1, 2))
 
 
-        val query: LazyView[(String, Some[Int])] =
+        val query: Relation[(String, Some[Int])] =
 
             SELECT ((data: Data, v: Some[Int]) => (data.name, v)) FROM (data, ((_: Data).values.map (Some (_))) IN data) WHERE (_.name == "Two")
 

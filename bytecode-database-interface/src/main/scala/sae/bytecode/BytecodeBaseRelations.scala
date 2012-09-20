@@ -33,7 +33,7 @@
 package sae.bytecode
 
 import instructions.InstructionInfo
-import sae.{SetRelation, LazyView}
+import sae.{SetRelation, Relation}
 import sae.bytecode.structure._
 
 /**

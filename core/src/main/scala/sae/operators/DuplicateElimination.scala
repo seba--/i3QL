@@ -6,11 +6,11 @@ package operators
  * A duplicate elimination is available as a unary operator by itself
  */
 trait DuplicateElimination[Domain <: AnyRef]
-        extends LazyView[Domain]
+        extends Relation[Domain]
 {
     type Dom = Domain
 
-    val relation: LazyView[Domain]
+    val relation: Relation[Domain]
 }
 
 /**
@@ -19,7 +19,7 @@ trait DuplicateElimination[Domain <: AnyRef]
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
 class SetDuplicateElimination[Domain <: AnyRef](
-                                                       val relation: LazyView[Domain])
+                                                       val relation: Relation[Domain])
         extends DuplicateElimination[Domain]
         with MaterializedView[Domain]
         with Observer[Domain]

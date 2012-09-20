@@ -32,7 +32,7 @@
  */
 package sae.bytecode.bat
 
-import sae.LazyView
+import sae.Relation
 import sae.bytecode.instructions.InstructionInfo
 
 /**
@@ -46,7 +46,7 @@ trait SAECodeBinding
 {
     type Instruction <: de.tud.cs.st.bat.resolved.Instruction
 
-    type Instructions = LazyView[InstructionInfo]
+    type Instructions = Relation[InstructionInfo]
 
     def database : BATBytecodeDatabase
 

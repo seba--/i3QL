@@ -1,6 +1,6 @@
 package sae.syntax.sql.ast
 
-import sae.LazyView
+import sae.Relation
 
 
 /**
@@ -10,7 +10,7 @@ import sae.LazyView
  * Time: 20:08
  *
  */
-case class FromClause2Unnesting[FromDomainA <: AnyRef](relationA: LazyView[FromDomainA],
+case class FromClause2Unnesting[FromDomainA <: AnyRef](relationA: Relation[FromDomainA],
                                                        unnestingClause: FromClause)
     extends FromClause
 {

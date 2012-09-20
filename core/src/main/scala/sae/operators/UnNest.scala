@@ -32,7 +32,7 @@
  */
 package sae.operators
 
-import sae.{SelfMaintainedView, LazyView}
+import sae.{SelfMaintainedView, Relation}
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,17 +42,17 @@ import sae.{SelfMaintainedView, LazyView}
  */
 
 trait UnNest[Range <: AnyRef, Domain <: AnyRef]
-    extends LazyView[Range]
+    extends Relation[Range]
 {
     type Rng = Range
 
-    def relation: LazyView[Domain]
+    def relation: Relation[Domain]
 
     def unNestFunction: Domain => Traversable[Range]
 }
 
 class UnNesting[Range <: AnyRef, Domain <: AnyRef](
-                                                      val relation: LazyView[Domain],
+                                                      val relation: Relation[Domain],
                                                       val unNestFunction: Domain => Seq[Range]
                                                       )
     extends UnNest[Range, Domain]
@@ -99,18 +99,18 @@ class UnNesting[Range <: AnyRef, Domain <: AnyRef](
 
 
 trait UnNestProject[Range <: AnyRef, UnnestRange <: AnyRef, Domain <: Range]
-    extends LazyView[Range]
+    extends Relation[Range]
 {
     type Rng = Range
 
-    def relation: LazyView[Domain]
+    def relation: Relation[Domain]
 
     def unNestFunction: Domain => Seq[UnnestRange]
 
     def projection: (Domain, UnnestRange) => Range
 }
 
-class UnNestingWithProjection[Range <: AnyRef, UnnestRange <: AnyRef, Domain <: Range](val relation: LazyView[Domain],
+class UnNestingWithProjection[Range <: AnyRef, UnnestRange <: AnyRef, Domain <: Range](val relation: Relation[Domain],
                                                                                        val unNestFunction: Domain => Seq[UnnestRange],
                                                                                        val projection: (Domain, UnnestRange) => Range
                                                                                           )

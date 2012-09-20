@@ -26,7 +26,7 @@ package sae
  * Theorem 3: An SPJ view defined using self-joins over a single relation R is self-maintainable if every join is based on key(R)
  */
 trait SelfMaintainedView[Domain <: AnyRef, Range <: AnyRef]
-        extends LazyView[Range]
+        extends Relation[Range]
         with Observer[Domain] {
 
 	def updated(oldV : Domain, newV : Domain) : Unit =

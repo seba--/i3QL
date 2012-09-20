@@ -14,7 +14,7 @@ package sae
  * The lazy foreach may be a costly operation, but can also reduce the
  * amount of intermediate tables that are instantiated.
  */
-trait LazyView[V <: AnyRef]
+trait Relation[V <: AnyRef]
         extends Observable[V] 
 {
 
@@ -44,7 +44,7 @@ trait LazyView[V <: AnyRef]
 
 
 class DefaultLazyView[V <: AnyRef]
-        extends LazyView[V] 
+        extends Relation[V]
 {
     initialized = true
 

@@ -33,7 +33,7 @@
 package sae.syntax.sql.ast
 
 import sae.syntax.sql.UNNESTING_CLAUSE
-import sae.LazyView
+import sae.Relation
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,7 +42,7 @@ import sae.LazyView
  * Time: 18:16
  */
 
-case class UnnestingClause[FromDomain <: AnyRef, Range <: AnyRef] (function: FromDomain => Seq[Range], relation: LazyView[FromDomain])
+case class UnnestingClause[FromDomain <: AnyRef, Range <: AnyRef] (function: FromDomain => Seq[Range], relation: Relation[FromDomain])
     extends UNNESTING_CLAUSE[FromDomain, Range]
     with FromClause
 {

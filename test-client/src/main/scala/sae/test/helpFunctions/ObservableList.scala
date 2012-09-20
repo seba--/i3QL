@@ -1,7 +1,7 @@
 package sae.test.helpFunctions
-import sae.LazyView
+import sae.Relation
 
-class ObservableList[V <: AnyRef] extends LazyView[V] {
+class ObservableList[V <: AnyRef] extends Relation[V] {
     def lazy_foreach[T](f : (V) => T) {
         foreach(f)
     }

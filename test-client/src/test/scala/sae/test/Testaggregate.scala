@@ -60,7 +60,7 @@ class Testaggregate extends TestCase {
             data.toString()
         }
     }
-    class ObservableList[V <: AnyRef] extends LazyView[V] {
+    class ObservableList[V <: AnyRef] extends Relation[V] {
         def lazy_foreach[T](f : (V) => T) {
             foreach(f)
         }
@@ -382,7 +382,7 @@ class Testaggregate extends TestCase {
 
     def test100kAddsAndRemoves() = {
 
-        val allLines = new LazyView[Line] {
+        val allLines = new Relation[Line] {
             def add(k : Line) {
                 element_added(k)
             }
@@ -436,7 +436,7 @@ class Testaggregate extends TestCase {
 
     def test1000kAddsAndRemoves() = {
 
-        val allLines = new LazyView[Line] {
+        val allLines = new Relation[Line] {
             def add(k : Line) {
                 element_added(k)
             }

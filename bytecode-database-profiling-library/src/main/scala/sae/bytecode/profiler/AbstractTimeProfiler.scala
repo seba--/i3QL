@@ -34,7 +34,7 @@ package sae.bytecode.profiler
 
 import observers.CountingObserver
 import sae.bytecode.BytecodeDatabase
-import sae.{Observable, LazyView}
+import sae.{Observable, Relation}
 import java.io.FileInputStream
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.collections.{QueryResult, Conversions}
@@ -52,7 +52,7 @@ trait AbstractTimeProfiler
     with TimeMeasurement
 {
 
-    def operations: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]
+    def operations: BytecodeDatabase => Seq[Relation[_ <: AnyRef]]
 
     def profile(implicit files: Seq[java.io.File])
 
@@ -71,7 +71,7 @@ trait AbstractTimeProfiler
      * Measure the time taken by computing the given views.
      * The results are stored in QueryResults, hence in hashtables
      */
-    def computeViewAsResult(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]): Long = {
+    def computeViewAsResult(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[Relation[_ <: AnyRef]]): Long = {
         val database: BytecodeDatabase = BATDatabaseFactory.create ()
 
         val results = for (view <- views (database)) yield {
@@ -89,7 +89,7 @@ trait AbstractTimeProfiler
         taken
     }
 
-    def computeViewAsCount(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[LazyView[_ <: AnyRef]]): Long = {
+    def computeViewAsCount(files: Seq[java.io.File])(views: BytecodeDatabase => Seq[Relation[_ <: AnyRef]]): Long = {
         val database: BytecodeDatabase = BATDatabaseFactory.create ()
 
         val results = for (view <- views (database)) yield {

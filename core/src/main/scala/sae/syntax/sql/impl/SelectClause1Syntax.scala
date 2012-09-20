@@ -34,7 +34,7 @@ package sae.syntax.sql.impl
 
 import sae.syntax.sql.ast.SelectClause
 import sae.syntax.sql.{UNNESTING_CLAUSE, SELECT_CLAUSE}
-import sae.LazyView
+import sae.Relation
 
 /**
  * Created with IntelliJ IDEA.
@@ -46,7 +46,7 @@ import sae.LazyView
 case class SelectClause1Syntax[SelectionDomain <: AnyRef, Range <: AnyRef](selectClause: SelectClause[Range])
     extends SELECT_CLAUSE[SelectionDomain, Range]
 {
-    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]) =
+    def FROM[Domain <: SelectionDomain](relation: Relation[Domain]) =
         FromClause1Syntax[Domain, Range](selectClause, relation)
 
 

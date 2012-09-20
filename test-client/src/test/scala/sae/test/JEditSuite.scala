@@ -14,7 +14,7 @@ import sae.bytecode._
 import metrics.Metrics
 import syntax.RelationalAlgebraSyntax.σ._
 import operators._
-import sae.LazyView
+import sae.Relation
 import de.tud.cs.st.bat._
 
 /**
@@ -353,9 +353,9 @@ class JEditSuite {
     val db = new BytecodeDatabase
 
 
-    val parameters : LazyView[(ReferenceType, Type)] = Π( (x: parameter) => (x.source.declaringRef, x.target.asInstanceOf[Type]) )(db.parameter) // TODO remove cast once views are covariant
+    val parameters : Relation[(ReferenceType, Type)] = Π( (x: parameter) => (x.source.declaringRef, x.target.asInstanceOf[Type]) )(db.parameter) // TODO remove cast once views are covariant
 
-    val returntypes : LazyView[(ReferenceType, Type)] = Π( (x: return_type) => (x.source.declaringRef, x.target) )(db.return_type )
+    val returntypes : Relation[(ReferenceType, Type)] = Π( (x: return_type) => (x.source.declaringRef, x.target) )(db.return_type )
 
     val dependencies = parameters ∪ returntypes
 
@@ -811,12 +811,12 @@ object Max2 {
 }
 
 trait OneToMany[Domain <: AnyRef,Result <: AnyRef]
-        extends LazyView[Result] {
+        extends Relation[Result] {
 	val oneToMany : Domain => List[Result]
 }
 
 class DefaultOneToMany[Domain <: AnyRef,Result <: AnyRef](
-    val source : LazyView[Domain],
+    val source : Relation[Domain],
     val oneToMany : Domain => List[Result]
 	) extends OneToMany[Domain,Result]
 	                    with Observer[Domain]{

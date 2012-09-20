@@ -227,15 +227,15 @@ object OperatorProfile
     def profileOperation(setup: => Unit, replay: => Unit, tearDown: => Unit)(implicit times: Int) : Array[Timer] =
         profile[Unit]((i:Int) => setup)((t:Unit) => replay)((t:Unit) => tearDown)
 
-    def passthroughOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = view.∪[T, T](view)
+    def passthroughOperation[T <: AnyRef](view: Relation[T]): Relation[T] = view.∪[T, T](view)
 
-    def joinWholeRelations[T <: AnyRef](view: LazyView[T]): LazyView[T] = ((view, identity(_:T)) ⋈ (identity(_:T), view)){ (t1:T, t2:T) => t1 }
+    def joinWholeRelations[T <: AnyRef](view: Relation[T]): Relation[T] = ((view, identity(_:T)) ⋈ (identity(_:T), view)){ (t1:T, t2:T) => t1 }
 
-    def selectEverythingOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ( (_:T) => true)(view)
+    def selectEverythingOperation[T <: AnyRef](view: Relation[T]): Relation[T] = σ( (_:T) => true)(view)
 
-    def selectNoneOperation[T <: AnyRef](view: LazyView[T]): LazyView[T] = σ( (_:T) => false)(view)
+    def selectNoneOperation[T <: AnyRef](view: Relation[T]): Relation[T] = σ( (_:T) => false)(view)
 
-    def selectCallInstructionsPatternMatchOperation(view: LazyView[Instr[_]]): LazyView[Instr[_]] = σ((_: Instr[_]) match {
+    def selectCallInstructionsPatternMatchOperation(view: Relation[Instr[_]]): Relation[Instr[_]] = σ((_: Instr[_]) match {
         case invokeinterface(_, _, _) => true
         case invokespecial(_, _, _) => true
         case invokestatic(_, _, _) => true
@@ -243,7 +243,7 @@ object OperatorProfile
         case _ => false
     })(view)
 
-    def selectCallInstructionsInstanceOfOperation(view: LazyView[Instr[_]]): LazyView[Instr[_]] = σ((i: Instr[_]) => {
+    def selectCallInstructionsInstanceOfOperation(view: Relation[Instr[_]]): Relation[Instr[_]] = σ((i: Instr[_]) => {
         i.isInstanceOf[invokeinterface] ||
         i.isInstanceOf[invokespecial] ||
         i.isInstanceOf[invokestatic] ||

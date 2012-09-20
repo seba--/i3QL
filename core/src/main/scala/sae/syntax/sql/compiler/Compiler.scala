@@ -33,7 +33,7 @@
 package sae.syntax.sql.compiler
 
 
-import sae.{SetRelation, LazyView}
+import sae.{SetRelation, Relation}
 import sae.operators._
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
@@ -50,7 +50,7 @@ import sae.syntax.sql.SQL_QUERY
 object Compiler
 {
 
-    def apply[Range <: AnyRef](query: SQL_QUERY[Range]): LazyView[Range] = {
+    def apply[Range <: AnyRef](query: SQL_QUERY[Range]): Relation[Range] = {
         // There is some ugliness here because we deliberately forget some types in the AST
         query.representation match {
             case SQLQuery (SelectClause1 (projection, distinct), from@FromClause1 (relation), None) =>
@@ -87,9 +87,9 @@ object Compiler
                         projection.asInstanceOf[Option[from.Domain => Range]],
                         distinct,
                         relation
-                    ).asInstanceOf[LazyView[AnyRef]],
+                    ).asInstanceOf[Relation[AnyRef]],
                     functionFactory
-                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+                ).asInstanceOf[Relation[Range]] // the syntax makes sure this is correct
             case SQLQuery (AggregateSelectClauseSelfMaintainable1 (projection, functionFactory, distinct), from@FromClause1 (relation), Some (where)) =>
                 compileAggregationSelfMaintainable (
                     compile1 (
@@ -97,9 +97,9 @@ object Compiler
                         distinct,
                         relation,
                         where.expressions
-                    ).asInstanceOf[LazyView[AnyRef]],
+                    ).asInstanceOf[Relation[AnyRef]],
                     functionFactory
-                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+                ).asInstanceOf[Relation[Range]] // the syntax makes sure this is correct
             case SQLQuery (AggregateSelectClauseSelfMaintainable2 (projection, functionFactory, distinct), from@FromClause2 (relationA, relationB), None) =>
                 compileAggregationSelfMaintainable (
                     compileNoWhere2 (
@@ -107,9 +107,9 @@ object Compiler
                         distinct,
                         relationA,
                         relationB
-                    ).asInstanceOf[LazyView[AnyRef]],
+                    ).asInstanceOf[Relation[AnyRef]],
                     functionFactory
-                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
+                ).asInstanceOf[Relation[Range]] // the syntax makes sure this is correct
             case SQLQuery (AggregateSelectClauseSelfMaintainable2 (projection, functionFactory, distinct), from@FromClause2 (relationA, relationB), Some (where)) =>
                 compileAggregationSelfMaintainable (
                     compile2 (
@@ -118,10 +118,10 @@ object Compiler
                         relationA,
                         relationB,
                         where.expressions
-                    ).asInstanceOf[LazyView[AnyRef]],
+                    ).asInstanceOf[Relation[AnyRef]],
                     functionFactory
-                ).asInstanceOf[LazyView[Range]] // the syntax makes sure this is correct
-            case UnionAll (left, right) => compileUnionAll (Compiler (left), Compiler (right)).asInstanceOf[LazyView[Range]]
+                ).asInstanceOf[Relation[Range]] // the syntax makes sure this is correct
+            case UnionAll (left, right) => compileUnionAll (Compiler (left), Compiler (right)).asInstanceOf[Relation[Range]]
             case SQLQuery (SelectClause1 (projection, distinct), from@UnnestingClause (function, relation), None) =>
                 compileNoWhere1 (
                     projection.asInstanceOf[Option[from.Domain => Range]],
@@ -144,7 +144,7 @@ object Compiler
                             relation
                         ),
                         distinct
-                    ).asInstanceOf[LazyView[Range]]
+                    ).asInstanceOf[Relation[Range]]
                 }
                 else
                 {
@@ -170,7 +170,7 @@ object Compiler
                             )
                         ),
                         distinct
-                    ).asInstanceOf[LazyView[Range]]
+                    ).asInstanceOf[Relation[Range]]
                 }
                 else
                 {
@@ -186,15 +186,15 @@ object Compiler
     }
 
 
-    private def compileAggregationSelfMaintainable[Domain <: AnyRef, AggregateValue](relation: LazyView[Domain],
-                                                                                     functionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]): LazyView[Some[AggregateValue]] =
+    private def compileAggregationSelfMaintainable[Domain <: AnyRef, AggregateValue](relation: Relation[Domain],
+                                                                                     functionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]): Relation[Some[AggregateValue]] =
     {
         γ (relation, functionFactory)
     }
 
     private def compileNoWhere1[Domain <: AnyRef, Range <: AnyRef](projection: Option[Domain => Range],
                                                                    distinct: Boolean,
-                                                                   relation: LazyView[Domain]): LazyView[Range] =
+                                                                   relation: Relation[Domain]): Relation[Range] =
     {
         compileDistinct (
             compileProjection (
@@ -208,8 +208,8 @@ object Compiler
 
     private def compileNoWhere2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
                                                                                        distinct: Boolean,
-                                                                                       relationA: LazyView[DomainA],
-                                                                                       relationB: LazyView[DomainB]): LazyView[Range] =
+                                                                                       relationA: Relation[DomainA],
+                                                                                       relationB: Relation[DomainB]): Relation[Range] =
     {
         compileDistinct (
             compileCrossProduct (
@@ -223,8 +223,8 @@ object Compiler
 
     private def compile1[Domain <: AnyRef, Range <: AnyRef](projection: Option[Domain => Range],
                                                             distinct: Boolean,
-                                                            relation: LazyView[Domain],
-                                                            expressions: Seq[WhereClauseExpression]): LazyView[Range] =
+                                                            relation: Relation[Domain],
+                                                            expressions: Seq[WhereClauseExpression]): Relation[Range] =
     {
         val cnf = NormalizePredicates (expressions)
         val compiledQueries =
@@ -256,9 +256,9 @@ object Compiler
 
     private def compile2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
                                                                                 distinct: Boolean,
-                                                                                relationA: LazyView[DomainA],
-                                                                                relationB: LazyView[DomainB],
-                                                                                expressions: Seq[WhereClauseExpression]): LazyView[Range] =
+                                                                                relationA: Relation[DomainA],
+                                                                                relationB: Relation[DomainB],
+                                                                                expressions: Seq[WhereClauseExpression]): Relation[Range] =
     {
         val cnf = NormalizePredicates (expressions)
 
@@ -359,7 +359,7 @@ object Compiler
     }
 
     private def compileSelection[Domain <: AnyRef](selection: Option[Domain => Boolean],
-                                                   relation: LazyView[Domain]): LazyView[Domain] =
+                                                   relation: Relation[Domain]): Relation[Domain] =
     {
         selection match {
             case Some (fun) => new LazySelection[Domain](fun, relation)
@@ -370,15 +370,15 @@ object Compiler
 
 
     private def compileProjection[Domain <: AnyRef, Range <: AnyRef](projection: Option[(Domain) => Range],
-                                                                     relation: LazyView[Domain]): LazyView[Range] =
+                                                                     relation: Relation[Domain]): Relation[Range] =
     {
         projection match {
             case Some (f) => new BagProjection (f, relation)
-            case None => relation.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
+            case None => relation.asInstanceOf[Relation[Range]] // this is made certain by the ast construction
         }
     }
 
-    private def compileDistinct[Domain <: AnyRef](relation: LazyView[Domain], distinct: Boolean): LazyView[Domain] =
+    private def compileDistinct[Domain <: AnyRef](relation: Relation[Domain], distinct: Boolean): Relation[Domain] =
     {
         if (!distinct || relation.isInstanceOf[SetRelation[Domain]])
         {
@@ -388,8 +388,8 @@ object Compiler
     }
 
     private def compileCrossProduct[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](projection: Option[(DomainA, DomainB) => Range],
-                                                                                           relationA: LazyView[DomainA],
-                                                                                           relationB: LazyView[DomainB]) =
+                                                                                           relationA: Relation[DomainA],
+                                                                                           relationB: Relation[DomainB]) =
     {
         val crossProduct =
             Conversions.lazyViewToMaterializedView (relationA) × Conversions.lazyViewToMaterializedView (relationB)
@@ -401,15 +401,15 @@ object Compiler
                 )(
                     crossProduct
                 )
-            case None => crossProduct.asInstanceOf[LazyView[Range]] // this is made certain by the ast construction
+            case None => crossProduct.asInstanceOf[Relation[Range]] // this is made certain by the ast construction
         }
     }
 
     private def compileJoins[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef](predicates: Seq[Predicate],
                                                                                     projection: Option[(DomainA, DomainB) => Range],
-                                                                                    relationA: LazyView[DomainA],
-                                                                                    relationB: LazyView[DomainB]
-                                                                                       ): LazyView[Range] =
+                                                                                    relationA: Relation[DomainA],
+                                                                                    relationB: Relation[DomainB]
+                                                                                       ): Relation[Range] =
     {
 
         val joins = predicates.filter (_.isInstanceOf[Join[DomainA, DomainB, _, _]]).asInstanceOf[Seq[Join[AnyRef, AnyRef, _, _]]]
@@ -443,8 +443,8 @@ object Compiler
     }
 
     private def compileSubQueries1[Domain <: AnyRef](predicates: Seq[Predicate],
-                                                     relation: LazyView[Domain]
-                                                        ): Seq[LazyView[Domain]] =
+                                                     relation: Relation[Domain]
+                                                        ): Seq[Relation[Domain]] =
     {
         val filters = predicates.filter ({
             case Filter (_, 1) => true
@@ -558,20 +558,20 @@ object Compiler
         }
     }
 
-    private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: LazyView[DomainA],
-                                                                                               relationB: LazyView[DomainB]) =
+    private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
+                                                                                               relationB: Relation[DomainB]) =
     {
         null
     }
 
-    private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: LazyView[DomainA],
-                                                                                                  relationB: LazyView[DomainB]) =
+    private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
+                                                                                                  relationB: Relation[DomainB]) =
     {
         new AddMultiSetUnion (relationA, relationB)
     }
 
     private def compileUnnesting[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range],
-                                                                     relation: LazyView[Domain]) =
+                                                                     relation: Relation[Domain]) =
     {
         new UnNesting (relation, function)
     }
@@ -579,7 +579,7 @@ object Compiler
 
     private def compileUnnestingWithProjection[Domain <: AnyRef, UnnestingRange <: AnyRef, Range <: AnyRef] (function: Domain => Seq[UnnestingRange],
                                                                                                              projection: Option[(Domain, UnnestingRange) => Range],
-                                                                                                             relation: LazyView[Domain]) =
+                                                                                                             relation: Relation[Domain]) =
     {
         if (projection.isDefined)
         {

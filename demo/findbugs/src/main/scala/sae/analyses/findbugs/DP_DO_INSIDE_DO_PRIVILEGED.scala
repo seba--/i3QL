@@ -1,6 +1,6 @@
 package sae.analyses.findbugs
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
@@ -14,7 +14,7 @@ import sae.bytecode.structure._
  *
  */
 object DP_DO_INSIDE_DO_PRIVILEGED
-    extends (BytecodeDatabase => LazyView[INVOKEVIRTUAL])
+    extends (BytecodeDatabase => Relation[INVOKEVIRTUAL])
 {
     val reflectionFieldClass = ClassType ("java/lang/reflect/Field")
 
@@ -29,9 +29,9 @@ object DP_DO_INSIDE_DO_PRIVILEGED
     // new Integer(1).doubleValue()
     // and not
     // Integer.valueOf(1).doubleValue()
-    def apply(database: BytecodeDatabase): LazyView[INVOKEVIRTUAL] = {
+    def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
-        val invokeVirtual /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+        val invokeVirtual /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
         SELECT (*) FROM invokeVirtual WHERE
             (_.name == "setAccessible") AND

@@ -65,13 +65,13 @@ object QueryDataTikZPlot {
     }
 
 
-    def createQueries( db : BytecodeDatabase) : List[LazyView[_]] = db.derivedViews
+    def createQueries( db : BytecodeDatabase) : List[Relation[_]] = db.derivedViews
 
-    def createProfile(queries : List[LazyView[_]]) =
+    def createProfile(queries : List[Relation[_]]) =
     {
         val analyzer = new DataQueryAnalyzer
 
-        queries.foreach( (view : LazyView[_]) => analyzer(view.asInstanceOf[LazyView[AnyRef]]) ) // TODO this is not nice
+        queries.foreach( (view : Relation[_]) => analyzer(view.asInstanceOf[Relation[AnyRef]]) ) // TODO this is not nice
 
         analyzer.profile
     }

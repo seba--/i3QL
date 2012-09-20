@@ -14,13 +14,13 @@ import sae._
  * The Union in our algebra is always non-distinct
  */
 trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
-    extends LazyView[Range]
+    extends Relation[Range]
 {
     type Rng = Range
 
-    def left: LazyView[DomainA]
+    def left: Relation[DomainA]
 
-    def right: LazyView[DomainB]
+    def right: Relation[DomainB]
 }
 
 /**
@@ -28,8 +28,8 @@ trait Union[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
  */
 class AddMultiSetUnion[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 (
-    val left: LazyView[DomainA],
-    val right: LazyView[DomainB]
+    val left: Relation[DomainA],
+    val right: Relation[DomainB]
     )
     extends Union[Range, DomainA, DomainB]
     with SelfMaintainedView[Range, Range]

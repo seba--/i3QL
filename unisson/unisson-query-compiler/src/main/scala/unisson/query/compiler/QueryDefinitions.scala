@@ -22,8 +22,8 @@ class QueryDefinitions(private val db: Database)
 
     private def fromJava(unresolved: String): String = unresolved.replace('.', '/')
 
-    private def joinByTargetElement[T <: AnyRef](view: LazyView[T], viewFun: T => AnyRef,
-                                                 target: LazyView[SourceElement[AnyRef]]): LazyView[T] =
+    private def joinByTargetElement[T <: AnyRef](view: Relation[T], viewFun: T => AnyRef,
+                                                 target: Relation[SourceElement[AnyRef]]): Relation[T] =
         ((
                 (
                         target,
@@ -34,7 +34,7 @@ class QueryDefinitions(private val db: Database)
                         )
                 ) {(c: SourceElement[AnyRef], f: T) => f})
 
-    def `class`(packageName: String, name: String): LazyView[SourceElement[AnyRef]] =
+    def `class`(packageName: String, name: String): Relation[SourceElement[AnyRef]] =
         Π[ObjectType, SourceElement[AnyRef]] {
             new ClassDeclaration((_: ObjectType))
         }(
@@ -42,11 +42,11 @@ class QueryDefinitions(private val db: Database)
                     .declared_types)
         )
 
-    def `class`(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
+    def `class`(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
         (targets, (_: SourceElement[AnyRef]).element) ⋉(identity(_: ObjectType), db.declared_types)
 
-    def field(declaringClasses: LazyView[SourceElement[AnyRef]], name: String,
-              fieldType: LazyView[SourceElement[AnyRef]]) =
+    def field(declaringClasses: Relation[SourceElement[AnyRef]], name: String,
+              fieldType: Relation[SourceElement[AnyRef]]) =
         Π(SourceElement(_: FieldDeclaration))(
             joinByTargetElement[FieldDeclaration](
                 joinByTargetElement(
@@ -62,13 +62,13 @@ class QueryDefinitions(private val db: Database)
             )
         )
 
-    def method(declaringClasses: LazyView[SourceElement[AnyRef]], name: String,
-               returnTypes: LazyView[SourceElement[AnyRef]],
-               parameterTypes: LazyView[SourceElement[AnyRef]]*) =
+    def method(declaringClasses: Relation[SourceElement[AnyRef]], name: String,
+               returnTypes: Relation[SourceElement[AnyRef]],
+               parameterTypes: Relation[SourceElement[AnyRef]]*) =
         Π(SourceElement(_: MethodDeclaration))(
         {
             var i = -1;
-            parameterTypes.foldLeft[LazyView[MethodDeclaration]](
+            parameterTypes.foldLeft[Relation[MethodDeclaration]](
                 joinByTargetElement(
                     joinByTargetElement[MethodDeclaration](
                         σ(
@@ -82,7 +82,7 @@ class QueryDefinitions(private val db: Database)
                     returnTypes
                 )
             )(
-                (view: LazyView[MethodDeclaration], parameterType: LazyView[SourceElement[AnyRef]]) => {
+                (view: Relation[MethodDeclaration], parameterType: Relation[SourceElement[AnyRef]]) => {
                     i = i + 1
                     val index = i
                     joinByTargetElement(
@@ -104,13 +104,13 @@ class QueryDefinitions(private val db: Database)
      * @param name
      * @return
      */
-    def typeQuery(name: String): LazyView[SourceElement[AnyRef]] = new TypeElementView(name).asInstanceOf[LazyView[SourceElement[AnyRef]]]
+    def typeQuery(name: String): Relation[SourceElement[AnyRef]] = new TypeElementView(name).asInstanceOf[Relation[SourceElement[AnyRef]]]
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
      */
     // TODO make this special to ObjectType?
-    def supertype(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
+    def supertype(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
         Π(
             (d: Dependency[AnyRef, AnyRef]) => SourceElement(d.source)
         )(
@@ -120,7 +120,7 @@ class QueryDefinitions(private val db: Database)
                     ) ⋉((_: SourceElement[AnyRef]).element, targets)
         )
 
-    def `package`(name: String): LazyView[SourceElement[AnyRef]] =
+    def `package`(name: String): Relation[SourceElement[AnyRef]] =
         (
                 Π[ObjectType, SourceElement[AnyRef]] {
                     SourceElement(_: ObjectType)
@@ -145,7 +145,7 @@ class QueryDefinitions(private val db: Database)
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
-    lazy val direct_class_members: LazyView[class_member[AnyRef]] =
+    lazy val direct_class_members: Relation[class_member[AnyRef]] =
         Π {
             ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringRef, new MethodDeclarationAdapter(m)))
         }(db.declared_methods) ∪
@@ -160,15 +160,15 @@ class QueryDefinitions(private val db: Database)
                         .inner_classes)
 
 
-    lazy val transitive_class_members: LazyView[(AnyRef, AnyRef)] =
+    lazy val transitive_class_members: Relation[(AnyRef, AnyRef)] =
         TC(direct_class_members)((cm: class_member[AnyRef]) => (cm.source), (_: class_member[AnyRef]).target
                 .element)
 
 
-    def class_with_members(packageName: String, className: String): LazyView[SourceElement[AnyRef]] =
+    def class_with_members(packageName: String, className: String): Relation[SourceElement[AnyRef]] =
         class_with_members(packageName + "." + className)
 
-    def class_with_members(qualifiedClass: String): LazyView[SourceElement[AnyRef]] =
+    def class_with_members(qualifiedClass: String): Relation[SourceElement[AnyRef]] =
         Π {
             SourceElement[AnyRef]((_: ObjectType))
         }(
@@ -187,7 +187,7 @@ class QueryDefinitions(private val db: Database)
     lazy val supertypeTrans = TC(db.implements.∪[Dependency[AnyRef, AnyRef], `extends`](db.`extends`))(_.source, _
             .target)
 
-    def transitive_supertype(targets: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
+    def transitive_supertype(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
         δ(// TODO something is not right here, this should not require a delta, values should be distinct on their own
             Π(
                 (d: (AnyRef, AnyRef)) => SourceElement(d._1) // _.source
@@ -203,15 +203,15 @@ class QueryDefinitions(private val db: Database)
      * rewrites the query so it will be used transitively
      * // TODO rewriting is currently very unsatisfying, there are multiple proxy objects in the tree
      */
-    def transitive(target: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] = {
+    def transitive(target: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] = {
 
         target match {
             case p@Π(
             func: (Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]),
             sj@sae.syntax.RelationalAlgebraSyntax.⋉(
-            transitiveQuery: LazyView[Dependency[AnyRef, AnyRef]],
+            transitiveQuery: Relation[Dependency[AnyRef, AnyRef]],
             transitiveKey: (Dependency[AnyRef, AnyRef] => AnyRef),
-            outerQuery: LazyView[SourceElement[AnyRef]],
+            outerQuery: Relation[SourceElement[AnyRef]],
             outerKey: (SourceElement[AnyRef] => AnyRef)
             )
             ) => {
@@ -240,7 +240,7 @@ class QueryDefinitions(private val db: Database)
     /**
      * select all (class, member) from transitive_class_members where class exists in target
      */
-    def class_with_members(target: LazyView[SourceElement[AnyRef]]): LazyView[SourceElement[AnyRef]] =
+    def class_with_members(target: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
         Π(identity(_: SourceElement[AnyRef]))(
             σ((_: SourceElement[AnyRef]) match {
                 case SourceElement(_: ObjectType) => true
@@ -255,14 +255,14 @@ class QueryDefinitions(private val db: Database)
                 )
 
 
-    implicit def viewToUnissonConcatenator[Domain <: AnyRef](relation: LazyView[Domain]): UnissionInfixConcatenator[Domain] =
+    implicit def viewToUnissonConcatenator[Domain <: AnyRef](relation: Relation[Domain]): UnissionInfixConcatenator[Domain] =
         UnissionInfixConcatenator(relation)
 
-    case class UnissionInfixConcatenator[Domain <: AnyRef](left: LazyView[Domain])
+    case class UnissionInfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
     {
-        def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: LazyView[OtherDomain]): LazyView[CommonSuperClass] = left ∪ otherRelation
+        def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: Relation[OtherDomain]): Relation[CommonSuperClass] = left ∪ otherRelation
 
-        def without(otherRelation: LazyView[Domain]): LazyView[Domain] = left ∖ otherRelation
+        def without(otherRelation: Relation[Domain]): Relation[Domain] = left ∖ otherRelation
 
     }
 

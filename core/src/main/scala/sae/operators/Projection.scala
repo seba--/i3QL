@@ -38,7 +38,7 @@ import sae.collections.Bag
  * constructors during pattern matching
  */
 trait Projection[Domain <: AnyRef, Range <: AnyRef]
-        extends LazyView[Range]
+        extends Relation[Range]
 {
     type Dom = Domain
 
@@ -46,7 +46,7 @@ trait Projection[Domain <: AnyRef, Range <: AnyRef]
 
     val projection: Domain => Range
 
-    val relation: LazyView[Domain]
+    val relation: Relation[Domain]
 }
 
 /**
@@ -56,7 +56,7 @@ trait Projection[Domain <: AnyRef, Range <: AnyRef]
  */
 class SetProjection[Domain <: AnyRef, Range <: AnyRef](
                                                               val projection: Domain => Range,
-                                                              val relation: LazyView[Domain]
+                                                              val relation: Relation[Domain]
                                                               )
         extends Projection[Domain, Range]
         with MaterializedView[Range]
@@ -165,7 +165,7 @@ class SetProjection[Domain <: AnyRef, Range <: AnyRef](
  */
 class BagProjection[Domain <: AnyRef, Range <: AnyRef](
                                                               val projection: Domain => Range,
-                                                              val relation: LazyView[Domain]
+                                                              val relation: Relation[Domain]
                                                               )
         extends Projection[Domain, Range]
         with SelfMaintainedView[Domain, Range]
@@ -212,7 +212,7 @@ class BagProjection[Domain <: AnyRef, Range <: AnyRef](
  */
 class MaterializedBagProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                           val projection: Domain => Range,
-                                                                          val relation: LazyView[Domain]
+                                                                          val relation: Relation[Domain]
                                                                           )
         extends Projection[Domain, Range]
         with Bag[Range]

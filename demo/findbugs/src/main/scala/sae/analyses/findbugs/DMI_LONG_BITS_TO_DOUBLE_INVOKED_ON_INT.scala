@@ -1,6 +1,6 @@
 package sae.analyses.findbugs
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
@@ -14,17 +14,17 @@ import de.tud.cs.st.bat.resolved.{LongType, DoubleType}
  *
  */
 object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT
-    extends (BytecodeDatabase => LazyView[INVOKESTATIC])
+    extends (BytecodeDatabase => Relation[INVOKESTATIC])
 {
 
     val doubleClass = ClassType ("java/lang/Double")
 
-    def apply(database: BytecodeDatabase): LazyView[INVOKESTATIC] = {
+    def apply(database: BytecodeDatabase): Relation[INVOKESTATIC] = {
         import database._
 
-        val intToLong /*: LazyView[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[I2L]) FROM instructions WHERE (_.isInstanceOf[I2L])
+        val intToLong /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[I2L]) FROM instructions WHERE (_.isInstanceOf[I2L])
 
-        val invokeStatic /*: LazyView[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val invokeStatic /*: Relation[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
 
         SELECT ((a: I2L, b: INVOKESTATIC) => b) FROM
             (intToLong, invokeStatic) WHERE

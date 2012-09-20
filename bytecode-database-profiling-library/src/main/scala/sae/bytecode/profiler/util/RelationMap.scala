@@ -34,7 +34,7 @@ package sae.bytecode.profiler.util
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.BytecodeDatabase
-import sae.LazyView
+import sae.Relation
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,9 +48,9 @@ import sae.LazyView
 class RelationMap[V]
 {
 
-    var values: Map[BytecodeDatabase => LazyView[_ <: AnyRef], V] = Map.empty
+    var values: Map[BytecodeDatabase => Relation[_ <: AnyRef], V] = Map.empty
 
-    private def equalFunctionResult[T <: AnyRef](f1: BytecodeDatabase => LazyView[T], f2: BytecodeDatabase => LazyView[_ <: AnyRef]): Boolean = {
+    private def equalFunctionResult[T <: AnyRef](f1: BytecodeDatabase => Relation[T], f2: BytecodeDatabase => Relation[_ <: AnyRef]): Boolean = {
         val db = BATDatabaseFactory.create ()
         val v1 = f1 (db)
         val v2 = f2 (db)
@@ -58,7 +58,7 @@ class RelationMap[V]
         v1 == v2
     }
 
-    def apply[T <: AnyRef](key: BytecodeDatabase => LazyView[T]): V = {
+    def apply[T <: AnyRef](key: BytecodeDatabase => Relation[T]): V = {
         for (oldKey <- values.keys) {
             if (equalFunctionResult (key, oldKey)) {
                 return values (oldKey)
@@ -67,7 +67,7 @@ class RelationMap[V]
         throw new IllegalArgumentException ("key not found " + key)
     }
 
-    def update[T <: AnyRef](key: BytecodeDatabase => LazyView[T], value: V): RelationMap[V] = {
+    def update[T <: AnyRef](key: BytecodeDatabase => Relation[T], value: V): RelationMap[V] = {
         for (oldKey <- values.keys) {
             if (equalFunctionResult (key, oldKey)) {
                 values = values.updated (key, value)

@@ -1,6 +1,6 @@
 package sae.syntax.sql.impl
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import ast._
 import ast.FromClause2
@@ -15,7 +15,7 @@ import predicates.{WhereClauseSequence, Filter}
  *
  */
 case class FromClause2UnnestingSyntax[DomainA <: AnyRef, DomainB <: AnyRef, UnnestingRange <: AnyRef,Range <: AnyRef](selectClause: SelectClause[Range],
-                                                                                             relationA: LazyView[DomainA],
+                                                                                             relationA: Relation[DomainA],
                                                                                              unnestingClause : FromClause)
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {

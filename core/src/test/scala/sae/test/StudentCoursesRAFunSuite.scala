@@ -6,7 +6,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import sae.{DefaultLazyView, LazyView}
+import sae.{DefaultLazyView, Relation}
 import scala.Predef._
 
 /**
@@ -150,7 +150,7 @@ class StudentCoursesRAFunSuite
         // there is an inner projection that does nothing
         val students = database.students.copy
         def fun(x: Student) = x.Name
-        val names: LazyView[String] = Π[Student, String](_.Name)(Π[Student, Student](s => s)(students))
+        val names: Relation[String] = Π[Student, String](_.Name)(Π[Student, Student](s => s)(students))
 
         /*
 		 * FIXME
@@ -158,7 +158,7 @@ class StudentCoursesRAFunSuite
 
 		assert( optimized ne names)
 		
-		val directNames : LazyView[String] = Π[Student, String](fun, students)
+		val directNames : Relation[String] = Π[Student, String](fun, students)
 		assert( !(optimized match { case Π(_, Π(_,_)) => true; case _ => false }) )
 		 */
     }
@@ -399,7 +399,7 @@ class StudentCoursesRAFunSuite
         val persons = database.persons.copy
         val students = database.students.copy
 
-        val person_students: LazyView[Person] = Π((s: Student) => s.asInstanceOf[Person])(students)
+        val person_students: Relation[Person] = Π((s: Student) => s.asInstanceOf[Person])(students)
 
         val difference: QueryResult[Person] = persons ∖ person_students
 
@@ -500,7 +500,7 @@ class StudentCoursesRAFunSuite
 
         val person_students = σ[Student](persons)
 
-        val student_data_as_persons: LazyView[Person] = Π((s: Student) => s.asInstanceOf[Person])(students)
+        val student_data_as_persons: Relation[Person] = Π((s: Student) => s.asInstanceOf[Person])(students)
 
         val intersect: QueryResult[Person] = student_data_as_persons ∩ person_students
 

@@ -33,7 +33,7 @@
 package sae.syntax.sql
 
 import ast.FromClause
-import sae.LazyView
+import sae.Relation
 
 /**
  * Created with IntelliJ IDEA.

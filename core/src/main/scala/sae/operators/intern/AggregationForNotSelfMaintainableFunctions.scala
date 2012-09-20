@@ -28,7 +28,7 @@ import scala.collection.mutable.Map
  * @author Ralf Mitschke
  */
 class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef]
-(val source: LazyView[Domain],
+(val source: Relation[Domain],
  val groupingFunction: Domain => Key,
  val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
  val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)

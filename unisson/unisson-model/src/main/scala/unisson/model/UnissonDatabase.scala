@@ -6,7 +6,7 @@ import kinds.primitive._
 import unisson.query.code_model.SourceElement
 import sae.bytecode.Database
 import sae.collections.Table
-import sae.{MaterializedView, Observer, LazyView}
+import sae.{MaterializedView, Observer, Relation}
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import sae.bytecode.model.dependencies._
@@ -102,7 +102,7 @@ class UnissonDatabase(val bc: Database)
     /**
      * The queries for each ensemble
      */
-    lazy val ensemble_queries: LazyView[(IEnsemble, UnissonQuery)] =
+    lazy val ensemble_queries: Relation[(IEnsemble, UnissonQuery)] =
         Π((e: IEnsemble) => (e, getNormalizedQuery(e)))(ensembles)
 
     /**
@@ -253,12 +253,12 @@ class UnissonDatabase(val bc: Database)
         }
     }
 
-    protected[model] def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: LazyView[_ <: Dependency[S, T]],
+    protected[model] def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: Relation[_ <: Dependency[S, T]],
                                                                       kind: DependencyKind
-                                                                             ): LazyView[(ICodeElement, ICodeElement, String)] = {
+                                                                             ): Relation[(ICodeElement, ICodeElement, String)] = {
         Π[Dependency[S, T], (ICodeElement, ICodeElement, String)](
             (d: Dependency[S, T]) => (SourceElement(d.source), SourceElement(d.target), kind.asVespucciString)
-        )(dependencyView.asInstanceOf[LazyView[Dependency[S, T]]])
+        )(dependencyView.asInstanceOf[Relation[Dependency[S, T]]])
     }
 
 
@@ -326,7 +326,7 @@ class UnissonDatabase(val bc: Database)
                 // TODO instance of checks
                 Π {
                     (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
-                }(bc.inner_classes.asInstanceOf[LazyView[Dependency[AnyRef, AnyRef]]]) ∪
+                }(bc.inner_classes.asInstanceOf[Relation[Dependency[AnyRef, AnyRef]]]) ∪
     */
 
 
@@ -380,7 +380,7 @@ class UnissonDatabase(val bc: Database)
         result
     }
 
-    private lazy val normalized_constraints = new LazyView[(NormalizedConstraint)] {
+    private lazy val normalized_constraints = new Relation[(NormalizedConstraint)] {
 
         slice_constraints.addObserver(new Observer[(IConstraint, String)] {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
@@ -416,7 +416,7 @@ class UnissonDatabase(val bc: Database)
      * Returns a view of the disallowed ensemble dependencies derived from the not_allowed constraints in the form:
      * (E_src, E_trgt, kind, constraint, slice).
      */
-    private lazy val disallowed_dependencies_by_not_allowed: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val disallowed_dependencies_by_not_allowed: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (constraint: NormalizedConstraint) =>
                 (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
@@ -439,7 +439,7 @@ class UnissonDatabase(val bc: Database)
             .GlobalOutgoing)(normalized_constraints)
 
 
-    private lazy val incoming: LazyView[NormalizedConstraint] = {
+    private lazy val incoming: Relation[NormalizedConstraint] = {
         val allIncoming = local_incoming ∪ global_incoming
         allIncoming ∪ (
                 (
@@ -464,7 +464,7 @@ class UnissonDatabase(val bc: Database)
     }
 
 
-    private lazy val outgoing: LazyView[NormalizedConstraint] = {
+    private lazy val outgoing: Relation[NormalizedConstraint] = {
         val allOutgoing = local_outgoing ∪ global_outgoing
         allOutgoing ∪ (
                 (
@@ -494,7 +494,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_local_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
                         slice_ensembles,
@@ -515,7 +515,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_global_incoming: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_global_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._1, entry._2.target, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
@@ -548,7 +548,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_local_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         (
                 (
                         slice_ensembles,
@@ -568,7 +568,7 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_global_outgoing: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_global_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._2.source, entry._1, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
@@ -607,7 +607,7 @@ class UnissonDatabase(val bc: Database)
     /**
      * A list of ensemble dependencies that are expected
      */
-    def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    def expectedEnsembleDependencies: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
         Π(
             (constraint: NormalizedConstraint) =>
                 (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
@@ -618,7 +618,7 @@ class UnissonDatabase(val bc: Database)
     }
 
 
-    lazy val unmodeled_elements: LazyView[ICodeElement] = (
+    lazy val unmodeled_elements: Relation[ICodeElement] = (
             (
                     Π(SourceElement(_: ObjectType).asInstanceOf[ICodeElement])(bc.declared_types) ∪
                             Π(SourceElement(_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.declared_fields) ∪

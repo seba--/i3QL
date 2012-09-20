@@ -32,7 +32,7 @@
  */
 package sae.syntax.sql
 
-import sae.LazyView
+import sae.Relation
 
 /**
  *
@@ -44,7 +44,7 @@ import sae.LazyView
 trait SELECT_CLAUSE[SelectionDomain <: AnyRef, Range <: AnyRef]
 {
 
-    def FROM[Domain <: SelectionDomain](relation: LazyView[Domain]): FROM_CLAUSE[Domain, Range]
+    def FROM[Domain <: SelectionDomain](relation: Relation[Domain]): FROM_CLAUSE[Domain, Range]
 
     def FROM[Domain <: SelectionDomain, UnNestingRange <: AnyRef](unnesting: UNNESTING_CLAUSE[Domain, UnNestingRange]): FROM_CLAUSE[UnNestingRange, Range]
 

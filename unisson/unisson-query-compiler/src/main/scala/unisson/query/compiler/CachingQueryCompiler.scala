@@ -5,7 +5,7 @@ import collection.mutable.WeakHashMap
 import unisson.query.UnissonQuery
 import unisson.query.code_model.SourceElement
 import unisson.query.ast._
-import sae.{Observable, LazyView}
+import sae.{Observable, Relation}
 
 /**
  *
@@ -17,17 +17,17 @@ import sae.{Observable, LazyView}
 class CachingQueryCompiler(val decoratee : QueryCompiler)
         extends QueryCompiler
 {
-    protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, LazyView[SourceElement[AnyRef]]] =
-        new WeakHashMap[UnissonQuery, LazyView[SourceElement[AnyRef]]]()
+    protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]] =
+        new WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]]()
 
     val db = decoratee.db
 
     val definitions = decoratee.definitions
 
-    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] =
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] =
         decoratee.parseAndCompile(query)(this)
 
-    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] = {
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
         for (compiledQuery <- getChachedQuery(query)) {
             return compiledQuery
         }
@@ -38,8 +38,8 @@ class CachingQueryCompiler(val decoratee : QueryCompiler)
         compiledQuery
     }
 
-    private def getChachedQuery(query: UnissonQuery): Option[LazyView[SourceElement[AnyRef]]] = {
-        val cachedCompiledQuery: Option[LazyView[SourceElement[AnyRef]]] =
+    private def getChachedQuery(query: UnissonQuery): Option[Relation[SourceElement[AnyRef]]] = {
+        val cachedCompiledQuery: Option[Relation[SourceElement[AnyRef]]] =
             cachedQueries.collectFirst {
                 case (cachedQuery, compiledQuery) if (cachedQuery.isSyntacticEqual(query)) => compiledQuery
             }
@@ -147,7 +147,7 @@ class CachingQueryCompiler(val decoratee : QueryCompiler)
      * removes every observer on the path from source to target, beginning at the target and stopping
      * either if source is reached or a view with multiple other observers is reached
      */
-    private def removeAllSingleObserversOnPath(sources: List[LazyView[_ <: AnyRef]], target: LazyView[_ <: AnyRef]) {
+    private def removeAllSingleObserversOnPath(sources: List[Relation[_ <: AnyRef]], target: Relation[_ <: AnyRef]) {
         target.clearObserversForChildren(
             (o: Observable[_ <: AnyRef]) => !sources.contains(o)
         )

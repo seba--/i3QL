@@ -1,7 +1,7 @@
 package unisson.query.compiler
 
 import sae.bytecode.Database
-import sae.LazyView
+import sae.Relation
 import unisson.query.code_model.SourceElement
 import unisson.query.parser.QueryParser
 import unisson.query.UnissonQuery
@@ -32,7 +32,7 @@ class BaseQueryCompiler(val db: Database)
 {
     val definitions = new QueryDefinitions(db)
 
-    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] = {
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
         val parser = new QueryParser()
         val result = parser.parse(query)
         result match {
@@ -46,7 +46,7 @@ class BaseQueryCompiler(val db: Database)
     /**
      *
      */
-    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): LazyView[SourceElement[AnyRef]] = {
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
         import definitions._
         query match {
             case ClassSelectionQuery(pn, sn) => `class`(pn, sn)

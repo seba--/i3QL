@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.SELECT_CLAUSE_AGGREGATION_NO_PROJECTION
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql.ast.{AggregateSelectClauseSelfMaintainable2, AggregateSelectClauseSelfMaintainable1}
 import sae.operators.SelfMaintainableAggregateFunctionFactory
 
@@ -47,7 +47,7 @@ case class SelectClauseAggregationSelfMaintainableNoProjectionSyntax[AggregateVa
                                                                                                        distinct: Boolean = false)
     extends SELECT_CLAUSE_AGGREGATION_NO_PROJECTION[Result]
 {
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
+    def FROM[Domain <: AnyRef](relation: Relation[Domain]) =
         FromClause1Syntax[Domain, Result](
             AggregateSelectClauseSelfMaintainable1[Domain, Domain, AggregateValue, Result](
                 None,
@@ -57,7 +57,7 @@ case class SelectClauseAggregationSelfMaintainableNoProjectionSyntax[AggregateVa
             relation
         )
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: Relation[DomainA], relationB: Relation[DomainB]) =
         FromClause2Syntax[DomainA, DomainB, Result](
             AggregateSelectClauseSelfMaintainable2[DomainA, DomainB, (DomainA, DomainB), AggregateValue, Result](
                 None,

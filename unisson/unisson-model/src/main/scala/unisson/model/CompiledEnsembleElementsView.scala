@@ -3,7 +3,7 @@ package unisson.model
 import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
 import de.tud.cs.st.vespucci.model.IEnsemble
 import unisson.query.code_model.SourceElement
-import sae.{LazyView, Observer}
+import sae.{Relation, Observer}
 import sae.bytecode.Database
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import unisson.query.UnissonQuery
@@ -16,8 +16,8 @@ import unisson.query.UnissonQuery
  *
  */
 class CompiledEnsembleElementsView(bc: Database,
-                                   ensembleQueries: LazyView[(IEnsemble, UnissonQuery)])
-        extends LazyView[(IEnsemble, ICodeElement)]
+                                   ensembleQueries: Relation[(IEnsemble, UnissonQuery)])
+        extends Relation[(IEnsemble, ICodeElement)]
 {
 
     private val queryCompiler = new CachingQueryCompiler(new BaseQueryCompiler(bc))
@@ -48,7 +48,7 @@ class CompiledEnsembleElementsView(bc: Database,
     }
 
 
-    private def addCompiledQueryView(v: IEnsemble, view: LazyView[SourceElement[AnyRef]]) {
+    private def addCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
         view.lazy_foreach(
             (e: SourceElement[AnyRef]) => element_added((v, e))
         )
@@ -59,7 +59,7 @@ class CompiledEnsembleElementsView(bc: Database,
         }
     }
 
-    private def removeCompiledQueryView(v: IEnsemble, view: LazyView[SourceElement[AnyRef]]) {
+    private def removeCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
         view.lazy_foreach(
             (e: SourceElement[AnyRef]) => element_removed((v, e))
         )

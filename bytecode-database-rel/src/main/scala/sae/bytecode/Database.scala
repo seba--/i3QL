@@ -2,7 +2,7 @@ package sae.bytecode
 
 import model._
 import model.dependencies._
-import sae.LazyView
+import sae.Relation
 import de.tud.cs.st.bat.ObjectType
 import java.io.File
 
@@ -18,62 +18,62 @@ import java.io.File
 trait Database
 {
 
-    def declared_classes: LazyView[ClassDeclaration]
+    def declared_classes: Relation[ClassDeclaration]
 
     /**
      * convenience accessor for classDeclaration.objectType
      */
-    def declared_types: LazyView[ObjectType]
+    def declared_types: Relation[ObjectType]
 
-    def declared_methods: LazyView[MethodDeclaration]
+    def declared_methods: Relation[MethodDeclaration]
 
-    def declared_fields: LazyView[FieldDeclaration]
+    def declared_fields: Relation[FieldDeclaration]
 
-    def classes: LazyView[ObjectType]
+    def classes: Relation[ObjectType]
 
-    def create: LazyView[create]
+    def create: Relation[create]
 
-    def methods: LazyView[MethodReference]
+    def methods: Relation[MethodReference]
 
-    def fields: LazyView[FieldReference]
+    def fields: Relation[FieldReference]
 
-    def instructions: LazyView[Instr[_]]
+    def instructions: Relation[Instr[_]]
 
-    def `extends`: LazyView[`extends`]
+    def `extends`: Relation[`extends`]
 
-    def implements: LazyView[implements]
+    def implements: Relation[implements]
 
-    def subtypes: LazyView[(ObjectType, ObjectType)]
+    def subtypes: Relation[(ObjectType, ObjectType)]
 
-    def field_type: LazyView[field_type]
+    def field_type: Relation[field_type]
 
-    def parameter: LazyView[parameter]
+    def parameter: Relation[parameter]
 
-    def return_type: LazyView[return_type]
+    def return_type: Relation[return_type]
 
-    def write_field: LazyView[write_field]
+    def write_field: Relation[write_field]
 
-    def read_field: LazyView[read_field]
+    def read_field: Relation[read_field]
 
-    def calls: LazyView[calls]
+    def calls: Relation[calls]
 
-    def class_cast: LazyView[class_cast]
+    def class_cast: Relation[class_cast]
 
-    def handled_exceptions: LazyView[ExceptionHandler]
+    def handled_exceptions: Relation[ExceptionHandler]
 
-    def exception_handlers: LazyView[ExceptionHandler]
+    def exception_handlers: Relation[ExceptionHandler]
 
-    def inner_classes: LazyView[inner_class]
+    def inner_classes: Relation[inner_class]
 
-    def invoke_interface: LazyView[invoke_interface]
+    def invoke_interface: Relation[invoke_interface]
 
-    def invoke_special: LazyView[invoke_special]
+    def invoke_special: Relation[invoke_special]
 
-    def invoke_virtual: LazyView[invoke_virtual]
+    def invoke_virtual: Relation[invoke_virtual]
 
-    def invoke_static: LazyView[invoke_static]
+    def invoke_static: Relation[invoke_static]
 
-    def thrown_exceptions: LazyView[throws]
+    def thrown_exceptions: Relation[throws]
 
     def getAddClassFileFunction: (File) => Unit
 

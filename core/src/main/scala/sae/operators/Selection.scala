@@ -8,13 +8,13 @@ import sae.collections.Bag
  * unwanted tuples. Thus the projection shrinks the number of relations.
  */
 trait Selection[V <: AnyRef]
-        extends LazyView[V]
+        extends Relation[V]
 {
     type Value = V
 
     val filter: V => Boolean
 
-    val relation: LazyView[V]
+    val relation: Relation[V]
 }
 
 /**
@@ -23,7 +23,7 @@ trait Selection[V <: AnyRef]
  */
 class LazySelection[V <: AnyRef](
                                         val filter: V => Boolean,
-                                        val relation: LazyView[V]
+                                        val relation: Relation[V]
                                         )
         extends Selection[V]
         with SelfMaintainedView[V, V]
@@ -85,7 +85,7 @@ class LazySelection[V <: AnyRef](
  */
 class MaterializedSelection[V <: AnyRef](
                                                 val filter: V => Boolean,
-                                                val relation: LazyView[V]
+                                                val relation: Relation[V]
                                                 )
         extends Selection[V]
         with Bag[V]

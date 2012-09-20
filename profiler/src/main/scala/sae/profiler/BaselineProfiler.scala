@@ -5,7 +5,7 @@ import sae.util.Timer
 import sae.profiler.Profiler._
 import java.io.{FileOutputStream, PrintWriter, OutputStream}
 import sae.bytecode.transform.Java6ClassTransformer
-import sae.LazyView
+import sae.Relation
 import util.{DataQueryAnalyzer, BasicQueryAnalyzer, BasicQueryProfile, CountingObserver}
 import sae.bytecode.model.dependencies.{class_cast, `extends`}
 
@@ -181,7 +181,7 @@ object BaselineProfiler
 
         val analyzer = new DataQueryAnalyzer
 
-        db.derivedViews.foreach( (view : LazyView[_]) => analyzer(view.asInstanceOf[LazyView[AnyRef]]) ) // TODO this is not nice
+        db.derivedViews.foreach( (view : Relation[_]) => analyzer(view.asInstanceOf[Relation[AnyRef]]) ) // TODO this is not nice
         val transformer = f(db)
 
         println("pushing data to database")

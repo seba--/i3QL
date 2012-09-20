@@ -1,7 +1,7 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import sae.{MaterializedView, LazyView}
+import sae.{MaterializedView, Relation}
 import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.operators.Conversions
@@ -128,46 +128,46 @@ trait IUnissonDatabase
     /**
      * A global list of all ensembles, including children
      */
-    def ensembles: LazyView[IEnsemble]
+    def ensembles: Relation[IEnsemble]
 
     /**
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    def ensemble_elements: LazyView[(IEnsemble, ICodeElement)]
+    def ensemble_elements: Relation[(IEnsemble, ICodeElement)]
 
     /**
      * A list of ensembles in one slice
      */
-    def slice_ensembles: LazyView[(IEnsemble, String)]
+    def slice_ensembles: Relation[(IEnsemble, String)]
 
     /**
      * A list of constraints in one slice
      */
-    def slice_constraints: LazyView[(IConstraint, String)]
+    def slice_constraints: Relation[(IConstraint, String)]
 
     /**
      * A list naming all slices
      */
-    val slices: LazyView[String] = δ(Π {
+    val slices: Relation[String] = δ(Π {
         (_: (IEnsemble, String))._2
     }(slice_ensembles))
 
     /**
      * A list of dependencies between the source code elements
      */
-    def source_code_dependencies: LazyView[(ICodeElement, ICodeElement, String)]
+    def source_code_dependencies: Relation[(ICodeElement, ICodeElement, String)]
 
 
     /**
      * A list of all descendants of an ensemble in the form (parent,child)
      */
-    def children: LazyView[(IEnsemble, IEnsemble)]
+    def children: Relation[(IEnsemble, IEnsemble)]
 
     /**
      * A list of all descendants of an ensemble in the form (ancestor,descendant)
      */
-    val descendants: LazyView[(IEnsemble, IEnsemble)] = {
+    val descendants: Relation[(IEnsemble, IEnsemble)] = {
         TC(children)(_._1, _._2)
     }
 
@@ -176,7 +176,7 @@ trait IUnissonDatabase
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      * Each entry can be included multiple times, since two ensembles can have multiple dependencies to the same element
      */
-    val ensemble_dependencies: LazyView[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
+    val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
         val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
 
         val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
@@ -229,18 +229,18 @@ trait IUnissonDatabase
      * A list of ensemble dependencies that are not allowed in the form:
      * (E_src, E_trgt, kind, constraint, slice)
      */
-    protected[model] def notAllowedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
+    protected[model] def notAllowedEnsembleDependencies: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
      * A list of ensemble dependencies that are expected in the form:
      * (E_src, E_trgt, kind, constraint, slice)
      */
-    protected[model] def expectedEnsembleDependencies: LazyView[(IEnsemble, IEnsemble, String, IConstraint, String)]
+    protected[model] def expectedEnsembleDependencies: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)]
 
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    val violations: LazyView[IViolation] = {
+    val violations: Relation[IViolation] = {
         val disallowed_dependency_violations = (
                 (
                         ensemble_dependencies,
@@ -297,7 +297,7 @@ trait IUnissonDatabase
     /**
      * A list of violations summing up individual source code dependencies
      */
-    lazy val violation_summary: LazyView[IViolationSummary] =
+    lazy val violation_summary: Relation[IViolationSummary] =
         γ(violations,
             (v: IViolation) => (v.getDiagramFile, v.getSourceEnsemble, v.getTargetEnsemble, v.getConstraint),
             Count[IViolation](),
@@ -306,7 +306,7 @@ trait IUnissonDatabase
         )
 
 
-    def unmodeled_elements: LazyView[ICodeElement]
+    def unmodeled_elements: Relation[ICodeElement]
 
     @deprecated("use ensemble_dependency_count")
     def ensembleDependencies: MaterializedView[(IEnsemble, IEnsemble, Int)] =
@@ -318,7 +318,7 @@ trait IUnissonDatabase
     /**
      * A list of errors that occurred during database updates
      */
-    def errors: LazyView[Exception]
+    def errors: Relation[Exception]
 
     /**
      * Clear the list of errors from the database

@@ -33,7 +33,7 @@
 package sae.syntax.sql.impl
 
 import sae.syntax.sql.{UNNESTING_CLAUSE, SELECT_CLAUSE_NO_PROJECTION}
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql.ast.{SelectClause2, SelectClause1}
 
 /**
@@ -46,7 +46,7 @@ import sae.syntax.sql.ast.{SelectClause2, SelectClause1}
 case class SelectClauseNoProjectionSyntax(distinct: Boolean = false)
     extends SELECT_CLAUSE_NO_PROJECTION
 {
-    def FROM[Domain <: AnyRef](relation: LazyView[Domain]) =
+    def FROM[Domain <: AnyRef](relation: Relation[Domain]) =
         FromClause1Syntax[Domain, Domain](
             SelectClause1[Domain, Domain](None, distinct),
             relation
@@ -58,7 +58,7 @@ case class SelectClauseNoProjectionSyntax(distinct: Boolean = false)
             unnesting.representation
         )
 
-    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: LazyView[DomainA], relationB: LazyView[DomainB]) =
+    def FROM[DomainA <: AnyRef, DomainB <: AnyRef](relationA: Relation[DomainA], relationB: Relation[DomainB]) =
         FromClause2Syntax[DomainA, DomainB, (DomainA, DomainB)](
             SelectClause2[DomainA, DomainB, (DomainA, DomainB)](None, distinct),
             relationA,

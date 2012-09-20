@@ -1,6 +1,6 @@
 package sae.analyses.findbugs
 
-import sae.LazyView
+import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
@@ -14,17 +14,17 @@ import de.tud.cs.st.bat.resolved.FieldType
  *
  */
 object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
-    extends (BytecodeDatabase => LazyView[INVOKEVIRTUAL])
+    extends (BytecodeDatabase => Relation[INVOKEVIRTUAL])
 {
     // With the analyzed sequence check FindBugs only finds
     // new Integer(1).doubleValue()
     // and not
     // Integer.valueOf(1).doubleValue()
-    def apply(database: BytecodeDatabase): LazyView[INVOKEVIRTUAL] = {
+    def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
 
-        val invokeSpecial: LazyView[INVOKESPECIAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
-        val invokeVirtual: LazyView[INVOKEVIRTUAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+        val invokeSpecial: Relation[INVOKESPECIAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val invokeVirtual: Relation[INVOKEVIRTUAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
         val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
 

@@ -25,7 +25,7 @@ object Metrics {
    * Calculation after:  Predicting Class Testability using Object-Oriented Metrics
    * constructors and static initializer are counted as methods
    */
-  def numberOfFanOutPerClass(db: Database): LazyView[(ReferenceType, Int)] = {
+  def numberOfFanOutPerClass(db: Database): Relation[(ReferenceType, Int)] = {
     //count all outgoing dependencies
     γ(fanOutAsSet(db), (x: (ReferenceType, Type)) => x._1, Count[(ReferenceType, Type)]())
   }
@@ -34,7 +34,7 @@ object Metrics {
    * Calculates the fan in for all classes in db
    * constructors and static initializer are counted as methods
    */
-  def numberOfFanInPerClass(db: Database): LazyView[(Type, Int)] = {
+  def numberOfFanInPerClass(db: Database): Relation[(Type, Int)] = {
     //count all incoming depedencies
     γ(fanOutAsSet(db), (x: (ReferenceType, Type)) => x._2, Count[(ReferenceType, Type)]())
   }
@@ -44,7 +44,7 @@ object Metrics {
    * constructors and static initializer are counted as methods
    */
   private def fanOutAsSet(db : Database
-                      ): LazyView[(ReferenceType, Type)] = {
+                      ): Relation[(ReferenceType, Type)] = {
 
 
     val isNotSelfReferenceAndIsObjectType: ((ReferenceType, Type)) => Boolean =
@@ -56,7 +56,7 @@ object Metrics {
    // classA use classB if:
    // - classA calls a method of classB   (calls)
    // - classA references a field of classB (    classfile_methods,   parameter,   read_field,   write_field,   classfile_fields,  ExceptionHandler)
-    val allDependencies: LazyView[(ReferenceType, Type)] =
+    val allDependencies: Relation[(ReferenceType, Type)] =
       δ(
         (
           (((((σ(isNotSelfReferenceAndIsObjectType)
@@ -92,27 +92,27 @@ object Metrics {
    * Calculation after Predicting Class Testability using Object-Oriented Metrics
    * constructors and static initializer are counted as methods
    */
-  def LCOMStar(db: Database): LazyView[(ReferenceType, Option[Double])] = {
+  def LCOMStar(db: Database): Relation[(ReferenceType, Option[Double])] = {
 
     //number of fields per class
     val numberOfFields =γ(db.classfile_fields, (x: Field) => x.declaringClass, Count[Field]())
 
 
     //number of methods per class
-    val numberOfMethods: LazyView[(ReferenceType, Int)] =
+    val numberOfMethods: Relation[(ReferenceType, Int)] =
       γ(db.classfile_methods, (x: Method) => x.declaringRef, Count[Method]())
 
     //set = { (MethodReference, FieldReference) | method use field}
     //MethodReference use field if
     //  - field is a global class field
     //  - method reads/writes the field
-    val methodUseField: LazyView[(Method, Field)] = δ(
+    val methodUseField: Relation[(Method, Field)] = δ(
       (Π[read_field, (Method, Field)]((x: read_field) => (x.source, x.target))(σ((x: read_field) => (x.source.declaringRef == x.target.declaringClass))(db.read_field))
         ∪
         Π[write_field, (Method, Field)]((x: write_field) => (x.source, x.target))(σ((x: write_field) => (x.source.declaringRef == x.target.declaringClass))(db.write_field))))
 
     // Sum_allMethods( distinct class field access)
-    val countRWtoOneField: LazyView[(ReferenceType, Int)] =
+    val countRWtoOneField: Relation[(ReferenceType, Int)] =
       γ(methodUseField, (x: (Method, Field)) => (x._1.declaringRef), Count[(Method, Field)]())
 
 
@@ -144,21 +144,21 @@ object Metrics {
   /**
    * Calculates the transitive closure over the inheritance relation
    */
-  def getInheritanceTransitiveClosure(db : Database) : LazyView[(ObjectType,ObjectType)]= {
+  def getInheritanceTransitiveClosure(db : Database) : Relation[(ObjectType,ObjectType)]= {
     new HashTransitiveClosure(db.`extends`, (x: `extends`) => x.source, (x: `extends`) => x.target)
   }
 
   /**
    * Calculates the depth of the inheritance tree for all classes in db
    */
-  def depthOfInheritanceTree(db: Database): LazyView[(ObjectType, Int)] = {
+  def depthOfInheritanceTree(db: Database): Relation[(ObjectType, Int)] = {
     γ(getInheritanceTransitiveClosure(db), (x: (ObjectType, ObjectType)) => x._1, Count[(ObjectType, ObjectType)](), (x: ObjectType, y: Int) => (x, y))
   }
 
   /**
    * Calculates the number of classes for all packages
    */
-  def numberOfClassesPerPackage(db: Database): LazyView[(String, Int)] = {
+  def numberOfClassesPerPackage(db: Database): Relation[(String, Int)] = {
     γ(db.classfiles, (x: ObjectType) => x.packageName, Count[ObjectType]())
   }
 
@@ -166,7 +166,7 @@ object Metrics {
    * Calculates the number of methods for all classes in db
    * constructors and static initializer are counted as methods
    */
-  def numberOfMethodsPerClass(db: Database): LazyView[(ReferenceType, Int)] = {
+  def numberOfMethodsPerClass(db: Database): Relation[(ReferenceType, Int)] = {
     γ(db.classfile_methods, (x: Method) => x.declaringRef, Count[Method]())
   }
 
@@ -174,7 +174,7 @@ object Metrics {
    * Calculates the number of methods for all packageds
    * constructors and static initializer are counted as methods
    */
-  def numberOfMethodsPerPackage(db: Database): LazyView[(String, Int)] = {
+  def numberOfMethodsPerPackage(db: Database): Relation[(String, Int)] = {
     γ(db.classfile_methods, (x: Method) => x.declaringRef.packageName, Count[Method]())
   }
 
@@ -183,7 +183,7 @@ object Metrics {
    * Calculates the lcom* metric for all classes in db
    * These modified lcom* metric excludes constructors and static initializer from the calculation
    */
-  def LCOMStarMod(db: Database): LazyView[(ReferenceType, Option[Double])] = {
+  def LCOMStarMod(db: Database): Relation[(ReferenceType, Option[Double])] = {
 
 
     //number of fields per class
@@ -191,7 +191,7 @@ object Metrics {
 
     val isNeitherConstructOrStaticInitializer : Method => Boolean = (m : Method) => !m.isConstructor() && !m.isStaticInitializer()
     //number of methods per class
-    val numberOfMethods: LazyView[(ReferenceType, Int)] =
+    val numberOfMethods: Relation[(ReferenceType, Int)] =
       γ(
         σ(isNeitherConstructOrStaticInitializer)(db.classfile_methods)
         , (x: Method) => x.declaringRef, Count[Method]())
@@ -200,13 +200,13 @@ object Metrics {
     //MethodReference use field if
     //  - field is a global class field
     //  - method reads/writes the field
-    val methodUseField: LazyView[(Method, Field)] = δ(
+    val methodUseField: Relation[(Method, Field)] = δ(
       (Π[read_field, (Method, Field)]((x: read_field) => (x.source, x.target))(σ( (rw:read_field) => isNeitherConstructOrStaticInitializer(rw.source))  (σ((x: read_field) => (x.source.declaringRef == x.target.declaringClass))(db.read_field)))
         ∪
         Π[write_field, (Method, Field)]((x: write_field) => (x.source, x.target))(σ( (rw:write_field) => isNeitherConstructOrStaticInitializer(rw.source)) (σ((x: write_field) => (x.source.declaringRef == x.target.declaringClass))(db.write_field)))))
 
     // Sum_allMethods( distinct class field access)
-    val countRWtoOneField: LazyView[(ReferenceType, Int)] =
+    val countRWtoOneField: Relation[(ReferenceType, Int)] =
       γ(methodUseField, (x: (Method, Field)) => (x._1.declaringRef), Count[(Method, Field)]())
 
 

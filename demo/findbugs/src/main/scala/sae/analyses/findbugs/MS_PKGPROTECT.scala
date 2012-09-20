@@ -20,15 +20,15 @@ object MS_PKGPROTECT
     def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
 
     /*
-        def apply(database: BytecodeDatabase): LazyView[FieldDeclaration] = {
+        def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
             //import database._
 
-            val fieldReadsFromExternalPackage: LazyView[ReadFieldInstruction] =
+            val fieldReadsFromExternalPackage: Relation[ReadFieldInstruction] =
                 SELECT (*) FROM database.fieldReadInstructions WHERE (instruction =>
                     instruction.declaringMethod.declaringType.packageName !=
                         instruction.targetField.declaringType.packageName)
 
-            val result: LazyView[FieldDeclaration] =
+            val result: Relation[FieldDeclaration] =
                 SELECT (*) FROM (database.declared_fields) WHERE
                     isFinal AND
                     isStatic AND

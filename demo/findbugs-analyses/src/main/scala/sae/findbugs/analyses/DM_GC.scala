@@ -1,6 +1,6 @@
 package sae.findbugs.analyses
 
-import sae.LazyView
+import sae.Relation
 import sae.bytecode.model.dependencies.{Dependency, invoke_virtual, invoke_static}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.bytecode.{BytecodeDatabase, Database}
@@ -25,7 +25,7 @@ object DM_GC
     private val runtimeGC = MethodReference(ObjectType("java/lang/Runtime"), "gc", Seq(), VoidType())
 
 
-    def apply(database: BytecodeDatabase): LazyView[Dependency[MethodDeclaration, MethodReference]] = {
+    def apply(database: BytecodeDatabase): Relation[Dependency[MethodDeclaration, MethodReference]] = {
         Π(
             (_: Instr[_]) match {
                 case invokestatic(declaringMethod, _, callee) => new Dependency[MethodDeclaration, MethodReference] {
@@ -49,7 +49,7 @@ object DM_GC
     }
 
     /** not using the already precomputed relations in the database **/
-    def unoptimized(database: BytecodeDatabase): LazyView[Dependency[MethodDeclaration, MethodReference]] = {
+    def unoptimized(database: BytecodeDatabase): Relation[Dependency[MethodDeclaration, MethodReference]] = {
         val invokestatic = Π( (_:Instr[_]).asInstanceOf[invokestatic] )(σ[invokestatic](database.instructions))
 
         val invokevirtual = Π( (_:Instr[_]).asInstanceOf[invokevirtual] )(σ[invokevirtual](database.instructions))
@@ -69,7 +69,7 @@ object DM_GC
         )
     }
 
-    def optimized(database: BytecodeDatabase): LazyView[Dependency[MethodDeclaration, MethodReference]] =
+    def optimized(database: BytecodeDatabase): Relation[Dependency[MethodDeclaration, MethodReference]] =
         σ((_: invoke_static).target == systemGC)(database.invoke_static)
                 .∪[Dependency[MethodDeclaration, MethodReference], invoke_virtual](
             σ((_: invoke_virtual).target == runtimeGC)(database.invoke_virtual)

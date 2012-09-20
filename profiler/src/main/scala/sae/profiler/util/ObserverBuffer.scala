@@ -2,7 +2,7 @@ package sae.profiler.util
 import sae._
 import scala.collection.mutable.ListBuffer
 
-class ObserverBuffer[V <: AnyRef](val source : LazyView[V]) extends Observer[V] with LazyView[V] {
+class ObserverBuffer[V <: AnyRef](val source : Relation[V]) extends Observer[V] with Relation[V] {
     source.addObserver(this)
     var buffer = ListBuffer[(V,Option[V], String)]()
 

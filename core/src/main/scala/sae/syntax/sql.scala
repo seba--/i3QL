@@ -1,6 +1,6 @@
 package sae.syntax
 
-import sae.LazyView
+import sae.Relation
 import sae.collections.QueryResult
 import sql.ast.predicates._
 import sql.ast.predicates.Filter
@@ -27,10 +27,10 @@ package object sql
 {
     val * : STAR_KEYWORD = keywords.STAR_KEYWORD
 
-    implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): LazyView[Domain] =
+    implicit def compile[Domain <: AnyRef](clause: SQL_QUERY[Domain]): Relation[Domain] =
         clause.compile ()
 
-    implicit def lazyViewToResult[V <: AnyRef](lazyView: LazyView[V]): QueryResult[V] = sae.collections.Conversions
+    implicit def lazyViewToResult[V <: AnyRef](lazyView: Relation[V]): QueryResult[V] = sae.collections.Conversions
         .lazyViewToResult (
         lazyView
     )

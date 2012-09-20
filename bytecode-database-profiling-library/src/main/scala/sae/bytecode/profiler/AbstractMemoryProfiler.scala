@@ -33,7 +33,7 @@
 package sae.bytecode.profiler
 
 import sae.bytecode.BytecodeDatabase
-import sae.{Observable, LazyView}
+import sae.{Observable, Relation}
 import java.io.File
 import sae.bytecode.profiler.MemoryProfiler._
 
@@ -65,7 +65,7 @@ trait AbstractMemoryProfiler
         println ("")
     }
 
-    def measure[V <: AnyRef](f: BytecodeDatabase => LazyView[V]): BytecodeDatabase => Seq[Observable[_]] = {
+    def measure[V <: AnyRef](f: BytecodeDatabase => Relation[V]): BytecodeDatabase => Seq[Observable[_]] = {
         (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
     }
 

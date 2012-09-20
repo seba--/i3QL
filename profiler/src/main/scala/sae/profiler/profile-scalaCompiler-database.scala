@@ -66,10 +66,10 @@ object ScalaCompilerProfiler {
     //f4.foreach(println)
   }
 
-  var f1: LazyView[(Type, Int)] = null
-  var f2: LazyView[(ReferenceType, Option[Double])] = null
-  var f3: LazyView[(ReferenceType, Int)] = null
-  var f4: LazyView[(ObjectType, Int)] = null
+  var f1: Relation[(Type, Int)] = null
+  var f2: Relation[(ReferenceType, Option[Double])] = null
+  var f3: Relation[(ReferenceType, Int)] = null
+  var f4: Relation[(ObjectType, Int)] = null
 
   def register(): Database => Unit = {
     val metrics: Database => Unit = (x: Database) => {
