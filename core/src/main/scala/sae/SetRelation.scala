@@ -46,7 +46,7 @@ trait SetRelation[V <: AnyRef]
 
 }
 
-class BaseSetRelation[V <: AnyRef]
+class SetExtent[V <: AnyRef]
     extends SetRelation[V]
 {
     /**

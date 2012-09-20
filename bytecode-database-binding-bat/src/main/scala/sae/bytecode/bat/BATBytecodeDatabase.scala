@@ -34,7 +34,7 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.BaseSetRelation
+import sae.SetExtent
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
 import sae.bytecode.instructions.InstructionInfo
@@ -53,21 +53,21 @@ class BATBytecodeDatabase
 
     val reader = new SAEJava6Framework (this)
 
-    val classDeclarations = new BaseSetRelation[ClassDeclaration]
+    val classDeclarations = new SetExtent[ClassDeclaration]
 
-    val methodDeclarations = new BaseSetRelation[MethodDeclaration]
+    val methodDeclarations = new SetExtent[MethodDeclaration]
 
-    val fieldDeclarations = new BaseSetRelation[FieldDeclaration]
+    val fieldDeclarations = new SetExtent[FieldDeclaration]
 
-    val classInheritance = new BaseSetRelation[InheritanceRelation]
+    val classInheritance = new SetExtent[InheritanceRelation]
 
-    val interfaceInheritance = new BaseSetRelation[InheritanceRelation]
+    val interfaceInheritance = new SetExtent[InheritanceRelation]
 
-    val instructions = new BaseSetRelation[InstructionInfo]
+    val instructions = new SetExtent[InstructionInfo]
 
-    val codeAttributes = new BaseSetRelation[CodeAttribute]
+    val codeAttributes = new SetExtent[CodeAttribute]
 
-    val exceptionHandlers = new BaseSetRelation[ExceptionHandlerInfo]
+    val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
     def fieldReadInstructions = null
 

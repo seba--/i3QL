@@ -1,6 +1,6 @@
 package sae
 
-import capabilities.{Contains, SingletonValue, Size}
+import capabilities.{Listable, Contains, SingletonValue, Size}
 
 /**
  * This view materializes its elements and thus requires
