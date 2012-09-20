@@ -258,8 +258,6 @@ trait BytecodeCFG
             )
 
 
-    private lazy val basicBlockSuccessorEdges: LazyView[SuccessorEdge] =
-        SELECT (*) FROM immediateBasicBlockSuccessorEdges UNION_ALL (fallThroughCaseSuccessors)
 
     /*
    cfg_add_fall_through_cases([EndPc|RestEndPcs], BasicBlockSuccessorSet) :-
@@ -278,12 +276,19 @@ trait BytecodeCFG
     /**
      * In the end each basic block that does not have a successor yet has to receive a fall through case
      */
-    private lazy val fallThroughCaseSuccessors =
+    private lazy val fallThroughCaseSuccessors : LazyView[SuccessorEdge]=
         SELECT ((b: BasicBlockEndBorder) => SuccessorEdge (b.declaringMethod, b.endPc, b.endPc + 1)) FROM basicBlockEndPcs WHERE NOT (
             EXISTS (
                 SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE ((_: SuccessorEdge).declaringMethod) === ((_: BasicBlockEndBorder).declaringMethod) AND ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
             )
         )
+
+    private lazy val basicBlockSuccessorEdges: LazyView[SuccessorEdge] = {
+        import sae.syntax.RelationalAlgebraSyntax._
+        immediateBasicBlockSuccessorEdges ∪ fallThroughCaseSuccessors
+    }
+
+
 
 
     private def endBorderMethod: BasicBlockEndBorder => MethodDeclaration = _.declaringMethod
