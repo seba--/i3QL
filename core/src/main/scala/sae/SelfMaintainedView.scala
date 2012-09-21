@@ -27,7 +27,8 @@ package sae
  */
 trait SelfMaintainedView[Domain <: AnyRef, Range <: AnyRef]
         extends Relation[Range]
-        with Observer[Domain] {
+        with Observer[Domain]
+{
 
 	def updated(oldV : Domain, newV : Domain) : Unit =
 	{

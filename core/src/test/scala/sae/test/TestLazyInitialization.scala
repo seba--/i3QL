@@ -3,7 +3,7 @@ package sae.test
 import org.scalatest.matchers.ShouldMatchers
 import sae.collections.Table
 import org.junit.{Assert, Test}
-import sae.{IndexedView, MockObserver, Observable}
+import sae.{IndexedViewOLD, MockObserver, Observable}
 
 
 /**

@@ -43,7 +43,7 @@ class TestVarious
         val bordersAll: Relation[(java.lang.Integer, java.lang.Integer)] = SELECT ((start: java.lang.Integer,
                                                                                     end: java.lang.Integer) => (start, end)) FROM (basicBlockStartPcs, basicBlockEndPcs)
 
-        val borders: MaterializedView[(java.lang.Integer, java.lang.Integer)] =
+        val borders: OLDMaterializedView[(java.lang.Integer, java.lang.Integer)] =
             Conversions.lazyViewToMaterializedView (
                 SELECT (*) FROM (bordersAll) WHERE ((e: (java.lang.Integer, java.lang.Integer)) => (e._1 < e._2))
             )
@@ -161,7 +161,7 @@ class TestVarious
             ._2)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE ((_: (String, Int))._1) === ((_: (String, Int))
             ._1)
 
-        val borders: MaterializedView[(Int, Int)] =
+        val borders: OLDMaterializedView[(Int, Int)] =
             Conversions.lazyViewToMaterializedView (
                 SELECT (*) FROM (bordersAll) WHERE ((e: (Int, Int)) => (e._1 < e._2))
             )
@@ -406,8 +406,8 @@ class TestVarious
     def observerChain[T <: AnyRef](o: Observable[T]): Seq[Observer[_ <: AnyRef]] = {
 
         var indexObservers: Seq[Observer[_ <: AnyRef]] = Seq ()
-        if (o.isInstanceOf[IndexedView[_ <: AnyRef]]) {
-            val indexed = o.asInstanceOf[IndexedView[_ <: AnyRef]]
+        if (o.isInstanceOf[IndexedViewOLD[_ <: AnyRef]]) {
+            val indexed = o.asInstanceOf[IndexedViewOLD[_ <: AnyRef]]
             indexObservers =
                 (for (index <- indexed.indices) yield
                 {

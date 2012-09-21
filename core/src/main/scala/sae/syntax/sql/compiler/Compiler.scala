@@ -35,6 +35,7 @@ package sae.syntax.sql.compiler
 
 import sae.{SetRelation, Relation}
 import sae.operators._
+import impl.AddMultiSetUnion
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
 import predicates._

@@ -3,7 +3,7 @@ package sae.operators
 import util.control.Breaks
 import collection.mutable.{HashSet, HashMap}
 import java.lang.Error
-import sae.{Observable, MaterializedView, Observer, Relation}
+import sae.{Observable, OLDMaterializedView, Observer, Relation}
 
 /**
  * A operation that calculates the transitive closure for a given source relation

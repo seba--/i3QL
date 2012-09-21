@@ -2,7 +2,7 @@ package sae
 
 import collection.mutable.HashSet
 
-trait Observable[V <: AnyRef]
+trait Observable[V]
 {
 
     protected[sae] var observers: HashSet[Observer[V]] = new HashSet[Observer[V]]()

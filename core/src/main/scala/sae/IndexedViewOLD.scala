@@ -4,8 +4,8 @@ package sae
  * This trait represents a materialized view that can be indexed
  * for faster joins, etc.
  */
-trait IndexedView[V <: AnyRef]
-        extends MaterializedView[V] {
+trait IndexedViewOLD[V <: AnyRef]
+        extends OLDMaterializedView[V] {
 
     // internally we forget the concrete Key type, since there may be many 
     // different keys

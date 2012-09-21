@@ -1,14 +1,14 @@
 package sae
 
-import capabilities.{Listable, Contains, SingletonValue, Size}
+import capabilities._
 
 /**
  * This view materializes its elements and thus requires
  * some form of intermediate storage.
  */
-trait MaterializedView[V <: AnyRef]
-    extends View[V]
-    with Relation[V]
+trait OLDMaterializedView[V <: AnyRef]
+    extends Relation[V]
+    with Iterable[V]
     with Size
     with SingletonValue[V]
     with Contains[V]

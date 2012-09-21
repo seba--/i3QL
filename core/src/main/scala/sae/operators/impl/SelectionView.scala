@@ -30,32 +30,67 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
+package sae.operators.impl
 
-import sae.{MaterializedRelation, Relation}
+import sae.{Observer, Relation}
+import sae.operators.Selection
 
 /**
- * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges
- * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the
- * warranted size and types of the cross product.
  *
- * IMPORTANT: The cross product is not a self-maintained view.
- * In order to compute the delta of adding a tuple
- * to one of the underlying relations,
- * the whole other relation needs to be considered.
+ * A selection view is a selection that stores no tuples by itself.
+ * All data is passed along if it passes the filter.
+ *
+ * The selection automatically registers as an observer of the relation upon construction
  *
  * @author Ralf Mitschke
- *
  */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+class SelectionView[Domain <: AnyRef](val relation: Relation[Domain],
+                                 val filter: Domain => Boolean)
+    extends Selection[Domain]
+    with Observer[Domain]
 {
+    relation addObserver this
 
-    def left: MaterializedRelation[DomainA]
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (Domain) => T) {
+        relation.foreach (
+            (v: Domain) => if (filter (v)) {
+                f (v)
+            }
+        )
+    }
 
-    def right: MaterializedRelation[DomainB]
+    def updated(oldV: Domain, newV: Domain) {
+        val oldVPasses = filter (oldV)
+        val newVPasses = filter (newV)
+        if (oldVPasses && newVPasses) {
+            element_updated (oldV, newV)
+        }
+        else
+        {
+            // only one of the elements complies to the filter
+            if (oldVPasses)
+            {
+                element_removed (oldV)
+            }
+            if (newVPasses)
+            {
+                element_added (newV)
+            }
+        }
+    }
 
-    def isSet = left.isSet && right.isSet
+    def removed(v: Domain) {
+        if (filter (v)) {
+            element_removed (v)
+        }
+    }
+
+    def added(v: Domain) {
+        if (filter (v)) {
+            element_added (v)
+        }
+    }
 }

@@ -30,41 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.operators.impl
+
+import sae.{Observer, Relation}
+import sae.operators.Projection
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 04.09.12
- * Time: 09:20
+ *
+ *
+ *
+ * The bag projection has the usual SQL meaning of a projection
+ * The projection is always self maintained and requires no additional data apart from the provided delta.
+ *
+ * @author Ralf Mitschke
+ *
  */
-
-trait MaterializedMultiSetView[V <: AnyRef]
-    extends Relation[V]
+class ProjectionView[Domain, Range](val relation: Relation[Domain],
+                                    val projection: Domain => Range)
+    extends Projection[Domain, Range]
+    with Observer[Domain]
 {
+    relation addObserver this
 
     /**
-     * Applies f to all elements of the view with their counts
+     * Applies f to all elements of the view.
      */
-    def foreachWithCount[T](f : (V, Int) => T)
-
-    def isDefinedAt(v: V): Boolean = {
-        if (!initialized) {
-            this.lazyInitialize ()
-        }
-        isDefinedAt_internal (v)
+    def foreach[T](f: (Range) => T) {
+        relation.foreach ((v: Domain) => f (projection (v)))
     }
 
-    protected def isDefinedAt_internal(v: V): Boolean
-
-
-    def elementCountAt[T >: V](v: T): Int = {
-        if (!initialized) {
-            this.lazyInitialize ()
-        }
-        elementCountAt_internal (v)
+    def updated(oldV: Domain, newV: Domain) {
+        element_updated (projection (oldV), projection (newV))
     }
 
-    protected def elementCountAt_internal[T >: V](v: T): Int
+    def removed(v: Domain) {
+        element_removed (projection (v))
+    }
+
+    def added(v: Domain) {
+        element_added (projection (v))
+    }
+
+
 
 }
+

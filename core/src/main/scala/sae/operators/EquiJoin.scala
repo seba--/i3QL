@@ -7,12 +7,12 @@ import sae.collections.Bag
  * A join ....
  */
 trait EquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef]
-        extends MaterializedView[Range]
+        extends OLDMaterializedView[Range]
 {
 
-    def left: IndexedView[DomainA]
+    def left: IndexedViewOLD[DomainA]
 
-    def right: IndexedView[DomainB]
+    def right: IndexedViewOLD[DomainB]
 
     type LeftDomain = DomainA
 
@@ -28,8 +28,8 @@ trait EquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: Any
 
 class HashEquiJoin[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef, Key <: AnyRef]
 (
-        val left: IndexedView[DomainA],
-        val right: IndexedView[DomainB],
+        val left: IndexedViewOLD[DomainA],
+        val right: IndexedViewOLD[DomainB],
         val leftKey: DomainA => Key,
         val rightKey: DomainB => Key,
         val joinFunction: (DomainA, DomainB) => Range

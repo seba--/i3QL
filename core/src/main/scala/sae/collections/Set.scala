@@ -41,7 +41,7 @@ trait HashSet[V <: AnyRef]
     protected def materialized_contains(v: V) = data.contains (v)
 }
 
-class HashSetView[V <: AnyRef] extends HashSet[V]
+class HashSetViewOLD[V <: AnyRef] extends HashSet[V]
 {
 
 

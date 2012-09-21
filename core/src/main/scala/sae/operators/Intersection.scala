@@ -20,9 +20,9 @@ trait Intersection[Domain <: AnyRef]
 {
     type Dom = Domain
 
-    def left: IndexedView[Domain]
+    def left: IndexedViewOLD[Domain]
 
-    def right: IndexedView[Domain]
+    def right: IndexedViewOLD[Domain]
 }
 
 
@@ -33,8 +33,8 @@ trait Intersection[Domain <: AnyRef]
  */
 class SetIntersection[Domain <: AnyRef]
 (
-        val left: IndexedView[Domain],
-        val right: IndexedView[Domain]
+        val left: IndexedViewOLD[Domain],
+        val right: IndexedViewOLD[Domain]
         )
         extends Intersection[Domain]
         with HashSet[Domain]
@@ -196,11 +196,11 @@ class SetIntersection[Domain <: AnyRef]
  */
 class BagIntersection[Domain <: AnyRef]
 (
-        val left: IndexedView[Domain],
-        val right: IndexedView[Domain]
+        val left: IndexedViewOLD[Domain],
+        val right: IndexedViewOLD[Domain]
         )
         extends Intersection[Domain]
-        with MaterializedView[Domain]
+        with OLDMaterializedView[Domain]
 {
 
     val leftIndex = left.index(identity)

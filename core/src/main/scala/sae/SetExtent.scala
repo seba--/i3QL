@@ -30,32 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
+package sae
 
-import sae.{MaterializedRelation, Relation}
-
-/**
- * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges
- * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the
- * warranted size and types of the cross product.
- *
- * IMPORTANT: The cross product is not a self-maintained view.
- * In order to compute the delta of adding a tuple
- * to one of the underlying relations,
- * the whole other relation needs to be considered.
- *
- * @author Ralf Mitschke
- *
- */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+class SetExtent[V]
+    extends SetRelation[V]
 {
 
-    def left: MaterializedRelation[DomainA]
-
-    def right: MaterializedRelation[DomainB]
-
-    def isSet = left.isSet && right.isSet
 }

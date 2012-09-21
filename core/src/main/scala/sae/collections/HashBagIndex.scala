@@ -3,7 +3,7 @@ package collections
 
 
 /**
- * An index backed by a guave ListMultimap.
+ * An index backed by a guava ListMultimap.
  * The index may have multiple values for a single key.
  * The index stores multiple equal key-value pairs.
  * Thus this Index is suited for bag semantics.
@@ -13,7 +13,7 @@ package collections
  * unique in any way.
  */
 class HashBagIndex[K <: AnyRef, V <: AnyRef](
-                                                    val relation: MaterializedView[V],
+                                                    val relation: OLDMaterializedView[V],
                                                     val keyFunction: V => K
                                                     )
         extends Collection[(K, V)]

@@ -13,21 +13,21 @@ object Conversions
     // be irritating from a client perspective.
     // if you use viewX in a query and want to add elements later, then maybe viewX
     // was replaced inside a query and results do not get updated
-    def lazyViewToMaterializedView[V <: AnyRef](lazyView: Relation[V]): MaterializedView[V] =
+    def lazyViewToMaterializedView[V <: AnyRef](lazyView: Relation[V]): OLDMaterializedView[V] =
         lazyView match {
-            // case view : LazySelection[V]    => new MaterializedSelection(view.filter, view.relation)
-            // case view : BagProjection[_, V] => new MaterializedBagProjection[view.Dom, V](view.projection, view.relation)
-            case view: MaterializedView[V] => view
+            // case view : LazySelection[V]    => new OLDMaterializedSelection(view.filter, view.relation)
+            // case view : BagProjection[_, V] => new OLDMaterializedBagProjection[view.Dom, V](view.projection, view.relation)
+            case view: OLDMaterializedView[V] => view
             case _ => new BagResult(lazyView)
         }
 
 
 
-    def lazyViewToIndexedView[V <: AnyRef](lazyView: Relation[V]): IndexedView[V] =
+    def lazyViewToIndexedView[V <: AnyRef](lazyView: Relation[V]): IndexedViewOLD[V] =
         lazyView match {
-            case view: IndexedView[V] => view
-            case view: MaterializedView[V] => new HashIndexedViewProxy(view)
-            case _ => new HashIndexedViewProxy(lazyViewToMaterializedView(lazyView))
+            case view: IndexedViewOLD[V] => view
+            case view: OLDMaterializedView[V] => new HashIndexedViewProxyOLD(view)
+            case _ => new HashIndexedViewProxyOLD(lazyViewToMaterializedView(lazyView))
         }
 
 }

@@ -2,7 +2,7 @@ package sae
 package collections
 
 /**
- * An index backed by a guave HashMultimap.
+ * An index backed by a guava HashMultimap.
  * The index may have multiple values for a single key.
  * The index does not store multiple equal key-value pairs.
  * Thus this Index is suited for set semantics.
@@ -12,7 +12,7 @@ package collections
  * unique in any way.
  */
 class HashSetIndex[K <: AnyRef, V <: AnyRef](
-    val relation: MaterializedView[V],
+    val relation: OLDMaterializedView[V],
     val keyFunction: V => K
 )
         extends Collection[(K, V)]

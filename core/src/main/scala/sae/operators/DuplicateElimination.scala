@@ -21,7 +21,7 @@ trait DuplicateElimination[Domain <: AnyRef]
 class SetDuplicateElimination[Domain <: AnyRef](
                                                        val relation: Relation[Domain])
         extends DuplicateElimination[Domain]
-        with MaterializedView[Domain]
+        with OLDMaterializedView[Domain]
         with Observer[Domain]
 {
 

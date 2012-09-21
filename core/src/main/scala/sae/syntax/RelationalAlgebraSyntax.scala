@@ -2,6 +2,7 @@ package sae
 package syntax
 
 import sae.operators._
+import impl.{CrossProductView, AddMultiSetUnion}
 import sae.operators.intern._
 import sae.Relation
 
@@ -26,7 +27,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
     // equi join using bowtie symbol (U+22C8)
     def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef] (leftKey: Domain => Key, rightKey: OtherDomain => Key)
                                                                  (otherRelation: Relation[OtherDomain])
-                                                                 (factory: (Domain, OtherDomain) => Range): MaterializedView[Range] =
+                                                                 (factory: (Domain, OtherDomain) => Range): OLDMaterializedView[Range] =
         new HashEquiJoin (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
@@ -71,7 +72,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
                                                        rightKey: OtherDomain => Range,
                                                        otherRelation: Relation[OtherDomain]
                                                        )
-                                                   (factory: (Domain, OtherDomain) => Result): MaterializedView[Result] =
+                                                   (factory: (Domain, OtherDomain) => Result): OLDMaterializedView[Result] =
         new HashEquiJoin (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
@@ -353,27 +354,27 @@ object RelationalAlgebraSyntax
         implicit def functionToSetInclusion[Domain <: AnyRef, Range <: AnyRef](function: Domain => Range) =
             SetProjectionInclusionConverter(function)
 
-        case class ElementOf[Domain <: AnyRef](relation: MaterializedView[Domain]) extends (Domain => Boolean)
+        case class ElementOf[Domain <: AnyRef](relation: OLDMaterializedView[Domain]) extends (Domain => Boolean)
         {
             def apply(e: Domain) = relation.contains(e)
         }
 
         case class ElementOfProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                              projection: Domain => Range,
-                                                                             relation: MaterializedView[Range]
+                                                                             relation: OLDMaterializedView[Range]
                                                                          ) extends (Domain => Boolean)
         {
             def apply(e: Domain) = relation.contains(projection(e))
         }
 
-        case class NotElementOf[Domain <: AnyRef](relation: MaterializedView[Domain]) extends (Domain => Boolean)
+        case class NotElementOf[Domain <: AnyRef](relation: OLDMaterializedView[Domain]) extends (Domain => Boolean)
         {
             def apply(e: Domain) = !relation.contains(e)
         }
 
         case class NotElementOfProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                                 projection: Domain => Range,
-                                                                                relation: MaterializedView[Range]
+                                                                                relation: OLDMaterializedView[Range]
                                                                             ) extends (Domain => Boolean)
         {
             type Rng = Range

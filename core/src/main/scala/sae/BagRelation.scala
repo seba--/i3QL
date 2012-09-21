@@ -33,12 +33,13 @@
 package sae
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 20.09.12
- * Time: 22:16
+ *
+ * A bag relation is a relation in which tuples can occur multiple times.
+ *
+ * @author Ralf Mitschke
  */
-trait BagRelation
+class BagRelation[V]
+    extends Relation[V]
 {
-
+    def isSet = false
 }

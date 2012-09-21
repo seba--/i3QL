@@ -30,32 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
+package sae
 
-import sae.{MaterializedRelation, Relation}
+import capabilities.Iterable
 
 /**
- * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges
- * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the
- * warranted size and types of the cross product.
  *
- * IMPORTANT: The cross product is not a self-maintained view.
- * In order to compute the delta of adding a tuple
- * to one of the underlying relations,
- * the whole other relation needs to be considered.
+ *
+ * A relation is the base trait for all operators and views.
+ * A relation can be marked as a set, which must be guaranteed by the data provider.
+ * If the data provider guarantees the data to have set property,
+ * i.e., all tuples occur at most once, then additional optimizations are possible.
+ *
+ * All relations can be iterated over.
+ * The iteration requires that this relation or view is materialized, or one of the underlying relation is materialized.
+ * If no relation whatsoever is materialized the iteration returns has no elements.
+ *
+ * All relations can be materialized, even if they do not store elements themselves.
  *
  * @author Ralf Mitschke
- *
  */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+trait Relation[V]
+    extends Observable[V]
+    with Iterable[V]
 {
 
-    def left: MaterializedRelation[DomainA]
+    type Value = V
 
-    def right: MaterializedRelation[DomainB]
+    def isSet: Boolean
 
-    def isSet = left.isSet && right.isSet
+    def asMaterialized : MaterializedRelation[V]
 }
+

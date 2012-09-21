@@ -25,7 +25,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
                                                                                                                                 val groupingFunction: Domain => Key,
                                                                                                                                 val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                                                                 val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
-        extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with MaterializedView[Result]
+        extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with OLDMaterializedView[Result]
 {
 
 

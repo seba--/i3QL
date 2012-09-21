@@ -43,8 +43,8 @@ trait ObservableProxy[V <: AnyRef] extends Observable[V]
 }
 
 // proxy observer for indices
-class HashIndexedViewProxy[V <: AnyRef](val relation: MaterializedView[V])
-        extends IndexedView[V]
+class HashIndexedViewProxyOLD[V <: AnyRef](val relation: OLDMaterializedView[V])
+        extends IndexedViewOLD[V]
         with ObservableProxy[V]
 {
 

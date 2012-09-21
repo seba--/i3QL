@@ -33,7 +33,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
  val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
  val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
         extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
-        with Observer[Domain] with MaterializedView[Result]
+        with Observer[Domain] with OLDMaterializedView[Result]
 {
 
 

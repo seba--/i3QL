@@ -38,32 +38,11 @@ package sae
  * Date: 25.08.12
  * Time: 09:19
  *
- * A set view is guaranteed to contain each element only once.
+ * A set relation is guaranteed to contain each element only once.
  */
 trait SetRelation[V <: AnyRef]
     extends Relation[V]
 {
-
+    def isSet: Boolean = true
 }
 
-class SetExtent[V <: AnyRef]
-    extends SetRelation[V]
-{
-    /**
-     * Applies f to all elements of the view.
-     * Implementers must guarantee that no update/add/remove event is
-     * fired during the deferred iteration
-     */
-    def lazy_foreach[T](f: (V) => T) {}
-
-    /**
-     * Each materialized view must be able to
-     * materialize it's content from the underlying
-     * views.
-     * The laziness allows a query to be set up
-     * on relations (tables) that are already filled.
-     * thus the first call to foreach will try to
-     * materialize already persisted data.
-     */
-    def lazyInitialize() {}
-}

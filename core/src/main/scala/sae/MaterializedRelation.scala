@@ -30,32 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
-
-import sae.{MaterializedRelation, Relation}
+package sae
 
 /**
- * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges
- * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the
- * warranted size and types of the cross product.
- *
- * IMPORTANT: The cross product is not a self-maintained view.
- * In order to compute the delta of adding a tuple
- * to one of the underlying relations,
- * the whole other relation needs to be considered.
- *
- * @author Ralf Mitschke
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 04.09.12
+ * Time: 09:20
  */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+
+trait MaterializedRelation[V <: AnyRef]
+    extends Relation[V]
+    with LazyInitialized
 {
 
-    def left: MaterializedRelation[DomainA]
+    def asMaterialized = this
 
-    def right: MaterializedRelation[DomainB]
+    /**
+     * Applies f to all elements of the view with their counts
+     */
+    def foreachWithCount[T](f: (V, Int) => T)
 
-    def isSet = left.isSet && right.isSet
+    def isDefinedAt(v: V): Boolean = {
+        if (!initialized) {
+            this.lazyInitialize ()
+        }
+        isDefinedAt_internal (v)
+    }
+
+    protected def isDefinedAt_internal(v: V): Boolean
+
+
+    def elementCountAt[T >: V](v: T): Int = {
+        if (!initialized) {
+            this.lazyInitialize ()
+        }
+        elementCountAt_internal (v)
+    }
+
+    protected def elementCountAt_internal[T >: V](v: T): Int
+
 }

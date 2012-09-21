@@ -1,5 +1,7 @@
 package sae
 
+import capabilities.Iterable
+
 /**
  * An index in a database provides fast access to the values <code>V</code>
  * of a relation of Vs via keys of type <code>K</code>.</br>
@@ -21,11 +23,11 @@ package sae
  *
  */
 trait Index[K <: AnyRef, V <: AnyRef]
-        extends MaterializedView[(K, V)]
+        extends OLDMaterializedView[(K, V)]
         with SelfMaintainedView[V, (K, V)]
 {
 
-    def relation: MaterializedView[V]
+    def relation: OLDMaterializedView[V]
 
     def keyFunction: V => K
 

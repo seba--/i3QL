@@ -30,32 +30,51 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
-
-import sae.{MaterializedRelation, Relation}
+package sae
 
 /**
- * A cross product constructs all combinations of tuples in multiple relations.
- * Thus the cross product dramatically enlarges
- * the amount of tuples in it's output.
- * The new relations are anonymous tuples of the
- * warranted size and types of the cross product.
- *
- * IMPORTANT: The cross product is not a self-maintained view.
- * In order to compute the delta of adding a tuple
- * to one of the underlying relations,
- * the whole other relation needs to be considered.
  *
  * @author Ralf Mitschke
  *
  */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+
+trait LazyInitializedView[Domain <: AnyRef, Range <: AnyRef]
+    extends Relation[Range]
+    with Observer[Domain]
+    with LazyInitialized
 {
+{
+    def updated(oldV : Domain, newV : Domain) : Unit =
+    {
+        if( !initialized ){
+            lazyInitialize ()
+            initialized = true
+        }
+        updated_internal(oldV, newV)
+    }
 
-    def left: MaterializedRelation[DomainA]
+    def updated_internal(oldV : Domain, newV : Domain) : Unit
 
-    def right: MaterializedRelation[DomainB]
+    def removed(v : Domain) : Unit =
+    {
+        if( !initialized ){
+            lazyInitialize ()
+            initialized = true
+        }
 
-    def isSet = left.isSet && right.isSet
+        removed_internal(v)
+    }
+
+    def removed_internal(v : Domain) : Unit
+
+    def added(v : Domain) : Unit =
+    {
+        if( !initialized ){
+            lazyInitialize ()
+            initialized = true
+        }
+        added_internal(v)
+    }
+
+    def added_internal(v : Domain) : Unit
 }

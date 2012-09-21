@@ -12,7 +12,7 @@ import capabilities.{Listable, SingletonValue, Size}
  * materialized view, a simple Proxy is used.
  */
 trait QueryResult[V <: AnyRef]
-        extends MaterializedView[V]
+        extends OLDMaterializedView[V]
         with Size
         with SingletonValue[V]
         with Listable[V]
@@ -134,8 +134,8 @@ class SetResult[V <: AnyRef](
  * A result that uses the underlying relation knowing that it is already
  * materialized.
  */
-class MaterializedViewProxyResult[V <: AnyRef](
-                                                      val relation: MaterializedView[V]
+class OLDMaterializedViewProxyResult[V <: AnyRef](
+                                                      val relation: OLDMaterializedView[V]
                                                       )
         extends QueryResult[V]
         with SelfMaintainedView[V, V]

@@ -19,9 +19,9 @@ trait Difference[Domain <: AnyRef]
 {
     type Dom = Domain
 
-    def left: IndexedView[Domain]
+    def left: IndexedViewOLD[Domain]
 
-    def right: IndexedView[Domain]
+    def right: IndexedViewOLD[Domain]
 }
 
 /**
@@ -35,11 +35,11 @@ trait Difference[Domain <: AnyRef]
  */
 class BagDifference[Domain <: AnyRef]
 (
-        val left: IndexedView[Domain],
-        val right: IndexedView[Domain]
+        val left: IndexedViewOLD[Domain],
+        val right: IndexedViewOLD[Domain]
         )
         extends Difference[Domain]
-        with MaterializedView[Domain]
+        with OLDMaterializedView[Domain]
 {
     left addObserver LeftObserver
 
