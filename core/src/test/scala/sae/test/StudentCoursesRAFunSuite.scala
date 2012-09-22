@@ -246,6 +246,7 @@ class StudentCoursesRAFunSuite
         val eiseResultList = eise_students.asList
 
         assert(eise_students.size === 2)
+
         students.foreach(student => {
             assert(eiseResultList.exists({
                 case ((s, e), c) => s == student

@@ -24,7 +24,7 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
             a => {
                 right.foreach (
                     b => {
-                        element_added (projection (a, b))
+                        f (projection (a, b))
                     }
                 )
             }
