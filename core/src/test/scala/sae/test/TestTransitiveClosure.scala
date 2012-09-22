@@ -3,7 +3,7 @@ package sae.test
 import org.junit.Assert._
 import org.junit.{Before, Test}
 import sae.collections.Table
-import sae.{QueryResult, BagExtent, Observer, Relation}
+import sae._
 import util.Random
 import sae.operators.impl.TransitiveClosureView
 
@@ -11,6 +11,7 @@ import sae.operators.impl.TransitiveClosureView
 /**
  * Test suit for HashTrainsitiveClosure
  * @author Malte V
+ * @author Ralf Mitschke
  */
 
 class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
@@ -32,7 +33,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     var testGraph        : Table[Edge] = null
 
     @Test
-    def addTest {
+    def addTest() {
         //test for figure 1 (a)
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -41,16 +42,16 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
         smallAddTestGraph.element_added (Edge ("a", "b"))
         assertTrue (res.size == 6)
 
-        assertTrue (res.contains ((Vertex ("x"), Vertex ("a"))))
-        assertTrue (res.contains ((Vertex ("a"), Vertex ("b"))))
-        assertTrue (res.contains ((Vertex ("x"), Vertex ("b"))))
-        assertTrue (res.contains ((Vertex ("a"), Vertex ("y"))))
-        assertTrue (res.contains ((Vertex ("x"), Vertex ("y"))))
-        assertTrue (res.contains ((Vertex ("b"), Vertex ("y"))))
+        assertTrue (res.asList.contains ((Vertex ("x"), Vertex ("a"))))
+        assertTrue (res.asList.contains ((Vertex ("a"), Vertex ("b"))))
+        assertTrue (res.asList.contains ((Vertex ("x"), Vertex ("b"))))
+        assertTrue (res.asList.contains ((Vertex ("a"), Vertex ("y"))))
+        assertTrue (res.asList.contains ((Vertex ("x"), Vertex ("y"))))
+        assertTrue (res.asList.contains ((Vertex ("b"), Vertex ("y"))))
     }
 
     @Test
-    def removeTest {
+    def removeTest() {
         //test for figure 2
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -68,7 +69,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
     @Test
-    def testSet {
+    def testSet() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -111,7 +112,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
     @Test
-    def testSetSemantic {
+    def testSetSemantic() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -128,7 +129,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
 
 
     @Test
-    def testCycle {
+    def testCycle() {
         //in general Cycles dont work!
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
@@ -154,7 +155,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
     @Test
-    def testSmall {
+    def testSmall() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -171,7 +172,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
     @Test
-    def testRemoveWithNoUpdateCase1 {
+    def testRemoveWithNoUpdateCase1() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -182,13 +183,13 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
         testGraph += Edge ("t2", "b")
         testGraph += Edge ("b", "y")
         assertTrue (res.size == 10)
-        view.addObserver (getFailObs ())
+        view.addObserver (getFailObs)
         testGraph -= Edge ("a", "b")
         assertTrue (res.size == 10)
     }
 
     @Test
-    def testRemoveWithNoUpdateCase2 {
+    def testRemoveWithNoUpdateCase2() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -200,13 +201,13 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
         testGraph += Edge ("t2", "b")
         testGraph += Edge ("b", "y")
         assertTrue (res.size == 15)
-        view.addObserver (getFailObs ())
+        view.addObserver (getFailObs)
         testGraph -= Edge ("a", "b")
         assertTrue (res.size == 15)
     }
 
     @Test
-    def testRemoveWithNoUpdateCase3 {
+    def testRemoveWithNoUpdateCase3() {
         testGraph = new Table[Edge]
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
@@ -217,13 +218,13 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
         testGraph += Edge ("t1", "t2")
         testGraph += Edge ("t2", "b")
         assertTrue (res.size == 10)
-        view.addObserver (getFailObs ())
+        view.addObserver (getFailObs)
         testGraph -= Edge ("a", "b")
         assertTrue (res.size == 10)
     }
 
     @Before
-    def initialTestSetting {
+    def initialTestSetting() {
         smallAddTestGraph = new Table[Edge]
         smallAddTestGraph += Edge ("x", "a")
         smallAddTestGraph += Edge ("b", "y")
@@ -350,7 +351,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
 
-    private def getFailObs() = {
+    private def getFailObs = {
         new Observer[AnyRef]
         {
             def updated(oldV: AnyRef, newV: AnyRef) {

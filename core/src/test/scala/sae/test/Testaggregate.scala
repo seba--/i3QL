@@ -25,7 +25,7 @@ class Testaggregate extends TestCase
 
     case class Schuh(art: String, name: String, hersteller: String, preis: Int, groesse: Int)
 
-    var schuhe = new ObservableList[Schuh];
+    var schuhe = new ObservableList[Schuh]
     //: Aggregation[Schuh, (String, String), (Int, Int, Int), (String, String, Int, Int, Int)]
     var aggOp  = Aggregation (schuhe, grouping, (Sum ((x: Schuh) => x.preis), Min ((x: Schuh) => x.preis), Max ((x: Schuh) => x.preis)), ((key: (String, String), aggV: (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
 
@@ -60,7 +60,7 @@ class Testaggregate extends TestCase
             data += v
         }
 
-        override def toString(): String = {
+        override def toString: String = {
             data.toString ()
         }
     }
@@ -74,7 +74,7 @@ class Testaggregate extends TestCase
         //   protected var data = List[V]();
         // var data = ListBuffer[V]();
 
-        import com.google.common.collect.HashMultiset;
+        import com.google.common.collect.HashMultiset
         val data: HashMultiset[V] = HashMultiset.create[V]()
 
         def add(k: V) {
@@ -106,28 +106,28 @@ class Testaggregate extends TestCase
             data.foreach (f)
         }
 
-        def lazyInitialize = {}
+        def lazyInitialize() {}
 
         def isSet = false
     }
 
     //before every method
-    override def setUp() = {
-        schuhe = new ObservableList[Schuh];
+    override def setUp() {
+        schuhe = new ObservableList[Schuh]
         aggOp = Aggregation (schuhe, grouping, (Sum ((x: Schuh) => x.preis), Min ((x: Schuh) => x.preis), Max ((x: Schuh) => x.preis)), ((key: (String, String), aggV: (Int, Int, Int)) => (key._1, key._2, aggV._1, aggV._2, aggV._3)))
         list = new ObserverList[(String, String, Int, Int, Int)]
-        aggOp.addObserver (list);
+        aggOp.addObserver (list)
     }
 
     //after every method
-    override def tearDown() = {
+    override def tearDown() {
         //  println("down!")
     }
 
-    def testAggregationWithoutGrouping() = {
+    def testAggregationWithoutGrouping() {
         var sum = Aggregation (schuhe, Sum ((x: Schuh) => x.preis))
         val list = new ObserverList[Some[Int]]
-        sum.addObserver (list);
+        sum.addObserver (list)
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("damen", "GOODYEAR STREET W", "Adidas", 12, 12))
         schuhe.add (new Schuh ("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
@@ -138,10 +138,10 @@ class Testaggregate extends TestCase
 
     }
 
-    def testAdd() = {
+    def testAdd() {
         val list = new ObserverList[(String, String, Int, Int, Int)]
 
-        aggOp.addObserver (list);
+        aggOp.addObserver (list)
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
 
         assertTrue (list.size == 1)
@@ -172,10 +172,10 @@ class Testaggregate extends TestCase
 
     }
 
-    def testAddMultyValue() = {
+    def testAddMultyValue() {
         val list = new ObserverList[(String, String, Int, Int, Int)]
 
-        aggOp.addObserver (list);
+        aggOp.addObserver (list)
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
@@ -202,9 +202,9 @@ class Testaggregate extends TestCase
 
     }
 
-    def testDelet() = {
+    def testDelet() {
         val list = new ObserverList[(String, String, Int, Int, Int)]
-        aggOp.addObserver (list);
+        aggOp.addObserver (list)
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("damen", "GOODYEAR STREET W", "Adidas", 12, 12))
         schuhe.add (new Schuh ("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
@@ -221,7 +221,7 @@ class Testaggregate extends TestCase
     }
 
     //oldKey = newKey
-    def testUpdateCase1() = {
+    def testUpdateCase1() {
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("herren", "New GOODYEAR STREET M", "Adidas", 24, 12))
         assertTrue (list.size == 1)
@@ -237,7 +237,8 @@ class Testaggregate extends TestCase
     }
 
     //oldKey <> newkey and remove oldKey and add newKey
-    def testUpdateCase2() = {
+    def testUpdateCase2()
+    {
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         assertTrue (list.size == 1)
         assertTrue (list.contains ("herren", "Adidas", 11, 11, 11))
@@ -247,7 +248,7 @@ class Testaggregate extends TestCase
     }
 
     //oldKey <> newkey and remove oldKey and update newKey
-    def testUpdateCase3() = {
+    def testUpdateCase3() {
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
         assertTrue (list.size == 2)
@@ -258,7 +259,7 @@ class Testaggregate extends TestCase
     }
 
     //oldKey <> newkey and update oldKey and update newKey
-    def testUpdateCase4() = {
+    def testUpdateCase4() {
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))
         schuhe.add (new Schuh ("damen", "GOODYEAR STREET M", "Adidas", 13, 12))
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 18, 12))
@@ -272,7 +273,7 @@ class Testaggregate extends TestCase
         assertTrue (list.contains ("damen", "Adidas", 20, 2, 13))
     }
 
-    def testSmallEdgeTest = {
+    def testSmallEdgeTest() {
 
         // case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a: String, b: String, minCost: Int, avgCost: Double)
@@ -285,7 +286,7 @@ class Testaggregate extends TestCase
         }, (Min ((x: Edge) => x.c), AVG ((x: Edge) => x.c)), (x: (String, String), y: (Int, Double)) => {
             new EdgeGroup (x._1, x._2, y._1, y._2)
         })
-        val ob = new ObserverList[EdgeGroup];
+        val ob = new ObserverList[EdgeGroup]
         minAndAVGCost.addObserver (ob)
         edges.add (new Edge ("a", "b", 4))
         edges.add (new Edge ("a", "b", 2))
@@ -300,7 +301,7 @@ class Testaggregate extends TestCase
 
     }
 
-    def testSallEdgeTest2 = {
+    def testSallEdgeTest2() {
         case class EdgeGroup(a: String, b: String, minCost: Int, count: Int, avgCost: Double)
         val edges = new ObservableList[Edge]
         val minAndAVGCost = Aggregation (edges, (e: Edge) => (e.a, e.b),
@@ -308,7 +309,7 @@ class Testaggregate extends TestCase
             (x: (String, String), y: (Int, Int, Double)) => {
                 new EdgeGroup (x._1, x._2, y._1, y._2, y._3)
             })
-        val ob = new ObserverList[EdgeGroup];
+        val ob = new ObserverList[EdgeGroup]
         minAndAVGCost.addObserver (ob)
         edges.add (new Edge ("a", "b", 4))
         edges.add (new Edge ("a", "b", 2))
@@ -322,7 +323,7 @@ class Testaggregate extends TestCase
         assertTrue (ob.size == 3)
     }
 
-    def testEdgeLazy = {
+    def testEdgeLazy() {
         //case class Edge(a : String, b : String, c : Int)
         case class EdgeGroup(a: String, b: String, minCost: Int, count: Int, avgCost: Double)
         val edges = new ObservableList[Edge]
@@ -338,11 +339,11 @@ class Testaggregate extends TestCase
             (x: (String, String), y: (Int, Int, Double)) => {
                 new EdgeGroup (x._1, x._2, y._1, y._2, y._3)
             })
-        val ob = new ObserverList[EdgeGroup];
+        val ob = new ObserverList[EdgeGroup]
         minAndAVGCost.addObserver (ob)
         assertTrue (ob.size == 0)
         var minAndAVGCostAsList = List[EdgeGroup]()
-        minAndAVGCost.asInstanceOf[MaterializedView[EdgeGroup]].foreach ((x: EdgeGroup) => {
+        minAndAVGCost.asInstanceOf[MaterializedRelation[EdgeGroup]].foreach ((x: EdgeGroup) => {
             minAndAVGCostAsList = x :: minAndAVGCostAsList
         }) //x => minAndAVGCostAsList = x :: minAndAVGCostAsList)
         assertTrue (minAndAVGCostAsList.contains (EdgeGroup ("a", "b", 2, 3, 3.0)))
@@ -353,23 +354,23 @@ class Testaggregate extends TestCase
         assertTrue (ob.contains (EdgeGroup ("c", "b", 2, 2, 3.5)))
     }
 
-    def testAggregationWithSelection() = {
-
+    def testAggregationWithSelection() {
+        import sae.syntax.RelationalAlgebraSyntax._
         case class EdgeGroup(a: String, b: String, count: Int)
         val edges = new ObservableList[Edge]
 
-        val selection = new LazySelection[Edge]((x: Edge) => {
+        val selection = σ ((x: Edge) => {
             x.a == "a" || x.a == "b"
-        }, edges)
+        })(edges)
 
         val edgeStartingWithAOrB = Aggregation (selection, (e: Edge) => (e.a, e.b),
             Count[Edge](),
             (x: (String, String), y: Int) => {
                 new EdgeGroup (x._1, x._2, y)
             })
-        val selection2 = new MaterializedSelection[EdgeGroup]((x: EdgeGroup) => {
+        val selection2 = σ ((x: EdgeGroup) => {
             x.count > 2
-        }, edgeStartingWithAOrB)
+        })(edgeStartingWithAOrB)
         val op = new ObserverList[EdgeGroup]()
         edgeStartingWithAOrB.addObserver (op)
 
