@@ -3,7 +3,7 @@ package sae.capabilities
 /**
  * Trait used for testing purposes
  */
-trait Listable[V <: AnyRef]
+trait Listable[V]
 {
 
     def foreach[T](f: (V) => T)

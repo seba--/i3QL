@@ -54,16 +54,16 @@ class SetResult[V <: AnyRef](val relation: Relation[V])
     }
 
 
-    override def updated(oldV: V, newV: V) {
+    def updated_after_initialization(oldV: V, newV: V) {
         this -= oldV
         this += newV
     }
 
-    override def removed(v: V) {
+    def removed_after_initialization(v: V) {
         this -= v
     }
 
-    override def added(v: V) {
+    def added_after_initialization(v: V) {
         this += v
     }
 

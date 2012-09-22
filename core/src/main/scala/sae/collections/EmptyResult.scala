@@ -37,11 +37,32 @@ import sae.QueryResult
 class EmptyResult[V]
     extends QueryResult[V]
 {
-    protected def materialized_foreach[T](f: (V) => T) {}
+    def isSet = true
 
-    protected def materialized_size: Int = 0
+    /**
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
+     */
+    def lazyInitialize() {}
 
-    protected def materialized_singletonValue: Option[V] = None
+    /**
+     * Returns the size of the view in terms of elements.
+     * This can be a costly operation.
+     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
+     */
+    def size = 0
 
-    protected def materialized_contains(v: V): Boolean = false
+    /**
+     * If the view consists of a single value, Some(value) is returned, i.e. the value wrapped in a Option.
+     * Otherwise this method returns None.
+     * If only one distinct value is contained but in multiple instances None is returned.
+     */
+    def singletonValue = None
+
+    def foreach[T](f: (V) => T) {}
 }

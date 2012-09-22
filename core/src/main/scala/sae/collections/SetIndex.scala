@@ -11,8 +11,8 @@ package collections
  * arbitrary data. Parts of a tuple may be defined as index and must not be
  * unique in any way.
  */
-class SetIndex[K <: AnyRef, V <: AnyRef](val relation: Relation[V],
-                                         val keyFunction: V => K)
+class SetIndex[K, V](val relation: Relation[V],
+                     val keyFunction: V => K)
     extends Index[K, V]
 {
 
@@ -55,16 +55,16 @@ class SetIndex[K <: AnyRef, V <: AnyRef](val relation: Relation[V],
 
 
     protected def elementCountAt_internal(key: K) =
-        if (!map.containsKey (key))
-        {
-            0
-        }
-        else
+        if (map.containsKey (key))
         {
             map.get (key).size ()
         }
+        else
+        {
+            0
+        }
 
-    def materialized_foreach[U](f: ((K, V)) => U)
+    def foreach_internal[U](f: ((K, V)) => U)
     {
         val it: java.util.Iterator[java.util.Map.Entry[K, V]] = map.entries ().iterator
         while (it.hasNext) {
@@ -73,14 +73,14 @@ class SetIndex[K <: AnyRef, V <: AnyRef](val relation: Relation[V],
         }
     }
 
-    def add_element(kv: (K, V))
+    def add_element(k: K, v: V)
     {
-        map.put (kv._1, kv._2)
+        map.put (k, v)
     }
 
-    def remove_element(kv: (K, V))
+    def remove_element(k: K, v: V)
     {
-        map.remove (kv._1, kv._2)
+        map.remove (k, v)
     }
 
     def update_element(oldKey: K, oldV: V, newKey: K, newV: V)

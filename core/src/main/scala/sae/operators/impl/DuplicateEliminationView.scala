@@ -86,8 +86,6 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
         data.contains (v)
 
 
-
-
     /**
      * We use a generalized bag semantics, thus this method
      * returns true if the element was not already present in the list
@@ -111,7 +109,7 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
     // update operations
-    override def updated(oldV: Domain, newV: Domain) {
+    def updated_after_initialization(oldV: Domain, newV: Domain) {
         if (oldV == newV) {
             return
         }
@@ -121,13 +119,13 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
         element_updated (oldV, newV)
     }
 
-    override def removed(v: Domain) {
+    def removed_after_initialization(v: Domain) {
         if (remove_element (v)) {
             element_removed (v)
         }
     }
 
-    override def added(v: Domain) {
+    def added_after_initialization(v: Domain) {
         if (add_element (v)) {
             element_added (v)
         }

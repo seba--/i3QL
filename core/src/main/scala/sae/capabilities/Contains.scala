@@ -6,7 +6,7 @@ package sae.capabilities
  * Created: 31.05.11 17:31
  *
  */
-trait Contains[V <: AnyRef]
+trait Contains[V]
 {
     def contains(element: V): Boolean
 }

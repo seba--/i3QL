@@ -48,6 +48,23 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
 
     right addObserver RightObserver
 
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (Domain) => T) {
+        left.foreach (
+            (v: Domain) =>
+            {
+                val min = scala.math.min (left.elementCountAt (v), right.elementCountAt (v))
+                var i = 0
+                while (i < min) {
+                    f (v)
+                    i += 1
+                }
+            }
+        )
+    }
+
     object LeftObserver extends Observer[Domain]
     {
 

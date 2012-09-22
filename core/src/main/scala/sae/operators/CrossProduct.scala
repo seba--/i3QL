@@ -58,9 +58,9 @@ trait CrossProduct[DomainA, DomainB, Range]
     extends Relation[Range]
 {
 
-    def left: MaterializedRelation[DomainA]
+    def left: Relation[DomainA]
 
-    def right: MaterializedRelation[DomainB]
+    def right: Relation[DomainB]
 
     def projection: (DomainA, DomainB) => Range
 

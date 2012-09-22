@@ -32,11 +32,12 @@
  */
 package sae.operators.impl
 
-import sae.{Observable, Observer, Relation}
-import collection.mutable.HashSet
-import scala.Some
+import sae.Relation
+import collection.mutable.{HashMap, HashSet}
 import util.control.Breaks
 import sae.operators.TransitiveClosure
+import sae.capabilities.LazyInitializedObserver
+import collection.mutable
 
 /**
  * Algorithm for:
@@ -47,14 +48,15 @@ import sae.operators.TransitiveClosure
  * @author Malte V
  * @author Ralf Mitschke
  */
-class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relation[Edge],
-                                                              val getTail: Edge => Vertex,
-                                                              val getHead: Edge => Vertex)
-    extends TransitiveClosure[Edge, Vertex] with Observer[Edge]
+class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
+                                          val getTail: Edge => Vertex,
+                                          val getHead: Edge => Vertex)
+    extends TransitiveClosure[Edge, Vertex]
+    with LazyInitializedObserver[Edge]
 {
-    import com.google.common.collect._
+    source addObserver this
 
-    private var internal_size: Int = 0
+    import com.google.common.collect._
 
     //The multimap does not store duplicate key-value pairs. Adding a new key-value pair equal to an existing key-value pair has no effect.
     //graph = HashSet[(Vertex,Vertex)] would be also possible
@@ -65,28 +67,17 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
     //TransitiveClose saved as double adjacencyList
     //for fast access its stored in a hashmap
     val transitiveClosure = HashMap[Vertex, (HashSet[Vertex], HashSet[Vertex])]()
-    // example: trainsitiveClosure = (v -> (u,w) , x)
+    // example: trainsitiveClosure = (v -> ({u,w} , x))
     //=> we have the edges:
     // (v,u)(v,w)
     // (v,x)
-    source addObserver this
 
-    override protected def children = List (source)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
-        }
-        Nil
-    }
-
-    lazyInitialize
 
     /**
-     * {@inheritDoc}
+     *
      * access in O(1)
      */
-    protected def materialized_contains(v: (Vertex, Vertex)) = {
+    protected def isDefinedAt_internal(v: (Vertex, Vertex)) = {
         if (transitiveClosure.contains (v._1)) {
             transitiveClosureGet (v._1)._1.contains (v._2)
         }
@@ -96,40 +87,21 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected def materialized_singletonValue = {
-        if (transitiveClosure.size == 1) {
-            if (transitiveClosure.head._2._2.size == 1) {
-                Some ((transitiveClosure.head._1, transitiveClosure.head._2._2.head))
-            }
+    protected def elementCountAt_internal[T >: (Vertex, Vertex)](t: T): Int = {
+        if (!t.isInstanceOf[(Vertex, Vertex)]) {
+            return 0
         }
-        None
+        val v = t.asInstanceOf[(Vertex, Vertex)]
+        if (transitiveClosure.contains (v._1)) {
+            transitiveClosureGet (v._1)._1.count (_ == v._2)
+        }
+        else
+        {
+            0
+        }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected def materialized_size = {
-        internal_size
-    }
-
-
-    private def materialized_size_++ {
-        internal_size += 1
-
-    }
-
-    private def materialized_size_-- {
-        internal_size -= 1
-    }
-
-
-    /**
-     * {@inheritDoc}
-     */
-    protected def materialized_foreach[T](f: ((Vertex, Vertex)) => T) {
+    def foreach[T](f: ((Vertex, Vertex)) => T) {
         transitiveClosure.foreach (x => {
             x._2._1.foreach (y => {
                 f ((x._1, y))
@@ -137,14 +109,12 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
         })
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    def lazyInitialize {
+
+    def lazyInitialize() {
         if (isInitialized) return
-        source.foreach (x =>
-            internal_add (x, false))
-        setInitialized()
+        source.foreach (
+            x => internal_add (x, notify = false))
+        setInitialized ()
     }
 
 
@@ -163,7 +133,6 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
                 adjacencyEdgesToTailVertex._1.add (getHead (edge))
                 adjacencyEdgesToHeadVertex._2.add (getTail (edge))
                 if (notify) element_added ((getTail (edge), getHead (edge)))
-                materialized_size_++
             }
         }
         //Step 1
@@ -176,7 +145,6 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
                 connectedVertices._1.add (getHead (edge))
                 adjacencyEdgesToHeadVertex._2.add (x)
                 if (notify) element_added ((x, getHead (edge)))
-                materialized_size_++
             }
 
         })
@@ -191,7 +159,6 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
                 adjacencyEdgesToTailVertex._1.add (x)
                 //tailHeadAdjacencyList.put(startVertex(edge), x)
                 // && headTailAdjacencyList.put(x, startVertex(edge)))
-                materialized_size_++
                 if (notify) element_added ((getTail (edge), x))
             }
 
@@ -207,7 +174,6 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
                     //=> e'=(x,y) new edge in the transitive closure
                     connectedVertices._1.add (y)
                     transitiveClosure.getOrElse (y, throw new Error ())._2.add (x)
-                    materialized_size_++
                     if (notify) element_added ((x, y))
                 }
 
@@ -215,17 +181,16 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
         })
     }
 
-    def added(edge: Edge) {
-        internal_add (edge, true)
+    def added_after_initialization(edge: Edge) {
+        internal_add (edge, notify = true)
     }
 
-    def removed(e: Edge) {
+    def removed_after_initialization(e: Edge) {
 
         graph.remove (getTail (e), getHead (e))
 
-        import scala.collection.mutable.Set
         //set of all paths that maybe go through e
-        val edges = Set[(Vertex, Vertex)]()
+        val edges = mutable.Set[(Vertex, Vertex)]()
         edges.add ((getTail (e), getHead (e)))
         val adjacencyEdgesToTailVertex = transitiveClosure.getOrElse (getTail (e), throw new Error ())
         val adjacencyEdgesToHeadVertex = transitiveClosure.getOrElse (getHead (e), throw new Error ())
@@ -270,7 +235,7 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
                         // do we still have a path from x._1 to x._2 => reinsert
                         if (transitiveClosure.getOrElse (y, throw new Error ())._1.contains (x._2)) {
                             putBack = (x._1, x._2) :: putBack
-                            break
+                            break ()
                         }
                     })
                 }
@@ -284,14 +249,14 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
         // edges = TC_old - TC_new
         edges.foreach (x => {
             element_removed (x._1, x._2)
-            materialized_size_--
         })
 
     }
 
-    def updated(oldV: Edge, newV: Edge) {
+    def updated_after_initialization(oldV: Edge, newV: Edge) {
         //a direct update is not supported
         removed (oldV)
         added (newV)
     }
+
 }

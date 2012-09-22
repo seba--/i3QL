@@ -32,7 +32,7 @@
  */
 package sae
 
-import capabilities.{LazyInitializedObserver, LazyInitializedRelation}
+import capabilities.{Size, LazyInitializedObserver, Iterable}
 
 /**
  * An index in a database provides fast access to the values <code>V</code>
@@ -55,14 +55,47 @@ import capabilities.{LazyInitializedObserver, LazyInitializedRelation}
  *
  */
 trait Index[K, V]
-    extends MaterializedRelation[(K, V)]
-    with LazyInitializedRelation[(K, V)]
+    extends Observable[(K, V)]
+    with Iterable[(K, V)]
     with LazyInitializedObserver[V]
+    with Size
 {
 
     def relation: Relation[V]
 
     def keyFunction: V => K
+
+    /**
+     * Returns true if initialization is complete
+     */
+    var isInitialized = false
+
+    /**
+     * Set the initialized status to true
+     */
+    def setInitialized() {
+        isInitialized = true
+    }
+
+    /**
+     * Returns the size of the view in terms of elements.
+     * This can be a costly operation.
+     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
+     */
+    def size = 0
+
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: ((K, V)) => T) {
+        if (!isInitialized) {
+            this.lazyInitialize ()
+            setInitialized ()
+        }
+        foreach_internal(f)
+    }
+
+    protected def foreach_internal[U](f: ((K, V)) => U)
 
     /**
      * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
@@ -126,7 +159,7 @@ trait Index[K, V]
 
     def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get (key).getOrElse (f)
 
-    override def updated(oldV: V, newV: V) {
+    def updated_after_initialization(oldV: V, newV: V) {
         if (oldV == newV)
             return
         val k1 = keyFunction (oldV)
@@ -135,13 +168,13 @@ trait Index[K, V]
         element_updated ((k1, oldV), (k2, newV))
     }
 
-    override def removed(v: V) {
+    def removed_after_initialization(v: V) {
         val k = keyFunction (v)
         remove_element (k, v)
         element_removed ((k, v))
     }
 
-    override def added(v: V) {
+    def added_after_initialization(v: V) {
         val k = keyFunction (v)
         add_element (k, v)
         element_added ((k, v))
@@ -152,5 +185,6 @@ trait Index[K, V]
     def remove_element(key: K, value: V)
 
     def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
+
 
 }

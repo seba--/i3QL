@@ -32,7 +32,7 @@
  */
 package sae.collections
 
-import sae.{Observable, Observer, QueryResult, Relation}
+import sae.Relation
 import sae.capabilities.LazyInitializedObserver
 
 /**
@@ -50,18 +50,18 @@ class BagResult[V <: AnyRef](val relation: Relation[V])
         relation.foreach (
             v => add_element (v)
         )
-        setInitialized()
+        setInitialized ()
     }
 
-    override def updated(oldV: V, newV: V) {
+    def updated_after_initialization(oldV: V, newV: V) {
         update (oldV, newV)
     }
 
-    override def removed(v: V) {
+    def removed_after_initialization(v: V) {
         this -= v
     }
 
-    override def added(v: V) {
+    def added_after_initialization(v: V) {
         this += v
     }
 

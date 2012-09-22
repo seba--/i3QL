@@ -40,37 +40,42 @@ import sae.Observer
  *
  */
 
-trait LazyInitializedObserver[Domain]
+trait LazyInitializedObserver[-Domain]
     extends Observer[Domain]
     with LazyInitialized
 {
 
-    abstract override def updated(oldV: Domain, newV: Domain)
+    def updated(oldV: Domain, newV: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()
             setInitialized ()
         }
-        super.updated (oldV, newV)
+        updated_after_initialization (oldV, newV)
     }
 
-    abstract override def removed(v: Domain)
+    def updated_after_initialization(oldV: Domain, newV: Domain)
+
+    def removed(v: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()
             setInitialized ()
         }
 
-        super.removed (v)
+        removed_after_initialization (v)
     }
 
-    abstract override def added(v: Domain)
+    def removed_after_initialization(v: Domain)
+
+    def added(v: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()
             setInitialized ()
         }
-        super.added (v)
+        added_after_initialization (v)
     }
 
+    def added_after_initialization(v: Domain)
 }
