@@ -32,6 +32,8 @@
  */
 package sae
 
+import capabilities.LazyInitializedRelation
+
 /**
  *
  * @author Ralf Mitschke
@@ -45,12 +47,14 @@ trait MaterializedRelation[V]
 
     /**
      * Applies f to all elements of the view with their counts
+     * TODO reactivate if needed
      */
-    def foreachWithCount[T](f: (V, Int) => T)
+    //def foreachWithCount[T](f: (V, Int) => T)
 
     def isDefinedAt(v: V): Boolean = {
         if (!isInitialized) {
             this.lazyInitialize ()
+            setInitialized()
         }
         isDefinedAt_internal (v)
     }
@@ -61,13 +65,14 @@ trait MaterializedRelation[V]
      * Returns the count for a given element.
      * In case an add/remove/update event is in progression, this always returns the
      */
-    def elementCountAt[T >: V](v: T): Int = {
+    def elementCountAt(v: V): Int = {
         if (!isInitialized) {
             this.lazyInitialize ()
+            setInitialized()
         }
         elementCountAt_internal (v)
     }
 
-    protected def elementCountAt_internal[T >: V](v: T): Int
+    protected def elementCountAt_internal(v: V): Int
 
 }

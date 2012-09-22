@@ -4,10 +4,11 @@ package operators.impl
 import operators.CrossProduct
 
 /**
- * The cross product requires underlying relations to be materialized, but is not a materialized view in itself.
+ * The cross product does not really require the underlying relations to be materialized directly.
+ * But it requires some point of materialization.
  */
-class CrossProductView[DomainA, DomainB, Range](val left: MaterializedRelation[DomainA],
-                                                val right: MaterializedRelation[DomainB],
+class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
+                                                val right: Relation[DomainB],
                                                 val projection: (DomainA, DomainB) => Range)
     extends CrossProduct[DomainA, DomainB, Range]
 {
@@ -18,7 +19,7 @@ class CrossProductView[DomainA, DomainB, Range](val left: MaterializedRelation[D
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: ((DomainA, DomainB)) => T) {
+    def foreach[T](f: (Range) => T) {
         left.foreach (
             a => {
                 right.foreach (

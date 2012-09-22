@@ -33,54 +33,37 @@
 package sae.collections
 
 import sae._
+import capabilities.LazyInitializedObserver
 
 /**
  * A result that materializes all data from the underlying relation into a set
  */
-class SetResult[V <: AnyRef](
-                                val relation: Relation[V]
-                                )
-    extends QueryResult[V]
-    with HashSet[V]
-    with Observer[V]
+class SetResult[V <: AnyRef](val relation: Relation[V])
+    extends Set[V]
+    with LazyInitializedObserver[V]
 {
 
     relation addObserver this
 
-    override protected def children = List (relation)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
-
     def lazyInitialize() {
         if (isInitialized) return
-        isInitialized = true
+        relation.foreach (
+            v => add_element (v)
+        )
+        setInitialized()
     }
 
-    def updated(oldV: V, newV: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
+
+    override def updated(oldV: V, newV: V) {
         this -= oldV
         this += newV
     }
 
-    def removed(v: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
-
+    override def removed(v: V) {
         this -= v
     }
 
-    def added(v: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
+    override def added(v: V) {
         this += v
     }
 

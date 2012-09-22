@@ -32,7 +32,7 @@
  */
 package sae
 
-import capabilities.{Listable, SingletonValue, Size}
+import capabilities.{LazyInitializedRelation, Listable, SingletonValue, Size}
 
 /**
  * A result is a kind of view that offers more convenience operators

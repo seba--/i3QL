@@ -8,12 +8,12 @@
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
  *
- *  - Redistributions of source code must retain the above copyright notice,
+ *  Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
- *  - Redistributions in binary form must reproduce the above copyright notice,
+ *  Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische
+ *  Neither the name of the Software Technology Group or Technische
  *    Universität Darmstadt nor the names of its contributors may be used to
  *    endorse or promote products derived from this software without specific
  *    prior written permission.
@@ -107,6 +107,12 @@ trait Relation[V]
         index.asInstanceOf[Index[K, V]]
     }
 
-    protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V]
+    protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V] =
+    {
+        val index = new sae.collections.BagIndex[K, V](this, keyFunction)
+        index.lazyInitialize
+        index
+    }
+
 }
 

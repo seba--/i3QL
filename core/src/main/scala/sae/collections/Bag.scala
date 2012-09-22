@@ -8,6 +8,7 @@ package collections
 trait Bag[V]
     extends BagRelation[V]
     with Collection[V]
+    with LazyInitializedQueryResult[V]
 {
 
     import com.google.common.collect.HashMultiset
@@ -52,5 +53,14 @@ trait Bag[V]
         data.setCount (oldV, 0)
         data.add (newV, count)
         element_updated (oldV, newV)
+    }
+
+
+    protected def isDefinedAt_internal(v: V) = {
+        data.contains(v)
+    }
+
+    protected def elementCountAt_internal(v: V) = {
+        data.count(v)
     }
 }

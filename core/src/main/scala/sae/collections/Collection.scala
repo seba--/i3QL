@@ -15,8 +15,8 @@ trait Collection[V]
      */
     def += (v: V): Collection[V] =
     {
-        element_added (v)
         add_element (v)
+        element_added (v)
         this
     }
 
@@ -35,8 +35,8 @@ trait Collection[V]
      */
     def -= (v: V): Collection[V] =
     {
-        element_removed (v)
         remove_element (v)
+        element_removed (v)
         this
     }
 

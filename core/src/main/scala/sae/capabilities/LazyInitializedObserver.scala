@@ -30,19 +30,48 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators
+package sae.capabilities
 
-import sae.Relation
+import capabilities.LazyInitialized
+import sae.Observer
 
+/**
+ *
+ * @author Ralf Mitschke
+ *
+ */
 
-trait UnNest[Range, UnNestRange, Domain <: Range]
-    extends Relation[Range]
+trait LazyInitializedObserver[Domain]
+    extends Observer[Domain]
+    with LazyInitialized
 {
-    def relation: Relation[Domain]
 
-    def unNestFunction: Domain => Seq[UnNestRange]
+    abstract override def updated(oldV: Domain, newV: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized ()
+        }
+        super.updated (oldV, newV)
+    }
 
-    def projection: (Domain, UnNestRange) => Range
+    abstract override def removed(v: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized ()
+        }
+
+        super.removed (v)
+    }
+
+    abstract override def added(v: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized ()
+        }
+        super.added (v)
+    }
+
 }
-
-

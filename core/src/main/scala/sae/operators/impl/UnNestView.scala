@@ -30,47 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.operators.impl
 
-import capabilities.LazyInitialized
+import sae.{Observer, Relation}
+import sae.operators.UnNest
 
-/**
- *
- * @author Ralf Mitschke
- *
- */
-
-trait LazyInitializedObserver[Domain]
-    extends Observer[Domain]
-    with LazyInitialized
+class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
+                                                      val unNestFunction: Domain => Seq[UnNestRange],
+                                                      val projection: (Domain, UnNestRange) => Range)
+    extends UnNest[Range, UnNestRange, Domain]
+    with Observer[Domain]
 {
-
-    abstract override def updated(oldV: Domain, newV: Domain): Unit =
-    {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized()
-        }
-        super.updated (oldV, newV)
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (Range) => T) {
+        relation.foreach ((v: Domain) =>
+            unNestFunction (v).foreach ((u: UnNestRange) =>
+                f (projection (v, u))
+            )
+        )
     }
 
-    abstract override def removed(v: Domain): Unit =
-    {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized()
-        }
 
-        super.removed (v)
+    // TODO we could try and see whether the returned unestings are equal, but it is not
+    def updated(oldV: Domain, newV: Domain) {
+        removed (oldV)
+        added (newV)
     }
 
-    abstract override def added(v: Domain): Unit =
-    {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized()
-        }
-        super.added (v)
+    def removed(v: Domain) {
+        unNestFunction (v).foreach ((u: UnNestRange) =>
+            element_removed (projection (v, u))
+        )
     }
 
+    def added(v: Domain) {
+        unNestFunction (v).foreach ((u: UnNestRange) =>
+            element_added (projection (v, u))
+        )
+    }
 }

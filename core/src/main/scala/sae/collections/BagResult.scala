@@ -33,59 +33,36 @@
 package sae.collections
 
 import sae.{Observable, Observer, QueryResult, Relation}
+import sae.capabilities.LazyInitializedObserver
 
 /**
  * A result that materializes all data from the underlying relation into a bag
  */
-class BagResult[V <: AnyRef](
-                                val relation: Relation[V]
-                                )
-    extends QueryResult[V]
-    with Bag[V]
-    with Observer[V]
+class BagResult[V <: AnyRef](val relation: Relation[V])
+    extends Bag[V]
+    with LazyInitializedObserver[V]
 {
 
     relation addObserver this
 
-    override protected def children = List (relation)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
-    }
-
-    def lazyInitialize {
+    def lazyInitialize() {
         if (isInitialized) return
-        relation.lazy_foreach (
-            v =>
-                add_element (v)
+        relation.foreach (
+            v => add_element (v)
         )
-        isInitialized = true
+        setInitialized()
     }
 
-    def updated(oldV: V, newV: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
+    override def updated(oldV: V, newV: V) {
         update (oldV, newV)
     }
 
-    def removed(v: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
-
+    override def removed(v: V) {
         this -= v
     }
 
-    def added(v: V) {
-        if (!isInitialized) {
-            isInitialized = true
-        }
+    override def added(v: V) {
         this += v
     }
 
-    // def toAst = "QueryResult( " + relation.toAst + " )"
 }

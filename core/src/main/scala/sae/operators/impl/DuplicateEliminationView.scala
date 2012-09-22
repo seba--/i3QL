@@ -33,6 +33,7 @@
 package sae.operators.impl
 
 import sae._
+import capabilities.LazyInitializedObserver
 import operators.DuplicateElimination
 import scala.Some
 

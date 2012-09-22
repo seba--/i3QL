@@ -1,6 +1,38 @@
+/* License (BSD Style License):
+ *  Copyright (c) 2009, 2011
+ *  Software Technology Group
+ *  Department of Computer Science
+ *  Technische Universität Darmstadt
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *
+ *  Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *  Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *  Neither the name of the Software Technology Group or Technische
+ *    Universität Darmstadt nor the names of its contributors may be used to
+ *    endorse or promote products derived from this software without specific
+ *    prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
 package sae
 
-import capabilities.Iterable
+import capabilities.{LazyInitializedRelation, Iterable}
 import collections.LazyInitializedQueryResult
 
 /**
@@ -23,8 +55,9 @@ import collections.LazyInitializedQueryResult
  * must NOT rely on the indices, but rather on the operands.
  *
  */
-trait Index[K <: AnyRef, V <: AnyRef]
-        extends MaterializedRelation[(K, V)]
+trait Index[K, V]
+    extends MaterializedRelation[(K, V)]
+    with LazyInitializedRelation[(K, V)]
 {
 
     def relation: LazyInitializedQueryResult[V]
@@ -38,76 +71,76 @@ trait Index[K <: AnyRef, V <: AnyRef]
      * { (elem, count) } anyway.
      */
     def foreachKey[U](f: (K) => U) {
-        if (!initialized) {
-            this.lazyInitialize
+        if (!isInitialized) {
+            this.lazyInitialize ()
+            setInitialized()
         }
-        foreachKey_internal(f)
+        foreachKey_internal (f)
     }
 
     protected def foreachKey_internal[U](f: (K) => U)
 
     // an index is lazy isInitialized by calling build
-    def lazyInitialize {
-        if (initialized) return
-        relation.foreach(v => {
-            put_internal(keyFunction(v), v)
+    def isInitialized {
+        if (isInitialized) return
+        relation.foreach (v => {
+            put_internal (keyFunction (v), v)
         }
         )
-        initialized = true
     }
 
     protected def put_internal(key: K, value: V)
 
     def get(key: K): Option[Traversable[V]] = {
-        if (!initialized) {
+        if (!isInitialized) {
             this.lazyInitialize
         }
-        get_internal(key)
+        get_internal (key)
     }
 
     protected def get_internal(key: K): Option[Traversable[V]]
 
     def isDefinedAt(key: K): Boolean = {
-        if (!initialized) {
+        if (!isInitialized) {
             this.lazyInitialize
         }
-        isDefinedAt_internal(key)
+        isDefinedAt_internal (key)
     }
 
     protected def isDefinedAt_internal(key: K): Boolean
 
 
     def elementCountAt(key: K): Int = {
-        if (!initialized) {
+        if (!isInitialized) {
             this.lazyInitialize
         }
-        elementCountAt_internal(key)
+        elementCountAt_internal (key)
     }
 
     protected def elementCountAt_internal(key: K): Int
 
 
-    def getOrElse(key: K, f: => Iterable[V]): Traversable[V] = get(key).getOrElse(f)
+    def getOrElse(key: K, f: => Iterable[V]): Traversable[V] = get (key).getOrElse (f)
 
     def updated_internal(oldV: V, newV: V) {
         if (oldV == newV)
             return
-        val k1 = keyFunction(oldV)
-        val k2 = keyFunction(newV)
-        update_element(k1, oldV, k2, newV)
-        element_updated((k1, oldV), (k2, newV))
+        val k1 = keyFunction (oldV)
+        val k2 = keyFunction (newV)
+        update_element (k1, oldV, k2, newV)
+        element_updated ((k1, oldV), (k2, newV))
     }
 
     def removed_internal(v: V) {
-        val k = keyFunction(v)
-        remove_element((k, v))
-        element_removed((k, v))
+        val k = keyFunction (v)
+        remove_element ((k, v))
+        element_removed ((k, v))
     }
 
     def added_internal(v: V) {
-        val k = keyFunction(v)
-        add_element(k, v)
-        element_added((k, v))
+        val k = keyFunction (v)
+        add_element (k, v)
+        element_added ((k, v))
     }
 
     def add_element(kv: (K, V)): Unit

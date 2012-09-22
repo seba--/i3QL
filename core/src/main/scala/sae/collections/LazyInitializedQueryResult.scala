@@ -1,7 +1,7 @@
 package sae.collections
 
-import sae.{LazyInitializedRelation, QueryResult, Relation}
-import sae.capabilities._
+import sae.QueryResult
+import sae.capabilities.LazyInitializedRelation
 
 /**
  * This view materializes its elements and thus requires
@@ -21,9 +21,9 @@ trait LazyInitializedQueryResult[V]
      */
     def foreach[T](f: (V) => T)
     {
-        if (!initialized) {
+        if (!isInitialized) {
             lazyInitialize ()
-            initialized = true
+            setInitialized()
         }
         materialized_foreach (f)
     }
@@ -35,9 +35,9 @@ trait LazyInitializedQueryResult[V]
     protected def materialized_foreach[T](f: (V) => T)
 
     def size: Int = {
-        if (!initialized) {
+        if (!isInitialized) {
             lazyInitialize ()
-            initialized = true
+            setInitialized()
         }
         materialized_size
     }
@@ -48,9 +48,9 @@ trait LazyInitializedQueryResult[V]
     protected def materialized_size: Int
 
     def singletonValue: Option[V] = {
-        if (!initialized) {
+        if (!isInitialized) {
             lazyInitialize ()
-            initialized = true
+            setInitialized()
         }
         materialized_singletonValue
     }
@@ -61,9 +61,9 @@ trait LazyInitializedQueryResult[V]
     protected def materialized_singletonValue: Option[V]
 
     def contains(v: V): Boolean = {
-        if (!initialized) {
+        if (!isInitialized) {
             lazyInitialize ()
-            initialized = true
+            setInitialized()
         }
         materialized_contains (v)
     }
