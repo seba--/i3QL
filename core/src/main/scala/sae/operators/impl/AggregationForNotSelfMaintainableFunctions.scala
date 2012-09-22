@@ -2,11 +2,11 @@ package sae.operators.impl
 
 import sae._
 
+import capabilities.LazyInitializedObserver
 import collections.LazyInitializedQueryResult
 import sae.operators._
 import scala.collection.JavaConversions._
-import scala.collection.mutable.Map
-import scala.Some
+import collection.mutable
 
 /**
  * An implementation of Aggregation that saves for all groups the corresponding domain entries.
@@ -29,59 +29,49 @@ import scala.Some
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef]
-(val source: Relation[Domain],
- val groupingFunction: Domain => Key,
- val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
- val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
+class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
+                                                                                      val groupingFunction: Domain => Key,
+                                                                                      val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                      val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
     extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
-    with Observer[Domain] with LazyInitializedQueryResult[Result]
+    with LazyInitializedObserver[Domain]
+    with LazyInitializedQueryResult[Result]
 {
-
-
-    import com.google.common.collect._;
-
-    val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
-
-    lazyInitialize // aggregation need to be isInitialized for update and remove events
 
     source.addObserver (this)
 
-    override protected def children = List (source)
+    def isSet = false
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
-        }
-        Nil
-    }
+    import com.google.common.collect._
+
+    val groups = mutable.Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
     /**
-     * {@inheritDoc}
+     *
      */
     def lazyInitialize() {
         if (!isInitialized) {
             source.foreach ((v: Domain) => {
-                intern_added (v, false)
+                intern_added (v, notify = false)
             })
-            setInitialized()
+            setInitialized ()
         }
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_size: Int = groups.size
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_singletonValue: Option[Result] = {
         if (size != 1)
@@ -92,8 +82,8 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
 
 
     /**
-     * {@inheritDoc}
-     * these implementation runs in O(n)
+     *
+     * this implementation runs in O(n)
      */
     protected def materialized_contains(v: Result) = {
         groups.foreach (g => {
@@ -105,9 +95,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def updated(oldV: Domain, newV: Domain) {
+    def updated_after_initialization(oldV: Domain, newV: Domain) {
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -128,9 +118,9 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def removed(v: Domain) {
+    def removed_after_initialization(v: Domain) {
         val key = groupingFunction (v)
         if (!groups.contains (key)) {
             println (v + " => " + key)
@@ -156,10 +146,10 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def added(v: Domain) {
-        intern_added (v, true)
+    def added_after_initialization(v: Domain) {
+        intern_added (v, notify = true)
     }
 
     /**

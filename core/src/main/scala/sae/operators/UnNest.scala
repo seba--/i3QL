@@ -43,6 +43,8 @@ trait UnNest[Range, UnNestRange, Domain <: Range]
     def unNestFunction: Domain => Seq[UnNestRange]
 
     def projection: (Domain, UnNestRange) => Range
+
+    def isSet = false
 }
 
 

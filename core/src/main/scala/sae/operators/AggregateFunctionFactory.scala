@@ -4,11 +4,11 @@ package sae.operators
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainableAggregateFunctionFactory
- *  -SelfMaintainableAggregateFunctionFactory
+ * -NotSelfMaintainableAggregateFunctionFactory
+ * -SelfMaintainableAggregateFunctionFactory
  *
  */
-trait AggregateFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]
+trait AggregateFunctionFactory[Domain, AggregationValue, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]
 {
     def apply(): AggregateFunctionType
 
@@ -17,8 +17,8 @@ trait AggregateFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, Aggreg
 /**
  * Factory interface for a not self maintainable aggregation function
  */
-trait NotSelfMaintainableAggregateFunctionFactory[Domain <: AnyRef, AggregateValue <: Any]
-        extends AggregateFunctionFactory[Domain, AggregateValue, NotSelfMaintainableAggregateFunction[Domain, AggregateValue]]
+trait NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]
+    extends AggregateFunctionFactory[Domain, AggregateValue, NotSelfMaintainableAggregateFunction[Domain, AggregateValue]]
 {
 
 }
@@ -26,8 +26,8 @@ trait NotSelfMaintainableAggregateFunctionFactory[Domain <: AnyRef, AggregateVal
 /**
  * Factory interface for a self maintainable aggregation function
  */
-trait SelfMaintainableAggregateFunctionFactory[Domain <: AnyRef, AggregateValue <: Any]
-        extends AggregateFunctionFactory[Domain, AggregateValue, SelfMaintainableAggregateFunction[Domain, AggregateValue]]
+trait SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]
+    extends AggregateFunctionFactory[Domain, AggregateValue, SelfMaintainableAggregateFunction[Domain, AggregateValue]]
 {
 
 }

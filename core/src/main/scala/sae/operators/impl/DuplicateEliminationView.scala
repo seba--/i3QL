@@ -65,26 +65,24 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
     def foreach[U](f: Domain => U) {
+        if (!isInitialized){
+            lazyInitialize()
+            setInitialized()
+        }
         val it: java.util.Iterator[Domain] = data.elementSet ().iterator ()
         while (it.hasNext) {
             f (it.next ())
         }
     }
 
-    def size: Int = {
-        data.elementSet ().size ()
-    }
 
-    def singletonValue: Option[Domain] = {
-        if (size != 1)
-            None
-        else
-            Some (data.iterator ().next ())
-    }
-
-    def contains(v: Domain) =
+    protected def isDefinedAt_internal(v: Domain) = {
         data.contains (v)
+    }
 
+    protected def elementCountAt_internal[T >: Domain](v: T) = {
+        data.count(v)
+    }
 
     /**
      * We use a generalized bag semantics, thus this method

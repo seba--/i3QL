@@ -38,7 +38,7 @@ import sae.capabilities.LazyInitializedObserver
 /**
  * A result that materializes all data from the underlying relation into a bag
  */
-class BagResult[V <: AnyRef](val relation: Relation[V])
+class BagResult[V](val relation: Relation[V])
     extends Bag[V]
     with LazyInitializedObserver[V]
 {

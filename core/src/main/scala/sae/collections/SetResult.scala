@@ -38,7 +38,7 @@ import capabilities.LazyInitializedObserver
 /**
  * A result that materializes all data from the underlying relation into a set
  */
-class SetResult[V <: AnyRef](val relation: Relation[V])
+class SetResult[V](val relation: Relation[V])
     extends Set[V]
     with LazyInitializedObserver[V]
 {
@@ -50,7 +50,7 @@ class SetResult[V <: AnyRef](val relation: Relation[V])
         relation.foreach (
             v => add_element (v)
         )
-        setInitialized()
+        setInitialized ()
     }
 
 

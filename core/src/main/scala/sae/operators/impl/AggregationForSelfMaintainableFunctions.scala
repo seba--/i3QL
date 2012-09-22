@@ -2,10 +2,10 @@ package sae.operators.impl
 
 import sae._
 
+import capabilities.LazyInitializedObserver
 import collections.LazyInitializedQueryResult
 import sae.operators._
-import scala.collection.mutable.Map
-import scala.Some
+import collection.mutable
 
 /**
  * An implementation of Aggregation that only saves the result of aggregation function (aggregationFunction)
@@ -22,57 +22,55 @@ import scala.Some
  * -> (else) put the new value into the lazyview
  *
  * @author Malte V
+ * @author Ralf Mitschke
  */
-class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](val source: Relation[Domain],
-                                                                                                                                val groupingFunction: Domain => Key,
-                                                                                                                                val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                                                                val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
-    extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] with Observer[Domain] with LazyInitializedQueryResult[Result]
+class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
+                                                                                              val groupingFunction: Domain => Key,
+                                                                                              val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                              val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
+    extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
+    with LazyInitializedObserver[Domain]
+    with LazyInitializedQueryResult[Result]
 {
 
 
-    val groups = Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
-
-    lazyInitialize // aggregation need to be isInitialized for update and remove events
-
     source.addObserver (this)
 
-    override protected def children = List (source)
+    def isSet = false
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
-        }
-        Nil
-    }
+
+    val groups = mutable.Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
+
+    // aggregation need to be isInitialized for update and remove events
+
 
     /**
-     * {@inheritDoc}
+     *
      */
     def lazyInitialize() {
         if (!isInitialized) {
             source.foreach ((v: Domain) => {
-                internal_added (v, false)
+                internal_added (v, notify = false)
             })
-            setInitialized()
+            setInitialized ()
         }
 
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    protected def materialized_foreach[T](f: (Result) => T): Unit = {
+    protected def materialized_foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_size: Int = groups.size
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_singletonValue: Option[Result] = {
         if (size != 1)
@@ -82,7 +80,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
     protected def materialized_contains(v: Result) = {
         groups.foreach (g => {
@@ -95,9 +93,9 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
 
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def updated(oldV: Domain, newV: Domain) {
+    def updated_after_initialization(oldV: Domain, newV: Domain) {
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -110,15 +108,15 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         }
         else
         {
-            removed (oldV);
-            added (newV);
+            removed (oldV)
+            added (newV)
         }
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def removed(v: Domain) {
+    def removed_after_initialization(v: Domain) {
         val key = groupingFunction (v)
         val (count, aggregationFunction, oldResult) = groups (key)
 
@@ -141,10 +139,10 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     }
 
     /**
-     * {@inheritDoc}
+     *
      */
-    def added(v: Domain) {
-        internal_added (v, true)
+    def added_after_initialization(v: Domain) {
+        internal_added (v, notify = true)
     }
 
     private def internal_added(v: Domain, notify: Boolean) {
@@ -152,7 +150,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         if (groups.contains (key)) {
             //update key group
             val (count, aggregationFunction, oldResult) = groups (key)
-            count.inc
+            count.inc ()
             val aggregationValue = aggregationFunction.add (v)
             val res = convertKeyAndAggregateValueToResult (key, aggregationValue)
             if (res != oldResult) {
@@ -165,7 +163,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
         {
             //new key group
             val c = new Count
-            c.inc
+            c.inc ()
             val aggregationFunction = aggregateFunctionFactory ()
             val aggRes = aggregationFunction.add (v)
             val res = convertKeyAndAggregateValueToResult (key, aggRes)
@@ -179,12 +177,12 @@ protected class Count
 {
     private var count: Int = 0
 
-    def inc() = {
+    def inc() {
         this.count += 1
     }
 
     def dec(): Int = {
-        this.count -= 1;
+        this.count -= 1
         this.count
     }
 

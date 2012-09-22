@@ -40,7 +40,7 @@ package sae
  *
  * A set relation is guaranteed to contain each element only once.
  */
-trait SetRelation[V <: AnyRef]
+trait SetRelation[V]
     extends Relation[V]
 {
     def isSet: Boolean = true

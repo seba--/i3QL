@@ -22,6 +22,8 @@ trait TransitiveClosure[Edge, Vertex]
     // v is head of e
     def getTail: Edge => Vertex
     def getHead: Edge => Vertex
+
+    def isSet = false
 }
 
 

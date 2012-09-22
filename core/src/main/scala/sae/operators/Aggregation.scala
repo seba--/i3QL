@@ -18,7 +18,7 @@ import impl.{AggregationForSelfMaintainableAggregationFunctions, AggregationForN
  * @author Malte V
  * @author Ralf Mitschke
  */
-trait Aggregation[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
+trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
     extends Relation[Result]
 {
     def source: Relation[Domain]
@@ -47,10 +47,10 @@ object Aggregation
      * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
      * @return LazyInitializedQueryResult[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
-                                                                                     groupingFunction: Domain => Key,
-                                                                                     aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                     convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result):
+    def apply[Domain, Key, AggregateValue, Result](source: Relation[Domain],
+                                                   groupingFunction: Domain => Key,
+                                                   aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                   convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result):
     Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
         new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupingFunction, aggregateFunctionFactory, convertKeyAndAggregateValueToResult)
@@ -66,9 +66,9 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
      * @return LazyInitializedQueryResult[(groupingFunction return type, aggregationFunction retun type] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
-                                                                   groupingFunction: Domain => Key,
-                                                                   aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
+    def apply[Domain, Key, AggregateValue](source: Relation[Domain],
+                                           groupingFunction: Domain => Key,
+                                           aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
     Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
         new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
@@ -84,10 +84,10 @@ object Aggregation
      * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
      * @return LazyInitializedQueryResult[convertKeyAndAggregationValueToResult returnvalue type] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
-                                                                                     groupFunction: Domain => Key,
-                                                                                     aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                     convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result):
+    def apply[Domain, Key, AggregateValue, Result](source: Relation[Domain],
+                                                   groupFunction: Domain => Key,
+                                                   aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                   convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result):
     Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
         new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
@@ -101,9 +101,9 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return LazyInitializedQueryResult[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
-                                                                   groupingFunction: Domain => Key,
-                                                                   aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
+    def apply[Domain, Key, AggregateValue](source: Relation[Domain],
+                                           groupingFunction: Domain => Key,
+                                           aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
     Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
         new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
@@ -119,8 +119,8 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
-                                                       aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) =
+    def apply[Domain, AggregateValue](source: Relation[Domain],
+                                      aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) =
     {
         new AggregationForNotSelfMaintainableFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
                                                                                                             y: AggregateValue) => Some (y))
@@ -135,8 +135,8 @@ object Aggregation
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
      */
-    def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
-                                                       aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) =
+    def apply[Domain, AggregateValue](source: Relation[Domain],
+                                      aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) =
     {
         new AggregationForSelfMaintainableAggregationFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
                                                                                                                     y: AggregateValue) => Some (y))

@@ -5,7 +5,7 @@ package collections
 /**
  * A relation that is guaranteed to hold each element only once
  */
-trait Set[V <: AnyRef]
+trait Set[V]
     extends SetRelation[V]
     with Collection[V]
     with LazyInitializedQueryResult[V]

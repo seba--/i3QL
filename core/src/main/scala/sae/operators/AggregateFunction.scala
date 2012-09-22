@@ -3,10 +3,10 @@ package sae.operators
 /**
  * IMPORTANT: clients should NOT implement this interface
  * clients should implement:
- *  -NotSelfMaintainableAggregateFunction
- *  -SelfMaintainableAggregateFunction
+ * -NotSelfMaintainableAggregateFunction
+ * -SelfMaintainableAggregateFunction
  */
-trait AggregateFunction[Domain <: AnyRef, Result]
+trait AggregateFunction[Domain, Result]
 {
     def add(newD: Domain, data: Iterable[Domain]): Result
 
@@ -19,8 +19,8 @@ trait AggregateFunction[Domain <: AnyRef, Result]
 /**
  * Interface for a not self maintainable aggregate function like min
  */
-trait NotSelfMaintainableAggregateFunction[Domain <: AnyRef, Result <: Any]
-        extends AggregateFunction[Domain, Result]
+trait NotSelfMaintainableAggregateFunction[Domain, Result]
+    extends AggregateFunction[Domain, Result]
 {
 
 }
@@ -28,20 +28,20 @@ trait NotSelfMaintainableAggregateFunction[Domain <: AnyRef, Result <: Any]
 /**
  * Interface for a self maintainable aggregate function like count
  */
-trait SelfMaintainableAggregateFunction[Domain <: AnyRef, Result <: Any]
-        extends AggregateFunction[Domain, Result]
+trait SelfMaintainableAggregateFunction[Domain, Result]
+    extends AggregateFunction[Domain, Result]
 {
 
     final override def add(newD: Domain, data: Iterable[Domain]): Result = {
-        add(newD)
+        add (newD)
     }
 
     final override def remove(newD: Domain, data: Iterable[Domain]): Result = {
-        remove(newD)
+        remove (newD)
     }
 
     final override def update(oldD: Domain, newD: Domain, data: Iterable[Domain]): Result = {
-        update(oldD, newD)
+        update (oldD, newD)
     }
 
     def add(newD: Domain): Result
