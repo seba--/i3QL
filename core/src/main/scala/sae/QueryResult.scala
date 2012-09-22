@@ -32,7 +32,7 @@
  */
 package sae
 
-import capabilities.{LazyInitializedRelation, Listable, SingletonValue, Size}
+import capabilities.{LazyInitialized, SingletonValue, Size}
 
 /**
  * A result is a kind of view that offers more convenience operators
@@ -43,10 +43,10 @@ import capabilities.{LazyInitializedRelation, Listable, SingletonValue, Size}
  * materialized view, a simple Proxy is used.
  */
 trait QueryResult[V]
-    extends LazyInitializedRelation[V]
+    extends Relation[V]
     with Size
     with SingletonValue[V]
-    with Listable[V]
+    with LazyInitialized
 {
 
 }

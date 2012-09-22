@@ -32,37 +32,35 @@
  */
 package sae.collections
 
-import sae.Relation
-import sae.capabilities.LazyInitializedObserver
+import sae.{Observer, Relation}
 
 /**
  * A result that materializes all data from the underlying relation into a bag
  */
 class BagResult[V](val relation: Relation[V])
     extends Bag[V]
-    with LazyInitializedObserver[V]
+    with Observer[V]
 {
 
     relation addObserver this
 
     def lazyInitialize() {
-        if (isInitialized) return
         relation.foreach (
-            v => add_element (v)
+            (v: V) => add_element (v)
         )
-        setInitialized ()
     }
 
-    def updated_after_initialization(oldV: V, newV: V) {
+    def updated(oldV: V, newV: V) {
         update (oldV, newV)
     }
 
-    def removed_after_initialization(v: V) {
+    def removed(v: V) {
         this -= v
     }
 
-    def added_after_initialization(v: V) {
+    def added(v: V) {
         this += v
     }
+
 
 }

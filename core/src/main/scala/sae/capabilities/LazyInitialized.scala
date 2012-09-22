@@ -41,6 +41,7 @@ package sae.capabilities
 
 trait LazyInitialized
 {
+    lazyInitialize()
 
     /**
      * Each view must be able to
@@ -52,15 +53,5 @@ trait LazyInitialized
      * first add/delete/update events or foreach calls.
      */
     def lazyInitialize()
-
-    /**
-     * Returns true if initialization is complete
-     */
-    def isInitialized: Boolean
-
-    /**
-     * Set the initialized status to true
-     */
-    def setInitialized()
 
 }

@@ -32,7 +32,7 @@
  */
 package sae
 
-import capabilities.Iterable
+import capabilities.{Listable, Iterable}
 import collections.{BagResult, SetResult}
 
 /**
@@ -56,6 +56,7 @@ import collections.{BagResult, SetResult}
 trait Relation[V]
     extends Observable[V]
     with Iterable[V]
+    with Listable[V]
 {
 
     type Value = V

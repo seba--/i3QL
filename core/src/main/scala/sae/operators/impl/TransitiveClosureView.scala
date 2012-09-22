@@ -32,11 +32,10 @@
  */
 package sae.operators.impl
 
-import sae.Relation
+import sae.{Observer, Relation}
 import collection.mutable.{HashMap, HashSet}
 import util.control.Breaks
 import sae.operators.TransitiveClosure
-import sae.capabilities.LazyInitializedObserver
 import collection.mutable
 
 /**
@@ -52,7 +51,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                                           val getTail: Edge => Vertex,
                                           val getHead: Edge => Vertex)
     extends TransitiveClosure[Edge, Vertex]
-    with LazyInitializedObserver[Edge]
+    with Observer[Edge]
 {
     source addObserver this
 
@@ -77,7 +76,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      *
      * access in O(1)
      */
-    protected def isDefinedAt_internal(v: (Vertex, Vertex)) = {
+     def isDefinedAt(v: (Vertex, Vertex)) = {
         if (transitiveClosure.contains (v._1)) {
             transitiveClosureGet (v._1)._1.contains (v._2)
         }
@@ -87,7 +86,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
-    protected def elementCountAt_internal[T >: (Vertex, Vertex)](t: T): Int = {
+     def elementCountAt[T >: (Vertex, Vertex)](t: T): Int = {
         if (!t.isInstanceOf[(Vertex, Vertex)]) {
             return 0
         }
@@ -111,10 +110,9 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 
     def lazyInitialize() {
-        if (isInitialized) return
         source.foreach (
-            x => internal_add (x, notify = false))
-        setInitialized ()
+            x => internal_add (x, notify = false)
+        )
     }
 
 
@@ -181,11 +179,11 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         })
     }
 
-    def added_after_initialization(edge: Edge) {
+    def added(edge: Edge) {
         internal_add (edge, notify = true)
     }
 
-    def removed_after_initialization(e: Edge) {
+    def removed(e: Edge) {
 
         graph.remove (getTail (e), getHead (e))
 
@@ -253,7 +251,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     }
 
-    def updated_after_initialization(oldV: Edge, newV: Edge) {
+    def updated(oldV: Edge, newV: Edge) {
         //a direct update is not supported
         removed (oldV)
         added (newV)

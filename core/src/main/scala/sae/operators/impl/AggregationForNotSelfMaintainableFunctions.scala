@@ -2,8 +2,6 @@ package sae.operators.impl
 
 import sae._
 
-import capabilities.LazyInitializedObserver
-import collections.LazyInitializedQueryResult
 import sae.operators._
 import scala.collection.JavaConversions._
 import collection.mutable
@@ -34,8 +32,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
                                                                                       val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                       val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
     extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
-    with LazyInitializedObserver[Domain]
-    with LazyInitializedQueryResult[Result]
+    with Observer[Domain]
 {
 
     source.addObserver (this)
@@ -50,30 +47,28 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
      *
      */
     def lazyInitialize() {
-        if (!isInitialized) {
-            source.foreach ((v: Domain) => {
-                intern_added (v, notify = false)
-            })
-            setInitialized ()
-        }
+        source.foreach ((v: Domain) => {
+            intern_added (v, notify = false)
+        })
+
     }
 
     /**
      *
      */
-    protected def materialized_foreach[T](f: (Result) => T) {
+     def foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
      *
      */
-    protected def materialized_size: Int = groups.size
+     def size: Int = groups.size
 
     /**
      *
      */
-    protected def materialized_singletonValue: Option[Result] = {
+     def singletonValue: Option[Result] = {
         if (size != 1)
             None
         else
@@ -85,7 +80,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
      *
      * this implementation runs in O(n)
      */
-    protected def materialized_contains(v: Result) = {
+     def contains(v: Result) = {
         groups.foreach (g => {
             if (g._2._3 == v)
                 true
@@ -97,7 +92,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def updated_after_initialization(oldV: Domain, newV: Domain) {
+    def updated(oldV: Domain, newV: Domain) {
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -120,7 +115,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def removed_after_initialization(v: Domain) {
+    def removed(v: Domain) {
         val key = groupingFunction (v)
         if (!groups.contains (key)) {
             println (v + " => " + key)
@@ -148,7 +143,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def added_after_initialization(v: Domain) {
+    def added(v: Domain) {
         intern_added (v, notify = true)
     }
 

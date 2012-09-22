@@ -32,7 +32,7 @@
  */
 package sae
 
-import capabilities.{Size, LazyInitializedObserver, Iterable}
+import capabilities.{LazyInitialized, Listable, Size, Iterable}
 
 /**
  * An index in a database provides fast access to the values <code>V</code>
@@ -57,24 +57,22 @@ import capabilities.{Size, LazyInitializedObserver, Iterable}
 trait Index[K, V]
     extends Observable[(K, V)]
     with Iterable[(K, V)]
-    with LazyInitializedObserver[V]
+    with LazyInitialized
     with Size
+    with Listable[(K,V)]
 {
 
     def relation: Relation[V]
 
     def keyFunction: V => K
 
-    /**
-     * Returns true if initialization is complete
-     */
-    var isInitialized = false
-
-    /**
-     * Set the initialized status to true
-     */
-    def setInitialized() {
-        isInitialized = true
+    // an index is lazy isInitialized by calling build
+    def lazyInitialize() {
+        relation.foreach (
+            v => {
+                put (keyFunction (v), v)
+            }
+        )
     }
 
     /**
@@ -82,20 +80,7 @@ trait Index[K, V]
      * This can be a costly operation.
      * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
      */
-    def size = 0
-
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: ((K, V)) => T) {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-            setInitialized ()
-        }
-        foreach_internal(f)
-    }
-
-    protected def foreach_internal[U](f: ((K, V)) => U)
+    def size  : Int
 
     /**
      * TODO this is currently enabled to iterate uniquely over the keyset for bag indices.
@@ -103,63 +88,27 @@ trait Index[K, V]
      * computations over number of contained elements since they basically are sets of the type
      * { (elem, count) } anyway.
      */
-    def foreachKey[U](f: (K) => U) {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-            setInitialized ()
-        }
-        foreachKey_internal (f)
-    }
-
-    protected def foreachKey_internal[U](f: (K) => U)
-
-    // an index is lazy isInitialized by calling build
-    def lazyInitialize() {
-        if (isInitialized) return
-        relation.foreach (
-            v => {
-                put_internal (keyFunction (v), v)
-            }
-        )
-    }
-
-    protected def put_internal(key: K, value: V)
-
-    def get(key: K): Option[Traversable[V]] = {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized ()
-        }
-        get_internal (key)
-    }
-
-    protected def get_internal(key: K): Option[Traversable[V]]
-
-    def isDefinedAt(key: K): Boolean = {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized ()
-        }
-        isDefinedAt_internal (key)
-    }
-
-    protected def isDefinedAt_internal(key: K): Boolean
+    def foreachKey[U](f: (K) => U)
 
 
-    def elementCountAt(key: K): Int = {
-        if (!isInitialized) {
-            lazyInitialize ()
-            setInitialized ()
-        }
-        elementCountAt_internal (key)
-    }
 
-    protected def elementCountAt_internal(key: K): Int
+    def put(key: K, value: V)
 
+    def get(key: K): Option[Traversable[V]]
+
+    def isDefinedAt(key: K): Boolean
+
+    def elementCountAt(key: K): Int
 
     def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get (key).getOrElse (f)
 
-    def updated_after_initialization(oldV: V, newV: V) {
+    def add_element(key: K, value: V)
+
+    def remove_element(key: K, value: V)
+
+    def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
+
+    def updated(oldV: V, newV: V) {
         if (oldV == newV)
             return
         val k1 = keyFunction (oldV)
@@ -168,23 +117,18 @@ trait Index[K, V]
         element_updated ((k1, oldV), (k2, newV))
     }
 
-    def removed_after_initialization(v: V) {
+    def removed(v: V) {
         val k = keyFunction (v)
         remove_element (k, v)
         element_removed ((k, v))
     }
 
-    def added_after_initialization(v: V) {
+    def added(v: V) {
         val k = keyFunction (v)
         add_element (k, v)
         element_added ((k, v))
     }
 
-    def add_element(key: K, value: V)
-
-    def remove_element(key: K, value: V)
-
-    def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
 
 
 }

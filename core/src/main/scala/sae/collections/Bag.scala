@@ -8,18 +8,18 @@ package collections
 trait Bag[V]
     extends BagRelation[V]
     with Collection[V]
-    with LazyInitializedQueryResult[V]
+    with QueryResult[V]
 {
 
     import com.google.common.collect.HashMultiset
     private val data: HashMultiset[V] = HashMultiset.create[V]()
 
-    def materialized_size: Int =
+    def size: Int =
     {
         data.size ()
     }
 
-    def materialized_singletonValue: Option[V] =
+    def singletonValue: Option[V] =
     {
         if (size != 1)
             None
@@ -37,7 +37,7 @@ trait Bag[V]
         data.remove (v)
     }
 
-    def materialized_foreach[U](f: V => U): Unit =
+    def foreach[U](f: V => U): Unit =
     {
         val it: java.util.Iterator[V] = data.iterator ()
         while (it.hasNext ()) {
@@ -45,7 +45,7 @@ trait Bag[V]
         }
     }
 
-    protected def materialized_contains(v: V) = data.contains (v)
+    def contains(v: V) = data.contains (v)
 
     def update(oldV: V, newV: V)
     {
@@ -56,11 +56,11 @@ trait Bag[V]
     }
 
 
-    protected def isDefinedAt_internal(v: V) = {
+    def isDefinedAt(v: V) = {
         data.contains(v)
     }
 
-    protected def elementCountAt_internal[T >: V](v: T) = {
+    def elementCountAt[T >: V](v: T) = {
         data.count(v)
     }
 }

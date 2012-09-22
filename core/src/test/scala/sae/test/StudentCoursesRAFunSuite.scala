@@ -25,47 +25,41 @@ class StudentCoursesRAFunSuite
 
     test("indexing") {
         val students = database.students.copy
-        val indexed_students = sae.operators.Conversions.lazyViewToIndexedView(students) // make a local copy
 
-        val index = indexed_students.index(identity)
-        val nameIndex = indexed_students.index((_: Student).Name)
+        val index = students.index(identity)
+        val nameIndex = students.index((_: Student).Name)
 
         val judy = Student(21111, "judy")
         // we add before accessing the index to test cache semantics
         students += judy
-        assert(3 === index.asList.size)
-        assert(3 === nameIndex.asList.size)
+        assert(3 === index.size)
+        assert(3 === nameIndex.size)
 
         val john = Student(21111, "john")
         students += john
 
-        assert(4 === index.asList.size)
+        assert(4 === index.size)
         assert(1 === index.elementCountAt(john))
-        assert(4 === nameIndex.asList.size)
+        assert(4 === nameIndex.size)
         assert(2 === nameIndex.elementCountAt("john"))
 
         students += john
 
-        assert(5 === index.asList.size)
+        assert(5 === index.size)
         assert(2 === index.elementCountAt(john))
-        assert(5 === nameIndex.asList.size)
+        assert(5 === nameIndex.size)
         assert(3 === nameIndex.elementCountAt("john"))
 
     }
 
     test("selection") {
         assert(2 === students.size)
-
-        // johnsData(StudentId, john) :- student(StudentId, john)
-        // TODO this should type now
         val johnsData: QueryResult[Student] = σ((_: Student).Name == "john")(students)
         assert(1 === johnsData.size)
         assert(Some(john) === johnsData.singletonValue)
     }
 
     test("maintain selection") {
-        // johnsData(StudentId, john) :- student(StudentId, john)
-
         val students = database.students.copy // make a local copy
 
         val johnsData: QueryResult[Student] = σ((_: Student).Name == "john")(students)

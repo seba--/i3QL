@@ -2,8 +2,6 @@ package sae.operators.impl
 
 import sae._
 
-import capabilities.LazyInitializedObserver
-import collections.LazyInitializedQueryResult
 import sae.operators._
 import collection.mutable
 
@@ -29,8 +27,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
                                                                                               val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                               val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
     extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
-    with LazyInitializedObserver[Domain]
-    with LazyInitializedQueryResult[Result]
+    with Observer[Domain]
 {
 
 
@@ -48,31 +45,27 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
      *
      */
     def lazyInitialize() {
-        if (!isInitialized) {
-            source.foreach ((v: Domain) => {
-                internal_added (v, notify = false)
-            })
-            setInitialized ()
-        }
-
+        source.foreach ((v: Domain) => {
+            internal_added (v, notify = false)
+        })
     }
 
     /**
      *
      */
-    protected def materialized_foreach[T](f: (Result) => T) {
+     def foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
      *
      */
-    protected def materialized_size: Int = groups.size
+     def size: Int = groups.size
 
     /**
      *
      */
-    protected def materialized_singletonValue: Option[Result] = {
+     def singletonValue: Option[Result] = {
         if (size != 1)
             None
         else
@@ -82,7 +75,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     /**
      *
      */
-    protected def materialized_contains(v: Result) = {
+     def contains(v: Result) = {
         groups.foreach (g => {
             if (g._2._3 == v)
                 true
@@ -95,7 +88,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     /**
      *
      */
-    def updated_after_initialization(oldV: Domain, newV: Domain) {
+    def updated(oldV: Domain, newV: Domain) {
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -116,7 +109,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     /**
      *
      */
-    def removed_after_initialization(v: Domain) {
+    def removed(v: Domain) {
         val key = groupingFunction (v)
         val (count, aggregationFunction, oldResult) = groups (key)
 
@@ -141,7 +134,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     /**
      *
      */
-    def added_after_initialization(v: Domain) {
+    def added(v: Domain) {
         internal_added (v, notify = true)
     }
 
@@ -173,7 +166,7 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     }
 }
 
-protected class Count
+ class Count
 {
     private var count: Int = 0
 

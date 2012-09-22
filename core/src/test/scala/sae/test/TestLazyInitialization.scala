@@ -53,7 +53,7 @@ class TestLazyInitialization
         val b = new Table[String]
         val difference = a ∖ b
 
-        val o = new MockObserver[String]()
+        val o = new EventRecorder[String]()
         difference.addObserver(o)
 
         a += "Hello"
@@ -66,10 +66,8 @@ class TestLazyInitialization
     @Test
     def testIndexInitialization() {
         val a = new Table[String]
-        import sae.operators.Conversions._
-        val indexed : IndexedView[String] = lazyViewToIndexedView(a)
 
-        val index = indexed.index(identity[String])
+        val index = a.index(identity[String])
 
         a += "Hello"
 
@@ -83,10 +81,8 @@ class TestLazyInitialization
         val a = new Table[String]
         val b = new Table[String]
         val difference = a ∖ b
-        import sae.operators.Conversions._
-        val indexed : IndexedView[String] = lazyViewToIndexedView(difference)
 
-        val index = indexed.index(identity[String])
+        val index = difference.index(identity[String])
 
         a += "Hello"
 
@@ -100,10 +96,9 @@ class TestLazyInitialization
         val a = new Table[String]
         val b = new Table[String]
         val join = ((a, identity[String]_) ⋈ (identity[String]_, b)) { (s1:String,  s2:String) => s1}
-        import sae.operators.Conversions._
-        val indexed : IndexedView[String] = lazyViewToIndexedView(join)
 
-        val index = indexed.index(identity[String])
+
+        val index = join.index(identity[String])
 
         a += "Hello"
         join.asList should be(Nil)
@@ -124,10 +119,8 @@ class TestLazyInitialization
         val b = new Table[String]
 
         val join = ((a, identity[String]_) ⋈ (identity[String]_, b)) { (s1:String,  s2:String) => s1}
-        import sae.operators.Conversions._
-        val indexed : IndexedView[String] = lazyViewToIndexedView(join)
 
-        val index = indexed.index(identity[String])
+        val index = join.index(identity[String])
 
         b += "Hello"
         join.asList should be(List("Hello"))
@@ -141,7 +134,7 @@ class TestLazyInitialization
         val c = new Table[String]
         val difference = a ∖ b
 
-        val o = new MockObserver[String]()
+        val o = new EventRecorder[String]()
         difference.addObserver(o)
 
         val join = ((difference, identity(_: String)) ⋈(identity(_: String), c)) {(s1: String, s2: String) => (s1, s2)}

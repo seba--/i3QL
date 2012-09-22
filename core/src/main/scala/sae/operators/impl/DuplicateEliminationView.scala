@@ -33,9 +33,7 @@
 package sae.operators.impl
 
 import sae._
-import capabilities.LazyInitializedObserver
 import operators.DuplicateElimination
-import scala.Some
 
 /**
  * The set projection class implemented here used the relational algebra semantics.
@@ -44,8 +42,7 @@ import scala.Some
  */
 class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     extends DuplicateElimination[Domain]
-    with MaterializedRelation[Domain]
-    with LazyInitializedObserver[Domain]
+    with Observer[Domain]
 {
 
     relation addObserver this
@@ -55,20 +52,12 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     private val data: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
     def lazyInitialize() {
-        if (isInitialized) return
         relation.foreach (
-            t => {
-                data.add (t)
-            }
+            t => data.add (t)
         )
-        setInitialized ()
     }
 
     def foreach[U](f: Domain => U) {
-        if (!isInitialized){
-            lazyInitialize()
-            setInitialized()
-        }
         val it: java.util.Iterator[Domain] = data.elementSet ().iterator ()
         while (it.hasNext) {
             f (it.next ())
@@ -76,12 +65,12 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
 
-    protected def isDefinedAt_internal(v: Domain) = {
+     def isDefinedAt(v: Domain) = {
         data.contains (v)
     }
 
-    protected def elementCountAt_internal[T >: Domain](v: T) = {
-        data.count(v)
+     def elementCountAt[T >: Domain](v: T) = {
+        data.count (v)
     }
 
     /**
@@ -107,7 +96,7 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
     // update operations
-    def updated_after_initialization(oldV: Domain, newV: Domain) {
+    def updated(oldV: Domain, newV: Domain) {
         if (oldV == newV) {
             return
         }
@@ -117,13 +106,13 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
         element_updated (oldV, newV)
     }
 
-    def removed_after_initialization(v: Domain) {
+    def removed(v: Domain) {
         if (remove_element (v)) {
             element_removed (v)
         }
     }
 
-    def added_after_initialization(v: Domain) {
+    def added(v: Domain) {
         if (add_element (v)) {
             element_added (v)
         }

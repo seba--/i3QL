@@ -2,7 +2,6 @@ package sae.test
 
 import org.junit.{Assert, Test}
 import sae._
-import collections.LazyInitializedQueryResult
 import sae.syntax.sql._
 import sae.operators.Conversions
 import sae.EventRecorder.{AddEvent, RemoveEvent}

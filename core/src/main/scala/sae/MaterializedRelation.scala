@@ -32,7 +32,8 @@
  */
 package sae
 
-import capabilities.LazyInitializedRelation
+import capabilities.LazyInitialized
+
 
 /**
  *
@@ -40,7 +41,8 @@ import capabilities.LazyInitializedRelation
  *
  */
 trait MaterializedRelation[V]
-    extends LazyInitializedRelation[V]
+    extends Relation[V]
+    with LazyInitialized
 {
 
     override def asMaterialized = this
@@ -51,28 +53,11 @@ trait MaterializedRelation[V]
      */
     //def foreachWithCount[T](f: (V, Int) => T)
 
-    def isDefinedAt(v: V): Boolean = {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-            setInitialized()
-        }
-        isDefinedAt_internal (v)
-    }
-
-    protected def isDefinedAt_internal(v: V): Boolean
+    def isDefinedAt(v: V): Boolean
 
     /**
      * Returns the count for a given element.
      * In case an add/remove/update event is in progression, this always returns the
      */
-    def elementCountAt[T >: V](v: T): Int = {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-            setInitialized()
-        }
-        elementCountAt_internal (v)
-    }
-
-    protected def elementCountAt_internal[T >: V](v: T): Int
-
+    def elementCountAt[T >: V](v: T): Int
 }

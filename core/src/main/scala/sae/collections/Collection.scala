@@ -23,7 +23,7 @@ trait Collection[V]
     /**
      * Internal implementation of the add method
      */
-    protected def add_element(v: V)
+     def add_element(v: V)
 
     /**
      * Remove a data tuple from this relation
@@ -43,6 +43,6 @@ trait Collection[V]
     /**
      * internal implementation remove method
      */
-    protected def remove_element(v: V)
+     def remove_element(v: V)
 
 }

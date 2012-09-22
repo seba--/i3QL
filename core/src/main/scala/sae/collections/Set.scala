@@ -8,13 +8,13 @@ package collections
 trait Set[V]
     extends SetRelation[V]
     with Collection[V]
-    with LazyInitializedQueryResult[V]
+    with QueryResult[V]
 {
     private var data: scala.collection.immutable.HashSet[V] = new scala.collection.immutable.HashSet[V]()
 
-    def materialized_size: Int = data.size
+    def size: Int = data.size
 
-    def materialized_singletonValue: Option[V] = data.headOption
+    def singletonValue: Option[V] = data.headOption
 
     def add_element(v: V)
     {
@@ -26,17 +26,17 @@ trait Set[V]
         data = data - v
     }
 
-    def materialized_foreach[U](f: V => U) {
+    def foreach[U](f: V => U) {
         data.foreach (f)
     }
 
-    protected def materialized_contains(v: V) = data.contains (v)
+    def contains(v: V) = data.contains (v)
 
-    protected def isDefinedAt_internal(v: V) = {
+    def isDefinedAt(v: V) = {
         data.contains (v)
     }
 
-    protected def elementCountAt_internal[T >: V](v: T) = {
+    def elementCountAt[T >: V](v: T) = {
         if (v.isInstanceOf[V] && data.contains (v.asInstanceOf[V])) {
             1
         }

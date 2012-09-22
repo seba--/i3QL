@@ -18,7 +18,7 @@ class SetIndex[K, V](val relation: Relation[V],
 
     private val map = com.google.common.collect.HashMultimap.create[K, V]()
 
-    protected def foreachKey_internal[U](f: (K) => U) {
+    def foreachKey[U](f: (K) => U) {
         val it = map.keys ().iterator ()
         while (it.hasNext) {
             val next = it.next ()
@@ -26,12 +26,12 @@ class SetIndex[K, V](val relation: Relation[V],
         }
     }
 
-    protected def put_internal(key: K, value: V)
+    def put(key: K, value: V)
     {
         map.put (key, value)
     }
 
-    protected def get_internal(key: K): Option[Traversable[V]] =
+    def get(key: K): Option[Traversable[V]] =
     {
         val l = map.get (key)
         if (l.isEmpty)
@@ -51,10 +51,10 @@ class SetIndex[K, V](val relation: Relation[V],
         }
     }
 
-    protected def isDefinedAt_internal(key: K): Boolean = map.containsKey (key)
+    def isDefinedAt(key: K): Boolean = map.containsKey (key)
 
 
-    protected def elementCountAt_internal(key: K) =
+    def elementCountAt(key: K) =
         if (map.containsKey (key))
         {
             map.get (key).size ()
@@ -64,7 +64,7 @@ class SetIndex[K, V](val relation: Relation[V],
             0
         }
 
-    def foreach_internal[U](f: ((K, V)) => U)
+    def foreach[U](f: ((K, V)) => U)
     {
         val it: java.util.Iterator[java.util.Map.Entry[K, V]] = map.entries ().iterator
         while (it.hasNext) {
@@ -72,6 +72,9 @@ class SetIndex[K, V](val relation: Relation[V],
             f ((next.getKey, next.getValue))
         }
     }
+
+
+    def size = map.values ().size ()
 
     def add_element(k: K, v: V)
     {

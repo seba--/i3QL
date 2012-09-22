@@ -33,37 +33,34 @@
 package sae.collections
 
 import sae._
-import capabilities.LazyInitializedObserver
 
 /**
  * A result that materializes all data from the underlying relation into a set
  */
 class SetResult[V](val relation: Relation[V])
     extends Set[V]
-    with LazyInitializedObserver[V]
+    with Observer[V]
 {
 
     relation addObserver this
 
     def lazyInitialize() {
-        if (isInitialized) return
         relation.foreach (
             v => add_element (v)
         )
-        setInitialized ()
     }
 
 
-    def updated_after_initialization(oldV: V, newV: V) {
+    def updated(oldV: V, newV: V) {
         this -= oldV
         this += newV
     }
 
-    def removed_after_initialization(v: V) {
+    def removed(v: V) {
         this -= v
     }
 
-    def added_after_initialization(v: V) {
+    def added(v: V) {
         this += v
     }
 
