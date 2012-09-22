@@ -32,36 +32,23 @@
  */
 package sae.operators.impl
 
-import sae.{LazyInitializedObserver, LazyInitializedRelation, MaterializedRelation, Observer}
+import sae.{MaterializedRelation, Observer}
 import sae.operators.Intersection
 
 /**
- * This intersection operation distinct set semantics for elements
+ * This intersection operation has multiset semantics for elements
  *
  */
 class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
                                          val right: MaterializedRelation[Domain])
     extends Intersection[Domain]
-    with LazyInitializedRelation
 {
 
     left addObserver LeftObserver
 
     right addObserver RightObserver
 
-    def lazyInitialize() {
-        if (isInitialized) return
-        left.foreach (
-        {
-            case (key, element) if (right.isDefinedAt (element)) =>
-                element_added (element)
-            case _ => // do nothing
-        }
-        )
-        isInitialized = true
-    }
-
-    object LeftObserver extends LazyInitializedObserver[Domain]
+    object LeftObserver extends Observer[Domain]
     {
 
         /**
@@ -70,8 +57,8 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
          * have less than or equal elements compared to right, we generate new duplicates.
          *
          */
-        override def added(v: Domain) {
-            if (left.elementCountAt(v) <= right.elementCountAt (v)) {
+        def added(v: Domain) {
+            if (left.elementCountAt (v) <= right.elementCountAt (v)) {
                 element_added (v)
             }
         }
@@ -79,16 +66,13 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
         /**
          * as long as left has more elements than right we only remove excess duplicates
          */
-        override def removed(v:Domain) {
-            if (left.elementCountAt(v) > right.elementCountAt (v)) {
+        def removed(v: Domain) {
+            if (left.elementCountAt (v) > right.elementCountAt (v)) {
                 element_removed (v)
             }
         }
 
-        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain)) {
-            val oldV = oldKV._1
-            val newV = newKV._1
-
+        def updated(oldV: Domain, newV: Domain) {
             val oldDef = right.isDefinedAt (oldV)
             val newDef = right.isDefinedAt (newV)
             if (oldDef && newDef) {
@@ -108,59 +92,44 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
     }
 
 
-    object RightObserver extends Observer[(Domain, Domain)]
+    object RightObserver extends Observer[Domain]
     {
 
         /**
-         * We have just added to left (leftIndex.elementCountAt(v) >= 1).
+         * We have just added to right (right.elementCountAt(v) >= 1).
          * While we add elements to left and
          * have less than or equal elements compared to right, we generate new duplicates.
          *
          */
-        def added(kv: (Domain, Domain)) {
-            val v = kv._1
-
-            if (leftIndex.isDefinedAt (v) && !contains (v)) {
+        def added(v: Domain) {
+            if (right.elementCountAt (v) <= left.elementCountAt (v)) {
                 element_added (v)
-                add_element (v)
             }
-
-            isInitialized = true
         }
 
         /**
          * as long as left has more elements than right we only remove excess duplicates
          */
-        def removed(kv: (Domain, Domain)) {
-            val v = kv._1
-
-            if (!(rightIndex.isDefinedAt (v) && leftIndex.isDefinedAt (v))) {
+        def removed(v: Domain) {
+            if (right.elementCountAt (v) > left.elementCountAt (v)) {
                 element_removed (v)
-                remove_element (v)
             }
-
-            isInitialized = true
         }
 
-        def updated(oldKV: (Domain, Domain), newKV: (Domain, Domain)) {
-            val oldV = oldKV._1
-            val newV = newKV._1
+        def updated(oldV: Domain, newV: Domain) {
 
-            val oldDef = leftIndex.isDefinedAt (oldV)
-            val newDef = leftIndex.isDefinedAt (newV)
+            val oldDef = left.isDefinedAt (oldV)
+            val newDef = left.isDefinedAt (newV)
             if (oldDef && !newDef) {
                 // the element was in A but will not be in A and in B thus it is not be in the intersection
                 element_removed (newV)
-                remove_element (oldV)
             }
 
             if (!oldDef && newDef) {
                 // the element was not in A but oldV will  be in B thus the oldV is added to the intersection
                 element_added (oldV)
-                add_element (newV)
             }
 
-            isInitialized = true
         }
     }
 

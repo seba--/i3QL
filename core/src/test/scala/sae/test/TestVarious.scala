@@ -2,6 +2,7 @@ package sae.test
 
 import org.junit.{Assert, Test}
 import sae._
+import collections.LazyInitializedQueryResult
 import sae.syntax.sql._
 import sae.operators.Conversions
 import sae.EventRecorder.{AddEvent, RemoveEvent}
@@ -43,7 +44,7 @@ class TestVarious
         val bordersAll: Relation[(java.lang.Integer, java.lang.Integer)] = SELECT ((start: java.lang.Integer,
                                                                                     end: java.lang.Integer) => (start, end)) FROM (basicBlockStartPcs, basicBlockEndPcs)
 
-        val borders: OLDMaterializedView[(java.lang.Integer, java.lang.Integer)] =
+        val borders: LazyInitializedQueryResult[(java.lang.Integer, java.lang.Integer)] =
             Conversions.lazyViewToMaterializedView (
                 SELECT (*) FROM (bordersAll) WHERE ((e: (java.lang.Integer, java.lang.Integer)) => (e._1 < e._2))
             )
@@ -161,7 +162,7 @@ class TestVarious
             ._2)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE ((_: (String, Int))._1) === ((_: (String, Int))
             ._1)
 
-        val borders: OLDMaterializedView[(Int, Int)] =
+        val borders: LazyInitializedQueryResult[(Int, Int)] =
             Conversions.lazyViewToMaterializedView (
                 SELECT (*) FROM (bordersAll) WHERE ((e: (Int, Int)) => (e._1 < e._2))
             )

@@ -30,37 +30,58 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.collections
+
+import sae._
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 20.09.12
- * Time: 22:14
+ * A result that materializes all data from the underlying relation into a set
  */
-
-trait LazyInitialized
+class SetResult[V <: AnyRef](
+                                val relation: Relation[V]
+                                )
+    extends QueryResult[V]
+    with HashSet[V]
+    with Observer[V]
 {
 
-    /**
-     * Each view must be able to
-     * materialize it's content from the underlying
-     * views.
-     * The laziness allows a query to be set up
-     * on relations (tables) that are already filled.
-     * The lazy initialization must be performed prior to processing the
-     * first add/delete/update events or foreach calls.
-     */
-    def lazyInitialize()
+    relation addObserver this
 
-    /**
-     * Returns true if initialization is complete
-     */
-    def isInitialized: Boolean
+    override protected def children = List (relation)
 
-    /**
-     * Set the initialized status to true
-     */
-    def setInitialized()
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
+
+    def lazyInitialize() {
+        if (isInitialized) return
+        isInitialized = true
+    }
+
+    def updated(oldV: V, newV: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+        this -= oldV
+        this += newV
+    }
+
+    def removed(v: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+
+        this -= v
+    }
+
+    def added(v: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+        this += v
+    }
 
 }

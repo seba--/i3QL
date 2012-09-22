@@ -58,7 +58,6 @@ class TestAnalysesOnRT
 
     @Test
          def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
-             import sae.collections.Conversions._
              val database = BATDatabaseFactory.create ()
              val analysis: QueryResult[INVOKEVIRTUAL] = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
 
@@ -94,7 +93,6 @@ class TestAnalysesOnRT
 
     @Test
          def test_CI_CONFUSED_INHERITANCE() {
-             import sae.collections.Conversions._
              val database = BATDatabaseFactory.create ()
              val analysis: QueryResult[FieldDeclaration] = CI_CONFUSED_INHERITANCE (database)
 
@@ -106,7 +104,6 @@ class TestAnalysesOnRT
     @Test
          def test_FI_PUBLIC_SHOULD_BE_PROTECTED() {
 
-             import sae.collections.Conversions._
              val database = BATDatabaseFactory.create ()
              val analysis: QueryResult[ClassDeclaration] = FI_PUBLIC_SHOULD_BE_PROTECTED (database)
 

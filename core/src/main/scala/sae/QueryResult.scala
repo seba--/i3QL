@@ -42,8 +42,9 @@ import capabilities.{Listable, SingletonValue, Size}
  * In particular if a result is required from a
  * materialized view, a simple Proxy is used.
  */
-trait QueryResult[V <: AnyRef]
+trait QueryResult[V]
     extends Relation[V]
+    with LazyInitializedRelation
     with Size
     with SingletonValue[V]
     with Listable[V]

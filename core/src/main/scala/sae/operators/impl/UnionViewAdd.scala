@@ -39,7 +39,7 @@ import sae.operators.Union
  * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
  */
 class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
-                                                                  val right: Relation[DomainB])
+                                                              val right: Relation[DomainB])
     extends Union[Range, DomainA, DomainB]
     with Observer[Range]
 {

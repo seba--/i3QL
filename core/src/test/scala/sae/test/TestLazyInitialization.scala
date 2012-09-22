@@ -3,7 +3,7 @@ package sae.test
 import org.scalatest.matchers.ShouldMatchers
 import sae.collections.Table
 import org.junit.{Assert, Test}
-import sae.{IndexedViewOLD, EventRecorder, Observable}
+import sae.{EventRecorder, Observable}
 
 
 /**

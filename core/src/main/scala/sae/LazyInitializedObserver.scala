@@ -32,6 +32,8 @@
  */
 package sae
 
+import capabilities.LazyInitialized
+
 /**
  *
  * @author Ralf Mitschke

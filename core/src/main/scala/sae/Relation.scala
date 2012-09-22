@@ -33,6 +33,7 @@
 package sae
 
 import capabilities.Iterable
+import collections.{BagResult, SetResult}
 
 /**
  *
@@ -61,43 +62,51 @@ trait Relation[V]
 
     def isSet: Boolean
 
-    def asMaterialized : MaterializedRelation[V]
+    def asMaterialized: MaterializedRelation[V] = {
+        if (isSet) {
+            new SetResult[V](this)
+        }
+        else
+        {
+            new BagResult[V](this)
+        }
+    }
 
     // internally we forget the concrete Key type, since there may be many
     // different keys
-    var indices = new scala.collection.immutable.HashMap[(V => _), Index[_,V]]
+    var indices = new scala.collection.immutable.HashMap[(V => _), Index[_, V]]
 
     // Indices MUST be updated prior to any other notifications
     abstract override def element_added(v: V) {
-        indices.values.foreach( _.added(v) )
-        super.element_added(v)
+        indices.values.foreach (_.added (v))
+        super.element_added (v)
     }
 
     abstract override def element_removed(v: V) {
-        indices.values.foreach( _.removed(v) )
-        super.element_removed(v)
+        indices.values.foreach (_.removed (v))
+        super.element_removed (v)
     }
 
     abstract override def element_updated(oldV: V, newV: V) {
-        indices.values.foreach( _.updated(oldV, newV) )
-        super.element_updated(oldV, newV)
+        indices.values.foreach (_.updated (oldV, newV))
+        super.element_updated (oldV, newV)
     }
 
     /**
      * returns an index for specified key function
      */
-    def index[K <: AnyRef](keyFunction : V => K) : Index[K, V] = {
-        val index = indices.getOrElse(
+    def index[K <: AnyRef](keyFunction: V => K): Index[K, V] = {
+        val index = indices.getOrElse (
         keyFunction,
         {
-            val newIndex = createIndex(keyFunction)
+            val newIndex = createIndex (keyFunction)
             indices += (keyFunction -> newIndex)
             newIndex
         }
         )
-        index.asInstanceOf[Index[K,V]]
+        index.asInstanceOf[Index[K, V]]
     }
 
-    protected def createIndex[K <: AnyRef](keyFunction : V => K) : Index[K, V]
+    protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V]
 }
 

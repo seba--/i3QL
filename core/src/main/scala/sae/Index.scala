@@ -1,6 +1,7 @@
 package sae
 
 import capabilities.Iterable
+import collections.LazyInitializedQueryResult
 
 /**
  * An index in a database provides fast access to the values <code>V</code>
@@ -23,11 +24,10 @@ import capabilities.Iterable
  *
  */
 trait Index[K <: AnyRef, V <: AnyRef]
-        extends OLDMaterializedView[(K, V)]
-        with SelfMaintainedView[V, (K, V)]
+        extends MaterializedRelation[(K, V)]
 {
 
-    def relation: OLDMaterializedView[V]
+    def relation: LazyInitializedQueryResult[V]
 
     def keyFunction: V => K
 

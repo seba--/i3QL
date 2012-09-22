@@ -30,16 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.capabilities
 
 /**
- *
- * A bag relation is a relation in which tuples can occur multiple times.
- *
- * @author Ralf Mitschke
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 20.09.12
+ * Time: 22:14
  */
-trait BagRelation[V]
-    extends Relation[V]
+
+trait LazyInitialized
 {
-    def isSet = false
+
+    /**
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
+     */
+    def lazyInitialize()
+
+    /**
+     * Returns true if initialization is complete
+     */
+    def isInitialized: Boolean
+
+    /**
+     * Set the initialized status to true
+     */
+    def setInitialized()
+
 }

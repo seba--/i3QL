@@ -5,11 +5,12 @@ package collections
  * A relation backed by a multi set for efficient access to elements.
  * Each element may have multiple occurrences in this relation.
  */
-trait Bag[V <: AnyRef]
-    extends Collection[V]
+trait Bag[V]
+    extends BagRelation[V]
+    with Collection[V]
 {
 
-    import com.google.common.collect.HashMultiset;
+    import com.google.common.collect.HashMultiset
     private val data: HashMultiset[V] = HashMultiset.create[V]()
 
     def materialized_size: Int =

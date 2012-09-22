@@ -30,16 +30,62 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.collections
+
+import sae.{Observable, Observer, QueryResult, Relation}
 
 /**
- *
- * A bag relation is a relation in which tuples can occur multiple times.
- *
- * @author Ralf Mitschke
+ * A result that materializes all data from the underlying relation into a bag
  */
-trait BagRelation[V]
-    extends Relation[V]
+class BagResult[V <: AnyRef](
+                                val relation: Relation[V]
+                                )
+    extends QueryResult[V]
+    with Bag[V]
+    with Observer[V]
 {
-    def isSet = false
+
+    relation addObserver this
+
+    override protected def children = List (relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
+
+    def lazyInitialize {
+        if (isInitialized) return
+        relation.lazy_foreach (
+            v =>
+                add_element (v)
+        )
+        isInitialized = true
+    }
+
+    def updated(oldV: V, newV: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+        update (oldV, newV)
+    }
+
+    def removed(v: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+
+        this -= v
+    }
+
+    def added(v: V) {
+        if (!isInitialized) {
+            isInitialized = true
+        }
+        this += v
+    }
+
+    // def toAst = "QueryResult( " + relation.toAst + " )"
 }

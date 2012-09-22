@@ -1,7 +1,5 @@
 package sae.operators
 
-import sae.operators.intern._
-
 /**
  * A collection of implicit methods to create an AggregateFunctionFactory out of a TupleX(AggregateFunctionFactory, AggregateFunctionFactory, ...)
  * currently supported:
@@ -17,7 +15,7 @@ object CreateAggregationFunctionContainer
 
     /**
      * the implicit methods call applyNotSelf/x if one of the parameters is a NotSelfMaintainableAggregateFunctionFactory
-     * or applySelf/x if all parameters are SelfMaintainalbeAggregationFunctionFactories
+     * or applySelf/x if all parameters are SelfMaintainableAggregationFunctionFactories
      */
 
 

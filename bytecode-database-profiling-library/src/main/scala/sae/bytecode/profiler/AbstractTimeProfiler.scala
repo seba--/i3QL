@@ -37,7 +37,7 @@ import sae.bytecode.BytecodeDatabase
 import sae.{QueryResult, Observable, Relation}
 import java.io.FileInputStream
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.collections.{QueryResult, Conversions}
+import sae.collections.{QueryResult}
 import statistics.{Statistic, SampleStatistic}
 
 /**

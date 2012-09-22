@@ -1,5 +1,7 @@
 package sae
 
+import collections.LazyInitializedQueryResult
+
 /**
  *
  * Author: Ralf Mitschke
@@ -43,7 +45,7 @@ trait ObservableProxy[V <: AnyRef] extends Observable[V]
 }
 
 // proxy observer for indices
-class HashIndexedViewProxyOLD[V <: AnyRef](val relation: OLDMaterializedView[V])
+class HashIndexedViewProxyOLD[V <: AnyRef](val relation: LazyInitializedQueryResult[V])
         extends IndexedViewOLD[V]
         with ObservableProxy[V]
 {
@@ -64,7 +66,7 @@ class HashIndexedViewProxyOLD[V <: AnyRef](val relation: OLDMaterializedView[V])
 
     protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V] =
     {
-        val index = new sae.collections.HashBagIndex[K, V](relation, keyFunction)
+        val index = new sae.collections.BagIndex[K, V](relation, keyFunction)
         index.lazyInitialize
         index
     }

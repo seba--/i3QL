@@ -42,7 +42,6 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
                                                  val rightKey: DomainB => Key,
                                                  val projection: (DomainA, DomainB) => Range)
     extends EquiJoin[DomainA, DomainB, Range, Key]
-    with LazyInitializedRelation
 {
 
     val leftIndex = left.index (leftKey)
@@ -56,27 +55,18 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 
     rightIndex addObserver RightObserver
 
-    def lazyInitialize() {
-        if (isInitialized) return
-        // iterate over the smaller of the two indices
-        if (leftIndex.size <= rightIndex.size) {
-            leftEquiJoin (element_added)
-
-        }
-        else
-        {
-            rightEquiJoin (element_added)
-        }
-        setInitialized()
-    }
-
-
-
     /**
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
+        if (leftIndex.size <= rightIndex.size) {
+            leftEquiJoin (f)
 
+        }
+        else
+        {
+            rightEquiJoin (f)
+        }
     }
 
     // use the left relation as keys, since this relation is smaller
@@ -114,25 +104,11 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
     }
 
 
-    object LeftObserver extends LazyInitializedObserver[(Key, DomainA)]
+    object LeftObserver extends Observer[(Key, DomainA)]
     {
-        def lazyInitialize() {
-            EquiJoinView.this.lazyInitialize ()
-        }
-        /**
-         * Returns true if initialization is complete
-         */
-        def isInitialized = EquiJoinView.this.isInitialized
-
-        /**
-         * Set the initialized status to true
-         */
-        def setInitialized() {
-            EquiJoinView.this.setInitialized()
-        }
 
         // update operations on left relation
-        override def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
+        def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
             val oldKey = oldKV._1
             val newKey = newKV._1
             val oldV = oldKV._2
@@ -161,7 +137,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
             }
         }
 
-        override def removed(kv: (Key, DomainA)) {
+        def removed(kv: (Key, DomainA)) {
             rightIndex.get (kv._1) match {
                 case Some (col) => {
                     col.foreach (u =>
@@ -173,7 +149,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
             }
         }
 
-        override def added(kv: (Key, DomainA)) {
+        def added(kv: (Key, DomainA)) {
             rightIndex.get (kv._1) match {
                 case Some (col) => {
                     col.foreach (u =>
@@ -188,25 +164,11 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 
     }
 
-    object RightObserver extends LazyInitializedObserver[(Key, DomainB)]
+    object RightObserver extends Observer[(Key, DomainB)]
     {
-        def lazyInitialize() {
-            EquiJoinView.this.lazyInitialize ()
-        }
-        /**
-         * Returns true if initialization is complete
-         */
-        def isInitialized = EquiJoinView.this.isInitialized
-
-        /**
-         * Set the initialized status to true
-         */
-        def setInitialized() {
-            EquiJoinView.this.setInitialized()
-        }
 
         // update operations on right relation
-        override def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
+        def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
             val oldKey = oldKV._1
             val newKey = newKV._1
             val oldV = oldKV._2
@@ -238,7 +200,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
             }
         }
 
-        override def removed(kv: (Key, DomainB)) {
+        def removed(kv: (Key, DomainB)) {
             leftIndex.get (kv._1) match {
                 case Some (col) => {
                     col.foreach (u =>
@@ -250,7 +212,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 
         }
 
-        override def added(kv: (Key, DomainB)) {
+        def added(kv: (Key, DomainB)) {
             leftIndex.get (kv._1) match {
                 case Some (col) => {
                     col.foreach (u =>

@@ -32,14 +32,16 @@
  */
 package sae
 
+import capabilities.LazyInitialized
+
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-trait LazyInitializedRelation[Domain <: AnyRef, Range <: AnyRef]
-    extends Relation[Range]
+trait LazyInitializedRelation[Domain]
+    extends Relation[Domain]
     with LazyInitialized
 {
     /**

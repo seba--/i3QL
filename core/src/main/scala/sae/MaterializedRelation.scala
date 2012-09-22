@@ -37,12 +37,11 @@ package sae
  * @author Ralf Mitschke
  *
  */
-trait MaterializedRelation[V <: AnyRef]
-    extends Relation[V]
-    with LazyInitializedRelation
+trait MaterializedRelation[V]
+    extends LazyInitializedRelation[V]
 {
 
-    def asMaterialized = this
+    override def asMaterialized = this
 
     /**
      * Applies f to all elements of the view with their counts

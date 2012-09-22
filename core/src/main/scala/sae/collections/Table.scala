@@ -7,9 +7,6 @@ package collections
 class Table[V <: AnyRef]
         extends Bag[V]
 {
-    isInitialized = true
-
-	def lazyInitialize : Unit = { /* nothing to do, the table itself is the data */ }
 
     def copy : Table[V] =
         {

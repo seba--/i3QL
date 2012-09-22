@@ -1,28 +1,16 @@
-package sae
+package sae.collections
 
-import capabilities._
+import sae.{LazyInitializedRelation, QueryResult, Relation}
+import sae.capabilities._
 
 /**
  * This view materializes its elements and thus requires
  * some form of intermediate storage.
  */
-trait OLDMaterializedView[V <: AnyRef]
-    extends Relation[V]
-    with Iterable[V]
-    with Size
-    with SingletonValue[V]
-    with Contains[V]
-    with Listable[V]
+trait LazyInitializedQueryResult[V]
+    extends QueryResult[V]
+    with LazyInitializedRelation[V]
 {
-
-    /**
-     * A materialized view never needs to defer
-     * since it records it's own elements
-     */
-    def lazy_foreach[T](f: (V) => T)
-    {
-        foreach (f)
-    }
 
 
     /**

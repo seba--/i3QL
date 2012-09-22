@@ -1,6 +1,18 @@
 package sae.operators
 
-import sae.operators.intern._
+
+/**
+ * IMPORTANT: clients should NOT implement this interface
+ * clients should implement:
+ *  -NotSelfMaintainableAggregateFunctionFactory
+ *  -SelfMaintainableAggregateFunctionFactory
+ *
+ */
+trait AggregateFunctionFactory[Domain <: AnyRef, AggregationValue <: Any, AggregateFunctionType <: AggregateFunction[Domain, AggregationValue]]
+{
+    def apply(): AggregateFunctionType
+
+}
 
 /**
  * Factory interface for a not self maintainable aggregation function

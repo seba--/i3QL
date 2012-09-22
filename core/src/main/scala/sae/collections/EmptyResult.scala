@@ -30,16 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.collections
 
-/**
- *
- * A bag relation is a relation in which tuples can occur multiple times.
- *
- * @author Ralf Mitschke
- */
-trait BagRelation[V]
-    extends Relation[V]
+import sae.QueryResult
+
+class EmptyResult[V]
+    extends QueryResult[V]
 {
-    def isSet = false
+    protected def materialized_foreach[T](f: (V) => T) {}
+
+    protected def materialized_size: Int = 0
+
+    protected def materialized_singletonValue: Option[V] = None
+
+    protected def materialized_contains(v: V): Boolean = false
 }

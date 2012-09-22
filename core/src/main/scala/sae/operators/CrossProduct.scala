@@ -46,16 +46,23 @@ import sae.{MaterializedRelation, Relation}
  * to one of the underlying relations,
  * the whole other relation needs to be considered.
  *
+ * This cross product  has the most general form, where a projection is immediately applied
+ * without generating a tuple object for results.
+ * The form where a tuple (DomainA,DomainB) is returned is more specific and can always be emulated by providing a
+ * respective function.
+ *
  * @author Ralf Mitschke
  *
  */
-trait CrossProduct[DomainA, DomainB]
-    extends Relation[(DomainA, DomainB)]
+trait CrossProduct[DomainA, DomainB, Range]
+    extends Relation[Range]
 {
 
     def left: MaterializedRelation[DomainA]
 
     def right: MaterializedRelation[DomainB]
+
+    def projection: (DomainA, DomainB) => Range
 
     def isSet = left.isSet && right.isSet
 }

@@ -42,11 +42,8 @@ import sae.operators.Union
  *
  * The UnionViewMax requires materialized relations as underlying relations, but does not require to store the result.
  */
-class UnionViewMax[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
-(
-    val left: MaterializedRelation[DomainA],
-    val right: MaterializedRelation[DomainB]
-    )
+class UnionViewMax[Range <: AnyRef, DomainA <: Range, DomainB <: Range](val left: MaterializedRelation[DomainA],
+                                                                        val right: MaterializedRelation[DomainB])
     extends Union[Range, DomainA, DomainB]
 {
     left addObserver LeftObserver

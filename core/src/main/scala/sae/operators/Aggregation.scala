@@ -1,6 +1,7 @@
 package sae
 package operators
 
+import impl.{AggregationForSelfMaintainableAggregationFunctions, AggregationForNotSelfMaintainableFunctions}
 import intern._
 
 
@@ -42,7 +43,7 @@ object Aggregation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
      * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-     * @return OLDMaterializedView[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
                                                                                      groupingFunction: Domain => Key,
@@ -60,7 +61,7 @@ object Aggregation
      * @param source: Source relation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
-     * @return OLDMaterializedView[(groupingFunction return type, aggregationFunction retun type] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[(groupingFunction return type, aggregationFunction retun type] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
                                                                    groupingFunction: Domain => Key,
@@ -77,7 +78,7 @@ object Aggregation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
      * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-     * @return OLDMaterializedView[convertKeyAndAggregationValueToResult returnvalue type] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[convertKeyAndAggregationValueToResult returnvalue type] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any, Result <: AnyRef](source: Relation[Domain],
                                                                                      groupFunction: Domain => Key,
@@ -93,7 +94,7 @@ object Aggregation
      * @param source: Source relation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return OLDMaterializedView[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, Key <: Any, AggregateValue <: Any](source: Relation[Domain],
                                                                    groupingFunction: Domain => Key,
@@ -110,7 +111,7 @@ object Aggregation
      * @param source: Source relation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return OLDMaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
                                                        aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {
@@ -125,7 +126,7 @@ object Aggregation
      * @param source: Source relation
      * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
      * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return OLDMaterializedView[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as OLDMaterializedView
+     * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
      */
     def apply[Domain <: AnyRef, AggregateValue <: Any](source: Relation[Domain],
                                                        aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) = {

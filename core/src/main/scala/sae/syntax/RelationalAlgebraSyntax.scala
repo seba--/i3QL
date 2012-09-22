@@ -8,6 +8,7 @@ import sae.Relation
 import scala.Some
 import syntax.InfixFunctionConcatenator
 import syntax.InfixConcatenator
+import collections.LazyInitializedQueryResult
 
 case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 {
@@ -30,7 +31,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
     // equi join using bowtie symbol (U+22C8)
     def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef] (leftKey: Domain => Key, rightKey: OtherDomain => Key)
                                                                  (otherRelation: Relation[OtherDomain])
-                                                                 (factory: (Domain, OtherDomain) => Range): OLDMaterializedView[Range] =
+                                                                 (factory: (Domain, OtherDomain) => Range): LazyInitializedQueryResult[Range] =
         new EquiJoinView (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
@@ -53,7 +54,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
         )
 
     def ∖ (otherRelation: Relation[Domain]): Relation[Domain] =
-        new BagDifference[Domain](
+        new DifferenceView[Domain](
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation)
         )
@@ -75,7 +76,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
                                                        rightKey: OtherDomain => Range,
                                                        otherRelation: Relation[OtherDomain]
                                                        )
-                                                   (factory: (Domain, OtherDomain) => Result): OLDMaterializedView[Result] =
+                                                   (factory: (Domain, OtherDomain) => Result): LazyInitializedQueryResult[Result] =
         new EquiJoinView (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
@@ -355,27 +356,27 @@ object RelationalAlgebraSyntax
         implicit def functionToSetInclusion[Domain <: AnyRef, Range <: AnyRef](function: Domain => Range) =
             SetProjectionInclusionConverter(function)
 
-        case class ElementOf[Domain <: AnyRef](relation: OLDMaterializedView[Domain]) extends (Domain => Boolean)
+        case class ElementOf[Domain <: AnyRef](relation: LazyInitializedQueryResult[Domain]) extends (Domain => Boolean)
         {
             def apply(e: Domain) = relation.contains(e)
         }
 
         case class ElementOfProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                              projection: Domain => Range,
-                                                                             relation: OLDMaterializedView[Range]
+                                                                             relation: LazyInitializedQueryResult[Range]
                                                                          ) extends (Domain => Boolean)
         {
             def apply(e: Domain) = relation.contains(projection(e))
         }
 
-        case class NotElementOf[Domain <: AnyRef](relation: OLDMaterializedView[Domain]) extends (Domain => Boolean)
+        case class NotElementOf[Domain <: AnyRef](relation: LazyInitializedQueryResult[Domain]) extends (Domain => Boolean)
         {
             def apply(e: Domain) = !relation.contains(e)
         }
 
         case class NotElementOfProjection[Domain <: AnyRef, Range <: AnyRef](
                                                                                 projection: Domain => Range,
-                                                                                relation: OLDMaterializedView[Range]
+                                                                                relation: LazyInitializedQueryResult[Range]
                                                                             ) extends (Domain => Boolean)
         {
             type Rng = Range

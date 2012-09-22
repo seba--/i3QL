@@ -1,6 +1,20 @@
 package sae.operators
 
-import sae.operators.intern._
+/**
+ * IMPORTANT: clients should NOT implement this interface
+ * clients should implement:
+ *  -NotSelfMaintainableAggregateFunction
+ *  -SelfMaintainableAggregateFunction
+ */
+trait AggregateFunction[Domain <: AnyRef, Result]
+{
+    def add(newD: Domain, data: Iterable[Domain]): Result
+
+    def remove(newD: Domain, data: Iterable[Domain]): Result
+
+    def update(oldD: Domain, newD: Domain, data: Iterable[Domain]): Result
+}
+
 
 /**
  * Interface for a not self maintainable aggregate function like min
