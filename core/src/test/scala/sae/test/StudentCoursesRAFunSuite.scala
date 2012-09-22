@@ -522,7 +522,11 @@ class StudentCoursesRAFunSuite
 
 
         students -= john
+        assert(intersect.size === 1)
+
         students -= sally
+        assert(intersect.size === 0)
+
         val heather = Student(25421, "heather")
         persons += heather
         val tim = Employee("tim")
@@ -589,7 +593,10 @@ class StudentCoursesRAFunSuite
         val heather_new_number = Student(23744, "heather")
 
         students += john
+        assert(intersect.size === 2)
         students += sally
+        assert(intersect.size === 3)
+
         persons.update(heather, heather_new_number)
 
         assert(intersect.size === 2)

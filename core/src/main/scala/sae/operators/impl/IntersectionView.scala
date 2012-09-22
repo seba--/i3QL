@@ -84,7 +84,7 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
          * as long as left has more elements than right we only remove excess duplicates
          */
         def removed(v: Domain) {
-            if (left.elementCountAt (v) > right.elementCountAt (v)) {
+            if (left.elementCountAt (v) < right.elementCountAt (v)) {
                 element_removed (v)
             }
         }
@@ -128,7 +128,7 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
          * as long as left has more elements than right we only remove excess duplicates
          */
         def removed(v: Domain) {
-            if (right.elementCountAt (v) > left.elementCountAt (v)) {
+            if (right.elementCountAt (v) < left.elementCountAt (v)) {
                 element_removed (v)
             }
         }
@@ -139,12 +139,12 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
             val newDef = left.isDefinedAt (newV)
             if (oldDef && !newDef) {
                 // the element was in A but will not be in A and in B thus it is not be in the intersection
-                element_removed (newV)
+                element_removed (oldV)
             }
 
             if (!oldDef && newDef) {
                 // the element was not in A but oldV will  be in B thus the oldV is added to the intersection
-                element_added (oldV)
+                element_added (newV)
             }
 
         }
