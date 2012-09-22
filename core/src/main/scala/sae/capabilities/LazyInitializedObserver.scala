@@ -32,7 +32,6 @@
  */
 package sae.capabilities
 
-import capabilities.LazyInitialized
 import sae.Observer
 
 /**
@@ -46,7 +45,7 @@ trait LazyInitializedObserver[Domain]
     with LazyInitialized
 {
 
-    abstract override def updated(oldV: Domain, newV: Domain): Unit =
+    abstract override def updated(oldV: Domain, newV: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()
@@ -55,7 +54,7 @@ trait LazyInitializedObserver[Domain]
         super.updated (oldV, newV)
     }
 
-    abstract override def removed(v: Domain): Unit =
+    abstract override def removed(v: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()
@@ -65,7 +64,7 @@ trait LazyInitializedObserver[Domain]
         super.removed (v)
     }
 
-    abstract override def added(v: Domain): Unit =
+    abstract override def added(v: Domain)
     {
         if (!isInitialized) {
             lazyInitialize ()

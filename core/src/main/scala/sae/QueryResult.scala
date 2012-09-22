@@ -43,8 +43,7 @@ import capabilities.{LazyInitializedRelation, Listable, SingletonValue, Size}
  * materialized view, a simple Proxy is used.
  */
 trait QueryResult[V]
-    extends Relation[V]
-    with LazyInitializedRelation
+    extends LazyInitializedRelation[V]
     with Size
     with SingletonValue[V]
     with Listable[V]

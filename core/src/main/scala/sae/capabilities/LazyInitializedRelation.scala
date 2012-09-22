@@ -32,7 +32,6 @@
  */
 package sae.capabilities
 
-import capabilities.LazyInitialized
 import sae.Relation
 
 /**

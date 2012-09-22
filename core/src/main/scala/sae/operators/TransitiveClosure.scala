@@ -12,7 +12,7 @@ import sae._
  * @author Malte V
  * @author Ralf Mitschke
  */
-trait TransitiveClosure[Edge, Vertex, Range]
+trait TransitiveClosure[Edge, Vertex]
     extends MaterializedRelation[(Vertex, Vertex)]
 {
     def source: Relation[Edge]

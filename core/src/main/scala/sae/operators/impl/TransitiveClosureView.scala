@@ -142,9 +142,9 @@ class TransitiveClosureView[Edge <: AnyRef, Vertex <: AnyRef](val source: Relati
      */
     def lazyInitialize {
         if (isInitialized) return
-        source.lazy_foreach (x =>
+        source.foreach (x =>
             internal_add (x, false))
-        isInitialized = true
+        setInitialized()
     }
 
 

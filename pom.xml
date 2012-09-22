@@ -10,6 +10,7 @@
     <modules>
         <module>sae-parent</module>
         <module>core</module>
+        <module>sql</module>
         <module>bytecode-database-interface</module>
         <module>bytecode-database-binding-bat</module>
         <module>bytecode-database-profiling-library</module>

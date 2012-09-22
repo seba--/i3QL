@@ -32,8 +32,7 @@
  */
 package sae
 
-import capabilities.{LazyInitializedRelation, Iterable}
-import collections.LazyInitializedQueryResult
+import capabilities.{LazyInitializedObserver, LazyInitializedRelation}
 
 /**
  * An index in a database provides fast access to the values <code>V</code>
@@ -58,9 +57,10 @@ import collections.LazyInitializedQueryResult
 trait Index[K, V]
     extends MaterializedRelation[(K, V)]
     with LazyInitializedRelation[(K, V)]
+    with LazyInitializedObserver[V]
 {
 
-    def relation: LazyInitializedQueryResult[V]
+    def relation: Relation[V]
 
     def keyFunction: V => K
 
@@ -73,7 +73,7 @@ trait Index[K, V]
     def foreachKey[U](f: (K) => U) {
         if (!isInitialized) {
             this.lazyInitialize ()
-            setInitialized()
+            setInitialized ()
         }
         foreachKey_internal (f)
     }
@@ -81,11 +81,12 @@ trait Index[K, V]
     protected def foreachKey_internal[U](f: (K) => U)
 
     // an index is lazy isInitialized by calling build
-    def isInitialized {
+    def lazyInitialize() {
         if (isInitialized) return
-        relation.foreach (v => {
-            put_internal (keyFunction (v), v)
-        }
+        relation.foreach (
+            v => {
+                put_internal (keyFunction (v), v)
+            }
         )
     }
 
@@ -93,7 +94,8 @@ trait Index[K, V]
 
     def get(key: K): Option[Traversable[V]] = {
         if (!isInitialized) {
-            this.lazyInitialize
+            lazyInitialize ()
+            setInitialized ()
         }
         get_internal (key)
     }
@@ -102,7 +104,8 @@ trait Index[K, V]
 
     def isDefinedAt(key: K): Boolean = {
         if (!isInitialized) {
-            this.lazyInitialize
+            lazyInitialize ()
+            setInitialized ()
         }
         isDefinedAt_internal (key)
     }
@@ -112,7 +115,8 @@ trait Index[K, V]
 
     def elementCountAt(key: K): Int = {
         if (!isInitialized) {
-            this.lazyInitialize
+            lazyInitialize ()
+            setInitialized ()
         }
         elementCountAt_internal (key)
     }
@@ -120,9 +124,9 @@ trait Index[K, V]
     protected def elementCountAt_internal(key: K): Int
 
 
-    def getOrElse(key: K, f: => Iterable[V]): Traversable[V] = get (key).getOrElse (f)
+    def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get (key).getOrElse (f)
 
-    def updated_internal(oldV: V, newV: V) {
+    override def updated(oldV: V, newV: V) {
         if (oldV == newV)
             return
         val k1 = keyFunction (oldV)
@@ -131,22 +135,22 @@ trait Index[K, V]
         element_updated ((k1, oldV), (k2, newV))
     }
 
-    def removed_internal(v: V) {
+    override def removed(v: V) {
         val k = keyFunction (v)
-        remove_element ((k, v))
+        remove_element (k, v)
         element_removed ((k, v))
     }
 
-    def added_internal(v: V) {
+    override def added(v: V) {
         val k = keyFunction (v)
         add_element (k, v)
         element_added ((k, v))
     }
 
-    def add_element(kv: (K, V)): Unit
+    def add_element(key: K, value: V)
 
-    def remove_element(kv: (K, V)): Unit
+    def remove_element(key: K, value: V)
 
-    def update_element(oldKey: K, oldV: V, newKey: K, newV: V): Unit
+    def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
 
 }

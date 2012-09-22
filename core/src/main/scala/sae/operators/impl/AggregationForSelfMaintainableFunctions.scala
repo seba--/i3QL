@@ -49,12 +49,12 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain <: AnyRef, Key <
     /**
      * {@inheritDoc}
      */
-    def lazyInitialize: Unit = {
-        if (!initialized) {
-            source.lazy_foreach ((v: Domain) => {
+    def lazyInitialize() {
+        if (!isInitialized) {
+            source.foreach ((v: Domain) => {
                 internal_added (v, false)
             })
-            initialized = true
+            setInitialized()
         }
 
     }

@@ -16,17 +16,19 @@ trait Set[V <: AnyRef]
 
     def materialized_singletonValue: Option[V] = data.headOption
 
-    def add_element(v: V): Unit =
+    def add_element(v: V)
     {
         data = data + v
     }
 
-    def remove_element(v: V): Unit =
+    def remove_element(v: V)
     {
         data = data - v
     }
 
-    def materialized_foreach[U](f: V => U): Unit = data.foreach (f)
+    def materialized_foreach[U](f: V => U) {
+        data.foreach (f)
+    }
 
     protected def materialized_contains(v: V) = data.contains (v)
 
@@ -34,8 +36,8 @@ trait Set[V <: AnyRef]
         data.contains (v)
     }
 
-    protected def elementCountAt_internal(v: V) = {
-        if (data.contains (v)) {
+    protected def elementCountAt_internal[T >: V](v: T) = {
+        if (v.isInstanceOf[V] && data.contains (v.asInstanceOf[V])) {
             1
         }
         else

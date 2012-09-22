@@ -35,5 +35,8 @@ package sae
 class SetExtent[V]
     extends SetRelation[V]
 {
-
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (V) => T) {/* do nothing */}
 }

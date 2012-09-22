@@ -60,7 +60,7 @@ trait Bag[V]
         data.contains(v)
     }
 
-    protected def elementCountAt_internal(v: V) = {
+    protected def elementCountAt_internal[T >: V](v: T) = {
         data.count(v)
     }
 }

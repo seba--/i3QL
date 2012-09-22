@@ -95,7 +95,7 @@ trait Relation[V]
     /**
      * returns an index for specified key function
      */
-    def index[K <: AnyRef](keyFunction: V => K): Index[K, V] = {
+    def index[K](keyFunction: V => K): Index[K, V] = {
         val index = indices.getOrElse (
         keyFunction,
         {
@@ -107,10 +107,9 @@ trait Relation[V]
         index.asInstanceOf[Index[K, V]]
     }
 
-    protected def createIndex[K <: AnyRef](keyFunction: V => K): Index[K, V] =
+    protected def createIndex[K](keyFunction: V => K): Index[K, V] =
     {
         val index = new sae.collections.BagIndex[K, V](this, keyFunction)
-        index.lazyInitialize
         index
     }
 

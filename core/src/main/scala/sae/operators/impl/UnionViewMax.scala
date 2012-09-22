@@ -42,25 +42,25 @@ import sae.operators.Union
  *
  * The UnionViewMax requires materialized relations as underlying relations, but does not require to store the result.
  */
-class UnionViewMax[Range <: AnyRef, DomainA <: Range, DomainB <: Range](val left: MaterializedRelation[DomainA],
-                                                                        val right: MaterializedRelation[DomainB])
+class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: MaterializedRelation[DomainA],
+                                                              val right: MaterializedRelation[DomainB])
     extends Union[Range, DomainA, DomainB]
 {
     left addObserver LeftObserver
 
     right addObserver RightObserver
 
-    def asMaterialized = null
-
     def foreach[T](f: (Range) => T) {
-        left.foreachWithCount ((v: Range, count: Int) => {
-            val max = scala.math.max (count, right.elementCountAt (v))
-            var i = 0
-            while (i < max) {
-                f (v)
-                i += 1
+        left.foreach (
+            (v: Range) =>
+            {
+                val max = scala.math.max (left.elementCountAt (v), right.elementCountAt (v))
+                var i = 0
+                while (i < max) {
+                    f (v)
+                    i += 1
+                }
             }
-        }
         )
     }
 

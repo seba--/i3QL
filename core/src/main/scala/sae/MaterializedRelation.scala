@@ -65,7 +65,7 @@ trait MaterializedRelation[V]
      * Returns the count for a given element.
      * In case an add/remove/update event is in progression, this always returns the
      */
-    def elementCountAt(v: V): Int = {
+    def elementCountAt[T >: V](v: T): Int = {
         if (!isInitialized) {
             this.lazyInitialize ()
             setInitialized()
@@ -73,6 +73,6 @@ trait MaterializedRelation[V]
         elementCountAt_internal (v)
     }
 
-    protected def elementCountAt_internal(v: V): Int
+    protected def elementCountAt_internal[T >: V](v: T): Int
 
 }

@@ -59,19 +59,19 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
     /**
      * {@inheritDoc}
      */
-    def lazyInitialize: Unit = {
-        if (!initialized) {
-            source.lazy_foreach ((v: Domain) => {
+    def lazyInitialize() {
+        if (!isInitialized) {
+            source.foreach ((v: Domain) => {
                 intern_added (v, false)
             })
-            initialized = true
+            setInitialized()
         }
     }
 
     /**
      * {@inheritDoc}
      */
-    protected def materialized_foreach[T](f: (Result) => T): Unit = {
+    protected def materialized_foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
