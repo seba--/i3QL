@@ -470,20 +470,36 @@ class StudentCoursesRAFunSuite
         assert(difference.size === 4)
         assert(difference.asList.contains(heather_new_number))
 
-        persons.update(heather_new_number, heather)
-        // persons contains heather once, students heather once
         students += heather
+        assert(difference.size === 4)
+        assert(difference.asList.contains(heather_new_number))
+
+
+        students.update(heather, heather_new_number)
         assert(difference.size === 3)
         assert(!difference.asList.contains(heather_new_number))
 
-        // persons contains heather_new_number once, students heather once
-        persons.update(heather, heather_new_number)
+        persons.update(heather_new_number, heather)
 
         assert(difference.size === 4)
-        assert(difference.asList.contains(heather_new_number))
-        // persons contains heather_new_number once, students heather_new_number once
-        students.update(heather, heather_new_number)
+        assert(difference.asList.contains(heather))
 
+        // persons contains heather once, students heather once
+        students += heather
+        assert(difference.size === 3)
+
+        // persons contains heather once, students heather twice
+        students.update(heather_new_number, heather)
+        assert(difference.size === 3)
+
+
+        // persons contains heather_new_number once, students heather twice
+        persons.update(heather, heather_new_number)
+        assert(difference.size === 4)
+        assert(difference.asList.contains(heather_new_number))
+
+        // persons contains heather_new_number once, students heather_new_number twice
+        students.update(heather, heather_new_number)
         assert(difference.size === 3)
         assert(!difference.asList.contains(heather_new_number))
     }

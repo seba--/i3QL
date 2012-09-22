@@ -86,14 +86,14 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
             }
             while (newCount > 0)
             {
-                element_added (oldV)
+                element_added (newV)
                 newCount -= 1
             }
         }
 
         def removed(v: Domain) {
             // check that this was a removal where we still had more elements than right side
-            if (left.elementCountAt (v) >= right.elementCountAt (v)) {
+            if (left.elementCountAt (v) >= right.elementCountAt (v) ) {
                 element_removed (v)
             }
         }
@@ -112,7 +112,7 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
         def updated(oldV: Domain, newV: Domain) {
             // we are notified after the update, hence the right will be updated to newV
             var oldCount = if (left.elementCountAt (oldV) >= right.elementCountAt (newV)) right.elementCountAt (newV) else left.elementCountAt (oldV)
-            var newCount = if (left.elementCountAt (newV) >= right.elementCountAt (newV)) right.elementCountAt (newV) else left.elementCountAt (oldV)
+            var newCount = if (left.elementCountAt (newV) >= right.elementCountAt (newV)) right.elementCountAt (newV) else left.elementCountAt (newV)
             if (oldCount == newCount) {
                 element_updated (oldV, newV)
                 return
@@ -124,7 +124,7 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
             }
             while (newCount > 0)
             {
-                element_removed (oldV)
+                element_removed (newV)
                 newCount -= 1
             }
         }
