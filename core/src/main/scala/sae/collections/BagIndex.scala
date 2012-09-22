@@ -19,6 +19,8 @@ class BagIndex[K, V](val relation: Relation[V],
 
     private val map = com.google.common.collect.LinkedListMultimap.create[K, V]()
 
+    lazyInitialize()
+
     def size = map.size()
 
     def foreachKey[U](f: (K) => U) {

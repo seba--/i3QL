@@ -41,7 +41,6 @@ package sae.capabilities
 
 trait LazyInitialized
 {
-    lazyInitialize()
 
     /**
      * Each view must be able to

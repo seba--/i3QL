@@ -44,6 +44,8 @@ class BagResult[V](val relation: Relation[V])
 
     relation addObserver this
 
+    lazyInitialize()
+
     def lazyInitialize() {
         relation.foreach (
             (v: V) => add_element (v)

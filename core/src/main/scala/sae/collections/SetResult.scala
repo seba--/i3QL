@@ -44,6 +44,8 @@ class SetResult[V](val relation: Relation[V])
 
     relation addObserver this
 
+    lazyInitialize()
+
     def lazyInitialize() {
         relation.foreach (
             v => add_element (v)

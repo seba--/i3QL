@@ -18,6 +18,8 @@ class SetIndex[K, V](val relation: Relation[V],
 
     private val map = com.google.common.collect.HashMultimap.create[K, V]()
 
+    lazyInitialize()
+
     def foreachKey[U](f: (K) => U) {
         val it = map.keys ().iterator ()
         while (it.hasNext) {

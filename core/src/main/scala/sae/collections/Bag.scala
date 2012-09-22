@@ -12,7 +12,26 @@ trait Bag[V]
 {
 
     import com.google.common.collect.HashMultiset
+
     private val data: HashMultiset[V] = HashMultiset.create[V]()
+
+    def foreach[U](f: V => U)
+    {
+        val it: java.util.Iterator[V] = data.iterator ()
+        while (it.hasNext ()) {
+            f (it.next ())
+        }
+    }
+
+    def contains(v: V) = data.contains (v)
+
+    def isDefinedAt(v: V) = {
+        data.contains (v)
+    }
+
+    def elementCountAt[T >: V](v: T) = {
+        data.count (v)
+    }
 
     def size: Int =
     {
@@ -27,25 +46,16 @@ trait Bag[V]
             Some (data.iterator ().next ())
     }
 
-    def add_element(v: V): Unit =
+    def add_element(v: V)
     {
         data.add (v)
     }
 
-    def remove_element(v: V): Unit =
+    def remove_element(v: V)
     {
         data.remove (v)
     }
 
-    def foreach[U](f: V => U): Unit =
-    {
-        val it: java.util.Iterator[V] = data.iterator ()
-        while (it.hasNext ()) {
-            f (it.next ())
-        }
-    }
-
-    def contains(v: V) = data.contains (v)
 
     def update(oldV: V, newV: V)
     {
@@ -56,11 +66,4 @@ trait Bag[V]
     }
 
 
-    def isDefinedAt(v: V) = {
-        data.contains(v)
-    }
-
-    def elementCountAt[T >: V](v: T) = {
-        data.count(v)
-    }
 }

@@ -71,6 +71,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     // (v,u)(v,w)
     // (v,x)
 
+    lazyInitialize()
 
     /**
      *

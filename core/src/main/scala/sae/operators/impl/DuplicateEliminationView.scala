@@ -51,6 +51,8 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
 
     private val data: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
+    lazyInitialize()
+
     def lazyInitialize() {
         relation.foreach (
             t => data.add (t)
