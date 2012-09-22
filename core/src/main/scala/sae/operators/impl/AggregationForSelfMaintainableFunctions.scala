@@ -39,7 +39,14 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
     val groups = mutable.Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
     // aggregation need to be isInitialized for update and remove events
+     lazyInitialize()
 
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == source) {
+            return List (this)
+        }
+        Nil
+    }
 
     /**
      *

@@ -125,7 +125,7 @@ class TestObserverManipulation extends ShouldMatchers
             )
         )
 
-        join.clearObserversForChildren((o: Observable[_ <: AnyRef]) => (o != students && o != enrollments))
+        join.clearObserversForChildren((o: Observable[_]) => (o != students && o != enrollments))
 
         // check that the the observer was correctly removed
         students.observers should have size (0)
@@ -154,7 +154,7 @@ class TestObserverManipulation extends ShouldMatchers
 
         o.events should be(List(AddEvent((mark, enrollment))))
 
-        join.clearObserversForChildren((o: Observable[_ <: AnyRef]) => (o != students && o != enrollments))
+        join.clearObserversForChildren((o: Observable[_]) => (o != students && o != enrollments))
 
         // check that the the observer was correctly removed
         students.observers should have size (0)
@@ -207,7 +207,7 @@ class TestObserverManipulation extends ShouldMatchers
         o.events should be(List(AddEvent((mark, gdi1))))
 
         join.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != students &&
                         o != enrollments &&
                         o != courses
@@ -240,7 +240,7 @@ class TestObserverManipulation extends ShouldMatchers
         students.observers should have size (2)
 
         joinA.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != students && o != enrollments
             }
         )
@@ -294,7 +294,7 @@ class TestObserverManipulation extends ShouldMatchers
         o.events should be(List(AddEvent(mark), AddEvent(mark)))
 
         union.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA && o != studentsB
             }
         )
@@ -325,7 +325,7 @@ class TestObserverManipulation extends ShouldMatchers
         o.events should be(List(AddEvent(mark)))
 
         intersection.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA && o != studentsB
             }
         )
@@ -360,7 +360,7 @@ class TestObserverManipulation extends ShouldMatchers
         ))
 
         difference.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA && o != studentsB
             }
         )
@@ -483,7 +483,7 @@ class TestObserverManipulation extends ShouldMatchers
         ))
 
         semijoin.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA && o != studentsB
             }
         )
@@ -518,7 +518,7 @@ class TestObserverManipulation extends ShouldMatchers
 
 
         antisemi.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA && o != studentsB
             }
         )
@@ -553,7 +553,7 @@ class TestObserverManipulation extends ShouldMatchers
 
 
         antisemi.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => {
+            (o: Observable[_]) => {
                 o != studentsA
             }
         )

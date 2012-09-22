@@ -44,7 +44,16 @@ class SetResult[V](val relation: Relation[V])
 
     relation addObserver this
 
-    lazyInitialize()
+    lazyInitialize ()
+
+    override protected def children = List (relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
     def lazyInitialize() {
         relation.foreach (

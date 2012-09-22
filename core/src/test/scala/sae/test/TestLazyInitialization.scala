@@ -160,27 +160,9 @@ class TestLazyInitialization
             s1
         }
 
-        val firstObserver = doubledSource.observers.head
+
 
         var difference = join ∖ doubledSource
-
-        // we try to construct the situation where the right observer is notified first.
-        // if this situation can not be constructed anymore ignore the test
-        var i = 0
-        while (doubledSource.observers.toList(0) == firstObserver) {
-            i += 1
-            // this should not take more than 10 tries, the test never got stuck here, but we should check anyway
-            Assert
-                    .assertTrue("could not construct the test prerequisite, that right side is notified first. We made " + i + "attempts", i < 1000)
-            difference.clearObserversForChildren(
-                (o: Observable[_ <: AnyRef]) => {
-                    o != join
-                }
-            )
-            // should be the case anyway through the tests in TestObserverManipulation
-            join.observers should have size (0)
-            difference = join ∖ doubledSource
-        }
 
         val hello = "Hello"
         source += hello
@@ -321,7 +303,7 @@ class TestLazyInitialization
             Assert
                     .assertTrue("could not construct the test prerequisite, that right side is notified first. We made " + i + "attempts", i < 10000)
             disallowedEnsemblesPerConstraint.clearObserversForChildren(
-                (o: Observable[_ <: AnyRef]) => {
+                (o: Observable[_]) => {
                     o != filteredEnsemblesWithConstraints
                 }
             )

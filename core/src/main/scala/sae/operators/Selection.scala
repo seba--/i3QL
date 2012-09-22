@@ -14,4 +14,6 @@ trait Selection[Domain <: AnyRef]
     def relation: Relation[Domain]
 
     def isSet = relation.isSet
+
+    override protected def children = List (relation)
 }

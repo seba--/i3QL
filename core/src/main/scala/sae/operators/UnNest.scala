@@ -32,7 +32,7 @@
  */
 package sae.operators
 
-import sae.Relation
+import sae.{Observer, Observable, Relation}
 
 
 trait UnNest[Range, UnNestRange, Domain <: Range]
@@ -45,6 +45,9 @@ trait UnNest[Range, UnNestRange, Domain <: Range]
     def projection: (Domain, UnNestRange) => Range
 
     def isSet = false
+
+    override protected def children = List (relation)
+
 }
 
 

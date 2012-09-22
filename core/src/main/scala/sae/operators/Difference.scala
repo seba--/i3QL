@@ -22,6 +22,8 @@ trait Difference[Domain]
     def right: MaterializedRelation[Domain]
 
     def isSet = left.isSet
+
+    override protected def children = List (left, right)
 }
 
 

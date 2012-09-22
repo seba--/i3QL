@@ -22,6 +22,8 @@ trait Intersection[Domain <: AnyRef]
     def right: MaterializedRelation[Domain]
 
     def isSet = left.isSet || right.isSet
+
+    override protected def children = List (left, right)
 }
 
 

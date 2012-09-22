@@ -22,4 +22,5 @@ class Table[V <: AnyRef]
     def lazyInitialize() {
         /* do nothing */
     }
+
 }

@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import sae.operators.UnNest
 
 class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
@@ -41,6 +41,14 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     extends UnNest[Range, UnNestRange, Domain]
     with Observer[Domain]
 {
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
+
     /**
      * Applies f to all elements of the view.
      */

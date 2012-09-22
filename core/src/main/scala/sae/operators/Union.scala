@@ -22,6 +22,8 @@ trait Union[Range, DomainA <: Range, DomainB <: Range]
     def right: Relation[DomainB]
 
     def isSet = false
+
+    override protected def children = List (left, right)
 }
 
 

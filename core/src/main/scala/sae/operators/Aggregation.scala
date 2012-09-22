@@ -29,6 +29,8 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
 
+    override protected def children = List (source)
+
 }
 
 /**

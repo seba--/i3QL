@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{MaterializedRelation, Observer}
+import sae.{Observable, MaterializedRelation, Observer}
 import sae.operators.Intersection
 
 /**
@@ -47,6 +47,16 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
     left addObserver LeftObserver
 
     right addObserver RightObserver
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left) {
+            return List (LeftObserver)
+        }
+        if (o == right) {
+            return List (RightObserver)
+        }
+        Nil
+    }
 
     /**
      * Applies f to all elements of the view.

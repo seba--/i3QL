@@ -51,7 +51,14 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
 
     private val data: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
-    lazyInitialize()
+    lazyInitialize ()
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
     def lazyInitialize() {
         relation.foreach (
@@ -67,11 +74,11 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
 
-     def isDefinedAt(v: Domain) = {
+    def isDefinedAt(v: Domain) = {
         data.contains (v)
     }
 
-     def elementCountAt[T >: Domain](v: T) = {
+    def elementCountAt[T >: Domain](v: T) = {
         data.count (v)
     }
 

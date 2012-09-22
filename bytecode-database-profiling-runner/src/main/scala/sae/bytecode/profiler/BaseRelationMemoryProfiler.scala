@@ -35,7 +35,6 @@ package sae.bytecode.profiler
 import sae.bytecode._
 import statistics.Statistic
 import util.{MegaByte, KiloByte}
-import sae.operators.Conversions
 
 
 /**

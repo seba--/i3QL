@@ -56,6 +56,7 @@ import capabilities.{LazyInitialized, Listable, Size, Iterable}
  */
 trait Index[K, V]
     extends Observable[(K, V)]
+    with Observer[V]
     with Iterable[(K, V)]
     with LazyInitialized
     with Size
@@ -65,6 +66,16 @@ trait Index[K, V]
     def relation: Relation[V]
 
     def keyFunction: V => K
+
+
+    override protected def children = List (relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
     // an index is lazy isInitialized by calling build
     def lazyInitialize() {

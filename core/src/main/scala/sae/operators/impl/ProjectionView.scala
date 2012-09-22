@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import sae.operators.Projection
 
 /**
@@ -52,6 +52,13 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
 {
     relation addObserver this
 
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
+
     /**
      * Applies f to all elements of the view.
      */
@@ -70,7 +77,6 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
     def added(v: Domain) {
         element_added (projection (v))
     }
-
 
 
 }

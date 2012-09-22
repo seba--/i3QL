@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import collection.mutable.{HashMap, HashSet}
 import util.control.Breaks
 import sae.operators.TransitiveClosure
@@ -71,13 +71,20 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     // (v,u)(v,w)
     // (v,x)
 
-    lazyInitialize()
+    lazyInitialize ()
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == source) {
+            return List (this)
+        }
+        Nil
+    }
 
     /**
      *
      * access in O(1)
      */
-     def isDefinedAt(v: (Vertex, Vertex)) = {
+    def isDefinedAt(v: (Vertex, Vertex)) = {
         if (transitiveClosure.contains (v._1)) {
             transitiveClosureGet (v._1)._1.contains (v._2)
         }
@@ -87,7 +94,7 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
-     def elementCountAt[T >: (Vertex, Vertex)](t: T): Int = {
+    def elementCountAt[T >: (Vertex, Vertex)](t: T): Int = {
         if (!t.isInstanceOf[(Vertex, Vertex)]) {
             return 0
         }

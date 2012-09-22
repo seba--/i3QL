@@ -11,5 +11,7 @@ trait DuplicateElimination[Domain <: AnyRef]
     def relation: Relation[Domain]
 
     def isSet = true
+
+    override protected def children = List (relation)
 }
 

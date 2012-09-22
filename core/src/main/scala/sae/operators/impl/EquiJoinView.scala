@@ -55,6 +55,18 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 
     rightIndex addObserver RightObserver
 
+    override protected def children = List (leftIndex, rightIndex)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == leftIndex) {
+            return List (LeftObserver)
+        }
+        if (o == rightIndex) {
+            return List (RightObserver)
+        }
+        Nil
+    }
+
     /**
      * Applies f to all elements of the view.
      */

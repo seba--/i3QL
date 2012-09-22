@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import sae.operators.Selection
 
 /**
@@ -45,11 +45,18 @@ import sae.operators.Selection
  * @author Ralf Mitschke
  */
 class SelectionView[Domain <: AnyRef](val relation: Relation[Domain],
-                                 val filter: Domain => Boolean)
+                                      val filter: Domain => Boolean)
     extends Selection[Domain]
     with Observer[Domain]
 {
     relation addObserver this
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
     /**
      * Applies f to all elements of the view.

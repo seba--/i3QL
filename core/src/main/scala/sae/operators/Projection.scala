@@ -44,4 +44,6 @@ trait Projection[Domain, Range]
     def relation: Relation[Domain]
 
     def isSet = false
+
+    override protected def children = List (relation)
 }

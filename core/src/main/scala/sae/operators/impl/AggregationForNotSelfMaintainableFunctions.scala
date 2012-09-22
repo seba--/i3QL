@@ -43,6 +43,17 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 
     val groups = mutable.Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
+    // aggregation need to be isInitialized for update and remove events
+    lazyInitialize ()
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == source) {
+            return List (this)
+        }
+        Nil
+    }
+
+
     /**
      *
      */
@@ -56,19 +67,19 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-     def foreach[T](f: (Result) => T) {
+    def foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
      *
      */
-     def size: Int = groups.size
+    def size: Int = groups.size
 
     /**
      *
      */
-     def singletonValue: Option[Result] = {
+    def singletonValue: Option[Result] = {
         if (size != 1)
             None
         else
@@ -80,7 +91,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
      *
      * this implementation runs in O(n)
      */
-     def contains(v: Result) = {
+    def contains(v: Result) = {
         groups.foreach (g => {
             if (g._2._3 == v)
                 true

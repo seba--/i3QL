@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import sae.operators.Union
 
 /**
@@ -46,6 +46,13 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
     left addObserver this
 
     right addObserver this
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left || o == right) {
+            return List (this)
+        }
+        Nil
+    }
 
     /**
      * Applies f to all elements of the view.

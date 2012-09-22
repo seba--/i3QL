@@ -24,6 +24,8 @@ trait TransitiveClosure[Edge, Vertex]
     def getHead: Edge => Vertex
 
     def isSet = false
+
+    override protected def children = List (source)
 }
 
 

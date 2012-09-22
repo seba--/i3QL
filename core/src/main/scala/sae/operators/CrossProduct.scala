@@ -65,4 +65,6 @@ trait CrossProduct[DomainA, DomainB, Range]
     def projection: (DomainA, DomainB) => Range
 
     def isSet = left.isSet && right.isSet
+
+    override protected def children = List (left, right)
 }

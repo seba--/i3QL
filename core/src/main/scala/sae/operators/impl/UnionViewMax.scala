@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.{MaterializedRelation, Observer}
+import sae.{Observable, MaterializedRelation, Observer}
 import sae.operators.Union
 
 /**
@@ -49,6 +49,18 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
     left addObserver LeftObserver
 
     right addObserver RightObserver
+
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left) {
+            return List (LeftObserver)
+        }
+        if (o == right) {
+            return List (RightObserver)
+        }
+        Nil
+    }
+
 
     def foreach[T](f: (Range) => T) {
         left.foreach (

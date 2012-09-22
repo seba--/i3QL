@@ -33,7 +33,7 @@
 package sae.operators.impl
 
 import sae.operators.Difference
-import sae.{Observer, MaterializedRelation}
+import sae.{Observable, Observer, MaterializedRelation}
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
@@ -51,6 +51,15 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
 
     right addObserver RightObserver
 
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == left) {
+            return List (LeftObserver)
+        }
+        if (o == right) {
+            return List (RightObserver)
+        }
+        Nil
+    }
 
     /**
      * Applies f to all elements of the view.
@@ -93,7 +102,7 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
 
         def removed(v: Domain) {
             // check that this was a removal where we still had more elements than right side
-            if (left.elementCountAt (v) >= right.elementCountAt (v) ) {
+            if (left.elementCountAt (v) >= right.elementCountAt (v)) {
                 element_removed (v)
             }
         }

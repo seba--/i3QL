@@ -32,7 +32,7 @@
  */
 package sae.collections
 
-import sae.{Observer, Relation}
+import sae.{Observable, Observer, Relation}
 
 /**
  * A result that materializes all data from the underlying relation into a bag
@@ -45,6 +45,15 @@ class BagResult[V](val relation: Relation[V])
     relation addObserver this
 
     lazyInitialize()
+
+    override protected def children = List (relation)
+
+    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
     def lazyInitialize() {
         relation.foreach (

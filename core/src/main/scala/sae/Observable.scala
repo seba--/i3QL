@@ -32,28 +32,28 @@
  */
 package sae
 
-import collection.mutable.HashSet
+import collection.mutable
 
 trait Observable[V]
 {
 
-    protected[sae] var observers: HashSet[Observer[V]] = new HashSet[Observer[V]]()
+    protected[sae] var observers: mutable.HashSet[Observer[V]] = new mutable.HashSet[Observer[V]]()
 
     def addObserver(o: Observer[V]) {
         // sanity check that the assumption of never adding the same observer twice holds
-        if(observers.contains(o))
+        if (observers.contains (o))
         {
-            throw new IllegalArgumentException("observer already present: " + o.toString)
+            throw new IllegalArgumentException ("observer already present: " + o.toString)
         }
-        observers.add(o)
+        observers.add (o)
     }
 
     def removeObserver(o: Observer[V]) {
-        observers.remove(o)
+        observers.remove (o)
     }
 
     def clearObservers() {
-        observers = HashSet.empty
+        observers = mutable.HashSet.empty
     }
 
     def hasObservers = {
@@ -63,34 +63,41 @@ trait Observable[V]
     /**
      * remove all observers
      */
-    def clearObserversForChildren(visitChild: Observable[_ <: AnyRef] => Boolean) {
+    def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
         for (observable <- children) {
             // remove all observers for this observable
-            for (observer <- childObservers(observable)) {
-                observable.removeObserver(observer.asInstanceOf[Observer[Any]])
+            for (observer <- childObservers (observable)) {
+                observable.removeObserver (observer.asInstanceOf[Observer[Any]])
             }
             // check whether we want to visit the observable
-            if (observable.observers.isEmpty && visitChild(observable)) {
-                observable.clearObserversForChildren(visitChild)
+            if (observable.observers.isEmpty && visitChild (observable)) {
+                observable.clearObserversForChildren (visitChild)
             }
         }
     }
 
-    protected def children: Seq[Observable[_ <: AnyRef]] = Nil
+    /**
+     * Returns the observed children, to allow a top down removal of observers
+     */
+    protected def children: Seq[Observable[_]] = Nil
 
+    /**
+     * Returns the observer for a particular child, since the observers are in many cases inner objects, we
+     * can not simply always remove this as the observer of the child
+     */
     protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
 
     // Notify methods to notify the observers
     def element_added(v: V) {
-        observers.foreach(_.added(v))
+        observers.foreach (_.added (v))
     }
 
     def element_removed(v: V) {
-        observers.foreach(_.removed(v))
+        observers.foreach (_.removed (v))
     }
 
     def element_updated(oldV: V, newV: V) {
-        observers.foreach(_.updated(oldV, newV))
+        observers.foreach (_.updated (oldV, newV))
     }
 
 }
