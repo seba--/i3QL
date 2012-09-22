@@ -1,7 +1,6 @@
 package sae.syntax
 
-import sae.Relation
-import sae.collections.QueryResult
+import sae.{QueryResult, Relation}
 import sql.ast.predicates._
 import sql.ast.predicates.Filter
 import sql.ast.predicates.Join

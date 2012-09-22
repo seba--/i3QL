@@ -41,7 +41,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain <: AnyRef, Key <: Any, A
 
     val groups = Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
-    lazyInitialize // aggregation need to be initialized for update and remove events
+    lazyInitialize // aggregation need to be isInitialized for update and remove events
 
     source.addObserver(this)
 

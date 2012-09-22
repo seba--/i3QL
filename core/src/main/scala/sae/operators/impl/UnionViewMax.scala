@@ -40,9 +40,9 @@ import sae.operators.Union
  * Required for correctness if we translate conditionA OR conditionB to algebra.
  * Can be omitted if A \intersect B == empty
  *
- * The MaxMultiSetUnion requires materialized relations as underlying relations, but does not require to store the result.
+ * The UnionViewMax requires materialized relations as underlying relations, but does not require to store the result.
  */
-class MaxMultiSetUnion[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
+class UnionViewMax[Range <: AnyRef, DomainA <: Range, DomainB <: Range]
 (
     val left: MaterializedRelation[DomainA],
     val right: MaterializedRelation[DomainB]

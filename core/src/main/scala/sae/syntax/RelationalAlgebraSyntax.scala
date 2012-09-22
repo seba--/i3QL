@@ -2,9 +2,12 @@ package sae
 package syntax
 
 import sae.operators._
-import impl.{CrossProductView, AddMultiSetUnion}
+import impl._
 import sae.operators.intern._
 import sae.Relation
+import scala.Some
+import syntax.InfixFunctionConcatenator
+import syntax.InfixConcatenator
 
 case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 {
@@ -28,7 +31,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
     def ⋈[OtherDomain <: AnyRef, Key <: AnyRef, Range <: AnyRef] (leftKey: Domain => Key, rightKey: OtherDomain => Key)
                                                                  (otherRelation: Relation[OtherDomain])
                                                                  (factory: (Domain, OtherDomain) => Range): OLDMaterializedView[Range] =
-        new HashEquiJoin (
+        new EquiJoinView (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
             leftKey,
@@ -38,7 +41,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 
     // FIXME the type system for operators should make views covariant
     def ∪[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass] (otherRelation: Relation[OtherDomain]): Relation[CommonSuperClass] =
-        new AddMultiSetUnion[CommonSuperClass, Domain, OtherDomain](
+        new UnionViewAdd[CommonSuperClass, Domain, OtherDomain](
             left,
             otherRelation
         )
@@ -73,7 +76,7 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
                                                        otherRelation: Relation[OtherDomain]
                                                        )
                                                    (factory: (Domain, OtherDomain) => Result): OLDMaterializedView[Result] =
-        new HashEquiJoin (
+        new EquiJoinView (
             lazyViewToIndexedView (left),
             lazyViewToIndexedView (otherRelation),
             leftFunction,
@@ -105,8 +108,6 @@ case class InfixFunctionConcatenator[Domain <: AnyRef, Range <: AnyRef](
 object RelationalAlgebraSyntax
 {
 
-    import sae.collections.QueryResult
-
 
     // convenience forwarding to not always import conversion, but only the syntax
     implicit def lazyViewToResult[V <: AnyRef](lazyView: Relation[V]): QueryResult[V] = sae.collections.Conversions
@@ -125,7 +126,7 @@ object RelationalAlgebraSyntax
         // TODO think of better names for start/endVertex functions
         def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: Relation[Domain])
                                                      (startVertex: Domain => Vertex, endVertex: Domain => Vertex) =
-            new HashTransitiveClosure[Domain, Vertex](
+            new TransitiveClosureView[Domain, Vertex](
                 relation,
                 startVertex,
                 endVertex
@@ -326,7 +327,7 @@ object RelationalAlgebraSyntax
 
     object ⋉
     {
-        def unapply[Key <: AnyRef, DomainA <: AnyRef, DomainB <: AnyRef](semiJoin: HashEquiJoin[DomainA, DomainB, DomainA, Key]): Option[(Relation[DomainA], DomainA => Key, Relation[DomainB], DomainB => Key)] = semiJoin match {
+        def unapply[Key <: AnyRef, DomainA <: AnyRef, DomainB <: AnyRef](semiJoin: EquiJoinView[DomainA, DomainB, DomainA, Key]): Option[(Relation[DomainA], DomainA => Key, Relation[DomainB], DomainB => Key)] = semiJoin match {
             case ⋈ (left, leftKey, δ (Π (rightKey: (DomainB => Key), right: Relation[DomainB])), _, _) => Some ((left, leftKey, right, rightKey))
             case _ => None
         }

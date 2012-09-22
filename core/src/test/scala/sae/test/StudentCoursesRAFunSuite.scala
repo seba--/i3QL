@@ -6,7 +6,7 @@ import sae.collections._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
-import sae.{BagExtent, Relation}
+import sae.{QueryResult, BagExtent, Relation}
 import scala.Predef._
 
 /**

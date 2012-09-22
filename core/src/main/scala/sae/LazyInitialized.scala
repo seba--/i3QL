@@ -54,8 +54,13 @@ trait LazyInitialized
     def lazyInitialize()
 
     /**
-     * Returns true initialization is complete
+     * Returns true if initialization is complete
      */
-    protected var initialized: Boolean = false
+    def isInitialized: Boolean
+
+    /**
+     * Set the initialized status to true
+     */
+    def setInitialized()
 
 }

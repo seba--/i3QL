@@ -34,7 +34,7 @@ package sae.bytecode.profiler
 
 import observers.CountingObserver
 import sae.bytecode.BytecodeDatabase
-import sae.{Observable, Relation}
+import sae.{QueryResult, Observable, Relation}
 import java.io.FileInputStream
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.collections.{QueryResult, Conversions}

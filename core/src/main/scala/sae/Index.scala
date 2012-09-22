@@ -46,7 +46,7 @@ trait Index[K <: AnyRef, V <: AnyRef]
 
     protected def foreachKey_internal[U](f: (K) => U)
 
-    // an index is lazy initialized by calling build
+    // an index is lazy isInitialized by calling build
     def lazyInitialize {
         if (initialized) return
         relation.foreach(v => {

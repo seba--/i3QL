@@ -2,14 +2,13 @@ package sae
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 13.01.12
- * Time: 14:05
+ * This observer records all events that are passed to it.
  *
+ * @author Ralf Mitschke
  */
-class MockObserver[-V] extends Observer[V]
+class EventRecorder[-V] extends Observer[V]
 {
-    import MockObserver._
+    import EventRecorder._
     private var eventQueue: List[ObserverEvent] = Nil
 
     def events = eventQueue
@@ -33,7 +32,7 @@ class MockObserver[-V] extends Observer[V]
     }
 }
 
-object MockObserver
+object EventRecorder
 {
     trait ObserverEvent
 

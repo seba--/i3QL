@@ -4,7 +4,7 @@ import org.junit.{Assert, Test}
 import sae._
 import sae.syntax.sql._
 import sae.operators.Conversions
-import sae.MockObserver.{AddEvent, RemoveEvent}
+import sae.EventRecorder.{AddEvent, RemoveEvent}
 
 /**
  *
@@ -98,7 +98,7 @@ class TestVarious
             borders.asList.sorted
         )
 
-        val o = new MockObserver[(java.lang.Integer, java.lang.Integer)]
+        val o = new EventRecorder[(java.lang.Integer, java.lang.Integer)]
         borders.addObserver (o)
 
         basicBlockEndPcs.element_added (75)
@@ -215,10 +215,10 @@ class TestVarious
             borders.asList.sorted
         )
 
-        val o = new MockObserver[(Int, Int)]
+        val o = new EventRecorder[(Int, Int)]
         borders.addObserver (o)
 
-        val m = new MockObserver[(String, Int, Int)]
+        val m = new EventRecorder[(String, Int, Int)]
         basicBlockSuccessorEdges.addObserver (m)
 
         immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 75, 111))
@@ -357,7 +357,7 @@ class TestVarious
             val basicBlockSuccessorEdges: Relation[(String, Int, Int)] = immediateBasicBlockSuccessorEdges ∪ (fallThroughCaseSuccessors)
 
 
-            val m = new MockObserver[AnyRef]
+            val m = new EventRecorder[AnyRef]
             basicBlockEndPcs.addObserver (m)
             //immediateBasicBlockSuccessorEdges.addObserver(m)
             //keyProjection.addObserver(m)

@@ -4,21 +4,7 @@ package collections
 import com.google.common.collect.Sets.SetView
 import capabilities.{Listable, SingletonValue, Size}
 
-/**
- * A result is a kind of view that offers more convenience operators
- * for working with the underlying data.
- * The result does not need to store all data internally and is thus not a
- * materialized view. In particular if a result is required from a
- * materialized view, a simple Proxy is used.
- */
-trait QueryResult[V <: AnyRef]
-        extends OLDMaterializedView[V]
-        with Size
-        with SingletonValue[V]
-        with Listable[V]
-{
 
-}
 
 /**
  * A result that materializes all data from the underlying relation into a bag
@@ -43,32 +29,32 @@ class BagResult[V <: AnyRef](
     }
 
     def lazyInitialize {
-        if (initialized) return
+        if (isInitialized) return
         relation.lazy_foreach(
             v =>
                 add_element(v)
         )
-        initialized = true
+        isInitialized = true
     }
 
     def updated(oldV: V, newV: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
         update(oldV, newV)
     }
 
     def removed(v: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
 
         this -= v
     }
 
     def added(v: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
         this += v
     }
@@ -100,29 +86,29 @@ class SetResult[V <: AnyRef](
     }
 
     def lazyInitialize() {
-        if (initialized) return
-        initialized = true
+        if (isInitialized) return
+        isInitialized = true
     }
 
     def updated(oldV: V, newV: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
         this -= oldV
         this += newV
     }
 
     def removed(v: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
 
         this -= v
     }
 
     def added(v: V) {
-        if (!initialized) {
-            initialized = true
+        if (!isInitialized) {
+            isInitialized = true
         }
         this += v
     }

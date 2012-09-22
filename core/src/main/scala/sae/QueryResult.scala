@@ -32,49 +32,21 @@
  */
 package sae
 
+import capabilities.{Listable, SingletonValue, Size}
+
 /**
- *
- * @author Ralf Mitschke
- *
+ * A result is a kind of view that offers more convenience operators
+ * for working with the underlying data.
+ * The result does not need to store all data internally and is thus not a
+ * materialized view.
+ * In particular if a result is required from a
+ * materialized view, a simple Proxy is used.
  */
-
-trait LazyInitializedView[Domain <: AnyRef, Range <: AnyRef]
-    extends Relation[Range]
-    with Observer[Domain]
-    with LazyInitialized
+trait QueryResult[V <: AnyRef]
+    extends Relation[V]
+    with Size
+    with SingletonValue[V]
+    with Listable[V]
 {
-{
-    def updated(oldV : Domain, newV : Domain) : Unit =
-    {
-        if( !initialized ){
-            lazyInitialize ()
-            initialized = true
-        }
-        updated_internal(oldV, newV)
-    }
 
-    def updated_internal(oldV : Domain, newV : Domain) : Unit
-
-    def removed(v : Domain) : Unit =
-    {
-        if( !initialized ){
-            lazyInitialize ()
-            initialized = true
-        }
-
-        removed_internal(v)
-    }
-
-    def removed_internal(v : Domain) : Unit
-
-    def added(v : Domain) : Unit =
-    {
-        if( !initialized ){
-            lazyInitialize ()
-            initialized = true
-        }
-        added_internal(v)
-    }
-
-    def added_internal(v : Domain) : Unit
 }

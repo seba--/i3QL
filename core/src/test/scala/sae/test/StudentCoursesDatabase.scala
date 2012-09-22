@@ -53,7 +53,7 @@ class StudentCoursesDatabase
 
         /*
 		// careful, if the outer database is declared as object the initialization must be inlined
-		// there is no guarantee that the outer object is initialized before the inner object
+		// there is no guarantee that the outer object is isInitialized before the inner object
 		this += john
 		this += sally
 		*/

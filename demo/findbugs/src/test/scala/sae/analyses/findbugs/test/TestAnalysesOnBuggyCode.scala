@@ -34,11 +34,10 @@ package sae.analyses.findbugs.test
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs._
-import sae.collections.QueryResult
 import sae.bytecode.instructions.{InstructionInfo, INVOKESPECIAL, INVOKEVIRTUAL}
 import org.junit.Test
 import sae.bytecode.structure.{ClassDeclaration, FieldDeclaration}
-import sae.Relation
+import sae.{QueryResult, Relation}
 import sae.syntax.sql.SELECT
 import de.tud.cs.st.bat.resolved.FieldType
 import sae.bytecode._

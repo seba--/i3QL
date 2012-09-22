@@ -3,7 +3,7 @@ package sae.test
 import org.scalatest.matchers.ShouldMatchers
 import sae.collections.Table
 import org.junit.{Assert, Test}
-import sae.{IndexedViewOLD, MockObserver, Observable}
+import sae.{IndexedViewOLD, EventRecorder, Observable}
 
 
 /**
@@ -19,7 +19,7 @@ class TestLazyInitialization
 
     import sae.syntax.RelationalAlgebraSyntax._
 
-    import sae.MockObserver._
+    import sae.EventRecorder._
 
     @Test
     def testDifferenceLazyInitOnLeftAddEvent() {

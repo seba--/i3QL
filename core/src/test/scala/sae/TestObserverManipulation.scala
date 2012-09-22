@@ -5,7 +5,7 @@ import syntax.RelationalAlgebraSyntax._
 import test.StudentCoursesDatabase
 import org.junit.Test
 import org.scalatest.matchers.ShouldMatchers
-import sae.MockObserver._
+import sae.EventRecorder._
 
 /**
  *
@@ -21,7 +21,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testSelectionRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val selection = σ((_: Student).Name == "Mark")(students)
@@ -41,7 +41,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testProjectionRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[String]
+        val o = new EventRecorder[String]
         
 
         val projection = Π((_: Student).Name)(students)
@@ -64,7 +64,7 @@ class TestObserverManipulation extends ShouldMatchers
         val database = new StudentCoursesDatabase()
 
         import database._
-        val o = new MockObserver[(Student, Enrollment)]
+        val o = new EventRecorder[(Student, Enrollment)]
         
 
         val join = students × enrollments
@@ -104,7 +104,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testJoinRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[(Student, Enrollment)]
+        val o = new EventRecorder[(Student, Enrollment)]
         
 
         val join = ((students, students.Id) ⋈(enrollments.StudentId, enrollments)) {(s: Student,
@@ -133,7 +133,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testJoinMultipleTablesRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[(Student, Course)]
+        val o = new EventRecorder[(Student, Course)]
         
 
         val join =
@@ -222,7 +222,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testDistinctRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val distinct = δ(students)
@@ -245,7 +245,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testUnionRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = students.copy
@@ -276,7 +276,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testIntersectionRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = students.copy
@@ -307,7 +307,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testDifferenceRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = students.copy
@@ -342,7 +342,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testTransitiveClosureRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[CoursePrerequisite]
+        val o = new EventRecorder[CoursePrerequisite]
         
 
         val transitiveClosure = Π(
@@ -381,7 +381,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testSelfMaintainedAggregationClosureRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Option[Int]]
+        val o = new EventRecorder[Option[Int]]
         
 
         val aggregation = γ(students, Count[Student]())
@@ -407,7 +407,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testNotSelfMaintainedAggregationClosureRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Option[Int]]
+        val o = new EventRecorder[Option[Int]]
         
 
         val aggregation = γ(students, Min((_:Student).Id.intValue()))
@@ -433,7 +433,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testSemiJoinRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = students.copy
@@ -466,7 +466,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testAntiSemiJoinRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = students.copy
@@ -501,7 +501,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testAntiSemiJoinRemovalwithConversions() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[Student]
+        val o = new EventRecorder[Student]
         
 
         val studentsA = new BagExtent[Student]
@@ -536,7 +536,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testCombinedSelectProjectRemoval() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[String]
+        val o = new EventRecorder[String]
         
 
         val selection = σ((_: Student).Name == "Mark")(students)
@@ -559,7 +559,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testLeaveRequiredObservers() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[String]
+        val o = new EventRecorder[String]
         
 
         val selection = σ((_: Student).Name == "Mark")(students)
@@ -571,7 +571,7 @@ class TestObserverManipulation extends ShouldMatchers
         students += mark
         o.events should be(List(AddEvent("Mark")))
 
-        val otherInterestedParty : Observer[Student] = new MockObserver[Student]()
+        val otherInterestedParty : Observer[Student] = new EventRecorder[Student]()
         selection.addObserver(otherInterestedParty)
 
         projection.clearObserversForChildren(_ != students)
@@ -588,7 +588,7 @@ class TestObserverManipulation extends ShouldMatchers
     def testStopAtChildren() {
         val database = new StudentCoursesDatabase()
         import database._
-        val o = new MockObserver[String]
+        val o = new EventRecorder[String]
         
 
         val selection = σ((_: Student).Name == "Mark")(students)

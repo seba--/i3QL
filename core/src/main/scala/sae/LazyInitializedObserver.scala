@@ -30,41 +30,45 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators.impl
-
-import sae.{Observer, Relation}
-import sae.operators.Union
+package sae
 
 /**
- * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
+ *
+ * @author Ralf Mitschke
+ *
  */
-class AddMultiSetUnion[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
-                                                                  val right: Relation[DomainB])
-    extends Union[Range, DomainA, DomainB]
-    with Observer[Range]
+
+trait LazyInitializedObserver[Domain]
+    extends Observer[Domain]
+    with LazyInitialized
 {
-    left addObserver this
 
-    right addObserver this
-
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        left.foreach (f)
-        right.foreach (f)
+    abstract override def updated(oldV: Domain, newV: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized()
+        }
+        super.updated (oldV, newV)
     }
 
-    def added(v: Range) {
-        element_added (v)
+    abstract override def removed(v: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized()
+        }
+
+        super.removed (v)
     }
 
-    def removed(v: Range) {
-        element_removed (v)
-    }
-
-    def updated(oldV: Range, newV: Range) {
-        element_updated (oldV, newV)
+    abstract override def added(v: Domain): Unit =
+    {
+        if (!isInitialized) {
+            lazyInitialize ()
+            setInitialized()
+        }
+        super.added (v)
     }
 
 }

@@ -9,10 +9,24 @@ import operators.CrossProduct
 class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: MaterializedRelation[DomainA],
                                                              val right: MaterializedRelation[DomainB])
     extends CrossProduct[DomainA, DomainB]
+    with LazyInitializedRelation
 {
 
     left addObserver LeftObserver
     right addObserver RightObserver
+
+    /**
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
+     */
+    def lazyInitialize() {
+
+    }
 
     /**
      * Applies f to all elements of the view.
@@ -29,10 +43,26 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
         )
     }
 
-    object LeftObserver extends Observer[DomainA]
+    object LeftObserver extends LazyInitializedObserver[DomainA]
     {
+        def lazyInitialize() {
+            CrossProductView.this.lazyInitialize ()
+        }
+
+        /**
+         * Returns true if initialization is complete
+         */
+        def isInitialized = CrossProductView.this.isInitialized
+
+        /**
+         * Set the initialized status to true
+         */
+        def setInitialized() {
+            CrossProductView.this.setInitialized ()
+        }
+
         // update operations on left relation
-        def updated(oldA: DomainA, newA: DomainA) {
+        override def updated(oldA: DomainA, newA: DomainA) {
             right.foreach (
                 b => {
                     element_removed (oldA, b)
@@ -41,7 +71,7 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
             )
         }
 
-        def removed(v: DomainA) {
+        override def removed(v: DomainA) {
             right.foreach (
                 b => {
                     element_removed (v, b)
@@ -49,7 +79,7 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
             )
         }
 
-        def added(v: DomainA) {
+        override def added(v: DomainA) {
             right.foreach (
                 b => {
                     element_added (v, b)
@@ -58,10 +88,26 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
         }
     }
 
-    object RightObserver extends Observer[DomainB]
+    object RightObserver extends LazyInitializedObserver[DomainB]
     {
+        def lazyInitialize() {
+            CrossProductView.this.lazyInitialize ()
+        }
+
+        /**
+         * Returns true if initialization is complete
+         */
+        def isInitialized = CrossProductView.this.isInitialized
+
+        /**
+         * Set the initialized status to true
+         */
+        def setInitialized() {
+            CrossProductView.this.setInitialized ()
+        }
+
         // update operations on right relation
-        def updated(oldB: DomainB, newB: DomainB) {
+        override def updated(oldB: DomainB, newB: DomainB) {
             left.foreach (
                 a => {
                     element_removed (a, oldB)
@@ -71,7 +117,7 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
 
         }
 
-        def removed(v: DomainB) {
+        override def removed(v: DomainB) {
             left.foreach (
                 a => {
                     element_removed (a, v)
@@ -79,7 +125,7 @@ class CrossProductView[DomainA <: AnyRef, DomainB <: AnyRef](val left: Materiali
             )
         }
 
-        def added(v: DomainB) {
+        override def added(v: DomainB) {
             left.foreach (
                 a => {
                     element_added (a, v)

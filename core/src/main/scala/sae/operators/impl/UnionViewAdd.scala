@@ -30,45 +30,41 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.operators.impl
+
+import sae.{Observer, Relation}
+import sae.operators.Union
 
 /**
- *
- * @author Ralf Mitschke
- *
+ * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
  */
-trait MaterializedRelation[V <: AnyRef]
-    extends Relation[V]
-    with LazyInitializedRelation
+class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
+                                                                  val right: Relation[DomainB])
+    extends Union[Range, DomainA, DomainB]
+    with Observer[Range]
 {
+    left addObserver this
 
-    def asMaterialized = this
-
-    /**
-     * Applies f to all elements of the view with their counts
-     */
-    def foreachWithCount[T](f: (V, Int) => T)
-
-    def isDefinedAt(v: V): Boolean = {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-        }
-        isDefinedAt_internal (v)
-    }
-
-    protected def isDefinedAt_internal(v: V): Boolean
+    right addObserver this
 
     /**
-     * Returns the count for a given element.
-     * In case an add/remove/update event is in progression, this always returns the
+     * Applies f to all elements of the view.
      */
-    def elementCountAt[T >: V](v: T): Int = {
-        if (!isInitialized) {
-            this.lazyInitialize ()
-        }
-        elementCountAt_internal (v)
+    def foreach[T](f: (Range) => T) {
+        left.foreach (f)
+        right.foreach (f)
     }
 
-    protected def elementCountAt_internal[T >: V](v: T): Int
+    def added(v: Range) {
+        element_added (v)
+    }
+
+    def removed(v: Range) {
+        element_removed (v)
+    }
+
+    def updated(oldV: Range, newV: Range) {
+        element_updated (oldV, newV)
+    }
 
 }

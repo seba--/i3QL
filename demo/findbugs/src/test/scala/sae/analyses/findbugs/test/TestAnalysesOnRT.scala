@@ -34,7 +34,6 @@ package sae.analyses.findbugs.test
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs._
-import sae.collections.QueryResult
 import sae.bytecode.instructions.InstructionInfo
 import org.junit.Test
 import sae.bytecode.structure.ClassDeclaration
@@ -43,6 +42,7 @@ import sae.bytecode._
 import instructions.INVOKESPECIAL
 import instructions.INVOKEVIRTUAL
 import structure.FieldDeclaration
+import sae.QueryResult
 
 /**
  * Created with IntelliJ IDEA.
