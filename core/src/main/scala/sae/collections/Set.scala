@@ -30,6 +30,10 @@ trait Set[V]
         data.foreach (f)
     }
 
+    def foreachWithCount[T](f: (V, Int) => T) {
+        data.foreach (v => f (v, 1))
+    }
+
     def contains(v: V) = data.contains (v)
 
     def isDefinedAt(v: V) = {

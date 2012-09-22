@@ -65,10 +65,11 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Domain) => T) {
-        left.foreach (
-            (v: Domain) =>
+        left.foreachWithCount (
+            (v: Domain, leftCount: Int) =>
             {
-                val max = scala.math.max (0, left.elementCountAt (v) - right.elementCountAt (v))
+                val rightCount = right.elementCountAt (v)
+                val max = scala.math.max (0, leftCount - rightCount)
                 var i = 0
                 while (i < max) {
                     f (v)

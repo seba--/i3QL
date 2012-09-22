@@ -49,9 +49,8 @@ trait MaterializedRelation[V]
 
     /**
      * Applies f to all elements of the view with their counts
-     * TODO reactivate if needed
      */
-    //def foreachWithCount[T](f: (V, Int) => T)
+    def foreachWithCount[T](f: (V, Int) => T)
 
     def isDefinedAt(v: V): Boolean
 

@@ -1,6 +1,7 @@
 package sae
 package collections
 
+
 /**
  * A relation backed by a multi set for efficient access to elements.
  * Each element may have multiple occurrences in this relation.
@@ -17,11 +18,20 @@ trait Bag[V]
 
     def foreach[U](f: V => U)
     {
-        val it: java.util.Iterator[V] = data.iterator ()
-        while (it.hasNext ()) {
+        val it = data.iterator ()
+        while (it.hasNext) {
             f (it.next ())
         }
     }
+
+    def foreachWithCount[T](f: (V, Int) => T) {
+        val it = data.entrySet ().iterator ()
+        while (it.hasNext) {
+            val e = it.next ()
+            f (e.getElement, e.getCount)
+        }
+    }
+
 
     def contains(v: V) = data.contains (v)
 

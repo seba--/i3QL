@@ -67,9 +67,16 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
     }
 
     def foreach[U](f: Domain => U) {
-        val it: java.util.Iterator[Domain] = data.elementSet ().iterator ()
+        val it = data.elementSet ().iterator ()
         while (it.hasNext) {
             f (it.next ())
+        }
+    }
+
+    def foreachWithCount[T](f: (Domain, Int) => T) {
+        val it = data.elementSet ().iterator ()
+        while (it.hasNext) {
+            f (it.next (), 1)
         }
     }
 

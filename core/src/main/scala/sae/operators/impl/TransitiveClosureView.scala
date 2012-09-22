@@ -100,7 +100,8 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
         val v = t.asInstanceOf[(Vertex, Vertex)]
         if (transitiveClosure.contains (v._1)) {
-            transitiveClosureGet (v._1)._1.count (_ == v._2)
+            //transitiveClosureGet (v._1)._1.count (_ == v._2)
+            1
         }
         else
         {
@@ -112,6 +113,14 @@ class TransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         transitiveClosure.foreach (x => {
             x._2._1.foreach (y => {
                 f ((x._1, y))
+            })
+        })
+    }
+
+    def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
+        transitiveClosure.foreach (x => {
+            x._2._1.foreach (y => {
+                f ((x._1, y), 1)
             })
         })
     }
