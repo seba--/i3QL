@@ -19,7 +19,7 @@ import impl.{AggregationForSelfMaintainableAggregationFunctions, AggregationForN
  * @author Ralf Mitschke
  */
 trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
-    extends Relation[Result]
+    extends MaterializedRelation[Result]
 {
     def source: Relation[Domain]
 

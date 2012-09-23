@@ -343,7 +343,7 @@ class Testaggregate extends TestCase
         minAndAVGCost.addObserver (ob)
         assertTrue (ob.size == 0)
         var minAndAVGCostAsList = List[EdgeGroup]()
-        minAndAVGCost.asInstanceOf[MaterializedRelation[EdgeGroup]].foreach ((x: EdgeGroup) => {
+        minAndAVGCost.foreach ((x: EdgeGroup) => {
             minAndAVGCostAsList = x :: minAndAVGCostAsList
         }) //x => minAndAVGCostAsList = x :: minAndAVGCostAsList)
         assertTrue (minAndAVGCostAsList.contains (EdgeGroup ("a", "b", 2, 3, 3.0)))

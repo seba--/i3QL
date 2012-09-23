@@ -24,7 +24,7 @@
  *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
  *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
  *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  SUBSTITUTE GOODS OR SERVICES LOSS OF USE, DATA, OR PROFITS OR BUSINESS
  *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
@@ -57,7 +57,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val selection = σ((_: Student).Name == "Mark")(students)
-        selection.addObserver(o);
+        selection.addObserver(o)
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
         students += mark
@@ -77,7 +77,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val projection = Π((_: Student).Name)(students)
-        projection.addObserver(o);
+        projection.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -100,7 +100,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val join = students × enrollments
-        join.addObserver(o);
+        join.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -143,7 +143,7 @@ class TestObserverManipulation extends ShouldMatchers
                                                                                      e: Enrollment) =>
             (s, e)
         }
-        join.addObserver(o);
+        join.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -191,7 +191,7 @@ class TestObserverManipulation extends ShouldMatchers
                 (se: (Student, Enrollment), c: Course) => (se._1, c)
             }
 
-        join.addObserver(o);
+        join.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -258,7 +258,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val distinct = δ(students)
-        distinct.addObserver(o);
+        distinct.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -284,7 +284,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = students.copy
 
         val union = studentsA ∪ studentsB
-        union.addObserver(o);
+        union.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -315,7 +315,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = students.copy
 
         val intersection = studentsA ∩ studentsB
-        intersection.addObserver(o);
+        intersection.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -346,7 +346,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = students.copy
 
         val difference = studentsA ∖ studentsB
-        difference.addObserver(o);
+        difference.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -380,7 +380,7 @@ class TestObserverManipulation extends ShouldMatchers
         val transitiveClosure = Π(
             (edge: (Integer, Integer)) => CoursePrerequisite(edge._1, edge._2)
         )(TC(prerequisites)(prerequisites.CourseId, prerequisites.PrerequisiteId))
-        transitiveClosure.addObserver(o);
+        transitiveClosure.addObserver(o)
 
         // 001\ -> 002 -> 003 -> / -> 005
         //     \    -> 004  ->  /
@@ -417,7 +417,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val aggregation = γ(students, Count[Student]())
-        aggregation.addObserver(o);
+        aggregation.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -443,7 +443,7 @@ class TestObserverManipulation extends ShouldMatchers
         
 
         val aggregation = γ(students, Min((_:Student).Id.intValue()))
-        aggregation.addObserver(o);
+        aggregation.addObserver(o)
 
         // check that the observer was correctly added
         students += new Student(1, "Mark")
@@ -472,7 +472,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = students.copy
 
         val semijoin = ((studentsA, students.Name) ⋉(students.Name, studentsB))
-        semijoin.addObserver(o);
+        semijoin.addObserver(o)
 
         // check that the observer was correctly added
         val mark001 = new Student(00001, "Mark")
@@ -505,7 +505,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = students.copy
 
         val antisemi = ((studentsA, students.Name) ⊳(students.Name, studentsB))
-        antisemi.addObserver(o);
+        antisemi.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -540,7 +540,7 @@ class TestObserverManipulation extends ShouldMatchers
         val studentsB = new BagExtent[Student]
 
         val antisemi = ((studentsA, students.Name) ⊳(students.Name, studentsB))
-        antisemi.addObserver(o);
+        antisemi.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -573,7 +573,7 @@ class TestObserverManipulation extends ShouldMatchers
 
         val selection = σ((_: Student).Name == "Mark")(students)
         val projection = Π((_: Student).Name)(selection)
-        projection.addObserver(o);
+        projection.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -596,7 +596,7 @@ class TestObserverManipulation extends ShouldMatchers
 
         val selection = σ((_: Student).Name == "Mark")(students)
         val projection = Π((_: Student).Name)(selection)
-        projection.addObserver(o);
+        projection.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")
@@ -625,7 +625,7 @@ class TestObserverManipulation extends ShouldMatchers
 
         val selection = σ((_: Student).Name == "Mark")(students)
         val projection = Π((_: Student).Name)(selection)
-        projection.addObserver(o);
+        projection.addObserver(o)
 
         // check that the observer was correctly added
         val mark = new Student(00001, "Mark")

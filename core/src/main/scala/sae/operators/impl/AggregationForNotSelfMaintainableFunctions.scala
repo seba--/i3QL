@@ -72,6 +72,28 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     }
 
     /**
+     * Applies f to all elements of the view with their counts
+     */
+    def foreachWithCount[T](f: (Result, Int) => T) {
+        groups.groupBy( _._2._3).foreach(
+            g => f(g._1, g._2.size)
+        )
+    }
+
+    def isDefinedAt(v: Result) = {
+        groups.exists( _._2._3 == v)
+    }
+
+    /**
+     * Returns the count for a given element.
+     * In case an add/remove/update event is in progression, this always returns the
+     */
+    def elementCountAt[T >: Result](v: T) = {
+        groups.count( _._2._3 == v)
+    }
+
+
+    /**
      *
      */
     def size: Int = groups.size
