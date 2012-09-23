@@ -34,10 +34,10 @@ package sae.bytecode.profiler
 
 import observers.CountingObserver
 import sae.bytecode.BytecodeDatabase
-import sae.{QueryResult, Observable, Relation}
+import sae.Relation
 import java.io.FileInputStream
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.collections.{QueryResult}
+import sae.QueryResult
 import statistics.{Statistic, SampleStatistic}
 
 /**
@@ -60,7 +60,7 @@ trait AbstractTimeProfiler
         // warmup
         print ("warmup")
         for (i <- 1 to warmupIterations) {
-            measureTime(iterations)(() => computeViewAsCount(files)(operations))
+            measureTime (iterations)(() => computeViewAsCount (files)(operations))
             print (".")
         }
         println ("")
@@ -75,7 +75,7 @@ trait AbstractTimeProfiler
         val database: BytecodeDatabase = BATDatabaseFactory.create ()
 
         val results = for (view <- views (database)) yield {
-            Conversions.lazyViewToResult (view)
+            sae.relationToResult (view)
         }
 
         var taken: Long = 0
@@ -85,7 +85,7 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach ((q:QueryResult[_]) => println (q.size))
+        results.foreach ((q: QueryResult[_]) => println (q.size))
         taken
     }
 
@@ -105,7 +105,7 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach ((q:CountingObserver[_]) => println (q.count))
+        results.foreach ((q: CountingObserver[_]) => println (q.count))
         taken
     }
 

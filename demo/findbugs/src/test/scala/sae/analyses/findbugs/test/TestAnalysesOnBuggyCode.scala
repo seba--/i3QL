@@ -63,12 +63,12 @@ class TestAnalysesOnBuggyCode
         val analysis: QueryResult[INVOKEVIRTUAL] = BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
 
         import sae.syntax.sql._
-        val invokeSpecial: QueryResult[INVOKESPECIAL] = sae.collections.Conversions.lazyViewToResult(SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKESPECIAL]))
-        val invokeVirtual: QueryResult[INVOKEVIRTUAL] = sae.collections.Conversions.lazyViewToResult(SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL]))
+        val invokeSpecial: QueryResult[INVOKESPECIAL] = sae.relationToResult(SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKESPECIAL]))
+        val invokeVirtual: QueryResult[INVOKEVIRTUAL] = sae.relationToResult(SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL]))
 
         val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
 
-        val result: QueryResult[(INVOKESPECIAL,INVOKEVIRTUAL)] = sae.collections.Conversions.lazyViewToResult(
+        val result: QueryResult[(INVOKESPECIAL,INVOKEVIRTUAL)] = sae.relationToResult(
             SELECT (*) FROM
             (invokeSpecial, invokeVirtual) WHERE
             (declaringMethod === declaringMethod) AND

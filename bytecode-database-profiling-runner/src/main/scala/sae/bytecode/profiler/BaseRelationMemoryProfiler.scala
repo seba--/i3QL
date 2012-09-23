@@ -98,10 +98,9 @@ object BaseRelationMemoryProfiler
         println ("")
 
         measureMem ("class inheritance - indices", () => baseMemory ((db: BytecodeDatabase) => {
-            val indexed = Conversions.lazyViewToIndexedView (db.classInheritance)
             Seq (
-                indexed.index (_.subType),
-                indexed.index (_.superType)
+                db.classInheritance.index (_.subType),
+                db.classInheritance.index (_.superType)
             )
         }))
 

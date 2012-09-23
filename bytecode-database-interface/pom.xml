@@ -23,6 +23,10 @@
 			<artifactId>sae-database-core</artifactId>
 		</dependency>
         <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-database-sql</artifactId>
+        </dependency>
+        <dependency>
             <groupId>de.tud.cs.st</groupId>
             <artifactId>bat-core</artifactId>
         </dependency>
