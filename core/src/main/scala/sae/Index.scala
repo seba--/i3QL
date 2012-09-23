@@ -77,6 +77,23 @@ trait Index[K, V]
         Nil
     }
 
+    /**
+     * remove all observers, since indices are not observers they must treat the removal in a special way.
+     * Not this will only get called if index.observers.isEmpty
+     */
+    override def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
+        for (relation <- children) {
+            // remove all observers for this observable
+            for (observer <- childObservers (relation)) {
+                relation.indices -= (keyFunction)   // special treatment for index
+            }
+            // check whether we want to visit the observable
+            if (relation.observers.isEmpty && visitChild (relation)) {
+                relation.clearObserversForChildren (visitChild)
+            }
+        }
+    }
+
     // an index is lazy isInitialized by calling build
     def lazyInitialize() {
         relation.foreach (

@@ -156,6 +156,10 @@ class TestObserverManipulation extends ShouldMatchers
 
         join.clearObserversForChildren((o: Observable[_]) => (o != students && o != enrollments))
 
+
+        students.indices should have size (0)
+        enrollments.indices should have size (0)
+
         // check that the the observer was correctly removed
         students.observers should have size (0)
         enrollments.observers should have size (0)
@@ -214,7 +218,11 @@ class TestObserverManipulation extends ShouldMatchers
             }
         )
 
-        // check that the the observer was correctly removed
+        // check that the the indices were correctly removed
+        students.indices should have size (0)
+        enrollments.indices should have size (0)
+        courses.indices should have size (0)
+
         students.observers should have size (0)
         enrollments.observers should have size (0)
         courses.observers should have size (0)
@@ -235,9 +243,20 @@ class TestObserverManipulation extends ShouldMatchers
             s
         }
 
-        enrollments.observers should have size (1)
-        persons.observers should have size (1)
-        students.observers should have size (2)
+        enrollments.observers should have size (0)
+        persons.observers should have size (0)
+        students.observers should have size (0)
+
+        enrollments.indices should have size (1)
+        val enrollmentIndex = enrollments.indices.toSeq(0)._2
+        enrollmentIndex.observers should have size (1)
+
+        persons.indices should have size (1)
+        persons.indices.toSeq(0)._2.observers should have size (1)
+
+        students.indices should have size (2)
+        students.indices.toSeq(0)._2.observers should have size (1)
+        students.indices.toSeq(1)._2.observers should have size (1)
 
         joinA.clearObserversForChildren(
             (o: Observable[_]) => {
@@ -245,9 +264,14 @@ class TestObserverManipulation extends ShouldMatchers
             }
         )
 
-        enrollments.observers should have size (0)
-        persons.observers should have size (1)
-        students.observers should have size (1)
+        enrollments.indices should have size (0)
+        enrollmentIndex.observers should have size (0)
+
+        persons.indices should have size (1)
+        persons.indices.toSeq(0)._2.observers should have size (1)
+
+        students.indices should have size (1)
+        students.indices.toSeq(0)._2.observers should have size (1)
     }
 
     @Test

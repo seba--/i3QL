@@ -64,14 +64,14 @@ trait Observable[V]
      * remove all observers
      */
     def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
-        for (observable <- children) {
+        for (relation <- children) {
             // remove all observers for this observable
-            for (observer <- childObservers (observable)) {
-                observable.removeObserver (observer.asInstanceOf[Observer[Any]])
+            for (observer <- childObservers (relation)) {
+                relation.removeObserver (observer.asInstanceOf[Observer[Any]])
             }
             // check whether we want to visit the observable
-            if (observable.observers.isEmpty && visitChild (observable)) {
-                observable.clearObserversForChildren (visitChild)
+            if (relation.observers.isEmpty && visitChild (relation)) {
+                relation.clearObserversForChildren (visitChild)
             }
         }
     }
