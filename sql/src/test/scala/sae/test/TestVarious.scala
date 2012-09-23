@@ -3,7 +3,7 @@ package sae.test
 import org.junit.{Assert, Test}
 import sae._
 import sae.syntax.sql._
-import sae.EventRecorder.{AddEvent, RemoveEvent}
+import sae.EventRecorder.RemoveEvent
 
 /**
  *
@@ -42,8 +42,8 @@ class TestVarious
         val bordersAll: Relation[(java.lang.Integer, java.lang.Integer)] = SELECT ((start: java.lang.Integer,
                                                                                     end: java.lang.Integer) => (start, end)) FROM (basicBlockStartPcs, basicBlockEndPcs)
 
-        val borders: LazyInitializedQueryResult[(java.lang.Integer, java.lang.Integer)] =
-            Conversions.lazyViewToMaterializedView (
+        val borders: QueryResult[(java.lang.Integer, java.lang.Integer)] =
+            relationToResult(
                 SELECT (*) FROM (bordersAll) WHERE ((e: (java.lang.Integer, java.lang.Integer)) => (e._1 < e._2))
             )
 
@@ -160,10 +160,11 @@ class TestVarious
             ._2)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE ((_: (String, Int))._1) === ((_: (String, Int))
             ._1)
 
-        val borders: LazyInitializedQueryResult[(Int, Int)] =
-            Conversions.lazyViewToMaterializedView (
+        val borders: QueryResult[(Int, Int)] =
+            relationToResult (
                 SELECT (*) FROM (bordersAll) WHERE ((e: (Int, Int)) => (e._1 < e._2))
             )
+
 
 
         basicBlockEndPcs.element_added (("nameForToken", 113))
@@ -313,46 +314,46 @@ class TestVarious
             val immediateBasicBlockSuccessorEdges: Relation[(String, Int, Int)] = new BagExtent[(String, Int, Int)]
 
 
-           val fallThroughCaseSuccessors  =
-               SELECT ((e: (String, Int)) => (e._1, e._2, (e._2 + 1))) FROM basicBlockEndPcs WHERE NOT (
-                   EXISTS (
-                       SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE (
-                           (_: (String, Int, Int))._1) === ((_: (String, Int))._1) AND (
-                           (_: (String, Int, Int))._2) === ((_: (String, Int))._2)
-                   )
-               )
-
-/*
-            val keyProjection = δ (Π ((e: (String, Int, Int)) => (e._1, e._2))(immediateBasicBlockSuccessorEdges))
-
-            val join = (
-                (
-                    basicBlockEndPcs,
-                    identity (_: (String, Int))
-                    ) ⋈ (
-                    identity (_: (String, Int)),
-                    keyProjection
+            val fallThroughCaseSuccessors =
+                SELECT ((e: (String, Int)) => (e._1, e._2, (e._2 + 1))) FROM basicBlockEndPcs WHERE NOT (
+                    EXISTS (
+                        SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE (
+                            (_: (String, Int, Int))._1) === ((_: (String, Int))._1) AND (
+                            (_: (String, Int, Int))._2) === ((_: (String, Int))._2)
                     )
                 )
-            {
-                (left: (String, Int), right: (String, Int)) => left
-            }
 
-            //val fallThroughCaseSuccessorsNegation = (basicBlockEndPcs ∖ join)
+            /*
+                        val keyProjection = δ (Π ((e: (String, Int, Int)) => (e._1, e._2))(immediateBasicBlockSuccessorEdges))
 
-            val fallThroughCaseSuccessorsNegation =
-                (
-                    (
-                        basicBlockEndPcs,
-                        identity (_: (String, Int))
-                        ) ⊳ (
-                        (e: (String, Int, Int)) => (e._1, e._2),
-                        immediateBasicBlockSuccessorEdges
-                        )
-                    )
+                        val join = (
+                            (
+                                basicBlockEndPcs,
+                                identity (_: (String, Int))
+                                ) ⋈ (
+                                identity (_: (String, Int)),
+                                keyProjection
+                                )
+                            )
+                        {
+                            (left: (String, Int), right: (String, Int)) => left
+                        }
 
-            //val fallThroughCaseSuccessors = Π ((e: (String, Int)) => (e._1, e._2, e._2 + 1))(fallThroughCaseSuccessorsNegation)
-*/
+                        //val fallThroughCaseSuccessorsNegation = (basicBlockEndPcs ∖ join)
+
+                        val fallThroughCaseSuccessorsNegation =
+                            (
+                                (
+                                    basicBlockEndPcs,
+                                    identity (_: (String, Int))
+                                    ) ⊳ (
+                                    (e: (String, Int, Int)) => (e._1, e._2),
+                                    immediateBasicBlockSuccessorEdges
+                                    )
+                                )
+
+                        //val fallThroughCaseSuccessors = Π ((e: (String, Int)) => (e._1, e._2, e._2 + 1))(fallThroughCaseSuccessorsNegation)
+            */
             val basicBlockSuccessorEdges: Relation[(String, Int, Int)] = immediateBasicBlockSuccessorEdges ∪ (fallThroughCaseSuccessors)
 
 
@@ -368,20 +369,20 @@ class TestVarious
             immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 4, 111))
             basicBlockEndPcs.element_added (("nameForToken", 4))
 
-/*
-            immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 75, 111))
-            basicBlockEndPcs.element_added (("nameForToken", 75))
+            /*
+                        immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 75, 111))
+                        basicBlockEndPcs.element_added (("nameForToken", 75))
 
-            immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 81, 111))
-            basicBlockEndPcs.element_added (("nameForToken", 81))
-*/
+                        immediateBasicBlockSuccessorEdges.element_added (("nameForToken", 81, 111))
+                        basicBlockEndPcs.element_added (("nameForToken", 81))
+            */
 
 
             //m.eventsChronological.foreach (println)
 
             //println ("----------------------------------")
 
-            println(i)
+            println (i)
 
             if (m.events.contains (RemoveEvent ("nameForToken", 4, 5))) {
                 //Assert.assertTrue (m.events.contains (AddEvent ("nameForToken", 4, 5)))
@@ -402,6 +403,7 @@ class TestVarious
     }
 
 
+    /*
     def observerChain[T <: AnyRef](o: Observable[T]): Seq[Observer[_ <: AnyRef]] = {
 
         var indexObservers: Seq[Observer[_ <: AnyRef]] = Seq ()
@@ -427,4 +429,5 @@ class TestVarious
             indexObservers
         }
     }
+    */
 }

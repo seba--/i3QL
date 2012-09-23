@@ -32,7 +32,6 @@
  */
 package sae.syntax.sql.ast
 
-import sae.operators.intern.AggregateFunction
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,7 +41,7 @@ import sae.operators.intern.AggregateFunction
  */
 
 case class SelectClause1[-SelectionDomain <: AnyRef, Range <: AnyRef](projection: Option[SelectionDomain => Range] = None,
-                                                                     distinct: Boolean = false)
+                                                                      distinct: Boolean = false)
     extends SelectClause[Range]
 {
 

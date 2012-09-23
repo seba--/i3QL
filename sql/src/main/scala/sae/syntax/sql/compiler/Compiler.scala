@@ -40,6 +40,7 @@ import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
 import predicates._
 import sae.syntax.sql.SQL_QUERY
+import sae.syntax.RelationalAlgebraSyntax
 
 /**
  * Created with IntelliJ IDEA.
@@ -165,9 +166,9 @@ object Compiler
                             projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
                             compile1 (
                                 None,
-                                false,
-                                relation,
-                                where.expressions
+                                distinct = false,
+                                relation = relation,
+                                expressions = where.expressions
                             )
                         ),
                         distinct
@@ -363,7 +364,7 @@ object Compiler
                                                    relation: Relation[Domain]): Relation[Domain] =
     {
         selection match {
-            case Some (fun) => new LazySelection[Domain](fun, relation)
+            case Some (fun) => RelationalAlgebraSyntax.σ (fun)(relation)
             case None => relation
         }
 
@@ -374,7 +375,7 @@ object Compiler
                                                                      relation: Relation[Domain]): Relation[Range] =
     {
         projection match {
-            case Some (f) => new BagProjection (f, relation)
+            case Some (f) => RelationalAlgebraSyntax.Π (f)(relation)
             case None => relation.asInstanceOf[Relation[Range]] // this is made certain by the ast construction
         }
     }
@@ -392,8 +393,7 @@ object Compiler
                                                                                            relationA: Relation[DomainA],
                                                                                            relationB: Relation[DomainB]) =
     {
-        val crossProduct =
-            Conversions.lazyViewToMaterializedView (relationA) × Conversions.lazyViewToMaterializedView (relationB)
+        val crossProduct = relationA × relationB
 
         projection match {
             case Some (f) =>
@@ -434,11 +434,11 @@ object Compiler
 
         (
             (
-                Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filtersA)), relationA)),
+                compileSelection (combineFilters (Seq (filtersA)), relationA),
                 leftKey
                 ) ⋈ (
                 rightKey,
-                Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filtersB)), relationB))
+                compileSelection (combineFilters (Seq (filtersB)), relationB)
                 )
             ) (projection.getOrElse ((a: DomainA, b: DomainB) => (a, b)).asInstanceOf[(DomainA, DomainB) => Range])
     }
@@ -476,11 +476,11 @@ object Compiler
                 val outerKey = compileHashKey (unboundJoins.map (_.right))
                 val innerKey = compileHashKey (unboundJoins.map (_.left))
                 (
-                    Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filters)), relation)),
+                    compileSelection (combineFilters (Seq (filters)), relation),
                     outerKey
                     ) ⋉ (
                     innerKey,
-                    Conversions.lazyViewToIndexedView (subRelation)
+                    subRelation
                     )
             }
 
@@ -493,11 +493,11 @@ object Compiler
                 val outerKey = compileHashKey (unboundJoins.map (_.right))
                 val innreKey = compileHashKey (unboundJoins.map (_.left))
                 (
-                    Conversions.lazyViewToIndexedView (compileSelection (combineFilters (Seq (filters)), relation)),
+                    compileSelection (combineFilters (Seq (filters)), relation),
                     outerKey
                     ) ⊳ (
                     innreKey,
-                    Conversions.lazyViewToIndexedView (subRelation)
+                    subRelation
                     )
             }
 
@@ -574,7 +574,7 @@ object Compiler
     private def compileUnnesting[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range],
                                                                      relation: Relation[Domain]) =
     {
-        new UnNesting (relation, function)
+        new UnNestView (relation, function, (d: Domain, r: Range) => r)
     }
 
 
@@ -584,11 +584,11 @@ object Compiler
     {
         if (projection.isDefined)
         {
-            new UnNestingWithProjection (relation, function, projection.get)
+            new UnNestView (relation, function, projection.get)
         }
         else
         {
-            new UnNestingWithProjection (relation, function, (d: Domain, u: UnnestingRange) => (d, u))
+            new UnNestView (relation, function, (d: Domain, u: UnnestingRange) => (d, u))
         }
     }
 }

@@ -35,7 +35,7 @@ import sae.collections.{SetResult, BagResult}
 package object sae
 {
 
-    implicit def lazyViewToResult[V <: AnyRef](relation: Relation[V]): QueryResult[V] =
+    implicit def relationToResult[V <: AnyRef](relation: Relation[V]): QueryResult[V] =
         relation match {
             case col: QueryResult[V] => col
             case _ if relation.isSet => new SetResult (relation)
