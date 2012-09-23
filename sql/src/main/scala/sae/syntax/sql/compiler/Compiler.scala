@@ -35,7 +35,7 @@ package sae.syntax.sql.compiler
 
 import sae.{SetRelation, Relation}
 import sae.operators._
-import impl.{UnNestView, UnionViewAdd}
+import impl.UnNestView
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
 import predicates._
@@ -562,13 +562,13 @@ object Compiler
     private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
                                                                                                relationB: Relation[DomainB]) =
     {
-        null
+        relationA ∪ relationB
     }
 
     private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
                                                                                                   relationB: Relation[DomainB]) =
     {
-        new UnionViewAdd (relationA, relationB)
+        relationA ⊎ relationB
     }
 
     private def compileUnnesting[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range],

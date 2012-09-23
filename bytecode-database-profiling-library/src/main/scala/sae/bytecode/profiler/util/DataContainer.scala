@@ -66,4 +66,5 @@ class DataContainer[V](var bufferObserver : BufferObserver[V])
         }
     }
 
+    def size = buffer.size
 }

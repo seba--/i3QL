@@ -97,19 +97,24 @@ object MemoryProfiler
     def memoryOfData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
         val data = for (relation <- relationSelector (BATDatabaseFactory.create ())) yield {
             val buffer = new BufferObserver[AnyRef]
-            relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
+            //relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
             buffer.getContainer
         }
         var consumed: Long = 0
 
         memory (size => (consumed += size)) {
             val database = BATDatabaseFactory.create ()
+            for ((buffer, relation) <- data.zip (relationSelector (database))) {
+                relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer.bufferObserver)
+            }
             for (file <- files) {
                 database.addArchive (new FileInputStream (file))
                 data.foreach (_.moveDataFromBuffer ())
                 data.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
         }
+
+        data.foreach(c => println(c.size))
 
         consumed
     }

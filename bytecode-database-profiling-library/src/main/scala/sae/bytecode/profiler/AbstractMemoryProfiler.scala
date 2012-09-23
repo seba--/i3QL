@@ -72,4 +72,8 @@ trait AbstractMemoryProfiler
     def dataMemory(relations: BytecodeDatabase => Seq[Observable[_]])(implicit iterations: Int, files: Seq[File]) = {
         measureMemory (iterations)(() => memoryOfData (files)(relations))
     }
+
+    def measureDataMemory[V <: AnyRef](f: BytecodeDatabase => Relation[V])(implicit iterations: Int, files: Seq[File]) = {
+        measureMemory (iterations)(() => memoryOfData (files)((db: BytecodeDatabase) => Seq (f (db))))
+    }
 }

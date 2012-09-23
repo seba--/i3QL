@@ -125,7 +125,7 @@ trait BytecodeCFG
 
     lazy val basicBlockSuccessorEdges: Relation[SuccessorEdge] = {
         import sae.syntax.RelationalAlgebraSyntax._
-        immediateBasicBlockSuccessorEdges ∪ fallThroughCaseSuccessors
+        immediateBasicBlockSuccessorEdges ⊎ fallThroughCaseSuccessors
     }
 
 

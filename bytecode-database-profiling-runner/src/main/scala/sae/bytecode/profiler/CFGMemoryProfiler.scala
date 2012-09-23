@@ -35,6 +35,7 @@ package sae.bytecode.profiler
 import java.io.File
 import util.MegaByte
 import sae.bytecode.BytecodeDatabase
+import sae.{Observable, Relation}
 
 /**
  * Created with IntelliJ IDEA.
@@ -46,25 +47,32 @@ import sae.bytecode.BytecodeDatabase
 object CFGMemoryProfiler
     extends AbstractMemoryProfiler
 {
+    override def warmupIterations: Int = 1
+
+
     def profile(implicit files: Seq[File]) {
         implicit val iter = iterations
 
         //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
 
-        val (basicBlockEndPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockEndPcs))
-        val (immediateBasicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges))
-        val (fallThroughCaseSuccessors,_) = dataMemory(measure((db: BytecodeDatabase) => db.fallThroughCaseSuccessors))
-        val (basicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockSuccessorEdges))
-        val (basicBlockStartPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockStartPcs))
-        val (basicBlocks,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlocks))
+        val (methodDeclarations, _) = measureDataMemory ((db: BytecodeDatabase) => db.methodDeclarations)
+        val (basicBlockEndPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockEndPcs)
+        val (immediateBasicBlockSuccessorEdges, _) = measureDataMemory ((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges)
+        val (fallThroughCaseSuccessors, _) = measureDataMemory ((db: BytecodeDatabase) => db.fallThroughCaseSuccessors)
+        val (basicBlockSuccessorEdges, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockSuccessorEdges)
+        val (basicBlockStartPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
+        val (basicBlocks, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlocks)
 
-        println("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary(MegaByte))
-        println("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary(MegaByte))
-        println("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary(MegaByte))
-        println("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary(MegaByte))
-        println("basicBlockStartPcs:                " + (basicBlockStartPcs).summary(MegaByte))
-        println("basicBlocks:                       " + (basicBlocks).summary(MegaByte))
+        println ("methodDeclarations:                  " + (basicBlockEndPcs).summary (MegaByte))
+        println ("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary (MegaByte))
+        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary (MegaByte))
+        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary (MegaByte))
+        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary (MegaByte))
+        println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MegaByte))
+        println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
 
 
     }
+
+
 }
