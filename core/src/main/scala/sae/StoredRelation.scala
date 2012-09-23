@@ -32,32 +32,15 @@
  */
 package sae
 
-import capabilities.LazyInitialized
-
-
 /**
+ * A stored relation is not necessary a materialized relation that provides
+ * efficient access to element counts, but the foreach method is guaranteed to return
+ * elements, that are stored somewhere in memory.
  *
  * @author Ralf Mitschke
  *
  */
-trait MaterializedRelation[V]
-    extends Relation[V]
-    with LazyInitialized
-    with StoredRelation
+trait StoredRelation
 {
 
-    override def asMaterialized = this
-
-    /**
-     * Applies f to all elements of the view with their counts
-     */
-    def foreachWithCount[T](f: (V, Int) => T)
-
-    def isDefinedAt(v: V): Boolean
-
-    /**
-     * Returns the count for a given element.
-     * In case an add/remove/update event is in progression, this always returns the
-     */
-    def elementCountAt[T >: V](v: T): Int
 }

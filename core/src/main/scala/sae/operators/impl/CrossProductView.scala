@@ -17,6 +17,7 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
     right addObserver RightObserver
 
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
             return List (LeftObserver)

@@ -81,6 +81,13 @@ trait Observable[V]
      */
     protected def children: Seq[Observable[_]] = Nil
 
+    def descendants : Seq[Observable[_]] = {
+        (for (child <- children) yield
+        {
+            Seq(child) ++ child.descendants
+        }).flatten
+    }
+
     /**
      * Returns the observer for a particular child, since the observers are in many cases inner objects, we
      * can not simply always remove this as the observer of the child

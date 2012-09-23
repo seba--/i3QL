@@ -12,6 +12,7 @@ package operators
  */
 trait EquiJoin[DomainA, DomainB, Range, Key]
     extends Relation[Range]
+    with StoredRelation
 {
 
     def left: Relation[DomainA]

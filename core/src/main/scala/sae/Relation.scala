@@ -63,7 +63,12 @@ trait Relation[V]
 
     def isSet: Boolean
 
-    def asMaterialized: MaterializedRelation[V] = {
+    /**
+     * Always return the same materialized view for this relation
+     */
+    def asMaterialized: MaterializedRelation[V] = materializedRelation
+
+    private lazy val materializedRelation = {
         if (isSet) {
             new SetResult[V](this)
         }
