@@ -23,6 +23,8 @@ trait Union[Range, DomainA <: Range, DomainB <: Range]
 
     def isSet = false
 
+    def isStored = left.isStored && right.isStored
+
     override protected def children = List (left, right)
 }
 

@@ -14,7 +14,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 
     def ×[OtherDomain <: AnyRef] (otherRelation: Relation[OtherDomain]): Relation[(Domain, OtherDomain)] =
         new CrossProductView (
-            if (!left.isInstanceOf[StoredRelation] && !left.descendants.exists (_.isInstanceOf[StoredRelation]))
+            if (!left.isStored)
             {
                 left.asMaterialized
             }
@@ -22,7 +22,7 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
             {
                 left
             },
-            if (!otherRelation.isInstanceOf[StoredRelation] && !otherRelation.descendants.exists (_.isInstanceOf[StoredRelation]))
+            if (!otherRelation.isStored)
             {
                 otherRelation.asMaterialized
             }

@@ -45,5 +45,7 @@ trait Projection[Domain, Range]
 
     def isSet = false
 
+    def isStored = relation.isStored
+
     override protected def children = List (relation)
 }

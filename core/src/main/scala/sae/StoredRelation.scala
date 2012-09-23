@@ -43,4 +43,6 @@ package sae
 trait StoredRelation
 {
 
+    def isStored: Boolean = true
+
 }

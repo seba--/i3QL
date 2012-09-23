@@ -26,6 +26,5 @@ trait EquiJoin[DomainA, DomainB, Range, Key]
     def projection: (DomainA, DomainB) => Range
 
     def isSet = left.isSet && right.isSet
-
 }
 

@@ -23,6 +23,8 @@ trait Difference[Domain]
 
     def isSet = left.isSet
 
+    def isStored = left.isStored && right.isStored // should always be true
+
     override protected def children = List (left, right)
 }
 

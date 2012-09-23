@@ -66,5 +66,7 @@ trait CrossProduct[DomainA, DomainB, Range]
 
     def isSet = left.isSet && right.isSet
 
+    def isStored = left.isStored && right.isStored // should always be true
+
     override protected def children = List (left, right)
 }

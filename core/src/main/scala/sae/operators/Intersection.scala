@@ -23,6 +23,8 @@ trait Intersection[Domain <: AnyRef]
 
     def isSet = left.isSet || right.isSet
 
+    def isStored = left.isStored && right.isStored // should always be true
+
     override protected def children = List (left, right)
 }
 

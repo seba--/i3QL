@@ -109,6 +109,11 @@ class Testaggregate extends TestCase
         def lazyInitialize() {}
 
         def isSet = false
+
+        /**
+         * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+         */
+        def isStored = true
     }
 
     //before every method

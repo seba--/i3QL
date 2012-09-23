@@ -39,4 +39,9 @@ class SetExtent[V]
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (V) => T) {/* do nothing */}
+
+    /**
+     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+     */
+    def isStored = false
 }

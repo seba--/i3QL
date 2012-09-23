@@ -64,6 +64,11 @@ trait Relation[V]
     def isSet: Boolean
 
     /**
+     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+     */
+    def isStored : Boolean
+
+    /**
      * Always return the same materialized view for this relation
      */
     def asMaterialized: MaterializedRelation[V] = materializedRelation

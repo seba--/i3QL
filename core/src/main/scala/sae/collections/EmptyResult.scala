@@ -65,4 +65,9 @@ class EmptyResult[V]
     def singletonValue = None
 
     def foreach[T](f: (V) => T) {}
+
+    /**
+     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+     */
+    def isStored = true
 }
