@@ -10,7 +10,7 @@
 
 	<groupId>de.tud.cs.st.opal.sae</groupId>
 	<artifactId>sae-database-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>sae-database-core</name>
