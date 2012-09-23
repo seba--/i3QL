@@ -31,7 +31,7 @@ class TestLazyInitialization
 
         a += "Hello"
 
-        difference.size should be(1)
+        difference.asList.size should be(1)
     }
 
     @Test
@@ -44,7 +44,7 @@ class TestLazyInitialization
 
         b += "Hello"
 
-        difference.size should be(0)
+        difference.asList.size should be(0)
     }
 
     @Test
@@ -272,8 +272,6 @@ class TestLazyInitialization
         }(ensemblesAndConstraintsInSameContext)
 
 
-        val firstObserver = local_incoming.observers.head
-
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
          * for all (Z,Y) where Z,Y in Ensembles and Incoming(_,Y, ctx) ;
@@ -293,33 +291,6 @@ class TestLazyInitialization
                         )
 
                 )
-
-        // we try to construct the situation where the right observer is notified first.
-        // if this situation can not be constructed anymore ignore the test
-        var i = 0
-        while (local_incoming.observers.toList(0) == firstObserver) {
-            i += 1
-            // this should not take more than 10 tries, the test never got stuck here, but we should check anyway
-            Assert
-                    .assertTrue("could not construct the test prerequisite, that right side is notified first. We made " + i + "attempts", i < 10000)
-            disallowedEnsemblesPerConstraint.clearObserversForChildren(
-                (o: Observable[_]) => {
-                    o != filteredEnsemblesWithConstraints
-                }
-            )
-            // should be the case anyway through the tests in TestObserverManipulation
-            filteredEnsemblesWithConstraints.observers should have size (0)
-            disallowedEnsemblesPerConstraint = (
-                    (
-                            filteredEnsemblesWithConstraints,
-                            (e: (Ensemble, Constraint, Context)) => (e._1, e._2._2, e._3)
-                            ) ⊳(
-                            (c: (Constraint, Context)) => (c._1._1, c._1._2, c._2),
-                            local_incoming
-                            )
-
-                    )
-        }
 
         val ensembleA = ("A", "context")
         val ensembleB = ("B", "context")
@@ -391,8 +362,6 @@ class TestLazyInitialization
             (e._1 != e._2._2 && e._2._1 != e._1)
         }(ensemblesAndConstraintsInSameContext)
 
-
-        val firstObserver = local_incoming.observers.head
 
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
