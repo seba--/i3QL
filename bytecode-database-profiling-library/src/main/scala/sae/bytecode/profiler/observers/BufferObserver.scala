@@ -30,41 +30,51 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.profiler
+package sae.bytecode.profiler.observers
 
-import java.io.File
-import util.MegaByte
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode.profiler.util.DataContainer
+
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 12.09.12
- * Time: 21:35
+ * Date: 25.08.12
+ * Time: 11:03
  */
 
-object CFGMemoryProfiler
-    extends AbstractMemoryProfiler
+class BufferObserver[V]
+    extends sae.Observer[V]
+    with sae.capabilities.Size
 {
-    def profile(implicit files: Seq[File]) {
-        implicit val iter = iterations
 
-        //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+    import com.google.common.collect.HashMultiset
 
-        val (basicBlockEndPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockEndPcs))
-        val (immediateBasicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges))
-        val (fallThroughCaseSuccessors,_) = dataMemory(measure((db: BytecodeDatabase) => db.fallThroughCaseSuccessors))
-        val (basicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockSuccessorEdges))
-        val (basicBlockStartPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockStartPcs))
-        val (basicBlocks,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlocks))
+    var data: HashMultiset[V] = HashMultiset.create[V]()
 
-        println("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary(MegaByte))
-        println("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary(MegaByte))
-        println("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary(MegaByte))
-        println("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary(MegaByte))
-        println("basicBlockStartPcs:                " + (basicBlockStartPcs).summary(MegaByte))
-        println("basicBlocks:                       " + (basicBlocks).summary(MegaByte))
+    def added(k: V) {
+        data.add (k)
+    }
 
+    def removed(k: V) {
+        data.remove (k)
+    }
 
+    def updated(oldV: V, newV: V) {
+        data.remove (oldV)
+        data.add (newV)
+    }
+
+    def size = data.size ()
+
+    val container = new DataContainer[V](this)
+
+    def getContainer: DataContainer[V] = container
+
+    def fillContainer() {
+        container.setBuffer(data.toArray)
+    }
+
+    def clear() {
+        data.clear ()
     }
 }

@@ -32,7 +32,7 @@
  */
 package sae.bytecode.profiler
 
-import observers.ArrayBufferObserver
+import observers.{BufferObserver, ArrayBufferObserver}
 import sae.bytecode._
 import bat.BATDatabaseFactory
 import java.io.FileInputStream
@@ -95,22 +95,19 @@ object MemoryProfiler
      * This method does not keep the database alive, hence materialized views inside the database are not measured.
      */
     def memoryOfData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
-        val buffers = for (relation <- relationSelector (BATDatabaseFactory.create ())) yield {
-            val buffer = new ArrayBufferObserver[AnyRef](10000)
+        val data = for (relation <- relationSelector (BATDatabaseFactory.create ())) yield {
+            val buffer = new BufferObserver[AnyRef]
             relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
-            buffer
+            buffer.getContainer
         }
         var consumed: Long = 0
 
         memory (size => (consumed += size)) {
             val database = BATDatabaseFactory.create ()
-            for ((buffer, relation) <- buffers.zip (relationSelector (database))) {
-                relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
-            }
             for (file <- files) {
                 database.addArchive (new FileInputStream (file))
-                buffers.foreach (_.trim ())
-                buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
+                data.foreach (_.moveDataFromBuffer ())
+                data.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
         }
 

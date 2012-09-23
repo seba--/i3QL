@@ -29,42 +29,14 @@
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */
-package sae.bytecode.profiler
-
-import java.io.File
-import util.MegaByte
-import sae.bytecode.BytecodeDatabase
+ */package sae.bytecode.structure
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 12.09.12
- * Time: 21:35
+ * 
+ * @author Ralf Mitschke
+ * 
  */
 
-object CFGMemoryProfiler
-    extends AbstractMemoryProfiler
-{
-    def profile(implicit files: Seq[File]) {
-        implicit val iter = iterations
+case class BasicBlockEndBorder(declaringMethod: MethodDeclaration, endPc: Int) {
 
-        //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
-
-        val (basicBlockEndPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockEndPcs))
-        val (immediateBasicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges))
-        val (fallThroughCaseSuccessors,_) = dataMemory(measure((db: BytecodeDatabase) => db.fallThroughCaseSuccessors))
-        val (basicBlockSuccessorEdges,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockSuccessorEdges))
-        val (basicBlockStartPcs,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlockStartPcs))
-        val (basicBlocks,_) = dataMemory(measure((db: BytecodeDatabase) => db.basicBlocks))
-
-        println("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary(MegaByte))
-        println("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary(MegaByte))
-        println("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary(MegaByte))
-        println("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary(MegaByte))
-        println("basicBlockStartPcs:                " + (basicBlockStartPcs).summary(MegaByte))
-        println("basicBlocks:                       " + (basicBlocks).summary(MegaByte))
-
-
-    }
 }

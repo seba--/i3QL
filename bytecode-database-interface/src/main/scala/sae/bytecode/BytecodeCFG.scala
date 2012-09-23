@@ -33,10 +33,9 @@
 package sae.bytecode
 
 import instructions._
-import sae.{Observer, SetRelation, Relation}
+import sae.{SetRelation, Relation}
 import sae.syntax.sql._
-import structure.{ExceptionHandlerInfo, BasicBlock, CodeAttribute, MethodDeclaration}
-import scala.Some
+import structure._
 import de.tud.cs.st.bat.resolved.ExceptionHandler
 
 /**
@@ -48,29 +47,6 @@ import de.tud.cs.st.bat.resolved.ExceptionHandler
 
 trait BytecodeCFG
 {
-    /*
-    % cfg(MID, CFG) :- Given a valid MID, that CFG is returned as a list structure.
-    %       The CFG is a list of tuples for each basic block (BB):
-    %       CFG = [ BasicBlockTuple_1, ..., BasicBlockTuple_N].
-    %       Each tuple contains the boundaries of the basic block in the first parameter
-        %       and holds a list of successor basic blocks (also encoded as boundaries)
-    %       as second parameter:
-        %       BasicBlockTuple = ( (BBStart, BBEnd), [(Succ_1_BBStart, Succ_1_BBEnd), ...])
-    cfg(MID, CFG) :-
-        instr(MID, 0, FirstInstr),
-    cfg_instruction_rec(MID, 0, MethodEndPC, FirstInstr, _, BasicBlockBorderSet, BasicBlockSuccessorSet),
-    treeset_to_list_within_bounds(BasicBlockBorderSet, BasicBlockBordersWithoutFallThrough-[], 0, MethodEndPC),
-    cfg_add_fall_through_cases(BasicBlockBordersWithoutFallThrough, BasicBlockSuccessorSet),
-    (
-        method_exceptions_table(MID,Handlers) ->
-            cfg_add_exception_handler(Handlers, BasicBlockBorderSet, BasicBlockSuccessorSet)
-    ;
-    true
-    ),
-    treeset_to_list_within_bounds(BasicBlockBorderSet, BasicBlockBorders-[], 0, MethodEndPC),
-    cfg_graph_list(0, BasicBlockBorders, BasicBlockBorders, BasicBlockSuccessorSet, CFG).
-    */
-
     def instructions: SetRelation[InstructionInfo]
 
     def codeAttributes: SetRelation[CodeAttribute]
@@ -93,98 +69,13 @@ trait BytecodeCFG
     private lazy val switchJumpTargets: Relation[(SwitchInstructionInfo, Int)] =
         SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch, switch.pc + jumpOffset.get)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
 
-    /*
-    basic_block_end_pcs(Pc, if_cmp_const(_, Target), [Pc|PrevList]) :- !, % if_cmp_const marks the end of a basic block
-    (Target >= 1) ->
-        (       % the jump target ist not the very first instruction
-            EndPc is Target - 1,  % the instruction before Target is also the end of a basic block
-            PrevList = [EndPc]
-    )
-    ;       % the jump target is the very first instruction of the method
-    PrevList = [].
-
-    basic_block_end_pcs(Pc, if_cmp(_, _, Target), [Pc|PrevList]) :- !, % if_cmp marks the end of a basic block
-    (Target >= 1) ->
-        (
-            EndPc is Target - 1, % the instruction before Target is also the end of a basic block
-            PrevList = [EndPc]
-    );
-    PrevList = [].
-
-    basic_block_end_pcs(Pc, goto(Target), [Pc|PrevList]) :- !, % goto marks the end of a basic block.
-    (Target >= 1) ->
-        (
-            EndPc is Target - 1, % the instruction before Target is also the end of a basic block
-            PrevList = [EndPc]
-    );
-    PrevList = [].
 
 
-    basic_block_end_pcs(Pc, return(_), [Pc]) :- !. % a return statement always marks the end of a basic block.
-
-    basic_block_end_pcs(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), List) :- !,
-    List = [Pc|DefaulTargetEndPcList],
-    tableswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
-    DefaultTargetEndPc is DefaultTarget - 1,
-    (
-        (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList])
-    ;
-    (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
-    ).
-
-    basic_block_end_pcs(Pc, lookupswitch(DefaultTarget,_,JumpTargets), List) :- !,
-    List = [Pc|DefaulTargetEndPcList],
-    lookupswitch_target_end_pc_list(JumpTargets, JumpTargetEndPcList),
-    DefaultTargetEndPc is DefaultTarget - 1,
-    (
-        (DefaultTargetEndPc >= 0, DefaulTargetEndPcList = [DefaultTargetEndPc|JumpTargetEndPcList]);
-    (DefaultTargetEndPc  < 0, DefaulTargetEndPcList = JumpTargetEndPcList)
-    ).
-
-
-    basic_block_end_pcs(Pc, athrow, [Pc]) :- !. % a throw statement always marks the end of a basic block.
-
-
-    % tableswitch_target_end_pc(JumpTargetList, EndPcList) :-
-    %                      Determines all EndPc's in EndPcList that stem from the given jump targets
-    tableswitch_target_end_pc_list([Target|RestTargets], List) :- !,
-    EndPc is Target - 1,
-    (
-        (
-            EndPc >= 0,!,
-        List = [EndPc| RestEndPcs]
-    );
-    (
-        EndPc  < 0,
-        List = RestEndPcs
-        )
-    ),
-    tableswitch_target_end_pc_list(RestTargets, RestEndPcs).
-        tableswitch_target_end_pc_list([], []).
-
-    % lookupswitch_target_end_pc(JumpTargetList, EndPcList) :-
-        %                      Determines all EndPc's in EndPcList that stem from the given jump targets
-        lookupswitch_target_end_pc_list([kv(_,Target)|RestTargets], List) :- !,
-    EndPc is Target - 1,
-    (
-        (
-            EndPc >= 0,!,
-        List = [EndPc| RestEndPcs]
-    );
-    (
-        EndPc  < 0,
-        List = RestEndPcs
-        )
-    ),
-    lookupswitch_target_end_pc_list(RestTargets, RestEndPcs).
-        lookupswitch_target_end_pc_list([], []).
-    */
-    private case class BasicBlockEndBorder(declaringMethod: MethodDeclaration, endPc: Int)
 
     /**
      *
      */
-    private lazy val basicBlockEndPcs: Relation[BasicBlockEndBorder] =
+    lazy val basicBlockEndPcs: Relation[BasicBlockEndBorder] =
         SELECT (*) FROM (
             SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc)) FROM ifBranchInstructions UNION_ALL (
                 SELECT ((branch: IfBranchInstructionInfo) => BasicBlockEndBorder (branch.declaringMethod, branch.pc + branch.branchOffset - 1)) FROM ifBranchInstructions
@@ -205,45 +96,10 @@ trait BytecodeCFG
                 )
             ) WHERE (_.endPc >= 0)
 
-    /*
-        % basic_block_edge_list(Pc, Instr, EdgeList) :-
-        %
-        basic_block_edge_list(Pc, if_cmp_const(_, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
-                             (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
 
 
-        basic_block_edge_list(Pc, if_cmp(_, _, Target), [(Pc, NextPc), (Pc, Target)]) :- !,
-                             (NextPc is Pc + 1).                     % Fall-through case for if: we rule out pc's that are greater than the bounds later
 
-        basic_block_edge_list(Pc, goto(Target), [(Pc, Target)]) :- !.
-
-        basic_block_edge_list(Pc, return(_), [(Pc, end)]) :- !.
-
-        basic_block_edge_list(Pc, athrow, [(Pc, end)]) :- !.
-
-        basic_block_edge_list(Pc, tableswitch(DefaultTarget,_,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
-                             tableswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
-
-        basic_block_edge_list(Pc, lookupswitch(DefaultTarget,_,JumpTargets), [(Pc, DefaultTarget) | JumpTargetsList]) :- !,
-                             lookupswitch_target_edge_list(JumpTargets, Pc, JumpTargetsList).
-
-
-        % tableswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
-        %
-        tableswitch_target_edge_list([Target|RestTargets], Pc, [(Pc, Target)|RestEdges])  :- !,
-                               tableswitch_target_edge_list(RestTargets, Pc, RestEdges).
-        tableswitch_target_edge_list([Target], Pc, [(Pc, Target)]).
-
-        % lookupswitch_target_edge_list(JumpTargetList, Pc, EdgeList) :-
-        %
-        lookupswitch_target_edge_list([kv(_,Target)|RestTargets], Pc, [(Pc, Target)|RestEdges]) :- !,
-                               lookupswitch_target_edge_list(RestTargets, Pc, RestEdges).
-        lookupswitch_target_edge_list([kv(_,Target)], Pc, [(Pc, Target)]).
-     */
-
-    private case class SuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int)
-
-    private lazy val immediateBasicBlockSuccessorEdges: Relation[SuccessorEdge] =
+    lazy val immediateBasicBlockSuccessorEdges: Relation[SuccessorEdge] =
         (SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions
             ) UNION_ALL (
             SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
@@ -257,47 +113,27 @@ trait BytecodeCFG
             SELECT ((e: (SwitchInstructionInfo, Int)) => SuccessorEdge (e._1.declaringMethod, e._1.pc, e._2)) FROM switchJumpTargets
             )
 
-
-
-    /*
-   cfg_add_fall_through_cases([EndPc|RestEndPcs], BasicBlockSuccessorSet) :-
-     NextPc is EndPc + 1,
-     (
-        treeset_to_list_within_bounds(BasicBlockSuccessorSet, []-[], (EndPc, _), (NextPc, _)) ->    % we have an empty list and thus no edge yet
-          treeset_lookup((EndPc, NextPc), BasicBlockSuccessorSet)
-          ;
-          true
-     ),
-     cfg_add_fall_through_cases(RestEndPcs, BasicBlockSuccessorSet).
-
-   cfg_add_fall_through_cases([], _) :- !. % green cut
-    */
-
     /**
      * In the end each basic block that does not have a successor yet has to receive a fall through case
      */
-    private lazy val fallThroughCaseSuccessors : Relation[SuccessorEdge]=
+    lazy val fallThroughCaseSuccessors: Relation[SuccessorEdge] =
         SELECT ((b: BasicBlockEndBorder) => SuccessorEdge (b.declaringMethod, b.endPc, b.endPc + 1)) FROM basicBlockEndPcs WHERE NOT (
             EXISTS (
                 SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE ((_: SuccessorEdge).declaringMethod) === ((_: BasicBlockEndBorder).declaringMethod) AND ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
             )
         )
 
-    private lazy val basicBlockSuccessorEdges: Relation[SuccessorEdge] = {
+    lazy val basicBlockSuccessorEdges: Relation[SuccessorEdge] = {
         import sae.syntax.RelationalAlgebraSyntax._
         immediateBasicBlockSuccessorEdges ∪ fallThroughCaseSuccessors
     }
-
-
 
 
     private def endBorderMethod: BasicBlockEndBorder => MethodDeclaration = _.declaringMethod
 
     private def startBorderMethod: BasicBlockStartBorder => MethodDeclaration = _.declaringMethod
 
-    private case class BasicBlockStartBorder(declaringMethod: MethodDeclaration, startPc: Int)
-
-    private lazy val basicBlockStartPcs: Relation[BasicBlockStartBorder] =
+    lazy val basicBlockStartPcs: Relation[BasicBlockStartBorder] =
         SELECT ((c: CodeAttribute) => BasicBlockStartBorder (c.declaringMethod, 0)) FROM codeAttributes UNION_ALL (
             SELECT ((edge: SuccessorEdge) => BasicBlockStartBorder (edge.declaringMethod, edge.toStartPc)) FROM basicBlockSuccessorEdges
             )
@@ -309,73 +145,8 @@ trait BytecodeCFG
 
         //val bordersAll: Relation[(MethodDeclaration, Int, Int)] = SELECT ((end: BasicBlockEndBorder, start: BasicBlockStartBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockEndPcs, basicBlockStartPcs) WHERE (endBorderMethod === startBorderMethod)
 
-        val borders : Relation[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
+        val borders: Relation[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
-
-        basicBlockSuccessorEdges.addObserver(new Observer[SuccessorEdge] {
-            def updated(oldV: SuccessorEdge, newV: SuccessorEdge) {
-                println("basicBlockSuccessorEdges." + "updated: " + oldV + "")
-                println("                                   to: " + newV + "")
-
-            }
-
-            def removed(v: SuccessorEdge) {
-                println("basicBlockSuccessorEdges." + "removed: " + v)
-                if (v.fromEndPc == 75 && v.toStartPc == 76) {
-                    println("NOW")
-                }
-            }
-
-            def added(v: SuccessorEdge) {
-                println("basicBlockSuccessorEdges." + "added  : " + v)
-            }
-        })
-
-
-        basicBlockEndPcs.addObserver(new Observer[AnyRef] {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                println("basicBlockEndPcs." + "updated: " + oldV + "")
-                println("                           to: " + newV + "")
-            }
-
-            def removed(v:AnyRef) {
-                println("basicBlockEndPcs." + "removed: " + v)
-            }
-
-            def added(v: AnyRef) {
-                println("basicBlockEndPcs." + "added  : " + v)
-            }
-        })
-
-        basicBlockStartPcs.addObserver(new Observer[AnyRef] {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                println("basicBlockStartPcs." + "updated: " + oldV + "")
-                println("basicBlockStartPcs." + "     to: " + newV + "")
-            }
-
-            def removed(v:AnyRef) {
-                println("basicBlockStartPcs." + "removed: " + v)
-            }
-
-            def added(v: AnyRef) {
-                println("basicBlockStartPcs." + "added  : " + v)
-            }
-        })
-
-        borders.addObserver(new Observer[(MethodDeclaration, Int, Int)] {
-            def updated(oldV: (MethodDeclaration, Int, Int), newV: (MethodDeclaration, Int, Int)) {
-                println("borders." + "updated: " + oldV + "")
-                println("borders." + "     to: " + newV + "")
-            }
-
-            def removed(v: (MethodDeclaration, Int, Int)) {
-                println("borders." + "removed: " + v)
-            }
-
-            def added(v: (MethodDeclaration, Int, Int)) {
-                println("borders." + "added  : " + v)
-            }
-        })
         /*
          SELECT (   (e: (MethodDeclaration, Int, Int)) => (e._1, e._3),
                     MAX[(MethodDeclaration, Int, Int)]((e: (MethodDeclaration, Int, Int)) => e._2) )

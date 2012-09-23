@@ -44,7 +44,7 @@ import sae.bytecode.profiler.statistics.MeasurementUnit
 object Seconds
     extends MeasurementUnit
 {
-    def descriptor = "ns"
+    def descriptor = "s"
 
     def fromBase(value: Double) =  value / 1000000000
 }

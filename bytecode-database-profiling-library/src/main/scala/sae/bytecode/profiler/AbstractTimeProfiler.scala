@@ -59,11 +59,8 @@ trait AbstractTimeProfiler
     def warmUp(files: Seq[java.io.File]) {
         // warmup
         print ("warmup")
-        for (i <- 1 to warmupIterations) {
-            measureTime (iterations)(() => computeViewAsCount (files)(operations))
-            print (".")
-        }
-        println ("")
+        measureTime (warmupIterations)(() => computeViewAsCount (files)(operations))
+        println ("done")
     }
 
 
@@ -85,7 +82,7 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach ((q: QueryResult[_]) => println (q.size))
+        //results.foreach ((q: QueryResult[_]) => println (q.size))
         taken
     }
 
@@ -105,13 +102,13 @@ trait AbstractTimeProfiler
             }
         }
 
-        results.foreach ((q: CountingObserver[_]) => println (q.count))
+        //results.foreach ((q: CountingObserver[_]) => println (q.count))
         taken
     }
 
 
     /**
-     * performs the measurement of function f in iterations times.
+     * performs the measurement of function f, iterations times.
      * Two statistics are returned
      * first: memory consumed when applying f
      * second: memory leak after f has been applied
