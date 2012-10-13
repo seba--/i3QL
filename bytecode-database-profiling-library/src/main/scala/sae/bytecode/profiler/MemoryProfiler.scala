@@ -103,15 +103,16 @@ object MemoryProfiler
         var consumed: Long = 0
 
         memory (size => (consumed += size)) {
-            val database = BATDatabaseFactory.create ()
+            var database = BATDatabaseFactory.create ()
             for ((buffer, relation) <- data.zip (relationSelector (database))) {
                 relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer.bufferObserver)
             }
             for (file <- files) {
                 database.addArchive (new FileInputStream (file))
-                data.foreach (_.moveDataFromBuffer ())
-                data.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
+            data.foreach (_.moveDataFromBuffer ())
+            data.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
+            database = null
         }
 
         data.foreach(c => println(c.size))
@@ -127,7 +128,7 @@ object MemoryProfiler
         val database = BATDatabaseFactory.create ()
         val relations = relationSelector (database)
         val buffers = for (relation <- relations) yield {
-            val buffer = new ArrayBufferObserver[AnyRef](10000)
+            val buffer =  new BufferObserver[AnyRef]
             relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
             buffer
         }
@@ -136,8 +137,6 @@ object MemoryProfiler
         memory (size => (consumed += size)) {
             for (file <- files) {
                 database.addArchive (new FileInputStream (file))
-                buffers.foreach (_.trim ())
-                buffers.foreach (consumed -= _.bufferConsumption) // for a slightly more accurate measurement, does not contribute much
             }
         }
 

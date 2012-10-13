@@ -56,7 +56,7 @@ trait AbstractTimeProfiler
 
     def profile(implicit files: Seq[java.io.File])
 
-    def warmUp(files: Seq[java.io.File]) {
+    def warmUp(implicit files: Seq[java.io.File]) {
         // warmup
         print ("warmup")
         measureTime (warmupIterations)(() => computeViewAsCount (files)(operations))

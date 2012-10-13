@@ -77,7 +77,7 @@ trait AbstractJarProfiler
 
     def profile(implicit files: Seq[java.io.File])
 
-    def warmUp(files: Seq[java.io.File])
+    def warmUp(implicit files: Seq[java.io.File])
 
     def count[V <: AnyRef](f: BytecodeDatabase => Relation[V])(implicit files: Seq[File]) = {
         val database: BytecodeDatabase = BATDatabaseFactory.create ()

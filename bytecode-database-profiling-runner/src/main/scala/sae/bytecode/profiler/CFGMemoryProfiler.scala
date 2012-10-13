@@ -35,7 +35,6 @@ package sae.bytecode.profiler
 import java.io.File
 import util.{MegaByte, Byte}
 import sae.bytecode.BytecodeDatabase
-import sae.{Observable, Relation}
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,13 +46,31 @@ import sae.{Observable, Relation}
 object CFGMemoryProfiler
     extends AbstractMemoryProfiler
 {
-    override def warmupIterations: Int = 1
+    override def warmupIterations: Int = 10
+
+    def warmUp(implicit files: Seq[java.io.File]) {
+        // warmup
+        print ("warmup")
+        for (i <- 1 to warmupIterations) {
+            count ((db: BytecodeDatabase) => db.basicBlocks)
+            print (".")
+        }
+        println ("")
+    }
 
 
     def profile(implicit files: Seq[File]) {
         implicit val iter = 5
 
         //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+
+        val methodDeclarationCount = count ((db: BytecodeDatabase) => db.methodDeclarations)
+        val basicBlockEndPcsCount = count ((db: BytecodeDatabase) => db.basicBlockEndPcs)
+        val immediateBasicBlockSuccessorEdgesCount = count ((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges)
+        val fallThroughCaseSuccessorsCount = count ((db: BytecodeDatabase) => db.fallThroughCaseSuccessors)
+        val basicBlockSuccessorEdgesCount = count ((db: BytecodeDatabase) => db.basicBlockSuccessorEdges)
+        val basicBlockStartPcsCount = count ((db: BytecodeDatabase) => db.basicBlockStartPcs)
+        val basicBlocksCount = count ((db: BytecodeDatabase) => db.basicBlocks)
 
         val (methodDeclarations, _) = measureDataMemory ((db: BytecodeDatabase) => db.methodDeclarations)
         val (basicBlockEndPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockEndPcs)
@@ -63,20 +80,50 @@ object CFGMemoryProfiler
         val (basicBlockStartPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
         val (basicBlocks, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlocks)
 
+        val (methodDeclarationsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.methodDeclarations)
+        val (basicBlockEndPcsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlockEndPcs)
+        val (immediateBasicBlockSuccessorEdgesComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges)
+        val (fallThroughCaseSuccessorsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.fallThroughCaseSuccessors)
+        val (basicBlockSuccessorEdgesComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlockSuccessorEdges)
+        val (basicBlockStartPcsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
+        val (basicBlocksComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlocks)
+
+
+
+        println ("DATA")
+
         println ("methodDeclarations:                " + (methodDeclarations).summary (MegaByte))
-        println ("methodDeclaration:                 " + (methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.methodDeclarations))(Byte))
+        println ("methodDeclaration:                 " + (methodDeclarations).summaryPerUnit (methodDeclarationCount)(Byte))
         println ("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary (MegaByte))
-        println ("basicBlockEndPc:                   " + (basicBlockEndPcs - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockEndPcs))(Byte))
+        println ("basicBlockEndPc:                   " + (basicBlockEndPcs - methodDeclarations).summaryPerUnit (basicBlockEndPcsCount)(Byte))
         println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary (MegaByte))
-        println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdges - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges))(Byte))
+        println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdges - methodDeclarations).summaryPerUnit (immediateBasicBlockSuccessorEdgesCount)(Byte))
         println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary (MegaByte))
-        println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessors - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.fallThroughCaseSuccessors))(Byte))
+        println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessors - methodDeclarations).summaryPerUnit (fallThroughCaseSuccessorsCount)(Byte))
         println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary (MegaByte))
-        println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdges - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockSuccessorEdges))(Byte))
+        println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdges - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
         println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MegaByte))
-        println ("basicBlockStartPc:                 " + (basicBlockStartPcs - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockStartPcs))(Byte))
+        println ("basicBlockStartPc:                 " + (basicBlockStartPcs - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
         println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
-        println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlocks))(Byte))
+        println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
+
+
+
+        println ("COMPUTATION")
+        println ("methodDeclarations:                " + (methodDeclarationsComp).summary (MegaByte))
+        println ("methodDeclaration:                 " + (methodDeclarationsComp).summaryPerUnit (methodDeclarationCount)(Byte))
+        println ("basicBlockEndPcs:                  " + (basicBlockEndPcsComp).summary (MegaByte))
+        println ("basicBlockEndPc:                   " + (basicBlockEndPcsComp - methodDeclarations).summaryPerUnit (basicBlockEndPcsCount)(Byte))
+        println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdgesComp).summary (MegaByte))
+        println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdgesComp - methodDeclarations).summaryPerUnit (immediateBasicBlockSuccessorEdgesCount)(Byte))
+        println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessorsComp).summary (MegaByte))
+        println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessorsComp - methodDeclarations).summaryPerUnit (fallThroughCaseSuccessorsCount)(Byte))
+        println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdgesComp).summary (MegaByte))
+        println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdgesComp - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
+        println ("basicBlockStartPcs:                " + (basicBlockStartPcsComp).summary (MegaByte))
+        println ("basicBlockStartPc:                 " + (basicBlockStartPcsComp - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
+        println ("basicBlocks:                       " + (basicBlocksComp).summary (MegaByte))
+        println ("basicBlock:                        " + (basicBlocksComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
 
     }

@@ -48,23 +48,6 @@ trait AbstractMemoryProfiler
     extends AbstractJarProfiler
 {
 
-    def warmUp(files: Seq[java.io.File]) {
-        // warmup
-        print ("warmup")
-        for (i <- 1 to warmupIterations) {
-            MemoryProfiler.memoryOfMaterializedData (files)((db: BytecodeDatabase) => Seq (
-                db.classDeclarations,
-                db.fieldDeclarations,
-                db.methodDeclarations,
-                db.classInheritance,
-                db.interfaceInheritance,
-                db.instructions
-            ))
-            print (".")
-        }
-        println ("")
-    }
-
     def measure[V <: AnyRef](f: BytecodeDatabase => Relation[V]): BytecodeDatabase => Seq[Observable[_]] = {
         (db: BytecodeDatabase) => Seq (f (db)).asInstanceOf[Seq[Observable[_]]] ++ db.relations.asInstanceOf[Seq[Observable[_]]]
     }
@@ -75,5 +58,9 @@ trait AbstractMemoryProfiler
 
     def measureDataMemory[V <: AnyRef](f: BytecodeDatabase => Relation[V])(implicit iterations: Int, files: Seq[File]) = {
         measureMemory (iterations)(() => memoryOfData (files)((db: BytecodeDatabase) => Seq (f (db))))
+    }
+
+    def measureComputationMemory[V <: AnyRef](f: BytecodeDatabase => Relation[V])(implicit iterations: Int, files: Seq[File]) = {
+        measureMemory (iterations)(() => memoryOfComputation (files)((db: BytecodeDatabase) => Seq (f (db))))
     }
 }
