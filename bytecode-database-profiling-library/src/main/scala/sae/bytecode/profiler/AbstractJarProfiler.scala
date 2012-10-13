@@ -32,6 +32,11 @@
  */
 package sae.bytecode.profiler
 
+import sae.bytecode.BytecodeDatabase
+import sae.Relation
+import java.io.{FileInputStream, File}
+import sae.bytecode.bat.BATDatabaseFactory
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -73,4 +78,15 @@ trait AbstractJarProfiler
     def profile(implicit files: Seq[java.io.File])
 
     def warmUp(files: Seq[java.io.File])
+
+    def count[V <: AnyRef](f: BytecodeDatabase => Relation[V])(implicit files: Seq[File]) = {
+        val database: BytecodeDatabase = BATDatabaseFactory.create ()
+
+        val result = sae.relationToResult (f (database))
+        for (file <- files) {
+            database.addArchive (new FileInputStream (file))
+        }
+
+        result.size
+    }
 }

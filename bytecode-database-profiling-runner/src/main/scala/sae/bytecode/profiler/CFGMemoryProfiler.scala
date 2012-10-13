@@ -33,7 +33,7 @@
 package sae.bytecode.profiler
 
 import java.io.File
-import util.MegaByte
+import util.{MegaByte, Byte}
 import sae.bytecode.BytecodeDatabase
 import sae.{Observable, Relation}
 
@@ -51,7 +51,7 @@ object CFGMemoryProfiler
 
 
     def profile(implicit files: Seq[File]) {
-        implicit val iter = iterations
+        implicit val iter = 5
 
         //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
 
@@ -63,13 +63,20 @@ object CFGMemoryProfiler
         val (basicBlockStartPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
         val (basicBlocks, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlocks)
 
-        println ("methodDeclarations:                  " + (basicBlockEndPcs).summary (MegaByte))
+        println ("methodDeclarations:                " + (methodDeclarations).summary (MegaByte))
+        println ("methodDeclaration:                 " + (methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.methodDeclarations))(Byte))
         println ("basicBlockEndPcs:                  " + (basicBlockEndPcs).summary (MegaByte))
+        println ("basicBlockEndPc:                   " + (basicBlockEndPcs - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockEndPcs))(Byte))
         println ("immediateBasicBlockSuccessorEdges: " + (immediateBasicBlockSuccessorEdges).summary (MegaByte))
+        println ("immediateBasicBlockSuccessorEdge:  " + (immediateBasicBlockSuccessorEdges - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.immediateBasicBlockSuccessorEdges))(Byte))
         println ("fallThroughCaseSuccessors:         " + (fallThroughCaseSuccessors).summary (MegaByte))
+        println ("fallThroughCaseSuccessor:          " + (fallThroughCaseSuccessors - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.fallThroughCaseSuccessors))(Byte))
         println ("basicBlockSuccessorEdges:          " + (basicBlockSuccessorEdges).summary (MegaByte))
+        println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdges - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockSuccessorEdges))(Byte))
         println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MegaByte))
+        println ("basicBlockStartPc:                 " + (basicBlockStartPcs - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlockStartPcs))(Byte))
         println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
+        println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit(count((db: BytecodeDatabase) => db.basicBlocks))(Byte))
 
 
     }
