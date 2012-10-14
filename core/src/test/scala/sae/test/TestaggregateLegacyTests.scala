@@ -13,7 +13,7 @@ import sae.operators.CreateAggregationFunctionContainer._
  * Test suit for Aggregation
  * @author Malte V
  */
-class Testaggregate extends TestCase
+class TestaggregateLegacyTests extends TestCase
 {
 
     case class Line(iD: String, itemType: String, preis: Integer)
@@ -177,7 +177,7 @@ class Testaggregate extends TestCase
 
     }
 
-    def testAddMultyValue() {
+    def testAddMultiValue() {
         val list = new ObserverList[(String, String, Int, Int, Int)]
 
         aggOp.addObserver (list)
@@ -207,7 +207,7 @@ class Testaggregate extends TestCase
 
     }
 
-    def testDelet() {
+    def testDelete() {
         val list = new ObserverList[(String, String, Int, Int, Int)]
         aggOp.addObserver (list)
         schuhe.add (new Schuh ("herren", "GOODYEAR STREET M", "Adidas", 11, 12))

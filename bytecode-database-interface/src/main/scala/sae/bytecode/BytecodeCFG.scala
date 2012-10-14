@@ -38,6 +38,8 @@ import sae.syntax.sql._
 import structure._
 import de.tud.cs.st.bat.resolved.ExceptionHandler
 import sae.operators.impl.NotExistsInSameDomainView
+import sae.functions.Sort
+import com.google.common.collect.SortedMultiset
 
 /**
  * Created with IntelliJ IDEA.
@@ -143,9 +145,30 @@ trait BytecodeCFG
 
     private lazy val bordersAll: Relation[(MethodDeclaration, Int, Int)] = SELECT ((start: BasicBlockStartBorder, end: BasicBlockEndBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockStartPcs, basicBlockEndPcs) WHERE (startBorderMethod === endBorderMethod)
 
-    //val bordersAll: Relation[(MethodDeclaration, Int, Int)] = SELECT ((end: BasicBlockEndBorder, start: BasicBlockStartBorder) => (start.declaringMethod, start.startPc, end.endPc)) FROM (basicBlockEndPcs, basicBlockStartPcs) WHERE (endBorderMethod === startBorderMethod)
-
     lazy val borders: Relation[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
+
+    case class MethodBasicBlockEndBorders(declaringMethod:MethodDeclaration, endBorders : SortedMultiset[Int])
+
+    lazy val sortedBasicBlockEndPcsByMethod : Relation[MethodBasicBlockEndBorders] = {
+        import sae.syntax.RelationalAlgebraSyntax._
+        γ (δ(basicBlockEndPcs),
+            (_: BasicBlockEndBorder).declaringMethod,
+            Sort((_: BasicBlockEndBorder).endPc),
+            (key: MethodDeclaration, value: SortedMultiset[Int]) =>  MethodBasicBlockEndBorders(key, value)
+        )
+    }
+
+    case class MethodBasicBlockStartBorders(declaringMethod:MethodDeclaration, startBorders : SortedMultiset[Int])
+
+    lazy val sortedBasicBlockStartPcsByMethod : Relation[MethodBasicBlockStartBorders] = {
+        import sae.syntax.RelationalAlgebraSyntax._
+        γ (δ(basicBlockStartPcs),
+            (_: BasicBlockStartBorder).declaringMethod,
+            Sort((_: BasicBlockStartBorder).startPc),
+            (key: MethodDeclaration, value: SortedMultiset[Int]) =>  MethodBasicBlockStartBorders(key, value)
+        )
+    }
+
 
     lazy val basicBlocks: Relation[BasicBlock] = {
         import sae.syntax.RelationalAlgebraSyntax._
