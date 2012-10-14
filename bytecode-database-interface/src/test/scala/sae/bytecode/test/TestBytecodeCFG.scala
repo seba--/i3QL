@@ -29,40 +29,39 @@
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */
-package sae.analyses.findbugs.profiler
+ */package sae.bytecode.test
 
-import sae.bytecode.profiler.AbstractMemoryProfiler
-import java.io.File
-import sae.bytecode._
-import profiler.util.MegaByte
-import sae.analyses.findbugs.{BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, CI_CONFUSED_INHERITANCE}
-import sae.bytecode.profiler.MemoryProfiler._
-import sae.{Observable, Relation}
+import org.junit.Test
+import org.junit.Assert._
+import sae.bytecode.BytecodeCFG
+import sae.SetExtent
+import sae.bytecode.instructions.InstructionInfo
+import sae.bytecode.structure.CodeAttribute
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 01.09.12
- * Time: 14:08
+ * 
+ * @author Ralf Mitschke
+ * 
  */
 
-object AnalysesMemoryProfiler
-    extends AbstractMemoryProfiler
-{
-    def profile(implicit files: Seq[File]) {
-        implicit val iter = iterations
+class TestBytecodeCFG {
 
-        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+    @Test
+    def testSetProperties() {
+        val db = new BytecodeCFG {
+            def instructions = new SetExtent[InstructionInfo]()
 
-        val (memory_CI_CONFUSED_INHERITANCE,_) = dataMemory(measure (CI_CONFUSED_INHERITANCE))
+            def codeAttributes = new SetExtent[CodeAttribute]()
+        }
 
-        val (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, _) = dataMemory(measure (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION))
-
-        println("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary(MegaByte))
-
-        println("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary(MegaByte))
+        /*
+        assertTrue(db.basicBlockEndPcs.isSet)
+        assertTrue(db.immediateBasicBlockSuccessorEdges.isSet)
+        assertTrue(db.fallThroughCaseSuccessors.isSet)
+        assertTrue(db.basicBlockSuccessorEdges.isSet)
+        assertTrue(db.basicBlockStartPcs.isSet)
+        assertTrue(db.basicBlocks.isSet)
+        */
     }
 
-    def warmUp(implicit files: Seq[File]) {}
 }

@@ -30,39 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.profiler
-
-import sae.bytecode.profiler.AbstractMemoryProfiler
-import java.io.File
-import sae.bytecode._
-import profiler.util.MegaByte
-import sae.analyses.findbugs.{BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, CI_CONFUSED_INHERITANCE}
-import sae.bytecode.profiler.MemoryProfiler._
-import sae.{Observable, Relation}
+package sae.bytecode.structure
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 01.09.12
- * Time: 14:08
+ *
+ * @author Ralf Mitschke
+ *
  */
 
-object AnalysesMemoryProfiler
-    extends AbstractMemoryProfiler
+case class JumpSuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int)
+    extends SuccessorEdge
 {
-    def profile(implicit files: Seq[File]) {
-        implicit val iter = iterations
 
-        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
-
-        val (memory_CI_CONFUSED_INHERITANCE,_) = dataMemory(measure (CI_CONFUSED_INHERITANCE))
-
-        val (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, _) = dataMemory(measure (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION))
-
-        println("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary(MegaByte))
-
-        println("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary(MegaByte))
-    }
-
-    def warmUp(implicit files: Seq[File]) {}
 }

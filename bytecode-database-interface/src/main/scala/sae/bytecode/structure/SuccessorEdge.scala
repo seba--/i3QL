@@ -29,14 +29,22 @@
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */package sae.bytecode.structure
+ */
+package sae.bytecode.structure
 
 /**
- * 
+ *
  * @author Ralf Mitschke
- * 
+ *
  */
 
-case class SuccessorEdge(declaringMethod: MethodDeclaration, fromEndPc: Int, toStartPc: Int) {
+trait SuccessorEdge
+{
+
+    def declaringMethod: MethodDeclaration
+
+    def fromEndPc: Int
+
+    def toStartPc: Int
 
 }

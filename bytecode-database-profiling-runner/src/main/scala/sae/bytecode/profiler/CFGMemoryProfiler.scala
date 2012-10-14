@@ -46,7 +46,7 @@ import sae.bytecode.BytecodeDatabase
 object CFGMemoryProfiler
     extends AbstractMemoryProfiler
 {
-    override def warmupIterations: Int = 10
+    override def warmupIterations: Int = 20
 
     def warmUp(implicit files: Seq[java.io.File]) {
         // warmup

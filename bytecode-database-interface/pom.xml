@@ -21,14 +21,22 @@
 		<dependency>
 			<groupId>de.tud.cs.st.opal.sae</groupId>
 			<artifactId>sae-database-core</artifactId>
+            <scope>compile</scope>
 		</dependency>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-database-sql</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>de.tud.cs.st</groupId>
             <artifactId>bat-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 	</dependencies>
 </project>

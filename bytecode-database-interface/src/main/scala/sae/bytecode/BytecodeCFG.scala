@@ -37,6 +37,7 @@ import sae.{SetRelation, Relation}
 import sae.syntax.sql._
 import structure._
 import de.tud.cs.st.bat.resolved.ExceptionHandler
+import sae.operators.impl.NotExistsInSameDomainView
 
 /**
  * Created with IntelliJ IDEA.
@@ -70,8 +71,6 @@ trait BytecodeCFG
         SELECT ((switch: SwitchInstructionInfo, jumpOffset: Some[Int]) => (switch, switch.pc + jumpOffset.get)) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
 
 
-
-
     /**
      *
      */
@@ -97,31 +96,35 @@ trait BytecodeCFG
             ) WHERE (_.endPc >= 0)
 
 
-
-
     lazy val immediateBasicBlockSuccessorEdges: Relation[SuccessorEdge] =
-        (SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + +1)) FROM ifBranchInstructions
+        (SELECT ((branch: IfBranchInstructionInfo) => FallThroughSuccessorEdge (branch.declaringMethod, branch.pc).asInstanceOf[SuccessorEdge]) FROM ifBranchInstructions
             ) UNION_ALL (
-            SELECT ((branch: IfBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM ifBranchInstructions
+            SELECT ((branch: IfBranchInstructionInfo) => JumpSuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset).asInstanceOf[SuccessorEdge]) FROM ifBranchInstructions
             ) UNION_ALL (
-            SELECT ((branch: GotoBranchInstructionInfo) => SuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset)) FROM gotoBranchInstructions
+            SELECT ((branch: GotoBranchInstructionInfo) => JumpSuccessorEdge (branch.declaringMethod, branch.pc, branch.pc + branch.branchOffset).asInstanceOf[SuccessorEdge]) FROM gotoBranchInstructions
             ) UNION_ALL (
-            SELECT ((retrn: ReturnInstructionInfo) => SuccessorEdge (retrn.declaringMethod, retrn.pc, Int.MaxValue)) FROM returnInstructions
+            SELECT ((retrn: ReturnInstructionInfo) => JumpSuccessorEdge (retrn.declaringMethod, retrn.pc, Int.MaxValue).asInstanceOf[SuccessorEdge]) FROM returnInstructions
             ) UNION_ALL (
-            SELECT ((switch: SwitchInstructionInfo) => SuccessorEdge (switch.declaringMethod, switch.pc, switch.pc + switch.defaultOffset)) FROM switchInstructions
+            SELECT ((switch: SwitchInstructionInfo) => JumpSuccessorEdge (switch.declaringMethod, switch.pc, switch.pc + switch.defaultOffset).asInstanceOf[SuccessorEdge]) FROM switchInstructions
             ) UNION_ALL (
-            SELECT ((e: (SwitchInstructionInfo, Int)) => SuccessorEdge (e._1.declaringMethod, e._1.pc, e._2)) FROM switchJumpTargets
+            SELECT ((e: (SwitchInstructionInfo, Int)) => JumpSuccessorEdge (e._1.declaringMethod, e._1.pc, e._2).asInstanceOf[SuccessorEdge]) FROM switchJumpTargets
             )
 
     /**
      * In the end each basic block that does not have a successor yet has to receive a fall through case
      */
     lazy val fallThroughCaseSuccessors: Relation[SuccessorEdge] =
-        SELECT ((b: BasicBlockEndBorder) => SuccessorEdge (b.declaringMethod, b.endPc, b.endPc + 1)) FROM basicBlockEndPcs WHERE NOT (
+        new NotExistsInSameDomainView (
+            compile(SELECT ((b: BasicBlockEndBorder) => FallThroughSuccessorEdge (b.declaringMethod, b.endPc).asInstanceOf[SuccessorEdge]) FROM basicBlockEndPcs).asMaterialized,
+            compile(SELECT ((s: SuccessorEdge) => FallThroughSuccessorEdge (s.declaringMethod, s.fromEndPc).asInstanceOf[SuccessorEdge]) FROM immediateBasicBlockSuccessorEdges).asMaterialized
+        )
+    /*
+        SELECT ((b: BasicBlockEndBorder) => FallThroughSuccessorEdge (b.declaringMethod, b.endPc).asInstanceOf[SuccessorEdge]) FROM basicBlockEndPcs WHERE NOT (
             EXISTS (
                 SELECT (*) FROM immediateBasicBlockSuccessorEdges WHERE ((_: SuccessorEdge).declaringMethod) === ((_: BasicBlockEndBorder).declaringMethod) AND ((_: SuccessorEdge).fromEndPc) === ((_: BasicBlockEndBorder).endPc)
             )
         )
+    */
 
     lazy val basicBlockSuccessorEdges: Relation[SuccessorEdge] = {
         import sae.syntax.RelationalAlgebraSyntax._
@@ -213,8 +216,8 @@ trait BytecodeCFG
      * Every endPc that is in the range between handler.startPc and handler.endPc - 1 must receive an edge to the handler
      */
     private lazy val exceptionHandlerBasicBlockSuccessors =
-        SELECT ((e: ExceptionHandlerInfo) => SuccessorEdge (e.declaringMethod, e.endPc - 1, e.handlerPc)) FROM (exceptionHandlers) UNION_ALL (
-            SELECT ((e: (BasicBlockEndBorder, ExceptionHandlerInfo)) => SuccessorEdge (e._1.declaringMethod, e._1.endPc, e._2.handlerPc)) FROM (
+        SELECT ((e: ExceptionHandlerInfo) => JumpSuccessorEdge (e.declaringMethod, e.endPc - 1, e.handlerPc)) FROM (exceptionHandlers) UNION_ALL (
+            SELECT ((e: (BasicBlockEndBorder, ExceptionHandlerInfo)) => JumpSuccessorEdge (e._1.declaringMethod, e._1.endPc, e._2.handlerPc)) FROM (
                 SELECT (*) FROM (basicBlockEndPcs, exceptionHandlers) WHERE (
                     ((_: BasicBlockEndBorder).declaringMethod) === ((_: ExceptionHandlerInfo).declaringMethod)
                     )
