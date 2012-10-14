@@ -116,9 +116,9 @@ object CFGMemoryProfiler
         println ("borders:                           " + (borders).summary (MegaByte))
         println ("border:                            " + (borders - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
         println ("startBorder                        " + (startBorders).summary (MegaByte))
-        println ("startBorder                        " + (startBorders - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
+        println ("startBorder                        " + (startBorders - methodDeclarations).summaryPerUnit (startBlocksCount)(Byte))
         println ("endBorders:                        " + (endBorders).summary (MegaByte))
-        println ("endBorder:                         " + (endBorders - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
+        println ("endBorder:                         " + (endBorders - methodDeclarations).summaryPerUnit (endBlocksCount)(Byte))
         println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
         println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
@@ -140,9 +140,9 @@ object CFGMemoryProfiler
         println ("borders:                           " + (bordersComp).summary (MegaByte))
         println ("border:                            " + (bordersComp - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
         println ("startBorder                        " + (startBordersComp).summary (MegaByte))
-        println ("startBorder                        " + (startBordersComp - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
+        println ("startBorder                        " + (startBordersComp - methodDeclarations).summaryPerUnit (startBlocksCount)(Byte))
         println ("endBorders:                        " + (endBordersComp).summary (MegaByte))
-        println ("endBorder:                         " + (endBordersComp - methodDeclarations).summaryPerUnit (bordersCount)(Byte))
+        println ("endBorder:                         " + (endBordersComp - methodDeclarations).summaryPerUnit (endBlocksCount)(Byte))
         println ("basicBlocks:                       " + (basicBlocksComp).summary (MegaByte))
         println ("basicBlock:                        " + (basicBlocksComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 

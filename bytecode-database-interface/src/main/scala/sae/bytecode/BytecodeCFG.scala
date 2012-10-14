@@ -147,7 +147,6 @@ trait BytecodeCFG
 
     lazy val borders: Relation[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
-    case class MethodBasicBlockEndBorders(declaringMethod:MethodDeclaration, endBorders : SortedMultiset[Int])
 
     lazy val sortedBasicBlockEndPcsByMethod : Relation[MethodBasicBlockEndBorders] = {
         import sae.syntax.RelationalAlgebraSyntax._
@@ -158,7 +157,7 @@ trait BytecodeCFG
         )
     }
 
-    case class MethodBasicBlockStartBorders(declaringMethod:MethodDeclaration, startBorders : SortedMultiset[Int])
+
 
     lazy val sortedBasicBlockStartPcsByMethod : Relation[MethodBasicBlockStartBorders] = {
         import sae.syntax.RelationalAlgebraSyntax._
