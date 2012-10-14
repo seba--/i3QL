@@ -60,7 +60,7 @@ object CFGMemoryProfiler
 
 
     def profile(implicit files: Seq[File]) {
-        implicit val iter = 5
+        implicit val iter = 10
 
         //val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
 
