@@ -78,6 +78,7 @@ object CFGMemoryProfiler
         val (fallThroughCaseSuccessors, _) = measureDataMemory ((db: BytecodeDatabase) => db.fallThroughCaseSuccessors)
         val (basicBlockSuccessorEdges, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockSuccessorEdges)
         val (basicBlockStartPcs, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
+        val (borders, _) = measureDataMemory ((db: BytecodeDatabase) => db.borders)
         val (basicBlocks, _) = measureDataMemory ((db: BytecodeDatabase) => db.basicBlocks)
 
         val (methodDeclarationsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.methodDeclarations)
@@ -86,6 +87,7 @@ object CFGMemoryProfiler
         val (fallThroughCaseSuccessorsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.fallThroughCaseSuccessors)
         val (basicBlockSuccessorEdgesComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlockSuccessorEdges)
         val (basicBlockStartPcsComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlockStartPcs)
+        val (bordersComp, _) = measureDataMemory ((db: BytecodeDatabase) => db.borders)
         val (basicBlocksComp, _) = measureComputationMemory ((db: BytecodeDatabase) => db.basicBlocks)
 
 
@@ -104,6 +106,8 @@ object CFGMemoryProfiler
         println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdges - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
         println ("basicBlockStartPcs:                " + (basicBlockStartPcs).summary (MegaByte))
         println ("basicBlockStartPc:                 " + (basicBlockStartPcs - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
+        println ("borders:                           " + (borders).summary (MegaByte))
+        println ("border:                            " + (borders - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
         println ("basicBlocks:                       " + (basicBlocks).summary (MegaByte))
         println ("basicBlock:                        " + (basicBlocks - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
@@ -122,6 +126,8 @@ object CFGMemoryProfiler
         println ("basicBlockSuccessorEdge:           " + (basicBlockSuccessorEdgesComp - methodDeclarations).summaryPerUnit (basicBlockSuccessorEdgesCount)(Byte))
         println ("basicBlockStartPcs:                " + (basicBlockStartPcsComp).summary (MegaByte))
         println ("basicBlockStartPc:                 " + (basicBlockStartPcsComp - methodDeclarations).summaryPerUnit (basicBlockStartPcsCount)(Byte))
+        println ("borders:                           " + (bordersComp).summary (MegaByte))
+        println ("border:                            " + (bordersComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
         println ("basicBlocks:                       " + (basicBlocksComp).summary (MegaByte))
         println ("basicBlock:                        " + (basicBlocksComp - methodDeclarations).summaryPerUnit (basicBlocksCount)(Byte))
 
