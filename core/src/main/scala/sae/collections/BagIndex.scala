@@ -17,7 +17,7 @@ class BagIndex[K, V](val relation: Relation[V],
     extends Index[K, V]
 {
 
-    private val map = com.google.common.collect.LinkedListMultimap.create[K, V]()
+    private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
     lazyInitialize()
 

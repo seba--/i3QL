@@ -117,8 +117,8 @@ trait BytecodeCFG
      */
     lazy val fallThroughCaseSuccessors: Relation[SuccessorEdge] =
         new NotExistsInSameDomainView (
-            compile(SELECT ((b: BasicBlockEndBorder) => FallThroughSuccessorEdge (b.declaringMethod, b.endPc).asInstanceOf[SuccessorEdge]) FROM basicBlockEndPcs).asMaterialized,
-            compile(SELECT ((s: SuccessorEdge) => FallThroughSuccessorEdge (s.declaringMethod, s.fromEndPc).asInstanceOf[SuccessorEdge]) FROM immediateBasicBlockSuccessorEdges).asMaterialized
+            compile (SELECT ((b: BasicBlockEndBorder) => FallThroughSuccessorEdge (b.declaringMethod, b.endPc).asInstanceOf[SuccessorEdge]) FROM basicBlockEndPcs).asMaterialized,
+            compile (SELECT ((s: SuccessorEdge) => FallThroughSuccessorEdge (s.declaringMethod, s.fromEndPc).asInstanceOf[SuccessorEdge]) FROM immediateBasicBlockSuccessorEdges).asMaterialized
         )
     /*
         SELECT ((b: BasicBlockEndBorder) => FallThroughSuccessorEdge (b.declaringMethod, b.endPc).asInstanceOf[SuccessorEdge]) FROM basicBlockEndPcs WHERE NOT (
@@ -148,24 +148,49 @@ trait BytecodeCFG
     lazy val borders: Relation[(MethodDeclaration, Int, Int)] = SELECT (*) FROM (bordersAll) WHERE ((e: (MethodDeclaration, Int, Int)) => (e._2 < e._3))
 
 
-    lazy val sortedBasicBlockEndPcsByMethod : Relation[MethodBasicBlockEndBorders] = {
+    lazy val sortedBasicBlockEndPcsByMethod: Relation[MethodBasicBlockEndBorders] = {
         import sae.syntax.RelationalAlgebraSyntax._
-        γ (δ(basicBlockEndPcs),
+        γ (δ (basicBlockEndPcs),
             (_: BasicBlockEndBorder).declaringMethod,
-            Sort((_: BasicBlockEndBorder).endPc),
-            (key: MethodDeclaration, value: SortedMultiset[Int]) =>  MethodBasicBlockEndBorders(key, value)
+            Sort ((_: BasicBlockEndBorder).endPc),
+            (key: MethodDeclaration, value: SortedMultiset[Int]) => MethodBasicBlockEndBorders (key, value)
+        )
+    }
+
+
+    lazy val sortedBasicBlockStartPcsByMethod: Relation[MethodBasicBlockStartBorders] = {
+        import sae.syntax.RelationalAlgebraSyntax._
+        γ (δ (basicBlockStartPcs),
+            (_: BasicBlockStartBorder).declaringMethod,
+            Sort ((_: BasicBlockStartBorder).startPc),
+            (key: MethodDeclaration, value: SortedMultiset[Int]) => MethodBasicBlockStartBorders (key, value)
         )
     }
 
 
 
-    lazy val sortedBasicBlockStartPcsByMethod : Relation[MethodBasicBlockStartBorders] = {
+    lazy val basicBlocksNew: Relation[MethodBasicBlocks] = {
         import sae.syntax.RelationalAlgebraSyntax._
-        γ (δ(basicBlockStartPcs),
-            (_: BasicBlockStartBorder).declaringMethod,
-            Sort((_: BasicBlockStartBorder).startPc),
-            (key: MethodDeclaration, value: SortedMultiset[Int]) =>  MethodBasicBlockStartBorders(key, value)
-        )
+        (
+            (
+                sortedBasicBlockStartPcsByMethod,
+                (_: MethodBasicBlockStartBorders).declaringMethod
+                ) ⋈ (
+                (_: MethodBasicBlockEndBorders).declaringMethod,
+                sortedBasicBlockEndPcsByMethod
+                )
+            )
+        {
+            (start: MethodBasicBlockStartBorders, end: MethodBasicBlockEndBorders) => {
+                val startIt = start.startBorders.entrySet ().iterator ()
+                val endIt = end.endBorders.entrySet ().iterator ()
+                var entries: List[(Int, Int)] = Nil
+                while (startIt.hasNext && endIt.hasNext) {
+                    entries = (startIt.next ().getElement, endIt.next ().getElement) :: entries
+                }
+                MethodBasicBlocks(start.declaringMethod, entries)
+            }
+        }
     }
 
 

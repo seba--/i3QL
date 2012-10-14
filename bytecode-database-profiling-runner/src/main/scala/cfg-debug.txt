@@ -1,0 +1,439 @@
+methodDeclarations:                  33.383 +- 1.084 (stdErr = 0.242) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.383 +- 1.084 (stdErr = 0.242) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         49.447 +- 9.035 (stdErr = 2.020) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          68.347 +- 1.034 (stdErr = 0.231) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                65.025 +- 1.546 (stdErr = 0.346) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       73.660 +- 34.217 (stdErr = 7.651) MB; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+methodDeclarations:                20.141 +- 0.002 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.233 +- 0.693 (stdErr = 0.098) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         51.161 +- 7.851 (stdErr = 1.110) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          68.089 +- 1.543 (stdErr = 0.218) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                64.353 +- 4.468 (stdErr = 0.632) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       90.796 +- 14.379 (stdErr = 2.033) MB; relative std.dev: 0.000, std.err: 0.000
+
+"C:\Program Files\Java\jdk1.7.0\bin\java" -javaagent:H:\.m2\repository\de\tud\cs\st\opal\sae\sae-bytecode-database-profiling-library\0.1.0\sae-bytecode-database-profiling-library-0.1.0.jar -Didea.launcher.port=7533 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 11.1.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.7.0\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.7.0\jre\lib\ext\zipfs.jar;H:\sae\bytecode-database-profiling-runner\target\classes;H:\.m2\repository\de\tud\cs\st\opal\sae\sae-bytecode-database-profiling-library\0.1.0\sae-bytecode-database-profiling-library-0.1.0.jar;H:\.m2\repository\de\tud\cs\st\opal\sae\sae-bytecode-database-bat\0.1.0\sae-bytecode-database-bat-0.1.0.jar;H:\.m2\repository\de\tud\cs\st\opal\sae\sae-bytecode-database-interface\0.1.0\sae-bytecode-database-interface-0.1.0.jar;H:\.m2\repository\de\tud\cs\st\opal\sae\sae-database-core\1.1.0\sae-database-core-1.1.0.jar;H:\.m2\repository\com\google\guava\guava\13.0\guava-13.0.jar;H:\.m2\repository\org\scala-lang\scala-library\2.9.2\scala-library-2.9.2.jar;H:\.m2\repository\de\tud\cs\st\opal\sae\sae-database-sql\0.5.0\sae-database-sql-0.5.0.jar;H:\.m2\repository\de\tud\cs\st\bat-core\1.0.0-SNAPSHOT\bat-core-1.0.0-SNAPSHOT.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 11.1.3\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain sae.bytecode.profiler.CFGMemoryProfiler H:\sae\demo\findbugs\src\test\resources\rt.jar
+warmup.
+
+150695
+734842
+525657
+352421
+878078
+1013184
+650213
+
+
+methodDeclarations:                20.141 +- 0.002 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.147 +- 0.014 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.263 +- 0.901 (stdErr = 0.127) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   18.724 +- 1.289 (stdErr = 0.182) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.527 +- 0.004 (stdErr = 0.001) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         51.365 +- 7.293 (stdErr = 1.031) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          92.901 +- 21.704 (stdErr = 3.069) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          68.325 +- 0.636 (stdErr = 0.090) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           57.540 +- 0.762 (stdErr = 0.108) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                64.492 +- 4.553 (stdErr = 0.644) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 45.901 +- 4.714 (stdErr = 0.667) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       86.805 +- 22.202 (stdErr = 3.140) MB; relative std.dev: 0.000, std.err: 0.000
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					50 ITERATIONS
+DATA
+methodDeclarations:                20.141 +- 0.001 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.147 +- 0.010 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.855 +- 2.495 (stdErr = 0.558) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   19.568 +- 3.562 (stdErr = 0.796) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.527 +- 0.003 (stdErr = 0.001) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         47.878 +- 31.002 (stdErr = 6.932) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          82.527 +- 92.244 (stdErr = 20.626) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          87.366 +- 26.125 (stdErr = 5.842) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           80.278 +- 31.199 (stdErr = 6.976) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                80.842 +- 30.284 (stdErr = 6.772) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 62.822 +- 31.344 (stdErr = 7.009) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       77.106 +- 22.070 (stdErr = 4.935) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        91.865 +- 35.594 (stdErr = 7.959) B; relative std.dev: 0.000, std.err: 0.000
+
+COMPUTATION
+methodDeclarations:                28.039 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.102 +- 0.001 (stdErr = 0.000) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.027 +- 0.025 (stdErr = 0.006) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.903 +- 0.038 (stdErr = 0.008) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.506 +- 0.003 (stdErr = 0.001) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         335.031 +- 6.133 (stdErr = 1.371) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          936.909 +- 18.253 (stdErr = 4.081) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          380.207 +- 8.704 (stdErr = 1.946) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           429.980 +- 10.396 (stdErr = 2.325) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                367.021 +- 7.438 (stdErr = 1.663) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 358.997 +- 7.699 (stdErr = 1.722) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1294.184 +- 2.391 (stdErr = 0.535) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2054.605 +- 3.859 (stdErr = 0.863) B; relative std.dev: 0.000, std.err: 0.000
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					5 ITERATIONS
+DATA
+methodDeclarations:                20.743 +- 1.205 (stdErr = 0.539) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 144.338 +- 8.386 (stdErr = 3.750) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.135 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   17.681 +- 1.720 (stdErr = 0.769) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  10.326 +- 2.404 (stdErr = 1.075) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         38.122 +- 25.886 (stdErr = 11.577) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          51.707 +- 80.607 (stdErr = 36.049) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          61.857 +- 30.250 (stdErr = 13.528) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           49.097 +- 37.563 (stdErr = 16.799) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                34.573 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 14.312 +- 1.247 (stdErr = 0.558) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       92.626 +- 23.168 (stdErr = 10.361) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        115.923 +- 39.306 (stdErr = 17.578) B; relative std.dev: 0.000, std.err: 0.000
+
+COMPUTATION
+methodDeclarations:                28.101 +- 0.125 (stdErr = 0.056) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.535 +- 0.867 (stdErr = 0.388) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.018 +- 0.001 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.031 +- 1.722 (stdErr = 0.770) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  66.305 +- 2.404 (stdErr = 1.075) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         332.665 +- 3.527 (stdErr = 1.577) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          928.077 +- 14.079 (stdErr = 6.296) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          380.961 +- 9.306 (stdErr = 4.162) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           430.162 +- 12.552 (stdErr = 5.613) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                361.613 +- 0.431 (stdErr = 0.193) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 352.777 +- 1.694 (stdErr = 0.757) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1293.734 +- 0.565 (stdErr = 0.253) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2052.907 +- 2.855 (stdErr = 1.277) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+
+
+
+
+
+
+DATA
+methodDeclarations:                -6.927 +- 12.701 (stdErr = 5.680) MB; relative std.dev: -0.000, std.err: -0.000
+methodDeclaration:                 -48.201 +- 88.379 (stdErr = 39.524) B; relative std.dev: -0.000, std.err: -0.000
+basicBlockEndPcs:                  0.241 +- 6.089 (stdErr = 2.723) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   10.229 +- 26.812 (stdErr = 11.991) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: -3.608 +- 3.205 (stdErr = 1.433) MB; relative std.dev: -0.000, std.err: -0.000
+immediateBasicBlockSuccessorEdge:  6.621 +- 31.730 (stdErr = 14.190) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         -1.625 +- 0.561 (stdErr = 0.251) MB; relative std.dev: -0.000, std.err: -0.000
+fallThroughCaseSuccessor:          15.775 +- 39.460 (stdErr = 17.647) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          -0.543 +- 5.615 (stdErr = 2.511) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlockSuccessorEdge:           7.624 +- 21.872 (stdErr = 9.782) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                -4.290 +- 0.849 (stdErr = 0.380) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlockStartPc:                 2.730 +- 14.023 (stdErr = 6.271) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       -3.057 +- 1.153 (stdErr = 0.516) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlock:                        6.240 +- 22.343 (stdErr = 9.992) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                -1.512 +- 3.007 (stdErr = 1.345) MB; relative std.dev: -0.000, std.err: -0.000
+methodDeclaration:                 -10.520 +- 20.926 (stdErr = 9.358) B; relative std.dev: -0.000, std.err: -0.000
+basicBlockEndPcs:                  7.784 +- 15.594 (stdErr = 6.974) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   20.992 +- 40.375 (stdErr = 18.056) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: -2.619 +- 5.215 (stdErr = 2.332) MB; relative std.dev: -0.000, std.err: -0.000
+immediateBasicBlockSuccessorEdge:  8.593 +- 35.739 (stdErr = 15.983) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         296.014 +- 28.535 (stdErr = 12.761) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          901.358 +- 122.692 (stdErr = 54.870) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          372.903 +- 0.002 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           453.583 +- 15.170 (stdErr = 6.784) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                360.688 +- 0.534 (stdErr = 0.239) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 380.457 +- 13.697 (stdErr = 6.126) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1266.132 +- 0.545 (stdErr = 0.244) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2053.019 +- 21.361 (stdErr = 9.553) B; relative std.dev: 0.000, std.err: 0.000
+
+
+DATA
+methodDeclarations:                20.188 +- 0.024 (stdErr = 0.011) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.471 +- 0.165 (stdErr = 0.074) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.722 +- 1.176 (stdErr = 0.526) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   19.313 +- 1.712 (stdErr = 0.766) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.435 +- 0.047 (stdErr = 0.021) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         148.012 +- 23.910 (stdErr = 10.693) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          380.321 +- 71.211 (stdErr = 31.847) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          173.231 +- 0.994 (stdErr = 0.444) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           182.761 +- 1.215 (stdErr = 0.543) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                171.086 +- 0.040 (stdErr = 0.018) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 156.170 +- 0.066 (stdErr = 0.030) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       159.335 +- 12.722 (stdErr = 5.689) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        224.397 +- 20.554 (stdErr = 9.192) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.096 +- 0.029 (stdErr = 0.013) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.500 +- 0.202 (stdErr = 0.090) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.029 +- 0.021 (stdErr = 0.009) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.840 +- 0.064 (stdErr = 0.028) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.413 +- 0.047 (stdErr = 0.021) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         338.459 +- 5.777 (stdErr = 2.584) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          946.969 +- 17.260 (stdErr = 7.719) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          382.953 +- 1.209 (stdErr = 0.541) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           433.204 +- 1.472 (stdErr = 0.659) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                362.928 +- 0.821 (stdErr = 0.367) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 354.713 +- 0.874 (stdErr = 0.391) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1303.990 +- 1.720 (stdErr = 0.769) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2070.343 +- 2.812 (stdErr = 1.258) B; relative std.dev: 0.000, std.err: 0.000
+
+
+methodDeclarations:                -2.377 +- 12.610 (stdErr = 1.783) MB; relative std.dev: -0.000, std.err: -0.000
+methodDeclaration:                 -16.538 +- 87.743 (stdErr = 12.409) B; relative std.dev: -0.000, std.err: -0.000
+basicBlockEndPcs:                  -2.499 +- 2.131 (stdErr = 0.301) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlockEndPc:                   -0.175 +- 21.034 (stdErr = 2.975) B; relative std.dev: -0.000, std.err: -0.000
+immediateBasicBlockSuccessorEdges: -2.166 +- 1.122 (stdErr = 0.159) MB; relative std.dev: -0.000, std.err: -0.000
+immediateBasicBlockSuccessorEdge:  0.421 +- 27.392 (stdErr = 3.874) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         -1.373 +- 0.196 (stdErr = 0.028) MB; relative std.dev: -0.000, std.err: -0.000
+fallThroughCaseSuccessor:          2.987 +- 38.103 (stdErr = 5.389) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          -3.069 +- 1.965 (stdErr = 0.278) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlockSuccessorEdge:           -0.827 +- 17.405 (stdErr = 2.461) B; relative std.dev: -0.000, std.err: -0.000
+basicBlockStartPcs:                -3.908 +- 0.297 (stdErr = 0.042) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlockStartPc:                 -1.585 +- 13.358 (stdErr = 1.889) B; relative std.dev: -0.000, std.err: -0.000
+basicBlocks:                       -2.521 +- 0.424 (stdErr = 0.060) MB; relative std.dev: -0.000, std.err: -0.000
+basicBlock:                        -0.233 +- 21.020 (stdErr = 2.973) B; relative std.dev: -0.000, std.err: -0.000
+COMPUTATION
+methodDeclarations:                -0.159 +- 1.053 (stdErr = 0.149) MB; relative std.dev: -0.000, std.err: -0.000
+methodDeclaration:                 -1.103 +- 7.324 (stdErr = 1.036) B; relative std.dev: -0.000, std.err: -0.000
+basicBlockEndPcs:                  0.767 +- 5.458 (stdErr = 0.772) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   4.486 +- 25.782 (stdErr = 3.646) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: -0.272 +- 1.825 (stdErr = 0.258) MB; relative std.dev: -0.000, std.err: -0.000
+immediateBasicBlockSuccessorEdge:  4.198 +- 28.795 (stdErr = 4.072) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         327.312 +- 17.641 (stdErr = 2.495) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          980.938 +- 90.007 (stdErr = 12.729) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          372.747 +- 0.381 (stdErr = 0.054) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           447.962 +- 15.514 (stdErr = 2.194) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                360.505 +- 1.863 (stdErr = 0.263) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 375.558 +- 14.978 (stdErr = 2.118) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1266.239 +- 0.355 (stdErr = 0.050) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2045.853 +- 20.908 (stdErr = 2.957) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					100 ITERATIONS
+DATA
+methodDeclarations:                20.143 +- 0.011 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.157 +- 0.078 (stdErr = 0.008) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.398 +- 2.011 (stdErr = 0.201) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   18.915 +- 2.886 (stdErr = 0.289) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.524 +- 0.022 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         159.172 +- 6.112 (stdErr = 0.611) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          413.661 +- 18.218 (stdErr = 1.822) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          173.481 +- 0.844 (stdErr = 0.084) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           183.112 +- 1.021 (stdErr = 0.102) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                170.978 +- 0.402 (stdErr = 0.040) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 156.105 +- 0.427 (stdErr = 0.043) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       163.730 +- 8.488 (stdErr = 0.849) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        231.558 +- 13.706 (stdErr = 1.371) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.042 +- 0.014 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.121 +- 0.096 (stdErr = 0.010) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.020 +- 0.011 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.892 +- 0.032 (stdErr = 0.003) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.503 +- 0.022 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         342.197 +- 3.743 (stdErr = 0.374) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          958.225 +- 11.170 (stdErr = 1.117) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          381.528 +- 1.321 (stdErr = 0.132) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           431.556 +- 1.590 (stdErr = 0.159) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                363.111 +- 1.364 (stdErr = 0.136) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 354.949 +- 1.423 (stdErr = 0.142) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1304.098 +- 1.830 (stdErr = 0.183) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2070.590 +- 2.970 (stdErr = 0.297) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					10 ITERATIONS
+
+DATA
+methodDeclarations:                20.143 +- 0.011 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.157 +- 0.078 (stdErr = 0.008) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  33.398 +- 2.011 (stdErr = 0.201) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   18.915 +- 2.886 (stdErr = 0.289) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.524 +- 0.022 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         159.172 +- 6.112 (stdErr = 0.611) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          413.661 +- 18.218 (stdErr = 1.822) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          173.481 +- 0.844 (stdErr = 0.084) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           183.112 +- 1.021 (stdErr = 0.102) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                170.978 +- 0.402 (stdErr = 0.040) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 156.105 +- 0.427 (stdErr = 0.043) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       163.730 +- 8.488 (stdErr = 0.849) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        231.558 +- 13.706 (stdErr = 1.371) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.042 +- 0.014 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.121 +- 0.096 (stdErr = 0.010) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.020 +- 0.011 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.892 +- 0.032 (stdErr = 0.003) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.503 +- 0.022 (stdErr = 0.002) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         342.197 +- 3.743 (stdErr = 0.374) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          958.225 +- 11.170 (stdErr = 1.117) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          381.528 +- 1.321 (stdErr = 0.132) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           431.556 +- 1.590 (stdErr = 0.159) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                363.111 +- 1.364 (stdErr = 0.136) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 354.949 +- 1.423 (stdErr = 0.142) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1304.098 +- 1.830 (stdErr = 0.183) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        2070.590 +- 2.970 (stdErr = 0.297) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					10 ITERATIONS
+
+DATA
+methodDeclarations:                20.153 +- 0.025 (stdErr = 0.008) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.232 +- 0.174 (stdErr = 0.055) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  35.088 +- 4.805 (stdErr = 1.519) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   21.312 +- 6.892 (stdErr = 2.179) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.503 +- 0.050 (stdErr = 0.016) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         26.547 +- 2.865 (stdErr = 0.906) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          19.024 +- 8.599 (stdErr = 2.719) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          84.041 +- 46.752 (stdErr = 14.784) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           76.293 +- 55.860 (stdErr = 17.664) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                113.162 +- 15.565 (stdErr = 4.922) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 96.258 +- 16.135 (stdErr = 5.102) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       156.392 +- 17.801 (stdErr = 5.629) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        219.708 +- 28.748 (stdErr = 9.091) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.053 +- 0.028 (stdErr = 0.009) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.200 +- 0.197 (stdErr = 0.062) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.031 +- 0.031 (stdErr = 0.010) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.892 +- 0.079 (stdErr = 0.025) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.482 +- 0.050 (stdErr = 0.016) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         108.866 +- 0.021 (stdErr = 0.007) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          263.951 +- 0.136 (stdErr = 0.043) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          152.145 +- 2.436 (stdErr = 0.770) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           157.621 +- 2.939 (stdErr = 0.929) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                148.539 +- 2.054 (stdErr = 0.650) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 132.870 +- 2.152 (stdErr = 0.680) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1090.175 +- 0.911 (stdErr = 0.288) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        1725.587 +- 1.509 (stdErr = 0.477) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					10 ITERATIONS NEW BORDERS
+
+
+DATA
+methodDeclarations:                20.165 +- 0.031 (stdErr = 0.010) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.315 +- 0.213 (stdErr = 0.067) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  35.108 +- 4.836 (stdErr = 1.529) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   21.323 +- 6.944 (stdErr = 2.196) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.479 +- 0.061 (stdErr = 0.019) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         27.700 +- 6.062 (stdErr = 1.917) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          22.419 +- 18.129 (stdErr = 5.733) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          119.453 +- 32.280 (stdErr = 10.208) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           118.566 +- 38.584 (stdErr = 12.201) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                129.300 +- 1.458 (stdErr = 0.461) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 112.947 +- 1.541 (stdErr = 0.487) B; relative std.dev: 0.000, std.err: 0.000
+borders:                           406.711 +- 3.449 (stdErr = 1.091) MB; relative std.dev: 0.000, std.err: 0.000
+border:                            31.457 +- 0.283 (stdErr = 0.090) B; relative std.dev: 0.000, std.err: 0.000
+startBorder                        194.447 +- 5.863 (stdErr = 1.854) MB; relative std.dev: 0.000, std.err: 0.000
+startBorder                        1352.622 +- 45.742 (stdErr = 14.465) B; relative std.dev: 0.000, std.err: 0.000
+endBorders:                        131.904 +- 0.440 (stdErr = 0.139) MB; relative std.dev: 0.000, std.err: 0.000
+endBorder:                         867.217 +- 3.653 (stdErr = 1.155) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       143.003 +- 9.860 (stdErr = 3.118) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        198.096 +- 15.950 (stdErr = 5.044) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.068 +- 0.036 (stdErr = 0.011) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.303 +- 0.248 (stdErr = 0.078) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.027 +- 0.026 (stdErr = 0.008) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.869 +- 0.080 (stdErr = 0.025) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.458 +- 0.061 (stdErr = 0.019) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         109.712 +- 1.466 (stdErr = 0.463) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          266.432 +- 4.452 (stdErr = 1.408) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          152.222 +- 3.346 (stdErr = 1.058) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           157.698 +- 4.032 (stdErr = 1.275) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                148.661 +- 0.968 (stdErr = 0.306) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 132.984 +- 1.034 (stdErr = 0.327) B; relative std.dev: 0.000, std.err: 0.000
+borders:                           934.986 +- 0.590 (stdErr = 0.186) MB; relative std.dev: 0.000, std.err: 0.000
+border:                            74.448 +- 0.050 (stdErr = 0.016) B; relative std.dev: 0.000, std.err: 0.000
+startBorder                        237.007 +- 1.179 (stdErr = 0.373) MB; relative std.dev: 0.000, std.err: 0.000
+startBorder                        1682.942 +- 9.385 (stdErr = 2.968) B; relative std.dev: 0.000, std.err: 0.000
+endBorders:                        149.391 +- 0.008 (stdErr = 0.003) MB; relative std.dev: 0.000, std.err: 0.000
+endBorder:                         1002.942 +- 0.302 (stdErr = 0.095) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1089.541 +- 0.678 (stdErr = 0.214) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        1724.545 +- 1.143 (stdErr = 0.361) B; relative std.dev: 0.000, std.err: 0.000
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					10 ITERATIONS NEW BASIC BLOCKS
+
+DATA
+methodDeclarations:                20.163 +- 0.028 (stdErr = 0.009) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 140.301 +- 0.192 (stdErr = 0.061) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  35.082 +- 4.777 (stdErr = 1.511) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   21.288 +- 6.856 (stdErr = 2.168) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 25.920 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  11.483 +- 0.055 (stdErr = 0.017) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         66.743 +- 32.070 (stdErr = 10.141) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          138.591 +- 95.502 (stdErr = 30.200) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          136.737 +- 3.210 (stdErr = 1.015) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           139.209 +- 3.866 (stdErr = 1.222) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                128.600 +- 1.572 (stdErr = 0.497) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 112.225 +- 1.655 (stdErr = 0.523) B; relative std.dev: 0.000, std.err: 0.000
+borders:                           415.286 +- 0.004 (stdErr = 0.001) MB; relative std.dev: 0.000, std.err: 0.000
+border:                            32.155 +- 0.003 (stdErr = 0.001) B; relative std.dev: 0.000, std.err: 0.000
+startBorder                        203.138 +- 5.841 (stdErr = 1.847) MB; relative std.dev: 0.000, std.err: 0.000
+startBorder                        1420.093 +- 45.549 (stdErr = 14.404) B; relative std.dev: 0.000, std.err: 0.000
+endBorders:                        131.863 +- 0.403 (stdErr = 0.128) MB; relative std.dev: 0.000, std.err: 0.000
+endBorder:                         866.920 +- 3.343 (stdErr = 1.057) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       144.015 +- 13.842 (stdErr = 4.377) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        199.732 +- 22.367 (stdErr = 7.073) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocksNew:                    148.158 +- 4.720 (stdErr = 1.493) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockNew:                     206.413 +- 7.657 (stdErr = 2.421) B; relative std.dev: 0.000, std.err: 0.000
+COMPUTATION
+methodDeclarations:                28.093 +- 0.118 (stdErr = 0.037) MB; relative std.dev: 0.000, std.err: 0.000
+methodDeclaration:                 195.480 +- 0.824 (stdErr = 0.261) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPcs:                  67.027 +- 0.025 (stdErr = 0.008) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockEndPc:                   66.872 +- 0.075 (stdErr = 0.024) B; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdges: 53.982 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+immediateBasicBlockSuccessorEdge:  67.462 +- 0.055 (stdErr = 0.017) B; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessors:         109.730 +- 1.072 (stdErr = 0.339) MB; relative std.dev: 0.000, std.err: 0.000
+fallThroughCaseSuccessor:          266.493 +- 3.272 (stdErr = 1.035) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdges:          152.240 +- 2.152 (stdErr = 0.680) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockSuccessorEdge:           157.722 +- 2.603 (stdErr = 0.823) B; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPcs:                148.858 +- 0.763 (stdErr = 0.241) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockStartPc:                 133.190 +- 0.818 (stdErr = 0.259) B; relative std.dev: 0.000, std.err: 0.000
+borders:                           857.655 +- 0.740 (stdErr = 0.234) MB; relative std.dev: 0.000, std.err: 0.000
+border:                            68.155 +- 0.062 (stdErr = 0.020) B; relative std.dev: 0.000, std.err: 0.000
+startBorder                        236.559 +- 1.306 (stdErr = 0.413) MB; relative std.dev: 0.000, std.err: 0.000
+startBorder                        1679.477 +- 10.349 (stdErr = 3.273) B; relative std.dev: 0.000, std.err: 0.000
+endBorders:                        149.390 +- 0.007 (stdErr = 0.002) MB; relative std.dev: 0.000, std.err: 0.000
+endBorder:                         1002.946 +- 0.269 (stdErr = 0.085) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocks:                       1012.253 +- 0.886 (stdErr = 0.280) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlock:                        1599.908 +- 1.474 (stdErr = 0.466) B; relative std.dev: 0.000, std.err: 0.000
+basicBlocksNew:                    394.738 +- 1.553 (stdErr = 0.491) MB; relative std.dev: 0.000, std.err: 0.000
+basicBlockNew:                     604.064 +- 2.548 (stdErr = 0.806) B; relative std.dev: 0.000, std.err: 0.000
