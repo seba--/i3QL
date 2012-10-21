@@ -54,14 +54,7 @@ class TestBytecodeCFG {
             def codeAttributes = new SetExtent[CodeAttribute]()
         }
 
-        /*
-        assertTrue(db.basicBlockEndPcs.isSet)
-        assertTrue(db.immediateBasicBlockSuccessorEdges.isSet)
-        assertTrue(db.fallThroughCaseSuccessors.isSet)
-        assertTrue(db.basicBlockSuccessorEdges.isSet)
-        assertTrue(db.basicBlockStartPcs.isSet)
-        assertTrue(db.basicBlocks.isSet)
-        */
+
     }
 
 }
