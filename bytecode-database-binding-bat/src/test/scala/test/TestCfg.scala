@@ -17,7 +17,8 @@ class TestCfg {
     def testCfg() {
         val db = BATDatabaseFactory.create()
         val basicBlocks = db.basicBlocksNew
-        db.addClassFile(new FileInputStream("D:\\workspace\\java-demo\\bin\\test\\Test.class"))
+        val clazz = this.getClass.getClassLoader.getResource("sae/test/code/innerclass/MyRootClass.class")
+        db.addClassFile(clazz.openStream())
 
         basicBlocks.foreach(println)
     }
