@@ -32,7 +32,9 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     def fieldReadInstructions = null
 
-    def inheritance = null
+    def inheritance = new SetResult[InheritanceRelation](database.inheritance)
+
+    def subTypes = new SetResult[InheritanceRelation](database.subTypes)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
@@ -49,6 +51,5 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def removeArchive(stream: InputStream) {
         database.removeArchive (stream)
     }
-
 
 }

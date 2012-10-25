@@ -32,7 +32,7 @@
  */
 package sae.bytecode
 
-import sae.Relation
+import sae.{SetRelation, Relation}
 import structure.InheritanceRelation
 
 /**
@@ -42,13 +42,17 @@ import structure.InheritanceRelation
  * Time: 11:20
  *
  */
-trait BytecodeDervivedRelations
+trait BytecodeDerivedRelations
 {
 
-    import sae.bytecode._
 
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
-
-
+    /**
+     * inheritance is guaranteed to be a set
+     */
     def inheritance: Relation[InheritanceRelation]
+
+    /**
+     * subTypes are NOT guaranteed to be a set
+     */
+    def subTypes: Relation[InheritanceRelation]
 }

@@ -45,19 +45,39 @@ import sae.bytecode.structure._
  */
 trait BytecodeBaseRelations
 {
+    /**
+     * classDeclarations are guaranteed to be a set
+     */
+    def classDeclarations: Relation[ClassDeclaration]
 
-    def classDeclarations: SetRelation[ClassDeclaration]
+    /**
+     * methodDeclarations are guaranteed to be a set
+     */
+    def methodDeclarations: Relation[MethodDeclaration]
 
-    def methodDeclarations: SetRelation[MethodDeclaration]
+    /**
+     * fieldDeclarations are guaranteed to be a set
+     */
+    def fieldDeclarations: Relation[FieldDeclaration]
 
-    def fieldDeclarations: SetRelation[FieldDeclaration]
+    /**
+     * classInheritance are guaranteed to be a set
+     */
+    def classInheritance: Relation[InheritanceRelation]
 
-    def classInheritance: SetRelation[InheritanceRelation]
+    /**
+     * interfaceInheritance are guaranteed to be a set
+     */
+    def interfaceInheritance: Relation[InheritanceRelation]
 
-    def interfaceInheritance: SetRelation[InheritanceRelation]
+    /**
+     * instructions are guaranteed to be a set
+     */
+    def instructions: Relation[InstructionInfo]
 
-    def instructions: SetRelation[InstructionInfo]
-
-    def codeAttributes: SetRelation[CodeAttribute]
+    /**
+     * codeAttributes are guaranteed to be a set
+     */
+    def codeAttributes: Relation[CodeAttribute]
 
 }

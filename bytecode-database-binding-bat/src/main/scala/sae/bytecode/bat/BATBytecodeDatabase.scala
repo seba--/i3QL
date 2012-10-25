@@ -34,11 +34,18 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.SetExtent
+import sae.{Relation, SetExtent}
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
 import sae.bytecode.instructions.InstructionInfo
 import sae.bytecode.BytecodeDatabase
+import sae.syntax.sql._
+import sae.syntax.RelationalAlgebraSyntax._
+import sae.bytecode.structure.ExceptionHandlerInfo
+import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.CodeAttribute
+import sae.bytecode.structure.InheritanceRelation
+import sae.bytecode.structure.FieldDeclaration
 
 /**
  * Created with IntelliJ IDEA.
@@ -71,8 +78,9 @@ class BATBytecodeDatabase
 
     def fieldReadInstructions = null
 
-    def inheritance = null
+    lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
+    lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (TC (inheritance)(_.subType, _.superType))
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)
