@@ -1,13 +1,18 @@
 package sandbox
 
+import analysis.{AnalysisResult, StackAnalysis}
+import CFG.AnalysisControlFlowGraph
 import sae.bytecode.bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.bytecode.instructions.InstructionInfo
-import sae.{Relation, QueryResult}
+import sae.QueryResult
 import sae.syntax.sql._
 import sae.bytecode.structure.CodeAttribute
+import collection.mutable
 
 /**
+ * Main class
+ *
  * Created with IntelliJ IDEA.
  * User: mirko
  * Date: 22.10.12
@@ -17,30 +22,18 @@ import sae.bytecode.structure.CodeAttribute
 object Main {
 
   def main(args: Array[String]) {
-      val database = BATDatabaseFactory.create()
+    val database = BATDatabaseFactory.create()
 
-    val instr :QueryResult[InstructionInfo] = database.instructions
+    val instr: QueryResult[InstructionInfo] = compile(SELECT(*) FROM database.instructions WHERE (((_: InstructionInfo).declaringMethod.name) === "main"))
+    val query: QueryResult[(Int, Array[Int])] = compile(SELECT((codeAttribute: CodeAttribute) => (1, Array.ofDim[Int](codeAttribute.max_locals))) FROM database.codeAttributes)
 
-    val query : Relation[(Int, Array[Int])] = compile(SELECT ((codeAttribute:CodeAttribute) => (1, Array.ofDim[Int](codeAttribute.max_locals)) ) FROM database.codeAttributes)
+    database.addClassFile(new FileInputStream("C:\\Users\\Mirko\\Desktop\\testcases\\Test.class"))
 
-    val query2 : QueryResult[(Int, Array[Int])] = compile(SELECT (* ) FROM query)
+    val cfg: AnalysisControlFlowGraph = new AnalysisControlFlowGraph(instr)
 
-      database.addClassFile(new FileInputStream("/home/mirko/Dokumente/sae/test-data/target/classes/sae/test/code/innerclass/MyRootClass.class"))
+    val result: mutable.Map[Int, AnalysisResult] = new StackAnalysis(cfg, 0, 4).execute()
 
-      //database.addArchive(new FileInputStream("/home/mirko/Dokumente/sae/test-data/src/main/resources/demo.jar"))
-
-
-      val instrAfter :QueryResult[InstructionInfo] = database.instructions // DONT DO THIS
-
-      println(instr.size)
-      println(instrAfter.size)
-
-
-
-
-      query.foreach(
-        println
-      )
+    print(result.mkString("\n"))
 
 
   }
