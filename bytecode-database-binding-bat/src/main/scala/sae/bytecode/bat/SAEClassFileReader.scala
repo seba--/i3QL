@@ -132,8 +132,8 @@ trait SAEClassFileReader
                     CodeAttribute (
                         methodDeclaration,
                         code.instructions.size,
-                        code.maxLocals,
                         code.maxStack,
+                        code.maxLocals,
                         code.exceptionHandlers
                     )
                 )
