@@ -148,7 +148,7 @@ object MemoryProfiler
      * The function assumes that the relations do NOT store the data themselves or build any indices
      */
     def memoryOfMaterializedData(files: Seq[java.io.File])(relationSelector: BytecodeDatabase => Seq[Observable[_]]): Long = {
-        val database: BytecodeDatabase = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        val database: BytecodeDatabase = new LazyMaterializedBytecodeDatabase (BATDatabaseFactory.create ())
         relationSelector (database) // instantiate the given relations all others are lazy vals
 
         var consumed: Long = 0
