@@ -223,9 +223,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper)
         val suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
 
-        pathsOfTailVertex.descendants.remove (head)
-        pathsOfHeadVertex.ancestors.remove (tail)
-        element_removed (tail, head)
+        suspiciousEdges.add (tail, head)
 
         //
         pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
@@ -247,40 +245,41 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             descendants.remove (x._2)
             val ancestors = transitiveClosure.getOrElse (x._2, throw new Error ()).ancestors
             ancestors.remove (x._1)
-
-            if (ancestors.exists ((v: Vertex) => descendants.contains (v))) {
-
-            }
-            element_removed (x._1, x._2)
         })
 
-        /*
-        import Breaks._
+
+
         // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
-        for (i <- 1 to 2) {
-            var putBack = List[(Vertex, Vertex)]()
-            suspiciousEdges.foreach (x => {
-                breakable {
-                    transitiveClosure.getOrElse (x._1, throw new Error ()).descendants.foreach ((y: Vertex) => {
-                        // do we still have a path from x._1 to x._2 => reinsert
-                        if (transitiveClosure.getOrElse (y, throw new Error ()).ancestors.contains (x._2)) {
-                            putBack = (x._1, x._2) :: putBack
-                            break ()
-                        }
-                    })
+        // THIS IS A DIFFERENT THING
+
+        // find an alternative path => reinsert
+        var putBack = List[(Vertex, Vertex)]()
+        suspiciousEdges.foreach (
+            e => {
+                val x = e._1
+                val y = e._2
+                val descendantsOfX = transitiveClosure.getOrElse (x, throw new Error ()).descendants
+                val ancestorsOfY = transitiveClosure.getOrElse (y, throw new Error ()).ancestors
+                // if the intersection of ancestors of y and descendants of x is not empty we have a different path
+                if( descendantsOfX.exists (v => ancestorsOfY.contains (v)) ) {
+                    putBack = (x, y) :: putBack
                 }
-            })
-            putBack.foreach (x => {
-                transitiveClosure.getOrElse (x._1, throw new Error ()).descendants.add (x._2)
-                transitiveClosure.getOrElse (x._2, throw new Error ()).ancestors.add (x._1)
-                suspiciousEdges.remove (x)
-            })
-        }
+            }
+        )
+        putBack.foreach (
+            e => {
+                val x = e._1
+                val y = e._2
+                transitiveClosure.getOrElse (x, throw new Error ()).descendants.add (y)
+                transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
+                suspiciousEdges.remove (e)
+            }
+        )
+
         // edges = TC_old - TC_new
         suspiciousEdges.foreach (x => {
             element_removed (x._1, x._2)
         })
-        */
     }
 
     def updated(oldV: Edge, newV: Edge) {
