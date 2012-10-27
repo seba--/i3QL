@@ -128,7 +128,7 @@ object RelationalAlgebraSyntax
         // TODO think of better names for start/endVertex functions
         def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: Relation[Domain])
                                                      (startVertex: Domain => Vertex, endVertex: Domain => Vertex) =
-            new TransitiveClosureView[Domain, Vertex](
+            new AcyclicTransitiveClosureView[Domain, Vertex](
                 relation,
                 startVertex,
                 endVertex

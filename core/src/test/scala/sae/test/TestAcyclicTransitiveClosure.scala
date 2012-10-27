@@ -5,7 +5,7 @@ import org.junit.{Before, Test}
 import sae.collections.Table
 import sae._
 import util.Random
-import sae.operators.impl.TransitiveClosureView
+import operators.impl.{AcyclicTransitiveClosureView, NaiveTransitiveClosureView}
 
 
 /**
@@ -14,7 +14,7 @@ import sae.operators.impl.TransitiveClosureView
  * @author Ralf Mitschke
  */
 
-class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
+class TestAcyclicTransitiveClosure extends org.scalatest.junit.JUnitSuite
 {
 
     case class Vertex(id: String)
@@ -35,7 +35,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def addTest() {
         //test for figure 1 (a)
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //smallAddTestGraph.materialized_foreach((x: Edge) => smallAddTestGraph.element_added(x))
         assertTrue (res.size == 2)
@@ -53,7 +53,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def removeTest() {
         //test for figure 2
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](smallRemoveGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
 
         assertTrue (res.size == 28)
@@ -71,40 +71,62 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testSet() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("a", "b")
-        assertTrue (res.size == 1)
+        // a -> b
+        assertEquals (1 , res.size )
         assertTrue (res.asList.contains ((Vertex ("a"), Vertex ("b"))))
         testGraph += Edge ("b", "e")
-        assertTrue (res.size == 3)
+        // a -> b -> e
+        assertEquals (3, res.size)
         assertTrue (res.asList.contains ((Vertex ("b"), Vertex ("e"))))
         assertTrue (res.asList.contains ((Vertex ("a"), Vertex ("e"))))
         testGraph += Edge ("c", "d")
-        assertTrue (res.size == 4)
+        // a -> b -> e
+        // c -> d
+        assertEquals (4, res.size)
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("d"))))
         testGraph += Edge ("d", "f")
-        assertTrue (res.size == 6)
+        // a -> b -> e
+        // c -> d -> f
+        assertEquals (6, res.size)
         assertTrue (res.asList.contains ((Vertex ("d"), Vertex ("f"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("f"))))
         testGraph += Edge ("d", "e")
-        assertTrue (res.size == 8)
+        // a -> b -> e
+        //         ^
+        //        /
+        // c -> d -> f
+        assertEquals (8, res.size)
         assertTrue (res.asList.contains ((Vertex ("d"), Vertex ("e"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("e"))))
         testGraph += Edge ("c", "a")
-        assertTrue (res.size == 10)
+        // a -> b -> e
+        // ^       ^
+        // |      /
+        // c -> d -> f
+        assertEquals (10, res.size)
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("a"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("b"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("e"))))
         //remove some edges
         testGraph -= Edge ("c", "d")
-        assertTrue (res.size == 8)
+        // a -> b -> e
+        // ^       ^
+        // |      /
+        // c     d -> f
+        assertEquals(8, res.size)
         assertTrue (!res.asList.contains ((Vertex ("c"), Vertex ("d"))))
         assertTrue (!res.asList.contains ((Vertex ("c"), Vertex ("f"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("e"))))
         testGraph -= Edge ("a", "b")
-        assertTrue (res.size == 4)
+        // a    b -> e
+        // ^       ^
+        // |      /
+        // c     d -> f
+        assertEquals (4, res.size)
         assertTrue (!res.asList.contains ((Vertex ("a"), Vertex ("b"))))
         assertTrue (!res.asList.contains ((Vertex ("a"), Vertex ("e"))))
         assertTrue (!res.asList.contains ((Vertex ("c"), Vertex ("e"))))
@@ -114,7 +136,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testSetSemantic() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("a", "b")
@@ -132,7 +154,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     def testCycle() {
         //in general Cycles dont work!
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("a", "b")
@@ -157,7 +179,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testSmall() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("a", "b")
@@ -174,7 +196,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testRemoveWithNoUpdateCase1() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("a", "b")
@@ -191,7 +213,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testRemoveWithNoUpdateCase2() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("x", "a")
@@ -209,7 +231,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     @Test
     def testRemoveWithNoUpdateCase3() {
         testGraph = new Table[Edge]
-        val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
+        val view: Relation[(Vertex, Vertex)] = new AcyclicTransitiveClosureView[Edge, Vertex](testGraph, (x: Edge) => x.start, (x: Edge) => x.end)
         val res: QueryResult[(Vertex, Vertex)] = view
         //add some edges
         testGraph += Edge ("x", "a")
@@ -251,7 +273,7 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     def rndTestHelpber() {
         val size = 20
         val source: Relation[(java.lang.Integer, java.lang.Integer)] = new BagExtent[(java.lang.Integer, java.lang.Integer)]
-        val tc = new TransitiveClosureView (source, (_: (java.lang.Integer, java.lang.Integer))._1, (_: (java.lang.Integer, java.lang.Integer))._2)
+        val tc = new AcyclicTransitiveClosureView (source, (_: (java.lang.Integer, java.lang.Integer))._1, (_: (java.lang.Integer, java.lang.Integer))._2)
         val queryResult: QueryResult[(java.lang.Integer, java.lang.Integer)] = tc
         val matrix = new Array[Array[java.lang.Integer]](size)
         var oldRes: Array[Array[java.lang.Integer]] = null
