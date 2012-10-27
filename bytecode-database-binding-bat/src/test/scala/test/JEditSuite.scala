@@ -7,7 +7,8 @@ import bat.BATDatabaseFactory
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.QueryResult
 import sae.functions.Count
-import structure.{ClassDeclaration, InheritanceRelation}
+import structure.InheritanceRelation
+import structure.{InheritanceRelation, ClassDeclaration}
 import de.tud.cs.st.bat.resolved.ObjectType
 
 
@@ -20,9 +21,11 @@ class JEditSuite
     private val resourceName = "jedit-4.3.3-win.jar"
 
     def db = {
-        val database = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        val db = BATDatabaseFactory.create ()
+        val database = new MaterializedBytecodeDatabase (db)
         val stream = this.getClass.getClassLoader.getResourceAsStream (resourceName)
-        database.addArchive (stream)
+        db.addArchive (stream)
+
         database
     }
 
@@ -262,6 +265,23 @@ class JEditSuite
             assertEquals((16726 + 1574), query.size)
         }
     */
+
+
+    @Test
+    def testInheritance() {
+
+        val subtypes: QueryResult[InheritanceRelation] = db.inheritance
+
+
+        val viewOptionPaneSuperTypes = subtypes.asList.filter (_.subType == ObjectType ("org/gjt/sp/jedit/options/ViewOptionPane"))
+
+        val result = List (
+            InheritanceRelation(ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "org/gjt/sp/jedit/AbstractOptionPane"))
+        )
+
+        assertEquals (result, viewOptionPaneSuperTypes)
+    }
+
     @Test
     def testTransitiveSubtype() {
 
@@ -271,13 +291,16 @@ class JEditSuite
         val viewOptionPaneSuperTypes = subtypes.asList.filter (_.subType == ObjectType ("org/gjt/sp/jedit/options/ViewOptionPane"))
 
         val result = List (
-            (ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "org/gjt/sp/jedit/AbstractOptionPane")),
-            (ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "org/gjt/sp/jedit/OptionPane")),
-            (ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "javax/swing/JPanel")),
-            (ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "java/lang/Object"))
+            InheritanceRelation(ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "java/lang/Object")),
+            InheritanceRelation(ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "javax/swing/JPanel")),
+            InheritanceRelation(ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "org/gjt/sp/jedit/AbstractOptionPane")),
+            InheritanceRelation(ObjectType (className = "org/gjt/sp/jedit/options/ViewOptionPane"), ObjectType (className = "org/gjt/sp/jedit/OptionPane"))
         )
 
-        assertEquals (result, viewOptionPaneSuperTypes)
+        assertEquals (
+            result,
+            viewOptionPaneSuperTypes.sortBy(_.superType.className)
+        )
     }
 
     /*
