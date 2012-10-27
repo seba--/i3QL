@@ -78,9 +78,7 @@ trait SAEClassFileReader
             in.readUnsignedShort.asObjectType)
 
         val super_type = in.readUnsignedShort
-        if (super_type != 0) {
-            database.classInheritance.element_added (InheritanceRelation (super_type.asObjectType, classInfo.classType))
-        }
+        if (super_type != 0) database.classInheritance.element_added (InheritanceRelation (subType = classInfo.classType, superType = super_type.asObjectType))
         database.classDeclarations.element_added (classInfo)
         classInfo
     }
@@ -88,7 +86,7 @@ trait SAEClassFileReader
 
     def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface = {
         val interface = interface_index.asObjectType
-        database.interfaceInheritance.element_added (InheritanceRelation (interface, declaringClass.classType))
+        database.interfaceInheritance.element_added (InheritanceRelation (subType = declaringClass.classType, superType = interface))
         interface
     }
 
