@@ -76,8 +76,6 @@ class BATBytecodeDatabase
 
     val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
-    def fieldReadInstructions = null
-
     lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
     lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (TC (inheritance)(_.subType, _.superType))
