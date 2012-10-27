@@ -2,39 +2,34 @@ package sae.bytecode
 
 import instructions.InstructionInfo
 import java.io.InputStream
-import sae.collections.{BagResult, SetResult}
+import sae.collections.SetResult
 import sae.bytecode.structure._
 
 /**
  *
- * Author: Ralf Mitschke
- * Author: Malte V
- * Created: 22.06.11 15:22
- *
+ * This database stores all base relations in respective data structures.
+ * relations are stored immediately, hence lot of memory can be consumed.
  */
-
 class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     extends BytecodeDatabase
 {
-    lazy val classDeclarations = new SetResult[ClassDeclaration](database.classDeclarations)
+    val classDeclarations = new SetResult[ClassDeclaration](database.classDeclarations)
 
-    lazy val instructions = new SetResult[InstructionInfo](database.instructions)
+    val instructions = new SetResult[InstructionInfo](database.instructions)
 
-    lazy val methodDeclarations = new SetResult[MethodDeclaration](database.methodDeclarations)
+    val methodDeclarations = new SetResult[MethodDeclaration](database.methodDeclarations)
 
-    lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
+    val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
 
-    lazy val classInheritance = new SetResult[InheritanceRelation](database.classInheritance)
+    val classInheritance = new SetResult[InheritanceRelation](database.classInheritance)
 
-    lazy val interfaceInheritance = new SetResult[InheritanceRelation](database.interfaceInheritance)
+    val interfaceInheritance = new SetResult[InheritanceRelation](database.interfaceInheritance)
 
-    lazy val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
+    val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
 
-    def fieldReadInstructions = null
+    val inheritance = new SetResult[InheritanceRelation](database.inheritance)
 
-    def inheritance = new SetResult[InheritanceRelation](database.inheritance)
-
-    def subTypes = new SetResult[InheritanceRelation](database.subTypes)
+    val subTypes = new SetResult[InheritanceRelation](database.subTypes)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
