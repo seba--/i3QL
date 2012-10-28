@@ -33,10 +33,9 @@
 package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
-import collection.mutable.{HashMap, HashSet}
 import sae.operators.TransitiveClosure
-import collection.mutable
-import util.control.Breaks._
+
+import scala.collection.JavaConversions._
 
 /**
  * Algorithm for:
@@ -50,7 +49,7 @@ import util.control.Breaks._
  * @author Ralf Mitschke
  * @author Malte V
  */
-class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
+class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
                                                  val getTail: Edge => Vertex,
                                                  val getHead: Edge => Vertex)
     extends TransitiveClosure[Edge, Vertex]
@@ -59,16 +58,16 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     source addObserver this
 
 
-    private case class Paths(descendants: HashSet[Vertex], ancestors: HashSet[Vertex])
+    private case class Paths(descendants: java.util.HashSet[Vertex], ancestors: java.util.HashSet[Vertex])
     {
         def this() = {
-            this (HashSet[Vertex](), HashSet[Vertex]())
+            this (new java.util.HashSet[Vertex](), new java.util.HashSet[Vertex]())
         }
     }
 
     //TransitiveClose saved as double adjacencyList
     //for fast access its stored in a hashmap
-    private val transitiveClosure = HashMap[Vertex, Paths]()
+    private val transitiveClosure = new java.util.HashMap[Vertex, Paths]()
     // example: trainsitiveClosure = (v -> ({u,w} , x))
     //=> we have the edges:
     // (u,v)(w, v)
@@ -88,7 +87,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      * access in O(1)
      */
     def isDefinedAt(v: (Vertex, Vertex)) = {
-        if (transitiveClosure.contains (v._1)) {
+        if (transitiveClosure.containsKey (v._1)) {
             transitiveClosureGet (v._1).ancestors.contains (v._2)
         }
         else
@@ -102,7 +101,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             return 0
         }
         val v = t.asInstanceOf[(Vertex, Vertex)]
-        if (transitiveClosure.contains (v._1)) {
+        if (transitiveClosure.containsKey (v._1)) {
             1
         }
         else
@@ -111,12 +110,24 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
+
+
     def foreach[T](f: ((Vertex, Vertex)) => T) {
         transitiveClosure.foreach (x => {
             x._2.descendants.foreach (y => {
                 f ((x._1, y))
             })
         })
+        /*
+        val it = transitiveClosure.keySet().iterator()
+        while (it.hasNext) {
+            val x = it.next()
+            val descendants = transitiveClosure.get(x)
+            descendants.foreach (y => {
+                f ((x._1, y))
+            })
+        }
+        */
     }
 
     def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
@@ -136,19 +147,23 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 
     private def transitiveClosureGet(v: Vertex) = {
-        transitiveClosure.getOrElse (v, throw new Error ())
+        transitiveClosure.get (v)
     }
 
+    private def transitiveClosureGetOrCreate(v: Vertex) = {
+        if (!transitiveClosure.containsKey (v)) {
+            transitiveClosure.put (v, new Paths ())
+        }
+        transitiveClosure.get (v)
+    }
 
     def internal_add(edge: Edge, notify: Boolean) {
         val head = getHead (edge)
         val tail = getTail (edge)
 
-        val pathsOfHeadVertex = transitiveClosure
-            .getOrElseUpdate (head, new Paths ())
+        val pathsOfHeadVertex = transitiveClosureGetOrCreate (head)
 
-        val pathsOfTailVertex = transitiveClosure
-            .getOrElseUpdate (tail, new Paths ())
+        val pathsOfTailVertex = transitiveClosureGetOrCreate (tail)
 
         // head -> ({}, {tail})
         // (head, tail)
@@ -166,7 +181,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
             // all edges with head x == tail(e)
             // the Vertex x has an outgoing Edge e = (x,endVertex(edge))
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
+            val connectedVertices = transitiveClosureGet (x)
             if (!connectedVertices.descendants.contains (head)) {
                 connectedVertices.descendants.add (head)
                 pathsOfHeadVertex.ancestors.add (x)
@@ -179,7 +194,7 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         pathsOfHeadVertex.descendants.foreach ((x: Vertex) => {
             // all edges with tail x == head(e)
             // the Vertex x has an incoming Edge e = (tail(e),x)
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
+            val connectedVertices = transitiveClosureGet (x)
             if (!connectedVertices.ancestors.contains (tail)) {
                 connectedVertices.ancestors.add (tail)
                 pathsOfTailVertex.descendants.add (x)
@@ -194,12 +209,12 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         //O(n^2)
         pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
             pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-                val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
+                val connectedVertices = transitiveClosureGet (x)
                 if (!connectedVertices.descendants.contains (y)) {
                     //all the vertices with e1 = (x,tail(e)) and e2 = (head(e), y)
                     //=> e'=(x,y) new edge in the transitive closure
                     connectedVertices.descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
+                    transitiveClosureGet (y).ancestors.add (x)
                     if (notify) element_added ((x, y))
                 }
 
@@ -217,12 +232,12 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         val tail = getTail (edge)
 
 
-        val pathsOfTailVertex = transitiveClosure.getOrElse (tail, throw new Error ())
-        val pathsOfHeadVertex = transitiveClosure.getOrElse (head, throw new Error ())
+        val pathsOfTailVertex = transitiveClosureGet (tail)
+        val pathsOfHeadVertex = transitiveClosureGet (head)
 
 
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper)
-        val suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
+        val suspiciousEdges = new java.util.HashSet[(Vertex, Vertex)]()
 
         suspiciousEdges.add (tail, head)
 
@@ -241,49 +256,41 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             })
         })
 
-        suspiciousEdges.foreach (e => {
-            val x = e._1
-            val y = e._2
-            val descendants = transitiveClosure.getOrElse (x, throw new Error ()).descendants
-            descendants.remove (y)
-            val ancestors = transitiveClosure.getOrElse (y, throw new Error ()).ancestors
-            ancestors.remove (x)
+        suspiciousEdges.foreach (x => {
+            val descendants = transitiveClosureGet (x._1).descendants
+            descendants.remove (x._2)
+            val ancestors = transitiveClosureGet (x._2).ancestors
+            ancestors.remove (x._1)
         })
 
 
 
         // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
-        // alternative paths can be found by concatenating trusted paths once or twice
-        val trustedEdges = mutable.Set[(Vertex, Vertex)]()
-        for (i <- 1 to 2) {
-            var putBack = List[(Vertex, Vertex)]()
-            suspiciousEdges.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    breakable {
-                        transitiveClosure.getOrElse (x, throw new Error ()).descendants.foreach ((v: Vertex) => {
-                            // do we still have a path from x._1 to x._2 => reinsert
-                            if (transitiveClosure.getOrElse (v, throw new Error ()).ancestors.contains (y)) {
-                                putBack = (x, y) :: putBack
-                                break ()
-                            }
-                        })
-                    }
-                }
-            )
-            putBack.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    transitiveClosure.getOrElse (x, throw new Error ()).descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    suspiciousEdges.remove (e)
-                }
-            )
+        // THIS IS A DIFFERENT THING
 
-
-        }
+        // find an alternative path => reinsert
+        var putBack = List[(Vertex, Vertex)]()
+        suspiciousEdges.foreach (
+            e => {
+                val x = e._1
+                val y = e._2
+                val descendantsOfX = transitiveClosureGet (x).descendants
+                val ancestorsOfY = transitiveClosureGet (y).ancestors
+                // if the intersection of ancestors of y and descendants of x is not empty we have a different path
+                if (descendantsOfX.exists (v => ancestorsOfY.contains (v))) {
+                    putBack = (x, y) :: putBack
+                }
+            }
+        )
+        putBack.foreach (
+            e => {
+                val x = e._1
+                val y = e._2
+                transitiveClosureGet (x).descendants.add (y)
+                transitiveClosureGet (y).ancestors.add (x)
+                suspiciousEdges.remove (e)
+            }
+        )
 
         // edges = TC_old - TC_new
         suspiciousEdges.foreach (x => {

@@ -1,7 +1,7 @@
 package sae.test
 
 import org.junit.Assert._
-import org.junit.{Before, Test}
+import org.junit.{Ignore, Before, Test}
 import sae.collections.Table
 import sae._
 import util.Random
@@ -13,7 +13,7 @@ import operators.impl.{AcyclicTransitiveClosureView, NaiveTransitiveClosureView}
  * @author Malte V
  * @author Ralf Mitschke
  */
-
+@Ignore
 class TestAcyclicTransitiveClosure extends org.scalatest.junit.JUnitSuite
 {
 
