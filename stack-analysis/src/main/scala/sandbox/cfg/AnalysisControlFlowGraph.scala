@@ -1,4 +1,4 @@
-package sandbox.CFG
+package sandbox.cfg
 
 import sae.QueryResult
 import sae.bytecode.instructions.InstructionInfo
