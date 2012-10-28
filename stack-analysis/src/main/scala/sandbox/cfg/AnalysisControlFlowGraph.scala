@@ -1,6 +1,5 @@
 package sandbox.cfg
 
-import sae.QueryResult
 import sae.bytecode.instructions.InstructionInfo
 
 /**
@@ -12,9 +11,9 @@ import sae.bytecode.instructions.InstructionInfo
  * Time: 14:33
  * To change this template use File | Settings | File Templates.
  */
-class AnalysisControlFlowGraph(res: QueryResult[InstructionInfo]) {
+class AnalysisControlFlowGraph(res: List[InstructionInfo]) {
 
-  private val instList = res.asList.sortWith((a, b) => a.sequenceIndex < b.sequenceIndex)
+  private val instList = res
 
   def getStartSequenceNumber = 0
 
