@@ -1,6 +1,6 @@
 package sandbox.analysis
 
-import collection.immutable.Queue
+import collection.immutable.{HashSet, Queue}
 
 /**
  * This class implements the stack that is used as an analysis result.
@@ -11,19 +11,25 @@ import collection.immutable.Queue
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-class AnalysisStack[T: Manifest](q: Queue[T]) {
-  def this() = this(Queue.empty[T])
+class AnalysisStack[T: Manifest](size: Int, q: Queue[Set[T]]) {
+  require(q.size <= size && size >= 0)
 
-  private val stack: Queue[T] = q
+  def this(size: Int) = this(size, Queue.empty[Set[T]])
+
+  private val maxSize = size
+  private val stack: Queue[Set[T]] = q
 
   def push(t: T): AnalysisStack[T] =
-    new AnalysisStack[T](stack.enqueue(t))
+    if (stack.size < maxSize)
+      new AnalysisStack[T](maxSize, stack.enqueue(new HashSet[T] + t))
+    else
+      this
 
-  def topElement(): T =
+  def topElement(): Set[T] =
     stack.head
 
   def pop(): AnalysisStack[T] =
-    new AnalysisStack[T](stack.dequeue._2)
+    new AnalysisStack[T](maxSize, stack.dequeue._2)
 
   override def toString = "[" + stack.mkString(", ") + "]"
 

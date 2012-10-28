@@ -1,5 +1,7 @@
 package sandbox.analysis
 
+import collection.immutable.HashSet
+
 /**
  * This class implements the store for local variables for the stack analysis.
  *
@@ -9,17 +11,17 @@ package sandbox.analysis
  * Time: 14:10
  * To change this template use File | Settings | File Templates.
  */
-class AnalysisLocalVars[T: Manifest](a: Array[T]) {
-  private val varStore: Array[T] = a
+class AnalysisLocalVars[T: Manifest](a: Array[Set[T]]) {
+  private val varStore: Array[Set[T]] = a
 
-  def this(i: Int) = this(new Array[T](i))
+  def this(i: Int) = this(Array.fill[Set[T]](i)(new HashSet[T]))
 
-  def getVar(index: Int): T =
+  def getVar(index: Int): Set[T] =
     varStore(index)
 
   def setVar(index: Int, value: T): AnalysisLocalVars[T] = {
-    val res: Array[T] = varStore.clone()
-    res.update(index, value)
+    val res: Array[Set[T]] = varStore.clone()
+    res.update(index, new HashSet[T] + value)
     new AnalysisLocalVars[T](res)
   }
 

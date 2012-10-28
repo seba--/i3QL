@@ -1,6 +1,6 @@
 package sandbox.analysis
 
-import sandbox.CFG.AnalysisControlFlowGraph
+import sandbox.cfg.AnalysisControlFlowGraph
 import sae.bytecode.instructions.InstructionInfo
 
 /**
@@ -17,17 +17,17 @@ class StackAnalysis(cfg: AnalysisControlFlowGraph, mss: Int, mlv: Int) extends D
   private val maxStackSize = mss
   private val maxLocalVariables = mlv
 
-  def startValue = new AnalysisResult(new AnalysisStack[Int], new AnalysisLocalVars[Int](maxLocalVariables))
+  def startValue = new AnalysisResult(new AnalysisStack[Int](maxStackSize), new AnalysisLocalVars[VarValue.Value](maxLocalVariables))
 
-  def applyTo(instr: InstructionInfo, current: AnalysisResult): AnalysisResult = {
+  def exit(instr: InstructionInfo, current: AnalysisResult): AnalysisResult = {
     instr.instruction.opcode match {
       case 2 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ICONST_M1
       case 4 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ICONST_1
       case 27 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ILOAD_1
       case 28 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ILOAD_2
-      case 60 => new AnalysisResult(current.stack.pop(), current.locals.setVar(1, instr.pc)) //ISTORE_1
-      case 61 => new AnalysisResult(current.stack.pop(), current.locals.setVar(2, instr.pc)) //ISTORE_2
-      case 62 => new AnalysisResult(current.stack.pop(), current.locals.setVar(3, instr.pc)) //ISTORE_3
+      case 60 => new AnalysisResult(current.stack.pop(), current.locals.setVar(1, VarValue.vInt)) //ISTORE_1
+      case 61 => new AnalysisResult(current.stack.pop(), current.locals.setVar(2, VarValue.vInt)) //ISTORE_2
+      case 62 => new AnalysisResult(current.stack.pop(), current.locals.setVar(3, VarValue.vInt)) //ISTORE_3
       case 96 => new AnalysisResult(current.stack.pop().pop().push(instr.pc), current.locals) //IADD
       case _ => current //Other expression do not change the outcome
 
