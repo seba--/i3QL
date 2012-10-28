@@ -43,7 +43,7 @@ class ScalaSetIndex[K, V](val relation: Relation[V],
     extends Index[K, V]
 {
 
-    private val map: mutable.MultiMap[K, V] = new mutable.HashMap[K, mutable.Set[V]] with mutable.MultiMap[K, V]
+    private val map: mutable.HashMap[K, List[V]] = new mutable.HashMap[K, List[V]]
 
     lazyInitialize ()
 
@@ -56,7 +56,8 @@ class ScalaSetIndex[K, V](val relation: Relation[V],
     }
 
     def put(key: K, value: V) {
-        map.addBinding (key, value)
+        val list = map.getOrElseUpdate(key, Nil)
+        map(key) = value :: list
         totalSize += 1
     }
 
@@ -92,7 +93,15 @@ class ScalaSetIndex[K, V](val relation: Relation[V],
 
 
     def remove_element(key: K, value: V) {
-        map.removeBinding (key, value)
+        val list = map(key)
+        val newList = list.filterNot( _ == value)
+        if (newList.isEmpty)
+        {
+            map.remove(key)
+        }
+        else {
+            map(key) = newList
+        }
         totalSize -= 1
     }
 
