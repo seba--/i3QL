@@ -90,9 +90,8 @@ class SetIndex[K, V](val relation: Relation[V],
 
     def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
     {
-        val valueSet = map.get (oldKey)
-        valueSet.remove (oldV)
-        valueSet.add (newV)
+        remove_element(oldKey, oldV)
+        add_element(newKey, newV)
     }
 
 }
