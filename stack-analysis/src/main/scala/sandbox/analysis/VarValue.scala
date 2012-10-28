@@ -1,8 +1,6 @@
 package sandbox.analysis
 
 /**
- * Values for the local variables of the stack analysis.
- *
  * Created with IntelliJ IDEA.
  * User: Mirko
  * Date: 25.10.12
