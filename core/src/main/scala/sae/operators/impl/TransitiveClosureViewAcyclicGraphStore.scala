@@ -33,48 +33,59 @@
 package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
-import collection.mutable.{HashMap, HashSet}
 import sae.operators.TransitiveClosure
 import collection.mutable
-import util.control.Breaks._
 
 /**
- * Algorithm for:
- * incremental view maintenance for transitive closure of DAG's with no parallel edges
- * the algorithm is based on
- * Dong and Su Sigmod 2000 44-50
+ * A simple transitive closure, that should support minimal memory, by just storing the graph.
  *
  * The head of an edge is denoting the arrow head, hence the end vertex
  * The tail of an edge is denoting the start vertex
  *
  * @author Ralf Mitschke
- * @author Malte V
  */
 class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[Edge],
-                                                 val getTail: Edge => Vertex,
-                                                 val getHead: Edge => Vertex)
+                                                           val getTail: Edge => Vertex,
+                                                           val getHead: Edge => Vertex)
     extends TransitiveClosure[Edge, Vertex]
     with Observer[Edge]
 {
     source addObserver this
 
+    private val graphIncomingEdges = mutable.HashMap[Vertex, List[Edge]]()
 
-    private case class Paths(descendants: HashSet[Vertex], ancestors: HashSet[Vertex])
-    {
-        def this() = {
-            this (HashSet[Vertex](), HashSet[Vertex]())
-        }
-    }
-
-    //TransitiveClose saved as double adjacencyList
-    //for fast access its stored in a hashmap
-    private val transitiveClosure = HashMap[Vertex, Paths]()
-    // example: trainsitiveClosure = (v -> ({u,w} , x))
-    //=> we have the edges:
-    // (u,v)(w, v)
-    // (v, x)
+    private val graphOutgoingEdges = mutable.HashMap[Vertex, List[Edge]]()
 
     lazyInitialize ()
+
+    private def transitiveClosureApplyForward[U](start: Vertex, f: (Vertex, Vertex) => U) {
+        transitiveClosureRecurseForward (start, start, f)
+    }
+
+    private def transitiveClosureRecurseForward[U](start: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
+        graphOutgoingEdges.getOrElse ((current), return).foreach (
+            edge => {
+                val head = getHead (edge)
+                f (start, head)
+                transitiveClosureRecurseForward (start, head, f)
+            }
+        )
+    }
+
+
+    private def transitiveClosureApplyBackward[U](end: Vertex, f: (Vertex, Vertex) => U) {
+        transitiveClosureRecurseBackward (end, end, f)
+    }
+
+    private def transitiveClosureRecurseBackward[U](end: Vertex, current: Vertex, f: (Vertex, Vertex) => U) {
+        graphIncomingEdges.getOrElse ((current), return).foreach (
+            edge => {
+                val tail = getTail (edge)
+                f (tail, end)
+                transitiveClosureRecurseBackward (end, tail, f)
+            }
+        )
+    }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
@@ -84,211 +95,124 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
     }
 
     /**
-     *
-     * access in O(1)
+     * access in O(n)
      */
-    def isDefinedAt(v: (Vertex, Vertex)) = {
-        if (transitiveClosure.contains (v._1)) {
-            transitiveClosureGet (v._1).ancestors.contains (v._2)
-        }
-        else
-        {
-            false
-        }
+    def isDefinedAt(edge: (Vertex, Vertex)): Boolean = {
+        transitiveClosureApplyForward[Unit](
+            edge._1,
+            (start: Vertex, end: Vertex) => {
+                if (end == edge._2) {
+                    return true
+                }
+            }
+        )
+        false
     }
 
-    def elementCountAt[T >: (Vertex, Vertex)](t: T): Int = {
-        if (!t.isInstanceOf[(Vertex, Vertex)]) {
-            return 0
-        }
-        val v = t.asInstanceOf[(Vertex, Vertex)]
-        if (transitiveClosure.contains (v._1)) {
-            1
-        }
-        else
-        {
-            0
-        }
+    /**
+     * access in O(n^2)
+     */
+    def elementCountAt[T >: (Vertex, Vertex)](edge: T): Int = {
+        throw new UnsupportedOperationException
     }
 
     def foreach[T](f: ((Vertex, Vertex)) => T) {
-        transitiveClosure.foreach (x => {
-            x._2.descendants.foreach (y => {
-                f ((x._1, y))
-            })
-        })
-    }
-
-    def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
-        transitiveClosure.foreach (x => {
-            x._2.descendants.foreach (y => {
-                f ((x._1, y), 1)
-            })
-        })
-    }
-
-
-    def lazyInitialize() {
-        source.foreach (
-            x => internal_add (x, notify = false)
+        graphOutgoingEdges.keys.foreach (v =>
+            transitiveClosureApplyForward[Unit](
+                v,
+                (start: Vertex, end: Vertex) => {
+                    f ((start, end))
+                }
+            )
         )
     }
 
-
-    private def transitiveClosureGet(v: Vertex) = {
-        transitiveClosure.getOrElse (v, throw new Error ())
+    def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
+        throw new UnsupportedOperationException
     }
 
 
-    def internal_add(edge: Edge, notify: Boolean) {
+    private def addGraphEdge(edge: Edge) {
         val head = getHead (edge)
         val tail = getTail (edge)
+        graphIncomingEdges (head) = edge :: graphIncomingEdges.getOrElseUpdate (head, Nil)
+        graphOutgoingEdges (tail) = edge :: graphOutgoingEdges.getOrElseUpdate (tail, Nil)
+    }
 
-        val pathsOfHeadVertex = transitiveClosure
-            .getOrElseUpdate (head, new Paths ())
+    private def removeGraphEdge(edge: Edge) {
+        val head = getHead (edge)
+        val tail = getTail (edge)
+        graphIncomingEdges (head) = graphIncomingEdges (head) filterNot (_ == edge)
+        graphOutgoingEdges (tail) = graphOutgoingEdges (tail) filterNot (_ == edge)
+    }
 
-        val pathsOfTailVertex = transitiveClosure
-            .getOrElseUpdate (tail, new Paths ())
+    private def graphContains(edge: Edge): Boolean = {
+        val head = getHead (edge)
+        val tail = getTail (edge)
+        graphIncomingEdges.getOrElse (head, return false).contains (edge) &&
+            graphOutgoingEdges.getOrElse (tail, return false).contains (edge)
+    }
 
-        // head -> ({}, {tail})
-        // (head, tail)
-        pathsOfHeadVertex.ancestors.add (tail)
-        // tail -> ({head}, {})
-        // (head, tail)
-        pathsOfTailVertex.descendants.add (head)
-
-        //Step 4 // the new edge itself
-        if (notify) element_added ((tail, head))
-
-
-        //Step 1 // all new paths constructed by adding the new edge to the back of an existing path
-        //O(n)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            // all edges with head x == tail(e)
-            // the Vertex x has an outgoing Edge e = (x,endVertex(edge))
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-            if (!connectedVertices.descendants.contains (head)) {
-                connectedVertices.descendants.add (head)
-                pathsOfHeadVertex.ancestors.add (x)
-                if (notify) element_added ((x, head))
-            }
-
-        })
-        //Step 2
-        //O(n)
-        pathsOfHeadVertex.descendants.foreach ((x: Vertex) => {
-            // all edges with tail x == head(e)
-            // the Vertex x has an incoming Edge e = (tail(e),x)
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-            if (!connectedVertices.ancestors.contains (tail)) {
-                connectedVertices.ancestors.add (tail)
-                pathsOfTailVertex.descendants.add (x)
-                //tailHeadAdjacencyList.put(startVertex(edge), x)
-                // && headTailAdjacencyList.put(x, startVertex(edge)))
-                if (notify) element_added ((tail, x))
-            }
-
-
-        })
-        //Step 3
-        //O(n^2)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-                val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-                if (!connectedVertices.descendants.contains (y)) {
-                    //all the vertices with e1 = (x,tail(e)) and e2 = (head(e), y)
-                    //=> e'=(x,y) new edge in the transitive closure
-                    connectedVertices.descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    if (notify) element_added ((x, y))
-                }
-
-            })
-        })
+    def lazyInitialize() {
+        source.foreach (addGraphEdge)
     }
 
     def added(edge: Edge) {
-        internal_add (edge, notify = true)
-    }
-
-    def removed(edge: Edge) {
-
         val head = getHead (edge)
         val tail = getTail (edge)
 
-
-        val pathsOfTailVertex = transitiveClosure.getOrElse (tail, throw new Error ())
-        val pathsOfHeadVertex = transitiveClosure.getOrElse (head, throw new Error ())
-
-
-        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper)
-        val suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
-
-        suspiciousEdges.add (tail, head)
-
-        //
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            suspiciousEdges.add ((x, head))
-        })
-        pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-            suspiciousEdges.add ((tail, y))
-        })
-
-        //O(n^2)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-                suspiciousEdges.add ((x, y))
-            })
-        })
-
-        suspiciousEdges.foreach (e => {
-            val x = e._1
-            val y = e._2
-            val descendants = transitiveClosure.getOrElse (x, throw new Error ()).descendants
-            descendants.remove (y)
-            val ancestors = transitiveClosure.getOrElse (y, throw new Error ()).ancestors
-            ancestors.remove (x)
-        })
-
-
-
-        // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
-        // alternative paths can be found by concatenating trusted paths once or twice
-        val trustedEdges = mutable.Set[(Vertex, Vertex)]()
-        for (i <- 1 to 2) {
-            var putBack = List[(Vertex, Vertex)]()
-            suspiciousEdges.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    breakable {
-                        transitiveClosure.getOrElse (x, throw new Error ()).descendants.foreach ((v: Vertex) => {
-                            // do we still have a path from x._1 to x._2 => reinsert
-                            if (transitiveClosure.getOrElse (v, throw new Error ()).ancestors.contains (y)) {
-                                putBack = (x, y) :: putBack
-                                break ()
-                            }
-                        })
-                    }
-                }
-            )
-            putBack.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    transitiveClosure.getOrElse (x, throw new Error ()).descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    suspiciousEdges.remove (e)
-                }
-            )
-
-
+        if (graphContains (edge)) {
+            return
         }
 
-        // edges = TC_old - TC_new
-        suspiciousEdges.foreach (x => {
-            element_removed (x._1, x._2)
-        })
+        var reachableFromHead: List[Vertex] = Nil
+        var reachingToTail: List[Vertex] = Nil
+
+        transitiveClosureApplyForward (head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
+        transitiveClosureApplyBackward (tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
+
+        addGraphEdge (edge)
+
+        element_added (tail, head)
+        reachingToTail.foreach (element_added (_, head))
+
+        reachableFromHead.foreach (
+            end => {
+                reachingToTail.foreach (
+                    start => {
+                        element_added (start, end)
+                    }
+                )
+                element_added (tail, end)
+            }
+        )
+    }
+
+    def removed(edge: Edge) {
+        val head = getHead (edge)
+        val tail = getTail (edge)
+
+        var reachableFromHead: List[Vertex] = Nil
+        var reachingToTail: List[Vertex] = Nil
+
+        transitiveClosureApplyForward (head, (start: Vertex, end: Vertex) => reachableFromHead = end :: reachableFromHead)
+        transitiveClosureApplyBackward (tail, (start: Vertex, end: Vertex) => reachingToTail = start :: reachingToTail)
+
+        removeGraphEdge (edge)
+
+        element_removed (tail, head)
+        reachingToTail.foreach (element_removed (_, head))
+
+        reachableFromHead.foreach (
+            end => {
+                reachingToTail.foreach (
+                    start => {
+                        element_removed (start, end)
+                    }
+                )
+                element_removed (tail, end)
+            }
+        )
     }
 
     def updated(oldV: Edge, newV: Edge) {
