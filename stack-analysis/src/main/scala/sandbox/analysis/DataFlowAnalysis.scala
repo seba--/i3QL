@@ -12,6 +12,7 @@ import sandbox.cfg.AnalysisControlFlowGraph
  * Time: 15:10
  * To change this template use File | Settings | File Templates.
  */
+// rename to control flow analysis
 abstract class DataFlowAnalysis[T](cfg: AnalysisControlFlowGraph) {
 
   private val graph: AnalysisControlFlowGraph = cfg
