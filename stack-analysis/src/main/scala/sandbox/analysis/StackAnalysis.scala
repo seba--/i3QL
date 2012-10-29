@@ -19,17 +19,17 @@ class StackAnalysis(cfg: AnalysisControlFlowGraph, mss: Int, mlv: Int) extends D
 
   def startValue = new AnalysisResult(new AnalysisStack[Int](maxStackSize), new AnalysisLocalVars[VarValue.Value](maxLocalVariables))
 
-  def exit(instr: InstructionInfo, current: AnalysisResult): AnalysisResult = {
-    instr.instruction.opcode match {
-      case 2 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ICONST_M1
-      case 4 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ICONST_1
-      case 27 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ILOAD_1
-      case 28 => new AnalysisResult(current.stack.push(instr.pc), current.locals) //ILOAD_2
-      case 60 => new AnalysisResult(current.stack.pop(), current.locals.setVar(1, VarValue.vInt)) //ISTORE_1
-      case 61 => new AnalysisResult(current.stack.pop(), current.locals.setVar(2, VarValue.vInt)) //ISTORE_2
-      case 62 => new AnalysisResult(current.stack.pop(), current.locals.setVar(3, VarValue.vInt)) //ISTORE_3
-      case 96 => new AnalysisResult(current.stack.pop().pop().push(instr.pc), current.locals) //IADD
-      case _ => current //Other expression do not change the outcome
+  def exit(prevInstr: InstructionInfo, prevResult: AnalysisResult): AnalysisResult = {
+    prevInstr.instruction.opcode match {
+      case 2 => new AnalysisResult(prevResult.stack.push(prevInstr.pc), prevResult.locals) //ICONST_M1
+      case 4 => new AnalysisResult(prevResult.stack.push(prevInstr.pc), prevResult.locals) //ICONST_1
+      case 27 => new AnalysisResult(prevResult.stack.push(prevInstr.pc), prevResult.locals) //ILOAD_1
+      case 28 => new AnalysisResult(prevResult.stack.push(prevInstr.pc), prevResult.locals) //ILOAD_2
+      case 60 => new AnalysisResult(prevResult.stack.pop(), prevResult.locals.setVar(1, VarValue.vInt)) //ISTORE_1
+      case 61 => new AnalysisResult(prevResult.stack.pop(), prevResult.locals.setVar(2, VarValue.vInt)) //ISTORE_2
+      case 62 => new AnalysisResult(prevResult.stack.pop(), prevResult.locals.setVar(3, VarValue.vInt)) //ISTORE_3
+      case 96 => new AnalysisResult(prevResult.stack.pop().pop().push(prevInstr.pc), prevResult.locals) //IADD
+      case _ => prevResult //Other expression do not change the outcome
 
     }
   }

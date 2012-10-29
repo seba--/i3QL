@@ -11,8 +11,9 @@ import collection.immutable.HashSet
  * Time: 14:10
  * To change this template use File | Settings | File Templates.
  */
-class AnalysisLocalVars[T: Manifest](a: Array[Set[T]]) {
-  private val varStore: Array[Set[T]] = a
+// TODO use lists
+case class AnalysisLocalVars[T: Manifest](a: Array[Set[T]]) {
+
 
   def this(i: Int) = this(Array.fill[Set[T]](i)(new HashSet[T]))
 
