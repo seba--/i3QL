@@ -30,12 +30,15 @@ object Main {
 
     database.addClassFile(new FileInputStream("stack-analysis\\src\\main\\resources\\Test"))
 
+
+      val x: QueryResult[(CodeAttribute, InstructionInfo)] = compile(SELECT(*) FROM (attr, instr) WHERE (((_: CodeAttribute).declaringMethod) === (_:InstructionInfo).declaringMethod))
+
     for (m <- methods) {
       val methAttr = compile(SELECT(*) FROM attr WHERE (((_: CodeAttribute).declaringMethod) === m))
       val methInstr = compile(SELECT(*) FROM instr WHERE (((_: InstructionInfo).declaringMethod) === m))
 
       val cfg: AnalysisControlFlowGraph = new AnalysisControlFlowGraph(methInstr.asList.sortWith((a, b) => a.sequenceIndex < b.sequenceIndex))
-      val result: List[(Int, AnalysisResult)] = new StackAnalysis(cfg, methAttr.asList(0).max_locals, methAttr.asList(0).max_stack).execute().reverse
+      val result: List[(Int, AnalysisResult)] = new StackAnalysis(cfg, methAttr.asList(0).max_stack, methAttr.asList(0).max_locals).execute().reverse
 
       println("Result for method '" + m.name + "'")
       println(result.mkString("\n"))

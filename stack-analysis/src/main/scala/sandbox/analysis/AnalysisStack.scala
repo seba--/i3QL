@@ -11,6 +11,7 @@ import collection.immutable.{HashSet, Queue}
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
+// TODO use lists
 class AnalysisStack[T: Manifest](size: Int, q: Queue[Set[T]]) {
   require(q.size <= size && size >= 0)
 
