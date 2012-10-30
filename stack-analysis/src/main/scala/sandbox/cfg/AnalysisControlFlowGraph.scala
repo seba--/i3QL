@@ -1,6 +1,7 @@
 package sandbox.cfg
 
 import sae.bytecode.instructions.InstructionInfo
+import sae.Relation
 
 /**
  * This class implements the control flow graph of a program. WILL BE CHANGED!
@@ -11,7 +12,7 @@ import sae.bytecode.instructions.InstructionInfo
  * Time: 14:33
  * To change this template use File | Settings | File Templates.
  */
-class AnalysisControlFlowGraph(res: List[InstructionInfo]) {
+case class AnalysisControlFlowGraph(methodInstruction: Relation[InstructionInfo]) {
 
   private val instList = res
 
@@ -36,4 +37,6 @@ class AnalysisControlFlowGraph(res: List[InstructionInfo]) {
     else
       null
   }
+
+
 }
