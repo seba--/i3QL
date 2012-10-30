@@ -34,11 +34,12 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.SetExtent
+import sae.{Relation, SetExtent}
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
-import sae.bytecode.instructions.InstructionInfo
 import sae.bytecode.BytecodeDatabase
+import sae.syntax.sql._
+import sae.bytecode.instructions.InstructionInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,10 +49,10 @@ import sae.bytecode.BytecodeDatabase
  */
 
 class BATBytecodeDatabase
-    extends BytecodeDatabase
+        extends BytecodeDatabase
 {
 
-    val reader = new SAEJava6Framework (this)
+    val reader = new SAEJava6Framework(this)
 
     val classDeclarations = new SetExtent[ClassDeclaration]
 
@@ -63,9 +64,37 @@ class BATBytecodeDatabase
 
     val interfaceInheritance = new SetExtent[InheritanceRelation]
 
-    val instructions = new SetExtent[InstructionInfo]
+    val code = new SetExtent[CodeInfo]
 
-    val codeAttributes = new SetExtent[CodeAttribute]
+    lazy val instructions : Relation[InstructionInfo] = SELECT(*) FROM (identity[List[InstructionInfo]]_ IN instructionInfos)
+
+    private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT((codeInfo: CodeInfo) => {
+        var i = 0
+        var index = 0
+        val length = codeInfo.code.instructions.length
+        var result: List[InstructionInfo] = Nil
+        while (i < length) {
+            val instr = codeInfo.code.instructions(i)
+            if (instr != null) {
+                result = (InstructionInfo(codeInfo.declaringMethod, instr, i, index)) :: result
+                index += 1
+            }
+            i += 1
+        }
+        result
+    }
+    ) FROM code
+
+
+    lazy val codeAttributes : Relation[CodeAttribute] = SELECT(
+        (codeInfo: CodeInfo) => CodeAttribute(
+            codeInfo.declaringMethod,
+            codeInfo.code.instructions.size,
+            codeInfo.code.maxStack,
+            codeInfo.code.maxLocals,
+            codeInfo.code.exceptionHandlers
+        )
+    ) FROM code
 
     val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
@@ -75,7 +104,7 @@ class BATBytecodeDatabase
 
 
     def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
+        reader.ClassFile(() => stream)
     }
 
     def removeClassFile(stream: InputStream) {
@@ -83,19 +112,18 @@ class BATBytecodeDatabase
     }
 
     def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream (stream)
+        val zipStream: ZipInputStream = new ZipInputStream(stream)
         var zipEntry: ZipEntry = null
         while ((({
             zipEntry = zipStream.getNextEntry
             zipEntry
-        })) != null)
-        {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
-                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
+        })) != null) {
+            if (!zipEntry.isDirectory && zipEntry.getName.endsWith(".class")) {
+                addClassFile(new ZipStreamEntryWrapper(zipStream, zipEntry))
             }
         }
-        ObjectType.cache.clear ()
-        ArrayType.cache.clear ()
+        ObjectType.cache.clear()
+        ArrayType.cache.clear()
     }
 
     def removeArchive(stream: InputStream) {
