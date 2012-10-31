@@ -1,7 +1,8 @@
 package sae
 
 import bytecode.instructions.{InstructionInfo, InvokeInstruction}
-import bytecode.structure.{MethodInfo, MethodDeclaration, ClassDeclaration, DeclaredClassMember}
+import bytecode.structure._
+import bytecode.structure.MethodDeclaration
 import de.tud.cs.st.bat.resolved.{Type, ReferenceType, VoidType}
 
 /**
@@ -32,4 +33,8 @@ package object bytecode
     def returnType: MethodInfo => Type = _.returnType
 
     def classType: ClassDeclaration => ClassType = _.classType
+
+    def subType : InheritanceRelation => ClassType = _.subType
+
+    def superType : InheritanceRelation => ClassType = _.superType
 }

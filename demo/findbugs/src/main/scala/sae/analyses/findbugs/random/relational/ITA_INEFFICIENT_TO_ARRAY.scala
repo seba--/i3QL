@@ -1,10 +1,9 @@
-package sae.analyses.findbugs
+package sae.analyses.findbugs.random.relational
 
 import sae.bytecode._
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.instructions._
-import sae.bytecode.structure._
 import de.tud.cs.st.bat.resolved.ArrayType
 
 

@@ -1,4 +1,4 @@
-package sae.analyses.findbugs
+package sae.analyses.findbugs.random.relational
 
 import sae.bytecode._
 import sae.bytecode.structure._

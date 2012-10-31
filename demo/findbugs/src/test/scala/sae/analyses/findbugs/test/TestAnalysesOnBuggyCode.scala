@@ -34,6 +34,7 @@ package sae.analyses.findbugs.test
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs._
+import random.relational.{FI_PUBLIC_SHOULD_BE_PROTECTED, CI_CONFUSED_INHERITANCE, BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION}
 import sae.bytecode.instructions.{InstructionInfo, INVOKESPECIAL, INVOKEVIRTUAL}
 import org.junit.Test
 import sae.bytecode.structure.{ClassDeclaration, FieldDeclaration}
