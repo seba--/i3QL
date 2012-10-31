@@ -21,9 +21,9 @@ class AnalysisControlFlowGraph(ci: Relation[CodeInfo]) {
 
   private var predecessor : Relation[List[Int]] = null
 
-  def computePredecessors : Relation[List[Int]] = {
-    val res : Relation[String] = compile(SELECT ((c : CodeInfo) => (c.declaringMethod.name)) FROM codeInfo WHERE ((_ : CodeInfo).code == null))
-
+  def computePredecessors : Relation[String] = {
+    val res : Relation[String] = compile(SELECT ((c : CodeInfo) => (c.declaringMethod.name)) FROM codeInfo)
+    return res
   }
 
 

@@ -13,7 +13,7 @@ import sae.bytecode.instructions.InstructionInfo
  * To change this template use File | Settings | File Templates.
  */
 class StackAnalysis(cfg: AnalysisControlFlowGraph, mss: Int, mlv: Int) extends DataFlowAnalysis[AnalysisResult](cfg) {
-
+/*
   private val maxStackSize = mss
   private val maxLocalVariables = mlv
 
@@ -33,4 +33,5 @@ class StackAnalysis(cfg: AnalysisControlFlowGraph, mss: Int, mlv: Int) extends D
 
     }
   }
+  */
 }

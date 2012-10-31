@@ -14,7 +14,7 @@ import sandbox.cfg.AnalysisControlFlowGraph
  */
 // rename to control flow analysis
 abstract class DataFlowAnalysis[T](cfg: AnalysisControlFlowGraph) {
-
+ /*
   private val graph: AnalysisControlFlowGraph = cfg
 
   def startValue: T
@@ -36,6 +36,6 @@ abstract class DataFlowAnalysis[T](cfg: AnalysisControlFlowGraph) {
     return resList
 
   }
-
+   */
 
 }
