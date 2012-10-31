@@ -1,7 +1,9 @@
 package sandbox.cfg
 
 import sae.bytecode.instructions.InstructionInfo
-import sae.Relation
+import sae.{SetRelation, Relation}
+import sae.bytecode.structure.CodeInfo
+import sae.syntax.sql.SELECT
 
 /**
  * This class implements the control flow graph of a program. WILL BE CHANGED!
@@ -12,31 +14,14 @@ import sae.Relation
  * Time: 14:33
  * To change this template use File | Settings | File Templates.
  */
-case class AnalysisControlFlowGraph(methodInstruction: Relation[InstructionInfo]) {
+case class AnalysisControlFlowGraph(ci: SetRelation[CodeInfo]) {
 
-  private val instList = res
+  private var predecessor : Relation[List[Int]] = null
 
-  def getStartSequenceNumber = 0
-
-  def getNextInstruction(seq: Int): InstructionInfo = {
-    if (seq + 1 < instList.length)
-      instList(seq + 1)
-    else
-      null
+  def computePredecessors : Relation[List[Int]] = {
+    null
   }
 
-  def getInstruction(seq: Int): InstructionInfo =
-    if (seq >= 0 && seq < instList.length)
-      instList(seq)
-    else
-      null
-
-  def getPreviousInstruction(seq: Int): InstructionInfo = {
-    if (seq > 0)
-      instList(seq - 1)
-    else
-      null
-  }
 
 
 }

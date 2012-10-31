@@ -12,7 +12,7 @@ import collection.immutable.HashSet
  * To change this template use File | Settings | File Templates.
  */
 // TODO use lists
-case class AnalysisLocalVars[T: Manifest](a: Array[Set[T]]) {
+case class AnalysisLocalVars[T: Manifest](varStore: Array[Set[T]]) {
 
 
   def this(i: Int) = this(Array.fill[Set[T]](i)(new HashSet[T]))

@@ -22,7 +22,8 @@ class AnalysisStack[T: Manifest](size: Int, q: Queue[Set[T]]) {
 
   def push(t: T): AnalysisStack[T] =
     if (stack.size < maxSize)
-      new AnalysisStack[T](maxSize, stack.enqueue(new HashSet[T] + t))
+    //  new AnalysisStack[T](maxSize, stack.enqueue(new HashSet[T] + t))
+      null
     else
       this
 

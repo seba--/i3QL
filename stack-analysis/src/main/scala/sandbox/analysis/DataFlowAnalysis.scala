@@ -24,7 +24,7 @@ abstract class DataFlowAnalysis[T](cfg: AnalysisControlFlowGraph) {
   def execute(): List[(Int, T)] = {
 
     var resList: List[(Int, T)] = Nil
-    var currentInstruction: InstructionInfo = graph.getInstruction(graph.getStartSequenceNumber)
+   /* var currentInstruction: InstructionInfo = graph.getInstruction(graph.getStartSequenceNumber)
     var currentValue: T = startValue
 
     while (currentInstruction != null) {
@@ -32,7 +32,7 @@ abstract class DataFlowAnalysis[T](cfg: AnalysisControlFlowGraph) {
       currentValue = exit(currentInstruction, currentValue)
       currentInstruction = graph.getNextInstruction(currentInstruction.sequenceIndex)
     }
-
+     */
     return resList
 
   }

@@ -5,7 +5,7 @@ import cfg.AnalysisControlFlowGraph
 import sae.bytecode.bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.bytecode.instructions.InstructionInfo
-import sae.QueryResult
+import sae.{Relation, QueryResult}
 import sae.syntax.sql._
 import sae.bytecode.structure.{MethodDeclaration, CodeAttribute}
 
@@ -23,25 +23,25 @@ object Main {
   def main(args: Array[String]) {
     val database = BATDatabaseFactory.create()
 
-    val methods: QueryResult[MethodDeclaration] = compile(SELECT(*) FROM database.methodDeclarations)
-    val attr: QueryResult[CodeAttribute] = compile(SELECT(*) FROM database.codeAttributes) // WHERE (((_: CodeAttribute).declaringMethod.name) === "main"))
-    val instr: QueryResult[InstructionInfo] = compile(SELECT(*) FROM database.instructions) // WHERE (((_: InstructionInfo).declaringMethod.name) === "main"))
+    val methods: Relation[MethodDeclaration] = compile(SELECT(*) FROM database.methodDeclarations)
+    val attr: Relation[CodeAttribute] = compile(SELECT(*) FROM database.codeAttributes) // WHERE (((_: CodeAttribute).declaringMethod.name) === "main"))
+    val instr: Relation[InstructionInfo] = compile(SELECT(*) FROM database.instructions) // WHERE (((_: InstructionInfo).declaringMethod.name) === "main"))
     //    val query: QueryResult[(Int, Array[Int])] = compile(SELECT((codeAttribute: CodeAttribute) => (1, Array.ofDim[Int](codeAttribute.max_locals))) FROM database.codeAttributes)
 
     database.addClassFile(new FileInputStream("stack-analysis\\src\\main\\resources\\Test"))
 
 
-      val x: QueryResult[(CodeAttribute, InstructionInfo)] = compile(SELECT(*) FROM (attr, instr) WHERE (((_: CodeAttribute).declaringMethod) === (_:InstructionInfo).declaringMethod))
+     // val x: Relation[(CodeAttribute, InstructionInfo)] = compile(SELECT(*) FROM (attr, instr) WHERE (((_:InstructionInfo).declaringMethod) === (_: CodeAttribute).declaringMethod))
 
     for (m <- methods) {
       val methAttr = compile(SELECT(*) FROM attr WHERE (((_: CodeAttribute).declaringMethod) === m))
       val methInstr = compile(SELECT(*) FROM instr WHERE (((_: InstructionInfo).declaringMethod) === m))
 
-      val cfg: AnalysisControlFlowGraph = new AnalysisControlFlowGraph(methInstr.asList.sortWith((a, b) => a.sequenceIndex < b.sequenceIndex))
-      val result: List[(Int, AnalysisResult)] = new StackAnalysis(cfg, methAttr.asList(0).max_stack, methAttr.asList(0).max_locals).execute().reverse
+     // val cfg: AnalysisControlFlowGraph = new AnalysisControlFlowGraph(methInstr.asList.sortWith((a, b) => a.sequenceIndex < b.sequenceIndex))
+    //  val result: List[(Int, AnalysisResult)] = new StackAnalysis(cfg, methAttr.asList(0).max_stack, methAttr.asList(0).max_locals).execute().reverse
 
       println("Result for method '" + m.name + "'")
-      println(result.mkString("\n"))
+  //    println(result.mkString("\n"))
       println()
 
     }
