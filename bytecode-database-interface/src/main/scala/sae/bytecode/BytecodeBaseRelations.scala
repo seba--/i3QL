@@ -56,8 +56,6 @@ trait BytecodeBaseRelations
 
     def interfaceInheritance: SetRelation[InheritanceRelation]
 
-    def instructions: SetRelation[InstructionInfo]
-
-    def codeAttributes: SetRelation[CodeAttribute]
+    def code: SetRelation[CodeInfo]
 
 }

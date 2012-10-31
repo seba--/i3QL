@@ -32,8 +32,9 @@
  */
 package sae.bytecode
 
+import instructions.InstructionInfo
 import sae.Relation
-import structure.InheritanceRelation
+import structure.{CodeAttribute, InheritanceRelation}
 
 /**
  *
@@ -45,10 +46,13 @@ import structure.InheritanceRelation
 trait BytecodeDervivedRelations
 {
 
-    import sae.bytecode._
 
     //def fieldReadInstructions: Relation[ReadFieldInstruction]
 
 
     def inheritance: Relation[InheritanceRelation]
+
+    def instructions: Relation[InstructionInfo]
+
+    def codeAttributes: Relation[CodeAttribute]
 }

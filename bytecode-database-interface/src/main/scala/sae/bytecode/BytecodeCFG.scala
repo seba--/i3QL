@@ -50,9 +50,9 @@ import com.google.common.collect.SortedMultiset
 
 trait BytecodeCFG
 {
-    def instructions: SetRelation[InstructionInfo]
+    def instructions: Relation[InstructionInfo]
 
-    def codeAttributes: SetRelation[CodeAttribute]
+    def codeAttributes: Relation[CodeAttribute]
 
     private lazy val exceptionHandlers: Relation[ExceptionHandlerInfo] =
         SELECT ((code: CodeAttribute, handler: ExceptionHandler) => ExceptionHandlerInfo (code.declaringMethod, handler)) FROM (codeAttributes, ((_: CodeAttribute).exceptionHandlers) IN codeAttributes)

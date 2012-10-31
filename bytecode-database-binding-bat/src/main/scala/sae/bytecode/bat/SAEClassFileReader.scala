@@ -128,22 +128,16 @@ trait SAEClassFileReader
 
         attributes.foreach (_ match {
             case code: Code => {
-                database.codeAttributes.element_added (
-                    CodeAttribute (
-                        methodDeclaration,
-                        code.instructions.size,
-                        code.maxStack,
-                        code.maxLocals,
-                        code.exceptionHandlers
-                    )
+                database.code.element_added (
+                    CodeInfo(methodDeclaration, code)
                 )
-                addInstructions (methodDeclaration, code.instructions)
             }
             case _ => /* do nothing*/
         })
         methodDeclaration
     }
 
+    /*
     def addInstructions(declaringMethod: Method_Info, instructions: Array[Instruction]) {
         var i = 0
         var index = 0
@@ -157,6 +151,7 @@ trait SAEClassFileReader
             i += 1
         }
     }
+    */
 
     def ClassFile(classInfo: Class_Info,
                   interfaces: Interfaces,
