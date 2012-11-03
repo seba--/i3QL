@@ -36,7 +36,7 @@ object DP_DO_INSIDE_DO_PRIVILEGED
         SELECT (*) FROM invokeVirtual WHERE
             (_.name == "setAccessible") AND
             (((_: INVOKEVIRTUAL).receiverType == reflectionFieldClass) OR (_.receiverType == reflectionMethodClass)) AND
-            EXISTS (
+            NOT EXISTS (
                 SELECT (*) FROM interfaceInheritance WHERE
                     (((_: InheritanceRelation).subType) === ((_: INVOKEVIRTUAL).declaringMethod.declaringClass)) AND
                     (((_: InheritanceRelation).superType == priviledgedActionClass) OR (_.superType == priviledgedExceptionActionClass))
