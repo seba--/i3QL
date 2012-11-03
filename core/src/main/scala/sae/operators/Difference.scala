@@ -17,13 +17,11 @@ import sae._
 trait Difference[Domain]
         extends Relation[Domain]
 {
-    def left: MaterializedRelation[Domain]
+    def left: Relation[Domain]
 
-    def right: MaterializedRelation[Domain]
+    def right: Relation[Domain]
 
     def isSet = left.isSet
-
-    def isStored = left.isStored && right.isStored // should always be true
 
     override protected def children = List (left, right)
 }

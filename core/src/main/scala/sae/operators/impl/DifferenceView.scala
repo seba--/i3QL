@@ -33,7 +33,7 @@
 package sae.operators.impl
 
 import sae.operators.Difference
-import sae.{Observable, Observer, MaterializedRelation}
+import sae.{MaterializedRelation, Relation, Observable, Observer}
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
@@ -42,14 +42,25 @@ import sae.{Observable, Observer, MaterializedRelation}
  * The operation itself does not store any intermediate results.
  * Updates are computed based on indices and foreach is recomputed on every call.
  *
+ *
+ * The difference can be update by the expression:
+ * [(Δright- ∪ Δleft+) - (Δleft- ∪ Δright+)] - (right - left)
  */
-class DifferenceView[Domain](val left: MaterializedRelation[Domain],
-                             val right: MaterializedRelation[Domain])
-    extends Difference[Domain]
+class DifferenceView[Domain](val left: Relation[Domain],
+                             val right: Relation[Domain])
+    extends Difference[Domain] with MaterializedRelation[Domain]
 {
     left addObserver LeftObserver
 
     right addObserver RightObserver
+
+    import com.google.common.collect.HashMultiset
+
+    private val leftDiffRight: HashMultiset[Domain] = HashMultiset.create[Domain]()
+
+    private val rightDiffLeft: HashMultiset[Domain] = HashMultiset.create[Domain]()
+
+    lazyInitialize()
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
@@ -62,96 +73,137 @@ class DifferenceView[Domain](val left: MaterializedRelation[Domain],
     }
 
     /**
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
+     */
+    def lazyInitialize() {
+        val intersection: HashMultiset[Domain] = HashMultiset.create[Domain]()
+        left.foreach (v => {
+            leftDiffRight.add (v)
+            intersection.add(v)
+        })
+        right.foreach (v => rightDiffLeft.add (v))
+        intersection.retainAll(rightDiffLeft)
+        leftDiffRight.removeAll(intersection)
+        rightDiffLeft.removeAll(intersection)
+    }
+
+    /**
+     * Applies f to all elements of the view with their counts
+     */
+    def foreachWithCount[T](f: (Domain, Int) => T) {}
+
+    def isDefinedAt(v: Domain) = false
+
+    /**
+     * Returns the count for a given element.
+     * In case an add/remove/update event is in progression, this always returns the
+     */
+    def elementCountAt[T >: Domain](v: T) = 0
+
+    /**
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Domain) => T) {
-        left.foreachWithCount (
-            (v: Domain, leftCount: Int) =>
-            {
-                val rightCount = right.elementCountAt (v)
-                val max = scala.math.max (0, leftCount - rightCount)
-                var i = 0
-                while (i < max) {
-                    f (v)
-                    i += 1
-                }
-            }
-        )
+        val it = leftDiffRight.iterator ()
+        while (it.hasNext) {
+            val v = it.next ()
+            f (v)
+        }
     }
 
+
+    /**
+     * [(Δright- ∪ Δleft+) - (Δleft- ∪ Δright+)] - (right - left)
+     */
     object LeftObserver extends Observer[Domain]
     {
-        def updated(oldV: Domain, newV: Domain) {
-            // we are notified after the update, hence the left will be updated to newV
-            var oldCount = left.elementCountAt (newV) - right.elementCountAt (oldV)
-            var newCount = left.elementCountAt (newV) - right.elementCountAt (newV)
-            if (oldCount == newCount) {
-                element_updated (oldV, newV)
-                return
+
+        /**
+         * Δleft+ - (right - left)
+         */
+        def added(v: Domain) {
+            if (rightDiffLeft.count (v) == 0) {
+                leftDiffRight.add (v)
+                element_added (v)
             }
-            while (oldCount > 0)
+            else
             {
-                element_removed (oldV)
-                oldCount -= 1
-            }
-            while (newCount > 0)
-            {
-                element_added (newV)
-                newCount -= 1
+                rightDiffLeft.remove (v)
             }
         }
 
+        /**
+         * - Δleft-  - (right - left)
+         */
         def removed(v: Domain) {
-            // check that this was a removal where we still had more elements than right side
-            if (left.elementCountAt (v) >= right.elementCountAt (v)) {
+            if (leftDiffRight.count (v) > 0) {
+                leftDiffRight.remove (v)
                 element_removed (v)
             }
+            else
+            {
+                // if it was not in the leftDiffRight result it was filtered by being in right
+                rightDiffLeft.add (v)
+            }
         }
 
-        def added(v: Domain) {
-            // check that this was an addition where we did not have less elements than right side
-            if (left.elementCountAt (v) > right.elementCountAt (v)) {
-                element_added (v)
+        def updated(oldV: Domain, newV: Domain) {
+            var count = leftDiffRight.count (oldV) + rightDiffLeft.count(oldV)
+            if (count == 0){
+                added(newV)
+            }
+            while (count > 0)
+            {
+                removed (oldV)
+                added(newV)
+                count -= 1
             }
         }
     }
 
     object RightObserver extends Observer[Domain]
     {
-        // update operations on right relation
-        def updated(oldV: Domain, newV: Domain) {
-            // we are notified after the update, hence the right will be updated to newV
-            var oldCount = if (left.elementCountAt (oldV) >= right.elementCountAt (newV)) right.elementCountAt (newV) else left.elementCountAt (oldV)
-            var newCount = if (left.elementCountAt (newV) >= right.elementCountAt (newV)) right.elementCountAt (newV) else left.elementCountAt (newV)
-            if (oldCount == newCount) {
-                element_updated (oldV, newV)
-                return
+        def added(v: Domain) {
+            if (leftDiffRight.count (v) > 0) {
+                leftDiffRight.remove (v)
+                element_removed (v)
             }
-            while (oldCount > 0)
+            else
             {
-                element_added (oldV)
-                oldCount -= 1
-            }
-            while (newCount > 0)
-            {
-                element_removed (newV)
-                newCount -= 1
+                rightDiffLeft.add (v)
             }
         }
 
         def removed(v: Domain) {
-            // check that this was the last removal of an element not in left side
-            if (left.elementCountAt (v) > right.elementCountAt (v)) {
+            if (rightDiffLeft.count (v) == 0) {
+                leftDiffRight.add (v)
                 element_added (v)
+            }
+            else
+            {
+                rightDiffLeft.remove (v)
             }
         }
 
-        def added(v: Domain) {
-            // check that this was an addition where we have more or equal amount of elements compared to left side
-            if (left.elementCountAt (v) >= right.elementCountAt (v)) {
-                element_removed (v)
+        def updated(oldV: Domain, newV: Domain) {
+            var count = leftDiffRight.count (oldV) + rightDiffLeft.count(oldV)
+            if (count == 0){
+                added(newV)
+            }
+            while (count > 0)
+            {
+                removed (oldV)
+                added (newV)
+                count -= 1
             }
         }
     }
+
 
 }
