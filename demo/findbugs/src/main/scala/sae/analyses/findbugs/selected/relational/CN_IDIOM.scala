@@ -1,5 +1,5 @@
 /* License (BSD Style License):
-*  Copyright (c) 2009, 2012
+*  Copyright (c) 2009, 2011
 *  Software Technology Group
 *  Department of Computer Science
 *  Technische Universität Darmstadt
@@ -30,56 +30,37 @@
 *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 *  POSSIBILITY OF SUCH DAMAGE.
 */
-package sae.analyses.findbugs.random.relational
+package sae.analyses.findbugs.selected.relational
 
+import sae.bytecode.BytecodeDatabase
+import sae.Relation
+import sae.syntax.sql._
+import sae.bytecode.structure.{MethodDeclaration, ClassDeclaration}
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
- * Finalize just calls super.finalize.
  *
  * @author Ralf Mitschke
- *         BAT version by Michael Eichberg
+ *
  */
-object FI_USELESS
-//extends (BytecodeDatabase => Relation[MethodDeclaration])
+object CN_IDIOM
+    extends (BytecodeDatabase => Relation[ClassDeclaration])
 {
 
-    /*
-    def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
+    def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
         import database._
-
-        val invokeSpecial /*: Relation[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
-
-        val subselect = SELECT (*) FROM invokeSpecial WHERE
-            (_.name == "finalize") AND
-            (_.returnType == void) AND
+        import sae.analyses.findbugs.base.oo.Definitions._
+        import sae.bytecode._
+        SELECT ((cd: ClassDeclaration, md: MethodDeclaration) => cd) FROM
+            (classDeclarations, methodDeclarations) WHERE
+            (classType === ((_: MethodDeclaration).declaringClassType)) AND
+            (_.classType == cloneable) AND
+            ((_: MethodDeclaration).name == "clone") AND
             (_.parameterTypes == Nil) AND
-            (declaringMethod === (identity(_: MethodDeclaration)))
-
-        SELECT (*) FROM (methodDeclarations) WHERE
-            (_.name == "finalize") AND
-            (_.returnType == void) AND
-            (_.parameterTypes == Nil) AND
-            EXISTS (
-                SELECT (*) FROM invokeSpecial WHERE
-                    (_.name == "finalize") AND
-                    (_.returnType == void) AND
-                    (_.parameterTypes == Nil) AND
-                    (declaringMethod === (_: MethodDeclaration))
-            ) AND
-            (5 === (SELECT COUNT (*) FROM instructions WHERE (declaringMethod === (_: MethodDeclaration))))
+            (_.returnType == ObjectType.Object)
     }
-    */
-    /*
-    def foo {
-        val c = count(null)
-    }
-    */
-    /*
+
+}
 
 
-def count(instructions :Relation[InstructionInfo]) : Relation[Some[Int]]  = {
-    import sae.syntax.RelationalAlgebraSyntax._
-    γ(instructions, Count[InstructionInfo]())
-}
-    */
-}
+

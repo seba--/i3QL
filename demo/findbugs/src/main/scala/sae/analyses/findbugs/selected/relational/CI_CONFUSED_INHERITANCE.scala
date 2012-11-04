@@ -1,7 +1,7 @@
 package sae.analyses.findbugs.selected.relational
 
 import sae.Relation
-import sae.bytecode.model.{FieldDeclaration, ClassDeclaration}
+import sae.bytecode.structure.{FieldDeclaration, ClassDeclaration}
 import sae.bytecode._
 import sae.syntax.sql._
 
@@ -14,16 +14,17 @@ import sae.syntax.sql._
  * CI: Class is final but declares protected field (CI_CONFUSED_INHERITANCE) // http://code.google.com/p/findbugs/source/browse/branches/2.0_gui_rework/findbugs/src/java/edu/umd/cs/findbugs/detect/ConfusedInheritance.java
  */
 object CI_CONFUSED_INHERITANCE
-        extends (BytecodeDatabase => Relation[(ClassDeclaration, FieldDeclaration)])
+    extends (BytecodeDatabase => Relation[(ClassDeclaration, FieldDeclaration)])
 {
 
     def apply(database: BytecodeDatabase): Relation[(ClassDeclaration, FieldDeclaration)] =
     {
         import database._
-        SELECT {(cd: ClassDeclaration, fd: FieldDeclaration) => (cd, fd)} FROM
+        SELECT ((cd: ClassDeclaration, fd: FieldDeclaration) => (cd, fd)) FROM
             (classDeclarations, fieldDeclarations) WHERE
-            classType === (_: FieldDeclaration).declaringClass
-            (_.isFinal) AND (_: FieldDeclaration).isProtected
+            (classType === ((_: FieldDeclaration).declaringClassType)) AND
+            (_.isFinal) AND
+            ((_: FieldDeclaration).isProtected)
     }
 
 }

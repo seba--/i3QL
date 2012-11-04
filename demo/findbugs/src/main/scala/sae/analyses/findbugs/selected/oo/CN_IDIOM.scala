@@ -44,17 +44,17 @@ import de.tud.cs.st.bat.resolved.ObjectType
  *
  */
 object CN_IDIOM
-        extends (BytecodeDatabase => Relation[ClassDeclaration])
+    extends (BytecodeDatabase => Relation[ClassDeclaration])
 {
 
     def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
         import database._
         import sae.analyses.findbugs.base.oo.Definitions._
-        SELECT((_: MethodDeclaration).declaringClass) FROM methodDeclarations WHERE
-                (_.name == "clone") AND
-                (_.parameters == Nil) AND
-                (_.returnType == ObjectType.Object) AND
-                (_.declaringClass.classType == cloneable)
+        SELECT ((_: MethodDeclaration).declaringClass) FROM methodDeclarations WHERE
+            (_.name == "clone") AND
+            (_.parameterTypes == Nil) AND
+            (_.returnType == ObjectType.Object) AND
+            (_.declaringClass.classType == cloneable)
     }
 
 }
