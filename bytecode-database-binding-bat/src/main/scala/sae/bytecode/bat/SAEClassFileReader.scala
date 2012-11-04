@@ -141,24 +141,7 @@ trait SAEClassFileReader
         methodDeclaration
     }
 
-    /*
-    def addInstructions(declaringMethod: Method_Info, instructions: Array[Instruction]) {
-        var i = 0
-        var index = 0
-        while (i < instructions.length)
-        {
-            val instr = instructions (i)
-            if (instr != null) {
-                database.instructions.element_added (InstructionInfo (declaringMethod, instr, i, index))
-                index += 1
-            }
-            i += 1
-        }
-    }
-    */
-
     def ClassFile(classInfo: Class_Info,
-                  interfaces: Interfaces,
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
@@ -166,38 +149,5 @@ trait SAEClassFileReader
         classInfo
     }
 
-    /**
-     * Template method to read in a Java class file from the given input stream.
-     *
-     * @param in the DataInputStream from which the class file will be read. The
-     *           stream is not closed by this method.
-     */
-    override def ClassFile(in: DataInputStream): ClassFile = {
-        // magic
-        require(CLASS_FILE_MAGIC == in.readInt, "No class file.")
-
-        val minor_version = in.readUnsignedShort // minor_version
-        val major_version = in.readUnsignedShort // major_version
-
-        // let's make sure that we support this class file's version
-        require(major_version >= 45 && // at least JDK 1.1.
-                (major_version < 51 ||
-                        (major_version == 51 && minor_version == 0))) // Java 6 = 50.0; Java 7 == 51.0
-
-        val cp = Constant_Pool(in)
-
-        val ci = Class_Info(minor_version, major_version, in)(cp)
-        val interfaces = Interfaces(ci, in, cp)
-        val fields = Fields(ci, in, cp)
-        val methods = Methods(ci, in, cp)
-        val attributes = Attributes(AttributesParents.ClassFile, cp, in)
-
-        ClassFile(
-            ci,
-            interfaces,
-            fields, methods,
-            attributes
-        )(cp)
-    }
 
 }
