@@ -67,12 +67,14 @@ trait AbstractPropertiesFileProfiler
         val measurementJars = properties.getProperty ("sae.benchmark.jars").split (";").toList
         val queries = properties.getProperty ("sae.benchmark.queries").split (";").toList
 
+        val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty("user.dir") + "/bench.txt")
+
 
         warmup (warmupIterations, warmupJars, queries)
 
         measure (measurementIterations, measurementJars, queries)
 
-        sys.exit (1)
+        sys.exit (0)
     }
 
     def usage: String
