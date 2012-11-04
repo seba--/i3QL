@@ -70,8 +70,8 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 
     def ∖ (otherRelation: Relation[Domain]): Relation[Domain] =
         new DifferenceView[Domain](
-            left.asMaterialized,
-            otherRelation.asMaterialized
+            left,
+            otherRelation
         )
 
 }

@@ -46,7 +46,7 @@ import sae.bytecode.structure.MethodDeclaration
 import sae.bytecode.structure.CodeAttribute
 import sae.bytecode.structure.InheritanceRelation
 import sae.bytecode.structure.FieldDeclaration
-import sae.operators.impl.AcyclicTransitiveClosureViewJava
+import sae.operators.impl.{TransitiveClosureViewAcyclicGraphStore, AcyclicTransitiveClosureViewJava}
 
 /**
  * Created with IntelliJ IDEA.
@@ -79,7 +79,7 @@ class BATBytecodeDatabase
 
     lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
-    lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (new AcyclicTransitiveClosureViewJava[InheritanceRelation, ObjectType] (inheritance,_.subType, _.superType))
+    lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (new TransitiveClosureViewAcyclicGraphStore[InheritanceRelation, ObjectType] (inheritance,_.subType, _.superType))
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)
