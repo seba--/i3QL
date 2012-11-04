@@ -1,4 +1,4 @@
-package sandbox.analysis
+package sandbox.stackAnalysis
 
 /**
  * Created with IntelliJ IDEA.
