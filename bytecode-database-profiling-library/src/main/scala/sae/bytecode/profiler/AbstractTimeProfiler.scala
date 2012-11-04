@@ -107,19 +107,5 @@ trait AbstractTimeProfiler
     }
 
 
-    /**
-     * performs the measurement of function f, iterations times.
-     * Two statistics are returned
-     * first: memory consumed when applying f
-     * second: memory leak after f has been applied
-     */
-    def measureTime(iterations: Int)(f: () => Long): SampleStatistic = {
-        val statistic = Statistic (iterations)
-        for (i <- 1 to iterations)
-        {
-            statistic.add (f ())
 
-        }
-        statistic
-    }
 }
