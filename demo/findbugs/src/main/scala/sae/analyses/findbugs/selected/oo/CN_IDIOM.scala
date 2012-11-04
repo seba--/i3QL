@@ -50,8 +50,7 @@ object CN_IDIOM
     def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
         import database._
         import sae.analyses.findbugs.base.oo.Definitions._
-        SELECT((_: MethodDeclaration).declaringClass) FROM
-                methodDeclarations WHERE
+        SELECT((_: MethodDeclaration).declaringClass) FROM methodDeclarations WHERE
                 (_.name == "clone") AND
                 (_.parameters == Nil) AND
                 (_.returnType == ObjectType.Object) AND

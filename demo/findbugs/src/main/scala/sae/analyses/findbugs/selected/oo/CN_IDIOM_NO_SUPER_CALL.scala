@@ -11,14 +11,13 @@ import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
  * @author Ralf Mitschke
  *
  */
-class CN_IDIOM_NO_SUPER_CALL
+object CN_IDIOM_NO_SUPER_CALL
         extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
-        SELECT(_: CodeInfo).declaringMethod FROM
-                code WHERE
+        SELECT(_: CodeInfo).declaringMethod FROM code WHERE
                 NOT(_.declaringMethod.declaringClass.isInterface) AND
                 NOT(_.declaringMethod.declaringClass.isAnnotation) AND
                 (_.declaringMethod.name == "clone") AND
