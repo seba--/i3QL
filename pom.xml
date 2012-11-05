@@ -17,6 +17,7 @@
         <module>bytecode-database-profiling-library</module>
         <module>bytecode-database-profiling-runner</module>
         <module>demo/findbugs</module>
+        <module>benchmark-harness</module>
 
 
 

@@ -32,10 +32,6 @@
 */
 package sae.analyses.findbugs.random.relational
 
-import instructions.InstructionInfo
-import sae.Relation
-import sae.functions.Count
-
 
 /**
  * Finalize just calls super.finalize.
@@ -44,10 +40,10 @@ import sae.functions.Count
  *         BAT version by Michael Eichberg
  */
 object FI_USELESS
-    //extends (BytecodeDatabase => Relation[MethodDeclaration])
+//extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
-      /*
+    /*
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
 
@@ -73,14 +69,17 @@ object FI_USELESS
             (5 === (SELECT COUNT (*) FROM instructions WHERE (declaringMethod === (_: MethodDeclaration))))
     }
     */
-
+    /*
     def foo {
         val c = count(null)
     }
+    */
+    /*
 
-    def count(instructions :Relation[InstructionInfo]) : Relation[Some[Int]]  = {
-        import sae.syntax.RelationalAlgebraSyntax._
-        γ(instructions, Count[InstructionInfo]())
-    }
 
+def count(instructions :Relation[InstructionInfo]) : Relation[Some[Int]]  = {
+    import sae.syntax.RelationalAlgebraSyntax._
+    γ(instructions, Count[InstructionInfo]())
+}
+    */
 }
