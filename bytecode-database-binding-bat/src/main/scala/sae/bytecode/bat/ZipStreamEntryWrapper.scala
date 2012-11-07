@@ -61,8 +61,9 @@ class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) ext
     }
 
     override def read(b: Array[Byte], off: Int, len: Int) = {
-        availableCounter -= len
-        stream.read(b, off, len)
+        val read = stream.read(b, off, len)
+        availableCounter -= read
+        read
     }
 
     override def skip(n: Long) = {
