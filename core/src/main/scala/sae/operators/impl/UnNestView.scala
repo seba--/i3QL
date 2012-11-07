@@ -61,7 +61,7 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     }
 
 
-    // TODO we could try and see whether the returned unestings are equal, but it is not
+    // TODO we could try and see whether the returned un-nesting are equal, but it is not
     def updated(oldV: Domain, newV: Domain) {
         removed (oldV)
         added (newV)
