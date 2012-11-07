@@ -37,6 +37,9 @@ import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
 import sae.bytecode.profiler.util.MilliSeconds
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs.AnalysesOO
+import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
+import sae.Relation
+import sae.bytecode.profiler.statistics.SampleStatistic
 
 
 /**
@@ -55,46 +58,101 @@ object SAEAnalysesOOTimeProfiler
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String]) {
-        println ("Measure: " + iterations + " times : " + queries + " on " + jars)
-        val statistic = measureTime (iterations)(() => applyAnalyses (jars, queries))
+    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
+        println ("Measure: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
+        val statistic =
+            if (reReadJars) {
+                measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
+            }
+            else
+            {
+                measureTime (iterations)(() => applyAnalysesWithoutJarReading (createMaterializedDatabase (jars), queries))
+            }
         println ("\tdone")
         println (statistic.summary (MilliSeconds))
+        statistic
     }
 
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String]) {
-        println ("Warmup: " + iterations + " times : " + queries + " on " + jars)
+    def createMaterializedDatabase(jars: List[String]) = {
+        val database = BATDatabaseFactory.create ()
+        val materializedDatabase = new MaterializedBytecodeDatabase (database)
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+        materializedDatabase
+    }
+
+    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
+        println ("Warmup: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
+
+        val materializedDatabase =
+            if (reReadJars) {
+                None
+            }
+            else
+            {
+                Some (createMaterializedDatabase (jars))
+            }
+
         var i = 0
         while (i < iterations) {
-            doWarmup (jars, queries)
+            if (reReadJars) {
+                applyAnalysesWithJarReading (jars, queries)
+            }
+            else
+            {
+                applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
+            }
             i += 1
         }
 
         println ("\tdone")
+        0
     }
 
-
-    def doWarmup(jars: List[String], queries: List[String]) {
-        applyAnalyses (jars, queries)
-    }
-
-    def applyAnalyses(jars: List[String], queries: List[String]): Long = {
+    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
-        val database = BATDatabaseFactory.create ()
-        for (query <- queries) {
+        var database = BATDatabaseFactory.create ()
+        for (query <- queries) yield {
             AnalysesOO (query, database)
-            time {
-                l => taken += l
-            }
-            {
-                jars.foreach (jar => {
-                    val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                    database.addArchive (stream)
-                    stream.close ()
-                })
-            }
         }
+        time {
+            l => taken += l
+        }
+        {
+            jars.foreach (jar => {
+                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+                database.addArchive (stream)
+                stream.close ()
+            })
+        }
+        database = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        print (".")
+        taken
+    }
+
+
+    def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
+        var taken: Long = 0
+        var relations: Iterable[Relation[_]] = null
+        time {
+            l => taken += l
+        }
+        {
+            relations = for (query <- queries) yield {
+                AnalysesOO (query, database)
+            }
+
+        }
+        relations.foreach (_.clearObserversForChildren (visitChild => true))
+        relations = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
         print (".")
         taken
     }

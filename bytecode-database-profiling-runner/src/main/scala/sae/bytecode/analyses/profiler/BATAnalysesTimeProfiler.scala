@@ -38,6 +38,7 @@ import de.tud.cs.st.bat.resolved.reader.Java6Framework
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
 import sae.bytecode.profiler.util.MilliSeconds
+import sae.bytecode.profiler.statistics.SampleStatistic
 
 
 /**
@@ -56,35 +57,74 @@ object BATAnalysesTimeProfiler
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String]) {
-        println ("Measure: " + iterations + " times : " + queries + " on " + jars)
-        val project = readJars (jars)
-        val statistic = measureTime (iterations)(() => applyAnalyses (project, queries))
+    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
+        println ("Measure: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
+
+        val statistic =
+            if (reReadJars) {
+                measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
+            }
+            else
+            {
+                measureTime (iterations)(() => applyAnalysesWithoutJarReading (readJars (jars), queries))
+
+            }
         println ("\tdone")
         println (statistic.summary (MilliSeconds))
+        statistic
     }
 
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String]) {
+    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
         println ("Warmup: " + iterations + " times : " + queries + " on " + jars)
 
+        println ("Warmup: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
 
-        val project = readJars (jars)
+        val project =
+            if (reReadJars) {
+                None
+            }
+            else
+            {
+                Some (readJars (jars))
+            }
+
         var i = 0
         while (i < iterations) {
-            doWarmup (project, queries)
+            if (reReadJars) {
+                applyAnalysesWithJarReading (jars, queries)
+            }
+            else
+            {
+                applyAnalysesWithoutJarReading (project.get, queries)
+            }
             i += 1
         }
 
         println ("\tdone")
+        0
     }
 
 
-    def doWarmup(project: Project, queries: List[String]) {
-        applyAnalyses (project, queries)
+    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
+        var taken: Long = 0
+        for (query <- queries) {
+            val analysis = Analyses (query)
+            time[Iterable[_]] {
+                l => taken += l
+            }
+            {
+                val project = readJars (jars)
+                analysis.apply (project)
+            }
+        }
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        print (".")
+        taken
     }
 
-    def applyAnalyses(project: Project, queries: List[String]): Long = {
+    def applyAnalysesWithoutJarReading(project: Project, queries: List[String]): Long = {
         var taken: Long = 0
         for (query <- queries) {
             val analysis = Analyses (query)
@@ -95,6 +135,8 @@ object BATAnalysesTimeProfiler
                 analysis.apply (project)
             }
         }
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
         print (".")
         taken
     }
@@ -103,10 +145,8 @@ object BATAnalysesTimeProfiler
     def readJars(jars: List[String]): Project = {
 
         var project = new Project ()
-        print ("\t read Jars")
         for (entry ← jars)
         {
-            print ("\t" + entry)
             val zipStream: ZipInputStream = new ZipInputStream (this.getClass.getClassLoader.getResource (entry).openStream ())
             var zipEntry: ZipEntry = null
             while ((({
@@ -120,7 +160,6 @@ object BATAnalysesTimeProfiler
                 }
             }
         }
-        print ("\t done")
         project
     }
 
