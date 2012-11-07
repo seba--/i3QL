@@ -35,6 +35,7 @@ package sae.bytecode.profiler
 import java.io.FileInputStream
 import java.util.Properties
 import statistics.SampleStatistic
+import util.MilliSeconds
 
 /**
  *
@@ -79,9 +80,18 @@ trait AbstractPropertiesFileProfiler
         val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-        warmup (warmupIterations, warmupJars, queries, reReadJars)
+        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars)
+        val count = warmup (warmupIterations, warmupJars, queries, reReadJars)
+        println ("\tdone")
+        println ("Num. of Results: " + count)
 
-        measure (measurementIterations, measurementJars, queries, reReadJars)
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+
+        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
+        val statistic = measure (measurementIterations, measurementJars, queries, reReadJars)
+        println ("\tdone")
+        println (statistic.summary (MilliSeconds))
 
         sys.exit (0)
     }

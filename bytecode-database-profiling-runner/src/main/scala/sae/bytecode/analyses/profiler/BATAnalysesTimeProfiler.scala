@@ -37,7 +37,6 @@ import de.tud.cs.st.bat.resolved.analyses.{Analyses, Project}
 import de.tud.cs.st.bat.resolved.reader.Java6Framework
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
-import sae.bytecode.profiler.util.MilliSeconds
 import sae.bytecode.profiler.statistics.SampleStatistic
 
 
@@ -58,28 +57,18 @@ object BATAnalysesTimeProfiler
 
 
     def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
-        println ("Measure: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
+        if (reReadJars) {
+            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
+        }
+        else
+        {
+            measureTime (iterations)(() => applyAnalysesWithoutJarReading (readJars (jars), queries))
 
-        val statistic =
-            if (reReadJars) {
-                measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
-            }
-            else
-            {
-                measureTime (iterations)(() => applyAnalysesWithoutJarReading (readJars (jars), queries))
-
-            }
-        println ("\tdone")
-        println (statistic.summary (MilliSeconds))
-        statistic
+        }
     }
 
 
     def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
-        println ("Warmup: " + iterations + " times : " + queries + " on " + jars)
-
-        println ("Warmup: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
-
         val project =
             if (reReadJars) {
                 None
@@ -101,8 +90,19 @@ object BATAnalysesTimeProfiler
             i += 1
         }
 
-        println ("\tdone")
-        0
+        resultCount (jars, queries)
+    }
+
+
+    def resultCount(jars: List[String], queries: List[String]): Long = {
+        val project = readJars (jars)
+        var count: Long = 0
+        for (query <- queries) {
+            val analysis = Analyses (query)
+            val results = analysis.apply (project)
+            count += results.size
+        }
+        count
     }
 
 

@@ -34,7 +34,6 @@ package sae.bytecode.analyses.profiler
 
 
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
-import sae.bytecode.profiler.util.MilliSeconds
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
@@ -59,42 +58,45 @@ object SAEAnalysesOOTimeProfiler
 
 
     def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
-        println ("Measure: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
-        val statistic =
-            if (reReadJars) {
-                measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
-            }
-            else
-            {
-                measureTime (iterations)(() => applyAnalysesWithoutJarReading (createMaterializedDatabase (jars), queries))
-            }
-        println ("\tdone")
-        println (statistic.summary (MilliSeconds))
-        statistic
+        if (reReadJars) {
+            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
+        }
+        else
+        {
+            measureTime (iterations)(() => applyAnalysesWithoutJarReading (createMaterializedDatabase (jars, queries), queries))
+        }
     }
 
 
-    def createMaterializedDatabase(jars: List[String]) = {
+    def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
         val database = BATDatabaseFactory.create ()
         val materializedDatabase = new MaterializedBytecodeDatabase (database)
+
+        // initialize the needed materializations at least once
+        val relations = for (query <- queries) yield {
+            AnalysesOO (query, materializedDatabase)
+        }
+
+
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
             database.addArchive (stream)
             stream.close ()
         })
+
+        relations.foreach (_.clearObserversForChildren (visitChild => true))
+
         materializedDatabase
     }
 
     def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
-        println ("Warmup: " + iterations + " times : " + queries + " on " + jars + " re-read = " + reReadJars)
-
         val materializedDatabase =
             if (reReadJars) {
                 None
             }
             else
             {
-                Some (createMaterializedDatabase (jars))
+                Some (createMaterializedDatabase (jars, queries))
             }
 
         var i = 0
@@ -109,15 +111,45 @@ object SAEAnalysesOOTimeProfiler
             i += 1
         }
 
-        println ("\tdone")
-        0
+        if (reReadJars) {
+            getResultsWithReadingJars (jars, queries)
+        }
+        else
+        {
+            getResultsWithoutReadingJars (jars, queries)
+        }
     }
+
+    def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
+        var database = BATDatabaseFactory.create ()
+        val results = for (query <- queries) yield {
+            sae.relationToResult (AnalysesOO (query, database))
+        }
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+
+        results.map (_.size).sum
+    }
+
+    def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
+        val database = createMaterializedDatabase(jars, queries)
+        val results = for (query <- queries) yield {
+            val relation = AnalysesOO (query, database)
+            sae.relationToResult (relation)
+        }
+
+        results.map (_.size).sum
+    }
+
 
     def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         for (query <- queries) yield {
-            AnalysesOO (query, database)
+            sae.relationToResult (AnalysesOO (query, database))
         }
         time {
             l => taken += l
@@ -145,7 +177,7 @@ object SAEAnalysesOOTimeProfiler
         }
         {
             relations = for (query <- queries) yield {
-                AnalysesOO (query, database)
+                sae.relationToResult (AnalysesOO (query, database))
             }
 
         }
