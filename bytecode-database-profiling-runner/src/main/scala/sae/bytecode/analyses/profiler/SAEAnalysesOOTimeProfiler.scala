@@ -63,7 +63,8 @@ object SAEAnalysesOOTimeProfiler
         }
         else
         {
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (createMaterializedDatabase (jars, queries), queries))
+            val database = createMaterializedDatabase (jars, queries)
+            measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
         }
     }
 

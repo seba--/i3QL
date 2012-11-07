@@ -62,7 +62,8 @@ object BATAnalysesTimeProfiler
         }
         else
         {
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (readJars (jars), queries))
+            val project = readJars (jars)
+            measureTime (iterations)(() => applyAnalysesWithoutJarReading (project, queries))
 
         }
     }
