@@ -10,7 +10,7 @@ import sandbox.dataflowAnalysis.AnalysisCFG
  * Time: 14:58
  * To change this template use File | Settings | File Templates.
  */
-case class InstructionInfoCFG(rel : Relation[_]) extends AnalysisCFG {
-   val predecessors = null
+case class InstructionInfoCFG(rel: Relation[_]) extends AnalysisCFG {
+  val result = null
 
 }

@@ -1,10 +1,9 @@
 package sandbox.dataflowAnalysis
 
-import sae.bytecode.structure.MethodDeclaration
 import sae.Relation
 
 /**
- * Defines the transformer functions of a data flow analysis.
+ * Defines the transformers transformers of a data flow analysis.
  *
  * Created with IntelliJ IDEA.
  * User: Mirko
@@ -14,7 +13,7 @@ import sae.Relation
  */
 trait ResultTransformer[T] {
   /**
-   * The type of functions that are used in the analysis.
+   * The type of transformers that are used in the analysis.
    */
   type Transformer = (T => T)
 
@@ -22,9 +21,11 @@ trait ResultTransformer[T] {
    * This function uses the SQL Queries to create a new relation of type (MethodDeclaration, Array[Transformer]).
    * SQL Queries should be used to guarantee incrementalization.
    * @return A relation of type(MethodDeclaration, Array[Transformer]). The first parameter refers to the method
-   *         which is underlying to the transformer functions array. The second parameter defines the transformer
-   *         functions that are used in the data flow analysis. The indexes of the array are the program counters
+   *         which is underlying to the transformers transformers array. The second parameter defines the transformers
+   *         transformers that are used in the data flow analysis. The indexes of the array are the program counters
    *         for instructions in the code.
    */
-  def functions : Relation[ TransformerEntry[T] ]
+  def result: Relation[TransformerEntry[T]]
+
+
 }

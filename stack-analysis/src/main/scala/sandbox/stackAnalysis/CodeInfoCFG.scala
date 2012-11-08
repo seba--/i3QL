@@ -1,7 +1,7 @@
 package sandbox.stackAnalysis
 
 import sae.Relation
-import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
+import sae.bytecode.structure.CodeInfo
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved._
 import sandbox.dataflowAnalysis.{CFGEntry, AnalysisCFG}
@@ -19,18 +19,18 @@ import sandbox.dataflowAnalysis.{CFGEntry, AnalysisCFG}
 class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
   /*Overrides the trait function*/
-  val predecessors: Relation[CFGEntry] = compile(SELECT((c: CodeInfo) => {
+  val result: Relation[CFGEntry] = compile(SELECT((c: CodeInfo) => {
     print("<" + c.declaringMethod.name + ">")
-   CFGEntry(c.declaringMethod, computePredecessorsPriv(c.code.instructions))
+    CFGEntry(c.declaringMethod, computePredecessors(c, c.code.instructions))
   }) FROM codeInfo)
 
   /**
    * This method computes the preceding program counters based on an Array[Instruction]
    * @param a The instructions of a method on which a single control flow graph should be created.
-   * @return The array of predecessors of a method. The indexes of the array are the valid program
-   *         counters of the program. The result on non-PC indexes is null.
+   * @return The array of transformers of a method. The indexes of the array are the valid program
+   *         counters of the program. The transformers on non-PC indexes is null.
    */
-  private def computePredecessorsPriv(a: Array[Instruction]): Array[List[Int]] = {
+  private def computePredecessors(ci: CodeInfo, a: Array[Instruction]): Array[List[Int]] = {
 
     val res = Array.fill[List[Int]](a.length)(null)
     res(0) = Nil
@@ -38,11 +38,10 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
     var currentPC = 0
     var nextPC = 0
 
-    while (nextPC != -1) {
-
+    while (nextPC < a.length && nextPC >= 0) {
       nextPC = CodeInfoTools.getNextPC(a, currentPC)
 
-      if (nextPC != -1) {
+      if (nextPC < a.length && nextPC >= 0) {
         if (a(currentPC).isInstanceOf[ConditionalBranchInstruction]) {
           addToArray(res, nextPC, currentPC)
           addToArray(res, currentPC + a(currentPC).asInstanceOf[ConditionalBranchInstruction].branchoffset, currentPC)
