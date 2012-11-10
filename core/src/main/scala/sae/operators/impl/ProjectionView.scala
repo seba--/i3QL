@@ -32,9 +32,10 @@
  */
 package sae.operators.impl
 
-import sae.deltas.Update
-import sae.{Update, Observable, Observer, Relation}
+import sae.deltas.{Deletion, Addition, Update}
+import sae.{Observable, Observer, Relation}
 import sae.operators.Projection
+import collection.mutable
 
 /**
  *
@@ -48,14 +49,14 @@ import sae.operators.Projection
  */
 class ProjectionView[Domain, Range](val relation: Relation[Domain],
                                     val projection: Domain => Range)
-    extends Projection[Domain, Range]
-    with Observer[Domain]
+        extends Projection[Domain, Range]
+        with Observer[Domain]
 {
     relation addObserver this
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
-            return List (this)
+            return List(this)
         }
         Nil
     }
@@ -64,80 +65,104 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
-        relation.foreach ((v: Domain) => f (projection (v)))
+        relation.foreach((v: Domain) => f(projection(v)))
     }
 
     @deprecated
     def updated(oldV: Domain, newV: Domain) {
-        element_updated (projection (oldV), projection (newV))
+        element_updated(projection(oldV), projection(newV))
     }
 
     def removed(v: Domain) {
-        element_removed (projection (v))
+        element_removed(projection(v))
     }
 
     def added(v: Domain) {
-        element_added (projection (v))
+        element_added(projection(v))
     }
 
     def updated(update: Update[Domain]) {
-        if (update.affects (projection)) {
-            element_updated (Update (projection (update.oldV), projection (update.newV), update.count, update.properties))
+        if (update.affects(projection)) {
+            element_updated(Update(projection(update.oldV), projection(update.newV), update.count, update.project(projection)))
         }
     }
 
-    def modified(additions: Map[Domain, Int], deletions: Map[Domain, Int], updates: Map[Domain, Update[Domain]]) {
-        val realUpdates = updates.filter (e => {
-            e._2.affects (projection)
-        })
-
-        var nextAdditions = Map.empty[Range, Int]
-        additions.foreach (e =>
+    def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
         {
-            val r = projection (e._1)
-            if (nextAdditions.isDefinedAt (r)) {
-                nextAdditions.updated (r, nextAdditions (r) + e._2)
-            }
-            else
-            {
-                nextAdditions += (projection (e._1) -> e._2)
-            }
-        }
-        )
+            val realUpdates = updates.filter(_.affects(projection))
 
-        var nextDeletions = Map.empty[Range, Int]
-        deletions.foreach (e =>
-        {
-            val r = projection (e._1)
-            if (nextDeletions.isDefinedAt (r)) {
-                nextDeletions.updated (r, nextDeletions (r) + e._2)
+            var additionCounter: mutable.Map[Range, Addition[Range]] = mutable.HashMap.empty
+            var nextAdditions = Set.empty[Addition[Range]]
+            additions.foreach(e => {
+                val r = projection(e.value)
+                if (additionCounter.isDefinedAt(r)) {
+                    val oldAddition = additionCounter(r)
+                    val newAddition = Addition(r, oldAddition.count + e.count)
+                    additionCounter(r) = newAddition
+                    nextAdditions -= oldAddition
+                    nextAdditions += newAddition
+                }
+                else {
+                    val newAddition = Addition(r, e.count)
+                    additionCounter(r) = newAddition
+                    nextAdditions += newAddition
+                }
             }
-            else
-            {
-                nextDeletions += (r -> e._2)
-            }
-        }
-        )
+            )
+            additionCounter = null
 
-        var nextUpdates = Map.empty[Range, Update[Range]]
-        realUpdates.foreach (e =>
-        {
-            val oldR = projection (e._1)
-            val update = e._2
-            val newR = projection (update.oldV)
-            if (nextUpdates.isDefinedAt (oldR)) {
-                // TODO multiple values can be updated to different values under projections.
-                val prevUpdate = nextUpdates (oldR)
-                nextUpdates.updated (oldR, Update ())
-            }
-            else
-            {
-                nextUpdates += (oldR -> Update (newR, update.properties, update.count))
-            }
-        }
-        )
 
-        element_modifications (nextAdditions, nextDeletions, nextUpdates)
+            var deletionCounter: mutable.Map[Range, Deletion[Range]] = mutable.HashMap.empty
+            var nextDeletions = Set.empty[Deletion[Range]]
+
+            deletions.foreach(e => {
+                val r = projection(e.value)
+                if (deletionCounter.isDefinedAt(r)) {
+                    val oldDeletion = deletionCounter(r)
+                    val newDeletion = Deletion(r, oldDeletion.count + e.count)
+                    deletionCounter(r) = newDeletion
+                    nextDeletions -= oldDeletion
+                    nextDeletions += newDeletion
+                }
+                else {
+                    val newDeletion = Deletion(r, e.count)
+                    deletionCounter(r) = newDeletion
+                    nextDeletions += newDeletion
+                }
+            }
+            )
+            deletionCounter = null
+
+            var updateCounter: mutable.Map[Range, mutable.Map[Range, Update[Range]]] = mutable.HashMap.empty
+            var nextUpdates = Set.empty[Update[Range]]
+
+            realUpdates.foreach(e => {
+                val oldR = projection(e.oldV)
+                val newR = projection(e.newV)
+                if (updateCounter.isDefinedAt(oldR)) {
+                    if (updateCounter(oldR).isDefinedAt(newR)) {
+                        val oldUpdate = updateCounter(oldR)(newR)
+                        val newUpdate = Update(oldR, newR, oldUpdate.count + e.count, oldUpdate.properties)
+                        updateCounter(oldR)(newR) = newUpdate
+                        nextUpdates -= oldUpdate
+                        nextUpdates += newUpdate
+                    }
+                    else {
+                        val newUpdate = Update(oldR, newR, e.count, e.project(projection))
+                        updateCounter(oldR)(newR) = newUpdate
+                        nextUpdates += newUpdate
+                    }
+                }
+                else {
+                    val newUpdate = Update(oldR, newR, e.count, e.project(projection))
+                    updateCounter(oldR)(newR) = newUpdate
+                    nextUpdates += newUpdate
+                }
+            }
+            )
+            updateCounter = null
+
+            element_modifications(nextAdditions, nextDeletions, nextUpdates)
+        }
     }
-}
 

@@ -45,6 +45,10 @@ case class Update[V](oldV: V, newV: V, count: Int, properties: List[(Any => Any)
         true
     }
 
+    def project[U](f: V => U): List[(Any => Any)] = {
+        List.empty
+    }
+
     def asAddition(): Addition[V] = Addition (newV, count)
 
     def asDeletion(): Deletion[V] = Deletion (oldV, count)

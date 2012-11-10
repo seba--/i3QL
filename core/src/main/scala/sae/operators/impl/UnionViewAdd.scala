@@ -34,14 +34,15 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
 import sae.operators.Union
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
  */
 class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
                                                               val right: Relation[DomainB])
-    extends Union[Range, DomainA, DomainB]
-    with Observer[Range]
+        extends Union[Range, DomainA, DomainB]
+        with Observer[Range]
 {
     left addObserver this
 
@@ -49,7 +50,7 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left || o == right) {
-            return List (this)
+            return List(this)
         }
         Nil
     }
@@ -58,20 +59,27 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
-        left.foreach (f)
-        right.foreach (f)
+        left.foreach(f)
+        right.foreach(f)
     }
 
     def added(v: Range) {
-        element_added (v)
+        element_added(v)
     }
 
     def removed(v: Range) {
-        element_removed (v)
+        element_removed(v)
     }
 
     def updated(oldV: Range, newV: Range) {
-        element_updated (oldV, newV)
+        element_updated(oldV, newV)
     }
 
+    def updated(update: Update[Range]) {
+        element_updated(update)
+    }
+
+    def modified(additions: Set[Addition[Range]], deletions: Set[Deletion[Range]], updates: Set[Update[Range]]) {
+        element_modifications(additions, deletions, updates)
+    }
 }
