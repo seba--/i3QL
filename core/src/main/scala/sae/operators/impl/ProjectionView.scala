@@ -32,7 +32,8 @@
  */
 package sae.operators.impl
 
-import sae.{Observable, Observer, Relation}
+import sae.deltas.Update
+import sae.{Update, Observable, Observer, Relation}
 import sae.operators.Projection
 
 /**
@@ -66,6 +67,7 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
         relation.foreach ((v: Domain) => f (projection (v)))
     }
 
+    @deprecated
     def updated(oldV: Domain, newV: Domain) {
         element_updated (projection (oldV), projection (newV))
     }
@@ -78,6 +80,64 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
         element_added (projection (v))
     }
 
+    def updated(update: Update[Domain]) {
+        if (update.affects (projection)) {
+            element_updated (Update (projection (update.oldV), projection (update.newV), update.count, update.properties))
+        }
+    }
 
+    def modified(additions: Map[Domain, Int], deletions: Map[Domain, Int], updates: Map[Domain, Update[Domain]]) {
+        val realUpdates = updates.filter (e => {
+            e._2.affects (projection)
+        })
+
+        var nextAdditions = Map.empty[Range, Int]
+        additions.foreach (e =>
+        {
+            val r = projection (e._1)
+            if (nextAdditions.isDefinedAt (r)) {
+                nextAdditions.updated (r, nextAdditions (r) + e._2)
+            }
+            else
+            {
+                nextAdditions += (projection (e._1) -> e._2)
+            }
+        }
+        )
+
+        var nextDeletions = Map.empty[Range, Int]
+        deletions.foreach (e =>
+        {
+            val r = projection (e._1)
+            if (nextDeletions.isDefinedAt (r)) {
+                nextDeletions.updated (r, nextDeletions (r) + e._2)
+            }
+            else
+            {
+                nextDeletions += (r -> e._2)
+            }
+        }
+        )
+
+        var nextUpdates = Map.empty[Range, Update[Range]]
+        realUpdates.foreach (e =>
+        {
+            val oldR = projection (e._1)
+            val update = e._2
+            val newR = projection (update.oldV)
+            if (nextUpdates.isDefinedAt (oldR)) {
+                // TODO multiple values can be updated to different values under projections.
+                val prevUpdate = nextUpdates (oldR)
+                nextUpdates.updated (oldR, Update ())
+            }
+            else
+            {
+                nextUpdates += (oldR -> Update (newR, update.properties, update.count))
+            }
+        }
+        )
+
+        element_modifications (nextAdditions, nextDeletions, nextUpdates)
+    }
 }
 

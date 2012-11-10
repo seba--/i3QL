@@ -33,6 +33,8 @@
 package sae
 
 import collection.mutable
+import collection.immutable.HashMap
+import deltas.{Deletion, Addition, Update}
 
 trait Observable[V]
 {
@@ -103,9 +105,17 @@ trait Observable[V]
         observers.foreach (_.removed (v))
     }
 
+    @deprecated
     def element_updated(oldV: V, newV: V) {
         observers.foreach (_.updated (oldV, newV))
     }
 
+    def element_updated(update: Update[V]) {
+        observers.foreach (_.updated (update))
+    }
+
+    def element_modifications(additions: Set[Addition[V]], deletions: Set[Deletion[V]], updates: Set[Update[V]]) {
+        observers.foreach(_.modified(additions, deletions, updates))
+    }
 }
 
