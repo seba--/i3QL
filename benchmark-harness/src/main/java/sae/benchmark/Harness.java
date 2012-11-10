@@ -43,7 +43,11 @@ public class Harness {
             properties.load(Harness.class.getClassLoader().getResource(propertiesFile).openStream());
 
             String className = "";
-            if (properties.getProperty("sae.benchmark.type", "SAE").equals("BAT")) {
+            String benchmarkType = properties.getProperty("sae.benchmark.type", "SAE");
+            if (benchmarkType.equals("BAT")) {
+                className = "sae.bytecode.analyses.profiler.SAEAnalysesTimeProfiler";
+            }
+            if (benchmarkType.equals("BAT")) {
                 className = "sae.bytecode.analyses.profiler.BATAnalysesTimeProfiler";
             }
 
