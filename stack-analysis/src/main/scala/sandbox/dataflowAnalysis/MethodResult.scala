@@ -1,15 +1,14 @@
 package sandbox.dataflowAnalysis
 
 import sae.bytecode.structure.MethodDeclaration
-import scala.Array
 
 /**
  * Created with IntelliJ IDEA.
  * User: Mirko
  * Date: 02.11.12
- * Time: 15:23
+ * Time: 20:47
  * To change this template use File | Settings | File Templates.
  */
-case class TransformerEntry[T](methodDeclaration: MethodDeclaration, generators: Array[T => T]) {
+case class MethodResult[T](methodDeclaration: MethodDeclaration, resultArray: Array[T]) {
 
 }

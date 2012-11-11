@@ -1,11 +1,11 @@
 public class Test {
-	public void test0() {
+	public void testSeq() {
 		int a = 1;
 		int b = -1;
 		int c = a + b;
 	}
 	
-	public void test1() {
+	public void testIf() {
 		int a = 1;
 		int b = 0;
 		
@@ -17,14 +17,14 @@ public class Test {
 		a = 2;
 	}
 	
-	public void test2() {
+	public void testWhile() {
 		int a = 0;
 
 		while (a < 10)
 			a++;
 	}
 	
-	public void test3() {
+	public void testWhile2() {
 		int a = 0;
 		
 		while (a < 100) {
@@ -44,21 +44,30 @@ public class Test {
 					b = b + 1;
 		}
 	}
-	
-	public int test4() {
-		return 1 + -1;
-	}
-	
-	public void test5() {
-		int a = test4() + test4();
-	}
-	
-	public void test6() {
-		int a = 0;
 		
-		while (a < 100) {		
-			a = a + 5;			
+	public void testString() {
+	
+		String s = "Test1";
+		String t = "Test2";
+		boolean b;
+		
+		if(s == t)
+			b = true;
+		else
+			b = false;
+	
+	}
+	
+	public void testLong() {
+		long l = 5;
+		int i = 0;
+		
+		if(l == i) {
+			l = 0;
+		} else {
+			l = i;
 		}
+		
 	}
 	
 	

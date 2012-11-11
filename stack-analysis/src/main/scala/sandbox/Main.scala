@@ -5,7 +5,7 @@ import sae.bytecode.bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.Relation
 import sae.syntax.sql._
-import stackAnalysis.CIStackTransformer
+import stackAnalysis.CodeInfoTransformer
 import sae.bytecode.structure.CodeInfo
 import stackAnalysis.StackAnalysis
 
@@ -31,10 +31,10 @@ object Main {
     //    val query: QueryResult[(Int, Array[Int])] = compile(SELECT((codeAttribute: CodeAttribute) => (1, Array.ofDim[Int](codeAttribute.max_locals))) FROM database.codeAttributes)
     */
     val cfg = new CodeInfoCFG(infos)
-    val funs = new CIStackTransformer(infos)
+    val funs = new CodeInfoTransformer(infos)
     val analysis = new StackAnalysis(infos, cfg, funs)
 
-    database.addClassFile(new FileInputStream("stack-analysis\\src\\main\\resources\\Test"))
+    database.addClassFile(new FileInputStream("stack-analysis\\resources\\Test"))
 
     //println(analysis.analysisResult.asList.mkString("Result: ", ", ",""))
 

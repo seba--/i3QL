@@ -3,7 +3,7 @@ package sandbox.stackAnalysis
 import sandbox.dataflowAnalysis.Combinable
 
 /**
- * This class implements the store for local variables for the stack analysis.
+ * This class implements the store for local variables for the s analysis.
  *
  * Created with IntelliJ IDEA.
  * User: Mirko
@@ -13,9 +13,9 @@ import sandbox.dataflowAnalysis.Combinable
 
 case class LocalVars[T](varStore: Array[List[Option[T]]]) extends Combinable[LocalVars[T]] {
 
-
   def this(i: Int, l: List[Option[T]]) = this(Array.fill[List[Option[T]]](i)(l))
 
+  /*
   /**
    * Gets all possibilities for variables that a stored at a specified index.
    * @param index The index of the local variable.
@@ -48,19 +48,27 @@ case class LocalVars[T](varStore: Array[List[Option[T]]]) extends Combinable[Loc
     res.update(index, res(index).filter(a => !(a equals value)))
 
     new LocalVars[T](res)
-  }
+  }  */
 
-  def setVar(index: Int, value: Option[T]): LocalVars[T] = {
+  def setVar(index: Int, vSize: Int, value: Option[T]): LocalVars[T] = {
     var res: Array[List[Option[T]]] = Array.ofDim[List[Option[T]]](varStore.length)
     System.arraycopy(varStore, 0, res, 0, varStore.length)
-    res.update(index, value :: Nil)
+
+    for (i <- 0 until vSize)
+      res.update(index + i, value :: Nil)
 
     new LocalVars[T](res)
   }
 
-  def setVar(index: Int, value: T): LocalVars[T] = {
+  def setVar(index: Int, value: Option[T]): LocalVars[T] =
+    setVar(index, 1, value)
+
+  def setVar(index: Int, vSize: Int, value: T): LocalVars[T] =
+    setVar(index, vSize, Some(value))
+
+  def setVar(index: Int, value: T): LocalVars[T] =
     setVar(index, Some(value))
-  }
+
 
   def length(): Int = {
     varStore.length

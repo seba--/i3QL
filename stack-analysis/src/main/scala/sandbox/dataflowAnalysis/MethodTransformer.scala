@@ -1,14 +1,15 @@
 package sandbox.dataflowAnalysis
 
 import sae.bytecode.structure.MethodDeclaration
+import scala.Array
 
 /**
  * Created with IntelliJ IDEA.
  * User: Mirko
  * Date: 02.11.12
- * Time: 15:21
+ * Time: 15:23
  * To change this template use File | Settings | File Templates.
  */
-case class CFGEntry(methodDeclaration : MethodDeclaration, predecessorArray : Array[List[Int]]) {
+case class MethodTransformer[T](methodDeclaration: MethodDeclaration, generators: Array[T => T]) {
 
 }

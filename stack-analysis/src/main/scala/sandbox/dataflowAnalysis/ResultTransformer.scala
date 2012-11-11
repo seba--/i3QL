@@ -25,7 +25,7 @@ trait ResultTransformer[T] {
    *         transformers that are used in the data flow analysis. The indexes of the array are the program counters
    *         for instructions in the code.
    */
-  def result: Relation[TransformerEntry[T]]
+  def result: Relation[MethodTransformer[T]]
 
 
 }

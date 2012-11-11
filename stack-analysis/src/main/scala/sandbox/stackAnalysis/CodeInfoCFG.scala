@@ -4,7 +4,7 @@ import sae.Relation
 import sae.bytecode.structure.CodeInfo
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved._
-import sandbox.dataflowAnalysis.{CFGEntry, AnalysisCFG}
+import sandbox.dataflowAnalysis.{MethodCFG, AnalysisCFG}
 
 
 /**
@@ -19,9 +19,9 @@ import sandbox.dataflowAnalysis.{CFGEntry, AnalysisCFG}
 class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
   /*Overrides the trait function*/
-  val result: Relation[CFGEntry] = compile(SELECT((c: CodeInfo) => {
+  val result: Relation[MethodCFG] = compile(SELECT((c: CodeInfo) => {
     print("<" + c.declaringMethod.name + ">")
-    CFGEntry(c.declaringMethod, computePredecessors(c, c.code.instructions))
+    MethodCFG(c.declaringMethod, computePredecessors(c, c.code.instructions))
   }) FROM codeInfo)
 
   /**

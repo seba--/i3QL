@@ -20,7 +20,5 @@ trait AnalysisCFG {
    *         by defining the list of preceding program counters. The indexes of the array are the program counters
    *         for instructions in the code.
    */
-  def result: Relation[CFGEntry]
-
-  //val transformers : Relation[(MethodDeclaration, Int, List[Int])]
+  def result: Relation[MethodCFG]
 }
