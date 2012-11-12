@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
 import sae.operators.UnNest
+import sae.deltas.{Update, Deletion, Addition}
 
 class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
                                                       val unNestFunction: Domain => Seq[UnNestRange],
@@ -77,5 +78,13 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
         unNestFunction (v).foreach ((u: UnNestRange) =>
             element_added (projection (v, u))
         )
+    }
+
+    def updated(update: Update[Domain]) {
+
+    }
+
+    def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
+
     }
 }
