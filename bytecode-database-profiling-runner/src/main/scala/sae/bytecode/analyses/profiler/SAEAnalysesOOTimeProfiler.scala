@@ -32,11 +32,12 @@
  */
 package sae.bytecode.analyses.profiler
 
-import java.io.InputStream
-import de.tud.cs.st.bat.resolved.analyses.{Analyses, Project}
-import de.tud.cs.st.bat.resolved.reader.Java6Framework
-import java.util.zip.{ZipEntry, ZipInputStream}
+
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.analyses.findbugs.AnalysesOO
+import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
+import sae.Relation
 import sae.bytecode.profiler.statistics.SampleStatistic
 
 
@@ -46,12 +47,12 @@ import sae.bytecode.profiler.statistics.SampleStatistic
  *
  */
 
-object BATAnalysesTimeProfiler
+object SAEAnalysesOOTimeProfiler
     extends AbstractPropertiesFileProfiler
     with TimeMeasurement
 {
 
-    val usage: String = """|Usage: java BATAnalysesTimeProfiler propertiesFile
+    val usage: String = """|Usage: java SAEAnalysesOOTimeProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                           | """.stripMargin
 
@@ -62,21 +63,41 @@ object BATAnalysesTimeProfiler
         }
         else
         {
-            val project = readJars (jars)
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (project, queries))
-
+            val database = createMaterializedDatabase (jars, queries)
+            measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
         }
     }
 
 
+    def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
+        val database = BATDatabaseFactory.create ()
+        val materializedDatabase = new MaterializedBytecodeDatabase (database)
+
+        // initialize the needed materializations at least once
+        val relations = for (query <- queries) yield {
+            AnalysesOO (query, materializedDatabase)
+        }
+
+
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+
+        relations.foreach (_.clearObserversForChildren (visitChild => true))
+
+        materializedDatabase
+    }
+
     def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
-        val project =
+        val materializedDatabase =
             if (reReadJars) {
                 None
             }
             else
             {
-                Some (readJars (jars))
+                Some (createMaterializedDatabase (jars, queries))
             }
 
         var i = 0
@@ -86,118 +107,88 @@ object BATAnalysesTimeProfiler
             }
             else
             {
-                applyAnalysesWithoutJarReading (project.get, queries)
+                applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
             }
             i += 1
         }
 
-        resultCount (jars, queries)
+        if (reReadJars) {
+            getResultsWithReadingJars (jars, queries)
+        }
+        else
+        {
+            getResultsWithoutReadingJars (jars, queries)
+        }
     }
 
-
-    def resultCount(jars: List[String], queries: List[String]): Long = {
-        val project = readJars (jars)
-        var count: Long = 0
-        for (query <- queries) {
-            val analysis = Analyses (query)
-            val results = analysis.apply (project)
-            count += results.size
+    def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
+        var database = BATDatabaseFactory.create ()
+        val results = for (query <- queries) yield {
+            sae.relationToResult (AnalysesOO (query, database))
         }
-        count
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+
+        results.map (_.size).sum
+    }
+
+    def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
+        val database = createMaterializedDatabase(jars, queries)
+        val results = for (query <- queries) yield {
+            val relation = AnalysesOO (query, database)
+            sae.relationToResult (relation)
+        }
+
+        results.map (_.size).sum
     }
 
 
     def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
-        for (query <- queries) {
-            val analysis = Analyses (query)
-            time[Iterable[_]] {
-                l => taken += l
-            }
-            {
-                val project = readJars (jars)
-                analysis.apply (project)
-            }
+        var database = BATDatabaseFactory.create ()
+        for (query <- queries) yield {
+            sae.relationToResult (AnalysesOO (query, database))
         }
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-    def applyAnalysesWithoutJarReading(project: Project, queries: List[String]): Long = {
-        var taken: Long = 0
-        for (query <- queries) {
-            val analysis = Analyses (query)
-            time[Iterable[_]] {
-                l => taken += l
-            }
-            {
-                analysis.apply (project)
-            }
+        time {
+            l => taken += l
         }
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-
-    def readJars(jars: List[String]): Project = {
-
-        var project = new Project ()
-        for (entry ← jars)
         {
-            val zipStream: ZipInputStream = new ZipInputStream (this.getClass.getClassLoader.getResource (entry).openStream ())
-            var zipEntry: ZipEntry = null
-            while ((({
-                zipEntry = zipStream.getNextEntry
-                zipEntry
-            })) != null)
-            {
-                if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class"))
-                {
-                    project += Java6Framework.ClassFile (() => new ZipStreamEntryWrapper (zipStream, zipEntry))
-                }
+            jars.foreach (jar => {
+                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+                database.addArchive (stream)
+                stream.close ()
+            })
+        }
+        database = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        print (".")
+        taken
+    }
+
+
+    def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
+        var taken: Long = 0
+        var relations: Iterable[Relation[_]] = null
+        time {
+            l => taken += l
+        }
+        {
+            relations = for (query <- queries) yield {
+                sae.relationToResult (AnalysesOO (query, database))
             }
+
         }
-        project
+        relations.foreach (_.clearObserversForChildren (visitChild => true))
+        relations = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        print (".")
+        taken
     }
 
-    private class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
-    {
-
-        private var availableCounter = entry.getCompressedSize.toInt;
-
-        override def close() {
-            stream.closeEntry ()
-        }
-
-        override def read: Int = {
-            availableCounter -= 1
-            stream.read
-        }
-
-        override def read(b: Array[Byte]) = {
-            val read = stream.read (b)
-            availableCounter -= read
-            read
-        }
-
-        override def read(b: Array[Byte], off: Int, len: Int) = {
-            val read = stream.read (b, off, len)
-            availableCounter -= read
-            read
-        }
-
-        override def skip(n: Long) = {
-            availableCounter -= n.toInt
-            stream.skip (n)
-        }
-
-        override def available(): Int = {
-            availableCounter
-        }
-    }
 
 }

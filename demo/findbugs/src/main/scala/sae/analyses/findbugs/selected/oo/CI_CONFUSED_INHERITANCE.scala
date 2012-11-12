@@ -49,7 +49,7 @@ object CI_CONFUSED_INHERITANCE
 
     def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
         import database._
-        SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
+        SELECT (*) FROM (fieldDeclarations) WHERE (_.declaringClass.isFinal) AND (_.isProtected)
     }
 
 }

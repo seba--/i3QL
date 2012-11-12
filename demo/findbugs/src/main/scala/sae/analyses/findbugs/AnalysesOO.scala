@@ -30,48 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.bat
+package sae.analyses.findbugs
 
-import java.io.InputStream
-import java.util.zip.{ZipEntry, ZipInputStream}
+import sae.Relation
+import sae.bytecode.BytecodeDatabase
+import selected.oo._
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 23.08.12
- * Time: 16:27
+ *
+ * @author Ralf Mitschke
+ *
  */
-class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
+object AnalysesOO
 {
 
-    private var availableCounter =  entry.getCompressedSize.toInt;
-
-    override def close() {
-        stream.closeEntry ()
+    def apply(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
+        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
+        case "CN_IDIOM" => CN_IDIOM (database)
+        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
+        case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
-    override def read: Int = {
-        availableCounter -= 1
-        stream.read
-    }
 
-    override def read(b: Array[Byte]) = {
-        availableCounter -= b.size
-        stream.read(b)
-    }
-
-    override def read(b: Array[Byte], off: Int, len: Int) = {
-        val read = stream.read(b, off, len)
-        availableCounter -= read
-        read
-    }
-
-    override def skip(n: Long) = {
-        availableCounter -= n.toInt
-        stream.skip(n)
-    }
-
-    override def available() : Int = {
-        availableCounter
-    }
 }

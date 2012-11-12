@@ -34,8 +34,8 @@ package sae.bytecode.profiler
 
 import java.io.FileInputStream
 import java.util.Properties
-import collection.JavaConversions
-import java.util.Arrays
+import statistics.SampleStatistic
+import util.MilliSeconds
 
 /**
  *
@@ -46,12 +46,22 @@ import java.util.Arrays
 trait AbstractPropertiesFileProfiler
 {
     def main(args: Array[String]) {
-        if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".properties"))) {
+        if (args.length == 0 || !args (0).endsWith (".properties")) {
             println (usage)
             sys.exit (1)
         }
 
         val propertiesFile = args (0)
+
+        val reReadJars =
+            if (args.length > 1)
+            {
+                java.lang.Boolean.parseBoolean (args (1))
+            }
+            else
+            {
+                false
+            }
 
         val properties = getProperties (propertiesFile).getOrElse (
         {
@@ -67,22 +77,38 @@ trait AbstractPropertiesFileProfiler
         val measurementJars = properties.getProperty ("sae.benchmark.jars").split (";").toList
         val queries = properties.getProperty ("sae.benchmark.queries").split (";").toList
 
-        val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty("user.dir") + "/bench.txt")
+        val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-        warmup (warmupIterations, warmupJars, queries)
+        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars)
+        val count = warmup (warmupIterations, warmupJars, queries, reReadJars)
+        println ("\tdone")
+        println ("Num. of Results: " + count)
 
-        measure (measurementIterations, measurementJars, queries)
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+
+        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
+        val statistic = measure (measurementIterations, measurementJars, queries, reReadJars)
+        println ("\tdone")
+        println (statistic.summary (MilliSeconds))
 
         sys.exit (0)
     }
 
     def usage: String
 
-    def measure(iterations: Int, jars: List[String], queries: List[String])
 
+    /**
+     * Perform the actual measurement.
+     */
+    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String])
+    /**
+     * Perform the warmup by doing exactly the same operation as in the measurement.
+     * The warmup is must return the number of results returned by the measured analyses.
+     */
+    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long
 
 
     def isFile(propertiesFile: String): Boolean = {
