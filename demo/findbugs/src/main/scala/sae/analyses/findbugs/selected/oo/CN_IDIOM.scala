@@ -32,11 +32,11 @@
 */
 package sae.analyses.findbugs.selected.oo
 
-import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode.structure.{MethodDeclaration, ClassDeclaration}
+import sae.bytecode._
 import de.tud.cs.st.bat.resolved.ObjectType
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -44,17 +44,19 @@ import de.tud.cs.st.bat.resolved.ObjectType
  *
  */
 object CN_IDIOM
-    extends (BytecodeDatabase => Relation[ClassDeclaration])
+    extends (BytecodeDatabase => Relation[ObjectType])
 {
 
-    def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
-        import database._
-        import sae.analyses.findbugs.base.oo.Definitions._
-        SELECT ((_: MethodDeclaration).declaringClass) FROM methodDeclarations WHERE
-            (_.name == "clone") AND
-            (_.parameterTypes == Nil) AND
-            (_.returnType == ObjectType.Object) AND
-            (_.declaringClass.classType == cloneable)
+    def apply(database: BytecodeDatabase): Relation[ObjectType] = {
+        val definitions = Definitions (database)
+        import definitions._
+
+        SELECT (*) FROM (subTypesOfCloneable) WHERE
+            NOT (
+                EXISTS (
+                    SELECT (*) FROM (implementersOfClone) WHERE (declaringClass === identity[ObjectType]_)
+                )
+            )
     }
 
 }

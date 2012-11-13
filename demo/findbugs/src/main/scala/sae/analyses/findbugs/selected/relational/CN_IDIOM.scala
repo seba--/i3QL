@@ -37,6 +37,7 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure.{MethodDeclaration, ClassDeclaration}
 import de.tud.cs.st.bat.resolved.ObjectType
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -49,7 +50,8 @@ object CN_IDIOM
 
     def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
         import database._
-        import sae.analyses.findbugs.base.oo.Definitions._
+        val definitions = Definitions (database)
+        import definitions._
         import sae.bytecode._
         SELECT ((cd: ClassDeclaration, md: MethodDeclaration) => cd) FROM
             (classDeclarations, methodDeclarations) WHERE

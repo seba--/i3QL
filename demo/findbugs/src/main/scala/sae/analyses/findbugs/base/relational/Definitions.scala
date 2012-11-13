@@ -1,4 +1,4 @@
-package sae.analyses.findbugs.base.oo
+package sae.analyses.findbugs.base.relational
 
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.syntax.sql._
