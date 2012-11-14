@@ -1,6 +1,6 @@
 package sae.analyses.findbugs.base.oo
 
-import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.bat.resolved.{ObjectType, IntegerType}
 import sae.syntax.sql._
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
@@ -26,4 +26,19 @@ case class Definitions(database: BytecodeDatabase)
             (_.name == "clone") AND
             (_.parameterTypes == Nil) AND
             (_.returnType == ObjectType.Object)
+
+    val comparable = ObjectType ("java/lang/Comparable")
+
+    val subTypesOfComparable: Relation[ObjectType] =
+        SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == comparable)
+
+    val implementersOfCompareToWithoutObjectParameter: Relation[MethodDeclaration] =
+        SELECT (*) FROM methodDeclarations WHERE
+                (_.name == "compareTo") AND
+                NOT((_:MethodDeclaration).parameterTypes == Seq(ObjectType.Object)) AND
+                (_.returnType == IntegerType)
+
+    val system = ObjectType("java/lang/System")
+
+    val runtime = ObjectType("java/lang/Runtime")
 }

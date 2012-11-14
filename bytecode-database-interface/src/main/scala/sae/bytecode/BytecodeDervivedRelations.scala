@@ -32,7 +32,7 @@
  */
 package sae.bytecode
 
-import instructions.InstructionInfo
+import instructions._
 import sae.Relation
 import structure.{CodeAttribute, InheritanceRelation}
 
@@ -55,4 +55,12 @@ trait BytecodeDervivedRelations
     def instructions: Relation[InstructionInfo]
 
     def codeAttributes: Relation[CodeAttribute]
+
+    def invokeStatic: Relation[INVOKESTATIC]
+
+    def invokeVirtual: Relation[INVOKEVIRTUAL]
+
+    def invokeInterface: Relation[INVOKEINTERFACE]
+
+    def invokeSpecial: Relation[INVOKESPECIAL]
 }

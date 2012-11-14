@@ -3,7 +3,7 @@ package sae
 import bytecode.instructions.{InstructionInfo, InvokeInstruction}
 import bytecode.structure._
 import bytecode.structure.MethodDeclaration
-import de.tud.cs.st.bat.resolved.{Type, ReferenceType, VoidType}
+import de.tud.cs.st.bat.resolved.{ObjectType, Type, ReferenceType, VoidType}
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,6 +23,8 @@ package object bytecode
 
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
+
+    def declaringType: DeclaredClassMember => ObjectType = _.declaringClass.classType
 
     def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
 

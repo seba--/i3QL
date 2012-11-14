@@ -10,6 +10,8 @@ import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
  *
  * @author Ralf Mitschke
  *
+ * TODO consider optimization together with CN_IDIOM
+ * TODO consider optimization together with CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
  */
 object CN_IDIOM_NO_SUPER_CALL
     extends (BytecodeDatabase => Relation[MethodDeclaration])

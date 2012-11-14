@@ -11,6 +11,8 @@ import sae.analyses.findbugs.base.oo.Definitions
  *
  * @author Ralf Mitschke
  *
+ * TODO consider optimization together with CN_IDIOM
+ * TODO consider optimization together with CN_IDIOM_NO_SUPER_CALL
  */
 object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
     extends (BytecodeDatabase => Relation[MethodDeclaration])
@@ -23,7 +25,7 @@ object CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
             (implementersOfClone) WHERE
             NOT (
                 EXISTS (
-                    SELECT (*) FROM (subTypesOfCloneable) WHERE (identity[ObjectType]_ === declaringClass)
+                    SELECT (*) FROM (subTypesOfCloneable) WHERE (identity[ObjectType]_ === declaringType)
                 )
             )
     }
