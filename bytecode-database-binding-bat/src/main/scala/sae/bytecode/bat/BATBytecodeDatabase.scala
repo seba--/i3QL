@@ -52,6 +52,7 @@ class BATBytecodeDatabase
     extends BytecodeDatabase
 {
 
+
     val reader = new SAEJava6Framework (this)
 
     val classDeclarations = new SetExtent[ClassDeclaration]
@@ -102,17 +103,38 @@ class BATBytecodeDatabase
 
     def inheritance = null
 
-    def invokeStatic: Relation[INVOKESTATIC] =
+    lazy val constructors: Relation[MethodDeclaration] =
+        SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")
+
+    lazy val invokeStatic: Relation[INVOKESTATIC] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])
 
-    def invokeVirtual: Relation[INVOKEVIRTUAL] =
+    lazy val invokeVirtual: Relation[INVOKEVIRTUAL] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
-    def invokeInterface : Relation[INVOKEINTERFACE]=
+    lazy val invokeInterface: Relation[INVOKEINTERFACE] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEINTERFACE])
 
-    def invokeSpecial  : Relation[INVOKESPECIAL]=
+    lazy val invokeSpecial: Relation[INVOKESPECIAL] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESPECIAL])
+
+    lazy val readField: Relation[FieldReadInstruction] =
+        SELECT ((_: InstructionInfo).asInstanceOf[FieldReadInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldReadInstruction])
+
+    lazy val getStatic: Relation[GETSTATIC] =
+        SELECT ((_: InstructionInfo).asInstanceOf[GETSTATIC]) FROM (readField) WHERE (_.isInstanceOf[GETSTATIC])
+
+    lazy val getField: Relation[GETFIELD] =
+        SELECT ((_: InstructionInfo).asInstanceOf[GETFIELD]) FROM (readField) WHERE (_.isInstanceOf[GETFIELD])
+
+    lazy val writeField: Relation[FieldWriteInstruction] =
+        SELECT ((_: InstructionInfo).asInstanceOf[FieldWriteInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldWriteInstruction])
+
+    lazy val putStatic: Relation[PUTSTATIC] =
+        SELECT ((_: InstructionInfo).asInstanceOf[PUTSTATIC]) FROM (writeField) WHERE (_.isInstanceOf[PUTSTATIC])
+
+    lazy val putField: Relation[PUTFIELD] =
+        SELECT ((_: InstructionInfo).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)

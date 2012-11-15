@@ -30,51 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.analyses.findbugs.selected.oo
 
-import instructions._
+import sae.bytecode._
 import sae.Relation
-import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
+import sae.bytecode.structure.MethodDeclaration
+import sae.analyses.findbugs.base.oo.Definitions
+import sae.syntax.sql._
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
+ * @author Ralf Mitschke
  *
  */
-trait BytecodeDervivedRelations
+
+object UUF_UNUSED_FIELD
 {
+    def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
+        val definitions = Definitions (database)
+        import database._
+        import definitions._
 
-
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
-
-
-    def inheritance: Relation[InheritanceRelation]
-
-    def constructors: Relation[MethodDeclaration]
-
-    def instructions: Relation[InstructionInfo]
-
-    def codeAttributes: Relation[CodeAttribute]
-
-    def invokeStatic: Relation[INVOKESTATIC]
-
-    def invokeVirtual: Relation[INVOKEVIRTUAL]
-
-    def invokeInterface: Relation[INVOKEINTERFACE]
-
-    def invokeSpecial: Relation[INVOKESPECIAL]
-
-    def readField : Relation[FieldReadInstruction]
-
-    def getStatic : Relation[GETSTATIC]
-
-    def getField : Relation[GETFIELD]
-
-    def writeField : Relation[FieldWriteInstruction]
-
-    def putStatic : Relation[PUTSTATIC]
-
-    def putField : Relation[PUTFIELD]
+        SELECT (*) FROM privateFields WHERE
+            NOT (
+                EXISTS (SELECT (*) FROM readField WHERE (declaringType === ))
+            )
+    }
 }

@@ -12,7 +12,8 @@ import de.tud.cs.st.bat.resolved.ObjectType
  * @author Ralf Mitschke
  *
  */
-object CO_SELF_NO_OBJECT extends (BytecodeDatabase => Relation[MethodDeclaration])
+object CO_SELF_NO_OBJECT
+    extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         val definitions = Definitions (database)

@@ -30,51 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.bytecode.instructions
 
-import instructions._
-import sae.Relation
-import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
+import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
+ * @author Ralf Mitschke
  *
  */
-trait BytecodeDervivedRelations
+
+trait FieldWriteInstruction
 {
+    def declaringMethod: MethodDeclaration
 
+    def receiverType: ObjectType
 
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
+    def name: String
 
-
-    def inheritance: Relation[InheritanceRelation]
-
-    def constructors: Relation[MethodDeclaration]
-
-    def instructions: Relation[InstructionInfo]
-
-    def codeAttributes: Relation[CodeAttribute]
-
-    def invokeStatic: Relation[INVOKESTATIC]
-
-    def invokeVirtual: Relation[INVOKEVIRTUAL]
-
-    def invokeInterface: Relation[INVOKEINTERFACE]
-
-    def invokeSpecial: Relation[INVOKESPECIAL]
-
-    def readField : Relation[FieldReadInstruction]
-
-    def getStatic : Relation[GETSTATIC]
-
-    def getField : Relation[GETFIELD]
-
-    def writeField : Relation[FieldWriteInstruction]
-
-    def putStatic : Relation[PUTSTATIC]
-
-    def putField : Relation[PUTFIELD]
+    def fieldType: FieldType
 }

@@ -30,51 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package sae.analyses.findbugs.selected.oo
 
-import instructions._
+import sae.bytecode._
 import sae.Relation
-import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
+import structure.{CodeInfo, MethodDeclaration}
+import sae.syntax.sql._
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
+ * @author Ralf Mitschke
  *
  */
-trait BytecodeDervivedRelations
+
+object IMSE_DONT_CATCH_IMSE
+    extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
 
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
+    def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
+        val definitions = Definitions (database)
+        import database._
+        import definitions._
+        SELECT ((_: CodeInfo).declaringMethod) FROM code WHERE
+            (_.code.exceptionHandlers.exists (_.catchType == Some (IllegalMonitorStateExceptionType)))
+    }
 
-
-    def inheritance: Relation[InheritanceRelation]
-
-    def constructors: Relation[MethodDeclaration]
-
-    def instructions: Relation[InstructionInfo]
-
-    def codeAttributes: Relation[CodeAttribute]
-
-    def invokeStatic: Relation[INVOKESTATIC]
-
-    def invokeVirtual: Relation[INVOKEVIRTUAL]
-
-    def invokeInterface: Relation[INVOKEINTERFACE]
-
-    def invokeSpecial: Relation[INVOKESPECIAL]
-
-    def readField : Relation[FieldReadInstruction]
-
-    def getStatic : Relation[GETSTATIC]
-
-    def getField : Relation[GETFIELD]
-
-    def writeField : Relation[FieldWriteInstruction]
-
-    def putStatic : Relation[PUTSTATIC]
-
-    def putField : Relation[PUTFIELD]
 }

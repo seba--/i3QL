@@ -45,6 +45,8 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     def inheritance = null
 
+    lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
+
     lazy val invokeStatic: Relation[INVOKESTATIC] = new SetResult[INVOKESTATIC](database.invokeStatic)
 
     lazy val invokeVirtual: Relation[INVOKEVIRTUAL] = new SetResult[INVOKEVIRTUAL](database.invokeVirtual)
@@ -52,6 +54,18 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val invokeInterface: Relation[INVOKEINTERFACE] = new SetResult[INVOKEINTERFACE](database.invokeInterface)
 
     lazy val invokeSpecial: Relation[INVOKESPECIAL] = new SetResult[INVOKESPECIAL](database.invokeSpecial)
+
+    lazy val readField = new SetResult[FieldReadInstruction](database.readField)
+
+    lazy val getStatic = new SetResult[GETSTATIC](database.getStatic)
+
+    lazy val getField = new SetResult[GETFIELD](database.getField)
+
+    lazy val writeField = new SetResult[FieldWriteInstruction](database.writeField)
+
+    lazy val putStatic = new SetResult[PUTSTATIC](database.putStatic)
+
+    lazy val putField = new SetResult[PUTFIELD](database.putField)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)

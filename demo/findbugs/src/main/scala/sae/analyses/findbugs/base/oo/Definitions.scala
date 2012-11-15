@@ -5,6 +5,7 @@ import sae.syntax.sql._
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.bytecode.structure.{InheritanceRelation, MethodDeclaration}
+import sae.bytecode.model.FieldDeclaration
 
 /**
  *
@@ -16,9 +17,18 @@ case class Definitions(database: BytecodeDatabase)
 
     import database._
 
+
+    val serializable = ObjectType ("java/io/Serializable")
+
+    val subTypesOfSerializable: Relation[ObjectType] =
+        SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == serializable)
+
+
+    val IllegalMonitorStateExceptionType = ObjectType ("java/lang/IllegalMonitorStateException")
+
     val cloneable = ObjectType ("java/lang/Cloneable")
 
-    val subTypesOfCloneable: Relation[ObjectType] =
+   val subTypesOfCloneable: Relation[ObjectType] =
         SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == cloneable)
 
     val implementersOfClone: Relation[MethodDeclaration] =
@@ -41,4 +51,7 @@ case class Definitions(database: BytecodeDatabase)
     val system = ObjectType("java/lang/System")
 
     val runtime = ObjectType("java/lang/Runtime")
+
+    val privateFields =
+        SELECT (*) FROM fieldDeclarations WHERE (_.isPrivate)
 }
