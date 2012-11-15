@@ -26,7 +26,7 @@ object DM_GC
 
         SELECT(*) FROM invokeStatic WHERE
                 NOT((_: InvokeInstruction).declaringMethod.declaringClassType.className.startsWith("java/lang")) AND
-                NOT((instr: InvokeInstruction) => gcReg.findFirstIn(instr.declaringMethod.name)) AND
+                NOT((instr: InvokeInstruction) => gcReg.findFirstIn(instr.declaringMethod.name)).isDefined AND
                 (_.receiverType == system) AND
                 (_.name == "gc") AND
                 (_.parameterTypes == Nil) AND
