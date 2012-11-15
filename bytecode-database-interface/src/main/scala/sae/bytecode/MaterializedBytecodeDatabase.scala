@@ -1,9 +1,18 @@
 package sae.bytecode
 
-import instructions.InstructionInfo
+import instructions._
+import instructions.INVOKEINTERFACE
+import instructions.INVOKESTATIC
+import instructions.INVOKEVIRTUAL
 import java.io.InputStream
-import sae.collections.{BagResult, SetResult}
+import sae.collections.SetResult
 import sae.bytecode.structure._
+import sae.Relation
+import structure.CodeAttribute
+import structure.CodeInfo
+import structure.FieldDeclaration
+import structure.InheritanceRelation
+import structure.MethodDeclaration
 
 /**
  *
@@ -35,6 +44,14 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def fieldReadInstructions = null
 
     def inheritance = null
+
+    lazy val invokeStatic: Relation[INVOKESTATIC] = new SetResult[INVOKESTATIC](database.invokeStatic)
+
+    lazy val invokeVirtual: Relation[INVOKEVIRTUAL] = new SetResult[INVOKEVIRTUAL](database.invokeVirtual)
+
+    lazy val invokeInterface: Relation[INVOKEINTERFACE] = new SetResult[INVOKEINTERFACE](database.invokeInterface)
+
+    lazy val invokeSpecial: Relation[INVOKESPECIAL] = new SetResult[INVOKESPECIAL](database.invokeSpecial)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)

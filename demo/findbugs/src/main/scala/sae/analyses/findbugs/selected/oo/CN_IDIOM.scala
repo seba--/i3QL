@@ -53,8 +53,7 @@ object CN_IDIOM
         val definitions = Definitions (database)
         import definitions._
 
-        SELECT (*) FROM (subTypesOfCloneable) WHERE
-            NOT (
+        SELECT (*) FROM (subTypesOfCloneable) WHERE NOT (
                 EXISTS (
                     SELECT (*) FROM (implementersOfClone) WHERE (declaringType === identity[ObjectType]_)
                 )

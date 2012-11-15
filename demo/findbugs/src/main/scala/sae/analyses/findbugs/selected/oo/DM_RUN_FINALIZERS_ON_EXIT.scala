@@ -4,7 +4,7 @@ import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.syntax.sql._
 import sae.analyses.findbugs.base.oo.Definitions
-import sae.bytecode.instructions.{INVOKESTATIC, InstructionInfo}
+import sae.bytecode.instructions.INVOKESTATIC
 import de.tud.cs.st.bat.resolved.{BooleanType, VoidType}
 
 /**
@@ -13,20 +13,21 @@ import de.tud.cs.st.bat.resolved.{BooleanType, VoidType}
  *
  */
 object DM_RUN_FINALIZERS_ON_EXIT
-        extends (BytecodeDatabase => Relation[InstructionInfo])
+    extends (BytecodeDatabase => Relation[INVOKESTATIC])
 {
 
-    def apply(database: BytecodeDatabase): Relation[InstructionInfo] = {
-        val definitions = Definitions(database)
-        import definitions._
+    def apply(database: BytecodeDatabase): Relation[INVOKESTATIC] = {
+        val definitions = Definitions (database)
         import database._
+        import definitions._
 
-        SELECT(*) FROM invokeStatic WHERE (
-                ((_: INVOKESTATIC).receiverType == system) OR
-                        (_.receiverType == runtime)) AND
-                (_.name == "runFinalizersOnExit") AND
-                (_.parameterTypes == Seq(BooleanType)) AND
-                (_.returnType == VoidType)
+
+        SELECT (*) FROM invokeStatic WHERE (
+            ((_: INVOKESTATIC).receiverType == system) OR
+                (_.receiverType == runtime)) AND
+            (_.name == "runFinalizersOnExit") AND
+            (_.parameterTypes == Seq (BooleanType)) AND
+            (_.returnType == VoidType)
     }
 
 }
