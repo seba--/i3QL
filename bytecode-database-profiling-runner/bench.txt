@@ -1,0 +1,2 @@
+jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;queries;result count;mean;std. dev;std err.;measured unit
+jdk1.7.0-win-64-rt.jar;18663;165512;76399;8616084;50;100;false;CI_CONFUSED_INHERITANCE;123;8.14664625;0.18715916122088774;0.018715916122088772;ms

@@ -221,4 +221,6 @@ object BATAnalysesTimeProfiler
         val instructionCount = instructions.size
         SimpleDataStatistic (classCount, methodCount, fieldCount, instructionCount)
     }
+
+    def benchmarkType = "BAT time"
 }

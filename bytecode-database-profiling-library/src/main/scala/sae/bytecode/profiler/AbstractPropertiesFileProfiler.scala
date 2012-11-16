@@ -106,7 +106,7 @@ trait AbstractPropertiesFileProfiler
 
         val separator = ";"
 
-        val header = "jars" + separator +
+        val header = "bench type" + separator + "jars" + separator +
             "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
@@ -114,6 +114,7 @@ trait AbstractPropertiesFileProfiler
         val dataStatistics = dataStatistic (measurementJars)
 
         val outputLine =
+            benchmarkType + separator +
             measurementJars.reduce (_ + " | " + _) + separator +
                 dataStatistics.classCount + separator +
                 dataStatistics.methodCount + separator +
@@ -137,6 +138,7 @@ trait AbstractPropertiesFileProfiler
 
     def usage: String
 
+    def benchmarkType : String
 
     def dataStatistic(jars: List[String]): DataStatistic
 

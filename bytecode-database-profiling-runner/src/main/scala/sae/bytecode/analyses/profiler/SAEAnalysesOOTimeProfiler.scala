@@ -212,4 +212,6 @@ object SAEAnalysesOOTimeProfiler
     }
 
     def measurementUnit = MilliSeconds
+
+    def benchmarkType = "SAEOO time"
 }
