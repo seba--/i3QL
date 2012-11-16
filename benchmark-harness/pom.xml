@@ -25,13 +25,17 @@
                 <version>1.1.1</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>generate-test-resources</phase>
                         <goals>
-                            <goal>java</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <mainClass>sae.benchmark.Harness</mainClass>
+                            <executable>java</executable>
                             <arguments>
+                                <argument>-classpath</argument>
+                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
+                                <classpath/>
+                                <argument>sae.benchmark.Harness</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -44,10 +48,12 @@
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-bytecode-database-profiling-runner</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-database-test-data</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

@@ -32,9 +32,10 @@
  */
 package sae.bytecode.profiler
 
-import java.io.{File, FileWriter, FileInputStream}
+import java.io._
 import java.util.Properties
 import statistics.{DataStatistic, MeasurementUnit, SampleStatistic}
+import scala.Some
 
 /**
  *
@@ -101,14 +102,14 @@ trait AbstractPropertiesFileProfiler
         val file = new File (outputFile)
         val writeHeader = !file.exists ()
 
-        val out = new FileWriter (file, true)
+        val out = new PrintWriter (new FileWriter (file, true))
 
         val separator = ";"
 
         val header = "jars" + separator +
             "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
-            "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit" + "\n"
+            "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
         val dataStatistics = dataStatistic (measurementJars)
 
@@ -126,11 +127,11 @@ trait AbstractPropertiesFileProfiler
                 measurementUnit.fromBase (statistic.mean) + separator +
                 measurementUnit.fromBase (statistic.standardDeviation) + separator +
                 measurementUnit.fromBase (statistic.standardError) + separator +
-                measurementUnit.descriptor + separator + "\n"
+                measurementUnit.descriptor
         if (writeHeader) {
-            out.write (header)
+            out.println (header)
         }
-        out.write (outputLine)
+        out.println (outputLine)
         out.close ()
     }
 
