@@ -4,8 +4,7 @@ import de.tud.cs.st.bat.resolved.{ObjectType, IntegerType}
 import sae.syntax.sql._
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import sae.bytecode.structure.{InheritanceRelation, MethodDeclaration}
-import sae.bytecode.model.FieldDeclaration
+import sae.bytecode.structure.{FieldDeclaration, InheritanceRelation, MethodDeclaration}
 
 /**
  *
@@ -28,7 +27,7 @@ case class Definitions(database: BytecodeDatabase)
 
     val cloneable = ObjectType ("java/lang/Cloneable")
 
-   val subTypesOfCloneable: Relation[ObjectType] =
+    val subTypesOfCloneable: Relation[ObjectType] =
         SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == cloneable)
 
     val implementersOfClone: Relation[MethodDeclaration] =
@@ -44,14 +43,14 @@ case class Definitions(database: BytecodeDatabase)
 
     val implementersOfCompareToWithoutObjectParameter: Relation[MethodDeclaration] =
         SELECT (*) FROM methodDeclarations WHERE
-                (_.name == "compareTo") AND
-                NOT((_:MethodDeclaration).parameterTypes == Seq(ObjectType.Object)) AND
-                (_.returnType == IntegerType)
+            (_.name == "compareTo") AND
+            NOT ((_: MethodDeclaration).parameterTypes == Seq (ObjectType.Object)) AND
+            (_.returnType == IntegerType)
 
-    val system = ObjectType("java/lang/System")
+    val system = ObjectType ("java/lang/System")
 
-    val runtime = ObjectType("java/lang/Runtime")
+    val runtime = ObjectType ("java/lang/Runtime")
 
-    val privateFields =
+    val privateFields: Relation[FieldDeclaration] =
         SELECT (*) FROM fieldDeclarations WHERE (_.isPrivate)
 }

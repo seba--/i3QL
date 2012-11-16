@@ -37,7 +37,6 @@ import sae.Relation
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
-import de.tud.cs.st.bat.resolved.analyses.Project
 import structure.InheritanceRelation
 
 /**
@@ -47,6 +46,7 @@ import structure.InheritanceRelation
  */
 
 object SE_NO_SUITABLE_CONSTRUCTOR
+    extends (BytecodeDatabase => Relation[ObjectType])
 {
     def apply(database: BytecodeDatabase): Relation[ObjectType] = {
         val definitions = Definitions (database)
@@ -54,7 +54,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
         import definitions._
 
 
-        val superTypes: Relation[ObjectType] = SELECT ( (i:InheritanceRelation, o:ObjectType) => i.superType ) FROM (classInheritance, subTypesOfSerializable) WHERE
+        val superTypes: Relation[ObjectType] = SELECT ((i: InheritanceRelation, o: ObjectType) => i.superType) FROM (classInheritance, subTypesOfSerializable) WHERE
             (subType === identity[ObjectType] _)
 
         SELECT (*) FROM superTypes WHERE NOT (

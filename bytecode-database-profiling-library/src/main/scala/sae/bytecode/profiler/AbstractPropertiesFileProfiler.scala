@@ -32,10 +32,9 @@
  */
 package sae.bytecode.profiler
 
-import java.io.FileInputStream
+import java.io.{File, FileWriter, FileInputStream}
 import java.util.Properties
-import statistics.SampleStatistic
-import util.MilliSeconds
+import statistics.{MeasurementUnit, SampleStatistic}
 
 /**
  *
@@ -91,13 +90,60 @@ trait AbstractPropertiesFileProfiler
         println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
         val statistic = measure (measurementIterations, measurementJars, queries, reReadJars)
         println ("\tdone")
-        println (statistic.summary (MilliSeconds))
+        println (statistic.summary (measurementUnit))
+
+        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, queries, statistic, count)
 
         sys.exit (0)
     }
 
+    def reportCSV(outputFile: String, reReadJars: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], queries: List[String], statistic: SampleStatistic, resultCount: Long) {
+        val file = new File (outputFile)
+        val writeHeader = !file.exists ()
+
+        val out = new FileWriter (file, true)
+
+        val separator = ";"
+
+        val header = "jars" + separator +
+            "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
+            "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
+            "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit" + "\n"
+
+        val outputLine =
+            measurementJars.reduce (_ + " | " + _) + separator +
+                classCount + separator +
+                methodCount + separator +
+                fieldCount + separator +
+                instructionCount + separator +
+                warumUpIterations + separator +
+                measurementIterations + separator +
+                reReadJars.toString + separator +
+                queries.reduce (_ + " | " + _) + separator +
+                resultCount + separator +
+                measurementUnit.fromBase (statistic.mean) + separator +
+                measurementUnit.fromBase (statistic.standardDeviation) + separator +
+                measurementUnit.fromBase (statistic.standardError) + separator +
+                measurementUnit.descriptor + separator + "\n"
+        if (writeHeader) {
+            out.write (header)
+        }
+        out.write (outputLine)
+        out.close ()
+    }
+
     def usage: String
 
+
+    def classCount: Long
+
+    def methodCount: Long
+
+    def fieldCount: Long
+
+    def instructionCount: Long
+
+    def measurementUnit: MeasurementUnit
 
     /**
      * Perform the actual measurement.

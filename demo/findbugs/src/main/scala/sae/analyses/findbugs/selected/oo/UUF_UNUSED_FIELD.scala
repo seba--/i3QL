@@ -32,11 +32,13 @@
  */
 package sae.analyses.findbugs.selected.oo
 
-import sae.bytecode._
+
 import sae.Relation
-import sae.bytecode.structure.MethodDeclaration
 import sae.analyses.findbugs.base.oo.Definitions
+import sae.bytecode._
+import instructions.FieldReadInstruction
 import sae.syntax.sql._
+import structure.FieldDeclaration
 
 /**
  *
@@ -45,15 +47,16 @@ import sae.syntax.sql._
  */
 
 object UUF_UNUSED_FIELD
+    extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
-    def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
+    def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
         val definitions = Definitions (database)
         import database._
         import definitions._
 
         SELECT (*) FROM privateFields WHERE
             NOT (
-                EXISTS (SELECT (*) FROM readField WHERE (declaringType === ))
+                EXISTS (SELECT (*) FROM readField WHERE (((_: FieldReadInstruction).declaringMethod.declaringClassType) === declaringType))
             )
     }
 }

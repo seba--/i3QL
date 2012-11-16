@@ -122,19 +122,19 @@ class BATBytecodeDatabase
         SELECT ((_: InstructionInfo).asInstanceOf[FieldReadInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldReadInstruction])
 
     lazy val getStatic: Relation[GETSTATIC] =
-        SELECT ((_: InstructionInfo).asInstanceOf[GETSTATIC]) FROM (readField) WHERE (_.isInstanceOf[GETSTATIC])
+        SELECT ((_: FieldReadInstruction).asInstanceOf[GETSTATIC]) FROM (readField) WHERE (_.isInstanceOf[GETSTATIC])
 
     lazy val getField: Relation[GETFIELD] =
-        SELECT ((_: InstructionInfo).asInstanceOf[GETFIELD]) FROM (readField) WHERE (_.isInstanceOf[GETFIELD])
+        SELECT ((_: FieldReadInstruction).asInstanceOf[GETFIELD]) FROM (readField) WHERE (_.isInstanceOf[GETFIELD])
 
     lazy val writeField: Relation[FieldWriteInstruction] =
         SELECT ((_: InstructionInfo).asInstanceOf[FieldWriteInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldWriteInstruction])
 
     lazy val putStatic: Relation[PUTSTATIC] =
-        SELECT ((_: InstructionInfo).asInstanceOf[PUTSTATIC]) FROM (writeField) WHERE (_.isInstanceOf[PUTSTATIC])
+        SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTSTATIC]) FROM (writeField) WHERE (_.isInstanceOf[PUTSTATIC])
 
     lazy val putField: Relation[PUTFIELD] =
-        SELECT ((_: InstructionInfo).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
+        SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)
