@@ -49,6 +49,15 @@ object AnalysesOO
         case "CN_IDIOM" => CN_IDIOM (database)
         case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
         case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
+        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
+        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)
+        case "DM_GC" => DM_GC (database)
+        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
+        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
+        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
+        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
+        case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
