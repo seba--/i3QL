@@ -34,7 +34,7 @@ package sae.bytecode.profiler
 
 import java.io.{File, FileWriter, FileInputStream}
 import java.util.Properties
-import statistics.{MeasurementUnit, SampleStatistic}
+import statistics.{DataStatistic, MeasurementUnit, SampleStatistic}
 
 /**
  *
@@ -110,12 +110,14 @@ trait AbstractPropertiesFileProfiler
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit" + "\n"
 
+        val dataStatistics = dataStatistic (measurementJars)
+
         val outputLine =
             measurementJars.reduce (_ + " | " + _) + separator +
-                classCount + separator +
-                methodCount + separator +
-                fieldCount + separator +
-                instructionCount + separator +
+                dataStatistics.classCount + separator +
+                dataStatistics.methodCount + separator +
+                dataStatistics.fieldCount + separator +
+                dataStatistics.instructionCount + separator +
                 warumUpIterations + separator +
                 measurementIterations + separator +
                 reReadJars.toString + separator +
@@ -135,13 +137,7 @@ trait AbstractPropertiesFileProfiler
     def usage: String
 
 
-    def classCount: Long
-
-    def methodCount: Long
-
-    def fieldCount: Long
-
-    def instructionCount: Long
+    def dataStatistic(jars: List[String]): DataStatistic
 
     def measurementUnit: MeasurementUnit
 

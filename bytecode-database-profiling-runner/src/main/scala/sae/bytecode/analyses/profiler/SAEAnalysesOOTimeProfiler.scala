@@ -37,8 +37,9 @@ import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
-import sae.Relation
-import sae.bytecode.profiler.statistics.SampleStatistic
+import sae._
+import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
+import sae.bytecode.profiler.util.MilliSeconds
 
 
 /**
@@ -136,7 +137,7 @@ object SAEAnalysesOOTimeProfiler
     }
 
     def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
-        val database = createMaterializedDatabase(jars, queries)
+        val database = createMaterializedDatabase (jars, queries)
         val results = for (query <- queries) yield {
             val relation = AnalysesOO (query, database)
             sae.relationToResult (relation)
@@ -190,5 +191,25 @@ object SAEAnalysesOOTimeProfiler
         taken
     }
 
+    def dataStatistic(jars: List[String]): DataStatistic = {
+        var database = BATDatabaseFactory.create ()
 
+        val classes = relationToResult (database.classDeclarations)
+
+        val methods = relationToResult (database.methodDeclarations)
+
+        val fields = relationToResult (database.fieldDeclarations)
+
+        val instructions = relationToResult (database.instructions)
+
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+
+        SimpleDataStatistic (classes.size, methods.size, fields.size, instructions.size)
+    }
+
+    def measurementUnit = MilliSeconds
 }

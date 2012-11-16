@@ -37,7 +37,8 @@ import de.tud.cs.st.bat.resolved.analyses.{Analyses, Project}
 import de.tud.cs.st.bat.resolved.reader.Java6Framework
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
-import sae.bytecode.profiler.statistics.SampleStatistic
+import sae.bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
+import sae.bytecode.profiler.util.MilliSeconds
 
 
 /**
@@ -200,4 +201,24 @@ object BATAnalysesTimeProfiler
         }
     }
 
+
+    def measurementUnit = MilliSeconds
+
+    def dataStatistic(jars: List[String]): DataStatistic = {
+        val project = readJars (jars)
+
+        val classCount = project.classFiles.size
+        val methods = project.classFiles.flatMap (_.methods)
+        val methodCount = methods.size
+        val fields = project.classFiles.flatMap (_.fields)
+        val fieldCount = fields.size
+        val instructions =
+            for {method <- methods
+                 if method.body.isDefined
+                 instructions = method.body.get.instructions
+                 instruction <- instructions
+            } yield instruction
+        val instructionCount = instructions.size
+        SimpleDataStatistic (classCount, methodCount, fieldCount, instructionCount)
+    }
 }
