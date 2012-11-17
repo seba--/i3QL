@@ -34,6 +34,7 @@ object DM_GC
             (_.returnType == VoidType) UNION_ALL (
             SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
                 NOT ((_: InvokeInstruction).declaringMethod.declaringClassType.className.startsWith ("java/lang")) AND
+                NOT ((instr: InvokeInstruction) => gcReg.findFirstIn (instr.declaringMethod.name).isDefined) AND
                 (_.receiverType == runtime) AND
                 (_.name == "gc") AND
                 (_.parameterTypes == Nil) AND

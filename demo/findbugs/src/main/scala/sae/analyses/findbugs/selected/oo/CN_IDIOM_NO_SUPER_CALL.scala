@@ -10,8 +10,8 @@ import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
  *
  * @author Ralf Mitschke
  *
- * TODO consider optimization together with CN_IDIOM
- * TODO consider optimization together with CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
+ *         TODO consider optimization together with CN_IDIOM
+ *         TODO consider optimization together with CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
  */
 object CN_IDIOM_NO_SUPER_CALL
     extends (BytecodeDatabase => Relation[MethodDeclaration])
@@ -25,10 +25,13 @@ object CN_IDIOM_NO_SUPER_CALL
             (_.declaringMethod.name == "clone") AND
             (_.declaringMethod.parameterTypes == Nil) AND
             (_.declaringMethod.returnType == ObjectType.Object) AND
+            NOT ((_: CodeInfo).declaringMethod.isAbstract) AND
+            (_.declaringMethod.declaringClass.superClass.isDefined) AND
             NOT ((ci: CodeInfo) => {
+                val superClass = ci.declaringMethod.declaringClass.superClass.get
                 ci.code.instructions.exists ({
                     case INVOKESPECIAL (
-                    ci.declaringMethod.declaringClass.superClass,
+                    `superClass`,
                     "clone",
                     MethodDescriptor (Nil, ObjectType.Object)
                     ) ⇒ true
