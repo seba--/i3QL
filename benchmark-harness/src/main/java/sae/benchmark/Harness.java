@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -20,8 +17,11 @@ public class Harness {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         String cmd = createCommandLine();
         Runtime runtime = Runtime.getRuntime();
-
-        String[] benchmarks = getBenchmarkCommands();
+        String definitionsDir = "sae/benchmark/definitions";
+        if (args.length == 1) {
+            definitionsDir = args[0];
+        }
+        String[] benchmarks = getBenchmarkCommands(definitionsDir);
 
         for (String benchmark : benchmarks) {
             String exec = addArguments(cmd, new String[]{benchmark});
@@ -33,19 +33,27 @@ public class Harness {
         }
     }
 
-    public static String[] getBenchmarkCommands() throws IOException, URISyntaxException {
-        String[] benchmarks = getResourceListing(Harness.class, "sae/benchmark/definitions");
-        String[] commands = new String[benchmarks.length];
+    public static String[] getBenchmarkCommands(String definitionsDirectory) throws IOException, URISyntaxException {
+        String[] resources = getRecursiveResourceListing(Harness.class, definitionsDirectory);
 
-        for (int i = 0; i < benchmarks.length; i++) {
+        List<String> benchmarks = new ArrayList<String>();
+        for (String s : resources) {
+            if (s.endsWith(".properties")) {
+                benchmarks.add(s);
+            }
+        }
+
+        String[] commands = new String[benchmarks.size()];
+
+        for (int i = 0; i < benchmarks.size(); i++) {
             Properties properties = new Properties();
-            String propertiesFile = "sae/benchmark/definitions/" + benchmarks[i];
+            String propertiesFile = benchmarks.get(i);
             properties.load(Harness.class.getClassLoader().getResource(propertiesFile).openStream());
 
             String className = "";
             String benchmarkType = properties.getProperty("sae.benchmark.type", "SAEOO");
             if (benchmarkType.equals("SAEOO")) {
-                className = "sae.bytecode.analyses.profiler.SAEAnalysesTimeProfiler";
+                className = "sae.bytecode.analyses.profiler.SAEAnalysesOOTimeProfiler";
             }
             if (benchmarkType.equals("BAT")) {
                 className = "sae.bytecode.analyses.profiler.BATAnalysesTimeProfiler";
@@ -111,8 +119,81 @@ public class Harness {
     }
 
 
+    /**
+     * List directory contents for a resource folder. !!Recursive!!.
+     * This is basically a brute-force implementation.
+     * Works for regular files and also JARs.
+     *
+     * @param clazz Any java class that lives in the same place as the resources you want.
+     * @param path  Should end with "/", but not start with one.
+     * @return Just the name of each member item, not the full paths.
+     * @throws URISyntaxException
+     * @throws IOException
+     * @author Greg Briggs
+     * @author Ralf Mitschke
+     */
+    private static String[] getRecursiveResourceListing(Class clazz, String path) throws URISyntaxException, IOException {
+        URL dirURL = clazz.getClassLoader().getResource(path);
+        if (dirURL != null && dirURL.getProtocol().equals("file")) {
+            /* A file path: easy enough */
+            String[] entries = new File(dirURL.toURI()).getAbsoluteFile().list();
+            String[] results = new String[0];
+            if (entries == null)
+                return results;
+            else {
+                for (int i = 0; i < entries.length; i++) {
+                    entries[i] = path + "/" + entries[i];
+                }
+
+                results = entries;
+            }
+
+            for (String entry : entries) {
+                String[] childEntries = getRecursiveResourceListing(clazz, entry);
+                int oldLength = results.length;
+                results = Arrays.copyOf(results, results.length + childEntries.length);
+                for (int i = oldLength; i < results.length; i++) {
+                    results[i] = childEntries[i - oldLength];
+                }
+            }
+            return results;
+        }
+
+        if (dirURL == null) {
+            /*
+            * In case of a jar file, we can't actually find a directory.
+            * Have to assume the same jar as clazz.
+            */
+            String me = clazz.getName().replace(".", "/") + ".class";
+            dirURL = clazz.getClassLoader().getResource(me);
+        }
+
+        if (dirURL.getProtocol().equals("jar")) {
+            /* A JAR path */
+            String jarPath = dirURL.getPath().substring(5, dirURL.getPath().indexOf("!")); //strip out only the JAR file
+            JarFile jar = new JarFile(URLDecoder.decode(jarPath, "UTF-8"));
+            Enumeration<JarEntry> entries = jar.entries(); //gives ALL entries in jar
+            Set<String> result = new HashSet<String>(); //avoid duplicates in case it is a subdirectory
+            while (entries.hasMoreElements()) {
+                String name = entries.nextElement().getName();
+                if (name.startsWith(path)) { //filter according to the path
+                    String entry = name.substring(path.length());
+                    int checkSubdir = entry.indexOf("/");
+                    if (checkSubdir >= 0) {
+                        // if it is a subdirectory, we just return the directory name
+                        entry = entry.substring(0, checkSubdir);
+                    }
+                    result.add(entry);
+                }
+            }
+            return result.toArray(new String[result.size()]);
+        }
+
+        throw new UnsupportedOperationException("Cannot list files for URL " + dirURL);
+    }
+
     private static String createCommandLine() {
-        String commandLine = "\"" +  getJavaExecutable() + "\"";
+        String commandLine = "\"" + getJavaExecutable() + "\"";
 
         commandLine = addArguments(commandLine, new String[]{
                 "-classpath" + " \"" + getRuntimeClasspath() + "\""
