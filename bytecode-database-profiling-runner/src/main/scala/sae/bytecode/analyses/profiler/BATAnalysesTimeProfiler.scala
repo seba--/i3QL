@@ -217,6 +217,7 @@ object BATAnalysesTimeProfiler
                  if method.body.isDefined
                  instructions = method.body.get.instructions
                  instruction <- instructions
+                if (instruction != null)
             } yield instruction
         val instructionCount = instructions.size
         SimpleDataStatistic (classCount, methodCount, fieldCount, instructionCount)
