@@ -42,7 +42,11 @@ import sae.bytecode.structure.MethodDeclaration
  * @author Ralf Mitschke
  */
 case class PUTSTATIC (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.PUTSTATIC, pc: Int, sequenceIndex: Int)
-    extends InstructionInfo
+    extends InstructionInfo with FieldWriteInstruction
 {
+    def receiverType = instruction.declaringClass
 
+    def name = instruction.name
+
+    def fieldType = instruction.fieldType
 }

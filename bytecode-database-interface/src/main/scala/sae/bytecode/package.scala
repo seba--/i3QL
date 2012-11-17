@@ -39,4 +39,7 @@ package object bytecode
     def subType : InheritanceRelation => ClassType = _.subType
 
     def superType : InheritanceRelation => ClassType = _.superType
+
+    def superClass : ClassDeclaration => ClassType = _.superClass.get
+
 }

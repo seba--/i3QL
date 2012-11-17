@@ -56,7 +56,12 @@ object UUF_UNUSED_FIELD
 
         SELECT (*) FROM privateFields WHERE
             NOT (
-                EXISTS (SELECT (*) FROM readField WHERE (((_: FieldReadInstruction).declaringMethod.declaringClassType) === declaringType))
+                EXISTS (
+                    SELECT (*) FROM readField WHERE
+                        (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
+                        (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType)) AND
+                        (((_: FieldReadInstruction).receiverType) === declaringType)
+                )
             )
     }
 }

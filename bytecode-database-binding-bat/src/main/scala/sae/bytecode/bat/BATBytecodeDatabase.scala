@@ -63,11 +63,13 @@ class BATBytecodeDatabase
 
     val fieldDeclarations = new SetExtent[FieldDeclaration]
 
-    val classInheritance = new SetExtent[InheritanceRelation]
-
-    val interfaceInheritance = new SetExtent[InheritanceRelation]
-
     val code = new SetExtent[CodeInfo]
+
+    lazy val classInheritance: Relation[InheritanceRelation] =
+        SELECT ((cd: ClassDeclaration) => InheritanceRelation (cd.classType, cd.superClass.get)) FROM classDeclarations WHERE (_.superClass.isDefined)
+
+    lazy val interfaceInheritance: Relation[InheritanceRelation] =
+        SELECT ((cd: ClassDeclaration, i: ObjectType) => InheritanceRelation (cd.classType, i)) FROM (classDeclarations, ((_: ClassDeclaration).interfaces) IN classDeclarations)
 
     lazy val instructions: Relation[InstructionInfo] = SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)
 
@@ -107,7 +109,7 @@ class BATBytecodeDatabase
 
 
     lazy val constructors: Relation[MethodDeclaration] =
-        SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")
+        SELECT (*) FROM (methodDeclarations) WHERE (_.name ==  "<init>")
 
     lazy val invokeStatic: Relation[INVOKESTATIC] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])

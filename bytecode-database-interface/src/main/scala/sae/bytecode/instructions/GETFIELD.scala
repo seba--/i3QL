@@ -42,7 +42,11 @@ import sae.bytecode.structure.MethodDeclaration
  * @author Ralf Mitschke
  */
 case class GETFIELD (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.GETFIELD, pc: Int, sequenceIndex: Int)
-    extends InstructionInfo
+    extends InstructionInfo with FieldReadInstruction
 {
+    def receiverType = instruction.declaringClass
 
+    def name = instruction.name
+
+    def fieldType = instruction.fieldType
 }
