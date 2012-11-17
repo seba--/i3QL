@@ -48,4 +48,15 @@ trait DataStatistic
     def fieldCount: Long
 
     def instructionCount: Long
+
+    private val defaultLocale = java.util.Locale.UK
+
+    def summary : String = {
+        val values = Seq(classCount, methodCount, fieldCount, instructionCount)
+
+        "classes: %,5d   methods: %,6d   fields: %,6d   instructions: %,8d" formatLocal (
+            defaultLocale,
+            values: _*
+        )
+    }
 }

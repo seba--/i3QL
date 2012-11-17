@@ -93,12 +93,16 @@ trait AbstractPropertiesFileProfiler
         println ("\tdone")
         println (statistic.summary (measurementUnit))
 
-        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, queries, statistic, count)
+        val dataStatistics = dataStatistic (measurementJars)
+
+        println(dataStatistics.summary)
+
+        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, dataStatistics, queries, statistic, count)
 
         sys.exit (0)
     }
 
-    def reportCSV(outputFile: String, reReadJars: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], queries: List[String], statistic: SampleStatistic, resultCount: Long) {
+    def reportCSV(outputFile: String, reReadJars: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], dataStatistics: DataStatistic, queries: List[String], statistic: SampleStatistic, resultCount: Long) {
         val file = new File (outputFile)
         val writeHeader = !file.exists ()
 
@@ -111,11 +115,11 @@ trait AbstractPropertiesFileProfiler
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
-        val dataStatistics = dataStatistic (measurementJars)
+
 
         val outputLine =
             benchmarkType + separator +
-            measurementJars.reduce (_ + " | " + _) + separator +
+                measurementJars.reduce (_ + " | " + _) + separator +
                 dataStatistics.classCount + separator +
                 dataStatistics.methodCount + separator +
                 dataStatistics.fieldCount + separator +
@@ -138,7 +142,7 @@ trait AbstractPropertiesFileProfiler
 
     def usage: String
 
-    def benchmarkType : String
+    def benchmarkType: String
 
     def dataStatistic(jars: List[String]): DataStatistic
 
