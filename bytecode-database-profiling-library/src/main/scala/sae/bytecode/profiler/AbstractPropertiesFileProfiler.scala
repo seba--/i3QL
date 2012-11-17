@@ -95,7 +95,7 @@ trait AbstractPropertiesFileProfiler
 
         val dataStatistics = dataStatistic (measurementJars)
 
-        println(dataStatistics.summary)
+        println (dataStatistics.summary)
 
         reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, dataStatistics, queries, statistic, count)
 
@@ -129,9 +129,9 @@ trait AbstractPropertiesFileProfiler
                 reReadJars.toString + separator +
                 queries.reduce (_ + " | " + _) + separator +
                 resultCount + separator +
-                measurementUnit.fromBase (statistic.mean) + separator +
-                measurementUnit.fromBase (statistic.standardDeviation) + separator +
-                measurementUnit.fromBase (statistic.standardError) + separator +
+                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.mean))) + separator +
+                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.standardDeviation))) + separator +
+                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.standardError))) + separator +
                 measurementUnit.descriptor
         if (writeHeader) {
             out.println (header)

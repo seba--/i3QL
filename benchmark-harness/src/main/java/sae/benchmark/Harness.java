@@ -14,6 +14,12 @@ import java.util.jar.JarFile;
  */
 public class Harness {
 
+    private static final String BAT_TIME_PROFILER = "sae.bytecode.analyses.profiler.BATAnalysesTimeProfiler";
+
+    private static final String SAE_OO_TIME_PROFILER = "sae.bytecode.analyses.profiler.SAEAnalysesOOTimeProfiler";
+
+    private static final String SAE_OO_MEMORY_PROFILER = "sae.bytecode.analyses.profiler.SAEAnalysesOOMemoryProfiler";
+
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         String cmd = createCommandLine();
         Runtime runtime = Runtime.getRuntime();
@@ -43,27 +49,23 @@ public class Harness {
             }
         }
 
-        String[] commands = new String[benchmarks.size()];
+        List<String> commands = new ArrayList<String>();
 
-        for (int i = 0; i < benchmarks.size(); i++) {
+        for (String benchmark : benchmarks) {
             Properties properties = new Properties();
-            String propertiesFile = benchmarks.get(i);
-            properties.load(Harness.class.getClassLoader().getResource(propertiesFile).openStream());
+            properties.load(Harness.class.getClassLoader().getResource(benchmark).openStream());
 
-            String className = "";
             String benchmarkType = properties.getProperty("sae.benchmark.type", "SAEOO");
             if (benchmarkType.equals("SAEOO")) {
-                className = "sae.bytecode.analyses.profiler.SAEAnalysesOOTimeProfiler";
+                commands.add(SAE_OO_TIME_PROFILER + " " + benchmark);
+                commands.add(SAE_OO_MEMORY_PROFILER + " " + benchmark);
             }
             if (benchmarkType.equals("BAT")) {
-                className = "sae.bytecode.analyses.profiler.BATAnalysesTimeProfiler";
+                commands.add(BAT_TIME_PROFILER + " " + benchmark);
             }
-
-            String command = className + " " + propertiesFile;
-            commands[i] = command;
         }
 
-        return commands;
+        return commands.toArray(new String[commands.size()]);
     }
 
     /**
