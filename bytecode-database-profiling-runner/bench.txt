@@ -1,2 +1,0 @@
-bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;queries;result count;mean;std. dev;std err.;measured unit
-SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;false;CN_IDIOM;0;8.850893390000001;0.6062887536790561;0.06062887536790561;ms
