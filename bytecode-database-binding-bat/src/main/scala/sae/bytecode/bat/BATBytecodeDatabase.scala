@@ -34,12 +34,14 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{Relation, SetExtent}
+import sae.SetExtent
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
 import sae.bytecode.BytecodeDatabase
 import sae.syntax.sql._
 import sae.bytecode.instructions._
+import sae.Relation
+import sae.syntax.RelationalAlgebraSyntax
 
 /**
  * Created with IntelliJ IDEA.
@@ -99,9 +101,10 @@ class BATBytecodeDatabase
 
     val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
-    def fieldReadInstructions = null
+    lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
-    def inheritance = null
+    lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (RelationalAlgebraSyntax.TC[InheritanceRelation, ObjectType](inheritance)(_.subType, _.superType))
+
 
     lazy val constructors: Relation[MethodDeclaration] =
         SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")

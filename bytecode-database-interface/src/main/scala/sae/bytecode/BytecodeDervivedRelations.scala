@@ -46,11 +46,9 @@ import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
 trait BytecodeDervivedRelations
 {
 
-
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
-
-
     def inheritance: Relation[InheritanceRelation]
+
+    def subTypes: Relation[InheritanceRelation]
 
     def constructors: Relation[MethodDeclaration]
 

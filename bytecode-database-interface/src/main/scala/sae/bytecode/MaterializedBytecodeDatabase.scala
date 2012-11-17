@@ -41,9 +41,9 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
 
-    def fieldReadInstructions = null
+    lazy val inheritance = new SetResult[InheritanceRelation](database.inheritance)
 
-    def inheritance = null
+    lazy val subTypes = new SetResult[InheritanceRelation](database.subTypes)
 
     lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
 

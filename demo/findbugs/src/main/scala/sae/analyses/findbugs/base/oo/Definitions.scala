@@ -20,7 +20,7 @@ case class Definitions(database: BytecodeDatabase)
     val serializable = ObjectType ("java/io/Serializable")
 
     val subTypesOfSerializable: Relation[ObjectType] =
-        SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == serializable)
+        SELECT ((_: InheritanceRelation).subType) FROM (subTypes) WHERE (_.superType == serializable)
 
 
     val IllegalMonitorStateExceptionType = ObjectType ("java/lang/IllegalMonitorStateException")
@@ -28,7 +28,7 @@ case class Definitions(database: BytecodeDatabase)
     val cloneable = ObjectType ("java/lang/Cloneable")
 
     val subTypesOfCloneable: Relation[ObjectType] =
-        SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == cloneable)
+        SELECT ((_: InheritanceRelation).subType) FROM (subTypes) WHERE (_.superType == cloneable)
 
     val implementersOfClone: Relation[MethodDeclaration] =
         SELECT (*) FROM methodDeclarations WHERE
@@ -39,7 +39,7 @@ case class Definitions(database: BytecodeDatabase)
     val comparable = ObjectType ("java/lang/Comparable")
 
     val subTypesOfComparable: Relation[ObjectType] =
-        SELECT ((_: InheritanceRelation).subType) FROM (inheritance) WHERE (_.superType == comparable)
+        SELECT ((_: InheritanceRelation).subType) FROM (subTypes) WHERE (_.superType == comparable)
 
     val implementersOfCompareToWithoutObjectParameter: Relation[MethodDeclaration] =
         SELECT (*) FROM methodDeclarations WHERE
