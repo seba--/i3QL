@@ -34,13 +34,9 @@ package sae.analyses.findbugs.test
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
-import analyses.findbugs.base.relational.Definitions
 import analyses.findbugs.selected.relational._
-import bytecode.structure.InheritanceRelation
 import org.junit.Test
 import org.junit.Assert._
-import de.tud.cs.st.bat.resolved.ObjectType
-import syntax.sql._
 
 /**
  * Created with IntelliJ IDEA.
@@ -139,47 +135,7 @@ class TestRelationalAnalysesOnRT
     def test_SE_NO_SUITABLE_CONSTRUCTOR() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (SE_NO_SUITABLE_CONSTRUCTOR (database))
-
-        val definitions = Definitions (database)
-        import database._
-        import definitions._
-        import sae.bytecode.structure.minimal._
-        val directlySerializableSuperClassRelation =
-            relationToResult (
-                compile (
-                    SELECT ((ih: InheritanceRelation, ch: InheritanceRelation) => ch.superType) FROM (interfaceInheritance, classInheritance) WHERE
-                        (_.superType == serializable) AND
-                        (subType === subType)
-                )
-            )
-
-        val x =
-            relationToResult (
-                compile (
-                    SELECT (*) FROM (interfaceInheritance) WHERE
-                        (_.superType == serializable)
-                )
-            )
-
-
-
-        val directlySerializableSuperClasses: QueryResult[ObjectType] =
-            compile (
-                SELECT (*) FROM (directlySerializableSuperClassRelation) WHERE
-                    EXISTS (
-                        SELECT (*) FROM classDeclarationsMinimal WHERE (!_.isInterface) AND (classType === identity[ObjectType] _)
-                    )
-            )
-
-
         database.addArchive (getStream)
-        println (x.size)
-
-        println (directlySerializableSuperClassRelation.size)
-
-        println (directlySerializableSuperClasses.size)
-
-
         assertEquals (19, analysis.size)
     }
 

@@ -30,18 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.structure
-
-import de.tud.cs.st.bat.resolved.ObjectType
+package sae.bytecode.instructions.minimal
 
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
- * Date: 31.08.12
- * Time: 14:51
+ * Date: 11.09.12
+ * Time: 16:51
  */
 
-case class InheritanceRelation(subType: ObjectType, superType: ObjectType)
+trait GotoBranchInstructionInfo
+    extends InstructionInfo
 {
-
+    def branchOffset: Int
 }
