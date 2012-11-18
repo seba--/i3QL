@@ -66,9 +66,18 @@ public class Test {
 			l = 0;
 		} else {
 			l = i;
-		}
-		
+		}		
 	}
 	
+	public int testParam(int a , String b) {
+		return a + 5;
+	}
+	
+	public void testInvoke() {
+		int a = 0;
+		
+		if(testParam(a,"Hallo Welt!") > 10)
+			a = 1;
+	}
 	
 }

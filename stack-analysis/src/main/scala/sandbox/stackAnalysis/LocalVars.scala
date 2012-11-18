@@ -11,86 +11,57 @@ import sandbox.dataflowAnalysis.Combinable
  * Time: 14:10
  */
 
-case class LocalVars[T](varStore: Array[List[Option[T]]]) extends Combinable[LocalVars[T]] {
+case class LocalVars[T,V](typeStore : Array[Option[T]] , varStore: Array[List[Option[V]]])(implicit m: Manifest[T]) extends Combinable[LocalVars[T,V]] {
+  require(typeStore.length == varStore.length)
 
-  def this(i: Int, l: List[Option[T]]) = this(Array.fill[List[Option[T]]](i)(l))
+  def this(size : Int, t : Option[T], value : List[Option[V]])(implicit m: Manifest[T]) = this(Array.fill[Option[T]](size)(t), Array.fill[List[Option[V]]](size)(value))
 
-  /*
-  /**
-   * Gets all possibilities for variables that a stored at a specified index.
-   * @param index The index of the local variable.
-   * @return A list with all possible values.
-   */
-  def getVar(index: Int): List[Option[T]] =
-    varStore(index)
+  def setVar(index: Int, vSize: Int,  t : Option[T], value: Option[V]): LocalVars[T,V] = {
+    var resV: Array[List[Option[V]]] = Array.ofDim[List[Option[V]]](varStore.length)
+    var resT: Array[Option[T]] = Array.ofDim[Option[T]](varStore.length)
+    System.arraycopy(varStore, 0, resV, 0, varStore.length)
+    System.arraycopy(typeStore, 0, resT, 0, varStore.length)
 
-  def addVar(index: Int, value: Option[T]): LocalVars[T] = {
-    if (varStore(index).contains(value))
-      return this
+    for (i <- 0 until vSize){
+      resV.update(index + i, value :: Nil)
+      resT.update(index + i, t)
+    }
 
-    var res: Array[List[Option[T]]] = Array.ofDim[List[Option[T]]](varStore.length)
-    System.arraycopy(varStore, 0, res, 0, varStore.length)
-    res.update(index, value :: res(index))
-
-    new LocalVars[T](res)
+    new LocalVars[T,V](resT,resV)
   }
 
-  def addVar(index: Int, value: T): LocalVars[T] = {
-    addVar(index, Some(value))
-  }
+  def setVar(index: Int, vSize: Int, t : T, value: V): LocalVars[T,V] =
+    setVar(index,vSize,Some(t),Some(value))
 
-  def removeVar(index: Int, value: Option[T]): LocalVars[T] = {
-    if (!varStore(index).contains(value))
-      return this
-
-    var res: Array[List[Option[T]]] = Array.ofDim[List[Option[T]]](varStore.length)
-    System.arraycopy(varStore, 0, res, 0, varStore.length)
-    res.update(index, res(index).filter(a => !(a equals value)))
-
-    new LocalVars[T](res)
-  }  */
-
-  def setVar(index: Int, vSize: Int, value: Option[T]): LocalVars[T] = {
-    var res: Array[List[Option[T]]] = Array.ofDim[List[Option[T]]](varStore.length)
-    System.arraycopy(varStore, 0, res, 0, varStore.length)
-
-    for (i <- 0 until vSize)
-      res.update(index + i, value :: Nil)
-
-    new LocalVars[T](res)
-  }
-
-  def setVar(index: Int, value: Option[T]): LocalVars[T] =
-    setVar(index, 1, value)
-
-  def setVar(index: Int, vSize: Int, value: T): LocalVars[T] =
-    setVar(index, vSize, Some(value))
-
-  def setVar(index: Int, value: T): LocalVars[T] =
-    setVar(index, Some(value))
-
+  def setVar(index: Int, t : T, value: V): LocalVars[T,V] =
+    setVar(index,1,t,value)
 
   def length(): Int = {
     varStore.length
   }
 
-  def combineWith(other: LocalVars[T]): LocalVars[T] = {
+  def combineWith(other: LocalVars[T,V]): LocalVars[T,V] = {
     if (other == null)
       this
-    else
-      LocalVars[T](combineWithArray[Option[T]](varStore, other.varStore))
-  }
+    else {
+      if(length != other.length)
+        throw new IllegalArgumentException("Varstores need to have the same length")
 
-  private def combineWithArray[S](a: Array[List[S]], b: Array[List[S]]): Array[List[S]] = {
-    val resLength: Int = if (a.length > b.length) b.length else a.length
-    val res: Array[List[S]] = Array.ofDim[List[S]](resLength)
+      val resT: Array[Option[T]] = Array.ofDim[Option[T]](length)
+      val resV: Array[List[Option[V]]] = Array.ofDim[List[Option[V]]](length)
 
-    for (i <- 0 until resLength) {
-      res(i) = CodeInfoTools.distinctAppend(a(i), b(i))
+      for (i <- 0 until length) {
+        resT(i) = if(typeStore(i) == None) other.typeStore(i) else typeStore(i)
+        resV(i) = CodeInfoTools.distinctAppend(varStore(i), other.varStore(i))
+      }
+
+      LocalVars[T,V](resT,resV)
+
     }
 
-    res
+
   }
+
 
   override def toString = {
     var stringList: List[String] = Nil
@@ -106,15 +77,17 @@ case class LocalVars[T](varStore: Array[List[Option[T]]]) extends Combinable[Loc
 
 
 
-    stringList.reverse.mkString("LV: [", "; ", "]")
+    stringList.reverse.mkString("LV: [", "; ", "][" + typeStore.mkString("; ") + "]")
   }
 
-  def equals(other: LocalVars[T]): Boolean = {
+  def equals(other: LocalVars[T,V]): Boolean = {
     if (length() != other.length())
       return false
 
     for (i <- 0 until length()) {
-      if (!(varStore(i) == other.varStore(i)))
+      if (!(varStore(i) equals other.varStore(i)))
+        return false
+      if (!(typeStore(i) equals other.typeStore(i)))
         return false
     }
 

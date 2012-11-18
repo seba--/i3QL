@@ -1,5 +1,6 @@
 package sandbox.stackAnalysis
 
+import de.tud.cs.st.bat.resolved._
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,9 +11,8 @@ package sandbox.stackAnalysis
 object Types {
 
   object VarType extends Enumeration {
-    val vBoolean, vByte, vChar, vShort, vInt, vFloat, vReference, vReturnAddress, vLong, vDouble = Value
-  }
+    val vAny, vBoolean, vByte, vChar, vShort, vInt, vFloat, vReference, vReturnAddress, vLong, vDouble, vNothing = Value
+   }
 
-  type VarEntry = (Int, VarType.Value)
-  type StackResult = Result[VarEntry, VarEntry]
+  type StackResult = Result[Type, Int]
 }

@@ -16,6 +16,8 @@ import sandbox.dataflowAnalysis.{MethodCFG, AnalysisCFG}
  * Date: 24.10.12
  * Time: 14:33
  */
+
+//TODO: Instructions: jsr, athrow
 class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
   /*Overrides the trait function*/
@@ -47,6 +49,16 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
           addToArray(res, currentPC + a(currentPC).asInstanceOf[ConditionalBranchInstruction].branchoffset, currentPC)
         } else if (a(currentPC).isInstanceOf[UnconditionalBranchInstruction]) {
           addToArray(res, currentPC + a(currentPC).asInstanceOf[UnconditionalBranchInstruction].branchoffset, currentPC)
+        } else if (a(currentPC).isInstanceOf[LOOKUPSWITCH]) {//TODO LOOKUPSWITCH?
+          val instr = a(currentPC).asInstanceOf[LOOKUPSWITCH]
+          for(p <- instr.npairs) {
+            addToArray(res,p._2,currentPC)
+          }
+        } else if (a(currentPC).isInstanceOf[TABLESWITCH]) {//TODO TABLESWITCH?
+        val instr = a(currentPC).asInstanceOf[TABLESWITCH]
+          for(p <- instr.jumpOffsets) {
+            addToArray(res,p,currentPC)
+          }
         } else {
           addToArray(res, nextPC, currentPC)
         }
