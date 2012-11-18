@@ -32,9 +32,9 @@
  */
 package sae.bytecode
 
+import instructions.minimal._
 import sae.Relation
-import structure.minimal.{FieldDeclaration, MethodDeclaration}
-import de.tud.cs.st.bat.resolved.ObjectType
+import structure.minimal.{CodeInfo, FieldDeclaration, MethodDeclaration, ClassDeclaration}
 
 /**
  *
@@ -45,9 +45,35 @@ import de.tud.cs.st.bat.resolved.ObjectType
 trait BytecodeMinimal
 {
 
-    def typeDeclarations: Relation[ObjectType]
+    def classDeclarationsMinimal: Relation[ClassDeclaration]
 
     def methodDeclarationsMinimal: Relation[MethodDeclaration]
 
     def fieldDeclarationsMinimal: Relation[FieldDeclaration]
+
+    def codeMinimal: Relation[CodeInfo]
+
+    def constructorsMinimal: Relation[MethodDeclaration]
+
+    def instructionsMinimal: Relation[InstructionInfo]
+
+    def invokeStaticMinimal: Relation[INVOKESTATIC]
+
+    def invokeVirtualMinimal: Relation[INVOKEVIRTUAL]
+
+    def invokeInterfaceMinimal: Relation[INVOKEINTERFACE]
+
+    def invokeSpecialMinimal: Relation[INVOKESPECIAL]
+
+    def readFieldMinimal: Relation[FieldReadInstruction]
+
+    def getStaticMinimal: Relation[GETSTATIC]
+
+    def getFieldMinimal: Relation[GETFIELD]
+
+    def writeFieldMinimal: Relation[FieldWriteInstruction]
+
+    def putStaticMinimal: Relation[PUTSTATIC]
+
+    def putFieldMinimal: Relation[PUTFIELD]
 }

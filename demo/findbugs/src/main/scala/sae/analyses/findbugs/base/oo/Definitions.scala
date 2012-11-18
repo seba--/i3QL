@@ -4,7 +4,7 @@ import de.tud.cs.st.bat.resolved.{ObjectType, IntegerType}
 import sae.syntax.sql._
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import sae.bytecode.structure.{FieldDeclaration, InheritanceRelation, MethodDeclaration}
+import sae.bytecode.structure._
 
 /**
  *

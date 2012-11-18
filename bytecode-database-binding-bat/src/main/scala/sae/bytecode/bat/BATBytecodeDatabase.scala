@@ -36,13 +36,12 @@ import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.SetExtent
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
-import sae.bytecode.structure._
 import sae.bytecode.BytecodeDatabase
 import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax
-import sae.collections.SetResult
+import sae.bytecode.structure.{ClassDeclaration, MethodDeclaration, CodeInfo, FieldDeclaration, InheritanceRelation, CodeAttribute, ExceptionHandlerInfo}
 
 /**
  * Created with IntelliJ IDEA.
@@ -66,15 +65,19 @@ class BATBytecodeDatabase
 
     val code = new SetExtent[CodeInfo]
 
-    lazy val typeDeclarations : Relation[ObjectType] =
-        compile(SELECT ((_:ClassDeclaration).classType) FROM classDeclarations).forceToSet
+    lazy val classDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.ClassDeclaration] =
+        compile (SELECT ((c: ClassDeclaration) => sae.bytecode.structure.minimal.ClassDeclaration (c.minorVersion, c.majorVersion, c.accessFlags, c.classType)) FROM classDeclarations).forceToSet
 
-    lazy val methodDeclarationsMinimal : Relation[minimal.MethodDeclaration] =
-        compile(SELECT ((m:MethodDeclaration) => minimal.MethodDeclaration(m.declaringClassType, m.accessFlags, m.name, m.returnType, m.parameterTypes)) FROM methodDeclarations).forceToSet
+    lazy val methodDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.MethodDeclaration] =
+        compile (SELECT ((m: MethodDeclaration) => sae.bytecode.structure.minimal.MethodDeclaration (m.declaringClassType, m.accessFlags, m.name, m.returnType, m.parameterTypes)) FROM methodDeclarations).forceToSet
 
-    lazy val fieldDeclarationsMinimal  : Relation[minimal.FieldDeclaration] =
-        compile(SELECT ((f:FieldDeclaration) => minimal.FieldDeclaration(f.declaringClassType, f.accessFlags, f.name, f.fieldType)) FROM fieldDeclarations).forceToSet
+    lazy val fieldDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.FieldDeclaration] =
+        compile (SELECT ((f: FieldDeclaration) => sae.bytecode.structure.minimal.FieldDeclaration (f.declaringClassType, f.accessFlags, f.name, f.fieldType)) FROM fieldDeclarations).forceToSet
 
+    lazy val codeMinimal =
+        compile (SELECT ((c: CodeInfo) => sae.bytecode.structure.minimal.CodeInfo (
+            sae.bytecode.structure.minimal.MethodDeclaration (c.declaringMethod.declaringClassType, c.declaringMethod.accessFlags, c.declaringMethod.name, c.declaringMethod.returnType, c.declaringMethod.parameterTypes),
+            c.code)) FROM code).forceToSet
 
     lazy val classInheritance: Relation[InheritanceRelation] =
         SELECT ((cd: ClassDeclaration) => InheritanceRelation (cd.classType, cd.superClass.get)) FROM classDeclarations WHERE (_.superClass.isDefined)
@@ -82,7 +85,7 @@ class BATBytecodeDatabase
     lazy val interfaceInheritance: Relation[InheritanceRelation] =
         SELECT ((cd: ClassDeclaration, i: ObjectType) => InheritanceRelation (cd.classType, i)) FROM (classDeclarations, ((_: ClassDeclaration).interfaces) IN classDeclarations)
 
-    lazy val instructions: Relation[InstructionInfo] = compile(SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)).forceToSet
+    lazy val instructions: Relation[InstructionInfo] = compile (SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)).forceToSet
 
     private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT ((codeInfo: CodeInfo) => {
         var i = 0
@@ -100,6 +103,28 @@ class BATBytecodeDatabase
         result
     }
     ) FROM code
+
+
+    lazy val instructionsMinimal: Relation[minimal.InstructionInfo] = compile (SELECT (*) FROM (identity[List[minimal.InstructionInfo]] _ IN instructionInfosMinimal)).forceToSet
+
+    private lazy val instructionInfosMinimal: Relation[List[minimal.InstructionInfo]] = SELECT ((codeInfo: sae.bytecode.structure.minimal.CodeInfo) => {
+        var i = 0
+        var index = 0
+        val length = codeInfo.code.instructions.length
+        var result: List[minimal.InstructionInfo] = Nil
+        while (i < length) {
+            val instr = codeInfo.code.instructions (i)
+            if (instr != null) {
+                result = (minimal.InstructionInfo (
+                    sae.bytecode.structure.minimal.MethodDeclaration (codeInfo.declaringMethod.declaringType, codeInfo.declaringMethod.accessFlags, codeInfo.declaringMethod.name, codeInfo.declaringMethod.returnType, codeInfo.declaringMethod.parameterTypes)
+                    , instr, i, index)) :: result
+                index += 1
+            }
+            i += 1
+        }
+        result
+    }
+    ) FROM codeMinimal
 
 
     lazy val codeAttributes: Relation[CodeAttribute] = SELECT (
@@ -120,7 +145,11 @@ class BATBytecodeDatabase
 
 
     lazy val constructors: Relation[MethodDeclaration] =
-        SELECT (*) FROM (methodDeclarations) WHERE (_.name ==  "<init>")
+        SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")
+
+    lazy val constructorsMinimal =
+        compile(SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
+
 
     lazy val invokeStatic: Relation[INVOKESTATIC] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])
@@ -151,6 +180,43 @@ class BATBytecodeDatabase
 
     lazy val putField: Relation[PUTFIELD] =
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
+
+
+
+
+
+
+
+    lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESTATIC]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESTATIC])
+
+    lazy val invokeVirtualMinimal: Relation[minimal.INVOKEVIRTUAL] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKEVIRTUAL]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKEVIRTUAL])
+
+    lazy val invokeInterfaceMinimal: Relation[minimal.INVOKEINTERFACE] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKEINTERFACE]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKEINTERFACE])
+
+    lazy val invokeSpecialMinimal: Relation[minimal.INVOKESPECIAL] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESPECIAL]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESPECIAL])
+
+    lazy val readFieldMinimal: Relation[minimal.FieldReadInstruction] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.FieldReadInstruction]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.FieldReadInstruction])
+
+    lazy val getStaticMinimal: Relation[minimal.GETSTATIC] =
+        SELECT ((_: minimal.FieldReadInstruction).asInstanceOf[minimal.GETSTATIC]) FROM (readFieldMinimal) WHERE (_.isInstanceOf[minimal.GETSTATIC])
+
+    lazy val getFieldMinimal: Relation[minimal.GETFIELD] =
+        SELECT ((_: minimal.FieldReadInstruction).asInstanceOf[minimal.GETFIELD]) FROM (readFieldMinimal) WHERE (_.isInstanceOf[minimal.GETFIELD])
+
+    lazy val writeFieldMinimal: Relation[minimal.FieldWriteInstruction] =
+        SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.FieldWriteInstruction]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.FieldWriteInstruction])
+
+    lazy val putStaticMinimal: Relation[minimal.PUTSTATIC] =
+        SELECT ((_: minimal.FieldWriteInstruction).asInstanceOf[minimal.PUTSTATIC]) FROM (writeFieldMinimal) WHERE (_.isInstanceOf[minimal.PUTSTATIC])
+
+    lazy val putFieldMinimal: Relation[minimal.PUTFIELD] =
+        SELECT ((_: minimal.FieldWriteInstruction).asInstanceOf[minimal.PUTFIELD]) FROM (writeFieldMinimal) WHERE (_.isInstanceOf[minimal.PUTFIELD])
+
 
     def addClassFile(stream: InputStream) {
         reader.ClassFile (() => stream)

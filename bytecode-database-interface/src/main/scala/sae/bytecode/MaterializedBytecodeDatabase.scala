@@ -1,19 +1,15 @@
 package sae.bytecode
 
 import instructions._
-import instructions.INVOKEINTERFACE
-import instructions.INVOKESTATIC
-import instructions.INVOKEVIRTUAL
 import java.io.InputStream
 import sae.collections.SetResult
-import sae.bytecode.structure._
 import sae.Relation
 import structure.CodeAttribute
 import structure.CodeInfo
+import structure.ClassDeclaration
 import structure.FieldDeclaration
 import structure.InheritanceRelation
 import structure.MethodDeclaration
-import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -32,11 +28,11 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
 
-    lazy val typeDeclarations = new SetResult[ObjectType](database.typeDeclarations)
+    lazy val classDeclarationsMinimal = new SetResult[structure.minimal.ClassDeclaration](database.classDeclarationsMinimal)
 
-    lazy val methodDeclarationsMinimal = new SetResult[minimal.MethodDeclaration](database.methodDeclarationsMinimal)
+    lazy val methodDeclarationsMinimal = new SetResult[structure.minimal.MethodDeclaration](database.methodDeclarationsMinimal)
 
-    lazy val fieldDeclarationsMinimal = new SetResult[minimal.FieldDeclaration](database.fieldDeclarationsMinimal)
+    lazy val fieldDeclarationsMinimal = new SetResult[structure.minimal.FieldDeclaration](database.fieldDeclarationsMinimal)
 
     lazy val classInheritance = new SetResult[InheritanceRelation](database.classInheritance)
 
@@ -44,7 +40,7 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val code = new SetResult[CodeInfo](database.code)
 
-    lazy val instructions = new SetResult[InstructionInfo](database.instructions)
+    lazy val codeMinimal = new SetResult[structure.minimal.CodeInfo](database.codeMinimal)
 
     lazy val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
 
@@ -53,6 +49,11 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val subTypes = new SetResult[InheritanceRelation](database.subTypes)
 
     lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
+
+    lazy val constructorsMinimal = new SetResult(database.constructorsMinimal)
+
+
+    lazy val instructions = new SetResult[InstructionInfo](database.instructions)
 
     lazy val invokeStatic: Relation[INVOKESTATIC] = new SetResult[INVOKESTATIC](database.invokeStatic)
 
@@ -73,6 +74,29 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val putStatic = new SetResult[PUTSTATIC](database.putStatic)
 
     lazy val putField = new SetResult[PUTFIELD](database.putField)
+
+    lazy val instructionsMinimal = new SetResult[minimal.InstructionInfo](database.instructionsMinimal)
+
+    lazy val invokeStaticMinimal = new SetResult[minimal.INVOKESTATIC](database.invokeStaticMinimal)
+
+    lazy val invokeVirtualMinimal = new SetResult[minimal.INVOKEVIRTUAL](database.invokeVirtualMinimal)
+
+    lazy val invokeInterfaceMinimal = new SetResult[minimal.INVOKEINTERFACE](database.invokeInterfaceMinimal)
+
+    lazy val invokeSpecialMinimal = new SetResult[minimal.INVOKESPECIAL](database.invokeSpecialMinimal)
+
+    lazy val readFieldMinimal = new SetResult[minimal.FieldReadInstruction](database.readFieldMinimal)
+
+    lazy val getStaticMinimal = new SetResult[minimal.GETSTATIC](database.getStaticMinimal)
+
+    lazy val getFieldMinimal = new SetResult[minimal.GETFIELD](database.getFieldMinimal)
+
+    lazy val writeFieldMinimal = new SetResult[minimal.FieldWriteInstruction](database.writeFieldMinimal)
+
+    lazy val putStaticMinimal = new SetResult[minimal.PUTSTATIC](database.putStaticMinimal)
+
+    lazy val putFieldMinimal = new SetResult[minimal.PUTFIELD](database.putFieldMinimal)
+
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
