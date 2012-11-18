@@ -42,4 +42,6 @@ trait BagRelation[V]
     extends Relation[V]
 {
     def isSet = false
+
+    override def forceToSet = throw new IllegalStateException("Can not force a BagRelation to a set; force the underlying relation instead!")
 }

@@ -51,6 +51,9 @@ object SAEAnalysesOOMemoryProfiler
     extends AbstractPropertiesFileProfiler
     with MemoryUsage
 {
+    sae.ENABLE_FORCE_TO_SET = true
+
+    val optimized = true
 
     val usage: String = """|Usage: java SAEAnalysesOOMemoryProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -75,7 +78,7 @@ object SAEAnalysesOOMemoryProfiler
 
         // initialize the needed materializations at least once
         val relations = for (query <- queries) yield {
-            AnalysesOO (query, materializedDatabase)
+            AnalysesOO (query, materializedDatabase)(optimized)
         }
 
 
@@ -124,7 +127,7 @@ object SAEAnalysesOOMemoryProfiler
     def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
         var database = BATDatabaseFactory.create ()
         val results = for (query <- queries) yield {
-            sae.relationToResult (AnalysesOO (query, database))
+            sae.relationToResult (AnalysesOO (query, database)(optimized))
         }
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
@@ -139,7 +142,7 @@ object SAEAnalysesOOMemoryProfiler
         val database = createMaterializedDatabase (jars, queries)
         val results = for (query <- queries) yield {
             //sae.relationToResult (AnalysesOO (query, database))
-            AnalysesOO (query, database)
+            AnalysesOO (query, database) (optimized)
         }
 
         results.map (_.size).sum
@@ -149,9 +152,9 @@ object SAEAnalysesOOMemoryProfiler
     def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
-        for (query <- queries) yield {
+        val relations = for (query <- queries) yield {
             //sae.relationToResult (AnalysesOO (query, database))
-            AnalysesOO (query, database)
+            AnalysesOO (query, database) (optimized)
         }
 
         memory {
@@ -182,7 +185,7 @@ object SAEAnalysesOOMemoryProfiler
         }
         {
             relations = for (query <- queries) yield {
-                sae.relationToResult (AnalysesOO (query, database))
+                sae.relationToResult (AnalysesOO (query, database)(optimized))
             }
 
         }

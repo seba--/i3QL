@@ -23,7 +23,7 @@ trait TransitiveClosure[Edge, Vertex]
     def getTail: Edge => Vertex
     def getHead: Edge => Vertex
 
-    def isSet = false
+    def isSet = true
 
     override protected def children = List (source)
 }

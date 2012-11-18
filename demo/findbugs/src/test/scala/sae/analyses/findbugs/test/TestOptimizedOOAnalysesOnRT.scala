@@ -30,22 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.instructions
+package sae.analyses.findbugs.test
 
-import sae.bytecode.structure.{FieldInfo, MethodDeclaration}
-import de.tud.cs.st.bat.resolved.ObjectType
+import sae.bytecode.bat.BATDatabaseFactory
+import sae._
+import analyses.findbugs.selected.oo.optimized._
+import org.junit.Test
+import org.junit.Assert._
 
 /**
- *
- * @author Ralf Mitschke
- *
+ * Created with IntelliJ IDEA.
+ * User: Ralf Mitschke
+ * Date: 09.09.12
+ * Time: 11:19
  */
 
-trait FieldWriteInstruction
-    extends FieldInfo
+class TestOptimizedOOAnalysesOnRT
 {
-    def receiverType: ObjectType
 
-    def declaringMethod: MethodDeclaration
+    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
+
+
+    @Test
+    def test_CN_IDIOM() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IDIOM (database))
+        database.addArchive (getStream)
+        assertEquals (835, analysis.size)
+    }
+
+    @Test
+    def test_UUF_UNUSED_FIELD() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UUF_UNUSED_FIELD (database))
+        database.addArchive (getStream)
+        assertEquals (6799, analysis.size)
+    }
+
 
 }

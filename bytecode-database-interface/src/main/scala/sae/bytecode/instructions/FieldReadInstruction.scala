@@ -32,8 +32,8 @@
  */
 package sae.bytecode.instructions
 
-import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
-import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.{FieldInfo, MethodDeclaration}
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -42,12 +42,11 @@ import sae.bytecode.structure.MethodDeclaration
  */
 
 trait FieldReadInstruction
+    extends FieldInfo
 {
+
+    def receiverType : ObjectType
+
     def declaringMethod: MethodDeclaration
 
-    def receiverType: ObjectType
-
-    def name: String
-
-    def fieldType: FieldType
 }

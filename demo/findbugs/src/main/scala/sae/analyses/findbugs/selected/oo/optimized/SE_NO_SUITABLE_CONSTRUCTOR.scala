@@ -30,10 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.instructions
+package sae.analyses.findbugs.selected.oo.optimized
 
-import sae.bytecode.structure.{FieldInfo, MethodDeclaration}
+import sae.bytecode._
+import sae.Relation
+import sae.analyses.findbugs.base.oo.Definitions
+import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
+import structure.{ClassDeclaration, InheritanceRelation}
 
 /**
  *
@@ -41,11 +45,30 @@ import de.tud.cs.st.bat.resolved.ObjectType
  *
  */
 
-trait FieldWriteInstruction
-    extends FieldInfo
+object SE_NO_SUITABLE_CONSTRUCTOR
+    extends (BytecodeDatabase => Relation[ObjectType])
 {
-    def receiverType: ObjectType
+    def apply(database: BytecodeDatabase): Relation[ObjectType] = {
+        val definitions = Definitions (database)
+        import database._
+        import definitions._
 
-    def declaringMethod: MethodDeclaration
+
+        val superClassesOfSerializableClasses: Relation[ObjectType] = SELECT ((i: InheritanceRelation, o: ObjectType) => i.superType) FROM (classInheritance, subTypesOfSerializable) WHERE
+            (subType === identity[ObjectType] _)
+
+        val directlySerializable: Relation[ClassDeclaration] =
+            SELECT (*) FROM classDeclarations WHERE
+                (!_.isInterface) AND
+                (_.interfaces.contains (serializable)) AND
+                (_.superClass.isDefined) AND EXISTS (
+                SELECT (*) FROM classDeclarations WHERE (!_.isInterface) AND (classType === superClass)
+            )
+
+        SELECT DISTINCT  ((_:ClassDeclaration).superClass.get) FROM directlySerializable WHERE NOT (
+            EXISTS (SELECT (*) FROM constructors WHERE (_.parameterTypes == Nil) AND (declaringType === superClass))
+        )
+
+    }
 
 }

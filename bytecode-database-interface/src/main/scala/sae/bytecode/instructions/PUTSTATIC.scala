@@ -49,4 +49,6 @@ case class PUTSTATIC (declaringMethod: MethodDeclaration, instruction: de.tud.cs
     def name = instruction.name
 
     def fieldType = instruction.fieldType
+
+    def declaringType = instruction.declaringClass
 }

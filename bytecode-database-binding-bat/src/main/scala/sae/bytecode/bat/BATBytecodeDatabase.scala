@@ -71,7 +71,7 @@ class BATBytecodeDatabase
     lazy val interfaceInheritance: Relation[InheritanceRelation] =
         SELECT ((cd: ClassDeclaration, i: ObjectType) => InheritanceRelation (cd.classType, i)) FROM (classDeclarations, ((_: ClassDeclaration).interfaces) IN classDeclarations)
 
-    lazy val instructions: Relation[InstructionInfo] = SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)
+    lazy val instructions: Relation[InstructionInfo] = compile(SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)).forceToSet
 
     private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT ((codeInfo: CodeInfo) => {
         var i = 0
