@@ -13,6 +13,7 @@ import structure.CodeInfo
 import structure.FieldDeclaration
 import structure.InheritanceRelation
 import structure.MethodDeclaration
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -30,6 +31,12 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val methodDeclarations = new SetResult[MethodDeclaration](database.methodDeclarations)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
+
+    lazy val typeDeclarations = new SetResult[ObjectType](database.typeDeclarations)
+
+    lazy val methodDeclarationsMinimal = new SetResult[minimal.MethodDeclaration](database.methodDeclarationsMinimal)
+
+    lazy val fieldDeclarationsMinimal = new SetResult[minimal.FieldDeclaration](database.fieldDeclarationsMinimal)
 
     lazy val classInheritance = new SetResult[InheritanceRelation](database.classInheritance)
 

@@ -42,6 +42,7 @@ import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax
+import sae.collections.SetResult
 
 /**
  * Created with IntelliJ IDEA.
@@ -64,6 +65,16 @@ class BATBytecodeDatabase
     val fieldDeclarations = new SetExtent[FieldDeclaration]
 
     val code = new SetExtent[CodeInfo]
+
+    lazy val typeDeclarations : Relation[ObjectType] =
+        compile(SELECT ((_:ClassDeclaration).classType) FROM classDeclarations).forceToSet
+
+    lazy val methodDeclarationsMinimal : Relation[minimal.MethodDeclaration] =
+        compile(SELECT ((m:MethodDeclaration) => minimal.MethodDeclaration(m.declaringClassType, m.accessFlags, m.name, m.returnType, m.parameterTypes)) FROM methodDeclarations).forceToSet
+
+    lazy val fieldDeclarationsMinimal  : Relation[minimal.FieldDeclaration] =
+        compile(SELECT ((f:FieldDeclaration) => minimal.FieldDeclaration(f.declaringClassType, f.accessFlags, f.name, f.fieldType)) FROM fieldDeclarations).forceToSet
+
 
     lazy val classInheritance: Relation[InheritanceRelation] =
         SELECT ((cd: ClassDeclaration) => InheritanceRelation (cd.classType, cd.superClass.get)) FROM classDeclarations WHERE (_.superClass.isDefined)
