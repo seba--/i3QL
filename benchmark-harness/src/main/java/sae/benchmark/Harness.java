@@ -24,13 +24,22 @@ public class Harness {
         String cmd = createCommandLine();
         Runtime runtime = Runtime.getRuntime();
         String definitionsDir = "sae/benchmark/definitions";
-        if (args.length == 1) {
+        String reReadJars = "false";
+        if (args.length >= 1) {
             definitionsDir = args[0];
         }
+        if(args.length >= 2) {
+            reReadJars = args[1];
+        }
+
+        System.out.println("Harness started");
+        System.out.println("re read jars = " + reReadJars);
+        System.out.println("reading profiles from: " + definitionsDir);
+
         String[] benchmarks = getBenchmarkCommands(definitionsDir);
 
         for (String benchmark : benchmarks) {
-            String exec = addArguments(cmd, new String[]{benchmark});
+            String exec = addArguments(cmd, new String[]{benchmark, reReadJars});
             System.out.println(exec);
             Process process = runtime.exec(exec);
 
