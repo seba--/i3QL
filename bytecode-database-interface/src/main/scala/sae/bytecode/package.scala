@@ -1,8 +1,9 @@
 package sae
 
 import bytecode.instructions.{InstructionInfo, InvokeInstruction}
-import bytecode.structure.{MethodInfo, MethodDeclaration, ClassDeclaration, DeclaredClassMember}
-import de.tud.cs.st.bat.resolved.{Type, ReferenceType, VoidType}
+import bytecode.structure._
+import bytecode.structure.MethodDeclaration
+import de.tud.cs.st.bat.resolved.{ObjectType, Type, ReferenceType, VoidType}
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,6 +24,8 @@ package object bytecode
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
 
+    def declaringType: DeclaredClassMember => ObjectType = _.declaringClass.classType
+
     def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
 
     def sequenceIndex: InstructionInfo => Int = _.sequenceIndex
@@ -32,4 +35,11 @@ package object bytecode
     def returnType: MethodInfo => Type = _.returnType
 
     def classType: ClassDeclaration => ClassType = _.classType
+
+    def subType : InheritanceRelation => ClassType = _.subType
+
+    def superType : InheritanceRelation => ClassType = _.superType
+
+    def superClass : ClassDeclaration => ClassType = _.superClass.get
+
 }

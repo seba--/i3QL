@@ -51,4 +51,6 @@ class BagExtent[V]
      * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
      */
     def isStored = false
+
+    override def forceToSet = throw new IllegalStateException("Can not force a BagExtent to a set; use SetExtent instead!")
 }

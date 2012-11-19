@@ -36,9 +36,7 @@ import sae.bytecode.profiler.AbstractMemoryProfiler
 import java.io.File
 import sae.bytecode._
 import profiler.util.MegaByte
-import sae.analyses.findbugs.{BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, CI_CONFUSED_INHERITANCE}
-import sae.bytecode.profiler.MemoryProfiler._
-import sae.{Observable, Relation}
+import sae.analyses.findbugs.random.relational.{CI_CONFUSED_INHERITANCE, BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION}
 
 /**
  * Created with IntelliJ IDEA.
@@ -53,15 +51,15 @@ object AnalysesMemoryProfiler
     def profile(implicit files: Seq[File]) {
         implicit val iter = iterations
 
-        val (databaseMemory, _) = dataMemory((db: BytecodeDatabase) => db.relations)
+        val (databaseMemory, _) = dataMemory ((db: BytecodeDatabase) => db.relations)
 
-        val (memory_CI_CONFUSED_INHERITANCE,_) = dataMemory(measure (CI_CONFUSED_INHERITANCE))
+        val (memory_CI_CONFUSED_INHERITANCE, _) = dataMemory (measure (CI_CONFUSED_INHERITANCE))
 
-        val (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, _) = dataMemory(measure (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION))
+        val (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION, _) = dataMemory (measure (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION))
 
-        println("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary(MegaByte))
+        println ("CI_CONFUSED_INHERITANCE: " + (memory_CI_CONFUSED_INHERITANCE - databaseMemory).summary (MegaByte))
 
-        println("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary(MegaByte))
+        println ("BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION: " + (memory_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION - databaseMemory).summary (MegaByte))
     }
 
     def warmUp(implicit files: Seq[File]) {}

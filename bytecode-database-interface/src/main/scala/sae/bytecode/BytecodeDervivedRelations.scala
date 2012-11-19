@@ -32,9 +32,9 @@
  */
 package sae.bytecode
 
-import instructions.InstructionInfo
-import sae.Relation
-import structure.{CodeAttribute, InheritanceRelation}
+import instructions._
+import sae.{SetRelation, Relation}
+import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
 
 /**
  *
@@ -45,14 +45,37 @@ import structure.{CodeAttribute, InheritanceRelation}
  */
 trait BytecodeDervivedRelations
 {
+    def classInheritance: Relation[InheritanceRelation]
 
-
-    //def fieldReadInstructions: Relation[ReadFieldInstruction]
-
+    def interfaceInheritance: Relation[InheritanceRelation]
 
     def inheritance: Relation[InheritanceRelation]
+
+    def subTypes: Relation[InheritanceRelation]
+
+    def constructors: Relation[MethodDeclaration]
 
     def instructions: Relation[InstructionInfo]
 
     def codeAttributes: Relation[CodeAttribute]
+
+    def invokeStatic: Relation[INVOKESTATIC]
+
+    def invokeVirtual: Relation[INVOKEVIRTUAL]
+
+    def invokeInterface: Relation[INVOKEINTERFACE]
+
+    def invokeSpecial: Relation[INVOKESPECIAL]
+
+    def readField: Relation[FieldReadInstruction]
+
+    def getStatic: Relation[GETSTATIC]
+
+    def getField: Relation[GETFIELD]
+
+    def writeField: Relation[FieldWriteInstruction]
+
+    def putStatic: Relation[PUTSTATIC]
+
+    def putField: Relation[PUTFIELD]
 }

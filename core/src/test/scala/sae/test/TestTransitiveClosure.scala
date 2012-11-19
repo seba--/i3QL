@@ -1,7 +1,7 @@
 package sae.test
 
 import org.junit.Assert._
-import org.junit.{Before, Test, Ignore}
+import org.junit.{Ignore, Before, Test}
 import sae.collections.Table
 import sae._
 import util.Random

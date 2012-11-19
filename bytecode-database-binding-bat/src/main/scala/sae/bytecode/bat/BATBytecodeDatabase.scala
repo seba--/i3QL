@@ -34,12 +34,14 @@ package sae.bytecode.bat
 
 import java.io.InputStream
 import java.util.zip.{ZipEntry, ZipInputStream}
-import sae.{Relation, SetExtent}
+import sae.SetExtent
 import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 import sae.bytecode.structure._
 import sae.bytecode.BytecodeDatabase
 import sae.syntax.sql._
-import sae.bytecode.instructions.InstructionInfo
+import sae.bytecode.instructions._
+import sae.Relation
+import sae.syntax.RelationalAlgebraSyntax
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,10 +51,11 @@ import sae.bytecode.instructions.InstructionInfo
  */
 
 class BATBytecodeDatabase
-        extends BytecodeDatabase
+    extends BytecodeDatabase
 {
 
-    val reader = new SAEJava6Framework(this)
+
+    val reader = new SAEJava6Framework (this)
 
     val classDeclarations = new SetExtent[ClassDeclaration]
 
@@ -60,23 +63,25 @@ class BATBytecodeDatabase
 
     val fieldDeclarations = new SetExtent[FieldDeclaration]
 
-    val classInheritance = new SetExtent[InheritanceRelation]
-
-    val interfaceInheritance = new SetExtent[InheritanceRelation]
-
     val code = new SetExtent[CodeInfo]
 
-    lazy val instructions : Relation[InstructionInfo] = SELECT(*) FROM (identity[List[InstructionInfo]]_ IN instructionInfos)
+    lazy val classInheritance: Relation[InheritanceRelation] =
+        SELECT ((cd: ClassDeclaration) => InheritanceRelation (cd.classType, cd.superClass.get)) FROM classDeclarations WHERE (_.superClass.isDefined)
 
-    private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT((codeInfo: CodeInfo) => {
+    lazy val interfaceInheritance: Relation[InheritanceRelation] =
+        SELECT ((cd: ClassDeclaration, i: ObjectType) => InheritanceRelation (cd.classType, i)) FROM (classDeclarations, ((_: ClassDeclaration).interfaces) IN classDeclarations)
+
+    lazy val instructions: Relation[InstructionInfo] = compile(SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)).forceToSet
+
+    private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT ((codeInfo: CodeInfo) => {
         var i = 0
         var index = 0
         val length = codeInfo.code.instructions.length
         var result: List[InstructionInfo] = Nil
         while (i < length) {
-            val instr = codeInfo.code.instructions(i)
+            val instr = codeInfo.code.instructions (i)
             if (instr != null) {
-                result = (InstructionInfo(codeInfo.declaringMethod, instr, i, index)) :: result
+                result = (InstructionInfo (codeInfo.declaringMethod, instr, i, index)) :: result
                 index += 1
             }
             i += 1
@@ -86,8 +91,8 @@ class BATBytecodeDatabase
     ) FROM code
 
 
-    lazy val codeAttributes : Relation[CodeAttribute] = SELECT(
-        (codeInfo: CodeInfo) => CodeAttribute(
+    lazy val codeAttributes: Relation[CodeAttribute] = SELECT (
+        (codeInfo: CodeInfo) => CodeAttribute (
             codeInfo.declaringMethod,
             codeInfo.code.instructions.size,
             codeInfo.code.maxStack,
@@ -98,13 +103,46 @@ class BATBytecodeDatabase
 
     val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
-    def fieldReadInstructions = null
+    lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
-    def inheritance = null
+    lazy val subTypes: Relation[InheritanceRelation] = SELECT ((subType: (ObjectType, ObjectType)) => InheritanceRelation (subType._1, subType._2)) FROM (RelationalAlgebraSyntax.TC[InheritanceRelation, ObjectType](inheritance)(_.subType, _.superType))
 
+
+    lazy val constructors: Relation[MethodDeclaration] =
+        SELECT (*) FROM (methodDeclarations) WHERE (_.name ==  "<init>")
+
+    lazy val invokeStatic: Relation[INVOKESTATIC] =
+        SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])
+
+    lazy val invokeVirtual: Relation[INVOKEVIRTUAL] =
+        SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+
+    lazy val invokeInterface: Relation[INVOKEINTERFACE] =
+        SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEINTERFACE])
+
+    lazy val invokeSpecial: Relation[INVOKESPECIAL] =
+        SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESPECIAL])
+
+    lazy val readField: Relation[FieldReadInstruction] =
+        SELECT ((_: InstructionInfo).asInstanceOf[FieldReadInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldReadInstruction])
+
+    lazy val getStatic: Relation[GETSTATIC] =
+        SELECT ((_: FieldReadInstruction).asInstanceOf[GETSTATIC]) FROM (readField) WHERE (_.isInstanceOf[GETSTATIC])
+
+    lazy val getField: Relation[GETFIELD] =
+        SELECT ((_: FieldReadInstruction).asInstanceOf[GETFIELD]) FROM (readField) WHERE (_.isInstanceOf[GETFIELD])
+
+    lazy val writeField: Relation[FieldWriteInstruction] =
+        SELECT ((_: InstructionInfo).asInstanceOf[FieldWriteInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldWriteInstruction])
+
+    lazy val putStatic: Relation[PUTSTATIC] =
+        SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTSTATIC]) FROM (writeField) WHERE (_.isInstanceOf[PUTSTATIC])
+
+    lazy val putField: Relation[PUTFIELD] =
+        SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
     def addClassFile(stream: InputStream) {
-        reader.ClassFile(() => stream)
+        reader.ClassFile (() => stream)
     }
 
     def removeClassFile(stream: InputStream) {
@@ -112,18 +150,19 @@ class BATBytecodeDatabase
     }
 
     def addArchive(stream: InputStream) {
-        val zipStream: ZipInputStream = new ZipInputStream(stream)
+        val zipStream: ZipInputStream = new ZipInputStream (stream)
         var zipEntry: ZipEntry = null
         while ((({
             zipEntry = zipStream.getNextEntry
             zipEntry
-        })) != null) {
-            if (!zipEntry.isDirectory && zipEntry.getName.endsWith(".class")) {
-                addClassFile(new ZipStreamEntryWrapper(zipStream, zipEntry))
+        })) != null)
+        {
+            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
+                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
             }
         }
-        ObjectType.cache.clear()
-        ArrayType.cache.clear()
+        ObjectType.cache.clear ()
+        ArrayType.cache.clear ()
     }
 
     def removeArchive(stream: InputStream) {

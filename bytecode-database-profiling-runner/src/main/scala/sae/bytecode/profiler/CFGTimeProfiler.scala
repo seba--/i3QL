@@ -49,7 +49,6 @@ object CFGTimeProfiler
 
     def operations = (db:BytecodeDatabase) => Seq(db.basicBlocks)
 
-
     def profile(implicit files: Seq[File]) {
         val statisticWithCount = measureTime(iterations)(() => computeViewAsCount(files)(operations))
         println("cfg:")

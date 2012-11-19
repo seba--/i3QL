@@ -32,6 +32,8 @@
  */
 package sae.bytecode.profiler
 
+import statistics.{Statistic, SampleStatistic}
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -55,5 +57,22 @@ trait MemoryUsage
         val usedAfter = memoryMXBean.getHeapMemoryUsage.getUsed
         mu(usedAfter - usedBefore)
         r
+    }
+
+    /**
+     * performs the measurement of function f in iterations times.
+     * Two statistics are returned
+     * first: memory consumed when applying f
+     * second: memory leak after f has been applied
+     */
+    def measureMemory(iterations: Int)(f: () => Long): (SampleStatistic, SampleStatistic) = {
+        val leakStatistic = Statistic (iterations)
+        val memStatistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            memory (leakStatistic.add (_))(memStatistic.add (f ()))
+
+        }
+        (memStatistic, leakStatistic)
     }
 }

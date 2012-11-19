@@ -32,7 +32,7 @@
  */
 package sae.bytecode.instructions
 
-import sae.bytecode.structure.MethodInfo
+import sae.bytecode.structure.{MethodDeclaration, MethodInfo}
 import de.tud.cs.st.bat.resolved.ReferenceType
 
 
@@ -46,6 +46,8 @@ import de.tud.cs.st.bat.resolved.ReferenceType
 trait InvokeInstruction
     extends MethodInfo
 {
+
+    def declaringMethod: MethodDeclaration
 
     def receiverType: ReferenceType
 

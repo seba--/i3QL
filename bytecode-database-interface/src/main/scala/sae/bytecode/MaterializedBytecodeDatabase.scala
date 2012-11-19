@@ -1,9 +1,18 @@
 package sae.bytecode
 
-import instructions.InstructionInfo
+import instructions._
+import instructions.INVOKEINTERFACE
+import instructions.INVOKESTATIC
+import instructions.INVOKEVIRTUAL
 import java.io.InputStream
-import sae.collections.{BagResult, SetResult}
+import sae.collections.SetResult
 import sae.bytecode.structure._
+import sae.Relation
+import structure.CodeAttribute
+import structure.CodeInfo
+import structure.FieldDeclaration
+import structure.InheritanceRelation
+import structure.MethodDeclaration
 
 /**
  *
@@ -32,9 +41,31 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val codeAttributes = new SetResult[CodeAttribute](database.codeAttributes)
 
-    def fieldReadInstructions = null
+    lazy val inheritance = new SetResult[InheritanceRelation](database.inheritance)
 
-    def inheritance = null
+    lazy val subTypes = new SetResult[InheritanceRelation](database.subTypes)
+
+    lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
+
+    lazy val invokeStatic: Relation[INVOKESTATIC] = new SetResult[INVOKESTATIC](database.invokeStatic)
+
+    lazy val invokeVirtual: Relation[INVOKEVIRTUAL] = new SetResult[INVOKEVIRTUAL](database.invokeVirtual)
+
+    lazy val invokeInterface: Relation[INVOKEINTERFACE] = new SetResult[INVOKEINTERFACE](database.invokeInterface)
+
+    lazy val invokeSpecial: Relation[INVOKESPECIAL] = new SetResult[INVOKESPECIAL](database.invokeSpecial)
+
+    lazy val readField = new SetResult[FieldReadInstruction](database.readField)
+
+    lazy val getStatic = new SetResult[GETSTATIC](database.getStatic)
+
+    lazy val getField = new SetResult[GETFIELD](database.getField)
+
+    lazy val writeField = new SetResult[FieldWriteInstruction](database.writeField)
+
+    lazy val putStatic = new SetResult[PUTSTATIC](database.putStatic)
+
+    lazy val putField = new SetResult[PUTFIELD](database.putField)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)

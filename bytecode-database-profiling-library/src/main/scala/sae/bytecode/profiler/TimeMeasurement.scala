@@ -32,6 +32,8 @@
  */
 package sae.bytecode.profiler
 
+import statistics.{Statistic, SampleStatistic}
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -50,5 +52,20 @@ trait TimeMeasurement
         val end = System.nanoTime
         mu (end - start)
         r
+    }
+
+    /**
+     * performs the measurement of function f, iterations times.
+     * f should return the time taken to perform the required computation.
+     * A statistic is returned for the time consumed when applying f
+     */
+    def measureTime(iterations: Int)(f: () => Long): SampleStatistic = {
+        val statistic = Statistic (iterations)
+        for (i <- 1 to iterations)
+        {
+            statistic.add (f ())
+
+        }
+        statistic
     }
 }

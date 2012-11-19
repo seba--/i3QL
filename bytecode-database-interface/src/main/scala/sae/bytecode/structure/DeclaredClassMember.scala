@@ -32,6 +32,8 @@
  */
 package sae.bytecode.structure
 
+import de.tud.cs.st.bat.resolved.ObjectType
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -42,6 +44,8 @@ package sae.bytecode.structure
 trait DeclaredClassMember
 {
     def declaringClass: ClassDeclaration
+
+    def declaringClassType : ObjectType = declaringClass.classType
 
     def isPublic: Boolean
 
