@@ -1,3 +1,6 @@
+import java.lang.NullPointerException;
+import java.lang.System;
+
 public class Test {
 	public void testSeq() {
 		int a = 1;
@@ -79,5 +82,20 @@ public class Test {
 		if(testParam(a,"Hallo Welt!") > 10)
 			a = 1;
 	}
+
+    public int testExceptions(String s) {
+        int a = 0;
+
+        try {
+          a = s.length();
+        } catch (NullPointerException e) {
+            a = -1;
+        } finally {
+            System.out.println(a);
+        }
+
+        return a;
+
+    }
 	
 }

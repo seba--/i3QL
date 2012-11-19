@@ -68,7 +68,7 @@ import de.tud.cs.st.bat.resolved.IF_ACMPNE
 case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTransformer[StackResult] {
 
   val result: Relation[MethodTransformer[StackResult]] = {
-    compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod)) FROM codeInfo)
+    compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod, computeFunctions(c.code.instructions))) FROM codeInfo)
   }
 
   private def computeFunctions(a: Array[Instruction]): Array[Transformer] = {
@@ -227,7 +227,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.pop(), p.l.setVar(x, 2, LongType, pc)))
 
       case FSTORE(x) => //56
-        (p => Result(p.s.pop(), p.l.setVar(x, 1, FloatType, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(x, FloatType, pc)))
 
       case DSTORE(x) => //57
         (p => Result(p.s.pop(), p.l.setVar(x, 2, DoubleType, pc)))

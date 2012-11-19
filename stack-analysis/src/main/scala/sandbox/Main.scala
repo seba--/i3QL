@@ -34,7 +34,7 @@ object Main {
     val funs = new CodeInfoTransformer(infos)
     val analysis = new StackAnalysis(infos, cfg, funs)
 
-    database.addClassFile(new FileInputStream("stack-analysis\\resources\\Test"))
+    database.addClassFile(new FileInputStream("stack-analysis/target/test-classes"))
 
     //println(analysis.analysisResult.asList.mkString("Result: ", ", ",""))
 
