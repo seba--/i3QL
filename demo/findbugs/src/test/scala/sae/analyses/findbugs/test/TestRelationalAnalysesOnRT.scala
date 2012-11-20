@@ -35,6 +35,7 @@ package sae.analyses.findbugs.test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.relational._
+import analyses.findbugs.random.relational._
 import org.junit.Test
 import org.junit.Assert._
 
@@ -148,4 +149,11 @@ class TestRelationalAnalysesOnRT
     }
 
 
+    @Test
+    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
 }

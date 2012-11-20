@@ -25,7 +25,7 @@
                 <version>1.1.1</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>

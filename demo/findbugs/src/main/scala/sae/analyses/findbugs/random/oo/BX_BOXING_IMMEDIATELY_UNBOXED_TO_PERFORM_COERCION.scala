@@ -1,10 +1,12 @@
-package sae.analyses.findbugs.random.relational
+package sae.analyses.findbugs.random.oo
 
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
-import sae.bytecode.instructions._
-import de.tud.cs.st.bat.resolved.FieldType
+import de.tud.cs.st.bat.resolved._
+import de.tud.cs.st.bat.resolved.INVOKESPECIAL
+import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
+import structure.CodeInfo
 
 /**
  *
@@ -14,31 +16,51 @@ import de.tud.cs.st.bat.resolved.FieldType
  *
  */
 object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
-    extends (BytecodeDatabase => Relation[INVOKEVIRTUAL])
+    extends (BytecodeDatabase => Relation[CodeInfo])
 {
     // With the analyzed sequence check FindBugs only finds
     // new Integer(1).doubleValue()
     // and not
     // Integer.valueOf(1).doubleValue()
-    def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
+    def apply(database: BytecodeDatabase): Relation[CodeInfo] = {
         import database._
 
-        val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
-
-        SELECT ((a: INVOKESPECIAL, b: INVOKEVIRTUAL) => b) FROM
-            (invokeSpecial, invokeVirtual) WHERE
-            (declaringMethod === declaringMethod) AND
-            (receiverType === receiverType) AND
-            (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
-            NOT (firstParamType === returnType) AND
-            (_.parameterTypes.size == 1) AND
-            NOT ((_:INVOKESPECIAL).parameterTypes(0).isReferenceType) AND
+        SELECT (*) FROM (code) WHERE
             (_.declaringMethod.declaringClass.majorVersion >= 49) AND
-            (_.receiverType.isObjectType) AND
-            (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND
-            ((_: INVOKEVIRTUAL).parameterTypes == Nil) AND
-            (_.name.endsWith ("Value"))
+            (
+                (codeInfo: CodeInfo) => {
+                    val instructions = codeInfo.code.instructions
+                    var i = 0
+                    var lastInvokeSpecial: (Int, INVOKESPECIAL) = null
+                    var lastReceiverType: ReferenceType = null
+                    var found = false
+                    while (i < instructions.length) {
+                        instructions (i) match {
+                            case instr@INVOKESPECIAL (ObjectType (className), _, MethodDescriptor (Seq (_), _))
+                                if className.startsWith ("java/lang") => lastInvokeSpecial = (i, instr)
+                            case INVOKEVIRTUAL (secondReceiver, name, MethodDescriptor (Seq (), returnType))
+                                if (i - 1) == lastInvokeSpecial._1 =>
+                            {
+                                val invokeSpecial = lastInvokeSpecial._2
+                                if (invokeSpecial.declaringClass == secondReceiver &&
+                                    invokeSpecial.methodDescriptor.parameterTypes (0) != returnType &&
+                                    name.endsWith ("Value")
+                                )
+                                {
+                                    found = true
+                                    i = instructions.length // easy bail out
+                                }
+                            }
+                            case _ =>
+                        }
+                        i += 1
+
+                    }
+                    found
+                }
+                )
     }
+
 
     /**
      * ###### FindBugs Code
