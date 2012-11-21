@@ -33,9 +33,9 @@
 package sae.syntax.sql.compiler
 
 
-import sae.{SetRelation, Relation}
+import sae.Relation
 import sae.operators._
-import impl.UnNestView
+import impl.{ProjectionView, UnNestView}
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.syntax.sql.ast._
 import predicates._
@@ -140,11 +140,21 @@ object Compiler
             case SQLQuery (SelectClause2 (projection, distinct), from@FromClause2Unnesting (relationA, un@UnnestingClause (function, relation)), None) =>
                 if (relation eq relationA) {
                     compileDistinct (
-                        compileUnnestingWithProjection (
-                            function,
-                            projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
-                            relation
-                        ),
+                        if (projection.isDefined)
+                        {
+                            compileUnnestingWithProjection (
+                                function,
+                                projection.asInstanceOf[(from.DomainA, un.Domain) => Range],
+                                relation
+                            )
+                        }
+                        else
+                        {
+                            compileUnnesting (
+                                function,
+                                relation
+                            )
+                        },
                         distinct
                     ).asInstanceOf[Relation[Range]]
                 }
@@ -161,16 +171,33 @@ object Compiler
                 if (relation eq relationA)
                 {
                     compileDistinct (
-                        compileUnnestingWithProjection (
-                            function,
-                            projection.asInstanceOf[Option[(from.DomainA, un.Domain) => Range]],
-                            compile1 (
-                                None,
-                                distinct = false,
-                                relation = relation,
-                                expressions = where.expressions
+                        if (projection.isDefined)
+                        {
+                            compileUnnestingWithProjection (
+                                function,
+                                projection.asInstanceOf[(from.DomainA, un.Domain) => Range],
+                                compile1 (
+                                    None,
+                                    distinct = false,
+                                    relation = relation,
+                                    expressions = where.expressions
+                                )
+
                             )
-                        ),
+                        }
+                        else
+                        {
+                            compileUnnesting (
+                                function,
+                                compile1 (
+                                    None,
+                                    distinct = false,
+                                    relation = relation,
+                                    expressions = where.expressions
+                                )
+
+                            )
+                        },
                         distinct
                     ).asInstanceOf[Relation[Range]]
                 }
@@ -380,9 +407,9 @@ object Compiler
         }
     }
 
-    private def compileDistinct[Domain <: AnyRef](relation: Relation[Domain], distinct: Boolean): Relation[Domain] =
+    private def compileDistinct[Domain](relation: Relation[Domain], distinct: Boolean): Relation[Domain] =
     {
-        if (!distinct || relation.isInstanceOf[SetRelation[Domain]])
+        if (!distinct || relation.isSet)
         {
             return relation
         }
@@ -574,21 +601,15 @@ object Compiler
     private def compileUnnesting[Domain <: AnyRef, Range <: AnyRef] (function: Domain => Seq[Range],
                                                                      relation: Relation[Domain]) =
     {
-        new UnNestView (relation, function, (d: Domain, r: Range) => r)
+        new UnNestView (relation, function)
     }
 
 
     private def compileUnnestingWithProjection[Domain <: AnyRef, UnnestingRange <: AnyRef, Range <: AnyRef] (function: Domain => Seq[UnnestingRange],
-                                                                                                             projection: Option[(Domain, UnnestingRange) => Range],
-                                                                                                             relation: Relation[Domain]) =
+                                                                                                             projection: (Domain, UnnestingRange) => Range,
+                                                                                                             relation: Relation[Domain]): Relation[Range] =
     {
-        if (projection.isDefined)
-        {
-            new UnNestView (relation, function, projection.get)
-        }
-        else
-        {
-            new UnNestView (relation, function, (d: Domain, u: UnnestingRange) => (d, u))
-        }
+        new ProjectionView (new UnNestView (relation, function),
+            (e: (Domain, UnnestingRange)) => projection (e._1, e._2))
     }
 }

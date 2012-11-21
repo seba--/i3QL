@@ -32,27 +32,18 @@
  */
 package sae.operators.impl
 
-import sae._
-import deltas.{Update, Deletion, Addition}
-import operators.DuplicateElimination
+import sae.{Observable, Observer, Relation}
+import sae.operators.{UnNestWithProjection, UnNest}
+import sae.deltas.{Update, Deletion, Addition}
 
-/**
- * The set projection class implemented here used the relational algebra semantics.
- * The set projection removes duplicates from the results set.
- * We use the same Multiset as in Bag, but directly increment/decrement counts
- */
-class DuplicateEliminationView[Domain](val relation: Relation[Domain])
-    extends DuplicateElimination[Domain]
+class UnNestWithProjectionView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
+                                                                    val unNestFunction: Domain => Seq[UnNestRange],
+                                                                    val projection: (Domain, UnNestRange) => Range)
+    extends UnNestWithProjection[Range, UnNestRange, Domain]
     with Observer[Domain]
 {
 
-    relation addObserver this
-
-    import com.google.common.collect.HashMultiset
-
-    private val data: HashMultiset[Domain] = HashMultiset.create[Domain]()
-
-    lazyInitialize ()
+    relation.addObserver(this)
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
@@ -61,78 +52,34 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain])
         Nil
     }
 
-    def lazyInitialize() {
-        relation.foreach (
-            t => data.add (t)
+    /**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (Range) => T) {
+        relation.foreach ((v: Domain) =>
+            unNestFunction (v).foreach ((u: UnNestRange) =>
+                f (projection (v, u))
+            )
         )
     }
 
-    def foreach[U](f: Domain => U) {
-        val it = data.elementSet ().iterator ()
-        while (it.hasNext) {
-            f (it.next ())
-        }
-    }
 
-    def foreachWithCount[T](f: (Domain, Int) => T) {
-        val it = data.elementSet ().iterator ()
-        while (it.hasNext) {
-            f (it.next (), 1)
-        }
-    }
-
-
-    def isDefinedAt(v: Domain) = {
-        data.contains (v)
-    }
-
-    def elementCountAt[T >: Domain](v: T) = {
-        data.count (v)
-    }
-
-    /**
-     * We use a generalized bag semantics, thus this method
-     * returns true if the element was not already present in the list
-     * otherwise the method returns false
-     */
-    private def add_element(v: Domain): Boolean = {
-        val result = data.count (v) == 0
-        data.add (v)
-        result
-    }
-
-    /**
-     * We use a bag semantics, thus this method
-     * returns false if the element is still present in the list
-     * otherwise the method returns true, i.e., the element is
-     * completely removed.
-     */
-    private def remove_element(v: Domain): Boolean = {
-        data.remove (v)
-        data.count (v) == 0
-    }
-
-    // update operations
+    // TODO we could try and see whether the returned un-nesting are equal, but it is not
     def updated(oldV: Domain, newV: Domain) {
-        if (oldV == newV) {
-            return
-        }
-        val count = data.count (oldV)
-        data.remove (oldV, count)
-        data.add (newV, count)
-        element_updated (oldV, newV)
+        removed (oldV)
+        added (newV)
     }
 
     def removed(v: Domain) {
-        if (remove_element (v)) {
-            element_removed (v)
-        }
+        unNestFunction (v).foreach ((u: UnNestRange) =>
+            element_removed (projection (v, u))
+        )
     }
 
     def added(v: Domain) {
-        if (add_element (v)) {
-            element_added (v)
-        }
+        unNestFunction (v).foreach ((u: UnNestRange) =>
+            element_added (projection (v, u))
+        )
     }
 
     def updated[U <: Domain](update: Update[U]) {

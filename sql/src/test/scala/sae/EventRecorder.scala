@@ -32,6 +32,8 @@
  */
 package sae
 
+import deltas.{Update, Deletion, Addition}
+
 /**
  *
  * This observer records all events that are passed to it.
@@ -40,7 +42,9 @@ package sae
  */
 class EventRecorder[-V] extends Observer[V]
 {
+
     import EventRecorder._
+
     private var eventQueue: List[ObserverEvent] = Nil
 
     def events = eventQueue
@@ -52,20 +56,45 @@ class EventRecorder[-V] extends Observer[V]
     }
 
     def updated(oldV: V, newV: V) {
-        eventQueue ::= UpdateEvent(oldV, newV)
+        eventQueue ::= UpdateEvent (oldV, newV)
     }
 
     def removed(v: V) {
-        eventQueue ::= RemoveEvent(v)
+        eventQueue ::= RemoveEvent (v)
     }
 
     def added(v: V) {
-        eventQueue ::= AddEvent(v)
+        eventQueue ::= AddEvent (v)
+    }
+
+    def added[U <: V](addition: Addition[U]) {
+        for (i <- (0 to addition.count)) {
+            eventQueue ::= AddEvent (addition.value)
+        }
+    }
+
+    def deleted[U <: V](deletion: Deletion[U]) {
+        for (i <- (0 to deletion.count)) {
+            eventQueue ::= RemoveEvent (deletion.value)
+        }
+    }
+
+    def updated[U <: V](update: Update[U]) {
+        for (i <- (0 to update.count)) {
+            eventQueue ::= UpdateEvent (update.oldV, update.newV)
+        }
+    }
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        additions.foreach (added[U])
+        deletions.foreach (deleted[U])
+        updates.foreach (updated[U])
     }
 }
 
 object EventRecorder
 {
+
     trait ObserverEvent
 
     case class AddEvent[T](value: T) extends ObserverEvent
@@ -73,4 +102,5 @@ object EventRecorder
     case class RemoveEvent[T](value: T) extends ObserverEvent
 
     case class UpdateEvent[T](oldValue: T, newValue: T) extends ObserverEvent
+
 }

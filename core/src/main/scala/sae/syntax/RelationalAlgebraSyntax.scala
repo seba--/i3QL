@@ -207,10 +207,10 @@ object RelationalAlgebraSyntax
     /** definitions of duplicate elimination syntax **/
     object δ
     {
-        def apply[Domain <: AnyRef](relation: Relation[Domain]): Relation[Domain] =
+        def apply[Domain](relation: Relation[Domain]): Relation[Domain] =
             new DuplicateEliminationView[Domain](relation)
 
-        def unapply[Domain <: AnyRef](d: DuplicateElimination[Domain]): Option[Relation[Domain]] = Some (d.relation)
+        def unapply[Domain](d: DuplicateElimination[Domain]): Option[Relation[Domain]] = Some (d.relation)
     }
 
 
