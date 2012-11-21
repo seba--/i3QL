@@ -33,6 +33,8 @@
 package sae.collections
 
 import sae.{Observable, Observer, Relation}
+import sae.deltas.{Update, Deletion, Addition}
+
 
 /**
  * A result that materializes all data from the underlying relation into a bag
@@ -44,7 +46,7 @@ class BagResult[V](val relation: Relation[V])
 
     relation addObserver this
 
-    lazyInitialize()
+    lazyInitialize ()
 
     override protected def children = List (relation)
 
@@ -62,7 +64,7 @@ class BagResult[V](val relation: Relation[V])
     }
 
     def updated(oldV: V, newV: V) {
-        update (oldV, newV)
+        update_element (oldV, newV)
     }
 
     def removed(v: V) {
@@ -73,5 +75,22 @@ class BagResult[V](val relation: Relation[V])
         this += v
     }
 
+    def updated[U <: V](update: Update[U]) {
+        update_element (update.oldV, update.newV, update.count)
+    }
 
+    def added[U <: V](addition: Addition[U]) {
+        add_element (addition.value, addition.count)
+    }
+
+    def deleted[U <: V](deletion: Deletion[U]) {
+        remove_element (deletion.value, deletion.count)
+    }
+
+    def modified[U <: V](additions: scala.collection.immutable.Set[Addition[U]], deletions: scala.collection.immutable.Set[Deletion[U]], updates: scala.collection.immutable.Set[Update[U]]) {
+        additions.foreach (added[U])
+        deletions.foreach (deleted[U])
+        updates.foreach (updated[U])
+        element_modifications (additions, deletions, updates)
+    }
 }

@@ -41,12 +41,12 @@ trait Observer[-V]
     @deprecated
     def updated(oldV: V, newV: V)
 
-    def updated(update: Update[V])
+    def updated[U <: V](update: Update[U])
 
     def removed(v: V)
 
     def added(v: V)
 
-    def modified(additions: Set[Addition[V]], deletions: Set[Deletion[V]], updates: Set[Update[V]])
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]])
 
 }

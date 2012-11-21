@@ -2,6 +2,7 @@ package sae.operators.impl
 
 import sae._
 
+import deltas.{Deletion, Addition, Update}
 import sae.operators._
 import collection.mutable
 
@@ -193,21 +194,12 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
         }
     }
 
-
-}
-
- class Count
-{
-    private var count: Int = 0
-
-    def inc() {
-        this.count += 1
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
     }
 
-    def dec(): Int = {
-        this.count -= 1
-        this.count
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
-
-    def apply() = this.count
 }
+

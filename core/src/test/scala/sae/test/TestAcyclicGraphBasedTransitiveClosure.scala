@@ -4,7 +4,8 @@ import org.junit.Assert._
 import org.junit.{Before, Test}
 import sae.collections.Table
 import sae._
-import util.Random
+import scala.util.Random
+import sae.test.util.FailObserver
 import operators.impl.{DuplicateEliminationView, TransitiveClosureViewAcyclicGraphStore}
 
 
@@ -383,20 +384,7 @@ class TestAcyclicGraphBasedTransitiveClosure extends org.scalatest.junit.JUnitSu
     }
 
 
-    private def getFailObs = {
-        new Observer[AnyRef]
-        {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                fail ()
-            }
+    private def getFailObs = new FailObserver[AnyRef]
 
-            def added(v: AnyRef) {
-                fail ()
-            }
 
-            def removed(v: AnyRef) {
-                fail ()
-            }
-        }
-    }
 }

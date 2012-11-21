@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.operators.Difference
 import sae.{MaterializedRelation, Relation, Observable, Observer}
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
@@ -165,6 +166,14 @@ class DifferenceView[Domain](val left: Relation[Domain],
                 count -= 1
             }
         }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[Domain]
@@ -202,6 +211,14 @@ class DifferenceView[Domain](val left: Relation[Domain],
                 added (newV)
                 count -= 1
             }
+        }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

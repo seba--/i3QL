@@ -4,7 +4,8 @@ import org.junit.Assert._
 import org.junit.{Before, Test}
 import sae.collections.Table
 import sae._
-import util.Random
+import scala.util.Random
+import sae.test.util.FailObserver
 import sae.operators.impl.NaiveTransitiveClosureView
 
 
@@ -351,20 +352,5 @@ class TestNaiveTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
 
-    private def getFailObs = {
-        new Observer[AnyRef]
-        {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                fail ()
-            }
-
-            def added(v: AnyRef) {
-                fail ()
-            }
-
-            def removed(v: AnyRef) {
-                fail ()
-            }
-        }
-    }
+    private def getFailObs = new FailObserver[AnyRef]
 }

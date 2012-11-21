@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.operators.Difference
 import sae.{Observable, Observer, MaterializedRelation}
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
@@ -120,6 +121,14 @@ class DifferenceOnMaterializedView[Domain](val left: MaterializedRelation[Domain
                 element_added (v)
             }
         }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[Domain]
@@ -157,6 +166,14 @@ class DifferenceOnMaterializedView[Domain](val left: MaterializedRelation[Domain
             if (left.elementCountAt (v) >= right.elementCountAt (v)) {
                 element_removed (v)
             }
+        }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

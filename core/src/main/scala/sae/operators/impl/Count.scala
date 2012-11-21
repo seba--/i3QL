@@ -30,72 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.collections
-
-import sae._
-import deltas.{Update, Deletion, Addition}
+package sae.operators.impl
 
 /**
- * A result that materializes all data from the underlying relation into a set
+ *
+ * @author Ralf Mitschke
+ *
  */
-class SetResult[V](val relation: Relation[V])
-    extends Set[V]
-    with Observer[V]
+
+class Count
 {
+    private var count: Int = 0
 
-    relation addObserver this
-
-    lazyInitialize ()
-
-    override protected def children = List (relation)
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == relation) {
-            return List (this)
-        }
-        Nil
+    def inc() {
+        this.count += 1
     }
 
-    def lazyInitialize() {
-        relation.foreach (
-            v => add_element (v)
-        )
+    def dec(): Int = {
+        this.count -= 1
+        this.count
     }
 
-
-    def updated(oldV: V, newV: V) {
-        this -= oldV
-        this += newV
-    }
-
-    def removed(v: V) {
-        this -= v
-    }
-
-    def added(v: V) {
-        this += v
-    }
-
-    def added[U <: V](addition: Addition[U]) {
-        //assert (addition.count == 1)
-        add_element (addition.value)
-    }
-
-    def deleted[U <: V](deletion: Deletion[U]) {
-        //assert (deletion.count == 1)
-        remove_element (deletion.value)
-    }
-
-    def updated[U <: V](update: Update[U]) {
-        //assert (update.count == 1)
-        remove_element (update.oldV)
-        add_element (update.newV)
-    }
-    def modified[U <: V](additions: scala.collection.immutable.Set[Addition[U]], deletions: scala.collection.immutable.Set[Deletion[U]], updates: scala.collection.immutable.Set[Update[U]]) {
-        additions.foreach (added[U])
-        deletions.foreach (deleted[U])
-        updates.foreach (updated[U])
-        element_modifications (additions, deletions, updates)
-    }
-
+    def apply() = this.count
 }

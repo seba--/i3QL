@@ -81,13 +81,13 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
         element_added (projection (v))
     }
 
-    def updated(update: Update[Domain]) {
+    def updated[U <: Domain](update: Update[U]) {
         if (update.affects (projection)) {
             element_updated (Update (projection (update.oldV), projection (update.newV), update.count, update.project (projection)))
         }
     }
 
-    def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
         {
             val realUpdates = updates.filter (_.affects (projection))
 

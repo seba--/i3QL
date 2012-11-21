@@ -75,11 +75,11 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
         element_updated(oldV, newV)
     }
 
-    def updated(update: Update[Range]) {
+    def updated[U <: Range](update: Update[U]) {
         element_updated(update)
     }
 
-    def modified(additions: Set[Addition[Range]], deletions: Set[Deletion[Range]], updates: Set[Update[Range]]) {
+    def modified[U <: Range](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
         element_modifications(additions, deletions, updates)
     }
 }

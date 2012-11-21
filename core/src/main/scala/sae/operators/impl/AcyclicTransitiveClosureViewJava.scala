@@ -36,6 +36,7 @@ import sae.{Observable, Observer, Relation}
 import sae.operators.TransitiveClosure
 
 import scala.collection.JavaConversions._
+import sae.deltas.{Deletion, Addition, Update}
 
 /**
  * Algorithm for:
@@ -50,8 +51,8 @@ import scala.collection.JavaConversions._
  * @author Malte V
  */
 class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
-                                                 val getTail: Edge => Vertex,
-                                                 val getHead: Edge => Vertex)
+                                                     val getTail: Edge => Vertex,
+                                                     val getHead: Edge => Vertex)
     extends TransitiveClosure[Edge, Vertex]
     with Observer[Edge]
 {
@@ -109,7 +110,6 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
             0
         }
     }
-
 
 
     def foreach[T](f: ((Vertex, Vertex)) => T) {
@@ -304,4 +304,11 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
         added (newV)
     }
 
+    def updated[U <: Edge](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Edge](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
 }

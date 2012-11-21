@@ -102,11 +102,11 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
             }
         }
 
-        def updated(update: Update[DomainA]) {
+        def updated[U <: DomainA](update: Update[U]) {
             throw new UnsupportedOperationException
         }
 
-        def modified(additions: Set[Addition[DomainA]], deletions: Set[Deletion[DomainA]], updates: Set[Update[DomainA]]) {
+        def modified[U <: DomainA](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
             throw new UnsupportedOperationException
         }
     }
@@ -137,11 +137,11 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
             }
         }
 
-        def updated(update: Update[DomainB]) {
+        def updated[U <: DomainB](update: Update[U]) {
             throw new UnsupportedOperationException
         }
 
-        def modified(additions: Set[Addition[DomainB]], deletions: Set[Deletion[DomainB]], updates: Set[Update[DomainB]]) {
+        def modified[U <: DomainB](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
             throw new UnsupportedOperationException
         }
     }

@@ -166,21 +166,11 @@ object RelationalAlgebraSyntax
     object Π
     {
         def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
-                                                    (relation: Relation[Domain])
-                                                    (implicit isSetPreserving: Boolean = false): Relation[Range] =
-            if (!isSetPreserving) {
-                new ProjectionView[Domain, Range](
-                    relation,
-                    projection
-                )
-            }
-            else
-            {
-                new ProjectionViewSetPreserving[Domain, Range](
-                    relation,
-                    projection
-                )
-            }
+                                                    (relation: Relation[Domain]): Relation[Range] =
+            new ProjectionView[Domain, Range](
+                relation,
+                projection
+            )
 
 
         def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, Relation[Domain])] = Some (

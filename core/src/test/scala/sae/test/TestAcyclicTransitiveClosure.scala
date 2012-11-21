@@ -4,8 +4,9 @@ import org.junit.Assert._
 import org.junit.{Ignore, Before, Test}
 import sae.collections.Table
 import sae._
-import util.Random
-import operators.impl.{AcyclicTransitiveClosureView, NaiveTransitiveClosureView}
+import scala.util.Random
+import sae.test.util.FailObserver
+import operators.impl.AcyclicTransitiveClosureView
 
 
 /**
@@ -76,7 +77,7 @@ class TestAcyclicTransitiveClosure extends org.scalatest.junit.JUnitSuite
         //add some edges
         testGraph += Edge ("a", "b")
         // a -> b
-        assertEquals (1 , res.size )
+        assertEquals (1, res.size)
         assertTrue (res.asList.contains ((Vertex ("a"), Vertex ("b"))))
         testGraph += Edge ("b", "e")
         // a -> b -> e
@@ -117,7 +118,7 @@ class TestAcyclicTransitiveClosure extends org.scalatest.junit.JUnitSuite
         // ^       ^
         // |      /
         // c     d -> f
-        assertEquals(8, res.size)
+        assertEquals (8, res.size)
         assertTrue (!res.asList.contains ((Vertex ("c"), Vertex ("d"))))
         assertTrue (!res.asList.contains ((Vertex ("c"), Vertex ("f"))))
         assertTrue (res.asList.contains ((Vertex ("c"), Vertex ("e"))))
@@ -373,20 +374,5 @@ class TestAcyclicTransitiveClosure extends org.scalatest.junit.JUnitSuite
     }
 
 
-    private def getFailObs = {
-        new Observer[AnyRef]
-        {
-            def updated(oldV: AnyRef, newV: AnyRef) {
-                fail ()
-            }
-
-            def added(v: AnyRef) {
-                fail ()
-            }
-
-            def removed(v: AnyRef) {
-                fail ()
-            }
-        }
-    }
+    private def getFailObs = new FailObserver[AnyRef]
 }

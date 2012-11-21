@@ -35,6 +35,7 @@ package sae.operators.impl
 import sae.{Observable, Observer, Relation}
 import sae.operators.TransitiveClosure
 import collection.mutable
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * A simple transitive closure, that should support minimal memory, by just storing the graph.
@@ -219,6 +220,14 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
         //a direct update is not supported
         removed (oldV)
         added (newV)
+    }
+
+    def updated[U <: Edge](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Edge](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 
 }

@@ -33,7 +33,7 @@
 package sae.operators.impl
 
 import sae.deltas.{Deletion, Addition, Update}
-import sae.{Update, Observable, Observer, Relation}
+import sae.{Observable, Observer, Relation}
 import sae.operators.Selection
 
 /**
@@ -102,21 +102,22 @@ class SelectionView[Domain <: AnyRef](val relation: Relation[Domain],
         }
     }
 
-    def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
         val realUpdates = updates.filter (_.affects (filter))
 
         val (updateOldToNew, removeOldAddNew) = realUpdates.partition (e => {
             filter (e.oldV) && filter (e.newV) // both pass and are an update
         })
         // TODO refactor that filter only gets applied once for updates
-        val nextAdditions = additions.filter (e => filter(e.value)) ++ removeOldAddNew.filter(e => filter(e.newV)).map (_.asAddition)
-        val nextDeletions = deletions.filter (e => filter(e.value)) ++ removeOldAddNew.filter(e => filter(e.oldV)).map (_.asDeletion)
+        val nextAdditions = additions.filter (e => filter (e.value)) ++ removeOldAddNew.filter (e => filter (e.newV)).map (_.asAddition)
+        val nextDeletions = deletions.filter (e => filter (e.value)) ++ removeOldAddNew.filter (e => filter (e.oldV)).map (_.asDeletion)
         val nextUpdates = updateOldToNew
         element_modifications (nextAdditions, nextDeletions, nextUpdates)
     }
 
-    def updated(oldV: Domain, update: Update[Domain]) {
+    def updated[U <: Domain](update: Update[U]) {
         if (update.affects (filter)) {
+            val oldV = update.oldV
             val oldVPasses = filter (oldV)
             val newV = update.oldV
             val newVPasses = filter (newV)

@@ -33,6 +33,7 @@
 package sae.operators.impl
 
 import sae._
+import deltas.{Update, Deletion, Addition}
 import sae.operators.EquiJoin
 import scala.Some
 
@@ -173,7 +174,13 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
             }
         }
 
+        def updated[U <: (Key, DomainA)](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
 
+        def modified[U <: (Key, DomainA)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[(Key, DomainB)]
@@ -234,6 +241,14 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
                 case _ => // do nothing
             }
 
+        }
+
+        def updated[U <: (Key, DomainB)](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: (Key, DomainB)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

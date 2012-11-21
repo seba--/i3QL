@@ -34,6 +34,7 @@ package sae
 package collections
 
 import collection.mutable
+import deltas.{Deletion, Addition, Update}
 
 /**
  *
@@ -56,8 +57,8 @@ class ScalaSetIndex[K, V](val relation: Relation[V],
     }
 
     def put(key: K, value: V) {
-        val list = map.getOrElseUpdate(key, Nil)
-        map(key) = value :: list
+        val list = map.getOrElseUpdate (key, Nil)
+        map (key) = value :: list
         totalSize += 1
     }
 
@@ -88,27 +89,62 @@ class ScalaSetIndex[K, V](val relation: Relation[V],
     }
 
     def add_element(key: K, value: V) {
-        put(key, value)
+        put (key, value)
     }
 
 
     def remove_element(key: K, value: V) {
-        val list = map(key)
-        val newList = list.filterNot( _ == value)
+        val list = map (key)
+        val newList = list.filterNot (_ == value)
         if (newList.isEmpty)
         {
-            map.remove(key)
+            map.remove (key)
         }
-        else {
-            map(key) = newList
+        else
+        {
+            map (key) = newList
         }
         totalSize -= 1
     }
 
     def update_element(oldKey: K, oldV: V, newKey: K, newV: V) {
-        remove_element(oldKey, oldV)
-        add_element(newKey, newV)
+        remove_element (oldKey, oldV)
+        add_element (newKey, newV)
     }
 
+    def updated[U <: V](update: Update[U]) {
+        //assert (update.count == 1)
+        val oldV = update.oldV
+        val newV = update.newV
 
+        val oldKey = keyFunction (update.oldV)
+        val newKey = keyFunction (update.newV)
+
+        if (oldKey == newKey)
+        {
+            return
+        }
+        remove_element (oldKey, oldV)
+        add_element (newKey, newV)
+    }
+
+    def added[U <: V](addition: Addition[U]) {
+        //assert (addition.count == 1)
+        val v = addition.value
+        val key = keyFunction (v)
+        add_element (key, v)
+    }
+
+    def deleted[U <: V](deletion: Deletion[U]) {
+        //assert (deletion.count == 1)
+        val v = deletion.value
+        val key = keyFunction (v)
+        remove_element (key, v)
+    }
+
+    def modified[U <: V](additions: scala.collection.immutable.Set[Addition[U]], deletions: scala.collection.immutable.Set[Deletion[U]], updates: scala.collection.immutable.Set[Update[U]]) {
+        additions.foreach (added)
+        deletions.foreach (deleted)
+        updates.foreach (updated)
+    }
 }

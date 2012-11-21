@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, MaterializedRelation}
 import sae.operators.NotExistsInSameDomain
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
@@ -44,7 +45,7 @@ import sae.operators.NotExistsInSameDomain
  *
  */
 class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
-                            val right: MaterializedRelation[Domain])
+                                        val right: MaterializedRelation[Domain])
     extends NotExistsInSameDomain[Domain]
 {
 
@@ -121,6 +122,14 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
                 element_added (v)
             }
         }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[Domain]
@@ -167,6 +176,14 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
                     oldCount -= 1
                 }
             }
+        }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

@@ -2,6 +2,7 @@ package sae.operators.impl
 
 import sae._
 
+import deltas.{Deletion, Addition, Update}
 import sae.operators._
 import scala.collection.JavaConversions._
 import collection.mutable
@@ -211,5 +212,13 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
             groups.put (key, (data, aggregationFunction, res))
             if (notify) element_added (res)
         }
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 }

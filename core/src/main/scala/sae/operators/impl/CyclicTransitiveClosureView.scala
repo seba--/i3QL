@@ -37,6 +37,7 @@ import collection.mutable.{HashMap, HashSet}
 import sae.operators.TransitiveClosure
 import collection.mutable
 import util.control.Breaks._
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  *
@@ -320,4 +321,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         added (newV)
     }
 
+    def updated[U <: Edge](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Edge](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
 }

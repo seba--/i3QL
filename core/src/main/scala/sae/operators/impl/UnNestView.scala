@@ -81,21 +81,11 @@ class UnNestView[Domain, UnNestRange](val relation: Relation[Domain],
         )
     }
 
-    def updated(update: Update[Domain]) {
-
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
     }
 
-    def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
-        var nextAdditions = Set.empty[Addition[Range]]
-
-        additions.foreach (add =>
-        {
-            val s = unNestFunction (add.value)
-
-        }
-        )
-        unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_removed (projection (v, u))
-        )
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 }

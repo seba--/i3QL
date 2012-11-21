@@ -33,6 +33,7 @@
 package sae.operators.impl
 
 import sae._
+import deltas.{Update, Deletion, Addition}
 import operators.DuplicateElimination
 
 /**
@@ -134,4 +135,11 @@ class DuplicateEliminationView[Domain <: AnyRef](val relation: Relation[Domain])
         }
     }
 
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
 }
