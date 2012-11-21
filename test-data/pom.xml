@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>sae-parent</artifactId>
         <groupId>de.tud.cs.st.opal.sae</groupId>
@@ -10,13 +10,59 @@
 
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
-	<artifactId>sae-database-test-data</artifactId>
-	<version>0.2.0</version>
-	<packaging>jar</packaging>
+    <artifactId>sae-database-test-data</artifactId>
+    <version>0.2.0</version>
+    <packaging>jar</packaging>
 
-	<name>sae-database-test-data</name>
-	<url>http://opal-project.org</url>
-	<inceptionYear>2011</inceptionYear>
+    <name>sae-database-test-data</name>
+    <url>http://opal-project.org</url>
+    <inceptionYear>2011</inceptionYear>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>2.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.8.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-parent</artifactId>
+            <version>3.6.10.Final</version>
+            <scope>test</scope>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>java3d</groupId>
+            <artifactId>j3d-core</artifactId>
+            <version>1.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.9.0.GA</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jung</groupId>
+            <artifactId>jung</artifactId>
+            <version>1.7.6</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

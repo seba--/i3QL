@@ -7,6 +7,7 @@ case class FieldDeclaration(declaringClass: ClassDeclaration,
     extends DeclaredClassMember
     with FieldInfo
 {
+    def declaringType = declaringClass.classType
 
     import de.tud.cs.st.bat._
 

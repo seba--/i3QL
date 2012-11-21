@@ -63,6 +63,8 @@ trait Relation[V]
 
     def isSet: Boolean
 
+    def forceToSet : Relation[V] = this // should return this
+
     /**
      * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
      */

@@ -35,9 +35,14 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.{Instruction, Code, ObjectType}
+import de.tud.cs.st.bat.resolved.ObjectType
 import sae.bytecode.structure._
-import sae.bytecode.instructions.InstructionInfo
+import de.tud.cs.st.bat._
+import resolved.Code
+import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.CodeInfo
+import scala.Some
+import sae.bytecode.structure.FieldDeclaration
 
 
 /**
@@ -48,9 +53,9 @@ import sae.bytecode.instructions.InstructionInfo
  */
 
 trait SAEClassFileReader
-    extends ClassFileReader
-    with ConstantPoolBinding
-    with AttributeBinding
+        extends ClassFileReader
+        with ConstantPoolBinding
+        with AttributeBinding
 {
     def database: BATBytecodeDatabase
 
@@ -70,24 +75,27 @@ trait SAEClassFileReader
     type Interfaces <: IndexedSeq[ObjectType]
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
-    protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)(implicit cp: Constant_Pool): Class_Info = {
-
-        val classInfo = ClassDeclaration (minor_version,
-            major_version,
-            in.readUnsignedShort,
-            in.readUnsignedShort.asObjectType)
-
-        val super_type = in.readUnsignedShort
-        if (super_type != 0) database.classInheritance.element_added (InheritanceRelation (subType = classInfo.classType, superType = super_type.asObjectType))
-        database.classDeclarations.element_added (classInfo)
+    protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)
+                            (implicit cp: Constant_Pool): Class_Info = {
+        val accessFlags = in.readUnsignedShort
+        val thisClass = in.readUnsignedShort.asObjectType
+        val super_class = in.readUnsignedShort
+        val classInfo = ClassDeclaration(
+            minor_version, major_version,
+            accessFlags,
+            thisClass,
+            // to handle the special case that this class file represents java.lang.Object
+            if (super_class == 0) None else Some(super_class.asObjectType),
+            Interfaces(thisClass, in, cp)
+        )
+        database.classDeclarations.element_added(classInfo)
         classInfo
     }
 
 
-    def Interface(declaringClass: Class_Info, interface_index: Constant_Pool_Index)(implicit cp: Constant_Pool): Interface = {
-        val interface = interface_index.asObjectType
-        database.interfaceInheritance.element_added (InheritanceRelation (subType = declaringClass.classType, superType = interface))
-        interface
+    def Interface(declaringClass: ObjectType, interface_index: Constant_Pool_Index)
+                 (implicit cp: Constant_Pool): Interface = {
+        interface_index.asObjectType
     }
 
 
@@ -96,14 +104,13 @@ trait SAEClassFileReader
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
-        implicit cp: Constant_Pool): Field_Info =
-    {
-        val fieldDeclaration = new FieldDeclaration (
+            implicit cp: Constant_Pool): Field_Info = {
+        val fieldDeclaration = new FieldDeclaration(
             declaringClass,
             access_flags,
             name_index.asString,
             descriptor_index.asFieldType)
-        database.fieldDeclarations.element_added (fieldDeclaration)
+        database.fieldDeclarations.element_added(fieldDeclaration)
         fieldDeclaration
     }
 
@@ -112,58 +119,35 @@ trait SAEClassFileReader
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
-        implicit cp: Constant_Pool): Method_Info =
-    {
+            implicit cp: Constant_Pool): Method_Info = {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration (
+        val methodDeclaration = MethodDeclaration(
             declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
             descriptor.parameterTypes
         )
-        database.methodDeclarations.element_added (methodDeclaration)
+        database.methodDeclarations.element_added(methodDeclaration)
 
-        attributes.foreach (_ match {
+        attributes.foreach(_ match {
             case code: Code => {
-                database.codeAttributes.element_added (
-                    CodeAttribute (
-                        methodDeclaration,
-                        code.instructions.size,
-                        code.maxStack,
-                        code.maxLocals,
-                        code.exceptionHandlers
-                    )
+                database.code.element_added(
+                    CodeInfo(methodDeclaration, code)
                 )
-                addInstructions (methodDeclaration, code.instructions)
             }
             case _ => /* do nothing*/
         })
         methodDeclaration
     }
 
-    def addInstructions(declaringMethod: Method_Info, instructions: Array[Instruction]) {
-        var i = 0
-        var index = 0
-        while (i < instructions.length)
-        {
-            val instr = instructions (i)
-            if (instr != null) {
-                database.instructions.element_added (InstructionInfo (declaringMethod, instr, i, index))
-                index += 1
-            }
-            i += 1
-        }
-    }
-
     def ClassFile(classInfo: Class_Info,
-                  interfaces: Interfaces,
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
-        implicit cp: Constant_Pool): ClassFile =
-    {
+            implicit cp: Constant_Pool): ClassFile = {
         classInfo
     }
+
 
 }

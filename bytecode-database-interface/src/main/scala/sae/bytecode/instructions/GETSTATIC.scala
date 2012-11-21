@@ -42,7 +42,13 @@ import sae.bytecode.structure.MethodDeclaration
  * @author Ralf Mitschke
  */
 case class GETSTATIC (declaringMethod: MethodDeclaration, instruction: de.tud.cs.st.bat.resolved.GETSTATIC, pc: Int, sequenceIndex: Int)
-    extends InstructionInfo
+    extends InstructionInfo with FieldReadInstruction
 {
+    def receiverType = instruction.declaringClass
 
+    def name = instruction.name
+
+    def fieldType = instruction.fieldType
+
+    def declaringType = instruction.declaringClass
 }

@@ -3,6 +3,8 @@ package test
 import sae.bytecode.bat.BATDatabaseFactory
 import java.io.FileInputStream
 import org.junit.Test
+import sae.QueryResult
+import sae.bytecode.structure.CodeInfo
 
 /**
  * 
@@ -17,9 +19,14 @@ class TestCfg {
     def testCfg() {
         val db = BATDatabaseFactory.create()
         val basicBlocks = db.basicBlocksNew
-        //db.addClassFile(new FileInputStream("D:\\workspace\\java-demo\\bin\\test\\Test.class"))
+        val clazz = this.getClass.getClassLoader.getResource("sae/test/code/innerclass/MyRootClass.class")
 
-        basicBlocks.foreach(println)
+        val code : QueryResult[CodeInfo] = db.code
+
+        db.addClassFile(clazz.openStream())
+
+        //basicBlocks.foreach(println)
+        code.foreach(println)
     }
 
 }

@@ -35,7 +35,9 @@ import sae.collections.{SetResult, BagResult}
 package object sae
 {
 
-    implicit def relationToResult[V <: AnyRef](relation: Relation[V]): QueryResult[V] =
+    var ENABLE_FORCE_TO_SET = false
+
+    implicit def relationToResult[V](relation: Relation[V]): QueryResult[V] =
         relation match {
             case col: QueryResult[V] => col
             case _ if relation.isSet => new SetResult (relation)

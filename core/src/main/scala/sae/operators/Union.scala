@@ -21,7 +21,14 @@ trait Union[Range, DomainA <: Range, DomainB <: Range]
 
     def right: Relation[DomainB]
 
-    def isSet = false
+    def isSet = false || forcedSet
+
+    private var forcedSet = sae.ENABLE_FORCE_TO_SET && false
+
+    override def forceToSet = {
+        forcedSet = sae.ENABLE_FORCE_TO_SET && true
+        this
+    }
 
     def isStored = left.isStored && right.isStored
 

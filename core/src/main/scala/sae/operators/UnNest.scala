@@ -42,7 +42,14 @@ trait UnNest[Domain, UnNestRange]
 
     def unNestFunction: Domain => Traversable[UnNestRange]
 
-    def isSet = false
+    def isSet = false || forcedSet
+
+    private var forcedSet = sae.ENABLE_FORCE_TO_SET && false
+
+    override def forceToSet = {
+        forcedSet = sae.ENABLE_FORCE_TO_SET && true
+        this
+    }
 
     def isStored = relation.isStored
 

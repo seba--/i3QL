@@ -14,6 +14,7 @@ trait BytecodeDatabase
     with BytecodeDerivedRelations
     with BytecodeDatabaseManipulation
     with BytecodeCFG
+    with BytecodeMinimal
 {
     lazy val relations = Seq (
         classDeclarations,

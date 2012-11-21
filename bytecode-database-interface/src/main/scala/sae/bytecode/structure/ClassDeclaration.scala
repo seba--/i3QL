@@ -14,7 +14,9 @@ import de.tud.cs.st.bat._
 case class ClassDeclaration(minorVersion: Int,
                             majorVersion: Int,
                             accessFlags: Int,
-                            classType: ObjectType)
+                            classType: ObjectType,
+                            superClass: Option[ObjectType],
+                            interfaces: Seq[ObjectType])
 {
 
     def isAnnotation = ClassDeclaration.isAnnotation (this)

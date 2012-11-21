@@ -43,9 +43,17 @@ trait Projection[Domain, Range]
 
     def relation: Relation[Domain]
 
-    def isSet = false
+    def isSet =  false || forcedSet
 
     def isStored = relation.isStored
+
+    private var forcedSet = sae.ENABLE_FORCE_TO_SET && false
+
+    override def forceToSet = {
+        forcedSet = sae.ENABLE_FORCE_TO_SET && true
+        this
+    }
+
 
     override protected def children = List (relation)
 }
