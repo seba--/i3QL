@@ -109,5 +109,18 @@ class BATBytecodeDatabase
 
     }
 
+    var additions :
+
+    def beginTransaction() {
+
+    }
+
+    def computeTransactionUpdates() {
+
+    }
+
+    def commitTransaction() {
+
+    }
 
 }

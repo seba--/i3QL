@@ -32,17 +32,15 @@
  */
 package sae.operators
 
-import sae.{Observer, Observable, Relation}
+import sae.Relation
 
 
-trait UnNest[Range, UnNestRange, Domain <: Range]
-    extends Relation[Range]
+trait UnNest[Domain, UnNestRange]
+    extends Relation[(Domain, UnNestRange)]
 {
     def relation: Relation[Domain]
 
-    def unNestFunction: Domain => Seq[UnNestRange]
-
-    def projection: (Domain, UnNestRange) => Range
+    def unNestFunction: Domain => Traversable[UnNestRange]
 
     def isSet = false
 

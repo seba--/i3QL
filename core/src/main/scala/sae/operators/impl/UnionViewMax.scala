@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, MaterializedRelation, Observer}
 import sae.operators.Union
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * A not self maintained union, that produces max(count(A) , count(B)) duplicates for underlying relations A and B
@@ -100,6 +101,14 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
                 element_added (v)
             }
         }
+
+        def updated(update: Update[DomainA]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified(additions: Set[Addition[DomainA]], deletions: Set[Deletion[DomainA]], updates: Set[Update[DomainA]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[DomainB]
@@ -126,6 +135,14 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
             if (leftCount < oldCount + 1) {
                 element_added (v)
             }
+        }
+
+        def updated(update: Update[DomainB]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified(additions: Set[Addition[DomainB]], deletions: Set[Deletion[DomainB]], updates: Set[Update[DomainB]]) {
+            throw new UnsupportedOperationException
         }
     }
 

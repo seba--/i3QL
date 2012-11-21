@@ -36,12 +36,13 @@ import sae.{Observable, Observer, Relation}
 import sae.operators.UnNest
 import sae.deltas.{Update, Deletion, Addition}
 
-class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
-                                                      val unNestFunction: Domain => Seq[UnNestRange],
-                                                      val projection: (Domain, UnNestRange) => Range)
-    extends UnNest[Range, UnNestRange, Domain]
+class UnNestView[Domain, UnNestRange](val relation: Relation[Domain],
+                                      val unNestFunction: Domain => Seq[UnNestRange])
+    extends UnNest[Domain, UnNestRange]
     with Observer[Domain]
 {
+
+    relation.addObserver (this)
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
@@ -53,10 +54,10 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: (Range) => T) {
+    def foreach[T](f: ((Domain, UnNestRange)) => T) {
         relation.foreach ((v: Domain) =>
             unNestFunction (v).foreach ((u: UnNestRange) =>
-                f (projection (v, u))
+                f ((v, u))
             )
         )
     }
@@ -70,13 +71,13 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
 
     def removed(v: Domain) {
         unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_removed (projection (v, u))
+            element_removed ((v, u))
         )
     }
 
     def added(v: Domain) {
         unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_added (projection (v, u))
+            element_added ((v, u))
         )
     }
 
@@ -85,6 +86,16 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     }
 
     def modified(additions: Set[Addition[Domain]], deletions: Set[Deletion[Domain]], updates: Set[Update[Domain]]) {
+        var nextAdditions = Set.empty[Addition[Range]]
 
+        additions.foreach (add =>
+        {
+            val s = unNestFunction (add.value)
+
+        }
+        )
+        unNestFunction (v).foreach ((u: UnNestRange) =>
+            element_removed (projection (v, u))
+        )
     }
 }

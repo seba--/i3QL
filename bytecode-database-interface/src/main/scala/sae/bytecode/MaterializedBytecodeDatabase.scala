@@ -47,4 +47,15 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
         database.removeArchive (stream)
     }
 
+    def beginTransaction() {
+        database.beginTransaction ()
+    }
+
+    def computeTransactionUpdates() {
+        database.computeTransactionUpdates ()
+    }
+
+    def commitTransaction() {
+        database.commitTransaction ()
+    }
 }

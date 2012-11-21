@@ -30,22 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.operators.impl
+package sae.operators
 
-import sae.{Observable, Observer, Relation}
-import sae.operators.Projection
+import sae.Relation
 
-/**
- *
- * A projection that is known to preserve the set semantics of the underlying relation
- *
- * @author Ralf Mitschke
- *
- */
-class ProjectionViewSetPreserving[Domain, Range](relation: Relation[Domain],
-                                     projection: Domain => Range)
-    extends ProjectionView[Domain, Range](relation, projection)
+
+trait UnNestWithProjection[Range, UnNestRange, Domain <: Range]
+    extends Relation[Range]
 {
-    override def isSet = relation.isSet
+    def relation: Relation[Domain]
+
+    def unNestFunction: Domain => Traversable[UnNestRange]
+
+    def projection: (Domain, UnNestRange) => Range
+
+    def isSet = false
+
+    def isStored = relation.isStored
+
+    override protected def children = List (relation)
+
 }
+
 
