@@ -85,6 +85,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
   }
 
   private def computeTransformer(pc: Int, instr: Instruction): Transformer = {
+
     instr match {
 
       case NOP => //0
@@ -233,7 +234,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.pop(), p.l.setVar(x, 2, DoubleType, pc)))
 
       case ASTORE(x) => //58
-        (p => Result(p.s.pop(), p.l.setVar(x, p.s.types.head, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(x, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
 
       case ISTORE_0 => //59
         (p => Result(p.s.pop(), p.l.setVar(0, IntegerType, pc)))
@@ -272,13 +273,13 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.pop(), p.l.setVar(3, 2, DoubleType, pc)))
 
       case ASTORE_0 => //75
-        (p => Result(p.s.pop(), p.l.setVar(0, p.s.types.head, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(0, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
       case ASTORE_1 => //76
-        (p => Result(p.s.pop(), p.l.setVar(1, p.s.types.head, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(1, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
       case ASTORE_2 => //77
-        (p => Result(p.s.pop(), p.l.setVar(2, p.s.types.head, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(2, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
       case ASTORE_3 => //78
-        (p => Result(p.s.pop(), p.l.setVar(3, p.s.types.head, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(3, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
 
 
 
@@ -300,22 +301,22 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.jPop(2), p.l))
 
       case DUP => //89 //TODO:computational value 1 or 2?
-        (p => Result(p.s.jDup(0), p.l))
+        (p => Result(p.s.jDup(1, 0), p.l))
 
       case DUP_X1 => //90 //TODO:computational value 1 or 2?
-        (p => Result(p.s.jDup(1), p.l))
+        (p => Result(p.s.jDup(1, 1), p.l))
 
       case DUP_X2 => //91 //TODO:computational value 1 or 2?
-        (p => Result(p.s.jDup(2), p.l))
+        (p => Result(p.s.jDup(1, 2), p.l))
 
       case DUP2 => //92 //TODO:implement
-        (p => p)
+        (p => Result(p.s.jDup(2, 0), p.l))
 
       case DUP2_X1 => //93 //TODO:implement
-        (p => p)
+        (p => Result(p.s.jDup(2, 1), p.l))
 
       case DUP2_X2 => //94 //TODO:implement
-        (p => p)
+        (p => Result(p.s.jDup(2, 2), p.l))
 
       case SWAP => //95
         (p => Result(p.s.jSwap(), p.l))
@@ -437,21 +438,21 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
       case NEWARRAY(aType) => //188
         aType match {
           case 4 =>
-            (p => Result(p.s.push(ArrayType(BooleanType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(BooleanType), pc), p.l))
           case 5 =>
-            (p => Result(p.s.push(ArrayType(CharType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(CharType), pc), p.l))
           case 6 =>
-            (p => Result(p.s.push(ArrayType(FloatType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(FloatType), pc), p.l))
           case 7 =>
-            (p => Result(p.s.push(ArrayType(DoubleType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(DoubleType), pc), p.l))
           case 8 =>
-            (p => Result(p.s.push(ArrayType(ByteType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(ByteType), pc), p.l))
           case 9 =>
-            (p => Result(p.s.push(ArrayType(ShortType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(ShortType), pc), p.l))
           case 10 =>
-            (p => Result(p.s.push(ArrayType(IntegerType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(IntegerType), pc), p.l))
           case 11 =>
-            (p => Result(p.s.push(ArrayType(LongType), pc), p.l))
+            (p => Result(p.s.pop().push(ArrayType(LongType), pc), p.l))
           case _ =>
             (p => {
               System.err.println(aType + ": aType not supported.")

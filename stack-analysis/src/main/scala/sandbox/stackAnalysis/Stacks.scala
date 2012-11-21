@@ -9,7 +9,7 @@ package sandbox.stackAnalysis
  * To change this template use File | Settings | File Templates.
  */
 case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: List[List[V]]) {
-
+  require(getSize <= maxSize)
   def getSize: Int = {
     var res = 0
 
@@ -19,18 +19,43 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     return res
   }
 
-  def jDup(offset: Int): Stacks[T, V] = {
-    if (size.length <= offset)
+  def jDup(amount: Int, offset: Int): Stacks[T, V] = {
+    if (getSize < offset + amount)
       return this
     if (getSize + size.head > maxSize)
       return this
 
-    var res: List[List[V]] = Nil
-    for (s <- stacks) {
-      res = (s.take(offset) ++ (s.head :: s.drop(offset))) :: res
+    var amountV = amount
+    var offsetV = offset
+    var takeInt = 0
+    var dropInt = 0
+
+    var count = 0
+    while (amountV > 0) {
+      takeInt = takeInt + 1
+      amountV = amountV - size(count)
+      count = count + 1
     }
 
-    return Stacks(maxSize, size.take(offset) ++ (size.head :: size.drop(offset)), types.take(offset) ++ (types.head :: types.drop(offset)), res)
+    count = 0
+    while (offsetV > 0) {
+      dropInt = dropInt + 1
+      offsetV = offsetV - size(takeInt + count)
+      count = count + 1
+    }
+
+    var res: List[List[V]] = Nil
+
+    for (s <- stacks) {
+
+      res = dupList(s, takeInt, dropInt) :: res
+    }
+
+    return Stacks(maxSize, dupList(size, takeInt, dropInt), dupList(types, takeInt, dropInt), res)
+  }
+
+  private def dupList[A](l: List[A], takeInt: Int, dropInt: Int): List[A] = {
+    l.take(takeInt + dropInt) ++ l.take(takeInt) ++ l.drop(takeInt + dropInt)
   }
 
   def jPop(amount: Int): Stacks[T, V] = {
@@ -48,7 +73,7 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     }
   }
 
-  def jSwap() : Stacks[T,V] = {
+  def jSwap(): Stacks[T, V] = {
     if (getSize < 2)
       return this
     else {
@@ -88,16 +113,22 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     return Stacks[T, V](maxSize, size.tail, types.tail, res)
   }
 
-
+  //TODO: Reactivate exceptions
   def combineWith(other: Stacks[T, V]): Stacks[T, V] = {
-    if (other.maxSize != maxSize)
-      throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
-    else if (other.size != size)
-      throw new IllegalArgumentException("The attribute size needs to be the same.")
-    else if (other.types != types)
-      throw new IllegalArgumentException("The attribute types needs to be the same.")
-
-    Stacks[T, V](maxSize, size, types, CodeInfoTools.distinctAppend(stacks, other.stacks))
+    if (other.maxSize != maxSize) {
+      //System.err.println("The attribute maxSize needs to be the same.")
+      return this
+     // throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
+    } else if (other.size != size) {
+      //System.err.println("The attribute size needs to be the same.")
+      return this
+     // throw new IllegalArgumentException("The attribute size needs to be the same.")
+    } else if (other.types != types) {
+     // throw new IllegalArgumentException("The attribute types needs to be the same.")
+      //System.err.println("The attribute types needs to be the same.")
+      return this
+    }
+    Stacks[T, V](maxSize, size, types, (stacks ++ other.stacks).distinct)
   }
 
   override def toString(): String =

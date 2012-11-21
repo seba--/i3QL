@@ -22,7 +22,7 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
   /*Overrides the trait function*/
   val result: Relation[MethodCFG] = compile(SELECT((c: CodeInfo) => {
-    print("<" + c.declaringMethod.name + ">")
+    println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
     MethodCFG(c.declaringMethod, computePredecessors(c, c.code.instructions))
   }) FROM codeInfo)
 
@@ -67,8 +67,9 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
       currentPC = nextPC
     }
 
-    println(res.mkString("CFGRes: ", ", ", ""))
+  //  println(res.mkString("CFGRes: ", ", ", ""))
     return res
+
   }
 
   /**

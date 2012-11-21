@@ -22,6 +22,9 @@ object Main {
 
   def main(args: Array[String]) {
 
+   //val test = Stacks[Boolean,Double](7,2 :: 1 :: 2 :: Nil, true :: true :: false :: Nil,(2.0 :: 3.5 :: 1.0 :: Nil) :: Nil)
+    //println(test.jDup(2,1))
+
     val database = BATDatabaseFactory.create()
     val infos: Relation[CodeInfo] = compile(SELECT(*) FROM database.code)
 
@@ -34,7 +37,10 @@ object Main {
     val funs = new CodeInfoTransformer(infos)
     val analysis = new StackAnalysis(infos, cfg, funs)
 
-    database.addClassFile(new FileInputStream("stack-analysis/target/test-classes"))
+    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
+    database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
+
+    //database.addClassFile(new FileInputStream("stack-analysis/target/test-classes"))
 
     //println(analysis.analysisResult.asList.mkString("Result: ", ", ",""))
 

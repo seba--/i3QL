@@ -1,7 +1,7 @@
 import java.lang.NullPointerException;
 import java.lang.System;
 
-public class Test {
+public class TestMethods {
 	public void testSeq() {
 		int a = 1;
 		int b = -1;

@@ -17,13 +17,19 @@ case class StackAnalysis(c: Relation[CodeInfo], g: AnalysisCFG, t: ResultTransfo
 
   override def startValue(ci: CodeInfo): StackResult = {
     var stacks = Stacks[Type, Int](ci.code.maxStack, Nil, Nil, Nil :: Nil)
-    var lvs = new LocalVars[Type, Int](ci.code.maxLocals, None, None :: Nil).setVar(0, 1, ObjectType.Class, -1)
 
-    var i: Int = 0
+    var lvs = if (ci.declaringMethod.isStatic)
+      new LocalVars[Type, Int](ci.code.maxLocals, None, None :: Nil)
+    else
+      new LocalVars[Type, Int](ci.code.maxLocals, None, None :: Nil).setVar(0, 1, ObjectType.Class, -1)
+
+    var i: Int = if (ci.declaringMethod.isStatic) -1 else 0
+
+
+
     for (t <- ci.declaringMethod.parameterTypes) {
       i = i + 1
       lvs = lvs.setVar(i, t.computationalType.operandSize, t, -1)
-
     }
 
 

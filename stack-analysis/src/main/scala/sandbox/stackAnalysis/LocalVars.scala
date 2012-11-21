@@ -85,13 +85,26 @@ case class LocalVars[T,V](typeStore : Array[Option[T]] , varStore: Array[List[Op
       return false
 
     for (i <- 0 until length()) {
-      if (!(varStore(i) equals other.varStore(i)))
+      if (!varStore(i).forall(other.varStore(i).contains))
         return false
       if (!(typeStore(i) equals other.typeStore(i)))
         return false
     }
 
     return true
+  }
+
+  private def listEquals[A](as : List[A] , bs : List[A]) : Boolean = {
+    if(as.length != bs.length)
+      return false
+
+    for(a <- as) {
+      if(!bs.contains(a))
+        return false
+    }
+
+    return true
+
   }
 
 }
