@@ -91,7 +91,7 @@ trait AbstractPropertiesFileProfiler
         val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars)
+        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars + " transactional = " + transactional)
         val count = warmup (warmupIterations, warmupJars, queries, reReadJars, transactional)
         println ("\tdone")
         println ("Num. of Results: " + count)
@@ -99,7 +99,7 @@ trait AbstractPropertiesFileProfiler
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
 
-        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
+        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars + " transactional = " + transactional)
         val statistic = measure (measurementIterations, measurementJars, queries, reReadJars, transactional)
         println ("\tdone")
         println (statistic.summary (measurementUnit))
