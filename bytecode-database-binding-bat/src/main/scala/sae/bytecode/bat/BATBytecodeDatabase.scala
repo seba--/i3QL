@@ -245,8 +245,6 @@ class BATBytecodeDatabase
 
     }
 
-    var additions :
-
     def beginTransaction() {
 
     }

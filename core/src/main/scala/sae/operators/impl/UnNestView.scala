@@ -36,9 +36,10 @@ import sae.{Observable, Observer, Relation}
 import sae.operators.UnNest
 import sae.deltas.{Update, Deletion, Addition}
 
-class UnNestView[Domain, UnNestRange](val relation: Relation[Domain],
-                                      val unNestFunction: Domain => Seq[UnNestRange])
-    extends UnNest[Domain, UnNestRange]
+class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
+                                                      val unNestFunction: Domain => Seq[UnNestRange],
+                                                      val projection: (Domain, UnNestRange) => Range)
+    extends UnNest[Range, UnNestRange, Domain]
     with Observer[Domain]
 {
 
@@ -54,16 +55,16 @@ class UnNestView[Domain, UnNestRange](val relation: Relation[Domain],
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: ((Domain, UnNestRange)) => T) {
+    def foreach[T](f: (Range) => T) {
         relation.foreach ((v: Domain) =>
             unNestFunction (v).foreach ((u: UnNestRange) =>
-                f ((v, u))
+                f (projection (v, u))
             )
         )
     }
 
 
-    // TODO we could try and see whether the returned unestings are equal, but it is not
+    // TODO we could try and see whether the returned un-nesting are equal, but it is not
     def updated(oldV: Domain, newV: Domain) {
         removed (oldV)
         added (newV)
@@ -71,13 +72,13 @@ class UnNestView[Domain, UnNestRange](val relation: Relation[Domain],
 
     def removed(v: Domain) {
         unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_removed ((v, u))
+            element_removed (projection (v, u))
         )
     }
 
     def added(v: Domain) {
         unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_added ((v, u))
+            element_added (projection (v, u))
         )
     }
 
