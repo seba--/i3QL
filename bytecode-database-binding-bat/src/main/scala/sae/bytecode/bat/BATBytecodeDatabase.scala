@@ -260,10 +260,10 @@ class BATBytecodeDatabase
         ArrayType.cache.clear ()
     }
 
-    var transaction: ListSetTransaction = null
+    var transaction: HashSetTransaction = null
 
     def beginTransaction() {
-        transaction = new ListSetTransaction
+        transaction = new HashSetTransaction
         currentAdditionReader = new SAETransactionAdderJavaReader (transaction)
         currentRemovalReader = new SAETransactionRemoverJavaReader (transaction)
     }

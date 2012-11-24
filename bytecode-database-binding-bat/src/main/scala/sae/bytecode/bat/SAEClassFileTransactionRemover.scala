@@ -54,7 +54,7 @@ trait SAEClassFileTransactionRemover
     with AttributeBinding
 {
 
-    def transaction: ListSetTransaction
+    def transaction: HashSetTransaction
 
     type ClassFile = ClassDeclaration
 

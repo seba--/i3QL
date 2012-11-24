@@ -44,7 +44,7 @@ import de.tud.cs.st.bat.resolved.reader._
  * @author Michael Eichberg
  */
 
-class SAETransactionAdderJavaReader(val transaction: ListSetTransaction)
+class SAETransactionAdderJavaReader(val transaction: HashSetTransaction)
     extends ConstantPoolBinding
     with SAEClassFileTransactionAdder
     //with ClassFileBinding
