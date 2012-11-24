@@ -50,6 +50,8 @@ import sae.deltas.{Update, Deletion, Addition}
  *
  * @author Ralf Mitschke
  * @author Malte V
+ *
+ *         TODO FIXME
  */
 class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                                                  val getTail: Edge => Vertex,
