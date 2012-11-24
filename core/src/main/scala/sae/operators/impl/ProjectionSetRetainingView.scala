@@ -32,18 +32,26 @@
  */
 package sae.operators.impl
 
+import sae.deltas.{Deletion, Addition, Update}
 import sae.{Observable, Observer, Relation}
-import sae.operators.UnNest
-import sae.deltas.{Update, Deletion, Addition}
+import sae.operators.Projection
 
-class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
-                                                      val unNestFunction: Domain => Seq[UnNestRange],
-                                                      val projection: (Domain, UnNestRange) => Range)
-    extends UnNest[Range, UnNestRange, Domain]
+/**
+ *
+ *
+ *
+ * The bag projection has the usual SQL meaning of a projection
+ * The projection is always self maintained and requires no additional data apart from the provided delta.
+ *
+ * @author Ralf Mitschke
+ *
+ */
+class ProjectionSetRetainingView[Domain, Range](val relation: Relation[Domain],
+                                                val projection: Domain => Range)
+    extends Projection[Domain, Range]
     with Observer[Domain]
 {
-
-    relation.addObserver (this)
+    relation addObserver this
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
@@ -56,51 +64,39 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
-        relation.foreach ((v: Domain) =>
-            unNestFunction (v).foreach ((u: UnNestRange) =>
-                f (projection (v, u))
-            )
-        )
+        relation.foreach ((v: Domain) => f (projection (v)))
     }
 
-
-    // TODO we could try and see whether the returned un-nesting are equal, but it is not
+    @deprecated
     def updated(oldV: Domain, newV: Domain) {
-        removed (oldV)
-        added (newV)
+        element_updated (projection (oldV), projection (newV))
     }
 
     def removed(v: Domain) {
-        unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_removed (projection (v, u))
-        )
+        element_removed (projection (v))
     }
 
     def added(v: Domain) {
-        unNestFunction (v).foreach ((u: UnNestRange) =>
-            element_added (projection (v, u))
-        )
+        element_added (projection (v))
     }
 
     def updated[U <: Domain](update: Update[U]) {
-        throw new UnsupportedOperationException
+        if (update.affects (projection)) {
+            element_updated (Update (projection (update.oldV), projection (update.newV), update.count, update.project (projection)))
+        }
     }
-
 
     def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-        // TODO correct for updates and difference between additions and deletions
-        val nextAdditions = additions.flatMap (
-            add => unNestFunction (add.value).map (
-                v => Addition (projection (add.value, v), add.count)
-            )
-        )
+        {
+            val nextAdditions = additions.map (e => Addition (projection (e.value), 1))
 
-        val nextDeletions = deletions.flatMap (
-            del => unNestFunction (del.value).map (
-                v => Deletion (projection (del.value, v), del.count)
-            )
-        )
+            val nextDeletions = deletions.map (e => Deletion (projection (e.value), 1))
 
-        element_modifications (nextAdditions, nextDeletions, Set.empty[Update[Range]])
+            val nextUpdates = updates.map (e => Update (projection (e.oldV), projection (e.newV), 1, e.project (projection)))
+
+            element_modifications (nextAdditions, nextDeletions, nextUpdates)
+        }
     }
+
 }
+

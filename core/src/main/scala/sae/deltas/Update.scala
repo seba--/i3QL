@@ -38,7 +38,7 @@ package sae.deltas
  *
  */
 
-case class Update[V](oldV: V, newV: V, count: Int, properties: List[(Any => Any)])
+class Update[V](val oldV: V, val newV: V, val count: Int, val properties: List[(Any => Any)])
 {
 
     def affects[U](f: V => U): Boolean = {
@@ -54,3 +54,10 @@ case class Update[V](oldV: V, newV: V, count: Int, properties: List[(Any => Any)
     def asDeletion(): Deletion[V] = Deletion (oldV, count)
 
 }
+
+object Update
+{
+    def apply[V](oldV: V, newV: V, count: Int, properties: List[(Any => Any)]) =
+        new Update (oldV, newV, count, properties)
+}
+

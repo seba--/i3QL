@@ -41,8 +41,9 @@ import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax
-import sae.bytecode.structure.{ClassDeclaration, MethodDeclaration, CodeInfo, FieldDeclaration, InheritanceRelation, CodeAttribute, ExceptionHandlerInfo}
+import sae.bytecode.structure.{ClassDeclaration, MethodDeclaration, CodeInfo, FieldDeclaration, InheritanceRelation, CodeAttribute}
 import de.tud.cs.st.bat.reader.ClassFileReader
+import sae.operators.impl.ProjectionSetRetainingView
 
 /**
  * Created with IntelliJ IDEA.
@@ -86,22 +87,23 @@ class BATBytecodeDatabase
 
     lazy val instructions: Relation[InstructionInfo] = compile (SELECT (*) FROM (identity[List[InstructionInfo]] _ IN instructionInfos)).forceToSet
 
-    private lazy val instructionInfos: Relation[List[InstructionInfo]] = SELECT ((codeInfo: CodeInfo) => {
-        var i = 0
-        var index = 0
-        val length = codeInfo.code.instructions.length
-        var result: List[InstructionInfo] = Nil
-        while (i < length) {
-            val instr = codeInfo.code.instructions (i)
-            if (instr != null) {
-                result = (InstructionInfo (codeInfo.declaringMethod, instr, i, index)) :: result
-                index += 1
+    private lazy val instructionInfos: Relation[List[InstructionInfo]] =
+        new ProjectionSetRetainingView (code, (codeInfo: CodeInfo) => {
+            var i = 0
+            var index = 0
+            val length = codeInfo.code.instructions.length
+            var result: List[InstructionInfo] = Nil
+            while (i < length) {
+                val instr = codeInfo.code.instructions (i)
+                if (instr != null) {
+                    result = (InstructionInfo (codeInfo.declaringMethod, instr, i, index)) :: result
+                    index += 1
+                }
+                i += 1
             }
-            i += 1
+            result
         }
-        result
-    }
-    ) FROM code
+        )
 
 
     lazy val instructionsMinimal: Relation[minimal.InstructionInfo] = compile (SELECT (*) FROM (identity[List[minimal.InstructionInfo]] _ IN instructionInfosMinimal)).forceToSet
@@ -135,8 +137,6 @@ class BATBytecodeDatabase
             codeInfo.code.exceptionHandlers
         )
     ) FROM code
-
-    val exceptionHandlers = new SetExtent[ExceptionHandlerInfo]
 
     lazy val inheritance: Relation[InheritanceRelation] = SELECT (*) FROM classInheritance UNION_ALL (SELECT (*) FROM interfaceInheritance)
 
@@ -280,6 +280,42 @@ class BATBytecodeDatabase
         transaction = null
         currentAdditionReader = additionEventReader
         currentRemovalReader = removalEventReader
+    }
+
+    def addArchiveAsClassFileTransactions(stream: InputStream) {
+        val zipStream: ZipInputStream = new ZipInputStream (stream)
+        var zipEntry: ZipEntry = null
+        while ((({
+            zipEntry = zipStream.getNextEntry
+            zipEntry
+        })) != null)
+        {
+            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
+                beginTransaction ()
+                addClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
+                commitTransaction ()
+            }
+        }
+        ObjectType.cache.clear ()
+        ArrayType.cache.clear ()
+    }
+
+    def removeArchiveAsClassFileTransactions(stream: InputStream) {
+        val zipStream: ZipInputStream = new ZipInputStream (stream)
+        var zipEntry: ZipEntry = null
+        while ((({
+            zipEntry = zipStream.getNextEntry
+            zipEntry
+        })) != null)
+        {
+            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
+                beginTransaction ()
+                removeClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
+                commitTransaction ()
+            }
+        }
+        ObjectType.cache.clear ()
+        ArrayType.cache.clear ()
     }
 
 }

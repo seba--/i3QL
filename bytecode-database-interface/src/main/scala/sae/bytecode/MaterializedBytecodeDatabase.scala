@@ -50,7 +50,7 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
 
-    lazy val constructorsMinimal = new SetResult(database.constructorsMinimal)
+    lazy val constructorsMinimal = new SetResult (database.constructorsMinimal)
 
 
     lazy val instructions = new SetResult[InstructionInfo](database.instructions)
@@ -115,14 +115,22 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     }
 
     def beginTransaction() {
-        database.beginTransaction()
+        database.beginTransaction ()
     }
 
     def computeTransactionUpdates() {
-        database.computeTransactionUpdates()
+        database.computeTransactionUpdates ()
     }
 
     def commitTransaction() {
-        database.commitTransaction()
+        database.commitTransaction ()
+    }
+
+    def addArchiveAsClassFileTransactions(stream: InputStream) {
+        database.addArchiveAsClassFileTransactions (stream)
+    }
+
+    def removeArchiveAsClassFileTransactions(stream: InputStream) {
+        database.removeArchiveAsClassFileTransactions (stream)
     }
 }

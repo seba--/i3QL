@@ -54,9 +54,12 @@ class TestTransactionOOAnalysesOnRT
     def test_CI_CONFUSED_INHERITANCE() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CI_CONFUSED_INHERITANCE (database))
+        /*
         database.beginTransaction ()
         database.addArchive (getStream)
         database.commitTransaction ()
+        */
+        database.addArchiveAsClassFileTransactions(getStream)
         assertEquals (123, analysis.size)
     }
 
@@ -65,9 +68,7 @@ class TestTransactionOOAnalysesOnRT
     def test_CN_IDIOM() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CN_IDIOM (database))
-        database.beginTransaction ()
-        database.addArchive (getStream)
-        database.commitTransaction ()
+        database.addArchiveAsClassFileTransactions(getStream)
         assertEquals (835, analysis.size)
     }
 
@@ -105,13 +106,10 @@ class TestTransactionOOAnalysesOnRT
     }
 
     @Test
-    @Ignore
     def test_DM_GC() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (DM_GC (database))
-        database.beginTransaction ()
-        database.addArchive (getStream)
-        database.commitTransaction ()
+        database.addArchiveAsClassFileTransactions(getStream)
         assertEquals (3, analysis.size)
     }
 

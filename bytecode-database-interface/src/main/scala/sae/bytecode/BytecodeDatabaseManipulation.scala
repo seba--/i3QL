@@ -47,6 +47,10 @@ trait BytecodeDatabaseManipulation
 
     def removeArchive(stream: java.io.InputStream)
 
+    def addArchiveAsClassFileTransactions(stream: java.io.InputStream)
+
+    def removeArchiveAsClassFileTransactions(stream: java.io.InputStream)
+
     def beginTransaction()
 
     def computeTransactionUpdates()

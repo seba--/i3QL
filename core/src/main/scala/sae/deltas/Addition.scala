@@ -38,7 +38,12 @@ package sae.deltas
  *
  */
 
-case class Addition[V](value: V, count: Int)
+class Addition[V](val value: V, val count: Int)
 {
 
+}
+
+object Addition
+{
+    def apply[V](value: V, count: Int) = new Addition(value, count)
 }

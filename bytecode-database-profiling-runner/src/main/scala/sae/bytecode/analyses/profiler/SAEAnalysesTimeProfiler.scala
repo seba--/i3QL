@@ -32,11 +32,11 @@
  */
 package sae.bytecode.analyses.profiler
 
-import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
+import sae.bytecode.profiler.TimeMeasurement
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
+import sae.bytecode.BytecodeDatabase
 import sae._
-import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
+import bytecode.profiler.statistics.SampleStatistic
 import sae.bytecode.profiler.util.MilliSeconds
 
 
@@ -62,7 +62,7 @@ abstract class SAEAnalysesTimeProfiler
 
     def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): SampleStatistic = {
         if (reReadJars) {
-            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries,transactional))
+            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries, transactional))
         }
         else
         {
@@ -103,11 +103,10 @@ abstract class SAEAnalysesTimeProfiler
     }
 
 
-
     def applyAnalysesWithJarReading(jars: List[String], queries: List[String], transactional: Boolean): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
-        for (query <- queries) yield {
+        val results = for (query <- queries) yield {
             sae.relationToResult (getAnalysis (query, database))
         }
         time {
@@ -116,7 +115,14 @@ abstract class SAEAnalysesTimeProfiler
         {
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
+                if (transactional)
+                {
+                    database.addArchiveAsClassFileTransactions(stream)
+                }
+                else
+                {
+                    database.addArchive (stream)
+                }
                 stream.close ()
             })
         }

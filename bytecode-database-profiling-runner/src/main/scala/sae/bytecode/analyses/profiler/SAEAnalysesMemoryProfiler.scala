@@ -117,10 +117,9 @@ abstract class SAEAnalysesMemoryProfiler
         {
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                if (transactional) {
-                    database.beginTransaction ()
-                    database.addArchive (stream)
-                    database.commitTransaction ()
+                if (transactional)
+                {
+                    database.addArchiveAsClassFileTransactions(stream)
                 }
                 else
                 {

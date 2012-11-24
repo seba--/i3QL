@@ -167,7 +167,7 @@ object RelationalAlgebraSyntax
     {
         def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
                                                     (relation: Relation[Domain]): Relation[Range] =
-            new ProjectionView[Domain, Range](
+            new ProjectionSetRetainingView[Domain, Range](
                 relation,
                 projection
             )

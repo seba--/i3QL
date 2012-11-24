@@ -38,7 +38,12 @@ package sae.deltas
  *
  */
 
-case class Deletion[V](value: V, count: Int)
+class Deletion[V](val value: V, val count: Int)
 {
 
+}
+
+object Deletion
+{
+    def apply[V](value: V, count: Int) = new Deletion(value, count)
 }

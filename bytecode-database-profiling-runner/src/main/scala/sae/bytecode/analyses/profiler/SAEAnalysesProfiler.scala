@@ -66,10 +66,9 @@ abstract class SAEAnalysesProfiler
 
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional) {
-                database.beginTransaction ()
-                database.addArchive (stream)
-                database.commitTransaction ()
+            if (transactional)
+            {
+                database.addArchiveAsClassFileTransactions(stream)
             }
             else
             {
@@ -91,10 +90,9 @@ abstract class SAEAnalysesProfiler
         }
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional) {
-                database.beginTransaction ()
-                database.addArchive (stream)
-                database.commitTransaction ()
+            if (transactional)
+            {
+                database.addArchiveAsClassFileTransactions(stream)
             }
             else
             {
@@ -130,10 +128,9 @@ abstract class SAEAnalysesProfiler
 
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional) {
-                database.beginTransaction ()
-                database.addArchive (stream)
-                database.commitTransaction ()
+            if (transactional)
+            {
+                database.addArchiveAsClassFileTransactions(stream)
             }
             else
             {
