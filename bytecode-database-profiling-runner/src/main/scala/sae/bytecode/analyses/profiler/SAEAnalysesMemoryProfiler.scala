@@ -33,10 +33,10 @@
 package sae.bytecode.analyses.profiler
 
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
+import sae.bytecode.BytecodeDatabase
 import sae._
-import bytecode.profiler.{AbstractPropertiesFileProfiler, MemoryUsage}
-import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
+import bytecode.profiler.MemoryUsage
+import bytecode.profiler.statistics.SampleStatistic
 import bytecode.profiler.util.MegaByte
 
 
@@ -47,7 +47,7 @@ import bytecode.profiler.util.MegaByte
  */
 
 abstract class SAEAnalysesMemoryProfiler
-    extends AbstractPropertiesFileProfiler
+    extends SAEAnalysesProfiler
     with MemoryUsage
 {
     sae.ENABLE_FORCE_TO_SET = true
@@ -61,53 +61,31 @@ abstract class SAEAnalysesMemoryProfiler
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
+    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): SampleStatistic = {
         if (reReadJars) {
-            measureMemory (iterations)(() => applyAnalysesWithJarReading (jars, queries))._1
+            measureMemory (iterations)(() => applyAnalysesWithJarReading (jars, queries, transactional))._1
         }
         else
         {
-            val database = createMaterializedDatabase (jars, queries)
+            val database = createMaterializedDatabase (jars, queries, transactional)
             measureMemory (iterations)(() => applyAnalysesWithoutJarReading (database, queries))._1
         }
     }
 
-
-    def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
-        val database = BATDatabaseFactory.create ()
-        val materializedDatabase = new MaterializedBytecodeDatabase (database)
-
-        // initialize the needed materializations at least once
-        val relations = for (query <- queries) yield {
-            getAnalysis (query, materializedDatabase)(optimized)
-        }
-
-
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        relations.foreach (_.clearObserversForChildren (visitChild => true))
-
-        materializedDatabase
-    }
-
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
+    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): Long = {
         val materializedDatabase =
             if (reReadJars) {
                 None
             }
             else
             {
-                Some (createMaterializedDatabase (jars, queries))
+                Some (createMaterializedDatabase (jars, queries, transactional))
             }
 
         var i = 0
         while (i < iterations) {
             if (reReadJars) {
-                applyAnalysesWithJarReading (jars, queries)
+                applyAnalysesWithJarReading (jars, queries, transactional)
             }
             else
             {
@@ -117,40 +95,15 @@ abstract class SAEAnalysesMemoryProfiler
         }
 
         if (reReadJars) {
-            getResultsWithReadingJars (jars, queries)
+            getResultsWithReadingJars (jars, queries, transactional)
         }
         else
         {
-            getResultsWithoutReadingJars (jars, queries)
+            getResultsWithoutReadingJars (jars, queries, transactional)
         }
     }
 
-    def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
-        var database = BATDatabaseFactory.create ()
-        val results = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database)(optimized))
-        }
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        results.map (_.size).sum
-    }
-
-    def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
-        val database = createMaterializedDatabase (jars, queries)
-        val results = for (query <- queries) yield {
-            //sae.relationToResult (AnalysesOO (query, database))
-            getAnalysis (query, database)(optimized)
-        }
-
-        results.map (_.size).sum
-    }
-
-
-    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
+    def applyAnalysesWithJarReading(jars: List[String], queries: List[String], transactional: Boolean): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         val relations = for (query <- queries) yield {
@@ -164,7 +117,15 @@ abstract class SAEAnalysesMemoryProfiler
         {
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
+                if (transactional) {
+                    database.beginTransaction ()
+                    database.addArchive (stream)
+                    database.commitTransaction ()
+                }
+                else
+                {
+                    database.addArchive (stream)
+                }
                 stream.close ()
             })
         }
@@ -196,26 +157,6 @@ abstract class SAEAnalysesMemoryProfiler
         memoryMXBean.gc ()
         print (".")
         taken
-    }
-
-    def dataStatistic(jars: List[String]): DataStatistic = {
-        var database = BATDatabaseFactory.create ()
-
-        val classes = relationToResult (database.classDeclarations)
-
-        val methods = relationToResult (database.methodDeclarations)
-
-        val fields = relationToResult (database.fieldDeclarations)
-
-        val instructions = relationToResult (database.instructions)
-
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        SimpleDataStatistic (classes.size, methods.size, fields.size, instructions.size)
     }
 
     def measurementUnit = MegaByte

@@ -63,6 +63,17 @@ trait AbstractPropertiesFileProfiler
                 false
             }
 
+
+        val transactional =
+            if (args.length > 2)
+            {
+                java.lang.Boolean.parseBoolean (args (2))
+            }
+            else
+            {
+                false
+            }
+
         val properties = getProperties (propertiesFile).getOrElse (
         {
             println ("could not find properties file or resource: " + propertiesFile)
@@ -81,7 +92,7 @@ trait AbstractPropertiesFileProfiler
 
 
         println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars)
-        val count = warmup (warmupIterations, warmupJars, queries, reReadJars)
+        val count = warmup (warmupIterations, warmupJars, queries, reReadJars, transactional)
         println ("\tdone")
         println ("Num. of Results: " + count)
 
@@ -89,20 +100,20 @@ trait AbstractPropertiesFileProfiler
         memoryMXBean.gc ()
 
         println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
-        val statistic = measure (measurementIterations, measurementJars, queries, reReadJars)
+        val statistic = measure (measurementIterations, measurementJars, queries, reReadJars, transactional)
         println ("\tdone")
         println (statistic.summary (measurementUnit))
 
-        val dataStatistics = dataStatistic (measurementJars)
+        val dataStatistics = dataStatistic (measurementJars, transactional)
 
         println (dataStatistics.summary)
 
-        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, dataStatistics, queries, statistic, count)
+        reportCSV (outputFile, reReadJars, transactional, warmupIterations, measurementIterations, measurementJars, dataStatistics, queries, statistic, count)
 
         sys.exit (0)
     }
 
-    def reportCSV(outputFile: String, reReadJars: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], dataStatistics: DataStatistic, queries: List[String], statistic: SampleStatistic, resultCount: Long) {
+    def reportCSV(outputFile: String, reReadJars: Boolean, transactional: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], dataStatistics: DataStatistic, queries: List[String], statistic: SampleStatistic, resultCount: Long) {
         val file = new File (outputFile)
         val writeHeader = !file.exists ()
 
@@ -112,7 +123,7 @@ trait AbstractPropertiesFileProfiler
 
         val header = "bench type" + separator + "jars" + separator +
             "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
-            "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
+            "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "transactional" + separator+ "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
 
@@ -127,6 +138,7 @@ trait AbstractPropertiesFileProfiler
                 warumUpIterations + separator +
                 measurementIterations + separator +
                 reReadJars.toString + separator +
+                transactional.toString + separator +
                 queries.reduce (_ + " | " + _) + separator +
                 resultCount + separator +
                 ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.mean))) + separator +
@@ -144,20 +156,20 @@ trait AbstractPropertiesFileProfiler
 
     def benchmarkType: String
 
-    def dataStatistic(jars: List[String]): DataStatistic
+    def dataStatistic(jars: List[String], transactional: Boolean): DataStatistic
 
     def measurementUnit: MeasurementUnit
 
     /**
      * Perform the actual measurement.
      */
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic
+    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): SampleStatistic
 
     /**
      * Perform the warmup by doing exactly the same operation as in the measurement.
      * The warmup is must return the number of results returned by the measured analyses.
      */
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long
+    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): Long
 
 
     def isFile(propertiesFile: String): Boolean = {
