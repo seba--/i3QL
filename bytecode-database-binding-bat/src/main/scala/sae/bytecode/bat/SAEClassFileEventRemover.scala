@@ -37,12 +37,8 @@ import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.bytecode.structure._
-import de.tud.cs.st.bat._
-import resolved.Code
-import sae.bytecode.structure.MethodDeclaration
-import sae.bytecode.structure.CodeInfo
-import scala.Some
-import sae.bytecode.structure.FieldDeclaration
+import de.tud.cs.st.bat.resolved.Code
+
 
 
 /**
@@ -52,10 +48,10 @@ import sae.bytecode.structure.FieldDeclaration
  * Time: 13:13
  */
 
-trait SAEClassFileReader
-        extends ClassFileReader
-        with ConstantPoolBinding
-        with AttributeBinding
+trait SAEClassFileEventRemover
+    extends ClassFileReader
+    with ConstantPoolBinding
+    with AttributeBinding
 {
     def database: BATBytecodeDatabase
 
@@ -76,25 +72,27 @@ trait SAEClassFileReader
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
     protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)
-                            (implicit cp: Constant_Pool): Class_Info = {
+                            (implicit cp: Constant_Pool): Class_Info =
+    {
         val accessFlags = in.readUnsignedShort
         val thisClass = in.readUnsignedShort.asObjectType
         val super_class = in.readUnsignedShort
-        val classInfo = ClassDeclaration(
+        val classInfo = ClassDeclaration (
             minor_version, major_version,
             accessFlags,
             thisClass,
             // to handle the special case that this class file represents java.lang.Object
-            if (super_class == 0) None else Some(super_class.asObjectType),
-            Interfaces(thisClass, in, cp)
+            if (super_class == 0) None else Some (super_class.asObjectType),
+            Interfaces (thisClass, in, cp)
         )
-        database.classDeclarations.element_added(classInfo)
+        database.classDeclarations.element_removed (classInfo)
         classInfo
     }
 
 
     def Interface(declaringClass: ObjectType, interface_index: Constant_Pool_Index)
-                 (implicit cp: Constant_Pool): Interface = {
+                 (implicit cp: Constant_Pool): Interface =
+    {
         interface_index.asObjectType
     }
 
@@ -104,13 +102,14 @@ trait SAEClassFileReader
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
-            implicit cp: Constant_Pool): Field_Info = {
-        val fieldDeclaration = new FieldDeclaration(
+        implicit cp: Constant_Pool): Field_Info =
+    {
+        val fieldDeclaration = new FieldDeclaration (
             declaringClass,
             access_flags,
             name_index.asString,
             descriptor_index.asFieldType)
-        database.fieldDeclarations.element_added(fieldDeclaration)
+        database.fieldDeclarations.element_removed (fieldDeclaration)
         fieldDeclaration
     }
 
@@ -119,21 +118,22 @@ trait SAEClassFileReader
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
-            implicit cp: Constant_Pool): Method_Info = {
+        implicit cp: Constant_Pool): Method_Info =
+    {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration(
+        val methodDeclaration = MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
             descriptor.parameterTypes
         )
-        database.methodDeclarations.element_added(methodDeclaration)
+        database.methodDeclarations.element_removed (methodDeclaration)
 
-        attributes.foreach(_ match {
+        attributes.foreach (_ match {
             case code: Code => {
-                database.code.element_added(
-                    CodeInfo(methodDeclaration, code)
+                database.code.element_removed (
+                    CodeInfo (methodDeclaration, code)
                 )
             }
             case _ => /* do nothing*/
@@ -145,7 +145,8 @@ trait SAEClassFileReader
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
-            implicit cp: Constant_Pool): ClassFile = {
+        implicit cp: Constant_Pool): ClassFile =
+    {
         classInfo
     }
 

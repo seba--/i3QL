@@ -20,12 +20,24 @@ class JEditSuite
 
     private val resourceName = "jedit-4.3.3-win.jar"
 
+
+
+
     def db = {
         val db = BATDatabaseFactory.create ()
         val database = new MaterializedBytecodeDatabase (db)
         val stream = this.getClass.getClassLoader.getResourceAsStream (resourceName)
-        db.addArchive (stream)
 
+        // initialize a lot of fields
+        database.classDeclarations
+        database.methodDeclarations
+        database.fieldDeclarations
+        database.classInheritance
+        database.interfaceInheritance
+        database.inheritance
+        database.subTypes
+
+        db.addArchive (stream)
         database
     }
 

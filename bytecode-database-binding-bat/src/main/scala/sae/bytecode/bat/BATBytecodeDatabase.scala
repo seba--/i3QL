@@ -42,6 +42,7 @@ import sae.bytecode.instructions._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax
 import sae.bytecode.structure.{ClassDeclaration, MethodDeclaration, CodeInfo, FieldDeclaration, InheritanceRelation, CodeAttribute, ExceptionHandlerInfo}
+import de.tud.cs.st.bat.reader.ClassFileReader
 
 /**
  * Created with IntelliJ IDEA.
@@ -54,7 +55,6 @@ class BATBytecodeDatabase
     extends BytecodeDatabase
 {
 
-    val reader = new SAEJava6Framework (this)
 
     val classDeclarations = new SetExtent[ClassDeclaration]
 
@@ -147,7 +147,7 @@ class BATBytecodeDatabase
         SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")
 
     lazy val constructorsMinimal =
-        compile(SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
+        compile (SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
 
 
     lazy val invokeStatic: Relation[INVOKESTATIC] =
@@ -181,11 +181,6 @@ class BATBytecodeDatabase
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
 
-
-
-
-
-
     lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
         SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESTATIC]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESTATIC])
 
@@ -217,12 +212,20 @@ class BATBytecodeDatabase
         SELECT ((_: minimal.FieldWriteInstruction).asInstanceOf[minimal.PUTFIELD]) FROM (writeFieldMinimal) WHERE (_.isInstanceOf[minimal.PUTFIELD])
 
 
+    private val additionEventReader: ClassFileReader = new SAEEventAdderJavaReader (this)
+
+    private val removalEventReader: ClassFileReader = new SAEEventRemoverJavaReader (this)
+
+    private var currentAdditionReader: ClassFileReader = additionEventReader
+
+    private var currentRemovalReader: ClassFileReader = removalEventReader
+
     def addClassFile(stream: InputStream) {
-        reader.ClassFile (() => stream)
+        currentAdditionReader.ClassFile (() => stream)
     }
 
     def removeClassFile(stream: InputStream) {
-
+        currentRemovalReader.ClassFile (() => stream)
     }
 
     def addArchive(stream: InputStream) {
@@ -242,11 +245,27 @@ class BATBytecodeDatabase
     }
 
     def removeArchive(stream: InputStream) {
-
+        val zipStream: ZipInputStream = new ZipInputStream (stream)
+        var zipEntry: ZipEntry = null
+        while ((({
+            zipEntry = zipStream.getNextEntry
+            zipEntry
+        })) != null)
+        {
+            if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class")) {
+                removeClassFile (new ZipStreamEntryWrapper (zipStream, zipEntry))
+            }
+        }
+        ObjectType.cache.clear ()
+        ArrayType.cache.clear ()
     }
 
-    def beginTransaction() {
+    var transaction: ListSetTransaction = null
 
+    def beginTransaction() {
+        transaction = new ListSetTransaction
+        currentAdditionReader = new SAETransactionAdderJavaReader (transaction)
+        currentRemovalReader = new SAETransactionRemoverJavaReader (transaction)
     }
 
     def computeTransactionUpdates() {
@@ -254,7 +273,13 @@ class BATBytecodeDatabase
     }
 
     def commitTransaction() {
-
+        classDeclarations.element_modifications[ClassDeclaration](transaction.classDeclarationAdditions, transaction.classDeclarationDeletions, transaction.classDeclarationUpdates)
+        methodDeclarations.element_modifications[MethodDeclaration](transaction.methodDeclarationAdditions, transaction.methodDeclarationDeletions, transaction.methodDeclarationUpdates)
+        fieldDeclarations.element_modifications[FieldDeclaration](transaction.fieldDeclarationAdditions, transaction.fieldDeclarationDeletions, transaction.fieldDeclarationUpdates)
+        code.element_modifications[CodeInfo](transaction.codeAdditions, transaction.codeDeletions, transaction.codeUpdates)
+        transaction = null
+        currentAdditionReader = additionEventReader
+        currentRemovalReader = removalEventReader
     }
 
 }

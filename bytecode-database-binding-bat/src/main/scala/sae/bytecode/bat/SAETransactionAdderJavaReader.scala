@@ -44,9 +44,9 @@ import de.tud.cs.st.bat.resolved.reader._
  * @author Michael Eichberg
  */
 
-class SAEJava6Framework(val database: BATBytecodeDatabase)
+class SAETransactionAdderJavaReader(val transaction: ListSetTransaction)
     extends ConstantPoolBinding
-    with SAEClassFileReader
+    with SAEClassFileTransactionAdder
     //with ClassFileBinding
     with InterfacesReader
     with FieldsReader
