@@ -1,6 +1,7 @@
 package sae.bytecode.profiler.observers
 
 import sae.Observer
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  *
@@ -29,5 +30,12 @@ class CountingObserver[V]
     def updated(oldV: V, newV: V)
     {
         // do nothing
+    }
+
+    def updated[U <: V](update: Update[U]) {}
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        counter += additions.map (_.count).sum
+        counter -= deletions.map (_.count).sum
     }
 }

@@ -118,7 +118,7 @@ object CostModelMemoryProfiler
     }
 
     def elementCounts(files: Seq[java.io.File]): RelationMap[Int] = {
-        val database = new LazyMaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        val database = new MaterializedBytecodeDatabase(BATDatabaseFactory.create ())
         database.relations.foreach (r => () /* do nothing but iterate over the relations to instantiate*/)
         for (file <- files) {
             database.addArchive (new java.io.FileInputStream (file))

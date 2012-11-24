@@ -34,6 +34,7 @@ package sae.bytecode.profiler.observers
 
 import sae.bytecode.profiler.MemoryProfiler
 import sae.capabilities.Size
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * Created with IntelliJ IDEA.
@@ -103,5 +104,13 @@ class ArrayBufferObserver[-V <: AnyRef](private val incrementSize: Int = 100)
         {
             0L
         }
+    }
+
+    def updated[U <: V](update: Update[U]) {
+        updated(update.oldV, update.newV)
+    }
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 }

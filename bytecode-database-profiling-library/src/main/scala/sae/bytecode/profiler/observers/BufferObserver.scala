@@ -33,6 +33,7 @@
 package sae.bytecode.profiler.observers
 
 import sae.bytecode.profiler.util.DataContainer
+import sae.deltas.{Update, Deletion, Addition}
 
 
 /**
@@ -76,5 +77,14 @@ class BufferObserver[V]
 
     def clear() {
         data.clear ()
+    }
+
+    def updated[U <: V](update: Update[U]) {
+        data.remove(update.oldV, update.count)
+        data.add(update.newV, update.count)
+    }
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 }

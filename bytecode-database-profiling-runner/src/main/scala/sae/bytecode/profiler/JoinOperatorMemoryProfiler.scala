@@ -79,9 +79,9 @@ object JoinOperatorMemoryProfiler
 
         import sae.syntax.RelationalAlgebraSyntax._
 
-        val invokeSpecial = Π((_: InstructionInfo).asInstanceOf[INVOKESPECIAL])( σ((_:InstructionInfo).isInstanceOf[INVOKESPECIAL])(db.instructions) )(isSetPreserving = true)
+        val invokeSpecial = Π((_: InstructionInfo).asInstanceOf[INVOKESPECIAL])( σ((_:InstructionInfo).isInstanceOf[INVOKESPECIAL])(db.instructions) ).forceToSet
 
-        val invokeVirtual = Π((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL])( σ((_:InstructionInfo).isInstanceOf[INVOKEVIRTUAL])(db.instructions) )(isSetPreserving = true)
+        val invokeVirtual = Π((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL])( σ((_:InstructionInfo).isInstanceOf[INVOKEVIRTUAL])(db.instructions) ).forceToSet
 
         compile (
             SELECT (*) FROM

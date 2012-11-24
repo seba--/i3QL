@@ -33,7 +33,7 @@
 package sae.bytecode.profiler.statistics
 
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.bytecode.LazyMaterializedBytecodeDatabase
+import sae.bytecode.MaterializedBytecodeDatabase
 
 /**
  * Created with IntelliJ IDEA.
@@ -46,7 +46,7 @@ object Statistic
 {
 
     def elementStatistic(files: Seq[java.io.File]): Seq[(String, Int)] = {
-        val database = new LazyMaterializedBytecodeDatabase (BATDatabaseFactory.create ())
+        val database = new MaterializedBytecodeDatabase (BATDatabaseFactory.create ())
         database.relations.foreach (r => () /* do nothing but iterate over the relations to instantiate*/)
         for (file <- files) {
             database.addArchive (new java.io.FileInputStream (file))
