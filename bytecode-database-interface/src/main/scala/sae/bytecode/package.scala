@@ -24,7 +24,7 @@ package object bytecode
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
 
-    def declaringType: DeclaredClassMember => ObjectType = _.declaringClass.classType
+    def declaringType: DeclaredClassMember => ClassType = _.declaringClass.classType
 
     def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
 
@@ -42,4 +42,5 @@ package object bytecode
 
     def superClass : ClassDeclaration => ClassType = _.superClass.get
 
+    def declaringClassType : InstructionInfo => ClassType = _.declaringMethod.declaringClass.classType
 }
