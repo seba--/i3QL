@@ -156,4 +156,37 @@ class TestRelationalAnalysesOnRT
         database.addArchive (getStream)
         assertEquals (3, analysis.size)
     }
+
+    @Test
+    def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_DP_DO_INSIDE_DO_PRIVILEGED() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DP_DO_INSIDE_DO_PRIVILEGED (database))
+        database.addArchive (getStream)
+        assertEquals (27, analysis.size)
+    }
+
+    @Test
+    def test_FI_USELESS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (FI_USELESS (database))
+        database.addArchive (getStream)
+        assertEquals (2, analysis.size)
+    }
+
+    @Test
+    def test_ITA_INEFFICIENT_TO_ARRAY() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
+        database.addArchive (getStream)
+        analysis.asList.foreach(println)
+        assertEquals (56, analysis.size)
+    }
 }

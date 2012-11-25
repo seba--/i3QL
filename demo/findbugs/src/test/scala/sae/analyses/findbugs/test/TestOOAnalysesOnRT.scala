@@ -35,7 +35,7 @@ package sae.analyses.findbugs.test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.oo._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 
 /**
@@ -44,7 +44,7 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
+@Ignore
 class TestOOAnalysesOnRT
 {
 
