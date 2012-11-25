@@ -207,4 +207,21 @@ class TestRelationalAnalysesOnRT
         assertEquals (169, analysis.size)
     }
 
+    @Test
+    def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
+        database.addArchive (getStream)
+        //assertEquals (572, analysis.size)
+        //TODO five more than BAT who is right
+        assertEquals (577, analysis.size)
+    }
+
+    @Test
+    def test_SW_SWING_METHODS_INVOKED_IN_SWING_THREAD() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
 }

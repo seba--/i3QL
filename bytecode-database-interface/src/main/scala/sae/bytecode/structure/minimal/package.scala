@@ -1,7 +1,7 @@
 package sae.bytecode.structure
 
 import de.tud.cs.st.bat.resolved.{VoidType, Type, ReferenceType, ObjectType}
-import sae.bytecode.instructions.{InvokeInstruction, InstructionInfo}
+import sae.bytecode.instructions.minimal.{InvokeInstruction, InstructionInfo}
 
 /**
  *
@@ -19,6 +19,8 @@ package object minimal
     def declaringType: DeclaredClassMember => ObjectType = _.declaringType
 
     def sequenceIndex: InstructionInfo => Int = _.sequenceIndex
+
+    def declaringClassType: InstructionInfo => ObjectType = _.declaringMethod.declaringType
 
     def receiverType: InvokeInstruction => ReferenceType = _.receiverType
 
