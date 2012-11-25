@@ -13,7 +13,7 @@ import sae.operators.impl.TransitiveClosureView
  * @author Malte V
  * @author Ralf Mitschke
  */
-@Ignore
+
 class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
 {
 
@@ -33,7 +33,6 @@ class TestTransitiveClosure extends org.scalatest.junit.JUnitSuite
     var testGraph        : Table[Edge] = null
 
     @Test
-  @Ignore
     def addTest() {
         //test for figure 1 (a)
         val view: Relation[(Vertex, Vertex)] = new TransitiveClosureView[Edge, Vertex](smallAddTestGraph, (x: Edge) => x.start, (x: Edge) => x.end)

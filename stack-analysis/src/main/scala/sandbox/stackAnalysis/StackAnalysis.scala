@@ -25,13 +25,10 @@ case class StackAnalysis(c: Relation[CodeInfo], g: AnalysisCFG, t: ResultTransfo
 
     var i: Int = if (ci.declaringMethod.isStatic) -1 else 0
 
-
-
     for (t <- ci.declaringMethod.parameterTypes) {
       i = i + 1
       lvs = lvs.setVar(i, t.computationalType.operandSize, t, -1)
     }
-
 
     Result[Type, Int](stacks, lvs)
   }

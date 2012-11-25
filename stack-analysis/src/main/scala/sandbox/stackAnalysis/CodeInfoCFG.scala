@@ -22,7 +22,7 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
   /*Overrides the trait function*/
   val result: Relation[MethodCFG] = compile(SELECT((c: CodeInfo) => {
-    println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
+  //  println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
     MethodCFG(c.declaringMethod, computePredecessors(c, c.code.instructions))
   }) FROM codeInfo)
 
@@ -41,7 +41,15 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
     var nextPC = 0
 
     while (nextPC < a.length && nextPC >= 0) {
-      nextPC = CodeInfoTools.getNextPC(a, currentPC)
+
+
+      //TODO: change when bugs fixed
+      nextPC = a(currentPC).indexOfNextInstruction(currentPC,ci.code)
+
+      if (nextPC < a.length && a(nextPC) == null) {
+           nextPC = CodeInfoTools.getNextPC(a,currentPC)
+      }
+      //TODO: until here
 
       if (nextPC < a.length && nextPC >= 0) {
         if (a(currentPC).isInstanceOf[ConditionalBranchInstruction]) {

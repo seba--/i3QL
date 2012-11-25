@@ -10,6 +10,6 @@ import scala.Array
  * Time: 15:23
  * To change this template use File | Settings | File Templates.
  */
-case class MethodTransformer[T](methodDeclaration: MethodDeclaration, generators: Array[T => T]) {
+case class MethodTransformer[T](declaringMethod: MethodDeclaration, generators: Array[T => T]) {
 
 }

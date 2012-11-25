@@ -21,7 +21,16 @@
 	<dependencies>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-bat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-database-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st</groupId>
+            <artifactId>bat-core</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -31,8 +40,12 @@
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
-            <artifactId>scala-compiler</artifactId>
-            <version>2.9.2</version>
+            <artifactId>scala-library</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.version}</artifactId>
             <scope>test</scope>
         </dependency>
 	</dependencies>

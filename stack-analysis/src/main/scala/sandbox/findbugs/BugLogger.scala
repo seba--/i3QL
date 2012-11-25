@@ -9,4 +9,13 @@ package sandbox.findbugs
  */
 class BugLogger {
 
+  private var logList : List[String] = Nil
+
+  def log(s : String) {
+    logList = s :: logList
+  }
+
+  def getLog() : List[String] = {
+    logList
+  }
 }

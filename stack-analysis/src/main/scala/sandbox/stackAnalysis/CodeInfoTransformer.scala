@@ -1,60 +1,12 @@
 package sandbox.stackAnalysis
 
-import sae.Relation
-import sae.syntax.sql._
+
 import de.tud.cs.st.bat.resolved._
-import sandbox.dataflowAnalysis.ResultTransformer
+import sandbox.dataflowAnalysis.{MethodTransformer, ResultTransformer}
+import sae.Relation
 import Types._
-import de.tud.cs.st.bat.resolved.GETSTATIC
-import de.tud.cs.st.bat.resolved.ConstantLong
-import de.tud.cs.st.bat.resolved.INSTANCEOF
-import de.tud.cs.st.bat.resolved.ASTORE
-import de.tud.cs.st.bat.resolved.IFNE
-import de.tud.cs.st.bat.resolved.INVOKESTATIC
-import de.tud.cs.st.bat.resolved.DLOAD
-import de.tud.cs.st.bat.resolved.INVOKEINTERFACE
-import de.tud.cs.st.bat.resolved.ALOAD
 import sae.bytecode.structure.CodeInfo
-import de.tud.cs.st.bat.resolved.LDC
-import scala.Some
-import de.tud.cs.st.bat.resolved.IFLE
-import sandbox.dataflowAnalysis.MethodTransformer
-import de.tud.cs.st.bat.resolved.GETFIELD
-import de.tud.cs.st.bat.resolved.ConstantFloat
-import de.tud.cs.st.bat.resolved.IF_ACMPEQ
-import de.tud.cs.st.bat.resolved.IF_ICMPNE
-import de.tud.cs.st.bat.resolved.IFGE
-import de.tud.cs.st.bat.resolved.IFEQ
-import de.tud.cs.st.bat.resolved.ISTORE
-import de.tud.cs.st.bat.resolved.INVOKESPECIAL
-import de.tud.cs.st.bat.resolved.ConstantInteger
-import de.tud.cs.st.bat.resolved.IFGT
-import de.tud.cs.st.bat.resolved.INVOKEDYNAMIC
-import de.tud.cs.st.bat.resolved.IF_ICMPLE
-import de.tud.cs.st.bat.resolved.ANEWARRAY
-import de.tud.cs.st.bat.resolved.LSTORE
-import de.tud.cs.st.bat.resolved.IF_ICMPLT
-import de.tud.cs.st.bat.resolved.DSTORE
-import de.tud.cs.st.bat.resolved.GOTO
-import de.tud.cs.st.bat.resolved.LLOAD
-import de.tud.cs.st.bat.resolved.IFLT
-import de.tud.cs.st.bat.resolved.ConstantDouble
-import de.tud.cs.st.bat.resolved.ILOAD
-import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
-import de.tud.cs.st.bat.resolved.IF_ICMPGE
-import de.tud.cs.st.bat.resolved.GOTO_W
-import de.tud.cs.st.bat.resolved.IF_ICMPEQ
-import de.tud.cs.st.bat.resolved.IFNONNULL
-import de.tud.cs.st.bat.resolved.ConstantString
-import de.tud.cs.st.bat.resolved.ConstantClass
-import de.tud.cs.st.bat.resolved.FLOAD
-import de.tud.cs.st.bat.resolved.LDC2_W
-import de.tud.cs.st.bat.resolved.BIPUSH
-import de.tud.cs.st.bat.resolved.FSTORE
-import de.tud.cs.st.bat.resolved.IFNULL
-import de.tud.cs.st.bat.resolved.IINC
-import de.tud.cs.st.bat.resolved.IF_ICMPGT
-import de.tud.cs.st.bat.resolved.IF_ACMPNE
+import sae.syntax.sql.SELECT
 
 /**
  *
@@ -68,17 +20,29 @@ import de.tud.cs.st.bat.resolved.IF_ACMPNE
 case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTransformer[StackResult] {
 
   val result: Relation[MethodTransformer[StackResult]] = {
-    compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod, computeFunctions(c.code.instructions))) FROM codeInfo)
+    sae.syntax.sql.compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod, computeFunctions(c.code.instructions,c))) FROM codeInfo)
   }
 
-  private def computeFunctions(a: Array[Instruction]): Array[Transformer] = {
+  private def computeFunctions(a: Array[Instruction], ci : CodeInfo): Array[Transformer] = {
     val res = Array.fill[Transformer](a.length)(null) //((s,l) => (s,l))
 
     var currentPC = 0
 
-    while (currentPC != -1) {
+    while (currentPC < a.length && currentPC != -1) {
       res(currentPC) = computeTransformer(currentPC, a(currentPC))
-      currentPC = CodeInfoTools.getNextPC(a, currentPC)
+
+      //TODO: change when bug fixed
+      val savedPC = currentPC
+      currentPC = a(currentPC).indexOfNextInstruction(currentPC,ci.code)
+      if(currentPC < a.length && a(currentPC) == null) {
+
+       // println(a(savedPC).mnemonic + " " + currentPC + " - " + ci.declaringMethod)
+        currentPC = CodeInfoTools.getNextPC(a,savedPC)
+      } else if(a(savedPC).isInstanceOf[TABLESWITCH] || a(savedPC).isInstanceOf[LOOKUPSWITCH]) {
+         System.err.println("HIER NICHT!")
+      }
+      //TODO: change when bug fixed
+
     }
 
     return res
@@ -161,7 +125,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
           })
       }
 
-      case ILOAD(_) => //21
+      case ILOAD(x) => //21 //TODO: load pc from variables instead of new pc
         (p => Result(p.s.push(IntegerType, pc), p.l))
 
       case LLOAD(_) => //21
@@ -174,7 +138,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.push(2, DoubleType, pc), p.l))
 
       case ALOAD(x) => //25
-        (p => Result(p.s.push(fromTypeStore(x, p.l.typeStore), pc), p.l))
+        (p => Result(p.s.push(fromStore(x, p.l.typeStore, ObjectType.Object), pc), p.l))
 
       case ILOAD_0 | ILOAD_1 | ILOAD_2 | ILOAD_3 => //26,27,28,29
         (p => Result(p.s.push(IntegerType, pc), p.l))
@@ -189,13 +153,13 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.push(2, DoubleType, pc), p.l))
 
       case ALOAD_0 => //42
-        (p => Result(p.s.push(fromTypeStore(0, p.l.typeStore), pc), p.l))
+        (p => Result(p.s.push(fromStore(0, p.l.typeStore, ObjectType.Object), pc), p.l))
       case ALOAD_1 => //43
-        (p => Result(p.s.push(fromTypeStore(1, p.l.typeStore), pc), p.l))
+        (p => Result(p.s.push(fromStore(1, p.l.typeStore, ObjectType.Object), pc), p.l))
       case ALOAD_2 => //44
-        (p => Result(p.s.push(fromTypeStore(2, p.l.typeStore), pc), p.l))
+        (p => Result(p.s.push(fromStore(2, p.l.typeStore, ObjectType.Object), pc), p.l))
       case ALOAD_3 => //45
-        (p => Result(p.s.push(fromTypeStore(3, p.l.typeStore), pc), p.l))
+        (p => Result(p.s.push(fromStore(3, p.l.typeStore, ObjectType.Object), pc), p.l))
 
       case LALOAD => //47
         (p => Result(p.s.pop().pop().push(2, LongType, pc), p.l))
@@ -300,22 +264,22 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
       case POP2 => //88
         (p => Result(p.s.jPop(2), p.l))
 
-      case DUP => //89 //TODO:computational value 1 or 2?
+      case DUP => //89 //TODO:DUP duplicating pc or setting new pc?
         (p => Result(p.s.jDup(1, 0), p.l))
 
-      case DUP_X1 => //90 //TODO:computational value 1 or 2?
+      case DUP_X1 => //90
         (p => Result(p.s.jDup(1, 1), p.l))
 
-      case DUP_X2 => //91 //TODO:computational value 1 or 2?
+      case DUP_X2 => //91
         (p => Result(p.s.jDup(1, 2), p.l))
 
-      case DUP2 => //92 //TODO:implement
+      case DUP2 => //92
         (p => Result(p.s.jDup(2, 0), p.l))
 
-      case DUP2_X1 => //93 //TODO:implement
+      case DUP2_X1 => //93
         (p => Result(p.s.jDup(2, 1), p.l))
 
-      case DUP2_X2 => //94 //TODO:implement
+      case DUP2_X2 => //94
         (p => Result(p.s.jDup(2, 2), p.l))
 
       case SWAP => //95
@@ -410,7 +374,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(Stacks[Type, Int](p.s.maxSize, Nil, Nil, Nil), p.l))
 
       case GETSTATIC(_, _, t) => //178
-        (p => Result(p.s.pop().push(t.computationalType.operandSize, t, pc), p.l))
+        (p => Result(p.s.push(t.computationalType.operandSize, t, pc), p.l))
 
       case PUTSTATIC(_, _, _) => //179
         (p => Result(p.s.pop(), p.l))
@@ -513,10 +477,10 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
     })
   }
 
-  private def fromTypeStore(index: Int, ts: Array[Option[Type]]): Type = {
+  private def fromStore[A](index: Int, ts: Array[Option[A]], default : A): A = {
     ts(index) match {
       case Some(t) => t
-      case None => ObjectType.Object
+      case None => default
     }
   }
 
