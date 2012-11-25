@@ -43,7 +43,8 @@ import sae.bytecode.structure.FieldInfo
  */
 
 trait FieldReadInstruction
-    extends FieldInfo
+    extends InstructionInfo
+    with FieldInfo
 {
 
     def receiverType : ObjectType

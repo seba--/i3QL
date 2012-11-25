@@ -2,11 +2,12 @@ package sae.analyses.findbugs.base.relational
 
 import de.tud.cs.st.bat.resolved.{IntegerType, ObjectType}
 import sae.syntax.sql._
-import sae.bytecode._
-import instructions.minimal.FieldReadInstruction
 import sae.bytecode.structure.minimal._
+import sae.bytecode.instructions.minimal._
 import sae.Relation
-import structure.InheritanceRelation
+import sae.bytecode.structure.InheritanceRelation
+import sae.bytecode.BytecodeDatabase
+
 
 /**
  *
@@ -56,9 +57,10 @@ case class Definitions(database: BytecodeDatabase)
     val privateFields: Relation[FieldDeclaration] =
         SELECT (*) FROM fieldDeclarationsMinimal WHERE (_.isPrivate)
 
+
     lazy val fieldReadsFromExternalPackage: Relation[FieldReadInstruction] =
-        SELECT (*) FROM readField WHERE (instruction =>
-            instruction.declaringMethod.declaringClassType.packageName !=
+        SELECT (*) FROM readFieldMinimal WHERE (instruction =>
+            instruction.declaringMethod.declaringType.packageName !=
                 instruction.receiverType.packageName)
 
     val hashTableType = ObjectType ("java/util/Hashtable")
@@ -67,20 +69,25 @@ case class Definitions(database: BytecodeDatabase)
 
     def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
 
-    lazy val ms_base : Relation[FieldDeclaration] =
-    SELECT (*) FROM (fieldDeclarations) WHERE
-        (!_.declaringClass.isInterface) AND
-        (_.isFinal) AND
-        (_.isStatic) AND
-        (!_.isSynthetic) AND
-        (!_.isVolatile) AND
-        //NOT ((_: FieldDeclaration).isSynthetic) AND
-        //NOT ((_: FieldDeclaration).isVolatile) AND
-        //(((_: FieldDeclaration).isProtected) OR (_.isPublic)) AND
-        (f => f.isProtected || f.isPublic) AND
-        //(isArray OR isHashTable) AND
-        (f => isArray (f) || isHashTable (f)) AND
-        NOT (
+    lazy val notInterfaces                         = compile (
+        SELECT (*) FROM classDeclarationsMinimal WHERE (!_.isInterface)
+    )
+    lazy val ms_fields: Relation[FieldDeclaration] =
+        SELECT ((f: FieldDeclaration, c: ClassDeclaration) => f) FROM
+            (fieldDeclarationsMinimal, notInterfaces) WHERE
+            (_.isStatic) AND
+            (!_.isSynthetic) AND
+            (!_.isVolatile) AND
+            //NOT ((_: FieldDeclaration).isSynthetic) AND
+            //NOT ((_: FieldDeclaration).isVolatile) AND
+            //(((_: FieldDeclaration).isProtected) OR (_.isPublic)) AND
+            (f => f.isProtected || f.isPublic) AND
+            //(isArray OR isHashTable) AND
+            (declaringType === classType)
+
+
+    lazy val ms_base: Relation[FieldDeclaration] =
+        SELECT (*) FROM ms_fields WHERE NOT (
             EXISTS (
                 SELECT (*) FROM fieldReadsFromExternalPackage WHERE
                     (((_: FieldReadInstruction).receiverType) === ((_: FieldDeclaration).declaringType)) AND
@@ -88,4 +95,5 @@ case class Definitions(database: BytecodeDatabase)
                     (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
             )
         )
+
 }

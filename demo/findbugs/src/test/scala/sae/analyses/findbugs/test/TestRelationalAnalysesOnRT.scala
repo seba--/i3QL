@@ -198,4 +198,13 @@ class TestRelationalAnalysesOnRT
         database.addArchive (getStream)
         assertEquals (94, analysis.size)
     }
+
+    @Test
+    def test_MS_SHOULD_BE_FINAL() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_SHOULD_BE_FINAL (database))
+        database.addArchive (getStream)
+        assertEquals (169, analysis.size)
+    }
+
 }

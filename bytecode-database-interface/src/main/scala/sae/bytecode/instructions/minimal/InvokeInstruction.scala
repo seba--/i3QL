@@ -45,7 +45,8 @@ import sae.bytecode.structure.minimal.MethodDeclaration
  */
 
 trait InvokeInstruction
-    extends MethodInfo
+    extends InstructionInfo
+    with MethodInfo
 {
 
     def declaringMethod: MethodDeclaration
