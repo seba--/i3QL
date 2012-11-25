@@ -3,9 +3,8 @@ package sae.analyses.findbugs.random.relational
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
-import sae.bytecode.instructions.minimal._
-import sae.bytecode.structure.minimal._
-import de.tud.cs.st.bat.resolved.ObjectType
+import sae.bytecode.instructions._
+import sae.bytecode.structure._
 
 /**
  *
@@ -14,11 +13,11 @@ import de.tud.cs.st.bat.resolved.ObjectType
  * Time: 16:01
  *
  */
-object MS_PKGPROTECT
+object MS_SHOULD_BE_FINAL
     extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
 
-    val hashTableType = ObjectType ("java/util/Hashtable")
+    val hashTableType = ClassType ("java/util/Hashtable")
 
     def isHashTable: FieldDeclaration => Boolean = field => field.fieldType == hashTableType
 
@@ -35,7 +34,7 @@ object MS_PKGPROTECT
 
         SELECT (*) FROM (fieldDeclarations) WHERE
             (!_.declaringClass.isInterface) AND
-            (_.isFinal) AND
+            (!_.isFinal) AND
             (_.isStatic) AND
             (!_.isSynthetic) AND
             (!_.isVolatile) AND

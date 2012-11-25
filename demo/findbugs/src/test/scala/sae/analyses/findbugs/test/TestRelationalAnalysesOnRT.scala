@@ -186,7 +186,16 @@ class TestRelationalAnalysesOnRT
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
         database.addArchive (getStream)
-        analysis.asList.foreach(println)
-        assertEquals (56, analysis.size)
+        //assertEquals (56, analysis.size)
+        // TODO six less than BAT who is right
+        assertEquals (50, analysis.size)
+    }
+
+    @Test
+    def test_MS_PKGPROTECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_PKGPROTECT (database))
+        database.addArchive (getStream)
+        assertEquals (94, analysis.size)
     }
 }

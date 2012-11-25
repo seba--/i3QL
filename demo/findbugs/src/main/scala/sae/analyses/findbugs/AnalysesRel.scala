@@ -73,9 +73,9 @@ object AnalysesRel
         case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
         case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
         case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
-        //case "FI_USELESS" => FI_USELESS(database)
+        case "FI_USELESS" => FI_USELESS(database)
         case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
-        //case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
+        case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
@@ -100,7 +100,7 @@ object AnalysesRel
         case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
         case "FI_USELESS" => FI_USELESS(database)
         case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
-        //case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
+        case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
         //case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
         //case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
         //case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
