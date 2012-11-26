@@ -22,9 +22,13 @@ package object minimal
 
     def declaringClassType: InstructionInfo => ObjectType = _.declaringMethod.declaringType
 
+    def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
+
     def receiverType: InvokeInstruction => ReferenceType = _.receiverType
 
     def returnType: MethodInfo => Type = _.returnType
+
+    def targetType: FieldInfo => Type = _.declaringType
 
     def classType: ClassDeclaration => ClassType = _.classType
 

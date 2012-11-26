@@ -57,4 +57,9 @@ package object sql
 
     implicit def joinToUnboundJoin[DomainA <: AnyRef, DomainB <: AnyRef, RangeA, RangeB](join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, DomainB, RangeA, RangeB] =
         UnboundJoin (join.asInstanceOf[Join[DomainA, DomainB, RangeA, RangeB]]) // TODO ugly typecast
+
+    def first = (u: AnyRef, v: AnyRef) => u
+
+    def second = (u: AnyRef, v: AnyRef) => v
+
 }

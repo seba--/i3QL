@@ -224,4 +224,22 @@ class TestRelationalAnalysesOnRT
         database.addArchive (getStream)
         assertEquals (0, analysis.size)
     }
+
+    @Test
+    def test_UG_SYNC_SET_UNSYNC_GET() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
+        database.addArchive (getStream)
+        //assertEquals (31, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (32, analysis.size)
+    }
+
+    @Test
+    def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (58, analysis.size)
+    }
 }
