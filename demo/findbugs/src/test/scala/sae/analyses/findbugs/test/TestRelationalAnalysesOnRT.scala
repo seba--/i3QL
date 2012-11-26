@@ -240,6 +240,7 @@ class TestRelationalAnalysesOnRT
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
         database.addArchive (getStream)
+        analysis.asList.foreach(println)
         assertEquals (58, analysis.size)
     }
 }

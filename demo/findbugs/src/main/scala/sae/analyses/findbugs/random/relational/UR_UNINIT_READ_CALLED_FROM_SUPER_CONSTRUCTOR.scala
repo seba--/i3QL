@@ -72,10 +72,18 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
                 (declaringMethod === (identity[MethodDeclaration] _)) AND
                 (targetType === declaringType)
 
+
+        val getsDeclaredFieldInOverRidden: Relation[GETFIELD] =
+            SELECT ((f: GETFIELD, m: FieldDeclaration) => f) FROM (getsFieldInOverRidden, fieldDeclarationsMinimal) WHERE
+                (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
+                (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
+                (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
+
         val calledSuperConstructor: Relation[(INVOKESPECIAL, GETFIELD)] =
-            SELECT (*) FROM (invokeSpecialMinimal, getsFieldInOverRidden) WHERE
+            SELECT (*) FROM (invokeSpecialMinimal, getsDeclaredFieldInOverRidden) WHERE
                 (_.declaringMethod.name == "<init>") AND
                 (_.name == "<init>") AND
+                (i => i.receiverType != i.declaringMethod.declaringType) AND
                 (declaringClassType === declaringClassType)
 
         val calls: Relation[InvokeInstruction] =
