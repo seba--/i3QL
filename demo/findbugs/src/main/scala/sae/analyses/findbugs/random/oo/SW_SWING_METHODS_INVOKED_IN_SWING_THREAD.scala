@@ -3,7 +3,7 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure._
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.{BooleanType, VoidType, ObjectType}
 
@@ -33,7 +33,7 @@ object SW_SWING_METHODS_INVOKED_IN_SWING_THREAD
             ((method: MethodDeclaration) => method.isPublic &&
                 method.isStatic &&
                 method.name == "main" ||
-                method.declaringType.className.toLowerCase.indexOf ("benchmark") >= 0)
+                method.declaringClassType.className.toLowerCase.indexOf ("benchmark") >= 0)
     }
 
     /*

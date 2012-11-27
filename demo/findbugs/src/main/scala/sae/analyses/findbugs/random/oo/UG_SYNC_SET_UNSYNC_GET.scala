@@ -35,7 +35,7 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure._
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
 import de.tud.cs.st.bat.resolved.VoidType
 
 /**
@@ -56,8 +56,7 @@ object UG_SYNC_SET_UNSYNC_GET
         import database._
 
         val syncedSetters: Relation[MethodDeclaration] =
-            SELECT ((m: MethodDeclaration, c: ClassDeclaration) => m) FROM (methodDeclarationsMinimal, classDeclarationsMinimal) WHERE
-                (declaringType === classType) AND
+            SELECT (*) FROM (methodDeclarations) WHERE
                 (!_.isAbstract) AND
                 (!_.isStatic) AND
                 (!_.isNative) AND
@@ -66,11 +65,10 @@ object UG_SYNC_SET_UNSYNC_GET
                 (_.isSynchronized) AND
                 (_.parameterTypes.length == 1) AND
                 (_.returnType == VoidType) AND
-                (!(_: ClassDeclaration).isInterface)
+                (!_.declaringClass.isInterface)
 
         val unsyncedGetters: Relation[MethodDeclaration] =
-            SELECT ((m: MethodDeclaration, c: ClassDeclaration) => m) FROM (methodDeclarationsMinimal, classDeclarationsMinimal) WHERE
-                (declaringType === classType) AND
+            SELECT (*) FROM (methodDeclarations) WHERE
                 (!_.isAbstract) AND
                 (!_.isStatic) AND
                 (!_.isNative) AND
@@ -79,7 +77,7 @@ object UG_SYNC_SET_UNSYNC_GET
                 (!_.isSynchronized) AND
                 (_.parameterTypes == Nil) AND
                 (_.returnType != VoidType) AND
-                (!(_: ClassDeclaration).isInterface)
+                (!_.declaringClass.isInterface)
 
         SELECT (*) FROM (syncedSetters, unsyncedGetters) WHERE
             (declaringType === declaringType) AND

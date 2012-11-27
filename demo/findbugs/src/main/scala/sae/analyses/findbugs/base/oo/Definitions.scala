@@ -2,8 +2,8 @@ package sae.analyses.findbugs.base.oo
 
 import de.tud.cs.st.bat.resolved.{ObjectType, IntegerType}
 import sae.syntax.sql._
-import sae.bytecode.BytecodeDatabase
 import sae.Relation
+import sae.bytecode._
 import sae.bytecode.structure._
 import sae.bytecode.instructions.FieldReadInstruction
 

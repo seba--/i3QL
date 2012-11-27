@@ -3,7 +3,7 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure._
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
 import sae.analyses.findbugs.base.oo.Definitions
 
 /**

@@ -35,7 +35,7 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure._
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
 import sae.bytecode.instructions._
 import java.util.regex.Pattern
 

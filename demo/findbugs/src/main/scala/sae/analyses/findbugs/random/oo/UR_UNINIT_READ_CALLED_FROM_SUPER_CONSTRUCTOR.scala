@@ -35,7 +35,7 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure._
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
 import sae.bytecode.instructions._
 import sae.bytecode.structure.InheritanceRelation
 
@@ -52,7 +52,7 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
         import database._
 
         val overrideMethodsWithRelation: Relation[(MethodDeclaration, InheritanceRelation)] =
-            SELECT (*) FROM (methodDeclarationsMinimal, classInheritance) WHERE
+            SELECT (*) FROM (methodDeclarations, classInheritance) WHERE
                 (_.name != "<init>") AND
                 (!_.isStatic) AND
                 (declaringType === subType)
@@ -60,39 +60,39 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
 
 
         val overrideMethods: Relation[MethodDeclaration] =
-            SELECT ((sm: MethodDeclaration, e: (MethodDeclaration, InheritanceRelation)) => e._1) FROM (methodDeclarationsMinimal, overrideMethodsWithRelation) WHERE
-                (((_: MethodDeclaration).declaringType) === ((_: (MethodDeclaration, InheritanceRelation))._2.superType)) AND
+            SELECT ((sm: MethodDeclaration, e: (MethodDeclaration, InheritanceRelation)) => e._1) FROM (methodDeclarations, overrideMethodsWithRelation) WHERE
+                (((_: MethodDeclaration).declaringClassType) === ((_: (MethodDeclaration, InheritanceRelation))._2.superType)) AND
                 (((_: MethodDeclaration).name) === ((_: (MethodDeclaration, InheritanceRelation))._1.name)) AND
                 (((_: MethodDeclaration).returnType) === ((_: (MethodDeclaration, InheritanceRelation))._1.returnType)) AND
                 (((_: MethodDeclaration).parameterTypes) === ((_: (MethodDeclaration, InheritanceRelation))._1.parameterTypes))
 
 
         val getsFieldInOverRidden: Relation[GETFIELD] =
-            SELECT ((f: GETFIELD, m: MethodDeclaration) => f) FROM (getFieldMinimal, overrideMethods) WHERE
+            SELECT ((f: GETFIELD, m: MethodDeclaration) => f) FROM (getField, overrideMethods) WHERE
                 (declaringMethod === (identity[MethodDeclaration] _)) AND
                 (targetType === declaringType)
 
 
         val getsDeclaredFieldInOverRidden: Relation[GETFIELD] =
-            SELECT ((f: GETFIELD, m: FieldDeclaration) => f) FROM (getsFieldInOverRidden, fieldDeclarationsMinimal) WHERE
+            SELECT ((f: GETFIELD, m: FieldDeclaration) => f) FROM (getsFieldInOverRidden, fieldDeclarations) WHERE
                 (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
                 (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
                 (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
 
         val calledSuperConstructor: Relation[(INVOKESPECIAL, GETFIELD)] =
-            SELECT (*) FROM (invokeSpecialMinimal, getsDeclaredFieldInOverRidden) WHERE
+            SELECT (*) FROM (invokeSpecial, getsDeclaredFieldInOverRidden) WHERE
                 (_.declaringMethod.name == "<init>") AND
                 (_.name == "<init>") AND
-                (i => i.receiverType != i.declaringMethod.declaringType) AND
+                (i => i.receiverType != i.declaringMethod.declaringClassType) AND
                 (declaringClassType === declaringClassType)
 
         val calls: Relation[InvokeInstruction] =
-            SELECT (*) FROM invokeVirtualMinimal.asInstanceOf[Relation[InvokeInstruction]] UNION_ALL (
-                SELECT (*) FROM invokeInterfaceMinimal.asInstanceOf[Relation[InvokeInstruction]]
+            SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] UNION_ALL (
+                SELECT (*) FROM invokeInterface.asInstanceOf[Relation[InvokeInstruction]]
                 )
 
         SELECT ((i: InvokeInstruction, e: (INVOKESPECIAL, GETFIELD)) => e._2) FROM (calls, calledSuperConstructor) WHERE
-            (((_: InvokeInstruction).declaringMethod.declaringType) === ((_: (INVOKESPECIAL, GETFIELD))._1.receiverType)) AND
+            (((_: InvokeInstruction).declaringMethod.declaringClassType) === ((_: (INVOKESPECIAL, GETFIELD))._1.receiverType)) AND
             (((_: InvokeInstruction).declaringMethod.name) === ((_: (INVOKESPECIAL, GETFIELD))._1.name)) AND
             (((_: InvokeInstruction).declaringMethod.parameterTypes) === ((_: (INVOKESPECIAL, GETFIELD))._1.parameterTypes)) AND
             (((_: InvokeInstruction).declaringMethod.returnType) === ((_: (INVOKESPECIAL, GETFIELD))._1.returnType)) AND

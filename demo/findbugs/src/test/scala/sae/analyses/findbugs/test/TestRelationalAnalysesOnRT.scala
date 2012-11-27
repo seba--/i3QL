@@ -36,7 +36,7 @@ import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.relational._
 import analyses.findbugs.random.relational._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 
 /**
@@ -45,7 +45,7 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
+@Ignore
 class TestRelationalAnalysesOnRT
 {
 
@@ -240,7 +240,6 @@ class TestRelationalAnalysesOnRT
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
         database.addArchive (getStream)
-        analysis.asList.foreach(println)
         assertEquals (58, analysis.size)
     }
 }
