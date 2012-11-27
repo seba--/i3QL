@@ -32,6 +32,12 @@
 */
 package sae.analyses.findbugs.random.relational
 
+import sae.Relation
+import sae.syntax.sql._
+import sae.bytecode._
+import sae.bytecode.instructions._
+import sae.bytecode.structure._
+import sae.functions.Count
 
 /**
  * Finalize just calls super.finalize.
@@ -40,25 +46,56 @@ package sae.analyses.findbugs.random.relational
  *         BAT version by Michael Eichberg
  */
 object FI_USELESS
-//extends (BytecodeDatabase => Relation[MethodDeclaration])
+    extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
-    /*
+
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
 
-        val invokeSpecial /*: Relation[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
 
-        val subselect = SELECT (*) FROM invokeSpecial WHERE
-            (_.name == "finalize") AND
-            (_.returnType == void) AND
-            (_.parameterTypes == Nil) AND
-            (declaringMethod === (identity(_: MethodDeclaration)))
+        val finalizeMethodInstructions =
+            compile (
+                SELECT (*) FROM instructions WHERE
+                    (_.declaringMethod.name == "finalize") AND
+                    (_.declaringMethod.returnType == void) AND
+                    (_.declaringMethod.parameterTypes == Nil)
+            )
 
-        SELECT (*) FROM (methodDeclarations) WHERE
-            (_.name == "finalize") AND
-            (_.returnType == void) AND
-            (_.parameterTypes == Nil) AND
+        val finalizeMethodInstructionsInvokeSpecial: Relation[INVOKESPECIAL] =
+            SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM finalizeMethodInstructions WHERE
+                (_.isInstanceOf[INVOKESPECIAL])
+
+        val finalizeMethodSuperCalls: Relation[INVOKESPECIAL] =
+            SELECT (*) FROM finalizeMethodInstructionsInvokeSpecial WHERE
+                (_.name == "finalize") AND
+                (_.returnType == void) AND
+                (_.parameterTypes == Nil)
+
+        import sae.syntax.RelationalAlgebraSyntax._
+
+        val countInstructionsInFinalizers: Relation[(MethodDeclaration, Int)] = γ (
+            finalizeMethodInstructions,
+            declaringMethod,
+            Count[InstructionInfo](),
+            (m: MethodDeclaration, count: Int) => (m, count)
+        )
+
+        val finalizersWithFiveInstructions: Relation[MethodDeclaration] =
+            compile (
+                SELECT ((_: (MethodDeclaration, Int))._1) FROM countInstructionsInFinalizers WHERE (_._2 == 5)
+            )
+
+        SELECT (*) FROM finalizersWithFiveInstructions WHERE
+            EXISTS (
+                SELECT (*) FROM finalizeMethodSuperCalls WHERE
+                    (declaringMethod === identity[MethodDeclaration] _)
+            )
+    }
+
+    /*
+    def foo {
+        SELECT (*) FROM (finalizersWithFiveInstructions) WHERE
             EXISTS (
                 SELECT (*) FROM invokeSpecial WHERE
                     (_.name == "finalize") AND
@@ -67,11 +104,6 @@ object FI_USELESS
                     (declaringMethod === (_: MethodDeclaration))
             ) AND
             (5 === (SELECT COUNT (*) FROM instructions WHERE (declaringMethod === (_: MethodDeclaration))))
-    }
-    */
-    /*
-    def foo {
-        val c = count(null)
     }
     */
     /*

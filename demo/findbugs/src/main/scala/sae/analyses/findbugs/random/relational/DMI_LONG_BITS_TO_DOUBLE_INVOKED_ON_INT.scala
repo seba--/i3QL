@@ -22,9 +22,7 @@ object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT
     def apply(database: BytecodeDatabase): Relation[INVOKESTATIC] = {
         import database._
 
-        val intToLong /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[I2L]) FROM instructions WHERE (_.isInstanceOf[I2L])
-
-        val invokeStatic /*: Relation[INVOKESPECIAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
+        val intToLong : Relation[I2L] = SELECT ((_: InstructionInfo).asInstanceOf[I2L]) FROM instructions WHERE (_.isInstanceOf[I2L])
 
         SELECT ((a: I2L, b: INVOKESTATIC) => b) FROM
             (intToLong, invokeStatic) WHERE

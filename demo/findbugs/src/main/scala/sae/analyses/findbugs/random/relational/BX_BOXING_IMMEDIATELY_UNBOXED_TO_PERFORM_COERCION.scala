@@ -23,9 +23,6 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
     def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
 
-        val invokeSpecial: Relation[INVOKESPECIAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM instructions WHERE (_.isInstanceOf[INVOKESPECIAL])
-        val invokeVirtual: Relation[INVOKEVIRTUAL] = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
-
         val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
 
         SELECT ((a: INVOKESPECIAL, b: INVOKEVIRTUAL) => b) FROM
@@ -34,6 +31,8 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
             (receiverType === receiverType) AND
             (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
             NOT (firstParamType === returnType) AND
+            (_.parameterTypes.size == 1) AND
+            NOT ((_:INVOKESPECIAL).parameterTypes(0).isReferenceType) AND
             (_.declaringMethod.declaringClass.majorVersion >= 49) AND
             (_.receiverType.isObjectType) AND
             (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND

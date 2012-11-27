@@ -35,6 +35,7 @@ package sae.analyses.findbugs
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
 import selected.relational._
+import random.relational._
 
 /**
  *
@@ -44,12 +45,13 @@ import selected.relational._
 object AnalysesRel
 {
 
-    def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized:Boolean = false): Relation[_] = {
+    def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_] = {
         if (!optimized) {
-            getBase(analysisName, database)
+            getBase (analysisName, database)
         }
-        else {
-            getOptimized(analysisName, database)
+        else
+        {
+            getOptimized (analysisName, database)
         }
     }
 
@@ -67,6 +69,18 @@ object AnalysesRel
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
         case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
         case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
+        /* randomly selected analyses without dataflow */
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
+        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
+        case "FI_USELESS" => FI_USELESS(database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
+        case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
+        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
@@ -85,6 +99,18 @@ object AnalysesRel
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
         case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
         case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
+        /* randomly selected analyses without dataflow */
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
+        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
+        case "FI_USELESS" => FI_USELESS(database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
+        case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
+        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 }

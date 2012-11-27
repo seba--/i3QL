@@ -34,22 +34,56 @@ package sae.analyses.findbugs.random.relational
 
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode._
-import sae.bytecode.structure._
+import sae.bytecode.structure.minimal._
+import sae.bytecode.BytecodeDatabase
+import de.tud.cs.st.bat.resolved.VoidType
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 17:05
+ *
+ * @author Ralf Mitschke
+ *
  */
-object CI_CONFUSED_INHERITANCE
-    extends (BytecodeDatabase => Relation[FieldDeclaration])
+
+object UG_SYNC_SET_UNSYNC_GET
+    extends (BytecodeDatabase => Relation[(MethodDeclaration, MethodDeclaration)])
 {
 
-    def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
+    def setterName: MethodDeclaration => String = _.name.substring (3)
+
+    def getterName: MethodDeclaration => String = _.name.substring (3)
+
+    def apply(database: BytecodeDatabase): Relation[(MethodDeclaration, MethodDeclaration)] = {
         import database._
-        SELECT (*) FROM (fieldDeclarations) WHERE (_.isProtected) AND (_.declaringClass.isFinal)
+
+        val syncedSetters: Relation[MethodDeclaration] =
+            SELECT ((m: MethodDeclaration, c: ClassDeclaration) => m) FROM (methodDeclarationsMinimal, classDeclarationsMinimal) WHERE
+                (declaringType === classType) AND
+                (!_.isAbstract) AND
+                (!_.isStatic) AND
+                (!_.isNative) AND
+                (!_.isPrivate) AND
+                (_.name.startsWith ("set")) AND
+                (_.isSynchronized) AND
+                (_.parameterTypes.length == 1) AND
+                (_.returnType == VoidType) AND
+                (!(_: ClassDeclaration).isInterface)
+
+        val unsyncedGetters: Relation[MethodDeclaration] =
+            SELECT ((m: MethodDeclaration, c: ClassDeclaration) => m) FROM (methodDeclarationsMinimal, classDeclarationsMinimal) WHERE
+                (declaringType === classType) AND
+                (!_.isAbstract) AND
+                (!_.isStatic) AND
+                (!_.isNative) AND
+                (!_.isPrivate) AND
+                (_.name.startsWith ("get")) AND
+                (!_.isSynchronized) AND
+                (_.parameterTypes == Nil) AND
+                (_.returnType != VoidType) AND
+                (!(_: ClassDeclaration).isInterface)
+
+        SELECT (*) FROM (syncedSetters, unsyncedGetters) WHERE
+            (declaringType === declaringType) AND
+            (setterName === getterName)
     }
 
 }

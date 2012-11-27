@@ -43,7 +43,7 @@ import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
  * Time: 11:20
  *
  */
-trait BytecodeDervivedRelations
+trait BytecodeDerivedRelations
 {
     def classInheritance: Relation[InheritanceRelation]
 
