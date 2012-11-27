@@ -50,9 +50,9 @@ abstract class SAEAnalysesMemoryProfiler
     extends SAEAnalysesProfiler
     with MemoryUsage
 {
-    sae.ENABLE_FORCE_TO_SET = true
+    sae.ENABLE_FORCE_TO_SET = false
 
-    val optimized = true
+    val optimized = false
 
     def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
 
