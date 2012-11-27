@@ -77,6 +77,10 @@ object AnalysesRel
         case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
         case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
         case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
@@ -103,10 +107,10 @@ object AnalysesRel
         case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
         case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
         case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
-        //case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
-        //case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
-        //case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
-        //case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 }
