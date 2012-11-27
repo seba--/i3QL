@@ -35,7 +35,8 @@ package sae.analyses.findbugs.test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.relational._
-import org.junit.Test
+import analyses.findbugs.random.relational._
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 
 /**
@@ -44,7 +45,7 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
+@Ignore
 class TestRelationalAnalysesOnRT
 {
 
@@ -148,4 +149,97 @@ class TestRelationalAnalysesOnRT
     }
 
 
+    @Test
+    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+    @Test
+    def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_DP_DO_INSIDE_DO_PRIVILEGED() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DP_DO_INSIDE_DO_PRIVILEGED (database))
+        database.addArchive (getStream)
+        assertEquals (27, analysis.size)
+    }
+
+    @Test
+    def test_FI_USELESS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (FI_USELESS (database))
+        database.addArchive (getStream)
+        assertEquals (2, analysis.size)
+    }
+
+    @Test
+    def test_ITA_INEFFICIENT_TO_ARRAY() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
+        database.addArchive (getStream)
+        //assertEquals (56, analysis.size)
+        // TODO six less than BAT who is right
+        assertEquals (50, analysis.size)
+    }
+
+    @Test
+    def test_MS_PKGPROTECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_PKGPROTECT (database))
+        database.addArchive (getStream)
+        assertEquals (94, analysis.size)
+    }
+
+    @Test
+    def test_MS_SHOULD_BE_FINAL() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_SHOULD_BE_FINAL (database))
+        database.addArchive (getStream)
+        assertEquals (169, analysis.size)
+    }
+
+    @Test
+    def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
+        database.addArchive (getStream)
+        //assertEquals (572, analysis.size)
+        //TODO five more than BAT who is right
+        assertEquals (577, analysis.size)
+    }
+
+    @Test
+    def test_SW_SWING_METHODS_INVOKED_IN_SWING_THREAD() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_UG_SYNC_SET_UNSYNC_GET() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
+        database.addArchive (getStream)
+        //assertEquals (31, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (32, analysis.size)
+    }
+
+    @Test
+    def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (58, analysis.size)
+    }
 }

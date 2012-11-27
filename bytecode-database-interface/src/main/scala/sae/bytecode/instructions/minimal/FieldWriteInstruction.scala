@@ -43,7 +43,8 @@ import sae.bytecode.structure.minimal.MethodDeclaration
  */
 
 trait FieldWriteInstruction
-    extends FieldInfo
+    extends InstructionInfo
+    with FieldInfo
 {
     def receiverType: ObjectType
 

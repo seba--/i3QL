@@ -2,9 +2,9 @@ package sae.analyses.findbugs.selected.relational
 
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import sae.bytecode.structure.{CodeInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 import sae.syntax.sql._
-import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -14,30 +14,31 @@ import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
  *         TODO consider optimization together with CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
  */
 object CN_IDIOM_NO_SUPER_CALL
-    extends (BytecodeDatabase => Relation[MethodDeclaration])
+        extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
+
 
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
-        SELECT ((_: CodeInfo).declaringMethod) FROM code WHERE
-            NOT ((_: CodeInfo).declaringMethod.declaringClass.isInterface) AND
-            NOT ((_: CodeInfo).declaringMethod.declaringClass.isAnnotation) AND
-            (_.declaringMethod.name == "clone") AND
-            (_.declaringMethod.parameterTypes == Nil) AND
-            (_.declaringMethod.returnType == ObjectType.Object) AND
-            NOT ((_: CodeInfo).declaringMethod.isAbstract) AND
-            (_.declaringMethod.declaringClass.superClass.isDefined) AND
-            NOT ((ci: CodeInfo) => {
-                val superClass = ci.declaringMethod.declaringClass.superClass.get
-                ci.code.instructions.exists ({
-                    case INVOKESPECIAL (
-                    `superClass`,
-                    "clone",
-                    MethodDescriptor (Nil, ObjectType.Object)
-                    ) ⇒ true
-                    case _ ⇒ false
-                })
-            })
+        import sae.bytecode._
+        SELECT(*) FROM methodDeclarations WHERE
+                //NOT((_: MethodDeclaration).declaringClass.isInterface) AND
+                //NOT((_: MethodDeclaration).declaringClass.isAnnotation) AND
+                NOT((_: MethodDeclaration).isAbstract) AND
+                (_.name == "clone") AND
+                (_.parameterTypes == Nil) AND
+                (_.returnType == ObjectType.Object) AND
+                (_.declaringClass.superClass.isDefined) AND
+                NOT(
+                    EXISTS(
+                        SELECT(*) FROM invokeSpecial WHERE
+                                (_.name == "clone") AND
+                                (_.parameterTypes == Nil) AND
+                                (_.returnType == ObjectType.Object) AND
+                                (receiverType === ((_: MethodDeclaration).declaringClass.superClass.get)) AND
+                                (declaringMethod === identity[MethodDeclaration] _)
+                    )
+                )
 
     }
 

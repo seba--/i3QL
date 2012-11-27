@@ -1,7 +1,10 @@
 package sae.analyses.findbugs.random.relational
 
-import sae.bytecode._
-import sae.bytecode.structure._
+import sae.Relation
+import sae.syntax.sql._
+import sae.bytecode.structure.minimal._
+import sae.bytecode.BytecodeDatabase
+import sae.analyses.findbugs.base.relational.Definitions
 
 /**
  *
@@ -11,73 +14,16 @@ import sae.bytecode.structure._
  *
  */
 object MS_PKGPROTECT
+    extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
 
-    val hashTableType = ClassType ("java/util/Hashtable")
+    def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
+        val definitions = Definitions (database)
+        import definitions._
 
-    def isHashTable: FieldDeclaration => Boolean = field => field.fieldType == hashTableType
+        SELECT (*) FROM (ms_base) WHERE (_.isFinal) AND (f => isArray (f) || isHashTable (f))
 
-    def isArray: FieldDeclaration => Boolean = field => field.fieldType.isArrayType
-
-    /*
-        def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
-            //import database._
-
-            val fieldReadsFromExternalPackage: Relation[ReadFieldInstruction] =
-                SELECT (*) FROM database.fieldReadInstructions WHERE (instruction =>
-                    instruction.declaringMethod.declaringType.packageName !=
-                        instruction.targetField.declaringType.packageName)
-
-            val result: Relation[FieldDeclaration] =
-                SELECT (*) FROM (database.declared_fields) WHERE
-                    isFinal AND
-                    isStatic AND
-                    NOT (isSynthetic) AND
-                    NOT (isVolatile) AND
-                    (isProtected OR isPublic) AND
-                    (isArray OR isHashTable)
-                    //AND NOT EXISTS
-
-            val fieldDeclaration: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration]
-
-            val join: JOIN_CONDITION[ReadFieldInstruction, FieldDeclaration, FieldReference, FieldDeclaration] = //: (ReadFieldInstruction => FieldReference, FieldDeclaration => FieldDeclaration) =
-                FieldDeclaration.targetField =#= fieldDeclaration // works
-                //targetField _ =#= {(x:FieldDeclaration) => x} // works
-                //targetField _ =#= {(x:FieldDeclaration) => x} // does not work
-                //((_:ReadFieldInstruction).targetField) =#= {(x:FieldDeclaration) => x} // works
-                //functionToJoin (targetField) =#= fieldDeclaration //works
-
-            val inner: SQL_QUERY_UNBOUND_1[ReadFieldInstruction, ReadFieldInstruction, FieldDeclaration] =
-                SELECT (*) FROM fieldReadsFromExternalPackage WHERE (join) //(targetField =#= ((x:FieldDeclaration) => x))
-            result
-        }
-    */
-    //SELECT (*) FROM (fieldReadInstructions) WHERE
-
-    /*
-        def analyze(project: Project) = {
-            val classFiles: Traversable[ClassFile] = project.classFiles
-            // list of tuples in the form (packageName, FieldEntry)
-            val readFieldsFromPackage = BaseAnalyses.readFields (classFiles)
-                .map (entry => (entry._1._1.thisClass.packageName, entry._2))
-            for (classFile ← classFiles if (!classFile.isInterfaceDeclaration);
-                 val declaringClass = classFile.thisClass;
-                 val packageName = declaringClass.packageName;
-                 field@Field (_, name, fieldType, _) ← classFile.fields
-                 if (field.isFinal &&
-                     field.isStatic &&
-                     !field.isSynthetic &&
-                     !field.isVolatile &&
-                     (field.isPublic || field.isProtected) &&
-                     (isArray (field.fieldType) || isHashTable (field.fieldType)) &&
-                     !readFieldsFromPackage.exists (entry => entry._2 == (declaringClass, name, fieldType) && entry._1 != packageName)
-                     )
-            ) yield
-            {
-                ("MS_PKGPROTECT", classFile.thisClass.toJava + "." + field.name + " : " + field.fieldType.toJava)
-            }
-        }
-    */
+    }
 
     /**
      * ########  Code from FindBugs #########
