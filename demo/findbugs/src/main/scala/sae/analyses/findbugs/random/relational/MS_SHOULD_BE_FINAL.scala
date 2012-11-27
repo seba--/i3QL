@@ -2,8 +2,8 @@ package sae.analyses.findbugs.random.relational
 
 import sae.Relation
 import sae.syntax.sql._
+import sae.bytecode._
 import sae.bytecode.structure.minimal._
-import sae.bytecode.BytecodeDatabase
 import sae.analyses.findbugs.base.relational.Definitions
 
 /**
@@ -13,7 +13,7 @@ import sae.analyses.findbugs.base.relational.Definitions
  * Time: 16:01
  *
  */
-object MS_PKGPROTECT
+object MS_SHOULD_BE_FINAL
     extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
 
@@ -21,9 +21,10 @@ object MS_PKGPROTECT
         val definitions = Definitions (database)
         import definitions._
 
-        SELECT (*) FROM (ms_base) WHERE (_.isFinal) AND (f => isArray (f) || isHashTable (f))
+        SELECT (*) FROM (ms_fields) WHERE (!_.isFinal) AND  (f => !isArray (f) && !isHashTable (f))
 
     }
+
 
     /**
      * ########  Code from FindBugs #########

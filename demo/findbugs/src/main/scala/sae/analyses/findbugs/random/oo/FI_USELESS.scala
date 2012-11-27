@@ -30,7 +30,7 @@
 *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 *  POSSIBILITY OF SUCH DAMAGE.
 */
-package sae.analyses.findbugs.random.relational
+package sae.analyses.findbugs.random.oo
 
 import sae.Relation
 import sae.syntax.sql._

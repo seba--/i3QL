@@ -30,42 +30,58 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.test
+package sae.analyses.findbugs.random.oo
 
-import sae.bytecode.bat.BATDatabaseFactory
-import sae._
-import analyses.findbugs.selected.oo.optimized._
-import org.junit.{Ignore, Test}
-import org.junit.Assert._
+import sae.Relation
+import sae.syntax.sql._
+import sae.bytecode.structure._
+import sae.bytecode._
+import de.tud.cs.st.bat.resolved.VoidType
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 09.09.12
- * Time: 11:19
+ *
+ * @author Ralf Mitschke
+ *
  */
-@Ignore
-class TestOptimizedOOAnalysesOnRT
+
+object UG_SYNC_SET_UNSYNC_GET
+    extends (BytecodeDatabase => Relation[(MethodDeclaration, MethodDeclaration)])
 {
 
-    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
+    def setterName: MethodDeclaration => String = _.name.substring (3)
 
+    def getterName: MethodDeclaration => String = _.name.substring (3)
 
-    @Test
-    def test_CN_IDIOM() {
-        val database = BATDatabaseFactory.create ()
-        val analysis = relationToResult (CN_IDIOM (database))
-        database.addArchive (getStream)
-        assertEquals (835, analysis.size)
+    def apply(database: BytecodeDatabase): Relation[(MethodDeclaration, MethodDeclaration)] = {
+        import database._
+
+        val syncedSetters: Relation[MethodDeclaration] =
+            SELECT (*) FROM (methodDeclarations) WHERE
+                (!_.isAbstract) AND
+                (!_.isStatic) AND
+                (!_.isNative) AND
+                (!_.isPrivate) AND
+                (_.name.startsWith ("set")) AND
+                (_.isSynchronized) AND
+                (_.parameterTypes.length == 1) AND
+                (_.returnType == VoidType) AND
+                (!_.declaringClass.isInterface)
+
+        val unsyncedGetters: Relation[MethodDeclaration] =
+            SELECT (*) FROM (methodDeclarations) WHERE
+                (!_.isAbstract) AND
+                (!_.isStatic) AND
+                (!_.isNative) AND
+                (!_.isPrivate) AND
+                (_.name.startsWith ("get")) AND
+                (!_.isSynchronized) AND
+                (_.parameterTypes == Nil) AND
+                (_.returnType != VoidType) AND
+                (!_.declaringClass.isInterface)
+
+        SELECT (*) FROM (syncedSetters, unsyncedGetters) WHERE
+            (declaringType === declaringType) AND
+            (setterName === getterName)
     }
-
-    @Test
-    def test_UUF_UNUSED_FIELD() {
-        val database = BATDatabaseFactory.create ()
-        val analysis = relationToResult (UUF_UNUSED_FIELD (database))
-        database.addArchive (getStream)
-        assertEquals (6799, analysis.size)
-    }
-
 
 }

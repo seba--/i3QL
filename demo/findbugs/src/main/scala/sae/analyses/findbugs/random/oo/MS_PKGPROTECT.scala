@@ -1,10 +1,10 @@
-package sae.analyses.findbugs.random.relational
+package sae.analyses.findbugs.random.oo
 
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode.structure.minimal._
-import sae.bytecode.BytecodeDatabase
-import sae.analyses.findbugs.base.relational.Definitions
+import sae.bytecode.structure._
+import sae.bytecode._
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *

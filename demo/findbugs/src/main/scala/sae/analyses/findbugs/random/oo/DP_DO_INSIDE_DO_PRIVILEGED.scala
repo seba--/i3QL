@@ -1,4 +1,4 @@
-package sae.analyses.findbugs.random.relational
+package sae.analyses.findbugs.random.oo
 
 import sae.Relation
 import sae.syntax.sql._

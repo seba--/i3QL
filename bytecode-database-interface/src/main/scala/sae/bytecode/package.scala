@@ -34,6 +34,8 @@ package object bytecode
 
     def returnType: MethodInfo => Type = _.returnType
 
+    def targetType: FieldInfo => Type = _.declaringType
+
     def classType: ClassDeclaration => ClassType = _.classType
 
     def subType : InheritanceRelation => ClassType = _.subType
