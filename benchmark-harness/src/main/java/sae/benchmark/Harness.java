@@ -213,10 +213,10 @@ public class Harness {
     }
 
     private static String createCommandLine() {
-        String commandLine = "\"" + getJavaExecutable() + "\"";
+        String commandLine = getJavaExecutable();
 
         commandLine = addArguments(commandLine, new String[]{
-                "-classpath" + " \"" + getRuntimeClasspath() + "\""
+                "-classpath" + " " + getRuntimeClasspath() 
         });
 
         return commandLine;
