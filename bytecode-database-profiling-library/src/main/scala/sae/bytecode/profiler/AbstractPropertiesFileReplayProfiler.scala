@@ -36,6 +36,9 @@ import java.io._
 import java.util.Properties
 import statistics.{DataStatistic, MeasurementUnit, SampleStatistic}
 import scala.Some
+import de.tud.cs.st.lyrebird.replayframework.Event
+import de.tud.cs.st.lyrebird.replayframework.file.Reader
+import collection.Seq
 
 /**
  *
@@ -72,38 +75,54 @@ trait AbstractPropertiesFileReplayProfiler
         )
 
         val warmupIterations = properties.getProperty ("sae.warmup.iterations").toInt
-        val warmupJars = properties.getProperty ("sae.warmup.jars").split (";").toList
+        val warmupLocation = properties.getProperty ("sae.warmup.location")
 
         val measurementIterations = properties.getProperty ("sae.benchmark.iterations").toInt
-        val measurementJars = properties.getProperty ("sae.benchmark.jars").split (";").toList
+        val measurementLocation = properties.getProperty ("sae.benchmark.location")
         val queries = properties.getProperty ("sae.benchmark.queries").split (";").toList
 
         val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars)
-        val count = warmup (warmupIterations, warmupJars, queries, reReadJars)
+        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation + " re-read = " + reReadJars)
+
+        val warmupEventReader = new Reader (new File (warmupLocation))
+        val warmupEvents = warmupEventReader.getAllEventSets
+        val counts = warmup (warmupIterations, warmupEvents, queries, reReadJars)
+
         println ("\tdone")
-        println ("Num. of Results: " + count)
+        println ("Num. of Results: " + counts)
+
+        val measurementEventReader = new Reader (new File (measurementLocation))
+        val measurementEvents = measurementEventReader.getAllEventSets
+
 
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
 
-        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars)
-        val statistic = measure (measurementIterations, measurementJars, queries, reReadJars)
+        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementLocation + " re-read = " + reReadJars)
+        val statistics = measure (measurementIterations, measurementEvents, queries, reReadJars)
         println ("\tdone")
-        println (statistic.summary (measurementUnit))
 
-        val dataStatistics = dataStatistic (measurementJars)
+        //println (statistics.summary (measurementUnit))
 
-        println (dataStatistics.summary)
+        val dataStatisticList = dataStatistics (measurementEvents)
 
-        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementJars, dataStatistics, queries, statistic, count)
+        if (counts.size != measurementEvents.size ||dataStatisticList.size != measurementEvents.size || statistics.size != measurementEvents.size)
+        {
+            sys.error ("different sizes for sampled data and list of event sets")
+            sys.exit (-1)
+        }
+
+
+        //println (dataStatistics.summary)
+
+        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
 
         sys.exit (0)
     }
 
-    def reportCSV(outputFile: String, reReadJars: Boolean, warumUpIterations: Int, measurementIterations: Int, measurementJars: List[String], dataStatistics: DataStatistic, queries: List[String], statistic: SampleStatistic, resultCount: Long) {
+    def reportCSV(outputFile: String, reReadJars: Boolean, warmUpIterations: Int, measurementIterations: Int, measurementLocation : String, eventSets: List[Seq[Event]], dataStatistics: List[DataStatistic], queries: List[String], statistics: List[SampleStatistic], resultCounts: List[Long]) {
         val file = new File (outputFile)
         val writeHeader = !file.exists ()
 
@@ -111,33 +130,41 @@ trait AbstractPropertiesFileReplayProfiler
 
         val separator = ";"
 
-        val header = "bench type" + separator + "jars" + separator +
+        val header = "bench type" + separator + "location" + separator +  "timestamp" + separator +
             "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
 
 
-        val outputLine =
-            benchmarkType + separator +
-                measurementJars.reduce (_ + " | " + _) + separator +
-                dataStatistics.classCount + separator +
-                dataStatistics.methodCount + separator +
-                dataStatistics.fieldCount + separator +
-                dataStatistics.instructionCount + separator +
-                warumUpIterations + separator +
-                measurementIterations + separator +
-                reReadJars.toString + separator +
-                queries.reduce (_ + " | " + _) + separator +
-                resultCount + separator +
-                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.mean))) + separator +
-                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.standardDeviation))) + separator +
-                ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.standardError))) + separator +
-                measurementUnit.descriptor
+
         if (writeHeader) {
             out.println (header)
         }
-        out.println (outputLine)
+
+        var i = 0
+        while (i < statistics.size) {
+            val outputLine =
+                benchmarkType + separator +
+                    measurementLocation + separator +
+                    eventSets(i)(0).eventTime + separator +
+                    dataStatistics(i).classCount + separator +
+                    dataStatistics(i).methodCount + separator +
+                    dataStatistics(i).fieldCount + separator +
+                    dataStatistics(i).instructionCount + separator +
+                    warmUpIterations + separator +
+                    measurementIterations + separator +
+                    reReadJars.toString + separator +
+                    queries.reduce (_ + " | " + _) + separator +
+                    resultCounts(i) + separator +
+                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).mean))) + separator +
+                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).standardDeviation))) + separator +
+                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).standardError))) + separator +
+                    measurementUnit.descriptor
+
+            out.println (outputLine)
+            i += 1
+        }
         out.close ()
     }
 
@@ -145,20 +172,20 @@ trait AbstractPropertiesFileReplayProfiler
 
     def benchmarkType: String
 
-    def dataStatistic(jars: List[String]): DataStatistic
+    def dataStatistics(eventSets: List[Seq[Event]]): List[DataStatistic]
 
     def measurementUnit: MeasurementUnit
 
     /**
      * Perform the actual measurement.
      */
-    def measure(iterations: Int, classfiles: List[String], queries: List[String], includeReadTime: Boolean): SampleStatistic
+    def measure(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[SampleStatistic]
 
     /**
      * Perform the warmup by doing exactly the same operation as in the measurement.
      * The warmup is must return the number of results returned by the measured analyses.
      */
-    def warmup(iterations: Int, classfiles: List[String], queries: List[String], includeReadTime: Boolean): Long
+    def warmup(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[Long]
 
 
     def isFile(propertiesFile: String): Boolean = {

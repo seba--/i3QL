@@ -44,6 +44,7 @@ import de.tud.cs.st.lyrebird.replayframework._
  *                 IMPORTANT: location must be the folder of the default packages
  *
  * @author Malte Viering
+ * @author Ralf Mitschke
  */
 class Reader(val location: File)
 {
