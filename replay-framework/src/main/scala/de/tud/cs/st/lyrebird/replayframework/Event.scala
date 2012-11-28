@@ -35,20 +35,24 @@ import java.io.File
 
 /**
  * Data class that represent a change to one classfile
- *
- * @param EventType Type of the bytecode change. Possible EventTypes ADDED, CHANGED, REMOVED
- * @param EventTime: timestamp of the bytecode change
- * @param ResolvedClassName: package/subpackage/.../ClassName
- * @param previousEvent if Lyrebird has recorded an event to the current class File before this event, previousEvent saves a link to the last event.
- * 				   else previousEvent = None
+ * TODO: why is this important (RM)?
  * IMPORTANT: it is possible to get a remove event WITHOUT a previous add / change event.
- * 
+
+ *
+ * @param eventType Type of the bytecode change. Possible EventTypes ADDED, CHANGED, REMOVED
+ * @param eventTime: timestamp of the bytecode change
+ * @param binaryName: package/subpackage/.../ClassName
+ * @param previousEvent if Lyrebird has recorded an event to the current class File before this event, previousEvent saves a link to the last event.
+ *                      else previousEvent = None
+ *
  * @author Malte Viering
+ * @author Ralf Mitschke
  */
-case class Event(val eventType: EventType.Value,
-                 val eventTime: Long,
-                 val resolvedClassName: String,// TODO replace resolvedClassName with binaryName (see Java Virtual Machine Specification)
-                 val eventFile: File,
-                 val previousEvent: Option[Event]) {
+case class Event(eventType: EventType.Value,
+                 eventTime: Long,
+                 binaryName: String,
+                 eventFile: File,
+                 previousEvent: Option[Event])
+{
 
 }

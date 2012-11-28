@@ -32,12 +32,13 @@
 package de.tud.cs.st.lyrebird.replayframework
 
 /**
- * Enum class for the 3 different EventTypen
- * 
+ * Enum class for the 3 different EventTypes
+ *
  * @author Malte Viering
  */
-object EventType extends Enumeration {
-    val CHANGED = Value("CHANGED")
-    val REMOVED = Value("REMOVED")
-    val ADDED = Value("ADDED")
+object EventType extends Enumeration
+{
+    val CHANGED = Value ("CHANGED")
+    val REMOVED = Value ("REMOVED")
+    val ADDED   = Value ("ADDED")
 }

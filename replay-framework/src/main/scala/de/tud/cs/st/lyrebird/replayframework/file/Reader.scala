@@ -33,35 +33,37 @@ package de.tud.cs.st.lyrebird.replayframework.file
 
 import java.io.File
 
-import scala.collection.immutable.SortedMap
-import scala.collection.mutable.Map
-
+import scala.collection._
 import de.tud.cs.st.lyrebird.replayframework._
 
 /**
  * Reads the output dir of Lyrebird.Recorder
  * and group the recorded events in EventSets
- * 
+ *
  * @param location : default packages folder in the output directory of Lyrebird.Recorder
- * IMPORTANT: location must be the folder of the default packages
- * 
+ *                 IMPORTANT: location must be the folder of the default packages
+ *
  * @author Malte Viering
  */
-class Reader(val location : File) {
-    
-    private var previousEvents = Map[String, Event]()
-    
-    val SEPARATOR = "_" // TODO Rename: FILE_METADATA_SEPARATOR(?)
+class Reader(val location: File)
+{
+
+    private var previousEvents = mutable.Map[String, Event]()
+
+    val FILE_METADATA_SEPARATOR = "_"
 
     /**
      * @return : list with all EventSets in the given location (constructor)
-     * the list is ascendet ordered by Event.eventTime
+     *         the list is ascendet ordered by Event.eventTime
      */
-    def getAllEventSets() : List[EventSet] = {
+    def getAllEventSets: List[Seq[Event]] = {
+        /*
         // TODO use .map() function or "for(..) yield..."
-        var res = List[EventSet]()
-        getAllFilesGroupedByEventTime(location).foreach(x => res = new EventSet(x) :: res)
+        var res = List[Seq[Event]]()
+        getAllFilesGroupedByEventTime (location).foreach (x => res = new EventSet (x) :: res)
         res
+        */
+        getAllFilesGroupedByEventTime (location).reverse
     }
 
 
@@ -69,29 +71,31 @@ class Reader(val location : File) {
      * Returns a list of list of Events grouped by the eventTime and descending ordered by time
      * the list of Events contains all files in the given directory and all sub directories converted into Events,
      *
-     * ONLY PUBLIY FOR TESTING
+     * ONLY PUBLIC FOR TESTING
      */
-    def getAllFilesGroupedByEventTime(currentLocation : File) = {
-        previousEvents = Map[String, Event]()
+    def getAllFilesGroupedByEventTime(currentLocation: File) : List[List[Event]]= {
+        previousEvents = mutable.Map[String, Event]()
         var list = List[List[Event]]()
-        var sortedFiles = getAllFilesSortedByEventTime(currentLocation)
-        var lastFile : Option[Event] = None
+        var sortedFiles = getAllFilesSortedByEventTime (currentLocation)
+        var lastFile: Option[Event] = None
         var subList = List[Event]()
         for (eventFile <- sortedFiles) {
             lastFile match {
                 case None => {
                     subList = List[Event]()
                     subList = eventFile :: subList
-                    lastFile = Some(eventFile)
+                    lastFile = Some (eventFile)
                 }
-                case Some(x) => {
+                case Some (x) => {
                     if (x.eventTime == eventFile.eventTime) {
                         subList = eventFile :: subList
-                    } else {
+                    }
+                    else
+                    {
                         list = subList :: list
                         subList = List[Event]()
                         subList = eventFile :: subList
-                        lastFile = Some(eventFile)
+                        lastFile = Some (eventFile)
                     }
                 }
 
@@ -103,11 +107,11 @@ class Reader(val location : File) {
 
     /**
      * @return: a list with all Events in a directory and all sub directories
-     * sorted by the eventTime
+     *          sorted by the eventTime
      */
-    private def getAllFilesSortedByEventTime(currentLocation : File) : Array[Event] = {
-        var allEvents = readAllFiles(currentLocation)
-        val sorted = scala.util.Sorting.stableSort(allEvents, (f : Event) => f.eventTime)
+    private def getAllFilesSortedByEventTime(currentLocation: File): Array[Event] = {
+        var allEvents = readAllFiles (currentLocation)
+        val sorted = scala.util.Sorting.stableSort (allEvents, (f: Event) => f.eventTime)
         sorted
         //sorted.reverse // (ascending order)
     }
@@ -117,16 +121,18 @@ class Reader(val location : File) {
      * @param currentLocation : the start directory
      * @return a List with all files converted into Events
      */
-    private def readAllFiles(currentLocation : File) : List[Event] = {
+    private def readAllFiles(currentLocation: File): List[Event] = {
         var list = List[Event]()
         if (currentLocation.isDirectory) {
             for (file <- currentLocation.listFiles) {
-                list = readAllFiles(file) ::: list
+                list = readAllFiles (file) ::: list
             }
-        } else {
-            if (checkFile(currentLocation))
-                list = fileToEvent(currentLocation) :: list
-                // TODO else … generate warning?
+        }
+        else
+        {
+            if (checkFile (currentLocation))
+                list = fileToEvent (currentLocation) :: list
+            // TODO else … generate warning?
         }
         list
     }
@@ -134,16 +140,16 @@ class Reader(val location : File) {
     /**
      * simple validation check
      */
-    private def checkFile(file : File) : Boolean = {
+    private def checkFile(file: File): Boolean = {
         // FIXME this method will always (in 100% of all cases) return true....
-        
+
         if (file.isDirectory)
-            false
-        if (!file.getName().endsWith("class"))
-            false
-         // TODO do you want check that we have something like: a.<DATE>.<KIND>.class ? If so, document it.
-        if (file.getName.split(SEPARATOR).size < 3)
-            false
+            return false
+        if (!file.getName.endsWith ("class"))
+            return false
+        // TODO do you want check that we have something like: a.<DATE>.<KIND>.class ? If so, document it.
+        if (file.getName.split (FILE_METADATA_SEPARATOR).size < 3)
+            return false
         true
     }
 
@@ -151,32 +157,32 @@ class Reader(val location : File) {
      * Converts a file into an Event
      * Only call this method if checkFile() returns true for a file
      */
-    private def fileToEvent(file : File) : Event = {
-        
+    private def fileToEvent(file: File): Event = {
+
         //"calc" resolved full class name (package/subpackage/.../className 
         val loc = location.getCanonicalPath
-        val dest = file.getParentFile.getCanonicalPath()
-        var packages = dest.drop(loc.length).replace(File.separator, "/")
+        val dest = file.getParentFile.getCanonicalPath
+        var packages = dest.drop (loc.length).replace (File.separator, "/")
         if (packages.length > 1)
-            packages = packages.drop(1) + "/"
+            packages = packages.drop (1) + "/"
 
-        val fileNameParts = file.getName().split(SEPARATOR)
-        val resolvedName = packages + fileNameParts.drop(2).mkString.dropRight(6)
-        val previousEvent : Option[Event] = previousEvents.get(resolvedName)
-        val eventType = fileNameParts(1) match {
-            case "ADDED"   => EventType.ADDED
+        val fileNameParts = file.getName.split (FILE_METADATA_SEPARATOR)
+        val resolvedName = packages + fileNameParts.drop (2).mkString.dropRight (6)
+        val previousEvent: Option[Event] = previousEvents.get (resolvedName)
+        val eventType = fileNameParts (1) match {
+            case "ADDED" => EventType.ADDED
             case "CHANGED" => EventType.CHANGED
             case "REMOVED" => EventType.REMOVED
         }
-        
+
         // FIXME Smells... why not just write new Event(...., previousEvent)?
         val res = previousEvent match {
-            case Some(x) => new Event(eventType, fileNameParts(0).toLong, resolvedName, file, Some(x))
-            case _       => new Event(eventType, fileNameParts(0).toLong, resolvedName, file, None)
+            case Some (x) => new Event (eventType, fileNameParts (0).toLong, resolvedName, file, Some (x))
+            case _ => new Event (eventType, fileNameParts (0).toLong, resolvedName, file, None)
         }
-        previousEvents.put(resolvedName, res)
+        previousEvents.put (resolvedName, res)
         res
-     
+
     }
 
 }
