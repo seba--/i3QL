@@ -1,4 +1,4 @@
-package sae.findbugs.analyses
+package sae.analyses.findbugs.random.oo
 
 /**
  *
@@ -7,6 +7,7 @@ package sae.findbugs.analyses
  * Time: 14:47
  *
  */
+//TODO was this in the list of random analyses?
 object SIC_INNER_SHOULD_BE_STATIC
 {
     /*

@@ -1,4 +1,4 @@
-package sae.findbugs.analyses
+package sae.analyses.findbugs.random.oo
 
 /**
  *
