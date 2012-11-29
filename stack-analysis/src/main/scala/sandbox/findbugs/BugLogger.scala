@@ -1,5 +1,7 @@
 package sandbox.findbugs
 
+import sae.bytecode.structure.MethodDeclaration
+
 /**
  * Created with IntelliJ IDEA.
  * User: Mirko
@@ -9,13 +11,13 @@ package sandbox.findbugs
  */
 class BugLogger {
 
-  private var logList : List[String] = Nil
+  private var logList: List[(MethodDeclaration, Int, BugType.Value)] = Nil
 
-  def log(s : String) {
-    logList = s :: logList
+  def log(m: MethodDeclaration, pc: Int, bug: BugType.Value) = {
+    logList = (m, pc, bug) :: logList
   }
 
-  def getLog() : List[String] = {
+  def getLog(): List[(MethodDeclaration, Int, BugType.Value)] = {
     logList
   }
 }

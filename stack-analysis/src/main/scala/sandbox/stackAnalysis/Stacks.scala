@@ -8,8 +8,11 @@ package sandbox.stackAnalysis
  * Time: 13:38
  * To change this template use File | Settings | File Templates.
  */
-case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: List[List[V]]) {
+case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[Option[T]], stacks: List[List[V]]) {
   require(getSize <= maxSize)
+
+  //TODO: remove for better performance
+
   def getSize: Int = {
     var res = 0
 
@@ -86,7 +89,7 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     }
   }
 
-  def push(tSize: Int, t: T, value: V): Stacks[T, V] = {
+  def push(tSize: Int, t: Option[T], value: V): Stacks[T, V] = {
     if (getSize + tSize > maxSize)
       return this
 
@@ -96,6 +99,10 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     }
 
     return Stacks[T, V](maxSize, (tSize :: size), (t :: types), res)
+  }
+
+  def push(tSize: Int, t: T, value: V): Stacks[T, V] = {
+    push(tSize, Some(t), value)
   }
 
   def push(t: T, value: V): Stacks[T, V] =
@@ -118,17 +125,29 @@ case class Stacks[T, V](maxSize: Int, size: List[Int], types: List[T], stacks: L
     if (other.maxSize != maxSize) {
       //System.err.println("The attribute maxSize needs to be the same.")
       return this
-     // throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
+      // throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
     } else if (other.size != size) {
       //System.err.println("The attribute size needs to be the same.")
       return this
-     // throw new IllegalArgumentException("The attribute size needs to be the same.")
+      // throw new IllegalArgumentException("The attribute size needs to be the same.")
     } else if (other.types != types) {
-     // throw new IllegalArgumentException("The attribute types needs to be the same.")
+      // throw new IllegalArgumentException("The attribute types needs to be the same.")
       //System.err.println("The attribute types needs to be the same.")
       return this
     }
-    Stacks[T, V](maxSize, size, types, (stacks ++ other.stacks).distinct)
+
+    Stacks[T, V](maxSize, size, listCombine(types, other.types), (stacks ++ other.stacks).distinct)
+  }
+
+  private def listCombine[A](a: List[Option[A]], b: List[Option[A]]): List[Option[A]] = {
+    if (a == Nil)
+      b
+    else if (b == Nil)
+      a
+    else if (a.head == None)
+      b.head :: listCombine[A](a.tail, b.tail)
+    else
+      a.head :: listCombine[A](a.tail, b.tail)
   }
 
   override def toString(): String =

@@ -10,7 +10,6 @@ import de.tud.cs.st.bat.resolved.Instruction
  * To change this template use File | Settings | File Templates.
  */
 trait BugFinder[T] {
-  def listensTo(): List[Instruction]
 
   def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[T], logger: BugLogger)
 }

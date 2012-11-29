@@ -4,7 +4,6 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.structure.{CodeInfo, MethodDeclaration}
 import sandbox.stackAnalysis.CodeInfoTools
-import de.tud.cs.st.bat.resolved.Instruction
 
 /**
  * Abstract class for dataflow analysis.
@@ -75,13 +74,13 @@ abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[Code
         //Set the new result in the result array.
         results(pc) = result
         //Set the next program counter.
-   /*     val savedPC = pc
+        /*     val savedPC = pc
 
-        pc = ci.code.instructions(pc).indexOfNextInstruction(pc,ci.code)
-        if(pc < ci.code.instructions.length && ci.code.instructions(pc) == null) {
-          pc = CodeInfoTools.getNextPC(ci.code.instructions,savedPC)
-        }    */
-        pc = CodeInfoTools.getNextPC(ci.code.instructions,pc)
+    pc = ci.code.instructions(pc).indexOfNextInstruction(pc,ci.code)
+    if(pc < ci.code.instructions.length && ci.code.instructions(pc) == null) {
+      pc = CodeInfoTools.getNextPC(ci.code.instructions,savedPC)
+    }    */
+        pc = CodeInfoTools.getNextPC(ci.code.instructions, pc)
       }
 
 
@@ -89,18 +88,17 @@ abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[Code
     //Print out results.
 
 
-  /*  for (i <- 0 until results.length) {
+    for (i <- 0 until results.length) {
       if (ci.code.instructions(i) != null) {
         println("\t" + results(i))
         println(i + "\t" + ci.code.instructions(i).mnemonic)
 
       }
-    }       */
-  //  println()
+    }
+    //  println()
     return results
 
   }
-
 
 
 }

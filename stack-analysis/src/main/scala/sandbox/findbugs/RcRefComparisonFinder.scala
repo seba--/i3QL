@@ -10,14 +10,25 @@ import de.tud.cs.st.bat.resolved._
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-class RcRefComparisonFinder extends BugFinder[Result[Type,Int]] {
+class RcRefComparisonFinder extends BugFinder[Result[Type, Int]] {
+
 
   //TODO: implement
-  def listensTo(): List[Instruction] = Nil
+  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[Result[Type, Int]], logger: BugLogger) = {
+    instructions(pc) match {
+      case IF_ACMPEQ(_) | IF_ACMPNE(_) => {
+        val report: Boolean = false
+        for (stack <- analysis(pc).s.stacks) {
 
-  //TODO: implement
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[Result[Type,Int]], logger: BugLogger) = {
+        }
 
+      }
+    }
+  }
+
+
+  private def checkInstruction(pc: Int, instructions: Array[Instruction]): Boolean = {
+    true
   }
 
 }

@@ -20,10 +20,10 @@ import sae.syntax.sql.SELECT
 case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTransformer[StackResult] {
 
   val result: Relation[MethodTransformer[StackResult]] = {
-    sae.syntax.sql.compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod, computeFunctions(c.code.instructions,c))) FROM codeInfo)
+    sae.syntax.sql.compile(SELECT((c: CodeInfo) => MethodTransformer(c.declaringMethod, computeFunctions(c.code.instructions, c))) FROM codeInfo)
   }
 
-  private def computeFunctions(a: Array[Instruction], ci : CodeInfo): Array[Transformer] = {
+  private def computeFunctions(a: Array[Instruction], ci: CodeInfo): Array[Transformer] = {
     val res = Array.fill[Transformer](a.length)(null) //((s,l) => (s,l))
 
     var currentPC = 0
@@ -33,13 +33,13 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
 
       //TODO: change when bug fixed
       val savedPC = currentPC
-      currentPC = a(currentPC).indexOfNextInstruction(currentPC,ci.code)
-      if(currentPC < a.length && a(currentPC) == null) {
+      currentPC = a(currentPC).indexOfNextInstruction(currentPC, ci.code)
+      if (currentPC < a.length && a(currentPC) == null) {
 
-       // println(a(savedPC).mnemonic + " " + currentPC + " - " + ci.declaringMethod)
-        currentPC = CodeInfoTools.getNextPC(a,savedPC)
-      } else if(a(savedPC).isInstanceOf[TABLESWITCH] || a(savedPC).isInstanceOf[LOOKUPSWITCH]) {
-         System.err.println("HIER NICHT!")
+        // println(a(savedPC).mnemonic + " " + currentPC + " - " + ci.declaringMethod)
+        currentPC = CodeInfoTools.getNextPC(a, savedPC)
+      } else if (a(savedPC).isInstanceOf[TABLESWITCH] || a(savedPC).isInstanceOf[LOOKUPSWITCH]) {
+        System.err.println("HIER NICHT!")
       }
       //TODO: change when bug fixed
 
@@ -56,7 +56,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => p)
 
       case ACONST_NULL => //1
-        (p => Result(p.s.push(ObjectType.Object, pc), p.l))
+        (p => Result(p.s.push(1, ObjectType.Object, pc), p.l))
 
       case ICONST_M1 | ICONST_0 | ICONST_1 | ICONST_2 | ICONST_3 | ICONST_4 | ICONST_5 => //2,3,4,5,6,7,8
         (p => Result(p.s.push(IntegerType, pc), p.l))
@@ -198,7 +198,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.pop(), p.l.setVar(x, 2, DoubleType, pc)))
 
       case ASTORE(x) => //58
-        (p => Result(p.s.pop(), p.l.setVar(x, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(x, 1, if (p.s.types != Nil) p.s.types.head else None, Some(pc))))
 
       case ISTORE_0 => //59
         (p => Result(p.s.pop(), p.l.setVar(0, IntegerType, pc)))
@@ -237,18 +237,17 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
         (p => Result(p.s.pop(), p.l.setVar(3, 2, DoubleType, pc)))
 
       case ASTORE_0 => //75
-        (p => Result(p.s.pop(), p.l.setVar(0, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(0, 1, if (p.s.types != Nil) p.s.types.head else None, Some(pc))))
       case ASTORE_1 => //76
-        (p => Result(p.s.pop(), p.l.setVar(1, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(1, 1, if (p.s.types != Nil) p.s.types.head else None, Some(pc))))
       case ASTORE_2 => //77
-        (p => Result(p.s.pop(), p.l.setVar(2, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
+        (p => Result(p.s.pop(), p.l.setVar(2, 1, if (p.s.types != Nil) p.s.types.head else None, Some(pc))))
       case ASTORE_3 => //78
-        (p => Result(p.s.pop(), p.l.setVar(3, if (p.s.types != Nil) p.s.types.head else ObjectType.Object, pc)))
-
+        (p => Result(p.s.pop(), p.l.setVar(3, 1, if (p.s.types != Nil) p.s.types.head else None, Some(pc))))
 
 
       case x =>
-       computeTransformer2(pc,x)
+        computeTransformer2(pc, x)
     }
   }
 
@@ -342,7 +341,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
 
 
       case x =>
-        computeTransformer3(pc,x)
+        computeTransformer3(pc, x)
 
     }
 
@@ -417,11 +416,10 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
             (p => Result(p.s.pop().push(ArrayType(IntegerType), pc), p.l))
           case 11 =>
             (p => Result(p.s.pop().push(ArrayType(LongType), pc), p.l))
-          case _ =>
-            (p => {
-              System.err.println(aType + ": aType not supported.")
-              p
-            })
+          case _ => {
+            System.err.println(aType + ": aType not supported.")
+            (p => p)
+          }
         }
 
       case ANEWARRAY(t) => //189
@@ -456,11 +454,11 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
       case IFNULL(_) | IFNONNULL(_) => //199
         (p => Result(p.s.pop(), p.l))
 
-      case x =>
-        (p => {
-          System.err.println("Instruction is not supported: " + x.mnemonic)
-          p
-        })
+      case x => {
+        System.err.println("Instruction is not supported: " + x.mnemonic)
+        (p => p)
+      }
+
     }
   }
 
@@ -477,7 +475,7 @@ case class CodeInfoTransformer(codeInfo: Relation[CodeInfo]) extends ResultTrans
     })
   }
 
-  private def fromStore[A](index: Int, ts: Array[Option[A]], default : A): A = {
+  private def fromStore[A](index: Int, ts: Array[Option[A]], default: A): A = {
     ts(index) match {
       case Some(t) => t
       case None => default
