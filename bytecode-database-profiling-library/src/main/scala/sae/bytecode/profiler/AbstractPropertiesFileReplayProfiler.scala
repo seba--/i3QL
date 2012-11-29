@@ -64,7 +64,7 @@ trait AbstractPropertiesFileReplayProfiler
             }
             else
             {
-                false
+                true
             }
 
         val properties = getProperties (propertiesFile).getOrElse (

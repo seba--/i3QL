@@ -147,6 +147,7 @@ abstract class SAEAnalysesReplayTimeProfiler
                 //applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
                 throw new UnsupportedOperationException ("replay without class file time not supported")
             }
+            println()
             i += 1
         }
 
@@ -176,6 +177,7 @@ abstract class SAEAnalysesReplayTimeProfiler
             var j = 0
             while (j < sampleSize) {
                 statistics (j).add (results (j))
+                println()
                 j += 1
             }
         }
@@ -195,6 +197,8 @@ abstract class SAEAnalysesReplayTimeProfiler
     private def applyStepWithJarReadTime(set: Seq[Event], database: BytecodeDatabase): Long = {
         var taken: Long = 0
         val (additions, deletions, updates) = sortEventsByType (set)
+        println(set.head.eventTime)
+        // 1310230314665
         time {
             l => taken += l
         }
@@ -203,7 +207,7 @@ abstract class SAEAnalysesReplayTimeProfiler
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
-        print (".")
+        print ("x")
         taken
     }
 
