@@ -35,8 +35,9 @@ package sae.bytecode.analyses.profiler
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import bytecode.BytecodeDatabase
+import bytecode.profiler.util.MilliSeconds
 import bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileReplayProfiler}
-import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic}
+import bytecode.profiler.statistics.{Statistic, SampleStatistic, SimpleDataStatistic, DataStatistic}
 import de.tud.cs.st.lyrebird.replayframework.{EventType, Event}
 
 
@@ -46,159 +47,17 @@ import de.tud.cs.st.lyrebird.replayframework.{EventType, Event}
  *
  */
 
-class SAEAnalysesReplayTimeProfiler
+abstract class SAEAnalysesReplayTimeProfiler
     extends AbstractPropertiesFileReplayProfiler
     with TimeMeasurement
 {
-    /*
-        def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
+    def measurementUnit = MilliSeconds
 
-        val usage: String = """|Usage: java SAEAnalysesTimeProfiler propertiesFile
-                              |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                              | """.stripMargin
+    val usage: String = """|Usage: java SAEAnalysesReplayTimeProfiler propertiesFile
+                          |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
+                          | """.stripMargin
 
-
-        def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
-            if (reReadJars) {
-                measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
-            }
-            else
-            {
-                val database = createMaterializedDatabase (jars, queries)
-                measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
-            }
-        }
-
-
-        def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
-            val database = BATDatabaseFactory.create ()
-            val materializedDatabase = new MaterializedBytecodeDatabase (database)
-
-            // initialize the needed materializations at least once
-            val relations = for (query <- queries) yield {
-                getAnalysis (query, materializedDatabase)
-            }
-
-
-            jars.foreach (jar => {
-                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
-                stream.close ()
-            })
-
-            relations.foreach (_.clearObserversForChildren (visitChild => true))
-
-            materializedDatabase
-        }
-
-        def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
-            val materializedDatabase =
-                if (reReadJars) {
-                    None
-                }
-                else
-                {
-                    Some (createMaterializedDatabase (jars, queries))
-                }
-
-            var i = 0
-            while (i < iterations) {
-                if (reReadJars) {
-                    applyAnalysesWithJarReading (jars, queries)
-                }
-                else
-                {
-                    applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
-                }
-                i += 1
-            }
-
-            if (reReadJars) {
-                getResultsWithReadingJars (jars, queries)
-            }
-            else
-            {
-                getResultsWithoutReadingJars (jars, queries)
-            }
-        }
-
-        def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
-            var database = BATDatabaseFactory.create ()
-            val results = for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database))
-            }
-            jars.foreach (jar => {
-                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
-                stream.close ()
-            })
-
-            results.map (_.size).sum
-        }
-
-        def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
-            val database = createMaterializedDatabase (jars, queries)
-            val results = for (query <- queries) yield {
-                val relation = getAnalysis (query, database)
-                sae.relationToResult (relation)
-            }
-
-            results.map (_.size).sum
-        }
-
-
-        def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
-            var taken: Long = 0
-            var database = BATDatabaseFactory.create ()
-            for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database))
-            }
-            time {
-                l => taken += l
-            }
-            {
-                jars.foreach (jar => {
-                    val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                    database.addArchive (stream)
-                    stream.close ()
-                })
-            }
-            database = null
-            val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-            memoryMXBean.gc ()
-            print (".")
-            taken
-        }
-
-
-        def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
-            var taken: Long = 0
-            var relations: Iterable[Relation[_]] = null
-            time {
-                l => taken += l
-            }
-            {
-                relations = for (query <- queries) yield {
-                    sae.relationToResult (getAnalysis (query, database))
-                }
-
-            }
-            relations.foreach (_.clearObserversForChildren (visitChild => true))
-            relations = null
-            val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-            memoryMXBean.gc ()
-            print (".")
-            taken
-        }
-
-
-        def measurementUnit = MilliSeconds
-    */
-    def usage = null
-
-    def benchmarkType = null
-
-    def sortEventsByType(events: Seq[Event]): (Seq[Event], Seq[Event], Seq[Event]) = {
+    private def sortEventsByType(events: Seq[Event]): (Seq[Event], Seq[Event], Seq[Event]) = {
         var additions: List[Event] = Nil
         var deletions: List[Event] = Nil
         var updates: List[Event] = Nil
@@ -210,7 +69,7 @@ class SAEAnalysesReplayTimeProfiler
         (additions, deletions, updates)
     }
 
-    def applyEvents(database: BytecodeDatabase ,additions: Seq[Event], deletions: Seq[Event], updates: Seq[Event]) {
+    private def applyEvents(database: BytecodeDatabase, additions: Seq[Event], deletions: Seq[Event], updates: Seq[Event]) {
         additions.foreach (event => {
             val stream = new java.io.FileInputStream (event.eventFile)
             database.addClassFile (stream)
@@ -249,7 +108,7 @@ class SAEAnalysesReplayTimeProfiler
         eventSets.foreach (set =>
         {
             val (additions, deletions, updates) = sortEventsByType (set)
-            applyEvents(database, additions, deletions, updates)
+            applyEvents (database, additions, deletions, updates)
             result = result ::: List (SimpleDataStatistic (classes.size, methods.size, fields.size, instructions.size))
         }
         )
@@ -260,28 +119,106 @@ class SAEAnalysesReplayTimeProfiler
     /**
      * Perform the actual measurement.
      */
-    def measure(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean) = null
+    def measure(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[SampleStatistic] = {
+
+        if (includeReadTime) {
+            measureTime (iterations, eventSets.size)(() => applyAnalysesWithJarReading (eventSets, queries))
+        }
+        else
+        {
+            //applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
+            throw new UnsupportedOperationException ("replay without class file time not supported")
+        }
+    }
 
     /**
      * Perform the warmup by doing exactly the same operation as in the measurement.
      * The warmup is must return the number of results returned by the measured analyses.
      */
-    def warmup(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean) = null
+    def warmup(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[Long] = {
+
+        var i = 0
+        while (i < iterations) {
+            if (includeReadTime) {
+                applyAnalysesWithJarReading (eventSets, queries)
+            }
+            else
+            {
+                //applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
+                throw new UnsupportedOperationException ("replay without class file time not supported")
+            }
+            i += 1
+        }
+
+        if (includeReadTime) {
+            getResultsWithReadingJars (eventSets, queries)
+        }
+        else
+        {
+            throw new UnsupportedOperationException ("replay without class file time not supported")
+        }
+    }
 
 
-    def applyStepWithJarReadTime(set: Seq[Event], database: BytecodeDatabase): Long = {
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
+
+    /**
+     * performs the measurement of function f, iterations times.
+     * f should return the time taken to perform the required computation.
+     * A statistic is returned for the time consumed when applying f
+     */
+    def measureTime(iterations: Int, sampleSize: Int)(f: () => List[Long]): List[SampleStatistic] = {
+        val statistics = Array.fill (sampleSize)(Statistic (iterations))
+
+        for (i <- 1 to iterations)
+        {
+            val results = f ()
+            var j = 0
+            while (j < sampleSize) {
+                statistics (j).add (results (j))
+                j += 1
+            }
+        }
+        statistics.toList
+    }
+
+    def optimized: Boolean = false
+
+    private def applyAnalysesWithJarReading(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
+        val database = BATDatabaseFactory.create ()
+        val results = queries.foreach (q => getAnalysis (q, database)(optimized))
+        eventSets map {
+            set => applyStepWithJarReadTime (set, database)
+        }
+    }
+
+    private def applyStepWithJarReadTime(set: Seq[Event], database: BytecodeDatabase): Long = {
         var taken: Long = 0
         val (additions, deletions, updates) = sortEventsByType (set)
         time {
             l => taken += l
         }
         {
-            applyEvents(additions, deletions, updates)
+            applyEvents (database, additions, deletions, updates)
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
         print (".")
         taken
+    }
+
+
+    private def getResultsWithReadingJars(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
+        var database = BATDatabaseFactory.create ()
+        val queryResults = for (query <- queries) yield {
+            sae.relationToResult (getAnalysis (query, database))
+        }
+        eventSets map {
+            set => {
+                applyStepWithJarReadTime (set, database)
+                queryResults.map (_.size).sum.toLong
+            }
+        }
     }
 
 }
