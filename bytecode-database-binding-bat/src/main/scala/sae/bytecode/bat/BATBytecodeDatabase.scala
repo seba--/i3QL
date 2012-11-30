@@ -148,7 +148,7 @@ class BATBytecodeDatabase
         SELECT (*) FROM (methodDeclarations) WHERE (_.name == "<init>")
 
     lazy val constructorsMinimal =
-        compile(SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
+        compile (SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
 
 
     lazy val invokeStatic: Relation[INVOKESTATIC] =
@@ -180,11 +180,6 @@ class BATBytecodeDatabase
 
     lazy val putField: Relation[PUTFIELD] =
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
-
-
-
-
-
 
 
     lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
@@ -225,6 +220,11 @@ class BATBytecodeDatabase
     def removeClassFile(stream: InputStream) {
 
     }
+
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+
+    }
+
 
     def addArchive(stream: InputStream) {
         val zipStream: ZipInputStream = new ZipInputStream (stream)

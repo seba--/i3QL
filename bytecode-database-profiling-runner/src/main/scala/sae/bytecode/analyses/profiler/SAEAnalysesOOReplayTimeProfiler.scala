@@ -1,8 +1,9 @@
 /* License (BSD Style License):
- * Copyright (c) 2011
- * Department of Computer Science
- * Technische Universität Darmstadt
- * All rights reserved.
+ *  Copyright (c) 2009, 2011
+ *  Software Technology Group
+ *  Department of Computer Science
+ *  Technische Universität Darmstadt
+ *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
@@ -12,9 +13,9 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische 
- *    Universität Darmstadt nor the names of its contributors may be used to 
- *    endorse or promote products derived from this software without specific 
+ *  - Neither the name of the Software Technology Group or Technische
+ *    Universität Darmstadt nor the names of its contributors may be used to
+ *    endorse or promote products derived from this software without specific
  *    prior written permission.
  *
  *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -29,12 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package de.tud.cs.st.lyrebird.replayframework
+package sae.bytecode.analyses.profiler
+
+import sae.analyses.findbugs.AnalysesOO
+import sae.bytecode.BytecodeDatabase
+
 
 /**
- * Data class that saves all events that belong to one source code change
- * All Events in one Eventset have the same eventTime
- * 
- * @author Malte Viering
+ *
+ * @author Ralf Mitschke
+ *
  */
-case class EventSet(val eventFiles : List[Event]) // TODO (1) why is the parameter called eventFiles??? (2)why do you use a List to implement a Set??? // What's the purpose of this class anyway?
+
+object SAEAnalysesOOReplayTimeProfiler
+    extends SAEAnalysesReplayTimeProfiler
+{
+
+    def benchmarkType = "SAEOO replay time"
+
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =
+        AnalysesOO (query, database)(optimized)
+
+}

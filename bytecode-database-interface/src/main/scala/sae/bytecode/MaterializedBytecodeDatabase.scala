@@ -50,7 +50,7 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val constructors: Relation[MethodDeclaration] = new SetResult[MethodDeclaration](database.constructors)
 
-    lazy val constructorsMinimal = new SetResult(database.constructorsMinimal)
+    lazy val constructorsMinimal = new SetResult (database.constructorsMinimal)
 
 
     lazy val instructions = new SetResult[InstructionInfo](database.instructions)
@@ -106,6 +106,10 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
         database.removeClassFile (stream)
     }
 
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+        database.updateClassFile (oldStream, newStream)
+    }
+
     def addArchive(stream: InputStream) {
         database.addArchive (stream)
     }
@@ -113,6 +117,5 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def removeArchive(stream: InputStream) {
         database.removeArchive (stream)
     }
-
 
 }

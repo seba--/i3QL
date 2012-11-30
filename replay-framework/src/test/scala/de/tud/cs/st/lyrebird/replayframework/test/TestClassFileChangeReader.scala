@@ -12,9 +12,9 @@
  *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische 
- *    Universität Darmstadt nor the names of its contributors may be used to 
- *    endorse or promote products derived from this software without specific 
+ *  - Neither the name of the Software Technology Group or Technische
+ *    Universität Darmstadt nor the names of its contributors may be used to
+ *    endorse or promote products derived from this software without specific
  *    prior written permission.
  *
  *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -29,49 +29,47 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package de.tud.cs.st.lyrebird.replayframework
+package de.tud.cs.st.lyrebird.replayframework.test
 
-import org.scalatest.junit.AssertionsForJUnit
 import org.junit.Assert._
 import org.junit.Test
-import org.junit.Before
 import java.io.File
 import de.tud.cs.st.lyrebird.replayframework._
 import de.tud.cs.st.lyrebird.replayframework.file._
-import java.net.URL
 
 
-class TestClassFileChangeReader extends org.scalatest.junit.JUnitSuite {
+class TestClassFileChangeReader
+{
 
-    val location = new File("./src/test/recources/smallTestSet")
+    val location = new File ("./src/test/recources/smallTestSet")
 
     @Test
     def readAndGroupSomeTestData() {
 
-        val reader = new Reader(location)
-        var res: List[List[Event]] = reader.getAllFilesGroupedByEventTime(location).reverse
+        val reader = new Reader (location)
+        var res: List[List[Event]] = reader.getAllFilesGroupedByEventTime (location).reverse
         var lastEventTime: Long = 0
         var sumEvents = 0
         var sumEventFiles = 0
-        res.foreach(x ⇒ {
+        res.foreach (x ⇒ {
             //check that the event time increase with every event
-            assertTrue(x.head.eventTime > lastEventTime)
+            assertTrue (x.head.eventTime > lastEventTime)
             lastEventTime = x.head.eventTime
             sumEvents += 1
-            x.foreach(y ⇒ {
+            x.foreach (y ⇒ {
                 //check that the eventTime is the same for all eventfiles in one event
-                assertTrue(y.eventTime == lastEventTime)
+                assertTrue (y.eventTime == lastEventTime)
                 sumEventFiles += 1
             })
         })
-        assertTrue(sumEvents == 6)
-        assertTrue(sumEventFiles == 85)
+        assertTrue (sumEvents == 6)
+        assertTrue (sumEventFiles == 85)
 
     }
 
     // for debug purposes
     def applyPrintlnOnAllEvents() {
-        new Replay(location).allEventSets.foreach(println _)
+        new Replay (location).eventSets.foreach (println _)
     }
 
 }
