@@ -63,8 +63,9 @@ abstract class SAEAnalysesReplayTimeProfiler
         var updates: List[Event] = Nil
         for (event <- events) event.eventType match {
             case EventType.ADDED => additions = event :: additions
-            case EventType.REMOVED => additions = event :: deletions
-            case EventType.CHANGED => additions = event :: updates
+            case EventType.REMOVED => deletions = event :: deletions
+            case EventType.CHANGED if event.previousEvent.isDefined => updates = event :: updates
+            case EventType.CHANGED if !event.previousEvent.isDefined => additions = event :: additions
         }
         (additions, deletions, updates)
     }
@@ -147,7 +148,7 @@ abstract class SAEAnalysesReplayTimeProfiler
                 //applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
                 throw new UnsupportedOperationException ("replay without class file time not supported")
             }
-            println()
+            println ()
             i += 1
         }
 
@@ -177,9 +178,9 @@ abstract class SAEAnalysesReplayTimeProfiler
             var j = 0
             while (j < sampleSize) {
                 statistics (j).add (results (j))
-                println()
                 j += 1
             }
+            println ()
         }
         statistics.toList
     }
@@ -197,9 +198,7 @@ abstract class SAEAnalysesReplayTimeProfiler
     private def applyStepWithJarReadTime(set: Seq[Event], database: BytecodeDatabase): Long = {
         var taken: Long = 0
         val (additions, deletions, updates) = sortEventsByType (set)
-        println(set.head.eventTime)
-        set.foreach(e => println(e.eventFile))
-        // 1310230314665
+        print (set.head.eventTime)
         time {
             l => taken += l
         }
@@ -208,7 +207,7 @@ abstract class SAEAnalysesReplayTimeProfiler
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
-        print ("x")
+        print (", ")
         taken
     }
 

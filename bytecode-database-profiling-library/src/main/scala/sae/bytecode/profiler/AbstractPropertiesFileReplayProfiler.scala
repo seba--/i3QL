@@ -130,7 +130,7 @@ trait AbstractPropertiesFileReplayProfiler
 
         val separator = ";"
 
-        val header = "bench type" + separator + "location" + separator +  "timestamp" + separator +
+        val header = "bench type" + separator + "location" + separator +  "timestamp" + separator + "change size" + separator +
             "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
             "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
             "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
@@ -148,6 +148,7 @@ trait AbstractPropertiesFileReplayProfiler
                 benchmarkType + separator +
                     measurementLocation + separator +
                     eventSets(i)(0).eventTime + separator +
+                    eventSets(i).size + separator +
                     dataStatistics(i).classCount + separator +
                     dataStatistics(i).methodCount + separator +
                     dataStatistics(i).fieldCount + separator +
