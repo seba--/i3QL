@@ -53,7 +53,7 @@ trait FieldInfo
 
     private lazy val _hashCode: Int = {
         var code = "FieldInfo".hashCode ()
-        code = code * 41 + (if (declaringType == null) 0 else declaringType.hashCode ())
+        code = code * 41 + (if (declaringType == null) 0 else declaringType.hashCode)
         code = code * 41 + (if (name == null) 0 else name.hashCode ())
         code = code * 41 + (if (fieldType == null) 0 else fieldType.hashCode ())
         code
@@ -61,9 +61,9 @@ trait FieldInfo
 
     override def equals(obj: Any): Boolean = {
         if (this eq obj.asInstanceOf[AnyRef])
-            return true;
+            return true
         if (!obj.isInstanceOf[FieldInfo])
-            return false;
+            return false
         val other = obj.asInstanceOf[FieldInfo]
         this.declaringType == other.declaringType &&
             this.name == other.name &&

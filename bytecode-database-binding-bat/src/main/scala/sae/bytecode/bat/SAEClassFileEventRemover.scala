@@ -40,7 +40,6 @@ import sae.bytecode.structure._
 import de.tud.cs.st.bat.resolved.Code
 
 
-
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -121,7 +120,7 @@ trait SAEClassFileEventRemover
         implicit cp: Constant_Pool): Method_Info =
     {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration (
+        val methodDeclaration = new MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,

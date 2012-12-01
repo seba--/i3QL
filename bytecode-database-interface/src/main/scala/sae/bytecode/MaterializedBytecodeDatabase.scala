@@ -10,6 +10,7 @@ import structure.ClassDeclaration
 import structure.FieldDeclaration
 import structure.InheritanceRelation
 import structure.MethodDeclaration
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -27,6 +28,8 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val methodDeclarations = new SetResult[MethodDeclaration](database.methodDeclarations)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
+
+    lazy val typeDeclarations = new SetResult[ObjectType](database.typeDeclarations)
 
     lazy val classDeclarationsMinimal = new SetResult[structure.minimal.ClassDeclaration](database.classDeclarationsMinimal)
 
@@ -97,6 +100,9 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val putFieldMinimal = new SetResult[minimal.PUTFIELD](database.putFieldMinimal)
 
+    lazy val newObject = new SetResult[NEW](database.newObject)
+
+    lazy val checkCast = new SetResult[CHECKCAST](database.checkCast)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
@@ -137,4 +143,5 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def removeArchiveAsClassFileTransactions(stream: InputStream) {
         database.removeArchiveAsClassFileTransactions (stream)
     }
+
 }

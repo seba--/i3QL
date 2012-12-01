@@ -65,6 +65,10 @@ class BATBytecodeDatabase
 
     val code = new SetExtent[CodeInfo]
 
+    lazy val typeDeclarations = compile(
+        SELECT (sae.bytecode.classType) FROM classDeclarations
+    )
+
     lazy val classDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.ClassDeclaration] =
         compile (SELECT ((c: ClassDeclaration) => sae.bytecode.structure.minimal.ClassDeclaration (c.minorVersion, c.majorVersion, c.accessFlags, c.classType)) FROM classDeclarations).forceToSet
 
@@ -181,6 +185,14 @@ class BATBytecodeDatabase
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
 
+    lazy val  newObject = compile(
+        SELECT ((_: InstructionInfo).asInstanceOf[NEW]) FROM (instructions) WHERE (_.isInstanceOf[NEW])
+    )
+
+    lazy val  checkCast = compile(
+        SELECT ((_: InstructionInfo).asInstanceOf[CHECKCAST]) FROM (instructions) WHERE (_.isInstanceOf[CHECKCAST])
+    )
+
     lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
         SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESTATIC]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESTATIC])
 
@@ -210,6 +222,8 @@ class BATBytecodeDatabase
 
     lazy val putFieldMinimal: Relation[minimal.PUTFIELD] =
         SELECT ((_: minimal.FieldWriteInstruction).asInstanceOf[minimal.PUTFIELD]) FROM (writeFieldMinimal) WHERE (_.isInstanceOf[minimal.PUTFIELD])
+
+
 
 
     private val additionEventReader: ClassFileReader = new SAEEventAdderJavaReader (this)

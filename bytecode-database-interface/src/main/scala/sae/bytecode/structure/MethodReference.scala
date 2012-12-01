@@ -1,6 +1,6 @@
 package sae.bytecode.structure
 
-import de.tud.cs.st.bat.resolved.{Type, ReferenceType}
+import de.tud.cs.st.bat.resolved.{FieldType, Type, ReferenceType}
 
 /**
  * A symbolic reference to a method of a class
@@ -18,7 +18,7 @@ import de.tud.cs.st.bat.resolved.{Type, ReferenceType}
  */
 class MethodReference(val receiverType: ReferenceType,
                       val name: String,
-                      val parameterTypes: Seq[Type],
+                      val parameterTypes: Seq[FieldType],
                       val returnType: Type)
     extends MethodInfo
 {
@@ -32,11 +32,11 @@ object MethodReference
 
     def apply(declaringRef: ReferenceType,
               name: String,
-              parameters: Seq[Type],
+              parameters: Seq[FieldType],
               returnType: Type) = new MethodReference (declaringRef, name, parameters, returnType)
 
     def unapply(methodReference: MethodReference):
-    Option[(ReferenceType, String, Seq[Type], Type)] =
+    Option[(ReferenceType, String, Seq[FieldType], Type)] =
         if (methodReference == null) None
         else Some (
             methodReference.receiverType,
