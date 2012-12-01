@@ -77,14 +77,14 @@ abstract class SAEAnalysesReplayTimeProfiler
         }
         )
         deletions.foreach (event => {
-            val stream = new java.io.FileInputStream (event.eventFile)
+            val stream = new java.io.FileInputStream (event.previousEvent.getOrElse (throw new IllegalStateException ("remove event without predecessor")).eventFile)
             database.removeClassFile (stream)
             stream.close ()
         }
         )
         updates.foreach (event => {
-            val oldStream = new java.io.FileInputStream (event.eventFile)
-            val newStream = new java.io.FileInputStream (event.previousEvent.getOrElse (throw new IllegalStateException ("change event without predecessor")).eventFile)
+            val oldStream = new java.io.FileInputStream (event.previousEvent.getOrElse (throw new IllegalStateException ("change event without predecessor")).eventFile)
+            val newStream = new java.io.FileInputStream (event.eventFile)
             database.updateClassFile (oldStream, newStream)
             oldStream.close ()
             newStream.close ()
@@ -198,6 +198,7 @@ abstract class SAEAnalysesReplayTimeProfiler
         var taken: Long = 0
         val (additions, deletions, updates) = sortEventsByType (set)
         println(set.head.eventTime)
+        set.foreach(e => println(e.eventFile))
         // 1310230314665
         time {
             l => taken += l
