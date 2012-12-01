@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object CreateKind
         extends DependencyKind
 {
-    val designator = "create"
+    def designator = "create"
 }

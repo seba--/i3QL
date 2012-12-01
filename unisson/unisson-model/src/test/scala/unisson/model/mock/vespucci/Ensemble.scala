@@ -1,7 +1,7 @@
 package unisson.model.mock.vespucci
 
 import collection.JavaConversions
-import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
+import de.tud.cs.st.vespucci.interfaces.{IConstraint, IEnsemble}
 import java.util.HashSet
 
 /**

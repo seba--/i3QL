@@ -20,10 +20,12 @@
     <modules>
         <module>unisson-query-parser</module>
         <module>unisson-vespucci-interface</module>
-        <!--
-        <module>unisson-model</module>
         <module>unisson-query-code_model</module>
+        <module>unisson-model</module>
+
         <module>unisson-query-compiler</module>
+        <!--
+
         -->
     </modules>
 </project>

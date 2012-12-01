@@ -25,7 +25,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testGlobalModelQueryChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -109,7 +109,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testGlobalModelEnsembleChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -194,7 +194,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testModelConstraintChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -291,7 +291,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testModelEnsembleChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")

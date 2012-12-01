@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ThrowsKind
         extends DependencyKind
 {
-    val designator = "throws"
+    def designator = "throws"
 }

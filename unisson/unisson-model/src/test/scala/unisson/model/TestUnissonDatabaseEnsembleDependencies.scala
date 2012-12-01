@@ -4,9 +4,9 @@ import kinds.primitive.FieldTypeKind
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
-import sae.collections.Conversions
+import sae._
 import org.junit.Test
-import de.tud.cs.st.bat.{VoidType, ObjectType}
+import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
 import sae.bytecode.model.dependencies.`extends`
 import sae.bytecode.model.instructions.{putfield, push, invokespecial}
 import sae.bytecode.BytecodeDatabase
@@ -30,7 +30,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testFilterSelfDependency() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("Test", "package('test')")
@@ -55,7 +55,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testDirectFieldRefDependency() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -84,7 +84,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testUnmodeledElementNoDependency() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -126,7 +126,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testMultipleDirectDependencies() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -173,7 +173,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testTwoLevelChildrenDerivedIncomingDependencies() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -227,7 +227,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testThreeLevelChildrenDerivedIncomingDependencies() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -317,7 +317,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testParentChildDependencyExclusion() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -367,7 +367,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testTransitiveChildrenDependencyExclusion() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -477,7 +477,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testDoubleDependency() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -514,7 +514,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
     @Test
     def testDoubleDependencyCount() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")

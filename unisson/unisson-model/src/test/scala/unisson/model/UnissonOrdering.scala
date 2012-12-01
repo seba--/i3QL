@@ -1,6 +1,6 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint}
 import unisson.query.code_model.SourceElement
 import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 

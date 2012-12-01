@@ -30,7 +30,7 @@ class TestUnissonDatabaseHibernate_1_0
     @Test
     def testEnsembleElementsInDeprecatedLegacy() {
 
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val elements: QueryResult[(IEnsemble, ICodeElement)] = db.ensemble_elements
@@ -147,7 +147,7 @@ class TestUnissonDatabaseHibernate_1_0
 
     @Test
     def testViolationsToDeprecatedLegacy() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val deprecatedPersistenceMarkerInterface = Ensemble("DeprecatedPersistenceMarkerInterface", "class_with_members('cirrus.hibernate','Persistent')")
@@ -661,7 +661,7 @@ class TestUnissonDatabaseHibernate_1_0
 
     @Test
     def testViolationSummaryActionsImplementsInternalWithGlobal() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','RelationalDatabaseSession$Executable'))")
@@ -691,7 +691,7 @@ class TestUnissonDatabaseHibernate_1_0
 
     @Test
     def testViolationSummaryActionsAllInternalWithGlobal() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','RelationalDatabaseSession$Executable'))")

@@ -28,7 +28,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testNotAllowedAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -89,7 +89,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -144,7 +144,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -212,7 +212,7 @@ class TestUnissonDatabaseKinds
     @Ignore
     @Test
     def testLocalIncomingMultipleDifferentKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -282,7 +282,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -335,7 +335,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -402,7 +402,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -454,7 +454,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -506,7 +506,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")

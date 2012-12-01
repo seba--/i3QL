@@ -28,7 +28,7 @@ object ScalaCompilerProfiler {
     dbIntern.readBytecode
 
     val init: Int => Database = (x: Int) => {
-      val db: Database = new BytecodeDatabase()
+      val db: Database = BATDatabaseFactory.create()
       register()(db)
       db
     }

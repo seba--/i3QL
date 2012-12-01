@@ -25,7 +25,7 @@ class TestQueryDefinitions
 
     @Test
     def testClassQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.`class`("test", "A")
@@ -47,7 +47,7 @@ class TestQueryDefinitions
 
     @Test
     def testFieldQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.field(
@@ -89,7 +89,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -149,7 +149,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithReturnTypeSubquery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -206,7 +206,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithPrimitiveArrayParams() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -259,7 +259,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithPrimitiveMultiDimArrayParams() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -302,7 +302,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithObjectTypeParam() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -357,7 +357,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithObjectTypeArrayParams() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(

@@ -30,7 +30,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testReuseCachedPackageQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -45,7 +45,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testDisposePackageQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -64,7 +64,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testKeepReusedSubQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -90,7 +90,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testKeepUsedQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -117,7 +117,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testReuseOrQueryWithDifferentOrder() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -133,7 +133,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testReuseOfSubExpressionsInOrQueries() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -197,7 +197,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testDisposeOrQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -216,7 +216,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testDistinctTransitiveSuperTypeQueries() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)
@@ -232,7 +232,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testDisposeTransitiveSuperTypeQuery() {
-        val bc: Database = new BytecodeDatabase()
+        val bc: Database = BATDatabaseFactory.create()
         val parser = new QueryParser()
         val baseCompiler = new BaseQueryCompiler(bc)
         val compiler = new CachingQueryCompiler(baseCompiler)

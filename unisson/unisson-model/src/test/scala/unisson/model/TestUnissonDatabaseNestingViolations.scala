@@ -27,7 +27,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testInternalNotAllowedViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -75,7 +75,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalIncomingExemptsAllSourceChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -173,7 +173,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalIncomingViolatesForAllSourceChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -356,7 +356,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalOutgoingExemptsAllTargetChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -454,7 +454,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalOutgoingViolatesForAllTargetChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 

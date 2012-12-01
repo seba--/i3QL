@@ -31,7 +31,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testAddEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
 
@@ -66,7 +66,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -86,7 +86,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -129,7 +129,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -165,7 +165,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -205,7 +205,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateChangeEnsembleChildrenQuery() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -234,7 +234,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testAddTwoLevelsOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -278,7 +278,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testRemoveTwoLevelsOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -300,7 +300,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -359,7 +359,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -402,7 +402,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -455,7 +455,7 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateChangeAtFirstAndSecondLevelOfEnsembleChildrenQuery() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1Old = Ensemble("A1", "class_with_members('test','A1.Old')")
@@ -497,7 +497,7 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testEnsembleElementsForNesting() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -542,7 +542,7 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testGlobalIncomingToParentWithViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -607,7 +607,7 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithoutViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -654,7 +654,7 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithViolations() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")

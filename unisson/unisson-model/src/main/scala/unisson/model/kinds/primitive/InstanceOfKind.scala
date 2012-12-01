@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object InstanceOfKind
         extends DependencyKind
 {
-    val designator = "instanceof"
+    def designator = "instanceof"
 }

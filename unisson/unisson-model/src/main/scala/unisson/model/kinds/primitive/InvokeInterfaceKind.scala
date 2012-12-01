@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object InvokeInterfaceKind
         extends DependencyKind
 {
-    val designator = "invoke_interface"
+    def designator = "invoke_interface"
 }
