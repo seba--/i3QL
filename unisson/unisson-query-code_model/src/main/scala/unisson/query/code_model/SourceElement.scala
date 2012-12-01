@@ -22,7 +22,7 @@ object SourceElement
 {
     def apply[T <: AnyRef](element: T): SourceElement[_ <: AnyRef] = {
         if (element.isInstanceOf[ObjectType]) {
-            return new ClassDeclaration(element.asInstanceOf[ObjectType])
+            return new ClassDeclarationAdapter(element.asInstanceOf[ObjectType])
         }
         if (element.isInstanceOf[MethodDeclaration]) {
             return new MethodDeclarationAdapter(element.asInstanceOf[MethodDeclaration])
@@ -49,9 +49,9 @@ object SourceElement
 
     // TODO careful with to string, use for testing only
     implicit def compare[T <: AnyRef](x: SourceElement[T], y: SourceElement[T]): Int = {
-        if (x.isInstanceOf[ClassDeclaration] && y.isInstanceOf[ClassDeclaration]) {
-            return x.asInstanceOf[ClassDeclaration].getTypeQualifier
-                    .compare(y.asInstanceOf[ClassDeclaration].getTypeQualifier)
+        if (x.isInstanceOf[ClassDeclarationAdapter] && y.isInstanceOf[ClassDeclarationAdapter]) {
+            return x.asInstanceOf[ClassDeclarationAdapter].getTypeQualifier
+                    .compare(y.asInstanceOf[ClassDeclarationAdapter].getTypeQualifier)
         }
 
         x.toString.compareTo(y.toString)

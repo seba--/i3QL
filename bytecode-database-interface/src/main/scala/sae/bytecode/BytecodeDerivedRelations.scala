@@ -35,6 +35,7 @@ package sae.bytecode
 import instructions._
 import sae.{SetRelation, Relation}
 import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -45,6 +46,8 @@ import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
  */
 trait BytecodeDerivedRelations
 {
+    def typeDeclarations : Relation[ObjectType]
+
     def classInheritance: Relation[InheritanceRelation]
 
     def interfaceInheritance: Relation[InheritanceRelation]
@@ -66,6 +69,10 @@ trait BytecodeDerivedRelations
     def invokeInterface: Relation[INVOKEINTERFACE]
 
     def invokeSpecial: Relation[INVOKESPECIAL]
+
+    def newObject: Relation[NEW]
+
+    def checkCast: Relation[CHECKCAST]
 
     def readField: Relation[FieldReadInstruction]
 

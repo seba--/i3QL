@@ -19,9 +19,9 @@ class MethodReferenceAdapter(val element: MethodIdentifier)
 
     def getSimpleClassName = element.declaringRef.simpleName
 
-    def getReturnTypeQualifier = element.returnType.signature
+    def getReturnTypeQualifier = element.returnType.toJava
 
-    lazy val getParameterTypeQualifiers = element.parameters.map(_.signature).toArray
+    lazy val getParameterTypeQualifiers = element.parameters.map(_.toJava).toArray
 
     def getLineNumber = -1
 
@@ -45,7 +45,7 @@ class MethodReferenceAdapter(val element: MethodIdentifier)
         false
     }
 
-    override def toString = element.declaringRef.signature +
+    override def toString = element.declaringRef.toJava +
             element.name +
             "(" + (
             if (getParameterTypeQualifiers.isEmpty) {
@@ -55,7 +55,7 @@ class MethodReferenceAdapter(val element: MethodIdentifier)
                 getParameterTypeQualifiers.reduceLeft(_ + "," + _)
             }
             ) + ")" +
-            ":" + element.returnType.signature
+            ":" + element.returnType.toJava
 
     lazy val getSootIdentifier =
         "<" + element.declaringRef.toJava + ":" + element.returnType.toJava + " " + element.name +

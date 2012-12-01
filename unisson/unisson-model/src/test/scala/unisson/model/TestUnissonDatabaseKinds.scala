@@ -58,18 +58,18 @@ class TestUnissonDatabaseKinds
 
         val field = FieldDeclaration(a, "myB", b)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
         bc.`extends`.element_added(`extends`(a, obj))
 
 
-        bc.declared_methods.element_added(initA)
+        bc.methodDeclarations.element_added(initA)
         bc.instructions.element_added(invokespecial(initA, 1, superConst))
         bc.instructions.element_added(push(initA, 3, null, obj))
         bc.instructions.element_added(putfield(initA, 4, FieldReference(a, "myB", b)))
 
-        bc.declared_fields.element_added(field)
+        bc.fieldDeclarations.element_added(field)
 
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(b)
 
         result.asList.sorted should be(
             List(
@@ -117,14 +117,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -172,16 +172,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -242,16 +242,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -308,14 +308,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -363,16 +363,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -428,12 +428,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -480,12 +480,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -532,12 +532,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(

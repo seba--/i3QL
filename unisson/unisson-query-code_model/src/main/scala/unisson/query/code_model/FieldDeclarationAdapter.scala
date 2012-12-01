@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
-import sae.bytecode.model.FieldDeclaration
+import sae.bytecode.structure.FieldDeclaration
 
 /**
  *
@@ -11,26 +11,26 @@ import sae.bytecode.model.FieldDeclaration
  *
  */
 class FieldDeclarationAdapter(val element: FieldDeclaration)
-        extends IFieldDeclaration with SourceElement[FieldDeclaration]
+    extends IFieldDeclaration with SourceElement[FieldDeclaration]
 {
-    def getPackageIdentifier = element.declaringClass.packageName
+    def getPackageIdentifier = element.declaringType.packageName
 
-    def getSimpleClassName = element.declaringClass.simpleName
+    def getSimpleClassName = element.declaringType.simpleName
 
     def getLineNumber = -1
 
-    override def hashCode() = element.hashCode()
+    override def hashCode() = element.hashCode ()
 
     override def equals(obj: Any): Boolean = {
         if (obj.isInstanceOf[FieldDeclarationAdapter]) {
-            return element.equals(obj.asInstanceOf[FieldDeclarationAdapter].element)
+            return element.equals (obj.asInstanceOf[FieldDeclarationAdapter].element)
         }
         if (obj.isInstanceOf[IFieldDeclaration]) {
             val other = obj.asInstanceOf[IFieldDeclaration]
             return this.getPackageIdentifier == other.getPackageIdentifier &&
-            this.getSimpleClassName == other.getSimpleClassName &&
-            this.getFieldName == other.getFieldName &&
-            this.getTypeQualifier == other.getTypeQualifier
+                this.getSimpleClassName == other.getSimpleClassName &&
+                this.getFieldName == other.getFieldName &&
+                this.getTypeQualifier == other.getTypeQualifier
         }
         false
     }
@@ -38,12 +38,12 @@ class FieldDeclarationAdapter(val element: FieldDeclaration)
 
     def getFieldName = element.name
 
-    def getTypeQualifier = element.fieldType.signature
+    def getTypeQualifier = element.fieldType.toJava
 
-    override def toString = element.declaringClass.signature +
-            element.name +
-            ":" + element.fieldType.signature
+    override def toString = element.declaringType.toJava +
+        element.name +
+        ":" + element.fieldType.toJava
 
     lazy val getSootIdentifier =
-        "<" + element.declaringClass.toJava + ":" + element.fieldType.toJava + " " + element.name + ">"
+        "<" + element.declaringType.toJava + ":" + element.fieldType.toJava + " " + element.name + ">"
 }

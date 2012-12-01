@@ -19,7 +19,8 @@ import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
 import sae.bytecode.model.{MethodDeclaration, FieldDeclaration}
 import sae.functions.Count
 import sae.bytecode.BytecodeDatabase
-
+import scala.collection.JavaConversions._
+import sae.bytecode.structure.InheritanceRelation
 
 /**
  *
@@ -59,7 +60,7 @@ class UnissonDatabase(val bc: BytecodeDatabase)
      * Queries are normalized, such that an ensemble with a derived query, has a query equal to the queries of it's children
      */
     private def getNormalizedQuery(ensemble: IEnsemble): UnissonQuery = {
-        val query : UnissonQuery  = queryParser.parse (ensemble.getQuery) match {
+        val query: UnissonQuery = queryParser.parse (ensemble.getQuery) match {
             case queryParser.Success (result, _) => result
             case queryParser.Failure (msg, next) => {
                 errors += new IllegalArgumentException (msg + next.pos.longString)
@@ -106,7 +107,7 @@ class UnissonDatabase(val bc: BytecodeDatabase)
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    lazy val ensemble_elements = lazyViewToResult (new CompiledEnsembleElementsView (bc, ensemble_queries))
+    lazy val ensemble_elements = sae.relationToResult (new CompiledEnsembleElementsView (bc, ensemble_queries))
 
 
     /**
@@ -267,14 +268,25 @@ class UnissonDatabase(val bc: BytecodeDatabase)
      */
     def source_code_dependencies = internal_source_code_dependencies
 
-    lazy val internal_source_code_dependencies = dependencyView_to_tupleView (bc.`extends`, ExtendsKind) ⊎
-        dependencyView_to_tupleView (bc.implements, ImplementsKind) ⊎
-        dependencyView_to_tupleView (bc.invoke_interface, InvokeInterfaceKind) ⊎
-        dependencyView_to_tupleView (bc.invoke_special, InvokeSpecialKind) ⊎
-        dependencyView_to_tupleView (bc.invoke_static, InvokeStaticKind) ⊎
-        dependencyView_to_tupleView (bc.invoke_virtual, InvokeVirtualKind) ⊎
-        dependencyView_to_tupleView (bc.create, CreateKind) ⊎
-        dependencyView_to_tupleView (bc.class_cast, ClassCastKind) ⊎
+    def extendsDependency : InheritanceRelation => (ICodeElement, ICodeElement, String) = {
+
+    }
+
+    import sae.syntax.sql._
+
+    lazy val internal_source_code_dependencies =
+        SELECT  (extendsDependency) FROM bc.classInheritance UNION_ALL(
+            SELECT  (extendsDependency) FROM bc.classInheritance
+        ) UNION_ALL
+
+        dependencyView_to_tupleView (bc.classInheritance, ExtendsKind) ⊎
+        dependencyView_to_tupleView (bc.interfaceInheritance, ImplementsKind) ⊎
+        dependencyView_to_tupleView (bc.invokeInterface, InvokeInterfaceKind) ⊎
+        dependencyView_to_tupleView (bc.invokeSpecial, InvokeSpecialKind) ⊎
+        dependencyView_to_tupleView (bc.invokeStatic, InvokeStaticKind) ⊎
+        dependencyView_to_tupleView (bc.invokeVirtual, InvokeVirtualKind) ⊎
+        dependencyView_to_tupleView (bc.newObject, CreateKind) ⊎
+        dependencyView_to_tupleView (bc.checkCast, ClassCastKind) ⊎
         dependencyView_to_tupleView (bc.thrown_exceptions, ThrowsKind) ⊎
         dependencyView_to_tupleView (// parameter
             σ (
@@ -401,7 +413,7 @@ class UnissonDatabase(val bc: BytecodeDatabase)
 
         })
 
-        def lazy_foreach[T](f: ((NormalizedConstraint)) => T) {
+        def foreach[T](f: ((NormalizedConstraint)) => T) {
             slice_constraints.foreach (
                 getNormalizedConstraints (_).foreach (f)
             )
@@ -629,15 +641,15 @@ class UnissonDatabase(val bc: BytecodeDatabase)
 
     lazy val unmodeled_elements: Relation[ICodeElement] = (
         (
-            Π (SourceElement (_: ObjectType).asInstanceOf[ICodeElement])(bc.declared_types) ⊎
-                Π (SourceElement (_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.declared_fields) ⊎
-                Π (SourceElement (_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.declared_methods)
+            Π (SourceElement (_: ObjectType).asInstanceOf[ICodeElement])(bc.typeDeclarations) ⊎
+                Π (SourceElement (_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.fieldDeclarations) ⊎
+                Π (SourceElement (_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.methodDeclarations)
             ) ∖
             δ (Π ((_: (IEnsemble, ICodeElement))._2)(ensemble_elements))
         )
 
 
-    lazy val ensemble_dependency_count: MaterializedView[(IEnsemble, IEnsemble, Int)] = {
+    lazy val ensemble_dependency_count: Relation[(IEnsemble, IEnsemble, Int)] = {
         γ (ensemble_dependencies,
             (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (dependency._1, dependency._2),
             Count[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)](),

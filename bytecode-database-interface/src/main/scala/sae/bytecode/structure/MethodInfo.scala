@@ -32,6 +32,8 @@
  */
 package sae.bytecode.structure
 
+import de.tud.cs.st.bat.resolved.{ReferenceType, FieldType, Type}
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,9 +44,35 @@ package sae.bytecode.structure
 
 trait MethodInfo
 {
+
+    def receiverType : ReferenceType
+
     def name: String
 
-    def returnType: de.tud.cs.st.bat.resolved.Type
+    def returnType: Type
 
-    def parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType]
+    def parameterTypes: Seq[FieldType]
+
+    override def hashCode(): Int = _hashCode
+
+    private lazy val _hashCode: Int = {
+        var code = "MethodInfo".hashCode()
+        code = code * 41 + (if (receiverType == null) 0 else receiverType.hashCode())
+        code = code * 41 + (if (name == null) 0 else name.hashCode())
+        code = code * 41 + (if (parameterTypes == null) 0 else parameterTypes.hashCode())
+        code = code * 41 + (if (returnType == null) 0 else returnType.hashCode())
+        code
+    }
+
+    override def equals(obj: Any): Boolean = {
+        if (this eq obj.asInstanceOf[AnyRef])
+            return true;
+        if (!obj.isInstanceOf[MethodInfo])
+            return false;
+        val other = obj.asInstanceOf[MethodInfo]
+        this.receiverType == other.receiverType &&
+            this.name == other.name &&
+            this.returnType == other.returnType &&
+            this.parameterTypes == other.parameterTypes
+    }
 }

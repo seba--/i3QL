@@ -1,9 +1,9 @@
 package sae.bytecode.structure
 
-case class FieldDeclaration(declaringClass: ClassDeclaration,
-                            accessFlags: Int,
-                            name: String,
-                            fieldType: de.tud.cs.st.bat.resolved.FieldType)
+class FieldDeclaration(val declaringClass: ClassDeclaration,
+                       val accessFlags: Int,
+                       val name: String,
+                       val fieldType: de.tud.cs.st.bat.resolved.FieldType)
     extends DeclaredClassMember
     with FieldInfo
 {

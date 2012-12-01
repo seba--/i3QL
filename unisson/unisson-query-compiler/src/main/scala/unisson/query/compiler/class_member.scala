@@ -1,8 +1,8 @@
 package unisson.query.compiler
 
 import sae.bytecode.model.dependencies.Dependency
-import de.tud.cs.st.bat.ReferenceType
 import unisson.query.code_model.SourceElement
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -10,5 +10,5 @@ import unisson.query.code_model.SourceElement
  * Created: 10.06.11 13:58
  *
  */
-private[compiler] case class class_member[+T <: AnyRef](source: ReferenceType, target: SourceElement[T])
-        extends Dependency[ReferenceType, SourceElement[T]]
+private[compiler] case class class_member[+T <: AnyRef](source: ObjectType, target: SourceElement[T])
+    extends Dependency[ObjectType, SourceElement[T]]

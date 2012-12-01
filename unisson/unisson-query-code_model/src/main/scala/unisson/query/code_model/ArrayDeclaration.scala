@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
-import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
+import de.tud.cs.st.bat.resolved.ArrayType
 
 /**
  *
@@ -11,23 +11,23 @@ import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
  *
  */
 class ArrayDeclaration (val element: ArrayType)
-        extends ICodeElement with SourceElement[ArrayType]
+    extends ICodeElement with SourceElement[ArrayType]
 {
     def getPackageIdentifier = element.packageName
 
-    def getTypeQualifier = element.signature
+    def getTypeQualifier = element.toJava
 
     def getSimpleClassName = element.simpleName
 
     def getLineNumber = -1
 
-    override def hashCode() = element.hashCode()
+    override def hashCode() = element.hashCode ()
 
-    override def equals(obj: Any) : Boolean = {
-        if( !obj.isInstanceOf[ArrayDeclaration] ){
+    override def equals(obj: Any): Boolean = {
+        if (!obj.isInstanceOf[ArrayDeclaration]) {
             return false
         }
-        element.equals(obj.asInstanceOf[ArrayDeclaration].element)
+        element.equals (obj.asInstanceOf[ArrayDeclaration].element)
     }
 
     override def toString = getTypeQualifier

@@ -1,6 +1,6 @@
 package unisson.query.compiler
 
-import sae.bytecode.Database
+import sae.bytecode.{BytecodeDatabase, Database}
 import sae.Relation
 import unisson.query.code_model.SourceElement
 import unisson.query.parser.QueryParser
@@ -27,7 +27,7 @@ import unisson.query.ast.ClassWithMembersQuery
  * Time: 17:05
  *
  */
-class BaseQueryCompiler(val db: Database)
+class BaseQueryCompiler(val db: BytecodeDatabase)
     extends QueryCompiler
 {
     val definitions = new QueryDefinitions(db)

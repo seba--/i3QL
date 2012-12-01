@@ -48,7 +48,7 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
 
 
     private def addCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
-        view.lazy_foreach (
+        view.foreach() (
             (e: SourceElement[AnyRef]) => element_added ((v, e))
         )
         val oo = new CompiledViewObserver (v)
@@ -59,7 +59,7 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
     }
 
     private def removeCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
-        view.lazy_foreach (
+        view.foreach (
             (e: SourceElement[AnyRef]) => element_removed ((v, e))
         )
         // dispose of obsolete observers

@@ -10,6 +10,8 @@ import unisson.query.code_model.SourceElement
 import org.junit.{Ignore, Test}
 import de.tud.cs.st.vespucci.model.IEnsemble
 import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
+import sae.bytecode.bat.BATDatabaseFactory
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -521,14 +523,14 @@ class TestUnissonDatabaseNestingStructure
         val fieldRefCToA1 = FieldDeclaration(c, "fieldInC", a1)
         val fieldRefCToA2 = FieldDeclaration(c, "fieldInC", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA1)
-        bc.declared_fields.element_added(fieldRefCToA2)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA1)
+        bc.fieldDeclarations.element_added(fieldRefBToA2)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA1)
+        bc.fieldDeclarations.element_added(fieldRefCToA2)
 
         result.asList.sorted should be(
             List(
@@ -571,14 +573,14 @@ class TestUnissonDatabaseNestingStructure
         val fieldRefCToA1 = FieldDeclaration(c, "fieldInC", a1)
         val fieldRefCToA2 = FieldDeclaration(c, "fieldInC", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA1)
-        bc.declared_fields.element_added(fieldRefCToA2)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA1)
+        bc.fieldDeclarations.element_added(fieldRefBToA2)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA1)
+        bc.fieldDeclarations.element_added(fieldRefCToA2)
 
         result.asList.sorted should be(
             List(
@@ -638,14 +640,14 @@ class TestUnissonDatabaseNestingStructure
         val fieldRefB2ToA1 = FieldDeclaration(b2, "fieldB2ToA1", a1)
         val fieldRefB2ToA2 = FieldDeclaration(b2, "fieldB2ToA2", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b1)
-        bc.declared_fields.element_added(fieldRefB1ToA1)
-        bc.declared_fields.element_added(fieldRefB1ToA2)
-        bc.declared_types.element_added(b2)
-        bc.declared_fields.element_added(fieldRefB2ToA1)
-        bc.declared_fields.element_added(fieldRefB2ToA2)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(b1)
+        bc.fieldDeclarations.element_added(fieldRefB1ToA1)
+        bc.fieldDeclarations.element_added(fieldRefB1ToA2)
+        bc.typeDeclarations.element_added(b2)
+        bc.fieldDeclarations.element_added(fieldRefB2ToA1)
+        bc.fieldDeclarations.element_added(fieldRefB2ToA2)
 
         result.asList.sorted should be(Nil)
 
@@ -685,14 +687,14 @@ class TestUnissonDatabaseNestingStructure
         val fieldRefB2ToA1 = FieldDeclaration(b2, "fieldB2ToA1", a1)
         val fieldRefB2ToA2 = FieldDeclaration(b2, "fieldB2ToA2", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b1)
-        bc.declared_fields.element_added(fieldRefB1ToA1)
-        bc.declared_fields.element_added(fieldRefB1ToA2)
-        bc.declared_types.element_added(b2)
-        bc.declared_fields.element_added(fieldRefB2ToA1)
-        bc.declared_fields.element_added(fieldRefB2ToA2)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(b1)
+        bc.fieldDeclarations.element_added(fieldRefB1ToA1)
+        bc.fieldDeclarations.element_added(fieldRefB1ToA2)
+        bc.typeDeclarations.element_added(b2)
+        bc.fieldDeclarations.element_added(fieldRefB2ToA1)
+        bc.fieldDeclarations.element_added(fieldRefB2ToA2)
 
         result.asList.sorted should be(
             List(

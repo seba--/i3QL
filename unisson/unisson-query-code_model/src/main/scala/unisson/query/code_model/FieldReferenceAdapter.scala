@@ -38,11 +38,11 @@ class FieldReferenceAdapter(val element: FieldReference)
 
     def getFieldName = element.name
 
-    def getTypeQualifier = element.fieldType.signature
+    def getTypeQualifier = element.fieldType.toJava
 
-    override def toString = element.declaringClass.signature +
+    override def toString = element.declaringClass.toJava +
             element.name +
-            ":" + element.fieldType.signature
+            ":" + element.fieldType.toJava
 
     lazy val getSootIdentifier =
         "<" + element.declaringClass.toJava + ":" + element.fieldType.toJava + " " + element.name + ">"

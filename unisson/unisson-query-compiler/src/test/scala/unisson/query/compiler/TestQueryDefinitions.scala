@@ -1,12 +1,12 @@
 package unisson.query.compiler
 
 import org.scalatest.matchers.ShouldMatchers
-import sae.bytecode.{BytecodeDatabase, Database}
+import sae.bytecode.{BytecodeDatabase}
 import org.junit.Test
-import sae.collections.QueryResult
 import unisson.query.code_model.SourceElement
-import de.tud.cs.st.bat.{ArrayType, ByteType, VoidType, ObjectType}
+import de.tud.cs.st.bat.resolved.{ArrayType, ByteType, VoidType, ObjectType}
 import sae.bytecode.model.{FieldDeclaration, MethodDeclaration}
+import sae.bytecode.bat.BATDatabaseFactory
 
 /**
  *
@@ -25,15 +25,15 @@ class TestQueryDefinitions
 
     @Test
     def testClassQuery() {
-        val bc: Database = BATDatabaseFactory.create()
+        val bc = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.`class`("test", "A")
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
 
 
         result.asList.sorted should be(
@@ -47,7 +47,7 @@ class TestQueryDefinitions
 
     @Test
     def testFieldQuery() {
-        val bc: Database = BATDatabaseFactory.create()
+        val bc = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.field(
@@ -57,7 +57,7 @@ class TestQueryDefinitions
         )
 
         val a = ObjectType("test/A")
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
         val f1 = FieldDeclaration(
             a,
@@ -76,8 +76,8 @@ class TestQueryDefinitions
             false
         )
 
-        bc.declared_fields.element_added(f1)
-        bc.declared_fields.element_added(f2)
+        bc.fieldDeclarations.element_added(f1)
+        bc.fieldDeclarations.element_added(f2)
 
         result.asList.sorted should be(
             List(
@@ -89,7 +89,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQuery() {
-        val bc: Database = BATDatabaseFactory.create()
+        val bc = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -103,9 +103,9 @@ class TestQueryDefinitions
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
         val c = ObjectType("test/C")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -134,9 +134,9 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello2)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello2)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
@@ -149,7 +149,7 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithReturnTypeSubquery() {
-        val bc: Database = BATDatabaseFactory.create()
+        val bc = BATDatabaseFactory.create()
         val queries = new QueryDefinitions(bc)
 
         val result: QueryResult[SourceElement[AnyRef]] = queries.method(
@@ -161,9 +161,9 @@ class TestQueryDefinitions
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
         val c = ObjectType("other/C")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -192,9 +192,9 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello2)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello2)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
@@ -217,7 +217,7 @@ class TestQueryDefinitions
         )
 
         val a = ObjectType("test/A")
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -246,9 +246,9 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello2)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello2)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
@@ -270,7 +270,7 @@ class TestQueryDefinitions
         )
 
         val a = ObjectType("test/A")
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -290,8 +290,8 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
@@ -314,7 +314,7 @@ class TestQueryDefinitions
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -343,9 +343,9 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello2)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello2)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
@@ -369,7 +369,7 @@ class TestQueryDefinitions
 
         val a = ObjectType("test/A")
         val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
         val hello1 = new MethodDeclaration(
             a,
@@ -398,9 +398,9 @@ class TestQueryDefinitions
             false,
             false
         )
-        bc.declared_methods.element_added(hello1)
-        bc.declared_methods.element_added(hello2)
-        bc.declared_methods.element_added(hello3)
+        bc.methodDeclarations.element_added(hello1)
+        bc.methodDeclarations.element_added(hello2)
+        bc.methodDeclarations.element_added(hello3)
 
         result.asList.sorted should be(
             List(
