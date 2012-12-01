@@ -19,24 +19,10 @@
         <module>demo/findbugs</module>
         <module>replay-framework</module>
         <module>benchmark-harness</module>
-
-
-
+        <module>unisson</module>
 
         <!--
-
-
-
-                  <module>bytecode-reader</module>
           <module>deploy</module>
-          <module>unisson</module>
-
-            <module>further-functionality</module>
-            <module>profiler</module>
-            <module>test-client</module>
-            <module>test-data</module>
-            <module>unisson</module>
-
         -->
     </modules>
 

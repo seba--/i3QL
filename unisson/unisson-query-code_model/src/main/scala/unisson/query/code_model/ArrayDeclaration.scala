@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
-import de.tud.cs.st.bat.{ArrayType, ObjectType}
+import de.tud.cs.st.bat.resolved.{ArrayType, ObjectType}
 
 /**
  *

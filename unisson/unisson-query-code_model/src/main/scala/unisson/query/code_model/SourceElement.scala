@@ -2,7 +2,7 @@ package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import sae.bytecode.model.{MethodReference, FieldDeclaration, MethodDeclaration, FieldReference}
-import de.tud.cs.st.bat.{Type, ArrayType, ObjectType}
+import de.tud.cs.st.bat.resolved.{Type, ArrayType, ObjectType}
 import soot.bridge.ISootCodeElement
 
 /**
