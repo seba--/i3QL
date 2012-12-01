@@ -1,0 +1,11 @@
+bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;transactional;queries;result count;mean;std. dev;std err.;measured unit
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;false;false;CI_CONFUSED_INHERITANCE;123;3.781;0.068;0.007;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;false;CI_CONFUSED_INHERITANCE;123;1281.591;4.635;0.464;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;CI_CONFUSED_INHERITANCE;123;1294.766;6.231;0.623;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;DM_GC;3;2066.771;75.530;7.553;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;DM_GC;3;10689.938;99.472;9.947;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;DM_GC;3;3910.292;18.631;1.863;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;DM_GC;3;3534.862;38.904;3.890;ms
+SAEOO time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;50;100;true;true;DM_GC;3;8474.074;472.858;47.286;ms
+BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;1;1;false;FI_USELESS;0;22.649;0.000;0.000;ms
+BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;1;1;false;FI_USELESS;2;24.901;0.000;0.000;ms

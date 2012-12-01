@@ -106,6 +106,10 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
         database.removeClassFile (stream)
     }
 
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+        database.updateClassFile (oldStream, newStream)
+    }
+
     def addArchive(stream: InputStream) {
         database.addArchive (stream)
     }

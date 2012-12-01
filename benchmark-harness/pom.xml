@@ -25,7 +25,7 @@
                 <version>1.1.1</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -36,8 +36,8 @@
                                 <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/bat/jdk_1_7_0_win_64"</argument>
-                                <argument>true</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
+                                <argument>false</argument>
                             </arguments>
                         </configuration>
                     </execution>

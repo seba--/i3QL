@@ -228,6 +228,12 @@ class BATBytecodeDatabase
         currentRemovalReader.ClassFile (() => stream)
     }
 
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+        removeClassFile(oldStream)
+        addClassFile(newStream)
+    }
+
+
     def addArchive(stream: InputStream) {
         val zipStream: ZipInputStream = new ZipInputStream (stream)
         var zipEntry: ZipEntry = null
