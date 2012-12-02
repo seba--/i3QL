@@ -10,7 +10,7 @@ import de.tud.cs.st.vespucci.interfaces.IClassDeclaration
  * Time: 13:05
  *
  */
-class ClassDeclarationAdapter(val element: ObjectType)
+class ClassTypeAdapter(val element: ObjectType)
         extends IClassDeclaration with SourceElement[ObjectType]
 {
     def getPackageIdentifier = element.packageName
@@ -24,8 +24,8 @@ class ClassDeclarationAdapter(val element: ObjectType)
     override def hashCode() = element.hashCode
 
     override def equals(obj: Any) : Boolean = {
-        if( obj.isInstanceOf[ClassDeclarationAdapter] ){
-            return element.equals(obj.asInstanceOf[ClassDeclarationAdapter].element)
+        if( obj.isInstanceOf[ClassTypeAdapter] ){
+            return element.equals(obj.asInstanceOf[ClassTypeAdapter].element)
         }
         if(obj.isInstanceOf[IClassDeclaration])
         {

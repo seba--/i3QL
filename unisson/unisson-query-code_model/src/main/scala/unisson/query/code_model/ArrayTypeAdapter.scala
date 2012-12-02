@@ -10,24 +10,24 @@ import de.tud.cs.st.bat.resolved.ArrayType
  * Time: 13:59
  *
  */
-class ArrayDeclaration (val element: ArrayType)
+class ArrayTypeAdapter (val element: ArrayType)
     extends ICodeElement with SourceElement[ArrayType]
 {
-    def getPackageIdentifier = element.packageName
+    def getPackageIdentifier = ""
 
     def getTypeQualifier = element.toJava
 
-    def getSimpleClassName = element.simpleName
+    def getSimpleClassName = element.toJava
 
     def getLineNumber = -1
 
     override def hashCode() = element.hashCode ()
 
     override def equals(obj: Any): Boolean = {
-        if (!obj.isInstanceOf[ArrayDeclaration]) {
+        if (!obj.isInstanceOf[ArrayTypeAdapter]) {
             return false
         }
-        element.equals (obj.asInstanceOf[ArrayDeclaration].element)
+        element.equals (obj.asInstanceOf[ArrayTypeAdapter].element)
     }
 
     override def toString = getTypeQualifier

@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
-import sae.bytecode.structure.FieldDeclaration
+import sae.bytecode.structure.FieldInfo
 
 /**
  *
@@ -10,8 +10,8 @@ import sae.bytecode.structure.FieldDeclaration
  * Time: 12:48
  *
  */
-class FieldDeclarationAdapter(val element: FieldDeclaration)
-    extends IFieldDeclaration with SourceElement[FieldDeclaration]
+class FieldInfoAdapter(val element: FieldInfo)
+    extends IFieldDeclaration with SourceElement[FieldInfo]
 {
     def getPackageIdentifier = element.declaringType.packageName
 
@@ -22,8 +22,8 @@ class FieldDeclarationAdapter(val element: FieldDeclaration)
     override def hashCode() = element.hashCode ()
 
     override def equals(obj: Any): Boolean = {
-        if (obj.isInstanceOf[FieldDeclarationAdapter]) {
-            return element.equals (obj.asInstanceOf[FieldDeclarationAdapter].element)
+        if (obj.isInstanceOf[SourceElement[FieldInfo]]) {
+            return element.equals (obj.asInstanceOf[SourceElement[FieldInfo]].element)
         }
         if (obj.isInstanceOf[IFieldDeclaration]) {
             val other = obj.asInstanceOf[IFieldDeclaration]
