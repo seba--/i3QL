@@ -24,8 +24,8 @@ class ClassTypeAdapter(val element: ObjectType)
     override def hashCode() = element.hashCode
 
     override def equals(obj: Any) : Boolean = {
-        if( obj.isInstanceOf[ClassTypeAdapter] ){
-            return element.equals(obj.asInstanceOf[ClassTypeAdapter].element)
+        if( obj.isInstanceOf[SourceElement[ObjectType]] ){
+            return element.equals(obj.asInstanceOf[SourceElement[ObjectType]].element)
         }
         if(obj.isInstanceOf[IClassDeclaration])
         {

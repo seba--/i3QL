@@ -38,7 +38,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
 
     def `class`(packageName: String, name: String): Relation[SourceElement[AnyRef]] =
         Π[ObjectType, SourceElement[AnyRef]] {
-            new ClassDeclarationAdapter ((_: ObjectType))
+            new ClassTypeAdapter ((_: ObjectType))
         }(
             σ {
                 (o: ObjectType) => (o.packageName == fromJava (packageName) && o.simpleName == name)
@@ -70,7 +70,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                parameterTypes: Relation[SourceElement[AnyRef]]*) =
         Π (SourceElement (_: MethodDeclaration))(
         {
-            var i = -1;
+            var i = -1
             parameterTypes.foldLeft[Relation[MethodDeclaration]](
                 joinByTargetElement (
                     joinByTargetElement[MethodDeclaration](
@@ -154,17 +154,15 @@ class QueryDefinitions(private val db: BytecodeDatabase)
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
     lazy val direct_class_members: Relation[class_member[AnyRef]] =
         Π {
-            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringClassType, new MethodDeclarationAdapter (m)))
+            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringClassType, new MethodInfoAdapter ()(m)))
         }(db.methodDeclarations) ∪
             Π {
                 ((f: FieldDeclaration) =>
-                    new class_member[AnyRef](f
-                        .declaringClass, new FieldDeclarationAdapter (f)))
-            }(db.fieldDeclarations) ∪
+                    new class_member[AnyRef](f.declaringClass, new FieldInfoAdapter (f)))
+            }(db.fieldDeclarations) ⊎
             Π ((inner: inner_class) =>
-                new class_member[AnyRef](inner.source, new ClassDeclarationAdapter (inner
-                    .target)))(db
-                .inner_classes)
+                new class_member[AnyRef](inner.source, new ClassTypeAdapter ()(inner
+                    .target)))(db.inner_classes)
 
 
     lazy val transitive_class_members: Relation[(AnyRef, AnyRef)] =
@@ -182,7 +180,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             σ {
                 (_: ObjectType) == ObjectType (fromJava (qualifiedClass))
             }(db.typeDeclarations)
-        ) ∪
+        ) ⊎
             Π {
                 (cm: (AnyRef, AnyRef)) => SourceElement[AnyRef](cm._2)
             }(
