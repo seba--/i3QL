@@ -2,7 +2,7 @@ package unisson.query.compiler
 
 import de.tud.cs.st.bat.resolved._
 import unisson.query.code_model.SourceElement
-import sae.{Relation, Index}
+import sae.MaterializedRelation
 
 /**
  *
@@ -11,75 +11,129 @@ import sae.{Relation, Index}
  * Time: 10:49
  *
  */
-class TypeElementView(name: String) extends Relation[SourceElement[Type]]
+class TypeElementView(name: String) extends MaterializedRelation[SourceElement[Type]]
 {
     val typeElement = SourceElement (TypeElementView.getType (name)).asInstanceOf[SourceElement[Type]]
 
-    def lazyInitialize() {
-        /* do nothing*/
+    def lazyInitialize() {}
+
+    /**
+     * Applies f to all elements of the view with their counts
+     */
+    def foreachWithCount[T](f: (SourceElement[Type], Int) => T) {
+        f (typeElement, 1)
     }
 
-    protected def materialized_foreach[T](f: (SourceElement[Type]) => T) {
+
+    def foreach[T](f: (SourceElement[Type]) => T) {
         f (typeElement)
     }
 
-    protected def materialized_size = 1
 
-    protected def materialized_singletonValue = Some (typeElement)
+    def isDefinedAt(v: SourceElement[Type]) = (v == typeElement)
 
-    protected def materialized_contains(v: SourceElement[Type]) = v == typeElement
+    /**
+     * Returns the count for a given element.
+     * In case an add/remove/update event is in progression, this always returns the
+     */
+    def elementCountAt[T >: SourceElement[Type]](v: T) =
+        if (v == typeElement)
+            1
+        else
+            0
 
-    protected def createIndex[K <: AnyRef](keyFunction: (SourceElement[Type]) => K) = new TypeElementIndex (keyFunction)
+    def isSet = true
 
-    class TypeElementIndex[K <: AnyRef](val f: SourceElement[Type] => K) extends Index[K, SourceElement[Type]]
-    {
-        override def lazyInitialize() {
-            /* do nothing*/
-        }
+    /*
+override def createIndex[K <: AnyRef](keyFunction: SourceElement[Type] => K) : Index[K, SourceElement[Type]] = new TypeElementIndex (keyFunction)
 
-        val elementKey = f (typeElement)
+class TypeElementIndex[K <: AnyRef](val keyFunction: SourceElement[Type] => K) extends Index[K, SourceElement[Type]]
+{
 
-        protected def materialized_foreach[T](f: ((K, SourceElement[Type])) => T) {
-            f (elementKey, typeElement)
-        }
+ /*
+ override def lazyInitialize() {
+     /* do nothing*/
+ }
 
-        protected def materialized_size = 1
+ val elementKey = f (typeElement)
 
-        protected def materialized_singletonValue = Some ((elementKey, typeElement))
+ protected def materialized_foreach[T](f: ((K, SourceElement[Type])) => T) {
+     f (elementKey, typeElement)
+ }
 
-        protected def materialized_contains(v: (K, SourceElement[Type])) = v == (elementKey, typeElement)
+ protected def materialized_size = 1
 
-        def relation = TypeElementView.this
+ protected def materialized_singletonValue = Some ((elementKey, typeElement))
 
-        def keyFunction = f
+ protected def materialized_contains(v: (K, SourceElement[Type])) = v == (elementKey, typeElement)
 
-        protected def foreachKey_internal[U](f: (K) => U) {}
+ def relation = TypeElementView.this
 
-        protected def put_internal(key: K, value: SourceElement[Type]) {
-            throw new UnsupportedOperationException
-        }
+ def keyFunction = f
 
-        protected def get_internal(key: K) = if (key == elementKey) Some (Seq (typeElement)) else None
+ protected def foreachKey(f: (K) => U) {}
 
-        protected def isDefinedAt_internal(key: K) = key == elementKey
+ protected def put_internal(key: K, value: SourceElement[Type]) {
+     throw new UnsupportedOperationException
+ }
 
-        protected def elementCountAt_internal(key: K) = if (key == elementKey) 1 else 0
+ protected def get_internal(key: K) = if (key == elementKey) Some (Seq (typeElement)) else None
 
-        def add_element(kv: (K, SourceElement[Type])) {
-            throw new UnsupportedOperationException
-        }
+ protected def isDefinedAt_internal(key: K) = key == elementKey
 
-        def remove_element(kv: (K, SourceElement[Type])) {
-            throw new UnsupportedOperationException
-        }
+ protected def elementCountAt_internal(key: K) = if (key == elementKey) 1 else 0
 
-        def update_element(oldKey: K, oldV: SourceElement[Type], newKey: K, newV: SourceElement[Type]) {
-            throw new UnsupportedOperationException
-        }
-    }
+ */
+
+ val elementKey = keyFunction (typeElement)
+
+ def relation = TypeElementView.this
+
+ def size = 1
+
+ def foreachKey[U](f: (K) => U) {
+     f (elementKey)
+ }
+
+ def foreach[T](f: ((K, SourceElement[Type])) => T) {
+     f (elementKey, typeElement)
+ }
+
+ def get(key: K) = if (key == elementKey) Some (Seq (typeElement)) else None
+
+ def isDefinedAt(key: K) = key == elementKey
+
+ def elementCountAt(key: K) = if (key == elementKey) 1 else 0
+
+ def put(key: K, value: SourceElement[Type]) {
+     throw new UnsupportedOperationException
+ }
+
+ def add_element(key: K, value: SourceElement[Type]) {
+     throw new UnsupportedOperationException
+ }
+
+ def remove_element(key: K, value: SourceElement[Type]) {
+     throw new UnsupportedOperationException
+ }
+
+ def update_element(oldKey: K, oldV: SourceElement[Type], newKey: K, newV: SourceElement[Type]) {
+     throw new UnsupportedOperationException
+ }
+
+ def updated[U <: SourceElement[Type]](update: Update[U]) {
+     throw new UnsupportedOperationException
+ }
+
+ def modified[U <: SourceElement[Type]](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+     throw new UnsupportedOperationException
+ }
 
 }
+    */
+}
 
+// TODO return SourceElement directly and only a singleton for each primitive type
 object TypeElementView
 {
     def getType(name: String): Type = {

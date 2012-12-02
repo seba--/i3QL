@@ -151,23 +151,23 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                 )
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
-    // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
-    lazy val direct_class_members: Relation[class_member[AnyRef]] =
+    // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the ClassMember type is not really used
+    lazy val direct_class_members: Relation[ClassMember[AnyRef]] =
         Π {
-            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringClassType, new MethodInfoAdapter (m)))
+            ((m: MethodDeclaration) => new ClassMember[AnyRef](m.declaringClassType, new MethodInfoAdapter (m)))
         }(db.methodDeclarations) ⊎
             Π {
                 ((f: FieldDeclaration) =>
-                    new class_member[AnyRef](f.declaringClass, new FieldInfoAdapter (f)))
+                    new ClassMember[AnyRef](f.declaringClassType, new FieldInfoAdapter (f)))
             }(db.fieldDeclarations) ⊎
             Π {(inner: InnerClass) =>
-                new class_member[AnyRef](inner.outerType, new ClassTypeAdapter (inner
+                new ClassMember[AnyRef](inner.outerType, new ClassTypeAdapter (inner
                     .classType))
             }(db.innerClasses)
 
 
     lazy val transitive_class_members: Relation[(AnyRef, AnyRef)] =
-        TC (direct_class_members)((cm: class_member[AnyRef]) => (cm.source), (_: class_member[AnyRef]).target
+        TC (direct_class_members)((cm: ClassMember[AnyRef]) => (cm.outerType), (_: ClassMember[AnyRef]).member
             .element)
 
 
@@ -210,6 +210,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
      * rewrites the query so it will be used transitively
      * // TODO rewriting is currently very unsatisfying, there are multiple proxy objects in the tree
      */
+    /*
     def transitive(target: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] = {
 
         target match {
@@ -244,6 +245,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             }
         }
     }
+    */
 
     /**
      * select all (class, member) from transitive_class_members where class exists in target

@@ -151,7 +151,7 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
      */
     private def removeAllSingleObserversOnPath(sources: List[Relation[_ <: AnyRef]], target: Relation[_ <: AnyRef]) {
         target.clearObserversForChildren (
-            (o: Observable[_ <: AnyRef]) => !sources.contains (o)
+            (o: Observable[_]) => !sources.contains (o)
         )
     }
 }
