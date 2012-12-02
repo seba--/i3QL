@@ -357,7 +357,7 @@ class JEditSuite {
 
     val returntypes : Relation[(ReferenceType, Type)] = Π( (x: return_type) => (x.source.declaringRef, x.target) )(db.return_type )
 
-    val dependencies = parameters ∪ returntypes
+    val dependencies = parameters ⊎ returntypes
 
     val selection = δ( σ(
                       (x: (ReferenceType, Type)) => x._1 != x._2)(dependencies)

@@ -33,8 +33,8 @@
 package sae.bytecode
 
 import instructions._
-import sae.{SetRelation, Relation}
-import structure.{MethodDeclaration, CodeAttribute, InheritanceRelation}
+import sae.Relation
+import structure.{InnerClass, MethodDeclaration, CodeAttribute, InheritanceRelation}
 import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
@@ -46,7 +46,9 @@ import de.tud.cs.st.bat.resolved.ObjectType
  */
 trait BytecodeDerivedRelations
 {
-    def typeDeclarations : Relation[ObjectType]
+    def typeDeclarations: Relation[ObjectType]
+
+    def innerClasses: Relation[InnerClass]
 
     def classInheritance: Relation[InheritanceRelation]
 

@@ -96,7 +96,7 @@ class BATBytecodeDatabase
      * Deduces inner classes only by looking at the inner classes attribute.
      * Taking enclosing methods into account is not feasible for older jars.
      */
-    lazy val innerClasses: Relation[InnerClass] =
+    lazy val innerClasses =
         compile (
             // select guaranteed inner classes
             SELECT (new InnerClass (_: UnresolvedInnerClassEntry)) FROM

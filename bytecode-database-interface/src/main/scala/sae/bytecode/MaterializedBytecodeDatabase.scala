@@ -9,7 +9,9 @@ import structure.CodeInfo
 import structure.ClassDeclaration
 import structure.FieldDeclaration
 import structure.InheritanceRelation
-import structure.internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
+import structure.InnerClass
+import structure.internal.UnresolvedEnclosingMethod
+import structure.internal.UnresolvedInnerClassEntry
 import structure.MethodDeclaration
 import de.tud.cs.st.bat.resolved.ObjectType
 
@@ -35,6 +37,8 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val unresolvedInnerClasses = new SetResult[UnresolvedInnerClassEntry](database.unresolvedInnerClasses)
 
     lazy val unresolvedEnclosingMethods = new SetResult[UnresolvedEnclosingMethod](database.unresolvedEnclosingMethods)
+
+    lazy val innerClasses = new SetResult[InnerClass](database.innerClasses)
 
     lazy val classDeclarationsMinimal = new SetResult[structure.minimal.ClassDeclaration](database.classDeclarationsMinimal)
 

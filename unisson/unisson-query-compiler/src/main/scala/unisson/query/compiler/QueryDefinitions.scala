@@ -5,7 +5,7 @@ import sae.bytecode.BytecodeDatabase
 import unisson.query.code_model._
 import sae.Relation
 import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
-import sae.bytecode.structure.{InheritanceRelation, MethodDeclaration, FieldDeclaration}
+import sae.bytecode.structure.{InnerClass, InheritanceRelation, MethodDeclaration, FieldDeclaration}
 
 /**
  *
@@ -134,14 +134,14 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             }(σ {
                 (_: ObjectType).packageName == fromJava (name)
             }(db.typeDeclarations))
-            ) ∪
+            ) ⊎
             (
                 Π[MethodDeclaration, SourceElement[AnyRef]] {
                     SourceElement[AnyRef]((_: MethodDeclaration))
                 }(σ {
                     (_: MethodDeclaration).declaringClassType.packageName == fromJava (name)
                 }(db.methodDeclarations))
-                ) ∪
+                ) ⊎
             (
                 Π[FieldDeclaration, SourceElement[AnyRef]] {
                     SourceElement[AnyRef]((_: FieldDeclaration))
@@ -154,15 +154,16 @@ class QueryDefinitions(private val db: BytecodeDatabase)
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the class_member type is not really used
     lazy val direct_class_members: Relation[class_member[AnyRef]] =
         Π {
-            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringClassType, new MethodInfoAdapter ()(m)))
-        }(db.methodDeclarations) ∪
+            ((m: MethodDeclaration) => new class_member[AnyRef](m.declaringClassType, new MethodInfoAdapter (m)))
+        }(db.methodDeclarations) ⊎
             Π {
                 ((f: FieldDeclaration) =>
                     new class_member[AnyRef](f.declaringClass, new FieldInfoAdapter (f)))
             }(db.fieldDeclarations) ⊎
-            Π ((inner: inner_class) =>
-                new class_member[AnyRef](inner.source, new ClassTypeAdapter ()(inner
-                    .target)))(db.inner_classes)
+            Π {(inner: InnerClass) =>
+                new class_member[AnyRef](inner.outerType, new ClassTypeAdapter (inner
+                    .classType))
+            }(db.innerClasses)
 
 
     lazy val transitive_class_members: Relation[(AnyRef, AnyRef)] =
@@ -254,7 +255,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                 case _ => false
             }
             )(target)
-        ) ∪
+        ) ⊎
             Π {
                 (tuple: (AnyRef, AnyRef)) => SourceElement[AnyRef](tuple._2)
             }(
@@ -269,7 +270,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
 
     case class UnissionInfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
     {
-        def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: Relation[OtherDomain]): Relation[CommonSuperClass] = left ∪ otherRelation
+        def or[CommonSuperClass >: Domain <: AnyRef, OtherDomain <: CommonSuperClass](otherRelation: Relation[OtherDomain]): Relation[CommonSuperClass] = left ⊎ otherRelation
 
         def without(otherRelation: Relation[Domain]): Relation[Domain] = left ∖ otherRelation
 
