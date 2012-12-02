@@ -33,6 +33,7 @@
 package sae.bytecode.structure
 
 import de.tud.cs.st.bat._
+import resolved.ObjectType
 
 /**
  * Created with IntelliJ IDEA.
@@ -74,4 +75,21 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
     def isStrict = ACC_STRICT ∈ accessFlags
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+}
+
+object MethodDeclaration
+{
+
+    def apply(declaringType: ObjectType,
+              name: String,
+              returnType: de.tud.cs.st.bat.resolved.Type,
+              parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType]): MethodDeclaration =
+        new MethodDeclaration (
+            new ClassDeclaration (0, 0, 0, declaringType, None, Seq ()),
+            0,
+            name,
+            returnType,
+            parameterTypes
+        )
+
 }

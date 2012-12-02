@@ -1,12 +1,12 @@
 package unisson.query.compiler
 
 import org.scalatest.matchers.ShouldMatchers
-import sae.bytecode.{BytecodeDatabase}
 import org.junit.Test
 import unisson.query.code_model.SourceElement
-import de.tud.cs.st.bat.resolved.{ArrayType, ByteType, VoidType, ObjectType}
-import sae.bytecode.model.{FieldDeclaration, MethodDeclaration}
+import de.tud.cs.st.bat.resolved.{VoidType, ArrayType, ObjectType, ByteType}
 import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.FieldDeclaration
 
 /**
  *
@@ -16,29 +16,30 @@ import sae.bytecode.bat.BATDatabaseFactory
  *
  */
 class TestQueryDefinitions
-        extends ShouldMatchers
+    extends ShouldMatchers
 {
 
-    import sae.collections.Conversions._
     import SourceElement.ordering
 
 
     @Test
     def testClassQuery() {
-        val bc = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.`class`("test", "A")
+        val result = sae.relationToResult (
+            queries.`class` ("test", "A")
+        )
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        bc.typeDeclarations.element_added(a)
-        bc.typeDeclarations.element_added(b)
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
 
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(a)
+        result.asList.sorted should be (
+            List (
+                SourceElement (a)
             )
         )
 
@@ -47,41 +48,37 @@ class TestQueryDefinitions
 
     @Test
     def testFieldQuery() {
-        val bc = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.field(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("java.lang.String")
+        val result = sae.relationToResult (
+            queries.field (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("java.lang.String")
+            )
         )
 
-        val a = ObjectType("test/A")
-        bc.typeDeclarations.element_added(a)
+        val a = ObjectType ("test/A")
+        bc.typeDeclarations.element_added (a)
 
-        val f1 = FieldDeclaration(
+        val f1 = FieldDeclaration (
             a,
             "hello",
-            ObjectType("java/lang/String"),
-            0,
-            false,
-            false
+            ObjectType ("java/lang/String")
         )
-        val f2 = FieldDeclaration(
+        val f2 = FieldDeclaration (
             a,
             "hello",
-            ObjectType("java/lang/Object"),
-            0,
-            false,
-            false
+            ObjectType ("java/lang/Object")
         )
 
-        bc.fieldDeclarations.element_added(f1)
-        bc.fieldDeclarations.element_added(f2)
+        bc.fieldDeclarations.element_added (f1)
+        bc.fieldDeclarations.element_added (f2)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(f1)
+        result.asList.sorted should be (
+            List (
+                SourceElement (f1)
             )
         )
     }
@@ -89,58 +86,50 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQuery() {
-        val bc = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("void"),
-            queries.`class`("test", "B"),
-            queries.`class`("test", "C")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("void"),
+                queries.`class` ("test", "B"),
+                queries.`class` ("test", "C")
+            )
         )
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        val c = ObjectType ("test/C")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
+        bc.typeDeclarations.element_added (c)
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        val c = ObjectType("test/C")
-        bc.typeDeclarations.element_added(a)
-        bc.typeDeclarations.element_added(b)
-        bc.typeDeclarations.element_added(c)
-
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(b, c),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (b, c)
         )
-        val hello2 = new MethodDeclaration(
+        val hello2 = MethodDeclaration (
             a,
             "hello",
-            Seq(c, b),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (c, b)
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq ()
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello2)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello2)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello1)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello1)
             )
         )
 
@@ -149,207 +138,181 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithReturnTypeSubquery() {
-        val bc = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.`package`("test")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.`package` ("test")
+            )
         )
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        val c = ObjectType("other/C")
-        bc.typeDeclarations.element_added(a)
-        bc.typeDeclarations.element_added(b)
-        bc.typeDeclarations.element_added(c)
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        val c = ObjectType ("other/C")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
+        bc.typeDeclarations.element_added (c)
 
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(),
             a,
-            0,
-            false,
-            false
+            Seq ()
         )
-        val hello2 = new MethodDeclaration(
+        val hello2 = MethodDeclaration (
             a,
             "hello",
-            Seq(),
             b,
-            0,
-            false,
-            false
+            Seq ()
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(),
             c,
-            0,
-            false,
-            false
+            Seq ()
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello2)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello2)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello1),
-                SourceElement(hello2)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello1),
+                SourceElement (hello2)
             )
         )
     }
 
     @Test
     def testMethodQueryWithPrimitiveArrayParams() {
-        val bc: Database = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("void"),
-            queries.typeQuery("byte[]")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("void"),
+                queries.typeQuery ("byte[]")
+            )
         )
 
-        val a = ObjectType("test/A")
-        bc.typeDeclarations.element_added(a)
+        val a = ObjectType ("test/A")
+        bc.typeDeclarations.element_added (a)
 
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(ByteType()),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ByteType)
         )
-        val hello2 = new MethodDeclaration(
+        val hello2 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(1, ByteType())),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (1, ByteType))
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(2, ByteType())),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (2, ByteType))
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello2)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello2)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello2)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello2)
             )
         )
     }
 
     @Test
     def testMethodQueryWithPrimitiveMultiDimArrayParams() {
-        val bc: Database = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("void"),
-            queries.typeQuery("byte[][][]")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("void"),
+                queries.typeQuery ("byte[][][]")
+            )
         )
 
-        val a = ObjectType("test/A")
-        bc.typeDeclarations.element_added(a)
+        val a = ObjectType ("test/A")
+        bc.typeDeclarations.element_added (a)
 
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(1, ByteType())),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (1, ByteType))
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(3, ByteType())),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (3, ByteType))
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello3)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello3)
             )
         )
     }
 
     @Test
     def testMethodQueryWithObjectTypeParam() {
-        val bc: Database = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("void"),
-            queries.typeQuery("test.B")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("void"),
+                queries.typeQuery ("test.B")
+            )
         )
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        bc.typeDeclarations.element_added(a)
-
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(b),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (b)
         )
-        val hello2 = new MethodDeclaration(
+        val hello2 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(1, b)),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (1, b))
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(2, b)),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (2, b))
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello2)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello2)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello1)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello1)
             )
         )
     }
@@ -357,54 +320,47 @@ class TestQueryDefinitions
 
     @Test
     def testMethodQueryWithObjectTypeArrayParams() {
-        val bc: Database = BATDatabaseFactory.create()
-        val queries = new QueryDefinitions(bc)
+        val bc = BATDatabaseFactory.create ()
+        val queries = new QueryDefinitions (bc)
 
-        val result: QueryResult[SourceElement[AnyRef]] = queries.method(
-            queries.`class`("test", "A"),
-            "hello",
-            queries.typeQuery("void"),
-            queries.typeQuery("test.B[]")
+        val result = sae.relationToResult (
+            queries.method (
+                queries.`class` ("test", "A"),
+                "hello",
+                queries.typeQuery ("void"),
+                queries.typeQuery ("test.B[]")
+            )
         )
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        bc.typeDeclarations.element_added(a)
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
 
-        val hello1 = new MethodDeclaration(
+        val hello1 = MethodDeclaration (
             a,
             "hello",
-            Seq(b),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (b)
         )
-        val hello2 = new MethodDeclaration(
+        val hello2 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(1, b)),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (1, b))
         )
-        val hello3 = new MethodDeclaration(
+        val hello3 = MethodDeclaration (
             a,
             "hello",
-            Seq(ArrayType(2, b)),
-            VoidType(),
-            0,
-            false,
-            false
+            VoidType,
+            Seq (ArrayType (2, b))
         )
-        bc.methodDeclarations.element_added(hello1)
-        bc.methodDeclarations.element_added(hello2)
-        bc.methodDeclarations.element_added(hello3)
+        bc.methodDeclarations.element_added (hello1)
+        bc.methodDeclarations.element_added (hello2)
+        bc.methodDeclarations.element_added (hello3)
 
-        result.asList.sorted should be(
-            List(
-                SourceElement(hello2)
+        result.asList.sorted should be (
+            List (
+                SourceElement (hello2)
             )
         )
     }

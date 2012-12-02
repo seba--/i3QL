@@ -1,7 +1,6 @@
 package unisson.query.compiler
 
 import org.junit.Test
-import sae.bytecode.model.dependencies.`extends`
 import unisson.query.code_model.SourceElement
 import de.tud.cs.st.bat.resolved.ObjectType
 import unisson.query.parser.QueryParser
@@ -9,6 +8,8 @@ import org.scalatest.matchers.ShouldMatchers
 import junit.framework.Assert._
 import sae.Observer
 import unisson.query.ast.{PackageQuery, OrQuery}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.InheritanceRelation
 
 /**
  *
@@ -22,7 +23,6 @@ class TestCachingQueryCompiler
 {
 
 
-    import sae.collections.Conversions._
     import sae.ObserverAccessor._
 
     @Test
@@ -69,8 +69,9 @@ class TestCachingQueryCompiler
 
         compiler.compile (parser.parse ("package('test')").get)
 
-        val resultB: QueryResult[SourceElement[AnyRef]] = compiler
-            .compile (parser.parse ("package('test') or package('other')").get)
+        val resultB = sae.relationToResult (
+            compiler.compile (parser.parse ("package('test') or package('other')").get)
+        )
 
         compiler.dispose (parser.parse ("package('test')").get)
 
@@ -93,9 +94,9 @@ class TestCachingQueryCompiler
         val compiler = new CachingQueryCompiler (baseCompiler)
 
 
-        val result: QueryResult[SourceElement[AnyRef]] = compiler
-            .compile (parser.parse ("package('test') or package('other')").get)
-
+        val result = sae.relationToResult (
+            compiler.compile (parser.parse ("package('test') or package('other')").get)
+        )
         compiler.dispose (parser.parse ("package('test') or package('other')").get)
 
         val testA = ObjectType ("test/A")
@@ -194,7 +195,7 @@ class TestCachingQueryCompiler
 
     @Test
     def testDisposeOrQuery() {
-        val bc: Database = BATDatabaseFactory.create ()
+        val bc = BATDatabaseFactory.create ()
         val parser = new QueryParser ()
         val baseCompiler = new BaseQueryCompiler (bc)
         val compiler = new CachingQueryCompiler (baseCompiler)
@@ -239,10 +240,11 @@ class TestCachingQueryCompiler
 
         val viewExtendsObject =
             compiler.compile (parser.parse ("transitive(supertype(class('java.lang','Object')))").get)
-        val extendsObject: QueryResult[SourceElement[AnyRef]] = viewExtendsObject
+        val extendsObject = sae.relationToResult (viewExtendsObject)
 
-        val extendsA: QueryResult[SourceElement[AnyRef]] =
+        val extendsA = sae.relationToResult (
             compiler.compile (parser.parse ("transitive(supertype(class('test','A')))").get)
+        )
 
         val obj = ObjectType ("java/lang/Object")
         val a = ObjectType ("test/A")
@@ -251,16 +253,16 @@ class TestCachingQueryCompiler
         val d = ObjectType ("test/D")
         bc.typeDeclarations.element_added (obj)
         bc.typeDeclarations.element_added (a)
-        bc.`extends`.element_added (`extends` (a, obj))
+        bc.classInheritance.element_added (InheritanceRelation (a, obj))
         bc.typeDeclarations.element_added (b)
-        bc.`extends`.element_added (`extends` (b, obj))
-        bc.`extends`.element_added (`extends` (b, a))
+        bc.classInheritance.element_added (InheritanceRelation (b, obj))
+        bc.classInheritance.element_added (InheritanceRelation (b, a))
         bc.typeDeclarations.element_added (c)
-        bc.`extends`.element_added (`extends` (c, obj))
-        bc.`extends`.element_added (`extends` (c, a))
+        bc.classInheritance.element_added (InheritanceRelation (c, obj))
+        bc.classInheritance.element_added (InheritanceRelation (c, a))
         bc.typeDeclarations.element_added (d)
-        bc.`extends`.element_added (`extends` (d, obj))
-        bc.`extends`.element_added (`extends` (d, b))
+        bc.classInheritance.element_added (InheritanceRelation (d, obj))
+        bc.classInheritance.element_added (InheritanceRelation (d, b))
 
         extendsObject.asList.sorted should be (
             List (
@@ -289,8 +291,8 @@ class TestCachingQueryCompiler
 
         val e = ObjectType ("test/E")
         bc.typeDeclarations.element_added (e)
-        bc.`extends`.element_added (`extends` (e, obj))
-        bc.`extends`.element_added (`extends` (e, d))
+        bc.classInheritance.element_added (InheritanceRelation (e, obj))
+        bc.classInheritance.element_added (InheritanceRelation (e, d))
 
         extendsA.asList.sorted should be (
             List (
