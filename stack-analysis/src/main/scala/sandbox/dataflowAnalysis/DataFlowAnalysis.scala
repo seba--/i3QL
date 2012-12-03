@@ -17,28 +17,32 @@ import sandbox.stackAnalysis.CodeInfoTools
 // rename to control flow analysis
 abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[CodeInfo], graph: AnalysisCFG, transformers: ResultTransformer[T])(implicit m: Manifest[T]) {
 
+  /**
+   * Set to true, if the results should be printed during the dataflow analysis.
+   */
+  var printResults = false
+
   private case class JoinEntry(methodDeclaration: MethodDeclaration, cfg: Array[List[Int]], transformers: Array[T => T]) {
 
   }
 
   private val res1: Relation[JoinEntry] =
-    compile(SELECT((g: MethodCFG, t: MethodTransformer[T]) => JoinEntry(g.methodDeclaration, g.predecessorArray, t.generators)) FROM(graph.result, transformers.result) WHERE (((_: MethodCFG).methodDeclaration) === ((_: MethodTransformer[T]).declaringMethod)))
+    compile(SELECT((g: MethodCFG, t: MethodTransformer[T]) => JoinEntry(g.declaringMethod, g.predecessorArray, t.generators)) FROM(graph.result, transformers.result) WHERE (((_: MethodCFG).declaringMethod) === ((_: MethodTransformer[T]).declaringMethod)))
 
   val result: Relation[MethodResult[T]] =
     compile(SELECT((ci: CodeInfo, je: JoinEntry) => MethodResult[T](ci.declaringMethod, computeResult(ci, je.cfg, je.transformers))) FROM(codeInfo, res1) WHERE (((_: CodeInfo).declaringMethod) === ((_: JoinEntry).methodDeclaration)))
 
+
   def startValue(ci: CodeInfo): T
 
-  def emptyValue(ci: CodeInfo): T
 
   private def computeResult(ci: CodeInfo, cfg: Array[List[Int]], transformers: Array[T => T]): Array[T] = {
+
     //The start value of the analysis.
     val sv = startValue(ci)
-    //The empty value of the analysis
-    val ev = emptyValue(ci)
 
     //Initialize the result array with the empty value.
-    val results: Array[T] = Array.fill[T](cfg.length)(ev)
+    val results: Array[T] = Array.ofDim[T](cfg.length)
     //Indicator for the fixed point.
     var resultsChanged = true
 
@@ -59,7 +63,7 @@ abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[Code
 
         //If the instruction has no predecessors, the result will be the start value (sv)
         //TODO: Null check should be obosolete when exceptions are implemented
-        if (preds != null && preds.length != 0) {
+        if (results(pc) != null && preds.length != 0) {
           //Result = transform the results at the entry labels with their transformer then combine them for a new result.
           result = transformers(preds.head)(results(preds.head))
           for (i <- 1 until preds.length) {
@@ -71,6 +75,7 @@ abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[Code
         if (!result.equals(results(pc))) {
           resultsChanged = true
         }
+
         //Set the new result in the result array.
         results(pc) = result
         //Set the next program counter.
@@ -86,14 +91,17 @@ abstract case class DataFlowAnalysis[T <: Combinable[T]](codeInfo: Relation[Code
 
     }
     //Print out results.
+    if (printResults) {
+      println(ci.declaringMethod)
+      println(cfg.mkString("CFG: ",", ","" ))
+      for (i <- 0 until results.length) {
+        if (ci.code.instructions(i) != null) {
+          println("\t" + results(i))
+          println(i + "\t" + ci.code.instructions(i))
 
-
-    for (i <- 0 until results.length) {
-      if (ci.code.instructions(i) != null) {
-        println("\t" + results(i))
-        println(i + "\t" + ci.code.instructions(i).mnemonic)
-
+        }
       }
+      println()
     }
     //  println()
     return results

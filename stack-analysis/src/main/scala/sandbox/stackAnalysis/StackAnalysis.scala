@@ -3,8 +3,8 @@ package sandbox.stackAnalysis
 import sandbox.dataflowAnalysis.{ResultTransformer, AnalysisCFG, DataFlowAnalysis}
 import sae.bytecode.structure.CodeInfo
 import sae.Relation
-import Types._
-import de.tud.cs.st.bat.resolved._
+import de.tud.cs.st.bat.resolved.ObjectType
+import sandbox.stackAnalysis.TypeOption.NoneType
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,27 +13,25 @@ import de.tud.cs.st.bat.resolved._
  * Time: 23:57
  * To change this template use File | Settings | File Templates.
  */
-case class StackAnalysis(c: Relation[CodeInfo], g: AnalysisCFG, t: ResultTransformer[StackResult]) extends DataFlowAnalysis[StackResult](c, g, t) {
+case class StackAnalysis(c: Relation[CodeInfo], g: AnalysisCFG, t: ResultTransformer[Configuration]) extends DataFlowAnalysis[Configuration](c, g, t) {
 
-  override def startValue(ci: CodeInfo): StackResult = {
-    var stacks = Stacks[Type, Int](ci.code.maxStack, Nil, Nil, Nil :: Nil)
+  override def startValue(ci: CodeInfo): Configuration = {
+    var stacks = Stacks(ci.code.maxStack, Nil).addStack()
 
     var lvs = if (ci.declaringMethod.isStatic)
-      new LocalVars[Type, Int](ci.code.maxLocals, None, None :: Nil)
+      LocVariables(Array.fill[LocVariable](ci.code.maxLocals)(LocVariable(NoneType :: Nil)))
     else
-      new LocalVars[Type, Int](ci.code.maxLocals, None, None :: Nil).setVar(0, 1, ObjectType.Class, -1)
+      LocVariables(Array.fill[LocVariable](ci.code.maxLocals)(LocVariable(NoneType :: Nil))).setVar(0, ObjectType.Class, -1)
 
     var i: Int = if (ci.declaringMethod.isStatic) -1 else 0
 
     for (t <- ci.declaringMethod.parameterTypes) {
       i = i + 1
-      lvs = lvs.setVar(i, t.computationalType.operandSize, t, -1)
+      lvs = lvs.setVar(i, t, -1)
     }
 
-    Result[Type, Int](stacks, lvs)
+    Configuration(stacks, lvs)
   }
 
-  override def emptyValue(ci: CodeInfo): StackResult =
-    Result[Type, Int](Stacks[Type, Int](ci.code.maxStack, Nil, Nil, Nil), new LocalVars(ci.code.maxLocals, None, Nil))
 
 }

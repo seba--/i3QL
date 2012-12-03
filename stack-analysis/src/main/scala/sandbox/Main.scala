@@ -1,5 +1,6 @@
 package sandbox
 
+import findbugs.StackBugAnalysis
 import stackAnalysis._
 import sae.bytecode.bat.BATDatabaseFactory
 import java.io.FileInputStream
@@ -36,6 +37,11 @@ object Main {
     val cfg = new CodeInfoCFG(infos)
     val funs = new CodeInfoTransformer(infos)
     val analysis = new StackAnalysis(infos, cfg, funs)
+    analysis.printResults = true
+
+    val stackBugAnalysis = new StackBugAnalysis(infos,analysis)
+    stackBugAnalysis.printResults = true
+
 
     //  def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
     //  database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))

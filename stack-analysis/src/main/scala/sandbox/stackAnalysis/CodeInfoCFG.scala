@@ -20,9 +20,10 @@ import sandbox.dataflowAnalysis.{MethodCFG, AnalysisCFG}
 //TODO: Instructions: jsr, athrow
 class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
+
   /*Overrides the trait function*/
   val result: Relation[MethodCFG] = compile(SELECT((c: CodeInfo) => {
-  //  println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
+    //  println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
     MethodCFG(c.declaringMethod, computePredecessors(c, c.code.instructions))
   }) FROM codeInfo)
 
@@ -34,8 +35,8 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
    */
   private def computePredecessors(ci: CodeInfo, a: Array[Instruction]): Array[List[Int]] = {
 
-    val res = Array.fill[List[Int]](a.length)(null)
-    res(0) = Nil
+    val res = Array.ofDim[List[Int]](a.length)
+
 
     var currentPC = 0
     var nextPC = 0
@@ -44,10 +45,10 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
 
       //TODO: change when bugs fixed
-      nextPC = a(currentPC).indexOfNextInstruction(currentPC,ci.code)
+      nextPC = a(currentPC).indexOfNextInstruction(currentPC, ci.code)
 
       if (nextPC < a.length && a(nextPC) == null) {
-           nextPC = CodeInfoTools.getNextPC(a,currentPC)
+        nextPC = CodeInfoTools.getNextPC(a, currentPC)
       }
       //TODO: until here
 
@@ -57,25 +58,31 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
           addToArray(res, currentPC + a(currentPC).asInstanceOf[ConditionalBranchInstruction].branchoffset, currentPC)
         } else if (a(currentPC).isInstanceOf[UnconditionalBranchInstruction]) {
           addToArray(res, currentPC + a(currentPC).asInstanceOf[UnconditionalBranchInstruction].branchoffset, currentPC)
-        } else if (a(currentPC).isInstanceOf[LOOKUPSWITCH]) {//TODO LOOKUPSWITCH?
+        } else if (a(currentPC).isInstanceOf[LOOKUPSWITCH]) {
           val instr = a(currentPC).asInstanceOf[LOOKUPSWITCH]
-          for(p <- instr.npairs) {
-            addToArray(res,p._2,currentPC)
+          for (p <- instr.npairs) {
+            addToArray(res, p._2, currentPC)
           }
-        } else if (a(currentPC).isInstanceOf[TABLESWITCH]) {//TODO TABLESWITCH?
-        val instr = a(currentPC).asInstanceOf[TABLESWITCH]
-          for(p <- instr.jumpOffsets) {
-            addToArray(res,p,currentPC)
+        } else if (a(currentPC).isInstanceOf[TABLESWITCH]) {
+          val instr = a(currentPC).asInstanceOf[TABLESWITCH]
+          for (p <- instr.jumpOffsets) {
+            addToArray(res, p, currentPC)
           }
+        } else if (a(currentPC).isInstanceOf[ReturnInstruction]) {
+           //There is no control flow from a return instruction.
+        } else if (a(currentPC).isInstanceOf[JSR]) {
+          addToArray(res, currentPC + a(currentPC).asInstanceOf[JSR].branchoffset, currentPC)
+
+        } else if (a(currentPC).isInstanceOf[JSR_W]) {
+          addToArray(res, currentPC + a(currentPC).asInstanceOf[JSR_W].branchoffset, currentPC)
         } else {
           addToArray(res, nextPC, currentPC)
         }
       }
-
+      if (res(currentPC) == null) res(currentPC)  = Nil
       currentPC = nextPC
     }
 
-  //  println(res.mkString("CFGRes: ", ", ", ""))
     return res
 
   }

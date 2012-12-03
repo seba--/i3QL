@@ -11,13 +11,13 @@ import sae.bytecode.structure.MethodDeclaration
  */
 class BugLogger {
 
-  private var logList: List[(MethodDeclaration, Int, BugType.Value)] = Nil
+  private var logList: List[(Int, BugType.Value)] = Nil
 
-  def log(m: MethodDeclaration, pc: Int, bug: BugType.Value) = {
-    logList = (m, pc, bug) :: logList
+  def log(pc: Int, bug: BugType.Value) = {
+    logList = (pc, bug) :: logList
   }
 
-  def getLog(): List[(MethodDeclaration, Int, BugType.Value)] = {
+  def getLog(): List[(Int, BugType.Value)] = {
     logList
   }
 }
