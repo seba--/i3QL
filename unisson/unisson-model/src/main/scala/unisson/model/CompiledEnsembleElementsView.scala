@@ -7,6 +7,7 @@ import sae.{Relation, Observer}
 import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import unisson.query.UnissonQuery
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  *
@@ -48,7 +49,7 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
 
 
     private def addCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
-        view.foreach() (
+        view.foreach (
             (e: SourceElement[AnyRef]) => element_added ((v, e))
         )
         val oo = new CompiledViewObserver (v)
@@ -86,6 +87,14 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
             removed (oldV)
             added (newV)
         }
+
+        def updated[U <: (IEnsemble, UnissonQuery)](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: (IEnsemble, UnissonQuery)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     })
 
 
@@ -106,6 +115,14 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
 
         def added(v: SourceElement[AnyRef]) {
             element_added ((ensemble, v))
+        }
+
+        def updated[U <: SourceElement[AnyRef]](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: SourceElement[AnyRef]](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

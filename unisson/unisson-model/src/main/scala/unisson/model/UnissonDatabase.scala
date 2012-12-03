@@ -2,25 +2,22 @@ package unisson.model
 
 import constraints.{NormalizedConstraint, ConstraintType}
 import kinds.{KindResolver, DependencyKind, KindParser}
-import kinds.primitive._
 import unisson.query.code_model.SourceElement
 import sae.collections.Table
 import sae.{Observer, Relation}
 import de.tud.cs.st.vespucci.interfaces.{IConstraint, IEnsemble, ICodeElement}
-import de.tud.cs.st.bat.resolved.{ObjectType, ArrayType}
-import sae.bytecode.model.dependencies.parameter
-import sae.bytecode.model.dependencies.return_type
-import sae.bytecode.model.dependencies.read_field
-import sae.bytecode.model.dependencies.write_field
-import sae.bytecode.model.dependencies.field_type
+import de.tud.cs.st.bat.resolved.ObjectType
 import unisson.query.UnissonQuery
 import unisson.query.parser.QueryParser
 import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
-import sae.bytecode.model.{MethodDeclaration, FieldDeclaration}
 import sae.functions.Count
 import sae.bytecode.BytecodeDatabase
 import scala.collection.JavaConversions._
-import sae.bytecode.structure.InheritanceRelation
+import sae.syntax.sql._
+import DependencyFactory._
+import sae.bytecode.structure._
+import sae.deltas.{Update, Deletion, Addition}
+
 
 /**
  *
@@ -262,85 +259,45 @@ class UnissonDatabase(val bc: BytecodeDatabase)
         )(dependencyView.asInstanceOf[Relation[Dependency[S, T]]])
     }
 
-
     /**
      * A list of dependencies between the source code elements
      */
     def source_code_dependencies = internal_source_code_dependencies
 
-    def extendsDependency : InheritanceRelation => (ICodeElement, ICodeElement, String) = {
-
-    }
-
-    import sae.syntax.sql._
 
     lazy val internal_source_code_dependencies =
-        SELECT  (extendsDependency) FROM bc.classInheritance UNION_ALL(
-            SELECT  (extendsDependency) FROM bc.classInheritance
-        ) UNION_ALL
-
-        dependencyView_to_tupleView (bc.classInheritance, ExtendsKind) ⊎
-        dependencyView_to_tupleView (bc.interfaceInheritance, ImplementsKind) ⊎
-        dependencyView_to_tupleView (bc.invokeInterface, InvokeInterfaceKind) ⊎
-        dependencyView_to_tupleView (bc.invokeSpecial, InvokeSpecialKind) ⊎
-        dependencyView_to_tupleView (bc.invokeStatic, InvokeStaticKind) ⊎
-        dependencyView_to_tupleView (bc.invokeVirtual, InvokeVirtualKind) ⊎
-        dependencyView_to_tupleView (bc.newObject, CreateKind) ⊎
-        dependencyView_to_tupleView (bc.checkCast, ClassCastKind) ⊎
-        dependencyView_to_tupleView (bc.thrown_exceptions, ThrowsKind) ⊎
-        dependencyView_to_tupleView (// parameter
-            σ (
-                (v: parameter) => !(v.target.isBaseType)
-            )(
-                Π[parameter, parameter] {
-                    case (parameter (m, ArrayType (component))) => parameter (m, component)
-                    case x => x
-                }(bc.parameter)
-            ),
-            ParameterKind) ⊎
-        dependencyView_to_tupleView (// return types
-            σ (
-                (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
-            )(
-                Π[return_type, return_type] {
-                    case (return_type (m, ArrayType (component))) => return_type (m, component)
-                    case x => x
-                }(bc.return_type)
-            ),
-            ReturnTypeKind) ⊎
-        dependencyView_to_tupleView (// field types
-            σ (
-                (v: field_type) => !(v.target.isBaseType)
-            )(
-                Π[field_type, field_type] {
-                    case (field_type (m, ArrayType (component))) => field_type (m, component)
-                    case x => x
-                }(bc.field_type)
-            ),
-            FieldTypeKind) ⊎
-        dependencyView_to_tupleView (// read_field instructions
-            σ (
-                (v: read_field) => !(v.target.fieldType.isBaseType)
-            )(
-                // TODO what about arrays with component types of not allowed elements?
-                bc.read_field
-            ),
-            ReadFieldKind) ⊎
-        dependencyView_to_tupleView (// write_field instructions
-            σ (
-                // TODO what about arrays with component types of not allowed elements?
-                (v: write_field) => !v.target.fieldType.isBaseType
-            )(
-                bc.write_field
-            ),
-            WriteFieldKind)
-    /*
-                // TODO instance of checks
-                Π {
-                    (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
-                }(bc.inner_classes.asInstanceOf[Relation[Dependency[AnyRef, AnyRef]]]) ⊎
-    */
-
+        SELECT (extendsDependency) FROM bc.classInheritance UNION_ALL (
+            SELECT (implementsDependency) FROM bc.interfaceInheritance
+            ) UNION_ALL (
+            SELECT (invokeInterfaceDependency) FROM bc.invokeInterface
+            ) UNION_ALL (
+            SELECT (invokeSpecialDependency) FROM bc.invokeSpecial
+            ) UNION_ALL (
+            SELECT (invokeVirtualDependency) FROM bc.invokeVirtual
+            ) UNION_ALL (
+            SELECT (invokeStaticDependency) FROM bc.invokeStatic
+            ) UNION_ALL (
+            SELECT (readFieldDependency) FROM bc.readField
+            ) UNION_ALL (
+            SELECT (writeFieldDependency) FROM bc.writeField
+            ) UNION_ALL (
+            SELECT (newObjectDependency) FROM bc.newObject
+            ) UNION_ALL (
+            SELECT (checkCastDependency) FROM bc.checkCast
+            ) UNION_ALL (
+            SELECT (exceptionDeclarationDependency) FROM bc.exceptionDeclarations
+            ) UNION_ALL (
+            SELECT (fieldDeclarationDependency) FROM bc.fieldDeclarations
+            ) UNION_ALL (
+            SELECT (parameterTypeDependency) FROM (
+                bc.methodDeclarations,
+                ((_: MethodDeclaration).parameterTypes.filterNot (_.isBaseType) IN bc.methodDeclarations)
+                )
+            ) UNION_ALL (
+            SELECT (returnTypeDependency) FROM (bc.methodDeclarations) WHERE
+                (!_.returnType.isBaseType) AND
+                (!_.returnType.isVoidType)
+            )
 
     private def parseQueryKinds(constraint: IConstraint): Set[DependencyKind] = {
         kindParser.parse (constraint.getDependencyKind) match {
@@ -411,6 +368,13 @@ class UnissonDatabase(val bc: BytecodeDatabase)
                 normalizedConstraints.foreach (element_added)
             }
 
+            def updated[U <: (IConstraint, String)](update: Update[U]) {
+                throw new UnsupportedOperationException
+            }
+
+            def modified[U <: (IConstraint, String)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+                throw new UnsupportedOperationException
+            }
         })
 
         def foreach[T](f: ((NormalizedConstraint)) => T) {
@@ -421,6 +385,13 @@ class UnissonDatabase(val bc: BytecodeDatabase)
 
         def lazyInitialize() {
         }
+
+        def isSet = true
+
+        /**
+         * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+         */
+        def isStored = false
     }
 
 

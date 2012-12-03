@@ -30,76 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode
+package unisson.model
 
-import instructions._
-import instructions.CHECKCAST
-import instructions.GETFIELD
-import instructions.GETSTATIC
-import instructions.INVOKEINTERFACE
-import instructions.INVOKESPECIAL
-import instructions.INVOKESTATIC
-import instructions.INVOKEVIRTUAL
-import instructions.NEW
-import instructions.PUTFIELD
-import instructions.PUTSTATIC
-import sae.Relation
-import structure._
-import de.tud.cs.st.bat.resolved.ObjectType
-import structure.CodeAttribute
-import structure.InheritanceRelation
-import structure.InnerClass
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import kinds.DependencyKind
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 07.08.12
- * Time: 11:20
+ * @author Ralf Mitschke
  *
  */
-trait BytecodeDerivedRelations
+
+case class Dependency(source: ICodeElement, target: ICodeElement, kind: DependencyKind)
 {
-    def typeDeclarations: Relation[ObjectType]
 
-    def innerClasses: Relation[InnerClass]
-
-    def classInheritance: Relation[InheritanceRelation]
-
-    def interfaceInheritance: Relation[InheritanceRelation]
-
-    def inheritance: Relation[InheritanceRelation]
-
-    def subTypes: Relation[InheritanceRelation]
-
-    def constructors: Relation[MethodDeclaration]
-
-    def exceptionDeclarations : Relation[ExceptionDeclaration]
-
-    def instructions: Relation[InstructionInfo]
-
-    def codeAttributes: Relation[CodeAttribute]
-
-    def invokeStatic: Relation[INVOKESTATIC]
-
-    def invokeVirtual: Relation[INVOKEVIRTUAL]
-
-    def invokeInterface: Relation[INVOKEINTERFACE]
-
-    def invokeSpecial: Relation[INVOKESPECIAL]
-
-    def newObject: Relation[NEW]
-
-    def checkCast: Relation[CHECKCAST]
-
-    def readField: Relation[FieldReadInstruction]
-
-    def getStatic: Relation[GETSTATIC]
-
-    def getField: Relation[GETFIELD]
-
-    def writeField: Relation[FieldWriteInstruction]
-
-    def putStatic: Relation[PUTSTATIC]
-
-    def putField: Relation[PUTFIELD]
 }
+
+

@@ -60,6 +60,7 @@ import sae.bytecode.structure.InheritanceRelation
 import sae.bytecode.structure.CodeInfo
 import sae.bytecode.structure.CodeAttribute
 import sae.bytecode.structure.InnerClass
+import sae.bytecode.structure.ExceptionDeclaration
 import sae.bytecode.structure.internal.UnresolvedInnerClassEntry
 import sae.bytecode.structure.internal.UnresolvedEnclosingMethod
 
@@ -87,6 +88,12 @@ class BATBytecodeDatabase
 
     val unresolvedEnclosingMethods = new SetExtent[UnresolvedEnclosingMethod]
 
+    lazy val exceptionDeclarations =
+        compile (
+            SELECT ((ci: CodeInfo, e: ObjectType) => ExceptionDeclaration (ci.declaringMethod, e)) FROM
+                (code, ((_: CodeInfo).exceptionTable) IN code)
+        ).forceToSet
+
 
     lazy val typeDeclarations = compile (
         SELECT (sae.bytecode.classType) FROM classDeclarations
@@ -107,7 +114,6 @@ class BATBytecodeDatabase
                     (e => e.innerClassType.className.length () > e.declaringType.className.length ())
                 )
         )
-
 
 
     lazy val classDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.ClassDeclaration] =
@@ -193,7 +199,6 @@ class BATBytecodeDatabase
 
     lazy val constructorsMinimal =
         compile (SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
-
 
     lazy val invokeStatic: Relation[INVOKESTATIC] =
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])

@@ -1,6 +1,6 @@
 package sae.bytecode.structure
 
-import de.tud.cs.st.bat.resolved.Code
+import de.tud.cs.st.bat.resolved.{ObjectType, Code}
 /**
  * 
  * Author: Ralf Mitschke
@@ -8,6 +8,6 @@ import de.tud.cs.st.bat.resolved.Code
  * Time: 14:23
  *
  */
-case class CodeInfo(declaringMethod : MethodDeclaration, code : Code) {
+case class CodeInfo(declaringMethod : MethodDeclaration, code : Code, exceptionTable: Seq[ObjectType]) {
 
 }

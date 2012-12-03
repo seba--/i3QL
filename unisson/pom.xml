@@ -22,10 +22,6 @@
         <module>unisson-vespucci-interface</module>
         <module>unisson-query-code_model</module>
         <module>unisson-query-compiler</module>
-        <!--
-
         <module>unisson-model</module>
-
-        -->
     </modules>
 </project>

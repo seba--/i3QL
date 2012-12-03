@@ -35,9 +35,8 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.bat.resolved.{ExceptionTable, ObjectType, Code}
 import sae.bytecode.structure._
-import de.tud.cs.st.bat.resolved.Code
 import sae.deltas.Addition
 
 
@@ -134,10 +133,21 @@ trait SAEClassFileTransactionAdder
 
         attributes.foreach (_ match {
             case code: Code => {
-                transaction.codeAdditions = transaction.codeAdditions + Addition (CodeInfo (methodDeclaration, code), 1)
+
             }
             case _ => /* do nothing*/
         })
+        transaction.codeAdditions = transaction.codeAdditions + Addition (
+            CodeInfo (methodDeclaration,
+                attributes.collectFirst {
+                    case code: Code => code
+                }.getOrElse (return methodDeclaration),
+                attributes.collectFirst {
+                    case ex: ExceptionTable => ex
+                }.getOrElse (ExceptionTable (Nil)).exceptions
+            )
+            , 1)
+
         methodDeclaration
     }
 

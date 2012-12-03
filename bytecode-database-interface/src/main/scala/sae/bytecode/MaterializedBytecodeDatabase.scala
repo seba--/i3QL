@@ -3,7 +3,7 @@ package sae.bytecode
 import instructions._
 import java.io.InputStream
 import sae.collections.SetResult
-import sae.Relation
+import sae.{SetExtent, Relation}
 import structure.CodeAttribute
 import structure.CodeInfo
 import structure.ClassDeclaration
@@ -13,6 +13,7 @@ import structure.InnerClass
 import structure.internal.UnresolvedEnclosingMethod
 import structure.internal.UnresolvedInnerClassEntry
 import structure.MethodDeclaration
+import structure.ExceptionDeclaration
 import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
@@ -37,6 +38,8 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val unresolvedInnerClasses = new SetResult[UnresolvedInnerClassEntry](database.unresolvedInnerClasses)
 
     lazy val unresolvedEnclosingMethods = new SetResult[UnresolvedEnclosingMethod](database.unresolvedEnclosingMethods)
+
+    lazy val exceptionDeclarations = new SetResult[ExceptionDeclaration](database.exceptionDeclarations)
 
     lazy val innerClasses = new SetResult[InnerClass](database.innerClasses)
 
@@ -152,5 +155,4 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def removeArchiveAsClassFileTransactions(stream: InputStream) {
         database.removeArchiveAsClassFileTransactions (stream)
     }
-
 }

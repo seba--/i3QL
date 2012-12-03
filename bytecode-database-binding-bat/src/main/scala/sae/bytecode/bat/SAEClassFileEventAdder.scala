@@ -35,9 +35,14 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.{EnclosingMethod, InnerClassTable, ObjectType, Code}
+import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure._
 import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
+import sae.bytecode.structure.CodeInfo
+import scala.Some
+import de.tud.cs.st.bat.resolved.Code
+import de.tud.cs.st.bat.resolved.InnerClassTable
+import de.tud.cs.st.bat.resolved.EnclosingMethod
 
 
 /**
@@ -129,14 +134,16 @@ trait SAEClassFileEventAdder
         )
         database.methodDeclarations.element_added (methodDeclaration)
 
-        attributes.foreach (_ match {
-            case code: Code => {
-                database.code.element_added (
-                    CodeInfo (methodDeclaration, code)
-                )
-            }
-            case _ => /* do nothing*/
-        })
+        database.code.element_added (
+            CodeInfo (methodDeclaration,
+                attributes.collectFirst {
+                    case code: Code => code
+                }.getOrElse(return methodDeclaration),
+                attributes.collectFirst {
+                    case ex: ExceptionTable => ex
+                }.getOrElse(ExceptionTable(Nil)).exceptions
+            )
+        )
         methodDeclaration
     }
 
