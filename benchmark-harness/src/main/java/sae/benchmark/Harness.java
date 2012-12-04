@@ -24,6 +24,8 @@ public class Harness {
 
     private static final String SAE_Rel_MEMORY_PROFILER = "sae.bytecode.analyses.profiler.SAEAnalysesRelMemoryProfiler";
 
+    private static final String SAE_OO_REPLAY_TIME_PROFILER = "sae.bytecode.analyses.profiler.SAEAnalysesOOReplayTimeProfiler";
+
 
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         String cmd = createCommandLine();
@@ -40,6 +42,7 @@ public class Harness {
         System.out.println("Harness started");
         System.out.println("re read jars = " + reReadJars);
         System.out.println("reading profiles from: " + definitionsDir);
+        System.out.println(System.getProperty("user.dir"));
 
         String[] benchmarks = getBenchmarkCommands(definitionsDir);
 
@@ -80,6 +83,9 @@ public class Harness {
             }
             if (benchmarkType.equals("BAT")) {
                 commands.add(BAT_TIME_PROFILER + " " + benchmark);
+            }
+            if (benchmarkType.equals("SAEOOReplay")) {
+                commands.add(SAE_OO_REPLAY_TIME_PROFILER + " " + benchmark);
             }
         }
 
