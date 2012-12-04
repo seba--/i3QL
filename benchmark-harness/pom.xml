@@ -36,7 +36,7 @@
                                 <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/replay/oo/vespucci"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                             </arguments>
                         </configuration>
