@@ -40,9 +40,10 @@ public class Harness {
         }
 
         System.out.println("Harness started");
+        System.out.println("Current directory = " +System.getProperty("user.dir"));
         System.out.println("re read jars = " + reReadJars);
         System.out.println("reading profiles from: " + definitionsDir);
-        System.out.println(System.getProperty("user.dir"));
+
 
         String[] benchmarks = getBenchmarkCommands(definitionsDir);
 

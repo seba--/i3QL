@@ -37,7 +37,7 @@
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
                                 <argument>"sae/benchmark/definitions/sae/replay/oo/vespucci"</argument>
-                                <argument>false</argument>
+                                <argument>true</argument>
                             </arguments>
                         </configuration>
                     </execution>
