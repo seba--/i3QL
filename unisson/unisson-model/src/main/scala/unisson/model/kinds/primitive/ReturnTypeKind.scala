@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ReturnTypeKind
         extends DependencyKind
 {
-    val designator = "return_type"
+    def designator = "return_type"
 }

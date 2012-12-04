@@ -562,7 +562,7 @@ object Compiler
     private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
                                                                                                relationB: Relation[DomainB]) =
     {
-        relationA ∪ relationB
+        relationA ⊎ relationB
     }
 
     private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],

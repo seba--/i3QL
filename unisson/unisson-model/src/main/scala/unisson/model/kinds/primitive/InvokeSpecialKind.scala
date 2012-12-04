@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object InvokeSpecialKind
         extends DependencyKind
 {
-    val designator = "invoke_special"
+    def designator = "invoke_special"
 }

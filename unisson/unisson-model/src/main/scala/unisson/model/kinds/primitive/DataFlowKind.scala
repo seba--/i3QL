@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object DataFlowKind
         extends DependencyKind
 {
-    val designator = "dataflow"
+    def designator = "dataflow"
 }

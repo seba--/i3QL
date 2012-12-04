@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ImplementsKind
         extends DependencyKind
 {
-    val designator = "implements"
+    def designator = "implements"
 }

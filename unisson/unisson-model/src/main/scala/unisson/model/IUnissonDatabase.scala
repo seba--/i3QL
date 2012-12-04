@@ -1,10 +1,8 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import sae.{MaterializedView, Relation}
-import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
+import de.tud.cs.st.vespucci.interfaces._
+import sae.{MaterializedRelation, Relation}
 import sae.syntax.RelationalAlgebraSyntax._
-import sae.operators.Conversions
 import sae.functions.Count
 
 /**
@@ -85,43 +83,44 @@ trait IUnissonDatabase
      * Convenience function for list of ensembles
      */
     def addEnsembles(ensembles: Iterable[IEnsemble]) {
-        ensembles.foreach(addEnsemble)
+        ensembles.foreach (addEnsemble)
     }
 
     /**
      * Convenience function for list of ensembles
      */
     def addEnsemblesToSlice(ensembles: Iterable[IEnsemble])(implicit slice: String = defaultSlice) {
-        ensembles.foreach(addEnsembleToSlice)
+        ensembles.foreach (addEnsembleToSlice)
     }
 
     /**
      * Convenience function for list of constraints
      */
     def addConstraintsToSlice(constraints: Iterable[IConstraint])(implicit slice: String = defaultSlice) {
-        constraints.foreach(addConstraintToSlice)
+        constraints.foreach (addConstraintToSlice)
     }
 
     /**
      * Convenience function for list of ensembles
      */
     def removeEnsembles(ensembles: Iterable[IEnsemble]) {
-        ensembles.foreach(removeEnsemble)
+        ensembles.foreach (removeEnsemble)
     }
 
     /**
      * Convenience function for list of ensembles
      */
     def removeEnsemblesFromSlice(ensembles: Iterable[IEnsemble])(implicit slice: String = defaultSlice) {
-        ensembles.foreach(removeEnsembleFromSlice)
+        ensembles.foreach (removeEnsembleFromSlice)
     }
 
     /**
      * Convenience function for list of constraints
      */
     def removeConstraintsFromSlice(constraints: Iterable[IConstraint])
-                                    (implicit slice: String = defaultSlice) {
-        constraints.foreach(removeConstraintFromSlice)
+                                  (implicit slice: String = defaultSlice)
+    {
+        constraints.foreach (removeConstraintFromSlice)
     }
 
 
@@ -149,7 +148,7 @@ trait IUnissonDatabase
     /**
      * A list naming all slices
      */
-    val slices: Relation[String] = δ(Π {
+    val slices: Relation[String] = δ (Π {
         (_: (IEnsemble, String))._2
     }(slice_ensembles))
 
@@ -167,8 +166,9 @@ trait IUnissonDatabase
     /**
      * A list of all descendants of an ensemble in the form (ancestor,descendant)
      */
-    val descendants: Relation[(IEnsemble, IEnsemble)] = {
-        TC(children)(_._1, _._2)
+    val descendants: Relation[(IEnsemble, IEnsemble)] =
+    {
+        TC (children)(_._1, _._2)
     }
 
 
@@ -176,52 +176,52 @@ trait IUnissonDatabase
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      * Each entry can be included multiple times, since two ensembles can have multiple dependencies to the same element
      */
-    val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] = {
-        val indexed_ensemble_element = Conversions.lazyViewToIndexedView(ensemble_elements)
-
-        val indexed_source_code_dependencies = Conversions.lazyViewToIndexedView(source_code_dependencies)
+    val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
+    {
 
         val sourceEnsembleDependencies = (
+            (
+                ensemble_elements,
+                (_: (IEnsemble, ICodeElement))._2
+                ) ⋈
                 (
-                        indexed_ensemble_element,
-                        (_: (IEnsemble, ICodeElement))._2
-                        ) ⋈
-                        (
-                                (_: (ICodeElement, ICodeElement, String))._1,
-                                indexed_source_code_dependencies
-                                )
-                ) {
+                    (_: (ICodeElement, ICodeElement, String))._1,
+                    source_code_dependencies
+                    )
+            )
+        {
             (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
                 (source, dependency)
         }
         val targetEnsembleDependencies = (
+            (
+                ensemble_elements,
+                (_: (IEnsemble, ICodeElement))._2
+                ) ⋈
                 (
-                        indexed_ensemble_element,
-                        (_: (IEnsemble, ICodeElement))._2
-                        ) ⋈
-                        (
-                                (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
-                                sourceEnsembleDependencies
-                                )
-                ) {
+                    (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
+                    sourceEnsembleDependencies
+                    )
+            )
+        {
             (target: (IEnsemble, ICodeElement),
              sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
                 (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
         }
-        val filteredSelfRef = σ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+        val filteredSelfRef = σ ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
             (dependency._1 != dependency._2)
         )(targetEnsembleDependencies)
 
 
-        val descendantsAndAncestors = descendants ∪ Π((_: (IEnsemble, IEnsemble)).swap)(descendants)
+        val descendantsAndAncestors = descendants ⊎ Π ((_: (IEnsemble, IEnsemble)).swap)(descendants)
 
         (
-                filteredSelfRef,
-                (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry._2)
-                ) ⊳(
-                identity[(IEnsemble, IEnsemble)],
-                descendantsAndAncestors
-                )
+            filteredSelfRef,
+            (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry._2)
+            ) ⊳ (
+            identity[(IEnsemble, IEnsemble)],
+            descendantsAndAncestors
+            )
     }
 
 
@@ -240,21 +240,24 @@ trait IUnissonDatabase
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    val violations: Relation[IViolation] = {
+    val violations: Relation[IViolation] =
+    {
         val disallowed_dependency_violations = (
-                (
-                        ensemble_dependencies,
-                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry
-                                ._2, entry._5)
-                        ) ⋈(
-                        (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry
-                                ._2, entry._3),
-                        notAllowedEnsembleDependencies
-                        )
-                ) {
+            (
+                ensemble_dependencies,
+                (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry
+                    ._2, entry._5)
+                ) ⋈ (
+                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry
+                    ._2, entry._3),
+                notAllowedEnsembleDependencies
+                )
+            )
+        {
             (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String),
-             disallowed: (IEnsemble, IEnsemble, String, IConstraint, String)) => {
-                new Violation(
+             disallowed: (IEnsemble, IEnsemble, String, IConstraint, String)) =>
+            {
+                new Violation (
                     disallowed._4,
                     dependency._1,
                     dependency._2,
@@ -267,9 +270,9 @@ trait IUnissonDatabase
         }
 
         val unfullfilled_dependency_expectations =
-            Π(
+            Π (
                 (expected: (IEnsemble, IEnsemble, String, IConstraint, String)) => {
-                    new Violation(
+                    new Violation (
                         expected._4,
                         expected._1,
                         expected._2,
@@ -281,39 +284,39 @@ trait IUnissonDatabase
                 }
             )(
                 (
-                        expectedEnsembleDependencies,
-                        (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) =>
-                            (entry._1, entry._2, entry._3)
-                        ) ⊳(
-                        (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
-                            (entry._1, entry._2, entry._5),
-                        ensemble_dependencies
-                        )
+                    expectedEnsembleDependencies,
+                    (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) =>
+                        (entry._1, entry._2, entry._3)
+                    ) ⊳ (
+                    (entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+                        (entry._1, entry._2, entry._5),
+                    ensemble_dependencies
+                    )
             )
 
-        disallowed_dependency_violations ∪ unfullfilled_dependency_expectations
+        disallowed_dependency_violations ⊎ unfullfilled_dependency_expectations
     }
 
     /**
      * A list of violations summing up individual source code dependencies
      */
     lazy val violation_summary: Relation[IViolationSummary] =
-        γ(violations,
+        γ (violations,
             (v: IViolation) => (v.getDiagramFile, v.getSourceEnsemble, v.getTargetEnsemble, v.getConstraint),
             Count[IViolation](),
             (elem: (String, IEnsemble, IEnsemble, IConstraint), count: Int) =>
-                ViolationSummary(elem._4, elem._2, elem._3, elem._1, count)
+                ViolationSummary (elem._4, elem._2, elem._3, elem._1, count)
         )
 
 
     def unmodeled_elements: Relation[ICodeElement]
 
-    @deprecated("use ensemble_dependency_count")
-    def ensembleDependencies: MaterializedView[(IEnsemble, IEnsemble, Int)] =
+    @deprecated ("use ensemble_dependency_count")
+    def ensembleDependencies: Relation[(IEnsemble, IEnsemble, Int)] =
         ensemble_dependency_count
 
 
-    def ensemble_dependency_count: MaterializedView[(IEnsemble, IEnsemble, Int)]
+    def ensemble_dependency_count: Relation[(IEnsemble, IEnsemble, Int)]
 
     /**
      * A list of errors that occurred during database updates

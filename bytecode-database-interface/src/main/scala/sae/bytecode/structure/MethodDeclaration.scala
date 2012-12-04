@@ -33,6 +33,7 @@
 package sae.bytecode.structure
 
 import de.tud.cs.st.bat._
+import resolved.ObjectType
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,14 +42,16 @@ import de.tud.cs.st.bat._
  * Time: 13:08
  */
 
-case class MethodDeclaration(declaringClass: ClassDeclaration,
-                             accessFlags: Int,
-                             name: String,
-                             returnType: de.tud.cs.st.bat.resolved.Type,
-                             parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
+class MethodDeclaration(val declaringClass: ClassDeclaration,
+                        val accessFlags: Int,
+                        val name: String,
+                        val returnType: de.tud.cs.st.bat.resolved.Type,
+                        val parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
     extends DeclaredClassMember
     with MethodInfo
 {
+    def receiverType = declaringClassType
+
     def isPublic = ACC_PUBLIC ∈ accessFlags
 
     def isProtected = ACC_PROTECTED ∈ accessFlags
@@ -72,4 +75,21 @@ case class MethodDeclaration(declaringClass: ClassDeclaration,
     def isStrict = ACC_STRICT ∈ accessFlags
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+}
+
+object MethodDeclaration
+{
+
+    def apply(declaringType: ObjectType,
+              name: String,
+              returnType: de.tud.cs.st.bat.resolved.Type,
+              parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType]): MethodDeclaration =
+        new MethodDeclaration (
+            new ClassDeclaration (0, 0, 0, declaringType, None, Seq ()),
+            0,
+            name,
+            returnType,
+            parameterTypes
+        )
+
 }

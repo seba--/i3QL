@@ -35,9 +35,9 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.bat.resolved.{EnclosingMethod, InnerClassTable, ObjectType, Code}
 import sae.bytecode.structure._
-import de.tud.cs.st.bat.resolved.Code
+import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
 
 
 /**
@@ -48,9 +48,9 @@ import de.tud.cs.st.bat.resolved.Code
  */
 
 trait SAEClassFileEventAdder
-        extends ClassFileReader
-        with ConstantPoolBinding
-        with AttributeBinding
+    extends ClassFileReader
+    with ConstantPoolBinding
+    with AttributeBinding
 {
     def database: BATBytecodeDatabase
 
@@ -71,25 +71,27 @@ trait SAEClassFileEventAdder
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
     protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)
-                            (implicit cp: Constant_Pool): Class_Info = {
+                            (implicit cp: Constant_Pool): Class_Info =
+    {
         val accessFlags = in.readUnsignedShort
         val thisClass = in.readUnsignedShort.asObjectType
         val super_class = in.readUnsignedShort
-        val classInfo = ClassDeclaration(
+        val classInfo = ClassDeclaration (
             minor_version, major_version,
             accessFlags,
             thisClass,
             // to handle the special case that this class file represents java.lang.Object
-            if (super_class == 0) None else Some(super_class.asObjectType),
-            Interfaces(thisClass, in, cp)
+            if (super_class == 0) None else Some (super_class.asObjectType),
+            Interfaces (thisClass, in, cp)
         )
-        database.classDeclarations.element_added(classInfo)
+        database.classDeclarations.element_added (classInfo)
         classInfo
     }
 
 
     def Interface(declaringClass: ObjectType, interface_index: Constant_Pool_Index)
-                 (implicit cp: Constant_Pool): Interface = {
+                 (implicit cp: Constant_Pool): Interface =
+    {
         interface_index.asObjectType
     }
 
@@ -99,13 +101,14 @@ trait SAEClassFileEventAdder
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
-            implicit cp: Constant_Pool): Field_Info = {
-        val fieldDeclaration = new FieldDeclaration(
+        implicit cp: Constant_Pool): Field_Info =
+    {
+        val fieldDeclaration = new FieldDeclaration (
             declaringClass,
             access_flags,
             name_index.asString,
             descriptor_index.asFieldType)
-        database.fieldDeclarations.element_added(fieldDeclaration)
+        database.fieldDeclarations.element_added (fieldDeclaration)
         fieldDeclaration
     }
 
@@ -114,21 +117,22 @@ trait SAEClassFileEventAdder
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
-            implicit cp: Constant_Pool): Method_Info = {
+        implicit cp: Constant_Pool): Method_Info =
+    {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration(
+        val methodDeclaration = new MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
             descriptor.parameterTypes
         )
-        database.methodDeclarations.element_added(methodDeclaration)
+        database.methodDeclarations.element_added (methodDeclaration)
 
-        attributes.foreach(_ match {
+        attributes.foreach (_ match {
             case code: Code => {
-                database.code.element_added(
-                    CodeInfo(methodDeclaration, code)
+                database.code.element_added (
+                    CodeInfo (methodDeclaration, code)
                 )
             }
             case _ => /* do nothing*/
@@ -140,7 +144,44 @@ trait SAEClassFileEventAdder
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
-            implicit cp: Constant_Pool): ClassFile = {
+        implicit cp: Constant_Pool): ClassFile =
+    {
+
+        attributes.foreach {
+            case ica: InnerClassTable => ica.innerClasses.foreach (
+                ic => database.unresolvedInnerClasses.element_added (
+                    new UnresolvedInnerClassEntry (
+                        classInfo.classType,
+                        ic.innerClassType,
+                        ic.outerClassType,
+                        ic.innerName,
+                        ic.innerClassAccessFlags
+                    )
+                )
+            )
+            case ema: EnclosingMethod => database.unresolvedEnclosingMethods.element_added (
+                new UnresolvedEnclosingMethod (
+                    classInfo.classType,
+                    if (ema.name != null)
+                        Some (ema.name)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some (ema.descriptor.parameterTypes)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some (ema.descriptor.returnType)
+                    else
+                        None
+                    ,
+                    ema.clazz
+                )
+            )
+            case _ => // do nothing
+        }
         classInfo
     }
 

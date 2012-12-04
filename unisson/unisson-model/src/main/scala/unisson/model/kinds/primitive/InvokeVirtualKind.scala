@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object InvokeVirtualKind
         extends DependencyKind
 {
-    val designator = "invoke_virtual"
+    def designator = "invoke_virtual"
 }

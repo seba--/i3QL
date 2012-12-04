@@ -51,6 +51,8 @@ case class MethodDeclaration(declaringType: ObjectType,
     extends DeclaredClassMember
     with MethodInfo
 {
+    def receiverType = declaringType
+
     def isPublic = ACC_PUBLIC ∈ accessFlags
 
     def isProtected = ACC_PROTECTED ∈ accessFlags

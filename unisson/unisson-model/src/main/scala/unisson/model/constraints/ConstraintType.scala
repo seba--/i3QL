@@ -1,6 +1,6 @@
 package unisson.model.constraints
 
-import de.tud.cs.st.vespucci.model._
+import de.tud.cs.st.vespucci.interfaces._
 
 /**
  *

@@ -25,7 +25,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testGlobalModelQueryChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -52,14 +52,14 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
-        bc.declared_types.element_added(e)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(e)
 
         Assert.assertEquals(
             List(
@@ -109,7 +109,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testGlobalModelEnsembleChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -135,13 +135,13 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
         result.asList.sorted should be(
             List(
@@ -194,7 +194,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testModelConstraintChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -218,11 +218,11 @@ class TestUnissonDatabaseUpdates
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
 
         Assert.assertEquals(
@@ -291,7 +291,7 @@ class TestUnissonDatabaseUpdates
 
     @Test
     def testModelEnsembleChange() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(new MaterializedDatabase(bc))
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -316,13 +316,13 @@ class TestUnissonDatabaseUpdates
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(a)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(

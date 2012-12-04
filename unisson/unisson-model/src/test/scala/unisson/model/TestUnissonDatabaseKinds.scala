@@ -28,7 +28,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testNotAllowedAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -58,18 +58,18 @@ class TestUnissonDatabaseKinds
 
         val field = FieldDeclaration(a, "myB", b)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
         bc.`extends`.element_added(`extends`(a, obj))
 
 
-        bc.declared_methods.element_added(initA)
+        bc.methodDeclarations.element_added(initA)
         bc.instructions.element_added(invokespecial(initA, 1, superConst))
         bc.instructions.element_added(push(initA, 3, null, obj))
         bc.instructions.element_added(putfield(initA, 4, FieldReference(a, "myB", b)))
 
-        bc.declared_fields.element_added(field)
+        bc.fieldDeclarations.element_added(field)
 
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(b)
 
         result.asList.sorted should be(
             List(
@@ -89,7 +89,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -117,14 +117,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -144,7 +144,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -172,16 +172,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -212,7 +212,7 @@ class TestUnissonDatabaseKinds
     @Ignore
     @Test
     def testLocalIncomingMultipleDifferentKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -242,16 +242,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -282,7 +282,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -308,14 +308,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -335,7 +335,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -363,16 +363,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -402,7 +402,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -428,12 +428,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -454,7 +454,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -480,12 +480,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -506,7 +506,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -532,12 +532,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(

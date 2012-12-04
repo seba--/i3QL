@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.bat.Type
+import de.tud.cs.st.bat.resolved.Type
 
 /**
  *

@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ClassCastKind
         extends DependencyKind
 {
-    val designator = "class_cast"
+    def designator = "class_cast"
 }

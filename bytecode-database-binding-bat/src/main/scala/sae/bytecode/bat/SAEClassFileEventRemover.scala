@@ -35,10 +35,9 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.bat.resolved.{EnclosingMethod, InnerClassTable, ObjectType, Code}
 import sae.bytecode.structure._
-import de.tud.cs.st.bat.resolved.Code
-
+import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
 
 
 /**
@@ -121,7 +120,7 @@ trait SAEClassFileEventRemover
         implicit cp: Constant_Pool): Method_Info =
     {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration (
+        val methodDeclaration = new MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,
@@ -147,6 +146,42 @@ trait SAEClassFileEventRemover
                   attributes: Attributes)(
         implicit cp: Constant_Pool): ClassFile =
     {
+        attributes.foreach {
+            case ica: InnerClassTable => ica.innerClasses.foreach (
+                ic => database.unresolvedInnerClasses.element_removed (
+                    new UnresolvedInnerClassEntry (
+                        classInfo.classType,
+                        ic.innerClassType,
+                        ic.outerClassType,
+                        ic.innerName,
+                        ic.innerClassAccessFlags
+                    )
+                )
+            )
+            case ema: EnclosingMethod => database.unresolvedEnclosingMethods.element_removed (
+                new UnresolvedEnclosingMethod (
+                    classInfo.classType,
+                    if (ema.name != null)
+                        Some (ema.name)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some (ema.descriptor.parameterTypes)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some (ema.descriptor.returnType)
+                    else
+                        None
+                    ,
+                    ema.clazz
+                )
+            )
+            case _ => // do nothing
+        }
+
         classInfo
     }
 

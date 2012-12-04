@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ReadFieldKind
         extends DependencyKind
 {
-    val designator = "read_field"
+    def designator = "read_field"
 }

@@ -41,9 +41,27 @@ import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax
-import sae.bytecode.structure.{ClassDeclaration, MethodDeclaration, CodeInfo, FieldDeclaration, InheritanceRelation, CodeAttribute}
 import de.tud.cs.st.bat.reader.ClassFileReader
 import sae.operators.impl.ProjectionSetRetainingView
+import sae.bytecode.instructions.INVOKESPECIAL
+import sae.bytecode.instructions.GETSTATIC
+import sae.bytecode.instructions.INVOKESTATIC
+import sae.bytecode.instructions.INVOKEINTERFACE
+import sae.bytecode.instructions.INVOKEVIRTUAL
+import sae.bytecode.instructions.PUTSTATIC
+import sae.bytecode.instructions.GETFIELD
+import sae.bytecode.instructions.NEW
+import sae.bytecode.instructions.CHECKCAST
+import sae.bytecode.instructions.PUTFIELD
+import sae.bytecode.structure.ClassDeclaration
+import sae.bytecode.structure.MethodDeclaration
+import sae.bytecode.structure.FieldDeclaration
+import sae.bytecode.structure.InheritanceRelation
+import sae.bytecode.structure.CodeInfo
+import sae.bytecode.structure.CodeAttribute
+import sae.bytecode.structure.InnerClass
+import sae.bytecode.structure.internal.UnresolvedInnerClassEntry
+import sae.bytecode.structure.internal.UnresolvedEnclosingMethod
 
 /**
  * Created with IntelliJ IDEA.
@@ -64,6 +82,33 @@ class BATBytecodeDatabase
     val fieldDeclarations = new SetExtent[FieldDeclaration]
 
     val code = new SetExtent[CodeInfo]
+
+    val unresolvedInnerClasses = new SetExtent[UnresolvedInnerClassEntry]
+
+    val unresolvedEnclosingMethods = new SetExtent[UnresolvedEnclosingMethod]
+
+
+    lazy val typeDeclarations = compile (
+        SELECT (sae.bytecode.classType) FROM classDeclarations
+    )
+
+    /*
+     * Deduces inner classes only by looking at the inner classes attribute.
+     * Taking enclosing methods into account is not feasible for older jars.
+     */
+    lazy val innerClasses =
+        compile (
+            // select guaranteed inner classes
+            SELECT (new InnerClass (_: UnresolvedInnerClassEntry)) FROM
+                unresolvedInnerClasses WHERE (_.outerClassType.isDefined) UNION_ALL (
+                SELECT (new InnerClass (_: UnresolvedInnerClassEntry)) FROM
+                    // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
+                    unresolvedInnerClasses WHERE (!_.outerClassType.isDefined) AND
+                    (e => e.innerClassType.className.length () > e.declaringType.className.length ())
+                )
+        )
+
+
 
     lazy val classDeclarationsMinimal: Relation[sae.bytecode.structure.minimal.ClassDeclaration] =
         compile (SELECT ((c: ClassDeclaration) => sae.bytecode.structure.minimal.ClassDeclaration (c.minorVersion, c.majorVersion, c.accessFlags, c.classType)) FROM classDeclarations).forceToSet
@@ -181,6 +226,14 @@ class BATBytecodeDatabase
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
 
 
+    lazy val newObject = compile (
+        SELECT ((_: InstructionInfo).asInstanceOf[NEW]) FROM (instructions) WHERE (_.isInstanceOf[NEW])
+    )
+
+    lazy val checkCast = compile (
+        SELECT ((_: InstructionInfo).asInstanceOf[CHECKCAST]) FROM (instructions) WHERE (_.isInstanceOf[CHECKCAST])
+    )
+
     lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
         SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESTATIC]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESTATIC])
 
@@ -227,6 +280,12 @@ class BATBytecodeDatabase
     def removeClassFile(stream: InputStream) {
         currentRemovalReader.ClassFile (() => stream)
     }
+
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+        removeClassFile (oldStream)
+        addClassFile (newStream)
+    }
+
 
     def addArchive(stream: InputStream) {
         val zipStream: ZipInputStream = new ZipInputStream (stream)

@@ -3,7 +3,7 @@ package unisson.query.compiler
 import sae.Relation
 import unisson.query.code_model.SourceElement
 import unisson.query.UnissonQuery
-import sae.bytecode.Database
+import sae.bytecode.BytecodeDatabase
 
 /**
  *
@@ -14,7 +14,7 @@ import sae.bytecode.Database
 trait QueryCompiler
 {
 
-    def db: Database
+    def db: BytecodeDatabase
 
 
     def definitions: QueryDefinitions

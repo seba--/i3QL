@@ -1,10 +1,10 @@
 package unisson.model
 
 import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
-import de.tud.cs.st.vespucci.model.IEnsemble
+import de.tud.cs.st.vespucci.interfaces.IEnsemble
 import unisson.query.code_model.SourceElement
 import sae.{Relation, Observer}
-import sae.bytecode.Database
+import sae.bytecode.BytecodeDatabase
 import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import unisson.query.UnissonQuery
 
@@ -15,32 +15,31 @@ import unisson.query.UnissonQuery
  * Time: 12:58
  *
  */
-class CompiledEnsembleElementsView(bc: Database,
+class CompiledEnsembleElementsView(bc: BytecodeDatabase,
                                    ensembleQueries: Relation[(IEnsemble, UnissonQuery)])
-        extends Relation[(IEnsemble, ICodeElement)]
+    extends Relation[(IEnsemble, ICodeElement)]
 {
 
-    private val queryCompiler = new CachingQueryCompiler(new BaseQueryCompiler(bc))
+    private val queryCompiler = new CachingQueryCompiler (new BaseQueryCompiler (bc))
 
     private var elementObservers: Map[IEnsemble, CompiledViewObserver] = Map.empty
 
     def lazyInitialize() {
         // compile existing ensemble queries and add observers that will announce new elements
-        ensembleQueries.lazy_foreach(
+        ensembleQueries.foreach (
             (entry: (IEnsemble, UnissonQuery)) => {
-                val compiledQuery = queryCompiler.compile(entry._2)
-                addCompiledQueryView(entry._1, compiledQuery)
+                val compiledQuery = queryCompiler.compile (entry._2)
+                addCompiledQueryView (entry._1, compiledQuery)
             }
         )
-        initialized = true
     }
 
     def lazy_foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
-        ensembleQueries.lazy_foreach(
+        ensembleQueries.foreach (
             (entry: (IEnsemble, UnissonQuery)) => {
-                val queryElements = queryCompiler.compile(entry._2)
-                queryElements.lazy_foreach[Unit](
-                    (e: ICodeElement) => f((entry._1, e))
+                val queryElements = queryCompiler.compile (entry._2)
+                queryElements.foreach[Unit](
+                    (e: ICodeElement) => f ((entry._1, e))
                 )
             }
 
@@ -49,43 +48,43 @@ class CompiledEnsembleElementsView(bc: Database,
 
 
     private def addCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
-        view.lazy_foreach(
-            (e: SourceElement[AnyRef]) => element_added((v, e))
+        view.foreach() (
+            (e: SourceElement[AnyRef]) => element_added ((v, e))
         )
-        val oo = new CompiledViewObserver(v)
-        view.addObserver(oo)
+        val oo = new CompiledViewObserver (v)
+        view.addObserver (oo)
         elementObservers += {
             v -> oo
         }
     }
 
     private def removeCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
-        view.lazy_foreach(
-            (e: SourceElement[AnyRef]) => element_removed((v, e))
+        view.foreach (
+            (e: SourceElement[AnyRef]) => element_removed ((v, e))
         )
         // dispose of obsolete observers
-        view.removeObserver(elementObservers(v))
+        view.removeObserver (elementObservers (v))
         elementObservers -= v
     }
 
 
     // add an observer that will be alerted to changes in queries
-    ensembleQueries.addObserver(new Observer[(IEnsemble, UnissonQuery)] {
+    ensembleQueries.addObserver (new Observer[(IEnsemble, UnissonQuery)] {
         def added(v: (IEnsemble, UnissonQuery)) {
-            val compiledQuery = queryCompiler.compile(v._2)
-            addCompiledQueryView(v._1, compiledQuery)
+            val compiledQuery = queryCompiler.compile (v._2)
+            addCompiledQueryView (v._1, compiledQuery)
         }
 
         def removed(v: (IEnsemble, UnissonQuery)) {
-            val compiledQuery = queryCompiler.compile(v._2)
-            removeCompiledQueryView(v._1, compiledQuery)
+            val compiledQuery = queryCompiler.compile (v._2)
+            removeCompiledQueryView (v._1, compiledQuery)
             // dispose of obsolete views
-            queryCompiler.dispose(v._2)
+            queryCompiler.dispose (v._2)
         }
 
         def updated(oldV: (IEnsemble, UnissonQuery), newV: (IEnsemble, UnissonQuery)) {
-            removed(oldV)
-            added(newV)
+            removed (oldV)
+            added (newV)
         }
     })
 
@@ -98,15 +97,15 @@ class CompiledEnsembleElementsView(bc: Database,
     private class CompiledViewObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
     {
         def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
-            element_updated((ensemble, oldV), (ensemble, newV))
+            element_updated ((ensemble, oldV), (ensemble, newV))
         }
 
         def removed(v: SourceElement[AnyRef]) {
-            element_removed((ensemble, v))
+            element_removed ((ensemble, v))
         }
 
         def added(v: SourceElement[AnyRef]) {
-            element_added((ensemble, v))
+            element_added ((ensemble, v))
         }
     }
 

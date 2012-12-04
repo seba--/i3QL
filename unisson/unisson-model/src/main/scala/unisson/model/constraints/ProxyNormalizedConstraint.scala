@@ -1,7 +1,7 @@
 package unisson.model.constraints
 
 import unisson.model.kinds.DependencyKind
-import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint}
 
 /**
  *

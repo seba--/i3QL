@@ -29,7 +29,7 @@ class TestUnissonDatabaseHibernate_1_2_3
     @Test
     @Ignore
     def testViolationsActionsToExceptions() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")
@@ -221,7 +221,7 @@ class TestUnissonDatabaseHibernate_1_2_3
     @Test
     @Ignore
     def testActionsToExceptionsDependencies() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")

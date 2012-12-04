@@ -123,7 +123,7 @@ trait SAEClassFileTransactionAdder
         implicit cp: Constant_Pool): Method_Info =
     {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = MethodDeclaration (
+        val methodDeclaration = new MethodDeclaration (
             declaringClass,
             accessFlags,
             name_index.asString,

@@ -1,6 +1,6 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.model.IEnsemble
+import de.tud.cs.st.vespucci.interfaces.IEnsemble
 
 /**
  *
@@ -19,10 +19,10 @@ object UnissonUtilities
         import scala.collection.JavaConverters._
         val children: scala.collection.mutable.Set[IEnsemble] = ensemble.getInnerEnsembles.asScala
         children ++ (
-                for (child <- children;
-                     descendant <- descendants(child)
-                ) yield descendant
-                )
+            for (child <- children;
+                 descendant <- descendants (child)
+            ) yield descendant
+            )
     }
 
 

@@ -9,7 +9,11 @@ import structure.CodeInfo
 import structure.ClassDeclaration
 import structure.FieldDeclaration
 import structure.InheritanceRelation
+import structure.InnerClass
+import structure.internal.UnresolvedEnclosingMethod
+import structure.internal.UnresolvedInnerClassEntry
 import structure.MethodDeclaration
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -27,6 +31,14 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     lazy val methodDeclarations = new SetResult[MethodDeclaration](database.methodDeclarations)
 
     lazy val fieldDeclarations = new SetResult[FieldDeclaration](database.fieldDeclarations)
+
+    lazy val typeDeclarations = new SetResult[ObjectType](database.typeDeclarations)
+
+    lazy val unresolvedInnerClasses = new SetResult[UnresolvedInnerClassEntry](database.unresolvedInnerClasses)
+
+    lazy val unresolvedEnclosingMethods = new SetResult[UnresolvedEnclosingMethod](database.unresolvedEnclosingMethods)
+
+    lazy val innerClasses = new SetResult[InnerClass](database.innerClasses)
 
     lazy val classDeclarationsMinimal = new SetResult[structure.minimal.ClassDeclaration](database.classDeclarationsMinimal)
 
@@ -97,6 +109,9 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     lazy val putFieldMinimal = new SetResult[minimal.PUTFIELD](database.putFieldMinimal)
 
+    lazy val newObject = new SetResult[NEW](database.newObject)
+
+    lazy val checkCast = new SetResult[CHECKCAST](database.checkCast)
 
     def addClassFile(stream: InputStream) {
         database.addClassFile (stream)
@@ -104,6 +119,10 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
 
     def removeClassFile(stream: InputStream) {
         database.removeClassFile (stream)
+    }
+
+    def updateClassFile (oldStream: InputStream, newStream: InputStream) {
+        database.updateClassFile (oldStream, newStream)
     }
 
     def addArchive(stream: InputStream) {
@@ -133,4 +152,5 @@ class MaterializedBytecodeDatabase(val database: BytecodeDatabase)
     def removeArchiveAsClassFileTransactions(stream: InputStream) {
         database.removeArchiveAsClassFileTransactions (stream)
     }
+
 }

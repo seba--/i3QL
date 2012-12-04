@@ -27,7 +27,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testInternalNotAllowedViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
@@ -52,9 +52,9 @@ class TestUnissonDatabaseNestingViolations
         val fieldRefA1ToA2 = FieldDeclaration(a1, "myA2", a2)
 
 
-        bc.declared_types.element_added(a1)
-        bc.declared_fields.element_added(fieldRefA1ToA2)
-        bc.declared_types.element_added(a2)
+        bc.typeDeclarations.element_added(a1)
+        bc.fieldDeclarations.element_added(fieldRefA1ToA2)
+        bc.typeDeclarations.element_added(a2)
 
         db.violations.asList.sorted should be(
             List(
@@ -75,7 +75,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalIncomingExemptsAllSourceChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -112,17 +112,17 @@ class TestUnissonDatabaseNestingViolations
         val fieldRefA5ToB = FieldDeclaration(a5, "fieldInA5", b)
 
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(a4)
-        bc.declared_types.element_added(a5)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(a4)
+        bc.typeDeclarations.element_added(a5)
 
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(b)
 
-        bc.declared_fields.element_added(fieldRefA1ToB)
-        bc.declared_fields.element_added(fieldRefA2ToB)
-        bc.declared_fields.element_added(fieldRefA4ToB)
-        bc.declared_fields.element_added(fieldRefA5ToB)
+        bc.fieldDeclarations.element_added(fieldRefA1ToB)
+        bc.fieldDeclarations.element_added(fieldRefA2ToB)
+        bc.fieldDeclarations.element_added(fieldRefA4ToB)
+        bc.fieldDeclarations.element_added(fieldRefA5ToB)
 
         db.ensemble_elements.asList.sorted should be(
             List(
@@ -173,7 +173,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalIncomingViolatesForAllSourceChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -216,20 +216,20 @@ class TestUnissonDatabaseNestingViolations
 
         val fieldRefCToB = FieldDeclaration(c, "fieldInC", b)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(a4)
-        bc.declared_types.element_added(a5)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(a4)
+        bc.typeDeclarations.element_added(a5)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
-        bc.declared_fields.element_added(fieldRefA1ToB)
-        bc.declared_fields.element_added(fieldRefA2ToB)
-        bc.declared_fields.element_added(fieldRefA4ToB)
-        bc.declared_fields.element_added(fieldRefA5ToB)
+        bc.fieldDeclarations.element_added(fieldRefA1ToB)
+        bc.fieldDeclarations.element_added(fieldRefA2ToB)
+        bc.fieldDeclarations.element_added(fieldRefA4ToB)
+        bc.fieldDeclarations.element_added(fieldRefA5ToB)
 
-        bc.declared_fields.element_added(fieldRefCToB)
+        bc.fieldDeclarations.element_added(fieldRefCToB)
 
         db.ensemble_elements.asList.sorted should be(
             List(
@@ -356,7 +356,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalOutgoingExemptsAllTargetChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -393,17 +393,17 @@ class TestUnissonDatabaseNestingViolations
         val fieldRefBToA5 = FieldDeclaration(b, "fieldA5", a5)
 
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(a4)
-        bc.declared_types.element_added(a5)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(a4)
+        bc.typeDeclarations.element_added(a5)
 
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(b)
 
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_fields.element_added(fieldRefBToA4)
-        bc.declared_fields.element_added(fieldRefBToA5)
+        bc.fieldDeclarations.element_added(fieldRefBToA1)
+        bc.fieldDeclarations.element_added(fieldRefBToA2)
+        bc.fieldDeclarations.element_added(fieldRefBToA4)
+        bc.fieldDeclarations.element_added(fieldRefBToA5)
 
         db.ensemble_elements.asList.sorted should be(
             List(
@@ -454,7 +454,7 @@ class TestUnissonDatabaseNestingViolations
 
     @Test
     def testLocalOutgoingViolatesForAllTargetChildren() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
 
@@ -497,21 +497,21 @@ class TestUnissonDatabaseNestingViolations
 
         val fieldRefBToC = FieldDeclaration(b, "fieldC", c)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(a4)
-        bc.declared_types.element_added(a5)
+        bc.typeDeclarations.element_added(a1)
+        bc.typeDeclarations.element_added(a2)
+        bc.typeDeclarations.element_added(a4)
+        bc.typeDeclarations.element_added(a5)
 
-        bc.declared_types.element_added(b)
+        bc.typeDeclarations.element_added(b)
 
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(c)
 
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_fields.element_added(fieldRefBToA4)
-        bc.declared_fields.element_added(fieldRefBToA5)
+        bc.fieldDeclarations.element_added(fieldRefBToA1)
+        bc.fieldDeclarations.element_added(fieldRefBToA2)
+        bc.fieldDeclarations.element_added(fieldRefBToA4)
+        bc.fieldDeclarations.element_added(fieldRefBToA5)
 
-        bc.declared_fields.element_added(fieldRefBToC)
+        bc.fieldDeclarations.element_added(fieldRefBToC)
 
         Assert.assertEquals(
             db.ensemble_elements.asList.sorted,

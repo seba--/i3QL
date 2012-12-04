@@ -1,9 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sae</artifactId>
+        <artifactId>sae-parent</artifactId>
         <groupId>de.tud.cs.st.opal.sae</groupId>
-        <version>0.6.0</version>
+        <version>1.0.0</version>
+        <relativePath>../sae-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,9 +18,14 @@
     <inceptionYear>2011</inceptionYear>
 
     <modules>
-        <module>unisson-query-compiler</module>
         <module>unisson-query-parser</module>
+        <module>unisson-vespucci-interface</module>
         <module>unisson-query-code_model</module>
+        <module>unisson-query-compiler</module>
+        <!--
+
         <module>unisson-model</module>
+
+        -->
     </modules>
 </project>

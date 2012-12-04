@@ -4,13 +4,10 @@ import constraints.{NormalizedConstraint, ConstraintType}
 import kinds.{KindResolver, DependencyKind, KindParser}
 import kinds.primitive._
 import unisson.query.code_model.SourceElement
-import sae.bytecode.Database
 import sae.collections.Table
-import sae.{MaterializedView, Observer, Relation}
-import de.tud.cs.st.vespucci.model.{IConstraint, IEnsemble}
-import de.tud.cs.st.vespucci.interfaces.ICodeElement
-import sae.bytecode.model.dependencies._
-import de.tud.cs.st.bat.{ObjectType, ArrayType}
+import sae.{Observer, Relation}
+import de.tud.cs.st.vespucci.interfaces.{IConstraint, IEnsemble, ICodeElement}
+import de.tud.cs.st.bat.resolved.{ObjectType, ArrayType}
 import sae.bytecode.model.dependencies.parameter
 import sae.bytecode.model.dependencies.return_type
 import sae.bytecode.model.dependencies.read_field
@@ -21,7 +18,9 @@ import unisson.query.parser.QueryParser
 import unisson.query.ast.{OrQuery, DerivedQuery, EmptyQuery}
 import sae.bytecode.model.{MethodDeclaration, FieldDeclaration}
 import sae.functions.Count
-
+import sae.bytecode.BytecodeDatabase
+import scala.collection.JavaConversions._
+import sae.bytecode.structure.InheritanceRelation
 
 /**
  *
@@ -38,24 +37,22 @@ import sae.functions.Count
  * Under no circumstances must the queries be part of the equality.
  *
  */
-class UnissonDatabase(val bc: Database)
-        extends IUnissonDatabase with IUnissonArchitectureModelDatabase
+class UnissonDatabase(val bc: BytecodeDatabase)
+    extends IUnissonDatabase with IUnissonArchitectureModelDatabase
 {
 
     import sae.syntax.RelationalAlgebraSyntax._
 
 
-    import scala.collection.JavaConversions._
-
     /**
      * Utility for parsing the kinds in a constraint.
      */
-    private val kindParser = new KindParser()
+    private val kindParser = new KindParser ()
 
     /**
      * Utility for parsing queries of an ensemble
      */
-    private val queryParser = new QueryParser()
+    private val queryParser = new QueryParser ()
 
     /**
      * Returns the parsed query or an empty query if the query could not be parsed.
@@ -63,18 +60,19 @@ class UnissonDatabase(val bc: Database)
      * Queries are normalized, such that an ensemble with a derived query, has a query equal to the queries of it's children
      */
     private def getNormalizedQuery(ensemble: IEnsemble): UnissonQuery = {
-        val query = queryParser.parse(ensemble.getQuery) match {
-            case queryParser.Success(result, _) => result
-            case queryParser.Failure(msg, next) => {
-                errors += new IllegalArgumentException(msg + next.pos.longString)
-                EmptyQuery()
+        val query: UnissonQuery = queryParser.parse (ensemble.getQuery) match {
+            case queryParser.Success (result, _) => result
+            case queryParser.Failure (msg, next) => {
+                errors += new IllegalArgumentException (msg + next.pos.longString)
+                EmptyQuery ()
             }
         }
-        if (query.isSyntacticEqual(DerivedQuery())) {
-            val childrenQueries = ensemble.getInnerEnsembles.map(getNormalizedQuery)
-            childrenQueries.fold(EmptyQuery())(OrQuery(_, _))
+        if (query.isSyntacticEqual (DerivedQuery ())) {
+            val childrenQueries = ensemble.getInnerEnsembles.map (getNormalizedQuery)
+            childrenQueries.fold (EmptyQuery ())(OrQuery (_, _))
         }
-        else {
+        else
+        {
             query
         }
     }
@@ -103,13 +101,13 @@ class UnissonDatabase(val bc: Database)
      * The queries for each ensemble
      */
     lazy val ensemble_queries: Relation[(IEnsemble, UnissonQuery)] =
-        Π((e: IEnsemble) => (e, getNormalizedQuery(e)))(ensembles)
+        Π ((e: IEnsemble) => (e, getNormalizedQuery (e)))(ensembles)
 
     /**
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    lazy val ensemble_elements = lazyViewToResult(new CompiledEnsembleElementsView(bc, ensemble_queries))
+    lazy val ensemble_elements = sae.relationToResult (new CompiledEnsembleElementsView (bc, ensemble_queries))
 
 
     /**
@@ -118,8 +116,8 @@ class UnissonDatabase(val bc: Database)
     def addEnsemble(ensemble: IEnsemble) {
         ensembles += ensemble
         for (child <- ensemble.getInnerEnsembles) {
-            children +=(ensemble, child)
-            addEnsemble(child)
+            children += (ensemble, child)
+            addEnsemble (child)
         }
     }
 
@@ -129,9 +127,9 @@ class UnissonDatabase(val bc: Database)
      * The slice can be omitted, resulting in the name: "default slice".
      */
     def addEnsembleToSlice(ensemble: IEnsemble)(implicit slice: String) {
-        slice_ensembles +=(ensemble, slice)
+        slice_ensembles += (ensemble, slice)
         for (child <- ensemble.getInnerEnsembles) {
-            addEnsembleToSlice(child)
+            addEnsembleToSlice (child)
         }
     }
 
@@ -141,7 +139,7 @@ class UnissonDatabase(val bc: Database)
      * The slice can be omitted, resulting in the name: "default slice".
      */
     def addConstraintToSlice(constraint: IConstraint)(implicit slice: String) {
-        slice_constraints +=(constraint, slice)
+        slice_constraints += (constraint, slice)
     }
 
     /**
@@ -150,8 +148,8 @@ class UnissonDatabase(val bc: Database)
     def removeEnsemble(ensemble: IEnsemble) {
         ensembles -= ensemble
         for (child <- ensemble.getInnerEnsembles) {
-            children -=(ensemble, child)
-            removeEnsemble(child)
+            children -= (ensemble, child)
+            removeEnsemble (child)
         }
     }
 
@@ -161,9 +159,9 @@ class UnissonDatabase(val bc: Database)
      * The slice can be omitted, resulting in the name: "default slice".
      */
     def removeEnsembleFromSlice(ensemble: IEnsemble)(implicit slice: String) {
-        slice_ensembles -=(ensemble, slice)
+        slice_ensembles -= (ensemble, slice)
         for (child <- ensemble.getInnerEnsembles) {
-            removeEnsembleFromSlice(child)
+            removeEnsembleFromSlice (child)
         }
     }
 
@@ -173,7 +171,7 @@ class UnissonDatabase(val bc: Database)
      * The slice can be omitted, resulting in the name: "default slice".
      */
     def removeConstraintFromSlice(constraint: IConstraint)(implicit slice: String) {
-        slice_constraints -=(constraint, slice)
+        slice_constraints -= (constraint, slice)
     }
 
     /**
@@ -181,39 +179,40 @@ class UnissonDatabase(val bc: Database)
      * The update is performed for the ensemble and all children to the global list of defined ensembles.
      */
     def updateEnsemble(oldE: IEnsemble, newE: IEnsemble) {
-        ensembles.update(oldE, newE)
+        ensembles.update (oldE, newE)
         val oldEChildren: scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
         val newEChildren: scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
 
-        val (retainedOldChildren, notExistingChildren) = oldEChildren.partition(
-            (e: IEnsemble) => newEChildren.exists((_: IEnsemble).getName == e.getName)
+        val (retainedOldChildren, notExistingChildren) = oldEChildren.partition (
+            (e: IEnsemble) => newEChildren.exists ((_: IEnsemble).getName == e.getName)
         )
-        val (retainedNewChildren, newChildren) = newEChildren.partition(
-            (e: IEnsemble) => oldEChildren.exists((_: IEnsemble).getName == e.getName)
+        val (retainedNewChildren, newChildren) = newEChildren.partition (
+            (e: IEnsemble) => oldEChildren.exists ((_: IEnsemble).getName == e.getName)
         )
 
         // remove old children
         for (child <- notExistingChildren) {
             // remove the parent-child relation
-            children -=(oldE, child)
+            children -= (oldE, child)
             // transitively remove all further children
-            removeEnsemble(child)
+            removeEnsemble (child)
         }
         // update existing children
         for (oldChild <- retainedOldChildren;
-             newChild <- retainedNewChildren.find(_.getName == oldChild.getName)) {
+             newChild <- retainedNewChildren.find (_.getName == oldChild.getName))
+        {
             //val newChild = retainedNewChildren.find( _.getName == oldChild.getName).get
             // update the parent child relation
-            children.update((oldE, oldChild), (newE, newChild))
+            children.update ((oldE, oldChild), (newE, newChild))
             // transitively update the child
-            updateEnsemble(oldChild, newChild)
+            updateEnsemble (oldChild, newChild)
         }
         // add new children
         for (child <- newChildren) {
             // add the parent-child relation
-            children +=(newE, child)
+            children += (newE, child)
             // transitively add all further children
-            addEnsemble(child)
+            addEnsemble (child)
         }
     }
 
@@ -224,40 +223,42 @@ class UnissonDatabase(val bc: Database)
      * The slice can be omitted, resulting in the name: "default slice".
      */
     def updateEnsembleInSlice(oldE: IEnsemble, newE: IEnsemble)(implicit slice: String) {
-        slice_ensembles.update((oldE, slice), (newE, slice))
+        slice_ensembles.update ((oldE, slice), (newE, slice))
         val oldEChildren: scala.collection.mutable.Set[IEnsemble] = oldE.getInnerEnsembles
         val newEChildren: scala.collection.mutable.Set[IEnsemble] = newE.getInnerEnsembles
 
-        val (retainedOldChildren, notExistingChildren) = oldEChildren.partition(
-            (e: IEnsemble) => newEChildren.exists((_: IEnsemble).getName == e.getName)
+        val (retainedOldChildren, notExistingChildren) = oldEChildren.partition (
+            (e: IEnsemble) => newEChildren.exists ((_: IEnsemble).getName == e.getName)
         )
-        val (retainedNewChildren, newChildren) = newEChildren.partition(
-            (e: IEnsemble) => oldEChildren.exists((_: IEnsemble).getName == e.getName)
+        val (retainedNewChildren, newChildren) = newEChildren.partition (
+            (e: IEnsemble) => oldEChildren.exists ((_: IEnsemble).getName == e.getName)
         )
 
         // remove old children
         for (child <- notExistingChildren) {
             // transitively remove all further children
-            removeEnsembleFromSlice(child)
+            removeEnsembleFromSlice (child)
         }
         // update existing children
         for (oldChild <- retainedOldChildren;
-             newChild <- retainedNewChildren.find(_.getName == oldChild.getName)) {
+             newChild <- retainedNewChildren.find (_.getName == oldChild.getName))
+        {
             // transitively update the child
-            updateEnsembleInSlice(oldChild, newChild)
+            updateEnsembleInSlice (oldChild, newChild)
         }
         // add new children
         for (child <- newChildren) {
             // transitively add all further children
-            addEnsembleToSlice(child)
+            addEnsembleToSlice (child)
         }
     }
 
     protected[model] def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: Relation[_ <: Dependency[S, T]],
-                                                                      kind: DependencyKind
-                                                                             ): Relation[(ICodeElement, ICodeElement, String)] = {
+                                                                               kind: DependencyKind
+                                                                                  ): Relation[(ICodeElement, ICodeElement, String)] =
+    {
         Π[Dependency[S, T], (ICodeElement, ICodeElement, String)](
-            (d: Dependency[S, T]) => (SourceElement(d.source), SourceElement(d.target), kind.asVespucciString)
+            (d: Dependency[S, T]) => (SourceElement (d.source), SourceElement (d.target), kind.asVespucciString)
         )(dependencyView.asInstanceOf[Relation[Dependency[S, T]]])
     }
 
@@ -267,75 +268,86 @@ class UnissonDatabase(val bc: Database)
      */
     def source_code_dependencies = internal_source_code_dependencies
 
-    lazy val internal_source_code_dependencies  =  dependencyView_to_tupleView(bc.`extends`, ExtendsKind) ∪
-                dependencyView_to_tupleView(bc.implements, ImplementsKind) ∪
-                dependencyView_to_tupleView(bc.invoke_interface, InvokeInterfaceKind) ∪
-                dependencyView_to_tupleView(bc.invoke_special, InvokeSpecialKind) ∪
-                dependencyView_to_tupleView(bc.invoke_static, InvokeStaticKind) ∪
-                dependencyView_to_tupleView(bc.invoke_virtual, InvokeVirtualKind) ∪
-                dependencyView_to_tupleView(bc.create, CreateKind) ∪
-                dependencyView_to_tupleView(bc.class_cast, ClassCastKind) ∪
-                dependencyView_to_tupleView(bc.thrown_exceptions, ThrowsKind) ∪
-                dependencyView_to_tupleView(// parameter
-                    σ(
-                        (v: parameter) => !(v.target.isBaseType)
-                    )(
-                        Π[parameter, parameter] {
-                            case (parameter(m, ArrayType(component))) => parameter(m, component)
-                            case x => x
-                        }(bc.parameter)
-                    ),
-                    ParameterKind) ∪
-                dependencyView_to_tupleView(// return types
-                    σ(
-                        (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
-                    )(
-                        Π[return_type, return_type] {
-                            case (return_type(m, ArrayType(component))) => return_type(m, component)
-                            case x => x
-                        }(bc.return_type)
-                    ),
-                    ReturnTypeKind) ∪
-                dependencyView_to_tupleView(// field types
-                    σ(
-                        (v: field_type) => !(v.target.isBaseType)
-                    )(
-                        Π[field_type, field_type] {
-                            case (field_type(m, ArrayType(component))) => field_type(m, component)
-                            case x => x
-                        }(bc.field_type)
-                    ),
-                    FieldTypeKind) ∪
-                dependencyView_to_tupleView(// read_field instructions
-                    σ(
-                        (v: read_field) => !(v.target.fieldType.isBaseType)
-                    )(
-                        // TODO what about arrays with component types of not allowed elements?
-                        bc.read_field
-                    ),
-                    ReadFieldKind) ∪
-                dependencyView_to_tupleView(// write_field instructions
-                    σ(
-                        // TODO what about arrays with component types of not allowed elements?
-                        (v: write_field) => !v.target.fieldType.isBaseType
-                    )(
-                        bc.write_field
-                    ),
-                    WriteFieldKind)
+    def extendsDependency : InheritanceRelation => (ICodeElement, ICodeElement, String) = {
+
+    }
+
+    import sae.syntax.sql._
+
+    lazy val internal_source_code_dependencies =
+        SELECT  (extendsDependency) FROM bc.classInheritance UNION_ALL(
+            SELECT  (extendsDependency) FROM bc.classInheritance
+        ) UNION_ALL
+
+        dependencyView_to_tupleView (bc.classInheritance, ExtendsKind) ⊎
+        dependencyView_to_tupleView (bc.interfaceInheritance, ImplementsKind) ⊎
+        dependencyView_to_tupleView (bc.invokeInterface, InvokeInterfaceKind) ⊎
+        dependencyView_to_tupleView (bc.invokeSpecial, InvokeSpecialKind) ⊎
+        dependencyView_to_tupleView (bc.invokeStatic, InvokeStaticKind) ⊎
+        dependencyView_to_tupleView (bc.invokeVirtual, InvokeVirtualKind) ⊎
+        dependencyView_to_tupleView (bc.newObject, CreateKind) ⊎
+        dependencyView_to_tupleView (bc.checkCast, ClassCastKind) ⊎
+        dependencyView_to_tupleView (bc.thrown_exceptions, ThrowsKind) ⊎
+        dependencyView_to_tupleView (// parameter
+            σ (
+                (v: parameter) => !(v.target.isBaseType)
+            )(
+                Π[parameter, parameter] {
+                    case (parameter (m, ArrayType (component))) => parameter (m, component)
+                    case x => x
+                }(bc.parameter)
+            ),
+            ParameterKind) ⊎
+        dependencyView_to_tupleView (// return types
+            σ (
+                (v: return_type) => !(v.target.isBaseType || v.target.isVoidType)
+            )(
+                Π[return_type, return_type] {
+                    case (return_type (m, ArrayType (component))) => return_type (m, component)
+                    case x => x
+                }(bc.return_type)
+            ),
+            ReturnTypeKind) ⊎
+        dependencyView_to_tupleView (// field types
+            σ (
+                (v: field_type) => !(v.target.isBaseType)
+            )(
+                Π[field_type, field_type] {
+                    case (field_type (m, ArrayType (component))) => field_type (m, component)
+                    case x => x
+                }(bc.field_type)
+            ),
+            FieldTypeKind) ⊎
+        dependencyView_to_tupleView (// read_field instructions
+            σ (
+                (v: read_field) => !(v.target.fieldType.isBaseType)
+            )(
+                // TODO what about arrays with component types of not allowed elements?
+                bc.read_field
+            ),
+            ReadFieldKind) ⊎
+        dependencyView_to_tupleView (// write_field instructions
+            σ (
+                // TODO what about arrays with component types of not allowed elements?
+                (v: write_field) => !v.target.fieldType.isBaseType
+            )(
+                bc.write_field
+            ),
+            WriteFieldKind)
     /*
                 // TODO instance of checks
                 Π {
                     (InstanceOfKind, (_: Dependency[AnyRef, AnyRef]))
-                }(bc.inner_classes.asInstanceOf[Relation[Dependency[AnyRef, AnyRef]]]) ∪
+                }(bc.inner_classes.asInstanceOf[Relation[Dependency[AnyRef, AnyRef]]]) ⊎
     */
 
 
     private def parseQueryKinds(constraint: IConstraint): Set[DependencyKind] = {
-        kindParser.parse(constraint.getDependencyKind) match {
-            case kindParser.Success(result, _) => KindResolver(result)
-            case kindParser.Failure(msg, next) => {
-                errors += new IllegalArgumentException(msg + next.pos.longString)
-                Set()
+        kindParser.parse (constraint.getDependencyKind) match {
+            case kindParser.Success (result, _) => KindResolver (result)
+            case kindParser.Failure (msg, next) => {
+                errors += new IllegalArgumentException (msg + next.pos.longString)
+                Set ()
             }
         }
     }
@@ -345,12 +357,12 @@ class UnissonDatabase(val bc: Database)
      * InAndOut constraints are normalized as one incoming and one outgoing constraint
      */
     private def getNormalizedConstraints[T](v: (IConstraint, String)): List[NormalizedConstraint] = {
-        val kinds = parseQueryKinds(v._1)
-        val typ = ConstraintType(v._1)
+        val kinds = parseQueryKinds (v._1)
+        val typ = ConstraintType (v._1)
         var result: List[NormalizedConstraint] = Nil
         for (kind <- kinds) {
             if (typ != ConstraintType.IncomingAndOutgoing) {
-                result = NormalizedConstraint(
+                result = NormalizedConstraint (
                     v._1,
                     kind,
                     typ,
@@ -359,15 +371,16 @@ class UnissonDatabase(val bc: Database)
                     v._2
                 ) :: result
             }
-            else {
-                result = NormalizedConstraint(
+            else
+            {
+                result = NormalizedConstraint (
                     v._1,
                     kind,
                     ConstraintType.Incoming,
                     v._1.getSource,
                     v._1.getTarget,
                     v._2
-                ) :: NormalizedConstraint(
+                ) :: NormalizedConstraint (
                     v._1,
                     kind,
                     ConstraintType.Outgoing,
@@ -382,32 +395,31 @@ class UnissonDatabase(val bc: Database)
 
     private lazy val normalized_constraints = new Relation[(NormalizedConstraint)] {
 
-        slice_constraints.addObserver(new Observer[(IConstraint, String)] {
+        slice_constraints.addObserver (new Observer[(IConstraint, String)] {
             def updated(oldV: (IConstraint, String), newV: (IConstraint, String)) {
-                removed(oldV)
-                added(newV)
+                removed (oldV)
+                added (newV)
             }
 
             def removed(v: (IConstraint, String)) {
-                val normalizedConstraints = getNormalizedConstraints(v)
-                normalizedConstraints.foreach(element_removed)
+                val normalizedConstraints = getNormalizedConstraints (v)
+                normalizedConstraints.foreach (element_removed)
             }
 
             def added(v: (IConstraint, String)) {
-                val normalizedConstraints = getNormalizedConstraints(v)
-                normalizedConstraints.foreach(element_added)
+                val normalizedConstraints = getNormalizedConstraints (v)
+                normalizedConstraints.foreach (element_added)
             }
 
         })
 
-        def lazy_foreach[T](f: ((NormalizedConstraint)) => T) {
-            slice_constraints.foreach(
-                getNormalizedConstraints(_).foreach(f)
+        def foreach[T](f: ((NormalizedConstraint)) => T) {
+            slice_constraints.foreach (
+                getNormalizedConstraints (_).foreach (f)
             )
         }
 
         def lazyInitialize() {
-            initialized = true
         }
     }
 
@@ -416,76 +428,79 @@ class UnissonDatabase(val bc: Database)
      * Returns a view of the disallowed ensemble dependencies derived from the not_allowed constraints in the form:
      * (E_src, E_trgt, kind, constraint, slice).
      */
-    private lazy val disallowed_dependencies_by_not_allowed: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        Π(
+    private lazy val disallowed_dependencies_by_not_allowed: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] =
+    {
+        Π (
             (constraint: NormalizedConstraint) =>
                 (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
-                        .context)
+                    .context)
         )(
-            σ((_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed)(normalized_constraints)
+            σ ((_: NormalizedConstraint).constraintType == ConstraintType.NotAllowed)(normalized_constraints)
         )
     }
 
-    private lazy val local_incoming = σ((_: NormalizedConstraint).constraintType == ConstraintType
-            .Incoming)(normalized_constraints)
+    private lazy val local_incoming = σ ((_: NormalizedConstraint).constraintType == ConstraintType
+        .Incoming)(normalized_constraints)
 
-    private lazy val global_incoming = σ((_: NormalizedConstraint).constraintType == ConstraintType
-            .GlobalIncoming)(normalized_constraints)
+    private lazy val global_incoming = σ ((_: NormalizedConstraint).constraintType == ConstraintType
+        .GlobalIncoming)(normalized_constraints)
 
-    private lazy val local_outgoing = σ((_: NormalizedConstraint).constraintType == ConstraintType
-            .Outgoing)(normalized_constraints)
+    private lazy val local_outgoing = σ ((_: NormalizedConstraint).constraintType == ConstraintType
+        .Outgoing)(normalized_constraints)
 
-    private lazy val global_outgoing = σ((_: NormalizedConstraint).constraintType == ConstraintType
-            .GlobalOutgoing)(normalized_constraints)
+    private lazy val global_outgoing = σ ((_: NormalizedConstraint).constraintType == ConstraintType
+        .GlobalOutgoing)(normalized_constraints)
 
 
     private lazy val incoming: Relation[NormalizedConstraint] = {
-        val allIncoming = local_incoming ∪ global_incoming
-        allIncoming ∪ (
+        val allIncoming = local_incoming ⊎ global_incoming
+        allIncoming ⊎ (
+            (
                 (
-                        (
-                                descendants,
-                                (_: (IEnsemble, IEnsemble))._1
-                                ) ⋈(
-                                (_: NormalizedConstraint).source,
-                                allIncoming
-                                )
-                        ) {
-                    (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
-                        NormalizedConstraint(
-                            c.origin,
-                            c.kind,
-                            c.constraintType,
-                            parentChild._2,
-                            c.target,
-                            c.context
-                        )
-                })
+                    descendants,
+                    (_: (IEnsemble, IEnsemble))._1
+                    ) ⋈ (
+                    (_: NormalizedConstraint).source,
+                    allIncoming
+                    )
+                )
+            {
+                (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
+                    NormalizedConstraint (
+                        c.origin,
+                        c.kind,
+                        c.constraintType,
+                        parentChild._2,
+                        c.target,
+                        c.context
+                    )
+            })
     }
 
 
     private lazy val outgoing: Relation[NormalizedConstraint] = {
-        val allOutgoing = local_outgoing ∪ global_outgoing
-        allOutgoing ∪ (
+        val allOutgoing = local_outgoing ⊎ global_outgoing
+        allOutgoing ⊎ (
+            (
                 (
-                        (
-                                descendants,
-                                (_: (IEnsemble, IEnsemble))._1
-                                ) ⋈(
-                                (_: NormalizedConstraint).target,
-                                allOutgoing
-                                )
-                        ) {
-                    (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
-                        NormalizedConstraint(
-                            c.origin,
-                            c.kind,
-                            c.constraintType,
-                            c.source,
-                            parentChild._2,
-                            c.context
-                        )
-                })
+                    descendants,
+                    (_: (IEnsemble, IEnsemble))._1
+                    ) ⋈ (
+                    (_: NormalizedConstraint).target,
+                    allOutgoing
+                    )
+                )
+            {
+                (parentChild: (IEnsemble, IEnsemble), c: NormalizedConstraint) =>
+                    NormalizedConstraint (
+                        c.origin,
+                        c.kind,
+                        c.constraintType,
+                        c.source,
+                        parentChild._2,
+                        c.context
+                    )
+            })
     }
 
 
@@ -494,18 +509,20 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_local_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] =
+    {
         (
-                (
-                        slice_ensembles,
-                        (_: (IEnsemble, String))._2
-                        ) ⋈(
-                        (_: NormalizedConstraint).context,
-                        local_incoming
-                        )
-                ) {
+            (
+                slice_ensembles,
+                (_: (IEnsemble, String))._2
+                ) ⋈ (
+                (_: NormalizedConstraint).context,
+                local_incoming
+                )
+            )
+        {
             (e: (IEnsemble, String), c: NormalizedConstraint) => (e._1, c.target, c.kind.asVespucciString, c.origin, c
-                    .context)
+                .context)
         }
     }
 
@@ -515,8 +532,9 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_global_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        Π(
+    private lazy val constrained_ensemble_combinations_by_global_incoming: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] =
+    {
+        Π (
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._1, entry._2.target, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
         )(ensembles × global_incoming)
@@ -525,8 +543,8 @@ class UnissonDatabase(val bc: Database)
 
     private lazy val disallowed_dependencies_by_incoming = {
         val source_target_ensemble_combinations =
-            constrained_ensemble_combinations_by_local_incoming ∪
-                    constrained_ensemble_combinations_by_global_incoming
+            constrained_ensemble_combinations_by_local_incoming ⊎
+                constrained_ensemble_combinations_by_global_incoming
 
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
@@ -534,12 +552,12 @@ class UnissonDatabase(val bc: Database)
          * if !exists (Z,Y) with Incoming(Z,Y, ctx) or GlobalIncoming(Z,Y, ctx) then Z may not use Y
          */
         (
-                source_target_ensemble_combinations,
-                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
-                ) ⊳(
-                (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
-                incoming
-                )
+            source_target_ensemble_combinations,
+            (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
+            ) ⊳ (
+            (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
+            incoming
+            )
     }
 
 
@@ -548,18 +566,20 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_local_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
+    private lazy val constrained_ensemble_combinations_by_local_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] =
+    {
         (
-                (
-                        slice_ensembles,
-                        (_: (IEnsemble, String))._2
-                        ) ⋈(
-                        (_: NormalizedConstraint).context,
-                        local_outgoing
-                        )
-                ) {
+            (
+                slice_ensembles,
+                (_: (IEnsemble, String))._2
+                ) ⋈ (
+                (_: NormalizedConstraint).context,
+                local_outgoing
+                )
+            )
+        {
             (e: (IEnsemble, String), c: NormalizedConstraint) => (c.source, e._1, c.kind.asVespucciString, c.origin, c
-                    .context)
+                .context)
         }
     }
 
@@ -568,8 +588,9 @@ class UnissonDatabase(val bc: Database)
      * (E_src, E_trgt, kind, constraint, slice).
      * The view may contain self-references and parent-child relations, since these are already filtered from the dependencies
      */
-    private lazy val constrained_ensemble_combinations_by_global_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        Π(
+    private lazy val constrained_ensemble_combinations_by_global_outgoing: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] =
+    {
+        Π (
             (entry: (IEnsemble, NormalizedConstraint)) =>
                 (entry._2.source, entry._1, entry._2.kind.asVespucciString, entry._2.origin, entry._2.context)
         )(ensembles × global_outgoing)
@@ -578,8 +599,8 @@ class UnissonDatabase(val bc: Database)
 
     private lazy val disallowed_dependencies_by_outgoing = {
         val source_target_ensemble_combinations =
-            constrained_ensemble_combinations_by_local_outgoing ∪
-                    constrained_ensemble_combinations_by_global_outgoing
+            constrained_ensemble_combinations_by_local_outgoing ⊎
+                constrained_ensemble_combinations_by_global_outgoing
 
         /**
          * all disallowed combinations taking all constraints to an ensemble into account
@@ -587,12 +608,12 @@ class UnissonDatabase(val bc: Database)
          * if !exists (Y, Z) with Outgoing(Y,Z, ctx) or GlobalOutgoing(Y,Z, ctx) then Y may not use Z
          */
         (
-                source_target_ensemble_combinations,
-                (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
-                ) ⊳(
-                (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
-                outgoing
-                )
+            source_target_ensemble_combinations,
+            (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3, entry._5)
+            ) ⊳ (
+            (c: NormalizedConstraint) => (c.source, c.target, c.kind.asVespucciString, c.context),
+            outgoing
+            )
     }
 
 
@@ -600,36 +621,36 @@ class UnissonDatabase(val bc: Database)
      * A list of ensemble dependencies that are not allowed in the form:
      * (E_src, E_trgt, kind, constraint, slice)
      */
-    def notAllowedEnsembleDependencies = disallowed_dependencies_by_not_allowed ∪
-            disallowed_dependencies_by_incoming ∪
-            disallowed_dependencies_by_outgoing
+    def notAllowedEnsembleDependencies = disallowed_dependencies_by_not_allowed ⊎
+        disallowed_dependencies_by_incoming ⊎
+        disallowed_dependencies_by_outgoing
 
     /**
      * A list of ensemble dependencies that are expected
      */
     def expectedEnsembleDependencies: Relation[(IEnsemble, IEnsemble, String, IConstraint, String)] = {
-        Π(
+        Π (
             (constraint: NormalizedConstraint) =>
                 (constraint.source, constraint.target, constraint.kind.asVespucciString, constraint.origin, constraint
-                        .context)
+                    .context)
         )(
-            σ((_: NormalizedConstraint).constraintType == ConstraintType.Expected)(normalized_constraints)
+            σ ((_: NormalizedConstraint).constraintType == ConstraintType.Expected)(normalized_constraints)
         )
     }
 
 
     lazy val unmodeled_elements: Relation[ICodeElement] = (
-            (
-                    Π(SourceElement(_: ObjectType).asInstanceOf[ICodeElement])(bc.declared_types) ∪
-                            Π(SourceElement(_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.declared_fields) ∪
-                            Π(SourceElement(_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.declared_methods)
-                    ) ∖
-                    δ(Π((_: (IEnsemble, ICodeElement))._2)(ensemble_elements))
-            )
+        (
+            Π (SourceElement (_: ObjectType).asInstanceOf[ICodeElement])(bc.typeDeclarations) ⊎
+                Π (SourceElement (_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.fieldDeclarations) ⊎
+                Π (SourceElement (_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.methodDeclarations)
+            ) ∖
+            δ (Π ((_: (IEnsemble, ICodeElement))._2)(ensemble_elements))
+        )
 
 
-    lazy val ensemble_dependency_count: MaterializedView[(IEnsemble, IEnsemble, Int)] = {
-        γ(ensemble_dependencies,
+    lazy val ensemble_dependency_count: Relation[(IEnsemble, IEnsemble, Int)] = {
+        γ (ensemble_dependencies,
             (dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (dependency._1, dependency._2),
             Count[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)](),
             (elem: (IEnsemble, IEnsemble), count: Int) => (elem._1, elem._2, count)
@@ -647,6 +668,6 @@ class UnissonDatabase(val bc: Database)
      */
     def clear_errors() {
         val oldErrors = errors.copy
-        oldErrors.foreach(errors -= _)
+        oldErrors.foreach (errors -= _)
     }
 }
