@@ -75,6 +75,9 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
     def isStrict = ACC_STRICT ∈ accessFlags
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+
+    override def toString = "MethodDeclaration(" + declaringClass.toString + "," + name + "," + parameterTypes
+        .toString + "," + returnType.toString + ")"
 }
 
 object MethodDeclaration

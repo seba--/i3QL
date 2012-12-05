@@ -235,8 +235,10 @@ class TestOOAnalysesOnRT
     @Test
     def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
         val database = BATDatabaseFactory.create ()
+        sae.ENABLE_FORCE_TO_SET = true
         val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
         database.addArchive (getStream)
+        analysis.foreach(println)
         assertEquals (58, analysis.size)
     }
 }
