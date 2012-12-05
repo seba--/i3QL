@@ -124,7 +124,7 @@ trait Relation[V]
     {
         if (this.isSet)
         {
-            new sae.collections.ScalaSetIndex[K, V](this, keyFunction)
+            new sae.collections.SetIndex[K, V](this, keyFunction)
         }
         else{
             new sae.collections.BagIndex[K, V](this, keyFunction)
