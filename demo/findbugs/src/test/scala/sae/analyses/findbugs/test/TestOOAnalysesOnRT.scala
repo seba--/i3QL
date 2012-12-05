@@ -36,8 +36,11 @@ import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.oo._
 import analyses.findbugs.random.oo._
-import org.junit.Test
+import bytecode.instructions.{GETFIELD, InvokeInstruction}
+import bytecode.structure.FieldDeclaration
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
+import syntax.sql._
 
 /**
  * Created with IntelliJ IDEA.
@@ -238,7 +241,71 @@ class TestOOAnalysesOnRT
         sae.ENABLE_FORCE_TO_SET = true
         val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
         database.addArchive (getStream)
-        analysis.foreach(println)
         assertEquals (58, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_CallsByConstructor() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val selfCallsFromConstructor = relationToResult (compile (
+            SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name == "<init>")
+        ))
+
+        database.addArchive (getStream)
+
+        assertEquals (4305, selfCallsFromConstructor.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_OnSuperConstructorCalls() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val superCalls = relationToResult (compile (
+            SELECT (*) FROM invokeSpecial WHERE
+                (_.declaringMethod.name == "<init>") AND
+                (_.name == "<init>") AND
+                (_.declaringMethod.declaringClass.superClass.isDefined) AND
+                (i => i.declaringMethod.declaringClass.superClass.get == i.receiverType)
+        ))
+
+        database.addArchive (getStream)
+
+        assertEquals (20127, superCalls.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_SelfFieldReads() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val selfFieldReads = relationToResult (compile (
+            SELECT ((get: GETFIELD, f: FieldDeclaration) => get) FROM (getField, fieldDeclarations) WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name != "<init>") AND
+                //(declaringClassType === declaringType)
+                (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
+                (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
+                (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
+        ))
+
+
+        database.addArchive (getStream)
+
+        assertEquals (170406, selfFieldReads.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
     }
 }

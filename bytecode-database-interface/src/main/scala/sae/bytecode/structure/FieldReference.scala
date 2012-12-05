@@ -16,9 +16,9 @@ class FieldReference(val declaringType: ObjectType,
                      val name: String,
                      val fieldType: FieldType)
     extends FieldInfo
+    with FieldComparison
 {
 
-    override def toString = "FieldReference(" + declaringType.toString + "," + name + "," + fieldType.toString + ")"
 }
 
 object FieldReference

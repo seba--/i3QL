@@ -45,9 +45,9 @@ import structure.FieldDeclaration
  */
 
 object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
-    extends (BytecodeDatabase => Relation[GETFIELD])
+    extends (BytecodeDatabase => Relation[(GETFIELD, InvokeInstruction)])
 {
-    def apply(database: BytecodeDatabase): Relation[GETFIELD] = {
+    def apply(database: BytecodeDatabase): Relation[(GETFIELD, InvokeInstruction)] = {
         import database._
 
         val selfCallsFromConstructor = compile (
@@ -61,7 +61,7 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
             */
         )
 
-        assert (sae.ENABLE_FORCE_TO_SET && selfCallsFromConstructor.isSet)
+        assert (!sae.ENABLE_FORCE_TO_SET || selfCallsFromConstructor.isSet)
 
         val superCalls = compile (
             SELECT (*) FROM invokeSpecial WHERE
@@ -71,7 +71,7 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
                 (i => i.declaringMethod.declaringClass.superClass.get == i.receiverType)
         )
 
-        assert (sae.ENABLE_FORCE_TO_SET && superCalls.isSet)
+        assert (!sae.ENABLE_FORCE_TO_SET || superCalls.isSet)
 
         /*
         val selfCallsFromCalledConstructor = compile (
@@ -108,7 +108,8 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
         )
 
         compile (
-            SELECT ((get: GETFIELD, selfCall: InvokeInstruction) => get) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
+            //SELECT ((get: GETFIELD, selfCall: InvokeInstruction) => get) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
+            SELECT (*) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
                 //(declaringMethod === referencedMethod)
                 (((_: GETFIELD).declaringMethod.declaringClass.superClass.get) === ((_: InvokeInstruction).receiverType)) AND
                 (((_: GETFIELD).declaringMethod.name) === ((_: InvokeInstruction).name)) AND
