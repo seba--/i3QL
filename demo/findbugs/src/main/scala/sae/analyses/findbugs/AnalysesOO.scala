@@ -32,7 +32,7 @@
  */
 package sae.analyses.findbugs
 
-import random.relational._
+import random.oo._
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
 import selected.oo._

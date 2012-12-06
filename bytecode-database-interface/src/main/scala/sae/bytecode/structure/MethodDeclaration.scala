@@ -49,6 +49,7 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
                         val parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType])
     extends DeclaredClassMember
     with MethodInfo
+    with MethodComparison
 {
     def receiverType = declaringClassType
 
@@ -75,6 +76,7 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
     def isStrict = ACC_STRICT ∈ accessFlags
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+
 }
 
 object MethodDeclaration

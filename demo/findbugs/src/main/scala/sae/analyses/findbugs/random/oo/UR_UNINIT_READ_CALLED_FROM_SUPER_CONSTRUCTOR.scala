@@ -34,10 +34,9 @@ package sae.analyses.findbugs.random.oo
 
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode.structure._
 import sae.bytecode._
 import sae.bytecode.instructions._
-import sae.bytecode.structure.InheritanceRelation
+import structure.FieldDeclaration
 
 /**
  *
@@ -46,16 +45,85 @@ import sae.bytecode.structure.InheritanceRelation
  */
 
 object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
-    extends (BytecodeDatabase => Relation[GETFIELD])
+    extends (BytecodeDatabase => Relation[(GETFIELD, InvokeInstruction)])
 {
-    def apply(database: BytecodeDatabase): Relation[GETFIELD] = {
+    def apply(database: BytecodeDatabase): Relation[(GETFIELD, InvokeInstruction)] = {
         import database._
 
-        val overrideMethodsWithRelation: Relation[(MethodDeclaration, InheritanceRelation)] =
-            SELECT (*) FROM (methodDeclarations, classInheritance) WHERE
+        val selfCallsFromConstructor = compile (
+            SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name == "<init>")
+            /*
+            UNION_ALL (
+            SELECT (*) FROM invokeInterface.asInstanceOf[Relation[InvokeInstruction]]
+            )
+            */
+        )
+
+        assert (!sae.ENABLE_FORCE_TO_SET || selfCallsFromConstructor.isSet)
+
+        val superCalls = compile (
+            SELECT (*) FROM invokeSpecial WHERE
+                (_.declaringMethod.name == "<init>") AND
+                (_.name == "<init>") AND
+                (_.declaringMethod.declaringClass.superClass.isDefined) AND
+                (i => i.declaringMethod.declaringClass.superClass.get == i.receiverType)
+        )
+
+        assert (!sae.ENABLE_FORCE_TO_SET || superCalls.isSet)
+
+        /*
+        val selfCallsFromCalledConstructor = compile (
+            SELECT ((selfCall: InvokeInstruction, superCall: INVOKESPECIAL) => selfCall) FROM (selfCallsFromConstructor, superCalls) WHERE
+                //SELECT (*) FROM (selfCallsFromConstructor, superCalls) WHERE
+                (((_: InvokeInstruction).declaringMethod.declaringClassType) === ((_: INVOKESPECIAL).receiverType)) AND
+                (((_: InvokeInstruction).declaringMethod.name) === ((_: INVOKESPECIAL).name)) AND
+                (((_: InvokeInstruction).declaringMethod.returnType) === ((_: INVOKESPECIAL).returnType)) AND
+                (((_: InvokeInstruction).declaringMethod.parameterTypes) === ((_: INVOKESPECIAL).parameterTypes))
+
+                //(declaringMethod === referencedMethod)
+        )
+        */
+
+        val selfCallsFromCalledConstructor = compile (
+            SELECT (*) FROM (selfCallsFromConstructor) WHERE EXISTS (
+                SELECT (*) FROM (superCalls) WHERE
+                    (((_: INVOKESPECIAL).receiverType) === ((_: InvokeInstruction).declaringMethod.declaringClassType)) AND
+                    (((_: INVOKESPECIAL).name) === ((_: InvokeInstruction).declaringMethod.name)) AND
+                    (((_: INVOKESPECIAL).returnType) === ((_: InvokeInstruction).declaringMethod.returnType)) AND
+                    (((_: INVOKESPECIAL).parameterTypes) === ((_: InvokeInstruction).declaringMethod.parameterTypes))
+            )
+            //(declaringMethod === referencedMethod)
+        )
+
+        val selfFieldReads = compile (
+            SELECT ((get: GETFIELD, f: FieldDeclaration) => get) FROM (getField, fieldDeclarations) WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name != "<init>") AND
+                //(declaringClassType === declaringType)
+                (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
+                (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
+                (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
+        )
+
+        compile (
+            //SELECT ((get: GETFIELD, selfCall: InvokeInstruction) => get) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
+            SELECT (*) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
+                //(declaringMethod === referencedMethod)
+                (((_: GETFIELD).declaringMethod.declaringClass.superClass.get) === ((_: InvokeInstruction).receiverType)) AND
+                (((_: GETFIELD).declaringMethod.name) === ((_: InvokeInstruction).name)) AND
+                (((_: GETFIELD).declaringMethod.returnType) === ((_: InvokeInstruction).returnType)) AND
+                (((_: GETFIELD).declaringMethod.parameterTypes) === ((_: InvokeInstruction).parameterTypes))
+
+        )
+
+
+        /*
+        val overrideMethodsWithRelation: Relation[(MethodDeclaration)] =
+            SELECT (*) FROM (methodDeclarations) WHERE
                 (_.name != "<init>") AND
-                (!_.isStatic) AND
-                (declaringType === subType)
+                (!_.isStatic)
 
 
 
@@ -100,5 +168,6 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
             (((_: InvokeInstruction).name) === ((_: (INVOKESPECIAL, GETFIELD))._2.declaringMethod.name)) AND
             (((_: InvokeInstruction).parameterTypes) === ((_: (INVOKESPECIAL, GETFIELD))._2.declaringMethod.parameterTypes)) AND
             (((_: InvokeInstruction).returnType) === ((_: (INVOKESPECIAL, GETFIELD))._2.declaringMethod.returnType))
+        */
     }
 }

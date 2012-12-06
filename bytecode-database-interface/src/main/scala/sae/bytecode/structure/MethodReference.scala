@@ -21,6 +21,7 @@ class MethodReference(val receiverType: ReferenceType,
                       val parameterTypes: Seq[FieldType],
                       val returnType: Type)
     extends MethodInfo
+    with MethodComparison
 {
 
     override def toString = "MethodReference(" + receiverType.toString + "," + name + "," + parameterTypes

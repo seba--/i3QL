@@ -18,6 +18,11 @@ trait Set[V]
 
     def add_element(v: V)
     {
+        /*
+        if (data.contains(v)){
+            throw new IllegalStateException()
+        }
+        */
         data = data + v
     }
 

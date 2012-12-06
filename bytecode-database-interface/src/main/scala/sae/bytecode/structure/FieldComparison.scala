@@ -32,24 +32,35 @@
  */
 package sae.bytecode.structure
 
-import de.tud.cs.st.bat.resolved.{ReferenceType, FieldType, Type}
-
-
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 09.09.12
- * Time: 10:42
+ *
+ * @author Ralf Mitschke
+ *
  */
 
-trait MethodInfo
+trait FieldComparison
+    extends FieldInfo
 {
+    override def hashCode(): Int = _hashCode
 
-    def receiverType: ReferenceType
+    private lazy val _hashCode: Int = {
+        var code = "FieldComparison".hashCode ()
+        code = code * 41 + (if (declaringType == null) 0 else declaringType.hashCode)
+        code = code * 41 + (if (name == null) 0 else name.hashCode ())
+        code = code * 41 + (if (fieldType == null) 0 else fieldType.hashCode ())
+        code
+    }
 
-    def name: String
+    override def equals(obj: Any): Boolean = {
+        if (this eq obj.asInstanceOf[AnyRef])
+            return true
+        if (!obj.isInstanceOf[FieldInfo])
+            return false
+        val other = obj.asInstanceOf[FieldInfo]
+        this.declaringType == other.declaringType &&
+            this.name == other.name &&
+            this.fieldType == other.fieldType
+    }
 
-    def returnType: Type
-
-    def parameterTypes: Seq[FieldType]
+    override def toString = "Field(" + declaringType.toString + "," + name + "," + fieldType.toString + ")"
 }

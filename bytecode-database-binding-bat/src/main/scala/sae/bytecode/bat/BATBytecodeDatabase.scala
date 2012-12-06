@@ -97,7 +97,7 @@ class BATBytecodeDatabase
 
     lazy val typeDeclarations = compile (
         SELECT (sae.bytecode.classType) FROM classDeclarations
-    )
+    ).forceToSet
 
     /*
      * Deduces inner classes only by looking at the inner classes attribute.
@@ -200,44 +200,53 @@ class BATBytecodeDatabase
     lazy val constructorsMinimal =
         compile (SELECT (*) FROM (methodDeclarationsMinimal) WHERE (_.name == "<init>"))
 
-    lazy val invokeStatic: Relation[INVOKESTATIC] =
+    lazy val invokeStatic = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESTATIC]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESTATIC])
+    ).forceToSet
 
-    lazy val invokeVirtual: Relation[INVOKEVIRTUAL] =
+    lazy val invokeVirtual = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL])
+    ).forceToSet
 
-    lazy val invokeInterface: Relation[INVOKEINTERFACE] =
+    lazy val invokeInterface = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM (instructions) WHERE (_.isInstanceOf[INVOKEINTERFACE])
+    ).forceToSet
 
-    lazy val invokeSpecial: Relation[INVOKESPECIAL] =
+    lazy val invokeSpecial = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (instructions) WHERE (_.isInstanceOf[INVOKESPECIAL])
+    ).forceToSet
 
-    lazy val readField: Relation[FieldReadInstruction] =
+    lazy val readField = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[FieldReadInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldReadInstruction])
+    ).forceToSet
 
-    lazy val getStatic: Relation[GETSTATIC] =
+    lazy val getStatic = compile (
         SELECT ((_: FieldReadInstruction).asInstanceOf[GETSTATIC]) FROM (readField) WHERE (_.isInstanceOf[GETSTATIC])
+    ).forceToSet
 
-    lazy val getField: Relation[GETFIELD] =
+    lazy val getField = compile (
         SELECT ((_: FieldReadInstruction).asInstanceOf[GETFIELD]) FROM (readField) WHERE (_.isInstanceOf[GETFIELD])
+    ).forceToSet
 
-    lazy val writeField: Relation[FieldWriteInstruction] =
+    lazy val writeField = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[FieldWriteInstruction]) FROM (instructions) WHERE (_.isInstanceOf[FieldWriteInstruction])
+    ).forceToSet
 
-    lazy val putStatic: Relation[PUTSTATIC] =
+    lazy val putStatic = compile (
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTSTATIC]) FROM (writeField) WHERE (_.isInstanceOf[PUTSTATIC])
+    ).forceToSet
 
-    lazy val putField: Relation[PUTFIELD] =
+    lazy val putField = compile (
         SELECT ((_: FieldWriteInstruction).asInstanceOf[PUTFIELD]) FROM (writeField) WHERE (_.isInstanceOf[PUTFIELD])
-
+    ).forceToSet
 
     lazy val newObject = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[NEW]) FROM (instructions) WHERE (_.isInstanceOf[NEW])
-    )
+    ).forceToSet
 
     lazy val checkCast = compile (
         SELECT ((_: InstructionInfo).asInstanceOf[CHECKCAST]) FROM (instructions) WHERE (_.isInstanceOf[CHECKCAST])
-    )
+    ).forceToSet
 
     lazy val invokeStaticMinimal: Relation[minimal.INVOKESTATIC] =
         SELECT ((_: minimal.InstructionInfo).asInstanceOf[minimal.INVOKESTATIC]) FROM (instructionsMinimal) WHERE (_.isInstanceOf[minimal.INVOKESTATIC])
