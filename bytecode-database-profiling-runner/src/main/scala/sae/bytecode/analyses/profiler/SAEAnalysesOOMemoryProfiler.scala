@@ -45,6 +45,8 @@ import sae.bytecode.BytecodeDatabase
 object SAEAnalysesOOMemoryProfiler
     extends SAEAnalysesMemoryProfiler
 {
+    sae.ENABLE_FORCE_TO_SET = true
+
     def benchmarkType = "SAEOO memory"
 
     def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =

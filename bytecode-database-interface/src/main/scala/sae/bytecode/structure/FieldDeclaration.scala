@@ -8,6 +8,7 @@ class FieldDeclaration(val declaringClass: ClassDeclaration,
                        val fieldType: de.tud.cs.st.bat.resolved.FieldType)
     extends DeclaredClassMember
     with FieldInfo
+    with FieldComparison
 {
     def declaringType = declaringClass.classType
 

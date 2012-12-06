@@ -18,7 +18,7 @@ class SetIndex[K, V](val relation: Relation[V],
     extends Index[K, V]
 {
 
-    private val map = com.google.common.collect.HashMultimap.create[K, V]()
+    private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
     lazyInitialize ()
 
@@ -43,7 +43,7 @@ class SetIndex[K, V](val relation: Relation[V],
         Some (new ValueListTraverser (l))
     }
 
-    private class ValueListTraverser[V](val values: java.util.Set[V]) extends Traversable[V]
+    private class ValueListTraverser[V](val values: java.util.List[V]) extends Traversable[V]
     {
         def foreach[T](f: V => T)
         {

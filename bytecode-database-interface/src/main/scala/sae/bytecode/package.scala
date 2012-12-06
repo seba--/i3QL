@@ -45,4 +45,6 @@ package object bytecode
     def superClass : ClassDeclaration => ClassType = _.superClass.get
 
     def declaringClassType : InstructionInfo => ClassType = _.declaringMethod.declaringClass.classType
+
+    def referencedMethod : InvokeInstruction => MethodInfo = call => MethodReference(call.receiverType, call.name, call.parameterTypes, call.returnType)
 }
