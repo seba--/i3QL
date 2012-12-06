@@ -21,9 +21,15 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
     extends Relation[(IEnsemble, ICodeElement)]
 {
 
+    def isSet = false
+
+    def isStored = false
+
     private val queryCompiler = new CachingQueryCompiler (new BaseQueryCompiler (bc))
 
     private var elementObservers: Map[IEnsemble, CompiledViewObserver] = Map.empty
+
+    lazyInitialize()
 
     def lazyInitialize() {
         // compile existing ensemble queries and add observers that will announce new elements
@@ -35,7 +41,7 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
         )
     }
 
-    def lazy_foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
+    def foreach[T](f: ((IEnsemble, ICodeElement)) => T) {
         ensembleQueries.foreach (
             (entry: (IEnsemble, UnissonQuery)) => {
                 val queryElements = queryCompiler.compile (entry._2)

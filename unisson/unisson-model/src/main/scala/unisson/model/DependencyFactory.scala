@@ -34,7 +34,7 @@ package unisson.model
 
 import kinds.primitive._
 import sae.bytecode.structure.{MethodDeclaration, FieldDeclaration, ExceptionDeclaration, InheritanceRelation}
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.{FieldInfoAdapter, MethodInfoAdapter, SourceElement}
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.FieldType
 
@@ -58,37 +58,37 @@ object DependencyFactory
 
     def invokeInterfaceDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), MethodInfoAdapter (rel), InvokeInterfaceKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeInterfaceKind)
     }
 
 
     def invokeSpecialDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), MethodInfoAdapter (rel), InvokeSpecialKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeSpecialKind)
     }
 
 
     def invokeVirtualDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), MethodInfoAdapter (rel), InvokeVirtualKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeVirtualKind)
     }
 
 
     def invokeStaticDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), MethodInfoAdapter (rel), InvokeStaticKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeStaticKind)
     }
 
 
     def readFieldDependency: FieldReadInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), FieldInfoAdapter (rel), ReadFieldKind)
+            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (rel), ReadFieldKind)
     }
 
 
     def writeFieldDependency: FieldWriteInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), FieldInfoAdapter (rel), WriteFieldKind)
+            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (rel), WriteFieldKind)
     }
 
 

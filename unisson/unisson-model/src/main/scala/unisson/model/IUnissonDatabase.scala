@@ -155,7 +155,7 @@ trait IUnissonDatabase
     /**
      * A list of dependencies between the source code elements
      */
-    def source_code_dependencies: Relation[(ICodeElement, ICodeElement, String)]
+    def source_code_dependencies: Relation[Dependency]
 
 
     /**
@@ -185,13 +185,13 @@ trait IUnissonDatabase
                 (_: (IEnsemble, ICodeElement))._2
                 ) ⋈
                 (
-                    (_: (ICodeElement, ICodeElement, String))._1,
+                    (_: Dependency).source,
                     source_code_dependencies
                     )
             )
         {
-            (source: (IEnsemble, ICodeElement), dependency: (ICodeElement, ICodeElement, String)) =>
-                (source, dependency)
+            (source: (IEnsemble, ICodeElement), dependency: Dependency) =>
+                (source._1, dependency)
         }
         val targetEnsembleDependencies = (
             (
@@ -199,14 +199,14 @@ trait IUnissonDatabase
                 (_: (IEnsemble, ICodeElement))._2
                 ) ⋈
                 (
-                    (_: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String)))._2._2,
+                    (_: (IEnsemble, Dependency))._2.target,
                     sourceEnsembleDependencies
                     )
             )
         {
             (target: (IEnsemble, ICodeElement),
-             sourceDependency: ((IEnsemble, ICodeElement), (ICodeElement, ICodeElement, String))) =>
-                (sourceDependency._1._1, target._1, sourceDependency._1._2, target._2, sourceDependency._2._3)
+             sourceDependency: (IEnsemble, Dependency)) =>
+                (sourceDependency._1, target._1, sourceDependency._2.source, target._2, sourceDependency._2.kind.asVespucciString)
         }
         val filteredSelfRef = σ ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
             (dependency._1 != dependency._2)

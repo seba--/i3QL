@@ -3,14 +3,13 @@ package unisson.model
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
-import sae.collections.{Conversions, QueryResult}
-import de.tud.cs.st.bat.{VoidType, ObjectType}
-import sae.bytecode.model.dependencies.{`extends`}
-import sae.bytecode.model.instructions.{putfield, push, invokespecial}
-import sae.bytecode.{BytecodeDatabase}
-import de.tud.cs.st.vespucci.interfaces.{IViolation}
 import org.junit.{Ignore, Test}
-import sae.bytecode.model.{FieldReference, FieldDeclaration, MethodReference, MethodDeclaration}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.{MethodDeclaration, FieldDeclaration, MethodReference, InheritanceRelation}
+import sae.bytecode.instructions.{PUTFIELD, INVOKESPECIAL}
+import de.tud.cs.st.bat._
+import resolved.{MethodDescriptor, VoidType, ObjectType}
+import UnissonOrdering._
 
 /**
  *
@@ -23,7 +22,7 @@ class TestUnissonDatabaseKinds
         extends ShouldMatchers
 {
 
-    import UnissonOrdering._
+
 
 
     @Test
@@ -45,27 +44,28 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
 
         val obj = ObjectType("java/lang/Object")
-        val superConst = MethodReference(obj, "<init>", Nil, VoidType())
+        val superConst = MethodReference(obj, "<init>", Nil, VoidType)
         val a = ObjectType("test/A")
-        val initA = MethodDeclaration(a, "<init>", Nil, VoidType())
+        val initA = MethodDeclaration(a, "<init>", VoidType, Nil)
         val b = ObjectType("test/B")
 
         val field = FieldDeclaration(a, "myB", b)
 
         bc.typeDeclarations.element_added(a)
-        bc.`extends`.element_added(`extends`(a, obj))
+        bc.classInheritance.element_added(InheritanceRelation(a, obj))
 
 
         bc.methodDeclarations.element_added(initA)
-        bc.instructions.element_added(invokespecial(initA, 1, superConst))
-        bc.instructions.element_added(push(initA, 3, null, obj))
-        bc.instructions.element_added(putfield(initA, 4, FieldReference(a, "myB", b)))
+        bc.instructions.element_added (INVOKESPECIAL (initA, resolved.INVOKESPECIAL (obj, "<init>", MethodDescriptor (Nil, VoidType)), 1, 1))
+        //bc.instructions.element_added (PUSH (initA, null, obj, 3, 2))
+        bc.instructions.element_added (PUTFIELD (initA, resolved.PUTFIELD (a, "myB", b), 4, 3))
+
 
         bc.fieldDeclarations.element_added(field)
 
@@ -105,7 +105,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -158,7 +158,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
         val model = Concern(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -227,7 +227,7 @@ class TestUnissonDatabaseKinds
         val modelA = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextBToA")
         val modelB = Concern(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextDToA")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(modelA)
         db.addSlice(modelB)
@@ -296,7 +296,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -349,7 +349,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
         val model = Concern(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result =sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -416,7 +416,7 @@ class TestUnissonDatabaseKinds
 
         val model = Concern(ensembles, Set(constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -468,7 +468,7 @@ class TestUnissonDatabaseKinds
 
         val model = Concern(ensembles, Set(constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -520,7 +520,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
