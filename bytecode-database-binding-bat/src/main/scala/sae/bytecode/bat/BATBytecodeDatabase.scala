@@ -108,7 +108,9 @@ class BATBytecodeDatabase
             // select guaranteed inner classes
             SELECT (new InnerClass (_: UnresolvedInnerClassEntry)) FROM
                 unresolvedInnerClasses WHERE (_.outerClassType.isDefined) UNION_ALL (
-                SELECT (new InnerClass (_: UnresolvedInnerClassEntry)) FROM
+                SELECT ((e: UnresolvedInnerClassEntry) =>
+                    new InnerClass (e.declaringType, e.innerClassType, e.innerName.isDefined, e.innerName)
+                ) FROM
                     // TODO this is a pragmatic solution that checks that the name if the inner type is longer than the name of the outer type, it passes all tests, and it seems that classes never mention inner_classes beyond one level which might be falsely identified by this test
                     unresolvedInnerClasses WHERE (!_.outerClassType.isDefined) AND
                     (e => e.innerClassType.className.length () > e.declaringType.className.length ())

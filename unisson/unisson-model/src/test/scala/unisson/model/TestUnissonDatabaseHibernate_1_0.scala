@@ -135,10 +135,12 @@ class TestUnissonDatabaseHibernate_1_0
         val constraints = Set (emptyToDeprecatedPersistenceLifecycleCallbacks)
         val global = Repository (ensembles)
         val model = Concern (ensembles, constraints, "DeprecatedLegacy")
+
+        val queryResult = sae.relationToResult (db.violations)
+
         db.setRepository (global)
         db.addSlice (model)
 
-        val queryResult = sae.relationToResult (db.violations)
 
         bc.addArchive (getStream ("hibernate-1.0.jar"))
 

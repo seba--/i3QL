@@ -33,10 +33,15 @@
 package unisson.model
 
 import kinds.primitive._
-import sae.bytecode.structure.{MethodDeclaration, FieldDeclaration, ExceptionDeclaration, InheritanceRelation}
+import sae.bytecode.structure._
 import unisson.query.code_model.{FieldInfoAdapter, MethodInfoAdapter, SourceElement}
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.FieldType
+import sae.bytecode.structure.InheritanceRelation
+import unisson.model.Dependency
+import sae.bytecode.instructions.NEW
+import sae.bytecode.instructions.CHECKCAST
+import sae.bytecode.structure.ExceptionDeclaration
 
 /**
  *
@@ -58,37 +63,37 @@ object DependencyFactory
 
     def invokeInterfaceDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeInterfaceKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeInterfaceKind)
     }
 
 
     def invokeSpecialDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeSpecialKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeSpecialKind)
     }
 
 
     def invokeVirtualDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeVirtualKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeVirtualKind)
     }
 
 
     def invokeStaticDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (rel), InvokeStaticKind)
+            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeStaticKind)
     }
 
 
     def readFieldDependency: FieldReadInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (rel), ReadFieldKind)
+            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (new FieldReference(rel.receiverType, rel.name, rel.fieldType)), ReadFieldKind)
     }
 
 
     def writeFieldDependency: FieldWriteInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (rel), WriteFieldKind)
+            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (new FieldReference(rel.receiverType, rel.name, rel.fieldType)), WriteFieldKind)
     }
 
 
