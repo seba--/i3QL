@@ -1,7 +1,7 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.interfaces._
-import sae.{MaterializedRelation, Relation}
+import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions.Count
 
@@ -213,6 +213,11 @@ trait IUnissonDatabase
         )(targetEnsembleDependencies)
 
 
+        val filteredDescendantsAndAncestors = σ ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
+            (!ancestors (dependency._1).contains (dependency._2) && !ancestors (dependency._2).contains (dependency._1))
+        )(filteredSelfRef)
+
+        /*
         val descendantsAndAncestors = descendants ⊎ Π ((_: (IEnsemble, IEnsemble)).swap)(descendants)
 
         (
@@ -222,8 +227,16 @@ trait IUnissonDatabase
             identity[(IEnsemble, IEnsemble)],
             descendantsAndAncestors
             )
+         */
+        filteredDescendantsAndAncestors
     }
 
+
+    def ancestors(ensemble: IEnsemble): List[IEnsemble] = {
+        if (ensemble.getParent != null)
+            return ensemble.getParent :: ancestors (ensemble.getParent)
+        Nil
+    }
 
     /**
      * A list of ensemble dependencies that are not allowed in the form:

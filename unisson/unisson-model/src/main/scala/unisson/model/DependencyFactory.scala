@@ -38,7 +38,6 @@ import unisson.query.code_model.{FieldInfoAdapter, MethodInfoAdapter, SourceElem
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.FieldType
 import sae.bytecode.structure.InheritanceRelation
-import unisson.model.Dependency
 import sae.bytecode.instructions.NEW
 import sae.bytecode.instructions.CHECKCAST
 import sae.bytecode.structure.ExceptionDeclaration

@@ -52,9 +52,9 @@ object BaseRelationMemoryProfiler
                   |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                   | """.stripMargin
 
-    private val iterations = 20
+    private val iterations = 50
 
-    private val warmup = 10
+    private val warmup = 25
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args.forall (arg ⇒ arg.endsWith (".zip") || arg.endsWith (".jar"))) {
