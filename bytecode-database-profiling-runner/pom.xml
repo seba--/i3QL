@@ -34,6 +34,12 @@
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-findbugs</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>unisson-model</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
