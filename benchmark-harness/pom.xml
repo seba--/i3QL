@@ -37,7 +37,7 @@
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
                                 <argument>"sae/benchmark/definitions"</argument>
-                                <argument>true</argument>
+                                <argument>false</argument>
                             </arguments>
                         </configuration>
                     </execution>
