@@ -49,8 +49,6 @@ abstract class SAEAnalysesProfiler
     extends AbstractPropertiesFileProfiler
 {
 
-    def optimized: Boolean
-
     def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
 
 

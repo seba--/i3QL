@@ -52,8 +52,6 @@ abstract class SAEAnalysesMemoryProfiler
 {
     sae.ENABLE_FORCE_TO_SET = false
 
-    val optimized = false
-
     def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
 
     val usage: String = """|Usage: java SAEAnalysesMemoryProfiler propertiesFile

@@ -51,8 +51,6 @@ abstract class SAEAnalysesTimeProfiler
     with TimeMeasurement
 {
 
-    val optimized = false
-
     def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
 
     val usage: String = """|Usage: java SAEAnalysesTimeProfiler propertiesFile

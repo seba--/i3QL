@@ -1,10 +1,13 @@
 package sae.analyses.findbugs.selected.oo.optimized
 
-import sae.bytecode.BytecodeDatabase
+import sae.bytecode._
+import instructions.InvokeInstruction
 import sae.Relation
-import sae.bytecode.structure.{CodeInfo, MethodDeclaration}
+import sae.bytecode.structure.MethodDeclaration
 import sae.syntax.sql._
-import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
+import de.tud.cs.st.bat.resolved.{ReferenceType, ObjectType}
+import sae.analyses.findbugs.base.oo.Definitions
+import sae.operators.impl.{EquiJoinView, DifferenceView, TransactionalEquiJoinView}
 
 /**
  *
@@ -13,34 +16,38 @@ import de.tud.cs.st.bat.resolved.{MethodDescriptor, INVOKESPECIAL, ObjectType}
  *         TODO consider optimization together with CN_IDIOM
  *         TODO consider optimization together with CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE
  *
- *         TODO optimize THIS
  */
 object CN_IDIOM_NO_SUPER_CALL
     extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
-
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
-        SELECT ((_: CodeInfo).declaringMethod) FROM code WHERE
-            NOT ((_: CodeInfo).declaringMethod.declaringClass.isInterface) AND
-            NOT ((_: CodeInfo).declaringMethod.declaringClass.isAnnotation) AND
-            (_.declaringMethod.name == "clone") AND
-            (_.declaringMethod.parameterTypes == Nil) AND
-            (_.declaringMethod.returnType == ObjectType.Object) AND
-            NOT ((_: CodeInfo).declaringMethod.isAbstract) AND
-            (_.declaringMethod.declaringClass.superClass.isDefined) AND
-            NOT ((ci: CodeInfo) => {
-                val superClass = ci.declaringMethod.declaringClass.superClass.get
-                ci.code.instructions.exists ({
-                    case INVOKESPECIAL (
-                    `superClass`,
-                    "clone",
-                    MethodDescriptor (Nil, ObjectType.Object)
-                    ) ⇒ true
-                    case _ ⇒ false
-                })
-            })
+        val definitions = Definitions(database)
+        import definitions._
+        val filtered = compile(
+            SELECT(*) FROM implementersOfClone WHERE
+                    (!_.declaringClass.isInterface) AND
+                    (!_.declaringClass.isAnnotation) AND
+                    (!_.isAbstract) AND
+                    (_.declaringClass.superClass.isDefined)
+        )
 
+        val invokes = compile(
+            SELECT DISTINCT ((i: InvokeInstruction) => (i.declaringMethod, i.receiverType)) FROM invokeSpecial WHERE
+                    (_.name == "clone") AND
+                    (_.parameterTypes == Nil) AND
+                    (_.returnType == ObjectType.Object)
+        )
+
+        val join = new TransactionalEquiJoinView(filtered,
+            invokes,
+            (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
+            identity[(MethodDeclaration,ReferenceType)] _,
+            (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
+        )
+
+        // TODo make this also local
+        new DifferenceView[MethodDeclaration](filtered, join)
     }
 
 }

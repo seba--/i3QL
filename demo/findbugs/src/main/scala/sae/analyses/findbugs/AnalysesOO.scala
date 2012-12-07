@@ -87,7 +87,7 @@ object AnalysesOO
     private def getOptimized(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
         case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
         case "CN_IDIOM" => CN_IDIOM (database)
-        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
+        case "CN_IDIOM_NO_SUPER_CALL" => optimized.CN_IDIOM_NO_SUPER_CALL (database)
         case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
         case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
         case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)

@@ -91,6 +91,16 @@ trait AbstractPropertiesFileProfiler
                 false
             }
 
+        isOptimized =
+            if (args.length > 3)
+            {
+                java.lang.Boolean.parseBoolean (args (3))
+            }
+            else
+            {
+                false
+            }
+
         val properties = getProperties (propertiesFile).getOrElse (
         {
             println ("could not find properties file or resource: " + propertiesFile)
@@ -108,7 +118,7 @@ trait AbstractPropertiesFileProfiler
         val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
 
-        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars + " transactional = " + transactional)
+        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupJars + " re-read = " + reReadJars + " transactional = " + transactional + " optimized = " + optimized + " sharedSubQueries = " + sharedSubQueries)
         val count = warmup (warmupIterations, warmupJars, queries, reReadJars, transactional)
         println ("\tdone")
         println ("Num. of Results: " + count)
@@ -116,7 +126,7 @@ trait AbstractPropertiesFileProfiler
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
 
-        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars + " transactional = " + transactional)
+        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementJars + " re-read = " + reReadJars + " transactional = " + transactional + " optimized = " + optimized + " sharedSubQueries = " + sharedSubQueries)
         val statistic = measure (measurementIterations, measurementJars, queries, reReadJars, transactional)
         println ("\tdone")
         println (statistic.summary (measurementUnit))

@@ -32,7 +32,6 @@
  */
 package sae
 
-import collection.immutable.HashMap
 import deltas.{Deletion, Addition, Update}
 
 trait Observer[-V]

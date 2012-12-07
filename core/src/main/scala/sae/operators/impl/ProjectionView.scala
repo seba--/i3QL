@@ -61,6 +61,10 @@ class ProjectionView[Domain, Range](val relation: Relation[Domain],
         Nil
     }
 
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
+
     /**
      * Applies f to all elements of the view.
      */
