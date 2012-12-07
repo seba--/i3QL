@@ -250,22 +250,13 @@ class UnissonDatabase(val bc: BytecodeDatabase)
         }
     }
 
-    protected[model] def dependencyView_to_tupleView[S <: AnyRef, T <: AnyRef](dependencyView: Relation[_ <: Dependency[S, T]],
-                                                                               kind: DependencyKind
-                                                                                  ): Relation[(ICodeElement, ICodeElement, String)] =
-    {
-        Π[Dependency[S, T], (ICodeElement, ICodeElement, String)](
-            (d: Dependency[S, T]) => (SourceElement (d.source), SourceElement (d.target), kind.asVespucciString)
-        )(dependencyView.asInstanceOf[Relation[Dependency[S, T]]])
-    }
-
     /**
      * A list of dependencies between the source code elements
      */
     def source_code_dependencies = internal_source_code_dependencies
 
 
-    lazy val internal_source_code_dependencies =
+    lazy val internal_source_code_dependencies = compile (
         SELECT (extendsDependency) FROM bc.classInheritance UNION_ALL (
             SELECT (implementsDependency) FROM bc.interfaceInheritance
             ) UNION_ALL (
@@ -291,13 +282,14 @@ class UnissonDatabase(val bc: BytecodeDatabase)
             ) UNION_ALL (
             SELECT (parameterTypeDependency) FROM (
                 bc.methodDeclarations,
-                ((_: MethodDeclaration).parameterTypes.filterNot (_.isBaseType) IN bc.methodDeclarations)
+                (((_: MethodDeclaration).parameterTypes.filterNot (_.isBaseType)) IN bc.methodDeclarations)
                 )
             ) UNION_ALL (
             SELECT (returnTypeDependency) FROM (bc.methodDeclarations) WHERE
                 (!_.returnType.isBaseType) AND
                 (!_.returnType.isVoidType)
             )
+    )
 
     private def parseQueryKinds(constraint: IConstraint): Set[DependencyKind] = {
         kindParser.parse (constraint.getDependencyKind) match {

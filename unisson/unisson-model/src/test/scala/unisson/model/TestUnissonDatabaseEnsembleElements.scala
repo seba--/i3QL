@@ -5,9 +5,9 @@ import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
 import org.junit.Test
 import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.BytecodeDatabase
-import sae.bytecode.model.FieldDeclaration
 import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.FieldDeclaration
+import UnissonOrdering._
 
 /**
  *

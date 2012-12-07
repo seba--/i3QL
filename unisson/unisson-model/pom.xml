@@ -41,6 +41,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-database-test-data</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.scalatest</groupId>
             <!-- the scala convention states that we have the version of the underlying scala library encoded in the artifact id -->
             <artifactId>scalatest_${scala.version}</artifactId>

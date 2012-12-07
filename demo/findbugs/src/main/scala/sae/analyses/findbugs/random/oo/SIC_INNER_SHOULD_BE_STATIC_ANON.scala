@@ -128,6 +128,7 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
             )
 
         /**
+         * TODO
          * A heuristic that determines whether the outer this field is read, by counting aload_1 instructions
          * The count must be greater than 1, because the variable will be read once for storing it
          * into the field reference for the outer this instance.

@@ -14,32 +14,34 @@ import sae.analyses.findbugs.base.oo.Definitions
  *
  */
 object DM_GC
-    extends (BytecodeDatabase => Relation[InvokeInstruction])
+        extends (BytecodeDatabase => Relation[InvokeInstruction])
 {
 
     val gcReg = "(^gc)|(gc$)".r
 
     def apply(database: BytecodeDatabase): Relation[InvokeInstruction] = {
-        val definitions = Definitions (database)
+        val definitions = Definitions(database)
         import database._
         import definitions._
 
 
-        SELECT (*) FROM invokeStatic.asInstanceOf[Relation[InvokeInstruction]] WHERE
-            NOT ((_: InvokeInstruction).declaringMethod.declaringClassType.className.startsWith ("java/lang")) AND
-            NOT ((instr: InvokeInstruction) => gcReg.findFirstIn (instr.declaringMethod.name).isDefined) AND
-            (_.receiverType == system) AND
-            (_.name == "gc") AND
-            (_.parameterTypes == Nil) AND
-            (_.returnType == VoidType) UNION_ALL (
-            SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
-                NOT ((_: InvokeInstruction).declaringMethod.declaringClassType.className.startsWith ("java/lang")) AND
-                NOT ((instr: InvokeInstruction) => gcReg.findFirstIn (instr.declaringMethod.name).isDefined) AND
-                (_.receiverType == runtime) AND
+        SELECT(*) FROM invokeStatic.asInstanceOf[Relation[InvokeInstruction]] WHERE
                 (_.name == "gc") AND
+                (_.receiverType == system) AND
                 (_.parameterTypes == Nil) AND
-                (_.returnType == VoidType)
-            )
+                (_.returnType == VoidType) AND
+                NOT((_: InvokeInstruction).declaringMethod.declaringClassType.className.startsWith("java/lang")) AND
+                NOT((instr: InvokeInstruction) => gcReg.findFirstIn(instr.declaringMethod.name).isDefined) UNION_ALL (
+                SELECT(*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
+                        (_.name == "gc") AND
+                        (_.receiverType == runtime) AND
+                        (_.parameterTypes == Nil) AND
+                        (_.returnType == VoidType) AND
+                        NOT((_: InvokeInstruction).declaringMethod.declaringClassType.className
+                                .startsWith("java/lang")) AND
+                        NOT((instr: InvokeInstruction) => gcReg.findFirstIn(instr.declaringMethod.name).isDefined)
+
+                )
 
     }
 

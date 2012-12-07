@@ -5,9 +5,14 @@ import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElement
 import org.junit.Test
-import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.model.dependencies.`extends`
-import sae.bytecode.model.instructions.{putfield, push, invokespecial}
+import de.tud.cs.st.bat._
+import resolved.{MethodDescriptor, VoidType, ObjectType}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure._
+import sae.bytecode.instructions.INVOKESPECIAL
+import sae.bytecode.structure.InheritanceRelation
+import sae.bytecode.instructions.PUTFIELD
+import UnissonOrdering._
 
 /**
  *
@@ -19,7 +24,6 @@ import sae.bytecode.model.instructions.{putfield, push, invokespecial}
 class TestUnissonDatabaseEnsembleDependencies
     extends ShouldMatchers
 {
-
 
 
     @Test
@@ -91,20 +95,19 @@ class TestUnissonDatabaseEnsembleDependencies
         db.setRepository (global)
 
         val obj = ObjectType ("java/lang/Object")
-        val objectConstructor = MethodReference (obj, "<init>", Nil, VoidType ())
         val a = ObjectType ("test/A")
-        val aConstructor = MethodDeclaration (a, "<init>", Nil, VoidType ())
+        val aConstructor = MethodDeclaration (a, "<init>", VoidType, Nil)
         val b = ObjectType ("test/B")
         val fieldBFromA = FieldDeclaration (a, "myB", b)
 
         bc.typeDeclarations.element_added (a)
-        bc.`extends`.element_added (`extends` (a, obj))
+        bc.classInheritance.element_added (InheritanceRelation (a, obj))
 
 
         bc.methodDeclarations.element_added (aConstructor)
-        bc.instructions.element_added (invokespecial (aConstructor, 1, objectConstructor))
-        bc.instructions.element_added (push (aConstructor, 3, null, obj))
-        bc.instructions.element_added (putfield (aConstructor, 4, FieldReference (a, "myB", b)))
+        bc.instructions.element_added (INVOKESPECIAL (aConstructor, resolved.INVOKESPECIAL (obj, "<init>", MethodDescriptor (Nil, VoidType)), 1, 1))
+        //bc.instructions.element_added (PUSH (aConstructor, null, obj, 3, 2))
+        bc.instructions.element_added (PUTFIELD (aConstructor, resolved.PUTFIELD (a, "myB", b), 4, 3))
 
         bc.fieldDeclarations.element_added (fieldBFromA)
 
