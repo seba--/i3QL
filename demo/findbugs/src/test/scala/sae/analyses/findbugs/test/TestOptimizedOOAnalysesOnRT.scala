@@ -92,4 +92,14 @@ class TestOptimizedOOAnalysesOnRT
         // TODO six less than BAT who is right
         assertEquals (50, analysis.size)
     }
+
+    @Test
+    def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
+        val database = BATDatabaseFactory.create ()
+        sae.ENABLE_FORCE_TO_SET = true
+        val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (58, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
 }

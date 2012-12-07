@@ -30,13 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.random.oo
+package sae.analyses.findbugs.random.oo.optimized
 
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
 import structure.FieldDeclaration
+import sae.operators.impl.TransactionalEquiJoinView
 
 /**
  *
@@ -78,14 +79,31 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
             )
         )
 
-        val selfFieldReads = compile (
-            SELECT ((get: GETFIELD, f: FieldDeclaration) => get) FROM (getField, fieldDeclarations) WHERE
+        /*
+        val selfCallsFromCalledConstructor =
+            new TransactionalEquiJoinView(
+                selfCallsFromConstructor,
+                superCalls,
+                (i: InvokeInstruction) => (i.declaringMethod.declaringClassType, i.declaringMethod.name, i.declaringMethod.returnType, i.declaringMethod.parameterTypes),
+                (i : INVOKESPECIAL) => (i.receiverType, i.name, i.returnType, i.parameterTypes),
+                (a: InvokeInstruction, b : INVOKESPECIAL) => a
+            )
+            */
+
+        val getFieldSelection = compile(
+            SELECT (*) FROM (getField) WHERE
                 (i => i.declaringMethod.declaringClassType == i.receiverType) AND
-                (_.declaringMethod.name != "<init>") AND
-                (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
-                (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
-                (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
+                (_.declaringMethod.name != "<init>")
         )
+
+        val selfFieldReads =
+            new TransactionalEquiJoinView(
+                getFieldSelection,
+                fieldDeclarations,
+                (get: GETFIELD) => (get.receiverType, get.name, get.fieldType),
+                (field: FieldDeclaration) => (field.declaringType, field.name, field.fieldType),
+                (get: GETFIELD, f: FieldDeclaration) => get
+            )
 
         compile (
             SELECT (*) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE
