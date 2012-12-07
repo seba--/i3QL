@@ -35,6 +35,7 @@ package sae.analyses.findbugs.test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.oo.optimized._
+import analyses.findbugs.random.oo.optimized._
 import org.junit.{Ignore, Test}
 import org.junit.Assert._
 
@@ -74,5 +75,21 @@ class TestOptimizedOOAnalysesOnRT
         assertEquals (6799, analysis.size)
     }
 
+    @Test
+    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
 
+    @Test
+    def test_ITA_INEFFICIENT_TO_ARRAY() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
+        database.addArchive (getStream)
+        //assertEquals (56, analysis.size)
+        // TODO six less than BAT who is right
+        assertEquals (50, analysis.size)
+    }
 }

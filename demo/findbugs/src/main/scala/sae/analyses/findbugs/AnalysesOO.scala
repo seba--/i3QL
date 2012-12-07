@@ -32,10 +32,11 @@
  */
 package sae.analyses.findbugs
 
-import random.oo._
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
+import random.oo._
 import selected.oo._
+
 
 /**
  *
@@ -83,12 +84,11 @@ object AnalysesOO
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
-
     private def getOptimized(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
         case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
-        case "CN_IDIOM" => CN_IDIOM (database)
-        case "CN_IDIOM_NO_SUPER_CALL" => optimized.CN_IDIOM_NO_SUPER_CALL (database)
-        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
+        case "CN_IDIOM" => selected.oo.optimized.CN_IDIOM (database)
+        case "CN_IDIOM_NO_SUPER_CALL" => selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL (database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => selected.oo.optimized.CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
         case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
         case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)
         case "DM_GC" => DM_GC (database)
@@ -97,13 +97,13 @@ object AnalysesOO
         case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
         case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
-        case "UUF_UNUSED_FIELD" => optimized.UUF_UNUSED_FIELD (database)
+        case "UUF_UNUSED_FIELD" => selected.oo.optimized.UUF_UNUSED_FIELD (database)
         /* randomly selected analyses without dataflow */
-        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => random.oo.optimized.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
         case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
         case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
         case "FI_USELESS" => FI_USELESS(database)
-        case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)
         case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
         case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
         case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
@@ -112,4 +112,6 @@ object AnalysesOO
         case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
+
+
 }

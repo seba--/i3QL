@@ -45,6 +45,10 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
 
     relation.addObserver (this)
 
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)

@@ -44,7 +44,7 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
+@Ignore
 class TestTransactionOOAnalysesOnRT
 {
 
