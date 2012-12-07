@@ -3,8 +3,11 @@ package sae.analyses.findbugs.random.oo
 import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
-import sae.bytecode.instructions._
+import instructions._
 import de.tud.cs.st.bat.resolved.ArrayType
+import instructions.ANEWARRAY
+import instructions.ICONST_0
+import structure.MethodDeclaration
 
 
 /**
@@ -25,6 +28,15 @@ object ITA_INEFFICIENT_TO_ARRAY
 
     val listInterface = ClassType ("java/util/List")
 
+    def nextSequenceIndex: InstructionInfo => Int = _.sequenceIndex + 1
+    def previousSequenceIndex: InstructionInfo => Int = _.sequenceIndex - 1
+
+    def instructionIndex : InstructionInfo => (MethodDeclaration, Int) = instr => (instr.declaringMethod, instr.sequenceIndex)
+
+    def nextInstructionIndex : InstructionInfo => (MethodDeclaration, Int) = instr => (instr.declaringMethod, instr.sequenceIndex + 1)
+
+    def prevInstructionIndex : InstructionInfo => (MethodDeclaration, Int) = instr => (instr.declaringMethod, instr.sequenceIndex - 1)
+
     def apply(database: BytecodeDatabase): Relation[InvokeInstruction] = {
         import database._
 
@@ -34,23 +46,19 @@ object ITA_INEFFICIENT_TO_ARRAY
 
         val newArray0 =
             SELECT ((i: ICONST_0, a: ANEWARRAY) => a) FROM (iconst0, anewarray) WHERE
-                (declaringMethod === declaringMethod) AND
-                (sequenceIndex === ((_: ANEWARRAY).sequenceIndex - 1))
-
+                (nextInstructionIndex === instructionIndex)
 
         val invokes: Relation[InvokeInstruction] =
             SELECT ((i: InvokeInstruction, a: ANEWARRAY) => i) FROM (invokeInterface.asInstanceOf[Relation[InvokeInstruction]], newArray0) WHERE
                 (_.name == "toArray") AND
                 (_.returnType == objectArrayType) AND
                 (_.parameterTypes == Seq (objectArrayType)) AND
-                (declaringMethod === declaringMethod) AND
-                (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1)) UNION_ALL (
+                (prevInstructionIndex === instructionIndex) UNION_ALL (
                 SELECT ((i: InvokeInstruction, a: ANEWARRAY) => i) FROM (invokeVirtual.asInstanceOf[Relation[InvokeInstruction]], newArray0) WHERE
                     (_.name == "toArray") AND
                     (_.returnType == objectArrayType) AND
                     (_.parameterTypes == Seq (objectArrayType)) AND
-                    (declaringMethod === declaringMethod) AND
-                    (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1))
+                    (prevInstructionIndex === instructionIndex)
                 )
 
         SELECT (*) FROM (invokes) WHERE EXISTS (

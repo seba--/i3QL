@@ -47,21 +47,22 @@ import structure.FieldDeclaration
  */
 
 object UUF_UNUSED_FIELD
-    extends (BytecodeDatabase => Relation[FieldDeclaration])
+        extends (BytecodeDatabase => Relation[FieldDeclaration])
 {
     def apply(database: BytecodeDatabase): Relation[FieldDeclaration] = {
-        val definitions = Definitions (database)
+        val definitions = Definitions(database)
         import database._
         import definitions._
 
-        SELECT (*) FROM privateFields WHERE
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM readField WHERE
-                        (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
-                        (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType)) AND
-                        (((_: FieldReadInstruction).receiverType) === declaringType)
+        SELECT(*) FROM privateFields WHERE
+                NOT(
+                    EXISTS(
+                        SELECT(*) FROM readField WHERE
+                                (read => read.declaringMethod.declaringClassType == read.receiverType) AND
+                                (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
+                                (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType)) AND
+                                (((_: FieldReadInstruction).receiverType) === declaringType)
+                    )
                 )
-            )
     }
 }

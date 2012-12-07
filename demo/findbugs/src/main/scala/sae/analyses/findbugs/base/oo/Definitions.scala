@@ -71,17 +71,13 @@ case class Definitions(database: BytecodeDatabase)
     )
 
     lazy val ms_fields: Relation[FieldDeclaration] =
-        SELECT((f: FieldDeclaration, c: ClassDeclaration) => f) FROM
-                (fieldDeclarations, notInterfaces) WHERE
+        SELECT(*) FROM (fieldDeclarations) WHERE
                 (_.isStatic) AND
                 (!_.isSynthetic) AND
                 (!_.isVolatile) AND
-                //NOT ((_: FieldDeclaration).isSynthetic) AND
-                //NOT ((_: FieldDeclaration).isVolatile) AND
-                //(((_: FieldDeclaration).isProtected) OR (_.isPublic)) AND
                 (f => f.isProtected || f.isPublic) AND
-                //(isArray OR isHashTable) AND
-                (declaringType === classType)
+                (!_.declaringClass.isInterface)
+
 
     lazy val ms_base: Relation[FieldDeclaration] =
         SELECT(*) FROM ms_fields WHERE NOT(
