@@ -49,4 +49,5 @@ trait Observer[-V]
 
     def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]])
 
+    def endTransaction() {}
 }

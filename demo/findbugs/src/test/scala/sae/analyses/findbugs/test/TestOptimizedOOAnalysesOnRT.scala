@@ -60,6 +60,14 @@ class TestOptimizedOOAnalysesOnRT
     }
 
     @Test
+    def test_CN_IDIOM_NO_SUPER_CALL() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IDIOM_NO_SUPER_CALL (database))
+        database.addArchive (getStream)
+        assertEquals (136, analysis.size)
+    }
+
+    @Test
     def test_UUF_UNUSED_FIELD() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UUF_UNUSED_FIELD (database))

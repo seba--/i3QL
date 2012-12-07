@@ -45,6 +45,23 @@ import scala.Some
 
 trait AbstractPropertiesFileProfiler
 {
+
+    def optimized : Boolean = isOptimized
+
+    private var isOptimized = false
+
+    def reReadJars : Boolean = isReReadJars
+
+    private var isReReadJars = false
+
+    def transactional : Boolean = isTransactional
+
+    private var isTransactional = false
+
+    def sharedSubQueries : Boolean = isSharedSubQueries
+
+    private var isSharedSubQueries = false
+
     def main(args: Array[String]) {
         if (args.length == 0 || !args (0).endsWith (".properties")) {
             println (usage)

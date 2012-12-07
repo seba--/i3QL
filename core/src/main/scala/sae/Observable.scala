@@ -116,5 +116,9 @@ trait Observable[V]
     def element_modifications[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
         observers.foreach(_.modified(additions, deletions, updates))
     }
+
+    def notifyEndTransaction() {
+        observers.foreach(_.endTransaction())
+    }
 }
 

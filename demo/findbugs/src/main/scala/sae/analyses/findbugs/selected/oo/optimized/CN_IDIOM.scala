@@ -55,18 +55,6 @@ object CN_IDIOM
         val definitions = Definitions (database)
         import definitions._
 
-        /*
-        SELECT (*) FROM (subTypesOfCloneable) WHERE NOT (
-                EXISTS (
-                    SELECT (*) FROM (implementersOfClone) WHERE (declaringType === identity[ObjectType]_)
-                )
-            )
-        */
-
-        val implementersOfCloneAsType: Relation[ObjectType] = compile (
-            SELECT ((_: MethodDeclaration).declaringClassType) FROM (implementersOfClone)
-        )
-        assert(implementersOfClone.isSet)
         new NotExistsInSameDomainView[ObjectType](subTypesOfCloneable.asMaterialized, implementersOfCloneAsType.asMaterialized)
     }
 

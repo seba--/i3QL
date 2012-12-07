@@ -37,6 +37,7 @@ import sae.syntax.sql._
 import sae.bytecode._
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.analyses.findbugs.base.oo.Definitions
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -55,7 +56,7 @@ object CN_IDIOM
 
         SELECT (*) FROM (subTypesOfCloneable) WHERE NOT (
                 EXISTS (
-                    SELECT (*) FROM (implementersOfClone) WHERE (declaringType === identity[ObjectType]_)
+                    SELECT (*) FROM (implementersOfCloneAsType) WHERE (thisClass === thisClass)
                 )
             )
     }

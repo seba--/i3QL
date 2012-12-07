@@ -17,14 +17,21 @@ package object bytecode
 
     type ClassType = de.tud.cs.st.bat.resolved.ObjectType
 
-    def ClassType(fullyQualified: String): ClassType = de.tud.cs.st.bat.resolved.ObjectType (fullyQualified)
+    def ClassType(fullyQualified: String): ClassType = de.tud.cs.st.bat.resolved.ObjectType(fullyQualified)
 
     val void = VoidType
 
+    def thisClass: de.tud.cs.st.bat.resolved.ObjectType => de.tud.cs.st.bat.resolved.ObjectType = identity[ObjectType] _
+
+    def thisMethod: MethodDeclaration => MethodDeclaration = identity[MethodDeclaration] _
+
+    def thisField: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration] _
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
 
     def declaringType: DeclaredClassMember => ClassType = _.declaringClass.classType
+
+    def declaringTypeSuperType: DeclaredClassMember => ClassType = _.declaringClass.superClass.get
 
     def declaringMethod: InstructionInfo => MethodDeclaration = _.declaringMethod
 
@@ -38,13 +45,16 @@ package object bytecode
 
     def classType: ClassDeclaration => ClassType = _.classType
 
-    def subType : InheritanceRelation => ClassType = _.subType
+    def subType: InheritanceRelation => ClassType = _.subType
 
-    def superType : InheritanceRelation => ClassType = _.superType
+    def superType: InheritanceRelation => ClassType = _.superType
 
-    def superClass : ClassDeclaration => ClassType = _.superClass.get
+    def superClass: ClassDeclaration => ClassType = _.superClass.get
 
-    def declaringClassType : InstructionInfo => ClassType = _.declaringMethod.declaringClass.classType
+    def declaringClassType: InstructionInfo => ClassType = _.declaringMethod.declaringClass.classType
 
-    def referencedMethod : InvokeInstruction => MethodInfo = call => MethodReference(call.receiverType, call.name, call.parameterTypes, call.returnType)
+
+
+    def referencedMethod: InvokeInstruction => MethodInfo = call => MethodReference(call.receiverType, call.name, call
+            .parameterTypes, call.returnType)
 }

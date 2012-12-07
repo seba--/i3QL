@@ -32,10 +32,17 @@ case class Definitions(database: BytecodeDatabase)
         SELECT((_: InheritanceRelation).subType) FROM (subTypes) WHERE (_.superType == cloneable)
 
     lazy val implementersOfClone: Relation[MethodDeclaration] =
-        SELECT(*) FROM methodDeclarations WHERE
-                (_.name == "clone") AND
-                (_.parameterTypes == Nil) AND
-                (_.returnType == ObjectType.Object)
+        compile(
+            SELECT(*) FROM methodDeclarations WHERE
+                    (_.name == "clone") AND
+                    (_.parameterTypes == Nil) AND
+                    (_.returnType == ObjectType.Object)
+        )
+
+    val implementersOfCloneAsType: Relation[ObjectType] = compile(
+        SELECT((_: MethodDeclaration).declaringClassType) FROM (implementersOfClone)
+    )
+
 
     lazy val comparable = ObjectType("java/lang/Comparable")
 
