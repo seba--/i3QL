@@ -36,7 +36,7 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
-import structure.FieldDeclaration
+import structure.{MethodReference, MethodComparison, FieldDeclaration}
 import sae.operators.impl.TransactionalEquiJoinView
 
 /**
@@ -48,6 +48,15 @@ import sae.operators.impl.TransactionalEquiJoinView
 object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
     extends (BytecodeDatabase => Relation[(GETFIELD, InvokeInstruction)])
 {
+
+    def methodReference: INVOKESPECIAL => MethodComparison = instr =>
+        new MethodReference (
+            instr.receiverType,
+            instr.name,
+            instr.parameterTypes,
+            instr.returnType
+        )
+
     def apply(database: BytecodeDatabase): Relation[(GETFIELD, InvokeInstruction)] = {
         import database._
 
@@ -72,10 +81,13 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
         val selfCallsFromCalledConstructor = compile (
             SELECT (*) FROM (selfCallsFromConstructor) WHERE EXISTS (
                 SELECT (*) FROM (superCalls) WHERE
-                    (((_: INVOKESPECIAL).receiverType) === ((_: InvokeInstruction).declaringMethod.declaringClassType)) AND
-                    (((_: INVOKESPECIAL).name) === ((_: InvokeInstruction).declaringMethod.name)) AND
-                    (((_: INVOKESPECIAL).returnType) === ((_: InvokeInstruction).declaringMethod.returnType)) AND
-                    (((_: INVOKESPECIAL).parameterTypes) === ((_: InvokeInstruction).declaringMethod.parameterTypes))
+                    (methodReference === declaringMethod)
+                /*                          makes no difference in memory
+                (((_: INVOKESPECIAL).receiverType) === ((_: InvokeInstruction).declaringMethod.declaringClassType)) AND
+                (((_: INVOKESPECIAL).name) === ((_: InvokeInstruction).declaringMethod.name)) AND
+                (((_: INVOKESPECIAL).returnType) === ((_: InvokeInstruction).declaringMethod.returnType)) AND
+                (((_: INVOKESPECIAL).parameterTypes) === ((_: InvokeInstruction).declaringMethod.parameterTypes))
+                */
             )
         )
 
@@ -90,14 +102,14 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
             )
             */
 
-        val getFieldSelection = compile(
+        val getFieldSelection = compile (
             SELECT (*) FROM (getField) WHERE
                 (i => i.declaringMethod.declaringClassType == i.receiverType) AND
                 (_.declaringMethod.name != "<init>")
         )
 
         val selfFieldReads =
-            new TransactionalEquiJoinView(
+            new TransactionalEquiJoinView (
                 getFieldSelection,
                 fieldDeclarations,
                 (get: GETFIELD) => (get.receiverType, get.name, get.fieldType),
