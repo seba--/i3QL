@@ -55,8 +55,16 @@ object UUF_UNUSED_FIELD
         import database._
         import definitions._
 
-        val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
-        val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField)
+        val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (
+            SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields
+        ).forceToSet
+
+        assert(!sae.ENABLE_FORCE_TO_SET || privateFieldProjection.isSet)
+
+        val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (
+            SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField
+                // WHERE((fd: FieldReadInstruction) => fd.receiverType == fd.declaringMethod.declaringClassType)
+        )
 
         new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection.asMaterialized, readFieldProjection.asMaterialized)
     }

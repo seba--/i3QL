@@ -109,10 +109,12 @@ class TestOptimizedOOAnalysesOnRT
 
     @Test
     def test_UUF_UNUSED_FIELD() {
+        sae.ENABLE_FORCE_TO_SET = true
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UUF_UNUSED_FIELD (database))
         database.addArchive (getStream)
         assertEquals (6799, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
     }
 
     @Test
@@ -121,6 +123,14 @@ class TestOptimizedOOAnalysesOnRT
         val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
         database.addArchive (getStream)
         assertEquals (3, analysis.size)
+    }
+
+    @Test
+    def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
     }
 
     @Test

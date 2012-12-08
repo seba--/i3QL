@@ -100,11 +100,11 @@ object AnalysesOO
         case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
         case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
-        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => selected.oo.optimized.SE_NO_SUITABLE_CONSTRUCTOR (database)
         case "UUF_UNUSED_FIELD" => selected.oo.optimized.UUF_UNUSED_FIELD (database)
         /* randomly selected analyses without dataflow */
         case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => random.oo.optimized.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
-        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => random.oo.optimized.DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
         case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
         case "FI_USELESS" => FI_USELESS(database)
         case "ITA_INEFFICIENT_TO_ARRAY" => random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)

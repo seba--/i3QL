@@ -32,22 +32,13 @@ object DP_DO_INSIDE_DO_PRIVILEGED
     def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
 
-        val subtypesOfPriviledged = SELECT (*) FROM interfaceInheritance WHERE
-            (_.superType == priviledgedAction) OR
-            (_.superType == priviledgedExceptionAction)
 
-        val callsToMethodOrField: Relation[INVOKEVIRTUAL] =
-            SELECT (*) FROM invokeVirtual WHERE
-                (_.receiverType == reflectionField) OR (_.receiverType == reflectionMethod)
-
-
-        SELECT (*) FROM callsToMethodOrField WHERE
+        SELECT (*) FROM invokeVirtual WHERE
+            ((i: INVOKEVIRTUAL) => (i.receiverType == reflectionField || i.receiverType == reflectionMethod)) AND
             (_.name == "setAccessible") AND
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM subtypesOfPriviledged WHERE (subType === declaringClassType)
-                )
-            )
+            (_.declaringMethod.declaringClass.interfaces.exists (
+                interface => interface == priviledgedAction || interface == priviledgedExceptionAction
+            ))
     }
 
 
