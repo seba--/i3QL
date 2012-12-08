@@ -218,6 +218,14 @@ class TestOOAnalysesOnRT
     }
 
     @Test
+    def test_SE_BAD_FIELD_INNER_CLASS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SE_BAD_FIELD_INNER_CLASS (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+    @Test
     def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
