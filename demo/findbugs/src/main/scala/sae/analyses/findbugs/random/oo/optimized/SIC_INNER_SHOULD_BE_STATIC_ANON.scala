@@ -38,9 +38,8 @@ import sae.bytecode.structure._
 import sae.bytecode._
 import sae.bytecode.instructions._
 import java.util.regex.Pattern
-import sae.analyses.findbugs.AnalysesOO
-import sae.operators.impl.{NotExistsInSameDomainView, EquiJoinView, TransactionalEquiJoinView}
-import de.tud.cs.st.bat.resolved.ObjectType
+import sae.operators.impl.NotExistsInSameDomainView
+import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
 import sae.functions.Count
 import sae.syntax.RelationalAlgebraSyntax.γ
 
@@ -104,40 +103,26 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
     def apply(database: BytecodeDatabase): Relation[ObjectType] = {
         import database._
 
+
+        lazy val outerThisField =
+            compile (
+                SELECT ((f: FieldDeclaration) => (f.declaringType, f.name, f.fieldType)) FROM fieldDeclarations WHERE
+                    isOuterThisField AND
+                    (f => isAnonymousInnerClass (f.declaringClass)) AND
+                    (f => canConvertToStaticInnerClass (f.declaringClass))
+            )
+
+        lazy val readFields =
+            compile (
+                SELECT ((f: FieldReadInstruction) => (f.receiverType, f.name, f.fieldType)) FROM readField WHERE (field => field.name.startsWith ("this$") || field.name.startsWith ("this+"))
+            )
+
+        lazy val notExists = new NotExistsInSameDomainView (outerThisField.asMaterialized, readFields.asMaterialized)
         lazy val unreadOuterThisField =
             compile (
-                SELECT ((_:FieldDeclaration).declaringType) FROM fieldDeclarations WHERE
-                    isOuterThisField AND
-                    (f => isAnonymousInnerClass(f.declaringClass)) AND
-                    (f => canConvertToStaticInnerClass(f.declaringClass)) AND
-                    NOT (
-                        EXISTS (
-                            SELECT (*) FROM readField WHERE
-                                (((_: FieldReadInstruction).receiverType) === ((_: FieldDeclaration).declaringType)) AND
-                                (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
-                                (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
-                        )
-                    )
+                SELECT ((_:(ObjectType, String, FieldType))._1) FROM (notExists)
             )
-                 /*
-        lazy val classWithUnreadOuterField: Relation[ObjectType] =
-            if (AnalysesOO.transactional)
-                new TransactionalEquiJoinView (
-                    anonymousConvertable,
-                    unreadOuterThisField,
-                    classType,
-                    declaringType,
-                    (c: ClassDeclaration, f: FieldDeclaration) => c.classType
-                )
-            else
-                new EquiJoinView (
-                    anonymousConvertable,
-                    unreadOuterThisField,
-                    classType,
-                    declaringType,
-                    (c: ClassDeclaration, f: FieldDeclaration) => c.classType
-                )
-                         */
+
 
         lazy val aload_1 =
             compile (
@@ -163,7 +148,7 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
                 SELECT ((_: (MethodDeclaration, Int))._1.declaringClassType) FROM countAload_1InInnerClassConstructors WHERE (_._2 > 1)
             )
 
-        new NotExistsInSameDomainView(
+        new NotExistsInSameDomainView (
             unreadOuterThisField.asMaterialized,
             innerClassConstructorWithOneAload.asMaterialized
         )

@@ -109,6 +109,7 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
                     NOT (
                         EXISTS (
                             SELECT (*) FROM readField WHERE
+                                (field => field.name.startsWith ("this$") || field.name.startsWith ("this+")) AND
                                 (((_: FieldReadInstruction).receiverType) === ((_: FieldDeclaration).declaringType)) AND
                                 (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
                                 (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
