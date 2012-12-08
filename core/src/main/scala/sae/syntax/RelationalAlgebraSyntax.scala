@@ -243,7 +243,7 @@ object RelationalAlgebraSyntax
                                                             ):
         Aggregation[Domain, Key, AggregationValue, Result, SelfMaintainableAggregateFunction[Domain, AggregationValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
-            new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, Result](
+            new AggregationForSelfMaintainableFunctions[Domain, Key, AggregationValue, Result](
                 source,
                 groupFunction,
                 aggregationFunctionFactory,
@@ -270,7 +270,7 @@ object RelationalAlgebraSyntax
                                             aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
                                                ) =
         {
-            new AggregationForSelfMaintainableAggregationFunctions (
+            new AggregationForSelfMaintainableFunctions (
                 source,
                 (x: Any) => "a",
                 aggregationFunctionFactory,
@@ -300,7 +300,7 @@ object RelationalAlgebraSyntax
                                                     ):
         Aggregation[Domain, Key, AggregationValue, (Key, AggregationValue), SelfMaintainableAggregateFunction[Domain, AggregationValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
-            new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](
+            new AggregationForSelfMaintainableFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](
                 source,
                 groupingFunction,
                 aggregationFunctionFactory,

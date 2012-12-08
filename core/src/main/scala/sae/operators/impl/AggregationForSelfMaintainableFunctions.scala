@@ -23,7 +23,7 @@ import collection.mutable
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
+class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
                                                                                               val groupingFunction: Domain => Key,
                                                                                               val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                               val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
@@ -41,6 +41,10 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
 
     // aggregation need to be isInitialized for update and remove events
      lazyInitialize()
+
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {

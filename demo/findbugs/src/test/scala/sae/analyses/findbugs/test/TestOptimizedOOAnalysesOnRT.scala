@@ -134,6 +134,14 @@ class TestOptimizedOOAnalysesOnRT
     }
 
     @Test
+    def test_FI_USELESS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (FI_USELESS (database))
+        database.addArchive (getStream)
+        assertEquals (2, analysis.size)
+    }
+
+    @Test
     def test_ITA_INEFFICIENT_TO_ARRAY() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))

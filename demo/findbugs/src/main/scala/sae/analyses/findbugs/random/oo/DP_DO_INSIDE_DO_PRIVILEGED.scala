@@ -36,7 +36,7 @@ object DP_DO_INSIDE_DO_PRIVILEGED
         SELECT (*) FROM invokeVirtual WHERE
             ((i: INVOKEVIRTUAL) => (i.receiverType == reflectionField || i.receiverType == reflectionMethod)) AND
             (_.name == "setAccessible") AND
-            (_.declaringMethod.declaringClass.interfaces.exists (
+            (!_.declaringMethod.declaringClass.interfaces.exists (
                 interface => interface == priviledgedAction || interface == priviledgedExceptionAction
             ))
     }
