@@ -33,7 +33,7 @@
 package sae.operators.impl
 
 import sae.{Observable, Observer, MaterializedRelation}
-import sae.operators.NotExistsInSameDomain
+import sae.operators.{ExistsInSameDomain, NotExistsInSameDomain}
 import sae.deltas.{Update, Deletion, Addition}
 
 /**
@@ -44,9 +44,9 @@ import sae.deltas.{Update, Deletion, Addition}
  * Updates are computed based on indices and foreach is recomputed on every call.
  *
  */
-class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
+class ExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
                                         val right: MaterializedRelation[Domain])
-    extends NotExistsInSameDomain[Domain]
+    extends ExistsInSameDomain[Domain]
 {
 
 
@@ -76,7 +76,7 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
             (v: Domain, leftCount: Int) =>
             {
                 val rightCount = right.elementCountAt (v)
-                val max = if(rightCount == 0) leftCount else 0
+                val max = if(rightCount > 0) leftCount else 0
                 var i = 0
                 while (i < max)
                 {
@@ -87,23 +87,32 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
         )
     }
 
+    var leftFinished  = false
+    var rightFinished = false
+
     object LeftObserver extends Observer[Domain]
     {
         override def endTransaction() {
-            notifyEndTransaction ()
+            leftFinished = true
+            if (rightFinished)
+            {
+                notifyEndTransaction ()
+                leftFinished = false
+                rightFinished = false
+            }
         }
 
         def updated(oldV: Domain, newV: Domain) {
             // we are notified after the update, hence the left will be updated to newV
-            if (right.elementCountAt (oldV) == 0) {
-                var oldCount = left.elementCountAt (newV)
+            if (right.elementCountAt (oldV) > 0) {
+                var oldCount = left.elementCountAt (oldV)
                 while (oldCount > 0)
                 {
                     element_removed (oldV)
                     oldCount -= 1
                 }
             }
-            if (right.elementCountAt (newV) == 0) {
+            if (right.elementCountAt (newV) > 0) {
                 var newCount = left.elementCountAt (newV)
                 while (newCount > 0)
                 {
@@ -115,14 +124,14 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
 
         def removed(v: Domain) {
             // check that this was a removal where the element did not exist on the right side
-            if (right.elementCountAt (v) == 0) {
+            if (right.elementCountAt (v) > 0) {
                 element_removed (v)
             }
         }
 
         def added(v: Domain) {
             // check that this was an addition where the element did not exist on the right side
-            if (right.elementCountAt (v) == 0) {
+            if (right.elementCountAt (v) > 0) {
                 element_added (v)
             }
         }
@@ -139,7 +148,13 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
     object RightObserver extends Observer[Domain]
     {
         override def endTransaction() {
-            notifyEndTransaction ()
+            rightFinished = true
+            if (leftFinished)
+            {
+                notifyEndTransaction ()
+                leftFinished = false
+                rightFinished = false
+            }
         }
 
         // update operations on right relation
@@ -149,28 +164,27 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
 
             while (oldCount > 0)
             {
-                element_added (oldV)
+                element_removed (oldV)
                 oldCount -= 1
             }
 
             var newCount = left.elementCountAt (newV)
             while (newCount > 0)
             {
-                element_removed (newV)
+                element_added (newV)
                 newCount -= 1
             }
         }
 
         def removed(v: Domain) {
-            // check that this was the last removal of an element on the right side, then add all from left side
+            // check that this was the last removal of an element on the right side, then remove all from left side
             if (right.elementCountAt (v) == 0) {
                 var newCount = left.elementCountAt (v)
                 while (newCount > 0)
                 {
-                    element_added (v)
+                    element_removed (v)
                     newCount -= 1
                 }
-                //element_added (v) ??
             }
         }
 
@@ -180,7 +194,7 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
                 var oldCount = left.elementCountAt (v)
                 while (oldCount > 0)
                 {
-                    element_removed (v)
+                    element_added (v)
                     oldCount -= 1
                 }
             }

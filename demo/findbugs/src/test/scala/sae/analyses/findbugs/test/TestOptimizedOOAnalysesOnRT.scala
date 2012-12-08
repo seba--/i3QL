@@ -36,7 +36,7 @@ import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.oo.optimized._
 import analyses.findbugs.random.oo.optimized._
-import org.junit.{Ignore, Test}
+import org.junit.Test
 import org.junit.Assert._
 
 /**
@@ -65,6 +65,33 @@ class TestOptimizedOOAnalysesOnRT
         val analysis = relationToResult (CN_IDIOM_NO_SUPER_CALL (database))
         database.addArchive (getStream)
         assertEquals (136, analysis.size)
+    }
+
+
+    @Test
+    def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database))
+        database.addArchive (getStream)
+        assertEquals (38, analysis.size)
+    }
+
+
+    @Test
+    def test_CO_ABSTRACT_SELF() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CO_ABSTRACT_SELF (database))
+        database.addArchive (getStream)
+        analysis.foreach(println)
+        assertEquals (16, analysis.size)
+    }
+
+    @Test
+    def test_CO_SELF_NO_OBJECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CO_SELF_NO_OBJECT (database))
+        database.addArchive (getStream)
+        assertEquals (55, analysis.size)
     }
 
     @Test

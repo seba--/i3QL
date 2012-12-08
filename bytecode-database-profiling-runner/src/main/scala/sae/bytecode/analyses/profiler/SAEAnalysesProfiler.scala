@@ -49,7 +49,7 @@ abstract class SAEAnalysesProfiler
     extends AbstractPropertiesFileProfiler
 {
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false): Relation[_]
 
 
     def createMaterializedDatabase(jars: List[String], queries: List[String], transactional: Boolean) = {
@@ -58,7 +58,7 @@ abstract class SAEAnalysesProfiler
 
         // initialize the needed materializations at least once
         val relations = for (query <- queries) yield {
-            getAnalysis (query, materializedDatabase)(optimized)
+            getAnalysis (query, materializedDatabase)(optimized, sharedSubQueries)
         }
 
 
@@ -106,7 +106,7 @@ abstract class SAEAnalysesProfiler
         val database = createMaterializedDatabase (jars, queries, transactional)
         val results = for (query <- queries) yield {
             //sae.relationToResult (AnalysesOO (query, database))
-            getAnalysis (query, database)(optimized)
+            getAnalysis (query, database)(optimized, sharedSubQueries)
         }
 
         results.map (_.size).sum

@@ -32,23 +32,31 @@
  */
 package sae.operators.impl
 
-import sae._
-import sae.operators.EquiJoin
-import util.TransactionKeyValueObserver
+import sae.operators.Difference
+import sae.{Relation, Observable, Observer}
+import util.TransactionElementObserver
+import com.google.common.collect.Multiset.Entry
 
-class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
-                                                              val right: Relation[DomainB],
-                                                              val leftKey: DomainA => Key,
-                                                              val rightKey: DomainB => Key,
-                                                              val projection: (DomainA, DomainB) => Range)
-    extends EquiJoin[DomainA, DomainB, Range, Key]
+/**
+ * The difference operation in our algebra has non-distinct bag semantics
+ *
+ * This class can compute the difference efficiently by relying on indices from the underlying relations.
+ * The operation itself does not store any intermediate results.
+ * Updates are computed based on indices and foreach is recomputed on every call.
+ *
+ *
+ * The difference can be update by the expression:
+ * [(Δright- ∪ Δleft+) - (Δleft- ∪ Δright+)] - (right - left)
+ */
+class TransactionalDifferenceView[Domain](val left: Relation[Domain],
+                                          val right: Relation[Domain])
+    extends Difference[Domain]
 {
-
     left addObserver LeftObserver
 
     right addObserver RightObserver
 
-    override protected def children = List (left, right)
+    import com.google.common.collect.HashMultiset
 
     override def isStored = false
 
@@ -65,102 +73,95 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: (Range) => T) {
-        val idx = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
-        left.foreach (v =>
-            idx.put (leftKey (v), v)
-        )
-        right.foreach (v => {
-            val k = rightKey (v)
-            if (idx.containsKey (k)) {
-                val leftElements = idx.get (k)
-                val it = leftElements.iterator ()
-                while (it.hasNext) {
-                    val l = it.next ()
-                    f (projection (l, v))
-                }
-            }
+    def foreach[T](f: (Domain) => T) {
+        val leftDiffRight: HashMultiset[Domain] = HashMultiset.create[Domain]()
+        val rightDiffLeft: HashMultiset[Domain] = HashMultiset.create[Domain]()
+        val intersection: HashMultiset[Domain] = HashMultiset.create[Domain]()
+        left.foreach (v => {
+            leftDiffRight.add (v)
+            intersection.add (v)
+        })
+        right.foreach (v => rightDiffLeft.add (v))
+        intersection.retainAll (rightDiffLeft)
+        leftDiffRight.removeAll (intersection)
+
+        val it = leftDiffRight.iterator ()
+        while (it.hasNext) {
+            val v = it.next ()
+            f (v)
         }
-        )
     }
 
-    private def doJoinAndCleanup() {
-        joinAdditions ()
-        joinDeletions ()
-        LeftObserver.clear()
-        RightObserver.clear()
+    def doDifferenceAndCleanUp() {
+        differenceAdditions ()
+        differenceDeletions ()
+        LeftObserver.clear ()
+        RightObserver.clear ()
     }
 
-    private def joinAdditions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.additions.entries ().iterator
+    private def differenceAdditions() {
+        val it: java.util.Iterator[Entry[Domain]] = LeftObserver.additions.entrySet ().iterator ()
         while (it.hasNext) {
             val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.additions.containsKey (k)) {
-                val rightElements = RightObserver.additions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    element_added (projection (left, right))
-                }
+            val left = next.getElement
+            val leftCount = next.getCount
+            val rightCount = RightObserver.additions.count (left)
+            val diff = leftCount - rightCount
+            var i = 0
+            while (i < diff) {
+                element_added (left)
+                i += 1
             }
         }
     }
 
-    private def joinDeletions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.deletions.entries ().iterator
+    private def differenceDeletions() {
+        // TODO review this
+        val it: java.util.Iterator[Entry[Domain]] = LeftObserver.deletions.entrySet ().iterator ()
         while (it.hasNext) {
             val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.deletions.containsKey (k)) {
-                val rightElements = RightObserver.deletions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    element_removed (projection (left, right))
-                }
+            val left = next.getElement
+            val leftCount = next.getCount
+            val rightCount = RightObserver.deletions.count (left)
+            val diff = rightCount - leftCount
+            var i = 0
+            while (i < diff) {
+                element_removed (left)
+                i += 1
             }
         }
     }
-
 
     var leftFinished  = false
     var rightFinished = false
 
-    object LeftObserver extends TransactionKeyValueObserver[Key, DomainA]
+    object LeftObserver extends TransactionElementObserver[Domain]
     {
-
         override def endTransaction() {
             leftFinished = true
             if (rightFinished)
             {
-                doJoinAndCleanup ()
+                doDifferenceAndCleanUp ()
                 notifyEndTransaction ()
                 leftFinished = false
                 rightFinished = false
             }
         }
-
-        def keyFunc = leftKey
     }
 
-    object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
+    object RightObserver extends TransactionElementObserver[Domain]
     {
-
         override def endTransaction() {
             rightFinished = true
             if (leftFinished)
             {
-                doJoinAndCleanup ()
+                doDifferenceAndCleanUp ()
                 notifyEndTransaction ()
                 leftFinished = false
                 rightFinished = false
             }
         }
 
-        def keyFunc = rightKey
     }
 
 }

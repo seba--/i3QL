@@ -30,11 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.analyses.profiler
+package sae.operators.impl.util
 
-import sae.analyses.findbugs.{AnalysesRel, AnalysesOO}
-import sae.bytecode.BytecodeDatabase
-
+import sae.deltas.{Deletion, Addition, Update}
+import com.google.common.collect.HashMultiset
+import sae.Observer
 
 /**
  *
@@ -42,11 +42,41 @@ import sae.bytecode.BytecodeDatabase
  *
  */
 
-object SAEAnalysesRelMemoryProfiler
-    extends SAEAnalysesMemoryProfiler
+trait TransactionKeyValueObserver[Key, Domain]
+    extends Observer[Domain]
 {
-    def benchmarkType = "SAERel memory"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
-        AnalysesRel (query, database)(optimized)
+    def keyFunc : Domain => Key
+
+    var additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+
+    var deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+
+    def clear() {
+        additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+        deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+    }
+
+    // update operations on right relation
+    def updated(oldV: Domain, newV: Domain) {
+        additions.put (keyFunc (newV), newV)
+        deletions.put (keyFunc (oldV), oldV)
+    }
+
+    def removed(v: Domain) {
+        deletions.put (keyFunc (v), v)
+    }
+
+    def added(v: Domain) {
+        additions.put (keyFunc (v), v)
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
+
 }

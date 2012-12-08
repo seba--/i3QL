@@ -48,6 +48,6 @@ object SAEAnalysesRelTimeProfiler
 
     def benchmarkType = "SAERel time"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
         AnalysesRel (query, database)(optimized)
 }

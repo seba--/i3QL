@@ -55,21 +55,7 @@ object UUF_UNUSED_FIELD
         import database._
         import definitions._
 
-        /*
-        SELECT (*) FROM privateFields WHERE
-            NOT (
-                EXISTS (
-                    SELECT (*) FROM readField WHERE
-                        (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
-                        (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType)) AND
-                        (((_: FieldReadInstruction).receiverType) === declaringType)
-                )
-            )
-            */
-
-        //new NotExistsInSameDomainView[FieldInfo](privateFields.asInstanceOf[Relation[FieldInfo]].asMaterialized, readField.asInstanceOf[Relation[FieldInfo]].asMaterialized)
-
-        val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
+          val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
         val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField)
 
         new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection.asMaterialized, readFieldProjection.asMaterialized)

@@ -51,7 +51,7 @@ abstract class SAEAnalysesTimeProfiler
     with TimeMeasurement
 {
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false): Relation[_]
 
     val usage: String = """|Usage: java SAEAnalysesTimeProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -105,7 +105,7 @@ abstract class SAEAnalysesTimeProfiler
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         val results = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database))
+            sae.relationToResult (getAnalysis (query, database)(optimized, sharedSubQueries))
         }
         time {
             l => taken += l
@@ -140,7 +140,7 @@ abstract class SAEAnalysesTimeProfiler
         }
         {
             relations = for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database))
+                sae.relationToResult (getAnalysis (query, database)(optimized, sharedSubQueries))
             }
 
         }

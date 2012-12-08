@@ -49,6 +49,6 @@ object SAEAnalysesOOTimeProfiler
 
     def benchmarkType = "SAEOO time"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =
-        AnalysesOO (query, database)(optimized)
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
+        AnalysesOO (query, database)(optimized, shared)
 }

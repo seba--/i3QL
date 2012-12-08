@@ -30,11 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.bytecode.analyses.profiler
+package sae.operators.impl.util
 
-import sae.analyses.findbugs.{AnalysesRel, AnalysesOO}
-import sae.bytecode.BytecodeDatabase
-
+import sae.deltas.{Deletion, Addition, Update}
+import com.google.common.collect.HashMultiset
+import sae.Observer
 
 /**
  *
@@ -42,11 +42,40 @@ import sae.bytecode.BytecodeDatabase
  *
  */
 
-object SAEAnalysesRelMemoryProfiler
-    extends SAEAnalysesMemoryProfiler
+trait TransactionElementObserver[Domain]
+    extends Observer[Domain]
 {
-    def benchmarkType = "SAERel memory"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
-        AnalysesRel (query, database)(optimized)
+    var additions = HashMultiset.create[Domain]()
+
+    var deletions = HashMultiset.create[Domain]()
+
+    def clear() {
+        additions = HashMultiset.create[Domain]()
+        deletions = HashMultiset.create[Domain]()
+    }
+
+    // update operations on right relation
+    def updated(oldV: Domain, newV: Domain) {
+        additions.add (newV)
+        deletions.remove (oldV)
+    }
+
+    def removed(v: Domain) {
+        deletions.add (v)
+    }
+
+    def added(v: Domain) {
+        additions.add (v)
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        additions.add (update.newV, update.count)
+        deletions.remove (update.oldV, update.count)
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
+
 }

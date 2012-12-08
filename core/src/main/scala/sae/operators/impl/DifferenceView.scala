@@ -61,7 +61,8 @@ class DifferenceView[Domain](val left: Relation[Domain],
 
     private val rightDiffLeft: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
-    lazyInitialize()
+    lazyInitialize ()
+
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
@@ -86,12 +87,12 @@ class DifferenceView[Domain](val left: Relation[Domain],
         val intersection: HashMultiset[Domain] = HashMultiset.create[Domain]()
         left.foreach (v => {
             leftDiffRight.add (v)
-            intersection.add(v)
+            intersection.add (v)
         })
         right.foreach (v => rightDiffLeft.add (v))
-        intersection.retainAll(rightDiffLeft)
-        leftDiffRight.removeAll(intersection)
-        rightDiffLeft.removeAll(intersection)
+        intersection.retainAll (rightDiffLeft)
+        leftDiffRight.removeAll (intersection)
+        rightDiffLeft.removeAll (intersection)
     }
 
     /**
@@ -125,6 +126,10 @@ class DifferenceView[Domain](val left: Relation[Domain],
     object LeftObserver extends Observer[Domain]
     {
 
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         /**
          * Δleft+ - (right - left)
          */
@@ -155,14 +160,14 @@ class DifferenceView[Domain](val left: Relation[Domain],
         }
 
         def updated(oldV: Domain, newV: Domain) {
-            var count = leftDiffRight.count (oldV) + rightDiffLeft.count(oldV)
-            if (count == 0){
-                added(newV)
+            var count = leftDiffRight.count (oldV) + rightDiffLeft.count (oldV)
+            if (count == 0) {
+                added (newV)
             }
             while (count > 0)
             {
                 removed (oldV)
-                added(newV)
+                added (newV)
                 count -= 1
             }
         }
@@ -178,6 +183,10 @@ class DifferenceView[Domain](val left: Relation[Domain],
 
     object RightObserver extends Observer[Domain]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         def added(v: Domain) {
             if (leftDiffRight.count (v) > 0) {
                 leftDiffRight.remove (v)
@@ -201,9 +210,9 @@ class DifferenceView[Domain](val left: Relation[Domain],
         }
 
         def updated(oldV: Domain, newV: Domain) {
-            var count = leftDiffRight.count (oldV) + rightDiffLeft.count(oldV)
-            if (count == 0){
-                added(newV)
+            var count = leftDiffRight.count (oldV) + rightDiffLeft.count (oldV)
+            if (count == 0) {
+                added (newV)
             }
             while (count > 0)
             {

@@ -54,6 +54,10 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain])
 
     lazyInitialize ()
 
+    override def endTransaction() {
+        notifyEndTransaction ()
+    }
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)

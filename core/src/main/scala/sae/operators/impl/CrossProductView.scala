@@ -46,6 +46,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
     object LeftObserver extends Observer[DomainA]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
 
         // update operations on left relation
         def updated(oldA: DomainA, newA: DomainA) {
@@ -84,6 +87,10 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
     object RightObserver extends Observer[DomainB]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         // update operations on right relation
         def updated(oldB: DomainB, newB: DomainB) {
             left.foreach (

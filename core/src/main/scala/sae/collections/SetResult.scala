@@ -47,6 +47,10 @@ class SetResult[V](val relation: Relation[V])
 
     lazyInitialize ()
 
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
+
     override protected def children = List (relation)
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
