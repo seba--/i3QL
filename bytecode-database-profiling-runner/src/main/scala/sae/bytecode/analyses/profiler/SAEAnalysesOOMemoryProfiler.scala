@@ -49,6 +49,6 @@ object SAEAnalysesOOMemoryProfiler
 
     def benchmarkType = "SAEOO memory"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
         AnalysesOO (query, database)(optimized)
 }

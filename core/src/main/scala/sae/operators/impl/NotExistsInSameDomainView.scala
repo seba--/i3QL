@@ -89,6 +89,10 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
 
     object LeftObserver extends Observer[Domain]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         def updated(oldV: Domain, newV: Domain) {
             // we are notified after the update, hence the left will be updated to newV
             if (right.elementCountAt (oldV) == 0) {
@@ -134,6 +138,10 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedRelation[Domain],
 
     object RightObserver extends Observer[Domain]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         // update operations on right relation
         def updated(oldV: Domain, newV: Domain) {
             // we are notified after the update, hence the right will be updated to newV

@@ -120,6 +120,10 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
     object LeftObserver extends Observer[(Key, DomainA)]
     {
 
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         // update operations on left relation
         def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
             val oldKey = oldKV._1
@@ -185,6 +189,10 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 
     object RightObserver extends Observer[(Key, DomainB)]
     {
+
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
 
         // update operations on right relation
         def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {

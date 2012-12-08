@@ -41,16 +41,20 @@ import sae.deltas.{Update, Deletion, Addition}
  */
 class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
                                                               val right: Relation[DomainB])
-        extends Union[Range, DomainA, DomainB]
-        with Observer[Range]
+    extends Union[Range, DomainA, DomainB]
+    with Observer[Range]
 {
     left addObserver this
 
     right addObserver this
 
+    override def endTransaction() {
+        notifyEndTransaction ()
+    }
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left || o == right) {
-            return List(this)
+            return List (this)
         }
         Nil
     }
@@ -59,27 +63,27 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
-        left.foreach(f)
-        right.foreach(f)
+        left.foreach (f)
+        right.foreach (f)
     }
 
     def added(v: Range) {
-        element_added(v)
+        element_added (v)
     }
 
     def removed(v: Range) {
-        element_removed(v)
+        element_removed (v)
     }
 
     def updated(oldV: Range, newV: Range) {
-        element_updated(oldV, newV)
+        element_updated (oldV, newV)
     }
 
     def updated[U <: Range](update: Update[U]) {
-        element_updated(update)
+        element_updated (update)
     }
 
     def modified[U <: Range](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-        element_modifications(additions, deletions, updates)
+        element_modifications (additions, deletions, updates)
     }
 }

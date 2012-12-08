@@ -52,7 +52,7 @@ abstract class SAEAnalysesMemoryProfiler
 {
     sae.ENABLE_FORCE_TO_SET = false
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false): Relation[_]
 
     val usage: String = """|Usage: java SAEAnalysesMemoryProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
@@ -106,7 +106,7 @@ abstract class SAEAnalysesMemoryProfiler
         var database = BATDatabaseFactory.create ()
         val relations = for (query <- queries) yield {
             //sae.relationToResult (AnalysesOO (query, database))
-            getAnalysis (query, database)(optimized)
+            getAnalysis (query, database)(optimized,sharedSubQueries)
         }
 
         memory {
@@ -117,7 +117,7 @@ abstract class SAEAnalysesMemoryProfiler
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
                 if (transactional)
                 {
-                    database.addArchiveAsClassFileTransactions(stream)
+                    database.addArchiveAsClassFileTransactions (stream)
                 }
                 else
                 {
@@ -144,7 +144,7 @@ abstract class SAEAnalysesMemoryProfiler
         }
         {
             relations = for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database)(optimized))
+                sae.relationToResult (getAnalysis (query, database)(optimized,sharedSubQueries))
             }
 
         }

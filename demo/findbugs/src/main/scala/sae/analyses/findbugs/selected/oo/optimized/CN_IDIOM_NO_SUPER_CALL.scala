@@ -7,7 +7,7 @@ import sae.bytecode.structure.MethodDeclaration
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.{ReferenceType, ObjectType}
 import sae.analyses.findbugs.base.oo.Definitions
-import sae.operators.impl.{EquiJoinView, DifferenceView, TransactionalEquiJoinView}
+import sae.operators.impl.{TransactionalDifferenceView, EquiJoinView, DifferenceView, TransactionalEquiJoinView}
 
 /**
  *
@@ -47,7 +47,7 @@ object CN_IDIOM_NO_SUPER_CALL
         )
 
         // TODo make this also local
-        new DifferenceView[MethodDeclaration](filtered, join)
+        new TransactionalDifferenceView[MethodDeclaration](filtered, join)
     }
 
 }

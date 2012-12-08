@@ -36,7 +36,7 @@ import sae.{Observable, Observer, Relation}
 import collection.mutable.{HashMap, HashSet}
 import sae.operators.TransitiveClosure
 import collection.mutable
-import util.control.Breaks._
+import scala.util.control.Breaks._
 import sae.deltas.{Update, Deletion, Addition}
 
 /**

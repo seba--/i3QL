@@ -34,7 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
 import collection.mutable.{HashMap, HashSet}
-import util.control.Breaks
+import scala.util.control.Breaks._
 import sae.operators.TransitiveClosure
 import collection.mutable
 import sae.deltas.{Update, Deletion, Addition}
@@ -244,8 +244,6 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         for (i <- 1 to 2) {
             var putBack = List[(Vertex, Vertex)]()
             edges.foreach (x => {
-                val mybreaks = new Breaks
-                import mybreaks.{break, breakable}
                 breakable {
                     transitiveClosure.getOrElse (x._1, throw new Error ())._1.foreach ((y: Vertex) => {
                         // do we still have a path from x._1 to x._2 => reinsert

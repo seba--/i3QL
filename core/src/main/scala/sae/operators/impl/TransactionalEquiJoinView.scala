@@ -41,21 +41,23 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
                                                               val leftKey: DomainA => Key,
                                                               val rightKey: DomainB => Key,
                                                               val projection: (DomainA, DomainB) => Range)
-        extends EquiJoin[DomainA, DomainB, Range, Key]
+    extends EquiJoin[DomainA, DomainB, Range, Key]
 {
 
     left addObserver LeftObserver
 
     right addObserver RightObserver
 
-    override protected def children = List(left, right)
+    override protected def children = List (left, right)
+
+    override def isStored = false
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
-            return List(LeftObserver)
+            return List (LeftObserver)
         }
         if (o == right) {
-            return List(RightObserver)
+            return List (RightObserver)
         }
         Nil
     }
@@ -65,17 +67,17 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
      */
     def foreach[T](f: (Range) => T) {
         val idx = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
-        left.foreach(v =>
-            idx.put(leftKey(v), v)
+        left.foreach (v =>
+            idx.put (leftKey (v), v)
         )
-        right.foreach(v => {
-            val k = rightKey(v)
-            if (idx.containsKey(k)) {
-                val leftElements = idx.get(k)
-                val it = leftElements.iterator()
+        right.foreach (v => {
+            val k = rightKey (v)
+            if (idx.containsKey (k)) {
+                val leftElements = idx.get (k)
+                val it = leftElements.iterator ()
                 while (it.hasNext) {
-                    val l = it.next()
-                    f(projection(l, v))
+                    val l = it.next ()
+                    f (projection (l, v))
                 }
             }
         }
@@ -83,12 +85,12 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
     }
 
     private def doJoinAndCleanup() {
-        joinAdditions()
-        joinDeletions()
-        LeftObserver.additions.clear()
-        LeftObserver.deletions.clear()
-        RightObserver.additions.clear()
-        RightObserver.deletions.clear()
+        joinAdditions ()
+        joinDeletions ()
+        LeftObserver.additions.clear ()
+        LeftObserver.deletions.clear ()
+        RightObserver.additions.clear ()
+        RightObserver.deletions.clear ()
     }
 
     private def joinAdditions() {
@@ -97,12 +99,12 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
             val next = it.next ()
             val left = next.getValue
             val k = next.getKey
-            if (RightObserver.additions.containsKey(k)) {
-                val rightElements = RightObserver.additions.get(k)
-                val it = rightElements.iterator()
+            if (RightObserver.additions.containsKey (k)) {
+                val rightElements = RightObserver.additions.get (k)
+                val it = rightElements.iterator ()
                 while (it.hasNext) {
-                    val right = it.next()
-                    element_added(projection(left, right))
+                    val right = it.next ()
+                    element_added (projection (left, right))
                 }
             }
         }
@@ -114,16 +116,20 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
             val next = it.next ()
             val left = next.getValue
             val k = next.getKey
-            if (RightObserver.deletions.containsKey(k)) {
-                val rightElements = RightObserver.deletions.get(k)
-                val it = rightElements.iterator()
+            if (RightObserver.deletions.containsKey (k)) {
+                val rightElements = RightObserver.deletions.get (k)
+                val it = rightElements.iterator ()
                 while (it.hasNext) {
-                    val right = it.next()
-                    element_removed(projection(left, right))
+                    val right = it.next ()
+                    element_removed (projection (left, right))
                 }
             }
         }
     }
+
+
+    var leftFinished  = false
+    var rightFinished = false
 
     object LeftObserver extends Observer[DomainA]
     {
@@ -133,22 +139,28 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
         val deletions = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
 
         override def endTransaction() {
-            doJoinAndCleanup()
-            notifyEndTransaction()
+            leftFinished = true
+            if (rightFinished)
+            {
+                doJoinAndCleanup ()
+                notifyEndTransaction ()
+                leftFinished = false
+                rightFinished = false
+            }
         }
 
         // update operations on left relation
         def updated(oldV: DomainA, newV: DomainA) {
-            additions.put(leftKey(newV), newV)
-            deletions.put(leftKey(oldV), oldV)
+            additions.put (leftKey (newV), newV)
+            deletions.put (leftKey (oldV), oldV)
         }
 
         def removed(v: DomainA) {
-            deletions.put(leftKey(v), v)
+            deletions.put (leftKey (v), v)
         }
 
         def added(v: DomainA) {
-            additions.put(leftKey(v), v)
+            additions.put (leftKey (v), v)
         }
 
         def updated[U <: DomainA](update: Update[U]) {
@@ -168,22 +180,28 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
         val deletions = com.google.common.collect.ArrayListMultimap.create[Key, DomainB]()
 
         override def endTransaction() {
-            doJoinAndCleanup()
-            notifyEndTransaction()
+            rightFinished = true
+            if (leftFinished)
+            {
+                doJoinAndCleanup ()
+                notifyEndTransaction ()
+                leftFinished = false
+                rightFinished = false
+            }
         }
 
         // update operations on right relation
         def updated(oldV: DomainB, newV: DomainB) {
-            additions.put(rightKey(newV), newV)
-            deletions.put(rightKey(oldV), oldV)
+            additions.put (rightKey (newV), newV)
+            deletions.put (rightKey (oldV), oldV)
         }
 
         def removed(v: DomainB) {
-            deletions.put(rightKey(v), v)
+            deletions.put (rightKey (v), v)
         }
 
         def added(v: DomainB) {
-            additions.put(rightKey(v), v)
+            additions.put (rightKey (v), v)
         }
 
         def updated[U <: DomainB](update: Update[U]) {

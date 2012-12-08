@@ -32,6 +32,7 @@
  */
 package sae.analyses.findbugs
 
+import base.oo.Definitions
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
 import random.oo._
@@ -46,11 +47,12 @@ import selected.oo._
 object AnalysesOO
 {
 
-    def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized:Boolean = false): Relation[_] = {
+    def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized:Boolean = false, shared: Boolean = false): Relation[_] = {
         if (!optimized) {
             getBase(analysisName, database)
         }
         else {
+            Definitions.shared = shared
             getOptimized(analysisName, database)
         }
     }
