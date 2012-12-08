@@ -19,8 +19,7 @@ object SW_SWING_METHODS_INVOKED_IN_SWING_THREAD
 {
     def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
-        SELECT ((i: INVOKEVIRTUAL, m: MethodDeclaration) => i) FROM (invokeVirtual, methodDeclarations) WHERE
-            (declaringClassType === declaringType) AND
+        SELECT (*) FROM (invokeVirtual) WHERE
             ((i: INVOKEVIRTUAL) => {
                 (i.receiverType.isObjectType &&
                     i.receiverType.asInstanceOf[ObjectType].className.startsWith ("javax/swing/")
@@ -30,10 +29,13 @@ object SW_SWING_METHODS_INVOKED_IN_SWING_THREAD
                         i.name == "setVisible" && i.parameterTypes == List (BooleanType) && i.returnType == VoidType
                     )
             }) AND
-            ((method: MethodDeclaration) => method.isPublic &&
-                method.isStatic &&
-                method.name == "main" ||
-                method.declaringClassType.className.toLowerCase.indexOf ("benchmark") >= 0)
+            ((i: INVOKEVIRTUAL) => {
+                val method: MethodDeclaration = i.declaringMethod
+                method.isPublic &&
+                    method.isStatic &&
+                    method.name == "main" ||
+                    method.declaringClassType.className.toLowerCase.indexOf ("benchmark") >= 0
+            })
     }
 
     /*

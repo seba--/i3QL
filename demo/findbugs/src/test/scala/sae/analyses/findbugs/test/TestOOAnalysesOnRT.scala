@@ -48,7 +48,7 @@ import syntax.sql._
  * Date: 09.09.12
  * Time: 11:19
  */
-@Ignore
+
 class TestOOAnalysesOnRT
 {
 
@@ -224,8 +224,8 @@ class TestOOAnalysesOnRT
         val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
         database.addArchive (getStream)
         //assertEquals (572, analysis.size)
-        //TODO five more than BAT who is right
-        assertEquals (577, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (573, analysis.size)
     }
 
     @Test

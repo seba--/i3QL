@@ -60,4 +60,6 @@ trait MaterializedRelation[V]
      * In case an add/remove/update event is in progression, this always returns the
      */
     def elementCountAt[T >: V](v: T): Int
+
+    //def elementAt[T >: V](v: T): V
 }

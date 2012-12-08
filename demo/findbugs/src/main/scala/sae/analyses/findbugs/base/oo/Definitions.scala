@@ -7,7 +7,7 @@ import sae.bytecode._
 import sae.bytecode.structure._
 import sae.bytecode.instructions.FieldReadInstruction
 import collection.mutable
-import sae.operators.impl.{EquiJoinView, ExistsInSameDomainView, TransactionalEquiJoinView}
+import sae.operators.impl.{NotExistsInSameDomainView, EquiJoinView, ExistsInSameDomainView, TransactionalEquiJoinView}
 import sae.analyses.findbugs.AnalysesOO
 
 /**
@@ -151,4 +151,23 @@ class Definitions(val database: BytecodeDatabase)
                     (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
             )
         )
+
+
+    def fieldReference: FieldReadInstruction => FieldComparison = instr =>
+        new FieldReference (
+            instr.receiverType,
+            instr.name,
+            instr.fieldType
+        )
+
+    lazy val projectedReadFields = compile(
+        SELECT (fieldReference) FROM fieldReadsFromExternalPackage
+    )
+
+    lazy val ms_base_opt: Relation[FieldDeclaration] =
+        new NotExistsInSameDomainView(
+            ms_fields.asInstanceOf[Relation[FieldComparison]].asMaterialized,
+            projectedReadFields.asMaterialized
+        ).asInstanceOf[Relation[FieldDeclaration]]
+
 }

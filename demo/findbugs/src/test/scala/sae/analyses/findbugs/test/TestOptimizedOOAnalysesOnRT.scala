@@ -142,6 +142,14 @@ class TestOptimizedOOAnalysesOnRT
     }
 
     @Test
+    def test_MS_PKGPROTECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_PKGPROTECT (database))
+        database.addArchive (getStream)
+        assertEquals (94, analysis.size)
+    }
+
+    @Test
     def test_ITA_INEFFICIENT_TO_ARRAY() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
@@ -150,6 +158,17 @@ class TestOptimizedOOAnalysesOnRT
         // TODO six less than BAT who is right
         assertEquals (50, analysis.size)
     }
+
+    @Test
+    def test_UG_SYNC_SET_UNSYNC_GET() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
+        database.addArchive (getStream)
+        //assertEquals (31, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (32, analysis.size)
+    }
+
 
     @Test
     def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
