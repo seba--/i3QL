@@ -48,7 +48,6 @@ import syntax.sql._
  * Date: 09.09.12
  * Time: 11:19
  */
-@Ignore
 class TestOOAnalysesOnRT
 {
 
@@ -78,11 +77,22 @@ class TestOOAnalysesOnRT
         assertEquals (136, analysis.size)
     }
 
+
+    @Test
+    def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database))
+        database.addArchive (getStream)
+        assertEquals (38, analysis.size)
+    }
+
+
     @Test
     def test_CO_ABSTRACT_SELF() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CO_ABSTRACT_SELF (database))
         database.addArchive (getStream)
+        analysis.foreach(println)
         assertEquals (16, analysis.size)
     }
 

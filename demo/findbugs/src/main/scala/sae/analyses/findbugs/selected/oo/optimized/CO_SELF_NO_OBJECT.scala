@@ -1,11 +1,10 @@
-package sae.analyses.findbugs.selected.oo
+package sae.analyses.findbugs.selected.oo.optimized
 
 import sae.bytecode._
 import sae.Relation
-import structure.{ClassDeclaration, MethodDeclaration}
+import structure.ClassDeclaration
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.syntax.sql._
-import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -26,7 +25,7 @@ object CO_SELF_NO_OBJECT
             (declaringType === identity[ObjectType] _)
             */
 
-        SELECT (*) FROM (coSelfBase)
+        SELECT (*) FROM (coSelfBaseOpt)
     }
 
 }

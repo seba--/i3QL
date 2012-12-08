@@ -42,36 +42,37 @@ import sae.Observer
  *
  */
 
-trait TransactionObserver[Domain]
+trait TransactionKeyValueObserver[Key, Domain]
     extends Observer[Domain]
 {
 
-    val additions = HashMultiset.create[Domain]()
+    def keyFunc : Domain => Key
 
-    val deletions = HashMultiset.create[Domain]()
+    var additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+
+    var deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
 
     def clear() {
-        additions.clear()
-        deletions.clear()
+        additions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
+        deletions = com.google.common.collect.ArrayListMultimap.create[Key, Domain]()
     }
 
     // update operations on right relation
     def updated(oldV: Domain, newV: Domain) {
-        additions.add (newV)
-        deletions.remove (oldV)
+        additions.put (keyFunc (newV), newV)
+        deletions.put (keyFunc (oldV), oldV)
     }
 
     def removed(v: Domain) {
-        deletions.add (v)
+        deletions.put (keyFunc (v), v)
     }
 
     def added(v: Domain) {
-        additions.add (v)
+        additions.put (keyFunc (v), v)
     }
 
     def updated[U <: Domain](update: Update[U]) {
-        additions.add (update.newV, update.count)
-        deletions.remove (update.oldV, update.count)
+        throw new UnsupportedOperationException
     }
 
     def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {

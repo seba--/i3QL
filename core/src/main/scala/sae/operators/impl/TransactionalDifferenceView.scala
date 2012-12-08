@@ -34,7 +34,7 @@ package sae.operators.impl
 
 import sae.operators.Difference
 import sae.{Relation, Observable, Observer}
-import util.TransactionObserver
+import util.TransactionElementObserver
 import com.google.common.collect.Multiset.Entry
 
 /**
@@ -135,7 +135,7 @@ class TransactionalDifferenceView[Domain](val left: Relation[Domain],
     var leftFinished  = false
     var rightFinished = false
 
-    object LeftObserver extends TransactionObserver[Domain]
+    object LeftObserver extends TransactionElementObserver[Domain]
     {
         override def endTransaction() {
             leftFinished = true
@@ -149,7 +149,7 @@ class TransactionalDifferenceView[Domain](val left: Relation[Domain],
         }
     }
 
-    object RightObserver extends TransactionObserver[Domain]
+    object RightObserver extends TransactionElementObserver[Domain]
     {
         override def endTransaction() {
             rightFinished = true

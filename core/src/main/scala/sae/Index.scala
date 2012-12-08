@@ -67,6 +67,9 @@ trait Index[K, V]
 
     def keyFunction: V => K
 
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
 
     override protected def children = List (relation)
 

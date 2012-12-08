@@ -7,6 +7,8 @@ import sae.bytecode._
 import sae.bytecode.structure._
 import sae.bytecode.instructions.FieldReadInstruction
 import collection.mutable
+import sae.operators.impl.{EquiJoinView, ExistsInSameDomainView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -25,7 +27,7 @@ object Definitions
         if (!shared)
             return new Definitions (database)
 
-        definitionsTable.getOrElseUpdate(database, new Definitions(database))
+        definitionsTable.getOrElseUpdate (database, new Definitions (database))
     }
 }
 
@@ -67,11 +69,47 @@ class Definitions(val database: BytecodeDatabase)
     lazy val subTypesOfComparable: Relation[ObjectType] =
         SELECT ((_: InheritanceRelation).subType) FROM (subTypes) WHERE (_.superType == comparable)
 
-    lazy val implementersOfCompareToWithoutObjectParameter: Relation[MethodDeclaration] =
-        SELECT (*) FROM methodDeclarations WHERE
-            (_.name == "compareTo") AND
-            NOT ((_: MethodDeclaration).parameterTypes == Seq (ObjectType.Object)) AND
-            (_.returnType == IntegerType)
+    lazy val implementersOfCompareToWithoutObjectParameter =
+        compile (
+            SELECT (*) FROM methodDeclarations WHERE
+                (_.name == "compareTo") AND
+                NOT ((_: MethodDeclaration).parameterTypes == Seq (ObjectType.Object)) AND
+                (_.returnType == IntegerType)
+        )
+
+    lazy val classesImplementCompareToWithoutObjectParameter = compile (
+        SELECT (declaringClass) FROM implementersOfCompareToWithoutObjectParameter
+    )
+
+    lazy val typesImplementCompareToWithoutObjectParameter = compile (
+        SELECT (declaringType) FROM implementersOfCompareToWithoutObjectParameter
+    )
+
+    lazy val coSelfBase: Relation[ClassDeclaration] = compile (
+        SELECT ((cd: ClassDeclaration, o: ObjectType) => cd) FROM (classesImplementCompareToWithoutObjectParameter, subTypesOfComparable) WHERE
+            (classType === thisClass)
+    )
+
+    lazy val coSelfBaseOpt: Relation[ClassDeclaration] = {
+        val exists = new ExistsInSameDomainView (typesImplementCompareToWithoutObjectParameter.asMaterialized, subTypesOfComparable.asMaterialized)
+        if (AnalysesOO.transactional)
+            new TransactionalEquiJoinView (
+                classDeclarations,
+                exists,
+                classType,
+                thisClass,
+                (cd: ClassDeclaration, o: ObjectType) => cd
+            )
+        else
+            new EquiJoinView (
+                classDeclarations,
+                exists,
+                classType,
+                thisClass,
+                (cd: ClassDeclaration, o: ObjectType) => cd
+            )
+    }
+
 
     lazy val system = ObjectType ("java/lang/System")
 

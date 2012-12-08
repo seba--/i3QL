@@ -33,8 +33,8 @@
 package sae.operators.impl
 
 import sae._
-import deltas.{Update, Deletion, Addition}
 import sae.operators.EquiJoin
+import util.TransactionKeyValueObserver
 
 class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
                                                               val right: Relation[DomainB],
@@ -87,10 +87,8 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
     private def doJoinAndCleanup() {
         joinAdditions ()
         joinDeletions ()
-        LeftObserver.additions.clear ()
-        LeftObserver.deletions.clear ()
-        RightObserver.additions.clear ()
-        RightObserver.deletions.clear ()
+        LeftObserver.clear()
+        RightObserver.clear()
     }
 
     private def joinAdditions() {
@@ -131,12 +129,8 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
     var leftFinished  = false
     var rightFinished = false
 
-    object LeftObserver extends Observer[DomainA]
+    object LeftObserver extends TransactionKeyValueObserver[Key, DomainA]
     {
-
-        val additions = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
-
-        val deletions = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
 
         override def endTransaction() {
             leftFinished = true
@@ -149,35 +143,11 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
             }
         }
 
-        // update operations on left relation
-        def updated(oldV: DomainA, newV: DomainA) {
-            additions.put (leftKey (newV), newV)
-            deletions.put (leftKey (oldV), oldV)
-        }
-
-        def removed(v: DomainA) {
-            deletions.put (leftKey (v), v)
-        }
-
-        def added(v: DomainA) {
-            additions.put (leftKey (v), v)
-        }
-
-        def updated[U <: DomainA](update: Update[U]) {
-            throw new UnsupportedOperationException
-        }
-
-        def modified[U <: DomainA](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-            throw new UnsupportedOperationException
-        }
+        def keyFunc = leftKey
     }
 
-    object RightObserver extends Observer[DomainB]
+    object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
     {
-
-        val additions = com.google.common.collect.ArrayListMultimap.create[Key, DomainB]()
-
-        val deletions = com.google.common.collect.ArrayListMultimap.create[Key, DomainB]()
 
         override def endTransaction() {
             rightFinished = true
@@ -190,27 +160,7 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
             }
         }
 
-        // update operations on right relation
-        def updated(oldV: DomainB, newV: DomainB) {
-            additions.put (rightKey (newV), newV)
-            deletions.put (rightKey (oldV), oldV)
-        }
-
-        def removed(v: DomainB) {
-            deletions.put (rightKey (v), v)
-        }
-
-        def added(v: DomainB) {
-            additions.put (rightKey (v), v)
-        }
-
-        def updated[U <: DomainB](update: Update[U]) {
-            throw new UnsupportedOperationException
-        }
-
-        def modified[U <: DomainB](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-            throw new UnsupportedOperationException
-        }
+        def keyFunc = rightKey
     }
 
 }

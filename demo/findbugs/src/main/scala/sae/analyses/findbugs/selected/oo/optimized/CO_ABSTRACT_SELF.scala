@@ -1,11 +1,10 @@
-package sae.analyses.findbugs.selected.oo
+package sae.analyses.findbugs.selected.oo.optimized
 
 import sae.bytecode._
 import sae.Relation
 import sae.syntax.sql._
-import structure.{ClassDeclaration, MethodDeclaration}
+import structure.ClassDeclaration
 import sae.analyses.findbugs.base.oo.Definitions
-import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -27,6 +26,6 @@ object CO_ABSTRACT_SELF
                 (thisClass === thisClass)
         */
         // TODO optimization
-        SELECT (*) FROM (coSelfBase) WHERE (_.isAbstract)
+        SELECT (*) FROM (coSelfBaseOpt) WHERE (_.isAbstract)
     }
 }

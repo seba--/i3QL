@@ -8,6 +8,7 @@ import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.{ReferenceType, ObjectType}
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.operators.impl.{TransactionalDifferenceView, EquiJoinView, DifferenceView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -33,21 +34,32 @@ object CN_IDIOM_NO_SUPER_CALL
         )
 
         val invokes = compile(
-            SELECT DISTINCT ((i: InvokeInstruction) => (i.declaringMethod, i.receiverType)) FROM invokeSpecial WHERE
+            SELECT ((i: InvokeInstruction) => (i.declaringMethod, i.receiverType)) FROM invokeSpecial WHERE
                     (_.name == "clone") AND
                     (_.parameterTypes == Nil) AND
                     (_.returnType == ObjectType.Object)
         )
 
-        val join = new TransactionalEquiJoinView(filtered,
-            invokes,
-            (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
-            identity[(MethodDeclaration,ReferenceType)] _,
-            (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
-        )
 
-        // TODo make this also local
-        new TransactionalDifferenceView[MethodDeclaration](filtered, join)
+
+        if(AnalysesOO.transactional) {
+            val join = new TransactionalEquiJoinView(filtered,
+                invokes,
+                (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
+                identity[(MethodDeclaration,ReferenceType)] _,
+                (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
+            )
+            new TransactionalDifferenceView[MethodDeclaration](filtered, join)
+        }
+        else {
+            val join = new EquiJoinView(filtered,
+                invokes,
+                (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
+                identity[(MethodDeclaration,ReferenceType)] _,
+                (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
+            )
+            new DifferenceView[MethodDeclaration](filtered, join)
+        }
     }
 
 }

@@ -47,6 +47,8 @@ import selected.oo._
 object AnalysesOO
 {
 
+    var transactional = false
+
     def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized:Boolean = false, shared: Boolean = false): Relation[_] = {
         if (!optimized) {
             getBase(analysisName, database)
@@ -91,8 +93,8 @@ object AnalysesOO
         case "CN_IDIOM" => selected.oo.optimized.CN_IDIOM (database)
         case "CN_IDIOM_NO_SUPER_CALL" => selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL (database)
         case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => selected.oo.optimized.CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
-        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
-        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)
+        case "CO_ABSTRACT_SELF" => selected.oo.optimized.CO_ABSTRACT_SELF (database)
+        case "CO_SELF_NO_OBJECT" => selected.oo.optimized.CO_SELF_NO_OBJECT (database)
         case "DM_GC" => DM_GC (database)
         case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
         case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)

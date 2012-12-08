@@ -30,16 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.selected.oo.optimized
+package sae.operators.impl.util
 
-import sae.Relation
-import sae.analyses.findbugs.base.oo.Definitions
-import sae.bytecode._
-import instructions.FieldReadInstruction
-import sae.syntax.sql._
-import structure.{FieldDeclaration, FieldInfo}
-import sae.operators.impl.NotExistsInSameDomainView
-import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
+import sae.deltas.{Deletion, Addition, Update}
+import com.google.common.collect.HashMultiset
+import sae.Observer
 
 /**
  *
@@ -47,17 +42,40 @@ import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
  *
  */
 
-object UUF_UNUSED_FIELD
-    extends (BytecodeDatabase => Relation[(ObjectType, String, FieldType)])
+trait TransactionElementObserver[Domain]
+    extends Observer[Domain]
 {
-    def apply(database: BytecodeDatabase): Relation[(ObjectType, String, FieldType)] = {
-        val definitions = Definitions (database)
-        import database._
-        import definitions._
 
-          val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
-        val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField)
+    var additions = HashMultiset.create[Domain]()
 
-        new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection.asMaterialized, readFieldProjection.asMaterialized)
+    var deletions = HashMultiset.create[Domain]()
+
+    def clear() {
+        additions = HashMultiset.create[Domain]()
+        deletions = HashMultiset.create[Domain]()
     }
+
+    // update operations on right relation
+    def updated(oldV: Domain, newV: Domain) {
+        additions.add (newV)
+        deletions.remove (oldV)
+    }
+
+    def removed(v: Domain) {
+        deletions.add (v)
+    }
+
+    def added(v: Domain) {
+        additions.add (v)
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        additions.add (update.newV, update.count)
+        deletions.remove (update.oldV, update.count)
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
+    }
+
 }
