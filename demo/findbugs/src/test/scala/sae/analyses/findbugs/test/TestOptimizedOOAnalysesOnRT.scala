@@ -83,15 +83,7 @@ class TestOptimizedOOAnalysesOnRT
     def test_CO_ABSTRACT_SELF() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CO_ABSTRACT_SELF (database))
-
-        val definitions = Definitions(database)
-        import definitions._
-
-        val exists = sae.relationToResult(new ExistsInSameDomainView (typesImplementCompareToWithoutObjectParameter.asMaterialized, subTypesOfComparable.asMaterialized))
-
         database.addArchive (getStream)
-        analysis.foreach(println)
-        println(exists.size)
         // TODO fixme
         assertEquals (15, analysis.size)
     }
@@ -101,9 +93,18 @@ class TestOptimizedOOAnalysesOnRT
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CO_SELF_NO_OBJECT (database))
         database.addArchive (getStream)
-        analysis.foreach(println)
         // TODO fixme
         assertEquals (51, analysis.size)
+    }
+
+    @Test
+    def test_SE_NO_SUITABLE_CONSTRUCTOR() {
+        sae.ENABLE_FORCE_TO_SET = true
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SE_NO_SUITABLE_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (19, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
     }
 
     @Test

@@ -37,7 +37,8 @@ import sae.Relation
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
-import structure.{ClassDeclaration, InheritanceRelation}
+import structure.ClassDeclaration
+import sae.operators.impl.{ExistsInSameDomainView, NotExistsInSameDomainView}
 
 /**
  *
@@ -53,21 +54,33 @@ object SE_NO_SUITABLE_CONSTRUCTOR
         import database._
         import definitions._
 
-
-        val superClassesOfSerializableClasses: Relation[ObjectType] = SELECT ((i: InheritanceRelation, o: ObjectType) => i.superType) FROM (classInheritance, subTypesOfSerializable) WHERE
-            (subType === identity[ObjectType] _)
-
-        val directlySerializable: Relation[ClassDeclaration] =
-            SELECT (*) FROM classDeclarations WHERE
+        val superClassesOfSerializableTypes = compile (
+            SELECT (superClass) FROM classDeclarations WHERE
                 (!_.isInterface) AND
                 (_.interfaces.contains (serializable)) AND
-                (_.superClass.isDefined) AND EXISTS (
-                SELECT (*) FROM classDeclarations WHERE (!_.isInterface) AND (classType === superClass)
-            )
-
-        SELECT DISTINCT  ((_:ClassDeclaration).superClass.get) FROM directlySerializable WHERE NOT (
-            EXISTS (SELECT (*) FROM constructors WHERE (_.parameterTypes == Nil) AND (declaringType === superClass))
+                (_.superClass.isDefined)
         )
+
+        val distinctSuperClassesOfSerializable = compile (
+            SELECT DISTINCT (*) FROM superClassesOfSerializableTypes
+        )
+
+        val notInterfaceTypes = compile (
+            SELECT (classType) FROM classDeclarations WHERE (!_.isInterface)
+        ).forceToSet
+
+        assert(!sae.ENABLE_FORCE_TO_SET || notInterfaceTypes.isSet)
+
+        val analyzedSuperClassesOfSerializable =
+            new ExistsInSameDomainView (distinctSuperClassesOfSerializable.asMaterialized, notInterfaceTypes.asMaterialized)
+
+
+
+        val noArgConstructorTypes = compile (
+            SELECT (declaringType) FROM constructors WHERE (_.parameterTypes == Nil)
+        )
+
+        new NotExistsInSameDomainView (analyzedSuperClassesOfSerializable.asMaterialized, noArgConstructorTypes.asMaterialized)
 
     }
 

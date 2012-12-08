@@ -92,7 +92,6 @@ class TestOOAnalysesOnRT
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (CO_ABSTRACT_SELF (database))
         database.addArchive (getStream)
-        analysis.foreach(println)
         assertEquals (16, analysis.size)
     }
 
