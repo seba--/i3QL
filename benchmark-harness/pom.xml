@@ -25,7 +25,7 @@
                 <version>1.1.1</version>
                 <executions>
                     <execution>
-                        <phase>deploy</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -36,7 +36,9 @@
                                 <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions"</argument>
+                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>true</argument>
+                                <argument>false</argument>
                                 <argument>true</argument>
                             </arguments>
                         </configuration>
