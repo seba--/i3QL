@@ -8,7 +8,8 @@ import de.tud.cs.st.bat.resolved.ArrayType
 import instructions.ANEWARRAY
 import instructions.ICONST_0
 import structure.MethodDeclaration
-import sae.operators.impl.TransactionalEquiJoinView
+import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.AnalysesOO
 
 
 /**
@@ -47,13 +48,24 @@ object ITA_INEFFICIENT_TO_ARRAY
         val anewarray: Relation[ANEWARRAY] = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
 
         val newArray0 =
-            new TransactionalEquiJoinView (
-                iconst0,
-                anewarray,
-                nextInstructionIndex,
-                instructionIndex,
-                (i: ICONST_0, a: ANEWARRAY) => a
-            )
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    iconst0,
+                    anewarray,
+                    nextInstructionIndex,
+                    instructionIndex,
+                    (i: ICONST_0, a: ANEWARRAY) => a
+                )
+
+            else
+                new EquiJoinView (
+                    iconst0,
+                    anewarray,
+                    nextInstructionIndex,
+                    instructionIndex,
+                    (i: ICONST_0, a: ANEWARRAY) => a
+                )
+
 
 
         val selectInvokes = compile (
@@ -69,13 +81,22 @@ object ITA_INEFFICIENT_TO_ARRAY
         )
 
         val invokes: Relation[InvokeInstruction] =
-            new TransactionalEquiJoinView (
-                selectInvokes,
-                newArray0,
-                prevInstructionIndex,
-                instructionIndex,
-                (i: InvokeInstruction, a: ANEWARRAY) => i
-            )
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    selectInvokes,
+                    newArray0,
+                    prevInstructionIndex,
+                    instructionIndex,
+                    (i: InvokeInstruction, a: ANEWARRAY) => i
+                )
+            else
+                new EquiJoinView (
+                    selectInvokes,
+                    newArray0,
+                    prevInstructionIndex,
+                    instructionIndex,
+                    (i: InvokeInstruction, a: ANEWARRAY) => i
+                )
 
         SELECT (*) FROM (invokes) WHERE EXISTS (
             SELECT (*) FROM subTypes WHERE

@@ -47,7 +47,7 @@ import selected.oo._
 object AnalysesOO
 {
 
-    var transactional = false
+    var transactional = true
 
     def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized:Boolean = false, shared: Boolean = false): Relation[_] = {
         if (!optimized) {

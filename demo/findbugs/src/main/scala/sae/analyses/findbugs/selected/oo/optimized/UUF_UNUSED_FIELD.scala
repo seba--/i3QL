@@ -37,7 +37,7 @@ import sae.analyses.findbugs.base.oo.Definitions
 import sae.bytecode._
 import instructions.FieldReadInstruction
 import sae.syntax.sql._
-import structure.{FieldDeclaration, FieldInfo}
+import structure.FieldDeclaration
 import sae.operators.impl.NotExistsInSameDomainView
 import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
 
@@ -55,7 +55,7 @@ object UUF_UNUSED_FIELD
         import database._
         import definitions._
 
-          val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
+        val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields).forceToSet
         val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField)
 
         new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection.asMaterialized, readFieldProjection.asMaterialized)

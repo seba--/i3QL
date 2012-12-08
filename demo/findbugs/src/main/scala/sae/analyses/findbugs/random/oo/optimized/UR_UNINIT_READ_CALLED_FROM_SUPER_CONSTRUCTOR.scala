@@ -37,7 +37,8 @@ import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
 import structure.{MethodReference, MethodComparison, FieldDeclaration}
-import sae.operators.impl.TransactionalEquiJoinView
+import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -109,13 +110,22 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
         )
 
         val selfFieldReads =
-            new TransactionalEquiJoinView (
-                getFieldSelection,
-                fieldDeclarations,
-                (get: GETFIELD) => (get.receiverType, get.name, get.fieldType),
-                (field: FieldDeclaration) => (field.declaringType, field.name, field.fieldType),
-                (get: GETFIELD, f: FieldDeclaration) => get
-            )
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    getFieldSelection,
+                    fieldDeclarations,
+                    (get: GETFIELD) => (get.receiverType, get.name, get.fieldType),
+                    (field: FieldDeclaration) => (field.declaringType, field.name, field.fieldType),
+                    (get: GETFIELD, f: FieldDeclaration) => get
+                )
+            else
+                new EquiJoinView (
+                    getFieldSelection,
+                    fieldDeclarations,
+                    (get: GETFIELD) => (get.receiverType, get.name, get.fieldType),
+                    (field: FieldDeclaration) => (field.declaringType, field.name, field.fieldType),
+                    (get: GETFIELD, f: FieldDeclaration) => get
+                )
 
         compile (
             SELECT (*) FROM (selfFieldReads, selfCallsFromCalledConstructor) WHERE

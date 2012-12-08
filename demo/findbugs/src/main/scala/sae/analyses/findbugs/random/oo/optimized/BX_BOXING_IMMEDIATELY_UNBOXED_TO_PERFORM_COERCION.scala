@@ -4,7 +4,8 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
-import sae.operators.impl.TransactionalEquiJoinView
+import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -40,13 +41,24 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
                 (_.name.endsWith ("Value"))
         )
 
-        val join = new TransactionalEquiJoinView (
-            invokeSpecialSelection,
-            invokeVirtualSelection,
-            ((i: INVOKESPECIAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex)),
-            ((i: INVOKEVIRTUAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex - 1)),
-            (a: INVOKESPECIAL, b: INVOKEVIRTUAL) => (a, b)
-        )
+
+        val join =
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    invokeSpecialSelection,
+                    invokeVirtualSelection,
+                    ((i: INVOKESPECIAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex)),
+                    ((i: INVOKEVIRTUAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex - 1)),
+                    (a: INVOKESPECIAL, b: INVOKEVIRTUAL) => (a, b)
+                )
+            else
+                new EquiJoinView (
+                    invokeSpecialSelection,
+                    invokeVirtualSelection,
+                    ((i: INVOKESPECIAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex)),
+                    ((i: INVOKEVIRTUAL) => (i.declaringMethod, i.receiverType, i.sequenceIndex - 1)),
+                    (a: INVOKESPECIAL, b: INVOKEVIRTUAL) => (a, b)
+                )
 
         SELECT ((e: (INVOKESPECIAL, INVOKEVIRTUAL)) => e._2) FROM (join) WHERE
             ((e: (INVOKESPECIAL, INVOKEVIRTUAL)) => e._1.parameterTypes (0) != e._2.returnType)
