@@ -39,7 +39,10 @@ import sae.bytecode._
 import sae.bytecode.instructions._
 import java.util.regex.Pattern
 import sae.analyses.findbugs.AnalysesOO
-import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.operators.impl.{NotExistsInSameDomainView, EquiJoinView, TransactionalEquiJoinView}
+import de.tud.cs.st.bat.resolved.ObjectType
+import sae.functions.Count
+import sae.syntax.RelationalAlgebraSyntax.γ
 
 /**
  *
@@ -48,7 +51,7 @@ import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
  */
 
 object SIC_INNER_SHOULD_BE_STATIC_ANON
-    extends (BytecodeDatabase => Relation[ClassDeclaration])
+    extends (BytecodeDatabase => Relation[ObjectType])
 {
 
 
@@ -98,73 +101,72 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
     }
 
 
-    def apply(database: BytecodeDatabase): Relation[ClassDeclaration] = {
+    def apply(database: BytecodeDatabase): Relation[ObjectType] = {
         import database._
-        lazy val anonymousConvertable = compile (
-            SELECT (*) FROM classDeclarations WHERE
-                isAnonymousInnerClass AND
-                canConvertToStaticInnerClass
+
+        lazy val unreadOuterThisField =
+            compile (
+                SELECT ((_:FieldDeclaration).declaringType) FROM fieldDeclarations WHERE
+                    isOuterThisField AND
+                    (f => isAnonymousInnerClass(f.declaringClass)) AND
+                    (f => canConvertToStaticInnerClass(f.declaringClass)) AND
+                    NOT (
+                        EXISTS (
+                            SELECT (*) FROM readField WHERE
+                                (((_: FieldReadInstruction).receiverType) === ((_: FieldDeclaration).declaringType)) AND
+                                (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
+                                (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
+                        )
+                    )
+            )
+                 /*
+        lazy val classWithUnreadOuterField: Relation[ObjectType] =
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    anonymousConvertable,
+                    unreadOuterThisField,
+                    classType,
+                    declaringType,
+                    (c: ClassDeclaration, f: FieldDeclaration) => c.classType
+                )
+            else
+                new EquiJoinView (
+                    anonymousConvertable,
+                    unreadOuterThisField,
+                    classType,
+                    declaringType,
+                    (c: ClassDeclaration, f: FieldDeclaration) => c.classType
+                )
+                         */
+
+        lazy val aload_1 =
+            compile (
+                SELECT (*) FROM instructions WHERE (_.isInstanceOf[ALOAD_1])
+            )
+
+        val aload_1InInnerClassConstructors = compile (
+            SELECT (*) FROM aload_1 WHERE
+                (_.declaringMethod.name == "<init>") AND
+                (i => i.declaringMethod.declaringClassType.className.indexOf ('$') > 0)
         )
-        /*
-          lazy val unreadOuterThisField =
-              compile (
-                  SELECT (*) FROM fieldDeclarations WHERE
-                      isOuterThisField AND
-                      NOT (
-                          EXISTS (
-                              SELECT (*) FROM readField WHERE
-                                  (((_: FieldReadInstruction).receiverType) === ((_: FieldDeclaration).declaringType)) AND
-                                  (((_: FieldReadInstruction).name) === ((_: FieldDeclaration).name)) AND
-                                  (((_: FieldReadInstruction).fieldType) === ((_: FieldDeclaration).fieldType))
-                          )
-                      )
-              )
 
-          lazy val classWithUnreadOuterField: Relation[ClassDeclaration] =
-              if (AnalysesOO.transactional)
-                  new TransactionalEquiJoinView (
-                      anonymousConvertable,
-                      unreadOuterThisField,
-                      classType,
-                      declaringType,
-                      (c: ClassDeclaration, f: FieldDeclaration) => c
-                  )
-              else
-                  new EquiJoinView (
-                      anonymousConvertable,
-                      unreadOuterThisField,
-                      classType,
-                      declaringType,
-                      (c: ClassDeclaration, f: FieldDeclaration) => c
-                  )
+        val countAload_1InInnerClassConstructors: Relation[(MethodDeclaration, Int)] = γ (
+            aload_1InInnerClassConstructors,
+            declaringMethod,
+            Count[InstructionInfo](),
+            (m: MethodDeclaration, count: Int) => (m, count)
+        )
 
 
-          lazy val aload_1 =
-              compile (
-                  SELECT (*) FROM instructions WHERE (_.isInstanceOf[ALOAD_1])
-              )
+        val innerClassConstructorWithOneAload: Relation[ObjectType] =
+            compile (
+                SELECT ((_: (MethodDeclaration, Int))._1.declaringClassType) FROM countAload_1InInnerClassConstructors WHERE (_._2 > 1)
+            )
 
-          /**
-           * TODO
-           * A heuristic that determines whether the outer this field is read, by counting aload_1 instructions
-           * The count must be greater than 1, because the variable will be read once for storing it
-           * into the field reference for the outer this instance.
-           */
-          lazy val constructorReadFirstParam: Relation[MethodDeclaration] =
-              SELECT (*) FROM constructors WHERE NOT (
-                  EXISTS (
-                      SELECT (*) FROM aload_1 WHERE (declaringClassType === declaringType)
-                  )
-              )
-
-          SELECT (*) FROM (classWithUnreadOuterField) WHERE
-              NOT (
-                  EXISTS (
-                      SELECT (*) FROM constructorReadFirstParam WHERE (declaringType === classType)
-                  )
-              )
-                      */
-        null
-      }
+        new NotExistsInSameDomainView(
+            unreadOuterThisField.asMaterialized,
+            innerClassConstructorWithOneAload.asMaterialized
+        )
+    }
 
 }

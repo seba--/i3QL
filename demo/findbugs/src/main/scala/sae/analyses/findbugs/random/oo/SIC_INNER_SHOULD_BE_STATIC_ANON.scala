@@ -99,16 +99,13 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
 
     def apply(database: BytecodeDatabase): Relation[ObjectType] = {
         import database._
-        lazy val anonymousConvertable = compile (
-            SELECT (*) FROM classDeclarations WHERE
-                isAnonymousInnerClass AND
-                canConvertToStaticInnerClass
-        )
 
         lazy val unreadOuterThisField =
             compile (
-                SELECT (*) FROM fieldDeclarations WHERE
+                SELECT (declaringType) FROM fieldDeclarations WHERE
                     isOuterThisField AND
+                    (f => isAnonymousInnerClass(f.declaringClass)) AND
+                    (f => canConvertToStaticInnerClass(f.declaringClass)) AND
                     NOT (
                         EXISTS (
                             SELECT (*) FROM readField WHERE
@@ -118,13 +115,6 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
                         )
                     )
             )
-
-        lazy val classWithUnreadOuterField = compile (
-            SELECT ((c: ClassDeclaration, f: FieldDeclaration) => c.classType) FROM
-                (anonymousConvertable, unreadOuterThisField) WHERE
-                (classType === declaringType)
-        )
-
 
         lazy val aload_1 =
             compile (
@@ -151,7 +141,7 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
             )
 
 
-        SELECT (*) FROM (classWithUnreadOuterField) WHERE
+        SELECT (*) FROM (unreadOuterThisField) WHERE
             NOT (
                 EXISTS (
                     SELECT (*) FROM innerClassConstructorWithOneAload WHERE (thisClass === thisClass)

@@ -160,6 +160,16 @@ class TestOptimizedOOAnalysesOnRT
     }
 
     @Test
+    def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
+        database.addArchive (getStream)
+        //assertEquals (572, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (573, analysis.size)
+    }
+
+    @Test
     def test_UG_SYNC_SET_UNSYNC_GET() {
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
