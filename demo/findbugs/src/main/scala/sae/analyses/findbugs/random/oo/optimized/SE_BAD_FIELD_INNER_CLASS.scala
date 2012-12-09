@@ -30,8 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs.random.oo
-
+package sae.analyses.findbugs.random.oo.optimized
 
 import sae.Relation
 import sae.syntax.sql._
@@ -40,6 +39,8 @@ import sae.analyses.findbugs.base.oo.Definitions
 import de.tud.cs.st.bat.ACC_STATIC
 import de.tud.cs.st.bat.resolved.ObjectType
 import structure.internal.UnresolvedInnerClassEntry
+import sae.analyses.findbugs.AnalysesOO
+import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
 
 /**
  *
@@ -65,7 +66,7 @@ object SE_BAD_FIELD_INNER_CLASS
 
         lazy val nonStaticInner = compile (
             SELECT ((u: UnresolvedInnerClassEntry) => (u.innerClassType, u.outerClassType.get)) FROM unresolvedInnerClasses WHERE
-                ((u:UnresolvedInnerClassEntry) => u.declaringType == u.innerClassType) AND
+                ((u: UnresolvedInnerClassEntry) => u.declaringType == u.innerClassType) AND
                 (_.outerClassType.isDefined) AND
                 NOT (hasStaticFlag)
         )
@@ -74,10 +75,23 @@ object SE_BAD_FIELD_INNER_CLASS
             SELECT (subType) FROM interfaceInheritance WHERE (_.superType == serializable)
         )
 
-        lazy val serializableNonStaticInner = compile (
-            SELECT ((e: (ObjectType, ObjectType), s: ObjectType) => e) FROM (nonStaticInner, directlySerializable) WHERE
-                (innerClass === thisClass)
-        )
+        lazy val serializableNonStaticInner =
+            if (AnalysesOO.transactional)
+                new TransactionalEquiJoinView (
+                    nonStaticInner,
+                    directlySerializable,
+                    innerClass,
+                    thisClass,
+                    (e: (ObjectType, ObjectType), s: ObjectType) => e
+                )
+            else
+                new EquiJoinView (
+                    nonStaticInner,
+                    directlySerializable,
+                    innerClass,
+                    thisClass,
+                    (e: (ObjectType, ObjectType), s: ObjectType) => e
+                )
 
         SELECT (*) FROM serializableNonStaticInner WHERE NOT (
             EXISTS (

@@ -112,7 +112,7 @@ object AnalysesOO
         case "ITA_INEFFICIENT_TO_ARRAY" => random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)
         case "MS_PKGPROTECT" => random.oo.optimized.MS_PKGPROTECT (database)
         case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL (database)
-        case "SE_BAD_FIELD_INNER_CLASS" => SE_BAD_FIELD_INNER_CLASS (database)
+        case "SE_BAD_FIELD_INNER_CLASS" =>  random.oo.optimized.SE_BAD_FIELD_INNER_CLASS (database)
         case "SIC_INNER_SHOULD_BE_STATIC_ANON" => random.oo.optimized.SIC_INNER_SHOULD_BE_STATIC_ANON (database)
         case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database)
         case "UG_SYNC_SET_UNSYNC_GET" => random.oo.optimized.UG_SYNC_SET_UNSYNC_GET (database)
