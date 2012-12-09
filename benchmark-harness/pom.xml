@@ -25,6 +25,7 @@
                 <version>1.1.1</version>
                 <executions>
                     <execution>
+                        <id>no-opt</id>
                         <phase>test</phase>
                         <goals>
                             <goal>exec</goal>
@@ -39,6 +40,91 @@
                                 <argument>"sae/benchmark/definitions/sae/oo"</argument>
                                 <argument>true</argument>
                                 <argument>false</argument>
+                                <argument>false</argument>
+                                <argument>false</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>opt-query</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
+                                <classpath/>
+                                <argument>sae.benchmark.Harness</argument>
+                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>true</argument>
+                                <argument>true</argument>
+                                <argument>false</argument>
+                                <argument>false</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>opt-transaction</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
+                                <classpath/>
+                                <argument>sae.benchmark.Harness</argument>
+                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>true</argument>
+                                <argument>false</argument>
+                                <argument>true</argument>
+                                <argument>false</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>opt-shared</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
+                                <classpath/>
+                                <argument>sae.benchmark.Harness</argument>
+                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>true</argument>
+                                <argument>false</argument>
+                                <argument>false</argument>
+                                <argument>true</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>opt-all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
+                                <classpath/>
+                                <argument>sae.benchmark.Harness</argument>
+                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>true</argument>
+                                <argument>true</argument>
+                                <argument>true</argument>
                                 <argument>true</argument>
                             </arguments>
                         </configuration>
