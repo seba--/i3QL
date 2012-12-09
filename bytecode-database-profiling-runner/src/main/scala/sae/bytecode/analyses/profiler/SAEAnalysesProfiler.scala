@@ -49,29 +49,22 @@ abstract class SAEAnalysesProfiler
     extends AbstractPropertiesFileProfiler
 {
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_]
 
 
-    def createMaterializedDatabase(jars: List[String], queries: List[String], transactional: Boolean) = {
+    def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
         val database = BATDatabaseFactory.create ()
         val materializedDatabase = new MaterializedBytecodeDatabase (database)
 
         // initialize the needed materializations at least once
         val relations = for (query <- queries) yield {
-            getAnalysis (query, materializedDatabase)(optimized, sharedSubQueries)
+            getAnalysis (query, materializedDatabase)(optimized, transactional, sharedSubQueries)
         }
 
 
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional)
-            {
-                database.addArchiveAsClassFileTransactions(stream)
-            }
-            else
-            {
-                database.addArchive (stream)
-            }
+            database.addArchive (stream)
             stream.close ()
         })
 
@@ -81,39 +74,32 @@ abstract class SAEAnalysesProfiler
     }
 
 
-    def getResultsWithReadingJars(jars: List[String], queries: List[String], transactional: Boolean): Long = {
+    def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
         var database = BATDatabaseFactory.create ()
         val results = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database)(optimized))
+            sae.relationToResult (getAnalysis (query, database)(optimized, transactional, sharedSubQueries))
         }
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional)
-            {
-                database.addArchiveAsClassFileTransactions(stream)
-            }
-            else
-            {
-                database.addArchive (stream)
-            }
+            database.addArchive (stream)
             stream.close ()
         })
 
         results.map (_.size).sum
     }
 
-    def getResultsWithoutReadingJars(jars: List[String], queries: List[String], transactional: Boolean): Long = {
-        val database = createMaterializedDatabase (jars, queries, transactional)
+    def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
+        val database = createMaterializedDatabase (jars, queries)
         val results = for (query <- queries) yield {
             //sae.relationToResult (AnalysesOO (query, database))
-            getAnalysis (query, database)(optimized, sharedSubQueries)
+            getAnalysis (query, database)(optimized, transactional, sharedSubQueries)
         }
 
         results.map (_.size).sum
     }
 
 
-    def dataStatistic(jars: List[String], transactional: Boolean): DataStatistic = {
+    def dataStatistic(jars: List[String]): DataStatistic = {
         var database = BATDatabaseFactory.create ()
 
         val classes = relationToResult (database.classDeclarations)
@@ -126,14 +112,7 @@ abstract class SAEAnalysesProfiler
 
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional)
-            {
-                database.addArchiveAsClassFileTransactions(stream)
-            }
-            else
-            {
-                database.addArchive (stream)
-            }
+            database.addArchive (stream)
             stream.close ()
         })
 

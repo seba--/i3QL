@@ -49,13 +49,15 @@ object AnalysesOO
 
     var transactional = true
 
-    def apply(analysisName: String, database: BytecodeDatabase)(implicit optimized: Boolean = false, shared: Boolean = false): Relation[_] = {
+    def apply(analysisName: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
         if (!optimized) {
             getBase (analysisName, database)
         }
         else
         {
+            this.transactional = transactional
             Definitions.shared = shared
+            sae.ENABLE_FORCE_TO_SET = true
             getOptimized (analysisName, database)
         }
     }

@@ -55,7 +55,7 @@ object VespucciMemoryProfiler
 
     def benchmarkType = "SAE Vespucci"
 
-    def dataStatistic(jars: List[String], transactional: Boolean): DataStatistic = {
+    def dataStatistic(jars: List[String]): DataStatistic = {
         var database = BATDatabaseFactory.create ()
 
         val classes = relationToResult (database.classDeclarations)
@@ -68,14 +68,7 @@ object VespucciMemoryProfiler
 
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            if (transactional)
-            {
-                database.addArchiveAsClassFileTransactions (stream)
-            }
-            else
-            {
-                database.addArchive (stream)
-            }
+            database.addArchive (stream)
             stream.close ()
         })
 
@@ -85,21 +78,21 @@ object VespucciMemoryProfiler
 
     def measurementUnit = MegaByte
 
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean) = {
-        measureMemory (iterations)(() => createVanillaDatabase (jars, queries, transactional))._1
+    def measure(iterations: Int, jars: List[String], queries: List[String]) = {
+        measureMemory (iterations)(() => createVanillaDatabase (jars, queries))._1
     }
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean) = {
+    def warmup(iterations: Int, jars: List[String], queries: List[String]) = {
         var i = 0
         while (i < iterations) {
-            createVanillaDatabase (jars, queries, transactional)
+            createVanillaDatabase (jars, queries)
             i += 1
         }
         0L
     }
 
 
-    def createVanillaDatabase(jars: List[String], queries: List[String], transactional: Boolean): Long = {
+    def createVanillaDatabase(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         var unisson = new UnissonDatabase (database)
@@ -110,14 +103,7 @@ object VespucciMemoryProfiler
         {
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                if (transactional)
-                {
-                    database.addArchiveAsClassFileTransactions (stream)
-                }
-                else
-                {
-                    database.addArchive (stream)
-                }
+                database.addArchive (stream)
                 stream.close ()
             })
         }

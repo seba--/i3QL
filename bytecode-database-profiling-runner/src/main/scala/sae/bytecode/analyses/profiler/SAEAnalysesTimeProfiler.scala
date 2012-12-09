@@ -51,38 +51,38 @@ abstract class SAEAnalysesTimeProfiler
     with TimeMeasurement
 {
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_]
 
     val usage: String = """|Usage: java SAEAnalysesTimeProfiler propertiesFile
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): SampleStatistic = {
+    def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
         if (reReadJars) {
-            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries, transactional))
+            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
         }
         else
         {
-            val database = createMaterializedDatabase (jars, queries, transactional)
+            val database = createMaterializedDatabase (jars, queries)
             measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
         }
     }
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): Long = {
+    def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
         val materializedDatabase =
             if (reReadJars) {
                 None
             }
             else
             {
-                Some (createMaterializedDatabase (jars, queries, transactional))
+                Some (createMaterializedDatabase (jars, queries))
             }
 
         var i = 0
         while (i < iterations) {
             if (reReadJars) {
-                applyAnalysesWithJarReading (jars, queries, transactional)
+                applyAnalysesWithJarReading (jars, queries)
             }
             else
             {
@@ -92,20 +92,20 @@ abstract class SAEAnalysesTimeProfiler
         }
 
         if (reReadJars) {
-            getResultsWithReadingJars (jars, queries, transactional)
+            getResultsWithReadingJars (jars, queries)
         }
         else
         {
-            getResultsWithoutReadingJars (jars, queries, transactional)
+            getResultsWithoutReadingJars (jars, queries)
         }
     }
 
 
-    def applyAnalysesWithJarReading(jars: List[String], queries: List[String], transactional: Boolean): Long = {
+    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         val results = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database)(optimized, sharedSubQueries))
+            sae.relationToResult (getAnalysis (query, database)(optimized, transactional, sharedSubQueries))
         }
         time {
             l => taken += l
@@ -113,14 +113,7 @@ abstract class SAEAnalysesTimeProfiler
         {
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                if (transactional)
-                {
-                    database.addArchiveAsClassFileTransactions(stream)
-                }
-                else
-                {
-                    database.addArchive (stream)
-                }
+                database.addArchive (stream)
                 stream.close ()
             })
         }
@@ -140,7 +133,7 @@ abstract class SAEAnalysesTimeProfiler
         }
         {
             relations = for (query <- queries) yield {
-                sae.relationToResult (getAnalysis (query, database)(optimized, sharedSubQueries))
+                sae.relationToResult (getAnalysis (query, database)(optimized, transactional, sharedSubQueries))
             }
 
         }

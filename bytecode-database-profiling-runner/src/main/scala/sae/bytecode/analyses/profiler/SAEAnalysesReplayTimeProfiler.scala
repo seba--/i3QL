@@ -57,6 +57,8 @@ abstract class SAEAnalysesReplayTimeProfiler
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                           | """.stripMargin
 
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean = false): Relation[_]
+
     private def sortEventsByType(events: Seq[Event]): (Seq[Event], Seq[Event], Seq[Event]) = {
         var additions: List[Event] = Nil
         var deletions: List[Event] = Nil
@@ -162,7 +164,6 @@ abstract class SAEAnalysesReplayTimeProfiler
     }
 
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean = false): Relation[_]
 
     /**
      * performs the measurement of function f, iterations times.
@@ -185,11 +186,9 @@ abstract class SAEAnalysesReplayTimeProfiler
         statistics.toList
     }
 
-    def optimized: Boolean = false
-
     private def applyAnalysesWithJarReading(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
         val database = BATDatabaseFactory.create ()
-        val results = queries.foreach (q => getAnalysis (q, database)(optimized))
+        val results = queries.foreach (q => getAnalysis (q, database)(optimized = false))
         eventSets map {
             set => applyStepWithJarReadTime (set, database)
         }
@@ -215,7 +214,7 @@ abstract class SAEAnalysesReplayTimeProfiler
     private def getResultsWithReadingJars(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
         var database = BATDatabaseFactory.create ()
         val queryResults = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database))
+            sae.relationToResult (getAnalysis (query, database)(optimized = false))
         }
         eventSets map {
             set => {

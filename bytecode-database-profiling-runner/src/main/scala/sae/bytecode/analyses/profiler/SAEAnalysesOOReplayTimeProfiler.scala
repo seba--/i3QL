@@ -34,6 +34,7 @@ package sae.bytecode.analyses.profiler
 
 import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.BytecodeDatabase
+import sae.Relation
 
 
 /**
@@ -48,7 +49,7 @@ object SAEAnalysesOOReplayTimeProfiler
 
     def benchmarkType = "SAEOO replay time"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean) =
-        AnalysesOO (query, database)(optimized)
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean): Relation[_] =
+        AnalysesOO (query, database)(optimized, transactional = false, shared = false)
 
 }

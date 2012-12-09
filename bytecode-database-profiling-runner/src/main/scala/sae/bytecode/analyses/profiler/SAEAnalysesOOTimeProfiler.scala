@@ -35,6 +35,7 @@ package sae.bytecode.analyses.profiler
 
 import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.BytecodeDatabase
+import sae.Relation
 
 
 /**
@@ -49,6 +50,6 @@ object SAEAnalysesOOTimeProfiler
 
     def benchmarkType = "SAEOO time"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(implicit optimized: Boolean, shared: Boolean = false) =
-        AnalysesOO (query, database)(optimized, shared)
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_] =
+        AnalysesOO (query, database)(optimized, transactional, shared)
 }

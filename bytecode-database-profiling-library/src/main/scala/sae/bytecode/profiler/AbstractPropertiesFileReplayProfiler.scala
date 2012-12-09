@@ -67,6 +67,7 @@ trait AbstractPropertiesFileReplayProfiler
                 true
             }
 
+
         val properties = getProperties (propertiesFile).getOrElse (
         {
             println ("could not find properties file or resource: " + propertiesFile)

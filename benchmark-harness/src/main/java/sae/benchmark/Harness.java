@@ -32,23 +32,41 @@ public class Harness {
         Runtime runtime = Runtime.getRuntime();
         String definitionsDir = "sae/benchmark/definitions";
         String reReadJars = "false";
+        String optimized = "false";
+        String transactional = "false";
+        String shared = "false";
+
         if (args.length >= 1) {
             definitionsDir = args[0];
         }
         if(args.length >= 2) {
             reReadJars = args[1];
         }
+        if(args.length >= 3) {
+            optimized = args[2];
+        }
+        if(args.length >= 4) {
+            transactional = args[3];
+        }
+        if(args.length >= 5) {
+            shared = args[4];
+        }
+
+
 
         System.out.println("Harness started");
         System.out.println("Current directory = " +System.getProperty("user.dir"));
         System.out.println("re read jars = " + reReadJars);
+        System.out.println("optimized = " + optimized);
+        System.out.println("transactional = " + transactional);
+        System.out.println("shared subq.= " + shared);
         System.out.println("reading profiles from: " + definitionsDir);
 
 
         String[] benchmarks = getBenchmarkCommands(definitionsDir);
 
         for (String benchmark : benchmarks) {
-            String exec = addArguments(cmd, new String[]{benchmark, reReadJars});
+            String exec = addArguments(cmd, new String[]{benchmark, reReadJars, optimized, transactional, shared});
             System.out.println(exec);
             Process process = runtime.exec(exec);
 

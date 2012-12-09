@@ -57,7 +57,7 @@ object BATAnalysesTimeProfiler
                           | """.stripMargin
 
 
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): SampleStatistic = {
+    def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
         if (reReadJars) {
             measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
         }
@@ -70,7 +70,7 @@ object BATAnalysesTimeProfiler
     }
 
 
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean, transactional: Boolean): Long = {
+    def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
         val project =
             if (reReadJars) {
                 None
@@ -204,7 +204,7 @@ object BATAnalysesTimeProfiler
 
     def measurementUnit = MilliSeconds
 
-    def dataStatistic(jars: List[String], transactional: Boolean): DataStatistic = {
+    def dataStatistic(jars: List[String]): DataStatistic = {
         val project = readJars (jars)
 
         val classCount = project.classFiles.size
