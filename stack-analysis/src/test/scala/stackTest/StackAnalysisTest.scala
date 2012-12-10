@@ -1,43 +1,20 @@
 package stackTest
 
 
-import org.scalatest.junit.AssertionsForJUnit
-import org.junit.{BeforeClass, Before, Assert, Test}
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.FunSuite
-import sae.{Relation, QueryResult}
-import sandbox.stackAnalysis.Types._
+import org.junit.{BeforeClass, Assert, Test}
+import sae.QueryResult
 import sandbox.stackAnalysis._
+import datastructure._
+import datastructure.LocVariables
+import datastructure.Stacks
+import datastructure.State
 import sae.bytecode.bat.BATDatabaseFactory
-import sae.bytecode.structure.CodeInfo
 import sae.syntax.sql._
-import sae.bytecode.structure.CodeInfo
-import sae.bytecode.structure.CodeInfo
-import sandbox.dataflowAnalysis.MethodResult
 import java.io.FileInputStream
 import de.tud.cs.st.bat.resolved.{BooleanType, IntegerType, ObjectType}
-import sandbox.dataflowAnalysis.MethodResult
-import sae.bytecode.structure.CodeInfo
 import java.util.Date
-
-import sandbox.dataflowAnalysis.MethodResult
-import sae.bytecode.structure.CodeInfo
-import scala.Some
-
-
-import sandbox.dataflowAnalysis.MethodResult
-import sae.bytecode.structure.CodeInfo
-import scala.Some
-import sandbox.stackAnalysis.TypeOption.NoneType
 import sandbox.stackAnalysis.StackAnalysis
 import sandbox.dataflowAnalysis.MethodResult
-import sae.bytecode.structure.CodeInfo
-import sandbox.stackAnalysis.LocVariables
-import sandbox.stackAnalysis.Configuration
-import sandbox.stackAnalysis.Stacks
-import sandbox.stackAnalysis.CodeInfoTransformer
-import sandbox.stackAnalysis.LocVariable
 
 
 /**
@@ -49,23 +26,17 @@ import sandbox.stackAnalysis.LocVariable
  */
 
 object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
-  var methodSetAccessible : QueryResult[MethodResult[Configuration]] = null
-  var methodIsLoggable : QueryResult[MethodResult[Configuration]] = null
+  var methodSetAccessible: QueryResult[MethodResult[State]] = null
+  var methodIsLoggable: QueryResult[MethodResult[State]] = null
 
   @BeforeClass
   def start() {
     println("Start analysis: " + new Date())
     //Setup the database
     val database = BATDatabaseFactory.create()
-    val infos: Relation[CodeInfo] = compile(SELECT(*) FROM database.code)
-
-    //Setup the analysis
-    val cfg = new CodeInfoCFG(infos)
-    val funs = new CodeInfoTransformer(infos)
-    val analysis : StackAnalysis = new StackAnalysis(infos, cfg, funs)
-    //analysis.printResults = true
-    methodSetAccessible = compile(SELECT (*) FROM analysis.result WHERE ((_ : MethodResult[Configuration]).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_ : MethodResult[Configuration]).declaringMethod.name == "setAccessible"))
-    methodIsLoggable = compile(SELECT (*) FROM analysis.result WHERE ((_ : MethodResult[Configuration]).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_ : MethodResult[Configuration]).declaringMethod.name == "isLoggable"))
+    val analysis = StackAnalysis(database)
+    methodSetAccessible = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_: MethodResult[State]).declaringMethod.name equals "setAccessible"))
+    methodIsLoggable = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_: MethodResult[State]).declaringMethod.name equals "isLoggable"))
 
     database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
 
@@ -77,68 +48,65 @@ class StackAnalysisTest {
   @Test
   def testSetAccessible() {
     //Get the result
-    val results : Array[Configuration] = StackAnalysisTest.methodSetAccessible.asList(0).resultArray
+    val results: Array[State] = StackAnalysisTest.methodSetAccessible.asList(0).resultArray
+
 
     //Build the expected result
-    val expected : Array[Configuration] = Array.ofDim[Configuration](13)
-    var baseRes = Configuration(Stacks(3,Nil).addStack(),LocVariables(Array.fill[LocVariable](1)(LocVariable(NoneType :: Nil))))
-    baseRes = Configuration(baseRes.s,baseRes.l.setVar(0,ObjectType("java/lang/reflect/AccessibleObject"),-1))
+    val expected: Array[State] = Array.ofDim[State](13)
+    var baseRes = State(Stacks(3, Nil).addStack(), LocVariables(Array.fill[Item](1)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
+    baseRes = State(baseRes.s, baseRes.l.setVar(0, Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)))
     expected(0) = baseRes
-    baseRes = Configuration(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"),0),baseRes.l)
+    baseRes = State(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"), 0), baseRes.l)
     expected(3) = baseRes
-    baseRes = Configuration(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"),0),baseRes.l)
+    baseRes = State(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"), 0), baseRes.l)
     expected(4) = baseRes
-    baseRes = Configuration(baseRes.s.push(ObjectType("java/lang/reflect/AccessibleObject"),4),baseRes.l)
+    baseRes = State(baseRes.s.push(Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)), baseRes.l)
     expected(5) = baseRes
-    baseRes = Configuration(baseRes.s.pop().pop(),baseRes.l)
+    baseRes = State(baseRes.s.pop().pop(), baseRes.l)
     expected(8) = baseRes
-    baseRes = Configuration(baseRes.s.pop().push(ObjectType("java/lang/Object"),8),baseRes.l)
+    baseRes = State(baseRes.s.pop().push(ObjectType("java/lang/Object"), 8), baseRes.l)
     expected(11) = baseRes
-    baseRes = Configuration(baseRes.s.pop(),baseRes.l)
+    baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(12) = baseRes
 
     //Test result with the expected result
     Assert.assertEquals(expected.length, results.length)
-
-    for(i <- 0 until expected.length)
-      Assert.assertEquals(expected(i),results(i))
+    Assert.assertArrayEquals(expected.asInstanceOf[Array[AnyRef]], results.asInstanceOf[Array[AnyRef]])
 
   }
 
   @Test
   def testIsLoggable() {
     //Get the result
-    val results : Array[Configuration] = StackAnalysisTest.methodIsLoggable.asList(0).resultArray
+    val results: Array[State] = StackAnalysisTest.methodIsLoggable.asList(0).resultArray
 
 
 
     //Build the expected result
-    val expected : Array[Configuration] = Array.ofDim[Configuration](24)
-    var baseRes = Configuration(Stacks(2,Nil).addStack(),LocVariables(Array.fill[LocVariable](0)(LocVariable(NoneType :: Nil))))
-    baseRes = Configuration(baseRes.s,baseRes.l)
+    val expected: Array[State] = Array.ofDim[State](24)
+    var baseRes = State(Stacks(2, Nil).addStack(), LocVariables(Array.fill[Item](0)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
+    baseRes = State(baseRes.s, baseRes.l)
     expected(0) = baseRes
-    baseRes = Configuration(baseRes.s.push(BooleanType,0),baseRes.l)
+    baseRes = State(baseRes.s.push(BooleanType, 0), baseRes.l)
     expected(3) = baseRes
-    baseRes = Configuration(baseRes.s.pop(),baseRes.l)
+    baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(6) = baseRes
-    baseRes = Configuration(baseRes.s.push(ObjectType("java/util/logging/Logger"),6),baseRes.l)
+    baseRes = State(baseRes.s.push(ObjectType("java/util/logging/Logger"), 6), baseRes.l)
     expected(9) = baseRes
-    baseRes = Configuration(baseRes.s.push(ObjectType("java/util/logging/Level"),9),baseRes.l)
+    baseRes = State(baseRes.s.push(ObjectType("java/util/logging/Level"), 9), baseRes.l)
     expected(12) = baseRes
-    baseRes = Configuration(baseRes.s.pop().pop().push(BooleanType,12),baseRes.l)
+    baseRes = State(baseRes.s.pop().pop().push(BooleanType, 12), baseRes.l)
     expected(15) = baseRes
-    baseRes = Configuration(baseRes.s.pop(),baseRes.l)
+    baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(18) = baseRes
-    baseRes = Configuration(baseRes.s.push(IntegerType,18),baseRes.l)
+    baseRes = State(baseRes.s.push(IntegerType, 18), baseRes.l)
     expected(19) = baseRes
     expected(22) = expected(18)
-    expected(23) = expected(19).combineWith(Configuration(expected(22).s.push(IntegerType,22),expected(22).l))
+    expected(23) = expected(19).combineWith(State(expected(22).s.push(Item(ItemType.fromType(IntegerType), 22, Item.FLAG_COULD_BE_ZERO)), expected(22).l))
 
     //Test result with the expected result
     Assert.assertEquals(expected.length, results.length)
-
-    for(i <- 0 until expected.length)
-      Assert.assertEquals(expected(i),results(i))
+    Assert.assertArrayEquals(expected.asInstanceOf[Array[AnyRef]], results.asInstanceOf[Array[AnyRef]])
 
 
   }

@@ -1,6 +1,5 @@
 package sandbox.findbugs
 
-import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.

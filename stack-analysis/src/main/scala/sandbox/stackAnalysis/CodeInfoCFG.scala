@@ -1,10 +1,8 @@
 package sandbox.stackAnalysis
 
-import sae.Relation
 import sae.bytecode.structure.CodeInfo
-import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved._
-import sandbox.dataflowAnalysis.{MethodCFG, AnalysisCFG}
+import sandbox.dataflowAnalysis.ControlFlowAnalysis
 
 
 /**
@@ -18,23 +16,16 @@ import sandbox.dataflowAnalysis.{MethodCFG, AnalysisCFG}
  */
 
 //TODO: Instructions: jsr, athrow
-class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
-
-
-  /*Overrides the trait function*/
-  val result: Relation[MethodCFG] = compile(SELECT((c: CodeInfo) => {
-    //  println(c.declaringMethod.name + "<" + c.declaringMethod + ">")
-    MethodCFG(c.declaringMethod, computePredecessors(c, c.code.instructions))
-  }) FROM codeInfo)
-
+object CodeInfoCFG extends ControlFlowAnalysis {
   /**
    * This method computes the preceding program counters based on an Array[Instruction]
-   * @param a The instructions of a method on which a single control flow graph should be created.
+   * @param ci The underlying code info of the control flow graph.
    * @return The array of transformers of a method. The indexes of the array are the valid program
    *         counters of the program. The transformers on non-PC indexes is null.
    */
-  private def computePredecessors(ci: CodeInfo, a: Array[Instruction]): Array[List[Int]] = {
+  def computePredecessors(ci: CodeInfo): Array[List[Int]] = {
 
+    val a = ci.code.instructions
     val res = Array.ofDim[List[Int]](a.length)
 
 
@@ -43,14 +34,9 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
 
     while (nextPC < a.length && nextPC >= 0) {
 
-
-      //TODO: change when bugs fixed
       nextPC = a(currentPC).indexOfNextInstruction(currentPC, ci.code)
 
-      if (nextPC < a.length && a(nextPC) == null) {
-        nextPC = CodeInfoTools.getNextPC(a, currentPC)
-      }
-      //TODO: until here
+
 
       if (nextPC < a.length && nextPC >= 0) {
         if (a(currentPC).isInstanceOf[ConditionalBranchInstruction]) {
@@ -69,7 +55,9 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
             addToArray(res, p, currentPC)
           }
         } else if (a(currentPC).isInstanceOf[ReturnInstruction]) {
-           //There is no control flow from a return instruction.
+          //There is no control flow from a return instruction.
+        } else if (a(currentPC).isInstanceOf[ATHROW.type]) {
+          //TODO: fill in what exceptions do
         } else if (a(currentPC).isInstanceOf[JSR]) {
           addToArray(res, currentPC + a(currentPC).asInstanceOf[JSR].branchoffset, currentPC)
 
@@ -79,7 +67,7 @@ class CodeInfoCFG(codeInfo: Relation[CodeInfo]) extends AnalysisCFG {
           addToArray(res, nextPC, currentPC)
         }
       }
-      if (res(currentPC) == null) res(currentPC)  = Nil
+      if (res(currentPC) == null) res(currentPC) = Nil
       currentPC = nextPC
     }
 

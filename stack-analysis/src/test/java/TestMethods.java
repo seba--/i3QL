@@ -1,3 +1,7 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class TestMethods {
     public void testSeq() {
         int a = 1;
@@ -37,11 +41,13 @@ public class TestMethods {
                 a = a + a;
 
             int b = 0;
-            if (a < 50)
-                b = 1;
-            else
+            a = b;
+            if (a < 50) {
+                b = a;
+            } else
                 while (b < a)
                     b = b + 1;
+
         }
     }
 
@@ -108,14 +114,14 @@ public class TestMethods {
         String a = "Hallo Welt!";
         String b = null;
 
-        if(a == b)
+        if (a == b)
             System.out.println(a);
         else
             System.out.println(b);
 
         b = "Hallo Welt!";
 
-        if(a != b)
+        if (a != b)
             System.out.println(a);
         else
             System.out.println(b);
@@ -123,9 +129,9 @@ public class TestMethods {
         Boolean b1 = Boolean.TRUE;
         Boolean b2 = Boolean.FALSE;
 
-        if(b1 == b2)
+        if (b1 == b2)
             b1 = b2;
-        else if(b1.equals(b2))
+        else if (b1.equals(b2))
             b2 = b1;
     }
 
@@ -134,10 +140,67 @@ public class TestMethods {
     public void testSelfAssignment(int a) {
         String name = this.name;
 
-        if(a < 5)
+        if (a < 5)
             name = name;
         else
             this.name = name;
+
+        String s = name;
+        name = s;
+    }
+
+    private Long l = 0l;
+
+    public void testSelfComparison(int a) {
+        String s = name;
+
+        if (s == name) {
+            while (a < 0) {
+                if (s == name)
+                    System.out.println("OK!");
+                s = "";
+                a++;
+            }
+        }
+
+        if (name.equals(name))
+            System.out.println("OKOK!");
+
+        if (l.compareTo(l) == -1)
+            System.out.println("OKOKOK!");
+    }
+
+    public void testArrayToString() {
+        int[] a = new int[3];
+
+        System.out.println(a);
+
+        String s = a.toString();
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(a).append("test1");
+        System.out.println(builder);
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(a).append("test2");
+        System.out.println(buffer);
+    }
+
+    public void testBadSQLAccess() {
+        Connection con = null;
+        int i = 0;
+        try {
+            PreparedStatement ps = con.prepareStatement("UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?");
+            ps.setInt(0, 2);
+            ps.setLong(i, 7000l);
+            ps.setString(2, "testID");
+            while (i < 10) {
+                ps.setBoolean(i, true);
+                i++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

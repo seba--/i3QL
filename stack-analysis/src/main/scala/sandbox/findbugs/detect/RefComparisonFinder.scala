@@ -1,10 +1,10 @@
-package sandbox.findbugs
+package sandbox.findbugs.detect
 
-import sandbox.stackAnalysis.Configuration
 import de.tud.cs.st.bat.resolved._
 
-import sandbox.stackAnalysis.TypeOption.NullType
-import sandbox.stackAnalysis.Stack
+import sandbox.stackAnalysis.datastructure.{ItemType, LocVariables, State, Stack}
+import scala.{Array, Int}
+import sandbox.findbugs.{BugType, BugLogger}
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,16 +13,25 @@ import sandbox.stackAnalysis.Stack
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-class RefComparisonFinder extends BugFinder[Configuration] {
+object RefComparisonFinder extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[Configuration], logger: BugLogger) = {
+  def suspiciousTypes: List[Type] =
+    ObjectType("java/lang/Boolean") ::
+      ObjectType("java/lang/Byte") ::
+      ObjectType("java/lang/Character") ::
+      ObjectType("java/lang/Double") ::
+      ObjectType("java/lang/Float") ::
+      ObjectType("java/lang/Integer") ::
+      ObjectType("java/lang/Long") ::
+      ObjectType("java/lang/Short") ::
+      Nil
+
+  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
     val instr = instructions(pc)
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {
-      for (stack <- analysis(pc).s.collection) {
-        checkRefComparison(pc, stack, logger)
-      }
+      checkForBugs(pc, instructions, analysis, logger, checkRefComparison)
     } else if (instr.isInstanceOf[MethodInvocationInstruction]) {
 
       val methodInfo = getMethodDescriptor(instr.asInstanceOf[MethodInvocationInstruction])
@@ -33,15 +42,14 @@ class RefComparisonFinder extends BugFinder[Configuration] {
 
       if (methodName.equals("assertSame") &&
         methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))) {
-        for (stack <- analysis(pc).s.collection) {
-          checkRefComparison(pc, stack, logger)
-        }
-      } else if ( declaringClass != null && (
+        checkForBugs(pc, instructions, analysis, logger, checkRefComparison)
+
+      } else if (declaringClass != null && (
         !isStatic && methodName.equals("equals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: Nil), BooleanType))
-        || isStatic &&  methodName.equals("assertEquals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
-        && !declaringClass.equals(ObjectType("org/testng/Assert"))
-        || isStatic && methodName.equals("equal") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
-        && !declaringClass.equals(ObjectType("com/google.common/base/Objects")))) {
+          || isStatic && methodName.equals("assertEquals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
+          && !declaringClass.equals(ObjectType("org/testng/Assert"))
+          || isStatic && methodName.equals("equal") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
+          && !declaringClass.equals(ObjectType("com/google/common/base/Objects")))) {
 
         for (stack <- analysis(pc).s.collection) {
           checkEqualsComparison(pc, stack, logger)
@@ -59,18 +67,18 @@ class RefComparisonFinder extends BugFinder[Configuration] {
 
   }
 
-  private def checkRefComparison(pc: Int, stack: Stack, logger: BugLogger) = {
+  private def checkRefComparison(pc: Int, instructions: Array[Instruction], stack: Stack, lv: LocVariables): Option[BugType.Value] = {
 
     val rhs = stack(0)
     val lhs = stack(1)
     //Do nothing if comparison with null.
-    if (rhs.isInstanceOf[NullType] || lhs.isInstanceOf[NullType]) {
-      //return
-    } else if (rhs.isReference && lhs.isReference) {
+    if (rhs.isCouldBeNull || lhs.isCouldBeNull) {
+      return None
+    } else if (rhs.getDeclaredType.isReferenceType && lhs.getDeclaredType.isReferenceType) {
       //TODO:add case when the types of rhs and lhs are not compatible
-      if (rhs.isType(ObjectType.Object) && lhs.isType(ObjectType.Object)) {
-        //return
-      } else if (rhs.isType(ObjectType.String) && lhs.isType(ObjectType.String)) {
+      if (rhs.getDeclaredType.isOfType(ObjectType.Object) && lhs.getDeclaredType.isOfType(ObjectType.Object)) {
+        return None
+      } else if (rhs.getDeclaredType.isOfType(ObjectType.String) && lhs.getDeclaredType.isOfType(ObjectType.String)) {
         //handleStringComparison
         /*val rhsType = rhs.toType
         val lhsType = lhs.toType*/
@@ -83,26 +91,37 @@ class RefComparisonFinder extends BugFinder[Configuration] {
 
         //check if one string is passed as a parameter
         if (rhs.getPC == -1 || lhs.getPC == -1)
-          logger.log(pc, BugType.ES_COMPARING_PARAMETER_STRING_WITH_EQ)
+          return Some(BugType.ES_COMPARING_PARAMETER_STRING_WITH_EQ)
         else
-          logger.log(pc, BugType.ES_COMPARING_STRINGS_WITH_EQ)
+          return Some(BugType.ES_COMPARING_STRINGS_WITH_EQ)
 
-      } else if (rhs.isType(RefComparisonFinder.suspiciousTypes) || lhs.isType(RefComparisonFinder.suspiciousTypes)) {
+      } else if (isSuspicious(rhs.getDeclaredType) || isSuspicious(lhs.getDeclaredType)) {
         //handleSuspiciousTypeComparison
         //TODO:add case where one side is a constant (final static)
-        if (rhs.isType(ObjectType("java/lang/Boolean")) && lhs.isType(ObjectType("java/lang/Boolean"))) {
-          logger.log(pc, BugType.RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN)
+        if (rhs.getDeclaredType.isOfType(ObjectType("java/lang/Boolean")) && lhs.getDeclaredType.isOfType(ObjectType("java/lang/Boolean"))) {
+          return Some(BugType.RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN)
           /*}  else if (rhs.isConstant || lhs.isConstant) {
         logger.log(pc,BugType.RC_REF_COMPARISON_BAD_PRACTICE)  */
         } else {
-          logger.log(pc, BugType.RC_REF_COMPARISON)
+          return Some(BugType.RC_REF_COMPARISON)
         }
+
 
       }
 
     }
 
+    return None
 
+
+  }
+
+  private def isSuspicious(itemType: ItemType): Boolean = {
+    if (itemType.isInstanceOf[ItemType.SomeRef]) {
+      val someRef = itemType.asInstanceOf[ItemType.SomeRef]
+      return suspiciousTypes.contains(someRef.refType)
+    }
+    return false
   }
 
   //Returns MethodName, DeclaringClass, MethodDescriptor, isStatic
@@ -131,15 +150,3 @@ class RefComparisonFinder extends BugFinder[Configuration] {
 
 }
 
-object RefComparisonFinder {
-  def suspiciousTypes: List[Type] =
-    ObjectType("java/lang/Boolean") ::
-      ObjectType("java/lang/Byte") ::
-      ObjectType("java/lang/Character") ::
-      ObjectType("java/lang/Double") ::
-      ObjectType("java/lang/Float") ::
-      ObjectType("java/lang/Integer") ::
-      ObjectType("java/lang/Long") ::
-      ObjectType("java/lang/Short") ::
-      Nil
-}
