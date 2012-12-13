@@ -63,6 +63,8 @@ import sae.bytecode.structure.InnerClass
 import sae.bytecode.structure.ExceptionDeclaration
 import sae.bytecode.structure.internal.UnresolvedInnerClassEntry
 import sae.bytecode.structure.internal.UnresolvedEnclosingMethod
+import sae.deltas.{Addition, Deletion}
+import collection.mutable.HashSet
 
 /**
  * Created with IntelliJ IDEA.
@@ -388,10 +390,41 @@ class BATBytecodeDatabase
     }
 
     def computeTransactionUpdates() {
+        val finalTransaction = new HashSetTransaction
+        transaction.classDeclarationAdditions.foreach(add =>
+            if (!transaction.classDeclarationDeletions.contains(Deletion(add.value, 1))) {
+                finalTransaction.classDeclarationAdditions = finalTransaction.classDeclarationAdditions + add
+            }
+        )
+        transaction.classDeclarationDeletions.foreach(del => {
+            if (!transaction.classDeclarationAdditions.contains(Addition(del.value, 1))) {
+                finalTransaction.classDeclarationDeletions = finalTransaction.classDeclarationDeletions + del
+            }
+        }
+        )
+    }
 
+    private def ruleOutEqualElements[E](additions: HashSet[Addition[E]],
+                                        deletions: HashSet[Deletion[E]],
+                                        finalAdditions: HashSet[Addition[E]],
+                                        finaldeletions: HashSet[Deletion[E]]) {
+        /*
+        transaction.classDeclarationAdditions.foreach(add =>
+            if (!transaction.classDeclarationDeletions.contains(Deletion(add.value, 1))) {
+                finalTransaction.classDeclarationAdditions = finalTransaction.classDeclarationAdditions + add
+            }
+        )
+        transaction.classDeclarationDeletions.foreach(del => {
+            if (!transaction.classDeclarationAdditions.contains(Addition(del.value, 1))) {
+                finalTransaction.classDeclarationDeletions = finalTransaction.classDeclarationDeletions + del
+            }
+        }
+        )
+        */
     }
 
     def commitTransaction() {
+        /*
         classDeclarations.element_modifications[ClassDeclaration](transaction.classDeclarationAdditions, transaction
                 .classDeclarationDeletions, transaction.classDeclarationUpdates)
         methodDeclarations.element_modifications[MethodDeclaration](transaction.methodDeclarationAdditions, transaction
@@ -403,6 +436,7 @@ class BATBytecodeDatabase
         transaction = null
         currentAdditionReader = additionEventReader
         currentRemovalReader = removalEventReader
+        */
     }
 
     def addArchiveAsClassFileTransactions(stream: InputStream) {

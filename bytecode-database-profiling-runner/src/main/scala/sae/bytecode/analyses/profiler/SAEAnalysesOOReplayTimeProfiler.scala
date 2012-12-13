@@ -50,6 +50,6 @@ object SAEAnalysesOOReplayTimeProfiler
     def benchmarkType = "SAEOO replay time"
 
     def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean): Relation[_] =
-        AnalysesOO (query, database)(optimized, transactional = false, shared = false)
+        AnalysesOO (query, database)(optimized, transactional = true, shared = true)
 
 }

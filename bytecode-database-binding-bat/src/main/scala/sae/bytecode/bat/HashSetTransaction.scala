@@ -34,7 +34,7 @@ package sae.bytecode.bat
 
 import sae.deltas.{Update, Deletion, Addition}
 import sae.bytecode.structure.{CodeInfo, FieldDeclaration, MethodDeclaration, ClassDeclaration}
-import collection.immutable.HashSet
+import collection.mutable.HashSet
 
 /**
  *

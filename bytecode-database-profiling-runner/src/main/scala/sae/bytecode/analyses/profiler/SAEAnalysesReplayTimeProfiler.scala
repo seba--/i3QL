@@ -95,6 +95,11 @@ abstract class SAEAnalysesReplayTimeProfiler
         )
     }
 
+    def computeDelta(eventSets: Seq[Event]) = {
+        var database = BATDatabaseFactory.create ()
+
+    }
+
     def dataStatistics(eventSets: List[Seq[Event]]): List[DataStatistic] = {
         var database = BATDatabaseFactory.create ()
 
