@@ -26,7 +26,7 @@ object CO_ABSTRACT_SELF
                 (_.declaringClass.isAbstract) AND
                 (thisClass === thisClass)
         */
-        // TODO optimization
+
         SELECT (*) FROM (coSelfBase) WHERE (_.isAbstract)
     }
 }

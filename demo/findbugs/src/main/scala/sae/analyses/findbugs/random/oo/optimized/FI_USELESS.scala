@@ -39,8 +39,7 @@ import sae.bytecode.instructions._
 import sae.bytecode.structure._
 import sae.functions.Count
 import sae.analyses.findbugs.AnalysesOO
-import sae.operators.impl.{ExistsInSameDomainView, EquiJoinView, TransactionalEquiJoinView}
-import sae.operators.ExistsInSameDomain
+import sae.operators.impl.ExistsInSameDomainView
 
 /**
  * Finalize just calls super.finalize.
@@ -49,7 +48,7 @@ import sae.operators.ExistsInSameDomain
  *         BAT version by Michael Eichberg
  */
 object FI_USELESS
-    extends (BytecodeDatabase => Relation[MethodDeclaration])
+        extends (BytecodeDatabase => Relation[MethodDeclaration])
 {
 
 
@@ -58,26 +57,26 @@ object FI_USELESS
 
 
         val finalizeMethodInstructions =
-            compile (
-                SELECT (*) FROM instructions WHERE
-                    (_.declaringMethod.name == "finalize") AND
-                    (_.declaringMethod.returnType == void) AND
-                    (_.declaringMethod.parameterTypes == Nil)
+            compile(
+                SELECT(*) FROM instructions WHERE
+                        (_.declaringMethod.name == "finalize") AND
+                        (_.declaringMethod.returnType == void) AND
+                        (_.declaringMethod.parameterTypes == Nil)
             )
 
         val finalizeMethodInstructionsInvokeSpecial: Relation[INVOKESPECIAL] =
-            SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM finalizeMethodInstructions WHERE
-                (_.isInstanceOf[INVOKESPECIAL])
+            SELECT((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM finalizeMethodInstructions WHERE
+                    (_.isInstanceOf[INVOKESPECIAL])
 
         val finalizeMethodSuperCalls: Relation[INVOKESPECIAL] =
-            SELECT (*) FROM finalizeMethodInstructionsInvokeSpecial WHERE
-                (_.name == "finalize") AND
-                (_.returnType == void) AND
-                (_.parameterTypes == Nil)
+            SELECT(*) FROM finalizeMethodInstructionsInvokeSpecial WHERE
+                    (_.name == "finalize") AND
+                    (_.returnType == void) AND
+                    (_.parameterTypes == Nil)
 
         import sae.syntax.RelationalAlgebraSyntax._
 
-        val countInstructionsInFinalizers: Relation[(MethodDeclaration, Int)] = γ (
+        val countInstructionsInFinalizers: Relation[(MethodDeclaration, Int)] = γ(
             finalizeMethodInstructions,
             declaringMethod,
             Count[InstructionInfo](),
@@ -85,58 +84,25 @@ object FI_USELESS
         )
 
         val finalizersWithFiveInstructions: Relation[MethodDeclaration] =
-            compile (
-                SELECT ((_: (MethodDeclaration, Int))._1) FROM countInstructionsInFinalizers WHERE (_._2 == 5)
+            compile(
+                SELECT((_: (MethodDeclaration, Int))._1) FROM countInstructionsInFinalizers WHERE (_._2 == 5)
             )
 
         val finalizeMethodSuperCallMethods = compile(
             SELECT DISTINCT (declaringMethod) FROM finalizeMethodSuperCalls
         )
 
-        new ExistsInSameDomainView(
-            finalizersWithFiveInstructions.asMaterialized,
-            finalizeMethodSuperCallMethods.asMaterialized
-        )
-
-        /*
-        if (AnalysesOO.transactional)
-            new TransactionalEquiJoinView (
-                finalizersWithFiveInstructions,
-                finalizeMethodSuperCalls,
-                thisMethod,
-                declaringMethod,
-                (md: MethodDeclaration, i: INVOKESPECIAL) => md
+        if (AnalysesOO.existsOptimization)
+            new ExistsInSameDomainView(
+                finalizersWithFiveInstructions.asMaterialized,
+                finalizeMethodSuperCallMethods.asMaterialized
             )
         else
-            new EquiJoinView (
-                finalizersWithFiveInstructions,
-                finalizeMethodSuperCalls,
-                thisMethod,
-                declaringMethod,
-                (md: MethodDeclaration, i: INVOKESPECIAL) => md
+            compile(
+                SELECT(*) FROM finalizersWithFiveInstructions WHERE EXISTS(
+                    SELECT(*) FROM finalizeMethodSuperCallMethods WHERE
+                            (thisMethod === thisMethod)
+                )
             )
-        */
     }
-
-    /*
-    def foo {
-        SELECT (*) FROM (finalizersWithFiveInstructions) WHERE
-            EXISTS (
-                SELECT (*) FROM invokeSpecial WHERE
-                    (_.name == "finalize") AND
-                    (_.returnType == void) AND
-                    (_.parameterTypes == Nil) AND
-                    (declaringMethod === (_: MethodDeclaration))
-            ) AND
-            (5 === (SELECT COUNT (*) FROM instructions WHERE (declaringMethod === (_: MethodDeclaration))))
-    }
-    */
-    /*
-
-
-def count(instructions :Relation[InstructionInfo]) : Relation[Some[Int]]  = {
-    import sae.syntax.RelationalAlgebraSyntax._
-    γ(instructions, Count[InstructionInfo]())
-}
-    */
 }

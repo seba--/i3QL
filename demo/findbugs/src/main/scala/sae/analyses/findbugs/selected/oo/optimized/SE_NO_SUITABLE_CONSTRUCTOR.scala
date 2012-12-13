@@ -37,8 +37,8 @@ import sae.Relation
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
-import structure.ClassDeclaration
 import sae.operators.impl.{ExistsInSameDomainView, NotExistsInSameDomainView}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -47,41 +47,58 @@ import sae.operators.impl.{ExistsInSameDomainView, NotExistsInSameDomainView}
  */
 
 object SE_NO_SUITABLE_CONSTRUCTOR
-    extends (BytecodeDatabase => Relation[ObjectType])
+        extends (BytecodeDatabase => Relation[ObjectType])
 {
     def apply(database: BytecodeDatabase): Relation[ObjectType] = {
-        val definitions = Definitions (database)
+        val definitions = Definitions(database)
         import database._
         import definitions._
 
-        val superClassesOfSerializableTypes = compile (
-            SELECT (superClass) FROM classDeclarations WHERE
-                (!_.isInterface) AND
-                (_.interfaces.contains (serializable)) AND
-                (_.superClass.isDefined)
+        val superClassesOfSerializableTypes = compile(
+            SELECT(superClass) FROM classDeclarations WHERE
+                    (!_.isInterface) AND
+                    (_.interfaces.contains(serializable)) AND
+                    (_.superClass.isDefined)
         )
 
-        val distinctSuperClassesOfSerializable = compile (
+        val distinctSuperClassesOfSerializable = compile(
             SELECT DISTINCT (*) FROM superClassesOfSerializableTypes
         )
 
-        val notInterfaceTypes = compile (
-            SELECT (classType) FROM classDeclarations WHERE (!_.isInterface)
+        val notInterfaceTypes = compile(
+            SELECT(classType) FROM classDeclarations WHERE (!_.isInterface)
         ).forceToSet
 
         assert(!sae.ENABLE_FORCE_TO_SET || notInterfaceTypes.isSet)
 
         val analyzedSuperClassesOfSerializable =
-            new ExistsInSameDomainView (distinctSuperClassesOfSerializable.asMaterialized, notInterfaceTypes.asMaterialized)
+            if (AnalysesOO.existsOptimization)
+                new ExistsInSameDomainView(distinctSuperClassesOfSerializable.asMaterialized, notInterfaceTypes
+                        .asMaterialized)
+            else
+                compile(
+                    SELECT(*) FROM distinctSuperClassesOfSerializable WHERE EXISTS(
+                        SELECT(*) FROM notInterfaceTypes WHERE
+                                (thisClass === thisClass)
+                    )
+                )
 
-
-
-        val noArgConstructorTypes = compile (
-            SELECT (declaringType) FROM constructors WHERE (_.parameterTypes == Nil)
+        val noArgConstructorTypes = compile(
+            SELECT(declaringType) FROM constructors WHERE (_.parameterTypes == Nil)
         )
 
-        new NotExistsInSameDomainView (analyzedSuperClassesOfSerializable.asMaterialized, noArgConstructorTypes.asMaterialized)
-
+        if (AnalysesOO.existsOptimization)
+            new NotExistsInSameDomainView(analyzedSuperClassesOfSerializable.asMaterialized, noArgConstructorTypes
+                    .asMaterialized)
+        else
+            compile(
+                SELECT(*) FROM analyzedSuperClassesOfSerializable WHERE NOT(
+                    EXISTS(
+                        SELECT(*) FROM noArgConstructorTypes WHERE
+                                (thisClass === thisClass)
+                    )
+                )
+            )
     }
 
 }

@@ -49,13 +49,21 @@ object AnalysesOO
 
     var transactional = true
 
-    def apply(analysisName: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
+    var existsOptimization = true
+
+    def apply(analysisName: String, database: BytecodeDatabase)(existsOptimization: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
+        val optimized = existsOptimization || transactional
         if (!optimized) {
+            Definitions.shared = shared
+            this.transactional = false
+            this.existsOptimization = false
+            sae.ENABLE_FORCE_TO_SET = false
             getBase (analysisName, database)
         }
         else
         {
             this.transactional = transactional
+            this.existsOptimization = existsOptimization
             Definitions.shared = shared
             sae.ENABLE_FORCE_TO_SET = true
             getOptimized (analysisName, database)

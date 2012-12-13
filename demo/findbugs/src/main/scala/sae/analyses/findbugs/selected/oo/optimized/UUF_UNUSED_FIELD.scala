@@ -40,6 +40,7 @@ import sae.syntax.sql._
 import structure.FieldDeclaration
 import sae.operators.impl.NotExistsInSameDomainView
 import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -48,24 +49,33 @@ import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
  */
 
 object UUF_UNUSED_FIELD
-    extends (BytecodeDatabase => Relation[(ObjectType, String, FieldType)])
+        extends (BytecodeDatabase => Relation[(ObjectType, String, FieldType)])
 {
     def apply(database: BytecodeDatabase): Relation[(ObjectType, String, FieldType)] = {
-        val definitions = Definitions (database)
-        import database._
-        import definitions._
+        if (AnalysesOO.existsOptimization) {
+            val definitions = Definitions(database)
+            import database._
+            import definitions._
+            val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile(
+                SELECT((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields
+            ).forceToSet
 
-        val privateFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (
-            SELECT ((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM privateFields
-        ).forceToSet
+            assert(!sae.ENABLE_FORCE_TO_SET || privateFieldProjection.isSet)
 
-        assert(!sae.ENABLE_FORCE_TO_SET || privateFieldProjection.isSet)
-
-        val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile (
-            SELECT ((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField
+            val readFieldProjection: Relation[(ObjectType, String, FieldType)] = compile(
+                SELECT((fd: FieldReadInstruction) => (fd.receiverType, fd.name, fd.fieldType)) FROM readField
                 // WHERE((fd: FieldReadInstruction) => fd.receiverType == fd.declaringMethod.declaringClassType)
-        )
+            )
 
-        new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection.asMaterialized, readFieldProjection.asMaterialized)
+
+            new NotExistsInSameDomainView[(ObjectType, String, FieldType)](privateFieldProjection
+                    .asMaterialized, readFieldProjection.asMaterialized)
+        }
+
+        else
+            compile(
+                SELECT((fd: FieldDeclaration) => (fd.declaringType, fd.name, fd.fieldType)) FROM sae.analyses.findbugs
+                        .selected.oo.UUF_UNUSED_FIELD(database)
+            )
     }
 }

@@ -42,6 +42,7 @@ import sae.operators.impl.NotExistsInSameDomainView
 import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
 import sae.functions.Count
 import sae.syntax.RelationalAlgebraSyntax.γ
+import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -50,38 +51,38 @@ import sae.syntax.RelationalAlgebraSyntax.γ
  */
 
 object SIC_INNER_SHOULD_BE_STATIC_ANON
-    extends (BytecodeDatabase => Relation[ObjectType])
+        extends (BytecodeDatabase => Relation[ObjectType])
 {
 
 
-    val withinAnonymousClass = Pattern.compile ("[$][0-9].*[$]")
+    val withinAnonymousClass = Pattern.compile("[$][0-9].*[$]")
 
     /**
      * A heuristic for determining whether an inner class is inside an anonymous inner class based on the class name
      */
     def isWithinAnonymousInnerClass: ClassDeclaration => Boolean = {
-        c => withinAnonymousClass.matcher (c.classType.className).find ()
+        c => withinAnonymousClass.matcher(c.classType.className).find()
     }
 
     def lastIndexOfInnerClassEncoding(classFile: ClassDeclaration): Int = {
         val name = classFile.classType.className
-        math.max (name.lastIndexOf ('$'), name.lastIndexOf ('+'))
+        math.max(name.lastIndexOf('$'), name.lastIndexOf('+'))
     }
 
     /**
      * A heuristic for determining inner classes by the encoding in the name
      */
     def isInnerClass: ClassDeclaration => Boolean = {
-        c => lastIndexOfInnerClassEncoding (c) >= 0
+        c => lastIndexOfInnerClassEncoding(c) >= 0
     }
 
     /**
      * A heuristic for determining anonymous inner classes by the encoding in the name
      */
     def isAnonymousInnerClass: ClassDeclaration => Boolean = (c => {
-        val lastSpecialChar = lastIndexOfInnerClassEncoding (c)
-        isInnerClass (c) &&
-            Character.isDigit (c.classType.className.charAt (lastSpecialChar + 1))
+        val lastSpecialChar = lastIndexOfInnerClassEncoding(c)
+        isInnerClass(c) &&
+                Character.isDigit(c.classType.className.charAt(lastSpecialChar + 1))
     })
 
 
@@ -89,14 +90,14 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
      * A heuristic for determining whether an inner class can be made static
      */
     def canConvertToStaticInnerClass: ClassDeclaration => Boolean = {
-        c => !isWithinAnonymousInnerClass (c)
+        c => !isWithinAnonymousInnerClass(c)
     }
 
     /**
      * A heuristic for determining whether the field points to the enclosing instance
      */
     def isOuterThisField: FieldDeclaration => Boolean = {
-        field => field.name.startsWith ("this$") || field.name.startsWith ("this+")
+        field => field.name.startsWith("this$") || field.name.startsWith("this+")
     }
 
 
@@ -105,37 +106,48 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
 
 
         lazy val outerThisField =
-            compile (
-                SELECT ((f: FieldDeclaration) => (f.declaringType, f.name, f.fieldType)) FROM fieldDeclarations WHERE
-                    isOuterThisField AND
-                    (f => isAnonymousInnerClass (f.declaringClass)) AND
-                    (f => canConvertToStaticInnerClass (f.declaringClass))
+            compile(
+                SELECT((f: FieldDeclaration) => (f.declaringType, f.name, f.fieldType)) FROM fieldDeclarations WHERE
+                        isOuterThisField AND
+                        (f => isAnonymousInnerClass(f.declaringClass)) AND
+                        (f => canConvertToStaticInnerClass(f.declaringClass))
             )
 
         lazy val readFields =
-            compile (
-                SELECT ((f: FieldReadInstruction) => (f.receiverType, f.name, f.fieldType)) FROM readField WHERE (field => field.name.startsWith ("this$") || field.name.startsWith ("this+"))
+            compile(
+                SELECT((f: FieldReadInstruction) => (f.receiverType, f.name, f.fieldType)) FROM readField WHERE (
+                        field => field.name.startsWith("this$") || field.name.startsWith("this+"))
             )
 
-        lazy val notExists = new NotExistsInSameDomainView (outerThisField.asMaterialized, readFields.asMaterialized)
+        lazy val notExists =
+            if (AnalysesOO.existsOptimization)
+                new NotExistsInSameDomainView(outerThisField.asMaterialized, readFields.asMaterialized)
+            else
+                compile(
+                    SELECT(*) FROM outerThisField WHERE NOT(EXISTS(
+                        SELECT(*) FROM readFields WHERE
+                                ((identity[(ObjectType, String, FieldType)] _) === (identity[(ObjectType, String, FieldType)] _))
+                    )
+                    )
+                )
         lazy val unreadOuterThisField =
-            compile (
-                SELECT ((_:(ObjectType, String, FieldType))._1) FROM (notExists)
+            compile(
+                SELECT((_: (ObjectType, String, FieldType))._1) FROM (notExists)
             )
 
 
         lazy val aload_1 =
-            compile (
-                SELECT (*) FROM instructions WHERE (_.isInstanceOf[ALOAD_1])
+            compile(
+                SELECT(*) FROM instructions WHERE (_.isInstanceOf[ALOAD_1])
             )
 
-        val aload_1InInnerClassConstructors = compile (
-            SELECT (*) FROM aload_1 WHERE
-                (_.declaringMethod.name == "<init>") AND
-                (i => i.declaringMethod.declaringClassType.className.indexOf ('$') > 0)
+        val aload_1InInnerClassConstructors = compile(
+            SELECT(*) FROM aload_1 WHERE
+                    (_.declaringMethod.name == "<init>") AND
+                    (i => i.declaringMethod.declaringClassType.className.indexOf('$') > 0)
         )
 
-        val countAload_1InInnerClassConstructors: Relation[(MethodDeclaration, Int)] = γ (
+        val countAload_1InInnerClassConstructors: Relation[(MethodDeclaration, Int)] = γ(
             aload_1InInnerClassConstructors,
             declaringMethod,
             Count[InstructionInfo](),
@@ -144,11 +156,12 @@ object SIC_INNER_SHOULD_BE_STATIC_ANON
 
 
         val innerClassConstructorWithOneAload: Relation[ObjectType] =
-            compile (
-                SELECT ((_: (MethodDeclaration, Int))._1.declaringClassType) FROM countAload_1InInnerClassConstructors WHERE (_._2 > 1)
+            compile(
+                SELECT((_: (MethodDeclaration, Int))._1
+                        .declaringClassType) FROM countAload_1InInnerClassConstructors WHERE (_._2 > 1)
             )
 
-        new NotExistsInSameDomainView (
+        new NotExistsInSameDomainView(
             unreadOuterThisField.asMaterialized,
             innerClassConstructorWithOneAload.asMaterialized
         )
