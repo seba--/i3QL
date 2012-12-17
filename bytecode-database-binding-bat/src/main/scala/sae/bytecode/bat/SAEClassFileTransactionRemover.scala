@@ -35,9 +35,14 @@ package sae.bytecode.bat
 import java.io.DataInputStream
 import de.tud.cs.st.bat.reader.ClassFileReader
 import de.tud.cs.st.bat.resolved.reader.{AttributeBinding, ConstantPoolBinding}
-import de.tud.cs.st.bat.resolved.{ExceptionTable, ObjectType, Code}
+import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure._
-import sae.deltas.Deletion
+import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
+import sae.bytecode.structure.CodeInfo
+import scala.Some
+import de.tud.cs.st.bat.resolved.Code
+import de.tud.cs.st.bat.resolved.ExceptionTable
+import de.tud.cs.st.bat.resolved.InnerClassTable
 
 
 /**
@@ -48,12 +53,12 @@ import sae.deltas.Deletion
  */
 
 trait SAEClassFileTransactionRemover
-    extends ClassFileReader
-    with ConstantPoolBinding
-    with AttributeBinding
+        extends ClassFileReader
+        with ConstantPoolBinding
+        with AttributeBinding
 {
 
-    def transaction: HashSetTransaction
+    def transaction: Transaction
 
     type ClassFile = ClassDeclaration
 
@@ -72,27 +77,25 @@ trait SAEClassFileTransactionRemover
     val InterfaceManifest: ClassManifest[Interface] = implicitly
 
     protected def Class_Info(minor_version: Int, major_version: Int, in: DataInputStream)
-                            (implicit cp: Constant_Pool): Class_Info =
-    {
+                            (implicit cp: Constant_Pool): Class_Info = {
         val accessFlags = in.readUnsignedShort
         val thisClass = in.readUnsignedShort.asObjectType
         val super_class = in.readUnsignedShort
-        val classInfo = ClassDeclaration (
+        val classInfo = ClassDeclaration(
             minor_version, major_version,
             accessFlags,
             thisClass,
             // to handle the special case that this class file represents java.lang.Object
-            if (super_class == 0) None else Some (super_class.asObjectType),
-            Interfaces (thisClass, in, cp)
+            if (super_class == 0) None else Some(super_class.asObjectType),
+            Interfaces(thisClass, in, cp)
         )
-        transaction.classDeclarationDeletions = transaction.classDeclarationDeletions + Deletion (classInfo, 1)
+        transaction.remove(classInfo)
         classInfo
     }
 
 
     def Interface(declaringClass: ObjectType, interface_index: Constant_Pool_Index)
-                 (implicit cp: Constant_Pool): Interface =
-    {
+                 (implicit cp: Constant_Pool): Interface = {
         interface_index.asObjectType
     }
 
@@ -102,15 +105,14 @@ trait SAEClassFileTransactionRemover
                    name_index: Constant_Pool_Index,
                    descriptor_index: Constant_Pool_Index,
                    attributes: Attributes)(
-        implicit cp: Constant_Pool): Field_Info =
-    {
-        val fieldDeclaration = new FieldDeclaration (
+            implicit cp: Constant_Pool): Field_Info = {
+        val fieldDeclaration = new FieldDeclaration(
             declaringClass,
             access_flags,
             name_index.asString,
             descriptor_index.asFieldType)
 
-        transaction.fieldDeclarationDeletions = transaction.fieldDeclarationDeletions + Deletion (fieldDeclaration, 1)
+        transaction.remove(fieldDeclaration)
         fieldDeclaration
     }
 
@@ -119,28 +121,27 @@ trait SAEClassFileTransactionRemover
                     name_index: Int,
                     descriptor_index: Int,
                     attributes: Attributes)(
-        implicit cp: Constant_Pool): Method_Info =
-    {
+            implicit cp: Constant_Pool): Method_Info = {
         val descriptor = descriptor_index.asMethodDescriptor
-        val methodDeclaration = new MethodDeclaration (
+        val methodDeclaration = new MethodDeclaration(
             declaringClass,
             accessFlags,
             name_index.asString,
             descriptor.returnType,
             descriptor.parameterTypes
         )
-        transaction.methodDeclarationDeletions = transaction.methodDeclarationDeletions + Deletion (methodDeclaration, 1)
+        transaction.remove(methodDeclaration)
 
-        transaction.codeDeletions = transaction.codeDeletions + Deletion (
-            CodeInfo (methodDeclaration,
+        transaction.remove(
+            CodeInfo(methodDeclaration,
                 attributes.collectFirst {
                     case code: Code => code
-                }.getOrElse (return methodDeclaration),
+                }.getOrElse(return methodDeclaration),
                 attributes.collectFirst {
                     case ex: ExceptionTable => ex
-                }.getOrElse (ExceptionTable (Nil)).exceptions
+                }.getOrElse(ExceptionTable(Nil)).exceptions
             )
-            , 1)
+        )
 
         methodDeclaration
     }
@@ -149,8 +150,44 @@ trait SAEClassFileTransactionRemover
                   fields: Fields,
                   methods: Methods,
                   attributes: Attributes)(
-        implicit cp: Constant_Pool): ClassFile =
-    {
+            implicit cp: Constant_Pool): ClassFile = {
+
+        attributes.foreach {
+            case ica: InnerClassTable => ica.innerClasses.foreach(
+                ic => transaction.remove(
+                    new UnresolvedInnerClassEntry(
+                        classInfo.classType,
+                        ic.innerClassType,
+                        ic.outerClassType,
+                        ic.innerName,
+                        ic.innerClassAccessFlags
+                    )
+                )
+            )
+            case ema: EnclosingMethod => transaction.remove(
+                new UnresolvedEnclosingMethod(
+                    classInfo.classType,
+                    if (ema.name != null)
+                        Some(ema.name)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some(ema.descriptor.parameterTypes)
+                    else
+                        None
+                    ,
+                    if (ema.descriptor != null)
+                        Some(ema.descriptor.returnType)
+                    else
+                        None
+                    ,
+                    ema.clazz
+                )
+            )
+            case _ => // do nothing
+        }
+
         classInfo
     }
 

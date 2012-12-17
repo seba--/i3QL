@@ -57,7 +57,7 @@ abstract class SAEAnalysesReplayTimeProfiler
                           |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
                           | """.stripMargin
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean = false): Relation[_]
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, sharedSubQueries: Boolean): Relation[_]
 
     private def sortEventsByType(events: Seq[Event]): (Seq[Event], Seq[Event], Seq[Event]) = {
         var additions: List[Event] = Nil
@@ -95,10 +95,6 @@ abstract class SAEAnalysesReplayTimeProfiler
         )
     }
 
-    def computeDelta(eventSets: Seq[Event]) = {
-        var database = BATDatabaseFactory.create ()
-
-    }
 
     def dataStatistics(eventSets: List[Seq[Event]]): List[DataStatistic] = {
         var database = BATDatabaseFactory.create ()
@@ -193,7 +189,7 @@ abstract class SAEAnalysesReplayTimeProfiler
 
     private def applyAnalysesWithJarReading(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
         val database = BATDatabaseFactory.create ()
-        val results = queries.foreach (q => getAnalysis (q, database)(optimized = false))
+        val results = queries.foreach (q => getAnalysis (q, database)(optimized, sharedSubQueries))
         eventSets map {
             set => applyStepWithJarReadTime (set, database)
         }
@@ -207,7 +203,10 @@ abstract class SAEAnalysesReplayTimeProfiler
             l => taken += l
         }
         {
-            applyEvents (database, additions, deletions, updates)
+            database.beginTransaction()
+            applyEvents(database, additions, deletions, updates)
+            database.computeTransactionUpdates()
+            database.commitTransaction()
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
@@ -219,7 +218,7 @@ abstract class SAEAnalysesReplayTimeProfiler
     private def getResultsWithReadingJars(eventSets: List[Seq[Event]], queries: List[String]): List[Long] = {
         var database = BATDatabaseFactory.create ()
         val queryResults = for (query <- queries) yield {
-            sae.relationToResult (getAnalysis (query, database)(optimized = false))
+            sae.relationToResult (getAnalysis (query, database)(optimized, sharedSubQueries))
         }
         eventSets map {
             set => {

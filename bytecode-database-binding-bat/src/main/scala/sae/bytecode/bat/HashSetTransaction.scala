@@ -32,9 +32,10 @@
  */
 package sae.bytecode.bat
 
-import sae.deltas.{Update, Deletion, Addition}
+import sae.deltas.Update
 import sae.bytecode.structure.{CodeInfo, FieldDeclaration, MethodDeclaration, ClassDeclaration}
-import collection.mutable.HashSet
+import sae.bytecode.structure.internal.{UnresolvedInnerClassEntry, UnresolvedEnclosingMethod}
+import collection.mutable
 
 /**
  *
@@ -43,30 +44,31 @@ import collection.mutable.HashSet
  */
 
 class HashSetTransaction
+        extends Transaction
 {
-    var classDeclarationAdditions: HashSet[Addition[ClassDeclaration]] = HashSet.empty
+    var classDeclarationAdditions: mutable.HashSet[ClassDeclaration] = mutable.HashSet.empty
 
-    var methodDeclarationAdditions: HashSet[Addition[MethodDeclaration]] = HashSet.empty
+    var methodDeclarationAdditions: mutable.HashSet[MethodDeclaration] = mutable.HashSet.empty
 
-    var fieldDeclarationAdditions: HashSet[Addition[FieldDeclaration]] = HashSet.empty
+    var fieldDeclarationAdditions: mutable.HashSet[FieldDeclaration] = mutable.HashSet.empty
 
-    var codeAdditions: HashSet[Addition[CodeInfo]] = HashSet.empty
+    var codeAdditions: mutable.HashSet[CodeInfo] = mutable.HashSet.empty
 
-    var classDeclarationDeletions: HashSet[Deletion[ClassDeclaration]] = HashSet.empty
+    var classDeclarationDeletions: mutable.HashSet[ClassDeclaration] = mutable.HashSet.empty
 
-    var methodDeclarationDeletions: HashSet[Deletion[MethodDeclaration]] = HashSet.empty
+    var methodDeclarationDeletions: mutable.HashSet[MethodDeclaration] = mutable.HashSet.empty
 
-    var fieldDeclarationDeletions: HashSet[Deletion[FieldDeclaration]] = HashSet.empty
+    var fieldDeclarationDeletions: mutable.HashSet[FieldDeclaration] = mutable.HashSet.empty
 
-    var codeDeletions: HashSet[Deletion[CodeInfo]] = HashSet.empty
+    var codeDeletions: mutable.HashSet[CodeInfo] = mutable.HashSet.empty
 
-    var classDeclarationUpdates: HashSet[Update[ClassDeclaration]] = HashSet.empty
+    var classDeclarationUpdates: mutable.HashSet[Update[ClassDeclaration]] = mutable.HashSet.empty
 
-    var methodDeclarationUpdates: HashSet[Update[MethodDeclaration]] = HashSet.empty
+    var methodDeclarationUpdates: mutable.HashSet[Update[MethodDeclaration]] = mutable.HashSet.empty
 
-    var fieldDeclarationUpdates: HashSet[Update[FieldDeclaration]] = HashSet.empty
+    var fieldDeclarationUpdates: mutable.HashSet[Update[FieldDeclaration]] = mutable.HashSet.empty
 
-    var codeUpdates: HashSet[Update[CodeInfo]] = HashSet.empty
+    var codeUpdates: mutable.HashSet[Update[CodeInfo]] = mutable.HashSet.empty
 
     def invalidate() {
         classDeclarationAdditions = null
@@ -82,4 +84,147 @@ class HashSetTransaction
         fieldDeclarationUpdates = null
         codeUpdates = null
     }
+
+    private def removeEqualAddDeletes[E](otherSet: mutable.HashSet[E], element: E): Boolean = {
+        if (otherSet.contains(element))
+            otherSet.remove(element)
+        else
+            false
+    }
+
+    /*
+        def classDeclarationsAsUpdates() {
+            classDeclarationAdditions.foreach(added => {
+                val other =
+                    classDeclarationDeletions.find(deleted =>
+                        added.classType == deleted.classType
+                    )
+                if (other.isDefined) {
+                    classDeclarationUpdates.add(Update(other.get, added, 1, Nil))
+                    classDeclarationDeletions.remove(other.get)
+                }
+            }
+            )
+            classDeclarationUpdates.foreach(update =>
+                classDeclarationAdditions.remove(update.newV)
+            )
+        }
+
+        def methodDeclarationsAsUpdates() {
+            methodDeclarationAdditions.foreach(added => {
+                val other =
+                    methodDeclarationDeletions.find(deleted =>
+                        added == deleted
+                    )
+                if (other.isDefined) {
+                    methodDeclarationUpdates.add(Update(other.get, added, 1, Nil))
+                    methodDeclarationDeletions.remove(other.get)
+                }
+            }
+            )
+            methodDeclarationUpdates.foreach(update =>
+                methodDeclarationAdditions.remove(update.newV)
+            )
+        }
+
+        def fieldDeclarationsAsUpdates() {
+            fieldDeclarationAdditions.foreach(added => {
+                val other =
+                    fieldDeclarationDeletions.find(deleted =>
+                        added == deleted
+                    )
+                if (other.isDefined) {
+                    fieldDeclarationUpdates.add(Update(other.get, added, 1, Nil))
+                    fieldDeclarationDeletions.remove(other.get)
+                }
+            }
+            )
+            fieldDeclarationUpdates.foreach(update =>
+                fieldDeclarationAdditions.remove(update.newV)
+            )
+        }
+    */
+
+    def codesAsUpdates() {
+        val (smaller, bigger) =
+            if (codeAdditions.size < codeDeletions.size)
+                (codeAdditions, codeDeletions)
+            else
+                (codeDeletions, codeAdditions)
+
+        smaller.foreach(added => {
+            val other =
+                bigger.find(deleted =>
+                    added.declaringMethod == deleted.declaringMethod
+                )
+            if (other.isDefined) {
+                codeUpdates.add(Update(other.get, added, 1, Nil))
+                bigger.remove(other.get)
+            }
+        }
+        )
+        codeUpdates.foreach(update =>
+            smaller.remove(update.newV)
+        )
+        codeUpdates = codeUpdates.filter(update =>
+            update.oldV.code.maxLocals != update.newV.code.maxLocals ||
+                    update.oldV.code.maxStack != update.newV.code.maxStack ||
+                    !update.oldV.code.instructions.sameElements(update.newV.code.instructions) ||
+                    update.oldV.exceptionTable != update.newV.exceptionTable
+        )
+    }
+
+    def add(classDeclaration: ClassDeclaration) {
+        if (!removeEqualAddDeletes(classDeclarationDeletions, classDeclaration))
+            classDeclarationAdditions.add(classDeclaration)
+    }
+
+    def remove(classDeclaration: ClassDeclaration) {
+        if (!removeEqualAddDeletes(classDeclarationAdditions, classDeclaration))
+            classDeclarationDeletions.add(classDeclaration)
+    }
+
+    def add(methodDeclaration: MethodDeclaration) {
+        if (!removeEqualAddDeletes(methodDeclarationDeletions, methodDeclaration))
+            methodDeclarationAdditions.add(methodDeclaration)
+    }
+
+    def remove(methodDeclaration: MethodDeclaration) {
+        if (!removeEqualAddDeletes(methodDeclarationAdditions, methodDeclaration))
+            methodDeclarationDeletions.add(methodDeclaration)
+    }
+
+    def add(fieldDeclaration: FieldDeclaration) {
+        if (!removeEqualAddDeletes(fieldDeclarationDeletions, fieldDeclaration))
+            fieldDeclarationAdditions.add(fieldDeclaration)
+    }
+
+    def remove(fieldDeclaration: FieldDeclaration) {
+        if (!removeEqualAddDeletes(fieldDeclarationAdditions, fieldDeclaration))
+            fieldDeclarationDeletions.add(fieldDeclaration)
+    }
+
+    def add(codeInfo: CodeInfo) {
+        if (!removeEqualAddDeletes(codeDeletions, codeInfo)) {
+            val hash = codeInfo.hashCode()
+            codeAdditions.add(codeInfo)
+        }
+    }
+
+    def remove(codeInfo: CodeInfo) {
+        if (!removeEqualAddDeletes(codeAdditions, codeInfo)) {
+            val hash = codeInfo.hashCode()
+            codeDeletions.add(codeInfo)
+        }
+    }
+
+    def add(unresolvedInnerClass: UnresolvedInnerClassEntry) {
+
+    }
+
+    def remove(unresolvedInnerClass: UnresolvedInnerClassEntry) {}
+
+    def add(unresolvedEnclosedMethod: UnresolvedEnclosingMethod) {}
+
+    def remove(unresolvedEnclosedMethod: UnresolvedEnclosingMethod) {}
 }

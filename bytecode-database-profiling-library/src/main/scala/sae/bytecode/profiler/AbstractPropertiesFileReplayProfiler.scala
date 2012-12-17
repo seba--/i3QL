@@ -48,6 +48,21 @@ import collection.Seq
 
 trait AbstractPropertiesFileReplayProfiler
 {
+    def optimized: Boolean = isOptimized
+
+    private var isOptimized = false
+
+    def reReadJars: Boolean = isReReadJars
+
+    private var isReReadJars = false
+
+    def transactional: Boolean = isTransactional
+
+    private var isTransactional = false
+
+    def sharedSubQueries: Boolean = isSharedSubQueries
+
+    private var isSharedSubQueries = false
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args (0).endsWith (".properties")) {
@@ -57,15 +72,44 @@ trait AbstractPropertiesFileReplayProfiler
 
         val propertiesFile = args (0)
 
-        val reReadJars =
-            if (args.length > 1)
-            {
-                java.lang.Boolean.parseBoolean (args (1))
-            }
-            else
-            {
-                true
-            }
+        isReReadJars =
+                if (args.length > 1)
+                {
+                    java.lang.Boolean.parseBoolean (args (1))
+                }
+                else
+                {
+                    false
+                }
+
+
+        isOptimized =
+                if (args.length > 2)
+                {
+                    java.lang.Boolean.parseBoolean (args (2))
+                }
+                else
+                {
+                    false
+                }
+        isTransactional =
+                if (args.length > 3)
+                {
+                    java.lang.Boolean.parseBoolean (args (3))
+                }
+                else
+                {
+                    false
+                }
+        isSharedSubQueries =
+                if (args.length > 4)
+                {
+                    java.lang.Boolean.parseBoolean (args (4))
+                }
+                else
+                {
+                    false
+                }
 
 
         val properties = getProperties (propertiesFile).getOrElse (

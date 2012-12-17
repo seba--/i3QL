@@ -44,12 +44,12 @@ import sae.Relation
  */
 
 object SAEAnalysesOOReplayTimeProfiler
-    extends SAEAnalysesReplayTimeProfiler
+        extends SAEAnalysesReplayTimeProfiler
 {
 
     def benchmarkType = "SAEOO replay time"
 
-    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean): Relation[_] =
-        AnalysesOO (query, database)(optimized, transactional = true, shared = true)
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, sharedSubQueries: Boolean): Relation[_] =
+        AnalysesOO(query, database)(optimized, transactional = false, shared = sharedSubQueries)
 
 }
