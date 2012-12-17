@@ -1,7 +1,6 @@
 package sandbox.findbugs
 
 import detect._
-import sandbox.stackAnalysis.StackAnalysis
 import sae.Relation
 import sae.syntax.sql._
 
@@ -9,6 +8,7 @@ import sae.bytecode.BytecodeDatabase
 import sandbox.stackAnalysis.datastructure.State
 import sandbox.dataflowAnalysis.MethodResult
 import sae.bytecode.structure.CodeInfo
+import sandbox.stackAnalysis.codeInfo.StackAnalysis
 
 
 /**
@@ -18,15 +18,28 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:20
  * To change this template use File | Settings | File Templates.
  */
-object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) {
+object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
 
-  val BUGFINDER_LIST: List[StackBugFinder] = RefComparisonFinder :: FieldSelfComparisonFinder :: LocalSelfAssignmentFinder :: PuzzlerFinder :: BadResultSetAccessFinder :: Nil
+  val BUGFINDER_LIST: List[StackBugFinder] =
+    RefComparisonFinder ::
+      FieldSelfComparisonFinder ::
+      LocalSelfAssignmentFinder ::
+      BadResultSetAccessFinder ::
+      ArrayToStringFinder ::
+      ReturnValueIgnoredFinder ::
+      SynchronizeBoxedPrimitiveFinder ::
+      Nil
 
   var printResults = false
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
     compile(SELECT((ci: CodeInfo, mr: MethodResult[State]) => BugEntry(ci.declaringMethod, computeBugLogger(ci, mr))) FROM(bcd.code, StackAnalysis(bcd)) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
+
+  def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
+    compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
+  }
+
 
   private def computeBugLogger(ci: CodeInfo, mr: MethodResult[State]): BugLogger = {
 
@@ -45,12 +58,15 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) {
 
 
     }
-    if (printResults) {
-      println("BugFinder: " + logger.getLog())
+
+
+    if (printResults && logger.hasLogs) {
+      println("Bugs in " + ci.declaringMethod + "\n\t --> " + logger.getLog)
     }
 
     return logger
   }
+
 
 }
 

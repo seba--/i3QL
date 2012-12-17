@@ -45,6 +45,9 @@ object FieldSelfComparisonFinder extends StackBugFinder {
   }
 
   private def checkSelfComparison(pc: Int, instructions: Array[Instruction], stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+    if (stack.size < 2)
+      return None
+
     val rhs = stack.get(0)
     val lhs = stack.get(1)
 

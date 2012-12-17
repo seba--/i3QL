@@ -12,8 +12,6 @@ import de.tud.cs.st.bat.resolved._
  */
 //TODO: implement one function for push and pop
 case class Stack(maxSize: Int, values: List[Item]) {
-  //TODO: Remove for better performance
-  //require(maxSize >= size)
 
   def size: Int = {
     values.size
@@ -40,10 +38,10 @@ case class Stack(maxSize: Int, values: List[Item]) {
   }
 
   def push(t: Item): Stack = {
+    if (t == null)
+      return this
     if (size + t.size > maxSize)
       return this
-    /*  if (se.value == NoneType) //TODO: this should not happen when exceptions are implemented
-return this         */
 
     var res = values
 

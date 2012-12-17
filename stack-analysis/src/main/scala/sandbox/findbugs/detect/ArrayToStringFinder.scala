@@ -12,7 +12,7 @@ import sandbox.findbugs.{BugType, BugLogger}
  * Time: 17:16
  * To change this template use File | Settings | File Templates.
  */
-object PuzzlerFinder extends StackBugFinder {
+object ArrayToStringFinder extends StackBugFinder {
 
   def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
     val instr = instructions(pc)
@@ -36,6 +36,9 @@ object PuzzlerFinder extends StackBugFinder {
   }
 
   private def checkArrayToString(pc: Int, instructions: Array[Instruction], stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+    if (stack.size < 1)
+      return None
+
     val op = stack.get(0)
     if (op.getDeclaredType.isArrayType) {
       return Some(BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)

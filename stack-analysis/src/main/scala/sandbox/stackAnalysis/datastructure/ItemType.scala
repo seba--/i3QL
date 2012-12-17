@@ -3,11 +3,7 @@ package sandbox.stackAnalysis.datastructure
 import de.tud.cs.st.bat.resolved.{Type, BaseType, ReferenceType}
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mirko
- * Date: 09.12.12
- * Time: 19:20
- * To change this template use File | Settings | File Templates.
+ * Abstract class for types of items. An item type holds the information that Type holds but has additional types for null, none and any.
  */
 abstract class ItemType {
   def getSize: Int

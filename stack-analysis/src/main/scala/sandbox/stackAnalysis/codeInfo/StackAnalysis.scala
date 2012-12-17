@@ -1,9 +1,13 @@
-package sandbox.stackAnalysis
+package sandbox.stackAnalysis.codeInfo
 
-import datastructure._
 import sandbox.dataflowAnalysis.DataFlowAnalysis
-import sae.bytecode.structure.CodeInfo
 import de.tud.cs.st.bat.resolved.ObjectType
+import sandbox.stackAnalysis.datastructure._
+import sandbox.stackAnalysis.datastructure.State
+import sandbox.stackAnalysis.datastructure.Stacks
+import sae.bytecode.structure.CodeInfo
+import sandbox.stackAnalysis.datastructure.LocVariables
+import sandbox.stackAnalysis.BytecodeTransformer
 
 
 /**
@@ -13,7 +17,7 @@ import de.tud.cs.st.bat.resolved.ObjectType
  * Time: 23:57
  * To change this template use File | Settings | File Templates.
  */
-object StackAnalysis extends DataFlowAnalysis[State](CodeInfoCFG, CodeInfoTransformer) {
+object StackAnalysis extends DataFlowAnalysis[State](CodeInfoCFG, BytecodeTransformer) {
 
   override def startValue(ci: CodeInfo): State = {
     var stacks = Stacks(ci.code.maxStack, Nil).addStack()

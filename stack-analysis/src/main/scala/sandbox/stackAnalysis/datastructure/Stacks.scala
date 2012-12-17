@@ -12,8 +12,6 @@ import sandbox.dataflowAnalysis.Combinable
  * To change this template use File | Settings | File Templates.
  */
 case class Stacks(maxSize: Int, collection: List[Stack]) extends Combinable[Stacks] {
-  //TODO: remove for better performance
-  //require(collection.forall((s) => s.maxSize == maxSize))
 
   def dup(amount: Int, offset: Int): Stacks = {
     Stacks(maxSize, collection.map(s => s.dup(amount, offset)))
@@ -47,12 +45,12 @@ case class Stacks(maxSize: Int, collection: List[Stack]) extends Combinable[Stac
     }
   }
 
-  //TODO: Reactivate exceptions
+
   def combineWith(other: Stacks): Stacks = {
     if (other.maxSize != maxSize) {
       //System.err.println("The attribute maxSize needs to be the same.")
-      return this
-      // throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
+      // return this
+      throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
     }
 
     Stacks(maxSize, (collection ++ other.collection).distinct)

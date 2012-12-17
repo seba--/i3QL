@@ -44,7 +44,7 @@ object RefComparisonFinder extends StackBugFinder {
         methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))) {
         checkForBugs(pc, instructions, analysis, logger, checkRefComparison)
 
-      } else if (declaringClass != null && (
+      } /* else if (declaringClass != null && (
         !isStatic && methodName.equals("equals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: Nil), BooleanType))
           || isStatic && methodName.equals("assertEquals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
           && !declaringClass.equals(ObjectType("org/testng/Assert"))
@@ -56,7 +56,7 @@ object RefComparisonFinder extends StackBugFinder {
         }
 
       }
-
+        */
 
     }
 
@@ -68,6 +68,8 @@ object RefComparisonFinder extends StackBugFinder {
   }
 
   private def checkRefComparison(pc: Int, instructions: Array[Instruction], stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+    if (stack.size < 2)
+      return None
 
     val rhs = stack(0)
     val lhs = stack(1)

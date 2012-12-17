@@ -16,7 +16,11 @@ class BugLogger {
     logList = (pc, bug) :: logList
   }
 
-  def getLog(): List[(Int, BugType.Value)] = {
+  def getLog: List[(Int, BugType.Value)] = {
     logList
+  }
+
+  def hasLogs: Boolean = {
+    !logList.isEmpty
   }
 }

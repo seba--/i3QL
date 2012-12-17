@@ -4,6 +4,7 @@ package stackTest
 import org.junit.{BeforeClass, Assert, Test}
 import sae.QueryResult
 import sandbox.stackAnalysis._
+import codeInfo.StackAnalysis
 import datastructure._
 import datastructure.LocVariables
 import datastructure.Stacks
@@ -13,7 +14,6 @@ import sae.syntax.sql._
 import java.io.FileInputStream
 import de.tud.cs.st.bat.resolved.{BooleanType, IntegerType, ObjectType}
 import java.util.Date
-import sandbox.stackAnalysis.StackAnalysis
 import sandbox.dataflowAnalysis.MethodResult
 
 
@@ -35,12 +35,15 @@ object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
     //Setup the database
     val database = BATDatabaseFactory.create()
     val analysis = StackAnalysis(database)
+
     methodSetAccessible = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_: MethodResult[State]).declaringMethod.name equals "setAccessible"))
     methodIsLoggable = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_: MethodResult[State]).declaringMethod.name equals "isLoggable"))
 
     database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
 
     println("Finish analysis: " + new Date())
+
+
   }
 }
 
@@ -54,17 +57,17 @@ class StackAnalysisTest {
     //Build the expected result
     val expected: Array[State] = Array.ofDim[State](13)
     var baseRes = State(Stacks(3, Nil).addStack(), LocVariables(Array.fill[Item](1)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
-    baseRes = State(baseRes.s, baseRes.l.setVar(0, Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)))
+    baseRes = State(baseRes.s, baseRes.l.setVar(0, Item(ObjectType("java/lang/reflect/AccessibleObject"), -1, Item.FLAG_IS_PARAMETER)))
     expected(0) = baseRes
-    baseRes = State(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"), 0), baseRes.l)
+    baseRes = State(baseRes.s.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.l)
     expected(3) = baseRes
-    baseRes = State(baseRes.s.push(ObjectType("com/oracle/net/Sdp$1"), 0), baseRes.l)
+    baseRes = State(baseRes.s.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.l)
     expected(4) = baseRes
     baseRes = State(baseRes.s.push(Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)), baseRes.l)
     expected(5) = baseRes
     baseRes = State(baseRes.s.pop().pop(), baseRes.l)
     expected(8) = baseRes
-    baseRes = State(baseRes.s.pop().push(ObjectType("java/lang/Object"), 8), baseRes.l)
+    baseRes = State(baseRes.s.pop().push(Item(ObjectType("java/lang/Object"), 8, Item.FLAG_IS_RETURN_VALUE)), baseRes.l)
     expected(11) = baseRes
     baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(12) = baseRes
@@ -95,7 +98,7 @@ class StackAnalysisTest {
     expected(9) = baseRes
     baseRes = State(baseRes.s.push(ObjectType("java/util/logging/Level"), 9), baseRes.l)
     expected(12) = baseRes
-    baseRes = State(baseRes.s.pop().pop().push(BooleanType, 12), baseRes.l)
+    baseRes = State(baseRes.s.pop().pop().push(Item(BooleanType, 12, Item.FLAG_IS_RETURN_VALUE)), baseRes.l)
     expected(15) = baseRes
     baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(18) = baseRes

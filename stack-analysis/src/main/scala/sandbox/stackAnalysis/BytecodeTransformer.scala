@@ -1,8 +1,67 @@
 package sandbox.stackAnalysis
 
-import datastructure.{Item, Stacks, State, ItemType}
 import de.tud.cs.st.bat.resolved._
 import sandbox.dataflowAnalysis.ResultTransformer
+import de.tud.cs.st.bat.resolved.GETSTATIC
+import de.tud.cs.st.bat.resolved.ConstantLong
+import de.tud.cs.st.bat.resolved.ASTORE
+import de.tud.cs.st.bat.resolved.LOOKUPSWITCH
+import de.tud.cs.st.bat.resolved.INVOKESTATIC
+import de.tud.cs.st.bat.resolved.INVOKEINTERFACE
+import de.tud.cs.st.bat.resolved.ALOAD
+import de.tud.cs.st.bat.resolved.LDC
+import de.tud.cs.st.bat.resolved.IFLE
+import de.tud.cs.st.bat.resolved.JSR
+import de.tud.cs.st.bat.resolved.IF_ACMPEQ
+import de.tud.cs.st.bat.resolved.IF_ICMPNE
+import de.tud.cs.st.bat.resolved.ISTORE
+import de.tud.cs.st.bat.resolved.ConstantInteger
+import de.tud.cs.st.bat.resolved.LSTORE
+import de.tud.cs.st.bat.resolved.IF_ICMPLT
+import de.tud.cs.st.bat.resolved.GOTO
+import de.tud.cs.st.bat.resolved.LLOAD
+import de.tud.cs.st.bat.resolved.IFLT
+import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
+import de.tud.cs.st.bat.resolved.IF_ICMPGE
+import de.tud.cs.st.bat.resolved.GOTO_W
+import de.tud.cs.st.bat.resolved.IF_ICMPEQ
+import de.tud.cs.st.bat.resolved.IFNONNULL
+import de.tud.cs.st.bat.resolved.ConstantString
+import de.tud.cs.st.bat.resolved.FLOAD
+import de.tud.cs.st.bat.resolved.FSTORE
+import de.tud.cs.st.bat.resolved.IFNULL
+import de.tud.cs.st.bat.resolved.LDC_W
+import de.tud.cs.st.bat.resolved.IINC
+import de.tud.cs.st.bat.resolved.NEW
+import de.tud.cs.st.bat.resolved.IF_ICMPGT
+import de.tud.cs.st.bat.resolved.PUTFIELD
+import de.tud.cs.st.bat.resolved.INSTANCEOF
+import de.tud.cs.st.bat.resolved.IFNE
+import de.tud.cs.st.bat.resolved.DLOAD
+import de.tud.cs.st.bat.resolved.TABLESWITCH
+import de.tud.cs.st.bat.resolved.MULTIANEWARRAY
+import de.tud.cs.st.bat.resolved.GETFIELD
+import de.tud.cs.st.bat.resolved.ConstantFloat
+import de.tud.cs.st.bat.resolved.IFGE
+import de.tud.cs.st.bat.resolved.IFEQ
+import de.tud.cs.st.bat.resolved.INVOKESPECIAL
+import de.tud.cs.st.bat.resolved.JSR_W
+import de.tud.cs.st.bat.resolved.IFGT
+import de.tud.cs.st.bat.resolved.INVOKEDYNAMIC
+import de.tud.cs.st.bat.resolved.IF_ICMPLE
+import de.tud.cs.st.bat.resolved.ANEWARRAY
+import de.tud.cs.st.bat.resolved.DSTORE
+import de.tud.cs.st.bat.resolved.SIPUSH
+import de.tud.cs.st.bat.resolved.ConstantDouble
+import de.tud.cs.st.bat.resolved.ILOAD
+import de.tud.cs.st.bat.resolved.RET
+import de.tud.cs.st.bat.resolved.NEWARRAY
+import de.tud.cs.st.bat.resolved.PUTSTATIC
+import de.tud.cs.st.bat.resolved.ConstantClass
+import de.tud.cs.st.bat.resolved.LDC2_W
+import de.tud.cs.st.bat.resolved.BIPUSH
+import de.tud.cs.st.bat.resolved.IF_ACMPNE
+import sandbox.stackAnalysis.datastructure.{Stacks, ItemType, Item, State}
 
 
 /**
@@ -14,7 +73,7 @@ import sandbox.dataflowAnalysis.ResultTransformer
  * Time: 15:05
  * To change this template use File | Settings | File Templates.
  */
-case object CodeInfoTransformer extends ResultTransformer[State] {
+case object BytecodeTransformer extends ResultTransformer[State] {
 
   def getTransformer(pc: Int, instr: Instruction): Transformer = {
 
@@ -65,38 +124,11 @@ case object CodeInfoTransformer extends ResultTransformer[State] {
         (p => State(p.s.push(Item.createItem(ItemType.fromType(ShortType), pc, x)), p.l))
 
       case LDC(const) => //18
-        const match {
+        matchLDCConstant(pc, const)
 
-          case ConstantString(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.String), pc, x)), p.l))
-          case ConstantInteger(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(IntegerType), pc, x)), p.l))
-          case ConstantFloat(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(FloatType), pc, x)), p.l))
-          case ConstantClass(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.Class), pc, x)), p.l))
-          case _ => {
-            System.err.println("LDC: must be type string, integer, float or class. Found: " + const)
-            (p => p)
-          }
-        }
+      case LDC_W(const) => //19
+        matchLDCConstant(pc, const)
 
-      case LDC_W(const) => //19 //TODO: Merge with instruction LDC
-        const match {
-
-          case ConstantString(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.String), pc, x)), p.l))
-          case ConstantInteger(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(IntegerType), pc, x)), p.l))
-          case ConstantFloat(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(FloatType), pc, x)), p.l))
-          case ConstantClass(x) =>
-            (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.Class), pc, x)), p.l))
-          case _ => {
-            System.err.println("LDC_W: must be type string, integer, float or class. Found: " + const)
-            (p => p)
-          }
-        }
 
       case LDC2_W(const) => const match {
         //20
@@ -199,7 +231,7 @@ case object CodeInfoTransformer extends ResultTransformer[State] {
       case POP2 => //88
         (p => State(p.s.pop(2), p.l))
 
-      case DUP => //89 //TODO:DUP duplicating pc or setting new pc?
+      case DUP => //89
         (p => State(p.s.dup(1, 0), p.l))
 
       case DUP_X1 => //90
@@ -340,26 +372,26 @@ case object CodeInfoTransformer extends ResultTransformer[State] {
         invokeTransformer(pc, method, false)
 
       case NEW(t) => //187
-        (p => State(p.s.push(t, pc), p.l))
+        (p => State(p.s.push(Item(t, pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
 
       case NEWARRAY(aType) => //188
         aType match {
           case 4 =>
-            (p => State(p.s.pop().push(ArrayType(BooleanType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(BooleanType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 5 =>
-            (p => State(p.s.pop().push(ArrayType(CharType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(CharType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 6 =>
-            (p => State(p.s.pop().push(ArrayType(FloatType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(FloatType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 7 =>
-            (p => State(p.s.pop().push(ArrayType(DoubleType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(DoubleType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 8 =>
-            (p => State(p.s.pop().push(ArrayType(ByteType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(ByteType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 9 =>
-            (p => State(p.s.pop().push(ArrayType(ShortType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(ShortType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 10 =>
-            (p => State(p.s.pop().push(ArrayType(IntegerType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(IntegerType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case 11 =>
-            (p => State(p.s.pop().push(ArrayType(LongType), pc), p.l))
+            (p => State(p.s.pop().push(Item(ArrayType(LongType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.l))
           case _ => {
             System.err.println(aType + ": Arraytype not supported by NEWARRAY.")
             (p => p)
@@ -413,9 +445,27 @@ case object CodeInfoTransformer extends ResultTransformer[State] {
         stack = stack.pop()
 
       if (!method.returnType.isVoidType)
-        stack = stack.push(method.returnType, pc)
+        stack = stack.push(Item(ItemType.fromType(method.returnType), pc, Item.FLAG_IS_RETURN_VALUE))
 
       State(stack, p.l)
     })
+  }
+
+  private def matchLDCConstant(pc: Int, const: ConstantValue[_]): State => State = {
+    const match {
+
+      case ConstantString(x) =>
+        (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.String), pc, x)), p.l))
+      case ConstantInteger(x) =>
+        (p => State(p.s.push(Item.createItem(ItemType.fromType(IntegerType), pc, x)), p.l))
+      case ConstantFloat(x) =>
+        (p => State(p.s.push(Item.createItem(ItemType.fromType(FloatType), pc, x)), p.l))
+      case ConstantClass(x) =>
+        (p => State(p.s.push(Item.createItem(ItemType.fromType(ObjectType.Class), pc, x)), p.l))
+      case _ => {
+        System.err.println("LDC_W: must be type string, integer, float or class. Found: " + const)
+        (p => p)
+      }
+    }
   }
 }

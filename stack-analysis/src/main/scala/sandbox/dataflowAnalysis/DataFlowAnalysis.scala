@@ -74,9 +74,7 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
 
         //Check if the result has changed. If no result was changed during one iteration, the fixed point has been found.
         if (!result.equals(results(pc))) {
-
           resultsChanged = true
-          if (printResults) println("PC: " + pc + " -> " + result)
         }
 
         //Set the new result in the result array.

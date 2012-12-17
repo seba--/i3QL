@@ -3,6 +3,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TestMethods {
+
+    private TestMethods(String s) {
+        name = s;
+    }
+
+    public TestMethods() {
+        this("TestMethods");
+    }
+
     public void testSeq() {
         int a = 1;
         int b = -1;
@@ -200,6 +209,28 @@ public class TestMethods {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void testReturnValue(int a) {
+        int b = 0;
+
+        new String("test");
+
+        if (a < 5)
+            testExceptions("hallo");
+        else
+            b = testExceptions("fertig");
+
+
+        System.out.println(b);
+    }
+
+    public static Integer count = 0;
+
+    public static void testSynchronized() {
+        synchronized (count) {
+            count++;
         }
     }
 

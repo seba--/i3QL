@@ -1,4 +1,4 @@
-package sandbox.stackAnalysis
+package sandbox.stackAnalysis.codeInfo
 
 import sae.bytecode.structure.CodeInfo
 import de.tud.cs.st.bat.resolved._

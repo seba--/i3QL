@@ -1,16 +1,15 @@
 package sandbox.stackAnalysis.datastructure
 
+import de.tud.cs.st.bat.resolved.Type
+
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mirko
- * Date: 29.11.12
- * Time: 14:55
- * To change this template use File | Settings | File Templates.
- */
+ * An item holds all information that are stored on a single stack slot or in a local variable.
 
-/*
-  flags: 0 = isParameter, 1 = couldBeNull, 2 = isContinue, 3 = couldBeZero , 4 = isNotInitialized
+ *
+ * @param declaredType The type of the item. The declared type always holds the most informative type information. If you want to check an item for the possibility of being null, use the corresponding flag instead.
+ * @param pc The program counter where this item originates from. -1 if the item could originate from different sources or unknown.
+ * @param flags This holds additional information about the item. Use the constants in the object Item to set the flags.
  */
 case class Item(declaredType: ItemType, pc: Int, flags: Int) {
 
@@ -36,6 +35,14 @@ case class Item(declaredType: ItemType, pc: Int, flags: Int) {
 
   def isCouldBeZero: Boolean = {
     isFlag(Item.FLAG_COULD_BE_ZERO)
+  }
+
+  def isReturnValue: Boolean = {
+    isFlag(Item.FLAG_IS_RETURN_VALUE)
+  }
+
+  def isCreatedByNew: Boolean = {
+    isFlag(Item.FLAG_IS_CREATED_BY_NEW)
   }
 
   private def isFlag(flag: Int): Boolean = {
@@ -86,12 +93,18 @@ return (getDeclaredType.equals(otherItem.getDeclaredType) && pc.equals(otherItem
 
 object Item {
 
+  def apply(declaredType: Type, pc: Int, flags: Int): Item = {
+    Item(ItemType.fromType(declaredType), pc, flags)
+  }
+
   val FLAG_DEFAULT: Int = 0x00000000
   val FLAG_IS_PARAMETER: Int = 0x80000000
   val FLAG_COULD_BE_NULL: Int = 0x40000000
   val FLAG_IS_CONTINUE: Int = 0x20000000
   val FLAG_COULD_BE_ZERO: Int = 0x10000000
   val FLAG_IS_NOT_INITIALIZED: Int = 0x08000000
+  val FLAG_IS_RETURN_VALUE: Int = 0x04000000
+  val FLAG_IS_CREATED_BY_NEW: Int = 0x02000000
 
 
   def createNullItem(pc: Int): Item = {
@@ -128,9 +141,12 @@ object Item {
   }
 
   def combine(itemTypeList: List[Item]): Item = {
-    if (itemTypeList.size == 1)
+    if (itemTypeList == Nil)
+      Item.createNoneItem
+    else if (itemTypeList.size == 1)
       itemTypeList.head
     else
-      itemTypeList.fold[Item](createItem(ItemType.None, -1))((a, b) => a.combineWith(b))
+      combine(itemTypeList(0).combineWith(itemTypeList(1)) :: itemTypeList.drop(2))
+
   }
 }

@@ -2,21 +2,14 @@ package sandbox.stackAnalysis.datastructure
 
 import sandbox.dataflowAnalysis.Combinable
 import de.tud.cs.st.bat.resolved.Type
+import java.util
 
 
 /**
- * This class implements the store for local variables for the s analysis.
- *
- * Created with IntelliJ IDEA.
- * User: Mirko
- * Date: 25.10.12
- * Time: 14:10
+ * Objects of this class are the local variable stores in states of the machine. LocVariables objects are immutable.
+ * @param varStore The store where the variables are stored. Note that this should not be changed.
  */
-
 case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item]) extends Combinable[LocVariables] {
-
-
-  //def this(size: Int, t: Option[T], value: List[Option[V]])(implicit m: Manifest[T]) = this(Array.fill[Option[T]](size)(t), Array.fill[List[Option[V]]](size)(value))
 
   def apply(index: Int): Item =
     if (varStore(index) == null)
@@ -63,10 +56,7 @@ case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item]) exten
       }
 
       LocVariables(res)
-
     }
-
-
   }
 
 
@@ -83,6 +73,9 @@ case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item]) exten
 
     return true
   }
+
+  override def hashCode(): Int =
+    util.Arrays.hashCode(varStore.asInstanceOf[Array[AnyRef]])
 
 
   override def toString(): String = {
