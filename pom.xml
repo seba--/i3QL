@@ -18,10 +18,10 @@
         <module>bytecode-database-profiling-runner</module>
         <module>demo/findbugs</module>
         <module>replay-framework</module>
-        <module>benchmark-harness</module>
         <module>unisson</module>
 
         <!--
+            <module>benchmark-harness</module>
           <module>deploy</module>
         -->
     </modules>

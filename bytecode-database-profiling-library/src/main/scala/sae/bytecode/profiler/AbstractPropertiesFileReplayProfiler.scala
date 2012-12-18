@@ -34,7 +34,7 @@ package sae.bytecode.profiler
 
 import java.io._
 import java.util.Properties
-import statistics.{DataStatistic, MeasurementUnit, SampleStatistic}
+import statistics.{EventStatistic, DataStatistic, MeasurementUnit, SampleStatistic}
 import scala.Some
 import de.tud.cs.st.lyrebird.replayframework.Event
 import de.tud.cs.st.lyrebird.replayframework.file.Reader
@@ -153,6 +153,8 @@ trait AbstractPropertiesFileReplayProfiler
 
         val dataStatisticList = dataStatistics (measurementEvents)
 
+        val eventStatisticList = eventStatistics(measurementEvents)
+
         if (counts.size != measurementEvents.size ||dataStatisticList.size != measurementEvents.size || statistics.size != measurementEvents.size)
         {
             sys.error ("different sizes for sampled data and list of event sets")
@@ -219,6 +221,8 @@ trait AbstractPropertiesFileReplayProfiler
     def benchmarkType: String
 
     def dataStatistics(eventSets: List[Seq[Event]]): List[DataStatistic]
+
+    def eventStatistics(eventSets: List[Seq[Event]]): List[EventStatistic]
 
     def measurementUnit: MeasurementUnit
 
