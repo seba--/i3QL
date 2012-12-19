@@ -228,4 +228,6 @@ abstract class SAEAnalysesReplayTimeProfiler
         }
     }
 
+
+    def eventStatistics(eventSets: List[Seq[Event]]) = Nil
 }

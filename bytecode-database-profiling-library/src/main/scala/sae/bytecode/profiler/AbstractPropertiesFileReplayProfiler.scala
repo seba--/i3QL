@@ -65,155 +65,156 @@ trait AbstractPropertiesFileReplayProfiler
     private var isSharedSubQueries = false
 
     def main(args: Array[String]) {
-        if (args.length == 0 || !args (0).endsWith (".properties")) {
-            println (usage)
-            sys.exit (1)
+        if (args.length == 0 || !args(0).endsWith(".properties")) {
+            println(usage)
+            sys.exit(1)
         }
 
-        val propertiesFile = args (0)
+        val propertiesFile = args(0)
 
         isReReadJars =
-                if (args.length > 1)
-                {
-                    java.lang.Boolean.parseBoolean (args (1))
+                if (args.length > 1) {
+                    java.lang.Boolean.parseBoolean(args(1))
                 }
-                else
-                {
-                    false
+                else {
+                    true
                 }
 
 
         isOptimized =
-                if (args.length > 2)
-                {
-                    java.lang.Boolean.parseBoolean (args (2))
+                if (args.length > 2) {
+                    java.lang.Boolean.parseBoolean(args(2))
                 }
-                else
-                {
-                    false
+                else {
+                    true
                 }
         isTransactional =
-                if (args.length > 3)
-                {
-                    java.lang.Boolean.parseBoolean (args (3))
+                if (args.length > 3) {
+                    java.lang.Boolean.parseBoolean(args(3))
                 }
-                else
-                {
-                    false
+                else {
+                    true
                 }
         isSharedSubQueries =
-                if (args.length > 4)
-                {
-                    java.lang.Boolean.parseBoolean (args (4))
+                if (args.length > 4) {
+                    java.lang.Boolean.parseBoolean(args(4))
                 }
-                else
-                {
-                    false
+                else {
+                    true
                 }
 
 
-        val properties = getProperties (propertiesFile).getOrElse (
+        val properties = getProperties(propertiesFile).getOrElse(
         {
-            println ("could not find properties file or resource: " + propertiesFile)
-            sys.exit (-1)
+            println("could not find properties file or resource: " + propertiesFile)
+            sys.exit(-1)
         }
         )
 
-        val warmupIterations = properties.getProperty ("sae.warmup.iterations").toInt
-        val warmupLocation = properties.getProperty ("sae.warmup.location")
+        val warmupIterations = properties.getProperty("sae.warmup.iterations").toInt
+        val warmupLocation = properties.getProperty("sae.warmup.location")
 
-        val measurementIterations = properties.getProperty ("sae.benchmark.iterations").toInt
-        val measurementLocation = properties.getProperty ("sae.benchmark.location")
-        val queries = properties.getProperty ("sae.benchmark.queries").split (";").toList
+        val measurementIterations = properties.getProperty("sae.benchmark.iterations").toInt
+        val measurementLocation = properties.getProperty("sae.benchmark.location")
+        val queries = properties.getProperty("sae.benchmark.queries").split(";").toList
 
-        val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
+        val outputFile = properties.getProperty("sae.benchmark.out", System.getProperty("user.dir") + "/bench.txt")
 
 
-        println ("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation + " re-read = " + reReadJars)
+        println("Warmup: " + warmupIterations + " times : " + queries + " on " + warmupLocation + " re-read = " + reReadJars)
 
-        val warmupEventReader = new Reader (new File (warmupLocation))
+        val warmupEventReader = new Reader(new File(warmupLocation))
         val warmupEvents = warmupEventReader.getAllEventSets
-        val counts = warmup (warmupIterations, warmupEvents, queries, reReadJars)
+        val counts = warmup(warmupIterations, warmupEvents, queries, reReadJars)
 
-        println ("\tdone")
-        println ("Num. of Results: " + counts)
+        println("\tdone")
+        println("Num. of Results: " + counts)
 
-        val measurementEventReader = new Reader (new File (measurementLocation))
+        val measurementEventReader = new Reader(new File(measurementLocation))
         val measurementEvents = measurementEventReader.getAllEventSets
 
 
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
+        memoryMXBean.gc()
 
-        println ("Measure: " + measurementIterations + " times : " + queries + " on " + measurementLocation + " re-read = " + reReadJars)
-        val statistics = measure (measurementIterations, measurementEvents, queries, reReadJars)
-        println ("\tdone")
+        println("Measure: " + measurementIterations + " times : " + queries + " on " + measurementLocation + " re-read = " + reReadJars)
+        val statistics = measure(measurementIterations, measurementEvents, queries, reReadJars)
+        println("\tdone")
 
         //println (statistics.summary (measurementUnit))
 
-        val dataStatisticList = dataStatistics (measurementEvents)
+        val dataStatisticList = dataStatistics(measurementEvents)
 
         val eventStatisticList = eventStatistics(measurementEvents)
 
-        if (counts.size != measurementEvents.size ||dataStatisticList.size != measurementEvents.size || statistics.size != measurementEvents.size)
-        {
-            sys.error ("different sizes for sampled data and list of event sets")
-            sys.exit (-1)
+        if (counts.size != measurementEvents.size || dataStatisticList.size != measurementEvents.size || statistics
+                .size != measurementEvents.size) {
+            sys.error("different sizes for sampled data and list of event sets")
+            sys.exit(-1)
         }
 
 
         //println (dataStatistics.summary)
 
-        reportCSV (outputFile, reReadJars, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
+        reportCSV(outputFile, warmupIterations, measurementIterations, measurementLocation, measurementEvents, dataStatisticList, queries, statistics, counts)
 
-        sys.exit (0)
+        sys.exit(0)
     }
 
-    def reportCSV(outputFile: String, reReadJars: Boolean, warmUpIterations: Int, measurementIterations: Int, measurementLocation : String, eventSets: List[Seq[Event]], dataStatistics: List[DataStatistic], queries: List[String], statistics: List[SampleStatistic], resultCounts: List[Long]) {
-        val file = new File (outputFile)
-        val writeHeader = !file.exists ()
+    def reportCSV(outputFile: String, warmUpIterations: Int, measurementIterations: Int, measurementLocation: String,
+                  eventSets: List[Seq[Event]], dataStatistics: List[DataStatistic], queries: List[String],
+                  statistics: List[SampleStatistic], resultCounts: List[Long]) {
+        val file = new File(outputFile)
+        val writeHeader = !file.exists()
 
-        val out = new PrintWriter (new FileWriter (file, true))
+        val out = new PrintWriter(new FileWriter(file, true))
 
         val separator = ";"
 
-        val header = "bench type" + separator + "location" + separator +  "timestamp" + separator + "change size" + separator +
-            "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
-            "num. warmup iterations" + separator + "num. measure iterations" + separator + "re-read jars" + separator + "queries" + separator +
-            "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
+        val header = "bench type" + separator + "location" + separator + "timestamp" + separator + "change size" + separator +
+                "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
+                "num. warmup iterations" + separator + "num. measure iterations" + separator +
+                "re-read jars" + separator + "optimized" + separator + "transactional" + separator + "shared" + separator +
+                "queries" + separator + "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
 
 
 
         if (writeHeader) {
-            out.println (header)
+            out.println(header)
         }
 
         var i = 0
         while (i < statistics.size) {
             val outputLine =
                 benchmarkType + separator +
-                    measurementLocation + separator +
-                    eventSets(i)(0).eventTime + separator +
-                    eventSets(i).size + separator +
-                    dataStatistics(i).classCount + separator +
-                    dataStatistics(i).methodCount + separator +
-                    dataStatistics(i).fieldCount + separator +
-                    dataStatistics(i).instructionCount + separator +
-                    warmUpIterations + separator +
-                    measurementIterations + separator +
-                    reReadJars.toString + separator +
-                    queries.reduce (_ + " | " + _) + separator +
-                    resultCounts(i) + separator +
-                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).mean))) + separator +
-                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).standardDeviation))) + separator +
-                    ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistics(i).standardError))) + separator +
-                    measurementUnit.descriptor
+                        measurementLocation + separator +
+                        eventSets(i)(0).eventTime + separator +
+                        eventSets(i).size + separator +
+                        dataStatistics(i).classCount + separator +
+                        dataStatistics(i).methodCount + separator +
+                        dataStatistics(i).fieldCount + separator +
+                        dataStatistics(i).instructionCount + separator +
+                        warmUpIterations + separator +
+                        measurementIterations + separator +
+                        reReadJars.toString + separator +
+                        optimized.toString + separator +
+                        transactional.toString + separator +
+                        sharedSubQueries.toString + separator +
+                        queries.reduce(_ + " | " + _) + separator +
+                        resultCounts(i) + separator +
+                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
+                                .fromBase(statistics(i).mean))) + separator +
+                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
+                                .fromBase(statistics(i).standardDeviation))) + separator +
+                        ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
+                                .fromBase(statistics(i).standardError))) + separator +
+                        measurementUnit.descriptor
 
-            out.println (outputLine)
+            out.println(outputLine)
             i += 1
         }
-        out.close ()
+        out.close()
     }
 
     def usage: String
@@ -229,37 +230,38 @@ trait AbstractPropertiesFileReplayProfiler
     /**
      * Perform the actual measurement.
      */
-    def measure(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[SampleStatistic]
+    def measure(iterations: Int, eventSets: List[Seq[Event]], queries: List[String],
+                includeReadTime: Boolean): List[SampleStatistic]
 
     /**
      * Perform the warmup by doing exactly the same operation as in the measurement.
      * The warmup is must return the number of results returned by the measured analyses.
      */
-    def warmup(iterations: Int, eventSets: List[Seq[Event]], queries: List[String], includeReadTime: Boolean): List[Long]
+    def warmup(iterations: Int, eventSets: List[Seq[Event]], queries: List[String],
+               includeReadTime: Boolean): List[Long]
 
 
     def isFile(propertiesFile: String): Boolean = {
-        val file = new java.io.File (propertiesFile)
-        file.exists () && file.canRead && !file.isDirectory
+        val file = new java.io.File(propertiesFile)
+        file.exists() && file.canRead && !file.isDirectory
 
     }
 
     def isResource(propertiesFile: String): Boolean = {
-        this.getClass.getClassLoader.getResource (propertiesFile) != null
+        this.getClass.getClassLoader.getResource(propertiesFile) != null
     }
 
     def getProperties(propertiesFile: String): Option[Properties] = {
-        if (isFile (propertiesFile)) {
-            val file = new java.io.File (propertiesFile)
-            val properties = new Properties ()
-            properties.load (new FileInputStream (file))
-            return Some (properties)
+        if (isFile(propertiesFile)) {
+            val file = new java.io.File(propertiesFile)
+            val properties = new Properties()
+            properties.load(new FileInputStream(file))
+            return Some(properties)
         }
-        if (isResource (propertiesFile))
-        {
-            val properties = new Properties ()
-            properties.load (this.getClass.getClassLoader.getResource (propertiesFile).openStream ())
-            return Some (properties)
+        if (isResource(propertiesFile)) {
+            val properties = new Properties()
+            properties.load(this.getClass.getClassLoader.getResource(propertiesFile).openStream())
+            return Some(properties)
         }
         None
     }
