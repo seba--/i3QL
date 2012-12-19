@@ -125,7 +125,7 @@ class Reader(val location: File)
     private def readAllFiles(currentLocation: File): List[Event] = {
         var list = List[Event]()
         if (currentLocation.isDirectory) {
-            for (file <- currentLocation.listFiles) {
+            for (file <- currentLocation.listFiles.sortBy(_.getName)) { // TODO this is not very robust. the fileToEvent used below assumes that the files are ordered
                 list = readAllFiles (file) ::: list
             }
         }
