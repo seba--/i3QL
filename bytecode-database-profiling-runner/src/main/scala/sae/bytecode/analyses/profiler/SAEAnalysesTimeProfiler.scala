@@ -64,21 +64,11 @@ abstract class SAEAnalysesTimeProfiler
         }
         else
         {
-            val database = createMaterializedDatabase (jars, queries)
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
+            measureTime (iterations)(() => applyAnalysesWithTransactionalJarReading (jars, queries))
         }
     }
 
     def warmup(iterations: Int, jars: List[String], queries: List[String]): Long = {
-        val materializedDatabase =
-            if (reReadJars) {
-                None
-            }
-            else
-            {
-                Some (createMaterializedDatabase (jars, queries))
-            }
-
         var i = 0
         while (i < iterations) {
             if (reReadJars) {
@@ -86,7 +76,7 @@ abstract class SAEAnalysesTimeProfiler
             }
             else
             {
-                applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
+                applyAnalysesWithTransactionalJarReading (jars, queries)
             }
             i += 1
         }
@@ -139,6 +129,32 @@ abstract class SAEAnalysesTimeProfiler
         }
         relations.foreach (_.clearObserversForChildren (visitChild => true))
         relations = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        print (".")
+        taken
+    }
+
+    def applyAnalysesWithTransactionalJarReading(jars: List[String], queries: List[String]): Long = {
+        var taken: Long = 0
+        var database = BATDatabaseFactory.create ()
+        val results = for (query <- queries) yield {
+            sae.relationToResult (getAnalysis (query, database)(optimized, transactional, sharedSubQueries))
+        }
+        jars.foreach (jar => {
+
+            database.beginTransaction ()
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+            time {
+                l => taken += l
+            }
+            {
+                database.commitTransaction ()
+            }
+        })
+        database = null
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
         print (".")
