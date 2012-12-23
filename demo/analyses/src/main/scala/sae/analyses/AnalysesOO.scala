@@ -30,13 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae.analyses.findbugs
+package sae.analyses
 
-import base.oo.Definitions
+import findbugs.base.oo.Definitions
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
-import random.oo._
-import selected.oo._
+import findbugs.random.oo._
+import findbugs.selected.oo._
 import sae.analyses.metrics.DepthOfInheritanceTree
 
 
@@ -48,23 +48,21 @@ import sae.analyses.metrics.DepthOfInheritanceTree
 object AnalysesOO
 {
 
-    var transactional = true
 
-    var existsOptimization = true
 
     def apply(analysisName: String, database: BytecodeDatabase)(existsOptimization: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
         val optimized = existsOptimization || transactional
         if (!optimized) {
             Definitions.shared = shared
-            this.transactional = false
-            this.existsOptimization = false
+            Definitions.transactional = false
+            Definitions.existsOptimization = false
             sae.ENABLE_FORCE_TO_SET = false
             getBase (analysisName, database)
         }
         else
         {
-            this.transactional = transactional
-            this.existsOptimization = existsOptimization
+            Definitions.transactional = transactional
+            Definitions.existsOptimization = existsOptimization
             Definitions.shared = shared
             sae.ENABLE_FORCE_TO_SET = true
             getOptimized (analysisName, database)
@@ -105,31 +103,31 @@ object AnalysesOO
 
     private def getOptimized(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
         case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
-        case "CN_IDIOM" => selected.oo.optimized.CN_IDIOM (database)
-        case "CN_IDIOM_NO_SUPER_CALL" => selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL (database)
-        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => selected.oo.optimized.CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
-        case "CO_ABSTRACT_SELF" => selected.oo.optimized.CO_ABSTRACT_SELF (database)
-        case "CO_SELF_NO_OBJECT" => selected.oo.optimized.CO_SELF_NO_OBJECT (database)
+        case "CN_IDIOM" => findbugs.selected.oo.optimized.CN_IDIOM (database)
+        case "CN_IDIOM_NO_SUPER_CALL" => findbugs.selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL (database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => findbugs.selected.oo.optimized.CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
+        case "CO_ABSTRACT_SELF" => findbugs.selected.oo.optimized.CO_ABSTRACT_SELF (database)
+        case "CO_SELF_NO_OBJECT" => findbugs.selected.oo.optimized.CO_SELF_NO_OBJECT (database)
         case "DM_GC" => DM_GC (database)
         case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
         case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
         case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
-        case "SE_NO_SUITABLE_CONSTRUCTOR" => selected.oo.optimized.SE_NO_SUITABLE_CONSTRUCTOR (database)
-        case "UUF_UNUSED_FIELD" => selected.oo.optimized.UUF_UNUSED_FIELD (database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => findbugs.selected.oo.optimized.SE_NO_SUITABLE_CONSTRUCTOR (database)
+        case "UUF_UNUSED_FIELD" => findbugs.selected.oo.optimized.UUF_UNUSED_FIELD (database)
         /* randomly selected analyses without dataflow */
-        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => random.oo.optimized.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
-        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => random.oo.optimized.DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => findbugs.random.oo.optimized.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => findbugs.random.oo.optimized.DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
         case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
-        case "FI_USELESS" => random.oo.optimized.FI_USELESS (database)
-        case "ITA_INEFFICIENT_TO_ARRAY" => random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)
-        case "MS_PKGPROTECT" => random.oo.optimized.MS_PKGPROTECT (database)
+        case "FI_USELESS" => findbugs.random.oo.optimized.FI_USELESS (database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => findbugs.random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)
+        case "MS_PKGPROTECT" => findbugs.random.oo.optimized.MS_PKGPROTECT (database)
         case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL (database)
-        case "SE_BAD_FIELD_INNER_CLASS" => random.oo.optimized.SE_BAD_FIELD_INNER_CLASS (database)
-        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => random.oo.optimized.SIC_INNER_SHOULD_BE_STATIC_ANON (database)
+        case "SE_BAD_FIELD_INNER_CLASS" => findbugs.random.oo.optimized.SE_BAD_FIELD_INNER_CLASS (database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => findbugs.random.oo.optimized.SIC_INNER_SHOULD_BE_STATIC_ANON (database)
         case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database)
-        case "UG_SYNC_SET_UNSYNC_GET" => random.oo.optimized.UG_SYNC_SET_UNSYNC_GET (database)
-        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => random.oo.optimized.UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database)
+        case "UG_SYNC_SET_UNSYNC_GET" => findbugs.random.oo.optimized.UG_SYNC_SET_UNSYNC_GET (database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => findbugs.random.oo.optimized.UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database)
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree (database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)

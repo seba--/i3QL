@@ -8,7 +8,6 @@ import sae.bytecode.structure._
 import sae.bytecode.instructions.FieldReadInstruction
 import collection.mutable
 import sae.operators.impl.{NotExistsInSameDomainView, EquiJoinView, ExistsInSameDomainView, TransactionalEquiJoinView}
-import sae.analyses.findbugs.AnalysesOO
 
 /**
  *
@@ -22,6 +21,10 @@ object Definitions
     val definitionsTable = mutable.HashMap.empty[BytecodeDatabase, Definitions]
 
     var shared: Boolean = false
+
+    var transactional = true
+
+    var existsOptimization = true
 
     def apply(database: BytecodeDatabase): Definitions = {
         if (!shared)
@@ -101,7 +104,7 @@ class Definitions(val database: BytecodeDatabase)
 
     lazy val coSelfBaseOpt: Relation[ClassDeclaration] = {
         val exists: Relation[ObjectType] =
-            if (AnalysesOO.existsOptimization)
+            if (Definitions.existsOptimization)
                 new ExistsInSameDomainView(typesImplementCompareToWithoutObjectParameter
                         .asMaterialized, subTypesOfComparable.asMaterialized)
             else
@@ -111,7 +114,7 @@ class Definitions(val database: BytecodeDatabase)
                                 (thisClass === thisClass)
                     )
                 )
-        if (AnalysesOO.transactional)
+        if (Definitions.transactional)
             new TransactionalEquiJoinView(
                 classDeclarations,
                 exists,

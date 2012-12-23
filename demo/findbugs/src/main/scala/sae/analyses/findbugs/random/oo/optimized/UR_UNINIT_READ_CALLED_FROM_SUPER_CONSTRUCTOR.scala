@@ -38,7 +38,8 @@ import sae.bytecode._
 import sae.bytecode.instructions._
 import structure.{MethodReference, MethodComparison, FieldDeclaration}
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
-import sae.analyses.findbugs.AnalysesOO
+
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -110,7 +111,7 @@ object UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR
         )
 
         val selfFieldReads =
-            if (AnalysesOO.transactional)
+            if (Definitions.transactional)
                 new TransactionalEquiJoinView (
                     getFieldSelection,
                     fieldDeclarations,

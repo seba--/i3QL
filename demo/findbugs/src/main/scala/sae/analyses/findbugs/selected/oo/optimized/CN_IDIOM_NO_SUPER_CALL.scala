@@ -8,7 +8,7 @@ import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.{ReferenceType, ObjectType}
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.operators.impl.{TransactionalDifferenceView, EquiJoinView, DifferenceView, TransactionalEquiJoinView}
-import sae.analyses.findbugs.AnalysesOO
+
 
 /**
  *
@@ -23,40 +23,41 @@ object CN_IDIOM_NO_SUPER_CALL
 {
     def apply(database: BytecodeDatabase): Relation[MethodDeclaration] = {
         import database._
-        val definitions = Definitions(database)
+        val definitions = Definitions (database)
         import definitions._
-        val filtered = compile(
-            SELECT(*) FROM implementersOfClone WHERE
-                    (!_.declaringClass.isInterface) AND
-                    (!_.declaringClass.isAnnotation) AND
-                    (!_.isAbstract) AND
-                    (_.declaringClass.superClass.isDefined)
+        val filtered = compile (
+            SELECT (*) FROM implementersOfClone WHERE
+                (!_.declaringClass.isInterface) AND
+                (!_.declaringClass.isAnnotation) AND
+                (!_.isAbstract) AND
+                (_.declaringClass.superClass.isDefined)
         )
 
-        val invokes = compile(
+        val invokes = compile (
             SELECT ((i: InvokeInstruction) => (i.declaringMethod, i.receiverType)) FROM invokeSpecial WHERE
-                    (_.name == "clone") AND
-                    (_.parameterTypes == Nil) AND
-                    (_.returnType == ObjectType.Object)
+                (_.name == "clone") AND
+                (_.parameterTypes == Nil) AND
+                (_.returnType == ObjectType.Object)
         )
 
 
 
-        if(AnalysesOO.transactional) {
-            val join = new TransactionalEquiJoinView(filtered,
+        if (Definitions.transactional) {
+            val join = new TransactionalEquiJoinView (filtered,
                 invokes,
                 (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
-                identity[(MethodDeclaration,ReferenceType)] _,
-                (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
+                identity[(MethodDeclaration, ReferenceType)] _,
+                (m: MethodDeclaration, e: (MethodDeclaration, ReferenceType)) => m
             )
             new TransactionalDifferenceView[MethodDeclaration](filtered, join)
         }
-        else {
-            val join = new EquiJoinView(filtered,
+        else
+        {
+            val join = new EquiJoinView (filtered,
                 invokes,
                 (m: MethodDeclaration) => (m, m.declaringClass.superClass.get),
-                identity[(MethodDeclaration,ReferenceType)] _,
-                (m: MethodDeclaration, e: (MethodDeclaration,ReferenceType)) => m
+                identity[(MethodDeclaration, ReferenceType)] _,
+                (m: MethodDeclaration, e: (MethodDeclaration, ReferenceType)) => m
             )
             new DifferenceView[MethodDeclaration](filtered, join)
         }

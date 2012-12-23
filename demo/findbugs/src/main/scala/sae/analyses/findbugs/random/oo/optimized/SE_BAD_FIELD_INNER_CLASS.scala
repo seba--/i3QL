@@ -39,7 +39,7 @@ import sae.analyses.findbugs.base.oo.Definitions
 import de.tud.cs.st.bat.ACC_STATIC
 import de.tud.cs.st.bat.resolved.ObjectType
 import structure.internal.UnresolvedInnerClassEntry
-import sae.analyses.findbugs.AnalysesOO
+
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
 
 /**
@@ -76,7 +76,7 @@ object SE_BAD_FIELD_INNER_CLASS
         )
 
         lazy val serializableNonStaticInner =
-            if (AnalysesOO.transactional)
+            if (Definitions.transactional)
                 new TransactionalEquiJoinView (
                     nonStaticInner,
                     directlySerializable,

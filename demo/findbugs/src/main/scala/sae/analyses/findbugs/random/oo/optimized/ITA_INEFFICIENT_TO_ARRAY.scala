@@ -9,7 +9,8 @@ import instructions.ANEWARRAY
 import instructions.ICONST_0
 import structure.MethodDeclaration
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
-import sae.analyses.findbugs.AnalysesOO
+
+import sae.analyses.findbugs.base.oo.Definitions
 
 
 /**
@@ -48,7 +49,7 @@ object ITA_INEFFICIENT_TO_ARRAY
         val anewarray: Relation[ANEWARRAY] = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
 
         val newArray0 =
-            if (AnalysesOO.transactional)
+            if (Definitions.transactional)
                 new TransactionalEquiJoinView (
                     iconst0,
                     anewarray,
@@ -81,7 +82,7 @@ object ITA_INEFFICIENT_TO_ARRAY
         )
 
         val invokes: Relation[InvokeInstruction] =
-            if (AnalysesOO.transactional)
+            if (Definitions.transactional)
                 new TransactionalEquiJoinView (
                     selectInvokes,
                     newArray0,

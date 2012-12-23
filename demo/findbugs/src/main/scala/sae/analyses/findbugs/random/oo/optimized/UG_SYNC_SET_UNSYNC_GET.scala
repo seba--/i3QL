@@ -37,8 +37,9 @@ import sae.syntax.sql._
 import sae.bytecode.structure._
 import sae.bytecode._
 import de.tud.cs.st.bat.resolved.VoidType
-import sae.analyses.findbugs.AnalysesOO
+
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -82,7 +83,7 @@ object UG_SYNC_SET_UNSYNC_GET
                 (!_.declaringClass.isInterface)
 
 
-        if (AnalysesOO.transactional)
+        if (Definitions.transactional)
             new TransactionalEquiJoinView (
                 syncedSetters,
                 unsyncedGetters,

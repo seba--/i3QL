@@ -5,8 +5,9 @@ import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.{LongType, DoubleType}
-import sae.analyses.findbugs.AnalysesOO
+
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -34,7 +35,7 @@ object DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT
                 (_.parameterTypes == List (LongType))
         )
 
-        if (AnalysesOO.transactional)
+        if (Definitions.transactional)
             new TransactionalEquiJoinView (
                 intToLong,
                 longBitsToDouble,

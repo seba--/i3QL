@@ -32,10 +32,9 @@
  */
 package sae.bytecode.analyses.profiler
 
-import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import de.tud.cs.st.lyrebird.replayframework.Event
+import sae.analyses.AnalysesOO
 
 
 /**
@@ -45,12 +44,12 @@ import de.tud.cs.st.lyrebird.replayframework.Event
  */
 
 object SAEAnalysesOOReplayTimeProfiler
-        extends SAEAnalysesReplayTimeProfiler
+    extends SAEAnalysesReplayTimeProfiler
 {
 
     def benchmarkType = "SAEOO replay time"
 
     def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, sharedSubQueries: Boolean): Relation[_] =
-        AnalysesOO(query, database)(optimized, transactional = false, shared = sharedSubQueries)
+        AnalysesOO (query, database)(optimized, transactional = false, shared = sharedSubQueries)
 
 }

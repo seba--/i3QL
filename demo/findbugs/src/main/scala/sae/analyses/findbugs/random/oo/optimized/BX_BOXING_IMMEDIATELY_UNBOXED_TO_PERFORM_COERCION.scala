@@ -5,7 +5,8 @@ import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
 import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
-import sae.analyses.findbugs.AnalysesOO
+
+import sae.analyses.findbugs.base.oo.Definitions
 
 /**
  *
@@ -43,7 +44,7 @@ object BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION
 
 
         val join =
-            if (AnalysesOO.transactional)
+            if (Definitions.transactional)
                 new TransactionalEquiJoinView (
                     invokeSpecialSelection,
                     invokeVirtualSelection,

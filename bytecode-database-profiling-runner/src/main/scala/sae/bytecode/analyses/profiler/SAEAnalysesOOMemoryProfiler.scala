@@ -32,9 +32,9 @@
  */
 package sae.bytecode.analyses.profiler
 
-import sae.analyses.findbugs.AnalysesOO
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
+import sae.analyses.AnalysesOO
 
 
 /**

@@ -32,12 +32,11 @@
  */
 package sae.analyses.metrics
 
-import sae.bytecode._
+import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions.Count
-import structure.InheritanceRelation
 
 /**
  *
@@ -48,13 +47,19 @@ import structure.InheritanceRelation
 object DepthOfInheritanceTree
     extends (BytecodeDatabase => Relation[(ObjectType, Int)])
 {
+
+    def getSubType: ((ObjectType, ObjectType)) => ObjectType = _._1
+
     /**
-     * Calculates the depth of the inheritance tree for all classes in db
+     * Calculates the depth of the inheritance tree for all classes in db,
+     * by counting how many edges the transitive closure to java/lang/Object has
      */
     def apply(db: BytecodeDatabase): Relation[(ObjectType, Int)] = {
-        γ (db.inheritance,
-            subType,
-            Count[InheritanceRelation](),
+        val subTyping = TC (db.classInheritance)(_.subType, _.superType)
+
+        γ (subTyping,
+            getSubType,
+            Count[(ObjectType, ObjectType)](),
             (x: ObjectType, y: Int) => (x, y)
         )
     }
