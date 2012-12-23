@@ -29,35 +29,14 @@
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */
-package sae
+ */package sae.analyses.metrics
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 11:24
+ * 
+ * @author Ralf Mitschke
+ * 
  */
 
-object Conversions
-{
+object AfferentCoupling {
 
-    implicit def funToConcA[Domain](f:Domain => Boolean) : Concatenator[Domain] = Concatenator(f)
-
-    //implicit def funToConcB[Domain,DomainA<:Domain,DomainB<:Domain](f:(DomainA,DomainB) => Boolean) : Domain => Boolean = null
-
-    implicit def concToFunc[Domain](conc :Concatenator[Domain]) : Domain => Boolean = null
-
-    //implicit def funToConcBool(b: Boolean) : Concatenator[Any] = null
-
-    //implicit def richEquals[Domain](v: Domain) : SQLEquals[Domain] = null
-
-    //implicit def funToConcBool[Domain](f:Domain => Boolean) : Domain => Boolean with ORTrait[Domain] = null
-
-    implicit def funToConcBool[Domain](f: => Boolean) : Concatenator[Domain] = null
-
-}
-
-trait ORTrait[Domain] {
-    val OR : Domain
 }

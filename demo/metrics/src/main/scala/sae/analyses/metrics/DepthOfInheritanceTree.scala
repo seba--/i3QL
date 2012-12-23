@@ -30,58 +30,32 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.analyses.metrics
+
+import sae.bytecode._
+import sae.Relation
+import de.tud.cs.st.bat.resolved.ObjectType
+import sae.syntax.RelationalAlgebraSyntax._
+import sae.functions.Count
+import structure.InheritanceRelation
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 11:25
+ *
+ * @author Ralf Mitschke
+ *
  */
 
-object Demo
+object DepthOfInheritanceTree
+    extends (BytecodeDatabase => Relation[(ObjectType, Int)])
 {
-    type Structural = {def foo(): Unit}
-
-    class Real
-    {
-        def foo() {
-            println ("foo")
-        }
-    }
-
-    trait ContainerLike[V <: AnyRef, +This <: ContainerLike[V, This]]
-    {
-        self : This =>
-        def addV(v: V)
-    }
-
-    trait Container[V <: AnyRef] extends ContainerLike[V, Container[V]]
-    {
-
-    }
-
-
-    class ContainerImpl[V <: AnyRef] extends Container[V]
-    {
-        def addV(v: V) {println("added " + v)}
-    }
-
-    def main(args: Array[String]) {
-        import Conversions._
-        val first = funToConcA ((_: Data).id == 0)
-
-        //val EXISTS : EXISTS_KEYWORD=null
-
-        val fun = (_: Data).property == false
-
-        val c: Container[Structural] = new ContainerImpl[Structural]
-
-        c.addV(new Real)
-        //c.addV(new Object) // should be wrong
-        //val test1 = first and EXISTS SELECT ()
-
-        //val test = (_:Data).id == 0 OR (_.property == false)
-        //val query = first AND (_.name == "Kitty" OR  (_.property == false))
+    /**
+     * Calculates the depth of the inheritance tree for all classes in db
+     */
+    def apply(db: BytecodeDatabase): Relation[(ObjectType, Int)] = {
+        γ (db.inheritance,
+            subType,
+            Count[InheritanceRelation](),
+            (x: ObjectType, y: Int) => (x, y)
+        )
     }
 }

@@ -30,20 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package sae
+package sae.analyses.metrics.base
+
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
- * Created with IntelliJ IDEA.
- * User: Ralf Mitschke
- * Date: 11.08.12
- * Time: 21:00
+ *
+ * @author Ralf Mitschke
+ *
  */
 
-trait EXISTS_CLAUSE[Domain]
+case class Dependency(source: ObjectType, target: ObjectType)
 {
-
-    //def apply() : EXISTS_KEYWORD.type = this
-
-    def SELECT(): Concatenator[Domain]
 
 }
