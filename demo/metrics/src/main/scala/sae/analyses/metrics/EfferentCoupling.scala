@@ -32,12 +32,13 @@
  */
 package sae.analyses.metrics
 
-import base.{Dependency, Definitions}
-import sae.bytecode.BytecodeDatabase
+import base.Definitions
+import sae.bytecode._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax.γ
 import sae.functions.Count
 import sae.syntax.sql._
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -45,7 +46,7 @@ import sae.syntax.sql._
  *
  */
 
-object AfferentCoupling
+object EfferentCoupling
     extends (BytecodeDatabase => Relation[(String, Int)])
 {
 
@@ -53,14 +54,13 @@ object AfferentCoupling
         val definitions = Definitions (database)
         import definitions._
 
-
-        val distinct = compile (
-            SELECT DISTINCT (*) FROM crossPackageDependencies
+        val sources: Relation[ObjectType] = compile (
+            SELECT DISTINCT (source) FROM crossPackageDependencies
         )
 
-        γ (distinct,
-            targetPackage,
-            Count[Dependency]()
+        γ (sources,
+            packageName,
+            Count[ObjectType]()
         )
 
     }

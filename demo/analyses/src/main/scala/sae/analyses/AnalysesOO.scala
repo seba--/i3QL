@@ -37,7 +37,7 @@ import sae.Relation
 import sae.bytecode.BytecodeDatabase
 import findbugs.random.oo._
 import findbugs.selected.oo._
-import metrics.{LCOMStar, DepthOfInheritanceTree}
+import metrics._
 
 
 /**
@@ -99,6 +99,8 @@ object AnalysesOO
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree (database)
         case "LCOM" => LCOMStar (database)
+        case "CA" => AfferentCoupling (database)
+        case "CE" => EfferentCoupling (database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 
@@ -132,6 +134,8 @@ object AnalysesOO
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree (database)
         case "LCOM" => LCOMStar (database)
+        case "CA" => AfferentCoupling (database)
+        case "CE" => EfferentCoupling (database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 

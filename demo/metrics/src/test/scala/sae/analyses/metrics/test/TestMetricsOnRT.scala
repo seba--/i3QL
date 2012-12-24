@@ -29,40 +29,38 @@
  *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */
-package sae.analyses.metrics
+ */package sae.analyses.metrics.test
 
-import base.{Dependency, Definitions}
-import sae.bytecode.BytecodeDatabase
-import sae.Relation
-import sae.syntax.RelationalAlgebraSyntax.γ
-import sae.functions.Count
-import sae.syntax.sql._
+import org.junit.Test
+import sae.bytecode.bat.BATDatabaseFactory
+import sae._
+import analyses.metrics.base.Definitions
+import analyses.metrics.EfferentCoupling
+import org.junit.Assert._
 
 /**
- *
+ * 
  * @author Ralf Mitschke
- *
+ * 
  */
 
-object AfferentCoupling
-    extends (BytecodeDatabase => Relation[(String, Int)])
-{
+class TestMetricsOnRT {
 
-    def apply(database: BytecodeDatabase): Relation[(String, Int)] = {
-        val definitions = Definitions (database)
-        import definitions._
+    def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
 
-
-        val distinct = compile (
-            SELECT DISTINCT (*) FROM crossPackageDependencies
-        )
-
-        γ (distinct,
-            targetPackage,
-            Count[Dependency]()
-        )
-
+    @Test
+    def test_CA() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (EfferentCoupling (database))
+        database.addArchive (getStream)
+        analysis.foreach(println)
     }
 
+    @Test
+    def test_CE() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (EfferentCoupling (database))
+        database.addArchive (getStream)
+        assertEquals(819, analysis.size)
+    }
 }

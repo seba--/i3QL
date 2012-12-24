@@ -17,11 +17,13 @@ package object bytecode
 
     type ClassType = de.tud.cs.st.bat.resolved.ObjectType
 
-    def ClassType(fullyQualified: String): ClassType = de.tud.cs.st.bat.resolved.ObjectType(fullyQualified)
+    def ClassType(fullyQualified: String): ClassType = de.tud.cs.st.bat.resolved.ObjectType (fullyQualified)
 
     val void = VoidType
 
     def thisClass: de.tud.cs.st.bat.resolved.ObjectType => de.tud.cs.st.bat.resolved.ObjectType = identity[ObjectType] _
+
+    def packageName: de.tud.cs.st.bat.resolved.ObjectType => String = _.packageName
 
     def thisMethod: MethodDeclaration => MethodDeclaration = identity[MethodDeclaration] _
 
@@ -54,7 +56,6 @@ package object bytecode
     def declaringClassType: InstructionInfo => ClassType = _.declaringMethod.declaringClass.classType
 
 
-
-    def referencedMethod: InvokeInstruction => MethodInfo = call => MethodReference(call.receiverType, call.name, call
-            .parameterTypes, call.returnType)
+    def referencedMethod: InvokeInstruction => MethodInfo = call => MethodReference (call.receiverType, call.name, call
+        .parameterTypes, call.returnType)
 }

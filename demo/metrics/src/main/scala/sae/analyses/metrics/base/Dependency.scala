@@ -43,4 +43,6 @@ import de.tud.cs.st.bat.resolved.ObjectType
 case class Dependency(source: ObjectType, target: ObjectType)
 {
 
+    def isCrossPackage : Boolean = source.packageName != target.packageName
+
 }

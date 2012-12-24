@@ -5,6 +5,8 @@ import collection.mutable
 import sae.syntax.sql._
 import structure.MethodDeclaration
 import DependencyFactory._
+import sae.Relation
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -31,7 +33,16 @@ object Definitions
 class Definitions(val database: BytecodeDatabase)
 {
 
-    lazy val classTypeDependencies =
+    def sourcePackage : Dependency => String = _.source.packageName
+
+    def targetPackage : Dependency => String = _.target.packageName
+
+    def source : Dependency => ObjectType = _.source
+
+    def target : Dependency => ObjectType = _.target
+
+
+    lazy val classTypeDependencies: Relation[Dependency] =
         compile (
             SELECT (extendsDependency) FROM database.classInheritance UNION_ALL (
                 SELECT (implementsDependency) FROM database.interfaceInheritance
@@ -66,4 +77,8 @@ class Definitions(val database: BytecodeDatabase)
                 )
         )
 
+
+    lazy val crossPackageDependencies = compile (
+        SELECT (*) FROM classTypeDependencies WHERE (_.isCrossPackage) AND (_.target != ObjectType.Object)
+    )
 }
