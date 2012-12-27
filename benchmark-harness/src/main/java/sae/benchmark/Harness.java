@@ -241,7 +241,8 @@ public class Harness {
         String commandLine = getJavaExecutable();
 
         commandLine = addArguments(commandLine, new String[]{
-                "-classpath" + " " + getRuntimeClasspath() 
+                "-classpath" + " " + getRuntimeClasspath(),
+                "-Xmx2G"
         });
 
         return commandLine;

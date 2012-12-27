@@ -37,7 +37,7 @@
                                 <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                                 <argument>false</argument>
                                 <argument>false</argument>
@@ -45,6 +45,7 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    <!--
                     <execution>
                         <id>opt-query</id>
                         <phase>test</phase>
@@ -55,10 +56,9 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                                 <argument>true</argument>
                                 <argument>false</argument>
@@ -76,10 +76,9 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                                 <argument>false</argument>
                                 <argument>true</argument>
@@ -97,10 +96,9 @@
                             <executable>java</executable>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                                 <argument>false</argument>
                                 <argument>false</argument>
@@ -108,6 +106,7 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    -->
                     <execution>
                         <id>opt-all</id>
                         <phase>test</phase>
@@ -121,7 +120,7 @@
                                 <!-- automatically creates the classpath using all project dependencies, also adding the project build directory -->
                                 <classpath/>
                                 <argument>sae.benchmark.Harness</argument>
-                                <argument>"sae/benchmark/definitions/sae/oo"</argument>
+                                <argument>"sae/benchmark/definitions"</argument>
                                 <argument>true</argument>
                                 <argument>true</argument>
                                 <argument>true</argument>
