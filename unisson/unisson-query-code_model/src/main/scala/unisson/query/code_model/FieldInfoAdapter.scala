@@ -44,6 +44,4 @@ class FieldInfoAdapter(val element: FieldInfo)
         element.name +
         ":" + element.fieldType.toJava
 
-    lazy val getSootIdentifier =
-        "<" + element.declaringType.toJava + ":" + element.fieldType.toJava + " " + element.name + ">"
 }

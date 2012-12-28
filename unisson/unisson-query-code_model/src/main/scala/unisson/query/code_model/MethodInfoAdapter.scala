@@ -32,7 +32,7 @@ class MethodInfoAdapter(val element: MethodInfo)
 
     def getReturnTypeQualifier = element.returnType.toJava
 
-    lazy val getParameterTypeQualifiers = element.parameterTypes.map (_.toJava).toArray
+    def getParameterTypeQualifiers = element.parameterTypes.map (_.toJava).toArray
 
     def getLineNumber = -1
 
@@ -69,20 +69,5 @@ class MethodInfoAdapter(val element: MethodInfo)
         }
         ) + ")" +
         ":" + element.returnType.toJava
-
-    lazy val getSootIdentifier =
-        "<" + element.receiverType.toJava + ":" + element.returnType.toJava + " " + element.name +
-            "(" +
-            (
-                if (element.parameterTypes.isEmpty) {
-                    ""
-                }
-                else
-                {
-                    element.parameterTypes.map (_.toJava).reduceLeft (_ + " " + _)
-                }
-                ) +
-            ")" +
-            ">"
 
 }
