@@ -1,10 +1,10 @@
 package unisson.query.compiler
 
-import collection.mutable.WeakHashMap
 import unisson.query.UnissonQuery
 import unisson.query.ast._
 import sae.{Observable, Relation}
-import de.tud.cs.st.vespucci.interfaces.{ICodeElement, SourceElement}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import collection.mutable
 
 /**
  *
@@ -16,8 +16,8 @@ import de.tud.cs.st.vespucci.interfaces.{ICodeElement, SourceElement}
 class CachingQueryCompiler(val decoratee: QueryCompiler)
     extends QueryCompiler
 {
-    protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, Relation[ICodeElement]] =
-        new WeakHashMap[UnissonQuery, Relation[ICodeElement]]()
+    protected[compiler] var cachedQueries: mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]] =
+        new mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]]()
 
     val db = decoratee.db
 
@@ -47,7 +47,7 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
 
     def dispose(query: UnissonQuery) {
         for (
-            compiledQuery <- getChachedQuery (query);
+            compiledQuery <- getChachedQuery (query)
             if !compiledQuery.hasObservers
         )
         {

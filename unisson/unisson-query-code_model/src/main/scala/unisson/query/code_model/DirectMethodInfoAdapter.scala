@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, IMethodDeclaration}
+import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
 import sae.bytecode.structure.{MethodComparison, MethodInfo}
 import de.tud.cs.st.bat.resolved.{FieldType, Type, ReferenceType, ObjectType}
 
@@ -16,7 +16,7 @@ class DirectMethodInfoAdapter(val receiverType: ReferenceType,
                               val name: String,
                               val parameterTypes: Seq[FieldType],
                               val returnType: Type)
-    extends IMethodDeclaration with SourceElement[MethodInfo] with MethodComparison
+    extends IMethodDeclaration with MethodComparison
 {
 
     def this(element: MethodInfo) = this (element.receiverType, element.name, element.parameterTypes, element.returnType)
@@ -68,6 +68,4 @@ class DirectMethodInfoAdapter(val receiverType: ReferenceType,
         }
         ) + ")" +
         ":" + returnType.toJava
-
-    def element = this
 }

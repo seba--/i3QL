@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, IFieldDeclaration}
+import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
 import sae.bytecode.structure.{FieldComparison, FieldInfo}
 import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
 
@@ -14,7 +14,7 @@ import de.tud.cs.st.bat.resolved.{FieldType, ObjectType}
 class DirectFieldInfoAdapter(val declaringType: ObjectType,
                              val name: String,
                              val fieldType: FieldType)
-    extends IFieldDeclaration with SourceElement[FieldInfo] with FieldComparison
+    extends IFieldDeclaration with FieldComparison
 {
     def this (element: FieldInfo) = this (element.declaringType, element.name, element.fieldType)
 
@@ -44,5 +44,4 @@ class DirectFieldInfoAdapter(val declaringType: ObjectType,
         name +
         ":" + fieldType.toJava
 
-    def element = this
 }

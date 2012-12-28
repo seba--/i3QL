@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.bat.resolved.ObjectType
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, IClassDeclaration}
+import de.tud.cs.st.vespucci.interfaces.IClassDeclaration
 
 /**
  *
@@ -11,7 +11,7 @@ import de.tud.cs.st.vespucci.interfaces.{SourceElement, IClassDeclaration}
  *
  */
 class ClassTypeAdapter(val element: ObjectType)
-    extends IClassDeclaration with SourceElement[ObjectType]
+    extends IClassDeclaration
 {
     def getPackageIdentifier = element.packageName
 
@@ -24,9 +24,6 @@ class ClassTypeAdapter(val element: ObjectType)
     override def hashCode() = element.hashCode
 
     override def equals(obj: Any): Boolean = {
-        if (obj.isInstanceOf[SourceElement[ObjectType]]) {
-            return element.equals (obj.asInstanceOf[SourceElement[ObjectType]].element)
-        }
         if (obj.isInstanceOf[IClassDeclaration])
         {
             val other = obj.asInstanceOf[IClassDeclaration]

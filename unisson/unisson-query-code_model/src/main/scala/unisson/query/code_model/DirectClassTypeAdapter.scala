@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.bat.resolved.ObjectType
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, IClassDeclaration}
+import de.tud.cs.st.vespucci.interfaces.IClassDeclaration
 
 /**
  *
@@ -11,7 +11,7 @@ import de.tud.cs.st.vespucci.interfaces.{SourceElement, IClassDeclaration}
  *
  */
 class DirectClassTypeAdapter(val className: String)
-    extends IClassDeclaration with SourceElement[ObjectType]
+    extends IClassDeclaration
 {
     def this(element: ObjectType) = this (element.className)
 
@@ -35,6 +35,4 @@ class DirectClassTypeAdapter(val className: String)
     }
 
     override def toString = getTypeQualifier
-
-    def element = ObjectType (className)
 }

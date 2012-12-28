@@ -5,6 +5,7 @@ import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElementFactory
 import org.junit.Test
+import org.junit.Assert._
 import de.tud.cs.st.bat._
 import resolved.{MethodDescriptor, VoidType, ObjectType}
 import sae.bytecode.bat.BATDatabaseFactory
@@ -12,8 +13,7 @@ import sae.bytecode.structure._
 import sae.bytecode.instructions.INVOKESPECIAL
 import sae.bytecode.structure.InheritanceRelation
 import sae.bytecode.instructions.PUTFIELD
-
-
+import UnissonOrdering._
 /**
  *
  * Author: Ralf Mitschke
@@ -25,7 +25,6 @@ class TestUnissonDatabaseEnsembleDependencies
     extends ShouldMatchers
 {
 
-    import UnissonOrdering._
 
     @Test
     def testFilterSelfDependency() {
@@ -206,7 +205,8 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (fieldRefBToA2)
 
 
-        db.ensemble_elements.asList.sorted should be (
+
+        assertEquals(
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),
@@ -215,17 +215,20 @@ class TestUnissonDatabaseEnsembleDependencies
                 (ensembleB, SourceElementFactory (b)),
                 (ensembleB, SourceElementFactory (fieldRefBToA1)),
                 (ensembleB, SourceElementFactory (fieldRefBToA2))
-            )
+            ),
+            db.ensemble_elements.asList.sorted
         )
 
-        db.ensemble_dependencies.asList.sorted should be (
+
+        assertEquals(
             List (
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
                 (ensembleB, ensembleA1, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind
                     .asVespucciString),
                 (ensembleB, ensembleA2, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString)
-            )
+            ),
+            db.ensemble_dependencies.asList.sorted
         )
     }
 
@@ -279,7 +282,8 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (fieldRefBToA5)
 
 
-        db.ensemble_elements.asList.sorted should be (
+
+        assertEquals(
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),
@@ -296,10 +300,12 @@ class TestUnissonDatabaseEnsembleDependencies
                 (ensembleB, SourceElementFactory (fieldRefBToA2)),
                 (ensembleB, SourceElementFactory (fieldRefBToA4)),
                 (ensembleB, SourceElementFactory (fieldRefBToA5))
-            )
+            ),
+            db.ensemble_elements.asList.sorted
         )
 
-        db.ensemble_dependencies.asList.sorted should be (
+
+        assertEquals(
             List (
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
@@ -316,7 +322,8 @@ class TestUnissonDatabaseEnsembleDependencies
                 (ensembleB, ensembleA4, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind
                     .asVespucciString),
                 (ensembleB, ensembleA5, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind.asVespucciString)
-            )
+            ),
+            db.ensemble_dependencies.asList.sorted
         )
     }
 
@@ -349,7 +356,8 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (fieldRefA2ToA1)
 
 
-        db.ensemble_elements.asList.sorted should be (
+
+        assertEquals (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (fieldRefA1ToA2)),
@@ -359,16 +367,19 @@ class TestUnissonDatabaseEnsembleDependencies
                 (ensembleA1, SourceElementFactory (fieldRefA1ToA2)),
                 (ensembleA2, SourceElementFactory (a2)),
                 (ensembleA2, SourceElementFactory (fieldRefA2ToA1))
-            )
+            ),
+            db.ensemble_elements.asList.sorted
         )
 
-        db.ensemble_dependencies.asList.sorted should be (
+
+        assertEquals (
             List (
                 (ensembleA1, ensembleA2, SourceElementFactory (fieldRefA1ToA2), SourceElementFactory (a2), FieldTypeKind
                     .asVespucciString),
                 (ensembleA2, ensembleA1, SourceElementFactory (fieldRefA2ToA1), SourceElementFactory (a1), FieldTypeKind
                     .asVespucciString)
-            )
+            ),
+            db.ensemble_dependencies.asList.sorted
         )
     }
 
@@ -422,7 +433,7 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (fieldRefA4ToA5)
         bc.fieldDeclarations.element_added (fieldRefA5ToA2)
 
-        db.ensemble_elements.asList.sorted should be (
+        assertEquals (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (fieldRefA1ToA2)),
@@ -451,10 +462,13 @@ class TestUnissonDatabaseEnsembleDependencies
                 (ensembleA4, SourceElementFactory (fieldRefA4ToA5)),
                 (ensembleA5, SourceElementFactory (a5)),
                 (ensembleA5, SourceElementFactory (fieldRefA5ToA2))
-            )
+            ),
+            db.ensemble_elements.asList.sorted
         )
 
-        db.ensemble_dependencies.asList.sorted should be (
+
+
+        assertEquals (
             List (
                 (ensembleA1, ensembleA2, SourceElementFactory (fieldRefA1ToA2), SourceElementFactory (a2), FieldTypeKind
                     .asVespucciString),
@@ -478,7 +492,8 @@ class TestUnissonDatabaseEnsembleDependencies
                     .asVespucciString),
                 (ensembleA5, ensembleA2, SourceElementFactory (fieldRefA5ToA2), SourceElementFactory (a2), FieldTypeKind
                     .asVespucciString)
-            )
+            ),
+            db.ensemble_dependencies.asList.sorted
         )
     }
 

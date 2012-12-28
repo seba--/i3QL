@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, ICodeElement}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import de.tud.cs.st.bat.resolved.ArrayType
 
 /**
@@ -11,7 +11,7 @@ import de.tud.cs.st.bat.resolved.ArrayType
  *
  */
 class ArrayTypeAdapter (val element: ArrayType)
-    extends ICodeElement with SourceElement[ArrayType]
+    extends ICodeElement
 {
     def getPackageIdentifier = ""
 

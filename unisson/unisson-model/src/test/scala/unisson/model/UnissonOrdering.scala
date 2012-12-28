@@ -1,7 +1,6 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint}
-import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
+import de.tud.cs.st.vespucci.interfaces._
 
 /**
  *
@@ -94,9 +93,47 @@ object UnissonOrdering
             if (pnCompare != 0) return pnCompare
             val snCompare = x.getSimpleClassName.compareTo (y.getSimpleClassName)
             if (snCompare != 0) return snCompare
-            x.toString.compareTo (y.toString)
+
+            elementAsString (x).compareTo (elementAsString (y))
         }
     }
 
+    private def elementAsString(element: ICodeElement): String = {
+        if (element.isInstanceOf[IClassDeclaration])
+            classAsString (element.asInstanceOf[IClassDeclaration])
+        else if (element.isInstanceOf[IMethodDeclaration])
+                 methodAsString (element.asInstanceOf[IMethodDeclaration])
+        else if (element.isInstanceOf[IFieldDeclaration])
+                 fieldAsString (element.asInstanceOf[IFieldDeclaration])
+        else throw new IllegalArgumentException ("object of type " + element.getClass.toString + " can not be converted to string")
+    }
+
+
+    private def classAsString(element: IClassDeclaration): String =
+        classAsString (element.getPackageIdentifier, element.getSimpleClassName)
+
+    private def classAsString(packageIdentifier: String, simpleName: String): String =
+        packageIdentifier.replace ('/', '.') + "." + simpleName
+
+
+    private def methodAsString(element: IMethodDeclaration): String =
+        classAsString (element.getPackageIdentifier, element.getSimpleClassName) + "." +
+            element.getMethodName +
+            "(" + (
+            if (element.getParameterTypeQualifiers.isEmpty) {
+                ""
+            }
+            else
+            {
+                element.getParameterTypeQualifiers.reduceLeft (_ + "," + _)
+            }
+            ) + ")" +
+            ":" + element.getReturnTypeQualifier
+
+
+    private def fieldAsString(element: IFieldDeclaration): String =
+        classAsString (element.getPackageIdentifier, element.getSimpleClassName) + "." +
+            element.getFieldName +
+            ":" + element.getTypeQualifier
 
 }

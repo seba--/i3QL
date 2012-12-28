@@ -1,7 +1,7 @@
 package unisson.query.code_model
 
 import de.tud.cs.st.bat.resolved.Type
-import de.tud.cs.st.vespucci.interfaces.SourceElement
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *
@@ -10,7 +10,7 @@ import de.tud.cs.st.vespucci.interfaces.SourceElement
  * Time: 10:42
  *
  */
-case class TypeReference(element: Type) extends SourceElement[Type]
+case class TypeReference(element: Type) extends ICodeElement
 {
     def getPackageIdentifier = ""
 

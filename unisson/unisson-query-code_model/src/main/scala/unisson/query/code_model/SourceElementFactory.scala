@@ -15,11 +15,11 @@ import sae.bytecode.structure.{FieldInfo, MethodInfo}
 object SourceElementFactory
 {
     def apply[T <: AnyRef](element: T): ICodeElement = {
-        if (element.isInstanceOf[ObjectType]) {
-            return element.asInstanceOf[ObjectType] // new DirectClassTypeAdapter(element.asInstanceOf[ObjectType])
+        if (element.isInstanceOf[ICodeElement]) {
+            return element.asInstanceOf[ICodeElement]
         }
         if (element.isInstanceOf[MethodInfo]) {
-            return new MethodInfoAdapter (element.asInstanceOf[MethodInfo])
+            return new DirectMethodInfoAdapter(element.asInstanceOf[MethodInfo])
         }
         if (element.isInstanceOf[FieldInfo]) {
             return new DirectFieldInfoAdapter (element.asInstanceOf[FieldInfo])
