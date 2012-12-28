@@ -148,7 +148,7 @@ trait IUnissonDatabase
     /**
      * A list naming all slices
      */
-    val slices: Relation[String] = δ (Π {
+    lazy val slices: Relation[String] = δ (Π {
         (_: (IEnsemble, String))._2
     }(slice_ensembles))
 
@@ -166,7 +166,7 @@ trait IUnissonDatabase
     /**
      * A list of all descendants of an ensemble in the form (ancestor,descendant)
      */
-    val descendants: Relation[(IEnsemble, IEnsemble)] =
+    lazy val descendants: Relation[(IEnsemble, IEnsemble)] =
     {
         TC (children)(_._1, _._2)
     }
@@ -176,7 +176,7 @@ trait IUnissonDatabase
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      * Each entry can be included multiple times, since two ensembles can have multiple dependencies to the same element
      */
-    val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
+    lazy val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
     {
 
         val sourceEnsembleDependencies = (
@@ -253,7 +253,7 @@ trait IUnissonDatabase
     /**
      * A list of violations with full information on source code dependencies and violating constraint
      */
-    val violations: Relation[IViolation] =
+    lazy val violations: Relation[IViolation] =
     {
         val disallowed_dependency_violations = (
             (

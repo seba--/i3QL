@@ -25,6 +25,7 @@ class TestUnissonDatabaseEnsembleElements
     def testClassTypeQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
+        db.ensemble_elements
 
         val ensembleA = Ensemble ("A", "class('test','A')")
         val ensembleB = Ensemble ("B", "class('test','B')")
@@ -50,7 +51,7 @@ class TestUnissonDatabaseEnsembleElements
     def testChildrenAndDerivedParentQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-
+        db.ensemble_elements
 
         val ensembleA1 = Ensemble ("A1", "class('test','A1')")
         val ensembleA2 = Ensemble ("A2", "class('test','A2')")
@@ -85,7 +86,7 @@ class TestUnissonDatabaseEnsembleElements
     def testChildrenAndDirectParentQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-
+        db.ensemble_elements
 
         val ensembleA1 = Ensemble ("A1", "class('test.a','A1')")
         val ensembleA2 = Ensemble ("A2", "class('test.a','A2')")
@@ -121,7 +122,7 @@ class TestUnissonDatabaseEnsembleElements
     def testClassWithMembersQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-
+        db.ensemble_elements
 
         val ensembleA = Ensemble ("A", "class_with_members('test','A')")
         val ensembleB = Ensemble ("B", "class_with_members('test','B')")
@@ -161,7 +162,7 @@ class TestUnissonDatabaseEnsembleElements
     def testTwoLevelDerivedClassWithMembersQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-
+        db.ensemble_elements
 
         val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
         val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
