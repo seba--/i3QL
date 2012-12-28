@@ -2,7 +2,7 @@ package unisson.model
 
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Ignore, Test}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.{MethodDeclaration, FieldDeclaration, MethodReference, InheritanceRelation}
@@ -77,8 +77,8 @@ class TestUnissonDatabaseKinds
                     c,
                     ensembleA,
                     ensembleB,
-                    SourceElement(field),
-                    SourceElement(b),
+                    SourceElementFactory(field),
+                    SourceElementFactory(b),
                     "field_type",
                     "test"
                 )
@@ -132,8 +132,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -190,8 +190,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 ),
@@ -199,8 +199,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -260,8 +260,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "contextBToA"
                 ),
@@ -269,8 +269,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "contextDToA"
                 )
@@ -323,8 +323,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -381,8 +381,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 ),
@@ -390,8 +390,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -442,8 +442,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )
@@ -494,8 +494,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )
@@ -546,8 +546,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )

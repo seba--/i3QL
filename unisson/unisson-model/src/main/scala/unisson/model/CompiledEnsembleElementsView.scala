@@ -1,11 +1,10 @@
 package unisson.model
 
 import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
-import de.tud.cs.st.vespucci.interfaces.IEnsemble
-import unisson.query.code_model.SourceElement
+import de.tud.cs.st.vespucci.interfaces.{SourceElement, IEnsemble, ICodeElement}
+import unisson.query.code_model.SourceElementFactory
 import sae.{Relation, Observer}
 import sae.bytecode.BytecodeDatabase
-import de.tud.cs.st.vespucci.interfaces.ICodeElement
 import unisson.query.UnissonQuery
 import sae.deltas.{Update, Deletion, Addition}
 

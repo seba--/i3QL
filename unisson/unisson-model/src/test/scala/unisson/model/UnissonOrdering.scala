@@ -1,7 +1,7 @@
 package unisson.model
 
 import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint}
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import de.tud.cs.st.vespucci.interfaces.{IViolationSummary, IViolation, ICodeElement}
 
 /**
@@ -97,5 +97,5 @@ object UnissonOrdering
         }
     }
 
-    implicit def sourceElementOrdering = SourceElement.ordering
+    implicit def sourceElementOrdering = SourceElementFactory.ordering
 }

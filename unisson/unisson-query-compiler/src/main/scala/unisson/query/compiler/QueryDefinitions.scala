@@ -6,6 +6,7 @@ import unisson.query.code_model._
 import sae.Relation
 import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
 import sae.bytecode.structure.{InnerClass, InheritanceRelation, MethodDeclaration, FieldDeclaration}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *
@@ -21,23 +22,23 @@ class QueryDefinitions(private val db: BytecodeDatabase)
 
     private def fromJava(unresolved: String): String = unresolved.replace ('.', '/')
 
-    private def joinByTargetElement[T <: AnyRef](view: Relation[T], viewFun: T => AnyRef,
-                                                 target: Relation[SourceElement[AnyRef]]): Relation[T] =
+    private def joinByTarget[T <: AnyRef](view: Relation[T], viewFun: T => AnyRef,
+                                          target: Relation[ICodeElement]): Relation[T] =
         ((
             (
                 target,
-                (_: SourceElement[AnyRef]).element
+                (_: ICodeElement)
                 ) ⋈ (
                 viewFun,
                 view
                 )
             )
         {
-            (c: SourceElement[AnyRef], f: T) => f
+            (c: ICodeElement, f: T) => f
         })
 
-    def `class`(packageName: String, name: String): Relation[SourceElement[AnyRef]] =
-        Π[ObjectType, SourceElement[AnyRef]] {
+    def `class`(packageName: String, name: String): Relation[ICodeElement] =
+        Π[ObjectType, ICodeElement] {
             new ClassTypeAdapter ((_: ObjectType))
         }(
             σ {
@@ -45,14 +46,14 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             }(db.typeDeclarations)
         )
 
-    def `class`(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
-        (targets, (_: SourceElement[AnyRef]).element) ⋉ (identity (_: ObjectType), db.typeDeclarations)
+    def `class`(targets: Relation[ICodeElement]): Relation[ICodeElement] =
+        (targets, (_: ICodeElement)) ⋉ (identity (_: ICodeElement), db.typeDeclarations)
 
-    def field(declaringClasses: Relation[SourceElement[AnyRef]], name: String,
-              fieldType: Relation[SourceElement[AnyRef]]) =
-        Π (SourceElement (_: FieldDeclaration))(
-            joinByTargetElement[FieldDeclaration](
-                joinByTargetElement (
+    def field(declaringClasses: Relation[ICodeElement], name: String,
+              fieldType: Relation[ICodeElement]) =
+        Π (SourceElementFactory (_: FieldDeclaration))(
+            joinByTarget[FieldDeclaration](
+                joinByTarget (
                     σ (
                         (f: FieldDeclaration) => {
                             f.name == name
@@ -65,15 +66,15 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             )
         )
 
-    def method(declaringClasses: Relation[SourceElement[AnyRef]], name: String,
-               returnTypes: Relation[SourceElement[AnyRef]],
-               parameterTypes: Relation[SourceElement[AnyRef]]*) =
-        Π (SourceElement (_: MethodDeclaration))(
+    def method(declaringClasses: Relation[ICodeElement], name: String,
+               returnTypes: Relation[ICodeElement],
+               parameterTypes: Relation[ICodeElement]*) =
+        Π (SourceElementFactory (_: MethodDeclaration))(
         {
             var i = -1
             parameterTypes.foldLeft[Relation[MethodDeclaration]](
-                joinByTargetElement (
-                    joinByTargetElement[MethodDeclaration](
+                joinByTarget (
+                    joinByTarget[MethodDeclaration](
                         σ (
                             (f: MethodDeclaration) => {
                                 f.name == name
@@ -85,10 +86,10 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                     returnTypes
                 )
             )(
-                (view: Relation[MethodDeclaration], parameterType: Relation[SourceElement[AnyRef]]) => {
+                (view: Relation[MethodDeclaration], parameterType: Relation[ICodeElement]) => {
                     i = i + 1
                     val index = i
-                    joinByTargetElement (
+                    joinByTarget (
                         view,
                         m =>
                             if (index < m.parameterTypes.length) m.parameterTypes (index)
@@ -107,44 +108,44 @@ class QueryDefinitions(private val db: BytecodeDatabase)
      * @param name
      * @return
      */
-    def typeQuery(name: String): Relation[SourceElement[AnyRef]] =
-        new TypeElementView (name).asInstanceOf[Relation[SourceElement[AnyRef]]]
+    def typeQuery(name: String): Relation[ICodeElement] =
+        new TypeElementView (name).asInstanceOf[Relation[ICodeElement]]
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
      */
     // TODO make this special to ObjectType?
-    def supertype(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
+    def supertype(targets: Relation[ICodeElement]): Relation[ICodeElement] =
         Π (
-            (d: InheritanceRelation) => SourceElement (d.subType)
+            (d: InheritanceRelation) => SourceElementFactory (d.subType)
         )(
             (
                 db.inheritance,
-                (_: InheritanceRelation).superType.asInstanceOf[AnyRef]
+                (_: InheritanceRelation).superType.asInstanceOf[ICodeElement]
                 ) ⋉ (
-                (_: SourceElement[AnyRef]).element,
+                identity[ICodeElement],
                 targets
                 )
         )
 
-    def `package`(name: String): Relation[SourceElement[AnyRef]] =
+    def `package`(name: String): Relation[ICodeElement] =
         (
-            Π[ObjectType, SourceElement[AnyRef]] {
-                SourceElement (_: ObjectType)
+            Π[ObjectType, ICodeElement] {
+                SourceElementFactory (_: ObjectType)
             }(σ {
                 (_: ObjectType).packageName == fromJava (name)
             }(db.typeDeclarations))
             ) ⊎
             (
-                Π[MethodDeclaration, SourceElement[AnyRef]] {
-                    SourceElement[AnyRef]((_: MethodDeclaration))
+                Π[MethodDeclaration, ICodeElement] {
+                    SourceElementFactory[AnyRef]((_: MethodDeclaration))
                 }(σ {
                     (_: MethodDeclaration).declaringClassType.packageName == fromJava (name)
                 }(db.methodDeclarations))
                 ) ⊎
             (
-                Π[FieldDeclaration, SourceElement[AnyRef]] {
-                    SourceElement[AnyRef]((_: FieldDeclaration))
+                Π[FieldDeclaration, ICodeElement] {
+                    SourceElementFactory[AnyRef]((_: FieldDeclaration))
                 }(σ {
                     (_: FieldDeclaration).declaringType.packageName == fromJava (name)
                 }(db.fieldDeclarations))
@@ -152,55 +153,61 @@ class QueryDefinitions(private val db: BytecodeDatabase)
 
     // TODO should we compute members of classes not in the source code (these can only yield partial information
     // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the ClassMember type is not really used
-    lazy val direct_class_members: Relation[ClassMember[AnyRef]] =
+    lazy val direct_class_members: Relation[ClassMember] =
         Π {
-            ((m: MethodDeclaration) => new ClassMember[AnyRef](m.declaringClassType, new MethodInfoAdapter (m)))
+            ((m: MethodDeclaration) =>
+                new ClassMember (m.declaringClassType,
+                    SourceElementFactory (m)))
         }(db.methodDeclarations) ⊎
             Π {
                 ((f: FieldDeclaration) =>
-                    new ClassMember[AnyRef](f.declaringClassType, new FieldInfoAdapter (f)))
+                    new ClassMember (f.declaringClassType,
+                        SourceElementFactory (f)))
             }(db.fieldDeclarations) ⊎
-            Π {(inner: InnerClass) =>
-                new ClassMember[AnyRef](inner.outerType, new ClassTypeAdapter (inner
-                    .classType))
+            Π {
+                (inner: InnerClass) =>
+                    new ClassMember (inner.outerType,
+                        SourceElementFactory (inner
+                            .classType))
             }(db.innerClasses)
 
 
-    lazy val transitive_class_members: Relation[(AnyRef, AnyRef)] =
-        TC (direct_class_members)((cm: ClassMember[AnyRef]) => (cm.outerType), (_: ClassMember[AnyRef]).member
-            .element)
+    lazy val transitive_class_members: Relation[(ICodeElement, ICodeElement)] =
+        TC (direct_class_members)(
+            (_: ClassMember).outerType,
+            (_: ClassMember).member
+        )
 
-
-    def class_with_members(packageName: String, className: String): Relation[SourceElement[AnyRef]] =
+    def class_with_members(packageName: String, className: String): Relation[ICodeElement] =
         class_with_members (packageName + "." + className)
 
-    def class_with_members(qualifiedClass: String): Relation[SourceElement[AnyRef]] =
+    def class_with_members(qualifiedClass: String): Relation[ICodeElement] =
         Π {
-            SourceElement[AnyRef]((_: ObjectType))
+            SourceElementFactory((_: ObjectType))
         }(
             σ {
                 (_: ObjectType) == ObjectType (fromJava (qualifiedClass))
             }(db.typeDeclarations)
         ) ⊎
             Π {
-                (cm: (AnyRef, AnyRef)) => SourceElement[AnyRef](cm._2)
+                (cm: (AnyRef, AnyRef)) => SourceElementFactory[AnyRef](cm._2)
             }(
                 σ {
-                    (_: (AnyRef, AnyRef))._1 == ObjectType (fromJava (qualifiedClass))
+                    (_: (ICodeElement, ICodeElement))._1 == ObjectType (fromJava (qualifiedClass))
                 }(transitive_class_members)
             )
 
 
-    def transitive_supertype(targets: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
+    def transitive_supertype(targets: Relation[ICodeElement]): Relation[ICodeElement] =
         δ (// TODO something is not right here, this should not require a delta, values should be distinct on their own
             Π (
-                (d: InheritanceRelation) => SourceElement (d.subType) // _.source
+                (d: InheritanceRelation) => SourceElementFactory (d.subType) // _.source
             )(
                 (
                     db.subTypes,
                     (_: InheritanceRelation).superType.asInstanceOf[AnyRef] // _.target
                     ) ⋉ (
-                    (_: SourceElement[AnyRef]).element,
+                    (_: ICodeElement).element,
                     targets
                     )
             )
@@ -211,16 +218,16 @@ class QueryDefinitions(private val db: BytecodeDatabase)
      * // TODO rewriting is currently very unsatisfying, there are multiple proxy objects in the tree
      */
     /*
-    def transitive(target: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] = {
+    def transitive(target: Relation[ICodeElement]): Relation[ICodeElement] = {
 
         target match {
             case p@Π (
-            func: (Dependency[AnyRef, AnyRef] => SourceElement[AnyRef]),
+            func: (Dependency[AnyRef, AnyRef] => ICodeElement),
             sj@sae.syntax.RelationalAlgebraSyntax.⋉ (
             transitiveQuery: Relation[Dependency[AnyRef, AnyRef]],
             transitiveKey: (Dependency[AnyRef, AnyRef] => AnyRef),
-            outerQuery: Relation[SourceElement[AnyRef]],
-            outerKey: (SourceElement[AnyRef] => AnyRef)
+            outerQuery: Relation[ICodeElement],
+            outerKey: (ICodeElement => AnyRef)
             )
             ) =>
             {
@@ -250,20 +257,20 @@ class QueryDefinitions(private val db: BytecodeDatabase)
     /**
      * select all (class, member) from transitive_class_members where class exists in target
      */
-    def class_with_members(target: Relation[SourceElement[AnyRef]]): Relation[SourceElement[AnyRef]] =
-        Π (identity (_: SourceElement[AnyRef]))(
-            σ ((_: SourceElement[AnyRef]) match {
-                case SourceElement (_: ObjectType) => true
+    def class_with_members(target: Relation[ICodeElement]): Relation[ICodeElement] =
+        Π (identity (_: ICodeElement))(
+            σ ((_: ICodeElement) match {
+                case SourceElementFactory (_: ObjectType) => true
                 case _ => false
             }
             )(target)
         ) ⊎
             Π {
-                (tuple: (AnyRef, AnyRef)) => SourceElement[AnyRef](tuple._2)
+                (tuple: (AnyRef, AnyRef)) => SourceElementFactory[AnyRef](tuple._2)
             }(
                 (transitive_class_members, (cm: (AnyRef, AnyRef)) =>
-                    SourceElement[AnyRef](cm
-                        ._1)) ⋉ (identity[SourceElement[AnyRef]], target)
+                    SourceElementFactory[AnyRef](cm
+                        ._1)) ⋉ (identity[ICodeElement], target)
             )
 
 

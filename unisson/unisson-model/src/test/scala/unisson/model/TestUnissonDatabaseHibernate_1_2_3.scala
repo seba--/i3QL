@@ -4,7 +4,7 @@ import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.{Ignore, Test}
 import de.tud.cs.st.vespucci.interfaces.IViolation
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
 import sae.bytecode.bat.BATDatabaseFactory
 import UnissonOrdering._
@@ -60,7 +60,7 @@ class TestUnissonDatabaseHibernate_1_2_3
             Violation (emptyToExceptions,
                 ActionInterface,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/SessionImpl$Executable"),
                         "afterTransactionCompletion",
@@ -68,13 +68,13 @@ class TestUnissonDatabaseHibernate_1_2_3
                         Seq ()
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ActionInterface,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/SessionImpl$Executable"),
                         "execute",
@@ -82,13 +82,13 @@ class TestUnissonDatabaseHibernate_1_2_3
                         Seq ()
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledCollectionAction"),
                         "afterTransactionCompletion",
@@ -96,13 +96,13 @@ class TestUnissonDatabaseHibernate_1_2_3
                         Seq ()
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledCollectionRecreate"),
                         "execute",
@@ -111,13 +111,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledCollectionRemove"),
                         "execute",
@@ -126,13 +126,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledCollectionUpdate"),
                         "execute",
@@ -141,13 +141,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledDeletion"),
                         "afterTransactionCompletion",
@@ -156,13 +156,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledUpdate"),
                         "afterTransactionCompletion",
@@ -171,13 +171,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledDeletion"),
                         "execute",
@@ -186,13 +186,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledUpdate"),
                         "execute",
@@ -201,13 +201,13 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
             Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement (
+                SourceElementFactory (
                     MethodDeclaration (
                         ObjectType ("cirrus/hibernate/impl/ScheduledInsertion"),
                         "execute",
@@ -216,7 +216,7 @@ class TestUnissonDatabaseHibernate_1_2_3
 
                     )
                 ),
-                SourceElement (ObjectType ("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             )
         ).sorted

@@ -2,7 +2,7 @@ package unisson.model
 
 import constraints.{NormalizedConstraint, ConstraintType}
 import kinds.{KindResolver, DependencyKind, KindParser}
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import sae.collections.Table
 import sae.{Observer, Relation}
 import de.tud.cs.st.vespucci.interfaces.{IConstraint, IEnsemble, ICodeElement}
@@ -604,9 +604,9 @@ class UnissonDatabase(val bc: BytecodeDatabase)
 
     lazy val unmodeled_elements: Relation[ICodeElement] = (
         (
-            Π (SourceElement (_: ObjectType).asInstanceOf[ICodeElement])(bc.typeDeclarations) ⊎
-                Π (SourceElement (_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.fieldDeclarations) ⊎
-                Π (SourceElement (_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.methodDeclarations)
+            Π (SourceElementFactory (_: ObjectType).asInstanceOf[ICodeElement])(bc.typeDeclarations) ⊎
+                Π (SourceElementFactory (_: FieldDeclaration).asInstanceOf[ICodeElement])(bc.fieldDeclarations) ⊎
+                Π (SourceElementFactory (_: MethodDeclaration).asInstanceOf[ICodeElement])(bc.methodDeclarations)
             ) ∖
             δ (Π ((_: (IEnsemble, ICodeElement))._2)(ensemble_elements))
         )

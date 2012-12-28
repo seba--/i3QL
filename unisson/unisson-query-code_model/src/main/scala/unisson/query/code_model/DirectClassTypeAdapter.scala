@@ -10,23 +10,22 @@ import de.tud.cs.st.vespucci.interfaces.{SourceElement, IClassDeclaration}
  * Time: 13:05
  *
  */
-class ClassTypeAdapter(val element: ObjectType)
+class DirectClassTypeAdapter(val className: String)
     extends IClassDeclaration with SourceElement[ObjectType]
 {
-    def getPackageIdentifier = element.packageName
+    def this(element: ObjectType) = this (element.className)
 
-    def getTypeQualifier = element.toJava
+    def getPackageIdentifier = ObjectType.packageName (className)
 
-    def getSimpleClassName = element.simpleName
+    def getSimpleClassName = ObjectType.simpleName (className)
+
+    def getTypeQualifier = className.replace ('/', '.')
 
     def getLineNumber = -1
 
-    override def hashCode() = element.hashCode
+    override def hashCode() = className.hashCode * 43
 
     override def equals(obj: Any): Boolean = {
-        if (obj.isInstanceOf[SourceElement[ObjectType]]) {
-            return element.equals (obj.asInstanceOf[SourceElement[ObjectType]].element)
-        }
         if (obj.isInstanceOf[IClassDeclaration])
         {
             val other = obj.asInstanceOf[IClassDeclaration]
@@ -37,4 +36,5 @@ class ClassTypeAdapter(val element: ObjectType)
 
     override def toString = getTypeQualifier
 
+    def element = ObjectType (className)
 }

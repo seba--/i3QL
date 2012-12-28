@@ -1,7 +1,7 @@
 package unisson.query.compiler
 
 import de.tud.cs.st.bat.resolved._
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import sae.MaterializedRelation
 
 /**
@@ -13,7 +13,7 @@ import sae.MaterializedRelation
  */
 class TypeElementView(name: String) extends MaterializedRelation[SourceElement[Type]]
 {
-    val typeElement = SourceElement (TypeElementView.getType (name)).asInstanceOf[SourceElement[Type]]
+    val typeElement = SourceElementFactory (TypeElementView.getType (name)).asInstanceOf[SourceElement[Type]]
 
     def lazyInitialize() {}
 

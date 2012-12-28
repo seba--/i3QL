@@ -3,7 +3,7 @@ package unisson.model
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import de.tud.cs.st.bat.resolved.ObjectType
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Assert, Test}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.FieldDeclaration
@@ -65,8 +65,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleCV0,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -86,8 +86,8 @@ class TestUnissonDatabaseUpdates
                 constraint,
                 EnsembleCV1,
                 ensembleA,
-                SourceElement (fieldRefDToA),
-                SourceElement (a),
+                SourceElementFactory (fieldRefDToA),
+                SourceElementFactory (a),
                 "field_type",
                 "test"
             )
@@ -147,8 +147,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -165,8 +165,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 ),
@@ -174,8 +174,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleD,
                     ensembleA,
-                    SourceElement (fieldRefDToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefDToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -234,8 +234,8 @@ class TestUnissonDatabaseUpdates
                     constraintV0,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -260,8 +260,8 @@ class TestUnissonDatabaseUpdates
                     constraintV1,
                     ensembleB,
                     ensembleA,
-                    SourceElement (fieldRefBToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefBToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -329,8 +329,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -347,8 +347,8 @@ class TestUnissonDatabaseUpdates
                     constraint,
                     ensembleD,
                     ensembleA,
-                    SourceElement (fieldRefDToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefDToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )

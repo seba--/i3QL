@@ -2,7 +2,7 @@ package unisson.model
 
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.Test
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.bytecode.bat.BATDatabaseFactory
@@ -40,8 +40,8 @@ class TestUnissonDatabaseEnsembleElements
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a)),
-                (ensembleB, SourceElement (b))
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -72,11 +72,11 @@ class TestUnissonDatabaseEnsembleElements
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleB, SourceElement (b))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -107,12 +107,12 @@ class TestUnissonDatabaseEnsembleElements
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a)),
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleB, SourceElement (b))
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -148,10 +148,10 @@ class TestUnissonDatabaseEnsembleElements
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a)),
-                (ensembleA, SourceElement (fieldRefAToB)),
-                (ensembleB, SourceElement (b)),
-                (ensembleB, SourceElement (fieldRefBToA))
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleA, SourceElementFactory (fieldRefAToB)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA))
 
             )
         )
@@ -190,13 +190,13 @@ class TestUnissonDatabaseEnsembleElements
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleB, SourceElement (b)),
-                (ensembleB, SourceElement (fieldRefBToA1)),
-                (ensembleB, SourceElement (fieldRefBToA2))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA1)),
+                (ensembleB, SourceElementFactory (fieldRefBToA2))
             )
         )
 

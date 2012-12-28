@@ -2,7 +2,7 @@ package unisson.query.compiler
 
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.Test
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import de.tud.cs.st.bat.resolved.{VoidType, ArrayType, ObjectType, ByteType}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.MethodDeclaration
@@ -19,7 +19,7 @@ class TestQueryDefinitions
     extends ShouldMatchers
 {
 
-    import SourceElement.ordering
+    import SourceElementFactory.ordering
 
 
     @Test
@@ -39,7 +39,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (a)
+                SourceElementFactory (a)
             )
         )
 
@@ -78,7 +78,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (f1)
+                SourceElementFactory (f1)
             )
         )
     }
@@ -129,7 +129,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello1)
+                SourceElementFactory (hello1)
             )
         )
 
@@ -180,8 +180,8 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello1),
-                SourceElement (hello2)
+                SourceElementFactory (hello1),
+                SourceElementFactory (hello2)
             )
         )
     }
@@ -227,7 +227,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello2)
+                SourceElementFactory (hello2)
             )
         )
     }
@@ -266,7 +266,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello3)
+                SourceElementFactory (hello3)
             )
         )
     }
@@ -312,7 +312,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello1)
+                SourceElementFactory (hello1)
             )
         )
     }
@@ -360,7 +360,7 @@ class TestQueryDefinitions
 
         result.asList.sorted should be (
             List (
-                SourceElement (hello2)
+                SourceElementFactory (hello2)
             )
         )
     }

@@ -1,6 +1,6 @@
 package unisson.query.code_model
 
-import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
+import de.tud.cs.st.vespucci.interfaces.{SourceElement, IFieldDeclaration}
 import sae.bytecode.structure.FieldInfo
 
 /**

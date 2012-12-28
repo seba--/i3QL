@@ -3,7 +3,7 @@ package unisson.model
 import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.{Assert, Test}
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import de.tud.cs.st.bat.resolved.{IntegerType, ArrayType, VoidType, ObjectType}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.MethodDeclaration
@@ -44,10 +44,10 @@ class TestUnissonDatabaseHibernate_1_0
 
         Assert.assertEquals (
             List (
-                (deprecatedLegacy, SourceElement (ObjectType ("cirrus/hibernate/Persistent"))),
-                (deprecatedLegacy, SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle"))),
+                (deprecatedLegacy, SourceElementFactory (ObjectType ("cirrus/hibernate/Persistent"))),
+                (deprecatedLegacy, SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle"))),
                 (deprecatedLegacy,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "create",
                         VoidType,
@@ -55,7 +55,7 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedLegacy,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "delete",
                         VoidType,
@@ -63,7 +63,7 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedLegacy,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "load",
                         VoidType,
@@ -71,16 +71,16 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedLegacy,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "store",
                         VoidType,
                         Seq ()
                     ))
                     ),
-                (deprecatedPersistenceLifecycleCallbacks, SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle"))),
+                (deprecatedPersistenceLifecycleCallbacks, SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle"))),
                 (deprecatedPersistenceLifecycleCallbacks,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "create",
                         VoidType,
@@ -88,7 +88,7 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedPersistenceLifecycleCallbacks,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "delete",
                         VoidType,
@@ -96,7 +96,7 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedPersistenceLifecycleCallbacks,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "load",
                         VoidType,
@@ -104,14 +104,14 @@ class TestUnissonDatabaseHibernate_1_0
                     ))
                     ),
                 (deprecatedPersistenceLifecycleCallbacks,
-                    SourceElement (MethodDeclaration (
+                    SourceElementFactory (MethodDeclaration (
                         ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                         "store",
                         VoidType,
                         Seq ()
                     ))
                     ),
-                (deprecatedPersistenceMarkerInterface, SourceElement (ObjectType ("cirrus/hibernate/Persistent")))
+                (deprecatedPersistenceMarkerInterface, SourceElementFactory (ObjectType ("cirrus/hibernate/Persistent")))
             ),
             elements.asList.sorted
         )
@@ -151,26 +151,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 classPersister,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
                     ObjectType ("java/lang/Object"),
                     Seq (ArrayType (1, ObjectType ("java/lang/Object")), ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"), ObjectType ("cirrus/hibernate/impl/SessionImplementor"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 classPersister,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
                     ObjectType ("java/lang/Object"),
                     Seq (ArrayType (1, ObjectType ("java/lang/Object")), ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"), ObjectType ("cirrus/hibernate/impl/SessionImplementor"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -182,26 +182,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
                     VoidType,
                     Seq (ObjectType ("java/lang/Object"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
                     VoidType,
                     Seq (ObjectType ("java/lang/Object"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "delete",
                     VoidType,
@@ -213,39 +213,39 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -257,13 +257,13 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -275,26 +275,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
                     VoidType,
                     Seq ()
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
                     VoidType,
                     Seq ()
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "store",
                     VoidType,
@@ -306,26 +306,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
                     ObjectType ("java/io/Serializable"),
                     Seq (ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 relationalDatabaseSession,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
                     ObjectType ("java/io/Serializable"),
                     Seq (ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "create",
                     VoidType,
@@ -338,26 +338,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
                     ObjectType ("java/lang/Object"),
                     Seq (ArrayType (1, ObjectType ("java/lang/Object")), ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"), ObjectType ("cirrus/hibernate/impl/SessionImplementor"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/ClassPersister"),
                     "assemble",
                     ObjectType ("java/lang/Object"),
                     Seq (ArrayType (1, ObjectType ("java/lang/Object")), ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"), ObjectType ("cirrus/hibernate/impl/SessionImplementor"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -369,26 +369,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
                     VoidType,
                     Seq (ObjectType ("java/lang/Object"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "delete",
                     VoidType,
                     Seq (ObjectType ("java/lang/Object"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "delete",
                     VoidType,
@@ -400,39 +400,39 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -444,13 +444,13 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doLoadCallbacks",
                     VoidType,
                     Seq (ObjectType ("java/util/List"), IntegerType)
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "load",
                     VoidType,
@@ -462,26 +462,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
                     VoidType,
                     Seq ()
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "doStoreCallbacks",
                     VoidType,
                     Seq ()
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "store",
                     VoidType,
@@ -493,26 +493,26 @@ class TestUnissonDatabaseHibernate_1_0
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
                     ObjectType ("java/io/Serializable"),
                     Seq (ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"))
                 )),
-                SourceElement (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/PersistentLifecycle")),
                 "class_cast",
                 "DeprecatedLegacy"),
             Violation (
                 emptyToDeprecatedPersistenceLifecycleCallbacks,
                 usersOfPersistenceLifecycleCallbacks,
                 deprecatedLegacy,
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/impl/RelationalDatabaseSession"),
                     "save",
                     ObjectType ("java/io/Serializable"),
                     Seq (ObjectType ("java/lang/Object"), ObjectType ("java/io/Serializable"))
                 )),
-                SourceElement (MethodDeclaration (
+                SourceElementFactory (MethodDeclaration (
                     ObjectType ("cirrus/hibernate/PersistentLifecycle"),
                     "create",
                     VoidType,
