@@ -2,12 +2,11 @@ package unisson.query.compiler
 
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import unisson.query.code_model.SourceElementFactory
 import unisson.query.parser.QueryParser
 import unisson.query.UnissonQuery
 import unisson.query.ast._
 import sae.collections.EmptyResult
-import de.tud.cs.st.vespucci.interfaces.{ICodeElement, SourceElement}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *
@@ -32,6 +31,8 @@ class BaseQueryCompiler(val db: BytecodeDatabase)
         }
     }
 
+
+
     /**
      *
      */
@@ -46,6 +47,7 @@ class BaseQueryCompiler(val db: BytecodeDatabase)
             case OrQuery (left, right) => decorator.compile (left) or decorator.compile (right)
             case WithoutQuery (left, right) => decorator.compile (left) without decorator.compile (right)
             case MethodQuery (classQuery, name, returnType, parameters@_*) => method (decorator.compile (classQuery), name, decorator.compile (returnType), parameters.map (decorator.compile): _*)
+            case FieldQuery (ClassSelectionQuery (pn, sn), name, TypeQuery (fieldType)) => direct_field (pn, sn, name, fieldType)
             case FieldQuery (classQuery, name, fieldType) => field (decorator.compile (classQuery), name, decorator.compile (fieldType))
             case TransitiveQuery (SuperTypeQuery (innerQuery)) => transitive_supertype (decorator.compile (innerQuery))
             case SuperTypeQuery (innerQuery) => supertype (decorator.compile (innerQuery))

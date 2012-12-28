@@ -2,6 +2,7 @@ package unisson.query.compiler
 
 import org.junit.Test
 import unisson.query.code_model.SourceElementFactory
+import unisson.query.code_model.SourceElementFactory._
 import de.tud.cs.st.bat.resolved.ObjectType
 import unisson.query.parser.QueryParser
 import org.scalatest.matchers.ShouldMatchers

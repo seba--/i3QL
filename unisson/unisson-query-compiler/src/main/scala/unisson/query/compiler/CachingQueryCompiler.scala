@@ -4,7 +4,7 @@ import collection.mutable.WeakHashMap
 import unisson.query.UnissonQuery
 import unisson.query.ast._
 import sae.{Observable, Relation}
-import de.tud.cs.st.vespucci.interfaces.SourceElement
+import de.tud.cs.st.vespucci.interfaces.{ICodeElement, SourceElement}
 
 /**
  *

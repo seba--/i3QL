@@ -1,10 +1,9 @@
 package unisson.query.compiler
 
 import sae.Relation
-import unisson.query.code_model.SourceElementFactory
 import unisson.query.UnissonQuery
 import sae.bytecode.BytecodeDatabase
-import de.tud.cs.st.vespucci.interfaces.SourceElement
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *

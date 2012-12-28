@@ -1,8 +1,7 @@
 package unisson.model
 
 import unisson.query.compiler.{BaseQueryCompiler, CachingQueryCompiler}
-import de.tud.cs.st.vespucci.interfaces.{SourceElement, IEnsemble, ICodeElement}
-import unisson.query.code_model.SourceElementFactory
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, ICodeElement}
 import sae.{Relation, Observer}
 import sae.bytecode.BytecodeDatabase
 import unisson.query.UnissonQuery
@@ -28,7 +27,7 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
 
     private var elementObservers: Map[IEnsemble, CompiledViewObserver] = Map.empty
 
-    lazyInitialize()
+    lazyInitialize ()
 
     def lazyInitialize() {
         // compile existing ensemble queries and add observers that will announce new elements
@@ -53,9 +52,9 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
     }
 
 
-    private def addCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
+    private def addCompiledQueryView(v: IEnsemble, view: Relation[ICodeElement]) {
         view.foreach (
-            (e: SourceElement[AnyRef]) => element_added ((v, e))
+            (e: ICodeElement) => element_added ((v, e))
         )
         val oo = new CompiledViewObserver (v)
         view.addObserver (oo)
@@ -64,9 +63,9 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
         }
     }
 
-    private def removeCompiledQueryView(v: IEnsemble, view: Relation[SourceElement[AnyRef]]) {
+    private def removeCompiledQueryView(v: IEnsemble, view: Relation[ICodeElement]) {
         view.foreach (
-            (e: SourceElement[AnyRef]) => element_removed ((v, e))
+            (e: ICodeElement) => element_removed ((v, e))
         )
         // dispose of obsolete observers
         view.removeObserver (elementObservers (v))
@@ -108,25 +107,25 @@ class CompiledEnsembleElementsView(bc: BytecodeDatabase,
      * Since the ensemble is not contained as an information in the compiled view (i.e., they are only a set of code elements)
      * there is one observer per ensemble.
      */
-    private class CompiledViewObserver(val ensemble: IEnsemble) extends Observer[SourceElement[AnyRef]]
+    private class CompiledViewObserver(val ensemble: IEnsemble) extends Observer[ICodeElement]
     {
-        def updated(oldV: SourceElement[AnyRef], newV: SourceElement[AnyRef]) {
+        def updated(oldV: ICodeElement, newV: ICodeElement) {
             element_updated ((ensemble, oldV), (ensemble, newV))
         }
 
-        def removed(v: SourceElement[AnyRef]) {
+        def removed(v: ICodeElement) {
             element_removed ((ensemble, v))
         }
 
-        def added(v: SourceElement[AnyRef]) {
+        def added(v: ICodeElement) {
             element_added ((ensemble, v))
         }
 
-        def updated[U <: SourceElement[AnyRef]](update: Update[U]) {
+        def updated[U <: ICodeElement](update: Update[U]) {
             throw new UnsupportedOperationException
         }
 
-        def modified[U <: SourceElement[AnyRef]](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        def modified[U <: ICodeElement](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
             throw new UnsupportedOperationException
         }
     }

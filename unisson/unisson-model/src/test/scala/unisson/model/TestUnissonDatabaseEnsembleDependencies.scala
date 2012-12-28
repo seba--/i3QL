@@ -12,7 +12,7 @@ import sae.bytecode.structure._
 import sae.bytecode.instructions.INVOKESPECIAL
 import sae.bytecode.structure.InheritanceRelation
 import sae.bytecode.instructions.PUTFIELD
-import UnissonOrdering._
+
 
 /**
  *
@@ -25,6 +25,7 @@ class TestUnissonDatabaseEnsembleDependencies
     extends ShouldMatchers
 {
 
+    import UnissonOrdering._
 
     @Test
     def testFilterSelfDependency() {
