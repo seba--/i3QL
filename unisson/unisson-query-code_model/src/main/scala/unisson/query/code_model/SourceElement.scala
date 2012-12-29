@@ -13,7 +13,7 @@ import sae.bytecode.structure.{FieldInfo, MethodInfo}
  *
  */
 trait SourceElement[+T <: AnyRef]
-    extends ICodeElement with ISootCodeElement
+    extends ICodeElement
 {
     def element: T
 }

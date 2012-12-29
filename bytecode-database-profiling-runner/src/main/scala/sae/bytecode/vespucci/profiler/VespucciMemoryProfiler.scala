@@ -88,7 +88,7 @@ object VespucciMemoryProfiler
             createVanillaDatabase (jars, queries)
             i += 1
         }
-        0L
+        dependencyCount(jars, queries)
     }
 
 
@@ -96,7 +96,7 @@ object VespucciMemoryProfiler
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         var unisson = new UnissonDatabase (database)
-        unisson.violations
+        val res = sae.relationToResult (unisson.source_code_dependencies)
         memory {
             l => taken += l
         }
@@ -115,5 +115,24 @@ object VespucciMemoryProfiler
         memoryMXBean.gc ()
         print (".")
         taken
+    }
+
+
+    def dependencyCount(jars: List[String], queries: List[String]): Long = {
+        var database = BATDatabaseFactory.create ()
+        var unisson = new UnissonDatabase (database)
+        val res = sae.relationToResult (unisson.source_code_dependencies)
+        jars.foreach (jar => {
+            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
+            database.addArchive (stream)
+            stream.close ()
+        })
+
+
+        database = null
+        unisson = null
+        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
+        memoryMXBean.gc ()
+        res.size
     }
 }

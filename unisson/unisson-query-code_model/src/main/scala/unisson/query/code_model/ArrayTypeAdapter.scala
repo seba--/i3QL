@@ -32,5 +32,4 @@ class ArrayTypeAdapter (val element: ArrayType)
 
     override def toString = getTypeQualifier
 
-    def getSootIdentifier = element.toJava
 }
