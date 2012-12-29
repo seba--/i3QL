@@ -18,6 +18,7 @@
         <module>bytecode-database-profiling-runner</module>
         <module>demo/findbugs</module>
         <module>demo/metrics</module>
+        <module>demo/architecture</module>
         <module>demo/analyses</module>
         <module>replay-framework</module>
         <module>unisson</module>

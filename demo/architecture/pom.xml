@@ -11,24 +11,38 @@
 
 
     <groupId>de.tud.cs.st.opal.sae</groupId>
-    <artifactId>sae-analyses</artifactId>
+    <artifactId>sae-architecture</artifactId>
     <version>0.3.0</version>
-    <name>sae-analyses</name>
+    <name>sae-architecture</name>
     <packaging>jar</packaging>
 
 
     <dependencies>
         <dependency>
-            <groupId>de.tud.cs.st.opal.sae</groupId>
-            <artifactId>sae-findbugs</artifactId>
+            <groupId>de.tud.cs.st.vespucci</groupId>
+            <artifactId>unisson-vespucci-interface</artifactId>
         </dependency>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
-            <artifactId>sae-metrics</artifactId>
+            <artifactId>unisson-model</artifactId>
         </dependency>
         <dependency>
             <groupId>de.tud.cs.st.opal.sae</groupId>
-            <artifactId>sae-architecture</artifactId>
+            <artifactId>sae-bytecode-database-interface</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-profiling-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-database-test-data</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
