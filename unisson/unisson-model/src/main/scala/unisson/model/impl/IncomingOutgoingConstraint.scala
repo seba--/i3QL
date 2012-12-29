@@ -1,6 +1,6 @@
-package unisson.model.mock.vespucci
+package unisson.model.impl
 
-import de.tud.cs.st.vespucci.interfaces.{IInAndOut, IEnsemble, IIncoming}
+import de.tud.cs.st.vespucci.interfaces.{IInAndOut, IEnsemble}
 
 
 /**

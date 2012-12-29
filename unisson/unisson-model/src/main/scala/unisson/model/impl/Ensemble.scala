@@ -1,8 +1,28 @@
-package unisson.model.mock.vespucci
+package unisson.model.impl
 
 import collection.JavaConversions
 import de.tud.cs.st.vespucci.interfaces.{IConstraint, IEnsemble}
 import java.util.HashSet
+
+
+/**
+ *
+ * @author Ralf Mitschke
+ *
+ */
+object Ensemble
+{
+    def apply(name: String, query : String, innerEnsembles : EnsembleImpl*) :EnsembleImpl =
+    {
+        val e = EnsembleImpl(name, innerEnsembles.toSet[IEnsemble])
+        e.query = query
+        for( child <- innerEnsembles)
+        {
+            child.parent = e
+        }
+        e
+    }
+}
 
 /**
  *
@@ -14,7 +34,7 @@ import java.util.HashSet
 case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
     extends IEnsemble
 {
-    var query : String = ""
+    var query : String = "empty"
 
     var parent : IEnsemble = null
 
@@ -33,18 +53,4 @@ case class EnsembleImpl(name: String, innerEnsembles : Set[IEnsemble])
     def getInnerEnsembles = JavaConversions.setAsJavaSet(innerEnsembles)
 
     override def toString = "Ensemble(" + name +")"
-}
-
-object Ensemble
-{
-    def apply(name: String, query : String, innerEnsembles : EnsembleImpl*) :EnsembleImpl =
-    {
-        val e = EnsembleImpl(name, innerEnsembles.toSet[IEnsemble])
-        e.query = query
-        for( child <- innerEnsembles)
-        {
-            child.parent = e
-        }
-        e
-    }
 }

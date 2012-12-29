@@ -1,7 +1,7 @@
 package unisson.model
 
+import impl._
 import kinds.primitive.FieldTypeKind
-import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import de.tud.cs.st.bat.resolved.ObjectType
 import unisson.query.code_model.SourceElementFactory

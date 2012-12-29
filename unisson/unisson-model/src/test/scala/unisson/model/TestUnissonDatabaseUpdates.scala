@@ -1,6 +1,6 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
 import de.tud.cs.st.bat.resolved.ObjectType
 import unisson.query.code_model.SourceElementFactory

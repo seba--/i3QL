@@ -1,6 +1,6 @@
 package unisson.model
 
-import mock.vespucci._
+import impl.{Repository, Ensemble}
 import org.scalatest.matchers.ShouldMatchers
 import unisson.query.code_model.SourceElementFactory
 import org.junit.Test

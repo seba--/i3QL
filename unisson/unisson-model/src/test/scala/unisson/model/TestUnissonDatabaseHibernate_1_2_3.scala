@@ -1,6 +1,6 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.{Ignore, Test}
 import de.tud.cs.st.vespucci.interfaces.IViolation
