@@ -25,7 +25,7 @@ class TestUnissonDatabaseEnsembleElements
     def testClassTypeQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-        db.ensemble_elements
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
         val ensembleA = Ensemble ("A", "class('test','A')")
         val ensembleB = Ensemble ("B", "class('test','B')")
@@ -38,7 +38,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.typeDeclarations.element_added (a)
         bc.typeDeclarations.element_added (b)
 
-        db.ensemble_elements.asList.sorted should be (
+        ensemble_elements.asList .sorted should be (
             List (
                 (ensembleA, SourceElementFactory (a)),
                 (ensembleB, SourceElementFactory (b))
@@ -51,7 +51,7 @@ class TestUnissonDatabaseEnsembleElements
     def testChildrenAndDerivedParentQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-        db.ensemble_elements
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements)
 
         val ensembleA1 = Ensemble ("A1", "class('test','A1')")
         val ensembleA2 = Ensemble ("A2", "class('test','A2')")
@@ -70,7 +70,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.typeDeclarations.element_added (a1)
         bc.typeDeclarations.element_added (a2)
 
-        db.ensemble_elements.asList.sorted should be (
+        ensemble_elements.asList .sorted should be (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),
@@ -86,7 +86,7 @@ class TestUnissonDatabaseEnsembleElements
     def testChildrenAndDirectParentQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-        db.ensemble_elements
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
         val ensembleA1 = Ensemble ("A1", "class('test.a','A1')")
         val ensembleA2 = Ensemble ("A2", "class('test.a','A2')")
@@ -105,7 +105,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.typeDeclarations.element_added (a1)
         bc.typeDeclarations.element_added (a2)
 
-        db.ensemble_elements.asList.sorted should be (
+        ensemble_elements.asList .sorted should be (
             List (
                 (ensembleA, SourceElementFactory (a)),
                 (ensembleA, SourceElementFactory (a1)),
@@ -122,7 +122,7 @@ class TestUnissonDatabaseEnsembleElements
     def testClassWithMembersQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-        db.ensemble_elements
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
         val ensembleA = Ensemble ("A", "class_with_members('test','A')")
         val ensembleB = Ensemble ("B", "class_with_members('test','B')")
@@ -146,7 +146,7 @@ class TestUnissonDatabaseEnsembleElements
 
 
 
-        db.ensemble_elements.asList.sorted should be (
+        ensemble_elements.asList .sorted should be (
             List (
                 (ensembleA, SourceElementFactory (a)),
                 (ensembleA, SourceElementFactory (fieldRefAToB)),
@@ -162,7 +162,7 @@ class TestUnissonDatabaseEnsembleElements
     def testTwoLevelDerivedClassWithMembersQuery() {
         val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase (bc)
-        db.ensemble_elements
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
         val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
         val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
@@ -188,7 +188,7 @@ class TestUnissonDatabaseEnsembleElements
         bc.fieldDeclarations.element_added (fieldRefBToA2)
 
 
-        db.ensemble_elements.asList.sorted should be (
+        ensemble_elements.asList .sorted should be (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),

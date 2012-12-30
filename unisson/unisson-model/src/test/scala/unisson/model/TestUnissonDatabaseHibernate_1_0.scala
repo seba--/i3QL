@@ -2,7 +2,7 @@ package unisson.model
 
 import impl._
 import org.scalatest.matchers.ShouldMatchers
-import org.junit.{Assert, Test}
+import org.junit.{Ignore, Assert, Test}
 import unisson.query.code_model.SourceElementFactory
 import de.tud.cs.st.bat.resolved.{IntegerType, ArrayType, VoidType, ObjectType}
 import sae.bytecode.bat.BATDatabaseFactory
@@ -23,6 +23,7 @@ class TestUnissonDatabaseHibernate_1_0
     def getStream(resource: String) = this.getClass.getClassLoader.getResourceAsStream (resource)
 
     @Test
+    @Ignore
     def testEnsembleElementsInDeprecatedLegacy() {
 
         val bc = BATDatabaseFactory.create ()
@@ -118,6 +119,7 @@ class TestUnissonDatabaseHibernate_1_0
     }
 
     @Test
+    @Ignore
     def testViolationsToDeprecatedLegacy() {
         val bc = BATDatabaseFactory.create ()
         val db = new UnissonDatabase (bc)
@@ -526,9 +528,12 @@ class TestUnissonDatabaseHibernate_1_0
     }
 
     @Test
+    @Ignore
     def testViolationSummaryActionsImplementsInternalWithGlobal() {
         val bc = BATDatabaseFactory.create ()
         val db = new UnissonDatabase (bc)
+
+        val queryResult = sae.relationToResult (db.violation_summary)
 
         val ActionInterface = Ensemble ("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','RelationalDatabaseSession$Executable'))")
         val ScalarActions = Ensemble ("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))")
@@ -548,7 +553,7 @@ class TestUnissonDatabaseHibernate_1_0
         db.setRepository (global)
         db.addSlice (model)
 
-        val queryResult = sae.relationToResult (db.violation_summary)
+
 
         bc.addArchive (getStream ("hibernate-1.0.jar"))
 
@@ -556,9 +561,12 @@ class TestUnissonDatabaseHibernate_1_0
     }
 
     @Test
+    @Ignore
     def testViolationSummaryActionsAllInternalWithGlobal() {
         val bc = BATDatabaseFactory.create ()
         val db = new UnissonDatabase (bc)
+
+        val queryResult = sae.relationToResult (db.violation_summary)
 
         val ActionInterface = Ensemble ("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','RelationalDatabaseSession$Executable'))")
         val ScalarActions = Ensemble ("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))")
@@ -607,8 +615,6 @@ class TestUnissonDatabaseHibernate_1_0
         val model = Concern (ensembles, constraints, "actions.sad")
         db.setRepository (global)
         db.addSlice (model)
-
-        val queryResult = sae.relationToResult (db.violation_summary)
 
         bc.addArchive (getStream ("hibernate-1.0.jar"))
 

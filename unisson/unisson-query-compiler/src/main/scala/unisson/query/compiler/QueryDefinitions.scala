@@ -22,6 +22,8 @@ class QueryDefinitions(private val db: BytecodeDatabase)
      * BEWARE INITIALIZATION ORDER OF FIELDS (the scala compiler will not warn you)
      */
 
+    
+    
     private def fromJava(unresolved: String): String = unresolved.replace ('.', '/')
 
     def `class`(packageName: String, name: String): Relation[ICodeElement] =
@@ -30,17 +32,17 @@ class QueryDefinitions(private val db: BytecodeDatabase)
         }(
             σ {
                 (o: ObjectType) => (o.packageName == fromJava (packageName) && o.simpleName == name)
-            }(db.typeDeclarations)
+            }(db.typeDeclarations.asMaterialized)
         )
 
     def `class`(targets: Relation[ICodeElement]): Relation[ICodeElement] =
-        new ExistsInSameDomainView[ICodeElement](targets.asMaterialized, db.typeDeclarations.asInstanceOf[Relation[ICodeElement]].asMaterialized)
+        new ExistsInSameDomainView[ICodeElement](targets.asMaterialized, db.typeDeclarations.asMaterialized.asInstanceOf[Relation[ICodeElement]].asMaterialized)
 
-    //(targets, identity(_: ICodeElement)) ⋉ (identity (_: ICodeElement), db.typeDeclarations)
+    //(targets, identity(_: ICodeElement)) ⋉ (identity (_: ICodeElement), db.typeDeclarations.asMaterialized)
 
 
     def direct_field(packageName: String, simpleName: String, name: String, fieldType: String): Relation[ICodeElement] = compile (
-        SELECT ((f: FieldDeclaration) => SourceElementFactory (f)) FROM db.fieldDeclarations WHERE
+        SELECT ((f: FieldDeclaration) => SourceElementFactory (f)) FROM db.fieldDeclarations.asMaterialized WHERE
             (_.declaringType.packageName == packageName) AND
             (_.declaringType.simpleName == simpleName) AND
             (_.name == name) AND
@@ -83,7 +85,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                             (f: FieldDeclaration) => {
                                 f.name == name
                             }
-                        )(db.fieldDeclarations),
+                        )(db.fieldDeclarations.asMaterialized),
                         _.declaringType,
                         declaringClasses),
                     _.fieldType,
@@ -104,7 +106,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                                 (f: MethodDeclaration) => {
                                     f.name == name
                                 }
-                            )(db.methodDeclarations),
+                            )(db.methodDeclarations.asMaterialized),
                             _.declaringClassType,
                             declaringClasses),
                         _.returnType,
@@ -138,8 +140,8 @@ class QueryDefinitions(private val db: BytecodeDatabase)
         new TypeElementView (name).asInstanceOf[Relation[ICodeElement]]
 
 
-    val superTypeElement: InheritanceRelation => ICodeElement = (i:InheritanceRelation) =>
-        SourceElementFactory(i.superType)
+    val superTypeElement: InheritanceRelation => ICodeElement = (i: InheritanceRelation) =>
+        SourceElementFactory (i.superType)
 
     /**
      * select all supertype form supertype where supertype.target exists in targets
@@ -163,46 +165,41 @@ class QueryDefinitions(private val db: BytecodeDatabase)
                 SourceElementFactory (_: ObjectType)
             }(σ {
                 (_: ObjectType).packageName == fromJava (name)
-            }(db.typeDeclarations))
+            }(db.typeDeclarations.asMaterialized))
             ) ⊎
             (
                 Π[MethodDeclaration, ICodeElement] {
                     SourceElementFactory ((_: MethodDeclaration))
                 }(σ {
                     (_: MethodDeclaration).declaringClassType.packageName == fromJava (name)
-                }(db.methodDeclarations))
+                }(db.methodDeclarations.asMaterialized))
                 ) ⊎
             (
                 Π[FieldDeclaration, ICodeElement] {
                     SourceElementFactory ((_: FieldDeclaration))
                 }(σ {
                     (_: FieldDeclaration).declaringType.packageName == fromJava (name)
-                }(db.fieldDeclarations))
+                }(db.fieldDeclarations.asMaterialized))
                 )
 
-    // TODO should we compute members of classes not in the source code (these can only yield partial information
-    // TODO maybe we can skip some wrapping and unwrapping of objects here, since we have TC operator the ClassMember type is not really used
-    lazy val direct_class_members: Relation[ClassMember] =
-        Π {
-            ((m: MethodDeclaration) =>
-                new ClassMember (m.declaringClassType,
-                    SourceElementFactory (m)))
-        }(db.methodDeclarations) ⊎
-            Π {
-                ((f: FieldDeclaration) =>
-                    new ClassMember (f.declaringClassType,
-                        SourceElementFactory (f)))
-            }(db.fieldDeclarations) ⊎
-            Π {
-                (inner: InnerClass) =>
-                    new ClassMember (inner.outerType,
-                        SourceElementFactory (inner
-                            .classType))
-            }(db.innerClasses)
+
+    def isInnerClass(o: ObjectType) = o.className.indexOf ('$') > 0
+
+    lazy val direct_inner_class_members: Relation[ClassMember] = compile (
+        SELECT ((m: MethodDeclaration) => new ClassMember (m.declaringClassType, SourceElementFactory (m))) FROM
+            db.methodDeclarations.asMaterialized WHERE
+            (m => isInnerClass (m.declaringClassType)) UNION_ALL (
+            SELECT ((f: FieldDeclaration) => new ClassMember (f.declaringClassType, SourceElementFactory (f))) FROM
+                db.fieldDeclarations.asMaterialized WHERE
+                (f => isInnerClass (f.declaringClassType))
+            ) UNION_ALL (
+            SELECT ((inner: InnerClass) => new ClassMember (inner.outerType, SourceElementFactory (inner.classType))) FROM db.innerClasses
+            )
+    )
 
 
-    lazy val transitive_class_members: Relation[(ICodeElement, ICodeElement)] =
-        TC (direct_class_members)(
+    lazy val transitive_inner_class_members: Relation[(ICodeElement, ICodeElement)] =
+        TC (direct_inner_class_members)(
             (_: ClassMember).outerType,
             (_: ClassMember).member
         )
@@ -210,22 +207,28 @@ class QueryDefinitions(private val db: BytecodeDatabase)
     def class_with_members(packageName: String, className: String): Relation[ICodeElement] =
         class_with_members (packageName + "." + className)
 
-    def class_with_members(qualifiedClass: String): Relation[ICodeElement] =
-        Π {
-            SourceElementFactory ((_: ObjectType))
-        }(
-            σ {
-                (_: ObjectType) == ObjectType (fromJava (qualifiedClass))
-            }(db.typeDeclarations)
-        ) ⊎
-            Π {
-                (_: (ICodeElement, ICodeElement))._2
-            }(
-                σ {
-                    (_: (ICodeElement, ICodeElement))._1 == ObjectType (fromJava (qualifiedClass))
-                }(transitive_class_members)
-            )
+    def typeAsCodeElement: ObjectType => ICodeElement = (o: ObjectType) => o
 
+    def methodAsCodeElement: MethodDeclaration => ICodeElement = (o: MethodDeclaration) => o
+
+    def fieldAsCodeElement: FieldDeclaration => ICodeElement = (o: FieldDeclaration) => o
+
+    def class_with_members(qualifiedClass: String): Relation[ICodeElement] = {
+        val className = fromJava (qualifiedClass)
+        compile (
+            SELECT (typeAsCodeElement) FROM db.typeDeclarations.asMaterialized WHERE
+                (_.className.startsWith (className)) UNION_ALL (
+                SELECT (methodAsCodeElement) FROM db.methodDeclarations.asMaterialized WHERE
+                    (_.declaringClassType.className.startsWith (className))
+                ) UNION_ALL (
+                SELECT (fieldAsCodeElement) FROM db.fieldDeclarations.asMaterialized WHERE
+                    (_.declaringClassType.className.startsWith (className))
+                ) //UNION_ALL (
+            //SELECT ((_: (ICodeElement, ICodeElement))._2) FROM transitive_inner_class_members WHERE
+            //  ((_: (ICodeElement, ICodeElement))._1 == ObjectType (fromJava (qualifiedClass)))
+            //)
+        )
+    }
 
     def transitive_supertype(targets: Relation[ICodeElement]): Relation[ICodeElement] =
         δ (// TODO something is not right here, this should not require a delta, values should be distinct on their own
@@ -293,7 +296,7 @@ class QueryDefinitions(private val db: BytecodeDatabase)
             Π {
                 (_: (ICodeElement, ICodeElement))._2
             }(
-                (transitive_class_members, (cm: (ICodeElement, ICodeElement)) =>
+                (transitive_inner_class_members, (cm: (ICodeElement, ICodeElement)) =>
                     cm._1) ⋉ (identity[ICodeElement], target)
             )
 

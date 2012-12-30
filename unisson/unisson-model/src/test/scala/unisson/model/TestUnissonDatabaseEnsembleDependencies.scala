@@ -14,6 +14,7 @@ import sae.bytecode.instructions.INVOKESPECIAL
 import sae.bytecode.structure.InheritanceRelation
 import sae.bytecode.instructions.PUTFIELD
 import UnissonOrdering._
+
 /**
  *
  * Author: Ralf Mitschke
@@ -206,7 +207,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
 
 
-        assertEquals(
+        assertEquals (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),
@@ -220,7 +221,7 @@ class TestUnissonDatabaseEnsembleDependencies
         )
 
 
-        assertEquals(
+        assertEquals (
             List (
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
@@ -283,7 +284,7 @@ class TestUnissonDatabaseEnsembleDependencies
 
 
 
-        assertEquals(
+        assertEquals (
             List (
                 (ensembleA, SourceElementFactory (a1)),
                 (ensembleA, SourceElementFactory (a2)),
@@ -305,7 +306,7 @@ class TestUnissonDatabaseEnsembleDependencies
         )
 
 
-        assertEquals(
+        assertEquals (
             List (
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
                 (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
@@ -521,17 +522,19 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (field1BFromA)
         bc.fieldDeclarations.element_added (field2BFromA)
 
-        db.ensemble_dependencies.asList should be (
+        assertEquals (
             List (
                 (ensembleA, ensembleB, SourceElementFactory (field1BFromA), SourceElementFactory (b), FieldTypeKind.asVespucciString),
                 (ensembleA, ensembleB, SourceElementFactory (field2BFromA), SourceElementFactory (b), FieldTypeKind.asVespucciString)
-            )
+            ),
+            db.ensemble_dependencies.asList.sorted
         )
 
-        db.ensemble_dependency_count.asList should be (
+        assertEquals (
             List (
                 (ensembleA, ensembleB, 2)
-            )
+            ),
+            db.ensemble_dependency_count.asList
         )
     }
 
@@ -559,10 +562,11 @@ class TestUnissonDatabaseEnsembleDependencies
         bc.fieldDeclarations.element_added (field1BFromA)
         bc.fieldDeclarations.element_added (field2BFromA)
 
-        db.ensemble_dependency_count.asList should be (
+        assertEquals (
             List (
                 (ensembleA, ensembleB, 2)
-            )
+            ),
+            db.ensemble_dependency_count.asList
         )
     }
 }

@@ -1,6 +1,6 @@
 package unisson.query.compiler
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import unisson.query.code_model.SourceElementFactory
 import unisson.query.code_model.SourceElementFactory._
 import de.tud.cs.st.bat.resolved.ObjectType
@@ -131,6 +131,7 @@ class TestCachingQueryCompiler
     }
 
     @Test
+    @Ignore
     def testReuseOfSubExpressionsInOrQueries() {
         val bc = BATDatabaseFactory.create ()
         val parser = new QueryParser ()

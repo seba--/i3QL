@@ -4,6 +4,7 @@ import de.tud.cs.st.vespucci.interfaces._
 import sae.Relation
 import sae.syntax.RelationalAlgebraSyntax._
 import sae.functions.Count
+import sae.operators.impl.ThreeWayJoinView
 
 /**
  *
@@ -172,6 +173,13 @@ trait IUnissonDatabase
     }
 
 
+    val codeElement: ((IEnsemble, ICodeElement)) => ICodeElement = _._2
+
+    val dependencySource: Dependency => ICodeElement = _.source
+
+    val dependencyTarget: Dependency => ICodeElement = _.target
+
+
     /**
      * A list of dependencies between the ensembles (lifting of the dependencies between the source code elements).
      * Each entry can be included multiple times, since two ensembles can have multiple dependencies to the same element
@@ -179,10 +187,21 @@ trait IUnissonDatabase
     lazy val ensemble_dependencies: Relation[(IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)] =
     {
 
+        val targetEnsembleDependencies = new ThreeWayJoinView (ensemble_elements,
+            source_code_dependencies,
+            ensemble_elements,
+            codeElement,
+            dependencySource,
+            dependencyTarget,
+            codeElement,
+            (e1: (IEnsemble, ICodeElement), d: Dependency, e2: (IEnsemble, ICodeElement)) =>
+                (e1._1, e2._1, e1._2, e2._2, d.kind.asVespucciString)
+        )
+        /*
         val sourceEnsembleDependencies = (
             (
                 ensemble_elements,
-                (_: (IEnsemble, ICodeElement))._2
+                codeElement
                 ) ⋈
                 (
                     (_: Dependency).source,
@@ -196,7 +215,7 @@ trait IUnissonDatabase
         val targetEnsembleDependencies = (
             (
                 ensemble_elements,
-                (_: (IEnsemble, ICodeElement))._2
+                codeElement
                 ) ⋈
                 (
                     (_: (IEnsemble, Dependency))._2.target,
@@ -208,6 +227,9 @@ trait IUnissonDatabase
              sourceDependency: (IEnsemble, Dependency)) =>
                 (sourceDependency._1, target._1, sourceDependency._2.source, target._2, sourceDependency._2.kind.asVespucciString)
         }
+
+        */
+
         val filteredSelfRef = σ ((dependency: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) =>
             (dependency._1 != dependency._2)
         )(targetEnsembleDependencies)
@@ -297,6 +319,7 @@ trait IUnissonDatabase
                 }
             )(
                 (
+
                     expectedEnsembleDependencies,
                     (entry: (IEnsemble, IEnsemble, String, IConstraint, String)) =>
                         (entry._1, entry._2, entry._3)
@@ -305,8 +328,16 @@ trait IUnissonDatabase
                         (entry._1, entry._2, entry._5),
                     ensemble_dependencies
                     )
+                /*
+                new NotExistsInSameDomainView (
+                    (Π ((entry: (IEnsemble, IEnsemble, String, IConstraint, String)) => (entry._1, entry._2, entry._3)
+                    )(expectedEnsembleDependencies)).asMaterialized,
+                    (Π ((entry: (IEnsemble, IEnsemble, ICodeElement, ICodeElement, String)) => (entry._1, entry._2, entry._5)
+                    )(ensemble_dependencies)).asMaterialized
+                )
+                )
+                */
             )
-
         disallowed_dependency_violations ⊎ unfullfilled_dependency_expectations
     }
 

@@ -104,7 +104,7 @@ class UnissonDatabase(val bc: BytecodeDatabase)
      * Queries of ensembles are compiled from a string that is a value in the database.
      * Hence they are wrapped in their own view implementation
      */
-    lazy val ensemble_elements = sae.relationToResult (new CompiledEnsembleElementsView (bc, ensemble_queries))
+    lazy val ensemble_elements = new CompiledEnsembleElementsView (bc, ensemble_queries)
 
 
     /**

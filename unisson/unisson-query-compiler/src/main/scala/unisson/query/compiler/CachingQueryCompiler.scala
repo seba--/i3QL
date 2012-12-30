@@ -72,7 +72,7 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
                     for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
                         removeAllSingleObserversOnPath (
-                            List (db.typeDeclarations, definitions.transitive_class_members, innerCompiledQuery),
+                            List (db.typeDeclarations, definitions.transitive_inner_class_members, innerCompiledQuery),
                             compiledQuery
                         )
                         dispose (innerQuery)
