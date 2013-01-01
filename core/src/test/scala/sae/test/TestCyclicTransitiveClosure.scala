@@ -349,6 +349,47 @@ class TestCyclicTransitiveClosure
     }
 
     @Test
+    def testTriangleCycleFrontAdditionAndCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+
+        edges.element_added (Edge ("d", "b"))
+
+        edges.element_added (Edge ("_FRONT", "a"))
+
+        edges.element_removed (Edge ("d", "b"))
+
+        assertEquals (
+            List (
+                ("_FRONT", "a"),
+                ("_FRONT", "b"),
+                ("_FRONT", "c"),
+                ("_FRONT", "d"),
+                ("_FRONT", "e"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("c", "b"),
+                ("c", "d"),
+                ("c", "e"),
+                ("d", "b"),
+                ("d", "c"),
+                ("d", "e")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
     def testTriangleCycleBackAddition() {
         val edges = new SetExtent[Edge]()
         val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
@@ -383,6 +424,46 @@ class TestCyclicTransitiveClosure
                 ("d", "b"),
                 ("d", "c"),
                 ("d", "d"),
+                ("d", "e"),
+                ("e", "BACK")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testTriangleCycleBackAdditionAndCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+
+        edges.element_added (Edge ("d", "b"))
+
+        edges.element_added (Edge ("e", "BACK"))
+
+        edges.element_removed (Edge ("d", "b"))
+        assertEquals (
+            List (
+                ("a", "BACK"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("b", "BACK"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("c", "BACK"),
+                ("c", "b"),
+                ("c", "d"),
+                ("c", "e"),
+                ("d", "BACK"),
+                ("d", "b"),
+                ("d", "c"),
                 ("d", "e"),
                 ("e", "BACK")
             ),
