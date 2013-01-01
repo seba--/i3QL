@@ -387,6 +387,51 @@ class TestCyclicTransitiveClosure
     }
 
     @Test
+    def testQuadCycleFrontAdditionAndCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+        edges.element_added (Edge ("e", "f"))
+
+        edges.element_added (Edge ("e", "b"))
+
+        edges.element_added (Edge ("_FRONT", "a"))
+
+        edges.element_removed (Edge ("e", "b"))
+
+        assertEquals (
+            List (
+                ("_FRONT", "a"),
+                ("_FRONT", "b"),
+                ("_FRONT", "c"),
+                ("_FRONT", "d"),
+                ("_FRONT", "e"),
+                ("_FRONT", "f"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+                ("d", "e"),
+                ("d", "f"),
+                ("e", "f")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
     def testTriangleCycleBackAddition() {
         val edges = new SetExtent[Edge]()
         val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
@@ -466,6 +511,50 @@ class TestCyclicTransitiveClosure
     }
 
     @Test
+    def testQuadCycleBackAdditionAndCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+        edges.element_added (Edge ("e", "f"))
+
+        edges.element_added (Edge ("e", "b"))
+
+        edges.element_added (Edge ("f", "BACK"))
+
+        edges.element_removed (Edge ("e", "b"))
+
+        assertEquals (
+            List (
+                ("a", "BACK"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+                ("b", "BACK"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+                ("c", "BACK"),
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+                ("d", "BACK"),
+                ("d", "e"),
+                ("d", "f"),
+                ("e", "BACK"),
+                ("e", "f"),
+                ("f", "BACK")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
     def testTriangleCycleRemoval() {
         val edges = new SetExtent[Edge]()
         val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
@@ -497,4 +586,444 @@ class TestCyclicTransitiveClosure
             tc.asList.sorted
         )
     }
+
+    @Test
+    def testTriStarOutgoingFromCycleAdditions() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "1"))
+        edges.element_added (Edge ("b", "2"))
+        edges.element_added (Edge ("c", "3"))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        assertEquals (
+            List (
+                ("a", "1"),
+                ("a", "2"),
+                ("a", "3"),
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("b", "1"),
+                ("b", "2"),
+                ("b", "3"),
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("c", "1"),
+                ("c", "2"),
+                ("c", "3"),
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testTriStarOutgoingFromCycleAdditionsCycleFirst() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        edges.element_added (Edge ("a", "1"))
+        edges.element_added (Edge ("b", "2"))
+        edges.element_added (Edge ("c", "3"))
+
+        assertEquals (
+            List (
+                ("a", "1"),
+                ("a", "2"),
+                ("a", "3"),
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("b", "1"),
+                ("b", "2"),
+                ("b", "3"),
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("c", "1"),
+                ("c", "2"),
+                ("c", "3"),
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testTriStarOutgoingFromCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        edges.element_added (Edge ("a", "1"))
+        edges.element_added (Edge ("b", "2"))
+        edges.element_added (Edge ("c", "3"))
+
+        edges.element_removed (Edge ("c", "a"))
+
+        assertEquals (
+            List (
+                ("a", "1"),
+                ("a", "2"),
+                ("a", "3"),
+                ("a", "b"),
+                ("a", "c"),
+                ("b", "2"),
+                ("b", "3"),
+                ("b", "c"),
+                ("c", "3")
+            ),
+            tc.asList.sorted
+        )
+
+        edges.element_removed (Edge ("a", "b"))
+
+        assertEquals (
+            List (
+                ("a", "1"),
+                ("b", "2"),
+                ("b", "3"),
+                ("b", "c"),
+                ("c", "3")
+            ),
+            tc.asList.sorted
+        )
+
+        edges.element_removed (Edge ("b", "c"))
+
+        assertEquals (
+            List (
+                ("a", "1"),
+                ("b", "2"),
+                ("c", "3")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+
+    @Test
+    def testTriStarIncomingFromCycleAdditions() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("1", "a"))
+        edges.element_added (Edge ("2", "b"))
+        edges.element_added (Edge ("3", "c"))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        assertEquals (
+            List (
+                ("1", "a"),
+                ("1", "b"),
+                ("1", "c"),
+                ("2", "a"),
+                ("2", "b"),
+                ("2", "c"),
+                ("3", "a"),
+                ("3", "b"),
+                ("3", "c"),
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testTriStarIncomingFromCycleAdditionsCycleFirst() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        edges.element_added (Edge ("1", "a"))
+        edges.element_added (Edge ("2", "b"))
+        edges.element_added (Edge ("3", "c"))
+
+
+        assertEquals (
+            List (
+                ("1", "a"),
+                ("1", "b"),
+                ("1", "c"),
+                ("2", "a"),
+                ("2", "b"),
+                ("2", "c"),
+                ("3", "a"),
+                ("3", "b"),
+                ("3", "c"),
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testTriStarIncomingFromCycleRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "a"))
+
+        edges.element_added (Edge ("1", "a"))
+        edges.element_added (Edge ("2", "b"))
+        edges.element_added (Edge ("3", "c"))
+
+        edges.element_removed (Edge ("c", "a"))
+        edges.element_removed (Edge ("a", "b"))
+        edges.element_removed (Edge ("b", "c"))
+
+        assertEquals (
+            List (
+                ("1", "a"),
+                ("2", "b"),
+                ("3", "c")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+
+    @Test
+    def tesOverlappingCycleAddition() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+        edges.element_added (Edge ("e", "f"))
+
+
+
+        edges.element_added (Edge ("d", "c"))
+        edges.element_added (Edge ("e", "b"))
+        edges.element_added (Edge ("f", "a"))
+
+        assertEquals (
+            List (
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+            
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c"),
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+
+                ("d", "a"),
+                ("d", "b"),
+                ("d", "c"),
+                ("d", "d"),
+                ("d", "e"),
+                ("d", "f"),
+
+                ("e", "a"),
+                ("e", "b"),
+                ("e", "c"),
+                ("e", "d"),
+                ("e", "e"),
+                ("e", "f"),
+
+                ("f", "a"),
+                ("f", "b"),
+                ("f", "c"),
+                ("f", "d"),
+                ("f", "e"),
+                ("f", "f")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def tesOverlappingCycleAdditionAndRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("b", "c"))
+        edges.element_added (Edge ("c", "d"))
+        edges.element_added (Edge ("d", "e"))
+        edges.element_added (Edge ("e", "f"))
+
+
+
+        edges.element_added (Edge ("d", "c"))
+        edges.element_added (Edge ("e", "b"))
+        edges.element_added (Edge ("f", "a"))
+
+        edges.element_removed (Edge ("d", "c"))
+
+        assertEquals (
+            List (
+                ("a", "a"),
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+
+                ("b", "a"),
+                ("b", "b"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c"),
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+
+                ("d", "a"),
+                ("d", "b"),
+                ("d", "c"),
+                ("d", "d"),
+                ("d", "e"),
+                ("d", "f"),
+
+                ("e", "a"),
+                ("e", "b"),
+                ("e", "c"),
+                ("e", "d"),
+                ("e", "e"),
+                ("e", "f"),
+
+                ("f", "a"),
+                ("f", "b"),
+                ("f", "c"),
+                ("f", "d"),
+                ("f", "e"),
+                ("f", "f")
+            ),
+            tc.asList.sorted
+        )
+
+
+        edges.element_removed (Edge ("f", "a"))
+
+        assertEquals (
+            List (
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+
+                ("b", "b"),
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+
+                ("c", "a"),
+                ("c", "b"),
+                ("c", "c"),
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+
+                ("d", "a"),
+                ("d", "b"),
+                ("d", "c"),
+                ("d", "d"),
+                ("d", "e"),
+                ("d", "f"),
+
+                ("e", "a"),
+                ("e", "b"),
+                ("e", "c"),
+                ("e", "d"),
+                ("e", "e"),
+                ("e", "f")
+
+            ),
+            tc.asList.sorted
+        )
+
+        edges.element_removed (Edge ("e", "b"))
+
+        assertEquals (
+            List (
+                ("a", "b"),
+                ("a", "c"),
+                ("a", "d"),
+                ("a", "e"),
+                ("a", "f"),
+
+                ("b", "c"),
+                ("b", "d"),
+                ("b", "e"),
+                ("b", "f"),
+
+                ("c", "d"),
+                ("c", "e"),
+                ("c", "f"),
+
+                ("d", "e"),
+                ("d", "f"),
+
+                ("e", "f")
+
+            ),
+            tc.asList.sorted
+        )
+
+    }
+
 }
