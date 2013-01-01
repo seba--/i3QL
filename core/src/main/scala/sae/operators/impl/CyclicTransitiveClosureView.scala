@@ -33,19 +33,20 @@
 package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
-import collection.mutable.{HashMap, HashSet}
 import sae.operators.TransitiveClosure
 import collection.mutable
-import scala.util.control.Breaks._
-import sae.deltas.{Update, Deletion, Addition}
+import sae.deltas._
 
 /**
  *
- * An efficient hybrid algorithm for incremental data flow analysis  -- Thomas J. Marlowe
+ * An efficient algorithm for incremental data flow analysis  -- Thomas J. Marlowe
 
  *
  * The head of an edge is denoting the arrow head, hence the end vertex
  * The tail of an edge is denoting the start vertex
+ *
+ * The idea behind cycles is to pick a representative vertex for strongly connected components.
+ * All vertices in the strongly connected components share the same paths, hence must be updated only once.
  *
  * @author Ralf Mitschke
  */
@@ -57,18 +58,59 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 {
     source addObserver this
 
-    val adjacencyLists = source.index (getTail)
+    private trait Descendants
+    {
+        def descendants: mutable.Map[Vertex, Int]
 
+        def add(end: Vertex, length: Int): Boolean = {
+            val oldLength = descendants.get (end)
+            if (!oldLength.isDefined || oldLength.get > length) {
+                descendants.put (end, length)
+                return true
+            }
+            false
+        }
+
+        def remove(end: Vertex) = descendants.remove (end)
+
+        def contains(end: Vertex) = descendants.contains (end)
+
+        def apply(end: Vertex) = descendants (end)
+
+        def isSCC: Boolean
+    }
+
+    private object Descendants
+    {
+
+        def apply(): Descendants = NonSCCPredecessors (mutable.HashMap.empty[Vertex, Int])
+
+    }
+
+    private case class NonSCCPredecessors(descendants: mutable.HashMap[Vertex, Int])
+        extends Descendants
+    {
+        def isSCC: Boolean = false
+    }
+
+    private case class SCCPredecessors(descendants: mutable.HashMap[Vertex, Int])
+        extends Descendants
+    {
+        def isSCC: Boolean = true
+    }
+
+    /*
     private case class Paths(descendants: HashSet[Vertex], ancestors: HashSet[Vertex], isSCC : Boolean = false)
     {
         def this() = {
             this (HashSet[Vertex](), HashSet[Vertex]())
         }
     }
+    */
 
     //TransitiveClose saved as double adjacencyList
-    //for fast access its stored in a hashmap
-    private val transitiveClosure = HashMap[Vertex, Paths]()
+    //for fast access its stored in a hash map
+    private val transitiveClosure = mutable.HashMap[Vertex, Descendants]()
 
     lazyInitialize ()
 
@@ -85,7 +127,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      */
     def isDefinedAt(v: (Vertex, Vertex)) = {
         if (transitiveClosure.contains (v._1)) {
-            transitiveClosureGet (v._1).ancestors.contains (v._2)
+            transitiveClosureGet (v._1).descendants.contains (v._2)
         }
         else
         {
@@ -109,7 +151,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     def foreach[T](f: ((Vertex, Vertex)) => T) {
         transitiveClosure.foreach (x => {
-            x._2.descendants.foreach (y => {
+            x._2.descendants.keys.foreach (y => {
                 f ((x._1, y))
             })
         })
@@ -117,7 +159,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     def foreachWithCount[T](f: ((Vertex, Vertex), Int) => T) {
         transitiveClosure.foreach (x => {
-            x._2.descendants.foreach (y => {
+            x._2.descendants.keys.foreach (y => {
                 f ((x._1, y), 1)
             })
         })
@@ -135,100 +177,83 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         transitiveClosure.getOrElse (v, throw new Error ())
     }
 
+    /*
+        private def addToSCC(edge: Edge) {
+            val head = getHead (edge)
+            val tail = getTail (edge)
+        }
 
-    private def addToSCC(edge: Edge) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
-    }
+        private def createSCC(paths: Paths) {
+            val scc = paths.ancestors.union (paths.descendants)
+            val entry = new Paths (scc, scc, true)
+            scc.foreach (
+                transitiveClosure (_) = entry
+            )
 
-    private def createSCC(paths: Paths) {
-        val scc = paths.ancestors.union (paths.descendants)
-        val entry = new Paths(scc, scc, true)
-        scc.foreach (
-            transitiveClosure(_) = entry
-        )
+        }
 
-    }
+        private def isInSCC(v: Vertex): Boolean = {
+            transitiveClosure.getOrElse (v, return false).isSCC
+        }
 
-    private def isInSCC(v:Vertex) : Boolean = {
-        transitiveClosure.getOrElse(v, return false).isSCC
-    }
+    */
 
     def internal_add(edge: Edge, notify: Boolean) {
-        val head = getHead (edge)
-        val tail = getTail (edge)
+        val edgeStart = getTail (edge)
+        val edgeEnd = getHead (edge)
 
-        val pathsOfHeadVertex = transitiveClosure
-            .getOrElseUpdate (head, new Paths ())
-
-        val pathsOfTailVertex = transitiveClosure
-            .getOrElseUpdate (tail, new Paths ())
-
+        val pathsOfEdgeStart = transitiveClosure
+            .getOrElseUpdate (edgeStart, Descendants ())
+        val pathsOfEdgeEnd = transitiveClosure
+            .getOrElseUpdate (edgeEnd, Descendants ())
 
 
+
+        /*
         // check for SCC
         if (pathsOfTailVertex.ancestors.contains (head))
         {
             createSCC (pathsOfTailVertex)
         }
+        */
 
 
         // head -> ({}, {tail})
         // (head, tail)
-        pathsOfHeadVertex.ancestors.add (tail)
+        //pathsOfHeadVertex.ancestors.add (tail)
         // tail -> ({head}, {})
         // (head, tail)
-        pathsOfTailVertex.descendants.add (head)
 
         //Step 4 // the new edge itself
-        if (notify) element_added ((tail, head))
+        if (pathsOfEdgeStart.add (edgeEnd, 1) && notify) element_added ((edgeStart, edgeEnd))
 
+        //Step 1 && Step 3 (inlined) -- O(n^2)
 
-        //Step 1 // all new paths constructed by adding the new edge to the back of an existing path
-        //O(n)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            // all edges with head x == tail(e)
-            // the Vertex x has an outgoing Edge e = (x,endVertex(edge))
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-            if (!connectedVertices.descendants.contains (head)) {
-                    connectedVertices.descendants.add (head)
-                    pathsOfHeadVertex.ancestors.add (x)
-                    if (notify) element_added ((x, head))
+        for ((start, descendants) <- transitiveClosure
+             if descendants.contains (edgeStart))
+        {
+            // Step 1
+            // all new paths constructed by adding the end vertex to the back of an existing path
+            if (descendants.add (edgeEnd, descendants (edgeStart) + 1) && notify)
+                element_added ((start, edgeEnd))
+
+            for ((end, length) <- pathsOfEdgeEnd.descendants) {
+                //Step 3
+                // all new paths constructed by concatenating two paths via (start -> end)
+                if (descendants.add (end, descendants (edgeStart) + length + 1) && notify)
+                    element_added ((start, end))
             }
-        })
-
+        }
 
         //Step 2
+        // all new paths constructed by adding the start vertex to the beginning of an existing path
         //O(n)
-        pathsOfHeadVertex.descendants.foreach ((x: Vertex) => {
-            // all edges with tail x == head(e)
-            // the Vertex x has an incoming Edge e = (tail(e),x)
-            val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-            if (!connectedVertices.ancestors.contains (tail)) {
-                connectedVertices.ancestors.add (tail)
-                pathsOfTailVertex.descendants.add (x)
-                //tailHeadAdjacencyList.put(startVertex(edge), x)
-                // && headTailAdjacencyList.put(x, startVertex(edge)))
-                if (notify) element_added ((tail, x))
-            }
-
-
-        })
-        //Step 3
-        //O(n^2)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-                val connectedVertices = transitiveClosure.getOrElse (x, throw new Error ())
-                if (!connectedVertices.descendants.contains (y)) {
-                    //all the vertices with e1 = (x,tail(e)) and e2 = (head(e), y)
-                    //=> e'=(x,y) new edge in the transitive closure
-                    connectedVertices.descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    if (notify) element_added ((x, y))
-                }
-
-            })
-        })
+        for ((end, length) <- pathsOfEdgeEnd.descendants
+             if !pathsOfEdgeStart.contains (end))
+        {
+            if (pathsOfEdgeStart.add (end, length + 1) && notify)
+                element_added ((edgeStart, end))
+        }
     }
 
     def added(edge: Edge) {
@@ -236,96 +261,95 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
     def removed(edge: Edge) {
+        val edgeStart = getTail (edge)
+        val edgeEnd = getHead (edge)
 
-        val head = getHead (edge)
-        val tail = getTail (edge)
-
-
-        val pathsOfTailVertex = transitiveClosure.getOrElse (tail, throw new Error ())
-        val pathsOfHeadVertex = transitiveClosure.getOrElse (head, throw new Error ())
+        //val pathsOfEdgeStart = transitiveClosure (edgeStart)
+        val pathsOfEdgeEnd = transitiveClosure (edgeEnd)
 
 
-        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper)
-        val suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
+        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
+        var suspiciousEdges = mutable.Map[(Vertex, Vertex), Int]()
+        suspiciousEdges.put ((edgeStart, edgeEnd), 1)
 
-        suspiciousEdges.add (tail, head)
+        // mark all paths that from edgeStart to any end vertex reachable by edgeEnd
+        for ((end, length) <- pathsOfEdgeEnd.descendants)
+        {
+            suspiciousEdges.put ((edgeStart, end), length + 1)
+        }
 
-        //
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            suspiciousEdges.add ((x, head))
-        })
-        pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-            suspiciousEdges.add ((tail, y))
-        })
+        // mark all paths that reach the start and end vertex -- O(n^2)
+        for ((start, descendants) <- transitiveClosure
+             if descendants.contains (edgeStart)) //&& descendants.contains (edgeEnd)) // the latter should be true in any case
+        {
 
-        //O(n^2)
-        pathsOfTailVertex.ancestors.foreach ((x: Vertex) => {
-            pathsOfHeadVertex.descendants.foreach ((y: Vertex) => {
-                suspiciousEdges.add ((x, y))
-            })
-        })
+            // mark all paths from any start vertex reaching edgeEnd and edgeStart
+            suspiciousEdges.put ((start, edgeEnd), descendants (edgeStart) + 1)
 
-        suspiciousEdges.foreach (e => {
-            val x = e._1
-            val y = e._2
-            val descendants = transitiveClosure.getOrElse (x, throw new Error ()).descendants
-            descendants.remove (y)
-            val ancestors = transitiveClosure.getOrElse (y, throw new Error ()).ancestors
-            ancestors.remove (x)
-        })
+            // mark all paths from any start vertex reaching to any vertex reachable by edgeEnd
+            for ((end, length) <- pathsOfEdgeEnd.descendants)
+            {
+                suspiciousEdges.put ((start, end), descendants (edgeStart) + length + 1)
+            }
+        }
 
+
+        // filter suspicious edges to not have smaller paths and
+        // remove all suspicious edges where the edge is also the shortest path
+        suspiciousEdges =
+            for (((start, end), length) <- suspiciousEdges;
+                 descendants = transitiveClosure (start).descendants
+                 if length == descendants (end)) yield
+            {
+                descendants.remove (end)
+                ((start, end), length)
+            }
 
 
         // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
         // alternative paths can be found by concatenating trusted paths once or twice
-        val trustedEdges = mutable.Set[(Vertex, Vertex)]()
         for (i <- 1 to 2) {
-            var putBack = List[(Vertex, Vertex)]()
-            suspiciousEdges.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    breakable {
-                        transitiveClosure.getOrElse (x, throw new Error ()).descendants.foreach ((v: Vertex) => {
-                            // do we still have a path from x._1 to x._2 => reinsert
-                            if (transitiveClosure.getOrElse (v, throw new Error ()).ancestors.contains (y)) {
-                                putBack = (x, y) :: putBack
-                                break ()
-                            }
-                        })
-                    }
-                }
-            )
-            putBack.foreach (
-                e => {
-                    val x = e._1
-                    val y = e._2
-                    transitiveClosure.getOrElse (x, throw new Error ()).descendants.add (y)
-                    transitiveClosure.getOrElse (y, throw new Error ()).ancestors.add (x)
-                    suspiciousEdges.remove (e)
-                }
-            )
+            // iterate twice
+            var trustedEdges = List[(Vertex, Vertex, Int)]()
 
+            for (((suspiciousStart, suspiciousEnd), length) <- suspiciousEdges;
+                 (middle, middleLength) <- transitiveClosure (suspiciousStart).descendants;
+                 middleDescendants = transitiveClosure (middle).descendants
+                 if middleDescendants.contains (suspiciousEnd))
+            {
+                // do we still have a path from  suspiciousStart to suspiciousEnd => reinsert
+                trustedEdges = (suspiciousStart, suspiciousEnd, middleLength + middleDescendants (suspiciousEnd)) :: trustedEdges
+            }
 
+            for ((start, end, length) <- trustedEdges)
+            {
+                transitiveClosure (start).add (end, length)
+                suspiciousEdges.remove (start, end)
+            }
         }
 
         // edges = TC_old - TC_new
-        suspiciousEdges.foreach (x => {
-            element_removed (x._1, x._2)
-        })
+        for ((start, end) <- suspiciousEdges.keys)
+        {
+            element_removed (start, end)
+        }
     }
 
-    def updated(oldV: Edge, newV: Edge) {
+
+    def updated (oldV: Edge, newV: Edge)
+    {
         //a direct update is not supported
         removed (oldV)
         added (newV)
     }
 
-    def updated[U <: Edge](update: Update[U]) {
+    def updated[U <: Edge] (update: Update[U])
+    {
         throw new UnsupportedOperationException
     }
 
-    def modified[U <: Edge](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+    def modified[U <: Edge] (additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]])
+    {
         throw new UnsupportedOperationException
     }
 }

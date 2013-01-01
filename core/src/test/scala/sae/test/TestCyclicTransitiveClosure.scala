@@ -74,6 +74,46 @@ class TestCyclicTransitiveClosure
     }
 
     @Test
+    def testAcyclicMultiplePathsAddition() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("c", "a"))
+        edges.element_added (Edge ("c", "b"))
+
+
+        assertEquals (
+            List (
+                ("a", "b"),
+                ("c", "a"),
+                ("c", "b")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
+    def testAcyclicMultiplePathsRemoval() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("c", "a"))
+        edges.element_added (Edge ("c", "b"))
+
+        edges.element_removed (Edge ("a", "b"))
+
+        assertEquals (
+            List (
+                ("c", "a"),
+                ("c", "b")
+            ),
+            tc.asList.sorted
+        )
+    }
+
+    @Test
     def testAcyclicMultiplePathsChainAddition() {
         val edges = new SetExtent[Edge]()
         val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
@@ -198,9 +238,11 @@ class TestCyclicTransitiveClosure
                 ("a", "b"),
                 ("a", "c"),
                 ("a", "d"),
+                ("b", "b"),
                 ("b", "c"),
                 ("b", "d"),
                 ("c", "b"),
+                ("c", "c"),
                 ("c", "d")
             ),
             tc.asList.sorted
@@ -247,14 +289,17 @@ class TestCyclicTransitiveClosure
                 ("a", "c"),
                 ("a", "d"),
                 ("a", "e"),
+                ("b", "b"),
                 ("b", "c"),
                 ("b", "d"),
                 ("b", "e"),
                 ("c", "b"),
+                ("c", "c"),
                 ("c", "d"),
                 ("c", "e"),
                 ("d", "b"),
                 ("d", "c"),
+                ("d", "d"),
                 ("d", "e")
             ),
             tc.asList.sorted
@@ -286,14 +331,17 @@ class TestCyclicTransitiveClosure
                 ("a", "c"),
                 ("a", "d"),
                 ("a", "e"),
+                ("b", "b"),
                 ("b", "c"),
                 ("b", "d"),
                 ("b", "e"),
                 ("c", "b"),
+                ("c", "c"),
                 ("c", "d"),
                 ("c", "e"),
                 ("d", "b"),
                 ("d", "c"),
+                ("d", "d"),
                 ("d", "e")
             ),
             tc.asList.sorted
@@ -316,23 +364,26 @@ class TestCyclicTransitiveClosure
 
         assertEquals (
             List (
+                ("a", "BACK"),
                 ("a", "b"),
                 ("a", "c"),
                 ("a", "d"),
                 ("a", "e"),
-                ("a", "BACK"),
+                ("b", "BACK"),
+                ("b", "b"),
                 ("b", "c"),
                 ("b", "d"),
                 ("b", "e"),
-                ("b", "BACK"),
+                ("c", "BACK"),
                 ("c", "b"),
+                ("c", "c"),
                 ("c", "d"),
                 ("c", "e"),
-                ("c", "BACK"),
+                ("d", "BACK"),
                 ("d", "b"),
                 ("d", "c"),
+                ("d", "d"),
                 ("d", "e"),
-                ("d", "BACK"),
                 ("e", "BACK")
             ),
             tc.asList.sorted
