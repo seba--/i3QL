@@ -255,17 +255,23 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
-    def resolveSCCRemoval(start: Vertex, end: Vertex) {
+    /**
+     * resolves the previous scc and creates a situation without scc if necessary.
+     * returns all edges in the scc, i.e., all vertex combinations, to be used as suspicious edges
+     */
+    def resolveSCCRemoval(start: Vertex, end: Vertex): mutable.Set[(Vertex, Vertex)] = {
         val representative = sccRepresentatives (start)
 
         // recompute the descendants for all elements in SCC
-        val oldSCCElements = for (descendant <- descendants (start)
-                                  if isInSameSCC (descendant, representative)) yield
-        {
-            val newDescendants = mutable.HashSet.empty[Vertex]
-            computeDescendants (descendant, representative, newDescendants)
-            (descendant, newDescendants)
-        }
+        val oldSCCElements =
+            for (descendant <- descendants (start)
+                 if isInSameSCC (descendant, representative)) yield
+            {
+                val newDescendants = mutable.HashSet.empty[Vertex]
+                computeDescendants (descendant, representative, newDescendants)
+
+                (descendant, newDescendants)
+            }
 
         // recreate a situation where the elements are not in any SCC
         for ((vertex, descendants) <- oldSCCElements)
@@ -280,21 +286,27 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         {
             createSCC (vertex, descendants)
         }
+
+        for ((start, _) <- oldSCCElements;
+             (end, _) <- oldSCCElements)
+        yield (start, end)
     }
 
     def removed(edge: Edge) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
 
+        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
+        var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
+
         if (isInSCC (edgeStart, edgeEnd)) {
-            resolveSCCRemoval (edgeStart, edgeEnd)
+            suspiciousEdges = resolveSCCRemoval (edgeStart, edgeEnd)
         }
 
         val pathsOfEdgeEnd = descendants (edgeEnd)
 
 
-        //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
-        var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
+
         suspiciousEdges.add (edgeStart, edgeEnd)
 
         // mark all paths that from edgeStart to any end vertex reachable by edgeEnd
@@ -305,7 +317,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
         // mark all paths that reach the start and end vertex -- O(n^2)
         for ((start, descendants) <- transitiveClosure
-             if descendants.contains (edgeStart)) //&& descendants.contains (edgeEnd)) // the latter should be true in any case
+             if descendants.contains (edgeStart) && descendants.contains (edgeEnd)) // the latter must not always be true in the case of a back edge where the scc was removed first
         {
 
             // mark all paths from any start vertex reaching edgeEnd and edgeStart
