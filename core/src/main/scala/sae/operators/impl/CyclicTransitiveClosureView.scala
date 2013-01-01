@@ -147,6 +147,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      * The SCC has a list of descendants of the SCC and a list of the elements in the SCC.
      */
     private def createSCC(representative: Vertex, potentialSCCDescendants: mutable.Iterable[Vertex]) {
+        if (sccRepresentatives.contains (representative))
+            return
         val sccDescendants = descendants (representative)
         for (vertex <- potentialSCCDescendants)
         {
@@ -169,7 +171,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         descendants.add (end)
         if (notify) {
             if (sccRepresentatives.isDefinedAt (start)) {
-                for (descendant <- descendants; if sccRepresentatives.isDefinedAt(descendant)){
+                for (descendant <- descendants; if sccRepresentatives.isDefinedAt (descendant)) {
                     element_added (descendant, end)
                 }
             }
@@ -180,6 +182,10 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
+
+    def isInSCC(start: Vertex, end: Vertex): Boolean = {
+        sccRepresentatives.isDefinedAt (start) && sccRepresentatives.isDefinedAt (end)
+    }
 
     def internal_add(edge: Edge, notify: Boolean) {
         val edgeStart = getTail (edge)
@@ -229,9 +235,60 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         internal_add (edge, notify = true)
     }
 
+    def isInSameSCC(vertex: Vertex, representative: Vertex): Boolean = {
+        sccRepresentatives.get (vertex) == Some (representative)
+    }
+
+    def computeDescendants(start: Vertex, sccRepresentative: Vertex, result: mutable.HashSet[Vertex]) {
+        if (!isInSameSCC (start, sccRepresentative)) {
+            result ++= nonSCCDescendants (start)
+        }
+        else
+        {
+            val edgeList = adjacencyLists.get (start).getOrElse (return)
+            for (edge <- edgeList)
+            {
+                val end = getHead (edge)
+                result.add (end)
+                computeDescendants (end, sccRepresentative, result)
+            }
+        }
+    }
+
+    def resolveSCCRemoval(start: Vertex, end: Vertex) {
+        val representative = sccRepresentatives (start)
+
+        // recompute the descendants for all elements in SCC
+        val oldSCCElements = for (descendant <- descendants (start)
+                                  if isInSameSCC (descendant, representative)) yield
+        {
+            val newDescendants = mutable.HashSet.empty[Vertex]
+            computeDescendants (descendant, representative, newDescendants)
+            (descendant, newDescendants)
+        }
+
+        // recreate a situation where the elements are not in any SCC
+        for ((vertex, descendants) <- oldSCCElements)
+        {
+            transitiveClosure.put (vertex, descendants)
+            sccRepresentatives.remove (vertex)
+        }
+
+        // recreate one or more SCCs as necessary
+        for ((vertex, descendants) <- oldSCCElements
+             if descendants.contains (vertex))
+        {
+            createSCC (vertex, descendants)
+        }
+    }
+
     def removed(edge: Edge) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
+
+        if (isInSCC (edgeStart, edgeEnd)) {
+            resolveSCCRemoval (edgeStart, edgeEnd)
+        }
 
         val pathsOfEdgeEnd = descendants (edgeEnd)
 
