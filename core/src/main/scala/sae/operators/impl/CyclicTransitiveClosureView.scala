@@ -94,7 +94,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      */
     def isDefinedAt(v: (Vertex, Vertex)) = {
         if (transitiveClosure.contains (v._1)) {
-            transitiveClosureGet (v._1).contains (v._2)
+            transitiveClosure (v._1).contains (v._2)
         }
         else
         {
@@ -141,22 +141,13 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         )
     }
 
-
-    private def transitiveClosureGet(v: Vertex) = {
-        transitiveClosure.getOrElse (v, throw new Error ())
-    }
-
-
     /**
      * create an SCC for the start vertex, by removing all entries of the SCC from transitive closure
      * and only putting one representative back.
      * The SCC has a list of descendants of the SCC and a list of the elements in the SCC.
      */
     private def createSCC(representative: Vertex, potentialSCCDescendants: mutable.Iterable[Vertex]) {
-        /*
-        val sccElements = mutable.HashMap.empty[Vertex, Vertex]
-        val sccDescendants = mutable.HashMap.empty[Vertex, Int]
-
+        val sccDescendants = descendants (representative)
         for (vertex <- potentialSCCDescendants)
         {
             val path = transitiveClosure (vertex)
@@ -164,20 +155,29 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             {
                 // this vertex contains itself in its dependants; hence is part of the SCC
                 transitiveClosure.remove (vertex)
-                sccElements.put (vertex, representative)
+                sccRepresentatives.put (vertex, representative)
+            }
+        }
+
+        nonSCCDescendants.put (representative, sccDescendants)
+    }
+
+
+    def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex], notify: Boolean) {
+        if (descendants.contains (end))
+            return
+        descendants.add (end)
+        if (notify) {
+            if (sccRepresentatives.isDefinedAt (start)) {
+                for (descendant <- descendants; if sccRepresentatives.isDefinedAt(descendant)){
+                    element_added (descendant, end)
+                }
             }
             else
             {
-                // vertex is a descendant of the SCC
-                for (end <- path
-                     // check that there was no other member of the SCC with a shorter path
-                     if !sccDescendants.isDefinedAt (end) || length < sccDescendants (end))
-                {
-                    sccDescendants.put (end, length)
-                }
+                element_added (start, end)
             }
         }
-        */
     }
 
 
@@ -190,7 +190,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 
         //Step 4 // the new edge itself
-        if (pathsOfEdgeStart.add (edgeEnd) && notify) element_added ((edgeStart, edgeEnd))
+        addDescendant (edgeStart, edgeEnd, pathsOfEdgeStart, notify)
 
         //Step 1 && Step 3 (inlined) -- O(n^2)
 
@@ -199,34 +199,30 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         {
             // Step 1
             // all new paths constructed by adding the end vertex to the back of an existing path
-            if (descendants.add (edgeEnd) && notify)
-                element_added ((start, edgeEnd))
+            addDescendant (start, edgeEnd, descendants, notify)
 
             for (end <- pathsOfEdgeEnd) {
                 //Step 3
                 // all new paths constructed by concatenating two paths via (start -> end)
-                if (descendants.add (end) && notify)
-                    element_added ((start, end))
+                addDescendant (start, end, descendants, notify)
             }
         }
 
         //Step 2
         // all new paths constructed by adding the start vertex to the beginning of an existing path
         //O(n)
-        for (end <- pathsOfEdgeEnd
-             if !pathsOfEdgeStart.contains (end))
+        for (end <- pathsOfEdgeEnd)
         {
-            if (pathsOfEdgeStart.add (end) && notify)
-                element_added ((edgeStart, end))
+            addDescendant (edgeStart, end, pathsOfEdgeStart, notify)
         }
 
         // check if a transitive closure was created, it has to contain edgeStart, because this was the beginning of the new edge
-        /*
+
         if (pathsOfEdgeStart.contains (edgeStart))
         {
-            createSCC (edgeStart, pathsOfEdgeStart.descendants.keys)
+            createSCC (edgeStart, pathsOfEdgeStart)
         }
-        */
+
     }
 
     def added(edge: Edge) {
@@ -237,8 +233,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
 
-        //val pathsOfEdgeStart = transitiveClosure (edgeStart)
-        val pathsOfEdgeEnd = transitiveClosure (edgeEnd)
+        val pathsOfEdgeEnd = descendants (edgeEnd)
 
 
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length

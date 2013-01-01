@@ -378,11 +378,8 @@ class TestCyclicTransitiveClosure
                 ("b", "c"),
                 ("b", "d"),
                 ("b", "e"),
-                ("c", "b"),
                 ("c", "d"),
                 ("c", "e"),
-                ("d", "b"),
-                ("d", "c"),
                 ("d", "e")
             ),
             tc.asList.sorted
@@ -458,12 +455,9 @@ class TestCyclicTransitiveClosure
                 ("b", "d"),
                 ("b", "e"),
                 ("c", "BACK"),
-                ("c", "b"),
                 ("c", "d"),
                 ("c", "e"),
                 ("d", "BACK"),
-                ("d", "b"),
-                ("d", "c"),
                 ("d", "e"),
                 ("e", "BACK")
             ),
