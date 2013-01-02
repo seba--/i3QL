@@ -146,20 +146,24 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      * and only putting one representative back.
      * The SCC has a list of descendants of the SCC and a list of the elements in the SCC.
      */
-    private def createSCC(representative: Vertex, potentialSCCDescendants: mutable.Iterable[Vertex]) {
+    private def createSCC(representative: Vertex) {
+        // TODO add this to some existing SCC if subsumed or enlarge existing
         if (sccRepresentatives.contains (representative))
             return
         val sccDescendants = descendants (representative)
-        for (vertex <- potentialSCCDescendants)
-        {
-            val path = transitiveClosure (vertex)
-            if (path.contains (vertex))
-            {
-                // this vertex contains itself in its dependants; hence is part of the SCC
-                transitiveClosure.remove (vertex)
-                sccRepresentatives.put (vertex, representative)
-            }
+
+        // deduce the elemens in the scc, but leave the current storage intact
+        val sccElements =
+            for (vertex <- sccDescendants
+                 if (descendants (vertex).contains (representative))
+            ) yield vertex
+
+        // only change scc storage after knowing what is in the scc
+        for (vertex <- sccElements) {
+            sccRepresentatives.put (vertex, representative)
+            transitiveClosure.remove (vertex)
         }
+
 
         nonSCCDescendants.put (representative, sccDescendants)
     }
@@ -224,9 +228,9 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
         // check if a transitive closure was created, it has to contain edgeStart, because this was the beginning of the new edge
 
-        if (pathsOfEdgeStart.contains (edgeStart))
+        if (pathsOfEdgeStart.contains (edgeStart) && !sccRepresentatives.contains (edgeStart))
         {
-            createSCC (edgeStart, pathsOfEdgeStart)
+            createSCC (edgeStart)
         }
 
     }
@@ -249,8 +253,10 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             for (edge <- edgeList)
             {
                 val end = getHead (edge)
-                result.add (end)
-                computeDescendants (end, sccRepresentative, result)
+                if (result.add (end)) {
+                    // compute descendants only for new elements
+                    computeDescendants (end, sccRepresentative, result)
+                }
             }
         }
     }
@@ -259,12 +265,13 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      * resolves the previous scc and creates a situation without scc if necessary.
      * returns all edges in the scc, i.e., all vertex combinations, to be used as suspicious edges
      */
-    def resolveSCCRemoval(start: Vertex, end: Vertex): mutable.Set[(Vertex, Vertex)] = {
+    def resolveSCCRemoval(start: Vertex, end: Vertex, suspiciousEdges: mutable.Set[(Vertex, Vertex)]): mutable.Set[(Vertex, Vertex)] = {
         val representative = sccRepresentatives (start)
 
-        val oldDescendants = transitiveClosure(representative)
+        val oldDescendants = transitiveClosure (representative)
 
         // recompute the descendants for all elements in SCC
+        // fill suspicious edges to contain all cycles in the SCC
         val oldSCCElements =
             for (descendant <- descendants (start)
                  if isInSameSCC (descendant, representative)) yield
@@ -272,6 +279,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                 val newDescendants = mutable.HashSet.empty[Vertex]
                 computeDescendants (descendant, representative, newDescendants)
 
+                for (end <- oldDescendants)
+                    suspiciousEdges.add (descendant, end)
                 (descendant, newDescendants)
             }
 
@@ -280,18 +289,20 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         {
             transitiveClosure.put (vertex, descendants)
             sccRepresentatives.remove (vertex)
+
+            // remove any edged we have recomputed from suspicious
+            for (end <- descendants)
+                suspiciousEdges.remove (vertex, end)
         }
 
         // recreate one or more SCCs as necessary
         for ((vertex, descendants) <- oldSCCElements
              if descendants.contains (vertex))
         {
-            createSCC (vertex, descendants)
+            createSCC (vertex)
         }
 
-        for ((start, _) <- oldSCCElements;
-             end <- oldDescendants)
-        yield (start, end)
+        suspiciousEdges
     }
 
     def removed(edge: Edge) {
@@ -301,15 +312,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
         var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
 
-
-        if (isInSCC (edgeStart, edgeEnd)) {
-            suspiciousEdges = resolveSCCRemoval (edgeStart, edgeEnd)
-        }
-
-
         val pathsOfEdgeEnd = descendants (edgeEnd)
-
-
 
         suspiciousEdges.add (edgeStart, edgeEnd)
 
@@ -335,6 +338,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
 
 
+        if (isInSCC (edgeStart, edgeEnd)) {
+            resolveSCCRemoval (edgeStart, edgeEnd, suspiciousEdges)
+        }
+
+
         // filter suspicious edges that are not still in the original graph
         // and remove suspicious edges from transitive closure
         suspiciousEdges =
@@ -352,7 +360,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
         // T_ab ∪ (T_ab ο T_ab) ∪ (T_ab ο T_ab ο T_ab)
         // alternative paths can be found by concatenating trusted paths once or twice
-        for (i <- 1 to 3) {
+        for (i <- 1 to 2) {
             // iterate twice
             var trustedEdges = List[(Vertex, Vertex)]()
 
