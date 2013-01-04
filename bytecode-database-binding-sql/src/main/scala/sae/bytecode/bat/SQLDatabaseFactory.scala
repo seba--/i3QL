@@ -33,7 +33,7 @@
 package sae.bytecode.bat
 
 import sae.bytecode.BytecodeDatabaseManipulation
-import java.sql.DriverManager
+import java.sql.{Connection, DriverManager}
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,9 +44,9 @@ import java.sql.DriverManager
 
 object SQLDatabaseFactory
 {
-    Class.forName("com.mysql.jdbc.Driver")
+    Class.forName ("com.mysql.jdbc.Driver")
 
-    val schema =
+    val schemaScript =
         """
           |SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
           |SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -59,30 +59,29 @@ object SQLDatabaseFactory
           |-- -----------------------------------------------------
           |-- Table `bytecode`.`classes`
           |-- -----------------------------------------------------
-          |DROP TABLE IF EXISTS `bytecode`.`classes` ;
-          |
           |CREATE  TABLE IF NOT EXISTS `bytecode`.`classes` (
           |  `cid` INT NOT NULL AUTO_INCREMENT ,
           |  `packageName` VARCHAR(255) NOT NULL ,
           |  `simpleName` VARCHAR(100) NOT NULL ,
-          |  PRIMARY KEY (`cid`) ,
-          |  UNIQUE INDEX `cid_UNIQUE` (`cid` ASC) )
+          |  PRIMARY KEY (`cid`) )
           |ENGINE = InnoDB;
+          |
+          |CREATE UNIQUE INDEX `cid_UNIQUE` ON `bytecode`.`classes` (`cid` ASC) ;
           |
           |
           |-- -----------------------------------------------------
           |-- Table `bytecode`.`methods`
           |-- -----------------------------------------------------
-          |DROP TABLE IF EXISTS `bytecode`.`methods` ;
-          |
           |CREATE  TABLE IF NOT EXISTS `bytecode`.`methods` (
           |  `mid` INT NOT NULL AUTO_INCREMENT ,
           |  `cid` INT NOT NULL ,
           |  `name` VARCHAR(100) NULL ,
-          |  PRIMARY KEY (`mid`, `cid`) ,
-          |  UNIQUE INDEX `mid_UNIQUE` (`mid` ASC) ,
-          |  UNIQUE INDEX `cid_UNIQUE` (`cid` ASC) )
+          |  PRIMARY KEY (`mid`, `cid`) )
           |ENGINE = InnoDB;
+          |
+          |CREATE UNIQUE INDEX `mid_UNIQUE` ON `bytecode`.`methods` (`mid` ASC) ;
+          |
+          |CREATE UNIQUE INDEX `cid_UNIQUE` ON `bytecode`.`methods` (`cid` ASC) ;
           |
           |
           |
@@ -94,12 +93,20 @@ object SQLDatabaseFactory
 
     def create(url: String): BytecodeDatabaseManipulation = {
         val connection = DriverManager.getConnection (url)
-        connection.createStatement().execute(schema)
+        executeSchemaScript (connection)
+        connection.setAutoCommit (false)
         new SQLDatabase (connection)
     }
 
     def drop(url: String) {
         val connection = DriverManager.getConnection (url)
-        connection.createStatement().execute(schema)
+        executeSchemaScript (connection)
+        connection.close ()
+    }
+
+    private def executeSchemaScript(connection: Connection) {
+        val stmt = connection.createStatement ()
+        schemaScript.split ("\\s*;\\s*").foreach (stmt.addBatch (_))
+        stmt.executeBatch ()
     }
 }

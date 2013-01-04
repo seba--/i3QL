@@ -48,7 +48,7 @@ class SQLDatabase(val connection : Connection)
     extends BytecodeDatabaseManipulation
 {
 
-    val transaction = new SQLTransaction
+    val transaction = new SQLTransaction(connection)
 
     val additionReader = new SQLTransactionAdderJavaReader (transaction)
 

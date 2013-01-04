@@ -2,22 +2,36 @@ package sae.bytecode.bat
 
 import sae.bytecode.structure._
 import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
+import java.sql.{Statement, Connection}
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-class SQLTransaction
+class SQLTransaction(val connection: Connection)
     extends Transaction
 {
-    def begin() {}
+    def begin() {
+    }
 
-    def commit() {}
+    def commit() {
+        connection.commit ()
+    }
 
-    def rollback() {}
+    def rollback() {
+        connection.rollback ()
+    }
 
-    def add(classDeclaration: ClassDeclaration) {}
+    def add(classDeclaration: ClassDeclaration) {
+        connection.createStatement ().execute ("INSERT HIGH_PRIORITY INTO bytecode.classes  (packageName, simpleName) VALUES ('" + classDeclaration.classType.packageName + "', '" + classDeclaration.classType.simpleName + "')", Statement.RETURN_GENERATED_KEYS)
+        /*
+        val stmt = connection.prepareStatement("INSERT INTO bytecode.classes  (packageName, simpleName) VALUES (?, ?)")
+        stmt.setString(1, classDeclaration.classType.packageName)
+        stmt.setString(2, classDeclaration.classType.simpleName)
+        */
+        //stmt.execute()
+    }
 
     def remove(classDeclaration: ClassDeclaration) {}
 
