@@ -46,6 +46,11 @@
             <artifactId>sae-architecture</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-sql</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 

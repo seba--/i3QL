@@ -62,6 +62,10 @@ trait AbstractPropertiesFileProfiler
 
     private var isSharedSubQueries = false
 
+    def properties = lPorperties
+
+    private var lPorperties : Properties = new Properties()
+
     def main(args: Array[String]) {
         if (args.length == 0 || !args (0).endsWith (".properties")) {
             println (usage)
@@ -110,7 +114,7 @@ trait AbstractPropertiesFileProfiler
             }
 
 
-        val properties = getProperties (propertiesFile).getOrElse (
+        lPorperties = getProperties (propertiesFile).getOrElse (
         {
             println ("could not find properties file or resource: " + propertiesFile)
             sys.exit (-1)
