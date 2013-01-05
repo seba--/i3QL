@@ -33,7 +33,7 @@
 package sae.bytecode.bat
 
 import sae.bytecode.BytecodeDatabaseManipulation
-import com.sleepycat.je.{DatabaseConfig, Environment, EnvironmentConfig, Database}
+import com.sleepycat.je.{DatabaseConfig, Environment, EnvironmentConfig}
 import java.io.File
 
 /**
@@ -46,18 +46,25 @@ import java.io.File
 object KVDatabaseFactory
 {
 
-    def create(url: String): BytecodeDatabaseManipulation = {
+    def create(url: String): KVDatabase = {
         val envConfig = new EnvironmentConfig ()
         envConfig.setAllowCreate (true)
         val myDbEnv = new Environment (new File (url), envConfig)
-        val dbConfig = new DatabaseConfig()
-        dbConfig.setAllowCreate(true)
-        new KVDatabase (myDbEnv.openDatabase(null, "bytecode", dbConfig))
+        val dbConfig = new DatabaseConfig ()
+        dbConfig.setAllowCreate (true)
+        new KVDatabase (myDbEnv.openDatabase (null, "bytecode", dbConfig))
     }
 
     def drop(url: String) {
-        val file = new File (url)
-        file.delete()
+        val dir = new File (url)
+        if (dir.isDirectory)
+        {
+            val files = dir.listFiles ()
+            for (file <- files) {
+                file.delete ()
+            }
+        }
+
     }
 
 

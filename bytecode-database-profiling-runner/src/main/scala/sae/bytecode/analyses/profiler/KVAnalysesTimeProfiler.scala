@@ -94,6 +94,7 @@ object KVAnalysesTimeProfiler
                 stream.close ()
             })
         }
+        database.close
         database = null
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()

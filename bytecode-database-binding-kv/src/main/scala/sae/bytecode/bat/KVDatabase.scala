@@ -55,6 +55,13 @@ class KVDatabase(val database : Database)
 
     val removeReader = new KVTransactionRemoverJavaReader (transaction)
 
+    def close() {
+        //database.sync()
+        val env = database.getEnvironment
+        database.close()
+        env.close()
+    }
+
     def addClassFile(stream: InputStream) {
         beginTransaction()
         additionReader.ClassFile (() => stream)
