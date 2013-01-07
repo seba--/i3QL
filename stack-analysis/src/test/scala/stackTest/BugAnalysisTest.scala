@@ -63,7 +63,7 @@ class BugAnalysisTest {
     val logList = BugAnalysisTest.methodTestSelfAssignment.asList(0).log.getLog
 
     Assert.assertEquals(2, logList.size)
-    Assert.assertTrue(logList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
+    Assert.assertTrue(logList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)))
     Assert.assertTrue(logList.contains((23, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
   }
 

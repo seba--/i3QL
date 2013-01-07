@@ -37,8 +37,14 @@ object LocalSelfAssignmentFinder extends StackBugFinder {
     } else if (saveEquals(lv(lvIndex), stack(0))) {
       codeInfo.code.localVariableTable match {
         case None => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
-        //TODO: Check if loc variable name is also a field name.
-        case Some(varTable) => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+
+        case Some(varTable) => {
+          //TODO: Check if loc variable name is also a field name.
+          if (stack(0).isFromField && stack(0).getFieldName == varTable(lvIndex).name)
+            return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)
+          else
+            return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+        }
       }
     }
     return None
