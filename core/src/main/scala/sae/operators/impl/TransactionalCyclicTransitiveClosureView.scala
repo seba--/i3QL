@@ -58,7 +58,7 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
 {
     source addObserver this
 
-    private var adjacencyLists = source.index (getTail)
+    private var adjacencyLists = mutable.HashMap.empty[Vertex, mutable.HashSet[Edge]]
 
     private var nonSCCDescendants = mutable.HashMap.empty[Vertex, mutable.HashSet[Vertex]]
 
@@ -66,32 +66,24 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
 
 
     override def clear() {
-        adjacencyLists = source.index (getTail)
+        adjacencyLists = mutable.HashMap.empty[Vertex, mutable.HashSet[Edge]]
         nonSCCDescendants = mutable.HashMap.empty[Vertex, mutable.HashSet[Vertex]]
         sccRepresentatives = mutable.HashMap.empty[Vertex, Vertex]
         super.clear ()
     }
 
     override def endTransaction() {
-        var it: java.util.Iterator[Edge] = additions.iterator()
+        var it: java.util.Iterator[Edge] = additions.iterator ()
         while (it.hasNext) {
             val next = it.next ()
-            internal_added(next)
+            internal_added (next)
         }
-        it = deletions.iterator()
+        it = deletions.iterator ()
         while (it.hasNext) {
             val next = it.next ()
-            internal_removed(next)
+            internal_removed (next)
         }
-        /*
-        for (edge <- additions) {
-            internal_added(edge)
-        }
-        for (edge <- deletions) {
-            internal_removed(edge)
-        }
-        */
-        clear()
+        clear ()
         super.endTransaction ()
     }
 
@@ -191,6 +183,20 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
     }
 
 
+    def addEdge(start: Vertex, edge: Edge) {
+        val edges = adjacencyLists.getOrElse (start, {
+            val empty = mutable.HashSet.empty[Edge]
+            adjacencyLists.put (start, empty)
+            empty
+        })
+        edges.add (edge)
+    }
+
+    def removeEdge(start: Vertex, edge: Edge) {
+        val edges = adjacencyLists (start) // should always be present
+        edges.remove (edge)
+    }
+
     def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]) {
         if (descendants.contains (end))
             return
@@ -222,6 +228,7 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
 
 
         //Step 4 // the new edge itself
+        addEdge (edgeStart, edge)
         addDescendant (edgeStart, edgeEnd, pathsOfEdgeStart)
 
         //Step 1 && Step 3 (inlined) -- O(n^2)
@@ -326,6 +333,8 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
     def internal_removed(edge: Edge) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
+
+        removeEdge (edgeStart, edge)
 
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
         var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
