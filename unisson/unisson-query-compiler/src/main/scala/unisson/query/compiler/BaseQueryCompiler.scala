@@ -2,11 +2,11 @@ package unisson.query.compiler
 
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import unisson.query.code_model.SourceElement
 import unisson.query.parser.QueryParser
 import unisson.query.UnissonQuery
 import unisson.query.ast._
 import sae.collections.EmptyResult
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
 
 /**
  *
@@ -20,7 +20,7 @@ class BaseQueryCompiler(val db: BytecodeDatabase)
 {
     val definitions = new QueryDefinitions (db)
 
-    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] = {
         val parser = new QueryParser ()
         val result = parser.parse (query)
         result match {
@@ -31,10 +31,12 @@ class BaseQueryCompiler(val db: BytecodeDatabase)
         }
     }
 
+
+
     /**
      *
      */
-    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] = {
         import definitions._
         query match {
             case ClassSelectionQuery (pn, sn) => `class` (pn, sn)
@@ -45,12 +47,13 @@ class BaseQueryCompiler(val db: BytecodeDatabase)
             case OrQuery (left, right) => decorator.compile (left) or decorator.compile (right)
             case WithoutQuery (left, right) => decorator.compile (left) without decorator.compile (right)
             case MethodQuery (classQuery, name, returnType, parameters@_*) => method (decorator.compile (classQuery), name, decorator.compile (returnType), parameters.map (decorator.compile): _*)
+            case FieldQuery (ClassSelectionQuery (pn, sn), name, TypeQuery (fieldType)) => direct_field (pn, sn, name, fieldType)
             case FieldQuery (classQuery, name, fieldType) => field (decorator.compile (classQuery), name, decorator.compile (fieldType))
             case TransitiveQuery (SuperTypeQuery (innerQuery)) => transitive_supertype (decorator.compile (innerQuery))
             case SuperTypeQuery (innerQuery) => supertype (decorator.compile (innerQuery))
             case TypeQuery (name) => typeQuery (name)
-            case EmptyQuery () => new EmptyResult[SourceElement[AnyRef]]()
-            case DerivedQuery () => new EmptyResult[SourceElement[AnyRef]]()
+            case EmptyQuery () => new EmptyResult[ICodeElement]()
+            case DerivedQuery () => new EmptyResult[ICodeElement]()
             case _ => throw new IllegalArgumentException ("Unknown query type: " + query)
         }
     }

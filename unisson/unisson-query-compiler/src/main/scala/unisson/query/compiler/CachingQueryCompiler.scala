@@ -1,10 +1,10 @@
 package unisson.query.compiler
 
-import collection.mutable.WeakHashMap
 import unisson.query.UnissonQuery
-import unisson.query.code_model.SourceElement
 import unisson.query.ast._
 import sae.{Observable, Relation}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import collection.mutable
 
 /**
  *
@@ -16,17 +16,17 @@ import sae.{Observable, Relation}
 class CachingQueryCompiler(val decoratee: QueryCompiler)
     extends QueryCompiler
 {
-    protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]] =
-        new WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]]()
+    protected[compiler] var cachedQueries: mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]] =
+        new mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]]()
 
     val db = decoratee.db
 
     val definitions = decoratee.definitions
 
-    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] =
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] =
         decoratee.parseAndCompile (query)(this)
 
-    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] = {
         for (compiledQuery <- getChachedQuery (query)) {
             return compiledQuery
         }
@@ -37,8 +37,8 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
         compiledQuery
     }
 
-    private def getChachedQuery(query: UnissonQuery): Option[Relation[SourceElement[AnyRef]]] = {
-        val cachedCompiledQuery: Option[Relation[SourceElement[AnyRef]]] =
+    private def getChachedQuery(query: UnissonQuery): Option[Relation[ICodeElement]] = {
+        val cachedCompiledQuery: Option[Relation[ICodeElement]] =
             cachedQueries.collectFirst {
                 case (cachedQuery, compiledQuery) if (cachedQuery.isSyntacticEqual (query)) => compiledQuery
             }
@@ -47,7 +47,7 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
 
     def dispose(query: UnissonQuery) {
         for (
-            compiledQuery <- getChachedQuery (query);
+            compiledQuery <- getChachedQuery (query)
             if !compiledQuery.hasObservers
         )
         {
@@ -72,7 +72,7 @@ class CachingQueryCompiler(val decoratee: QueryCompiler)
                     for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
                         removeAllSingleObserversOnPath (
-                            List (db.typeDeclarations, definitions.transitive_class_members, innerCompiledQuery),
+                            List (db.typeDeclarations, definitions.transitive_inner_class_members, innerCompiledQuery),
                             compiledQuery
                         )
                         dispose (innerQuery)

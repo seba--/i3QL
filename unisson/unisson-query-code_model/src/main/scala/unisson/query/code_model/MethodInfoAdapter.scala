@@ -13,7 +13,7 @@ import de.tud.cs.st.bat.resolved.ObjectType
  *
  */
 class MethodInfoAdapter(val element: MethodInfo)
-    extends IMethodDeclaration with SourceElement[MethodInfo]
+    extends IMethodDeclaration
 {
 
     def getPackageIdentifier: String = {
@@ -41,10 +41,6 @@ class MethodInfoAdapter(val element: MethodInfo)
     override def hashCode() = element.hashCode ()
 
     override def equals(obj: Any): Boolean = {
-        if (obj.isInstanceOf[SourceElement[MethodInfo]]) {
-            return element.equals (obj.asInstanceOf[SourceElement[MethodInfo]].element)
-        }
-
         if (obj.isInstanceOf[IMethodDeclaration])
         {
             val other = obj.asInstanceOf[IMethodDeclaration]

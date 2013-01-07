@@ -149,6 +149,11 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-bytecode-database-sql</artifactId>
+                <version>0.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
                 <artifactId>sae-bytecode-database-profiling-library</artifactId>
                 <version>0.1.0</version>
             </dependency>
@@ -170,6 +175,11 @@
             <dependency>
                 <groupId>de.tud.cs.st.opal.sae</groupId>
                 <artifactId>sae-metrics</artifactId>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-architecture</artifactId>
                 <version>0.3.0</version>
             </dependency>
             <dependency>

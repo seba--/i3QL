@@ -34,6 +34,7 @@ package sae.bytecode.structure
 
 import de.tud.cs.st.bat._
 import resolved.ObjectType
+import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,6 +51,7 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
     extends DeclaredClassMember
     with MethodInfo
     with MethodComparison
+    with IMethodDeclaration
 {
     def receiverType = declaringClassType
 
@@ -77,6 +79,15 @@ class MethodDeclaration(val declaringClass: ClassDeclaration,
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
 
+    def getPackageIdentifier = declaringClassType.packageName
+
+    def getSimpleClassName = declaringClassType.simpleName
+
+    def getMethodName = name
+
+    def getReturnTypeQualifier = returnType.toJava
+
+    def getParameterTypeQualifiers = parameterTypes.map(_.toJava).toArray
 }
 
 object MethodDeclaration

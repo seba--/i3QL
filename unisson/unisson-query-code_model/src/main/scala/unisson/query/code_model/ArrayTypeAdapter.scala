@@ -11,7 +11,7 @@ import de.tud.cs.st.bat.resolved.ArrayType
  *
  */
 class ArrayTypeAdapter (val element: ArrayType)
-    extends ICodeElement with SourceElement[ArrayType]
+    extends ICodeElement
 {
     def getPackageIdentifier = ""
 

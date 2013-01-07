@@ -1,6 +1,7 @@
 package sae.bytecode.structure
 
 import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
 
 class FieldDeclaration(val declaringClass: ClassDeclaration,
                        val accessFlags: Int,
@@ -9,6 +10,7 @@ class FieldDeclaration(val declaringClass: ClassDeclaration,
     extends DeclaredClassMember
     with FieldInfo
     with FieldComparison
+    with IFieldDeclaration
 {
     def declaringType = declaringClass.classType
 
@@ -32,6 +34,13 @@ class FieldDeclaration(val declaringClass: ClassDeclaration,
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
 
+    def getPackageIdentifier = declaringClassType.packageName
+
+    def getSimpleClassName = declaringClassType.simpleName
+
+    def getFieldName = name
+
+    def getTypeQualifier = fieldType.toJava
 }
 
 object FieldDeclaration

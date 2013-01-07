@@ -34,7 +34,7 @@ package unisson.model
 
 import kinds.primitive._
 import sae.bytecode.structure._
-import unisson.query.code_model.{FieldInfoAdapter, MethodInfoAdapter, SourceElement}
+import unisson.query.code_model.{SourceElementFactory, DirectMethodInfoAdapter, DirectFieldInfoAdapter}
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.FieldType
 import sae.bytecode.structure.InheritanceRelation
@@ -52,80 +52,80 @@ object DependencyFactory
 {
     def extendsDependency: InheritanceRelation => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.subType), SourceElement (rel.superType), ExtendsKind)
+            Dependency (SourceElementFactory (rel.subType), SourceElementFactory (rel.superType), ExtendsKind)
     }
 
     def implementsDependency: InheritanceRelation => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.subType), SourceElement (rel.superType), ImplementsKind)
+            Dependency (SourceElementFactory (rel.subType), SourceElementFactory (rel.superType), ImplementsKind)
     }
 
     def invokeInterfaceDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeInterfaceKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectMethodInfoAdapter (rel.receiverType, rel.name, rel.parameterTypes, rel.returnType), InvokeInterfaceKind)
     }
 
 
     def invokeSpecialDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeSpecialKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectMethodInfoAdapter (rel.receiverType, rel.name, rel.parameterTypes, rel.returnType), InvokeSpecialKind)
     }
 
 
     def invokeVirtualDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeVirtualKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectMethodInfoAdapter (rel.receiverType, rel.name, rel.parameterTypes, rel.returnType), InvokeVirtualKind)
     }
 
 
     def invokeStaticDependency: InvokeInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new MethodInfoAdapter (new MethodReference(rel.receiverType, rel.name, rel.parameterTypes, rel.returnType)), InvokeStaticKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectMethodInfoAdapter (rel.receiverType, rel.name, rel.parameterTypes, rel.returnType), InvokeStaticKind)
     }
 
 
     def readFieldDependency: FieldReadInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (new FieldReference(rel.receiverType, rel.name, rel.fieldType)), ReadFieldKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectFieldInfoAdapter (rel.receiverType, rel.name, rel.fieldType), ReadFieldKind)
     }
 
 
     def writeFieldDependency: FieldWriteInstruction => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), new FieldInfoAdapter (new FieldReference(rel.receiverType, rel.name, rel.fieldType)), WriteFieldKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), new DirectFieldInfoAdapter (rel.receiverType, rel.name, rel.fieldType), WriteFieldKind)
     }
 
 
     def newObjectDependency: NEW => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), SourceElement (rel.instruction.objectType), CreateKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), SourceElementFactory (rel.instruction.objectType), CreateKind)
     }
 
 
     def checkCastDependency: CHECKCAST => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), SourceElement (rel.instruction.referenceType), ClassCastKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), SourceElementFactory (rel.instruction.referenceType), ClassCastKind)
     }
 
 
     def exceptionDeclarationDependency: ExceptionDeclaration => Dependency = {
         rel =>
-            Dependency (SourceElement (rel.declaringMethod), SourceElement (rel.exception), ThrowsKind)
+            Dependency (SourceElementFactory (rel.declaringMethod), SourceElementFactory (rel.exception), ThrowsKind)
     }
 
     def fieldDeclarationDependency: FieldDeclaration => Dependency = {
         rel =>
-            Dependency (SourceElement (rel), SourceElement (rel.fieldType), FieldTypeKind)
+            Dependency (SourceElementFactory (rel), SourceElementFactory (rel.fieldType), FieldTypeKind)
     }
 
     def parameterTypeDependency: (MethodDeclaration, FieldType) => Dependency = {
         (m, t) =>
-            Dependency (SourceElement (m), SourceElement (t), ParameterKind)
+            Dependency (SourceElementFactory (m), SourceElementFactory (t), ParameterKind)
     }
 
     def returnTypeDependency: MethodDeclaration => Dependency = {
         rel =>
-            Dependency (SourceElement (rel), SourceElement (rel.returnType), ReturnTypeKind)
+            Dependency (SourceElementFactory (rel), SourceElementFactory (rel.returnType), ReturnTypeKind)
     }
 
 }

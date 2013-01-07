@@ -26,6 +26,10 @@
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-metrics</artifactId>
         </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-architecture</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

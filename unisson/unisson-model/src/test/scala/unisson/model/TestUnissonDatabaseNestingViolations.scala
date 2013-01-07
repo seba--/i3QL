@@ -1,10 +1,10 @@
 package unisson.model
 
+import impl._
 import kinds.primitive.FieldTypeKind
-import mock.vespucci._
 import org.scalatest.matchers.ShouldMatchers
 import de.tud.cs.st.bat.resolved.ObjectType
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Assert, Test}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.FieldDeclaration
@@ -59,8 +59,8 @@ class TestUnissonDatabaseNestingViolations
                     c,
                     ensembleA1,
                     ensembleA2,
-                    SourceElement (fieldRefA1ToA2),
-                    SourceElement (a2),
+                    SourceElementFactory (fieldRefA1ToA2),
+                    SourceElementFactory (a2),
                     FieldTypeKind.asVespucciString,
                     sliceName
                 )
@@ -123,42 +123,42 @@ class TestUnissonDatabaseNestingViolations
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (fieldRefA1ToB)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA, SourceElement (fieldRefA2ToB)),
-                (ensembleA, SourceElement (a4)),
-                (ensembleA, SourceElement (fieldRefA4ToB)),
-                (ensembleA, SourceElement (a5)),
-                (ensembleA, SourceElement (fieldRefA5ToB)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA1, SourceElement (fieldRefA1ToB)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleA2, SourceElement (fieldRefA2ToB)),
-                (ensembleA3, SourceElement (a4)),
-                (ensembleA3, SourceElement (fieldRefA4ToB)),
-                (ensembleA3, SourceElement (a5)),
-                (ensembleA3, SourceElement (fieldRefA5ToB)),
-                (ensembleA4, SourceElement (a4)),
-                (ensembleA4, SourceElement (fieldRefA4ToB)),
-                (ensembleA5, SourceElement (a5)),
-                (ensembleA5, SourceElement (fieldRefA5ToB)),
-                (ensembleB, SourceElement (b))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (fieldRefA1ToB)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA, SourceElementFactory (fieldRefA2ToB)),
+                (ensembleA, SourceElementFactory (a4)),
+                (ensembleA, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA, SourceElementFactory (a5)),
+                (ensembleA, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA1, SourceElementFactory (fieldRefA1ToB)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleA2, SourceElementFactory (fieldRefA2ToB)),
+                (ensembleA3, SourceElementFactory (a4)),
+                (ensembleA3, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA3, SourceElementFactory (a5)),
+                (ensembleA3, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleA4, SourceElementFactory (a4)),
+                (ensembleA4, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA5, SourceElementFactory (a5)),
+                (ensembleA5, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
         db.ensemble_dependencies.asList.sorted should be (
             List (
-                (ensembleA, ensembleB, SourceElement (fieldRefA1ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA2ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleB, SourceElement (fieldRefA1ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA2, ensembleB, SourceElement (fieldRefA2ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA4, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA5, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString)
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA2ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleB, SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA2, ensembleB, SourceElementFactory (fieldRefA2ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA4, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA5, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString)
             )
         )
 
@@ -230,45 +230,45 @@ class TestUnissonDatabaseNestingViolations
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (fieldRefA1ToB)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA, SourceElement (fieldRefA2ToB)),
-                (ensembleA, SourceElement (a4)),
-                (ensembleA, SourceElement (fieldRefA4ToB)),
-                (ensembleA, SourceElement (a5)),
-                (ensembleA, SourceElement (fieldRefA5ToB)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA1, SourceElement (fieldRefA1ToB)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleA2, SourceElement (fieldRefA2ToB)),
-                (ensembleA3, SourceElement (a4)),
-                (ensembleA3, SourceElement (fieldRefA4ToB)),
-                (ensembleA3, SourceElement (a5)),
-                (ensembleA3, SourceElement (fieldRefA5ToB)),
-                (ensembleA4, SourceElement (a4)),
-                (ensembleA4, SourceElement (fieldRefA4ToB)),
-                (ensembleA5, SourceElement (a5)),
-                (ensembleA5, SourceElement (fieldRefA5ToB)),
-                (ensembleB, SourceElement (b)),
-                (ensembleC, SourceElement (c)),
-                (ensembleC, SourceElement (fieldRefCToB))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (fieldRefA1ToB)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA, SourceElementFactory (fieldRefA2ToB)),
+                (ensembleA, SourceElementFactory (a4)),
+                (ensembleA, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA, SourceElementFactory (a5)),
+                (ensembleA, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA1, SourceElementFactory (fieldRefA1ToB)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleA2, SourceElementFactory (fieldRefA2ToB)),
+                (ensembleA3, SourceElementFactory (a4)),
+                (ensembleA3, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA3, SourceElementFactory (a5)),
+                (ensembleA3, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleA4, SourceElementFactory (a4)),
+                (ensembleA4, SourceElementFactory (fieldRefA4ToB)),
+                (ensembleA5, SourceElementFactory (a5)),
+                (ensembleA5, SourceElementFactory (fieldRefA5ToB)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleC, SourceElementFactory (c)),
+                (ensembleC, SourceElementFactory (fieldRefCToB))
             )
         )
 
         db.ensemble_dependencies.asList.sorted should be (
             List (
-                (ensembleA, ensembleB, SourceElement (fieldRefA1ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA2ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA1, ensembleB, SourceElement (fieldRefA1ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA2, ensembleB, SourceElement (fieldRefA2ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA3, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA4, ensembleB, SourceElement (fieldRefA4ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleA5, ensembleB, SourceElement (fieldRefA5ToB), SourceElement (b), FieldTypeKind.asVespucciString),
-                (ensembleC, ensembleB, SourceElement (fieldRefCToB), SourceElement (b), FieldTypeKind.asVespucciString)
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA2ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA1, ensembleB, SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA2, ensembleB, SourceElementFactory (fieldRefA2ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA3, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA4, ensembleB, SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleA5, ensembleB, SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b), FieldTypeKind.asVespucciString),
+                (ensembleC, ensembleB, SourceElementFactory (fieldRefCToB), SourceElementFactory (b), FieldTypeKind.asVespucciString)
             )
         )
 
@@ -279,70 +279,70 @@ class TestUnissonDatabaseNestingViolations
                 Violation (
                     constraint,
                     ensembleA, ensembleB,
-                    SourceElement (fieldRefA1ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA, ensembleB,
-                    SourceElement (fieldRefA2ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA2ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA, ensembleB,
-                    SourceElement (fieldRefA4ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA, ensembleB,
-                    SourceElement (fieldRefA5ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA1, ensembleB,
-                    SourceElement (fieldRefA1ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA1ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
-                    ensembleA2, ensembleB, SourceElement (fieldRefA2ToB),
-                    SourceElement (b),
-                    FieldTypeKind.asVespucciString,
-                    contextName
-                ),
-                Violation (
-                    constraint,
-                    ensembleA3, ensembleB,
-                    SourceElement (fieldRefA4ToB), SourceElement (b),
+                    ensembleA2, ensembleB, SourceElementFactory (fieldRefA2ToB),
+                    SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA3, ensembleB,
-                    SourceElement (fieldRefA5ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b),
+                    FieldTypeKind.asVespucciString,
+                    contextName
+                ),
+                Violation (
+                    constraint,
+                    ensembleA3, ensembleB,
+                    SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA4, ensembleB,
-                    SourceElement (fieldRefA4ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA4ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleA5, ensembleB,
-                    SourceElement (fieldRefA5ToB), SourceElement (b),
+                    SourceElementFactory (fieldRefA5ToB), SourceElementFactory (b),
                     FieldTypeKind.asVespucciString,
                     contextName
                 )
@@ -404,21 +404,21 @@ class TestUnissonDatabaseNestingViolations
 
         db.ensemble_elements.asList.sorted should be (
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA, SourceElement (a4)),
-                (ensembleA, SourceElement (a5)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleA3, SourceElement (a4)),
-                (ensembleA3, SourceElement (a5)),
-                (ensembleA4, SourceElement (a4)),
-                (ensembleA5, SourceElement (a5)),
-                (ensembleB, SourceElement (b)),
-                (ensembleB, SourceElement (fieldRefBToA1)),
-                (ensembleB, SourceElement (fieldRefBToA2)),
-                (ensembleB, SourceElement (fieldRefBToA4)),
-                (ensembleB, SourceElement (fieldRefBToA5))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA, SourceElementFactory (a4)),
+                (ensembleA, SourceElementFactory (a5)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleA3, SourceElementFactory (a4)),
+                (ensembleA3, SourceElementFactory (a5)),
+                (ensembleA4, SourceElementFactory (a4)),
+                (ensembleA5, SourceElementFactory (a5)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA1)),
+                (ensembleB, SourceElementFactory (fieldRefBToA2)),
+                (ensembleB, SourceElementFactory (fieldRefBToA4)),
+                (ensembleB, SourceElementFactory (fieldRefBToA5))
             )
         )
 
@@ -426,21 +426,21 @@ class TestUnissonDatabaseNestingViolations
         Assert.assertEquals (
             db.ensemble_dependencies.asList.sorted,
             List (
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA1), SourceElement (a1), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA2), SourceElement (a2), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA1, SourceElement (fieldRefBToA1), SourceElement (a1), FieldTypeKind
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA1, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA2, SourceElement (fieldRefBToA2), SourceElement (a2), FieldTypeKind
+                (ensembleB, ensembleA2, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA3, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind
+                (ensembleB, ensembleA3, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA3, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind
+                (ensembleB, ensembleA3, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA4, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind
+                (ensembleB, ensembleA4, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA5, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind.asVespucciString)
+                (ensembleB, ensembleA5, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind.asVespucciString)
             )
         )
 
@@ -513,23 +513,23 @@ class TestUnissonDatabaseNestingViolations
         Assert.assertEquals (
             db.ensemble_elements.asList.sorted,
             List (
-                (ensembleA, SourceElement (a1)),
-                (ensembleA, SourceElement (a2)),
-                (ensembleA, SourceElement (a4)),
-                (ensembleA, SourceElement (a5)),
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2)),
-                (ensembleA3, SourceElement (a4)),
-                (ensembleA3, SourceElement (a5)),
-                (ensembleA4, SourceElement (a4)),
-                (ensembleA5, SourceElement (a5)),
-                (ensembleB, SourceElement (b)),
-                (ensembleB, SourceElement (fieldRefBToA1)),
-                (ensembleB, SourceElement (fieldRefBToA2)),
-                (ensembleB, SourceElement (fieldRefBToA4)),
-                (ensembleB, SourceElement (fieldRefBToA5)),
-                (ensembleB, SourceElement (fieldRefBToC)),
-                (ensembleC, SourceElement (c))
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA, SourceElementFactory (a4)),
+                (ensembleA, SourceElementFactory (a5)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleA3, SourceElementFactory (a4)),
+                (ensembleA3, SourceElementFactory (a5)),
+                (ensembleA4, SourceElementFactory (a4)),
+                (ensembleA5, SourceElementFactory (a5)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA1)),
+                (ensembleB, SourceElementFactory (fieldRefBToA2)),
+                (ensembleB, SourceElementFactory (fieldRefBToA4)),
+                (ensembleB, SourceElementFactory (fieldRefBToA5)),
+                (ensembleB, SourceElementFactory (fieldRefBToC)),
+                (ensembleC, SourceElementFactory (c))
             )
         )
 
@@ -537,23 +537,23 @@ class TestUnissonDatabaseNestingViolations
         Assert.assertEquals (
             db.ensemble_dependencies.asList.sorted,
             List (
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA1), SourceElement (a1), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA2), SourceElement (a2), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind.asVespucciString),
-                (ensembleB, ensembleA1, SourceElement (fieldRefBToA1), SourceElement (a1), FieldTypeKind
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind.asVespucciString),
+                (ensembleB, ensembleA1, SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA2, SourceElement (fieldRefBToA2), SourceElement (a2), FieldTypeKind
+                (ensembleB, ensembleA2, SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA3, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind
+                (ensembleB, ensembleA3, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA3, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind
+                (ensembleB, ensembleA3, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA4, SourceElement (fieldRefBToA4), SourceElement (a4), FieldTypeKind
+                (ensembleB, ensembleA4, SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleA5, SourceElement (fieldRefBToA5), SourceElement (a5), FieldTypeKind
+                (ensembleB, ensembleA5, SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5), FieldTypeKind
                     .asVespucciString),
-                (ensembleB, ensembleC, SourceElement (fieldRefBToC), SourceElement (c), FieldTypeKind.asVespucciString)
+                (ensembleB, ensembleC, SourceElementFactory (fieldRefBToC), SourceElementFactory (c), FieldTypeKind.asVespucciString)
             )
         )
 
@@ -564,70 +564,70 @@ class TestUnissonDatabaseNestingViolations
                 Violation (
                     constraint,
                     ensembleB, ensembleA,
-                    SourceElement (fieldRefBToA1), SourceElement (a1),
+                    SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA,
-                    SourceElement (fieldRefBToA2), SourceElement (a2),
+                    SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA,
-                    SourceElement (fieldRefBToA4), SourceElement (a4),
+                    SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA,
-                    SourceElement (fieldRefBToA5), SourceElement (a5),
+                    SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA1,
-                    SourceElement (fieldRefBToA1), SourceElement (a1),
+                    SourceElementFactory (fieldRefBToA1), SourceElementFactory (a1),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA2,
-                    SourceElement (fieldRefBToA2), SourceElement (a2),
+                    SourceElementFactory (fieldRefBToA2), SourceElementFactory (a2),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA3,
-                    SourceElement (fieldRefBToA4), SourceElement (a4),
+                    SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA3,
-                    SourceElement (fieldRefBToA5), SourceElement (a5),
+                    SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA4,
-                    SourceElement (fieldRefBToA4), SourceElement (a4),
+                    SourceElementFactory (fieldRefBToA4), SourceElementFactory (a4),
                     FieldTypeKind.asVespucciString,
                     contextName
                 ),
                 Violation (
                     constraint,
                     ensembleB, ensembleA5,
-                    SourceElement (fieldRefBToA5), SourceElement (a5),
+                    SourceElementFactory (fieldRefBToA5), SourceElementFactory (a5),
                     FieldTypeKind.asVespucciString,
                     contextName
                 )

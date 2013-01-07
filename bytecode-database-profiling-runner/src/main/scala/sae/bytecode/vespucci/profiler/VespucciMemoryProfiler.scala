@@ -34,6 +34,8 @@ package sae.bytecode.vespucci.profiler
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
+import analyses.architecture.hibernate.HibernateEnsembles
+import bytecode.BytecodeDatabase
 import bytecode.profiler.{MemoryUsage, AbstractPropertiesFileProfiler}
 import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic}
 import bytecode.profiler.util.MegaByte
@@ -54,6 +56,13 @@ object VespucciMemoryProfiler
                           | """.stripMargin
 
     def benchmarkType = "SAE Vespucci"
+
+    def getAnalysis(query: String, database: UnissonDatabase): Relation[_] = {
+        query match {
+            case "SOURCE_DEPENDENCIES" => database.source_code_dependencies
+            case "ENSEMBLE_DEPENDENCIES" => database.ensemble_dependencies
+        }
+    }
 
     def dataStatistic(jars: List[String]): DataStatistic = {
         var database = BATDatabaseFactory.create ()
@@ -88,7 +97,7 @@ object VespucciMemoryProfiler
             createVanillaDatabase (jars, queries)
             i += 1
         }
-        dependencyCount(jars, queries)
+        dependencyCount (jars, queries)
     }
 
 
@@ -96,11 +105,12 @@ object VespucciMemoryProfiler
         var taken: Long = 0
         var database = BATDatabaseFactory.create ()
         var unisson = new UnissonDatabase (database)
-        val res = sae.relationToResult (unisson.source_code_dependencies)
+        val res = unisson.ensemble_elements
         memory {
             l => taken += l
         }
         {
+            unisson.setRepository(HibernateEnsembles.Hibernate_3_6_6)
             jars.foreach (jar => {
                 val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
                 database.addArchive (stream)
@@ -121,7 +131,8 @@ object VespucciMemoryProfiler
     def dependencyCount(jars: List[String], queries: List[String]): Long = {
         var database = BATDatabaseFactory.create ()
         var unisson = new UnissonDatabase (database)
-        val res = sae.relationToResult (unisson.source_code_dependencies)
+        val res = sae.relationToResult (unisson.ensemble_elements)
+        unisson.setRepository(HibernateEnsembles.Hibernate_3_6_6)
         jars.foreach (jar => {
             val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
             database.addArchive (stream)

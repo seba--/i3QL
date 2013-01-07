@@ -1,9 +1,9 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
 import de.tud.cs.st.bat.resolved.ObjectType
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Ignore, Test}
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.FieldDeclaration
@@ -526,8 +526,8 @@ class TestUnissonDatabaseNestingStructure
 
         result.asList.sorted should be (
             List (
-                (ensembleA1, SourceElement (a1)),
-                (ensembleA2, SourceElement (a2))
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2))
 
             )
         )
@@ -580,8 +580,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleC,
                     ensembleA1,
-                    SourceElement (fieldRefCToA1),
-                    SourceElement (a1),
+                    SourceElementFactory (fieldRefCToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
@@ -589,8 +589,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleC,
                     ensembleA2,
-                    SourceElement (fieldRefCToA2),
-                    SourceElement (a2),
+                    SourceElementFactory (fieldRefCToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 )
@@ -694,8 +694,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleB1,
                     ensembleA1,
-                    SourceElement (fieldRefB1ToA1),
-                    SourceElement (a1),
+                    SourceElementFactory (fieldRefB1ToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
@@ -703,8 +703,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleB1,
                     ensembleA2,
-                    SourceElement (fieldRefB1ToA2),
-                    SourceElement (a2),
+                    SourceElementFactory (fieldRefB1ToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 ),
@@ -712,8 +712,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleB2,
                     ensembleA1,
-                    SourceElement (fieldRefB2ToA1),
-                    SourceElement (a1),
+                    SourceElementFactory (fieldRefB2ToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
@@ -721,8 +721,8 @@ class TestUnissonDatabaseNestingStructure
                     constraint,
                     ensembleB2,
                     ensembleA2,
-                    SourceElement (fieldRefB2ToA2),
-                    SourceElement (a2),
+                    SourceElementFactory (fieldRefB2ToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 )

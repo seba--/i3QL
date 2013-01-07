@@ -11,7 +11,7 @@ import sae.bytecode.structure.FieldInfo
  *
  */
 class FieldInfoAdapter(val element: FieldInfo)
-    extends IFieldDeclaration with SourceElement[FieldInfo]
+    extends IFieldDeclaration
 {
     def getPackageIdentifier = element.declaringType.packageName
 
@@ -22,9 +22,6 @@ class FieldInfoAdapter(val element: FieldInfo)
     override def hashCode() = element.hashCode ()
 
     override def equals(obj: Any): Boolean = {
-        if (obj.isInstanceOf[SourceElement[FieldInfo]]) {
-            return element.equals (obj.asInstanceOf[SourceElement[FieldInfo]].element)
-        }
         if (obj.isInstanceOf[IFieldDeclaration]) {
             val other = obj.asInstanceOf[IFieldDeclaration]
             return this.getPackageIdentifier == other.getPackageIdentifier &&

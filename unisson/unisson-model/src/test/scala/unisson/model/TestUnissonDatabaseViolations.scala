@@ -1,8 +1,8 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
-import unisson.query.code_model.SourceElement
+import unisson.query.code_model.SourceElementFactory
 import org.junit.Test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae.bytecode.structure.{InheritanceRelation, FieldDeclaration, MethodDeclaration, MethodReference}
@@ -73,8 +73,8 @@ class TestUnissonDatabaseViolations
                     c,
                     ensembleA,
                     ensembleB,
-                    SourceElement (field),
-                    SourceElement (b),
+                    SourceElementFactory (field),
+                    SourceElementFactory (b),
                     "field_type",
                     "test"
                 )
@@ -166,8 +166,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -226,8 +226,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "contextBToA"
                 ),
@@ -235,8 +235,8 @@ class TestUnissonDatabaseViolations
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "contextDToA"
                 )
@@ -294,8 +294,8 @@ class TestUnissonDatabaseViolations
                     constraintAToC,
                     ensembleB,
                     ensembleC,
-                    SourceElement (fieldRefBToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefBToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 ),
@@ -303,8 +303,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -369,8 +369,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -509,8 +509,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -569,8 +569,8 @@ class TestUnissonDatabaseViolations
                     constraintAToC,
                     ensembleB,
                     ensembleC,
-                    SourceElement (fieldRefBToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefBToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 ),
@@ -578,8 +578,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -631,8 +631,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -698,8 +698,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -753,8 +753,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement (fieldRefCToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefCToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "contextBToA"
                 ),
@@ -762,8 +762,8 @@ class TestUnissonDatabaseViolations
                     constraintCToA,
                     ensembleB,
                     ensembleA,
-                    SourceElement (fieldRefBToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefBToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "contextCToA"
                 )
@@ -827,8 +827,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleD,
                     ensembleA,
-                    SourceElement (fieldRefDToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefDToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 ),
@@ -836,8 +836,8 @@ class TestUnissonDatabaseViolations
                     constraintBToA,
                     ensembleE,
                     ensembleA,
-                    SourceElement (fieldRefEToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefEToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 ),
@@ -845,8 +845,8 @@ class TestUnissonDatabaseViolations
                     constraintCToA,
                     ensembleD,
                     ensembleA,
-                    SourceElement (fieldRefDToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefDToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -898,8 +898,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 )
@@ -955,8 +955,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "contextAToB"
                 ),
@@ -964,8 +964,8 @@ class TestUnissonDatabaseViolations
                     constraintAToD,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "contextAToD"
                 )
@@ -1032,8 +1032,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 ),
@@ -1041,8 +1041,8 @@ class TestUnissonDatabaseViolations
                     constraintBToC,
                     ensembleB,
                     ensembleA,
-                    SourceElement (fieldRefBToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefBToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -1108,8 +1108,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 )
@@ -1241,8 +1241,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 )
@@ -1310,8 +1310,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 ),
@@ -1319,8 +1319,8 @@ class TestUnissonDatabaseViolations
                     constraintBToC,
                     ensembleB,
                     ensembleA,
-                    SourceElement (fieldRefBToA),
-                    SourceElement (a),
+                    SourceElementFactory (fieldRefBToA),
+                    SourceElementFactory (a),
                     "field_type",
                     "test"
                 )
@@ -1370,8 +1370,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 )
@@ -1440,8 +1440,8 @@ class TestUnissonDatabaseViolations
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "test"
                 )
@@ -1494,8 +1494,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleC,
-                    SourceElement (fieldRefAToC),
-                    SourceElement (c),
+                    SourceElementFactory (fieldRefAToC),
+                    SourceElementFactory (c),
                     "field_type",
                     "contextAToB"
                 ),
@@ -1503,8 +1503,8 @@ class TestUnissonDatabaseViolations
                     constraintAToC,
                     ensembleA,
                     ensembleB,
-                    SourceElement (fieldRefAToB),
-                    SourceElement (b),
+                    SourceElementFactory (fieldRefAToB),
+                    SourceElementFactory (b),
                     "field_type",
                     "contextAToC"
                 )
@@ -1563,8 +1563,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleD,
-                    SourceElement (fieldRefAToD),
-                    SourceElement (d),
+                    SourceElementFactory (fieldRefAToD),
+                    SourceElementFactory (d),
                     "field_type",
                     "test"
                 ),
@@ -1572,8 +1572,8 @@ class TestUnissonDatabaseViolations
                     constraintAToB,
                     ensembleA,
                     ensembleE,
-                    SourceElement (fieldRefAToE),
-                    SourceElement (e),
+                    SourceElementFactory (fieldRefAToE),
+                    SourceElementFactory (e),
                     "field_type",
                     "test"
                 ),
@@ -1581,8 +1581,8 @@ class TestUnissonDatabaseViolations
                     constraintAToC,
                     ensembleA,
                     ensembleD,
-                    SourceElement (fieldRefAToD),
-                    SourceElement (d),
+                    SourceElementFactory (fieldRefAToD),
+                    SourceElementFactory (d),
                     "field_type",
                     "test"
                 )
