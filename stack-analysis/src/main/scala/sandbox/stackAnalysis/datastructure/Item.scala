@@ -13,8 +13,15 @@ import de.tud.cs.st.bat.resolved.Type
  */
 case class Item(declaredType: ItemType, pc: Int, flags: Int) {
 
+  private var fieldName: Option[String] = None
+
   def this(declaredType: ItemType, pc: Int) = {
     this(declaredType, pc, 0x00000000)
+  }
+
+  def this(declaredType: ItemType, pc: Int, flags: Int, fromField: String) = {
+    this(declaredType, pc, flags)
+    fieldName = Some(fromField)
   }
 
   def convertTo(newType: ItemType): Item = {
@@ -23,6 +30,13 @@ case class Item(declaredType: ItemType, pc: Int, flags: Int) {
 
   def size: Int = {
     declaredType.getSize
+  }
+
+  def getFieldName: String = {
+    fieldName match {
+      case Some(x) => x
+      case None => ""
+    }
   }
 
   def isCouldBeNull: Boolean = {
@@ -43,6 +57,10 @@ case class Item(declaredType: ItemType, pc: Int, flags: Int) {
 
   def isCreatedByNew: Boolean = {
     isFlag(Item.FLAG_IS_CREATED_BY_NEW)
+  }
+
+  def isFromField: Boolean = {
+    isFlag(Item.FLAG_ORIGINATES_FROM_FIELD)
   }
 
   private def isFlag(flag: Int): Boolean = {
@@ -105,6 +123,7 @@ object Item {
   val FLAG_IS_NOT_INITIALIZED: Int = 0x08000000
   val FLAG_IS_RETURN_VALUE: Int = 0x04000000
   val FLAG_IS_CREATED_BY_NEW: Int = 0x02000000
+  val FLAG_ORIGINATES_FROM_FIELD: Int = 0x01000000
 
 
   def createNullItem(pc: Int): Item = {

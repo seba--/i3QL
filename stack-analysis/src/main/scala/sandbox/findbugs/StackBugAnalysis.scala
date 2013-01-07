@@ -47,16 +47,15 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((
     val instructionArray = ci.code.instructions
     val analysisArray = mr.resultArray
 
+
     var currentPC = 0
 
     while (currentPC < instructionArray.length && currentPC != -1) {
       for (bugFinder <- StackBugAnalysis.BUGFINDER_LIST) {
-        bugFinder.notifyInstruction(currentPC, instructionArray, analysisArray, logger)
+        bugFinder.notifyInstruction(currentPC, ci, analysisArray, logger)
       }
 
       currentPC = instructionArray(currentPC).indexOfNextInstruction(currentPC, ci.code)
-
-
     }
 
 

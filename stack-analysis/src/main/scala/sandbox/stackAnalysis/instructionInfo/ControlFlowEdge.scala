@@ -9,6 +9,7 @@ package sandbox.stackAnalysis.instructionInfo
  * To change this template use File | Settings | File Templates.
  */
 case class ControlFlowEdge(previous: ControlFlowVertex, next: ControlFlowVertex) {
+
   /*override def toString() : String = {
     if(previous != null && next != null)
       return "<" + previous.instruction.pc + ">" + previous.instruction.instruction.mnemonic + " --> " + "<" + next.instruction.pc + ">" + next.instruction.instruction.mnemonic

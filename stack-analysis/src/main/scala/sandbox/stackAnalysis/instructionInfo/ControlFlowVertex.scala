@@ -2,6 +2,7 @@ package sandbox.stackAnalysis.instructionInfo
 
 import sandbox.stackAnalysis.datastructure.{Item, LocVariables, Stacks, State}
 import sae.bytecode.instructions.InstructionInfo
+import sae.bytecode.structure.CodeAttribute
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,19 +11,32 @@ import sae.bytecode.instructions.InstructionInfo
  * Time: 15:10
  * To change this template use File | Settings | File Templates.
  */
-case class ControlFlowVertex(instruction: InstructionInfo, state: State) {
+case class ControlFlowVertex(instruction: InstructionInfo) {
 
-  //TODO:change maxstack and max locals
-  def this(instruction: InstructionInfo) = this(instruction, State(Stacks(10, Nil), LocVariables(Array.ofDim[Item](8))))
+  //TODO: Change maxlocals and stacksize
+  private var state = State(Stacks(10, Nil), LocVariables(Array.ofDim[Item](8)))
 
-  def this() = this(null, State(Stacks(10, Nil).addStack(), LocVariables(Array.ofDim[Item](8))))
+  def setState(s: State) = {
+    state = s
+  }
 
+  def getState: State = {
+    state
+  }
+
+
+  def this(ii: InstructionInfo, attribute: CodeAttribute) = {
+    this(ii)
+    state = State.createEmptyState(attribute.max_stack, attribute.max_locals)
+  }
+
+  def this(attribute: CodeAttribute) = this(null, attribute)
 
   override def toString(): String = {
     if (instruction != null)
-      return "<" + instruction.pc + ">" + instruction.instruction.mnemonic + " is " + state
+      return "<" + instruction.pc + ">" + instruction.instruction.mnemonic + "{" + state + "}"
     else
-      return "Nothing is " + state
+      return "Nothing" + "{" + state + "}"
   }
 
 }

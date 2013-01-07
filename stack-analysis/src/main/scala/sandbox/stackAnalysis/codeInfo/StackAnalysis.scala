@@ -11,11 +11,7 @@ import sandbox.stackAnalysis.BytecodeTransformer
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mirko
- * Date: 04.11.12
- * Time: 23:57
- * To change this template use File | Settings | File Templates.
+ * Implementation of a dataflow analysis that analyzes the stack and the local variables.
  */
 object StackAnalysis extends DataFlowAnalysis[State](CodeInfoCFG, BytecodeTransformer) {
 
@@ -38,7 +34,7 @@ object StackAnalysis extends DataFlowAnalysis[State](CodeInfoCFG, BytecodeTransf
   }
 
   override def emptyValue(ci: CodeInfo): State = {
-    State(Stacks(ci.code.maxStack, Nil), LocVariables(Array.ofDim[Item](ci.code.maxLocals)))
+    State.createEmptyState(ci.code.maxStack, ci.code.maxLocals)
   }
 
 

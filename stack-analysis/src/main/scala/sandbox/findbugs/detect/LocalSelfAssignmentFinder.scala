@@ -8,6 +8,7 @@ import de.tud.cs.st.bat.resolved.FSTORE
 import de.tud.cs.st.bat.resolved.DSTORE
 import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,22 +19,27 @@ import sandbox.findbugs.{BugType, BugLogger}
  */
 object LocalSelfAssignmentFinder extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+
+    val instr = codeInfo.code.instructions(pc)
 
     if (instr.isInstanceOf[StoreLocalVariableInstruction]) {
-      checkForBugs(pc, instructions, analysis, logger, checkStoreInstruction)
+      checkForBugs(pc, codeInfo, analysis, logger, checkStoreInstruction)
     }
   }
 
-  private def checkStoreInstruction(pc: Int, instructions: Array[Instruction], stack: Stack, lv: LocVariables): Option[BugType.Value] = {
-    val lvIndex = getIndexOfLocalVariable(instructions(pc).asInstanceOf[StoreLocalVariableInstruction])
+  private def checkStoreInstruction(pc: Int, codeInfo: CodeInfo, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+    val lvIndex = getIndexOfLocalVariable(codeInfo.code.instructions(pc).asInstanceOf[StoreLocalVariableInstruction])
 
     //TODO: Remove this test when exceptions are implemented.
     if (stack.size == 0) {
 
     } else if (saveEquals(lv(lvIndex), stack(0))) {
-      return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+      codeInfo.code.localVariableTable match {
+        case None => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+        //TODO: Check if loc variable name is also a field name.
+        case Some(varTable) => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+      }
     }
     return None
   }

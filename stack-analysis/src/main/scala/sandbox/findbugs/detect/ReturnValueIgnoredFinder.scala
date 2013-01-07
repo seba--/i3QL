@@ -3,6 +3,7 @@ package sandbox.findbugs.detect
 import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
 import de.tud.cs.st.bat.resolved._
+import sae.bytecode.structure.CodeInfo
 
 
 /**
@@ -14,20 +15,17 @@ import de.tud.cs.st.bat.resolved._
  */
 object ReturnValueIgnoredFinder extends StackBugFinder {
 
-  private var previousInstructionWasNew = false
-
-
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+    val instr = codeInfo.code.instructions(pc)
 
 
     if (instr.isInstanceOf[POP.type] || instr.isInstanceOf[POP2.type]) {
-      checkForBugs(pc, instructions, analysis, logger, checkReturnValueIgnored)
+      checkForBugs(pc, codeInfo, analysis, logger, checkReturnValueIgnored)
     }
 
   }
 
-  private def checkReturnValueIgnored(pc: Int, instructions: Array[Instruction], stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+  private def checkReturnValueIgnored(pc: Int, codeInfo: CodeInfo, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
 
     if (stack.size > 0 && (stack.get(0).isReturnValue || stack.get(0).isCreatedByNew))
       return Some(BugType.RV_RETURN_VALUE_IGNORED)

@@ -10,7 +10,6 @@ import sandbox.dataflowAnalysis.Combinable
  */
 case class State(s: Stacks, l: LocVariables) extends Combinable[State] {
 
-
   def combineWith(other: State): State = {
     new State(s.combineWith(other.s), l.combineWith(other.l))
   }
@@ -27,4 +26,12 @@ case class State(s: Stacks, l: LocVariables) extends Combinable[State] {
   }
 
 
+}
+
+case object State {
+  def createEmptyState(maxStack: Int, maxLoc: Int): State =
+    State(Stacks(maxStack, Nil), LocVariables(Array.ofDim[Item](maxLoc)))
+
+  def createStartState(maxStack: Int, maxLoc: Int): State =
+    State(Stacks(maxStack, Nil).addStack, LocVariables(Array.ofDim[Item](maxLoc)))
 }

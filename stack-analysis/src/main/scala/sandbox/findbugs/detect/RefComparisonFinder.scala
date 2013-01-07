@@ -5,6 +5,7 @@ import de.tud.cs.st.bat.resolved._
 import sandbox.stackAnalysis.datastructure.{ItemType, LocVariables, State, Stack}
 import scala.{Array, Int}
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,12 +27,12 @@ object RefComparisonFinder extends StackBugFinder {
       ObjectType("java/lang/Short") ::
       Nil
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+    val instr = codeInfo.code.instructions(pc)
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {
-      checkForBugs(pc, instructions, analysis, logger, checkRefComparison)
+      checkForBugs(pc, codeInfo, analysis, logger, checkRefComparison)
     } else if (instr.isInstanceOf[MethodInvocationInstruction]) {
 
       val methodInfo = getMethodDescriptor(instr.asInstanceOf[MethodInvocationInstruction])
@@ -42,7 +43,7 @@ object RefComparisonFinder extends StackBugFinder {
 
       if (methodName.equals("assertSame") &&
         methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))) {
-        checkForBugs(pc, instructions, analysis, logger, checkRefComparison)
+        checkForBugs(pc, codeInfo, analysis, logger, checkRefComparison)
 
       } /* else if (declaringClass != null && (
         !isStatic && methodName.equals("equals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: Nil), BooleanType))
@@ -67,7 +68,7 @@ object RefComparisonFinder extends StackBugFinder {
 
   }
 
-  private def checkRefComparison(pc: Int, instructions: Array[Instruction], stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+  private def checkRefComparison(pc: Int, codeInfo: CodeInfo, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
     if (stack.size < 2)
       return None
 

@@ -1,8 +1,9 @@
 package sandbox.findbugs.detect
 
-import de.tud.cs.st.bat.resolved.{ObjectType, INVOKEINTERFACE, Instruction}
+import de.tud.cs.st.bat.resolved.{ObjectType, INVOKEINTERFACE}
 import sandbox.stackAnalysis.datastructure.{Item, LocVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,22 +19,23 @@ object BadResultSetAccessFinder extends StackBugFinder {
     "Float" :: "Int" :: "Long" :: "Object" :: "Ref" :: "RowId" :: "Short" :: "String" :: "Time" :: "Timestamp" ::
     "UnicodeStream" :: "URL" :: Nil
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+
+    val instr = codeInfo.code.instructions(pc)
 
     if (instr.isInstanceOf[INVOKEINTERFACE]) {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
 
       if (invInstr.declaringClass.equals(ObjectType("java/sql/PreparedStatement")) &&
         invInstr.name.startsWith("set") && SUFFIX_LIST.contains(invInstr.name.substring(3))) {
-        checkForBugs(pc, instructions, analysis, logger, checkBadAccess)
+        checkForBugs(pc, codeInfo, analysis, logger, checkBadAccess)
       }
     }
 
   }
 
-  private def checkBadAccess(pc: Int, instructions: Array[Instruction], stack: Stack, loc: LocVariables): Option[BugType.Value] = {
-    val invInstr = instructions(pc).asInstanceOf[INVOKEINTERFACE]
+  private def checkBadAccess(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+    val invInstr = codeInfo.code.instructions(pc).asInstanceOf[INVOKEINTERFACE]
     val numParams: Int = invInstr.methodDescriptor.parameterTypes.size
     val indexParam: Item = stack.get(numParams - 1)
 

@@ -90,13 +90,13 @@ class StackAnalysisTest {
     var baseRes = State(Stacks(2, Nil).addStack(), LocVariables(Array.fill[Item](0)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
     baseRes = State(baseRes.s, baseRes.l)
     expected(0) = baseRes
-    baseRes = State(baseRes.s.push(BooleanType, 0), baseRes.l)
+    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(BooleanType), 0, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
     expected(3) = baseRes
     baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(6) = baseRes
-    baseRes = State(baseRes.s.push(ObjectType("java/util/logging/Logger"), 6), baseRes.l)
+    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Logger")), 6, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
     expected(9) = baseRes
-    baseRes = State(baseRes.s.push(ObjectType("java/util/logging/Level"), 9), baseRes.l)
+    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Level")), 9, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
     expected(12) = baseRes
     baseRes = State(baseRes.s.pop().pop().push(Item(BooleanType, 12, Item.FLAG_IS_RETURN_VALUE)), baseRes.l)
     expected(15) = baseRes

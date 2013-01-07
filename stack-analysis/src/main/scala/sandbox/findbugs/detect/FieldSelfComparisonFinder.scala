@@ -3,6 +3,7 @@ package sandbox.findbugs.detect
 import de.tud.cs.st.bat.resolved._
 import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 
 /**
@@ -15,12 +16,13 @@ import sandbox.findbugs.{BugType, BugLogger}
 object FieldSelfComparisonFinder extends StackBugFinder {
 
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+
+    val instr = codeInfo.code.instructions(pc)
     //Comparison using IF_XXXX
     if (instructionIsValidBranch(instr)) {
 
-      checkForBugs(pc, instructions, analysis, logger, checkSelfComparison)
+      checkForBugs(pc, codeInfo, analysis, logger, checkSelfComparison)
 
     }
     //Comparison using compareTo or equals
@@ -29,7 +31,7 @@ object FieldSelfComparisonFinder extends StackBugFinder {
       if ((invInstr.name.equals("equals") && invInstr.methodDescriptor.parameterTypes.size == 1 && invInstr.methodDescriptor.returnType.isInstanceOf[BooleanType])
         || (invInstr.name.equals("compareTo") && invInstr.methodDescriptor.parameterTypes.size == 1 && invInstr.methodDescriptor.returnType.isInstanceOf[IntegerType])) {
 
-        checkForBugs(pc, instructions, analysis, logger, checkSelfComparison)
+        checkForBugs(pc, codeInfo, analysis, logger, checkSelfComparison)
 
       }
     }
@@ -38,13 +40,15 @@ object FieldSelfComparisonFinder extends StackBugFinder {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
       if (invInstr.name.equals("compareTo") && invInstr.methodDescriptor.parameterTypes.size == 1 && invInstr.methodDescriptor.returnType.isInstanceOf[IntegerType]) {
 
-        checkForBugs(pc, instructions, analysis, logger, checkSelfComparison)
+        checkForBugs(pc, codeInfo, analysis, logger, checkSelfComparison)
       }
     }
 
   }
 
-  private def checkSelfComparison(pc: Int, instructions: Array[Instruction], stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkSelfComparison(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+    val instructions = codeInfo.code.instructions
+
     if (stack.size < 2)
       return None
 

@@ -4,6 +4,7 @@ import de.tud.cs.st.bat.resolved._
 import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
 import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,8 +15,8 @@ import sandbox.findbugs.{BugType, BugLogger}
  */
 object ArrayToStringFinder extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger) = {
-    val instr = instructions(pc)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
+    val instr = codeInfo.code.instructions(pc)
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]
@@ -31,11 +32,11 @@ object ArrayToStringFinder extends StackBugFinder {
         (invInstr.methodDescriptor.equals(MethodDescriptor(ObjectType.Object :: Nil, VoidType)))
 
       if (isToString || isAppendStringBuilder || isAppendStringBuffer || isPrint)
-        checkForBugs(pc, instructions, analysis, logger, checkArrayToString)
+        checkForBugs(pc, codeInfo, analysis, logger, checkArrayToString)
     }
   }
 
-  private def checkArrayToString(pc: Int, instructions: Array[Instruction], stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkArrayToString(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
     if (stack.size < 1)
       return None
 

@@ -1,9 +1,9 @@
 package sandbox.findbugs.detect
 
-import de.tud.cs.st.bat.resolved.Instruction
 import sandbox.stackAnalysis.datastructure.{State, Stack, LocVariables}
 import scala.util.control.Breaks._
 import sandbox.findbugs.{BugType, BugLogger}
+import sae.bytecode.structure.CodeInfo
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,13 +14,13 @@ import sandbox.findbugs.{BugType, BugLogger}
  */
 trait StackBugFinder {
 
-  def notifyInstruction(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger)
+  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger)
 
-  def checkForBugs(pc: Int, instructions: Array[Instruction], analysis: Array[State], logger: BugLogger, checkMethod: (Int, Array[Instruction], Stack, LocVariables) => Option[BugType.Value]) = {
+  def checkForBugs(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger, checkMethod: (Int, CodeInfo, Stack, LocVariables) => Option[BugType.Value]) = {
     var bug: Option[BugType.Value] = None
     breakable {
       for (stack <- analysis(pc).s.collection) {
-        val analysisResult = checkMethod(pc, instructions, stack, analysis(pc).l)
+        val analysisResult = checkMethod(pc, codeInfo, stack, analysis(pc).l)
         if (analysisResult != None) {
           bug = analysisResult
         } else {

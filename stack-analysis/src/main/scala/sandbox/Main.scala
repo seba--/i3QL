@@ -3,7 +3,11 @@ package sandbox
 import findbugs.StackBugAnalysis
 import sae.bytecode.bat.BATDatabaseFactory
 import java.io.{File, FileInputStream}
+import stackAnalysis.BytecodeTransformer
 import stackAnalysis.codeInfo.StackAnalysis
+import stackAnalysis.datastructure.State
+import stackAnalysis.instructionInfo.ControlFlowGraph
+import sae.syntax.RelationalAlgebraSyntax.TC
 
 
 /**
@@ -21,17 +25,34 @@ object Main {
     StackBugAnalysis(database)
 
 
-    /*  val a = TC(ControlFlowGraph(database))(
+    val a = TC(ControlFlowGraph(database))(
       ce => ce.previous,
-      ce => ControlFlowVertex(ce.next.instruction,BytecodeTransformer.getTransformer(ce.next.instruction.pc,ce.next.instruction.instruction)(ce.previous.state)))
-    */
+      ce => {
+        val result = ce.next
+        if (ce.previous.instruction != null) {
+          println("Bef: " + result)
+          val previousTransformed: State = BytecodeTransformer.getTransformer(ce.previous.instruction.pc, ce.previous.instruction.instruction)(ce.previous.getState)
+          result.setState(ce.next.getState.combineWith(previousTransformed))
+        }
+        println("Res: " + result)
+
+        result
+      }
+    )
+
+
+
 
     //  def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
     //  database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
 
-    database.addClassFile(new FileInputStream("stack-analysis" + File.separator + "target" + File.separator + "test-classes" + File.separator + "TestMethods.class"))
+    database.addClassFile(new FileInputStream("stack-analysis" + File.separator + "target" + File.separator + "test-classes" + File.separator + "TestTransitive.class"))
 
     //println(a.foreach[Unit]((p) => println(p._2)))
+
+    println("###########################################")
+    println(a.graph);
+    println(a.transitiveClosure)
   }
 
 
