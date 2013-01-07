@@ -200,10 +200,14 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
     def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]) {
         if (descendants.contains (end))
             return
-        descendants.add (end)
 
+        // start is in an scc
         if (sccRepresentatives.isDefinedAt (start)) {
-            for (descendant <- descendants; if sccRepresentatives.isDefinedAt (descendant)) {
+            // add (x,end) for all elements in the same scc
+            for (descendant <- descendants
+                 if isInSameSCC(start, descendant)
+            )
+            {
                 element_added (descendant, end)
             }
         }
@@ -211,7 +215,7 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
         {
             element_added (start, end)
         }
-
+        descendants.add (end)
     }
 
 
@@ -264,12 +268,19 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
 
     }
 
-    def isInSameSCC(vertex: Vertex, representative: Vertex): Boolean = {
+    def isInSameSCCAsRepresentative(vertex: Vertex, representative: Vertex): Boolean = {
         sccRepresentatives.get (vertex) == Some (representative)
     }
 
+
+    def isInSameSCC(vertex: Vertex, other: Vertex): Boolean = {
+        sccRepresentatives.get (vertex) == sccRepresentatives.get (other)
+    }
+
+
+
     def computeDescendants(start: Vertex, sccRepresentative: Vertex, result: mutable.HashSet[Vertex]) {
-        if (!isInSameSCC (start, sccRepresentative)) {
+        if (!isInSameSCCAsRepresentative (start, sccRepresentative)) {
             result ++= nonSCCDescendants (start)
         }
         else
@@ -299,7 +310,7 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex](val source: Relatio
         // fill suspicious edges to contain all cycles in the SCC
         val oldSCCElements =
             for (descendant <- descendants (start)
-                 if isInSameSCC (descendant, representative)) yield
+                 if isInSameSCCAsRepresentative (descendant, representative)) yield
             {
                 val newDescendants = mutable.HashSet.empty[Vertex]
                 computeDescendants (descendant, representative, newDescendants)

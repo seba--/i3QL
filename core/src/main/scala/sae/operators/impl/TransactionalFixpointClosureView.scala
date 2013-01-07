@@ -33,9 +33,9 @@
 package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
-import sae.operators.TransitiveClosure
+import sae.operators.FixPointClosure
 import collection.mutable
-import sae.deltas._
+import util.TransactionElementObserver
 
 /**
  *
@@ -50,19 +50,46 @@ import sae.deltas._
  *
  * @author Ralf Mitschke
  */
-class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
-                                                val getTail: Edge => Vertex,
-                                                val getHead: Edge => Vertex)
-    extends TransitiveClosure[Edge, Vertex]
-    with Observer[Edge]
+/*
+class TransactionalFixPointClosureView[Edge, Vertex, Info](val source: Relation[Edge],
+                                                           val getTail: Edge => Vertex,
+                                                           val getHead: Edge => Vertex,
+                                                           val getTailInfo: Edge => Info,
+                                                           val getHeadInfo: Edge => Info,
+                                                           val createEdge: (Vertex, Info, Vertex, Info) => Edge)
+    extends FixPointClosure[Edge, Vertex, Info]
+    with TransactionElementObserver[Edge]
 {
     source addObserver this
 
-    val adjacencyLists = source.index (getTail)
+    private var adjacencyLists = mutable.HashMap.empty[Vertex, mutable.HashSet[Edge]]
 
-    private val nonSCCDescendants = mutable.HashMap[Vertex, mutable.HashSet[Vertex]]()
+    private var nonSCCDescendants = mutable.HashMap.empty[Vertex, mutable.HashSet[Vertex]]
 
-    private val sccRepresentatives = mutable.HashMap[Vertex, Vertex]()
+    private var sccRepresentatives = mutable.HashMap.empty[Vertex, Vertex]
+
+
+    override def clear() {
+        adjacencyLists = mutable.HashMap.empty[Vertex, mutable.HashSet[Edge]]
+        nonSCCDescendants = mutable.HashMap.empty[Vertex, mutable.HashSet[Vertex]]
+        sccRepresentatives = mutable.HashMap.empty[Vertex, Vertex]
+        super.clear ()
+    }
+
+    override def endTransaction() {
+        var it: java.util.Iterator[Edge] = additions.iterator ()
+        while (it.hasNext) {
+            val next = it.next ()
+            internal_added (next)
+        }
+        it = deletions.iterator ()
+        while (it.hasNext) {
+            val next = it.next ()
+            internal_removed (next)
+        }
+        clear ()
+        super.endTransaction ()
+    }
 
     private def descendants(v: Vertex): mutable.HashSet[Vertex] = {
         if (nonSCCDescendants.isDefinedAt (v))
@@ -78,8 +105,6 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     private def transitiveClosure: mutable.Map[Vertex, mutable.HashSet[Vertex]] =
         nonSCCDescendants
-
-    lazyInitialize ()
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
@@ -135,12 +160,6 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
 
-    def lazyInitialize() {
-        source.foreach (
-            x => internal_add (x, notify = false)
-        )
-    }
-
     /**
      * create an SCC for the start vertex, by removing all entries of the SCC from transitive closure
      * and only putting one representative back.
@@ -168,27 +187,37 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
 
-    def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex], notify: Boolean) {
+    def addEdge(start: Vertex, edge: Edge) {
+        val edges = adjacencyLists.getOrElse (start, {
+            val empty = mutable.HashSet.empty[Edge]
+            adjacencyLists.put (start, empty)
+            empty
+        })
+        edges.add (edge)
+    }
+
+    def removeEdge(start: Vertex, edge: Edge) {
+        val edges = adjacencyLists (start) // should always be present
+        edges.remove (edge)
+    }
+
+    def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]) {
         if (descendants.contains (end))
             return
+        descendants.add (end)
 
-        if (notify) {
-            // start is in an scc
-            if (sccRepresentatives.isDefinedAt (start)) {
-                // add (x,end) for all elements in the same scc
-                for (descendant <- descendants
-                     if isInSameSCC(start, descendant)
-                )
-                {
-                    element_added (descendant, end)
-                }
-            }
-            else
-            {
-                element_added (start, end)
+        // start is in an scc
+        if (sccRepresentatives.isDefinedAt (start)) {
+            // add (x,end) for all x in the scc
+            for (descendant <- descendants; if isInSameSCCAsRepresentative(start, descendant)) {
+                element_added (descendant, end)
             }
         }
-        descendants.add (end)
+        else
+        {
+            element_added (start, end)
+        }
+
     }
 
 
@@ -196,7 +225,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         sccRepresentatives.isDefinedAt (start) && sccRepresentatives.isDefinedAt (end)
     }
 
-    def internal_add(edge: Edge, notify: Boolean) {
+    def internal_added(edge: Edge) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
 
@@ -205,7 +234,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 
         //Step 4 // the new edge itself
-        addDescendant (edgeStart, edgeEnd, pathsOfEdgeStart, notify)
+        addEdge (edgeStart, edge)
+        addDescendant (edgeStart, edgeEnd, pathsOfEdgeStart)
 
         //Step 1 && Step 3 (inlined) -- O(n^2)
 
@@ -214,12 +244,12 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         {
             // Step 1
             // all new paths constructed by adding the end vertex to the back of an existing path
-            addDescendant (start, edgeEnd, descendants, notify)
+            addDescendant (start, edgeEnd, descendants)
 
             for (end <- pathsOfEdgeEnd) {
                 //Step 3
                 // all new paths constructed by concatenating two paths via (start -> end)
-                addDescendant (start, end, descendants, notify)
+                addDescendant (start, end, descendants)
             }
         }
 
@@ -228,7 +258,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         //O(n)
         for (end <- pathsOfEdgeEnd)
         {
-            addDescendant (edgeStart, end, pathsOfEdgeStart, notify)
+            addDescendant (edgeStart, end, pathsOfEdgeStart)
         }
 
         // check if a transitive closure was created, it has to contain edgeStart, because this was the beginning of the new edge
@@ -240,16 +270,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     }
 
-    def added(edge: Edge) {
-        internal_add (edge, notify = true)
-    }
-
     def isInSameSCCAsRepresentative(vertex: Vertex, representative: Vertex): Boolean = {
         sccRepresentatives.get (vertex) == Some (representative)
-    }
-
-    def isInSameSCC(vertex: Vertex, other: Vertex): Boolean = {
-        sccRepresentatives.get (vertex) == sccRepresentatives.get (other)
     }
 
     def computeDescendants(start: Vertex, sccRepresentative: Vertex, result: mutable.HashSet[Vertex]) {
@@ -314,9 +336,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         suspiciousEdges
     }
 
-    def removed(edge: Edge) {
+    def internal_removed(edge: Edge) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
+
+        removeEdge (edgeStart, edge)
 
         //set of all paths that maybe go through e (S_ab -- S for suspicious -- from paper), together with the length
         var suspiciousEdges = mutable.Set[(Vertex, Vertex)]()
@@ -396,21 +420,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         }
     }
 
-
-    def updated (oldV: Edge, newV: Edge)
-    {
-        //a direct update is not supported
-        removed (oldV)
-        added (newV)
-    }
-
-    def updated[U <: Edge] (update: Update[U])
-    {
-        throw new UnsupportedOperationException
-    }
-
-    def modified[U <: Edge] (additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]])
-    {
-        throw new UnsupportedOperationException
+    def lazyInitialize() {
+        // should not be required since we add all in one transaction
     }
 }
+*/
