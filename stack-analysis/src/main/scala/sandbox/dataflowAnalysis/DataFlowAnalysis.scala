@@ -6,6 +6,7 @@ import sae.bytecode.structure.CodeInfo
 import de.tud.cs.st.bat.resolved.Instruction
 import sae.bytecode.BytecodeDatabase
 
+
 /**
  * Abstract class for dataflow analysis.
  *
@@ -28,8 +29,6 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
 
   def apply(bcd: BytecodeDatabase): Relation[MethodResult[T]] = {
     val cfg: Relation[MethodCFG] = controlFlowAnalysis(bcd)
-
-    TransactionalEquiJoinView
 
     compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.predecessorArray))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
   }
