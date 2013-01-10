@@ -33,7 +33,7 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((
   var printResults = false
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
-    compile(SELECT((ci: CodeInfo, mr: MethodResult[State]) => BugEntry(ci.declaringMethod, computeBugLogger(ci, mr))) FROM(bcd.code, StackAnalysis(bcd)) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
+    apply(bcd.code, StackAnalysis(bcd))
   }
 
   def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
