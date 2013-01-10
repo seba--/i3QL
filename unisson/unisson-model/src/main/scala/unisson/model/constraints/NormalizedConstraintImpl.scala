@@ -1,7 +1,7 @@
 package unisson.model.constraints
 
 import unisson.model.kinds.DependencyKind
-import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint}
 
 
 /**
@@ -12,12 +12,12 @@ import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
  *
  */
 case class NormalizedConstraintImpl(
-                                           kind: DependencyKind,
-                                           constraintType: ConstraintType.Value,
-                                           source: IEnsemble,
-                                           target: IEnsemble,
-                                           context: String
-                                           ) extends NormalizedConstraint
+                                       kind: DependencyKind,
+                                       constraintType: ConstraintType.Value,
+                                       source: IEnsemble,
+                                       target: IEnsemble,
+                                       context: String
+                                       ) extends NormalizedConstraint
 {
     var origin: IConstraint = null
 }

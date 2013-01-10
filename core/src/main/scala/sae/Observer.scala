@@ -32,12 +32,21 @@
  */
 package sae
 
-trait Observer[-V] {
+import deltas.{Deletion, Addition, Update}
 
-    def updated(oldV : V, newV : V)
+trait Observer[-V]
+{
 
-    def removed(v : V)
+    @deprecated
+    def updated(oldV: V, newV: V)
 
-    def added(v : V)
+    def updated[U <: V](update: Update[U])
 
+    def removed(v: V)
+
+    def added(v: V)
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]])
+
+    def endTransaction() {}
 }

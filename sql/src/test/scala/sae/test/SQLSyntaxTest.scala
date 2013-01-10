@@ -757,4 +757,26 @@ class SQLSyntaxTest
         )
     }
 
+
+    @Test
+    def testSubqueryWithJoinInInner() {
+
+        val database = new StudentCoursesDatabase ()
+
+        import database._
+
+        val students = database.students.copy // make a local copy
+
+        val enrollments = database.enrollments.copy // make a local copy
+
+        case class Data(name: String, values: Seq[Int])
+
+        val data= new Table[Data]
+
+        val subQuery =
+            SELECT (*) FROM (students, enrollments) WHERE
+                    (((_:Student).Id) === ((_:Enrollment).StudentId)) AND
+                    (((_:Student).Name) === ((_:Data).name))
+
+    }
 }

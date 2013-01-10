@@ -10,20 +10,33 @@ trait Set[V]
     with Collection[V]
     with QueryResult[V]
 {
-    private var data: scala.collection.immutable.HashSet[V] = new scala.collection.immutable.HashSet[V]()
+    //private val data: scala.collection.mutable.HashSet[V] = new scala.collection.mutable.HashSet[V]()
+
+    private var data: java.util.HashSet[V] = new java.util.HashSet[V]()
+
+    import scala.collection.JavaConversions._
 
     def size: Int = data.size
 
-    def singletonValue: Option[V] = data.headOption
+    def singletonValue: Option[V] = data.headOption //None
 
     def add_element(v: V)
     {
-        data = data + v
+        /*
+        if (data.contains(v)){
+            throw new IllegalStateException()
+        }
+        */
+        //data = data + v
+        data.add(v)
+        data
     }
 
     def remove_element(v: V)
     {
-        data = data - v
+        //data = data - v
+        data.remove(v)
+        data
     }
 
     def foreach[U](f: V => U) {

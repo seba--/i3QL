@@ -1,11 +1,16 @@
 package sae.bytecode.structure
 
-case class FieldDeclaration(declaringClass: ClassDeclaration,
-                            accessFlags: Int,
-                            name: String,
-                            fieldType: de.tud.cs.st.bat.resolved.FieldType)
+import de.tud.cs.st.bat.resolved.ObjectType
+import de.tud.cs.st.vespucci.interfaces.IFieldDeclaration
+
+class FieldDeclaration(val declaringClass: ClassDeclaration,
+                       val accessFlags: Int,
+                       val name: String,
+                       val fieldType: de.tud.cs.st.bat.resolved.FieldType)
     extends DeclaredClassMember
     with FieldInfo
+    with FieldComparison
+    with IFieldDeclaration
 {
     def declaringType = declaringClass.classType
 
@@ -28,5 +33,27 @@ case class FieldDeclaration(declaringClass: ClassDeclaration,
     def isEnum = ACC_ENUM ∈ accessFlags
 
     def isSynthetic = ACC_SYNTHETIC ∈ accessFlags
+
+    def getPackageIdentifier = declaringClassType.packageName
+
+    def getSimpleClassName = declaringClassType.simpleName
+
+    def getFieldName = name
+
+    def getTypeQualifier = fieldType.toJava
+}
+
+object FieldDeclaration
+{
+
+    def apply(declaringType: ObjectType,
+              name: String,
+              fieldType: de.tud.cs.st.bat.resolved.FieldType): FieldDeclaration =
+        new FieldDeclaration (
+            new ClassDeclaration (0, 0, 0, declaringType, None, Seq ()),
+            0,
+            name,
+            fieldType
+        )
 
 }

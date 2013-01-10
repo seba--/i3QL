@@ -42,7 +42,8 @@ import de.tud.cs.st.bat.resolved.ObjectType
  */
 
 trait FieldReadInstruction
-    extends FieldInfo
+    extends InstructionInfo
+    with FieldInfo
 {
 
     def receiverType : ObjectType

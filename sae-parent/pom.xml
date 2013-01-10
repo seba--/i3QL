@@ -149,6 +149,11 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-bytecode-database-sql</artifactId>
+                <version>0.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
                 <artifactId>sae-bytecode-database-profiling-library</artifactId>
                 <version>0.1.0</version>
             </dependency>
@@ -166,6 +171,51 @@
                 <groupId>de.tud.cs.st.opal.sae</groupId>
                 <artifactId>sae-findbugs</artifactId>
                 <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-metrics</artifactId>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-architecture</artifactId>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>sae-analyses</artifactId>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>replay-framework</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.vespucci</groupId>
+                <artifactId>unisson-vespucci-interface</artifactId>
+                <version>0.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>unisson-query-code_model</artifactId>
+                <version>0.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>unisson-query-parser</artifactId>
+                <version>0.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>unisson-query-compiler</artifactId>
+                <version>0.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.opal.sae</groupId>
+                <artifactId>unisson-model</artifactId>
+                <version>0.6.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

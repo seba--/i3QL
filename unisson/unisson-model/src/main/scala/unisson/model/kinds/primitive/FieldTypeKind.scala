@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object FieldTypeKind
         extends DependencyKind
 {
-    val designator = "field_type"
+    def designator = "field_type"
 }

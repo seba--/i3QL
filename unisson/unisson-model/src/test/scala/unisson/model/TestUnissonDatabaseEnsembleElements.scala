@@ -1,13 +1,13 @@
 package unisson.model
 
-import mock.vespucci._
+import impl.{Repository, Ensemble}
 import org.scalatest.matchers.ShouldMatchers
-import unisson.query.code_model.SourceElement
-import sae.collections.Conversions
-import org.junit.{Ignore, Test}
-import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.BytecodeDatabase
-import sae.bytecode.model.FieldDeclaration
+import unisson.query.code_model.SourceElementFactory
+import org.junit.Test
+import de.tud.cs.st.bat.resolved.ObjectType
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.FieldDeclaration
+import UnissonOrdering._
 
 /**
  *
@@ -17,33 +17,31 @@ import sae.bytecode.model.FieldDeclaration
  *
  */
 class TestUnissonDatabaseEnsembleElements
-        extends ShouldMatchers
+    extends ShouldMatchers
 {
 
-    import UnissonOrdering._
-
-    import Conversions._
 
     @Test
     def testClassTypeQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create()
+        val db = new UnissonDatabase (bc)
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
-        val ensembleA = Ensemble("A", "class('test','A')")
-        val ensembleB = Ensemble("B", "class('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
+        val ensembleA = Ensemble ("A", "class('test','A')")
+        val ensembleB = Ensemble ("B", "class('test','B')")
+        val ensembles = Set (ensembleA, ensembleB)
 
-        db.setRepository(Repository(ensembles))
+        db.setRepository (Repository (ensembles))
 
-        val a = ObjectType("test/A")
-        val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
+        val a = ObjectType ("test/A")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
 
-        db.ensemble_elements.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a)),
-                (ensembleB, SourceElement(b))
+        ensemble_elements.asList .sorted should be (
+            List (
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -51,34 +49,34 @@ class TestUnissonDatabaseEnsembleElements
 
     @Test
     def testChildrenAndDerivedParentQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create()
+        val db = new UnissonDatabase (bc)
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements)
 
+        val ensembleA1 = Ensemble ("A1", "class('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble ("B", "class('test','B')")
+        val ensembles = Set (ensembleA, ensembleB)
 
-        val ensembleA1 = Ensemble("A1", "class('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
-        val ensembleB = Ensemble("B", "class('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
+        db.setRepository (Repository (ensembles))
 
-        db.setRepository(Repository(ensembles))
+        val a = ObjectType ("test/A")
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
 
-        val a = ObjectType("test/A")
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-
-        db.ensemble_elements.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a1)),
-                (ensembleA, SourceElement(a2)),
-                (ensembleA1, SourceElement(a1)),
-                (ensembleA2, SourceElement(a2)),
-                (ensembleB, SourceElement(b))
+        ensemble_elements.asList .sorted should be (
+            List (
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -86,35 +84,35 @@ class TestUnissonDatabaseEnsembleElements
 
     @Test
     def testChildrenAndDirectParentQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create()
+        val db = new UnissonDatabase (bc)
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
 
+        val ensembleA1 = Ensemble ("A1", "class('test.a','A1')")
+        val ensembleA2 = Ensemble ("A2", "class('test.a','A2')")
+        val ensembleA = Ensemble ("A", "package('test.a')", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble ("B", "class('test','B')")
+        val ensembles = Set (ensembleA, ensembleB)
 
-        val ensembleA1 = Ensemble("A1", "class('test.a','A1')")
-        val ensembleA2 = Ensemble("A2", "class('test.a','A2')")
-        val ensembleA = Ensemble("A", "package('test.a')", ensembleA1, ensembleA2)
-        val ensembleB = Ensemble("B", "class('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
+        db.setRepository (Repository (ensembles))
 
-        db.setRepository(Repository(ensembles))
+        val a = ObjectType ("test/a/A")
+        val a1 = ObjectType ("test/a/A1")
+        val a2 = ObjectType ("test/a/A2")
+        val b = ObjectType ("test/B")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
 
-        val a = ObjectType("test/a/A")
-        val a1 = ObjectType("test/a/A1")
-        val a2 = ObjectType("test/a/A2")
-        val b = ObjectType("test/B")
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-
-        db.ensemble_elements.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a)),
-                (ensembleA, SourceElement(a1)),
-                (ensembleA, SourceElement(a2)),
-                (ensembleA1, SourceElement(a1)),
-                (ensembleA2, SourceElement(a2)),
-                (ensembleB, SourceElement(b))
+        ensemble_elements.asList .sorted should be (
+            List (
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b))
             )
         )
 
@@ -122,38 +120,38 @@ class TestUnissonDatabaseEnsembleElements
 
     @Test
     def testClassWithMembersQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create()
+        val db = new UnissonDatabase (bc)
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
+
+        val ensembleA = Ensemble ("A", "class_with_members('test','A')")
+        val ensembleB = Ensemble ("B", "class_with_members('test','B')")
+        val ensembles = Set (ensembleA, ensembleB)
 
 
-        val ensembleA = Ensemble("A", "class_with_members('test','A')")
-        val ensembleB = Ensemble("B", "class_with_members('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
+        db.setRepository (Repository (ensembles))
 
+        val a = ObjectType ("test/A")
 
-        db.setRepository(Repository(ensembles))
+        val b = ObjectType ("test/B")
 
-        val a = ObjectType("test/A")
+        val fieldRefBToA = FieldDeclaration (b, "fieldInB", a)
+        val fieldRefAToB = FieldDeclaration (a, "fieldInA", b)
 
-        val b = ObjectType("test/B")
+        bc.typeDeclarations.element_added (a)
+        bc.typeDeclarations.element_added (b)
 
-        val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
-        val fieldRefAToB = FieldDeclaration(a, "fieldInA", b)
-
-        bc.declared_types.element_added(a)
-        bc.declared_types.element_added(b)
-
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.fieldDeclarations.element_added (fieldRefAToB)
+        bc.fieldDeclarations.element_added (fieldRefBToA)
 
 
 
-        db.ensemble_elements.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a)),
-                (ensembleA, SourceElement(fieldRefAToB)),
-                (ensembleB, SourceElement(b)),
-                (ensembleB, SourceElement(fieldRefBToA))
+        ensemble_elements.asList .sorted should be (
+            List (
+                (ensembleA, SourceElementFactory (a)),
+                (ensembleA, SourceElementFactory (fieldRefAToB)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA))
 
             )
         )
@@ -162,43 +160,43 @@ class TestUnissonDatabaseEnsembleElements
 
     @Test
     def testTwoLevelDerivedClassWithMembersQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create()
+        val db = new UnissonDatabase (bc)
+        val ensemble_elements = sae.relationToResult(db.ensemble_elements) 
+
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble ("B", "class_with_members('test','B')")
+        val ensembles = Set (ensembleA, ensembleB)
 
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')")
-        val ensembles = Set(ensembleA, ensembleB)
+        db.setRepository (Repository (ensembles))
+
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b = ObjectType ("test/B")
+
+        val fieldRefBToA1 = FieldDeclaration (b, "fieldA1InB", a1)
+        val fieldRefBToA2 = FieldDeclaration (b, "fieldA2InB", a2)
+
+        bc.typeDeclarations.element_added (b)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
+
+        bc.fieldDeclarations.element_added (fieldRefBToA1)
+        bc.fieldDeclarations.element_added (fieldRefBToA2)
 
 
-        db.setRepository(Repository(ensembles))
-
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b = ObjectType("test/B")
-
-        val fieldRefBToA1 = FieldDeclaration(b, "fieldA1InB", a1)
-        val fieldRefBToA2 = FieldDeclaration(b, "fieldA2InB", a2)
-
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-
-
-        db.ensemble_elements.asList.sorted should be(
-            List(
-                (ensembleA, SourceElement(a1)),
-                (ensembleA, SourceElement(a2)),
-                (ensembleA1, SourceElement(a1)),
-                (ensembleA2, SourceElement(a2)),
-                (ensembleB, SourceElement(b)),
-                (ensembleB, SourceElement(fieldRefBToA1)),
-                (ensembleB, SourceElement(fieldRefBToA2))
+        ensemble_elements.asList .sorted should be (
+            List (
+                (ensembleA, SourceElementFactory (a1)),
+                (ensembleA, SourceElementFactory (a2)),
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2)),
+                (ensembleB, SourceElementFactory (b)),
+                (ensembleB, SourceElementFactory (fieldRefBToA1)),
+                (ensembleB, SourceElementFactory (fieldRefBToA2))
             )
         )
 

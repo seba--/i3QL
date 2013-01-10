@@ -1,11 +1,10 @@
 package unisson.query.compiler
 
-import sae.bytecode.Database
-import collection.mutable.WeakHashMap
 import unisson.query.UnissonQuery
-import unisson.query.code_model.SourceElement
 import unisson.query.ast._
 import sae.{Observable, Relation}
+import de.tud.cs.st.vespucci.interfaces.ICodeElement
+import collection.mutable
 
 /**
  *
@@ -14,124 +13,127 @@ import sae.{Observable, Relation}
  * Time: 12:47
  *
  */
-class CachingQueryCompiler(val decoratee : QueryCompiler)
-        extends QueryCompiler
+class CachingQueryCompiler(val decoratee: QueryCompiler)
+    extends QueryCompiler
 {
-    protected[compiler] var cachedQueries: WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]] =
-        new WeakHashMap[UnissonQuery, Relation[SourceElement[AnyRef]]]()
+    protected[compiler] var cachedQueries: mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]] =
+        new mutable.WeakHashMap[UnissonQuery, Relation[ICodeElement]]()
 
     val db = decoratee.db
 
     val definitions = decoratee.definitions
 
-    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] =
-        decoratee.parseAndCompile(query)(this)
+    def parseAndCompile(query: String)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] =
+        decoratee.parseAndCompile (query)(this)
 
-    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[SourceElement[AnyRef]] = {
-        for (compiledQuery <- getChachedQuery(query)) {
+    def compile(query: UnissonQuery)(implicit decorator: QueryCompiler = this): Relation[ICodeElement] = {
+        for (compiledQuery <- getChachedQuery (query)) {
             return compiledQuery
         }
-        val compiledQuery = decoratee.compile(query)(this)
+        val compiledQuery = decoratee.compile (query)(this)
         cachedQueries += {
             query -> compiledQuery
         }
         compiledQuery
     }
 
-    private def getChachedQuery(query: UnissonQuery): Option[Relation[SourceElement[AnyRef]]] = {
-        val cachedCompiledQuery: Option[Relation[SourceElement[AnyRef]]] =
+    private def getChachedQuery(query: UnissonQuery): Option[Relation[ICodeElement]] = {
+        val cachedCompiledQuery: Option[Relation[ICodeElement]] =
             cachedQueries.collectFirst {
-                case (cachedQuery, compiledQuery) if (cachedQuery.isSyntacticEqual(query)) => compiledQuery
+                case (cachedQuery, compiledQuery) if (cachedQuery.isSyntacticEqual (query)) => compiledQuery
             }
         cachedCompiledQuery
     }
 
     def dispose(query: UnissonQuery) {
         for (
-            compiledQuery <- getChachedQuery(query);
+            compiledQuery <- getChachedQuery (query)
             if !compiledQuery.hasObservers
-        ) {
+        )
+        {
 
             query match {
-                case ClassSelectionQuery(_, _) =>
-                    removeAllSingleObserversOnPath(
-                        List(db.declared_types),
+                case ClassSelectionQuery (_, _) =>
+                    removeAllSingleObserversOnPath (
+                        List (db.typeDeclarations),
                         compiledQuery
                     )
-                case ClassQuery(innerQuery) => {
-                    for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
+                case ClassQuery (innerQuery) => {
+                    for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
-                        removeAllSingleObserversOnPath(
-                            List(db.declared_types, innerCompiledQuery),
+                        removeAllSingleObserversOnPath (
+                            List (db.typeDeclarations, innerCompiledQuery),
                             compiledQuery
                         )
-                        dispose(innerQuery)
+                        dispose (innerQuery)
                     }
                 }
-                case ClassWithMembersQuery(innerQuery) => {
-                    for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
+                case ClassWithMembersQuery (innerQuery) => {
+                    for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
-                        removeAllSingleObserversOnPath(
-                            List(db.declared_types, definitions.transitive_class_members, innerCompiledQuery),
+                        removeAllSingleObserversOnPath (
+                            List (db.typeDeclarations, definitions.transitive_inner_class_members, innerCompiledQuery),
                             compiledQuery
                         )
-                        dispose(innerQuery)
+                        dispose (innerQuery)
                     }
                 }
-                case PackageQuery(_) => {
-                    removeAllSingleObserversOnPath(
-                        List(db.declared_types, db.declared_methods, db.declared_fields),
+                case PackageQuery (_) => {
+                    removeAllSingleObserversOnPath (
+                        List (db.typeDeclarations, db.methodDeclarations, db.fieldDeclarations),
                         compiledQuery
                     )
                 }
-                case OrQuery(left, right) => {
+                case OrQuery (left, right) => {
                     // we do not know the root sources of the sub-queries so we delegate to sub-queries
                     // or query should be a union with direct children, hence we could directly remove the current query as observer
                     // but using the transitive removal is more stable, since it relies only on the knowledge of the sources of the union and not the implementation as a singular operator
-                    for (innerCompiledLeft <- getChachedQuery(left);
-                         innerCompiledRight <- getChachedQuery(right)
-                    ) {
-                        removeAllSingleObserversOnPath(
-                            List(innerCompiledLeft, innerCompiledRight),
+                    for (innerCompiledLeft <- getChachedQuery (left);
+                         innerCompiledRight <- getChachedQuery (right)
+                    )
+                    {
+                        removeAllSingleObserversOnPath (
+                            List (innerCompiledLeft, innerCompiledRight),
                             compiledQuery
                         )
                     }
-                    dispose(left)
-                    dispose(right)
+                    dispose (left)
+                    dispose (right)
                 }
-                case WithoutQuery(left, right) => {
+                case WithoutQuery (left, right) => {
                     // we do not know the root sources of the sub-queries so we delegate to sub-queries
                     // the without query should be a set difference with direct children, hence we could directly remove the current query as observer
                     // but using the transitive removal is more stable, since it relies only on the knowledge of the sources of the difference and not the implementation as a singular operator
-                    for (innerCompiledLeft <- getChachedQuery(left);
-                         innerCompiledRight <- getChachedQuery(right)
-                    ) {
-                        removeAllSingleObserversOnPath(
-                            List(innerCompiledLeft, innerCompiledRight),
+                    for (innerCompiledLeft <- getChachedQuery (left);
+                         innerCompiledRight <- getChachedQuery (right)
+                    )
+                    {
+                        removeAllSingleObserversOnPath (
+                            List (innerCompiledLeft, innerCompiledRight),
                             compiledQuery
                         )
                     }
-                    dispose(left)
-                    dispose(right)
+                    dispose (left)
+                    dispose (right)
                 }
-                case TransitiveQuery(SuperTypeQuery(innerQuery)) => {
-                    for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
+                case TransitiveQuery (SuperTypeQuery (innerQuery)) => {
+                    for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
-                        removeAllSingleObserversOnPath(
-                            List(definitions.supertypeTrans, innerCompiledQuery),
+                        removeAllSingleObserversOnPath (
+                            List (db.subTypes, innerCompiledQuery),
                             compiledQuery
                         )
-                        dispose(innerQuery)
+                        dispose (innerQuery)
                     }
                 }
-                case SuperTypeQuery(innerQuery) => {
-                    for (innerCompiledQuery <- getChachedQuery(innerQuery)) {
+                case SuperTypeQuery (innerQuery) => {
+                    for (innerCompiledQuery <- getChachedQuery (innerQuery)) {
                         // remove everything up to the inner query, we do not know what the ultimate roots of the inner query are
-                        removeAllSingleObserversOnPath(
-                            List(db.implements, db.`extends`, innerCompiledQuery),
+                        removeAllSingleObserversOnPath (
+                            List (db.interfaceInheritance, db.classInheritance, innerCompiledQuery),
                             compiledQuery
                         )
-                        dispose(innerQuery)
+                        dispose (innerQuery)
                     }
                 }
                 case _ => // do nothing
@@ -148,8 +150,8 @@ class CachingQueryCompiler(val decoratee : QueryCompiler)
      * either if source is reached or a view with multiple other observers is reached
      */
     private def removeAllSingleObserversOnPath(sources: List[Relation[_ <: AnyRef]], target: Relation[_ <: AnyRef]) {
-        target.clearObserversForChildren(
-            (o: Observable[_ <: AnyRef]) => !sources.contains(o)
+        target.clearObserversForChildren (
+            (o: Observable[_]) => !sources.contains (o)
         )
     }
 }

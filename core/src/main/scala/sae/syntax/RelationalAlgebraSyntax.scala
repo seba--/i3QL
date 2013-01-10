@@ -70,8 +70,8 @@ case class InfixConcatenator[Domain <: AnyRef](left: Relation[Domain])
 
     def ∖ (otherRelation: Relation[Domain]): Relation[Domain] =
         new DifferenceView[Domain](
-            left.asMaterialized,
-            otherRelation.asMaterialized
+            left,
+            otherRelation
         )
 
 }
@@ -127,8 +127,8 @@ object RelationalAlgebraSyntax
     {
         // TODO think of better names for start/endVertex functions
         def apply[Domain <: AnyRef, Vertex <: AnyRef](relation: Relation[Domain])
-                                                     (startVertex: Domain => Vertex, endVertex: Domain => Vertex) =
-            new TransitiveClosureView[Domain, Vertex](
+                                                     (startVertex: Domain => Vertex, endVertex: Domain => Vertex): TransitiveClosure[Domain, Vertex] =
+            new NaiveTransitiveClosureView[Domain, Vertex](
                 relation,
                 startVertex,
                 endVertex
@@ -167,10 +167,11 @@ object RelationalAlgebraSyntax
     {
         def apply[Domain <: AnyRef, Range <: AnyRef](projection: Domain => Range)
                                                     (relation: Relation[Domain]): Relation[Range] =
-            new ProjectionView[Domain, Range](
+            new ProjectionSetRetainingView[Domain, Range](
                 relation,
                 projection
             )
+
 
         def unapply[Domain <: AnyRef, Range <: AnyRef](p: Projection[Domain, Range]): Option[(Domain => Range, Relation[Domain])] = Some (
             (p.projection, p.relation)
@@ -206,10 +207,10 @@ object RelationalAlgebraSyntax
     /** definitions of duplicate elimination syntax **/
     object δ
     {
-        def apply[Domain <: AnyRef](relation: Relation[Domain]): Relation[Domain] =
-            new DuplicateEliminationView[Domain] (relation)
+        def apply[Domain](relation: Relation[Domain]): Relation[Domain] =
+            new DuplicateEliminationView[Domain](relation)
 
-        def unapply[Domain <: AnyRef](d: DuplicateElimination[Domain]): Option[Relation[Domain]] = Some (d.relation)
+        def unapply[Domain](d: DuplicateElimination[Domain]): Option[Relation[Domain]] = Some (d.relation)
     }
 
 
@@ -217,12 +218,12 @@ object RelationalAlgebraSyntax
     object γ
     {
 
-        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                              source: Relation[Domain],
-                                                                                              groupingFunction: Domain => Key,
-                                                                                              aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
-                                                                                              convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
-                                                                                              ):
+        def apply[Domain, Key, AggregationValue, Result](
+                                                            source: Relation[Domain],
+                                                            groupingFunction: Domain => Key,
+                                                            aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
+                                                            convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
+                                                            ):
         Aggregation[Domain, Key, AggregationValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregationValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
             new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregationValue, Result](
@@ -234,15 +235,15 @@ object RelationalAlgebraSyntax
         }
 
 
-        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any, Result <: AnyRef](
-                                                                                              source: Relation[Domain],
-                                                                                              groupFunction: Domain => Key,
-                                                                                              aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
-                                                                                              convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
-                                                                                              ):
+        def apply[Domain, Key, AggregationValue, Result](
+                                                            source: Relation[Domain],
+                                                            groupFunction: Domain => Key,
+                                                            aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue],
+                                                            convertKeyAndAggregationValueToResult: (Key, AggregationValue) => Result
+                                                            ):
         Aggregation[Domain, Key, AggregationValue, Result, SelfMaintainableAggregateFunction[Domain, AggregationValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
-            new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, Result](
+            new AggregationForSelfMaintainableFunctions[Domain, Key, AggregationValue, Result](
                 source,
                 groupFunction,
                 aggregationFunctionFactory,
@@ -251,10 +252,10 @@ object RelationalAlgebraSyntax
         }
 
 
-        def apply[Domain <: AnyRef, AggregationValue <: Any](
-                                                                source: Relation[Domain],
-                                                                aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
-                                                                ) =
+        def apply[Domain, AggregationValue](
+                                               source: Relation[Domain],
+                                               aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
+                                               ) =
         {
             new AggregationForNotSelfMaintainableFunctions (
                 source,
@@ -265,11 +266,11 @@ object RelationalAlgebraSyntax
         }
 
 
-        def apply[Domain <: AnyRef, AggregationValue <: Any](source: Relation[Domain],
-                                                             aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
-                                                                ) =
+        def apply[Domain, AggregationValue](source: Relation[Domain],
+                                            aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
+                                               ) =
         {
-            new AggregationForSelfMaintainableAggregationFunctions (
+            new AggregationForSelfMaintainableFunctions (
                 source,
                 (x: Any) => "a",
                 aggregationFunctionFactory,
@@ -277,11 +278,11 @@ object RelationalAlgebraSyntax
             )
         }
 
-        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](
-                                                                            source: Relation[Domain],
-                                                                            groupingFunction: Domain => Key,
-                                                                            aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
-                                                                            ):
+        def apply[Domain, Key, AggregationValue](
+                                                    source: Relation[Domain],
+                                                    groupingFunction: Domain => Key,
+                                                    aggregationFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
+                                                    ):
         Aggregation[Domain, Key, AggregationValue, (Key, AggregationValue), NotSelfMaintainableAggregateFunction[Domain, AggregationValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
             new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](
@@ -292,14 +293,14 @@ object RelationalAlgebraSyntax
             )
         }
 
-        def apply[Domain <: AnyRef, Key <: Any, AggregationValue <: Any](
-                                                                            source: Relation[Domain],
-                                                                            groupingFunction: Domain => Key,
-                                                                            aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
-                                                                            ):
+        def apply[Domain, Key, AggregationValue](
+                                                    source: Relation[Domain],
+                                                    groupingFunction: Domain => Key,
+                                                    aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]
+                                                    ):
         Aggregation[Domain, Key, AggregationValue, (Key, AggregationValue), SelfMaintainableAggregateFunction[Domain, AggregationValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregationValue]] =
         {
-            new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](
+            new AggregationForSelfMaintainableFunctions[Domain, Key, AggregationValue, (Key, AggregationValue)](
                 source,
                 groupingFunction,
                 aggregationFunctionFactory,

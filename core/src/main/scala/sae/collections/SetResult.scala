@@ -33,6 +33,7 @@
 package sae.collections
 
 import sae._
+import deltas.{Update, Deletion, Addition}
 
 /**
  * A result that materializes all data from the underlying relation into a set
@@ -45,6 +46,10 @@ class SetResult[V](val relation: Relation[V])
     relation addObserver this
 
     lazyInitialize ()
+
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
 
     override protected def children = List (relation)
 
@@ -73,6 +78,28 @@ class SetResult[V](val relation: Relation[V])
 
     def added(v: V) {
         this += v
+    }
+
+    def added[U <: V](addition: Addition[U]) {
+        //assert (addition.count == 1)
+        add_element (addition.value)
+    }
+
+    def deleted[U <: V](deletion: Deletion[U]) {
+        //assert (deletion.count == 1)
+        remove_element (deletion.value)
+    }
+
+    def updated[U <: V](update: Update[U]) {
+        //assert (update.count == 1)
+        remove_element (update.oldV)
+        add_element (update.newV)
+    }
+    def modified[U <: V](additions: scala.collection.immutable.Set[Addition[U]], deletions: scala.collection.immutable.Set[Deletion[U]], updates: scala.collection.immutable.Set[Update[U]]) {
+        additions.foreach (added[U])
+        deletions.foreach (deleted[U])
+        updates.foreach (updated[U])
+        element_modifications (additions, deletions, updates)
     }
 
 }

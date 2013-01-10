@@ -33,7 +33,7 @@
 package sae.syntax.sql.compiler
 
 
-import sae.{SetRelation, Relation}
+import sae.Relation
 import sae.operators._
 import impl.UnNestView
 import sae.syntax.RelationalAlgebraSyntax._
@@ -380,9 +380,9 @@ object Compiler
         }
     }
 
-    private def compileDistinct[Domain <: AnyRef](relation: Relation[Domain], distinct: Boolean): Relation[Domain] =
+    private def compileDistinct[Domain](relation: Relation[Domain], distinct: Boolean): Relation[Domain] =
     {
-        if (!distinct || relation.isInstanceOf[SetRelation[Domain]])
+        if (!distinct || relation.isSet)
         {
             return relation
         }
@@ -562,7 +562,7 @@ object Compiler
     private def compileUnion[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],
                                                                                                relationB: Relation[DomainB]) =
     {
-        relationA ∪ relationB
+        relationA ⊎ relationB
     }
 
     private def compileUnionAll[DomainA <: AnyRef, DomainB >: DomainA <: AnyRef, Range <: AnyRef](relationA: Relation[DomainA],

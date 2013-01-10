@@ -1,15 +1,14 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
 import org.junit.{Ignore, Test}
-import sae.bytecode.BytecodeDatabase
-import sae.collections.QueryResult
 import de.tud.cs.st.vespucci.interfaces.IViolation
-import de.tud.cs.st.vespucci.model.IEnsemble
-import sae.bytecode.model.MethodDeclaration
-import unisson.query.code_model.SourceElement
-import de.tud.cs.st.bat.{VoidType, ObjectType}
+import unisson.query.code_model.SourceElementFactory
+import de.tud.cs.st.bat.resolved.{VoidType, ObjectType}
+import sae.bytecode.bat.BATDatabaseFactory
+import UnissonOrdering._
+import sae.bytecode.structure.MethodDeclaration
 
 /**
  *
@@ -19,224 +18,231 @@ import de.tud.cs.st.bat.{VoidType, ObjectType}
  *
  */
 class TestUnissonDatabaseHibernate_1_2_3
-        extends ShouldMatchers
+    extends ShouldMatchers
 {
 
 
-    import UnissonOrdering._
-    import sae.collections.Conversions._
+    def getStream(resource: String) = this.getClass.getClassLoader.getResourceAsStream (resource)
 
     @Test
     @Ignore
     def testViolationsActionsToExceptions() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")
-        val ScalarActions = Ensemble("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledEntityAction')")
-        val CollectionActions = Ensemble("CollectionActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionDeletes')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionUpdates')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionInserts')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRecreate')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRemove')) \n\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionAction')\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionUpdate')")
-        val Actions = Ensemble("Actions", "derived", ActionInterface, ScalarActions, CollectionActions)
+        val ActionInterface = Ensemble ("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")
+        val ScalarActions = Ensemble ("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledEntityAction')")
+        val CollectionActions = Ensemble ("CollectionActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionDeletes')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionUpdates')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionInserts')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRecreate')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRemove')) \n\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionAction')\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionUpdate')")
+        val Actions = Ensemble ("Actions", "derived", ActionInterface, ScalarActions, CollectionActions)
 
 
-        val Exceptions = Ensemble("Exceptions", "class_with_members(class('cirrus.hibernate','HibernateException')) \nor class_with_members(transitive(supertype(class('cirrus.hibernate','HibernateException')))) \nor class_with_members(class('cirrus.hibernate','AssertionFailure'))\nor class_with_members(class('cirrus.hibernate','LazyInitializationException'))")
-        val Utilities = Ensemble("Utilities", "package('cirrus.hibernate.helpers') ")
-        val UtilitiesAndExceptions = Ensemble("UtilitiesAndExceptions", "derived", Utilities, Exceptions)
+        val Exceptions = Ensemble ("Exceptions", "class_with_members(class('cirrus.hibernate','HibernateException')) \nor class_with_members(transitive(supertype(class('cirrus.hibernate','HibernateException')))) \nor class_with_members(class('cirrus.hibernate','AssertionFailure'))\nor class_with_members(class('cirrus.hibernate','LazyInitializationException'))")
+        val Utilities = Ensemble ("Utilities", "package('cirrus.hibernate.helpers') ")
+        val UtilitiesAndExceptions = Ensemble ("UtilitiesAndExceptions", "derived", Utilities, Exceptions)
 
-        val Empty = Ensemble("Empty", "empty")
+        val Empty = Ensemble ("Empty", "empty")
 
-        val ensembles = Set(Actions, UtilitiesAndExceptions, Empty)
-        val emptyToExceptions = GlobalOutgoingConstraint("all", Actions, Empty)
-        val constraints = Set(emptyToExceptions)
-        val global = Repository(ensembles)
-        val model = Concern(ensembles, constraints, "Actions.sad")
-        db.setRepository(global)
-        db.addSlice(model)
+        val ensembles = Set (Actions, UtilitiesAndExceptions, Empty)
+        val emptyToExceptions = GlobalOutgoingConstraint ("all", Actions, Empty)
+        val constraints = Set (emptyToExceptions)
+        val global = Repository (ensembles)
+        val model = Concern (ensembles, constraints, "Actions.sad")
+        db.setRepository (global)
+        db.addSlice (model)
 
-        val queryResult: QueryResult[IViolation] = db.violations
+        val queryResult = sae.relationToResult (db.violations)
 
-        bc.addArchiveAsResource("hibernate-1.2.3.jar")
+        bc.addArchive (getStream ("hibernate-1.2.3.jar"))
 
         val result = queryResult.asList.sorted
 
         val expectedResult = List[IViolation](
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ActionInterface,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/SessionImpl$Executable"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/SessionImpl$Executable"),
                         "afterTransactionCompletion",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ActionInterface,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/SessionImpl$Executable"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/SessionImpl$Executable"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledCollectionAction"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledCollectionAction"),
                         "afterTransactionCompletion",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledCollectionRecreate"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledCollectionRecreate"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledCollectionRemove"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledCollectionRemove"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 CollectionActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledCollectionUpdate"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledCollectionUpdate"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledDeletion"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledDeletion"),
                         "afterTransactionCompletion",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledUpdate"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledUpdate"),
                         "afterTransactionCompletion",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/cache/CacheException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/cache/CacheException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledDeletion"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledDeletion"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledUpdate"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledUpdate"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             ),
-            Violation(emptyToExceptions,
+            Violation (emptyToExceptions,
                 ScalarActions,
                 Exceptions,
-                SourceElement(
-                    MethodDeclaration(
-                        ObjectType("cirrus/hibernate/impl/ScheduledInsertion"),
+                SourceElementFactory (
+                    MethodDeclaration (
+                        ObjectType ("cirrus/hibernate/impl/ScheduledInsertion"),
                         "execute",
-                        Seq(),
-                        VoidType()
+                        VoidType,
+                        Seq ()
+
                     )
                 ),
-                SourceElement(ObjectType("cirrus/hibernate/HibernateException")),
+                SourceElementFactory (ObjectType ("cirrus/hibernate/HibernateException")),
                 "throws", "Actions.sad"
             )
         ).sorted
 
-        result should be(expectedResult)
+        result should be (expectedResult)
     }
 
     @Test
     @Ignore
     def testActionsToExceptionsDependencies() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(bc)
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ActionInterface = Ensemble("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")
-        val ScalarActions = Ensemble("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledEntityAction')")
-        val CollectionActions = Ensemble("CollectionActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionDeletes')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionUpdates')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionInserts')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRecreate')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRemove')) \n\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionAction')\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionUpdate')")
-        val Actions = Ensemble("Actions", "derived", ActionInterface, ScalarActions, CollectionActions)
+        val ActionInterface = Ensemble ("ActionInterface", "class_with_members(class('cirrus.hibernate.impl','SessionImpl$Executable'))")
+        val ScalarActions = Ensemble ("ScalarActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledDeletion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledInsertion')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledUpdate'))\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledEntityAction')")
+        val CollectionActions = Ensemble ("CollectionActions", "class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionDeletes')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionUpdates')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionInserts')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRecreate')) \nor class_with_members(class('cirrus.hibernate.impl','ScheduledCollectionRemove')) \n\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionAction')\nor\nclass_with_members('cirrus.hibernate.impl','ScheduledCollectionUpdate')")
+        val Actions = Ensemble ("Actions", "derived", ActionInterface, ScalarActions, CollectionActions)
 
 
-        val Exceptions = Ensemble("Exceptions", "class_with_members(class('cirrus.hibernate','HibernateException')) \nor class_with_members(transitive(supertype(class('cirrus.hibernate','HibernateException')))) \nor class_with_members(class('cirrus.hibernate','AssertionFailure'))\nor class_with_members(class('cirrus.hibernate','LazyInitializationException'))")
-        val Utilities = Ensemble("Utilities", "package('cirrus.hibernate.helpers') ")
-        val UtilitiesAndExceptions = Ensemble("UtilitiesAndExceptions", "derived", Utilities, Exceptions)
+        val Exceptions = Ensemble ("Exceptions", "class_with_members(class('cirrus.hibernate','HibernateException')) \nor class_with_members(transitive(supertype(class('cirrus.hibernate','HibernateException')))) \nor class_with_members(class('cirrus.hibernate','AssertionFailure'))\nor class_with_members(class('cirrus.hibernate','LazyInitializationException'))")
+        val Utilities = Ensemble ("Utilities", "package('cirrus.hibernate.helpers') ")
+        val UtilitiesAndExceptions = Ensemble ("UtilitiesAndExceptions", "derived", Utilities, Exceptions)
 
-        val ensembles = Set(Actions, UtilitiesAndExceptions)
-        val global = Repository(ensembles)
-        db.setRepository(global)
+        val ensembles = Set (Actions, UtilitiesAndExceptions)
+        val global = Repository (ensembles)
+        db.setRepository (global)
 
         /*
         val queryResult: QueryResult[(IEnsemble, IEnsemble, Int)] = db.ensembleDependencies

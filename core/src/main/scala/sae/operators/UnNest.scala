@@ -32,7 +32,7 @@
  */
 package sae.operators
 
-import sae.{Observer, Observable, Relation}
+import sae.Relation
 
 
 trait UnNest[Range, UnNestRange, Domain <: Range]
@@ -40,7 +40,7 @@ trait UnNest[Range, UnNestRange, Domain <: Range]
 {
     def relation: Relation[Domain]
 
-    def unNestFunction: Domain => Seq[UnNestRange]
+    def unNestFunction: Domain => Traversable[UnNestRange]
 
     def projection: (Domain, UnNestRange) => Range
 

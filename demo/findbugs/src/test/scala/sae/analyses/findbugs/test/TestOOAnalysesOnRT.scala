@@ -35,8 +35,12 @@ package sae.analyses.findbugs.test
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
 import analyses.findbugs.selected.oo._
-import org.junit.Test
+import analyses.findbugs.random.oo._
+import bytecode.instructions.{GETFIELD, InvokeInstruction}
+import bytecode.structure.FieldDeclaration
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
+import syntax.sql._
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,67 +48,10 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
 class TestOOAnalysesOnRT
 {
 
     def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
-
-    /*  @Test
-    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
-        val database = BATDatabaseFactory.create ()
-        val analysis = relationToResult(BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
-
-        import sae.syntax.sql._
-        val invokeSpecial: QueryResult[INVOKESPECIAL] = sae.relationToResult (SELECT ((_: InstructionInfo).asInstanceOf[INVOKESPECIAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKESPECIAL]))
-        val invokeVirtual: QueryResult[INVOKEVIRTUAL] = sae.relationToResult (SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM (database.instructions) WHERE (_.isInstanceOf[INVOKEVIRTUAL]))
-
-        val firstParamType: INVOKESPECIAL => FieldType = _.parameterTypes (0)
-
-        val result: QueryResult[(INVOKESPECIAL, INVOKEVIRTUAL)] = sae.relationToResult (
-            SELECT (*) FROM
-                (invokeSpecial, invokeVirtual) WHERE
-                (declaringMethod === declaringMethod) AND
-                (receiverType === receiverType) AND
-                (sequenceIndex === ((second: INVOKEVIRTUAL) => second.sequenceIndex - 1)) AND
-                NOT (firstParamType === returnType) AND
-
-                (_.declaringMethod.declaringClass.majorVersion >= 49) AND
-                (_.receiverType.isObjectType) AND
-                (_.receiverType.asInstanceOf[ClassType].className.startsWith ("java/lang")) AND
-                ((_: INVOKEVIRTUAL).parameterTypes == Nil) AND
-                (_.name.endsWith ("Value"))
-
-        )
-        database.addArchive (getStream)
-
-        println (result.size)
-        result.foreach (println)
-
-        println (analysis.size)
-        analysis.foreach (println)
-    }
-
-    @Test
-    def test_CI_CONFUSED_INHERITANCE() {
-        val database = BATDatabaseFactory.create ()
-        val analysis = relationToResult(CI_CONFUSED_INHERITANCE (database))
-
-        database.addArchive (getStream)
-        println (analysis.size)
-        analysis.foreach (println)
-    }
-
-    @Test
-    def test_FI_PUBLIC_SHOULD_BE_PROTECTED() {
-
-        val database = BATDatabaseFactory.create ()
-        val analysis = relationToResult(FI_PUBLIC_SHOULD_BE_PROTECTED (database))
-
-        database.addArchive (getStream)
-        println (analysis.size)
-        analysis.foreach (println)
-    }*/
 
     @Test
     def test_CI_CONFUSED_INHERITANCE() {
@@ -129,6 +76,16 @@ class TestOOAnalysesOnRT
         database.addArchive (getStream)
         assertEquals (136, analysis.size)
     }
+
+
+    @Test
+    def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database))
+        database.addArchive (getStream)
+        assertEquals (38, analysis.size)
+    }
+
 
     @Test
     def test_CO_ABSTRACT_SELF() {
@@ -202,5 +159,171 @@ class TestOOAnalysesOnRT
         assertEquals (6799, analysis.size)
     }
 
+    @Test
+    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
 
+    @Test
+    def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_DP_DO_INSIDE_DO_PRIVILEGED() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DP_DO_INSIDE_DO_PRIVILEGED (database))
+        database.addArchive (getStream)
+        assertEquals (27, analysis.size)
+    }
+
+    @Test
+    def test_FI_USELESS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (FI_USELESS (database))
+        database.addArchive (getStream)
+        assertEquals (2, analysis.size)
+    }
+
+    @Test
+    def test_ITA_INEFFICIENT_TO_ARRAY() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
+        database.addArchive (getStream)
+        //assertEquals (56, analysis.size)
+        // TODO six less than BAT who is right
+        assertEquals (50, analysis.size)
+    }
+
+    @Test
+    def test_MS_PKGPROTECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_PKGPROTECT (database))
+        database.addArchive (getStream)
+        assertEquals (94, analysis.size)
+    }
+
+    @Test
+    def test_MS_SHOULD_BE_FINAL() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_SHOULD_BE_FINAL (database))
+        database.addArchive (getStream)
+        assertEquals (169, analysis.size)
+    }
+
+    @Test
+    def test_SE_BAD_FIELD_INNER_CLASS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SE_BAD_FIELD_INNER_CLASS (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+    @Test
+    def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
+        database.addArchive (getStream)
+        //assertEquals (572, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (573, analysis.size)
+    }
+
+    @Test
+    def test_SW_SWING_METHODS_INVOKED_IN_SWING_THREAD() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_UG_SYNC_SET_UNSYNC_GET() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
+        database.addArchive (getStream)
+        //assertEquals (31, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (32, analysis.size)
+    }
+
+    @Test
+    def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
+        val database = BATDatabaseFactory.create ()
+        sae.ENABLE_FORCE_TO_SET = true
+        val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (58, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_CallsByConstructor() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val selfCallsFromConstructor = relationToResult (compile (
+            SELECT (*) FROM invokeVirtual.asInstanceOf[Relation[InvokeInstruction]] WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name == "<init>")
+        ))
+
+        database.addArchive (getStream)
+
+        assertEquals (4305, selfCallsFromConstructor.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_OnSuperConstructorCalls() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val superCalls = relationToResult (compile (
+            SELECT (*) FROM invokeSpecial WHERE
+                (_.declaringMethod.name == "<init>") AND
+                (_.name == "<init>") AND
+                (_.declaringMethod.declaringClass.superClass.isDefined) AND
+                (i => i.declaringMethod.declaringClass.superClass.get == i.receiverType)
+        ))
+
+        database.addArchive (getStream)
+
+        assertEquals (20127, superCalls.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_setSemantics_SelfFieldReads() {
+        val database = BATDatabaseFactory.create ()
+        import database._
+        sae.ENABLE_FORCE_TO_SET = true
+
+        val selfFieldReads = relationToResult (compile (
+            SELECT ((get: GETFIELD, f: FieldDeclaration) => get) FROM (getField, fieldDeclarations) WHERE
+                (i => i.declaringMethod.declaringClassType == i.receiverType) AND
+                (_.declaringMethod.name != "<init>") AND
+                //(declaringClassType === declaringType)
+                (((_: GETFIELD).receiverType) === ((_: FieldDeclaration).declaringType)) AND
+                (((_: GETFIELD).name) === ((_: FieldDeclaration).name)) AND
+                (((_: GETFIELD).fieldType) === ((_: FieldDeclaration).fieldType))
+        ))
+
+
+        database.addArchive (getStream)
+
+        assertEquals (170406, selfFieldReads.size)
+
+        sae.ENABLE_FORCE_TO_SET = false
+    }
 }

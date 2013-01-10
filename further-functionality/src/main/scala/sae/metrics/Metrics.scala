@@ -61,20 +61,20 @@ object Metrics {
         (
           (((((σ(isNotSelfReferenceAndIsObjectType)
             (Π[parameter, (ReferenceType, Type)]((x: parameter) => (x.source.declaringRef, x.target))(db.parameter))))
-            ∪
+            ⊎
             (σ(isNotSelfReferenceAndIsObjectType)
               (Π[Method, (ReferenceType, Type)]((x: Method) => (x.declaringRef, x.returnType))(db.classfile_methods)))
-            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[read_field, (ReferenceType, Type)]((
+            ⊎ (σ(isNotSelfReferenceAndIsObjectType)(Π[read_field, (ReferenceType, Type)]((
                                                                                            x: read_field) => (x.source.declaringRef, x.target.declaringClass))(db.read_field)))
-            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[write_field, (ReferenceType, Type)]((
+            ⊎ (σ(isNotSelfReferenceAndIsObjectType)(Π[write_field, (ReferenceType, Type)]((
                                                                                             x: write_field) => (x.source.declaringRef, x.target.declaringClass))(db.write_field))))
-            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[calls, (ReferenceType, Type)]((
+            ⊎ (σ(isNotSelfReferenceAndIsObjectType)(Π[calls, (ReferenceType, Type)]((
                                                                                       x: calls) => (x.source.declaringRef, x.target.declaringRef))(db.calls))))
 
-            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[Field, (ReferenceType, Type)]((
+            ⊎ (σ(isNotSelfReferenceAndIsObjectType)(Π[Field, (ReferenceType, Type)]((
                                                                                       x: Field) => (x.declaringClass, x.fieldType))(db.classfile_fields))))
 
-            ∪ (σ(isNotSelfReferenceAndIsObjectType)(Π[ExceptionHandler, (ReferenceType, Type)]((
+            ⊎ (σ(isNotSelfReferenceAndIsObjectType)(Π[ExceptionHandler, (ReferenceType, Type)]((
                                                                                                  x: ExceptionHandler) => {
             (x.declaringMethod.declaringRef,
               x.catchType match {
@@ -108,7 +108,7 @@ object Metrics {
     //  - method reads/writes the field
     val methodUseField: Relation[(Method, Field)] = δ(
       (Π[read_field, (Method, Field)]((x: read_field) => (x.source, x.target))(σ((x: read_field) => (x.source.declaringRef == x.target.declaringClass))(db.read_field))
-        ∪
+        ⊎
         Π[write_field, (Method, Field)]((x: write_field) => (x.source, x.target))(σ((x: write_field) => (x.source.declaringRef == x.target.declaringClass))(db.write_field))))
 
     // Sum_allMethods( distinct class field access)
@@ -202,7 +202,7 @@ object Metrics {
     //  - method reads/writes the field
     val methodUseField: Relation[(Method, Field)] = δ(
       (Π[read_field, (Method, Field)]((x: read_field) => (x.source, x.target))(σ( (rw:read_field) => isNeitherConstructOrStaticInitializer(rw.source))  (σ((x: read_field) => (x.source.declaringRef == x.target.declaringClass))(db.read_field)))
-        ∪
+        ⊎
         Π[write_field, (Method, Field)]((x: write_field) => (x.source, x.target))(σ( (rw:write_field) => isNeitherConstructOrStaticInitializer(rw.source)) (σ((x: write_field) => (x.source.declaringRef == x.target.declaringClass))(db.write_field)))))
 
     // Sum_allMethods( distinct class field access)

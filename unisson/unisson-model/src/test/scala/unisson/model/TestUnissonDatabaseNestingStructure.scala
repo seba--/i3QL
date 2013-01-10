@@ -1,15 +1,13 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
-import sae.bytecode.{BytecodeDatabase, MaterializedDatabase}
-import sae.collections.{Conversions, QueryResult}
-import de.tud.cs.st.bat.ObjectType
-import sae.bytecode.model.FieldDeclaration
-import unisson.query.code_model.SourceElement
+import de.tud.cs.st.bat.resolved.ObjectType
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Ignore, Test}
-import de.tud.cs.st.vespucci.model.IEnsemble
-import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.FieldDeclaration
+import UnissonOrdering._
 
 /**
  *
@@ -22,42 +20,39 @@ import de.tud.cs.st.vespucci.interfaces.{ICodeElement, IViolation}
  * 3. db.descendants must contain correct descendant relations (i.e., all transitive children)
  */
 class TestUnissonDatabaseNestingStructure
-        extends ShouldMatchers
+    extends ShouldMatchers
 {
 
-    import UnissonOrdering._
-
-    import sae.collections.Conversions._
 
     @Test
     def testAddEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleA,
                 ensembleA1,
                 ensembleA2
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleA, ensembleA1),
                 (ensembleA, ensembleA2)
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleA, ensembleA1),
                 (ensembleA, ensembleA2)
             )
@@ -66,43 +61,43 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        db.removeEnsemble(ensembleA)
+        db.removeEnsemble (ensembleA)
 
-        db.ensembles.asList.sorted should be(Nil)
+        db.ensembles.asList.sorted should be (Nil)
 
-        db.children.asList.sorted should be( Nil)
+        db.children.asList.sorted should be (Nil)
 
-        db.descendants.asList.sorted should be( Nil)
+        db.descendants.asList.sorted should be (Nil)
     }
 
     @Test
     def testUpdateAddEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA3 = Ensemble ("A3", "class_with_members('test','A3')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2, ensembleA1)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA3, ensembleA2, ensembleA1)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1,
                 ensembleA2,
@@ -110,16 +105,16 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA2),
                 (ensembleAUpdate, ensembleA3)
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA2),
                 (ensembleAUpdate, ensembleA3)
@@ -129,35 +124,35 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA1)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1)
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1)
             )
         )
@@ -165,38 +160,38 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddRemoveEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA3 = Ensemble ("A3", "class_with_members('test','A3')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA3)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA1, ensembleA3)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1,
                 ensembleA3
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA3)
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA3)
             )
@@ -205,48 +200,48 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateChangeEnsembleChildrenQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2Old = Ensemble("A2", "class_with_members('test','A2Old')")
-        val ensembleA2New = Ensemble("A2", "class_with_members('test','A2New')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2Old = Ensemble ("A2", "class_with_members('test','A2Old')")
+        val ensembleA2New = Ensemble ("A2", "class_with_members('test','A2New')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2Old)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2Old)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1, ensembleA2New)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA1, ensembleA2New)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1,
                 ensembleA2New
             )
         )
 
-        val resultingEnsembleA2 = db.ensembles.asList.find(_.getName == "A2").get
-        resultingEnsembleA2.getQuery should be("class_with_members('test','A2New')")
+        val resultingEnsembleA2 = db.ensembles.asList.find (_.getName == "A2").get
+        resultingEnsembleA2.getQuery should be ("class_with_members('test','A2New')")
     }
 
     @Test
     def testAddTwoLevelsOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble ("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleA,
                 ensembleA1,
                 ensembleA2,
@@ -255,8 +250,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleA, ensembleA1),
                 (ensembleA, ensembleA2),
                 (ensembleA2, ensembleA21),
@@ -264,8 +259,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleA, ensembleA1),
                 (ensembleA, ensembleA2),
                 (ensembleA, ensembleA21),
@@ -278,49 +273,49 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testRemoveTwoLevelsOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble ("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        db.removeEnsemble(ensembleA)
+        db.removeEnsemble (ensembleA)
 
-        db.ensembles.asList.sorted should be(Nil)
+        db.ensembles.asList.sorted should be (Nil)
 
-        db.children.asList.sorted should be( Nil)
+        db.children.asList.sorted should be (Nil)
 
-        db.descendants.asList.sorted should be( Nil)
+        db.descendants.asList.sorted should be (Nil)
     }
 
     @Test
     def testUpdateAddAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
-        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble ("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA3 = Ensemble ("A3", "class_with_members('test','A3')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleA23 = Ensemble("A2.3", "class_with_members('test','A2.3')")
-        val ensembleA2Update = Ensemble("A2", "derived", ensembleA23, ensembleA22, ensembleA21)
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2Update, ensembleA1)
+        val ensembleA23 = Ensemble ("A2.3", "class_with_members('test','A2.3')")
+        val ensembleA2Update = Ensemble ("A2", "derived", ensembleA23, ensembleA22, ensembleA21)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA3, ensembleA2Update, ensembleA1)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1,
                 ensembleA2Update,
@@ -331,8 +326,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleAUpdate, ensembleA3),
@@ -342,8 +337,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA1),
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleAUpdate, ensembleA21),
@@ -359,40 +354,40 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble ("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21, ensembleA22)
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleA2Update = Ensemble("A2", "derived", ensembleA22)
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA2Update)
+        val ensembleA2Update = Ensemble ("A2", "derived", ensembleA22)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA2Update)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA2Update,
                 ensembleA22
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleA2Update, ensembleA22)
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleAUpdate, ensembleA22),
                 (ensembleA2Update, ensembleA22)
@@ -402,28 +397,28 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateAddRemoveAtFirstAndSecondLevelOfEnsembleChildren() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA21 = Ensemble("A2.1", "class_with_members('test','A2.1')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA21 = Ensemble ("A2.1", "class_with_members('test','A2.1')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
 
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21, ensembleA22)
-        val ensembleA3 = Ensemble("A3", "class_with_members('test','A3')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21, ensembleA22)
+        val ensembleA3 = Ensemble ("A3", "class_with_members('test','A3')")
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleA23 = Ensemble("A2.3", "class_with_members('test','A2.3')")
-        val ensembleA2Update = Ensemble("A2", "derived", ensembleA23, ensembleA22)
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA3, ensembleA2Update)
+        val ensembleA23 = Ensemble ("A2.3", "class_with_members('test','A2.3')")
+        val ensembleA2Update = Ensemble ("A2", "derived", ensembleA23, ensembleA22)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA3, ensembleA2Update)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA2Update,
                 ensembleA22,
@@ -432,8 +427,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.children.asList.sorted should be(
-            List(
+        db.children.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleAUpdate, ensembleA3),
                 (ensembleA2Update, ensembleA22),
@@ -441,8 +436,8 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        db.descendants.asList.sorted should be(
-            List(
+        db.descendants.asList.sorted should be (
+            List (
                 (ensembleAUpdate, ensembleA2Update),
                 (ensembleAUpdate, ensembleA22),
                 (ensembleAUpdate, ensembleA23),
@@ -455,27 +450,27 @@ class TestUnissonDatabaseNestingStructure
 
     @Test
     def testUpdateChangeAtFirstAndSecondLevelOfEnsembleChildrenQuery() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1Old = Ensemble("A1", "class_with_members('test','A1.Old')")
-        val ensembleA21Old = Ensemble("A2.1", "class_with_members('test','A2.1.Old')")
-        val ensembleA22 = Ensemble("A2.2", "class_with_members('test','A2.2')")
-        val ensembleA2 = Ensemble("A2", "derived", ensembleA21Old, ensembleA22)
+        val ensembleA1Old = Ensemble ("A1", "class_with_members('test','A1.Old')")
+        val ensembleA21Old = Ensemble ("A2.1", "class_with_members('test','A2.1.Old')")
+        val ensembleA22 = Ensemble ("A2.2", "class_with_members('test','A2.2')")
+        val ensembleA2 = Ensemble ("A2", "derived", ensembleA21Old, ensembleA22)
 
-        val ensembleA = Ensemble("A", "derived", ensembleA1Old, ensembleA2)
+        val ensembleA = Ensemble ("A", "derived", ensembleA1Old, ensembleA2)
 
-        db.addEnsemble(ensembleA)
+        db.addEnsemble (ensembleA)
 
-        val ensembleA1New = Ensemble("A1", "class_with_members('test','A1.New')")
-        val ensembleA21New = Ensemble("A2.1", "class_with_members('test','A2.1.New')")
-        val ensembleA2Update = Ensemble("A2", "derived", ensembleA21New, ensembleA22)
-        val ensembleAUpdate = Ensemble("A", "derived", ensembleA1New, ensembleA2Update)
+        val ensembleA1New = Ensemble ("A1", "class_with_members('test','A1.New')")
+        val ensembleA21New = Ensemble ("A2.1", "class_with_members('test','A2.1.New')")
+        val ensembleA2Update = Ensemble ("A2", "derived", ensembleA21New, ensembleA22)
+        val ensembleAUpdate = Ensemble ("A", "derived", ensembleA1New, ensembleA2Update)
 
-        db.updateEnsemble(ensembleA, ensembleAUpdate)
+        db.updateEnsemble (ensembleA, ensembleAUpdate)
 
-        db.ensembles.asList.sorted should be(
-            List(
+        db.ensembles.asList.sorted should be (
+            List (
                 ensembleAUpdate,
                 ensembleA1New,
                 ensembleA2Update,
@@ -484,12 +479,12 @@ class TestUnissonDatabaseNestingStructure
             )
         )
 
-        val resultingEnsembleA1 = db.ensembles.asList.find(_.getName == "A1").get
-        resultingEnsembleA1.getQuery should be("class_with_members('test','A1.New')")
+        val resultingEnsembleA1 = db.ensembles.asList.find (_.getName == "A1").get
+        resultingEnsembleA1.getQuery should be ("class_with_members('test','A1.New')")
 
 
-        val resultingEnsembleA21 = db.ensembles.asList.find(_.getName == "A2.1").get
-        resultingEnsembleA21.getQuery should be("class_with_members('test','A2.1.New')")
+        val resultingEnsembleA21 = db.ensembles.asList.find (_.getName == "A2.1").get
+        resultingEnsembleA21.getQuery should be ("class_with_members('test','A2.1.New')")
 
     }
 
@@ -497,43 +492,42 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testEnsembleElementsForNesting() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        val globalModel = Repository(Set(ensembleA))
+        val globalModel = Repository (Set (ensembleA))
 
-        val result: QueryResult[(IEnsemble, ICodeElement)] = Conversions
-                .lazyViewToResult(db.ensemble_elements)
+        val result = sae.relationToResult (db.ensemble_elements)
 
-        db.setRepository(globalModel)
+        db.setRepository (globalModel)
 
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b = ObjectType("test/B")
-        val c = ObjectType("test/C")
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b = ObjectType ("test/B")
+        val c = ObjectType ("test/C")
 
-        val fieldRefBToA1 = FieldDeclaration(b, "fieldInB", a1)
-        val fieldRefBToA2 = FieldDeclaration(b, "fieldInB", a2)
-        val fieldRefCToA1 = FieldDeclaration(c, "fieldInC", a1)
-        val fieldRefCToA2 = FieldDeclaration(c, "fieldInC", a2)
+        val fieldRefBToA1 = FieldDeclaration (b, "fieldInB", a1)
+        val fieldRefBToA2 = FieldDeclaration (b, "fieldInB", a2)
+        val fieldRefCToA1 = FieldDeclaration (c, "fieldInC", a1)
+        val fieldRefCToA2 = FieldDeclaration (c, "fieldInC", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA1)
-        bc.declared_fields.element_added(fieldRefCToA2)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
+        bc.typeDeclarations.element_added (b)
+        bc.fieldDeclarations.element_added (fieldRefBToA1)
+        bc.fieldDeclarations.element_added (fieldRefBToA2)
+        bc.typeDeclarations.element_added (c)
+        bc.fieldDeclarations.element_added (fieldRefCToA1)
+        bc.fieldDeclarations.element_added (fieldRefCToA2)
 
-        result.asList.sorted should be(
-            List(
-                (ensembleA1, SourceElement(a1)),
-                (ensembleA2, SourceElement(a2))
+        result.asList.sorted should be (
+            List (
+                (ensembleA1, SourceElementFactory (a1)),
+                (ensembleA2, SourceElementFactory (a2))
 
             )
         )
@@ -542,61 +536,61 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testGlobalIncomingToParentWithViolation() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
-        val ensembleB = Ensemble("B", "class_with_members('test','B')")
-        val ensembleC = Ensemble("C", "class_with_members('test','C')")
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
+        val ensembleB = Ensemble ("B", "class_with_members('test','B')")
+        val ensembleC = Ensemble ("C", "class_with_members('test','C')")
 
-        val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
+        val constraint = GlobalIncomingConstraint ("field_type", ensembleB, ensembleA)
 
-        val globalModel = Repository(Set(ensembleA, ensembleB, ensembleC))
-        val model = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraint), "test")
+        val globalModel = Repository (Set (ensembleA, ensembleB, ensembleC))
+        val model = Concern (Set (ensembleA, ensembleB, ensembleC), Set (constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult (db.violations)
 
-        db.addSlice(model)
-        db.setRepository(globalModel)
+        db.addSlice (model)
+        db.setRepository (globalModel)
 
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b = ObjectType("test/B")
-        val c = ObjectType("test/C")
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b = ObjectType ("test/B")
+        val c = ObjectType ("test/C")
 
-        val fieldRefBToA1 = FieldDeclaration(b, "fieldInB", a1)
-        val fieldRefBToA2 = FieldDeclaration(b, "fieldInB", a2)
-        val fieldRefCToA1 = FieldDeclaration(c, "fieldInC", a1)
-        val fieldRefCToA2 = FieldDeclaration(c, "fieldInC", a2)
+        val fieldRefBToA1 = FieldDeclaration (b, "fieldInB", a1)
+        val fieldRefBToA2 = FieldDeclaration (b, "fieldInB", a2)
+        val fieldRefCToA1 = FieldDeclaration (c, "fieldInC", a1)
+        val fieldRefCToA2 = FieldDeclaration (c, "fieldInC", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA1)
-        bc.declared_fields.element_added(fieldRefBToA2)
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA1)
-        bc.declared_fields.element_added(fieldRefCToA2)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
+        bc.typeDeclarations.element_added (b)
+        bc.fieldDeclarations.element_added (fieldRefBToA1)
+        bc.fieldDeclarations.element_added (fieldRefBToA2)
+        bc.typeDeclarations.element_added (c)
+        bc.fieldDeclarations.element_added (fieldRefCToA1)
+        bc.fieldDeclarations.element_added (fieldRefCToA2)
 
-        result.asList.sorted should be(
-            List(
-                Violation(
+        result.asList.sorted should be (
+            List (
+                Violation (
                     constraint,
                     ensembleC,
                     ensembleA1,
-                    SourceElement(fieldRefCToA1),
-                    SourceElement(a1),
+                    SourceElementFactory (fieldRefCToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
-                Violation(
+                Violation (
                     constraint,
                     ensembleC,
                     ensembleA2,
-                    SourceElement(fieldRefCToA2),
-                    SourceElement(a2),
+                    SourceElementFactory (fieldRefCToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 )
@@ -607,128 +601,128 @@ class TestUnissonDatabaseNestingStructure
     @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithoutViolation() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        val ensembleB1 = Ensemble("B1", "class_with_members('test','B1')")
-        val ensembleB2 = Ensemble("B2", "class_with_members('test','B2')")
-        val ensembleB = Ensemble("B", "derived", ensembleB1, ensembleB2)
+        val ensembleB1 = Ensemble ("B1", "class_with_members('test','B1')")
+        val ensembleB2 = Ensemble ("B2", "class_with_members('test','B2')")
+        val ensembleB = Ensemble ("B", "derived", ensembleB1, ensembleB2)
 
-        val constraint = GlobalIncomingConstraint("field_type", ensembleB, ensembleA)
+        val constraint = GlobalIncomingConstraint ("field_type", ensembleB, ensembleA)
 
-        val globalModel = Repository(Set(ensembleA, ensembleB))
-        val model = Concern(Set(ensembleA, ensembleB), Set(constraint), "test")
+        val globalModel = Repository (Set (ensembleA, ensembleB))
+        val model = Concern (Set (ensembleA, ensembleB), Set (constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult (db.violations)
 
-        db.addSlice(model)
-        db.setRepository(globalModel)
+        db.addSlice (model)
+        db.setRepository (globalModel)
 
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b1 = ObjectType("test/B1")
-        val b2 = ObjectType("test/B2")
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b1 = ObjectType ("test/B1")
+        val b2 = ObjectType ("test/B2")
 
-        val fieldRefB1ToA1 = FieldDeclaration(b1, "fieldB1ToA1", a1)
-        val fieldRefB1ToA2 = FieldDeclaration(b1, "fieldB1ToA2", a2)
-        val fieldRefB2ToA1 = FieldDeclaration(b2, "fieldB2ToA1", a1)
-        val fieldRefB2ToA2 = FieldDeclaration(b2, "fieldB2ToA2", a2)
+        val fieldRefB1ToA1 = FieldDeclaration (b1, "fieldB1ToA1", a1)
+        val fieldRefB1ToA2 = FieldDeclaration (b1, "fieldB1ToA2", a2)
+        val fieldRefB2ToA1 = FieldDeclaration (b2, "fieldB2ToA1", a1)
+        val fieldRefB2ToA2 = FieldDeclaration (b2, "fieldB2ToA2", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b1)
-        bc.declared_fields.element_added(fieldRefB1ToA1)
-        bc.declared_fields.element_added(fieldRefB1ToA2)
-        bc.declared_types.element_added(b2)
-        bc.declared_fields.element_added(fieldRefB2ToA1)
-        bc.declared_fields.element_added(fieldRefB2ToA2)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
+        bc.typeDeclarations.element_added (b1)
+        bc.fieldDeclarations.element_added (fieldRefB1ToA1)
+        bc.fieldDeclarations.element_added (fieldRefB1ToA2)
+        bc.typeDeclarations.element_added (b2)
+        bc.fieldDeclarations.element_added (fieldRefB2ToA1)
+        bc.fieldDeclarations.element_added (fieldRefB2ToA2)
 
-        result.asList.sorted should be(Nil)
+        result.asList.sorted should be (Nil)
 
     }
 
     @Ignore
     @Test
     def testGlobalIncomingWithChildrenOnlyWithViolations() {
-        val bc = new BytecodeDatabase()
-        val db = new UnissonDatabase(new MaterializedDatabase(bc))
+        val bc = BATDatabaseFactory.create ()
+        val db = new UnissonDatabase (bc)
 
-        val ensembleA1 = Ensemble("A1", "class_with_members('test','A1')")
-        val ensembleA2 = Ensemble("A2", "class_with_members('test','A2')")
-        val ensembleA = Ensemble("A", "derived", ensembleA1, ensembleA2)
+        val ensembleA1 = Ensemble ("A1", "class_with_members('test','A1')")
+        val ensembleA2 = Ensemble ("A2", "class_with_members('test','A2')")
+        val ensembleA = Ensemble ("A", "derived", ensembleA1, ensembleA2)
 
-        val ensembleB1 = Ensemble("B1", "class_with_members('test','B1')")
-        val ensembleB2 = Ensemble("B2", "class_with_members('test','B2')")
-        val ensembleB = Ensemble("B", "derived", ensembleB1, ensembleB2)
+        val ensembleB1 = Ensemble ("B1", "class_with_members('test','B1')")
+        val ensembleB2 = Ensemble ("B2", "class_with_members('test','B2')")
+        val ensembleB = Ensemble ("B", "derived", ensembleB1, ensembleB2)
 
-        val constraint = GlobalIncomingConstraint("field_type", EmptyEnsemble, ensembleA)
+        val constraint = GlobalIncomingConstraint ("field_type", EmptyEnsemble, ensembleA)
 
-        val globalModel = Repository(Set(ensembleA, ensembleB))
-        val model = Concern(Set(ensembleA), Set(constraint), "test")
+        val globalModel = Repository (Set (ensembleA, ensembleB))
+        val model = Concern (Set (ensembleA), Set (constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult (db.violations)
 
-        db.addSlice(model)
-        db.setRepository(globalModel)
+        db.addSlice (model)
+        db.setRepository (globalModel)
 
-        val a1 = ObjectType("test/A1")
-        val a2 = ObjectType("test/A2")
-        val b1 = ObjectType("test/B1")
-        val b2 = ObjectType("test/B2")
+        val a1 = ObjectType ("test/A1")
+        val a2 = ObjectType ("test/A2")
+        val b1 = ObjectType ("test/B1")
+        val b2 = ObjectType ("test/B2")
 
-        val fieldRefB1ToA1 = FieldDeclaration(b1, "fieldB1ToA1", a1)
-        val fieldRefB1ToA2 = FieldDeclaration(b1, "fieldB1ToA2", a2)
-        val fieldRefB2ToA1 = FieldDeclaration(b2, "fieldB2ToA1", a1)
-        val fieldRefB2ToA2 = FieldDeclaration(b2, "fieldB2ToA2", a2)
+        val fieldRefB1ToA1 = FieldDeclaration (b1, "fieldB1ToA1", a1)
+        val fieldRefB1ToA2 = FieldDeclaration (b1, "fieldB1ToA2", a2)
+        val fieldRefB2ToA1 = FieldDeclaration (b2, "fieldB2ToA1", a1)
+        val fieldRefB2ToA2 = FieldDeclaration (b2, "fieldB2ToA2", a2)
 
-        bc.declared_types.element_added(a1)
-        bc.declared_types.element_added(a2)
-        bc.declared_types.element_added(b1)
-        bc.declared_fields.element_added(fieldRefB1ToA1)
-        bc.declared_fields.element_added(fieldRefB1ToA2)
-        bc.declared_types.element_added(b2)
-        bc.declared_fields.element_added(fieldRefB2ToA1)
-        bc.declared_fields.element_added(fieldRefB2ToA2)
+        bc.typeDeclarations.element_added (a1)
+        bc.typeDeclarations.element_added (a2)
+        bc.typeDeclarations.element_added (b1)
+        bc.fieldDeclarations.element_added (fieldRefB1ToA1)
+        bc.fieldDeclarations.element_added (fieldRefB1ToA2)
+        bc.typeDeclarations.element_added (b2)
+        bc.fieldDeclarations.element_added (fieldRefB2ToA1)
+        bc.fieldDeclarations.element_added (fieldRefB2ToA2)
 
-        result.asList.sorted should be(
-            List(
-                Violation(
+        result.asList.sorted should be (
+            List (
+                Violation (
                     constraint,
                     ensembleB1,
                     ensembleA1,
-                    SourceElement(fieldRefB1ToA1),
-                    SourceElement(a1),
+                    SourceElementFactory (fieldRefB1ToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
-                Violation(
+                Violation (
                     constraint,
                     ensembleB1,
                     ensembleA2,
-                    SourceElement(fieldRefB1ToA2),
-                    SourceElement(a2),
+                    SourceElementFactory (fieldRefB1ToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 ),
-                Violation(
+                Violation (
                     constraint,
                     ensembleB2,
                     ensembleA1,
-                    SourceElement(fieldRefB2ToA1),
-                    SourceElement(a1),
+                    SourceElementFactory (fieldRefB2ToA1),
+                    SourceElementFactory (a1),
                     "field_type",
                     "test"
                 ),
-                Violation(
+                Violation (
                     constraint,
                     ensembleB2,
                     ensembleA2,
-                    SourceElement(fieldRefB2ToA2),
-                    SourceElement(a2),
+                    SourceElementFactory (fieldRefB2ToA2),
+                    SourceElementFactory (a2),
                     "field_type",
                     "test"
                 )

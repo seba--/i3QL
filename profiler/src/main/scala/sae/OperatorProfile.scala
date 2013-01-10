@@ -227,7 +227,7 @@ object OperatorProfile
     def profileOperation(setup: => Unit, replay: => Unit, tearDown: => Unit)(implicit times: Int) : Array[Timer] =
         profile[Unit]((i:Int) => setup)((t:Unit) => replay)((t:Unit) => tearDown)
 
-    def passthroughOperation[T <: AnyRef](view: Relation[T]): Relation[T] = view.∪[T, T](view)
+    def passthroughOperation[T <: AnyRef](view: Relation[T]): Relation[T] = view.⊎[T, T](view)
 
     def joinWholeRelations[T <: AnyRef](view: Relation[T]): Relation[T] = ((view, identity(_:T)) ⋈ (identity(_:T), view)){ (t1:T, t2:T) => t1 }
 

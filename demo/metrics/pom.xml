@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.tud.cs.st.opal.sae</groupId>
+        <artifactId>sae-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../sae-parent</relativePath>
+    </parent>
+
+
+    <groupId>de.tud.cs.st.opal.sae</groupId>
+    <artifactId>sae-metrics</artifactId>
+    <version>0.3.0</version>
+    <name>sae-metrics</name>
+    <packaging>jar</packaging>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-interface</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-profiling-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-database-test-data</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

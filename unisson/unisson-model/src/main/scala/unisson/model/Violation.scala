@@ -1,7 +1,7 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
-import de.tud.cs.st.vespucci.interfaces.{IViolation, ICodeElement}
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint, IViolation, ICodeElement}
+
 
 /**
  *
@@ -17,7 +17,7 @@ case class Violation(constraint: IConstraint,
                      targetElement: ICodeElement,
                      kind: String,
                      context: String)
-        extends IViolation
+    extends IViolation
 {
     def getViolatingKind = kind
 

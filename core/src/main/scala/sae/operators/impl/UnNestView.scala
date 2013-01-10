@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
 import sae.operators.UnNest
+import sae.deltas.{Update, Deletion, Addition}
 
 class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Domain],
                                                       val unNestFunction: Domain => Seq[UnNestRange],
@@ -42,7 +43,11 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
     with Observer[Domain]
 {
 
-    relation.addObserver(this)
+    relation.addObserver (this)
+
+    override def endTransaction() {
+        notifyEndTransaction ()
+    }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
@@ -79,5 +84,27 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
         unNestFunction (v).foreach ((u: UnNestRange) =>
             element_added (projection (v, u))
         )
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        // TODO correct for updates and difference between additions and deletions
+        val nextAdditions = additions.flatMap (
+            add => unNestFunction (add.value).map (
+                v => Addition (projection (add.value, v), add.count)
+            )
+        )
+
+        val nextDeletions = deletions.flatMap (
+            del => unNestFunction (del.value).map (
+                v => Deletion (projection (del.value, v), del.count)
+            )
+        )
+
+        element_modifications (nextAdditions, nextDeletions, Set.empty[Update[Range]])
     }
 }

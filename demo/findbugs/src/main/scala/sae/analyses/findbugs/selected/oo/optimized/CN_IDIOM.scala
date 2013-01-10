@@ -38,7 +38,7 @@ import sae.bytecode._
 import de.tud.cs.st.bat.resolved.ObjectType
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.operators.impl.NotExistsInSameDomainView
-import structure.MethodDeclaration
+
 
 /**
  *
@@ -54,20 +54,15 @@ object CN_IDIOM
     def apply(database: BytecodeDatabase): Relation[ObjectType] = {
         val definitions = Definitions (database)
         import definitions._
-
-        /*
-        SELECT (*) FROM (subTypesOfCloneable) WHERE NOT (
+        if (Definitions.existsOptimization)
+            new NotExistsInSameDomainView[ObjectType](subTypesOfCloneable.asMaterialized, implementersOfCloneAsType
+                .asMaterialized)
+        else
+            SELECT (*) FROM (subTypesOfCloneable) WHERE NOT (
                 EXISTS (
-                    SELECT (*) FROM (implementersOfClone) WHERE (declaringType === identity[ObjectType]_)
+                    SELECT (*) FROM (implementersOfCloneAsType) WHERE (thisClass === thisClass)
                 )
             )
-        */
-
-        val implementersOfCloneAsType: Relation[ObjectType] = compile (
-            SELECT ((_: MethodDeclaration).declaringClassType) FROM (implementersOfClone)
-        )
-        assert(implementersOfClone.isSet)
-        new NotExistsInSameDomainView[ObjectType](subTypesOfCloneable.asMaterialized, implementersOfCloneAsType.asMaterialized)
     }
 
 }

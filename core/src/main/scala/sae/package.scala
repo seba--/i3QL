@@ -37,6 +37,8 @@ package object sae
 
     var ENABLE_FORCE_TO_SET = false
 
+    var ENABLE_TRANSACTIONAL = false
+
     implicit def relationToResult[V](relation: Relation[V]): QueryResult[V] =
         relation match {
             case col: QueryResult[V] => col

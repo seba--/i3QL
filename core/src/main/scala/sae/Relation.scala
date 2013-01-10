@@ -122,8 +122,13 @@ trait Relation[V]
 
     protected def createIndex[K](keyFunction: V => K): Index[K, V] =
     {
-        val index = new sae.collections.BagIndex[K, V](this, keyFunction)
-        index
+        if (this.isSet)
+        {
+            new sae.collections.SetIndex[K, V](this, keyFunction)
+        }
+        else{
+            new sae.collections.BagIndex[K, V](this, keyFunction)
+        }
     }
 
 }

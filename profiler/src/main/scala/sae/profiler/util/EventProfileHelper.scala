@@ -6,7 +6,7 @@ import java.io.{OutputStream, PrintWriter, File}
 import sae.profiler._
 
 class EventProfileHelper(val location: File, val registerFunction: Database => Unit) {
-  private var db = new BytecodeDatabase()
+  private var db = BATDatabaseFactory.create()
   private var replayData = new MaterializedDatabase()
   private val replay = new Replay(location)
   private val allEventSets = replay.getAllEventSets

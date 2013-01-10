@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, MaterializedRelation, Observer}
 import sae.operators.Intersection
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * This intersection operation has multiset semantics for elements
@@ -115,7 +116,13 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
             }
         }
 
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
 
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
 
@@ -157,6 +164,14 @@ class IntersectionView[Domain <: AnyRef](val left: MaterializedRelation[Domain],
                 element_added (newV)
             }
 
+        }
+
+        def updated[U <: Domain](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

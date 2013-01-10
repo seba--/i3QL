@@ -4,7 +4,7 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode._
 import sae.bytecode.instructions._
-import sae.bytecode.structure._
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  *
@@ -16,13 +16,13 @@ import sae.bytecode.structure._
 object DP_DO_INSIDE_DO_PRIVILEGED
     extends (BytecodeDatabase => Relation[INVOKEVIRTUAL])
 {
-    val reflectionFieldClass = ClassType ("java/lang/reflect/Field")
+    val reflectionField = ObjectType ("java/lang/reflect/Field")
 
-    val reflectionMethodClass = ClassType ("java/lang/reflect/Method")
+    val reflectionMethod = ObjectType ("java/lang/reflect/Method")
 
-    val priviledgedActionClass = ClassType ("java/security/PrivilegedAction")
+    val priviledgedAction = ObjectType ("java/security/PrivilegedAction")
 
-    val priviledgedExceptionActionClass = ClassType ("java/security/PrivilegedExceptionAction")
+    val priviledgedExceptionAction = ObjectType ("java/security/PrivilegedExceptionAction")
 
 
     // With the analyzed sequence check FindBugs only finds
@@ -31,16 +31,22 @@ object DP_DO_INSIDE_DO_PRIVILEGED
     // Integer.valueOf(1).doubleValue()
     def apply(database: BytecodeDatabase): Relation[INVOKEVIRTUAL] = {
         import database._
-        val invokeVirtual /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
 
-        SELECT (*) FROM invokeVirtual WHERE
+        val subtypesOfPriviledged = SELECT (*) FROM interfaceInheritance WHERE
+            (_.superType == priviledgedAction) OR
+            (_.superType == priviledgedExceptionAction)
+
+        val callsToMethodOrField: Relation[INVOKEVIRTUAL] =
+            SELECT (*) FROM invokeVirtual WHERE
+                (_.receiverType == reflectionField) OR (_.receiverType == reflectionMethod)
+
+
+        SELECT (*) FROM callsToMethodOrField WHERE
             (_.name == "setAccessible") AND
-            (((_: INVOKEVIRTUAL).receiverType == reflectionFieldClass) OR (_.receiverType == reflectionMethodClass)) AND
-            NOT (EXISTS (
-                SELECT (*) FROM interfaceInheritance WHERE
-                    (((_: InheritanceRelation).subType) === ((_: INVOKEVIRTUAL).declaringMethod.declaringClass)) AND
-                    (((_: InheritanceRelation).superType == priviledgedActionClass) OR (_.superType == priviledgedExceptionActionClass))
-            )
+            NOT (
+                EXISTS (
+                    SELECT (*) FROM subtypesOfPriviledged WHERE (subType === declaringClassType)
+                )
             )
     }
 

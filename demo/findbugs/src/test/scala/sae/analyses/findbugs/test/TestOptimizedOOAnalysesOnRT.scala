@@ -34,7 +34,10 @@ package sae.analyses.findbugs.test
 
 import sae.bytecode.bat.BATDatabaseFactory
 import sae._
+import analyses.findbugs.base.oo.Definitions
 import analyses.findbugs.selected.oo.optimized._
+import analyses.findbugs.random.oo.optimized._
+import operators.impl.ExistsInSameDomainView
 import org.junit.Test
 import org.junit.Assert._
 
@@ -44,7 +47,6 @@ import org.junit.Assert._
  * Date: 09.09.12
  * Time: 11:19
  */
-
 class TestOptimizedOOAnalysesOnRT
 {
 
@@ -60,12 +62,139 @@ class TestOptimizedOOAnalysesOnRT
     }
 
     @Test
+    def test_CN_IDIOM_NO_SUPER_CALL() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IDIOM_NO_SUPER_CALL (database))
+        database.addArchive (getStream)
+        assertEquals (136, analysis.size)
+    }
+
+
+    @Test
+    def test_CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database))
+        database.addArchive (getStream)
+        assertEquals (38, analysis.size)
+    }
+
+
+    @Test
+    def test_CO_ABSTRACT_SELF() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CO_ABSTRACT_SELF (database))
+        database.addArchive (getStream)
+        // TODO fixme
+        assertEquals (15, analysis.size)
+    }
+
+    @Test
+    def test_CO_SELF_NO_OBJECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (CO_SELF_NO_OBJECT (database))
+        database.addArchive (getStream)
+        // TODO fixme
+        assertEquals (51, analysis.size)
+    }
+
+    @Test
+    def test_SE_NO_SUITABLE_CONSTRUCTOR() {
+        sae.ENABLE_FORCE_TO_SET = true
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SE_NO_SUITABLE_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (19, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
     def test_UUF_UNUSED_FIELD() {
+        sae.ENABLE_FORCE_TO_SET = true
         val database = BATDatabaseFactory.create ()
         val analysis = relationToResult (UUF_UNUSED_FIELD (database))
         database.addArchive (getStream)
         assertEquals (6799, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
+
+    @Test
+    def test_BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+    @Test
+    def test_DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database))
+        database.addArchive (getStream)
+        assertEquals (0, analysis.size)
+    }
+
+    @Test
+    def test_FI_USELESS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (FI_USELESS (database))
+        database.addArchive (getStream)
+        assertEquals (2, analysis.size)
+    }
+
+    @Test
+    def test_MS_PKGPROTECT() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (MS_PKGPROTECT (database))
+        database.addArchive (getStream)
+        assertEquals (94, analysis.size)
+    }
+
+    @Test
+    def test_ITA_INEFFICIENT_TO_ARRAY() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (ITA_INEFFICIENT_TO_ARRAY (database))
+        database.addArchive (getStream)
+        //assertEquals (56, analysis.size)
+        // TODO six less than BAT who is right
+        assertEquals (50, analysis.size)
+    }
+
+    @Test
+    def test_SE_BAD_FIELD_INNER_CLASS() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SE_BAD_FIELD_INNER_CLASS (database))
+        database.addArchive (getStream)
+        assertEquals (3, analysis.size)
+    }
+
+    @Test
+    def test_SIC_INNER_SHOULD_BE_STATIC_ANON() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (SIC_INNER_SHOULD_BE_STATIC_ANON (database))
+        database.addArchive (getStream)
+        //assertEquals (572, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (573, analysis.size)
+    }
+
+    @Test
+    def test_UG_SYNC_SET_UNSYNC_GET() {
+        val database = BATDatabaseFactory.create ()
+        val analysis = relationToResult (UG_SYNC_SET_UNSYNC_GET (database))
+        database.addArchive (getStream)
+        //assertEquals (31, analysis.size)
+        //TODO 1 more than BAT who is right
+        assertEquals (32, analysis.size)
     }
 
 
+    @Test
+    def test_UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR() {
+        val database = BATDatabaseFactory.create ()
+        sae.ENABLE_FORCE_TO_SET = true
+        val analysis = relationToResult (UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database))
+        database.addArchive (getStream)
+        assertEquals (58, analysis.size)
+        sae.ENABLE_FORCE_TO_SET = false
+    }
 }

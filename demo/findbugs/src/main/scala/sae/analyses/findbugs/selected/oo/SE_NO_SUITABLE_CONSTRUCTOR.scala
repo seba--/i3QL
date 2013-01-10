@@ -37,7 +37,7 @@ import sae.Relation
 import sae.analyses.findbugs.base.oo.Definitions
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
-import structure.{ClassDeclaration, InheritanceRelation}
+import structure.ClassDeclaration
 
 /**
  *
@@ -54,9 +54,6 @@ object SE_NO_SUITABLE_CONSTRUCTOR
         import definitions._
 
 
-        val superClassesOfSerializableClasses: Relation[ObjectType] = SELECT ((i: InheritanceRelation, o: ObjectType) => i.superType) FROM (classInheritance, subTypesOfSerializable) WHERE
-            (subType === identity[ObjectType] _)
-
         val directlySerializable: Relation[ClassDeclaration] =
             SELECT (*) FROM classDeclarations WHERE
                 (!_.isInterface) AND
@@ -65,7 +62,7 @@ object SE_NO_SUITABLE_CONSTRUCTOR
                 SELECT (*) FROM classDeclarations WHERE (!_.isInterface) AND (classType === superClass)
             )
 
-        SELECT DISTINCT  ((_:ClassDeclaration).superClass.get) FROM directlySerializable WHERE NOT (
+        SELECT DISTINCT ((_: ClassDeclaration).superClass.get) FROM directlySerializable WHERE NOT (
             EXISTS (SELECT (*) FROM constructors WHERE (_.parameterTypes == Nil) AND (declaringType === superClass))
         )
 

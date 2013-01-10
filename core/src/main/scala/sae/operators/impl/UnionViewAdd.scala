@@ -34,6 +34,7 @@ package sae.operators.impl
 
 import sae.{Observable, Observer, Relation}
 import sae.operators.Union
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
@@ -46,6 +47,10 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
     left addObserver this
 
     right addObserver this
+
+    override def endTransaction() {
+        notifyEndTransaction ()
+    }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left || o == right) {
@@ -74,4 +79,11 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
         element_updated (oldV, newV)
     }
 
+    def updated[U <: Range](update: Update[U]) {
+        element_updated (update)
+    }
+
+    def modified[U <: Range](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        element_modifications (additions, deletions, updates)
+    }
 }

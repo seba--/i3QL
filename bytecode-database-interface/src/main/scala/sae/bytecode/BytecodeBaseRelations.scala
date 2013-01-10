@@ -32,9 +32,9 @@
  */
 package sae.bytecode
 
-import instructions.InstructionInfo
-import sae.{SetRelation, Relation}
+import sae.SetRelation
 import sae.bytecode.structure._
+import internal.{UnresolvedEnclosingMethod, UnresolvedInnerClassEntry}
 
 /**
  *
@@ -54,4 +54,7 @@ trait BytecodeBaseRelations
 
     def code: SetRelation[CodeInfo]
 
+    def unresolvedInnerClasses: SetRelation[UnresolvedInnerClassEntry]
+
+    def unresolvedEnclosingMethods: SetRelation[UnresolvedEnclosingMethod]
 }

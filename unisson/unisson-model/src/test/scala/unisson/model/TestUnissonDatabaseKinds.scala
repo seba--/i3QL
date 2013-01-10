@@ -1,16 +1,15 @@
 package unisson.model
 
-import mock.vespucci._
+import impl._
 import org.scalatest.matchers.ShouldMatchers
-import unisson.query.code_model.SourceElement
-import sae.collections.{Conversions, QueryResult}
-import de.tud.cs.st.bat.{VoidType, ObjectType}
-import sae.bytecode.model.dependencies.{`extends`}
-import sae.bytecode.model.instructions.{putfield, push, invokespecial}
-import sae.bytecode.{BytecodeDatabase}
-import de.tud.cs.st.vespucci.interfaces.{IViolation}
+import unisson.query.code_model.SourceElementFactory
 import org.junit.{Ignore, Test}
-import sae.bytecode.model.{FieldReference, FieldDeclaration, MethodReference, MethodDeclaration}
+import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.structure.{MethodDeclaration, FieldDeclaration, MethodReference, InheritanceRelation}
+import sae.bytecode.instructions.{PUTFIELD, INVOKESPECIAL}
+import de.tud.cs.st.bat._
+import resolved.{MethodDescriptor, VoidType, ObjectType}
+import UnissonOrdering._
 
 /**
  *
@@ -23,12 +22,12 @@ class TestUnissonDatabaseKinds
         extends ShouldMatchers
 {
 
-    import UnissonOrdering._
+
 
 
     @Test
     def testNotAllowedAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -45,31 +44,32 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
 
         val obj = ObjectType("java/lang/Object")
-        val superConst = MethodReference(obj, "<init>", Nil, VoidType())
+        val superConst = MethodReference(obj, "<init>", Nil, VoidType)
         val a = ObjectType("test/A")
-        val initA = MethodDeclaration(a, "<init>", Nil, VoidType())
+        val initA = MethodDeclaration(a, "<init>", VoidType, Nil)
         val b = ObjectType("test/B")
 
         val field = FieldDeclaration(a, "myB", b)
 
-        bc.declared_types.element_added(a)
-        bc.`extends`.element_added(`extends`(a, obj))
+        bc.typeDeclarations.element_added(a)
+        bc.classInheritance.element_added(InheritanceRelation(a, obj))
 
 
-        bc.declared_methods.element_added(initA)
-        bc.instructions.element_added(invokespecial(initA, 1, superConst))
-        bc.instructions.element_added(push(initA, 3, null, obj))
-        bc.instructions.element_added(putfield(initA, 4, FieldReference(a, "myB", b)))
+        bc.methodDeclarations.element_added(initA)
+        bc.instructions.element_added (INVOKESPECIAL (initA, resolved.INVOKESPECIAL (obj, "<init>", MethodDescriptor (Nil, VoidType)), 1, 1))
+        //bc.instructions.element_added (PUSH (initA, null, obj, 3, 2))
+        bc.instructions.element_added (PUTFIELD (initA, resolved.PUTFIELD (a, "myB", b), 4, 3))
 
-        bc.declared_fields.element_added(field)
 
-        bc.declared_types.element_added(b)
+        bc.fieldDeclarations.element_added(field)
+
+        bc.typeDeclarations.element_added(b)
 
         result.asList.sorted should be(
             List(
@@ -77,8 +77,8 @@ class TestUnissonDatabaseKinds
                     c,
                     ensembleA,
                     ensembleB,
-                    SourceElement(field),
-                    SourceElement(b),
+                    SourceElementFactory(field),
+                    SourceElementFactory(b),
                     "field_type",
                     "test"
                 )
@@ -89,7 +89,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -105,7 +105,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -117,14 +117,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -132,8 +132,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -144,7 +144,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -158,7 +158,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
         val model = Concern(Set(ensembleA, ensembleB, ensembleC, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -172,16 +172,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -190,8 +190,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 ),
@@ -199,8 +199,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -212,7 +212,7 @@ class TestUnissonDatabaseKinds
     @Ignore
     @Test
     def testLocalIncomingMultipleDifferentKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -227,7 +227,7 @@ class TestUnissonDatabaseKinds
         val modelA = Concern(Set(ensembleA, ensembleB, ensembleC), Set(constraintBToA), "contextBToA")
         val modelB = Concern(Set(ensembleA, ensembleD, ensembleC), Set(constraintDToA), "contextDToA")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(modelA)
         db.addSlice(modelB)
@@ -242,16 +242,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -260,8 +260,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "contextBToA"
                 ),
@@ -269,8 +269,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "contextDToA"
                 )
@@ -282,7 +282,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -296,7 +296,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -308,14 +308,14 @@ class TestUnissonDatabaseKinds
         val fieldRefBToA = FieldDeclaration(b, "fieldInB", a)
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
         result.asList should be(
             List(
@@ -323,8 +323,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -335,7 +335,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalIncomingMultipleSubsumedKinds() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -349,7 +349,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(Set(ensembleA, ensembleB, ensembleC, ensembleD))
         val model = Concern(Set(ensembleA, ensembleB, ensembleD), Set(constraintBToA, constraintDToA), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result =sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -363,16 +363,16 @@ class TestUnissonDatabaseKinds
         val fieldRefCToA = FieldDeclaration(c, "fieldInC", a)
         val fieldRefDToA = FieldDeclaration(d, "fieldInD", a)
 
-        bc.declared_types.element_added(a)
+        bc.typeDeclarations.element_added(a)
 
-        bc.declared_types.element_added(b)
-        bc.declared_fields.element_added(fieldRefBToA)
+        bc.typeDeclarations.element_added(b)
+        bc.fieldDeclarations.element_added(fieldRefBToA)
 
-        bc.declared_types.element_added(c)
-        bc.declared_fields.element_added(fieldRefCToA)
+        bc.typeDeclarations.element_added(c)
+        bc.fieldDeclarations.element_added(fieldRefCToA)
 
-        bc.declared_types.element_added(d)
-        bc.declared_fields.element_added(fieldRefDToA)
+        bc.typeDeclarations.element_added(d)
+        bc.fieldDeclarations.element_added(fieldRefDToA)
 
 
         result.asList.sorted should be(
@@ -381,8 +381,8 @@ class TestUnissonDatabaseKinds
                     constraintBToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 ),
@@ -390,8 +390,8 @@ class TestUnissonDatabaseKinds
                     constraintDToA,
                     ensembleC,
                     ensembleA,
-                    SourceElement(fieldRefCToA),
-                    SourceElement(a),
+                    SourceElementFactory(fieldRefCToA),
+                    SourceElementFactory(a),
                     "field_type",
                     "test"
                 )
@@ -402,7 +402,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -416,7 +416,7 @@ class TestUnissonDatabaseKinds
 
         val model = Concern(ensembles, Set(constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -428,12 +428,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -442,8 +442,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )
@@ -454,7 +454,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testLocalOutgoingViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -468,7 +468,7 @@ class TestUnissonDatabaseKinds
 
         val model = Concern(ensembles, Set(constraint), "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -480,12 +480,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -494,8 +494,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )
@@ -506,7 +506,7 @@ class TestUnissonDatabaseKinds
 
     @Test
     def testGlobalOutgoingAllViolation() {
-        val bc = new BytecodeDatabase()
+        val bc = BATDatabaseFactory.create()
         val db = new UnissonDatabase(bc)
 
         val ensembleA = Ensemble("A", "class_with_members('test','A')")
@@ -520,7 +520,7 @@ class TestUnissonDatabaseKinds
         val global = Repository(ensembles)
         val model = Concern(ensembles, constraints, "test")
 
-        val result: QueryResult[IViolation] = Conversions.lazyViewToResult(db.violations)
+        val result = sae.relationToResult(db.violations)
 
         db.addSlice(model)
         db.setRepository(global)
@@ -532,12 +532,12 @@ class TestUnissonDatabaseKinds
         val fieldRefAToB = FieldDeclaration(a, "fieldToB", b)
         val fieldRefAToC = FieldDeclaration(a, "fieldToC", c)
 
-        bc.declared_types.element_added(a)
-        bc.declared_fields.element_added(fieldRefAToB)
-        bc.declared_fields.element_added(fieldRefAToC)
+        bc.typeDeclarations.element_added(a)
+        bc.fieldDeclarations.element_added(fieldRefAToB)
+        bc.fieldDeclarations.element_added(fieldRefAToC)
 
-        bc.declared_types.element_added(b)
-        bc.declared_types.element_added(c)
+        bc.typeDeclarations.element_added(b)
+        bc.typeDeclarations.element_added(c)
 
 
         result.asList should be(
@@ -546,8 +546,8 @@ class TestUnissonDatabaseKinds
                     constraint,
                     ensembleA,
                     ensembleC,
-                    SourceElement(fieldRefAToC),
-                    SourceElement(c),
+                    SourceElementFactory(fieldRefAToC),
+                    SourceElementFactory(c),
                     "field_type",
                     "test"
                 )

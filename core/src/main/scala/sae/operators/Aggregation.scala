@@ -1,7 +1,7 @@
 package sae
 package operators
 
-import impl.{AggregationForSelfMaintainableAggregationFunctions, AggregationForNotSelfMaintainableFunctions}
+import impl.{AggregationForSelfMaintainableFunctions, AggregationForNotSelfMaintainableFunctions}
 
 
 /**
@@ -92,7 +92,7 @@ object Aggregation
                                                    convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result):
     Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
-        new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
+        new AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult)
     }
 
     /**
@@ -108,7 +108,7 @@ object Aggregation
                                            aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]):
     Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
     {
-        new AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
+        new AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
                                                                                                                                                                         b: AggregateValue) => (a, b))
     }
 
@@ -140,7 +140,7 @@ object Aggregation
     def apply[Domain, AggregateValue](source: Relation[Domain],
                                       aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]) =
     {
-        new AggregationForSelfMaintainableAggregationFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
+        new AggregationForSelfMaintainableFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
                                                                                                                     y: AggregateValue) => Some (y))
     }
 

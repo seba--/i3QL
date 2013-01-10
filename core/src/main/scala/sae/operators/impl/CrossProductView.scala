@@ -2,6 +2,7 @@ package sae
 package operators.impl
 
 import operators.CrossProduct
+import deltas.{Update, Deletion, Addition}
 
 /**
  * The cross product does not really require the underlying relations to be materialized directly.
@@ -45,6 +46,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
     object LeftObserver extends Observer[DomainA]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
 
         // update operations on left relation
         def updated(oldA: DomainA, newA: DomainA) {
@@ -71,10 +75,22 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
                 }
             )
         }
+
+        def updated[U <: DomainA](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: DomainA](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
     }
 
     object RightObserver extends Observer[DomainB]
     {
+        override def endTransaction() {
+            notifyEndTransaction ()
+        }
+
         // update operations on right relation
         def updated(oldB: DomainB, newB: DomainB) {
             left.foreach (
@@ -100,6 +116,14 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
                     element_added (projection (a, v))
                 }
             )
+        }
+
+        def updated[U <: DomainB](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: DomainB](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
         }
     }
 

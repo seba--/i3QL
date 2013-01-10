@@ -32,6 +32,7 @@
  */
 package sae.operators.impl
 
+import sae.deltas.{Deletion, Addition, Update}
 import sae.{Observable, Observer, Relation}
 import sae.operators.Selection
 
@@ -56,6 +57,10 @@ class SelectionView[Domain <: AnyRef](val relation: Relation[Domain],
             return List (this)
         }
         Nil
+    }
+
+    override def endTransaction() {
+        notifyEndTransaction()
     }
 
     /**
@@ -98,6 +103,47 @@ class SelectionView[Domain <: AnyRef](val relation: Relation[Domain],
     def added(v: Domain) {
         if (filter (v)) {
             element_added (v)
+        }
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        val realUpdates = updates.filter (_.affects (filter))
+
+        val (updateOldToNew, removeOldAddNew) = realUpdates.partition (e => {
+            filter (e.oldV) && filter (e.newV) // both pass and are an update
+        })
+        // TODO refactor that filter only gets applied once for updates
+        val nextAdditions = additions.filter (e => filter (e.value)) ++ removeOldAddNew.filter (e => filter (e.newV)).map (_.asAddition)
+        val nextDeletions = deletions.filter (e => filter (e.value)) ++ removeOldAddNew.filter (e => filter (e.oldV)).map (_.asDeletion)
+        val nextUpdates = updateOldToNew
+        element_modifications (nextAdditions, nextDeletions, nextUpdates)
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        if (update.affects (filter)) {
+            val oldV = update.oldV
+            val oldVPasses = filter (oldV)
+            val newV = update.oldV
+            val newVPasses = filter (newV)
+            if (oldVPasses && newVPasses) {
+                element_updated (update)
+            }
+            else
+            {
+                var i = 0
+                while (i < update.count) {
+                    // only one of the elements complies to the filter
+                    if (oldVPasses)
+                    {
+                        element_removed (oldV)
+                    }
+                    if (newVPasses)
+                    {
+                        element_added (newV)
+                    }
+                    i += 1
+                }
+            }
         }
     }
 }

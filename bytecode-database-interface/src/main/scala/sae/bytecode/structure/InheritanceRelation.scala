@@ -41,7 +41,7 @@ import de.tud.cs.st.bat.resolved.ObjectType
  * Time: 14:51
  */
 
-case class InheritanceRelation(superType: ObjectType, subType: ObjectType)
+case class InheritanceRelation(subType: ObjectType, superType: ObjectType)
 {
 
 }

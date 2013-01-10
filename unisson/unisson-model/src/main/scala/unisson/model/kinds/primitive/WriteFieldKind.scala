@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object WriteFieldKind
         extends DependencyKind
 {
-    val designator = "write_field"
+    def designator = "write_field"
 }

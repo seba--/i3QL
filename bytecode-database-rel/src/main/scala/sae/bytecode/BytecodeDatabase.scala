@@ -63,7 +63,7 @@ class BytecodeDatabase extends Database
     val implements: Relation[implements] = new BagExtent[implements]
 
     lazy val subtypes: Relation[(ObjectType, ObjectType)] = TC(
-        `extends`.∪[Dependency[ObjectType, ObjectType], implements](implements)
+        `extends`.⊎[Dependency[ObjectType, ObjectType], implements](implements)
     )((_: Dependency[ObjectType, ObjectType]).source, (_: Dependency[ObjectType, ObjectType]).target)
 
 
@@ -97,7 +97,7 @@ class BytecodeDatabase extends Database
      * Taking enclosing methods into account is not feasible for older jars.
      */
     lazy val inner_classes: Relation[inner_class] =
-        internal_guaranteed_inner_classes ∪
+        internal_guaranteed_inner_classes ⊎
                 (
                         Π(
                             // the directly encoded inner classes have their outer type set
@@ -147,7 +147,7 @@ class BytecodeDatabase extends Database
                 Π[Instr[_], write_field] {
                     case putfield(declaringMethod, _, field) => new write_field(declaringMethod, field, false)
                 }(σ[putfield](instructions))
-                ) ∪ (
+                ) ⊎ (
                 Π[Instr[_], write_field] {
                     case putstatic(declaringMethod, _, field) => new write_field(declaringMethod, field, true)
                 }(σ[putstatic](instructions))
@@ -158,7 +158,7 @@ class BytecodeDatabase extends Database
                 Π[Instr[_], read_field] {
                     case getfield(declaringMethod, _, field) => new read_field(declaringMethod, field, false)
                 }(σ[getfield](instructions))
-                ) ∪ (
+                ) ⊎ (
                 Π[Instr[_], read_field] {
                     case getstatic(declaringMethod, _, field) => new read_field(declaringMethod, field, true)
                 }(σ[getstatic](instructions))
@@ -188,9 +188,9 @@ class BytecodeDatabase extends Database
         }
     )(σ[invokestatic](instructions))
 
-    lazy val calls: Relation[calls] = invoke_interface.∪[calls, calls](
-        invoke_special.∪[calls, calls](
-            invoke_virtual.∪[calls, invoke_static](
+    lazy val calls: Relation[calls] = invoke_interface.⊎[calls, calls](
+        invoke_special.⊎[calls, calls](
+            invoke_virtual.⊎[calls, invoke_static](
                 invoke_static
             )
         )

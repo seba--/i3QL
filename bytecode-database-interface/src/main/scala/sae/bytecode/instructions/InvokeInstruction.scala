@@ -44,7 +44,8 @@ import de.tud.cs.st.bat.resolved.ReferenceType
  */
 
 trait InvokeInstruction
-    extends MethodInfo
+    extends InstructionInfo
+    with MethodInfo
 {
 
     def declaringMethod: MethodDeclaration

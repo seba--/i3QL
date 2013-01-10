@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object InvokeStaticKind
         extends DependencyKind
 {
-    val designator = "invoke_static"
+    def designator = "invoke_static"
 }

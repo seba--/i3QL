@@ -12,5 +12,5 @@ import unisson.model.kinds.DependencyKind
 object ParameterKind
         extends DependencyKind
 {
-    val designator = "parameter"
+    def designator = "parameter"
 }

@@ -2,6 +2,7 @@ package sae.operators.impl
 
 import sae._
 
+import deltas.{Deletion, Addition, Update}
 import sae.operators._
 import collection.mutable
 
@@ -22,7 +23,7 @@ import collection.mutable
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
+class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
                                                                                               val groupingFunction: Domain => Key,
                                                                                               val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                               val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result)
@@ -40,6 +41,10 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
 
     // aggregation need to be isInitialized for update and remove events
      lazyInitialize()
+
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
@@ -193,21 +198,12 @@ class AggregationForSelfMaintainableAggregationFunctions[Domain, Key, AggregateV
         }
     }
 
-
-}
-
- class Count
-{
-    private var count: Int = 0
-
-    def inc() {
-        this.count += 1
+    def updated[U <: Domain](update: Update[U]) {
+        throw new UnsupportedOperationException
     }
 
-    def dec(): Int = {
-        this.count -= 1
-        this.count
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
-
-    def apply() = this.count
 }
+

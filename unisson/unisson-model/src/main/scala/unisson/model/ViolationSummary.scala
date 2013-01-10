@@ -1,7 +1,6 @@
 package unisson.model
 
-import de.tud.cs.st.vespucci.model.{IEnsemble, IConstraint}
-import de.tud.cs.st.vespucci.interfaces.IViolationSummary
+import de.tud.cs.st.vespucci.interfaces.{IEnsemble, IConstraint, IViolationSummary}
 
 /**
  *
@@ -11,13 +10,13 @@ import de.tud.cs.st.vespucci.interfaces.IViolationSummary
  *
  */
 case class ViolationSummary(
-                                   constraint: IConstraint,
-                                   sourceEnsemble: IEnsemble,
-                                   targetEnsemble: IEnsemble,
-                                   context: String,
-                                   count: Int
-                                   )
-        extends IViolationSummary
+                               constraint: IConstraint,
+                               sourceEnsemble: IEnsemble,
+                               targetEnsemble: IEnsemble,
+                               context: String,
+                               count: Int
+                               )
+    extends IViolationSummary
 {
     def getDiagramFile = context
 

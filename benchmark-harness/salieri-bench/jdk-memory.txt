@@ -1,0 +1,48 @@
+statistics
+classes: 18663
+fields: 76399
+methods: 165512
+class inheritance: 18662
+interface inheritance: 8670
+instructions: 4505310
+warmup..........
+
+class inheritance - indices memory: 4.548 +- 0.640 (stdErr = 0.143) MB; relative std.dev: 0.000, std.err: 0.000
+class inheritance - indices leak  : 225.756 +- 1797.213 (stdErr = 401.869) KB; relative std.dev: 0.008, std.err: 0.002
+declared classes - data memory: 4.366 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+declared classes - data leak  : -1.872 +- 8.125 (stdErr = 1.817) KB; relative std.dev: -0.004, std.err: -0.001
+declared methods - data memory: 25.089 +- 0.821 (stdErr = 0.184) MB; relative std.dev: 0.000, std.err: 0.000
+declared methods - data leak  : 1047.409 +- 5364.914 (stdErr = 1199.631) KB; relative std.dev: 0.005, std.err: 0.001
+declared fields  - data memory: 12.015 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+declared fields  - data leak  : -655.905 +- 2858.992 (stdErr = 639.290) KB; relative std.dev: -0.004, std.err: -0.001
+class inheritance - data memory: 3.475 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+class inheritance - data leak  : -437.261 +- 1905.940 (stdErr = 426.181) KB; relative std.dev: -0.004, std.err: -0.001
+interface inheritance - data memory: 1.512 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+interface inheritance - data leak  : -100.588 +- 438.418 (stdErr = 98.033) KB; relative std.dev: -0.004, std.err: -0.001
+declared structures - data memory: 34.141 +- 1.770 (stdErr = 0.396) MB; relative std.dev: 0.000, std.err: 0.000
+declared structures - data leak  : -75.818 +- 3691.548 (stdErr = 825.455) KB; relative std.dev: -0.048, std.err: -0.011
+inheritance - data memory: 3.707 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+inheritance - data leak  : 188.104 +- 819.958 (stdErr = 183.348) KB; relative std.dev: 0.004, std.err: 0.001
+instructions - data memory: 287.503 +- 2.526 (stdErr = 0.565) MB; relative std.dev: 0.000, std.err: 0.000
+instructions - data leak  : -189.870 +- 827.588 (stdErr = 185.054) KB; relative std.dev: -0.004, std.err: -0.001
+base relations - data memory: 296.488 +- 1.443 (stdErr = 0.323) MB; relative std.dev: 0.000, std.err: 0.000
+base relations - data leak  : -2.889 +- 8.073 (stdErr = 1.805) KB; relative std.dev: -0.003, std.err: -0.001
+
+declared classes - materialized memory: 5.005 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+declared classes - materialized leak  : 256.518 +- 1118.168 (stdErr = 250.030) KB; relative std.dev: 0.004, std.err: 0.001
+declared methods - materialized memory: 30.613 +- 0.276 (stdErr = 0.062) MB; relative std.dev: 0.000, std.err: 0.000
+declared methods - materialized leak  : 1307.832 +- 4336.247 (stdErr = 969.614) KB; relative std.dev: 0.003, std.err: 0.001
+declared fields  - materialized memory: 14.892 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+declared fields  - materialized leak  : -801.736 +- 3494.650 (stdErr = 781.428) KB; relative std.dev: -0.004, std.err: -0.001
+class inheritance - materialized memory: 4.113 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+class inheritance - materialized leak  : -551.911 +- 2405.692 (stdErr = 537.929) KB; relative std.dev: -0.004, std.err: -0.001
+interface inheritance - materialized memory: 1.799 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+interface inheritance - materialized leak  : -118.520 +- 516.582 (stdErr = 115.511) KB; relative std.dev: -0.004, std.err: -0.001
+declared structures - materialized memory: 43.089 +- 0.858 (stdErr = 0.192) MB; relative std.dev: 0.000, std.err: 0.000
+declared structures - materialized leak  : -88.949 +- 7490.260 (stdErr = 1674.873) KB; relative std.dev: -0.082, std.err: -0.018
+inheritance - materialized memory: 3.707 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+inheritance - materialized leak  : 186.193 +- 811.629 (stdErr = 181.486) KB; relative std.dev: 0.004, std.err: 0.001
+instructions - materialized memory: 448.263 +- 0.001 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+instructions - materialized leak  : -189.511 +- 7737.658 (stdErr = 1730.193) KB; relative std.dev: -0.040, std.err: -0.009
+base relations - materialized memory: 466.882 +- 0.000 (stdErr = 0.000) MB; relative std.dev: 0.000, std.err: 0.000
+base relations - materialized leak  : -0.430 +- 5816.787 (stdErr = 1300.673) KB; relative std.dev: -13.220, std.err: -2.956

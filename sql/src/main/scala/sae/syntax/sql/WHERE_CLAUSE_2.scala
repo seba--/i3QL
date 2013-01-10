@@ -31,6 +31,10 @@ trait WHERE_CLAUSE_2[DomainA <: AnyRef, DomainB <: AnyRef, Range <: AnyRef]
 
     def OR[RangeA, RangeB] (join: JOIN_CONDITION[DomainA, DomainB, RangeA, RangeB]): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
+    def AND[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
+
+    def OR[UnboundDomain <: AnyRef, RangeA, UnboundRange](join: JOIN_CONDITION_UNBOUND_RELATION_1[DomainA, UnboundDomain, RangeA, UnboundRange]): WHERE_CLAUSE_2_UNBOUND_1[DomainA, UnboundDomain, Range]
+
     // TODO needs AST due to implicit conversion, not nice
     def query: SQLQuery[Range]
 }

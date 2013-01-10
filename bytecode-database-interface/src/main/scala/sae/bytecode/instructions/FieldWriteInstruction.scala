@@ -32,8 +32,9 @@
  */
 package sae.bytecode.instructions
 
-import sae.bytecode.structure.{FieldInfo, MethodDeclaration}
+import sae.bytecode.structure.{MethodDeclaration, FieldInfo}
 import de.tud.cs.st.bat.resolved.ObjectType
+
 
 /**
  *

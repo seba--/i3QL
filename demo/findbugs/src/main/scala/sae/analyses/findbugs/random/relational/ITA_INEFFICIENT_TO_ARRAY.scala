@@ -1,8 +1,8 @@
 package sae.analyses.findbugs.random.relational
 
-import sae.bytecode._
 import sae.Relation
 import sae.syntax.sql._
+import sae.bytecode._
 import sae.bytecode.instructions._
 import de.tud.cs.st.bat.resolved.ArrayType
 
@@ -15,7 +15,7 @@ import de.tud.cs.st.bat.resolved.ArrayType
  *
  */
 object ITA_INEFFICIENT_TO_ARRAY
-//extends (BytecodeDatabase => Relation[InstructionInfo])
+    extends (BytecodeDatabase => Relation[InvokeInstruction])
 {
 
 
@@ -25,42 +25,39 @@ object ITA_INEFFICIENT_TO_ARRAY
 
     val listInterface = ClassType ("java/util/List")
 
-    def apply(database: BytecodeDatabase): Relation[InstructionInfo] = {
+    def apply(database: BytecodeDatabase): Relation[InvokeInstruction] = {
         import database._
 
-        val invokeInterface /*: Relation[INVOKEINTERFACE] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEINTERFACE]) FROM instructions WHERE (_.isInstanceOf[INVOKEINTERFACE])
+        val iconst0: Relation[ICONST_0] = SELECT ((_: InstructionInfo).asInstanceOf[ICONST_0]) FROM instructions WHERE (_.isInstanceOf[ICONST_0])
 
-        val invokeVirtual /*: Relation[INVOKEVIRTUAL] */ = SELECT ((_: InstructionInfo).asInstanceOf[INVOKEVIRTUAL]) FROM instructions WHERE (_.isInstanceOf[INVOKEVIRTUAL])
-
-        val iconst0 /*: Relation[ICONST_0] */ = SELECT ((_: InstructionInfo).asInstanceOf[ICONST_0]) FROM instructions WHERE (_.isInstanceOf[ICONST_0])
-
-        val anewarray /*: Relation[ANEWARRAY] */ = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
+        val anewarray: Relation[ANEWARRAY] = SELECT ((_: InstructionInfo).asInstanceOf[ANEWARRAY]) FROM instructions WHERE (_.isInstanceOf[ANEWARRAY])
 
         val newArray0 =
             SELECT ((i: ICONST_0, a: ANEWARRAY) => a) FROM (iconst0, anewarray) WHERE
                 (declaringMethod === declaringMethod) AND
                 (sequenceIndex === ((_: ANEWARRAY).sequenceIndex - 1))
 
-/*
-        SELECT ((i: INVOKEINTERFACE, a: ANEWARRAY) => i) FROM (invokeInterface, newArray0) WHERE
-            (_.name == "toArray") AND
-            (_.returnType == objectArrayType) AND
-            (_.parameterTypes == List (objectArrayType)) AND
-            (declaringMethod === declaringMethod) AND
-            (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1)) AND
-            EXISTS (
-                SELECT (*) FROM inheritance WHERE (_.superType == collectionInterface) AND
-                    (((_: InheritanceRelation).subType) === ((_: INVOKEINTERFACE).receiverType))
-            ) UNION
-            SELECT ((i: INVOKEVIRTUAL, a: ANEWARRAY) => i) FROM (invokeVirtual, newArray0) WHERE
-            (_.name == "toArray") AND
-            (_.returnType == objectArrayType) AND
-            (_.parameterTypes == List (objectArrayType)) AND
-            (declaringMethod === declaringMethod) AND
-            (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1)) AND
-            EXISTS (SELECT (*) FROM inheritance WHERE (_.superType == collectionInterface) AND ((_: InheritanceRelation).subType) === ((_: INVOKEINTERFACE).receiverType))
-*/
-        null
+
+        val invokes: Relation[InvokeInstruction] =
+            SELECT ((i: InvokeInstruction, a: ANEWARRAY) => i) FROM (invokeInterface.asInstanceOf[Relation[InvokeInstruction]], newArray0) WHERE
+                (_.name == "toArray") AND
+                (_.returnType == objectArrayType) AND
+                (_.parameterTypes == Seq (objectArrayType)) AND
+                (declaringMethod === declaringMethod) AND
+                (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1)) UNION_ALL (
+                SELECT ((i: InvokeInstruction, a: ANEWARRAY) => i) FROM (invokeVirtual.asInstanceOf[Relation[InvokeInstruction]], newArray0) WHERE
+                    (_.name == "toArray") AND
+                    (_.returnType == objectArrayType) AND
+                    (_.parameterTypes == Seq (objectArrayType)) AND
+                    (declaringMethod === declaringMethod) AND
+                    (sequenceIndex === ((_: ANEWARRAY).sequenceIndex + 1))
+                )
+
+        SELECT (*) FROM (invokes) WHERE EXISTS (
+            SELECT (*) FROM subTypes WHERE
+                (_.superType == collectionInterface) AND
+                (subType === receiverType)
+        )
     }
 
 

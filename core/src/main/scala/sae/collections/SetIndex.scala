@@ -1,6 +1,8 @@
 package sae
 package collections
 
+import deltas.{Deletion, Addition, Update}
+
 /**
  * An index backed by a guava HashMultimap.
  * The index may have multiple values for a single key.
@@ -16,9 +18,9 @@ class SetIndex[K, V](val relation: Relation[V],
     extends Index[K, V]
 {
 
-    private val map = com.google.common.collect.HashMultimap.create[K, V]()
+    private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
-    lazyInitialize()
+    lazyInitialize ()
 
     def foreachKey[U](f: (K) => U) {
         val it = map.keys ().iterator ()
@@ -41,7 +43,7 @@ class SetIndex[K, V](val relation: Relation[V],
         Some (new ValueListTraverser (l))
     }
 
-    private class ValueListTraverser[V](val values: java.util.Set[V]) extends Traversable[V]
+    private class ValueListTraverser[V](val values: java.util.List[V]) extends Traversable[V]
     {
         def foreach[T](f: V => T)
         {
@@ -90,9 +92,45 @@ class SetIndex[K, V](val relation: Relation[V],
 
     def update_element(oldKey: K, oldV: V, newKey: K, newV: V)
     {
-        val valueSet = map.get (oldKey)
-        valueSet.remove (oldV)
-        valueSet.add (newV)
+        remove_element (oldKey, oldV)
+        add_element (newKey, newV)
     }
+
+    def updated[U <: V](update: Update[U]) {
+        //assert (update.count == 1)
+        val oldV = update.oldV
+        val newV = update.newV
+
+        val oldKey = keyFunction (update.oldV)
+        val newKey = keyFunction (update.newV)
+
+        if (oldKey == newKey)
+        {
+            return
+        }
+        map.remove (oldKey, oldV)
+        map.put (newKey, newV)
+    }
+
+    def added[U <: V](addition: Addition[U]) {
+        //assert (addition.count == 1)
+        val v = addition.value
+        val key = keyFunction (v)
+        map.put (key, v)
+    }
+
+    def deleted[U <: V](deletion: Deletion[U]) {
+        //assert (deletion.count == 1)
+        val v = deletion.value
+        val key = keyFunction (v)
+        map.remove (key, v)
+    }
+
+    def modified[U <: V](additions: scala.collection.immutable.Set[Addition[U]], deletions: scala.collection.immutable.Set[Deletion[U]], updates: scala.collection.immutable.Set[Update[U]]) {
+        additions.foreach (added[U])
+        deletions.foreach (deleted[U])
+        updates.foreach (updated[U])
+    }
+
 
 }

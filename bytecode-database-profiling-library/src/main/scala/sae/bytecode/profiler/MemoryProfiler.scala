@@ -32,12 +32,11 @@
  */
 package sae.bytecode.profiler
 
-import observers.{BufferObserver, ArrayBufferObserver}
+import observers.BufferObserver
 import sae.bytecode._
 import bat.BATDatabaseFactory
 import java.io.FileInputStream
 import sae.Observable
-import statistics.{SampleStatistic, Statistic}
 
 
 /**
@@ -115,7 +114,7 @@ object MemoryProfiler
             database = null
         }
 
-        data.foreach(c => println(c.size))
+        data.foreach (c => println (c.size))
 
         consumed
     }
@@ -128,7 +127,7 @@ object MemoryProfiler
         val database = BATDatabaseFactory.create ()
         val relations = relationSelector (database)
         val buffers = for (relation <- relations) yield {
-            val buffer =  new BufferObserver[AnyRef]
+            val buffer = new BufferObserver[AnyRef]
             relation.asInstanceOf[Observable[AnyRef]].addObserver (buffer)
             buffer
         }
@@ -160,8 +159,6 @@ object MemoryProfiler
         //println (consumed)
         consumed
     }
-
-
 
 
 }

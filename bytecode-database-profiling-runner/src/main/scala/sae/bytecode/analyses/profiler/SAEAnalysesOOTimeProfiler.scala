@@ -33,13 +33,9 @@
 package sae.bytecode.analyses.profiler
 
 
-import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
-import sae.bytecode.bat.BATDatabaseFactory
-import sae.analyses.findbugs.AnalysesOO
-import sae.bytecode.{MaterializedBytecodeDatabase, BytecodeDatabase}
-import sae._
-import bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
-import sae.bytecode.profiler.util.MilliSeconds
+import sae.bytecode.BytecodeDatabase
+import sae.Relation
+import sae.analyses.AnalysesOO
 
 
 /**
@@ -49,169 +45,11 @@ import sae.bytecode.profiler.util.MilliSeconds
  */
 
 object SAEAnalysesOOTimeProfiler
-    extends AbstractPropertiesFileProfiler
-    with TimeMeasurement
+    extends SAEAnalysesTimeProfiler
 {
 
-    val usage: String = """|Usage: java SAEAnalysesOOTimeProfiler propertiesFile
-                          |(c) 2012 Ralf Mitschke (mitschke@st.informatik.tu-darmstadt.de)
-                          | """.stripMargin
-
-
-    def measure(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): SampleStatistic = {
-        if (reReadJars) {
-            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
-        }
-        else
-        {
-            val database = createMaterializedDatabase (jars, queries)
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (database, queries))
-        }
-    }
-
-
-    def createMaterializedDatabase(jars: List[String], queries: List[String]) = {
-        val database = BATDatabaseFactory.create ()
-        val materializedDatabase = new MaterializedBytecodeDatabase (database)
-
-        // initialize the needed materializations at least once
-        val relations = for (query <- queries) yield {
-            AnalysesOO (query, materializedDatabase)
-        }
-
-
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        relations.foreach (_.clearObserversForChildren (visitChild => true))
-
-        materializedDatabase
-    }
-
-    def warmup(iterations: Int, jars: List[String], queries: List[String], reReadJars: Boolean): Long = {
-        val materializedDatabase =
-            if (reReadJars) {
-                None
-            }
-            else
-            {
-                Some (createMaterializedDatabase (jars, queries))
-            }
-
-        var i = 0
-        while (i < iterations) {
-            if (reReadJars) {
-                applyAnalysesWithJarReading (jars, queries)
-            }
-            else
-            {
-                applyAnalysesWithoutJarReading (materializedDatabase.get, queries)
-            }
-            i += 1
-        }
-
-        if (reReadJars) {
-            getResultsWithReadingJars (jars, queries)
-        }
-        else
-        {
-            getResultsWithoutReadingJars (jars, queries)
-        }
-    }
-
-    def getResultsWithReadingJars(jars: List[String], queries: List[String]): Long = {
-        var database = BATDatabaseFactory.create ()
-        val results = for (query <- queries) yield {
-            sae.relationToResult (AnalysesOO (query, database))
-        }
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        results.map (_.size).sum
-    }
-
-    def getResultsWithoutReadingJars(jars: List[String], queries: List[String]): Long = {
-        val database = createMaterializedDatabase (jars, queries)
-        val results = for (query <- queries) yield {
-            val relation = AnalysesOO (query, database)
-            sae.relationToResult (relation)
-        }
-
-        results.map (_.size).sum
-    }
-
-
-    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
-        var taken: Long = 0
-        var database = BATDatabaseFactory.create ()
-        for (query <- queries) yield {
-            sae.relationToResult (AnalysesOO (query, database))
-        }
-        time {
-            l => taken += l
-        }
-        {
-            jars.foreach (jar => {
-                val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-                database.addArchive (stream)
-                stream.close ()
-            })
-        }
-        database = null
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-
-    def applyAnalysesWithoutJarReading(database: BytecodeDatabase, queries: List[String]): Long = {
-        var taken: Long = 0
-        var relations: Iterable[Relation[_]] = null
-        time {
-            l => taken += l
-        }
-        {
-            relations = for (query <- queries) yield {
-                sae.relationToResult (AnalysesOO (query, database))
-            }
-
-        }
-        relations.foreach (_.clearObserversForChildren (visitChild => true))
-        relations = null
-        val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
-        memoryMXBean.gc ()
-        print (".")
-        taken
-    }
-
-    def dataStatistic(jars: List[String]): DataStatistic = {
-        var database = BATDatabaseFactory.create ()
-
-        val classes = relationToResult (database.classDeclarations)
-
-        val methods = relationToResult (database.methodDeclarations)
-
-        val fields = relationToResult (database.fieldDeclarations)
-
-        val instructions = relationToResult (database.instructions)
-
-        jars.foreach (jar => {
-            val stream = this.getClass.getClassLoader.getResourceAsStream (jar)
-            database.addArchive (stream)
-            stream.close ()
-        })
-
-        SimpleDataStatistic (classes.size, methods.size, fields.size, instructions.size)
-    }
-
-    def measurementUnit = MilliSeconds
-
     def benchmarkType = "SAEOO time"
+
+    def getAnalysis(query: String, database: BytecodeDatabase)(optimized: Boolean, transactional: Boolean, shared: Boolean): Relation[_] =
+        AnalysesOO (query, database)(optimized, transactional, shared)
 }

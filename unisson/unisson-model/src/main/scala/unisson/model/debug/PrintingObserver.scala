@@ -1,6 +1,7 @@
 package unisson.model.debug
 
 import sae.Observer
+import sae.deltas.{Update, Deletion, Addition}
 
 /**
  *
@@ -16,4 +17,8 @@ class PrintingObserver[-V <: AnyRef](val prefix:String = "") extends Observer[V]
     def removed(v: V) {println(prefix + "-" + v)}
 
     def added(v: V) {println(prefix + "+" + v)}
+
+    def updated[U <: V](update: Update[U]) {}
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {}
 }

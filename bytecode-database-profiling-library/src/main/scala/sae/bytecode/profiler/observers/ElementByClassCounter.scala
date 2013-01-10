@@ -32,6 +32,8 @@
  */
 package sae.bytecode.profiler.observers
 
+import sae.deltas.{Update, Deletion, Addition}
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ralf Mitschke
@@ -62,5 +64,13 @@ trait ElementByClassCounter[-V <: AnyRef]
     def added(v: V) {
         val old : Long = counters.getOrElse(v.getClass,0)
         counters(v.getClass) = old + 1
+    }
+
+    def updated[U <: V](update: Update[U]) {
+        throw new UnsupportedOperationException
+    }
+
+    def modified[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        throw new UnsupportedOperationException
     }
 }

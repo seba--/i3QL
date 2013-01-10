@@ -32,6 +32,8 @@
  */
 package sae.bytecode.structure
 
+import de.tud.cs.st.bat.resolved.{ReferenceType, FieldType, Type}
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,9 +44,12 @@ package sae.bytecode.structure
 
 trait MethodInfo
 {
+
+    def receiverType: ReferenceType
+
     def name: String
 
-    def returnType: de.tud.cs.st.bat.resolved.Type
+    def returnType: Type
 
-    def parameterTypes: Seq[de.tud.cs.st.bat.resolved.FieldType]
+    def parameterTypes: Seq[FieldType]
 }

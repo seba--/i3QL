@@ -61,13 +61,26 @@ trait Bag[V]
         data.add (v)
     }
 
+
+    def add_element(v: V, count : Int)
+    {
+        data.add (v, count)
+    }
+
     def remove_element(v: V)
     {
         data.remove (v)
     }
 
+    def remove_element(v: V, count : Int)
+    {
+        data.remove (v, count)
+    }
 
-    def update(oldV: V, newV: V)
+    @deprecated
+    def update(oldV: V, newV: V) = update_element(oldV, newV)
+
+    def update_element(oldV: V, newV: V)
     {
         val count = data.count (oldV)
         data.setCount (oldV, 0)
@@ -75,5 +88,14 @@ trait Bag[V]
         element_updated (oldV, newV)
     }
 
+    def update_element(oldV: V, newV: V, count : Int)
+    {
+        val oldCount = data.count (oldV)
 
+        assert(oldCount >= count)
+
+        data.setCount (oldV, oldCount - count)
+        data.add (newV, count)
+        element_updated (oldV, newV)
+    }
 }

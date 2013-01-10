@@ -354,7 +354,7 @@ class TestVarious
 
                         //val fallThroughCaseSuccessors = Π ((e: (String, Int)) => (e._1, e._2, e._2 + 1))(fallThroughCaseSuccessorsNegation)
             */
-            val basicBlockSuccessorEdges: Relation[(String, Int, Int)] = immediateBasicBlockSuccessorEdges ∪ (fallThroughCaseSuccessors)
+            val basicBlockSuccessorEdges: Relation[(String, Int, Int)] = immediateBasicBlockSuccessorEdges ⊎ (fallThroughCaseSuccessors)
 
 
             val m = new EventRecorder[AnyRef]
