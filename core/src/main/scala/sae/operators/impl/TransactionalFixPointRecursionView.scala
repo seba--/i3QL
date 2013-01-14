@@ -53,11 +53,11 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
     var additionAnchors: List[Range] = Nil
 
-    var additionElements = mutable.HashSet.empty[Range]
+    var additionResults = mutable.HashSet.empty[Range]
 
     var deletionsAnchors: List[Range] = Nil
 
-    var deletionElements = mutable.HashSet.empty[Range]
+    var deletionResults = mutable.HashSet.empty[Range]
 
 
     def keyFunc = domainKeyFunction
@@ -77,9 +77,9 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
             var it: java.util.Iterator[Domain] = additions.get(key).iterator()
             while (it.hasNext) {
                 val value = it.next()
-                var nextElement = step(value, anchor)
-                if (!additionElements.containsEntry(nextElement)) {
-                    element_added(nextElement)
+                var nextResult = step(value, anchor)
+                if (!additionResults.containsEntry(nextResult)) {
+                    element_added(nextResult)
 
                 }
 
@@ -97,14 +97,15 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     override def endTransaction() {
         doRecursionForAddedElements()
         doRecursionForRemovedElements()
+        clear()
         super.endTransaction()
     }
 
     override def clear() {
         additionAnchors = Nil
         deletionsAnchors = Nil
-        additionElements = mutable.HashSet.empty[Range]
-        deletionElements = mutable.HashSet.empty[Range]
+        additionResults = mutable.HashSet.empty[Range]
+        deletionResults = mutable.HashSet.empty[Range]
         // TODO remove any data structures you define.
         // please store them as "var" and do,  x = new HashMap, or something
         super.clear()
@@ -112,19 +113,20 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
     override def added(v: Domain) {
         val anchor = anchorFunction(v)
-        if (anchor.isDefined && !additionElements.contains(anchor.get)) {
+        if (anchor.isDefined && !additionResults.contains(anchor.get)) {
             additionAnchors = anchor.get :: additionAnchors
             element_added(anchor.get)
-            additionElements.add(anchor.get)
+            additionResults.add(anchor.get)
         }
         super.added(v)
     }
 
     override def removed(v: Domain) {
         val anchor = anchorFunction(v)
-        if (anchor.isDefined && !deletionElements.contains(anchor.get)) {
+        if (anchor.isDefined && !deletionResults.contains(anchor.get)) {
             deletionsAnchors = anchor.get :: deletionsAnchors
             element_removed(anchor.get)
+            deletionResults.add(anchor.get)
         }
         super.removed(v)
     }
