@@ -13,7 +13,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 13:49
  * To change this template use File | Settings | File Templates.
  */
-object ReturnValueIgnoredFinder extends StackBugFinder {
+object RV_RETURN_VALUE_IGNORED extends StackBugFinder {
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
     val instr = codeInfo.code.instructions(pc)

@@ -70,6 +70,7 @@ object AnalysesOO
     }
 
     private def getBase(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
+
         case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
         case "CN_IDIOM" => CN_IDIOM (database)
         case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
@@ -83,6 +84,17 @@ object AnalysesOO
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
         case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
         case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
+        /* mirko's bug finder */
+        //TODO: reactivate commented bug finders
+        //case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        //case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        //case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        //case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
+        //case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
+        //case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        //case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        //case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+
         /* randomly selected analyses without dataflow */
         case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
         case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)

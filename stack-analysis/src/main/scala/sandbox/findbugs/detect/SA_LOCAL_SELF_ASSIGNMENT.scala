@@ -17,7 +17,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:19
  * To change this template use File | Settings | File Templates.
  */
-object LocalSelfAssignmentFinder extends StackBugFinder {
+object SA_LOCAL_SELF_ASSIGNMENT extends StackBugFinder {
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
 

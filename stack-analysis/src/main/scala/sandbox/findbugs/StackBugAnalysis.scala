@@ -21,13 +21,13 @@ import sandbox.stackAnalysis.codeInfo.StackAnalysis
 object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
 
   val BUGFINDER_LIST: List[StackBugFinder] =
-    RefComparisonFinder ::
-      FieldSelfComparisonFinder ::
-      LocalSelfAssignmentFinder ::
-      BadResultSetAccessFinder ::
-      ArrayToStringFinder ::
-      ReturnValueIgnoredFinder ::
-      SynchronizeBoxedPrimitiveFinder ::
+    RC_REF_COMPARISON ::
+      SA_FIELD_SELF_COMPARISON ::
+      SA_LOCAL_SELF_ASSIGNMENT ::
+      SQL_BAD_PREPARED_STATEMENT_ACCESS ::
+      DMI_INVOKING_TOSTRING_ON_ARRAY ::
+      RV_RETURN_VALUE_IGNORED ::
+      DL_SYNCHRONIZATION ::
       Nil
 
   var printResults = false

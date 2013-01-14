@@ -12,7 +12,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:07
  * To change this template use File | Settings | File Templates.
  */
-object MismatchedNotifyFinder extends StackBugFinder {
+object MWN_MISMATCHED_NOTIFY extends StackBugFinder {
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
 

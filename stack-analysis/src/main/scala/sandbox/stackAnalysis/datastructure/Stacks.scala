@@ -48,8 +48,6 @@ case class Stacks(maxSize: Int, collection: List[Stack]) extends Combinable[Stac
 
   def combineWith(other: Stacks): Stacks = {
     if (other.maxSize != maxSize) {
-      //System.err.println("The attribute maxSize needs to be the same.")
-      // return this
       throw new IllegalArgumentException("The attribute maxSize needs to be the same.")
     }
 
@@ -70,7 +68,7 @@ case class Stacks(maxSize: Int, collection: List[Stack]) extends Combinable[Stac
    * @tparam A The type option to be checked.
    * @return True if all stacks have the given type at the given index.
    */
-  def checkAll[A](index: Int): Boolean = {
+ /* def checkAll[A](index: Int): Boolean = {
 
     for (stack <- collection) {
       if (!stack.values(index).isInstanceOf[A])
@@ -78,7 +76,7 @@ case class Stacks(maxSize: Int, collection: List[Stack]) extends Combinable[Stac
     }
 
     return true
-  }
+  }    */
 
   def head: List[Item] = {
     var res: List[Item] = Nil

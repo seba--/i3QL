@@ -13,7 +13,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:16
  * To change this template use File | Settings | File Templates.
  */
-object ArrayToStringFinder extends StackBugFinder {
+object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
     val instr = codeInfo.code.instructions(pc)

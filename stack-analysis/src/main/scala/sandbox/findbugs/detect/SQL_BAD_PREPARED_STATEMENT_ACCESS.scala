@@ -12,7 +12,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:04
  * To change this template use File | Settings | File Templates.
  */
-object BadResultSetAccessFinder extends StackBugFinder {
+object SQL_BAD_PREPARED_STATEMENT_ACCESS extends StackBugFinder {
 
   private def SUFFIX_LIST: List[String] = "Array" :: "AsciiStream" :: "BigDecimal" :: "BinaryStream" ::
     "Blob" :: "Boolean" :: "Byte" :: "Bytes" :: "CharacterStream" :: "Clob" :: "Date" :: "Double" ::

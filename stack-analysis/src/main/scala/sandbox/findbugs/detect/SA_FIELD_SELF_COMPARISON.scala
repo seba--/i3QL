@@ -13,7 +13,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:04
  * To change this template use File | Settings | File Templates.
  */
-object FieldSelfComparisonFinder extends StackBugFinder {
+object SA_FIELD_SELF_COMPARISON extends StackBugFinder {
 
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {

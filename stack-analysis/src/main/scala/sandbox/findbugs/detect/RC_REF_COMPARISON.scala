@@ -14,7 +14,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-object RefComparisonFinder extends StackBugFinder {
+object RC_REF_COMPARISON extends StackBugFinder {
 
   def suspiciousTypes: List[Type] =
     ObjectType("java/lang/Boolean") ::

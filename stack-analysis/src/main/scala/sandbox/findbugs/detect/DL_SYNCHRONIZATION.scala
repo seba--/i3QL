@@ -12,7 +12,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 12:58
  * To change this template use File | Settings | File Templates.
  */
-object SynchronizeBoxedPrimitiveFinder extends StackBugFinder {
+object DL_SYNCHRONIZATION extends StackBugFinder {
 
   private val BAD_SIGNATURES: List[Type] =
     ObjectType("java/lang/Boolean") ::
