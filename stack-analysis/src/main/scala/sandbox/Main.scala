@@ -50,9 +50,6 @@ object Main {
 
     //println(a.foreach[Unit]((p) => println(p._2)))
 
-    println("###########################################")
-    println(a.graph);
-    println(a.transitiveClosure)
   }
 
 

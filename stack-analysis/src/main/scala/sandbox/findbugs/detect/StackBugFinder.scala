@@ -21,7 +21,7 @@ import sandbox.stackAnalysis.codeInfo.StackAnalysis
  * Time: 13:54
  * To change this template use File | Settings | File Templates.
  */
-trait StackBugFinder extends (BytecodeDatabase => Relation[BugLogger]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
+trait StackBugFinder extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
     apply(bcd.code, StackAnalysis(bcd))
