@@ -57,8 +57,8 @@ trait TransactionElementObserver[Domain]
 
     // update operations on right relation
     def updated(oldV: Domain, newV: Domain) {
-        additions.add (newV)
-        deletions.remove (oldV)
+        removed(oldV)
+        added(newV)
     }
 
     def removed(v: Domain) {
