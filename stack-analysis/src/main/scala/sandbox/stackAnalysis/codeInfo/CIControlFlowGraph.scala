@@ -16,7 +16,7 @@ import sandbox.dataflowAnalysis.ControlFlowAnalysis
  */
 
 //TODO: Instructions: jsr, athrow
-object CodeInfoCFG extends ControlFlowAnalysis {
+object CIControlFlowGraph extends ControlFlowAnalysis {
   /**
    * This method computes the preceding program counters based on an Array[Instruction]
    * @param ci The underlying code info of the control flow graph.

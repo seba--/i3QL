@@ -154,7 +154,7 @@ class DifferenceView[Domain](val left: Relation[Domain],
             }
             else
             {
-                // if it was not in the leftDiffRight result it was filtered by being in right
+                // if it was not in the leftDiffRight newResult it was filtered by being in right
                 rightDiffLeft.add (v)
             }
         }

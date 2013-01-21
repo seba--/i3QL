@@ -1,5 +1,7 @@
 package sandbox.stackAnalysis.instructionInfo
 
+import sae.bytecode.instructions.InstructionInfo
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,14 +10,6 @@ package sandbox.stackAnalysis.instructionInfo
  * Time: 15:12
  * To change this template use File | Settings | File Templates.
  */
-case class ControlFlowEdge(previous: ControlFlowVertex, next: ControlFlowVertex) {
+case class ControlFlowEdge(previous: InstructionInfo, next: InstructionInfo) {
 
-  /*override def toString() : String = {
-    if(previous != null && next != null)
-      return "<" + previous.instruction.pc + ">" + previous.instruction.instruction.mnemonic + " --> " + "<" + next.instruction.pc + ">" + next.instruction.instruction.mnemonic
-    else if (next != null)
-      return " --> " + "<" + next.instruction.pc + ">" + next.instruction.instruction.mnemonic
-    else
-      return "Nothing"
-  }     */
 }

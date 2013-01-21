@@ -2,9 +2,11 @@ package sandbox.dataflowAnalysis
 
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode.structure.CodeInfo
+import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
 import de.tud.cs.st.bat.resolved.Instruction
 import sae.bytecode.BytecodeDatabase
+import sae.operators.Combinable
+import sae.operators.impl.TransactionalEquiJoinView
 
 
 /**
@@ -22,6 +24,8 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
   val controlFlowAnalysis: ControlFlowAnalysis = vGraph
   val transformers: ResultTransformer[T] = vTransformers
 
+
+
   /**
    * Set to true, if the results should be printed during the dataflow analysis.
    */
@@ -30,7 +34,15 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
   def apply(bcd: BytecodeDatabase): Relation[MethodResult[T]] = {
     val cfg: Relation[MethodCFG] = controlFlowAnalysis(bcd)
 
-    compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.predecessorArray))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
+    new TransactionalEquiJoinView[CodeInfo,MethodCFG,MethodResult[T],MethodDeclaration](
+      bcd.code,
+      cfg,
+      i => i.declaringMethod,
+      c => c.declaringMethod,
+      (i,c) => MethodResult[T](i.declaringMethod, computeResult(i, c.predecessorArray))
+    )
+
+    //compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.predecessorArray))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
   }
 
   def startValue(ci: CodeInfo): T
@@ -43,7 +55,7 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
     val sv = startValue(ci)
     val ev = emptyValue(ci)
 
-    //Initialize the result array with the empty value.
+    //Initialize the newResult array with the empty value.
     val results: Array[T] = Array.ofDim[T](cfg.length)
     //Indicator for the fixed point.
     var resultsChanged = true
@@ -64,22 +76,22 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
 
         //Initializes the results array.
 
-        //If the instruction has no predecessors, the result will be the start value (sv)
+        //If the instruction has no predecessors, the newResult will be the start value (sv)
         if (preds.length != 0) {
 
-          //Result = transform the results at the entry labels with their transformer then combine them for a new result.
+          //Result = transform the results at the entry labels with their transformer then combine them for a new newResult.
           result = transform(preds.head, ci.code.instructions, fromArray(results, preds.head, ev))
           for (i <- 1 until preds.length) {
             result = (transform(preds(i), ci.code.instructions, fromArray(results, preds(i), ev))).combineWith(result)
           }
         }
 
-        //Check if the result has changed. If no result was changed during one iteration, the fixed point has been found.
+        //Check if the newResult has changed. If no newResult was changed during one iteration, the fixed point has been found.
         if (!result.equals(results(pc))) {
           resultsChanged = true
         }
 
-        //Set the new result in the result array.
+        //Set the new newResult in the newResult array.
         results(pc) = result
         //Set the next program counter.
         pc = ci.code.instructions(pc).indexOfNextInstruction(pc, ci.code)

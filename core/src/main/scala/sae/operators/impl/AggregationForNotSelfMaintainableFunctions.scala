@@ -13,8 +13,8 @@ import collection.mutable
  *
  * Implementation details:
  * these implementation has a control flow like:
- * added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation result,  save result and notify observer
- * -> (else) call aggregation function, collect aggregation result -> may be notify observer
+ * added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation newResult,  save newResult and notify observer
+ * -> (else) call aggregation function, collect aggregation newResult -> may be notify observer
  *
  * a possible alternative would be:
  * added called -> key lookup -> (new key) create new map entry with a lazyview, create new aggregation function,

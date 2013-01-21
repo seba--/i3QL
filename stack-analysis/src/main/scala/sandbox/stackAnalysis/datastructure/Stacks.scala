@@ -1,7 +1,7 @@
 package sandbox.stackAnalysis.datastructure
 
 import de.tud.cs.st.bat.resolved._
-import sandbox.dataflowAnalysis.Combinable
+import sae.operators.Combinable
 
 
 /**

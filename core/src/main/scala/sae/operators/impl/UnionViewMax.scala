@@ -41,7 +41,7 @@ import sae.deltas.{Update, Deletion, Addition}
  * Required for correctness if we translate conditionA OR conditionB to algebra.
  * Can be omitted if A \intersect B == empty
  *
- * The UnionViewMax requires materialized relations as underlying relations, but does not require to store the result.
+ * The UnionViewMax requires materialized relations as underlying relations, but does not require to store the newResult.
  */
 class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: MaterializedRelation[DomainA],
                                                               val right: MaterializedRelation[DomainB])

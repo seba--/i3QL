@@ -37,7 +37,7 @@ import sae.deltas.{Update, Deletion, Addition}
 
 
 /**
- * A result that materializes all data from the underlying relation into a bag
+ * A newResult that materializes all data from the underlying relation into a bag
  */
 class BagResult[V](val relation: Relation[V])
     extends Bag[V]

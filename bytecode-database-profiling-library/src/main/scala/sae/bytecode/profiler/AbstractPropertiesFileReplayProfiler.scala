@@ -175,7 +175,7 @@ trait AbstractPropertiesFileReplayProfiler
                 "num. classes" + separator + "num. methods" + separator + "num. fields" + separator + "num. instructions" + separator +
                 "num. warmup iterations" + separator + "num. measure iterations" + separator +
                 "re-read jars" + separator + "optimized" + separator + "transactional" + separator + "shared" + separator +
-                "queries" + separator + "result count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
+                "queries" + separator + "newResult count" + separator + "mean" + separator + "std. dev" + separator + "std err." + separator + "measured unit"
 
 
 

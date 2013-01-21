@@ -32,7 +32,7 @@
  */
 package sae.operators.impl
 
-import sae.operators.FixPointRecursion
+import sae.operators.{Combinable, FixPointRecursion}
 import util.TransactionKeyValueObserver
 import sae.Relation
 import collection.mutable
@@ -42,7 +42,7 @@ import collection.mutable
  *
  * @author Ralf Mitschke
  */
-class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relation[Domain],
+class TransactionalFixPointRecursionView[Domain, Range <: Combinable[Range], Key](val source: Relation[Domain],
                                                              val anchorFunction: Domain => Option[Range],
                                                              val domainKeyFunction: Domain => Key,
                                                              val rangeKeyFunction: Range => Key,
@@ -64,7 +64,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
     def doRecursionForAddedElements() {
         // TODO compute the recursive values
-
+        println("doRecursionForAddedElements -> I was here!")
         // all domain values are stored in the Multimap "additions"
         for (anchor <- additionAnchors) {
 
@@ -72,7 +72,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
             // It has to be done recursively, since for each new element you can have multiple matching domain values
             // hence you need a recursive call to retain the domain values at which you "forked" the computation
             // you could try to optimize this by checking whether "additions.get(key).size() == 1" and in this case just doing a while loop
-            val key = rangeKeyFunction(anchor)
+       /*     val key = rangeKeyFunction(anchor)
 
             var it: java.util.Iterator[Domain] = additions.get(key).iterator()
             while (it.hasNext) {
@@ -83,18 +83,73 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
                 }
 
-            }
+            }  */
+
+          addResult(anchor)
 
         }
+    }
+
+    private def addResult(newResult : Range) {
+      println("addResult -> I was here!")
+      val newResultKey : Key = rangeKeyFunction(newResult)
+
+      //addtionResults does not contain the key.
+      if(!additionResults.exists(r => rangeKeyFunction(r).equals(newResultKey))) {
+        additionResults.add(newResult)
+        element_added(newResult)
+        addResultStep(newResult)
+
+      //else if additionResults contains the key.
+      } else {
+        for(r <- additionResults) {
+          if(rangeKeyFunction(r).equals(newResultKey)) {
+            //If the newResult is already present in additionResults, do nothing (fixed point).
+            if(r.equals(newResult)) {
+              return
+            //else combine the already present result with the new result.
+            } else {
+              additionResults.remove(r)
+              val combinedResult : Range = newResult.combineWith(r)
+              additionResults.add(combinedResult)
+              element_added(combinedResult)
+              addResultStep(combinedResult)
+            }
+
+          }
+        }
+      }
+    }
+
+    private def addResultStep(newResult : Range) {
+      println(newResult)
+      var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(newResult)).iterator()
+      while(it.hasNext) {
+        val domainValue : Domain = it.next()
+        val nextResult : Range = step(domainValue, newResult)
+        addResult(nextResult)
+      }
     }
 
     def doRecursionForRemovedElements() {
         // TODO compute the recursive values
 
         // all domain values are stored in the Multimap "deletions"
+
+      for(deletion <- deletionsAnchors) {
+        deleteResult(deletion)
+      }
     }
 
+  private def deleteResult(delResult : Range) {
+    println("doRecursionForRemovedElements -> I was here!")
+
+    deletionResults.remove(delResult)
+    element_removed(delResult)
+  }
+
     override def endTransaction() {
+        println("endTransaction -> I was here!")
         doRecursionForAddedElements()
         doRecursionForRemovedElements()
         clear()
@@ -102,6 +157,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     }
 
     override def clear() {
+      println("clear -> I was here!")
         additionAnchors = Nil
         deletionsAnchors = Nil
         additionResults = mutable.HashSet.empty[Range]
@@ -112,6 +168,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     }
 
     override def added(v: Domain) {
+      println("added -> I was here!")
         val anchor = anchorFunction(v)
         if (anchor.isDefined && !additionResults.contains(anchor.get)) {
             additionAnchors = anchor.get :: additionAnchors
@@ -122,6 +179,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     }
 
     override def removed(v: Domain) {
+      println("removed -> I was here!")
         val anchor = anchorFunction(v)
         if (anchor.isDefined && !deletionResults.contains(anchor.get)) {
             deletionsAnchors = anchor.get :: deletionsAnchors

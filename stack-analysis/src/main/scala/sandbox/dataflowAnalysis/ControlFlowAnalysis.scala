@@ -23,7 +23,7 @@ trait ControlFlowAnalysis extends (BytecodeDatabase => Relation[MethodCFG]) {
    *         by defining the list of preceding program counters. The indexes of the array are the program counters
    *         for instructions in the code.
    */
-  //def result: Relation[MethodCFG]
+  //def newResult: Relation[MethodCFG]
 
   def apply(bcd: BytecodeDatabase): Relation[MethodCFG] = {
     compile(SELECT((c: CodeInfo) => MethodCFG(c.declaringMethod, computePredecessors(c))) FROM bcd.code)

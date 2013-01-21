@@ -9,10 +9,11 @@ import sae.syntax.sql._
 import sandbox.findbugs.BugEntry
 import sandbox.dataflowAnalysis.MethodResult
 import sandbox.stackAnalysis.datastructure.Stack
-import sae.bytecode.structure.CodeInfo
+import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
 import scala.Some
 import sandbox.stackAnalysis.datastructure.LocVariables
-import sandbox.stackAnalysis.codeInfo.StackAnalysis
+import sandbox.stackAnalysis.codeInfo.CIStackAnalysis
+import sae.operators.impl.TransactionalEquiJoinView
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,11 +25,19 @@ import sandbox.stackAnalysis.codeInfo.StackAnalysis
 trait StackBugFinder extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
-    apply(bcd.code, StackAnalysis(bcd))
+    apply(bcd.code, CIStackAnalysis(bcd))
   }
 
   def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
-    compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
+    new TransactionalEquiJoinView[CodeInfo,MethodResult[State],BugEntry,MethodDeclaration](
+      ci,
+      mtr,
+      codeInfo => codeInfo.declaringMethod,
+      methodResult => methodResult.declaringMethod,
+      (codeInfo,methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
+    )
+
+    //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
 
   def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger)

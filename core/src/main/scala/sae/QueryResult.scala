@@ -35,11 +35,11 @@ package sae
 import capabilities.{LazyInitialized, SingletonValue, Size}
 
 /**
- * A result is a kind of view that offers more convenience operators
+ * A newResult is a kind of view that offers more convenience operators
  * for working with the underlying data.
- * The result does not need to store all data internally and is thus not a
+ * The newResult does not need to store all data internally and is thus not a
  * materialized view.
- * In particular if a result is required from a
+ * In particular if a newResult is required from a
  * materialized view, a simple Proxy is used.
  */
 trait QueryResult[V]

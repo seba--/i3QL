@@ -1,4 +1,4 @@
-package sandbox.dataflowAnalysis
+package sae.operators
 
 /**
  * This trait is used to define classes which object's can be combined with each other. This trait is used to define the combination of two results in the data flow analysis.

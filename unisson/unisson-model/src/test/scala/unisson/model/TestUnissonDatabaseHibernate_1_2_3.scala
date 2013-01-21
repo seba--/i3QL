@@ -249,9 +249,9 @@ class TestUnissonDatabaseHibernate_1_2_3
 
         bc.addArchiveAsResource("hibernate-1.2.3.jar")
 
-        val result = queryResult.asList.sorted
+        val newResult = queryResult.asList.sorted
 
-        result.foreach(println)
+        newResult.foreach(println)
         */
     }
 

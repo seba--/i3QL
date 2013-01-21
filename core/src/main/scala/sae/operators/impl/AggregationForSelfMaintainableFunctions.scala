@@ -7,12 +7,12 @@ import sae.operators._
 import collection.mutable
 
 /**
- * An implementation of Aggregation that only saves the result of aggregation function (aggregationFunction)
+ * An implementation of Aggregation that only saves the newResult of aggregation function (aggregationFunction)
  *
  * Implementation detail:
  * these implementation has a control flow like:
- * method added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation result,  save result and notify observer
- * -> (else) call aggregation function, collect aggregation result -> may be notify observer
+ * method added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation newResult,  save newResult and notify observer
+ * -> (else) call aggregation function, collect aggregation newResult -> may be notify observer
  *
  * a possible alternative would be:
  * method added called -> key lookup -> (new key) create new map entry with a lazyview, create new aggregation function,

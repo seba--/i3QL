@@ -4,7 +4,7 @@ package stackTest
 import org.junit.{BeforeClass, Assert, Test}
 import sae.QueryResult
 import sandbox.stackAnalysis._
-import codeInfo.StackAnalysis
+import codeInfo.CIStackAnalysis
 import datastructure._
 import datastructure.LocVariables
 import datastructure.Stacks
@@ -34,7 +34,7 @@ object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
     println("Start analysis: " + new Date())
     //Setup the database
     val database = BATDatabaseFactory.create()
-    val analysis = StackAnalysis(database)
+    val analysis = CIStackAnalysis(database)
 
     methodSetAccessible = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_: MethodResult[State]).declaringMethod.name equals "setAccessible"))
     methodIsLoggable = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_: MethodResult[State]).declaringMethod.name equals "isLoggable"))
@@ -50,11 +50,11 @@ object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
 class StackAnalysisTest {
   @Test
   def testSetAccessible() {
-    //Get the result
+    //Get the newResult
     val results: Array[State] = StackAnalysisTest.methodSetAccessible.asList(0).resultArray
 
 
-    //Build the expected result
+    //Build the expected newResult
     val expected: Array[State] = Array.ofDim[State](13)
     var baseRes = State(Stacks(3, Nil).addStack(), LocVariables(Array.fill[Item](1)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
     baseRes = State(baseRes.s, baseRes.l.setVar(0, Item(ObjectType("java/lang/reflect/AccessibleObject"), -1, Item.FLAG_IS_PARAMETER)))
@@ -72,7 +72,7 @@ class StackAnalysisTest {
     baseRes = State(baseRes.s.pop(), baseRes.l)
     expected(12) = baseRes
 
-    //Test result with the expected result
+    //Test newResult with the expected newResult
     Assert.assertEquals(expected.length, results.length)
     Assert.assertArrayEquals(expected.asInstanceOf[Array[AnyRef]], results.asInstanceOf[Array[AnyRef]])
 
@@ -80,12 +80,12 @@ class StackAnalysisTest {
 
   @Test
   def testIsLoggable() {
-    //Get the result
+    //Get the newResult
     val results: Array[State] = StackAnalysisTest.methodIsLoggable.asList(0).resultArray
 
 
 
-    //Build the expected result
+    //Build the expected newResult
     val expected: Array[State] = Array.ofDim[State](24)
     var baseRes = State(Stacks(2, Nil).addStack(), LocVariables(Array.fill[Item](0)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
     baseRes = State(baseRes.s, baseRes.l)
@@ -107,7 +107,7 @@ class StackAnalysisTest {
     expected(22) = expected(18)
     expected(23) = expected(19).combineWith(State(expected(22).s.push(Item(ItemType.fromType(IntegerType), 22, Item.FLAG_COULD_BE_ZERO)), expected(22).l))
 
-    //Test result with the expected result
+    //Test newResult with the expected newResult
     Assert.assertEquals(expected.length, results.length)
     Assert.assertArrayEquals(expected.asInstanceOf[Array[AnyRef]], results.asInstanceOf[Array[AnyRef]])
 

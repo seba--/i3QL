@@ -135,7 +135,7 @@ class TestaggregateLegacyTests extends TestCase
         assertTrue (aggOp.asList.contains ("damen", "Adidas", 12, 12, 12))
         assertTrue (aggOp.asList.contains ("damen", "Puma", 13, 13, 13))
         assertTrue (aggOp.asList.contains ("herren", "Puma", 15, 0, 15))
-        //assertTrue(result.size == 5)
+        //assertTrue(newResult.size == 5)
 
     }
 
@@ -179,7 +179,7 @@ class TestaggregateLegacyTests extends TestCase
         schuhe.remove (new Schuh ("damen", "Speed Cat Gloss  W", "Puma", 13, 12))
         assertTrue (aggOp.size == 3)
         assertFalse (aggOp.asList.contains ("damen", "Puma", 13, 13, 13))
-        //assertTrue(result.size == 5)
+        //assertTrue(newResult.size == 5)
     }
 
     //oldKey = newKey

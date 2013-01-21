@@ -336,12 +336,12 @@ class JEditSuite
                 Max2[(String, String, Int), Option[(String, String, Int)]]((x: (String, String, Int)) => x._3, (y: Option[(String, String, Int)], x: Int) => y),
                 (x: String, y: Option[(String, String, Int)]) => y)
 
-            val result: QueryResult[Option[(String, String, Int)]] = groupByPackageFindClassWithMaxMethods
+            val newResult: QueryResult[Option[(String, String, Int)]] = groupByPackageFindClassWithMaxMethods
 
             // reuse existing data without loading bytecode from filesystem again
             this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
-            val list: List[Option[(String, String, Int)]] = result.asList
+            val list: List[Option[(String, String, Int)]] = newResult.asList
             assertTrue(list.size == 29)
             assertTrue(list.contains(Some(("com/microstar/xml", "XmlParser", 118))))
             assertTrue(list.contains(Some(("org/gjt/sp/jedit/bsh/classpath", "BshClassPath", 49))))
@@ -362,12 +362,12 @@ class JEditSuite
                 PseudoVarianz((x: (String, String, Int)) => x._3),
                 (x: String, y: (Double, Double)) => (x, y))
 
-            val result: QueryResult[(String, (Double, Double))] = varianzOverAVG
+            val newResult: QueryResult[(String, (Double, Double))] = varianzOverAVG
 
             // reuse existing data without loading bytecode from filesystem again
             this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
-            val list = result.asList
+            val list = newResult.asList
 
 
             assertTrue(list.size == 29)
@@ -619,11 +619,11 @@ class JEditSuite
             }, removeMethodWithDependencyToThereImplClass)
             val groupByClass = Aggregation(filterDepEqFanInClass, (x: ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a: (String, String), b: (Int)) => a)
             val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String, String)])
-            val result: QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+            val newResult: QueryResult[Some[Int]] = countClassesWithDepToFanInClass
 
             this.db.classfile_methods.foreach(db.classfile_methods.element_added)
-            assertTrue(result.asList.size == 1)
-            assertTrue(result.asList.contains(Some(51)))
+            assertTrue(newResult.asList.size == 1)
+            assertTrue(newResult.asList.contains(Some(51)))
             //        val coss = new CrossProduct(selection,selection)
             //        val selection2 = new MaterializedSelection(
             //                (x : (Method2, Method2)) => {(x._1.declaringRef.packageName + x._1.declaringRef.simpleName) == (x._2.declaringRef.packageName + x._2.declaringRef.simpleName)},
@@ -669,8 +669,8 @@ class JEditSuite
                 }, removeMethodWithDependencyToThereImplClass)
                 val groupByClass = Aggregation(filterDepEqFanInClass, (x: ReducedMethod) => (x.declaringRef.packageName, x.declaringRef.simpleName), Count[ReducedMethod](), (a: (String, String), b: (Int)) => a)
                 val countClassesWithDepToFanInClass = Aggregation(groupByClass, Count[(String, String)])
-                val result: QueryResult[Some[Int]] = countClassesWithDepToFanInClass
-                list = (z.toJava, result) :: list
+                val newResult: QueryResult[Some[Int]] = countClassesWithDepToFanInClass
+                list = (z.toJava, newResult) :: list
             })
             this.db.classfile_methods.foreach(db.classfile_methods.element_added)
         }
@@ -683,12 +683,12 @@ class JEditSuite
 
             val groupByClassesAndCalcFanOut = Aggregation(db.classfile_methods, (x: Method) => (x.declaringRef.packageName, x.declaringRef.simpleName), sae.functions.FanOut((x: Method) => (x.parameters, x.returnType), y => true), (x: (String, String), y: Set[String]) => (x._1, x._2, y))
 
-            val result: QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
+            val newResult: QueryResult[(String, String, Set[String])] = groupByClassesAndCalcFanOut
 
             // reuse existing data without loading bytecode from filesystem again
             this.db.classfile_methods.foreach(db.classfile_methods.element_added)
 
-            var list = result.asList
+            var list = newResult.asList
             //val list = ob.data
             // list.foreach(println _)
             assertTrue(list.size == 1108) //there a 24 classes without methods
@@ -716,7 +716,7 @@ class JEditSuite
             assertTrue(i == 1)
             db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "<init>"))
             db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "setSelectedColor"))
-            list = result.asList
+            list = newResult.asList
             list.foreach(x => {
                 if (x._1 == "org/gjt/sp/jedit/gui" && x._2 == "ColorWellButton") {
                     assertTrue(x._3.size == 1)
@@ -724,17 +724,17 @@ class JEditSuite
                 }
 
             })
-            list = result.asList
+            list = newResult.asList
             assertTrue(list.size == 1108)
             db.classfile_methods.element_removed(getMethode("org/gjt/sp/jedit/gui", "ColorWellButton", "getSelectedColor"))
-            list = result.asList
+            list = newResult.asList
             assertTrue(list.size == 1107)
             list.foreach(x => {
                 if (x._1 == "org/gjt/sp/jedit/gui" && x._2 == "ColorWellButton") // && x._3.size == 2 && x._3.contains("java.awt.Color") && x._3.contains("void")) i += 1
                     fail()
             })
             db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "<init>"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "<init>"))
-            list = result.asList
+            list = newResult.asList
             i = 0
             list.foreach(x => {
                 if (x._1 == "org/gjt/sp/jedit/bsh" && x._2 == "BSHTryStatement") {
@@ -748,7 +748,7 @@ class JEditSuite
             })
             assertTrue(i == 1)
             db.classfile_methods.element_updated(getMethode("org/gjt/sp/jedit/bsh", "BSHTryStatement", "eval"), getMethode("org/gjt/sp/jedit/bsh", "BSHType", "classLoaderChanged"))
-            list = result.asList
+            list = newResult.asList
             assertTrue(list.size == 1106)
             list.foreach(x => {
                 if (x._1 == "org/gjt/sp/jedit/bsh" && x._2 == "BSHTryStatement") {

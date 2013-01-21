@@ -1,6 +1,6 @@
 package sandbox.stackAnalysis.datastructure
 
-import sandbox.dataflowAnalysis.Combinable
+import sae.operators.Combinable
 
 /**
  * Created with IntelliJ IDEA.

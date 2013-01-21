@@ -13,7 +13,7 @@ import sandbox.stackAnalysis.BytecodeTransformer
 /**
  * Implementation of a dataflow analysis that analyzes the stack and the local variables.
  */
-object StackAnalysis extends DataFlowAnalysis[State](CodeInfoCFG, BytecodeTransformer) {
+object CIStackAnalysis extends DataFlowAnalysis[State](CIControlFlowGraph, BytecodeTransformer) {
 
   override def startValue(ci: CodeInfo): State = {
     var stacks = Stacks(ci.code.maxStack, Nil).addStack()

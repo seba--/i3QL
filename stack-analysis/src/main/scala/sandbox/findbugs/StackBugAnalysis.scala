@@ -6,9 +6,10 @@ import sae.syntax.sql._
 
 import sae.bytecode.BytecodeDatabase
 import sandbox.stackAnalysis.datastructure.State
-import sandbox.dataflowAnalysis.MethodResult
-import sae.bytecode.structure.CodeInfo
-import sandbox.stackAnalysis.codeInfo.StackAnalysis
+import sandbox.dataflowAnalysis.{MethodCFG, MethodResult}
+import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
+import sandbox.stackAnalysis.codeInfo.CIStackAnalysis
+import sae.operators.impl.TransactionalEquiJoinView
 
 
 /**
@@ -33,11 +34,19 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((
   var printResults = false
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
-    apply(bcd.code, StackAnalysis(bcd))
+    apply(bcd.code, CIStackAnalysis(bcd))
   }
 
   def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
-    compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
+    new TransactionalEquiJoinView[CodeInfo,MethodResult[State],BugEntry,MethodDeclaration](
+      ci,
+      mtr,
+      codeInfo => codeInfo.declaringMethod,
+      methodResult => methodResult.declaringMethod,
+      (codeInfo,methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
+    )
+
+    //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
 
 
