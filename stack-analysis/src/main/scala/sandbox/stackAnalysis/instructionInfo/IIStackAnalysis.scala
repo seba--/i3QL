@@ -28,13 +28,14 @@ object IIStackAnalysis extends (BytecodeDatabase => Relation[ControlFlowVertex])
   }
 
   def apply(database: BytecodeDatabase): Relation[ControlFlowVertex] = {
-
-    new TransactionalFixPointRecursionView[ControlFlowEdge,ControlFlowVertex,InstructionInfo](
+    println("apply")
+    return new TransactionalFixPointRecursionView[ControlFlowEdge,ControlFlowVertex,InstructionInfo](
       IIControlFlowGraph(database),
       anchorFunction,
       (edge => edge.previous),
       (vertex => vertex.instruction),
       stepFunction
+
     )
 
   }

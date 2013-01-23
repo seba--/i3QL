@@ -31,21 +31,21 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     val relConditionalBranchs = computeConditionalBranchs(bcd)
 
     //Relation that stores all possible control flow edges as InstructionPairs.
-    val relEdges = compile(
+    val relEdges : Relation[ControlFlowEdge] = compile(
       //control flow for normal instructions and unconditional branches assuming no branch
-      (SELECT((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
+      (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
         (relNormal, bcd.instructions) WHERE
         (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
         (((_: InstructionInfo).sequenceIndex) === ((_: InstructionInfo).sequenceIndex - 1))) UNION_ALL
 
         //control flow for unconditional branches
-        (SELECT((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
+        (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
           (relUnconditionalBranchs, bcd.instructions) WHERE
           (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
           ((getUnconditionalNextPC(_: InstructionInfo)) === ((_: InstructionInfo).pc))) UNION_ALL
 
         //control flow for conditional branches assuming branch
-        (SELECT((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
+        (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
           (relConditionalBranchs, bcd.instructions) WHERE
           (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
           ((getConditionalNextPCAssumingBranch(_: InstructionInfo)) === ((_: InstructionInfo).pc))))
@@ -55,10 +55,12 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
         /*(SELECT((next: InstructionInfo) => InstructionPair(null, next)) FROM
           (bcd.instructions) WHERE (((_: InstructionInfo).pc) === 0)))*/
 
+    return relEdges
+
     //Relation that computes the real ControlFlowEdges from instruction pairs.
-    return compile(
-      SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
-    )
+    //return compile(
+    //  SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
+    //)
   }
 
   private def computeNormalInstructions(bcd: BytecodeDatabase): Relation[InstructionInfo] = {

@@ -42,7 +42,7 @@ import collection.mutable
  *
  * @author Ralf Mitschke
  */
-class TransactionalFixPointRecursionView[Domain, Range <: Combinable[Range], Key](val source: Relation[Domain],
+class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relation[Domain],
                                                              val anchorFunction: Domain => Option[Range],
                                                              val domainKeyFunction: Domain => Key,
                                                              val rangeKeyFunction: Range => Key,
@@ -51,16 +51,18 @@ class TransactionalFixPointRecursionView[Domain, Range <: Combinable[Range], Key
         with TransactionKeyValueObserver[Key, Domain]
 {
 
+   println("constructor 1")
+   source addObserver this
+   println("constructor 2")
+
     var additionAnchors: List[Range] = Nil
-
     var additionResults = mutable.HashSet.empty[Range]
-
     var deletionsAnchors: List[Range] = Nil
-
     var deletionResults = mutable.HashSet.empty[Range]
 
 
     def keyFunc = domainKeyFunction
+
 
     def doRecursionForAddedElements() {
         // TODO compute the recursive values
@@ -92,44 +94,28 @@ class TransactionalFixPointRecursionView[Domain, Range <: Combinable[Range], Key
 
     private def addResult(newResult : Range) {
       println("addResult -> I was here!")
-      val newResultKey : Key = rangeKeyFunction(newResult)
 
-      //addtionResults does not contain the key.
-      if(!additionResults.exists(r => rangeKeyFunction(r).equals(newResultKey))) {
-        additionResults.add(newResult)
-        element_added(newResult)
-        addResultStep(newResult)
 
-      //else if additionResults contains the key.
-      } else {
-        for(r <- additionResults) {
-          if(rangeKeyFunction(r).equals(newResultKey)) {
             //If the newResult is already present in additionResults, do nothing (fixed point).
-            if(r.equals(newResult)) {
+            if(additionResults.contains(newResult)) {
               return
             //else combine the already present result with the new result.
             } else {
-              additionResults.remove(r)
-              val combinedResult : Range = newResult.combineWith(r)
-              additionResults.add(combinedResult)
-              element_added(combinedResult)
-              addResultStep(combinedResult)
+              additionResults.add(newResult)
+              element_added(newResult)
+
+              var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(newResult)).iterator()
+              while(it.hasNext) {
+                val domainValue : Domain = it.next()
+                println()
+                val nextResult : Range = step(domainValue, newResult)
+                addResult(nextResult)
+              }
             }
 
-          }
-        }
-      }
-    }
 
-    private def addResultStep(newResult : Range) {
-      println(newResult)
-      var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(newResult)).iterator()
-      while(it.hasNext) {
-        val domainValue : Domain = it.next()
-        val nextResult : Range = step(domainValue, newResult)
-        addResult(nextResult)
+
       }
-    }
 
     def doRecursionForRemovedElements() {
         // TODO compute the recursive values
@@ -173,7 +159,7 @@ class TransactionalFixPointRecursionView[Domain, Range <: Combinable[Range], Key
         if (anchor.isDefined && !additionResults.contains(anchor.get)) {
             additionAnchors = anchor.get :: additionAnchors
             element_added(anchor.get)
-            additionResults.add(anchor.get)
+            //additionResults.add(anchor.get)
         }
         super.added(v)
     }

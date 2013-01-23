@@ -1,7 +1,7 @@
 package sandbox
 
 import findbugs.StackBugAnalysis
-import sae.bytecode.bat.BATDatabaseFactory
+import sae.bytecode.bat.{BATBytecodeDatabase, BATDatabaseFactory}
 import java.io.{File, FileInputStream}
 import stackAnalysis.BytecodeTransformer
 import stackAnalysis.codeInfo.CIStackAnalysis
@@ -23,20 +23,20 @@ object Main {
   def main(args: Array[String]) {
 
 
-    val database = BATDatabaseFactory.create()
+    val database : BATBytecodeDatabase = BATDatabaseFactory.create().asInstanceOf[BATBytecodeDatabase]
 
     CIStackAnalysis.printResults = true
     StackBugAnalysis.printResults = true
     //StackBugAnalysis(database)
 
-    IIStackAnalysis(database)
+    val a : QueryResult[_] = IIStackAnalysis(database)
 
     //  def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
     //  database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
 
     database.addClassFile(new FileInputStream("stack-analysis" + File.separator + "target" + File.separator + "test-classes" + File.separator + "TestMethods.class"))
 
-    //println(a.foreach[Unit]((p) => println(p._2)))
+    println(a.foreach[Unit]((p) => println(p)))
 
   }
 
