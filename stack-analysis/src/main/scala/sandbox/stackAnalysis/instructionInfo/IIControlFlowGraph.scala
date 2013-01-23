@@ -3,6 +3,7 @@ package sandbox.stackAnalysis.instructionInfo
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.syntax.sql._
+import alternative.FROM
 import sae.bytecode.instructions.InstructionInfo
 import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure.{MethodDeclaration, CodeAttribute}
@@ -56,6 +57,8 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
           (bcd.instructions) WHERE (((_: InstructionInfo).pc) === 0)))*/
 
     return relEdges
+
+    return compile(SELECT ((ii : InstructionInfo) => ControlFlowEdge(ii,ii)) FROM (bcd.instructions))
 
     //Relation that computes the real ControlFlowEdges from instruction pairs.
     //return compile(
