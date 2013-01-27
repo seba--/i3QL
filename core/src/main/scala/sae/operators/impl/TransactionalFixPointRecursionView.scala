@@ -51,13 +51,11 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
         with TransactionKeyValueObserver[Key, Domain]
 {
 
-   println("constructor 1")
-   source addObserver this
-   println("constructor 2")
+    source addObserver this
 
     var additionAnchors: List[Range] = Nil
     var additionResults = mutable.HashSet.empty[Range]
-    var deletionsAnchors: List[Range] = Nil
+    var deletionAnchors: List[Range] = Nil
     var deletionResults = mutable.HashSet.empty[Range]
 
 
@@ -106,9 +104,8 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
               var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(newResult)).iterator()
               while(it.hasNext) {
-                val domainValue : Domain = it.next()
-                println()
-                val nextResult : Range = step(domainValue, newResult)
+                val next : Domain = it.next()
+                val nextResult : Range = step(next, newResult)
                 addResult(nextResult)
               }
             }
@@ -122,16 +119,29 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
         // all domain values are stored in the Multimap "deletions"
 
-      for(deletion <- deletionsAnchors) {
-        deleteResult(deletion)
+      for(anchor <- deletionAnchors) {
+        deleteResult(anchor)
       }
     }
 
   private def deleteResult(delResult : Range) {
     println("doRecursionForRemovedElements -> I was here!")
 
-    deletionResults.remove(delResult)
-    element_removed(delResult)
+    //If the result has already been deleted or has been added by the added results.
+    if(additionResults.contains(delResult) || deletionResults.contains(delResult)) {
+      return
+      //Delete the result and continue deleteing recursively.
+    } else {
+      deletionResults.add(delResult)
+      element_removed(delResult)
+
+      var it: java.util.Iterator[Domain] = deletions.get(rangeKeyFunction(delResult)).iterator()
+      while(it.hasNext) {
+        val next : Domain = it.next()
+        val nextResult : Range = step(next, delResult)
+        deleteResult(nextResult)
+      }
+    }
   }
 
     override def endTransaction() {
@@ -145,7 +155,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     override def clear() {
       println("clear -> I was here!")
         additionAnchors = Nil
-        deletionsAnchors = Nil
+        deletionAnchors = Nil
         additionResults = mutable.HashSet.empty[Range]
         deletionResults = mutable.HashSet.empty[Range]
         // TODO remove any data structures you define.
@@ -158,7 +168,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
         val anchor = anchorFunction(v)
         if (anchor.isDefined && !additionResults.contains(anchor.get)) {
             additionAnchors = anchor.get :: additionAnchors
-            element_added(anchor.get)
+            //element_added(anchor.get)
             //additionResults.add(anchor.get)
         }
         super.added(v)
@@ -168,9 +178,9 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
       println("removed -> I was here!")
         val anchor = anchorFunction(v)
         if (anchor.isDefined && !deletionResults.contains(anchor.get)) {
-            deletionsAnchors = anchor.get :: deletionsAnchors
-            element_removed(anchor.get)
-            deletionResults.add(anchor.get)
+            deletionAnchors = anchor.get :: deletionAnchors
+            //element_removed(anchor.get)
+            //deletionResults.add(anchor.get)
         }
         super.removed(v)
     }

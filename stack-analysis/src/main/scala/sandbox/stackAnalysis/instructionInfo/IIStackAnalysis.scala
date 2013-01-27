@@ -17,22 +17,22 @@ import sandbox.stackAnalysis.BytecodeTransformer
 object IIStackAnalysis extends (BytecodeDatabase => Relation[ControlFlowVertex]) {
 
   private def anchorFunction(edge : ControlFlowEdge) : Option[ControlFlowVertex] = {
-    if(edge.previous.pc == 0)
-      Some(ControlFlowVertex(edge.previous,State.createStartState(10,6)))
-    else
+    if(edge.isInstanceOf[AnchorControlFlowEdge]) {
+      val anchorEdge : AnchorControlFlowEdge = edge.asInstanceOf[AnchorControlFlowEdge]
+      Some(ControlFlowVertex(anchorEdge.getHead,State.createStartState(anchorEdge.attribute.max_stack,anchorEdge.attribute.max_locals)))
+    } else
       None
   }
 
   private def stepFunction(edge : ControlFlowEdge, vertex : ControlFlowVertex) = {
-    ControlFlowVertex(edge.next, BytecodeTransformer.getTransformer(edge.previous.pc,edge.previous.instruction)(vertex.state))
+    ControlFlowVertex(edge.getHead, BytecodeTransformer.getTransformer(edge.getTail.pc,edge.getTail.instruction)(vertex.state))
   }
 
   def apply(database: BytecodeDatabase): Relation[ControlFlowVertex] = {
-    println("apply")
     return new TransactionalFixPointRecursionView[ControlFlowEdge,ControlFlowVertex,InstructionInfo](
       IIControlFlowGraph(database),
       anchorFunction,
-      (edge => edge.previous),
+      (edge => edge.getTail),
       (vertex => vertex.instruction),
       stepFunction
 

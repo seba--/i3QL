@@ -6,7 +6,7 @@ import java.io.{File, FileInputStream}
 import stackAnalysis.BytecodeTransformer
 import stackAnalysis.codeInfo.CIStackAnalysis
 import stackAnalysis.datastructure.State
-import stackAnalysis.instructionInfo.{IIStackAnalysis, ControlFlowVertex, ControlFlowEdge, IIControlFlowGraph}
+import stackAnalysis.instructionInfo.{IIStackAnalysis, ControlFlowVertex, AnchorControlFlowEdge, IIControlFlowGraph}
 import sae.syntax.RelationalAlgebraSyntax.TC
 import sae.operators.impl._
 import sae.bytecode.instructions.InstructionInfo

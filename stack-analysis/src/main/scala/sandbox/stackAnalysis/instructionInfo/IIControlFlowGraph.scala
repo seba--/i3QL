@@ -32,21 +32,21 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     val relConditionalBranchs = computeConditionalBranchs(bcd)
 
     //Relation that stores all possible control flow edges as InstructionPairs.
-    val relEdges : Relation[ControlFlowEdge] = compile(
+    val relEdges : Relation[InstructionPair] = compile(
       //control flow for normal instructions and unconditional branches assuming no branch
-      (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
+      (SELECT ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
         (relNormal, bcd.instructions) WHERE
         (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
         (((_: InstructionInfo).sequenceIndex) === ((_: InstructionInfo).sequenceIndex - 1))) UNION_ALL
 
         //control flow for unconditional branches
-        (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
+        (SELECT((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
           (relUnconditionalBranchs, bcd.instructions) WHERE
           (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
           ((getUnconditionalNextPC(_: InstructionInfo)) === ((_: InstructionInfo).pc))) UNION_ALL
 
         //control flow for conditional branches assuming branch
-        (SELECT((current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge(current, next)) FROM
+        (SELECT((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
           (relConditionalBranchs, bcd.instructions) WHERE
           (((_: InstructionInfo).declaringMethod) === ((_: InstructionInfo).declaringMethod)) AND
           ((getConditionalNextPCAssumingBranch(_: InstructionInfo)) === ((_: InstructionInfo).pc))))
@@ -54,16 +54,16 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
            //UNION_ALL
         //control flow from starting edges
         /*(SELECT((next: InstructionInfo) => InstructionPair(null, next)) FROM
-          (bcd.instructions) WHERE (((_: InstructionInfo).pc) === 0)))*/
+          (bcd.instructions) WHERE (((_: InstructionInfo).pc) === 0))*/
 
-    return relEdges
 
-    return compile(SELECT ((ii : InstructionInfo) => ControlFlowEdge(ii,ii)) FROM (bcd.instructions))
 
     //Relation that computes the real ControlFlowEdges from instruction pairs.
-    //return compile(
-    //  SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
-    //)
+    val result :  Relation[ControlFlowEdge] =  SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
+
+    return result
+
+
   }
 
   private def computeNormalInstructions(bcd: BytecodeDatabase): Relation[InstructionInfo] = {
@@ -80,9 +80,12 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
 
 
   private def getEdge(current: InstructionInfo, next: InstructionInfo, attribute: CodeAttribute): ControlFlowEdge = {
-    val res = ControlFlowEdge(current, next)
-    println("CFGEdge: " + res)
-    return res
+
+    if(current.pc == 0)
+      return AnchorControlFlowEdge(current, next, attribute)
+    else
+      return DefaultControlFlowEdge(current,next)
+
   }
 
   private def getUnconditionalNextPC(ii: InstructionInfo): Int = {
