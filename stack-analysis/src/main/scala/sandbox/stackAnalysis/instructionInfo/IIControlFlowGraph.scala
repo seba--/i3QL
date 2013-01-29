@@ -7,6 +7,7 @@ import alternative.FROM
 import sae.bytecode.instructions.InstructionInfo
 import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure.{MethodDeclaration, CodeAttribute}
+import sae.operators.impl.TransactionalEquiJoinView
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,8 +32,32 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     //Relation that stores all conditional branches (IFEQ etc.)
     val relConditionalBranchs = computeConditionalBranchs(bcd)
 
+    val instructionMethodAndIndex : InstructionInfo => (MethodDeclaration, Int) =
+    (i : InstructionInfo) => (i.declaringMethod, i.sequenceIndex)
+
+    val instructionMethodAndPrevIndex : InstructionInfo => (MethodDeclaration, Int) =
+      (i : InstructionInfo) => (i.declaringMethod, i.sequenceIndex - 1)
+
+     import sae.syntax.RelationalAlgebraSyntax._
     //Relation that stores all possible control flow edges as InstructionPairs.
-    val relEdges : Relation[InstructionPair] = compile(
+    val relEdges : Relation[InstructionPair] =
+      new TransactionalEquiJoinView(
+        relNormal,
+        bcd.instructions,
+        instructionMethodAndIndex,
+        instructionMethodAndPrevIndex,
+        ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
+      )  ⊎  new TransactionalEquiJoinView(
+        relNormal,
+        bcd.instructions,
+        instructionMethodAndIndex,
+        instructionMethodAndPrevIndex,
+        ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
+      )
+
+
+
+    compile(
       //control flow for normal instructions and unconditional branches assuming no branch
       (SELECT ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next)) FROM
         (relNormal, bcd.instructions) WHERE
