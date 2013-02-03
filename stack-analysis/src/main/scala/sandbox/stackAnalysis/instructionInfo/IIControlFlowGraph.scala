@@ -3,7 +3,6 @@ package sandbox.stackAnalysis.instructionInfo
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.syntax.sql._
-import alternative.FROM
 import sae.bytecode.instructions.InstructionInfo
 import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure.{MethodDeclaration, CodeAttribute}
@@ -32,30 +31,39 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     //Relation that stores all conditional branches (IFEQ etc.)
     val relConditionalBranchs = computeConditionalBranchs(bcd)
 
-    val instructionMethodAndIndex : InstructionInfo => (MethodDeclaration, Int) =
-    (i : InstructionInfo) => (i.declaringMethod, i.sequenceIndex)
+    val instructionMethodAndIndex: InstructionInfo => (MethodDeclaration, Int) =
+      (i: InstructionInfo) => (i.declaringMethod, i.sequenceIndex)
 
-    val instructionMethodAndPrevIndex : InstructionInfo => (MethodDeclaration, Int) =
-      (i : InstructionInfo) => (i.declaringMethod, i.sequenceIndex - 1)
+    val instructionMethodAndPrevIndex: InstructionInfo => (MethodDeclaration, Int) =
+      (i: InstructionInfo) => (i.declaringMethod, i.sequenceIndex - 1)
 
-     import sae.syntax.RelationalAlgebraSyntax._
+    import sae.syntax.RelationalAlgebraSyntax._
     //Relation that stores all possible control flow edges as InstructionPairs.
-    val relEdges : Relation[InstructionPair] =
+    val relEdges: Relation[InstructionPair] =
+    //control flow for normal instructions and unconditional branches assuming no branch
       new TransactionalEquiJoinView(
         relNormal,
         bcd.instructions,
         instructionMethodAndIndex,
         instructionMethodAndPrevIndex,
         ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
-      )  ⊎  new TransactionalEquiJoinView(
-        relNormal,
+        //control flow for unconditional branches
+      ) ⊎ new TransactionalEquiJoinView[InstructionInfo, InstructionInfo, InstructionPair, (MethodDeclaration, Int)](
+        relUnconditionalBranchs,
         bcd.instructions,
-        instructionMethodAndIndex,
-        instructionMethodAndPrevIndex,
+        (i: InstructionInfo) => (i.declaringMethod, getUnconditionalNextPC(i)),
+        (i: InstructionInfo) => (i.declaringMethod, i.pc),
+        ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
+        //control flow for conditional branches assuming branch
+      ) ⊎ new TransactionalEquiJoinView[InstructionInfo, InstructionInfo, InstructionPair, (MethodDeclaration, Int)](
+        relConditionalBranchs,
+        bcd.instructions,
+        (i: InstructionInfo) => (i.declaringMethod, getConditionalNextPCAssumingBranch(i)),
+        (i: InstructionInfo) => (i.declaringMethod, i.pc),
         ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
       )
 
-
+    /*
 
     compile(
       //control flow for normal instructions and unconditional branches assuming no branch
@@ -81,10 +89,10 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
         /*(SELECT((next: InstructionInfo) => InstructionPair(null, next)) FROM
           (bcd.instructions) WHERE (((_: InstructionInfo).pc) === 0))*/
 
-
+    */
 
     //Relation that computes the real ControlFlowEdges from instruction pairs.
-    val result :  Relation[ControlFlowEdge] =  SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
+    val result: Relation[ControlFlowEdge] = SELECT((instrPair: InstructionPair, attribute: CodeAttribute) => getEdge(instrPair.current, instrPair.next, attribute)) FROM(relEdges, bcd.codeAttributes) WHERE (((_: InstructionPair).getDeclaringMethod) === ((_: CodeAttribute).declaringMethod))
 
     return result
 
@@ -106,10 +114,10 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
 
   private def getEdge(current: InstructionInfo, next: InstructionInfo, attribute: CodeAttribute): ControlFlowEdge = {
 
-    if(current.pc == 0)
+    if (current.pc == 0)
       return AnchorControlFlowEdge(current, next, attribute)
     else
-      return DefaultControlFlowEdge(current,next)
+      return DefaultControlFlowEdge(current, next)
 
   }
 

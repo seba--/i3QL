@@ -33,92 +33,89 @@
 package sae
 
 import collection.mutable
-import collection.immutable.HashMap
 import deltas.{Deletion, Addition, Update}
 
-trait Observable[V]
-{
-    protected[sae] var observers: mutable.HashSet[Observer[V]] = new mutable.HashSet[Observer[V]]()
+trait Observable[V] {
+  protected[sae] var observers: mutable.HashSet[Observer[V]] = new mutable.HashSet[Observer[V]]()
 
-    def addObserver(o: Observer[V]) {
-        // sanity check that the assumption of never adding the same observer twice holds
-        if (observers.contains (o))
-        {
-            throw new IllegalArgumentException ("observer already present: " + o.toString)
-        }
-        observers.add (o)
+  def addObserver(o: Observer[V]) {
+    // sanity check that the assumption of never adding the same observer twice holds
+    if (observers.contains(o)) {
+      throw new IllegalArgumentException("observer already present: " + o.toString)
     }
+    observers.add(o)
+  }
 
-    def removeObserver(o: Observer[V]) {
-        observers.remove (o)
+  def removeObserver(o: Observer[V]) {
+    observers.remove(o)
+  }
+
+  def clearObservers() {
+    observers = mutable.HashSet.empty
+  }
+
+  def hasObservers = {
+    !observers.isEmpty
+  }
+
+  /**
+   * remove all observers
+   */
+  def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
+    for (relation <- children) {
+      // remove all observers for this observable
+      for (observer <- childObservers(relation)) {
+        relation.removeObserver(observer.asInstanceOf[Observer[Any]])
+      }
+      // check whether we want to visit the observable
+      if (relation.observers.isEmpty && visitChild(relation)) {
+        relation.clearObserversForChildren(visitChild)
+      }
     }
+  }
 
-    def clearObservers() {
-        observers = mutable.HashSet.empty
-    }
+  /**
+   * Returns the observed children, to allow a top down removal of observers
+   */
+  protected def children: Seq[Observable[_]] = Nil
 
-    def hasObservers = {
-        !observers.isEmpty
-    }
+  def descendants: Seq[Observable[_]] = {
+    (for (child <- children) yield {
+      Seq(child) ++ child.descendants
+    }).flatten
+  }
 
-    /**
-     * remove all observers
-     */
-    def clearObserversForChildren(visitChild: Observable[_] => Boolean) {
-        for (relation <- children) {
-            // remove all observers for this observable
-            for (observer <- childObservers (relation)) {
-                relation.removeObserver (observer.asInstanceOf[Observer[Any]])
-            }
-            // check whether we want to visit the observable
-            if (relation.observers.isEmpty && visitChild (relation)) {
-                relation.clearObserversForChildren (visitChild)
-            }
-        }
-    }
+  /**
+   * Returns the observer for a particular child, since the observers are in many cases inner objects, we
+   * can not simply always remove this as the observer of the child
+   */
+  protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
 
-    /**
-     * Returns the observed children, to allow a top down removal of observers
-     */
-    protected def children: Seq[Observable[_]] = Nil
+  // Notify methods to notify the observers
+  def element_added(v: V) {
+    observers.foreach(_.added(v))
+  }
 
-    def descendants : Seq[Observable[_]] = {
-        (for (child <- children) yield
-        {
-            Seq(child) ++ child.descendants
-        }).flatten
-    }
+  def element_removed(v: V) {
+    observers.foreach(_.removed(v))
+  }
 
-    /**
-     * Returns the observer for a particular child, since the observers are in many cases inner objects, we
-     * can not simply always remove this as the observer of the child
-     */
-    protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
+  @deprecated
+  def element_updated(oldV: V, newV: V) {
+    observers.foreach(_.updated(oldV, newV))
+  }
 
-    // Notify methods to notify the observers
-    def element_added(v: V) {
-        observers.foreach (_.added (v))
-    }
+  def element_updated[U <: V](update: Update[U]) {
+    observers.foreach(_.updated(update))
+  }
 
-    def element_removed(v: V) {
-        observers.foreach (_.removed (v))
-    }
+  def element_modifications[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+    observers.foreach(_.modified(additions, deletions, updates))
+  }
 
-    @deprecated
-    def element_updated(oldV: V, newV: V) {
-        observers.foreach (_.updated (oldV, newV))
-    }
-
-    def element_updated[U <: V](update: Update[U]) {
-        observers.foreach (_.updated (update))
-    }
-
-    def element_modifications[U <: V](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-        observers.foreach(_.modified(additions, deletions, updates))
-    }
-
-    def notifyEndTransaction() {
-        observers.foreach(_.endTransaction())
-    }
+  def notifyEndTransaction() {
+    println(this.getClass.toString + ".notifyEndTransaction() with " + observers)
+    observers.foreach(_.endTransaction())
+  }
 }
 
