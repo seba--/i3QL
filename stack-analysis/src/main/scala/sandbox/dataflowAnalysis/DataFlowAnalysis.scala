@@ -49,7 +49,7 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
 
   def emptyValue(ci: CodeInfo): T
 
-  private def computeResult(ci: CodeInfo, cfg: Array[List[Int]]): Array[T] = {
+  private def computeResult(ci: CodeInfo, cfg: IndexedSeq[List[Int]]): Array[T] = {
 
     //The start value of the analysis.
     val sv = startValue(ci)
@@ -118,11 +118,11 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
 
   }
 
-  private def transform(fromPC: Int, a: Array[Instruction], currentResult: T): T = {
+  private def transform(fromPC: Int, a: IndexedSeq[Instruction], currentResult: T): T = {
     transformers.getTransformer(fromPC, a(fromPC))(currentResult)
   }
 
-  private def fromArray(ts: Array[T], index: Int, default: T) = {
+  private def fromArray(ts: IndexedSeq[T], index: Int, default: T) = {
     if (ts(index) == null)
       default
     else
