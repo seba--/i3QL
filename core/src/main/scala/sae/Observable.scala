@@ -114,7 +114,7 @@ trait Observable[V] {
   }
 
   def notifyEndTransaction() {
-    println(this.getClass.toString + ".notifyEndTransaction() with " + observers)
+    println(this + ".notifyEndTransaction() with " + observers)
     observers.foreach(_.endTransaction())
   }
 }

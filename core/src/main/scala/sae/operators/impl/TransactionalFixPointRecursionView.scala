@@ -162,7 +162,7 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
   }
 
   override def added(v: Domain) {
-    println("added -> I was here!")
+    //println("added -> I was here!")
     val anchor = anchorFunction(v)
     if (anchor.isDefined && !additionResults.contains(anchor.get)) {
       additionAnchors = anchor.get :: additionAnchors
