@@ -59,8 +59,8 @@ trait TransactionKeyValueObserver[Key, Domain]
 
     // update operations on right relation
     def updated(oldV: Domain, newV: Domain) {
-        additions.put (keyFunc (newV), newV)
-        deletions.put (keyFunc (oldV), oldV)
+        removed(oldV)
+        added(newV)
     }
 
     def removed(v: Domain) {

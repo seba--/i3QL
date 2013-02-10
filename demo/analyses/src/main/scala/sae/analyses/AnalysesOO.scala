@@ -38,6 +38,7 @@ import sae.bytecode.BytecodeDatabase
 import findbugs.random.oo._
 import findbugs.selected.oo._
 import metrics._
+import simple.CallGraph
 
 
 /**
@@ -49,94 +50,101 @@ object AnalysesOO
 {
 
 
-
-    def apply(analysisName: String, database: BytecodeDatabase)(existsOptimization: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
+    def apply(analysisName: String, database: BytecodeDatabase)
+             (existsOptimization: Boolean, transactional: Boolean, shared: Boolean): Relation[_] = {
         val optimized = existsOptimization || transactional
         if (!optimized) {
             Definitions.shared = shared
             Definitions.transactional = false
             Definitions.existsOptimization = false
             sae.ENABLE_FORCE_TO_SET = false
-            getBase (analysisName, database)
+            getBase(analysisName, database)
         }
-        else
-        {
+        else {
             Definitions.transactional = transactional
             Definitions.existsOptimization = existsOptimization
             Definitions.shared = shared
             sae.ENABLE_FORCE_TO_SET = true
-            getOptimized (analysisName, database)
+            getOptimized(analysisName, database)
         }
     }
 
     private def getBase(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
-        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
-        case "CN_IDIOM" => CN_IDIOM (database)
-        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
-        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
-        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
-        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)
-        case "DM_GC" => DM_GC (database)
-        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
-        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
-        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
-        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
-        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
-        case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
+        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE(database)
+        case "CN_IDIOM" => CN_IDIOM(database)
+        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL(database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE(database)
+        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF(database)
+        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT(database)
+        case "DM_GC" => DM_GC(database)
+        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT(database)
+        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF(database)
+        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED(database)
+        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE(database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR(database)
+        case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD(database)
         /* randomly selected analyses without dataflow */
-        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
-        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
-        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
-        case "FI_USELESS" => FI_USELESS (database)
-        case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY (database)
-        case "MS_PKGPROTECT" => MS_PKGPROTECT (database)
-        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL (database)
-        case "SE_BAD_FIELD_INNER_CLASS" => SE_BAD_FIELD_INNER_CLASS (database)
-        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON (database)
-        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database)
-        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET (database)
-        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database)
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION(database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT(database)
+        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED(database)
+        case "FI_USELESS" => FI_USELESS(database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => ITA_INEFFICIENT_TO_ARRAY(database)
+        case "MS_PKGPROTECT" => MS_PKGPROTECT(database)
+        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
+        case "SE_BAD_FIELD_INNER_CLASS" => SE_BAD_FIELD_INNER_CLASS(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         /* selected metrics */
-        case "DIT" => DepthOfInheritanceTree (database)
-        case "LCOM" => LCOMStar (database)
-        case "CA" => AfferentCoupling (database)
-        case "CE" => EfferentCoupling (database)
-        case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
+        case "DIT" => DepthOfInheritanceTree(database)
+        case "LCOM" => LCOMStar(database)
+        case "CA" => AfferentCoupling(database)
+        case "CE" => EfferentCoupling(database)
+        /* miscellaneous*/
+        case "CG_BASE" => CallGraph(database)
+        case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
     private def getOptimized(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
-        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
-        case "CN_IDIOM" => findbugs.selected.oo.optimized.CN_IDIOM (database)
-        case "CN_IDIOM_NO_SUPER_CALL" => findbugs.selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL (database)
-        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => findbugs.selected.oo.optimized.CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
-        case "CO_ABSTRACT_SELF" => findbugs.selected.oo.optimized.CO_ABSTRACT_SELF (database)
-        case "CO_SELF_NO_OBJECT" => findbugs.selected.oo.optimized.CO_SELF_NO_OBJECT (database)
-        case "DM_GC" => DM_GC (database)
-        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
-        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
-        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
-        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
-        case "SE_NO_SUITABLE_CONSTRUCTOR" => findbugs.selected.oo.optimized.SE_NO_SUITABLE_CONSTRUCTOR (database)
-        case "UUF_UNUSED_FIELD" => findbugs.selected.oo.optimized.UUF_UNUSED_FIELD (database)
+        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE(database)
+        case "CN_IDIOM" => findbugs.selected.oo.optimized.CN_IDIOM(database)
+        case "CN_IDIOM_NO_SUPER_CALL" => findbugs.selected.oo.optimized.CN_IDIOM_NO_SUPER_CALL(database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => findbugs.selected.oo.optimized
+                .CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE(database)
+        case "CO_ABSTRACT_SELF" => findbugs.selected.oo.optimized.CO_ABSTRACT_SELF(database)
+        case "CO_SELF_NO_OBJECT" => findbugs.selected.oo.optimized.CO_SELF_NO_OBJECT(database)
+        case "DM_GC" => DM_GC(database)
+        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT(database)
+        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF(database)
+        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED(database)
+        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE(database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => findbugs.selected.oo.optimized.SE_NO_SUITABLE_CONSTRUCTOR(database)
+        case "UUF_UNUSED_FIELD" => findbugs.selected.oo.optimized.UUF_UNUSED_FIELD(database)
         /* randomly selected analyses without dataflow */
-        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => findbugs.random.oo.optimized.BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION (database)
-        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => findbugs.random.oo.optimized.DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT (database)
-        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED (database)
-        case "FI_USELESS" => findbugs.random.oo.optimized.FI_USELESS (database)
-        case "ITA_INEFFICIENT_TO_ARRAY" => findbugs.random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY (database)
-        case "MS_PKGPROTECT" => findbugs.random.oo.optimized.MS_PKGPROTECT (database)
-        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL (database)
-        case "SE_BAD_FIELD_INNER_CLASS" => findbugs.random.oo.optimized.SE_BAD_FIELD_INNER_CLASS (database)
-        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => findbugs.random.oo.optimized.SIC_INNER_SHOULD_BE_STATIC_ANON (database)
-        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (database)
-        case "UG_SYNC_SET_UNSYNC_GET" => findbugs.random.oo.optimized.UG_SYNC_SET_UNSYNC_GET (database)
-        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => findbugs.random.oo.optimized.UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR (database)
+        case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => findbugs.random.oo.optimized
+                .BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION(database)
+        case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => findbugs.random.oo.optimized
+                .DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT(database)
+        case "DP_DO_INSIDE_DO_PRIVILEGED" => DP_DO_INSIDE_DO_PRIVILEGED(database)
+        case "FI_USELESS" => findbugs.random.oo.optimized.FI_USELESS(database)
+        case "ITA_INEFFICIENT_TO_ARRAY" => findbugs.random.oo.optimized.ITA_INEFFICIENT_TO_ARRAY(database)
+        case "MS_PKGPROTECT" => findbugs.random.oo.optimized.MS_PKGPROTECT(database)
+        case "MS_SHOULD_BE_FINAL" => MS_SHOULD_BE_FINAL(database)
+        case "SE_BAD_FIELD_INNER_CLASS" => findbugs.random.oo.optimized.SE_BAD_FIELD_INNER_CLASS(database)
+        case "SIC_INNER_SHOULD_BE_STATIC_ANON" => findbugs.random.oo.optimized.SIC_INNER_SHOULD_BE_STATIC_ANON(database)
+        case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
+        case "UG_SYNC_SET_UNSYNC_GET" => findbugs.random.oo.optimized.UG_SYNC_SET_UNSYNC_GET(database)
+        case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => findbugs.random.oo.optimized
+                .UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
         /* selected metrics */
-        case "DIT" => DepthOfInheritanceTree (database)
-        case "LCOM" => LCOMStar (database)
-        case "CA" => AfferentCoupling (database)
-        case "CE" => EfferentCoupling (database)
-        case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
+        case "DIT" => DepthOfInheritanceTree(database)
+        case "LCOM" => LCOMStar(database)
+        case "CA" => AfferentCoupling(database)
+        case "CE" => EfferentCoupling(database)
+        /* miscellaneous*/
+        case "CG_BASE" => CallGraph(database)
+        case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
 
