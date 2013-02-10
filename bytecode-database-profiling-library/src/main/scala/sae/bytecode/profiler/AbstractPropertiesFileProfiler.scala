@@ -191,7 +191,7 @@ trait AbstractPropertiesFileProfiler
                 optimized.toString + separator +
                 transactional.toString + separator +
                 sharedSubQueries.toString + separator +
-                queries.reduce (_ + " | " + _) + separator +
+                (if(queries.isEmpty){"NONE"} else {queries.reduce (_ + " | " + _) + separator}) +
                 resultCount + separator +
                 ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.mean))) + separator +
                 ("%.3f" formatLocal (java.util.Locale.UK, measurementUnit.fromBase (statistic.standardDeviation))) + separator +
