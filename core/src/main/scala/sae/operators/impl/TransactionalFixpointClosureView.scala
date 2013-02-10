@@ -50,7 +50,6 @@ import util.TransactionElementObserver
  *
  * @author Ralf Mitschke
  */
-/*
 class TransactionalFixPointClosureView[Edge, Vertex, Info](val source: Relation[Edge],
                                                            val getTail: Edge => Vertex,
                                                            val getHead: Edge => Vertex,
@@ -424,4 +423,3 @@ class TransactionalFixPointClosureView[Edge, Vertex, Info](val source: Relation[
         // should not be required since we add all in one transaction
     }
 }
-*/
