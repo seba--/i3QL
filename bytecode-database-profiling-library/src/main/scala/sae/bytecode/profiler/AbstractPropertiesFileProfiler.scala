@@ -64,7 +64,7 @@ trait AbstractPropertiesFileProfiler
 
     def properties = lPorperties
 
-    private var lPorperties : Properties = new Properties()
+    private var lPorperties: Properties = new Properties ()
 
     def main(args: Array[String]) {
         if (args.length == 0 || !args (0).endsWith (".properties")) {
@@ -126,7 +126,15 @@ trait AbstractPropertiesFileProfiler
 
         val measurementIterations = properties.getProperty ("sae.benchmark.iterations").toInt
         val measurementJars = properties.getProperty ("sae.benchmark.jars").split (";").toList
-        val queries = properties.getProperty ("sae.benchmark.queries").split (";").toList
+        val queries =
+            if (properties.getProperty ("sae.benchmark.queries").isEmpty)
+            {
+                Nil
+            }
+            else
+            {
+                properties.getProperty ("sae.benchmark.queries").split (";").toList
+            }
 
         val outputFile = properties.getProperty ("sae.benchmark.out", System.getProperty ("user.dir") + "/bench.txt")
 
