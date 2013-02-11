@@ -33,12 +33,13 @@
 package sae.bytecode.analyses.profiler
 
 import java.io.InputStream
-import de.tud.cs.st.bat.resolved.analyses.{Analyses, Project}
+import de.tud.cs.st.bat.resolved.analyses.Project
 import de.tud.cs.st.bat.resolved.reader.Java6Framework
 import java.util.zip.{ZipEntry, ZipInputStream}
 import sae.bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileProfiler}
 import sae.bytecode.profiler.statistics.{SimpleDataStatistic, DataStatistic, SampleStatistic}
 import sae.bytecode.profiler.util.MilliSeconds
+import de.tud.cs.st.bat.resolved.ClassFile
 
 
 /**
@@ -47,7 +48,7 @@ import sae.bytecode.profiler.util.MilliSeconds
  *
  */
 
-object BATAnalysesTimeProfiler
+object BATProjectConstructionTimeProfiler
     extends AbstractPropertiesFileProfiler
     with TimeMeasurement
 {
@@ -59,12 +60,12 @@ object BATAnalysesTimeProfiler
 
     def measure(iterations: Int, jars: List[String], queries: List[String]): SampleStatistic = {
         if (reReadJars) {
-            measureTime (iterations)(() => applyAnalysesWithJarReading (jars, queries))
+            measureTime (iterations)(() => makeProjectWithJarReading (jars))
         }
         else
         {
-            val project = readJars (jars)
-            measureTime (iterations)(() => applyAnalysesWithoutJarReading (project, queries))
+            val classFiles = readJars (jars)
+            measureTime (iterations)(() => makeProjectWithoutJarReading (classFiles))
 
         }
     }
@@ -83,11 +84,11 @@ object BATAnalysesTimeProfiler
         var i = 0
         while (i < iterations) {
             if (reReadJars) {
-                applyAnalysesWithJarReading (jars, queries)
+                makeProjectWithJarReading (jars)
             }
             else
             {
-                applyAnalysesWithoutJarReading (project.get, queries)
+                makeProjectWithoutJarReading (project.get)
             }
             i += 1
         }
@@ -97,28 +98,19 @@ object BATAnalysesTimeProfiler
 
 
     def resultCount(jars: List[String], queries: List[String]): Long = {
-        val project = readJars (jars)
-        var count: Long = 0
-        for (query <- queries) {
-            val analysis = Analyses (query)
-            val results = analysis.apply (project)
-            count += results.size
-        }
-        count
+        0L
     }
 
 
-    def applyAnalysesWithJarReading(jars: List[String], queries: List[String]): Long = {
+    def makeProjectWithJarReading(jars: List[String]): Long = {
         var taken: Long = 0
         time {
             l => taken += l
         }
         {
-            val project = readJars (jars)
-            for (query <- queries) {
-            val analysis = Analyses (query)
-                analysis.apply (project)
-            }
+            val project = new Project ()
+            val classFiles = readJars (jars)
+            project ++ classFiles
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
@@ -126,16 +118,14 @@ object BATAnalysesTimeProfiler
         taken
     }
 
-    def applyAnalysesWithoutJarReading(project: Project, queries: List[String]): Long = {
+    def makeProjectWithoutJarReading(classFiles: List[ClassFile]): Long = {
         var taken: Long = 0
-        for (query <- queries) {
-            val analysis = Analyses (query)
-            time[Iterable[_]] {
-                l => taken += l
-            }
-            {
-                analysis.apply (project)
-            }
+        time {
+            l => taken += l
+        }
+        {
+            val project = new Project ()
+            project ++ classFiles
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
@@ -144,9 +134,8 @@ object BATAnalysesTimeProfiler
     }
 
 
-    def readJars(jars: List[String]): Project = {
-
-        var project = new Project ()
+    def readJars(jars: List[String]): List[ClassFile] = {
+        var classsFiles: List[ClassFile] = Nil
         for (entry ← jars)
         {
             val zipStream: ZipInputStream = new ZipInputStream (this.getClass.getClassLoader.getResource (entry).openStream ())
@@ -158,11 +147,11 @@ object BATAnalysesTimeProfiler
             {
                 if (!zipEntry.isDirectory && zipEntry.getName.endsWith (".class"))
                 {
-                    project += Java6Framework.ClassFile (() => new ZipStreamEntryWrapper (zipStream, zipEntry))
+                    classsFiles ::= Java6Framework.ClassFile (() => new ZipStreamEntryWrapper (zipStream, zipEntry))
                 }
             }
         }
-        project
+        classsFiles
     }
 
     private class ZipStreamEntryWrapper(val stream: ZipInputStream, val entry: ZipEntry) extends InputStream
@@ -205,12 +194,12 @@ object BATAnalysesTimeProfiler
     def measurementUnit = MilliSeconds
 
     def dataStatistic(jars: List[String]): DataStatistic = {
-        val project = readJars (jars)
+        val classFiles = readJars (jars)
 
-        val classCount = project.classFiles.size
-        val methods = project.classFiles.flatMap (_.methods)
+        val classCount = classFiles.size
+        val methods = classFiles.flatMap (_.methods)
         val methodCount = methods.size
-        val fields = project.classFiles.flatMap (_.fields)
+        val fields = classFiles.flatMap (_.fields)
         val fieldCount = fields.size
         val instructions =
             for {method <- methods
