@@ -428,29 +428,29 @@ class BATBytecodeDatabase
     }
 
     def commitTransaction() {
-        transaction.classDeclarationAdditions.foreach(
-            classDeclarations.element_added(_)
-        )
         transaction.classDeclarationDeletions.foreach(
             classDeclarations.element_removed(_)
         )
-        transaction.methodDeclarationAdditions.foreach(
-            methodDeclarations.element_added(_)
+        transaction.classDeclarationAdditions.foreach(
+            classDeclarations.element_added(_)
         )
         transaction.methodDeclarationDeletions.foreach(
             methodDeclarations.element_removed(_)
         )
-        transaction.fieldDeclarationAdditions.foreach(
-            fieldDeclarations.element_added(_)
+        transaction.methodDeclarationAdditions.foreach(
+            methodDeclarations.element_added(_)
         )
         transaction.fieldDeclarationDeletions.foreach(
             fieldDeclarations.element_removed(_)
         )
-        transaction.codeAdditions.foreach(
-            code.element_added(_)
+        transaction.fieldDeclarationAdditions.foreach(
+            fieldDeclarations.element_added(_)
         )
         transaction.codeDeletions.foreach(
             code.element_removed(_)
+        )
+        transaction.codeAdditions.foreach(
+            code.element_added(_)
         )
 
         transaction = null
