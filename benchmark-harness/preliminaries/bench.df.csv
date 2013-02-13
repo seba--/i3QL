@@ -1,0 +1,2 @@
+bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
+BAT time;jdk1.7.0-win-64-rt.jar;18663;165512;76399;4505310;25;100;true;false;false;false;DL_SYNCHRONIZATION | DMI_INVOKING_TOSTRING_ON_ARRAY | RC_REF_COMPARISON | RV_RETURN_VALUE_IGNORED | SA_FIELD_SELF_COMPARISON | SA_LOCAL_SELF_ASSIGNMENT | SQL_BAD_PREPARED_STATEMENT_ACCESS;31588;40932.593;52.066;5.207;ms
