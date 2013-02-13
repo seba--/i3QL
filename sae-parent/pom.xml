@@ -59,7 +59,7 @@
                     <useFile>false</useFile>
                     <disableXmlReport>true</disableXmlReport>
                     <includes>
-                        <include>**/*Test*.*</include>
+                        <include>**/*TestMethods*.*</include>
                         <include>**/*Suite*.*</include>
                         <include>**/*Spec*.*</include>
                     </includes>

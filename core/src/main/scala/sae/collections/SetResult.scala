@@ -36,7 +36,7 @@ import sae._
 import deltas.{Update, Deletion, Addition}
 
 /**
- * A result that materializes all data from the underlying relation into a set
+ * A newResult that materializes all data from the underlying relation into a set
  */
 class SetResult[V](val relation: Relation[V])
     extends Set[V]

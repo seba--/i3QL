@@ -33,14 +33,14 @@ object RC_REF_COMPARISON
             return;
         }
         if (lhsType instanceof ReferenceType && rhsType instanceof ReferenceType) {
-            IncompatibleTypes result = IncompatibleTypes.getPriorityForAssumingCompatible(lhsType, rhsType, true);
-            if (result != IncompatibleTypes.SEEMS_OK && result != IncompatibleTypes.UNCHECKED) {
+            IncompatibleTypes newResult = IncompatibleTypes.getPriorityForAssumingCompatible(lhsType, rhsType, true);
+            if (newResult != IncompatibleTypes.SEEMS_OK && newResult != IncompatibleTypes.UNCHECKED) {
                 String sourceFile = jclass.getSourceFileName();
 
                 boolean isAssertSame = handle.getInstruction() instanceof INVOKESTATIC;
                 if (isAssertSame)
                     bugAccumulator.accumulateBug(
-                            new BugInstance(this, "TESTING", result.getPriority())
+                            new BugInstance(this, "TESTING", newResult.getPriority())
                             .addClassAndMethod(methodGen, sourceFile)
                             .addString("Calling assertSame with two distinct objects")
                             .addFoundAndExpectedType(rhsType, lhsType)
@@ -48,7 +48,7 @@ object RC_REF_COMPARISON
                             SourceLineAnnotation.fromVisitedInstruction(classContext, methodGen, sourceFile, handle));
                     else
                 bugAccumulator.accumulateBug(
-                        new BugInstance(this, "EC_UNRELATED_TYPES_USING_POINTER_EQUALITY", result.getPriority())
+                        new BugInstance(this, "EC_UNRELATED_TYPES_USING_POINTER_EQUALITY", newResult.getPriority())
                                 .addClassAndMethod(methodGen, sourceFile).addFoundAndExpectedType(rhsType, lhsType)
                                 .addSomeSourceForTopTwoStackValues(classContext, method, location),
                         SourceLineAnnotation.fromVisitedInstruction(classContext, methodGen, sourceFile, handle));

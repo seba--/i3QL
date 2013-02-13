@@ -105,6 +105,11 @@ trait Relation[V]
         super.element_updated (oldV, newV)
     }
 
+    abstract override def notifyEndTransaction() {
+        indices.values.foreach (_.endTransaction())
+        super.notifyEndTransaction()
+    }
+
     /**
      * returns an index for specified key function
      */

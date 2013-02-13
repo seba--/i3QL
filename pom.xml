@@ -19,15 +19,29 @@
         <module>bytecode-database-profiling-library</module>
         <module>bytecode-database-profiling-runner</module>
         <module>demo/findbugs</module>
+        <!--<module>benchmark-harness</module>-->
+        <module>stack-analysis</module>
         <module>demo/metrics</module>
         <module>demo/architecture</module>
         <module>demo/analyses</module>
         <module>replay-framework</module>
         <module>unisson</module>
 
+
         <!--
-            <module>benchmark-harness</module>
+
+
+
+                  <module>bytecode-reader</module>
           <module>deploy</module>
+          <module>unisson</module>
+
+            <module>further-functionality</module>
+            <module>profiler</module>
+            <module>test-client</module>
+            <module>test-data</module>
+            <module>unisson</module>
+
         -->
     </modules>
 

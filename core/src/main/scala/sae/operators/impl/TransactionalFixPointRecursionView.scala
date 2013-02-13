@@ -34,7 +34,7 @@ package sae.operators.impl
 
 import sae.operators.FixPointRecursion
 import util.TransactionKeyValueObserver
-import sae.Relation
+import sae.{Observable, Relation}
 import collection.mutable
 
 /**
@@ -47,98 +47,150 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
                                                              val domainKeyFunction: Domain => Key,
                                                              val rangeKeyFunction: Range => Key,
                                                              val step: (Domain, Range) => Range)
-        extends FixPointRecursion[Domain, Range, Key]
-        with TransactionKeyValueObserver[Key, Domain]
-{
+  extends FixPointRecursion[Domain, Range, Key]
+  with TransactionKeyValueObserver[Key, Domain] with Observable[Range] {
 
-    var additionAnchors: List[Range] = Nil
+  source addObserver this
 
-    var additionResults = mutable.HashSet.empty[Range]
-
-    var deletionsAnchors: List[Range] = Nil
-
-    var deletionResults = mutable.HashSet.empty[Range]
+  var additionAnchors: List[Range] = Nil
+  var additionResults = mutable.HashSet.empty[Range]
+  var deletionAnchors: List[Range] = Nil
+  var deletionResults = mutable.HashSet.empty[Range]
 
 
-    def keyFunc = domainKeyFunction
+  def keyFunc = domainKeyFunction
 
-    def doRecursionForAddedElements() {
-        // TODO compute the recursive values
 
-        // all domain values are stored in the Multimap "additions"
-        for (anchor <- additionAnchors) {
+  def doRecursionForAddedElements() {
+    // TODO compute the recursive values
+    println("doRecursionForAddedElements -> I was here!")
+    // all domain values are stored in the Multimap "additions"
+    for (anchor <- additionAnchors) {
 
-            // TODO do something like this recursively!!
-            // It has to be done recursively, since for each new element you can have multiple matching domain values
-            // hence you need a recursive call to retain the domain values at which you "forked" the computation
-            // you could try to optimize this by checking whether "additions.get(key).size() == 1" and in this case just doing a while loop
-            val key = rangeKeyFunction(anchor)
+      // TODO do something like this recursively!!
+      // It has to be done recursively, since for each new element you can have multiple matching domain values
+      // hence you need a recursive call to retain the domain values at which you "forked" the computation
+      // you could try to optimize this by checking whether "additions.get(key).size() == 1" and in this case just doing a while loop
+      /*     val key = rangeKeyFunction(anchor)
 
-            var it: java.util.Iterator[Domain] = additions.get(key).iterator()
-            while (it.hasNext) {
-                val value = it.next()
-                var nextResult = step(value, anchor)
-                if (!additionResults.containsEntry(nextResult)) {
-                    element_added(nextResult)
-
-                }
-
-            }
+    var it: java.util.Iterator[Domain] = additions.get(key).iterator()
+    while (it.hasNext) {
+        val value = it.next()
+        var nextResult = step(value, anchor)
+        if (!additionResults.containsEntry(nextResult)) {
+            element_added(nextResult)
 
         }
+
+    }  */
+
+      addResult(anchor)
+
     }
+  }
 
-    def doRecursionForRemovedElements() {
-        // TODO compute the recursive values
+  private def addResult(newResult: Range) {
+    println("addResult -> I was here!")
 
-        // all domain values are stored in the Multimap "deletions"
-    }
 
-    override def endTransaction() {
-        doRecursionForAddedElements()
-        doRecursionForRemovedElements()
-        clear()
-        super.endTransaction()
-    }
+    //If the newResult is already present in additionResults, do nothing (fixed point).
+    if (additionResults.contains(newResult)) {
+      return
+      //else combine the already present result with the new result.
+    } else {
+      additionResults.add(newResult)
+      element_added(newResult)
 
-    override def clear() {
-        additionAnchors = Nil
-        deletionsAnchors = Nil
-        additionResults = mutable.HashSet.empty[Range]
-        deletionResults = mutable.HashSet.empty[Range]
-        // TODO remove any data structures you define.
-        // please store them as "var" and do,  x = new HashMap, or something
-        super.clear()
-    }
-
-    override def added(v: Domain) {
-        val anchor = anchorFunction(v)
-        if (anchor.isDefined && !additionResults.contains(anchor.get)) {
-            additionAnchors = anchor.get :: additionAnchors
-            element_added(anchor.get)
-            additionResults.add(anchor.get)
-        }
-        super.added(v)
-    }
-
-    override def removed(v: Domain) {
-        val anchor = anchorFunction(v)
-        if (anchor.isDefined && !deletionResults.contains(anchor.get)) {
-            deletionsAnchors = anchor.get :: deletionsAnchors
-            element_removed(anchor.get)
-            deletionResults.add(anchor.get)
-        }
-        super.removed(v)
+      var it: java.util.Iterator[Domain] = additions.get(rangeKeyFunction(newResult)).iterator()
+      while (it.hasNext) {
+        val next: Domain = it.next()
+        val nextResult: Range = step(next, newResult)
+        addResult(nextResult)
+      }
     }
 
 
-    def foreach[T](f: (Range) => T) {
-        /* do nothing, since this is a transactional view */
-    }
+  }
 
-    /**
-     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
-     */
-    def isStored = false
+  def doRecursionForRemovedElements() {
+    // TODO compute the recursive values
+
+    // all domain values are stored in the Multimap "deletions"
+
+    for (anchor <- deletionAnchors) {
+      deleteResult(anchor)
+    }
+  }
+
+  private def deleteResult(delResult: Range) {
+    println("doRecursionForRemovedElements -> I was here!")
+
+    //If the result has already been deleted or has been added by the added results.
+    if (additionResults.contains(delResult) || deletionResults.contains(delResult)) {
+      return
+      //Delete the result and continue deleteing recursively.
+    } else {
+      deletionResults.add(delResult)
+      element_removed(delResult)
+
+      var it: java.util.Iterator[Domain] = deletions.get(rangeKeyFunction(delResult)).iterator()
+      while (it.hasNext) {
+        val next: Domain = it.next()
+        val nextResult: Range = step(next, delResult)
+        deleteResult(nextResult)
+      }
+    }
+  }
+
+  override def endTransaction() {
+    println("endTransaction -> I was here!")
+    doRecursionForAddedElements()
+    doRecursionForRemovedElements()
+    clear()
+    super.endTransaction()
+  }
+
+  override def clear() {
+    println("clear -> I was here!")
+    additionAnchors = Nil
+    deletionAnchors = Nil
+    additionResults = mutable.HashSet.empty[Range]
+    deletionResults = mutable.HashSet.empty[Range]
+    // TODO remove any data structures you define.
+    // please store them as "var" and do,  x = new HashMap, or something
+    super.clear()
+  }
+
+  override def added(v: Domain) {
+    //println("added -> I was here!")
+    val anchor = anchorFunction(v)
+    if (anchor.isDefined && !additionResults.contains(anchor.get)) {
+      additionAnchors = anchor.get :: additionAnchors
+      //element_added(anchor.get)
+      //additionResults.add(anchor.get)
+    }
+    super.added(v)
+  }
+
+  override def removed(v: Domain) {
+    println("removed -> I was here!")
+    val anchor = anchorFunction(v)
+    if (anchor.isDefined && !deletionResults.contains(anchor.get)) {
+      deletionAnchors = anchor.get :: deletionAnchors
+      //element_removed(anchor.get)
+      //deletionResults.add(anchor.get)
+    }
+    super.removed(v)
+  }
+
+
+  def foreach[T](f: (Range) => T) {
+    /* do nothing, since this is a transactional view */
+  }
+
+  /**
+   * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+   */
+  def isStored = false
 
 }

@@ -51,7 +51,7 @@ object CFGTimeProfiler
 
     def profile(implicit files: Seq[File]) {
         val statisticWithCount = measureTime(iterations)(() => computeViewAsCount(files)(operations))
-        println("CFG:")
+        println("cfg:")
         println(statisticWithCount.summary(Seconds))
     }
 

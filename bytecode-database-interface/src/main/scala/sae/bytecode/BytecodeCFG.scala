@@ -324,7 +324,7 @@ cfg_graph_successors([], _, []) :- !. % we are finished when the list of edges i
 
 
 /*
-% cfg_graph_list(StartPc, BasicBlockBorderList, CompleteBasicBlockBorders, BasicBlockSuccessorSet, CFG) :-
+% cfg_graph_list(StartPc, BasicBlockBorderList, CompleteBasicBlockBorders, BasicBlockSuccessorSet, cfg) :-
     %
 %
 cfg_graph_list(StartPc, [EndPc|RestPcList], CompleteBasicBlockBorders, BasicBlockSuccessorSet, [((StartPc, EndPc), BasicBlockSuccessors)|CFGListRest]) :-

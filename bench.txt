@@ -1,0 +1,2 @@
+bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
+SAEOO time;scala-compiler.jar;7710;66531;20137;808084;25;100;false;false;false;false;SA_LOCAL_SELF_ASSIGNMENT;63335;321.896;116.348;11.635;ms

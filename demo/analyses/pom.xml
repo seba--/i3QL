@@ -30,6 +30,11 @@
             <groupId>de.tud.cs.st.opal.sae</groupId>
             <artifactId>sae-architecture</artifactId>
         </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-bytecode-database-stack-analysis</artifactId>
+            <version>0.1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

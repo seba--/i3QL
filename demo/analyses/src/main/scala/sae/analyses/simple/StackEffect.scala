@@ -46,13 +46,14 @@ object StackEffect
     def apply(database: BytecodeDatabase): Relation[PredecessorStack] = {
         val successorInstructions: Relation[(InstructionInfo, InstructionInfo)] = null
 
-        new TransactionalFixPointRecursionView(
+       /* new TransactionalFixPointRecursionView(
             successorInstructions,
             anchor,
             prevInstruction,
             stackInstruction,
             recursionStep
-        )
+        )*/
+      return null
 
     }
 

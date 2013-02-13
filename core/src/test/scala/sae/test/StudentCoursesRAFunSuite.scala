@@ -715,7 +715,7 @@ class StudentCoursesRAFunSuite
 
     test ("semi join") {
         // looks a little bit like the intersection test, but semantics are slightly different for bags
-        // i.e. having same element twice in two bags, yields two elements in intersection result
+        // i.e. having same element twice in two bags, yields two elements in intersection newResult
         val persons = database.persons.copy
         val students = database.students.copy
 
@@ -887,7 +887,7 @@ class StudentCoursesRAFunSuite
         assert (antisemijoin.size === 0)
     }
 
-    test ("anti semi join with result subquery") {
+    test ("anti semi join with newResult subquery") {
 
         val students = new Table[Student]
         val employee = new Table[Employee]

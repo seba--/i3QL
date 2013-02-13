@@ -11,7 +11,7 @@ package operators
  * Important Note:
  * E.Codd in his seminal work: RELATIONAL COMPLETENESS OF DATA BASE SUBLANGUAGES
  * defined projection as a set operations.
- * Thus the result does NOT contain duplicates.
+ * Thus the newResult does NOT contain duplicates.
  * According to other papers this treatment of duplicates complicates things
  * (i.e., in the translation from relational calculus to relational algebra? - TODO check).
  * In particular the following property is not guaranteed:
@@ -23,7 +23,7 @@ package operators
  * Definition of intersection in relational calculus
  * R intersect S = ( R[1,2 = 1,2]S )[1,2].
  * Reads as: R joined with S where column 1 and column 2 are equal and
- * the result contains  column 1 and column 2.
+ * the newResult contains  column 1 and column 2.
  * Since the projection in the join:
  * R intersect S := a | b
  * u | v

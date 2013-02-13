@@ -39,6 +39,7 @@ import findbugs.random.oo._
 import findbugs.selected.oo._
 import metrics._
 import simple.CallGraph
+import sandbox.findbugs.detect._
 
 
 /**
@@ -70,19 +71,30 @@ object AnalysesOO
     }
 
     private def getBase(analysisName: String, database: BytecodeDatabase): Relation[_] = analysisName match {
-        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE(database)
-        case "CN_IDIOM" => CN_IDIOM(database)
-        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL(database)
-        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE(database)
-        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF(database)
-        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT(database)
-        case "DM_GC" => DM_GC(database)
-        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT(database)
-        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF(database)
-        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED(database)
-        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE(database)
-        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR(database)
-        case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD(database)
+
+        case "CI_CONFUSED_INHERITANCE" => CI_CONFUSED_INHERITANCE (database)
+        case "CN_IDIOM" => CN_IDIOM (database)
+        case "CN_IDIOM_NO_SUPER_CALL" => CN_IDIOM_NO_SUPER_CALL (database)
+        case "CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" => CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE (database)
+        case "CO_ABSTRACT_SELF" => CO_ABSTRACT_SELF (database)
+        case "CO_SELF_NO_OBJECT" => CO_SELF_NO_OBJECT (database)
+        case "DM_GC" => DM_GC (database)
+        case "DM_RUN_FINALIZERS_ON_EXIT" => DM_RUN_FINALIZERS_ON_EXIT (database)
+        case "EQ_ABSTRACT_SELF" => EQ_ABSTRACT_SELF (database)
+        case "FI_PUBLIC_SHOULD_BE_PROTECTED" => FI_PUBLIC_SHOULD_BE_PROTECTED (database)
+        case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
+        case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
+        case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
+        /* mirko's bug finder */
+        case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        case "RC_REF_COMPARISON" => sandbox.findbugs.detect.RC_REF_COMPARISON(database)
+        case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
+        case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => sandbox.findbugs.detect.SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+
         /* randomly selected analyses without dataflow */
         case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION(database)
         case "DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT" => DMI_LONG_BITS_TO_DOUBLE_INVOKED_ON_INT(database)

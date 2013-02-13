@@ -283,7 +283,7 @@ class TestCachingQueryCompiler
             )
         )
 
-        // remove the result from observers
+        // remove the newResult from observers
         viewExtendsObject.removeObserver (extendsObject.asInstanceOf[Observer[Any]])
         compiler.dispose (parser.parse ("transitive(supertype(class('java.lang','Object')))").get)
 

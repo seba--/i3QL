@@ -41,126 +41,131 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
                                                               val leftKey: DomainA => Key,
                                                               val rightKey: DomainB => Key,
                                                               val projection: (DomainA, DomainB) => Range)
-    extends EquiJoin[DomainA, DomainB, Range, Key]
-{
+  extends EquiJoin[DomainA, DomainB, Range, Key] {
 
-    left addObserver LeftObserver
+  left addObserver LeftObserver
 
-    right addObserver RightObserver
+  right addObserver RightObserver
 
-    override protected def children = List (left, right)
+  override protected def children = List(left, right)
 
-    override def isStored = false
+  override def isStored = false
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left) {
-            return List (LeftObserver)
-        }
-        if (o == right) {
-            return List (RightObserver)
-        }
-        Nil
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == left) {
+      return List(LeftObserver)
     }
-
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        val idx = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
-        left.foreach (v =>
-            idx.put (leftKey (v), v)
-        )
-        right.foreach (v => {
-            val k = rightKey (v)
-            if (idx.containsKey (k)) {
-                val leftElements = idx.get (k)
-                val it = leftElements.iterator ()
-                while (it.hasNext) {
-                    val l = it.next ()
-                    f (projection (l, v))
-                }
-            }
-        }
-        )
+    if (o == right) {
+      return List(RightObserver)
     }
+    Nil
+  }
 
-    private def doJoinAndCleanup() {
-        joinAdditions ()
-        joinDeletions ()
-        LeftObserver.clear()
-        RightObserver.clear()
-    }
-
-    private def joinAdditions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.additions.entries ().iterator
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: (Range) => T) {
+    val idx = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
+    left.foreach(v =>
+      idx.put(leftKey(v), v)
+    )
+    right.foreach(v => {
+      val k = rightKey(v)
+      if (idx.containsKey(k)) {
+        val leftElements = idx.get(k)
+        val it = leftElements.iterator()
         while (it.hasNext) {
-            val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.additions.containsKey (k)) {
-                val rightElements = RightObserver.additions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    element_added (projection (left, right))
-                }
-            }
+          val l = it.next()
+          f(projection(l, v))
         }
+      }
     }
+    )
+  }
 
-    private def joinDeletions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.deletions.entries ().iterator
+  private def doJoinAndCleanup() {
+    joinAdditions()
+    joinDeletions()
+    LeftObserver.clear()
+    RightObserver.clear()
+  }
+
+  private def joinAdditions() {
+    val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.additions.entries().iterator
+    while (it.hasNext) {
+      val next = it.next()
+      val left = next.getValue
+      val k = next.getKey
+      if (RightObserver.additions.containsKey(k)) {
+        val rightElements = RightObserver.additions.get(k)
+        val it = rightElements.iterator()
         while (it.hasNext) {
-            val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.deletions.containsKey (k)) {
-                val rightElements = RightObserver.deletions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    element_removed (projection (left, right))
-                }
-            }
+          val right = it.next()
+          element_added(projection(left, right))
         }
+      }
+    }
+  }
+
+  private def joinDeletions() {
+    val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.deletions.entries().iterator
+    while (it.hasNext) {
+      val next = it.next()
+      val left = next.getValue
+      val k = next.getKey
+      if (RightObserver.deletions.containsKey(k)) {
+        val rightElements = RightObserver.deletions.get(k)
+        val it = rightElements.iterator()
+        while (it.hasNext) {
+          val right = it.next()
+          element_removed(projection(left, right))
+        }
+      }
+    }
+  }
+
+
+  var leftFinished = false
+  var rightFinished = false
+
+  object LeftObserver extends TransactionKeyValueObserver[Key, DomainA] {
+
+    override def endTransaction() {
+        println(this + ".endTransaction() with " + observers)
+        println("waiting : " + !rightFinished)
+
+      leftFinished = true
+      if (rightFinished) {
+        doJoinAndCleanup()
+
+        notifyEndTransaction()
+
+
+        leftFinished = false
+        rightFinished = false
+      }
     }
 
+    def keyFunc = leftKey
+  }
 
-    var leftFinished  = false
-    var rightFinished = false
+  object RightObserver extends TransactionKeyValueObserver[Key, DomainB] {
 
-    object LeftObserver extends TransactionKeyValueObserver[Key, DomainA]
-    {
+    override def endTransaction() {
+        println(this + ".endTransaction() with " + observers)
+        println("waiting : " + !leftFinished)
 
-        override def endTransaction() {
-            leftFinished = true
-            if (rightFinished)
-            {
-                doJoinAndCleanup ()
-                notifyEndTransaction ()
-                leftFinished = false
-                rightFinished = false
-            }
-        }
+      rightFinished = true
+      if (leftFinished) {
+        doJoinAndCleanup()
+        notifyEndTransaction()
 
-        def keyFunc = leftKey
+        leftFinished = false
+        rightFinished = false
+      }
     }
 
-    object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
-    {
-
-        override def endTransaction() {
-            rightFinished = true
-            if (leftFinished)
-            {
-                doJoinAndCleanup ()
-                notifyEndTransaction ()
-                leftFinished = false
-                rightFinished = false
-            }
-        }
-
-        def keyFunc = rightKey
-    }
+    def keyFunc = rightKey
+  }
 
 }
