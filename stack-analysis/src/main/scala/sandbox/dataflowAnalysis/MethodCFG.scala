@@ -9,6 +9,6 @@ import sae.bytecode.structure.MethodDeclaration
  * Time: 15:21
  * To change this template use File | Settings | File Templates.
  */
-case class MethodCFG(declaringMethod: MethodDeclaration, predecessorArray: Array[List[Int]]) {
+case class MethodCFG(declaringMethod: MethodDeclaration, cfg: Array[List[Int]]) {
 
 }

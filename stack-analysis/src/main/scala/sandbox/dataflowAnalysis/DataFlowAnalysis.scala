@@ -38,10 +38,10 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
       cfg,
       i => i.declaringMethod,
       c => c.declaringMethod,
-      (i, c) => MethodResult[T](i.declaringMethod, computeResult(i, c.predecessorArray))
+      (i, c) => MethodResult[T](i.declaringMethod, computeResult(i, c.cfg))
     )
 
-    //compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.predecessorArray))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
+    //compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.cfg))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
   }
 
   def startValue(ci: CodeInfo): T

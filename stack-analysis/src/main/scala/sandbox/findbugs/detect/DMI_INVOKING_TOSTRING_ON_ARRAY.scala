@@ -15,7 +15,7 @@ import sae.bytecode.structure.CodeInfo
  */
 object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]
@@ -37,12 +37,12 @@ object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
     return checkNone
   }
 
-  private def checkArrayToString(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkArrayToString(pc: Int, instr: Instruction, stack: Stack, loc: LocalVariables): Option[BugType.Value] = {
     if (stack.size < 1)
       return None
 
     val op = stack.get(0)
-    if (op.getDeclaredType.isArrayType) {
+    if (op.getItemType.isArrayType) {
       return Some(BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)
     }
     return None

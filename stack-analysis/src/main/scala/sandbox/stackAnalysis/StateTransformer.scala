@@ -45,46 +45,46 @@ case object StateTransformer extends ResultTransformer[State] {
         (p => State(p.stacks.push(Item.createNullItem(pc)), p.variables))
 
       case 0x02 => //ICONST_M1
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, -1)), p.variables))
+        (p => State(p.stacks.push(Item.createItem( pc, ItemType.fromType(IntegerType), -1)), p.variables))
       case 0x03 => //ICONST_0
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 0)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  0)), p.variables))
       case 0x04 => //ICONST_1
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 1)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  1)), p.variables))
       case 0x05 => //ICONST_2
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 2)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  2)), p.variables))
       case 0x06 => //ICONST_3
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 3)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  3)), p.variables))
       case 0x07 => //ICONST_4
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 4)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  4)), p.variables))
       case 0x08 => //ICONST_5
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, 5)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(IntegerType),  5)), p.variables))
 
       case 0x09 => // LCONST_0
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(LongType), pc, 0)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(LongType), 0)), p.variables))
       case 0x0a => //LCONST_1
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(LongType), pc, 1)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(LongType), 1)), p.variables))
 
       case 0x0b => //FCONST_0
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(FloatType), pc, 0)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(FloatType), 0)), p.variables))
       case 0x0c => //FCONST_1
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(FloatType), pc, 1)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(FloatType), 1)), p.variables))
       case 0x0d => //FCONST_2
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(FloatType), pc, 2)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(FloatType), 2)), p.variables))
 
       case 0x0e => //DCONST_0
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(DoubleType), pc, 0)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(DoubleType), 0)), p.variables))
       case 0x0f => //DCONST_1
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(DoubleType), pc, 1)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(DoubleType), 1)), p.variables))
 
       case 0x10 => {
         //BIPUSH(x)
         val i = instr.asInstanceOf[BIPUSH]
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(ByteType), pc, i.value)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(ByteType), i.value)), p.variables))
       }
       case 0x11 => {
         //SIPUSH(x)
         val i = instr.asInstanceOf[SIPUSH]
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(ShortType), pc, i.value)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc,ItemType.fromType(ShortType), i.value)), p.variables))
       }
 
       case 0x12 => //LDC(const)
@@ -98,9 +98,9 @@ case object StateTransformer extends ResultTransformer[State] {
         instr.asInstanceOf[LDC2_W].constantValue match {
 
           case ConstantLong(x) =>
-            (p => State(p.stacks.push(Item.createItem(ItemType.fromType(LongType), pc, x)), p.variables))
+            (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(LongType), x)), p.variables))
           case ConstantDouble(x) =>
-            (p => State(p.stacks.push(Item.createItem(ItemType.fromType(DoubleType), pc, x)), p.variables))
+            (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(DoubleType), x)), p.variables))
           case _ => {
             System.err.println("LDC2_W: must be type double or long.")
             (p => p)
@@ -153,28 +153,28 @@ case object StateTransformer extends ResultTransformer[State] {
         (p => State(p.stacks.pop().pop().push(ShortType, pc), p.variables))
 
       case 0x36 => //ISTORE(x) => //54
-        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[ISTORE].lvIndex, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[ISTORE].lvIndex, Item.upperBound(p.stacks.head))))
 
       case 0x37 => //LSTORE(x) => //55
-        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[LSTORE].lvIndex, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[LSTORE].lvIndex, Item.upperBound(p.stacks.head))))
 
       case 0x38 => //FSTORE(x) => //56
-        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[FSTORE].lvIndex, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[FSTORE].lvIndex, Item.upperBound(p.stacks.head))))
 
       case 0x39 => //DSTORE(x) => //57
-        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[DSTORE].lvIndex, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[DSTORE].lvIndex, Item.upperBound(p.stacks.head))))
 
       case 0x3a => //ASTORE(x) => //58
-        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[ASTORE].lvIndex, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(instr.asInstanceOf[ASTORE].lvIndex, Item.upperBound(p.stacks.head))))
 
       case 0x3b | 0x3f | 0x43 | 0x47 | 0x4b => //xSTORE_0
-        (p => State(p.stacks.pop(), p.variables.setVar(0, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(0, Item.upperBound(p.stacks.head))))
       case 0x3c | 0x40 | 0x44 | 0x48 | 0x4c => //xSTORE_1
-        (p => State(p.stacks.pop(), p.variables.setVar(1, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(1, Item.upperBound(p.stacks.head))))
       case 0x3d | 0x41 | 0x45 | 0x49 | 0x4d => //xSTORE_2
-        (p => State(p.stacks.pop(), p.variables.setVar(2, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(2, Item.upperBound(p.stacks.head))))
       case 0x3e | 0x42 | 0x46 | 0x4a | 0x4e => //xSTORE_3
-        (p => State(p.stacks.pop(), p.variables.setVar(3, Item.combine(p.stacks.head))))
+        (p => State(p.stacks.pop(), p.variables.setVar(3, Item.upperBound(p.stacks.head))))
 
       case _ =>
         computeTransformer2(pc, instr)
@@ -313,7 +313,7 @@ case object StateTransformer extends ResultTransformer[State] {
       case 0xb2 => {
         //GETSTATIC(_, name, t) //178
         val i = instr.asInstanceOf[GETSTATIC]
-        (p => State(p.stacks.push(new Item(ItemType.fromType(i.fieldType), pc, Item.FLAG_ORIGINATES_FROM_FIELD, i.name)), p.variables))
+        (p => State(p.stacks.push(new Item(pc, ItemType.fromType(i.fieldType), Item.FLAG_ORIGINATES_FROM_FIELD, i.name)), p.variables))
       }
       case 0xb3 => //PUTSTATIC(_, _, _) => //179
         (p => State(p.stacks.pop(), p.variables))
@@ -321,7 +321,7 @@ case object StateTransformer extends ResultTransformer[State] {
       case 0xb4 => {
         //GETFIELD(_, name, t) => //180
         val i = instr.asInstanceOf[GETFIELD]
-        (p => State(p.stacks.pop().push(new Item(ItemType.fromType(i.fieldType), pc, Item.FLAG_ORIGINATES_FROM_FIELD, i.name)), p.variables))
+        (p => State(p.stacks.pop().push(new Item(pc, ItemType.fromType(i.fieldType), Item.FLAG_ORIGINATES_FROM_FIELD, i.name)), p.variables))
       }
 
       case 0xb5 => //PUTFIELD(_, _, _) => //181
@@ -339,26 +339,26 @@ case object StateTransformer extends ResultTransformer[State] {
         invokeTransformer(pc, instr.asInstanceOf[INVOKEDYNAMIC].methodDescriptor, false)
 
       case 0xbb => //NEW(t) => //187
-        (p => State(p.stacks.push(Item(instr.asInstanceOf[NEW].objectType, pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+        (p => State(p.stacks.push(Item( pc, instr.asInstanceOf[NEW].objectType, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
 
       case 0xbc => //NEWARRAY(aType) => //188
         instr.asInstanceOf[NEWARRAY].atype match {
           case 4 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(BooleanType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(BooleanType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 5 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(CharType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(CharType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 6 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(FloatType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(FloatType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 7 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(DoubleType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(DoubleType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 8 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(ByteType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(ByteType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 9 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(ShortType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(ShortType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 10 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(IntegerType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(IntegerType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case 11 =>
-            (p => State(p.stacks.pop().push(Item(ArrayType(LongType), pc, Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
+            (p => State(p.stacks.pop().push(Item(pc, ArrayType(LongType),  Item.FLAG_IS_CREATED_BY_NEW)), p.variables))
           case x => {
             System.err.println(x + ": Arraytype not supported by NEWARRAY.")
             (p => p)
@@ -415,7 +415,7 @@ case object StateTransformer extends ResultTransformer[State] {
         stack = stack.pop()
 
       if (!method.returnType.isVoidType)
-        stack = stack.push(Item(ItemType.fromType(method.returnType), pc, Item.FLAG_IS_RETURN_VALUE))
+        stack = stack.push(Item( pc, ItemType.fromType(method.returnType), Item.FLAG_IS_RETURN_VALUE))
 
       State(stack, p.variables)
     })
@@ -425,13 +425,13 @@ case object StateTransformer extends ResultTransformer[State] {
     const match {
 
       case ConstantString(x) =>
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(ObjectType.String), pc, x)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(ObjectType.String), x)), p.variables))
       case ConstantInteger(x) =>
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(IntegerType), pc, x)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(IntegerType), x)), p.variables))
       case ConstantFloat(x) =>
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(FloatType), pc, x)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(FloatType), x)), p.variables))
       case ConstantClass(x) =>
-        (p => State(p.stacks.push(Item.createItem(ItemType.fromType(ObjectType.Class), pc, x)), p.variables))
+        (p => State(p.stacks.push(Item.createItem(pc, ItemType.fromType(ObjectType.Class), x)), p.variables))
       case _ => {
         System.err.println("LDC_W: must be type string, integer, float or class. Found: " + const)
         (p => p)

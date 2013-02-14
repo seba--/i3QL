@@ -67,7 +67,7 @@ trait StackBugFinder extends (BytecodeDatabase => Relation[BugEntry]) {
   def computeBugLoggerFromCodeInfo(ci: CodeInfo, mr: MethodResult[State], logger: BugLogger): BugLogger = {
 
     val instructionArray = ci.code.instructions
-    val analysisArray = mr.resultArray
+    val analysisArray = mr.result
 
     var currentPC = 0
 

@@ -38,15 +38,15 @@ case object State {
     var stacks = Stacks(maxStack, Nil).addStack()
 
     var lvs = if (declaringMethod.isStatic)
-      LocalVariables(Array.fill[Item](maxLoc)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED)))
+      LocalVariables(Array.fill[Item](maxLoc)(Item( -1, ItemType.None, Item.FLAG_IS_NOT_INITIALIZED)))
     else
-      LocalVariables(Array.fill[Item](maxLoc)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))).setVar(0, Item(ItemType.SomeRef(ObjectType.Class), -1, Item.FLAG_IS_PARAMETER))
+      LocalVariables(Array.fill[Item](maxLoc)(Item( -1, ItemType.None, Item.FLAG_IS_NOT_INITIALIZED))).setVar(0, Item( -1, ItemType.SomeRef(ObjectType.Class), Item.FLAG_IS_PARAMETER))
 
     var i: Int = if (declaringMethod.isStatic) -1 else 0
 
     for (t <- declaringMethod.parameterTypes) {
       i = i + 1
-      lvs = lvs.setVar(i, Item(ItemType.fromType(t), -1, Item.FLAG_IS_PARAMETER))
+      lvs = lvs.setVar(i, Item( -1, ItemType.fromType(t), Item.FLAG_IS_PARAMETER))
     }
 
     State(stacks, lvs)

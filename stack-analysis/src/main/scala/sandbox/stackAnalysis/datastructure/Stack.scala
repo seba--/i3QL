@@ -56,7 +56,7 @@ case class Stack(maxStack: Int, itemStack: List[Item]) {
 
 
   def push(t: Type, pc: Int): Stack = {
-    push(Item.createItem(ItemType.fromType(t), pc))
+    push(Item.createItem(pc,ItemType.fromType(t)))
   }
 
   def pop(amount: Int): Stack = {

@@ -19,7 +19,7 @@ object SQL_BAD_PREPARED_STATEMENT_ACCESS extends StackBugFinder {
     "Float" :: "Int" :: "Long" :: "Object" :: "Ref" :: "RowId" :: "Short" :: "String" :: "Time" :: "Timestamp" ::
     "UnicodeStream" :: "URL" :: Nil
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEINTERFACE]) {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
@@ -35,7 +35,7 @@ object SQL_BAD_PREPARED_STATEMENT_ACCESS extends StackBugFinder {
 
   }
 
-  private def checkBadAccess(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkBadAccess(pc: Int, instr: Instruction, stack: Stack, loc: LocalVariables): Option[BugType.Value] = {
     val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
     val numParams: Int = invInstr.methodDescriptor.parameterTypes.size
     val indexParam: Item = stack.get(numParams - 1)

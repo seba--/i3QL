@@ -41,7 +41,7 @@ case class Stacks(maxStack: Int, stacks: List[Stack]) extends Combinable[Stacks]
     if (ts == Nil)
       return this
     else {
-      push(Item.combine(ts))
+      push(Item.upperBound(ts))
     }
   }
 

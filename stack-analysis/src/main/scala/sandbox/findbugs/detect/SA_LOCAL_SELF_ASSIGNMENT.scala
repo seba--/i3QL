@@ -19,7 +19,7 @@ import sae.bytecode.structure.CodeInfo
  */
 object SA_LOCAL_SELF_ASSIGNMENT extends StackBugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[StoreLocalVariableInstruction]) {
       return checkStoreInstruction
@@ -27,7 +27,7 @@ object SA_LOCAL_SELF_ASSIGNMENT extends StackBugFinder {
     return checkNone
   }
 
-  private def checkStoreInstruction(pc: Int, instr: Instruction, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+  private def checkStoreInstruction(pc: Int, instr: Instruction, stack: Stack, lv: LocalVariables): Option[BugType.Value] = {
     val lvIndex = getIndexOfLocalVariable(instr.asInstanceOf[StoreLocalVariableInstruction])
 
     //TODO: Remove this test when exceptions are implemented.

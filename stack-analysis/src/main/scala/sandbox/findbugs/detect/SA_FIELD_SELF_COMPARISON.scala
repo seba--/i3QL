@@ -16,7 +16,7 @@ import sae.bytecode.structure.CodeInfo
 object SA_FIELD_SELF_COMPARISON extends StackBugFinder {
 
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
 
     //Comparison using IF_XXXX
@@ -46,7 +46,7 @@ object SA_FIELD_SELF_COMPARISON extends StackBugFinder {
 
   }
 
-  private def checkSelfComparison(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkSelfComparison(pc: Int, instr: Instruction, stack: Stack, loc: LocalVariables): Option[BugType.Value] = {
 
 
     if (stack.size < 2)

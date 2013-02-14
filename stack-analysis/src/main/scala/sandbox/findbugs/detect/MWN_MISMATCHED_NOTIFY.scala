@@ -14,7 +14,7 @@ import sae.bytecode.structure.CodeInfo
  */
 object MWN_MISMATCHED_NOTIFY extends StackBugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]
@@ -30,7 +30,7 @@ object MWN_MISMATCHED_NOTIFY extends StackBugFinder {
 
   }
 
-  private def checkMismatchedNotify(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkMismatchedNotify(pc: Int, instr: Instruction, stack: Stack, loc: LocalVariables): Option[BugType.Value] = {
     None
   }
 }

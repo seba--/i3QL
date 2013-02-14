@@ -34,7 +34,7 @@ case class LocalVariables(varStore: Array[Item])(implicit m: Manifest[Item]) ext
   }
 
   def setVar(index: Int, t: Type, pc: Int): LocalVariables =
-    setVar(index, t.computationalType.operandSize, Item.createItem(ItemType.fromType(t), pc))
+    setVar(index, t.computationalType.operandSize, Item.createItem(pc, ItemType.fromType(t)))
 
 
   def length(): Int = {
@@ -52,7 +52,7 @@ case class LocalVariables(varStore: Array[Item])(implicit m: Manifest[Item]) ext
         if (varStore(i) == null)
           res(i) = other.varStore(i)
         else
-          res(i) = varStore(i).combineWith(other.varStore(i))
+          res(i) = varStore(i).upperBound(other.varStore(i))
       }
 
       LocalVariables(res)

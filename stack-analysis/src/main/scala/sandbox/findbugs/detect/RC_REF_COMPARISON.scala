@@ -27,7 +27,7 @@ object RC_REF_COMPARISON extends StackBugFinder {
       ObjectType("java/lang/Short") ::
       Nil
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {
@@ -67,7 +67,7 @@ object RC_REF_COMPARISON extends StackBugFinder {
   }
 
 
-  private def checkRefComparison(pc: Int, instr: Instruction, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+  private def checkRefComparison(pc: Int, instr: Instruction, stack: Stack, lv: LocalVariables): Option[BugType.Value] = {
     if (stack.size < 2)
       return None
 
@@ -76,11 +76,11 @@ object RC_REF_COMPARISON extends StackBugFinder {
     //Do nothing if comparison with null.
     if (rhs.isCouldBeNull || lhs.isCouldBeNull) {
       return None
-    } else if (rhs.getDeclaredType.isReferenceType && lhs.getDeclaredType.isReferenceType) {
+    } else if (rhs.getItemType.isReferenceType && lhs.getItemType.isReferenceType) {
       //TODO:add case when the types of rhs and lhs are not compatible
-      if (rhs.getDeclaredType.isOfType(ObjectType.Object) && lhs.getDeclaredType.isOfType(ObjectType.Object)) {
+      if (rhs.getItemType.isOfType(ObjectType.Object) && lhs.getItemType.isOfType(ObjectType.Object)) {
         return None
-      } else if (rhs.getDeclaredType.isOfType(ObjectType.String) && lhs.getDeclaredType.isOfType(ObjectType.String)) {
+      } else if (rhs.getItemType.isOfType(ObjectType.String) && lhs.getItemType.isOfType(ObjectType.String)) {
         //handleStringComparison
         /*val rhsType = rhs.toType
         val lhsType = lhs.toType*/
@@ -97,10 +97,10 @@ object RC_REF_COMPARISON extends StackBugFinder {
         else
           return Some(BugType.ES_COMPARING_STRINGS_WITH_EQ)
 
-      } else if (isSuspicious(rhs.getDeclaredType) || isSuspicious(lhs.getDeclaredType)) {
+      } else if (isSuspicious(rhs.getItemType) || isSuspicious(lhs.getItemType)) {
         //handleSuspiciousTypeComparison
         //TODO:add case where one side is a constant (final static)
-        if (rhs.getDeclaredType.isOfType(ObjectType("java/lang/Boolean")) && lhs.getDeclaredType.isOfType(ObjectType("java/lang/Boolean"))) {
+        if (rhs.getItemType.isOfType(ObjectType("java/lang/Boolean")) && lhs.getItemType.isOfType(ObjectType("java/lang/Boolean"))) {
           return Some(BugType.RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN)
           /*}  else if (rhs.isConstant || lhs.isConstant) {
         logger.log(pc,BugType.RC_REF_COMPARISON_BAD_PRACTICE)  */

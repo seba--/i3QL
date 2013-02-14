@@ -1,11 +1,12 @@
 package sandbox.stackAnalysis.datastructure
 
 import de.tud.cs.st.bat.resolved.{Type, BaseType, ReferenceType}
+import sae.operators.Combinable
 
 /**
  * Abstract class for types of items. An item type holds the information that Type holds but has additional types for null, none and any.
  */
-trait ItemType {
+trait ItemType extends Combinable[ItemType] {
   def getSize: Int
 
   def isUpperBoundOf(t: ItemType): Boolean
@@ -15,6 +16,10 @@ trait ItemType {
   def isArrayType: Boolean
 
   def isReferenceType: Boolean
+
+  def upperBound(other : ItemType) : ItemType = {
+    ItemType.upperBound(this,other)
+  }
 }
 
 /*

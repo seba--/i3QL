@@ -15,7 +15,7 @@ import sae.bytecode.structure.CodeInfo
  */
 object RV_RETURN_VALUE_IGNORED extends StackBugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[POP.type] || instr.isInstanceOf[POP2.type]) {
       return checkReturnValueIgnored
@@ -25,7 +25,7 @@ object RV_RETURN_VALUE_IGNORED extends StackBugFinder {
 
   }
 
-  private def checkReturnValueIgnored(pc: Int, instr: Instruction, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+  private def checkReturnValueIgnored(pc: Int, instr: Instruction, stack: Stack, lv: LocalVariables): Option[BugType.Value] = {
 
     if (stack.size > 0 && (stack.get(0).isReturnValue || stack.get(0).isCreatedByNew))
       return Some(BugType.RV_RETURN_VALUE_IGNORED)
