@@ -62,26 +62,12 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
 
   def doRecursionForAddedElements() {
-    // TODO compute the recursive values
-    // all domain values are stored in the Multimap "additions"
+
     for (anchor <- additionAnchors) {
 
-      // TODO do something like this recursively!!
-      // It has to be done recursively, since for each new element you can have multiple matching domain values
-      // hence you need a recursive call to retain the domain values at which you "forked" the computation
+
       // you could try to optimize this by checking whether "additions.get(key).size() == 1" and in this case just doing a while loop
-      /*     val key = rangeKeyFunction(anchor)
 
-    var it: java.util.Iterator[Domain] = additions.get(key).iterator()
-    while (it.hasNext) {
-        val value = it.next()
-        var nextResult = step(value, anchor)
-        if (!additionResults.containsEntry(nextResult)) {
-            element_added(nextResult)
-
-        }
-
-    }  */
 
       addResult(anchor)
 
