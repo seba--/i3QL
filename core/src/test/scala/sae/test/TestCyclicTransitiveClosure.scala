@@ -4,6 +4,7 @@ import org.junit.Test
 import org.junit.Assert._
 import sae.{Relation, SetExtent}
 import sae.operators.impl.CyclicTransitiveClosureView
+import sae.collections.BagResult
 
 
 /**
@@ -15,13 +16,35 @@ class TestCyclicTransitiveClosure
 {
 
     def TC[T, V](relation: Relation[T], head: T => V, tail: T => V): Relation[(V, V)] =
-        new CyclicTransitiveClosureView (relation, head, tail)
+        new CyclicTransitiveClosureView (relation, head, tail) {
+            // for testing purposes this method is overridden, so we see if a result has multiple entries
+            // if the method were not overridden then sae.relationToResult would
+            // return a result set that stores elements in a hashset and hence the errors were not shown
+            override def isSet = false
+        }
 
     case class Edge(start: String, end: String)
 
     def edgeHead: Edge => String = _.end
 
     def edgeTail: Edge => String = _.start
+
+    @Test
+    def testDoubleEdgeAddition() {
+        val edges = new SetExtent[Edge]()
+        val tc = sae.relationToResult (TC (edges, edgeTail, edgeHead))
+
+
+        edges.element_added (Edge ("a", "b"))
+        edges.element_added (Edge ("a", "b"))
+
+        assertEquals (
+            List (
+                ("a", "b")
+            ),
+            tc.asList.sorted
+        )
+    }
 
     @Test
     def testLinearChainAddition() {

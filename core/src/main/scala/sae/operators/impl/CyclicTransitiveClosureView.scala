@@ -62,6 +62,8 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     private val nonSCCDescendants = mutable.HashMap[Vertex, mutable.HashSet[Vertex]]()
 
+    private val nonSCCPredecessors = mutable.HashMap[Vertex, mutable.HashSet[Vertex]]()
+
     private val sccRepresentatives = mutable.HashMap[Vertex, Vertex]()
 
 
@@ -75,6 +77,18 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
         val descendants = mutable.HashSet.empty[Vertex]
         nonSCCDescendants (v) = descendants
+        descendants
+    }
+
+
+    private def predecessors(v: Vertex): mutable.HashSet[Vertex] = {
+        if (nonSCCPredecessors.isDefinedAt (v))
+            return nonSCCPredecessors (v)
+        if (sccRepresentatives.isDefinedAt (v))
+            return nonSCCPredecessors (sccRepresentatives (v))
+
+        val descendants = mutable.HashSet.empty[Vertex]
+        nonSCCPredecessors (v) = descendants
         descendants
     }
 
@@ -167,7 +181,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
 
-    def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]): List[(Vertex, Vertex)] = {
+    private def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]): List[(Vertex, Vertex)] = {
         if (descendants.contains (end))
             return Nil
 
@@ -193,49 +207,92 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         additions
     }
 
+    private def updateAdjacencyLists(start: Vertex, end: Vertex) {
+        val descendantsOfStart = descendants (start)
+        val predecessorsOfEnd = predecessors (end)
 
-    def isInSCC(start: Vertex, end: Vertex): Boolean = {
+        descendantsOfStart.add (end)
+        predecessorsOfEnd.add (start)
+    }
+
+    private def computeResultAdditions(start: Vertex, end: Vertex): List[(Vertex, Vertex)] = {
+        if (descendants (start).contains (end))
+            return Nil
+
+        var additions: List[(Vertex, Vertex)] = Nil
+
+        // start is in an scc
+        if (sccRepresentatives.isDefinedAt (start)) {
+            // add (x,end) for all elements in the same scc
+            for (descendant <- descendants (start)
+                 if isInSameSCC (start, descendant)
+            )
+            {
+                additions = (descendant, end) :: additions
+            }
+        }
+        else
+        {
+            additions = (start, end) :: additions
+        }
+        additions
+    }
+
+
+    private def isInSCC(start: Vertex, end: Vertex): Boolean = {
         sccRepresentatives.isDefinedAt (start) && sccRepresentatives.isDefinedAt (end)
     }
 
-    def computeAdditions(edge: Edge): List[(Vertex, Vertex)] = {
+
+    /**
+     * Computes the additions that result from adding this edge.
+     * Note there is a general protocol followed throughout this methods of:
+     * 1. computeAdditions
+     * 2. updateAdjacencyLists
+     * This order is important, since the computation of additions must know whether an element is already in the adjacency lists
+     */
+    private def computeAdditions(edge: Edge): List[(Vertex, Vertex)] = {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
 
-        val pathsOfEdgeStart = descendants (edgeStart)
-        val pathsOfEdgeEnd = descendants (edgeEnd)
+        val descendantsOfEnd = descendants (edgeEnd)
 
+        val predecessorsOfStart = predecessors (edgeStart)
 
         //Step 4 // the new edge itself
-        var additions = addDescendant (edgeStart, edgeEnd, pathsOfEdgeStart)
+        var additions = computeResultAdditions (edgeStart, edgeEnd)
+        updateAdjacencyLists (edgeStart, edgeEnd)
+
 
         //Step 1 && Step 3 (inlined) -- O(n^2)
 
-        for ((start, descendants) <- transitiveClosure
-             if descendants.contains (edgeStart))
+        for (start <- predecessorsOfStart)
         {
             // Step 1
             // all new paths constructed by adding the end vertex to the back of an existing path
-            additions = addDescendant (start, edgeEnd, descendants) ::: additions
+            additions = computeResultAdditions (start, edgeEnd) ::: additions
+            updateAdjacencyLists (start, edgeEnd)
 
-            for (end <- pathsOfEdgeEnd) {
+            for (end <- descendantsOfEnd) {
                 //Step 3
                 // all new paths constructed by concatenating two paths via (start -> end)
-                additions = addDescendant (start, end, descendants) ::: additions
+                additions = computeResultAdditions (start, end) ::: additions
+                updateAdjacencyLists (start, end)
             }
         }
 
         //Step 2
         // all new paths constructed by adding the start vertex to the beginning of an existing path
         //O(n)
-        for (end <- pathsOfEdgeEnd)
+        for (end <- descendantsOfEnd)
         {
-            additions = addDescendant (edgeStart, end, pathsOfEdgeStart) ::: additions
+            additions = computeResultAdditions (edgeStart, end) ::: additions
+            updateAdjacencyLists (edgeStart, end)
         }
 
         // check if a transitive closure was created, it has to contain edgeStart, because this was the beginning of the new edge
 
-        if (pathsOfEdgeStart.contains (edgeStart) && !sccRepresentatives.contains (edgeStart))
+        if (descendants (edgeStart).contains (edgeStart) && !sccRepresentatives.contains (edgeStart))
         {
             createSCC (edgeStart)
         }
