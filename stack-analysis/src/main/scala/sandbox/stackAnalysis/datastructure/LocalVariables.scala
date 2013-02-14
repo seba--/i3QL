@@ -42,20 +42,15 @@ case class LocalVariables(varStore: Array[Item])(implicit m: Manifest[Item]) ext
   }
 
   def upperBound(other: LocalVariables): LocalVariables = {
-    if (other == null)
-      this
+    if (other.length != length)
+    	throw new IllegalArgumentException("The attribute maxStack needs to be the same.")    
     else {
-
       val res: Array[Item] = Array.ofDim[Item](length)
-
       for (i <- 0 until length) {
-        if (varStore(i) == null)
-          res(i) = other.varStore(i)
-        else
-          res(i) = varStore(i).upperBound(other.varStore(i))
+          res(i) = apply(i).upperBound(other(i))
       }
 
-      LocalVariables(res)
+      return LocalVariables(res)
     }
   }
 
