@@ -131,8 +131,6 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
   object LeftObserver extends TransactionKeyValueObserver[Key, DomainA] {
 
     override def endTransaction() {
-        println(this + ".endTransaction() with " + observers)
-        println("waiting : " + !rightFinished)
 
       leftFinished = true
       if (rightFinished) {
@@ -152,8 +150,6 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
   object RightObserver extends TransactionKeyValueObserver[Key, DomainB] {
 
     override def endTransaction() {
-        println(this + ".endTransaction() with " + observers)
-        println("waiting : " + !leftFinished)
 
       rightFinished = true
       if (leftFinished) {

@@ -3,7 +3,7 @@ package sandbox.stackAnalysis.instructionInfo
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
 import sae.syntax.sql._
-import sae.bytecode.instructions.InstructionInfo
+import sae.bytecode.instructions.{SwitchInstructionInfo, InstructionInfo}
 import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure.{MethodDeclaration, CodeAttribute}
 import sae.operators.impl.TransactionalEquiJoinView
@@ -15,7 +15,7 @@ import sae.operators.impl.TransactionalEquiJoinView
  * Time: 13:18
  * To change this template use File | Settings | File Templates.
  */
-object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]) {
+object IIControlFlowAnalysis extends (BytecodeDatabase => Relation[ControlFlowEdge]) {
 
   private case class InstructionPair(current: InstructionInfo, next: InstructionInfo) {
     def getDeclaringMethod: MethodDeclaration = next.declaringMethod
@@ -30,6 +30,8 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     val relUnconditionalBranchs = computeUnconditionalBranchs(bcd)
     //Relation that stores all conditional branches (IFEQ etc.)
     val relConditionalBranchs = computeConditionalBranchs(bcd)
+    //Relation that stores switch instructions
+    val relSwitches = computeSwitchInstructions(bcd)
 
     val instructionMethodAndIndex: InstructionInfo => (MethodDeclaration, Int) =
       (i: InstructionInfo) => (i.declaringMethod, i.sequenceIndex)
@@ -61,7 +63,14 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
         (i: InstructionInfo) => (i.declaringMethod, getConditionalNextPCAssumingBranch(i)),
         (i: InstructionInfo) => (i.declaringMethod, i.pc),
         ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
+      ) ⊎ new TransactionalEquiJoinView[InstructionInfo, InstructionInfo, InstructionPair, (MethodDeclaration, Int)](
+        relConditionalBranchs,
+        bcd.instructions,
+        (i: InstructionInfo) => (i.declaringMethod, getConditionalNextPCAssumingBranch(i)),
+        (i: InstructionInfo) => (i.declaringMethod, i.pc),
+        ((current: InstructionInfo, next: InstructionInfo) => InstructionPair(current, next))
       )
+
 
     /*
 
@@ -111,6 +120,9 @@ object IIControlFlowGraph extends (BytecodeDatabase => Relation[ControlFlowEdge]
     compile(SELECT(*) FROM (bcd.instructions) WHERE ((_: InstructionInfo).instruction.isInstanceOf[ConditionalBranchInstruction]))
   }
 
+  private def computeSwitchInstructions(bcd: BytecodeDatabase): Relation[InstructionInfo] = {
+    compile(SELECT(*) FROM (bcd.instructions) WHERE ((_: InstructionInfo).isInstanceOf[SwitchInstructionInfo]))
+  }
 
   private def getEdge(current: InstructionInfo, next: InstructionInfo, attribute: CodeAttribute): ControlFlowEdge = {
 

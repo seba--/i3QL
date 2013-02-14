@@ -345,7 +345,6 @@ class BATBytecodeDatabase
     methodDeclarations.notifyEndTransaction()
     fieldDeclarations.notifyEndTransaction()
     code.notifyEndTransaction()
-    instructions.notifyEndTransaction()
     unresolvedInnerClasses.notifyEndTransaction()
     unresolvedEnclosingMethods.notifyEndTransaction()
   }

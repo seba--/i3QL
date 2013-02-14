@@ -25,7 +25,6 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
   val transformers: ResultTransformer[T] = vTransformers
 
 
-
   /**
    * Set to true, if the results should be printed during the dataflow analysis.
    */
@@ -34,12 +33,12 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
   def apply(bcd: BytecodeDatabase): Relation[MethodResult[T]] = {
     val cfg: Relation[MethodCFG] = controlFlowAnalysis(bcd)
 
-    new TransactionalEquiJoinView[CodeInfo,MethodCFG,MethodResult[T],MethodDeclaration](
+    new TransactionalEquiJoinView[CodeInfo, MethodCFG, MethodResult[T], MethodDeclaration](
       bcd.code,
       cfg,
       i => i.declaringMethod,
       c => c.declaringMethod,
-      (i,c) => MethodResult[T](i.declaringMethod, computeResult(i, c.predecessorArray))
+      (i, c) => MethodResult[T](i.declaringMethod, computeResult(i, c.predecessorArray))
     )
 
     //compile(SELECT((ci: CodeInfo, cfg: MethodCFG) => MethodResult[T](ci.declaringMethod, computeResult(ci, cfg.predecessorArray))) FROM(bcd.code, cfg) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodCFG).declaringMethod)))
@@ -82,7 +81,7 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
           //Result = transform the results at the entry labels with their transformer then combine them for a new newResult.
           result = transform(preds.head, ci.code.instructions, fromArray(results, preds.head, ev))
           for (i <- 1 until preds.length) {
-            result = (transform(preds(i), ci.code.instructions, fromArray(results, preds(i), ev))).combineWith(result)
+            result = (transform(preds(i), ci.code.instructions, fromArray(results, preds(i), ev))).upperBound(result)
           }
         }
 

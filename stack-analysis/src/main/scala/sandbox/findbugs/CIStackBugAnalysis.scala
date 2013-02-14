@@ -19,7 +19,7 @@ import sae.operators.impl.TransactionalEquiJoinView
  * Time: 14:20
  * To change this template use File | Settings | File Templates.
  */
-object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
+object CIStackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
 
   val BUGFINDER_LIST: List[StackBugFinder] =
     RC_REF_COMPARISON ::
@@ -38,12 +38,12 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((
   }
 
   def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
-    new TransactionalEquiJoinView[CodeInfo,MethodResult[State],BugEntry,MethodDeclaration](
+    new TransactionalEquiJoinView[CodeInfo, MethodResult[State], BugEntry, MethodDeclaration](
       ci,
       mtr,
       codeInfo => codeInfo.declaringMethod,
       methodResult => methodResult.declaringMethod,
-      (codeInfo,methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
+      (codeInfo, methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
     )
 
     //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
@@ -51,22 +51,11 @@ object StackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((
 
 
   private def computeBugLogger(ci: CodeInfo, mr: MethodResult[State]): BugLogger = {
-
     val logger: BugLogger = new BugLogger()
-    val instructionArray = ci.code.instructions
-    val analysisArray = mr.resultArray
 
-
-    var currentPC = 0
-
-    while (currentPC < instructionArray.length && currentPC != -1) {
-      for (bugFinder <- StackBugAnalysis.BUGFINDER_LIST) {
-        bugFinder.notifyInstruction(currentPC, ci, analysisArray, logger)
-      }
-
-      currentPC = instructionArray(currentPC).indexOfNextInstruction(currentPC, ci.code)
+    for (bugFinder <- CIStackBugAnalysis.BUGFINDER_LIST) {
+      bugFinder.computeBugLoggerFromCodeInfo(ci, mr, logger)
     }
-
 
     if (printResults && logger.hasLogs) {
       println("Bugs in " + ci.declaringMethod + "\n\t --> " + logger.getLog)

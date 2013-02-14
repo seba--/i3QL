@@ -1,12 +1,12 @@
 package sandbox
 
-import findbugs.StackBugAnalysis
+import findbugs.{IIStackBugAnalysis, CIStackBugAnalysis}
 import sae.bytecode.bat.{BATBytecodeDatabase, BATDatabaseFactory}
 import java.io.{File, FileInputStream}
-import stackAnalysis.BytecodeTransformer
+import stackAnalysis.StateTransformer
 import stackAnalysis.codeInfo.CIStackAnalysis
 import stackAnalysis.datastructure.State
-import stackAnalysis.instructionInfo.{IIStackAnalysis, ControlFlowVertex, AnchorControlFlowEdge, IIControlFlowGraph}
+import stackAnalysis.instructionInfo.{IIStackAnalysis, InstructionState, AnchorControlFlowEdge, IIControlFlowAnalysis}
 import sae.syntax.RelationalAlgebraSyntax.TC
 import sae.operators.impl._
 import sae.bytecode.instructions.InstructionInfo
@@ -23,13 +23,12 @@ object Main {
   def main(args: Array[String]) {
 
 
-    val database : BATBytecodeDatabase = BATDatabaseFactory.create().asInstanceOf[BATBytecodeDatabase]
+    val database: BATBytecodeDatabase = BATDatabaseFactory.create().asInstanceOf[BATBytecodeDatabase]
 
-    CIStackAnalysis.printResults = true
-    StackBugAnalysis.printResults = true
-    //StackBugAnalysis(database)
+    IIStackBugAnalysis.printResults = true
 
-    val a : QueryResult[_] = IIStackAnalysis(database)
+
+    val a: QueryResult[_] = IIStackBugAnalysis(database)
 
     //  def getStream = this.getClass.getClassLoader.getResourceAsStream ("jdk1.7.0-win-64-rt.jar")
     //  database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))

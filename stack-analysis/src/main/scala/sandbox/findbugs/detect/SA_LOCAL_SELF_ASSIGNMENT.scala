@@ -6,7 +6,7 @@ import de.tud.cs.st.bat.resolved.ASTORE
 import de.tud.cs.st.bat.resolved.LSTORE
 import de.tud.cs.st.bat.resolved.FSTORE
 import de.tud.cs.st.bat.resolved.DSTORE
-import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
+import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
 import sae.bytecode.structure.CodeInfo
 
@@ -19,33 +19,34 @@ import sae.bytecode.structure.CodeInfo
  */
 object SA_LOCAL_SELF_ASSIGNMENT extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
-
-    val instr = codeInfo.code.instructions(pc)
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[StoreLocalVariableInstruction]) {
-      checkForBugs(pc, codeInfo, analysis, logger, checkStoreInstruction)
+      return checkStoreInstruction
     }
+    return checkNone
   }
 
-  private def checkStoreInstruction(pc: Int, codeInfo: CodeInfo, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
-    val lvIndex = getIndexOfLocalVariable(codeInfo.code.instructions(pc).asInstanceOf[StoreLocalVariableInstruction])
+  private def checkStoreInstruction(pc: Int, instr: Instruction, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+    val lvIndex = getIndexOfLocalVariable(instr.asInstanceOf[StoreLocalVariableInstruction])
 
     //TODO: Remove this test when exceptions are implemented.
     if (stack.size == 0) {
 
     } else if (saveEquals(lv(lvIndex), stack(0))) {
-      codeInfo.code.localVariableTable match {
-        case None => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
+      /* codeInfo.code.localVariableTable match {
+      case None => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
 
-        case Some(varTable) => {
-          //TODO: Check if loc variable name is also a field name.
-          if (stack(0).isFromField && stack(0).getFieldName == varTable(lvIndex).name)
-            return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)
-          else
-            return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
-        }
+      case Some(varTable) => {
+
+        //TODO: Check if loc variable name is also a field name.
+        if (stack(0).isFromField && stack(0).getFieldName == varTable(lvIndex).name)
+          return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)
+        else
+          return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
       }
+    }  */
+      return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
     }
     return None
   }

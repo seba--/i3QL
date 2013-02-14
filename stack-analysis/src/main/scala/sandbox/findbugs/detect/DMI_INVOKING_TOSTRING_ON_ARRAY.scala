@@ -1,7 +1,7 @@
 package sandbox.findbugs.detect
 
 import de.tud.cs.st.bat.resolved._
-import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
+import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
 import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
 import sandbox.findbugs.{BugType, BugLogger}
 import sae.bytecode.structure.CodeInfo
@@ -15,8 +15,7 @@ import sae.bytecode.structure.CodeInfo
  */
 object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
-    val instr = codeInfo.code.instructions(pc)
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]
@@ -32,11 +31,13 @@ object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
         (invInstr.methodDescriptor.equals(MethodDescriptor(ObjectType.Object :: Nil, VoidType)))
 
       if (isToString || isAppendStringBuilder || isAppendStringBuffer || isPrint)
-        checkForBugs(pc, codeInfo, analysis, logger, checkArrayToString)
+        return checkArrayToString
     }
+
+    return checkNone
   }
 
-  private def checkArrayToString(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkArrayToString(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
     if (stack.size < 1)
       return None
 

@@ -5,7 +5,7 @@ import de.tud.cs.st.bat.resolved.{Type, BaseType, ReferenceType}
 /**
  * Abstract class for types of items. An item type holds the information that Type holds but has additional types for null, none and any.
  */
-abstract class ItemType {
+trait ItemType {
   def getSize: Int
 
   def isUpperBoundOf(t: ItemType): Boolean

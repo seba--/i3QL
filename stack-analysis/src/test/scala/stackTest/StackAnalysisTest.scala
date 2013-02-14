@@ -6,7 +6,7 @@ import sae.QueryResult
 import sandbox.stackAnalysis._
 import codeInfo.CIStackAnalysis
 import datastructure._
-import datastructure.LocVariables
+import datastructure.LocalVariables
 import datastructure.Stacks
 import datastructure.State
 import sae.bytecode.bat.BATDatabaseFactory
@@ -56,20 +56,20 @@ class StackAnalysisTest {
 
     //Build the expected newResult
     val expected: Array[State] = Array.ofDim[State](13)
-    var baseRes = State(Stacks(3, Nil).addStack(), LocVariables(Array.fill[Item](1)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
-    baseRes = State(baseRes.s, baseRes.l.setVar(0, Item(ObjectType("java/lang/reflect/AccessibleObject"), -1, Item.FLAG_IS_PARAMETER)))
+    var baseRes = State(Stacks(3, Nil).addStack(), LocalVariables(Array.fill[Item](1)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
+    baseRes = State(baseRes.stacks, baseRes.variables.setVar(0, Item(ObjectType("java/lang/reflect/AccessibleObject"), -1, Item.FLAG_IS_PARAMETER)))
     expected(0) = baseRes
-    baseRes = State(baseRes.s.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.variables)
     expected(3) = baseRes
-    baseRes = State(baseRes.s.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(Item(ObjectType("com/oracle/net/Sdp$1"), 0, Item.FLAG_IS_CREATED_BY_NEW)), baseRes.variables)
     expected(4) = baseRes
-    baseRes = State(baseRes.s.push(Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(Item(ItemType.fromType(ObjectType("java/lang/reflect/AccessibleObject")), -1, Item.FLAG_IS_PARAMETER)), baseRes.variables)
     expected(5) = baseRes
-    baseRes = State(baseRes.s.pop().pop(), baseRes.l)
+    baseRes = State(baseRes.stacks.pop().pop(), baseRes.variables)
     expected(8) = baseRes
-    baseRes = State(baseRes.s.pop().push(Item(ObjectType("java/lang/Object"), 8, Item.FLAG_IS_RETURN_VALUE)), baseRes.l)
+    baseRes = State(baseRes.stacks.pop().push(Item(ObjectType("java/lang/Object"), 8, Item.FLAG_IS_RETURN_VALUE)), baseRes.variables)
     expected(11) = baseRes
-    baseRes = State(baseRes.s.pop(), baseRes.l)
+    baseRes = State(baseRes.stacks.pop(), baseRes.variables)
     expected(12) = baseRes
 
     //Test newResult with the expected newResult
@@ -87,25 +87,25 @@ class StackAnalysisTest {
 
     //Build the expected newResult
     val expected: Array[State] = Array.ofDim[State](24)
-    var baseRes = State(Stacks(2, Nil).addStack(), LocVariables(Array.fill[Item](0)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
-    baseRes = State(baseRes.s, baseRes.l)
+    var baseRes = State(Stacks(2, Nil).addStack(), LocalVariables(Array.fill[Item](0)(Item(ItemType.None, -1, Item.FLAG_IS_NOT_INITIALIZED))))
+    baseRes = State(baseRes.stacks, baseRes.variables)
     expected(0) = baseRes
-    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(BooleanType), 0, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(new Item(ItemType.fromType(BooleanType), 0, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.variables)
     expected(3) = baseRes
-    baseRes = State(baseRes.s.pop(), baseRes.l)
+    baseRes = State(baseRes.stacks.pop(), baseRes.variables)
     expected(6) = baseRes
-    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Logger")), 6, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Logger")), 6, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.variables)
     expected(9) = baseRes
-    baseRes = State(baseRes.s.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Level")), 9, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.l)
+    baseRes = State(baseRes.stacks.push(new Item(ItemType.fromType(ObjectType("java/util/logging/Level")), 9, Item.FLAG_ORIGINATES_FROM_FIELD)), baseRes.variables)
     expected(12) = baseRes
-    baseRes = State(baseRes.s.pop().pop().push(Item(BooleanType, 12, Item.FLAG_IS_RETURN_VALUE)), baseRes.l)
+    baseRes = State(baseRes.stacks.pop().pop().push(Item(BooleanType, 12, Item.FLAG_IS_RETURN_VALUE)), baseRes.variables)
     expected(15) = baseRes
-    baseRes = State(baseRes.s.pop(), baseRes.l)
+    baseRes = State(baseRes.stacks.pop(), baseRes.variables)
     expected(18) = baseRes
-    baseRes = State(baseRes.s.push(IntegerType, 18), baseRes.l)
+    baseRes = State(baseRes.stacks.push(IntegerType, 18), baseRes.variables)
     expected(19) = baseRes
     expected(22) = expected(18)
-    expected(23) = expected(19).combineWith(State(expected(22).s.push(Item(ItemType.fromType(IntegerType), 22, Item.FLAG_COULD_BE_ZERO)), expected(22).l))
+    expected(23) = expected(19).upperBound(State(expected(22).stacks.push(Item(ItemType.fromType(IntegerType), 22, Item.FLAG_COULD_BE_ZERO)), expected(22).variables))
 
     //Test newResult with the expected newResult
     Assert.assertEquals(expected.length, results.length)

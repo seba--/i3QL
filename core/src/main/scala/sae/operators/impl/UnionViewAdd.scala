@@ -41,60 +41,58 @@ import sae.deltas.{Update, Deletion, Addition}
  */
 class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
                                                               val right: Relation[DomainB])
-        extends Union[Range, DomainA, DomainB]
-        with Observer[Range]
-{
+  extends Union[Range, DomainA, DomainB]
+  with Observer[Range] {
 
 
-    left addObserver this
+  left addObserver this
 
-    right addObserver this
+  right addObserver this
 
 
-    // TODO this is a heuristic and should be treated better
-    var count = 0
+  // TODO this is a heuristic and should be treated better
+  var count = 0
 
-    override def endTransaction() {
-        println(this + ".endTransaction()")
-        count += 1
-        if (count == 2) {
-            count = 0
-            notifyEndTransaction()
-        }
+  override def endTransaction() {
+    count += 1
+    if (count == 2) {
+      count = 0
+      notifyEndTransaction()
     }
+  }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left || o == right) {
-            return List(this)
-        }
-        Nil
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    if (o == left || o == right) {
+      return List(this)
     }
+    Nil
+  }
 
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        left.foreach(f)
-        right.foreach(f)
-    }
+  /**
+   * Applies f to all elements of the view.
+   */
+  def foreach[T](f: (Range) => T) {
+    left.foreach(f)
+    right.foreach(f)
+  }
 
-    def added(v: Range) {
-        element_added(v)
-    }
+  def added(v: Range) {
+    element_added(v)
+  }
 
-    def removed(v: Range) {
-        element_removed(v)
-    }
+  def removed(v: Range) {
+    element_removed(v)
+  }
 
-    def updated(oldV: Range, newV: Range) {
-        element_updated(oldV, newV)
-    }
+  def updated(oldV: Range, newV: Range) {
+    element_updated(oldV, newV)
+  }
 
-    def updated[U <: Range](update: Update[U]) {
-        element_updated(update)
-    }
+  def updated[U <: Range](update: Update[U]) {
+    element_updated(update)
+  }
 
-    def modified[U <: Range](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-        element_modifications(additions, deletions, updates)
-    }
+  def modified[U <: Range](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+    element_modifications(additions, deletions, updates)
+  }
 }

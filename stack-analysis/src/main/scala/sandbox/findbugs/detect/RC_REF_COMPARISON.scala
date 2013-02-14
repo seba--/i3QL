@@ -2,7 +2,7 @@ package sandbox.findbugs.detect
 
 import de.tud.cs.st.bat.resolved._
 
-import sandbox.stackAnalysis.datastructure.{ItemType, LocVariables, State, Stack}
+import sandbox.stackAnalysis.datastructure.{ItemType, LocalVariables, State, Stack}
 import scala.{Array, Int}
 import sandbox.findbugs.{BugType, BugLogger}
 import sae.bytecode.structure.CodeInfo
@@ -27,12 +27,11 @@ object RC_REF_COMPARISON extends StackBugFinder {
       ObjectType("java/lang/Short") ::
       Nil
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
-    val instr = codeInfo.code.instructions(pc)
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {
-      checkForBugs(pc, codeInfo, analysis, logger, checkRefComparison)
+      return checkRefComparison
     } else if (instr.isInstanceOf[MethodInvocationInstruction]) {
 
       val methodInfo = getMethodDescriptor(instr.asInstanceOf[MethodInvocationInstruction])
@@ -43,32 +42,32 @@ object RC_REF_COMPARISON extends StackBugFinder {
 
       if (methodName.equals("assertSame") &&
         methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))) {
-        checkForBugs(pc, codeInfo, analysis, logger, checkRefComparison)
-
-      } /* else if (declaringClass != null && (
-        !isStatic && methodName.equals("equals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: Nil), BooleanType))
-          || isStatic && methodName.equals("assertEquals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
-          && !declaringClass.equals(ObjectType("org/testng/Assert"))
-          || isStatic && methodName.equals("equal") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
-          && !declaringClass.equals(ObjectType("com/google/common/base/Objects")))) {
-
-        for (stack <- analysis(pc).s.collection) {
-          checkEqualsComparison(pc, stack, logger)
-        }
-
+        return checkRefComparison
       }
-        */
+
+
+      /* else if (declaringClass != null && (
+      !isStatic && methodName.equals("equals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: Nil), BooleanType))
+        || isStatic && methodName.equals("assertEquals") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
+        && !declaringClass.equals(ObjectType("org/testng/Assert"))
+        || isStatic && methodName.equals("equal") && methodDesc.equals(MethodDescriptor((ObjectType.Object :: ObjectType.Object :: Nil), VoidType))
+        && !declaringClass.equals(ObjectType("com/google/common/base/Objects")))) {
+
+      for (stack <- analysis(pc).stacks.stacks) {
+        checkEqualsComparison(pc, stack, logger)
+      }
+
+    }
+      */
 
     }
 
-  }
-
-  //TODO: implement
-  private def checkEqualsComparison(pc: Int, stack: Stack, logger: BugLogger) = {
+    return checkNone
 
   }
 
-  private def checkRefComparison(pc: Int, codeInfo: CodeInfo, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
+
+  private def checkRefComparison(pc: Int, instr: Instruction, stack: Stack, lv: LocVariables): Option[BugType.Value] = {
     if (stack.size < 2)
       return None
 

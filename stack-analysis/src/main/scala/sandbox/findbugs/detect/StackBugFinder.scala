@@ -11,9 +11,12 @@ import sandbox.dataflowAnalysis.MethodResult
 import sandbox.stackAnalysis.datastructure.Stack
 import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
 import scala.Some
-import sandbox.stackAnalysis.datastructure.LocVariables
+import sandbox.stackAnalysis.datastructure.LocalVariables
 import sandbox.stackAnalysis.codeInfo.CIStackAnalysis
 import sae.operators.impl.TransactionalEquiJoinView
+import de.tud.cs.st.bat.resolved.Instruction
+import sae.bytecode.instructions.InstructionInfo
+import sandbox.stackAnalysis.instructionInfo.{IIStackAnalysis, InstructionState}
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,59 +25,81 @@ import sae.operators.impl.TransactionalEquiJoinView
  * Time: 13:54
  * To change this template use File | Settings | File Templates.
  */
-trait StackBugFinder extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
+trait StackBugFinder extends (BytecodeDatabase => Relation[BugEntry]) {
+
+  def checkBugs(pc: Int, instruction: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value]
+
+  private val USE_INSTRUCTIONINFO = false
 
   def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
-    apply(bcd.code, CIStackAnalysis(bcd))
+    if (USE_INSTRUCTIONINFO) {
+      applyII(bcd.instructions, IIStackAnalysis(bcd))
+    } else {
+      applyCI(bcd.code, CIStackAnalysis(bcd))
+    }
   }
 
-  def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
-    new TransactionalEquiJoinView[CodeInfo,MethodResult[State],BugEntry,MethodDeclaration](
+  def applyCI(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
+    new TransactionalEquiJoinView[CodeInfo, MethodResult[State], BugEntry, MethodDeclaration](
       ci,
       mtr,
       codeInfo => codeInfo.declaringMethod,
       methodResult => methodResult.declaringMethod,
-      (codeInfo,methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
+      (codeInfo, methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLoggerFromCodeInfo(codeInfo, methodResult, new BugLogger()))
     )
 
     //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger)
+  def applyII(ii: Relation[InstructionInfo], cfv: Relation[InstructionState]): Relation[BugEntry] = {
+    new TransactionalEquiJoinView[InstructionInfo, InstructionState, BugEntry, InstructionInfo](
+      ii,
+      cfv,
+      instructionInfo => instructionInfo,
+      vertex => vertex.instruction,
+      (instructionInfo, vertex) => BugEntry(instructionInfo.declaringMethod, computeBugLoggerFromInstructionInfo(instructionInfo, vertex.state, new BugLogger()))
+    )
 
-  def checkForBugs(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger, checkMethod: (Int, CodeInfo, Stack, LocVariables) => Option[BugType.Value]) = {
-    var bug: Option[BugType.Value] = None
-    breakable {
-      for (stack <- analysis(pc).s.collection) {
-        val analysisResult = checkMethod(pc, codeInfo, stack, analysis(pc).l)
-        if (analysisResult != None) {
-          bug = analysisResult
-        } else {
-          bug = None
-          break
-        }
-      }
-    }
-    bug match {
-      case Some(x) => logger.log(pc, x)
-      case None =>
-    }
+    //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
 
 
-  private def computeBugLogger(ci: CodeInfo, mr: MethodResult[State]): BugLogger = {
+  def computeBugLoggerFromCodeInfo(ci: CodeInfo, mr: MethodResult[State], logger: BugLogger): BugLogger = {
 
-    val logger: BugLogger = new BugLogger()
     val instructionArray = ci.code.instructions
     val analysisArray = mr.resultArray
 
     var currentPC = 0
 
     while (currentPC < instructionArray.length && currentPC != -1) {
-      notifyInstruction(currentPC, ci, analysisArray, logger)
+      val checkMethod = checkBugs(currentPC, instructionArray(currentPC), analysisArray(currentPC))
+      for (stack <- analysisArray(currentPC).stacks.stacks) {
+        val check = checkMethod(currentPC, instructionArray(currentPC), stack, analysisArray(currentPC).variables)
+        check match {
+          case Some(x) => logger.log(currentPC, x)
+          case None => None
+        }
+      }
       currentPC = instructionArray(currentPC).indexOfNextInstruction(currentPC, ci.code)
     }
 
     return logger
+  }
+
+  def computeBugLoggerFromInstructionInfo(ii: InstructionInfo, state: State, logger: BugLogger): BugLogger = {
+    val checkMethod = checkBugs(ii.pc, ii.instruction, state)
+    for (stack <- state.stacks.stacks) {
+      val check = checkMethod(ii.pc, ii.instruction, stack, state.variables)
+      check match {
+        case Some(x) => logger.log(ii.pc, x)
+        case None => None
+      }
+    }
+
+    return logger
+  }
+
+  protected def checkNone(pc: Int, instr: Instruction, stack: Stack, lv: LocalVariables): Option[BugType.Value] = {
+    return None
   }
 }

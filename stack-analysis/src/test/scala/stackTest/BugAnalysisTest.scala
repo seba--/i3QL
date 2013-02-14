@@ -4,7 +4,7 @@ import sae.QueryResult
 import org.junit.{Assert, Test, BeforeClass}
 import java.util.Date
 import sae.bytecode.bat.BATDatabaseFactory
-import sandbox.findbugs.{BugType, BugEntry, StackBugAnalysis}
+import sandbox.findbugs.{IIStackBugAnalysis, BugType, BugEntry, CIStackBugAnalysis}
 import sae.syntax.sql._
 import java.io.{File, FileInputStream}
 
@@ -29,8 +29,8 @@ object BugAnalysisTest extends org.scalatest.junit.JUnitSuite {
   def start() {
     //Setup the database
     val database = BATDatabaseFactory.create()
-    val analysis = StackBugAnalysis(database)
-    StackBugAnalysis.printResults = true
+    val analysis = CIStackBugAnalysis(database)
+    CIStackBugAnalysis.printResults = true
 
     methodTestRefComparison = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testRefComparison"))
     methodTestSelfAssignment = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSelfAssignment"))
@@ -63,7 +63,7 @@ class BugAnalysisTest {
     val logList = BugAnalysisTest.methodTestSelfAssignment.asList(0).log.getLog
 
     Assert.assertEquals(2, logList.size)
-    Assert.assertTrue(logList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)))
+    Assert.assertTrue(logList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
     Assert.assertTrue(logList.contains((23, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
   }
 

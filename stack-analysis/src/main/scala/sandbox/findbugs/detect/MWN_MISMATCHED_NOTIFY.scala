@@ -1,7 +1,7 @@
 package sandbox.findbugs.detect
 
-import de.tud.cs.st.bat.resolved.{INVOKEVIRTUAL, ObjectType}
-import sandbox.stackAnalysis.datastructure.{LocVariables, Stack, State}
+import de.tud.cs.st.bat.resolved.{Instruction, INVOKEVIRTUAL, ObjectType}
+import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
 import sandbox.findbugs.{BugType, BugLogger}
 import sae.bytecode.structure.CodeInfo
 
@@ -14,23 +14,23 @@ import sae.bytecode.structure.CodeInfo
  */
 object MWN_MISMATCHED_NOTIFY extends StackBugFinder {
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
-
-    val instr = codeInfo.code.instructions(pc)
+  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]
 
       if (invInstr.declaringClass.equals(ObjectType.Object) &&
         (invInstr.name.equals("notify") || invInstr.name.equals("notifyAll"))) {
-        checkForBugs(pc, codeInfo, analysis, logger, checkMismatchedNotify)
+        return checkMismatchedNotify
       }
     }
 
+    return checkNone
+
+
   }
 
-  //TODO: implement
-  private def checkMismatchedNotify(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
+  private def checkMismatchedNotify(pc: Int, instr: Instruction, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
     None
   }
 }

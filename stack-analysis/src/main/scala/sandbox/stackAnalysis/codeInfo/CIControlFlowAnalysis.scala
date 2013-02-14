@@ -16,7 +16,7 @@ import sandbox.dataflowAnalysis.ControlFlowAnalysis
  */
 
 //TODO: Instructions: jsr, athrow
-object CIControlFlowGraph extends ControlFlowAnalysis {
+object CIControlFlowAnalysis extends ControlFlowAnalysis {
   /**
    * This method computes the preceding program counters based on an Array[Instruction]
    * @param ci The underlying code info of the control flow graph.
@@ -35,8 +35,6 @@ object CIControlFlowGraph extends ControlFlowAnalysis {
     while (nextPC < a.length && nextPC >= 0) {
 
       nextPC = a(currentPC).indexOfNextInstruction(currentPC, ci.code)
-
-
 
       if (nextPC < a.length && nextPC >= 0) {
         if (a(currentPC).isInstanceOf[ConditionalBranchInstruction]) {
