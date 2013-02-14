@@ -38,7 +38,7 @@ import sae.bytecode.BytecodeDatabase
 import findbugs.random.oo._
 import findbugs.selected.oo._
 import metrics._
-import simple.CallGraph
+import simple.CHA
 import sandbox.findbugs.detect._
 
 
@@ -114,7 +114,7 @@ object AnalysesOO
         case "CA" => AfferentCoupling(database)
         case "CE" => EfferentCoupling(database)
         /* miscellaneous*/
-        case "CG_BASE" => CallGraph(database)
+        case "CHA" => CHA(database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
@@ -155,7 +155,7 @@ object AnalysesOO
         case "CA" => AfferentCoupling(database)
         case "CE" => EfferentCoupling(database)
         /* miscellaneous*/
-        case "CG_BASE" => CallGraph(database)
+        case "CHA" => CHA(database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 

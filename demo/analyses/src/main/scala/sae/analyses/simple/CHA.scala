@@ -11,8 +11,11 @@ import sae.bytecode.instructions.{InvokeInstruction, InstructionInfo}
  * 
  * @author Ralf Mitschke
  *
+ * Calls graph via Class Hierarchy Analysis.
+ * This is the simplest an least precise call graph.
+ * It just takes all call edges.
  */
-object CallGraph
+object CHA
     extends  (BytecodeDatabase => Relation[(MethodInfo, MethodInfo)])
 {
 
