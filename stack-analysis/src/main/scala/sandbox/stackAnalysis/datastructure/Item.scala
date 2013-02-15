@@ -132,10 +132,7 @@ object Item {
   }
 
   def createParameterItem(declaredType: ItemType): Item = {
-    if (declaredType.isUpperBoundOf(ItemType.Null))
-      Item( -1, declaredType, FLAG_IS_PARAMETER | FLAG_COULD_BE_NULL)
-    else
-      Item( -1, declaredType, FLAG_IS_PARAMETER)
+      Item( -1, declaredType, FLAG_IS_PARAMETER )
   }
 
   def createItem(pc: Int, declaredType: ItemType): Item = {

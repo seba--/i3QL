@@ -17,9 +17,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:19
  * To change this template use File | Settings | File Templates.
  */
-object SA_LOCAL_SELF_ASSIGNMENT extends StackBugFinder {
+object SA_LOCAL_SELF_ASSIGNMENT extends BugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[StoreLocalVariableInstruction]) {
       return checkStoreInstruction

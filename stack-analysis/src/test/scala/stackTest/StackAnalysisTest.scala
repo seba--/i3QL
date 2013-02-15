@@ -14,7 +14,7 @@ import sae.syntax.sql._
 import java.io.FileInputStream
 import de.tud.cs.st.bat.resolved.{BooleanType, IntegerType, ObjectType}
 import java.util.Date
-import sandbox.dataflowAnalysis.MethodResult
+import sandbox.stackAnalysis.codeInfo.CIStackAnalysis.MethodStates
 
 
 /**
@@ -26,8 +26,8 @@ import sandbox.dataflowAnalysis.MethodResult
  */
 
 object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
-  var methodSetAccessible: QueryResult[MethodResult[State]] = null
-  var methodIsLoggable: QueryResult[MethodResult[State]] = null
+  var methodSetAccessible: QueryResult[MethodStates] = null
+  var methodIsLoggable: QueryResult[MethodStates] = null
 
   @BeforeClass
   def start() {
@@ -36,8 +36,8 @@ object StackAnalysisTest extends org.scalatest.junit.JUnitSuite {
     val database = BATDatabaseFactory.create()
     val analysis = CIStackAnalysis(database)
 
-    methodSetAccessible = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_: MethodResult[State]).declaringMethod.name equals "setAccessible"))
-    methodIsLoggable = compile(SELECT(*) FROM analysis WHERE ((_: MethodResult[State]).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_: MethodResult[State]).declaringMethod.name equals "isLoggable"))
+    methodSetAccessible = compile(SELECT(*) FROM analysis WHERE ((_: MethodStates).declaringMethod.declaringClass.classType equals ObjectType("com/oracle/net/Sdp")) AND ((_: MethodStates).declaringMethod.name equals "setAccessible"))
+    methodIsLoggable = compile(SELECT(*) FROM analysis WHERE ((_: MethodStates).declaringMethod.declaringClass.classType equals ObjectType("com/sun/activation/registries/LogSupport")) AND ((_: MethodStates).declaringMethod.name equals "isLoggable"))
 
     database.addArchive(new FileInputStream("test-data\\src\\main\\resources\\jdk1.7.0-win-64-rt.jar"))
 
@@ -51,7 +51,7 @@ class StackAnalysisTest {
   @Test
   def testSetAccessible() {
     //Get the newResult
-    val results: Array[State] = StackAnalysisTest.methodSetAccessible.asList(0).result
+    val results: Array[State] = StackAnalysisTest.methodSetAccessible.asList(0).states
 
 
     //Build the expected newResult
@@ -81,7 +81,7 @@ class StackAnalysisTest {
   @Test
   def testIsLoggable() {
     //Get the newResult
-    val results: Array[State] = StackAnalysisTest.methodIsLoggable.asList(0).result
+    val results: Array[State] = StackAnalysisTest.methodIsLoggable.asList(0).states
 
 
 

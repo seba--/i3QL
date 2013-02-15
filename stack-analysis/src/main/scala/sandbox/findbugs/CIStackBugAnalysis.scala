@@ -6,7 +6,8 @@ import sae.syntax.sql._
 
 import sae.bytecode.BytecodeDatabase
 import sandbox.stackAnalysis.datastructure.State
-import sandbox.dataflowAnalysis.{MethodCFG, MethodResult}
+import sandbox.stackAnalysis.codeInfo.CIStackAnalysis.MethodStates
+import sandbox.dataflowAnalysis.MethodCFG
 import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
 import sandbox.stackAnalysis.codeInfo.CIStackAnalysis
 import sae.operators.impl.TransactionalEquiJoinView
@@ -19,9 +20,9 @@ import sae.operators.impl.TransactionalEquiJoinView
  * Time: 14:20
  * To change this template use File | Settings | File Templates.
  */
-object CIStackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with ((Relation[CodeInfo], Relation[MethodResult[State]]) => Relation[BugEntry]) {
+object CIStackBugAnalysis extends (BytecodeDatabase => Relation[MethodBugs]) with ((Relation[CodeInfo], Relation[MethodStates]) => Relation[MethodBugs]) {
 
-  val BUGFINDER_LIST: List[StackBugFinder] =
+  val BUGFINDER_LIST: List[BugFinder] =
     RC_REF_COMPARISON ::
       SA_FIELD_SELF_COMPARISON ::
       SA_LOCAL_SELF_ASSIGNMENT ::
@@ -33,24 +34,24 @@ object CIStackBugAnalysis extends (BytecodeDatabase => Relation[BugEntry]) with 
 
   var printResults = false
 
-  def apply(bcd: BytecodeDatabase): Relation[BugEntry] = {
+  def apply(bcd: BytecodeDatabase): Relation[MethodBugs] = {
     apply(bcd.code, CIStackAnalysis(bcd))
   }
 
-  def apply(ci: Relation[CodeInfo], mtr: Relation[MethodResult[State]]): Relation[BugEntry] = {
-    new TransactionalEquiJoinView[CodeInfo, MethodResult[State], BugEntry, MethodDeclaration](
+  def apply(ci: Relation[CodeInfo], mtr: Relation[MethodStates]): Relation[MethodBugs] = {
+    new TransactionalEquiJoinView[CodeInfo, MethodStates, MethodBugs, MethodDeclaration](
       ci,
       mtr,
       codeInfo => codeInfo.declaringMethod,
       methodResult => methodResult.declaringMethod,
-      (codeInfo, methodResult) => BugEntry(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
+      (codeInfo, methodResult) => MethodBugs(codeInfo.declaringMethod, computeBugLogger(codeInfo, methodResult))
     )
 
     //compile(SELECT((c: CodeInfo, mr: MethodResult[State]) => BugEntry(c.declaringMethod, computeBugLogger(c, mr))) FROM(ci, mtr) WHERE (((_: CodeInfo).declaringMethod) === ((_: MethodResult[State]).declaringMethod)))
   }
 
 
-  private def computeBugLogger(ci: CodeInfo, mr: MethodResult[State]): BugLogger = {
+  private def computeBugLogger(ci: CodeInfo, mr: MethodStates): BugLogger = {
     val logger: BugLogger = new BugLogger()
 
     for (bugFinder <- CIStackBugAnalysis.BUGFINDER_LIST) {

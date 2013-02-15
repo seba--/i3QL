@@ -4,7 +4,7 @@ import sae.QueryResult
 import org.junit.{Assert, Test, BeforeClass}
 import java.util.Date
 import sae.bytecode.bat.BATDatabaseFactory
-import sandbox.findbugs.{IIStackBugAnalysis, BugType, BugEntry, CIStackBugAnalysis}
+import sandbox.findbugs.{IIStackBugAnalysis, BugType, MethodBugs, CIStackBugAnalysis}
 import sae.syntax.sql._
 import java.io.{File, FileInputStream}
 
@@ -16,13 +16,13 @@ import java.io.{File, FileInputStream}
  * To change this template use File | Settings | File Templates.
  */
 object BugAnalysisTest extends org.scalatest.junit.JUnitSuite {
-  var methodTestRefComparison: QueryResult[BugEntry] = null
-  var methodTestSelfAssignment: QueryResult[BugEntry] = null
-  var methodTestSelfComparison: QueryResult[BugEntry] = null
-  var methodTestArrayToString: QueryResult[BugEntry] = null
-  var methodTestBadSQLAccess: QueryResult[BugEntry] = null
-  var methodTestReturnValue: QueryResult[BugEntry] = null
-  var methodTestSynchronized: QueryResult[BugEntry] = null
+  var methodTestRefComparison: QueryResult[MethodBugs] = null
+  var methodTestSelfAssignment: QueryResult[MethodBugs] = null
+  var methodTestSelfComparison: QueryResult[MethodBugs] = null
+  var methodTestArrayToString: QueryResult[MethodBugs] = null
+  var methodTestBadSQLAccess: QueryResult[MethodBugs] = null
+  var methodTestReturnValue: QueryResult[MethodBugs] = null
+  var methodTestSynchronized: QueryResult[MethodBugs] = null
 
 
   @BeforeClass
@@ -32,13 +32,13 @@ object BugAnalysisTest extends org.scalatest.junit.JUnitSuite {
     val analysis = CIStackBugAnalysis(database)
     CIStackBugAnalysis.printResults = true
 
-    methodTestRefComparison = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testRefComparison"))
-    methodTestSelfAssignment = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSelfAssignment"))
-    methodTestSelfComparison = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSelfComparison"))
-    methodTestArrayToString = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testArrayToString"))
-    methodTestBadSQLAccess = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testBadSQLAccess"))
-    methodTestReturnValue = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testReturnValue"))
-    methodTestSynchronized = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSynchronized"))
+    methodTestRefComparison = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testRefComparison"))
+    methodTestSelfAssignment = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testSelfAssignment"))
+    methodTestSelfComparison = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testSelfComparison"))
+    methodTestArrayToString = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testArrayToString"))
+    methodTestBadSQLAccess = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testBadSQLAccess"))
+    methodTestReturnValue = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testReturnValue"))
+    methodTestSynchronized = compile(SELECT(*) FROM analysis WHERE ((_: MethodBugs).declaringMethod.name equals "testSynchronized"))
 
     database.addClassFile(new FileInputStream("stack-analysis" + File.separator + "target" + File.separator + "test-classes" + File.separator + "TestMethods.class"))
     println("Finish analysis: " + new Date())

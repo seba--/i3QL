@@ -14,7 +14,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-object RC_REF_COMPARISON extends StackBugFinder {
+object RC_REF_COMPARISON extends BugFinder {
 
   def suspiciousTypes: List[Type] =
     ObjectType("java/lang/Boolean") ::
@@ -27,7 +27,7 @@ object RC_REF_COMPARISON extends StackBugFinder {
       ObjectType("java/lang/Short") ::
       Nil
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {

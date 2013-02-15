@@ -9,6 +9,6 @@ import sae.bytecode.structure.MethodDeclaration
  * Time: 13:09
  * To change this template use File | Settings | File Templates.
  */
-case class BugEntry(declaringMethod: MethodDeclaration, log: BugLogger) {
+case class MethodBugs(declaringMethod: MethodDeclaration, log: BugLogger) {
 
 }

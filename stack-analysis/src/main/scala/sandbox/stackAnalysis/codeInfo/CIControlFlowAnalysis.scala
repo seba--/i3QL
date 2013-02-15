@@ -25,51 +25,50 @@ object CIControlFlowAnalysis extends ControlFlowAnalysis {
    */
   def computePredecessors(ci: CodeInfo): Array[List[Int]] = {
 
-    val a = ci.code.instructions
-    val res = Array.ofDim[List[Int]](a.length)
-
+    val instructions = ci.code.instructions
+    val cfg = Array.fill[List[Int]](instructions.length)(Nil)
 
     var currentPC = 0
     var nextPC = 0
 
-    while (nextPC < a.length && nextPC >= 0) {
+    while (nextPC < instructions.length && nextPC >= 0) {
 
-      nextPC = a(currentPC).indexOfNextInstruction(currentPC, ci.code)
+      nextPC = instructions(currentPC).indexOfNextInstruction(currentPC, ci.code)
 
-      if (nextPC < a.length && nextPC >= 0) {
-        if (a(currentPC).isInstanceOf[ConditionalBranchInstruction]) {
-          addToArray(res, nextPC, currentPC)
-          addToArray(res, currentPC + a(currentPC).asInstanceOf[ConditionalBranchInstruction].branchoffset, currentPC)
-        } else if (a(currentPC).isInstanceOf[UnconditionalBranchInstruction]) {
-          addToArray(res, currentPC + a(currentPC).asInstanceOf[UnconditionalBranchInstruction].branchoffset, currentPC)
-        } else if (a(currentPC).isInstanceOf[LOOKUPSWITCH]) {
-          val instr = a(currentPC).asInstanceOf[LOOKUPSWITCH]
+      if (nextPC < instructions.length && nextPC >= 0) {
+        if (instructions(currentPC).isInstanceOf[ConditionalBranchInstruction]) {
+          add(cfg, nextPC, currentPC)
+          add(cfg, currentPC + instructions(currentPC).asInstanceOf[ConditionalBranchInstruction].branchoffset, currentPC)
+        } else if (instructions(currentPC).isInstanceOf[UnconditionalBranchInstruction]) {
+          add(cfg, currentPC + instructions(currentPC).asInstanceOf[UnconditionalBranchInstruction].branchoffset, currentPC)
+        } else if (instructions(currentPC).isInstanceOf[LOOKUPSWITCH]) {
+          val instr = instructions(currentPC).asInstanceOf[LOOKUPSWITCH]
           for (p <- instr.npairs) {
-            addToArray(res, p._2, currentPC)
+            add(cfg, p._2, currentPC)
           }
-        } else if (a(currentPC).isInstanceOf[TABLESWITCH]) {
-          val instr = a(currentPC).asInstanceOf[TABLESWITCH]
+        } else if (instructions(currentPC).isInstanceOf[TABLESWITCH]) {
+          val instr = instructions(currentPC).asInstanceOf[TABLESWITCH]
           for (p <- instr.jumpOffsets) {
-            addToArray(res, p, currentPC)
+            add(cfg, p, currentPC)
           }
-        } else if (a(currentPC).isInstanceOf[ReturnInstruction]) {
+        } else if (instructions(currentPC).isInstanceOf[ReturnInstruction]) {
           //There is no control flow from a return instruction.
-        } else if (a(currentPC).isInstanceOf[ATHROW.type]) {
+        } else if (instructions(currentPC).isInstanceOf[ATHROW.type]) {
           //TODO: fill in what exceptions do
-        } else if (a(currentPC).isInstanceOf[JSR]) {
-          addToArray(res, currentPC + a(currentPC).asInstanceOf[JSR].branchoffset, currentPC)
+        } else if (instructions(currentPC).isInstanceOf[JSR]) {
+          add(cfg, currentPC + instructions(currentPC).asInstanceOf[JSR].branchoffset, currentPC)
 
-        } else if (a(currentPC).isInstanceOf[JSR_W]) {
-          addToArray(res, currentPC + a(currentPC).asInstanceOf[JSR_W].branchoffset, currentPC)
+        } else if (instructions(currentPC).isInstanceOf[JSR_W]) {
+          add(cfg, currentPC + instructions(currentPC).asInstanceOf[JSR_W].branchoffset, currentPC)
         } else {
-          addToArray(res, nextPC, currentPC)
+          add(cfg, nextPC, currentPC)
         }
       }
-      
+
       currentPC = nextPC
     }
 
-    return res
+    return cfg
 
   }
 
@@ -79,7 +78,7 @@ object CIControlFlowAnalysis extends ControlFlowAnalysis {
    * @param index The index in the array.
    * @param add The element that should be added to a list.
    */
-  private def addToArray(a: Array[List[Int]], index: Int, add: Int) {
+  private def add(a: Array[List[Int]], index: Int, add: Int) {
     if (a(index) == null)
       a(index) = Nil
     a(index) = add :: a(index)

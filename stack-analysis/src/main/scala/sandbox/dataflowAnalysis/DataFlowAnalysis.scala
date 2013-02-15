@@ -73,11 +73,8 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
         //Result for this iteration for the instruction at program counter pc.
         var result: T = sv
 
-        //Initializes the results array.
-
         //If the instruction has no predecessors, the newResult will be the start value (sv)
         if (preds.length != 0) {
-
           //Result = transform the results at the entry labels with their transformer then combine them for a new newResult.
           result = transform(preds.head, ci.code.instructions, fromArray(results, preds.head, ev))
           for (i <- 1 until preds.length) {

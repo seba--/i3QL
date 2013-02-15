@@ -12,14 +12,14 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:04
  * To change this template use File | Settings | File Templates.
  */
-object SQL_BAD_PREPARED_STATEMENT_ACCESS extends StackBugFinder {
+object SQL_BAD_PREPARED_STATEMENT_ACCESS extends BugFinder {
 
   private def SUFFIX_LIST: List[String] = "Array" :: "AsciiStream" :: "BigDecimal" :: "BinaryStream" ::
     "Blob" :: "Boolean" :: "Byte" :: "Bytes" :: "CharacterStream" :: "Clob" :: "Date" :: "Double" ::
     "Float" :: "Int" :: "Long" :: "Object" :: "Ref" :: "RowId" :: "Short" :: "String" :: "Time" :: "Timestamp" ::
     "UnicodeStream" :: "URL" :: Nil
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEINTERFACE]) {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]

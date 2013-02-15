@@ -6,7 +6,7 @@ import sae.syntax.sql._
 
 import sae.bytecode.BytecodeDatabase
 import sandbox.stackAnalysis.datastructure.State
-import sandbox.dataflowAnalysis.{MethodCFG, MethodResult}
+import sandbox.dataflowAnalysis.MethodCFG
 import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
 import sandbox.stackAnalysis.codeInfo.CIStackAnalysis
 import sae.operators.impl.TransactionalEquiJoinView

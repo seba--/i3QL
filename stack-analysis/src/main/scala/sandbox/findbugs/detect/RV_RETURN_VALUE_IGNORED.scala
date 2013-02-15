@@ -13,9 +13,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 13:49
  * To change this template use File | Settings | File Templates.
  */
-object RV_RETURN_VALUE_IGNORED extends StackBugFinder {
+object RV_RETURN_VALUE_IGNORED extends BugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[POP.type] || instr.isInstanceOf[POP2.type]) {
       return checkReturnValueIgnored

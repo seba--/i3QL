@@ -13,9 +13,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:16
  * To change this template use File | Settings | File Templates.
  */
-object DMI_INVOKING_TOSTRING_ON_ARRAY extends StackBugFinder {
+object DMI_INVOKING_TOSTRING_ON_ARRAY extends BugFinder {
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]

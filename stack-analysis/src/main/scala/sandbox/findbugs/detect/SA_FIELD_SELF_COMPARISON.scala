@@ -13,10 +13,10 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:04
  * To change this template use File | Settings | File Templates.
  */
-object SA_FIELD_SELF_COMPARISON extends StackBugFinder {
+object SA_FIELD_SELF_COMPARISON extends BugFinder {
 
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
 
     //Comparison using IF_XXXX

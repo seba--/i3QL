@@ -9,6 +9,6 @@ import sae.bytecode.structure.MethodDeclaration
  * Time: 20:47
  * To change this template use File | Settings | File Templates.
  */
-case class MethodResult[T](declaringMethod: MethodDeclaration, result: Array[T]) {
+case class MethodResult[T](declaringMethod: MethodDeclaration, states: Array[T]) {
 
 }

@@ -12,7 +12,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 12:58
  * To change this template use File | Settings | File Templates.
  */
-object DL_SYNCHRONIZATION extends StackBugFinder {
+object DL_SYNCHRONIZATION extends BugFinder {
 
   private val BAD_SIGNATURES: List[Type] =
     ObjectType("java/lang/Boolean") ::
@@ -26,7 +26,7 @@ object DL_SYNCHRONIZATION extends StackBugFinder {
       Nil
 
 
-  def checkBugs(pc: Int, instr: Instruction, state: State): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[MONITORENTER.type]) {
       return checkSynchronize
