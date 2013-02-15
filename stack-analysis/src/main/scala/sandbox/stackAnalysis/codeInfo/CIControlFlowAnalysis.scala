@@ -65,7 +65,7 @@ object CIControlFlowAnalysis extends ControlFlowAnalysis {
           addToArray(res, nextPC, currentPC)
         }
       }
-      if (res(currentPC) == null) res(currentPC) = Nil
+      
       currentPC = nextPC
     }
 
