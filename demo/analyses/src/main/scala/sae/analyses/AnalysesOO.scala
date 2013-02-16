@@ -38,7 +38,7 @@ import sae.bytecode.BytecodeDatabase
 import findbugs.random.oo._
 import findbugs.selected.oo._
 import metrics._
-import simple.CHA
+import simple._
 import sandbox.findbugs.detect._
 
 
@@ -115,6 +115,7 @@ object AnalysesOO
         case "CE" => EfferentCoupling(database)
         /* miscellaneous*/
         case "CHA" => CHA(database)
+        case "RTA" => RTA(database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
@@ -156,6 +157,7 @@ object AnalysesOO
         case "CE" => EfferentCoupling(database)
         /* miscellaneous*/
         case "CHA" => CHA(database)
+        case "RTA" => RTA(database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 

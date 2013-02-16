@@ -4,7 +4,8 @@ import sae.bytecode._
 import sae.Relation
 import structure.{CodeInfo, MethodDeclaration, InheritanceRelation, MethodInfo}
 import sae.syntax.sql._
-import sae.bytecode.instructions.{InvokeInstruction, InstructionInfo, INVOKEVIRTUAL, INVOKEINTERFACE}
+import instructions._
+import de.tud.cs.st.bat.resolved.ObjectType
 
 /**
  * Compute the call graph via Class Hierarchy Analysis (CHA).
@@ -16,7 +17,7 @@ import sae.bytecode.instructions.{InvokeInstruction, InstructionInfo, INVOKEVIRT
  *
  * @author Ralf Mitschke
  */
-object CHA
+object RTA
     extends (BytecodeDatabase => Relation[(MethodDeclaration, MethodInfo)])
 {
 
@@ -26,6 +27,11 @@ object CHA
 
     val isInvokeInstruction: InstructionInfo => Boolean = _.isInstanceOf[InvokeInstruction]
 
+    val createdType: InstructionInfo => ObjectType = _.asInstanceOf[NEW].instruction.objectType
+
+    val isCreateInstruction: InstructionInfo => Boolean = _.isInstanceOf[NEW]
+
+
     val isDynamicInvokeInstruction: InstructionInfo => Boolean = i => i.isInstanceOf[INVOKEVIRTUAL] || i.isInstanceOf[INVOKEINTERFACE]
 
     val asCallEdge: InvokeInstruction => (MethodDeclaration, MethodInfo) = i => (i.declaringMethod, i)
@@ -34,7 +40,6 @@ object CHA
 
     def apply(database: BytecodeDatabase): Relation[(MethodDeclaration, MethodInfo)] = {
         import database._
-
         val invokes: Relation[InvokeInstruction] = compile (
             SELECT (invokeInstruction) FROM instructions WHERE (isInvokeInstruction)
         ).forceToSet
@@ -43,17 +48,37 @@ object CHA
             SELECT (*) FROM invokes WHERE (isDynamicInvokeInstruction)
         )
 
+        val createdTypes = compile (
+            SELECT (createdType) FROM instructions WHERE (isCreateInstruction)
+        )
+
+        /*
+        val methodsInCreatedTypes = compile (
+            SELECT (second) FROM (createdTypes, methodDeclarations) WHERE
+                (thisClass === declaringType)
+        )
+        */
+
+        val methodsInCreatedTypes = compile (
+            SELECT (*) FROM (methodDeclarations) WHERE EXISTS (
+                SELECT (*) FROM createdTypes WHERE
+                    (thisClass === declaringType)
+            )
+        )
+
+
         val subTypeMethods = compile (
-            SELECT (*) FROM (subTypes, methodDeclarations) WHERE
+            SELECT (*) FROM (subTypes, methodsInCreatedTypes) WHERE
                 (subType === declaringType)
         )
+
 
         val dynamicCalls = compile (
             SELECT ((i: InvokeInstruction, x: (InheritanceRelation, MethodDeclaration)) => (i.declaringMethod, x._2)) FROM (invokeDynamics, subTypeMethods) WHERE
                 (receiverType === ((_: (InheritanceRelation, MethodDeclaration))._1.superType)) AND
-                (((_:InvokeInstruction).name) === ((_: (InheritanceRelation, MethodDeclaration))._2.name)) AND
-                (((_:InvokeInstruction).returnType) === ((_: (InheritanceRelation, MethodDeclaration))._2.returnType)) AND
-                (((_:InvokeInstruction).parameterTypes) === ((_: (InheritanceRelation, MethodDeclaration))._2.parameterTypes))
+                (((_: InvokeInstruction).name) === ((_: (InheritanceRelation, MethodDeclaration))._2.name)) AND
+                (((_: InvokeInstruction).returnType) === ((_: (InheritanceRelation, MethodDeclaration))._2.returnType)) AND
+                (((_: InvokeInstruction).parameterTypes) === ((_: (InheritanceRelation, MethodDeclaration))._2.parameterTypes))
         ).asInstanceOf[Relation[(MethodDeclaration, MethodInfo)]]
 
         compile (
