@@ -101,7 +101,7 @@ object ItemType {
     }
 
     def isUpperBoundOf(t: ItemType): Boolean = {
-      return (t == None || t == Null || t.isInstanceOf[SomeRef])
+      return (t == None || t == Null || (t.isInstanceOf[SomeRef] && t.asInstanceOf[SomeRef].refType.equals(refType)))
     }
 
     def isOfType(t: Type): Boolean = refType.equals(t)
@@ -144,7 +144,7 @@ object ItemType {
     }
 
     def isUpperBoundOf(t: ItemType): Boolean = {
-      return (t == None || t.isInstanceOf[SomeBase])
+      return (t == None || (t.isInstanceOf[SomeBase] && t.asInstanceOf[SomeBase].baseType.equals(baseType)))
     }
 
     def isOfType(t: Type): Boolean = baseType.equals(t)

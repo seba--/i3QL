@@ -2,7 +2,7 @@ package sandbox.findbugs.detect
 
 import de.tud.cs.st.bat.resolved.{Instruction, INVOKEVIRTUAL, ObjectType}
 import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -12,9 +12,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:07
  * To change this template use File | Settings | File Templates.
  */
-object MWN_MISMATCHED_NOTIFY extends BugFinder {
+object MWN_MISMATCHED_NOTIFY extends Detector {
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]

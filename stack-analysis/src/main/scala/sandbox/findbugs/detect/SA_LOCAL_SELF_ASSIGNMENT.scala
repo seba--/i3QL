@@ -7,7 +7,7 @@ import de.tud.cs.st.bat.resolved.LSTORE
 import de.tud.cs.st.bat.resolved.FSTORE
 import de.tud.cs.st.bat.resolved.DSTORE
 import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -17,9 +17,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:19
  * To change this template use File | Settings | File Templates.
  */
-object SA_LOCAL_SELF_ASSIGNMENT extends BugFinder {
+object SA_LOCAL_SELF_ASSIGNMENT extends Detector {
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[StoreLocalVariableInstruction]) {
       return checkStoreInstruction
@@ -29,12 +29,11 @@ object SA_LOCAL_SELF_ASSIGNMENT extends BugFinder {
 
   private def checkStoreInstruction(pc: Int, instr: Instruction, stack: Stack, lv: LocalVariables): Option[BugType.Value] = {
     val lvIndex = getIndexOfLocalVariable(instr.asInstanceOf[StoreLocalVariableInstruction])
-
     //TODO: Remove this test when exceptions are implemented.
     if (stack.size == 0) {
 
     } else if (saveEquals(lv(lvIndex), stack(0))) {
-      /* codeInfo.code.localVariableTable match {
+      /* byCodeInfo.code.localVariableTable match {
       case None => return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
 
       case Some(varTable) => {
@@ -46,6 +45,7 @@ object SA_LOCAL_SELF_ASSIGNMENT extends BugFinder {
           return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
       }
     }  */
+
       return Some(BugType.SA_LOCAL_SELF_ASSIGNMENT)
     }
     return None

@@ -2,7 +2,7 @@ package sandbox.findbugs.detect
 
 import de.tud.cs.st.bat.resolved._
 import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 
@@ -13,10 +13,10 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:04
  * To change this template use File | Settings | File Templates.
  */
-object SA_FIELD_SELF_COMPARISON extends BugFinder {
+object SA_FIELD_SELF_COMPARISON extends Detector {
 
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
 
     //Comparison using IF_XXXX

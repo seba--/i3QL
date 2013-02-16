@@ -10,6 +10,6 @@ import sae.bytecode.instructions.InstructionInfo
  * To change this template use File | Settings | File Templates.
  */
 trait ControlFlowEdge {
-  def getTail : InstructionInfo
-  def getHead : InstructionInfo
+  def getPredecessor : InstructionInfo
+  def getSuccessor : InstructionInfo
 }

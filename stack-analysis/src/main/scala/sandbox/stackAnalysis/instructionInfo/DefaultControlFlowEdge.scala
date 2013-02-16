@@ -10,8 +10,8 @@ import sae.bytecode.structure.CodeAttribute
  * Time: 23:14
  * To change this template use File | Settings | File Templates.
  */
-case class DefaultControlFlowEdge(tail: InstructionInfo, head: InstructionInfo) extends ControlFlowEdge{
-  def getTail = tail
-  def getHead = head
+case class DefaultControlFlowEdge(pred: InstructionInfo, succ: InstructionInfo) extends ControlFlowEdge{
+  def getPredecessor = pred
+  def getSuccessor = succ
 
 }

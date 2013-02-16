@@ -1,7 +1,7 @@
 package sandbox.findbugs.detect
 
 import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import de.tud.cs.st.bat.resolved._
 import sae.bytecode.structure.CodeInfo
 
@@ -12,7 +12,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 12:58
  * To change this template use File | Settings | File Templates.
  */
-object DL_SYNCHRONIZATION extends BugFinder {
+object DL_SYNCHRONIZATION extends Detector {
 
   private val BAD_SIGNATURES: List[Type] =
     ObjectType("java/lang/Boolean") ::
@@ -26,7 +26,7 @@ object DL_SYNCHRONIZATION extends BugFinder {
       Nil
 
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[MONITORENTER.type]) {
       return checkSynchronize
@@ -41,7 +41,6 @@ object DL_SYNCHRONIZATION extends BugFinder {
       return None
 
     val stackHead = stack.get(0)
-
     if (stackHead.getItemType.isOfType(ObjectType("java/lang/String"))) {
       Some(BugType.DL_SYNCHRONIZATION_ON_SHARED_CONSTANT)
     } else if (BAD_SIGNATURES.exists(stackHead.getItemType.isOfType)) {

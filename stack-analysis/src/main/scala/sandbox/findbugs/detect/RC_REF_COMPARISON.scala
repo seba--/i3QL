@@ -4,7 +4,7 @@ import de.tud.cs.st.bat.resolved._
 
 import sandbox.stackAnalysis.datastructure.{ItemType, LocalVariables, State, Stack}
 import scala.{Array, Int}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -14,7 +14,7 @@ import sae.bytecode.structure.CodeInfo
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-object RC_REF_COMPARISON extends BugFinder {
+object RC_REF_COMPARISON extends Detector {
 
   def suspiciousTypes: List[Type] =
     ObjectType("java/lang/Boolean") ::
@@ -27,7 +27,7 @@ object RC_REF_COMPARISON extends BugFinder {
       ObjectType("java/lang/Short") ::
       Nil
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     //Comparison of two objects
     if (instr.isInstanceOf[IF_ACMPEQ] || instr.isInstanceOf[IF_ACMPNE]) {

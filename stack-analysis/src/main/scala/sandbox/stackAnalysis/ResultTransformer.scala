@@ -1,4 +1,4 @@
-package sandbox.dataflowAnalysis
+package sandbox.stackAnalysis
 
 import de.tud.cs.st.bat.resolved.Instruction
 
@@ -11,13 +11,6 @@ import de.tud.cs.st.bat.resolved.Instruction
  * Time: 14:48
  * To change this template use File | Settings | File Templates.
  */
-trait ResultTransformer[T] {
-  /**
-   * The type of transformers that are used in the analysis.
-   */
-  type Transformer = (T => T)
-
-  def getTransformer(pc: Int, instr: Instruction): Transformer
-
+trait ResultTransformer[T] extends ((Int, Instruction, T) => T) {
 
 }

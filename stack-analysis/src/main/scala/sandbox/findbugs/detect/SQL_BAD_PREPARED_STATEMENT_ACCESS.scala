@@ -2,7 +2,7 @@ package sandbox.findbugs.detect
 
 import de.tud.cs.st.bat.resolved.{Instruction, ObjectType, INVOKEINTERFACE}
 import sandbox.stackAnalysis.datastructure.{Item, LocalVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -12,14 +12,14 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:04
  * To change this template use File | Settings | File Templates.
  */
-object SQL_BAD_PREPARED_STATEMENT_ACCESS extends BugFinder {
+object SQL_BAD_PREPARED_STATEMENT_ACCESS extends Detector {
 
   private def SUFFIX_LIST: List[String] = "Array" :: "AsciiStream" :: "BigDecimal" :: "BinaryStream" ::
     "Blob" :: "Boolean" :: "Byte" :: "Bytes" :: "CharacterStream" :: "Clob" :: "Date" :: "Double" ::
     "Float" :: "Int" :: "Long" :: "Object" :: "Ref" :: "RowId" :: "Short" :: "String" :: "Time" :: "Timestamp" ::
     "UnicodeStream" :: "URL" :: Nil
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEINTERFACE]) {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]

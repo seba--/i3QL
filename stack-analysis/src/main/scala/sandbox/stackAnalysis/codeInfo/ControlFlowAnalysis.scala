@@ -1,4 +1,4 @@
-package sandbox.dataflowAnalysis
+package sandbox.stackAnalysis.codeInfo
 
 import sae.Relation
 import sae.bytecode.BytecodeDatabase

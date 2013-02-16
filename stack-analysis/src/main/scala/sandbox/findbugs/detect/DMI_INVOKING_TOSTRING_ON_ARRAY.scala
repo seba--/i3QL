@@ -3,7 +3,7 @@ package sandbox.findbugs.detect
 import de.tud.cs.st.bat.resolved._
 import sandbox.stackAnalysis.datastructure.{LocalVariables, Stack, State}
 import de.tud.cs.st.bat.resolved.INVOKEVIRTUAL
-import sandbox.findbugs.{BugType, BugLogger}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -13,9 +13,9 @@ import sae.bytecode.structure.CodeInfo
  * Time: 17:16
  * To change this template use File | Settings | File Templates.
  */
-object DMI_INVOKING_TOSTRING_ON_ARRAY extends BugFinder {
+object DMI_INVOKING_TOSTRING_ON_ARRAY extends Detector {
 
-  def checkBugs(pc: Int, instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEVIRTUAL]) {
       val invInstr = instr.asInstanceOf[INVOKEVIRTUAL]

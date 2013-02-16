@@ -11,7 +11,7 @@ import sae.bytecode.structure.CodeAttribute
  * Time: 15:12
  * To change this template use File | Settings | File Templates.
  */
-case class AnchorControlFlowEdge(tail: InstructionInfo, head: InstructionInfo, attribute : CodeAttribute) extends ControlFlowEdge{
-  def getTail = tail
-  def getHead = head
+case class AnchorControlFlowEdge(pred: InstructionInfo, succ: InstructionInfo, attribute : CodeAttribute) extends ControlFlowEdge{
+  def getPredecessor = pred
+  def getSuccessor = succ
 }

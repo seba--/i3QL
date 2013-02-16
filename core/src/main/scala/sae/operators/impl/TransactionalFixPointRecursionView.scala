@@ -129,7 +129,8 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
     doRecursionForAddedElements()
     doRecursionForRemovedElements()
     clear()
-    super.endTransaction()
+    notifyEndTransaction()
+
   }
 
   override def clear() {

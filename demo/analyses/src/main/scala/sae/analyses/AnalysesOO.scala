@@ -40,6 +40,7 @@ import findbugs.selected.oo._
 import metrics._
 import simple.CallGraph
 import sandbox.findbugs.detect._
+import sandbox.findbugs.BugAnalysis
 
 
 /**
@@ -85,6 +86,7 @@ object AnalysesOO {
     case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR(database)
     case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD(database)
     /* mirko'stacks bug finder */
+    case "ALL_MIRKO" => BugAnalysis(database)
     case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
     case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
     case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)

@@ -1,12 +1,12 @@
-package sandbox.dataflowAnalysis
+package sandbox.stackAnalysis.codeInfo
 
 import sae.Relation
-import sae.syntax.sql._
 import sae.bytecode.structure.{MethodDeclaration, CodeInfo}
-import de.tud.cs.st.bat.resolved.Instruction
 import sae.bytecode.BytecodeDatabase
 import sae.operators.Combinable
 import sae.operators.impl.TransactionalEquiJoinView
+import sandbox.stackAnalysis.ResultTransformer
+
 
 
 /**
@@ -19,10 +19,10 @@ import sae.operators.impl.TransactionalEquiJoinView
  * To change this template use File | Settings | File Templates.
  */
 // rename to control flow analysis
-abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis, vTransformers: ResultTransformer[T])(implicit m: Manifest[T]) extends (BytecodeDatabase => Relation[MethodResult[T]]) {
+abstract class DataFlowAnalysis[T <: Combinable[T]](cfa: ControlFlowAnalysis, t: ResultTransformer[T])(implicit m: Manifest[T]) extends (BytecodeDatabase => Relation[MethodResult[T]]) {
 
-  val controlFlowAnalysis: ControlFlowAnalysis = vGraph
-  val transformers: ResultTransformer[T] = vTransformers
+  val controlFlowAnalysis: ControlFlowAnalysis = cfa
+  val transformer: ResultTransformer[T] = t
 
 
   /**
@@ -76,9 +76,9 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
         //If the instruction has no predecessors, the newResult will be the start value (sv)
         if (preds.length != 0) {
           //Result = transform the results at the entry labels with their transformer then combine them for a new newResult.
-          result = transform(preds.head, ci.code.instructions, fromArray(results, preds.head, ev))
+          result = transformer(preds.head, ci.code.instructions(preds.head), fromArray(results, preds.head, ev))
           for (i <- 1 until preds.length) {
-            result = (transform(preds(i), ci.code.instructions, fromArray(results, preds(i), ev))).upperBound(result)
+            result = transformer(preds(i), ci.code.instructions(preds(i)), fromArray(results, preds(i), ev)).upperBound(result)
           }
         }
 
@@ -112,10 +112,6 @@ abstract class DataFlowAnalysis[T <: Combinable[T]](vGraph: ControlFlowAnalysis,
     //  println()
     return results
 
-  }
-
-  private def transform(fromPC: Int, a: IndexedSeq[Instruction], currentResult: T): T = {
-    transformers.getTransformer(fromPC, a(fromPC))(currentResult)
   }
 
   private def fromArray(ts: IndexedSeq[T], index: Int, default: T) = {

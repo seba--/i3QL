@@ -43,7 +43,7 @@ import de.tud.cs.st.vespucci.interfaces.IMethodDeclaration
  * Time: 13:08
  */
 
-class MethodDeclaration(val declaringClass: ClassDeclaration,
+case class MethodDeclaration(val declaringClass: ClassDeclaration,
                         val accessFlags: Int,
                         val name: String,
                         val returnType: de.tud.cs.st.bat.resolved.Type,

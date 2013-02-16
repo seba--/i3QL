@@ -51,7 +51,7 @@ class StackAnalysisTest {
   @Test
   def testSetAccessible() {
     //Get the newResult
-    val results: Array[State] = StackAnalysisTest.methodSetAccessible.asList(0).states
+    val results: IndexedSeq[State] = StackAnalysisTest.methodSetAccessible.asList(0).states
 
 
     //Build the expected newResult
@@ -81,7 +81,7 @@ class StackAnalysisTest {
   @Test
   def testIsLoggable() {
     //Get the newResult
-    val results: Array[State] = StackAnalysisTest.methodIsLoggable.asList(0).states
+    val results: IndexedSeq[State] = StackAnalysisTest.methodIsLoggable.asList(0).states
 
 
 
