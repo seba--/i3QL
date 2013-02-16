@@ -87,9 +87,9 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         if (sccRepresentatives.isDefinedAt (v))
             return nonSCCPredecessors (sccRepresentatives (v))
 
-        val descendants = mutable.HashSet.empty[Vertex]
-        nonSCCPredecessors (v) = descendants
-        descendants
+        val predecessors = mutable.HashSet.empty[Vertex]
+        nonSCCPredecessors (v) = predecessors
+        predecessors
     }
 
 
@@ -301,8 +301,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     }
 
     def added(edge: Edge) {
-        computeAdditions (edge).foreach (
-            element_added
+        println (edge)
+        computeAdditions (edge).foreach (e => {
+            println (e)
+            element_added (e)
+        }
         )
     }
 
