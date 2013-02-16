@@ -55,7 +55,7 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
     var count = 0
 
     override def endTransaction() {
-        println(this + ".endTransaction()")
+        //println(this + ".endTransaction()")
         count += 1
         if (count == 2) {
             count = 0

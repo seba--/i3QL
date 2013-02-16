@@ -151,7 +151,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
 
     def lazyInitialize() {
-        source.foreach (computeAdditions)
+        source.foreach (edge => computeAdditions (edge)(notify = false))
     }
 
     /**
@@ -180,33 +180,6 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         nonSCCDescendants.put (representative, sccDescendants)
     }
 
-
-    private def addDescendant(start: Vertex, end: Vertex, descendants: mutable.HashSet[Vertex]): List[(Vertex, Vertex)] = {
-        if (descendants.contains (end))
-            return Nil
-
-        var additions: List[(Vertex, Vertex)] = Nil
-
-        // start is in an scc
-        if (sccRepresentatives.isDefinedAt (start)) {
-            // add (x,end) for all elements in the same scc
-            for (descendant <- descendants
-                 if isInSameSCC (start, descendant)
-            )
-            {
-                additions = (descendant, end) :: additions
-            }
-        }
-        else
-        {
-            additions = (start, end) :: additions
-        }
-
-        descendants.add (end)
-
-        additions
-    }
-
     private def updateAdjacencyLists(start: Vertex, end: Vertex) {
         val descendantsOfStart = descendants (start)
         val predecessorsOfEnd = predecessors (end)
@@ -215,11 +188,9 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         predecessorsOfEnd.add (start)
     }
 
-    private def computeResultAdditions(start: Vertex, end: Vertex): List[(Vertex, Vertex)] = {
+    private def computeResultAdditions(start: Vertex, end: Vertex)(implicit notify: Boolean = true) {
         if (descendants (start).contains (end))
-            return Nil
-
-        var additions: List[(Vertex, Vertex)] = Nil
+            return
 
         // start is in an scc
         if (sccRepresentatives.isDefinedAt (start)) {
@@ -228,14 +199,17 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                  if isInSameSCC (start, descendant)
             )
             {
-                additions = (descendant, end) :: additions
+                if (notify) {
+                    element_added (descendant, end)
+                }
             }
         }
         else
         {
-            additions = (start, end) :: additions
+            if (notify) {
+                element_added (start, end)
+            }
         }
-        additions
     }
 
 
@@ -251,7 +225,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
      * 2. updateAdjacencyLists
      * This order is important, since the computation of additions must know whether an element is already in the adjacency lists
      */
-    private def computeAdditions(edge: Edge): List[(Vertex, Vertex)] = {
+    private def computeAdditions(edge: Edge)(implicit notify: Boolean = true) {
         val edgeStart = getTail (edge)
         val edgeEnd = getHead (edge)
 
@@ -260,7 +234,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         val predecessorsOfStart = predecessors (edgeStart)
 
         //Step 4 // the new edge itself
-        var additions = computeResultAdditions (edgeStart, edgeEnd)
+        computeResultAdditions (edgeStart, edgeEnd)
         updateAdjacencyLists (edgeStart, edgeEnd)
 
 
@@ -270,13 +244,13 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         {
             // Step 1
             // all new paths constructed by adding the end vertex to the back of an existing path
-            additions = computeResultAdditions (start, edgeEnd) ::: additions
+            computeResultAdditions (start, edgeEnd)
             updateAdjacencyLists (start, edgeEnd)
 
             for (end <- descendantsOfEnd) {
                 //Step 3
                 // all new paths constructed by concatenating two paths via (start -> end)
-                additions = computeResultAdditions (start, end) ::: additions
+                computeResultAdditions (start, end)
                 updateAdjacencyLists (start, end)
             }
         }
@@ -286,7 +260,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         //O(n)
         for (end <- descendantsOfEnd)
         {
-            additions = computeResultAdditions (edgeStart, end) ::: additions
+            computeResultAdditions (edgeStart, end)
             updateAdjacencyLists (edgeStart, end)
         }
 
@@ -297,16 +271,11 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
             createSCC (edgeStart)
         }
 
-        additions
     }
 
     def added(edge: Edge) {
-        println (edge)
-        computeAdditions (edge).foreach (e => {
-            println (e)
-            element_added (e)
-        }
-        )
+        //println (edge)
+        computeAdditions (edge)
     }
 
     def isInSameSCCAsRepresentative(vertex: Vertex, representative: Vertex): Boolean = {
