@@ -33,7 +33,7 @@
 package sae
 
 import capabilities.{Listable, Iterable}
-import collections.{BagResult, SetResult}
+import collections.{TransactionalBagIndex, BagResult, SetResult}
 
 /**
  *
@@ -63,12 +63,12 @@ trait Relation[V]
 
     def isSet: Boolean
 
-    def forceToSet : Relation[V] = this // should return this
+    def forceToSet: Relation[V] = this // should return this
 
     /**
      * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
      */
-    def isStored : Boolean
+    def isStored: Boolean
 
     /**
      * Always return the same materialized view for this relation
@@ -92,23 +92,29 @@ trait Relation[V]
     // Indices MUST be updated prior to any other notifications
     abstract override def element_added(v: V) {
         indices.values.foreach (_.added (v))
+        additionIndices.values.foreach (_.added (v))
         super.element_added (v)
     }
 
     abstract override def element_removed(v: V) {
         indices.values.foreach (_.removed (v))
+        deletionIndices.values.foreach (_.removed (v))
         super.element_removed (v)
     }
 
     abstract override def element_updated(oldV: V, newV: V) {
         indices.values.foreach (_.updated (oldV, newV))
+        additionIndices.values.foreach (_.updated (oldV, newV))
+        deletionIndices.values.foreach (_.updated (oldV, newV))
         super.element_updated (oldV, newV)
     }
 
     abstract override def notifyEndTransaction() {
         //println(this + ".notifyEndTransaction() with " + (observers ++ indices.keys))
-        indices.values.foreach (_.endTransaction())
-        super.notifyEndTransaction()
+        indices.values.foreach (_.endTransaction ())
+        additionIndices.values.foreach (_.endTransaction ())
+        deletionIndices.values.foreach (_.endTransaction ())
+        super.notifyEndTransaction ()
     }
 
     /**
@@ -126,17 +132,49 @@ trait Relation[V]
         index.asInstanceOf[Index[K, V]]
     }
 
+    var additionIndices = new scala.collection.immutable.HashMap[(V => _), Index[_, V]]
+
+    var deletionIndices = new scala.collection.immutable.HashMap[(V => _), Index[_, V]]
+
+    /**
+     * returns an index for specified key function
+     */
+    def index[K](keyFunction: V => K, traceDeletions: Boolean): Index[K, V] = {
+        if (!traceDeletions) {
+            val index = additionIndices.getOrElse (
+            keyFunction,
+            {
+                val newIndex = new TransactionalBagIndex (this, keyFunction)(traceDeletions)
+                additionIndices += (keyFunction -> newIndex)
+                newIndex
+            }
+            )
+            index.asInstanceOf[Index[K, V]]
+        }
+        else {
+            val index = deletionIndices.getOrElse (
+            keyFunction,
+            {
+                val newIndex = new TransactionalBagIndex (this, keyFunction)(traceDeletions)
+                deletionIndices += (keyFunction -> newIndex)
+                newIndex
+            }
+            )
+            index.asInstanceOf[Index[K, V]]
+        }
+    }
+
     protected def createIndex[K](keyFunction: V => K): Index[K, V] =
     {
         if (this.isSet)
         {
             new sae.collections.SetIndex[K, V](this, keyFunction)
         }
-        else{
+        else
+        {
             new sae.collections.BagIndex[K, V](this, keyFunction)
         }
     }
-
 
 
     var name: String = null

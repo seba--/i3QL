@@ -33,8 +33,9 @@
 package sae.operators.impl
 
 import sae._
+import collections.TransactionalBagIndex
+import deltas.{Deletion, Addition, Update}
 import sae.operators.EquiJoin
-import util.TransactionKeyValueObserver
 
 class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
                                                               val right: Relation[DomainB],
@@ -44,19 +45,33 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
     extends EquiJoin[DomainA, DomainB, Range, Key]
 {
 
-    left addObserver LeftObserver
+    val leftAdditionIndex = left.index (leftKey, false)
 
-    right addObserver RightObserver
+    val rightAdditionIndex = right.index (rightKey, false)
 
-    override protected def children = List (left, right)
+    val leftDeletionIndex = left.index (leftKey, true)
 
-    override def isStored = false
+    val rightDeletionIndex = right.index (rightKey, true)
+
+    // we observe the indices, but the indices are not part of the observer chain
+    // indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
+
+    leftAdditionIndex addObserver LeftObserver
+
+    leftDeletionIndex addObserver LeftObserver
+
+    rightAdditionIndex addObserver RightObserver
+
+    rightDeletionIndex addObserver RightObserver
+
+
+    override protected def children = List (leftAdditionIndex, leftDeletionIndex, rightAdditionIndex, rightAdditionIndex)
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left) {
+        if (o == leftAdditionIndex || o == leftDeletionIndex) {
             return List (LeftObserver)
         }
-        if (o == right) {
+        if (o == rightAdditionIndex || o == rightDeletionIndex) {
             return List (RightObserver)
         }
         Nil
@@ -66,115 +81,144 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Range) => T) {
-        val idx = com.google.common.collect.ArrayListMultimap.create[Key, DomainA]()
-        left.foreach (v =>
-            idx.put (leftKey (v), v)
-        )
-        right.foreach (v => {
-            val k = rightKey (v)
-            if (idx.containsKey (k)) {
-                val leftElements = idx.get (k)
-                val it = leftElements.iterator ()
-                while (it.hasNext) {
-                    val l = it.next ()
-                    f (projection (l, v))
+        if (leftAdditionIndex.size <= rightAdditionIndex.size) {
+            leftEquiJoin (f)
+
+        }
+        else
+        {
+            rightEquiJoin (f)
+        }
+    }
+
+    // use the left relation as keys, since this relation is smaller
+    def leftEquiJoin[T](f: (Range) => T) {
+        leftAdditionIndex.foreach (
+        {
+            case (key, v) =>
+                rightAdditionIndex.get (key) match {
+                    case Some (col) => {
+                        col.foreach (u =>
+                            f (projection (v, u))
+                        )
+                    }
+                    case _ => // do nothing
                 }
-            }
         }
         )
     }
 
-    private def doJoinAndCleanup() {
-        joinAdditions ()
-        joinDeletions ()
-        LeftObserver.clear ()
-        RightObserver.clear ()
-    }
-
-    private def joinAdditions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.additions.entries ().iterator
-        var result:List[Range] = Nil
-        while (it.hasNext) {
-            val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.additions.containsKey (k)) {
-                val rightElements = RightObserver.additions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    result = (projection (left, right)) :: result
+    // use the right relation as keys, since this relation is smaller
+    def rightEquiJoin[T](f: (Range) => T) {
+        rightAdditionIndex.foreach (
+        {
+            case (key, u) =>
+                leftAdditionIndex.get (key) match {
+                    case Some (col) => {
+                        col.foreach (v =>
+                            f (projection (v, u))
+                        )
+                    }
+                    case _ => // do nothing
                 }
-            }
         }
-        result.foreach(element_added)
-    }
-
-    private def joinDeletions() {
-        val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.deletions.entries ().iterator
-        var result:List[Range] = Nil
-        while (it.hasNext) {
-            val next = it.next ()
-            val left = next.getValue
-            val k = next.getKey
-            if (RightObserver.deletions.containsKey (k)) {
-                val rightElements = RightObserver.deletions.get (k)
-                val it = rightElements.iterator ()
-                while (it.hasNext) {
-                    val right = it.next ()
-                    result = (projection (left, right)) :: result
-                }
-            }
-        }
-        result.foreach(element_removed)
+        )
     }
 
 
     var leftFinished  = false
     var rightFinished = false
 
-    object LeftObserver extends TransactionKeyValueObserver[Key, DomainA]
+    object LeftObserver extends Observer[(Key, DomainA)]
     {
 
         override def endTransaction() {
-            // println (this + ".endTransaction() with " + observers)
-            // println ("waiting : " + !rightFinished)
-
             leftFinished = true
             if (rightFinished) {
-                doJoinAndCleanup ()
-
                 notifyEndTransaction ()
-
-
                 leftFinished = false
                 rightFinished = false
             }
         }
 
-        def keyFunc = leftKey
+        // update operations on left relation
+        def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
+            throw new UnsupportedOperationException
+        }
+
+        def removed(kv: (Key, DomainA)) {
+            rightDeletionIndex.get (kv._1) match {
+                case Some (col) => {
+                    col.map (u => (projection (kv._2, u))).foreach (element_removed)
+                }
+                case _ => // do nothing
+            }
+        }
+
+        def added(kv: (Key, DomainA)) {
+            rightAdditionIndex.get (kv._1) match {
+                case Some (col) => {
+                    col.map (u => (projection (kv._2, u))).foreach (element_added)
+                }
+                case _ => // do nothing
+            }
+        }
+
+        def updated[U <: (Key, DomainA)](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: (Key, DomainA)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
 
         override def toString: String = TransactionalEquiJoinView.this.toString + "$LeftObserver"
     }
 
-    object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
+    object RightObserver extends Observer[(Key, DomainB)]
     {
 
         override def endTransaction() {
-            //  println(this + ".endTransaction() with " + observers)
-            //  println("waiting : " + !leftFinished)
-
             rightFinished = true
             if (leftFinished) {
-                doJoinAndCleanup ()
                 notifyEndTransaction ()
-
                 leftFinished = false
                 rightFinished = false
             }
         }
 
-        def keyFunc = rightKey
+        // update operations on right relation
+        def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
+            throw new UnsupportedOperationException
+        }
+
+        def removed(kv: (Key, DomainB)) {
+            leftDeletionIndex.get (kv._1) match {
+                case Some (col) => {
+                    col.map (u => (projection (u, kv._2))).foreach (element_removed)
+                }
+                case _ => // do nothing
+            }
+
+        }
+
+        def added(kv: (Key, DomainB)) {
+            leftAdditionIndex.get (kv._1) match {
+                case Some (col) => {
+                    col.map (u => (projection (u, kv._2))).foreach (element_added)
+                }
+                case _ => // do nothing
+            }
+
+        }
+
+        def updated[U <: (Key, DomainB)](update: Update[U]) {
+            throw new UnsupportedOperationException
+        }
+
+        def modified[U <: (Key, DomainB)](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+            throw new UnsupportedOperationException
+        }
 
         override def toString: String = TransactionalEquiJoinView.this.toString + "$RightObserver"
     }
