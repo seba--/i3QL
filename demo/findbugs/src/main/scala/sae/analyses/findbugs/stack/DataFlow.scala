@@ -3,11 +3,17 @@ package sae.analyses.findbugs.stack
 import sae.Relation
 import sae.bytecode._
 import instructions.InstructionInfo
-import sae.operators.impl.{WITH_RECURSIVE, RecursiveBase, TransactionalEquiJoinView}
+import sae.operators.impl._
 import sae.bytecode.structure._
 import structure._
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
+import sae.bytecode.structure.CodeAttribute
+import structure.ControlFlowEdge
+import structure.LocVariables
+import structure.Stacks
+import structure.StateInfo
+import sae.operators.impl.RecursiveBase
 
 /**
  * Created with IntelliJ IDEA.
@@ -80,15 +86,15 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
 
         WITH_RECURSIVE (
             startStates,
-            compile (
-                SELECT DISTINCT (*) FROM new TransactionalEquiJoinView (
-                    startStates.relation,
+            new TransactionalDuplicateEliminationView(
+                new TransactionalEquiJoinView (
+                    startStates,
                     controlFlow,
                     (_: StateInfo).instruction,
                     (_: ControlFlowEdge).current,
                     nextState
-                ).named ("dataflow")
-            )
+                )
+            ).named ("dataflow")
         )
     }
 }

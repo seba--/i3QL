@@ -85,23 +85,14 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
 
         //Relation that stores all possible control flow edges as InstructionPairs.
 
+        import sae.syntax.RelationalAlgebraSyntax._
         val controlFlowEdges =
+        //control flow for normal instructions and unconditional branches assuming no branch
             new TransactionalEquiJoinView (
                 fallThroughInstructions,
                 instructions,
                 methodAndNextSequenceIndex,
                 methodAndSequenceIndex,
-                controlFlowEdge
-                //control flow for unconditional branches
-            ).named ("fallThroughInstructions")
-
-        /*
-        //control flow for normal instructions and unconditional branches assuming no branch
-            new TransactionalEquiJoinView (
-                fallThroughInstructions,
-                instructions,
-                methodAndNextIndex,
-                methodAndIndex,
                 controlFlowEdge
                 //control flow for unconditional branches
             ).named ("fallThroughInstructions") ⊎ new TransactionalEquiJoinView (
@@ -125,8 +116,6 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
                 (current: (SwitchInstructionInfo, Int), next: InstructionInfo) => ControlFlowEdge (current._1, next)
             ).named ("switchJumpTargets")
 
-
-             */
         controlFlowEdges
     }
 
