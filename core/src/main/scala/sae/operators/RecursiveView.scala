@@ -40,11 +40,16 @@ import sae.{Observer, Relation}
  *
  */
 
-trait Recursion[TargetDomain, SourceDomain <: TargetDomain]
+
+trait RecursiveView[Domain]
+    extends Relation[Domain] with Observer[Domain]
 {
+    /**
+     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+     */
+    def isStored = false
 
-    def source: Relation[SourceDomain]
+    def isSet = false
 
-    def target: Observer[TargetDomain]
-
+    def foreach[T](f: (Domain) => T) {}
 }

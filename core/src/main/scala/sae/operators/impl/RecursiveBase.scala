@@ -32,8 +32,9 @@
  */
 package sae.operators.impl
 
-import sae.{Observer, Relation}
-import sae.operators.Recursion
+import sae.operators.RecursiveView
+import sae.deltas.{Update, Deletion, Addition}
+import sae.Relation
 
 /**
  *
@@ -41,13 +42,29 @@ import sae.operators.Recursion
  *
  */
 
-case class WithRecursive[TargetDomain, SourceDomain <: TargetDomain](target: Observer[TargetDomain],
-                                                                     source: Relation[SourceDomain])
-
-    extends Recursion[TargetDomain, SourceDomain]
+case class RecursiveBase[Domain](relation: Relation[Domain])
+    extends RecursiveView[Domain]
 {
+    relation.addObserver (this)
 
-    source.addObserver (target)
+    def added(v: Domain) {
+        element_added (v)
+    }
+
+    def removed(v: Domain) {
+        element_removed (v)
+    }
+
+    def updated(oldV: Domain, newV: Domain) {
+        element_updated (oldV, newV)
+    }
+
+    def updated[U <: Domain](update: Update[U]) {
+        element_updated (update)
+    }
+
+    def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
+        element_modifications (additions, deletions, updates)
+    }
 
 }
-
