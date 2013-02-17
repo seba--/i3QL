@@ -1,8 +1,8 @@
 package sandbox.findbugs.detect
 
-import de.tud.cs.st.bat.resolved.{ObjectType, INVOKEINTERFACE}
-import sandbox.stackAnalysis.datastructure.{Item, LocVariables, Stack, State}
-import sandbox.findbugs.{BugType, BugLogger}
+import de.tud.cs.st.bat.resolved.{Instruction, ObjectType, INVOKEINTERFACE}
+import sandbox.stackAnalysis.datastructure.{Item, LocalVariables, Stack, State}
+import sandbox.findbugs.BugType
 import sae.bytecode.structure.CodeInfo
 
 /**
@@ -12,30 +12,31 @@ import sae.bytecode.structure.CodeInfo
  * Time: 11:04
  * To change this template use File | Settings | File Templates.
  */
-object SQL_BAD_PREPARED_STATEMENT_ACCESS extends StackBugFinder {
+object SQL_BAD_PREPARED_STATEMENT_ACCESS extends Detector {
 
   private def SUFFIX_LIST: List[String] = "Array" :: "AsciiStream" :: "BigDecimal" :: "BinaryStream" ::
     "Blob" :: "Boolean" :: "Byte" :: "Bytes" :: "CharacterStream" :: "Clob" :: "Date" :: "Double" ::
     "Float" :: "Int" :: "Long" :: "Object" :: "Ref" :: "RowId" :: "Short" :: "String" :: "Time" :: "Timestamp" ::
     "UnicodeStream" :: "URL" :: Nil
 
-  def notifyInstruction(pc: Int, codeInfo: CodeInfo, analysis: Array[State], logger: BugLogger) = {
-
-    val instr = codeInfo.code.instructions(pc)
+  def getDetectorFunction(instr: Instruction): (Int, Instruction, Stack, LocalVariables) => Option[BugType.Value] = {
 
     if (instr.isInstanceOf[INVOKEINTERFACE]) {
       val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
 
       if (invInstr.declaringClass.equals(ObjectType("java/sql/PreparedStatement")) &&
         invInstr.name.startsWith("set") && SUFFIX_LIST.contains(invInstr.name.substring(3))) {
-        checkForBugs(pc, codeInfo, analysis, logger, checkBadAccess)
+        return checkBadAccess
       }
     }
 
+    return checkNone
+
+
   }
 
-  private def checkBadAccess(pc: Int, codeInfo: CodeInfo, stack: Stack, loc: LocVariables): Option[BugType.Value] = {
-    val invInstr = codeInfo.code.instructions(pc).asInstanceOf[INVOKEINTERFACE]
+  private def checkBadAccess(pc: Int, instr: Instruction, stack: Stack, loc: LocalVariables): Option[BugType.Value] = {
+    val invInstr = instr.asInstanceOf[INVOKEINTERFACE]
     val numParams: Int = invInstr.methodDescriptor.parameterTypes.size
     val indexParam: Item = stack.get(numParams - 1)
 

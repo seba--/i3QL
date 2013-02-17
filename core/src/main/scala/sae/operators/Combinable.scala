@@ -13,5 +13,5 @@ trait Combinable[T] {
    * @param other The object to be combined with.
    * @return A new object that is defined as the combination of this and the other object.
    */
-  def combineWith(other : T) : T
+  def upperBound(other: T): T
 }

@@ -1,10 +1,10 @@
 package stackTest
 
-import sae.QueryResult
+import sae.{Relation, QueryResult}
 import org.junit.{Assert, Test, BeforeClass}
 import java.util.Date
 import sae.bytecode.bat.BATDatabaseFactory
-import sandbox.findbugs.{BugType, BugEntry, StackBugAnalysis}
+import sandbox.findbugs._
 import sae.syntax.sql._
 import java.io.{File, FileInputStream}
 
@@ -16,29 +16,28 @@ import java.io.{File, FileInputStream}
  * To change this template use File | Settings | File Templates.
  */
 object BugAnalysisTest extends org.scalatest.junit.JUnitSuite {
-  var methodTestRefComparison: QueryResult[BugEntry] = null
-  var methodTestSelfAssignment: QueryResult[BugEntry] = null
-  var methodTestSelfComparison: QueryResult[BugEntry] = null
-  var methodTestArrayToString: QueryResult[BugEntry] = null
-  var methodTestBadSQLAccess: QueryResult[BugEntry] = null
-  var methodTestReturnValue: QueryResult[BugEntry] = null
-  var methodTestSynchronized: QueryResult[BugEntry] = null
+  var methodTestRefComparison: QueryResult[(Int,BugType.Value)] = null
+  var methodTestSelfAssignment: QueryResult[(Int,BugType.Value)] = null
+  var methodTestSelfComparison: QueryResult[(Int,BugType.Value)] = null
+  var methodTestArrayToString: QueryResult[(Int,BugType.Value)] = null
+  var methodTestBadSQLAccess: QueryResult[(Int,BugType.Value)] = null
+  var methodTestReturnValue: QueryResult[(Int,BugType.Value)] = null
+  var methodTestSynchronized: QueryResult[(Int,BugType.Value)] = null
 
 
   @BeforeClass
   def start() {
     //Setup the database
     val database = BATDatabaseFactory.create()
-    val analysis = StackBugAnalysis(database)
-    StackBugAnalysis.printResults = true
+    val analysis : Relation[BugInfo] = BugAnalysis.byCodeInfo(database)
 
-    methodTestRefComparison = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testRefComparison"))
-    methodTestSelfAssignment = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSelfAssignment"))
-    methodTestSelfComparison = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSelfComparison"))
-    methodTestArrayToString = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testArrayToString"))
-    methodTestBadSQLAccess = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testBadSQLAccess"))
-    methodTestReturnValue = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testReturnValue"))
-    methodTestSynchronized = compile(SELECT(*) FROM analysis WHERE ((_: BugEntry).declaringMethod.name equals "testSynchronized"))
+    methodTestRefComparison = compile(SELECT ((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testRefComparison"))
+    methodTestSelfAssignment = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testSelfAssignment"))
+    methodTestSelfComparison = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testSelfComparison"))
+    methodTestArrayToString = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testArrayToString"))
+    methodTestBadSQLAccess = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testBadSQLAccess"))
+    methodTestReturnValue = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testReturnValue"))
+    methodTestSynchronized = compile(SELECT((bi: BugInfo) => (bi.pc, bi.bugType)) FROM analysis WHERE ((_: BugInfo).declaringMethod.name equals "testSynchronized"))
 
     database.addClassFile(new FileInputStream("stack-analysis" + File.separator + "target" + File.separator + "test-classes" + File.separator + "TestMethods.class"))
     println("Finish analysis: " + new Date())
@@ -51,73 +50,73 @@ object BugAnalysisTest extends org.scalatest.junit.JUnitSuite {
 class BugAnalysisTest {
   @Test
   def testRefComparison() {
-    val logList = BugAnalysisTest.methodTestRefComparison.asList(0).log.getLog
+    val bugList : List[(Int,BugType.Value)] = BugAnalysisTest.methodTestRefComparison.asList
 
-    Assert.assertEquals(2, logList.size)
-    Assert.assertTrue(logList.contains((32, BugType.ES_COMPARING_STRINGS_WITH_EQ)))
-    Assert.assertTrue(logList.contains((64, BugType.RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN)))
+    Assert.assertEquals(2, bugList.size)
+    Assert.assertTrue(bugList.contains((32, BugType.ES_COMPARING_STRINGS_WITH_EQ)))
+    Assert.assertTrue(bugList.contains((64, BugType.RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN)))
   }
 
   @Test
   def testSelfAssignment() {
-    val logList = BugAnalysisTest.methodTestSelfAssignment.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestSelfAssignment.asList
 
-    Assert.assertEquals(2, logList.size)
-    Assert.assertTrue(logList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT_INSTEAD_OF_FIELD)))
-    Assert.assertTrue(logList.contains((23, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
+    Assert.assertEquals(2, bugList.size)
+    Assert.assertTrue(bugList.contains((11, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
+    Assert.assertTrue(bugList.contains((23, BugType.SA_LOCAL_SELF_ASSIGNMENT)))
   }
 
   @Test
   def testSelfComparison() {
-    val logList = BugAnalysisTest.methodTestSelfComparison.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestSelfComparison.asList
 
-    Assert.assertEquals(5, logList.size)
-    Assert.assertTrue(logList.contains((10, BugType.SA_FIELD_SELF_COMPARISON)))
-    Assert.assertTrue(logList.contains((10, BugType.ES_COMPARING_STRINGS_WITH_EQ)))
-    Assert.assertTrue(logList.contains((22, BugType.ES_COMPARING_PARAMETER_STRING_WITH_EQ)))
-    Assert.assertTrue(logList.contains((50, BugType.SA_FIELD_SELF_COMPARISON)))
-    Assert.assertTrue(logList.contains((72, BugType.SA_FIELD_SELF_COMPARISON)))
+    Assert.assertEquals(5, bugList.size)
+    Assert.assertTrue(bugList.contains((10, BugType.SA_FIELD_SELF_COMPARISON)))
+    Assert.assertTrue(bugList.contains((10, BugType.ES_COMPARING_STRINGS_WITH_EQ)))
+    Assert.assertTrue(bugList.contains((22, BugType.ES_COMPARING_PARAMETER_STRING_WITH_EQ)))
+    Assert.assertTrue(bugList.contains((50, BugType.SA_FIELD_SELF_COMPARISON)))
+    Assert.assertTrue(bugList.contains((72, BugType.SA_FIELD_SELF_COMPARISON)))
   }
 
   @Test
   def testArrayToString() {
-    val logList = BugAnalysisTest.methodTestArrayToString.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestArrayToString.asList
 
-    Assert.assertEquals(6, logList.size)
-    Assert.assertTrue(logList.contains((8, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
-    Assert.assertTrue(logList.contains((12, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
-    Assert.assertTrue(logList.contains((26, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
-    Assert.assertTrue(logList.contains((34, BugType.RV_RETURN_VALUE_IGNORED)))
-    Assert.assertTrue(logList.contains((54, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
-    Assert.assertTrue(logList.contains((62, BugType.RV_RETURN_VALUE_IGNORED)))
+    Assert.assertEquals(6, bugList.size)
+    Assert.assertTrue(bugList.contains((8, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
+    Assert.assertTrue(bugList.contains((12, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
+    Assert.assertTrue(bugList.contains((26, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
+    Assert.assertTrue(bugList.contains((34, BugType.RV_RETURN_VALUE_IGNORED)))
+    Assert.assertTrue(bugList.contains((54, BugType.DMI_INVOKING_TOSTRING_ON_ARRAY)))
+    Assert.assertTrue(bugList.contains((62, BugType.RV_RETURN_VALUE_IGNORED)))
   }
 
   @Test
   def testBadSQLAccess() {
-    val logList = BugAnalysisTest.methodTestBadSQLAccess.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestBadSQLAccess.asList
 
-    Assert.assertEquals(3, logList.size)
-    Assert.assertTrue(logList.contains((16, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
-    Assert.assertTrue(logList.contains((26, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
-    Assert.assertTrue(logList.contains((49, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
+    Assert.assertEquals(3, bugList.size)
+    Assert.assertTrue(bugList.contains((16, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
+    Assert.assertTrue(bugList.contains((26, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
+    Assert.assertTrue(bugList.contains((49, BugType.SQL_BAD_PREPARED_STATEMENT_ACCESS)))
 
   }
 
   @Test
   def testReturnValue() {
-    val logList = BugAnalysisTest.methodTestReturnValue.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestReturnValue.asList
 
-    Assert.assertEquals(2, logList.size)
-    Assert.assertTrue(logList.contains((11, BugType.RV_RETURN_VALUE_IGNORED)))
-    Assert.assertTrue(logList.contains((23, BugType.RV_RETURN_VALUE_IGNORED)))
+    Assert.assertEquals(2, bugList.size)
+    Assert.assertTrue(bugList.contains((11, BugType.RV_RETURN_VALUE_IGNORED)))
+    Assert.assertTrue(bugList.contains((23, BugType.RV_RETURN_VALUE_IGNORED)))
   }
 
   @Test
   def testSynchronized() {
-    val logList = BugAnalysisTest.methodTestSynchronized.asList(0).log.getLog
+    val bugList = BugAnalysisTest.methodTestSynchronized.asList
 
-    Assert.assertEquals(1, logList.size)
-    Assert.assertTrue(logList.contains((5, BugType.DL_SYNCHRONIZATION_ON_BOXED_PRIMITIVE)))
+    Assert.assertEquals(1, bugList.size)
+    Assert.assertTrue(bugList.contains((5, BugType.DL_SYNCHRONIZATION_ON_BOXED_PRIMITIVE)))
   }
 
 

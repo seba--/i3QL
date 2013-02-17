@@ -1,14 +1,14 @@
-package sandbox.findbugs
+package sandbox.stackAnalysis.codeInfo
 
 import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.
  * User: Mirko
- * Date: 07.12.12
- * Time: 13:09
+ * Date: 02.11.12
+ * Time: 15:21
  * To change this template use File | Settings | File Templates.
  */
-case class BugEntry(declaringMethod: MethodDeclaration, log: BugLogger) {
+case class MethodCFG(declaringMethod: MethodDeclaration, cfg: Array[List[Int]]) {
 
 }

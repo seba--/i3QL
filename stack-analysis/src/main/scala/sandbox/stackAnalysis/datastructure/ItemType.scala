@@ -1,11 +1,12 @@
 package sandbox.stackAnalysis.datastructure
 
 import de.tud.cs.st.bat.resolved.{Type, BaseType, ReferenceType}
+import sae.operators.Combinable
 
 /**
  * Abstract class for types of items. An item type holds the information that Type holds but has additional types for null, none and any.
  */
-abstract class ItemType {
+trait ItemType extends Combinable[ItemType] {
   def getSize: Int
 
   def isUpperBoundOf(t: ItemType): Boolean
@@ -15,6 +16,10 @@ abstract class ItemType {
   def isArrayType: Boolean
 
   def isReferenceType: Boolean
+
+  def upperBound(other : ItemType) : ItemType = {
+    ItemType.upperBound(this,other)
+  }
 }
 
 /*
@@ -96,7 +101,7 @@ object ItemType {
     }
 
     def isUpperBoundOf(t: ItemType): Boolean = {
-      return (t == None || t == Null || t.isInstanceOf[SomeRef])
+      return (t == None || t == Null || (t.isInstanceOf[SomeRef] && t.asInstanceOf[SomeRef].refType.equals(refType)))
     }
 
     def isOfType(t: Type): Boolean = refType.equals(t)
@@ -139,7 +144,7 @@ object ItemType {
     }
 
     def isUpperBoundOf(t: ItemType): Boolean = {
-      return (t == None || t.isInstanceOf[SomeBase])
+      return (t == None || (t.isInstanceOf[SomeBase] && t.asInstanceOf[SomeBase].baseType.equals(baseType)))
     }
 
     def isOfType(t: Type): Boolean = baseType.equals(t)

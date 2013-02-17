@@ -1,35 +1,36 @@
 package sandbox.stackAnalysis.datastructure
 
 import de.tud.cs.st.bat.resolved.Type
+import sae.operators.Combinable
 
 
 /**
  * An item holds all information that are stored on a single stack slot or in a local variable.
 
  *
- * @param declaredType The type of the item. The declared type always holds the most informative type information. If you want to check an item for the possibility of being null, use the corresponding flag instead.
+ * @param itemType The type of the item. The declared type always holds the most informative type information. If you want to check an item for the possibility of being null, use the corresponding flag instead.
  * @param pc The program counter where this item originates from. -1 if the item could originate from different sources or unknown.
  * @param flags This holds additional information about the item. Use the constants in the object Item to set the flags.
  */
-case class Item(declaredType: ItemType, pc: Int, flags: Int) {
+case class Item(pc: Int, itemType: ItemType, flags: Int) extends Combinable[Item] {
 
   private var fieldName: Option[String] = None
 
-  def this(declaredType: ItemType, pc: Int) = {
-    this(declaredType, pc, 0x00000000)
+  def this(pc: Int, declaredType: ItemType) = {
+    this( pc, declaredType, 0x00000000)
   }
 
-  def this(declaredType: ItemType, pc: Int, flags: Int, fromField: String) = {
-    this(declaredType, pc, flags)
+  def this(pc: Int, declaredType: ItemType, flags: Int, fromField: String) = {
+    this( pc, declaredType, flags)
     fieldName = Some(fromField)
   }
 
   def convertTo(newType: ItemType): Item = {
-    return Item(newType, pc, flags)
+    return Item( pc, newType, flags)
   }
 
   def size: Int = {
-    declaredType.getSize
+    itemType.getSize
   }
 
   def getFieldName: String = {
@@ -67,8 +68,8 @@ case class Item(declaredType: ItemType, pc: Int, flags: Int) {
     (flags & flag) != 0
   }
 
-  def getDeclaredType: ItemType = {
-    declaredType
+  def getItemType: ItemType = {
+    itemType
   }
 
   def getPC: Int = {
@@ -79,15 +80,15 @@ case class Item(declaredType: ItemType, pc: Int, flags: Int) {
     flags
   }
 
-  def combineWith(other: Item): Item = {
+  def upperBound(other: Item): Item = {
     if (other == null)
       return this
 
-    val resItemType = ItemType.upperBound(declaredType, other.declaredType)
+    val resItemType = ItemType.upperBound(itemType, other.itemType)
     val resPC = if (pc == other.pc) pc else -1
     val resFlags = flags | other.flags
 
-    return Item(resItemType, resPC, resFlags)
+    return Item(resPC, resItemType, resFlags)
   }
 
 
@@ -103,7 +104,7 @@ return (getDeclaredType.equals(otherItem.getDeclaredType) && pc.equals(otherItem
 }    */
 
   override def toString(): String = {
-    return "(" + declaredType + ", " + pc + ", " + Integer.toHexString(flags) + ")"
+    return "(" + itemType + ", " + pc + ", " + Integer.toHexString(flags) + ")"
   }
 
 
@@ -111,8 +112,8 @@ return (getDeclaredType.equals(otherItem.getDeclaredType) && pc.equals(otherItem
 
 object Item {
 
-  def apply(declaredType: Type, pc: Int, flags: Int): Item = {
-    Item(ItemType.fromType(declaredType), pc, flags)
+  def apply(pc: Int, declaredType: Type, flags: Int): Item = {
+    Item( pc, ItemType.fromType(declaredType), flags)
   }
 
   val FLAG_DEFAULT: Int = 0x00000000
@@ -127,45 +128,42 @@ object Item {
 
 
   def createNullItem(pc: Int): Item = {
-    Item(ItemType.Null, pc, FLAG_COULD_BE_NULL)
+    Item( pc, ItemType.Null, FLAG_COULD_BE_NULL)
   }
 
   def createParameterItem(declaredType: ItemType): Item = {
-    if (declaredType.isUpperBoundOf(ItemType.Null))
-      Item(declaredType, -1, FLAG_IS_PARAMETER | FLAG_COULD_BE_NULL)
-    else
-      Item(declaredType, -1, FLAG_IS_PARAMETER)
+      Item( -1, declaredType, FLAG_IS_PARAMETER )
   }
 
-  def createItem(declaredType: ItemType, pc: Int): Item = {
-    new Item(declaredType, pc)
+  def createItem(pc: Int, declaredType: ItemType): Item = {
+    new Item( pc, declaredType)
   }
 
-  def createItem(declaredType: ItemType, pc: Int, value: Any): Item = {
+  def createItem(pc: Int, declaredType: ItemType, value: Any): Item = {
     if (value == null) {
-      return return Item(declaredType, pc, FLAG_COULD_BE_NULL)
+      return return Item( pc, declaredType, FLAG_COULD_BE_NULL)
     } else if (value == 0) {
-      return Item(declaredType, pc, FLAG_COULD_BE_ZERO)
+      return Item( pc, declaredType, FLAG_COULD_BE_ZERO)
     } else {
-      return new Item(declaredType, pc)
+      return new Item( pc , declaredType)
     }
   }
 
   def createContinue(continued: Item): Item = {
-    Item(continued.getDeclaredType, continued.getPC, continued.getFlags | FLAG_IS_CONTINUE)
+    Item( continued.getPC, continued.getItemType, continued.getFlags | FLAG_IS_CONTINUE)
   }
 
   def createNoneItem: Item = {
-    new Item(ItemType.None, -1)
+    new Item(-1, ItemType.None)
   }
 
-  def combine(itemTypeList: List[Item]): Item = {
+  def upperBound(itemTypeList: List[Item]): Item = {
     if (itemTypeList == Nil)
       Item.createNoneItem
     else if (itemTypeList.size == 1)
       itemTypeList.head
     else
-      combine(itemTypeList(0).combineWith(itemTypeList(1)) :: itemTypeList.drop(2))
+      upperBound(itemTypeList(0).upperBound(itemTypeList(1)) :: itemTypeList.drop(2))
 
   }
 }

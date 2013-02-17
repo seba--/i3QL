@@ -1,14 +1,14 @@
-package sandbox.dataflowAnalysis
+package sandbox.findbugs
 
 import sae.bytecode.structure.MethodDeclaration
 
 /**
  * Created with IntelliJ IDEA.
  * User: Mirko
- * Date: 02.11.12
- * Time: 15:21
+ * Date: 15.02.13
+ * Time: 16:31
  * To change this template use File | Settings | File Templates.
  */
-case class MethodCFG(declaringMethod: MethodDeclaration, predecessorArray: Array[List[Int]]) {
+case class BugInfo(declaringMethod : MethodDeclaration, pc : Int, bugType : BugType.Value) {
 
 }
