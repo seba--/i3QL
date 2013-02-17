@@ -93,6 +93,7 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
 
     private def joinAdditions() {
         val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.additions.entries ().iterator
+        var result:List[Range] = Nil
         while (it.hasNext) {
             val next = it.next ()
             val left = next.getValue
@@ -102,14 +103,16 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
                 val it = rightElements.iterator ()
                 while (it.hasNext) {
                     val right = it.next ()
-                    element_added (projection (left, right))
+                    result = (projection (left, right)) :: result
                 }
             }
         }
+        result.foreach(element_added)
     }
 
     private def joinDeletions() {
         val it: java.util.Iterator[java.util.Map.Entry[Key, DomainA]] = LeftObserver.deletions.entries ().iterator
+        var result:List[Range] = Nil
         while (it.hasNext) {
             val next = it.next ()
             val left = next.getValue
@@ -119,10 +122,11 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
                 val it = rightElements.iterator ()
                 while (it.hasNext) {
                     val right = it.next ()
-                    element_removed (projection (left, right))
+                    result = (projection (left, right)) :: result
                 }
             }
         }
+        result.foreach(element_removed)
     }
 
 

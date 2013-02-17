@@ -22,9 +22,12 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
      * by applying the current instruction to the state before the current instruction
      */
     private def nextState(stateInfo: StateInfo, edge: ControlFlowEdge): StateInfo = {
-        println (stateInfo)
-        println (edge)
-        StateInfo (edge.next,
+        println (edge.current.pc + ":" + edge.current.instruction)
+        println (stateInfo.state)
+        println (edge.next.pc + ":" + edge.next.instruction)
+
+        StateInfo (
+            edge.next,
             BytecodeTransformer (stateInfo.state, edge.current.pc, edge.current.instruction)
         )
     }
