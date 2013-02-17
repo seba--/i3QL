@@ -29,7 +29,7 @@ object CHA
 
     val isDynamicInvokeInstruction: InstructionInfo => Boolean = i => i.isInstanceOf[INVOKEVIRTUAL] || i.isInstanceOf[INVOKEINTERFACE]
 
-    val asCallEdge: InvokeInstruction => (MethodDeclaration, MethodInfo) = i => (i.declaringMethod, i)
+    val asCallEdge: InvokeInstruction => (MethodInfo, MethodInfo) = i => (i.declaringMethod, i)
 
     val enclosingMethod: CodeInfo => (MethodDeclaration) = _.declaringMethod
 
@@ -56,7 +56,7 @@ object CHA
                 (((_: InvokeInstruction).name) === ((_: (InheritanceRelation, MethodDeclaration))._2.name)) AND
                 (((_: InvokeInstruction).returnType) === ((_: (InheritanceRelation, MethodDeclaration))._2.returnType)) AND
                 (((_: InvokeInstruction).parameterTypes) === ((_: (InheritanceRelation, MethodDeclaration))._2.parameterTypes))
-        ).asInstanceOf[Relation[(MethodDeclaration, MethodInfo)]]
+        ).asInstanceOf[Relation[(MethodInfo, MethodInfo)]]
 
 
         val result = compile (
