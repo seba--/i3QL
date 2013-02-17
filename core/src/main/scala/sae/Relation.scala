@@ -106,6 +106,7 @@ trait Relation[V]
     }
 
     abstract override def notifyEndTransaction() {
+        //println(this + ".notifyEndTransaction() with " + (observers ++ indices.keys))
         indices.values.foreach (_.endTransaction())
         super.notifyEndTransaction()
     }
@@ -134,6 +135,17 @@ trait Relation[V]
         else{
             new sae.collections.BagIndex[K, V](this, keyFunction)
         }
+    }
+
+
+
+    var name: String = null
+
+    override def toString = if (name == null) super.toString else name
+
+    def named (s: String): Relation[V] = {
+        name = s
+        this
     }
 
 }

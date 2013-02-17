@@ -67,4 +67,8 @@ case class RecursiveBase[Domain](relation: Relation[Domain])
         element_modifications (additions, deletions, updates)
     }
 
+    override def endTransaction() {
+        notifyEndTransaction()
+    }
+
 }

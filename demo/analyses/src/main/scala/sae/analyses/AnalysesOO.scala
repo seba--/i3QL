@@ -33,13 +33,13 @@
 package sae.analyses
 
 import findbugs.base.oo.Definitions
+import findbugs.stack._
 import sae.Relation
 import sae.bytecode.BytecodeDatabase
 import findbugs.random.oo._
 import findbugs.selected.oo._
 import metrics._
 import simple._
-import sandbox.findbugs.detect._
 
 
 /**
@@ -85,15 +85,7 @@ object AnalysesOO
         case "IMSE_DONT_CATCH_IMSE" => IMSE_DONT_CATCH_IMSE (database)
         case "SE_NO_SUITABLE_CONSTRUCTOR" => SE_NO_SUITABLE_CONSTRUCTOR (database)
         case "UUF_UNUSED_FIELD" => UUF_UNUSED_FIELD (database)
-        /* mirko's bug finder */
-        case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
-        case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
-        case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
-        case "RC_REF_COMPARISON" => sandbox.findbugs.detect.RC_REF_COMPARISON(database)
-        case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
-        case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
-        case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
-        case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => sandbox.findbugs.detect.SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+
 
         /* randomly selected analyses without dataflow */
         case "BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" => BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION(database)
@@ -108,6 +100,17 @@ object AnalysesOO
         case "SW_SWING_METHODS_INVOKED_IN_SWING_THREAD" => SW_SWING_METHODS_INVOKED_IN_SWING_THREAD(database)
         case "UG_SYNC_SET_UNSYNC_GET" => UG_SYNC_SET_UNSYNC_GET(database)
         case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
+
+        /* mirko's bug finder */
+        //case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        //case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        //case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        //case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
+        case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
+        //case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        //case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        //case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree(database)
         case "LCOM" => LCOMStar(database)
@@ -150,6 +153,17 @@ object AnalysesOO
         case "UG_SYNC_SET_UNSYNC_GET" => findbugs.random.oo.optimized.UG_SYNC_SET_UNSYNC_GET(database)
         case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => findbugs.random.oo.optimized
                 .UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
+
+        /* mirko's bug finder */
+        //case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        //case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        //case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        //case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
+        case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
+        //case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        //case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        //case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree(database)
         case "LCOM" => LCOMStar(database)

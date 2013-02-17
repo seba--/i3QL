@@ -22,6 +22,8 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
      * by applying the current instruction to the state before the current instruction
      */
     private def nextState(stateInfo: StateInfo, edge: ControlFlowEdge): StateInfo = {
+        println (stateInfo)
+        println (edge)
         StateInfo (edge.next,
             BytecodeTransformer (stateInfo.state, edge.current.pc, edge.current.instruction)
         )
@@ -50,24 +52,21 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
                     declaringMethod,
                     (_: CodeAttribute).declaringMethod,
                     startState
-                )
+                ).named ("startStates")
             )
 
 
-        val fixpoint =
-            WITH_RECURSIVE (
-                startStates,
-                compile (
-                    SELECT DISTINCT (*) FROM new TransactionalEquiJoinView (
-                        startStates,
-                        controlFlow,
-                        (_: StateInfo).instruction,
-                        (_: ControlFlowEdge).current,
-                        nextState
-                    )
-                )
+        WITH_RECURSIVE (
+            startStates,
+            compile (
+                SELECT DISTINCT (*) FROM new TransactionalEquiJoinView (
+                    startStates,
+                    controlFlow,
+                    (_: StateInfo).instruction,
+                    (_: ControlFlowEdge).current,
+                    nextState
+                ).named ("dataflow")
             )
-
-        fixpoint
+        )
     }
 }

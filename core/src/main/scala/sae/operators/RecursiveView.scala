@@ -44,6 +44,8 @@ import sae.{Observer, Relation}
 trait RecursiveView[Domain]
     extends Relation[Domain] with Observer[Domain]
 {
+
+    def relation: Relation[Domain]
     /**
      * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
      */
@@ -51,5 +53,5 @@ trait RecursiveView[Domain]
 
     def isSet = false
 
-    def foreach[T](f: (Domain) => T) {}
+    def foreach[T](f: (Domain) => T) {relation.foreach(f)}
 }

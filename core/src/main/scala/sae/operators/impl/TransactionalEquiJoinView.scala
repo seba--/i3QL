@@ -149,6 +149,8 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
         }
 
         def keyFunc = leftKey
+
+        override def toString: String = TransactionalEquiJoinView.this.toString + "$LeftObserver"
     }
 
     object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
@@ -169,6 +171,8 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
         }
 
         def keyFunc = rightKey
+
+        override def toString: String = TransactionalEquiJoinView.this.toString + "$RightObserver"
     }
 
 }

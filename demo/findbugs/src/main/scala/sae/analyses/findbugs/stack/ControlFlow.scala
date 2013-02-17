@@ -43,6 +43,8 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
     private def controlFlowEdge: (InstructionInfo, InstructionInfo) => ControlFlowEdge =
         (current: InstructionInfo, next: InstructionInfo) => ControlFlowEdge (current, next)
 
+    //println(current + " => " + next);
+
 
     def apply(database: BytecodeDatabase): Relation[ControlFlowEdge] = {
         import database._
@@ -89,26 +91,26 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
                 methodAndIndex,
                 controlFlowEdge
                 //control flow for unconditional branches
-            ) ⊎ new TransactionalEquiJoinView (
+            ).named ("fallThroughInstructions") ⊎ new TransactionalEquiJoinView (
                 unconditionalBranches,
                 instructions,
                 methodUnconditionalBranchIndex,
                 methodAndIndex,
                 controlFlowEdge
                 //control flow for conditional branches assuming branch
-            ) ⊎ new TransactionalEquiJoinView (
+            ).named ("unconditionalBranches") ⊎ new TransactionalEquiJoinView (
                 conditionalBranches,
                 instructions,
                 methodConditionalBranchIndex,
                 methodAndIndex,
                 controlFlowEdge
-            ) ⊎ new TransactionalEquiJoinView (
+            ).named ("conditionalBranches") ⊎ new TransactionalEquiJoinView (
                 switchJumpTargets,
-                database.instructions,
+                instructions,
                 methodSwitchIndex,
                 methodAndIndex,
-                (current:(SwitchInstructionInfo, Int),next:InstructionInfo) => ControlFlowEdge(current._1, next)
-            )
+                (current: (SwitchInstructionInfo, Int), next: InstructionInfo) => ControlFlowEdge (current._1, next)
+            ).named ("switchJumpTargets")
 
         controlFlowEdges
     }
