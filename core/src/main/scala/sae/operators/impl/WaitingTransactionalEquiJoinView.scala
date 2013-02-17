@@ -33,7 +33,6 @@
 package sae.operators.impl
 
 import sae._
-import operators.impl.TransactionalEquiJoinView
 import sae.operators.EquiJoin
 import util.TransactionKeyValueObserver
 

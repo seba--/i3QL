@@ -47,28 +47,54 @@ case class RecursiveBase[Domain](relation: Relation[Domain])
 {
     relation.addObserver (this)
 
+    var nextElement: Option[Domain] = None
+
+    var recursiveNotification = false
+
     def added(v: Domain) {
+        if (recursiveNotification) {
+            nextElement = Some (v)
+            return
+        }
+
+        recursiveNotification = true
         element_added (v)
+
+        while (nextElement.isDefined) {
+            val next = nextElement.get
+            nextElement = None
+            element_added (next)
+        }
+        recursiveNotification = false
     }
 
     def removed(v: Domain) {
+        if (recursiveNotification) {
+            nextElement = Some (v)
+            return
+        }
+
+        recursiveNotification = true
         element_removed (v)
+
+        while (nextElement.isDefined) {
+            val next = nextElement.get
+            nextElement = None
+            element_removed (next)
+        }
+        recursiveNotification = false
     }
 
     def updated(oldV: Domain, newV: Domain) {
-        element_updated (oldV, newV)
+        throw new UnsupportedOperationException
     }
 
     def updated[U <: Domain](update: Update[U]) {
-        element_updated (update)
+        throw new UnsupportedOperationException
     }
 
     def modified[U <: Domain](additions: Set[Addition[U]], deletions: Set[Deletion[U]], updates: Set[Update[U]]) {
-        element_modifications (additions, deletions, updates)
-    }
-
-    override def endTransaction() {
-        notifyEndTransaction()
+        throw new UnsupportedOperationException
     }
 
 }

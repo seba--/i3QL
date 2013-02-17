@@ -26,8 +26,12 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
     private val methodAndIndex: InstructionInfo => (MethodDeclaration, Int) =
         (i: InstructionInfo) => (i.declaringMethod, i.pc)
 
-    private val methodAndNextIndex: InstructionInfo => (MethodDeclaration, Int) =
-        (i: InstructionInfo) => (i.declaringMethod, i.pc + 1)
+    private val methodAndSequenceIndex: InstructionInfo => (MethodDeclaration, Int) =
+        (i: InstructionInfo) => (i.declaringMethod, i.sequenceIndex)
+
+
+    private val methodAndNextSequenceIndex: InstructionInfo => (MethodDeclaration, Int) =
+        (i: InstructionInfo) => (i.declaringMethod, i.sequenceIndex + 1)
 
     private val methodUnconditionalBranchIndex: GotoBranchInstructionInfo => (MethodDeclaration, Int) =
         (i: GotoBranchInstructionInfo) => (i.declaringMethod, i.pc + i.branchOffset)
@@ -79,10 +83,19 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
         )
 
 
-        import sae.syntax.RelationalAlgebraSyntax._
         //Relation that stores all possible control flow edges as InstructionPairs.
 
         val controlFlowEdges =
+            new TransactionalEquiJoinView (
+                fallThroughInstructions,
+                instructions,
+                methodAndNextSequenceIndex,
+                methodAndSequenceIndex,
+                controlFlowEdge
+                //control flow for unconditional branches
+            ).named ("fallThroughInstructions")
+
+        /*
         //control flow for normal instructions and unconditional branches assuming no branch
             new TransactionalEquiJoinView (
                 fallThroughInstructions,
@@ -112,6 +125,8 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
                 (current: (SwitchInstructionInfo, Int), next: InstructionInfo) => ControlFlowEdge (current._1, next)
             ).named ("switchJumpTargets")
 
+
+             */
         controlFlowEdges
     }
 
