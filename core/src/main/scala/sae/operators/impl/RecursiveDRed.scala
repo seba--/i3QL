@@ -43,67 +43,93 @@ import collection.mutable
  *
  */
 
-case class RecursiveDRed[Domain](relation: Relation[Domain])
+class RecursiveDRed[Domain](val relation: Relation[Domain])
     extends RecursiveView[Domain]
 {
     relation.addObserver (this)
 
-    var currentRecursionElements: List[Domain] = Nil
-
-    var isRecursionRunning = false
+    // the set of elements in the current recursion
+    // recording them avoids endless recursions
+    private val recursiveDerivations: mutable.HashSet[Domain] = mutable.HashSet.empty
 
     // these elements were already derived once and will not be propagated a second time
-    var derivedElements: mutable.HashSet[Domain] = mutable.HashSet.empty
+    private val derivedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
 
-    var deletedElements: mutable.HashSet[Domain] = mutable.HashSet.empty
+    private val deletedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
 
     def added(v: Domain) {
-        if (isRecursionRunning) {
-            if (!derivedElements.contains (v)) {
-                currentRecursionElements ::= v
+
+        if (!recursiveDerivations.isEmpty) {
+            if (!derivedElements.contains(v) && !recursiveDerivations.contains (v)) {
+                recursiveDerivations += v
             }
+            val derivationCount = derivedElements.getOrElseUpdate (v, 0)
+            derivedElements (v) = derivationCount + 1
+
+            // during the recursion I have seen another derivation for v
             return
         }
 
-        isRecursionRunning = true
-        derivedElements.add (v)
-        element_added (v)
 
-        while (!currentRecursionElements.isEmpty) {
-            val next = currentRecursionElements.head
-            currentRecursionElements = currentRecursionElements.tail
-            if (derivedElements.add (next)) {
+        val derivationCount = derivedElements.getOrElseUpdate (v, 0)
+        derivedElements (v) = derivationCount + 1
+        if (derivationCount == 0) {
+            recursiveDerivations += v
+            element_added (v)
+            recursiveDerivations -= v
+        }
+
+        while (!recursiveDerivations.isEmpty) {
+            val next = recursiveDerivations.head
+            val derivationCount = derivedElements.getOrElseUpdate (next, 0)
+            if (derivationCount == 1) {
                 element_added (next)
             }
+            recursiveDerivations -= next
         }
-        isRecursionRunning = false
     }
 
     def removed(v: Domain) {
-        if (isRecursionRunning) {
-            if (!deletedElements.contains (v)) {
-                currentRecursionElements ::= v
+        if (!recursiveDerivations.isEmpty) {
+            if (!deletedElements.contains(v) && !recursiveDerivations.contains (v)) {
+                recursiveDerivations += v
             }
+
+            // during the recursion I have seen another derivation for v
+            val derivationCount = deletedElements.getOrElseUpdate (v, 0)
+            deletedElements (v) = derivationCount + 1
+
             return
         }
 
-        isRecursionRunning = true
 
-        deletedElements.add (v)
-        element_removed (v)
-
-
-        while (!currentRecursionElements.isEmpty) {
-            val next = currentRecursionElements.head
-            currentRecursionElements = currentRecursionElements.tail
-            if (deletedElements.add (next)) {
-                element_removed (next)
-            }
+        val derivationCount = deletedElements.getOrElseUpdate (v, 0)
+        deletedElements (v) = derivationCount + 1
+        if (derivationCount == 0) {
+            recursiveDerivations += v
+            element_removed (v)
+            recursiveDerivations -= v
         }
 
-        derivedElements = derivedElements -- deletedElements
-        deletedElements = mutable.HashSet.empty
-        isRecursionRunning = false
+        while (!recursiveDerivations.isEmpty) {
+            val next = recursiveDerivations.head
+            val derivationCount = deletedElements.getOrElseUpdate (next, 0)
+            if (derivationCount == 1) {
+                element_removed (next)
+            }
+            recursiveDerivations -= next
+        }
+
+        for( (key,count) <- deletedElements) {
+            var derivationCount = derivedElements(key) // it should be contained in the derived elements
+            derivationCount -= count
+            if(derivationCount > 0) {
+                derivedElements.put(key, derivationCount)
+            }
+            else {
+                derivedElements.remove(key)
+            }
+        }
     }
 
     def updated(oldV: Domain, newV: Domain) {

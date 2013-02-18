@@ -33,6 +33,7 @@
 package sae.operators.impl
 
 import sae.Relation
+import sae.operators.RecursiveView
 
 /**
  *
@@ -43,7 +44,7 @@ import sae.Relation
 object WITH_RECURSIVE
 {
 
-    def apply[TargetDomain, SourceDomain <: TargetDomain](target: RecursiveBase[TargetDomain],
+    def apply[TargetDomain, SourceDomain <: TargetDomain](target: RecursiveView[TargetDomain],
                                                           source: Relation[SourceDomain]): Relation[SourceDomain] =
     {
         source.addObserver (target)
@@ -51,8 +52,8 @@ object WITH_RECURSIVE
     }
 
 
-    def apply[TargetDomain, SourceDomain <: TargetDomain](target1: RecursiveBase[TargetDomain],
-                                                          target2: RecursiveBase[TargetDomain],
+    def apply[TargetDomain, SourceDomain <: TargetDomain](target1: RecursiveView[TargetDomain],
+                                                          target2: RecursiveView[TargetDomain],
                                                           source: Relation[SourceDomain]): Relation[SourceDomain] =
     {
         source.addObserver (target1)
