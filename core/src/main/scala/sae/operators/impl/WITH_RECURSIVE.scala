@@ -51,5 +51,13 @@ object WITH_RECURSIVE
     }
 
 
+    def apply[TargetDomain, SourceDomain <: TargetDomain](target1: RecursiveBase[TargetDomain],
+                                                          target2: RecursiveBase[TargetDomain],
+                                                          source: Relation[SourceDomain]): Relation[SourceDomain] =
+    {
+        source.addObserver (target1)
+        source.addObserver (target2)
+        source
+    }
 }
 
