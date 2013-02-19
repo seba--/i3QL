@@ -70,7 +70,20 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
         supportedElements (v) = currentSupportPath :: supportingPaths
     }
 
-    private val deletedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
+
+    private def deleteCurrentSupportTo(v: Domain) {
+        val supportingPaths = deletedElements (v)
+        supportingPaths.foreach (
+            path => {
+                if (path == currentSupportPath) {
+                    return
+                }
+            }
+        )
+        deletedElements (v) = currentSupportPath :: supportingPaths
+    }
+
+    private val deletedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
 
     /**
      * recursion stacks will look lick this
@@ -141,10 +154,16 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
     }
 
     def removed(v: Domain) {
-        if (supportedElements.contains (v)) {
+        if (deletedElements.contains (v)) {
             // we have reached a value that was previously defined.
 
+            // add the current recursion to the support for v
+            deleteCurrentSupportTo (v)
             return
+        }
+        else
+        {
+            deletedElements (v) = List (currentSupportPath)
         }
 
         if (!recursionStack.isEmpty) {
@@ -173,12 +192,15 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
             // next is a support on the current recursive path
             currentSupportPath = next :: currentSupportPath
             // add elements of the next level
-            element_added (next)
+            element_removed (next)
+
             // we did not compute a new level, i.e., the next recursion level of values is empty
             // remove all empty levels
             while (!recursionStack.isEmpty && recursionStack.head == Nil) {
                 recursionStack = recursionStack.tail
-                currentSupportPath = currentSupportPath.tail
+                if (!currentSupportPath.isEmpty) {
+                    currentSupportPath = currentSupportPath.tail
+                }
             }
         }
     }
