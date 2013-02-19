@@ -271,6 +271,8 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
             }
         }
 
+        deletedElements = mutable.HashMap.empty
+
         // rederive
         rederivations.foreach (element_added)
         println ("done")
