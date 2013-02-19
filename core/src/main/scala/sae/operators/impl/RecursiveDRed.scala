@@ -36,6 +36,7 @@ import sae.operators.RecursiveView
 import sae.deltas.{Update, Deletion, Addition}
 import sae.Relation
 import collection.mutable
+import collection.immutable.HashSet
 
 /**
  *
@@ -50,84 +51,132 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
 
     // the set of elements in the current recursion
     // recording them avoids endless recursions
-    private val recursiveDerivations: mutable.HashSet[Domain] = mutable.HashSet.empty
+    //
+    // all elements that support the currently added value
+    private var currentSupport: HashSet[Domain] = HashSet.empty
 
     // these elements were already derived once and will not be propagated a second time
-    private val derivedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
+    private val supportedElements: mutable.HashMap[Domain, HashSet[Domain]] = mutable.HashMap.empty
 
     private val deletedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
 
+    /**
+     * recursion stacks will look lick this
+     * Nil
+     * List(Nil)
+     * List(List(v), Nil)
+     * List(List(v), List(u), Nil)
+     * List(List(v), List(u,w), Nil)
+     * List(List(v), List(u), Nil)
+     * List(List(v), List(u), Nil)
+     * List(List(v), Nil)
+     * List(Nil)
+     * Nil
+     */
+    private var recursionStack: List[List[Domain]] = Nil
+
+
     def added(v: Domain) {
+        if (supportedElements.contains (v)) {
+            // we have reached a value that was previously defined.
 
-        if (!recursiveDerivations.isEmpty) {
-            if (!derivedElements.contains(v) && !recursiveDerivations.contains (v)) {
-                recursiveDerivations += v
-            }
-            val derivationCount = derivedElements.getOrElseUpdate (v, 0)
-            derivedElements (v) = derivationCount + 1
+            // add the current recursion to the support for v
+            val oldSupport = supportedElements (v)
+            supportedElements (v) = oldSupport ++ currentSupport
+            return
+        } else {
+            supportedElements (v) = currentSupport
+        }
 
-            // during the recursion I have seen another derivation for v
+        if (!recursionStack.isEmpty) {
+            // we have derived a new value in the recursion
+            // it will be treated in the enclosing call
+
+            // basically everything that ends up here comes from one single
+            // call to element_added, i.e., it is all derived at the same recursion depth
+
+            // add v as a derived value at the current recursion depth
+            recursionStack = (v :: recursionStack.head) :: recursionStack.tail
             return
         }
 
 
-        val derivationCount = derivedElements.getOrElseUpdate (v, 0)
-        derivedElements (v) = derivationCount + 1
-        if (derivationCount == 0) {
-            recursiveDerivations += v
-            element_added (v)
-            recursiveDerivations -= v
-        }
+        // we have reached the start of a recursion
 
-        while (!recursiveDerivations.isEmpty) {
-            val next = recursiveDerivations.head
-            val derivationCount = derivedElements.getOrElseUpdate (next, 0)
-            if (derivationCount == 1) {
-                element_added (next)
+        recursionStack = List ( List (v))
+        while (!recursionStack.isEmpty) {
+            // we have derived next and now we want to derive further values recursively
+            val next = recursionStack.head.head
+            // remove the current value from the current level
+            recursionStack = recursionStack.head.tail :: recursionStack.tail
+            // add a new empty list at the beginning of the level
+            recursionStack = Nil :: recursionStack
+            // next is a support on the current recursive path
+            currentSupport += next
+            // add elements of the next level
+            element_added (next)
+            // we did not compute a new level, i.e., the next recursion level of values is empty
+            if (recursionStack.head == Nil) {
+                currentSupport -= next
             }
-            recursiveDerivations -= next
+            // remove all empty levels
+            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
+                recursionStack = recursionStack.tail
+            }
+
+
+            /*
+            else
+            {
+                // we still have more values at the next level of recursion
+                recursionStack = recursionStack.head.tail :: recursionStack.tail
+            }
+            */
         }
     }
 
     def removed(v: Domain) {
-        if (!recursiveDerivations.isEmpty) {
-            if (!deletedElements.contains(v) && !recursiveDerivations.contains (v)) {
-                recursiveDerivations += v
-            }
+        if (supportedElements.contains (v)) {
+            // we have reached a value that was previously defined.
 
-            // during the recursion I have seen another derivation for v
-            val derivationCount = deletedElements.getOrElseUpdate (v, 0)
-            deletedElements (v) = derivationCount + 1
+            // remove the current recursion from the support for v
+            val oldSupport = supportedElements (v)
+            supportedElements (v) = oldSupport -- currentSupport
+            return
+        }
 
+        if (!recursionStack.isEmpty) {
+            // we have derived a new value in the recursion
+            // it will be treated in the enclosing call
+
+            // basically everything that ends up here comes from one single
+            // call to element_added, i.e., it is all derived at the same recursion depth
+
+            // add v as a derived value at the current recursion depth
+            recursionStack = (v :: recursionStack.head) :: recursionStack.tail
             return
         }
 
 
-        val derivationCount = deletedElements.getOrElseUpdate (v, 0)
-        deletedElements (v) = derivationCount + 1
-        if (derivationCount == 0) {
-            recursiveDerivations += v
-            element_removed (v)
-            recursiveDerivations -= v
-        }
+        // we have reached the start of a recursion
 
-        while (!recursiveDerivations.isEmpty) {
-            val next = recursiveDerivations.head
-            val derivationCount = deletedElements.getOrElseUpdate (next, 0)
-            if (derivationCount == 1) {
-                element_removed (next)
+        recursionStack = List (List (v))
+        while (!recursionStack.isEmpty) {
+            // we have derived next and not we want to derive further values
+            val next = recursionStack.head.head
+            // add a new empty list at the beginning of the stack
+            recursionStack = Nil :: recursionStack
+            currentSupport += next
+            element_added (next)
+            currentSupport -= next
+            if (recursionStack.head == Nil) {
+                // the next recursion level of values is empty
+                recursionStack = recursionStack.tail
             }
-            recursiveDerivations -= next
-        }
-
-        for( (key,count) <- deletedElements) {
-            var derivationCount = derivedElements(key) // it should be contained in the derived elements
-            derivationCount -= count
-            if(derivationCount > 0) {
-                derivedElements.put(key, derivationCount)
-            }
-            else {
-                derivedElements.remove(key)
+            else
+            {
+                // we still have more values at the next level of recursion
+                recursionStack = recursionStack.head.tail :: recursionStack.tail
             }
         }
     }
