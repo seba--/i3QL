@@ -60,30 +60,68 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
 
     private def mergeCurrentSupportTo(v: Domain) {
         val supportingPaths = supportedElements (v)
+        /*
         supportingPaths.foreach (
             path => {
-                if (path == currentSupportPath) {
+                /*
+                if (path.length > currentSupportPath.length &&
+                    path.drop (path.length - currentSupportPath.length) == currentSupportPath)
+                {
+                    return
+                }
+                else if (path.length < currentSupportPath.length &&
+                    currentSupportPath.drop (currentSupportPath.length - path.length) == path)
+                     {
+                         return
+                     }
+                else if (path == currentSupportPath)
+                     {
+                         return
+                     }
+                     */
+                if (path == currentSupportPath)
+                {
                     return
                 }
             }
         )
+        */
         supportedElements (v) = currentSupportPath :: supportingPaths
     }
 
 
     private def deleteCurrentSupportTo(v: Domain) {
         val supportingPaths = deletedElements (v)
+        /*
         supportingPaths.foreach (
             path => {
-                if (path == currentSupportPath) {
+                /*
+           if (path.length > currentSupportPath.length &&
+               path.drop (path.length - currentSupportPath.length) == currentSupportPath)
+           {
+               return
+           }
+           else if (path.length < currentSupportPath.length &&
+               currentSupportPath.drop (currentSupportPath.length - path.length) == path)
+                {
+                    return
+                }
+           else if (path == currentSupportPath)
+                {
+                    return
+                }
+                */
+                if (path == currentSupportPath)
+                {
                     return
                 }
             }
         )
+        */
         deletedElements (v) = currentSupportPath :: supportingPaths
     }
 
-    private val deletedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
+    private var deletedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
 
     /**
      * recursion stacks will look lick this
@@ -111,7 +149,13 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
         }
         else
         {
-            supportedElements (v) = List (currentSupportPath)
+            if (currentSupportPath.isEmpty) {
+                supportedElements (v) = List (List (v))
+            }
+            else
+            {
+                supportedElements (v) = List (currentSupportPath)
+            }
         }
 
         if (!recursionStack.isEmpty) {
@@ -151,6 +195,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
                 }
             }
         }
+
     }
 
     def removed(v: Domain) {
@@ -163,7 +208,13 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
         }
         else
         {
-            deletedElements (v) = List (currentSupportPath)
+            if (currentSupportPath.isEmpty) {
+                deletedElements (v) = List (List (v))
+            }
+            else
+            {
+                deletedElements (v) = List (currentSupportPath)
+            }
         }
 
         if (!recursionStack.isEmpty) {
@@ -203,6 +254,26 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
                 }
             }
         }
+
+
+        // delete supports
+        var rederivations: List[Domain] = Nil
+
+        for ((key, deleted) <- deletedElements) {
+            val newSupports = supportedElements (key).drop (deleted.size)
+            if (newSupports.size > 0) {
+                supportedElements (key) = newSupports
+                rederivations = key :: rederivations
+            }
+            else
+            {
+                supportedElements.remove(key)
+            }
+        }
+
+        // rederive
+        rederivations.foreach (element_added)
+        println ("done")
     }
 
     def updated(oldV: Domain, newV: Domain) {
