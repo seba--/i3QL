@@ -43,7 +43,7 @@ import collection.mutable
  *
  */
 
-class RecursiveDRed[Domain](val relation: Relation[Domain])
+class RecursiveDRed[Domain](val relation: Relation[Domain])(implicit val transactional: Boolean = false)
     extends RecursiveView[Domain]
 {
     relation.addObserver (this)
@@ -55,7 +55,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
     private var currentSupportPath: List[Domain] = Nil
 
     // these elements were already derived once and will not be propagated a second time
-    private val supportedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
+    private var supportedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
 
 
     private def mergeCurrentSupportTo(v: Domain) {
@@ -267,7 +267,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
             }
             else
             {
-                supportedElements.remove(key)
+                supportedElements.remove (key)
             }
         }
 
@@ -290,4 +290,10 @@ class RecursiveDRed[Domain](val relation: Relation[Domain])
         throw new UnsupportedOperationException
     }
 
+    override def endTransaction() {
+        if (transactional) {
+            supportedElements = mutable.HashMap.empty
+        }
+        notifyEndTransaction ()
+    }
 }

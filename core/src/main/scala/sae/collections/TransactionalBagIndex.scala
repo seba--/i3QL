@@ -29,6 +29,11 @@ class TransactionalBagIndex[K, V](val relation: Relation[V],
         map = com.google.common.collect.ArrayListMultimap.create[K, V]()
     }
 
+    override def endTransaction() {
+        clear()
+        super.endTransaction ()
+    }
+
     def foreachKey[U](f: (K) => U) {
         val it = map.keySet ().iterator ()
         while (it.hasNext) {
