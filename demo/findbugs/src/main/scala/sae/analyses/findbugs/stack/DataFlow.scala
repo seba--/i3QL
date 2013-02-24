@@ -3,8 +3,6 @@ package sae.analyses.findbugs.stack
 import sae.Relation
 import sae.bytecode._
 import instructions.InstructionInfo
-import sae.operators.impl._
-import sae.bytecode.structure._
 import structure._
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
@@ -13,7 +11,7 @@ import structure.ControlFlowEdge
 import structure.LocVariables
 import structure.Stacks
 import structure.StateInfo
-import sae.operators.impl.RecursiveBase
+import sae.operators.impl.{TransactionalFixCombinatorRecursionView, TransactionalEquiJoinView}
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,9 +26,14 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
      * The state before the next instruction is executed is derived
      * by applying the current instruction to the state before the current instruction
      */
-    private def nextState(stateInfo: StateInfo, edge: ControlFlowEdge): StateInfo = {
-        //println (edge.current.pc + ":" + edge.current.instruction)
-        //println (stateInfo.state)
+    private def nextState(edge: ControlFlowEdge, stateInfo: StateInfo): StateInfo = {
+        /*
+                println (edge.current.pc + ": " + edge.current.instruction)
+                println (edge.current.pc + ": " + stateInfo.state.l)
+
+                println (edge.current.pc + ": " + stateInfo.state.s)
+        */
+
         //println (edge.next.pc + ":" + edge.next.instruction)
         StateInfo (
             edge.next,
@@ -38,10 +41,11 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
         )
     }
 
-    private def startState(startInstruction: InstructionInfo, codeAttribute: CodeAttribute): StateInfo = {
+    private def combineStates(left: StateInfo, right: StateInfo): StateInfo = {
+
         StateInfo (
-            startInstruction,
-            createStartState (codeAttribute)
+            left.instruction,
+            left.state.combineWith (right.state)
         )
     }
 
@@ -64,16 +68,92 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
         State (stacks, lvs)
     }
 
+    private def startState(startInstruction: InstructionInfo, codeAttribute: CodeAttribute): StateInfo = {
+        StateInfo (
+            startInstruction,
+            createStartState (codeAttribute)
+        )
+    }
+
     def apply(database: BytecodeDatabase): Relation[StateInfo] = {
         import database._
         val controlFlow = ControlFlow (database)
+
 
         val startInstructions = compile (
             SELECT (*) FROM instructions WHERE (_.pc == 0)
         )
 
+        /*
+val startStates =
+   new RecursiveDRed (
+       new TransactionalEquiJoinView (
+           startInstructions,
+           codeAttributes,
+           declaringMethod,
+           (_: CodeAttribute).declaringMethod,
+           startState
+       ).named ("startStates")
+   )
+
+WITH_RECURSIVE (
+   startStates,
+   new TransactionalEquiJoinView (
+       SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
+       startStates,
+       (_: ControlFlowEdge).current,
+       (_: StateInfo).instruction,
+       nextState
+   )
+).named ("dataflow")
+        */
+
+
+        /*
         val startStates =
-            RecursiveBase (
+            new TransactionalEquiJoinView (
+                startInstructions,
+                codeAttributes,
+                declaringMethod,
+                (_: CodeAttribute).declaringMethod,
+                startState
+            ).named ("startStates")
+
+
+        new TransactionalAnchorAndFixPointRecursionView (
+            startStates,
+            SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
+            (_: ControlFlowEdge).current,
+            (_: StateInfo).instruction,
+            nextState
+        )
+        */
+
+        val startStates =
+            new TransactionalEquiJoinView (
+                startInstructions,
+                codeAttributes,
+                declaringMethod,
+                (_: CodeAttribute).declaringMethod,
+                startState
+            ).named ("startStates")
+
+
+        new TransactionalFixCombinatorRecursionView (
+            startStates,
+            //SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
+            controlFlow,
+            (_: ControlFlowEdge).current,
+            (_: StateInfo).instruction,
+            combineStates,
+            nextState
+        )
+    }
+
+
+    /*
+           val startStates =
+            new RecursiveDRed (
                 new TransactionalEquiJoinView (
                     startInstructions,
                     codeAttributes,
@@ -83,18 +163,18 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
                 ).named ("startStates")
             )
 
-
         WITH_RECURSIVE (
             startStates,
             new TransactionalDuplicateEliminationView(
                 new TransactionalEquiJoinView (
-                    startStates,
                     controlFlow,
-                    (_: StateInfo).instruction,
+                    startStates,
                     (_: ControlFlowEdge).current,
+                    (_: StateInfo).instruction,
                     nextState
                 )
             ).named ("dataflow")
         )
-    }
+    */
+
 }

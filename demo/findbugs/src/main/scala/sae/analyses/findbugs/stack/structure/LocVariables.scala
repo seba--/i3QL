@@ -8,7 +8,7 @@ import java.util
  * Objects of this class are the local variable stores in states of the machine. LocVariables objects are immutable.
  * @param varStore The store where the variables are stored. Note that this should not be changed.
  */
-case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item])
+case class LocVariables(varStore: Array[Item])
 {
 
     def apply(index: Int): Item =
@@ -60,7 +60,6 @@ case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item])
         }
     }
 
-
     override def equals(obj: Any): Boolean = {
         if (!obj.isInstanceOf[LocVariables])
             return false
@@ -69,9 +68,7 @@ case class LocVariables(varStore: Array[Item])(implicit m: Manifest[Item])
             return false
 
         for (i <- 0 until length ()) {
-            if (varStore (i) == null)
-                return other.varStore (i) == null
-            if (!varStore (i).equals (other.varStore (i)))
+            if (varStore (i) != other.varStore (i))
                 return false
         }
 

@@ -42,13 +42,10 @@ import collection.mutable
  * @author Ralf Mitschke
  *
  */
-
-class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: Boolean = false)
+// TODO delete me
+class RecursiveDRedDebug[Domain](val relation: Relation[Domain])(implicit val transactional: Boolean = false)
     extends RecursiveView[Domain]
 {
-    def this(relation: Relation[Domain]) = this(relation, false)
-
-
     relation.addObserver (this)
 
     // the set of elements in the current recursion
@@ -58,21 +55,73 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
     private var currentSupportPath: List[Domain] = Nil
 
     // these elements were already derived once and will not be propagated a second time
-    private var supportedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
+    private var supportedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
 
-    private var deletedElements: mutable.HashMap[Domain, Int] = mutable.HashMap.empty
 
     private def mergeCurrentSupportTo(v: Domain) {
-        val supportingPathCount = supportedElements (v)
-        supportedElements (v) = supportingPathCount + 1
+        val supportingPaths = supportedElements (v)
+        /*
+        supportingPaths.foreach (
+            path => {
+                /*
+                if (path.length > currentSupportPath.length &&
+                    path.drop (path.length - currentSupportPath.length) == currentSupportPath)
+                {
+                    return
+                }
+                else if (path.length < currentSupportPath.length &&
+                    currentSupportPath.drop (currentSupportPath.length - path.length) == path)
+                     {
+                         return
+                     }
+                else if (path == currentSupportPath)
+                     {
+                         return
+                     }
+                     */
+                if (path == currentSupportPath)
+                {
+                    return
+                }
+            }
+        )
+        */
+        supportedElements (v) = currentSupportPath :: supportingPaths
     }
 
 
     private def deleteCurrentSupportTo(v: Domain) {
-        val supportingPathCount = deletedElements (v)
-        deletedElements (v) = supportingPathCount + 1
+        val supportingPaths = deletedElements (v)
+        /*
+        supportingPaths.foreach (
+            path => {
+                /*
+           if (path.length > currentSupportPath.length &&
+               path.drop (path.length - currentSupportPath.length) == currentSupportPath)
+           {
+               return
+           }
+           else if (path.length < currentSupportPath.length &&
+               currentSupportPath.drop (currentSupportPath.length - path.length) == path)
+                {
+                    return
+                }
+           else if (path == currentSupportPath)
+                {
+                    return
+                }
+                */
+                if (path == currentSupportPath)
+                {
+                    return
+                }
+            }
+        )
+        */
+        deletedElements (v) = currentSupportPath :: supportingPaths
     }
 
+    private var deletedElements: mutable.HashMap[Domain, List[List[Domain]]] = mutable.HashMap.empty
 
     /**
      * recursion stacks will look lick this
@@ -100,7 +149,13 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         }
         else
         {
-            supportedElements (v) = 1
+            if (currentSupportPath.isEmpty) {
+                supportedElements (v) = List (List (v))
+            }
+            else
+            {
+                supportedElements (v) = List (currentSupportPath)
+            }
         }
 
         if (!recursionStack.isEmpty) {
@@ -153,7 +208,13 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         }
         else
         {
-            deletedElements (v) = 1
+            if (currentSupportPath.isEmpty) {
+                deletedElements (v) = List (List (v))
+            }
+            else
+            {
+                deletedElements (v) = List (currentSupportPath)
+            }
         }
 
         if (!recursionStack.isEmpty) {
@@ -198,10 +259,10 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         // delete supports
         var rederivations: List[Domain] = Nil
 
-        for ((key, deletionCount) <- deletedElements) {
-            val newSupportCount = supportedElements (key) - deletionCount
-            if (newSupportCount > 0) {
-                supportedElements (key) = newSupportCount
+        for ((key, deleted) <- deletedElements) {
+            val newSupports = supportedElements (key).drop (deleted.size)
+            if (newSupports.size > 0) {
+                supportedElements (key) = newSupports
                 rederivations = key :: rederivations
             }
             else
@@ -229,16 +290,10 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         throw new UnsupportedOperationException
     }
 
-    var isNotifyingEndTransaction = false
-
     override def endTransaction() {
         if (transactional) {
             supportedElements = mutable.HashMap.empty
         }
-        if(!isNotifyingEndTransaction){
-            isNotifyingEndTransaction = true
-            notifyEndTransaction ()
-        }
-        isNotifyingEndTransaction = false
+        notifyEndTransaction ()
     }
 }

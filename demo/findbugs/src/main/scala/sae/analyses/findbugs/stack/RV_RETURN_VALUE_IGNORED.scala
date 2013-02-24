@@ -5,7 +5,7 @@ import sae.Relation
 import sae.bytecode.instructions.{POP2, POP, InstructionInfo}
 import sae.syntax.sql._
 import sae.operators.impl.TransactionalEquiJoinView
-import structure.Stack
+import structure.{StateInfo, Stack}
 
 
 /**
@@ -25,9 +25,12 @@ object RV_RETURN_VALUE_IGNORED
     def apply(database: BytecodeDatabase): Relation[InstructionInfo] = {
         val dataFlow = DataFlow(database)
 
+
         SELECT (instruction) FROM dataFlow WHERE
             (info => isPopInstruction(info.instruction)) AND
             (info => info.state.s.collection.exists(returnValueIgnored))
+
+        //SELECT (*) FROM dataFlow WHERE  (_.instruction.declaringMethod.name == "<clinit>")
     }
 
 
