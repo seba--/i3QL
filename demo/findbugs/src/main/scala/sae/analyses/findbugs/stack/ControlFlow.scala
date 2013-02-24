@@ -5,7 +5,7 @@ import sae.Relation
 import sae.syntax.sql._
 import sae.bytecode.instructions._
 import sae.bytecode.structure.MethodDeclaration
-import sae.operators.impl.TransactionalEquiJoinView
+import sae.operators.impl.{EquiJoinView, TransactionalEquiJoinView}
 import structure.ControlFlowEdge
 
 /**
@@ -109,6 +109,76 @@ object ControlFlow extends (BytecodeDatabase => Relation[ControlFlowEdge])
                 methodAndIndex,
                 controlFlowEdge
             ).named ("conditionalBranches") ⊎ new TransactionalEquiJoinView (
+                switchJumpTargets,
+                instructions,
+                methodSwitchIndex,
+                methodAndIndex,
+                (current: (SwitchInstructionInfo, Int), next: InstructionInfo) => ControlFlowEdge (current._1, next)
+            ).named ("switchJumpTargets")
+
+        controlFlowEdges
+    }
+
+
+    def materialized(database: BytecodeDatabase): Relation[ControlFlowEdge] = {
+        import database._
+
+        //Relation that stores all unconditional branch targets (GOTO etc.)
+        val unconditionalBranches = compile (
+            SELECT (gotoInstruction) FROM (instructions) WHERE (_.isInstanceOf[GotoBranchInstructionInfo])
+        )
+
+        //Relation that stores all conditional branches (IFEQ etc.)
+        val conditionalBranches = compile (
+            SELECT (branchTarget) FROM (instructions) WHERE (_.isInstanceOf[IfBranchInstructionInfo])
+        )
+
+        //Relation that stores switch instructions
+        val switchInstructions = compile (
+            SELECT (switchInstruction) FROM (instructions) WHERE (_.isInstanceOf[SwitchInstructionInfo])
+        )
+
+        val switchJumpTargets = compile (
+            SELECT (switchTarget) FROM (switchInstructions, ((_: SwitchInstructionInfo).jumpOffsets.map (Some (_))) IN switchInstructions)
+        )
+
+        //Relation that stores all "normal" instructions, i.e. all instructions which next instructions is at the next sequence index (e.g. no jumps).
+        // TODO this is a simplification that does not take exception handling into account
+        val fallThroughInstructions = compile (
+            SELECT (*) FROM (instructions) WHERE
+                (!_.isInstanceOf[SwitchInstructionInfo]) AND
+                (!_.isInstanceOf[GotoBranchInstructionInfo]) AND
+                (!_.isInstanceOf[ReturnInstructionInfo]) AND
+                (!_.isInstanceOf[ATHROW])
+        )
+
+
+        //Relation that stores all possible control flow edges as InstructionPairs.
+
+        import sae.syntax.RelationalAlgebraSyntax._
+        val controlFlowEdges =
+        //control flow for normal instructions and unconditional branches assuming no branch
+            new EquiJoinView (
+                fallThroughInstructions,
+                instructions,
+                methodAndNextSequenceIndex,
+                methodAndSequenceIndex,
+                controlFlowEdge
+                //control flow for unconditional branches
+            ).named ("fallThroughInstructions") ⊎ new EquiJoinView (
+                unconditionalBranches,
+                instructions,
+                methodUnconditionalBranchIndex,
+                methodAndIndex,
+                controlFlowEdge
+                //control flow for conditional branches assuming branch
+            ).named ("unconditionalBranches") ⊎ new EquiJoinView (
+                conditionalBranches,
+                instructions,
+                methodConditionalBranchIndex,
+                methodAndIndex,
+                controlFlowEdge
+            ).named ("conditionalBranches") ⊎ new EquiJoinView (
                 switchJumpTargets,
                 instructions,
                 methodSwitchIndex,

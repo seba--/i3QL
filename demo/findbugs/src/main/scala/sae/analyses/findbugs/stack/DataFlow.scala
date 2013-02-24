@@ -6,12 +6,13 @@ import instructions.InstructionInfo
 import structure._
 import sae.syntax.sql._
 import de.tud.cs.st.bat.resolved.ObjectType
-import sae.bytecode.structure.CodeAttribute
 import structure.ControlFlowEdge
 import structure.LocVariables
 import structure.Stacks
+import sae.operators.impl._
+import sae.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction}
+import sae.bytecode.structure.CodeAttribute
 import structure.StateInfo
-import sae.operators.impl.{TransactionalFixCombinatorRecursionView, TransactionalEquiJoinView}
 
 /**
  * Created with IntelliJ IDEA.
@@ -76,58 +77,94 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
     }
 
     def apply(database: BytecodeDatabase): Relation[StateInfo] = {
+        materialized (database)
+    }
+
+
+    def base(database: BytecodeDatabase): Relation[StateInfo] = {
         import database._
         val controlFlow = ControlFlow (database)
 
 
         val startInstructions = compile (
+            SELECT (*) FROM instructions WHERE (_.pc == 0) AND (_.declaringMethod.name == "joinString")
+        )
+
+
+        val startStates =
+            new RecursiveDRed (
+                new TransactionalEquiJoinView (
+                    startInstructions,
+                    codeAttributes,
+                    declaringMethod,
+                    (_: CodeAttribute).declaringMethod,
+                    startState
+                ).named ("startStates")
+            )
+
+        WITH_RECURSIVE (
+            startStates,
+            new AggregationForNotSelfMaintainableFunctions(
+                new EquiJoinView (
+                    SELECT (*) FROM controlFlow WHERE (_.current.declaringMethod.name == "joinString"),
+                    startStates,
+                    (_: ControlFlowEdge).current,
+                    (_: StateInfo).instruction,
+                    nextState
+                ),
+                (_: StateInfo).instruction,
+                CombineStates,
+                (i: InstructionInfo, s: StateInfo) => s
+            )
+        ).named ("dataflow")
+    }
+
+    def materialized(database: BytecodeDatabase): Relation[StateInfo] = {
+        import database._
+        val controlFlow = ControlFlow.materialized (database)
+
+
+        val startInstructions = compile (
+            SELECT (*) FROM instructions WHERE (_.pc == 0) AND (_.declaringMethod.name == "joinString")
+        )
+
+
+        val startStates =
+            new RecursiveDRed (
+                new EquiJoinView (
+                    startInstructions,
+                    codeAttributes,
+                    declaringMethod,
+                    (_: CodeAttribute).declaringMethod,
+                    startState
+                ).named ("startStates")
+            )
+
+        WITH_RECURSIVE (
+            startStates,
+            new AggregationForNotSelfMaintainableFunctions(
+                new EquiJoinView (
+                    SELECT (*) FROM controlFlow WHERE (_.current.declaringMethod.name == "joinString"),
+                    startStates,
+                    (_: ControlFlowEdge).current,
+                    (_: StateInfo).instruction,
+                    nextState
+                ),
+                (_: StateInfo).instruction,
+                CombineStates,
+                (i: InstructionInfo, s: StateInfo) => s
+            )
+        ).named ("dataflow")
+    }
+
+
+    def optimized(database: BytecodeDatabase): Relation[StateInfo] = {
+        import database._
+        val controlFlow = ControlFlow (database)
+
+        val startInstructions = compile (
             SELECT (*) FROM instructions WHERE (_.pc == 0)
         )
-
-        /*
-val startStates =
-   new RecursiveDRed (
-       new TransactionalEquiJoinView (
-           startInstructions,
-           codeAttributes,
-           declaringMethod,
-           (_: CodeAttribute).declaringMethod,
-           startState
-       ).named ("startStates")
-   )
-
-WITH_RECURSIVE (
-   startStates,
-   new TransactionalEquiJoinView (
-       SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
-       startStates,
-       (_: ControlFlowEdge).current,
-       (_: StateInfo).instruction,
-       nextState
-   )
-).named ("dataflow")
-        */
-
-
-        /*
-        val startStates =
-            new TransactionalEquiJoinView (
-                startInstructions,
-                codeAttributes,
-                declaringMethod,
-                (_: CodeAttribute).declaringMethod,
-                startState
-            ).named ("startStates")
-
-
-        new TransactionalAnchorAndFixPointRecursionView (
-            startStates,
-            SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
-            (_: ControlFlowEdge).current,
-            (_: StateInfo).instruction,
-            nextState
-        )
-        */
 
         val startStates =
             new TransactionalEquiJoinView (
@@ -141,7 +178,6 @@ WITH_RECURSIVE (
 
         new TransactionalFixCombinatorRecursionView (
             startStates,
-            //SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
             controlFlow,
             (_: ControlFlowEdge).current,
             (_: StateInfo).instruction,
@@ -150,6 +186,64 @@ WITH_RECURSIVE (
         )
     }
 
+    private class CombineStateFunction
+        extends NotSelfMaintainableAggregateFunction[StateInfo, StateInfo]
+    {
+        var currentState: StateInfo = null
+
+        def add(newD: StateInfo, data: Iterable[StateInfo]): StateInfo = {
+            if (currentState == null) {
+                currentState = newD
+            }
+            else
+            {
+                currentState = combineStates (currentState, newD)
+            }
+            currentState
+        }
+
+        def remove(newD: StateInfo, data: Iterable[StateInfo]): StateInfo = {
+            if (data.isEmpty) {
+                currentState = StateInfo (newD.instruction, State.createEmptyState (newD.state.s.maxSize, newD.state.l.varStore.size))
+            }
+            else
+            {
+                currentState = data.reduce (combineStates)
+            }
+            currentState
+        }
+
+        def update(oldD: StateInfo, newD: StateInfo, data: Iterable[StateInfo]): StateInfo = {
+            throw new UnsupportedOperationException
+        }
+    }
+
+    private object CombineStates extends NotSelfMaintainableAggregateFunctionFactory[StateInfo, StateInfo]
+    {
+        def apply(): NotSelfMaintainableAggregateFunction[StateInfo, StateInfo] = {
+            new CombineStateFunction
+        }
+    }
+    // a version that has a long runtime due to combinatorial explosion of states for each path
+    /*
+    val startStates =
+        new TransactionalEquiJoinView (
+            startInstructions,
+            codeAttributes,
+            declaringMethod,
+            (_: CodeAttribute).declaringMethod,
+            startState
+        ).named ("startStates")
+
+
+    new TransactionalAnchorAndFixPointRecursionView (
+        startStates,
+        SELECT (*) FROM controlFlow WHERE (_.current.pc < 2400),
+        (_: ControlFlowEdge).current,
+        (_: StateInfo).instruction,
+        nextState
+    )
+    */
 
     /*
            val startStates =

@@ -205,7 +205,7 @@ abstract class SAEAnalysesReplayTimeProfiler
         {
             database.beginTransaction()
             applyEvents(database, additions, deletions, updates)
-            database.computeTransactionUpdates()
+            //database.computeTransactionUpdates()
             database.commitTransaction()
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean

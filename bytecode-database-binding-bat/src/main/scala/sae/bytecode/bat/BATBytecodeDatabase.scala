@@ -455,9 +455,13 @@ class BATBytecodeDatabase
         transaction.codeDeletions.foreach (
             code.element_removed (_)
         )
+        transaction.codeUpdates.foreach ( u =>
+            code.element_updated(u.oldV, u.newV)
+        )
         transaction.codeAdditions.foreach (
             code.element_added (_)
         )
+        endTransaction
 
         transaction = null
         currentAdditionReader = additionEventReader

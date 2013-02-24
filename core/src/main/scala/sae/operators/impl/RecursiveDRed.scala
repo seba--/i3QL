@@ -46,7 +46,7 @@ import collection.mutable
 class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: Boolean = false)
     extends RecursiveView[Domain]
 {
-    def this(relation: Relation[Domain]) = this(relation, false)
+    def this(relation: Relation[Domain]) = this (relation, false)
 
 
     relation.addObserver (this)
@@ -87,7 +87,10 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
      * List(Nil)
      * Nil
      */
-    private var recursionStack: List[List[Domain]] = Nil
+    private var additionRecursionStack: List[List[Domain]] = Nil
+
+
+    private var deletionRecursionStack: List[List[Domain]] = Nil
 
 
     def added(v: Domain) {
@@ -103,7 +106,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             supportedElements (v) = 1
         }
 
-        if (!recursionStack.isEmpty) {
+        if (!additionRecursionStack.isEmpty) {
             // we have derived a new value in the recursion
             // it will be treated in the enclosing call
 
@@ -111,30 +114,31 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             // call to element_added, i.e., it is all derived at the same recursion depth
 
             // add v as a derived value at the current recursion depth
-            recursionStack = (v :: recursionStack.head) :: recursionStack.tail
+            additionRecursionStack = (v :: additionRecursionStack.head) :: additionRecursionStack.tail
             return
         }
 
 
         // we have reached the start of a recursion
 
-        recursionStack = List (List (v))
-        while (!recursionStack.isEmpty) {
+        additionRecursionStack = List (List (v))
+        while (!additionRecursionStack.isEmpty) {
             // we have derived next and now we want to derive further values recursively
-            val next = recursionStack.head.head
+            val next = additionRecursionStack.head.head
             // remove the current value from the current level
-            recursionStack = recursionStack.head.tail :: recursionStack.tail
+            additionRecursionStack = additionRecursionStack.head.tail :: additionRecursionStack.tail
             // add a new empty list at the beginning of the level
-            recursionStack = Nil :: recursionStack
+            additionRecursionStack = Nil :: additionRecursionStack
             // next is a support on the current recursive path
             currentSupportPath = next :: currentSupportPath
             // add elements of the next level
+            println("Added:  " + next)
             element_added (next)
 
             // we did not compute a new level, i.e., the next recursion level of values is empty
             // remove all empty levels
-            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
-                recursionStack = recursionStack.tail
+            while (!additionRecursionStack.isEmpty && additionRecursionStack.head == Nil) {
+                additionRecursionStack = additionRecursionStack.tail
                 if (!currentSupportPath.isEmpty) {
                     currentSupportPath = currentSupportPath.tail
                 }
@@ -156,7 +160,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             deletedElements (v) = 1
         }
 
-        if (!recursionStack.isEmpty) {
+        if (!deletionRecursionStack.isEmpty) {
             // we have derived a new value in the recursion
             // it will be treated in the enclosing call
 
@@ -164,21 +168,21 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             // call to element_added, i.e., it is all derived at the same recursion depth
 
             // add v as a derived value at the current recursion depth
-            recursionStack = (v :: recursionStack.head) :: recursionStack.tail
+            deletionRecursionStack = (v :: deletionRecursionStack.head) :: deletionRecursionStack.tail
             return
         }
 
 
         // we have reached the start of a recursion
 
-        recursionStack = List (List (v))
-        while (!recursionStack.isEmpty) {
+        deletionRecursionStack = List (List (v))
+        while (!deletionRecursionStack.isEmpty) {
             // we have derived next and now we want to derive further values recursively
-            val next = recursionStack.head.head
+            val next = deletionRecursionStack.head.head
             // remove the current value from the current level
-            recursionStack = recursionStack.head.tail :: recursionStack.tail
+            deletionRecursionStack = deletionRecursionStack.head.tail :: deletionRecursionStack.tail
             // add a new empty list at the beginning of the level
-            recursionStack = Nil :: recursionStack
+            deletionRecursionStack = Nil :: deletionRecursionStack
             // next is a support on the current recursive path
             currentSupportPath = next :: currentSupportPath
             // add elements of the next level
@@ -186,8 +190,8 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
 
             // we did not compute a new level, i.e., the next recursion level of values is empty
             // remove all empty levels
-            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
-                recursionStack = recursionStack.tail
+            while (!deletionRecursionStack.isEmpty && deletionRecursionStack.head == Nil) {
+                deletionRecursionStack = deletionRecursionStack.tail
                 if (!currentSupportPath.isEmpty) {
                     currentSupportPath = currentSupportPath.tail
                 }
@@ -206,6 +210,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             }
             else
             {
+                println("Remove: " + key)
                 supportedElements.remove (key)
             }
         }
@@ -214,11 +219,22 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
 
         // rederive
         rederivations.foreach (element_added)
-        println ("done")
     }
 
     def updated(oldV: Domain, newV: Domain) {
-        throw new UnsupportedOperationException
+        if (!additionRecursionStack.isEmpty) {
+            // we are currently adding elements
+            added (newV)
+        }
+        else if (!deletionRecursionStack.isEmpty) {
+            // we are currently deleting elements
+            removed (oldV)
+        }
+        else
+        {
+            removed (oldV)
+            added (newV)
+        }
     }
 
     def updated[U <: Domain](update: Update[U]) {
@@ -235,7 +251,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         if (transactional) {
             supportedElements = mutable.HashMap.empty
         }
-        if(!isNotifyingEndTransaction){
+        if (!isNotifyingEndTransaction) {
             isNotifyingEndTransaction = true
             notifyEndTransaction ()
         }

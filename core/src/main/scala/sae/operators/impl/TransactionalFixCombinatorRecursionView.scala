@@ -60,7 +60,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
     var additionAnchors: List[Range] = Nil
     var additionResults              = mutable.HashMap.empty[Key, Range]
     var deletionAnchors: List[Range] = Nil
-    var deletionResults              = mutable.HashSet.empty[Range]
+    var deletionResults              = mutable.HashMap.empty[Key, Range]
 
 
     def keyFunc = domainKeyFunction
@@ -137,35 +137,76 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
     }
 
     def doRecursionForRemovedElements() {
-        // TODO compute the recursive values
+        val stackBase =
+            for {anchor <- deletionAnchors
+                 key = rangeKeyFunction (anchor)
+                 if !deletionResults.contains (key)
+            } yield
+            {
+                deletionResults (key) = anchor
+                element_removed (anchor)
+                anchor
+            }
 
-        // all domain values are stored in the Multimap "deletions"
-
-        for (anchor <- deletionAnchors) {
-            deleteResult (anchor)
-        }
-    }
-
-    private def deleteResult(delResult: Range) {
-
-        //If the result has already been deleted or has been added by the added results.
-        if (deletionResults.contains (delResult)) {
+        if (stackBase.isEmpty) {
             return
-            //Delete the result and continue deleting recursively.
         }
-        else
-        {
-            deletionResults.add (delResult)
-            element_removed (delResult)
 
-            var it: java.util.Iterator[Domain] = deletions.get (rangeKeyFunction (delResult)).iterator ()
+        recursionStack = List (stackBase)
+
+        while (!recursionStack.isEmpty) {
+
+            //println (recursionStack.size)
+            //println (additionResults.size)
+            // we have derived base and now we want to derive further values recursively
+            val currentResult = recursionStack.head.head
+            // remove the current value from the current level
+            recursionStack = recursionStack.head.tail :: recursionStack.tail
+
+
+            var it: java.util.Iterator[Domain] = deletions.get (rangeKeyFunction (currentResult)).iterator ()
+            var nextResults: List[Range] = Nil
             while (it.hasNext) {
-                val next: Domain = it.next ()
-                val nextResult: Range = step (next, delResult)
-                deleteResult (nextResult)
+                val joinedElement: Domain = it.next ()
+                val nextResult: Range = step (joinedElement, currentResult)
+                val key = rangeKeyFunction (nextResult)
+
+                if (deletionResults.contains (key)) {
+                    val oldResult = deletionResults (key)
+                    val combinedResult = combinationFunction (oldResult, nextResult)
+                    if(oldResult != combinedResult){
+                        //element_added(oldResult)
+                        // add elements of the next level
+                        //element_removed (combinedResult)
+                        nextResults = combinedResult :: nextResults
+                        deletionResults (key) = (combinedResult)
+                    }
+                }
+                else
+                {
+                    deletionResults (key) = (nextResult)
+                    // add elements of the next level
+                    //element_removed (nextResult)
+                    nextResults = nextResult :: nextResults
+                }
+            }
+
+            // add a the next Results at the beginning of the next level
+            recursionStack = nextResults :: recursionStack
+
+
+            // we did not compute a new level, i.e., the next recursion level of values is empty
+            // remove all empty levels
+            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
+                recursionStack = recursionStack.tail
             }
         }
+
+        deletionResults.values.foreach(
+            element_removed
+        )
     }
+
 
     override def endTransaction() {
         sourcesTransactionEnded = true
@@ -187,7 +228,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
         additionAnchors = Nil
         deletionAnchors = Nil
         additionResults = mutable.HashMap.empty[Key, Range]
-        deletionResults = mutable.HashSet.empty[Range]
+        deletionResults = mutable.HashMap.empty[Key, Range]
         // TODO remove any data structures you define.
         // please store them as "var" and do,  x = new HashMap, or something
         super.clear ()
