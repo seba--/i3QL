@@ -92,6 +92,8 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
 
     private var deletionRecursionStack: List[List[Domain]] = Nil
 
+    // delete supports
+    private var rederivations: List[Domain] = Nil
 
     def added(v: Domain) {
         if (supportedElements.contains (v)) {
@@ -132,7 +134,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             // next is a support on the current recursive path
             currentSupportPath = next :: currentSupportPath
             // add elements of the next level
-            println("Added:  " + next)
+            //println("Added:  " + next)
             element_added (next)
 
             // we did not compute a new level, i.e., the next recursion level of values is empty
@@ -186,6 +188,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             // next is a support on the current recursive path
             currentSupportPath = next :: currentSupportPath
             // add elements of the next level
+            //println("Remove: " + next)
             element_removed (next)
 
             // we did not compute a new level, i.e., the next recursion level of values is empty
@@ -199,8 +202,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         }
 
 
-        // delete supports
-        var rederivations: List[Domain] = Nil
+
 
         for ((key, deletionCount) <- deletedElements) {
             val newSupportCount = supportedElements (key) - deletionCount
@@ -210,7 +212,6 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
             }
             else
             {
-                println("Remove: " + key)
                 supportedElements.remove (key)
             }
         }
@@ -218,17 +219,26 @@ class RecursiveDRed[Domain](val relation: Relation[Domain], val transactional: B
         deletedElements = mutable.HashMap.empty
 
         // rederive
-        rederivations.foreach (element_added)
+        rederivations.foreach ( e =>
+        {
+            //println("Rederive:" + e)
+            element_added(e)
+        }
+        )
+        rederivations = Nil
     }
 
     def updated(oldV: Domain, newV: Domain) {
         if (!additionRecursionStack.isEmpty) {
             // we are currently adding elements
+            supportedElements(oldV) = supportedElements(oldV) - 1
             added (newV)
         }
         else if (!deletionRecursionStack.isEmpty) {
             // we are currently deleting elements
             removed (oldV)
+            supportedElements(newV) = supportedElements.getOrElse(newV, 0) + 1
+            rederivations = newV :: rederivations
         }
         else
         {
