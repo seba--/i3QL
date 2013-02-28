@@ -25,7 +25,9 @@ class Database()
 
     def lecturerName: Lecturer => String = _.name
 
+    /*
     val lecturersWithOwnBook: Relation[Lecturer] =
         SELECT (first) FROM(lecturers, books) WHERE
                 (lecturerName === authorName)
+     */
 }
