@@ -210,7 +210,7 @@ trait AbstractPropertiesFileReplayProfiler
                         optimized.toString + separator +
                         transactional.toString + separator +
                         sharedSubQueries.toString + separator +
-                        (if(queries.isEmpty){"NONE"} else {queries.reduce (_ + " | " + _) + separator}) +
+                        (if(queries.isEmpty){"NONE" + separator} else {queries.reduce (_ + " | " + _) + separator}) +
                         resultCounts(i) + separator +
                         ("%.3f" formatLocal(java.util.Locale.UK, measurementUnit
                                 .fromBase(statistics(i).mean))) + separator +
