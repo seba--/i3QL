@@ -44,7 +44,7 @@ import collection.mutable
  */
 
 class HashSetTransaction
-        extends Transaction
+    extends Transaction
 {
     var classDeclarationAdditions: mutable.HashSet[ClassDeclaration] = mutable.HashSet.empty
 
@@ -86,8 +86,8 @@ class HashSetTransaction
     }
 
     private def removeEqualAddDeletes[E](otherSet: mutable.HashSet[E], element: E): Boolean = {
-        if (otherSet.contains(element))
-            otherSet.remove(element)
+        if (otherSet.contains (element))
+            otherSet.remove (element)
         else
             false
     }
@@ -146,75 +146,70 @@ class HashSetTransaction
     */
 
     def codesAsUpdates() {
-        val (smaller, bigger) =
-            if (codeAdditions.size < codeDeletions.size)
-                (codeAdditions, codeDeletions)
-            else
-                (codeDeletions, codeAdditions)
 
-        smaller.foreach(added => {
+        codeAdditions.foreach (source => {
             val other =
-                bigger.find(deleted =>
-                    added.declaringMethod == deleted.declaringMethod
+                codeDeletions.find (otherSource =>
+                    source.declaringMethod == otherSource.declaringMethod
                 )
             if (other.isDefined) {
-                codeUpdates.add(Update(other.get, added, 1, Nil))
-                bigger.remove(other.get)
+                codeUpdates.add (Update (other.get, source, 1, Nil))
+                codeDeletions.remove (other.get)
             }
         }
         )
-        codeUpdates.foreach(update =>
-            smaller.remove(update.newV)
+        codeUpdates.foreach (update =>
+            codeAdditions.remove (update.newV)
         )
-        codeUpdates = codeUpdates.filter(update =>
+        codeUpdates = codeUpdates.filter (update =>
             update.oldV.code.maxLocals != update.newV.code.maxLocals ||
-                    update.oldV.code.maxStack != update.newV.code.maxStack ||
-                    !update.oldV.code.instructions.sameElements(update.newV.code.instructions) ||
-                    update.oldV.exceptionTable != update.newV.exceptionTable
+                update.oldV.code.maxStack != update.newV.code.maxStack ||
+                !update.oldV.code.instructions.sameElements (update.newV.code.instructions) ||
+                update.oldV.exceptionTable != update.newV.exceptionTable
         )
     }
 
     def add(classDeclaration: ClassDeclaration) {
-        if (!removeEqualAddDeletes(classDeclarationDeletions, classDeclaration))
-            classDeclarationAdditions.add(classDeclaration)
+        if (!removeEqualAddDeletes (classDeclarationDeletions, classDeclaration))
+            classDeclarationAdditions.add (classDeclaration)
     }
 
     def remove(classDeclaration: ClassDeclaration) {
-        if (!removeEqualAddDeletes(classDeclarationAdditions, classDeclaration))
-            classDeclarationDeletions.add(classDeclaration)
+        if (!removeEqualAddDeletes (classDeclarationAdditions, classDeclaration))
+            classDeclarationDeletions.add (classDeclaration)
     }
 
     def add(methodDeclaration: MethodDeclaration) {
-        if (!removeEqualAddDeletes(methodDeclarationDeletions, methodDeclaration))
-            methodDeclarationAdditions.add(methodDeclaration)
+        if (!removeEqualAddDeletes (methodDeclarationDeletions, methodDeclaration))
+            methodDeclarationAdditions.add (methodDeclaration)
     }
 
     def remove(methodDeclaration: MethodDeclaration) {
-        if (!removeEqualAddDeletes(methodDeclarationAdditions, methodDeclaration))
-            methodDeclarationDeletions.add(methodDeclaration)
+        if (!removeEqualAddDeletes (methodDeclarationAdditions, methodDeclaration))
+            methodDeclarationDeletions.add (methodDeclaration)
     }
 
     def add(fieldDeclaration: FieldDeclaration) {
-        if (!removeEqualAddDeletes(fieldDeclarationDeletions, fieldDeclaration))
-            fieldDeclarationAdditions.add(fieldDeclaration)
+        if (!removeEqualAddDeletes (fieldDeclarationDeletions, fieldDeclaration))
+            fieldDeclarationAdditions.add (fieldDeclaration)
     }
 
     def remove(fieldDeclaration: FieldDeclaration) {
-        if (!removeEqualAddDeletes(fieldDeclarationAdditions, fieldDeclaration))
-            fieldDeclarationDeletions.add(fieldDeclaration)
+        if (!removeEqualAddDeletes (fieldDeclarationAdditions, fieldDeclaration))
+            fieldDeclarationDeletions.add (fieldDeclaration)
     }
 
     def add(codeInfo: CodeInfo) {
-        if (!removeEqualAddDeletes(codeDeletions, codeInfo)) {
-            val hash = codeInfo.hashCode()
-            codeAdditions.add(codeInfo)
+        if (!removeEqualAddDeletes (codeDeletions, codeInfo)) {
+            val hash = codeInfo.hashCode ()
+            codeAdditions.add (codeInfo)
         }
     }
 
     def remove(codeInfo: CodeInfo) {
-        if (!removeEqualAddDeletes(codeAdditions, codeInfo)) {
-            val hash = codeInfo.hashCode()
-            codeDeletions.add(codeInfo)
+        if (!removeEqualAddDeletes (codeAdditions, codeInfo)) {
+            val hash = codeInfo.hashCode ()
+            codeDeletions.add (codeInfo)
         }
     }
 
