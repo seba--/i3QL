@@ -86,14 +86,14 @@ trait AbstractPropertiesFileReplayProfiler
                     java.lang.Boolean.parseBoolean(args(2))
                 }
                 else {
-                    true
+                    false
                 }
         isTransactional =
                 if (args.length > 3) {
                     java.lang.Boolean.parseBoolean(args(3))
                 }
                 else {
-                    true
+                    false
                 }
         isSharedSubQueries =
                 if (args.length > 4) {
@@ -116,7 +116,16 @@ trait AbstractPropertiesFileReplayProfiler
 
         val measurementIterations = properties.getProperty("sae.benchmark.iterations").toInt
         val measurementLocation = properties.getProperty("sae.benchmark.location")
-        val queries = properties.getProperty("sae.benchmark.queries").split(";").toList
+
+        val queries =
+            if (properties.getProperty ("sae.benchmark.queries").isEmpty)
+            {
+                Nil
+            }
+            else
+            {
+                properties.getProperty ("sae.benchmark.queries").split (";").toList
+            }
 
         val outputFile = properties.getProperty("sae.benchmark.out", System.getProperty("user.dir") + "/bench.txt")
 
