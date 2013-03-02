@@ -16,6 +16,7 @@ object HibernateEnsembles {
 
         val ensembles = new util.HashSet[IEnsemble]()
 
+        val EmptyEnsemble = Ensemble("@Empty", "empty")
         val Actions = Ensemble("Actions", "package('org.hibernate.action')\nor class_with_members('org.hibernate.engine','ActionQueue')")
         val Cache = Ensemble("Cache","(\n\tpackage('org.hibernate.cache')\n\twithout\n\t(\n\tclass_with_members('org.hibernate.cache','CacheException')\n\tor \tclass_with_members('org.hibernate.cache','NoCachingEnabledException')\n\t)\n)\nor package('org.hibernate.cache.entry')\n\n or package('org.hibernate.cache.access')\n or package('org.hibernate.cache.entry')\n or package('org.hibernate.cache.impl.bridge')\n or package('org.hibernate.cache.impl')\nor class_with_members('org.hibernate.annotations','CacheConcurrencyStrategy')")
         val Configuration = Ensemble("Configuration", "(package('org.hibernate.cfg')\nwithout\n(\n\tclass_with_members('org.hibernate.cfg','Environment') \n\tor class_with_members('org.hibernate.cfg','Settings')\n\tor class_with_members('org.hibernate.cfg','SettingsFactory')\n\tor class_with_members('org.hibernate.cfg','RecoverableException')\n\tor class_with_members('org.hibernate.cfg','NotYetImplementedException')\n\t or class_with_members('org.hibernate.cfg','Mappings')\n\t or class_with_members('org.hibernate.cfg','ObjectNameNormalizer')\n)\n) or package('org.hibernate.cfg.search')\n or package('org.hibernate.cfg.beanvalidation')\n or package('org.hibernate.cfg.annotations')\n or package('org.hibernate.cfg.annotations.reflection')")

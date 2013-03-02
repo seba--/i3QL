@@ -34,8 +34,9 @@ package sae.analyses.architecture.hibernate
 
 import sae.bytecode.BytecodeDatabase
 import sae.Relation
-import de.tud.cs.st.vespucci.interfaces.{IViolation, IArchitectureModel}
+import de.tud.cs.st.vespucci.interfaces.IViolation
 import unisson.model.{IUnissonDatabase, UnissonDatabase}
+import sae.analyses.architecture.hibernate.HibernateEnsembles.Hibernate_3_6_6
 
 /**
  *
@@ -44,14 +45,19 @@ import unisson.model.{IUnissonDatabase, UnissonDatabase}
  */
 
 object Violations
-    extends ((BytecodeDatabase, IArchitectureModel) => Relation[IViolation])
 {
 
-    def apply(database: BytecodeDatabase, model: IArchitectureModel) = {
+    def hibernate36(database: BytecodeDatabase): Relation[IViolation] = {
         import scala.collection.JavaConversions._
-        val unisson: IUnissonDatabase = new UnissonDatabase (database)
-        unisson.addEnsembles (model.getEnsembles)
-        unisson.addEnsemblesToSlice(model.getEnsembles)
+        val unisson: IUnissonDatabase = new UnissonDatabase(database)
+        unisson.addEnsembles(Hibernate_3_6_6.getEnsembles)
+        for ((slice, ensembles) <- HibernateSlices.Hibernate_3_6_6.ensembles) {
+            unisson.addEnsemblesToSlice(ensembles)(slice)
+        }
+
+        for ((slice, constraints) <- HibernateSlices.Hibernate_3_6_6.constraints) {
+            unisson.addConstraintsToSlice(constraints)(slice)
+        }
         unisson.violations
     }
 

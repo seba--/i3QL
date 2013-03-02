@@ -47,8 +47,7 @@ object AnalysisVespucci
     def apply(analysisName: String, database: BytecodeDatabase) = analysisName match {
         case "Hibernate_1_0_EnsembleElements" => EnsembleElements (database, Hibernate_1_0)
         case "Hibernate_3_6_6_EnsembleElements" => EnsembleElements (database, Hibernate_3_6_6)
-        case "Hibernate_1_0_Violations" => Violations (database, Hibernate_1_0)
-        case "Hibernate_3_6_6_Violations" => Violations (database, Hibernate_3_6_6)
+        case "Hibernate_3_6_6_Violations" => Violations.hibernate36(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
     }
 }
