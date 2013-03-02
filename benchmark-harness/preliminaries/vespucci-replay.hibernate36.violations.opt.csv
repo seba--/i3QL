@@ -1,0 +1,22 @@
+bench type;location;timestamp;change size;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
+SAEOO replay time;hibernate_3_6_changes;1000000000000;1972;1972;17997;5563;323220;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;8749.770;131.337;18.574;ms
+SAEOO replay time;hibernate_3_6_changes;1100000173948;54;2022;18284;5611;325181;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;320.128;21.384;3.024;ms
+SAEOO replay time;hibernate_3_6_changes;1100000173950;7;2028;18337;5612;325531;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;24.117;0.716;0.101;ms
+SAEOO replay time;hibernate_3_6_changes;1100000191638;97;2024;18254;5614;325873;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;237.143;3.305;0.467;ms
+SAEOO replay time;hibernate_3_6_changes;1100000191640;371;2023;18239;5613;326233;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;966.903;19.554;2.765;ms
+SAEOO replay time;hibernate_3_6_changes;1100000191642;445;2026;18153;5569;324327;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;1341.557;10.855;1.535;ms
+SAEOO replay time;hibernate_3_6_changes;1100000191644;1084;2039;18279;5571;327531;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;3720.766;17.051;2.411;ms
+SAEOO replay time;hibernate_3_6_changes;1100000191838;37;2075;18508;5617;330475;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;117.759;1.621;0.229;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192300;6;2081;18555;5627;331125;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;37.695;0.476;0.067;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192312;45;2126;18891;5768;337162;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;224.734;2.658;0.376;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192320;2;2128;18918;5776;337329;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;19.248;0.390;0.055;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192322;2;2130;18942;5779;337496;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;14.866;0.227;0.032;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192326;1;2131;18951;5791;337871;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;24.694;0.419;0.059;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192328;1;2132;18958;5797;338183;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;20.062;0.157;0.022;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192332;59;2188;19289;5899;345469;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;323.298;5.431;0.768;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192334;50;2238;19702;5969;349698;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;239.202;3.685;0.521;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192336;56;2290;20111;6054;356178;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;448.498;14.365;2.031;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192338;142;2430;20882;6330;366438;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;571.409;7.439;1.052;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192506;59;2488;21242;6481;370665;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;361.067;7.409;1.048;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192508;172;2659;22226;6836;387912;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;859.461;12.357;1.747;ms
+SAEOO replay time;hibernate_3_6_changes;1100000192610;37;2696;22543;6955;392596;10;50;true;true;false;true;Hibernate_3_6_6_Violations;1680;201.378;2.074;0.293;ms
