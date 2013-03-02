@@ -177,6 +177,9 @@ object AnalysesOO
         /* miscellaneous*/
         case "CHA" => CHA(database)
         case "RTA" => RTA(database)
+        case "Hibernate_3_6_6_EnsembleElements" => AnalysisVespucci (analysisName, database)
+        case "Hibernate_3_6_6_Violations" => AnalysisVespucci (analysisName, database)
+
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
