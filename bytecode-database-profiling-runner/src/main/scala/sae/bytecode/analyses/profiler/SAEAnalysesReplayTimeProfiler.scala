@@ -32,8 +32,9 @@
  */
 package sae.bytecode.analyses.profiler
 
-import sae.bytecode.bat.BATDatabaseFactory
+
 import sae._
+import bytecode.bat.{BATBytecodeDatabase, BATDatabaseFactory}
 import bytecode.BytecodeDatabase
 import bytecode.profiler.util.MilliSeconds
 import bytecode.profiler.{TimeMeasurement, AbstractPropertiesFileReplayProfiler}
@@ -165,7 +166,6 @@ abstract class SAEAnalysesReplayTimeProfiler
     }
 
 
-
     /**
      * performs the measurement of function f, iterations times.
      * f should return the time taken to perform the required computation.
@@ -203,16 +203,64 @@ abstract class SAEAnalysesReplayTimeProfiler
             l => taken += l
         }
         {
-            database.beginTransaction()
-            applyEvents(database, additions, deletions, updates)
-            if(optimized){
-                database.computeTransactionUpdates()
+            database.beginTransaction ()
+            applyEvents (database, additions, deletions, updates)
+
+            if (optimized) {
+                database.computeTransactionUpdates ()
+                /*
+                val batDb = database.asInstanceOf[BATBytecodeDatabase]
+                print ("; ")
+                val addedMethods =
+                    batDb.transaction.codeAdditions.size + batDb.transaction.codeUpdates.size
+                val deletedMethods =
+                    batDb.transaction.codeDeletions.size + batDb.transaction.codeUpdates.size
+                val addedInstr =
+                    batDb.transaction.codeAdditions.map (u => u.code.instructions.size).sum +
+                    batDb.transaction.codeUpdates.map (u => u.newV.code.instructions.size).sum
+                val deletedInstr =
+                    batDb.transaction.codeDeletions.map (u => u.code.instructions.size).sum +
+                        batDb.transaction.codeUpdates.map (u => u.oldV.code.instructions.size).sum
+                print(addedMethods)
+                print ("; ")
+                print(deletedMethods)
+                print ("; ")
+                print(addedInstr)
+                print ("; ")
+                print(deletedInstr)
+                print ("; ")
+                println
+                */
             }
-            database.commitTransaction()
+                /*
+            else
+            {
+                val batDb = database.asInstanceOf[BATBytecodeDatabase]
+                print ("; ")
+                val addedMethods =
+                    batDb.transaction.codeAdditions.size
+                val deletedMethods =
+                    batDb.transaction.codeDeletions.size
+                val addedInstr =
+                    batDb.transaction.codeAdditions.map (u => u.code.instructions.size).sum
+                val deletedInstr =
+                    batDb.transaction.codeDeletions.map (u => u.code.instructions.size).sum
+                print(addedMethods)
+                print ("; ")
+                print(deletedMethods)
+                print ("; ")
+                print(addedInstr)
+                print ("; ")
+                print(deletedInstr)
+                print ("; ")
+                println
+            }
+            */
+            database.commitTransaction ()
         }
         val memoryMXBean = java.lang.management.ManagementFactory.getMemoryMXBean
         memoryMXBean.gc ()
-        print (", ")
+        print(", ")
         taken
     }
 

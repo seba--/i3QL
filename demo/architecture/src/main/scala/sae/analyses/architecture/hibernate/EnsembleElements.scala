@@ -48,7 +48,9 @@ object EnsembleElements
 {
 
     def apply(database: BytecodeDatabase, model: IArchitectureModel) = {
+        import scala.collection.JavaConversions._
         val unisson: IUnissonDatabase = new UnissonDatabase (database)
+        unisson.addEnsembles(model.getEnsembles)
         unisson.ensemble_elements
     }
 

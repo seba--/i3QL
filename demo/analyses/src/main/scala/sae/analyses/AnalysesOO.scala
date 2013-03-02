@@ -32,6 +32,7 @@
  */
 package sae.analyses
 
+import architecture.AnalysisVespucci
 import findbugs.base.oo.Definitions
 import findbugs.stack._
 import sae.Relation
@@ -119,6 +120,10 @@ object AnalysesOO
         /* miscellaneous*/
         case "CHA" => CHA(database)
         case "RTA" => RTA(database)
+
+
+        case "Hibernate_3_6_6_EnsembleElements" => AnalysisVespucci (analysisName, database)
+        case "Hibernate_3_6_6_Violations" => AnalysisVespucci (analysisName, database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
