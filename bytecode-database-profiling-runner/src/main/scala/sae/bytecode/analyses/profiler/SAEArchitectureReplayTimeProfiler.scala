@@ -323,10 +323,9 @@ object SAEArchitectureReplayTimeProfiler
         val addedConstraints = for {
             (oldS, oldCL) <- oldConstraints
             (newS, newCL) <- newConstraints
-            if oldS == newS
             newC <- newCL
-            if (!oldCL.exists (_ == newC))
-        } yield (newC)
+            if (oldS == newS && !oldCL.exists (_ == newC)) || !oldConstraints.contains(newS)
+        } yield (newS,newC)
 
 
         val removedConstraints = for {
@@ -335,7 +334,7 @@ object SAEArchitectureReplayTimeProfiler
             if oldS == newS
             oldC <- oldCL
             if (!newCL.exists (_ == oldC))
-        } yield (oldC)
+        } yield (oldS, oldC)
 
         val ensembleUpdateTimes =
             for ((oldE, newE) <- ensembleUpdates) yield
@@ -368,30 +367,30 @@ object SAEArchitectureReplayTimeProfiler
             }
 
         val constraintAdditionTimes =
-            for (newC <- addedConstraints) yield
+            for ((newS,newC) <- addedConstraints) yield
             {
-                println ("adding: " + newC)
+                println ("adding: " + newC + " to " + newS)
                 var taken: Long = 0
                 time {
                     l => taken += l
                 }
                 {
-                    unisson.addConstraintToSlice(newC)
+                    unisson.addConstraintToSlice(newC)(newS)
                 }
 
                 taken
             }
 
         val constraintDeletionTimes =
-            for (oldC <- removedConstraints) yield
+            for ((oldS,oldC) <- removedConstraints) yield
             {
-                println ("removing: " + oldC)
+                println ("removing: " + oldC + " from " + oldS)
                 var taken: Long = 0
                 time {
                     l => taken += l
                 }
                 {
-                    unisson.removeConstraintFromSlice(oldC)
+                    unisson.removeConstraintFromSlice(oldC)(oldS)
                 }
 
                 taken
