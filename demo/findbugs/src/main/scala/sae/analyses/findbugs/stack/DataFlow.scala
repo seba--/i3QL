@@ -87,7 +87,7 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
 
 
         val startInstructions = compile (
-            SELECT (*) FROM instructions WHERE (_.pc == 0) AND (_.declaringMethod.name == "joinString")
+            SELECT (*) FROM instructions WHERE (_.pc == 0)
         )
 
 
@@ -106,7 +106,7 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
             startStates,
             new AggregationForNotSelfMaintainableFunctions(
                 new EquiJoinView (
-                    SELECT (*) FROM controlFlow WHERE (_.current.declaringMethod.name == "joinString"),
+                    controlFlow,
                     startStates,
                     (_: ControlFlowEdge).current,
                     (_: StateInfo).instruction,
@@ -125,7 +125,7 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
 
 
         val startInstructions = compile (
-            SELECT (*) FROM instructions WHERE (_.pc == 0) AND (_.declaringMethod.name == "joinString")
+            SELECT (*) FROM instructions WHERE (_.pc == 0)
         )
 
 
@@ -144,7 +144,7 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
             startStates,
             new AggregationForNotSelfMaintainableFunctions(
                 new EquiJoinView (
-                    SELECT (*) FROM controlFlow WHERE (_.current.declaringMethod.name == "joinString"),
+                    controlFlow,
                     startStates,
                     (_: ControlFlowEdge).current,
                     (_: StateInfo).instruction,
