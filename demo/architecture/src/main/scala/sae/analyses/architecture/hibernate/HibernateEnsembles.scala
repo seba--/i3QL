@@ -12,6 +12,95 @@ import java.util
 object HibernateEnsembles {
 
 
+    object Hibernate_3_0 extends IArchitectureModel {
+
+        val ensembles = new util.HashSet[IEnsemble]()
+
+        def getEnsembles = ensembles
+
+        def getConstraints = new util.HashSet[IConstraint]()
+
+        def getName = "Hibernate_3_6_6"
+
+        val EmptyEnsemble = Ensemble("@Empty", "empty")
+        val Actions = Ensemble("Actions", "package('org.hibernate.action')\nor class_with_members('org.hibernate.engine','ActionQueue')")
+        val Cache = Ensemble("Cache","(\n\tpackage('org.hibernate.cache')\n\twithout(class_with_members('org.hibernate.cache','CacheException'))\n)\nor package('org.hibernate.cache.entry')\n")
+        val Configuration = Ensemble("Configuration", "package('org.hibernate.cfg')\nwithout\n(\nclass_with_members('org.hibernate.cfg','Environment') \nor class_with_members('org.hibernate.cfg','Settings')\nor class_with_members('org.hibernate.cfg','SettingsFactory')\n)")
+        val DataTypes = Ensemble("DataTypes", "(\n\tpackage('org.hibernate.type')\n\twithout\n\t(\n\t\tclass_with_members('org.hibernate.type','SerializationException')\n\t)\n)\nor class_with_members('org.hibernate.lob','BlobImpl')\nor class_with_members('org.hibernate.lob','ClobImpl') \nor class_with_members('org.hibernate.lob','SerializableClob')\nor class_with_members('org.hibernate.lob','SerializableBlob')\nor package('org.hibernate.usertype') or class_with_members('org.hibernate.engine','TypedValue')")
+        val HibernateORMapping = Ensemble("HibernateORMapping", "package('org.hibernate.mapping')\n or class_with_members('org.hibernate.engine','Mapping')")
+        val HQL = Ensemble("HQL","package('org.hibernate.hql')\nor \n(\n\tpackage('org.hibernate.hql.ast')\n\twithout class_with_members('org.hibernate.hql.ast','QuerySyntaxError')\n)\n or class_with_members('org.hibernate.hql.classic','ParserHelper')\n or package('org.hibernate.hql.antlr')\nor package('org.hibernate.loader.hql')")
+        val IdentifierGenerators = Ensemble("IdentifierGenerators","package('org.hibernate.id')\nwithout\n(\n class_with_members('org.hibernate.id','IdentifierGenerationException')\n)")
+        val PersistenceManager = Ensemble("PersistenceManager","package('org.hibernate.collection') or\npackage('org.hibernate.persister') or \npackage('org.hibernate.persister.collection') or\npackage('org.hibernate.persister.entity') or\npackage('org.hibernate.loader.entity') or\npackage('org.hibernate.loader.collection') or\npackage('org.hibernate.loader') \n or class_with_members('org.hibernate.impl','QueryImpl')\n or class_with_members('org.hibernate.impl','ScrollableResultsImpl')\n or class_with_members('org.hibernate.impl','IteratorImpl')\n or class_with_members('org.hibernate.impl','FilterImpl')\n or class_with_members('org.hibernate.engine','Cascades') \n or class_with_members('org.hibernate.engine','CollectionSnapshot')\n or class_with_members('org.hibernate.impl','AbstractQueryImpl')\n or class_with_members('org.hibernate.engine','HibernateIterator')\n or class_with_members('org.hibernate.engine','ForeignKeys')\n or class_with_members('org.hibernate.event.def','OnUpdateVisitor')\n or class_with_members('org.hibernate.event.def','WrapVisitor')\n or class_with_members('org.hibernate.event.def','ProxyVisitor')\n or class_with_members('org.hibernate.event.def','AbstractVisitor')\n or class_with_members('org.hibernate.event.def','ReattachVisitor')\n or class_with_members('org.hibernate.event.def','DirtyCollectionSearchVisitor')\n or class_with_members('org.hibernate.event.def','EvictVisitor')\n or class_with_members('org.hibernate.event.def','OnReplicateVisitor')\n or class_with_members('org.hibernate.event.def','OnLockVisitor')\n or class_with_members('org.hibernate.event.def','FlushVisitor')\n or class_with_members('org.hibernate.impl','CollectionFilterImpl')\n or class_with_members('org.hibernate.engine','BatchFetchQueue')\n or class_with_members('org.hibernate.engine','CollectionEntry')\n or class_with_members('org.hibernate.engine','CollectionKey')\n or class_with_members('org.hibernate.engine','CollectionLoadContext')\n or class_with_members('org.hibernate.engine','Collections')\n or class_with_members('org.hibernate.engine','EntityEntry')\n or class_with_members('org.hibernate.engine','EntityKey')\n or class_with_members('org.hibernate.engine','EntityUniqueKey')\n or class_with_members('org.hibernate.engine','PersistenceContext')\n or class_with_members('org.hibernate.engine','SubselectFetch')\n or class_with_members('org.hibernate.engine','TwoPhaseLoad')\n or class_with_members('org.hibernate.engine','QueryParameters')\n or class_with_members('org.hibernate.engine','JoinSequence')\n or class_with_members('org.hibernate.engine','JoinHelper')")
+        val PropertySettings = Ensemble("PropertySettings","class_with_members('org.hibernate.cfg','Environment') \nor class_with_members('org.hibernate.cfg','Settings')\nor class_with_members('org.hibernate.cfg','SettingsFactory')")
+        val Proxies = Ensemble("Proxies","package('org.hibernate.proxy')")
+        val SchemaTool = Ensemble("SchemaTool","class_with_members('org.hibernate.tool.hbm2ddl','SchemaExportTask')\nor class_with_members('org.hibernate.tool.hbm2ddl','SchemaUpdateTask') ")
+        val SessionManagement = Ensemble("SessionManagement","class_with_members('org.hibernate.impl','SessionImpl')\n or class_with_members('org.hibernate.impl','SessionFactoryImpl')\n or class_with_members('org.hibernate.impl','SessionFactoryObjectFactory')\n or class_with_members('org.hibernate','Session')\n or class_with_members('org.hibernate','SessionFactory')\n or class_with_members('org.hibernate.engine','SessionFactoryImplementor')\n or class_with_members('org.hibernate.engine','SessionImplementor')\nor class_with_members('org.hibernate.jdbc','JDBCContext')")
+        val SQLDialects = Ensemble("SQLDialects","package('org.hibernate.dialect') \nor\n(\n\tpackage('org.hibernate.sql')\n\twithout\n\t(\n\tclass_with_members('org.hibernate.sql', 'Insert')\n\tor class_with_members('org.hibernate.sql', 'Delete')\n\tor class_with_members('org.hibernate.sql', 'Select')\n\tor class_with_members('org.hibernate.sql', 'Update')\n\t)\n)\nor package('org.hibernate.dialect.function')")
+        val Transactions = Ensemble("Transactions","package('org.hibernate.transaction')\nor class_with_members('org.hibernate','Transaction') \nor class_with_members('org.hibernate.engine','TransactionHelper')")
+        val UserAPI = Ensemble("UserAPI","package('org.hibernate')\nwithout \n(\n\tclass_with_members('org.hibernate','Session') or\n\tclass_with_members('org.hibernate','SessionFactory') or\n\tclass_with_members('org.hibernate','HibernateException') or \n\tclass_with_members(transitive(supertype(class('org.hibernate','HibernateException')))) or\n    class_with_members('org.hibernate','AssertionFailure') or\n\tclass_with_members('org.hibernate','Transaction') or\n    class_with_members('org.hibernate','LazyInitializationException')\n)")
+        val UtilitiesAndExceptions = Ensemble("UtilitiesAndExceptions","class_with_members('org.hibernate.exception','NestableRuntimeException')\nor class_with_members('org.hibernate.exception','NestableException')\nor class_with_members(transitive(supertype(class('org.hibernate.exception','NestableException'))))\nor \n( \n\tclass_with_members(transitive(supertype(class('org.hibernate.exception','NestableRuntimeException'))))\n\twithout class_with_members('org.hibernate.classic','ValidationFailure')\n)\nor class_with_members('org.hibernate','AssertionFailure')\nor class_with_members('org.hibernate','LazyInitializationException')\nor \n(\n\tpackage('org.hibernate.util')\n\twithout(\n\t class_with_members('org.hibernate.util','ExternalSessionFactoryConfig')\n\t)\n)\nor class_with_members('org.hibernate.engine','RowSelection')\nor class_with_members('org.hibernate.lob','ReaderInputStream')\n or class_with_members('org.hibernate.exception','ExceptionUtils')\n or class_with_members('org.hibernate.exception','Nestable')\n or class_with_members('org.hibernate.exception','NestableDelegate')\n or class_with_members('org.hibernate.exception','JDBCExceptionHelper')\n or class_with_members('org.hibernate.exception','SQLExceptionConverter')\n or class_with_members('org.hibernate.exception','SQLExceptionConverterFactory')\n or class_with_members('org.hibernate.exception','ErrorCodeConverter')\n or class_with_members('org.hibernate.exception','TemplatedViolatedConstraintNameExtracter')\n or class_with_members('org.hibernate.exception','SQLStateConverter')\n or class_with_members('org.hibernate.exception','Configurable')\n or class_with_members('org.hibernate.exception','ViolatedConstraintNameExtracter') \n or class_with_members('org.hibernate.engine','Status')\n or class_with_members('org.hibernate','EntityMode')\n or class_with_members('org.hibernate','FetchMode')\n or class_with_members('org.hibernate','FlushMode')\n or class_with_members('org.hibernate','LockMode')")
+
+        ensembles.add(Actions)
+        ensembles.add(Cache)
+        ensembles.add(Configuration)
+        ensembles.add(DataTypes)
+        ensembles.add(HibernateORMapping)
+        ensembles.add(HQL)
+        ensembles.add(IdentifierGenerators)
+        ensembles.add(PersistenceManager)
+        ensembles.add(PropertySettings)
+        ensembles.add(Proxies)
+        ensembles.add(SchemaTool)
+        ensembles.add(SessionManagement)
+        ensembles.add(SQLDialects)
+        ensembles.add(Transactions)
+        ensembles.add(UserAPI)
+        ensembles.add(UtilitiesAndExceptions)
+
+
+        val BytecodeInstrumentationTool = Ensemble("BytecodeInstrumentationTool","package('org.hibernate.tool.instrument')")
+        val BytecodeInterception = Ensemble("BytecodeInterception","package('org.hibernate.intercept')\n")
+        val ConnectionProvider = Ensemble("ConnectionProvider","package('org.hibernate.connection')")
+        val CriteriaExpressionFramework = Ensemble("CriteriaExpressionFramework","package('org.hibernate.criterion')")
+        val EntityRepresentation = Ensemble("EntityRepresentation","package('org.hibernate.tuple')")
+        val EventFramework = Ensemble("EventFramework","package('org.hibernate.event') \nor\n(\n\tpackage('org.hibernate.event.def') \n\twithout\n\t(\n    class_with_members('org.hibernate.event.def','OnUpdateVisitor')\n or class_with_members('org.hibernate.event.def','WrapVisitor')\n or class_with_members('org.hibernate.event.def','ProxyVisitor')\n or class_with_members('org.hibernate.event.def','AbstractVisitor')\n or class_with_members('org.hibernate.event.def','ReattachVisitor')\n or class_with_members('org.hibernate.event.def','DirtyCollectionSearchVisitor')\n or class_with_members('org.hibernate.event.def','EvictVisitor')\n or class_with_members('org.hibernate.event.def','OnReplicateVisitor')\n or class_with_members('org.hibernate.event.def','OnLockVisitor')\n or class_with_members('org.hibernate.event.def','FlushVisitor')\n\t)\n)\nor package('org.hibernate.event.ejb3')")
+        val HandwrittenSQLLoader = Ensemble("HandwrittenSQLLoader","package('org.hibernate.loader.custom')")
+        val HibernateClassic = Ensemble("HibernateClassic","package('org.hibernate.classic')")
+        val HibernateCriteria = Ensemble("HibernateCriteria","class_with_members('org.hibernate','Criteria')\nor class_with_members('org.hibernate.impl','CriteriaImpl')\nor package('org.hibernate.loader.criteria')")
+        val HibernateUtilities = Ensemble("HibernateUtilities","    class_with_members('org.hibernate.engine','Versioning')\n or class_with_members('org.hibernate.engine','FilterDefinition')\n or class_with_members('org.hibernate.engine','NamedSQLQueryDefinition')\n or class_with_members('org.hibernate.engine','NamedQueryDefinition')\n or class_with_members('org.hibernate.engine','Nullability')\n or class_with_members('org.hibernate.engine','UnsavedValueFactory')\nor package('org.hibernate.pretty')")
+        val HQL_Legacy = Ensemble("HQL-Legacy","package('org.hibernate.hql.classic')\nwithout class_with_members('org.hibernate.hql.classic','ParserHelper')")
+        val JDBCStatementProcessing = Ensemble("JDBCStatementProcessing","package('org.hibernate.jdbc')\nwithout class_with_members('org.hibernate.jdbc','JDBCContext')")
+        val JMX = Ensemble("JMX","package('org.hibernate.jmx')")
+        val Metadata = Ensemble("Metadata","package('org.hibernate.metadata')")
+        val Properties = Ensemble("Properties","package('org.hibernate.property')")
+        val ResultTransfomers = Ensemble("ResultTransfomers","package('org.hibernate.transform')")
+        val SchemaProcessing = Ensemble("SchemaProcessing","class_with_members('org.hibernate.tool.hbm2ddl','DatabaseMetadata')\n or class_with_members('org.hibernate.tool.hbm2ddl','ColumnMetadata')\n or class_with_members('org.hibernate.tool.hbm2ddl','SchemaUpdate')\n or class_with_members('org.hibernate.tool.hbm2ddl','IndexMetadata')\n or class_with_members('org.hibernate.tool.hbm2ddl','TableMetadata')\n or class_with_members('org.hibernate.tool.hbm2ddl','SchemaExport')\n or class_with_members('org.hibernate.tool.hbm2ddl','ForeignKeyMetadata')")
+        val SecurityPolicy = Ensemble("SecurityPolicy","package('org.hibernate.secure')")
+        val SQLStatements = Ensemble("SQLStatements","class_with_members('org.hibernate.sql', 'Insert')\nor class_with_members('org.hibernate.sql', 'Delete')\nor class_with_members('org.hibernate.sql', 'Select')\nor class_with_members('org.hibernate.sql', 'Update')\nor class_with_members('org.hibernate.impl','SQLQueryImpl')")
+        val Statistics = Ensemble("Statistics", "package('org.hibernate.stat')")
+
+        ensembles.add(BytecodeInstrumentationTool)
+        ensembles.add(BytecodeInterception)
+        ensembles.add(ConnectionProvider)
+        ensembles.add(CriteriaExpressionFramework)
+        ensembles.add(EntityRepresentation)
+        ensembles.add(EventFramework)
+        ensembles.add(HandwrittenSQLLoader)
+        ensembles.add(HibernateClassic)
+        ensembles.add(HibernateCriteria)
+        ensembles.add(HibernateUtilities)
+        ensembles.add(HQL_Legacy)
+        ensembles.add(JDBCStatementProcessing)
+        ensembles.add(JMX)
+        ensembles.add(Metadata)
+        ensembles.add(Properties)
+        ensembles.add(ResultTransfomers)
+        ensembles.add(SchemaProcessing)
+        ensembles.add(SecurityPolicy)
+        ensembles.add(SQLStatements)
+        ensembles.add(Statistics)
+    }
+
     object Hibernate_3_6_6 extends IArchitectureModel {
 
         val ensembles = new util.HashSet[IEnsemble]()
