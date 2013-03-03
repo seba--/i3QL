@@ -1,0 +1,3 @@
+bench type;jars;num. classes;num. methods;num. fields;num. instructions;num. warmup iterations;num. measure iterations;re-read jars;optimized;transactional;shared;queries;newResult count;mean;std. dev;std err.;measured unit
+SAEOO memory;hibernate-core-3.6.0.Final.jar;1972;17997;5563;323220;10;50;true;false;false;false;Hibernate_3_6_6_Violations;1680;25.250;0.002;0.000;MB
+SAEOO memory;hibernate-core-3.6.0.Final.jar;1972;17997;5563;323220;10;50;true;false;false;false;Hibernate_3_6_6_EnsembleElements;25858;7.193;0.287;0.041;MB
