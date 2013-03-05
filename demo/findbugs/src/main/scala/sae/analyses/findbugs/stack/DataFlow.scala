@@ -77,7 +77,7 @@ object DataFlow extends (BytecodeDatabase => Relation[StateInfo])
     }
 
     def apply(database: BytecodeDatabase): Relation[StateInfo] = {
-        materialized (database)
+        optimized (database)
     }
 
 
