@@ -33,7 +33,7 @@
 package sae.analyses.architecture
 
 import hibernate.{Violations, EnsembleElements}
-import hibernate.HibernateEnsembles.{Hibernate_1_0, Hibernate_3_6_6}
+import hibernate.HibernateEnsembles.{Hibernate_3_0, Hibernate_1_0, Hibernate_3_6_6}
 import sae.bytecode.BytecodeDatabase
 
 /**
@@ -46,6 +46,8 @@ object AnalysisVespucci
 {
     def apply(analysisName: String, database: BytecodeDatabase) = analysisName match {
         case "Hibernate_1_0_EnsembleElements" => EnsembleElements (database, Hibernate_1_0)
+        case "Hibernate_3_0_EnsembleElements" => EnsembleElements (database, Hibernate_3_0)
+        case "Hibernate_3_0_Violations" => Violations.hibernate30(database)
         case "Hibernate_3_6_6_EnsembleElements" => EnsembleElements (database, Hibernate_3_6_6)
         case "Hibernate_3_6_6_Violations" => Violations.hibernate36(database)
         case _ => throw new IllegalArgumentException ("Unknown analysis: " + analysisName)
