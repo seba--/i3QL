@@ -124,6 +124,9 @@ object AnalysesOO
 
         case "Hibernate_3_6_6_EnsembleElements" => AnalysisVespucci (analysisName, database)
         case "Hibernate_3_6_6_Violations" => AnalysisVespucci (analysisName, database)
+        case "Hibernate_3_0_EnsembleElements" => AnalysisVespucci (analysisName, database)
+        case "Hibernate_3_0_Violations" => AnalysisVespucci (analysisName, database)
+
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
@@ -179,7 +182,8 @@ object AnalysesOO
         case "RTA" => RTA(database)
         case "Hibernate_3_6_6_EnsembleElements" => AnalysisVespucci (analysisName, database)
         case "Hibernate_3_6_6_Violations" => AnalysisVespucci (analysisName, database)
-
+        case "Hibernate_3_0_EnsembleElements" => AnalysisVespucci (analysisName, database)
+        case "Hibernate_3_0_Violations" => AnalysisVespucci (analysisName, database)
         case _ => throw new IllegalArgumentException("Unknown analysis: " + analysisName)
     }
 
