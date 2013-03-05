@@ -103,14 +103,14 @@ object AnalysesOO
         case "UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR" => UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
 
         /* mirko's bug finder */
-        //case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
-        //case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
-        //case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
-        //case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
+        case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
         case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
-        //case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
-        //case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
-        //case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+        case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
 
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree(database)
@@ -163,14 +163,14 @@ object AnalysesOO
                 .UR_UNINIT_READ_CALLED_FROM_SUPER_CONSTRUCTOR(database)
 
         /* mirko's bug finder */
-        //case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
-        //case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
-        //case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
-        //case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
+        case "DL_SYNCHRONIZATION" => DL_SYNCHRONIZATION(database)
+        case "DMI_INVOKING_TOSTRING_ON_ARRAY" => DMI_INVOKING_TOSTRING_ON_ARRAY(database)
+        case "MWN_MISMATCHED_NOTIFY" => MWN_MISMATCHED_NOTIFY(database)
+        case "RC_REF_COMPARISON" => RC_REF_COMPARISON(database)
         case "RV_RETURN_VALUE_IGNORED" => RV_RETURN_VALUE_IGNORED(database)
-        //case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
-        //case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
-        //case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
+        case "SA_FIELD_SELF_COMPARISON" => SA_FIELD_SELF_COMPARISON(database)
+        case "SA_LOCAL_SELF_ASSIGNMENT" => SA_LOCAL_SELF_ASSIGNMENT(database)
+        case "SQL_BAD_PREPARED_STATEMENT_ACCESS" => SQL_BAD_PREPARED_STATEMENT_ACCESS(database)
 
         /* selected metrics */
         case "DIT" => DepthOfInheritanceTree(database)
