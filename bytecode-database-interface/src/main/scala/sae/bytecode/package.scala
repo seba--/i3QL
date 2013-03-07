@@ -27,6 +27,8 @@ package object bytecode
 
     def thisMethod: MethodDeclaration => MethodDeclaration = identity[MethodDeclaration] _
 
+    def thisMethodInfo: MethodInfo => MethodInfo = identity[MethodInfo] _
+
     def thisField: FieldDeclaration => FieldDeclaration = identity[FieldDeclaration] _
 
     def declaringClass: DeclaredClassMember => ClassDeclaration = _.declaringClass
