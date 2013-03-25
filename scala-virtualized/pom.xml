@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.scala-lang</groupId>
+    <artifactId>scala-virtualized-wrapper</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>scala-virtualized-wrapper</name>
+    <url>http://opal-project.org</url>
+    <inceptionYear>2013</inceptionYear>
+
+    <properties>
+        <scala.version>2.10.0</scala.version>
+    </properties>
+
+
+    <modules>
+        <module>scala-actors</module>
+        <module>scala-compiler</module>
+        <module>scala-library</module>
+        <module>scala-reflect</module>
+        <module>scalap</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-code</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-src</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                            <includes>**/*.java,**/*.scala</includes>
+                            <classifier>sources</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
