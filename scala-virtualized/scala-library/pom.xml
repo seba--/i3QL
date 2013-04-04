@@ -7,7 +7,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.scala-lang</groupId>
     <artifactId>scala-library</artifactId>
     <version>${scala.version}-virtualized</version>
 
