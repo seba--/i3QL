@@ -7,7 +7,7 @@ package sandbox.ast.sql
 object FROM
 {
 
-  def apply[Domain] (table: Table[Domain]): FromClause[Domain] =
+  def apply[Domain: Manifest] (table: Table[Domain]): FromClause[Domain] =
     new FromClause[Domain](table)
 
 }

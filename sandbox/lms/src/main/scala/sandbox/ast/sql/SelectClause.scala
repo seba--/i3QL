@@ -4,7 +4,7 @@ package sandbox.ast.sql
  *
  * @author: Ralf Mitschke
  */
-class SelectClause[Domain, Range]
+class SelectClause[Domain: Manifest, Range: Manifest]
 {
   val ir = sandbox.ast.sql.ir
 
