@@ -45,6 +45,9 @@ object PrettyPrinter
       case Selection (_, function) => {
         writeNode (node.name, "σ")
       }
+      case Projection (_, function) => {
+        writeNode (node.name, "Π")
+      }
       case TableReference (table) =>
         writeNode (node.name, table.name)
     }

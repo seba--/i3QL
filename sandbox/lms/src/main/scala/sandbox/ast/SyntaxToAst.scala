@@ -19,13 +19,16 @@ object SyntaxToAst
   private def transform (clause: Clause): Operator =
     clause match {
       case (SelectClause (fromClause, function)) =>
-        Selection (
+        Projection (
           List (transform (fromClause)),
           function
         )
 
-      case (FromClause (table: Table[_])) =>
+      case (FromClauseWithTable (table: Table[_])) =>
         TableReference (table)
+
+      case (FromClauseWithQuery (query)) =>
+        transform (query)
 
     }
 }

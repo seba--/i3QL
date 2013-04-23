@@ -10,6 +10,9 @@ object FROM
 {
 
   def apply[Domain: Manifest] (table: Table[Domain]): FromClause[Domain] =
-    new FromClause[Domain](table)
+    new FromClauseWithTable[Domain](table)
+
+  def apply[Domain: Manifest, Range: Manifest] (query: SelectClause[Domain, Range]): FromClause[Range] =
+    new FromClauseWithQuery[Range, Domain](query)
 
 }

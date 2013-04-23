@@ -17,13 +17,24 @@ object Main
 
   def testSimpleClause ()
   {
-    //import sql._
     val t = new Table[Int]
-    val clause = FROM (t) SELECT (selectionFunction)
-    val ast = SyntaxToAst (clause)
+    val clause1 = FROM (t) SELECT (projection0)
+    val clause2 = FROM (clause1) SELECT (projection1)
+
+    val ast = SyntaxToAst (clause2)
     val dot = PrettyPrinter (ast)
     println (dot)
   }
 
-  def selectionFunction (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] = i
+  def projection0 (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] =
+  {
+    import sql.ir._
+    i + 1
+  }
+
+  def projection1 (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] =
+  {
+    import sql.ir._
+    i * i
+  }
 }
