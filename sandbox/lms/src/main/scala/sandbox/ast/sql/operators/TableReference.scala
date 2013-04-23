@@ -8,4 +8,6 @@ case class TableReference[Domain: Manifest] (table: sandbox.ast.sql.Table[Domain
   extends Operator
 {
 
+  def children = Nil
+
 }

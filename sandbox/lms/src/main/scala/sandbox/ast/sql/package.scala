@@ -1,7 +1,7 @@
 package sandbox.ast
 
-import scala.virtualization.lms.common._
 import sandbox.ast.sql.syntax.SelectClause
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -12,8 +12,9 @@ package object sql
 {
   val ir = this
 
-  def printAST[Domain: Manifest, Range: Manifest](clause: SelectClause[Domain, Range]) {
-    Predef.println(reifyEffects(clause.function))
+  def printAST[Domain: Manifest, Range: Manifest] (clause: SelectClause[Domain, Range])
+  {
+    Predef.println (reifyEffects (clause.function))
   }
 
 

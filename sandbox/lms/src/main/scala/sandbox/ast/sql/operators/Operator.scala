@@ -6,5 +6,5 @@ package sandbox.ast.sql.operators
  */
 trait Operator
 {
-
+  def children: Iterable[Operator]
 }

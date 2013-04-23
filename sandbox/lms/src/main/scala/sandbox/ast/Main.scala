@@ -1,5 +1,6 @@
 package sandbox.ast
 
+import sandbox.ast.sql.Table
 import sandbox.ast.sql.syntax.FROM
 
 /**
@@ -8,17 +9,20 @@ import sandbox.ast.sql.syntax.FROM
 object Main
 {
 
-  def main (args: Array[String]) {
+  def main (args: Array[String])
+  {
     testSimpleClause ()
   }
 
 
-  def testSimpleClause () {
-    import sql._
+  def testSimpleClause ()
+  {
+    //import sql._
     val t = new Table[Int]
     val clause = FROM (t) SELECT (selectionFunction)
     val ast = SyntaxToAst (clause)
-
+    val dot = PrettyPrinter (ast)
+    println (dot)
   }
 
   def selectionFunction (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] = i

@@ -9,12 +9,20 @@ import sandbox.ast.sql.operators._
 object PrettyPrinter
 {
 
-  def apply (operator: Operator)(name: String = "graph"): String = {
+  def apply (operator: Operator, name: String = "iql"): String =
+  {
     implicit val dot = new StringBuilder
-    writeHeader (name)
-    implicit val nodes = writeNodes (operator)
-    writeEdges (operator)
+    writePrelude (name)
+
     writeOpen
+
+    writeHeader
+
+    implicit val nodes =
+      writeNodes (operator)
+
+    writeEdges (operator)
+
     writeClose
 
     dot.toString ()
@@ -23,7 +31,8 @@ object PrettyPrinter
 
   private case class Node (name: String)
   {
-    def this (num: Int) = {
+    def this (num: Int) =
+    {
       this ("node_" + num)
     }
   }
@@ -33,55 +42,76 @@ object PrettyPrinter
   {
     val node = nodeMap.getOrElse (operator, new Node (nodeMap.size))
     operator match {
-      case Selection (children, function) => {
+      case Selection (_, function) => {
         writeNode (node.name, "σ")
       }
       case TableReference (table) =>
         writeNode (node.name, table.name)
     }
 
-    nodeMap.updated (operator, node)
+    implicit var nodes = nodeMap.updated (operator, node)
+    for (child <- operator.children) {
+      nodes = writeNodes (child)(dot, nodes)
+    }
+    nodes
   }
 
-  private def writeEdges (operator: Operator)(implicit dot: StringBuilder) {
-    operator match {
-      case Selection (children, _) =>
-        for (child <- children) {
-
-        }
-      case _ => // do nothing
+  private def writeEdges (operator: Operator)(implicit dot: StringBuilder, nodeMap: Map[Operator, Node])
+  {
+    for (child <- operator.children) {
+      val startNode = nodeMap (operator)
+      val endNode = nodeMap (child)
+      dot append "  "
+      dot append startNode.name
+      dot append " -- "
+      dot append endNode.name
+      dot append newline
     }
   }
 
-  private def writeNode (name: String, label: String)(implicit dot: StringBuilder) {
+  private def writeNode (name: String, label: String)(implicit dot: StringBuilder)
+  {
+    dot append "  "
     dot append name
+    dot append " "
     dot append "["
     dot append "label="
     dot append quote (label)
     dot append "]"
-    dot append (newline)
+    dot append ";"
+    dot append newline
   }
 
-  private def writeHeader (name: String)(implicit dot: StringBuilder) {
-    dot append ("graph ")
-    dot append (name)
-    dot append (newline)
+  private def writeHeader (implicit dot: StringBuilder)
+  {
+    dot append "  node [shape=none];"
+    dot append newline
   }
 
-  private def writeOpen (implicit dot: StringBuilder) {
-    dot append ("{")
-    dot append (newline)
+  private def writePrelude (name: String)(implicit dot: StringBuilder)
+  {
+    dot append "graph "
+    dot append name
+    dot append newline
   }
 
-  private def writeClose (implicit dot: StringBuilder) {
-    dot append ("}")
+  private def writeOpen (implicit dot: StringBuilder)
+  {
+    dot append "{"
+    dot append newline
+  }
+
+  private def writeClose (implicit dot: StringBuilder)
+  {
+    dot append "}"
   }
 
   private def sub (s: String): String = "<SUB>" + s + "</SUB>"
 
-  private def quote (s: String): String = {
+  private def quote (s: String): String =
+  {
     "\"" + s.replaceAll ("\"", "&quot;") + "\""
   }
 
-  private val newline = "\\n"
+  private val newline = "\n"
 }

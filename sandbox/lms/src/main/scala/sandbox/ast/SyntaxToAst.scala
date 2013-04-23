@@ -11,7 +11,8 @@ import sandbox.ast.sql.syntax._
 object SyntaxToAst
 {
 
-  def apply (clause: Clause): Operator = {
+  def apply (clause: Clause): Operator =
+  {
     transform (clause)
   }
 
