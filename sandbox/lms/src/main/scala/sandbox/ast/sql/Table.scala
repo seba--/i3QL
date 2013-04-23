@@ -2,9 +2,11 @@ package sandbox.ast.sql
 
 /**
  *
- * @author: Ralf Mitschke
+ * @author Ralf Mitschke
  */
-class Table[Domain: Manifest]
+class Table[Domain: Manifest] (val name: String = TableNames.freshName ())
 {
 
 }
+
+

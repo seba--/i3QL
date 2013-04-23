@@ -4,7 +4,7 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, ScalaOpsPkg, LiftAll}
 
 /**
  *
- * @author: Ralf Mitschke
+ * @author Ralf Mitschke
  */
 object Arithmetics
   extends LiftAll with ScalaOpsPkg with ScalaOpsPkgExp

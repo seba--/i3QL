@@ -5,7 +5,7 @@ import sandbox.ast.sql.syntax.SelectClause
 
 /**
  *
- * @author: Ralf Mitschke
+ * @author Ralf Mitschke
  */
 package object sql
   extends LiftAll with ScalaOpsPkg with ScalaOpsPkgExp

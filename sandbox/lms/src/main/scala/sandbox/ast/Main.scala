@@ -17,7 +17,8 @@ object Main
     import sql._
     val t = new Table[Int]
     val clause = FROM (t) SELECT (selectionFunction)
-    printAST (clause)
+    val ast = SyntaxToAst (clause)
+
   }
 
   def selectionFunction (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] = i

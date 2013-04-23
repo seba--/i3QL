@@ -2,17 +2,14 @@ package sandbox.ast.sql.syntax
 
 /**
  *
- * @author: Ralf Mitschke
+ * @author Ralf Mitschke
  */
-class SelectClause[Domain: Manifest, Range: Manifest]
+case class SelectClause[Domain: Manifest, Range: Manifest] (
+  fromClause: FromClause[Domain],
+  function: sandbox.ast.sql.ir.Rep[Domain] => sandbox.ast.sql.ir.Rep[Range]
+)
+  extends Clause
 {
-  val ir = sandbox.ast.sql.ir
 
-  var function: ir.Rep[Domain] => ir.Rep[Range] = null
-
-  def this (fun: sandbox.ast.sql.ir.Rep[Domain] => sandbox.ast.sql.ir.Rep[Range]) = {
-    this ()
-    function = fun
-  }
 
 }

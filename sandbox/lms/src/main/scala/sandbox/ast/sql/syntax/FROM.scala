@@ -4,7 +4,7 @@ import sandbox.ast.sql.Table
 
 /**
  *
- * @author: Ralf Mitschke
+ * @author Ralf Mitschke
  */
 object FROM
 {
