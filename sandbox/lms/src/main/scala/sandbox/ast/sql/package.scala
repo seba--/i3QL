@@ -1,6 +1,7 @@
 package sandbox.ast
 
 import scala.virtualization.lms.common._
+import sandbox.ast.sql.syntax.SelectClause
 
 /**
  *

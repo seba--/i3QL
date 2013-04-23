@@ -1,4 +1,6 @@
-package sandbox.ast.sql
+package sandbox.ast.sql.syntax
+
+import sandbox.ast.sql.Table
 
 /**
  *

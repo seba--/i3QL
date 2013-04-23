@@ -1,4 +1,4 @@
-package sandbox.ast.sql
+package sandbox.ast.sql.syntax
 
 /**
  *
@@ -10,7 +10,7 @@ class SelectClause[Domain: Manifest, Range: Manifest]
 
   var function: ir.Rep[Domain] => ir.Rep[Range] = null
 
-  def this (fun: ir.Rep[Domain] => ir.Rep[Range]) = {
+  def this (fun: sandbox.ast.sql.ir.Rep[Domain] => sandbox.ast.sql.ir.Rep[Range]) = {
     this ()
     function = fun
   }
