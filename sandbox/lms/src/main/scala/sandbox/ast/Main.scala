@@ -26,15 +26,15 @@ object Main
     println (dot)
   }
 
-  def projection0 (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] =
+  def projection0 (i: sql.IR.Rep[Int]): sql.IR.Rep[Int] =
   {
-    import sql.ir._
+    import sql.IR._
     i + 1
   }
 
-  def projection1 (i: sql.ir.Rep[Int]): sql.ir.Rep[Int] =
+  def projection1 (i: sql.IR.Rep[Int]): sql.IR.Rep[Int] =
   {
-    import sql.ir._
+    import sql.IR._
     i * i
   }
 }

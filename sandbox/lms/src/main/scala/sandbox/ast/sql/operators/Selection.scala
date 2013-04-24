@@ -6,7 +6,7 @@ package sandbox.ast.sql.operators
  */
 case class Selection[Domain: Manifest] (
   children: List[Operator],
-  function: sandbox.ast.sql.ir.Rep[Domain] => sandbox.ast.sql.ir.Rep[Boolean]
+  function: sandbox.ast.sql.IR.Rep[Domain] => sandbox.ast.sql.IR.Rep[Boolean]
 )
   extends Operator
 {

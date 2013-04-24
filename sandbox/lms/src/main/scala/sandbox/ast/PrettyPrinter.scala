@@ -45,8 +45,8 @@ object PrettyPrinter
       case Selection (_, function) => {
         writeNode (node.name, "σ")
       }
-      case Projection (_, function) => {
-        writeNode (node.name, "Π")
+      case p@Projection (_, function) => {
+        writeNode (node.name, "Π" + sub (p.lambda))
       }
       case TableReference (table) =>
         writeNode (node.name, table.name)
@@ -69,6 +69,7 @@ object PrettyPrinter
       dot append " -- "
       dot append endNode.name
       dot append newline
+      writeEdges(child)
     }
   }
 
@@ -113,8 +114,9 @@ object PrettyPrinter
 
   private def quote (s: String): String =
   {
-    "\"" + s.replaceAll ("\"", "&quot;") + "\""
+    "<" + s.replaceAll ("\"", "&quot;") + ">"
   }
+
 
   private val newline = "\n"
 }

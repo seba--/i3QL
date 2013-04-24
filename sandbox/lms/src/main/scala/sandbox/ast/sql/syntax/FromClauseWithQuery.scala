@@ -10,7 +10,7 @@ case class FromClauseWithQuery[Domain: Manifest, OtherDomain: Manifest] (selecti
 {
 
   /*
-  val ir = sandbox.ast.sql.ir
+  val ir = sandbox.ast.sql.IR
 
   def SELECT[Range: Manifest] (fun: ir.Rep[Domain] => ir.Rep[Range]): SelectClause[Domain, Range] =
     new SelectClause[Domain, Range](this, fun)
