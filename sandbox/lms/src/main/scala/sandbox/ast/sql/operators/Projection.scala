@@ -19,15 +19,42 @@ case class Projection[Domain: Manifest, Range: Manifest] (
 
     val e = effects
 
-    "λ" // + sandbox.ast.sql.IR.quote(e)
+    //val b = body(e)
+
+    // "λ" +
+    // sandbox.ast.sql.ScalaCompilation // .quote (e.res)
+
+
+    import sandbox.ast.sql.ScalaCompilation._
+    emitSource(function, "F", new java.io.PrintWriter(System.out))
+    println ("-------------------------------")
+    withStream(new java.io.PrintWriter(System.out))(emitBlock(e))
+
+    ""
   }
 
 
-  def effects (): sandbox.ast.sql.IR.Rep[Domain => Range] =
+  def effects (): sandbox.ast.sql.IR.Block[Range] =
   {
     import sandbox.ast.sql.IR._
+    val sym = fresh[Domain]
+
     reifyEffects {
-      function
-    }.res
+      function (sym)
+    }
   }
+
+  /*
+  def body (function: sandbox.ast.sql.IR.Rep[Domain => Range]): Option[sandbox.ast.sql.IR.Stm] =
+  {
+    import sandbox.ast.sql.IR._
+
+
+
+    val definition = findDefinition (function.asInstanceOf[Sym[Domain => Range]])
+    //val summary = summarizeEffects(function)
+    //val ref = reflectEffect(function)
+    definition
+  }
+  */
 }

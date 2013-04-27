@@ -7,7 +7,7 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 object ScalaLifting
-  extends LiftAll with ScalaOpsPkg with ScalaOpsPkgExp
+  extends LiftScala with ScalaOpsPkg with ScalaOpsPkgExp
 {
 
 }
