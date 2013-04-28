@@ -32,32 +32,45 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.Test
-import org.junit.Assert._
+import scala.virtualization.lms.common.{FunctionsExp, EffectExp, BooleanOpsExp}
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-class TestIRConstruction
+trait RelationalAlgebraIROptFusion
+    extends RelationalAlgebraIRBasicOperators
+    with BooleanOpsExp with EffectExp with FunctionsExp
 {
-    @Test
-    def testSelection() {
-        import RelationalAlgebraIR._
-        val fun = (x: Rep[Int]) => x > 0
-        val exp = selection (baseRelation[Int](), fun)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
 
-        assertEquals (
-            Selection (BaseRelation[Int](), fun),
-            d
-        )
+    /**
+     * Fusion of projection operations
+     */
+    //override def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range]): Rep[Relation[Range]] =
+    override def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range]): Rep[Relation[Range]] =
+    {
+        relation match {
+            case Def (Projection (r, f)) =>
+                projection (r, (x: Rep[_]) => function (f (x)))
+            case _ =>
+                super.projection (relation, function)
+        }
     }
 
+    /**
+     * Fusion of selection operations
+     */
+    //override def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]): Rep[Relation[Domain]] =
+    override def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]): Rep[Relation[Domain]] =
+    {
+        relation match {
+            case Def (Selection (r: Rep[Relation[Domain]], f: (Rep[Domain] => Rep[Boolean]))) => {
+                //val summary = summarizeEffects (f)
+                selection (r, (x: Rep[Domain]) => f (x) && function (x)) // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
+            }
+            case _ =>
+                super.selection (relation, function)
+        }
+    }
 }

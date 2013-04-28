@@ -32,8 +32,7 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.Test
-import org.junit.Assert._
+import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
 
 /**
  *
@@ -41,23 +40,14 @@ import org.junit.Assert._
  *
  */
 
-class TestIRConstruction
-{
-    @Test
-    def testSelection() {
-        import RelationalAlgebraIR._
-        val fun = (x: Rep[Int]) => x > 0
-        val exp = selection (baseRelation[Int](), fun)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
+/**
+ *
+ * @author Ralf Mitschke
+ *
+ */
 
-        assertEquals (
-            Selection (BaseRelation[Int](), fun),
-            d
-        )
-    }
+object RelationalAlgebraIROpt
+    extends RelationalAlgebraIROptFusion with LiftAll with ScalaOpsPkgExp
+{
 
 }

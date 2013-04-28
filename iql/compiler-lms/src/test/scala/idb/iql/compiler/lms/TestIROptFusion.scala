@@ -41,23 +41,25 @@ import org.junit.Assert._
  *
  */
 
-class TestIRConstruction
+/**
+ *
+ * @author Ralf Mitschke
+ *
+ */
+
+class TestIROptFusion
 {
     @Test
-    def testSelection() {
-        import RelationalAlgebraIR._
-        val fun = (x: Rep[Int]) => x > 0
-        val exp = selection (baseRelation[Int](), fun)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
+    def testSelectionFusion() {
+        import RelationalAlgebraIROpt._
+        val fun1 = (x: Rep[Int]) => x > 0
+        val fun2 = (x: Rep[Int]) => x < 1000
+        val exp = selection (selection (baseRelation[Int](), fun1), fun2)
 
-        assertEquals (
-            Selection (BaseRelation[Int](), fun),
-            d
-        )
+        val fun3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
+
+
+        Predef.println("")
     }
 
 }

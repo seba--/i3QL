@@ -41,21 +41,28 @@ package idb.iql.compiler.lms
 trait RelationalAlgebraIRBasicOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
 {
-    // TODO do we need Manifests here?
-    case class Projection[Domain, Range](relation: Rep[Relation[Domain]], function: Rep[Domain => Range])
-        extends Def[Relation[Range]] // TODO Domain or Range?
 
     // TODO do we need Manifests here?
-    case class Selection[Domain](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean])
+    // TODO Domain or Range for projection super type?
+    //case class Projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range])
+    case class Projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range])
+        extends Def[Relation[Range]]
+
+
+    // TODO do we need Manifests here?
+    //case class Selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean])
+    case class Selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean])
         extends Def[Relation[Domain]]
 
-    def projection[Domain:Manifest, Range:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range]) : Rep[Relation[Range]] =
+    //def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range]): Rep[Relation[Range]] =
+    def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range]): Rep[Relation[Range]] =
     {
-        Projection(relation, function)
+        Projection (relation, function)
     }
 
-    def selection[Domain:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]) : Rep[Relation[Domain]] =
+    //def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]): Rep[Relation[Domain]] =
+    def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]): Rep[Relation[Domain]] =
     {
-        Selection(relation, function)
+        Selection (relation, function)
     }
 }
