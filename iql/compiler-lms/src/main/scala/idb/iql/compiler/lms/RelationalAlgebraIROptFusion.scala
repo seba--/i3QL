@@ -32,7 +32,7 @@
  */
 package idb.iql.compiler.lms
 
-import scala.virtualization.lms.common.{FunctionsExp, EffectExp, BooleanOpsExp}
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -40,37 +40,43 @@ import scala.virtualization.lms.common.{FunctionsExp, EffectExp, BooleanOpsExp}
  *
  */
 trait RelationalAlgebraIROptFusion
-    extends RelationalAlgebraIRBasicOperators
-    with BooleanOpsExp with EffectExp with FunctionsExp
+  extends RelationalAlgebraIRBasicOperators
+          with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
-    /**
-     * Fusion of projection operations
-     */
-    //override def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range]): Rep[Relation[Range]] =
-    override def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range]): Rep[Relation[Range]] =
-    {
-        relation match {
-            case Def (Projection (r, f)) =>
-                projection (r, (x: Rep[_]) => function (f (x)))
-            case _ =>
-                super.projection (relation, function)
-        }
+  /**
+   * Fusion of projection operations
+   */
+  //override def projection[Domain: Manifest, Range: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range]): Rep[Relation[Range]] =
+  override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+    function: Rep[Domain => Range]
+  ): Rep[Relation[Range]] =
+  {
+    relation match {
+      case Def (Projection (r, f)) =>
+        projection (r, (x: Rep[_]) => function (f (x)))
+      case _ =>
+        super.projection (relation, function)
     }
+  }
 
-    /**
-     * Fusion of selection operations
-     */
-    //override def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]): Rep[Relation[Domain]] =
-    override def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]): Rep[Relation[Domain]] =
-    {
-        relation match {
-            case Def (Selection (r: Rep[Relation[Domain]], f: (Rep[Domain] => Rep[Boolean]))) => {
-                //val summary = summarizeEffects (f)
-                selection (r, (x: Rep[Domain]) => f (x) && function (x)) // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-            }
-            case _ =>
-                super.selection (relation, function)
-        }
+  /**
+   * Fusion of selection operations
+   */
+  //override def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]): Rep[Relation[Domain]] =
+  override def selection[Domain: Manifest, D >: Domain : Manifest] (relation: Rep[Relation[Domain]],
+    function: Rep[D => Boolean]
+  ): Rep[Relation[Domain]] =
+  {
+    relation match {
+      case Def (Selection (r, f)) => {
+        //val summary = summarizeEffects (f)
+        val g: Rep[Any => Boolean] = f
+        selection (r, (x: Rep[Domain]) => boolean_and (function (x), g (x)))
+        // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
+      }
+      case _ =>
+        super.selection (relation, function)
     }
+  }
 }

@@ -40,11 +40,13 @@ import scala.virtualization.lms.common.Base
  *
  */
 trait RelationalAlgebraBase
-    extends Base
+  extends Base
 {
-    type Relation[+Domain]
+  type Relation[+Domain]
 
-    //type IRelation[T] = Rep[Relation[T]]
+  //type IRelation[T] = Rep[Relation[T]]
 
-    def baseRelation[Domain: Manifest](): Rep[Relation[Domain]]
+  implicit def relationManifest[Domain:Manifest] : Manifest[Relation[Domain]]
+
+  def baseRelation[Domain: Manifest] (): Rep[Relation[Domain]]
 }

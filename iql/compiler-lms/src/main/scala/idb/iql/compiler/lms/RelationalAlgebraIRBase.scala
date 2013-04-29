@@ -33,6 +33,7 @@
 package idb.iql.compiler.lms
 
 import scala.virtualization.lms.common.BaseExp
+import scala.reflect.ManifestFactory
 
 /**
  *
@@ -40,17 +41,22 @@ import scala.virtualization.lms.common.BaseExp
  *
  */
 trait RelationalAlgebraIRBase
-    extends RelationalAlgebraBase with BaseExp
+  extends RelationalAlgebraBase with BaseExp
 {
 
-    type Relation[+Domain] = AbstractRelation[Domain]
+  type Relation[+Domain] = AbstractRelation[Domain]
 
-    abstract class AbstractRelation[+Domain: Manifest] //extends Rep[Relation[+Domain]]
-    {
-        //def domain: Manifest[Domain@uncheckedVariance] = manifest[Domain] //cf. Exp comment (invariant position! but hey...)
-    }
+  abstract class AbstractRelation[+Domain] //extends Rep[Relation[+Domain]]
+  {
+    //def domain: Manifest[Domain@uncheckedVariance] = manifest[Domain] //cf. Exp comment (invariant position! but hey...)
+  }
 
-    case class BaseRelation[Domain: Manifest]() extends Rep[AbstractRelation[Domain]]
+  def relationManifest[Domain:Manifest]: Manifest[AbstractRelation[Domain]] =
+    //manifest[AbstractRelation[Domain]]
+    ManifestFactory.classType(classOf[AbstractRelation[Domain]], manifest[Domain])
 
-    def baseRelation[Domain: Manifest]() = BaseRelation ()
+
+  case class BaseRelation[Domain: Manifest] () extends Rep[AbstractRelation[Domain]]
+
+  def baseRelation[Domain: Manifest] () = BaseRelation ()
 }

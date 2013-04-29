@@ -50,7 +50,7 @@ import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
  */
 
 class TestIROptFusion
-  extends RelationalAlgebraIROptFusion with LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with RelationalAlgebraIROptFusion
 {
 
   // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
@@ -62,7 +62,7 @@ class TestIROptFusion
 
     val f1 = (x: Rep[Int]) => x > 0
     val f2 = (x: Rep[Int]) => x < 1000
-    val expA = selection (selection (baseRelation[Int](), f1), f2)
+    val expA = selection (selection (baseRelation[Int](), f2), f1)
 
     val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
 
