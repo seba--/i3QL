@@ -62,7 +62,7 @@ class TestIROptFusion
 
     val f1 = (x: Rep[Int]) => x > 0
     val f2 = (x: Rep[Int]) => x < 1000
-    val expA = selection (selection (baseRelation[Int](), f2), f1)
+    val expA = selection (selection (baseRelation[Int](), f1), f2)
 
     val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
 
