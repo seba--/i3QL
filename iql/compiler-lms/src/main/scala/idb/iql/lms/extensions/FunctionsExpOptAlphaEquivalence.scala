@@ -30,65 +30,60 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.iql.compiler.lms
+package idb.iql.lms.extensions
 
-import org.junit.Test
-import org.junit.Assert._
-import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
-import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
+import scala.virtualization.lms.common.FunctionsExp
 
 /**
+ * Perform alpha reduction on lambda abstractions.
  *
  * @author Ralf Mitschke
- *
+ * @author Sebastian Erdweg
  */
-
-/**
- *
- * @author Ralf Mitschke
- *
- */
-
-class TestIROptFusion
-  extends RelationalAlgebraIROptFusion with LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+trait FunctionsExpOptAlphaEquivalence
+  extends FunctionsExp
 {
 
-  // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
-  assert(this.isInstanceOf[ScalaOpsExpOptExtensions])
-
-  @Test
-  def testSelectionFusion ()
+  class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
+    extends Lambda[A, B](f, x, y)
   {
 
-    val f1 = (x: Rep[Int]) => x > 0
-    val f2 = (x: Rep[Int]) => x < 1000
-    val expA = selection (selection (baseRelation[Int](), f1), f2)
+    override def equals (o: Any): Boolean =
+    {
+      if (!o.isInstanceOf[Lambda[A, B]])
+        return false
 
-    val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
+      o.asInstanceOf[Lambda[A, B]] match {
+        case Lambda (f2, x2, y2) =>
+          reifyEffects (f2 (
+            x)) == y // reify other lambda to the variable bound in this lambda, and compare the resulting body with this body
+        case _ =>
+          false
+      }
+    }
 
-    val expB = selection (baseRelation[Int](), f3)
-
-    //val fun1 = fun (f1)
-    //val fun2 = fun (f1)
-
-    assertEquals (expB, expA)
+    // TODO define proper hashCode independent of bound variable name
+    //   override def hashCode: Int = {
+    //     return 0
+    //   }
   }
 
-  @Test
-  def testProjectionFusion ()
+  object LambdaAlpha
   {
-
-    val f1 = (x: Rep[Int]) => x + 1
-    val f2 = (x: Rep[Int]) => x + 2
-    val expA = projection (projection (baseRelation[Int](), f1), f2)
-
-    val f3 = (x: Rep[Int]) => x + 3
-
-    val expB = projection (baseRelation[Int](), f3)
-
-    //val fun1 = fun (f1)
-    //val fun2 = fun (f1)
-
-    assertEquals (expB, expA)
+    def apply[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B]) = new LambdaAlpha (f, x, y)
   }
+
+  /**
+   *
+   * @return a lambda representation using alpha equivalence as equals test
+   */
+  override def doLambdaDef[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B]): Def[A => B] =
+  {
+    val x = unboxedFresh[A]
+    val y = reifyEffects (f (x)) // unfold completely at the definition site.
+
+    LambdaAlpha (f, x, y)
+  }
+
+
 }
