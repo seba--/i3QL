@@ -63,13 +63,18 @@ trait RelationalAlgebraIROptFusion
    * Fusion of selection operations
    */
   // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-  override def selection[Domain: Manifest, D >: Domain : Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[D => Boolean]
+  override def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+    function: Rep[Domain => Boolean]
   ): Rep[Relation[Domain]] =
   {
     relation match {
-      case Def (Selection (r, f: Rep[Domain => Boolean])) => {
-        selection (r, (x: Rep[Domain]) => boolean_and (f (x), function (x)))
+      case Def (Selection (r, f)) if (f.tp == function.tp) => {
+
+        //        println (f.tp)
+        //        println (function.tp)
+        //        println (manifest[Domain => Boolean])
+
+        selection (r, (x: Rep[Domain]) => boolean_and (f.asInstanceOf[Rep[Domain => Boolean]](x), function (x)))
 
       }
       case _ =>

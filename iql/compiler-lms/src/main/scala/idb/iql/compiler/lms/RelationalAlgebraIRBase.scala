@@ -46,14 +46,15 @@ trait RelationalAlgebraIRBase
 
   type Relation[+Domain] = AbstractRelation[Domain]
 
-  abstract class AbstractRelation[+Domain] //extends Rep[Relation[+Domain]]
+  abstract class AbstractRelation[+Domain: Manifest] //extends Rep[Relation[+Domain]]
   {
     //def domain: Manifest[Domain@uncheckedVariance] = manifest[Domain] //cf. Exp comment (invariant position! but hey...)
+//    val m = manifest[Domain]
   }
 
-  def relationManifest[Domain:Manifest]: Manifest[AbstractRelation[Domain]] =
-    //manifest[AbstractRelation[Domain]]
-    ManifestFactory.classType(classOf[AbstractRelation[Domain]], manifest[Domain])
+  def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =
+  //manifest[AbstractRelation[Domain]]
+    ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
 
 
   case class BaseRelation[Domain: Manifest] () extends Rep[AbstractRelation[Domain]]

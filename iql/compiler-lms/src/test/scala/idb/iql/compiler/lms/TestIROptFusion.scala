@@ -32,7 +32,7 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
 import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
@@ -54,7 +54,7 @@ class TestIROptFusion
 {
 
   // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
-  assert(this.isInstanceOf[ScalaOpsExpOptExtensions])
+  assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
   @Test
   def testSelectionFusion ()
@@ -68,8 +68,41 @@ class TestIROptFusion
 
     val expB = selection (baseRelation[Int](), f3)
 
-    //val fun1 = fun (f1)
-    //val fun2 = fun (f1)
+    assertEquals (expB, expA)
+  }
+
+
+  @Test
+  def testSelectionFusionTyping ()
+  {
+    trait A
+    {
+      def isA (x: Rep[A]): Rep[Boolean]
+    }
+    trait B
+    {
+      def isB (x: Rep[B]): Rep[Boolean]
+    }
+    trait Impl extends A with B
+    {
+      def isA (x: Rep[A]): Rep[Boolean] = true
+
+      def isB (x: Rep[B]): Rep[Boolean] = true
+    }
+
+    val base = baseRelation[Impl]()
+
+    object mix extends Impl
+
+    val f1 = (x: Rep[A]) => mix.isA (x)
+    val f2 = (x: Rep[B]) => mix.isB (x)
+
+
+    val expA = selection (selection (base, f1), f2)
+
+    val f3 = (x: Rep[Impl]) =>  mix.isA (x) &&  mix.isB (x)
+
+    val expB = selection (base, f3)
 
     assertEquals (expB, expA)
   }
@@ -85,9 +118,6 @@ class TestIROptFusion
     val f3 = (x: Rep[Int]) => x + 3
 
     val expB = projection (baseRelation[Int](), f3)
-
-    //val fun1 = fun (f1)
-    //val fun2 = fun (f1)
 
     assertEquals (expB, expA)
   }

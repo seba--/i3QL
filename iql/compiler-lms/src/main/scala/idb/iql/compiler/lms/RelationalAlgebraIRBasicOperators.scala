@@ -53,8 +53,8 @@ trait RelationalAlgebraIRBasicOperators
 
   // TODO do we need Manifests here?
   //case class Selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean])
-  case class Selection[Domain: Manifest, D >: Domain : Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[D => Boolean]
+  case class Selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+    function: Rep[Domain => Boolean]
   )
     extends Def[Relation[Domain]]
 
@@ -66,7 +66,7 @@ trait RelationalAlgebraIRBasicOperators
   }
 
   //def selection[Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]): Rep[Relation[Domain]] =
-  def selection[Domain: Manifest, D >: Domain: Manifest] (relation: Rep[Relation[Domain]], function: Rep[D => Boolean]
+  def selection[Domain: Manifest] (relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]
   ): Rep[Relation[Domain]] =
   {
     Selection (relation, function)

@@ -42,9 +42,9 @@ trait RelationalAlgebraBasicOperators
     extends RelationalAlgebraBase
 {
 
-    //def projection[Domain:Manifest, Range:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Range]) : Rep[Relation[Range]]
+
     def projection[Domain:Manifest, Range:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Range]) : Rep[Relation[Range]]
 
-    //def selection[Domain:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain] => Rep[Boolean]) : Rep[Relation[Domain]]
-    def selection[Domain:Manifest,D >: Domain: Manifest](relation: Rep[Relation[Domain]], function: Rep[D => Boolean]) : Rep[Relation[Domain]]
+
+    def selection[Domain:Manifest](relation: Rep[Relation[Domain]], function: Rep[Domain => Boolean]) : Rep[Relation[Domain]]
 }
