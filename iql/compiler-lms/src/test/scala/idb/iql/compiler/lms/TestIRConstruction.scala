@@ -46,8 +46,8 @@ class TestIRConstruction
     @Test
     def testSelection() {
         import RelationalAlgebraIR._
-        val fun = (x: Rep[Int]) => x > 0
-        val exp = selection (baseRelation[Int](), fun)
+        val f = fun ((x: Rep[Int]) => x > 0)
+        val exp = selection (baseRelation[Int](), f)
         val s = syms (exp)(0)
         val d = findDefinition (s) match {
             case Some (TP (_, rhs)) => rhs
@@ -55,9 +55,22 @@ class TestIRConstruction
         }
 
         assertEquals (
-            Selection (BaseRelation[Int](), fun),
+            Selection (BaseRelation[Int](), f),
             d
         )
     }
 
+
+    @Test
+    def testCommonSubExpressionWithSelection() {
+        import RelationalAlgebraIR._
+        val f = fun ((x: Rep[Int]) => x > 0)
+        val exp1 = selection (baseRelation[Int](), f)
+        val exp2 = selection (baseRelation[Int](), f)
+
+        assertEquals (
+            exp1,
+            exp2
+        )
+    }
 }

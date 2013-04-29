@@ -34,6 +34,7 @@ package idb.iql.compiler.lms
 
 import org.junit.Test
 import org.junit.Assert._
+import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
 
 /**
  *
@@ -48,18 +49,23 @@ import org.junit.Assert._
  */
 
 class TestIROptFusion
+    extends RelationalAlgebraIROptFusion with LiftAll with ScalaOpsPkgExp
 {
+
+
     @Test
     def testSelectionFusion() {
-        import RelationalAlgebraIROpt._
-        val fun1 = (x: Rep[Int]) => x > 0
-        val fun2 = (x: Rep[Int]) => x < 1000
-        val exp = selection (selection (baseRelation[Int](), fun1), fun2)
+        //val fun1 = fun ((x: Rep[Int]) => x > 0)
+        //val fun2 = fun ((x: Rep[Int]) => x < 1000)
+        //val exp = selection (selection (baseRelation[Int](), fun1), fun2)
 
-        val fun3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
+        //val fun3 = fun ((x: Rep[Int]) => (x > 0) && (x < 1000))
 
+        val fun1 = fun (f1)
+        val fun2 = fun (f1)
 
-        Predef.println("")
+        assertEquals (fun1, fun2)
     }
 
+    def f1(x: Rep[Int]): Rep[Boolean] = x > 0
 }

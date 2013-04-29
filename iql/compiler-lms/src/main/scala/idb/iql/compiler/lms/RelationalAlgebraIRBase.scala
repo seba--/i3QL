@@ -33,7 +33,6 @@
 package idb.iql.compiler.lms
 
 import scala.virtualization.lms.common.BaseExp
-import scala.annotation.unchecked.uncheckedVariance
 
 /**
  *
@@ -53,5 +52,5 @@ trait RelationalAlgebraIRBase
 
     case class BaseRelation[Domain: Manifest]() extends Rep[AbstractRelation[Domain]]
 
-    def baseRelation[Domain: Manifest]() = BaseRelation()
+    def baseRelation[Domain: Manifest]() = BaseRelation ()
 }
