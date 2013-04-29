@@ -5,7 +5,9 @@ package idb.iql.lms.extensions
  * @author Ralf Mitschke
  */
 trait ScalaOpsExpOptExtensions
-  extends FunctionsExpOptAlphaEquivalence with NumericOpsExpOptExtensions
+  extends FunctionsExpOptAlphaEquivalence
+          with FunctionsExpOptBetaReduction
+          with NumericOpsExpOptExtensions
 {
 
 }
