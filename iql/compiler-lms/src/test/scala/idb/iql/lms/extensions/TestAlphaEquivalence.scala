@@ -9,13 +9,8 @@ import org.junit.Test
  * @author Ralf Mitschke
  */
 class TestAlphaEquivalence
-  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
+  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with TestUtils
 {
-
-  def assertSameReified[A: Manifest, B: Manifest] (f1: Exp[A => B], f2: Exp[A => B])
-  {
-    assertSame (f1, f2)
-  }
 
   @Test
   def testSameMethodBody ()

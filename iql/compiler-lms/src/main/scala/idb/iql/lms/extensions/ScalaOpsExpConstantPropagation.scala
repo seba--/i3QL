@@ -1,6 +1,6 @@
 package idb.iql.lms.extensions
 
-import scala.virtualization.lms.common.{OrderingOpsExp, NumericOpsExpOpt}
+import scala.virtualization.lms.common.{EqualExpOpt, OrderingOpsExp, NumericOpsExpOpt}
 import scala.reflect.SourceContext
 
 /**
@@ -8,8 +8,24 @@ import scala.reflect.SourceContext
  * @author Ralf Mitschke
  */
 trait ScalaOpsExpConstantPropagation
-  extends NumericOpsExpOpt with OrderingOpsExp
+  extends NumericOpsExpOpt with OrderingOpsExp with EqualExpOpt
 {
+
+//  override def equals[A: Manifest, B: Manifest] (a: Rep[A], b: Rep[B])
+//      (implicit pos: SourceContext): Rep[Boolean] =
+//    if (a == b)
+//      Const (true)
+//    else
+//    {
+//      (a, b) match
+//      {
+//        case (Const (true), b: DefMN[B, Boolean]) => b
+//        case (a: DefMN[A, Boolean], Const (true)) => a
+//        case _ => super.equals (a, b)
+//      }
+//    }
+
+
   override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
       (implicit pos: SourceContext): Exp[T] =
     (lhs, rhs) match {
@@ -29,7 +45,7 @@ trait ScalaOpsExpConstantPropagation
     pos: scala.reflect.SourceContext
   ): Rep[Boolean] =
     (lhs, rhs) match {
-        // e.g., x + 2 > 0 := x > -2
+      // e.g., x + 2 > 0 := x > -2
       case (Def (NumericPlus (x, Const (v1))), Const (v2)) =>
         ordering_gt (x, Const (numericEvidenceFromOrdering.minus (v2, v1)))
       case _ => super.ordering_gt (lhs, rhs)

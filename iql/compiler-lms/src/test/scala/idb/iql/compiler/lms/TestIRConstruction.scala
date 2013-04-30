@@ -32,7 +32,7 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.{Ignore, Test}
+import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
 
@@ -76,13 +76,4 @@ class TestIRConstruction
     )
   }
 
-
-  @Test
-  @Ignore
-  def testSelectionOverProjectionSimpleTuple ()
-  {
-    val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))
-
-    val expA = projection (baseRelation[Int](), f1)
-  }
 }

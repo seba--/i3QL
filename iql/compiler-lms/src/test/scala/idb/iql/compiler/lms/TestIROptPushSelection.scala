@@ -32,7 +32,7 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
 import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
@@ -50,6 +50,7 @@ class TestIROptPushSelection
   assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
   @Test
+  @Ignore
   def testSelectionOverProjectionSimpleInt ()
   {
     val f1 = (x: Rep[Int]) => x + 2
@@ -65,16 +66,17 @@ class TestIROptPushSelection
   }
 
   @Test
+  @Ignore
   def testSelectionOverProjectionConditionalInt ()
   {
-    val f1 = (x: Rep[Int]) => if(x > 0) unit(true) else unit(false)
+    val f1 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
     val f2 = (x: Rep[Boolean]) => x == true
 
     val expA = selection (projection (baseRelation[Int](), f1), f2)
 
     val f3 = (x: Rep[Int]) => x > 0
 
-    val f4 = (x: Rep[Int]) => (if(x > 0) unit(true) else unit(false)) == true
+    val f4 = (x: Rep[Int]) => (if (x > 0) unit (true) else unit (false)) == true
 
     val expB = projection (selection (baseRelation[Int](), f4), f1)
 
@@ -82,18 +84,18 @@ class TestIROptPushSelection
   }
 
   @Test
+  @Ignore
   def testSelectionOverProjectionSimpleTuple ()
   {
-    val f1 : Rep[Int] => Rep[(Int, Boolean)] = (x: Rep[Int]) => (x, x > 0) // needs annotation for correct implicits
-    val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
+    val f1: Rep[Int] => Rep[(Int, Boolean)] = (x: Rep[Int]
+    ) => (x, x > 0) // needs annotation for correct implicits, why?
+  val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
 
     val expA = selection (projection (baseRelation[Int](), f1), f2)
 
-    val f3 = (x: Rep[Int]) => x > 0
+    val f3 = (x: Rep[Int]) => x > 0 == true
 
-    val f4 = (x: Rep[Int]) => (x, x > 0)._2 == true
-
-    val expB = projection (selection (baseRelation[Int](), f4), f1)
+    val expB = projection (selection (baseRelation[Int](), f3), f1)
 
     assertEquals (expB, expA)
   }
@@ -106,9 +108,11 @@ class TestIROptPushSelection
 
     val expA = selection (projection (baseRelation[Int](), f1), f2)
 
-    val f3 = (x: Rep[Int]) => x > 0
+    //val f3 = (x: Rep[Int]) => x > 0 == true
 
     val f4 = (x: Rep[Int]) => (if (x > 0) (x, unit (true)) else (x, unit (false)))._2 == true
+
+    //val f4 = (x: Rep[Int]) => (if (x > 0) unit (true) else unit (false)) == true
 
     val expB = projection (selection (baseRelation[Int](), f4), f1)
 
