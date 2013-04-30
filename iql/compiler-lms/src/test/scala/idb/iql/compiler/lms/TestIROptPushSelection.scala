@@ -50,7 +50,7 @@ class TestIROptPushSelection
   assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
   @Test
-  def testSelectionOverProjection ()
+  def testSelectionOverProjectionSimpleInt ()
   {
     val f1 = (x: Rep[Int]) => x + 2
     val f2 = (x: Rep[Int]) => x > 0
@@ -64,5 +64,55 @@ class TestIROptPushSelection
     assertEquals (expB, expA)
   }
 
+  @Test
+  def testSelectionOverProjectionConditionalInt ()
+  {
+    val f1 = (x: Rep[Int]) => if(x > 0) unit(true) else unit(false)
+    val f2 = (x: Rep[Boolean]) => x == true
+
+    val expA = selection (projection (baseRelation[Int](), f1), f2)
+
+    val f3 = (x: Rep[Int]) => x > 0
+
+    val f4 = (x: Rep[Int]) => (if(x > 0) unit(true) else unit(false)) == true
+
+    val expB = projection (selection (baseRelation[Int](), f4), f1)
+
+    assertEquals (expB, expA)
+  }
+
+  @Test
+  def testSelectionOverProjectionSimpleTuple ()
+  {
+    val f1 : Rep[Int] => Rep[(Int, Boolean)] = (x: Rep[Int]) => (x, x > 0) // needs annotation for correct implicits
+    val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
+
+    val expA = selection (projection (baseRelation[Int](), f1), f2)
+
+    val f3 = (x: Rep[Int]) => x > 0
+
+    val f4 = (x: Rep[Int]) => (x, x > 0)._2 == true
+
+    val expB = projection (selection (baseRelation[Int](), f4), f1)
+
+    assertEquals (expB, expA)
+  }
+
+  @Test
+  def testSelectionOverProjectionConditionalTuple ()
+  {
+    val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))
+    val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
+
+    val expA = selection (projection (baseRelation[Int](), f1), f2)
+
+    val f3 = (x: Rep[Int]) => x > 0
+
+    val f4 = (x: Rep[Int]) => (if (x > 0) (x, unit (true)) else (x, unit (false)))._2 == true
+
+    val expB = projection (selection (baseRelation[Int](), f4), f1)
+
+    assertEquals (expB, expA)
+  }
 
 }

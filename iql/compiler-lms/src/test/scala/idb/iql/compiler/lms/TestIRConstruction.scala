@@ -32,8 +32,9 @@
  */
 package idb.iql.compiler.lms
 
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import org.junit.Assert._
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
 
 /**
  *
@@ -42,35 +43,46 @@ import org.junit.Assert._
  */
 
 class TestIRConstruction
+  extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
 {
-    @Test
-    def testSelection() {
-        import RelationalAlgebraIR._
-        val f = fun ((x: Rep[Int]) => x > 0)
-        val exp = selection (baseRelation[Int](), f)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
-
-        assertEquals (
-            Selection (BaseRelation[Int](), f),
-            d
-        )
+  @Test
+  def testSelection ()
+  {
+    val f = fun ((x: Rep[Int]) => x > 0)
+    val exp = selection (baseRelation[Int](), f)
+    val s = syms (exp)(0)
+    val d = findDefinition (s) match {
+      case Some (TP (_, rhs)) => rhs
+      case _ => null
     }
 
+    assertEquals (
+      Selection (BaseRelation[Int](), f),
+      d
+    )
+  }
 
-    @Test
-    def testCommonSubExpressionWithSelection() {
-        import RelationalAlgebraIR._
-        val f = fun ((x: Rep[Int]) => x > 0)
-        val exp1 = selection (baseRelation[Int](), f)
-        val exp2 = selection (baseRelation[Int](), f)
 
-        assertEquals (
-            exp1,
-            exp2
-        )
-    }
+  @Test
+  def testCommonSubExpressionWithSelection ()
+  {
+    val f = fun ((x: Rep[Int]) => x > 0)
+    val exp1 = selection (baseRelation[Int](), f)
+    val exp2 = selection (baseRelation[Int](), f)
+
+    assertEquals (
+      exp1,
+      exp2
+    )
+  }
+
+
+  @Test
+  @Ignore
+  def testSelectionOverProjectionSimpleTuple ()
+  {
+    val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))
+
+    val expA = projection (baseRelation[Int](), f1)
+  }
 }
