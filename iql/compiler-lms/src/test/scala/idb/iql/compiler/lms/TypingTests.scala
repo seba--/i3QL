@@ -23,6 +23,19 @@ class TypingTests
     assertEquals (Nil, s2)
   }
 
+  @Test
+  def testImplicit ()
+  {
+    val x: Int = 1
+    val y: Int = 2
+    val z = funWithEvidence (x, y)
+  }
+
+
+  def funWithEvidence[T: Numeric] (t1: T, t2: T) =
+  {
+    implicitly[Numeric[T]].plus (t1, t2)
+  }
 
   def myFilter[A] (s: Seq[A], fun: A => Boolean) =
   {
