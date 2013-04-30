@@ -72,7 +72,7 @@ trait RelationalAlgebraIROptFusion
     relation match {
       case Def (Selection (r, f)) if (f.tp == function.tp) => {
         val g = f.asInstanceOf[Rep[Domain => Boolean]]
-        selection (r, (x: Rep[Domain]) => f (x) && function (x))
+        selection (r, (x: Rep[Domain]) => g (x) && function (x))
 
       }
       case _ =>
