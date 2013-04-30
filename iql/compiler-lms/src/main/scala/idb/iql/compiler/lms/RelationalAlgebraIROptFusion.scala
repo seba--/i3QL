@@ -47,7 +47,8 @@ trait RelationalAlgebraIROptFusion
   /**
    * Fusion of projection operations
    */
-  override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+  override def projection[Domain: Manifest, Range: Manifest] (
+    relation: Rep[Relation[Domain]],
     function: Rep[Domain => Range]
   ): Rep[Relation[Range]] =
   {
@@ -63,18 +64,15 @@ trait RelationalAlgebraIROptFusion
    * Fusion of selection operations
    */
   // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-  override def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+  override def selection[Domain: Manifest] (
+    relation: Rep[Relation[Domain]],
     function: Rep[Domain => Boolean]
   ): Rep[Relation[Domain]] =
   {
     relation match {
       case Def (Selection (r, f)) if (f.tp == function.tp) => {
-
-        //        println (f.tp)
-        //        println (function.tp)
-        //        println (manifest[Domain => Boolean])
-
-        selection (r, (x: Rep[Domain]) => boolean_and (f.asInstanceOf[Rep[Domain => Boolean]](x), function (x)))
+        val g = f.asInstanceOf[Rep[Domain => Boolean]]
+        selection (r, (x: Rep[Domain]) => f (x) && function (x))
 
       }
       case _ =>
