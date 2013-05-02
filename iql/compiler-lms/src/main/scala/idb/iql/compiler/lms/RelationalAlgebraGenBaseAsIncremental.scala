@@ -7,8 +7,6 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, ScalaGenBase, ScalaGenEf
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraGenBaseAsIncremental
-    extends ScalaGenBase
-    with ScalaGenEffect
 {
 
     val IR: RelationalAlgebraIRBase with ScalaOpsPkgExp

@@ -43,7 +43,7 @@ import sae.SetExtent
  *
  */
 
-class TestIRGenAsIncremental
+class TestIRGenBaseAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
 {
 
