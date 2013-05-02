@@ -89,6 +89,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>de.tud.cs.st.opal.sae</groupId>
+            <artifactId>sae-database-core</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>

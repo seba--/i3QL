@@ -32,32 +32,43 @@
  */
 package idb.iql.compiler.lms
 
-import scala.virtualization.lms.common.BaseExp
-import scala.reflect.ManifestFactory
+import org.junit.Test
+import org.junit.Assert._
+import scala.virtualization.lms.common._
+import sae.BagExtent
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIRBase
-  extends RelationalAlgebraBase with BaseExp
+
+class TestIRCodeGen
+  //extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
 {
 
-  type Relation[+Domain] = AbstractRelation[Domain]
+  trait Prog extends Base with RelationalAlgebraIRBasicOperators {
+    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
 
-  abstract class AbstractRelation[+Domain: Manifest] //extends Rep[Relation[+Domain]]
-  {
-    //def domain: Manifest[Domain@uncheckedVariance] = manifest[Domain] //cf. Exp comment (invariant position! but hey...)
-//    val m = manifest[Domain]
+    def applyRelation[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
+      e match {
+      case Def(BaseRelation()) => rel
+      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(applyRelation(selectE)( rel), f)
+    }
   }
 
-  def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =
-  //manifest[AbstractRelation[Domain]]
-    ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
+
+  @Test
+  def testBase ()
+  {
+    //val rel = new BagExtent[Int]
+
+    val prog = new Prog with EffectExp
+    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
+    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
+    codegen.emitSource(prog.applyRelation(exp), "F", new java.io.PrintWriter(System.out))
+
+  }
 
 
-  case class BaseRelation[Domain: Manifest] () extends Def[Relation[Domain]]
-
-  def baseRelation[Domain: Manifest] () = BaseRelation[Domain] ()
 }

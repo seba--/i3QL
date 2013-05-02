@@ -87,9 +87,10 @@ class TestIROptPushSelection
   @Ignore
   def testSelectionOverProjectionSimpleTuple ()
   {
-    val f1: Rep[Int] => Rep[(Int, Boolean)] = (x: Rep[Int]
-    ) => (x, x > 0) // needs annotation for correct implicits, why?
-  val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
+    val f1: Rep[Int] => Rep[(Int, Boolean)] =
+      (x: Rep[Int]) => (x, x > 0) // needs annotation for correct implicits, why?
+
+    val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
 
     val expA = selection (projection (baseRelation[Int](), f1), f2)
 
