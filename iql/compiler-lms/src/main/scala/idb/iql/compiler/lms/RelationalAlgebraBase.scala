@@ -42,7 +42,8 @@ import scala.virtualization.lms.common.Base
 trait RelationalAlgebraBase
   extends Base
 {
-  type Relation[+Domain]
+  // TODO make Domain covariant
+  type Relation[Domain]
 
   implicit def relationManifest[Domain:Manifest] : Manifest[Relation[Domain]]
 }

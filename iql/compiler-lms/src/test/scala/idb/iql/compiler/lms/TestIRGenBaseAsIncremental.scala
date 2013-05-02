@@ -47,9 +47,7 @@ class TestIRGenBaseAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
 {
 
-    val IR = new RelationalAlgebraIRBase with ScalaOpsPkgExp {
-        type CompiledRelation[Domain] = sae.Relation[Domain]
-    }
+    val IR = new RelationalAlgebraIRBase with ScalaOpsPkgExp with RelationalAlgebraGenSAEBinding
 
     @Test
     def testConstructBaseRelation() {

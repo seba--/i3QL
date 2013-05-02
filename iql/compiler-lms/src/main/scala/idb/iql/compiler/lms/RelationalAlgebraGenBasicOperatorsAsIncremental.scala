@@ -1,28 +1,27 @@
 package idb.iql.compiler.lms
 
-import scala.virtualization.lms.common.{CompileScala, ScalaOpsPkgExp, ScalaGenBase, ScalaGenEffect}
+import idb.iql.lms.extensions.CompileScalaExt
+import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraGenBasicOperatorsAsIncremental
-    extends RelationalAlgebraGenBaseAsIncremental
-    with ScalaGenBase
-    with ScalaGenEffect
-    with CompileScala
+  extends RelationalAlgebraGenBaseAsIncremental
+          with CompileScalaExt with ScalaGenEffect
 {
 
-    val IR: RelationalAlgebraIRBasicOperators with ScalaOpsPkgExp
+  val IR: RelationalAlgebraIRBasicOperators with RelationalAlgebraGenSAEBinding with FunctionsExp
 
-    import IR._
-
-    def compile[Domain](exp: Rep[Relation[Domain]]): IR.CompiledRelation[Domain] = exp match {
-        case Def (IR.Selection (r, f)) =>
-            new sae.operators.impl.SelectionView (compile (r), compile (f))
-        case Def (IR.Projection (r, f)) =>
-            new sae.operators.impl.ProjectionSetRetainingView (compile (r), compile (f))
-        case _ => super.compile (exp)
-    }
+  override def compile[Domain: Manifest] (exp: IR.Rep[IR.Relation[Domain]]): sae.Relation[Domain] = exp match {
+    case IR.Def (IR.Selection (r, f)) =>
+      // TODO do something about anyrefs to fix the ugly typecasts
+      new sae.operators.impl.SelectionView (compile (r).asInstanceOf[sae.Relation[Domain with AnyRef]],
+        compileApplied (f)).asInstanceOf[sae.Relation[Domain]]
+    case IR.Def (IR.Projection (r, f)) =>
+      new sae.operators.impl.ProjectionSetRetainingView (compile (r), compileApplied (f))
+    case _ => super.compile (exp)
+  }
 
 }

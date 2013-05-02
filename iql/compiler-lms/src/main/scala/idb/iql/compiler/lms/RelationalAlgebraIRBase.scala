@@ -43,15 +43,15 @@ import scala.reflect.ManifestFactory
 trait RelationalAlgebraIRBase
     extends RelationalAlgebraBase with BaseExp
 {
-
-    type Relation[+Domain] = AbstractRelation[Domain]
+    // TODO make Domain covariant
+    type Relation[Domain] = AbstractRelation[Domain]
 
     // TODO seems not good to tie this to the IR, binding it here means we can construct an IR only for one type of ConcreteRelation, e.g., only for incremental relations or for lists.
     // However, the data structures inside the incremental relations and the lists are also markedly different. Without further analyses it seem unlikely that we have the same query for both.
     // TODO make Domain covariant
     type CompiledRelation[Domain]
 
-    abstract class AbstractRelation[+Domain: Manifest]
+    abstract class AbstractRelation[Domain: Manifest]
 
     def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =
         ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])

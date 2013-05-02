@@ -1,6 +1,5 @@
 package idb.iql.compiler.lms
 
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, ScalaGenBase, ScalaGenEffect}
 
 /**
  *
@@ -9,13 +8,11 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, ScalaGenBase, ScalaGenEf
 trait RelationalAlgebraGenBaseAsIncremental
 {
 
-    val IR: RelationalAlgebraIRBase with ScalaOpsPkgExp
+  val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
 
-    import IR._
-
-    def compile[Domain](exp: Rep[Relation[Domain]]): IR.CompiledRelation[Domain] = exp match {
-        case BaseRelation (rel: IR.CompiledRelation[Domain]) => rel
-        //case Def (Selection (selectE, f)) => new sae.operators.impl.SelectionView (compile (selectE)(rel), f)
-    }
+  def compile[Domain: Manifest] (exp: IR.Rep[IR.Relation[Domain]]): sae.Relation[Domain] = exp match {
+    // TODO fix variance in sae.relation to remove type cast
+    case IR.BaseRelation (rel) => rel.asInstanceOf[sae.Relation[Domain]]
+  }
 
 }

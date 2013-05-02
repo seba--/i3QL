@@ -37,11 +37,10 @@ package idb.iql.compiler.lms
  * @author Ralf Mitschke
  * 
  */
-
 trait IQLTestUtils extends RelationalAlgebraIRBase
 {
 
-    type ConcreteRelation[+Domain] = List[Domain]
+    type CompiledRelation[Domain] = List[Domain]
 
     /**
     * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
