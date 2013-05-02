@@ -8,7 +8,7 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
  * @author Ralf Mitschke
  */
 class TestTupleOpsReduction
-  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with TestUtils
+  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with LMSTestUtils
 {
 
   @Test

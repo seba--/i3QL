@@ -9,7 +9,7 @@ import org.junit.Test
  * @author Ralf Mitschke
  */
 class TestAlphaEquivalence
-  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with TestUtils
+  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with LMSTestUtils
 {
 
   @Test

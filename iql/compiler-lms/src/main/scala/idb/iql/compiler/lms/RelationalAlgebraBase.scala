@@ -44,9 +44,5 @@ trait RelationalAlgebraBase
 {
   type Relation[+Domain]
 
-  //type IRelation[T] = Rep[Relation[T]]
-
   implicit def relationManifest[Domain:Manifest] : Manifest[Relation[Domain]]
-
-  def baseRelation[Domain: Manifest] (): Rep[Relation[Domain]]
 }

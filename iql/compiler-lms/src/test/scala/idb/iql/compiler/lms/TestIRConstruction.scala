@@ -43,37 +43,40 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
  */
 
 class TestIRConstruction
-  extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
+    extends RelationalAlgebraIRBasicOperators
+    with LiftAll
+    with ScalaOpsPkgExp
+    with IQLTestUtils
 {
-  @Test
-  def testSelection ()
-  {
-    val f = fun ((x: Rep[Int]) => x > 0)
-    val exp = selection (baseRelation[Int](), f)
-    val s = syms (exp)(0)
-    val d = findDefinition (s) match {
-      case Some (TP (_, rhs)) => rhs
-      case _ => null
+    @Test
+    def testSelection()
+    {
+        val f = fun ((x: Rep[Int]) => x > 0)
+        val exp = selection (emptyRelation[Int](), f)
+        val s = syms (exp)(0)
+        val d = findDefinition (s) match {
+            case Some (TP (_, rhs)) => rhs
+            case _ => null
+        }
+
+        assertEquals (
+            Selection (emptyRelation[Int](), f),
+            d
+        )
     }
 
-    assertEquals (
-      Selection (BaseRelation[Int](), f),
-      d
-    )
-  }
 
+    @Test
+    def testCommonSubExpressionWithSelection()
+    {
+        val f = fun ((x: Rep[Int]) => x > 0)
+        val exp1 = selection (emptyRelation[Int](), f)
+        val exp2 = selection (emptyRelation[Int](), f)
 
-  @Test
-  def testCommonSubExpressionWithSelection ()
-  {
-    val f = fun ((x: Rep[Int]) => x > 0)
-    val exp1 = selection (baseRelation[Int](), f)
-    val exp2 = selection (baseRelation[Int](), f)
-
-    assertEquals (
-      exp1,
-      exp2
-    )
-  }
+        assertEquals (
+            exp1,
+            exp2
+        )
+    }
 
 }

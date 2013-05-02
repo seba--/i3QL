@@ -43,67 +43,71 @@ import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
  *
  */
 class TestIROptFusion
-  extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with RelationalAlgebraIROptFusion
+    extends LiftAll
+    with ScalaOpsExpOptExtensions
+    with ScalaOpsPkgExp
+    with RelationalAlgebraIROptFusion
+    with IQLTestUtils
 {
 
-  // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
-  assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
+    // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
+    assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
-  @Test
-  def testSelectionFusion ()
-  {
+    @Test
+    def testSelectionFusion()
+    {
 
-    val f1 = (x: Rep[Int]) => x > 0
-    val f2 = (x: Rep[Int]) => x < 1000
-    val expA = selection (selection (baseRelation[Int](), f1), f2)
+        val f1 = (x: Rep[Int]) => x > 0
+        val f2 = (x: Rep[Int]) => x < 1000
+        val expA = selection (selection (emptyRelation[Int](), f1), f2)
 
-    val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
+        val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
 
-    val expB = selection (baseRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int](), f3)
 
-    assertEquals (expB, expA)
-  }
+        assertEquals (expB, expA)
+    }
 
 
-  @Test
-  def testSelectionFusionTyping ()
-  {
-    trait A
+    @Test
+    def testSelectionFusionTyping()
+    {
+        trait A
 
-    def infix_isA (x: Rep[A]): Rep[Boolean] = true
+        def infix_isA(x: Rep[A]): Rep[Boolean] = true
 
-    trait B
+        trait B
 
-    def infix_isB (x: Rep[B]): Rep[Boolean] = true
+        def infix_isB(x: Rep[B]): Rep[Boolean] = true
 
-    class Impl extends A with B
+        class Impl extends A with B
 
-    val base = baseRelation[Impl]()
+        val base = emptyRelation[Impl]()
 
-    val f1 = (x: Rep[A]) => x.isA
+        val f1 = (x: Rep[A]) => x.isA
 
-    val f2 = (x: Rep[B]) => x.isB
+        val f2 = (x: Rep[B]) => x.isB
 
-    val expA = selection (selection (base, f1), f2)
+        val expA = selection (selection (base, f1), f2)
 
-    val f3 = (x: Rep[Impl]) => x.isA && x.isB
+        val f3 = (x: Rep[Impl]) => x.isA && x.isB
 
-    val expB = selection (base, f3)
-    assertEquals (expB, expA)
-  }
+        val expB = selection (base, f3)
+        assertEquals (expB, expA)
+    }
 
-  @Test
-  def testProjectionFusion ()
-  {
+    @Test
+    def testProjectionFusion()
+    {
 
-    val f1 = (x: Rep[Int]) => x + 1
-    val f2 = (x: Rep[Int]) => x + 2
-    val expA = projection (projection (baseRelation[Int](), f1), f2)
+        val f1 = (x: Rep[Int]) => x + 1
+        val f2 = (x: Rep[Int]) => x + 2
+        val expA = projection (projection (emptyRelation[Int](), f1), f2)
 
-    val f3 = (x: Rep[Int]) => x + 3
+        val f3 = (x: Rep[Int]) => x + 3
 
-    val expB = projection (baseRelation[Int](), f3)
+        val expB = projection (emptyRelation[Int](), f3)
 
-    assertEquals (expB, expA)
-  }
+        assertEquals (expB, expA)
+    }
 }

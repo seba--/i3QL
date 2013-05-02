@@ -32,16 +32,21 @@
  */
 package idb.iql.compiler.lms
 
-import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
-
 /**
- *
+ * 
  * @author Ralf Mitschke
- *
+ * 
  */
 
-object RelationalAlgebraIR
-    extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
+trait IQLTestUtils extends RelationalAlgebraIRBase
 {
+
+    type ConcreteRelation[+Domain] = List[Domain]
+
+    /**
+    * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
+    * Useful for just constructing ASTs and testing equivalence, without executing (i.e., compiling) the query.
+    */
+    def emptyRelation[Domain: Manifest]() = baseRelation (List.empty[Domain])
 
 }

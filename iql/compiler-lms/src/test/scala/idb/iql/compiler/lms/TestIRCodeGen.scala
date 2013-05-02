@@ -47,28 +47,28 @@ class TestIRCodeGen
   //extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
 {
 
-  trait Prog extends Base with RelationalAlgebraIRBasicOperators {
-    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
-
-    def applyRelation[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
-      e match {
-      case Def(BaseRelation()) => rel
-      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(applyRelation(selectE)( rel), f)
-    }
-  }
-
-
-  @Test
-  def testBase ()
-  {
-    //val rel = new BagExtent[Int]
-
-    val prog = new Prog with EffectExp
-    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
-    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
-    codegen.emitSource(prog.applyRelation(exp), "F", new java.io.PrintWriter(System.out))
-
-  }
+//  trait Prog extends Base with RelationalAlgebraIRBasicOperators with EffectExp {
+//    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
+//
+//    def applyRelation[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
+//      e match {
+//      case Def(BaseRelation()) => rel
+//      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(applyRelation(selectE)( rel), f)
+//    }
+//  }
+//
+//
+//  @Test
+//  def testBase ()
+//  {
+//    //val rel = new BagExtent[Int]
+//
+//    val prog = new Prog {}
+//    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
+//    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
+//    codegen.emitSource(prog.applyRelation(exp), "F", new java.io.PrintWriter(System.out))
+//
+//  }
 
 
 }

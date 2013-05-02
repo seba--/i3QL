@@ -14,10 +14,10 @@ trait RelationalAlgebraScalaGen
   import IR._
 
 
-  override def emitNode(sym: Sym[Any], rhs: Def[Any]): Unit = {
-    rhs match {
-      case BaseRelation() => throw new UnsupportedOperationException()//emitValDef(sym, "")
-    }
-  }
+//  override def emitNode(sym: Sym[Any], rhs: Def[Any]) {
+//    rhs match {
+//      case Def(BaseRelation(_)) => throw new UnsupportedOperationException()//emitValDef(sym, "")
+//    }
+//  }
 
 }

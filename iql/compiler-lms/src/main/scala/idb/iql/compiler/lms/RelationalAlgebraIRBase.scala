@@ -41,23 +41,26 @@ import scala.reflect.ManifestFactory
  *
  */
 trait RelationalAlgebraIRBase
-  extends RelationalAlgebraBase with BaseExp
+    extends RelationalAlgebraBase with BaseExp
 {
 
-  type Relation[+Domain] = AbstractRelation[Domain]
+    type Relation[+Domain] = AbstractRelation[Domain]
 
-  abstract class AbstractRelation[+Domain: Manifest] //extends Rep[Relation[+Domain]]
-  {
-    //def domain: Manifest[Domain@uncheckedVariance] = manifest[Domain] //cf. Exp comment (invariant position! but hey...)
-//    val m = manifest[Domain]
-  }
+    // TODO seems not good to tie this to the IR, binding it here means we can construct an IR only for one type of ConcreteRelation
+    type ConcreteRelation[+Domain]
 
-  def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =
-  //manifest[AbstractRelation[Domain]]
-    ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
+    abstract class AbstractRelation[+Domain: Manifest]
+
+    def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =
+        ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
 
 
-  case class BaseRelation[Domain: Manifest] () extends Def[Relation[Domain]]
+    case class BaseRelation[Domain](relImpl: ConcreteRelation[Domain])
+                                   (implicit mDom: Manifest[Domain], mRel: Manifest[ConcreteRelation[Domain]])
+        extends Exp[Relation[Domain]]
 
-  def baseRelation[Domain: Manifest] () = BaseRelation[Domain] ()
+    def baseRelation[Domain](relImpl: ConcreteRelation[Domain])
+                            (implicit mDom: Manifest[Domain], mRel: Manifest[ConcreteRelation[Domain]]) =
+        BaseRelation (relImpl)
+
 }
