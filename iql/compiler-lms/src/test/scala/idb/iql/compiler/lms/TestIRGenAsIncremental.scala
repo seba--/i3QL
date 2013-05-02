@@ -35,7 +35,7 @@ package idb.iql.compiler.lms
 import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
-import sae.BagExtent
+import sae.SetExtent
 
 /**
  *
@@ -43,32 +43,44 @@ import sae.BagExtent
  *
  */
 
-class TestIRCodeGen
-  //extends RelationalAlgebraIRBasicOperators with LiftAll with ScalaOpsPkgExp
+class TestIRGenAsIncremental
+    extends RelationalAlgebraGenBaseAsIncremental
 {
 
-//  trait Prog extends Base with RelationalAlgebraIRBasicOperators with EffectExp {
-//    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
-//
-//    def applyRelation[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
-//      e match {
-//      case Def(BaseRelation()) => rel
-//      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(applyRelation(selectE)( rel), f)
-//    }
-//  }
-//
-//
-//  @Test
-//  def testBase ()
-//  {
-//    //val rel = new BagExtent[Int]
-//
-//    val prog = new Prog {}
-//    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
-//    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
-//    codegen.emitSource(prog.applyRelation(exp), "F", new java.io.PrintWriter(System.out))
-//
-//  }
+    val IR = new RelationalAlgebraIRBase with ScalaOpsPkgExp {
+        type CompiledRelation[Domain] = sae.Relation[Domain]
+    }
+
+    @Test
+    def testConstructBaseRelation() {
+        val base = new SetExtent[Int]
+        val query = IR.baseRelation (base)
+        val result = compile (query)
+        assertEquals (base, result)
+    }
+
+    //  trait Prog extends Base with RelationalAlgebraIRBasicOperators with EffectExp {
+    //    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
+    //
+    //    def compile[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
+    //      e match {
+    //      case Def(BaseRelation()) => rel
+    //      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(compile(selectE)( rel), f)
+    //    }
+    //  }
+    //
+    //
+    //  @Test
+    //  def testBase ()
+    //  {
+    //    //val rel = new BagExtent[Int]
+    //
+    //    val prog = new Prog {}
+    //    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
+    //    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
+    //    codegen.emitSource(prog.compile(exp), "F", new java.io.PrintWriter(System.out))
+    //
+    //  }
 
 
 }
