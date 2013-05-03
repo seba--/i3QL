@@ -1,24 +1,23 @@
 package idb.schema.lms
 
-import scala.virtualization.lms.common.StructExpOptCommon
+import scala.virtualization.lms.common.StructExp
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait University
-    extends StructExpOptCommon
+    extends StructExp
 {
 
-    type Student = Record {
-        val firstName: String
-        val lastName: String
-    }
+    def Student (firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
+        struct[Student](
+            ClassTag[Student] ("Student"),
+            Map ("firstName" -> firstName, "lastName" -> lastName)
+        )
 
-    def Student (_firstName: Rep[String], _lastName: Rep[String]): Rep[Student] =
-        new Record
-        {
-            val firstName = _firstName
-            val lastName = _lastName
-        }
+    def infix_firstName (s: Rep[Student]): Rep[String] = field[String](s, "firstName")
+
+    def infix_lastName (s: Rep[Student]): Rep[String] = field[String](s, "lastName")
+
 }

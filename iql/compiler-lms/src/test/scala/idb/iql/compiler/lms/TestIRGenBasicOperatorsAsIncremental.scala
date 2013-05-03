@@ -34,53 +34,62 @@ package idb.iql.compiler.lms
 
 import org.junit.Test
 import org.junit.Assert._
-import sae.SetExtent
+import scala.virtualization.lms.common._
+import idb.schema.lms.{Student, University}
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-class TestIRGenBaseAsIncremental
-    extends RelationalAlgebraGenBaseAsIncremental
+class TestIRGenBasicOperatorsAsIncremental
 {
 
-    val IR = new RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
-
     @Test
-    def testConstructBaseRelation ()
+    def testFunctionsOnValues ()
     {
-        import IR._
-        val base = new SetExtent[Int]
-        val query = baseRelation (base)
-        val result = compile (query)
+        val prog = new RelationalAlgebraIRBasicOperators
+                       with RelationalAlgebraGenSAEBinding
+                       with ScalaOpsPkgExp
+                       with University
+                       with LiftAll
+        {
+            def isSally (s: Rep[Student]) = s.firstName == "Sally"
+        }
 
-        assertEquals (base, result)
+        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaGenEqual with ScalaGenStruct
+        {
+            val IR: prog.type = prog
+        }
+
+        val isSally = compiler.compileFunction (prog.isSally)
+
+        assertTrue(isSally(Student("Sally", "Fields")))
+        assertTrue(isSally(Student("Sally", "Moore")))
+        assertFalse(isSally(Student("John", "Moore")))
+        assertFalse(isSally(Student("Sall", "White")))
     }
 
-    //  trait Prog extends Base with RelationalAlgebraIRBasicOperators with EffectExp {
-    //    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
-    //
-    //    def compile[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[sae.Relation[Dom]] =
-    //      e match {
-    //      case Def(BaseRelation()) => rel
-    //      case Def(Selection(selectE, f)) => new sae.operators.impl.SelectionView(compile(selectE)( rel), f)
-    //    }
-    //  }
-    //
-    //
-    //  @Test
-    //  def testBase ()
-    //  {
-    //    //val rel = new BagExtent[Int]
-    //
-    //    val prog = new Prog {}
-    //    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
-    //    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
-    //    codegen.emitSource(prog.compile(exp), "F", new java.io.PrintWriter(System.out))
-    //
-    //  }
+    @Test
+    def testConstructSelection ()
+    {
+        //import IR._
+        //        val base = new SetExtent[Student]
+        //        val query = selection (baseRelation (base), (s: Student) => s.firstName == "Sally")
+        //        val result = compile (query).asMaterialized
 
+        /**
+        val sally = compileFunction (Student ("Sally", "Fields"))
+        val bob = Student ("Bob", "Martin")
+
+        base.element_added (sally)
+        base.element_added (bob)
+
+        assertEquals (
+            List (sally),
+            result.asList
+        )
+          */
+    }
 
 }

@@ -4,7 +4,7 @@ import scala.virtualization.lms.internal.ScalaCodegen
 import scala.tools.nsc.{util, Settings, Global}
 import scala.tools.nsc.reporters.ConsoleReporter
 import java.io.{StringWriter, PrintWriter}
-import scala.reflect.io.VirtualDirectory
+import scala.reflect.io.{File, VirtualDirectory}
 import scala.tools.nsc.interpreter.AbstractFileClassLoader
 import scala.virtualization.lms.common.{FunctionsExp, BaseExp}
 
@@ -26,16 +26,17 @@ trait CompileScalaExt
     val settings = new Settings ()
 
     settings.classpath.value = this.getClass.getClassLoader match {
-      case ctx: java.net.URLClassLoader => ctx.getURLs.map (_.getPath).mkString (":")
+      case ctx: java.net.URLClassLoader => ctx.getURLs.map (_.getPath).mkString (File.pathSeparator)
       case _ => System.getProperty ("java.class.path")
     }
     settings.bootclasspath.value = Predef.getClass.getClassLoader match {
-      case ctx: java.net.URLClassLoader => ctx.getURLs.map (_.getPath).mkString (":")
+      case ctx: java.net.URLClassLoader => ctx.getURLs.map (_.getPath).mkString (File.pathSeparator)
       case _ => System.getProperty ("sun.boot.class.path")
     }
     settings.encoding.value = "UTF-8"
     settings.outdir.value = "."
     settings.extdirs.value = ""
+    //settings.Ylogcp.value = true
     //settings.verbose.value = true
     // -usejavacp needed on windows?
 
