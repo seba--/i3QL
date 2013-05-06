@@ -34,21 +34,27 @@ package idb.observer
 
 import collection.mutable
 
-trait Observable[V]
+
+/**
+ * Observables allow to register observers.
+ * Observers must adhere to typing, however internally the type of concrete observers is removed.
+ * To allow working with observers, i.e., making notifications, in a type correct manner use the trait NotifyObservers.
+ */
+trait Observable[+V]
 {
 
-    protected[observer] var observers: mutable.HashSet[Observer[V]] = mutable.HashSet.empty
+    protected[observer] var observers: mutable.HashSet[Observer[Any]] = mutable.HashSet.empty
 
-    def addObserver (o: Observer[V])
+    def addObserver[U >: V] (o: Observer[U])
     {
         // sanity check that the assumption of never adding the same observer twice holds
-        assert (!observers.contains (o))
-        observers.add (o)
+        assert (!observers.contains (o.asInstanceOf[Observer[Any]]))
+        observers.add (o.asInstanceOf[Observer[Any]])
     }
 
-    def removeObserver (o: Observer[V])
+    def removeObserver[U >: V] (o: Observer[U])
     {
-        observers.remove (o)
+        observers.remove (o.asInstanceOf[Observer[Any]])
     }
 
     def clearObservers ()
@@ -98,25 +104,5 @@ trait Observable[V]
 
     // Notify methods to notify the observers //
 
-
-    protected def notify_added (v: V)
-    {
-        observers.foreach (_.added (v))
-    }
-
-    protected def notify_removed (v: V)
-    {
-        observers.foreach (_.removed (v))
-    }
-
-    protected def notify_updated (oldV: V, newV: V)
-    {
-        observers.foreach (_.updated (oldV, newV))
-    }
-
-    protected def notify_endTransaction ()
-    {
-        observers.foreach (_.endTransaction ())
-    }
 }
 

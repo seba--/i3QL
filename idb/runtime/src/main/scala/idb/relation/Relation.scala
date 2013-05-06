@@ -33,6 +33,7 @@
 package idb.relation
 
 import idb.MaterializedView
+import idb.observer.Observable
 
 
 /**
@@ -42,7 +43,7 @@ import idb.MaterializedView
  *
  * All relations can be iterated over.
  * The iteration requires that this relation or view is materialized, or one of the underlying relation is materialized.
- * If no relation whatsoever is materialized the iteration returns has no elements.
+ * If no relation whatsoever is materialized the iteration returns no elements.
  *
  * All relations can be materialized, even if they do not store elements themselves.
  *
@@ -50,6 +51,7 @@ import idb.MaterializedView
  * @author Ralf Mitschke
  */
 trait Relation[+V]
+    extends Observable[V]
 {
     lazyInitialize ()
 
@@ -72,7 +74,7 @@ trait Relation[+V]
     protected def lazyInitialize ()
 
 
-    //protected def children: Seq[Relation[_]]
+    protected def children: Seq[Relation[_]]
 
     /**
      * Converts the data of the view into a list representation.

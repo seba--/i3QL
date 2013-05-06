@@ -30,22 +30,36 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators
-
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.{NotifyObservers, Observable}
-
+package idb.observer
 
 /**
- * A selection operates as a filter on the values in the relation and eliminates
- * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
+ * This trait defines the notify methods for working with observers.
+ *
+ * @author Ralf Mitschke
  */
-trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with NotifyObservers[Domain]
+trait NotifyObservers[V]
 {
-    def filter: Domain => Boolean
 
-    def relation: Relation[Domain] with Observable[Domain]
+    protected def observers : Iterable[Observer[Any]]
 
-    def children = List (relation)
+    protected def notify_added (v: V)
+    {
+        observers.foreach (_.added (v))
+    }
+
+    protected def notify_removed (v: V)
+    {
+        observers.foreach (_.removed (v))
+    }
+
+    protected def notify_updated (oldV: V, newV: V)
+    {
+        observers.foreach (_.updated (oldV, newV))
+    }
+
+    protected def notify_endTransaction ()
+    {
+        observers.foreach (_.endTransaction ())
+    }
+
 }

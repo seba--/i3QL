@@ -33,7 +33,7 @@
 package idb
 
 import idb.relation.Relation
-import idb.observer.Observable
+import idb.observer.NotifyObservers
 
 /**
  *
@@ -50,7 +50,7 @@ import idb.observer.Observable
  * @author Ralf Mitschke
  */
 trait Extent[V]
-    extends Relation[V] with Observable[V]
+    extends Relation[V] with NotifyObservers[V]
 {
     def update (oldV: V, newV: V)
     {

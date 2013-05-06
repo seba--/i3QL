@@ -36,11 +36,11 @@ package idb.observer
 trait Observer[-V]
 {
 
-    protected[observer] def updated (oldV: V, newV: V)
+    def updated (oldV: V, newV: V)
 
-    protected[observer] def removed (v: V)
+    def removed (v: V)
 
-    protected[observer] def added (v: V)
+    def added (v: V)
 
-    protected[observer] def endTransaction ()
+    def endTransaction ()
 }

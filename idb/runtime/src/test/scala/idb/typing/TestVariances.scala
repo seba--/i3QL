@@ -38,6 +38,7 @@ import org.junit.Test
 import org.junit.Assert._
 import idb.{MaterializedView, BagExtent}
 import idb.relation.Relation
+import idb.observer.{Observer, Observable}
 
 /**
  *
@@ -72,6 +73,55 @@ class TestVariances
 
         //s1.add (sally)
         //assertEquals (mutable.Set (sally), sP1)
+    }
+
+    @Test
+    def testVarianceForObservers ()
+    {
+        val o1 = new Observable[Student]
+        {
+            def children = Nil
+        }
+        o1.addObserver (new Observer[Student]
+        {
+            def updated (oldV: TestVariances.this.type#Student,
+                newV: TestVariances.this.type#Student
+            )
+            {}
+
+            def removed (v: TestVariances.this.type#Student)
+            {}
+
+            def added (v: TestVariances.this.type#Student)
+            {}
+
+            def endTransaction ()
+            {}
+        })
+
+        val o2: Observable[Person] = o1
+
+        /*
+        // should yield a compiler error
+        o2.addObserver (
+            new Observer[Student]
+            {
+                def updated (oldV: TestVariances.this.type#Student,
+                    newV: TestVariances.this.type#Student
+                )
+                {}
+
+                def removed (v: TestVariances.this.type#Student)
+                {}
+
+                def added (v: TestVariances.this.type#Student)
+                {}
+
+                def endTransaction ()
+                {}
+            }
+        )
+        */
     }
 
     @Test
