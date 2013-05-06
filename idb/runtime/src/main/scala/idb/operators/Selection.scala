@@ -32,8 +32,7 @@
  */
 package idb.operators
 
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.{NotifyObservers, Observable}
+import idb.Relation
 
 
 /**
@@ -41,11 +40,11 @@ import idb.observer.{NotifyObservers, Observable}
  * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
  */
 trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with NotifyObservers[Domain]
+    extends Relation[Domain]
 {
     def filter: Domain => Boolean
 
-    def relation: Relation[Domain] with Observable[Domain]
+    def relation: Relation[Domain]
 
     def children = List (relation)
 }

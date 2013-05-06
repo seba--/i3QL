@@ -32,7 +32,6 @@
  */
 package idb
 
-import idb.relation.Relation
 import idb.observer.NotifyObservers
 
 /**

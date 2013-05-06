@@ -33,8 +33,8 @@
 package idb.operators.impl
 
 import idb.operators.Selection
-import idb.observer.{Observable, Observer}
-import idb.relation.Relation
+import idb.observer.{NotifyObservers, Observable, Observer}
+import idb.Relation
 
 /**
  *
@@ -46,14 +46,22 @@ import idb.relation.Relation
  * @author Ralf Mitschke
  */
 class SelectionView[Domain] (
-    val relation: Relation[Domain] with Observable[Domain],
+    val relation: Relation[Domain],
     val filter: Domain => Boolean,
     val isSet: Boolean
 )
     extends Selection[Domain]
             with Observer[Domain]
+            with NotifyObservers[Domain]
 {
     relation addObserver this
+
+
+    protected def lazyInitialize ()
+    {
+        /* do nothing */
+    }
+
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
     {

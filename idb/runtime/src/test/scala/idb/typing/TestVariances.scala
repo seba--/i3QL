@@ -36,8 +36,7 @@ import scala.collection.mutable
 
 import org.junit.Test
 import org.junit.Assert._
-import idb.{MaterializedView, BagExtent}
-import idb.relation.Relation
+import idb.{Relation, MaterializedView, BagExtent}
 import idb.observer.{Observer, Observable}
 
 /**

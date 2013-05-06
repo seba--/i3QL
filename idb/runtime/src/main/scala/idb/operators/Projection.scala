@@ -32,8 +32,7 @@
  */
 package idb.operators
 
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.{NotifyObservers, Observable}
+import idb.Relation
 
 
 /**
@@ -71,11 +70,11 @@ import idb.observer.{NotifyObservers, Observable}
  * constructors during pattern matching
  */
 trait Projection[Domain, Range]
-    extends SelfMaintainableRelation[Range] with NotifyObservers[Range]
+    extends Relation[Range]
 {
     def projection: Domain => Range
 
-    def relation: Relation[Domain] with Observable[Domain]
+    def relation: Relation[Domain]
 
     def children = List (relation)
 }

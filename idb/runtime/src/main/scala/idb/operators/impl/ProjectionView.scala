@@ -33,8 +33,8 @@
 package idb.operators.impl
 
 import idb.operators.Projection
-import idb.observer.{Observable, Observer}
-import idb.relation.Relation
+import idb.observer.{NotifyObservers, Observable, Observer}
+import idb.Relation
 
 /**
  *
@@ -47,14 +47,22 @@ import idb.relation.Relation
  *
  */
 class ProjectionView[Domain, Range] (
-    val relation: Relation[Domain] with Observable[Domain],
+    val relation: Relation[Domain],
     val projection: Domain => Range,
     val isSet: Boolean
 )
     extends Projection[Domain, Range]
             with Observer[Domain]
+            with NotifyObservers[Range]
 {
     relation addObserver this
+
+
+    protected def lazyInitialize ()
+    {
+        /* do nothing */
+    }
+
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
     {
