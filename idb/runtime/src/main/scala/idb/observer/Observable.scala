@@ -39,6 +39,10 @@ import collection.mutable
  * Observables allow to register observers.
  * Observers must adhere to typing, however internally the type of concrete observers is removed.
  * To allow working with observers, i.e., making notifications, in a type correct manner use the trait NotifyObservers.
+ * The incentive is tho have the type of observable (and the subtype relation) covariant.
+ * The covariance is good for views, which do not manipulate the data and hence can be type safe with covariance.
+ * Extents on the other hand are manipulated, i.e., data is added removed,
+ * but the covariance can be overwritten as invariance in the extents, hence making the overall program type safe.
  */
 trait Observable[+V]
 {

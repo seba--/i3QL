@@ -34,13 +34,18 @@ package idb.observer
 
 /**
  * This trait defines the notify methods for working with observers.
+ * The methods allow to work type correctly when notifying observers.
+ * The incentive of the methods is that we know (statically)
+ * that we can provide at least objects of type V.
+ * All observers must accept the top type (Any), whether they
+ * really work with the type V or not is up to the observers (and not the observables).
  *
  * @author Ralf Mitschke
  */
 trait NotifyObservers[V]
 {
 
-    protected def observers : Iterable[Observer[Any]]
+    protected def observers: Iterable[Observer[Any]]
 
     protected def notify_added (v: V)
     {
