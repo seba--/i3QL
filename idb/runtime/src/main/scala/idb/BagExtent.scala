@@ -36,7 +36,7 @@ package idb
  *
  * @author Ralf Mitschke
  */
-class BagExtent[V]
+case class BagExtent[V] ()
     extends Extent[V]
 {
     /**

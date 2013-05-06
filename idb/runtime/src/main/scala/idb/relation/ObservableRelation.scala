@@ -30,22 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators
+package idb.relation
 
-import idb.relation.{SelfMaintainableRelation, Relation}
 import idb.observer.Observable
 
-
 /**
- * A selection operates as a filter on the values in the relation and eliminates
- * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
+ *
+ * @author Ralf Mitschke
  */
-trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with Observable[Domain]
+trait ObservableRelation[V]
+    extends Relation[V] with Observable[V]
 {
-    def filter: Domain => Boolean
 
-    def relation: Relation[Domain] with Observable[Domain]
-
-    def children = Nil //List (relation)
 }

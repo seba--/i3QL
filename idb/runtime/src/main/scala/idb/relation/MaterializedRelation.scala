@@ -30,22 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators
-
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.Observable
+package idb.relation
 
 
 /**
- * A selection operates as a filter on the values in the relation and eliminates
- * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
+ *
+ * @author Ralf Mitschke
+ *
  */
-trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with Observable[Domain]
+trait MaterializedRelation[+V]
+    extends Relation[V]
 {
-    def filter: Domain => Boolean
 
-    def relation: Relation[Domain] with Observable[Domain]
+    override def asMaterialized = this
 
-    def children = Nil //List (relation)
+    /**
+     * Applies f to all elements of the view with their counts
+     */
+    def foreachWithCount[T] (f: (V, Int) => T)
+
+    def isDefinedAt[U >: V] (v: U): Boolean
+
+    /**
+     * Returns the count for a given element.
+     * In case an add/remove/update event is in progression, this always returns the
+     */
+    def elementCountAt[U >: V] (v: U): Int
+
+    /**
+     * Returns the concrete element in this relation, with the most specific type
+     */
+    //def elementAt[T >: V](v: T): V
 }

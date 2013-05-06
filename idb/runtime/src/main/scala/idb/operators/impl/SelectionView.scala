@@ -32,9 +32,9 @@
  */
 package idb.operators.impl
 
-import idb.Relation
 import idb.operators.Selection
 import idb.observer.{Observable, Observer}
+import idb.relation.Relation
 
 /**
  *
@@ -45,8 +45,10 @@ import idb.observer.{Observable, Observer}
  *
  * @author Ralf Mitschke
  */
-class SelectionView[Domain] (val relation: Relation[Domain],
-    val filter: Domain => Boolean
+class SelectionView[Domain] (
+    val relation: Relation[Domain] with Observable[Domain],
+    val filter: Domain => Boolean,
+    val isSet: Boolean
 )
     extends Selection[Domain]
             with Observer[Domain]

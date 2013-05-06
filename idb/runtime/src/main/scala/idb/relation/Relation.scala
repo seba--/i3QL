@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb
+package idb.relation
 
 import idb.observer.Observable
 
@@ -49,28 +49,15 @@ import idb.observer.Observable
  * @author Ralf Mitschke
  */
 trait Relation[+V]
-    extends Observable[V]
 {
+    lazyInitialize ()
 
     /**
      * Runtime information whether a compiled query is a set or a bag
      */
-    def isSet: Boolean
+    protected def isSet: Boolean
 
     def foreach[T] (f: (V) => T)
-
-    def foreachWithCount[T] (f: (V, Int) => T)
-
-    def contains (element: V): Boolean
-
-    def count (element: V): Int
-
-    /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
-     */
-    def size: Int
 
     /**
      * Each view must be able to
@@ -81,10 +68,10 @@ trait Relation[+V]
      * The lazy initialization must be performed prior to processing the
      * first add/delete/update events or foreach calls.
      */
-    def lazyInitialize ()
+    protected def lazyInitialize ()
 
 
-    def children: Seq[Relation[_]]
+    //protected def children: Seq[Relation[_]]
 
     /**
      * Converts the data of the view into a list representation.
@@ -104,10 +91,10 @@ trait Relation[+V]
     /**
      * Always return the same materialized view for this relation
      */
-    def asMaterialized: MaterializedRelation[V] = materializedRelation
+    protected def asMaterialized: MaterializedRelation[V] = materializedRelation
 
 
-    private lazy val materializedRelation = {
+    protected lazy val materializedRelation: MaterializedRelation[V] = {
         null
         /*
         if (isSet) {

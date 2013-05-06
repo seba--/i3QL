@@ -81,7 +81,7 @@ trait Observable[V]
     /**
      * Returns the observed children, to allow a top down removal of observers
      */
-    protected def children: Seq[Observable[_]] = Nil
+    protected def children: Seq[Observable[_]]
 
     def descendants: Seq[Observable[_]] =
     {
@@ -99,19 +99,17 @@ trait Observable[V]
     // Notify methods to notify the observers //
 
 
-    protected def notify_added[U >: V] (v: U)
+    protected def notify_added (v: V)
     {
-        val o = observers.head
-        o.added(v)
         observers.foreach (_.added (v))
     }
 
-    protected def notify_removed[U >: V] (v: U)
+    protected def notify_removed (v: V)
     {
         observers.foreach (_.removed (v))
     }
 
-    protected def notify_updated[U >: V] (oldV: U, newV: U)
+    protected def notify_updated (oldV: V, newV: V)
     {
         observers.foreach (_.updated (oldV, newV))
     }

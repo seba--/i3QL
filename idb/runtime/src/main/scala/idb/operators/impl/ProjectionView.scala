@@ -32,9 +32,9 @@
  */
 package idb.operators.impl
 
-import idb.Relation
 import idb.operators.Projection
 import idb.observer.{Observable, Observer}
+import idb.relation.Relation
 
 /**
  *
@@ -46,8 +46,10 @@ import idb.observer.{Observable, Observer}
  * @author Ralf Mitschke
  *
  */
-class ProjectionView[Domain, Range] (val relation: Relation[Domain],
-    val projection: Domain => Range
+class ProjectionView[Domain, Range] (
+    val relation: Relation[Domain] with Observable[Domain],
+    val projection: Domain => Range,
+    val isSet: Boolean
 )
     extends Projection[Domain, Range]
             with Observer[Domain]

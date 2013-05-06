@@ -32,6 +32,9 @@
  */
 package idb
 
+import idb.relation.Relation
+import idb.observer.Observable
+
 /**
  *
  * An extent is a base relation for providing data.
@@ -47,7 +50,7 @@ package idb
  * @author Ralf Mitschke
  */
 trait Extent[V]
-    extends Relation[V]
+    extends Relation[V] with Observable[V]
 {
     def updated (oldV: V, newV: V)
     {
@@ -83,4 +86,6 @@ trait Extent[V]
 
     def lazyInitialize ()
     {}
+
+    def children = Nil
 }

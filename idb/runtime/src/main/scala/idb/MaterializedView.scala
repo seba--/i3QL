@@ -8,12 +8,12 @@
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
  *
- *  - Redistributions of source code must retain the above copyright notice,
+ *  Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
- *  - Redistributions in binary form must reproduce the above copyright notice,
+ *  Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische
+ *  Neither the name of the Software Technology Group or Technische
  *    Universität Darmstadt nor the names of its contributors may be used to
  *    endorse or promote products derived from this software without specific
  *    prior written permission.
@@ -32,33 +32,38 @@
  */
 package idb
 
+import idb.relation.Relation
+import idb.observer.Observable
 
 /**
  *
- * @author Ralf Mitschke
  *
+ * A relation is the base trait for all operators and views.
+ *
+ * All relations can be iterated over.
+ * The iteration requires that this relation or view is materialized, or one of the underlying relation is materialized.
+ * If no relation whatsoever is materialized the iteration returns has no elements.
+ *
+ * All relations can be materialized, even if they do not store elements themselves.
+ *
+ *
+ * @author Ralf Mitschke
  */
-trait MaterializedRelation[+V]
+
+
+trait MaterializedView[+V]
     extends Relation[V]
 {
 
-    override def asMaterialized = this
+    def contains[U >: V] (element: U): Boolean
+
+    def count[U >: V] (element: U): Int
 
     /**
-     * Applies f to all elements of the view with their counts
+     * Returns the size of the view in terms of elements.
+     * This can be a costly operation.
+     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
      */
-    def foreachWithCount[T] (f: (V, Int) => T)
+    def size: Int
 
-    def isDefinedAt[U >: V] (v: U): Boolean
-
-    /**
-     * Returns the count for a given element.
-     * In case an add/remove/update event is in progression, this always returns the
-     */
-    def elementCountAt[U >: V] (v: U): Int
-
-    /**
-     * Returns the concrete element in this relation, with the most specific type
-     */
-    //def elementAt[T >: V](v: T): V
 }

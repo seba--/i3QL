@@ -30,22 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators
-
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.Observable
-
+package idb.relation
 
 /**
- * A selection operates as a filter on the values in the relation and eliminates
- * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
+ *
+ * @author Ralf Mitschke
  */
-trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with Observable[Domain]
+trait SelfMaintainableRelation[+V]
+    extends Relation[V]
 {
-    def filter: Domain => Boolean
-
-    def relation: Relation[Domain] with Observable[Domain]
-
-    def children = Nil //List (relation)
+    /**
+     * Each view must be able to
+     * materialize it's content from the underlying
+     * views.
+     * The laziness allows a query to be set up
+     * on relations (tables) that are already filled.
+     * The lazy initialization must be performed prior to processing the
+     * first add/delete/update events or foreach calls.
+     */
+    protected def lazyInitialize ()
+    {}
 }

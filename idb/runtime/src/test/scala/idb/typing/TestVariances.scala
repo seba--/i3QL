@@ -30,22 +30,60 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators
+package idb.typing
 
-import idb.relation.{SelfMaintainableRelation, Relation}
-import idb.observer.Observable
+import scala.collection.mutable
 
+import org.junit.Test
+import idb.{BagExtent, Extent}
 
 /**
- * A selection operates as a filter on the values in the relation and eliminates
- * unwanted tuples. A selection is always self-maintainable and requires only the delta of the underlying relation
+ *
+ * @author Ralf Mitschke
  */
-trait Selection[Domain]
-    extends SelfMaintainableRelation[Domain] with Observable[Domain]
+class TestVariances
 {
-    def filter: Domain => Boolean
 
-    def relation: Relation[Domain] with Observable[Domain]
+    abstract class Person
+    {
+        def firstName: String
 
-    def children = Nil //List (relation)
+        def lastName: String
+    }
+
+
+    case class Student (firstName: String, lastName: String, matriculationNumber: String)
+
+    case class Employee (firstName: String, lastName: String, salary: Int)
+
+    @Test
+    def testVarianceInScala ()
+    {
+        val s1: mutable.Set[Student] = mutable.Set.empty
+        val s2: mutable.Set[Employee] = mutable.Set.empty
+
+        // val sP1: Set[Person] = s1 // should not compile
+        // val sP2: Set[Person] = s2 // should not compile
+
+        //val sally = Student ("Sally", "Fields", "123456")
+
+        //s1.add (sally)
+        //assertEquals (mutable.Set (sally), sP1)
+    }
+
+    @Test
+    def testVarianceForIDB ()
+    {
+        val e1: Extent[Student] = BagExtent()
+        val e2: Extent[Employee] = BagExtent()
+
+        // val sP1: Set[Person] = s1 // should not compile
+        // val sP2: Set[Person] = s2 // should not compile
+
+        //val sally = Student ("Sally", "Fields", "123456")
+
+        //s1.add (sally)
+        //assertEquals (mutable.Set (sally), sP1)
+    }
+
 }
