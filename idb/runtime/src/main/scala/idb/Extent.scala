@@ -52,17 +52,17 @@ import idb.observer.Observable
 trait Extent[V]
     extends Relation[V] with Observable[V]
 {
-    def updated (oldV: V, newV: V)
+    def update (oldV: V, newV: V)
     {
         notify_updated (oldV, newV)
     }
 
-    def removed (v: V)
+    def remove (v: V)
     {
         notify_removed (v)
     }
 
-    def added (v: V)
+    def add (v: V)
     {
         notify_added (v)
     }

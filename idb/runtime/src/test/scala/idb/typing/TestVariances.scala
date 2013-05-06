@@ -35,7 +35,9 @@ package idb.typing
 import scala.collection.mutable
 
 import org.junit.Test
-import idb.{BagExtent, Extent}
+import org.junit.Assert._
+import idb.{MaterializedView, BagExtent}
+import idb.relation.Relation
 
 /**
  *
@@ -53,6 +55,7 @@ class TestVariances
 
 
     case class Student (firstName: String, lastName: String, matriculationNumber: String)
+        extends Person
 
     case class Employee (firstName: String, lastName: String, salary: Int)
 
@@ -62,8 +65,8 @@ class TestVariances
         val s1: mutable.Set[Student] = mutable.Set.empty
         val s2: mutable.Set[Employee] = mutable.Set.empty
 
-        // val sP1: Set[Person] = s1 // should not compile
-        // val sP2: Set[Person] = s2 // should not compile
+        //val sP1: mutable.Set[Person] = s1 // should not compile
+        // val sP2: mutable.Set[Person] = s2 // should not compile
 
         //val sally = Student ("Sally", "Fields", "123456")
 
@@ -74,16 +77,19 @@ class TestVariances
     @Test
     def testVarianceForIDB ()
     {
-        val e1: Extent[Student] = BagExtent()
-        val e2: Extent[Employee] = BagExtent()
+        val e1 = BagExtent.empty[Student]()
+        val e2 = BagExtent.empty[Employee]()
 
-        // val sP1: Set[Person] = s1 // should not compile
-        // val sP2: Set[Person] = s2 // should not compile
+        val q1 = e1.asMaterialized
 
-        //val sally = Student ("Sally", "Fields", "123456")
+        val q1Up: MaterializedView[Person] = q1
 
-        //s1.add (sally)
-        //assertEquals (mutable.Set (sally), sP1)
+        val q1UpOuter: Relation[Person] = q1Up
+
+        val sally = Student ("Sally", "Fields", "123456")
+
+        e1.add (sally)
+        assertEquals (List (sally), q1UpOuter.asList)
     }
 
 }

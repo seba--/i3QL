@@ -32,7 +32,8 @@
  */
 package idb.relation
 
-import idb.observer.Observable
+import idb.MaterializedView
+
 
 /**
  *
@@ -91,10 +92,10 @@ trait Relation[+V]
     /**
      * Always return the same materialized view for this relation
      */
-    protected def asMaterialized: MaterializedRelation[V] = materializedRelation
+    def asMaterialized: MaterializedView[V] = materializedRelation
 
 
-    protected lazy val materializedRelation: MaterializedRelation[V] = {
+    protected lazy val materializedRelation = {
         null
         /*
         if (isSet) {

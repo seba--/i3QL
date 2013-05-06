@@ -36,7 +36,7 @@ package idb
  *
  * @author Ralf Mitschke
  */
-case class BagExtent[V] ()
+class BagExtent[V]
     extends Extent[V]
 {
     /**
@@ -44,3 +44,11 @@ case class BagExtent[V] ()
      */
     def isSet: Boolean = false
 }
+
+object BagExtent
+{
+    def apply[V] () = new BagExtent[V]()
+
+    def empty[V] () = new BagExtent[V]()
+}
+
