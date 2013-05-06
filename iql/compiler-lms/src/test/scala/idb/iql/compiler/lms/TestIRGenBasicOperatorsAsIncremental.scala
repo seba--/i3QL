@@ -36,6 +36,7 @@ import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
 import idb.schema.lms.{Student, University}
+import sae.SetExtent
 
 /**
  *
@@ -60,26 +61,42 @@ class TestIRGenBasicOperatorsAsIncremental
         val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaGenEqual with ScalaGenStruct
         {
             val IR: prog.type = prog
+
+            silent = true
         }
 
         val isSally = compiler.compileFunction (prog.isSally)
 
-        assertTrue(isSally(Student("Sally", "Fields")))
-        assertTrue(isSally(Student("Sally", "Moore")))
-        assertFalse(isSally(Student("John", "Moore")))
-        assertFalse(isSally(Student("Sall", "White")))
+        assertTrue (isSally (Student ("Sally", "Fields")))
+        assertTrue (isSally (Student ("Sally", "Moore")))
+        assertFalse (isSally (Student ("John", "Moore")))
+        assertFalse (isSally (Student ("Sall", "White")))
     }
 
     @Test
     def testConstructSelection ()
     {
-        //import IR._
-        //        val base = new SetExtent[Student]
-        //        val query = selection (baseRelation (base), (s: Student) => s.firstName == "Sally")
-        //        val result = compile (query).asMaterialized
+        val base = new SetExtent[Student]
 
-        /**
-        val sally = compileFunction (Student ("Sally", "Fields"))
+        val prog = new RelationalAlgebraIRBasicOperators
+                       with RelationalAlgebraGenSAEBinding
+                       with ScalaOpsPkgExp
+                       with University
+                       with LiftAll
+        {
+            val query = selection (baseRelation (base), (s: Rep[Student]) => s.firstName == "Sally")
+        }
+
+        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct
+        {
+            val IR: prog.type = prog
+
+            silent = true
+        }
+
+        val result = compiler.compile (prog.query).asMaterialized
+
+        val sally = Student ("Sally", "Fields")
         val bob = Student ("Bob", "Martin")
 
         base.element_added (sally)
@@ -89,7 +106,13 @@ class TestIRGenBasicOperatorsAsIncremental
             List (sally),
             result.asList
         )
-          */
+
+        base.element_removed (sally)
+
+        assertEquals (
+            Nil,
+            result.asList
+        )
     }
 
 }
