@@ -30,15 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql
 
+import idb.Relation
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
+trait SELECT_CLAUSE_1[-SelectionDomain, Range]
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+
+    def FROM[Domain <: SelectionDomain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Range]
 
 }

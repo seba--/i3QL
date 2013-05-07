@@ -30,15 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql
 
 
 /**
  *
+ * The top level where clause has its own type since we can compile this to a query of type Range
+ *
  * @author Ralf Mitschke
  */
-package object iql
+trait WHERE_CLAUSE_1[Domain, Range]
+    extends SQL_QUERY[Range]
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+
+    def AND (predicate: Domain => Boolean): WHERE_CLAUSE_1[Domain, Range]
+
+    def OR (predicate: Domain => Boolean): WHERE_CLAUSE_1[Domain, Range]
+
 
 }

@@ -30,15 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql
 
+
+import idb.syntax.iql.impl.{SelectClauseNoProjection, SelectClause1, SelectClause2}
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
+object SELECT
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+
+    def apply[Domain, Range] (projection: Domain => Range): SELECT_CLAUSE_1[Domain, Range] =
+        SelectClause1 (projection)
+
+    def apply[DomainA, DomainB, Range] (projection: (DomainA, DomainB) => Range
+                                       ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+        SelectClause2 (projection)
+
+    def apply[DomainA, DomainB, RangeA, RangeB] (projectionA: DomainA => RangeA,
+                                                 projectionB: DomainB => RangeB
+                                                ): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
+        SelectClause2 ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b)))
+
+    def apply (x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
+        SelectClauseNoProjection
 
 }

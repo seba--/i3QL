@@ -36,15 +36,12 @@ import idb.Relation
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 19:48
- *
+ * @author Ralf Mitschke
  */
 trait SELECT_CLAUSE_NO_PROJECTION
 {
 
-    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE[Domain, Domain]
+    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Domain]
 
     def FROM[DomainA, DomainB] (relationA: Relation[DomainA],
                                 relationB: Relation[DomainB]

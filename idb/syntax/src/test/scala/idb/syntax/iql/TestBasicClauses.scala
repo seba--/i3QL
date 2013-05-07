@@ -48,7 +48,7 @@ class TestBasicClauses
     @Test
     def testSelectStarFrom () {
         val students: Extent[Student] = BagExtent.empty
-        val query = SELECT * FROM students
+        val query = SELECT (*) FROM students
     }
 
 }

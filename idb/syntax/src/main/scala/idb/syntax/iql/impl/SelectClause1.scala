@@ -30,15 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql.impl
 
+import idb.syntax.iql.SELECT_CLAUSE_1
+import idb.Relation
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
+case class SelectClause1[-Select, Range] (projection: Select => Range)
+    extends SELECT_CLAUSE_1[Select, Range]
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+    def FROM[Domain <: Select] (relation: Relation[Domain]) =
+        FromClause1[Domain, Range](relation, this)
+
 
 }

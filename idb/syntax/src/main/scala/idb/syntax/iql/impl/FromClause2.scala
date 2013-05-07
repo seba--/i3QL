@@ -30,15 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql.impl
 
+import idb.Relation
+import idb.syntax.iql._
 
 /**
  *
- * @author Ralf Mitschke
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 20:08
+ *
  */
-package object iql
+case class FromClause2[DomainA, DomainB, Range] (relationA: Relation[DomainA],
+                                                 relationB: Relation[DomainB],
+                                                 selectClause: SelectClause2[DomainA, DomainB, Range]
+                                                )
+    extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
-
+    def WHERE (predicate: (DomainA) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range] =
+        throw new UnsupportedOperationException ()
 }

@@ -30,15 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
-
+package idb.syntax.iql
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
-{
-    val * : STAR_KEYWORD = impl.StarKeyword
-
-}
+trait STAR_KEYWORD

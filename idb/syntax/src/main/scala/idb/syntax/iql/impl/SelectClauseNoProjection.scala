@@ -30,15 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql.impl
 
+import idb.syntax.iql.{FROM_CLAUSE_1, FROM_CLAUSE_2, SELECT_CLAUSE_NO_PROJECTION}
+import idb.Relation
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
+case object SelectClauseNoProjection
+    extends SELECT_CLAUSE_NO_PROJECTION
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Domain] =
+        FromClause1 (relation, SelectClause1 ((x: Domain) => x))
 
+
+    def FROM[DomainA, DomainB] (relationA: Relation[DomainA],
+                                relationB: Relation[DomainB]
+                               ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
+        FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
 }

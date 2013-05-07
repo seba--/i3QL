@@ -30,15 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.syntax.iql
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-package object iql
+trait FROM_CLAUSE_2[DomainA, DomainB, Range]
+    extends SQL_QUERY[Range]
 {
-    val * : STAR_KEYWORD = impl.StarKeyword
+
+    def WHERE (predicate: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 }
