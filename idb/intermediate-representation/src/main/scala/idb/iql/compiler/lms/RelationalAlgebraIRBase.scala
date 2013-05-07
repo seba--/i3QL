@@ -41,13 +41,16 @@ import scala.reflect.ManifestFactory
  *
  */
 trait RelationalAlgebraIRBase
-    extends RelationalAlgebraBase with BaseExp
+    extends RelationalAlgebraBase
+    with BaseExp
 {
     // TODO make Domain covariant
     type Relation[Domain] = AbstractRelation[Domain]
 
-    // TODO seems not good to tie this to the IR, binding it here means we can construct an IR only for one type of ConcreteRelation, e.g., only for incremental relations or for lists.
-    // However, the data structures inside the incremental relations and the lists are also markedly different. Without further analyses it seem unlikely that we have the same query for both.
+    // TODO seems not good to tie this to the IR, binding it here means we can construct an IR only for one type of
+    // ConcreteRelation, e.g., only for incremental relations or for lists.
+    // However, the data structures inside the incremental relations and the lists are also markedly different.
+    // Without further analyses it seem unlikely that we have the same query for both.
     // TODO make Domain covariant
     type CompiledRelation[Domain]
 
@@ -57,12 +60,12 @@ trait RelationalAlgebraIRBase
         ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
 
 
-    case class BaseRelation[Domain](relImpl: CompiledRelation[Domain])
-                                   (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
+    case class BaseRelation[Domain] (relImpl: CompiledRelation[Domain])
+                                    (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
         extends Exp[Relation[Domain]]
 
-    def baseRelation[Domain](relImpl: CompiledRelation[Domain])
-                            (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]]) =
+    def baseRelation[Domain] (relImpl: CompiledRelation[Domain])
+                             (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]]) =
         BaseRelation (relImpl)
 
 }

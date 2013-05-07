@@ -54,8 +54,7 @@ class TestIROptFusion
     assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
     @Test
-    def testSelectionFusion()
-    {
+    def testSelectionFusion () {
 
         val f1 = (x: Rep[Int]) => x > 0
         val f2 = (x: Rep[Int]) => x < 1000
@@ -70,15 +69,14 @@ class TestIROptFusion
 
 
     @Test
-    def testSelectionFusionTyping()
-    {
+    def testSelectionFusionTyping () {
         trait A
 
-        def infix_isA(x: Rep[A]): Rep[Boolean] = true
+        def infix_isA (x: Rep[A]): Rep[Boolean] = true
 
         trait B
 
-        def infix_isB(x: Rep[B]): Rep[Boolean] = true
+        def infix_isB (x: Rep[B]): Rep[Boolean] = true
 
         class Impl extends A with B
 
@@ -97,8 +95,7 @@ class TestIROptFusion
     }
 
     @Test
-    def testProjectionFusion()
-    {
+    def testProjectionFusion () {
 
         val f1 = (x: Rep[Int]) => x + 1
         val f2 = (x: Rep[Int]) => x + 2

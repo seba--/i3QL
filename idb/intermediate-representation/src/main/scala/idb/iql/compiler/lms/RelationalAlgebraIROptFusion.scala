@@ -40,44 +40,38 @@ import scala.virtualization.lms.common._
  *
  */
 trait RelationalAlgebraIROptFusion
-  extends RelationalAlgebraIRBasicOperators
-          with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+    extends RelationalAlgebraIRBasicOperators
+    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
-  /**
-   * Fusion of projection operations
-   */
-  override def projection[Domain: Manifest, Range: Manifest] (
-    relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Range]
-  ): Rep[Relation[Range]] =
-  {
-    relation match {
-      case Def (Projection (r, f)) =>
-        projection (r, (x: Rep[_]) => function (f (x)))
-      case _ =>
-        super.projection (relation, function)
-    }
-  }
+    /**
+     * Fusion of projection operations
+     */
+    override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+                                                                function: Rep[Domain => Range]
+                                                               ): Rep[Relation[Range]] =
+        relation match {
+            case Def (Projection (r, f)) =>
+                projection (r, (x: Rep[_]) => function (f (x)))
+            case _ =>
+                super.projection (relation, function)
+        }
 
-  /**
-   * Fusion of selection operations
-   */
-  // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-  override def selection[Domain: Manifest] (
-    relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Boolean]
-  ): Rep[Relation[Domain]] =
-  {
-    relation match {
-      case Def (Selection (r, f)) if (f.tp == function.tp) => {
-        val g = f.asInstanceOf[Rep[Domain => Boolean]]
-        selection (r, (x: Rep[Domain]) => g (x) && function (x))
 
-      }
-      case _ =>
-        super.selection (relation, function)
-    }
+    /**
+     * Fusion of selection operations
+     */
+    // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
+    override def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+                                              function: Rep[Domain => Boolean]
+                                             ): Rep[Relation[Domain]] =
+        relation match {
+            case Def (Selection (r, f)) if (f.tp == function.tp) => {
+                val g = f.asInstanceOf[Rep[Domain => Boolean]]
+                selection (r, (x: Rep[Domain]) => g (x) && function (x))
 
-  }
+            }
+            case _ =>
+                super.selection (relation, function)
+        }
 }

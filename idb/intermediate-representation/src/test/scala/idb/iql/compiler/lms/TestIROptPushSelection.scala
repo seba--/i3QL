@@ -54,8 +54,7 @@ class TestIROptPushSelection
     assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
     @Test
-    def testSelectionOverProjectionSimpleInt()
-    {
+    def testSelectionOverProjectionSimpleInt () {
         val f1 = (x: Rep[Int]) => x + 2
         val f2 = (x: Rep[Int]) => x > 0
 
@@ -69,8 +68,7 @@ class TestIROptPushSelection
     }
 
     @Test
-    def testSelectionOverProjectionConditionalInt()
-    {
+    def testSelectionOverProjectionConditionalInt () {
         val f1 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
         val f2 = (x: Rep[Boolean]) => x
 
@@ -86,8 +84,7 @@ class TestIROptPushSelection
     }
 
     @Test
-    def testSelectionOverProjectionSimpleTuple()
-    {
+    def testSelectionOverProjectionSimpleTuple () {
         val f1: Rep[Int] => Rep[(Int, Boolean)] =
             (x: Rep[Int]) => (x, x > 0) // needs annotation for correct implicits, why?
 
@@ -103,8 +100,7 @@ class TestIROptPushSelection
     }
 
     @Test
-    def testSelectionOverProjectionConditionalTuple()
-    {
+    def testSelectionOverProjectionConditionalTuple () {
         val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))
         val f2 = (x: Rep[(Int, Boolean)]) => x._2
 

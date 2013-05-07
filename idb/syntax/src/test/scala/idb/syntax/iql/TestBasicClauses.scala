@@ -30,25 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.iql.compiler.lms
+package idb.syntax.iql
+
+import org.junit.Test
+import idb.{BagExtent, Extent}
+import idb.schema.university.Student
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-trait RelationalAlgebraBasicOperators
-    extends RelationalAlgebraBase
+class TestBasicClauses
 {
 
+    import idb.syntax.iql._
 
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-                                                       function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]]
+    @Test
+    def testSelectStarFrom () {
+        val students: Extent[Student] = BagExtent.empty
+        val query = SELECT * FROM students
+    }
 
-
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-                                     function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]]
 }

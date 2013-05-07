@@ -32,23 +32,32 @@
  */
 package idb.iql.compiler.lms
 
+import scala.virtualization.lms.common._
+
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-trait RelationalAlgebraBasicOperators
-    extends RelationalAlgebraBase
+trait RelationalAlgebraIROptSimplify
+    extends RelationalAlgebraIRBasicOperators
+    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
-
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-                                                       function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]]
-
-
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-                                     function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]]
+    /**
+     * Remove projection using the identity function
+     */
+    /*
+    // TODO implement this, how can we simply do pattern match on function?
+    override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+                                                                function: Rep[Domain => Range]
+                                                               ): Rep[Relation[Range]] = {
+        relation match {
+            case Def (Projection (r, f)) =>
+                projection (r, (x: Rep[_]) => function (f (x)))
+            case _ =>
+                super.projection (relation, function)
+        }
+    }
+    */
 }

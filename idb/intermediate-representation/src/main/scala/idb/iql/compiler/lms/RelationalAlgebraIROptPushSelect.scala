@@ -40,26 +40,25 @@ import scala.virtualization.lms.common._
  *
  */
 trait RelationalAlgebraIROptPushSelect
-  extends RelationalAlgebraIRBasicOperators
-          with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+    extends RelationalAlgebraIRBasicOperators
+    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
-  /**
-   * Pushing selection down over other operations
-   */
-  override def selection[Domain: Manifest] (
-    relation: Rep[Relation[Domain]],
-    selectionFunction: Rep[Domain => Boolean]
-  ): Rep[Relation[Domain]] =
-  {
-    relation match {
-      case Def (Projection (r, projectionFunction)) => {
-        val pushedFunction = (x:Rep[_]) => selectionFunction(projectionFunction(x))
-        projection(selection (r, pushedFunction), projectionFunction)
-      }
-      case _ =>
-        super.selection (relation, selectionFunction)
-    }
+    /**
+     * Pushing selection down over other operations
+     */
+    override def selection[Domain: Manifest] (
+                                                 relation: Rep[Relation[Domain]],
+                                                 selectionFunction: Rep[Domain => Boolean]
+                                             ): Rep[Relation[Domain]] = {
+        relation match {
+            case Def (Projection (r, projectionFunction)) => {
+                val pushedFunction = (x: Rep[_]) => selectionFunction (projectionFunction (x))
+                projection (selection (r, pushedFunction), projectionFunction)
+            }
+            case _ =>
+                super.selection (relation, selectionFunction)
+        }
 
-  }
+    }
 }

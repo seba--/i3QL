@@ -39,30 +39,27 @@ package idb.iql.compiler.lms
  *
  */
 trait RelationalAlgebraIRBasicOperators
-  extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
+    extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
 {
 
-  case class Projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Range]
-  )
-    extends Def[Relation[Range]]
+    case class Projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+                                                              function: Rep[Domain => Range]
+                                                             )
+        extends Def[Relation[Range]]
 
-  case class Selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Boolean]
-  )
-    extends Def[Relation[Domain]]
+    case class Selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+                                            function: Rep[Domain => Boolean]
+                                           )
+        extends Def[Relation[Domain]]
 
-  def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Range]
-  ): Rep[Relation[Range]] =
-  {
-    Projection (relation, function)
-  }
+    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+                                                       function: Rep[Domain => Range]
+                                                      ): Rep[Relation[Range]] =
+        Projection (relation, function)
 
-  def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-    function: Rep[Domain => Boolean]
-  ): Rep[Relation[Domain]] =
-  {
-    Selection (relation, function)
-  }
+    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+                                     function: Rep[Domain => Boolean]
+                                    ): Rep[Relation[Domain]] =
+        Selection (relation, function)
+
 }

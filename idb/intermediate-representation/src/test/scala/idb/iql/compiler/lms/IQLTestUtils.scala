@@ -33,9 +33,9 @@
 package idb.iql.compiler.lms
 
 /**
- * 
+ *
  * @author Ralf Mitschke
- * 
+ *
  */
 trait IQLTestUtils extends RelationalAlgebraIRBase
 {
@@ -43,9 +43,9 @@ trait IQLTestUtils extends RelationalAlgebraIRBase
     type CompiledRelation[Domain] = List[Domain]
 
     /**
-    * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
-    * Useful for just constructing ASTs and testing equivalence, without executing (i.e., compiling) the query.
-    */
-    def emptyRelation[Domain: Manifest]() = baseRelation (List.empty[Domain])
+     * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
+     * Useful for just constructing ASTs and testing equivalence, without executing (i.e., compiling) the query.
+     */
+    def emptyRelation[Domain: Manifest] () = baseRelation (List.empty[Domain])
 
 }

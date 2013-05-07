@@ -30,25 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.iql.compiler.lms
+package idb.syntax
+
+import idb.Relation
+
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-trait RelationalAlgebraBasicOperators
-    extends RelationalAlgebraBase
+package object iql
 {
+    val * : STAR_KEYWORD = impl.STAR_KEYWORD
 
+    implicit def compile[Domain <: AnyRef] (clause: SQL_QUERY[Domain]): Relation[Domain] =
+        clause.compile ()
 
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-                                                       function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]]
-
-
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-                                     function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]]
 }

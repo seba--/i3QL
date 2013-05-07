@@ -33,7 +33,6 @@
 package idb.iql.lms.extensions
 
 import scala.virtualization.lms.common.FunctionsExp
-import scala.reflect.SourceContext
 
 /**
  * Perform alpha reduction on lambda abstractions.
@@ -42,50 +41,48 @@ import scala.reflect.SourceContext
  * @author Sebastian Erdweg
  */
 trait FunctionsExpOptAlphaEquivalence
-  extends FunctionsExp
+    extends FunctionsExp
 {
 
-  class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
-    extends Lambda[A, B](f, x, y)
-  {
-
-    override def equals (o: Any): Boolean =
+    class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
+        extends Lambda[A, B](f, x, y)
     {
-      if (!o.isInstanceOf[Lambda[A, B]])
-        return false
 
-      o.asInstanceOf[Lambda[A, B]] match {
-        case Lambda (f2, x2, y2) =>
-          reifyEffects (f2 (
-            x)) == y // reify other lambda to the variable bound in this lambda, and compare the resulting body with this body
-        case _ =>
-          false
-      }
+        override def equals (o: Any): Boolean = {
+            if (!o.isInstanceOf[Lambda[A, B]])
+                return false
+
+            o.asInstanceOf[Lambda[A, B]] match {
+                case Lambda (f2, x2, y2) =>
+                    reifyEffects (f2 (
+                        x)) == y // reify other lambda to the variable bound in this lambda,
+                        // and compare the resulting body with this body
+                case _ =>
+                    false
+            }
+        }
+
+        // TODO define proper hashCode independent of bound variable name
+        //   override def hashCode: Int = {
+        //     return 0
+        //   }
     }
 
-    // TODO define proper hashCode independent of bound variable name
-    //   override def hashCode: Int = {
-    //     return 0
-    //   }
-  }
+    object LambdaAlpha
+    {
+        def apply[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B]) = new LambdaAlpha (f, x, y)
+    }
 
-  object LambdaAlpha
-  {
-    def apply[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B]) = new LambdaAlpha (f, x, y)
-  }
+    /**
+     *
+     * @return a lambda representation using alpha equivalence as equals test
+     */
+    override def doLambdaDef[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B]): Def[A => B] = {
+        val x = unboxedFresh[A]
+        val y = reifyEffects (f (x)) // unfold completely at the definition site.
 
-  /**
-   *
-   * @return a lambda representation using alpha equivalence as equals test
-   */
-  override def doLambdaDef[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B]): Def[A => B] =
-  {
-    val x = unboxedFresh[A]
-    val y = reifyEffects (f (x)) // unfold completely at the definition site.
-
-    LambdaAlpha (f, x, y)
-  }
-
+        LambdaAlpha (f, x, y)
+    }
 
 
 }

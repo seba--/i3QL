@@ -30,25 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.iql.compiler.lms
+package idb.syntax.iql
+
+import idb.Relation
 
 /**
  *
- * @author Ralf Mitschke
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 19:48
  *
  */
-
-trait RelationalAlgebraBasicOperators
-    extends RelationalAlgebraBase
+trait SELECT_CLAUSE_NO_PROJECTION
 {
 
+    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE[Domain, Domain]
 
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
-                                                       function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]]
-
-
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
-                                     function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]]
+    def FROM[DomainA, DomainB] (relationA: Relation[DomainA],
+                                relationB: Relation[DomainB]
+                               ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }

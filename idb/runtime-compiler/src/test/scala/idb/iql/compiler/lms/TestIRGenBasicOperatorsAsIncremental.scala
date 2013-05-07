@@ -35,7 +35,7 @@ package idb.iql.compiler.lms
 import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
-import idb.schema.lms.{Student, University}
+import idb.schema.university.{Student, University}
 import idb.SetExtent
 
 /**
@@ -47,13 +47,12 @@ class TestIRGenBasicOperatorsAsIncremental
 {
 
     @Test
-    def testFunctionsOnValues ()
-    {
+    def testFunctionsOnValues () {
         val prog = new RelationalAlgebraIRBasicOperators
-                       with RelationalAlgebraGenSAEBinding
-                       with ScalaOpsPkgExp
-                       with University
-                       with LiftAll
+            with RelationalAlgebraGenSAEBinding
+            with ScalaOpsPkgExp
+            with University
+            with LiftAll
         {
             def isSally (s: Rep[Student]) = s.firstName == "Sally"
         }
@@ -74,15 +73,14 @@ class TestIRGenBasicOperatorsAsIncremental
     }
 
     @Test
-    def testConstructSelection ()
-    {
+    def testConstructSelection () {
         val base = new SetExtent[Student]
 
         val prog = new RelationalAlgebraIRBasicOperators
-                       with RelationalAlgebraGenSAEBinding
-                       with ScalaOpsPkgExp
-                       with University
-                       with LiftAll
+            with RelationalAlgebraGenSAEBinding
+            with ScalaOpsPkgExp
+            with University
+            with LiftAll
         {
             val query = selection (baseRelation (base), (s: Rep[Student]) => s.firstName == "Sally")
         }
@@ -99,15 +97,15 @@ class TestIRGenBasicOperatorsAsIncremental
         val sally = Student ("Sally", "Fields")
         val bob = Student ("Bob", "Martin")
 
-        base.element_added (sally)
-        base.element_added (bob)
+        base.add (sally)
+        base.add (bob)
 
         assertEquals (
             List (sally),
             result.asList
         )
 
-        base.element_removed (sally)
+        base.remove (sally)
 
         assertEquals (
             Nil,

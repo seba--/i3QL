@@ -20,8 +20,18 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>de.tud.cs.st.idb</groupId>
+            <artifactId>runtime</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tud.cs.st.idb</groupId>
+            <artifactId>schema-examples</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

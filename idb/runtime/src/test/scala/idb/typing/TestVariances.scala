@@ -36,7 +36,7 @@ import scala.collection.mutable
 
 import org.junit.Test
 import org.junit.Assert._
-import idb.{Relation, MaterializedView, BagExtent}
+import idb.{Extent, Relation, MaterializedView, BagExtent}
 import idb.observer.{Observer, Observable}
 
 /**
@@ -119,8 +119,8 @@ class TestVariances
 
     @Test
     def testVarianceForIDB () {
-        val e1 = BagExtent.empty[Student]()
-        val e2 = BagExtent.empty[Employee]()
+        val e1: Extent[Student] = BagExtent.empty
+        val e2: Extent[Employee] = BagExtent.empty
 
         val q1 = e1.asMaterialized
 

@@ -49,6 +49,6 @@ object BagExtent
 {
     def apply[V] () = new BagExtent[V]()
 
-    def empty[V] () = new BagExtent[V]()
+    def empty[V] = new BagExtent[V]()
 }
 

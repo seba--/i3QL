@@ -102,6 +102,21 @@
                 <artifactId>junit</artifactId>
                 <version>4.10</version>
             </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>intermediate-representation</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>runtime</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>schema-examples</artifactId>
+                <version>0.0.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
