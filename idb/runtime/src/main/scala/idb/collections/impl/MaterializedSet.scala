@@ -41,47 +41,41 @@ import idb.observer.{Observable, Observer}
  */
 class MaterializedSet[V] (val relation: Relation[V])
     extends Set[V]
-            with Observer[V]
+    with Observer[V]
 {
 
     relation addObserver this
 
-    def endTransaction ()
-    {
+    def endTransaction () {
         notify_endTransaction ()
     }
 
     override protected def children = List (relation)
 
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
-    {
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)
         }
         Nil
     }
 
-    def lazyInitialize ()
-    {
+    def lazyInitialize () {
         relation.foreach (
             v => add_element (v)
         )
     }
 
 
-    def updated (oldV: V, newV: V)
-    {
+    def updated (oldV: V, newV: V) {
         this -= oldV
         this += newV
     }
 
-    def removed (v: V)
-    {
+    def removed (v: V) {
         this -= v
     }
 
-    def added (v: V)
-    {
+    def added (v: V) {
         this += v
     }
 

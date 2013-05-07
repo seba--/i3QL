@@ -49,33 +49,28 @@ trait Observable[+V]
 
     protected[observer] var observers: mutable.HashSet[Observer[Any]] = mutable.HashSet.empty
 
-    def addObserver[U >: V] (o: Observer[U])
-    {
+    def addObserver[U >: V] (o: Observer[U]) {
         // sanity check that the assumption of never adding the same observer twice holds
         assert (!observers.contains (o.asInstanceOf[Observer[Any]]))
         observers.add (o.asInstanceOf[Observer[Any]])
     }
 
-    def removeObserver[U >: V] (o: Observer[U])
-    {
+    def removeObserver[U >: V] (o: Observer[U]) {
         observers.remove (o.asInstanceOf[Observer[Any]])
     }
 
-    def clearObservers ()
-    {
+    def clearObservers () {
         observers = mutable.HashSet.empty
     }
 
-    def hasObservers =
-    {
+    def hasObservers = {
         !observers.isEmpty
     }
 
     /**
      * remove all observers
      */
-    def clearObserversForChildren (visitChild: Observable[_] => Boolean)
-    {
+    def clearObserversForChildren (visitChild: Observable[_] => Boolean) {
         for (relation <- children) {
             // remove all observers for this observable
             for (observer <- childObservers (relation)) {
@@ -93,8 +88,7 @@ trait Observable[+V]
      */
     protected def children: Seq[Observable[_]]
 
-    def descendants: Seq[Observable[_]] =
-    {
+    def descendants: Seq[Observable[_]] = {
         (for (child <- children) yield {
             Seq (child) ++ child.descendants
         }).flatten

@@ -37,7 +37,8 @@ import idb.observer.NotifyObservers
 /**
  *
  * An extent is a base relation for providing data.
- * Extents are invariant in the domain (V), since once they are created they MUST supply objects of the specified elements.
+ * Extents are invariant in the domain (V), since once they are created they MUST supply objects of the specified
+ * elements.
  * Otherwise, runtime errors can occur for already constructed queries.
  * For example, with (Student <: Person) :
  * r1 : Extent[Student]
@@ -49,33 +50,28 @@ import idb.observer.NotifyObservers
  * @author Ralf Mitschke
  */
 trait Extent[V]
-    extends Relation[V] with NotifyObservers[V]
+    extends Relation[V]
+    with NotifyObservers[V]
 {
-    def update (oldV: V, newV: V)
-    {
+    def update (oldV: V, newV: V) {
         notify_updated (oldV, newV)
     }
 
-    def remove (v: V)
-    {
+    def remove (v: V) {
         notify_removed (v)
     }
 
-    def add (v: V)
-    {
+    def add (v: V) {
         notify_added (v)
     }
 
-    def endTransaction ()
-    {
+    def endTransaction () {
         notify_endTransaction ()
     }
 
-    def foreach[T] (f: (V) => T)
-    {}
+    def foreach[T] (f: (V) => T) {}
 
-    def foreachWithCount[T] (f: (V, Int) => T)
-    {}
+    def foreachWithCount[T] (f: (V, Int) => T) {}
 
     def contains (element: V): Boolean = false
 
@@ -83,8 +79,7 @@ trait Extent[V]
 
     def size: Int = 0
 
-    def lazyInitialize ()
-    {}
+    def lazyInitialize () {}
 
     def children = Nil
 }

@@ -60,8 +60,7 @@ class TestVariances
     case class Employee (firstName: String, lastName: String, salary: Int)
 
     @Test
-    def testVarianceInScala ()
-    {
+    def testVarianceInScala () {
         val s1: mutable.Set[Student] = mutable.Set.empty
         val s2: mutable.Set[Employee] = mutable.Set.empty
 
@@ -75,8 +74,7 @@ class TestVariances
     }
 
     @Test
-    def testVarianceForObservers ()
-    {
+    def testVarianceForObservers () {
         val o1 = new Observable[Student]
         {
             def children = Nil
@@ -84,18 +82,14 @@ class TestVariances
         o1.addObserver (new Observer[Student]
         {
             def updated (oldV: TestVariances.this.type#Student,
-                newV: TestVariances.this.type#Student
-            )
-            {}
+                         newV: TestVariances.this.type#Student
+                        ) {}
 
-            def removed (v: TestVariances.this.type#Student)
-            {}
+            def removed (v: TestVariances.this.type#Student) {}
 
-            def added (v: TestVariances.this.type#Student)
-            {}
+            def added (v: TestVariances.this.type#Student) {}
 
-            def endTransaction ()
-            {}
+            def endTransaction () {}
         })
 
         val o2: Observable[Person] = o1
@@ -124,8 +118,7 @@ class TestVariances
     }
 
     @Test
-    def testVarianceForIDB ()
-    {
+    def testVarianceForIDB () {
         val e1 = BagExtent.empty[Student]()
         val e2 = BagExtent.empty[Employee]()
 

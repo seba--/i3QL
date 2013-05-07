@@ -45,42 +45,37 @@ import idb.Relation
  *
  * @author Ralf Mitschke
  */
-class SelectionView[Domain] (
-    val relation: Relation[Domain],
-    val filter: Domain => Boolean,
-    val isSet: Boolean
-)
+class SelectionView[Domain] (val relation: Relation[Domain],
+                             val filter: Domain => Boolean,
+                             val isSet: Boolean
+                            )
     extends Selection[Domain]
-            with Observer[Domain]
-            with NotifyObservers[Domain]
+    with Observer[Domain]
+    with NotifyObservers[Domain]
 {
     relation addObserver this
 
 
-    protected def lazyInitialize ()
-    {
+    protected def lazyInitialize () {
         /* do nothing */
     }
 
 
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
-    {
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)
         }
         Nil
     }
 
-    override def endTransaction ()
-    {
+    override def endTransaction () {
         notify_endTransaction ()
     }
 
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T] (f: (Domain) => T)
-    {
+    def foreach[T] (f: (Domain) => T) {
         relation.foreach (
             (v: Domain) => if (filter (v)) {
                 f (v)
@@ -88,8 +83,7 @@ class SelectionView[Domain] (
         )
     }
 
-    def updated (oldV: Domain, newV: Domain)
-    {
+    def updated (oldV: Domain, newV: Domain) {
         val oldVPasses = filter (oldV)
         val newVPasses = filter (newV)
         if (oldVPasses && newVPasses) {
@@ -109,15 +103,13 @@ class SelectionView[Domain] (
         }
     }
 
-    def removed (v: Domain)
-    {
+    def removed (v: Domain) {
         if (filter (v)) {
             notify_removed (v)
         }
     }
 
-    def added (v: Domain)
-    {
+    def added (v: Domain) {
         if (filter (v)) {
             notify_added (v)
         }

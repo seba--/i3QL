@@ -4,7 +4,8 @@ import idb.MaterializedView
 import idb.observer.NotifyObservers
 
 trait Collection[V]
-    extends MaterializedView[V] with NotifyObservers[V]
+    extends MaterializedView[V]
+    with NotifyObservers[V]
 {
 
     /**
@@ -15,8 +16,7 @@ trait Collection[V]
      * collection is used as intermediary view. Otherwise data is
      * pumped into the collection and during first use, lazyInitialize is called. 
      */
-    def += (v: V): Collection[V] =
-    {
+    def += (v: V): Collection[V] = {
         add_element (v)
         notify_added (v)
         this
@@ -35,8 +35,7 @@ trait Collection[V]
      * collection is used as intermediary view. Otherwise data is
      * pumped into the collection and during first use, lazyInitialize is called. 
      */
-    def -= (v: V): Collection[V] =
-    {
+    def -= (v: V): Collection[V] = {
         remove_element (v)
         notify_removed (v)
         this

@@ -58,7 +58,8 @@
  *
  * Theorem 2: All SP views are self-maintainable with respect to insertions.
  *
- * Theorem 3: An SPJ view defined using self-joins over a single relation R is self-maintainable if every join is based on key(R)
+ * Theorem 3: An SPJ view defined using self-joins over a single relation R is self-maintainable if every join is
+ * based on key(R)
  *
  * @author Ralf Mitschke
  *

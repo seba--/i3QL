@@ -46,57 +46,49 @@ import idb.Relation
  * @author Ralf Mitschke
  *
  */
-class ProjectionView[Domain, Range] (
-    val relation: Relation[Domain],
-    val projection: Domain => Range,
-    val isSet: Boolean
-)
+class ProjectionView[Domain, Range] (val relation: Relation[Domain],
+                                     val projection: Domain => Range,
+                                     val isSet: Boolean
+                                    )
     extends Projection[Domain, Range]
-            with Observer[Domain]
-            with NotifyObservers[Range]
+    with Observer[Domain]
+    with NotifyObservers[Range]
 {
     relation addObserver this
 
 
-    protected def lazyInitialize ()
-    {
+    protected def lazyInitialize () {
         /* do nothing */
     }
 
 
-    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
-    {
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
             return List (this)
         }
         Nil
     }
 
-    override def endTransaction ()
-    {
+    override def endTransaction () {
         notify_endTransaction ()
     }
 
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T] (f: (Range) => T)
-    {
+    def foreach[T] (f: (Range) => T) {
         relation.foreach ((v: Domain) => f (projection (v)))
     }
 
-    def updated (oldV: Domain, newV: Domain)
-    {
+    def updated (oldV: Domain, newV: Domain) {
         notify_updated (projection (oldV), projection (newV))
     }
 
-    def removed (v: Domain)
-    {
+    def removed (v: Domain) {
         notify_removed (projection (v))
     }
 
-    def added (v: Domain)
-    {
+    def added (v: Domain) {
         notify_added (projection (v))
     }
 
