@@ -8,12 +8,12 @@
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
  *
- *  Redistributions of source code must retain the above copyright notice,
+ *  - Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
- *  Redistributions in binary form must reproduce the above copyright notice,
+ *  - Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  Neither the name of the Software Technology Group or Technische
+ *  - Neither the name of the Software Technology Group or Technische
  *    Universität Darmstadt nor the names of its contributors may be used to
  *    endorse or promote products derived from this software without specific
  *    prior written permission.
@@ -30,52 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb
+package idb.collections.impl
 
+import idb.collections.Set
+import idb.Relation
+import idb.observer.{Observable, Observer}
 
 /**
- *
- *
- * A relation is the base trait for all operators and views.
- *
- * All relations can be iterated over.
- * The iteration requires that this relation or view is materialized, or one of the underlying relation is materialized.
- * If no relation whatsoever is materialized the iteration returns has no elements.
- *
- * All relations can be materialized, even if they do not store elements themselves.
- *
- *
- * @author Ralf Mitschke
+ * A newResult that materializes all data from the underlying relation into a set
  */
-
-
-trait MaterializedView[+V]
-    extends Relation[V]
+class MaterializedSet[V] (val relation: Relation[V])
+    extends Set[V]
+            with Observer[V]
 {
 
-    def contains[U >: V] (element: U): Boolean
+    relation addObserver this
 
-    /**
-     * Returns the count for a given element.
-     * In case an add/remove/update event is in progression, this always returns the value before the event.
-     */
-    def count[U >: V] (element: U): Int
+    def endTransaction ()
+    {
+        notify_endTransaction ()
+    }
 
-    def foreachWithCount[T] (f: (V, Int) => T)
+    override protected def children = List (relation)
 
-    /**
-     * Returns the size of the view in terms of elements.
-     * This can be a costly operation.
-     * Implementors should cache the value in a self-maintained view, but clients can not rely on this.
-     */
-    def size: Int
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
+    {
+        if (o == relation) {
+            return List (this)
+        }
+        Nil
+    }
 
-    def isDefinedAt[U >: V] (v: U): Boolean = contains (v)
+    def lazyInitialize ()
+    {
+        relation.foreach (
+            v => add_element (v)
+        )
+    }
 
 
-    /**
-     * Returns the concrete element in this relation, with the most specific type
--    */
-    //def elementAt[T >: V](v: T): V
+    def updated (oldV: V, newV: V)
+    {
+        this -= oldV
+        this += newV
+    }
+
+    def removed (v: V)
+    {
+        this -= v
+    }
+
+    def added (v: V)
+    {
+        this += v
+    }
 
 }

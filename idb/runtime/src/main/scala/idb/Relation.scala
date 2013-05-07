@@ -33,6 +33,7 @@
 package idb
 
 import idb.observer.Observable
+import idb.collections.impl.{MaterializedBag, MaterializedSet}
 
 
 /**
@@ -96,17 +97,14 @@ trait Relation[+V]
     def asMaterialized: MaterializedView[V] = materializedRelation
 
 
-    protected lazy val materializedRelation = {
-        null
-        /*
+    protected lazy val materializedRelation: MaterializedView[V] = {
         if (isSet) {
-            new SetResult[V](this)
+            new MaterializedSet[V](this)
         }
         else
         {
-            new BagResult[V](this)
+            new MaterializedBag[V](this)
         }
-        */
     }
 
 

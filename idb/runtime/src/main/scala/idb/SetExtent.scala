@@ -44,3 +44,10 @@ class SetExtent[V]
      */
     def isSet: Boolean = true
 }
+
+object SetExtent
+{
+    def apply[V] () = new SetExtent[V]()
+
+    def empty[V] () = new SetExtent[V]()
+}
