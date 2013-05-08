@@ -42,17 +42,18 @@ import idb.syntax.iql.impl.{SelectClauseNoProjection, SelectClause1, SelectClaus
 object SELECT
 {
 
-    def apply[Domain, Range] (projection: Domain => Range): SELECT_CLAUSE_1[Domain, Range] =
+    def apply[Domain, Range] (projection: Exp[Domain => Range]): SELECT_CLAUSE_1[Domain, Range] =
         SelectClause1 (projection)
 
-    def apply[DomainA, DomainB, Range] (projection: (DomainA, DomainB) => Range
+    def apply[DomainA, DomainB, Range] (projection: Exp[(DomainA, DomainB) => Range]
                                        ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 
-    def apply[DomainA, DomainB, RangeA, RangeB] (projectionA: DomainA => RangeA,
-                                                 projectionB: DomainB => RangeB
+    def apply[DomainA, DomainB, RangeA, RangeB] (projectionA: Exp[DomainA => RangeA],
+                                                 projectionB: Exp[DomainB => RangeB]
                                                 ): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
-        SelectClause2 ((a: DomainA, b: DomainB) => (projectionA (a), projectionB (b)))
+        throw new UnsupportedOperationException()
+        //SelectClause2 (fun ((a: Exp[DomainA], b: Exp[DomainB]) => (projectionA (a), projectionB (b))))
 
     def apply (x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
         SelectClauseNoProjection

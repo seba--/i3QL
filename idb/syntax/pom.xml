@@ -15,13 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>virtualization-lms-core</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>de.tud.cs.st.idb</groupId>
-            <artifactId>runtime</artifactId>
+            <artifactId>runtime-compiler</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>

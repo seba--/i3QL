@@ -1,7 +1,6 @@
 package idb.syntax.iql.impl
 
-import idb.Relation
-import idb.syntax.iql.{WHERE_CLAUSE_1, FROM_CLAUSE_1}
+import idb.syntax.iql._
 
 /**
  *
@@ -12,11 +11,11 @@ import idb.syntax.iql.{WHERE_CLAUSE_1, FROM_CLAUSE_1}
  * The syntax representation of a from clause for one relation.
  *
  */
-case class FromClause1[Domain, Range] (relation: Relation[Domain],
+case class FromClause1[Domain, Range] (relation: Rep[Relation[Domain]],
                                        selectClause: SelectClause1[Domain, Range]
                                       )
     extends FROM_CLAUSE_1[Domain, Range]
 {
     def WHERE (predicate: (Domain) => Boolean): WHERE_CLAUSE_1[Domain, Range] =
-        throw new UnsupportedOperationException()
+        throw new UnsupportedOperationException ()
 }

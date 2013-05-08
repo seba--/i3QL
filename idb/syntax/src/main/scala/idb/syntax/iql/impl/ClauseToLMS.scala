@@ -33,16 +33,25 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql._
+import idb.syntax.iql.impl._
 
 /**
  *
  * @author Ralf Mitschke
  */
-case class SelectClause1[-Select, Range] (projection: Exp[Select => Range])
-    extends SELECT_CLAUSE_1[Select, Range]
+object ClauseToLMS
 {
+    /*
+    def toRep[Range] (clause: SQL_QUERY[Range]): Rep[Relation[Range]] = clause match {
+        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+    }
+    */
 
-    def FROM[Domain <: Select] (relation: Rep[Relation[Domain]]) =
-        FromClause1[Domain, Range](relation, this)
+    /*
+    type CompiledRelation[Domain] = idb.Relation[Domain]
 
+    def apply[Range] (clause: SQL_QUERY[Range]): Rep[Relation[Range]] = clause match {
+        case FromClause1 (relation, SelectClause1 (project)) => projection (baseRelation(relation), project)
+    }
+    */
 }

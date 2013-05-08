@@ -32,13 +32,37 @@
  */
 package idb.syntax
 
+import scala.virtualization.lms.common.ScalaOpsPkgExp
+import idb.syntax.iql.impl.{SelectClause1, FromClause1}
+import idb.iql.compiler.lms.RelationalAlgebraIROpt
+
 
 /**
+ *
+ *
+ * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
+ * functions.
+ * Importing the package automatically brings Rep and Exp into Scope.
+ * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Exp[A=>B].
+ * Actually, using Rep[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
  *
  * @author Ralf Mitschke
  */
 package object iql
+    extends ScalaOpsPkgExp
+    with RelationalAlgebraIROpt
 {
+
+    //trait Representation extends
+
     val * : STAR_KEYWORD = impl.StarKeyword
+
+    //protected[iql] def clausesToOperators[Range] (clauses: SQL_QUERY[Range])  =
+
+    type CompiledRelation[Domain] = idb.Relation[Domain]
+
+    def toRep[Range] (clause: SQL_QUERY[Range]): Rep[Relation[Range]] = clause match {
+        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+    }
 
 }

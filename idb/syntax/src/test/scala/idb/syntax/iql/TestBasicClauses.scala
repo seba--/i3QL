@@ -46,7 +46,15 @@ class TestBasicClauses
     import idb.syntax.iql._
 
     @Test
-    def testSelectStarFrom () {
+    def testSelectStarFromStudents () {
+        val students: Extent[Student] = BagExtent.empty
+        val query = SELECT (*) FROM students
+
+
+    }
+
+    @Test
+    def testSelectFirstNameFromStudents () {
         val students: Extent[Student] = BagExtent.empty
         val query = SELECT (*) FROM students
     }

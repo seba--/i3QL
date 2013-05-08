@@ -32,8 +32,7 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.{FROM_CLAUSE_1, FROM_CLAUSE_2, SELECT_CLAUSE_NO_PROJECTION}
-import idb.Relation
+import idb.syntax.iql._
 
 /**
  *
@@ -42,12 +41,13 @@ import idb.Relation
 case object SelectClauseNoProjection
     extends SELECT_CLAUSE_NO_PROJECTION
 {
-    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Domain] =
-        FromClause1 (relation, SelectClause1 ((x: Domain) => x))
+    def FROM[Domain: Manifest] (relation: Rep[Relation[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
+        FromClause1 (relation, SelectClause1 (fun ((x: Exp[Domain]) => x)))
 
 
-    def FROM[DomainA, DomainB] (relationA: Relation[DomainA],
-                                relationB: Relation[DomainB]
+    def FROM[DomainA, DomainB] (relationA: Rep[Relation[DomainA]],
+                                relationB: Rep[Relation[DomainB]]
                                ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
-        FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
+        throw new UnsupportedOperationException ()
+        //FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
 }

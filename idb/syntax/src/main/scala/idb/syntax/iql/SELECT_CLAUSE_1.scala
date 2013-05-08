@@ -32,15 +32,14 @@
  */
 package idb.syntax.iql
 
-import idb.Relation
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-SelectionDomain, Range]
+trait SELECT_CLAUSE_1[-Select, Range]
 {
 
-    def FROM[Domain <: SelectionDomain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Range]
+    def FROM[Domain <: Select] (relation: Rep[Relation[Domain]]): FROM_CLAUSE_1[Domain, Range]
 
 }

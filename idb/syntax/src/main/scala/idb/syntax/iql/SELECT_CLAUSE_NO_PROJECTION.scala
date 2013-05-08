@@ -32,7 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.Relation
 
 /**
  *
@@ -41,7 +40,7 @@ import idb.Relation
 trait SELECT_CLAUSE_NO_PROJECTION
 {
 
-    def FROM[Domain] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Domain]
+    def FROM[Domain:Manifest] (relation: Relation[Domain]): FROM_CLAUSE_1[Domain, Domain]
 
     def FROM[DomainA, DomainB] (relationA: Relation[DomainA],
                                 relationB: Relation[DomainB]
