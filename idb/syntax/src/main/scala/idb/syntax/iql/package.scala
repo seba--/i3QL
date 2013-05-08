@@ -55,17 +55,24 @@ package object iql
     with RelationalAlgebraIROpt
 {
 
-
+    /**
+     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
+     * In the future we might use the underlying types, but currently the compiler issues errors, since it
+     * looks for Base.Rep whereas the concrete iql.Rep is found.
+     */
     type Inc[+T] = Rep[T]
 
+    /**
+     * This type is a re-definition (cf. Inc[+T] above)
+     */
     type Rel[Dom] = Relation[Dom]
 
+    /**
+     * This type binds the compiled relation to the concrete idb Relation type.
+     */
     type CompiledRelation[Domain] = idb.Relation[Domain]
 
     val * : STAR_KEYWORD = impl.StarKeyword
-
-    //protected[iql] def clausesToOperators[Range] (clauses: SQL_QUERY[Range])  =
-
 
     def toInc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Rel[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
