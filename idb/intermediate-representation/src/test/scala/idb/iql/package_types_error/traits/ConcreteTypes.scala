@@ -30,16 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.iql.package_types_error.traits
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+trait ConcreteTypes
+    extends AbstractTypes
 {
 
-    def FROM[Domain <: Select] (relation: Inc[Relation[Domain]]): FROM_CLAUSE_1[Domain, Range]
+    abstract class MyT
 
+    type T = MyT
+
+    case class Wrapped (t: T) extends MyT
+
+    case class Simple[X] (x: X) extends MyT
+
+    def wrapped (t: T) = Wrapped (t)
 }

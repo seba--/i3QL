@@ -30,16 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.iql.package_types_error.typing.impl
 
+import idb.iql.package_types_error.typing._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+//case class MyImpl[X] (t: T[X]) extends Impl
+case class MyImpl (t: FinalT) extends Impl
 {
-
-    def FROM[Domain <: Select] (relation: Inc[Relation[Domain]]): FROM_CLAUSE_1[Domain, Range]
 
 }

@@ -39,8 +39,8 @@ package idb.syntax.iql
 trait SELECT_CLAUSE_2[-SelectA, -SelectB, Range]
 {
 
-    def FROM[DomainA <: SelectA, DomainB <: SelectB] (relationA: Rep[Relation[DomainA]],
-                                                      relationB: Rep[Relation[DomainB]]
+    def FROM[DomainA <: SelectA, DomainB <: SelectB] (relationA: Inc[Relation[DomainA]],
+                                                      relationB: Inc[Relation[DomainB]]
                                                      ): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
 }

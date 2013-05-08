@@ -30,16 +30,14 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
-
+package idb.iql.compiler.lms
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+trait RelationalAlgebraIR
+    extends RelationalAlgebraBasicOperators
 {
-
-    def FROM[Domain <: Select] (relation: Inc[Relation[Domain]]): FROM_CLAUSE_1[Domain, Range]
 
 }

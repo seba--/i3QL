@@ -33,7 +33,6 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql._
-import idb.syntax.iql.impl._
 
 /**
  *
@@ -42,7 +41,7 @@ import idb.syntax.iql.impl._
 object ClauseToLMS
 {
     /*
-    def toRep[Range] (clause: SQL_QUERY[Range]): Rep[Relation[Range]] = clause match {
+    def toInc[Range] (clause: SQL_QUERY[Range]): Inc[Relation[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
     }
     */
@@ -50,7 +49,7 @@ object ClauseToLMS
     /*
     type CompiledRelation[Domain] = idb.Relation[Domain]
 
-    def apply[Range] (clause: SQL_QUERY[Range]): Rep[Relation[Range]] = clause match {
+    def apply[Range] (clause: SQL_QUERY[Range]): Inc[Relation[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (baseRelation(relation), project)
     }
     */

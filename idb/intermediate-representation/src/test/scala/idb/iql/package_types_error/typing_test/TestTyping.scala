@@ -30,16 +30,28 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.iql.package_types_error.typing_test
+
+import idb.iql.package_types_error.typing._
+import idb.iql.package_types_error.typing.impl.MyImpl
+import org.junit.Test
+import org.junit.Assert._
 
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+class TestTyping
 {
 
-    def FROM[Domain <: Select] (relation: Inc[Relation[Domain]]): FROM_CLAUSE_1[Domain, Range]
+    @Test
+    def testMatching () {
+        val s = Simple (1)
+
+        val impl = MyImpl (s)
+        val matched = matching (impl)
+        assertEquals (Wrapped (s), matched)
+    }
 
 }

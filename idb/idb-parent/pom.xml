@@ -114,6 +114,11 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>runtime-compiler</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>schema-examples</artifactId>
                 <version>0.0.1</version>
             </dependency>
