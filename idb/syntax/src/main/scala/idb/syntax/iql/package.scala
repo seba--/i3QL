@@ -58,13 +58,16 @@ package object iql
 
     type Inc[+T] = Rep[T]
 
+    type Rel[Dom] = Relation[Dom]
+
+    type CompiledRelation[Domain] = idb.Relation[Domain]
+
     val * : STAR_KEYWORD = impl.StarKeyword
 
     //protected[iql] def clausesToOperators[Range] (clauses: SQL_QUERY[Range])  =
 
-    type CompiledRelation[Domain] = idb.Relation[Domain]
 
-    def toInc[Range] (clause: SQL_QUERY[Range]): Inc[Relation[Range]] = clause match {
+    def toInc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Rel[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
     }
 

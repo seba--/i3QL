@@ -41,7 +41,7 @@ import idb.syntax.iql._
 case object SelectClauseNoProjection
     extends SELECT_CLAUSE_NO_PROJECTION
 {
-    def FROM[Domain: Manifest] (relation: Inc[Relation[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
+    def FROM[Domain: Manifest] (relation: Inc[Rel[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
         FromClause1 (relation, SelectClause1 (fun ((x: Inc[Domain]) => x)))
 
 

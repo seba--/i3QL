@@ -38,11 +38,11 @@ import idb.syntax.iql._
  *
  * @author Ralf Mitschke
  */
-case class SelectClause1[-Select, Range] (projection: Inc[Select => Range])
+case class SelectClause1[-Select: Manifest, Range: Manifest] (projection: Inc[Select => Range])
     extends SELECT_CLAUSE_1[Select, Range]
 {
 
-    def FROM[Domain <: Select] (relation: Inc[Relation[Domain]]) =
+    def FROM[Domain <: Select : Manifest] (relation: Inc[Rel[Domain]]) =
         FromClause1[Domain, Range](relation, this)
 
 }
