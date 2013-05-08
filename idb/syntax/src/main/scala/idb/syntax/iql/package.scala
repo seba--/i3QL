@@ -36,6 +36,7 @@ import scala.virtualization.lms.common.ScalaOpsPkgExp
 import idb.syntax.iql.impl.{SelectClause1, FromClause1}
 import idb.iql.compiler.lms.RelationalAlgebraIROpt
 import idb.iql.lms.extensions.ScalaOpsExpOptExtensions
+import idb.Extent
 
 
 /**
@@ -73,6 +74,9 @@ package object iql
     type CompiledRelation[Domain] = idb.Relation[Domain]
 
     val * : STAR_KEYWORD = impl.StarKeyword
+
+    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
+        baseRelation(extent)
 
     def toInc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Rel[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
