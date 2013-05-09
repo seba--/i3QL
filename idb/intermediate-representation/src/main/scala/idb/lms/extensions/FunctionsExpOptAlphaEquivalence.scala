@@ -56,7 +56,7 @@ trait FunctionsExpOptAlphaEquivalence
                 case Lambda (f2, x2, y2) =>
                     reifyEffects (f2 (
                         x)) == y // reify other lambda to the variable bound in this lambda,
-                        // and compare the resulting body with this body
+                // and compare the resulting body with this body
                 case _ =>
                     false
             }

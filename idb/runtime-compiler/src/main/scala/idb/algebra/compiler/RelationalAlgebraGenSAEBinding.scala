@@ -39,6 +39,6 @@ package idb.algebra.compiler
 trait RelationalAlgebraGenSAEBinding
 {
 
-  type CompiledRelation[Domain] = idb.Relation[Domain]
+    type CompiledRelation[Domain] = idb.Relation[Domain]
 
 }

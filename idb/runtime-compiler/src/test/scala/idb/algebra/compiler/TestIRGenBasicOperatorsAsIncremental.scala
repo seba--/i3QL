@@ -38,7 +38,6 @@ import scala.virtualization.lms.common._
 import idb.schema.university.{Student, University}
 import idb.SetExtent
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBasicOperatorsAsIncremental}
 
 /**
  *

@@ -76,7 +76,7 @@ package object iql
     val * : STAR_KEYWORD = impl.StarKeyword
 
     implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
+        baseRelation (extent)
 
     implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)

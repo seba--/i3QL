@@ -56,15 +56,18 @@ trait RelationalAlgebraIRBase
 
     abstract class AbstractRelation[Domain: Manifest]
 
-    //def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =ManifestFactory.classType (classOf[AbstractRelation[Domain]], manifest[Domain])
+    //def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =ManifestFactory.classType
+    // (classOf[AbstractRelation[Domain]], manifest[Domain])
 
 
-    case class BaseRelation[Domain](relImpl: CompiledRelation[Domain])
-                                   (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
+    case class BaseRelation[Domain] (relImpl: CompiledRelation[Domain])
+                                    (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
         extends Exp[Rel[Domain]]
 
-    def baseRelation[Domain](relImpl: CompiledRelation[Domain])
-                            (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]]): Rep[Rel[Domain]] =
+    def baseRelation[Domain] (relImpl: CompiledRelation[Domain])
+                             (implicit mDom: Manifest[Domain],
+                              mRel: Manifest[CompiledRelation[Domain]]
+                             ): Rep[Rel[Domain]] =
         BaseRelation (relImpl)
 
 }

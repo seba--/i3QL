@@ -45,7 +45,7 @@ class TestBasicClauses
 {
 
     @Test
-    def testSelectStarFromStudents() {
+    def testSelectStarFromStudents () {
         val students: Extent[Student] = BagExtent.empty
         val query = inc (SELECT (*) FROM students)
 
@@ -53,7 +53,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testSelectFirstNameFromStudents() {
+    def testSelectFirstNameFromStudents () {
         val students: Extent[Student] = BagExtent.empty
         val query = inc (SELECT (*) FROM students)
 

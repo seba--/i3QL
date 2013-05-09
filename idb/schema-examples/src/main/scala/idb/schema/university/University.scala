@@ -12,7 +12,7 @@ trait University
 
     def Student (firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
         struct[Student](
-            ClassTag[Student] ("Student"),
+            ClassTag[Student]("Student"),
             Map ("firstName" -> firstName, "lastName" -> lastName)
         )
 

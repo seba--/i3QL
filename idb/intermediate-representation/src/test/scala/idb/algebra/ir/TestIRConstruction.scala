@@ -50,7 +50,7 @@ class TestIRConstruction
     with TestUtils
 {
     @Test
-    def testSelection() {
+    def testSelection () {
         val f = fun ((x: Rep[Int]) => x > 0)
         val exp = selection (emptyRelation[Int](), f)
         val s = syms (exp)(0)
@@ -67,7 +67,7 @@ class TestIRConstruction
 
 
     @Test
-    def testCommonSubExpressionWithSelection() {
+    def testCommonSubExpressionWithSelection () {
         val f = fun ((x: Rep[Int]) => x > 0)
         val exp1 = selection (emptyRelation[Int](), f)
         val exp2 = selection (emptyRelation[Int](), f)

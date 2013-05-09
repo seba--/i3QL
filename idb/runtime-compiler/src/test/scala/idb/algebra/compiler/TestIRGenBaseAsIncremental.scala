@@ -36,7 +36,6 @@ import org.junit.Test
 import org.junit.Assert._
 import idb.SetExtent
 import idb.algebra.ir.RelationalAlgebraIRBase
-import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBaseAsIncremental}
 
 /**
  *
@@ -51,8 +50,7 @@ class TestIRGenBaseAsIncremental
     val IR = new RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
 
     @Test
-    def testConstructBaseRelation ()
-    {
+    def testConstructBaseRelation () {
         import IR._
         val base = new SetExtent[Int]
         val query = baseRelation (base)
