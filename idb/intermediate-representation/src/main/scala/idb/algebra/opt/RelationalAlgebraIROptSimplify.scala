@@ -48,9 +48,10 @@ trait RelationalAlgebraIROptSimplify
     /**
      * Remove projection that use the identity function
      */
-    override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Rel[Domain]],
-                                                                function: Rep[Domain => Range]
-                                                               ): Rep[Rel[Range]] = {
+    override def projection[Domain: Manifest, Range: Manifest] (
+        relation: Rep[Rel[Domain]],
+        function: Rep[Domain => Range]
+    ): Rep[Rel[Range]] = {
         function match {
             // TODO manifests are not the same (Range == Any) why?
             case Def (Lambda (_, param, body)) if (body == Block (param)) => relation.asInstanceOf[Rep[Rel[Range]]]

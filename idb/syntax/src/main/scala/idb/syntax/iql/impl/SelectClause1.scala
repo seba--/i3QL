@@ -38,7 +38,9 @@ import idb.syntax.iql._
  *
  * @author Ralf Mitschke
  */
-case class SelectClause1[-Select: Manifest, Range: Manifest] (projection: Inc[Select => Range])
+case class SelectClause1[-Select: Manifest, Range: Manifest] (
+    projection: Inc[Select => Range]
+)
     extends SELECT_CLAUSE_1[Select, Range]
 {
 

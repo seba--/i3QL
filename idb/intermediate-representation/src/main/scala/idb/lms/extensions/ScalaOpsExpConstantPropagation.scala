@@ -59,7 +59,7 @@ trait ScalaOpsExpConstantPropagation
 
 
     override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
-                                                     (implicit pos: SourceContext): Exp[T] =
+            (implicit pos: SourceContext): Exp[T] =
         (lhs, rhs) match {
             // e.g.,  (a + 1) + 2 := a + 3
             case (Def (NumericPlus (x, Const (v1))), Const (v2)) =>

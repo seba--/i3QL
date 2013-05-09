@@ -81,9 +81,10 @@ class TestVariances
         }
         o1.addObserver (new Observer[Student]
         {
-            def updated (oldV: TestVariances.this.type#Student,
-                         newV: TestVariances.this.type#Student
-                        ) {}
+            def updated (
+                oldV: TestVariances.this.type#Student,
+                newV: TestVariances.this.type#Student
+            ) {}
 
             def removed (v: TestVariances.this.type#Student) {}
 

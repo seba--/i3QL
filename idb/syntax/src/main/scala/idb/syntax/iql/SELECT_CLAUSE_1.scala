@@ -40,6 +40,8 @@ package idb.syntax.iql
 trait SELECT_CLAUSE_1[-Select, Range]
 {
 
-    def FROM[Domain <: Select : Manifest] (relation: Inc[Query[Domain]]): FROM_CLAUSE_1[Domain, Range]
+    def FROM[Domain <: Select : Manifest] (
+        relation: Inc[Query[Domain]]
+    ): FROM_CLAUSE_1[Domain, Range]
 
 }

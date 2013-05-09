@@ -33,7 +33,6 @@
 package idb.syntax
 
 import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.Extent
 import idb.algebra.opt.RelationalAlgebraIROpt
@@ -78,8 +77,21 @@ package object iql
     implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
         baseRelation (extent)
 
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] =
+        ClauseToAlgebra (clause)
+
+
+    //def funTuple2ToFun1()
+
+    object ClauseToAlgebra
+    {
+
+        import impl._
+
+        def apply[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] =
+            clause match {
+                case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+            }
     }
 
 }

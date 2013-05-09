@@ -75,4 +75,16 @@ class TestAlphaEquivalence
         )
     }
 
+    @Test
+    def testSandbox () {
+        def f1 (t: Rep[Unit]): Rep[Int] = {
+            val x: Rep[Int] = 1
+            x
+        }
+
+        val r1 = fun (f1)
+
+        Predef.println (r1)
+    }
+
 }

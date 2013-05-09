@@ -42,17 +42,26 @@ import idb.syntax.iql.impl.{SelectClauseNoProjection, SelectClause1, SelectClaus
 object SELECT
 {
 
-    def apply[Domain: Manifest, Range: Manifest] (projection: Inc[Domain => Range]): SELECT_CLAUSE_1[Domain, Range] =
+    def apply[Domain: Manifest, Range: Manifest] (
+        projection: Inc[Domain => Range]
+    ): SELECT_CLAUSE_1[Domain, Range] =
         SelectClause1 (projection)
 
-    def apply[DomainA, DomainB, Range] (projection: Inc[(DomainA, DomainB) => Range]
-                                       ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        projection: Inc[(DomainA, DomainB) => Range]
+    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 
-    def apply[DomainA, DomainB, RangeA, RangeB] (projectionA: Inc[DomainA => RangeA],
-                                                 projectionB: Inc[DomainB => RangeB]
-                                                ): SELECT_CLAUSE_2[DomainA, DomainB, (RangeA, RangeB)] =
-        throw new UnsupportedOperationException ()
+    /*
+    def apply[DomainA: Manifest, DomainB: Manifest, RangeA: Manifest, RangeB: Manifest] (
+        projectionA: Inc[DomainA => RangeA],
+        projectionB: Inc[DomainB => RangeB]
+    ): SELECT_CLAUSE_2[DomainA,
+        DomainB, (RangeA, RangeB)] =
+        SelectClause2 (
+            (a: Inc[DomainA], b: Inc[DomainB]) => (doApply (projectionA, a), doApply (projectionB, b))
+        )
+    */
 
     //SelectClause2 (fun ((a: Inc[DomainA], b: Inc[DomainB]) => (projectionA (a), projectionB (b))))
 

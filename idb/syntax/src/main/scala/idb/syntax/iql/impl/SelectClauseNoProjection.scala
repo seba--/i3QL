@@ -45,9 +45,10 @@ case object SelectClauseNoProjection
         FromClause1 (relation, SelectClause1 (fun ((x: Inc[Domain]) => x)))
 
 
-    def FROM[DomainA, DomainB] (relationA: Inc[Query[DomainA]],
-                                relationB: Inc[Query[DomainB]]
-                               ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
+    def FROM[DomainA, DomainB] (
+        relationA: Inc[Query[DomainA]],
+        relationB: Inc[Query[DomainB]]
+    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
         throw new UnsupportedOperationException ()
 
     //FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))

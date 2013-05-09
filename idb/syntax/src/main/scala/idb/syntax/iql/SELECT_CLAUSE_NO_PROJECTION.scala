@@ -42,7 +42,8 @@ trait SELECT_CLAUSE_NO_PROJECTION
 
     def FROM[Domain: Manifest] (relation: Inc[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain]
 
-    def FROM[DomainA, DomainB] (relationA: Inc[Query[DomainA]],
-                                relationB: Inc[Query[DomainB]]
-                               ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+    def FROM[DomainA, DomainB] (
+        relationA: Inc[Query[DomainA]],
+        relationB: Inc[Query[DomainB]]
+    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }

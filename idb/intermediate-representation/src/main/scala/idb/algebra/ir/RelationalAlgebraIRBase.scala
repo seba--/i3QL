@@ -61,13 +61,14 @@ trait RelationalAlgebraIRBase
 
 
     case class BaseRelation[Domain] (relImpl: CompiledRelation[Domain])
-                                    (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
+            (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
         extends Exp[Rel[Domain]]
 
     def baseRelation[Domain] (relImpl: CompiledRelation[Domain])
-                             (implicit mDom: Manifest[Domain],
-                              mRel: Manifest[CompiledRelation[Domain]]
-                             ): Rep[Rel[Domain]] =
+            (
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[CompiledRelation[Domain]]
+    ): Rep[Rel[Domain]] =
         BaseRelation (relImpl)
 
 }
