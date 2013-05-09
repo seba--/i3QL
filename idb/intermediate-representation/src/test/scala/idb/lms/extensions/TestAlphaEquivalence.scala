@@ -30,56 +30,49 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.lms.extensions
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Test
 
 /**
  *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
- *
  * @author Ralf Mitschke
  */
-package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+class TestAlphaEquivalence
+    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with LMSTestUtils
 {
 
-    /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
-     */
-    type Inc[+T] = Rep[T]
+    @Test
+    def testSameMethodBody () {
+        assertSameReified (
+            (x: Rep[Int]) => x + 1,
+            (y: Rep[Int]) => y + 1
+        )
+    }
 
-    /**
-     * This type is a re-definition (cf. Inc[+T] above)
-     */
-    type Query[Dom] = Rel[Dom]
+    @Test
+    def testConstantFolding () {
+        assertSameReified (
+            (x: Rep[Int]) => x + 1 + 1,
+            (y: Rep[Int]) => y + 2
+        )
+    }
 
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
+    @Test
+    def testMethodConcatenation () {
+        def f1 (x: Rep[Int]) = x + 1
+        def f2 (x: Rep[Int]) = x + 2
 
-    val * : STAR_KEYWORD = impl.StarKeyword
+        assertSameReified (
+            (x: Rep[Int]) => f1 (f2 (x)),
+            (y: Rep[Int]) => y + 3
+        )
 
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
-
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+        assertSameReified (
+            (x: Rep[Int]) => f2 (f1 (x)),
+            (y: Rep[Int]) => y + 3
+        )
     }
 
 }

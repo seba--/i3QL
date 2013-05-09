@@ -30,56 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.algebra.compiler
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import org.junit.Test
+import org.junit.Assert._
+import idb.SetExtent
+import idb.algebra.ir.RelationalAlgebraIRBase
+import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBaseAsIncremental}
 
 /**
  *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
- *
  * @author Ralf Mitschke
+ *
  */
-package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+
+class TestIRGenBaseAsIncremental
+    extends RelationalAlgebraGenBaseAsIncremental
 {
 
-    /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
-     */
-    type Inc[+T] = Rep[T]
+    val IR = new RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
 
-    /**
-     * This type is a re-definition (cf. Inc[+T] above)
-     */
-    type Query[Dom] = Rel[Dom]
+    @Test
+    def testConstructBaseRelation ()
+    {
+        import IR._
+        val base = new SetExtent[Int]
+        val query = baseRelation (base)
+        val result = compile (query)
 
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
-
-    val * : STAR_KEYWORD = impl.StarKeyword
-
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
-
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+        assertEquals (base, result)
     }
+
+    //  trait Prog extends Base with RelationalAlgebraIRBasicOperators with EffectExp {
+    //    def f[Dom](v: Rep[Relation[Dom]]): Rep[Relation[Dom]] = v
+    //
+    //    def compile[Dom](e: Rep[Relation[Dom]])( rel: Rep[BagExtent[Dom]]): Rep[idb.Relation[Dom]] =
+    //      e match {
+    //      case Def(BaseRelation()) => rel
+    //      case Def(Selection(selectE, f)) => new idb.operators.impl.SelectionView(compile(selectE)( rel), f)
+    //    }
+    //  }
+    //
+    //
+    //  @Test
+    //  def testBase ()
+    //  {
+    //    //val rel = new BagExtent[Int]
+    //
+    //    val prog = new Prog {}
+    //    val exp = prog.select(prog.baseRelation(), (x:prog.Rep[_]) => true)
+    //    val codegen = new ScalaGenEffect with RelationalAlgebraScalaGen { val IR: prog.type = prog }
+    //    codegen.emitSource(prog.compile(exp), "F", new java.io.PrintWriter(System.out))
+    //
+    //  }
+
 
 }

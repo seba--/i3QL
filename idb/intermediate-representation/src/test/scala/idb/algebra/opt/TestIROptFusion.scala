@@ -30,56 +30,82 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.algebra.opt
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
+import org.junit.Test
+import org.junit.Assert._
+import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import idb.algebra.TestUtils
 
 /**
  *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
- *
  * @author Ralf Mitschke
+ *
  */
-package object iql
-    extends ScalaOpsPkgExp
+class TestIROptFusion
+    extends LiftAll
     with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+    with ScalaOpsPkgExp
+    with RelationalAlgebraIROptFusion
+    with TestUtils
 {
 
-    /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
-     */
-    type Inc[+T] = Rep[T]
+    // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
+    assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
 
-    /**
-     * This type is a re-definition (cf. Inc[+T] above)
-     */
-    type Query[Dom] = Rel[Dom]
+    @Test
+    def testSelectionFusion() {
 
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
+        val f1 = (x: Rep[Int]) => x > 0
+        val f2 = (x: Rep[Int]) => x < 1000
+        val expA = selection (selection (emptyRelation[Int](), f1), f2)
 
-    val * : STAR_KEYWORD = impl.StarKeyword
+        val f3 = (x: Rep[Int]) => (x > 0) && (x < 1000)
 
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
+        val expB = selection (emptyRelation[Int](), f3)
 
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+        assertEquals (expB, expA)
     }
 
+
+    @Test
+    def testSelectionFusionTyping() {
+        trait A
+
+        def infix_isA(x: Rep[A]): Rep[Boolean] = true
+
+        trait B
+
+        def infix_isB(x: Rep[B]): Rep[Boolean] = true
+
+        class Impl extends A with B
+
+        val base = emptyRelation[Impl]()
+
+        val f1 = (x: Rep[A]) => x.isA
+
+        val f2 = (x: Rep[B]) => x.isB
+
+        val expA = selection (selection (base, f1), f2)
+
+        val f3 = (x: Rep[Impl]) => x.isA && x.isB
+
+        val expB = selection (base, f3)
+        assertEquals (expB, expA)
+    }
+
+    @Test
+    def testProjectionFusion() {
+
+        val f1 = (x: Rep[Int]) => x + 1
+        val f2 = (x: Rep[Int]) => x + 2
+        val expA = projection (projection (emptyRelation[Int](), f1), f2)
+
+        val f3 = (x: Rep[Int]) => x + 3
+
+        val expB = projection (emptyRelation[Int](), f3)
+
+        assertEquals (expB, expA)
+    }
 }

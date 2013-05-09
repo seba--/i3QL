@@ -30,56 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.lms.extensions
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import scala.virtualization.lms.common.NumericOpsExpOpt
+import scala.reflect.SourceContext
 
 /**
  *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
- *
  * @author Ralf Mitschke
  */
-package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+trait ScalaOpsExpNormalization
+    extends NumericOpsExpOpt
 {
-
-    /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
-     */
-    type Inc[+T] = Rep[T]
-
-    /**
-     * This type is a re-definition (cf. Inc[+T] above)
-     */
-    type Query[Dom] = Rel[Dom]
-
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
-
-    val * : STAR_KEYWORD = impl.StarKeyword
-
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
-
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
-    }
-
+    override def numeric_plus[T: Numeric : Manifest] (lhs: Exp[T], rhs: Exp[T])
+                                                     (implicit pos: SourceContext): Exp[T] =
+        (lhs, rhs) match {
+            // normalization a + (b + c) = b + c + a
+            case (e1, Def (NumericPlus (e2, e3))) => numeric_plus (numeric_plus (e1, e2), e3)
+            // super optimizations
+            case _ => super.numeric_plus (lhs, rhs)
+        }
 }

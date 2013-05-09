@@ -30,56 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.lms.extensions
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import scala.virtualization.lms.common.FunctionsExp
 
 /**
- *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
+ * Perform alpha reduction on lambda abstractions.
  *
  * @author Ralf Mitschke
+ * @author Sebastian Erdweg
  */
-package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+trait FunctionsExpOptAlphaEquivalence
+    extends FunctionsExp
 {
 
-    /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
-     */
-    type Inc[+T] = Rep[T]
+    class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
+        extends Lambda[A, B](f, x, y)
+    {
 
-    /**
-     * This type is a re-definition (cf. Inc[+T] above)
-     */
-    type Query[Dom] = Rel[Dom]
+        override def equals (o: Any): Boolean = {
+            if (!o.isInstanceOf[Lambda[A, B]])
+                return false
 
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
+            o.asInstanceOf[Lambda[A, B]] match {
+                case Lambda (f2, x2, y2) =>
+                    reifyEffects (f2 (
+                        x)) == y // reify other lambda to the variable bound in this lambda,
+                        // and compare the resulting body with this body
+                case _ =>
+                    false
+            }
+        }
 
-    val * : STAR_KEYWORD = impl.StarKeyword
-
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
-
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+        // TODO define proper hashCode independent of bound variable name
+        //   override def hashCode: Int = {
+        //     return 0
+        //   }
     }
+
+    object LambdaAlpha
+    {
+        def apply[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B]) = new LambdaAlpha (f, x, y)
+    }
+
+    /**
+     *
+     * @return a lambda representation using alpha equivalence as equals test
+     */
+    override def doLambdaDef[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B]): Def[A => B] = {
+        val x = unboxedFresh[A]
+        val y = reifyEffects (f (x)) // unfold completely at the definition site.
+
+        LambdaAlpha (f, x, y)
+    }
+
 
 }

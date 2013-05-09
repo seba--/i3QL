@@ -30,56 +30,49 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax
+package idb.algebra.opt
 
-import scala.virtualization.lms.common.ScalaOpsPkgExp
-import idb.syntax.iql.impl.{SelectClause1, FromClause1}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.Extent
-import idb.algebra.opt.RelationalAlgebraIROpt
-
+import scala.virtualization.lms.common._
+import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 
 /**
  *
- *
- * Thi package object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the package automatically brings Rep and Exp into Scope.
- * For some reason the concrete implementations (cf. package impl) require using functions explicitly as Inc[A=>B].
- * Actually, using Inc[A=>B] should be equivalent since the Rep is bound to Exp here (in the iql package object).
- *
  * @author Ralf Mitschke
+ *
  */
-package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
+trait RelationalAlgebraIROptFusion
+    extends RelationalAlgebraIRBasicOperators
+    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
     /**
-     * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
-     * In the future we might use the underlying types, but currently the compiler issues errors, since it
-     * looks for Base.Rep whereas the concrete iql.Rep is found.
+     * Fusion of projection operations
      */
-    type Inc[+T] = Rep[T]
+    override def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Rel[Domain]],
+                                                                function: Rep[Domain => Range]
+                                                               ): Rep[Rel[Range]] =
+        relation match {
+            case Def (Projection (r, f)) =>
+                projection (r, (x: Rep[_]) => function (f (x)))
+            case _ =>
+                super.projection (relation, function)
+        }
+
 
     /**
-     * This type is a re-definition (cf. Inc[+T] above)
+     * Fusion of selection operations
      */
-    type Query[Dom] = Rel[Dom]
+    // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
+    override def selection[Domain: Manifest] (relation: Rep[Rel[Domain]],
+                                              function: Rep[Domain => Boolean]
+                                             ): Rep[Rel[Domain]] =
+        relation match {
+            case Def (Selection (r, f)) if (f.tp == function.tp) => {
+                val g = f.asInstanceOf[Rep[Domain => Boolean]]
+                selection (r, (x: Rep[Domain]) => g (x) && function (x))
 
-    /**
-     * This type binds the compiled relation to the concrete idb Relation type.
-     */
-    type CompiledRelation[Domain] = idb.Relation[Domain]
-
-    val * : STAR_KEYWORD = impl.StarKeyword
-
-    implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation(extent)
-
-    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
-        case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
-    }
-
+            }
+            case _ =>
+                super.selection (relation, function)
+        }
 }
