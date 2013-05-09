@@ -43,12 +43,12 @@ trait RelationalAlgebraBasicOperators
 {
 
 
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Rel[Domain]],
                                                        function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]]
+                                                      ): Rep[Rel[Range]]
 
 
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+    def selection[Domain: Manifest] (relation: Rep[Rel[Domain]],
                                      function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]]
+                                    ): Rep[Rel[Domain]]
 }

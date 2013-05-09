@@ -48,9 +48,9 @@ trait RelationalAlgebraIROptPushSelect
      * Pushing selection down over other operations
      */
     override def selection[Domain: Manifest] (
-                                                 relation: Rep[Relation[Domain]],
+                                                 relation: Rep[Rel[Domain]],
                                                  selectionFunction: Rep[Domain => Boolean]
-                                             ): Rep[Relation[Domain]] = {
+                                             ): Rep[Rel[Domain]] = {
         relation match {
             case Def (Projection (r, projectionFunction)) => {
                 val pushedFunction = (x: Rep[_]) => selectionFunction (projectionFunction (x))

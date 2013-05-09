@@ -66,7 +66,7 @@ package object iql
     /**
      * This type is a re-definition (cf. Inc[+T] above)
      */
-    type Rel[Dom] = Relation[Dom]
+    type Query[Dom] = Rel[Dom]
 
     /**
      * This type binds the compiled relation to the concrete idb Relation type.
@@ -78,7 +78,7 @@ package object iql
     implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
         baseRelation(extent)
 
-    def toInc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Rel[Range]] = clause match {
+    implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] = clause match {
         case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
     }
 

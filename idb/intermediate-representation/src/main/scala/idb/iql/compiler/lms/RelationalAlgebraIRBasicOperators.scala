@@ -42,24 +42,24 @@ trait RelationalAlgebraIRBasicOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
 {
 
-    case class Projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+    case class Projection[Domain: Manifest, Range: Manifest] (relation: Rep[Rel[Domain]],
                                                               function: Rep[Domain => Range]
                                                              )
-        extends Def[Relation[Range]]
+        extends Def[Rel[Range]]
 
-    case class Selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+    case class Selection[Domain: Manifest] (relation: Rep[Rel[Domain]],
                                             function: Rep[Domain => Boolean]
                                            )
-        extends Def[Relation[Domain]]
+        extends Def[Rel[Domain]]
 
-    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Relation[Domain]],
+    def projection[Domain: Manifest, Range: Manifest] (relation: Rep[Rel[Domain]],
                                                        function: Rep[Domain => Range]
-                                                      ): Rep[Relation[Range]] =
+                                                      ): Rep[Rel[Range]] =
         Projection (relation, function)
 
-    def selection[Domain: Manifest] (relation: Rep[Relation[Domain]],
+    def selection[Domain: Manifest] (relation: Rep[Rel[Domain]],
                                      function: Rep[Domain => Boolean]
-                                    ): Rep[Relation[Domain]] =
+                                    ): Rep[Rel[Domain]] =
         Selection (relation, function)
 
 }

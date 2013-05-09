@@ -42,7 +42,7 @@ case class SelectClause1[-Select: Manifest, Range: Manifest] (projection: Inc[Se
     extends SELECT_CLAUSE_1[Select, Range]
 {
 
-    def FROM[Domain <: Select : Manifest] (relation: Inc[Rel[Domain]]) =
+    def FROM[Domain <: Select : Manifest] (relation: Inc[Query[Domain]]) =
         FromClause1[Domain, Range](relation, this)
 
 }

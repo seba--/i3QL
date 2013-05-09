@@ -42,7 +42,7 @@ import scala.virtualization.lms.common.Base
 trait RelationalAlgebraBase
     extends Base
 {
-    type Relation[Domain]
+    type Rel[Domain]
 
     //implicit def relationManifest[Domain: Manifest]: Manifest[Relation[Domain]]
 }
