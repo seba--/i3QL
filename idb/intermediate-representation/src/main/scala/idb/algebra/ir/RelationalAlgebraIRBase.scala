@@ -32,6 +32,7 @@
  */
 package idb.algebra.ir
 
+import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import idb.algebra.base.RelationalAlgebraBase
 

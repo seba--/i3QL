@@ -41,7 +41,7 @@ import idb.syntax.iql._
  * Time: 20:08
  *
  */
-case class FromClause2[DomainA, DomainB, Range] (
+case class FromClause2[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
     relationA: Inc[Query[DomainA]],
     relationB: Inc[Query[DomainB]],
     selectClause: SelectClause2[DomainA, DomainB, Range]

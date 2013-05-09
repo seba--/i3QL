@@ -32,6 +32,7 @@
  */
 package idb.algebra.compiler
 
+import scala.language.reflectiveCalls
 import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._

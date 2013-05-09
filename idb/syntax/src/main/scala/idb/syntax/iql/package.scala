@@ -32,6 +32,7 @@
  */
 package idb.syntax
 
+import scala.language.implicitConversions
 import scala.virtualization.lms.common.ScalaOpsPkgExp
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.Extent

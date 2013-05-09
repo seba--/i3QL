@@ -32,7 +32,9 @@
  */
 package idb.algebra.base
 
+import scala.language.higherKinds
 import scala.virtualization.lms.common.Base
+
 
 /**
  *

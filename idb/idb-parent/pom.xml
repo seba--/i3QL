@@ -13,10 +13,10 @@
     <inceptionYear>2013</inceptionYear>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scala.version>2.10.1</scala.version>
         <scala.version.virtualized>${scala.version}-virtualized</scala.version.virtualized>
     </properties>
-
 
     <build>
         <plugins>
@@ -47,6 +47,7 @@
                     <args>
                         <arg>-Yvirtualize</arg>
                         <arg>-P:continuations:enable</arg>
+                        <arg>-deprecation</arg>
                     </args>
                     <displayCmd>true</displayCmd>
                     <dependencies>

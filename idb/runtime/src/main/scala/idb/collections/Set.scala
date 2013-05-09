@@ -38,7 +38,7 @@ trait Set[V]
     }
 
     def count[T >: V] (v: T) = {
-        if (v.isInstanceOf[V] && data.contains (v.asInstanceOf[V])) {
+        if (data.contains (v)) {
             1
         }
         else
