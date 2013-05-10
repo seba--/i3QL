@@ -51,10 +51,20 @@ import idb.algebra.opt.RelationalAlgebraIROpt
  * @author Ralf Mitschke
  */
 package object iql
-    extends ScalaOpsPkgExp
-    with ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROpt
 {
+
+    val lifting = new ScalaOpsPkgExp
+        with ScalaOpsExpOptExtensions
+        with RelationalAlgebraIROpt
+    {
+        /**
+         * This type binds the compiled relation to the concrete idb Relation type.
+         */
+        type CompiledRelation[Domain] = idb.Relation[Domain]
+    }
+
+    import lifting.Rep
+    import lifting.Rel
 
     /**
      * This type is a re-definition that was introduced to make the Scala compiler happy (Scala 2.10.1).
@@ -76,7 +86,7 @@ package object iql
     val * : STAR_KEYWORD = impl.StarKeyword
 
     implicit def extentToBaseRelation[Domain: Manifest] (extent: Extent[Domain]) =
-        baseRelation (extent)
+        lifting.baseRelation (extent)
 
     implicit def inc[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] =
         ClauseToAlgebra (clause)
@@ -91,7 +101,7 @@ package object iql
 
         def apply[Range: Manifest] (clause: SQL_QUERY[Range]): Inc[Query[Range]] =
             clause match {
-                case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+                case FromClause1 (relation, SelectClause1 (project)) => lifting.projection (relation, project)
             }
     }
 

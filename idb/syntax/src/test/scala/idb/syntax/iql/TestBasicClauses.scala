@@ -36,6 +36,7 @@ import org.junit.Test
 import org.junit.Assert._
 import idb.{BagExtent, Extent}
 import idb.schema.university.Student
+//import lifting._
 
 /**
  *
@@ -44,12 +45,14 @@ import idb.schema.university.Student
 class TestBasicClauses
 {
 
+
+
     @Test
     def testSelectStarFromStudents () {
         val students: Extent[Student] = BagExtent.empty
         val query = inc (SELECT (*) FROM students)
 
-        assertEquals (baseRelation (students), query)
+        assertEquals (lifting.baseRelation (students), query)
     }
 
     @Test
@@ -57,7 +60,7 @@ class TestBasicClauses
         val students: Extent[Student] = BagExtent.empty
         val query = inc (SELECT (*) FROM students)
 
-        assertEquals (baseRelation (students), query)
+        assertEquals (lifting.baseRelation (students), query)
     }
 
 }
