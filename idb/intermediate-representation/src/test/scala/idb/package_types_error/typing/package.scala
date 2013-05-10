@@ -12,10 +12,11 @@ package object typing
     extends ConcreteTypes
 {
 
-    type FinalT = T
+    //type FinalT = T
 
-    def matching (i: Impl): T = i match {
-        case MyImpl (t) => wrapped (t)
+    def matching2 (i: Impl): T = i match {
+        //case MyImpl (t) => wrapped (t)// compiler error
+        case _ => throw new UnsupportedOperationException
     }
 
 }

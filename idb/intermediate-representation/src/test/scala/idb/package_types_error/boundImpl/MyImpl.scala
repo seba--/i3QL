@@ -30,44 +30,16 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.typing_test
+package idb.package_types_error.boundImpl
 
-
-import org.junit.Test
-import org.junit.Assert._
-
+import idb.package_types_error.TraitBinding._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestTyping
+//case class MyImpl[X] (t: T[X]) extends Impl
+case class MyImpl (t: T) extends Impl
 {
-
-    @Test
-    def testMatching1 () {
-        import idb.package_types_error.TraitBinding._
-        import idb.package_types_error.boundImpl._
-        val s: T = Simple (1)
-
-        val impl = MyImpl (s)
-        val matched = matching1 (impl)
-        assertEquals (wrapped (s), matched)
-    }
-
-    @Test
-    def testMatching2 () {
-        /*
-        //compiler errors
-
-        import idb.package_types_error.typing._
-        import idb.package_types_error.typing.impl._
-        val s: T = Simple (1)
-
-        val impl = MyImpl (s)
-        val matched = matching2 (impl)
-        assertEquals (wrapped (s), matched)
-        */
-    }
 
 }

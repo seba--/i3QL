@@ -40,14 +40,16 @@ package idb.package_types_error.traits
 trait ConcreteTypes
     extends AbstractTypes
 {
-
+    //self: AbstractTypes {type T = this.MyT} =>
+    //self : AbstractTypes =>
     abstract class MyT
 
-    type T = MyT
+
+    override type T = MyT
 
     case class Wrapped (t: T) extends MyT
 
     case class Simple[X] (x: X) extends MyT
 
-    def wrapped (t: T) = Wrapped (t)
+    override def wrapped (t: T) = Wrapped (t)
 }
