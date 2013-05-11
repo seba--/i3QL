@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql
 
-import idb.schema.university.Student
+import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.{BagExtent, Extent}
 import org.junit.Assert._
@@ -59,6 +59,35 @@ class TestBasicClauses
     }
 
     @Test
+    def testSelectFirstNameFromStudents () {
+        import idb.syntax.iql.UniversitySchema._
+        val students: Extent[Student] = BagExtent.empty
+        val query = plan (
+            SELECT (firstName) FROM students
+        )
+
+        assertEquals (
+            projection (extent (students), firstName),
+            query
+        )
+    }
+
+    @Test
+    def testSelectFirstAndLastNameTupleFromStudents () {
+        import idb.syntax.iql.UniversitySchema._
+        val students: Extent[Student] = BagExtent.empty
+        val query = plan (
+            SELECT (firstName, lastName) FROM students
+        )
+
+        assertEquals (
+            projection (extent (students), fun((s: Rep[Student]) => (s.firstName, s.lastName))),
+            query
+        )
+    }
+
+
+    @Test
     def testFilterFirstNameOnStudents () {
         import idb.syntax.iql.UniversitySchema._
         val students: Extent[Student] = BagExtent.empty
@@ -68,6 +97,20 @@ class TestBasicClauses
 
         assertEquals (
             selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+            query
+        )
+    }
+
+    @Test
+    def testFilterNamesMatchedOnCourses () {
+        import idb.syntax.iql.UniversitySchema._
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith("Introduction"))
+        )
+
+        assertEquals (
+            selection (extent (courses), (c: Rep[Course]) => c.title.startsWith("Introduction")),
             query
         )
     }

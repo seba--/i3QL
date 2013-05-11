@@ -68,10 +68,10 @@ class TestIRGenBasicOperatorsAsIncremental
 
         val isSally = compiler.compileFunction (prog.isSally)
 
-        assertTrue (isSally (Student ("Sally", "Fields")))
-        assertTrue (isSally (Student ("Sally", "Moore")))
-        assertFalse (isSally (Student ("John", "Moore")))
-        assertFalse (isSally (Student ("Sall", "White")))
+        assertTrue (isSally (Student (1, "Sally", "Fields")))
+        assertTrue (isSally (Student (2, "Sally", "Moore")))
+        assertFalse (isSally (Student (3, "John", "Moore")))
+        assertFalse (isSally (Student (4, "Sall", "White")))
     }
 
     @Test
@@ -96,8 +96,8 @@ class TestIRGenBasicOperatorsAsIncremental
 
         val result = compiler.compile (prog.query).asMaterialized
 
-        val sally = Student ("Sally", "Fields")
-        val bob = Student ("Bob", "Martin")
+        val sally = Student (1, "Sally", "Fields")
+        val bob = Student (2, "Bob", "Martin")
 
         base.add (sally)
         base.add (bob)

@@ -36,7 +36,7 @@ import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
 import idb.algebra.opt.RelationalAlgebraIROpt
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import scala.language.implicitConversions
-import scala.virtualization.lms.common.{StructExp, ScalaOpsPkgExp}
+import scala.virtualization.lms.common._
 
 
 /**
@@ -51,9 +51,12 @@ import scala.virtualization.lms.common.{StructExp, ScalaOpsPkgExp}
 object IR
     extends ScalaOpsPkgExp
     with StructExp
+    with LiftAll
     with ScalaOpsExpOptExtensions
     with RelationalAlgebraIROpt
     with RelationalAlgebraGenSAEBinding
 {
+
+    //implicit def unit[T:Manifest](x: T): Rep[T] = super.unit(x)
 
 }

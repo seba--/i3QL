@@ -30,10 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
-
-import idb.syntax.iql._
-import idb.syntax.iql.IR._
+package idb.schema.university
 
 /**
  *
@@ -41,11 +38,7 @@ import idb.syntax.iql.IR._
  *
  */
 
-object ClauseToAlgebra
+case class Course (number: Int, title: String, creditPoints: Int)
 {
-    def apply[Range: Manifest] (query: IQL_QUERY[Range]): Rep[Query[Range]] =
-        query match {
-            case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
-            case WhereClause1 (predicate, clause) => selection (ClauseToAlgebra (clause), predicate)
-        }
+
 }

@@ -4,7 +4,7 @@ package idb.schema.university
  *
  * @author Ralf Mitschke
  */
-case class Student (firstName: String, lastName: String)
+case class Student (matriculationNumber: Int, firstName: String, lastName: String)
 {
 
 }

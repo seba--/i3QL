@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql
 
-import idb.schema.university.Student
+import idb.schema.university._
 import idb.syntax.iql.IR._
 
 /**
@@ -43,13 +43,41 @@ import idb.syntax.iql.IR._
 
 object UniversitySchema
 {
-    def Student (firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
+    /* Definitions for Student  */
+    def Student (matriculationNumber: Rep[Int], firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
         struct[Student](
             ClassTag[Student]("Student"),
-            Map ("firstName" -> firstName, "lastName" -> lastName)
+            Map ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
         )
 
     def infix_firstName (s: Rep[Student]): Rep[String] = field[String](s, "firstName")
 
     def infix_lastName (s: Rep[Student]): Rep[String] = field[String](s, "lastName")
+
+    def infix_matriculationNumber (s: Rep[Student]): Rep[Int] = field[Int](s, "matriculationNumber")
+
+    def firstName = infix_firstName _
+
+    def lastName = infix_lastName _
+
+    def matriculationNumber = infix_matriculationNumber _
+
+    /* Definitions for Course */
+    def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
+        struct[Course](
+            ClassTag[Course]("Course"),
+            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
+        )
+
+    def infix_number (s: Rep[Course]): Rep[Int] = field[Int](s, "number")
+
+    def infix_title (s: Rep[Course]): Rep[String] = field[String](s, "title")
+
+    def infix_creditPoints (s: Rep[Course]): Rep[Int] = field[Int](s, "creditPoints")
+
+    def number = infix_number _
+
+    def title = infix_title _
+
+    def creditPoints = infix_creditPoints _
 }

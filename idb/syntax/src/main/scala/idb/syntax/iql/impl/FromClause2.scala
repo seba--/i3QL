@@ -49,6 +49,6 @@ case class FromClause2[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
 )
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
-    def WHERE (predicate: (DomainA) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range] =
-        throw new UnsupportedOperationException ()
+    //def WHERE (predicate: (DomainA) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB,
+    // Range] = throw new UnsupportedOperationException ()
 }
