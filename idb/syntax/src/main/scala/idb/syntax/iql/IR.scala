@@ -32,13 +32,29 @@
  */
 package idb.syntax.iql
 
+import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
+import idb.algebra.opt.RelationalAlgebraIROpt
+import idb.lms.extensions.ScalaOpsExpOptExtensions
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.ScalaOpsPkgExp
+
 
 /**
  *
+ *
+ * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
+ * functions.
+ * Importing the object automatically brings Rep and Exp into Scope.
+ *
  * @author Ralf Mitschke
  */
-trait SQL_QUERY[Range]
+object IR
+    extends ScalaOpsPkgExp
+    with ScalaOpsExpOptExtensions
+    with RelationalAlgebraIROpt
+    with RelationalAlgebraGenSAEBinding
 {
 
 
+    //def funTuple2ToFun1()
 }

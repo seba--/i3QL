@@ -32,9 +32,10 @@
  */
 package idb.algebra.compiler
 
-import idb.iql.lms.extensions.CompileScalaExt
-import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.iql.lms.extensions.CompileScalaExt
+import idb.operators.impl._
+import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
 
 /**
  *
@@ -47,13 +48,16 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 
     val IR: RelationalAlgebraIRBasicOperators with RelationalAlgebraGenSAEBinding with FunctionsExp
 
+    import IR._
+
     // TODO incorporate set semantics into ir
-    override def compile[Domain: Manifest] (exp: IR.Rep[IR.Rel[Domain]]): idb.Relation[Domain] = exp match {
-        case IR.Def (IR.Selection (r, f)) =>
-            new idb.operators.impl.SelectionView (compile (r), compileApplied (f), false)
-        case IR.Def (IR.Projection (r, f)) =>
-            new idb.operators.impl.ProjectionView (compile (r), compileApplied (f), false)
-        case _ => super.compile (exp)
-    }
+    override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] =
+        query match {
+            case Def (Selection (r, f)) =>
+                new SelectionView (compile (r), compileApplied (f), false)
+            case Def (Projection (r, f)) =>
+                new ProjectionView (compile (r), compileApplied (f), false)
+            case _ => super.compile (query)
+        }
 
 }

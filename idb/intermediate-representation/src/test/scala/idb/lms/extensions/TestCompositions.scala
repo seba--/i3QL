@@ -30,20 +30,46 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.lms.extensions
 
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait SELECT_CLAUSE_NO_PROJECTION
+
+class TestCompositions
+//extends FunctionsExp
 {
 
-    def FROM[Domain: Manifest] (relation: Inc[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain]
+    @Test
+    def testComposition () {
+        val rep1 = new Rep1
+        val rep2 = new Rep2
 
-    def FROM[DomainA, DomainB] (
-        relationA: Inc[Query[DomainA]],
-        relationB: Inc[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+        val f1 = rep1.f ()
+        val f2 = rep2.f ()
+
+        println (f1)
+        println (f2)
+    }
+
+}
+
+class Rep extends LiftAll with ScalaOpsPkgExp
+
+class Rep1 extends Rep
+{
+
+    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 1
+
+}
+
+class Rep2 extends Rep
+{
+
+    def f (): Rep[Int => Int] = (x: Rep[Int]) => x + 2
 }

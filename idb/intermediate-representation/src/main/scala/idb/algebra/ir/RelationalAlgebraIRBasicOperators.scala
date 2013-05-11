@@ -45,27 +45,27 @@ trait RelationalAlgebraIRBasicOperators
 {
 
     case class Projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
     )
-        extends Def[Rel[Range]]
+        extends Def[Query[Range]]
 
     case class Selection[Domain: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     )
-        extends Def[Rel[Domain]]
+        extends Def[Query[Domain]]
 
     def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Rel[Range]] =
+    ): Rep[Query[Range]] =
         Projection (relation, function)
 
     def selection[Domain: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Rel[Domain]] =
+    ): Rep[Query[Domain]] =
         Selection (relation, function)
 
 }

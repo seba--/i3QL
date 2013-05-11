@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql.impl
 
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -42,7 +43,7 @@ package idb.syntax.iql.impl
 import idb.syntax.iql._
 
 case class WhereClause1[Domain: Manifest, Range: Manifest] (
-    predicate: Inc[Domain => Boolean],
+    predicate: Rep[Domain => Boolean],
     fromClause: FromClause1[Domain, Range]
 )
     extends WHERE_CLAUSE_1[Domain, Range]

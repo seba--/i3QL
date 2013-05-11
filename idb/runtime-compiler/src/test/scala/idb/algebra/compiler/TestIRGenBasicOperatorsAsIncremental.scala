@@ -84,7 +84,7 @@ class TestIRGenBasicOperatorsAsIncremental
             with University
             with LiftAll
         {
-            val query = selection (baseRelation (base), (s: Rep[Student]) => s.firstName == "Sally")
+            val query = selection (extent (base), (s: Rep[Student]) => s.firstName == "Sally")
         }
 
         val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct

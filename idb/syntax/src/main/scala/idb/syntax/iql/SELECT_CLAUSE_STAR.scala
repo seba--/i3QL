@@ -30,26 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
-import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  */
-case object SelectClauseNoProjection
-    extends SELECT_CLAUSE_NO_PROJECTION
+trait SELECT_CLAUSE_STAR
 {
-    def FROM[Domain: Manifest] (relation: Inc[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
-        FromClause1 (relation, SelectClause1 (lifting.fun ((x: Inc[Domain]) => x)))
 
+    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain]
 
     def FROM[DomainA, DomainB] (
-        relationA: Inc[Query[DomainA]],
-        relationB: Inc[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
-        throw new UnsupportedOperationException ()
-
-    //FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
 }

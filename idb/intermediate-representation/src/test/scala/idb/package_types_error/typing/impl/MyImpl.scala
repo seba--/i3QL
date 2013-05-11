@@ -33,13 +33,11 @@
 package idb.package_types_error.typing.impl
 
 import idb.package_types_error.typing._
-import idb.package_types_error.TraitBinding
 
 /**
  *
  * @author Ralf Mitschke
  */
-//case class MyImpl[X] (t: T[X]) extends Impl
 case class MyImpl (t: T) extends Impl
 {
 

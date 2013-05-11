@@ -42,12 +42,14 @@ import idb.algebra.ir.RelationalAlgebraIRBase
 trait TestUtils extends RelationalAlgebraIRBase
 {
 
-    type CompiledRelation[Domain] = List[Domain]
+    type Relation[+Domain] = List[Domain]
+
+    type Extent[Domain] = List[Domain]
 
     /**
      * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
      * Useful for just constructing ASTs and testing equivalence, without executing (i.e., compiling) the query.
      */
-    def emptyRelation[Domain: Manifest] () = baseRelation (List.empty[Domain])
+    def emptyRelation[Domain: Manifest] () = extent (List.empty[Domain])
 
 }

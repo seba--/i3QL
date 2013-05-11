@@ -30,51 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.opt
+package idb.syntax.iql.impl
 
-import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptFusion
-    extends RelationalAlgebraIRBasicOperators
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+
+object ClauseToAlgebra
 {
 
-    /**
-     * Fusion of projection operations
-     */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
-        relation match {
-            case Def (Projection (r, f)) =>
-                projection (r, (x: Rep[_]) => function (f (x)))
-            case _ =>
-                super.projection (relation, function)
-        }
 
-
-    /**
-     * Fusion of selection operations
-     */
-    // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
-        relation match {
-            case Def (Selection (r, f)) if (f.tp == function.tp) => {
-                val g = f.asInstanceOf[Rep[Domain => Boolean]]
-                selection (r, (x: Rep[Domain]) => g (x) && function (x))
-
-            }
-            case _ =>
-                super.selection (relation, function)
+    def apply[Range: Manifest] (clause: IQL_QUERY[Range]): Rep[Query[Range]] =
+        clause match {
+            case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
         }
 }

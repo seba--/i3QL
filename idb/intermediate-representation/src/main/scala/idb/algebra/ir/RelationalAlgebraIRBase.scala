@@ -32,9 +32,9 @@
  */
 package idb.algebra.ir
 
+import idb.algebra.base.RelationalAlgebraBase
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
-import idb.algebra.base.RelationalAlgebraBase
 
 /**
  *
@@ -45,31 +45,36 @@ trait RelationalAlgebraIRBase
     extends RelationalAlgebraBase
     with BaseExp
 {
-    // TODO make Domain covariant
-    type Rel[Domain] = AbstractRelation[Domain]
+    type Query[Domain] = QueryBase[Domain]
 
-    // TODO seems not good to tie this to the IR, binding it here means we can construct an IR only for one type of
-    // ConcreteRelation, e.g., only for incremental relations or for lists.
-    // However, the data structures inside the incremental relations and the lists are also markedly different.
-    // Without further analyses it seem unlikely that we have the same query for both.
-    // TODO make Domain covariant
-    type CompiledRelation[Domain]
+    abstract class QueryBase[Domain: Manifest]
 
-    abstract class AbstractRelation[Domain: Manifest]
+    case class QueryExtent[Domain] (extent: Extent[Domain])
+            (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
+        extends Exp[Query[Domain]]
 
-    //def relationManifest[Domain: Manifest]: Manifest[AbstractRelation[Domain]] =ManifestFactory.classType
-    // (classOf[AbstractRelation[Domain]], manifest[Domain])
+    case class QueryRelation[Domain] (extent: Relation[Domain])
+            (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
+        extends Exp[Query[Domain]]
 
-
-    case class BaseRelation[Domain] (relImpl: CompiledRelation[Domain])
-            (implicit mDom: Manifest[Domain], mRel: Manifest[CompiledRelation[Domain]])
-        extends Exp[Rel[Domain]]
-
-    def baseRelation[Domain] (relImpl: CompiledRelation[Domain])
-            (
+    /**
+     * Wraps an extent as a leaf in the query tree
+     */
+    def extent[Domain] (extent: Extent[Domain])(
         implicit mDom: Manifest[Domain],
-        mRel: Manifest[CompiledRelation[Domain]]
-    ): Rep[Rel[Domain]] =
-        BaseRelation (relImpl)
+        mRel: Manifest[Extent[Domain]]
+    ): Rep[Query[Domain]] =
+        QueryExtent (extent)
+
+
+    /**
+     * Wraps a compiled relation again as a leaf in the query tree
+     */
+    def relation[Domain] (relation: Relation[Domain])(
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[Relation[Domain]]
+    ): Rep[Query[Domain]] =
+        QueryRelation (relation)
+
 
 }

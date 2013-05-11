@@ -32,11 +32,12 @@
  */
 package idb.syntax.iql
 
-import org.junit.Test
-import org.junit.Assert._
-import idb.{BagExtent, Extent}
 import idb.schema.university.Student
-//import lifting._
+import idb.syntax.iql.IR._
+import idb.{BagExtent, Extent}
+import org.junit.Assert._
+import org.junit.Test
+
 
 /**
  *
@@ -46,21 +47,21 @@ class TestBasicClauses
 {
 
 
-
     @Test
     def testSelectStarFromStudents () {
-        val students: Extent[Student] = BagExtent.empty
-        val query = inc (SELECT (*) FROM students)
 
-        assertEquals (lifting.baseRelation (students), query)
+        val students: Extent[Student] = BagExtent.empty
+        val query: Rep[Query[Student]] = SELECT (*) FROM students
+
+        assertEquals (extent (students), query)
     }
 
     @Test
     def testSelectFirstNameFromStudents () {
         val students: Extent[Student] = BagExtent.empty
-        val query = inc (SELECT (*) FROM students)
+        val query: Rep[Query[Student]] = SELECT (*) FROM students
 
-        assertEquals (lifting.baseRelation (students), query)
+        assertEquals (extent (students), query)
     }
 
 }

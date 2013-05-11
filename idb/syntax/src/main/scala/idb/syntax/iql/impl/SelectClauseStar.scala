@@ -30,51 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.opt
+package idb.syntax.iql.impl
 
-import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-trait RelationalAlgebraIROptFusion
-    extends RelationalAlgebraIRBasicOperators
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+case object SelectClauseStar
+    extends SELECT_CLAUSE_STAR
 {
-
-    /**
-     * Fusion of projection operations
-     */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
-        relation match {
-            case Def (Projection (r, f)) =>
-                projection (r, (x: Rep[_]) => function (f (x)))
-            case _ =>
-                super.projection (relation, function)
-        }
+    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
+        FromClause1 (relation, SelectClause1 ((x: Rep[Domain]) => x))
 
 
-    /**
-     * Fusion of selection operations
-     */
-    // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
-    override def selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
-        relation match {
-            case Def (Selection (r, f)) if (f.tp == function.tp) => {
-                val g = f.asInstanceOf[Rep[Domain => Boolean]]
-                selection (r, (x: Rep[Domain]) => g (x) && function (x))
+    def FROM[DomainA, DomainB] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
+        throw new UnsupportedOperationException ()
 
-            }
-            case _ =>
-                super.selection (relation, function)
-        }
+    //FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
 }

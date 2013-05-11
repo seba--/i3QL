@@ -1,6 +1,7 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -12,7 +13,7 @@ import idb.syntax.iql._
  *
  */
 case class FromClause1[Domain: Manifest, Range: Manifest] (
-    relation: Inc[Query[Domain]],
+    relation: Rep[Query[Domain]],
     selectClause: SelectClause1[Domain, Range]
 )
     extends FROM_CLAUSE_1[Domain, Range]

@@ -48,6 +48,8 @@
                         <arg>-Yvirtualize</arg>
                         <arg>-P:continuations:enable</arg>
                         <arg>-deprecation</arg>
+                        <arg>-explaintypes</arg>
+                        <arg>-Ylinearizer:dump</arg>
                     </args>
                     <displayCmd>true</displayCmd>
                     <dependencies>

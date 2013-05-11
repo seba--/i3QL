@@ -38,7 +38,7 @@ package idb.syntax.iql
  * @author Ralf Mitschke
  */
 trait FROM_CLAUSE_2[DomainA, DomainB, Range]
-    extends SQL_QUERY[Range]
+    extends IQL_QUERY[Range]
 {
 
     def WHERE (predicate: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]

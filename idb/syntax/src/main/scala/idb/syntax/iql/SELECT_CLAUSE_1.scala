@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -41,7 +42,7 @@ trait SELECT_CLAUSE_1[-Select, Range]
 {
 
     def FROM[Domain <: Select : Manifest] (
-        relation: Inc[Query[Domain]]
+        relation: Rep[Query[Domain]]
     ): FROM_CLAUSE_1[Domain, Range]
 
 }

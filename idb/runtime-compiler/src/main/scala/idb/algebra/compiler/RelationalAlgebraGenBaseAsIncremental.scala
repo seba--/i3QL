@@ -44,9 +44,12 @@ trait RelationalAlgebraGenBaseAsIncremental
 
     val IR: RelationalAlgebraIRBase with RelationalAlgebraGenSAEBinding
 
-    def compile[Domain: Manifest] (exp: IR.Rep[IR.Rel[Domain]]): idb.Relation[Domain] = exp match {
-        // TODO fix variance in idb.relation to remove type cast
-        case IR.BaseRelation (rel) => rel.asInstanceOf[idb.Relation[Domain]]
-    }
+    import IR._
+
+    def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] =
+        query match {
+            case QueryRelation (relation) => relation
+            case QueryExtent (extent) => extent
+        }
 
 }

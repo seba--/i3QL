@@ -33,8 +33,8 @@
 package idb.package_types_error.typing_test
 
 
-import org.junit.Test
 import org.junit.Assert._
+import org.junit.Test
 
 
 /**
@@ -62,7 +62,7 @@ class TestTyping
 
         import idb.package_types_error.typing._
         import idb.package_types_error.typing.impl._
-        val s: T = Simple (1)
+        val s= Simple (1)
 
         val impl = MyImpl (s)
         val matched = matching2 (impl)

@@ -44,7 +44,37 @@ import scala.virtualization.lms.common.Base
 trait RelationalAlgebraBase
     extends Base
 {
-    type Rel[Domain]
+    /**
+     * The abstract representation of the query tree
+     */
+    type Query[Domain]
 
-    //implicit def relationManifest[Domain: Manifest]: Manifest[Relation[Domain]]
+    /**
+     * A concrete extent
+     */
+    type Extent[Domain]
+
+    /**
+     * A concrete compiled relation
+     */
+    type Relation[+Domain]
+
+    /**
+     * Wraps an extent as a leaf in the query tree
+     */
+    def extent[Domain] (extent: Extent[Domain])(
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[Extent[Domain]]
+    ): Rep[Query[Domain]]
+
+
+    /**
+     * Wraps a compiled relation again as a leaf in the query tree
+     */
+    def relation[Domain] (relation: Relation[Domain])(
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[Relation[Domain]]
+    ): Rep[Query[Domain]]
+
+
 }

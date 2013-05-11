@@ -49,12 +49,12 @@ trait RelationalAlgebraIROptSimplify
      * Remove projection that use the identity function
      */
     override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Rel[Range]] = {
+    ): Rep[Query[Range]] = {
         function match {
             // TODO manifests are not the same (Range == Any) why?
-            case Def (Lambda (_, param, body)) if (body == Block (param)) => relation.asInstanceOf[Rep[Rel[Range]]]
+            case Def (Lambda (_, param, body)) if (body == Block (param)) => relation.asInstanceOf[Rep[Query[Range]]]
             case _ => super.projection (relation, function)
         }
 

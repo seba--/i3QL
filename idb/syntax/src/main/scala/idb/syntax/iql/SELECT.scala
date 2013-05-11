@@ -33,7 +33,8 @@
 package idb.syntax.iql
 
 
-import idb.syntax.iql.impl.{SelectClauseNoProjection, SelectClause1, SelectClause2}
+import idb.syntax.iql.impl._
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -43,29 +44,29 @@ object SELECT
 {
 
     def apply[Domain: Manifest, Range: Manifest] (
-        projection: Inc[Domain => Range]
+        projection: Rep[Domain => Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
         SelectClause1 (projection)
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        projection: Inc[(DomainA, DomainB) => Range]
+        projection: Rep[(DomainA, DomainB) => Range]
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 
     /*
     def apply[DomainA: Manifest, DomainB: Manifest, RangeA: Manifest, RangeB: Manifest] (
-        projectionA: Inc[DomainA => RangeA],
-        projectionB: Inc[DomainB => RangeB]
+        projectionA: Rep[DomainA => RangeA],
+        projectionB: Rep[DomainB => RangeB]
     ): SELECT_CLAUSE_2[DomainA,
         DomainB, (RangeA, RangeB)] =
         SelectClause2 (
-            (a: Inc[DomainA], b: Inc[DomainB]) => (doApply (projectionA, a), doApply (projectionB, b))
+            (a: Rep[DomainA], b: Rep[DomainB]) => (doApply (projectionA, a), doApply (projectionB, b))
         )
     */
 
-    //SelectClause2 (fun ((a: Inc[DomainA], b: Inc[DomainB]) => (projectionA (a), projectionB (b))))
+    //SelectClause2 (fun ((a: Rep[DomainA], b: Rep[DomainB]) => (projectionA (a), projectionB (b))))
 
-    def apply (x: STAR_KEYWORD): SELECT_CLAUSE_NO_PROJECTION =
-        SelectClauseNoProjection
+    def apply (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
+        SelectClauseStar
 
 }

@@ -38,7 +38,9 @@ package idb.package_types_error.traits
  */
 trait AbstractTypes
 {
-    type T
+    type B
+
+    type T = B
 
     def wrapped (t: T): T
 }

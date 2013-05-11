@@ -44,13 +44,13 @@ trait RelationalAlgebraBasicOperators
 
 
     def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Rel[Range]]
+    ): Rep[Query[Range]]
 
 
     def selection[Domain: Manifest] (
-        relation: Rep[Rel[Domain]],
+        relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Rel[Domain]]
+    ): Rep[Query[Domain]]
 }
