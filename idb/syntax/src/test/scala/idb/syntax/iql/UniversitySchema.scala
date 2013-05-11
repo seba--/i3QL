@@ -34,42 +34,22 @@ package idb.syntax.iql
 
 import idb.schema.university.Student
 import idb.syntax.iql.IR._
-import idb.{BagExtent, Extent}
-import org.junit.Assert._
-import org.junit.Test
-
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestBasicClauses
+
+object UniversitySchema
 {
-
-
-    @Test
-    def testSelectStarFromStudents () {
-
-        val students: Extent[Student] = BagExtent.empty
-        val query = plan (
-            SELECT (*) FROM students
+    def Student (firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
+        struct[Student](
+            ClassTag[Student]("Student"),
+            Map ("firstName" -> firstName, "lastName" -> lastName)
         )
 
-        assertEquals (extent (students), query)
-    }
+    def infix_firstName (s: Rep[Student]): Rep[String] = field[String](s, "firstName")
 
-    @Test
-    def testFilterFirstNameOnStudents () {
-        import idb.syntax.iql.UniversitySchema._
-        val students: Extent[Student] = BagExtent.empty
-        val query = plan (
-            SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
-        )
-
-        assertEquals (
-            selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-            query
-        )
-    }
-
+    def infix_lastName (s: Rep[Student]): Rep[String] = field[String](s, "lastName")
 }

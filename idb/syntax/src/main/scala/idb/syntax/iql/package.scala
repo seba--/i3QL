@@ -18,7 +18,7 @@ package object iql
         mExt: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] = extent (ext)
 
-    implicit def optimize[Range: Manifest] (clause: IQL_QUERY[Range]): Rep[Query[Range]] =
+    implicit def plan[Range: Manifest] (clause: IQL_QUERY[Range]): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
 }

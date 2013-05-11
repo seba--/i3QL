@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -40,6 +41,6 @@ package idb.syntax.iql
 trait FROM_CLAUSE_1[Domain, Range]
     extends IQL_QUERY[Range]
 {
-    def WHERE (predicate: Domain => Boolean): WHERE_CLAUSE_1[Domain, Range]
+    def WHERE (predicate: Rep[Domain => Boolean]): WHERE_CLAUSE_1[Domain, Range]
 
 }

@@ -18,6 +18,6 @@ case class FromClause1[Domain: Manifest, Range: Manifest] (
 )
     extends FROM_CLAUSE_1[Domain, Range]
 {
-    def WHERE (predicate: (Domain) => Boolean): WHERE_CLAUSE_1[Domain, Range] =
-        throw new UnsupportedOperationException ()
+    def WHERE (predicate: Rep[Domain => Boolean]): WHERE_CLAUSE_1[Domain, Range] =
+        WhereClause1 (predicate, this)
 }
