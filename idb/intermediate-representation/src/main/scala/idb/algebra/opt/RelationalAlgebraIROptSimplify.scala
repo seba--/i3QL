@@ -55,7 +55,6 @@ trait RelationalAlgebraIROptSimplify
         function match {
             // TODO manifests are not the same (Range == Any) why?
             case Def (Lambda (_, param, body)) if (body == Block (param)) => relation.asInstanceOf[Rep[Query[Range]]]
-            case Def (Lambda (_, param, body)) => Predef.println(param); Predef.println(body); super.projection (relation, function)
             case _ => super.projection (relation, function)
         }
 

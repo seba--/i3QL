@@ -33,6 +33,7 @@
 package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
@@ -40,15 +41,12 @@ import idb.syntax.iql.IR._
  *
  */
 
-import idb.syntax.iql._
 
 case class WhereClause1[Domain: Manifest, Range: Manifest] (
-    predicate: Rep[Domain => Boolean],
+    predicate: Rep[Domain] => Rep[Boolean],
     fromClause: FromClause1[Domain, Range]
 )
     extends WHERE_CLAUSE_1[Domain, Range]
 {
-    //def AND (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
 
-    //def OR (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
 }

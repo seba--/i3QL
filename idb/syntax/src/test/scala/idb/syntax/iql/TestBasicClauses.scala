@@ -113,6 +113,26 @@ class TestBasicClauses
     }
 
     @Test
+    def testSelectFirstAndLastNameTupleFromFilteredStudents () {
+        val students: Extent[Student] = BagExtent.empty
+        val query = plan (
+            SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
+        )
+
+        assertEquals (
+            projection (
+                selection (
+                    extent (students),
+                    fun ((s: Rep[Student]) => s.firstName == "Sally")
+                ),
+                fun ((s: Rep[Student]) => (s.firstName, s.lastName))
+            ),
+            query
+        )
+    }
+
+
+    @Test
     def testCrossProductStudentsCourses () {
         val students: Extent[Student] = BagExtent.empty
         val courses: Extent[Course] = BagExtent.empty
@@ -126,4 +146,68 @@ class TestBasicClauses
         )
     }
 
+    @Test
+    def testCrossProductStudentsCoursesWithStudentSelection () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
+                s.firstName == "Sally"
+            })
+        )
+
+        assertEquals (
+            crossProduct (extent (students), extent (courses)),
+            query
+        )
+    }
+
+    @Test
+    def testCrossProductStudentsCoursesWithCourseSelection () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
+                c.title.startsWith ("Introduction")
+            })
+        )
+
+        assertEquals (
+            crossProduct (extent (students), extent (courses)),
+            query
+        )
+    }
+
+    @Test
+    def testCrossProductStudentsCoursesWithBothAsSelection () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
+                s.firstName == "Sally" &&
+                c.title.startsWith ("Introduction")
+            })
+        )
+
+        assertEquals (
+            crossProduct (extent (students), extent (courses)),
+            query
+        )
+    }
+
+    @Test
+    def testJoinStudentsRegistrations () {
+        val students: Extent[Student] = BagExtent.empty
+        val registrations: Extent[Registration] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber
+            })
+        )
+
+        assertEquals (
+            crossProduct (extent (students), extent (registrations)),
+            query
+        )
+    }
 }

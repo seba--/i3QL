@@ -42,14 +42,11 @@ import idb.syntax.iql._
  * @author Ralf Mitschke
  */
 case class WhereClause2[DomainA, DomainB, Range] (
-    predicate: Rep[(DomainA, DomainB) => Boolean],
+    predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
     fromClause: FromClause2[DomainA, DomainB, Range]
 )
-    extends IQL_QUERY[Range]
+    extends WHERE_CLAUSE_2[DomainA, DomainB, Range]
 {
 
-    //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
-
-    //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 }

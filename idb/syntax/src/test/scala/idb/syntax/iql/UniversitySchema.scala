@@ -69,15 +69,26 @@ object UniversitySchema
             Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
         )
 
-    def infix_number (s: Rep[Course]): Rep[Int] = field[Int](s, "number")
+    def infix_number (c: Rep[Course]): Rep[Int] = field[Int](c, "number")
 
-    def infix_title (s: Rep[Course]): Rep[String] = field[String](s, "title")
+    def infix_title (c: Rep[Course]): Rep[String] = field[String](c, "title")
 
-    def infix_creditPoints (s: Rep[Course]): Rep[Int] = field[Int](s, "creditPoints")
+    def infix_creditPoints (c: Rep[Course]): Rep[Int] = field[Int](c, "creditPoints")
 
     def number = infix_number _
 
     def title = infix_title _
 
     def creditPoints = infix_creditPoints _
+
+    def Registration (courseNumber: Rep[Int], studentMatriculationNumber: Rep[Int]) =
+        struct[Registration](
+            ClassTag[Registration]("Registration"),
+            Map ("courseNumber" -> courseNumber, "studentMatriculationNumber" -> studentMatriculationNumber)
+        )
+
+    def infix_courseNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "courseNumber")
+
+    def infix_studentMatriculationNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "studentMatriculationNumber")
+
 }

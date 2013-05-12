@@ -32,8 +32,8 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
@@ -49,6 +49,6 @@ case class FromClause2[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
 )
     extends FROM_CLAUSE_2[DomainA, DomainB, Range]
 {
-    //def WHERE (predicate: (DomainA) => Boolean): WHERE_CLAUSE_2[DomainA, DomainB,
-    // Range] = throw new UnsupportedOperationException ()
+    def WHERE (predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]): WHERE_CLAUSE_2[DomainA, DomainB, Range] =
+        WhereClause2 (predicate, this)
 }

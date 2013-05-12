@@ -51,7 +51,11 @@ object ClauseToAlgebra
             case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
                 projection (crossProduct (relationA, relationB), project)
 
-            case WhereClause1 (predicate, clause) =>
-                selection (ClauseToAlgebra (clause), predicate)
+            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project))) =>
+                projection (selection (relation, predicate), project)
+
+            case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project))) =>
+                throw new UnsupportedOperationException
+
         }
 }
