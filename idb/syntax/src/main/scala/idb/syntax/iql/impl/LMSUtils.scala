@@ -32,8 +32,9 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.IR._
-import idb.syntax.iql._
+import idb.syntax.iql.IR.Sym
+import idb.syntax.iql.IR.findDefinition
+import idb.syntax.iql.IR.syms
 
 /**
  *
@@ -41,39 +42,35 @@ import idb.syntax.iql._
  *
  */
 
-object ClauseToAlgebra
+object LMSUtils
 {
-    def apply[Range: Manifest] (query: IQL_QUERY[Range]): Rep[Query[Range]] =
-        query match {
-            case FromClause1 (relation, SelectClause1 (project)) =>
-                projection (relation, project)
 
-            case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
-                projection (crossProduct (relationA, relationB), project)
-
-            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project))) =>
-                projection (selection (relation, predicate), project)
-
-            case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project))) => {
-                discernPredicates2 (predicate, relationA, relationB)
-                throw new UnsupportedOperationException
-            }
+    def findSyms (e: Any, search: Set[Sym[Any]]): Set[Sym[Any]] = {
+        val seen = e match {
+            case s@Sym (_) => Set (s)
+            case _ => Set.empty[Sym[Any]]
         }
-
-
-    def discernPredicates2[DomainA: Manifest, DomainB: Manifest] (
-        predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]] = {
-        val a= fresh[DomainA]
-        val b = fresh[DomainB]
-        val body = predicate (a, b)
-        //val next = findDefinition (body)
-
-        Predef.println (LMSUtils.findSyms (body, Predef.Set (a, b)))
-        null
+        findSymsRec (e, search, seen)
     }
 
+    private def findSymsRec (e: Any, search: Set[Sym[Any]], seen: Set[Sym[Any]]): Set[Sym[Any]] = {
+        val next = (e match {
+            case s@Sym (_) => syms(findDefinition(s)).toSet
+            case _ => Set.empty[Sym[Any]]
+        }).diff (seen)
+        if (next.isEmpty)
+            return Set ()
+        val result = search.intersect (next)
+        val forward = next.diff (search)
+        val nextSeen = seen.union (forward)
 
+        result.union (
+            for (s <- forward;
+                 n <- findSymsRec (s, search, nextSeen)
+            ) yield
+            {
+                n
+            }
+        )
+    }
 }
