@@ -30,31 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
-import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
-import idb.algebra.opt.RelationalAlgebraIROpt
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import scala.language.implicitConversions
-import scala.virtualization.lms.common._
-
+import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
- *
- * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the object automatically brings Rep and Exp into Scope.
+ * The top level where clause has its own type since we can compile this to a query of type Range
  *
  * @author Ralf Mitschke
  */
-object IR
-    extends ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
-    with StructExp
-    with LiftAll
-    with RelationalAlgebraIROpt
-    with RelationalAlgebraGenSAEBinding
+case class WhereClause2[DomainA, DomainB, Range] (
+    predicate: Rep[(DomainA, DomainB) => Boolean],
+    fromClause: FromClause2[DomainA, DomainB, Range]
+)
+    extends IQL_QUERY[Range]
 {
+
+    //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+
+    //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 }

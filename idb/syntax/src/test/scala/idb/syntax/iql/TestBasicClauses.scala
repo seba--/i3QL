@@ -34,10 +34,10 @@ package idb.syntax.iql
 
 import idb.schema.university._
 import idb.syntax.iql.IR._
+import idb.syntax.iql.UniversitySchema._
 import idb.{BagExtent, Extent}
 import org.junit.Assert._
 import org.junit.Test
-
 
 /**
  *
@@ -74,22 +74,20 @@ class TestBasicClauses
 
     @Test
     def testSelectFirstAndLastNameTupleFromStudents () {
-        import idb.syntax.iql.UniversitySchema._
         val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (firstName, lastName) FROM students
         )
 
         assertEquals (
-            projection (extent (students), fun((s: Rep[Student]) => (s.firstName, s.lastName))),
+            projection (extent (students), fun ((s: Rep[Student]) => (s.firstName, s.lastName))),
             query
         )
     }
 
 
     @Test
-    def testFilterFirstNameOnStudents () {
-        import idb.syntax.iql.UniversitySchema._
+    def testFilterStudentFirstNames () {
         val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
@@ -102,15 +100,28 @@ class TestBasicClauses
     }
 
     @Test
-    def testFilterNamesMatchedOnCourses () {
-        import idb.syntax.iql.UniversitySchema._
+    def testFilterCourseTitles () {
         val courses: Extent[Course] = BagExtent.empty
         val query = plan (
-            SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith("Introduction"))
+            SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
         )
 
         assertEquals (
-            selection (extent (courses), (c: Rep[Course]) => c.title.startsWith("Introduction")),
+            selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction")),
+            query
+        )
+    }
+
+    @Test
+    def testCrossProductStudentsCourses () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses)
+        )
+
+        assertEquals (
+            crossProduct (extent (students), extent (courses)),
             query
         )
     }

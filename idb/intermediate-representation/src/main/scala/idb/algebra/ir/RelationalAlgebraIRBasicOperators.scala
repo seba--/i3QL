@@ -47,14 +47,17 @@ trait RelationalAlgebraIRBasicOperators
     case class Projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )
-        extends Def[Query[Range]]
+    ) extends Def[Query[Range]]
 
     case class Selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )
-        extends Def[Query[Domain]]
+    ) extends Def[Query[Domain]]
+
+    case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ) extends Def[Query[(DomainA, DomainB)]]
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
@@ -68,4 +71,9 @@ trait RelationalAlgebraIRBasicOperators
     ): Rep[Query[Domain]] =
         Selection (relation, function)
 
+    def crossProduct[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[(DomainA, DomainB)]] =
+        CrossProduct (relationA, relationB)
 }

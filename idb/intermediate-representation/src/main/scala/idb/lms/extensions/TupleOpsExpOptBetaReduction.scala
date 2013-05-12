@@ -32,6 +32,7 @@
  */
 package idb.lms.extensions
 
+import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{IfThenElseExp, TupleOpsExp}
 
 /**
@@ -41,6 +42,14 @@ import scala.virtualization.lms.common.{IfThenElseExp, TupleOpsExp}
 trait TupleOpsExpOptBetaReduction
     extends TupleOpsExp with IfThenElseExp
 {
+
+    override implicit def make_tuple2[A: Manifest, B: Manifest] (
+        t: (Exp[A], Exp[B])
+    )(implicit pos: SourceContext): Exp[(A, B)] =
+        t match {
+            case (Def (Tuple2Access1 (x)), Def (Tuple2Access2 (y))) if x == y => x.asInstanceOf[Exp[(A, B)]]
+            case _ => super.make_tuple2 (t)
+        }
 
 
 }

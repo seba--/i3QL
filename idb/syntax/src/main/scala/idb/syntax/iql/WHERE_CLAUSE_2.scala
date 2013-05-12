@@ -43,8 +43,8 @@ trait WHERE_CLAUSE_2[DomainA, DomainB, Range]
     extends IQL_QUERY[Range]
 {
 
-    def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+    //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 }

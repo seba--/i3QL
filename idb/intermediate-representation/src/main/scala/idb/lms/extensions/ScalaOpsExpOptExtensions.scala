@@ -41,6 +41,7 @@ trait ScalaOpsExpOptExtensions
     with FunctionsExpOptBetaReduction
     with ScalaOpsExpConstantPropagation
     with ScalaOpsExpNormalization
+    with TupleOpsExpOptBetaReduction
 {
 
 }

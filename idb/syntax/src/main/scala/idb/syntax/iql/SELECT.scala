@@ -33,8 +33,8 @@
 package idb.syntax.iql
 
 
-import idb.syntax.iql.impl._
 import idb.syntax.iql.IR._
+import idb.syntax.iql.impl._
 
 /**
  *
@@ -44,12 +44,12 @@ object SELECT
 {
 
     def apply[Domain: Manifest, Range: Manifest] (
-        projection: Rep[Domain => Range]
+        projection: Rep[Domain] => Rep[Range]
     ): SELECT_CLAUSE_1[Domain, Range] =
         SelectClause1 (projection)
 
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        projection: Rep[(DomainA, DomainB) => Range]
+        projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 

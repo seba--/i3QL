@@ -32,8 +32,8 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
@@ -45,7 +45,13 @@ object ClauseToAlgebra
 {
     def apply[Range: Manifest] (query: IQL_QUERY[Range]): Rep[Query[Range]] =
         query match {
-            case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
-            case WhereClause1 (predicate, clause) => selection (ClauseToAlgebra (clause), predicate)
+            case FromClause1 (relation, SelectClause1 (project)) =>
+                projection (relation, project)
+
+            case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
+                projection (crossProduct (relationA, relationB), project)
+
+            case WhereClause1 (predicate, clause) =>
+                selection (ClauseToAlgebra (clause), predicate)
         }
 }

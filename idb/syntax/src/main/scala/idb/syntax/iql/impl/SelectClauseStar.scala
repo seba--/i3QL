@@ -46,11 +46,10 @@ case object SelectClauseStar
         FromClause1 (relation, SelectClause1 ((x: Rep[Domain]) => x))
 
 
-    def FROM[DomainA, DomainB] (
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
-        throw new UnsupportedOperationException ()
+        FromClause2 (relationA, relationB, SelectClause2 ((a: Rep[DomainA], b: Rep[DomainB]) => (a, b)))
 
-    //FromClause2 (relationA, relationB, SelectClause2 ((a: DomainA, b: DomainB) => (a, b)))
 }

@@ -48,7 +48,7 @@ case class WhereClause1[Domain: Manifest, Range: Manifest] (
 )
     extends WHERE_CLAUSE_1[Domain, Range]
 {
-    def AND (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
+    //def AND (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
 
-    def OR (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
+    //def OR (predicate: (Domain) => Boolean) = throw new UnsupportedOperationException
 }

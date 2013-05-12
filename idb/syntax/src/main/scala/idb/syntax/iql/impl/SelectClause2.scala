@@ -32,15 +32,15 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql._
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
  * @author Ralf Mitschke
  */
 case class SelectClause2[-SelectA: Manifest, -SelectB: Manifest, Range: Manifest] (
-    projection: Rep[(SelectA, SelectB) => Range]
+    projection: (Rep[SelectA], Rep[SelectB]) => Rep[Range]
 )
     extends SELECT_CLAUSE_2[SelectA, SelectB, Range]
 {
