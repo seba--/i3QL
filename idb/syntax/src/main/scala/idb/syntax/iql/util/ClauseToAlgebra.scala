@@ -63,13 +63,12 @@ object ClauseToAlgebra
                 projection (selection (relation, predicate), project)
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project))) => {
-                val foo = discernPredicates2 (predicate, relationA, relationB)
-                projection (foo, project)
+                projection (predicateOperators2 (predicate, relationA, relationB), project)
             }
         }
 
 
-    def discernPredicates2[DomainA: Manifest, DomainB: Manifest] (
+    def predicateOperators2[DomainA: Manifest, DomainB: Manifest] (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
@@ -79,7 +78,7 @@ object ClauseToAlgebra
         val body = predicate (a, b)
         implicit val searchParams: Set[Sym[Any]] = Predef.Set (a, b)
 
-        val functionBodies = getFunctionBodies4(a,b, body)
+        val functionBodies = predicatesForTwoRelations(a,b, body)
 
         val relA = if(functionBodies.b1.isDefined){
             selection (relationA, functionBodies.fun1.get)
@@ -105,22 +104,19 @@ object ClauseToAlgebra
             join
         }
 
-        /*
-        getFunction2 (a, b, body) match {
-            case (Some (predA), Some (predB)) =>
-                crossProduct (selection (relationA, predA), selection (relationB, predB))
-            case (Some (predA), None) =>
-                crossProduct (selection (relationA, predA), relationB)
-            case (None, Some (predB)) =>
-                crossProduct (relationA, selection (relationB, predB))
-            case (None, None) =>
-                crossProduct (relationA, relationB)
-        }
-        */
         upperSelect
     }
 
-    def getFunctionBodies4[DomainA: Manifest, DomainB: Manifest] (
+    /**
+     * Returns an object containing method bodies for the where clause using two relations.
+     * All method bodies are boolean predicates
+     * The order of the bodies defines predicates for:
+     * 1. left relation
+     * 2. right relation
+     * 3. both relations
+     * 4. join conditions
+     */
+    def predicatesForTwoRelations[DomainA: Manifest, DomainB: Manifest] (
         a: Sym[DomainA],
         b: Sym[DomainB],
         body: Rep[Boolean]
@@ -143,7 +139,7 @@ object ClauseToAlgebra
         body match {
             // match conjunctions that can be used before a join
             case Def (BooleanAnd (lhs, rhs)) =>
-                getFunctionBodies4 (a, b, lhs).combineWith (boolean_and)(getFunctionBodies4 (a, b, rhs))
+                predicatesForTwoRelations (a, b, lhs).combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))
             // match a join condition
             case Def (Equal (lhs, rhs))
                 if {
@@ -157,55 +153,6 @@ object ClauseToAlgebra
             // match a combined condition on the result
             case _ =>
                 FunctionBodies4 (a, None, b, None, (a, b), Some (body), (a, b), None)
-        }
-    }
-
-
-    def getFunction2[DomainA: Manifest, DomainB: Manifest] (
-        a: Sym[DomainA],
-        b: Sym[DomainB],
-        body: Rep[Boolean]
-    )(
-        implicit allParams: Set[Sym[Any]]
-    ): (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]]) = {
-        val sa: Predef.Set[Sym[Any]] = Predef.Set (a)
-        val sb: Predef.Set[Sym[Any]] = Predef.Set (b)
-        findSyms (body) match {
-            case `sa` =>
-                return (Some ((x: Rep[DomainA]) => {
-                    //register (a)(x)
-                    subst = Predef.Map (a -> x)
-                    //runOnce (reifyEffects (body)).res
-                    transformBlock (reifyEffects (body)).res
-                }), None)
-            case `sb` =>
-                return (None, Some ((x: Rep[DomainB]) => {
-                    //register (b)(x)
-                    subst = Predef.Map (b -> x)
-                    //runOnce (reifyEffects (body)).res
-                    transformBlock (reifyEffects (body)).res
-                }))
-            case _ => // do nothing
-        }
-
-        // there are multiple parameter syms yet in the body
-        body match {
-            // match conjunctions that can be used before a join
-            case Def (BooleanAnd (lhs, rhs)) =>
-                combineSides (getFunction2 (a, b, lhs), getFunction2 (a, b, rhs))
-            // match a join condition
-            case Def (Equal (lhs, rhs)) =>
-                (None, None)
-        }
-    }
-
-    def combineSides[DomainA: Manifest, DomainB: Manifest] (
-        lhs: (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]]),
-        rhs: (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]])
-    ): (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]]) = {
-        lhs match {
-            case (None, Some (_)) => (rhs._1, lhs._2)
-            case (Some (_), None) => (lhs._1, rhs._2)
         }
     }
 
