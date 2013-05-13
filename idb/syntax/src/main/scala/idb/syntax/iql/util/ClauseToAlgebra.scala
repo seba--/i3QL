@@ -30,11 +30,12 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql.util
 
-import idb.syntax.iql.IR._
+//import idb.syntax.iql.IR._
 import idb.syntax.iql._
-import scala.virtualization.lms.common.{ForwardTransformer, RecursiveTransformer, WorklistTransformer}
+import scala.virtualization.lms.common.ForwardTransformer
+import idb.syntax.iql.impl._
 
 /**
  *
@@ -44,8 +45,11 @@ import scala.virtualization.lms.common.{ForwardTransformer, RecursiveTransformer
 
 object ClauseToAlgebra
     extends ForwardTransformer
+    with FunctionBodies
 {
     val IR = idb.syntax.iql.IR
+
+    import IR._
 
     def apply[Range: Manifest] (query: IQL_QUERY[Range]): Rep[Query[Range]] =
         query match {
@@ -75,6 +79,33 @@ object ClauseToAlgebra
         val body = predicate (a, b)
         implicit val searchParams: Set[Sym[Any]] = Predef.Set (a, b)
 
+        val functionBodies = getFunctionBodies4(a,b, body)
+
+        val relA = if(functionBodies.b1.isDefined){
+            selection (relationA, functionBodies.fun1.get)
+        } else {
+            relationA
+        }
+
+        val relB = if(functionBodies.b2.isDefined){
+            selection (relationB, functionBodies.fun2.get)
+        } else {
+            relationB
+        }
+
+        val join = if(functionBodies.b4.isDefined){
+            throw new UnsupportedOperationException
+        } else {
+            crossProduct (relA, relB)
+        }
+
+        val upperSelect = if(functionBodies.b3.isDefined){
+            selection(join, functionBodies.fun3.get)
+        }else {
+            join
+        }
+
+        /*
         getFunction2 (a, b, body) match {
             case (Some (predA), Some (predB)) =>
                 crossProduct (selection (relationA, predA), selection (relationB, predB))
@@ -85,7 +116,50 @@ object ClauseToAlgebra
             case (None, None) =>
                 crossProduct (relationA, relationB)
         }
+        */
+        upperSelect
     }
+
+    def getFunctionBodies4[DomainA: Manifest, DomainB: Manifest] (
+        a: Sym[DomainA],
+        b: Sym[DomainB],
+        body: Rep[Boolean]
+    )(
+        implicit allParams: Set[Sym[Any]]
+    ): FunctionBodies4[DomainA, DomainB,
+        (DomainA,DomainB), (DomainA, DomainB),
+        Boolean] = {
+        val sa: Predef.Set[Sym[Any]] = Predef.Set (a)
+        val sb: Predef.Set[Sym[Any]] = Predef.Set (b)
+        findSyms (body) match {
+            case `sa` =>
+                return FunctionBodies4 (a, Some (body), b, None, (a, b), None, (a, b), None)
+            case `sb` =>
+                return FunctionBodies4 (a, None, b, Some (body), (a, b), None, (a, b), None)
+            case _ => // do nothing
+        }
+
+        // there are multiple parameter syms yet in the body
+        body match {
+            // match conjunctions that can be used before a join
+            case Def (BooleanAnd (lhs, rhs)) =>
+                getFunctionBodies4 (a, b, lhs).combineWith (boolean_and)(getFunctionBodies4 (a, b, rhs))
+            // match a join condition
+            case Def (Equal (lhs, rhs))
+                if {
+                    val rs = findSyms (lhs)
+                    val ls = findSyms (rhs)
+                    ls.size == 1 &&
+                        rs.size == 1 &&
+                        ls != rs
+                } =>
+                FunctionBodies4 (a, None, b, None, (a, b), None, (a, b), Some (body))
+            // match a combined condition on the result
+            case _ =>
+                FunctionBodies4 (a, None, b, None, (a, b), Some (body), (a, b), None)
+        }
+    }
+
 
     def getFunction2[DomainA: Manifest, DomainB: Manifest] (
         a: Sym[DomainA],
@@ -100,16 +174,16 @@ object ClauseToAlgebra
             case `sa` =>
                 return (Some ((x: Rep[DomainA]) => {
                     //register (a)(x)
-                    subst = Predef.Map(a -> x)
+                    subst = Predef.Map (a -> x)
                     //runOnce (reifyEffects (body)).res
-                    transformBlock(reifyEffects (body)).res
+                    transformBlock (reifyEffects (body)).res
                 }), None)
             case `sb` =>
                 return (None, Some ((x: Rep[DomainB]) => {
                     //register (b)(x)
-                    subst = Predef.Map(b -> x)
+                    subst = Predef.Map (b -> x)
                     //runOnce (reifyEffects (body)).res
-                    transformBlock(reifyEffects (body)).res
+                    transformBlock (reifyEffects (body)).res
                 }))
             case _ => // do nothing
         }
@@ -118,10 +192,20 @@ object ClauseToAlgebra
         body match {
             // match conjunctions that can be used before a join
             case Def (BooleanAnd (lhs, rhs)) =>
-                return (None, None)
+                combineSides (getFunction2 (a, b, lhs), getFunction2 (a, b, rhs))
             // match a join condition
             case Def (Equal (lhs, rhs)) =>
-                return (None, None)
+                (None, None)
+        }
+    }
+
+    def combineSides[DomainA: Manifest, DomainB: Manifest] (
+        lhs: (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]]),
+        rhs: (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]])
+    ): (Option[Rep[DomainA] => Rep[Boolean]], Option[Rep[DomainB] => Rep[Boolean]]) = {
+        lhs match {
+            case (None, Some (_)) => (rhs._1, lhs._2)
+            case (Some (_), None) => (lhs._1, rhs._2)
         }
     }
 

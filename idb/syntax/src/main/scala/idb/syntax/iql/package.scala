@@ -1,8 +1,8 @@
 package idb.syntax
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.ClauseToAlgebra
 import scala.language.implicitConversions
+import idb.syntax.iql.util.ClauseToAlgebra
 
 /**
  *

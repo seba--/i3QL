@@ -196,7 +196,31 @@ class TestBasicClauses
         )
 
         assertEquals (
-            crossProduct (extent (students), extent (courses)),
+            crossProduct (
+                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testCrossProductStudentsCoursesWithInterleavedSelections () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
+                s.firstName == "Sally" &&
+                    c.title.startsWith ("Introduction") &&
+                    s.lastName == "Fields"
+            })
+        )
+
+        assertEquals (
+            crossProduct (
+                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally" && s.lastName == "Fields"),
+                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+            ),
             query
         )
     }
