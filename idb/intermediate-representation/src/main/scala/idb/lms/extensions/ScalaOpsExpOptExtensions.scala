@@ -37,7 +37,8 @@ package idb.lms.extensions
  * @author Ralf Mitschke
  */
 trait ScalaOpsExpOptExtensions
-    extends FunctionsExpOptAlphaEquivalence
+    extends ExpressionUtils
+    with FunctionsExpOptAlphaEquivalence
     with FunctionsExpOptBetaReduction
     with ScalaOpsExpConstantPropagation
     with ScalaOpsExpNormalization

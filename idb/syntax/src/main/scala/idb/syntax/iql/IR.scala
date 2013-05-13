@@ -52,6 +52,8 @@ object IR
     extends ScalaOpsExpOptExtensions
     with ScalaOpsPkgExp
     with StructExp
+    with LoopsFatExp
+    with IfThenElseFatExp
     with LiftAll
     with RelationalAlgebraIROpt
     with RelationalAlgebraGenSAEBinding

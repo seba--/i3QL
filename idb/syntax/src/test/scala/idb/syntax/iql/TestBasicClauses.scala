@@ -157,7 +157,10 @@ class TestBasicClauses
         )
 
         assertEquals (
-            crossProduct (extent (students), extent (courses)),
+            crossProduct (
+                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                extent (courses)
+            ),
             query
         )
     }
@@ -173,7 +176,10 @@ class TestBasicClauses
         )
 
         assertEquals (
-            crossProduct (extent (students), extent (courses)),
+            crossProduct (
+                extent (students),
+                selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
+            ),
             query
         )
     }
@@ -185,7 +191,7 @@ class TestBasicClauses
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
-                c.title.startsWith ("Introduction")
+                    c.title.startsWith ("Introduction")
             })
         )
 

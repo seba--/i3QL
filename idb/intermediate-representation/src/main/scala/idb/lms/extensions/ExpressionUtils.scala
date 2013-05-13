@@ -30,22 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.lms.extensions
 
-import idb.syntax.iql.IR.Sym
-import idb.syntax.iql.IR.findDefinition
-import idb.syntax.iql.IR.syms
+import scala.virtualization.lms.internal.Expressions
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-object LMSUtils
+trait ExpressionUtils
+    extends Expressions
 {
-
-    def findSyms (e: Any, search: Set[Sym[Any]]): Set[Sym[Any]] = {
+    def findSyms (e: Any)(implicit search: Set[Sym[Any]]): Set[Sym[Any]] = {
         val seen = e match {
             case s@Sym (_) => Set (s)
             case _ => Set.empty[Sym[Any]]
@@ -55,7 +51,7 @@ object LMSUtils
 
     private def findSymsRec (e: Any, search: Set[Sym[Any]], seen: Set[Sym[Any]]): Set[Sym[Any]] = {
         val next = (e match {
-            case s@Sym (_) => syms(findDefinition(s)).toSet
+            case s@Sym (_) => syms (findDefinition (s)).toSet
             case _ => Set.empty[Sym[Any]]
         }).diff (seen)
         if (next.isEmpty)
