@@ -54,8 +54,16 @@ trait RelationalAlgebraBasicOperators
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]]
 
+
     def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
+    ): Rep[Query[(DomainA, DomainB)]]
+
+
+    def equiJoin[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]]
 }

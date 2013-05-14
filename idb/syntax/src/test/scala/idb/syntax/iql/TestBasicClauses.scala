@@ -236,7 +236,14 @@ class TestBasicClauses
         )
 
         assertEquals (
-            crossProduct (extent (students), extent (registrations)),
+            equiJoin (
+                extent (students),
+                extent (registrations),
+                scala.Seq ((
+                    fun((s: Rep[Student]) => s.matriculationNumber),
+                    fun((r: Rep[Registration]) => r.studentMatriculationNumber)
+                    ))
+            ),
             query
         )
     }

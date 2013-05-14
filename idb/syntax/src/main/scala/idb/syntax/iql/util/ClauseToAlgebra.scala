@@ -33,6 +33,7 @@
 package idb.syntax.iql.util
 
 //import idb.syntax.iql.IR._
+
 import idb.syntax.iql._
 import scala.virtualization.lms.common.ForwardTransformer
 import idb.syntax.iql.impl._
@@ -68,7 +69,16 @@ object ClauseToAlgebra
         }
 
 
-    def predicateOperators2[DomainA: Manifest, DomainB: Manifest] (
+    private def createSubstFun[T: Manifest, B: Manifest] (oldX: Rep[T], body: Rep[B]): Rep[T => B] =
+        fun (
+            (x: Rep[T]) => {
+                subst = Map (oldX -> x)
+                transformBlock (reifyEffects (body)).res
+            }
+        )
+
+
+    private def predicateOperators2[DomainA: Manifest, DomainB: Manifest] (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
@@ -78,29 +88,33 @@ object ClauseToAlgebra
         val body = predicate (a, b)
         implicit val searchParams: Set[Sym[Any]] = Predef.Set (a, b)
 
-        val functionBodies = predicatesForTwoRelations(a,b, body)
+        val functionBodies = predicatesForTwoRelations (a, b, body)
 
-        val relA = if(functionBodies.b1.isDefined){
+        val relA = if (functionBodies.b1.isDefined) {
             selection (relationA, functionBodies.fun1.get)
-        } else {
+        } else
+        {
             relationA
         }
 
-        val relB = if(functionBodies.b2.isDefined){
+        val relB = if (functionBodies.b2.isDefined) {
             selection (relationB, functionBodies.fun2.get)
-        } else {
+        } else
+        {
             relationB
         }
 
-        val join = if(functionBodies.b4.isDefined){
-            throw new UnsupportedOperationException
-        } else {
+        val join = if (functionBodies.b3.isDefined) {
+            equiJoin (relA, relB, createJoinFunctions (a, b, functionBodies.b3.get))
+        } else
+        {
             crossProduct (relA, relB)
         }
 
-        val upperSelect = if(functionBodies.b3.isDefined){
-            selection(join, functionBodies.fun3.get)
-        }else {
+        val upperSelect = if (functionBodies.b4.isDefined) {
+            selection (join, functionBodies.fun4.get)
+        } else
+        {
             join
         }
 
@@ -116,14 +130,14 @@ object ClauseToAlgebra
      * 3. both relations
      * 4. join conditions
      */
-    def predicatesForTwoRelations[DomainA: Manifest, DomainB: Manifest] (
+    private def predicatesForTwoRelations[DomainA: Manifest, DomainB: Manifest] (
         a: Sym[DomainA],
         b: Sym[DomainB],
         body: Rep[Boolean]
     )(
         implicit allParams: Set[Sym[Any]]
     ): FunctionBodies4[DomainA, DomainB,
-        (DomainA,DomainB), (DomainA, DomainB),
+        (DomainA, DomainB), (DomainA, DomainB),
         Boolean] = {
         val sa: Predef.Set[Sym[Any]] = Predef.Set (a)
         val sb: Predef.Set[Sym[Any]] = Predef.Set (b)
@@ -143,16 +157,49 @@ object ClauseToAlgebra
             // match a join condition
             case Def (Equal (lhs, rhs))
                 if {
-                    val rs = findSyms (lhs)
-                    val ls = findSyms (rhs)
+                    val ls = findSyms (lhs)
+                    val rs = findSyms (rhs)
                     ls.size == 1 &&
                         rs.size == 1 &&
                         ls != rs
                 } =>
-                FunctionBodies4 (a, None, b, None, (a, b), None, (a, b), Some (body))
+                FunctionBodies4 (a, None, b, None, (a, b), Some (body), (a, b), None)
             // match a combined condition on the result
             case _ =>
-                FunctionBodies4 (a, None, b, None, (a, b), Some (body), (a, b), None)
+                FunctionBodies4 (a, None, b, None, (a, b), None, (a, b), Some (body))
+        }
+    }
+
+
+    private def createJoinFunctions[DomainA: Manifest, DomainB: Manifest] (
+        a: Sym[DomainA],
+        b: Sym[DomainB],
+        body: Rep[Boolean]
+    )(
+        implicit allParams: Set[Sym[Any]]
+    ): Seq[(Rep[DomainA => Any], Rep[DomainB => Any])] = {
+        val sa: Predef.Set[Sym[Any]] = Predef.Set (a)
+        val sb: Predef.Set[Sym[Any]] = Predef.Set (b)
+        body match {
+            // match conjunctions of joins
+            case Def (BooleanAnd (lhs, rhs)) =>
+                createJoinFunctions (a, b, lhs) ++ createJoinFunctions (a, b, rhs)
+            // match a join condition
+            case Def (Equal (lhs, rhs)) =>
+                val ls = findSyms (lhs)
+                val rs = findSyms (rhs)
+                assert (ls.size == 1 && rs.size == 1 && ls != rs)
+                if (ls == sa && rs == sb) {
+                    return scala.Seq ((createSubstFun (a, lhs), createSubstFun (b, rhs)))
+                }
+                else
+                {
+                    return scala.Seq ((createSubstFun (a, rhs), createSubstFun (b, lhs)))
+                }
+            case _ =>
+                throw new IllegalStateException (
+                    "trying to create join conditions with operators other than 'AND' or 'EQUALS'"
+                )
         }
     }
 

@@ -44,10 +44,11 @@ trait FunctionBodies
 
     import IR._
 
+
     trait UnifyBodies
     {
 
-        def unify[T:Manifest, B:Manifest] (
+        def unify[T: Manifest, B: Manifest] (
             f: (Rep[B], Rep[B]) => Rep[B]
         )(
             xa: Rep[T], xb: Rep[T]
@@ -60,13 +61,13 @@ trait FunctionBodies
                 return (xa, ba)
 
             if (xa == xb)
-                return (xa, Some(f (ba.get, bb.get)))
+                return (xa, Some (f (ba.get, bb.get)))
 
             // substitute xb with xa
             subst = Map (xb -> xa)
             val bbAsXa = transformBlock (reifyEffects (bb.get)).res
             subst = Map ()
-            (xa, Some(f (ba.get, bbAsXa)))
+            (xa, Some (f (ba.get, bbAsXa)))
         }
 
     }

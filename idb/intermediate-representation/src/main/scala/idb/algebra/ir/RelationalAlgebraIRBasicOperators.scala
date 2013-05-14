@@ -59,6 +59,12 @@ trait RelationalAlgebraIRBasicOperators
         relationB: Rep[Query[DomainB]]
     ) extends Def[Query[(DomainA, DomainB)]]
 
+    case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
+    ) extends Def[Query[(DomainA, DomainB)]]
+
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
@@ -76,4 +82,11 @@ trait RelationalAlgebraIRBasicOperators
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
         CrossProduct (relationA, relationB)
+
+    def equiJoin[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
+    ): Rep[Query[(DomainA, DomainB)]] =
+        EquiJoin (relationA, relationB, equalities)
 }
