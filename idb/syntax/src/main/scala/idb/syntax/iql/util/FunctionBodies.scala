@@ -33,20 +33,19 @@
 package idb.syntax.iql.util
 
 import scala.virtualization.lms.common.ForwardTransformer
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait FunctionBodies
-    extends ForwardTransformer
+    extends FunctionUtils
 {
 
     import IR._
 
 
-    trait UnifyBodies
-    {
 
         def unify[T: Manifest, B: Manifest] (
             f: (Rep[B], Rep[B]) => Rep[B]
@@ -70,8 +69,9 @@ trait FunctionBodies
             (xa, Some (f (ba.get, bbAsXa)))
         }
 
-    }
 
+
+    /*
     trait AsFunction1[T1, B] extends UnifyBodies
     {
         def x1: Rep[T1]
@@ -81,12 +81,7 @@ trait FunctionBodies
         implicit def manifestB: Manifest[B]
 
         def fun1: Option[Rep[T1] => Rep[B]] =
-            b1.map (body =>
-                (x: Rep[T1]) => {
-                    subst = Map (x1 -> x)
-                    transformBlock (reifyEffects (body)).res
-                }
-            )
+            b1.map (body => recreateFun(x1,body))
     }
 
     trait AsFunction2[T1, T2, B]
@@ -97,12 +92,7 @@ trait FunctionBodies
         def b2: Option[Rep[B]]
 
         def fun2: Option[Rep[T2] => Rep[B]] =
-            b2.map (body =>
-                (x: Rep[T2]) => {
-                    subst = Map (x2 -> x)
-                    transformBlock (reifyEffects (body)).res
-                }
-            )
+            b2.map (body => recreateFun(x2,body))
     }
 
     trait AsFunction3[T1, T2, T3, B]
@@ -113,12 +103,7 @@ trait FunctionBodies
         def b3: Option[Rep[B]]
 
         def fun3: Option[Rep[T3] => Rep[B]] =
-            b3.map (body =>
-                (x: Rep[T3]) => {
-                    subst = Map (x3 -> x)
-                    transformBlock (reifyEffects (body)).res
-                }
-            )
+            b3.map (body => recreateFun(x3,body))
     }
 
     trait AsFunction4[T1, T2, T3, T4, B]
@@ -129,17 +114,12 @@ trait FunctionBodies
         def b4: Option[Rep[B]]
 
         def fun4: Option[Rep[T4] => Rep[B]] =
-            b4.map (body =>
-                (x: Rep[T4]) => {
-                    subst = Map (x4 -> x)
-                    transformBlock (reifyEffects (body)).res
-                }
-            )
+            b4.map (body => recreateFun(x4,body))
     }
-
+    */
 
     case class FunctionBodies1[T1: Manifest, B: Manifest] (x1: Rep[T1], b1: Option[Rep[B]])
-        extends AsFunction1[T1, B]
+        //extends AsFunction1[T1, B]
     {
         def manifestB = implicitly[Manifest[B]]
 
@@ -158,7 +138,7 @@ trait FunctionBodies
         x1: Rep[T1], b1: Option[Rep[B]],
         x2: Rep[T2], b2: Option[Rep[B]]
     )
-        extends AsFunction2[T1, T2, B]
+        //extends AsFunction2[T1, T2, B]
     {
         def manifestB = implicitly[Manifest[B]]
 
@@ -178,7 +158,7 @@ trait FunctionBodies
         x2: Rep[T2], b2: Option[Rep[B]],
         x3: Rep[T3], b3: Option[Rep[B]]
     )
-        extends AsFunction3[T1, T2, T3, B]
+        //extends AsFunction3[T1, T2, T3, B]
     {
         def manifestB = implicitly[Manifest[B]]
 
@@ -200,7 +180,7 @@ trait FunctionBodies
         x3: Rep[T3], b3: Option[Rep[B]],
         x4: Rep[T4], b4: Option[Rep[B]]
     )
-        extends AsFunction4[T1, T2, T3, T4, B]
+        //extends AsFunction4[T1, T2, T3, T4, B]
     {
         def manifestB = implicitly[Manifest[B]]
 

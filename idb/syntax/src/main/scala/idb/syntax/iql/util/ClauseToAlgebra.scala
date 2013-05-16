@@ -91,14 +91,14 @@ object ClauseToAlgebra
         val functionBodies = predicatesForTwoRelations (a, b, body)
 
         val relA = if (functionBodies.b1.isDefined) {
-            selection (relationA, functionBodies.fun1.get)
+            selection (relationA, recreateFun(functionBodies.x1, functionBodies.b1.get))
         } else
         {
             relationA
         }
 
         val relB = if (functionBodies.b2.isDefined) {
-            selection (relationB, functionBodies.fun2.get)
+            selection (relationB, recreateFun(functionBodies.x2, functionBodies.b2.get))
         } else
         {
             relationB
@@ -112,7 +112,7 @@ object ClauseToAlgebra
         }
 
         val upperSelect = if (functionBodies.b4.isDefined) {
-            selection (join, functionBodies.fun4.get)
+            selection (join, recreateFun(functionBodies.x4, functionBodies.b4.get))
         } else
         {
             join
@@ -190,11 +190,11 @@ object ClauseToAlgebra
                 val rs = findSyms (rhs)
                 assert (ls.size == 1 && rs.size == 1 && ls != rs)
                 if (ls == sa && rs == sb) {
-                    return scala.Seq ((createSubstFun (a, lhs), createSubstFun (b, rhs)))
+                    scala.Seq ((recreateFun (a, lhs), recreateFun (b, rhs)))
                 }
                 else
                 {
-                    return scala.Seq ((createSubstFun (a, rhs), createSubstFun (b, lhs)))
+                    scala.Seq ((recreateFun (a, rhs), recreateFun (b, lhs)))
                 }
             case _ =>
                 throw new IllegalStateException (

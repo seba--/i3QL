@@ -53,8 +53,8 @@ class TestCompositions
         val f1 = rep1.f ()
         val f2 = rep2.f ()
 
-        println (f1)
-        println (f2)
+        //println (f1)
+        //println (f2)
     }
 
 }

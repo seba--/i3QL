@@ -226,6 +226,30 @@ class TestBasicClauses
     }
 
     @Test
+    def testCrossProductStudentsCoursesWithSelectionAbove () {
+        val students: Extent[Student] = BagExtent.empty
+        val courses: Extent[Course] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
+                s.firstName != c.title
+            })
+        )
+
+        assertEquals (
+            selection (
+                crossProduct (
+                    extent (students),
+                    extent (courses)
+                ),
+                (s: Rep[Student], c: Rep[Course]) => {
+                    s.firstName != c.title
+                }
+            ),
+            query
+        )
+    }
+
+    @Test
     def testJoinStudentsRegistrations () {
         val students: Extent[Student] = BagExtent.empty
         val registrations: Extent[Registration] = BagExtent.empty
@@ -240,9 +264,66 @@ class TestBasicClauses
                 extent (students),
                 extent (registrations),
                 scala.Seq ((
-                    fun((s: Rep[Student]) => s.matriculationNumber),
-                    fun((r: Rep[Registration]) => r.studentMatriculationNumber)
+                    fun ((s: Rep[Student]) => s.matriculationNumber),
+                    fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                     ))
+            ),
+            query
+        )
+    }
+
+
+    @Test
+    def testJoinStudentsRegistrationsWithFilterBelow () {
+        val students: Extent[Student] = BagExtent.empty
+        val registrations: Extent[Registration] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber &&
+                    s.firstName == "Sally" &&
+                    r.courseNumber == 12345
+            })
+        )
+
+        assertEquals (
+            equiJoin (
+                selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                selection (extent (registrations), (s: Rep[Registration]) => s.courseNumber == 12345),
+                scala.Seq ((
+                    fun ((s: Rep[Student]) => s.matriculationNumber),
+                    fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
+                    ))
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testJoinStudentsRegistrationsWithFilterBelowAndAbove () {
+        val students: Extent[Student] = BagExtent.empty
+        val registrations: Extent[Registration] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber &&
+                    s.lastName != r.comment &&
+                    s.firstName == "Sally" &&
+                    r.courseNumber == 12345
+            })
+        )
+
+        assertEquals (
+            selection (
+                equiJoin (
+                    selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                    selection (extent (registrations), (s: Rep[Registration]) => s.courseNumber == 12345),
+                    scala.Seq ((
+                        fun ((s: Rep[Student]) => s.matriculationNumber),
+                        fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
+                        ))
+                ),
+                (s: Rep[Student], r: Rep[Registration]) => {
+                    s.lastName != r.comment
+                }
             ),
             query
         )

@@ -38,7 +38,7 @@ package idb.schema.university
  *
  */
 
-case class Registration (courseNumber: Int, studentMatriculationNumber: Int)
+case class Registration (courseNumber: Int, studentMatriculationNumber: Int, comment: String)
 {
 
 }

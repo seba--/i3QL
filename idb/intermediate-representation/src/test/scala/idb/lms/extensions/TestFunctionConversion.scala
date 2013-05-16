@@ -32,47 +32,61 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Test
+import org.junit.{Ignore, Test}
+import org.junit.Assert._
+import scala.virtualization.lms.common._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestAlphaEquivalence
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with LMSTestUtils
+class TestFunctionConversion
+    extends FunctionUtils
 {
 
+    val IR = new BaseFatExp
+        with NumericOpsExp
+        with EffectExp
+        with EqualExp
+        with TupledFunctionsExp
+        with TupleOpsExp
+        with FunctionsExpOptAlphaEquivalence
+        with LiftAll
+
+    import IR.Rep
+    import IR.fresh
+    import IR.unbox
+    import IR.fun
+    import IR.repNumericToNumericOps
+    import IR.numericToNumericOps
+    import IR.doApply
+    import IR.make_tuple2
+
     @Test
-    def testSameMethodBody () {
-        assertSameReified (
-            (x: Rep[Int]) => x + 1,
-            (y: Rep[Int]) => y + 1
-        )
+    @Ignore
+    def testFun1Recreate () {
+        val f = (i: Rep[Int]) => {1 + i }
+        val x = fresh[Int]
+        val body = f (x)
+
+        val g = recreateFun (x, body)
+
+        assertEquals (fun (f), fun (g))
     }
 
     @Test
-    def testConstantFolding () {
-        assertSameReified (
-            (x: Rep[Int]) => x + 1 + 1,
-            (y: Rep[Int]) => y + 2
-        )
-    }
+    def testFun2Recreate () {
+        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
+        val funF = fun (f)
 
-    @Test
-    def testMethodConcatenation () {
-        def f1 (x: Rep[Int]) = x + 1
-        def f2 (x: Rep[Int]) = x + 2
+        val x = fresh[Int]
+        val y = fresh[Int]
+        val body = f (x, y)
 
-        assertSameReified (
-            (x: Rep[Int]) => f1 (f2 (x)),
-            (y: Rep[Int]) => y + 3
-        )
+        val g = recreateFun ((x, y), body)
 
-        assertSameReified (
-            (x: Rep[Int]) => f2 (f1 (x)),
-            (y: Rep[Int]) => y + 3
-        )
+        val funG = fun (g)
+        assertEquals (funF, funG)
     }
 
 }
