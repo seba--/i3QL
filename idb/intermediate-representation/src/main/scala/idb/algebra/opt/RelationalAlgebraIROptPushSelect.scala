@@ -34,6 +34,7 @@ package idb.algebra.opt
 
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.lms.extensions.{FunctionBodies, ExpressionUtils}
 
 /**
  *
@@ -42,7 +43,12 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
  */
 trait RelationalAlgebraIROptPushSelect
     extends RelationalAlgebraIRBasicOperators
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+    with LiftBoolean
+    with BooleanOps
+    with BooleanOpsExp
+    with EffectExp
+    with FunctionsExp
+    with ExpressionUtils
 {
 
     /**
@@ -60,6 +66,7 @@ trait RelationalAlgebraIROptPushSelect
             case _ =>
                 super.selection (relation, selectionFunction)
         }
-
     }
+
+
 }

@@ -37,6 +37,7 @@ package idb.syntax.iql.util
 import idb.syntax.iql._
 import scala.virtualization.lms.common.ForwardTransformer
 import idb.syntax.iql.impl._
+import idb.lms.extensions.FunctionBodies
 
 /**
  *
@@ -69,15 +70,6 @@ object ClauseToAlgebra
         }
 
 
-    private def createSubstFun[T: Manifest, B: Manifest] (oldX: Rep[T], body: Rep[B]): Rep[T => B] =
-        fun (
-            (x: Rep[T]) => {
-                subst = Map (oldX -> x)
-                transformBlock (reifyEffects (body)).res
-            }
-        )
-
-
     private def predicateOperators2[DomainA: Manifest, DomainB: Manifest] (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
         relationA: Rep[Query[DomainA]],
@@ -86,7 +78,7 @@ object ClauseToAlgebra
         val a = fresh[DomainA]
         val b = fresh[DomainB]
         val body = predicate (a, b)
-        implicit val searchParams: Set[Sym[Any]] = Predef.Set (a, b)
+        implicit val searchParams: Set[Exp[Any]] = Predef.Set (a, b)
 
         val functionBodies = predicatesForTwoRelations (a, b, body)
 
@@ -135,7 +127,7 @@ object ClauseToAlgebra
         b: Sym[DomainB],
         body: Rep[Boolean]
     )(
-        implicit allParams: Set[Sym[Any]]
+        implicit allParams: Set[Exp[Any]]
     ): FunctionBodies4[DomainA, DomainB,
         (DomainA, DomainB), (DomainA, DomainB),
         Boolean] = {
@@ -176,7 +168,7 @@ object ClauseToAlgebra
         b: Sym[DomainB],
         body: Rep[Boolean]
     )(
-        implicit allParams: Set[Sym[Any]]
+        implicit allParams: Set[Exp[Any]]
     ): Seq[(Rep[DomainA => Any], Rep[DomainB => Any])] = {
         val sa: Predef.Set[Sym[Any]] = Predef.Set (a)
         val sb: Predef.Set[Sym[Any]] = Predef.Set (b)

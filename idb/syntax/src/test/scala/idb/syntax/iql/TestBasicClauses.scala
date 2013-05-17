@@ -289,7 +289,7 @@ class TestBasicClauses
         assertEquals (
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                selection (extent (registrations), (s: Rep[Registration]) => s.courseNumber == 12345),
+                selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
                 scala.Seq ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
@@ -316,7 +316,7 @@ class TestBasicClauses
             selection (
                 equiJoin (
                     selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                    selection (extent (registrations), (s: Rep[Registration]) => s.courseNumber == 12345),
+                    selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
                     scala.Seq ((
                         fun ((s: Rep[Student]) => s.matriculationNumber),
                         fun ((r: Rep[Registration]) => r.studentMatriculationNumber)

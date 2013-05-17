@@ -41,12 +41,12 @@ import scala.virtualization.lms.internal.Expressions
 trait ExpressionUtils
     extends Expressions
 {
-    def findSyms (e: Any)(implicit search: Set[Sym[Any]]): Set[Sym[Any]] = {
+    def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Sym[Any]] = {
         val seen = e match {
             case s@Sym (_) => Set (s)
             case _ => Set.empty[Sym[Any]]
         }
-        findSymsRec (e, search, seen)
+        findSymsRec (e, search.asInstanceOf[Set[Sym[Any]]], seen)
     }
 
     private def findSymsRec (e: Any, search: Set[Sym[Any]], seen: Set[Sym[Any]]): Set[Sym[Any]] = {

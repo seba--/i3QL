@@ -32,36 +32,42 @@
  */
 package idb.syntax.iql
 
-import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
-import idb.algebra.opt.RelationalAlgebraIROpt
-import idb.lms.extensions.{FunctionsExpOptAlphaEquivalence, FunctionBodies, FunctionUtils, ScalaOpsExpOptExtensions}
-import scala.language.implicitConversions
-import scala.virtualization.lms.common._
-
+import idb.schema.university._
+import idb.syntax.iql.IR._
+import idb.syntax.iql.UniversitySchema._
+import idb.{BagExtent, Extent}
+import org.junit.Assert._
+import org.junit.Test
 
 /**
  *
- *
- * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the object automatically brings Rep and Exp into Scope.
- *
  * @author Ralf Mitschke
  */
-object IR
-    extends ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
-    with FunctionBlocksExp // TODO consider using this for function recreation
-    with StructExp
-    with LoopsFatExp
-    with IfThenElseFatExp
-    with LiftAll
-    with RelationalAlgebraIROpt
-    with RelationalAlgebraGenSAEBinding
+class TestBasicClauseOptimizations
 {
 
-    val transformer = new FunctionBodies {
-        val IR  = idb.syntax.iql.IR
+    @Test
+    def testJoinSimplifyWithFilter () {
+        val students: Extent[Student] = BagExtent.empty
+        val registrations: Extent[Registration] = BagExtent.empty
+        val query = plan (
+            SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber &&
+                    s.matriculationNumber == 12345
+            })
+        )
+
+        assertEquals (
+            equiJoin (
+                selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
+                selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
+                scala.Seq ((
+                    fun ((s: Rep[Student]) => s.matriculationNumber),
+                    fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
+                    ))
+            ),
+            query
+        )
     }
 
 }

@@ -41,6 +41,7 @@ trait RelationalAlgebraIROpt
     extends RelationalAlgebraIROptFusion
     with RelationalAlgebraIROptPushSelect
     with RelationalAlgebraIROptSimplify
+    with RelationalAlgebraOptJoinCondPropagation
 {
 
 }
