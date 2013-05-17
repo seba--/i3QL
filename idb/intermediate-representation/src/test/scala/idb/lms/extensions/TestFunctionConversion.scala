@@ -63,7 +63,6 @@ class TestFunctionConversion
     import IR.make_tuple2
 
     @Test
-    @Ignore
     def testFun1Recreate () {
         val f = (i: Rep[Int]) => {1 + i }
         val x = fresh[Int]
@@ -83,7 +82,9 @@ class TestFunctionConversion
         val y = fresh[Int]
         val body = f (x, y)
 
-        val g = recreateFun ((x, y), body)
+        val params: Rep[(Int,Int)] =  (x,y)
+
+        val g = recreateFun (params, body)
 
         val funG = fun (g)
         assertEquals (funF, funG)

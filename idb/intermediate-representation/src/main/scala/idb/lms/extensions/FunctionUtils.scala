@@ -44,15 +44,26 @@ trait FunctionUtils
 
     val IR: BaseFatExp with EffectExp with TupleOpsExp with FunctionsExpOptAlphaEquivalence
 
-    import IR._
+    import IR.Rep
+    import IR.Def
+    import IR.Sym
+    import IR.reifyEffects
+    import IR.ETuple2
+    import IR.tuple2_get1
+    import IR.tuple2_get2
 
     def recreateFun[A: Manifest, B: Manifest]
         (x: Rep[A], body: Rep[B]): Rep[A] => Rep[B] =
         (t: Rep[A]) => {
-            subst = Map (x -> t)
+            subst =
+                x match {
+                    case Def (ETuple2 (a, b)) => Map (a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]))
+                    case Sym (_) => Map (x -> t)
+                }
             transformBlock (reifyEffects (body)).res
         }
 
+    /*
     def recreateFun[A1: Manifest, A2: Manifest, B: Manifest]
         (x: (Rep[A1], Rep[A2]), body: Rep[B]): Rep[(A1, A2)] => Rep[B] =
         (t: Rep[(A1, A2)]) => {
@@ -83,6 +94,6 @@ trait FunctionUtils
                 x._4 -> tuple5_get4 (t), x._5 -> tuple5_get5 (t))
             transformBlock (reifyEffects (body)).res
         }
-
+    */
 
 }

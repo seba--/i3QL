@@ -229,6 +229,7 @@ class TestBasicClauses
     def testCrossProductStudentsCoursesWithSelectionAbove () {
         val students: Extent[Student] = BagExtent.empty
         val courses: Extent[Course] = BagExtent.empty
+
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
@@ -241,8 +242,8 @@ class TestBasicClauses
                     extent (students),
                     extent (courses)
                 ),
-                (s: Rep[Student], c: Rep[Course]) => {
-                    s.firstName != c.title
+                (e: Rep[(Student, Course)]) => {
+                    e._1.firstName != e._2.title
                 }
             ),
             query

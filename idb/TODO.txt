@@ -1,0 +1,21 @@
+Functions with multiple parameters and functions on tuples create the same representation (see below)
+How does this work with code generation (since we definitely pass tuples as results of cross products.
+val q2 =selection (
+    crossProduct (
+        extent (students),
+        extent (courses)
+    ),
+    (s: Rep[Student], c: Rep[Course]) => {
+        s.firstName != c.title
+    }
+)
+val q1 = selection (
+    crossProduct (
+        extent (students),
+        extent (courses)
+    ),
+    (e: Rep[(Student, Course)]) => {
+        e._1.firstName != e._2.title
+    }
+)
+q2 == q1 // true
