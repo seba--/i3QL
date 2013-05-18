@@ -6,7 +6,7 @@
 
     <groupId>de.tud.cs.st.idb</groupId>
     <artifactId>idb-parent</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1</version>
 
     <name>idb-parent</name>
     <url>http://opal-project.org</url>
@@ -110,22 +110,22 @@
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>intermediate-representation</artifactId>
-                <version>0.0.1</version>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>runtime</artifactId>
-                <version>0.0.1</version>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>runtime-compiler</artifactId>
-                <version>0.0.1</version>
+                <version>${version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>schema-examples</artifactId>
-                <version>0.0.1</version>
+                <version>${version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

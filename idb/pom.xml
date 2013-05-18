@@ -10,6 +10,7 @@
 
     <modules>
         <module>idb-parent</module>
+        <module>annotations</module>
         <module>runtime</module>
         <module>schema-examples</module>
         <module>intermediate-representation</module>

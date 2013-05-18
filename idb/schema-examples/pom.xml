@@ -5,13 +5,12 @@
     <parent>
         <groupId>de.tud.cs.st.idb</groupId>
         <artifactId>idb-parent</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1</version>
         <relativePath>../idb-parent</relativePath>
     </parent>
 
     <name>idb-schema-examples</name>
     <artifactId>schema-examples</artifactId>
-    <version>0.0.1</version>
 
     <dependencies>
         <dependency>
