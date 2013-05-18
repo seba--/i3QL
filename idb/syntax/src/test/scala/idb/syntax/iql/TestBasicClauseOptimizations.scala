@@ -47,7 +47,7 @@ class TestBasicClauseOptimizations
 {
 
     @Test
-    def testJoinPushFilterToRight () {
+    def testPropagateFilterToRightViaJoin () {
         val students: Extent[Student] = BagExtent.empty
         val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
@@ -72,7 +72,7 @@ class TestBasicClauseOptimizations
 
 
     @Test
-    def testJoinPushFilterToLeft () {
+    def testPropagateFilterToLeftViaJoin () {
         val students: Extent[Student] = BagExtent.empty
         val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
