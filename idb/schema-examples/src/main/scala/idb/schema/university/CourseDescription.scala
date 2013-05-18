@@ -32,7 +32,7 @@
  */
 package idb.schema.university
 
-import idb.annotations.LocalIncrement
+import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
 
 /**
@@ -41,8 +41,12 @@ import scala.virtualization.lms.common.StructExp
  *
  */
 
-@LocalIncrement
-case class CourseDescription (courseNumber: Int, lecturers: Seq[Lecturer], books: Seq[Book], description: String)
+case class CourseDescription (
+    course: Course,
+    lecturers: Seq[Lecturer],
+    books: Seq[Book],
+    description: String
+)
 {
 
 }
@@ -55,18 +59,30 @@ trait CourseDescriptionSchema
     import IR._
 
     def CourseDescription (
-        courseNumber: Rep[Int],
+        course: Rep[Course],
         lecturers: Rep[Seq[Lecturer]],
         books: Rep[Seq[Book]],
         description: Rep[String]
     ) =
         struct[CourseDescription](
             ClassTag[CourseDescription]("CourseDescription"),
-            Map ("courseNumber" -> courseNumber,
+            Map ("course" -> course,
                 "lecturers" -> lecturers,
                 "books" -> books,
                 "description" -> description)
         )
 
+    case class CourseDescriptionInfixOps (c: Rep[CourseDescription])
+    {
+        def course: Rep[Course] = field[Course](c, "number")
 
+        def lecturers: Rep[Seq[Lecturer]] = field[Seq[Lecturer]](c, "lecturers")
+
+        def books: Rep[Seq[Book]] = field[Seq[Book]](c, "books")
+
+        def description: Rep[String] = field[String](c, "description")
+    }
+
+    implicit def courseDescriptionToInfixOps (c: Rep[CourseDescription]) =
+        CourseDescriptionInfixOps (c)
 }

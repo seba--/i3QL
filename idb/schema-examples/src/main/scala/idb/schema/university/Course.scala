@@ -32,6 +32,7 @@
  */
 package idb.schema.university
 
+import idb.annotations.LocalIncrement
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
 
@@ -41,6 +42,7 @@ import scala.virtualization.lms.common.StructExp
  *
  */
 
+@LocalIncrement
 case class Course (number: Int, title: String, creditPoints: Int)
 {
 
@@ -63,14 +65,14 @@ trait CourseSchema
     // (remember that all infix methods in all schemas are mixed together in one class)
     case class CourseInfixOps (c: Rep[Course])
     {
-        def number (): Rep[Int] = field[Int](c, "number")
+        def number: Rep[Int] = field[Int](c, "number")
 
-        def title (): Rep[String] = field[String](c, "title")
+        def title: Rep[String] = field[String](c, "title")
 
-        def creditPoints (): Rep[Int] = field[Int](c, "creditPoints")
+        def creditPoints: Rep[Int] = field[Int](c, "creditPoints")
     }
 
-    implicit def courseToInfixOps(c: Rep[Course]) = CourseInfixOps(c)
+    implicit def courseToInfixOps (c: Rep[Course]) = CourseInfixOps (c)
 
     /*
     def infix_number (c: Rep[Course]): Rep[Int] = field[Int](c, "number")

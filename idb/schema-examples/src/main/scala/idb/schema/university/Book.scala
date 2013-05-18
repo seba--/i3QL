@@ -61,22 +61,13 @@ trait BookSchema
 
     // use an infix operation class to avoid name clashes
     // (remember that all infix methods in all schemas are mixed together in one class)
-    case class BookInfixOps(b: Rep[Book]) {
-        def title (): Rep[String] = field[String](b, "title")
+    case class BookInfixOps (b: Rep[Book])
+    {
+        def title: Rep[String] = field[String](b, "title")
 
-        def authors (): Rep[Seq[Author]] = field[Seq[Author]](b, "authors")
+        def authors: Rep[Seq[Author]] = field[Seq[Author]](b, "authors")
 
     }
 
-    implicit def bookToInfixOps(b: Rep[Book]) = BookInfixOps(b)
-
-    /*
-    def infix_title (b: Rep[Book]): Rep[String] = field[String](b, "title")
-
-    def infix_authors (b: Rep[Book]): Rep[Seq[Author]] = field[Seq[Author]](b, "authors")
-
-    def title = infix_title _
-
-    def authors = infix_authors _
-    */
+    implicit def bookToInfixOps (b: Rep[Book]) = BookInfixOps (b)
 }

@@ -32,8 +32,8 @@
  */
 package idb.syntax.iql
 
-import idb.{BagExtent, Extent}
 import idb.schema.university._
+import idb.{BagExtent, Extent}
 
 /**
  *
@@ -46,9 +46,13 @@ object UniversityDatabase
 {
     val IR = idb.syntax.iql.IR
 
-    val students: Extent[Student] = BagExtent.empty
-
     val courses: Extent[Course] = BagExtent.empty
 
+    val courseDescriptions: Extent[CourseDescription] = BagExtent.empty
+
+    val lecturers: Extent[Lecturer] = BagExtent.empty
+
     val registrations: Extent[Registration] = BagExtent.empty
+
+    val students: Extent[Student] = BagExtent.empty
 }
