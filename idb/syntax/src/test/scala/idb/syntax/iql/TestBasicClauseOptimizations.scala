@@ -32,10 +32,9 @@
  */
 package idb.syntax.iql
 
+import UniversityDatabase._
 import idb.schema.university._
-import idb.syntax.iql.UniversitySchema._
 import idb.syntax.iql.IR._
-import idb.{BagExtent, Extent}
 import org.junit.Assert._
 import org.junit.Test
 
@@ -48,8 +47,6 @@ class TestBasicClauseOptimizations
 
     @Test
     def testPropagateFilterToRightViaJoin () {
-        val students: Extent[Student] = BagExtent.empty
-        val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -73,8 +70,6 @@ class TestBasicClauseOptimizations
 
     @Test
     def testPropagateFilterToLeftViaJoin () {
-        val students: Extent[Student] = BagExtent.empty
-        val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&

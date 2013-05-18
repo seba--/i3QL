@@ -32,6 +32,8 @@
  */
 package idb.schema.university
 
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
@@ -43,4 +45,20 @@ trait Person
     def firstName: String
 
     def lastName: String
+}
+
+trait PersonSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def infix_firstName (p: Rep[Person]): Rep[String] = field[String](p, "firstName")
+
+    def infix_lastName (p: Rep[Person]): Rep[String] = field[String](p, "lastName")
+
+    def firstName = infix_firstName _
+
+    def lastName = infix_lastName _
+
 }

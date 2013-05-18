@@ -30,7 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.schema.university
+package idb.syntax.iql
+
+import idb.{BagExtent, Extent}
+import idb.schema.university._
 
 /**
  *
@@ -38,14 +41,14 @@ package idb.schema.university
  *
  */
 
-case class Lecturer (firstName: String, lastName: String)
-    extends Person
+object UniversityDatabase
+    extends idb.schema.university.UniversitySchema
 {
+    val IR = idb.syntax.iql.IR
 
-}
+    val students: Extent[Student] = BagExtent.empty
 
-trait LecturerSchema
-    extends PersonSchema
-{
+    val courses: Extent[Course] = BagExtent.empty
 
+    val registrations: Extent[Registration] = BagExtent.empty
 }

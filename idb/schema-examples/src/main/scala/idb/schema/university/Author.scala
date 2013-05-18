@@ -38,13 +38,13 @@ package idb.schema.university
  *
  */
 
-case class Lecturer (firstName: String, lastName: String)
+case class Author (firstName: String, lastName: String)
     extends Person
 {
 
 }
 
-trait LecturerSchema
+trait AuthorSchema
     extends PersonSchema
 {
 

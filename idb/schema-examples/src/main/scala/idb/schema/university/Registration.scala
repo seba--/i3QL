@@ -32,6 +32,8 @@
  */
 package idb.schema.university
 
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
@@ -41,4 +43,27 @@ package idb.schema.university
 case class Registration (courseNumber: Int, studentMatriculationNumber: Int, comment: String)
 {
 
+}
+
+
+trait RegistrationSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def Registration (courseNumber: Rep[Int], studentMatriculationNumber: Rep[Int], comment: Rep[String]) =
+        struct[Registration](
+            ClassTag[Registration]("Registration"),
+            Map ("courseNumber" -> courseNumber,
+                "studentMatriculationNumber" -> studentMatriculationNumber,
+                "comment" -> comment
+            )
+        )
+
+    def infix_courseNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "courseNumber")
+
+    def infix_studentMatriculationNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "studentMatriculationNumber")
+
+    def infix_comment (r: Rep[Registration]): Rep[String] = field[String](r, "comment")
 }

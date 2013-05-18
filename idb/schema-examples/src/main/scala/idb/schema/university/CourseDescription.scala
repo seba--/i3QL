@@ -32,13 +32,41 @@
  */
 package idb.schema.university
 
+import idb.annotations.LocalIncrement
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-case class CourseDescription()
+@LocalIncrement
+case class CourseDescription (courseNumber: Int, lecturers: Seq[Lecturer], books: Seq[Book], description: String)
 {
+
+}
+
+
+trait CourseDescriptionSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def CourseDescription (
+        courseNumber: Rep[Int],
+        lecturers: Rep[Seq[Lecturer]],
+        books: Rep[Seq[Book]],
+        description: Rep[String]
+    ) =
+        struct[CourseDescription](
+            ClassTag[CourseDescription]("CourseDescription"),
+            Map ("courseNumber" -> courseNumber,
+                "lecturers" -> lecturers,
+                "books" -> books,
+                "description" -> description)
+        )
+
 
 }

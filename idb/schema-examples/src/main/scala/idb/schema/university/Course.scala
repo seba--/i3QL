@@ -32,6 +32,9 @@
  */
 package idb.schema.university
 
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
@@ -41,4 +44,45 @@ package idb.schema.university
 case class Course (number: Int, title: String, creditPoints: Int)
 {
 
+}
+
+
+trait CourseSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
+        struct[Course](
+            ClassTag[Course]("Course"),
+            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
+        )
+
+    // use an infix operation class to avoid name clashes
+    // (remember that all infix methods in all schemas are mixed together in one class)
+    case class CourseInfixOps (c: Rep[Course])
+    {
+        def number (): Rep[Int] = field[Int](c, "number")
+
+        def title (): Rep[String] = field[String](c, "title")
+
+        def creditPoints (): Rep[Int] = field[Int](c, "creditPoints")
+    }
+
+    implicit def courseToInfixOps(c: Rep[Course]) = CourseInfixOps(c)
+
+    /*
+    def infix_number (c: Rep[Course]): Rep[Int] = field[Int](c, "number")
+
+    def infix_title (c: Rep[Course]): Rep[String] = field[String](c, "title")
+
+    def infix_creditPoints (c: Rep[Course]): Rep[Int] = field[Int](c, "creditPoints")
+
+    def number = infix_number _
+
+    def title = infix_title _
+
+    def creditPoints = infix_creditPoints _
+    */
 }

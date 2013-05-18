@@ -32,10 +32,9 @@
  */
 package idb.syntax.iql
 
+import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import idb.syntax.iql.UniversitySchema._
-import idb.{BagExtent, Extent}
 import org.junit.Assert._
 import org.junit.Test
 
@@ -45,12 +44,8 @@ import org.junit.Test
  */
 class TestBasicClauses
 {
-
-
     @Test
     def testSelectStarFromStudents () {
-
-        val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM students
         )
@@ -60,8 +55,6 @@ class TestBasicClauses
 
     @Test
     def testSelectFirstNameFromStudents () {
-        import idb.syntax.iql.UniversitySchema._
-        val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (firstName) FROM students
         )
@@ -74,7 +67,6 @@ class TestBasicClauses
 
     @Test
     def testSelectFirstAndLastNameTupleFromStudents () {
-        val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (firstName, lastName) FROM students
         )
@@ -88,7 +80,6 @@ class TestBasicClauses
 
     @Test
     def testFilterStudentFirstNames () {
-        val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
@@ -101,7 +92,6 @@ class TestBasicClauses
 
     @Test
     def testFilterCourseTitles () {
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
         )
@@ -114,7 +104,6 @@ class TestBasicClauses
 
     @Test
     def testSelectFirstAndLastNameTupleFromFilteredStudents () {
-        val students: Extent[Student] = BagExtent.empty
         val query = plan (
             SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
@@ -134,8 +123,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCourses () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, courses)
         )
@@ -148,8 +135,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCoursesWithStudentSelection () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally"
@@ -167,8 +152,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCoursesWithCourseSelection () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 c.title.startsWith ("Introduction")
@@ -186,8 +169,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCoursesWithBothAsSelection () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -206,8 +187,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCoursesWithInterleavedSelections () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -227,9 +206,6 @@ class TestBasicClauses
 
     @Test
     def testCrossProductStudentsCoursesWithSelectionAbove () {
-        val students: Extent[Student] = BagExtent.empty
-        val courses: Extent[Course] = BagExtent.empty
-
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
@@ -252,8 +228,6 @@ class TestBasicClauses
 
     @Test
     def testJoinStudentsRegistrations () {
-        val students: Extent[Student] = BagExtent.empty
-        val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber
@@ -276,8 +250,6 @@ class TestBasicClauses
 
     @Test
     def testJoinStudentsRegistrationsWithFilterBelow () {
-        val students: Extent[Student] = BagExtent.empty
-        val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -301,8 +273,6 @@ class TestBasicClauses
 
     @Test
     def testJoinStudentsRegistrationsWithFilterBelowAndAbove () {
-        val students: Extent[Student] = BagExtent.empty
-        val registrations: Extent[Registration] = BagExtent.empty
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&

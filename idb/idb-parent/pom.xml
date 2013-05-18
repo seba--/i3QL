@@ -109,6 +109,11 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>intermediate-representation</artifactId>
                 <version>${version}</version>
             </dependency>

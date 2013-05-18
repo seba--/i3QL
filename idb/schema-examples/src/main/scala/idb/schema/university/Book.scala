@@ -32,20 +32,51 @@
  */
 package idb.schema.university
 
+import scala.language.implicitConversions
+import scala.virtualization.lms.common.StructExp
+
 /**
  *
  * @author Ralf Mitschke
  *
  */
 
-case class Lecturer (firstName: String, lastName: String)
-    extends Person
+case class Book (title: String, authors: Seq[Author])
 {
 
 }
 
-trait LecturerSchema
-    extends PersonSchema
-{
 
+trait BookSchema
+{
+    val IR: StructExp
+
+    import IR._
+
+    def Book (title: Rep[String], authors: Rep[Seq[Author]]) =
+        struct[Book](
+            ClassTag[Book]("Book"),
+            Map ("title" -> title, "authors" -> authors)
+        )
+
+    // use an infix operation class to avoid name clashes
+    // (remember that all infix methods in all schemas are mixed together in one class)
+    case class BookInfixOps(b: Rep[Book]) {
+        def title (): Rep[String] = field[String](b, "title")
+
+        def authors (): Rep[Seq[Author]] = field[Seq[Author]](b, "authors")
+
+    }
+
+    implicit def bookToInfixOps(b: Rep[Book]) = BookInfixOps(b)
+
+    /*
+    def infix_title (b: Rep[Book]): Rep[String] = field[String](b, "title")
+
+    def infix_authors (b: Rep[Book]): Rep[Seq[Author]] = field[Seq[Author]](b, "authors")
+
+    def title = infix_title _
+
+    def authors = infix_authors _
+    */
 }

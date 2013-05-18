@@ -32,7 +32,6 @@
  */
 package idb.schema.university
 
-import scala.virtualization.lms.common.StructExp
 
 /**
  *
@@ -41,61 +40,11 @@ import scala.virtualization.lms.common.StructExp
  */
 
 trait UniversitySchema
+    extends AuthorSchema
+    with BookSchema
+    with CourseSchema
+    with CourseDescriptionSchema
+    with StudentSchema
+    with RegistrationSchema
 {
-    val IR : StructExp
-
-    import IR._
-
-    /* Definitions for Student  */
-    def Student (matriculationNumber: Rep[Int], firstName: Rep[String], lastName: Rep[String]): Rep[Student] =
-        struct[Student](
-            ClassTag[Student]("Student"),
-            Map ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
-        )
-
-    def infix_firstName (s: Rep[Student]): Rep[String] = field[String](s, "firstName")
-
-    def infix_lastName (s: Rep[Student]): Rep[String] = field[String](s, "lastName")
-
-    def infix_matriculationNumber (s: Rep[Student]): Rep[Int] = field[Int](s, "matriculationNumber")
-
-    def firstName = infix_firstName _
-
-    def lastName = infix_lastName _
-
-    def matriculationNumber = infix_matriculationNumber _
-
-    /* Definitions for Course */
-    def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
-        struct[Course](
-            ClassTag[Course]("Course"),
-            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
-        )
-
-    def infix_number (c: Rep[Course]): Rep[Int] = field[Int](c, "number")
-
-    def infix_title (c: Rep[Course]): Rep[String] = field[String](c, "title")
-
-    def infix_creditPoints (c: Rep[Course]): Rep[Int] = field[Int](c, "creditPoints")
-
-    def number = infix_number _
-
-    def title = infix_title _
-
-    def creditPoints = infix_creditPoints _
-
-    def Registration (courseNumber: Rep[Int], studentMatriculationNumber: Rep[Int], comment: Rep[String]) =
-        struct[Registration](
-            ClassTag[Registration]("Registration"),
-            Map ("courseNumber" -> courseNumber,
-                "studentMatriculationNumber" -> studentMatriculationNumber,
-                "comment" -> comment
-            )
-        )
-
-    def infix_courseNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "courseNumber")
-
-    def infix_studentMatriculationNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "studentMatriculationNumber")
-
-    def infix_comment (r: Rep[Registration]): Rep[String] = field[String](r, "comment")
 }
