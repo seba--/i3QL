@@ -32,9 +32,9 @@
  */
 package idb.algebra.opt
 
-import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionBodies, ExpressionUtils}
+import idb.lms.extensions.ExpressionUtils
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -43,6 +43,7 @@ import idb.lms.extensions.{FunctionBodies, ExpressionUtils}
 trait RelationalAlgebraOptJoinCondPropagation
     extends RelationalAlgebraIRBasicOperators
     with FunctionsExp
+    with BooleanOpsExp
     with ExpressionUtils
     with FilterUtils
 {
@@ -53,46 +54,34 @@ trait RelationalAlgebraOptJoinCondPropagation
         relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]] = {
-        val newRhsFilters = constructRhsFilters(relationA, equalities)
+        val newLhsFilter = constructLhsFilters (relationA, relationB, equalities)
+        val newRhsFilter = constructRhsFilters (relationA, relationB, equalities)
 
-        /*
-        relationA match {
-            case Def (Selection (r, Def (Lambda (_, a: Sym[DomainA], block: Block[Boolean])))) =>
-                (for ((lhs, Def (Lambda (_, b: Sym[DomainB], Block (rhs)))) <- equalities) yield
-                {
-                    val lhsSubst = lhs (a)
-                    transformer.subst = Map (lhsSubst -> rhs)
-                    val res = transformer.transformBlock (block).res
-                    implicit val search = Predef.Set (a, b)
-                    if (findSyms (res) == Predef.Set (b))
-                        transformer.FunctionBodies1 (b, Some (res))
-                    else
-                        transformer.FunctionBodies1 (b, None)(manifest[DomainB], manifest[Boolean])
-                }).reduce (_.combineWith (transformer.IR.boolean_and)(_))
-            case _ => transformer.FunctionBodies1 (fresh[DomainB], None)(manifest[DomainB], manifest[Boolean])
+
+        val relA = relationA match {
+            case Def (Selection (r, _)) if newLhsFilter.b1.isDefined => {
+                selection (r, transformer.recreateFun (newLhsFilter.x1, newLhsFilter.b1.get))
+            }
+            case _ if newLhsFilter.b1.isDefined =>
+                selection (relationA, transformer.recreateFun (newLhsFilter.x1, newLhsFilter.b1.get))
+
+            case _ if newLhsFilter.b1.isEmpty =>
+                relationA
         }
-        */
 
-        val newLhsFilters = constructLhsFilters(relationB, equalities)
-        /*
-        relationB match {
-            case Def (Selection (r, Def (Lambda (_, b: Sym[DomainB], block: Block[Boolean])))) =>
-                (for ((Def (Lambda (_, a: Sym[DomainA], Block (lhs))), rhs) <- equalities) yield
-                {
-                    val rhsSubst = rhs (b)
-                    transformer.subst = Map (rhsSubst -> lhs)
-                    val res = transformer.transformBlock (block).res
-                    implicit val search = Predef.Set (a, b)
-                    if (findSyms (res) == Predef.Set (a))
-                        transformer.FunctionBodies1 (a, Some (res))
-                    else
-                        transformer.FunctionBodies1 (a, None)(manifest[DomainA], manifest[Boolean])
-                }).reduce (_.combineWith (transformer.IR.boolean_and)(_))
-            case _ => transformer.FunctionBodies1 (fresh[DomainA], None)(manifest[DomainA], manifest[Boolean])
+
+        val relB = relationB match {
+            case Def (Selection (r, f)) if newRhsFilter.b1.isDefined => {
+                selection (r, transformer.recreateFun (newRhsFilter.x1, newRhsFilter.b1.get))
+            }
+            case _ if newRhsFilter.b1.isDefined =>
+                selection (relationB, transformer.recreateFun (newRhsFilter.x1, newRhsFilter.b1.get))
+
+            case _ if newRhsFilter.b1.isEmpty =>
+                relationB
         }
-        */
 
-        super.equiJoin (relationA, relationB, equalities)
+        super.equiJoin (relA, relB, equalities)
     }
 
 

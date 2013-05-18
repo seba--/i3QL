@@ -145,7 +145,7 @@ object ClauseToAlgebra
         body match {
             // match conjunctions that can be used before a join
             case Def (BooleanAnd (lhs, rhs)) =>
-                predicatesForTwoRelations (a, b, lhs).combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))
+                predicatesForTwoRelations (a, b, lhs).combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))(asUnique = false)
             // match a join condition
             case Def (Equal (lhs, rhs))
                 if {

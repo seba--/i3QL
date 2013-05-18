@@ -51,7 +51,7 @@ import scala.virtualization.lms.common._
 object IR
     extends ScalaOpsExpOptExtensions
     with ScalaOpsPkgExp
-    with FunctionBlocksExp // TODO consider using this for function recreation
+    //with FunctionBlocksExp // TODO consider using this for function recreation
     with StructExp
     with LoopsFatExp
     with IfThenElseFatExp

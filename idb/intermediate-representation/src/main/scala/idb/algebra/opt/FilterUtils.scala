@@ -51,43 +51,58 @@ trait FilterUtils
     import transformer.FunctionBodies1
 
     def constructRhsFilters[DomainA: Manifest, DomainB: Manifest] (
-        relation: Rep[Query[DomainA]],
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): FunctionBodies1[DomainB, Boolean] = {
-        relation match {
+        val initFilters = relationB match {
+            case Def (Selection (_, Def (Lambda (_, x: Exp[DomainB], Block(filter))))) =>
+                FunctionBodies1(x, Some(filter))
+            case _ =>
+                FunctionBodies1 (fresh[DomainB], None)(manifest[DomainB], manifest[Boolean])
+        }
+
+        relationA match {
             case Def (Selection (r, Def (Lambda (_, a: Exp[DomainA], block: Block[Boolean])))) =>
                 (for ((lhs, Def (Lambda (_, b: Exp[DomainB], Block (rhs)))) <- equalities) yield
                 {
                     val lhsSubst = lhs (a)
                     transformer.subst = Map (lhsSubst -> rhs)
                     val res = transformer.transformBlock (block).res
-                    implicit val search = Predef.Set (a, b)
-                    if (findSyms (res) == Predef.Set (b))
+                    if (findSyms (res)(Predef.Set (a, b)) == Predef.Set (b))
                         FunctionBodies1 (b, Some (res))
                     else
                         FunctionBodies1 (b, None)(manifest[DomainB], manifest[Boolean])
-                }).reduce (_.combineWith (transformer.IR.boolean_and)(_))
+                }).foldLeft(initFilters) (_.combineWith (transformer.IR.boolean_and)(_)(asUnique = true))
             case _ => FunctionBodies1 (fresh[DomainB], None)(manifest[DomainB], manifest[Boolean])
         }
     }
 
     def constructLhsFilters[DomainA: Manifest, DomainB: Manifest] (
-        relation: Rep[Query[DomainB]],
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): FunctionBodies1[DomainA, Boolean] = {
-        relation match {
+        val initFilters = relationA match {
+            case Def (Selection (_, Def (Lambda (_, x: Exp[DomainA], Block(filter))))) =>
+                FunctionBodies1(x, Some(filter))
+            case _ =>
+                FunctionBodies1 (fresh[DomainA], None)(manifest[DomainA], manifest[Boolean])
+        }
+
+
+        relationB match {
             case Def (Selection (r, Def (Lambda (_, b: Exp[DomainB], block: Block[Boolean])))) =>
                 (for ((Def (Lambda (_, a: Exp[DomainA], Block (lhs))), rhs) <- equalities) yield
                 {
                     val rhsSubst = rhs (b)
                     transformer.subst = Map (rhsSubst -> lhs)
                     val res = transformer.transformBlock (block).res
-                    implicit val search = Predef.Set (a, b)
-                    if (findSyms (res) == Predef.Set (a))
+                    if (findSyms (res)(Predef.Set (a, b)) == Predef.Set (a))
                         FunctionBodies1 (a, Some (res))
                     else
                         FunctionBodies1 (a, None)(manifest[DomainA], manifest[Boolean])
-                }).reduce (_.combineWith (transformer.IR.boolean_and)(_))
+                }).foldLeft(initFilters) (_.combineWith (transformer.IR.boolean_and)(_)(asUnique = true))
             case _ => FunctionBodies1 (fresh[DomainA], None)(manifest[DomainA], manifest[Boolean])
         }
     }

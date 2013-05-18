@@ -42,7 +42,7 @@ trait FunctionUtils
     extends ForwardTransformer
 {
 
-    val IR: BaseFatExp with EffectExp with TupleOpsExp with FunctionsExpOptAlphaEquivalence
+    val IR: BaseFatExp with EffectExp with TupleOpsExp with FunctionsExpOptAlphaEquivalence with ExpressionUtils
 
     import IR.Rep
     import IR.Def
@@ -60,40 +60,8 @@ trait FunctionUtils
                     case Def (ETuple2 (a, b)) => Map (a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]))
                     case Sym (_) => Map (x -> t)
                 }
-            transformBlock (reifyEffects (body)).res
+            val res = transformBlock (reifyEffects (body)).res
+            subst = Map()
+            res
         }
-
-    /*
-    def recreateFun[A1: Manifest, A2: Manifest, B: Manifest]
-        (x: (Rep[A1], Rep[A2]), body: Rep[B]): Rep[(A1, A2)] => Rep[B] =
-        (t: Rep[(A1, A2)]) => {
-            subst = Map (x._1 -> tuple2_get1 (t), x._2 -> tuple2_get2 (t))
-            transformBlock (reifyEffects (body)).res
-        }
-
-    def recreateFun[A1: Manifest, A2: Manifest, A3: Manifest, B: Manifest]
-        (x: (Rep[A1], Rep[A2], Rep[A3]), body: Rep[B]): Rep[(A1, A2, A3)] => Rep[B] =
-        (t: Rep[(A1, A2, A3)]) => {
-            subst = Map (x._1 -> tuple3_get1 (t), x._2 -> tuple3_get2 (t), x._3 -> tuple3_get3 (t))
-            transformBlock (reifyEffects (body)).res
-        }
-
-
-    def recreateFun[A1: Manifest, A2: Manifest, A3: Manifest, A4: Manifest, B: Manifest]
-        (x: (Rep[A1], Rep[A2], Rep[A3], Rep[A4]), body: Rep[B]): Rep[(A1, A2, A3, A4)] => Rep[B] =
-        (t: Rep[(A1, A2, A3, A4)]) => {
-            subst = Map (x._1 -> tuple4_get1 (t), x._2 -> tuple4_get2 (t), x._3 -> tuple4_get3 (t),
-                x._4 -> tuple4_get4 (t))
-            transformBlock (reifyEffects (body)).res
-        }
-
-    def recreateFun[A1: Manifest, A2: Manifest, A3: Manifest, A4: Manifest, A5: Manifest, B: Manifest]
-        (x: (Rep[A1], Rep[A2], Rep[A3], Rep[A4], Rep[A5]), body: Rep[B]): Rep[(A1, A2, A3, A4, A5)] => Rep[B] =
-        (t: Rep[(A1, A2, A3, A4, A5)]) => {
-            subst = Map (x._1 -> tuple5_get1 (t), x._2 -> tuple5_get2 (t), x._3 -> tuple5_get3 (t),
-                x._4 -> tuple5_get4 (t), x._5 -> tuple5_get5 (t))
-            transformBlock (reifyEffects (body)).res
-        }
-    */
-
 }

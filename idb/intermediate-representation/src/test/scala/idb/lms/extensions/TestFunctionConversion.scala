@@ -51,6 +51,7 @@ class TestFunctionConversion
         with TupledFunctionsExp
         with TupleOpsExp
         with FunctionsExpOptAlphaEquivalence
+        with ExpressionUtils
         with LiftAll
 
     import IR.Rep
