@@ -32,6 +32,7 @@
  */
 package idb.schema.university
 
+import scala.virtualization.lms.common.StructExp
 
 /**
  *
@@ -39,14 +40,35 @@ package idb.schema.university
  *
  */
 
-trait UniversitySchema
-    extends AuthorSchema
-    with BookSchema
-    with BookRecommendationSchema
-    with CourseSchema
-    with CourseDescriptionSchema
-    with LectureSchema
-    with StudentSchema
-    with RegistrationSchema
+case class Lecture (course: Course, lecturer: Lecturer, semester: Int)
 {
+
+}
+
+trait LectureSchema
+{
+
+    val IR: StructExp
+
+    import IR._
+
+    def Lecture (course: Rep[Course], lecturer: Rep[Lecturer], semester: Rep[Int]) =
+        struct[Lecture](
+            ClassTag[Lecture]("Lecture"),
+            Map ("course" -> course, "lecturer" -> lecturer, "semester" -> semester)
+        )
+
+    // use an infix operation class to avoid name clashes
+    // (remember that all infix methods in all schemas are mixed together in one class)
+    case class LectureInfixOps (o: Rep[Lecture])
+    {
+        def course: Rep[Course] = field[Course](o, "course")
+
+        def lecturer: Rep[Lecturer] = field[Lecturer](o, "lecturer")
+
+        def semester: Rep[Int] = field[Int](o, "semester")
+    }
+
+    implicit def lectureToInfixOps (o: Rep[Lecture]) = LectureInfixOps (o)
+
 }

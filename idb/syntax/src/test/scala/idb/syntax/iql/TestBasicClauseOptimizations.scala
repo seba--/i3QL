@@ -89,4 +89,25 @@ class TestBasicClauseOptimizations
             query
         )
     }
+
+    @Test
+    def testLocalIncrementJoin () {
+        val query = plan (
+            SELECT (*) FROM(lectures, bookRecommendations) WHERE ((l: Rep[Lecture], b: Rep[BookRecommendation]) => {
+                l.course == b.course
+            })
+        )
+
+        assertEquals (
+            equiJoin (
+                extent (lectures),
+                extent (bookRecommendations),
+                scala.Seq ((
+                    fun ((l: Rep[Lecture]) => l.course),
+                    fun ((b: Rep[BookRecommendation]) => b.course)
+                    ))
+            ),
+            query
+        )
+    }
 }

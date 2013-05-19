@@ -46,13 +46,19 @@ object UniversityDatabase
 {
     val IR = idb.syntax.iql.IR
 
+    val bookRecommendations: Extent[BookRecommendation] = BagExtent.empty
+
     val courses: Extent[Course] = BagExtent.empty
 
     val courseDescriptions: Extent[CourseDescription] = BagExtent.empty
 
     val lecturers: Extent[Lecturer] = BagExtent.empty
 
+    val lectures: Extent[Lecture] = BagExtent.empty
+
     val registrations: Extent[Registration] = BagExtent.empty
 
     val students: Extent[Student] = BagExtent.empty
+
+
 }

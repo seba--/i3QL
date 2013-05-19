@@ -74,17 +74,4 @@ trait CourseSchema
 
     implicit def courseToInfixOps (c: Rep[Course]) = CourseInfixOps (c)
 
-    /*
-    def infix_number (c: Rep[Course]): Rep[Int] = field[Int](c, "number")
-
-    def infix_title (c: Rep[Course]): Rep[String] = field[String](c, "title")
-
-    def infix_creditPoints (c: Rep[Course]): Rep[Int] = field[Int](c, "creditPoints")
-
-    def number = infix_number _
-
-    def title = infix_title _
-
-    def creditPoints = infix_creditPoints _
-    */
 }
