@@ -32,15 +32,37 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.ir.RelationalAlgebraIRBase
+
 /**
  *
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraGenSAEBinding
+    extends RelationalAlgebraIRBase
 {
 
     type Relation[+Domain] = idb.Relation[Domain]
 
     type Extent[Domain] = idb.Extent[Domain]
 
+
+    /**
+     * Wraps an extent as a leaf in the query tree
+     */
+    def extent[Domain] (extent: Extent[Domain])(
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[Extent[Domain]]
+    ): Rep[Query[Domain]] =
+        super.extent (extent, extent.isSet)
+
+
+    /**
+     * Wraps a compiled relation again as a leaf in the query tree
+     */
+    def relation[Domain] (relation: Relation[Domain])(
+        implicit mDom: Manifest[Domain],
+        mRel: Manifest[Relation[Domain]]
+    ): Rep[Query[Domain]] =
+        super.relation (relation, relation.isSet)
 }

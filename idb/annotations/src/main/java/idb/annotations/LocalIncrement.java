@@ -32,8 +32,12 @@
  */
 package idb.annotations;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * @author Ralf Mitschke
  */
+@Retention( RetentionPolicy.RUNTIME )
 public @interface LocalIncrement {
 }

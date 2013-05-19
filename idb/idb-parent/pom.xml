@@ -110,27 +110,27 @@
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>annotations</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>intermediate-representation</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>runtime</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>runtime-compiler</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>schema-examples</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

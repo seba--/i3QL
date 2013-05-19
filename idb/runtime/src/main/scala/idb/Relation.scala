@@ -58,7 +58,7 @@ trait Relation[+V]
     /**
      * Runtime information whether a compiled query is a set or a bag
      */
-    protected def isSet: Boolean
+    def isSet: Boolean
 
     def foreach[T] (f: (V) => T)
 

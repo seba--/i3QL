@@ -32,10 +32,7 @@
  */
 package idb.algebra.ir
 
-import idb.algebra.TestUtils
-import org.junit.Assert._
-import org.junit.Test
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import idb.annotations.LocalIncrement
 
 /**
  *
@@ -43,48 +40,8 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
  *
  */
 
-class TestIRConstruction
-    extends RelationalAlgebraIRBasicOperators
-    with LiftAll
-    with ScalaOpsPkgExp
-    with TestUtils
+@LocalIncrement
+class Data
 {
-    @Test
-    def testSelection () {
-        val f = fun ((x: Rep[Int]) => x > 0)
-        val exp = selection (emptyRelation[Int](), f)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
 
-        assertEquals (
-            Selection (emptyRelation[Int](), f),
-            d
-        )
-    }
-
-
-    @Test
-    def testCommonSubExpressionWithSelection () {
-        val f = fun ((x: Rep[Int]) => x > 0)
-        val exp1 = selection (emptyRelation[Int](), f)
-        val exp2 = selection (emptyRelation[Int](), f)
-
-        assertEquals (
-            exp1,
-            exp2
-        )
-    }
-
-    @Test
-    def testLocalIncrementExtent () {
-        val e = emptyRelation[Data]()
-
-        assertEquals (
-            QueryExtent (scala.List.empty[Data], isSet = false, isIncrementLocal = true),
-            e
-        )
-    }
 }

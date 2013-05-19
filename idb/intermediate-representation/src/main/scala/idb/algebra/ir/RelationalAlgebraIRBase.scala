@@ -33,8 +33,10 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
+import idb.annotations.LocalIncrement
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
+
 
 /**
  *
@@ -48,33 +50,51 @@ trait RelationalAlgebraIRBase
     type Query[Domain] = QueryBase[Domain]
 
     abstract class QueryBase[Domain: Manifest]
+    {
+        def isSet: Boolean
 
-    case class QueryExtent[Domain] (extent: Extent[Domain])
+        def isIncrementLocal: Boolean
+    }
+
+    case class QueryExtent[Domain] (
+        extent: Extent[Domain],
+        isSet: Boolean = false,
+        isIncrementLocal: Boolean = false
+    )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
         extends Exp[Query[Domain]]
 
-    case class QueryRelation[Domain] (extent: Relation[Domain])
+    case class QueryRelation[Domain] (
+        extent: Relation[Domain],
+        isSet: Boolean = false,
+        isIncrementLocal: Boolean = false
+    )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]]
+
+
+    protected def isIncrementLocal[Domain](m: Manifest[Domain]) = {
+        m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
+    }
 
     /**
      * Wraps an extent as a leaf in the query tree
      */
-    def extent[Domain] (extent: Extent[Domain])(
+    def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] =
-        QueryExtent (extent)
+        QueryExtent (extent, isSet, isIncrementLocal(mDom))
 
 
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    def relation[Domain] (relation: Relation[Domain])(
+    def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]] =
-        QueryRelation (relation)
+        QueryRelation (relation, isSet, isIncrementLocal(mDom))
 
 
 }
