@@ -32,8 +32,6 @@
  */
 package sae.operators
 
-import sae.{MaterializedRelation, Relation}
-
 /**
  * A cross product constructs all combinations of tuples in multiple relations.
  * Thus the cross product dramatically enlarges

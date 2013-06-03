@@ -1,7 +1,7 @@
 package sae
 package operators.impl
 
-import operators.CrossProduct
+import idb.operators.CrossProduct
 import deltas.{Update, Deletion, Addition}
 
 /**
