@@ -1,0 +1,16 @@
+additional:
+MaterializedRelation
+
+miss:
+EquiJoinView (Index)
+RecursiveDRedDebug (delete me)
+ThreeWayJoinView (index)
+TransactionalEquiJoinView  (index)
+CyclicTransitveClosureView  (index)
+
+
+Changed:
+RecursiveView -> operators.Recursive
+
+???:
+TransitiveClosureViewAcyclicGraphStore is not transactional?

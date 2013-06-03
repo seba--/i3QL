@@ -1,0 +1,29 @@
+package idb.operators
+
+import idb.{MaterializedView, Relation}
+
+
+/**
+ *
+ * Author: Ralf Mitschke
+ * Created: 25.05.11 12:33
+ *
+ */
+
+/**
+ * In set theory, the difference (denoted as A ∖ B) of a collection of sets is the set of
+ * all elements in A that are not also in B
+ *
+ */
+trait NotExistsInSameDomain[Domain]
+    extends Relation[Domain]
+{
+    def left: MaterializedView[Domain]
+
+    def right: MaterializedView[Domain]
+
+    override protected def children = List (left, right)
+}
+
+
+
