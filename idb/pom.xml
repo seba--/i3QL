@@ -16,6 +16,7 @@
         <module>intermediate-representation</module>
         <module>runtime-compiler</module>
         <module>syntax</module>
+        <module>untitled</module>
     </modules>
 
 </project>

@@ -129,6 +129,11 @@
             </dependency>
             <dependency>
                 <groupId>de.tud.cs.st.idb</groupId>
+                <artifactId>syntax</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.tud.cs.st.idb</groupId>
                 <artifactId>schema-examples</artifactId>
                 <version>${project.version}</version>
             </dependency>
