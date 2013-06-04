@@ -12,7 +12,8 @@ import idb.Relation
  *
  * Implementation details:
  * these implementation has a control flow like:
- * added called -> key lookup  ->(new key) create new map entry, create new aggregation function, call aggregation function, collect aggregation newResult,  save newResult and notify observer
+ * added called -> key lookup  ->(new key) create new map entry, create new aggregation function,
+ * call aggregation function, collect aggregation newResult,  save newResult and notify observer
  * -> (else) call aggregation function, collect aggregation newResult -> may be notify observer
  *
  * a possible alternative would be:
@@ -21,20 +22,23 @@ import idb.Relation
  * register the whole aggregation as an observer of the aggregation function
  * -> (else) put the new value into the lazyview
  *
- * a further possible change could be to use an index view als source instead of a lazy view.  If aggregation use a indexed view as source
+ * a further possible change could be to use an index view als source instead of a lazy view.  If aggregation use a
+ * indexed view as source
  * it could use the grouping function as the index function.
  *
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
-                                                                                      val groupingFunction: Domain => Key,
-                                                                                      val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                      val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-																						override val isSet : Boolean)
-    extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
+class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result] (val source: Relation[Domain],
+    val groupingFunction: Domain => Key,
+    val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+    val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+    override val isSet: Boolean
+)
+    extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain,
+        AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
-	with NotifyObservers[Result]
+    with NotifyObservers[Result]
 {
 
     source.addObserver (this)
@@ -42,16 +46,17 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 
     import com.google.common.collect._
 
-    val groups = mutable.Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
+    val groups = mutable
+        .Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
     // aggregation need to be isInitialized for update and remove events
     lazyInitialize ()
 
-    override def endTransaction() {
-        notify_endTransaction()
+    override def endTransaction () {
+        notify_endTransaction ()
     }
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+    override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
             return List (this)
         }
@@ -62,7 +67,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def lazyInitialize() {
+    def lazyInitialize () {
         source.foreach ((v: Domain) => {
             intern_added (v, notify = false)
         })
@@ -72,31 +77,18 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def foreach[T](f: (Result) => T) {
+    def foreach[T] (f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 
     /**
      * Applies f to all elements of the view with their counts
      */
-    def foreachWithCount[T](f: (Result, Int) => T) {
-        groups.groupBy( _._2._3).foreach(
-            g => f(g._1, g._2.size)
+    def foreachWithCount[T] (f: (Result, Int) => T) {
+        groups.groupBy (_._2._3).foreach (
+            g => f (g._1, g._2.size)
         )
     }
-
-    def isDefinedAt(v: Result) = {
-        groups.exists( _._2._3 == v)
-    }
-
-    /**
-     * Returns the count for a given element.
-     * In case an add/remove/update event is in progression, this always returns the
-     */
-    def elementCountAt[T >: Result](v: T) = {
-        groups.count( _._2._3 == v)
-    }
-
 
     /**
      *
@@ -115,13 +107,21 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 
 
     /**
+     * Returns the count for a given element.
+     * In case an add/remove/update event is in progression, this always returns the value before the event.
+     */
+    def count[U >: Result] (element: U): Int = {
+        groups.count (_._2._3 == element)
+    }
+
+    /**
      *
      * this implementation runs in O(n)
      */
-    def contains(v: Result) = {
+    def contains[U >: Result] (element: U): Boolean = {
         groups.foreach (g => {
-            if (g._2._3 == v)
-                true
+            if (g._2._3 == element)
+                return true
         }
         )
         false
@@ -130,7 +130,8 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def updated(oldV: Domain, newV: Domain) {
+    def updated (oldV: Domain, newV: Domain) {
+        import scala.collection.JavaConversions.collectionAsScalaIterable
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -153,11 +154,12 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def removed(v: Domain) {
+    def removed (v: Domain) {
+        import scala.collection.JavaConversions.collectionAsScalaIterable
         val key = groupingFunction (v)
         if (!groups.contains (key)) {
-            println()
-            System.err.println(v + " => " + key)
+            println ()
+            System.err.println (v + " => " + key)
             return
         }
         val (data, aggregationFunction, oldResult) = groups (key)
@@ -183,7 +185,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     /**
      *
      */
-    def added(v: Domain) {
+    def added (v: Domain) {
         intern_added (v, notify = true)
     }
 
@@ -193,7 +195,8 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
      * @param notify: true -> notify observers if a change occurs
      *              false -> dont notify any observer
      */
-    private def intern_added(v: Domain, notify: Boolean) {
+    private def intern_added (v: Domain, notify: Boolean) {
+        import scala.collection.JavaConversions.collectionAsScalaIterable
         val key = groupingFunction (v)
         if (groups.contains (key)) {
             val (data, aggregationFunction, oldResult) = groups (key)

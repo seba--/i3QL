@@ -78,15 +78,11 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
         )
     }
 
-    def isDefinedAt(v: Result) = {
-        groups.exists( _._2._3 == v)
-    }
-
     /**
      * Returns the count for a given element.
      * In case an add/remove/update event is in progression, this always returns the
      */
-    def elementCountAt[T >: Result](v: T) = {
+    def count[T >: Result](v: T) = {
         groups.count( _._2._3 == v)
     }
 
@@ -108,10 +104,10 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
     /**
      *
      */
-     def contains(v: Result) = {
+     def contains[U >: Result](element: U) : Boolean = {
         groups.foreach (g => {
-            if (g._2._3 == v)
-                true
+            if (g._2._3 == element)
+                return true
         }
         )
         false
@@ -198,11 +194,6 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
         }
     }
 
-	def contains[U >: Result](element: U): Boolean =
-		throw new UnsupportedOperationException
-
-	def count[U >: Result](element: U): Int =
-		throw new UnsupportedOperationException
 }
 
 class Count
