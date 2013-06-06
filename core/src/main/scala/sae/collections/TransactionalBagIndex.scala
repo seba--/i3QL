@@ -1,5 +1,6 @@
 package sae.collections
 
+import idb.operators.Index
 import sae._
 import deltas.{Update, Deletion, Addition}
 

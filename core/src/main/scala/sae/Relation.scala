@@ -34,6 +34,7 @@ package sae
 
 import capabilities.{Listable, Iterable}
 import collections.{TransactionalBagIndex, BagResult, SetResult}
+import idb.operators.Index
 
 /**
  *

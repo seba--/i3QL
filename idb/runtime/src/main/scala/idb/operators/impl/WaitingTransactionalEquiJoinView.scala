@@ -52,7 +52,7 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
 
     right addObserver RightObserver
 
-    override protected def children = List (left, right)
+    override def children = List (left, right)
 
 	override def lazyInitialize() {
 

@@ -2,6 +2,7 @@ package sae
 package collections
 
 import deltas.{Deletion, Addition, Update}
+import idb.operators.Index
 
 /**
  * An index backed by a guava HashMultimap.

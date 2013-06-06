@@ -2,6 +2,7 @@ package sae
 package collections
 
 import deltas.{Update, Deletion, Addition}
+import idb.operators.Index
 
 
 /**

@@ -24,5 +24,7 @@ trait EquiJoin[DomainA, DomainB, Range, Key]
 
     def projection: (DomainA, DomainB) => Range
 
+	override def children = List(left,right)
+
 }
 

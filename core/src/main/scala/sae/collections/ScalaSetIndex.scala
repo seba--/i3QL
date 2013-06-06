@@ -35,6 +35,7 @@ package collections
 
 import collection.mutable
 import deltas.{Deletion, Addition, Update}
+import idb.operators.Index
 
 /**
  *

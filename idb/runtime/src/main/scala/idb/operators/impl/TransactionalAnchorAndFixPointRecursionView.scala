@@ -226,9 +226,9 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
             notify_endTransaction ()
         }
 
-        @deprecated
         def updated(oldV: Range, newV: Range) {
-            throw new UnsupportedOperationException
+            removed(oldV)
+			added(newV)
         }
     }
 
