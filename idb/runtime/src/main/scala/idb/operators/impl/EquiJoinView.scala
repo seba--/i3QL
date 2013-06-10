@@ -33,10 +33,9 @@
 package idb.operators.impl
 
 import scala.Some
-import idb.Index
+import idb.{IndexService, Index, Relation}
 import idb.operators.EquiJoin
 import idb.observer.{NotifyObservers, Observer, Observable}
-import idb.Relation
 
 
 class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
@@ -137,7 +136,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 			rightIndex.get(oldKey) match {
 				case Some(col) => {
 					// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to leftIndex.elementCountAt(newKey)) {
+					for (u <- col; i <- 1 to leftIndex.count(newKey)) {
 						EquiJoinView.this.notify_removed(projection(oldV, u))
 					}
 				}
@@ -146,7 +145,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 			rightIndex.get(newKey) match {
 				case Some(col) => {
 					// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to leftIndex.elementCountAt(newKey)) {
+					for (u <- col; i <- 1 to leftIndex.count(newKey)) {
 						EquiJoinView.this.notify_added(projection(newV, u))
 					}
 				}
@@ -202,7 +201,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 			leftIndex.get(oldKey) match {
 				case Some(col) => {
 					// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to rightIndex.elementCountAt(newKey)) {
+					for (u <- col; i <- 1 to rightIndex.count(newKey)) {
 						notify_removed(projection(u, oldV))
 					}
 				}
@@ -211,7 +210,7 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 			leftIndex.get(newKey) match {
 				case Some(col) => {
 					// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to rightIndex.elementCountAt(newKey)) {
+					for (u <- col; i <- 1 to rightIndex.count(newKey)) {
 						notify_added(projection(u, newV))
 					}
 				}
@@ -247,4 +246,32 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 	}
 
 	protected def lazyInitialize() {}
+}
+
+object EquiJoinView {
+	def apply[DomainA, DomainB](left: Relation[DomainA],
+								right: Relation[DomainB],
+								leftEq: Seq[(DomainA => Any)],
+								rightEq: Seq[(DomainB => Any)],
+								isSet: Boolean): Relation[(DomainA, DomainB)] = {
+
+		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
+		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
+
+		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
+		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+
+		return new EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
+			left,
+			right,
+			leftIndex,
+			rightIndex,
+			leftKey,
+			rightKey,
+			(_, _),
+			isSet
+		)
+
+
+	}
 }

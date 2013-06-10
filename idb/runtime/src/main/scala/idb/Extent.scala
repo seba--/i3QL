@@ -61,9 +61,21 @@ trait Extent[V]
         notify_removed (v)
     }
 
+	def -=(v: V) : Extent[V] =  {
+		remove(v)
+		this
+	}
+
+
     def add (v: V) {
         notify_added (v)
     }
+
+	def +=(v : V) : Extent[V] = {
+		add(v)
+		this
+	}
+
 
     def endTransaction () {
         notify_endTransaction ()

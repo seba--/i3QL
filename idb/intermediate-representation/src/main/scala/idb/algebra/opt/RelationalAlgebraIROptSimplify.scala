@@ -54,7 +54,10 @@ trait RelationalAlgebraIROptSimplify
     ): Rep[Query[Range]] = {
         function match {
             // TODO manifests are not the same (Range == Any) why?
-            case Def (Lambda (_, param, body)) if (body == Block (param)) => relation.asInstanceOf[Rep[Query[Range]]]
+            case Def (Lambda (_ : (Domain => Range), param, body)) if (body == Block (param)) =>{
+				relation.asInstanceOf[Rep[Query[Range]]]
+
+			}
             case _ => super.projection (relation, function)
         }
 

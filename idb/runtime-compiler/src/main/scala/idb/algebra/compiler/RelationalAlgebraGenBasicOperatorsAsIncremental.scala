@@ -36,6 +36,8 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.iql.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
+import idb.IndexService
+import scala._
 
 /**
  *
@@ -57,7 +59,27 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 new SelectionView (compile (r), compileApplied (f), false)
             case Def (Projection (r, f)) =>
                 new ProjectionView (compile (r), compileApplied (f), false)
+			case Def (CrossProduct (a, b)) =>
+				CrossProductView(compile (a), compile (b), false).asInstanceOf[Relation[Domain]]
+			case Def (EquiJoin (a, b, eq)) =>  {
+
+				EquiJoinView(compile (a), compile (b), eq.map( (x) => compileApplied(x._1) ), eq.map( (x) => compileApplied(x._2) ), false).asInstanceOf[Relation[Domain]]
+			}
+
+
             case _ => super.compile (query)
+
+
         }
+
+/*	private def mapSeqA[A : Manifest,B : Manifest](seq : Seq[(Rep[A => Any], Rep[B => Any])]) : Seq[A => Any] = {
+		seq.map( (x) => compileApplied(x._1) )
+	}
+
+	private def mapSeqB[A : Manifest,B : Manifest](seq : Seq[(Rep[A => Any], Rep[B => Any])]) : Seq[B => Any] = {
+		seq.map( (x) => compileApplied(x._2) )
+	}  */
+
+
 
 }

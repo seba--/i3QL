@@ -39,9 +39,9 @@ package idb
 object IndexService
 {
 
-    def getIndex[K, V](relation:Relation[V], keyFunction: V=>K, isSet : Boolean) : Index[K, V]  = {
+    def getIndex[K, V](relation:Relation[V], keyFunction: V=>K) : Index[K, V]  = {
 		//TODO This may need some work
-		if (isSet)
+		if (relation.isSet)
 		{
 			new SetIndex[K, V](relation, keyFunction)
 		}
@@ -60,6 +60,8 @@ class SetIndex[K, V](val relation: Relation[V],
 					 val keyFunction: V => K)
 	extends Index[K, V]
 {
+
+	relation addObserver this
 
 	val isSet = true
 	private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
@@ -99,10 +101,10 @@ class SetIndex[K, V](val relation: Relation[V],
 		}
 	}
 
-	def isDefinedAt(key: K): Boolean = map.containsKey (key)
+	def contains(key: K): Boolean = map.containsKey (key)
 
 
-	def elementCountAt(key: K) =
+	def count(key: K) =
 		if (map.containsKey (key))
 		{
 			map.get (key).size ()
@@ -153,10 +155,12 @@ class SetIndex[K, V](val relation: Relation[V],
  */
 class BagIndex[K, V](val relation: Relation[V],
 					 val keyFunction: V => K)
-	extends Index[K, V]
-{
+	extends Index[K, V] {
+
+	relation addObserver this
 
 	val isSet : Boolean = false
+
 
 	private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
@@ -194,10 +198,10 @@ class BagIndex[K, V](val relation: Relation[V],
 		}
 	}
 
-	def isDefinedAt(key: K): Boolean = map.containsKey (key)
+	def contains(key: K): Boolean = map.containsKey (key)
 
 
-	def elementCountAt(key: K) =
+	def count(key: K) =
 		if (map.containsKey (key))
 		{
 			map.get (key).size ()

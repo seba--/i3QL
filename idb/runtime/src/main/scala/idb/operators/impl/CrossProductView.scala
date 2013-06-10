@@ -114,3 +114,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 
 }
+
+object CrossProductView {
+	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
+	}
+}

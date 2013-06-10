@@ -107,11 +107,11 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
                               key: KeyA,
                               f: (Range) => T)
     {
-        if (middleToLeftIndex.isDefinedAt (key)) {
+        if (middleToLeftIndex.contains (key)) {
             val middleElements = middleToLeftIndex.get (key).get
             for (middle <- middleElements) {
                 val rightKey = middleToRightKey (middle)
-                if (middleToRightIndex.isDefinedAt(rightKey) && rightIndex.isDefinedAt (rightKey)) {
+                if (middleToRightIndex.contains(rightKey) && rightIndex.contains (rightKey)) {
                     val rightElements = rightIndex.get (rightKey).get
                     for (right <- rightElements) {
                         f (projection (v, middle, right))
@@ -128,7 +128,7 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
     {
 
         val rightKey = middleToRightKey (v)
-        if (middleToRightIndex.isDefinedAt(rightKey) && middleToRightIndex.get(rightKey).get.exists(_ == v) && leftIndex.isDefinedAt (leftKey) && rightIndex.isDefinedAt (rightKey)) {
+        if (middleToRightIndex.contains(rightKey) && middleToRightIndex.get(rightKey).get.exists(_ == v) && leftIndex.contains (leftKey) && rightIndex.contains (rightKey)) {
             val leftElements = leftIndex.get (leftKey).get
             val rightElements = rightIndex.get (rightKey).get
             for (left <- leftElements; right <- rightElements) {
@@ -142,7 +142,7 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
                                        f: (Range) => T)
     {
         val leftKey = middleToLeftKey (v)
-        if (middleToLeftIndex.isDefinedAt(leftKey) && middleToLeftIndex.get(leftKey).get.exists(_ == v) && leftIndex.isDefinedAt (leftKey) && rightIndex.isDefinedAt (rightKey)) {
+        if (middleToLeftIndex.contains(leftKey) && middleToLeftIndex.get(leftKey).get.exists(_ == v) && leftIndex.contains (leftKey) && rightIndex.contains (rightKey)) {
             val leftElements = leftIndex.get (leftKey).get
             val rightElements = rightIndex.get (rightKey).get
             for (left <- leftElements; right <- rightElements) {
@@ -156,11 +156,11 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
                                key: KeyC,
                                f: (Range) => T)
     {
-        if (middleToRightIndex.isDefinedAt (key)) {
+        if (middleToRightIndex.contains (key)) {
             val middleElements = middleToRightIndex.get (key).get
             for (middle <- middleElements) {
                 val leftKey = middleToLeftKey (middle)
-                if (middleToLeftIndex.isDefinedAt(leftKey) && leftIndex.isDefinedAt (leftKey)) {
+                if (middleToLeftIndex.contains(leftKey) && leftIndex.contains (leftKey)) {
                     val leftElements = leftIndex.get (leftKey).get
                     for (left <- leftElements) {
                         f (projection (left, middle, v))

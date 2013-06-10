@@ -45,6 +45,7 @@ trait FunctionsExpOptBetaReduction
 
     override def doApply[A: Manifest, B: Manifest] (f: Exp[A => B], x: Exp[A])(implicit pos: SourceContext): Exp[B] = {
         val x1 = unbox (x)
+
         f match {
             case Def (Lambda (g, _, y)) =>
                 // if function result is known to be pure, so is application

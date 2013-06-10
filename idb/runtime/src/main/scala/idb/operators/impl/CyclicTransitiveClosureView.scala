@@ -384,7 +384,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	// and remove suspicious edges from transitive closure
 	suspiciousEdges =
 		for ((start, end) <- suspiciousEdges
-			 if !index.isDefinedAt(start) ||
+			 if !index.contains(start) ||
 				 !index.get(start).get.exists(
 					 edge => (getTail(edge) == start && getHead(edge) == end)
 				 )

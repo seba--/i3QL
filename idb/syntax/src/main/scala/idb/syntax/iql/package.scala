@@ -24,7 +24,7 @@ package object iql
 
     implicit def compile[Range: Manifest] (clause: IQL_QUERY[Range]):Relation[Range] =
         Compiler.compile(plan(clause))
-        //throw new UnsupportedOperationException("TODO")
+		//throw new UnsupportedOperationException("TODO")
 
 
 

@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBasicOperatorsAsIncremental}
-import scala.virtualization.lms.common.{ScalaGenStruct, ScalaGenEqual}
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -44,8 +44,12 @@ object Compiler
     with RelationalAlgebraGenSAEBinding
     with ScalaGenEqual
     with ScalaGenStruct
+	with ScalaGenBooleanOps
+	with ScalaGenTupleOps
+	with ScalaGenFunctions
+	with ScalaGenStringOps
 {
-    val IR = idb.syntax.iql.IR
+    override val IR = idb.syntax.iql.IR
 
     override type Block[+T] = IR.Block[T]
 

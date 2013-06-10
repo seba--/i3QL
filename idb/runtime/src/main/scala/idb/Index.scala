@@ -126,9 +126,9 @@ trait Index[K, V]
 
     def get(key: K): Option[Traversable[V]]
 
-    def isDefinedAt(key: K): Boolean
+    def contains(key: K): Boolean
 
-    def elementCountAt(key: K): Int
+    def count(key: K): Int
 
     def getOrElse(key: K, f: => Traversable[V]): Traversable[V] = get (key).getOrElse (f)
 
