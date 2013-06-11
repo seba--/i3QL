@@ -195,8 +195,8 @@ class TestBasicOperators
 		val query = compile (
 			SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
 				s.matriculationNumber == r.studentMatriculationNumber
-			}).asMaterialized
-		)
+			})).asMaterialized
+
 
 		val john = Student(11111, "John", "Doe")
 		val judy = Student(22222, "Judy", "Carter")
