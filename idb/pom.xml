@@ -17,6 +17,7 @@
         <module>runtime-compiler</module>
         <module>syntax</module>
         <module>integration-test</module>
+        <module>macrostest</module>
     </modules>
 
 </project>

@@ -30,71 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.ir
+package idb.macrosrun
 
-import idb.algebra.base.RelationalAlgebraBase
-import idb.annotations.LocalIncrement
-import scala.language.higherKinds
-import scala.virtualization.lms.common.BaseExp
-
+import idb.{BagExtent, Extent}
+import idb.schema.university._
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIRBase
-    extends RelationalAlgebraBase
-    with BaseExp
+
+object UniversityDatabase
+    extends idb.schema.university.UniversitySchema
 {
-    type Query[Domain] = QueryBase[Domain]
+    val IR = idb.syntax.iql.IR
 
-    abstract class QueryBase[Domain: Manifest]
-    {
-        def isSet: Boolean
+    val bookRecommendations: Extent[BookRecommendation] = BagExtent.empty
 
-        def isIncrementLocal: Boolean
-    }
+    val courses: Extent[Course] = BagExtent.empty
 
-    case class QueryExtent[Domain] (
-        extent: Extent[Domain],
-        isSet: Boolean = false,
-        isIncrementLocal: Boolean = false
-    )
-            (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
-        extends Exp[Query[Domain]]
+    val courseDescriptions: Extent[CourseDescription] = BagExtent.empty
 
-    case class QueryRelation[Domain] (
-        extent: Relation[Domain],
-        isSet: Boolean = false,
-        isIncrementLocal: Boolean = false
-    )
-           (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
-        extends Exp[Query[Domain]]
+    val lecturers: Extent[Lecturer] = BagExtent.empty
 
+    val lectures: Extent[Lecture] = BagExtent.empty
 
-    protected def isIncrementLocal[Domain](m: Manifest[Domain]) = {
-        m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
-    }
+    val registrations: Extent[Registration] = BagExtent.empty
 
-    /**
-     * Wraps an extent as a leaf in the query tree
-     */
-    def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Extent[Domain]]
-    ): Rep[Query[Domain]] =
-        QueryExtent (extent, isSet, isIncrementLocal(mDom))
-
-
-    /**
-     * Wraps a compiled relation again as a leaf in the query tree
-     */
-    def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false)(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Relation[Domain]]
-    ): Rep[Query[Domain]] =
-        QueryRelation (relation, isSet, isIncrementLocal(mDom))
+    val students: Extent[Student] = BagExtent.empty
 
 
 }

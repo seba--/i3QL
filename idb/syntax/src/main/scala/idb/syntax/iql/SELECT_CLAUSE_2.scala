@@ -38,7 +38,7 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_2[-SelectA, -SelectB, Range]
+trait SELECT_CLAUSE_2[SelectA, SelectB, Range]
 {
 
     def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest] (

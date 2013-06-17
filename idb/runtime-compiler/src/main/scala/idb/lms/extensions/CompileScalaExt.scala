@@ -43,7 +43,7 @@ trait CompileScalaExt
 
     var compileCount = 0
 
-    var dumpGeneratedCode = false
+    var dumpGeneratedCode = true
 
     var silent = false
 
@@ -85,7 +85,7 @@ trait CompileScalaExt
         val loader = new AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
 
         val cls: Class[_] = loader.loadClass (className)
-        val cons = cls.getConstructor (staticData.map (_._1.tp.erasure): _*)
+        val cons = cls.getConstructor (staticData.map (_._1.tp.runtimeClass): _*)
 
         val obj: A => B = cons.newInstance (staticData.map (_._2.asInstanceOf[AnyRef]): _*).asInstanceOf[A => B]
         obj
