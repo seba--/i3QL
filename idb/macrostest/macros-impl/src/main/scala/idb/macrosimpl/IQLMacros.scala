@@ -28,7 +28,7 @@ object IQLMacros {
 
 		import c.universe._
 
-		println( show( query.tree ) )
+		println( showRaw( query.tree ) )
 
 		reify{ null }
 	}

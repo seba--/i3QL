@@ -42,10 +42,7 @@ import idb.schema.university._
  */
 
 object UniversityDatabase
-    extends idb.schema.university.UniversitySchema
 {
-    val IR = idb.syntax.iql.IR
-
     val bookRecommendations: Extent[BookRecommendation] = BagExtent.empty
 
     val courses: Extent[Course] = BagExtent.empty
