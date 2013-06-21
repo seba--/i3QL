@@ -53,11 +53,11 @@ object ClauseToAlgebra
 
     import IR._
 
-    def apply[Range: Manifest] (query: IQL_QUERY[Range]): Rep[Query[Range]] =
+    def apply[Domain: Manifest, Range: Manifest] (query: IQL_QUERY[Domain, Range]): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation, s@SelectClause1 (project)) => {
-                implicit val tDomain = s.mDomain
-                projection (relation, project)(tDomain, implicitly[Manifest[Range]])
+       //         implicit val tDomain = s.mDomain
+                projection (relation, project)//(tDomain, implicitly[Manifest[Range]])
             }
 
             case FromClause2 (relationA, relationB, SelectClause2 (project)) =>

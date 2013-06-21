@@ -45,7 +45,7 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     extends SELECT_CLAUSE_1[Select, Range]
 {
 
-    val mDomain = implicitly[Manifest[Select]]
+    //val mDomain = implicitly[Manifest[Select]]
 
     def FROM[Domain <: Select : Manifest] (relation: Rep[Query[Domain]]) =
         FromClause1[Domain, Select, Range](relation, this)

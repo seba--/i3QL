@@ -21,17 +21,17 @@ import idb.syntax.iql.impl.SelectClause2
  */
 object IQLMacros {
 
-	def compile[Range](query : IQL_QUERY[Range]) : Relation[Range] = macro compile_impl[Range]
+/*	def compile[Domain,Range](query : IQL_QUERY[Domain,Range]) : Relation[Range] = macro compile_impl[Range]
 
 	def compile_impl[Range : c.WeakTypeTag]	(c : Context)
-											   (query : c.Expr[IQL_QUERY[Range]]) : c.Expr[Relation[Range]] = {
+											   (query : c.Expr[IQL_QUERY[Domain,Range]]) : c.Expr[Relation[Range]] = {
 
 		import c.universe._
 
 		println( showRaw( query.tree ) )
 
 		reify{ null }
-	}
+	}            */
 
 
 }

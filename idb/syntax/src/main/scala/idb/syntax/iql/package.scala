@@ -19,12 +19,12 @@ package object iql
         mExt: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] = extent (ext)
 
-    implicit def plan[Range: Manifest] (clause: IQL_QUERY[Range]): Rep[Query[Range]] =
+    implicit def plan[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY[Domain, Range]): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
-    implicit def compile[Range: Manifest] (clause: IQL_QUERY[Range]):Relation[Range] =
-        Compiler.compile(plan(clause))
-		//throw new UnsupportedOperationException("TODO")
+    implicit def compile[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY[Domain, Range]):Relation[Range] = {
+        CompilerDebug.compile(clause)
+	}
 
 
 

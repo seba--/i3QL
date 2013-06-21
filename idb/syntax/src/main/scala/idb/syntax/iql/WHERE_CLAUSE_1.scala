@@ -40,7 +40,7 @@ package idb.syntax.iql
  * @author Ralf Mitschke
  */
 trait WHERE_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY[Range]
+    extends IQL_QUERY[Domain, Range]
 {
 
     //def AND (predicate: Domain => Boolean): WHERE_CLAUSE_1[Domain, Range]
