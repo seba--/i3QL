@@ -51,6 +51,13 @@ class TestBasicClauses
         )
 
         assertEquals (extent (students), query)
+
+        assertEquals(
+            scala.collection.immutable.List(
+                manifest[Student]
+            ),
+            query.tp.typeArguments
+        )
     }
 
     @Test
@@ -63,6 +70,15 @@ class TestBasicClauses
             projection (extent (students), firstName),
             query
         )
+
+        assertEquals(
+            scala.collection.immutable.List(
+                manifest[String]
+            ),
+            query.tp.typeArguments
+        )
+
+
     }
 
     @Test

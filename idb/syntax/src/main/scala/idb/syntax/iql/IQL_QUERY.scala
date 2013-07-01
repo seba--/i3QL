@@ -37,7 +37,7 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait IQL_QUERY[Range]
+trait IQL_QUERY[Domain, Range]
 {
 
 

@@ -32,15 +32,85 @@
  */
 package idb.syntax.iql
 
+import UniversityDatabase._
+import idb.schema.university._
 import idb.syntax.iql.IR._
+import org.junit.Assert._
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait FROM_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY[Domain, Range]
+class TestBasicClausesManifests
 {
-    def WHERE (predicate: Rep[Domain] => Rep[Boolean]): WHERE_CLAUSE_1[Domain, Range]
 
+    @Test
+    def testSelectStarFromStudents () {
+        val query = plan (
+            SELECT (*) FROM students
+        )
+
+        assertEquals(
+            scala.collection.immutable.List(
+                manifest[Student]
+            ),
+            query.tp.typeArguments
+        )
+    }
+
+    @Test
+    def testSelectFirstNameFromStudents () {
+        val query = plan (
+            SELECT (firstName) FROM students
+        )
+
+        assertEquals(
+            scala.collection.immutable.List(
+                manifest[String]
+            ),
+            query.tp.typeArguments
+        )
+
+
+        assertEquals(
+            scala.collection.immutable.List(
+                manifest[Student],
+                manifest[String]
+            ),
+            (query match {
+                case Def(Projection(_, fun)) => fun
+            }).tp.typeArguments
+        )
+
+        assertEquals(
+            (
+                manifest[Student],
+                manifest[String]
+            ),
+            (query match {
+                case Def(Projection(_, fun)) => compilationTypes(fun)
+            })
+        )
+    }
+
+    @Test
+    def testSelectFirstNameFromStudentsCompileTypes () {
+        val query = plan (
+            SELECT (firstName) FROM students
+        )
+
+        matching(query)
+    }
+
+    def matching[Domain: Manifest] (query: Rep[Query[Domain]]) {
+        query match {
+            case Def (Selection (r, f)) => compilationTypes(f)
+            case Def (Projection (r, f)) => compilationTypes(f)
+        }
+    }
+
+    def compilationTypes[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
+        (manifest[A], manifest[B])
+    }
 }

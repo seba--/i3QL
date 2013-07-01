@@ -12,9 +12,9 @@ import idb.syntax.iql.IR._
  * The syntax representation of a from clause for one relation.
  *
  */
-case class FromClause1[Domain: Manifest, Select >: Domain : Manifest, Range: Manifest] (
+case class FromClause1[Domain: Manifest, Range: Manifest] (
     relation: Rep[Query[Domain]],
-    selectClause: SelectClause1[Select, Range]
+    selectClause: SelectClause1[Domain, Range]
 )
     extends FROM_CLAUSE_1[Domain, Range]
 {

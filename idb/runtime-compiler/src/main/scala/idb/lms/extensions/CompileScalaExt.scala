@@ -1,4 +1,4 @@
-package idb.iql.lms.extensions
+package idb.lms.extensions
 
 import scala.virtualization.lms.internal.ScalaCodegen
 import scala.tools.nsc.{util, Settings, Global}
@@ -21,7 +21,7 @@ trait CompileScalaExt
     var compiler: Global = _
     var reporter: ConsoleReporter = _
 
-    def setupCompiler () = {
+    def setupCompiler () {
         val settings = new Settings ()
 
         // we use the environment rather than the current class loader to work with maven surefire
@@ -47,8 +47,12 @@ trait CompileScalaExt
 
     var silent = false
 
-    def compileApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B =
+    def compileApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
+        println("compile: ")
+        println(manifest[A] + " => " + manifest[B])
         compileFunction (IR.doApply (f, _))
+    }
+
 
     def compileFunction[A: Manifest, B: Manifest] (f: IR.Rep[A] => IR.Rep[B]): A => B = {
         if (this.compiler eq null)
@@ -79,9 +83,8 @@ trait CompileScalaExt
                 println ("compilation: had errors")
         }
 
-        reporter.reset
+        reporter.reset ()
 
-        val parent = this.getClass.getClassLoader
         val loader = new AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
 
         val cls: Class[_] = loader.loadClass (className)

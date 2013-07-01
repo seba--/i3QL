@@ -33,11 +33,10 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.iql.lms.extensions.CompileScalaExt
+import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
 import idb.IndexService
-import scala._
 
 /**
  *
@@ -62,7 +61,9 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 new SelectionView (compile (r), compileApplied (f), false)
 			}
             case Def (Projection (r, f)) => {
-				Predef.println("Projection: " + r.tp)
+				Predef.println("Projection:")
+                Predef.println("    " + r.tp)
+                Predef.println("    " + f.tp)
                 new ProjectionView (compile (r), compileApplied (f), false)
 			}
 			case Def (CrossProduct (a, b)) =>  {
