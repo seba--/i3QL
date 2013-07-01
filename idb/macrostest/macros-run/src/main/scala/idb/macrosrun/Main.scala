@@ -20,7 +20,7 @@ object Main {
 
 	//	Macros.printf("hello %s!", "world")
 
-		IQLMacros.compile(SELECT (*) FROM students)
+	//	IQLMacros.compile(SELECT (*) FROM students)
 	}
 
 }
