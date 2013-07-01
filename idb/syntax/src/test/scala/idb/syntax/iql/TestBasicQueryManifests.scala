@@ -91,7 +91,7 @@ class TestBasicQueryManifests
                 manifest[String]
                 ),
             query match {
-                case Def (Projection (_, fun)) => functionTypes (fun)
+                case Def (Projection (_, fun)) => dynamicFunctionManifests (fun)
             }
         )
     }

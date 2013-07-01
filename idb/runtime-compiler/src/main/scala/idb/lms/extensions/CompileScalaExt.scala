@@ -1,7 +1,7 @@
 package idb.lms.extensions
 
 import scala.virtualization.lms.internal.ScalaCodegen
-import scala.tools.nsc.{util, Settings, Global}
+import scala.tools.nsc.{Settings, Global}
 import scala.tools.nsc.reporters.ConsoleReporter
 import java.io.{StringWriter, PrintWriter}
 import scala.reflect.io.{File, VirtualDirectory}
@@ -33,9 +33,7 @@ trait CompileScalaExt
         settings.encoding.value = "UTF-8"
         settings.outdir.value = "."
         settings.extdirs.value = ""
-        settings.Ylogcp.value = true
-        //settings.verbose.value = true
-        // -usejavacp needed on windows?
+        settings.Ylogcp.value = false
 
         reporter = new ConsoleReporter (settings, null, new PrintWriter (System.out)) //writer
         compiler = new Global (settings, reporter)
@@ -45,14 +43,31 @@ trait CompileScalaExt
 
     var dumpGeneratedCode = true
 
-    var silent = false
+    var silent = true
 
-    def compileApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
-        println("compile: ")
-        println(manifest[A] + " => " + manifest[B])
+    def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
         compileFunction (IR.doApply (f, _))
     }
 
+
+    def compileFunctionWithDynamicManifests[A, B] (f: IR.Rep[A => B]): A => B = {
+        f.tp.typeArguments match {
+            case List (mA, mB) => {
+                val mAUnsafe = mA.asInstanceOf[Manifest[A]]
+                val mBUnsafe = mB.asInstanceOf[Manifest[B]]
+                compileFunction (
+                    IR.doApply (f, _: IR.Rep[A])(
+                        mAUnsafe,
+                        mBUnsafe,
+                        if (!f.pos.isEmpty)
+                            f.pos (0)
+                        else
+                            null
+                    )
+                )(mAUnsafe, mBUnsafe)
+            }
+        }
+    }
 
     def compileFunction[A: Manifest, B: Manifest] (f: IR.Rep[A] => IR.Rep[B]): A => B = {
         if (this.compiler eq null)
@@ -72,7 +87,7 @@ trait CompileScalaExt
         val fileSystem = new VirtualDirectory ("<vfs>", None)
         compiler.settings.outputDirs.setSingleOutput (fileSystem)
 
-        run.compileSources (List (new util.BatchSourceFile ("<stdin>", source.toString)))
+        run.compileSources (List (new scala.reflect.internal.util.BatchSourceFile ("<stdin>", source.toString)))
 
 
         if (!silent) {

@@ -40,7 +40,11 @@ import idb.syntax.iql.IR._
  */
 object TestUtil
 {
-    def functionTypes[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
+    def staticFunctionManifests[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
         (manifest[A], manifest[B])
+    }
+
+    def dynamicFunctionManifests[A, B] (f: Rep[A => B]) : (Manifest[_], Manifest[_]) = {
+        (f.tp.typeArguments(0),f.tp.typeArguments(1))
     }
 }

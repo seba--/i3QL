@@ -19,3 +19,8 @@ val q1 = selection (
     }
 )
 q2 == q1 // true
+
+
+Cleanup:
+- Remove macros test project
+- remove CompilerDebug

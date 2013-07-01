@@ -36,7 +36,6 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import scala.virtualization.lms.common.{FunctionsExp, ScalaGenEffect}
-import idb.IndexService
 
 /**
  *
@@ -53,43 +52,22 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 
     // TODO incorporate set semantics into ir
     override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
-
-	    println("--------->Compile")
         query match {
             case Def (Selection (r, f)) => {
-				Predef.println("Selection: " + r.tp)
-                new SelectionView (compile (r), compileApplied (f), false)
-			}
+                new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
+            }
             case Def (Projection (r, f)) => {
-				Predef.println("Projection:")
-                Predef.println("    " + r.tp)
-                Predef.println("    " + f.tp)
-                new ProjectionView (compile (r), compileApplied (f), false)
-			}
-			case Def (CrossProduct (a, b)) =>  {
-				Predef.println("CrossProduct: " + a.tp + " / " + b.tp)
-				CrossProductView(compile (a), compile (b), false).asInstanceOf[Relation[Domain]]
-			}
-			case Def (EquiJoin (a, b, eq)) =>  {
-				Predef.println("EquiJoin: " + a.tp + " / " + b.tp)
-				EquiJoinView(compile (a), compile (b), eq.map( (x) => compileApplied(x._1) ), eq.map( (x) => compileApplied(x._2) ), false).asInstanceOf[Relation[Domain]]
-			}
-
-
+                new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
+            }
+            case Def (CrossProduct (a, b)) => {
+                CrossProductView (compile (a), compile (b), false).asInstanceOf[Relation[Domain]]
+            }
+            case Def (EquiJoin (a, b, eq)) => {
+                EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
+                    eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
+            }
             case _ => super.compile (query)
-
-
         }
-}
-
-/*	private def mapSeqA[A : Manifest,B : Manifest](seq : Seq[(Rep[A => Any], Rep[B => Any])]) : Seq[A => Any] = {
-		seq.map( (x) => compileApplied(x._1) )
-	}
-
-	private def mapSeqB[A : Manifest,B : Manifest](seq : Seq[(Rep[A => Any], Rep[B => Any])]) : Seq[B => Any] = {
-		seq.map( (x) => compileApplied(x._2) )
-	}  */
-
-
+    }
 
 }
