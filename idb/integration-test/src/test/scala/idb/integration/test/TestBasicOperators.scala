@@ -48,21 +48,6 @@ import idb.syntax.iql.IR._
 class TestBasicOperators
 {
     @Test
-	def debugTest () {
-		val query = SELECT (firstName, lastName) FROM students
-
-		Predef.println("")
-
-		val queryPlan = plan(SELECT (firstName, lastName) FROM students)
-
-		Predef.println("")
-
-		val queryCompile = compile(query)
-
-		Predef.println("")
-	}
-
-    @Test
     def testSelectFirstNameFromStudents () {
         val query = compile (
             SELECT (firstName) FROM students
@@ -101,7 +86,7 @@ class TestBasicOperators
 	@Test
 	def testGetStudentIDFromStudents () {
 		val query = compile (
-			SELECT ((s : Rep[Student]) => s.lastName + "@" + s.matriculationNumber.toString) FROM students
+			SELECT ((s : Rep[Student]) => s.lastName + "@" + s.matriculationNumber) FROM students
 		).asMaterialized
 
 		val john = Student(11111, "John", "Doe")

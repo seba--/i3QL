@@ -33,10 +33,10 @@
 package idb.lms.extensions
 
 import scala.language.reflectiveCalls
-import org.junit.{Ignore, Test}
+import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
-import idb.schema.university.{Student, University}
+import idb.schema.university.{StudentSchema, Student, University}
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.compiler.{RelationalAlgebraGenBasicOperatorsAsIncremental, RelationalAlgebraGenSAEBinding}
 
@@ -91,11 +91,37 @@ class TestCompileScalaExt
             silent = false
         }
 
-        val isSally = compiler.compileFunctionWithDynamicManifests(prog.fun( prog.isSally))
+        val isSally = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.isSally))
 
         assertTrue (isSally (Student (1, "Sally", "Fields")))
         assertTrue (isSally (Student (2, "Sally", "Moore")))
         assertFalse (isSally (Student (3, "John", "Moore")))
         assertFalse (isSally (Student (4, "Sall", "White")))
+    }
+
+
+    @Test
+    def testCompileExplicitToString () {
+        val prog = new RelationalAlgebraIRBasicOperators
+            with RelationalAlgebraGenSAEBinding
+            with ScalaOpsPkgExp
+            with University
+        {
+            def getNumberAsString (s: Rep[Student]) : Rep[String] = s.matriculationNumber.toString()  // TODO toString without parenthesis does not work!!
+        }
+
+        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct
+        {
+            val IR: prog.type = prog
+
+            silent = false
+        }
+
+        val getNumberAsString = compiler.compileFunctionWithDynamicManifests (prog.fun (prog.getNumberAsString))
+
+        assertEquals ("1", getNumberAsString (Student (1, "Sally", "Fields")))
+        assertEquals ("2", getNumberAsString (Student (2, "Sally", "Moore")))
+        assertEquals ("3333", getNumberAsString (Student (3333, "John", "Moore")))
+        assertEquals ("423123", getNumberAsString (Student (423123, "Sall", "White")))
     }
 }
