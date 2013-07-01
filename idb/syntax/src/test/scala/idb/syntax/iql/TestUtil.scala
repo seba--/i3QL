@@ -38,12 +38,9 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_2[-SelectA, -SelectB, Range]
+object TestUtil
 {
-
-    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, Range]
-
+    def functionTypes[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
+        (manifest[A], manifest[B])
+    }
 }

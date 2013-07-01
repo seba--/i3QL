@@ -35,6 +35,8 @@ package idb.syntax.iql
 import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
+import idb.syntax.iql.TestUtil._
+
 import org.junit.Assert._
 import org.junit.Test
 
@@ -42,17 +44,17 @@ import org.junit.Test
  *
  * @author Ralf Mitschke
  */
-class TestBasicClausesManifests
+class TestBasicQueryManifests
 {
 
     @Test
-    def testSelectStarFromStudents () {
+    def testIdentityQueryManifests () {
         val query = plan (
             SELECT (*) FROM students
         )
 
-        assertEquals(
-            scala.collection.immutable.List(
+        assertEquals (
+            scala.collection.immutable.List (
                 manifest[Student]
             ),
             query.tp.typeArguments
@@ -60,57 +62,39 @@ class TestBasicClausesManifests
     }
 
     @Test
-    def testSelectFirstNameFromStudents () {
+    def testProjectionQueryManifests () {
         val query = plan (
             SELECT (firstName) FROM students
         )
 
-        assertEquals(
-            scala.collection.immutable.List(
+        assertEquals (
+            scala.collection.immutable.List (
                 manifest[String]
             ),
             query.tp.typeArguments
         )
 
 
-        assertEquals(
-            scala.collection.immutable.List(
+        assertEquals (
+            scala.collection.immutable.List (
                 manifest[Student],
                 manifest[String]
             ),
             (query match {
-                case Def(Projection(_, fun)) => fun
+                case Def (Projection (_, fun)) => fun
             }).tp.typeArguments
         )
 
-        assertEquals(
+        assertEquals (
             (
                 manifest[Student],
                 manifest[String]
-            ),
-            (query match {
-                case Def(Projection(_, fun)) => compilationTypes(fun)
-            })
+                ),
+            query match {
+                case Def (Projection (_, fun)) => functionTypes (fun)
+            }
         )
     }
 
-    @Test
-    def testSelectFirstNameFromStudentsCompileTypes () {
-        val query = plan (
-            SELECT (firstName) FROM students
-        )
 
-        matching(query)
-    }
-
-    def matching[Domain: Manifest] (query: Rep[Query[Domain]]) {
-        query match {
-            case Def (Selection (r, f)) => compilationTypes(f)
-            case Def (Projection (r, f)) => compilationTypes(f)
-        }
-    }
-
-    def compilationTypes[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
-        (manifest[A], manifest[B])
-    }
 }
