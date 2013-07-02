@@ -53,14 +53,19 @@ trait FunctionUtils
     import IR.tuple2_get2
     import IR.UnboxedTuple
 
-    def recreateFun[A: Manifest, B: Manifest]
-        (x: Rep[A], body: Rep[B]): Rep[A] => Rep[B] =
+    def recreateFun[A: Manifest, B: Manifest](
+        x: Rep[A], body: Rep[B]
+    ): Rep[A] => Rep[B] =
         (t: Rep[A]) => {
             subst =
                 x match {
-                    case Def (ETuple2 (a, b)) => Map (a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]))
-                    case Sym (_) => Map (x -> t)
-                    case UnboxedTuple(seq) =>
+                    case Def (ETuple2 (a, b)) =>
+                        Map (a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]))
+                    case UnboxedTuple(List(a, b)) =>
+                        Map(a -> tuple2_get1(t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2(t.asInstanceOf[Rep[Tuple2[Any,Any]]]) )
+                    case Sym (_) =>
+                        Map (x -> t)
+                    case _ => throw new UnsupportedOperationException("Function with parameters " + x.tp + " require special support")
                 }
             val res = transformBlock (reifyEffects (body)).res
             subst = Map()

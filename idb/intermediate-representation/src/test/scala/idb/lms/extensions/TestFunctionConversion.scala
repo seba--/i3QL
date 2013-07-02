@@ -61,6 +61,7 @@ class TestFunctionConversion
     import IR.repNumericToNumericOps
     import IR.numericToNumericOps
     import IR.doApply
+    import IR.UnboxedTuple
     import IR.make_tuple2
 
     @Test
@@ -91,4 +92,21 @@ class TestFunctionConversion
         assertEquals (funF, funG)
     }
 
+
+    @Test
+    def testFun2AsUnboxedTupleRecreate () {
+        val f = (i: Rep[Int], j: Rep[Int]) => {i + j }
+        val funF = fun (f)
+
+        val x = fresh[Int]
+        val y = fresh[Int]
+        val body = f (x, y)
+
+        val params: Rep[(Int,Int)] =  UnboxedTuple(List(x,y))
+
+        val g = recreateFun (params, body)
+
+        val funG = fun (g)
+        assertEquals (funF, funG)
+    }
 }

@@ -53,9 +53,10 @@ trait FunctionsExpOptAlphaEquivalence
                 return false
 
             o.asInstanceOf[Lambda[A, B]] match {
-                case Lambda (f2, x2, y2) =>
-                    reifyEffects (f2 (x)) == y // reify other lambda to the variable bound in this lambda,
-                // and compare the resulting body with this body
+                case Lambda (f2, x2, y2) =>  {
+                    val body = reifyEffects (f2 (x)) // reify other lambda to the variable bound in this lambda,
+                    body == y // and compare the resulting body with this body
+                }
                 case _ =>
                     false
             }
