@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.compilation
 
 import idb.algebra.compiler.{RelationalAlgebraGenSAEBinding, RelationalAlgebraGenBasicOperatorsAsIncremental}
 import scala.virtualization.lms.common._
@@ -39,15 +39,12 @@ import scala.virtualization.lms.common._
  *
  * @author Ralf Mitschke
  */
-object Compiler
+object CompilerBinding
     extends RelationalAlgebraGenBasicOperatorsAsIncremental
     with RelationalAlgebraGenSAEBinding
-    with ScalaGenEqual
+    with ScalaCodeGenPkg
     with ScalaGenStruct
-	with ScalaGenBooleanOps
-	with ScalaGenTupleOps
-	with ScalaGenFunctions
-	with ScalaGenStringOps
+    with ScalaGenTupledFunctions
 {
     override val IR = idb.syntax.iql.IR
 

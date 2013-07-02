@@ -80,7 +80,7 @@ class TestBasicClauseManifests
 
         val f =
             fromClause2 match {
-                case FromClause2 (_, _, SelectClause2 (project)) => fun2 (project)
+                case FromClause2 (_, _, SelectClause2 (project)) => fun (project)
             }
 
 

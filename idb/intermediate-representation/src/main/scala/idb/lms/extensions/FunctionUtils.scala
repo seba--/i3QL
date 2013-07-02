@@ -42,7 +42,7 @@ trait FunctionUtils
     extends ForwardTransformer
 {
 
-    val IR: BaseFatExp with EffectExp with TupleOpsExp with FunctionsExpOptAlphaEquivalence with ExpressionUtils
+    val IR: BaseFatExp with EffectExp with TupleOpsExp with TupledFunctionsExp with FunctionsExpOptAlphaEquivalence with ExpressionUtils
 
     import IR.Rep
     import IR.Def
@@ -51,6 +51,7 @@ trait FunctionUtils
     import IR.ETuple2
     import IR.tuple2_get1
     import IR.tuple2_get2
+    import IR.UnboxedTuple
 
     def recreateFun[A: Manifest, B: Manifest]
         (x: Rep[A], body: Rep[B]): Rep[A] => Rep[B] =
@@ -59,6 +60,7 @@ trait FunctionUtils
                 x match {
                     case Def (ETuple2 (a, b)) => Map (a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]), b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]))
                     case Sym (_) => Map (x -> t)
+                    case UnboxedTuple(seq) =>
                 }
             val res = transformBlock (reifyEffects (body)).res
             subst = Map()

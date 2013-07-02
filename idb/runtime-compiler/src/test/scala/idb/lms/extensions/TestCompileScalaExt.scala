@@ -48,7 +48,7 @@ class TestCompileScalaExt
 {
 
     @Test
-    def testCompileFunction () {
+    def testCompileFunction1 () {
         val prog = new RelationalAlgebraIRBasicOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
@@ -74,7 +74,34 @@ class TestCompileScalaExt
     }
 
     @Test
-    def testCompileFunctionWithDynamicManifests () {
+    def testCompileFunction2 () {
+        val prog = new RelationalAlgebraIRBasicOperators
+            with RelationalAlgebraGenSAEBinding
+            with ScalaOpsPkgExp
+            with University
+            with TupledFunctionsExp
+            with LiftAll
+        {
+            def matchesString (s: Rep[Student], v: Rep[String]) = s.firstName == v
+        }
+
+        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenTupledFunctions with ScalaGenStruct
+        {
+            val IR: prog.type = prog
+
+            silent = true
+        }
+
+        val matchesString = compiler.compileFunctionApplied (prog.fun(prog.matchesString _))
+
+        assertTrue (matchesString ((Student (1, "Sally", "Fields"), "Sally")))
+        assertTrue (matchesString ((Student (2, "Sally", "Moore"), "Sally")))
+        assertFalse (matchesString ((Student (3, "John", "Moore"), "Sally")))
+        assertFalse (matchesString ((Student (4, "Sall", "White"), "Sally")))
+    }
+
+    @Test
+    def testCompileFunction1WithDynamicManifests () {
         val prog = new RelationalAlgebraIRBasicOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
@@ -99,6 +126,32 @@ class TestCompileScalaExt
         assertFalse (isSally (Student (4, "Sall", "White")))
     }
 
+    @Test
+    def testCompileFunction2WithDynamicManifests () {
+        val prog = new RelationalAlgebraIRBasicOperators
+            with RelationalAlgebraGenSAEBinding
+            with ScalaOpsPkgExp
+            with University
+            with TupledFunctionsExp
+            with LiftAll
+        {
+            def matchesString (s: Rep[Student], v: Rep[String]) = s.firstName == v
+        }
+
+        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenTupledFunctions with ScalaGenStruct
+        {
+            val IR: prog.type = prog
+
+            silent = true
+        }
+
+        val matchesString = compiler.compileFunctionWithDynamicManifests (prog.fun(prog.matchesString _))
+
+        assertTrue (matchesString ((Student (1, "Sally", "Fields"), "Sally")))
+        assertTrue (matchesString ((Student (2, "Sally", "Moore"), "Sally")))
+        assertFalse (matchesString ((Student (3, "John", "Moore"), "Sally")))
+        assertFalse (matchesString ((Student (4, "Sall", "White"), "Sally")))
+    }
 
     @Test
     def testCompileExplicitToString () {

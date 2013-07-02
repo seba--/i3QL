@@ -53,6 +53,7 @@ object IR
     with ScalaOpsPkgExp
     //with FunctionBlocksExp // TODO consider using this for function recreation
     with StructExp
+    with TupledFunctionsExp
     with LoopsFatExp
     with IfThenElseFatExp
     with LiftAll
