@@ -35,7 +35,7 @@ package idb.integration.test
 import UniversityDatabase._
 import idb.syntax.iql._
 import org.junit.Assert._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 import idb.schema.university.{Registration, Student}
 import idb.syntax.iql.IR._
 
@@ -190,6 +190,7 @@ class TestBasicOperators
 		assertFalse(query.contains((judy,jane)))
 	}
 
+    @Ignore
 	@Test
 	def testGetStudentsAndRegistrations () {
 		val query = compile (
@@ -230,6 +231,7 @@ class TestBasicOperators
 		assertTrue(query.contains((jane,reg4)))
 	}
 
+    @Ignore
 	@Test
 	def testGetStudentsAndTheirRegistrations () {
 		val query = compile (
