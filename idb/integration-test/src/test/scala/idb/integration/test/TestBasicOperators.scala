@@ -56,9 +56,13 @@ class TestBasicOperators
         val john = new Student(11111, "John", "Doe")
 
 		students += john
+		students.endTransaction()
+
         assertTrue(query.contains("John"))
 
 		students -= john
+		students.endTransaction()
+
 		assertFalse(query.contains("John"))
 
     }
@@ -73,11 +77,13 @@ class TestBasicOperators
 		val judy = Student(22222, "Judy", "Carter")
 
 		students += john += judy
+		students.endTransaction()
 
 		assertTrue(query.contains(("John", "Doe")))
 		assertTrue(query.contains(("Judy", "Carter")))
 
 		students -= john
+		students.endTransaction()
 
 		assertFalse(query.contains(("John", "Doe")))
 		assertTrue(query.contains(("Judy", "Carter")))
@@ -93,11 +99,13 @@ class TestBasicOperators
 		val judy = Student(22222, "Judy", "Carter")
 
 		students += john += judy
+		students.endTransaction()
 
 		assertTrue(query.contains("Doe@11111"))
 		assertTrue(query.contains("Carter@22222"))
 
 		students -= john
+		students.endTransaction()
 
 		assertFalse(query.contains("Doe@11111"))
 		assertTrue(query.contains("Carter@22222"))
@@ -116,12 +124,14 @@ class TestBasicOperators
 		val reg3 = Registration(234,11111,"")
 
 		registrations += reg1 += reg2 += reg3
+		registrations.endTransaction()
 
 		assertTrue(query.contains(reg1))
 		assertTrue(query.contains(reg2))
 		assertFalse(query.contains(reg3))
 
 		registrations -= reg1
+		registrations.endTransaction()
 
 		assertFalse(query.contains(reg1))
 		assertTrue(query.contains(reg2))
@@ -140,18 +150,21 @@ class TestBasicOperators
 		val john2 = Student(33333, "John", "D'oh")
 
 		students += john += judy += john2
+		students.endTransaction()
 
 		assertTrue(query.contains(11111))
 		assertFalse(query.contains(22222))
 		assertFalse(query.contains(33333))
 
 		students -= john2
+		students.endTransaction()
 
 		assertTrue(query.contains(11111))
 		assertFalse(query.contains(22222))
 		assertFalse(query.contains(33333))
 
 		students -= john
+		students.endTransaction()
 
 		assertFalse(query.contains(11111))
 		assertFalse(query.contains(22222))
@@ -169,6 +182,11 @@ class TestBasicOperators
 		val jane = Student(33333, "Jane", "Doe")
 
 		students += john += judy
+		students.endTransaction()
+
+		Predef.println("---------------------------------")
+		query.foreach(Predef.println(_))
+		Predef.println("---------------------------------")
 
 		assertTrue(query.contains((john,john)))
 		assertTrue(query.contains((john,judy)))
@@ -176,6 +194,11 @@ class TestBasicOperators
 		assertTrue(query.contains((judy,judy)))
 
 		students += jane -= judy
+		students.endTransaction()
+
+		Predef.println("---------------------------------")
+		query.foreach(Predef.println(_))
+		Predef.println("---------------------------------")
 
 		assertTrue(query.contains((john,john)))
 		assertTrue(query.contains((john,jane)))
@@ -190,8 +213,8 @@ class TestBasicOperators
 		assertFalse(query.contains((judy,jane)))
 	}
 
-    @Ignore
 	@Test
+	@Ignore
 	def testGetStudentsAndRegistrations () {
 		val query = compile (
 			SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
@@ -209,7 +232,9 @@ class TestBasicOperators
 		val reg4 = Registration(234,33333,"")
 
 		students += john += judy += jane
+		students.endTransaction()
 		registrations += reg1 += reg2 += reg3 += reg4
+		registrations.endTransaction()
 
 		assertTrue(query.contains((john,reg1)))
 		assertTrue(query.contains((john,reg3)))
@@ -217,6 +242,7 @@ class TestBasicOperators
 		assertTrue(query.contains((jane,reg4)))
 
 		students -= john
+		students.endTransaction()
 
 		assertFalse(query.contains((john,reg1)))
 		assertFalse(query.contains((john,reg3)))
@@ -224,6 +250,7 @@ class TestBasicOperators
 		assertTrue(query.contains((jane,reg4)))
 
 		registrations -= reg2
+		registrations.endTransaction()
 
 		assertFalse(query.contains((john,reg1)))
 		assertFalse(query.contains((john,reg3)))
@@ -231,8 +258,8 @@ class TestBasicOperators
 		assertTrue(query.contains((jane,reg4)))
 	}
 
-    @Ignore
 	@Test
+	@Ignore
 	def testGetStudentsAndTheirRegistrations () {
 		val query = compile (
 			SELECT ((s: Rep[Student], r: Rep[Registration]) => (s.lastName, r.courseNumber)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
@@ -249,19 +276,23 @@ class TestBasicOperators
 		val reg4 = Registration(234,33333,"")
 
 		students += john += judy += jane
+		students.endTransaction()
 		registrations += reg1 += reg2 += reg3 += reg4
+		registrations.endTransaction()
 
 		assertTrue(query.contains(("Doe",123)))
 		assertTrue(query.contains(("Doe",234)))
 		assertTrue(query.contains(("Carter",123)))
 
 		students -= john
+		students.endTransaction()
 
 		assertFalse(query.contains(("Doe",123)))
 		assertTrue(query.contains(("Doe",234)))
 		assertTrue(query.contains(("Carter",123)))
 
 		registrations -= reg4
+		registrations.endTransaction()
 
 		assertFalse(query.contains(("Doe",123)))
 		assertFalse(query.contains(("Doe",234)))

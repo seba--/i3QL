@@ -67,6 +67,19 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
                     eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
             }
+			case Def (u@Union (a, b)) => {
+				new UnionViewAdd (compile (a) (u.mDomA), compile (b) (u.mDomB), false)
+			}
+			case Def (Intersection (a, b)) => {
+				IntersectionView (compile (a), compile (b), false)
+			}
+			case Def (Difference (min, sub)) => {
+				new DifferenceView (compile (min), compile (sub), false)
+			}
+			case Def (DuplicateElimination (a)) => {
+				new DuplicateEliminationView(compile (a), false)
+			}
+
             case _ => super.compile (query)
         }
     }
