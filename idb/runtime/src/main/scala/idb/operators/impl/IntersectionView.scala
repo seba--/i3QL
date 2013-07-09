@@ -32,7 +32,7 @@
  */
 package idb.operators.impl
 
-import idb.{MaterializedView}
+import idb.{Relation, MaterializedView}
 import idb.operators.Intersection
 import idb.observer.{NotifyObservers, Observer, Observable}
 
@@ -174,4 +174,10 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
         }
     }
 
+}
+
+object IntersectionView {
+	def apply[Domain](left: Relation[Domain], right: Relation[Domain], isSet : Boolean) : IntersectionView[Domain] = {
+		new IntersectionView(left.asMaterialized,right.asMaterialized,isSet)
+	}
 }

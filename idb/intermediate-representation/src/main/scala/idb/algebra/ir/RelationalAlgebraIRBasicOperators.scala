@@ -57,13 +57,40 @@ trait RelationalAlgebraIRBasicOperators
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[(DomainA, DomainB)]]
+    ) extends Def[Query[(DomainA, DomainB)]] {
+		val mDomA = implicitly[Manifest[DomainA]]
+		val mDomB = implicitly[Manifest[DomainB]]
+	}
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ) extends Def[Query[(DomainA, DomainB)]]
+
+	case class Union[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+	) extends Def[Query[Range]] {
+		val mDomA = implicitly[Manifest[DomainA]]
+		val mDomB = implicitly[Manifest[DomainB]]
+		val mRan = implicitly[Manifest[Range]]
+	}
+
+	case class Intersection[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	) extends Def[Query[Domain]]
+
+	case class Difference[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	) extends Def[Query[Domain]]
+
+	case class DuplicateElimination[Domain : Manifest] (
+		relation: Rep[Query[Domain]]
+	) extends Def[Query[Domain]]
+
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
@@ -89,4 +116,27 @@ trait RelationalAlgebraIRBasicOperators
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
+
+	def union[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		Union (relationA, relationB)
+
+	def intersection[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+		): Rep[Query[Domain]] =
+		Intersection(relationA, relationB)
+
+	def difference[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		Difference (relationA, relationB)
+
+	def duplicateElimination[Domain : Manifest] (
+		relation: Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		DuplicateElimination (relation)
 }

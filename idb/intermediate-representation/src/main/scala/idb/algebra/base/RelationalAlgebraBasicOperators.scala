@@ -66,4 +66,24 @@ trait RelationalAlgebraBasicOperators
         relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]]
+
+	def union[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
+	def intersection[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
+	def difference[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
+	def duplicateElimination[Domain : Manifest] (
+		relation: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
 }

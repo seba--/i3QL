@@ -68,6 +68,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 					notify_removed(projection(v, b))
 				}
 			)
+
+			if (left == right)
+				notify_removed(projection(v,v.asInstanceOf[DomainB]))
 		}
 
 		override def added(v: DomainA) {
@@ -101,6 +104,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 					notify_removed(projection(a, v))
 				}
 			)
+
+			if (left == right)
+				notify_removed(projection(v.asInstanceOf[DomainA],v))
 		}
 
 		override def added(v: DomainB) {
@@ -117,6 +123,6 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 object CrossProductView {
 	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left.asMaterialized,right.asMaterialized,(l : DomainA, r : DomainB) => (l,r),isSet)
 	}
 }

@@ -42,13 +42,13 @@ class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 												 val right: Relation[DomainB],
 												 val leftIndex: Index[Key, DomainA],
 												 val rightIndex: Index[Key, DomainB],
-												 val leftKey: DomainA => Key,
-												 val rightKey: DomainB => Key,
 												 val projection: (DomainA, DomainB) => Range,
 												 override val isSet: Boolean)
 	extends EquiJoin[DomainA, DomainB, Range, Key]
 	with NotifyObservers[Range] {
 
+	val leftKey: DomainA => Key = leftIndex.keyFunction
+	val rightKey: DomainB => Key = rightIndex.keyFunction
 
 	// we observe the indices, but the indices are not part of the observer chain
 	// indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
@@ -266,12 +266,8 @@ object EquiJoinView {
 			right,
 			leftIndex,
 			rightIndex,
-			leftKey,
-			rightKey,
 			(_, _),
 			isSet
 		)
-
-
 	}
 }
