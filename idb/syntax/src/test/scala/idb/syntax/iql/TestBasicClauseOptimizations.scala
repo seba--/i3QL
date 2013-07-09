@@ -44,7 +44,7 @@ import org.junit.{Ignore, Test}
  */
 class TestBasicClauseOptimizations
 {
-    @Ignore
+
     @Test
     def testPropagateFilterToRightViaJoin () {
         val query = plan (
@@ -90,6 +90,7 @@ class TestBasicClauseOptimizations
         )
     }
 
+    @Ignore
     @Test
     def testLocalIncrementJoin () {
         val query = plan (

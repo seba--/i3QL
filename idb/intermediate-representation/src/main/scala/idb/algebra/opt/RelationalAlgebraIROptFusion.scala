@@ -54,7 +54,9 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Range]] =
         relation match {
             case Def (Projection (r, f)) =>
-                projection (r, (x: Rep[_]) => function (f (x)))
+                val mPrevDomainUnsafe = f.tp.typeArguments(0).asInstanceOf[Manifest[Any]]
+                val mRangeUnsafe = function.tp.typeArguments(1).asInstanceOf[Manifest[Range]]
+                projection (r, fun((x: Rep[_]) => function (f (x)))(mPrevDomainUnsafe, mRangeUnsafe))
             case _ =>
                 super.projection (relation, function)
         }
@@ -69,9 +71,17 @@ trait RelationalAlgebraIROptFusion
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         relation match {
-            case Def (Selection (r, f)) if (f.tp == function.tp) => {
+            case Def (Selection (r, f))  => {
+                // if the functions have the same type, it can be more general than [Domain], e.g., f: Any => Boolean
+                // we keep the more general type in this case
+                val mDomainUnsafe : Manifest[Domain] =
+                    if(f.tp == function.tp)
+                        f.tp.typeArguments(0).asInstanceOf[Manifest[Domain]]
+                    else
+                        manifest[Domain]
+
                 val g = f.asInstanceOf[Rep[Domain => Boolean]]
-                selection (r, (x: Rep[Domain]) => g (x) && function (x))
+                selection (r, fun((x: Rep[Domain]) => g (x) && function (x))(mDomainUnsafe, manifest[Boolean]) )
 
             }
             case _ =>

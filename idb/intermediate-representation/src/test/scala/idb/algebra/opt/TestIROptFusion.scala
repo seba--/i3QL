@@ -70,7 +70,7 @@ class TestIROptFusion
 
 
     @Test
-    def testSelectionFusionTyping () {
+    def testSelectionFusionTypingWithDifference () {
         trait A
 
         def infix_isA (x: Rep[A]): Rep[Boolean] = true
@@ -90,6 +90,55 @@ class TestIROptFusion
         val expA = selection (selection (base, f1), f2)
 
         val f3 = (x: Rep[Impl]) => x.isA && x.isB
+
+        val expB = selection (base, f3)
+        assertEquals (expB, expA)
+    }
+
+    @Test
+    def testSelectionFusionTypingWithSame () {
+        trait A
+
+        def infix_isA1 (x: Rep[A]): Rep[Boolean] = true
+
+        def infix_isA2 (x: Rep[A]): Rep[Boolean] = true
+
+        class Impl extends A
+
+        val base = emptyRelation[Impl]()
+
+        val f1 = (x: Rep[A]) => x.isA1
+
+        val f2 = (x: Rep[A]) => x.isA2
+
+        val expA = selection (selection (base, f1), f2)
+
+        val f3 = (x: Rep[A]) => x.isA1 && x.isA2
+
+        val expB = selection (base, f3)
+        assertEquals (expB, expA)
+    }
+
+
+    @Test
+    def testSelectionFusionTypingWithSameMostSpecific () {
+        trait A
+
+        def infix_isA1 (x: Rep[A]): Rep[Boolean] = true
+
+        def infix_isA2 (x: Rep[A]): Rep[Boolean] = true
+
+        class Impl extends A
+
+        val base = emptyRelation[Impl]()
+
+        val f1 = (x: Rep[A]) => x.isA1
+
+        val f2 = (x: Rep[A]) => x.isA2
+
+        val expA = selection (selection (base, f1), f2)
+
+        val f3 = (x: Rep[Impl]) => x.isA1 && x.isA2
 
         val expB = selection (base, f3)
         assertEquals (expB, expA)

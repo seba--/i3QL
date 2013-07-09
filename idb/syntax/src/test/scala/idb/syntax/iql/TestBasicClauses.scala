@@ -261,6 +261,8 @@ class TestBasicClauses
             ),
             query
         )
+
+        compilation.CompilerBinding.compile(query)
     }
 
 
