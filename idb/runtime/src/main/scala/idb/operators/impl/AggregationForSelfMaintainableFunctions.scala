@@ -24,10 +24,10 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * @author Ralf Mitschke
  */
 class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
-                                                                                              val groupingFunction: Domain => Key,
-                                                                                              val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                              val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-																							  override val isSet : Boolean)
+                                                                                   val groupingFunction: Domain => Key,
+                                                                                   val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                   val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+																				   override val isSet : Boolean)
     extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
 	with NotifyObservers[Result]
@@ -196,19 +196,5 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
 
 }
 
-class Count
-{
-	private var count: Int = 0
 
-	def inc() {
-		this.count += 1
-	}
-
-	def dec(): Int = {
-		this.count -= 1
-		this.count
-	}
-
-	def apply() = this.count
-}
 

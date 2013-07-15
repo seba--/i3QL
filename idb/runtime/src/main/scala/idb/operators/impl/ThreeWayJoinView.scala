@@ -44,10 +44,6 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
 																	 val middleToLeftIndex : Index[KeyA,DomainB],
                                                                      val middleToRightIndex : Index[KeyC,DomainB],
 																	 val rightIndex : Index[KeyC,DomainC],
-																	 val leftKey: DomainA => KeyA,
-                                                                     val middleToLeftKey: DomainB => KeyA,
-                                                                     val middleToRightKey: DomainB => KeyC,
-                                                                     val rightKey: DomainC => KeyC,
                                                                      val projection: (DomainA, DomainB, DomainC) => Range,
 																	override val isSet : Boolean)
     extends ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
@@ -57,6 +53,11 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
 
     // we observe the indices, but the indices are not part of the observer chain
     // indices have a special semantics in order to ensure updates where all indices are updated prior to their observers
+
+	val leftKey: DomainA => KeyA = leftIndex.keyFunction
+	val middleToLeftKey: DomainB => KeyA = middleToLeftIndex.keyFunction
+	val middleToRightKey: DomainB => KeyC = middleToRightIndex.keyFunction
+	val rightKey: DomainC => KeyC = rightIndex.keyFunction
 
     leftIndex addObserver LeftObserver
 
