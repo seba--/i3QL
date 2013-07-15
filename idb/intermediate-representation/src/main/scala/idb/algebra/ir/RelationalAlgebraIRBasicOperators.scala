@@ -111,19 +111,31 @@ trait RelationalAlgebraIRBasicOperators
 		var relation: Rep[Query[Edge]],
 		tail: Rep[Edge => Vertex],
 		head: Rep[Edge => Vertex]
-	) extends Def[Query[(Vertex,Vertex)]]
+	) extends Def[Query[(Vertex,Vertex)]] {
+		val mEdge = implicitly[Manifest[Edge]]
+		val mVertex = implicitly[Manifest[Vertex]]
+	}
 
 	case class Unnest[Domain: Manifest, Range: Manifest] (
 		var relation: Rep[Query[Domain]],
 		unnesting: Rep[Domain => Seq[Range]]
 	) extends Def[Query[Range]]
 
-	class Recursion[Domain : Manifest] (
-		var base: Rep[Query[Domain]],
+	case class Recursion[Domain : Manifest] (
+		base: Rep[Query[Domain]],
 		var result: Rep[Query[Domain]]
 	) extends Def[Query[Domain]] {
 
 	}
+
+	case class AggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
+		source : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+		updated : Rep[((Domain, Domain)) => AggregateValue],
+		convert : Rep[((Key,AggregateValue)) => Result]
+	) extends Def[Query[Result]]
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
@@ -198,14 +210,23 @@ trait RelationalAlgebraIRBasicOperators
 	): Rep[Query[Range]] =
 		Unnest (relation, unnesting)
 
-	def recursion[Domain : Manifest, Range : Manifest] (
+	def recursion[Domain : Manifest] (
 		base : Rep[Query[Domain]],
 		result : Rep[Query[Domain]]
 	): Rep[Query[Domain]] = {
-		findRecursionBase(result, base)
-		changeRecursionResult(result,result)
+		findRecursionBase(result, base, result, (x : Rep[Query[Domain]]) => { })
 		return result
 	}
+
+	def aggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
+		source : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+		updated : Rep[((Domain, Domain)) => AggregateValue],
+		convert : Rep[((Key,AggregateValue)) => Result]
+	): Rep[Query[Result]] =
+		AggregationSelfMaintained(source,grouping,added,removed,updated,convert)
 
 	/**
 	 * Searches the recursion base in a operator tree and inserts a recursion node next-to-last to the recursion base.
@@ -213,47 +234,49 @@ trait RelationalAlgebraIRBasicOperators
 	 * @param relation The operator tree where the recursion should be added. The tree must contain the recursion base.
 	 * @return An operator tree with a recursion node. Note that the result of the recursion node is NOT set accordingly to the definition of the recursion.
 	 */
-	private def findRecursionBase[Domain : Manifest](relation : Rep[Query[Domain]], base : Rep[Query[_]]) {
+	private def findRecursionBase[Domain : Manifest](relation : Rep[Query[Domain]], base : Rep[Query[_]], result : Rep[Query[_]], setFunction : ( Rep[Query[Domain]] ) => Unit ) {
 		relation match {
-
+			case `base` => {
+				setFunction(Recursion(relation,result.asInstanceOf[Rep[Query[Domain]]]))
+			}
 			case QueryRelation (r, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
 			case QueryExtent (e, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
 
 			case Def (e@Projection (r, f)) => {
-				setRecursionBase(r, base, x => e.relation = x)
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
 			}
 			case Def (e@Selection (r, f)) => {
-				setRecursionBase(r,base, x => e.relation = x)
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.relation = x)
 			}
 			case Def (e@CrossProduct (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result,(x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
 			}
 			case Def (e@EquiJoin (a, b, eq)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
 			}
 			case Def (e@UnionAdd (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
 			}
 			case Def (e@UnionMax (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
 			}
 			case Def (e@Intersection (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
 			}
 			case Def (e@Difference (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
 			}
 			case Def (e@SymmetricDifference (a, b)) => {
-				setRecursionBase(a,b,base,x => e.relationA = x, x => e.relationB = x)
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
 			}
-			case Def (e@DuplicateElimination (a)) => {
-				setRecursionBase(a,base, x => e.relation = x)
+			case Def (e@DuplicateElimination (r)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.relation = x)
 			}
-			case Def (e@TransitiveClosure (a, t, h)) => {
-				setRecursionBase(a,base, x => e.relation = x)
+			case Def (e@TransitiveClosure (r, t, h)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
 			}
-			case Def (e@Unnest (a, f)) => {
-				setRecursionBase(a,base,x => e.relation = x)
+			case Def (e@Unnest (r, f)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
 			}
 /*			case Def (Recursion (b, r)) => {
 				setRecursionBase(b,base, Recursion(b ,r))
@@ -264,113 +287,18 @@ trait RelationalAlgebraIRBasicOperators
 		}
 	}
 
-	/**
-	 * Helper function that inserts the recursion node into the operator tree, if the base has been reached. Otherwise the operator tree is further traversed.
-	 * @param relation The operator tree to be checked.
-	 * @param base The base that should be found.
-	 * @param setFunction The function to be applied for traversal.
-	 * @return An operator tree where the recursive node is set accordingly at the node relation.
-	 */
-	private def setRecursionBase[Domain : Manifest](
-		relation : Rep[Query[Domain]],
-		base : Rep[Query[_]],
-		setFunction : Rep[Query[Domain]] => _
-	) {
-			if(relation == base){
-				val rec = Recursion(base.asInstanceOf[Rep[Query[Domain]]],base.asInstanceOf[Rep[Query[Domain]]])
-				setFunction(rec)
-			} else {
-				findRecursionBase(relation,base)
-			}
-
-	}
-
 	private def setRecursionBase[DomainA : Manifest, DomainB : Manifest](
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		base : Rep[Query[_]],
-		setFunctionA : Rep[Query[DomainA]] => _,
-		setFunctionB : Rep[Query[DomainB]] => _
+		result : Rep[Query[_]],
+		setFunctionA : Rep[Query[DomainA]] => Unit,
+		setFunctionB : Rep[Query[DomainB]] => Unit
 	) {
 		try {
-			setRecursionBase[DomainA,Range](relationA,base,setFunctionA)
+			findRecursionBase(relationA, base, result, setFunctionA)
 		} catch {
-			case e : IllegalArgumentException => setRecursionBase[DomainB,Range](relationB,base,setFunctionB)
+			case e : IllegalArgumentException => findRecursionBase(relationB, base, result, setFunctionB)
 		}
 	}
-
-	/**
-	 * Sets the result of the first encountered recursion to the new result.
-	 * @param relation The operator tree to be traversed.
-	 * @param result The new result of the recursion.
-	 */
-	private def changeRecursionResult(relation : Rep[Query[_]], result : Rep[Query[_]]) : Boolean = {
-		relation match {
-			case Def (r@Recursion(base, oldResult)) => {
-				r.setResult(result)
-				true
-			}
-			case Def (Selection (r, f)) => {
-				changeRecursionResult(r,result)
-			}
-			case Def (Projection (r, f)) => {
-				changeRecursionResult(r,result)
-			}
-			case Def (CrossProduct (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (EquiJoin (a, b, eq)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (UnionAdd (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (UnionMax (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (Intersection (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (Difference (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (SymmetricDifference (a, b)) => {
-				if(changeRecursionResult(a,result))
-					true
-				else
-					changeRecursionResult(b,result)
-			}
-			case Def (DuplicateElimination (a)) => {
-				changeRecursionResult(a,result)
-			}
-			case Def (TransitiveClosure (a, t, h)) => {
-				changeRecursionResult(a,result)
-			}
-			case Def (Unnest (a, f)) => {
-				changeRecursionResult(a,result)
-			}
-
-			case _ => false
-		}
-	}
-
-
 }

@@ -41,8 +41,6 @@ package idb.algebra.base
 trait RelationalAlgebraBasicOperators
     extends RelationalAlgebraBase
 {
-
-
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
@@ -104,16 +102,18 @@ trait RelationalAlgebraBasicOperators
 
 	def unnest[Domain: Manifest, Range: Manifest] (
 		relation: Rep[Query[Domain]],
-		unnestFunction: Rep[Domain => Seq[Range]]
+		unnesting: Rep[Domain => Seq[Range]]
 	): Rep[Query[Range]]
 
-	//TODO extend this
-/*	def aggregation[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
+	def aggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
 		source : Rep[Query[Domain]],
-		grouping : Rep[Domain => Key]
-	): Rep[Query[Result]]    */
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+		updated : Rep[ ((Domain, Domain)) => AggregateValue],
+		convert : Rep[ ((Key,AggregateValue)) => Result]
+	): Rep[Query[Result]]
 
-	//TODO finish this
 	def recursion[Domain : Manifest] (
 	    base : Rep[Query[Domain]],
 		result : Rep[Query[Domain]]

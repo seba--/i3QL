@@ -3,7 +3,7 @@ package idb.operators.impl
 
 import collection.mutable
 import idb.Relation
-import idb.operators.{SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
+import idb.operators.{AggregateFunction, SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
 /**
@@ -194,6 +194,37 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
         }
     }
 
+}
+
+object AggregationForSelfMaintainableFunctions {
+
+	def apply[Domain, Key, AggregateValue, Result](
+		source : Relation[Domain],
+		grouping : Domain => Key,
+		added : Domain => AggregateValue,
+		removed : Domain => AggregateValue,
+		updated : (Domain, Domain) => AggregateValue,
+		convert : (Key,AggregateValue) => Result,
+		isSet : Boolean
+	): Relation[Result] = {
+		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
+			 override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
+				 new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
+					 def add(newD: Domain): AggregateValue =
+					 	added(newD)
+
+					 def remove(newD: Domain): AggregateValue =
+						 removed(newD)
+
+					 def update(oldD: Domain, newD: Domain): AggregateValue =
+					 	updated(oldD,newD)
+				 }
+			 }
+		}
+
+		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,convert,isSet)
+
+	}
 }
 
 
