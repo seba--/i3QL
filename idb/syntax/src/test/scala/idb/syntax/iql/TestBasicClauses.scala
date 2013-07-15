@@ -45,7 +45,7 @@ import org.junit.Test
 class TestBasicClauses
 {
     @Test
-    def testSelectStarFromStudents () {
+    def testExtent () {
         val query = plan (
             SELECT (*) FROM students
         )
@@ -61,7 +61,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testSelectFirstNameFromStudents () {
+    def testProject1 () {
         val query = plan (
             SELECT (firstName) FROM students
         )
@@ -82,7 +82,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testSelectFirstAndLastNameTupleFromStudents () {
+    def testProject1TupleFun () {
         val query = plan (
             SELECT (firstName, lastName) FROM students
         )
@@ -95,7 +95,7 @@ class TestBasicClauses
 
 
     @Test
-    def testFilterStudentFirstNames () {
+    def testSelection1 () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
@@ -107,7 +107,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testFilterCourseTitles () {
+    def testSelection1FunCall () {
         val query = plan (
             SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
         )
@@ -119,7 +119,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testSelectFirstAndLastNameTupleFromFilteredStudents () {
+    def testSelection1ProjectTupleFun () {
         val query = plan (
             SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
@@ -138,7 +138,7 @@ class TestBasicClauses
 
 
     @Test
-    def testCrossProductStudentsCourses () {
+    def testCrossProduct2 () {
         val query = plan (
             SELECT (*) FROM(students, courses)
         )
@@ -150,7 +150,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProductStudentsCoursesWithStudentSelection () {
+    def testCrossProduct2Selection1st () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally"
@@ -167,7 +167,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProductStudentsCoursesWithCourseSelection () {
+    def testCrossProduct2Selection2nd () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 c.title.startsWith ("Introduction")
@@ -184,7 +184,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProductStudentsCoursesWithBothAsSelection () {
+    def testCrossProduct2SelectionBoth () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -202,7 +202,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProductStudentsCoursesWithInterleavedSelections () {
+    def testCrossProduct2SelectionsBothInterleaved () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -221,7 +221,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProductStudentsCoursesWithSelectionAbove () {
+    def testCrossProduct2SelectionBothCompared () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
@@ -243,7 +243,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testJoinStudentsRegistrations () {
+    def testJoin2 () {
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber
@@ -267,7 +267,7 @@ class TestBasicClauses
 
 
     @Test
-    def testJoinStudentsRegistrationsWithFilterBelow () {
+    def testJoin2SelectionBoth () {
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -290,7 +290,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testJoinStudentsRegistrationsWithFilterBelowAndAbove () {
+    def testJoin2SelectionBothAndCompare () {
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
