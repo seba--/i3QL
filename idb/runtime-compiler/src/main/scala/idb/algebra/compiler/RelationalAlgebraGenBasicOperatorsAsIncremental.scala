@@ -36,6 +36,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import scala.virtualization.lms.common.{TupledFunctionsExp, FunctionsExp, ScalaGenEffect}
+import idb.operators.impl.opt.TransactionalCyclicTransitiveClosureView
 
 /**
  *

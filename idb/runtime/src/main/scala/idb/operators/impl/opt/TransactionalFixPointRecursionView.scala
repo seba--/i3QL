@@ -30,13 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
-import util.TransactionKeyValueObserver
 import collection.mutable
 import idb.Relation
 import idb.operators.FixPointRecursion
 import idb.observer.NotifyObservers
+import idb.operators.impl.util.TransactionKeyValueObserver
 
 /**
  *

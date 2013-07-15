@@ -203,8 +203,8 @@ object AggregationForSelfMaintainableFunctions {
 		grouping : Domain => Key,
 		added : Domain => AggregateValue,
 		removed : Domain => AggregateValue,
-		updated : (Domain, Domain) => AggregateValue,
-		convert : (Key,AggregateValue) => Result,
+		updated : ((Domain, Domain)) => AggregateValue,
+		convert : ((Key,AggregateValue)) => Result,
 		isSet : Boolean
 	): Relation[Result] = {
 		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
@@ -217,12 +217,12 @@ object AggregationForSelfMaintainableFunctions {
 						 removed(newD)
 
 					 def update(oldD: Domain, newD: Domain): AggregateValue =
-					 	updated(oldD,newD)
+					 	updated( (oldD,newD) )
 				 }
 			 }
 		}
 
-		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,convert,isSet)
+		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
 
 	}
 }

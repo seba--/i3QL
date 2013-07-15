@@ -30,13 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
-import util.TransactionElementObserver
 import com.google.common.collect.Multiset.Entry
 import idb.Relation
 import idb.operators.Difference
 import idb.observer.{Observer, Observable, NotifyObservers}
+import idb.operators.impl.util.TransactionElementObserver
 
 /**
  * The difference operation in our algebra has non-distinct bag semantics
