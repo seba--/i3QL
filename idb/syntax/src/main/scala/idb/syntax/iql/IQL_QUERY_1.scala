@@ -30,61 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.syntax.iql
 
-import scala.virtualization.lms.common.FunctionsExp
 
 /**
- * Perform alpha reduction on lambda abstractions.
  *
  * @author Ralf Mitschke
- * @author Sebastian Erdweg
  */
-trait FunctionsExpOptAlphaEquivalence
-    extends FunctionsExp
+trait IQL_QUERY_1[Domain, Range]
 {
-
-    class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
-        extends Lambda[A, B](f, x, y)
-    {
-
-        override def equals (o: Any): Boolean = {
-            if (!o.isInstanceOf[Lambda[A, B]])
-                return false
-
-            o.asInstanceOf[Lambda[A, B]] match {
-                case Lambda (f2, x2, y2) =>  {
-                    if(!(x2.tp <:< x.tp || x2.tp >:> x.tp))
-                        return false
-                    val body = reifyEffects (f2 (x)) // reify other lambda to the variable bound in this lambda,
-                    body == y // and compare the resulting body with this body
-                }
-                case _ =>
-                    false
-            }
-        }
-
-        // TODO define proper hashCode independent of bound variable name
-        //   override def hashCode: Int = {
-        //     return 0
-        //   }
-    }
-
-    object LambdaAlpha
-    {
-        def apply[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B]) = new LambdaAlpha (f, x, y)
-    }
-
-    /**
-     *
-     * @return a lambda representation using alpha equivalence as equals test
-     */
-    override def doLambdaDef[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B]): Def[A => B] = {
-        val x = unboxedFresh[A]
-        val y = reifyEffects (f (x)) // unfold completely at the definition site.
-
-        LambdaAlpha (f, x, y)
-    }
 
 
 }

@@ -61,6 +61,7 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
             case Def (CrossProduct (a, b)) => {
+                // TODO check if a and b are materialized, if not wrap them as materialized
                 CrossProductView (compile (a), compile (b), false).asInstanceOf[Relation[Domain]]
             }
             case Def (EquiJoin (a, b, eq)) => {

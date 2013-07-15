@@ -53,15 +53,21 @@ object ClauseToAlgebra
 
     import IR._
 
-    def apply[Domain: Manifest, Range: Manifest] (query: IQL_QUERY[Domain, Range]): Rep[Query[Range]] =
+    def apply[Domain: Manifest, Range: Manifest] (query: IQL_QUERY_1[Domain, Range]): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation, SelectClause1 (project)) =>
                 projection (relation, project)
-            case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
-                projection (crossProduct (relationA, relationB), project)
 
             case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project))) =>
                 projection (selection (relation, predicate), project)
+
+        }
+
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (query: IQL_QUERY_2[DomainA, DomainB,
+        Range]): Rep[Query[Range]] =
+        query match {
+            case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
+                projection (crossProduct (relationA, relationB), project)
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project))) => {
                 projection (predicateOperators2 (predicate, relationA, relationB), project)
@@ -82,14 +88,14 @@ object ClauseToAlgebra
         val functionBodies = predicatesForTwoRelations (a, b, body)
 
         val relA = if (functionBodies.b1.isDefined) {
-            selection (relationA, recreateFun(functionBodies.x1, functionBodies.b1.get))
+            selection (relationA, recreateFun (functionBodies.x1, functionBodies.b1.get))
         } else
         {
             relationA
         }
 
         val relB = if (functionBodies.b2.isDefined) {
-            selection (relationB, recreateFun(functionBodies.x2, functionBodies.b2.get))
+            selection (relationB, recreateFun (functionBodies.x2, functionBodies.b2.get))
         } else
         {
             relationB
@@ -103,7 +109,7 @@ object ClauseToAlgebra
         }
 
         val upperSelect = if (functionBodies.b4.isDefined) {
-            selection (join, recreateFun(functionBodies.x4, functionBodies.b4.get))
+            selection (join, recreateFun (functionBodies.x4, functionBodies.b4.get))
         } else
         {
             join
@@ -144,7 +150,8 @@ object ClauseToAlgebra
         body match {
             // match conjunctions that can be used before a join
             case Def (BooleanAnd (lhs, rhs)) =>
-                predicatesForTwoRelations (a, b, lhs).combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))(asUnique = false)
+                predicatesForTwoRelations (a, b, lhs)
+                    .combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))(asUnique = false)
             // match a join condition
             case Def (Equal (lhs, rhs))
                 if {

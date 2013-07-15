@@ -54,6 +54,8 @@ trait RelationalAlgebraIRBase
         def isSet: Boolean
 
         def isIncrementLocal: Boolean
+
+        // TODO add isMaterialized as property of the query result
     }
 
     case class QueryExtent[Domain] (

@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.Test
 
 /**
  *
@@ -44,7 +44,6 @@ import org.junit.{Ignore, Test}
  */
 class TestBasicClauseOptimizations
 {
-
     @Test
     def testPropagateFilterToRightViaJoin () {
         val query = plan (
@@ -67,7 +66,6 @@ class TestBasicClauseOptimizations
         )
     }
 
-    @Ignore
     @Test
     def testPropagateFilterToLeftViaJoin () {
         val query = plan (
@@ -90,7 +88,6 @@ class TestBasicClauseOptimizations
         )
     }
 
-    @Ignore
     @Test
     def testLocalIncrementJoin () {
         val query = plan (

@@ -54,7 +54,7 @@ class TestBasicClauseManifests
     def testFunctionParametersInFromClause1 () {
         val selectClause1 = SelectClause1 ((_: Rep[Student]).lastName)
 
-        val fromClause1: IQL_QUERY[Student, String] = FromClause1 (students, selectClause1)
+        val fromClause1: IQL_QUERY_1[Student, String] = FromClause1 (students, selectClause1)
 
         val f =
             fromClause1 match {
@@ -75,7 +75,7 @@ class TestBasicClauseManifests
     def testFunctionParametersInFromClause2 () {
         val selectClause2 = SelectClause2 ((s: Rep[Student], r: Rep[Registration]) => s.lastName + " " + r.courseNumber)
 
-        val fromClause2: IQL_QUERY[(Student, Registration), String] =
+        val fromClause2: IQL_QUERY_2[Student, Registration, String] =
             FromClause2 (students, registrations, selectClause2)
 
         val f =
@@ -116,7 +116,7 @@ class TestBasicClauseManifests
     def testFunctionParametersInFromClause1Translation () {
         val selectClause = SelectClause1 ((_: Rep[Student]).lastName)
 
-        val fromClause1: IQL_QUERY[Student, String] = FromClause1 (students, selectClause)
+        val fromClause1: IQL_QUERY_1[Student, String] = FromClause1 (students, selectClause)
 
         val projectionExp: Rep[Query[String]] =
             fromClause1 match {
