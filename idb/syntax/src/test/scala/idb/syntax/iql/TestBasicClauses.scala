@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 
 /**
  *
@@ -52,8 +52,8 @@ class TestBasicClauses
 
         assertEquals (extent (students), query)
 
-        assertEquals(
-            scala.collection.immutable.List(
+        assertEquals (
+            scala.collection.immutable.List (
                 manifest[Student]
             ),
             query.tp.typeArguments
@@ -71,8 +71,8 @@ class TestBasicClauses
             query
         )
 
-        assertEquals(
-            scala.collection.immutable.List(
+        assertEquals (
+            scala.collection.immutable.List (
                 manifest[String]
             ),
             query.tp.typeArguments
@@ -262,7 +262,7 @@ class TestBasicClauses
             query
         )
 
-        compilation.CompilerBinding.compile(query)
+        compilation.CompilerBinding.compile (query)
     }
 
 
@@ -313,6 +313,56 @@ class TestBasicClauses
                 (s: Rep[Student], r: Rep[Registration]) => {
                     s.lastName != r.comment
                 }
+            ),
+            query
+        )
+    }
+
+
+    @Ignore
+    @Test
+    def testCrossProduct3 () {
+        val query = plan (
+            SELECT (*) FROM(students, registrations, courses)
+        )
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    crossProduct (extent (students), extent (registrations)),
+                    extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
+            ),
+            query
+        )
+    }
+
+    @Ignore
+    @Test
+    def testCrossProduct3Selection1st () {
+        val query = plan (
+            SELECT (*) FROM(students, registrations, courses) WHERE (
+                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                    s.firstName == "Sally"
+                }
+                )
+        )
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    crossProduct (
+                        selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                        extent (registrations)
+                    ),
+                    extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
             ),
             query
         )

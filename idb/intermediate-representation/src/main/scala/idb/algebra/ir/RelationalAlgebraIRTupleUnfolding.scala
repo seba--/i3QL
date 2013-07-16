@@ -30,29 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.algebra.ir
 
-import idb.syntax.iql.IR._
+import idb.algebra.base.RelationalAlgebraTupleUnfolding
+import scala.virtualization.lms.common.{FunctionsExp, TupleOpsExp}
+
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait SELECT_CLAUSE_STAR
+trait RelationalAlgebraIRTupleUnfolding
+    extends RelationalAlgebraTupleUnfolding
+    with RelationalAlgebraIRBasicOperators
+    with FunctionsExp
+    with TupleOpsExp
 {
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
 
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+    override def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    ): Rep[Query[(DomainA, DomainB, DomainC)]] =
+        projection (
+            crossProduct (
+                crossProduct (relationA, relationB),
+                relationC
+            ),
+            fun(
+                (ab_c: Rep[((DomainA, DomainB), DomainC)]) => (ab_c._1._1, ab_c._1._2, ab_c._2)
+            )
+        )
 }

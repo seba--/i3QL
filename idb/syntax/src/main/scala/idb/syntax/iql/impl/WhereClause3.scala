@@ -30,29 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
+ * The top level where clause has its own type since we can compile this to a query of type Range
+ *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_STAR
+case class WhereClause3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+    predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean],
+    fromClause: FromClause3[DomainA, DomainB, DomainC, Range]
+)
+    extends WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
 {
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
 
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
 }

@@ -32,13 +32,16 @@
  */
 package idb.algebra.opt
 
+import idb.algebra.ir.RelationalAlgebraIR
+
 
 /**
  *
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraIROpt
-    extends RelationalAlgebraIROptFusion
+    extends RelationalAlgebraIR
+    with RelationalAlgebraIROptFusion
     with RelationalAlgebraIROptPushSelect
     with RelationalAlgebraIROptSimplify
     with RelationalAlgebraOptJoinCondPropagation

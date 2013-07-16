@@ -30,29 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.planning
 
-import idb.syntax.iql.IR._
+import scala.virtualization.lms.internal.{Effects, Expressions, NestedBlockTraversal}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_STAR
+trait WhereClauseFunctionAnalyzer extends NestedBlockTraversal
 {
+    val IR: Expressions with Effects = idb.syntax.iql.IR
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
+    import IR._
 
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+    override def traverseStm (stm: Stm) {
+        println(stm)
+        super.traverseStm (stm)
+    }
 
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+
 }

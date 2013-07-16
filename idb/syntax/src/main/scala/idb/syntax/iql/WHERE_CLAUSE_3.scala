@@ -32,27 +32,18 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
+ *
+ * The top level where clause has its own type since we can compile this to a query of type Range
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_STAR
+trait WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+    extends IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
 {
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
+    //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+    //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
 }

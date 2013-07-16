@@ -30,29 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
-
-import idb.syntax.iql.IR._
+package idb.algebra.base
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait SELECT_CLAUSE_STAR
+
+trait RelationalAlgebraTupleUnfolding
+    extends RelationalAlgebraBase
 {
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+    def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    ): Rep[Query[(DomainA, DomainB, DomainC)]]
+
 }

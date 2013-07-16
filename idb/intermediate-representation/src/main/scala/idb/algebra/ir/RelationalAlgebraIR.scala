@@ -39,7 +39,9 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraIR
-    extends RelationalAlgebraBasicOperators
+    extends RelationalAlgebraIRBase
+    with RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRTupleUnfolding
 {
 
 }

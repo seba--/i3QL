@@ -30,29 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
- * @author Ralf Mitschke
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 20:08
+ *
  */
-trait SELECT_CLAUSE_STAR
+case class FromClause3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+    relationA: Rep[Query[DomainA]],
+    relationB: Rep[Query[DomainB]],
+    relationC: Rep[Query[DomainC]],
+    selectClause: SelectClause3[DomainA, DomainB, DomainC, Range]
+)
+    extends FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
 {
-
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    def WHERE (predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean]):
+    WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
+        WhereClause3 (predicate, this)
 }

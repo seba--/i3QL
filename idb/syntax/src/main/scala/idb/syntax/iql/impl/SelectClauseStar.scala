@@ -32,8 +32,9 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.IR._
 import idb.syntax.iql._
+import idb.syntax.iql.IR._
+
 
 /**
  *
@@ -42,14 +43,34 @@ import idb.syntax.iql._
 case object SelectClauseStar
     extends SELECT_CLAUSE_STAR
 {
-    def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]): FROM_CLAUSE_1[Domain, Domain] =
-        FromClause1 (relation, SelectClause1 ((x: Rep[Domain]) => x))
+    def FROM[Domain: Manifest] (
+        relation: Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Domain, Domain] =
+        FromClause1 (
+            relation,
+            SelectClause1 ((x: Rep[Domain]) => x)
+        )
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
-        FromClause2 (relationA, relationB, SelectClause2 ((a: Rep[DomainA], b: Rep[DomainB]) => (a, b)))
+        FromClause2 (
+            relationA,
+            relationB,
+            SelectClause2 ((a: Rep[DomainA], b: Rep[DomainB]) => (a, b))
+        )
 
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]]
+    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)] =
+        FromClause3 (
+            relationA,
+            relationB,
+            relationC,
+            SelectClause3 ((a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c))
+        )
 }

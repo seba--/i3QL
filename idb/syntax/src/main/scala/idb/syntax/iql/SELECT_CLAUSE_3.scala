@@ -38,21 +38,13 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_STAR
+trait SELECT_CLAUSE_3[-SelectA, -SelectB, -SelectC, Range]
 {
 
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+
 }

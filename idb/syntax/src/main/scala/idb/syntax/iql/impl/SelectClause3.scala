@@ -30,29 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_STAR
+case class SelectClause3[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, Range: Manifest] (
+    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range]
+)
+    extends SELECT_CLAUSE_3[SelectA, SelectB, SelectC, Range]
 {
-
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
-
-    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+    def FROM[DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest, DomainC <: SelectC : Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, (DomainA, DomainB, DomainC)]
+    ) =
+        FromClause3[DomainA, DomainB, DomainC, Range](
+            relationA,
+            relationB,
+            relationC,
+            this
+        )
+
 }

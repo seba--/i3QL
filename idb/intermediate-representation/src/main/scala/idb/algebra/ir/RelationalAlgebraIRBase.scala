@@ -82,7 +82,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps an extent as a leaf in the query tree
      */
-    def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
+    override def extent[Domain] (extent: Extent[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] =
@@ -92,7 +92,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false)(
+    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]] =

@@ -20,18 +20,27 @@ package object iql
         mExt: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] = extent (ext)
 
-    implicit def plan[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY_1[Domain, Range]): Rep[Query[Range]] =
+    implicit def plan[Domain: Manifest, Range: Manifest] (
+        clause: IQL_QUERY_1[Domain, Range]
+    ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
-    implicit def plan[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (clause: IQL_QUERY_2[DomainA, DomainB,
-        Range]): Rep[Query[Range]] =
+    implicit def plan[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        clause: IQL_QUERY_2[DomainA, DomainB, Range]
+    ): Rep[Query[Range]] =
+        ClauseToAlgebra (clause)
+
+    implicit def plan[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        clause: IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
+    ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
     implicit def compile[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY_1[Domain, Range]): Relation[Range] =
         CompilerBinding.compile (plan (clause))
 
     implicit def compile[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (clause: IQL_QUERY_2[DomainA,
-        DomainB, Range]): Relation[Range] =
+        DomainB, Range]
+    ): Relation[Range] =
         CompilerBinding.compile (plan (clause))
 
     implicit def funTuple2AsFun[Domain: Manifest, RangeA: Manifest, RangeB: Manifest] (

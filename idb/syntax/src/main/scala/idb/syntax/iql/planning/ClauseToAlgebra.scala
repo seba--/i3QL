@@ -48,12 +48,15 @@ import idb.lms.extensions.FunctionBodies
 object ClauseToAlgebra
     extends ForwardTransformer
     with FunctionBodies
+    with WhereClauseFunctionAnalyzer
 {
-    val IR = idb.syntax.iql.IR
+    override val IR = idb.syntax.iql.IR
 
     import IR._
 
-    def apply[Domain: Manifest, Range: Manifest] (query: IQL_QUERY_1[Domain, Range]): Rep[Query[Range]] =
+    def apply[Domain: Manifest, Range: Manifest] (
+        query: IQL_QUERY_1[Domain, Range]
+    ): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation, SelectClause1 (project)) =>
                 projection (relation, project)
@@ -63,8 +66,9 @@ object ClauseToAlgebra
 
         }
 
-    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (query: IQL_QUERY_2[DomainA, DomainB,
-        Range]): Rep[Query[Range]] =
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        query: IQL_QUERY_2[DomainA, DomainB, Range]
+    ): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA, relationB, SelectClause2 (project)) =>
                 projection (crossProduct (relationA, relationB), project)
@@ -73,6 +77,38 @@ object ClauseToAlgebra
                 projection (predicateOperators2 (predicate, relationA, relationB), project)
             }
         }
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        query: IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
+    ): Rep[Query[Range]] =
+        query match {
+            case FromClause3 (relationA, relationB, relationC, SelectClause3 (project)) =>
+                projection (crossProduct (relationA, relationB, relationC), project)
+
+            case WhereClause3 (predicate, FromClause3 (relationA, relationB, relationC, SelectClause3 (project))) => {
+                buildPredicateOperators (predicate, relationA, relationB, relationC)
+                null
+            }
+        }
+
+
+    private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean],
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]]
+    ): Rep[Query[(DomainA, DomainB, DomainC)]] = {
+        val a = fresh[DomainA]
+        val b = fresh[DomainB]
+        val c = fresh[DomainC]
+
+        val block = IR.reifyEffects (
+            predicate (a, b, c)
+        )
+
+        traverseBlock (block)
+        null
+    }
 
 
     private def predicateOperators2[DomainA: Manifest, DomainB: Manifest] (
@@ -117,6 +153,7 @@ object ClauseToAlgebra
 
         upperSelect
     }
+
 
     /**
      * Returns an object containing method bodies for the where clause using two relations.

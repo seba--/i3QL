@@ -92,50 +92,50 @@ trait RelationalAlgebraIRBasicOperators
 	) extends Def[Query[Domain]]
 
 
-    def projection[Domain: Manifest, Range: Manifest] (
+    override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
     ): Rep[Query[Range]] =
         Projection (relation, function)
 
-    def selection[Domain: Manifest] (
+    override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         Selection (relation, function)
 
-    def crossProduct[DomainA: Manifest, DomainB: Manifest] (
+    override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
         CrossProduct (relationA, relationB)
 
-    def equiJoin[DomainA: Manifest, DomainB: Manifest] (
+    override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 
-	def union[Domain : Manifest] (
+    override def union[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
 		Union (relationA, relationB)
 
-	def intersection[Domain : Manifest] (
+    override def intersection[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
 		): Rep[Query[Domain]] =
 		Intersection(relationA, relationB)
 
-	def difference[Domain : Manifest] (
+    override def difference[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
 		Difference (relationA, relationB)
 
-	def duplicateElimination[Domain : Manifest] (
+    override def duplicateElimination[Domain : Manifest] (
 		relation: Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
 		DuplicateElimination (relation)
