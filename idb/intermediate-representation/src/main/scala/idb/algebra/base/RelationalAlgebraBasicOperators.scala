@@ -106,12 +106,12 @@ trait RelationalAlgebraBasicOperators
 	): Rep[Query[Range]]
 
 	def aggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
-		source : Rep[Query[Domain]],
+		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		added : Rep[Domain => AggregateValue],
 		removed : Rep[Domain => AggregateValue],
-		updated : Rep[ ((Domain, Domain)) => AggregateValue],
-		convert : Rep[ ((Key,AggregateValue)) => Result]
+		updated : Rep[ (Domain, Domain) => AggregateValue],
+		convert : Rep[ (Key,AggregateValue) => Result]
 	): Rep[Query[Result]]
 
 	def recursion[Domain : Manifest] (
