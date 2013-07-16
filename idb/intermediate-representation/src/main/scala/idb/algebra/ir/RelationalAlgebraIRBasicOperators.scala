@@ -122,14 +122,14 @@ trait RelationalAlgebraIRBasicOperators
 	) extends Def[Query[Range]]
 
 	case class Recursion[Domain : Manifest] (
-		base: Rep[Query[Domain]],
+		var base: Rep[Query[Domain]],
 		var result: Rep[Query[Domain]]
 	) extends Def[Query[Domain]] {
 
 	}
 
 	case class AggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
-		source : Rep[Query[Domain]],
+		var source : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		added : Rep[Domain => AggregateValue],
 		removed : Rep[Domain => AggregateValue],
@@ -242,16 +242,16 @@ trait RelationalAlgebraIRBasicOperators
 			case QueryRelation (r, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
 			case QueryExtent (e, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
 
-			case Def (e@Projection (r, f)) => {
+			case Def (e@Projection (r, _)) => {
 				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
 			}
-			case Def (e@Selection (r, f)) => {
+			case Def (e@Selection (r, _)) => {
 				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.relation = x)
 			}
 			case Def (e@CrossProduct (a, b)) => {
 				setRecursionBase(a, b, base, result,(x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
 			}
-			case Def (e@EquiJoin (a, b, eq)) => {
+			case Def (e@EquiJoin (a, b, _)) => {
 				setRecursionBase(a, b, base, result, (x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
 			}
 			case Def (e@UnionAdd (a, b)) => {
@@ -278,9 +278,12 @@ trait RelationalAlgebraIRBasicOperators
 			case Def (e@Unnest (r, f)) => {
 				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
 			}
-/*			case Def (Recursion (b, r)) => {
-				setRecursionBase(b,base, Recursion(b ,r))
-			}  */
+			case Def(e@AggregationSelfMaintained(r, _, _, _, _, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.source = x)
+			}
+			case Def (e@Recursion (r, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.base = x)
+			}
 			case e => {
 				throw new IllegalArgumentException("Could not traverse through " + e)
 			}
