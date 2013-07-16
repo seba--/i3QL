@@ -129,7 +129,7 @@ object Aggregation
                                       aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
 									  isSet : Boolean) =
     {
-        new AggregationForNotSelfMaintainableFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
+        new AggregationForNotSelfMaintainableFunctions (source, (x: Any) => 0, aggregateFunctionFactory, (x: Any,
                                                                                                             y: AggregateValue) => Some (y),isSet)
     }
 
@@ -146,7 +146,7 @@ object Aggregation
                                       aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
 									  isSet : Boolean) =
     {
-        new AggregationForSelfMaintainableFunctions (source, (x: Any) => "a", aggregateFunctionFactory, (x: Any,
+        new AggregationForSelfMaintainableFunctions (source, (x: Any) => 0, aggregateFunctionFactory, (x: Any,
                                                                                                                     y: AggregateValue) => Some (y), isSet)
     }
 

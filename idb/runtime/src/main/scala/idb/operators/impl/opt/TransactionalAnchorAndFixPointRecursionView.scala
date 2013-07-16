@@ -30,11 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
-import util.TransactionKeyValueObserver
 import collection.mutable
 import idb.Relation
+import idb.operators.impl.util.TransactionKeyValueObserver
 import idb.observer.{Observer, NotifyObservers}
 
 /**
@@ -42,13 +42,11 @@ import idb.observer.{Observer, NotifyObservers}
  *
  * @author Ralf Mitschke
  */
-class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: Relation[Range],
-                                                                  val source: Relation[Domain],
-                                                                  val domainKeyFunction: Domain => Key,
-                                                                  val rangeKeyFunction: Range => Key,
-                                                                  val combinationFunction: (Range, Range) => Range,
-                                                                  val step: (Domain, Range) => Range,
-																  override val isSet : Boolean)
+class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchors: Relation[Range],
+                                                                      val source: Relation[Domain],
+                                                                      val domainKeyFunction: Domain => Key,
+                                                                      val rangeKeyFunction: Range => Key,
+                                                                      val step: (Domain, Range) => Range)
     extends Relation[Range]
     with TransactionKeyValueObserver[Key, Domain]
 	with NotifyObservers[Range]
@@ -60,14 +58,14 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
 
     var additionAnchors: List[Range] = Nil
-    var additionResults              = mutable.HashMap.empty[Key, Range]
+    var additionResults              = mutable.HashSet.empty[Range]
     var deletionAnchors: List[Range] = Nil
-    var deletionResults              = mutable.HashMap.empty[Key, Range]
+    var deletionResults              = mutable.HashSet.empty[Range]
 
 
     def keyFunc = domainKeyFunction
 
-	override def children = List(anchors,source)
+	def children = List(anchors,source)
 
 	override def lazyInitialize() {
 
@@ -77,13 +75,12 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
     def doRecursionForAddedElements() {
         val stackBase =
-            for {anchor <- additionAnchors
-                 key = rangeKeyFunction (anchor)
-                 if !additionResults.contains (key)
-            } yield
+            for (anchor <- additionAnchors
+                 if !additionResults.contains (anchor)
+            ) yield
             {
-                additionResults (key) = anchor
-				notify_added (anchor)
+                additionResults.add (anchor)
+                notify_added (anchor)
                 anchor
             }
 
@@ -95,8 +92,9 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
         while (!recursionStack.isEmpty) {
 
-            //println (recursionStack.size)
-            //println (additionResults.size)
+            //println(recursionStack.size)
+            println(recursionStack.size)
+            println(additionResults.size)
             // we have derived base and now we want to derive further values recursively
             val currentResult = recursionStack.head.head
             // remove the current value from the current level
@@ -108,22 +106,8 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
             while (it.hasNext) {
                 val joinedElement: Domain = it.next ()
                 val nextResult: Range = step (joinedElement, currentResult)
-                val key = rangeKeyFunction (nextResult)
-
-                if (additionResults.contains (key)) {
-                    val oldResult = additionResults (key)
-                    val combinedResult = combinationFunction (oldResult, nextResult)
-                    if(oldResult != combinedResult){
-                        notify_removed(oldResult)
-                        // add elements of the next level
-						notify_added (combinedResult)
-                        nextResults = combinedResult :: nextResults
-                        additionResults (key) = (combinedResult)
-                    }
-                }
-                else
-                {
-                    additionResults (key) = (nextResult)
+                if (!additionResults.contains (nextResult)) {
+                    additionResults.add (nextResult)
                     // add elements of the next level
 					notify_added (nextResult)
                     nextResults = nextResult :: nextResults
@@ -144,76 +128,35 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
     }
 
     def doRecursionForRemovedElements() {
-        val stackBase =
-            for {anchor <- deletionAnchors
-                 key = rangeKeyFunction (anchor)
-                 if !deletionResults.contains (key)
-            } yield
-            {
-                deletionResults (key) = anchor
-				notify_removed (anchor)
-                anchor
-            }
+        // TODO compute the recursive values
 
-        if (stackBase.isEmpty) {
-            return
+        // all domain values are stored in the Multimap "deletions"
+
+        for (anchor <- deletionAnchors) {
+            deleteResult (anchor)
         }
-
-        recursionStack = List (stackBase)
-
-        while (!recursionStack.isEmpty) {
-
-            //println (recursionStack.size)
-            //println (additionResults.size)
-            // we have derived base and now we want to derive further values recursively
-            val currentResult = recursionStack.head.head
-            // remove the current value from the current level
-            recursionStack = recursionStack.head.tail :: recursionStack.tail
-
-
-            var it: java.util.Iterator[Domain] = deletions.get (rangeKeyFunction (currentResult)).iterator ()
-            var nextResults: List[Range] = Nil
-            while (it.hasNext) {
-                val joinedElement: Domain = it.next ()
-                val nextResult: Range = step (joinedElement, currentResult)
-                val key = rangeKeyFunction (nextResult)
-
-                if (deletionResults.contains (key)) {
-                    val oldResult = deletionResults (key)
-                    val combinedResult = combinationFunction (oldResult, nextResult)
-                    if(oldResult != combinedResult){
-                        //element_added(oldResult)
-                        // add elements of the next level
-                        //element_removed (combinedResult)
-                        nextResults = combinedResult :: nextResults
-                        deletionResults (key) = (combinedResult)
-                    }
-                }
-                else
-                {
-                    deletionResults (key) = (nextResult)
-                    // add elements of the next level
-                    //element_removed (nextResult)
-                    nextResults = nextResult :: nextResults
-                }
-            }
-
-            // add a the next Results at the beginning of the next level
-            recursionStack = nextResults :: recursionStack
-
-
-            // we did not compute a new level, i.e., the next recursion level of values is empty
-            // remove all empty levels
-            while (!recursionStack.isEmpty && recursionStack.head == Nil) {
-                recursionStack = recursionStack.tail
-            }
-        }
-
-        deletionResults.values.foreach(
-			notify_removed
-        )
     }
 
+    private def deleteResult(delResult: Range) {
+
+        //If the result has already been deleted or has been added by the added results.
+        if (deletionResults.contains (delResult)) {
+            return
+            //Delete the result and continue deleting recursively.
+        }
+        else
+        {
+            deletionResults.add (delResult)
+			notify_removed (delResult)
+
+            var it: java.util.Iterator[Domain] = deletions.get (rangeKeyFunction (delResult)).iterator ()
+            while (it.hasNext) {
+                val next: Domain = it.next ()
+                val nextResult: Range = step (next, delResult)
+                deleteResult (nextResult)
+            }
+        }
+    }
 
     override def endTransaction() {
         sourcesTransactionEnded = true
@@ -225,17 +168,16 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
         doRecursionForAddedElements ()
         doRecursionForRemovedElements ()
         clear ()
-        anchorsTransactionEnded = false
         sourcesTransactionEnded = false
-		notify_endTransaction ()
+        notify_endTransaction ()
 
     }
 
     override def clear() {
         additionAnchors = Nil
         deletionAnchors = Nil
-        additionResults = mutable.HashMap.empty[Key, Range]
-        deletionResults = mutable.HashMap.empty[Key, Range]
+        additionResults = mutable.HashSet.empty[Range]
+        deletionResults = mutable.HashSet.empty[Range]
         // TODO remove any data structures you define.
         // please store them as "var" and do,  x = new HashMap, or something
         super.clear ()
@@ -245,6 +187,13 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
     def foreach[T](f: (Range) => T) {
         /* do nothing, since this is a transactional view */
     }
+
+    /**
+     * Returns true if there is some intermediary storage, i.e., foreach is guaranteed to return a set of values.
+     */
+    def isStored = false
+
+    def isSet = false
 
     var anchorsTransactionEnded = false
 
@@ -273,13 +222,13 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
             clear ()
 
             anchorsTransactionEnded = false
-            sourcesTransactionEnded = false
 
             notify_endTransaction ()
         }
 
         def updated(oldV: Range, newV: Range) {
-            throw new UnsupportedOperationException
+            removed(oldV)
+			added(newV)
         }
     }
 

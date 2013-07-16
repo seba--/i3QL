@@ -45,8 +45,9 @@ import scala.collection.mutable
  */
 
 class RecursiveDRed[Domain](val relation: Relation[Domain],
-							val transactional : Boolean = false,
-							override val isSet : Boolean)
+							override val isSet : Boolean,
+							val transactional : Boolean = false
+	)
     extends Recursive[Domain]
 	with NotifyObservers[Domain]
 {
@@ -266,4 +267,12 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
         }
         isNotifyingEndTransaction = false
     }
+}
+
+object RecursiveDRed {
+	def apply[Domain](base : Relation[Domain], result : Relation[Domain], isSet : Boolean) : Relation[Domain] = {
+		val recursive = new RecursiveDRed[Domain](result,isSet)
+		base.addObserver(recursive)
+		return base
+	}
 }

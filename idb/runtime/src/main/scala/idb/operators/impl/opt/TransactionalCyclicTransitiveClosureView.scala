@@ -30,13 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
 import collection.mutable
-import util.TransactionElementObserver
 import idb.{MaterializedView, Relation}
 import idb.operators.TransitiveClosure
 import idb.observer.{Observer, Observable, NotifyObservers}
+import idb.operators.impl.util.TransactionElementObserver
 
 /**
  *

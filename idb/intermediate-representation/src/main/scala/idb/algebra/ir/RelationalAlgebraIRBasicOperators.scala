@@ -1,4 +1,4 @@
-/* License (BSD Style License):
+/* LiceUnionBSD Style License):
  *  Copyright (c) 2009, 2011
  *  Software Technology Group
  *  Department of Computer Science
@@ -44,33 +44,44 @@ trait RelationalAlgebraIRBasicOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
 {
 
-    case class Projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
+    case class Projection[Domain, Range] (
+        var relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ) extends Def[Query[Range]]
+    ) (implicit val mDom : Manifest[Domain], val mRan : Manifest[Range]) extends Def[Query[Range]] {
+
+	}
 
     case class Selection[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
+        var relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ) extends Def[Query[Domain]]
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
+        var relationA: Rep[Query[DomainA]],
+        var relationB: Rep[Query[DomainB]]
     ) extends Def[Query[(DomainA, DomainB)]] {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB = implicitly[Manifest[DomainB]]
 	}
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
+        var relationA: Rep[Query[DomainA]],
+		var relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ) extends Def[Query[(DomainA, DomainB)]]
 
-	case class Union[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
-		relationA: Rep[Query[DomainA]],
-		relationB: Rep[Query[DomainB]]
+	case class UnionAdd[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		var relationA: Rep[Query[DomainA]],
+		var relationB: Rep[Query[DomainB]]
+	) extends Def[Query[Range]] {
+		val mDomA = implicitly[Manifest[DomainA]]
+		val mDomB = implicitly[Manifest[DomainB]]
+		val mRan = implicitly[Manifest[Range]]
+	}
+
+	case class UnionMax[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		var relationA: Rep[Query[DomainA]],
+		var relationB: Rep[Query[DomainB]]
 	) extends Def[Query[Range]] {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB = implicitly[Manifest[DomainB]]
@@ -78,65 +89,219 @@ trait RelationalAlgebraIRBasicOperators
 	}
 
 	case class Intersection[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
+		var relationA: Rep[Query[Domain]],
+		var relationB: Rep[Query[Domain]]
 	) extends Def[Query[Domain]]
 
 	case class Difference[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
+		var relationA: Rep[Query[Domain]],
+		var relationB: Rep[Query[Domain]]
+	) extends Def[Query[Domain]]
+
+	case class SymmetricDifference[Domain : Manifest] (
+		var relationA: Rep[Query[Domain]],
+		var relationB: Rep[Query[Domain]]
 	) extends Def[Query[Domain]]
 
 	case class DuplicateElimination[Domain : Manifest] (
-		relation: Rep[Query[Domain]]
+		var relation: Rep[Query[Domain]]
 	) extends Def[Query[Domain]]
 
+	case class TransitiveClosure[Edge: Manifest, Vertex: Manifest] (
+		var relation: Rep[Query[Edge]],
+		tail: Rep[Edge => Vertex],
+		head: Rep[Edge => Vertex]
+	) extends Def[Query[(Vertex,Vertex)]] {
+		val mEdge = implicitly[Manifest[Edge]]
+		val mVertex = implicitly[Manifest[Vertex]]
+	}
 
-    override def projection[Domain: Manifest, Range: Manifest] (
+	case class Unnest[Domain: Manifest, Range: Manifest] (
+		var relation: Rep[Query[Domain]],
+		unnesting: Rep[Domain => Seq[Range]]
+	) extends Def[Query[Range]]
+
+	case class Recursion[Domain : Manifest] (
+		var base: Rep[Query[Domain]],
+		var result: Rep[Query[Domain]]
+	) extends Def[Query[Domain]] {
+
+	}
+
+	case class AggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
+		var source : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+		updated : Rep[((Domain, Domain)) => AggregateValue],
+		convert : Rep[((Key,AggregateValue)) => Result]
+	) extends Def[Query[Result]]
+
+    def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
     ): Rep[Query[Range]] =
         Projection (relation, function)
 
-    override def selection[Domain: Manifest] (
+    def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         Selection (relation, function)
 
-    override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
+    def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
         CrossProduct (relationA, relationB)
 
-    override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
+    def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 
-    override def union[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]] =
-		Union (relationA, relationB)
+	def unionAdd[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+		): Rep[Query[Range]] =
+		UnionAdd (relationA, relationB)
 
-    override def intersection[Domain : Manifest] (
+	def unionMax[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+	): Rep[Query[Range]] =
+		UnionMax (relationA, relationB)
+
+	def intersection[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
 		): Rep[Query[Domain]] =
 		Intersection(relationA, relationB)
 
-    override def difference[Domain : Manifest] (
+	def difference[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
 		Difference (relationA, relationB)
 
-    override def duplicateElimination[Domain : Manifest] (
+	def symmetricDifference[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		SymmetricDifference (relationA, relationB)
+
+	def duplicateElimination[Domain : Manifest] (
 		relation: Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
 		DuplicateElimination (relation)
+
+	def transitiveClosure[Edge: Manifest, Vertex: Manifest] (
+		relation: Rep[Query[Edge]],
+		tail: Rep[Edge => Vertex],
+		head: Rep[Edge => Vertex]
+	): Rep[Query[(Vertex,Vertex)]] =
+		TransitiveClosure (relation, tail, head)
+
+	def unnest[Domain: Manifest, Range: Manifest] (
+		relation: Rep[Query[Domain]],
+		unnesting: Rep[Domain => Seq[Range]]
+	): Rep[Query[Range]] =
+		Unnest (relation, unnesting)
+
+	def recursion[Domain : Manifest] (
+		base : Rep[Query[Domain]],
+		result : Rep[Query[Domain]]
+	): Rep[Query[Domain]] = {
+		findRecursionBase(result, base, result, (x : Rep[Query[Domain]]) => { })
+		return result
+	}
+
+	def aggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
+		source : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+		updated : Rep[((Domain, Domain)) => AggregateValue],
+		convert : Rep[((Key,AggregateValue)) => Result]
+	): Rep[Query[Result]] =
+		AggregationSelfMaintained(source,grouping,added,removed,updated,convert)
+
+	/**
+	 * Searches the recursion base in a operator tree and inserts a recursion node next-to-last to the recursion base.
+	 * @param base The base of the recursion.
+	 * @param relation The operator tree where the recursion should be added. The tree must contain the recursion base.
+	 * @return An operator tree with a recursion node. Note that the result of the recursion node is NOT set accordingly to the definition of the recursion.
+	 */
+	private def findRecursionBase[Domain : Manifest](relation : Rep[Query[Domain]], base : Rep[Query[_]], result : Rep[Query[_]], setFunction : ( Rep[Query[Domain]] ) => Unit ) {
+		relation match {
+			case `base` => {
+				setFunction(Recursion(relation,result.asInstanceOf[Rep[Query[Domain]]]))
+			}
+			case QueryRelation (r, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
+			case QueryExtent (e, _, _) => throw new IllegalArgumentException("The base was not found in the result tree.")
+
+			case Def (e@Projection (r, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
+			}
+			case Def (e@Selection (r, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.relation = x)
+			}
+			case Def (e@CrossProduct (a, b)) => {
+				setRecursionBase(a, b, base, result,(x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
+			}
+			case Def (e@EquiJoin (a, b, _)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Any]]) => e.relationA = x, (x : Rep[Query[Any]]) => e.relationB = x)
+			}
+			case Def (e@UnionAdd (a, b)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
+			}
+			case Def (e@UnionMax (a, b)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
+			}
+			case Def (e@Intersection (a, b)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
+			}
+			case Def (e@Difference (a, b)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
+			}
+			case Def (e@SymmetricDifference (a, b)) => {
+				setRecursionBase(a, b, base, result, (x : Rep[Query[Domain]]) => e.relationA = x, (x : Rep[Query[Domain]]) => e.relationB = x)
+			}
+			case Def (e@DuplicateElimination (r)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.relation = x)
+			}
+			case Def (e@TransitiveClosure (r, t, h)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
+			}
+			case Def (e@Unnest (r, f)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.relation = x)
+			}
+			case Def(e@AggregationSelfMaintained(r, _, _, _, _, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Any]])  => e.source = x)
+			}
+			case Def (e@Recursion (r, _)) => {
+				findRecursionBase(r, base, result, (x : Rep[Query[Domain]])  => e.base = x)
+			}
+			case e => {
+				throw new IllegalArgumentException("Could not traverse through " + e)
+			}
+		}
+	}
+
+	private def setRecursionBase[DomainA : Manifest, DomainB : Manifest](
+		relationA : Rep[Query[DomainA]],
+		relationB : Rep[Query[DomainB]],
+		base : Rep[Query[_]],
+		result : Rep[Query[_]],
+		setFunctionA : Rep[Query[DomainA]] => Unit,
+		setFunctionB : Rep[Query[DomainB]] => Unit
+	) {
+		try {
+			findRecursionBase(relationA, base, result, setFunctionA)
+		} catch {
+			case e : IllegalArgumentException => findRecursionBase(relationB, base, result, setFunctionB)
+		}
+	}
 }

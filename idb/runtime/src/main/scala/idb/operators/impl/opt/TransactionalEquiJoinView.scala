@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
 import idb.{Index, Relation}
 import idb.operators.EquiJoin

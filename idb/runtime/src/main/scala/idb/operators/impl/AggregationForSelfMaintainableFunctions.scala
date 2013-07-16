@@ -3,7 +3,7 @@ package idb.operators.impl
 
 import collection.mutable
 import idb.Relation
-import idb.operators.{SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
+import idb.operators.{AggregateFunction, SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
 /**
@@ -24,10 +24,10 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * @author Ralf Mitschke
  */
 class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
-                                                                                              val groupingFunction: Domain => Key,
-                                                                                              val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                              val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-																							  override val isSet : Boolean)
+                                                                                   val groupingFunction: Domain => Key,
+                                                                                   val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                   val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+																				   override val isSet : Boolean)
     extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
 	with NotifyObservers[Result]
@@ -196,19 +196,36 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
 
 }
 
-class Count
-{
-	private var count: Int = 0
+object AggregationForSelfMaintainableFunctions {
 
-	def inc() {
-		this.count += 1
+	def apply[Domain, Key, AggregateValue, Result](
+		source : Relation[Domain],
+		grouping : Domain => Key,
+		added : Domain => AggregateValue,
+		removed : Domain => AggregateValue,
+		updated : ((Domain, Domain)) => AggregateValue,
+		convert : ((Key,AggregateValue)) => Result,
+		isSet : Boolean
+	): Relation[Result] = {
+		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
+			 override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
+				 new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
+					 def add(newD: Domain): AggregateValue =
+					 	added(newD)
+
+					 def remove(newD: Domain): AggregateValue =
+						 removed(newD)
+
+					 def update(oldD: Domain, newD: Domain): AggregateValue =
+					 	updated( (oldD,newD) )
+				 }
+			 }
+		}
+
+		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
+
 	}
-
-	def dec(): Int = {
-		this.count -= 1
-		this.count
-	}
-
-	def apply() = this.count
 }
+
+
 

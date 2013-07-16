@@ -1,7 +1,7 @@
 package idb.operators.impl
 
 import idb.operators.CrossProduct
-import idb.Relation
+import idb.{Extent, Relation}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
 /**
@@ -123,6 +123,18 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 object CrossProductView {
 	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left.asMaterialized,right.asMaterialized,(l : DomainA, r : DomainB) => (l,r),isSet)
+
+		//TODO Remove this. Better: implement 'foreach' in Extent
+		var leftR = left
+		var rightR = right
+
+		if(left.isInstanceOf[Extent[DomainA]])
+			leftR = left.asMaterialized
+
+		if(right.isInstanceOf[Extent[DomainB]])
+			rightR = right.asMaterialized
+
+
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](leftR,rightR,(l : DomainA, r : DomainB) => (l,r),isSet)
 	}
 }

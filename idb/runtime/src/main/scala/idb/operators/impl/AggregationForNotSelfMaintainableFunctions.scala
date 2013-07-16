@@ -223,3 +223,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         }
     }
 }
+
+object AggregationForNotSelfMaintainableFunctions {
+
+}

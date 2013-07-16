@@ -36,6 +36,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
 import scala.virtualization.lms.common.{TupledFunctionsExp, FunctionsExp, ScalaGenEffect}
+import idb.operators.impl.opt.TransactionalCyclicTransitiveClosureView
 
 /**
  *
@@ -68,17 +69,41 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
                     eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
             }
-			case Def (u@Union (a, b)) => {
-				new UnionViewAdd (compile (a) (u.mDomA), compile (b) (u.mDomB), false)
+			case Def (e@UnionAdd (a, b)) => {
+				new UnionViewAdd (compile (a) (e.mDomA), compile (b) (e.mDomB), false)
+			}
+			case Def (e@UnionMax (a, b)) => {
+				new UnionViewMax (compile (a) (e.mDomA).asMaterialized, compile (b) (e.mDomB).asMaterialized, false)
 			}
 			case Def (Intersection (a, b)) => {
 				IntersectionView (compile (a), compile (b), false)
 			}
-			case Def (Difference (min, sub)) => {
-				new DifferenceView (compile (min), compile (sub), false)
+			case Def (Difference (a, b)) => {
+				new DifferenceView (compile (a), compile (b), false)
+			}
+			case Def (SymmetricDifference (a, b)) => {
+				new SymmetricDifferenceView (compile (a).asMaterialized, compile (b).asMaterialized, false)
 			}
 			case Def (DuplicateElimination (a)) => {
-				new DuplicateEliminationView(compile (a), false)
+				new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
+			}
+			case Def (e@TransitiveClosure (r, h, t)) => {
+				new TransactionalCyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
+			}
+			case Def (Unnest (r, f)) => {
+				UnNestView(compile (r), compileFunctionWithDynamicManifests(f), false).asInstanceOf[Relation[Domain]]
+			}
+			case Def (Recursion (b, r)) => {
+				RecursiveDRed(compile (b), compile (r), false)
+			}
+			case Def (AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
+				AggregationForSelfMaintainableFunctions(compile(r),
+					compileFunctionWithDynamicManifests(fGroup),
+					compileFunctionWithDynamicManifests(fAdd),
+					compileFunctionWithDynamicManifests(fRemove),
+					compileFunctionWithDynamicManifests(fUpdate),
+					compileFunctionWithDynamicManifests(fConvert),
+					false)
 			}
 
             case _ => super.compile (query)

@@ -47,6 +47,7 @@ import idb.syntax.iql.IR._
  */
 class TestBasicOperators
 {
+
     @Test
     def testSelectFirstNameFromStudents () {
         val query = compile (

@@ -93,3 +93,9 @@ class UnNestView[Range, UnNestRange, Domain <: Range](val relation: Relation[Dom
         )
     }
 }
+
+object UnNestView {
+	def apply[Domain <: Range, Range](relation : Relation[Domain], unNestFunction : Domain => Seq[Range], isSet : Boolean) : UnNestView[Range,Range,Domain] = {
+		return new UnNestView[Range,Range,Domain](relation,unNestFunction,(d, r) => r, isSet)
+	}
+}

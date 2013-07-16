@@ -42,8 +42,8 @@ import idb.observer.{NotifyObservers, Observer, Observable}
  *
  */
 class IntersectionView[Domain](val left: MaterializedView[Domain],
-                                         val right: MaterializedView[Domain],
-								 override val isSet : Boolean)
+                               val right: MaterializedView[Domain],
+							   override val isSet : Boolean)
     extends Intersection[Domain]
 	with NotifyObservers[Domain]
 {
