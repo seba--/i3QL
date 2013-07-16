@@ -110,8 +110,8 @@ trait RelationalAlgebraBasicOperators
 		grouping : Rep[Domain => Key],
 		added : Rep[Domain => AggregateValue],
 		removed : Rep[Domain => AggregateValue],
-		updated : Rep[ (Domain, Domain) => AggregateValue],
-		convert : Rep[ (Key,AggregateValue) => Result]
+        updated: Rep[((Domain, Domain)) => AggregateValue],
+        convert: Rep[((Key, AggregateValue)) => Result]
 	): Rep[Query[Result]]
 
 	def recursion[Domain : Manifest] (

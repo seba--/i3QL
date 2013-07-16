@@ -139,8 +139,8 @@ trait RelationalAlgebraIRBasicOperators
         grouping: Rep[Domain => Key],
         added: Rep[Domain => AggregateValue],
         removed: Rep[Domain => AggregateValue],
-        updated: Rep[(Domain, Domain) => AggregateValue],
-        convert: Rep[(Key, AggregateValue) => Result]
+        updated: Rep[((Domain, Domain)) => AggregateValue],
+        convert: Rep[((Key, AggregateValue)) => Result]
     ) extends Def[Query[Result]]
 
     def projection[Domain: Manifest, Range: Manifest] (
@@ -229,8 +229,8 @@ trait RelationalAlgebraIRBasicOperators
         grouping: Rep[Domain => Key],
         added: Rep[Domain => AggregateValue],
         removed: Rep[Domain => AggregateValue],
-        updated: Rep[(Domain, Domain) => AggregateValue],
-        convert: Rep[(Key, AggregateValue) => Result]
+        updated: Rep[((Domain, Domain)) => AggregateValue],
+        convert: Rep[((Key, AggregateValue)) => Result]
     ): Rep[Query[Result]] =
         AggregationSelfMaintained (relation, grouping, added, removed, updated, convert)
 
