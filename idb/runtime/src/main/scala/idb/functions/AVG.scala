@@ -30,6 +30,8 @@ private class AVGIntern[Domain <: AnyRef](val f: Domain => Double)
         sum += f(newV)
         (sum / count)
     }
+
+	def get = sum / count
 }
 
 object AVG

@@ -32,6 +32,8 @@ private class MaxIntern[Domain <: AnyRef](val f: Domain => Int)
         }
         max
     }
+
+	def get = max
 }
 
 object Max

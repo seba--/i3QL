@@ -51,7 +51,6 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
 	with NotifyObservers[Range]
 {
     left addObserver LeftObserver
-
     right addObserver RightObserver
 
 

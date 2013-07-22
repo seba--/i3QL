@@ -13,6 +13,8 @@ trait AggregateFunction[Domain, Result]
     def remove(newD: Domain, data: Iterable[Domain]): Result
 
     def update(oldD: Domain, newD: Domain, data: Iterable[Domain]): Result
+
+	def get : Result
 }
 
 

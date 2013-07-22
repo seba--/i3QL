@@ -2,7 +2,7 @@ package idb.operators.impl
 
 
 import collection.mutable
-import idb.Relation
+import idb.{MaterializedView, Relation}
 import idb.operators.{AggregateFunction, SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
 import idb.observer.{Observable, NotifyObservers, Observer}
 
@@ -31,6 +31,7 @@ class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Resul
     extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
 	with NotifyObservers[Result]
+	with MaterializedView[Result]
 {
 
 

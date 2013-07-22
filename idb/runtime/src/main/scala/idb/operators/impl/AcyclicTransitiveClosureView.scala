@@ -85,13 +85,6 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 
     lazyInitialize ()
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
-        }
-        Nil
-    }
-
     /**
      *
      * access in O(1)

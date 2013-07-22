@@ -4,7 +4,7 @@ package idb.operators.impl
 import collection.mutable
 import idb.operators.{NotSelfMaintainableAggregateFunctionFactory, NotSelfMaintainableAggregateFunction, Aggregation}
 import idb.observer.{Observable, NotifyObservers, Observer}
-import idb.Relation
+import idb.{MaterializedView, Relation}
 
 /**
  * An implementation of Aggregation that saves for all groups the corresponding domain entries.
@@ -39,6 +39,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
     with NotifyObservers[Result]
+	with MaterializedView[Result]
 {
 
     source.addObserver (this)

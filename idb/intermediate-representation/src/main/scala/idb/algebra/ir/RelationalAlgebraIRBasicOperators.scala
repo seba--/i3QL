@@ -102,11 +102,6 @@ trait RelationalAlgebraIRBasicOperators
         var relationB: Rep[Query[Domain]]
     ) extends Def[Query[Domain]]
 
-    case class SymmetricDifference[Domain: Manifest] (
-        var relationA: Rep[Query[Domain]],
-        var relationB: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]]
-
     case class DuplicateElimination[Domain: Manifest] (
         var relation: Rep[Query[Domain]]
     ) extends Def[Query[Domain]]
@@ -191,12 +186,6 @@ trait RelationalAlgebraIRBasicOperators
         relationB: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
         Difference (relationA, relationB)
-
-    def symmetricDifference[Domain: Manifest] (
-        relationA: Rep[Query[Domain]],
-        relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
-        SymmetricDifference (relationA, relationB)
 
     def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
@@ -292,11 +281,6 @@ trait RelationalAlgebraIRBasicOperators
                     (x: Rep[Query[Domain]]) => e.relationB = x)
             }
             case Def (e@Difference (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
-                    (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
-            case Def (e@SymmetricDifference (a, b)) =>
             {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
                     (x: Rep[Query[Domain]]) => e.relationB = x)

@@ -19,7 +19,7 @@ import idb.{Relation, MaterializedView}
  * @author Ralf Mitschke
  */
 trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
-    extends MaterializedView[Result]
+    extends Relation[Result]
 {
     def source: Relation[Domain]
 
