@@ -49,14 +49,14 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 object IR
-    extends ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
+    extends ScalaOpsPkgExp
     //with FunctionBlocksExp // TODO consider using this for function recreation
     with StructExp
     with TupledFunctionsExp
     with LoopsFatExp
     with IfThenElseFatExp
     with LiftAll
+    with ScalaOpsExpOptExtensions
     with RelationalAlgebraIROpt
     with RelationalAlgebraGenSAEBinding
 {

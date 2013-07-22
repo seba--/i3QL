@@ -59,8 +59,10 @@ trait RelationalAlgebraIRTupleUnfolding
                 crossProduct (relationA, relationB),
                 relationC
             ),
-            fun(
-                (ab_c: Rep[((DomainA, DomainB), DomainC)]) => (ab_c._1._1, ab_c._1._2, ab_c._2)
-            )
+            flattenTuple3 (_: Rep[((DomainA, DomainB), DomainC)])
         )
+
+    def flattenTuple3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        ab_c: Rep[((DomainA, DomainB), DomainC)]
+    ): Rep[(DomainA, DomainB, DomainC)] = make_tuple3 (ab_c._1._1, ab_c._1._2, ab_c._2)
 }

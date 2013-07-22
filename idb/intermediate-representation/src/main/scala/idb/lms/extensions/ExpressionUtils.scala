@@ -41,6 +41,49 @@ import scala.virtualization.lms.internal.Expressions
 trait ExpressionUtils
     extends Expressions
 {
+
+    /**
+     * Traverse an expression tree and apply f to all elements.
+     * Any (sub) expression where f returns true is traversed further.
+     * Otherwise traversal stops
+     * @param e expression to traverse
+     * @param f function to apply to expressions and determining sub expression traversal
+     */
+    def traverseExpTree (e: Exp[Any])(implicit f: Exp[Any] => Boolean) {
+        if (!f (e)) {
+            return
+        }
+        e match {
+            case Def (s) => {
+                val subExpr = syms (s)
+                subExpr.foreach (traverseExpTree)
+            }
+            case _ => return
+        }
+    }
+
+    /**
+     * Traverse an expression tree and apply f to all elements.
+     * Any (sub) expression where f returns true is traversed further.
+     * Otherwise traversal stops
+     * @param e expression to traverse
+     * @param f function to apply to expressions and determining sub expression traversal
+     */
+    def traverseSameTypeExpTree[T] (e: Exp[T])(implicit f: Exp[T] => Boolean) {
+        if (!f (e)) {
+            return
+        }
+        e match {
+            case Def (s) => {
+                val subExpr = syms (s)
+                subExpr.filter(_.isInstanceOf[Sym[T]]).map(_.asInstanceOf[Sym[T]]).foreach (
+                    traverseSameTypeExpTree(_)(f)
+                )
+            }
+            case _ => return
+        }
+    }
+
     def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Sym[Any]] = {
         val seen = e match {
             case s@Sym (_) => Set (s)

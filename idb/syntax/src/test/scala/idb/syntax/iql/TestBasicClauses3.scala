@@ -45,7 +45,6 @@ import org.junit.{Ignore, Test}
 class TestBasicClauses3
 {
 
-
     @Ignore
     @Test
     def testCrossProduct3 () {
@@ -67,13 +66,42 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1st () {
         val query = plan (
             SELECT (*) FROM(students, registrations, courses) WHERE (
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
                     s.firstName == "Sally"
+                }
+                )
+        )
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    crossProduct (
+                        selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
+                        extent (registrations)
+                    ),
+                    extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
+            ),
+            query
+        )
+    }
+
+
+    @Test
+    def testCrossProduct3Selection1stAnd2nd () {
+        val query = plan (
+            SELECT (*) FROM(students, registrations, courses) WHERE (
+                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                    s.firstName == "Sally" &&
+                    r.comment == "This is an introductory Course"
                 }
                 )
         )
