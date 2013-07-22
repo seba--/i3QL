@@ -47,9 +47,39 @@ trait TupleOpsExpOptBetaReduction
         t: (Exp[A], Exp[B])
     )(implicit pos: SourceContext): Exp[(A, B)] =
         t match {
-            case (Def (Tuple2Access1 (x)), Def (Tuple2Access2 (y))) if x == y => x.asInstanceOf[Exp[(A, B)]]
+            case (Def (Tuple2Access1 (a)), Def (Tuple2Access2 (b)))
+                if a == b => a.asInstanceOf[Exp[(A, B)]]
             case _ => super.make_tuple2 (t)
         }
 
+    override implicit def make_tuple3[A: Manifest, B: Manifest, C: Manifest] (
+        t: (Exp[A], Exp[B], Exp[C])
+    )(implicit pos: SourceContext): Exp[(A, B, C)] =
+        t match {
+            case (Def (Tuple3Access1 (a)), Def (Tuple3Access2 (b)), Def (Tuple3Access3 (c)))
+                if a == b && a == c => a.asInstanceOf[Exp[(A, B, C)]]
+            case _ => super.make_tuple3 (t)
+        }
+
+
+    override implicit def make_tuple4[A: Manifest, B: Manifest, C: Manifest, D: Manifest] (
+        t: (Exp[A], Exp[B], Exp[C], Exp[D])
+    )(implicit pos: SourceContext): Exp[(A, B, C, D)] =
+        t match {
+            case (Def (Tuple4Access1 (a)), Def (Tuple4Access2 (b)), Def (Tuple4Access3 (c)), Def (Tuple4Access4 (d)))
+                if a == b && a == c && a == d => a.asInstanceOf[Exp[(A, B, C, D)]]
+            case _ => super.make_tuple4 (t)
+        }
+
+    override implicit def make_tuple5[A: Manifest, B: Manifest, C: Manifest, D: Manifest, E: Manifest] (
+        t: (Exp[A], Exp[B], Exp[C], Exp[D], Exp[E])
+    )(implicit pos: SourceContext
+    ): Exp[(A, B, C, D, E)] =
+        t match {
+            case (Def (Tuple5Access1 (a)), Def (Tuple5Access2 (b)), Def (Tuple5Access3 (c)), Def (
+            Tuple5Access4 (d)), Def (Tuple5Access5 (e)))
+                if a == b && a == c && a == d && a == e => a.asInstanceOf[Exp[(A, B, C, D, E)]]
+            case _ => super.make_tuple5 (t)
+        }
 
 }

@@ -50,6 +50,7 @@ object CompilerBinding
 
     override type Block[+T] = IR.Block[T]
 
-    override def reset { super.reset // TODO how should this be implemented correctly?
-     }
+    override def reset {
+        super.reset // TODO how should this be implemented correctly?
+    }
 }

@@ -34,7 +34,7 @@ package idb.syntax.iql
 
 import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
 import idb.algebra.opt.RelationalAlgebraIROpt
-import idb.lms.extensions.{FunctionsExpOptAlphaEquivalence, FunctionBodies, FunctionUtils, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.{FunctionBodies, ScalaOpsExpOptExtensions}
 import scala.language.implicitConversions
 import scala.virtualization.lms.common._
 
@@ -49,20 +49,21 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 object IR
-    extends ScalaOpsExpOptExtensions
-    with ScalaOpsPkgExp
+    extends ScalaOpsPkgExp
     //with FunctionBlocksExp // TODO consider using this for function recreation
     with StructExp
     with TupledFunctionsExp
     with LoopsFatExp
     with IfThenElseFatExp
     with LiftAll
+    with ScalaOpsExpOptExtensions
     with RelationalAlgebraIROpt
     with RelationalAlgebraGenSAEBinding
 {
 
-    val transformer = new FunctionBodies {
-        val IR  = idb.syntax.iql.IR
+    val transformer = new FunctionBodies
+    {
+        val IR = idb.syntax.iql.IR
     }
 
 }

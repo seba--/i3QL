@@ -30,19 +30,37 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
-
-import idb.syntax.iql.IR._
+package idb.algebra.base
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait FROM_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+
+trait RelationalAlgebraMultiRelations
+    extends RelationalAlgebraBase
 {
-    def WHERE (
-        predicate: Rep[Domain] => Rep[Boolean]
-    ): WHERE_CLAUSE_1[Domain, Range]
+
+    def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]]
+    ): Rep[Query[(DomainA, DomainB, DomainC)]]
+
+    def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]]
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]]
+
+    def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
+        relationE: Rep[Query[DomainE]]
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]]
 
 }

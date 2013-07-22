@@ -53,20 +53,6 @@ object SELECT
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 
-    /*
-    def apply[DomainA: Manifest, DomainB: Manifest, RangeA: Manifest, RangeB: Manifest] (
-        projectionA: Rep[DomainA => RangeA],
-        projectionB: Rep[DomainB => RangeB]
-    ): SELECT_CLAUSE_2[DomainA,
-        DomainB, (RangeA, RangeB)] =
-        SelectClause2 (
-            (a: Rep[DomainA], b: Rep[DomainB]) => (doApply (projectionA, a), doApply (projectionB, b))
-        )
-    */
-
-    //SelectClause2 (fun ((a: Rep[DomainA], b: Rep[DomainB]) => (projectionA (a), projectionB (b))))
-
     def apply (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
         SelectClauseStar
-
 }

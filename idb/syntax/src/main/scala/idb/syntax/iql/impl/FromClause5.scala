@@ -30,19 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
- * @author Ralf Mitschke
+ * Author: Ralf Mitschke
+ * Date: 03.08.12
+ * Time: 20:08
+ *
  */
-trait FROM_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+case class FromClause5[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+Range: Manifest] (
+    relationA: Rep[Query[DomainA]],
+    relationB: Rep[Query[DomainB]],
+    relationC: Rep[Query[DomainC]],
+    relationD: Rep[Query[DomainD]],
+    relationE: Rep[Query[DomainE]],
+    selectClause: SelectClause5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+)
+    extends FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 {
-    def WHERE (
-        predicate: Rep[Domain] => Rep[Boolean]
-    ): WHERE_CLAUSE_1[Domain, Range]
 
+    def WHERE (predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean]) =
+        WhereClause5 (predicate, this)
 }

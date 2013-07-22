@@ -36,106 +36,14 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestBasicClauses
+class TestBasicClauses2
 {
-    @Test
-    def testExtent () {
-        val query = plan (
-            SELECT (*) FROM students
-        )
-
-        assertEquals (extent (students), query)
-
-        assertEquals (
-            scala.collection.immutable.List (
-                manifest[Student]
-            ),
-            query.tp.typeArguments
-        )
-    }
-
-    @Test
-    def testProject1 () {
-        val query = plan (
-            SELECT (firstName) FROM students
-        )
-
-        assertEquals (
-            projection (extent (students), firstName),
-            query
-        )
-
-        assertEquals (
-            scala.collection.immutable.List (
-                manifest[String]
-            ),
-            query.tp.typeArguments
-        )
-
-
-    }
-
-    @Test
-    def testProject1TupleFun () {
-        val query = plan (
-            SELECT (firstName, lastName) FROM students
-        )
-
-        assertEquals (
-            projection (extent (students), fun ((s: Rep[Student]) => (s.firstName, s.lastName))),
-            query
-        )
-    }
-
-
-    @Test
-    def testSelection1 () {
-        val query = plan (
-            SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
-        )
-
-        assertEquals (
-            selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-            query
-        )
-    }
-
-    @Test
-    def testSelection1FunCall () {
-        val query = plan (
-            SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
-        )
-
-        assertEquals (
-            selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction")),
-            query
-        )
-    }
-
-    @Test
-    def testSelection1ProjectTupleFun () {
-        val query = plan (
-            SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
-        )
-
-        assertEquals (
-            projection (
-                selection (
-                    extent (students),
-                    fun ((s: Rep[Student]) => s.firstName == "Sally")
-                ),
-                fun ((s: Rep[Student]) => (s.firstName, s.lastName))
-            ),
-            query
-        )
-    }
-
 
     @Test
     def testCrossProduct2 () {
@@ -184,7 +92,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProduct2SelectionBoth () {
+    def testCrossProduct2Selection1stAnd2nd () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -202,7 +110,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProduct2SelectionsBothInterleaved () {
+    def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -221,7 +129,7 @@ class TestBasicClauses
     }
 
     @Test
-    def testCrossProduct2SelectionBothCompared () {
+    def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
@@ -319,52 +227,4 @@ class TestBasicClauses
     }
 
 
-    @Ignore
-    @Test
-    def testCrossProduct3 () {
-        val query = plan (
-            SELECT (*) FROM(students, registrations, courses)
-        )
-
-        assertEquals (
-            projection (
-                crossProduct (
-                    crossProduct (extent (students), extent (registrations)),
-                    extent (courses)
-                ),
-                fun (
-                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
-                )
-            ),
-            query
-        )
-    }
-
-    @Ignore
-    @Test
-    def testCrossProduct3Selection1st () {
-        val query = plan (
-            SELECT (*) FROM(students, registrations, courses) WHERE (
-                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
-                    s.firstName == "Sally"
-                }
-                )
-        )
-
-        assertEquals (
-            projection (
-                crossProduct (
-                    crossProduct (
-                        selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                        extent (registrations)
-                    ),
-                    extent (courses)
-                ),
-                fun (
-                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
-                )
-            ),
-            query
-        )
-    }
 }

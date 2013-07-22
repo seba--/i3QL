@@ -41,5 +41,7 @@ import idb.syntax.iql.IR._
 trait FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
     extends IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
 {
-    def WHERE (predicate: (Rep[DomainA], Rep[DomainB],  Rep[DomainC]) => Rep[Boolean]): WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+    def WHERE (
+        predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean]
+    ): WHERE_CLAUSE_3[DomainA, DomainB, DomainC, Range]
 }
