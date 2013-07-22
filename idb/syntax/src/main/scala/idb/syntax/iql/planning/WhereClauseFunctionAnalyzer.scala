@@ -61,6 +61,15 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
         }
 
 
+    /**
+     * Finds all filters functions (any function to boolean) and equalities (tests depedning on two vars) in a
+     * boolean expression.
+     * The vars for which to search are given as parameter.
+     * @param body
+     * @param vars
+     * @return A tuple of maps for (filters, equalities). Where each map contains sets of variables that are used in
+     *         the expressions as keys and a list of conjunctive expressions as value.
+     */
     def filtersAndEqualities (
         body: Exp[Boolean],
         vars: List[Exp[Any]]
@@ -88,15 +97,6 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
 
     private def partitionFiltersAndEqualities (body: Exp[Boolean]): (List[Exp[Boolean]], List[Exp[Boolean]]) = {
         val conjuncts = splitExpression (body, isBooleanAnd)
-        /*
-        conjuncts.foreach (
-            _ match {
-                case Def (s) => Predef.println (s)
-                case e => Predef.println (e)
-            }
-        )
-        */
-
         conjuncts.partition (!isEquality (_))
     }
 
@@ -134,162 +134,4 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
         result
     }
 
-    /**
-     *
-     * Split the expression into a tuple of expressions (x,y) such that
-     * x reads at least one e in subExprs
-     * y does not read any e in subExprs
-     * y ad y are options that will be None if body falls only in one category
-     */
-
-    /*
-    def splitExpression[Result: Manifest] (
-        body: Exp[Result],
-        subExprs: List[Exp[Any]],
-        canSplit: Exp[Result] => Boolean,
-        merge: (Exp[Result], Exp[Result]) => Exp[Result]
-    ): (Option[Exp[Result]], Option[Exp[Result]]) = {
-        var x: Option[Exp[Result]] = None
-        var y: Option[Exp[Result]] = None
-
-        def traversalFun (e: Exp[Result]): Boolean = {
-            val readsSubExprs = !readSyms (e).intersect (subExprs).isEmpty
-            if (readsSubExprs) {
-                if (canSplit (e)) {
-                    return true
-                }
-                x = Some (x.fold (e)(merge (_, e)))
-                return false
-            }
-
-            y = Some (y.fold (e)(merge (_, e)))
-            false
-        }
-
-        traverseSameTypeExpTree (body)(traversalFun)
-
-        (x, y)
-    }
-    */
-
-    //val IR: Expressions with Effects with BooleanOpsExp = idb.syntax.iql.IR
-
-    //import IR._
-
-
-    /*
-    var split = Map.empty[Sym[_], Seq[Exp[_]]]
-
-    override def traverseStm (stm: Stm) {
-        println (stm)
-        stm match {
-            case TP (sym, rhs) => println (readSyms (rhs))
-            case _ => // do nothing
-        }
-
-        //super.traverseStm (stm)
-    }
-
-    override def traverseStmsInBlock[A] (stms: List[Stm]) {
-        super.traverseStmsInBlock (stms)
-    }
-
-    def splitStatements (stm: Stm) {
-
-    }
-
-
-    def doWork () {
-        for (key <- split.keys) {
-            println (getDependentStuff (key))
-        }
-
-
-    }
-
-
-    def curryPredicates (vars: List[Sym[Any]], body: Exp[Any]): List[Sym[Any]] = {
-
-    }
-
-    def splitPredicates[A: Manifest, B: Manifest, R: Manifest] (
-        f: Exp[(A, B) => R]
-    ) : (Exp[A => R], Exp[B => R], Exp[(A, B) => R]) = {
-
-    }
-
-
-    /**
-     *
-     *
-     * @return (left)
-     */
-    def splitExpression[Result: Manifest] (
-        canSplit : Exp[Result] => Boolean,
-        split : Exp[Result] => (Exp[Result], Exp[Result]),
-        merge : (Exp[Result], Exp[Result]) =>  Exp[Result]
-    )(
-        body: Exp[Result]
-    ) : (Option[Exp[Result]], Option[Exp[Result]], Option[Exp[Result]]) = {
-        if(!canSplit(body)) {
-            return (None, None, Some(body))
-        }
-
-        val subSplitCall =  splitExpression(canSplit, split, merge)_
-
-        body match {
-            case TP(_, rhs) => syms(rhs).foreach(subSplitCall(_))
-            case Sym(_) => syms(body).foreach(subSplitCall(_))
-        }
-        val (lhs, rhs) = split(body)
-        val leftSplit = splitExpression(canSplit, split, merge)(lhs)
-        val rightSplit = splitExpression(canSplit, split, merge)(rhs)
-        val first = leftSplit._1.flatMap( merge() )
-    }
-
-    def splitPredicates[A: Manifest, B: Manifest, C: Manifest] (
-        canSplit : Exp[(A, B, C)] => Boolean,
-        split : Exp[(A, B, C)] => (Exp[(A, B, C)], Exp[(A, B, C)])
-    )(
-        body: Exp[(A, B, C)],
-        a : Sym[A],
-        b : Sym[B],
-        c : Sym[C]
-    ) : (Option[Exp[(A, B)]], Option[Exp[C]], Option[Exp[(A, B, C)]]) = {
-        if(!canSplit(body))
-            return (None, None, Some(body))
-        val (rhs, lhs) = split(body)
-
-
-        val symsInF = readSyms(body)
-        var usesA = false
-
-        for ( sym <- symsInF) {
-            sym == a
-        }
-        if( symsInF.contains(a) && symsInF.contains(b) &&)
-
-        // there are multiple parameter syms yet in the body
-        body match {
-            // match conjunctions that can be used before a join
-            case Def (BooleanAnd (lhs, rhs)) =>
-                predicatesForTwoRelations (a, b, lhs)
-                    .combineWith (boolean_and)(predicatesForTwoRelations (a, b, rhs))(asUnique = false)
-            // match a join condition
-            case Def (Equal (lhs, rhs))
-                if {
-                    val ls = findSyms (lhs)
-                    val rs = findSyms (rhs)
-                    ls.size == 1 &&
-                        rs.size == 1 &&
-                        ls != rs
-                } =>
-                FunctionBodies4 (a, None, b, None, (a, b), Some (body), (a, b), None)
-            // match a combined condition on the result
-            case _ =>
-                FunctionBodies4 (a, None, b, None, (a, b), None, (a, b), Some (body))
-        }
-
-    }
-    */
 }

@@ -32,17 +32,18 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
+ *
+ * The top level where clause has its own type since we can compile this to a query of type Range
  *
  * @author Ralf Mitschke
  */
-trait FROM_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+trait WHERE_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range]
+    extends IQL_QUERY_4[DomainA, DomainB, DomainC, DomainD, Range]
 {
-    def WHERE (
-        predicate: Rep[Domain] => Rep[Boolean]
-    ): WHERE_CLAUSE_1[Domain, Range]
+
+    //def AND (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
+
+    //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
 }

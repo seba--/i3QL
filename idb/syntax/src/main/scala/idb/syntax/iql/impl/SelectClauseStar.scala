@@ -51,7 +51,6 @@ case object SelectClauseStar
             SelectClause1 ((x: Rep[Domain]) => x)
         )
 
-
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]

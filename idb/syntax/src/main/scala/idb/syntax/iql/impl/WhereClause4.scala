@@ -30,19 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
+import idb.syntax.iql._
 
 /**
  *
+ * The top level where clause has its own type since we can compile this to a query of type Range
+ *
  * @author Ralf Mitschke
  */
-trait FROM_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+case class WhereClause4[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+    predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Boolean],
+    fromClause: FromClause4[DomainA, DomainB, DomainC, DomainD, Range]
+)
+    extends WHERE_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range]
 {
-    def WHERE (
-        predicate: Rep[Domain] => Rep[Boolean]
-    ): WHERE_CLAUSE_1[Domain, Range]
+
 
 }

@@ -30,39 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.ir
+package idb.syntax.iql
 
-import idb.algebra.base.RelationalAlgebraTupleUnfolding
-import scala.virtualization.lms.common.{FunctionsExp, TupleOpsExp}
-
+import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-trait RelationalAlgebraIRTupleUnfolding
-    extends RelationalAlgebraTupleUnfolding
-    with RelationalAlgebraIRBasicOperators
-    with FunctionsExp
-    with TupleOpsExp
+trait FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    extends IQL_QUERY_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 {
-
-
-    override def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        relationC: Rep[Query[DomainC]]
-    ): Rep[Query[(DomainA, DomainB, DomainC)]] =
-        projection (
-            crossProduct (
-                crossProduct (relationA, relationB),
-                relationC
-            ),
-            flattenTuple3 (_: Rep[((DomainA, DomainB), DomainC)])
-        )
-
-    def flattenTuple3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        ab_c: Rep[((DomainA, DomainB), DomainC)]
-    ): Rep[(DomainA, DomainB, DomainC)] = make_tuple3 (ab_c._1._1, ab_c._1._2, ab_c._2)
+    def WHERE (
+        predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean]
+    ): WHERE_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 }

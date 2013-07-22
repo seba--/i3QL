@@ -90,6 +90,35 @@ object ClauseToAlgebra
             }
         }
 
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+        query: IQL_QUERY_4[DomainA, DomainB, DomainC, DomainD, Range]
+    ): Rep[Query[Range]] =
+        query match {
+            case FromClause4 (relationA, relationB, relationC, relationD, SelectClause4 (project)) =>
+                projection (crossProduct (relationA, relationB, relationC, relationD), project)
+
+            case WhereClause4 (predicate,
+            FromClause4 (relationA, relationB, relationC, relationD, SelectClause4 (project))) =>
+            {
+                projection (buildPredicateOperators (predicate, relationA, relationB, relationC, relationD), project)
+            }
+        }
+
+    private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest] (
+        predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[(DomainA, DomainB)]] = {
+        val a = fresh[DomainA]
+        val b = fresh[DomainB]
+        val vars = scala.List (a, b)
+
+        val body = predicate (a, b)
+
+        val (filters, equalities) = filtersAndEqualities (body, vars)
+
+        buildPredicateOperators2 (relationA, relationB, a, b, filters, equalities)
+    }
 
     private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
         predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Boolean],
@@ -109,22 +138,74 @@ object ClauseToAlgebra
         buildPredicateOperators3 (relationA, relationB, relationC, a, b, c, filters, equalities)
     }
 
-    private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest] (
-        predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
+    private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
+        predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Boolean],
         relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]] = {
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]]
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]] = {
         val a = fresh[DomainA]
         val b = fresh[DomainB]
-        val vars = scala.List (a, b)
+        val c = fresh[DomainC]
+        val d = fresh[DomainD]
+        val vars = scala.List (a, b, c, d)
 
-        val body = predicate (a, b)
+        val body = predicate (a, b, c, d)
 
         val (filters, equalities) = filtersAndEqualities (body, vars)
 
-        buildPredicateOperators2 (relationA, relationB, a, b, filters, equalities)
+        buildPredicateOperators4 (relationA, relationB, relationC, relationD, a, b, c, d, filters, equalities)
     }
 
+
+    private def buildPredicateOperators2[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        a: Exp[DomainA],
+        b: Exp[DomainB],
+        filters: Map[Set[Exp[Any]], Exp[Boolean]],
+        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+    ): Rep[Query[(DomainA, DomainB)]] = {
+        val keyA = Predef.Set (a).asInstanceOf[Set[Exp[Any]]]
+        val keyB = Predef.Set (b).asInstanceOf[Set[Exp[Any]]]
+        val keyAB = Predef.Set (a, b)
+
+        val relA =
+            if (filters.contains (keyA)) {
+                selection (relationA, recreateFun (a, filters (keyA)))
+            } else
+            {
+                relationA
+            }
+
+        val relB =
+            if (filters.contains (keyB)) {
+                selection (relationB, recreateFun (b, filters (keyB)))
+            } else
+            {
+                relationB
+            }
+
+        val join =
+            if (equalities.contains (keyAB)) {
+                equiJoin (relA, relB, null)
+            } else
+            {
+                crossProduct (relA, relB)
+            }
+
+        val upperSelect =
+            if (filters.contains (keyAB)) {
+                selection (join, recreateFun ((a, b), filters (keyAB)))
+            } else
+            {
+                join
+            }
+
+        upperSelect
+
+    }
 
     private def buildPredicateOperators3[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
         relationA: Rep[Query[DomainA]],
@@ -180,55 +261,64 @@ object ClauseToAlgebra
         upperSelect
     }
 
-
-    private def buildPredicateOperators2[DomainA: Manifest, DomainB: Manifest] (
+    private def buildPredicateOperators4[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
         a: Exp[DomainA],
         b: Exp[DomainB],
+        c: Exp[DomainC],
+        d: Exp[DomainD],
         filters: Map[Set[Exp[Any]], Exp[Boolean]],
         equalities: Map[Set[Exp[Any]], Exp[Boolean]]
-    ): Rep[Query[(DomainA, DomainB)]] = {
-        val keyA = Predef.Set (a).asInstanceOf[Set[Exp[Any]]]
-        val keyB = Predef.Set (b).asInstanceOf[Set[Exp[Any]]]
-        val keyAB = Predef.Set (a, b)
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]] = {
+        val keyD = Predef.Set (d).asInstanceOf[Set[Exp[Any]]]
+        val keyAD = Predef.Set (a, d)
+        val keyBD = Predef.Set (b, d)
+        val keyCD = Predef.Set (c, d)
+        val keyABCD = Predef.Set (a, b, c, d)
 
-        val relA =
-            if (filters.contains (keyA)) {
-                selection (relationA, recreateFun (a, filters (keyA)))
+        val lastRelation =
+            if (filters.contains (keyD)) {
+                selection (relationD, recreateFun (d, filters (keyD)))
             } else
             {
-                relationA
+                relationD
             }
 
-        val relB =
-            if (filters.contains (keyB)) {
-                selection (relationB, recreateFun (b, filters (keyB)))
-            } else
-            {
-                relationB
-            }
+        val headRelation =
+            buildPredicateOperators3 (
+                relationA,
+                relationB,
+                relationC,
+                a,
+                b,
+                c,
+                filters,
+                equalities
+            )
 
         val join =
-            if (equalities.contains (keyAB)) {
-                equiJoin (relA, relB, null)
+            if (equalities.contains (keyAD) || equalities.contains (keyBD) || equalities.contains (keyCD)) {
+                equiJoin (headRelation, lastRelation, null)
             } else
             {
-                crossProduct (relA, relB)
+                crossProduct (headRelation, lastRelation)
             }
 
+        val normalizedJoin = projection (join, flattenTuple4 (_: Rep[((DomainA, DomainB, DomainC), DomainD)]))
+
         val upperSelect =
-            if (filters.contains (keyAB)) {
-                selection (join, recreateFun ((a, b), filters (keyAB)))
+            if (filters.contains (keyABCD)) {
+                selection (normalizedJoin, recreateFun ((a, b, c, d), filters (keyABCD)))
             } else
             {
-                join
+                normalizedJoin
             }
 
         upperSelect
-
     }
-
 
 
     /*
