@@ -39,6 +39,9 @@ import org.junit.Assert._
 import org.junit.Test
 
 /**
+ * Test clauses with three relations.
+ * By convention the algebra representation will currently contain binary nodes, where the the first two relations
+ * are always constructed as leaves of one node and tail relations are added as single leaves of parent nodes.
  *
  * @author Ralf Mitschke
  */
@@ -118,6 +121,45 @@ class TestBasicClauses3
                         )
                     ),
                     extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
+            ),
+            query
+        )
+    }
+
+
+    @Test
+    def testCrossProduct3Selection1stAnd2ndAnd3rd () {
+        val query = plan (
+            SELECT (*) FROM(students, registrations, courses) WHERE (
+                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                    s.firstName == "Sally" &&
+                        r.comment == "This is an introductory Course" &&
+                        c.title.startsWith ("Introduction")
+                }
+                )
+        )
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    crossProduct (
+                        selection (
+                            extent (students),
+                            (s: Rep[Student]) => s.firstName == "Sally"
+                        ),
+                        selection (
+                            extent (registrations),
+                            (r: Rep[Registration]) => r.comment == "This is an introductory Course"
+                        )
+                    ),
+                    selection (
+                        extent (courses),
+                        (c: Rep[Course]) => c.title.startsWith ("Introduction")
+                    )
                 ),
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)

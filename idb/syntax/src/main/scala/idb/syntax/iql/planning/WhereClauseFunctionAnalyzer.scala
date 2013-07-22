@@ -48,13 +48,13 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
     import IR._
 
 
-    private def isBooleanAnd (e: Exp[Any]): Boolean =
+    protected def isBooleanAnd (e: Exp[Any]): Boolean =
         e match {
             case Def (BooleanAnd (_, _)) => true
             case _ => false
         }
 
-    private def isEquality (e: Exp[Any]): Boolean =
+    protected def isEquality (e: Exp[Any]): Boolean =
         e match {
             case Def (Equal (_, _)) => true
             case _ => false
@@ -73,7 +73,7 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
     def filtersAndEqualities (
         body: Exp[Boolean],
         vars: List[Exp[Any]]
-    ): (Map[Set[Exp[Any]], Exp[Boolean]], Map[Set[Exp[Any]], Exp[Boolean]]) = {
+    ): (Map[Set[Exp[Any]], Exp[Boolean]], Map[Set[Exp[Any]], List[Exp[Boolean]]]) = {
         val (filtersPartition, equalitiesPartition) = partitionFiltersAndEqualities (body)
 
         var varsInFilters = categorizeByUsedSubExpressions (filtersPartition, vars)
@@ -89,18 +89,18 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
 
         val filters = varsInFilters.mapValues (_.reduceLeft (boolean_and))
 
-        val equalities = varsInEqualities.mapValues (_.reduceLeft (boolean_and))
+        val equalities = varsInEqualities
 
         (filters, equalities)
     }
 
 
-    private def partitionFiltersAndEqualities (body: Exp[Boolean]): (List[Exp[Boolean]], List[Exp[Boolean]]) = {
+    protected def partitionFiltersAndEqualities (body: Exp[Boolean]): (List[Exp[Boolean]], List[Exp[Boolean]]) = {
         val conjuncts = splitExpression (body, isBooleanAnd)
         conjuncts.partition (!isEquality (_))
     }
 
-    private def splitExpression[Result: Manifest] (
+    protected def splitExpression[Result: Manifest] (
         body: Exp[Result],
         canSplit: Exp[Result] => Boolean
     ): List[Exp[Result]] = {
@@ -119,7 +119,7 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
         result
     }
 
-    private def categorizeByUsedSubExpressions[T: Manifest] (
+    protected def categorizeByUsedSubExpressions[T: Manifest] (
         expressions: List[Exp[T]],
         subExpressions: List[Exp[Any]]
     ): Map[Set[Exp[Any]], List[Exp[T]]] = {
@@ -133,5 +133,35 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
 
         result
     }
+
+
+    protected def splitJoinEqualities (
+        varsLeft: List[Exp[Any]],
+        varsRight: List[Exp[Any]],
+        equalities: List[Exp[Boolean]]
+    ): List[(Exp[Any], Exp[Any])] = {
+        val allVars = varsLeft ::: varsRight
+        for (equality <- equalities) yield
+        {
+            val subExpressions =
+                equality match {
+                    case Def (Equal (left, right)) => List (left, right)
+                    case _ => throw new IllegalStateException (
+                        "Matching " + equality + " should return an AST node of type 'Equal'")
+                }
+
+            val map = categorizeByUsedSubExpressions (subExpressions, allVars)
+            if (map.size != 2) {
+                throw new IllegalStateException (
+                    "Splitting " + equality + " determined that there are " + map
+                        .size + "distinct partitions, where only 2 are expected"
+                )
+            }
+            val keyLeft = map.keys.find( k => !k.intersect(varsLeft.toSet).isEmpty).get
+            val keyRight = map.keys.find( k => !k.intersect(varsRight.toSet).isEmpty).get
+            (map(keyLeft)(0), map(keyRight)(0))
+        }
+    }
+
 
 }

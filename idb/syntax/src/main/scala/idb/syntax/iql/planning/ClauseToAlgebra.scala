@@ -220,7 +220,7 @@ object ClauseToAlgebra
         a: Exp[DomainA],
         b: Exp[DomainB],
         filters: Map[Set[Exp[Any]], Exp[Boolean]],
-        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+        equalities: Map[Set[Exp[Any]], List[Exp[Boolean]]]
     ): Rep[Query[(DomainA, DomainB)]] = {
         val keyA = Predef.Set (a).asInstanceOf[Set[Exp[Any]]]
         val keyB = Predef.Set (b).asInstanceOf[Set[Exp[Any]]]
@@ -244,7 +244,12 @@ object ClauseToAlgebra
 
         val join =
             if (equalities.contains (keyAB)) {
-                equiJoin (relA, relB, null)
+                val splitedEqualities = splitJoinEqualities (scala.List (a), scala.List (b), equalities (keyAB))
+                val equalityFunctions =
+                    splitedEqualities.map (split =>
+                        (fun(recreateFun (a, split._1)), fun(recreateFun (b, split._2)))
+                    )
+                equiJoin (relA, relB, equalityFunctions)
             } else
             {
                 crossProduct (relA, relB)
@@ -270,14 +275,14 @@ object ClauseToAlgebra
         b: Exp[DomainB],
         c: Exp[DomainC],
         filters: Map[Set[Exp[Any]], Exp[Boolean]],
-        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+        equalities: Map[Set[Exp[Any]], List[Exp[Boolean]]]
     ): Rep[Query[(DomainA, DomainB, DomainC)]] = {
         val keyC = Predef.Set (c).asInstanceOf[Set[Exp[Any]]]
         val keyAC = Predef.Set (a, c)
         val keyBC = Predef.Set (b, c)
         val keyABC = Predef.Set (a, b, c)
 
-        val relC =
+        val lastRelation =
             if (filters.contains (keyC)) {
                 selection (relationC, recreateFun (c, filters (keyC)))
             } else
@@ -285,7 +290,7 @@ object ClauseToAlgebra
                 relationC
             }
 
-        val relAB =
+        val headRelation =
             buildPredicateOperators2 (
                 relationA,
                 relationB,
@@ -297,10 +302,18 @@ object ClauseToAlgebra
 
         val join =
             if (equalities.contains (keyAC) || equalities.contains (keyBC)) {
-                equiJoin (relAB, relC, null)
+                val splitedEqualities =
+                    splitJoinEqualities (scala.List (a, b), scala.List (c),
+                        equalities.getOrElse (keyAC, Nil) ::: equalities.getOrElse (keyBC, Nil))
+                val equalityFunctions =
+                    splitedEqualities.map (split =>
+                        (fun(recreateFun ((a, b), split._1)), fun(recreateFun (c, split._2)))
+                    )
+
+                equiJoin (headRelation, lastRelation, equalityFunctions)
             } else
             {
-                crossProduct (relAB, relC)
+                crossProduct (headRelation, lastRelation)
             }
 
         val normalizedJoin = projection (join, flattenTuple3 (_: Rep[((DomainA, DomainB), DomainC)]))
@@ -326,7 +339,7 @@ object ClauseToAlgebra
         c: Exp[DomainC],
         d: Exp[DomainD],
         filters: Map[Set[Exp[Any]], Exp[Boolean]],
-        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+        equalities: Map[Set[Exp[Any]], List[Exp[Boolean]]]
     ): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]] = {
         val keyD = Predef.Set (d).asInstanceOf[Set[Exp[Any]]]
         val keyAD = Predef.Set (a, d)
@@ -356,7 +369,16 @@ object ClauseToAlgebra
 
         val join =
             if (equalities.contains (keyAD) || equalities.contains (keyBD) || equalities.contains (keyCD)) {
-                equiJoin (headRelation, lastRelation, null)
+                val splitedEqualities =
+                    splitJoinEqualities (scala.List (a, b, c), scala.List (d),
+                        equalities.getOrElse (keyAD, Nil) ::: equalities.getOrElse (keyBD, Nil) ::: equalities
+                            .getOrElse (keyCD, Nil))
+                val equalityFunctions =
+                    splitedEqualities.map (split =>
+                        (fun(recreateFun ((a, b, c), split._1)), fun(recreateFun (d, split._2)))
+                    )
+
+                equiJoin (headRelation, lastRelation, equalityFunctions)
             } else
             {
                 crossProduct (headRelation, lastRelation)
@@ -388,7 +410,7 @@ object ClauseToAlgebra
         d: Exp[DomainD],
         e: Exp[DomainE],
         filters: Map[Set[Exp[Any]], Exp[Boolean]],
-        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+        equalities: Map[Set[Exp[Any]], List[Exp[Boolean]]]
     ): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]] = {
         val keyE = Predef.Set (d).asInstanceOf[Set[Exp[Any]]]
         val keyAE = Predef.Set (a, e)
@@ -423,7 +445,16 @@ object ClauseToAlgebra
             if (equalities.contains (keyAE) || equalities.contains (keyBE) || equalities.contains (keyCE) || equalities
                 .contains (keyDE))
             {
-                equiJoin (headRelation, lastRelation, null)
+                val splitedEqualities =
+                    splitJoinEqualities (scala.List (a, b, c), scala.List (d),
+                        equalities.getOrElse (keyAE, Nil) ::: equalities.getOrElse (keyBE, Nil) ::: equalities
+                            .getOrElse (keyCE, Nil) ::: equalities.getOrElse (keyDE, Nil))
+                val equalityFunctions =
+                    splitedEqualities.map (split =>
+                        (fun(recreateFun ((a, b, c, d), split._1)), fun(recreateFun (e, split._2)))
+                    )
+
+                equiJoin (headRelation, lastRelation, equalityFunctions)
             } else
             {
                 crossProduct (headRelation, lastRelation)

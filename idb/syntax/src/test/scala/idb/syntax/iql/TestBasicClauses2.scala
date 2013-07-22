@@ -92,7 +92,7 @@ class TestBasicClauses2
     }
 
     @Test
-    def testCrossProduct2SelectionBoth () {
+    def testCrossProduct2Selection1stAnd2nd () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -110,7 +110,7 @@ class TestBasicClauses2
     }
 
     @Test
-    def testCrossProduct2SelectionsBothInterleaved () {
+    def testCrossProduct2Selections1stAnd2ndInterleaved () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -129,7 +129,7 @@ class TestBasicClauses2
     }
 
     @Test
-    def testCrossProduct2SelectionBothCompared () {
+    def testCrossProduct2Selection1stAnd2ndCompared () {
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
