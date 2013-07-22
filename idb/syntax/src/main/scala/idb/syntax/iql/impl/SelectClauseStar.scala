@@ -48,7 +48,9 @@ case object SelectClauseStar
     ): FROM_CLAUSE_1[Domain, Domain] =
         FromClause1 (
             relation,
-            SelectClause1 ((x: Rep[Domain]) => x)
+            SelectClause1 (
+                (x: Rep[Domain]) => x
+            )
         )
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
@@ -58,7 +60,9 @@ case object SelectClauseStar
         FromClause2 (
             relationA,
             relationB,
-            SelectClause2 ((a: Rep[DomainA], b: Rep[DomainB]) => (a, b))
+            SelectClause2 (
+                (a: Rep[DomainA], b: Rep[DomainB]) => (a, b)
+            )
         )
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
@@ -70,6 +74,42 @@ case object SelectClauseStar
             relationA,
             relationB,
             relationC,
-            SelectClause3 ((a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c))
+            SelectClause3 (
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c)
+            )
+        )
+
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]]
+    ): FROM_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, (DomainA, DomainB, DomainC, DomainD)] =
+        FromClause4 (
+            relationA,
+            relationB,
+            relationC,
+            relationD,
+            SelectClause4 (
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD]) => (a, b, c, d)
+            )
+        )
+
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
+        relationE: Rep[Query[DomainE]]
+    ): FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, (DomainA, DomainB, DomainC, DomainD, DomainE)] =
+        FromClause5 (
+            relationA,
+            relationB,
+            relationC,
+            relationD,
+            relationE,
+            SelectClause5 (
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD], e: Rep[DomainE]) => (a, b, c, d, e)
+            )
         )
 }

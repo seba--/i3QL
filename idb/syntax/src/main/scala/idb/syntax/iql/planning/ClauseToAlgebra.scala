@@ -62,7 +62,10 @@ object ClauseToAlgebra
                 projection (relation, project)
 
             case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project))) =>
-                projection (selection (relation, predicate), project)
+                projection (
+                    selection (relation, predicate),
+                    project
+                )
 
         }
 
@@ -74,7 +77,10 @@ object ClauseToAlgebra
                 projection (crossProduct (relationA, relationB), project)
 
             case WhereClause2 (predicate, FromClause2 (relationA, relationB, SelectClause2 (project))) => {
-                projection (buildPredicateOperators (predicate, relationA, relationB), project)
+                projection (
+                    buildPredicateOperators (predicate, relationA, relationB),
+                    project
+                )
             }
         }
 
@@ -86,7 +92,10 @@ object ClauseToAlgebra
                 projection (crossProduct (relationA, relationB, relationC), project)
 
             case WhereClause3 (predicate, FromClause3 (relationA, relationB, relationC, SelectClause3 (project))) => {
-                projection (buildPredicateOperators (predicate, relationA, relationB, relationC), project)
+                projection (
+                    buildPredicateOperators (predicate, relationA, relationB, relationC),
+                    project
+                )
             }
         }
 
@@ -100,7 +109,29 @@ object ClauseToAlgebra
             case WhereClause4 (predicate,
             FromClause4 (relationA, relationB, relationC, relationD, SelectClause4 (project))) =>
             {
-                projection (buildPredicateOperators (predicate, relationA, relationB, relationC, relationD), project)
+                projection (
+                    buildPredicateOperators (predicate, relationA, relationB, relationC, relationD),
+                    project
+                )
+            }
+        }
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+    Range: Manifest] (
+        query: IQL_QUERY_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    ): Rep[Query[Range]] =
+        query match {
+            case FromClause5 (relationA, relationB, relationC, relationD, relationE, SelectClause5 (project)) =>
+                projection (crossProduct (relationA, relationB, relationC, relationD, relationE), project)
+
+            case WhereClause5 (predicate,
+            FromClause5 (relationA, relationB, relationC, relationD, relationE, SelectClause5 (project))
+            ) =>
+            {
+                projection (
+                    buildPredicateOperators (predicate, relationA, relationB, relationC, relationD, relationE),
+                    project
+                )
             }
         }
 
@@ -156,6 +187,30 @@ object ClauseToAlgebra
         val (filters, equalities) = filtersAndEqualities (body, vars)
 
         buildPredicateOperators4 (relationA, relationB, relationC, relationD, a, b, c, d, filters, equalities)
+    }
+
+    private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest,
+    DomainE: Manifest] (
+        predicate: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Boolean],
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
+        relationE: Rep[Query[DomainE]]
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]] = {
+        val a = fresh[DomainA]
+        val b = fresh[DomainB]
+        val c = fresh[DomainC]
+        val d = fresh[DomainD]
+        val e = fresh[DomainE]
+        val vars = scala.List (a, b, c, d, e)
+
+        val body = predicate (a, b, c, d, e)
+
+        val (filters, equalities) = filtersAndEqualities (body, vars)
+
+        buildPredicateOperators5 (relationA, relationB, relationC, relationD, relationE, a, b, c, d, e, filters,
+            equalities)
     }
 
 
@@ -312,6 +367,73 @@ object ClauseToAlgebra
         val upperSelect =
             if (filters.contains (keyABCD)) {
                 selection (normalizedJoin, recreateFun ((a, b, c, d), filters (keyABCD)))
+            } else
+            {
+                normalizedJoin
+            }
+
+        upperSelect
+    }
+
+    private def buildPredicateOperators5[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest,
+    DomainE: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
+        relationE: Rep[Query[DomainE]],
+        a: Exp[DomainA],
+        b: Exp[DomainB],
+        c: Exp[DomainC],
+        d: Exp[DomainD],
+        e: Exp[DomainE],
+        filters: Map[Set[Exp[Any]], Exp[Boolean]],
+        equalities: Map[Set[Exp[Any]], Exp[Boolean]]
+    ): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]] = {
+        val keyE = Predef.Set (d).asInstanceOf[Set[Exp[Any]]]
+        val keyAE = Predef.Set (a, e)
+        val keyBE = Predef.Set (b, e)
+        val keyCE = Predef.Set (c, e)
+        val keyDE = Predef.Set (d, e)
+        val keyABCDE = Predef.Set (a, b, c, d, e)
+
+        val lastRelation =
+            if (filters.contains (keyE)) {
+                selection (relationE, recreateFun (e, filters (keyE)))
+            } else
+            {
+                relationE
+            }
+
+        val headRelation =
+            buildPredicateOperators4 (
+                relationA,
+                relationB,
+                relationC,
+                relationD,
+                a,
+                b,
+                c,
+                d,
+                filters,
+                equalities
+            )
+
+        val join =
+            if (equalities.contains (keyAE) || equalities.contains (keyBE) || equalities.contains (keyCE) || equalities
+                .contains (keyDE))
+            {
+                equiJoin (headRelation, lastRelation, null)
+            } else
+            {
+                crossProduct (headRelation, lastRelation)
+            }
+
+        val normalizedJoin = projection (join, flattenTuple5 (_: Rep[((DomainA, DomainB, DomainC, DomainD), DomainE)]))
+
+        val upperSelect =
+            if (filters.contains (keyABCDE)) {
+                selection (normalizedJoin, recreateFun ((a, b, c, d, e), filters (keyABCDE)))
             } else
             {
                 normalizedJoin
