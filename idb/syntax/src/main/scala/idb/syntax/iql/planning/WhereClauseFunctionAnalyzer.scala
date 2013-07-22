@@ -67,11 +67,9 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
     ): (Map[Set[Exp[Any]], Exp[Boolean]], Map[Set[Exp[Any]], Exp[Boolean]]) = {
         val (filtersPartition, equalitiesPartition) = partitionFiltersAndEqualities (body)
 
-        var varsInFilters : Map[Set[Exp[Any]], List[Exp[Boolean]]]
-        = categorizeByUsedSubExpressions (filtersPartition, vars)
+        var varsInFilters = categorizeByUsedSubExpressions (filtersPartition, vars)
 
-        var varsInEqualities: Map[Set[Exp[Any]], List[Exp[Boolean]]]
-        = categorizeByUsedSubExpressions (equalitiesPartition, vars)
+        var varsInEqualities = categorizeByUsedSubExpressions (equalitiesPartition, vars)
 
         for (key <- varsInEqualities.keys.filter (_.size == 1)) {
             val oldFilterExpr = varsInFilters.getOrElse (key, Nil)
@@ -80,9 +78,9 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
             varsInEqualities -= key
         }
 
-        val filters = varsInEqualities.mapValues (_.reduceLeft(boolean_and))
+        val filters = varsInFilters.mapValues (_.reduceLeft (boolean_and))
 
-        val equalities = varsInEqualities.mapValues (_.reduceLeft(boolean_and))
+        val equalities = varsInEqualities.mapValues (_.reduceLeft (boolean_and))
 
         (filters, equalities)
     }
@@ -128,7 +126,7 @@ trait WhereClauseFunctionAnalyzer extends GraphTraversal
         var result = Map.empty[Set[Exp[Any]], List[Exp[T]]]
         implicit val searchedSyms = subExpressions.toSet
         for (exp <- expressions) {
-            val category : Set[Exp[Any]] = findSyms (exp).asInstanceOf[Set[Exp[Any]]]
+            val category: Set[Exp[Any]] = findSyms (exp).asInstanceOf[Set[Exp[Any]]]
             val oldInCategory = result.getOrElse (category, Nil)
             result += (category -> (exp :: oldInCategory))
         }

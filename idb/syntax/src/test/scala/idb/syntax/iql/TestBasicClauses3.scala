@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.Test
 
 /**
  *
@@ -45,7 +45,6 @@ import org.junit.{Ignore, Test}
 class TestBasicClauses3
 {
 
-    @Ignore
     @Test
     def testCrossProduct3 () {
         val query = plan (
@@ -94,14 +93,13 @@ class TestBasicClauses3
         )
     }
 
-
     @Test
     def testCrossProduct3Selection1stAnd2nd () {
         val query = plan (
             SELECT (*) FROM(students, registrations, courses) WHERE (
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
                     s.firstName == "Sally" &&
-                    r.comment == "This is an introductory Course"
+                        r.comment == "This is an introductory Course"
                 }
                 )
         )
@@ -110,8 +108,14 @@ class TestBasicClauses3
             projection (
                 crossProduct (
                     crossProduct (
-                        selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
-                        extent (registrations)
+                        selection (
+                            extent (students),
+                            (s: Rep[Student]) => s.firstName == "Sally"
+                        ),
+                        selection (
+                            extent (registrations),
+                            (r: Rep[Registration]) => r.comment == "This is an introductory Course"
+                        )
                     ),
                     extent (courses)
                 ),
