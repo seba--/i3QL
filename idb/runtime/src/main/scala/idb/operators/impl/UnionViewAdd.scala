@@ -44,33 +44,37 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
                                                               val right: Relation[DomainB],
 															  override val isSet : Boolean)
         extends Union[Range, DomainA, DomainB]
-        with Observer[Range]
 		with NotifyObservers[Range]
 {
 
-    left addObserver this
-    right addObserver this
+    left addObserver LeftObserver
+    right addObserver RightObserver
+
+	var leftTransactionEnded : Boolean = false
+	var rightTransactionEnded : Boolean = false
 
 	override def lazyInitialize() {
 
 	}
 
-    // TODO this is a heuristic and should be treated better
-    var count = 0
 
-    override def endTransaction() {
-        //println(this + ".endTransaction()")
-        count += 1
-        if (count == 2) {
-            count = 0
-            notify_endTransaction()
-        }
+    private def doEndTransaction() {
+        if(!leftTransactionEnded || !rightTransactionEnded)
+			return
+
+		leftTransactionEnded = false
+		rightTransactionEnded = false
+        notify_endTransaction()
+
     }
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left || o == right) {
-            return List(this)
+        if (o == left)  {
+            return List(LeftObserver)
         }
+		if (o == right)  {
+			return List(RightObserver)
+		}
         Nil
     }
 
@@ -82,15 +86,45 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
         right.foreach(f)
     }
 
-    def added(v: Range) {
-        notify_added(v)
-    }
+	object LeftObserver extends Observer[DomainA] {
 
-    def removed(v: Range) {
-		notify_removed(v)
-    }
+		override def updated(oldV: DomainA, newV: DomainA) {
+			removed(oldV)
+			added(newV)
+		}
 
-    def updated(oldV: Range, newV: Range) {
-		notify_updated(oldV, newV)
-    }
+		override def removed(v: DomainA) {
+			notify_removed(v)
+		}
+
+		override def added(v: DomainA) {
+			notify_added(v)
+		}
+
+		def endTransaction() {
+			leftTransactionEnded = true
+			doEndTransaction()
+		}
+	}
+
+	object RightObserver extends Observer[DomainB] {
+
+		override def updated(oldV: DomainB, newV: DomainB) {
+			removed(oldV)
+			added(newV)
+		}
+
+		override def removed(v: DomainB) {
+			notify_removed(v)
+		}
+
+		override def added(v: DomainB) {
+			notify_added(v)
+		}
+
+		def endTransaction() {
+			rightTransactionEnded = true
+			doEndTransaction()
+		}
+	}
 }

@@ -51,6 +51,7 @@ trait SelfMaintainableAggregateFunction[Domain, Result]
     def remove(newD: Domain): Result
 
     def update(oldD: Domain, newD: Domain): Result
+
 }
 
 

@@ -124,17 +124,16 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 object CrossProductView {
 	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
 
-		//TODO Remove this. Better: implement 'foreach' in Extent
-		var leftR = left
+	/*	var leftR = left
 		var rightR = right
 
 		if(left.isInstanceOf[Extent[DomainA]])
 			leftR = left.asMaterialized
 
 		if(right.isInstanceOf[Extent[DomainB]])
-			rightR = right.asMaterialized
+			rightR = right.asMaterialized   */
 
 
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](leftR,rightR,(l : DomainA, r : DomainB) => (l,r),isSet)
+		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
 	}
 }

@@ -211,14 +211,35 @@ object AggregationForSelfMaintainableFunctions {
 		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
 			 override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
 				 new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
-					 def add(newD: Domain): AggregateValue =
-					 	added(newD)
+					 private var aggregate : Option[AggregateValue] = None
 
-					 def remove(newD: Domain): AggregateValue =
-						 removed(newD)
+					 def add(newD: Domain): AggregateValue = {
+						 val a = added(newD)
+						 aggregate = Some(a)
+						 a
+					 }
 
-					 def update(oldD: Domain, newD: Domain): AggregateValue =
-					 	updated( (oldD,newD) )
+
+					 def remove(newD: Domain): AggregateValue = {
+						 val a = removed(newD)
+						 aggregate = Some(a)
+						 a
+					 }
+
+
+					 def update(oldD: Domain, newD: Domain): AggregateValue = {
+						 val a = updated( (oldD, newD) )
+						 aggregate = Some(a)
+						 a
+					 }
+
+					 def get : AggregateValue = {
+						 aggregate match {
+							 case Some(a) => a
+							 //TODO Make this better.
+							 case None => throw new IllegalArgumentException("Aggregation value is not initialized.")
+						 }
+					 }
 				 }
 			 }
 		}

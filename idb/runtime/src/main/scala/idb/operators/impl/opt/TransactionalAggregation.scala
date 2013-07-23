@@ -44,37 +44,59 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 	var functionMap : mutable.HashMap[Key,Aggregate] = mutable.HashMap.empty[Key,Aggregate]
 
 
-	private def getFunctionForKey(key : Key) : Aggregate = {
+	private def getFunctionForKey(key : Key) : (Aggregate, Boolean) = {
 		functionMap.get(key) match {
-			case Some(f) => f
+			case Some(f) => (f, true)
 			case None => {
 				val f = aggregateFunctionFactory.apply()
 				functionMap.put(key,f)
-				f
+				(f, false)
 			}
 		}
 	}
 
-	//TODO implement deletion
+
     override def endTransaction() {
 
-		val keyIt = additionsMap.keys().iterator()
-		while (keyIt.hasNext) {
-			val key : Key = keyIt.next()
-
-			val aggregateFunction : Aggregate = getFunctionForKey(key)
+		//Update additions
+		val keyAddIt = additionsMap.keys().iterator()
+		for (key <- keyAddIt.asScala) {
+			val (aggregateFunction, functionExisted) = getFunctionForKey(key)
 
 			val setAsScala = additionsMap.get(key).asScala
+			val oldV = aggregateFunction.get
 
 			for (dom <- setAsScala) {
 				aggregateFunction.add(dom,setAsScala)
 			}
 
-			notify_added(convertKeyAndAggregateValueToResult(key,aggregateFunction.get))
+			val newV = aggregateFunction.get
+
+			if(functionExisted)
+				notify_updated(convertKeyAndAggregateValueToResult(key,oldV),convertKeyAndAggregateValueToResult(key,newV))
+			else
+				notify_added(convertKeyAndAggregateValueToResult(key,newV))
 		}
 
+		//Update deletions
+		val keyDelIt = deletionsMap.keys().iterator()
+		for (key <- keyDelIt.asScala) {
+			val (aggregateFunction, functionExisted) = getFunctionForKey(key)
 
+			val setAsScala = deletionsMap.get(key).asScala
+			val oldV = aggregateFunction.get
 
+			for (dom <- setAsScala) {
+				aggregateFunction.remove(dom,setAsScala)
+			}
+
+			val newV = aggregateFunction.get
+
+			if(functionExisted)
+				notify_updated(convertKeyAndAggregateValueToResult(key,oldV),convertKeyAndAggregateValueToResult(key,newV))
+			else
+				notify_removed(convertKeyAndAggregateValueToResult(key,newV))
+		}
 
         notify_endTransaction()
     }
@@ -99,7 +121,7 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
      *
      */
      def foreach[T](f: (Result) => T) {
-
+	   //TODO implement foreach
     }
 
 

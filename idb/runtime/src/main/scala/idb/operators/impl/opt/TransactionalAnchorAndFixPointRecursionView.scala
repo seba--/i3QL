@@ -128,8 +128,6 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
     }
 
     def doRecursionForRemovedElements() {
-        // TODO compute the recursive values
-
         // all domain values are stored in the Multimap "deletions"
 
         for (anchor <- deletionAnchors) {
@@ -178,7 +176,6 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
         deletionAnchors = Nil
         additionResults = mutable.HashSet.empty[Range]
         deletionResults = mutable.HashSet.empty[Range]
-        // TODO remove any data structures you define.
         // please store them as "var" and do,  x = new HashMap, or something
         super.clear ()
     }

@@ -62,8 +62,18 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
             case Def (CrossProduct (a, b)) => {
-                // TODO check if a and b are materialized, if not wrap them as materialized
-                CrossProductView (compile (a), compile (b), false).asInstanceOf[Relation[Domain]]
+				var compA = compile (a)
+				var compB = compile (b)
+
+				//TODO Remove this. Better: implement 'foreach' in Extent
+				if (compA.isInstanceOf[Extent[_]])
+					compA = compA.asMaterialized
+
+				if (compB.isInstanceOf[Extent[_]])
+					compB = compB.asMaterialized
+
+
+                CrossProductView (compA, compB, false).asInstanceOf[Relation[Domain]]
             }
             case Def (EquiJoin (a, b, eq)) => {
                 EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
@@ -80,9 +90,6 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 			}
 			case Def (Difference (a, b)) => {
 				new DifferenceView (compile (a), compile (b), false)
-			}
-			case Def (SymmetricDifference (a, b)) => {
-				new SymmetricDifferenceView (compile (a).asMaterialized, compile (b).asMaterialized, false)
 			}
 			case Def (DuplicateElimination (a)) => {
 				new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
