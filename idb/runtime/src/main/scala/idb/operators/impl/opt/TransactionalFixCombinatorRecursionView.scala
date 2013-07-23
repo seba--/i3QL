@@ -236,8 +236,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
         deletionAnchors = Nil
         additionResults = mutable.HashMap.empty[Key, Range]
         deletionResults = mutable.HashMap.empty[Key, Range]
-        // TODO remove any data structures you define.
-        // please store them as "var" and do,  x = new HashMap, or something
+
         super.clear ()
     }
 

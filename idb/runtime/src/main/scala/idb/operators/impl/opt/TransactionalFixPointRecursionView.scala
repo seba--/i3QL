@@ -104,8 +104,6 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
   }
 
   def doRecursionForRemovedElements() {
-    // TODO compute the recursive values
-
     // all domain values are stored in the Multimap "deletions"
 
     for (anchor <- deletionAnchors) {

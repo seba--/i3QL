@@ -30,19 +30,24 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
 import idb.operators.Union
 import idb.Relation
-import idb.observer.{Observable, NotifyObservers, Observer}
+import idb.observer.{Observer, Observable, NotifyObservers}
+import scala.collection.mutable
+import idb.observer.Observer
+import com.google.common.collect.HashMultiset
+import idb.operators.impl.util.TransactionElementObserver
 
 
 /**
  * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
  */
-class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
-                                                              val right: Relation[DomainB],
-															  override val isSet : Boolean)
+class TransactionalUnionAddView[Range, DomainA <: Range, DomainB <: Range](
+															val left: Relation[DomainA],
+                                                            val right: Relation[DomainB],
+															override val isSet : Boolean)
         extends Union[Range, DomainA, DomainB]
 		with NotifyObservers[Range]
 {
@@ -57,34 +62,20 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
 
 	}
 
-
-    private def doEndTransaction() {
-        if(!leftTransactionEnded || !rightTransactionEnded)
-			return
+	private def clear() {
 
 		leftTransactionEnded = false
 		rightTransactionEnded = false
-        notify_endTransaction()
+	}
 
-    }
+	private def doEndTransaction() {
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left)  {
-            return List(LeftObserver)
-        }
-		if (o == right)  {
-			return List(RightObserver)
-		}
-        Nil
-    }
+		if(!leftTransactionEnded || !rightTransactionEnded)
+			return
 
-    /**
-     * Applies f to all elements of the view.
-     */
-    def foreach[T](f: (Range) => T) {
-        left.foreach(f)
-        right.foreach(f)
-    }
+		clear()
+		notify_endTransaction()
+	}
 
 	object LeftObserver extends Observer[DomainA] {
 
@@ -127,4 +118,13 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
 			doEndTransaction()
 		}
 	}
+
+
+	/**
+     * Applies f to all elements of the view.
+     */
+    def foreach[T](f: (Range) => T) {
+        left.foreach(f)
+		right.foreach(f)
+    }
 }

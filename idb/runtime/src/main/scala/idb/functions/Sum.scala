@@ -26,6 +26,8 @@ private class SumIntern[Domain <: AnyRef](val f: Domain => Int)
         sum += f(newV)
         sum
     }
+
+	def get = sum
 }
 
 object Sum

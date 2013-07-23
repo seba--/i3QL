@@ -83,6 +83,8 @@ private class DirectSort[Domain](val ordering: Ordering[Domain])
         data.add (newV, count)
         data
     }
+
+	def get = data
 }
 
 
@@ -107,4 +109,6 @@ private class TransformedSort[Domain, T] (val f: Domain => T, val ordering: Orde
         data.add (f (newV), count)
         data
     }
+
+	def get = data
 }

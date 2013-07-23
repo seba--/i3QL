@@ -30,101 +30,107 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
+package idb.operators.impl.opt
 
-import idb.operators.Union
-import idb.Relation
-import idb.observer.{Observable, NotifyObservers, Observer}
+import idb.{Relation, MaterializedView}
+import idb.operators.Intersection
+import idb.observer.{NotifyObservers, Observer, Observable}
+import idb.operators.impl.util.TransactionElementObserver
 
 
 /**
- * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
+ * This intersection operation has multiset semantics for elements
+ *
  */
-class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
-                                                              val right: Relation[DomainB],
-															  override val isSet : Boolean)
-        extends Union[Range, DomainA, DomainB]
-		with NotifyObservers[Range]
+class TransactionalIntersectionView[Domain](val left: Relation[Domain],
+                               val right: Relation[Domain],
+							   override val isSet : Boolean)
+    extends Intersection[Domain]
+	with NotifyObservers[Domain]
 {
 
     left addObserver LeftObserver
     right addObserver RightObserver
 
-	var leftTransactionEnded : Boolean = false
-	var rightTransactionEnded : Boolean = false
+	var leftTransactionEnded = false
+	var rightTransactionEnded = false
 
-	override def lazyInitialize() {
+	override def lazyInitialize() {	}
+
+
+	private def clear() {
+		LeftObserver.clear()
+		RightObserver.clear()
+
+		leftTransactionEnded = false
+		rightTransactionEnded = false
 
 	}
 
 
-    private def doEndTransaction() {
-        if(!leftTransactionEnded || !rightTransactionEnded)
+	private def doEndTransaction() {
+		if(!leftTransactionEnded || !rightTransactionEnded)
 			return
 
-		leftTransactionEnded = false
-		rightTransactionEnded = false
-        notify_endTransaction()
-
-    }
-
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == left)  {
-            return List(LeftObserver)
-        }
-		if (o == right)  {
-			return List(RightObserver)
+		//Update the additions
+		val itAddLeft = LeftObserver.additions.iterator()
+		while (itAddLeft.hasNext) {
+			val v = itAddLeft.next()
+			if(RightObserver.additions.contains(v))
+				notify_added(v)
 		}
-        Nil
-    }
+
+		val itAddRight = RightObserver.additions.iterator()
+		while (itAddRight.hasNext) {
+			val v = itAddRight.next()
+			if(LeftObserver.additions.contains(v))
+				notify_added(v)
+		}
+
+		//Update the deletions
+		val itDelLeft = LeftObserver.deletions.iterator()
+		while (itDelLeft.hasNext) {
+			notify_removed(itDelLeft.next())
+		}
+		val itDelRight = RightObserver.deletions.iterator()
+		while (itDelRight.hasNext) {
+			notify_removed(itDelRight.next())
+		}
+
+		clear()
+		notify_endTransaction()
+
+
+	}
+
 
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T](f: (Range) => T) {
-        left.foreach(f)
-        right.foreach(f)
+    def foreach[T](f: (Domain) => T) {
+        //TODO implement foreach
     }
 
-	object LeftObserver extends Observer[DomainA] {
+    object LeftObserver extends TransactionElementObserver[Domain]
+    {
 
-		override def updated(oldV: DomainA, newV: DomainA) {
-			removed(oldV)
-			added(newV)
-		}
-
-		override def removed(v: DomainA) {
-			notify_removed(v)
-		}
-
-		override def added(v: DomainA) {
-			notify_added(v)
-		}
-
-		def endTransaction() {
+		override def endTransaction() {
 			leftTransactionEnded = true
 			doEndTransaction()
 		}
-	}
+    }
 
-	object RightObserver extends Observer[DomainB] {
 
-		override def updated(oldV: DomainB, newV: DomainB) {
-			removed(oldV)
-			added(newV)
-		}
+    object RightObserver extends TransactionElementObserver[Domain]
+    {
 
-		override def removed(v: DomainB) {
-			notify_removed(v)
-		}
-
-		override def added(v: DomainB) {
-			notify_added(v)
-		}
-
-		def endTransaction() {
+		override def endTransaction() {
 			rightTransactionEnded = true
 			doEndTransaction()
 		}
-	}
+
+    }
+
 }
+
+

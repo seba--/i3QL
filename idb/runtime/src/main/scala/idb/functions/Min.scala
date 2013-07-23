@@ -32,6 +32,8 @@ private class MinIntern[Domain <: AnyRef](val f: Domain => Int)
         }
         min
     }
+
+	def get = min
 }
 
 object Min

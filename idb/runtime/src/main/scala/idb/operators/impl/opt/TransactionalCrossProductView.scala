@@ -1,4 +1,4 @@
-package idb.operators.impl
+package idb.operators.impl.opt
 
 import idb.operators.CrossProduct
 import idb.{Extent, Relation}
@@ -8,7 +8,7 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * The cross product does not really require the underlying relations to be materialized directly.
  * But it requires some point of materialization.
  */
-class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
+class TransactionalCrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 												val right: Relation[DomainB],
 												val projection: (DomainA, DomainB) => Range,
 												override val isSet: Boolean)
@@ -16,6 +16,9 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 
 	left addObserver LeftObserver
 	right addObserver RightObserver
+
+
+
 
 	override protected def lazyInitialize() {
 		/* do nothing */
@@ -119,21 +122,4 @@ class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 	}
 
 
-}
-
-object CrossProductView {
-	def apply[DomainA, DomainB](left: Relation[DomainA], right: Relation[DomainB], isSet: Boolean) = {
-
-	/*	var leftR = left
-		var rightR = right
-
-		if(left.isInstanceOf[Extent[DomainA]])
-			leftR = left.asMaterialized
-
-		if(right.isInstanceOf[Extent[DomainB]])
-			rightR = right.asMaterialized   */
-
-
-		new CrossProductView[DomainA, DomainB, (DomainA, DomainB)](left,right,(l : DomainA, r : DomainB) => (l,r),isSet)
-	}
 }

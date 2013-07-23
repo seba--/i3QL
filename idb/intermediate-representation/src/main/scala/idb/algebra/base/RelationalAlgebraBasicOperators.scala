@@ -85,10 +85,6 @@ trait RelationalAlgebraBasicOperators
 		relationB: Rep[Query[Domain]]
 	): Rep[Query[Domain]]
 
-	def symmetricDifference[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
 
 	def duplicateElimination[Domain : Manifest] (
 		relation: Rep[Query[Domain]]

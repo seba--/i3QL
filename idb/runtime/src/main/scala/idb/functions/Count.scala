@@ -25,6 +25,8 @@ private class CountIntern[Domain <: AnyRef]()
     def update(oldV: Domain, newV: Domain) = {
         count
     }
+
+	def get = count
 }
 
 object Count

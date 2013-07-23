@@ -18,9 +18,9 @@ import idb.{MaterializedView, Relation}
 trait Intersection[Domain]
     extends Relation[Domain]
 {
-    def left: MaterializedView[Domain]
+    def left: Relation[Domain]
 
-    def right: MaterializedView[Domain]
+    def right: Relation[Domain]
 
     override protected def children = List (left, right)
 }
