@@ -32,7 +32,8 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common.FunctionsExp
+import scala.virtualization.lms.common.{BooleanOpsExp, FunctionsExp}
+import scala.reflect.SourceContext
 
 /**
  * Perform alpha reduction on lambda abstractions.
@@ -41,7 +42,7 @@ import scala.virtualization.lms.common.FunctionsExp
  * @author Sebastian Erdweg
  */
 trait FunctionsExpOptAlphaEquivalence
-    extends FunctionsExp
+    extends FunctionsExp with BooleanOpsExp
 {
 
     class LambdaAlpha[A: Manifest, B: Manifest] (f: Exp[A] => Exp[B], x: Exp[A], y: Block[B])
@@ -85,6 +86,43 @@ trait FunctionsExpOptAlphaEquivalence
 
         LambdaAlpha (f, x, y)
     }
+
+
+    class BooleanAndAlpha(lhs: Exp[Boolean], rhs: Exp[Boolean])
+        extends BooleanAnd(lhs, rhs)
+    {
+        override def equals (o: Any): Boolean = {
+            o match {
+                case BooleanAnd (otherLhs, otherRhs) =>  {
+                    (lhs == otherLhs && rhs == otherRhs) ||
+                        (lhs == otherRhs && rhs == otherLhs)
+                }
+                case _ =>
+                    false
+            }
+        }
+    }
+
+
+    class BooleanOrAlpha(lhs: Exp[Boolean], rhs: Exp[Boolean])
+        extends BooleanOr(lhs, rhs)
+    {
+        override def equals (o: Any): Boolean = {
+            o match {
+                case BooleanOr (otherLhs, otherRhs) =>  {
+                    (lhs == otherLhs && rhs == otherRhs) ||
+                        (lhs == otherRhs && rhs == otherLhs)
+                }
+                case _ =>
+                    false
+            }
+        }
+    }
+
+    override def boolean_and(lhs: Exp[Boolean], rhs: Exp[Boolean])(implicit pos: SourceContext) : Exp[Boolean] =
+        new BooleanAndAlpha(lhs,rhs)
+    override def boolean_or(lhs: Exp[Boolean], rhs: Exp[Boolean])(implicit pos: SourceContext) : Exp[Boolean] =
+        new BooleanOrAlpha(lhs,rhs)
 
 
 }
