@@ -101,6 +101,8 @@ trait FunctionsExpOptAlphaEquivalence
                     false
             }
         }
+
+        // TODO define proper hashCode independent of argument order
     }
 
 
@@ -117,6 +119,8 @@ trait FunctionsExpOptAlphaEquivalence
                     false
             }
         }
+
+        // TODO define proper hashCode independent of argument order
     }
 
     override def boolean_and(lhs: Exp[Boolean], rhs: Exp[Boolean])(implicit pos: SourceContext) : Exp[Boolean] =
