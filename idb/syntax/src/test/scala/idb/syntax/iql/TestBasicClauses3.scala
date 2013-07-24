@@ -171,22 +171,22 @@ class TestBasicClauses3
         )
     }
 
-
+    @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rdInterleaved () {
         val query =
             plan (
-            SELECT (*) FROM(students, registrations, courses) WHERE (
-                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
-                    c.title.startsWith ("Introduction") &&
-                        r.comment == "This is an introductory Course" &&
-                        s.firstName == "Sally" &&
-                        c.creditPoints > 4 &&
-                        s.lastName == "Fields" &&
-                        r.studentMatriculationNumber > 100000
-                }
-                )
-        )
+                SELECT (*) FROM(students, registrations, courses) WHERE (
+                    (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                        c.title.startsWith ("Introduction") &&
+                            r.comment == "This is an introductory Course" &&
+                            s.firstName == "Sally" &&
+                            c.creditPoints > 4 &&
+                            s.lastName == "Fields" &&
+                            r.studentMatriculationNumber > 100000
+                    }
+                    )
+            )
 
 
         assertEquals (
@@ -216,6 +216,75 @@ class TestBasicClauses3
                 fun (
                     (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
                 )
+            ),
+            query
+        )
+    }
+
+    @Ignore
+    @Test
+    def testCrossProduct3Selection1stAnd2ndCombined () {
+        val query =
+            plan (
+                SELECT (*) FROM(students, registrations, courses) WHERE (
+                    (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                        r.comment == "This is an introductory Course" ||
+                            s.firstName == "Sally"
+                    }
+                    )
+            )
+
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    selection (
+                        crossProduct (
+                            extent (students),
+                            extent (registrations)
+                        ),
+                        (s: Rep[Student], r: Rep[Registration]) => {
+                            r.comment == "This is an introductory Course" ||
+                                s.firstName == "Sally"
+                        }
+                    ),
+                    extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
+            ),
+            query
+        )
+    }
+
+
+    @Test
+    def testCrossProduct3Selection1stAnd2ndAnd3ndCombined () {
+        val query =
+            plan (
+                SELECT (*) FROM(students, registrations, courses) WHERE (
+                    (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                        r.comment == "This is an introductory Course" ||
+                            c.creditPoints > 4 ||
+                            s.firstName == "Sally"
+                    }
+                    )
+            )
+
+
+        assertEquals (
+            selection (
+                crossProduct (
+                    extent (students),
+                    extent (registrations),
+                    extent (courses)
+                ),
+                (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                    r.comment == "This is an introductory Course" ||
+                        c.creditPoints > 4 ||
+                        s.firstName == "Sally"
+                }
             ),
             query
         )
