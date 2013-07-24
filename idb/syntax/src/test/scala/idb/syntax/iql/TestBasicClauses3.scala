@@ -48,7 +48,6 @@ import org.junit.{Ignore, Test}
 class TestBasicClauses3
 {
 
-    @Ignore
     @Test
     def testCrossProduct3 () {
         val query = plan (
@@ -69,7 +68,7 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1st () {
         val query = plan (
@@ -97,7 +96,7 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1stAnd2nd () {
         val query = plan (
@@ -132,7 +131,7 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rd () {
         val query = plan (
@@ -171,7 +170,7 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rdInterleaved () {
         val query =
@@ -221,7 +220,7 @@ class TestBasicClauses3
         )
     }
 
-    @Ignore
+
     @Test
     def testCrossProduct3Selection1stAnd2ndCombined () {
         val query =
@@ -285,6 +284,83 @@ class TestBasicClauses3
                         c.creditPoints > 4 ||
                         s.firstName == "Sally"
                 }
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testJoin3On1stAnd2nd () {
+        val query =
+            plan (
+                SELECT (*) FROM(students, registrations, courses) WHERE (
+                    (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                        s.matriculationNumber == r.studentMatriculationNumber
+                    }
+                    )
+            )
+
+
+        assertEquals (
+            projection (
+                crossProduct (
+                    equiJoin (
+                        extent (students),
+                        extent (registrations),
+                        scala.List (
+                            scala.Tuple2 (
+                                fun((s: Rep[Student]) => s.matriculationNumber),
+                                fun((r: Rep[Registration]) => r.studentMatriculationNumber)
+                            )
+                        )
+                    ),
+                    extent (courses)
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
+            ),
+            query
+        )
+    }
+
+    @Test
+    def testJoin3On1stAnd2ndPlusOn2ndAnd3rd () {
+        val query =
+            plan (
+                SELECT (*) FROM(students, registrations, courses) WHERE (
+                    (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
+                        s.matriculationNumber == r.studentMatriculationNumber &&
+                            r.courseNumber == c.number
+                    }
+                    )
+            )
+
+
+        assertEquals (
+            projection (
+                equiJoin (
+                    equiJoin (
+                        extent (students),
+                        extent (registrations),
+                        scala.List (
+                            scala.Tuple2 (
+                                fun((s: Rep[Student]) => s.matriculationNumber),
+                                fun((r: Rep[Registration]) => r.studentMatriculationNumber)
+                            )
+                        )
+                    ),
+                    extent (courses),
+                    scala.List (
+                        scala.Tuple2 (
+                            fun((s: Rep[Student], r: Rep[Registration]) => r.courseNumber),
+                            fun((c: Rep[Course]) => c.number)
+                        )
+                    )
+                ),
+                fun (
+                    (sr_c: Rep[((Student, Registration), Course)]) => (sr_c._1._1, sr_c._1._2, sr_c._2)
+                )
             ),
             query
         )
