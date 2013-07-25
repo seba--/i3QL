@@ -3,7 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <scala.version>2.10.1</scala.version>
+        <scala.version>2.10.2-RC1</scala.version>
+        <!-- TODO we forget the original qualifier (e.g., "RC1"). Seems a bad hack, but the maven-scala plugin does not read qualifiers correctly-->
+        <scala.version.virtualized>2.10.2-virtualized</scala.version.virtualized>
     </properties>
 
     <groupId>org.scala-lang</groupId>
