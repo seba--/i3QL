@@ -14,7 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <scala.version>2.10.1</scala.version>
+        <scala.version>2.10.2</scala.version>
         <scala.version.virtualized>${scala.version}-virtualized</scala.version.virtualized>
     </properties>
 
@@ -41,7 +41,7 @@
                         <plugin>
                             <groupId>org.scala-lang.virtualized.plugins</groupId>
                             <artifactId>continuations</artifactId>
-                            <version>${scala.version}</version>
+                            <version>${scala.version}-RC1</version>
                         </plugin>
                     </compilerPlugins>
                     <args>
