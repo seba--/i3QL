@@ -51,10 +51,18 @@ trait QuoteFunction
         val writer = new StringWriter ()
         stream = new PrintWriter (writer)
         f match {
-            case Def (Lambda (fun, x, y)) =>
+            case Def (Lambda (fun, x, y)) => {
                 stream.print (indent)
-                stream.print ("(" + quote (x) + ": " + x.tp + ")")
-                stream.print (": " + y.tp)
+                x match {
+                    case UnboxedTuple(xs) => {
+                        stream.print( "(" + xs.map(s=>quote(s)+":"+remap(s.tp)).mkString("(",",",")"))
+                    }
+                    case _ => {
+                        stream.print ("(" + quote (x) + ": " + x.tp + ")")
+                    }
+                }
+                }
+                //stream.print (": " + y.tp)
                 stream.println (" => {")
                 addIndent()
                 emitBlock (y)
