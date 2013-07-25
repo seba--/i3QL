@@ -37,6 +37,7 @@ import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
 import org.junit.Test
+import idb.syntax.iql.planning.PlanPrinter
 
 /**
  *
@@ -169,8 +170,6 @@ class TestBasicClauses2
             ),
             query
         )
-
-        compilation.CompilerBinding.compile (query)
     }
 
 
