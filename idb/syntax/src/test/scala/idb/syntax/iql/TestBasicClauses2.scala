@@ -159,6 +159,9 @@ class TestBasicClauses2
             })
         )
 
+
+        Predef.println(PlanPrinter.quote(query))
+
         assertEquals (
             equiJoin (
                 extent (students),

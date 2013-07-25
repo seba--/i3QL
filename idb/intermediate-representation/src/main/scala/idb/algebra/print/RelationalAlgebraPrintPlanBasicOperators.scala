@@ -34,7 +34,7 @@ package idb.algebra.print
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.{CodeGenIndent, QuoteFunction}
-import scala.virtualization.lms.common.{TupledFunctionsExp, FunctionsExp}
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
@@ -47,7 +47,12 @@ trait RelationalAlgebraPrintPlanBasicOperators
 
     val IR: TupledFunctionsExp with RelationalAlgebraIRBasicOperators
 
-    import IR._
+    import IR.Exp
+    import IR.Def
+    import IR.Projection
+    import IR.Selection
+    import IR.CrossProduct
+    import IR.EquiJoin
 
 
     override def quote (x: Exp[Any]): String =
@@ -68,6 +73,24 @@ trait RelationalAlgebraPrintPlanBasicOperators
                 withIndent ("crossProduct(" + "\n") +
                     withMoreIndent (quote (left) + ",\n") +
                     withMoreIndent (quote (right) + "\n") +
+                    withIndent (")")
+
+            case Def (EquiJoin (left, right, equalities)) =>
+                withIndent ("equiJoin(" + "\n") +
+                    withMoreIndent (quote (left) + ",\n") +
+                    withMoreIndent (quote (right) + ",\n") +
+                    withMoreIndent (withIndent ("Seq(\n")) +
+                    withMoreIndent (
+                        withMoreIndent (
+                            equalities.map (equation =>
+                                withIndent ("(\n") +
+                                    quoteFunction (equation._1) + ",\n" +
+                                    quoteFunction (equation._2) + "\n" +
+                                    withIndent (")")
+                            ).reduce (_ + ",\n" + _)
+                        )
+                    ) + "\n" +
+                    withMoreIndent (withIndent (")\n")) +
                     withIndent (")")
             case _ => super.quote (x)
         }
