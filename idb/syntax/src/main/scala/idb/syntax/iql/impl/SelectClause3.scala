@@ -40,7 +40,8 @@ import idb.syntax.iql._
  * @author Ralf Mitschke
  */
 case class SelectClause3[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range]
+    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC]) => Rep[Range],
+    asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_3[SelectA, SelectB, SelectC, Range]
 {

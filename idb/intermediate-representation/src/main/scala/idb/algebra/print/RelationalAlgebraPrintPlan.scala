@@ -40,6 +40,7 @@ package idb.algebra.print
 trait RelationalAlgebraPrintPlan
     extends RelationalAlgebraPrintPlanBase
     with RelationalAlgebraPrintPlanBasicOperators
+    with RelationalAlgebraPrintPlanSetTheoryOperators
 {
 
 }

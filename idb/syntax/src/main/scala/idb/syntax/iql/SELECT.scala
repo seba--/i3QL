@@ -48,11 +48,64 @@ object SELECT
     ): SELECT_CLAUSE_1[Domain, Range] =
         SelectClause1 (projection)
 
+
     def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
         projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
     ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
         SelectClause2 (projection)
 
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Range]
+    ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
+        SelectClause3 (projection)
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Range]
+    ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range] =
+        SelectClause4 (projection)
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+    Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Range]
+    ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+        SelectClause5 (projection)
+
     def apply (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
-        SelectClauseStar
+        SelectClauseStar(asDistinct = false)
+
+    def DISTINCT[Domain: Manifest, Range: Manifest] (
+        projection: Rep[Domain] => Rep[Range]
+    ): SELECT_CLAUSE_1[Domain, Range] =
+        SelectClause1 (projection, asDistinct = true)
+
+
+    def DISTINCT[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
+    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+        SelectClause2 (projection, asDistinct = true)
+
+
+    def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Range]
+    ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
+        SelectClause3 (projection, asDistinct = true)
+
+
+    def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Range]
+    ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range] =
+        SelectClause4 (projection, asDistinct = true)
+
+
+    def DISTINCT[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+    Range: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Range]
+    ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+        SelectClause5 (projection, asDistinct = true)
+
+    def DISTINCT (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
+        SelectClauseStar(asDistinct = true)
 }

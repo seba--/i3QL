@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-case object SelectClauseStar
+case class SelectClauseStar(asDistinct:Boolean = false)
     extends SELECT_CLAUSE_STAR
 {
     def FROM[Domain: Manifest] (
@@ -49,7 +49,8 @@ case object SelectClauseStar
         FromClause1 (
             relation,
             SelectClause1 (
-                (x: Rep[Domain]) => x
+                (x: Rep[Domain]) => x,
+                asDistinct
             )
         )
 
@@ -61,7 +62,8 @@ case object SelectClauseStar
             relationA,
             relationB,
             SelectClause2 (
-                (a: Rep[DomainA], b: Rep[DomainB]) => (a, b)
+                (a: Rep[DomainA], b: Rep[DomainB]) => (a, b),
+                asDistinct
             )
         )
 
@@ -75,7 +77,8 @@ case object SelectClauseStar
             relationB,
             relationC,
             SelectClause3 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c)
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC]) => (a, b, c),
+                asDistinct
             )
         )
 
@@ -91,7 +94,8 @@ case object SelectClauseStar
             relationC,
             relationD,
             SelectClause4 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD]) => (a, b, c, d)
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD]) => (a, b, c, d),
+                asDistinct
             )
         )
 
@@ -109,7 +113,8 @@ case object SelectClauseStar
             relationD,
             relationE,
             SelectClause5 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD], e: Rep[DomainE]) => (a, b, c, d, e)
+                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD], e: Rep[DomainE]) => (a, b, c, d, e),
+                asDistinct
             )
         )
 }

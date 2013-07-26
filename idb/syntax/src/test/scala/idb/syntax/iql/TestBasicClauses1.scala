@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.Test
 
 /**
  *
@@ -136,5 +136,19 @@ class TestBasicClauses1
         )
     }
 
+
+    @Test
+    def testDistinctExtent () {
+        val query = plan (
+            SELECT DISTINCT (*) FROM students
+        )
+
+        assertEquals (
+            duplicateElimination (
+                extent (students)
+            ),
+            query
+        )
+    }
 
 }

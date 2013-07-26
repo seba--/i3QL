@@ -30,29 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.planning
+package idb.algebra.print
 
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
-import scala.virtualization.lms.common.{ScalaGenTupledFunctions, ScalaGenStruct, ScalaCodeGenPkg}
+import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.lms.extensions.{CodeGenIndent, QuoteFunction}
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
  * @author Ralf Mitschke
  */
-object PlanPrinter
-    extends ScalaCodeGenPkg
-    with ScalaGenStruct
-    with ScalaGenTupledFunctions
-    with RelationalAlgebraPrintPlan
+trait RelationalAlgebraPrintPlanSetTheoryOperators
+    extends QuoteFunction
+    with CodeGenIndent
 {
-    override val IR = idb.syntax.iql.IR
 
-    override type Block[+T] = IR.Block[T]
+    val IR: TupledFunctionsExp with RelationalAlgebraIRBasicOperators
 
-    override def reset {
-        super.reset // TODO how should this be implemented correctly?
-    }
+    import IR.Exp
+    import IR.Def
+    import IR.UnionAdd
+    import IR.UnionMax
+    import IR.Intersection
+    import IR.Difference
 
-    def apply(x: IR.Exp[Any]): String = quote(x)
+
+    override def quote (x: Exp[Any]): String =
+        x match {
+            case Def (UnionAdd (left, right)) =>
+                withIndent ("unionAdd(" + "\n") +
+                    withMoreIndent (quote (left) + ",\n") +
+                    withMoreIndent (quote (right) + "\n") +
+                    withIndent (")")
+
+            case Def (UnionMax (left, right)) =>
+                withIndent ("unionMax(" + "\n") +
+                    withMoreIndent (quote (left) + ",\n") +
+                    withMoreIndent (quote (right) + "\n") +
+                    withIndent (")")
+
+            case Def (Intersection (left, right)) =>
+                withIndent ("intersection(" + "\n") +
+                    withMoreIndent (quote (left) + ",\n") +
+                    withMoreIndent (quote (right) + "\n") +
+                    withIndent (")")
+
+            case Def (Difference (left, right)) =>
+                withIndent ("difference(" + "\n") +
+                    withMoreIndent (quote (left) + ",\n") +
+                    withMoreIndent (quote (right) + "\n") +
+                    withIndent (")")
+
+            case _ => super.quote (x)
+        }
+
+
 }

@@ -53,6 +53,8 @@ trait RelationalAlgebraPrintPlanBasicOperators
     import IR.Selection
     import IR.CrossProduct
     import IR.EquiJoin
+    import IR.DuplicateElimination
+    import IR.AggregationSelfMaintained
 
 
     override def quote (x: Exp[Any]): String =
@@ -92,8 +94,23 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     ) + "\n" +
                     withMoreIndent (withIndent (")\n")) +
                     withIndent (")")
+
+            case Def(DuplicateElimination(relation)) =>
+                withIndent ("duplicateElimination(" + "\n") +
+                    withMoreIndent (quote (relation) + "\n") +
+                    withIndent (")")
+
+            case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
+                withIndent ("aggregation(" + "\n") +
+                    withMoreIndent (quote (relation) + ",\n") +
+                    withMoreIndent (quoteFunction (grouping) + ",\n") +
+                    withMoreIndent (quoteFunction (added) + ",\n") +
+                    withMoreIndent (quoteFunction (removed) + ",\n") +
+                    withMoreIndent (quoteFunction (updated) + ",\n") +
+                    withMoreIndent (quoteFunction (convert) + "\n") +
+                    withIndent (")")
+
             case _ => super.quote (x)
         }
-
 
 }

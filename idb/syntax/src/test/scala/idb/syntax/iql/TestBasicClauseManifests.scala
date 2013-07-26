@@ -58,7 +58,7 @@ class TestBasicClauseManifests
 
         val f =
             fromClause1 match {
-                case FromClause1 (_, SelectClause1 (project)) => fun (project)
+                case FromClause1 (_, SelectClause1 (project, _)) => fun (project)
             }
 
 
@@ -80,7 +80,7 @@ class TestBasicClauseManifests
 
         val f =
             fromClause2 match {
-                case FromClause2 (_, _, SelectClause2 (project)) => fun (project)
+                case FromClause2 (_, _, SelectClause2 (project, _)) => fun (project)
             }
 
 
@@ -120,7 +120,7 @@ class TestBasicClauseManifests
 
         val projectionExp: Rep[Query[String]] =
             fromClause1 match {
-                case FromClause1 (relation, SelectClause1 (project)) => projection (relation, project)
+                case FromClause1 (relation, SelectClause1 (project, _)) => projection (relation, project)
             }
 
         val f =

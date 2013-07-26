@@ -41,7 +41,8 @@ import idb.syntax.iql._
  */
 case class SelectClause5[-SelectA: Manifest, -SelectB: Manifest, -SelectC: Manifest, -SelectD: Manifest,
 -SelectE: Manifest, Range: Manifest] (
-    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD], Rep[SelectE]) => Rep[Range]
+    projection: (Rep[SelectA], Rep[SelectB], Rep[SelectC], Rep[SelectD], Rep[SelectE]) => Rep[Range],
+    asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_5[SelectA, SelectB, SelectC, SelectD, SelectE, Range]
 {
