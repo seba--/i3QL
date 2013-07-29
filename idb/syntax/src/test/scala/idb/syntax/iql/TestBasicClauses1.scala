@@ -138,6 +138,25 @@ class TestBasicClauses1
 
 
     @Test
+    def testSelection1ProjectTupleDirect () {
+        val query = plan (
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
+        )
+
+        assertEquals (
+            projection (
+                selection (
+                    extent (students),
+                    fun ((s: Rep[Student]) => s.firstName == "Sally")
+                ),
+                fun ((s: Rep[Student]) => (s.firstName, s.lastName))
+            ),
+            query
+        )
+    }
+
+
+    @Test
     def testDistinctExtent () {
         val query = plan (
             SELECT DISTINCT (*) FROM students
