@@ -30,11 +30,8 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.schema.university
+package idb.syntax.iql
 
-import idb.annotations.LocalIncrement
-import scala.language.implicitConversions
-import scala.virtualization.lms.common.StructExp
 
 /**
  *
@@ -42,38 +39,7 @@ import scala.virtualization.lms.common.StructExp
  *
  */
 
-@LocalIncrement
-case class Course (number: Int, title: String, creditPoints: Int)
+trait AGGREGATE_FUNCTION_STAR[Result]
 {
 
-}
-
-
-trait CourseSchema
-{
-    val IR: StructExp
-
-    import IR._
-
-    def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
-        struct[Course](
-            ClassTag[Course]("Course"),
-            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
-        )
-
-    // use an infix operation class to avoid name clashes
-    // (remember that all infix methods in all schemas are mixed together in one class)
-    case class CourseInfixOps (c: Rep[Course])
-    {
-        def number: Rep[Int] = field[Int](c, "number")
-
-        def title: Rep[String] = field[String](c, "title")
-
-        def creditPoints: Rep[Int] = field[Int](c, "creditPoints")
-    }
-
-    implicit def courseToInfixOps (c: Rep[Course]) = CourseInfixOps (c)
-
-
-    def creditPoints : Rep[Course] => Rep[Int] = (c:Rep[Course]) => courseToInfixOps(c).creditPoints
 }

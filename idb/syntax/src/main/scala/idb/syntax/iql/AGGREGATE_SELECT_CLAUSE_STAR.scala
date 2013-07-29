@@ -30,50 +30,51 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.schema.university
+package idb.syntax.iql
 
-import idb.annotations.LocalIncrement
-import scala.language.implicitConversions
-import scala.virtualization.lms.common.StructExp
+import idb.syntax.iql.IR._
 
 /**
+ * The aggregate select clause with a star, e.g., COUNT(*) has a return type (Range) determined by the aggregation
+ * function. Thus this clause is slightly different than a SELECT (*) which has a return type determined by the
+ * supplied relations.
  *
  * @author Ralf Mitschke
- *
  */
-
-@LocalIncrement
-case class Course (number: Int, title: String, creditPoints: Int)
+trait AGGREGATE_SELECT_CLAUSE_STAR[Range]
 {
 
-}
+    def FROM[Domain: Manifest] (
+        relation: Rep[Query[Domain]]
+    ): FROM_CLAUSE_1[Domain, Range]
 
 
-trait CourseSchema
-{
-    val IR: StructExp
-
-    import IR._
-
-    def Course (number: Rep[Int], title: Rep[String], creditPoints: Rep[Int]) =
-        struct[Course](
-            ClassTag[Course]("Course"),
-            Map ("number" -> number, "title" -> title, "creditPoints" -> creditPoints)
-        )
-
-    // use an infix operation class to avoid name clashes
-    // (remember that all infix methods in all schemas are mixed together in one class)
-    case class CourseInfixOps (c: Rep[Course])
-    {
-        def number: Rep[Int] = field[Int](c, "number")
-
-        def title: Rep[String] = field[String](c, "title")
-
-        def creditPoints: Rep[Int] = field[Int](c, "creditPoints")
-    }
-
-    implicit def courseToInfixOps (c: Rep[Course]) = CourseInfixOps (c)
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): FROM_CLAUSE_2[DomainA, DomainB, Range]
 
 
-    def creditPoints : Rep[Course] => Rep[Int] = (c:Rep[Course]) => courseToInfixOps(c).creditPoints
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]]
+    ): FROM_CLAUSE_3[DomainA, DomainB, DomainC, Range]
+
+
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]]
+    ): FROM_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range]
+
+
+    def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        relationC: Rep[Query[DomainC]],
+        relationD: Rep[Query[DomainD]],
+        relationE: Rep[Query[DomainE]]
+    ): FROM_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 }

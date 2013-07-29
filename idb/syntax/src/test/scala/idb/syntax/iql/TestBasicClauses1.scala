@@ -170,4 +170,21 @@ class TestBasicClauses1
         )
     }
 
+    @Test
+    def testCountStar () {
+        val query = plan (
+            SELECT (COUNT (*)) FROM students
+        )
+
+
+    }
+
+    @Test
+    def testSumCreditPoints () {
+        val query = plan (
+            SELECT (SUM (creditPoints)) FROM courses
+        )
+
+
+    }
 }

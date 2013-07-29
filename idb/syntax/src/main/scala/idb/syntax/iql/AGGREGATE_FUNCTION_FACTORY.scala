@@ -41,10 +41,38 @@ import idb.syntax.iql.IR._
  *
  */
 
-trait AGGREGATE_FUNCTION_SYNTAX[Column, Result]
+trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 {
 
-    def apply[Domain] (column: Rep[Domain] => Rep[Column]): AGGREGATE_FUNCTION_DEFINITION[Column, Result]
+    def apply[Domain: Manifest] (
+        column: Rep[Domain] => Rep[Column]
+    ): AGGREGATE_FUNCTION_1[Domain, Range] =
+        null
 
-    def apply (star: STAR_KEYWORD): AGGREGATE_FUNCTION_DEFINITION[Any, Result]
+
+    def apply[DomainA: Manifest, DomainB: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
+    ): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
+    ): AGGREGATE_FUNCTION_3[DomainA, DomainB, DomainC, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
+    ): AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
+        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
+    ): AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+        null
+
+
+    def apply (star: STAR_KEYWORD): AGGREGATE_FUNCTION_STAR[Range] = null
 }

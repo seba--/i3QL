@@ -37,7 +37,6 @@ import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
 import org.junit.Test
-import idb.syntax.iql.planning.PlanPrinter
 
 /**
  *
@@ -172,6 +171,30 @@ class TestBasicClauses2
         )
     }
 
+    @Test
+    def testJoin2Projection () {
+        val query = plan (
+            SELECT ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints) FROM(registrations, courses) WHERE (
+                (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number
+                )
+        )
+
+        assertEquals (
+            projection (
+                equiJoin (
+                    extent (registrations),
+                    extent (courses),
+                    scala.Seq ((
+                        fun ((r: Rep[Registration]) => r.courseNumber),
+                        fun ((c: Rep[Course]) => c.number)
+                        ))
+                ),
+                fun ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints)
+            ),
+            query
+        )
+    }
+
 
     @Test
     def testJoin2SelectionBoth () {
@@ -222,6 +245,25 @@ class TestBasicClauses2
                 }
             ),
             query
+        )
+    }
+
+
+    @Test
+    def testJoin2CountStar () {
+        val query = plan (
+            SELECT (COUNT (*)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber
+            })
+        )
+    }
+
+    @Test
+    def testJoin2SumCreditPoints () {
+        val query = plan (
+            SELECT (SUM ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints)) FROM(registrations, courses) WHERE (
+                (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number
+                )
         )
     }
 

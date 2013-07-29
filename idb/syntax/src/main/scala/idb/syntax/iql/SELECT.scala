@@ -74,7 +74,7 @@ object SELECT
         SelectClause5 (projection)
 
     def apply (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
-        SelectClauseStar(asDistinct = false)
+        SelectClauseStar (asDistinct = false)
 
     def DISTINCT[Domain: Manifest, Range: Manifest] (
         projection: Rep[Domain] => Rep[Range]
@@ -107,5 +107,39 @@ object SELECT
         SelectClause5 (projection, asDistinct = true)
 
     def DISTINCT (x: STAR_KEYWORD): SELECT_CLAUSE_STAR =
-        SelectClauseStar(asDistinct = true)
+        SelectClauseStar (asDistinct = true)
+
+    def apply[Domain: Manifest, Range: Manifest] (
+        aggregation: AGGREGATE_FUNCTION_1[Domain, Range]
+    ): SELECT_CLAUSE_1[Domain, Range] =
+        null
+
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        aggregation: AGGREGATE_FUNCTION_2[DomainA, DomainB, Range]
+    ): SELECT_CLAUSE_2[DomainA, DomainB, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        aggregation: AGGREGATE_FUNCTION_3[DomainA, DomainB, DomainC, Range]
+    ): SELECT_CLAUSE_3[DomainA, DomainB, DomainC, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+        aggregation: AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range]
+    ): SELECT_CLAUSE_4[DomainA, DomainB, DomainC, DomainD, Range] =
+        null
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+    Range: Manifest] (
+        aggregation: AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+    ): SELECT_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
+        null
+
+    def apply[Range: Manifest] (
+        function: AGGREGATE_FUNCTION_STAR[Range]
+    ): AGGREGATE_SELECT_CLAUSE_STAR[Range] =
+        null
 }

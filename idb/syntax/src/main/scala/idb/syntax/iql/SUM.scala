@@ -7,9 +7,11 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-case class SUM[Domain] (toValue: Rep[Domain] => Rep[Int])
-    extends AGGREGATE_FUNCTION_SELF[Domain, Int]
+case object SUM
+    extends AGGREGATE_FUNCTION_FACTORY[Int, Int]
 {
+
+    /*
     def added (v: Rep[Domain], previousResult: Rep[Int]) =
         previousResult + toValue (v)
 
@@ -18,4 +20,6 @@ case class SUM[Domain] (toValue: Rep[Domain] => Rep[Int])
 
     def updated (oldV: Rep[Domain], newV: Rep[Domain], previousResult: Rep[Int]) =
         previousResult - toValue (oldV) + toValue (newV)
+
+    */
 }
