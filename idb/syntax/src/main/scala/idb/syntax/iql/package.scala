@@ -54,9 +54,16 @@ package object iql
     ): Relation[Range] =
         CompilerBinding.compile (plan (clause))
 
+    /*
     implicit def funTuple2AsFun[Domain: Manifest, RangeA: Manifest, RangeB: Manifest] (
         functions: (Rep[Domain] => Rep[RangeA], Rep[Domain] => Rep[RangeB])
     ): Rep[Domain] => Rep[(RangeA, RangeB)] =
         (x: Rep[Domain]) => (functions._1 (x), functions._2 (x))
+    */
+
+    implicit def selectToGroupSelect[Select, Range] (
+        select: SELECT_CLAUSE_1[Select, Range]
+    ): GROUPED_SELECT_CLAUSE_1[Select, Range] =
+        throw new UnsupportedOperationException
 
 }

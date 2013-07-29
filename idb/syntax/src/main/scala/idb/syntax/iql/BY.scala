@@ -32,18 +32,36 @@
  */
 package idb.syntax.iql
 
-
 import idb.syntax.iql.IR._
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+object BY
 {
+    def apply[Domain: Manifest, Range: Manifest] (
+        grouping: Rep[Domain] => Rep[Range]
+    ) = grouping
 
-    def FROM[Domain <: Select : Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Range] with CAN_GROUP_CLAUSE_1[Domain, Domain, Range]
 
+    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Range]
+    ) = grouping
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
+        grouping: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Range]
+    ) = grouping
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
+        grouping: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Range]
+    ) = grouping
+
+
+    def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
+    Range: Manifest] (
+        grouping: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Range]
+    ) = grouping
 }

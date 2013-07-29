@@ -46,4 +46,5 @@ trait WHERE_CLAUSE_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 
     //def OR (predicateA: DomainA => Boolean): WHERE_CLAUSE_2[DomainA, DomainB, Range]
 
+
 }

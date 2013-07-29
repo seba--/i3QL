@@ -51,25 +51,25 @@ trait AGGREGATE_FUNCTION_FACTORY[Column, Range]
 
 
     def apply[DomainA: Manifest, DomainB: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
+        column: (Rep[DomainA], Rep[DomainB]) => Rep[Column]
     ): AGGREGATE_FUNCTION_2[DomainA, DomainB, Range] =
         null
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
+        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC]) => Rep[Column]
     ): AGGREGATE_FUNCTION_3[DomainA, DomainB, DomainC, Range] =
         null
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
+        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD]) => Rep[Column]
     ): AGGREGATE_FUNCTION_4[DomainA, DomainB, DomainC, DomainD, Range] =
         null
 
 
     def apply[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
-        projection: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
+        column: (Rep[DomainA], Rep[DomainB], Rep[DomainC], Rep[DomainD], Rep[DomainE]) => Rep[Column]
     ): AGGREGATE_FUNCTION_5[DomainA, DomainB, DomainC, DomainD, DomainE, Range] =
         null
 

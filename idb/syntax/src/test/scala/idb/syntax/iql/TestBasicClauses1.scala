@@ -36,7 +36,9 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.Test
+import org.junit.{Ignore, Test}
+
+import scala.language.implicitConversions
 
 /**
  *
@@ -84,7 +86,8 @@ class TestBasicClauses1
     @Test
     def testProject1TupleFun () {
         val query = plan (
-            SELECT (firstName, lastName) FROM students
+            //SELECT (firstName, lastName) FROM students // TODO maybe re-enable that in a later version
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students
         )
 
         assertEquals (
@@ -121,7 +124,10 @@ class TestBasicClauses1
     @Test
     def testSelection1ProjectTupleFun () {
         val query = plan (
-            SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
+            //SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE (
+                (s: Rep[Student]) => s.firstName == "Sally"
+                )
         )
 
         assertEquals (
@@ -140,7 +146,8 @@ class TestBasicClauses1
     @Test
     def testSelection1ProjectTupleDirect () {
         val query = plan (
-            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) => s
+                .firstName == "Sally")
         )
 
         assertEquals (
@@ -170,8 +177,9 @@ class TestBasicClauses1
         )
     }
 
+    @Ignore
     @Test
-    def testCountStar () {
+    def testAggregateCountStar () {
         val query = plan (
             SELECT (COUNT (*)) FROM students
         )
@@ -179,12 +187,39 @@ class TestBasicClauses1
 
     }
 
+    @Ignore
     @Test
-    def testSumCreditPoints () {
+    def testAggregateSumCreditPoints () {
         val query = plan (
             SELECT (SUM (creditPoints)) FROM courses
         )
 
 
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroup () {
+        //val stud : Rep[Query[Student]] = students
+
+        val query = plan (
+            selectToGroupSelect(SELECT ((s: Rep[String]) => s)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+        )
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroupCountStar () {
+        val query = plan (
+            SELECT (COUNT (*)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+        )
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroupCountStarWithGroup () {
+        val query = plan (
+            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+        )
     }
 }

@@ -46,7 +46,7 @@ trait AGGREGATE_SELECT_CLAUSE_STAR[Range]
 
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Range]
+    ): FROM_CLAUSE_1[Domain, Range] with CAN_GROUP_CLAUSE_1[Domain, Any, Domain]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (

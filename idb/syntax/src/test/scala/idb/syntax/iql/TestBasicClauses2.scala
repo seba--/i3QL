@@ -36,7 +36,7 @@ import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
-import org.junit.Test
+import org.junit.{Ignore, Test}
 
 /**
  *
@@ -248,7 +248,7 @@ class TestBasicClauses2
         )
     }
 
-
+    @Ignore
     @Test
     def testJoin2CountStar () {
         val query = plan (
@@ -258,6 +258,7 @@ class TestBasicClauses2
         )
     }
 
+    @Ignore
     @Test
     def testJoin2SumCreditPoints () {
         val query = plan (

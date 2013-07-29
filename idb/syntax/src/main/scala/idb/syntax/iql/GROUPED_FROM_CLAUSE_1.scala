@@ -32,18 +32,16 @@
  */
 package idb.syntax.iql
 
-
 import idb.syntax.iql.IR._
 
 /**
+ * The grouped from clause must end with a grouping.
+ * Otherwise the typing is incorrect.
  *
  * @author Ralf Mitschke
  */
-trait SELECT_CLAUSE_1[-Select, Range]
+trait GROUPED_FROM_CLAUSE_1[Domain, -GroupKey, Range]
+    extends CAN_GROUP_CLAUSE_1[Domain, GroupKey, Range]
 {
-
-    def FROM[Domain <: Select : Manifest] (
-        relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Range] with CAN_GROUP_CLAUSE_1[Domain, Domain, Range]
 
 }
