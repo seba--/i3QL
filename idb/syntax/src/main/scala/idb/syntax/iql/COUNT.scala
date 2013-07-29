@@ -32,6 +32,8 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR._
+
 /**
  *
  * @author Ralf Mitschke
@@ -39,5 +41,14 @@ package idb.syntax.iql
 case object COUNT
     extends AGGREGATE_FUNCTION_FACTORY[Int, Int]
 {
+
+    def added (v: Rep[Any], previousResult: Rep[Int]) =
+        previousResult + 1
+
+    def removed (v: Rep[Any], previousResult: Rep[Int]) =
+        previousResult - 1
+
+    def updated (oldV: Rep[Any], newV: Rep[Any], previousResult: Rep[Int]) =
+        previousResult
 
 }

@@ -11,15 +11,24 @@ case object SUM
     extends AGGREGATE_FUNCTION_FACTORY[Int, Int]
 {
 
-    /*
-    def added (v: Rep[Domain], previousResult: Rep[Int]) =
-        previousResult + toValue (v)
 
-    def removed (v: Rep[Domain], previousResult: Rep[Int]) =
-        previousResult - toValue (v)
+    def added[Domain] (v: Rep[Domain],
+        previousResult: Rep[Int],
+        column: Rep[Domain] => Rep[Int]
+    ) =
+        previousResult + column (v)
 
-    def updated (oldV: Rep[Domain], newV: Rep[Domain], previousResult: Rep[Int]) =
-        previousResult - toValue (oldV) + toValue (newV)
+    def removed[Domain] (v: Rep[Domain],
+        previousResult: Rep[Int],
+        column: Rep[Domain] => Rep[Int]
+    ) =
+        previousResult - column (v)
 
-    */
+    def updated[Domain] (oldV: Rep[Domain],
+        newV: Rep[Domain],
+        previousResult: Rep[Int],
+        column: Rep[Domain] => Rep[Int]
+    ) =
+        previousResult - column (oldV) + column (newV)
+
 }
