@@ -202,7 +202,7 @@ class TestBasicClauses1
     def testAggregateGroup () {
 
         val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM students GROUP BY ((_: Rep[Student]).lastName)
+            SELECT ((s: Rep[String]) => s) FROM students GROUP BY (_.lastName)
         )
 
     }
@@ -211,7 +211,7 @@ class TestBasicClauses1
     @Test
     def testAggregateGroupCountStar () {
         val query = plan (
-            SELECT (COUNT (*)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+            SELECT (COUNT (*)) FROM students GROUP BY (_.lastName)
         )
     }
 
@@ -219,7 +219,34 @@ class TestBasicClauses1
     @Test
     def testAggregateGroupCountStarWithGroup () {
         val query = plan (
-            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY (_.lastName)
+        )
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroupWithWhere () {
+
+        val query = plan (
+            SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (_.lastName)
+        )
+
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroupCountStarWithWhere () {
+        val query = plan (
+            SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (_.lastName)
+        )
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroupCountStarWithGroupWithWhere () {
+        val query = plan (
+            SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
+                _.lastName)
         )
     }
 }

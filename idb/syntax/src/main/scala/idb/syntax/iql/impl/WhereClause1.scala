@@ -32,8 +32,8 @@
  */
 package idb.syntax.iql.impl
 
-import idb.syntax.iql.IR._
 import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
@@ -47,6 +47,10 @@ case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     fromClause: FromClause1[Select, Domain, Range]
 )
     extends WHERE_CLAUSE_1[Select, Domain, Range]
+    with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
-
+    def GROUP (
+        grouping: (Rep[Domain]) => Rep[Select]
+    ): GROUP_BY_CLAUSE_1[Select, Domain, Range] =
+        throw new UnsupportedOperationException
 }

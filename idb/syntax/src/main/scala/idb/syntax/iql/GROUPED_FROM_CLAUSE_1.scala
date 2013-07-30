@@ -42,5 +42,8 @@ import idb.syntax.iql.IR._
  */
 trait GROUPED_FROM_CLAUSE_1[Select, Domain, Group, Range]
 {
+    def WHERE (
+        predicate: Rep[Domain] => Rep[Boolean]
+    ): CAN_GROUP_CLAUSE_1[Group, Domain, Range]
 
 }

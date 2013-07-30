@@ -41,6 +41,7 @@ package idb.syntax.iql
  */
 trait WHERE_CLAUSE_1[Select, Domain, Range]
     extends IQL_QUERY_1[Select, Domain, Range]
+    with CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
 
 }
