@@ -40,7 +40,7 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait GROUPED_FROM_CLAUSE_1[Domain, -GroupKey, Range]
+trait GROUPED_FROM_CLAUSE_1[Domain, GroupKey, Range]
     extends CAN_GROUP_CLAUSE_1[Domain, GroupKey, Range]
 {
 

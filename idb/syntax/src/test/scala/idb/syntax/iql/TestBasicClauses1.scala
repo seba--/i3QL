@@ -65,11 +65,11 @@ class TestBasicClauses1
     @Test
     def testProject1 () {
         val query = plan (
-            SELECT (firstName) FROM students
+            SELECT ((_: Rep[Student]).lastName) FROM students
         )
 
         assertEquals (
-            projection (extent (students), firstName),
+            projection (extent (students), (_: Rep[Student]).lastName),
             query
         )
 
@@ -200,11 +200,11 @@ class TestBasicClauses1
     @Ignore
     @Test
     def testAggregateGroup () {
-        /*
+
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM students GROUP BY ((_: Rep[Student]).lastName)
         )
-        */
+
     }
 
     @Ignore

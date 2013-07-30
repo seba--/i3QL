@@ -46,7 +46,7 @@ import idb.syntax.iql.IR._
  */
 trait GROUPED_SELECT_CLAUSE_1[GroupKey, Range]
 {
-
+    /*
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
     ): GROUPED_FROM_CLAUSE_1[Domain, GroupKey, Range]
@@ -54,5 +54,5 @@ trait GROUPED_SELECT_CLAUSE_1[GroupKey, Range]
     def FROM[Domain: Manifest] (
         extent: Extent[Domain]
     ): GROUPED_FROM_CLAUSE_1[Domain, GroupKey, Range]
-
+*/
 }

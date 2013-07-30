@@ -34,9 +34,13 @@ package idb.syntax.iql
 
 /**
  *
+ * The representation of a group by clause.
+ * The grouping function is checked on construction to conform to the types in the select clause.
+ * Hence, the query as a whole can be seen as having type Domain in the select clause.
+ *
  * @author Ralf Mitschke
  */
-trait GROUP_BY_CLAUSE_1[Domain, Range]
+trait GROUP_BY_CLAUSE_1[Select, Domain, Range]
     extends IQL_QUERY_1[Domain, Domain, Range]
 {
 

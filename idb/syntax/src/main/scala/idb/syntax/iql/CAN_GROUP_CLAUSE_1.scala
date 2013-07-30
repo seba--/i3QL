@@ -38,9 +38,10 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-trait CAN_GROUP_CLAUSE_1[Domain, -GroupRange, Range]
+// TODO we can skip recording the select type here
+trait CAN_GROUP_CLAUSE_1[Select, Domain, Range]
 {
     def GROUP(
-        grouping: Rep[Domain] => Rep[GroupRange]
-    ): GROUP_BY_CLAUSE_1[Domain, Range]
+        grouping: Rep[Domain] => Rep[Select]
+    ): GROUP_BY_CLAUSE_1[Select, Domain, Range]
 }
