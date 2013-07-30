@@ -4,6 +4,7 @@ import idb.syntax.iql.IR._
 import scala.language.implicitConversions
 import idb.syntax.iql.planning.ClauseToAlgebra
 import idb.syntax.iql.compilation.CompilerBinding
+import scala.reflect.SourceContext
 
 /**
  *
@@ -12,8 +13,19 @@ import idb.syntax.iql.compilation.CompilerBinding
  */
 package object iql
 {
+    // additional keywords. More are available via objects in the package
 
     val * : STAR_KEYWORD = impl.StarKeyword
+
+    def infix_AND(lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and(lhs,rhs)
+    def infix_OR(lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or(lhs,rhs)
+    //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strangely
+    def NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x)
+
+    //case class InfixAnd()
+
+
+    // implicit conversions
 
     implicit def extentToQuery[Domain] (ext: Extent[Domain])(
         implicit mDom: Manifest[Domain],

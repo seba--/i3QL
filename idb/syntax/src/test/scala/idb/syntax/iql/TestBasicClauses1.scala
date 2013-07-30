@@ -214,7 +214,7 @@ class TestBasicClauses1
         val query = plan (
             SELECT (
                 (firstName: Rep[String], lastName: Rep[String]) => firstName + " " + lastName
-            ) FROM students GROUP BY ((s:Rep[Student]) => (s.firstName, s.lastName))
+            ) FROM students GROUP BY ((s: Rep[Student]) => (s.firstName, s.lastName))
         )
 
     }
@@ -260,5 +260,39 @@ class TestBasicClauses1
             SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
                 _.lastName)
         )
+    }
+
+    @Ignore
+    @Test
+    def testExists () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND
+                    EXISTS (
+                        SELECT (*) FROM registrations WHERE ( (r: Rep[Registration]) =>
+                                s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    )
+                )
+        )
+
+    }
+
+
+    @Ignore
+    @Test
+    def testNotExists () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND
+                    NOT (s.firstName == "Sally") AND
+                    NOT (EXISTS (
+                        SELECT (*) FROM registrations WHERE ( (r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    ))
+                )
+        )
+
     }
 }
