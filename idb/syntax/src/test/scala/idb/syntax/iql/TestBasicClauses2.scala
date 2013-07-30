@@ -248,6 +248,23 @@ class TestBasicClauses2
         )
     }
 
+    @Test
+    def testDistinctExtents () {
+        val query = plan (
+            SELECT DISTINCT (*) FROM(students, registrations)
+        )
+
+        assertEquals (
+            duplicateElimination (
+                crossProduct (
+                    extent (students),
+                    extent (registrations)
+                )
+            ),
+            query
+        )
+    }
+
     @Ignore
     @Test
     def testJoin2CountStar () {
@@ -256,6 +273,18 @@ class TestBasicClauses2
                 s.matriculationNumber == r.studentMatriculationNumber
             })
         )
+    }
+
+    @Ignore
+    @Test
+    def testJoin2AggregateGroup1 () {
+
+        val query = plan (
+            SELECT ((s: Rep[String]) => s) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+                s.matriculationNumber == r.studentMatriculationNumber
+            }) GROUP BY( (s: Rep[Student], r: Rep[Registration]) => s.lastName)
+        )
+
     }
 
     @Ignore

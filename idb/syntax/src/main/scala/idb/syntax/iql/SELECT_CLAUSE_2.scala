@@ -41,9 +41,13 @@ import idb.syntax.iql.IR._
 trait SELECT_CLAUSE_2[SelectA, SelectB, Range]
 {
 
+    def FROM[Domain: Manifest] (
+        relation: Rep[Query[Domain]]
+    ): GROUPED_FROM_CLAUSE_1[(SelectA, SelectB), Domain, Range]
+
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
-
+        with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
 }

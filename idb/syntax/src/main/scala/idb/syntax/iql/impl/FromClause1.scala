@@ -26,7 +26,7 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
 
     def GROUP (
         grouping: (IR.Rep[Domain]) => IR.Rep[Select]
-    ): GROUP_BY_CLAUSE_1[Select, Domain, Range] =
+    ): GROUP_BY_CLAUSE_1[Domain, Range] =
         throw new UnsupportedOperationException
 
 }

@@ -51,6 +51,6 @@ case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
 {
     def GROUP (
         grouping: (Rep[Domain]) => Rep[Select]
-    ): GROUP_BY_CLAUSE_1[Select, Domain, Range] =
+    ): GROUP_BY_CLAUSE_1[Domain, Range] =
         throw new UnsupportedOperationException
 }

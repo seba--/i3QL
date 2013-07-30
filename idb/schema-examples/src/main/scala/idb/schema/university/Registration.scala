@@ -61,9 +61,14 @@ trait RegistrationSchema
             )
         )
 
-    def infix_courseNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "courseNumber")
+    case class RegistrationInfixOps (r: Rep[Registration])
+    {
+        def courseNumber: Rep[Int] = field[Int](r, "courseNumber")
 
-    def infix_studentMatriculationNumber (r: Rep[Registration]): Rep[Int] = field[Int](r, "studentMatriculationNumber")
+        def studentMatriculationNumber: Rep[Int] = field[Int](r, "studentMatriculationNumber")
 
-    def infix_comment (r: Rep[Registration]): Rep[String] = field[String](r, "comment")
+        def comment: Rep[String] = field[String](r, "comment")
+    }
+
+    implicit def registrationToInfixOps (r: Rep[Registration]) = RegistrationInfixOps (r)
 }

@@ -42,5 +42,5 @@ trait CAN_GROUP_CLAUSE_1[Group, Domain, Range]
 {
     def GROUP(
         grouping: Rep[Domain] => Rep[Group]
-    ): GROUP_BY_CLAUSE_1[Group, Domain, Range]
+    ): GROUP_BY_CLAUSE_1[Domain, Range]
 }

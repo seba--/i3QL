@@ -47,6 +47,12 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
-        FromClause1(relation, this)
+        FromClause1 (relation, this)
 
+
+    def FROM[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range] =
+        throw new UnsupportedOperationException
 }

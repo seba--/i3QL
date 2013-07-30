@@ -199,10 +199,22 @@ class TestBasicClauses1
 
     @Ignore
     @Test
-    def testAggregateGroup () {
+    def testAggregateGroup1 () {
 
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM students GROUP BY (_.lastName)
+        )
+
+    }
+
+    @Ignore
+    @Test
+    def testAggregateGroup2 () {
+
+        val query = plan (
+            SELECT (
+                (firstName: Rep[String], lastName: Rep[String]) => firstName + " " + lastName
+            ) FROM students GROUP BY ((s:Rep[Student]) => (s.firstName, s.lastName))
         )
 
     }

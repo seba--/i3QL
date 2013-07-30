@@ -43,6 +43,6 @@ trait GROUPED_SELECT_CLAUSE_1[Select, Group, Range]
 
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): GROUPED_FROM_CLAUSE_1[Select, Domain, Group, Range] with CAN_GROUP_CLAUSE_1[Group, Domain, Range]
+    ): GROUPED_FROM_CLAUSE_1[Group, Domain, Range]
 
 }

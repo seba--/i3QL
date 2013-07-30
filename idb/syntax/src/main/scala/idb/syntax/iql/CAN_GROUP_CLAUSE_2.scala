@@ -30,33 +30,17 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql.impl
+package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql._
 
 /**
  *
- * Author: Ralf Mitschke
- * Date: 03.08.12
- * Time: 20:08
- *
+ * @author Ralf Mitschke
  */
-case class FromClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-    relationA: Rep[Query[DomainA]],
-    relationB: Rep[Query[DomainB]],
-    selectClause: SelectClause2[SelectA, SelectB, Range]
-)
-    extends FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
-    with CAN_GROUP_CLAUSE_2[(SelectA, SelectB), DomainA, DomainB, Range]
+trait CAN_GROUP_CLAUSE_2[Group, DomainA, DomainB, Range]
 {
-    def WHERE (
-        predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]
-    ): WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range] =
-        WhereClause2 (predicate, this)
-
     def GROUP (
-        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[(SelectA, SelectB)]
-    ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range] =
-        throw new UnsupportedOperationException
+        grouping: (Rep[DomainA], Rep[DomainB]) => Rep[Group]
+    ): GROUP_BY_CLAUSE_2[DomainA, DomainB, Range]
 }

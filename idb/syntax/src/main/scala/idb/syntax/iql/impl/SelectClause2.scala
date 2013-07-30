@@ -45,6 +45,12 @@ case class SelectClause2[SelectA: Manifest, SelectB: Manifest, Range: Manifest] 
 )
     extends SELECT_CLAUSE_2[SelectA, SelectB, Range]
 {
+
+    def FROM[Domain: Manifest] (
+        relation: Rep[Query[Domain]]
+    ): GROUPED_FROM_CLAUSE_1[(SelectA, SelectB), Domain, Range] =
+        throw new UnsupportedOperationException
+
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]

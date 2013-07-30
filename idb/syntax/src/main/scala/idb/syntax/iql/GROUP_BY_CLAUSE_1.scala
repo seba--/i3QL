@@ -40,8 +40,7 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-// TODO we can skip recording the select type here
-trait GROUP_BY_CLAUSE_1[Select, Domain, Range]
+trait GROUP_BY_CLAUSE_1[Domain, Range]
     extends IQL_QUERY_1[Domain, Domain, Range]
 {
 
