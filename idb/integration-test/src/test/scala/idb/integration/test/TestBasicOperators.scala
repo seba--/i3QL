@@ -51,7 +51,7 @@ class TestBasicOperators
     @Test
     def testSelectFirstNameFromStudents () {
         val query = compile (
-            SELECT (firstName) FROM students
+            SELECT ((_:Rep[Student]).firstName) FROM students
         ).asMaterialized
 
         val john = new Student(11111, "John", "Doe")
@@ -71,7 +71,7 @@ class TestBasicOperators
 	@Test
 	def testSelectFirstNameLastNameFromStudents () {
 		val query = compile (
-			SELECT (firstName, lastName) FROM students
+			SELECT ((s:Rep[Student]) => (s.firstName, s.lastName)) FROM students
 		).asMaterialized
 
 		val john = Student(11111, "John", "Doe")
@@ -142,7 +142,7 @@ class TestBasicOperators
 	@Test
 	def testGetStudentMatriculationNumber () {
 		val query = compile(
-			SELECT (matriculationNumber) FROM students WHERE ((s: Rep[Student]) => {
+			SELECT ((_:Rep[Student]).matriculationNumber) FROM students WHERE ((s: Rep[Student]) => {
 				s.firstName == "John" && s.lastName == "Doe"
 			})).asMaterialized
 
