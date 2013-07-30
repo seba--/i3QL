@@ -42,13 +42,15 @@ import idb.syntax.iql._
  * Time: 20:08
  *
  */
-case class FromClause2[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
+case class FromClause2[SelectA: Manifest, SelectB: Manifest, DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
     relationA: Rep[Query[DomainA]],
     relationB: Rep[Query[DomainB]],
-    selectClause: SelectClause2[DomainA, DomainB, Range]
+    selectClause: SelectClause2[SelectA, SelectB, Range]
 )
-    extends FROM_CLAUSE_2[DomainA, DomainB, Range]
+    extends FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
 {
-    def WHERE (predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]): WHERE_CLAUSE_2[DomainA, DomainB, Range] =
+    def WHERE (
+        predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean]
+    ): WHERE_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range] =
         WhereClause2 (predicate, this)
 }

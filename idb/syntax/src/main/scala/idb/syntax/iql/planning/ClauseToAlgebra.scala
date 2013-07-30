@@ -52,8 +52,8 @@ object ClauseToAlgebra
 
     import IR._
 
-    def apply[Domain: Manifest, Range: Manifest] (
-        query: IQL_QUERY_1[Domain, Range]
+    def apply[Select: Manifest, Domain <: Select: Manifest, Range: Manifest] (
+        query: IQL_QUERY_1[Select, Domain, Range]
     ): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation, select@SelectClause1 (_, _)) =>
@@ -63,8 +63,8 @@ object ClauseToAlgebra
                 transform (select, transform (where, relation))
         }
 
-    def apply[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        query: IQL_QUERY_2[DomainA, DomainB, Range]
+    def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA: Manifest, DomainB <: SelectB: Manifest, Range: Manifest] (
+        query: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
     ): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA, relationB, select@SelectClause2 (_, _)) =>
@@ -79,7 +79,7 @@ object ClauseToAlgebra
         query: IQL_QUERY_3[DomainA, DomainB, DomainC, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause3 (relationA, relationB, relationC, select@SelectClause3 (_,_)) =>
+            case FromClause3 (relationA, relationB, relationC, select@SelectClause3 (_, _)) =>
                 transform (select, crossProduct (relationA, relationB, relationC))
 
             case where@WhereClause3 (_, FromClause3 (relationA, relationB, relationC, select@SelectClause3 (_, _))) => {

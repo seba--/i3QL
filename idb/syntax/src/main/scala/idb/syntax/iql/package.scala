@@ -3,7 +3,6 @@ package idb.syntax
 import idb.syntax.iql.IR._
 import scala.language.implicitConversions
 import idb.syntax.iql.planning.ClauseToAlgebra
-import idb.syntax.iql.compilation.CompilerBinding
 
 /**
  *
@@ -20,13 +19,27 @@ package object iql
         mExt: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] = extent (ext)
 
-    implicit def plan[Domain: Manifest, Range: Manifest] (
-        clause: IQL_QUERY_1[Domain, Range]
+    /*
+        implicit def plan[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
+            clause: FROM_CLAUSE_1[Select, Domain, Range]
+        ): Rep[Query[Range]] =
+            ClauseToAlgebra (clause)
+
+        implicit def plan[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB,
+        Range: Manifest] (
+            clause: FROM_CLAUSE_2[SelectA, SelectB, DomainA, DomainB, Range]
+        ): Rep[Query[Range]] =
+            ClauseToAlgebra (clause)
+    */
+
+    implicit def plan[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
+        clause: IQL_QUERY_1[Select, Domain, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
-    implicit def plan[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        clause: IQL_QUERY_2[DomainA, DomainB, Range]
+    implicit def plan[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest,
+    DomainB <: SelectB : Manifest, Range: Manifest] (
+        clause: IQL_QUERY_2[SelectA, SelectB, DomainA, DomainB, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -46,13 +59,15 @@ package object iql
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
-    implicit def compile[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY_1[Domain, Range]): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+    /*
+        implicit def compile[Domain: Manifest, Range: Manifest] (clause: IQL_QUERY_1[Domain, Range]): Relation[Range] =
+            CompilerBinding.compile (plan (clause))
 
-    implicit def compile[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (clause: IQL_QUERY_2[DomainA,
-        DomainB, Range]
-    ): Relation[Range] =
-        CompilerBinding.compile (plan (clause))
+        implicit def compile[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (clause: IQL_QUERY_2[DomainA,
+            DomainB, Range]
+        ): Relation[Range] =
+            CompilerBinding.compile (plan (clause))
+    */
 
     /*
     implicit def funTuple2AsFun[Domain: Manifest, RangeA: Manifest, RangeB: Manifest] (
@@ -60,10 +75,5 @@ package object iql
     ): Rep[Domain] => Rep[(RangeA, RangeB)] =
         (x: Rep[Domain]) => (functions._1 (x), functions._2 (x))
     */
-
-    implicit def selectToGroupSelect[Select, Range] (
-        select: SELECT_CLAUSE_1[Select, Range]
-    ): GROUPED_SELECT_CLAUSE_1[Select, Range] =
-        throw new UnsupportedOperationException
 
 }

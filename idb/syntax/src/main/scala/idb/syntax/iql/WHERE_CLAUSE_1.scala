@@ -39,8 +39,8 @@ package idb.syntax.iql
  *
  * @author Ralf Mitschke
  */
-trait WHERE_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+trait WHERE_CLAUSE_1[Select, Domain, Range]
+    extends IQL_QUERY_1[Select, Domain, Range]
 {
 
 }

@@ -200,11 +200,11 @@ class TestBasicClauses1
     @Ignore
     @Test
     def testAggregateGroup () {
-        //val stud : Rep[Query[Student]] = students
-
+        /*
         val query = plan (
-            selectToGroupSelect(SELECT ((s: Rep[String]) => s)) FROM students GROUP BY ((_: Rep[Student]).lastName)
+            SELECT ((s: Rep[String]) => s) FROM students GROUP BY ((_: Rep[Student]).lastName)
         )
+        */
     }
 
     @Ignore

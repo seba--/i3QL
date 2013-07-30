@@ -43,13 +43,13 @@ trait SELECT_CLAUSE_STAR
 
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain]
+    ): FROM_CLAUSE_1[Domain, Domain, Domain]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)]
+    ): FROM_CLAUSE_2[DomainA, DomainB, DomainA, DomainB, (DomainA, DomainB)]
 
 
     def FROM[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest] (

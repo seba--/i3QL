@@ -37,7 +37,7 @@ package idb.syntax.iql
  * @author Ralf Mitschke
  */
 trait GROUP_BY_CLAUSE_1[Domain, Range]
-    extends IQL_QUERY_1[Domain, Range]
+    extends IQL_QUERY_1[Domain, Domain, Range]
 {
 
 }

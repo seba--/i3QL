@@ -54,8 +54,8 @@ trait PlanSelectClause
     import IR.projection
     import IR.duplicateElimination
 
-    def transform[Domain: Manifest, Range: Manifest] (
-        clause: SelectClause1[Domain, Range],
+    def transform[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
+        clause: SelectClause1[Select, Range],
         relation: Rep[Query[Domain]]
     ): Rep[Query[Range]] =
         if (!clause.asDistinct) {
@@ -67,8 +67,9 @@ trait PlanSelectClause
         }
 
 
-    def transform[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
-        clause: SelectClause2[DomainA, DomainB, Range],
+    def transform[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest, DomainB <: SelectB : Manifest,
+    Range: Manifest] (
+        clause: SelectClause2[SelectA, SelectB, Range],
         relation: Rep[Query[(DomainA, DomainB)]]
     ): Rep[Query[Range]] =
         if (!clause.asDistinct) {

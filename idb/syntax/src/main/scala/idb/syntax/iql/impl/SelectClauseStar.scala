@@ -40,12 +40,12 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-case class SelectClauseStar(asDistinct:Boolean = false)
+case class SelectClauseStar (asDistinct: Boolean = false)
     extends SELECT_CLAUSE_STAR
 {
     def FROM[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): FROM_CLAUSE_1[Domain, Domain] =
+    ): FROM_CLAUSE_1[Domain, Domain, Domain] =
         FromClause1 (
             relation,
             SelectClause1 (
@@ -57,7 +57,7 @@ case class SelectClauseStar(asDistinct:Boolean = false)
     def FROM[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): FROM_CLAUSE_2[DomainA, DomainB, (DomainA, DomainB)] =
+    ): FROM_CLAUSE_2[DomainA, DomainB, DomainA, DomainB, (DomainA, DomainB)] =
         FromClause2 (
             relationA,
             relationB,
@@ -113,7 +113,12 @@ case class SelectClauseStar(asDistinct:Boolean = false)
             relationD,
             relationE,
             SelectClause5 (
-                (a: Rep[DomainA], b: Rep[DomainB], c: Rep[DomainC], d: Rep[DomainD], e: Rep[DomainE]) => (a, b, c, d, e),
+                (a: Rep[DomainA],
+                b: Rep[DomainB],
+                c: Rep[DomainC],
+                d: Rep[DomainD],
+                e: Rep[DomainE]
+                ) => (a, b, c, d, e),
                 asDistinct
             )
         )
