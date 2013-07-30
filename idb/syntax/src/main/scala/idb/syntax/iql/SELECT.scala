@@ -187,10 +187,10 @@ object SELECT
         throw new UnsupportedOperationException ()
 
 
-    def apply[GroupKey: Manifest, GroupRange: Manifest, Range: Manifest] (
-        groupColumns: Rep[GroupKey] => Rep[GroupRange],
+    def apply[Group: Manifest, GroupRange: Manifest, Range: Manifest] (
+        groupColumns: Rep[Group] => Rep[GroupRange],
         function: AGGREGATE_FUNCTION_STAR[Range]
-    ): AGGREGATE_SELECT_CLAUSE_STAR[Range] =
+    ): AGGREGATE_GROUPED_SELECT_CLAUSE_STAR[Group, (GroupRange, Range)] =
         throw new UnsupportedOperationException ()
 
 }

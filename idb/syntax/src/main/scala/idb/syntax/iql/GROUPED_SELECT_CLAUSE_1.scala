@@ -35,24 +35,14 @@ package idb.syntax.iql
 import idb.syntax.iql.IR._
 
 /**
- * A SELECT clause is converted implicitly to a grouped SELECT clause if the projection function takes arguments not
- * conforming to the supplied relations. In this case the relations can still be grouped,
- * such that the whole expression is well typed.
- * Note that the receiver is implicitly converted, e.g., the expression "SELECT ((s:Rep[String]) => s)".
- * This means that the parameters to FROM must be explicitly typed as extents, queries and compiled queries,
- * since the scala compiler can only apply one implicit conversion to make the whole expression well typed.
- *
+ * A SELECT clause is a grouped SELECT clause if there is an aggregation and a projection function.
  * @author Ralf Mitschke
  */
-trait GROUPED_SELECT_CLAUSE_1[GroupKey, Range]
+trait GROUPED_SELECT_CLAUSE_1[Select, Group, Range]
 {
-    /*
-    def FROM[Domain: Manifest] (
-        relation: Rep[Query[Domain]]
-    ): GROUPED_FROM_CLAUSE_1[Domain, GroupKey, Range]
 
     def FROM[Domain: Manifest] (
-        extent: Extent[Domain]
-    ): GROUPED_FROM_CLAUSE_1[Domain, GroupKey, Range]
-*/
+        relation: Rep[Query[Domain]]
+    ): GROUPED_FROM_CLAUSE_1[Select, Domain, Group, Range] with CAN_GROUP_CLAUSE_1[Group, Domain, Range]
+
 }

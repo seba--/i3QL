@@ -23,9 +23,12 @@ trait StudentSchema
             Map ("matriculationNumber" -> matriculationNumber, "firstName" -> firstName, "lastName" -> lastName)
         )
 
-    def infix_matriculationNumber (s: Rep[Student]): Rep[Int] = field[Int](s, "matriculationNumber")
+    case class StudentInfixOp (s: Rep[Student])
+    {
 
-    def matriculationNumber = infix_matriculationNumber _
+        def matriculationNumber: Rep[Int] = field[Int](s, "matriculationNumber")
 
+    }
 
+    implicit def studentToInfixOp (s: Rep[Student]) = StudentInfixOp (s)
 }

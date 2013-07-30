@@ -53,12 +53,6 @@ trait PersonSchema
 
     import IR._
 
-    /*
-    def infix_firstName (p: Rep[Person]): Rep[String] = field[String](p, "firstName")
-
-    def infix_lastName (p: Rep[Person]): Rep[String] = field[String](p, "lastName")
-*/
-
     case class PersonInfixOp (p: Rep[Person])
     {
 
@@ -67,12 +61,6 @@ trait PersonSchema
         def lastName: Rep[String] = field[String](p, "lastName")
 
     }
-
-    /*
-    def firstName = infix_firstName _
-
-    def lastName = infix_lastName _
-    */
 
     implicit def personToInfixOp (p: Rep[Person]) = PersonInfixOp (p)
 }
