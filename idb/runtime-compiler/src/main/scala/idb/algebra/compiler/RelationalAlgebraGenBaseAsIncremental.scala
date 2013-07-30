@@ -48,8 +48,8 @@ trait RelationalAlgebraGenBaseAsIncremental
 
     def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] =
         query match {
-            case QueryRelation (relation, _, _) => relation
-            case QueryExtent (extent, _, _) => extent
+            case QueryRelation (relation, _, _, _) => relation
+            case QueryExtent (extent, _, _, _) => extent
         }
 
 }

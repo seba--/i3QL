@@ -47,6 +47,15 @@ import idb.syntax.iql.IR._
  */
 class TestBasicOperators
 {
+	@Test
+	def testMaterialize () {
+		val query = projection(students, (s : Student) => s)
+
+		query match {
+			case Def (r) => r.asInstanceOf[QueryBaseOps].isMaterialized
+			case _ => Predef.println("Oh oh!")
+		}
+	}
 
     @Test
     def testSelectFirstNameFromStudents () {

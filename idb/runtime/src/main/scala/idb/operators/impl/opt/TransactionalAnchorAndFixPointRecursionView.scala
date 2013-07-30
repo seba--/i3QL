@@ -182,7 +182,7 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
 
 
     def foreach[T](f: (Range) => T) {
-        /* do nothing, since this is a transactional view */
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     /**

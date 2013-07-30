@@ -79,7 +79,7 @@ class TransactionalDifferenceView[Domain](val left: Relation[Domain],
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Domain) => T) {
-        val leftDiffRight: HashMultiset[Domain] = HashMultiset.create[Domain]()
+      /*  val leftDiffRight: HashMultiset[Domain] = HashMultiset.create[Domain]()
         val rightDiffLeft: HashMultiset[Domain] = HashMultiset.create[Domain]()
         val intersection: HashMultiset[Domain] = HashMultiset.create[Domain]()
         left.foreach (v => {
@@ -94,7 +94,8 @@ class TransactionalDifferenceView[Domain](val left: Relation[Domain],
         while (it.hasNext) {
             val v = it.next ()
             f (v)
-        }
+        }   */
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     def doDifferenceAndCleanUp() {

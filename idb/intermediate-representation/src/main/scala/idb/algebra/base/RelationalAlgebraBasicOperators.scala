@@ -115,6 +115,10 @@ trait RelationalAlgebraBasicOperators
 		result : Rep[Query[Domain]]
 	): Rep[Query[Domain]]
 
+	def materialize[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+    ): Rep[Query[Domain]]
+
 
 
 }

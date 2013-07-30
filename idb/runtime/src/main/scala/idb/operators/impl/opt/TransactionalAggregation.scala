@@ -25,38 +25,37 @@ import scala.collection.JavaConverters._
  * @author Ralf Mitschke
  */
 class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
-                                                                    val groupingFunction: Domain => Key,
-                                                                    val aggregateFunctionFactory: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunction[Domain, AggregateValue]],
-                                                                    val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-																	override val isSet : Boolean)
-    extends Aggregation[Domain, Key, AggregateValue, Result, AggregateFunction[Domain, AggregateValue], AggregateFunctionFactory[Domain, AggregateValue, AggregateFunction[Domain, AggregateValue]]]
-    with Observer[Domain]
-	with NotifyObservers[Result]
-{
+																	val groupingFunction: Domain => Key,
+																	val aggregateFunctionFactory: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunction[Domain, AggregateValue]],
+																	val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+																	override val isSet: Boolean)
+	extends Aggregation[Domain, Key, AggregateValue, Result, AggregateFunction[Domain, AggregateValue], AggregateFunctionFactory[Domain, AggregateValue, AggregateFunction[Domain, AggregateValue]]]
+	with Observer[Domain]
+	with NotifyObservers[Result] {
 
 	type Aggregate = AggregateFunction[Domain, AggregateValue]
 
-    source.addObserver (this)
+	source.addObserver(this)
 
-    var additionsMap : HashMultimap[Key,Domain] = HashMultimap.create[Key,Domain]()
-	var deletionsMap : HashMultimap[Key,Domain] = HashMultimap.create[Key,Domain]()
+	var additionsMap: HashMultimap[Key, Domain] = HashMultimap.create[Key, Domain]()
+	var deletionsMap: HashMultimap[Key, Domain] = HashMultimap.create[Key, Domain]()
 
-	var functionMap : mutable.HashMap[Key,Aggregate] = mutable.HashMap.empty[Key,Aggregate]
+	var functionMap: mutable.HashMap[Key, Aggregate] = mutable.HashMap.empty[Key, Aggregate]
 
 
-	private def getFunctionForKey(key : Key) : (Aggregate, Boolean) = {
+	private def getFunctionForKey(key: Key): (Aggregate, Boolean) = {
 		functionMap.get(key) match {
 			case Some(f) => (f, true)
 			case None => {
 				val f = aggregateFunctionFactory.apply()
-				functionMap.put(key,f)
+				functionMap.put(key, f)
 				(f, false)
 			}
 		}
 	}
 
 
-    override def endTransaction() {
+	override def endTransaction() {
 
 		//Update additions
 		val keyAddIt = additionsMap.keys().iterator()
@@ -67,15 +66,15 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			val oldV = aggregateFunction.get
 
 			for (dom <- setAsScala) {
-				aggregateFunction.add(dom,setAsScala)
+				aggregateFunction.add(dom, setAsScala)
 			}
 
 			val newV = aggregateFunction.get
 
-			if(functionExisted)
-				notify_updated(convertKeyAndAggregateValueToResult(key,oldV),convertKeyAndAggregateValueToResult(key,newV))
+			if (functionExisted)
+				notify_updated(convertKeyAndAggregateValueToResult(key, oldV), convertKeyAndAggregateValueToResult(key, newV))
 			else
-				notify_added(convertKeyAndAggregateValueToResult(key,newV))
+				notify_added(convertKeyAndAggregateValueToResult(key, newV))
 		}
 
 		//Update deletions
@@ -87,62 +86,62 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 			val oldV = aggregateFunction.get
 
 			for (dom <- setAsScala) {
-				aggregateFunction.remove(dom,setAsScala)
+				aggregateFunction.remove(dom, setAsScala)
 			}
 
 			val newV = aggregateFunction.get
 
-			if(functionExisted)
-				notify_updated(convertKeyAndAggregateValueToResult(key,oldV),convertKeyAndAggregateValueToResult(key,newV))
+			if (functionExisted)
+				notify_updated(convertKeyAndAggregateValueToResult(key, oldV), convertKeyAndAggregateValueToResult(key, newV))
 			else
-				notify_removed(convertKeyAndAggregateValueToResult(key,newV))
+				notify_removed(convertKeyAndAggregateValueToResult(key, newV))
 		}
 
-        notify_endTransaction()
-    }
+		notify_endTransaction()
+	}
 
-    override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
-            return List (this)
-        }
-        Nil
-    }
+	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+		if (o == source) {
+			return List(this)
+		}
+		Nil
+	}
 
-    /**
-     *
-     */
-    def lazyInitialize() {
-      /*  source.foreach ((v: Domain) => {
-            internal_added (v, notify = false)
-        })   */
-    }
+	/**
+	 *
+	 */
+	def lazyInitialize() {
+		/*  source.foreach ((v: Domain) => {
+				internal_added (v, notify = false)
+			})   */
+	}
 
-    /**
-     *
-     */
-     def foreach[T](f: (Result) => T) {
-	   //TODO implement foreach
-    }
+	/**
+	 *
+	 */
+	def foreach[T](f: (Result) => T) {
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
+	}
 
 
-    /**
-     *
-     */
-    def updated(oldV: Domain, newV: Domain) {
+	/**
+	 *
+	 */
+	def updated(oldV: Domain, newV: Domain) {
 		removed(oldV)
 		added(newV)
-    }
+	}
 
-    /**
-     *
-     */
-    def removed(v: Domain) {
-		deletionsMap.put(groupingFunction(v),v)
-    }
+	/**
+	 *
+	 */
+	def removed(v: Domain) {
+		deletionsMap.put(groupingFunction(v), v)
+	}
 
-    def added(v: Domain) {
-		additionsMap.put(groupingFunction(v),v)
-    }
+	def added(v: Domain) {
+		additionsMap.put(groupingFunction(v), v)
+	}
 
 	/*
     private def internal_added(v: Domain, notify: Boolean) {
@@ -173,6 +172,60 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
     }        */
 
 }
+
+object TransactionalAggregation {
+
+	def apply[Domain, Key, AggregateValue, Result](
+													  source: Relation[Domain],
+													  grouping: Domain => Key,
+													  added: Domain => AggregateValue,
+													  removed: Domain => AggregateValue,
+													  updated: ((Domain, Domain)) => AggregateValue,
+													  convert: ((Key, AggregateValue)) => Result,
+													  isSet: Boolean
+													  ): Relation[Result] = {
+		val factory =
+			new SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue] {
+				override def apply(): SelfMaintainableAggregateFunction[Domain, AggregateValue] = {
+					new SelfMaintainableAggregateFunction[Domain, AggregateValue] {
+						private var aggregate: Option[AggregateValue] = None
+
+						def add(newD: Domain): AggregateValue = {
+							val a = added(newD)
+							aggregate = Some(a)
+							a
+						}
+
+
+						def remove(newD: Domain): AggregateValue = {
+							val a = removed(newD)
+							aggregate = Some(a)
+							a
+						}
+
+
+						def update(oldD: Domain, newD: Domain): AggregateValue = {
+							val a = updated((oldD, newD))
+							aggregate = Some(a)
+							a
+						}
+
+						def get: AggregateValue = {
+							aggregate match {
+								case Some(a) => a
+								//TODO Make this better.
+								case None => throw new IllegalArgumentException("Aggregation value is not initialized.")
+							}
+						}
+					}
+				}
+			}
+
+		return new TransactionalAggregation[Domain, Key, AggregateValue, Result](source, grouping, factory.asInstanceOf[AggregateFunctionFactory[Domain,AggregateValue,AggregateFunction[Domain,AggregateValue]]], (x, y) => convert((x, y)), isSet)
+
+	}
+}
+
 
 
 

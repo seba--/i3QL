@@ -49,30 +49,39 @@ trait RelationalAlgebraIRBase
 {
     type Query[Domain] = QueryBase[Domain]
 
-    abstract class QueryBase[Domain: Manifest]
-    {
-        def isSet: Boolean
+	trait QueryBaseOps {
 
-        def isIncrementLocal: Boolean
+		def isSet: Boolean
 
-        // TODO add isMaterialized as property of the query result
-    }
+		def isIncrementLocal: Boolean
+
+		/**
+		 * A query is materialized, if the elements of the underlying relation are stored and can be accessed by foreach.
+		 * @return True, if the query is materialized.
+		 */
+		def isMaterialized: Boolean
+	}
+
+    abstract class QueryBase[Domain: Manifest] extends QueryBaseOps
+
 
     case class QueryExtent[Domain] (
         extent: Extent[Domain],
         isSet: Boolean = false,
-        isIncrementLocal: Boolean = false
+        isIncrementLocal: Boolean = false,
+		isMaterialized: Boolean = false
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
-        extends Exp[Query[Domain]]
+        extends Exp[Query[Domain]] with QueryBaseOps
 
     case class QueryRelation[Domain] (
         extent: Relation[Domain],
         isSet: Boolean = false,
-        isIncrementLocal: Boolean = false
+        isIncrementLocal: Boolean = false,
+		isMaterialized: Boolean = false
     )
            (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
-        extends Exp[Query[Domain]]
+        extends Exp[Query[Domain]] with QueryBaseOps
 
 
     protected def isIncrementLocal[Domain](m: Manifest[Domain]) = {

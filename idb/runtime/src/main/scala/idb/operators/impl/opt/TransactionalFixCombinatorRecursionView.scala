@@ -243,6 +243,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
     def foreach[T](f: (Range) => T) {
         /* do nothing, since this is a transactional view */
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     var anchorsTransactionEnded = false

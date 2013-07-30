@@ -43,90 +43,136 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
 trait RelationalAlgebraIRBasicOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
 {
-
-    case class Projection[Domain, Range] (
+    case class Projection[Domain : Manifest, Range : Manifest] (
         var relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )(implicit val mDom: Manifest[Domain], val mRan: Manifest[Range]) extends Def[Query[Range]]
-    {
+    ) extends Def[Query[Range]] with QueryBaseOps {
+		val mDom = implicitly[Manifest[Domain]]
+		val mRan = implicitly[Manifest[Domain]]
 
+		def isMaterialized: Boolean = relation.isMaterialized
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class Selection[Domain: Manifest] (
         var relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ) extends Def[Query[Domain]]
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = relation.isMaterialized
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[(DomainA, DomainB)]]
+    ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps
     {
         val mDomA = implicitly[Manifest[DomainA]]
         val mDomB = implicitly[Manifest[DomainB]]
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]],
         equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ) extends Def[Query[(DomainA, DomainB)]]
+    ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps {
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class UnionAdd[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[Range]]
-    {
+    ) extends Def[Query[Range]] with QueryBaseOps {
         val mDomA = implicitly[Manifest[DomainA]]
         val mDomB = implicitly[Manifest[DomainB]]
         val mRan = implicitly[Manifest[Range]]
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class UnionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[Range]]
-    {
+    ) extends Def[Query[Range]] with QueryBaseOps {
         val mDomA = implicitly[Manifest[DomainA]]
         val mDomB = implicitly[Manifest[DomainB]]
         val mRan = implicitly[Manifest[Range]]
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class Intersection[Domain: Manifest] (
         var relationA: Rep[Query[Domain]],
         var relationB: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]]
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class Difference[Domain: Manifest] (
         var relationA: Rep[Query[Domain]],
         var relationB: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]]
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+
+		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class DuplicateElimination[Domain: Manifest] (
         var relation: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]]
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+
+		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class TransitiveClosure[Edge: Manifest, Vertex: Manifest] (
         var relation: Rep[Query[Edge]],
         tail: Rep[Edge => Vertex],
         head: Rep[Edge => Vertex]
-    ) extends Def[Query[(Vertex, Vertex)]]
-    {
+    ) extends Def[Query[(Vertex, Vertex)]] with QueryBaseOps {
         val mEdge = implicitly[Manifest[Edge]]
         val mVertex = implicitly[Manifest[Vertex]]
+
+		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
         var relation: Rep[Query[Domain]],
         unnesting: Rep[Domain => Seq[Range]]
-    ) extends Def[Query[Range]]
+    ) extends Def[Query[Range]] with QueryBaseOps {
+
+		def isMaterialized: Boolean = relation.isMaterialized
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     case class Recursion[Domain: Manifest] (
         var base: Rep[Query[Domain]],
         var result: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]]
-    {
-
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = result.isMaterialized
+		def isSet = false
+		def isIncrementLocal = false
     }
 
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
@@ -136,7 +182,19 @@ trait RelationalAlgebraIRBasicOperators
         removed: Rep[Domain => AggregateValue],
         updated: Rep[((Domain, Domain)) => AggregateValue],
         convert: Rep[((Key, AggregateValue)) => Result]
-    ) extends Def[Query[Result]]
+    ) extends Def[Query[Result]] with QueryBaseOps {
+		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
+		def isSet = false
+		def isIncrementLocal = false
+	}
+
+	case class Materialize[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = true
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
@@ -223,6 +281,11 @@ trait RelationalAlgebraIRBasicOperators
     ): Rep[Query[Result]] =
         AggregationSelfMaintained (relation, grouping, added, removed, updated, convert)
 
+	def materialize[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		Materialize(relation)
+
     /**
      * Searches the recursion base in a operator tree and inserts a recursion node next-to-last to the recursion base.
      * @param base The base of the recursion.
@@ -236,15 +299,15 @@ trait RelationalAlgebraIRBasicOperators
         result: Rep[Query[_]],
         setFunction: (Rep[Query[Domain]]) => Unit
     ) {
-        relation match
+		relation match
         {
             case `base` =>
             {
                 setFunction (Recursion (relation, result.asInstanceOf[Rep[Query[Domain]]]))
             }
-            case QueryRelation (r, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryRelation (r, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
-            case QueryExtent (e, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryExtent (e, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
             case Def (e@Projection (r, _)) =>
@@ -328,4 +391,15 @@ trait RelationalAlgebraIRBasicOperators
                 case e: IllegalArgumentException => insertRecursionAtBase (relationB, base, result, setFunctionB)
             }
     }
+
+	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
+		r match {
+			case e : QueryBaseOps => e
+			case Def (r) => r.asInstanceOf[QueryBaseOps]
+		}
+	}
+
+
 }
+
+

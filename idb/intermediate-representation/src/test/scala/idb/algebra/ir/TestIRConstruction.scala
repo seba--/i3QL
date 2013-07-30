@@ -83,7 +83,7 @@ class TestIRConstruction
         val e = emptyRelation[Data]()
 
         assertEquals (
-            QueryExtent (scala.List.empty[Data], isSet = false, isIncrementLocal = true),
+            QueryExtent (scala.List.empty[Data], isSet = false, isIncrementLocal = true, isMaterialized = false),
             e
         )
     }

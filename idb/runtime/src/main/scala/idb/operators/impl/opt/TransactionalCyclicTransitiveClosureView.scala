@@ -142,12 +142,13 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex] (val source: Relati
     }
 
     def foreach[T] (f: ((Vertex, Vertex)) => T) {
-        for ((start, descendants) <- transitiveClosure)
+        /*for ((start, descendants) <- transitiveClosure)
         {
             for (end <- descendants) {
                 f (start, end)
             }
-        }
+        }*/
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     def foreachWithCount[T] (f: ((Vertex, Vertex), Int) => T) {
