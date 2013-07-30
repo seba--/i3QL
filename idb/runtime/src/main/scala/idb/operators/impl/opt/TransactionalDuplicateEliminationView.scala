@@ -76,10 +76,11 @@ class TransactionalDuplicateEliminationView[Domain](val relation: Relation[Domai
     }
 
     def foreach[U](f: Domain => U) {
-        val it = data.elementSet ().iterator ()
+       /* val it = data.elementSet ().iterator ()
         while (it.hasNext) {
             f (it.next ())
-        }
+        }*/
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     def foreachWithCount[T](f: (Domain, Int) => T) {

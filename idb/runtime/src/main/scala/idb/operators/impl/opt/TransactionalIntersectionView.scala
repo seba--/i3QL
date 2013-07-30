@@ -108,7 +108,7 @@ class TransactionalIntersectionView[Domain](val left: Relation[Domain],
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Domain) => T) {
-        //TODO implement foreach
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
     }
 
     object LeftObserver extends TransactionElementObserver[Domain]

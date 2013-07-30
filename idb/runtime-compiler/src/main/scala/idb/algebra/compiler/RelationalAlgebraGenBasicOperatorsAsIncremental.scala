@@ -35,8 +35,11 @@ package idb.algebra.compiler
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.CompileScalaExt
 import idb.operators.impl._
-import scala.virtualization.lms.common.{TupledFunctionsExp, FunctionsExp, ScalaGenEffect}
-import idb.operators.impl.opt.TransactionalCyclicTransitiveClosureView
+import idb.operators.impl.opt._
+import scala.virtualization.lms.common.ScalaGenEffect
+import scala.virtualization.lms.common.FunctionsExp
+import scala.virtualization.lms.common.FunctionsExp
+import idb.MaterializedView
 
 /**
  *
@@ -61,7 +64,8 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
             case Def (Projection (r, f)) => {
                 new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
-            case Def (CrossProduct (a, b)) => {
+            case Def (e@CrossProduct (a, b)) => {
+
 				var compA = compile (a)
 				var compB = compile (b)
 
@@ -75,27 +79,46 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 
                 CrossProductView (compA, compB, false).asInstanceOf[Relation[Domain]]
             }
-            case Def (EquiJoin (a, b, eq)) => {
-                EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-                    eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
+            case Def (e@EquiJoin (a, b, eq)) => {
+				if (e.isIncrementLocal)
+					TransactionalEquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
+						eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
+				else
+                	EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
+                    	eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
             }
 			case Def (e@UnionAdd (a, b)) => {
 				new UnionViewAdd (compile (a) (e.mDomA), compile (b) (e.mDomB), false)
 			}
 			case Def (e@UnionMax (a, b)) => {
-				new UnionViewMax (compile (a) (e.mDomA).asMaterialized, compile (b) (e.mDomB).asMaterialized, false)
+				if(e.isIncrementLocal)
+					new TransactionalUnionMaxView(compile (a) (e.mDomA), compile (b) (e.mDomB), false)
+				else
+					new UnionViewMax (compile (a) (e.mDomA).asInstanceOf[MaterializedView[Domain]], compile (b) (e.mDomB).asInstanceOf[MaterializedView[Domain]], false)
 			}
-			case Def (Intersection (a, b)) => {
-				IntersectionView (compile (a), compile (b), false)
+			case Def (e@Intersection (a, b)) => {
+				if (e.isIncrementLocal)
+					new TransactionalIntersectionView (compile (a), compile (b), false)
+				else
+					new IntersectionView (compile (a).asInstanceOf[MaterializedView[Domain]], compile (b).asInstanceOf[MaterializedView[Domain]], false)
 			}
-			case Def (Difference (a, b)) => {
-				new DifferenceView (compile (a), compile (b), false)
+			case Def (e@Difference (a, b)) => {
+				if (e.isIncrementLocal)
+					new TransactionalDifferenceView (compile (a), compile (b), false)
+				else
+					new DifferenceView (compile (a), compile (b), false)
 			}
-			case Def (DuplicateElimination (a)) => {
-				new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
+			case Def (e@DuplicateElimination (a)) => {
+				if(e.isIncrementLocal)
+					new TransactionalDuplicateEliminationView (compile (a), false)
+				else
+					new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
 			}
 			case Def (e@TransitiveClosure (r, h, t)) => {
-				new TransactionalCyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
+				if(e.isIncrementLocal)
+					new TransactionalCyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
+				else
+					new AcyclicTransitiveClosureView(compile (r) (e.mEdge), compileFunctionWithDynamicManifests(h), compileFunctionWithDynamicManifests(t), false).asInstanceOf[Relation[Domain]]
 			}
 			case Def (Unnest (r, f)) => {
 				UnNestView(compile (r), compileFunctionWithDynamicManifests(f), false).asInstanceOf[Relation[Domain]]
@@ -103,8 +126,17 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 			case Def (Recursion (b, r)) => {
 				RecursiveDRed(compile (b), compile (r), false)
 			}
-			case Def (AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
-				AggregationForSelfMaintainableFunctions(compile(r),
+			case Def (e@AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
+				if (e.isIncrementLocal)
+					TransactionalAggregation(compile(r),
+						compileFunctionWithDynamicManifests(fGroup),
+						compileFunctionWithDynamicManifests(fAdd),
+						compileFunctionWithDynamicManifests(fRemove),
+						compileFunctionWithDynamicManifests(fUpdate),
+						compileFunctionWithDynamicManifests(fConvert),
+						false)
+				else
+					AggregationForSelfMaintainableFunctions(compile(r),
 					compileFunctionWithDynamicManifests(fGroup),
 					compileFunctionWithDynamicManifests(fAdd),
 					compileFunctionWithDynamicManifests(fRemove),
@@ -112,7 +144,9 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 					compileFunctionWithDynamicManifests(fConvert),
 					false)
 			}
-
+			case Def (Materialize (r)) => {
+				compile(r).asMaterialized
+			}
             case _ => super.compile (query)
         }
     }

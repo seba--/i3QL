@@ -32,7 +32,7 @@
  */
 package idb.operators.impl.opt
 
-import idb.{Index, Relation}
+import idb.{IndexService, Index, Relation}
 import idb.operators.EquiJoin
 import idb.observer.{Observable, Observer, NotifyObservers}
 
@@ -83,13 +83,14 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
 	 * Applies f to all elements of the view.
 	 */
 	def foreach[T](f: (Range) => T) {
-		if (leftAdditionIndex.size <= rightAdditionIndex.size) {
+		/*if (leftAdditionIndex.size <= rightAdditionIndex.size) {
 			leftEquiJoin(f)
 
 		}
 		else {
 			rightEquiJoin(f)
-		}
+		} */
+		throw new UnsupportedOperationException("Method foreach is not implemented for transactional operators.")
 	}
 
 	// use the left relation as keys, since this relation is smaller
@@ -204,6 +205,39 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
 		}
 
 		override def toString: String = TransactionalEquiJoinView.this.toString + "$RightObserver"
+	}
+
+}
+
+object TransactionalEquiJoinView {
+	def apply[DomainA, DomainB](left: Relation[DomainA],
+								right: Relation[DomainB],
+								leftEq: Seq[(DomainA => Any)],
+								rightEq: Seq[(DomainB => Any)],
+								isSet: Boolean): Relation[(DomainA, DomainB)] = {
+
+		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
+		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
+
+		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
+		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+		val leftDelIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(left, leftKey)
+		val rightDelIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(right, rightKey)
+
+		return new TransactionalEquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
+			left,
+			right,
+			leftIndex,
+			rightIndex,
+			leftDelIndex,
+			rightDelIndex,
+			leftKey,
+			rightKey,
+			(_, _),
+			isSet
+		)
+
+
 	}
 
 }

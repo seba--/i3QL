@@ -176,8 +176,3 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
 
 }
 
-object IntersectionView {
-	def apply[Domain](left: Relation[Domain], right: Relation[Domain], isSet : Boolean) : IntersectionView[Domain] = {
-		new IntersectionView(left.asMaterialized,right.asMaterialized,isSet)
-	}
-}
