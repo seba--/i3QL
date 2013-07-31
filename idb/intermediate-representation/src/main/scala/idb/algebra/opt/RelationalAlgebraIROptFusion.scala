@@ -37,6 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 
 /**
  *
+ * TODO could check that the functions are pure (i.e., side-effect free), an only then do shortcut evaluation
  * @author Ralf Mitschke
  *
  */
@@ -44,6 +45,51 @@ trait RelationalAlgebraIROptFusion
     extends RelationalAlgebraIRBasicOperators
     with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
+
+    /**
+     * create a new conjunction.
+     * Types are checked dynamically to conform to Domain.
+     *
+     */
+    private def createConjunction[A, B, Domain: Manifest] (
+        fa: Rep[A => Boolean],
+        fb: Rep[B => Boolean]
+    ): Rep[Domain => Boolean] = {
+        val mDomain = implicitly[Manifest[Domain]]
+        if (!(fa.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
+        } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
+        }
+
+        val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
+        val fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
+
+        fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
+    }
+
+
+    /**
+     * create a new conjunction.
+     * Types are checked dynamically to conform to Domain.
+     *
+     */
+    private def createDisjunction[A, B, Domain: Manifest] (
+        fa: Rep[A => Boolean],
+        fb: Rep[B => Boolean]
+    ): Rep[Domain => Boolean] = {
+        val mDomain = implicitly[Manifest[Domain]]
+        if (!(fa.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
+        } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {
+            throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
+        }
+
+        val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
+        val fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
+
+        fun ((x: Rep[Domain]) => faUnsafe (x) || fbUnsafe (x))(mDomain, manifest[Boolean])
+    }
 
     /**
      * Fusion of projection operations
@@ -54,9 +100,9 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Range]] =
         relation match {
             case Def (Projection (r, f)) =>
-                val mPrevDomainUnsafe = f.tp.typeArguments(0).asInstanceOf[Manifest[Any]]
-                val mRangeUnsafe = function.tp.typeArguments(1).asInstanceOf[Manifest[Range]]
-                projection (r, fun((x: Rep[_]) => function (f (x)))(mPrevDomainUnsafe, mRangeUnsafe))
+                val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
+                val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
+                projection (r, fun ((x: Rep[_]) => function (f (x)))(mPrevDomainUnsafe, mRangeUnsafe))
             case _ =>
                 super.projection (relation, function)
         }
@@ -65,26 +111,59 @@ trait RelationalAlgebraIROptFusion
     /**
      * Fusion of selection operations
      */
-    // TODO could check that the function is pure (i.e., side-effect free), an only then do shortcut evaluation
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
         relation match {
-            case Def (Selection (r, f))  => {
-                // if the functions have the same type, it can be more general than [Domain], e.g., f: Any => Boolean
-                // we keep the more general type in this case
-                val mDomainUnsafe : Manifest[Domain] =
-                    if(f.tp == function.tp)
-                        f.tp.typeArguments(0).asInstanceOf[Manifest[Domain]]
-                    else
-                        manifest[Domain]
-
-                val g = f.asInstanceOf[Rep[Domain => Boolean]]
-                selection (r, fun((x: Rep[Domain]) => g (x) && function (x))(mDomainUnsafe, manifest[Boolean]) )
-
+            case Def (Selection (r, f)) => {
+                selection (r, createConjunction (f, function))
             }
             case _ =>
                 super.selection (relation, function)
+        }
+
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[Range]] =
+        (relationA, relationB) match {
+            case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
+                selection (
+                    a.asInstanceOf[Rep[Query[Range]]],
+                    createDisjunction (fa, fb)(implicitly[Manifest[Range]])
+                )
+            case _ =>
+                super.unionMax (relationA, relationB)
+        }
+
+    override def intersection[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
+                selection (
+                    a,
+                    createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                )
+            case _ =>
+                super.intersection (relationA, relationB)
+        }
+
+
+    override def difference[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
+                selection (
+                    a,
+                    createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                )
+            case _ =>
+                super.difference (relationA, relationB)
         }
 }
