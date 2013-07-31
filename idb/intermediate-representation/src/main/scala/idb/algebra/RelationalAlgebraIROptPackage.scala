@@ -30,22 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.opt
+package idb.algebra
 
-import idb.algebra.ir.RelationalAlgebraIR
+import idb.algebra.ir.{RelationalAlgebraIRMultiRelations, RelationalAlgebraIRBasicOperators}
+import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
-
+import idb.algebra.opt.{RelationalAlgebraIROptPushSelect, RelationalAlgebraIROptSimplify}
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraIROpt
-    extends RelationalAlgebraIR
+
+trait RelationalAlgebraIROptPackage
+    extends RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRMultiRelations
+    with RelationalAlgebraIRNormalizeBasicOperators
     with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIROptPushSelect
     with RelationalAlgebraIROptSimplify
-    with RelationalAlgebraOptJoinCondPropagation
+    with RelationalAlgebraIROptPushSelect
 {
 
 }

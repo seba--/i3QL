@@ -33,10 +33,6 @@
 package idb.syntax.iql.planning
 
 import idb.syntax.iql.impl._
-import idb.syntax.iql.impl.SelectClause3
-import idb.syntax.iql.impl.SelectClause4
-import idb.syntax.iql.impl.SelectClause1
-import idb.syntax.iql.impl.SelectClause2
 import idb.lms.extensions.FunctionUtils
 
 /**
@@ -46,11 +42,11 @@ import idb.lms.extensions.FunctionUtils
  */
 
 trait PlanWhereClause
-    extends FunctionUtils
-    with WhereClauseFunctionAnalyzer
+    //extends FunctionUtils
+    //with WhereClauseFunctionAnalyzer
 {
 
-    override val IR = idb.syntax.iql.IR
+    val IR = idb.syntax.iql.IR
 
     import IR._
 
@@ -59,7 +55,7 @@ trait PlanWhereClause
         clause: WhereClause1[_, Domain, Range],
         relation: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
-        selection(relation, clause.predicate)
+        selection (relation, clause.predicate)
 
 
     def transform[DomainA: Manifest, DomainB: Manifest, Range: Manifest] (
@@ -67,7 +63,9 @@ trait PlanWhereClause
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
-        buildPredicateOperators(clause.predicate, relationA, relationB)
+        selection (crossProduct (relationA, relationB), clause.predicate)
+
+    //buildPredicateOperators(clause.predicate, relationA, relationB)
 
 
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, Range: Manifest] (
@@ -76,7 +74,9 @@ trait PlanWhereClause
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
     ): Rep[Query[(DomainA, DomainB, DomainC)]] =
-        buildPredicateOperators(clause.predicate, relationA, relationB, relationC)
+        selection (crossProduct (relationA, relationB, relationC), clause.predicate)
+
+    //buildPredicateOperators(clause.predicate, relationA, relationB, relationC)
 
 
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, Range: Manifest] (
@@ -86,7 +86,9 @@ trait PlanWhereClause
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]]
     ): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]] =
-        buildPredicateOperators(clause.predicate, relationA, relationB, relationC, relationD)
+        selection (crossProduct (relationA, relationB, relationC, relationD), clause.predicate)
+
+    //buildPredicateOperators(clause.predicate, relationA, relationB, relationC, relationD)
 
 
     def transform[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest,
@@ -98,9 +100,11 @@ trait PlanWhereClause
         relationD: Rep[Query[DomainD]],
         relationE: Rep[Query[DomainE]]
     ): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]] =
-        buildPredicateOperators(clause.predicate, relationA, relationB, relationC, relationD, relationE)
+        selection (crossProduct (relationA, relationB, relationC, relationD, relationE), clause.predicate)
 
+    //buildPredicateOperators(clause.predicate, relationA, relationB, relationC, relationD, relationE)
 
+/*
     private def buildPredicateOperators[DomainA: Manifest, DomainB: Manifest] (
         predicate: (Rep[DomainA], Rep[DomainB]) => Rep[Boolean],
         relationA: Rep[Query[DomainA]],
@@ -213,7 +217,7 @@ trait PlanWhereClause
                 val splitedEqualities = splitJoinEqualities (scala.List (a), scala.List (b), equalities (keyAB))
                 val equalityFunctions =
                     splitedEqualities.map (split =>
-                        (fun(recreateFun (a, split._1)), fun(recreateFun (b, split._2)))
+                        (fun (recreateFun (a, split._1)), fun (recreateFun (b, split._2)))
                     )
                 equiJoin (relA, relB, equalityFunctions)
             } else
@@ -273,7 +277,7 @@ trait PlanWhereClause
                         equalities.getOrElse (keyAC, Nil) ::: equalities.getOrElse (keyBC, Nil))
                 val equalityFunctions =
                     splitedEqualities.map (split =>
-                        (fun(recreateFun ((a, b), split._1)), fun(recreateFun (c, split._2)))
+                        (fun (recreateFun ((a, b), split._1)), fun (recreateFun (c, split._2)))
                     )
 
                 equiJoin (headRelation, lastRelation, equalityFunctions)
@@ -341,7 +345,7 @@ trait PlanWhereClause
                             .getOrElse (keyCD, Nil))
                 val equalityFunctions =
                     splitedEqualities.map (split =>
-                        (fun(recreateFun ((a, b, c), split._1)), fun(recreateFun (d, split._2)))
+                        (fun (recreateFun ((a, b, c), split._1)), fun (recreateFun (d, split._2)))
                     )
 
                 equiJoin (headRelation, lastRelation, equalityFunctions)
@@ -417,7 +421,7 @@ trait PlanWhereClause
                             .getOrElse (keyCE, Nil) ::: equalities.getOrElse (keyDE, Nil))
                 val equalityFunctions =
                     splitedEqualities.map (split =>
-                        (fun(recreateFun ((a, b, c, d), split._1)), fun(recreateFun (e, split._2)))
+                        (fun (recreateFun ((a, b, c, d), split._1)), fun (recreateFun (e, split._2)))
                     )
 
                 equiJoin (headRelation, lastRelation, equalityFunctions)
@@ -438,4 +442,5 @@ trait PlanWhereClause
 
         upperSelect
     }
+*/
 }
