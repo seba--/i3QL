@@ -30,10 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.opt
+package idb.algebra.fusion
 
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.normalization.RelationalAlgebraIRNormalize
 
 /**
  *
@@ -41,8 +42,9 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptFusion
+trait RelationalAlgebraIRFuseBasicOperators
     extends RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRNormalize
     with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {
 
@@ -117,7 +119,9 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f)) => {
-                selection (r, createConjunction (f, function))
+                withoutNormalization (
+                    selection (r, createConjunction (f, function))
+                )
             }
             case _ =>
                 super.selection (relation, function)
@@ -130,9 +134,11 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Range]] =
         (relationA, relationB) match {
             case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
-                selection (
-                    a.asInstanceOf[Rep[Query[Range]]],
-                    createDisjunction (fa, fb)(implicitly[Manifest[Range]])
+                withoutNormalization (
+                    selection (
+                        a.asInstanceOf[Rep[Query[Range]]],
+                        createDisjunction (fa, fb)(implicitly[Manifest[Range]])
+                    )
                 )
             case _ =>
                 super.unionMax (relationA, relationB)
@@ -144,9 +150,11 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
-                selection (
-                    a,
-                    createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                withoutNormalization (
+                    selection (
+                        a,
+                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                    )
                 )
             case _ =>
                 super.intersection (relationA, relationB)
@@ -159,9 +167,11 @@ trait RelationalAlgebraIROptFusion
     ): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
-                selection (
-                    a,
-                    createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                withoutNormalization (
+                    selection (
+                        a,
+                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                    )
                 )
             case _ =>
                 super.difference (relationA, relationB)

@@ -30,12 +30,12 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.normalize
+package idb.algebra.normalization
 
-import idb.algebra.base.RelationalAlgebraBasicOperators
-import idb.algebra.ir.RelationalAlgebraIRBase
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRBase}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionUtils}
+import idb.algebra.base.RelationalAlgebraBasicOperators
 
 
 /**
@@ -43,8 +43,8 @@ import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, Fun
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraNormalizeIRBasicOperators
-    extends RelationalAlgebraIRBase
+trait RelationalAlgebraIRNormalizeBasicOperators
+    extends RelationalAlgebraIRNormalize
     with RelationalAlgebraBasicOperators
     with LiftBoolean
     with BooleanOps
@@ -57,40 +57,45 @@ trait RelationalAlgebraNormalizeIRBasicOperators
     with ExpressionUtils
 {
 
-    val transformer = new FunctionUtils {
-        override val IR: RelationalAlgebraNormalizeIRBasicOperators.this.type =
-            RelationalAlgebraNormalizeIRBasicOperators.this
+    val transformer = new FunctionUtils
+    {
+        override val IR: RelationalAlgebraIRNormalizeBasicOperators.this.type =
+            RelationalAlgebraIRNormalizeBasicOperators.this
     }
 
     import transformer.recreateFun
 
-    override def selection[Domain: Manifest] (
+    abstract override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
-        function match {
-            case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
-                body.res match {
-                    case Def (BooleanOr (lhs, rhs)) =>
-                        unionMax (
-                            selection (relation, recreateFun (x, lhs)),
-                            selection (relation, recreateFun (x, rhs))
-                        )
-                    case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
-                        difference (
-                            selection (relation, recreateFun (x, lhs)),
-                            selection (relation, recreateFun (x, rhs))
-                        )
-                    case Def (BooleanAnd (lhs, rhs)) =>
-                        intersection (
-                            selection (relation, recreateFun (x, lhs)),
-                            selection (relation, recreateFun (x, rhs))
-                        )
-                    case _ => selection (relation, function)
-                }
-            case _ => throw new IllegalArgumentException (function + " is not a Lambda function")
+        if (normalize) {
+            function match {
+                case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
+                    body.res match {
+                        case Def (BooleanOr (lhs, rhs)) =>
+                            unionMax (
+                                selection (relation, recreateFun (x, lhs)),
+                                selection (relation, recreateFun (x, rhs))
+                            )
+                        case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
+                            difference (
+                                selection (relation, recreateFun (x, lhs)),
+                                selection (relation, recreateFun (x, rhs))
+                            )
+                        case Def (BooleanAnd (lhs, rhs)) =>
+                            intersection (
+                                selection (relation, recreateFun (x, lhs)),
+                                selection (relation, recreateFun (x, rhs))
+                            )
+                        case _ => selection (relation, function)
+                    }
+                case _ => throw new IllegalArgumentException (function + " is not a Lambda function")
+            }
+        } else
+        {
+            super.selection (relation, function)
         }
-
 
 }
 

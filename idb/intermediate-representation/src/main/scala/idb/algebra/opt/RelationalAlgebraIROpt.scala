@@ -33,6 +33,7 @@
 package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIR
+import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
 
 
 /**
@@ -41,7 +42,7 @@ import idb.algebra.ir.RelationalAlgebraIR
  */
 trait RelationalAlgebraIROpt
     extends RelationalAlgebraIR
-    with RelationalAlgebraIROptFusion
+    with RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIROptPushSelect
     with RelationalAlgebraIROptSimplify
     with RelationalAlgebraOptJoinCondPropagation

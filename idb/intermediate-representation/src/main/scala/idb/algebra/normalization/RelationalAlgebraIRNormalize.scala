@@ -30,33 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.opt
-
-import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+package idb.algebra.normalization
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-trait RelationalAlgebraIROptSimplify
-    extends RelationalAlgebraIRBasicOperators
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+trait RelationalAlgebraIRNormalize
 {
+    protected var normalize = true
 
-    /**
-     * Remove projection that use the identity function
-     */
-    override def projection[Domain: Manifest, Range: Manifest] (
-        relation: Rep[Query[Domain]],
-        function: Rep[Domain => Range]
-    ): Rep[Query[Range]] = {
-        function match {
-            case Def (Lambda (_ : (Domain => Range), param, body)) if body == Block (param) =>
-				relation.asInstanceOf[Rep[Query[Range]]]
-            case _ => super.projection (relation, function)
-        }
-
+    def withoutNormalization[T] (f: => T): T = {
+        normalize = false
+        val result : T = f
+        normalize = true
+        result
     }
 }
