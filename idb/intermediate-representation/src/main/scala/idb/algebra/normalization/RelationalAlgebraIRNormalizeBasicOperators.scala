@@ -88,7 +88,7 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                                 selection (relation, recreateFun (x, lhs)),
                                 selection (relation, recreateFun (x, rhs))
                             )
-                        case _ => selection (relation, function)
+                        case _ => super.selection (relation, function)
                     }
                 case _ => throw new IllegalArgumentException (function + " is not a Lambda function")
             }

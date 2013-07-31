@@ -33,9 +33,9 @@
 package idb.syntax.iql
 
 import UniversityDatabase._
+import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Assert._
 import org.junit.{Ignore, Test}
 
 /**
@@ -54,7 +54,7 @@ class TestBasicClauses3
             SELECT (*) FROM(students, registrations, courses)
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     crossProduct (extent (students), extent (registrations)),
@@ -79,7 +79,7 @@ class TestBasicClauses3
                 )
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     crossProduct (
@@ -108,7 +108,7 @@ class TestBasicClauses3
                 )
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     crossProduct (
@@ -144,7 +144,7 @@ class TestBasicClauses3
                 )
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     crossProduct (
@@ -188,7 +188,7 @@ class TestBasicClauses3
             )
 
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     crossProduct (
@@ -234,7 +234,7 @@ class TestBasicClauses3
             )
 
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     selection (
@@ -272,7 +272,7 @@ class TestBasicClauses3
             )
 
 
-        assertEquals (
+        assertEqualStructure (
             selection (
                 crossProduct (
                     extent (students),
@@ -301,7 +301,7 @@ class TestBasicClauses3
             )
 
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 crossProduct (
                     equiJoin (
@@ -337,7 +337,7 @@ class TestBasicClauses3
             )
 
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 equiJoin (
                     equiJoin (

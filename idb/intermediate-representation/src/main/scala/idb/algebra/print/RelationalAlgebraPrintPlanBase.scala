@@ -34,8 +34,7 @@ package idb.algebra.print
 
 import idb.algebra.ir.RelationalAlgebraIRBase
 import scala.virtualization.lms.internal.GenericCodegen
-import idb.lms.extensions.CodeGenIndent
-import scala.virtualization.lms.common.{TupledFunctionsExp, FunctionsExp}
+import scala.virtualization.lms.common.TupledFunctionsExp
 
 /**
  *
@@ -53,9 +52,9 @@ trait RelationalAlgebraPrintPlanBase
     override def quote (x: Exp[Any]): String =
         x match {
             case QueryExtent (e, _, _, _) =>
-                withIndent("extent" + e.hashCode () + ": Extent[" + x.tp.typeArguments(0) + "]")
+                withIndent ("extent" + e.hashCode () + ": Extent[" + x.tp.typeArguments (0) + "]")
             case QueryRelation (r, _, _, _) =>
-                withIndent("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments(0) + "]")
+                withIndent ("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments (0) + "]")
             case _ => super.quote (x)
         }
 

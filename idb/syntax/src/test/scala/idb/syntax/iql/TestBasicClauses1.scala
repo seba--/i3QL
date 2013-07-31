@@ -33,9 +33,9 @@
 package idb.syntax.iql
 
 import UniversityDatabase._
+import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Assert._
 import org.junit.{Ignore, Test}
 
 import scala.language.implicitConversions
@@ -52,14 +52,7 @@ class TestBasicClauses1
             SELECT (*) FROM students
         )
 
-        assertEquals (extent (students), query)
-
-        assertEquals (
-            scala.collection.immutable.List (
-                manifest[Student]
-            ),
-            query.tp.typeArguments
-        )
+        assertEqualStructure (extent (students), query)
     }
 
     @Test
@@ -68,19 +61,10 @@ class TestBasicClauses1
             SELECT ((_: Rep[Student]).lastName) FROM students
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (extent (students), (_: Rep[Student]).lastName),
             query
         )
-
-        assertEquals (
-            scala.collection.immutable.List (
-                manifest[String]
-            ),
-            query.tp.typeArguments
-        )
-
-
     }
 
     @Test
@@ -90,7 +74,7 @@ class TestBasicClauses1
             SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (extent (students), fun ((s: Rep[Student]) => (s.firstName, s.lastName))),
             query
         )
@@ -103,7 +87,7 @@ class TestBasicClauses1
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
 
-        assertEquals (
+        assertEqualStructure (
             selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
             query
         )
@@ -115,7 +99,7 @@ class TestBasicClauses1
             SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
         )
 
-        assertEquals (
+        assertEqualStructure (
             selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction")),
             query
         )
@@ -130,7 +114,7 @@ class TestBasicClauses1
                 )
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 selection (
                     extent (students),
@@ -150,7 +134,7 @@ class TestBasicClauses1
                 .firstName == "Sally")
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 selection (
                     extent (students),
@@ -169,7 +153,7 @@ class TestBasicClauses1
             SELECT DISTINCT (*) FROM students
         )
 
-        assertEquals (
+        assertEqualStructure (
             duplicateElimination (
                 extent (students)
             ),

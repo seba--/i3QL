@@ -32,19 +32,29 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
+import idb.algebra.print.RelationalAlgebraPrintPlan
+
+import junit.framework.Assert
 
 /**
  *
  * @author Ralf Mitschke
  */
-object TestUtil
+object TestUtil extends RelationalAlgebraPrintPlan
 {
-    def staticFunctionManifests[A: Manifest, B: Manifest] (f: Rep[A => B]) : (Manifest[A], Manifest[B]) = {
-        (manifest[A], manifest[B])
+
+    override val IR = idb.syntax.iql.IR
+
+    import IR.Rep
+    import IR.Query
+
+    def assertEqualStructure[A, B] (a: Rep[Query[A]], b: Rep[Query[B]]) {
+        val expectedString = quote (a)
+        val actualString = quote (b)
+        val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
+        if (a != b) {
+            Assert.fail (message)
+        }
     }
 
-    def dynamicFunctionManifests[A, B] (f: Rep[A => B]) : (Manifest[_], Manifest[_]) = {
-        (f.tp.typeArguments(0),f.tp.typeArguments(1))
-    }
 }

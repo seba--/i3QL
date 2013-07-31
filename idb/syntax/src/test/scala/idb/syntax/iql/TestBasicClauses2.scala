@@ -33,9 +33,9 @@
 package idb.syntax.iql
 
 import UniversityDatabase._
+import TestUtil.assertEqualStructure
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Assert._
 import org.junit.{Ignore, Test}
 
 /**
@@ -51,7 +51,7 @@ class TestBasicClauses2
             SELECT (*) FROM(students, courses)
         )
 
-        assertEquals (
+        assertEqualStructure (
             crossProduct (extent (students), extent (courses)),
             query
         )
@@ -65,7 +65,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             crossProduct (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
                 extent (courses)
@@ -82,7 +82,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             crossProduct (
                 extent (students),
                 selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
@@ -100,7 +100,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             crossProduct (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
                 selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
@@ -119,7 +119,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             crossProduct (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally" && s.lastName == "Fields"),
                 selection (extent (courses), (c: Rep[Course]) => c.title.startsWith ("Introduction"))
@@ -136,7 +136,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             selection (
                 crossProduct (
                     extent (students),
@@ -158,7 +158,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             equiJoin (
                 extent (students),
                 extent (registrations),
@@ -179,7 +179,7 @@ class TestBasicClauses2
                 )
         )
 
-        assertEquals (
+        assertEqualStructure (
             projection (
                 equiJoin (
                     extent (registrations),
@@ -206,7 +206,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
                 selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
@@ -230,7 +230,7 @@ class TestBasicClauses2
             })
         )
 
-        assertEquals (
+        assertEqualStructure (
             selection (
                 equiJoin (
                     selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
@@ -254,7 +254,7 @@ class TestBasicClauses2
             SELECT DISTINCT (*) FROM(students, registrations)
         )
 
-        assertEquals (
+        assertEqualStructure (
             duplicateElimination (
                 crossProduct (
                     extent (students),
@@ -280,9 +280,13 @@ class TestBasicClauses2
     def testJoin2AggregateGroup1 () {
 
         val query = plan (
-            SELECT ((s: Rep[String]) => s) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
+            SELECT ((s: Rep[String]) => s) FROM(students, registrations) WHERE ((
+            s: Rep[Student],
+            r: Rep[Registration]
+            ) =>
+            {
                 s.matriculationNumber == r.studentMatriculationNumber
-            }) GROUP BY( (s: Rep[Student], r: Rep[Registration]) => s.lastName)
+            }) GROUP BY ((s: Rep[Student], r: Rep[Registration]) => s.lastName)
         )
 
     }

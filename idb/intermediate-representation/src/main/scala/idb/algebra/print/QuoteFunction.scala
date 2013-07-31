@@ -30,9 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.algebra.print
 
-import scala.virtualization.lms.common.{ScalaGenTupledFunctions, BaseGenFunctions, ScalaGenEffect}
+import scala.virtualization.lms.common._
 import java.io.{PrintWriter, StringWriter}
 
 /**
@@ -40,12 +40,20 @@ import java.io.{PrintWriter, StringWriter}
  * @author Ralf Mitschke
  */
 trait QuoteFunction
-    extends ScalaGenEffect
+    extends ScalaCodeGenPkg
+    with ScalaGenStruct
     with ScalaGenTupledFunctions
     with CodeGenIndent
 {
 
-    import IR._
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp
+
+    import IR.Exp
+    import IR.Sym
+    import IR.Def
+    import IR.Lambda
+    import IR.UnboxedTuple
+    import IR.Variable
 
     def quoteFunction[A, B] (f: Exp[A => B]): String = {
         val writer = new StringWriter ()
@@ -54,21 +62,21 @@ trait QuoteFunction
             case Def (Lambda (fun, x, y)) => {
                 stream.print (indent)
                 x match {
-                    case UnboxedTuple(xs) => {
-                        stream.print( "(" + xs.map(s=>quote(s)+":"+remap(s.tp)).mkString("(",",",")"))
+                    case UnboxedTuple (xs) => {
+                        stream.print ("(" + xs.map (s => quote (s) + ":" + remap (s.tp)).mkString ("(", ",", ")"))
                     }
                     case _ => {
                         stream.print ("(" + quote (x) + ": " + x.tp + ")")
                     }
                 }
-                }
+            }
                 //stream.print (": " + y.tp)
                 stream.println (" => {")
-                addIndent()
+                addIndent ()
                 emitBlock (y)
                 stream.print (indent)
                 stream.println (quote (getBlockResult (y)))
-                removeIndent()
+                removeIndent ()
                 stream.print (indent)
                 stream.print ("}")
         }
@@ -77,13 +85,13 @@ trait QuoteFunction
     }
 
     override def emitValDef (sym: Sym[Any], rhs: String) {
-        stream.print(indent)
-        super.emitValDef(sym, rhs)
+        stream.print (indent)
+        super.emitValDef (sym, rhs)
     }
 
     override def emitVarDef (sym: Sym[Variable[Any]], rhs: String) {
-        stream.print(indent)
-        super.emitVarDef(sym, rhs)
+        stream.print (indent)
+        super.emitVarDef (sym, rhs)
     }
 }
 
