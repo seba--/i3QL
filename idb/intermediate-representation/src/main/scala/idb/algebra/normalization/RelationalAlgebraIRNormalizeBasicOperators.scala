@@ -34,7 +34,7 @@ package idb.algebra.normalization
 
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRBase}
 import scala.virtualization.lms.common._
-import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionUtils}
+import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionCreator}
 import idb.algebra.base.RelationalAlgebraBasicOperators
 
 
@@ -57,7 +57,7 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     with ExpressionUtils
 {
 
-    val transformer = new FunctionUtils
+    val transformer = new FunctionCreator
     {
         override val IR: RelationalAlgebraIRNormalizeBasicOperators.this.type =
             RelationalAlgebraIRNormalizeBasicOperators.this

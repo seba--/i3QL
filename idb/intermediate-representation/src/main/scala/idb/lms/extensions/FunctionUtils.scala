@@ -32,115 +32,43 @@
  */
 package idb.lms.extensions
 
-import scala.virtualization.lms.common._
+import scala.virtualization.lms.common.{FunctionsExp, TupledFunctionsExp}
 
 /**
- * TODO function recreation still takes up a lot of syms, even though they should be local.
+ *
  * @author Ralf Mitschke
  */
 trait FunctionUtils
-    extends ForwardTransformer
+    extends FunctionsExp
+    with TupledFunctionsExp
+    with ExpressionUtils
 {
 
-    val IR: BaseFatExp with EffectExp with TupleOpsExp with TupledFunctionsExp with FunctionsExpOptAlphaEquivalence with ExpressionUtils
+    def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
+        val param =
+            function match {
+                case Def (Lambda (_, x, _)) => x
+                case c@Const (_) => unboxedFresh (c.tp.typeArguments (0).typeArguments(0))
+                case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
+            }
 
-
-    import IR.Rep
-    import IR.Def
-    import IR.Sym
-    import IR.reifyEffects
-    import IR.ETuple2
-    import IR.ETuple3
-    import IR.ETuple4
-    import IR.ETuple5
-    import IR.UnboxedTuple
-    import IR.tuple2_get1
-    import IR.tuple2_get2
-    import IR.tuple3_get1
-    import IR.tuple3_get2
-    import IR.tuple3_get3
-    import IR.tuple4_get1
-    import IR.tuple4_get2
-    import IR.tuple4_get3
-    import IR.tuple4_get4
-    import IR.tuple5_get1
-    import IR.tuple5_get2
-    import IR.tuple5_get3
-    import IR.tuple5_get4
-    import IR.tuple5_get5
-
-
-
-    def recreateFun[A: Manifest, B: Manifest](
-        x: Rep[A], body: Rep[B]
-    ): Rep[A] => Rep[B] =
-        (t: Rep[A]) => {
-            subst =
-                x match {
-                    case UnboxedTuple(args) =>
-                        args match {
-                            case List(a, b) =>
-                                Map(
-                                    a -> tuple2_get1(t.asInstanceOf[Rep[Tuple2[Any,Any]]]),
-                                    b -> tuple2_get2(t.asInstanceOf[Rep[Tuple2[Any,Any]]])
-                                )
-                            case List(a, b, c) =>
-                                Map(
-                                    a -> tuple3_get1(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                                    b -> tuple3_get2(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                                    c -> tuple3_get3(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]])
-                                )
-                            case List(a, b, c, d) =>
-                                Map(
-                                    a -> tuple4_get1(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    b -> tuple4_get2(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    c -> tuple4_get3(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    d -> tuple4_get4(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]])
-                                )
-                            case List(a, b, c, d, e) =>
-                                Map(
-                                    a -> tuple5_get1(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    b -> tuple5_get2(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    c -> tuple5_get3(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    d -> tuple5_get4(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    e -> tuple5_get5(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]])
-                                )
-                            case _ => throw new UnsupportedOperationException("Function with more than 5 parameters require special support")
-                        }
-                    // TODO refactor this to avoid code clone. Have the cases only return the list and then construct the mapping after pattern matching
-                    case Def (ETuple2 (a, b)) =>
-                        Map (
-                            a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]),
-                            b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]])
-                        )
-                    case Def (ETuple3 (a, b, c)) =>
-                        Map(
-                            a -> tuple3_get1(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                            b -> tuple3_get2(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                            c -> tuple3_get3(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]])
-                        )
-                    case Def (ETuple4 (a, b,c, d)) =>
-                        Map(
-                            a -> tuple4_get1(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            b -> tuple4_get2(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            c -> tuple4_get3(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            d -> tuple4_get4(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]])
-                        )
-                    case Def (ETuple5 (a, b, c, d, e)) =>
-                        Map(
-                            a -> tuple5_get1(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            b -> tuple5_get2(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            c -> tuple5_get3(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            d -> tuple5_get4(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            e -> tuple5_get5(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]])
-                        )
-
-                    case Sym (_) =>
-                        Map (x -> t)
-                    case _ => throw new UnsupportedOperationException("Function with parameters " + x.tp + " require special support")
-                }
-            val res = transformBlock (reifyEffects (body)).res
-            subst = Map()
-            res
+        param match {
+            case UnboxedTuple (xs) => xs
+            case x => List (x)
         }
+    }
+
+
+    def freeVars[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
+        val params = parameters (function).toSet
+        val used =
+            function match {
+                case Def (Lambda (_, _, body)) =>
+                    findSyms(body.res)(params).asInstanceOf[Set[Exp[Any]]]
+                case Const (_) => Set.empty[Exp[Any]]
+                case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
+            }
+        params.diff (used).toList
+    }
+
 }

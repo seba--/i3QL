@@ -33,6 +33,8 @@
 package idb.lms.extensions
 
 import scala.virtualization.lms.internal.Expressions
+import scala.virtualization.lms.common._
+
 
 /**
  *
@@ -40,6 +42,7 @@ import scala.virtualization.lms.internal.Expressions
  */
 trait ExpressionUtils
     extends Expressions
+    with TupledFunctionsExp
 {
 
     /**
@@ -76,26 +79,46 @@ trait ExpressionUtils
         e match {
             case Def (s) => {
                 val subExpr = syms (s)
-                subExpr.filter(_.isInstanceOf[Sym[T]]).map(_.asInstanceOf[Sym[T]]).foreach (
-                    traverseSameTypeExpTree(_)(f)
+                subExpr.filter (_.isInstanceOf[Sym[T]]).map (_.asInstanceOf[Sym[T]]).foreach (
+                    traverseSameTypeExpTree (_)(f)
                 )
             }
             case _ => return
         }
     }
 
-    def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Sym[Any]] = {
+
+    def findSyms (e: Any)(implicit search: Set[Exp[Any]]): Set[Exp[Any]] = {
         val seen = e match {
-            case s@Sym (_) => Set (s)
-            case _ => Set.empty[Sym[Any]]
+            case s@Sym (_) => Set (s).asInstanceOf[Set[Exp[Any]]]
+            case _ => Set.empty[Exp[Any]]
         }
-        findSymsRec (e, search.asInstanceOf[Set[Sym[Any]]], seen)
+        findSymsRec (e, search.asInstanceOf[Set[Exp[Any]]], seen)
     }
 
-    private def findSymsRec (e: Any, search: Set[Sym[Any]], seen: Set[Sym[Any]]): Set[Sym[Any]] = {
+    private def findSymsRec (e: Any, search: Set[Exp[Any]], seen: Set[Exp[Any]]): Set[Exp[Any]] = {
         val next = (e match {
-            case s@Sym (_) => syms (findDefinition (s)).toSet
-            case _ => Set.empty[Sym[Any]]
+
+            case Def(Tuple2Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def(Tuple2Access2 (UnboxedTuple (vars))) => Set (vars (1))
+
+            case Def(Tuple3Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def(Tuple3Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def(Tuple3Access3 (UnboxedTuple (vars))) => Set (vars (2))
+
+            case Def(Tuple4Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def(Tuple4Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def(Tuple4Access3 (UnboxedTuple (vars))) => Set (vars (2))
+            case Def(Tuple4Access4 (UnboxedTuple (vars))) => Set (vars (3))
+
+            case Def(Tuple5Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def(Tuple5Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def(Tuple5Access3 (UnboxedTuple (vars))) => Set (vars (2))
+            case Def(Tuple5Access4 (UnboxedTuple (vars))) => Set (vars (3))
+            case Def(Tuple5Access5 (UnboxedTuple (vars))) => Set (vars (4))
+
+            case s@Sym (_) => syms (findDefinition (s)).toSet[Exp[Any]]
+            case _ => Set.empty[Exp[Any]]
         }).diff (seen)
         if (next.isEmpty)
             return Set ()

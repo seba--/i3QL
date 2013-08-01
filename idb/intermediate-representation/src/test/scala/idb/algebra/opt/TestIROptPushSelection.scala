@@ -34,9 +34,10 @@ package idb.algebra.opt
 
 import org.junit.Test
 import org.junit.Assert._
-import scala.virtualization.lms.common.{LiftAll, ScalaOpsPkgExp}
+import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, LiftAll, ScalaOpsPkgExp}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.algebra.TestUtils
+import idb.algebra.print.RelationalAlgebraPrintPlan
 
 /**
  *
@@ -47,12 +48,21 @@ class TestIROptPushSelection
     extends LiftAll
     with ScalaOpsExpOptExtensions
     with ScalaOpsPkgExp
+    with StructExp
+    with TupledFunctionsExp
     with RelationalAlgebraIROptPushSelect
     with TestUtils
+    with RelationalAlgebraPrintPlan
 {
+
+    override val IR : this.type = this
+    override def reset { super.reset }
+
 
     // we require some of our own optimizations (e.g., alpha equivalence) to make the tests work
     assert (this.isInstanceOf[ScalaOpsExpOptExtensions])
+
+
 
     @Test
     def testSelectionOverProjectionSimpleInt () {
@@ -97,6 +107,7 @@ class TestIROptPushSelection
 
         val expB = projection (selection (emptyRelation[Int](), f3), f1)
 
+        assertEquals (quote(expB), quote(expA))
         assertEquals (expB, expA)
     }
 
@@ -115,6 +126,7 @@ class TestIROptPushSelection
 
         val expB = projection (selection (emptyRelation[Int](), f4), f1)
 
+        assertEquals (quote(expB), quote(expA))
         assertEquals (expB, expA)
     }
 

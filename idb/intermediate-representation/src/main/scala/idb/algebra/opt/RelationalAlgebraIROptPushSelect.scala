@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionBodies, ExpressionUtils}
+import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
 
 /**
  *
@@ -49,6 +49,7 @@ trait RelationalAlgebraIROptPushSelect
     with EffectExp
     with FunctionsExp
     with ExpressionUtils
+    with FunctionUtils
 {
 
     /**
@@ -56,15 +57,21 @@ trait RelationalAlgebraIROptPushSelect
      */
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
-        selectionFunction: Rep[Domain => Boolean]
+        function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] = {
         relation match {
-            case Def (Projection (r, projectionFunction)) => {
-                val pushedFunction = (x: Rep[_]) => selectionFunction (projectionFunction (x))
-                projection (selection (r, pushedFunction), projectionFunction)
+            // pushing over projections
+            case Def (Projection (r, f)) => {
+                val pushedFunction = fun ((x: Exp[Any]) => function (f (x)))(
+                    f.tp.typeArguments (0).asInstanceOf[Manifest[Any]], manifest[Boolean])
+                projection (selection (r, pushedFunction), f)
             }
+            // pushing selections that only use their arguments partially over selections that need all arguments
+            case Def (Selection (r, f)) if freeVars (f).isEmpty && !freeVars (function).isEmpty =>
+                super.selection (super.selection (relation, f), function)
+
             case _ =>
-                super.selection (relation, selectionFunction)
+                super.selection (relation, function)
         }
     }
 

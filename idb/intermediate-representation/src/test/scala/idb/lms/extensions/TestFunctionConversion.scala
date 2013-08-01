@@ -41,7 +41,7 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 class TestFunctionConversion
-    extends FunctionUtils
+    extends FunctionCreator
 {
 
     val IR = new BaseFatExp

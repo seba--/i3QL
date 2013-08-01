@@ -38,7 +38,7 @@ package idb.lms.extensions
  * @author Ralf Mitschke
  */
 trait FunctionBodies
-    extends FunctionUtils
+    extends FunctionCreator
 {
 
     import IR._
