@@ -54,9 +54,15 @@ trait RelationalAlgebraIROptCreateJoin
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] = {
         relation match {
-            case Def(CrossProduct(a, b)) if isDisjunctiveParameterEquality(function) =>
-                equiJoin(a, b, List(createEqualityFunctions(function))).asInstanceOf[Rep[Query[Domain]]]
-            case _ => super.selection(relation, function)
+            // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
+            case Def (CrossProduct (a, b)) if isDisjunctiveParameterEquality (function) =>
+                equiJoin (a, b, List (createEqualityFunctions (function))).asInstanceOf[Rep[Query[Domain]]]
+
+            // add further equality tests to the join
+            case Def (EquiJoin (a, b, xs)) if isDisjunctiveParameterEquality (function) =>
+                equiJoin (a, b, createEqualityFunctions (function) :: xs).asInstanceOf[Rep[Query[Domain]]]
+
+            case _ => super.selection (relation, function)
         }
     }
 }

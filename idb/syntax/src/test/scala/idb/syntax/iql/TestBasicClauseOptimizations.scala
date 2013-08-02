@@ -57,7 +57,7 @@ class TestBasicClauseOptimizations
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
                 selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
-                scala.Seq ((
+                scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                     ))
@@ -79,7 +79,7 @@ class TestBasicClauseOptimizations
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.matriculationNumber == 12345),
                 selection (extent (registrations), (r: Rep[Registration]) => r.studentMatriculationNumber == 12345),
-                scala.Seq ((
+                scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                     ))
@@ -100,7 +100,7 @@ class TestBasicClauseOptimizations
             equiJoin (
                 extent (lectures),
                 extent (bookRecommendations),
-                scala.Seq ((
+                scala.List ((
                     fun ((l: Rep[Lecture]) => l.course),
                     fun ((b: Rep[BookRecommendation]) => b.course)
                     ))

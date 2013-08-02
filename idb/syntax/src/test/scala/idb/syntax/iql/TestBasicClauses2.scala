@@ -162,7 +162,7 @@ class TestBasicClauses2
             equiJoin (
                 extent (students),
                 extent (registrations),
-                scala.Seq ((
+                scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                     ))
@@ -184,7 +184,7 @@ class TestBasicClauses2
                 equiJoin (
                     extent (registrations),
                     extent (courses),
-                    scala.Seq ((
+                    scala.List ((
                         fun ((r: Rep[Registration]) => r.courseNumber),
                         fun ((c: Rep[Course]) => c.number)
                         ))
@@ -210,7 +210,7 @@ class TestBasicClauses2
             equiJoin (
                 selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
                 selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
-                scala.Seq ((
+                scala.List ((
                     fun ((s: Rep[Student]) => s.matriculationNumber),
                     fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                     ))
@@ -235,7 +235,7 @@ class TestBasicClauses2
                 equiJoin (
                     selection (extent (students), (s: Rep[Student]) => s.firstName == "Sally"),
                     selection (extent (registrations), (r: Rep[Registration]) => r.courseNumber == 12345),
-                    scala.Seq ((
+                    scala.List ((
                         fun ((s: Rep[Student]) => s.matriculationNumber),
                         fun ((r: Rep[Registration]) => r.studentMatriculationNumber)
                         ))
