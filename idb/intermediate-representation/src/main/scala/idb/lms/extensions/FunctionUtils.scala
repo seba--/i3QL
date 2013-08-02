@@ -48,6 +48,10 @@ trait FunctionUtils
         function.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
     }
 
+    def returnType[A, B] (function: Exp[A => B]): Manifest[Any] = {
+        function.tp.typeArguments (1).asInstanceOf[Manifest[Any]]
+    }
+
     def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
         val param =
             function match {

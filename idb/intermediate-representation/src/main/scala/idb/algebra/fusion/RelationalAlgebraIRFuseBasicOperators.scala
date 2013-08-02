@@ -110,7 +110,7 @@ trait RelationalAlgebraIRFuseBasicOperators
             case Def (Projection (r, f)) =>
                 val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
                 val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
-                projection (r, fun ((x: Rep[_]) => function (f (x)))(mPrevDomainUnsafe, mRangeUnsafe))
+                projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType(f), mRangeUnsafe))
             case _ =>
                 super.projection (relation, function)
         }
@@ -143,7 +143,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a.asInstanceOf[Rep[Query[Range]]],
-                        createDisjunction (fa, fb)(implicitly[Manifest[Range]])
+                        createDisjunction (fa, fb)(parameterType(fa))
                     )
                 )
             case _ =>
@@ -159,10 +159,10 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a,
-                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                        createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
-
+/*
             case (Def (CrossProduct (Def (Selection (a, fa)), b)), Def (CrossProduct (Def (Selection (c, fc)), d)))
                 if a == c =>
                 withoutNormalization (
@@ -177,7 +177,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     crossProduct (selection (c, fa), selection (b, fd)).asInstanceOf[Rep[Query[Domain]]]
                 )
-
+*/
             case _ =>
                 super.intersection (relationA, relationB)
         }
@@ -192,7 +192,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a,
-                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                        createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
             case _ =>

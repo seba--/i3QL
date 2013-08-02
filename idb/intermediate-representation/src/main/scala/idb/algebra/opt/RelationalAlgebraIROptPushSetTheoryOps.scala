@@ -30,33 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.algebra.opt
 
-import idb.algebra.ir.{RelationalAlgebraIRMultiRelations, RelationalAlgebraIRBasicOperators}
-import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
-import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
-import idb.algebra.opt.{RelationalAlgebraIROptPushSetTheoryOps, RelationalAlgebraIROptPushSelect,
-RelationalAlgebraIROptSimplify}
-import idb.lms.extensions.FunctionCreator
+import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-
-trait RelationalAlgebraIROptPackage
+trait RelationalAlgebraIROptPushSetTheoryOps
     extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIROptSimplify
-    with RelationalAlgebraIROptPushSelect
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIRNormalizeBasicOperators
 {
 
-    override val transformer = new FunctionCreator {
-        override val IR: RelationalAlgebraIROptPackage.this.type = RelationalAlgebraIROptPackage.this
-    }
-
+    override def intersection[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
+                crossProduct (intersection (a, c)(domainOf(a)), intersection (b, d)(domainOf(b))).asInstanceOf[Rep[Query[Domain]]]
+            case _ => super.intersection(relationA, relationB)
+        }
 }

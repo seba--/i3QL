@@ -49,27 +49,31 @@ trait RelationalAlgebraIRBase
 {
     type Query[Domain] = QueryBase[Domain]
 
-	trait QueryBaseOps {
+    trait QueryBaseOps
+    {
 
-		def isSet: Boolean
+        def isSet: Boolean
 
-		def isIncrementLocal: Boolean
+        def isIncrementLocal: Boolean
 
-		/**
-		 * A query is materialized, if the elements of the underlying relation are stored and can be accessed by foreach.
-		 * @return True, if the query is materialized.
-		 */
-		def isMaterialized: Boolean
-	}
+        /**
+         * A query is materialized, if the elements of the underlying relation are stored and can be accessed by
+         * foreach.
+         * @return True, if the query is materialized.
+         */
+        def isMaterialized: Boolean
+    }
 
     abstract class QueryBase[Domain: Manifest] extends QueryBaseOps
 
+    def domainOf[T] (relation: Rep[Query[T]]): Manifest[Any] =
+        relation.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
 
     case class QueryExtent[Domain] (
         extent: Extent[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-		isMaterialized: Boolean = false
+        isMaterialized: Boolean = false
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Extent[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
@@ -78,13 +82,13 @@ trait RelationalAlgebraIRBase
         extent: Relation[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-		isMaterialized: Boolean = false
+        isMaterialized: Boolean = false
     )
-           (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
+            (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
 
 
-    protected def isIncrementLocal[Domain](m: Manifest[Domain]) = {
+    protected def isIncrementLocal[Domain] (m: Manifest[Domain]) = {
         m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
     }
 
@@ -95,7 +99,7 @@ trait RelationalAlgebraIRBase
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Extent[Domain]]
     ): Rep[Query[Domain]] =
-        QueryExtent (extent, isSet, isIncrementLocal(mDom))
+        QueryExtent (extent, isSet, isIncrementLocal (mDom))
 
 
     /**
@@ -105,7 +109,7 @@ trait RelationalAlgebraIRBase
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]] =
-        QueryRelation (relation, isSet, isIncrementLocal(mDom))
+        QueryRelation (relation, isSet, isIncrementLocal (mDom))
 
 
 }
