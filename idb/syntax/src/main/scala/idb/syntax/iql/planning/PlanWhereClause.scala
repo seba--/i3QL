@@ -33,7 +33,7 @@
 package idb.syntax.iql.planning
 
 import idb.syntax.iql.impl._
-import idb.lms.extensions.FunctionUtils
+import idb.lms.extensions.FunctionCreator
 
 /**
  *
@@ -42,7 +42,7 @@ import idb.lms.extensions.FunctionUtils
  */
 
 trait PlanWhereClause
-    //extends FunctionUtils
+    //extends FunctionCreator
     //with WhereClauseFunctionAnalyzer
 {
 

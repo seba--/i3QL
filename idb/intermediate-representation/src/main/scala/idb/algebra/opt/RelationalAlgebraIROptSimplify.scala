@@ -42,8 +42,28 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
  */
 trait RelationalAlgebraIROptSimplify
     extends RelationalAlgebraIRBasicOperators
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+    with LiftBoolean
+    with BooleanOps
+    with BooleanOpsExp
+    with EffectExp
+    with TupledFunctionsExp
 {
+
+    private def isIdentity[Domain, Range] (function: Rep[Domain => Range]) = {
+        function match {
+            case Def (Lambda (_, UnboxedTuple (List (a, b)), Block (body)))
+                if body == make_tuple2 (a, b) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c)), Block (body)))
+                if body == make_tuple3 (a, b, c) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d)), Block (body)))
+                if body == make_tuple4 (a, b, c, d) => true
+            case Def (Lambda (_, UnboxedTuple (List (a, b, c, d, e)), Block (body)))
+                if body == make_tuple5 (a, b, c, d, e) => true
+            case Def (Lambda (_, x, Block (body)))
+                if body == x => true
+            case _ => false
+        }
+    }
 
     /**
      * Remove projection that use the identity function
@@ -51,12 +71,11 @@ trait RelationalAlgebraIROptSimplify
     override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Query[Range]] = {
-        function match {
-            case Def (Lambda (_ : (Domain => Range), param, body)) if body == Block (param) =>
-				relation.asInstanceOf[Rep[Query[Range]]]
-            case _ => super.projection (relation, function)
+    ): Rep[Query[Range]] =
+        if (isIdentity (function)) {
+            relation.asInstanceOf[Rep[Query[Range]]]
+        } else
+        {
+            super.projection (relation, function)
         }
-
-    }
 }

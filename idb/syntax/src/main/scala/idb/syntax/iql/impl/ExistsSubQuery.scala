@@ -30,17 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.syntax.iql.impl
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.ExistsSubQuery
 
 /**
  *
  * @author Ralf Mitschke
  */
-object EXISTS
+case class ExistsSubQuery[Range: Manifest] (query: Rep[Query[Range]]) extends Exp[Boolean]
 {
-    def apply[Range: Manifest] (query: Rep[Query[Range]]): Rep[Boolean] =
-        null
+
 }

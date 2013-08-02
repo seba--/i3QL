@@ -32,15 +32,51 @@
  */
 package idb.syntax.iql
 
+import UniversityDatabase._
+import idb.schema.university._
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.ExistsSubQuery
+import org.junit.Assert._
+import org.junit.{Ignore, Test}
+
+import scala.language.implicitConversions
 
 /**
  *
  * @author Ralf Mitschke
  */
-object EXISTS
+class TestExistsClauses1
 {
-    def apply[Range: Manifest] (query: Rep[Query[Range]]): Rep[Boolean] =
-        null
+
+    @Test
+    def testExists () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND NOT (s.firstName == "Sally") AND
+                    EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    )
+                )
+        )
+
+    }
+
+
+    @Ignore
+    @Test
+    def testNotExists () {
+        val query = plan (
+            SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
+                s.lastName == "Fields" AND
+                    NOT (s.firstName == "Sally") AND
+                    NOT (EXISTS (
+                        SELECT (*) FROM registrations WHERE ((r: Rep[Registration]) =>
+                            s.matriculationNumber == r.studentMatriculationNumber
+                            )
+                    ))
+                )
+        )
+
+    }
 }
