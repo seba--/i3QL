@@ -55,8 +55,10 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizeBasicOperators
 {
 
+    /*
     override val transformer = new FunctionCreator {
         override val IR: RelationalAlgebraIROptPackage.this.type = RelationalAlgebraIROptPackage.this
     }
+    */
 
 }

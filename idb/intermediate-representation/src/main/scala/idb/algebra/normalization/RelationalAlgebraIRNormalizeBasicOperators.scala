@@ -45,7 +45,7 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
  */
 trait RelationalAlgebraIRNormalizeBasicOperators
     extends RelationalAlgebraIRNormalize
-    with RelationalAlgebraBasicOperators
+    with RelationalAlgebraIRBasicOperators
     with LiftBoolean
     with BooleanOps
     with BooleanOpsExp
@@ -55,8 +55,9 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     with TupledFunctionsExp
     with FunctionsExpOptAlphaEquivalence
     with ExpressionUtils
+    with FunctionCreator
 {
-
+/*
     val transformer = new FunctionCreator
     {
         override val IR: RelationalAlgebraIRNormalizeBasicOperators.this.type =
@@ -64,8 +65,8 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     }
 
     import transformer.recreateFunRepDynamic
-
-    abstract override def selection[Domain: Manifest] (
+*/
+    override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =

@@ -32,7 +32,7 @@
  */
 package idb.lms.extensions
 
-import org.junit.{Ignore, Test}
+import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
 
@@ -41,28 +41,18 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 class TestFunctionConversion
-    extends FunctionCreator
+    extends BaseFatExp
+    with NumericOpsExp
+    with EffectExp
+    with EqualExp
+    with TupledFunctionsExp
+    with TupleOpsExp
+    with FunctionsExpOptAlphaEquivalence
+    with ExpressionUtils
+    with LiftAll
+    with FunctionCreator
 {
 
-    val IR = new BaseFatExp
-        with NumericOpsExp
-        with EffectExp
-        with EqualExp
-        with TupledFunctionsExp
-        with TupleOpsExp
-        with FunctionsExpOptAlphaEquivalence
-        with ExpressionUtils
-        with LiftAll
-
-    import IR.Rep
-    import IR.fresh
-    import IR.unbox
-    import IR.fun
-    import IR.repNumericToNumericOps
-    import IR.numericToNumericOps
-    import IR.doApply
-    import IR.UnboxedTuple
-    import IR.make_tuple2
 
     @Test
     def testFun1Recreate () {
@@ -84,7 +74,7 @@ class TestFunctionConversion
         val y = fresh[Int]
         val body = f (x, y)
 
-        val params: Rep[(Int,Int)] =  (x,y)
+        val params: Rep[(Int, Int)] = (x, y)
 
         val g = recreateFun (params, body)
 
@@ -102,7 +92,7 @@ class TestFunctionConversion
         val y = fresh[Int]
         val body = f (x, y)
 
-        val params: Rep[(Int,Int)] =  UnboxedTuple(List(x,y))
+        val params: Rep[(Int, Int)] = UnboxedTuple (List (x, y))
 
         val g = recreateFun (params, body)
 

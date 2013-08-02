@@ -33,56 +33,30 @@
 package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.ExpressionUtils
-import scala.virtualization.lms.common._
+import idb.lms.extensions.{FunctionCreator, FunctionUtils}
+import scala.virtualization.lms.common.{EqualExp, TupledFunctionsExp}
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraOptJoinCondPropagation
+
+trait RelationalAlgebraIROptCreateJoin
     extends RelationalAlgebraIRBasicOperators
-    with FunctionsExp
-    with BooleanOpsExp
-    with ExpressionUtils
-    with FilterUtils
+    with TupledFunctionsExp
+    with EqualExp
+    with FunctionUtils
+    with FunctionCreator
 {
-
-
-    override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): Rep[Query[(DomainA, DomainB)]] = {
-        val newLhsFilter = constructLhsFilters (relationA, relationB, equalities)
-        val newRhsFilter = constructRhsFilters (relationA, relationB, equalities)
-
-
-        val relA = relationA match {
-            case Def (Selection (r, _)) if newLhsFilter.b1.isDefined => {
-                selection (r, transformer.recreateFun (newLhsFilter.x1, newLhsFilter.b1.get))
-            }
-            case _ if newLhsFilter.b1.isDefined =>
-                selection (relationA, transformer.recreateFun (newLhsFilter.x1, newLhsFilter.b1.get))
-
-            case _ if newLhsFilter.b1.isEmpty =>
-                relationA
+    override def selection[Domain: Manifest] (
+        relation: Rep[Query[Domain]],
+        function: Rep[Domain => Boolean]
+    ): Rep[Query[Domain]] = {
+        relation match {
+            case Def(CrossProduct(a, b)) if isDisjunctiveParameterEquality(function) =>
+                equiJoin(a, b, List(createEqualityFunctions(function))).asInstanceOf[Rep[Query[Domain]]]
+            case _ => super.selection(relation, function)
         }
-
-
-        val relB = relationB match {
-            case Def (Selection (r, f)) if newRhsFilter.b1.isDefined => {
-                selection (r, transformer.recreateFun (newRhsFilter.x1, newRhsFilter.b1.get))
-            }
-            case _ if newRhsFilter.b1.isDefined =>
-                selection (relationB, transformer.recreateFun (newRhsFilter.x1, newRhsFilter.b1.get))
-
-            case _ if newRhsFilter.b1.isEmpty =>
-                relationB
-        }
-
-        super.equiJoin (relA, relB, equalities)
     }
-
-
 }

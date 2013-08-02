@@ -162,22 +162,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                         createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
-/*
-            case (Def (CrossProduct (Def (Selection (a, fa)), b)), Def (CrossProduct (Def (Selection (c, fc)), d)))
-                if a == c =>
-                withoutNormalization (
-                    crossProduct (
-                        selection (a, createConjunction (fa, fc)(parameterType (fa))),
-                        intersection (b, d)
-                    ).asInstanceOf[Rep[Query[Domain]]]
-                )
 
-            case (Def (CrossProduct (Def (Selection (a, fa)), b)), Def (CrossProduct (c, Def (Selection (d, fd)))))
-                if a == c && b == d =>
-                withoutNormalization (
-                    crossProduct (selection (c, fa), selection (b, fd)).asInstanceOf[Rep[Query[Domain]]]
-                )
-*/
             case _ =>
                 super.intersection (relationA, relationB)
         }

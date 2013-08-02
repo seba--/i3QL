@@ -45,17 +45,16 @@ trait RelationalAlgebraIROptPushSelect
     extends RelationalAlgebraIRBasicOperators
     with BaseFatExp
     with LiftBoolean
-    with BooleanOps
     with BooleanOpsExp
-    with EffectExp
-    with FunctionsExp
-    with ExpressionUtils
-    with FunctionUtils
     with TupleOpsExp
     with TupledFunctionsExp
+    with EqualExp
+    with ExpressionUtils
+    with FunctionUtils
+    with FunctionCreator
     with FunctionsExpOptAlphaEquivalence
 {
-
+/*
     val transformer = new FunctionCreator
     {
         override val IR: RelationalAlgebraIROptPushSelect.this.type =
@@ -63,6 +62,7 @@ trait RelationalAlgebraIROptPushSelect
     }
 
     import transformer.recreateFunRepDynamic
+*/
 
     /**
      * Pushing selection down over other operations
@@ -79,8 +79,13 @@ trait RelationalAlgebraIROptPushSelect
                 projection (selection (r, pushedFunction), f)
             }
             // pushing selections that only use their arguments partially over selections that need all arguments
-            case Def (Selection (r, f)) if freeVars (f).isEmpty && !freeVars (function).isEmpty =>
+            case Def (Selection (r, f)) if !freeVars (function).isEmpty && freeVars (f).isEmpty =>
                 super.selection (super.selection (relation, f), function)
+
+            // pushing selections that use equalities over selections that do not
+            case Def (Selection (r, f)) if isDisjunctiveParameterEquality(function) && !isDisjunctiveParameterEquality(f) =>
+                super.selection (super.selection (relation, f), function)
+
 
             case Def (CrossProduct (a, b)) => {
                 pushedFunctions (function) match {

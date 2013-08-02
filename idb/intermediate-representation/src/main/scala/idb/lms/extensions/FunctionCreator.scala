@@ -39,117 +39,128 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 trait FunctionCreator
-    extends ForwardTransformer
+    extends BaseFatExp
+    with TupledFunctionsExp
+    with TupleOpsExp
+    with EqualExp
+    with FunctionsExpOptAlphaEquivalence
+    with ExpressionUtils
+    with FunctionUtils
 {
 
-    val IR: BaseFatExp with EffectExp with TupleOpsExp with TupledFunctionsExp with FunctionsExpOptAlphaEquivalence with ExpressionUtils
-
-
-    import IR.Rep
-    import IR.Def
-    import IR.Sym
-    import IR.reifyEffects
-    import IR.fun
-    import IR.ETuple2
-    import IR.ETuple3
-    import IR.ETuple4
-    import IR.ETuple5
-    import IR.UnboxedTuple
-    import IR.tuple2_get1
-    import IR.tuple2_get2
-    import IR.tuple3_get1
-    import IR.tuple3_get2
-    import IR.tuple3_get3
-    import IR.tuple4_get1
-    import IR.tuple4_get2
-    import IR.tuple4_get3
-    import IR.tuple4_get4
-    import IR.tuple5_get1
-    import IR.tuple5_get2
-    import IR.tuple5_get3
-    import IR.tuple5_get4
-    import IR.tuple5_get5
-
-
-
-
-    def recreateFunRepDynamic[A, B](
-        x: Rep[A], body: Rep[B]
-    ): Rep[A => B] = {
-        val function = recreateFun(x, body)(x.tp, body.tp)
-        fun(function)(x.tp, body.tp)
+    val transformer = new ForwardTransformer
+    {
+        val IR: FunctionCreator.this.type = FunctionCreator.this
     }
 
-    def recreateFun[A: Manifest, B: Manifest](
+    def recreateFunRepDynamic[A, B] (
+        x: Rep[A], body: Rep[B]
+    ): Rep[A => B] = {
+        val function = recreateFun (x, body)(x.tp, body.tp)
+        fun (function)(x.tp, body.tp)
+    }
+
+    def recreateFun[A: Manifest, B: Manifest] (
         x: Rep[A], body: Rep[B]
     ): Rep[A] => Rep[B] =
         (t: Rep[A]) => {
-            subst =
+            transformer.subst =
                 x match {
-                    case UnboxedTuple(args) =>
+                    case UnboxedTuple (args) =>
                         args match {
-                            case List(a, b) =>
-                                Map(
-                                    a -> tuple2_get1(t.asInstanceOf[Rep[Tuple2[Any,Any]]]),
-                                    b -> tuple2_get2(t.asInstanceOf[Rep[Tuple2[Any,Any]]])
+                            case List (a, b) =>
+                                Map (
+                                    a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any, Any]]]),
+                                    b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any, Any]]])
                                 )
-                            case List(a, b, c) =>
-                                Map(
-                                    a -> tuple3_get1(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                                    b -> tuple3_get2(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                                    c -> tuple3_get3(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]])
+                            case List (a, b, c) =>
+                                Map (
+                                    a -> tuple3_get1 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]]),
+                                    b -> tuple3_get2 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]]),
+                                    c -> tuple3_get3 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]])
                                 )
-                            case List(a, b, c, d) =>
-                                Map(
-                                    a -> tuple4_get1(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    b -> tuple4_get2(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    c -> tuple4_get3(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                                    d -> tuple4_get4(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]])
+                            case List (a, b, c, d) =>
+                                Map (
+                                    a -> tuple4_get1 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                                    b -> tuple4_get2 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                                    c -> tuple4_get3 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                                    d -> tuple4_get4 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]])
                                 )
-                            case List(a, b, c, d, e) =>
-                                Map(
-                                    a -> tuple5_get1(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    b -> tuple5_get2(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    c -> tuple5_get3(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    d -> tuple5_get4(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                                    e -> tuple5_get5(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]])
+                            case List (a, b, c, d, e) =>
+                                Map (
+                                    a -> tuple5_get1 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                                    b -> tuple5_get2 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                                    c -> tuple5_get3 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                                    d -> tuple5_get4 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                                    e -> tuple5_get5 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]])
                                 )
-                            case _ => throw new UnsupportedOperationException("Function with more than 5 parameters require special support")
+                            case _ => throw new UnsupportedOperationException (
+                                "Function with more than 5 parameters require special support")
                         }
-                    // TODO refactor this to avoid code clone. Have the cases only return the list and then construct the mapping after pattern matching
+                    // TODO refactor this to avoid code clone. Have the cases only return the list and then construct
+                    // the mapping after pattern matching
                     case Def (ETuple2 (a, b)) =>
                         Map (
-                            a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any,Any]]]),
-                            b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any,Any]]])
+                            a -> tuple2_get1 (t.asInstanceOf[Rep[Tuple2[Any, Any]]]),
+                            b -> tuple2_get2 (t.asInstanceOf[Rep[Tuple2[Any, Any]]])
                         )
                     case Def (ETuple3 (a, b, c)) =>
-                        Map(
-                            a -> tuple3_get1(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                            b -> tuple3_get2(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]]),
-                            c -> tuple3_get3(t.asInstanceOf[Rep[Tuple3[Any,Any,Any]]])
+                        Map (
+                            a -> tuple3_get1 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]]),
+                            b -> tuple3_get2 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]]),
+                            c -> tuple3_get3 (t.asInstanceOf[Rep[Tuple3[Any, Any, Any]]])
                         )
-                    case Def (ETuple4 (a, b,c, d)) =>
-                        Map(
-                            a -> tuple4_get1(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            b -> tuple4_get2(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            c -> tuple4_get3(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]]),
-                            d -> tuple4_get4(t.asInstanceOf[Rep[Tuple4[Any,Any,Any,Any]]])
+                    case Def (ETuple4 (a, b, c, d)) =>
+                        Map (
+                            a -> tuple4_get1 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                            b -> tuple4_get2 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                            c -> tuple4_get3 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]]),
+                            d -> tuple4_get4 (t.asInstanceOf[Rep[Tuple4[Any, Any, Any, Any]]])
                         )
                     case Def (ETuple5 (a, b, c, d, e)) =>
-                        Map(
-                            a -> tuple5_get1(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            b -> tuple5_get2(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            c -> tuple5_get3(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            d -> tuple5_get4(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]]),
-                            e -> tuple5_get5(t.asInstanceOf[Rep[Tuple5[Any,Any,Any,Any,Any]]])
+                        Map (
+                            a -> tuple5_get1 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                            b -> tuple5_get2 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                            c -> tuple5_get3 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                            d -> tuple5_get4 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]]),
+                            e -> tuple5_get5 (t.asInstanceOf[Rep[Tuple5[Any, Any, Any, Any, Any]]])
                         )
 
                     case Sym (_) =>
                         Map (x -> t)
-                    case _ => throw new UnsupportedOperationException("Function with parameters " + x.tp + " require special support")
+                    case _ => throw new UnsupportedOperationException (
+                        "Function with parameters " + x.tp + " require special support")
                 }
-            val res = transformBlock (reifyEffects (body)).res
-            subst = Map()
+            val res = transformer.transformBlock (reifyEffects (body)).res
+            transformer.subst = Map ()
             res
         }
+
+
+    def createEqualityFunctions[A, B] (function: Exp[A => Boolean]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
+        val params = parameters (function)
+        if (params.size != 2) {
+            throw new IllegalArgumentException ("Expected two parameters for function " + function)
+        }
+        body (function) match {
+            case Def (Equal (lhs, rhs)) => {
+                val usedByLeft = findSyms (lhs)(params.toSet)
+                val usedByRight = findSyms (rhs)(params.toSet)
+                if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
+                    throw new IllegalArgumentException (
+                        "Expected equality that separates left and right parameter in function " + function)
+                }
+                val x = params (0)
+                val y = params (1)
+                if (usedByLeft == Set (x)) {
+                    (recreateFunRepDynamic (x, lhs), recreateFunRepDynamic (y, rhs))
+                }
+                else
+                {
+                    (recreateFunRepDynamic (x, rhs), recreateFunRepDynamic (y, lhs))
+                }
+            }
+                throw new IllegalArgumentException ("Expected equality in function " + function)
+        }
+    }
 }

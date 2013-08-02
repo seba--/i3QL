@@ -91,4 +91,22 @@ trait FunctionUtils
             case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
+
+    def isDisjunctiveParameterEquality[A] (function: Exp[A => Boolean]): Boolean = {
+        val params = parameters (function)
+        if (params.size != 2) {
+            return false
+        }
+        body (function) match {
+            case Def(Equal (lhs, rhs)) => {
+                val usedByLeft = findSyms (lhs)(params.toSet)
+                val usedByRight = findSyms (rhs)(params.toSet)
+                usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+            }
+            case _ => false
+        }
+    }
+
+
+
 }
