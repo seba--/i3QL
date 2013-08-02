@@ -37,7 +37,6 @@ import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
 import idb.algebra.opt.{RelationalAlgebraIROptPushSetTheoryOps, RelationalAlgebraIROptPushSelect,
 RelationalAlgebraIROptSimplify}
-import idb.lms.extensions.FunctionCreator
 
 /**
  *
@@ -54,11 +53,5 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIRNormalizeBasicOperators
 {
-
-    /*
-    override val transformer = new FunctionCreator {
-        override val IR: RelationalAlgebraIROptPackage.this.type = RelationalAlgebraIROptPackage.this
-    }
-    */
 
 }

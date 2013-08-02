@@ -54,15 +54,6 @@ trait RelationalAlgebraIROptPushSelect
     with FunctionCreator
     with FunctionsExpOptAlphaEquivalence
 {
-/*
-    val transformer = new FunctionCreator
-    {
-        override val IR: RelationalAlgebraIROptPushSelect.this.type =
-            RelationalAlgebraIROptPushSelect.this
-    }
-
-    import transformer.recreateFunRepDynamic
-*/
 
     /**
      * Pushing selection down over other operations

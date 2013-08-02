@@ -57,15 +57,7 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     with ExpressionUtils
     with FunctionCreator
 {
-/*
-    val transformer = new FunctionCreator
-    {
-        override val IR: RelationalAlgebraIRNormalizeBasicOperators.this.type =
-            RelationalAlgebraIRNormalizeBasicOperators.this
-    }
 
-    import transformer.recreateFunRepDynamic
-*/
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
