@@ -49,6 +49,7 @@ trait FunctionCreator
     import IR.Def
     import IR.Sym
     import IR.reifyEffects
+    import IR.fun
     import IR.ETuple2
     import IR.ETuple3
     import IR.ETuple4
@@ -70,6 +71,14 @@ trait FunctionCreator
     import IR.tuple5_get5
 
 
+
+
+    def recreateFunRepDynamic[A, B](
+        x: Rep[A], body: Rep[B]
+    ): Rep[A => B] = {
+        val function = recreateFun(x, body)(x.tp, body.tp)
+        fun(function)(x.tp, body.tp)
+    }
 
     def recreateFun[A: Manifest, B: Manifest](
         x: Rep[A], body: Rep[B]

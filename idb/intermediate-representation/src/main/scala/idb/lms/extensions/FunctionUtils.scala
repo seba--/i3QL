@@ -44,11 +44,15 @@ trait FunctionUtils
     with ExpressionUtils
 {
 
+    def parameterType[A, B] (function: Exp[A => B]): Manifest[Any] = {
+        function.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
+    }
+
     def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
         val param =
             function match {
                 case Def (Lambda (_, x, _)) => x
-                case c@Const (_) => unboxedFresh (c.tp.typeArguments (0).typeArguments(0))
+                case c@Const (_) => unboxedFresh (c.tp.typeArguments (0).typeArguments (0))
                 case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
             }
 
@@ -58,17 +62,29 @@ trait FunctionUtils
         }
     }
 
+    def parameterIndex[A, B] (function: Exp[A => B], x: Exp[Any]): Int = {
+        parameters (function).indexOf (x)
+    }
+
 
     def freeVars[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
         val params = parameters (function).toSet
         val used =
             function match {
                 case Def (Lambda (_, _, body)) =>
-                    findSyms(body.res)(params).asInstanceOf[Set[Exp[Any]]]
+                    findSyms (body.res)(params).asInstanceOf[Set[Exp[Any]]]
                 case Const (_) => Set.empty[Exp[Any]]
                 case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
             }
         params.diff (used).toList
     }
 
+
+    def body[A, B] (function: Exp[A => B]): Exp[B] = {
+        function match {
+            case Def (Lambda (_, _, Block (b))) => b
+            case c: Const[B] => c
+            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
+        }
+    }
 }

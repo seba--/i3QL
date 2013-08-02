@@ -63,7 +63,7 @@ trait RelationalAlgebraIRNormalizeBasicOperators
             RelationalAlgebraIRNormalizeBasicOperators.this
     }
 
-    import transformer.recreateFun
+    import transformer.recreateFunRepDynamic
 
     abstract override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
@@ -75,18 +75,18 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                     body.res match {
                         case Def (BooleanOr (lhs, rhs)) =>
                             unionMax (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
                             difference (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case Def (BooleanAnd (lhs, rhs)) =>
                             intersection (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case _ => super.selection (relation, function)
                     }

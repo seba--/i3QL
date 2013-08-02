@@ -78,4 +78,18 @@ trait RelationalAlgebraIROptSimplify
         {
             super.projection (relation, function)
         }
+
+    override def intersection[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        (relationA, relationB) match {
+            case (Def (Selection (a, f)), b) if a == b =>
+                selection (a, f)
+            case (a, Def (Selection (b, f))) if a == b =>
+                selection (b, f)
+            case _ => super.intersection(relationA, relationB)
+        }
 }
+
+
