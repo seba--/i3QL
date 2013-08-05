@@ -176,14 +176,14 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 object TransactionalAggregation {
 
 	def apply[Domain, Key, AggregateValue, Result](
-													  source: Relation[Domain],
-													  grouping: Domain => Key,
-													  added: Domain => AggregateValue,
-													  removed: Domain => AggregateValue,
-													  updated: ((Domain, Domain)) => AggregateValue,
-													  convert: ((Key, AggregateValue)) => Result,
-													  isSet: Boolean
-													  ): Relation[Result] = {
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		added: Domain => AggregateValue,
+		removed: Domain => AggregateValue,
+		updated: ((Domain, Domain)) => AggregateValue,
+		convert: ((Key, AggregateValue)) => Result,
+		isSet: Boolean
+	): Relation[Result] = {
 		val factory =
 			new SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue] {
 				override def apply(): SelfMaintainableAggregateFunction[Domain, AggregateValue] = {
@@ -223,6 +223,39 @@ object TransactionalAggregation {
 
 		return new TransactionalAggregation[Domain, Key, AggregateValue, Result](source, grouping, factory.asInstanceOf[AggregateFunctionFactory[Domain,AggregateValue,AggregateFunction[Domain,AggregateValue]]], (x, y) => convert((x, y)), isSet)
 
+	}
+
+	def apply[Domain, Result](
+		source: Relation[Domain],
+		added: Domain => Result,
+		removed: Domain => Result,
+		updated: ((Domain, Domain)) => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		apply(source,
+			(x : Domain) => true,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Boolean, y : Result) => y),
+			isSet
+		)
+	}
+
+	def apply[Domain, Key, Result](
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		convert: Key => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		apply(source,
+			grouping,
+			(x :Domain) => true,
+			(x :Domain) => true,
+			Function.tupled((x : Domain, y : Domain) => true),
+			Function.tupled((x : Key, y : Boolean) => convert(x)),
+			isSet
+		)
 	}
 }
 

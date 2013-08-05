@@ -50,6 +50,7 @@ trait RelationalAlgebraGenBaseAsIncremental
         query match {
             case QueryRelation (relation, _, _, _) => relation
             case QueryExtent (extent, _, _, _) => extent
+			case Def(Materialize (r)) => compile(r).asMaterialized.asInstanceOf[Relation[Domain]]
         }
 
 }

@@ -45,7 +45,7 @@ import idb.MaterializedView
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraGenBasicOperatorsAsIncremental
+trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
     with CompileScalaExt
     with ScalaGenEffect
@@ -63,50 +63,64 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     // TODO incorporate set semantics into ir
     override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (Selection (r, f)) => {
-                new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
-            }
-            case Def (Projection (r, f)) => {
-                new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
-            }
-            case Def (e@CrossProduct (a, b)) => {
-
-				var compA = compile (a)
-				var compB = compile (b)
-
-				//TODO Remove this. Better: implement 'foreach' in Extent
-				if (compA.isInstanceOf[Extent[_]])
-					compA = compA.asMaterialized
-
-				if (compB.isInstanceOf[Extent[_]])
-					compB = compB.asMaterialized
-
-
-                CrossProductView (compA, compB, false).asInstanceOf[Relation[Domain]]
-            }
-            case Def (e@EquiJoin (a, b, eq)) => {
+			case Def (e@AggregationSelfMaintained (r, fGroup, fAdd, fRemove, fUpdate, fConvert)) => {
 				if (e.isIncrementLocal)
-					TransactionalEquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-						eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
+					TransactionalAggregation(compile(r),
+						compileFunctionWithDynamicManifests(fGroup),
+						compileFunctionWithDynamicManifests(fAdd),
+						compileFunctionWithDynamicManifests(fRemove),
+						compileFunctionWithDynamicManifests(fUpdate),
+						compileFunctionWithDynamicManifests(fConvert),
+						false
+					)
 				else
-                	EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-                    	eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
-            }
-
-			case Def (e@DuplicateElimination (a)) => {
-				if(e.isIncrementLocal)
-					new TransactionalDuplicateEliminationView (compile (a), false)
-				else
-					new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
+					AggregationForSelfMaintainableFunctions(compile(r),
+						compileFunctionWithDynamicManifests(fGroup),
+						compileFunctionWithDynamicManifests(fAdd),
+						compileFunctionWithDynamicManifests(fRemove),
+						compileFunctionWithDynamicManifests(fUpdate),
+						compileFunctionWithDynamicManifests(fConvert),
+						false
+					)
 			}
 
-			case Def (Unnest (r, f)) => {
-				UnNestView(compile (r), compileFunctionWithDynamicManifests(f), false).asInstanceOf[Relation[Domain]]
+			case Def (e@AggregationSelfMaintainedWithoutGrouping (r, fAdd, fRemove, fUpdate)) => {
+				if (e.isIncrementLocal)
+					TransactionalAggregation(compile(r),
+						compileFunctionWithDynamicManifests(fAdd),
+						compileFunctionWithDynamicManifests(fRemove),
+						compileFunctionWithDynamicManifests(fUpdate),
+						false
+					)
+				else
+					AggregationForSelfMaintainableFunctions(compile(r),
+						compileFunctionWithDynamicManifests(fAdd),
+						compileFunctionWithDynamicManifests(fRemove),
+						compileFunctionWithDynamicManifests(fUpdate),
+						false
+					)
+			}
+
+			case Def (e@Grouping(r, fGroup, fConvert)) => {
+				if (e.isIncrementLocal)
+					TransactionalAggregation(compile(r),
+						compileFunctionWithDynamicManifests(fGroup),
+						compileFunctionWithDynamicManifests(fConvert),
+						false
+				)
+				else
+				AggregationForSelfMaintainableFunctions(compile(r),
+					compileFunctionWithDynamicManifests(fGroup),
+					compileFunctionWithDynamicManifests(fConvert),
+					false
+				)
 			}
 
 
 
-            case _ => super.compile (query)
+
+
+			case _ => super.compile (query)
         }
     }
 
