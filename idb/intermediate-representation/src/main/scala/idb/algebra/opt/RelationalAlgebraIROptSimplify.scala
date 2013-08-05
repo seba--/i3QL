@@ -36,6 +36,8 @@ import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 
 /**
+ * Simplification rules remove operators that reduce to trivial meanings.
+ * For example: a ∩ a = a
  *
  * @author Ralf Mitschke
  *
@@ -83,139 +85,48 @@ trait RelationalAlgebraIROptSimplify
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
-            (relationA, relationB) match {
-                // a ∩ a = a
-                case (a, b) if a == b =>
-                    a
+        (relationA, relationB) match {
+            // a ∩ a = a
+            case (a, b) if a == b =>
+                a
 
-                // σ(a) ∩ a = σ(a)
-                case (Def (Selection (a, f)), b) if a == b =>
-                    selection (a, f)
+            // σ(a) ∩ a = σ(a)
+            case (Def (Selection (a, f)), b) if a == b =>
+                selection (a, f)
 
-                //  a ∩ σ(a) = σ(a)
-                case (a, Def (Selection (b, f))) if a == b =>
-                    selection (a, f)
+            //  a ∩ σ(a) = σ(a)
+            case (a, Def (Selection (b, f))) if a == b =>
+                selection (a, f)
 
-                //  σ(a) ∩ σ(a) = σ(σ(a))
-                case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
-                    selection (  selection (a, fa), fb)
+            //  σ(a) ∩ σ(a) = σ(σ(a))
+            case (Def (Selection (a, fa)), Def (Selection (b, fb))) if a == b =>
+                selection (selection (a, fa), fb)
 
-
-                /*
-            //  σ(a × b) ∩ (a ⋈ b)= σ(a ⋈ b)
-            case (Def (Selection (Def (CrossProduct (a, b)), f)), Def (EquiJoin (c, d, l)))
-                if a == c && b == d =>
-                selection (equiJoin (c, d, l).asInstanceOf[Rep[Query[Domain]]], f)
-
-            //  σ(a × b) ∩ (σ(a) ⋈ b)= σ(σ(a) ⋈ b)
-            case (Def (Selection (Def (CrossProduct (a, b)), fab)), Def (EquiJoin (Def (Selection (c, fc)), d, l)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (c, fc), d, l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(a × b) ∩ (a ⋈ σ(b))= σ(a ⋈ σ(b))
-            case (Def (Selection (Def (CrossProduct (a, b)), fab)), Def (EquiJoin (c, Def (Selection (d, fd)), l)))
-                if a == c && b == d =>
-                selection (equiJoin (c, selection (d, fd), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(a × b) ∩ (σ(a) ⋈ σ(b))= σ(σ(a) ⋈ σ(b))
-            case (Def (Selection (Def (CrossProduct (a, b)), fab)), Def (
-            EquiJoin (Def (Selection (c, fc)), Def (Selection (d, fd)), l)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (c, fc), selection (d, fd), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(σ(a) × b) ∩ (a ⋈ b)= σ(σ(a) ⋈ b)
-            case (Def (Selection (Def (CrossProduct (Def (Selection (a, fa)), b)), fab)), Def (EquiJoin (c, d, l)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), d, l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(a × σ(b)) ∩ (a ⋈ b)= σ(a ⋈ σ(b))
-            case (Def (Selection (Def (CrossProduct (a, Def (Selection (b, fb)))), fab)), Def (EquiJoin (c, d, l)))
-                if a == c && b == d =>
-                selection (equiJoin (a, selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(σ(a) × σ(b)) ∩ (a ⋈ b)= σ(σ(a) ⋈ σ(b))
-            case (Def (
-            Selection (Def (CrossProduct (Def (Selection (a, fa)), Def (Selection (b, fb)))), fab)), Def (
-            EquiJoin (c, d, l)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-
-
-            //  σ(a ⋈ b) ∩ (a × b)  = σ(a ⋈ b)
-            case (Def (Selection (Def (EquiJoin (a, b, l)), f)), Def (CrossProduct (c, d)))
-                if a == c && b == d =>
-                selection (equiJoin (a, b, l).asInstanceOf[Rep[Query[Domain]]], f)
-
-            //  σ(a ⋈ b) ∩ (σ(a) × b)  = σ(σ(a) ⋈ b)
-            case (Def (Selection (Def (EquiJoin (a, b, l)), fab)), Def (CrossProduct (Def (Selection (c, fc)), d)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fc), b, l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            //  σ(a ⋈ b) ∩ (σ(a) × b)  = σ(σ(a) ⋈ b)
-            case (Def (Selection (Def (EquiJoin (a, b, l)), fab)), Def (CrossProduct (c, Def (Selection (d, fd)))))
-                if a == c && b == d =>
-                selection (equiJoin (a, selection (b, fd), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            case (Def (Selection (Def (EquiJoin (a, b, l)), fab)), Def (
-            CrossProduct (Def (Selection (c, fc)), Def (Selection (d, fd)))))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fc), selection (b, fd), l).asInstanceOf[Rep[Query[Domain]]], fab)
-
-            case (a, Def (Selection (b, f)))
-                if a == b =>
-                selection (b, f)
-
-            case (Def (CrossProduct (a, b)), Def (Selection (Def (EquiJoin (c, d, l)), f)))
-                if a == c && b == d =>
-                selection (equiJoin (c, d, l).asInstanceOf[Rep[Query[Domain]]], f)
-
-            case (Def (CrossProduct (Def (Selection (a, fa)), b)), Def (Selection (Def (EquiJoin (c, d, l)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), d, l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (CrossProduct (a, Def (Selection (b, fb)))), Def (Selection (Def (EquiJoin (c, d, l)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (a, selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (CrossProduct (Def (Selection (a, fa)), Def (Selection (b, fb)))), Def (
-            Selection (Def (EquiJoin (c, d, l)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (a, b, l)), Def (Selection (Def (CrossProduct (c, d)), f)))
-                if a == c && b == d =>
-                selection (equiJoin (a, b, l).asInstanceOf[Rep[Query[Domain]]], f)
-
-            case (Def (EquiJoin (Def (Selection (a, fa)), b, l)), Def (Selection (Def (CrossProduct (c, d)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), b, l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (a, Def (Selection (b, fb)), l)), Def (Selection (Def (CrossProduct (c, d)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (a, selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (Def (Selection (a, fa)), Def (Selection (b, fb)), l)), Def (
-            Selection (Def (CrossProduct (c, d)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fa), selection (b, fb), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (a, b, l)), Def (Selection (Def (CrossProduct (Def (Selection (c, fc)), d)), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fc), b, l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (a, b, l)), Def (Selection (Def (CrossProduct (c, Def (Selection (d, fd)))), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (a, selection (b, fd), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-
-            case (Def (EquiJoin (a, b, l)), Def (
-            Selection (Def (CrossProduct (Def (Selection (c, fc)), Def (Selection (d, fd)))), fcd)))
-                if a == c && b == d =>
-                selection (equiJoin (selection (a, fc), selection (b, fd), l).asInstanceOf[Rep[Query[Domain]]], fcd)
-*/
-                case _ => super.intersection (relationA, relationB)
+            case _ => super.intersection (relationA, relationB)
 
         }
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[Range]] =
+        ((relationA, relationB) match {
+
+            // a ∪ a = a
+            case (a, b) if a == b =>
+                a
+
+            // σ(a) ∪ a = σ(a)
+            case (Def (Selection (a, f)), b) if a == b =>
+                selection (a, f)
+
+            //  a ∪ σ(a) = σ(a)
+            case (a, Def (Selection (b, f))) if a == b =>
+                selection (b, f)
+
+            case _ => super.unionMax (relationA, relationB)
+
+        }).asInstanceOf[Rep[Query[Range]]]
 }
 
 
