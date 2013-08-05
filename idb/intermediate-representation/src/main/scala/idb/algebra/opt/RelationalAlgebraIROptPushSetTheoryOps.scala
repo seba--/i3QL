@@ -47,33 +47,46 @@ trait RelationalAlgebraIROptPushSetTheoryOps
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
-        (relationA, relationB) match {
+        ((relationA, relationB) match {
+            // Π_f(a) ∩ Π_f(b) => Π_f(a ∩ b)
+            case (Def (Projection (a, fa)), Def (Projection (b, fb))) if fa == fb =>
+                projection (intersection (a, b)(domainOf (a)), fa)
+
+               /*
+            //  (a × b) ∩ (c × d) => (a ∩ c) × (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
                 crossProduct (
                     intersection (a, c)(domainOf (a)),
                     intersection (b, d)(domainOf (b))
-                ).asInstanceOf[Rep[Query[Domain]]]
+                )
 
-            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
-                equiJoin (
-                    intersection (a, c)(domainOf (a)),
-                    intersection (b, d)(domainOf (b)),
-                    l1 ::: l2
-                ).asInstanceOf[Rep[Query[Domain]]]
-
-            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
-                equiJoin (
-                    intersection (a, c)(domainOf (a)),
-                    intersection (b, d)(domainOf (b)),
-                    l
-                ).asInstanceOf[Rep[Query[Domain]]]
-
+            //  (a × b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
                 equiJoin (
                     intersection (a, c)(domainOf (a)),
                     intersection (b, d)(domainOf (b)),
                     l
-                ).asInstanceOf[Rep[Query[Domain]]]
+                )
+
+            //  (a ⋈ b) ∩ (c × d) => (a ∩ c) ⋈ (b ∩ d)
+            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l
+                )
+
+            //  (a ⋈ b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
+            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l1 ::: l2
+                )
+
+            //  σ(a) ∩ b => σ(a ∩ b)
+            case (Def (Selection (a, f)), b) if a != b =>
+                selection (intersection (a, b)(exactDomainOf(a)), f)
 
             case (Def (Intersection (r, Def (CrossProduct (a, b)))), Def (CrossProduct (c, d))) =>
                 intersection (
@@ -93,10 +106,10 @@ trait RelationalAlgebraIROptPushSetTheoryOps
                     ).asInstanceOf[Rep[Query[Domain]]],
                     r.asInstanceOf[Rep[Query[Domain]]]
                 )
-
+                       */
 
             case _ => super.intersection (relationA, relationB)
 
 
-        }
+        }).asInstanceOf[Rep[Query[Domain]]]
 }
