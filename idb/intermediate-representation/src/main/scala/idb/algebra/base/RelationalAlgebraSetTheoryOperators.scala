@@ -30,68 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.compiler
-
-import scala.language.reflectiveCalls
-import org.junit.Test
-import org.junit.Assert._
-import scala.virtualization.lms.common._
-import idb.schema.university.{Student, University}
-import idb.SetExtent
-import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+package idb.algebra.base
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-class TestIRGenBasicOperatorsAsIncremental
+
+trait RelationalAlgebraSetTheoryOperators
+    extends RelationalAlgebraBase
 {
 
+	def unionAdd[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+	): Rep[Query[Range]]
+
+	def unionMax[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+	): Rep[Query[Range]]
+
+	def intersection[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
+	def difference[Domain : Manifest] (
+		relationA: Rep[Query[Domain]],
+		relationB: Rep[Query[Domain]]
+	): Rep[Query[Domain]]
 
 
-    @Test
-    def testConstructSelection () {
-        val base = new SetExtent[Student]
 
-        val prog = new RelationalAlgebraIRBasicOperators
-			with RelationalAlgebraIRSetTheoryOperators
-			with RelationalAlgebraIRRecursiveOperators
-			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
-            with ScalaOpsPkgExp
-            with University
-            with LiftAll
-        {
-            val query = selection (extent (base), (s: Rep[Student]) => s.firstName == "Sally")
-        }
-
-        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct
-        {
-            val IR: prog.type = prog
-
-            silent = true
-        }
-
-        val result = compiler.compile (prog.query).asMaterialized
-
-        val sally = Student (1, "Sally", "Fields")
-        val bob = Student (2, "Bob", "Martin")
-
-        base.add (sally)
-        base.add (bob)
-
-        assertEquals (
-            List (sally),
-            result.asList
-        )
-
-        base.remove (sally)
-
-        assertEquals (
-            Nil,
-            result.asList
-        )
-    }
 
 }

@@ -32,7 +32,7 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common.{StructExp, ScalaOpsPkgExp, TupledFunctionsExp}
 
 /**
@@ -44,7 +44,7 @@ trait RelationalAlgebraPrintPlanSetTheoryOperators
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators with RelationalAlgebraIRSetTheoryOperators
 
     import IR.Exp
     import IR.Def

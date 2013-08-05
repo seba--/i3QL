@@ -34,6 +34,7 @@ package idb.algebra
 
 import idb.algebra.ir._
 import idb.algebra.opt._
+
 import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
 
@@ -49,6 +50,9 @@ import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
  */
 trait RelationalAlgebraIROptPackage
     extends RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
+	with RelationalAlgebraIRRecursiveOperators
+	with RelationalAlgebraIRAggregationOperators
     with RelationalAlgebraIRMultiRelations
     with RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIROptSimplify

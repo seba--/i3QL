@@ -32,9 +32,10 @@
  */
 package idb.algebra.normalization
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRBase}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionCreator}
+import idb.algebra.base.RelationalAlgebraBasicOperators
 
 
 /**
@@ -45,6 +46,7 @@ import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, Fun
 trait RelationalAlgebraIRNormalizeBasicOperators
     extends RelationalAlgebraIRNormalize
     with RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
     with LiftBoolean
     with BooleanOps
     with BooleanOpsExp
@@ -76,11 +78,10 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                                 selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case Def (BooleanAnd (lhs, rhs)) =>
-                            selection (
-                                selection (relation, recreateFunRepDynamic (x, rhs)),
-                                recreateFunRepDynamic (x, lhs)
+                            intersection (
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
-
                         case _ => super.selection (relation, function)
                     }
                 case _ => throw new IllegalArgumentException (function + " is not a Lambda function")

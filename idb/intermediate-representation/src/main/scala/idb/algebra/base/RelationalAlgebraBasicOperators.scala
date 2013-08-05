@@ -65,60 +65,13 @@ trait RelationalAlgebraBasicOperators
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]]
 
-	def unionAdd[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
-		relationA: Rep[Query[DomainA]],
-		relationB: Rep[Query[DomainB]]
-	): Rep[Query[Range]]
-
-	def unionMax[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
-		relationA: Rep[Query[DomainA]],
-		relationB: Rep[Query[DomainB]]
-	): Rep[Query[Range]]
-
-	def intersection[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
-
-	def difference[Domain : Manifest] (
-		relationA: Rep[Query[Domain]],
-		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
-
-
 	def duplicateElimination[Domain : Manifest] (
 		relation: Rep[Query[Domain]]
 	): Rep[Query[Domain]]
-
-	def transitiveClosure[Edge: Manifest, Vertex: Manifest] (
-		relation: Rep[Query[Edge]],
-		tail: Rep[Edge => Vertex],
-		head: Rep[Edge => Vertex]
-	): Rep[Query[(Vertex,Vertex)]]
 
 	def unnest[Domain: Manifest, Range: Manifest] (
 		relation: Rep[Query[Domain]],
 		unnesting: Rep[Domain => Seq[Range]]
 	): Rep[Query[Range]]
-
-	def aggregationSelfMaintained[Domain : Manifest,Key : Manifest,AggregateValue : Manifest ,Result : Manifest](
-		relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Key],
-		added : Rep[Domain => AggregateValue],
-		removed : Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
-        convert: Rep[((Key, AggregateValue)) => Result]
-	): Rep[Query[Result]]
-
-	def recursion[Domain : Manifest] (
-	    base : Rep[Query[Domain]],
-		result : Rep[Query[Domain]]
-	): Rep[Query[Domain]]
-
-	def materialize[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
-    ): Rep[Query[Domain]]
-
-
 
 }

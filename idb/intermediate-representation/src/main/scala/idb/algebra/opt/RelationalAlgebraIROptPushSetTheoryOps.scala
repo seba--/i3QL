@@ -32,7 +32,7 @@
  */
 package idb.algebra.opt
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 
 /**
  *
@@ -41,6 +41,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
  */
 trait RelationalAlgebraIROptPushSetTheoryOps
     extends RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
 {
 
     override def intersection[Domain: Manifest] (

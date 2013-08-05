@@ -91,6 +91,14 @@ trait RelationalAlgebraIRBase
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
 
+	case class Materialize[Domain : Manifest] (
+	  relation : Rep[Query[Domain]]
+	) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = true //Materialization is always materialized
+		def isSet = false
+		def isIncrementLocal = false
+	}
+
 
     protected def isIncrementLocal[Domain] (m: Manifest[Domain]) = {
         m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
@@ -114,6 +122,18 @@ trait RelationalAlgebraIRBase
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]] =
         QueryRelation (relation, isSet, isIncrementLocal (mDom))
+
+	override def materialize[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		Materialize(relation)
+
+	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
+		r match {
+			case e : QueryBaseOps => e
+			case Def (r) => r.asInstanceOf[QueryBaseOps]
+		}
+	}
 
 
 }

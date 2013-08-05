@@ -76,5 +76,12 @@ trait RelationalAlgebraBase
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]]
 
+	/**
+	 * Materializes a relation.
+	 */
+	def materialize[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	): Rep[Query[Domain]]
+
 
 }

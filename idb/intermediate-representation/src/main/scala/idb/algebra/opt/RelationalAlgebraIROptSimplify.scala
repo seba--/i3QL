@@ -33,7 +33,7 @@
 package idb.algebra.opt
 
 import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -44,6 +44,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
  */
 trait RelationalAlgebraIROptSimplify
     extends RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
     with LiftBoolean
     with BooleanOps
     with BooleanOpsExp

@@ -37,7 +37,7 @@ import org.junit.Test
 import org.junit.Assert._
 import scala.virtualization.lms.common._
 import idb.schema.university.{StudentSchema, Student, University}
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.compiler.{RelationalAlgebraGenBasicOperatorsAsIncremental, RelationalAlgebraGenSAEBinding}
 
 /**
@@ -50,6 +50,9 @@ class TestCompileScalaExt
     @Test
     def testCompileFunction1 () {
         val prog = new RelationalAlgebraIRBasicOperators
+			with RelationalAlgebraIRSetTheoryOperators
+			with RelationalAlgebraIRRecursiveOperators
+			with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
@@ -76,6 +79,9 @@ class TestCompileScalaExt
     @Test
     def testCompileFunction2 () {
         val prog = new RelationalAlgebraIRBasicOperators
+			with RelationalAlgebraIRSetTheoryOperators
+			with RelationalAlgebraIRRecursiveOperators
+			with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
@@ -103,6 +109,9 @@ class TestCompileScalaExt
     @Test
     def testCompileFunction1WithDynamicManifests () {
         val prog = new RelationalAlgebraIRBasicOperators
+			with RelationalAlgebraIRSetTheoryOperators
+			with RelationalAlgebraIRRecursiveOperators
+			with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
@@ -129,6 +138,9 @@ class TestCompileScalaExt
     @Test
     def testCompileFunction2WithDynamicManifests () {
         val prog = new RelationalAlgebraIRBasicOperators
+			with RelationalAlgebraIRSetTheoryOperators
+			with RelationalAlgebraIRRecursiveOperators
+			with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
@@ -156,6 +168,9 @@ class TestCompileScalaExt
     @Test
     def testCompileExplicitToString () {
         val prog = new RelationalAlgebraIRBasicOperators
+			with RelationalAlgebraIRSetTheoryOperators
+			with RelationalAlgebraIRRecursiveOperators
+			with RelationalAlgebraIRAggregationOperators
             with RelationalAlgebraGenSAEBinding
             with ScalaOpsPkgExp
             with University
