@@ -46,8 +46,12 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
 trait RelationalAlgebraIRNormalizeBasicOperators
     extends RelationalAlgebraIRNormalize
 <<<<<<< HEAD
+<<<<<<< HEAD
     with RelationalAlgebraBasicOperators
 	with RelationalAlgebraIRSetTheoryOperators
+=======
+    with RelationalAlgebraIRBasicOperators
+>>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b
 =======
     with RelationalAlgebraIRBasicOperators
 >>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b

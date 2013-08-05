@@ -119,6 +119,7 @@ trait RelationalAlgebraIRBase
     ): Rep[Query[Domain]] =
         QueryRelation (relation, isSet, isIncrementLocal (mDom))
 
+<<<<<<< HEAD
 	override def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
 	): Rep[Query[Domain]] =
@@ -130,5 +131,7 @@ trait RelationalAlgebraIRBase
 			case Def (r) => r.asInstanceOf[QueryBaseOps]
 		}
 	}
+=======
+>>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b
 
 }

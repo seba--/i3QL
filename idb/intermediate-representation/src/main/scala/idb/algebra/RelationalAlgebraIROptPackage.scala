@@ -34,6 +34,10 @@ package idb.algebra
 
 import idb.algebra.ir._
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import idb.algebra.opt._
+>>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b
 =======
 import idb.algebra.opt._
 >>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b
