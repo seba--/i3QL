@@ -30,68 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.compiler
-
-import scala.language.reflectiveCalls
-import org.junit.Test
-import org.junit.Assert._
-import scala.virtualization.lms.common._
-import idb.schema.university.{Student, University}
-import idb.SetExtent
-import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+package idb.algebra.base
 
 /**
  *
  * @author Ralf Mitschke
  *
  */
-class TestIRGenBasicOperatorsAsIncremental
+
+trait RelationalAlgebraAggregationOperators
+    extends RelationalAlgebraBase
 {
+  	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, AggregateValue : Manifest, Result : Manifest](
+		relation : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		added : Rep[Domain => AggregateValue],
+		removed : Rep[Domain => AggregateValue],
+        updated: Rep[((Domain, Domain)) => AggregateValue],
+        convert: Rep[((Key, AggregateValue)) => Result]
+	): Rep[Query[Result]]
+
+	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
+		relation : Rep[Query[Domain]],
+		added : Rep[Domain => Result],
+		removed : Rep[Domain => Result],
+		updated: Rep[((Domain, Domain)) => Result]
+	): Rep[Query[Result]]
+
+	def grouping[Domain : Manifest, Key : Manifest, Result : Manifest] (
+		relation : Rep[Query[Domain]],
+		grouping : Rep[Domain => Key],
+		convert: Rep[Key => Result]
+	): Rep[Query[Result]]
 
 
-
-    @Test
-    def testConstructSelection () {
-        val base = new SetExtent[Student]
-
-        val prog = new RelationalAlgebraIRBasicOperators
-			with RelationalAlgebraIRSetTheoryOperators
-			with RelationalAlgebraIRRecursiveOperators
-			with RelationalAlgebraIRAggregationOperators
-            with RelationalAlgebraGenSAEBinding
-            with ScalaOpsPkgExp
-            with University
-            with LiftAll
-        {
-            val query = selection (extent (base), (s: Rep[Student]) => s.firstName == "Sally")
-        }
-
-        val compiler = new RelationalAlgebraGenBasicOperatorsAsIncremental with ScalaCodeGenPkg with ScalaGenStruct
-        {
-            val IR: prog.type = prog
-
-            silent = true
-        }
-
-        val result = compiler.compile (prog.query).asMaterialized
-
-        val sally = Student (1, "Sally", "Fields")
-        val bob = Student (2, "Bob", "Martin")
-
-        base.add (sally)
-        base.add (bob)
-
-        assertEquals (
-            List (sally),
-            result.asList
-        )
-
-        base.remove (sally)
-
-        assertEquals (
-            Nil,
-            result.asList
-        )
-    }
 
 }

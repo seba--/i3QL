@@ -38,6 +38,7 @@ import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, LiftAll, 
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.algebra.TestUtils
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
 
 /**
  *
@@ -53,6 +54,10 @@ class TestIROptPushSelection
     with RelationalAlgebraIROptPushSelect
     with TestUtils
     with RelationalAlgebraPrintPlan
+	with RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
+	with RelationalAlgebraIRRecursiveOperators
+	with RelationalAlgebraIRAggregationOperators
 {
 
     override val IR : this.type = this

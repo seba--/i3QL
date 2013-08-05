@@ -33,7 +33,7 @@
 package idb.algebra.fusion
 
 import scala.virtualization.lms.common._
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.normalization.RelationalAlgebraIRNormalize
 
 /**
@@ -44,6 +44,7 @@ import idb.algebra.normalization.RelationalAlgebraIRNormalize
  */
 trait RelationalAlgebraIRFuseBasicOperators
     extends RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
     with RelationalAlgebraIRNormalize
     with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
 {

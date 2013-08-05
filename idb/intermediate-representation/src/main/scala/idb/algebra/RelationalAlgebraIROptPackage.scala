@@ -32,7 +32,7 @@
  */
 package idb.algebra
 
-import idb.algebra.ir.{RelationalAlgebraIRMultiRelations, RelationalAlgebraIRBasicOperators}
+import idb.algebra.ir._
 import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
 import idb.algebra.opt.{RelationalAlgebraIROptPushSelect, RelationalAlgebraIROptSimplify}
@@ -45,6 +45,9 @@ import idb.algebra.opt.{RelationalAlgebraIROptPushSelect, RelationalAlgebraIROpt
 
 trait RelationalAlgebraIROptPackage
     extends RelationalAlgebraIRBasicOperators
+	with RelationalAlgebraIRSetTheoryOperators
+	with RelationalAlgebraIRRecursiveOperators
+	with RelationalAlgebraIRAggregationOperators
     with RelationalAlgebraIRMultiRelations
     with RelationalAlgebraIRNormalizeBasicOperators
     with RelationalAlgebraIRFuseBasicOperators

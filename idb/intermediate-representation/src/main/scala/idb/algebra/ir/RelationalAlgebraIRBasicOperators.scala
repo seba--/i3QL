@@ -88,73 +88,14 @@ trait RelationalAlgebraIRBasicOperators
 		def isIncrementLocal = false
 	}
 
-    case class UnionAdd[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
-        var relationA: Rep[Query[DomainA]],
-        var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[Range]] with QueryBaseOps {
-        val mDomA = implicitly[Manifest[DomainA]]
-        val mDomB = implicitly[Manifest[DomainB]]
-        val mRan = implicitly[Manifest[Range]]
-
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
-		def isSet = false
-		def isIncrementLocal = false
-    }
-
-    case class UnionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
-        var relationA: Rep[Query[DomainA]],
-        var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[Range]] with QueryBaseOps {
-        val mDomA = implicitly[Manifest[DomainA]]
-        val mDomB = implicitly[Manifest[DomainB]]
-        val mRan = implicitly[Manifest[Range]]
-
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = false
-    }
-
-    case class Intersection[Domain: Manifest] (
-        var relationA: Rep[Query[Domain]],
-        var relationB: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]] with QueryBaseOps {
-
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = false
-	}
-
-    case class Difference[Domain: Manifest] (
-        var relationA: Rep[Query[Domain]],
-        var relationB: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]] with QueryBaseOps {
-
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = false
-	}
-
     case class DuplicateElimination[Domain: Manifest] (
         var relation: Rep[Query[Domain]]
     ) extends Def[Query[Domain]] with QueryBaseOps {
 
-		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
+		def isMaterialized: Boolean = !isIncrementLocal //Duplicate Elimination stores intermediate objects and therefore implements foreach
 		def isSet = false
 		def isIncrementLocal = false
 	}
-
-    case class TransitiveClosure[Edge: Manifest, Vertex: Manifest] (
-        var relation: Rep[Query[Edge]],
-        tail: Rep[Edge => Vertex],
-        head: Rep[Edge => Vertex]
-    ) extends Def[Query[(Vertex, Vertex)]] with QueryBaseOps {
-        val mEdge = implicitly[Manifest[Edge]]
-        val mVertex = implicitly[Manifest[Vertex]]
-
-		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = false
-    }
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
         var relation: Rep[Query[Domain]],
@@ -166,35 +107,6 @@ trait RelationalAlgebraIRBasicOperators
 		def isIncrementLocal = false
 	}
 
-    case class Recursion[Domain: Manifest] (
-        var base: Rep[Query[Domain]],
-        var result: Rep[Query[Domain]]
-    ) extends Def[Query[Domain]] with QueryBaseOps {
-		def isMaterialized: Boolean = result.isMaterialized
-		def isSet = false
-		def isIncrementLocal = false
-    }
-
-    case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
-        var relation: Rep[Query[Domain]],
-        grouping: Rep[Domain => Key],
-        added: Rep[Domain => AggregateValue],
-        removed: Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
-        convert: Rep[((Key, AggregateValue)) => Result]
-    ) extends Def[Query[Result]] with QueryBaseOps {
-		def isMaterialized: Boolean = relation.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = false
-	}
-
-	case class Materialize[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
-	) extends Def[Query[Domain]] with QueryBaseOps {
-		def isMaterialized: Boolean = true
-		def isSet = false
-		def isIncrementLocal = false
-	}
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
@@ -212,7 +124,7 @@ trait RelationalAlgebraIRBasicOperators
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
-        CrossProduct (relationA, relationB)
+        CrossProduct (materialize(relationA), materialize(relationB))
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
@@ -221,184 +133,16 @@ trait RelationalAlgebraIRBasicOperators
     ): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 
-    def unionAdd[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): Rep[Query[Range]] =
-        UnionAdd (relationA, relationB)
-
-    def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]]
-    ): Rep[Query[Range]] =
-        UnionMax (relationA, relationB)
-
-    def intersection[Domain: Manifest] (
-        relationA: Rep[Query[Domain]],
-        relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
-        Intersection (relationA, relationB)
-
-    def difference[Domain: Manifest] (
-        relationA: Rep[Query[Domain]],
-        relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
-        Difference (relationA, relationB)
-
     def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
         DuplicateElimination (relation)
 
-    def transitiveClosure[Edge: Manifest, Vertex: Manifest] (
-        relation: Rep[Query[Edge]],
-        tail: Rep[Edge => Vertex],
-        head: Rep[Edge => Vertex]
-    ): Rep[Query[(Vertex, Vertex)]] =
-        TransitiveClosure (relation, tail, head)
-
-    def unnest[Domain: Manifest, Range: Manifest] (
+   def unnest[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         unnesting: Rep[Domain => Seq[Range]]
     ): Rep[Query[Range]] =
         Unnest (relation, unnesting)
-
-    def recursion[Domain: Manifest] (
-        base: Rep[Query[Domain]],
-        result: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] = {
-        insertRecursionAtBase (result, base, result, (x: Rep[Query[Domain]]) => {})
-        return result
-    }
-
-    def aggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
-        relation: Rep[Query[Domain]],
-        grouping: Rep[Domain => Key],
-        added: Rep[Domain => AggregateValue],
-        removed: Rep[Domain => AggregateValue],
-        updated: Rep[((Domain, Domain)) => AggregateValue],
-        convert: Rep[((Key, AggregateValue)) => Result]
-    ): Rep[Query[Result]] =
-        AggregationSelfMaintained (relation, grouping, added, removed, updated, convert)
-
-	def materialize[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]] =
-		Materialize(relation)
-
-    /**
-     * Searches the recursion base in a operator tree and inserts a recursion node next-to-last to the recursion base.
-     * @param base The base of the recursion.
-     * @param relation The operator tree where the recursion should be added. The tree must contain the recursion base.
-     * @return An operator tree with a recursion node. Note that the result of the recursion node is NOT set
-     *         accordingly to the definition of the recursion.
-     */
-    private def insertRecursionAtBase[Domain: Manifest] (
-        relation: Rep[Query[Domain]],
-        base: Rep[Query[_]],
-        result: Rep[Query[_]],
-        setFunction: (Rep[Query[Domain]]) => Unit
-    ) {
-		relation match
-        {
-            case `base` =>
-            {
-                setFunction (Recursion (relation, result.asInstanceOf[Rep[Query[Domain]]]))
-            }
-            case QueryRelation (r, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
-                "result tree.")
-            case QueryExtent (e, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
-                "result tree.")
-
-            case Def (e@Projection (r, _)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
-            case Def (e@Selection (r, _)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.relation = x)
-            }
-            case Def (e@CrossProduct (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Any]]) => e.relationA = x,
-                    (x: Rep[Query[Any]]) => e.relationB = x)
-            }
-            case Def (e@EquiJoin (a, b, _)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Any]]) => e.relationA = x,
-                    (x: Rep[Query[Any]]) => e.relationB = x)
-            }
-            case Def (e@UnionAdd (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
-                    (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
-            case Def (e@UnionMax (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
-                    (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
-            case Def (e@Intersection (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
-                    (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
-            case Def (e@Difference (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
-                    (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
-            case Def (e@DuplicateElimination (r)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.relation = x)
-            }
-            case Def (e@TransitiveClosure (r, t, h)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
-            case Def (e@Unnest (r, f)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
-            case Def (e@AggregationSelfMaintained (r, _, _, _, _, _)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
-            case Def (e@Recursion (r, _)) =>
-            {
-                insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.base = x)
-            }
-            case e =>
-            {
-                throw new IllegalArgumentException ("Could not traverse through " + e)
-            }
-        }
-    }
-
-    private def setRecursionBase[DomainA: Manifest, DomainB: Manifest] (
-        relationA: Rep[Query[DomainA]],
-        relationB: Rep[Query[DomainB]],
-        base: Rep[Query[_]],
-        result: Rep[Query[_]],
-        setFunctionA: Rep[Query[DomainA]] => Unit,
-        setFunctionB: Rep[Query[DomainB]] => Unit
-    ) {
-        try
-        {
-            insertRecursionAtBase (relationA, base, result, setFunctionA)
-        } catch
-            {
-                case e: IllegalArgumentException => insertRecursionAtBase (relationB, base, result, setFunctionB)
-            }
-    }
-
-	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
-		r match {
-			case e : QueryBaseOps => e
-			case Def (r) => r.asInstanceOf[QueryBaseOps]
-		}
-	}
-
 
 }
 

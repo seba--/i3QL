@@ -32,7 +32,7 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 
 /**
@@ -44,8 +44,7 @@ trait RelationalAlgebraPrintPlanBasicOperators
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators
-
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators with RelationalAlgebraIRSetTheoryOperators
     import IR.Exp
     import IR.Def
     import IR.Projection
@@ -53,7 +52,6 @@ trait RelationalAlgebraPrintPlanBasicOperators
     import IR.CrossProduct
     import IR.EquiJoin
     import IR.DuplicateElimination
-    import IR.AggregationSelfMaintained
 
 
     override def quote (x: Exp[Any]): String =
@@ -99,7 +97,7 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withMoreIndent (quote (relation) + "\n") +
                     withIndent (")")
 
-            case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
+         /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
                 withIndent ("aggregation(" + "\n") +
                     withMoreIndent (quote (relation) + ",\n") +
                     withMoreIndent (quoteFunction (grouping) + ",\n") +
@@ -107,7 +105,7 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withMoreIndent (quoteFunction (removed) + ",\n") +
                     withMoreIndent (quoteFunction (updated) + ",\n") +
                     withMoreIndent (quoteFunction (convert) + "\n") +
-                    withIndent (")")
+                    withIndent (")")*/
 
             case _ => super.quote (x)
         }
