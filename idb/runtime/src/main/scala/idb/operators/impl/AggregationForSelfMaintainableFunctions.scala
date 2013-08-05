@@ -247,6 +247,39 @@ object AggregationForSelfMaintainableFunctions {
 		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
 
 	}
+
+	def apply[Domain, Result](
+		source: Relation[Domain],
+		added: Domain => Result,
+		removed: Domain => Result,
+		updated: ((Domain, Domain)) => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		apply(source,
+			(x : Domain) => true,
+			added,
+			removed,
+			updated,
+			Function.tupled((x : Boolean, y : Result) => y),
+			isSet
+		)
+	}
+
+	def apply[Domain, Key, Result](
+		source: Relation[Domain],
+		grouping: Domain => Key,
+		convert: Key => Result,
+		isSet: Boolean
+  	): Relation[Result] = {
+		apply(source,
+			grouping,
+			(x :Domain) => true,
+			(x :Domain) => true,
+			Function.tupled((x : Domain, y : Domain) => true),
+			Function.tupled((x : Key, y : Boolean) => convert(x)),
+			isSet
+		)
+	}
 }
 
 

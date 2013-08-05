@@ -38,14 +38,13 @@ import idb.operators.impl._
 import idb.operators.impl.opt._
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
-import scala.virtualization.lms.common.FunctionsExp
 import idb.MaterializedView
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraGenBasicOperatorsAsIncremental
+trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
     with CompileScalaExt
     with ScalaGenEffect
@@ -63,48 +62,28 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     // TODO incorporate set semantics into ir
     override def compile[Domain: Manifest] (query: Rep[Query[Domain]]): Relation[Domain] = {
         query match {
-            case Def (Selection (r, f)) => {
-                new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
-            }
-            case Def (Projection (r, f)) => {
-                new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
-            }
-            case Def (e@CrossProduct (a, b)) => {
 
-				var compA = compile (a)
-				var compB = compile (b)
-
-				//TODO Remove this. Better: implement 'foreach' in Extent
-				if (compA.isInstanceOf[Extent[_]])
-					compA = compA.asMaterialized
-
-				if (compB.isInstanceOf[Extent[_]])
-					compB = compB.asMaterialized
-
-
-                CrossProductView (compA, compB, false).asInstanceOf[Relation[Domain]]
-            }
-            case Def (e@EquiJoin (a, b, eq)) => {
-				if (e.isIncrementLocal)
-					TransactionalEquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-						eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
-				else
-                	EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-                    	eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
-            }
-
-			case Def (e@DuplicateElimination (a)) => {
+			case Def (e@UnionAdd (a, b)) => {
+				new UnionViewAdd (compile (a) (e.mDomA), compile (b) (e.mDomB), false)
+			}
+			case Def (e@UnionMax (a, b)) => {
 				if(e.isIncrementLocal)
-					new TransactionalDuplicateEliminationView (compile (a), false)
+					new TransactionalUnionMaxView(compile (a) (e.mDomA), compile (b) (e.mDomB), false)
 				else
-					new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
+					new UnionViewMax (compile (a) (e.mDomA).asInstanceOf[MaterializedView[Domain]], compile (b) (e.mDomB).asInstanceOf[MaterializedView[Domain]], false)
 			}
-
-			case Def (Unnest (r, f)) => {
-				UnNestView(compile (r), compileFunctionWithDynamicManifests(f), false).asInstanceOf[Relation[Domain]]
+			case Def (e@Intersection (a, b)) => {
+				if (e.isIncrementLocal)
+					new TransactionalIntersectionView (compile (a), compile (b), false)
+				else
+					new IntersectionView (compile (a).asInstanceOf[MaterializedView[Domain]], compile (b).asInstanceOf[MaterializedView[Domain]], false)
 			}
-
-
+			case Def (e@Difference (a, b)) => {
+				if (e.isIncrementLocal)
+					new TransactionalDifferenceView (compile (a), compile (b), false)
+				else
+					new DifferenceView (compile (a), compile (b), false)
+			}
 
             case _ => super.compile (query)
         }
