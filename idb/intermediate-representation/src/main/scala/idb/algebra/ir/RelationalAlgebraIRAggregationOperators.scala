@@ -68,11 +68,15 @@ trait RelationalAlgebraIRAggregationOperators
 		def isIncrementLocal = false
 	}
 
-	def grouping[Domain : Manifest, Key : Manifest, Result : Manifest] (
+	case class Grouping[Domain : Manifest, Key : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		convert: Rep[Key => Result]
-	): Rep[Query[Result]]
+	) extends Def[Query[Result]] with QueryBaseOps {
+		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
+		def isSet = false
+		def isIncrementLocal = false
+	}
 
     def aggregationSelfMaintained[Domain: Manifest, Key: Manifest, AggregateValue: Manifest, Result: Manifest] (
         relation: Rep[Query[Domain]],
@@ -89,13 +93,15 @@ trait RelationalAlgebraIRAggregationOperators
 		added : Rep[Domain => Result],
 		removed : Rep[Domain => Result],
 		updated: Rep[((Domain, Domain)) => Result]
-	): Rep[Query[Result]]
+	): Rep[Query[Result]] =
+		AggregationSelfMaintainedWithoutGrouping (relation, added, removed, updated)
 
 	def grouping[Domain : Manifest, Key : Manifest, Result : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
 		convert: Rep[Key => Result]
-	): Rep[Query[Result]]
+	): Rep[Query[Result]] =
+		Grouping (relation,grouping,convert)
 
 
 }
