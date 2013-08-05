@@ -39,7 +39,7 @@ package idb.algebra.print
 trait CodeGenIndent
 {
 
-    val singleIndent = "  "
+    val singleIndent = "    "
 
     protected var indent = ""
 

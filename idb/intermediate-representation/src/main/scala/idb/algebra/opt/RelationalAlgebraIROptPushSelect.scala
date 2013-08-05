@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import scala.virtualization.lms.common._
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
-import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
+import idb.lms.extensions.{FunctionsExpOptAlphaEquivalence, FunctionCreator, FunctionUtils, ExpressionUtils}
 
 /**
  *
@@ -43,13 +43,16 @@ import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
  */
 trait RelationalAlgebraIROptPushSelect
     extends RelationalAlgebraIRBasicOperators
+    with BaseFatExp
     with LiftBoolean
-    with BooleanOps
     with BooleanOpsExp
-    with EffectExp
-    with FunctionsExp
+    with TupleOpsExp
+    with TupledFunctionsExp
+    with EqualExp
     with ExpressionUtils
     with FunctionUtils
+    with FunctionCreator
+    with FunctionsExpOptAlphaEquivalence
 {
 
     /**
@@ -67,13 +70,52 @@ trait RelationalAlgebraIROptPushSelect
                 projection (selection (r, pushedFunction), f)
             }
             // pushing selections that only use their arguments partially over selections that need all arguments
-            case Def (Selection (r, f)) if freeVars (f).isEmpty && !freeVars (function).isEmpty =>
+            case Def (Selection (r, f)) if !freeVars (function).isEmpty && freeVars (f).isEmpty =>
                 super.selection (super.selection (relation, f), function)
 
+            // pushing selections that use equalities over selections that do not
+            case Def (Selection (r, f)) if isDisjunctiveParameterEquality(function) && !isDisjunctiveParameterEquality(f) =>
+                super.selection (super.selection (relation, f), function)
+
+
+            case Def (CrossProduct (a, b)) => {
+                pushedFunctions (function) match {
+                    case (None, None) =>
+                        super.selection (relation, function)
+                    case (Some (f), None) =>
+                        crossProduct (selection (a, f), b).asInstanceOf[Rep[Query[Domain]]]
+                    case (None, Some (f)) =>
+                        crossProduct (a, selection (b, f)).asInstanceOf[Rep[Query[Domain]]]
+                    case (Some (fa), Some (fb)) =>
+                        crossProduct (selection (a, fa), selection (b, fb)).asInstanceOf[Rep[Query[Domain]]]
+                }
+            }
             case _ =>
                 super.selection (relation, function)
         }
     }
 
+    private def pushedFunctions[Domain: Manifest] (
+        function: Rep[Domain => Boolean]
+    ): (Option[Rep[Any => Boolean]], Option[Rep[Any => Boolean]]) = {
+        val freeV = freeVars (function)
+        if (freeV.isEmpty) {
+            return (None, None)
+        }
+        val functionBody = body (function)
+        val functionParameters = parameters (function)
+        if (freeV.size == 2) {
+            return (
+                Some (recreateFunRepDynamic (functionParameters (0), functionBody)),
+                Some (recreateFunRepDynamic (functionParameters (1), functionBody))
+                )
+        }
+
+        functionParameters.indexOf (freeV (0)) match {
+            case 0 => (None, Some (recreateFunRepDynamic (functionParameters (1), functionBody)))
+            case 1 => (Some (recreateFunRepDynamic (functionParameters (0), functionBody)), None)
+        }
+
+    }
 
 }

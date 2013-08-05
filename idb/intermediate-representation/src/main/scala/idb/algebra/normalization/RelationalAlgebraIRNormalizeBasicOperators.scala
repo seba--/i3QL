@@ -45,8 +45,12 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
  */
 trait RelationalAlgebraIRNormalizeBasicOperators
     extends RelationalAlgebraIRNormalize
+<<<<<<< HEAD
     with RelationalAlgebraBasicOperators
 	with RelationalAlgebraIRSetTheoryOperators
+=======
+    with RelationalAlgebraIRBasicOperators
+>>>>>>> 7fad27133669fde4db6b0399be681b856a00e43b
     with LiftBoolean
     with BooleanOps
     with BooleanOpsExp
@@ -56,17 +60,10 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     with TupledFunctionsExp
     with FunctionsExpOptAlphaEquivalence
     with ExpressionUtils
+    with FunctionCreator
 {
 
-    val transformer = new FunctionCreator
-    {
-        override val IR: RelationalAlgebraIRNormalizeBasicOperators.this.type =
-            RelationalAlgebraIRNormalizeBasicOperators.this
-    }
-
-    import transformer.recreateFun
-
-    abstract override def selection[Domain: Manifest] (
+    override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
     ): Rep[Query[Domain]] =
@@ -76,18 +73,18 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                     body.res match {
                         case Def (BooleanOr (lhs, rhs)) =>
                             unionMax (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
                             difference (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case Def (BooleanAnd (lhs, rhs)) =>
                             intersection (
-                                selection (relation, recreateFun (x, lhs)),
-                                selection (relation, recreateFun (x, rhs))
+                                selection (relation, recreateFunRepDynamic (x, lhs)),
+                                selection (relation, recreateFunRepDynamic (x, rhs))
                             )
                         case _ => super.selection (relation, function)
                     }

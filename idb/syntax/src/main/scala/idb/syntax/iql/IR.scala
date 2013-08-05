@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.algebra.compiler.RelationalAlgebraGenSAEBinding
-import idb.lms.extensions.{FunctionBodies, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.ScalaOpsExpOptExtensions
 import scala.language.implicitConversions
 import scala.virtualization.lms.common._
 import idb.algebra.RelationalAlgebraIROptPackage
@@ -60,10 +60,5 @@ object IR
     with RelationalAlgebraIROptPackage
     with RelationalAlgebraGenSAEBinding
 {
-/*
-    val transformer = new FunctionBodies
-    {
-        val IR = idb.syntax.iql.IR
-    }
-*/
+
 }

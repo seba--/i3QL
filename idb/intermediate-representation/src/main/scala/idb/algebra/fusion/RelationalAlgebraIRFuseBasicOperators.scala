@@ -35,6 +35,7 @@ package idb.algebra.fusion
 import scala.virtualization.lms.common._
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.normalization.RelationalAlgebraIRNormalize
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
@@ -46,7 +47,12 @@ trait RelationalAlgebraIRFuseBasicOperators
     extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRSetTheoryOperators
     with RelationalAlgebraIRNormalize
-    with LiftBoolean with BooleanOps with BooleanOpsExp with EffectExp with FunctionsExp
+    with LiftBoolean
+    with BooleanOps
+    with BooleanOpsExp
+    with EffectExp
+    with FunctionsExp
+    with FunctionUtils
 {
 
     /**
@@ -105,7 +111,7 @@ trait RelationalAlgebraIRFuseBasicOperators
             case Def (Projection (r, f)) =>
                 val mPrevDomainUnsafe = f.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
                 val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
-                projection (r, fun ((x: Rep[_]) => function (f (x)))(mPrevDomainUnsafe, mRangeUnsafe))
+                projection (r, fun ((x: Rep[_]) => function (f (x)))(parameterType(f), mRangeUnsafe))
             case _ =>
                 super.projection (relation, function)
         }
@@ -138,7 +144,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a.asInstanceOf[Rep[Query[Range]]],
-                        createDisjunction (fa, fb)(implicitly[Manifest[Range]])
+                        createDisjunction (fa, fb)(parameterType(fa))
                     )
                 )
             case _ =>
@@ -154,9 +160,10 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a,
-                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                        createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
+
             case _ =>
                 super.intersection (relationA, relationB)
         }
@@ -171,7 +178,7 @@ trait RelationalAlgebraIRFuseBasicOperators
                 withoutNormalization (
                     selection (
                         a,
-                        createConjunction (fa, fb)(implicitly[Manifest[Domain]])
+                        createConjunction (fa, fb)(parameterType(fa))
                     )
                 )
             case _ =>

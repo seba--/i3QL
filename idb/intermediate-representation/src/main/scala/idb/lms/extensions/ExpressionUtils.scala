@@ -43,7 +43,9 @@ import scala.virtualization.lms.common._
 trait ExpressionUtils
     extends Expressions
     with TupledFunctionsExp
+    with EqualExp
 {
+
 
     /**
      * Traverse an expression tree and apply f to all elements.
@@ -99,23 +101,23 @@ trait ExpressionUtils
     private def findSymsRec (e: Any, search: Set[Exp[Any]], seen: Set[Exp[Any]]): Set[Exp[Any]] = {
         val next = (e match {
 
-            case Def(Tuple2Access1 (UnboxedTuple (vars))) => Set (vars (0))
-            case Def(Tuple2Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def (Tuple2Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def (Tuple2Access2 (UnboxedTuple (vars))) => Set (vars (1))
 
-            case Def(Tuple3Access1 (UnboxedTuple (vars))) => Set (vars (0))
-            case Def(Tuple3Access2 (UnboxedTuple (vars))) => Set (vars (1))
-            case Def(Tuple3Access3 (UnboxedTuple (vars))) => Set (vars (2))
+            case Def (Tuple3Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def (Tuple3Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def (Tuple3Access3 (UnboxedTuple (vars))) => Set (vars (2))
 
-            case Def(Tuple4Access1 (UnboxedTuple (vars))) => Set (vars (0))
-            case Def(Tuple4Access2 (UnboxedTuple (vars))) => Set (vars (1))
-            case Def(Tuple4Access3 (UnboxedTuple (vars))) => Set (vars (2))
-            case Def(Tuple4Access4 (UnboxedTuple (vars))) => Set (vars (3))
+            case Def (Tuple4Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def (Tuple4Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def (Tuple4Access3 (UnboxedTuple (vars))) => Set (vars (2))
+            case Def (Tuple4Access4 (UnboxedTuple (vars))) => Set (vars (3))
 
-            case Def(Tuple5Access1 (UnboxedTuple (vars))) => Set (vars (0))
-            case Def(Tuple5Access2 (UnboxedTuple (vars))) => Set (vars (1))
-            case Def(Tuple5Access3 (UnboxedTuple (vars))) => Set (vars (2))
-            case Def(Tuple5Access4 (UnboxedTuple (vars))) => Set (vars (3))
-            case Def(Tuple5Access5 (UnboxedTuple (vars))) => Set (vars (4))
+            case Def (Tuple5Access1 (UnboxedTuple (vars))) => Set (vars (0))
+            case Def (Tuple5Access2 (UnboxedTuple (vars))) => Set (vars (1))
+            case Def (Tuple5Access3 (UnboxedTuple (vars))) => Set (vars (2))
+            case Def (Tuple5Access4 (UnboxedTuple (vars))) => Set (vars (3))
+            case Def (Tuple5Access5 (UnboxedTuple (vars))) => Set (vars (4))
 
             case s@Sym (_) => syms (findDefinition (s)).toSet[Exp[Any]]
             case _ => Set.empty[Exp[Any]]

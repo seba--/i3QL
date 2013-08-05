@@ -80,7 +80,7 @@ trait RelationalAlgebraIRBasicOperators
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]],
-        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
+        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps {
 
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
@@ -129,7 +129,7 @@ trait RelationalAlgebraIRBasicOperators
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
-        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
+        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 

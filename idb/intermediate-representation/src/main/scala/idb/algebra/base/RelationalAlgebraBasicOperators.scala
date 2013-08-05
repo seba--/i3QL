@@ -62,7 +62,7 @@ trait RelationalAlgebraBasicOperators
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
-        equalities: Seq[(Rep[DomainA => Any], Rep[DomainB => Any])]
+        equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
     ): Rep[Query[(DomainA, DomainB)]]
 
 	def duplicateElimination[Domain : Manifest] (
