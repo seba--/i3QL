@@ -49,8 +49,8 @@ object TestUtil extends RelationalAlgebraPrintPlan
     import IR.Query
 
     def assertEqualStructure[A, B] (a: Rep[Query[A]], b: Rep[Query[B]]) {
-        val expectedString = quote (a)
-        val actualString = quote (b)
+        val expectedString = quoteRelation (a)
+        val actualString = quoteRelation (b)
         val message = "expected:<" + expectedString + "> but was:<" + actualString + ">"
         if (a != b) {
             Assert.fail (message)

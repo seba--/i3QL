@@ -32,6 +32,9 @@
  */
 package idb.algebra.print
 
+import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
+
 
 /**
  *
@@ -42,5 +45,7 @@ trait RelationalAlgebraPrintPlan
     with RelationalAlgebraPrintPlanBasicOperators
     with RelationalAlgebraPrintPlanSetTheoryOperators
 {
+
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators with RelationalAlgebraIRSetTheoryOperators
 
 }

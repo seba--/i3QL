@@ -40,11 +40,13 @@ import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsP
  * @author Ralf Mitschke
  */
 trait RelationalAlgebraPrintPlanBasicOperators
-    extends QuoteFunction
+    extends RelationalAlgebraPrintPlanBase
+    with QuoteFunction
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators with RelationalAlgebraIRSetTheoryOperators
+    override val IR: ScalaOpsPkgExp with StructExp with TupledFunctionsExp with RelationalAlgebraIRBasicOperators
+
     import IR.Exp
     import IR.Def
     import IR.Projection
@@ -54,30 +56,30 @@ trait RelationalAlgebraPrintPlanBasicOperators
     import IR.DuplicateElimination
 
 
-    override def quote (x: Exp[Any]): String =
+    override def quoteRelation (x: Exp[Any]): String =
         x match {
             case Def (Projection (relation, function)) =>
                 withIndent ("projection(" + "\n") +
-                    withMoreIndent (quote (relation) + ",\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (Selection (relation, function)) =>
                 withIndent ("selection(" + "\n") +
-                    withMoreIndent (quote (relation) + ",\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (CrossProduct (left, right)) =>
                 withIndent ("crossProduct(" + "\n") +
-                    withMoreIndent (quote (left) + ",\n") +
-                    withMoreIndent (quote (right) + "\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (EquiJoin (left, right, equalities)) =>
                 withIndent ("equiJoin(" + "\n") +
-                    withMoreIndent (quote (left) + ",\n") +
-                    withMoreIndent (quote (right) + ",\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + ",\n") +
                     withMoreIndent (withIndent ("Seq(\n")) +
                     withMoreIndent (
                         withMoreIndent (
@@ -94,12 +96,12 @@ trait RelationalAlgebraPrintPlanBasicOperators
 
             case Def(DuplicateElimination(relation)) =>
                 withIndent ("duplicateElimination(" + "\n") +
-                    withMoreIndent (quote (relation) + "\n") +
+                    withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
          /*   case Def(AggregationSelfMaintained(relation, grouping, added, removed, updated, convert)) =>
                 withIndent ("aggregation(" + "\n") +
-                    withMoreIndent (quote (relation) + ",\n") +
+                    withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (grouping) + ",\n") +
                     withMoreIndent (quoteFunction (added) + ",\n") +
                     withMoreIndent (quoteFunction (removed) + ",\n") +
@@ -107,7 +109,7 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withMoreIndent (quoteFunction (convert) + "\n") +
                     withIndent (")")*/
 
-            case _ => super.quote (x)
+            case _ => super.quoteRelation (x)
         }
 
 }

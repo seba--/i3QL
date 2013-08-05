@@ -32,10 +32,9 @@
  */
 package idb.algebra.normalization
 
-import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRBase}
+import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionCreator}
-import idb.algebra.base.RelationalAlgebraBasicOperators
 
 
 /**
@@ -46,7 +45,7 @@ import idb.algebra.base.RelationalAlgebraBasicOperators
 trait RelationalAlgebraIRNormalizeBasicOperators
     extends RelationalAlgebraIRNormalize
     with RelationalAlgebraIRBasicOperators
-	with RelationalAlgebraIRSetTheoryOperators
+    with RelationalAlgebraIRSetTheoryOperators
     with LiftBoolean
     with BooleanOps
     with BooleanOpsExp
@@ -67,16 +66,22 @@ trait RelationalAlgebraIRNormalizeBasicOperators
             function match {
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
                     body.res match {
+                        // σ{x ∨ y}(a) = σ{x}(a) ∪ σ{y}(a)
                         case Def (BooleanOr (lhs, rhs)) =>
                             unionMax (
                                 selection (relation, recreateFunRepDynamic (x, lhs)),
                                 selection (relation, recreateFunRepDynamic (x, rhs))
                             )
+                            //
+
+                        // σ{x ∧ ¬y}(a) = σ{x}(a) - σ{y}(a)
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
                             difference (
                                 selection (relation, recreateFunRepDynamic (x, lhs)),
                                 selection (relation, recreateFunRepDynamic (x, rhs))
                             )
+
+                        // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
                         case Def (BooleanAnd (lhs, rhs)) =>
                             intersection (
                                 selection (relation, recreateFunRepDynamic (x, lhs)),
