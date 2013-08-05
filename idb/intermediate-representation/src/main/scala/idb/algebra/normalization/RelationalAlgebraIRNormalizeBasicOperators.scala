@@ -72,7 +72,6 @@ trait RelationalAlgebraIRNormalizeBasicOperators
                                 selection (relation, recreateFunRepDynamic (x, lhs)),
                                 selection (relation, recreateFunRepDynamic (x, rhs))
                             )
-                            //
 
                         // σ{x ∧ ¬y}(a) = σ{x}(a) - σ{y}(a)
                         case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
@@ -83,10 +82,11 @@ trait RelationalAlgebraIRNormalizeBasicOperators
 
                         // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
                         case Def (BooleanAnd (lhs, rhs)) =>
-                            intersection (
+                            selection (
                                 selection (relation, recreateFunRepDynamic (x, lhs)),
-                                selection (relation, recreateFunRepDynamic (x, rhs))
+                                recreateFunRepDynamic (x, rhs)
                             )
+
                         case _ => super.selection (relation, function)
                     }
                 case _ => throw new IllegalArgumentException (function + " is not a Lambda function")

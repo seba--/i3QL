@@ -124,7 +124,7 @@ trait RelationalAlgebraIRBasicOperators
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] =
-        CrossProduct (materialize(relationA), materialize(relationB))
+        CrossProduct (relationA, relationB)
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],

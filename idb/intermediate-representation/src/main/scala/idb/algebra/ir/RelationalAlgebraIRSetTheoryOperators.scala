@@ -101,13 +101,13 @@ trait RelationalAlgebraIRSetTheoryOperators
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[Range]] =
-        UnionMax (materialize(relationA), materialize(relationB))
+        UnionMax (relationA, relationB)
 
     def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
-        Intersection (materialize(relationA), materialize(relationB))
+        Intersection (relationA, relationB)
 
     def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
