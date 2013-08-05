@@ -49,7 +49,54 @@ trait RelationalAlgebraIROptPushSetTheoryOps
     ): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
-                crossProduct (intersection (a, c)(domainOf(a)), intersection (b, d)(domainOf(b))).asInstanceOf[Rep[Query[Domain]]]
-            case _ => super.intersection(relationA, relationB)
+                crossProduct (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b))
+                ).asInstanceOf[Rep[Query[Domain]]]
+
+            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l1 ::: l2
+                ).asInstanceOf[Rep[Query[Domain]]]
+
+            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l
+                ).asInstanceOf[Rep[Query[Domain]]]
+
+            case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l
+                ).asInstanceOf[Rep[Query[Domain]]]
+
+            case (Def (Intersection (r, Def (CrossProduct (a, b)))), Def (CrossProduct (c, d))) =>
+                intersection (
+                    r.asInstanceOf[Rep[Query[Domain]]],
+                    crossProduct (
+                        intersection (a, c)(domainOf (a)),
+                        intersection (b, d)(domainOf (b))
+                    ).asInstanceOf[Rep[Query[Domain]]]
+                )
+
+            case (Def (Intersection (Def (EquiJoin (a, b, l)), r)), Def (CrossProduct (c, d))) =>
+                intersection (
+                    equiJoin (
+                        intersection (a, c)(domainOf (a)),
+                        intersection (b, d)(domainOf (b)),
+                        l
+                    ).asInstanceOf[Rep[Query[Domain]]],
+                    r.asInstanceOf[Rep[Query[Domain]]]
+                )
+
+
+            case _ => super.intersection (relationA, relationB)
+
+
         }
 }
