@@ -47,15 +47,23 @@ trait RelationalAlgebraPrintPlanBase
 
     override val IR: TupledFunctionsExp with RelationalAlgebraIRBase
 
-    import IR._
+    import IR.Exp
+    import IR.Def
+    import IR.QueryExtent
+    import IR.QueryRelation
+    import IR.Materialize
 
-    override def quote (x: Exp[Any]): String =
+    def quoteRelation (x: Exp[Any]): String =
         x match {
             case QueryExtent (e, _, _, _) =>
                 withIndent ("extent" + e.hashCode () + ": Extent[" + x.tp.typeArguments (0) + "]")
             case QueryRelation (r, _, _, _) =>
                 withIndent ("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments (0) + "]")
-            case _ => super.quote (x)
+            case Def(Materialize (r)) =>
+                withIndent ("materialize(" + "\n") +
+                    withMoreIndent (quoteRelation (r) + "\n") +
+                    withIndent (")")
+            case _ => throw new IllegalArgumentException("Unknown relation: " + x)
         }
 
 }

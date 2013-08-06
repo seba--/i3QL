@@ -69,6 +69,10 @@ trait RelationalAlgebraIRBase
     def domainOf[T] (relation: Rep[Query[T]]): Manifest[Any] =
         relation.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
 
+    def exactDomainOf[T] (relation: Rep[Query[T]]): Manifest[T] =
+        relation.tp.typeArguments (0).asInstanceOf[Manifest[T]]
+
+
     case class QueryExtent[Domain] (
         extent: Extent[Domain],
         isSet: Boolean = false,

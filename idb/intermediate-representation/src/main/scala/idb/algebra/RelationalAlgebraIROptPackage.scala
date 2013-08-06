@@ -39,11 +39,15 @@ import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
 
 /**
+ * Packaged trait for all relational algebra optimizations.
+ * Note that trait mixin order is important.
+ * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
+ * The various optimizations currently require no order, but fusion has to come last, i.e.,
+ * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
  *
  */
-
 trait RelationalAlgebraIROptPackage
     extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRSetTheoryOperators

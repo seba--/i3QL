@@ -48,56 +48,90 @@ trait RelationalAlgebraIROptPushSetTheoryOps
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
     ): Rep[Query[Domain]] =
-        (relationA, relationB) match {
+        ((relationA, relationB) match {
+            // Π_f(a) ∩ Π_f(b) => Π_f(a ∩ b)
+            case (Def (Projection (a, fa)), Def (Projection (b, fb))) if fa == fb =>
+                projection (intersection (a, b)(domainOf (a)), fa)
+
+            //  (a × b) ∩ (c × d) => (a ∩ c) × (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
                 crossProduct (
                     intersection (a, c)(domainOf (a)),
                     intersection (b, d)(domainOf (b))
-                ).asInstanceOf[Rep[Query[Domain]]]
+                )
 
-            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
-                equiJoin (
-                    intersection (a, c)(domainOf (a)),
-                    intersection (b, d)(domainOf (b)),
-                    l1 ::: l2
-                ).asInstanceOf[Rep[Query[Domain]]]
-
-            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
-                equiJoin (
-                    intersection (a, c)(domainOf (a)),
-                    intersection (b, d)(domainOf (b)),
-                    l
-                ).asInstanceOf[Rep[Query[Domain]]]
-
+            //  (a × b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
                 equiJoin (
                     intersection (a, c)(domainOf (a)),
                     intersection (b, d)(domainOf (b)),
                     l
-                ).asInstanceOf[Rep[Query[Domain]]]
-
-            case (Def (Intersection (r, Def (CrossProduct (a, b)))), Def (CrossProduct (c, d))) =>
-                intersection (
-                    r.asInstanceOf[Rep[Query[Domain]]],
-                    crossProduct (
-                        intersection (a, c)(domainOf (a)),
-                        intersection (b, d)(domainOf (b))
-                    ).asInstanceOf[Rep[Query[Domain]]]
                 )
 
-            case (Def (Intersection (Def (EquiJoin (a, b, l)), r)), Def (CrossProduct (c, d))) =>
-                intersection (
-                    equiJoin (
-                        intersection (a, c)(domainOf (a)),
-                        intersection (b, d)(domainOf (b)),
-                        l
-                    ).asInstanceOf[Rep[Query[Domain]]],
-                    r.asInstanceOf[Rep[Query[Domain]]]
+            //  (a ⋈ b) ∩ (c × d) => (a ∩ c) ⋈ (b ∩ d)
+            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l
                 )
 
+            //  (a ⋈ b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
+            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
+                equiJoin (
+                    intersection (a, c)(domainOf (a)),
+                    intersection (b, d)(domainOf (b)),
+                    l1 ::: l2
+                )
 
             case _ => super.intersection (relationA, relationB)
 
 
-        }
+        }).asInstanceOf[Rep[Query[Domain]]]
+
+
+    override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]]
+    ): Rep[Query[Range]] =
+        ((relationA, relationB) match {
+            // Π_f(a) ∪ Π_f(b) => Π_f(a ∪ b)
+            case (Def (Projection (a, fa)), Def (Projection (b, fb))) if fa == fb =>
+                projection (unionMax (a, b)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    fa)
+
+           //  (a × b) ∪ (c × d) => (a ∪ c) × (b ∪ d)
+            case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
+                crossProduct (
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]])
+                )
+
+            //  (a × b) ∪ (c ⋈ d) => (a ∪ c) ⋈ (b ∪ d)
+            case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
+                equiJoin (
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    l
+                )
+
+            //  (a ⋈ b) ∪ (c × d) => (a ∪ c) ⋈ (b ∪ d)
+            case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
+                equiJoin (
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    l
+                )
+
+            //  (a ⋈ b) ∪ (c ⋈ d) => (a ∪ c) ⋈ (b ∪ d)
+            case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
+                equiJoin (
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]]),
+                    l1 ::: l2
+                )
+
+            case _ => super.unionMax (relationA, relationB)
+
+        }).asInstanceOf[Rep[Query[Range]]]
 }

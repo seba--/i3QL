@@ -61,21 +61,22 @@ trait RelationalAlgebraIROptPushSelect
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] = {
-        relation match {
+    ): Rep[Query[Domain]] =
+        (relation match {
             // pushing over projections
             case Def (Projection (r, f)) => {
                 val pushedFunction = fun ((x: Exp[Any]) => function (f (x)))(
-                    f.tp.typeArguments (0).asInstanceOf[Manifest[Any]], manifest[Boolean])
-                projection (selection (r, pushedFunction), f)
+                    parameterType (f), manifest[Boolean])
+                projection (selection (r, pushedFunction)(domainOf (r)), f)
             }
             // pushing selections that only use their arguments partially over selections that need all arguments
             case Def (Selection (r, f)) if !freeVars (function).isEmpty && freeVars (f).isEmpty =>
-                super.selection (super.selection (relation, f), function)
+                selection (selection (r, function)(exactDomainOf (relation)), f)
 
             // pushing selections that use equalities over selections that do not
-            case Def (Selection (r, f)) if isDisjunctiveParameterEquality(function) && !isDisjunctiveParameterEquality(f) =>
-                super.selection (super.selection (relation, f), function)
+            case Def (Selection (r, f)) if isDisjunctiveParameterEquality (
+                function) && !isDisjunctiveParameterEquality (f) =>
+                selection (selection (r, function)(exactDomainOf (relation)), f)
 
 
             case Def (CrossProduct (a, b)) => {
@@ -83,17 +84,32 @@ trait RelationalAlgebraIROptPushSelect
                     case (None, None) =>
                         super.selection (relation, function)
                     case (Some (f), None) =>
-                        crossProduct (selection (a, f), b).asInstanceOf[Rep[Query[Domain]]]
+                        crossProduct (selection (a, f)(domainOf (a)), b)
                     case (None, Some (f)) =>
-                        crossProduct (a, selection (b, f)).asInstanceOf[Rep[Query[Domain]]]
+                        crossProduct (a, selection (b, f)(domainOf (b)))
                     case (Some (fa), Some (fb)) =>
-                        crossProduct (selection (a, fa), selection (b, fb)).asInstanceOf[Rep[Query[Domain]]]
+                        crossProduct (selection (a, fa)(domainOf (a)), selection (b, fb)(domainOf (b)))
                 }
             }
+
+            case Def (EquiJoin (a, b, l)) => {
+                pushedFunctions (function) match {
+                    case (None, None) =>
+                        super.selection (relation, function)
+                    case (Some (f), None) =>
+                        equiJoin (selection (a, f)(domainOf (a)), b, l)
+                    case (None, Some (f)) =>
+                        equiJoin (a, selection (b, f)(domainOf (b)), l)
+                    case (Some (fa), Some (fb)) =>
+                        equiJoin (selection (a, fa)(domainOf (a)), selection (b, fb)(domainOf (b)), l)
+                }
+            }
+
             case _ =>
                 super.selection (relation, function)
-        }
-    }
+
+        }).asInstanceOf[Rep[Query[Domain]]]
+
 
     private def pushedFunctions[Domain: Manifest] (
         function: Rep[Domain => Boolean]
