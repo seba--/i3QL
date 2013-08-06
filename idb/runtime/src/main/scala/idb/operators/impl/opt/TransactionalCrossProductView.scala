@@ -91,6 +91,10 @@ class TransactionalCrossProductView[DomainA, DomainB, Range](val left: Relation[
 			doEndTransaction()
 		}
 	}
+}
 
-
+object TransactionalCrossProductView {
+	def apply[DomainA,DomainB](relationA : Relation[DomainA], relationB : Relation[DomainB], isSet : Boolean) : Relation[(DomainA,DomainB)] = {
+		return new TransactionalCrossProductView[DomainA,DomainB,(DomainA,DomainB)](relationA, relationB, (a,b) => (a,b), isSet)
+	}
 }

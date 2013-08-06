@@ -70,19 +70,10 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
                 new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
             }
             case Def (e@CrossProduct (a, b)) => {
-
-				var compA = compile (a)
-				var compB = compile (b)
-
-				//TODO Remove this. Better: implement 'foreach' in Extent
-				if (compA.isInstanceOf[Extent[_]])
-					compA = compA.asMaterialized
-
-				if (compB.isInstanceOf[Extent[_]])
-					compB = compB.asMaterialized
-
-
-                CrossProductView (compA, compB, false).asInstanceOf[Relation[Domain]]
+				if (e.isIncrementLocal)
+					TransactionalCrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
+                else
+					CrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
             }
             case Def (e@EquiJoin (a, b, eq)) => {
 				if (e.isIncrementLocal)
