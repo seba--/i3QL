@@ -52,12 +52,21 @@ trait RelationalAlgebraIRExistentialOperators
     ) extends Def[Boolean]
     {
 
-        def createSubQueryWithContext (context: Rep[Query[Domain]])(implicit m: Manifest[Domain]): Rep[Query[Domain]] =
-            contextualQueryPlan (context, m)
+        def createSubQueryWithContext (
+            context: Rep[Query[Domain]],
+            parameter: Rep[Domain]
+        )(
+            implicit m: Manifest[Domain]
+        ): Rep[Query[Domain]] =
+            contextualQueryPlan (context, parameter, m)
 
-        private var contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]] = null
+        private var contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]] =
+            null
 
-        def this (subQuery: AnyRef, contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]) {
+        def this (
+            subQuery: AnyRef,
+            contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
+        ) {
             this (subQuery)
             this.contextualQueryPlan = contextualQueryPlan
         }
@@ -67,7 +76,7 @@ trait RelationalAlgebraIRExistentialOperators
 
     def existCondition[Domain] (
         subQuery: AnyRef,
-        contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+        contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
     ): Rep[Boolean] =
         new ExistsCondition (subQuery, contextualQueryPlan)
 

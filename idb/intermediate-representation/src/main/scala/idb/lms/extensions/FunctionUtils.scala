@@ -53,16 +53,17 @@ trait FunctionUtils
     }
 
     def parameters[A, B] (function: Exp[A => B]): List[Exp[Any]] = {
-        val param =
-            function match {
-                case Def (Lambda (_, x, _)) => x
-                case c@Const (_) => unboxedFresh (c.tp.typeArguments (0).typeArguments (0))
-                case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
-            }
-
-        param match {
+        parameter(function) match {
             case UnboxedTuple (xs) => xs
             case x => List (x)
+        }
+    }
+
+    def parameter[A, B] (function: Exp[A => B]): Exp[A] = {
+        function match {
+            case Def (Lambda (_, x:Exp[A], _)) => x
+            case c@Const (_) => unboxedFresh[A] (c.tp.typeArguments (0).typeArguments (0).asInstanceOf[Manifest[A]])
+            case _ => throw new IllegalArgumentException ("expected Lambda, found " + function)
         }
     }
 
@@ -98,7 +99,7 @@ trait FunctionUtils
             return false
         }
         body (function) match {
-            case Def(Equal (lhs, rhs)) => {
+            case Def (Equal (lhs, rhs)) => {
                 val usedByLeft = findSyms (lhs)(params.toSet)
                 val usedByRight = findSyms (rhs)(params.toSet)
                 usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
@@ -106,7 +107,6 @@ trait FunctionUtils
             case _ => false
         }
     }
-
 
 
 }

@@ -57,7 +57,8 @@ object SubQueryToAlgebra
 
     def apply[Select: Manifest, Domain <: Select : Manifest, Range: Manifest, ContextRange: Manifest] (
         subQuery: IQL_QUERY_1[Select, Domain, Range],
-        context: Rep[Query[ContextRange]]
+        context: Rep[Query[ContextRange]],
+        contextParameter: Rep[ContextRange]
     ): Rep[Query[ContextRange]] =
         subQuery match {
             // This clause is definitely not correlated to the context

@@ -49,6 +49,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
     with RelationalAlgebraNormalize
     with RelationalAlgebraDerivedOperators
     with TupledFunctionsExp
+    with FunctionUtils
 {
 
     override def selection[Domain: Manifest] (
@@ -64,7 +65,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
                             naturalJoin (
                                 relation,
                                 duplicateElimination(
-                                    exp.createSubQueryWithContext (relation)
+                                    exp.createSubQueryWithContext (relation, parameter(function))
                                 )
                             )
 

@@ -44,10 +44,11 @@ package object iql
         clause: IQL_QUERY_1[Select, Domain, Range]
     )(
         context: Rep[Query[ContextRange]],
+        contextParameter: Rep[ContextRange],
         contextManifest: Manifest[ContextRange]
     ): Rep[Query[ContextRange]] = {
         SubQueryToAlgebra (
-            clause, context
+            clause, context, contextParameter
         )(
             implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[Range]], contextManifest
         )

@@ -45,7 +45,7 @@ trait RelationalAlgebraSubQueries
 
     def existCondition[Domain] (
         subQuery : AnyRef,
-        contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+        contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
     ): Rep[Boolean]
 
 }
