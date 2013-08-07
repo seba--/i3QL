@@ -30,16 +30,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.boundImpl
+package idb.lms.extensions.functions
 
-import idb.package_types_error.TraitBinding._
+import scala.virtualization.lms.common.FunctionsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-//case class MyImpl[X] (t: T[X]) extends Impl
-case class MyImpl (t: T) extends Impl
+
+trait FunctionsExpDynamicLambda
+    extends FunctionsExp
 {
 
+    private val illegalFunctionCall: Exp[Any] => Exp[Any] = {
+        throw new IllegalStateException ("Tried to call original Scala method of a dynamic lambda function")
+    }
+
+    class DynamicLambda[A: Manifest, B: Manifest] (x: Exp[A], y: Block[B])
+        extends Lambda[A, B]((a: Rep[A]) => throw new
+                IllegalStateException ("Tried to call original Scala method of a dynamic lambda function"), x, y)
+    {
+
+    }
+
+
 }
+

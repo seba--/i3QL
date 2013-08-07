@@ -33,17 +33,24 @@
 package idb.lms.extensions
 
 import org.junit.Assert._
-import scala.virtualization.lms.common.Base
+import idb.lms.extensions.equivalence.BaseAlphaEquivalence
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils extends Base
+trait LMSTestUtils extends BaseAlphaEquivalence
 {
 
     def assertSameReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
         assertSame (f1, f2)
+    }
+
+
+    def assertEquivalentReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
+        assertTrue (
+            isEquivalent (f1, f2)
+        )
     }
 
 

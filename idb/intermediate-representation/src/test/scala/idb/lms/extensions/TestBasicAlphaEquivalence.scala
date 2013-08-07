@@ -30,15 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.typing.impl
+package idb.lms.extensions
 
-import idb.package_types_error.typing._
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Test
+import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
 
 /**
  *
  * @author Ralf Mitschke
  */
-case class MyImpl (t: T) extends Impl
+class TestBasicAlphaEquivalence
+    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
 {
+
+    @Test
+    def testSameMethodBody () {
+        assertEquivalentReified (
+            (x: Rep[Int]) => x + 1,
+            (y: Rep[Int]) => y + 1
+        )
+    }
+
 
 }

@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.lms.extensions.print
 
 import scala.virtualization.lms.common._
 import java.io.{PrintWriter, StringWriter}

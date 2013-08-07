@@ -30,13 +30,43 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.typing.impl
+package idb.lms.extensions
+
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Test
+import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait Impl
+class TestOptimizedAlphaEquivalence
+    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
 {
+
+
+    @Test
+    def testConstantFolding () {
+        assertEquivalentReified (
+            (x: Rep[Int]) => x + 1 + 1,
+            (y: Rep[Int]) => y + 2
+        )
+    }
+
+    @Test
+    def testMethodConcatenation () {
+        def f1 (x: Rep[Int]) = x + 1
+        def f2 (x: Rep[Int]) = x + 2
+
+        assertEquivalentReified (
+            (x: Rep[Int]) => f1 (f2 (x)),
+            (y: Rep[Int]) => y + 3
+        )
+
+        assertEquivalentReified (
+            (x: Rep[Int]) => f2 (f1 (x)),
+            (y: Rep[Int]) => y + 3
+        )
+    }
 
 }

@@ -35,6 +35,7 @@ package idb.algebra.print
 import idb.algebra.ir.RelationalAlgebraIRBase
 import scala.virtualization.lms.internal.GenericCodegen
 import scala.virtualization.lms.common.TupledFunctionsExp
+import idb.lms.extensions.print.CodeGenIndent
 
 /**
  *

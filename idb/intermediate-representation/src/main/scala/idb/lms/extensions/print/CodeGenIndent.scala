@@ -30,23 +30,39 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error
-
-import idb.package_types_error.traits.ConcreteTypes
-import idb.package_types_error.boundImpl._
+package idb.lms.extensions.print
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-object TraitBinding
-    extends ConcreteTypes
+trait CodeGenIndent
 {
 
-    def matching1 (i: Impl): T = i match {
-        case MyImpl (t) => wrapped (t)
+    val singleIndent = "    "
+
+    protected var indent = ""
+
+    private var count = 0
+
+    def addIndent () {
+        count += 1
+        indent = singleIndent * count
     }
 
+    def removeIndent () {
+        count -= 1
+        if (count < 0)
+            throw new IllegalStateException ("Negative indent requested")
+        indent = singleIndent * count
+    }
+
+    def withIndent (f: => String): String = indent + f
+
+    def withMoreIndent (f: => String): String = {
+        addIndent ()
+        val res = f
+        removeIndent ()
+        res
+    }
 }

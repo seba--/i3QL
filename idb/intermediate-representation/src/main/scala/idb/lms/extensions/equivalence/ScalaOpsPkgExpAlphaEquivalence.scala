@@ -30,13 +30,28 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.boundImpl
+package idb.lms.extensions.equivalence
+
+import scala.virtualization.lms.common.Base
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait Impl
+
+trait ScalaOpsPkgExpAlphaEquivalence
+    extends Base // ScalaOpsPkg
+    with NumericOpsExpAlphaEquivalence
+    with FunctionsExpAlphaEquivalence
+    // TODO should look like this with alpha equivalence
+    /*
+    with ImplicitOpsExp with NumericOpsExp with FractionalOpsExp with OrderingOpsExp with StringOpsExp
+    with RangeOpsExp with IOOpsExp with ArrayOpsExp with BooleanOpsExp with PrimitiveOpsExp with MiscOpsExp
+    with FunctionsExp with EqualExp with IfThenElseExp with VariablesExp with WhileExp with TupleOpsExp with ListOpsExp
+    with SeqOpsExp with DSLOpsExp with MathOpsExp with CastingOpsExp with SetOpsExp with ObjectOpsExp with
+    ArrayBufferOpsExp
+    */
 {
 
 }

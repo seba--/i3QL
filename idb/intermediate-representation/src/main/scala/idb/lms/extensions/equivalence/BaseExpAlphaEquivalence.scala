@@ -30,26 +30,35 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.traits
+package idb.lms.extensions.equivalence
 
+import scala.virtualization.lms.common.BaseExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait ConcreteTypes
-    extends AbstractTypes
+
+trait BaseExpAlphaEquivalence
+    extends BaseExp
+    with BaseAlphaEquivalence
 {
-    this : AbstractTypes =>
 
-    abstract class MyT
+    def isEquivalent[A: Manifest, B: Manifest] (a: Exp[A], b: Exp[B]): Boolean = {
+        (a, b) match {
+            case (Const (x), Const (y)) => x == y
+            //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
 
+            case (Def (x), Def (y)) =>
+                throw new IllegalArgumentException (
+                    "Expression types are unknown to alpha equivalence: " + x + " =?= " + y)
 
-    type B = MyT
+            case (Sym(x), Sym(y)) => x == y || a.tp <:< b.tp || b.tp <:< a.tp
 
-    case class Wrapped (t: T) extends MyT
+            case _ => throw new
+                    IllegalArgumentException ("Expression types are unknown to alpha equivalence: " + a + " =?= " + b)
+        }
+    }
 
-    case class Simple[X] (x: X) extends MyT
-
-    def wrapped (t: T) = Wrapped (t)
 }

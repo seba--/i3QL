@@ -30,17 +30,18 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.traits
+package idb.lms.extensions.equivalence
+
+import scala.virtualization.lms.common.Base
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait AbstractTypes
+
+trait BaseAlphaEquivalence
+    extends Base
 {
-    type B
-
-    type T = B
-
-    def wrapped (t: T): T
+    def isEquivalent[A: Manifest, B: Manifest] (a: Rep[A], b: Rep[B]): Boolean
 }

@@ -30,44 +30,27 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.package_types_error.typing_test
+package idb.lms.extensions.equivalence
 
-
-import org.junit.Assert._
-import org.junit.Test
-
+import scala.virtualization.lms.common.NumericOpsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestTyping
+
+trait NumericOpsExpAlphaEquivalence
+    extends NumericOpsExp
+    with BaseExpAlphaEquivalence
 {
 
-    @Test
-    def testMatching1 () {
-        import idb.package_types_error.TraitBinding._
-        import idb.package_types_error.boundImpl._
-        val s: T = Simple (1)
-
-        val impl = MyImpl (s)
-        val matched = matching1 (impl)
-        assertEquals (wrapped (s), matched)
-    }
-
-    @Test
-    def testMatching2 () {
-        /*
-        //compiler errors
-
-        import idb.package_types_error.typing._
-        import idb.package_types_error.typing.impl._
-        val s= Simple (1)
-
-        val impl = MyImpl (s)
-        val matched = matching2 (impl)
-        assertEquals (wrapped (s), matched)
-        */
+    override def isEquivalent[A: Manifest, B: Manifest] (a: Exp[A], b: Exp[B]): Boolean = {
+        (a, b) match {
+            case (Def(NumericPlus(x, y)), Def(NumericPlus(u, v))) =>
+                isEquivalent (x, u) && isEquivalent (y, v)
+            case _ => super.isEquivalent (a, b)
+        }
     }
 
 }

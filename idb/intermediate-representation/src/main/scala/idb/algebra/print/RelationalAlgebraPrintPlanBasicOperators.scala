@@ -34,6 +34,7 @@ package idb.algebra.print
 
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import scala.virtualization.lms.common.{TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
 
 /**
  *
