@@ -30,37 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.algebra.ir
 
-import idb.algebra.ir._
-import idb.algebra.opt._
-
-import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
-import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
+import idb.algebra.base.RelationalAlgebraExistentialOperators
+import scala.virtualization.lms.common.FunctionsExp
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRBasicOperators
-	with RelationalAlgebraIRSetTheoryOperators
-	with RelationalAlgebraIRRecursiveOperators
-	with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRExistentialOperators
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIROptSimplify
-    with RelationalAlgebraIROptPushSelect
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIRNormalizeBasicOperators
+
+trait RelationalAlgebraIRExistentialOperators
+    extends RelationalAlgebraExistentialOperators
+    with FunctionsExp
 {
+
+    case class ExistsCondition[Domain] (
+        subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+    ) extends Def[Boolean]
+
+
+    def existCondition[Domain] (
+        subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+    ): Rep[Boolean] =
+        ExistsCondition (subQueryFactory)
 
 }

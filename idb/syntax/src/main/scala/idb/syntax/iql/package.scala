@@ -2,7 +2,7 @@ package idb.syntax
 
 import idb.syntax.iql.IR._
 import scala.language.implicitConversions
-import idb.syntax.iql.planning.ClauseToAlgebra
+import idb.syntax.iql.planning.{SubQueryToAlgebra, ClauseToAlgebra}
 import idb.syntax.iql.compilation.CompilerBinding
 import scala.reflect.SourceContext
 
@@ -17,10 +17,12 @@ package object iql
 
     val * : STAR_KEYWORD = impl.StarKeyword
 
-    def infix_AND(lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and(lhs,rhs)
-    def infix_OR(lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or(lhs,rhs)
+    def infix_AND (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and (lhs, rhs)
+
+    def infix_OR (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or (lhs, rhs)
+
     //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strangely
-    def NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x)
+    def NOT (x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate (x)
 
     //case class InfixAnd()
 
@@ -37,6 +39,20 @@ package object iql
         clause: IQL_QUERY_1[Select, Domain, Range]
     ): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
+
+    def planWithContext[Select: Manifest, Domain <: Select : Manifest, Range: Manifest, ContextRange] (
+        clause: IQL_QUERY_1[Select, Domain, Range]
+    )(
+        context: Rep[Query[ContextRange]],
+        contextManifest: Manifest[ContextRange]
+    ): Rep[Query[ContextRange]] = {
+        SubQueryToAlgebra (
+            clause, context
+        )(
+            implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[Range]], contextManifest
+        )
+    }
+
 
     implicit def plan[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest,
     DomainB <: SelectB : Manifest, Range: Manifest] (

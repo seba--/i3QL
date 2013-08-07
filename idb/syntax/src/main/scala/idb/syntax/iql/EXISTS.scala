@@ -33,7 +33,6 @@
 package idb.syntax.iql
 
 import idb.syntax.iql.IR._
-import idb.syntax.iql.impl.ExistsSubQuery
 
 /**
  *
@@ -41,6 +40,12 @@ import idb.syntax.iql.impl.ExistsSubQuery
  */
 object EXISTS
 {
-    def apply[Range: Manifest] (query: Rep[Query[Range]]): Rep[Boolean] =
-        null
+
+
+    def apply[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
+        subQuery: IQL_QUERY_1[Select, Domain, Range]
+    ): Rep[Boolean] =
+        existCondition (
+            planWithContext (subQuery)
+        )
 }

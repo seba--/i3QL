@@ -30,37 +30,62 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
-
-import idb.algebra.ir._
-import idb.algebra.opt._
-
-import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
-import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
+package idb.algebra.base
 
 /**
- * Packaged trait for all relational algebra optimizations.
- * Note that trait mixin order is important.
- * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
- * The various optimizations currently require no order, but fusion has to come last, i.e.,
- * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIROptPackage
-    extends RelationalAlgebraIRBasicOperators
-	with RelationalAlgebraIRSetTheoryOperators
-	with RelationalAlgebraIRRecursiveOperators
-	with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRExistentialOperators
-    with RelationalAlgebraIRMultiRelations
-    with RelationalAlgebraIRFuseBasicOperators
-    with RelationalAlgebraIROptSimplify
-    with RelationalAlgebraIROptPushSelect
-    with RelationalAlgebraIROptPushSetTheoryOps
-    with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIRNormalizeBasicOperators
+
+trait RelationalAlgebraExistentialOperators
+    extends RelationalAlgebraBasicOperators
+    with RelationalAlgebraSetTheoryOperators
 {
+
+
+
+     def existCondition[Domain] (
+         subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+     ): Rep[Boolean]
+
+/*
+     def semiJoin[DomainA: Manifest, DomainB: Manifest] (
+         relationA: Rep[Query[DomainA]],
+         relationB: Rep[Query[DomainB]],
+         keyA: Rep[DomainA => Any],
+         keyB: Rep[DomainB => Any]
+     ): Rep[Query[DomainA]] =
+         projection (
+             equiJoin (
+                 relationA,
+                 duplicateElimination (
+                     projection (
+                         relationB,
+                         keyB
+                     )
+                 ),
+                 List (keyA, (key: Rep[Any]) => key)
+             ),
+             (ab: Rep[(DomainA, DomainB)]) => ab._1
+         )
+
+
+     def antiSemiJoin[DomainA: Manifest, DomainB: Manifest] (
+         relationA: Rep[Query[DomainA]],
+         relationB: Rep[Query[DomainB]],
+         keyA: Rep[DomainA => Any],
+         keyB: Rep[DomainB => Any]
+     ): Rep[Query[DomainA]] =
+         difference (
+             relationA,
+             semiJoin (
+                 relationA,
+                 relationB,
+                 keyA,
+                 keyB
+             )
+         )
+ */
 
 }
