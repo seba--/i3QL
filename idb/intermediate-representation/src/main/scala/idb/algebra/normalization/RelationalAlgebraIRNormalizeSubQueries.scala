@@ -32,9 +32,10 @@
  */
 package idb.algebra.normalization
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.ir._
 import scala.virtualization.lms.common._
-import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, FunctionCreator}
+import idb.lms.extensions._
+import idb.algebra.base.RelationalAlgebraDerivedOperators
 
 
 /**
@@ -42,20 +43,12 @@ import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, Fun
  * @author Ralf Mitschke
  *
  */
-trait RelationalAlgebraIRNormalizeCorrelatedSubQueries
-    extends RelationalAlgebraIRNormalize
-    with RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRSetTheoryOperators
-    with LiftBoolean
-    with BooleanOps
-    with BooleanOpsExp
-    with BaseFatExp
-    with EffectExp
-    with TupleOpsExp
+trait RelationalAlgebraIRNormalizeSubQueries
+    extends RelationalAlgebraIRBasicOperators
+    with RelationalAlgebraIRExistentialOperators
+    with RelationalAlgebraNormalize
+    with RelationalAlgebraDerivedOperators
     with TupledFunctionsExp
-    with FunctionsExpOptAlphaEquivalence
-    with ExpressionUtils
-    with FunctionCreator
 {
 
     override def selection[Domain: Manifest] (
@@ -66,25 +59,13 @@ trait RelationalAlgebraIRNormalizeCorrelatedSubQueries
             function match {
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
                     body.res match {
-                        // σ{x ∨ y}(a) = σ{x}(a) ∪ σ{y}(a)
-                        case Def (BooleanOr (lhs, rhs)) =>
-                            unionMax (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                selection (relation, recreateFunRepDynamic (x, rhs))
-                            )
-
-                        // σ{x ∧ ¬y}(a) = σ{x}(a) - σ{y}(a)
-                        case Def (BooleanAnd (lhs, Def (BooleanNegate (rhs)))) =>
-                            difference (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                selection (relation, recreateFunRepDynamic (x, rhs))
-                            )
-
-                        // σ{x ∧ y}(a) = σ{y}( σ{x}(a))
-                        case Def (BooleanAnd (lhs, rhs)) =>
-                            selection (
-                                selection (relation, recreateFunRepDynamic (x, lhs)),
-                                recreateFunRepDynamic (x, rhs)
+                        // de-correlation of EXISTS( SELECT .... )
+                        case Def (exp: ExistsCondition[Domain]) =>
+                            naturalJoin (
+                                relation,
+                                duplicateElimination(
+                                    exp.createSubQueryWithContext (relation)
+                                )
                             )
 
                         case _ => super.selection (relation, function)

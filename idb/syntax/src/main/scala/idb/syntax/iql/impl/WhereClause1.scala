@@ -43,7 +43,7 @@ import idb.syntax.iql.IR._
 
 
 case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
-    predicate: Rep[Domain] => Rep[Boolean],
+    predicate: Rep[Domain => Boolean],
     fromClause: FromClause1[Select, Domain, Range]
 )
     extends WHERE_CLAUSE_1[Select, Domain, Range]

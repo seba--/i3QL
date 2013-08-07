@@ -30,62 +30,20 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.algebra.normalization
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-trait RelationalAlgebraExistentialOperators
-    extends RelationalAlgebraBasicOperators
-    with RelationalAlgebraSetTheoryOperators
+trait RelationalAlgebraNormalize
 {
+    protected var normalize = true
 
-
-
-     def existCondition[Domain] (
-         subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
-     ): Rep[Boolean]
-
-/*
-     def semiJoin[DomainA: Manifest, DomainB: Manifest] (
-         relationA: Rep[Query[DomainA]],
-         relationB: Rep[Query[DomainB]],
-         keyA: Rep[DomainA => Any],
-         keyB: Rep[DomainB => Any]
-     ): Rep[Query[DomainA]] =
-         projection (
-             equiJoin (
-                 relationA,
-                 duplicateElimination (
-                     projection (
-                         relationB,
-                         keyB
-                     )
-                 ),
-                 List (keyA, (key: Rep[Any]) => key)
-             ),
-             (ab: Rep[(DomainA, DomainB)]) => ab._1
-         )
-
-
-     def antiSemiJoin[DomainA: Manifest, DomainB: Manifest] (
-         relationA: Rep[Query[DomainA]],
-         relationB: Rep[Query[DomainB]],
-         keyA: Rep[DomainA => Any],
-         keyB: Rep[DomainB => Any]
-     ): Rep[Query[DomainA]] =
-         difference (
-             relationA,
-             semiJoin (
-                 relationA,
-                 relationB,
-                 keyA,
-                 keyB
-             )
-         )
- */
-
+    def withoutNormalization[T] (f: => T): T = {
+        normalize = false
+        val result : T = f
+        normalize = true
+        result
+    }
 }

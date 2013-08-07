@@ -32,11 +32,11 @@
  */
 package idb.syntax.iql
 
+import TestUtil.assertEqualStructure
+import org.junit.{Ignore, Test}
 import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
-import org.junit.Assert._
-import org.junit.{Ignore, Test}
 
 import scala.language.implicitConversions
 
@@ -47,7 +47,6 @@ import scala.language.implicitConversions
 class TestExistsClauses1
 {
 
-    @Ignore
     @Test
     def testExists () {
         val query = plan (
@@ -59,6 +58,19 @@ class TestExistsClauses1
                             )
                     )
                 )
+        )
+
+        assertEqualStructure (
+            semiJoin (
+                selection (
+                    students,
+                    (s: Rep[Student]) => s.lastName == "Fields" && !(s.firstName == "Sally")
+                ),
+                registrations,
+                (s: Rep[Student]) => s.matriculationNumber,
+                (r: Rep[Registration]) => r.studentMatriculationNumber
+            ),
+            query
         )
 
     }

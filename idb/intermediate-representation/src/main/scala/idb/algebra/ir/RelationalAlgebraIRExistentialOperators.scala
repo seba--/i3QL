@@ -32,8 +32,9 @@
  */
 package idb.algebra.ir
 
-import idb.algebra.base.RelationalAlgebraExistentialOperators
+import idb.algebra.base.RelationalAlgebraSubQueries
 import scala.virtualization.lms.common.FunctionsExp
+import scala.reflect.SourceContext
 
 /**
  *
@@ -42,18 +43,37 @@ import scala.virtualization.lms.common.FunctionsExp
  */
 
 trait RelationalAlgebraIRExistentialOperators
-    extends RelationalAlgebraExistentialOperators
+    extends RelationalAlgebraSubQueries
     with FunctionsExp
 {
 
     case class ExistsCondition[Domain] (
-        subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+        subQuery: AnyRef
     ) extends Def[Boolean]
+    {
+
+        def createSubQueryWithContext (context: Rep[Query[Domain]])(implicit m: Manifest[Domain]): Rep[Query[Domain]] =
+            contextualQueryPlan (context, m)
+
+        private var contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]] = null
+
+        def this (subQuery: AnyRef, contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]) {
+            this (subQuery)
+            this.contextualQueryPlan = contextualQueryPlan
+        }
+
+    }
 
 
     def existCondition[Domain] (
-        subQueryFactory: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+        subQuery: AnyRef,
+        contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
     ): Rep[Boolean] =
-        ExistsCondition (subQueryFactory)
+        new ExistsCondition (subQuery, contextualQueryPlan)
 
+
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = e match {
+        case ExistsCondition (_) => toAtom (e)
+        case _ => super.mirror (e, f)
+    }
 }

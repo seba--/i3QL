@@ -43,7 +43,7 @@ import idb.lms.extensions.{ExpressionUtils, FunctionsExpOptAlphaEquivalence, Fun
  *
  */
 trait RelationalAlgebraIRNormalizeBasicOperators
-    extends RelationalAlgebraIRNormalize
+    extends RelationalAlgebraNormalize
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraIRSetTheoryOperators
     with LiftBoolean

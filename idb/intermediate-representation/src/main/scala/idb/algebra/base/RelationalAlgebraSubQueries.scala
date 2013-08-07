@@ -30,20 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.normalization
+package idb.algebra.base
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraIRNormalize
-{
-    protected var normalize = true
 
-    def withoutNormalization[T] (f: => T): T = {
-        normalize = false
-        val result : T = f
-        normalize = true
-        result
-    }
+trait RelationalAlgebraSubQueries
+    extends RelationalAlgebraBasicOperators
+    with RelationalAlgebraSetTheoryOperators
+{
+
+    def existCondition[Domain] (
+        subQuery : AnyRef,
+        contextualQueryPlan: (Rep[Query[Domain]], Manifest[Domain]) => Rep[Query[Domain]]
+    ): Rep[Boolean]
+
 }

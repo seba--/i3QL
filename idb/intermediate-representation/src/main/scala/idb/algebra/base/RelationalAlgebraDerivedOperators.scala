@@ -30,23 +30,71 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.algebra.base
 
-import idb.syntax.iql.IR._
+import scala.virtualization.lms.common.{TupleOps, Equal, TupledFunctions}
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-object EXISTS
+
+trait RelationalAlgebraDerivedOperators
+    extends RelationalAlgebraBasicOperators
+    with RelationalAlgebraSetTheoryOperators
+    with TupledFunctions
+    with TupleOps
+    with Equal
 {
 
+    def naturalJoin[Domain: Manifest] (
+        relationA: Rep[Query[Domain]],
+        relationB: Rep[Query[Domain]]
+    ): Rep[Query[Domain]] =
+        projection (
+            selection (
+                crossProduct (relationA, relationB),
+                (a: Rep[Domain], b: Rep[Domain]) => a == b
+            ),
+            (a: Rep[Domain], b: Rep[Domain]) => a
+        )
 
-    def apply[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
-        subQuery: IQL_QUERY_1[Select, Domain, Range]
-    ): Rep[Boolean] =
-        existCondition (
-            subQuery,
-            planWithContext (subQuery)
+
+    def semiJoin[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        keyA: Rep[DomainA => Any],
+        keyB: Rep[DomainB => Any]
+    ): Rep[Query[DomainA]] =
+        projection (
+            equiJoin (
+                relationA,
+                duplicateElimination (
+                    projection (
+                        relationB,
+                        keyB
+                    )
+                ),
+                List ((keyA, fun((key: Rep[Any]) => key)))
+            ),
+            (x: Rep[(DomainA, Any)]) => x._1
+        )
+
+
+    def antiSemiJoin[DomainA: Manifest, DomainB: Manifest] (
+        relationA: Rep[Query[DomainA]],
+        relationB: Rep[Query[DomainB]],
+        keyA: Rep[DomainA => Any],
+        keyB: Rep[DomainB => Any]
+    ): Rep[Query[DomainA]] =
+        difference (
+            relationA,
+            semiJoin (
+                relationA,
+                relationB,
+                keyA,
+                keyB
+            )
         )
 }

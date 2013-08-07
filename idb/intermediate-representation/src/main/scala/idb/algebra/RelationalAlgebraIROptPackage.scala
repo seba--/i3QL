@@ -35,8 +35,9 @@ package idb.algebra
 import idb.algebra.ir._
 import idb.algebra.opt._
 
-import idb.algebra.normalization.RelationalAlgebraIRNormalizeBasicOperators
+import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
+import idb.algebra.base.RelationalAlgebraDerivedOperators
 
 /**
  * Packaged trait for all relational algebra optimizations.
@@ -55,12 +56,14 @@ trait RelationalAlgebraIROptPackage
 	with RelationalAlgebraIRAggregationOperators
     with RelationalAlgebraIRExistentialOperators
     with RelationalAlgebraIRMultiRelations
+    with RelationalAlgebraDerivedOperators
     with RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraIROptSimplify
     with RelationalAlgebraIROptPushSelect
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIRNormalizeBasicOperators
+    with RelationalAlgebraIRNormalizeSubQueries
 {
 
 }
