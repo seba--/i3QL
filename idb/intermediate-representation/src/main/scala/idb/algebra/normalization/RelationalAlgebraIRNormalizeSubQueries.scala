@@ -45,7 +45,7 @@ import idb.algebra.base.RelationalAlgebraDerivedOperators
  */
 trait RelationalAlgebraIRNormalizeSubQueries
     extends RelationalAlgebraIRBasicOperators
-    with RelationalAlgebraIRExistentialOperators
+    with RelationalAlgebraIRSubQueries
     with RelationalAlgebraNormalize
     with RelationalAlgebraDerivedOperators
     with TupledFunctionsExp
@@ -61,11 +61,11 @@ trait RelationalAlgebraIRNormalizeSubQueries
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>
                     body.res match {
                         // de-correlation of EXISTS( SELECT .... )
-                        case Def (exp: ExistsCondition[Domain]) =>
+                        case Def (exists: ExistsCondition [Any, Domain]) =>
                             naturalJoin (
                                 relation,
-                                duplicateElimination(
-                                    exp.createSubQueryWithContext (relation, parameter(function))
+                                duplicateElimination (
+                                    exists.createSubQueryWithContext (relation, parameter (function))
                                 )
                             )
 

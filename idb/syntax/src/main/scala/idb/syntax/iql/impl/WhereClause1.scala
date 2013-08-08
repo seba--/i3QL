@@ -53,4 +53,7 @@ case class WhereClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
         grouping: (Rep[Domain]) => Rep[Select]
     ): GROUP_BY_CLAUSE_1[Domain, Range] =
         throw new UnsupportedOperationException
+
+    def transform (f: IR.Transformer): IR.SubQuery[Range] =
+        WhereClause1(mirror(toDef(predicate), f), fromClause.transform(f))
 }

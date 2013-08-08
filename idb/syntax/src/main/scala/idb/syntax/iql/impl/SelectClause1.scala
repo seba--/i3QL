@@ -44,6 +44,7 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_1[Select, Range]
+    with SubstitutableExp[SelectClause1[Select, Range]]
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
@@ -55,4 +56,7 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
         relationB: Rep[Query[DomainB]]
     ): GROUPED_FROM_CLAUSE_2[Select, DomainA, DomainB, Range] =
         throw new UnsupportedOperationException
+
+    def transform (f: IR.Transformer): SelectClause1[Select, Range] =
+        SelectClause1 (mirror (toDef(projection), f), asDistinct)
 }

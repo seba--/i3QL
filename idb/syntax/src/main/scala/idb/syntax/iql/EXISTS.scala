@@ -47,6 +47,6 @@ object EXISTS
     ): Rep[Boolean] =
         existCondition (
             subQuery,
-            planWithContext (subQuery)
+            planSubQueryWithContext(implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[Range]]) _
         )
 }

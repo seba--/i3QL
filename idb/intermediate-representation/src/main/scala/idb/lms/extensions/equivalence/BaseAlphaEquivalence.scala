@@ -44,4 +44,6 @@ trait BaseAlphaEquivalence
     extends Base
 {
     def isEquivalent[A: Manifest, B: Manifest] (a: Rep[A], b: Rep[B]): Boolean
+
+    trait Bound
 }

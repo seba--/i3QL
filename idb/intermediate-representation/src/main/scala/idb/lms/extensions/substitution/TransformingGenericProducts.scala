@@ -30,28 +30,41 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.substitution
 
-import org.junit.Assert._
-import idb.lms.extensions.equivalence.BaseAlphaEquivalence
+import scala.virtualization.lms.internal.Transforming
+import scala.virtualization.lms.common.Base
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait LMSTestUtils extends BaseAlphaEquivalence
+trait TransformingGenericProducts
+    extends Transforming with Base
 {
 
-    def assertSameReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertSame (f1, f2)
-    }
+    trait SubstitutableExp[T]
+    {
+
+        def transform (f: Transformer): T
 
 
-    def assertEquivalentReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
-        assertTrue (
-            isEquivalent (f1, f2)
-        )
+        def toDef[A] (e: Exp[A]): Def[A] = e match {
+            case s@Sym (_) =>
+                findDefinition (s).flatMap (_.defines (s)).get.asInstanceOf[Def[A]]
+            case _ =>
+                throw new IllegalArgumentException
+        }
+
+
     }
+
+    /*
+    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = e match {
+        case Def (p: SubstitutableExp[A]) => p.tranform (f)
+        case _ => super.mirror (e, f)
+    }
+    */
 
 
 }
