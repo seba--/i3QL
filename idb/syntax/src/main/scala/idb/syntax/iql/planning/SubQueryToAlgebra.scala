@@ -34,6 +34,7 @@ package idb.syntax.iql.planning
 
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
+import idb.BagExtent
 
 /**
  *
@@ -78,7 +79,8 @@ object SubQueryToAlgebra
                 applyDistinct (
                     projection (
                         selection (
-                            crossProduct (context, relation),
+                            //crossProduct (context, relation),
+                            extent(BagExtent.empty[(ContextRange, Domain)]),
                             (ctx: Rep[ContextRange], dom: Rep[Domain]) => predicate (dom)
                         ),
                         (ctx: Rep[ContextRange], dom: Rep[Select]) => ctx
