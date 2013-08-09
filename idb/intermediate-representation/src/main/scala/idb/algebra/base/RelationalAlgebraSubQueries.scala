@@ -32,6 +32,8 @@
  */
 package idb.algebra.base
 
+import idb.lms.extensions.substitution.TransformingGenericProducts
+
 /**
  *
  * @author Ralf Mitschke
@@ -41,11 +43,33 @@ package idb.algebra.base
 trait RelationalAlgebraSubQueries
     extends RelationalAlgebraBasicOperators
     with RelationalAlgebraSetTheoryOperators
+    with TransformingGenericProducts
 {
 
-    def existCondition[Domain] (
-        subQuery : AnyRef,
-        contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
+    /**
+     * Represents a sub query used inside a function.
+     * A sub query can only be translated to the algebra once we translate the outer context and must syntactically
+     * reflect
+     * any variable renaming made during translation of the outer context.
+     * Hence, the
+     */
+    trait SubQuery[T] extends SubstitutableExp[SubQuery[T]]
+    {
+
+    }
+
+    /**
+     * Create an existential condition inside a function. The node itself is a boolean expression, but conveys that the
+     * sub query must be translated in teh context of the enclosing query.
+     * However, the translation of the sub query is a complex process, since it may refer to variables of the outer
+     * query.
+     * The context needs to be known before translating the syntax of the sub query into algebra.
+     * Hence, a callback for planing the query together with a given context in relational algebra must be provided.
+     */
+    def existCondition[Domain, ContextDomain] (
+        subQuery: SubQuery[Domain],
+        planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
+            Rep[ContextDomain]) => Rep[Query[ContextDomain]]
     ): Rep[Boolean]
 
 }

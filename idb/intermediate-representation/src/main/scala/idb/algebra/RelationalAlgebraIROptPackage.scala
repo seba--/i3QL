@@ -54,7 +54,7 @@ trait RelationalAlgebraIROptPackage
 	with RelationalAlgebraIRSetTheoryOperators
 	with RelationalAlgebraIRRecursiveOperators
 	with RelationalAlgebraIRAggregationOperators
-    with RelationalAlgebraIRExistentialOperators
+    with RelationalAlgebraIRSubQueries
     with RelationalAlgebraIRMultiRelations
     with RelationalAlgebraDerivedOperators
     with RelationalAlgebraIRFuseBasicOperators

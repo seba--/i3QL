@@ -44,13 +44,20 @@ case class SelectClause1[Select: Manifest, Range: Manifest] (
     asDistinct: Boolean = false
 )
     extends SELECT_CLAUSE_1[Select, Range]
+    with SubstitutableExp[SelectClause1[Select, Range]]
 {
 
     def FROM[Domain: Manifest] (relation: Rep[Query[Domain]]) =
         FromClause1 (relation, this)
 
+
 	def FROM[Domain: Manifest] (
 		relation: Rep[Query[Domain]]
 	) =
 		GroupedFromClause1[Select,Domain,Range](relation,this)
+
+
+    def transform (f: IR.Transformer): SelectClause1[Select, Range] =
+        SelectClause1 (mirror (toDef(projection), f), asDistinct)
+
 }

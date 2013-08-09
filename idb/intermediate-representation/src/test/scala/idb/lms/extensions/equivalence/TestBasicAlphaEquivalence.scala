@@ -30,59 +30,26 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.ir
+package idb.lms.extensions.equivalence
 
-import idb.algebra.base.RelationalAlgebraSubQueries
-import scala.virtualization.lms.common.FunctionsExp
-import scala.reflect.SourceContext
+import scala.virtualization.lms.common.LiftAll
+import org.junit.Test
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-trait RelationalAlgebraIRExistentialOperators
-    extends RelationalAlgebraSubQueries
-    with FunctionsExp
+class TestBasicAlphaEquivalence
+    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
 {
 
-    case class ExistsCondition[Domain] (
-        subQuery: AnyRef
-    ) extends Def[Boolean]
-    {
-
-        def createSubQueryWithContext (
-            context: Rep[Query[Domain]],
-            parameter: Rep[Domain]
-        )(
-            implicit m: Manifest[Domain]
-        ): Rep[Query[Domain]] =
-            contextualQueryPlan (context, parameter, m)
-
-        private var contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]] =
-            null
-
-        def this (
-            subQuery: AnyRef,
-            contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
-        ) {
-            this (subQuery)
-            this.contextualQueryPlan = contextualQueryPlan
-        }
-
+    @Test
+    def testSameMethodBody () {
+        assertEquivalentReified (
+            (x: Rep[Int]) => x + 1,
+            (y: Rep[Int]) => y + 1
+        )
     }
 
 
-    def existCondition[Domain] (
-        subQuery: AnyRef,
-        contextualQueryPlan: (Rep[Query[Domain]], Rep[Domain], Manifest[Domain]) => Rep[Query[Domain]]
-    ): Rep[Boolean] =
-        new ExistsCondition (subQuery, contextualQueryPlan)
-
-
-    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = e match {
-        case ExistsCondition (_) => toAtom (e)
-        case _ => super.mirror (e, f)
-    }
 }

@@ -34,13 +34,14 @@ package idb.lms.extensions
 
 import org.junit.{Ignore, Test}
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import org.junit.Assert._
 
 /**
  *
  * @author Ralf Mitschke
  */
 class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp with LMSTestUtils
+    extends LiftAll with ScalaOpsExpOptExtensions with ScalaOpsPkgExp
 {
 
     @Test
@@ -48,7 +49,8 @@ class TestTupleOpsReduction
         val f1 = (x: Rep[Int]) => (x, x > 0)._2
         val f2 = (x: Rep[Int]) => x > 0
 
-        assertSameReified (f2, f1)
+        assertSame (fun (f1), fun (f2))
+
     }
 
     @Test
@@ -59,7 +61,7 @@ class TestTupleOpsReduction
 
         val f4 = (x: Rep[Int]) => x > 0
 
-        assertSameReified (f3, f4)
+        assertSame (fun (f3), fun (f4))
     }
 
     @Test
@@ -70,7 +72,7 @@ class TestTupleOpsReduction
 
         val f4 = (x: Rep[Int]) => x > 0 == true
 
-        assertSameReified (f3, f4)
+        assertSame (fun (f3), fun (f4))
     }
 
     @Test
@@ -79,7 +81,7 @@ class TestTupleOpsReduction
         val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
         val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
 
-        assertSameReified (f2, f1)
+        assertSame (fun (f1), fun (f2))
     }
 
 }

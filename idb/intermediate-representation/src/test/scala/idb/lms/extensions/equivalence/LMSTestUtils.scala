@@ -30,25 +30,25 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Test
-import idb.lms.extensions.equivalence.ScalaOpsPkgExpAlphaEquivalence
+import org.junit.Assert._
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestBasicAlphaEquivalence
-    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence with LMSTestUtils
+trait LMSTestUtils extends BaseAlphaEquivalence
 {
 
-    @Test
-    def testSameMethodBody () {
-        assertEquivalentReified (
-            (x: Rep[Int]) => x + 1,
-            (y: Rep[Int]) => y + 1
+    def assertSameReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
+        assertSame (f1, f2)
+    }
+
+
+    def assertEquivalentReified[A: Manifest, B: Manifest] (f1: Rep[A => B], f2: Rep[A => B]) {
+        assertTrue (
+            isEquivalent (f1, f2)
         )
     }
 

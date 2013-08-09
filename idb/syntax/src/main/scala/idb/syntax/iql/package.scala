@@ -54,6 +54,24 @@ package object iql
         )
     }
 
+    def planSubQueryWithContext[Select, Domain <: Select, Range, ContextRange] (
+        selectType: Manifest[Select],
+        domainType: Manifest[Domain],
+        rangeType: Manifest[Range]
+    )(
+        subQuery: SubQuery[Range],
+        context: Rep[Query[ContextRange]],
+        contextParameter: Rep[ContextRange]
+    ): Rep[Query[ContextRange]] = subQuery match {
+        case q1: IQL_QUERY_1[Select, Domain, Range] =>
+            SubQueryToAlgebra (
+                q1, context, contextParameter
+            )(
+                selectType, domainType, rangeType, contextParameter.tp
+            )
+        case _ => throw new UnsupportedOperationException
+    }
+
 
     implicit def plan[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA : Manifest,
     DomainB <: SelectB : Manifest, Range: Manifest] (

@@ -29,4 +29,6 @@ case class FromClause1[Select: Manifest, Domain: Manifest, Range: Manifest] (
     ): GROUP_BY_CLAUSE_1[Domain, Range] =
         throw new UnsupportedOperationException
 
+    override def transform (f: IR.Transformer): FromClause1[Select, Domain, Range] =
+        FromClause1 (relation, selectClause.transform (f))
 }
