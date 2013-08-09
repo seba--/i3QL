@@ -32,55 +32,20 @@
  */
 package idb.lms.extensions.equivalence
 
-import scala.virtualization.lms.common.LiftAll
-import org.junit.Test
+import scala.virtualization.lms.common.IOOpsExp
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-class TestBaseExpAlphaEquivalence
-    extends LiftAll with BaseExpAlphaEquivalence with AssertAlphaEquivalence
+
+trait IOOpsExpAlphaEquivalence
+    extends IOOpsExp
+    with BaseExpAlphaEquivalence
 {
 
-    @Test
-    def testBoundVarsEq () {
-        val x = fresh[Int]
-        val y = fresh[Int]
+    override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
+        super.isEquivalent (a, b) // TODO implement this
 
-        assertEquivalent (x, y)(emptyRenaming.add (x, y))
-    }
-
-    @Test
-    def testFreeVarsNotEq () {
-        val x = fresh[Int]
-        val y = fresh[Int]
-
-        assertNotEquivalent (x, y)
-    }
-
-
-    @Test
-    def testConstEq () {
-        val x = unit (1)
-        val y = unit (1)
-
-        assertEquivalent (x, y)
-    }
-
-    @Test
-    def testConstNotEq () {
-        val x = unit (1)
-        val y = unit (5)
-
-        assertNotEquivalent (x, y)
-    }
-
-    @Test
-    def testConstVarsNotEq () {
-        val x = fresh[Int]
-        val y = unit(1)
-
-        assertNotEquivalent (x, y)
-    }
 }

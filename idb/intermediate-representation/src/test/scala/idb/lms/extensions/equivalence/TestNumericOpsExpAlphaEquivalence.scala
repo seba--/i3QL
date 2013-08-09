@@ -39,48 +39,64 @@ import org.junit.Test
  *
  * @author Ralf Mitschke
  */
-class TestBaseExpAlphaEquivalence
-    extends LiftAll with BaseExpAlphaEquivalence with AssertAlphaEquivalence
+class TestNumericOpsExpAlphaEquivalence
+    extends LiftAll with FunctionsExpAlphaEquivalence with AssertAlphaEquivalence
 {
 
     @Test
     def testBoundVarsEq () {
-        val x = fresh[Int]
-        val y = fresh[Int]
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
 
-        assertEquivalent (x, y)(emptyRenaming.add (x, y))
+        assertEquivalent (f1, f2)
     }
 
     @Test
     def testFreeVarsNotEq () {
-        val x = fresh[Int]
-        val y = fresh[Int]
+        val u = fresh[Int]
+        val v = fresh[Int]
+        val f1 = fun ((x: Rep[Int]) => u)
+        val f2 = fun ((y: Rep[Int]) => v)
 
-        assertNotEquivalent (x, y)
+        assertNotEquivalent (f1, f2)
     }
 
 
     @Test
     def testConstEq () {
-        val x = unit (1)
-        val y = unit (1)
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (1))
 
-        assertEquivalent (x, y)
+        assertEquivalent (f1, f2)
     }
 
     @Test
     def testConstNotEq () {
-        val x = unit (1)
-        val y = unit (5)
+        val f1 = fun ((x: Rep[Int]) => unit (1))
+        val f2 = fun ((y: Rep[Int]) => unit (5))
 
-        assertNotEquivalent (x, y)
+        assertNotEquivalent (f1, f2)
     }
 
     @Test
-    def testConstVarsNotEq () {
-        val x = fresh[Int]
-        val y = unit(1)
+    def testApplicationEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
 
-        assertNotEquivalent (x, y)
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (v)))
+
+        assertEquivalent (f3, f4)
+    }
+
+    @Test
+    def testApplicationNotEq () {
+        val f1 = fun ((x: Rep[Int]) => x)
+        val f2 = fun ((y: Rep[Int]) => y)
+
+        val f3 = fun ((u: Rep[Int]) => f1 (f2 (u)))
+        val f4 = fun ((v: Rep[Int]) => f2 (f1 (unit(1))))
+
+        assertNotEquivalent (f3, f4)
     }
 }
