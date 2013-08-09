@@ -101,17 +101,15 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 					)
 			}
 
-			case Def (e@Grouping(r, fGroup, fConvert)) => {
+			case Def (e@Grouping(r, fGroup)) => {
 				if (e.isIncrementLocal)
 					TransactionalAggregation(compile(r),
 						compileFunctionWithDynamicManifests(fGroup),
-						compileFunctionWithDynamicManifests(fConvert),
 						false
 				)
 				else
 				AggregationForSelfMaintainableFunctions(compile(r),
 					compileFunctionWithDynamicManifests(fGroup),
-					compileFunctionWithDynamicManifests(fConvert),
 					false
 				)
 			}

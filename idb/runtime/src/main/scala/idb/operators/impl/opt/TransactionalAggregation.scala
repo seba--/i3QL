@@ -143,34 +143,6 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 		additionsMap.put(groupingFunction(v), v)
 	}
 
-	/*
-    private def internal_added(v: Domain, notify: Boolean) {
-        val key = groupingFunction (v)
-        if (groups.contains (key)) {
-            //update key group
-            val (count, aggregationFunction, oldResult) = groups (key)
-            count.inc ()
-            val aggregationValue = aggregationFunction.add (v)
-            val res = convertKeyAndAggregateValueToResult (key, aggregationValue)
-            if (res != oldResult) {
-                //some aggregation values changed => updated event
-                groups.put (key, (count, aggregationFunction, res))
-                if (notify) notify_updated (oldResult, res)
-            }
-        }
-        else
-        {
-            //new key group
-            val c = new Count
-            c.inc ()
-            val aggregationFunction = aggregateFunctionFactory ()
-            val aggRes = aggregationFunction.add (v)
-            val res = convertKeyAndAggregateValueToResult (key, aggRes)
-            groups.put (key, (c, aggregationFunction, res))
-            if (notify) notify_added (res)
-        }
-    }        */
-
 }
 
 object TransactionalAggregation {
@@ -254,6 +226,21 @@ object TransactionalAggregation {
 			(x :Domain) => true,
 			Function.tupled((x : Domain, y : Domain) => true),
 			Function.tupled((x : Key, y : Boolean) => convert(x)),
+			isSet
+		)
+	}
+
+	def apply[Domain, Result](
+		source: Relation[Domain],
+		grouping: Domain => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		apply(source,
+			grouping,
+			(x :Domain) => true,
+			(x :Domain) => true,
+			Function.tupled((x : Domain, y : Domain) => true),
+			Function.tupled((x : Result, y : Boolean) => x),
 			isSet
 		)
 	}

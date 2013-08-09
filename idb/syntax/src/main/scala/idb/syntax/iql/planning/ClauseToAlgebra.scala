@@ -56,11 +56,24 @@ object ClauseToAlgebra
         query: IQL_QUERY_1[Select, Domain, Range]
     ): Rep[Query[Range]] =
         query match {
-            case FromClause1 (relation, select@SelectClause1 (_, _)) =>
-                transform (select, relation)
+            case FromClause1 (relation, SelectClause1 (project, false)) =>
+				projection (relation, project)
 
-            case where@WhereClause1 (_, FromClause1 (relation, select@SelectClause1 (_, _))) =>
-                transform (select, transform (where, relation))
+			case FromClause1 (relation, SelectClause1 (project, true)) =>
+				duplicateElimination(projection (relation, project))
+
+            case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, false))) =>
+    			projection (selection (relation, predicate), project)
+
+			case WhereClause1 (predicate, FromClause1 (relation, SelectClause1 (project, true))) =>
+				duplicateElimination (projection (selection (relation, predicate), project))
+
+			case GroupByFromClause1 (group, FromClause1 (relation, SelectClause1 (projection, false))) =>
+				projection (grouping (relation, group), project)
+
+			case GroupByFromClause1 (group, FromClause1 (relation, SelectClause1 (projection, true))) =>
+				duplicateElimination (projection (grouping (relation, group), project))
+
         }
 
     def apply[SelectA: Manifest, SelectB: Manifest, DomainA <: SelectA: Manifest, DomainB <: SelectB: Manifest, Range: Manifest] (
