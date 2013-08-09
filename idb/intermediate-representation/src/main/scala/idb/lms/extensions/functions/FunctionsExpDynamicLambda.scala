@@ -44,15 +44,28 @@ trait FunctionsExpDynamicLambda
     extends FunctionsExp
 {
 
-    private val illegalFunctionCall: Exp[Any] => Exp[Any] = {
-        throw new IllegalStateException ("Tried to call original Scala method of a dynamic lambda function")
-    }
+    private val illegalFunctionCall: Exp[Any] => Exp[Any] =
+        (x: Exp[Any]) => throw new
+                IllegalStateException ("Tried to call original Scala method of a dynamic lambda function")
+
 
     class DynamicLambda[A: Manifest, B: Manifest] (x: Exp[A], y: Block[B])
-        extends Lambda[A, B]((a: Rep[A]) => throw new
-                IllegalStateException ("Tried to call original Scala method of a dynamic lambda function"), x, y)
+        extends Lambda[A, B](illegalFunctionCall.asInstanceOf[Exp[A] => Exp[B]], x, y)
     {
 
+    }
+
+    def dynamicLambdaDef[A, B] (x: Exp[A], body: Exp[B]): Def[A => B] = {
+        implicit val ma = x.tp
+        implicit val mb = body.tp
+        val block = reifyEffects (body)
+        new DynamicLambda (x, block)
+    }
+
+    def dynamicLambda[A, B] (x: Exp[A], body: Exp[B]): Exp[A => B] = {
+        implicit val ma = x.tp
+        implicit val mb = body.tp
+        dynamicLambdaDef(x, body)
     }
 
 

@@ -30,10 +30,11 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions.equivalence
+package idb.lms.extensions.functions
 
-import scala.virtualization.lms.common.BaseExp
-import scala.collection.mutable
+import scala.virtualization.lms.common._
+import org.junit.Test
+import idb.lms.extensions.equivalence._
 
 /**
  *
@@ -41,51 +42,25 @@ import scala.collection.mutable
  *
  */
 
-trait BaseExpAlphaEquivalence
-    extends BaseExp
-    with BaseAlphaEquivalence
+class TestFunctionsExpDynamicLambda
+    extends FunctionsExpDynamicLambda
+    with FunctionsExpAlphaEquivalence
+    with NumericOpsExpAlphaEquivalence
+    with EqualExpAlphaEquivalence
+    with OrderingOpsExpAlphaEquivalence
+    with LiftAll
+    with AssertAlphaEquivalence
 {
 
-    type VarExp[+T] = Sym[T]
 
-    def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =
-        (a, b) match {
-            case (Const (x), Const (y)) => x == y
-            //case (Variable (x), Variable (y)) => isEquivalent (x, y) // TODO is this type of expression even created?
+    @Test
+    def testLambda1Param () {
+        val f = (i: Rep[Int]) => {1 + i }
+        val x = fresh[Int]
+        val body = f (x)
 
-            case (Def (x), Def (y)) if x.getClass.isAssignableFrom (y.getClass) || y.getClass
-                .isAssignableFrom (x.getClass) =>
-                throw new IllegalArgumentException (
-                    "Expression types are unknown to alpha equivalence: " + x + " =?= " + y)
-
-            case (x: Sym[_], y: Sym[_]) => x == y || renamings.canRename (x, y)
-
-            case (x: Sym[_], y: Const[_]) => false
-
-            case (x: Const[_], y: Sym[_]) => false
-
-            case _ => false
-        }
-
-    class MultiMapVariableRenamings ()
-        extends VariableRenamings
-    {
-
-        private val map: mutable.MultiMap[VarExp[Any], VarExp[Any]] =
-            new mutable.HashMap[VarExp[Any], mutable.Set[VarExp[Any]]] with mutable.MultiMap[VarExp[Any], VarExp[Any]]
-
-        def add[T] (x: VarExp[T], y: VarExp[T]): VariableRenamings = {
-            map.addBinding (x, y)
-            map.addBinding (y, x)
-            this
-        }
-
-        def canRename[T] (x: VarExp[T], y: VarExp[T]): Boolean = {
-            map.entryExists (x, _ == y)
-        }
-
+        assertEquivalent (fun (f), dynamicLambda (x, body))
     }
 
-    def emptyRenaming = new MultiMapVariableRenamings ()
 
 }
